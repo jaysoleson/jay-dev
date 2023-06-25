@@ -2,7 +2,7 @@
     "#window_base_theme": {
         "colours": {
             "normal_border": "#2F2918",
-            "dark_bg": "#AC9D72"
+            "dark_bg": "#AC7272"
         },
         "misc": {
             "shape": "rounded_rectangle",

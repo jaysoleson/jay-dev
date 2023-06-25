@@ -2773,7 +2773,7 @@
     {
         "colours":
         {
-            "normal_bg":"#ac9d72",
+            "normal_bg":"#AC7272",
             "hovered_bg":"#644d39",
             "selected_bg":"#644d39",
             "active_bg": "#644d39",
@@ -4129,7 +4129,7 @@
             "hovered_bg":"#1E1809",
             "selected_bg":"#1E1809",
             "normal_text":"#EEE4CD",
-            "hovered_text":"#EFE5CE",
+            "hovered_text":"#EFD1CE",
             "text_shadow": "#00000000"
         },
         "font":

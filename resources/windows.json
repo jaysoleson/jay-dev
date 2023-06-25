@@ -1,8 +1,8 @@
 {
     "#window_base_theme": {
         "colours": {
-            "normal_border": "#2F2918",
-            "dark_bg": "#AC9D72"
+            "normal_border": "#c68665",
+            "dark_bg": "#f4a386"
         },
         "misc": {
             "shape": "rounded_rectangle",

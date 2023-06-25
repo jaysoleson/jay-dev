@@ -2,8 +2,8 @@
      "vertical_scroll_bar":
      {
         "colours": {
-          "dark_bg": "#2F2918",
-          "normal_border": "#2F2918"
+          "dark_bg": "#c68665",
+          "normal_border": "#f4a386"
         },
          "misc":
          {
@@ -15,7 +15,7 @@
      {
          "colours":
          {
-            "normal_bg": "#735B41",
+            "normal_bg": "#F5E4DF",
             "hovered_bg": "#826657",
             "selected_bg": "#826657",
             "active_bg": "#826657"

@@ -2,7 +2,7 @@
     "text_entry_line": {
         "colours": {
             "dark_bg": "#FFFFFF",
-            "selected_bg": "#6E6759",
+            "selected_bg": "#6e5959",
             "normal_text": "#000000",
             "selected_text": "#DCDCDC",
             "text_cursor": "#000000"
@@ -21,7 +21,7 @@
     "#dev_watermark": {
         "colours": {
             "dark_bg": "#00000000",
-            "normal_text": "#EFE5CE88"
+            "normal_text": "#EFD1CE88"
         },
         "font": {
             "name": "notosans",
@@ -57,8 +57,8 @@
         "colours": {
             "dark_bg": "#FFFF0000",
             "normal_text": "#000000",
-            "selected_bg": "#776045",
-            "selected_text": "#AC9D72"
+            "selected_bg": "#774545",
+            "selected_text": "#AC7672"
         },
         "font": {
             "name": "notosans",
@@ -231,7 +231,7 @@
     "#text_box_30_horizcenter_light": {
         "prototype": "#text_box_30_horizcenter",
         "colours": {
-            "normal_text": "#EFE5CE"
+            "normal_text": "#EFD4CE"
         }
     },
     "#text_box_30_horizcenter_spacing_95": {
@@ -257,7 +257,7 @@
     "#text_box_30_horizleft_light": {
         "prototype": "#text_box_30_horizleft",
         "colours": {
-            "normal_text": "#EFE5CE"
+            "normal_text": "#EFD1CE"
         }
     },
     "#text_box_30_horizleft_pad_10_10": {
@@ -300,7 +300,7 @@
     "#text_box_34_horizcenter_light": {
         "prototype": "#text_box_34_horizcenter",
         "colours": {
-            "normal_text": "#EFE5CE"
+            "normal_text": "#EFD1CE"
         }
     },
     "#text_box_34_horizleft": {
