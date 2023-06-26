@@ -2,7 +2,7 @@
     "#default_dark": {
         "colours": {
             "dark_bg": "#00000000",
-            "normal_text": "#EFE5CE"
+            "normal_text": "#ceefe1"
         },
         "font": {
             "name": "notosans",
