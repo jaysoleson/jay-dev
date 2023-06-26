@@ -6,9 +6,9 @@
     },
     "tool_tip.text_box": {
         "colours": {
-            "normal_border": "#2F2918",
+            "normal_border": "#22182f",
             "normal_text": "#000000",
-            "dark_bg": "#AC9D72"
+            "dark_bg": "#8972ac"
         },
         "font": {
             "name": "notosans",
