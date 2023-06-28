@@ -2773,7 +2773,7 @@
     {
         "colours":
         {
-            "normal_bg":"#728dac",
+            "normal_bg":"#fffdbd",
             "hovered_bg":"#644d39",
             "selected_bg":"#644d39",
             "active_bg": "#644d39",
@@ -3434,8 +3434,8 @@
     "prototype": "#relation_bar",
     "colours":
     {
-      "normal_border":  "#18252f",
-      "unfilled_bar": "#18252f"
+      "normal_border":  "#1c0e10",
+      "unfilled_bar": "#1c0e10"
     }
   },
   "#relation_bar_neg_dark":
@@ -4129,7 +4129,7 @@
             "hovered_bg":"#1E1809",
             "selected_bg":"#1E1809",
             "normal_text":"#EEE4CD",
-            "hovered_text":"#cedfef",
+            "hovered_text":"#fffdbd",
             "text_shadow": "#00000000"
         },
         "font":
