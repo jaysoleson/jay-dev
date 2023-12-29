@@ -69,7 +69,7 @@ class Freshkill_Pile():
                 "expires_in_4": game.prey_config["start_amount"],
                 "expires_in_3": 0,
                 "expires_in_2": 0,
-                "expires_in_1": 0,
+                "expires_in_1": 0
             }
             self.total_amount = game.prey_config["start_amount"]
         self.nutrition_info = {}

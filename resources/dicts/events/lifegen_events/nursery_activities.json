@@ -1,0 +1,47 @@
+{
+    "comments": {
+        "stats": ["courage", "compassion", "intelligence", "empathy"]
+    },
+    "mossball": {
+        "stat_change": ["courage up", "courage down", "empathy up", "empathy down"],
+        "courage up": ["t_q throws a mossball high in the air for t_k to catch. They make a daring leap off of a nearby rock to catch it."],
+        "courage down": ["During a game of mossball, when it's t_k's turn to catch, they hesitate and shrink back as the ball flies their way."],
+        "empathy up": ["As t_q and t_k play mossball, t_q notices how t_k takes a gentle approach when passing the ball back to them, making sure it doesn't fly at their face."],
+        "empathy down": ["After t_q passes the mossball to t_k, the kit starts to hog the ball and refuses to continue playing."]
+    },
+    "clean": {
+        "stat_change": ["compassion up", "empathy up", "compassion down", "empathy down"],
+        "compassion up": ["After t_q shows t_k how to clean out their bedding, the kit asks if they can help the elders with theirs too."],
+        "compassion down": ["When changing out the nursery's moss bedding, t_q notices t_k saved all of the best moss for themselves."],
+        "empathy up": ["Before t_q even asks t_k to help clean the nursery, they had already volunteered. The space becomes tidy in no time."],
+        "empathy down": ["t_k whines and flops down in their nest, refusing to help t_q clean the nursery."]
+    },
+    "lecture": {
+        "stat_change": ["intelligence down", "intelligence up", "compassion up", "compassion down"],
+        "intelligence down": ["t_q tries to teach t_k about the dangers of eating herbs without consulting the medicine cat. They seem more engrossed in playing with a feather instead."],
+        "intelligence up": ["During t_q's lecture on clan history, t_k is completely engrossed, asking insightful questions that t_q tries their best to answer."],
+        "compassion up": ["t_q lectures t_k about the different roles in the Clan and t_q answers every question in the pop quiz correctly."],
+        "compassion down": ["t_q lectures t_k about times of hardship in Clan history, but the kit appears completely indifferent."]
+    },
+    "playfight": {
+        "stat_change": ["courage up", "intelligence up", "courage down", "intelligence down"],
+        "courage up": ["t_k shows remarkable bravery when facing t_q in a playfight, determined to one day become the victor."],
+        "intelligence up": ["t_k shows an impressive strategic mind when facing t_q in a playfight, their skills nearly rivaling an apprentice's."],
+        "courage down": ["t_k cries and buries themselves in their nest after losing in a playfight."],
+        "intelligence down": ["t_k yowls that they'll shred t_q to pieces one day after losing in a playfight."]
+    },
+    "tell story": {
+        "stat_change": ["compassion up", "empathy up", "compassion down", "empathy down"],
+        "compassion up": ["As t_q tells a story about a clan cat who helped others in need, t_k listens intently, eyes wide with admiration."],
+        "empathy up": ["t_q shares a story about forgiveness between rival warring clans and t_k takes the moral of the tale to heart."],
+        "compassion down": ["t_q tells a story about the struggle of leafbare, but t_k seems disinterested and dismissive of the struggles depicted."],
+        "empathy down": ["As t_q recounts a story about a misunderstood loner, t_k laughs and makes jokes, showing little regard for the character's situation."]
+    },
+    "scavenger hunt": {
+        "stat_change": ["intelligence up", "courage up", "intelligence down", "courage down"],
+        "intelligence up": ["During a scavenger hunt, t_k's quick thinking leads them to the hidden items in no time."],
+        "courage up": ["During a scavenger hunt, t_k explores unfamiliar parts of the camp without hesitation."],
+        "intelligence down": ["t_k becomes frustrated when they can't find the things that t_q hid for them in the scavenger hunt."],
+        "courage down": ["t_k refuses to explore and unfamiliar part of the camp for the scavenger hunt that t_q set up."]
+    }
+}

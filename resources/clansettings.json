@@ -64,6 +64,11 @@
             "Enable all accessories",
             "All cats will have all accessories available in their inventory",
             false
+        ],
+        "freshkill": [
+            "Enable auto freshkill",
+            "With this setting on, no cat will ever go hungry and hunting patrols will not be needed",
+            false
         ]
     },
     "role": {
@@ -85,6 +90,16 @@
         "become_mediator": [
             "Allow warriors and elders to choose to become mediators",
             "Warriors and elders will have a chance to become mediators upon timeskip.",
+            false
+        ],
+        "become_med": [
+            "Allow warriors and elders to choose to become medicine cats",
+            "Warriors and elders will have a chance to become medicine cats upon timeskip.",
+            false
+        ],
+        "become_queen": [
+            "Allow warriors and elders to choose to become queens",
+            "Warriors and elders will have a chance to become queens upon timeskip.",
             false
         ]
     },

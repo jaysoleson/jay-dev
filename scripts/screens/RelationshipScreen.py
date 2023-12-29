@@ -223,12 +223,12 @@ class RelationshipScreen(Screens):
             else:
                 if next_cat == 0 and check_cat.ID != self.the_cat.ID and check_cat.dead == self.the_cat.dead and \
                         check_cat.ID != game.clan.instructor.ID and check_cat.outside == self.the_cat.outside and \
-                        check_cat.df == self.the_cat.df and not check_cat.faded:
+                        check_cat.df == self.the_cat.df and not check_cat.faded and check_cat.moons >= 0:
                     previous_cat = check_cat.ID
 
                 elif next_cat == 1 and check_cat.ID != self.the_cat.ID and check_cat.dead == self.the_cat.dead and \
                         check_cat.ID != game.clan.instructor.ID and check_cat.outside == self.the_cat.outside and \
-                        check_cat.df == self.the_cat.df and not check_cat.faded:
+                        check_cat.df == self.the_cat.df and not check_cat.faded and check_cat.moons >= 0:
                     next_cat = check_cat.ID
 
                 elif int(next_cat) > 1:
@@ -473,6 +473,15 @@ class RelationshipScreen(Screens):
                 if search_text.lower() in str(cat.cat_to.name).lower():
                     search_cats.append(cat)
             self.filtered_cats = search_cats
+        
+        seen = set()
+        uniq = []
+        for x in self.filtered_cats:
+            if x not in seen:
+                uniq.append(x)
+                seen.add(x)
+        if len(seen) != len(uniq):
+            print("duplicates: " + seen)
 
     def update_cat_page(self):
         for ele in self.relation_list_elements:

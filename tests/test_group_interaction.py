@@ -390,11 +390,11 @@ class Abbreviations(unittest.TestCase):
         abbreviations_possibilities = {
             "1": {
                 "r_c1": ["1", "2"],
-                "r_c2": ["1", "2"],
+                "r_c2": ["1", "2"]
             },
             "2": {
                 "r_c1": ["1", "2"],
-                "r_c2": [],
+                "r_c2": []
             },
         }
         

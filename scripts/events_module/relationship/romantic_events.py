@@ -4,6 +4,7 @@ from random import choice
 import random
 
 import ujson
+from scripts.game_structure.windows import MateScreen
 
 from scripts.cat.history import History
 from scripts.utility import (
@@ -333,10 +334,17 @@ class Romantic_Events():
         become_mates, mate_string = Romantic_Events.check_if_new_mate(cat_from, cat_to)
 
         if become_mates and mate_string:
-            cat_from.set_mate(cat_to)
-            game.cur_events_list.append(Single_Event(mate_string, ["relation", "misc"], [cat_from.ID, cat_to.ID]))
-            return True
-        
+            if cat_from.ID == game.clan.your_cat.ID or cat_to.ID == game.clan.your_cat.ID:
+                if not game.switches['window_open']:
+                    if cat_from.ID == game.clan.your_cat.ID:
+                        game.switches['new_mate'] = cat_to
+                    else:
+                        game.switches['new_mate'] = cat_from
+                    MateScreen("events screen")
+            else:
+                cat_from.set_mate(cat_to)
+                game.cur_events_list.append(Single_Event(mate_string, ["relation", "misc"], [cat_from.ID, cat_to.ID]))
+                return True
         return False
 
     @staticmethod
@@ -444,11 +452,18 @@ class Romantic_Events():
             cat_from.relationships[cat_to.ID].romantic_love -= 10
             cat_to.relationships[cat_from.ID].comfortable -= 10
 
-        mate_string = Romantic_Events.prepare_relationship_string(mate_string, cat_from, cat_to)
-        game.cur_events_list.append(Single_Event(mate_string, ["relation", "misc"], [cat_from.ID, cat_to.ID]))
-
         if become_mate:
-            cat_from.set_mate(cat_to)
+            if cat_from.ID == game.clan.your_cat.ID or cat_to.ID == game.clan.your_cat.ID:
+                if cat_from.ID == game.clan.your_cat.ID:
+                    game.switches['new_mate'] = cat_to
+                else:
+                    game.switches['new_mate'] = cat_from
+                if not game.switches['window_open']:
+                    MateScreen("events screen")
+            else:
+                cat_from.set_mate(cat_to)
+                mate_string = Romantic_Events.prepare_relationship_string(mate_string, cat_from, cat_to)
+                game.cur_events_list.append(Single_Event(mate_string, ["relation", "misc"], [cat_from.ID, cat_to.ID]))
 
         return True
 
@@ -483,7 +498,7 @@ class Romantic_Events():
         if cat_from.ID not in cat_to.mate:
             return False
         
-        # Moving on, not breakups, occur when one mate is dead or outside. 
+        # Moving on, not breakups, occur when one mate is dead or outside.
         if cat_from.dead or cat_from.outside or cat_to.dead or cat_to.outside:
             return False
 
@@ -546,12 +561,12 @@ class Romantic_Events():
         if not become_mates:
             return False, None
 
-        if poly:
-            print("----- POLY-POLY-POLY", cat_from.name, cat_to.name)
-            print(cat_from.mate)
-            print(cat_to.mate)
-        else:
-            print("BECOME MATES")
+        # if poly:
+        #     print("----- POLY-POLY-POLY", cat_from.name, cat_to.name)
+        #     print(cat_from.mate)
+        #     print(cat_to.mate)
+        # else:
+        #     print("BECOME MATES")
 
         mate_string = Romantic_Events.prepare_relationship_string(mate_string, cat_from, cat_to)
 

@@ -220,14 +220,27 @@ class Pelt():
         self.tint = tint
         self.white_patches_tint = white_patches_tint
         self.cat_sprites =  {
-            "kitten": kitten_sprite if kitten_sprite is not None else 0,
-            "adolescent": adol_sprite if adol_sprite is not None else 0,
+            "kitten": kitten_sprite if kitten_sprite is not None else random.randint(0, 2),
+            "adolescent": adol_sprite if adol_sprite is not None else random.randint(3,5),
             "young adult": adult_sprite if adult_sprite is not None else 0,
             "adult": adult_sprite if adult_sprite is not None else 0,
             "senior adult": adult_sprite if adult_sprite is not None else 0,
-            "senior": senior_sprite if senior_sprite is not None else 0,
+            "senior": senior_sprite if senior_sprite is not None else random.randint(12,14),
             "para_adult": para_adult_sprite if para_adult_sprite is not None else 0,
-        }        
+        }
+        if self.cat_sprites['young adult'] == 0 and self.length == 'long':
+            adult_sprite = random.randint(9, 11)
+            self.cat_sprites['young adult'] = adult_sprite
+            self.cat_sprites['adult'] = adult_sprite
+            self.cat_sprites['senior adult'] = adult_sprite
+            self.cat_sprites['para_adult'] = 16
+        elif self.cat_sprites['young adult'] == 0:
+            adult_sprite = random.randint(6, 8)
+            self.cat_sprites['young adult'] = adult_sprite
+            self.cat_sprites['adult'] = adult_sprite
+            self.cat_sprites['senior adult'] = adult_sprite
+            self.cat_sprites['para_adult'] = 15
+
         self.cat_sprites['newborn'] = 20
         self.cat_sprites['para_young'] = 17
         self.cat_sprites["sick_adult"] = 18
@@ -235,6 +248,7 @@ class Pelt():
         
         self.reverse = reverse
         self.skin = skin
+        self.accessories = accessories
 
     @staticmethod
     def generate_new_pelt(gender:str, parents:tuple=(), age:str="adult"):

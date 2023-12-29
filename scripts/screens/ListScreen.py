@@ -136,7 +136,7 @@ class ListScreen(Screens):
     def get_living_cats(self):
         self.living_cats = []
         for the_cat in Cat.all_cats_list:
-            if not the_cat.dead and not the_cat.outside:
+            if not the_cat.dead and not the_cat.outside and not the_cat.moons == -1:
                 self.living_cats.append(the_cat)
 
     def screen_switches(self):

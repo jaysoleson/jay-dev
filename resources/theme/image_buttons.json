@@ -2257,6 +2257,29 @@
             }
         }
     },
+    "#customize_button":
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/customize.png"
+            },
+			"hovered_image":
+            {
+                "path": "resources/images/buttons/customize_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/customize_hover.png"
+            },
+            "disabled_image":
+            {
+				"path": "resources/images/buttons/customize_hover.png"
+			}
+        }
+    },
     "#allegiances_button": {
         "prototype": "#image_button",
         "images": {
@@ -3921,6 +3944,23 @@
             },
             "disabled_image": {
                 "path": "resources/images/buttons/lakeside_camp_unavailable.png"
+            }
+        }
+    },
+    "#pine_tab": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/buttons/pine_camp.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/buttons/pine_camp_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/buttons/pine_camp_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/buttons/pine_camp_unavailable.png"
             }
         }
     },

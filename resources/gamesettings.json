@@ -21,6 +21,16 @@
             "Camp backgrounds will match with the mode: nighttime for dark mode and daytime for light mode.",
             false
         ],
+        "new accessories": [
+            "New Accessories",
+            "Enable new accessories from Ohdan's accessory mod",
+            true
+        ],
+        "red_bg": [
+            "Red background",
+            "Enable background color to get more red as you murder more cats",
+            true
+        ],
         "custom cursor": [
             "Custom cursor",
             "The cursor will be replaced with a cat paw.",

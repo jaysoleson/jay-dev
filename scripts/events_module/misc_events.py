@@ -46,7 +46,7 @@ class MiscEvents():
 
             acc_checked_events.append(event)
             
-        reveal = False
+        reveal = None
         victim = None
         cat_history = History.get_murders(cat)
         if cat_history:
@@ -116,9 +116,16 @@ class MiscEvents():
             types.append("other_clans")
         if ceremony:
             types.append("ceremony")
+        if other_cat and reveal:
+            if "mu" + str(other_cat.name) in event_text:
+                return
+        if "r_c" in event_text:
+            print("r_c was found")
+            print(event_text)
+            return
+        
         game.cur_events_list.append(Single_Event(event_text, types, involved_cats))
-
-        if reveal:
+        if reveal and victim:
             History.reveal_murder(cat, other_cat, Cat, victim, murder_index)
 
     @staticmethod
@@ -218,11 +225,12 @@ class MiscEvents():
                 acc_list.append(acc)
 
         if "NOTAIL" in cat.pelt.scars or "HALFTAIL" in cat.pelt.scars:
-            for acc in Pelt.tail_accessories:
-                try:
-                    acc_list.remove(acc)
-                except ValueError:
-                    print(f'attempted to remove {acc} from possible acc list, but it was not in the list!')
+            for acc in Pelt.tail_accessories or Pelt.tail2_accessories:
+                if acc in acc_list:
+                    try:
+                        acc_list.remove(acc)
+                    except ValueError:
+                        print(f'attempted to remove {acc} from possible acc list, but it was not in the list!')
 
         if "NOTAIL" in cat.pelt.scars or "HALFTAIL" in cat.pelt.scars:
             for acc in Pelt.tail2_accessories:

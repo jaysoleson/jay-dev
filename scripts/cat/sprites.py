@@ -109,8 +109,7 @@ class Sprites():
 
         del width, height # unneeded
 
-        for x in [
-            'lineart', 'singlecolours', 'speckledcolours', 'tabbycolours',
+        for x in [ 'lineart', 'singlecolours', 'speckledcolours', 'tabbycolours',
             'whitepatches', 'eyes', 'eyes2', 'skin', 'scars', 'missingscars',
             'collars', 'bellcollars', 'bowcollars', 'nyloncollars',
             'bengalcolours', 'marbledcolours', 'rosettecolours', 'smokecolours', 'tickedcolours', 

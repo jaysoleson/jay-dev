@@ -108,7 +108,10 @@ class Pregnancy_Events():
                 return
 
         chance = Pregnancy_Events.get_balanced_kit_chance(cat, second_parent, is_affair, clan)
-
+        if "have kits" in game.switches:
+            if not game.switches['have kits'] and game.clan.your_cat.ID == cat.ID:
+                chance = random.randint(0,3)
+        
         if not int(random.random() * chance):
             # If you've reached here - congrats, kits!
             if kits_are_adopted:
@@ -346,7 +349,7 @@ class Pregnancy_Events():
             event_list.append(adding_text)
         elif other_cat.ID in cat.mate and not other_cat.dead and not other_cat.outside:
             involved_cats.append(other_cat.ID)
-            event_list.append(choice(events["birth"]["two_parents"]))
+            event_list.append(choice(events["birth"]["two_parents"] + events["birth"][f"two_parents {game.clan.seasons[game.clan.age % 12]}"]))
         elif other_cat.ID in cat.mate and other_cat.dead or other_cat.outside:
             involved_cats.append(other_cat.ID)
             event_list.append(choice(events["birth"]["dead_mate"]))
@@ -767,7 +770,6 @@ class Pregnancy_Events():
         five_kits = [min_kits + 4] * game.config["pregnancy"]["five_kit_possibility"][cat.age]
         max_kits = [game.config["pregnancy"]["max_kits"]] * game.config["pregnancy"]["max_kit_possibility"][cat.age]
         amount = choice(min_kit + two_kits + three_kits + four_kits + five_kits + max_kits)
-
         return amount
 
     # ---------------------------------------------------------------------------- #
@@ -894,7 +896,8 @@ class Pregnancy_Events():
                     second_parent_relation.link_relationship()
             else:
                 second_parent_relation = first_parent.create_one_relationship(second_parent)
-
+            if not second_parent_relation.opposite_relationship:
+                second_parent_relation.link_relationship()
             average_romantic_love = (second_parent_relation.romantic_love +
                                      second_parent_relation.opposite_relationship.romantic_love) / 2
             average_comfort = (second_parent_relation.comfortable +

@@ -217,6 +217,14 @@
 		"become_mediator_chances": {
 			"warrior": 5000,
 			"elder": 400
+		},
+		"become_med_chances": {
+			"warrior": 5000,
+			"elder": 400
+		},
+		"become_queen_chances": {
+			"warrior": 5000,
+			"elder": 400
 		}
 	},
 	"lost_cat": {
@@ -290,7 +298,8 @@
 		"max_apprentice_age": {
 			"medicine cat apprentice": 30,
 			"apprentice": 25,
-			"mediator apprentice": 25
+			"mediator apprentice": 25,
+			"queen's apprentice": 25
 		},
 		"min_graduating_age": 10
 	},

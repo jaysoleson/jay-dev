@@ -1,14 +1,25 @@
 {
 	"high_romantic": [
-		"m_c confessed {PRONOUN/m_c/poss} feelings to r_c and they have become mates."
+		"m_c confessed {PRONOUN/m_c/poss} feelings to r_c and they have become mates.",
+		"m_c and r_c have acknowledged their bond and are now mates.",
+		"m_c revealed their love to r_c, who was happy to become m_c's mate.",
+		"m_c and r_c realized they shared the same feelings and became mates."
 	],
 	"low_romantic":[
-		"m_c and r_c have become mates."
+		"m_c and r_c have become mates.",
+		"To the Clan's surprise, m_c and r_c have become mates.",
+		"m_c and r_c have agreed to become mates."
 	],
 	"platonic_to_romantic":[
-		"m_c and r_c see each other in a different light and have become mates."
+		"m_c and r_c see each other in a different light and have become mates.",
+		"m_c and r_c feel a bond deeper than friendship grow between them and become mates.",
+		"m_c and r_c acknowledge the feelings they have been surpressing and become mates.",
+		"m_c and r_c find strength in each other's presence, leading them to become mates.",
+		"m_c and r_c find solace in each other's company, realizing it's more than just friendship, and they become mates."
 	],
 	"rejected":[
-		"m_c confessed {PRONOUN/m_c/poss} feelings to r_c but {PRONOUN/m_c/subject} got rejected."
+		"m_c confessed {PRONOUN/m_c/poss} feelings to r_c but {PRONOUN/m_c/subject} got rejected.",
+		"m_c told r_c about their feelings for them, but r_c didn't feel the same way.",
+		"m_c confessed their feelings to r_c, only to be turned down."
 	]
 }

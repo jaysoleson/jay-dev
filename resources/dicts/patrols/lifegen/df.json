@@ -1,0 +1,476 @@
+[
+    {
+        "patrol_id": "gen_your_catdf",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "hunting"
+        ],
+        "tags": [
+            "border",
+            "death"
+        ],
+        "patrol_art": "gen_hunt_mouse",
+        "min_cats": 1,
+        "max_cats": 3,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "You wake up in a forest. Shadowy trees hang overhead, and you feel eyes on you despite not seeing anyone around.",
+        "decline_text": "With a shake of your head, you manage to wake yourself up, sitting up in your nest with a gasp.",
+        "chance_of_success": 60,
+        "success_outcomes": [
+            {
+                "text": "You swerve around, just as a cat lunges from the shadows and aims their claws at your pelt. Ducking at just the right moment, you manage to avoid their swipe.",
+                "exp": 10,
+                "weight": 20
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You swerve around, just as a cat lunges from the shadows. You don't react quickly enough and they pin you down, hissing that you have a lot more training to do.",
+                "exp": 0,
+                "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "lifegen_16",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "hunting"
+        ],
+        "tags": [
+            "training"
+        ],
+        "patrol_art": "gen_hunt_mouse",
+        "min_cats": 1,
+        "max_cats": 1,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "A skilled warrior of the past offers to train you in a dream. However, their methods seem harsh and cruel and their pelt drips with an unknown muck.",
+        "decline_text": "You decline the training, deciding not to submit to such harsh methods.",
+        "chance_of_success": 45,
+        "success_outcomes": [
+            {
+                "text": "You accept the training and, despite the harsh methods, manage to learn some valuable skills.",
+                "exp": 25,
+                "weight": 20
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You accept the training, but after a while of sparring, the warrior growls that you aren't strong enough.",
+                "exp": 0,
+                "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "lifegen_15",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "hunting"
+        ],
+        "tags": [
+            "encounter"
+        ],
+        "patrol_art": "gen_hunt_mouse",
+        "min_cats": 1,
+        "max_cats": 1,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "A group of ghostly cats approach you with an offer to learn a forgotten prophecy, but at the price of bringing a message back to the living.",
+        "decline_text": "Unsure of their intentions, you decline their offer and quickly leave.",
+        "chance_of_success": 55,
+        "success_outcomes": [
+            {
+                "text": "You agree to their terms and upon waking, you relay the message to your clan's medicine cat along with the prophecy.",
+                "exp": 30,
+                "weight": 20
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You agree to their terms, but upon waking, you find that you can't remember the message they asked you to deliver.",
+                "exp": 0,
+                "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "lifegen_14",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "hunting"
+        ],
+        "tags": [
+            "border"
+        ],
+        "patrol_art": "gen_hunt_mouse",
+        "min_cats": 1,
+        "max_cats": 1,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "You discover a hidden section of the Dark Forest, filled with echoes of old battles.",
+        "decline_text": "Feeling it might bring unnecessary trouble, you decide to leave the hidden area untouched.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "You decide to explore the area and manage to uncover hidden wisdom from past battles that might help your clan in the future.",
+                "exp": 25,
+                "weight": 20
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You venture into the area, but it only leads to disturbing visions of past battles that leave you disoriented upon waking.",
+                "exp": 0,
+                "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "lifegen_13",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "hunting"
+        ],
+        "tags": [
+            "border"
+        ],
+        "patrol_art": "gen_hunt_mouse",
+        "min_cats": 1,
+        "max_cats": 1,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "You find a cat trapped in the Dark Forest during a dream. Stars glitter in their pelt, shimmering against the muck of the shadows. They're scared and don't know the way out.",
+        "decline_text": "You reassure the cat that this is only a dream and they'll wake up soon, leaving them to find their own way.",
+        "chance_of_success": 30,
+        "success_outcomes": [
+            {
+                "text": "You guide the cat through the eerie forest, successfully leading them out. They wake up grateful for your help.",
+                "exp": 20,
+                "weight": 20
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "Despite your best efforts, you lead them in circles. You wake up, trying to rid the memory of the starry cat's terrified expression from your mind.",
+                "exp": 0,
+                "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "lifegen_123",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "hunting"
+        ],
+        "tags": [
+            "border",
+            "death"
+        ],
+        "patrol_art": "gen_hunt_mouse",
+        "min_cats": 1,
+        "max_cats": 1,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "While walking through the Dark Forest, you slip, falling into a river of inky black water.",
+        "decline_text": "You gasp, waking up in your nest. That was a horrible dream.",
+        "chance_of_success": 60,
+        "success_outcomes": [
+            {
+                "text": "You stay calm, holding your breath and treading water until you reach the surface again.",
+                "exp": 20,
+                "weight": 20
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "It's no use. You can't tell which way is up or down, and fall deeper into the depths.",
+                "exp": 0,
+                "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "lifegen_123",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "hunting"
+        ],
+        "tags": [
+            "border",
+            "convince_rc"
+        ],
+        "patrol_art": "gen_hunt_mouse",
+        "min_cats": 1,
+        "max_cats": 1,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "There's a familiar scent in the air. You track it down and find yourself face to face with... one of your clanmates? They look lost.",
+        "decline_text": "You gasp, waking up in your nest.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "You convince them that this is no place for a cat like them.",
+                "exp": 20,
+                "weight": 20
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "Another Dark Forest cat leaps between you two, hissing at you not to involve yourself with the new apprentices.",
+                "exp": 0,
+                "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "gen_your_catdf_01",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "hunting"
+        ],
+        "tags": [
+            "border",
+            "non_lethal"
+        ],
+        "patrol_art": "gen_hunt_mouse",
+        "min_cats": 2,
+        "max_cats": 2,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "Soon after you fall asleep, you wake up in the Dark Forest. r_c bounds out of the gloom, asking if you would like to train with them.",
+        "decline_text": "You politely decline and wander off to train on your own.",
+        "chance_of_success": 60,
+        "success_outcomes": [
+            {
+                "text": "You and r_c make good progress on some advanced battle moves.",
+                "exp": 10,
+                "weight": 20
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "The training session doesn't go as planned, as a Dark Forest warrior interrupts and demands that you spar with your claws unsheathed. You and r_c hesitantly agree and both of you wake up with several scratches.",
+                "exp": 0,
+                "weight": 20,
+                "injury": [
+                    {
+                        "cats": [
+                            "r_c"
+                        ],
+                        "injuries": [
+                            "claw-wound"
+                        ],
+                        "scars": [
+                            "SNOUT",
+                            "ONE"
+                        ]
+                    }
+                ],
+                "history_text": {
+                    "scar": "This cat is scarred from training in the Dark Forest"
+                }
+            }
+        ]
+    },
+    {
+        "patrol_id": "lifegen_1223",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "hunting"
+        ],
+        "tags": [
+            "border",
+            "convince_rc"
+        ],
+        "patrol_art": "gen_hunt_mouse",
+        "min_cats": 2,
+        "max_cats": 2,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "As you go for a stroll around the Dark Forest, just enjoying the gloomy forest before training begins, you stumble upon a confused r_c. They look up at you, panicked, as they ask where they are.",
+        "decline_text": "Meh. Not your business. You walk away, leaving them startled, confused and sputtering out your name.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "You explain that you're both in the Dark Forest, where you can train to become stronger. You offer to bring them to the training area, if they wish to become stronger. They agree, following your lead.",
+                "exp": 20,
+                "weight": 20
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You explain that you're both in the Dark Forest, where you can train to become stronger. You offer to bring them to the training area, if they wish to become stronger. Their eyes are wide with horror as they scream out a loud 'no'. They call you a traitor, swinging their claws at you though missing as you gracefully dodge their attack. Sobbing, they run away, deeper into the forest as you can only watch with pity. Your Dark Forest mentor will have a field day with them, that's for sure.",
+                "exp": 0,
+                "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "lifegen_123",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "hunting"
+        ],
+        "tags": [
+            "border",
+            "convince_rc"
+        ],
+        "patrol_art": "gen_hunt_mouse",
+        "min_cats": 2,
+        "max_cats": 2,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "You're wandering beneath the shadowy treetops when... Is that r_c?",
+        "decline_text": "You dart out of sight, not wanting to confront the possibility of seeing your clanmate.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "It is r_c! They bound towards you, purring that they didn't know anyone else in c_n who trained in the Dark Forest! The two of you walk side by side, discussing training plans, hopes and dreams, and planning your future together as training mates.",
+                "exp": 20,
+                "weight": 20
+            },
+            {
+                "text": "r_c greets you with a respectful nod, and the two of you go your separate ways.",
+                "exp": 20,
+                "weight": 20
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You call out to r_c, but as soon as they see you they dart into the brush. When you wake up the next morning, they carefully avoid eye contact.",
+                "exp": 0,
+                "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "lifegen_123",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "hunting"
+        ],
+        "tags": [
+            "border",
+            "convince_rc"
+        ],
+        "patrol_art": "gen_hunt_mouse",
+        "min_cats": 2,
+        "max_cats": 2,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "As you wade deeper into the sticky mud of the Dark Forest's domain, you can't help but feel glistering eyes on your pelt, filling it with prickles and uncertainty. The pitiful rustling of leaves makes you anxious and fearful, and you ponder who or what could be watching you at this time...",
+        "decline_text": "You wake up, horrified. Maybe your little stay at the Dark Forest didn't go unnoticed.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "You quickly turn around, only to come eyes to eyes with r_c! They don't seem bothered by your presence, bounding over to you with a welcoming sparkle in their eyes. They seem.. Happy? They explain to you that they've been needing a place to gossip, and when they stumbled over the shadows of the Dark Forest, they couldn't help themselves! Apparently the Clan hasn't been very accepting of their rumors.. But here you are! When you return home from the ever-lasting darkness, you have more secrets than you can carry.",
+                "exp": 20,
+                "weight": 20
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "The feeling won't leave you alone, rather increases. It feels like hundreds of ants are crawling in your fur, dragging you downwards into the mud. You turn around, yelping, and come face to face with r_c. They grab your scruff, dragging you out of the mud. When you turn to thank them, their eyes are wide with horror as they escape your gaze, running away with their tail between their legs and the darkness slowly swallowing them.",
+                "exp": 0,
+                "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "lifegen_1223",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "hunting"
+        ],
+        "tags": [
+            "border",
+            "convince_rc"
+        ],
+        "patrol_art": "gen_hunt_mouse",
+        "min_cats": 2,
+        "max_cats": 2,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "As you go for a stroll around the Dark Forest, just enjoying the gloomy forest before training begins, you stumble upon a confused r_c. They look up at you, panicked, as they ask where they are.",
+        "decline_text": "Meh. Not your business. You walk away, leaving them startled, confused and sputtering out your name.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "You explain that you're both in the Dark Forest, where you can train to become stronger. You offer to bring them to the training area, if they wish to become stronger. They agree, following your lead.",
+                "exp": 20,
+                "weight": 20
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You explain that you're both in the Dark Forest, where you can train to become stronger. You offer to bring them to the training area, if they wish to become stronger. Their eyes are wide with horror as they scream out a loud 'no'. They call you a traitor, swinging their claws at you though missing as you gracefully dodge their attack. Sobbing, they run away, deeper into the forest as you can only watch with pity. Your Dark Forest mentor will have a field day with them, that's for sure.",
+                "exp": 0,
+                "weight": 20
+            }
+        ]
+    }
+]

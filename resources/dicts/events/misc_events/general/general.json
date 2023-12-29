@@ -654,7 +654,7 @@
             "murder_reveal",
             "other_cat"
         ],
-        "event_text": "m_c boldly confesses to the entire Clan that {PRONOUN/m_c/subject} killed mur_c. m_c claims that mur_c deserved to pay for what {PRONOUN/mur_c/subject} did.",
+        "event_text": "m_c boldly confesses to the entire Clan that {PRONOUN/m_c/subject} killed mur_c. m_c claims that mur_c deserved to pay for what they did.",
         "cat_trait": [
             "vengeful"
         ]

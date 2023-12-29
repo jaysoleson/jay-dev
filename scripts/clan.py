@@ -50,6 +50,7 @@ class Clan():
         "leader",
         "elder",
         "mediator",
+        "queen",
         "general",
     ]
 
@@ -89,8 +90,10 @@ class Clan():
                  camp_bg=None,
                  game_mode='classic',
                  starting_members=[],
-                 starting_season='Newleaf'):
+                 starting_season='Newleaf',
+                 your_cat=None):
         self.history = History()
+        self.your_cat = your_cat
         if name == "":
             return
         
@@ -128,6 +131,9 @@ class Clan():
         self.game_mode = game_mode
         self.pregnancy_data = {}
         self.inheritance = {}
+        self.murdered = False
+        self.achievements = []
+        self.talks = []
         
         # Init Settings
         self.clan_settings = {}
@@ -179,7 +185,7 @@ class Clan():
         the program starts
         """
         self.instructor = Cat(status=choice(["apprentice", "mediator apprentice", "medicine cat apprentice", "warrior",
-                                             "medicine cat", "leader", "mediator", "deputy", "elder"]),
+                                             "medicine cat", "leader", "mediator", "queen", "queen's apprentice", "deputy", "elder"]),
                               )
         self.instructor.dead = True
         self.instructor.dead_for = randint(20, 200)
@@ -206,9 +212,12 @@ class Clan():
         # give thoughts,actions and relationships to cats
         for cat_id in Cat.all_cats:
             Cat.all_cats.get(cat_id).init_all_relationships()
-            Cat.all_cats.get(cat_id).backstory = 'clan_founder'
+            if Cat.all_cats.get(cat_id).backstory is None:
+                Cat.all_cats.get(cat_id).backstory = 'clan_founder'
             if Cat.all_cats.get(cat_id).status == 'apprentice':
                 Cat.all_cats.get(cat_id).status_change('apprentice')
+            elif Cat.all_cats.get(cat_id).status == "queen's apprentice":
+                Cat.all_cats.get(cat_id).status_change("queen's apprentice")
             Cat.all_cats.get(cat_id).thoughts()
 
         game.save_cats()
@@ -417,7 +426,9 @@ class Clan():
             "temperament": self.temperament,
             "version_name": SAVE_VERSION_NUMBER,
             "version_commit": get_version_info().version_number,
-            "source_build": get_version_info().is_source_build
+            "source_build": get_version_info().is_source_build,
+            "your_cat": self.your_cat.ID,
+            "murdered": self.murdered
         }
 
         # LEADER DATA
@@ -462,6 +473,8 @@ class Clan():
         clan_data["other_clan_temperament"] = ",".join(
             [str(i.temperament) for i in self.all_clans])
         clan_data["war"] = self.war
+        clan_data['achievements'] = self.achievements
+        clan_data['talks'] = self.talks
 
         self.save_herbs(game.clan)
         self.save_disaster(game.clan)
@@ -776,6 +789,15 @@ class Clan():
         if game.clan.game_mode != "classic":
             self.load_freshkill_pile(game.clan)
         game.switches['error_message'] = ''
+        
+        if "your_cat" in clan_data:
+            game.clan.your_cat = Cat.all_cats[clan_data["your_cat"]]
+        
+        if "achievements" in clan_data:
+            game.clan.achievements = clan_data["achievements"]
+        
+        if "talks" in clan_data:
+            game.clan.talks = clan_data["talks"]
 
 
 
@@ -1073,7 +1095,7 @@ class Clan():
             data[k] = {
                 "max_score": nutr.max_score,
                 "current_score": nutr.current_score,
-                "percentage": nutr.percentage,
+                "percentage": nutr.percentage
             }
 
         game.safe_save(f"{get_save_dir()}/{game.clan.name}/nutrition_info.json", data)
