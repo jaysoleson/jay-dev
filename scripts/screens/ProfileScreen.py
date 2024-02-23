@@ -469,24 +469,7 @@ class ProfileScreen(Screens):
                 self.change_screen('choose mentor screen')
         # Personal Tab
         elif self.open_tab == 'personal':
-            if event.ui_element == self.change_sexuality_button:
-                if self.the_cat.sexuality == "straight":
-                    self.the_cat.sexuality == "bi"
-                if self.the_cat.sexuality == "bi":
-                    if self.the_cat.genderalign in ("male", "trans male"):
-                        self.the_cat.sexuality == "gay"
-                    elif self.the_cat.genderalign in ("female", "trans female"):
-                        self.the_cat.sexuality == "lesbian"
-                if self.the_cat.sexuality == "gay" or "lesbian":
-                    self.the_cat.sexuality == "aroace"
-                if self.the_cat.sexuality == "aroace":
-                    self.the_cat.sexuality == "straight"
-                self.clear_profile()
-                self.build_profile()
-                self.update_disabled_buttons_and_text()
-
-
-            elif event.ui_element == self.change_name_button:
+            if event.ui_element == self.change_name_button:
                 ChangeCatName(self.the_cat)
             elif event.ui_element == self.specify_gender_button:
                 SpecifyCatGender(self.the_cat)
@@ -496,6 +479,26 @@ class ProfileScreen(Screens):
                     self.the_cat.pronouns = [self.the_cat.default_pronouns[2].copy()]
                 else: self.the_cat.pronouns = [self.the_cat.default_pronouns[0].copy()]'''
             #when button is pressed...
+            elif event.ui_element == self.change_sexuality_button:
+                if self.the_cat.sexuality == "straight":
+                    self.the_cat.sexuality = "bi"
+                elif self.the_cat.sexuality == "bi":
+                    if self.the_cat.genderalign in ["female", "trans female"]:
+                        self.the_cat.sexuality = "lesbian"
+                    if self.the_cat.genderalign in ["male", "trans male"]:
+                        self.the_cat.sexuality = "gay"
+                    if self.the_cat.genderalign == "nonbinary" and self.the_cat.gender == "female":
+                        self.the_cat.sexuality = "lesbian"
+                    if self.the_cat.genderalign == "nonbinary" and self.the_cat.gender == "male":
+                        self.the_cat.sexuality = "gay"
+                elif self.the_cat.sexuality in ["lesbian", "gay"]:
+                    self.the_cat.sexuality = "aroace"
+                elif self.the_cat.sexuality == "aroace":
+                    self.the_cat.sexuality = "straight"
+                self.clear_profile()
+                self.build_profile()
+                self.update_disabled_buttons_and_text()
+                    
             elif event.ui_element == self.cis_trans_button:
                 #if the cat is anything besides m/f/transm/transf then turn them back to cis
                 if self.the_cat.genderalign not in ["female", "trans female", "male", "trans male"]:
@@ -2586,31 +2589,31 @@ class ProfileScreen(Screens):
             if self.change_sexuality_button:
                 self.change_sexuality_button.kill()
             if self.the_cat.sexuality == "straight":
-                self.change_sexuality_button = UIImageButton(scale(pygame.Rect((804, 772), (344, 104))), "make bi",
+                self.change_sexuality_button = UIImageButton(scale(pygame.Rect((804, 767), (344, 62))), "",
                                                       starting_height=2, object_id="#change_bi_button",
                                                       manager=MANAGER)
-                self.the_cat.sexuality = "bi"
+               
             elif self.the_cat.sexuality == "bi":
                 if self.the_cat.genderalign in ("male", "trans male"):
-                    self.change_sexuality_button = UIImageButton(scale(pygame.Rect((804, 772), (344, 104))), "make gay",
+                    self.change_sexuality_button = UIImageButton(scale(pygame.Rect((804, 767), (344, 62))), "",
                                                       starting_height=2, object_id="#change_gay_button",
                                                       manager=MANAGER)
-                    self.the_cat.sexuality = "gay"
+                   
                 elif self.the_cat.genderalign in ("female", "trans female"):
-                    self.change_sexuality_button = UIImageButton(scale(pygame.Rect((804, 772), (344, 104))), "make lesbian",
+                    self.change_sexuality_button = UIImageButton(scale(pygame.Rect((804, 767), (344, 62))), "",
                                                       starting_height=2, object_id="#change_lesbian_button",
                                                       manager=MANAGER)
-                    self.the_cat.sexuality = "lesbian"
+                   
             elif self.the_cat.sexuality in ('gay', 'lesbian'):
-                self.change_sexuality_button = UIImageButton(scale(pygame.Rect((804, 772), (344, 104))), "make aroace",
+                self.change_sexuality_button = UIImageButton(scale(pygame.Rect((804, 767), (344, 62))), "",
                                                       starting_height=2, object_id="#change_aroace_button",
                                                       manager=MANAGER)
-                self.the_cat.sexuality = "aroace"
+          
             elif self.the_cat.sexuality == "aroace":
-                self.change_sexuality_button = UIImageButton(scale(pygame.Rect((804, 772), (344, 104))), "make straight",
+                self.change_sexuality_button = UIImageButton(scale(pygame.Rect((804, 767), (344, 62))), "",
                                                       starting_height=2, object_id="#change_straight_button",
                                                       manager=MANAGER)
-                self.the_cat.sexuality = "straight"
+             
 
             # Button to trans or cis the cats.
             if self.cis_trans_button:
@@ -2894,7 +2897,8 @@ class ProfileScreen(Screens):
             self.manage_roles.kill()
             self.change_mentor_button.kill()
         elif self.open_tab == 'personal':
-            self.change_sexuality_button.kill()
+            if self.change_sexuality_button:
+                self.change_sexuality_button.kill()
             self.change_name_button.kill()
             self.cat_toggles_button.kill()
             if self.specify_gender_button:

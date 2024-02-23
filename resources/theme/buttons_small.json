@@ -5819,5 +5819,120 @@
                 "path":"resources/images/buttons/dialogue_choice_unavailable.png"
             }
         }
+    },
+    "#change_bi_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_bi_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_bi_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_bi_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_bi_button_unavailable.png"
+            }
+        }
+    },
+    "#change_gay_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_gay_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_gay_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_gay_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_bi_button_unavailable.png"
+            }
+        }
+    },
+    "#change_lesbian_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_lesbian_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_lesbian_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_lesbian_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_lesbian_button_unavailable.png"
+            }
+        }
+    },
+    "#change_aroace_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_aroace_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_aroace_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_aroace_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_aroace_button_unavailable.png"
+            }
+        }
+    },
+    "#change_straight_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_straight_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_straight_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_straight_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_straight_button_unavailable.png"
+            }
+        }
     }
 }
