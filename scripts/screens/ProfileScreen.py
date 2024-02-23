@@ -1190,7 +1190,8 @@ class ProfileScreen(Screens):
             elif the_cat.sexuality == "straight":
                 output += "straight"
             else:
-                output += "error"
+                output += "unlabelled"
+                #this should never appear
                 print("Sexuality missing!")
 
         # NEWLINE ----------

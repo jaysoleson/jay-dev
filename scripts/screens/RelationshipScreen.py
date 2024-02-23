@@ -624,7 +624,7 @@ class RelationshipScreen(Screens):
 
         #CHECK SEXUALITY COMPATIBILITY
 
-        sexuality_incompatible= (self.the_cat.sexuality in ("gay", "andro") and the_relationship.cat_to.genderalign in ("female", "trans female")) or (self.the_cat.sexuality in ("lesbian", "gyno") and the_relationship.cat_to.genderalign in ("male", "trans male"))
+        sexuality_incompatible= (self.the_cat.sexuality in ("gay", "andro") and the_relationship.cat_to.genderalign in ("female", "trans female")) or (self.the_cat.sexuality in ("lesbian", "gyno") and the_relationship.cat_to.genderalign in ("male", "trans male")) or (self.the_cat.sexuality == "aroace")
 
         if sexuality_incompatible:
             display_romantic = 0

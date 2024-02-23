@@ -55,6 +55,8 @@ def json_load():
     # create new cat objects
     for i, cat in enumerate(cat_data):
         try:
+            if "sexuality" not in cat:
+                cat["sexuality"] = "bi"
             
             new_cat = Cat(ID=cat["ID"],
                         prefix=cat["name_prefix"],

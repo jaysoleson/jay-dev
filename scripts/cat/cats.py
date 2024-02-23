@@ -2210,8 +2210,12 @@ class Cat():
             if (self.moons < 14 or other_cat.moons < 14) and not for_love_interest:
                 return False
         
-       
-        
+        if self.sexuality == "aroace":
+            sexuality_compatible = False
+
+        if other_cat.sexuality == "aroace":
+            sexuality_compatible = False
+
         if self.sexuality in ("lesbian", "gyno"):
             if other_cat.genderalign in ("male", "trans male"):
                 sexuality_compatible = False
@@ -2335,7 +2339,7 @@ class Cat():
             print(f"Unsetting mates: These {self.name} and {other_cat.name} are not mates!")
             return
 
-        # If only deal with relationships if this is a breakup. 
+        # If only deal with relationships if this is a breakup.
         if breakup:
             if not self.dead:
                 if other_cat.ID not in self.relationships:
@@ -2572,6 +2576,7 @@ class Cat():
         relation_cat_directory = relation_directory + self.ID + '_relations.json'
 
         self.relationships = {}
+                      
         if os.path.exists(relation_directory):
             if not os.path.exists(relation_cat_directory):
                 self.init_all_relationships()

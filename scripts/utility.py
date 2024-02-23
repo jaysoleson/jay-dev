@@ -275,6 +275,7 @@ def create_new_cat(Cat,
                    status:str=None,
                    age:int=None,
                    gender:str=None,
+                   sexuality:str=None,
                    thought:str='Is looking around the camp with wonder',
                    alive:bool=True,
                    df:bool=False,
@@ -296,6 +297,7 @@ def create_new_cat(Cat,
     :param status: set as the rank you want the new cat to have - default: None (will cause a random status to be picked)
     :param age: set the age of the new cat(s) - default: None (will be random or if kit/litter is true, will be kitten.
     :param gender: set the gender (BIRTH SEX) of the cat - default: None (will be random)
+    :param sexuality: set the sexuality of the cat - default: None (will be bi)
     :param thought: if you need to give a custom "welcome" thought, set it here
     :param alive: set this as False to generate the cat as already dead - default: True (alive)
     :param outside: set this as True to generate the cat as an outsider instead of as part of the Clan - default: False (Clan cat)
@@ -357,11 +359,22 @@ def create_new_cat(Cat,
         else:
             _gender = gender
 
+        if not sexuality:
+
+            chance = randint(1,2)
+            if chance == 1:
+                _sexuality = "straight"
+            else:
+                _sexuality = "bi"
+        else:
+            _sexuality = sexuality
+
         # other Clan cats, apps, and kittens (kittens and apps get indoctrinated lmao no old names for them)
         if other_clan or kit or litter or age < 12:
             new_cat = Cat(moons=age,
                           status=status,
                           gender=_gender,
+                          sexuality=_sexuality,
                           backstory=backstory,
                           parent1=parent1,
                           parent2=parent2)
@@ -392,6 +405,7 @@ def create_new_cat(Cat,
                                   prefix=name,
                                   status=status,
                                   gender=_gender,
+                                  sexuality=_sexuality,
                                   df=df,
                                   backstory=backstory,
                                   parent1=parent1,
@@ -400,6 +414,7 @@ def create_new_cat(Cat,
                     new_cat = Cat(moons=age,
                                   status=status,
                                   gender=_gender,
+                                  sexuality=_sexuality,
                                   df=df,
                                   backstory=backstory,
                                   parent1=parent1,
@@ -411,6 +426,7 @@ def create_new_cat(Cat,
                               suffix="",
                               status=status,
                               gender=_gender,
+                              sexuality=_sexuality,
                               df=df,
                               backstory=backstory,
                               parent1=parent1,
@@ -553,6 +569,7 @@ def create_outside_cat(Cat, status, backstory, alive=True, thought=None):
                 suffix=suffix,
                 status=status,
                 gender=choice(['female', 'male']),
+                sexuality = choice(["straight", "bi"]),
                 backstory=backstory)
     if status == 'kittypet':
         new_cat.pelt.accessories.append(choice(Pelt.collars))
