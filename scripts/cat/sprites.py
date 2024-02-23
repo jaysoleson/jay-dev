@@ -151,7 +151,9 @@ class Sprites():
 
             "tide",
 
-            "chimes"
+            "chimes",
+
+            "pridebandanas"
 
         ]:
             if 'lineart' in x and game.config['fun']['april_fools']:
@@ -530,6 +532,10 @@ class Sprites():
         for a, i in enumerate([
             "YELLOWCROWN", "REDCROWN", "LILYPADCROWN"]):
             self.make_group('crowns', (a, 0), f'acc_wild{i}')
+
+        for a, i in enumerate([
+            "TRANS", "ENBY"]):
+            self.make_group('pridebandanas', (a, 0), f'acc_pride{i}')
 
         for a, i in enumerate([
             "WOODDRAGON"]):

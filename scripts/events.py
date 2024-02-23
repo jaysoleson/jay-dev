@@ -10,6 +10,8 @@ TODO: Docs
 import random
 import traceback
 
+from random import choice, randint
+
 from scripts.cat.history import History
 from scripts.patrol.patrol import Patrol
 
@@ -356,7 +358,7 @@ class Events:
         game.clan.freshkill_pile.add_freshkill(game.clan.freshkill_pile.amount_food_needed())
                 
     def gain_acc(self):
-        possible_accs = ["WILD", "PLANT", "COLLAR", "FLOWER", "PLANT2", "SNAKE", "SMALLANIMAL", "DEADINSECT", "ALIVEINSECT", "FRUIT", "CRAFTED", "TAIL2"]
+        possible_accs = ["WILD", "PLANT", "COLLAR", "FLOWER", "PLANT2", "SNAKE", "SMALLANIMAL", "DEADINSECT", "ALIVEINSECT", "FRUIT", "CRAFTED", "PRIDE", "TAIL2"]
         acc_list = []
         if "WILD" in possible_accs:
             acc_list.extend(Pelt.wild_accessories)
@@ -380,6 +382,8 @@ class Events:
             acc_list.extend(Pelt.fruit_accessories)
         if "CRAFTED" in possible_accs:
             acc_list.extend(Pelt.crafted_accessories)
+        if "PRIDE" in possible_accs:
+            acc_list.extend(Pelt.pridebandanas)
         if "TAIL2" in possible_accs:
             acc_list.extend(Pelt.tail2_accessories)
         if "NOTAIL" in game.clan.your_cat.pelt.scars or "HALFTAIL" in game.clan.your_cat.pelt.scars:
@@ -1851,6 +1855,24 @@ class Events:
             Condition_Events.handle_already_disabled(cat)
             if cat.dead:
                 return
+        self.change_sexuality(cat)
+        self.make_aroace(cat)
+
+        if cat.sexuality == "lesbian":
+            if len(cat.mate) > 0:
+                for mate_id in cat.mate:
+                    if (Cat.all_cats.get(mate_id)).genderalign in ('male', 'trans male'):
+                        if Cat.all_cats.get(mate_id):
+                            cat.unset_mate(Cat.all_cats.get(mate_id))
+                            text = f"Since {cat.name} has realised that they don't care for toms, {cat.name} and {cat.mate} have broken up, but they are still great friends."
+                
+        if cat.sexuality == "gay":
+            if len(cat.mate) > 0:
+                for mate_id in cat.mate:
+                    if (Cat.all_cats.get(mate_id)).genderalign in ('female', 'trans female'):
+                        if Cat.all_cats.get(mate_id):
+                            cat.unset_mate(Cat.all_cats.get(mate_id))
+                            text = f"Since {cat.name} has realised that they don't care for she-cats, {cat.name} and {cat.mate} have broken up, but they are still great friends."
 
         self.coming_out(cat)
         Pregnancy_Events.handle_having_kits(cat, clan=game.clan)
@@ -3185,9 +3207,15 @@ class Events:
                 else:
                     cat.genderalign = "trans male"
                     # cat.pronouns = [cat.default_pronouns[2].copy()]
+                acc = Pelt.pridebandanas[0]
+                cat.pelt.inventory.append(acc)
             else:
                 cat.genderalign = "nonbinary"
                 # cat.pronouns = [cat.default_pronouns[0].copy()]
+                acc = Pelt.pridebandanas[0]
+                acc2 = Pelt.pridebandanas[1]
+                cat.pelt.inventory.append(acc)
+                cat.pelt.inventory.append(acc2)
 
             if cat.gender == 'male':
                 gender = 'tom'
@@ -3197,6 +3225,96 @@ class Events:
             game.cur_events_list.append(
                 Single_Event(text, "misc", involved_cats))
             # game.misc_events_list.append(text)
+
+    def change_sexuality(self, cat):
+        """turnin' the kitties gay..."""
+        if cat.moons < 6:
+            return
+        if cat.sexuality == "bi":
+            involved_cats = [cat.ID]
+            if cat.age == 'adolescent':
+                gay_chance = random.getrandbits(4)
+            elif cat.age == 'young adult':
+                gay_chance = random.getrandbits(4)
+            else:
+                # adult, senior adult, elder
+                gay_chance = random.getrandbits(4)
+
+            if gay_chance:
+                return
+
+            if random.getrandbits(1):  # 50/50
+                if cat.genderalign == "male" or cat.genderalign == "trans male":
+                    cat.sexuality = "gay"
+
+                elif cat.genderalign == "female" or cat.genderalign == "trans female":
+                    cat.sexuality = "lesbian"
+                    acc = Pelt.pridebandanas[0]
+                    cat.pelt.inventory.append(acc)
+
+                else:
+                    cat.genderalign = "nonbinary"
+                    sexuality = randint(1,2)
+
+                    if sexuality == 1:
+                        cat.sexuality = "andro"
+                    else:
+                        cat.sexuality = "gyno"
+                    acc = Pelt.pridebandanas[0]
+                    acc2 = Pelt.pridebandanas[1]
+                    cat.pelt.inventory.append(acc)
+                    cat.pelt.inventory.append(acc2)
+
+               
+                   
+                if cat.genderalign != "nonbinary":
+                    if cat.genderalign == 'male':
+                        gender = 'tom'
+                        text = f"{cat.name} only seems to crush on other {gender}s."
+                        game.cur_events_list.append(Single_Event(text, "misc", involved_cats)) 
+                        # ^^ this events append thing is in every if 
+                        # is ugly but it kept fucking up when i tried to do it in one statement
+
+                    elif cat.genderalign == 'female':
+                        gender = 'she-cat'
+                        text = f"{cat.name} only seems to crush on other {gender}s."
+                        game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
+                else:
+                    if cat.sexuality == "andro":
+                        text = f"{cat.name} only seems to crush on toms."
+                        game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
+
+                    elif cat.sexuality == "gyno":
+                        text = f"{cat.name} only seems to crush on she=cats."
+                        game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
+                
+    def make_aroace(self, cat):
+        """turnin' the kitties gay..."""
+        if cat.moons > 6:
+            involved_cats = [cat.ID]
+            if cat.age == 'adolescent':
+                aroace_chance = random.getrandbits(7)
+            elif cat.age == 'young adult':
+                aroace_chance = random.getrandbits(8)
+            else:
+                # adult, senior adult, elder
+                aroace_chance = random.getrandbits(9)
+
+            if aroace_chance:
+                return
+
+            if random.getrandbits(1):  # 50/50
+                cat.sexuality = "aroace"
+                
+                text = f"{cat.name} doesn't seem very interested in romance."
+                game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
+
+                if len(cat.mate) > 0:
+                    for mate_id in cat.mate:
+                        if Cat.all_cats.get(mate_id):
+                            cat.unset_mate(Cat.all_cats.get(mate_id))
+                            text = f"Since {cat.name} has realised that they don't care for romance, {cat.name} and {cat.mate} have broken up, but they are still great friends."
+
 
     def check_and_promote_leader(self):
         """ Checks if a new leader need to be promoted, and promotes them, if needed.  """

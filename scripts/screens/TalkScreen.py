@@ -55,7 +55,7 @@ class TalkScreen(Screens):
         self.current_scene = ""
         self.created_choice_buttons = False
         self.choicepanel = False
-        self.textbox_graphic = None
+        self.textbox_graphic_img = None
 
 
 
@@ -90,20 +90,20 @@ class TalkScreen(Screens):
                 self.talk_box_img
             )
         
+        self.textbox_graphic_img = image_cache.load_image("resources/images/textbox_graphic.png").convert_alpha()
+        
+        self.textbox_graphic = pygame_gui.elements.UIImage(
+                scale(pygame.Rect((170, 942), (346, 302))),
+                self.textbox_graphic_img)
+
         self.back_button = UIImageButton(scale(pygame.Rect((50, 50), (210, 60))), "",
                                         object_id="#back_button", manager=MANAGER)
         self.scroll_container = pygame_gui.elements.UIScrollingContainer(scale(pygame.Rect((500, 970), (900, 300))))
-        self.text = pygame_gui.elements.UITextBox("", 
+        self.text = pygame_gui.elements.UITextBox("",
                                                   scale(pygame.Rect((0, 0), (900, -100))),
                                                   object_id="#text_box_30_horizleft",
                                                   container=self.scroll_container,
                                                 manager=MANAGER)
-        
-        self.textbox_graphic = pygame_gui.elements.UIImage(
-                scale(pygame.Rect((170, 942), (346, 302))),
-                image_cache.load_image("resources/images/textbox_graphic.png").convert_alpha()
-            )
-        # self.textbox_graphic.hide()
 
         self.profile_elements["cat_image"] = pygame_gui.elements.UIImage(scale(pygame.Rect((70, 900), (400, 400))),
                                                                          pygame.transform.scale(
@@ -192,10 +192,8 @@ class TalkScreen(Screens):
         try:
             if self.texts[self.text_index][0] == "[" and self.texts[self.text_index][-1] == "]":
                 self.profile_elements["cat_image"].hide()
-                # self.textbox_graphic.show()
             else:
                 self.profile_elements["cat_image"].show()
-                # self.textbox_graphic.hide()
         except:
             pass
         if self.text_index < len(self.text_frames):

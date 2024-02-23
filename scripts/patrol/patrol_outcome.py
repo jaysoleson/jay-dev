@@ -44,6 +44,7 @@ class PatrolOutcome():
             dead_cats: List[str] = None,
             lost_cats: List[str] = None,
             injury: List[Dict] = None,
+            accessory: List[Dict] = None,
             history_reg_death: str = None,
             history_leader_death: str = None,
             history_scar: str = None,
@@ -69,6 +70,7 @@ class PatrolOutcome():
         self.dead_cats = dead_cats if dead_cats is not None else []
         self.lost_cats = lost_cats if lost_cats is not None else []
         self.injury = injury if injury is not None else []
+        self.accessory = accessory if accessory is not None else []
         self.history_reg_death = history_reg_death if history_reg_death is not None else \
                                  "m_c died on patrol."
         self.history_leader_death = history_leader_death if history_leader_death is not None else \
@@ -151,6 +153,7 @@ class PatrolOutcome():
                     can_have_stat=_d.get("can_have_stat"),
                     dead_cats=_d.get("dead_cats"),
                     injury=_d.get("injury"),
+                    accessory =_d.get("accessory"),
                     lost_cats=_d.get("lost_cats"),
                     history_leader_death=_d["history_text"].get("lead_death") if \
                                         isinstance(_d.get("history_text"), dict) else None,
@@ -184,6 +187,7 @@ class PatrolOutcome():
         results.append(self._handle_death(patrol))
         results.append(self._handle_lost(patrol))
         results.append(self._handle_condition_and_scars(patrol))
+        results.append(self._handle_accessory(patrol))
         results.append(self._handle_relationship_changes(patrol))
         results.append(self._handle_rep_changes(patrol))
         results.append(self._handle_other_clan_relations(patrol))
@@ -572,6 +576,38 @@ class PatrolOutcome():
                 
         return " ".join(results)
     
+    def _handle_accessory(self, patrol:'Patrol') -> str:
+        if not self.accessory:
+            return ""
+
+        def gather_cat_objects(cat_list, patrol: 'Patrol') -> list:
+            out_set = set()
+            
+            for _cat in cat_list:
+                if _cat == "r_c":
+                    out_set.add(patrol.patrol_random_cat)
+                elif _cat == "y_c":
+                    out_set.add(game.clan.your_cat)
+                  
+            return list(out_set)
+        
+       
+        
+        for block in self.accessory:
+            cats = gather_cat_objects(block.get("cats", ()), patrol)
+            accessory = block.get("accessory", ())
+            
+            if not (cats and accessory):
+                print(f"something is wrong with accessory - {block}")
+                continue
+
+            results=[]
+            for _cat in cats:
+                self.__handle_accessories(_cat, accessory, patrol)
+                results.append(f"{_cat.name} got a new accessory.")
+
+        return " ".join(results)
+
     def _handle_relationship_changes(self, patrol:'Patrol') -> str:
         """ Handle any needed changes in relationship """
         
@@ -968,7 +1004,7 @@ class PatrolOutcome():
             new_name = False
         else:
             new_name = choice([True, False])
-        
+
         # STATUS - must be handled before backstories. 
         status = None
         
@@ -1246,6 +1282,23 @@ class PatrolOutcome():
             print("WARNING: Scar occured, but scar history is missing")
         
         return chosen_scar
+    
+    def __handle_accessories(self, cat:Cat, acc_list:str, patrol:'Patrol') -> str:
+        """Add accessory. Returns acc given """
+        
+        
+        acc_list = [x for x in acc_list if x in Pelt.tail_accessories + Pelt.wild_accessories + Pelt.plant_accessories + Pelt.fruit_accessories + Pelt.snake_accessories + Pelt.tail2_accessories + Pelt.flower_accessories + Pelt.plant2_accessories + Pelt.crafted_accessories + Pelt.deadInsect_accessories + Pelt.smallAnimal_accessories + Pelt.aliveInsect_accessories and x not in cat.pelt.inventory]
+
+        if not acc_list:
+            return None
+        
+        chosen_acc = choice(acc_list)
+
+       
+        
+        cat.pelt.inventory.append(chosen_acc)
+  
+        return chosen_acc
     
     def __handle_condition_history(self, cat:Cat, condition:str, patrol:'Patrol', default_overide=False) -> None:
         """Handles adding potentional history to a cat. default_overide will use the default text for the condition. """

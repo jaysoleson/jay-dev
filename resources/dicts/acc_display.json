@@ -1434,5 +1434,15 @@
     "default": "silver lunar chimes",
     "plural": "silver lunar chimes",
     "singular": "silver lunar chimes"
+  },
+  "TRANS": {
+    "default": "trans bandana",
+    "plural": "trans bandanas",
+    "singular": "trans bandana"
+  },
+  "ENBY": {
+    "default": "nonbinary bandana",
+    "plural": "nonbinary bandana",
+    "singular": "nonbinary bandana"
   }
 }

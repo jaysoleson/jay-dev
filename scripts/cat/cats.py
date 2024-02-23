@@ -115,6 +115,7 @@ class Cat():
     def __init__(self,
                  prefix=None,
                  gender=None,
+                 sexuality=None,
                  status="newborn",
                  backstory="clanborn",
                  parent1=None,
@@ -142,6 +143,7 @@ class Cat():
             self.mate = []
             self.status = status
             self.pronouns = [self.default_pronouns[0].copy()]
+            self.sexuality = sexuality
             self.moons = moons
             self.dead_for = 0
             self.dead = True
@@ -176,6 +178,7 @@ class Cat():
 
         # Public attributes
         self.gender = gender
+        self.sexuality = sexuality
         self.status = status
         self.backstory = backstory
         self.age = None
@@ -258,6 +261,9 @@ class Cat():
         else:
             self.ID = ID
 
+        if self.sexuality is None:
+            self.sexuality = "bi"
+            
         # age and status
         if status is None and moons is None:
             self.age = choice(self.ages)
@@ -301,6 +307,7 @@ class Cat():
             self.gender = choice(["female", "male"])
         self.g_tag = self.gender_tags[self.gender]
 
+
         # These things should only run when generating a new cat, rather than loading one in.
         if not loading_cat:
             # trans cat chances
@@ -322,6 +329,30 @@ class Cat():
                     self.genderalign = self.gender
             else:
                 self.genderalign = self.gender
+
+            # gay cat chances
+            gay_chance = randint(0,30)
+            aroace_chance = randint (0,4)
+            if self.gender == "female" and not self.status in ['newborn', 'kitten']:
+                if gay_chance == 1:
+                    self.sexuality = "lesbian"
+                elif aroace_chance == 1:
+                    self.sexuality = "aroace"
+            elif self.gender == "male" and not self.status in ['newborn', 'kitten']:
+                if gay_chance == 1:
+                    self.sexuality = "gay"
+                elif aroace_chance == 1:
+                    self.sexuality = "aroace"
+            elif self.gender == "nonbinary" and not self.status in ['newborn', 'kitten']:
+                if gay_chance == 1:
+                    self.sexuality = "andro"
+                elif gay_chance == 2:
+                    self.sexuality = "gyno"
+                elif aroace_chance == 1:
+                    self.sexuality = "aroace"
+                
+            else:
+                self.sexuality = self.sexuality
 
             # """if self.genderalign in ["female", "trans female"]:
             #     self.pronouns = [self.default_pronouns[1].copy()]
@@ -2142,6 +2173,7 @@ class Cat():
     def is_potential_mate(self,
                           other_cat: Cat,
                           for_love_interest: bool = False,
+                          sexuality_compatible: bool = True,
                           age_restriction: bool = True,
                           first_cousin_mates:bool = False,
                           ignore_no_mates:bool=False):
@@ -2169,6 +2201,15 @@ class Cat():
         if age_restriction:
             if (self.moons < 14 or other_cat.moons < 14) and not for_love_interest:
                 return False
+        
+        if self.sexuality in ("gay", "andro") and other_cat.genderalign in ("female", "trans female"):
+            sexuality_compatible = False
+        
+        if self.sexuality in ("lesbian", "gyno") and other_cat.genderalign in ("male", "trans male"):
+            sexuality_compatible = False
+
+        if sexuality_compatible == False:
+            return False
 
             # the +1 is necessary because both might not already aged up
             # if only one is aged up at this point, later they are more moons apart than the setting defined
@@ -3022,6 +3063,7 @@ class Cat():
                 "gender": self.gender,
                 "gender_align": self.genderalign,
                 #"pronouns": self.pronouns,
+                "sexuality": self.sexuality,
                 "birth_cooldown": self.birth_cooldown,
                 "status": self.status,
                 "backstory": self.backstory if self.backstory else None,

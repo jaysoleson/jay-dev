@@ -61,6 +61,7 @@ def json_load():
                         suffix=cat["name_suffix"],
                         specsuffix_hidden=(cat["specsuffix_hidden"] if 'specsuffix_hidden' in cat else False),
                         gender=cat["gender"],
+                        sexuality=cat["sexuality"],
                         status=cat["status"],
                         parent1=cat["parent1"],
                         parent2=cat["parent2"],
@@ -123,6 +124,7 @@ def json_load():
             new_cat.adoptive_parents = cat["adoptive_parents"] if "adoptive_parents" in cat else []
             
             new_cat.genderalign = cat["gender_align"]
+            new_cat.sexuality = cat["sexuality"]
             new_cat.backstory = cat["backstory"] if "backstory" in cat else None
             if new_cat.backstory in BACKSTORIES["conversion"]:
                 new_cat.backstory = BACKSTORIES["conversion"][new_cat.backstory]
@@ -302,6 +304,7 @@ def csv_load(all_cats):
                               pelt=the_pelt,
                               parent1=attr[6],
                               parent2=attr[7],
+                              sexuality=attr[8]
                             )
                 
                 
@@ -396,9 +399,11 @@ def csv_load(all_cats):
                     the_cat.exiled = bool(attr[39])
                 if len(attr) > 40:
                     the_cat.genderalign = attr[40]
+                if len(attr) > 41:
+                    the_cat.sexuality = attr[41]
                 if len(attr
-                       ) > 41 and attr[41] is not None:  # KEEP THIS AT THE END
-                    the_cat.former_apprentices = attr[41].split(';')
+                       ) > 42 and attr[42] is not None:  # KEEP THIS AT THE END
+                    the_cat.former_apprentices = attr[42].split(';')
         game.switches[
             'error_message'] = 'There was an error loading this clan\'s mentors, apprentices, relationships, or sprite info.'
         for inter_cat in all_cats.values():

@@ -61,6 +61,12 @@ class UIImageButton(pygame_gui.elements.UIButton):
                 changed = True
 
         return changed
+    
+
+class UIDropDownMenuWithID(pygame_gui.elements.UIDropDownMenu):
+    def __init__(self, options_list, starting_option, relative_rect, object_id=None, *args, **kwargs):
+        super().__init__(options_list, starting_option, relative_rect, *args, **kwargs)
+        self.object_id = object_id
 
 
 class UISpriteButton():

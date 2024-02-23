@@ -247,7 +247,13 @@
             {
                 "text": "You tell r_c to stop for a moment as you carefully lift the flowers. r_c looks confused, but lights up in a smile as you drop the flowers in front of them. They decide to wear the flowers on their pelt, and you feel all warm and fuzzy as you continue the patrol.",
                 "exp": 0,
-                "weight": 20
+                "weight": 20,
+                "accessory": [
+                    {
+                        "cats": ["r_c"],
+                        "accessory": ["BELLFLOWERS"]
+                    }
+                ]
             }
         ],
         "fail_outcomes": [
@@ -463,12 +469,12 @@
         "max_cats": 2,
         "min_max_status": {},
         "weight": 20,
-        "intro_text": "You need herbs for the medicine den, and decide to bring r_c with you. You appreciate them coming with you, the extra paws are a massive help! You notice how their fur sparkles beautifully with dew, looking almost like silverpelt had come alive on them. You consider telling them so.",
+        "intro_text": "You need herbs for the medicine den, and decide to bring r_c with you. You appreciate them coming with you-- the extra paws are a massive help! You notice how their fur sparkles beautifully with dew, looking almost like Silverpelt had come alive on them. You consider telling them so.",
         "decline_text": "Nope. They're here on business. They're just helping you get herbs. Don't get any weird ideas.",
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "r_c purred in amusement, telling you that you look very pretty yourself. You go the rest of your day holding your tail high in pride.",
+                "text": "r_c purrs in amusement, telling you that you look very pretty yourself. You go the rest of your day holding your tail high in pride.",
                 "exp": 0,
                 "weight": 20
             }
@@ -542,7 +548,7 @@
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "You can't help but see what they are thinking and agree, watching as r_c creeps through some tall grass before leaping out and scaring the twoleg kit. On the way back, you and r_c joke about what happened and have a great new joke.",
+                "text": "You can't help but see what they are thinking and agree, watching as r_c creeps through some tall grass before leaping out and scaring the twoleg kit. On the way back, you and r_c laugh about what happened and have a great new joke.",
                 "exp": 0,
                 "weight": 20
             }
@@ -581,7 +587,13 @@
             {
                 "text": "r_c runs alongside you with a happy yowl, the two of you running through the flowers and sending petals and grasshoppers flying everywhere. Eventually, you stop near the edge of the field, laughing happily and admiring the excited twinkle in r_c's eyes.",
                 "exp": 0,
-                "weight": 20
+                "weight": 20,
+                "accessory": [
+                    {
+                        "cats": ["r_c", "y_c"],
+                        "accessory": ["TULIPPETALS"]
+                    }
+                ]
             }
         ],
         "fail_outcomes": [
@@ -722,19 +734,25 @@
         "max_cats": 2,
         "min_max_status": {},
         "weight": 20,
-        "intro_text": "You were on a hunting patrol with r_c, and after catching mouthfuls of prey, you and r_c decided to take a break. You've noticed how pretty the maple leaves look, and wanted to give some to them. Was it a good choice, though?",
-        "decline_text": "You decided not to, and finish the break after a short while to resume hunting.",
+        "intro_text": "You're on a hunting patrol with r_c, and after catching mouthfuls of prey, you and r_c decide to take a break. You've noticed how pretty the maple leaves look, and wanted to give some to them. Is it a good choice, though?",
+        "decline_text": "You decide not to, and finish the break after a short while to resume hunting.",
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "You stood up and collected the prettiest of maple leaves, and after gathering a good load of them, you stepped over and showed r_c the leaves. They look joyous and gracefully receive the maple leaves from your paw, putting them on their ear.",
+                "text": "You stand up and collect the prettiest of the maple leaves, and after gathering a good load of them, you step over and show r_c the leaves. They look joyous and gracefully take the maple leaves from your paw, putting one on their ear.",
                 "exp": 0,
-                "weight": 20
+                "weight": 20,
+                "accessory": [
+                    {
+                        "cats": ["r_c"],
+                        "accessory": ["MAPLE LEAF"]
+                    }
+                ]
             }
         ],
         "fail_outcomes": [
             {
-                "text": "They saw you looking around for the leaves and asked what you were doing. You are unsure of what to reply, so you just say you were wandering around. They didn't ask you anything anymore, and you gave up, soon resuming the patrol.",
+                "text": "They see you looking around for the leaves and asked what you're doing. You are unsure of what to reply, so you just say you were wandering around. They don't ask you anything anymore, and you give up, soon resuming the patrol.",
                 "exp": 0,
                 "weight": 20
             }
@@ -759,19 +777,19 @@
         "max_cats": 2,
         "min_max_status": {},
         "weight": 20,
-        "intro_text": "You were told about the blue supermoon, and decided it will be a good opportunity to ask r_c out. You padded up to them, but hesitated. What if it doesn't go as planned?",
-        "decline_text": "You couldn't gather enough courage for this, so you stopped and turned away. Guess tonight you'll be enjoying it by yourself.",
+        "intro_text": "You were told about the blue supermoon, and decided it would be a good opportunity to ask r_c out. You pad up to them, but hesitate. What if it doesn't go as planned?",
+        "decline_text": "You can't gather enough courage for this, so you stop and turn away. You suppose that tonight you'll be enjoying the supermoon by yourself.",
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "They turned back, looking at you- and you successfully asked them without stuttering if they wanted to go see the blue supermoon tonight with you. They happily agreed, and when the time comes, you and them sit on top of a tall tree, gazing at the bright, massive, slightly blue-colored moon and the countless sparkly stars together. You felt extremely happy to hear r_c's soft purrs and see their face being lit up.",
+                "text": "They turn, looking at you, and you ask them if they want to go see the blue supermoon tonight with you. They happily agree, and when the time comes, you and them sit on top of a tall tree, gazing at the bright, massive, slightly blue-colored moon and the countless sparkly stars together. You feel extremely happy to hear r_c's soft purrs and see their face being lit up by the beautiful night.",
                 "exp": 20,
                 "weight": 20
             }
         ],
         "fail_outcomes": [
             {
-                "text": "They politely decline, saying that they had to go on a night patrol, and you weren't selected with them. Seems like tonight you two will be watching the moon from different parts of the territory... or it's only r_c that's watching.",
+                "text": "They politely decline, saying that they have to go on a night patrol, and you weren't selected with them. Seems like tonight you two will be viewing the moon from different parts of the territory... though r_c might be the only one who ends up watching.",
                 "exp": 0,
                 "weight": 20
             }
@@ -798,11 +816,11 @@
         "min_max_status": {},
         "weight": 20,
         "intro_text": "You and r_c go out in the Dark Forest, away from the spirits and trainees. r_c - who you've been practicing with and secretly admiring - enthusiastically offers to teach you some of their forbidden moves. Should you practice with them?",
-        "decline_text": "You feel as if this were a bit too risky. You nervously decline r_c's offer.",
+        "decline_text": "You feel as if this is a bit too risky. You nervously decline r_c's offer.",
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "You and r_c practice these forbidden moves together. You feel more confident and strong. Later, you and r_c later take a break in the muck, heavily breathing, lightly scratched, but your love and cooperation with r_c slowly growing.",
+                "text": "You and r_c practice these forbidden moves together. You feel more confident and strong. Later, you and r_c  take a break in the muck, heavily breathing and lightly scratched, but with your love and cooperation with r_c slowly growing.",
                 "exp": 20,
                 "weight": 20
             }
@@ -811,7 +829,13 @@
             {
                 "text": "You and r_c practice these forbidden moves together, but after a while, you think to yourself how dangerous this is, and ask r_c to take a break. As you lay in the muck, your eyes slowly close, and you wake up, bleeding from the wounds from training.",
                 "exp": 0,
-                "weight": 20
+                "weight": 20,
+                "injury": [
+                    {
+                        "cats": ["y_c"],
+                        "injury": ["scrapes"]
+                    }
+                ]
             }
         ]
     },
@@ -947,7 +971,7 @@
         "max_cats": 2,
         "min_max_status": {},
         "weight": 20,
-        "intro_text": "You are assigned one of the more tedious chores around camp. As you're preparing to start, an idea pops into your mind; You could ask r_c if they would want to help out! It would make the chore easier, and you'd get to spend time together!",
+        "intro_text": "You are assigned one of the more tedious chores around camp. As you're preparing to start, an idea pops into your mind; You could ask r_c if they would want to help out. It would make the chore easier, and you'd get to spend time together!",
         "decline_text": "You decide not to bother r_c, and instead dive into the chore on your own.",
         "chance_of_success": 50,
         "success_outcomes": [

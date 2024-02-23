@@ -27,6 +27,17 @@
                 "text": "You locate the mouse and begins to stalk. The mouse nibbles on a seed, unaware of the hunting cat. You waggle your haunches and leap, pinning the mouse beneath a paw as you make the killing bite.",
                 "exp": 10,
                 "weight": 20
+            },
+            {
+                "text": "You locate the mouse and begins to stalk. But, when you lay eyes on it, it looks up at you, not frightened. You think it's cute, and bring it back to camp on your shoulder while the Clan stares, confused.",
+                "exp": 10,
+                "weight": 5,
+                "accessory": [
+                    {
+                        "cats": ["y_c"],
+                        "accessory": ["GRAY MOUSE"]
+                    }
+                ]
             }
         ],
         "fail_outcomes": [

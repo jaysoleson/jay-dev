@@ -347,6 +347,8 @@ class ProfileScreen(Screens):
                                 self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_wild' + accessory + cat_sprite], manager=MANAGER)
                             elif accessory in cat.pelt.collars:
                                 self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['collars' + accessory + cat_sprite], manager=MANAGER)
+                            elif accessory in cat.pelt.pridebandanas:
+                                self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_pride' + accessory + cat_sprite], manager=MANAGER)
                             elif accessory in cat.pelt.flower_accessories:
                                 self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_flower' + accessory + cat_sprite], manager=MANAGER)
                             elif accessory in cat.pelt.plant2_accessories:
@@ -688,6 +690,8 @@ class ProfileScreen(Screens):
                                 self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_wild' + accessory + cat_sprite], manager=MANAGER)
                             elif accessory in cat.pelt.collars:
                                 self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['collars' + accessory + cat_sprite], manager=MANAGER)
+                            elif accessory in cat.pelt.pridebandanas:
+                                self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_pride' + accessory + cat_sprite], manager=MANAGER)
                             elif accessory in cat.pelt.flower_accessories:
                                 self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_flower' + accessory + cat_sprite], manager=MANAGER)
                             elif accessory in cat.pelt.plant2_accessories:
@@ -1164,6 +1168,29 @@ class ProfileScreen(Screens):
         # NEWLINE ----------
         output += "\n"
 
+        if the_cat.moons < 6:
+            output += "???"
+        else:
+            if the_cat.sexuality == "bi":
+                output += "bi"
+            elif the_cat.sexuality == "gay":
+                output += "gay"
+            elif the_cat.sexuality == "lesbian":
+                output += "lesbian"
+            elif the_cat.sexuality == "andro":
+                output += "andro"
+            elif the_cat.sexuality == "gyno":
+                output += "gyno"
+            elif the_cat.sexuality == "aroace":
+                output += "aroace"
+            else:
+                output += "straight"
+                print("Sexuality missing!")
+                #every cat is bi by default-- this shouldn't ever appear
+
+        # NEWLINE ----------
+        output += "\n"
+
         # AGE
         if the_cat.age == 'kitten':
             output += 'young'
@@ -1313,6 +1340,7 @@ class ProfileScreen(Screens):
 
         # NEWLINE ----------
         output += "\n"
+
 
         # LEADER LIVES:
         # Optional - Only shows up for leaders
@@ -2309,6 +2337,8 @@ class ProfileScreen(Screens):
                         self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_wild' + accessory + cat_sprite], manager=MANAGER)
                     elif accessory in cat.pelt.collars:
                         self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['collars' + accessory + cat_sprite], manager=MANAGER)
+                    elif accessory in cat.pelt.pridebandanas:
+                        self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_pride' + accessory + cat_sprite], manager=MANAGER)
                     elif accessory in cat.pelt.flower_accessories:
                         self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_flower' + accessory + cat_sprite], manager=MANAGER)
                     elif accessory in cat.pelt.plant2_accessories:

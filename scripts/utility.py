@@ -356,7 +356,7 @@ def create_new_cat(Cat,
             _gender = choice(['female', 'male'])
         else:
             _gender = gender
-    
+
         # other Clan cats, apps, and kittens (kittens and apps get indoctrinated lmao no old names for them)
         if other_clan or kit or litter or age < 12:
             new_cat = Cat(moons=age,
@@ -1561,6 +1561,8 @@ def generate_sprite(cat, life_state=None, scars_hidden=False, acc_hidden=False, 
                         new_sprite.blit(sprites.sprites['acc_wild' + i + cat_sprite], (0, 0))
                     elif i in cat.pelt.collars:
                         new_sprite.blit(sprites.sprites['collars' + i + cat_sprite], (0, 0))
+                    elif i in cat.pelt.pridebandanas:
+                        new_sprite.blit(sprites.sprites['acc_pride' + i + cat_sprite], (0, 0))
                     elif i in cat.pelt.flower_accessories:
                         new_sprite.blit(sprites.sprites['acc_flower' + i + cat_sprite], (0, 0))
                     elif i in cat.pelt.plant2_accessories:

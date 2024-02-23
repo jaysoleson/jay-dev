@@ -94,6 +94,10 @@ class Pelt():
         "REDHARNESS", "NAVYHARNESS", "YELLOWHARNESS", "TEALHARNESS", "ORANGEHARNESS", "GREENHARNESS","MOSSHARNESS", "RAINBOWHARNESS", "BLACKHARNESS", "BEEHARNESS", "CREAMHARNESS","PINKHARNESS", "MAGENTAHARNESS", "PEACHHARNESS", "VIOLETHARNESS"
     ]
 
+    pridebandanas = [
+        "TRANS", "ENBY"
+    ]
+
     # ohdan's accessories
     flower_accessories = ["DAISY", "DIANTHUS", "BLEEDING HEARTS", "FRANGIPANI", "BLUE GLORY",
                           "CATNIP FLOWER", "BLANKET FLOWER", "ALLIUM", "LACELEAF", "PURPLE GLORY",
@@ -725,7 +729,7 @@ class Pelt():
                 choice(Pelt.wild_accessories),
                 choice(Pelt.flower_accessories),
                 choice(Pelt.plant2_accessories),
-                choice(Pelt.snake_accessories),
+                choice(Pelt.snake_accessories), 
                 choice(Pelt.smallAnimal_accessories),
                 choice(Pelt.deadInsect_accessories),
                 choice(Pelt.aliveInsect_accessories),

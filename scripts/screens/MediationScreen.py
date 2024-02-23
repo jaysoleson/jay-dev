@@ -478,14 +478,21 @@ class MediationScreen(Screens):
             # ROMANTIC LOVE
             # CHECK AGE DIFFERENCE
             same_age = the_relationship.cat_to.age == cat.age
+
+            sexuality_compatible = (the_relationship.cat_to.sexuality in ("gay", "andro", "bi") and \
+                the_relationship.cat_from.genderalign in ("male", "trans male", "nonbinary")) or \
+                (the_relationship.cat_to.sexuality in ("lesbian", "gyno", "bi") and \
+                the_relationship.cat_from.genderalign in ("female", "trans female", "nonbinary"))
+            
             adult_ages = ['young adult', 'adult', 'senior adult', 'senior']
             both_adult = the_relationship.cat_to.age in adult_ages and cat.age in adult_ages
             check_age = both_adult or same_age
 
             # If they are not both adults, or the same age, OR they are related, don't display any romantic affection,
             # even if they somehow have some. They should not be able to get any, but it never hurts to check.
-            if not check_age or related:
+            if not check_age or related or not sexuality_compatible or the_relationship.cat_from.sexuality == "aroace":
                 display_romantic = 0
+                print ('Romance will not be affected-- Sexualities are incompatible.')
                 # Print, just for bug checking. Again, they should not be able to get love towards their relative.
                 if the_relationship.romantic_love and related:
                     print(str(cat.name) + " has " + str(the_relationship.romantic_love) + " romantic love "
