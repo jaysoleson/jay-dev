@@ -1213,6 +1213,7 @@ class Events:
                 ceremony_txt = ceremony_txt.replace("crush1", str(c.name))
                 game.cur_events_list.insert(1, Single_Event(ceremony_txt))
                 
+
     def check_retire(self):
         if 'retire' in game.switches:
             if game.switches['retire']:
@@ -3187,12 +3188,12 @@ class Events:
 
             involved_cats = [cat.ID]
             if cat.age == 'adolescent':
-                transing_chance = random.getrandbits(8)  # 2/256
+                transing_chance = random.getrandbits(4)  # 2/256
             elif cat.age == 'young adult':
-                transing_chance = random.getrandbits(9)  # 2/512
+                transing_chance = random.getrandbits(4)  # 2/512
             else:
                 # adult, senior adult, elder
-                transing_chance = random.getrandbits(10)  # 2/1028
+                transing_chance = random.getrandbits(4)  # 2/1028
 
             if transing_chance:
                 # transing_chance != 0, no trans kitties today...    L
@@ -3201,12 +3202,21 @@ class Events:
             if random.getrandbits(1):  # 50/50
                 if cat.gender == "male":
                     cat.genderalign = "trans female"
+                    if cat.sexuality == "straight":
+                        cat.sexuality = "lesbian"
+                    elif cat.sexuality == "gay":
+                        cat.sexuality = "straight"
                     # cat.pronouns = [cat.default_pronouns[1].copy()]
-                else:
+                elif cat.gender == "female":
                     cat.genderalign = "trans male"
+                    if cat.sexuality == "straight":
+                        cat.sexuality = "gay"
+                    elif cat.sexuality == "lesbian":
+                        cat.sexuality = "straight"
                     # cat.pronouns = [cat.default_pronouns[2].copy()]
-                acc = Pelt.pridebandanas[0]
-                cat.pelt.inventory.append(acc)
+                if cat.genderalign in ("trans female", "trans male"):
+                    cat.pelt.accessories.append(Pelt.pridebandanas[0])
+                    cat.pelt.inventory.append(Pelt.pridebandanas[0])
             else:
                 cat.genderalign = "nonbinary"
                 # cat.pronouns = [cat.default_pronouns[0].copy()]
@@ -3214,11 +3224,22 @@ class Events:
                     cat.sexuality = 'andro'
                 elif cat.sexuality == 'lesbian':
                     cat.sexuality = 'gyno'
-                acc = Pelt.pridebandanas[0]
-                acc2 = Pelt.pridebandanas[1]
-                cat.pelt.inventory.append(acc)
-                cat.pelt.inventory.append(acc2)
-
+                elif cat.sexuality == 'straight':
+                    if cat.gender == 'female':
+                        cat.sexuality = 'andro'
+                    elif cat.gender == 'male':
+                        cat.sexuality = 'gyno'
+                if cat.genderalign == "nonbinary":
+                    gq = randint(1,10)
+                    if gq == 1:
+                        cat.pelt.accessories.append(Pelt.pridebandanas2[0])
+                        cat.pelt.inventory.append(Pelt.pridebandanas2[0])
+                    elif gq == 2:
+                        cat.pelt.accessories.append(Pelt.pridebandanas2[1])
+                        cat.pelt.inventory.append(Pelt.pridebandanas2[1])
+                    else:
+                        cat.pelt.accessories.append(Pelt.pridebandanas[1])
+                        cat.pelt.inventory.append(Pelt.pridebandanas[1])
             if cat.gender == 'male':
                 gender = 'tom'
             else:
@@ -3232,15 +3253,47 @@ class Events:
         """turnin' the kitties gay..."""
         if cat.moons < 6:
             return
-        if cat.sexuality == "bi":
-            involved_cats = [cat.ID]
+        
+        involved_cats = [cat.ID]
+        if cat.sexuality == "straight":
             if cat.age == 'adolescent':
-                gay_chance = random.getrandbits(4)
+                bi_chance = random.getrandbits(4)
             elif cat.age == 'young adult':
-                gay_chance = random.getrandbits(4)
+                bi_chance = random.getrandbits(4)
             else:
                 # adult, senior adult, elder
-                gay_chance = random.getrandbits(4)
+                bi_chance = random.getrandbits(4)
+
+        if cat.sexuality in ('gay', 'lesbian'):
+            if cat.age == 'adolescent':
+                bi_chance = random.getrandbits(4)
+            elif cat.age == 'young adult':
+                bi_chance = random.getrandbits(4)
+            else:
+                # adult, senior adult, elder
+                bi_chance = random.getrandbits(4)
+
+            if bi_chance:
+                return
+            
+            if random.getrandbits(1):  # 50/50
+                cat.sexuality = "bi"
+                cat.pelt.accessories.append(Pelt.pridebandanas2[6])
+                cat.pelt.inventory.append(Pelt.pridebandanas2[6])
+
+                text = f"{cat.name} can't choose between liking toms and she-cats!"
+                game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
+
+
+
+        if cat.sexuality not in ("gay", "lesbian", "gyno", "andro"):
+            if cat.age == 'adolescent':
+                gay_chance = random.getrandbits(7)
+            elif cat.age == 'young adult':
+                gay_chance = random.getrandbits(9)
+            else:
+                # adult, senior adult, elder
+                gay_chance = random.getrandbits(8)
 
             if gay_chance:
                 return
@@ -3248,26 +3301,26 @@ class Events:
             if random.getrandbits(1):  # 50/50
                 if cat.genderalign == "male" or cat.genderalign == "trans male":
                     cat.sexuality = "gay"
-                    acc = Pelt.pridebandanas2[4]
-                    cat.pelt.inventory.append(acc)
+                    cat.pelt.accessories.append(Pelt.pridebandanas2[4])
+                    cat.pelt.inventory.append(Pelt.pridebandanas2[4])
 
                 elif cat.genderalign == "female" or cat.genderalign == "trans female":
                     cat.sexuality = "lesbian"
-                    acc = Pelt.pridebandanas2[5]
-                    cat.pelt.inventory.append(acc)
+                    cat.pelt.accessories.append(Pelt.pridebandanas2[5])
+                    cat.pelt.inventory.append(Pelt.pridebandanas2[5])
 
                 else:
                     cat.genderalign = "nonbinary"
                     sexuality = randint(1,2)
 
+                    cat.pelt.accessories.append(Pelt.pridebandanas2[3])
+                    cat.pelt.inventory.append(Pelt.pridebandanas2[3])
+
                     if sexuality == 1:
                         cat.sexuality = "andro"
-                        acc = Pelt.pridebandanas2[3]
-                        cat.pelt.inventory.append(acc)
+                        
                     else:
                         cat.sexuality = "gyno"
-                        acc = Pelt.pridebandanas2[3]
-                        cat.pelt.inventory.append(acc)
 
                 if cat.genderalign != "nonbinary":
                     if cat.genderalign == 'male':
@@ -3295,20 +3348,20 @@ class Events:
         if cat.moons > 6:
             involved_cats = [cat.ID]
             if cat.age == 'adolescent':
-                aroace_chance = random.getrandbits(3)
+                aroace_chance = random.getrandbits(9)
             elif cat.age == 'young adult':
-                aroace_chance = random.getrandbits(3)
+                aroace_chance = random.getrandbits(11)
             else:
                 # adult, senior adult, elder
-                aroace_chance = random.getrandbits(3)
+                aroace_chance = random.getrandbits(10)
 
             if aroace_chance:
                 return
 
             if random.getrandbits(1):  # 50/50
                 cat.sexuality = "aroace"
-                acc = Pelt.pridebandanas2[7]
-                cat.pelt.inventory.append(acc)
+                cat.pelt.accessories.append(Pelt.pridebandanas2[7])
+                cat.pelt.inventory.append(Pelt.pridebandanas2[7])
                 
                 text = f"{cat.name} doesn't seem very interested in romance."
                 game.cur_events_list.append(Single_Event(text, "misc", involved_cats))

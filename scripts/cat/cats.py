@@ -330,19 +330,25 @@ class Cat():
             else:
                 self.genderalign = self.gender
 
-            # gay cat chances
-            gay_chance = randint(0,30)
-            aroace_chance = randint (0,4)
+            # sexuality chances
+            # straight chance bc bi is default
+            gay_chance = randint(0,20)
+            aroace_chance = randint (0,40)
+            straight_chance = randint(0,1)
             if self.gender == "female" and not self.status in ['newborn', 'kitten']:
                 if gay_chance == 1:
                     self.sexuality = "lesbian"
                 elif aroace_chance == 1:
                     self.sexuality = "aroace"
+                elif straight_chance == 1:
+                    self.sexuality = "straight"
             elif self.gender == "male" and not self.status in ['newborn', 'kitten']:
                 if gay_chance == 1:
                     self.sexuality = "gay"
                 elif aroace_chance == 1:
                     self.sexuality = "aroace"
+                elif straight_chance == 1:
+                    self.sexuality = "straight"
             elif self.gender == "nonbinary" and not self.status in ['newborn', 'kitten']:
                 if gay_chance == 1:
                     self.sexuality = "andro"
@@ -350,6 +356,8 @@ class Cat():
                     self.sexuality = "gyno"
                 elif aroace_chance == 1:
                     self.sexuality = "aroace"
+                elif straight_chance == 1:
+                    self.sexuality = self.sexuality
                 
             else:
                 self.sexuality = self.sexuality
@@ -2202,13 +2210,31 @@ class Cat():
             if (self.moons < 14 or other_cat.moons < 14) and not for_love_interest:
                 return False
         
-        if self.sexuality in ("gay", "andro") and other_cat.genderalign in ("female", "trans female"):
-            sexuality_compatible = False
+       
         
-        if self.sexuality in ("lesbian", "gyno") and other_cat.genderalign in ("male", "trans male"):
-            sexuality_compatible = False
+        if self.sexuality in ("lesbian", "gyno"):
+            if other_cat.genderalign in ("male", "trans male"):
+                sexuality_compatible = False
+            else:
+                sexuality_compatible = True
+        
+        if self.sexuality in ("gay", "andro"):
+            if other_cat.genderalign in ("female", "trans female"):
+                sexuality_compatible = False
+            else:
+                sexuality_compatible = True
 
-        if sexuality_compatible == False:
+        if self.sexuality == "straight":
+            if self.genderalign in ("male", "trans male") and \
+                other_cat.genderalign in ("male", "trans male"):
+                sexuality_compatible = False
+            elif self.genderalign in ("female", "trans female") and \
+                other_cat.genderalign in ("female", "trans female"):
+                sexuality_compatible = False
+            else:
+                sexuality_compatible = True
+
+        if sexuality_compatible is False:
             return False
 
             # the +1 is necessary because both might not already aged up
@@ -2490,7 +2516,7 @@ class Cat():
                             admiration = randint(0, 20)
                             if randint(
                                     1, 100 - like
-                            ) == 1 and self.moons > 11 and the_cat.moons > 11:
+                            ) == 1 and self.moons > 11 and the_cat.moons > 11 and the_cat.is_potential_mate(self, the_cat):
                                 romantic_love = randint(15, 30)
                                 comfortable = int(comfortable * 1.3)
                                 trust = int(trust * 1.2)

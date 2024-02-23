@@ -1187,10 +1187,11 @@ class ProfileScreen(Screens):
                 output += "gyno"
             elif the_cat.sexuality == "aroace":
                 output += "aroace"
-            else:
+            elif the_cat.sexuality == "straight":
                 output += "straight"
+            else:
+                output += "error"
                 print("Sexuality missing!")
-                #every cat is bi by default-- this shouldn't ever appear
 
         # NEWLINE ----------
         output += "\n"
@@ -2321,9 +2322,9 @@ class ProfileScreen(Screens):
             if cat.pelt.accessory not in cat.pelt.inventory:
                 cat.pelt.inventory.append(cat.pelt.accessory)
 
-        for acc in cat.pelt.accessories:
-            if acc not in cat.pelt.inventory:
-                cat.pelt.inventory.append(acc)
+            for acc in cat.pelt.accessories:
+                if acc not in cat.pelt.inventory:
+                    cat.pelt.inventory.append(acc)
 
         self.max_pages = math.ceil(len(cat.pelt.inventory)/18)
         if self.max_pages == 1:

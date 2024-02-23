@@ -136,6 +136,7 @@ class MediationScreen(Screens):
 
         # Will be overwritten
         self.romantic_checkbox = None
+        
         self.romantic_checkbox_text = pygame_gui.elements.UILabel(scale(pygame.Rect((737, 650), (200, 40))),
                                                                   "Allow romantic",
                                                                   object_id=get_text_box_theme(
@@ -479,10 +480,7 @@ class MediationScreen(Screens):
             # CHECK AGE DIFFERENCE
             same_age = the_relationship.cat_to.age == cat.age
 
-            sexuality_compatible = (the_relationship.cat_to.sexuality in ("gay", "andro", "bi") and \
-                the_relationship.cat_from.genderalign in ("male", "trans male", "nonbinary")) or \
-                (the_relationship.cat_to.sexuality in ("lesbian", "gyno", "bi") and \
-                the_relationship.cat_from.genderalign in ("female", "trans female", "nonbinary"))
+            sexuality_compatible = the_relationship.cat_to.is_potential_mate(cat)
             
             adult_ages = ['young adult', 'adult', 'senior adult', 'senior']
             both_adult = the_relationship.cat_to.age in adult_ages and cat.age in adult_ages
@@ -681,6 +679,7 @@ class MediationScreen(Screens):
 
         if self.romantic_checkbox:
             self.romantic_checkbox.kill()
+        
 
         if self.allow_romantic:
             self.romantic_checkbox = UIImageButton(scale(pygame.Rect((642, 635), (68, 68))), "",
