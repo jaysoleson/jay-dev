@@ -5905,5 +5905,51 @@
                 "path":"resources/images/buttons/change_straight_button_unavailable.png"
             }
         }
+    },
+    "#change_gyno_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_gyno_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_gyno_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_gyno_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_gyno_button_unavailable.png"
+            }
+        }
+    },
+    "#change_andro_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_andro_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_andro_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_andro_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_andro_button_unavailable.png"
+            }
+        }
     }
 }

@@ -332,8 +332,8 @@ class Cat():
 
             # sexuality chances
             # straight chance bc bi is default
-            gay_chance = randint(0,20)
-            aroace_chance = randint (0,40)
+            gay_chance = randint(0,10)
+            aroace_chance = randint (0,30)
             straight_chance = randint(0,1)
             if self.gender == "female" and not self.status in ['newborn', 'kitten']:
                 if gay_chance == 1:

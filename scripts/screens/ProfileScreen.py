@@ -111,6 +111,7 @@ class ProfileScreen(Screens):
         self.show_moons = None
         self.no_moons = None
         self.help_button = None
+        self.label_info = None
         self.open_sub_tab = None
         self.editing_notes = False
         self.user_notes = None
@@ -485,16 +486,19 @@ class ProfileScreen(Screens):
                 elif self.the_cat.sexuality == "bi":
                     if self.the_cat.genderalign in ["female", "trans female"]:
                         self.the_cat.sexuality = "lesbian"
-                    if self.the_cat.genderalign in ["male", "trans male"]:
+                    elif self.the_cat.genderalign in ["male", "trans male"]:
                         self.the_cat.sexuality = "gay"
-                    if self.the_cat.genderalign == "nonbinary" and self.the_cat.gender == "female":
-                        self.the_cat.sexuality = "lesbian"
-                    if self.the_cat.genderalign == "nonbinary" and self.the_cat.gender == "male":
-                        self.the_cat.sexuality = "gay"
-                elif self.the_cat.sexuality in ["lesbian", "gay"]:
+                    elif self.the_cat.genderalign == "nonbinary":
+                        self.the_cat.sexuality = "gyno"
+                elif self.the_cat.sexuality == "gyno":
+                        self.the_cat.sexuality = "andro"
+                elif self.the_cat.sexuality in ["lesbian", "gay", "andro"]:
                     self.the_cat.sexuality = "aroace"
                 elif self.the_cat.sexuality == "aroace":
-                    self.the_cat.sexuality = "straight"
+                    if self.the_cat.genderalign == "nonbinary":
+                        self.the_cat.sexuality = "bi"
+                    else:
+                        self.the_cat.sexuality = "straight"
                 self.clear_profile()
                 self.build_profile()
                 self.update_disabled_buttons_and_text()
@@ -503,20 +507,70 @@ class ProfileScreen(Screens):
                 #if the cat is anything besides m/f/transm/transf then turn them back to cis
                 if self.the_cat.genderalign not in ["female", "trans female", "male", "trans male"]:
                     self.the_cat.genderalign = self.the_cat.gender
+
+                #change sexuality to right label when gender changes
+                    
+                    if self.the_cat.gender == 'male' and self.the_cat.sexuality == 'gyno':
+                        self.the_cat.sexuality = 'straight'
+                    elif self.the_cat.gender == 'male' and self.the_cat.sexuality == 'andro':
+                        self.the_cat.sexuality = 'gay'
+                    elif self.the_cat.gender == 'female' and self.the_cat.sexuality == 'gyno':
+                        self.the_cat.sexuality = 'lesbian'
+                    elif self.the_cat.gender == 'female' and self.the_cat.sexuality == 'andro':
+                        self.the_cat.sexuality = 'straight'
+
                 elif self.the_cat.gender == "male" and self.the_cat.genderalign == 'female':
                     self.the_cat.genderalign = self.the_cat.gender
+                    if self.the_cat.sexuality == 'straight':
+                        self.the_cat.sexuality = 'gay'
+                    elif self.the_cat.sexuality == 'lesbian':
+                        self.the_cat.sexuality = 'straight'
+
                 elif self.the_cat.gender == "female" and self.the_cat.genderalign == 'male':
                     self.the_cat.genderalign = self.the_cat.gender
+                    if self.the_cat.sexuality == 'straight':
+                        self.the_cat.sexuality = 'lesbian'
+                    elif self.the_cat.sexuality == 'gay':
+                        self.the_cat.sexuality = 'straight'
+
+
                 #if the cat is cis (gender & gender align are the same) then set them to trans
                 #cis males -> trans female first
                 elif self.the_cat.gender == "male" and self.the_cat.genderalign == 'male':
                     self.the_cat.genderalign = 'trans female'
+
+                    if self.the_cat.sexuality == 'straight':
+                            self.the_cat.sexuality = 'lesbian'
+                    elif self.the_cat.sexuality == 'gay':
+                        self.the_cat.sexuality = 'straight'
+
                 #cis females -> trans male
                 elif self.the_cat.gender == "female" and self.the_cat.genderalign == 'female':
                     self.the_cat.genderalign = 'trans male'
+
+                    if self.the_cat.sexuality == 'straight':
+                            self.the_cat.sexuality = 'gay'
+                    elif self.the_cat.sexuality == 'lesbian':
+                        self.the_cat.sexuality = 'straight'
+
                 #if the cat is trans then set them to nonbinary
-                elif self.the_cat.genderalign in ["trans female", "trans male"]:
+                elif self.the_cat.genderalign in ["trans female"]:
                     self.the_cat.genderalign = 'nonbinary'
+
+                    if self.the_cat.sexuality == 'straight':
+                            self.the_cat.sexuality = 'andro'
+                    elif self.the_cat.sexuality == 'lesbian':
+                        self.the_cat.sexuality = 'gyno'
+                
+                elif self.the_cat.genderalign in ["trans male"]:
+                    self.the_cat.genderalign = 'nonbinary'
+
+                    if self.the_cat.sexuality == 'straight':
+                            self.the_cat.sexuality = 'gyno'
+                    elif self.the_cat.sexuality == 'gay':
+                        self.the_cat.sexuality = 'andro'
+
+
                 '''#pronoun handler
                 if self.the_cat.genderalign in ["female", "trans female"]:
                     self.the_cat.pronouns = [self.the_cat.default_pronouns[1].copy()]
@@ -1196,7 +1250,7 @@ class ProfileScreen(Screens):
             output += "???"
         else:
             if the_cat.sexuality == "bi":
-                output += "bi"
+                output += "bi/pan"
             elif the_cat.sexuality == "gay":
                 output += "gay"
             elif the_cat.sexuality == "lesbian":
@@ -2482,6 +2536,7 @@ class ProfileScreen(Screens):
             #   This it due to the image switch depending on the cat's status, and the location switch the close button
             #    If you can think of a better way to do this, please fix! 
             self.change_sexuality_button = None
+            self.label_info = None
             self.cis_trans_button = None
             self.update_disabled_buttons_and_text()
 
@@ -2588,6 +2643,8 @@ class ProfileScreen(Screens):
 
             if self.change_sexuality_button:
                 self.change_sexuality_button.kill()
+            if self.label_info:
+                self.label_info.kill()
             if self.the_cat.sexuality == "straight":
                 self.change_sexuality_button = UIImageButton(scale(pygame.Rect((804, 767), (344, 62))), "",
                                                       starting_height=2, object_id="#change_bi_button",
@@ -2603,16 +2660,45 @@ class ProfileScreen(Screens):
                     self.change_sexuality_button = UIImageButton(scale(pygame.Rect((804, 767), (344, 62))), "",
                                                       starting_height=2, object_id="#change_lesbian_button",
                                                       manager=MANAGER)
-                   
-            elif self.the_cat.sexuality in ('gay', 'lesbian'):
-                self.change_sexuality_button = UIImageButton(scale(pygame.Rect((804, 767), (344, 62))), "",
-                                                      starting_height=2, object_id="#change_aroace_button",
+                    
+                elif self.the_cat.genderalign == "nonbinary" and self.the_cat.sexuality == "bi":
+                    self.change_sexuality_button = UIImageButton(scale(pygame.Rect((804, 767), (344, 62))), "",
+                                                      starting_height=2, object_id="#change_gyno_button",
                                                       manager=MANAGER)
+                    
+                    self.label_info = UIImageButton(scale(pygame.Rect(
+                        (1150, 767), (62, 62))),
+                        "",
+                        starting_height=2, object_id="#help_button", manager=MANAGER,
+                        tool_tip_text="Gynosexual cats will only be attracted to she-cats and enbies.")
+                    
+            elif self.the_cat.sexuality == 'gyno':
+                self.change_sexuality_button = UIImageButton(scale(pygame.Rect((804, 767), (344, 62))), "",
+                                                starting_height=2, object_id="#change_andro_button",
+                                                manager=MANAGER)
+                self.label_info = UIImageButton(scale(pygame.Rect((1150, 767), (62, 62))),"", 
+                                                starting_height=2, object_id="#help_button", manager=MANAGER,
+                                                tool_tip_text="Andro cats will only be attracted to toms and enbies.")
+                   
+            elif self.the_cat.sexuality in ('gay', 'lesbian', 'andro'):
+                
+                self.change_sexuality_button = UIImageButton(scale(pygame.Rect((804, 767), (344, 62))), "",
+                                                starting_height=2, object_id="#change_aroace_button",
+                                                manager=MANAGER)
+                
+                self.label_info = UIImageButton(scale(pygame.Rect((1150, 767), (62, 62))),"", 
+                                                starting_height=2, object_id="#help_button", manager=MANAGER,
+                                                tool_tip_text="Aroace cats will not feel romantic attraction.")
           
             elif self.the_cat.sexuality == "aroace":
-                self.change_sexuality_button = UIImageButton(scale(pygame.Rect((804, 767), (344, 62))), "",
-                                                      starting_height=2, object_id="#change_straight_button",
-                                                      manager=MANAGER)
+                if self.the_cat.genderalign != "nonbinary":
+                    self.change_sexuality_button = UIImageButton(scale(pygame.Rect((804, 767), (344, 62))), "",
+                                                starting_height=2, object_id="#change_straight_button",
+                                                manager=MANAGER)
+                else:
+                    self.change_sexuality_button = UIImageButton(scale(pygame.Rect((804, 767), (344, 62))), "",
+                                                starting_height=2, object_id="#change_bi_button",
+                                                manager=MANAGER)
              
 
             # Button to trans or cis the cats.
@@ -2899,6 +2985,8 @@ class ProfileScreen(Screens):
         elif self.open_tab == 'personal':
             if self.change_sexuality_button:
                 self.change_sexuality_button.kill()
+            if self.label_info:
+                self.label_info.kill()
             self.change_name_button.kill()
             self.cat_toggles_button.kill()
             if self.specify_gender_button:

@@ -56,7 +56,14 @@ def json_load():
     for i, cat in enumerate(cat_data):
         try:
             if "sexuality" not in cat:
-                cat["sexuality"] = "bi"
+                if cat["gender_align"] == 'male':
+                    cat["sexuality"] = choice(['bi', 'straight', 'bi', 'straight', 'aroace', 'gay'])
+                elif cat["gender_align"] == 'female':
+                    cat["sexuality"] = choice(['bi', 'straight', 'bi', 'straight', 'aroace', 'lesbian'])
+                elif cat["gender_align"] == "nonbinary":
+                    cat["sexuality"] = choice(['bi', 'bi', 'andro', 'aroace', 'gyno'])
+                else:
+                    cat["sexuality"] = choice(['bi', 'bi', 'bi', 'aroace'])
             
             new_cat = Cat(ID=cat["ID"],
                         prefix=cat["name_prefix"],

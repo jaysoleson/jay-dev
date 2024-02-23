@@ -361,11 +361,12 @@ def create_new_cat(Cat,
 
         if not sexuality:
 
-            chance = randint(1,2)
-            if chance == 1:
-                _sexuality = "straight"
+            if _gender == "female":
+                _sexuality = choice(['lesbian', 'bi', 'straight', 'aroace'])
+            elif gender == 'male':
+                _sexuality = choice(['gay', 'bi', 'straight', 'aroace'])
             else:
-                _sexuality = "bi"
+                _sexuality = choice(['gyno', 'bi', 'andro', 'aroace'])
         else:
             _sexuality = sexuality
 

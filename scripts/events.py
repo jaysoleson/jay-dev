@@ -3249,22 +3249,31 @@ class Events:
                 # adult, senior adult, elder
                 bi_chance = random.getrandbits(9)
 
-        if cat.sexuality in ('gay', 'lesbian', 'andro', 'gyno'):
+        if cat.sexuality in ('gay', 'lesbian', 'andro', 'gyno', 'straight'):
             if cat.age == 'adolescent':
-                bi_chance = random.getrandbits(8)
+                bi_chance = random.getrandbits(3)
             elif cat.age == 'young adult':
-                bi_chance = random.getrandbits(7)
+                bi_chance = random.getrandbits(3)
             else:
                 # adult, senior adult, elder
-                bi_chance = random.getrandbits(9)
+                bi_chance = random.getrandbits(3)
 
             if bi_chance:
                 return
             
             if random.getrandbits(1):  # 50/50
                 cat.sexuality = "bi"
-                cat.pelt.accessories.append(Pelt.pridebandanas2[6])
+
+                flag = randint (1,2)
+
+                if flag == 1:
+                    cat.pelt.accessories.append(Pelt.pridebandanas2[6])
+                else:
+                    cat.pelt.accessories.append(Pelt.pridebandanas2[8])
+                
                 cat.pelt.inventory.append(Pelt.pridebandanas2[6])
+
+                cat.pelt.inventory.append(Pelt.pridebandanas2[8])
 
                 text = f"{cat.name} can't choose between liking toms and she-cats!"
                 game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
