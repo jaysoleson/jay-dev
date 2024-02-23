@@ -94,8 +94,14 @@ class Pelt():
         "REDHARNESS", "NAVYHARNESS", "YELLOWHARNESS", "TEALHARNESS", "ORANGEHARNESS", "GREENHARNESS","MOSSHARNESS", "RAINBOWHARNESS", "BLACKHARNESS", "BEEHARNESS", "CREAMHARNESS","PINKHARNESS", "MAGENTAHARNESS", "PEACHHARNESS", "VIOLETHARNESS"
     ]
 
+    # pride by illadvisedart
+
     pridebandanas = [
         "TRANS", "ENBY"
+    ]
+
+    pridebandanas2 = [
+        "GENDERFLUID", "AMBIGUOUS", "INTERSEX", "RAINBOWBANDANA", "GAY", "LESBIAN", "BI", "AROACE", "PAN", "POLYAM"
     ]
 
     # ohdan's accessories

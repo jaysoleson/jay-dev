@@ -1442,7 +1442,57 @@
   },
   "ENBY": {
     "default": "nonbinary bandana",
-    "plural": "nonbinary bandana",
+    "plural": "nonbinary bandanas",
     "singular": "nonbinary bandana"
+  },
+  "GENDERFLUID": {
+    "default": "genderfluid bandana",
+    "plural": "genderfluid bandanas",
+    "singular": "genderfluid bandana"
+  },
+  "AMBIGUOUS": {
+    "default": "ambiguous bandana",
+    "plural": "ambiguous bandanas",
+    "singular": "ambiguous bandana"
+  },
+  "INTERSEX": {
+    "default": "intersex bandana",
+    "plural": "intersex bandanas",
+    "singular": "intersex bandana"
+  },
+  "RAINBOWBANDANA": {
+    "default": "rainbow bandana",
+    "plural": "rainbow bandanas",
+    "singular": "rainbow bandana"
+  },
+  "GAY": {
+    "default": "gay bandana",
+    "plural": "gay bandanas",
+    "singular": "gay bandana"
+  },
+  "LESBIAN": {
+    "default": "lesbian bandana",
+    "plural": "lesbian bandanas",
+    "singular": "lesbian bandana"
+  },
+  "BI": {
+    "default": "bi bandana",
+    "plural": "bi bandanas",
+    "singular": "bi bandana"
+  },
+  "AROACE": {
+    "default": "aroace bandana",
+    "plural": "aroace bandanas",
+    "singular": "aroace bandana"
+  },
+  "PAN": {
+    "default": "pan bandana",
+    "plural": "pan bandanas",
+    "singular": "pan bandana"
+  },
+  "POLYAM": {
+    "default": "polyam bandana",
+    "plural": "polyam bandanas",
+    "singular": "polyam bandana"
   }
 }

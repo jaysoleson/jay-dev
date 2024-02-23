@@ -1563,6 +1563,8 @@ def generate_sprite(cat, life_state=None, scars_hidden=False, acc_hidden=False, 
                         new_sprite.blit(sprites.sprites['collars' + i + cat_sprite], (0, 0))
                     elif i in cat.pelt.pridebandanas:
                         new_sprite.blit(sprites.sprites['acc_pride' + i + cat_sprite], (0, 0))
+                    elif i in cat.pelt.pridebandanas2:
+                        new_sprite.blit(sprites.sprites['acc_pride2' + i + cat_sprite], (0, 0))
                     elif i in cat.pelt.flower_accessories:
                         new_sprite.blit(sprites.sprites['acc_flower' + i + cat_sprite], (0, 0))
                     elif i in cat.pelt.plant2_accessories:

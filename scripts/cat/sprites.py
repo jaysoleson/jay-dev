@@ -153,7 +153,11 @@ class Sprites():
 
             "chimes",
 
-            "pridebandanas"
+            #pride by illadvisedart
+
+            "pridebandanas",
+
+            "pridebandanas2"
 
         ]:
             if 'lineart' in x and game.config['fun']['april_fools']:
@@ -533,10 +537,20 @@ class Sprites():
             "YELLOWCROWN", "REDCROWN", "LILYPADCROWN"]):
             self.make_group('crowns', (a, 0), f'acc_wild{i}')
 
+    #pride by illadvisedart ---------
+
         for a, i in enumerate([
             "TRANS", "ENBY"]):
             self.make_group('pridebandanas', (a, 0), f'acc_pride{i}')
 
+        for a, i in enumerate([
+            "GENDERFLUID", "AMBIGUOUS", "INTERSEX", "RAINBOWBANDANA", "GAY", "LESBIAN"]):
+            self.make_group('pridebandanas2', (a, 0), f'acc_pride2{i}')
+        for a, i in enumerate([
+            "BI", "AROACE", "PAN", "POLYAM"]):
+            self.make_group('pridebandanas2', (a, 1), f'acc_pride2{i}')
+        
+    # --------------------------------
         for a, i in enumerate([
             "WOODDRAGON"]):
             self.make_group('wooddragon', (a, 0), f'acc_wild{i}')
