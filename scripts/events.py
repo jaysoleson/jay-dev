@@ -3534,18 +3534,18 @@ class Events:
 
         if cat.sexuality in ('bi', 'straight'):
             if cat.age == 'adolescent':
-                gay_chance = random.getrandbits(8)
+                gay_chance = random.getrandbits(3)
             elif cat.age == 'young adult':
-                gay_chance = random.getrandbits(7)
+                gay_chance = random.getrandbits(3)
             else:
                 # adult, senior adult, elder
-                gay_chance = random.getrandbits(9)
+                gay_chance = random.getrandbits(3)
 
             if gay_chance:
                 return
 
             if random.getrandbits(1):  # 50/50
-                if cat.genderalign == "male" or cat.genderalign == "trans male":
+                if cat.genderalign in ["male", "trans male", "demiboy"]:
                     cat.sexuality = "gay"
                     flag = randint (1,4)
                     if flag == 1:
@@ -3555,14 +3555,7 @@ class Events:
                         cat.pelt.accessories.append(Pelt.pridebandanas2[4])
                         cat.pelt.inventory.append(Pelt.pridebandanas2[4])
 
-                    if len(cat.mate) > 0:
-                        for mate_id in cat.mate:
-                            if (Cat.all_cats.get(mate_id)).genderalign in ('female', 'trans female'):
-                                if Cat.all_cats.get(mate_id):
-                                    cat.unset_mate(Cat.all_cats.get(mate_id))
-                                    text = f"Since {cat.name} has realised that they don't care for she-cats, {cat.name} and {cat.mate} have broken up, but they are still great friends."
-
-                elif cat.genderalign == "female" or cat.genderalign == "trans female":
+                elif cat.genderalign in ["female", "trans female", "demigirl"]:
                     cat.sexuality = "lesbian"
                     flag = randint (1,10)
                     if flag == 1:
@@ -3572,13 +3565,6 @@ class Events:
                         cat.pelt.accessories.append(Pelt.pridebandanas2[5])
                         cat.pelt.inventory.append(Pelt.pridebandanas2[5])
 
-                    if len(cat.mate) > 0:
-                        for mate_id in cat.mate:
-                            if (Cat.all_cats.get(mate_id)).genderalign in ('male', 'trans male'):
-                                if Cat.all_cats.get(mate_id):
-                                    cat.unset_mate(Cat.all_cats.get(mate_id))
-                                    text = f"Since {cat.name} has realised that they don't care for toms, {cat.name} and {cat.mate} have broken up, but they are still great friends."
-
                 else:
                     cat.genderalign = "nonbinary"
                     sexuality = randint(1,2)
@@ -3586,22 +3572,23 @@ class Events:
                     cat.pelt.accessories.append(Pelt.pridebandanas2[3])
                     cat.pelt.inventory.append(Pelt.pridebandanas2[3])
 
-                    if sexuality == 1:
-                        cat.sexuality = "andro"
-                        if len(cat.mate) > 0:
-                            for mate_id in cat.mate:
-                                if (Cat.all_cats.get(mate_id)).genderalign in ('female', 'trans female'):
-                                    if Cat.all_cats.get(mate_id):
-                                        cat.unset_mate(Cat.all_cats.get(mate_id))
-                                        text = f"Since {cat.name} has realised that they don't care for she-cats, {cat.name} and {cat.mate} have broken up, but they are still great friends."
-                    else:
-                        cat.sexuality = "gyno"
-                        if len(cat.mate) > 0:
-                            for mate_id in cat.mate:
-                                if (Cat.all_cats.get(mate_id)).genderalign in ('male', 'trans male'):
-                                    if Cat.all_cats.get(mate_id):
-                                        cat.unset_mate(Cat.all_cats.get(mate_id))
-                                        text = f"Since {cat.name} has realised that they don't care for toms, {cat.name} and {cat.mate} have broken up, but they are still great friends."
+
+            # remove mate event if no longer compatible
+                if len(cat.mate) > 0:
+                    for mate_id in cat.mate:
+                        if Cat.all_cats.get(mate_id):
+                            cat.unset_mate(Cat.all_cats.get(mate_id))
+                            if Cat.all_cats.get(mate_id).genderalign in ["male", "trans male", "demiboy"] and \
+                                cat.sexuality in ["lesbian", "gyno"]:
+                                gender = "tom"
+                            elif Cat.all_cats.get(mate_id).genderalign in ["female", "trans female", "demigirl"] and \
+                                cat.sexuality in ["gay", "andro"]:
+                                gender = "she-cat"
+                            else:
+                                return
+                    text = f"Since {cat.name} has realised that they don't care for {gender}s, {cat.name} and {Cat.all_cats.get(mate_id).name} have broken up, but they are still great friends."
+                    game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
+
 
                 if cat.genderalign != "nonbinary":
                     if cat.genderalign == 'male':

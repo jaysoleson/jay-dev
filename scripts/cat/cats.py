@@ -2217,24 +2217,24 @@ class Cat():
         if other_cat.sexuality == "aroace":
             sexuality_compatible = False
 
-        if self.sexuality in ("lesbian", "gyno"):
-            if other_cat.genderalign in ("male", "trans male"):
+        if self.sexuality in ["lesbian", "gyno"]:
+            if other_cat.genderalign in ["male", "trans male", "demiboy"]:
                 sexuality_compatible = False
             else:
                 sexuality_compatible = True
         
-        if self.sexuality in ("gay", "andro"):
-            if other_cat.genderalign in ("female", "trans female"):
+        if self.sexuality in ["gay", "andro"]:
+            if other_cat.genderalign in ["female", "trans female", "demigirl"]:
                 sexuality_compatible = False
             else:
                 sexuality_compatible = True
 
         if self.sexuality == "straight":
-            if self.genderalign in ("male", "trans male") and \
-                other_cat.genderalign in ("male", "trans male"):
+            if self.genderalign in ["male", "trans male", "demiboy"] and \
+                other_cat.genderalign in ["male", "trans male", "demiboy"]:
                 sexuality_compatible = False
-            elif self.genderalign in ("female", "trans female") and \
-                other_cat.genderalign in ("female", "trans female"):
+            elif self.genderalign in ["female", "trans female", "demigirl"] and \
+                other_cat.genderalign in ["female", "trans female", "demigirl"]:
                 sexuality_compatible = False
             else:
                 sexuality_compatible = True

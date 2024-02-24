@@ -1123,28 +1123,40 @@ class ProfileScreen(Screens):
                     self.profile_elements["insult"].enable()
                     
             if self.the_cat.is_dateable(game.clan.your_cat):
-                if self.the_cat.status not in ['leader', 'mediator', 'mediator apprentice', "queen", "queen's apprentice"]:
-                    self.profile_elements["flirt"] = UIImageButton(scale(pygame.Rect(
-                        (646, 220), (68, 68))),
-                        "",
-                        object_id="#flirt_button",
-                        tool_tip_text="Flirt with this Cat", manager=MANAGER
-                    )
-                    if self.the_cat.flirted:
-                        self.profile_elements["flirt"].disable()
-                    else:
-                        self.profile_elements["flirt"].enable()
-                elif self.the_cat.status in ['leader', 'mediator', 'mediator apprentice', "queen", "queen's apprentice"]:
-                    self.profile_elements["flirt"] = UIImageButton(scale(pygame.Rect(
-                        (910, 220), (68, 68))),
-                        "",
-                        object_id="#flirt_button",
-                        tool_tip_text="Flirt with this Cat", manager=MANAGER
-                    )
-                    if self.the_cat.flirted:
-                        self.profile_elements["flirt"].disable()
-                    else:
-                        self.profile_elements["flirt"].enable()
+
+
+                if (game.clan.your_cat.sexuality in ["gay", "andro"] and\
+                    self.the_cat.genderalign not in ["female", "trans female", "demigirl"]) or\
+                (game.clan.your_cat.sexuality in ["lesbian", "gyno"] and\
+                    self.the_cat.genderalign not in ["male", "trans male", "demiboy"]) or\
+                (game.clan.your_cat.sexuality == "bi" and game.clan.your_cat.genderalign in ["male", "trans male", "demiboy"] and\
+                    self.the_cat.sexuality not in ["female", "trans female", "demigirl"]) or\
+                (game.clan.your_cat.sexuality == "bi" and game.clan.your_cat.genderalign in ["female", "trans female", "demigirl"] and\
+                    self.the_cat.sexuality not in ["male", "trans male", "demiboy"]):
+
+
+                    if self.the_cat.status not in ['leader', 'mediator', 'mediator apprentice', "queen", "queen's apprentice"]:
+                        self.profile_elements["flirt"] = UIImageButton(scale(pygame.Rect(
+                            (646, 220), (68, 68))),
+                            "",
+                            object_id="#flirt_button",
+                            tool_tip_text="Flirt with this Cat", manager=MANAGER
+                        )
+                        if self.the_cat.flirted:
+                            self.profile_elements["flirt"].disable()
+                        else:
+                            self.profile_elements["flirt"].enable()
+                    elif self.the_cat.status in ['leader', 'mediator', 'mediator apprentice', "queen", "queen's apprentice"]:
+                        self.profile_elements["flirt"] = UIImageButton(scale(pygame.Rect(
+                            (910, 220), (68, 68))),
+                            "",
+                            object_id="#flirt_button",
+                            tool_tip_text="Flirt with this Cat", manager=MANAGER
+                        )
+                        if self.the_cat.flirted:
+                            self.profile_elements["flirt"].disable()
+                        else:
+                            self.profile_elements["flirt"].enable()
         
         if self.the_cat.ID == game.clan.your_cat.ID and not game.clan.your_cat.dead and not game.clan.your_cat.outside:
             self.placeholder_tab_3.kill()
