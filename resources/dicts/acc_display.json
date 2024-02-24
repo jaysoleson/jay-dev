@@ -1494,5 +1494,55 @@
     "default": "polyam bandana",
     "plural": "polyam bandanas",
     "singular": "polyam bandana"
+  },
+  "DEMI": {
+    "default": "demisexual bandana",
+    "plural": "demisexual bandanas",
+    "singular": "demisexual bandana"
+  },
+  "GRAYACE": {
+    "default": "grey ace bandana",
+    "plural": "grey ace bandanas",
+    "singular": "grey ace bandana"
+  },
+  "ACE": {
+    "default": "ace bandana",
+    "plural": "ace bandanas",
+    "singular": "ace bandana"
+  },
+  "ARO": {
+    "default": "aro bandana",
+    "plural": "aro bandanas",
+    "singular": "aro bandana"
+  },
+  "URANIC": {
+    "default": "uranic bandana",
+    "plural": "uranic bandanas",
+    "singular": "uranic bandana"
+  },
+  "NEBULAROMANTIC": {
+    "default": "nebula bandana",
+    "plural": "nebula bandanas",
+    "singular": "nebula bandana"
+  },
+  "CATGENDER": {
+    "default": "catgender bandana",
+    "plural": "catgender bandanas",
+    "singular": "catgender bandana"
+  },
+  "GENDERDOE": {
+    "default": "genderdoe bandana",
+    "plural": "genderdoe bandanas",
+    "singular": "genderdoe bandana"
+  },
+  "OMNISAPPHIC": {
+    "default": "omni-sapphic bandana",
+    "plural": "omni-sapphic bandanas",
+    "singular": "omni-sapphic bandana"
+  },
+  "MOTHGENDER": {
+    "default": "mothgender bandana",
+    "plural": "mothgender bandanas",
+    "singular": "mothgender bandana"
   }
 }

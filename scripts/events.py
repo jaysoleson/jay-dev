@@ -2108,6 +2108,7 @@ class Events:
                 return
         self.change_sexuality(cat)
         self.make_aroace(cat)
+        self.make_acespec(cat)
 
 
         self.coming_out(cat)
@@ -3520,12 +3521,11 @@ class Events:
 
                 if flag == 1:
                     cat.pelt.accessories.append(Pelt.pridebandanas2[6])
+                    cat.pelt.inventory.append(Pelt.pridebandanas2[6])
                 else:
                     cat.pelt.accessories.append(Pelt.pridebandanas2[8])
-                
-                cat.pelt.inventory.append(Pelt.pridebandanas2[6])
+                    cat.pelt.inventory.append(Pelt.pridebandanas2[8])
 
-                cat.pelt.inventory.append(Pelt.pridebandanas2[8])
 
                 text = f"{cat.name} can't choose between liking toms and she-cats!"
                 game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
@@ -3664,35 +3664,46 @@ class Events:
                             text = f"Since {cat.name} has realised that they don't care for romance, {cat.name} and {cat.mate} have broken up, but they are still great friends."
 
     def make_acespec(self, cat):
-         """ random chance for cats to discover theyre acespec (demi, ace, grey)"""
-         """ This does not change any sexuality, just gives bandanas! demi, ace and greyace cats can still have mates/romance"""
-         if cat.moons > 6:
-            involved_cats = [cat.ID]
-            
-            if cat.age == 'adolescent':
-                aroace_chance = random.getrandbits(9)
-            elif cat.age == 'young adult':
-                aroace_chance = random.getrandbits(11)
-            else:
-                # adult, senior adult, elder
-                aroace_chance = random.getrandbits(10)
+        """ random chance for cats to discover theyre acespec (demi, ace, grey)
+        This does not change any sexuality, just gives bandanas! demi, ace and greyace cats can still have mates/romance"""
 
-            if aroace_chance:
-                return
+        if Pelt.pridebandanas2[7] in cat.pelt.inventory:
+            return
+        if Pelt.pridebandanas2[10] in cat.pelt.inventory:
+            return
+        if Pelt.pridebandanas2[11] in cat.pelt.inventory:
+            return
+        if Pelt.pridebandanas2[12] in cat.pelt.inventory:
+            return
+        if Pelt.pridebandanas2[13] in cat.pelt.inventory:
+            return
+         
+        if cat.moons > 6:
+            if cat.sexuality != "aroace":
+                involved_cats = [cat.ID]
+                
+                if cat.age == 'adolescent':
+                    aroace_chance = random.getrandbits(8)
+                elif cat.age == 'young adult':
+                    aroace_chance = random.getrandbits(7)
+                else:
+                    aroace_chance = random.getrandbits(9)
 
-            if random.getrandbits(1): 
-                acechance = randint (1,10)
-                if acechance == 1:
-                    cat.pelt.inventory.append(Pelt.pridebandanas2[10]) # demi
-                elif acechance == 2:
-                    cat.pelt.inventory.append(Pelt.pridebandanas2[11]) # grey
-                elif acechance == 3:
-                    cat.pelt.inventory.append(Pelt.pridebandanas2[12]) # ace
+                if aroace_chance:
+                    return
 
-                    # no aro bc thats a part of make_aroace
+                if random.getrandbits(1):
+                    acespec = True
+                    acechance = randint (1,4)
+                    if acechance == 1:
+                        cat.pelt.inventory.append(Pelt.pridebandanas2[10]) # demi
+                    elif acechance == 2:
+                        cat.pelt.inventory.append(Pelt.pridebandanas2[11]) # grey
+                    else:
+                        cat.pelt.inventory.append(Pelt.pridebandanas2[12]) # ace
 
-            text = f"{cat.name} doesn't think they're as interested in mates as everyone else."
-            game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
+                    text = f"{cat.name} doesn't think they're as interested in mates as everyone else."
+                    game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
 
 
     def check_and_promote_leader(self):
