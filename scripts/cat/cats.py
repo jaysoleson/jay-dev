@@ -335,21 +335,22 @@ class Cat():
             gay_chance = randint(0,10)
             aroace_chance = randint (0,30)
             straight_chance = randint(0,1)
-            if self.gender == "female" and not self.status in ['newborn', 'kitten']:
+            if self.genderalign in ["female", "trans female"] and not self.status in ['newborn', 'kitten']:
                 if gay_chance == 1:
                     self.sexuality = "lesbian"
                 elif aroace_chance == 1:
                     self.sexuality = "aroace"
                 elif straight_chance == 1:
                     self.sexuality = "straight"
-            elif self.gender == "male" and not self.status in ['newborn', 'kitten']:
+            elif self.genderalign in ["male", "trans male"] and not self.status in ['newborn', 'kitten']:
                 if gay_chance == 1:
                     self.sexuality = "gay"
                 elif aroace_chance == 1:
                     self.sexuality = "aroace"
                 elif straight_chance == 1:
                     self.sexuality = "straight"
-            elif self.gender == "nonbinary" and not self.status in ['newborn', 'kitten']:
+            elif self.genderalign not in ["male", "female", "trans female", "trans male"] \
+                and not self.status in ['newborn', 'kitten']:
                 if gay_chance == 1:
                     self.sexuality = "andro"
                 elif gay_chance == 2:

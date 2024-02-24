@@ -486,18 +486,20 @@ class ProfileScreen(Screens):
                 if self.the_cat.sexuality == "straight":
                     self.the_cat.sexuality = "bi"
                 elif self.the_cat.sexuality == "bi":
-                    if self.the_cat.genderalign in ["female", "trans female"]:
+                    if self.the_cat.genderalign in ["female", "trans female", "demigirl"]:
                         self.the_cat.sexuality = "lesbian"
-                    elif self.the_cat.genderalign in ["male", "trans male"]:
+                    elif self.the_cat.genderalign in ["male", "trans male", "demiboy"]:
                         self.the_cat.sexuality = "gay"
-                    elif self.the_cat.genderalign == "nonbinary":
+                    # elif self.the_cat.genderalign == "nonbinary":
+                    elif self.the_cat.genderalign not in ["male", "trans male", "demiboy", "female", "trans female", "demigirl"]:
+                        # ^^ doing this instead of "if cat.sexuality == "nonbinary" allows for specified genders
                         self.the_cat.sexuality = "gyno"
                 elif self.the_cat.sexuality == "gyno":
                         self.the_cat.sexuality = "andro"
                 elif self.the_cat.sexuality in ["lesbian", "gay", "andro"]:
                     self.the_cat.sexuality = "aroace"
                 elif self.the_cat.sexuality == "aroace":
-                    if self.the_cat.genderalign == "nonbinary":
+                    if self.the_cat.genderalign not in ["male", "trans male", "demiboy", "female", "trans female", "demigirl"]:
                         self.the_cat.sexuality = "bi"
                     else:
                         self.the_cat.sexuality = "straight"
@@ -2657,17 +2659,18 @@ class ProfileScreen(Screens):
                                                       manager=MANAGER)
                
             elif self.the_cat.sexuality == "bi":
-                if self.the_cat.genderalign in ("male", "trans male"):
+                if self.the_cat.genderalign in ("male", "trans male", "demiboy"):
                     self.change_sexuality_button = UIImageButton(scale(pygame.Rect((804, 767), (344, 62))), "",
                                                       starting_height=2, object_id="#change_gay_button",
                                                       manager=MANAGER)
                    
-                elif self.the_cat.genderalign in ("female", "trans female"):
+                elif self.the_cat.genderalign in ("female", "trans female", "demigirl"):
                     self.change_sexuality_button = UIImageButton(scale(pygame.Rect((804, 767), (344, 62))), "",
                                                       starting_height=2, object_id="#change_lesbian_button",
                                                       manager=MANAGER)
                     
-                elif self.the_cat.genderalign == "nonbinary" and self.the_cat.sexuality == "bi":
+                elif self.the_cat.genderalign not in ["male", "trans male", "demiboy", "female", "trans female", "demigirl"]\
+                                              and self.the_cat.sexuality == "bi":
                     self.change_sexuality_button = UIImageButton(scale(pygame.Rect((804, 767), (344, 62))), "",
                                                       starting_height=2, object_id="#change_gyno_button",
                                                       manager=MANAGER)
