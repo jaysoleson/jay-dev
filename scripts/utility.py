@@ -700,6 +700,7 @@ def get_cats_of_romantic_interest(cat):
         # Extra check to ensure they are potential mates
         if inter_cat.is_potential_mate(cat, for_love_interest=True) and cat.relationships[inter_cat.ID].romantic_love > 0:
             cats.append(inter_cat)
+            
     return cats
 
 

@@ -2182,7 +2182,6 @@ class Cat():
     def is_potential_mate(self,
                           other_cat: Cat,
                           for_love_interest: bool = False,
-                          sexuality_compatible: bool = True,
                           age_restriction: bool = True,
                           first_cousin_mates:bool = False,
                           ignore_no_mates:bool=False):
@@ -2210,37 +2209,6 @@ class Cat():
         if age_restriction:
             if (self.moons < 14 or other_cat.moons < 14) and not for_love_interest:
                 return False
-        
-        if self.sexuality == "aroace":
-            sexuality_compatible = False
-
-        if other_cat.sexuality == "aroace":
-            sexuality_compatible = False
-
-        if self.sexuality in ["lesbian", "gyno"]:
-            if other_cat.genderalign in ["male", "trans male", "demiboy"]:
-                sexuality_compatible = False
-            else:
-                sexuality_compatible = True
-        
-        if self.sexuality in ["gay", "andro"]:
-            if other_cat.genderalign in ["female", "trans female", "demigirl"]:
-                sexuality_compatible = False
-            else:
-                sexuality_compatible = True
-
-        if self.sexuality == "straight":
-            if self.genderalign in ["male", "trans male", "demiboy"] and \
-                other_cat.genderalign in ["male", "trans male", "demiboy"]:
-                sexuality_compatible = False
-            elif self.genderalign in ["female", "trans female", "demigirl"] and \
-                other_cat.genderalign in ["female", "trans female", "demigirl"]:
-                sexuality_compatible = False
-            else:
-                sexuality_compatible = True
-
-        if sexuality_compatible is False:
-            return False
 
             # the +1 is necessary because both might not already aged up
             # if only one is aged up at this point, later they are more moons apart than the setting defined
@@ -2384,7 +2352,9 @@ class Cat():
             self.inheritance.update_all_mates()
 
     def set_mate(self, other_cat: Cat):
+        print("mate set")
         """Sets up a mate relationship between self and other_cat."""
+        
         if other_cat.ID not in self.mate:
             self.mate.append(other_cat.ID)
         if self.ID not in other_cat.mate:
@@ -2421,6 +2391,7 @@ class Cat():
             other_relationship.comfortable += 20
             other_relationship.trust += 10
             other_relationship.mate = True
+        
 
     def create_inheritance_new_cat(self):
         """Creates the inheritance class for a new cat."""

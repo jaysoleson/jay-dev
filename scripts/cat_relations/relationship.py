@@ -369,8 +369,8 @@ class Relationship():
         # if there already mates (set up by the user for example), don't remove this type
         mate_from_to = self.cat_from.is_potential_mate(self.cat_to, for_love_interest=True)
         mate_to_from = self.cat_to.is_potential_mate(self.cat_from, for_love_interest=True)
-        if (not mate_from_to or not mate_to_from) and not self.mates or \
-            self.cat_from.is_potential_mate(self.cat_to, sexuality_compatible=False):
+
+        if (not mate_from_to or not mate_to_from) and not self.mates:
             while "romantic" in types:
                 types.remove("romantic")
 

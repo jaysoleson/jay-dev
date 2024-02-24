@@ -3572,31 +3572,14 @@ class Events:
                     cat.pelt.accessories.append(Pelt.pridebandanas2[3])
                     cat.pelt.inventory.append(Pelt.pridebandanas2[3])
 
-
-            # remove mate event if no longer compatible
-                if len(cat.mate) > 0:
-                    for mate_id in cat.mate:
-                        if Cat.all_cats.get(mate_id):
-                            cat.unset_mate(Cat.all_cats.get(mate_id))
-                            if Cat.all_cats.get(mate_id).genderalign in ["male", "trans male", "demiboy"] and \
-                                cat.sexuality in ["lesbian", "gyno"]:
-                                gender = "tom"
-                            elif Cat.all_cats.get(mate_id).genderalign in ["female", "trans female", "demigirl"] and \
-                                cat.sexuality in ["gay", "andro"]:
-                                gender = "she-cat"
-                            else:
-                                return
-                    text = f"Since {cat.name} has realised that they don't care for {gender}s, {cat.name} and {Cat.all_cats.get(mate_id).name} have broken up, but they are still great friends."
-                    game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
-
-
                 if cat.genderalign != "nonbinary":
                     if cat.genderalign == 'male':
                         gender = 'tom'
                         text = f"{cat.name} only seems to crush on other {gender}s."
                         game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
-                        # ^^ this events append thing is in every if
-                        # is ugly but it kept fucking up when i tried to do it in one statement
+                        # ^^ this events append thing is in every if statement is ugly
+                        # but it kept fucking up when i tried to do it in one statement.
+                        # ill clean it up later
 
                     elif cat.genderalign == 'female':
                         gender = 'she-cat'
@@ -3610,6 +3593,23 @@ class Events:
                     elif cat.sexuality == "gyno":
                         text = f"{cat.name} only seems to crush on she-cats."
                         game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
+                
+                # remove mate event if no longer compatible
+                if len(cat.mate) > 0:
+                    for mate_id in cat.mate:
+                        if Cat.all_cats.get(mate_id):
+                            if Cat.all_cats.get(mate_id).genderalign in ["male", "trans male", "demiboy"] and \
+                                cat.sexuality in ["lesbian", "gyno"]:
+                                cat.unset_mate(Cat.all_cats.get(mate_id))
+                                gender = "tom"
+                            elif Cat.all_cats.get(mate_id).genderalign in ["female", "trans female", "demigirl"] and \
+                                cat.sexuality in ["gay", "andro"]:
+                                cat.unset_mate(Cat.all_cats.get(mate_id))
+                                gender = "she-cat"
+                            else:
+                                return
+                    text = f"Since {cat.name} has realised that they don't care for {gender}s, {cat.name} and {Cat.all_cats.get(mate_id).name} have broken up, but they are still great friends."
+                    game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
                 
     def make_aroace(self, cat):
         """turnin' the kitties gay..."""

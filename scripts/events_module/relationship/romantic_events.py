@@ -457,6 +457,29 @@ class Romantic_Events():
             mate_string = Romantic_Events.get_mate_string("rejected", poly, cat_from, cat_to)
             cat_from.relationships[cat_to.ID].romantic_love -= 10
             cat_to.relationships[cat_from.ID].comfortable -= 10
+            
+        # ------------------------------------------------------#
+        #             ANNOYING HUGE ASS BLOCK FOR               #
+        #               COMPATIBLE SEXUALITIES                  #
+        # ------------------------------------------------------#
+            
+        if (cat_to.sexuality == "aroace" or cat_from.sexuality == "aroace") or \
+           (cat_to.sexuality in ["lesbian", "gyno"] and cat_from.genderalign in ["male", "trans male", "demiboy"]) or \
+           (cat_to.sexuality in ["gay", "andro"] and cat_from.genderalign in ["female", "trans female", "demigirl"]) or \
+           (cat_to.sexuality == "straight" and cat_to.genderalign in ["male", "trans male", "demiboy"] and \
+                cat_from.genderalign in ["male", "trans male", "demiboy"]) or \
+            (cat_to.sexuality == "straight" and cat_to.genderalign in ["female", "trans female", "demigirl"] and \
+                cat_from.genderalign in ["female", "trans female", "demigirl"]) or \
+           (cat_from.sexuality in ["lesbian", "gyno"] and cat_to.genderalign in ["male", "trans male", "demiboy"]) or \
+           (cat_from.sexuality in ["gay", "andro"] and cat_to.genderalign in ["female", "trans female", "demigirl"]) or \
+           (cat_from.sexuality == "straight" and cat_from.genderalign in ["male", "trans male", "demiboy"] and \
+                cat_to.genderalign in ["male", "trans male", "demiboy"]) or \
+            (cat_from.sexuality == "straight" and cat_from.genderalign in ["female", "trans female", "demigirl"] and \
+                cat_to.genderalign in ["female", "trans female", "demigirl"]):
+            
+            # print('tried to set incompatible mates')
+            become_mate = False
+        # --------------------------------------------------------
 
         if become_mate:
             if cat_from.ID == game.clan.your_cat.ID or cat_to.ID == game.clan.your_cat.ID:
