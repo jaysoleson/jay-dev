@@ -152,7 +152,6 @@ class Clan():
                 self.clan_settings[setting_name] = inf[2]
                 self.setting_lists[setting_name] = [inf[2], not inf[2]]
         
-        
         #Reputation is for loners/kittypets/outsiders in general that wish to join the clan. 
         #it's a range from 1-100, with 30-70 being neutral, 71-100 being "welcoming",
         #and 1-29 being "hostile". if you're hostile to outsiders, they will VERY RARELY show up.
@@ -183,6 +182,8 @@ class Clan():
 
     # The clan couldn't save itself in time due to issues arising, for example, from this function: "if deputy is not None: self.deputy.status_change('deputy') -> game.clan.remove_med_cat(self)"
     def post_initialization_functions(self):
+
+
         if self.deputy is not None:
             self.deputy.status_change('deputy')
             self.clan_cats.append(self.deputy.ID)
@@ -252,6 +253,7 @@ class Clan():
             elif Cat.all_cats.get(cat_id).status == 'medicine cat apprentice':
                 Cat.all_cats.get(cat_id).status_change('medicine cat apprentice')
             Cat.all_cats.get(cat_id).thoughts()
+
 
         game.save_cats()
         number_other_clans = randint(3, 5)
@@ -889,7 +891,6 @@ class Clan():
                 cat = c
                 age = cat.age
                 cat_sprite = str(cat.pelt.cat_sprites[cat.age])
-
                 # setting the cat_sprite (bc this makes things much easier)
                 if cat.not_working() and age != 'newborn' and game.config['cat_sprites']['sick_sprites']:
                     if age in ['kitten', 'adolescent']:
@@ -914,8 +915,14 @@ class Clan():
                         cat_sprite = str(cat.pelt.cat_sprites[age])
 
 
-                possible_accs = ["WILD", "PLANT", "COLLAR", "FLOWER", "PLANT2", "SNAKE", "SMALLANIMAL", "DEADINSECT", "ALIVEINSECT", "FRUIT", "CRAFTED", "TAIL2"]
+                possible_accs = ["WILD", "PLANT", "COLLAR", "FLOWER", "PLANT2", "SNAKE", "SMALLANIMAL", "DEADINSECT", "ALIVEINSECT", "FRUIT", "CRAFTED", "PRIDE", "PRIDE2", "PRIDE3", "TAIL2"]
                 acc_list = []
+                if "PRIDE" in possible_accs:
+                    acc_list.extend(Pelt.pridebandanas)
+                if "PRIDE2" in possible_accs:
+                    acc_list.extend(Pelt.pridebandanas2)
+                if "PRIDE3" in possible_accs:
+                    acc_list.extend(Pelt.pridebandanas3)
                 if "WILD" in possible_accs:
                     acc_list.extend(Pelt.wild_accessories)
                 if "PLANT" in possible_accs:

@@ -2415,9 +2415,9 @@ class ProfileScreen(Screens):
             if cat.pelt.accessory not in cat.pelt.inventory:
                 cat.pelt.inventory.append(cat.pelt.accessory)
 
-            for acc in cat.pelt.accessories:
-                if acc not in cat.pelt.inventory:
-                    cat.pelt.inventory.append(acc)
+        for acc in cat.pelt.accessories:
+            if acc not in cat.pelt.inventory:
+                cat.pelt.inventory.append(acc)
 
         self.max_pages = math.ceil(len(cat.pelt.inventory)/18)
         if self.max_pages == 1:

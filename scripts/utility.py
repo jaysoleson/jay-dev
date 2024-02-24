@@ -23,7 +23,6 @@ from scripts.cat.pelts import Pelt
 from scripts.cat.sprites import sprites
 from scripts.game_structure.game_essentials import game, screen_x, screen_y
 
-
 # ---------------------------------------------------------------------------- #
 #                              Counting Cats                                   #
 # ---------------------------------------------------------------------------- #

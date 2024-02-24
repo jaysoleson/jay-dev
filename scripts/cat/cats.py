@@ -737,6 +737,87 @@ class Cat():
             Cat.fetch_cat(x).update_mentor()
         game.clan.add_to_outside(self)
 
+    def get_flags(self):
+        """ gives appropriate bandanas to lgbt cats"""
+
+        cat = [i for i in Cat.all_cats.values()]
+
+        # give poly cats the poly bandana
+        if len(cat.mate) > 1:
+            if Pelt.pridebandanas2[9] not in cat.pelt.inventory:
+                cat.pelt.inventory.append(Pelt.pridebandanas2[9])
+
+        # giving cats appropriate pride bandanas if they dont have them already
+        if cat.moons > 5:
+            if cat.sexuality == "bi" and Pelt.pridebandanas2[6] not in cat.pelt.inventory \
+                and Pelt.pridebandanas2[8] not in cat.pelt.inventory:
+                flag = randint(1,2)
+                if flag == 1:
+                    cat.pelt.inventory.append(Pelt.pridebandanas2[6])
+                else:
+                    cat.pelt.inventory.append(Pelt.pridebandanas2[8])
+
+            elif cat.sexuality == "gay" and Pelt.pridebandanas2[3] not in cat.pelt.inventory \
+                and Pelt.pridebandanas2[4] not in cat.pelt.inventory:
+                flag = randint(1,6)
+                if flag == 1:
+                    cat.pelt.inventory.append(Pelt.pridebandanas2[3])
+                else:
+                    cat.pelt.inventory.append(Pelt.pridebandanas2[4])
+
+            elif cat.sexuality == "lesbian" and Pelt.pridebandanas2[3] not in cat.pelt.inventory \
+                and Pelt.pridebandanas2[5] not in cat.pelt.inventory:
+                flag = randint(1,12)
+                if flag == 1:
+                    cat.pelt.inventory.append(Pelt.pridebandanas2[3])
+                else:
+                    cat.pelt.inventory.append(Pelt.pridebandanas2[5])
+
+            elif cat.sexuality == "aroace" and Pelt.pridebandanas2[7] not in cat.pelt.inventory \
+                and Pelt.pridebandanas2[13] not in cat.pelt.inventory:
+                flag = randint(1,3)
+                if flag == 1:
+                    cat.pelt.inventory.append(Pelt.pridebandanas2[13])
+                else:
+                    cat.pelt.inventory.append(Pelt.pridebandanas2[7])
+            
+            if cat.genderalign in ['trans male', 'trans female'] and Pelt.pridebandanas[0] not in cat.pelt.inventory:
+                cat.pelt.inventory.append(Pelt.pridebandanas[0])
+
+            elif cat.genderalign == 'nonbinary' and Pelt.pridebandanas[1] not in cat.pelt.inventory \
+                and Pelt.pridebandanas2[0] not in cat.pelt.inventory \
+                    and Pelt.pridebandanas2[1] not in cat.pelt.inventory:
+                flag = randint(1,8)
+                if flag == 1:
+                    cat.pelt.inventory.append(Pelt.pridebandanas2[0])
+                elif flag == 2:
+                    cat.pelt.inventory.append(Pelt.pridebandanas2[1])
+                else:
+                    cat.pelt.inventory.append(Pelt.pridebandanas[1])
+                
+            elif cat.genderalign != cat.gender and cat.genderalign not in ['trans male', 'trans female']:
+                if Pelt.pridebandanas2[1] not in cat.pelt.inventory and \
+                    Pelt.pridebandanas2[0] not in cat.pelt.inventory and \
+                        Pelt.pridebandanas[1] not in cat.pelt.inventory and \
+                        Pelt.pridebandanas[0] not in cat.pelt.inventory:
+                    cat.pelt.inventory.append(Pelt.pridebandanas2[1])
+
+
+            # fix cat sexualities if the nonbinary ones mess up somehow
+                    
+            if cat.sexuality == 'andro':
+                if cat.genderalign in ['male', 'trans male']:
+                    cat.sexuality = "gay"
+                elif cat.genderalign in ['female', 'trans female']:
+                    cat.sexuality = "straight"
+
+            elif cat.sexuality == 'gyno':
+                if cat.genderalign in ['female', 'trans female']:
+                    cat.sexuality = "lesbian"
+                elif cat.genderalign in ['male', 'trans male']:
+                    cat.sexuality = "straight"
+
+
     def add_to_clan(self) -> list:
         """ Makes a "outside cat" a Clan cat. Returns a list of any additional cats that
             are coming with them. """
@@ -2352,7 +2433,6 @@ class Cat():
             self.inheritance.update_all_mates()
 
     def set_mate(self, other_cat: Cat):
-        print("mate set")
         """Sets up a mate relationship between self and other_cat."""
         
         if other_cat.ID not in self.mate:
