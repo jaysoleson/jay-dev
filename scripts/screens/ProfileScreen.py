@@ -352,6 +352,8 @@ class ProfileScreen(Screens):
                                 self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_pride' + accessory + cat_sprite], manager=MANAGER)
                             elif accessory in cat.pelt.pridebandanas2:
                                 self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_pride2' + accessory + cat_sprite], manager=MANAGER)
+                            elif accessory in cat.pelt.pridebandanas3:
+                                self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_pride3' + accessory + cat_sprite], manager=MANAGER)
                             elif accessory in cat.pelt.flower_accessories:
                                 self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_flower' + accessory + cat_sprite], manager=MANAGER)
                             elif accessory in cat.pelt.plant2_accessories:
@@ -770,6 +772,8 @@ class ProfileScreen(Screens):
                                 self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_pride' + accessory + cat_sprite], manager=MANAGER)
                             elif accessory in cat.pelt.pridebandanas2:
                                 self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_pride2' + accessory + cat_sprite], manager=MANAGER)
+                            elif accessory in cat.pelt.pridebandanas3:
+                                self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_pride3' + accessory + cat_sprite], manager=MANAGER)
                             elif accessory in cat.pelt.flower_accessories:
                                 self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_flower' + accessory + cat_sprite], manager=MANAGER)
                             elif accessory in cat.pelt.plant2_accessories:
@@ -2421,6 +2425,8 @@ class ProfileScreen(Screens):
                         self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_pride' + accessory + cat_sprite], manager=MANAGER)
                     elif accessory in cat.pelt.pridebandanas2:
                         self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_pride2' + accessory + cat_sprite], manager=MANAGER)
+                    elif accessory in cat.pelt.pridebandanas3:
+                        self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_pride3' + accessory + cat_sprite], manager=MANAGER)
                     elif accessory in cat.pelt.flower_accessories:
                         self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_flower' + accessory + cat_sprite], manager=MANAGER)
                     elif accessory in cat.pelt.plant2_accessories:
@@ -2678,7 +2684,7 @@ class ProfileScreen(Screens):
                                                 manager=MANAGER)
                 self.label_info = UIImageButton(scale(pygame.Rect((1150, 767), (62, 62))),"", 
                                                 starting_height=2, object_id="#help_button", manager=MANAGER,
-                                                tool_tip_text="Andro cats will only be attracted to toms and enbies.")
+                                                tool_tip_text="Androsexual cats will only be attracted to toms and enbies.")
                    
             elif self.the_cat.sexuality in ('gay', 'lesbian', 'andro'):
                 

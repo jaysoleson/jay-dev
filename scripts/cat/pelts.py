@@ -101,7 +101,11 @@ class Pelt():
     ]
 
     pridebandanas2 = [
-        "GENDERFLUID", "AMBIGUOUS", "INTERSEX", "RAINBOWBANDANA", "GAY", "LESBIAN", "BI", "AROACE", "PAN", "POLYAM"
+        "GENDERFLUID", "AMBIGUOUS", "INTERSEX", "RAINBOWBANDANA", "GAY", "LESBIAN", "BI", "AROACE", "PAN", "POLYAM", "DEMI", "GRAYACE", "ACE", "ARO"
+    ]
+
+    pridebandanas3 = [
+        "URANIC", "NEBULAROMANTIC", "CATGENDER", "GENDERDOE", "OMNISAPPHIC", "MOTHGENDER"
     ]
 
     # ohdan's accessories
