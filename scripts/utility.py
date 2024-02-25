@@ -1150,13 +1150,15 @@ def event_text_adjust(Cat,
     if "acc_plural" in text:
         if cat.pelt.accessory and cat.pelt.accessory not in cat.pelt.accessories:
             cat.pelt.accessories.append(cat.pelt.accessory)
-        acc = cat.pelt.accessories[-1]
-        text = text.replace("acc_plural", str(ACC_DISPLAY[acc]["plural"]))
+        if cat.pelt.accessories:
+            acc = cat.pelt.accessories[-1]
+            text = text.replace("acc_plural", str(ACC_DISPLAY[acc]["plural"]))
     if "acc_singular" in text:
         if cat.pelt.accessory and cat.pelt.accessory not in cat.pelt.accessories:
             cat.pelt.accessories.append(cat.pelt.accessory)
-        acc = cat.pelt.accessories[-1]
-        text = text.replace("acc_singular", str(ACC_DISPLAY[acc]["singular"]))
+        if cat.pelt.accessories:
+            acc = cat.pelt.accessories[-1]
+            text = text.replace("acc_singular", str(ACC_DISPLAY[acc]["singular"]))
 
     if murder_reveal:
         victim_cat = Cat.fetch_cat(victim)
