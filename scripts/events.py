@@ -3201,7 +3201,8 @@ class Events:
                         cat.sexuality = "straight"
                     # cat.pronouns = [cat.default_pronouns[2].copy()]
                 if cat.genderalign in ("trans female", "trans male"):
-                    cat.pelt.accessories.append(Pelt.pridebandanas[0])
+                    if game.clan.clan_settings['auto equip']:
+                        cat.pelt.accessories.append(Pelt.pridebandanas[0])
                     cat.pelt.inventory.append(Pelt.pridebandanas[0])
             else:
                 cat.genderalign = "nonbinary"
@@ -3218,13 +3219,16 @@ class Events:
                 if cat.genderalign == "nonbinary":
                     gq = randint(1,10)
                     if gq == 1:
-                        cat.pelt.accessories.append(Pelt.pridebandanas2[0])
+                        if game.clan.clan_settings['auto equip']:
+                            cat.pelt.accessories.append(Pelt.pridebandanas2[0])
                         cat.pelt.inventory.append(Pelt.pridebandanas2[0])
                     elif gq == 2:
-                        cat.pelt.accessories.append(Pelt.pridebandanas2[1])
+                        if game.clan.clan_settings['auto equip']:
+                            cat.pelt.accessories.append(Pelt.pridebandanas2[1])
                         cat.pelt.inventory.append(Pelt.pridebandanas2[1])
                     else:
-                        cat.pelt.accessories.append(Pelt.pridebandanas[1])
+                        if game.clan.clan_settings['auto equip']:
+                            cat.pelt.accessories.append(Pelt.pridebandanas[1])
                         cat.pelt.inventory.append(Pelt.pridebandanas[1])
             if cat.gender == 'male':
                 gender = 'tom'
@@ -3261,10 +3265,12 @@ class Events:
                     flag = randint (1,2)
 
                     if flag == 1:
-                        cat.pelt.accessories.append(Pelt.pridebandanas2[6])
+                        if game.clan.clan_settings['auto equip']:
+                            cat.pelt.accessories.append(Pelt.pridebandanas2[6])
                         cat.pelt.inventory.append(Pelt.pridebandanas2[6])
                     else:
-                        cat.pelt.accessories.append(Pelt.pridebandanas2[8])
+                        if game.clan.clan_settings['auto equip']:
+                            cat.pelt.accessories.append(Pelt.pridebandanas2[8])
                         cat.pelt.inventory.append(Pelt.pridebandanas2[8])
 
 
@@ -3291,10 +3297,12 @@ class Events:
                     if not game.clan.clan_settings['all accessories']:
                         flag = randint (1,4)
                         if flag == 1:
-                            cat.pelt.accessories.append(Pelt.pridebandanas2[3])
+                            if game.clan.clan_settings['auto equip']:
+                                cat.pelt.accessories.append(Pelt.pridebandanas2[3])
                             cat.pelt.inventory.append(Pelt.pridebandanas2[3])
                         else:
-                            cat.pelt.accessories.append(Pelt.pridebandanas2[4])
+                            if game.clan.clan_settings['auto equip']:
+                                cat.pelt.accessories.append(Pelt.pridebandanas2[4])
                             cat.pelt.inventory.append(Pelt.pridebandanas2[4])
 
                 elif cat.genderalign in ["female", "trans female", "demigirl"]:
@@ -3302,10 +3310,12 @@ class Events:
                     if not game.clan.clan_settings['all accessories']:
                         flag = randint (1,10)
                         if flag == 1:
-                            cat.pelt.accessories.append(Pelt.pridebandanas2[3])
+                            if game.clan.clan_settings['auto equip']:
+                                cat.pelt.accessories.append(Pelt.pridebandanas2[3])
                             cat.pelt.inventory.append(Pelt.pridebandanas2[3])
                         else:
-                            cat.pelt.accessories.append(Pelt.pridebandanas2[5])
+                            if game.clan.clan_settings['auto equip']:
+                                cat.pelt.accessories.append(Pelt.pridebandanas2[5])
                             cat.pelt.inventory.append(Pelt.pridebandanas2[5])
 
                 else:
@@ -3313,7 +3323,8 @@ class Events:
                     if not game.clan.clan_settings['all accessories']:
                         sexuality = randint(1,2)
 
-                        cat.pelt.accessories.append(Pelt.pridebandanas2[3])
+                        if game.clan.clan_settings['auto equip']:
+                            cat.pelt.accessories.append(Pelt.pridebandanas2[3])
                         cat.pelt.inventory.append(Pelt.pridebandanas2[3])
 
                 if cat.genderalign != "nonbinary":
@@ -3377,13 +3388,16 @@ class Events:
                     flag = randint (1,6)
 
                     if flag in (1, 2, 3):
-                        cat.pelt.accessories.append(Pelt.pridebandanas2[7]) # aroace
+                        if game.clan.clan_settings['auto equip']:
+                            cat.pelt.accessories.append(Pelt.pridebandanas2[7]) # aroace
                         cat.pelt.inventory.append(Pelt.pridebandanas2[7])
                     elif flag == 4:
-                        cat.pelt.accessories.append(Pelt.pridebandanas2[12]) # ace
+                        if game.clan.clan_settings['auto equip']:
+                            cat.pelt.accessories.append(Pelt.pridebandanas2[12]) # ace
                         cat.pelt.inventory.append(Pelt.pridebandanas2[12])
                     elif flag in (5, 6):
-                        cat.pelt.accessories.append(Pelt.pridebandanas2[13]) # aro
+                        if game.clan.clan_settings['auto equip']:
+                            cat.pelt.accessories.append(Pelt.pridebandanas2[13]) # aro
                         cat.pelt.inventory.append(Pelt.pridebandanas2[13])
                 
                 text = f"{cat.name} doesn't seem very interested in romance."
@@ -3672,11 +3686,15 @@ class Events:
                         # give poly cats the poly bandana
                         if len(cat.mate) > 1:
                             if Pelt.pridebandanas2[9] not in cat.pelt.inventory:
+                                if game.clan.clan_settings['auto equip']:
+                                    cat.pelt.accessories.append(Pelt.pridebandanas2[9])
                                 cat.pelt.inventory.append(Pelt.pridebandanas2[9])
 
                         # giving cats appropriate pride bandanas if they dont have them already
                         if cat.moons > 5:
                             if cat.sexuality == "straight" and Pelt.nonpridebandanas[0] not in cat.pelt.inventory:
+                                if game.clan.clan_settings['auto equip']:
+                                    cat.pelt.accessories.append(Pelt.nonpridebandanas[0])
                                 cat.pelt.inventory.append(Pelt.nonpridebandanas[0])
 
                         
@@ -3684,35 +3702,53 @@ class Events:
                                 and Pelt.pridebandanas2[8] not in cat.pelt.inventory:
                                 flag = randint(1,2)
                                 if flag == 1:
+                                    if game.clan.clan_settings['auto equip']:
+                                        cat.pelt.accessories.append(Pelt.pridebandanas2[6])
                                     cat.pelt.inventory.append(Pelt.pridebandanas2[6])
                                 else:
+                                    if game.clan.clan_settings['auto equip']:
+                                        cat.pelt.accessories.append(Pelt.pridebandanas2[8])
                                     cat.pelt.inventory.append(Pelt.pridebandanas2[8])
 
                             elif cat.sexuality == "gay" and Pelt.pridebandanas2[3] not in cat.pelt.inventory \
                                 and Pelt.pridebandanas2[4] not in cat.pelt.inventory:
                                 flag = randint(1,6)
                                 if flag == 1:
+                                    if game.clan.clan_settings['auto equip']:
+                                        cat.pelt.accessories.append(Pelt.pridebandanas2[3])
                                     cat.pelt.inventory.append(Pelt.pridebandanas2[3])
                                 else:
+                                    if game.clan.clan_settings['auto equip']:
+                                        cat.pelt.accessories.append(Pelt.pridebandanas2[4])
                                     cat.pelt.inventory.append(Pelt.pridebandanas2[4])
 
                             elif cat.sexuality == "lesbian" and Pelt.pridebandanas2[3] not in cat.pelt.inventory \
                                 and Pelt.pridebandanas2[5] not in cat.pelt.inventory:
                                 flag = randint(1,12)
                                 if flag == 1:
+                                    if game.clan.clan_settings['auto equip']:
+                                        cat.pelt.accessories.append(Pelt.pridebandanas2[3])
                                     cat.pelt.inventory.append(Pelt.pridebandanas2[3])
                                 else:
+                                    if game.clan.clan_settings['auto equip']:
+                                        cat.pelt.accessories.append(Pelt.pridebandanas2[5])
                                     cat.pelt.inventory.append(Pelt.pridebandanas2[5])
 
                             elif cat.sexuality == "aroace" and Pelt.pridebandanas2[7] not in cat.pelt.inventory \
                                 and Pelt.pridebandanas2[13] not in cat.pelt.inventory:
                                 flag = randint(1,3)
                                 if flag == 1:
+                                    if game.clan.clan_settings['auto equip']:
+                                        cat.pelt.accessories.append(Pelt.pridebandanas2[13])
                                     cat.pelt.inventory.append(Pelt.pridebandanas2[13])
                                 else:
+                                    if game.clan.clan_settings['auto equip']:
+                                        cat.pelt.accessories.append(Pelt.pridebandanas2[7])
                                     cat.pelt.inventory.append(Pelt.pridebandanas2[7])
                             
                             if cat.genderalign in ['trans male', 'trans female'] and Pelt.pridebandanas[0] not in cat.pelt.inventory:
+                                if game.clan.clan_settings['auto equip']:
+                                    cat.pelt.accessories.append(Pelt.pridebandanas[0])
                                 cat.pelt.inventory.append(Pelt.pridebandanas[0])
 
                             elif cat.genderalign == 'nonbinary' and Pelt.pridebandanas[1] not in cat.pelt.inventory \
@@ -3720,10 +3756,16 @@ class Events:
                                     and Pelt.pridebandanas2[1] not in cat.pelt.inventory:
                                 flag = randint(1,8)
                                 if flag == 1:
+                                    if game.clan.clan_settings['auto equip']:
+                                        cat.pelt.accessories.append(Pelt.pridebandanas2[0])
                                     cat.pelt.inventory.append(Pelt.pridebandanas2[0])
                                 elif flag == 2:
+                                    if game.clan.clan_settings['auto equip']:
+                                        cat.pelt.accessories.append(Pelt.pridebandanas2[1])
                                     cat.pelt.inventory.append(Pelt.pridebandanas2[1])
                                 else:
+                                    if game.clan.clan_settings['auto equip']:
+                                        cat.pelt.accessories.append(Pelt.pridebandanas[1])
                                     cat.pelt.inventory.append(Pelt.pridebandanas[1])
                                 
                             elif cat.genderalign != cat.gender and cat.genderalign not in ['trans male', 'trans female']:
@@ -3731,6 +3773,8 @@ class Events:
                                     Pelt.pridebandanas2[0] not in cat.pelt.inventory and \
                                         Pelt.pridebandanas[1] not in cat.pelt.inventory and \
                                         Pelt.pridebandanas[0] not in cat.pelt.inventory:
+                                    if game.clan.clan_settings['auto equip']:
+                                        cat.pelt.accessories.append(Pelt.pridebandanas2[1])
                                     cat.pelt.inventory.append(Pelt.pridebandanas2[1])
 
 
