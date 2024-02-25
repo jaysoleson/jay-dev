@@ -615,11 +615,11 @@ class Events:
     def get_birth_txt(self):
         num_siblings = random.choice([0,1,2,3])
         siblings, sibling_text = self.create_siblings(num_siblings)
-        birth_type = random.randint(1,7)
+        birth_type = random.randint(1,10)
         if birth_type == 1:
             game.clan.your_cat.backstory = random.choice(["abandoned1", "abandoned2", "abandoned3", "abandoned4", "orphaned1", "orphaned2", "orphaned3", "orphaned4", "orphaned5", "orphaned6"])
             return self.handle_birth_no_parents(siblings, sibling_text)
-        elif birth_type in [2, 3, 4, 5]:
+        elif birth_type in [2, 3, 4]:
             if birth_type == 2:
                 game.clan.your_cat.backstory = random.choice(["halfclan1", "clanborn", "outsider_roots1"])
             else:
@@ -669,7 +669,24 @@ class Events:
         else:
             game.clan.your_cat.parent2 = self.pick_valid_parent()
             counter = 0
-            while game.clan.your_cat.parent1 == game.clan.your_cat.parent2 or Cat.all_cats[game.clan.your_cat.parent1].age != Cat.all_cats[game.clan.your_cat.parent2].age:
+            while game.clan.your_cat.parent1 == game.clan.your_cat.parent2 or Cat.all_cats[game.clan.your_cat.parent1].age != Cat.all_cats[game.clan.your_cat.parent2].age or \
+                (Cat.all_cats[game.clan.your_cat.parent1].sexuality == "straight" and \
+                    Cat.all_cats[game.clan.your_cat.parent1].genderalign in ['male', 'trans male', 'demiboy'] and Cat.all_cats[game.clan.your_cat.parent2].genderalign not in ['female', 'trans female', 'demigirl']) or \
+                        (Cat.all_cats[game.clan.your_cat.parent1].sexuality == "straight" and \
+                    Cat.all_cats[game.clan.your_cat.parent1].genderalign in ['female', 'trans female', 'demigirl'] and Cat.all_cats[game.clan.your_cat.parent2].genderalign not in ['male', 'trans male', 'demiboy']) or \
+                        (Cat.all_cats[game.clan.your_cat.parent1].sexuality == "aroace" or Cat.all_cats[game.clan.your_cat.parent2].sexuality == "aroace") or \
+                    (Cat.all_cats[game.clan.your_cat.parent1].sexuality in ["lesbian", "gyno"] and \
+                    Cat.all_cats[game.clan.your_cat.parent2].genderalign in ['male', 'trans male', 'demiboy']) or \
+                    (Cat.all_cats[game.clan.your_cat.parent1].genderalign in ['male', 'trans male', 'demiboy'] and \
+                    Cat.all_cats[game.clan.your_cat.parent2].sexuality in ['lesbian', 'gyno']) or \
+                    (Cat.all_cats[game.clan.your_cat.parent1].sexuality in ["gay", "andro"] and \
+                    Cat.all_cats[game.clan.your_cat.parent2].genderalign in ['female', 'trans female', 'demigirl']) or \
+                    (Cat.all_cats[game.clan.your_cat.parent1].genderalign in ['female', 'trans female', 'demigirl']  and \
+                    Cat.all_cats[game.clan.your_cat.parent2].sexuality in ['gay', 'andro']) or \
+                    (Cat.all_cats[game.clan.your_cat.parent1].gender == "female" and \
+                    Cat.all_cats[game.clan.your_cat.parent2].gender == "female") or \
+                    (Cat.all_cats[game.clan.your_cat.parent1].gender == "male" and \
+                    Cat.all_cats[game.clan.your_cat.parent2].gender == "male"):
                 counter+=1
                 if counter > 15:
                     game.clan.your_cat.parent2 = None
@@ -705,11 +722,42 @@ class Events:
         return self.set_birth_text("birth_two_parents", replacements)
 
     def handle_birth_adoptive_parents(self, siblings, sibling_text):
-        parent1, parent2 = self.pick_valid_parent(), self.pick_valid_parent()
+        parent1 = self.pick_valid_parent()
+        parent2 = self.pick_valid_parent()
         counter = 0
-        while parent1 == parent2 or Cat.all_cats[parent1].age != Cat.all_cats[parent2].age or Cat.all_cats[parent1].moons < 12:
+        while parent1 == parent2 or Cat.all_cats[parent1].age != Cat.all_cats[parent2].age or Cat.all_cats[parent1].moons < 12 or \
+            (Cat.all_cats[parent1].sexuality == "straight" and Cat.all_cats[parent1].genderalign in ['female', 'trans female', 'demigirl'] and Cat.all_cats[parent2].genderalign in ['female', 'trans female', 'demigirl']) or \
+            (Cat.all_cats[parent2].sexuality == "straight" and Cat.all_cats[parent2].genderalign in ['female', 'trans female', 'demigirl'] and Cat.all_cats[parent1].genderalign in ['female', 'trans female', 'demigirl']) or \
+            (Cat.all_cats[parent1].sexuality == "straight" and Cat.all_cats[parent1].genderalign in ['male', 'trans male', 'demiboy'] and Cat.all_cats[parent2].genderalign in ['male', 'trans male', 'demiboy']) or \
+            (Cat.all_cats[parent2].sexuality == "straight" and Cat.all_cats[parent2].genderalign in ['male', 'trans male', 'demiboy'] and Cat.all_cats[parent1].genderalign in ['male', 'trans male', 'demiboy']) or \
+            (Cat.all_cats[parent1].sexuality == "aroace") or \
+            (Cat.all_cats[parent2].sexuality == "aroace") or \
+            (Cat.all_cats[parent1].sexuality in ["lesbian", "gyno"] and \
+            Cat.all_cats[parent2].genderalign in ['male', 'trans male', 'demiboy']) or \
+            (Cat.all_cats[parent1].genderalign in ['male', 'trans male', 'demiboy'] and \
+            Cat.all_cats[parent2].sexuality in ['lesbian', 'gyno']) or \
+            (Cat.all_cats[parent1].sexuality in ["gay", "andro"] and \
+            Cat.all_cats[parent2].genderalign in ['female', 'trans female', 'demigirl']) or \
+            (Cat.all_cats[parent1].genderalign in ['female', 'trans female', 'demigirl']  and \
+            Cat.all_cats[parent2].sexuality in ['gay', 'andro']):
             counter+=1
             parent2 = self.pick_valid_parent()
+
+            # if Cat.all_cats[parent1].sexuality == "straight" and Cat.all_cats[parent1].genderalign in ['female', 'trans female', 'demigirl'] and Cat.all_cats[parent2].genderalign in ['female', 'trans female', 'demigirl']:
+            #     Cat.all_cats[parent1].sexuality = "bi"
+
+            # if Cat.all_cats[parent2].sexuality == "straight" and Cat.all_cats[parent2].genderalign in ['female', 'trans female', 'demigirl'] and Cat.all_cats[parent1].genderalign in ['female', 'trans female', 'demigirl']:
+            #     Cat.all_cats[parent2].sexuality = "bi"
+
+            # if Cat.all_cats[parent1].sexuality == "straight" and Cat.all_cats[parent1].genderalign in ['male', 'trans male', 'demiboy'] and Cat.all_cats[parent2].genderalign in ['male', 'trans male', 'demiboy']:
+            #     Cat.all_cats[parent1].sexuality = "bi"
+
+            # if Cat.all_cats[parent2].sexuality == "straight" and Cat.all_cats[parent2].genderalign in ['male', 'trans male', 'demiboy'] and Cat.all_cats[parent1].genderalign in ['male', 'trans male', 'demiboy']:
+            #     Cat.all_cats[parent2].sexuality = "bi"
+
+            # ^^ changes the straights to bi bc it kept making me the child of two straight men for some reason
+            
+
             if counter > 30:
                 return self.handle_birth_no_parents(siblings, sibling_text)
         thought = "Is happy their kits are safe"
