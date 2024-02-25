@@ -3253,8 +3253,9 @@ class Events:
                     elif cat.sexuality == "lesbian":
                         cat.sexuality = "straight"
                     # cat.pronouns = [cat.default_pronouns[2].copy()]
-                if cat.genderalign in ("trans female", "trans male"):
-                    if game.clan.clan_settings['auto equip']:
+                if cat.genderalign in ["trans female", "trans male"]:
+                    all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                    if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                         cat.pelt.accessories.append(Pelt.pridebandanas[0])
                     cat.pelt.inventory.append(Pelt.pridebandanas[0])
             else:
@@ -3272,15 +3273,18 @@ class Events:
                 if cat.genderalign == "nonbinary":
                     gq = randint(1,10)
                     if gq == 1:
-                        if game.clan.clan_settings['auto equip']:
+                        all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                        if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                             cat.pelt.accessories.append(Pelt.pridebandanas2[0])
                         cat.pelt.inventory.append(Pelt.pridebandanas2[0])
                     elif gq == 2:
-                        if game.clan.clan_settings['auto equip']:
+                        all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                        if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                             cat.pelt.accessories.append(Pelt.pridebandanas2[1])
                         cat.pelt.inventory.append(Pelt.pridebandanas2[1])
                     else:
-                        if game.clan.clan_settings['auto equip']:
+                        all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                        if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                             cat.pelt.accessories.append(Pelt.pridebandanas[1])
                         cat.pelt.inventory.append(Pelt.pridebandanas[1])
             if cat.gender == 'male':
@@ -3313,16 +3317,18 @@ class Events:
             
             if random.getrandbits(1):  # 50/50
                 cat.sexuality = "bi"
-                if not game.clan.clan_settings['all accessories']:
+                if not game.clan.clan_settings['all accessories'] and not any(flag in cat.pelt.accessories for flag in [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]):
 
                     flag = randint (1,2)
 
                     if flag == 1:
-                        if game.clan.clan_settings['auto equip']:
+                        all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                        if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                             cat.pelt.accessories.append(Pelt.pridebandanas2[6])
                         cat.pelt.inventory.append(Pelt.pridebandanas2[6])
                     else:
-                        if game.clan.clan_settings['auto equip']:
+                        all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                        if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                             cat.pelt.accessories.append(Pelt.pridebandanas2[8])
                         cat.pelt.inventory.append(Pelt.pridebandanas2[8])
 
@@ -3350,11 +3356,13 @@ class Events:
                     if not game.clan.clan_settings['all accessories']:
                         flag = randint (1,4)
                         if flag == 1:
-                            if game.clan.clan_settings['auto equip']:
+                            all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                            if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                                 cat.pelt.accessories.append(Pelt.pridebandanas2[3])
                             cat.pelt.inventory.append(Pelt.pridebandanas2[3])
                         else:
-                            if game.clan.clan_settings['auto equip']:
+                            all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                            if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                                 cat.pelt.accessories.append(Pelt.pridebandanas2[4])
                             cat.pelt.inventory.append(Pelt.pridebandanas2[4])
 
@@ -3363,11 +3371,13 @@ class Events:
                     if not game.clan.clan_settings['all accessories']:
                         flag = randint (1,10)
                         if flag == 1:
-                            if game.clan.clan_settings['auto equip']:
+                            all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                            if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                                 cat.pelt.accessories.append(Pelt.pridebandanas2[3])
                             cat.pelt.inventory.append(Pelt.pridebandanas2[3])
                         else:
-                            if game.clan.clan_settings['auto equip']:
+                            all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                            if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                                 cat.pelt.accessories.append(Pelt.pridebandanas2[5])
                             cat.pelt.inventory.append(Pelt.pridebandanas2[5])
 
@@ -3376,11 +3386,12 @@ class Events:
                     if not game.clan.clan_settings['all accessories']:
                         sexuality = randint(1,2)
 
-                        if game.clan.clan_settings['auto equip']:
+                        all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                        if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                             cat.pelt.accessories.append(Pelt.pridebandanas2[3])
                         cat.pelt.inventory.append(Pelt.pridebandanas2[3])
 
-                if cat.genderalign != "nonbinary":
+                if cat.genderalign not in['male', 'female', 'trans male', 'trans female', 'demiboy', 'demigirl']:
                     if cat.genderalign in ['male', 'trans male', 'demiboy']:
                         gender = 'tom'
                         text = f"{cat.name} only seems to crush on other {gender}s."
@@ -3441,15 +3452,18 @@ class Events:
                     flag = randint (1,6)
 
                     if flag in (1, 2, 3):
-                        if game.clan.clan_settings['auto equip']:
+                        all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                        if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                             cat.pelt.accessories.append(Pelt.pridebandanas2[7]) # aroace
                         cat.pelt.inventory.append(Pelt.pridebandanas2[7])
                     elif flag == 4:
-                        if game.clan.clan_settings['auto equip']:
+                        all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                        if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                             cat.pelt.accessories.append(Pelt.pridebandanas2[12]) # ace
                         cat.pelt.inventory.append(Pelt.pridebandanas2[12])
                     elif flag in (5, 6):
-                        if game.clan.clan_settings['auto equip']:
+                        all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                        if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                             cat.pelt.accessories.append(Pelt.pridebandanas2[13]) # aro
                         cat.pelt.inventory.append(Pelt.pridebandanas2[13])
                 
@@ -3758,15 +3772,17 @@ class Events:
             # give poly cats the poly bandana
             if len(cat.mate) > 1:
                 if Pelt.pridebandanas2[9] not in cat.pelt.inventory:
-                    if game.clan.clan_settings['auto equip']:
+                    all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                    if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                         cat.pelt.accessories.append(Pelt.pridebandanas2[9])
                     cat.pelt.inventory.append(Pelt.pridebandanas2[9])
                 
 
-                # giving cats appropriate pride bandanas if they dont have them already
+            # giving cats appropriate pride bandanas if they dont have them already
             if cat.moons > 5:
                 if cat.sexuality == "straight" and Pelt.nonpridebandanas[0] not in cat.pelt.inventory:
-                    if game.clan.clan_settings['auto equip']:
+                    all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                    if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                         if Pelt.nonpridebandanas[0] not in cat.pelt.accessories:
                             cat.pelt.accessories.append(Pelt.nonpridebandanas[0])
                     cat.pelt.inventory.append(Pelt.nonpridebandanas[0])
@@ -3775,14 +3791,16 @@ class Events:
                     and Pelt.pridebandanas2[8] not in cat.pelt.inventory:
                     flag = randint(1,2)
                     if flag == 1:
-                        if game.clan.clan_settings['auto equip']:
+                        all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                        if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                             if Pelt.pridebandanas2[6] not in cat.pelt.accessories:
                                 cat.pelt.accessories.append(Pelt.pridebandanas2[6])
                         cat.pelt.inventory.append(Pelt.pridebandanas2[6])
                     else:
-                        if game.clan.clan_settings['auto equip']:
+                        all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                        if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                             if Pelt.pridebandanas2[8] not in cat.pelt.accessories:
-                                cat.pelt.accessories.append(Pelt.pridebandanas2[8])
+                                    cat.pelt.accessories.append(Pelt.pridebandanas2[8])
                         cat.pelt.inventory.append(Pelt.pridebandanas2[8])
 
 
@@ -3790,12 +3808,14 @@ class Events:
                     and Pelt.pridebandanas2[4] not in cat.pelt.inventory:
                     flag = randint(1,6)
                     if flag == 1:
-                        if game.clan.clan_settings['auto equip']:
+                        all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                        if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                             if Pelt.pridebandanas2[3] not in cat.pelt.accessories:
                                 cat.pelt.accessories.append(Pelt.pridebandanas2[3])
                         cat.pelt.inventory.append(Pelt.pridebandanas2[3])
                     else:
-                        if game.clan.clan_settings['auto equip']:
+                        all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                        if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                             if Pelt.pridebandanas2[4] not in cat.pelt.accessories:
                                 cat.pelt.accessories.append(Pelt.pridebandanas2[4])
                         cat.pelt.inventory.append(Pelt.pridebandanas2[4])
@@ -3804,12 +3824,14 @@ class Events:
                     and Pelt.pridebandanas2[5] not in cat.pelt.inventory:
                     flag = randint(1,12)
                     if flag == 1:
-                        if game.clan.clan_settings['auto equip']:
+                        all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                        if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                             if Pelt.pridebandanas2[4] not in cat.pelt.accessories:
                                 cat.pelt.accessories.append(Pelt.pridebandanas2[3])
                         cat.pelt.inventory.append(Pelt.pridebandanas2[3])
                     else:
-                        if game.clan.clan_settings['auto equip']:
+                        all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                        if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                             if Pelt.pridebandanas2[5] not in cat.pelt.accessories:
                                 cat.pelt.accessories.append(Pelt.pridebandanas2[5])
                         cat.pelt.inventory.append(Pelt.pridebandanas2[5])
@@ -3818,18 +3840,21 @@ class Events:
                     and Pelt.pridebandanas2[13] not in cat.pelt.inventory:
                     flag = randint(1,3)
                     if flag == 1:
-                        if game.clan.clan_settings['auto equip']:
+                        all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                        if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                             if Pelt.pridebandanas2[13] not in cat.pelt.accessories:
                                 cat.pelt.accessories.append(Pelt.pridebandanas2[13])
                         cat.pelt.inventory.append(Pelt.pridebandanas2[13])
                     else:
-                        if game.clan.clan_settings['auto equip']:
+                        all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                        if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                             if Pelt.pridebandanas2[7] not in cat.pelt.accessories:
                                 cat.pelt.accessories.append(Pelt.pridebandanas2[7])
                         cat.pelt.inventory.append(Pelt.pridebandanas2[7])
                 
                 if cat.genderalign in ['trans male', 'trans female'] and Pelt.pridebandanas[0] not in cat.pelt.inventory:
-                    if game.clan.clan_settings['auto equip']:
+                    all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                    if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                         if Pelt.pridebandanas[0] not in cat.pelt.accessories:
                                 cat.pelt.accessories.append(Pelt.pridebandanas[0])
                     cat.pelt.inventory.append(Pelt.pridebandanas[0])
@@ -3839,17 +3864,20 @@ class Events:
                         and Pelt.pridebandanas2[1] not in cat.pelt.inventory:
                     flag = randint(1,8)
                     if flag == 1:
-                        if game.clan.clan_settings['auto equip']:
+                        all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                        if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                             if Pelt.pridebandanas2[0] not in cat.pelt.accessories:
                                 cat.pelt.accessories.append(Pelt.pridebandanas2[0])
                         cat.pelt.inventory.append(Pelt.pridebandanas2[0])
                     elif flag == 2:
-                        if game.clan.clan_settings['auto equip']:
+                        all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                        if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                             if Pelt.pridebandanas2[1] not in cat.pelt.accessories:
                                 cat.pelt.accessories.append(Pelt.pridebandanas2[1])
                         cat.pelt.inventory.append(Pelt.pridebandanas2[1])
                     else:
-                        if game.clan.clan_settings['auto equip']:
+                        all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                        if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                             if Pelt.pridebandanas[1] not in cat.pelt.accessories:
                                 cat.pelt.accessories.append(Pelt.pridebandanas[1])
                         cat.pelt.inventory.append(Pelt.pridebandanas[1])
@@ -3859,7 +3887,8 @@ class Events:
                         Pelt.pridebandanas2[0] not in cat.pelt.inventory and \
                             Pelt.pridebandanas[1] not in cat.pelt.inventory and \
                             Pelt.pridebandanas[0] not in cat.pelt.inventory:
-                        if game.clan.clan_settings['auto equip']:
+                        all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                        if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                             if Pelt.pridebandanas2[1] not in cat.pelt.accessories:
                                 cat.pelt.accessories.append(Pelt.pridebandanas2[1])
                         cat.pelt.inventory.append(Pelt.pridebandanas2[1])
@@ -3868,83 +3897,97 @@ class Events:
                 # START
                 if cat.sexuality == "straight" and Pelt.nonpridebandanas[0] in cat.pelt.inventory and \
                 Pelt.nonpridebandanas[0] not in cat.pelt.accessories:
-                    if game.clan.clan_settings['auto equip']:
+                    all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                    if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                         if Pelt.nonpridebandanas[0] not in cat.pelt.accessories:
                             cat.pelt.accessories.append(Pelt.nonpridebandanas[0])
                 elif cat.sexuality == "bi" and (Pelt.pridebandanas2[6] in cat.pelt.inventory and \
                 Pelt.pridebandanas2[6] not in cat.pelt.accessories):
-                    if game.clan.clan_settings['auto equip']:
+                    all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                    if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                         if Pelt.pridebandanas2[6] not in cat.pelt.accessories:
                             cat.pelt.accessories.append(Pelt.pridebandanas2[6])
         
                 elif cat.sexuality == "bi" and (Pelt.pridebandanas2[8] in cat.pelt.inventory and \
                 Pelt.pridebandanas2[8] not in cat.pelt.accessories):
-                    if game.clan.clan_settings['auto equip']:
+                    all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                    if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                         if Pelt.pridebandanas2[8] not in cat.pelt.accessories:
                             cat.pelt.accessories.append(Pelt.pridebandanas2[8])
                 elif cat.sexuality == "gay" and (Pelt.pridebandanas2[3] in cat.pelt.inventory and \
                 Pelt.pridebandanas2[3] not in cat.pelt.accessories):
-                    if game.clan.clan_settings['auto equip']:
+                    all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                    if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                         if Pelt.pridebandanas2[3] not in cat.pelt.accessories:
                             cat.pelt.accessories.append(Pelt.pridebandanas2[3])
 
                 elif cat.sexuality == "gay" and (Pelt.pridebandanas2[4] in cat.pelt.inventory and \
                 Pelt.pridebandanas2[3] not in cat.pelt.accessories):
-                    if game.clan.clan_settings['auto equip']:
+                    all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                    if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                         if Pelt.pridebandanas2[4] not in cat.pelt.accessories:
                             cat.pelt.accessories.append(Pelt.pridebandanas2[4])
 
                 elif cat.sexuality == "lesbian" and (Pelt.pridebandanas2[3] in cat.pelt.inventory and \
                 Pelt.pridebandanas2[3] not in cat.pelt.accessories):
-                    if game.clan.clan_settings['auto equip']:
+                    all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                    if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                         if Pelt.pridebandanas2[3] not in cat.pelt.accessories:
                             cat.pelt.accessories.append(Pelt.pridebandanas2[3])
 
                 elif cat.sexuality == "lesbian" and (Pelt.pridebandanas2[5] in cat.pelt.inventory and \
                 Pelt.pridebandanas2[3] not in cat.pelt.accessories):
-                    if game.clan.clan_settings['auto equip']:
+                    all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                    if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                         if Pelt.pridebandanas2[5] not in cat.pelt.accessories:
                             cat.pelt.accessories.append(Pelt.pridebandanas2[5])
 
                 elif cat.sexuality == "aroace" and (Pelt.pridebandanas2[13] in cat.pelt.inventory and \
                 Pelt.pridebandanas2[13] not in cat.pelt.accessories):
-                    if game.clan.clan_settings['auto equip']:
+                    all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                    if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                         if Pelt.pridebandanas2[13] not in cat.pelt.accessories:
                             cat.pelt.accessories.append(Pelt.pridebandanas2[13])
 
                 elif cat.sexuality == "aroace" and (Pelt.pridebandanas2[7] in cat.pelt.inventory and \
                 Pelt.pridebandanas2[7] not in cat.pelt.accessories):
-                    if game.clan.clan_settings['auto equip']:
+                    all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                    if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                         if Pelt.pridebandanas2[7] not in cat.pelt.accessories:
                             cat.pelt.accessories.append(Pelt.pridebandanas2[7])
                 
                 if cat.genderalign in ['trans male', 'trans female'] and (Pelt.pridebandanas[0] in \
                     cat.pelt.inventory and Pelt.pridebandanas[0] not in cat.pelt.accessories):
-                    if game.clan.clan_settings['auto equip']:
+                    all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                    if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                         if Pelt.pridebandanas[0] not in cat.pelt.accessories:
                             cat.pelt.accessories.append(Pelt.pridebandanas[0])
 
                 elif cat.genderalign == "nonbinary" and (Pelt.pridebandanas2[0] in cat.pelt.inventory and \
                 Pelt.pridebandanas2[0] not in cat.pelt.accessories):
-                    if game.clan.clan_settings['auto equip']:
+                    all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                    if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                         if Pelt.pridebandanas2[0] not in cat.pelt.accessories:
                             cat.pelt.accessories.append(Pelt.pridebandanas2[0])
                 
                 elif (Pelt.pridebandanas[1] in cat.pelt.inventory and \
                 Pelt.pridebandanas[1] not in cat.pelt.accessories):
-                    if game.clan.clan_settings['auto equip']:
+                    all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                    if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                         if Pelt.pridebandanas[1] not in cat.pelt.accessories:
                             cat.pelt.accessories.append(Pelt.pridebandanas[1])
 
                 elif (Pelt.pridebandanas2[1] in cat.pelt.inventory and \
                 Pelt.pridebandanas2[1] not in cat.pelt.accessories):
-                    if game.clan.clan_settings['auto equip']:
+                    all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                    if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                         if Pelt.pridebandanas2[1] not in cat.pelt.accessories:
                             cat.pelt.accessories.append(Pelt.pridebandanas2[1])
 
                 elif cat.genderalign != cat.gender and cat.genderalign not in ['trans male', 'trans female', 'nonbinary'] and (Pelt.pridebandanas2[1] in cat.pelt.inventory and \
                 Pelt.pridebandanas2[1] not in cat.pelt.accessories):
-                    if game.clan.clan_settings['auto equip']:
+                    all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                    if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
                         if Pelt.pridebandanas2[1] not in cat.pelt.accessories:
                             cat.pelt.accessories.append(Pelt.pridebandanas2[1])
 

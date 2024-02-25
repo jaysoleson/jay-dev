@@ -663,7 +663,7 @@ class ChooseMateScreen(Screens):
             object_id="#text_box_34_horizcenter")
 
         info = str(self.the_cat.moons) + " moons\n" + self.the_cat.status + "\n" + self.the_cat.genderalign + "\n" + \
-               self.the_cat.personality.trait
+               self.the_cat.personality.trait + "\n" + self.the_cat.sexuality
         if self.the_cat.mate:
             info += f"\n{len(self.the_cat.mate)} "
             if len(self.the_cat.mate) > 1:
@@ -800,7 +800,7 @@ class ChooseMateScreen(Screens):
             object_id="#text_box_34_horizcenter")
 
         info = str(self.selected_cat.moons) + " moons\n" + self.selected_cat.status + "\n" + \
-               self.selected_cat.genderalign + "\n" + self.selected_cat.personality.trait
+               self.selected_cat.genderalign + "\n" + self.selected_cat.personality.trait + "\n" + self.selected_cat.sexuality
         if self.selected_cat.mate:
             info += f"\n{len(self.selected_cat.mate)} "
             if len(self.selected_cat.mate) > 1:
