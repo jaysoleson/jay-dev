@@ -231,7 +231,7 @@ class Clan():
         self.add_to_darkforest(self.demon)
         self.all_clans = []
 
-        # fixesweird non-leader leader issue 
+        # fixes weird non-leader leader issue 
         if self.leader.status is not "leader":
             self.leader.status_change('leader')
 
@@ -266,7 +266,7 @@ class Clan():
             Cat.all_cats.get(cat_id).thoughts()
 
             Cat.all_cats.get(cat_id).pelt.inventory = []
-            
+
             if Cat.all_cats.get(cat_id).pelt.inventory != []:
                 Cat.all_cats.get(cat_id).pelt.inventory = []
 

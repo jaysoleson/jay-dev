@@ -3439,263 +3439,315 @@ class Events:
                     game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
 
     def get_flags(self, cat):
-        """ gives appropriate bandanas to lgbt cats"""
+        """ gives appropriate bandanas to lgbt cats.
+        also gives bugs to kits as a janky way to cover up the new cat accessory bug for now """
 
         allcats = [i for i in Cat.all_cats.values()]
 
         for cat in allcats:
-            if not game.clan.clan_settings['all accessories']:
-                # give poly cats the poly bandana
-                if len(cat.mate) > 1:
-                    if Pelt.pridebandanas2[9] not in cat.pelt.inventory:
-                        cat.pelt.inventory.append(Pelt.pridebandanas2[9])
-
-                # giving cats appropriate pride bandanas if they dont have them already
-                if cat.moons > 5:
-                    if cat.sexuality == "straight" and Pelt.nonpridebandanas[0] not in cat.pelt.inventory:
-                        cat.pelt.inventory.append(Pelt.nonpridebandanas[0])
-                    elif cat.sexuality == "bi" and Pelt.pridebandanas2[6] not in cat.pelt.inventory \
-                        and Pelt.pridebandanas2[8] not in cat.pelt.inventory:
-                        flag = randint(1,2)
-                        if flag == 1:
-                            cat.pelt.inventory.append(Pelt.pridebandanas2[6])
-                        else:
-                            cat.pelt.inventory.append(Pelt.pridebandanas2[8])
-
-                    elif cat.sexuality == "gay" and Pelt.pridebandanas2[3] not in cat.pelt.inventory \
-                        and Pelt.pridebandanas2[4] not in cat.pelt.inventory:
-                        flag = randint(1,6)
-                        if flag == 1:
-                            cat.pelt.inventory.append(Pelt.pridebandanas2[3])
-                        else:
-                            cat.pelt.inventory.append(Pelt.pridebandanas2[4])
-
-                    elif cat.sexuality == "lesbian" and Pelt.pridebandanas2[3] not in cat.pelt.inventory \
-                        and Pelt.pridebandanas2[5] not in cat.pelt.inventory:
-                        flag = randint(1,12)
-                        if flag == 1:
-                            cat.pelt.inventory.append(Pelt.pridebandanas2[3])
-                        else:
-                            cat.pelt.inventory.append(Pelt.pridebandanas2[5])
-
-                    elif cat.sexuality == "aroace" and Pelt.pridebandanas2[7] not in cat.pelt.inventory \
-                        and Pelt.pridebandanas2[13] not in cat.pelt.inventory:
-                        flag = randint(1,3)
-                        if flag == 1:
-                            cat.pelt.inventory.append(Pelt.pridebandanas2[13])
-                        else:
-                            cat.pelt.inventory.append(Pelt.pridebandanas2[7])
-                    
-                    if cat.genderalign in ['trans male', 'trans female'] and Pelt.pridebandanas[0] not in cat.pelt.inventory:
-                        cat.pelt.inventory.append(Pelt.pridebandanas[0])
-
-                    elif cat.genderalign == 'nonbinary' and Pelt.pridebandanas[1] not in cat.pelt.inventory \
-                        and Pelt.pridebandanas2[0] not in cat.pelt.inventory \
-                            and Pelt.pridebandanas2[1] not in cat.pelt.inventory:
-                        flag = randint(1,8)
-                        if flag == 1:
-                            cat.pelt.inventory.append(Pelt.pridebandanas2[0])
-                        elif flag == 2:
-                            cat.pelt.inventory.append(Pelt.pridebandanas2[1])
-                        else:
-                            cat.pelt.inventory.append(Pelt.pridebandanas[1])
+            if cat:
+                # ^^ a placeholder accessory for the kits to avoid the new cat inventory bug
+                # this is not a fix for the bug but a janky workaround. we'll figure that out one day
+                kit_acc_placeholder = choice(Pelt.fruit_accessories)
+                if cat.moons < 6:
+                    if len(cat.pelt.inventory)< 1:
+                        cat.pelt.inventory.append(kit_acc_placeholder)
+                elif cat.moons == 6:
+                    if kit_acc_placeholder in cat.pelt.inventory:
+                        if kit_acc_placeholder in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(kit_acc_placeholder)
+                        cat.pelt.inventory.remove(kit_acc_placeholder)
+                # ^^ remove placeholder so the clan isnt overrun with fruit in a generation
                         
-                    elif cat.genderalign != cat.gender and cat.genderalign not in ['trans male', 'trans female']:
-                        if Pelt.pridebandanas2[1] not in cat.pelt.inventory and \
-                            Pelt.pridebandanas2[0] not in cat.pelt.inventory and \
-                                Pelt.pridebandanas[1] not in cat.pelt.inventory and \
-                                Pelt.pridebandanas[0] not in cat.pelt.inventory:
-                            cat.pelt.inventory.append(Pelt.pridebandanas2[1])
+                if cat.moons < 5:
+                    # remove bandanas if kits got them somehow
+                    if Pelt.pridebandanas in cat.pelt.inventory:
+                        cat.pelt.inventory.remove(Pelt.pridebandanas)
+                    if Pelt.pridebandanas2 in cat.pelt.inventory:
+                        cat.pelt.inventory.remove(Pelt.pridebandanas2)
+                    if Pelt.pridebandanas3 in cat.pelt.inventory:
+                        cat.pelt.inventory.remove(Pelt.pridebandanas3)
+                    if Pelt.nonpridebandanas in cat.pelt.inventory:
+                        cat.pelt.inventory.remove(Pelt.nonpridebandanas)
+                    
 
+                if cat.sexuality == "straight":
+                    if Pelt.pridebandanas2[3] in cat.pelt.inventory:
+                        if Pelt.pridebandanas2[3] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas2[3])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas2[3])
+                    if Pelt.pridebandanas2[4] in cat.pelt.inventory:
+                        if Pelt.pridebandanas2[4] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas2[4])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas2[4])
+                    if Pelt.pridebandanas2[5] in cat.pelt.inventory:
+                        if Pelt.pridebandanas2[5] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas2[5])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas2[5])
+                    if Pelt.pridebandanas2[6] in cat.pelt.inventory:
+                        if Pelt.pridebandanas2[6] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas2[6])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas2[6])
+                    if Pelt.pridebandanas2[7] in cat.pelt.inventory:
+                        if Pelt.pridebandanas2[7] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas2[7])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas2[7])
+                    if Pelt.pridebandanas2[8] in cat.pelt.inventory:
+                        if Pelt.pridebandanas2[8] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas2[8])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas2[8])
+                    if Pelt.pridebandanas2[13] in cat.pelt.inventory:
+                        if Pelt.pridebandanas2[13] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas2[13])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas2[13])
 
-                    # fix cat sexualities if the nonbinary ones mess up somehow
+                elif cat.sexuality == "gay":
+
+                    if Pelt.nonpridebandanas[0] in cat.pelt.inventory:
+                        if Pelt.nonpridebandanas[0] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.nonpridebandanas[0])
+                        cat.pelt.inventory.remove(Pelt.nonpridebandanas[0])
+
+                    if Pelt.pridebandanas2[5] in cat.pelt.inventory:
+                        if Pelt.pridebandanas2[5] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas2[5])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas2[5])
+
+                    if Pelt.pridebandanas2[6] in cat.pelt.inventory:
+                        if Pelt.pridebandanas2[6] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas2[6])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas2[6])
+                    if Pelt.pridebandanas2[7] in cat.pelt.inventory:
+                        if Pelt.pridebandanas2[7] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas2[7])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas2[7])
+                    if Pelt.pridebandanas2[8] in cat.pelt.inventory:
+                        if Pelt.pridebandanas2[8] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas2[8])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas2[8])
+                    if Pelt.pridebandanas2[13] in cat.pelt.inventory:
+                        if Pelt.pridebandanas2[13] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas2[13])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas2[13])
+                
+                elif cat.sexuality == "lesbian":
+                    if Pelt.nonpridebandanas[0] in cat.pelt.inventory:
+                        if Pelt.nonpridebandanas[0] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.nonpridebandanas[0])
+                        cat.pelt.inventory.remove(Pelt.nonpridebandanas[0])
+                    if Pelt.pridebandanas2[4] in cat.pelt.inventory:
+                        if Pelt.pridebandanas2[4] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas2[4])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas2[4])
+                    if Pelt.pridebandanas2[6] in cat.pelt.inventory:
+                        if Pelt.pridebandanas2[6] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas2[6])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas2[6])
+                    if Pelt.pridebandanas2[7] in cat.pelt.inventory:
+                        if Pelt.pridebandanas2[7] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas2[7])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas2[7])
+                    if Pelt.pridebandanas2[8] in cat.pelt.inventory:
+                        if Pelt.pridebandanas2[8] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas2[8])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas2[8])
+                    if Pelt.pridebandanas2[13] in cat.pelt.inventory:
+                        if Pelt.pridebandanas2[13] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas2[13])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas2[13])
+                
+                elif cat.sexuality == "bi":
+                    if Pelt.nonpridebandanas[0] in cat.pelt.inventory:
+                        if Pelt.nonpridebandanas[0] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.nonpridebandanas[0])
+                        cat.pelt.inventory.remove(Pelt.nonpridebandanas[0])
+                    if Pelt.pridebandanas2[4] in cat.pelt.inventory:
+                        if Pelt.pridebandanas2[4] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas2[4])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas2[4])
+                    if Pelt.pridebandanas2[5] in cat.pelt.inventory:
+                        if Pelt.pridebandanas2[5] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas2[5])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas2[5])
+                    if Pelt.pridebandanas2[7] in cat.pelt.inventory:
+                        if Pelt.pridebandanas2[7] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas2[7])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas2[7])
+                    if Pelt.pridebandanas2[13] in cat.pelt.inventory:
+                        if Pelt.pridebandanas2[13] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas2[13])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas2[13])
+                
+                elif cat.sexuality == 'andro' or cat.sexuality == 'gyno':
+                    if Pelt.nonpridebandanas[0] in cat.pelt.inventory:
+                        if Pelt.nonpridebandanas[0] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.nonpridebandanas[0])
+                        cat.pelt.inventory.remove(Pelt.nonpridebandanas[0])
+                    if Pelt.pridebandanas2[4] in cat.pelt.inventory:
+                        if Pelt.pridebandanas2[4] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas2[4])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas2[4])
+                    if Pelt.pridebandanas2[5] in cat.pelt.inventory:
+                        if Pelt.pridebandanas2[5] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas2[5])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas2[5])
+                    if Pelt.pridebandanas2[6] in cat.pelt.inventory:
+                        if Pelt.pridebandanas2[6] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas2[6])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas2[6])
+                    if Pelt.pridebandanas2[7] in cat.pelt.inventory:
+                        if Pelt.pridebandanas2[7] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas2[7])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas2[7])
+                    if Pelt.pridebandanas2[8] in cat.pelt.inventory:
+                        if Pelt.pridebandanas2[8] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas2[8])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas2[8])
+                    if Pelt.pridebandanas2[13] in cat.pelt.inventory:
+                        if Pelt.pridebandanas2[13] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas2[13])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas2[13])
+                
+                elif cat.sexuality == "aroace":
+                    if Pelt.nonpridebandanas[0] in cat.pelt.inventory:
+                        if Pelt.nonpridebandanas[0] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.nonpridebandanas[0])
+                        cat.pelt.inventory.remove(Pelt.nonpridebandanas[0])
+                    if Pelt.pridebandanas2[3] in cat.pelt.inventory:
+                        if Pelt.pridebandanas2[3] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas2[3])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas2[3])
+                    if Pelt.pridebandanas2[4] in cat.pelt.inventory:
+                        if Pelt.pridebandanas2[4] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas2[4])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas2[4])
+                    if Pelt.pridebandanas2[5] in cat.pelt.inventory:
+                        if Pelt.pridebandanas2[5] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas2[5])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas2[5])
+                    if Pelt.pridebandanas2[6] in cat.pelt.inventory:
+                        if Pelt.pridebandanas2[6] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas2[6])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas2[6])
+                    if Pelt.pridebandanas2[8] in cat.pelt.inventory:
+                        if Pelt.pridebandanas2[8] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas2[8])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas2[8])
+                    if Pelt.pridebandanas2[10] in cat.pelt.inventory:
+                        if Pelt.pridebandanas2[10] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas2[10])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas2[10])
+                    if Pelt.pridebandanas2[11] in cat.pelt.inventory:
+                        if Pelt.pridebandanas2[11] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas2[11]) 
+                        cat.pelt.inventory.remove(Pelt.pridebandanas2[11])
+                
+                # now for gender:
+                        
+                if cat.genderalign in ['trans male', 'trans female']:
+                    if Pelt.pridebandanas[1] in cat.pelt.inventory:
+                        if Pelt.pridebandanas[1] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas[1])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas[1])
+                
+                elif cat.genderalign == cat.gender:
+                    if Pelt.pridebandanas[0] in cat.pelt.inventory:
+                        if Pelt.pridebandanas[0] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas[0])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas[0])
+                    if Pelt.pridebandanas[1] in cat.pelt.inventory:
+                        if Pelt.pridebandanas[1] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas[1])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas[1])
+                    if Pelt.pridebandanas2[0] in cat.pelt.inventory:
+                        if Pelt.pridebandanas2[0] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas2[0])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas2[0])
+                    if Pelt.pridebandanas2[1] in cat.pelt.inventory:
+                        if Pelt.pridebandanas2[1] in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(Pelt.pridebandanas2[1])
+                        cat.pelt.inventory.remove(Pelt.pridebandanas2[1])
+
+                    if not game.clan.clan_settings['all accessories']:
+                        # give poly cats the poly bandana
+                        if len(cat.mate) > 1:
+                            if Pelt.pridebandanas2[9] not in cat.pelt.inventory:
+                                cat.pelt.inventory.append(Pelt.pridebandanas2[9])
+
+                        # giving cats appropriate pride bandanas if they dont have them already
+                        if cat.moons > 5:
+                            if cat.sexuality == "straight" and Pelt.nonpridebandanas[0] not in cat.pelt.inventory:
+                                cat.pelt.inventory.append(Pelt.nonpridebandanas[0])
+
+                        
+                            elif cat.sexuality == "bi" and Pelt.pridebandanas2[6] not in cat.pelt.inventory \
+                                and Pelt.pridebandanas2[8] not in cat.pelt.inventory:
+                                flag = randint(1,2)
+                                if flag == 1:
+                                    cat.pelt.inventory.append(Pelt.pridebandanas2[6])
+                                else:
+                                    cat.pelt.inventory.append(Pelt.pridebandanas2[8])
+
+                            elif cat.sexuality == "gay" and Pelt.pridebandanas2[3] not in cat.pelt.inventory \
+                                and Pelt.pridebandanas2[4] not in cat.pelt.inventory:
+                                flag = randint(1,6)
+                                if flag == 1:
+                                    cat.pelt.inventory.append(Pelt.pridebandanas2[3])
+                                else:
+                                    cat.pelt.inventory.append(Pelt.pridebandanas2[4])
+
+                            elif cat.sexuality == "lesbian" and Pelt.pridebandanas2[3] not in cat.pelt.inventory \
+                                and Pelt.pridebandanas2[5] not in cat.pelt.inventory:
+                                flag = randint(1,12)
+                                if flag == 1:
+                                    cat.pelt.inventory.append(Pelt.pridebandanas2[3])
+                                else:
+                                    cat.pelt.inventory.append(Pelt.pridebandanas2[5])
+
+                            elif cat.sexuality == "aroace" and Pelt.pridebandanas2[7] not in cat.pelt.inventory \
+                                and Pelt.pridebandanas2[13] not in cat.pelt.inventory:
+                                flag = randint(1,3)
+                                if flag == 1:
+                                    cat.pelt.inventory.append(Pelt.pridebandanas2[13])
+                                else:
+                                    cat.pelt.inventory.append(Pelt.pridebandanas2[7])
                             
-                    if cat.sexuality == 'andro':
-                        if cat.genderalign in ['male', 'trans male']:
-                            cat.sexuality = "gay"
-                        elif cat.genderalign in ['female', 'trans female']:
-                            cat.sexuality = "straight"
+                            if cat.genderalign in ['trans male', 'trans female'] and Pelt.pridebandanas[0] not in cat.pelt.inventory:
+                                cat.pelt.inventory.append(Pelt.pridebandanas[0])
 
-                    elif cat.sexuality == 'gyno':
-                        if cat.genderalign in ['female', 'trans female']:
-                            cat.sexuality = "lesbian"
-                        elif cat.genderalign in ['male', 'trans male']:
-                            cat.sexuality = "straight"
+                            elif cat.genderalign == 'nonbinary' and Pelt.pridebandanas[1] not in cat.pelt.inventory \
+                                and Pelt.pridebandanas2[0] not in cat.pelt.inventory \
+                                    and Pelt.pridebandanas2[1] not in cat.pelt.inventory:
+                                flag = randint(1,8)
+                                if flag == 1:
+                                    cat.pelt.inventory.append(Pelt.pridebandanas2[0])
+                                elif flag == 2:
+                                    cat.pelt.inventory.append(Pelt.pridebandanas2[1])
+                                else:
+                                    cat.pelt.inventory.append(Pelt.pridebandanas[1])
+                                
+                            elif cat.genderalign != cat.gender and cat.genderalign not in ['trans male', 'trans female']:
+                                if Pelt.pridebandanas2[1] not in cat.pelt.inventory and \
+                                    Pelt.pridebandanas2[0] not in cat.pelt.inventory and \
+                                        Pelt.pridebandanas[1] not in cat.pelt.inventory and \
+                                        Pelt.pridebandanas[0] not in cat.pelt.inventory:
+                                    cat.pelt.inventory.append(Pelt.pridebandanas2[1])
 
-                    if cat.sexuality == "straight":
-                        if Pelt.pridebandanas2[3] in cat.pelt.inventory:
-                            if Pelt.pridebandanas2[3] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas2[3])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas2[3])
-                        if Pelt.pridebandanas2[4] in cat.pelt.inventory:
-                            if Pelt.pridebandanas2[4] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas2[4])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas2[4])
-                        if Pelt.pridebandanas2[5] in cat.pelt.inventory:
-                            if Pelt.pridebandanas2[5] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas2[5])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas2[5])
-                        if Pelt.pridebandanas2[6] in cat.pelt.inventory:
-                            if Pelt.pridebandanas2[6] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas2[6])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas2[6])
-                        if Pelt.pridebandanas2[7] in cat.pelt.inventory:
-                            if Pelt.pridebandanas2[7] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas2[7])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas2[7])
-                        if Pelt.pridebandanas2[8] in cat.pelt.inventory:
-                            if Pelt.pridebandanas2[8] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas2[8])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas2[8])
-                        if Pelt.pridebandanas2[13] in cat.pelt.inventory:
-                            if Pelt.pridebandanas2[13] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas2[13])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas2[13])
 
-                    elif cat.sexuality == "gay":
-                        if Pelt.pridebandanas2[5] in cat.pelt.inventory:
-                            if Pelt.pridebandanas2[5] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas2[5])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas2[5])
-                        if Pelt.pridebandanas2[6] in cat.pelt.inventory:
-                            if Pelt.pridebandanas2[6] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas2[6])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas2[6])
-                        if Pelt.pridebandanas2[7] in cat.pelt.inventory:
-                            if Pelt.pridebandanas2[7] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas2[7])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas2[7])
-                        if Pelt.pridebandanas2[8] in cat.pelt.inventory:
-                            if Pelt.pridebandanas2[8] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas2[8])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas2[8])
-                        if Pelt.pridebandanas2[13] in cat.pelt.inventory:
-                            if Pelt.pridebandanas2[13] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas2[13])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas2[13])
+                            # fix cat sexualities if the nonbinary ones mess up somehow
+                                    
+                            if cat.sexuality == 'andro':
+                                if cat.genderalign in ['male', 'trans male']:
+                                    cat.sexuality = "gay"
+                                elif cat.genderalign in ['female', 'trans female']:
+                                    cat.sexuality = "straight"
+
+                            elif cat.sexuality == 'gyno':
+                                if cat.genderalign in ['female', 'trans female']:
+                                    cat.sexuality = "lesbian"
+                                elif cat.genderalign in ['male', 'trans male']:
+                                    cat.sexuality = "straight"
                     
-                    elif cat.sexuality == "lesbian":
-                        if Pelt.pridebandanas2[4] in cat.pelt.inventory:
-                            if Pelt.pridebandanas2[4] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas2[4])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas2[4])
-                        if Pelt.pridebandanas2[6] in cat.pelt.inventory:
-                            if Pelt.pridebandanas2[6] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas2[6])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas2[6])
-                        if Pelt.pridebandanas2[7] in cat.pelt.inventory:
-                            if Pelt.pridebandanas2[7] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas2[7])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas2[7])
-                        if Pelt.pridebandanas2[8] in cat.pelt.inventory:
-                            if Pelt.pridebandanas2[8] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas2[8])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas2[8])
-                        if Pelt.pridebandanas2[13] in cat.pelt.inventory:
-                            if Pelt.pridebandanas2[13] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas2[13])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas2[13])
-                    
-                    elif cat.sexuality == "bi":
-                        if Pelt.pridebandanas2[4] in cat.pelt.inventory:
-                            if Pelt.pridebandanas2[4] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas2[4])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas2[4])
-                        if Pelt.pridebandanas2[5] in cat.pelt.inventory:
-                            if Pelt.pridebandanas2[5] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas2[5])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas2[5])
-                        if Pelt.pridebandanas2[7] in cat.pelt.inventory:
-                            if Pelt.pridebandanas2[7] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas2[7])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas2[7])
-                        if Pelt.pridebandanas2[13] in cat.pelt.inventory:
-                            if Pelt.pridebandanas2[13] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas2[13])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas2[13])
-                    
-                    elif cat.sexuality == 'andro' or cat.sexuality == 'gyno':
-                        if Pelt.pridebandanas2[4] in cat.pelt.inventory:
-                            if Pelt.pridebandanas2[4] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas2[4])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas2[4])
-                        if Pelt.pridebandanas2[5] in cat.pelt.inventory:
-                            if Pelt.pridebandanas2[5] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas2[5])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas2[5])
-                        if Pelt.pridebandanas2[6] in cat.pelt.inventory:
-                            if Pelt.pridebandanas2[6] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas2[6])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas2[6])
-                        if Pelt.pridebandanas2[7] in cat.pelt.inventory:
-                            if Pelt.pridebandanas2[7] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas2[7])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas2[7])
-                        if Pelt.pridebandanas2[8] in cat.pelt.inventory:
-                            if Pelt.pridebandanas2[8] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas2[8])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas2[8])
-                        if Pelt.pridebandanas2[13] in cat.pelt.inventory:
-                            if Pelt.pridebandanas2[13] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas2[13])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas2[13])
-                    
-                    elif cat.sexuality == "aroace":
-                        if Pelt.pridebandanas2[3] in cat.pelt.inventory:
-                            if Pelt.pridebandanas2[3] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas2[3])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas2[3])
-                        if Pelt.pridebandanas2[4] in cat.pelt.inventory:
-                            if Pelt.pridebandanas2[4] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas2[4])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas2[4])
-                        if Pelt.pridebandanas2[5] in cat.pelt.inventory:
-                            if Pelt.pridebandanas2[5] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas2[5])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas2[5])
-                        if Pelt.pridebandanas2[6] in cat.pelt.inventory:
-                            if Pelt.pridebandanas2[6] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas2[6])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas2[6])
-                        if Pelt.pridebandanas2[8] in cat.pelt.inventory:
-                            if Pelt.pridebandanas2[8] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas2[8])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas2[8])
-                        if Pelt.pridebandanas2[10] in cat.pelt.inventory:
-                            if Pelt.pridebandanas2[10] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas2[10])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas2[10])
-                        if Pelt.pridebandanas2[11] in cat.pelt.inventory:
-                            if Pelt.pridebandanas2[11] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas2[11]) 
-                            cat.pelt.inventory.remove(Pelt.pridebandanas2[11])
-                    
-                    # now for gender:
-                            
-                    if cat.genderalign in ['trans male', 'trans female']:
-                        if Pelt.pridebandanas[1] in cat.pelt.inventory:
-                            if Pelt.pridebandanas[1] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas[1])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas[1])
-                    
-                    elif cat.genderalign == cat.gender:
-                        if Pelt.pridebandanas[0] in cat.pelt.inventory:
-                            if Pelt.pridebandanas[0] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas[0])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas[0])
-                        if Pelt.pridebandanas[1] in cat.pelt.inventory:
-                            if Pelt.pridebandanas[1] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas[1])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas[1])
-                        if Pelt.pridebandanas2[0] in cat.pelt.inventory:
-                            if Pelt.pridebandanas2[0] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas2[0])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas2[0])
-                        if Pelt.pridebandanas2[1] in cat.pelt.inventory:
-                            if Pelt.pridebandanas2[1] in cat.pelt.accessories:
-                                cat.pelt.accessories.remove(Pelt.pridebandanas2[1])
-                            cat.pelt.inventory.remove(Pelt.pridebandanas2[1])
-            
 
 
     def check_and_promote_leader(self):

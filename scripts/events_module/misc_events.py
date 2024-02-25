@@ -231,8 +231,7 @@ class MiscEvents():
 
         acc = random.choice(acc_list)
         
-        cat.pelt.accessory = acc
-        
+
         if not cat.pelt.inventory:
             cat.pelt.inventory = []
         cat.pelt.inventory.append(acc)

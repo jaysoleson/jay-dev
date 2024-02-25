@@ -306,6 +306,8 @@ def create_new_cat(Cat,
     accessory = None
     if isinstance(backstory, list):
         backstory = choice(backstory)
+    if accessory in [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]:
+        accessory = None
 
     if backstory in (
             BACKSTORIES["backstory_categories"]["former_clancat_backstories"] or BACKSTORIES["backstory_categories"]["otherclan_categories"]):
@@ -1148,11 +1150,13 @@ def event_text_adjust(Cat,
     if "acc_plural" in text:
         if cat.pelt.accessory and cat.pelt.accessory not in cat.pelt.accessories:
             cat.pelt.accessories.append(cat.pelt.accessory)
-        text = text.replace("acc_plural", str(ACC_DISPLAY[cat.pelt.accessory]["plural"]))
+        acc = cat.pelt.accessories[-1]
+        text = text.replace("acc_plural", str(ACC_DISPLAY[acc]["plural"]))
     if "acc_singular" in text:
         if cat.pelt.accessory and cat.pelt.accessory not in cat.pelt.accessories:
             cat.pelt.accessories.append(cat.pelt.accessory)
-        text = text.replace("acc_singular", str(ACC_DISPLAY[cat.pelt.accessory]["singular"]))
+        acc = cat.pelt.accessories[-1]
+        text = text.replace("acc_singular", str(ACC_DISPLAY[acc]["singular"]))
 
     if murder_reveal:
         victim_cat = Cat.fetch_cat(victim)
