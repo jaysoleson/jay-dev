@@ -1544,5 +1544,10 @@
     "default": "mothgender bandana",
     "plural": "mothgender bandanas",
     "singular": "mothgender bandana"
+  },
+  "PLACEHOLDER": {
+    "default": "checkered bandana",
+    "plural": "checkered bandanas",
+    "singular": "checkered bandana"
   }
 }

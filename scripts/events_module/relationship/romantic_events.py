@@ -458,28 +458,29 @@ class Romantic_Events():
             cat_from.relationships[cat_to.ID].romantic_love -= 10
             cat_to.relationships[cat_from.ID].comfortable -= 10
             
-        # ------------------------------------------------------#
-        #             ANNOYING HUGE ASS BLOCK FOR               #
-        #               COMPATIBLE SEXUALITIES                  #
-        # ------------------------------------------------------#
+        # # ------------------------------------------------------#
+        # #             ANNOYING HUGE ASS BLOCK FOR               #
+        # #               COMPATIBLE SEXUALITIES                  #
+        # # ------------------------------------------------------#
             
-        if (cat_to.sexuality == "aroace" or cat_from.sexuality == "aroace") or \
-           (cat_to.sexuality in ["lesbian", "gyno"] and cat_from.genderalign in ["male", "trans male", "demiboy"]) or \
-           (cat_to.sexuality in ["gay", "andro"] and cat_from.genderalign in ["female", "trans female", "demigirl"]) or \
-           (cat_to.sexuality == "straight" and cat_to.genderalign in ["male", "trans male", "demiboy"] and \
-                cat_from.genderalign in ["male", "trans male", "demiboy"]) or \
-            (cat_to.sexuality == "straight" and cat_to.genderalign in ["female", "trans female", "demigirl"] and \
-                cat_from.genderalign in ["female", "trans female", "demigirl"]) or \
-           (cat_from.sexuality in ["lesbian", "gyno"] and cat_to.genderalign in ["male", "trans male", "demiboy"]) or \
-           (cat_from.sexuality in ["gay", "andro"] and cat_to.genderalign in ["female", "trans female", "demigirl"]) or \
-           (cat_from.sexuality == "straight" and cat_from.genderalign in ["male", "trans male", "demiboy"] and \
-                cat_to.genderalign in ["male", "trans male", "demiboy"]) or \
-            (cat_from.sexuality == "straight" and cat_from.genderalign in ["female", "trans female", "demigirl"] and \
-                cat_to.genderalign in ["female", "trans female", "demigirl"]):
+        # if (cat_to.sexuality == "aroace" or cat_from.sexuality == "aroace") or \
+        #    (cat_to.sexuality in ["lesbian", "gyno"] and cat_from.genderalign in ["male", "trans male", "demiboy"]) or \
+        #    (cat_to.sexuality in ["gay", "andro"] and cat_from.genderalign in ["female", "trans female", "demigirl"]) or \
+        #    (cat_to.sexuality == "straight" and cat_to.genderalign in ["male", "trans male", "demiboy"] and \
+        #         cat_from.genderalign in ["male", "trans male", "demiboy"]) or \
+        #     (cat_to.sexuality == "straight" and cat_to.genderalign in ["female", "trans female", "demigirl"] and \
+        #         cat_from.genderalign in ["female", "trans female", "demigirl"]) or \
+        #    (cat_from.sexuality in ["lesbian", "gyno"] and cat_to.genderalign in ["male", "trans male", "demiboy"]) or \
+        #    (cat_from.sexuality in ["gay", "andro"] and cat_to.genderalign in ["female", "trans female", "demigirl"]) or \
+        #    (cat_from.sexuality == "straight" and cat_from.genderalign in ["male", "trans male", "demiboy"] and \
+        #         cat_to.genderalign in ["male", "trans male", "demiboy"]) or \
+        #     (cat_from.sexuality == "straight" and cat_from.genderalign in ["female", "trans female", "demigirl"] and \
+        #         cat_to.genderalign in ["female", "trans female", "demigirl"]):
             
-            # print('tried to set incompatible mates')
-            become_mate = False
-        # --------------------------------------------------------
+        #     # print('tried to set incompatible mates')
+        #     sexuality_incompatible = True
+        #     become_mate = False
+        # # --------------------------------------------------------
 
         if become_mate:
             if cat_from.ID == game.clan.your_cat.ID or cat_to.ID == game.clan.your_cat.ID:
@@ -548,7 +549,29 @@ class Romantic_Events():
         """Checks if the two cats can become mates, or not. Returns: boolean and event_string"""
         if not cat_from or not cat_to:
             return False, None
-
+        
+        # ------------------------------------------------------#
+        #             ANNOYING HUGE ASS BLOCK FOR               #
+        #               COMPATIBLE SEXUALITIES                  #
+        # ------------------------------------------------------#
+            
+        if (cat_to.sexuality == "aroace" or cat_from.sexuality == "aroace") or \
+           (cat_to.sexuality in ["lesbian", "gyno"] and cat_from.genderalign in ["male", "trans male", "demiboy"]) or \
+           (cat_to.sexuality in ["gay", "andro"] and cat_from.genderalign in ["female", "trans female", "demigirl"]) or \
+           (cat_to.sexuality == "straight" and cat_to.genderalign in ["male", "trans male", "demiboy"] and \
+                cat_from.genderalign in ["male", "trans male", "demiboy"]) or \
+            (cat_to.sexuality == "straight" and cat_to.genderalign in ["female", "trans female", "demigirl"] and \
+                cat_from.genderalign in ["female", "trans female", "demigirl"]) or \
+           (cat_from.sexuality in ["lesbian", "gyno"] and cat_to.genderalign in ["male", "trans male", "demiboy"]) or \
+           (cat_from.sexuality in ["gay", "andro"] and cat_to.genderalign in ["female", "trans female", "demigirl"]) or \
+           (cat_from.sexuality == "straight" and cat_from.genderalign in ["male", "trans male", "demiboy"] and \
+                cat_to.genderalign in ["male", "trans male", "demiboy"]) or \
+            (cat_from.sexuality == "straight" and cat_from.genderalign in ["female", "trans female", "demigirl"] and \
+                cat_to.genderalign in ["female", "trans female", "demigirl"]):
+            
+            become_mates = False
+            return False, None
+        # --------------------------------------------------------
         become_mates = False
         young_age = ['newborn', 'kitten', 'adolescent']
         if not cat_from.is_potential_mate(cat_to):

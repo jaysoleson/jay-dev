@@ -108,6 +108,10 @@ class Pelt():
         "URANIC", "NEBULAROMANTIC", "CATGENDER", "GENDERDOE", "OMNISAPPHIC", "MOTHGENDER"
     ]
 
+    nonpridebandanas = [
+        "PLACEHOLDER"
+    ]
+
     # ohdan's accessories
     flower_accessories = ["DAISY", "DIANTHUS", "BLEEDING HEARTS", "FRANGIPANI", "BLUE GLORY",
                           "CATNIP FLOWER", "BLANKET FLOWER", "ALLIUM", "LACELEAF", "PURPLE GLORY",

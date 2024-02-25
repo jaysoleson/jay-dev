@@ -144,6 +144,7 @@ class Events:
         for cat in Cat.all_cats.copy().values():
             if not cat.outside or cat.dead:
                 self.one_moon_cat(cat)
+                
             else:
                 self.one_moon_outside_cat(cat)
         
@@ -1852,13 +1853,13 @@ class Events:
             Condition_Events.handle_already_disabled(cat)
             if cat.dead:
                 return
+            
         self.change_sexuality(cat)
         self.make_aroace(cat)
         self.make_acespec(cat)
         self.get_flags(cat)
-
-
         self.coming_out(cat)
+
         Pregnancy_Events.handle_having_kits(cat, clan=game.clan)
         # Stop the timeskip if the cat died in childbirth
         if cat.dead:
@@ -3241,7 +3242,7 @@ class Events:
         
         involved_cats = [cat.ID]
 
-        if cat.sexuality in ('gay', 'lesbian', 'andro', 'gyno', 'straight'):
+        if cat.sexuality in ['gay', 'lesbian', 'andro', 'gyno', 'straight']:
             if cat.age == 'adolescent':
                 bi_chance = random.getrandbits(10)
             elif cat.age == 'young adult':
@@ -3272,7 +3273,7 @@ class Events:
 
 
 
-        if cat.sexuality in ('bi', 'straight'):
+        if cat.sexuality in ['bi', 'straight']:
             if cat.age == 'adolescent':
                 gay_chance = random.getrandbits(9)
             elif cat.age == 'young adult':
@@ -3451,7 +3452,9 @@ class Events:
 
                 # giving cats appropriate pride bandanas if they dont have them already
                 if cat.moons > 5:
-                    if cat.sexuality == "bi" and Pelt.pridebandanas2[6] not in cat.pelt.inventory \
+                    if cat.sexuality == "straight" and Pelt.nonpridebandanas[0] not in cat.pelt.inventory:
+                        cat.pelt.inventory.append(Pelt.nonpridebandanas[0])
+                    elif cat.sexuality == "bi" and Pelt.pridebandanas2[6] not in cat.pelt.inventory \
                         and Pelt.pridebandanas2[8] not in cat.pelt.inventory:
                         flag = randint(1,2)
                         if flag == 1:

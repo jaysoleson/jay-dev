@@ -184,7 +184,7 @@ class Clan():
     def post_initialization_functions(self):
 
 
-        if self.deputy is not None:
+        if self.deputy:
             self.deputy.status_change('deputy')
             self.clan_cats.append(self.deputy.ID)
 
@@ -192,11 +192,12 @@ class Clan():
             self.leader.status_change('leader')
             self.clan_cats.append(self.leader.ID)
 
-        if self.medicine_cat is not None:
+        if self.medicine_cat:
             self.clan_cats.append(self.medicine_cat.ID)
             self.med_cat_list.append(self.medicine_cat.ID)
             if self.medicine_cat.status != 'medicine cat':
                 Cat.all_cats[self.medicine_cat.ID].status_change('medicine cat')
+                
     def create_clan(self):
         """
         This function is only called once a new clan is
@@ -208,6 +209,9 @@ class Clan():
                               )
         self.instructor.dead = True
         self.instructor.dead_for = randint(20, 200)
+        self.instructor.pelt.inventory = []
+        if self.instructor.pelt.inventory != []:
+            self.instructor.pelt.inventory = []
         self.instructor.backstory = choice(BACKSTORIES["backstory_categories"]["dead_cat_backstories"])
         self.add_cat(self.instructor)
         self.add_to_starclan(self.instructor)
@@ -219,10 +223,17 @@ class Clan():
         self.demon.df = True
         self.demon.dead = True
         self.demon.dead_for = randint(20, 200)
+        self.demon.pelt.inventory = []
+        if self.demon.pelt.inventory != []:
+            self.demon.pelt.inventory = []
         self.demon.backstory = choice(BACKSTORIES["backstory_categories"]["dead_cat_backstories"])
         self.add_cat(self.demon)
         self.add_to_darkforest(self.demon)
         self.all_clans = []
+
+        # fixesweird non-leader leader issue 
+        if self.leader.status is not "leader":
+            self.leader.status_change('leader')
 
         key_copy = tuple(Cat.all_cats.keys())
         for i in key_copy:  # Going through all currently existing cats
@@ -253,6 +264,11 @@ class Clan():
             elif Cat.all_cats.get(cat_id).status == 'medicine cat apprentice':
                 Cat.all_cats.get(cat_id).status_change('medicine cat apprentice')
             Cat.all_cats.get(cat_id).thoughts()
+
+            Cat.all_cats.get(cat_id).pelt.inventory = []
+            
+            if Cat.all_cats.get(cat_id).pelt.inventory != []:
+                Cat.all_cats.get(cat_id).pelt.inventory = []
 
 
         game.save_cats()
@@ -805,7 +821,7 @@ class Clan():
             game.clan.add_cat(game.clan.instructor)
             
         # demon Info
-        if "demon" in clan_data and clan_data["demon"] in Cat.all_cats:
+        if clan_data["demon"] in Cat.all_cats:
             game.clan.demon = Cat.all_cats[clan_data["demon"]]
             game.clan.add_cat(game.clan.demon)
             game.clan.demon.df = True
@@ -915,14 +931,17 @@ class Clan():
                         cat_sprite = str(cat.pelt.cat_sprites[age])
 
 
-                possible_accs = ["WILD", "PLANT", "COLLAR", "FLOWER", "PLANT2", "SNAKE", "SMALLANIMAL", "DEADINSECT", "ALIVEINSECT", "FRUIT", "CRAFTED", "PRIDE", "PRIDE2", "PRIDE3", "TAIL2"]
+                possible_accs = ["WILD", "PLANT", "COLLAR", "FLOWER", "PLANT2", "SNAKE", "SMALLANIMAL", "DEADINSECT", "ALIVEINSECT", "FRUIT", "CRAFTED", "PRIDE", "PRIDE2", "PRIDE3", "TAIL2", "BANDANAS"]
                 acc_list = []
-                if "PRIDE" in possible_accs:
-                    acc_list.extend(Pelt.pridebandanas)
-                if "PRIDE2" in possible_accs:
-                    acc_list.extend(Pelt.pridebandanas2)
-                if "PRIDE3" in possible_accs:
-                    acc_list.extend(Pelt.pridebandanas3)
+                if cat.moons > 6:
+                    if "PRIDE" in possible_accs:
+                        acc_list.extend(Pelt.pridebandanas)
+                    if "PRIDE2" in possible_accs:
+                        acc_list.extend(Pelt.pridebandanas2)
+                    if "PRIDE3" in possible_accs:
+                        acc_list.extend(Pelt.pridebandanas3)
+                if "BANDANAS" in possible_accs:
+                    acc_list.extend(Pelt.nonpridebandanas)
                 if "WILD" in possible_accs:
                     acc_list.extend(Pelt.wild_accessories)
                 if "PLANT" in possible_accs:

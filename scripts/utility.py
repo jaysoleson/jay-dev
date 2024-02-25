@@ -435,6 +435,7 @@ def create_new_cat(Cat,
         # give em a collar if they got one
         if accessory:
             new_cat.pelt.accessories.append(accessory)
+            new_cat.pelt.inventory.append(accessory)
 
         if df:
             if status != "kitten":
@@ -572,7 +573,11 @@ def create_outside_cat(Cat, status, backstory, alive=True, thought=None):
                 sexuality = choice(["straight", "bi"]),
                 backstory=backstory)
     if status == 'kittypet':
+        acc = choice(Pelt.collars)
         new_cat.pelt.accessories.append(choice(Pelt.collars))
+        new_cat.pelt.inventory.append(choice(Pelt.collars))
+        
+        
     new_cat.outside = True
 
     if not alive:
@@ -1139,16 +1144,15 @@ def event_text_adjust(Cat,
     if cat:
         cat_dict["m_c"] = (str(cat.name), choice(cat.pronouns))
         cat_dict["p_l"] = cat_dict["m_c"]
+
     if "acc_plural" in text:
         if cat.pelt.accessory and cat.pelt.accessory not in cat.pelt.accessories:
             cat.pelt.accessories.append(cat.pelt.accessory)
-        acc = cat.pelt.accessories[-1]
-        text = text.replace("acc_plural", str(ACC_DISPLAY[acc]["plural"]))
+        text = text.replace("acc_plural", str(ACC_DISPLAY[cat.pelt.accessory]["plural"]))
     if "acc_singular" in text:
         if cat.pelt.accessory and cat.pelt.accessory not in cat.pelt.accessories:
             cat.pelt.accessories.append(cat.pelt.accessory)
-        acc = cat.pelt.accessories[-1]
-        text = text.replace("acc_singular", str(ACC_DISPLAY[acc]["singular"]))
+        text = text.replace("acc_singular", str(ACC_DISPLAY[cat.pelt.accessory]["singular"]))
 
     if murder_reveal:
         victim_cat = Cat.fetch_cat(victim)
@@ -1585,6 +1589,8 @@ def generate_sprite(cat, life_state=None, scars_hidden=False, acc_hidden=False, 
                         new_sprite.blit(sprites.sprites['acc_pride2' + i + cat_sprite], (0, 0))
                     elif i in cat.pelt.pridebandanas3:
                         new_sprite.blit(sprites.sprites['acc_pride3' + i + cat_sprite], (0, 0))
+                    elif i in cat.pelt.nonpridebandanas:
+                        new_sprite.blit(sprites.sprites['acc_bandanas' + i + cat_sprite], (0, 0))
                     elif i in cat.pelt.flower_accessories:
                         new_sprite.blit(sprites.sprites['acc_flower' + i + cat_sprite], (0, 0))
                     elif i in cat.pelt.plant2_accessories:

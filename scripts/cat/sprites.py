@@ -159,7 +159,9 @@ class Sprites():
 
             "pridebandanas2",
 
-            "pridebandanas3"
+            "pridebandanas3",
+
+            "nonpridebandanas"
 
         ]:
             if 'lineart' in x and game.config['fun']['april_fools']:
@@ -558,6 +560,10 @@ class Sprites():
         for a, i in enumerate([
             "URANIC", "NEBULAROMANTIC", "CATGENDER", "GENDERDOE", "OMNISAPPHIC", "MOTHGENDER"]):
             self.make_group('pridebandanas3', (a, 0), f'acc_pride3{i}')
+
+        for a, i in enumerate([
+            "PLACEHOLDER"]):
+            self.make_group('nonpridebandanas', (a, 0), f'acc_bandanas{i}')
         
     # --------------------------------
         for a, i in enumerate([

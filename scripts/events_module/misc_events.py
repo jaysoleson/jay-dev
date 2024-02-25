@@ -230,7 +230,9 @@ class MiscEvents():
                         print(f'attempted to remove {acc} from possible acc list, but it was not in the list!')
 
         acc = random.choice(acc_list)
+        
         cat.pelt.accessory = acc
+        
         if not cat.pelt.inventory:
             cat.pelt.inventory = []
         cat.pelt.inventory.append(acc)
