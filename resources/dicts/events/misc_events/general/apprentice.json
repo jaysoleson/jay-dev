@@ -1099,7 +1099,7 @@
             "neg_dislike",
             "neg_jealousy"
         ],
-        "event_text": "r_c seems to have found a pack of ladybugs  collecting near a bush, and calls m_c over to see the acc_plural. Curiously enough, m_c has decided to keep one as a pet.",
+        "event_text": "r_c seems to have found a pack of ladybugs  collecting near a bush, and calls m_c over to see them. Curiously enough, m_c has decided to keep one as a pet.",
         "accessories": ["RED LADYBUG", "ORANGE LADYBUG", "YELLOW LADYBUG"]
     },
     {

@@ -2184,6 +2184,7 @@ class Cat():
                           other_cat: Cat,
                           for_love_interest: bool = False,
                           age_restriction: bool = True,
+                          sexuality_compatible: bool = True,
                           first_cousin_mates:bool = False,
                           ignore_no_mates:bool=False):
         """
@@ -2206,24 +2207,25 @@ class Cat():
         if (self.dead != other_cat.dead) or self.outside or other_cat.outside:
             return False
 
-        if (self.sexuality == "aroace" or other_cat.sexuality == "aroace") or \
-           (self.sexuality in ["lesbian", "gyno"] and other_cat.genderalign in ["male", "trans male", "demiboy"]) or \
-           (self.sexuality in ["gay", "andro"] and other_cat.genderalign in ["female", "trans female", "demigirl"]) or \
-           (self.sexuality == "straight" and self.genderalign in ["male", "trans male", "demiboy"] and \
-                other_cat.genderalign in ["male", "trans male", "demiboy"]) or \
-            (self.sexuality == "straight" and self.genderalign in ["female", "trans female", "demigirl"] and \
-                other_cat.genderalign in ["female", "trans female", "demigirl"]) or \
-           (self.sexuality in ["lesbian", "gyno"] and self.genderalign in ["male", "trans male", "demiboy"]) or \
-           (self.sexuality in ["gay", "andro"] and self.genderalign in ["female", "trans female", "demigirl"]) or \
-           (self.sexuality == "straight" and self.genderalign in ["male", "trans male", "demiboy"] and \
-                other_cat.genderalign in ["male", "trans male", "demiboy"]) or \
-            (self.sexuality == "straight" and self.genderalign in ["female", "trans female", "demigirl"] and \
-                other_cat.genderalign in ["female", "trans female", "demigirl"]) or \
-            (self.genderalign in ['male', 'trans male', 'demiboy'] and \
-             self.sexuality == "gay" and other_cat.sexuality == "straight") or \
-            (self.genderalign in ['female', 'trans female', 'demigirl'] and \
-             self.sexuality == "lesbian" and other_cat.sexuality == "straight"):
-            return False
+        if sexuality_compatible:
+            if (self.sexuality == "aroace" or other_cat.sexuality == "aroace") or \
+            (self.sexuality in ["lesbian", "gyno"] and other_cat.genderalign in ["male", "trans male", "demiboy"]) or \
+            (self.sexuality in ["gay", "andro"] and other_cat.genderalign in ["female", "trans female", "demigirl"]) or \
+            (self.sexuality == "straight" and self.genderalign in ["male", "trans male", "demiboy"] and \
+                    other_cat.genderalign in ["male", "trans male", "demiboy"]) or \
+                (self.sexuality == "straight" and self.genderalign in ["female", "trans female", "demigirl"] and \
+                    other_cat.genderalign in ["female", "trans female", "demigirl"]) or \
+            (self.sexuality in ["lesbian", "gyno"] and self.genderalign in ["male", "trans male", "demiboy"]) or \
+            (self.sexuality in ["gay", "andro"] and self.genderalign in ["female", "trans female", "demigirl"]) or \
+            (self.sexuality == "straight" and self.genderalign in ["male", "trans male", "demiboy"] and \
+                    other_cat.genderalign in ["male", "trans male", "demiboy"]) or \
+                (self.sexuality == "straight" and self.genderalign in ["female", "trans female", "demigirl"] and \
+                    other_cat.genderalign in ["female", "trans female", "demigirl"]) or \
+                (self.genderalign in ['male', 'trans male', 'demiboy'] and \
+                self.sexuality == "gay" and other_cat.sexuality == "straight") or \
+                (self.genderalign in ['female', 'trans female', 'demigirl'] and \
+                self.sexuality == "lesbian" and other_cat.sexuality == "straight") and not for_love_interest:
+                return False
 
         # check for age
         if age_restriction:

@@ -280,7 +280,8 @@ def create_new_cat(Cat,
                    df:bool=False,
                    outside:bool=False,
                    parent1:str=None,
-                   parent2:str=None
+                   parent2:str=None,
+                   inventory:dict=[]
     ) -> list:
     """
     This function creates new cats and then returns a list of those cats
@@ -301,9 +302,11 @@ def create_new_cat(Cat,
     :param alive: set this as False to generate the cat as already dead - default: True (alive)
     :param outside: set this as True to generate the cat as an outsider instead of as part of the Clan - default: False (Clan cat)
     :param parent1: Cat ID to set as the biological parent1
-    :param parent2: Cat ID object to set as the biological parert2
+    :param parent2: Cat ID object to set as the biological parent2
+    :param inventory: defines an individual inventory for each new cat (hopefully)
     """
     accessory = None
+    inventory = []
     if isinstance(backstory, list):
         backstory = choice(backstory)
     if accessory in [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]:
@@ -379,7 +382,8 @@ def create_new_cat(Cat,
                           sexuality=_sexuality,
                           backstory=backstory,
                           parent1=parent1,
-                          parent2=parent2)
+                          parent2=parent2,
+                          inventory=inventory)
         else:
             # grab starting names and accs for loners/kittypets
             if kittypet:
@@ -411,7 +415,8 @@ def create_new_cat(Cat,
                                   df=df,
                                   backstory=backstory,
                                   parent1=parent1,
-                                  parent2=parent2)
+                                  parent2=parent2,
+                                  inventory=inventory)
                 else:  # completely new name
                     new_cat = Cat(moons=age,
                                   status=status,
@@ -420,7 +425,8 @@ def create_new_cat(Cat,
                                   df=df,
                                   backstory=backstory,
                                   parent1=parent1,
-                                  parent2=parent2)
+                                  parent2=parent2,
+                                  inventory=inventory)
             # these cats keep their old names
             else:
                 new_cat = Cat(moons=age,
@@ -432,7 +438,8 @@ def create_new_cat(Cat,
                               df=df,
                               backstory=backstory,
                               parent1=parent1,
-                              parent2=parent2)
+                              parent2=parent2,
+                              inventory=inventory)
 
         # give em a collar if they got one
         if accessory:
@@ -549,7 +556,7 @@ def create_new_cat(Cat,
     return created_cats
 
 
-def create_outside_cat(Cat, status, backstory, alive=True, thought=None):
+def create_outside_cat(Cat, status, backstory, alive=True, thought=None, inventory=[]):
     """
         TODO: DOCS
         """
@@ -573,7 +580,8 @@ def create_outside_cat(Cat, status, backstory, alive=True, thought=None):
                 status=status,
                 gender=choice(['female', 'male']),
                 sexuality = choice(["straight", "bi"]),
-                backstory=backstory)
+                backstory=backstory,
+                invetory=inventory)
     if status == 'kittypet':
         acc = choice(Pelt.collars)
         new_cat.pelt.accessories.append(choice(Pelt.collars))
@@ -1146,6 +1154,8 @@ def event_text_adjust(Cat,
     if cat:
         cat_dict["m_c"] = (str(cat.name), choice(cat.pronouns))
         cat_dict["p_l"] = cat_dict["m_c"]
+
+    # commented out because i got rid of the tagging in the events. get_flags() conflicted with it
 
     # if "acc_plural" in text:
     #     if cat.pelt.accessory and cat.pelt.accessory not in cat.pelt.accessories:

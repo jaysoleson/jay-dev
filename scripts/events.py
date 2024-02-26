@@ -2551,9 +2551,6 @@ class Events:
         #     self.ceremony_accessory = False
         #     return
 
-        if cat.pelt.accessory in Pelt.pridebandanas + Pelt.pridebandanas2 + Pelt.pridebandanas3 + Pelt.nonpridebandanas:
-            return
-
         # find other_cat
         other_cat = random.choice(list(Cat.all_cats.values()))
         countdown = int(len(Cat.all_cats) / 3)
@@ -3302,26 +3299,25 @@ class Events:
 
     def change_sexuality(self, cat):
         """turnin' the kitties gay..."""
+        involved_cats = [cat.ID]
         if cat.moons < 6:
             return
-        
-        involved_cats = [cat.ID]
-
+       
         if cat.sexuality in ['gay', 'lesbian', 'andro', 'gyno', 'straight']:
             if cat.age == 'adolescent':
-                bi_chance = random.getrandbits(10)
-            elif cat.age == 'young adult':
                 bi_chance = random.getrandbits(9)
+            elif cat.age == 'young adult':
+                bi_chance = random.getrandbits(8)
             else:
                 # adult, senior adult, elder
-                bi_chance = random.getrandbits(11)
+                bi_chance = random.getrandbits(9)
 
             if bi_chance:
                 return
             
             if random.getrandbits(1):  # 50/50
                 cat.sexuality = "bi"
-                if not game.clan.clan_settings['all accessories'] and not any(flag in cat.pelt.accessories for flag in [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]):
+                if not game.clan.clan_settings['all accessories']:
 
                     flag = randint (1,2)
 
@@ -3342,14 +3338,14 @@ class Events:
 
 
 
-        if cat.sexuality in ['bi', 'straight']:
+        elif cat.sexuality == "bi":
             if cat.age == 'adolescent':
                 gay_chance = random.getrandbits(9)
             elif cat.age == 'young adult':
-                gay_chance = random.getrandbits(8)
+                gay_chance = random.getrandbits(7)
             else:
                 # adult, senior adult, elder
-                gay_chance = random.getrandbits(9)
+                gay_chance = random.getrandbits(8)
 
             if gay_chance:
                 return
@@ -3395,18 +3391,16 @@ class Events:
                             cat.pelt.accessories.append(Pelt.pridebandanas2[3])
                         cat.pelt.inventory.append(Pelt.pridebandanas2[3])
 
-                if cat.genderalign not in['male', 'female', 'trans male', 'trans female', 'demiboy', 'demigirl']:
+                if cat.genderalign in['male', 'female', 'trans male', 'trans female', 'demiboy', 'demigirl']:
                     if cat.genderalign in ['male', 'trans male', 'demiboy']:
-                        gender = 'tom'
-                        text = f"{cat.name} only seems to crush on other {gender}s."
+                        text = f"{cat.name} only seems to crush on other toms."
                         game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
                         # ^^ this events append thing is in every if statement is ugly
                         # but it kept fucking up when i tried to do it in one statement.
                         # ill clean it up later
 
                     elif cat.genderalign in ['female', 'trans female', 'demigirl']:
-                        gender = 'she-cat'
-                        text = f"{cat.name} only seems to crush on other {gender}s."
+                        text = f"{cat.name} only seems to crush on other she-cats."
                         game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
                 else:
                     if cat.sexuality == "andro":
@@ -3528,29 +3522,54 @@ class Events:
         also gives fruit accs to kits as a way to cover up the new cat accessory bug for now """
 
         
-        # give a placeholder accessory to the kits to avoid the new cat inventory bug
-        # this is not a fix for the bug but a janky workaround. we'll figure that out one day
-        kit_acc_placeholder = choice(Pelt.fruit_accessories)
-        if cat.moons < 6:
-            if len(cat.pelt.inventory)< 1:
-                cat.pelt.inventory.append(kit_acc_placeholder)
-        elif cat.moons == 6:
-            if kit_acc_placeholder in cat.pelt.inventory:
-                if kit_acc_placeholder in cat.pelt.accessories:
-                    cat.pelt.accessories.remove(kit_acc_placeholder)
-                cat.pelt.inventory.remove(kit_acc_placeholder)
-        # ^^ remove placeholder so the clan isnt overrun with fruit in a generation
+        # this is for the multi-inventory accessory append bug.
+        # i believe ive fixed that but im keeping this here just in case
+
+        # kit_acc_placeholder = (Pelt.fruit_accessories[1])
+        # if cat.status == "kitten":
+        #     if len(cat.pelt.inventory) < 1:
+        #         cat.pelt.inventory.append(kit_acc_placeholder)
+        # elif cat.moons == 6:
+        #     if kit_acc_placeholder in cat.pelt.inventory:
+        #         if kit_acc_placeholder in cat.pelt.accessories:
+        #             cat.pelt.accessories.remove(kit_acc_placeholder)
+        #         cat.pelt.inventory.remove(kit_acc_placeholder)
                 
-        if cat.moons < 5:
-            # remove bandanas if kits got them somehow
-            if Pelt.pridebandanas in cat.pelt.inventory:
-                cat.pelt.inventory.remove(Pelt.pridebandanas)
-            if Pelt.pridebandanas2 in cat.pelt.inventory:
-                cat.pelt.inventory.remove(Pelt.pridebandanas2)
-            if Pelt.pridebandanas3 in cat.pelt.inventory:
-                cat.pelt.inventory.remove(Pelt.pridebandanas3)
-            if Pelt.nonpridebandanas in cat.pelt.inventory:
-                cat.pelt.inventory.remove(Pelt.nonpridebandanas)
+        # if cat.moons < 5:
+        #     # remove bandanas if kits got them somehow
+        #     if Pelt.pridebandanas in cat.pelt.inventory:
+        #         cat.pelt.inventory.remove(Pelt.pridebandanas)
+        #     if Pelt.pridebandanas2 in cat.pelt.inventory:
+        #         cat.pelt.inventory.remove(Pelt.pridebandanas2)
+        #     if Pelt.pridebandanas3 in cat.pelt.inventory:
+        #         cat.pelt.inventory.remove(Pelt.pridebandanas3)
+        #     if Pelt.nonpridebandanas in cat.pelt.inventory:
+        #         cat.pelt.inventory.remove(Pelt.nonpridebandanas)
+        
+
+
+        # unset mate incompatible sexualities if the player changes it themselves
+        # or if mates from an old save load in with incompatible sexualities and it isnt changed manually
+
+        if len(cat.mate) > 0:
+            involved_cats = [cat.ID]
+            for mate_id in cat.mate:
+                if Cat.all_cats.get(mate_id):
+                    if Cat.all_cats.get(mate_id).genderalign in ["male", "trans male", "demiboy"] and \
+                        cat.sexuality in ["lesbian", "gyno"]:
+                        cat.unset_mate(Cat.all_cats.get(mate_id))
+                        pref = "toms"
+                    elif Cat.all_cats.get(mate_id).genderalign in ["female", "trans female", "demigirl"] and \
+                        cat.sexuality in ["gay", "andro"]:
+                        cat.unset_mate(Cat.all_cats.get(mate_id))
+                        pref = "she-cats"
+                    elif cat.sexuality == "aroace":
+                        cat.unset_mate(Cat.all_cats.get(mate_id))
+                        pref = "romance"
+                    else:
+                        return
+            text = f"Since {cat.name} has realised that they don't care for {pref}, {cat.name} and {Cat.all_cats.get(mate_id).name} have broken up, but they are still great friends."
+            game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
 
         if not game.clan.clan_settings['all accessories']:
             # don't remove wrong flags if all accessories is on!
@@ -3989,28 +4008,7 @@ class Events:
                         cat.sexuality = "lesbian"
                     elif cat.genderalign in ['male', 'trans male']:
                         cat.sexuality = "straight"
-                # unset mate incompatible sexualities if the player changes it themselves
-        # or if mates from an old save load in with incompatible sexualities and it isnt changed
-    
-                if len(cat.mate) > 0:
-                    involved_cats = [cat.ID]
-                    for mate_id in cat.mate:
-                        if Cat.all_cats.get(mate_id):
-                            if Cat.all_cats.get(mate_id).genderalign in ["male", "trans male", "demiboy"] and \
-                                cat.sexuality in ["lesbian", "gyno"]:
-                                cat.unset_mate(Cat.all_cats.get(mate_id))
-                                pref = "toms"
-                            elif Cat.all_cats.get(mate_id).genderalign in ["female", "trans female", "demigirl"] and \
-                                cat.sexuality in ["gay", "andro"]:
-                                cat.unset_mate(Cat.all_cats.get(mate_id))
-                                pref = "she-cats"
-                            elif cat.sexuality == "aroace":
-                                cat.unset_mate(Cat.all_cats.get(mate_id))
-                                pref = "romance"
-                            else:
-                                return
-                    text = f"Since {cat.name} has realised that they don't care for {pref}, {cat.name} and {Cat.all_cats.get(mate_id).name} have broken up, but they are still great friends."
-                    game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
+
         
 
 
