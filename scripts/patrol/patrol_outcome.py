@@ -15,9 +15,7 @@ from scripts.clan import HERBS
 from scripts.utility import (
     change_clan_relations,
     change_clan_reputation,
-    change_relationship_values,
-    create_new_cat,
-
+    change_relationship_values, create_new_cat,
 )
 from scripts.game_structure.game_essentials import game
 from scripts.cat.skills import SkillPath
@@ -44,7 +42,6 @@ class PatrolOutcome():
             dead_cats: List[str] = None,
             lost_cats: List[str] = None,
             injury: List[Dict] = None,
-            accessory: List[Dict] = None,
             history_reg_death: str = None,
             history_leader_death: str = None,
             history_scar: str = None,
@@ -70,7 +67,6 @@ class PatrolOutcome():
         self.dead_cats = dead_cats if dead_cats is not None else []
         self.lost_cats = lost_cats if lost_cats is not None else []
         self.injury = injury if injury is not None else []
-        self.accessory = accessory if accessory is not None else []
         self.history_reg_death = history_reg_death if history_reg_death is not None else \
                                  "m_c died on patrol."
         self.history_leader_death = history_leader_death if history_leader_death is not None else \
@@ -153,7 +149,6 @@ class PatrolOutcome():
                     can_have_stat=_d.get("can_have_stat"),
                     dead_cats=_d.get("dead_cats"),
                     injury=_d.get("injury"),
-                    accessory =_d.get("accessory"),
                     lost_cats=_d.get("lost_cats"),
                     history_leader_death=_d["history_text"].get("lead_death") if \
                                         isinstance(_d.get("history_text"), dict) else None,
@@ -187,7 +182,6 @@ class PatrolOutcome():
         results.append(self._handle_death(patrol))
         results.append(self._handle_lost(patrol))
         results.append(self._handle_condition_and_scars(patrol))
-        results.append(self._handle_accessory(patrol))
         results.append(self._handle_relationship_changes(patrol))
         results.append(self._handle_rep_changes(patrol))
         results.append(self._handle_other_clan_relations(patrol))
@@ -576,38 +570,6 @@ class PatrolOutcome():
                 
         return " ".join(results)
     
-    def _handle_accessory(self, patrol:'Patrol') -> str:
-        if not self.accessory:
-            return ""
-
-        def gather_cat_objects(cat_list, patrol: 'Patrol') -> list:
-            out_set = set()
-            
-            for _cat in cat_list:
-                if _cat == "r_c":
-                    out_set.add(patrol.patrol_random_cat)
-                elif _cat == "y_c":
-                    out_set.add(game.clan.your_cat)
-                  
-            return list(out_set)
-        
-       
-        
-        for block in self.accessory:
-            cats = gather_cat_objects(block.get("cats", ()), patrol)
-            accessory = block.get("accessory", ())
-            
-            if not (cats and accessory):
-                print(f"something is wrong with accessory - {block}")
-                continue
-
-            results=[]
-            for _cat in cats:
-                self.__handle_accessories(_cat, accessory, patrol)
-                results.append(f"{_cat.name} got a new accessory.")
-
-        return " ".join(results)
-
     def _handle_relationship_changes(self, patrol:'Patrol') -> str:
         """ Handle any needed changes in relationship """
         
@@ -898,14 +860,11 @@ class PatrolOutcome():
             
             for cat in patrol.new_cats[-1]:
                 if cat.dead:
-                    if cat.df and cat.dead_for > 10:
-                        results.append(f"You have met {cat.name}.")
-                    else:
-                        results.append(f"{cat.name}'s ghost now wanders.")
+                    results.append(f"{cat.name}'s ghost now wanders.")
                 elif cat.outside:
                     results.append(f"The patrol met {cat.name}.")
                 else:
-                    results.append(f"{cat.name} joined the Clan.")
+                    results.append(f"{cat.name} joined the clan.")
             
         # Check to see if any young litters joined with alive parents.
         # If so, see if recovering from birth condition is needed
@@ -954,7 +913,7 @@ class PatrolOutcome():
         in_patrol_cats = {
             "p_l": patrol.patrol_leader,
             "r_c": patrol.patrol_random_cat,
-            "y_c": game.clan.your_cat
+            "y_c": game.clan.your_cat,
         }
         if self.stat_cat:
             in_patrol_cats["s_c"] = self.stat_cat
@@ -1004,10 +963,9 @@ class PatrolOutcome():
             new_name = False
         else:
             new_name = choice([True, False])
-
+        
         # STATUS - must be handled before backstories. 
         status = None
-        
         for _tag in attribute_list:
             match = re.match(r"status:(.+)", _tag)
             if not match:
@@ -1015,17 +973,14 @@ class PatrolOutcome():
             
             if match.group(1) in ("newborn", "kitten", "elder", "apprentice", "warrior", 
                                   "mediator apprentice", "mediator", "medicine cat apprentice", 
-                                  "medicine cat", "deputy", "leader"):
+                                  "medicine cat"):
                 status = match.group(1)
-         
-            break
-                
+                break
         
         # SET AGE
         age = None
         for _tag in attribute_list:
             match = re.match(r"age:(.+)", _tag)
-            
             if not match:
                 continue
             
@@ -1042,28 +997,8 @@ class PatrolOutcome():
             if match.group(1) == "has_kits":
                 age = randint(14, 120)
                 break
-
-
-        #status + age for encountered DF cats
-            
-        if "newdfcat" in attribute_list:
-        # gives a random status if none was specified in the patrol. kitten cannot be chosen randomly
-            if status is None:
-                status = choice(["elder", "elder", "elder", "elder", "elder", "apprentice", "warrior", "warrior", "warrior", "warrior", "warrior", "warrior", "mediator apprentice", "mediator", "mediator", "medicine cat apprentice", "medicine cat", "medicine cat", "medicine cat", "medicine cat", "queen's apprentice", "queen", "queen", "queen", "queen","leader"])
-
-        #and age, dependant on status
-            if status in "kitten":
-                age = randint(1,5)
-            elif status in ["apprentice", "mediator apprentice", "medicine cat apprentice", "queen's apprentice"]:
-                age = randint (6,11)
-            elif status in ["warrior", "medicine cat", "mediator", "queen"]:
-                age = randint (12, 119)
-            elif status in ["deputy", "leader"]:
-                age = randint(25,119)
-            else:
-                age = randint (120, 201)
-            
-
+                
+        
         # CAT TYPES AND BACKGROUND
         if "kittypet" in attribute_list:
             cat_type = "kittypet"
@@ -1073,8 +1008,6 @@ class PatrolOutcome():
             cat_type = "loner"
         elif "clancat" in attribute_list:
             cat_type = "former Clancat"
-        elif "newdfcat" in attribute_list:
-            cat_type = status
         else:
             cat_type = choice(['kittypet', 'loner', 'former Clancat'])
         
@@ -1086,20 +1019,13 @@ class PatrolOutcome():
                 status = "kitten"
         
         # CHOOSE DEFAULT BACKSTORY BASED ON CAT TYPE, STATUS.
-                
-        if "newdfcat" in attribute_list:
-            if "oldstarclan" in attribute_list:
-                    chosen_backstory = choice(["oldstarclan1", "oldstarclan2", "oldstarclan3"])
-            else:
-                chosen_backstory = choice(BACKSTORIES["backstory_categories"]["dead_cat_backstories"])
+        if status in ("kitten", "newborn"):
+            chosen_backstory = choice(BACKSTORIES["backstory_categories"]["abandoned_backstories"])
+        elif status == "medicine cat" and cat_type == "former Clancat":
+            chosen_backstory = choice(["medicine_cat", "disgraced1"])
+        elif status == "medicine cat":
+            chosen_backstory = choice(["wandering_healer1", "wandering_healer2"])
         else:
-            if status in ("kitten", "newborn"):
-                chosen_backstory = choice(BACKSTORIES["backstory_categories"]["abandoned_backstories"])
-            if status == "medicine cat":
-                if cat_type == "former Clancat":
-                    chosen_backstory = choice(["medicine_cat", "disgraced1"])
-                else:
-                    chosen_backstory = choice(["wandering_healer1", "wandering_healer2"])
             if cat_type == "former Clancat":
                 x = "former_clancat"
             else:
@@ -1135,26 +1061,9 @@ class PatrolOutcome():
             alive = False
             thought = "Explores a new starry world"
         
-        
-        # was the cat met on a df patrol?
-        if "newdfcat" in attribute_list:
-            alive = False
-            outside = False
-            new_name = True
-            if "oldstarclan" in attribute_list:
-                thought ="Is having fun with their new Dark Forest friends"
-            else: 
-                if status == "kitten":
-                    thought = "Was startled by a new trainee"
-                else:
-                    thought = "Is curious about the trainee they just met"
-            
-            
-        
            
         # Now, it's time to generate the new cat
         # This is a bit of a pain, but I can't re-write this function
-        
         new_cats = create_new_cat(Cat,
                                 Relationship,
                                 new_name=new_name,
@@ -1169,7 +1078,6 @@ class PatrolOutcome():
                                 gender=gender,
                                 thought=thought,
                                 alive=alive,
-                                df= True if "newdfcat" in attribute_list else False,
                                 outside=outside,
                                 parent1=parent1.ID if parent1 else None,
                                 parent2=parent2.ID if parent2 else None  
@@ -1231,7 +1139,7 @@ class PatrolOutcome():
         return new_cats
                  
     def _handle_mentor_app(self, patrol:'Patrol') -> str:
-        """Handles mentor influence on apprentices """
+        """Handles mentor inflence on apprentices """
         for cat in patrol.patrol_cats:
             if Cat.fetch_cat(cat.mentor) in patrol.patrol_cats:
                 affect_personality = cat.personality.mentor_influence(Cat.fetch_cat(cat.mentor))
@@ -1282,23 +1190,6 @@ class PatrolOutcome():
             print("WARNING: Scar occured, but scar history is missing")
         
         return chosen_scar
-    
-    def __handle_accessories(self, cat:Cat, acc_list:str, patrol:'Patrol') -> str:
-        """Add accessory. Returns acc given """
-        
-        
-        acc_list = [x for x in acc_list if x in Pelt.tail_accessories + Pelt.wild_accessories + Pelt.plant_accessories + Pelt.fruit_accessories + Pelt.snake_accessories + Pelt.tail2_accessories + Pelt.flower_accessories + Pelt.plant2_accessories + Pelt.crafted_accessories + Pelt.deadInsect_accessories + Pelt.smallAnimal_accessories + Pelt.aliveInsect_accessories and x not in cat.pelt.inventory]
-
-        if not acc_list:
-            return None
-        
-        chosen_acc = choice(acc_list)
-
-       
-        
-        cat.pelt.inventory.append(chosen_acc)
-  
-        return chosen_acc
     
     def __handle_condition_history(self, cat:Cat, condition:str, patrol:'Patrol', default_overide=False) -> None:
         """Handles adding potentional history to a cat. default_overide will use the default text for the condition. """

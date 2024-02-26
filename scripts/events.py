@@ -139,7 +139,6 @@ class Events:
             game.clan.disaster = random.choice(list(disaster_text.keys()))
             while not disaster_text[game.clan.disaster]["trigger_events"]:
                 game.clan.disaster = random.choice(list(disaster_text.keys()))
-        self.handle_disaster()
 
         for cat in Cat.all_cats.copy().values():
             if not cat.outside or cat.dead:
@@ -238,6 +237,8 @@ class Events:
         # Promote leader and deputy, if needed.
         self.check_and_promote_leader()
         self.check_and_promote_deputy()
+
+        self.handle_disaster()
 
         if game.clan.game_mode in ["expanded", "cruel season"]:
             amount_per_med = get_amount_cat_for_one_medic(game.clan)
@@ -1839,6 +1840,7 @@ class Events:
         and new cat events
         - pride bandanas are updated for new cats or if their orientation was changed by the player.
         """
+        
         if cat.dead:
             
             cat.thoughts()
@@ -1847,7 +1849,10 @@ class Events:
             else:
                 cat.dead_for += 1
             self.handle_fading(cat)  # Deal with fading.
+            self.get_flags(cat) # get bandanas -- doesnt work w the function call later
             return
+        
+        
 
         # all actions, which do not trigger an event display and
         # are connected to cats are located in there
@@ -1913,6 +1918,10 @@ class Events:
         self.make_aroace(cat)
         self.make_acespec(cat)
         self.coming_out(cat)
+
+        self.get_flags(cat)
+        self.update_compatible_mates(cat)
+
         Pregnancy_Events.handle_having_kits(cat, clan=game.clan)
         # Stop the timeskip if the cat died in childbirth
         if cat.dead:
@@ -1932,7 +1941,7 @@ class Events:
         self.invite_new_cats(cat)
         self.other_interactions(cat)
         self.gain_accessories(cat)
-        self.get_flags(cat)
+        
 
         # switches between the two death handles
         if random.getrandbits(1):
@@ -3517,33 +3526,33 @@ class Events:
                     text = f"{cat.name} doesn't think they're as interested in mates as everyone else."
                     game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
 
-    def get_flags(self, cat):
-        """ gives appropriate bandanas to lgbt cats.
-        also gives fruit accs to kits as a way to cover up the new cat accessory bug for now """
-
-        # unset mate incompatible sexualities if the player changes it themselves
-        # or if mates from an old save load in with incompatible sexualities and it isnt changed manually
-
+    def update_compatible_mates(self, cat):
         if len(cat.mate) > 0:
             involved_cats = [cat.ID]
             for mate_id in cat.mate:
                 if Cat.all_cats.get(mate_id):
-                    if Cat.all_cats.get(mate_id).genderalign in ["male", "trans male", "demiboy"] and \
-                        cat.sexuality in ["lesbian", "gyno"]:
+                    if cat.sexuality in ["lesbian", "gyno"] and Cat.all_cats.get(mate_id).genderalign in ["male", "trans male", "demiboy"]:
                         cat.unset_mate(Cat.all_cats.get(mate_id))
                         pref = "toms"
-                    elif Cat.all_cats.get(mate_id).genderalign in ["female", "trans female", "demigirl"] and \
-                        cat.sexuality in ["gay", "andro"]:
+                    elif cat.sexuality in ["gay", "andro"] and Cat.all_cats.get(mate_id).genderalign in ["female", "trans female", "demigirl"]:
                         cat.unset_mate(Cat.all_cats.get(mate_id))
                         pref = "she-cats"
                     elif cat.sexuality == "aroace":
                         cat.unset_mate(Cat.all_cats.get(mate_id))
                         pref = "romance"
                     else:
-                        continue
+                        return
 
                     text = f"Since {cat.name} has realised that they don't care for {pref}, {cat.name} and {Cat.all_cats.get(mate_id).name} have broken up, but they are still great friends."
                     game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
+        
+
+    def get_flags(self, cat):
+        """ gives appropriate bandanas to lgbt cats.
+        also gives fruit accs to kits as a way to cover up the new cat accessory bug for now """
+
+        # unset mate incompatible sexualities if the player changes it themselves
+        # or if mates from an old save load in with incompatible sexualities and it isnt changed manually
 
         if not game.clan.clan_settings['all accessories']:
             # don't remove wrong flags if all accessories is on!
@@ -3743,7 +3752,6 @@ class Events:
                     if Pelt.pridebandanas2[1] in cat.pelt.accessories:
                         cat.pelt.accessories.remove(Pelt.pridebandanas2[1])
                     cat.pelt.inventory.remove(Pelt.pridebandanas2[1])
-
 
             # giving cats appropriate pride bandanas if they dont have them already
             # cats w more than one mate get the poly bandana
