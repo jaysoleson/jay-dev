@@ -3425,8 +3425,8 @@ class Events:
                                 gender = "she-cat"
                             else:
                                 return
-                    text = f"Since {cat.name} has realised that they don't care for {gender}s, {cat.name} and {Cat.all_cats.get(mate_id).name} have broken up, but they are still great friends."
-                    game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
+                            text = f"Since {cat.name} has realised that they don't care for {gender}s, {cat.name} and {Cat.all_cats.get(mate_id).name} have broken up, but they are still great friends."
+                            game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
                 
     def make_aroace(self, cat):
         """turnin' the kitties gay..."""
@@ -3521,33 +3521,6 @@ class Events:
         """ gives appropriate bandanas to lgbt cats.
         also gives fruit accs to kits as a way to cover up the new cat accessory bug for now """
 
-        
-        # this is for the multi-inventory accessory append bug.
-        # i believe ive fixed that but im keeping this here just in case
-
-        # kit_acc_placeholder = (Pelt.fruit_accessories[1])
-        # if cat.status == "kitten":
-        #     if len(cat.pelt.inventory) < 1:
-        #         cat.pelt.inventory.append(kit_acc_placeholder)
-        # elif cat.moons == 6:
-        #     if kit_acc_placeholder in cat.pelt.inventory:
-        #         if kit_acc_placeholder in cat.pelt.accessories:
-        #             cat.pelt.accessories.remove(kit_acc_placeholder)
-        #         cat.pelt.inventory.remove(kit_acc_placeholder)
-                
-        # if cat.moons < 5:
-        #     # remove bandanas if kits got them somehow
-        #     if Pelt.pridebandanas in cat.pelt.inventory:
-        #         cat.pelt.inventory.remove(Pelt.pridebandanas)
-        #     if Pelt.pridebandanas2 in cat.pelt.inventory:
-        #         cat.pelt.inventory.remove(Pelt.pridebandanas2)
-        #     if Pelt.pridebandanas3 in cat.pelt.inventory:
-        #         cat.pelt.inventory.remove(Pelt.pridebandanas3)
-        #     if Pelt.nonpridebandanas in cat.pelt.inventory:
-        #         cat.pelt.inventory.remove(Pelt.nonpridebandanas)
-        
-
-
         # unset mate incompatible sexualities if the player changes it themselves
         # or if mates from an old save load in with incompatible sexualities and it isnt changed manually
 
@@ -3567,9 +3540,10 @@ class Events:
                         cat.unset_mate(Cat.all_cats.get(mate_id))
                         pref = "romance"
                     else:
-                        return
-            text = f"Since {cat.name} has realised that they don't care for {pref}, {cat.name} and {Cat.all_cats.get(mate_id).name} have broken up, but they are still great friends."
-            game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
+                        continue
+
+                    text = f"Since {cat.name} has realised that they don't care for {pref}, {cat.name} and {Cat.all_cats.get(mate_id).name} have broken up, but they are still great friends."
+                    game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
 
         if not game.clan.clan_settings['all accessories']:
             # don't remove wrong flags if all accessories is on!
