@@ -41,7 +41,7 @@
             "Leaf-fall",
             "Leaf-bare"
         ],
-        "event_text": "m_c was playing with acc_plural earlier, and decides to wear some of them.",
+        "event_text": "m_c was playing with feathers earlier, and decides to wear some of them.",
         "cat_trait": null,
         "cat_skill": null,
         "other_cat_trait": null,
@@ -87,7 +87,7 @@
             "Leaf-fall",
             "Leaf-bare"
         ],
-        "event_text": "m_c is just too cute - r_c gives {PRONOUN/m_c/object} a pretty acc_singular as a gift.",
+        "event_text": "m_c is just too cute - r_c gives {PRONOUN/m_c/object} a pretty plant as a gift.",
         "cat_trait": [
             "sweet",
             "polite"
@@ -115,7 +115,7 @@
             "Leaf-fall",
             "Leaf-bare"
         ],
-        "event_text": "r_c gives m_c a pretty acc_singular {PRONOUN/r_c/subject} found while playing.",
+        "event_text": "r_c gives m_c a pretty plant {PRONOUN/r_c/subject} found while playing.",
         "cat_trait": null,
         "cat_skill": null,
         "other_cat_trait": null,
@@ -142,7 +142,7 @@
             "Leaf-fall",
             "Leaf-bare"
         ],
-        "event_text": "m_c starts bringing a pretty acc_singular everywhere {PRONOUN/m_c/subject} {VERB/m_c/go/goes}, and r_c loudly complains that {PRONOUN/r_c/subject} {VERB/r_c/want/wants} one, too.",
+        "event_text": "m_c starts bringing a pretty plant everywhere {PRONOUN/m_c/subject} {VERB/m_c/go/goes}, and r_c loudly complains that {PRONOUN/r_c/subject} {VERB/r_c/want/wants} one, too.",
         "cat_trait": null,
         "cat_skill": null,
         "other_cat_trait": [
@@ -166,7 +166,7 @@
             "other_cat",
             "other_cat_parent"
         ],
-        "event_text": "m_c finds some acc_singular to wear in {PRONOUN/m_c/poss} fur to impress r_c!",
+        "event_text": "m_c finds some plants to wear in {PRONOUN/m_c/poss} fur to impress r_c!",
         "cat_trait": [
             "attention-seeker",
             "charming"
@@ -354,7 +354,7 @@
         "tags":[
             "Leaf-fall"
         ],
-        "event_text": "As the wind brings many fallen leaves in the camp, m_c picks a acc_singular to decorate {PRONOUN/m_c/poss} pelt.",
+        "event_text": "As the wind brings many fallen leaves in the camp, m_c picks a leaf to decorate {PRONOUN/m_c/poss} pelt.",
         "accessories": [
             "OAK LEAVES",
             "MAPLE LEAF"

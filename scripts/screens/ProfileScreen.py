@@ -374,7 +374,6 @@ class ProfileScreen(Screens):
                                 self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_crafted' + accessory + cat_sprite], manager=MANAGER)
                             elif accessory in cat.pelt.tail2_accessories:
                                 self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_tail2' + accessory + cat_sprite], manager=MANAGER)
-                            
                             pos_x += 120
                             if pos_x >= 1100:
                                 pos_x = 0
@@ -2668,12 +2667,11 @@ class ProfileScreen(Screens):
 
         elif self.open_tab == "personal":
 
-            if self.the_cat.moons > 6:
-
-                if self.change_sexuality_button:
-                    self.change_sexuality_button.kill()
-                if self.label_info:
-                    self.label_info.kill()
+            if self.change_sexuality_button:
+                self.change_sexuality_button.kill()
+            if self.label_info:
+                self.label_info.kill()
+            if self.the_cat.moons > 5:
                 if self.the_cat.sexuality == "straight":
                     self.change_sexuality_button = UIImageButton(scale(pygame.Rect((804, 767), (344, 62))), "",
                                                         starting_height=2, object_id="#change_bi_button",
@@ -2729,43 +2727,43 @@ class ProfileScreen(Screens):
                         self.change_sexuality_button = UIImageButton(scale(pygame.Rect((804, 767), (344, 62))), "",
                                                     starting_height=2, object_id="#change_bi_button",
                                                     manager=MANAGER)
-                
+             
 
             # Button to trans or cis the cats.
             if self.cis_trans_button:
                 self.cis_trans_button.kill()
             if self.the_cat.gender == "male" and self.the_cat.genderalign == "male":
                 self.cis_trans_button = UIImageButton(scale(pygame.Rect((804, 972), (344, 104))), "",
-                                                    starting_height=2, object_id="#change_trans_female_button",
-                                                    manager=MANAGER)
+                                                      starting_height=2, object_id="#change_trans_female_button",
+                                                      manager=MANAGER)
             elif self.the_cat.gender == "female" and self.the_cat.genderalign == "female":
                 self.cis_trans_button = UIImageButton(scale(pygame.Rect((804, 972), (344, 104))), "",
-                                                    starting_height=2, object_id="#change_trans_male_button",
-                                                    manager=MANAGER)
+                                                      starting_height=2, object_id="#change_trans_male_button",
+                                                      manager=MANAGER)
             elif self.the_cat.genderalign in ['trans female', 'trans male']:
                 self.cis_trans_button = UIImageButton(scale(pygame.Rect((804, 972), (344, 104))), "",
-                                                    starting_height=2, object_id="#change_nonbi_button",
-                                                    manager=MANAGER)
+                                                      starting_height=2, object_id="#change_nonbi_button",
+                                                      manager=MANAGER)
             elif self.the_cat.genderalign not in ['female', 'trans female', 'male', 'trans male']:
                 self.cis_trans_button = UIImageButton(scale(pygame.Rect((804, 972), (344, 104))), "",
-                                                    starting_height=2, object_id="#change_cis_button",
-                                                    manager=MANAGER)
+                                                      starting_height=2, object_id="#change_cis_button",
+                                                      manager=MANAGER)
             elif self.the_cat.gender == "male" and self.the_cat.genderalign == "female":
                 self.cis_trans_button = UIImageButton(scale(pygame.Rect((804, 972), (344, 104))), "",
-                                                    starting_height=2, object_id="#change_cis_button",
-                                                    manager=MANAGER)
+                                                      starting_height=2, object_id="#change_cis_button",
+                                                      manager=MANAGER)
             elif self.the_cat.gender == "female" and self.the_cat.genderalign == "male":
                 self.cis_trans_button = UIImageButton(scale(pygame.Rect((804, 972), (344, 104))), "",
-                                                    starting_height=2, object_id="#change_cis_button",
-                                                    manager=MANAGER)
+                                                      starting_height=2, object_id="#change_cis_button",
+                                                      manager=MANAGER)
             elif self.the_cat.genderalign:
                 self.cis_trans_button = UIImageButton(scale(pygame.Rect((804, 972), (344, 104))), "",
-                                                    starting_height=2, object_id="#change_cis_button",
-                                                    manager=MANAGER)
+                                                      starting_height=2, object_id="#change_cis_button",
+                                                      manager=MANAGER)
             else:
                 self.cis_trans_button = UIImageButton(scale(pygame.Rect((804, 972), (344, 104))), "",
-                                                    starting_height=2, object_id="#change_cis_button",
-                                                    manager=MANAGER)
+                                                      starting_height=2, object_id="#change_cis_button",
+                                                      manager=MANAGER)
                 self.cis_trans_button.disable()
            
         elif self.open_tab == 'your tab':

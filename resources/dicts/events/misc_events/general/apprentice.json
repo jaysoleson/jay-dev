@@ -61,7 +61,7 @@
             "neg_jealousy",
             "to_both"
         ],
-        "event_text": "m_c and r_c were chatting about their day and the chores they finished when r_c mentioned {PRONOUN/r_c/subject} liked the smell of wild fruit. m_c decides to wear acc_plural on {PRONOUN/m_c/poss} pelt, hoping that r_c notices {PRONOUN/m_c/object}.",
+        "event_text": "m_c and r_c were chatting about their day and the chores they finished when r_c mentioned {PRONOUN/r_c/subject} liked the smell of wild fruit. m_c decides to wear the berries on {PRONOUN/m_c/poss} pelt, hoping that r_c notices {PRONOUN/m_c/object}.",
         "accessories": [
             "BLUE BERRIES",
             "HOLLY"
@@ -76,7 +76,7 @@
             "comfort",
             "platonic"
         ],
-        "event_text": "m_c is nearly blindsided by r_c as {PRONOUN/r_c/subject} {VERB/r_c/walk/walks} into camp after a long training day, listening to the kit squeak about a type of feather. r_c leads m_c to the nursery, where {PRONOUN/r_c/subject} carefully put acc_plural in m_c's fur.",
+        "event_text": "m_c is nearly blindsided by r_c as {PRONOUN/r_c/subject} {VERB/r_c/walk/walks} into camp after a long training day, listening to the kit squeak about a type of feather. r_c leads m_c to the nursery, where {PRONOUN/r_c/subject} carefully put some colourful feathers in m_c's fur.",
         "accessories": [
             "BLUE FEATHERS"
         ]
@@ -93,7 +93,7 @@
             "dislike",
             "jealousy"
         ],
-        "event_text": "m_c, for the umpteenth time, hears r_c complaining about the dry rye stalks underneath {PRONOUN/r_c/poss} paws when {PRONOUN/r_c/subject} {VERB/r_c/finish/finishes} cleaning the elders' den and got an idea. The next day, m_c adorns {PRONOUN/m_c/poss} pelt with acc_plural.",
+        "event_text": "m_c, for the umpteenth time, hears r_c complaining about the dry rye stalks underneath {PRONOUN/r_c/poss} paws when {PRONOUN/r_c/subject} {VERB/r_c/finish/finishes} cleaning the elders' den and got an idea. The next day, m_c adorns {PRONOUN/m_c/poss} pelt with rye stalks.",
         "accessories": [
             "RYE STALK"
         ]
@@ -177,7 +177,7 @@
         "tags": [
             "Leaf-bare"
         ],
-        "event_text": "m_c gets dared to hunt outside in the snow alone, and returns with acc_singular in {PRONOUN/m_c/poss} pelt.",
+        "event_text": "m_c gets dared to hunt outside in the snow alone, and returns with a pretty plant in {PRONOUN/m_c/poss} pelt.",
         "accessories": [
             "WILD",
             "PLANT"
@@ -191,7 +191,7 @@
             "Greenleaf",
             "Leaf-fall"
         ],
-        "event_text": "m_c disappears for a few days, then returns to camp with a acc_singular around {PRONOUN/m_c/poss} neck.",
+        "event_text": "m_c disappears for a few days, then returns to camp with a collar around {PRONOUN/m_c/poss} neck.",
         "accessories": [
             "COLLAR"
         ]
@@ -251,7 +251,7 @@
             "comfort",
             "trust"
         ],
-        "event_text": "m_c gives r_c a acc_singular to make up for a bad fight between them.",
+        "event_text": "m_c gives r_c a plant to wear to make up for a bad fight between them.",
         "accessories": [
             "WILD",
             "PLANT"
@@ -517,7 +517,7 @@
             "comfort",
             "neg_dislike"
         ],
-        "event_text": "m_c received a present, acc_plural, from r_c and decided to keep it with {PRONOUN/m_c/object} on {PRONOUN/m_c/poss} pelt.",
+        "event_text": "m_c received a present from r_c and decided to keep it with {PRONOUN/m_c/object} on {PRONOUN/m_c/poss} pelt.",
         "accessories": ["WILD", "PLANT", "PLANT2"]
     },
     {
@@ -565,7 +565,7 @@
             "neg_respect",
             "neg_comfort"
         ],
-        "event_text": "m_c was given acc_plural as a congratulations, r_c watches from the side with a jealous glint in {PRONOUN/r_c/poss} eyes.",
+        "event_text": "m_c was given a gift as a congratulations, r_c watches from the side with a jealous glint in {PRONOUN/r_c/poss} eyes.",
         "accessories": ["WILD", "PLANT", "FLOWER", "PLANT2", "FRUIT"]
     },
     {
@@ -576,7 +576,7 @@
             "Leaf-fall",
             "Leaf-bare"
         ],
-        "event_text": "m_c finds acc_plural while out on a walk and decides to keep them.",
+        "event_text": "m_c finds a new accessory while out on a walk and decides to keep it.",
         "accessories": ["WILD", "PLANT", "FLOWER", "ALIVEINSECT", "FRUIT"]
     },
     {
@@ -593,7 +593,7 @@
             "comfort",
             "neg_dislike"
         ],
-        "event_text": "r_c finds acc_plural while out on a walk and decides to give them to m_c.",
+        "event_text": "r_c finds a pretty accessory while out on a walk and decides to give it to m_c.",
         "accessories": ["WILD", "PLANT", "FLOWER", "PLANT2", "DEADINSECT", "FRUIT", "DAISY CORSAGE"]
     },
     {
@@ -604,7 +604,7 @@
             "Leaf-fall",
             "Leaf-bare"
         ],
-        "event_text": "m_c always seems to have acc_plural stuck in {PRONOUN/m_c/poss} fur.",
+        "event_text": "m_c always seems to have debris stuck in {PRONOUN/m_c/poss} fur.",
         "accessories": ["HERBS", "PETALS", "DRY HERBS", "RED FEATHERS", "BLUE FEATHERS", "JAY FEATHERS", "CATNIP FLOWER", "HESPERIS"]
     },
     {
@@ -625,7 +625,7 @@
         "tags": [
             "Leaf-bare"
         ],
-        "event_text": "m_c found a mysterious acc_singular growing in the frost and decided to wear it.",
+        "event_text": "m_c found a mysterious flower growing in the frost and decided to wear it.",
         "accessories": ["FORGET ME NOTS", "BLUEBELLS", "POPPY", "FLOWER", "CLOVER", "FRUIT"]
     },
     {
@@ -844,7 +844,7 @@
             "Leaf-fall",
             "Leaf-bare"
         ],
-        "event_text": "m_c gently guides a acc_singular into camp. Seems like m_c has found a new friend?",
+        "event_text": "m_c gently guides a small animal into camp. Seems like m_c has found a new friend?",
         "cat_trait": ["bold", "adventurous", "careful", "confident", "calm", "strange", "charismatic", "loving", "compassionate"],
         "accessories": ["SMALLANIMAL"]
     },
@@ -864,7 +864,7 @@
             "neg_dislike",
             "neg_jealousy"
         ],
-        "event_text": "r_c and m_c, on a walk together, stumble upon an acc_singular. m_c tilts {PRONOUN/m_c/poss} head, and decides to take it home! r_c is charmed by m_c's generosity.",
+        "event_text": "r_c and m_c, on a walk together, stumble upon a small creature. m_c tilts {PRONOUN/m_c/poss} head, and decides to take it home! r_c is charmed by m_c's generosity.",
         "accessories": ["SMALLANIMAL"]
     },
     {
@@ -902,7 +902,7 @@
             "Leaf-fall",
             "Leaf-bare"
         ],
-        "event_text": "m_c grins toothily at a acc_singular that wandered into camp! Instead of diving toward it like anyone would expect a cat to do, m_c decides to befriend it with seeds and nuts.",
+        "event_text": "m_c grins toothily at a mouse that wandered into camp! Instead of diving toward it like anyone would expect a cat to do, m_c decides to befriend it with seeds and nuts.",
         "accessories": ["WHITE MOUSE", "BLACK MOUSE", "GRAY MOUSE", "BROWN MOUSE"]
     },
     {
@@ -930,7 +930,7 @@
             "Leaf-fall",
             "Leaf-bare"
         ],
-        "event_text": "m_c leaps up at a flying bug {PRONOUN/m_c/subject} found around camp, and catches it with grace! {PRONOUN/m_c/subject/CAP} {VERB/m_c/wear/wears} the acc_singular proudly.",
+        "event_text": "m_c leaps up at a flying bug {PRONOUN/m_c/subject} found around camp, and catches it with grace! {PRONOUN/m_c/subject/CAP} {VERB/m_c/wear/wears} the bug proudly.",
         "accessories": ["DEADINSECT"]
     },
     {
@@ -947,7 +947,7 @@
             "neg_dislike",
             "neg_jealousy"
         ],
-        "event_text": "r_c mrrps at m_c, asking {PRONOUN/m_c/object} if {PRONOUN/m_c/subject} wanted a pair of acc_singular that they found. m_c says yes, and thanks {PRONOUN/r_c/object} for the cool wings!",
+        "event_text": "r_c mrrps at m_c, asking {PRONOUN/m_c/object} if {PRONOUN/m_c/subject} wanted a pair of insect wings that they found. m_c says yes, and thanks {PRONOUN/r_c/object} for the cool wings!",
         "accessories": ["DEADINSECT"]
     },
     {
@@ -1082,7 +1082,7 @@
             "Leaf-fall",
             "Leaf-bare"
         ],
-        "event_text": "m_c seems to have spotted acc_plural, and has decided to snag one up as a pet.",
+        "event_text": "m_c seems to have spotted a group of ladybugs, and has decided to snag one up as a pet.",
         "accessories": ["RED LADYBUG", "ORANGE LADYBUG", "YELLOW LADYBUG"]
     },
     {
@@ -1099,7 +1099,7 @@
             "neg_dislike",
             "neg_jealousy"
         ],
-        "event_text": "r_c seems to have found a pack of acc_singular collecting near a bush, and calls m_c over to see the acc_plural. Curiously enough, m_c has decided to keep one as a pet.",
+        "event_text": "r_c seems to have found a pack of ladybugs  collecting near a bush, and calls m_c over to see the acc_plural. Curiously enough, m_c has decided to keep one as a pet.",
         "accessories": ["RED LADYBUG", "ORANGE LADYBUG", "YELLOW LADYBUG"]
     },
     {
@@ -1110,7 +1110,7 @@
             "Leaf-fall",
             "Leaf-bare"
         ],
-        "event_text": "m_c wanders out on {PRONOUN/m_c/poss} own on a odd day, and comes back with a fruity smelling acc_singular! m_c flaunts their new acc_singular with grace.",
+        "event_text": "m_c wanders out on {PRONOUN/m_c/poss} own on a odd day, and comes back with a fruity smelling berry! m_c flaunts their new berry with grace.",
         "accessories": ["BLUE BERRIES", "FRUIT"]
     },
     {
@@ -1129,7 +1129,7 @@
             "neg_dislike",
             "neg_jealousy"
         ],
-        "event_text": "r_c and m_c decide to go for a short walk together! r_c blinks in surprise, before pointing out a cool acc_singular bush {PRONOUN/r_c/subject} managed to spot! m_c tells r_c {PRONOUN/r_c/subject} {VERB/r_c/have/has} a good eye, and decides to take and wear the acc_singular! r_c compliments {PRONOUN/r_c/object}, and m_c grins, flustered.",
+        "event_text": "r_c and m_c decide to go for a short walk together. r_c blinks in surprise, before pointing out a cool berry bush {PRONOUN/r_c/subject} managed to spot. m_c tells r_c {PRONOUN/r_c/subject} {VERB/r_c/have/has} a good eye, and decides to take and wear the berry! r_c compliments {PRONOUN/r_c/object}, and m_c grins, flustered.",
         "accessories": ["BLUE BERRIES", "RASPBERRY", "BLACKBERRY", "GOLDEN RASPBERRY"]
     },
     {
@@ -1148,7 +1148,7 @@
             "neg_dislike",
             "neg_jealousy"
         ],
-        "event_text": "r_c and m_c decide to go for a short walk together! r_c blinks in surprise, before pointing out a cherry tree {PRONOUN/r_c/subject} managed to spot from a ways away! m_c tells r_c {PRONOUN/r_c/subject} {VERB/r_c/have/has} a good eye, and decides to tread over and wear the acc_singular! r_c compliments {PRONOUN/r_c/object}, and m_c grins, flustered.",
+        "event_text": "r_c and m_c decide to go for a short walk together! r_c blinks in surprise, before pointing out a cherry tree {PRONOUN/r_c/subject} managed to spot from a ways away! m_c tells r_c {PRONOUN/r_c/subject} {VERB/r_c/have/has} a good eye, and decides to tread over and wear the cherry! r_c compliments {PRONOUN/r_c/object}, and m_c grins, flustered.",
         "accessories": ["CHERRY"]
     },
     {
@@ -1205,7 +1205,7 @@
             "neg_dislike",
             "neg_jealousy"
         ],
-        "event_text": "m_c received a present, gently weaved acc_plural, from r_c and decided to keep it with {PRONOUN/m_c/object} on {PRONOUN/m_c/poss} pelt.",
+        "event_text": "m_c received a present, gently weaved daisies, from r_c and decided to keep it with {PRONOUN/m_c/object} on {PRONOUN/m_c/poss} pelt.",
         "accessories": ["DAISY CORSAGE"]
     }
 ]

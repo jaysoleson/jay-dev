@@ -338,21 +338,21 @@ class Romantic_Events():
         #               COMPATIBLE SEXUALITIES                  #
         # ------------------------------------------------------#
             
-        if (cat_to.sexuality == "aroace" or cat_from.sexuality == "aroace") or \
-           (cat_to.sexuality in ["lesbian", "gyno"] and cat_from.genderalign in ["male", "trans male", "demiboy"]) or \
-           (cat_to.sexuality in ["gay", "andro"] and cat_from.genderalign in ["female", "trans female", "demigirl"]) or \
-           (cat_to.sexuality == "straight" and cat_to.genderalign in ["male", "trans male", "demiboy"] and \
-                cat_from.genderalign in ["male", "trans male", "demiboy"]) or \
-            (cat_to.sexuality == "straight" and cat_to.genderalign in ["female", "trans female", "demigirl"] and \
-                cat_from.genderalign in ["female", "trans female", "demigirl"]) or \
-           (cat_from.sexuality in ["lesbian", "gyno"] and cat_to.genderalign in ["male", "trans male", "demiboy"]) or \
-           (cat_from.sexuality in ["gay", "andro"] and cat_to.genderalign in ["female", "trans female", "demigirl"]) or \
-           (cat_from.sexuality == "straight" and cat_from.genderalign in ["male", "trans male", "demiboy"] and \
-                cat_to.genderalign in ["male", "trans male", "demiboy"]) or \
-            (cat_from.sexuality == "straight" and cat_from.genderalign in ["female", "trans female", "demigirl"] and \
-                cat_to.genderalign in ["female", "trans female", "demigirl"]):
+        # if (cat_to.sexuality == "aroace" or cat_from.sexuality == "aroace") or \
+        #    (cat_to.sexuality in ["lesbian", "gyno"] and cat_from.genderalign in ["male", "trans male", "demiboy"]) or \
+        #    (cat_to.sexuality in ["gay", "andro"] and cat_from.genderalign in ["female", "trans female", "demigirl"]) or \
+        #    (cat_to.sexuality == "straight" and cat_to.genderalign in ["male", "trans male", "demiboy"] and \
+        #         cat_from.genderalign in ["male", "trans male", "demiboy"]) or \
+        #     (cat_to.sexuality == "straight" and cat_to.genderalign in ["female", "trans female", "demigirl"] and \
+        #         cat_from.genderalign in ["female", "trans female", "demigirl"]) or \
+        #    (cat_from.sexuality in ["lesbian", "gyno"] and cat_to.genderalign in ["male", "trans male", "demiboy"]) or \
+        #    (cat_from.sexuality in ["gay", "andro"] and cat_to.genderalign in ["female", "trans female", "demigirl"]) or \
+        #    (cat_from.sexuality == "straight" and cat_from.genderalign in ["male", "trans male", "demiboy"] and \
+        #         cat_to.genderalign in ["male", "trans male", "demiboy"]) or \
+        #     (cat_from.sexuality == "straight" and cat_from.genderalign in ["female", "trans female", "demigirl"] and \
+        #         cat_to.genderalign in ["female", "trans female", "demigirl"]):
             
-            become_mates = False
+        # become_mates = False
         # --------------------------------------------------------
 
         if become_mates and mate_string:

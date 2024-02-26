@@ -624,11 +624,17 @@ class RelationshipScreen(Screens):
 
         #CHECK SEXUALITY COMPATIBILITY
 
-        sexuality_incompatible= (self.the_cat.sexuality in ("gay", "andro") and the_relationship.cat_to.genderalign in ("female", "trans female")) or (self.the_cat.sexuality in ("lesbian", "gyno") and the_relationship.cat_to.genderalign in ("male", "trans male")) or (self.the_cat.sexuality == "straight" and self.the_cat.genderalign in ["male", "trans male"] and the_relationship.cat_to.genderalign in ("male", "trans male")) or (self.the_cat.sexuality == "straight" and self.the_cat.genderalign in ["female", "trans female"] and the_relationship.cat_to.genderalign in ("female", "trans female")) or (self.the_cat.sexuality == "aroace")
-
-        if sexuality_incompatible:
-            display_romantic = 0
-            the_relationship.romantic_love = 0
+        sexuality_incompatible= (self.the_cat.sexuality in ("gay", "andro") and \
+                                 the_relationship.cat_to.genderalign in ("female", "trans female")) or \
+                                (self.the_cat.sexuality in ("lesbian", "gyno") and \
+                                the_relationship.cat_to.genderalign in ("male", "trans male")) or \
+                                (self.the_cat.sexuality == "straight" and \
+                                self.the_cat.genderalign in ["male", "trans male"] and \
+                                the_relationship.cat_to.genderalign in ("male", "trans male")) or \
+                                (self.the_cat.sexuality == "straight" and \
+                                self.the_cat.genderalign in ["female", "trans female"] and \
+                                the_relationship.cat_to.genderalign in ("female", "trans female")) or \
+                                (self.the_cat.sexuality == "aroace")
 
         # CHECK AGE DIFFERENCE
         same_age = the_relationship.cat_to.age == self.the_cat.age
@@ -638,7 +644,7 @@ class RelationshipScreen(Screens):
 
         # If they are not both adults, or the same age, OR they are related, don't display any romantic affection,
         # even if they somehow have some. They should not be able to get any, but it never hurts to check.
-        if not check_age or related:
+        if not check_age or related or sexuality_incompatible:
             display_romantic = 0
             # Print, just for bug checking. Again, they should not be able to get love towards their relative.
             if the_relationship.romantic_love and related:

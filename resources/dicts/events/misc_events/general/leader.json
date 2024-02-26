@@ -112,7 +112,7 @@
             "comfort",
             "neg_dislike"
         ],
-        "event_text": "m_c received a present, acc_plural, from r_c and decided to keep it with {PRONOUN/m_c/object} on {PRONOUN/m_c/poss} pelt.",
+        "event_text": "m_c received a present from r_c and decided to keep it with {PRONOUN/m_c/object} on {PRONOUN/m_c/poss} pelt.",
         "accessories": ["WILD", "PLANT", "PLANT2"]
     },
     {
@@ -177,7 +177,7 @@
             "neg_respect",
             "neg_comfort"
         ],
-        "event_text": "m_c was given acc_plural as a congratulations, r_c watches from the side with a jealous glint in {PRONOUN/r_c/poss} eyes.",
+        "event_text": "m_c was given a gift as a congratulations, r_c watches from the side with a jealous glint in {PRONOUN/r_c/poss} eyes.",
         "accessories": ["WILD", "PLANT", "FLOWER", "PLANT2", "FRUIT"]
     },
     {
@@ -205,7 +205,7 @@
             "Leaf-fall",
             "Leaf-bare"
         ],
-        "event_text": "m_c finds acc_plural while out on a walk and decides to keep them.",
+        "event_text": "m_c finds a pretty plant while out on a walk and decides to keep it.",
         "accessories": ["WILD", "PLANT", "FLOWER", "ALIVEINSECT", "FRUIT"]
     },
     {
@@ -223,7 +223,7 @@
             "comfort",
             "neg_dislike"
         ],
-        "event_text": "r_c finds acc_plural while out on a walk and decides to give them to m_c.",
+        "event_text": "r_c finds a pretty plant while out on a walk and decides to give it to m_c.",
         "accessories": ["WILD", "PLANT", "FLOWER", "PLANT2", "DEADINSECT", "FRUIT", "DAISY CORSAGE"]
     },
     {
@@ -234,7 +234,7 @@
             "Leaf-fall",
             "Leaf-bare"
         ],
-        "event_text": "m_c always seems to have acc_plural stuck in {PRONOUN/m_c/poss} fur.",
+        "event_text": "m_c always seems to have debris stuck in {PRONOUN/m_c/poss} fur.",
         "accessories": ["HERBS", "PETALS", "DRY HERBS", "RED FEATHERS", "BLUE FEATHERS", "JAY FEATHERS", "CATNIP FLOWER", "HESPERIS"]
     },
     {
@@ -721,7 +721,7 @@
             "Leaf-fall",
             "Leaf-bare"
         ],
-        "event_text": "m_c leaps up at a flying bug {PRONOUN/m_c/subject} found around camp, and catches it with grace! {PRONOUN/m_c/subject/CAP} {VERB/m_c/wear/wears} the acc_plural proudly.",
+        "event_text": "m_c leaps up at a flying bug {PRONOUN/m_c/subject} found around camp, and catches it with grace! {PRONOUN/m_c/subject/CAP} {VERB/m_c/wear/wears} the bug wings proudly.",
         "accessories": ["DEADINSECT"]
     },
     {
@@ -739,7 +739,7 @@
             "neg_dislike",
             "neg_jealousy"
         ],
-        "event_text": "r_c <i>mrrps</i> at m_c, asking {PRONOUN/m_c/object} if {PRONOUN/m_c/subject} wanted a pair of acc_plural that {PRONOUN/r_c/subject} found. m_c says yes, and thanks {PRONOUN/r_c/object} for the cool wings!",
+        "event_text": "r_c <i>mrrps</i> at m_c, asking {PRONOUN/m_c/object} if {PRONOUN/m_c/subject} wanted a pair of insect wings that {PRONOUN/r_c/subject} found. m_c says yes, and thanks {PRONOUN/r_c/object} for the cool wings!",
         "accessories": ["DEADINSECT"]
     },
     {
@@ -845,7 +845,7 @@
             "Leaf-fall",
             "Leaf-bare"
         ],
-        "event_text": "m_c seems to have spotted acc_plural, and has decided to snag one up as a pet.",
+        "event_text": "m_c seems to have spotted a ladybug, and has decided to snag one up as a pet.",
         "accessories": ["RED LADYBUG", "ORANGE LADYBUG", "YELLOW LADYBUG"]
     },
     {
@@ -861,7 +861,7 @@
             "neg_dislike",
             "neg_jealousy"
         ],
-        "event_text": "r_c seems to have found a pack of acc_singular collecting near a bush, and calls m_c over to see the acc_plural. Curiously enough, m_c has decided to keep one as a pet.",
+        "event_text": "r_c seems to have found a pack of acc_singular collecting near a bush, and calls m_c over to see the ladybugs. Curiously enough, m_c has decided to keep one as a pet.",
         "accessories": ["RED LADYBUG", "ORANGE LADYBUG", "YELLOW LADYBUG"]
     },
     {
@@ -1050,7 +1050,7 @@
             "neg_dislike",
             "neg_jealousy"
         ],
-        "event_text": "m_c received a present, gently weaved acc_plural, from r_c and decided to keep it with {PRONOUN/m_c/object} on {PRONOUN/m_c/poss} pelt.",
+        "event_text": "m_c received a present, gently weaved daisies, from r_c and decided to keep it with {PRONOUN/m_c/object} on {PRONOUN/m_c/poss} pelt.",
         "accessories": ["DAISY CORSAGE"]
     }
 ]

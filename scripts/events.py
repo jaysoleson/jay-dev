@@ -1837,6 +1837,7 @@ class Events:
         will generate a new thought. Then the function is returned.
         -if the cat was not injured or ill, then they will do all of the above *and* trigger misc events, acc events,
         and new cat events
+        - pride bandanas are updated for new cats or if their orientation was changed by the player.
         """
         if cat.dead:
             
@@ -1931,6 +1932,7 @@ class Events:
         self.invite_new_cats(cat)
         self.other_interactions(cat)
         self.gain_accessories(cat)
+        self.get_flags(cat)
 
         # switches between the two death handles
         if random.getrandbits(1):
@@ -1949,8 +1951,6 @@ class Events:
                 return
 
         self.handle_murder(cat)
-
-        self.get_flags(cat)
 
         game.switches['skip_conditions'].clear()
 
@@ -2550,6 +2550,9 @@ class Events:
         # if cat.pelt.accessory:
         #     self.ceremony_accessory = False
         #     return
+
+        if cat.pelt.accessory in Pelt.pridebandanas + Pelt.pridebandanas2 + Pelt.pridebandanas3 + Pelt.nonpridebandanas:
+            return
 
         # find other_cat
         other_cat = random.choice(list(Cat.all_cats.values()))

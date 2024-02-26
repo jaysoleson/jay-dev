@@ -37,7 +37,7 @@
             "Leaf-fall",
             "Leaf-bare"
         ],
-        "event_text": "m_c gently guides a acc_singular into camp. Seems like m_c has found a new friend?",
+        "event_text": "m_c gently guides a small animal into camp. Seems like m_c has found a new friend?",
         "cat_trait": ["bold", "adventurous", "careful", "confident", "calm", "strange", "charismatic", "loving", "compassionate"],
         "accessories": ["SMALLANIMAL"]
     },
@@ -57,7 +57,7 @@
             "neg_dislike",
             "neg_jealousy"
         ],
-        "event_text": "r_c and m_c, on a walk together, stumble upon an acc_singular. m_c tilts {PRONOUN/m_c/poss} head, and decides to take it home! r_c is charmed by m_c's generosity.",
+        "event_text": "r_c and m_c, on a walk together, stumble upon a small creature. m_c tilts {PRONOUN/m_c/poss} head, and decides to take it home! r_c is charmed by m_c's generosity.",
         "accessories": ["SMALLANIMAL"]
     },
     {
@@ -68,7 +68,7 @@
             "Leaf-fall",
             "Leaf-bare"
         ],
-        "event_text": "m_c gently guides a acc_singular into camp. Seems like m_c has found a new friend?",
+        "event_text": "m_c gently guides a rabbit into camp. Seems like m_c has found a new friend?",
         "cat_trait": ["bold", "adventurous", "careful", "confident", "calm", "strange", "charismatic", "loving", "compassionate"],
         "accessories": ["WHITE RABBIT", "BLACK RABBIT", "BROWN RABBIT", "FAWN RABBIT", "BROWN AND WHITE RABBIT", "BLACK AND WHITE RABBIT", "WHITE AND FAWN RABBIT", "BLACK VITILIGO RABBIT", "BROWN VITILIGO RABBIT", "FAWN VITILIGO RABBIT", "TAN RABBIT", "TAN AND WHITE RABBIT", "TAN VITILIGO RABBIT", "GRAY RABBIT", "GRAY AND WHITE RABBIT", "GRAY VITILIGO RABBIT"]
     },
@@ -88,7 +88,7 @@
             "neg_dislike",
             "neg_jealousy"
         ],
-        "event_text": "r_c and m_c, on a walk together, stumble upon an acc_singular. m_c tilts {PRONOUN/m_c/poss} head, and decides to take it home! r_c is charmed by m_c's generosity.",
+        "event_text": "r_c and m_c, on a walk together, stumble upon an rabbit. m_c tilts {PRONOUN/m_c/poss} head, and decides to take it home! r_c is charmed by m_c's generosity.",
         "accessories": ["WHITE RABBIT", "BLACK RABBIT", "BROWN RABBIT", "FAWN RABBIT", "BROWN AND WHITE RABBIT", "BLACK AND WHITE RABBIT", "WHITE AND FAWN RABBIT", "BLACK VITILIGO RABBIT", "BROWN VITILIGO RABBIT", "FAWN VITILIGO RABBIT", "TAN RABBIT", "TAN AND WHITE RABBIT", "TAN VITILIGO RABBIT", "GRAY RABBIT", "GRAY AND WHITE RABBIT", "GRAY VITILIGO RABBIT"]
     },
     {
@@ -99,7 +99,7 @@
             "Leaf-fall",
             "Leaf-bare"
         ],
-        "event_text": "m_c leaps and gracefully sweeps across the plains of c_n territory. m_c quickly scans the scenery around {PRONOUN/m_c/object} inbetween leaps, and quickly finds that a acc_singular has joined {PRONOUN/m_c/object} on {PRONOUN/m_c/poss} walk. m_c decides to keep it when {PRONOUN/m_c/subject} {VERB/m_c/speed/speeds} back to camp.",
+        "event_text": "m_c leaps and gracefully sweeps across the plains of c_n territory. m_c quickly scans the scenery around {PRONOUN/m_c/object} inbetween leaps, and quickly finds that a rabbit has joined {PRONOUN/m_c/object} on {PRONOUN/m_c/poss} walk. m_c decides to keep it when {PRONOUN/m_c/subject} {VERB/m_c/speed/speeds} back to camp.",
         "accessories": ["WHITE RABBIT", "BLACK RABBIT", "BROWN RABBIT", "FAWN RABBIT", "BROWN AND WHITE RABBIT", "BLACK AND WHITE RABBIT", "WHITE AND FAWN RABBIT", "BLACK VITILIGO RABBIT", "BROWN VITILIGO RABBIT", "FAWN VITILIGO RABBIT", "TAN RABBIT", "TAN AND WHITE RABBIT", "TAN VITILIGO RABBIT", "GRAY RABBIT", "GRAY AND WHITE RABBIT", "GRAY VITILIGO RABBIT"]
     },
     {
@@ -117,7 +117,7 @@
             "neg_dislike",
             "neg_jealousy"
         ],
-        "event_text": "m_c and r_c both leap and gracefully sweep across the plains of c_n territory. m_c quickly scans the scenery around them both inbetween a shared leap, and quickly finds that a acc_singular has joined {PRONOUN/m_c/object} on {PRONOUN/m_c/poss} walk. m_c decides to keep it when {PRONOUN/m_c/subject} {VERB/m_c/speed/speeds} back to camp.",
+        "event_text": "m_c and r_c both leap and gracefully sweep across the plains of c_n territory. m_c quickly scans the scenery around them both inbetween a shared leap, and quickly finds that a rabbit has joined {PRONOUN/m_c/object} on {PRONOUN/m_c/poss} walk. m_c decides to keep it when {PRONOUN/m_c/subject} {VERB/m_c/speed/speeds} back to camp.",
         "accessories": ["WHITE RABBIT", "BLACK RABBIT", "BROWN RABBIT", "FAWN RABBIT", "BROWN AND WHITE RABBIT", "BLACK AND WHITE RABBIT", "WHITE AND FAWN RABBIT", "BLACK VITILIGO RABBIT", "BROWN VITILIGO RABBIT", "FAWN VITILIGO RABBIT", "TAN RABBIT", "TAN AND WHITE RABBIT", "TAN VITILIGO RABBIT", "GRAY RABBIT", "GRAY AND WHITE RABBIT", "GRAY VITILIGO RABBIT"]
     },
     {
@@ -140,7 +140,7 @@
             "Leaf-fall",
             "Leaf-bare"
         ],
-        "event_text": "m_c grins toothily at a acc_singular that wandered into camp! Instead of diving toward it like anyone would expect a cat to do, m_c decides to befriend it with seeds and nuts.",
+        "event_text": "m_c grins toothily at a mouse that wandered into camp! Instead of diving toward it like anyone would expect a cat to do, m_c decides to befriend it with seeds and nuts.",
         "accessories": ["WHITE MOUSE", "BLACK MOUSE", "GRAY MOUSE", "BROWN MOUSE"]
     },
     {

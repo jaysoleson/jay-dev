@@ -5,7 +5,7 @@
             "Newleaf",
             "Greenleaf"
         ],
-        "event_text": "m_c spots collections and clusters of gorgeous acc_singular, and decides to wear one of them!",
+        "event_text": "m_c spots collections and clusters of gorgeous flowers, and decides to wear one of them!",
         "accessories": ["DIANTHUS", "WISTERIA"]
     },
     {
@@ -20,7 +20,7 @@
             "neg_dislike",
             "neg_jealousy"
         ],
-        "event_text": "r_c offers m_c acc_singular {PRONOUN/r_c/subject} found near camp, telling m_c that {PRONOUN/r_c/subject} thought that it'd look better on m_c than on {PRONOUN/r_c/self}.",
+        "event_text": "r_c offers m_c a flower {PRONOUN/r_c/subject} found near camp, telling m_c that {PRONOUN/r_c/subject} thought that it'd look better on m_c than on {PRONOUN/r_c/self}.",
         "accessories": ["DIANTHUS", "WISTERIA"]
     },
     {
@@ -128,7 +128,7 @@
             "other_cat",
             "other_cat_parent"
         ],
-        "event_text": "m_c wanders around camp mindlessly with r_c's permission. m_c spots a fruity smelling acc_singular that rolled into camp! m_c flaunts their new acc_singular with grace.",
+        "event_text": "m_c wanders around camp mindlessly with r_c's permission. m_c spots a fruity smelling yew berry that rolled into camp! m_c flaunts their new berry with grace.",
         "accessories": ["YEW"]
     }
 ]

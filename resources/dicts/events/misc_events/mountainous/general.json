@@ -5,7 +5,7 @@
             "Newleaf",
             "Greenleaf"
         ],
-        "event_text": "m_c spots collections and clusters of gorgeous acc_singular, and decides to wear one of them!",
+        "event_text": "m_c spots collections and clusters of gorgeous flower, and decides to wear one of them!",
         "accessories": ["DIANTHUS", "WISTERIA"]
     },
     {
@@ -20,7 +20,7 @@
             "neg_dislike",
             "neg_jealousy"
         ],
-        "event_text": "r_c offers m_c acc_singular {PRONOUN/r_c/subject} found near camp, telling m_c that {PRONOUN/r_c/subject} thought that it'd look better on m_c than on {PRONOUN/r_c/self}.",
+        "event_text": "r_c offers m_c flower {PRONOUN/r_c/subject} found near camp, telling m_c that {PRONOUN/r_c/subject} thought that it'd look better on m_c than on {PRONOUN/r_c/self}.",
         "accessories": ["DIANTHUS", "WISTERIA"]
     },
     {
@@ -134,7 +134,7 @@
             "neg_dislike",
             "neg_jealousy"
         ],
-        "event_text": "m_c brags about r_c giving them acc_singular to wear.",
+        "event_text": "m_c brags about r_c giving them yew berry to wear.",
         "accessories": ["YEW"]
     }
 ]
