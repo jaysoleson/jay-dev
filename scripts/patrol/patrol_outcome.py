@@ -1159,7 +1159,6 @@ class PatrolOutcome():
 
         else:
             gender = None
-            sexuality = None
            
         # Now, it's time to generate the new cat
         # This is a bit of a pain, but I can't re-write this function

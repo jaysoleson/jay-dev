@@ -1824,6 +1824,7 @@ class Events:
         
         if not cat.dead:
             OutsiderEvents.killing_outsiders(cat)
+        self.get_flags(cat)
     
     def one_moon_cat(self, cat):
         """
@@ -1849,9 +1850,8 @@ class Events:
             else:
                 cat.dead_for += 1
             self.handle_fading(cat)  # Deal with fading.
-            self.get_flags(cat) # get bandanas -- doesnt work w the function call later
+            self.get_flags(cat)
             return
-        
         
 
         # all actions, which do not trigger an event display and
@@ -3535,6 +3535,7 @@ class Events:
                     game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
 
     def update_compatible_mates(self, cat):
+        """ updates mates if their sexualities/genders become incompatible"""
         if len(cat.mate) > 0:
             involved_cats = [cat.ID]
             for mate_id in cat.mate:
@@ -3556,14 +3557,10 @@ class Events:
         
 
     def get_flags(self, cat):
-        """ gives appropriate bandanas to lgbt cats.
-        also gives fruit accs to kits as a way to cover up the new cat accessory bug for now """
-
-        # unset mate incompatible sexualities if the player changes it themselves
-        # or if mates from an old save load in with incompatible sexualities and it isnt changed manually
+        """ gives appropriate bandanas to lgbt cats."""
 
         if not game.clan.clan_settings['all accessories']:
-            # don't remove wrong flags if all accessories is on!
+            # ^^ don't remove wrong flags if all accessories is on!
             if cat.sexuality == "straight":
                 if Pelt.pridebandanas2[3] in cat.pelt.inventory:
                     if Pelt.pridebandanas2[3] in cat.pelt.accessories:
@@ -3998,9 +3995,6 @@ class Events:
                         cat.sexuality = "lesbian"
                     elif cat.genderalign in ['male', 'trans male']:
                         cat.sexuality = "straight"
-
-        
-
 
     def check_and_promote_leader(self):
     

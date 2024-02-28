@@ -527,7 +527,21 @@ def create_new_cat(Cat,
         new_cat.thought = thought
 
         # sexuality from patrol outcome
-        new_cat.sexuality = sexuality
+        if sexuality:
+            new_cat.sexuality = sexuality
+        else:
+            if new_cat.genderalign in ["male", "trans male", "demiboy"]:
+                new_cat.sexuality = choice(["gay", "gay", "gay", "gay", "bi", "bi", "bi", "bi", "bi", "bi", "straight", "straight",\
+                                             "straight", "straight", "straight", "straight", "aroace", "aroace"])
+                
+            elif new_cat.genderalign in ["female", "trans female", "demiboy"]:
+                new_cat.sexuality = choice(["lesbian", "lesbian", "lesbian", "lesbian", "bi", "bi", "bi", "bi", "bi", "bi", \
+                                            "straight", "straight", "straight", "straight", "straight", "straight", "aroace",\
+                                                "aroace"])
+            else:
+                new_cat.sexuality = choice(["gyno", "gyno", "gyno", "gyno", "bi", "bi", "bi", "bi", "bi", "bi", \
+                                            "andro", "andro", "andro", "andro", "aroace","aroace"])
+
         
         # and they exist now
         created_cats.append(new_cat)
