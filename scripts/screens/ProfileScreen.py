@@ -1427,16 +1427,6 @@ class ProfileScreen(Screens):
             output += "<font color='#FF0000'>lost</font>"
         elif the_cat.exiled:
             output += "<font color='#FF0000'>exiled</font>"
-        elif the_cat.df:
-            if game.settings['dark mode']:
-                output += "<font color='#FF0000' >" + "Dark Forest "+ the_cat.status + "</font>"
-            else:
-                output += "<font color='#950000' >" + "Dark Forest "+ the_cat.status + "</font>"
-        elif the_cat.dead and not the_cat.df and not the_cat.outside:
-            if game.settings['dark mode']:
-                output += "<font color ='#7995FF'>" "StarClan " + the_cat.status + "</font>"
-            else:
-                output += "<font color ='#2B3DC3'>" "StarClan " + the_cat.status + "</font>"
         else:
             output += the_cat.status
 

@@ -362,24 +362,14 @@ def create_new_cat(Cat,
             _gender = choice(['female', 'male'])
         else:
             _gender = gender
-
-        if not sexuality:
-
-            if _gender == "female":
-                _sexuality = choice(['lesbian', 'bi', 'straight', 'aroace'])
-            elif gender == 'male':
-                _sexuality = choice(['gay', 'bi', 'straight', 'aroace'])
-            else:
-                _sexuality = choice(['gyno', 'bi', 'andro', 'aroace'])
-        else:
-            sexuality = _sexuality
-
+        
+        
         # other Clan cats, apps, and kittens (kittens and apps get indoctrinated lmao no old names for them)
         if other_clan or kit or litter or age < 12:
             new_cat = Cat(moons=age,
                           status=status,
                           gender=_gender,
-                          sexuality=_sexuality,
+                          sexuality=sexuality,
                           backstory=backstory,
                           parent1=parent1,
                           parent2=parent2,
@@ -411,7 +401,7 @@ def create_new_cat(Cat,
                                   prefix=name,
                                   status=status,
                                   gender=_gender,
-                                  sexuality=_sexuality,
+                                  sexuality=sexuality,
                                   df=df,
                                   backstory=backstory,
                                   parent1=parent1,
@@ -421,7 +411,7 @@ def create_new_cat(Cat,
                     new_cat = Cat(moons=age,
                                   status=status,
                                   gender=_gender,
-                                  sexuality=_sexuality,
+                                  sexuality=sexuality,
                                   df=df,
                                   backstory=backstory,
                                   parent1=parent1,
@@ -434,7 +424,7 @@ def create_new_cat(Cat,
                               suffix="",
                               status=status,
                               gender=_gender,
-                              sexuality=_sexuality,
+                              sexuality=sexuality,
                               df=df,
                               backstory=backstory,
                               parent1=parent1,
@@ -523,6 +513,7 @@ def create_new_cat(Cat,
             new_cat.outside = True
         if not alive:
             new_cat.die()
+        
 
         if df:
             new_cat.df = True
@@ -535,6 +526,9 @@ def create_new_cat(Cat,
         # newbie thought
         new_cat.thought = thought
 
+        # sexuality from patrol outcome
+        new_cat.sexuality = sexuality
+        
         # and they exist now
         created_cats.append(new_cat)
         game.clan.add_cat(new_cat)
@@ -546,12 +540,15 @@ def create_new_cat(Cat,
             new_cat.dead = True
             new_cat.status = status
      
+        
 
         # create relationships
         new_cat.create_relationships_new_cat()
         # Note - we always update inheritance after the cats are generated, to
         # allow us to add parents.
         #new_cat.create_inheritance_new_cat()
+
+        
 
     return created_cats
 
@@ -579,9 +576,8 @@ def create_outside_cat(Cat, status, backstory, alive=True, thought=None, invento
                 suffix=suffix,
                 status=status,
                 gender=choice(['female', 'male']),
-                sexuality = choice(["straight", "bi"]),
                 backstory=backstory,
-                invetory=inventory)
+                inventory=inventory)
     if status == 'kittypet':
         acc = choice(Pelt.collars)
         new_cat.pelt.accessories.append(choice(Pelt.collars))

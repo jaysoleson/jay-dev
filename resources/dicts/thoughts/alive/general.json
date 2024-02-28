@@ -1,5 +1,104 @@
 [
     {
+        "id": "anytrans",
+        "thoughts": [
+            "Politely corrects a clanmate on their pronouns",
+            "Wonders if they got their gender right",
+            "Is proud of who they are"
+          
+        ],
+        "main_status_constraint": [
+            "any"
+        ],
+        "main_gender_constraint": [
+            "trans",
+            "trans female",
+            "trans male",
+            "enby"
+        ]
+    },
+    {
+        "id": "transwoman",
+        "thoughts": [
+            "Asks their closest friend if they look like a tom, and tells them to be honest",
+            "Doesn't miss tom life",
+            "Is proud of who they are"
+          
+        ],
+        "main_status_constraint": [
+            "any"
+        ],
+        "main_gender_constraint": [
+            "trans female",
+            "trans"
+        ]
+    },
+    {
+        "id": "transman",
+        "thoughts": [
+            "Asks their closest friend if they look like a she-cat, and tells them to be honest",
+            "Doesn't miss she-cat life",
+            "Is proud of who they are"
+          
+        ],
+        "main_status_constraint": [
+            "any"
+        ],
+        "main_gender_constraint": [
+            "trans male",
+            "trans"
+        ]
+    },
+    {
+        "id": "likes_shecats",
+        "thoughts": [
+            "Thinks she-cats are so, so pretty",
+            "Winks at a pretty she-cat",
+            "Is proud of who they are"
+          
+        ],
+        "main_status_constraint": [
+         "any"
+        ],
+        "main_sexuality_constraint": [
+            "likes_shecats"
+
+        ]
+    },
+    {
+        "id": "likes_toms",
+        "thoughts": [
+            "Smiles at a handsome tom",
+            "Is proud of who they are"
+          
+        ],
+        "main_status_constraint": [
+            "any"
+        ],
+        "main_sexuality_constraint": [
+            "likes_toms"
+
+        ]
+    },
+    {
+        "id": "aroace_thoughts",
+        "thoughts": [
+            "Got flirted with earlier and didn't know how to respond",
+            "Can't help but feel left out as they pass a lovey pair of mates",
+            "Just rolls their eyes when somecat asked if they would ever want a mate",
+            "Is proud of who they are",
+            "Kind of wants a mate, just to see what the fuss is about"
+          
+        ],
+        "main_status_constraint": [
+            "any"
+        ],
+        "main_sexuality_constraint": [
+            "aroace"
+
+        ]
+    },
+    {
         "id": "gen",
         "thoughts": [
             "Is feeling quite lazy",

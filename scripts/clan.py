@@ -212,7 +212,6 @@ class Clan():
         self.instructor.pelt.inventory = []
         if self.instructor.pelt.inventory != []:
             self.instructor.pelt.inventory = []
-        self.instructor.backstory = choice(BACKSTORIES["backstory_categories"]["dead_cat_backstories"])
         self.add_cat(self.instructor)
         self.add_to_starclan(self.instructor)
         self.all_clans = []
@@ -226,7 +225,6 @@ class Clan():
         self.demon.pelt.inventory = []
         if self.demon.pelt.inventory != []:
             self.demon.pelt.inventory = []
-        self.demon.backstory = choice(BACKSTORIES["backstory_categories"]["dead_cat_backstories"])
         self.add_cat(self.demon)
         self.add_to_darkforest(self.demon)
         self.all_clans = []

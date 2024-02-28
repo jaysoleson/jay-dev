@@ -238,7 +238,7 @@ class Events:
         self.check_and_promote_leader()
         self.check_and_promote_deputy()
 
-        self.handle_disaster()
+        # self.handle_disaster()
 
         if game.clan.game_mode in ["expanded", "cruel season"]:
             amount_per_med = get_amount_cat_for_one_medic(game.clan)
@@ -3237,74 +3237,82 @@ class Events:
 
             involved_cats = [cat.ID]
             if cat.age == 'adolescent':
-                transing_chance = random.getrandbits(8)
+                transing_chance = random.getrandbits(10)
             elif cat.age == 'young adult':
-                transing_chance = random.getrandbits(9)
+                transing_chance = random.getrandbits(8)
             else:
                 # adult, senior adult, elder
-                transing_chance = random.getrandbits(10)
+                transing_chance = random.getrandbits(9)
 
             if transing_chance:
                 # transing_chance != 0, no trans kitties today...    L
                 return
-
+            
             if random.getrandbits(1):  # 50/50
-                if cat.gender == "male":
-                    cat.genderalign = "trans female"
-                    if cat.sexuality == "straight":
-                        cat.sexuality = "lesbian"
-                    elif cat.sexuality == "gay":
-                        cat.sexuality = "straight"
-                    # cat.pronouns = [cat.default_pronouns[1].copy()]
-                elif cat.gender == "female":
-                    cat.genderalign = "trans male"
-                    if cat.sexuality == "straight":
-                        cat.sexuality = "gay"
-                    elif cat.sexuality == "lesbian":
-                        cat.sexuality = "straight"
-                    # cat.pronouns = [cat.default_pronouns[2].copy()]
-                if cat.genderalign in ["trans female", "trans male"]:
-                    all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
-                    if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
-                        cat.pelt.accessories.append(Pelt.pridebandanas[0])
-                    cat.pelt.inventory.append(Pelt.pridebandanas[0])
-            else:
-                cat.genderalign = "nonbinary"
-                # cat.pronouns = [cat.default_pronouns[0].copy()]
-                if cat.sexuality == 'gay':
-                    cat.sexuality = 'andro'
-                elif cat.sexuality == 'lesbian':
-                    cat.sexuality = 'gyno'
-                elif cat.sexuality == 'straight':
-                    if cat.gender == 'female':
-                        cat.sexuality = 'andro'
-                    elif cat.gender == 'male':
-                        cat.sexuality = 'gyno'
-                if cat.genderalign == "nonbinary":
-                    gq = randint(1,10)
-                    if gq == 1:
+                demi_chance = randint(1,6)
+                if demi_chance == 1:
+                    if cat.gender == "male":
+                        cat.genderalign = "demiboy"
+                    elif cat.gender == "female":
+                        cat.genderalign = "demigirl"
+                else:
+                    if cat.gender == "male":
+                        cat.genderalign = "trans female"
+                        if cat.sexuality == "straight":
+                            cat.sexuality = "lesbian"
+                        elif cat.sexuality == "gay":
+                            cat.sexuality = "straight"
+                        # cat.pronouns = [cat.default_pronouns[1].copy()]
+                    elif cat.gender == "female":
+                        cat.genderalign = "trans male"
+                        if cat.sexuality == "straight":
+                            cat.sexuality = "gay"
+                        elif cat.sexuality == "lesbian":
+                            cat.sexuality = "straight"
+                        # cat.pronouns = [cat.default_pronouns[2].copy()]
+                    if cat.genderalign in ["trans female", "trans male", "demiboy", "demigirl"]:
                         all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
                         if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
-                            cat.pelt.accessories.append(Pelt.pridebandanas2[0])
-                        cat.pelt.inventory.append(Pelt.pridebandanas2[0])
-                    elif gq == 2:
-                        all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
-                        if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
-                            cat.pelt.accessories.append(Pelt.pridebandanas2[1])
-                        cat.pelt.inventory.append(Pelt.pridebandanas2[1])
+                            cat.pelt.accessories.append(Pelt.pridebandanas[0])
+                        cat.pelt.inventory.append(Pelt.pridebandanas[0])
                     else:
-                        all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
-                        if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
-                            cat.pelt.accessories.append(Pelt.pridebandanas[1])
-                        cat.pelt.inventory.append(Pelt.pridebandanas[1])
-            if cat.gender == 'male':
-                gender = 'tom'
-            else:
-                gender = 'she-cat'
-            text = f"{cat.name} has realized that {gender} doesn't describe how they feel anymore."
-            game.cur_events_list.append(
-                Single_Event(text, "misc", involved_cats))
-            # game.misc_events_list.append(text)
+                        cat.genderalign = "nonbinary"
+                        # cat.pronouns = [cat.default_pronouns[0].copy()]
+                        if cat.sexuality == 'gay':
+                            cat.sexuality = 'andro'
+                        elif cat.sexuality == 'lesbian':
+                            cat.sexuality = 'gyno'
+                        elif cat.sexuality == 'straight':
+                            if cat.gender == 'female':
+                                cat.sexuality = 'andro'
+                            elif cat.gender == 'male':
+                                cat.sexuality = 'gyno'
+                        if cat.genderalign == "nonbinary":
+                            gq = randint(1,10)
+                            if gq == 1:
+                                all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                                if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
+                                    cat.pelt.accessories.append(Pelt.pridebandanas2[0])
+                                cat.pelt.inventory.append(Pelt.pridebandanas2[0])
+                            elif gq == 2:
+                                all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                                if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
+                                    cat.pelt.accessories.append(Pelt.pridebandanas2[1])
+                                cat.pelt.inventory.append(Pelt.pridebandanas2[1])
+                            else:
+                                all_bandanas = [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]
+                                if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in all_bandanas for bandana in bandanas):
+                                    cat.pelt.accessories.append(Pelt.pridebandanas[1])
+                                cat.pelt.inventory.append(Pelt.pridebandanas[1])
+                if cat.gender == 'male':
+                    gender = 'tom'
+                else:
+                    gender = 'she-cat'
+                text = f"{cat.name} has realized that {gender} doesn't describe how they feel anymore."
+                game.cur_events_list.append(
+                    Single_Event(text, "misc", involved_cats))
+                # game.misc_events_list.append(text)
+            
 
     def change_sexuality(self, cat):
         """turnin' the kitties gay..."""

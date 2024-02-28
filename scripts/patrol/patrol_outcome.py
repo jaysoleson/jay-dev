@@ -15,7 +15,7 @@ from scripts.clan import HERBS
 from scripts.utility import (
     change_clan_relations,
     change_clan_reputation,
-    change_relationship_values, create_new_cat,
+    change_relationship_values, create_new_cat
 )
 from scripts.game_structure.game_essentials import game
 from scripts.cat.skills import SkillPath
@@ -920,7 +920,7 @@ class PatrolOutcome():
         give_mates = []
         for tag in attribute_list:
             match = re.match(r"mate:([_,0-9a-zA-Z]+)", tag)
-            if not match:
+            if not match or patrol.patrol_leader.sexuality == "aroace":
                 continue
             
             mate_indexes = match.group(1).split(",")
@@ -945,7 +945,7 @@ class PatrolOutcome():
                 
                 give_mates.extend(patrol.new_cats[index])
         
-        
+              
         # DETERMINE GENDER
         if "male" in attribute_list:
             gender = "male"
@@ -955,6 +955,7 @@ class PatrolOutcome():
             gender = "female"
         else:
             gender = None
+            
         
         # WILL THE CAT GET A NEW NAME?
         if "new_name" in attribute_list:
@@ -991,7 +992,7 @@ class PatrolOutcome():
             # Set same as first mate.
             if match.group(1) == "mate" and give_mates:
                 age = randint(Cat.age_moons[give_mates[0].age][0], 
-                              Cat.age_moons[give_mates[0].age][1])
+                            Cat.age_moons[give_mates[0].age][1])
                 break
                 
             if match.group(1) == "has_kits":
@@ -1061,6 +1062,104 @@ class PatrolOutcome():
             alive = False
             thought = "Explores a new starry world"
         
+        sexuality = None
+        if "compmates" in attribute_list:
+            if patrol.patrol_leader.genderalign in ['female', 'trans female', 'demigirl']:
+                if patrol.patrol_leader.sexuality in ['lesbian', 'gyno']:
+                    gender = "female"
+                    sexuality = choice(['lesbian', 'bi'])
+                    # if sexuality == "lesbian":
+                    #     print("FLFL")
+                    # elif sexuality == "bi":
+                    #     print("FBFL")
+
+                elif patrol.patrol_leader.sexuality == "bi":
+                    gender = choice(["male", "female"])
+                    if gender == "female":
+                        sexuality = choice(["lesbian", "bi"])
+                        # if sexuality == "lesbian":
+                        #     print("FLFB")
+                        # elif sexuality == "bi":
+                        #     print("FBFB")
+                        
+                    elif gender == "female":
+                        sexuality = choice (["straight", "bi"])
+                        # if sexuality == "straight":
+                        #     print("MSFB")
+                        # elif sexuality == "bi":
+                        #     print("MBFB")
+
+                    else:
+                        sexuality = choice(["gyno", "bi"])
+
+                elif patrol.patrol_leader.sexuality == "straight":
+                    gender = "male"
+                    sexuality = choice(["straight", "bi"])
+                    # if sexuality == "straight":
+                    #     print("MSFS")
+                    # elif sexuality == "bi":
+                    #     print("MBFS")
+          
+
+            elif patrol.patrol_leader.genderalign in ["male", "trans male", "demiboy"]:
+                if patrol.patrol_leader.sexuality in ['gay', 'andro']:
+                    gender = "male"
+                    sexuality = random.choice(['gay', 'bi'])
+                    # if sexuality == "gay":
+                    #     print("MGMG")
+                    # elif sexuality == "bi":
+                    #     print("MBMG")
+                elif patrol.patrol_leader.sexuality == "bi":
+                    gender = choice(["male", "female"])
+                    if gender == "male":
+                        sexuality = choice(["gay", "bi"])
+                        # if sexuality == "gay":
+                        #     print("MGMB")
+                        # elif sexuality == "bi":
+                        #     print("MBMB")
+                    else:
+                        sexuality = choice (["straight", "bi"])
+                        # if sexuality == "straight":
+                        #     print("FSMB")
+                        # elif sexuality == "bi":
+                        #     print("FBMB")
+                elif patrol.patrol_leader.sexuality == "straight":
+                    gender = "female"
+                    sexuality = random.choice(["straight", "bi"])
+                    # if sexuality == "straight":
+                    #     print("FSMS")
+                    # elif sexuality == "bi":
+                    #     print("FBMS")
+            else:
+                if patrol.patrol_leader.sexuality == "andro":
+                    gender = "male"
+                    sexuality = "bi"
+                    # if sexuality == "gay":
+                    #     print("MBNG")
+                        
+                elif patrol.patrol_leader.sexuality == "bi":
+                    gender = random.choice(["male", "female"])
+                    sexuality = "bi"
+                    # if sexuality == "bi":
+                    #     print("RBNB")
+                elif patrol.patrol_leader.sexuality == "gyno":
+                    gender = "female"
+                    sexuality = "bi"
+                    # if sexuality == "bi":
+                    #     print("FBNB")
+                else:
+                    gender = random.choice(["male", "female"])
+                    sexuality = "bi"
+                    # if sexuality == "bi":
+                    #     print("RBNB2")
+
+            if patrol.patrol_leader.sexuality is "aroace":
+                genderalign = choice(['trans male', 'trans female'])
+                sexuality = choice (["bi", "bi", "bi", "aroace"])
+
+        else:
+            gender = None
+            sexuality = None
            
         # Now, it's time to generate the new cat
         # This is a bit of a pain, but I can't re-write this function
@@ -1076,6 +1175,7 @@ class PatrolOutcome():
                                 status=status,
                                 age=age,
                                 gender=gender,
+                                sexuality=sexuality,
                                 thought=thought,
                                 alive=alive,
                                 outside=outside,
