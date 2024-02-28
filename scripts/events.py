@@ -1920,7 +1920,7 @@ class Events:
         self.coming_out(cat)
 
         self.get_flags(cat)
-        self.update_compatible_mates(cat)
+        
 
         Pregnancy_Events.handle_having_kits(cat, clan=game.clan)
         # Stop the timeskip if the cat died in childbirth
@@ -1941,7 +1941,7 @@ class Events:
         self.invite_new_cats(cat)
         self.other_interactions(cat)
         self.gain_accessories(cat)
-        
+        self.update_compatible_mates(cat)
 
         # switches between the two death handles
         if random.getrandbits(1):
@@ -3540,10 +3540,12 @@ class Events:
             involved_cats = [cat.ID]
             for mate_id in cat.mate:
                 if Cat.all_cats.get(mate_id):
-                    if cat.sexuality in ["lesbian", "gyno"] and Cat.all_cats.get(mate_id).genderalign in ["male", "trans male", "demiboy"]:
+                    if (cat.sexuality in ["lesbian", "gyno"] and Cat.all_cats.get(mate_id).genderalign in ["male", "trans male", "demiboy"]) or (cat.genderalign in ['male', 'trans male', 'demiboy'] and Cat.all_cats.get(mate_id).genderalign \
+                         in ['male', 'trans male', 'demiboy'] and cat.sexuality == "straight" ):
                         cat.unset_mate(Cat.all_cats.get(mate_id))
                         pref = "toms"
-                    elif cat.sexuality in ["gay", "andro"] and Cat.all_cats.get(mate_id).genderalign in ["female", "trans female", "demigirl"]:
+                    elif (cat.sexuality in ["gay", "andro"] and Cat.all_cats.get(mate_id).genderalign in ["female", "trans female", "demigirl"]) or (cat.genderalign in ['female', 'trans female', 'demigirl'] and \
+                    Cat.all_cats.get(mate_id).genderalign in ['female', 'trans female', 'demigirl'] and cat.sexuality == "straight" ):
                         cat.unset_mate(Cat.all_cats.get(mate_id))
                         pref = "she-cats"
                     elif cat.sexuality == "aroace":
