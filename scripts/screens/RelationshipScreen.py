@@ -636,7 +636,19 @@ class RelationshipScreen(Screens):
                                 the_relationship.cat_to.genderalign in ("female", "trans female", "demigirl")) or \
                                 (self.the_cat.sexuality == "aroace")
                                
-        incompatible_crush =    (self.the_cat.genderalign in ["male", "trans male", "demiboy"] and the_relationship.cat_to.genderalign in ["male", "trans male", "demiboy"] and the_relationship.cat_to.sexuality == "straight")
+        incompatible_crush =    (self.the_cat.genderalign in ["male", "trans male", "demiboy"] and \
+                                the_relationship.cat_to.genderalign in ["male", "trans male", "demiboy"] and \
+                                the_relationship.cat_to.sexuality == "straight") or \
+                                (self.the_cat.genderalign in ["female", "trans female", "demigirl"] and \
+                                the_relationship.cat_to.genderalign in ["female", "trans female", "demigirl"] and \
+                                the_relationship.cat_to.sexuality == "straight") or \
+                                (self.the_cat.genderalign in ["male", "trans male", "demiboy"] and \
+                                the_relationship.cat_to.genderalign in ["female", "trans female", "demigirl"] and \
+                                the_relationship.cat_to.sexuality == "lesbian") or \
+                                (self.the_cat.genderalign in ["female", "trans female", "demigirl"] and \
+                                the_relationship.cat_to.genderalign in ["male", "trans male", "demiboy"] and \
+                                the_relationship.cat_to.sexuality == "gay")
+                                
 
         # CHECK AGE DIFFERENCE
         same_age = the_relationship.cat_to.age == self.the_cat.age
