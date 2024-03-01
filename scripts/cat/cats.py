@@ -333,6 +333,7 @@ class Cat():
             # sexuality chances
             # straight chance bc bi is default
             gay_chance = randint(0,10)
+            pan_chance = randint(1,3)
             aroace_chance = randint (0,30)
             straight_chance = randint(0,1)
             if self.genderalign in ["female", "trans female"] and not self.status in ['newborn', 'kitten']:
@@ -340,6 +341,8 @@ class Cat():
                     self.sexuality = "lesbian"
                 elif aroace_chance == 1:
                     self.sexuality = "aroace"
+                elif pan_chance == 1:
+                    self.sexuality = "pan"
                 elif straight_chance == 1:
                     self.sexuality = "straight"
             elif self.genderalign in ["male", "trans male"] and not self.status in ['newborn', 'kitten']:
@@ -347,6 +350,8 @@ class Cat():
                     self.sexuality = "gay"
                 elif aroace_chance == 1:
                     self.sexuality = "aroace"
+                elif pan_chance == 1:
+                    self.sexuality = "pan"
                 elif straight_chance == 1:
                     self.sexuality = "straight"
             elif self.genderalign not in ["male", "female", "trans female", "trans male"] \
@@ -355,6 +360,8 @@ class Cat():
                     self.sexuality = "andro"
                 elif gay_chance == 2:
                     self.sexuality = "gyno"
+                elif pan_chance == 1:
+                    self.sexuality = "pan"
                 elif aroace_chance == 1:
                     self.sexuality = "aroace"
                 elif straight_chance == 1:

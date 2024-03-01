@@ -1272,7 +1272,9 @@ class ProfileScreen(Screens):
             output += "???"
         else:
             if the_cat.sexuality == "bi":
-                output += "bi/pan"
+                output += "bi"
+            elif the_cat.sexuality == "pan":
+                output += "pan"
             elif the_cat.sexuality == "gay":
                 output += "gay"
             elif the_cat.sexuality == "lesbian":
@@ -2666,8 +2668,12 @@ class ProfileScreen(Screens):
                     self.change_sexuality_button = UIImageButton(scale(pygame.Rect((804, 767), (344, 62))), "",
                                                         starting_height=2, object_id="#change_bi_button",
                                                         manager=MANAGER)
-                
                 elif self.the_cat.sexuality == "bi":
+                    self.change_sexuality_button = UIImageButton(scale(pygame.Rect((804, 767), (344, 62))), "chage to pan",
+                                                        starting_height=2, object_id="#change_pan_button",
+                                                        manager=MANAGER)
+                
+                elif self.the_cat.sexuality == "pan":
                     if self.the_cat.genderalign in ("male", "trans male", "demiboy"):
                         self.change_sexuality_button = UIImageButton(scale(pygame.Rect((804, 767), (344, 62))), "",
                                                         starting_height=2, object_id="#change_gay_button",
@@ -2679,7 +2685,7 @@ class ProfileScreen(Screens):
                                                         manager=MANAGER)
                         
                     elif self.the_cat.genderalign not in ["male", "trans male", "demiboy", "female", "trans female", "demigirl"]\
-                                                and self.the_cat.sexuality == "bi":
+                                                and self.the_cat.sexuality == "pan":
                         self.change_sexuality_button = UIImageButton(scale(pygame.Rect((804, 767), (344, 62))), "",
                                                         starting_height=2, object_id="#change_gyno_button",
                                                         manager=MANAGER)

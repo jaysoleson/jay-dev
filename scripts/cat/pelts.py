@@ -264,7 +264,7 @@ class Pelt():
         self.cat_sprites['para_young'] = 17
         self.cat_sprites["sick_adult"] = 18
         self.cat_sprites["sick_young"] = 19
-        
+
         self.reverse = reverse
         self.skin = skin
 
