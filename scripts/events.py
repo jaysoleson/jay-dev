@@ -3237,12 +3237,12 @@ class Events:
 
             involved_cats = [cat.ID]
             if cat.age == 'adolescent':
-                transing_chance = random.getrandbits(10)
+                transing_chance = random.getrandbits(5)
             elif cat.age == 'young adult':
-                transing_chance = random.getrandbits(8)
+                transing_chance = random.getrandbits(5)
             else:
                 # adult, senior adult, elder
-                transing_chance = random.getrandbits(9)
+                transing_chance = random.getrandbits(5)
 
             if transing_chance:
                 # transing_chance != 0, no trans kitties today...    L
@@ -3312,6 +3312,27 @@ class Events:
                 game.cur_events_list.append(
                     Single_Event(text, "misc", involved_cats))
                 # game.misc_events_list.append(text)
+
+                if len(cat.mate) > 0:
+                    involved_cats = [cat.ID]
+                    for mate_id in cat.mate:
+                        if Cat.all_cats.get(mate_id):
+                            if (cat.genderalign in ['trans male', 'demiboy'] and Cat.all_cats.get(mate_id).genderalign \
+                                in ['male', 'trans male', 'demiboy'] and Cat.all_cats.get(mate_id).sexuality == "straight" or \
+                                Cat.all_cats.get(mate_id).sexuality in ["lesbian", "gyno"] ):
+
+                                cat.unset_mate(Cat.all_cats.get(mate_id))
+                                pref = "toms"
+
+                            elif (cat.genderalign in ['trans female', 'demigirl'] and Cat.all_cats.get(mate_id).genderalign in ['female', 'trans female', 'demigirl'] and Cat.all_cats.get(mate_id).sexuality == "straight" or \
+                            Cat.all_cats.get(mate_id).sexuality in ['gay', 'andro'] ):
+                                cat.unset_mate(Cat.all_cats.get(mate_id))
+                                pref = "she-cats"
+                            else:
+                                return
+
+                            text = f"Since {cat.name}'s gender has changed, and their mate isn't interested in {pref}, {cat.name} and {Cat.all_cats.get(mate_id).name} have broken up, but they are still great friends."
+                            game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
             
 
     def change_sexuality(self, cat):
@@ -3432,21 +3453,26 @@ class Events:
                         game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
                 
                 # remove mate event if no longer compatible
-                # if len(cat.mate) > 0:
-                #     for mate_id in cat.mate:
-                #         if Cat.all_cats.get(mate_id):
-                #             if Cat.all_cats.get(mate_id).genderalign in ["male", "trans male", "demiboy"] and \
-                #                 cat.sexuality in ["lesbian", "gyno"]:
-                #                 cat.unset_mate(Cat.all_cats.get(mate_id))
-                #                 gender = "tom"
-                #             elif Cat.all_cats.get(mate_id).genderalign in ["female", "trans female", "demigirl"] and \
-                #                 cat.sexuality in ["gay", "andro"]:
-                #                 cat.unset_mate(Cat.all_cats.get(mate_id))
-                #                 gender = "she-cat"
-                #             else:
-                #                 return
-                #             text = f"Since {cat.name} has realised that they don't care for {gender}s, {cat.name} and {Cat.all_cats.get(mate_id).name} have broken up, but they are still great friends."
-                #             game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
+                if len(cat.mate) > 0:
+                    involved_cats = [cat.ID]
+                    for mate_id in cat.mate:
+                        if Cat.all_cats.get(mate_id):
+                            if (cat.sexuality in ["lesbian", "gyno"] and Cat.all_cats.get(mate_id).genderalign in ["male", "trans male", "demiboy"]) or (cat.genderalign in ['male', 'trans male', 'demiboy'] and Cat.all_cats.get(mate_id).genderalign \
+                                in ['male', 'trans male', 'demiboy'] and cat.sexuality == "straight" ):
+                                cat.unset_mate(Cat.all_cats.get(mate_id))
+                                pref = "toms"
+                            elif (cat.sexuality in ["gay", "andro"] and Cat.all_cats.get(mate_id).genderalign in ["female", "trans female", "demigirl"]) or (cat.genderalign in ['female', 'trans female', 'demigirl'] and \
+                            Cat.all_cats.get(mate_id).genderalign in ['female', 'trans female', 'demigirl'] and cat.sexuality == "straight" ):
+                                cat.unset_mate(Cat.all_cats.get(mate_id))
+                                pref = "she-cats"
+                            elif cat.sexuality == "aroace":
+                                cat.unset_mate(Cat.all_cats.get(mate_id))
+                                pref = "romance"
+                            else:
+                                return
+
+                            text = f"Since {cat.name} has realised that they don't care for {pref}, {cat.name} and {Cat.all_cats.get(mate_id).name} have broken up, but they are still great friends."
+                            game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
                 
     def make_aroace(self, cat):
         """turnin' the kitties gay..."""
@@ -3488,11 +3514,11 @@ class Events:
                 text = f"{cat.name} doesn't seem very interested in romance."
                 game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
 
-                # if len(cat.mate) > 0:
-                #     for mate_id in cat.mate:
-                #         if Cat.all_cats.get(mate_id):
-                #             cat.unset_mate(Cat.all_cats.get(mate_id))
-                #             text = f"Since {cat.name} has realised that they don't care for romance, {cat.name} and {cat.mate} have broken up, but they are still great friends."
+                if len(cat.mate) > 0:
+                    for mate_id in cat.mate:
+                        if Cat.all_cats.get(mate_id):
+                            cat.unset_mate(Cat.all_cats.get(mate_id))
+                            text = f"Since {cat.name} has realised that they don't care for romance, {cat.name} and {cat.mate} have broken up, but they are still great friends."
 
     def make_acespec(self, cat):
         """ random chance for cats to discover theyre acespec (demi, ace, grey)
@@ -3535,16 +3561,16 @@ class Events:
                             cat.pelt.inventory.append(Pelt.pridebandanas2[12]) # ace
 
                     text = f"{cat.name} doesn't think they're as interested in mates as everyone else."
-                    game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
-
+                    game.cur_events_list.append(Single_Event(text, "misc", involved_cats))  
+    
     def update_compatible_mates(self, cat):
-        """ updates mates if their sexualities/genders become incompatible"""
-        if len(cat.mate) > 0:
+         """ updats compatible mates on moonskip"""
+         if len(cat.mate) > 0:
             involved_cats = [cat.ID]
             for mate_id in cat.mate:
                 if Cat.all_cats.get(mate_id):
                     if (cat.sexuality in ["lesbian", "gyno"] and Cat.all_cats.get(mate_id).genderalign in ["male", "trans male", "demiboy"]) or (cat.genderalign in ['male', 'trans male', 'demiboy'] and Cat.all_cats.get(mate_id).genderalign \
-                         in ['male', 'trans male', 'demiboy'] and cat.sexuality == "straight" ):
+                        in ['male', 'trans male', 'demiboy'] and cat.sexuality == "straight" ):
                         cat.unset_mate(Cat.all_cats.get(mate_id))
                         pref = "toms"
                     elif (cat.sexuality in ["gay", "andro"] and Cat.all_cats.get(mate_id).genderalign in ["female", "trans female", "demigirl"]) or (cat.genderalign in ['female', 'trans female', 'demigirl'] and \
@@ -3557,9 +3583,9 @@ class Events:
                     else:
                         return
 
-                    text = f"Since {cat.name} has realised that they don't care for {pref}, {cat.name} and {Cat.all_cats.get(mate_id).name} have broken up, but they are still great friends."
+                    text = f"Since {cat.name} doesn't care for {pref}, {cat.name} and {Cat.all_cats.get(mate_id).name} have broken up, but they are still great friends."
                     game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
-        
+
 
     def get_flags(self, cat):
         """ gives appropriate bandanas to lgbt cats."""
