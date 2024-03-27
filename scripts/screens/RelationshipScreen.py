@@ -655,16 +655,20 @@ class RelationshipScreen(Screens):
         adult_ages = ['young adult', 'adult', 'senior adult', 'senior']
         both_adult = the_relationship.cat_to.age in adult_ages and self.the_cat.age in adult_ages
         check_age = both_adult or same_age
+        arocat = self.the_cat.arospec = 'aromantic'
 
         # If they are not both adults, or the same age, OR they are related, don't display any romantic affection,
         # even if they somehow have some. They should not be able to get any, but it never hurts to check.
-        if not check_age or related:
+        if not check_age or related or arocat:
             display_romantic = 0
+
         # and if they're incompatible, allow a little bit of a crush, but nothing more.
         # this limits actual romantic attraction, not just the display
         if sexuality_incompatible:
-            max_romantic_love = 15
-            display_romantic = min(the_relationship.romantic_love, max_romantic_love)
+            if the_relationship.romantic_love > 10:
+                the_relationship.romantic_love = 10
+
+            display_romantic = the_relationship.romantic_love
 
         elif incompatible_crush:
             max_romantic_love = 45
