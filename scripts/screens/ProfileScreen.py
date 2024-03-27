@@ -502,11 +502,15 @@ class ProfileScreen(Screens):
                         self.the_cat.sexuality = "andro"
                 elif self.the_cat.sexuality in ["lesbian", "gay", "andro"]:
                     self.the_cat.sexuality = "aroace"
+                    self.the_cat.acespec = 'asexual'
+                    self.the_cat.arospec = 'arospec'
                 elif self.the_cat.sexuality == "aroace":
                     if self.the_cat.genderalign not in ["male", "trans male", "demiboy", "female", "trans female", "demigirl"]:
                         self.the_cat.sexuality = "bi"
                     else:
                         self.the_cat.sexuality = "straight"
+                    self.the_cat.acespec = choice(['allosexual', 'allosexual', 'allosexual', 'allosexual', 'demisexual', 'grey asexual'])
+                    self.the_cat.arospec = choice(['alloromantic', 'alloromantic', 'alloromantic', 'alloromantic', 'demiromantic', 'grey aromantic'])
                 self.clear_profile()
                 self.build_profile()
                 self.update_disabled_buttons_and_text()
@@ -1273,26 +1277,18 @@ class ProfileScreen(Screens):
         if the_cat.moons < 6:
             output += "???"
         else:
-            if the_cat.sexuality == "bi":
-                output += "bi"
-            elif the_cat.sexuality == "pan":
-                output += "pan"
-            elif the_cat.sexuality == "gay":
-                output += "gay"
-            elif the_cat.sexuality == "lesbian":
-                output += "lesbian"
-            elif the_cat.sexuality == "andro":
-                output += "andro"
-            elif the_cat.sexuality == "gyno":
-                output += "gyno"
-            elif the_cat.sexuality == "aroace":
-                output += "aroace"
-            elif the_cat.sexuality == "straight":
-                output += "straight"
-            else:
-                output += "unlabelled"
-                #this should never appear
-                print("Sexuality missing!")
+            output += the_cat.sexuality
+        
+        # NEWLINE ----------
+        if the_cat.moons > 6:
+            if the_cat.sexuality != 'aroace':
+                if the_cat.acespec != "allosexual":
+                    output += "\n"
+                    output += the_cat.acespec
+                
+                if the_cat.arospec != "alloromantic":
+                    output += "\n"
+                    output += the_cat.arospec
 
         # NEWLINE ----------
         output += "\n"

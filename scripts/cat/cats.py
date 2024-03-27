@@ -116,6 +116,8 @@ class Cat():
                  prefix=None,
                  gender=None,
                  sexuality=None,
+                 acespec = 'allosexual',
+                 arospec = 'alloromantic',
                  status="newborn",
                  backstory="clanborn",
                  parent1=None,
@@ -144,6 +146,8 @@ class Cat():
             self.status = status
             self.pronouns = [self.default_pronouns[0].copy()]
             self.sexuality = sexuality
+            self.acespec = acespec
+            self.arospec = arospec
             self.moons = moons
             self.dead_for = 0
             self.dead = True
@@ -179,6 +183,8 @@ class Cat():
         # Public attributes
         self.gender = gender
         self.sexuality = sexuality
+        self.acespec = acespec
+        self.arospec = arospec
         self.status = status
         self.backstory = backstory
         self.age = None
@@ -263,6 +269,10 @@ class Cat():
 
         if self.sexuality is None:
             self.sexuality = "bi"
+        if self.acespec is None:
+            self.acepec = "allosexual"
+        if self.arospec is None:
+            self.aropec = "alloromantic"
             
         # age and status
         if status is None and moons is None:
@@ -369,6 +379,21 @@ class Cat():
                 
             else:
                 self.sexuality = self.sexuality
+
+            # aro or ace chances
+            ace_chance = randint(1,20)
+            if ace_chance == 1:
+                self.arospec = "demiromantic"
+            elif ace_chance == 2:
+                self.acepec = "demisexual"
+            elif ace_chance == 3:
+                self.arospec = "grey aromantic"
+            elif ace_chance == 4:
+                self.acespec = "grey asexual"
+            elif ace_chance == 5:
+                self.arospec = "aromantic"
+            elif ace_chance == 6:
+                self.acespec = "asexual"
 
 
             # """if self.genderalign in ["female", "trans female"]:
@@ -3095,6 +3120,8 @@ class Cat():
                 "gender_align": self.genderalign,
                 #"pronouns": self.pronouns,
                 "sexuality": self.sexuality,
+                "acespec": self.acespec,
+                "arospec": self.arospec,
                 "birth_cooldown": self.birth_cooldown,
                 "status": self.status,
                 "backstory": self.backstory if self.backstory else None,

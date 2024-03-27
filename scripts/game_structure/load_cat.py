@@ -64,6 +64,12 @@ def json_load():
                     cat["sexuality"] = choice(['bi', 'bi', 'andro', 'aroace', 'gyno'])
                 else:
                     cat["sexuality"] = choice(['bi', 'bi', 'bi', 'aroace'])
+
+            if "acespec" not in cat:
+                cat["acespec"] = choice(['allosexual', 'allosexual', 'allosexual', 'allosexual', 'demisexual', 'grey asexual', 'asexual', 'asexual'])
+
+            if "arospec" not in cat:
+                cat["arospec"] = choice(['alloromantic', 'alloromantic', 'alloromantic', 'alloromantic', 'demiromantic', 'grey aromantic', 'aromantic', 'aromantic'])
             
             new_cat = Cat(ID=cat["ID"],
                         prefix=cat["name_prefix"],
@@ -71,6 +77,8 @@ def json_load():
                         specsuffix_hidden=(cat["specsuffix_hidden"] if 'specsuffix_hidden' in cat else False),
                         gender=cat["gender"],
                         sexuality=cat["sexuality"],
+                        acespec =cat["acespec"],
+                        arospec=cat["arospec"],
                         status=cat["status"],
                         parent1=cat["parent1"],
                         parent2=cat["parent2"],
@@ -134,6 +142,8 @@ def json_load():
             
             new_cat.genderalign = cat["gender_align"]
             new_cat.sexuality = cat["sexuality"]
+            new_cat.acespec = cat['acespec']
+            new_cat.arospec = cat["arospec"]
             new_cat.backstory = cat["backstory"] if "backstory" in cat else None
             if new_cat.backstory in BACKSTORIES["conversion"]:
                 new_cat.backstory = BACKSTORIES["conversion"][new_cat.backstory]
@@ -313,7 +323,9 @@ def csv_load(all_cats):
                               pelt=the_pelt,
                               parent1=attr[6],
                               parent2=attr[7],
-                              sexuality=attr[8]
+                              sexuality=attr[8],
+                              acespec=attr[9],
+                              arospec=attr[10]
                             )
                 
                 
@@ -410,9 +422,13 @@ def csv_load(all_cats):
                     the_cat.genderalign = attr[40]
                 if len(attr) > 41:
                     the_cat.sexuality = attr[41]
+                if len(attr) > 42:
+                    the_cat.acespec = attr[42]
+                if len(attr) > 43:
+                    the_cat.acespec = attr[43]
                 if len(attr
-                       ) > 42 and attr[42] is not None:  # KEEP THIS AT THE END
-                    the_cat.former_apprentices = attr[42].split(';')
+                       ) > 44 and attr[44] is not None:  # KEEP THIS AT THE END
+                    the_cat.former_apprentices = attr[44].split(';')
         game.switches[
             'error_message'] = 'There was an error loading this clan\'s mentors, apprentices, relationships, or sprite info.'
         for inter_cat in all_cats.values():
