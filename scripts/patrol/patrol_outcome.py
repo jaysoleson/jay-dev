@@ -1068,26 +1068,14 @@ class PatrolOutcome():
                 if patrol.patrol_leader.sexuality in ['lesbian', 'gyno']:
                     gender = "female"
                     sexuality = choice(['lesbian', 'bi'])
-                    # if sexuality == "lesbian":
-                    #     print("FLFL")
-                    # elif sexuality == "bi":
-                    #     print("FBFL")
 
                 elif patrol.patrol_leader.sexuality in ("bi", "pan"):
                     gender = choice(["male", "female"])
                     if gender == "female":
                         sexuality = choice(["lesbian", "bi", "pan"])
-                        # if sexuality == "lesbian":
-                        #     print("FLFB")
-                        # elif sexuality == "bi":
-                        #     print("FBFB")
                         
                     elif gender == "female":
                         sexuality = choice (["straight", "bi", "pan"])
-                        # if sexuality == "straight":
-                        #     print("MSFB")
-                        # elif sexuality == "bi":
-                        #     print("MBFB")
 
                     else:
                         sexuality = choice(["gyno", "bi", "pan"])
@@ -1095,67 +1083,38 @@ class PatrolOutcome():
                 elif patrol.patrol_leader.sexuality == "straight":
                     gender = "male"
                     sexuality = choice(["straight", "bi", "pan"])
-                    # if sexuality == "straight":
-                    #     print("MSFS")
-                    # elif sexuality == "bi":
-                    #     print("MBFS")
           
 
             elif patrol.patrol_leader.genderalign in ["male", "trans male", "demiboy"]:
                 if patrol.patrol_leader.sexuality in ['gay', 'andro']:
                     gender = "male"
                     sexuality = random.choice(['gay', 'bi'])
-                    # if sexuality == "gay":
-                    #     print("MGMG")
-                    # elif sexuality == "bi":
-                    #     print("MBMG")
                 elif patrol.patrol_leader.sexuality in ("bi", "pan"):
                     gender = choice(["male", "female"])
                     if gender == "male":
                         sexuality = choice(["gay", "bi", "pan"])
-                        # if sexuality == "gay":
-                        #     print("MGMB")
-                        # elif sexuality == "bi":
-                        #     print("MBMB")
                     else:
                         sexuality = choice (["straight", "bi", "pan"])
-                        # if sexuality == "straight":
-                        #     print("FSMB")
-                        # elif sexuality == "bi":
-                        #     print("FBMB")
                 elif patrol.patrol_leader.sexuality == "straight":
                     gender = "female"
                     sexuality = random.choice(["straight", "bi", "pan"])
-                    # if sexuality == "straight":
-                    #     print("FSMS")
-                    # elif sexuality == "bi":
-                    #     print("FBMS")
             else:
                 if patrol.patrol_leader.sexuality == "andro":
                     gender = "male"
                     sexuality = choice(["bi", "pan"])
-                    # if sexuality == "gay":
-                    #     print("MBNG")
                         
                 elif patrol.patrol_leader.sexuality in ("bi", "pan"):
                     gender = random.choice(["male", "female"])
                     sexuality = choice(["bi", "pan"])
-                    # if sexuality == "bi":
-                    #     print("RBNB")
                 elif patrol.patrol_leader.sexuality == "gyno":
                     gender = "female"
                     sexuality = choice ("bi", "pan")
-                    # if sexuality == "bi":
-                    #     print("FBNB")
                 else:
                     gender = random.choice(["male", "female"])
                     sexuality = choice ("bi", "pan")
-                    # if sexuality == "bi":
-                    #     print("RBNB2")
 
-            if patrol.patrol_leader.sexuality is "aroace":
-                genderalign = choice(['trans male', 'trans female'])
-                sexuality = choice (["bi", "bi", "pan", "aroace"])
+            if patrol.patrol_leader.sexuality == "aroace":
+                sexuality = choice (["bi", "bi", "pan", "aroace", 'aroace', 'aroace', 'aroace'])
 
         else:
             gender = None
