@@ -268,11 +268,11 @@ class Cat():
             self.ID = ID
 
         if self.sexuality is None:
-            self.sexuality = "bi"
+            self.sexuality = choice(['bi', 'bi', 'pan', 'pan', 'straight', 'straight', 'straight', 'straight', 'aroace', 'aroace'])
         if self.acespec is None:
-            self.acepec = "allosexual"
+            self.acepec = choice(['allosexual', 'allosexual', 'allosexual', 'allosexual', 'demisexual', 'grey asexual', 'asexual', 'asexual'])
         if self.arospec is None:
-            self.aropec = "alloromantic"
+            self.aropec = choice(['alloromantic', 'alloromantic', 'alloromantic', 'alloromantic', 'demiromantic', 'grey aromantic', 'aromantic'])
             
         # age and status
         if status is None and moons is None:
@@ -346,6 +346,7 @@ class Cat():
             pan_chance = randint(1,3)
             aroace_chance = randint (0,30)
             straight_chance = randint(0,1)
+            questioning_chance = randint(0,15)
             if self.genderalign in ["female", "trans female"] and not self.status in ['newborn', 'kitten']:
                 if gay_chance == 1:
                     self.sexuality = "lesbian"
@@ -376,6 +377,13 @@ class Cat():
                     self.sexuality = "aroace"
                 elif straight_chance == 1:
                     self.sexuality = self.sexuality
+            
+            if questioning_chance == 1:
+                if randint(1,2) == 1:
+                    self.sexuality = 'questioning'
+                else:
+                    self.genderalign = 'questioning'
+
                 
             else:
                 self.sexuality = self.sexuality
