@@ -71,6 +71,12 @@ def json_load():
             if "arospec" not in cat:
                 cat["arospec"] = choice(['alloromantic', 'alloromantic', 'alloromantic', 'alloromantic', 'demiromantic', 'grey aromantic', 'aromantic', 'aromantic'])
             
+            if "keep_sexuality" not in cat:
+                cat["keep_sexuality"] = False
+
+            if "keep_gender" not in cat:
+                cat["keep_gender"] = False
+            
             new_cat = Cat(ID=cat["ID"],
                         prefix=cat["name_prefix"],
                         suffix=cat["name_suffix"],
@@ -166,6 +172,8 @@ def json_load():
             new_cat.no_kits = cat["no_kits"]
             new_cat.no_mates = cat["no_mates"] if "no_mates" in cat else False
             new_cat.no_retire = cat["no_retire"] if "no_retire" in cat else False
+            new_cat.prevent_sexualitychange = cat["keep_sexuality"] if "keep_sexuality" in cat else False
+            new_cat.prevent_genderchange = cat["keep_gender"] if "keep_gender" in cat else False
             new_cat.exiled = cat["exiled"]
 
             if "skill_dict" in cat:

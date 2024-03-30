@@ -232,6 +232,8 @@ class Cat():
         self.no_kits = False
         self.no_mates = False
         self.no_retire = False
+        self.prevent_sexualitychange = False
+        self.prevent_genderchange = False
         self.backstory_str = ""
         self.courage = 0
         self.compassion = 0
@@ -3150,6 +3152,8 @@ class Cat():
                 "exiled": self.exiled,
                 "no_retire": self.no_retire,
                 "no_mates": self.no_mates,
+                "keep_sexuality": self.prevent_sexualitychange,
+                "keep_gender": self.prevent_genderchange,
                 "pelt_name": self.pelt.name,
                 "pelt_color": self.pelt.colour,
                 "pelt_length": self.pelt.length,

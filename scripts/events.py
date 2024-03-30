@@ -3289,6 +3289,9 @@ class Events:
         if cat.genderalign == cat.gender:
             if cat.moons < 6:
                 return
+            
+            if cat.prevent_genderchange:
+                return
 
             involved_cats = [cat.ID]
             if cat.age == 'adolescent':
@@ -3404,6 +3407,9 @@ class Events:
         """turnin' the kitties gay..."""
         involved_cats = [cat.ID]
         if cat.moons < 6:
+            return
+        
+        if cat.prevent_sexualitychange:
             return
        
         if cat.sexuality in ['gay', 'lesbian', 'andro', 'gyno', 'straight']:
@@ -3549,6 +3555,8 @@ class Events:
                 
     def make_aroace(self, cat):
         """turnin' the kitties gay..."""
+        if cat.prevent_sexualitychange:
+            return
         if cat.moons > 6:
             involved_cats = [cat.ID]
             if cat.age == 'adolescent':
@@ -3591,6 +3599,8 @@ class Events:
 
     def questioning(self, cat):
         """ chance for a cat's orientation to be switched to questioning"""
+        if cat.prevent_sexualitychange:
+            return
         if cat.moons > 6:
             involved_cats = [cat.ID]
             if cat.sexuality != "questioning":
@@ -4261,7 +4271,7 @@ class Events:
                         if self.mothgender not in cat.pelt.accessories:
                                 cat.pelt.accessories.append(self.mothgender)
                     cat.pelt.inventory.append(self.mothgender)
-                    text = f"{cat.name} indentifies with the moths that flutter through camp at night."
+                    text = f"{cat.name} identifies with the moths that flutter through camp at night."
                     game.cur_events_list.append(Single_Event(text, "misc", cat.ID))
 
                 elif cat.genderalign == 'genderdoe' and self.genderdoe not in cat.pelt.inventory:

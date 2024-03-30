@@ -1807,6 +1807,14 @@ class ChangeCatToggles(UIWindow):
                                                     object_id="#text_box_30_horizleft_pad_0_8",
                                                     container=self)
         
+        self.text_5 = pygame_gui.elements.UITextBox("Prevent sexuality changes",
+                                                    scale(pygame.Rect(110, 260, -1, 50)), 
+                                                    object_id="#text_box_30_horizleft_pad_0_8",
+                                                    container=self)
+        self.text_6 = pygame_gui.elements.UITextBox("Prevent gender changes",
+                                                    scale(pygame.Rect(110, 310, -1, 50)), 
+                                                    object_id="#text_box_30_horizleft_pad_0_8",
+                                                    container=self)
         # Text
         
     def refresh_checkboxes(self):
@@ -1874,6 +1882,29 @@ class ChangeCatToggles(UIWindow):
                                                          container=self,
                                                          object_id=box_type,
                                                          tool_tip_text=tool_tip)
+        if self.the_cat.prevent_sexualitychange:
+            box_type = "#checked_checkbox"
+            tool_tip = "Prevent this cat's sexuality from changing in random events."
+        else:
+            box_type = "#unchecked_checkbox"
+            tool_tip = "Prevent this cat's sexuality from changing in random events."
+        
+        self.checkboxes["prevent_sexuality"] = UIImageButton(scale(pygame.Rect(45, 250, 68, 68)), "",
+                                                         container=self,
+                                                         object_id=box_type,
+                                                         tool_tip_text=tool_tip)
+        
+        if self.the_cat.prevent_genderchange:
+            box_type = "#checked_checkbox"
+            tool_tip = "Prevent this cat's gender from changing in random events."
+        else:
+            box_type = "#unchecked_checkbox"
+            tool_tip = "Prevent this cat's gender from changing in random events."
+
+        self.checkboxes["prevent_gender"] = UIImageButton(scale(pygame.Rect(45, 300, 68, 68)), "",
+                                                         container=self,
+                                                         object_id=box_type,
+                                                         tool_tip_text=tool_tip)
 
     def process_event(self, event):
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
@@ -1893,6 +1924,12 @@ class ChangeCatToggles(UIWindow):
                 self.refresh_checkboxes()
             elif event.ui_element == self.checkboxes["prevent_mates"]:
                 self.the_cat.no_mates = not self.the_cat.no_mates
+                self.refresh_checkboxes()
+            elif event.ui_element == self.checkboxes["prevent_sexuality"]:
+                self.the_cat.prevent_sexualitychange = not self.the_cat.prevent_sexualitychange
+                self.refresh_checkboxes()
+            elif event.ui_element == self.checkboxes["prevent_gender"]:
+                self.the_cat.prevent_genderchange = not self.the_cat.prevent_genderchange
                 self.refresh_checkboxes()
         
         return super().process_event(event)
