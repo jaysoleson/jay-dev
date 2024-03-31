@@ -394,7 +394,18 @@ class Cat():
                 if randint(1,2) == 1:
                     self.sexuality = 'questioning'
                 else:
+                    if self.genderalign in ['trans female', 'female', 'demigirl']:
+                        if self.sexuality == 'lesbian':
+                            self.sexuality = 'gyno'
+                        elif self.sexuality == 'straight':
+                            self.sexuality = 'andro'
+                    elif self.genderalign in ['trans male', 'male', 'demiboy']:
+                        if self.sexuality == 'straight':
+                            self.sexuality = 'gyno'
+                        elif self.sexuality == 'gay':
+                            self.sexuality = 'andro'
                     self.genderalign = 'questioning'
+                    
 
                 
             else:
