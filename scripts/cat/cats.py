@@ -270,11 +270,11 @@ class Cat():
             self.ID = ID
 
         if self.sexuality is None:
-            self.sexuality = choice(['bi', 'bi', 'pan', 'pan', 'straight', 'straight', 'straight', 'straight', 'aroace', 'aroace'])
+            self.sexuality ='bi'
         if self.acespec is None:
-            self.acepec = choice(['allosexual', 'allosexual', 'allosexual', 'allosexual', 'demisexual', 'grey asexual', 'asexual', 'asexual'])
+            self.acepec = 'allosexual'
         if self.arospec is None:
-            self.aropec = choice(['alloromantic', 'alloromantic', 'alloromantic', 'alloromantic', 'demiromantic', 'grey aromantic', 'aromantic'])
+            self.aropec ='alloromantic'
             
         # age and status
         if status is None and moons is None:
@@ -354,6 +354,8 @@ class Cat():
                     self.sexuality = "lesbian"
                 elif aroace_chance == 1:
                     self.sexuality = "aroace"
+                    self.acespec = 'asexual'
+                    self.arospec = 'aromantic'
                 elif pan_chance == 1:
                     self.sexuality = "pan"
                 elif straight_chance == 1:
@@ -363,6 +365,8 @@ class Cat():
                     self.sexuality = "gay"
                 elif aroace_chance == 1:
                     self.sexuality = "aroace"
+                    self.acespec = 'asexual'
+                    self.arospec = 'aromantic'
                 elif pan_chance == 1:
                     self.sexuality = "pan"
                 elif straight_chance == 1:
@@ -377,6 +381,8 @@ class Cat():
                     self.sexuality = "pan"
                 elif aroace_chance == 1:
                     self.sexuality = "aroace"
+                    self.acespec = 'asexual'
+                    self.arospec = 'aromantic'
                 elif straight_chance == 1:
                     self.sexuality = self.sexuality
             
@@ -392,18 +398,19 @@ class Cat():
 
             # aro or ace chances
             ace_chance = randint(1,20)
-            if ace_chance == 1:
-                self.arospec = "demiromantic"
-            elif ace_chance == 2:
-                self.acepec = "demisexual"
-            elif ace_chance == 3:
-                self.arospec = "grey aromantic"
-            elif ace_chance == 4:
-                self.acespec = "grey asexual"
-            elif ace_chance == 5:
-                self.arospec = "aromantic"
-            elif ace_chance == 6:
-                self.acespec = "asexual"
+            if self.sexuality != 'aroace':
+                if ace_chance == 1:
+                    self.arospec = "demiromantic"
+                elif ace_chance == 2:
+                    self.acepec = "demisexual"
+                elif ace_chance == 3:
+                    self.arospec = "grey aromantic"
+                elif ace_chance == 4:
+                    self.acespec = "grey asexual"
+                elif ace_chance == 5:
+                    self.arospec = "aromantic"
+                elif ace_chance == 6:
+                    self.acespec = "asexual"
 
 
             # """if self.genderalign in ["female", "trans female"]:

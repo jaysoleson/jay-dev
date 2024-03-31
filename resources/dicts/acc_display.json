@@ -1445,6 +1445,11 @@
     "plural": "a nonbinary flag bandana",
     "singular": "nonbinary bandana"
   },
+  "DEMIROMANTIC": {
+    "default": "demiromantic bandana",
+    "plural": "a demiromantic flag bandana",
+    "singular": "demiromantic bandana"
+  },
   "GENDERFLUID": {
     "default": "genderfluid bandana",
     "plural": "a genderfluid flag bandana",
@@ -1515,6 +1520,11 @@
     "plural": "an aromantic flag bandana",
     "singular": "aro bandana"
   },
+  "GRAYARO": {
+    "default": "grey aromantic bandana",
+    "plural": "a grey aromantic bandana",
+    "singular": "grey aromantic bandana"
+  },
   "URANIC": {
     "default": "uranic bandana",
     "plural": "a uranic flag bandana",
@@ -1545,9 +1555,49 @@
     "plural": "a mothgender flag bandana",
     "singular": "mothgender bandana"
   },
+  "SNOWLEOPARDGENDER": {
+    "default": "snowleopardgender bandana",
+    "plural": "a snowleopardgender flag bandana",
+    "singular": "snowleopardgender bandana"
+  },
+  "TIGERGENDER": {
+    "default": "tigergender bandana",
+    "plural": "a tigergender flag bandana",
+    "singular": "tigergender bandana"
+  },
+  "BUGGENDER": {
+    "default": "buggender bandana",
+    "plural": "a buggender flag bandana",
+    "singular": "buggender bandana"
+  },
   "PLACEHOLDER": {
     "default": "checkered bandana",
     "plural": "a checkered bandana",
     "singular": "checkered bandana"
+  },
+  "GYNO": {
+    "default": "gynosexual bandana",
+    "plural": "a gynosexual bandana",
+    "singular": "gynosexual bandana"
+  },
+  "ANDRO": {
+    "default": "androsexual bandana",
+    "plural": "an androsexual bandana",
+    "singular": "androsexual bandana"
+  },
+  "DEMIBOY": {
+    "default": "demiboy bandana",
+    "plural": "a demiboy bandana",
+    "singular": "demiboy bandana"
+  },
+  "DEMIGIRL": {
+    "default": "demigirl bandana",
+    "plural": "a demigirl bandana",
+    "singular": "demigirl bandana"
+  },
+  "BUTCH": {
+    "default": "butch lesbian bandana",
+    "plural": "a butch lesbian bandana",
+    "singular": "butch lesbian bandana"
   }
 }

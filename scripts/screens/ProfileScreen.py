@@ -503,14 +503,48 @@ class ProfileScreen(Screens):
                 elif self.the_cat.sexuality in ["lesbian", "gay", "andro"]:
                     self.the_cat.sexuality = "aroace"
                     self.the_cat.acespec = 'asexual'
-                    self.the_cat.arospec = 'arospec'
+                    self.the_cat.arospec = 'aromantic'
                 elif self.the_cat.sexuality == "aroace":
                     if self.the_cat.genderalign not in ["male", "trans male", "demiboy", "female", "trans female", "demigirl"]:
                         self.the_cat.sexuality = "bi"
                     else:
                         self.the_cat.sexuality = "straight"
-                    self.the_cat.acespec = choice(['allosexual', 'allosexual', 'allosexual', 'allosexual', 'demisexual', 'grey asexual'])
-                    self.the_cat.arospec = choice(['alloromantic', 'alloromantic', 'alloromantic', 'alloromantic', 'demiromantic', 'grey aromantic'])
+                    self.the_cat.arospec = 'alloromantic'
+                    self.the_cat.acespec = 'allosexual'
+                self.clear_profile()
+                self.build_profile()
+                self.update_disabled_buttons_and_text()
+            
+            elif event.ui_element == self.change_acespec_button:
+                if self.the_cat.acespec == 'allosexual':
+                    self.the_cat.acespec = 'demisexual'
+                elif self.the_cat.acespec == 'demisexual':
+                    self.the_cat.acespec = 'grey asexual'
+                elif self.the_cat.acespec == 'grey asexual':
+                    self.the_cat.acespec = 'asexual'
+                    if self.the_cat.arospec == 'aromantic':
+                        self.the_cat.sexuality = 'aroace'
+                elif self.the_cat.acespec == 'asexual':
+                    self.the_cat.acespec = 'allosexual'
+                    if self.the_cat.sexuality == 'aroace':
+                        self.the_cat.sexuality = 'bi'
+                self.clear_profile()
+                self.build_profile()
+                self.update_disabled_buttons_and_text()
+            
+            elif event.ui_element == self.change_arospec_button:
+                if self.the_cat.arospec == 'alloromantic':
+                    self.the_cat.arospec = 'demiromantic'
+                elif self.the_cat.arospec == 'demiromantic':
+                    self.the_cat.arospec = 'grey aromantic'
+                elif self.the_cat.arospec == 'grey aromantic':
+                    self.the_cat.arospec = 'aromantic'
+                    if self.the_cat.acespec == 'asexual':
+                        self.the_cat.sexuality = 'aroace'
+                elif self.the_cat.arospec == 'aromantic':
+                    self.the_cat.arospec = 'alloromantic'
+                    if self.the_cat.sexuality == 'aroace':
+                        self.the_cat.sexuality = 'bi'
                 self.clear_profile()
                 self.build_profile()
                 self.update_disabled_buttons_and_text()
@@ -835,7 +869,7 @@ class ProfileScreen(Screens):
         self.previous_cat_button = UIImageButton(scale(pygame.Rect((50, 50), (306, 60))), "",
                                                  object_id="#previous_cat_button"
                                                  , manager=MANAGER)
-        self.back_button = UIImageButton(scale(pygame.Rect((50, 120), (210, 60))), "", object_id="#back_button"
+        self.back_button = UIImageButton(scale(pygame.Rect((50, 120), (195, 60))), "", object_id="#back_button"
                                          , manager=MANAGER)
         self.inspect_button = UIImageButton(scale(pygame.Rect((1482, 120),(68,68))), "", 
                                             object_id="#magnify_button",
@@ -2552,6 +2586,8 @@ class ProfileScreen(Screens):
             #   This it due to the image switch depending on the cat's status, and the location switch the close button
             #    If you can think of a better way to do this, please fix! 
             self.change_sexuality_button = None
+            self.change_acespec_button = None
+            self.change_arospec_button = None
             self.label_info = None
             self.cis_trans_button = None
             self.update_disabled_buttons_and_text()
@@ -2659,67 +2695,108 @@ class ProfileScreen(Screens):
 
             if self.change_sexuality_button:
                 self.change_sexuality_button.kill()
+            if self.change_acespec_button:
+                self.change_acespec_button.kill()
+            if self.change_arospec_button:
+                self.change_arospec_button.kill()
             if self.label_info:
                 self.label_info.kill()
             if self.the_cat.moons > 5:
                 if self.the_cat.sexuality == "straight":
-                    self.change_sexuality_button = UIImageButton(scale(pygame.Rect((804, 767), (344, 62))), "",
+                    self.change_sexuality_button = UIImageButton(scale(pygame.Rect((580, 940), (195, 75))), "",
                                                         starting_height=2, object_id="#change_bi_button",
                                                         manager=MANAGER)
                 elif self.the_cat.sexuality == "bi":
-                    self.change_sexuality_button = UIImageButton(scale(pygame.Rect((804, 767), (344, 62))), "",
+                    self.change_sexuality_button = UIImageButton(scale(pygame.Rect((580, 940), (195, 75))), "",
                                                         starting_height=2, object_id="#change_pan_button",
                                                         manager=MANAGER)
                 
                 elif self.the_cat.sexuality == "pan":
                     if self.the_cat.genderalign in ("male", "trans male", "demiboy"):
-                        self.change_sexuality_button = UIImageButton(scale(pygame.Rect((804, 767), (344, 62))), "",
-                                                        starting_height=2, object_id="#change_gay_button",
+                        self.change_sexuality_button = UIImageButton(scale(pygame.Rect((580, 940), (195, 75))), "",
+                                                        starting_height=2, object_id="#change_gay_button", tool_tip_text="gay",
                                                         manager=MANAGER)
                     
                     elif self.the_cat.genderalign in ("female", "trans female", "demigirl"):
-                        self.change_sexuality_button = UIImageButton(scale(pygame.Rect((804, 767), (344, 62))), "",
-                                                        starting_height=2, object_id="#change_lesbian_button",
+                        self.change_sexuality_button = UIImageButton(scale(pygame.Rect((580, 940), (195, 75))), "",
+                                                        starting_height=2, object_id="#change_lesbian_button", tool_tip_text="lesbian",
                                                         manager=MANAGER)
                         
                     elif self.the_cat.genderalign not in ["male", "trans male", "demiboy", "female", "trans female", "demigirl"]\
                                                 and self.the_cat.sexuality == "pan":
-                        self.change_sexuality_button = UIImageButton(scale(pygame.Rect((804, 767), (344, 62))), "",
-                                                        starting_height=2, object_id="#change_gyno_button",
+                        self.change_sexuality_button = UIImageButton(scale(pygame.Rect((580, 940), (195, 75))), "",
+                                                        starting_height=2, object_id="#change_gyno_button", tool_tip_text="gynosexual",
                                                         manager=MANAGER)
                         
-                        self.label_info = UIImageButton(scale(pygame.Rect(
-                            (1150, 767), (62, 62))),
+                        self.label_info = UIImageButton(scale(pygame.Rect((500, 950), (62, 62))),
                             "",
                             starting_height=2, object_id="#help_button", manager=MANAGER,
                             tool_tip_text="Gynosexual cats will only be attracted to she-cats and enbies.")
                         
                 elif self.the_cat.sexuality == 'gyno':
-                    self.change_sexuality_button = UIImageButton(scale(pygame.Rect((804, 767), (344, 62))), "",
-                                                    starting_height=2, object_id="#change_andro_button",
+                    self.change_sexuality_button = UIImageButton(scale(pygame.Rect((580, 940), (195, 75))), "",
+                                                    starting_height=2, object_id="#change_andro_button", tool_tip_text="androsexual",
                                                     manager=MANAGER)
-                    self.label_info = UIImageButton(scale(pygame.Rect((1150, 767), (62, 62))),"", 
+                    self.label_info = UIImageButton(scale(pygame.Rect((500, 950), (62, 62))),"", 
                                                     starting_height=2, object_id="#help_button", manager=MANAGER,
                                                     tool_tip_text="Androsexual cats will only be attracted to toms and enbies.")
                     
                 elif self.the_cat.sexuality in ('gay', 'lesbian', 'andro'):
                     
-                    self.change_sexuality_button = UIImageButton(scale(pygame.Rect((804, 767), (344, 62))), "",
-                                                    starting_height=2, object_id="#change_aroace_button",
+                    self.change_sexuality_button = UIImageButton(scale(pygame.Rect((580, 940), (195, 75))), "",
+                                                    starting_height=2, object_id="#change_aroace_button", tool_tip_text="aroace",
                                                     manager=MANAGER)
                     
-                    self.label_info = UIImageButton(scale(pygame.Rect((1150, 767), (62, 62))),"", 
+                    self.label_info = UIImageButton(scale(pygame.Rect((500, 950), (62, 62))),"", 
                                                     starting_height=2, object_id="#help_button", manager=MANAGER,
                                                     tool_tip_text="Aroace cats will not feel romantic attraction.")
             
                 elif self.the_cat.sexuality == "aroace":
                     if self.the_cat.genderalign != "nonbinary":
-                        self.change_sexuality_button = UIImageButton(scale(pygame.Rect((804, 767), (344, 62))), "",
-                                                    starting_height=2, object_id="#change_straight_button",
+                        self.change_sexuality_button = UIImageButton(scale(pygame.Rect((580, 940), (195, 75))), "",
+                                                    starting_height=2, object_id="#change_straight_button", tool_tip_text="heterosexual",
                                                     manager=MANAGER)
                     else:
-                        self.change_sexuality_button = UIImageButton(scale(pygame.Rect((804, 767), (344, 62))), "",
-                                                    starting_height=2, object_id="#change_bi_button",
+                        self.change_sexuality_button = UIImageButton(scale(pygame.Rect((580, 940), (195, 75))), "",
+                                                    starting_height=2, object_id="#change_bi_button", tool_tip_text="bisexual",
+                                                    manager=MANAGER)
+                        
+            if self.change_acespec_button:
+                self.change_acespec_button.kill()
+            if self.the_cat.acespec == 'allosexual':
+                self.change_acespec_button = UIImageButton(scale(pygame.Rect((580, 1030), (195, 75))), "",
+                                                    starting_height=2, object_id="#change_demi_button", tool_tip_text="demisexual",
+                                                    manager=MANAGER)
+            elif self.the_cat.acespec == 'demisexual':
+                self.change_acespec_button = UIImageButton(scale(pygame.Rect((580, 1030), (195, 75))), "",
+                                                    starting_height=2, object_id="#change_greyace_button", tool_tip_text="grey asexual",
+                                                    manager=MANAGER)
+            elif self.the_cat.acespec == 'grey asexual':
+                self.change_acespec_button = UIImageButton(scale(pygame.Rect((580, 1030), (195, 75))), "",
+                                                    starting_height=2, object_id="#change_ace_button", tool_tip_text="asexual",
+                                                    manager=MANAGER)
+            elif self.the_cat.acespec == 'asexual':
+                self.change_acespec_button = UIImageButton(scale(pygame.Rect((580, 1030), (195, 75))), "",
+                                                    starting_height=2, object_id="#change_straight_button", tool_tip_text="allosexual",
+                                                    manager=MANAGER)
+                
+            if self.change_arospec_button:
+                self.change_arospec_button.kill()
+            if self.the_cat.arospec == 'alloromantic':
+                self.change_arospec_button = UIImageButton(scale(pygame.Rect((580, 1120), (195, 75))), "",
+                                                    starting_height=2, object_id="#change_demirom_button", tool_tip_text="demiromantic",
+                                                    manager=MANAGER)
+            elif self.the_cat.arospec == 'demiromantic':
+                self.change_arospec_button = UIImageButton(scale(pygame.Rect((580, 1120), (195, 75))), "",
+                                                    starting_height=2, object_id="#change_greyaro_button", tool_tip_text="grey aromantic",
+                                                    manager=MANAGER)
+            elif self.the_cat.arospec == 'grey aromantic':
+                self.change_arospec_button = UIImageButton(scale(pygame.Rect((580, 1120), (195, 75))), "",
+                                                    starting_height=2, object_id="#change_aro_button", tool_tip_text="aromantic",
+                                                    manager=MANAGER)
+            elif self.the_cat.arospec == 'aromantic':
+                self.change_arospec_button = UIImageButton(scale(pygame.Rect((580, 1120), (195, 75))), "",
+                                                    starting_height=2, object_id="#change_straight_button", tool_tip_text="alloromantic",
                                                     manager=MANAGER)
              
 
@@ -3007,6 +3084,10 @@ class ProfileScreen(Screens):
         elif self.open_tab == 'personal':
             if self.change_sexuality_button:
                 self.change_sexuality_button.kill()
+            if self.change_acespec_button:
+                self.change_acespec_button.kill()
+            if self.change_arospec_button:
+                self.change_arospec_button.kill()
             if self.label_info:
                 self.label_info.kill()
             self.change_name_button.kill()

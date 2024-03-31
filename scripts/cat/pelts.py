@@ -97,15 +97,15 @@ class Pelt():
     # pride by illadvisedart
 
     pridebandanas = [
-        "TRANS", "ENBY"
+        "TRANS", "ENBY", "GRAYARO", "DEMIBOY", 'DEMIGIRL', 'BUTCH', 'ANDRO', 'GYNO'
     ]
 
     pridebandanas2 = [
-        "GENDERFLUID", "AMBIGUOUS", "INTERSEX", "RAINBOWBANDANA", "GAY", "LESBIAN", "BI", "AROACE", "PAN", "POLYAM", "DEMI", "GRAYACE", "ACE", "ARO"
+        "GENDERFLUID", "AMBIGUOUS", "INTERSEX", "RAINBOWBANDANA", "GAY", "LESBIAN", "BI", "AROACE", "PAN", "POLYAM", "DEMI", "GRAYACE", "ACE", "ARO", "DEMIROMANTIC"
     ]
 
     pridebandanas3 = [
-        "URANIC", "NEBULAROMANTIC", "CATGENDER", "GENDERDOE", "OMNISAPPHIC", "MOTHGENDER"
+        "URANIC", "NEBULAROMANTIC", "CATGENDER", "GENDERDOE", "OMNISAPPHIC", "MOTHGENDER", "SNOWLEOPARDGENDER", "TIGERGENDER", "BUGGENDER"
     ]
 
     nonpridebandanas = [

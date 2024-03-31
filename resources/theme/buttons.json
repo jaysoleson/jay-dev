@@ -5925,7 +5925,7 @@
             },
             "disabled_image":
             {
-                "path":"resources/images/buttons/change_gyno_button_unavailable.png"
+                "path":"resources/images/buttons/change_gyno_button.png"
             }
         }
     },
@@ -5948,7 +5948,7 @@
             },
             "disabled_image":
             {
-                "path":"resources/images/buttons/change_andro_button_unavailable.png"
+                "path":"resources/images/buttons/change_andro_button.png"
             }
         }
     },
@@ -5972,6 +5972,144 @@
             "disabled_image":
             {
                 "path":"resources/images/buttons/change_pan_button_unavailable.png"
+            }
+        }
+    },
+    "#change_ace_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_ace_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_ace_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_ace_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_ace_button_hover.png"
+            }
+        }
+    },
+    "#change_demi_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_demi_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_demi_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_demi_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_demi_button_hover.png"
+            }
+        }
+    },
+    "#change_greyace_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_greyace_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_greyace_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_greyace_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_greyace_button_hover.png"
+            }
+        }
+    },
+    "#change_aro_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_aro_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_aro_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_aro_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_aro_button_hover.png"
+            }
+        }
+    },
+    "#change_demirom_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_demirom_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_demirom_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_demirom_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_demirom_button_hover.png"
+            }
+        }
+    },
+    "#change_greyaro_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_greyaro_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_greyaro_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_greyaro_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_greyaro_button_hover.png"
             }
         }
     }

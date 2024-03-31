@@ -1790,29 +1790,29 @@ class ChangeCatToggles(UIWindow):
         self.refresh_checkboxes()
         
         # Text
-        self.text_1 = pygame_gui.elements.UITextBox("Prevent fading", scale(pygame.Rect(110, 60, -1, 50)), 
+        self.text_1 = pygame_gui.elements.UITextBox("Prevent fading", scale(pygame.Rect(110, 40, -1, 50)), 
                                                     object_id="#text_box_30_horizleft_pad_0_8",
                                                     container=self)
         
-        self.text_2 = pygame_gui.elements.UITextBox("Prevent kits", scale(pygame.Rect(110, 110, -1, 50)), 
+        self.text_2 = pygame_gui.elements.UITextBox("Prevent kits", scale(pygame.Rect(110, 90, -1, 50)), 
                                                     object_id="#text_box_30_horizleft_pad_0_8",
                                                     container=self)
         
-        self.text_3 = pygame_gui.elements.UITextBox("Prevent retirement", scale(pygame.Rect(110, 160, -1, 50)), 
+        self.text_3 = pygame_gui.elements.UITextBox("Prevent retirement", scale(pygame.Rect(110, 140, -1, 50)), 
                                                     object_id="#text_box_30_horizleft_pad_0_8",
                                                     container=self)
         
         self.text_4 = pygame_gui.elements.UITextBox("Limit romantic interactions and mate changes",
-                                                    scale(pygame.Rect(110, 210, -1, 50)), 
+                                                    scale(pygame.Rect(110, 190, -1, 50)), 
                                                     object_id="#text_box_30_horizleft_pad_0_8",
                                                     container=self)
         
         self.text_5 = pygame_gui.elements.UITextBox("Prevent sexuality changes",
-                                                    scale(pygame.Rect(110, 260, -1, 50)), 
+                                                    scale(pygame.Rect(110, 240, -1, 50)), 
                                                     object_id="#text_box_30_horizleft_pad_0_8",
                                                     container=self)
         self.text_6 = pygame_gui.elements.UITextBox("Prevent gender changes",
-                                                    scale(pygame.Rect(110, 310, -1, 50)), 
+                                                    scale(pygame.Rect(110, 290, -1, 50)), 
                                                     object_id="#text_box_30_horizleft_pad_0_8",
                                                     container=self)
         # Text
@@ -1835,7 +1835,7 @@ class ChangeCatToggles(UIWindow):
             tool_tip = "Prevents cat from fading away after being dead for 202 moons."
         
         # Fading
-        self.checkboxes["prevent_fading"] = UIImageButton(scale(pygame.Rect(45, 50, 68, 68)), "",
+        self.checkboxes["prevent_fading"] = UIImageButton(scale(pygame.Rect(45, 30, 68, 68)), "",
                                                           container=self,
                                                           object_id=box_type,
                                                           tool_tip_text=tool_tip)
@@ -1852,7 +1852,7 @@ class ChangeCatToggles(UIWindow):
             box_type = "#unchecked_checkbox"
             tool_tip = "Prevent the cat from adopting or having kittens."
         
-        self.checkboxes["prevent_kits"] = UIImageButton(scale(pygame.Rect(45, 100, 68, 68)), "",
+        self.checkboxes["prevent_kits"] = UIImageButton(scale(pygame.Rect(45, 80, 68, 68)), "",
                                                         container=self,
                                                         object_id=box_type,
                                                         tool_tip_text=tool_tip)
@@ -1865,7 +1865,7 @@ class ChangeCatToggles(UIWindow):
             box_type = "#unchecked_checkbox"
             tool_tip = "Prevent cat from retiring automatically."
         
-        self.checkboxes["prevent_retire"] = UIImageButton(scale(pygame.Rect(45, 150, 68, 68)), "",
+        self.checkboxes["prevent_retire"] = UIImageButton(scale(pygame.Rect(45, 130, 68, 68)), "",
                                                           container=self,
                                                           object_id=box_type,
                                                           tool_tip_text=tool_tip)
@@ -1878,7 +1878,7 @@ class ChangeCatToggles(UIWindow):
             box_type = "#unchecked_checkbox"
             tool_tip = "Prevent cat from automatically taking a mate, breaking up, or having romantic interactions with non-mates."
         
-        self.checkboxes["prevent_mates"] = UIImageButton(scale(pygame.Rect(45, 200, 68, 68)), "",
+        self.checkboxes["prevent_mates"] = UIImageButton(scale(pygame.Rect(45, 180, 68, 68)), "",
                                                          container=self,
                                                          object_id=box_type,
                                                          tool_tip_text=tool_tip)
@@ -1889,7 +1889,7 @@ class ChangeCatToggles(UIWindow):
             box_type = "#unchecked_checkbox"
             tool_tip = "Prevent this cat's sexuality from changing in random events."
         
-        self.checkboxes["prevent_sexuality"] = UIImageButton(scale(pygame.Rect(45, 250, 68, 68)), "",
+        self.checkboxes["prevent_sexuality"] = UIImageButton(scale(pygame.Rect(45, 230, 68, 68)), "",
                                                          container=self,
                                                          object_id=box_type,
                                                          tool_tip_text=tool_tip)
@@ -1901,7 +1901,7 @@ class ChangeCatToggles(UIWindow):
             box_type = "#unchecked_checkbox"
             tool_tip = "Prevent this cat's gender from changing in random events."
 
-        self.checkboxes["prevent_gender"] = UIImageButton(scale(pygame.Rect(45, 300, 68, 68)), "",
+        self.checkboxes["prevent_gender"] = UIImageButton(scale(pygame.Rect(45, 280, 68, 68)), "",
                                                          container=self,
                                                          object_id=box_type,
                                                          tool_tip_text=tool_tip)
