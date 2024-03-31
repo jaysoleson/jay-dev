@@ -268,13 +268,6 @@ class Cat():
             self.ID = potential_id
         else:
             self.ID = ID
-
-        if self.sexuality is None:
-            self.sexuality ='bi'
-        if self.acespec is None:
-            self.acepec = 'allosexual'
-        if self.arospec is None:
-            self.aropec ='alloromantic'
             
         # age and status
         if status is None and moons is None:
@@ -310,14 +303,26 @@ class Cat():
         else:
             self.backstory = self.backstory
         
-        
-        
-
-
         # sex!?!??!?!?!??!?!?!?!??
         if self.gender is None:
             self.gender = choice(["female", "male"])
         self.g_tag = self.gender_tags[self.gender]
+
+        # SEX???!?!?!?!?!?!?
+
+        if self.sexuality is None:
+           self.sexuality = 'bi'
+
+        if self.acespec is None:
+            if self.sexuality != 'aroace':
+                self.acespec = 'allosexual'
+            else:
+                self.acespec = 'asexual'
+        if self.arospec is None:
+            if self.sexuality != 'aroace':
+                self.acespec = 'alloromantic'
+            else:
+                self.acespec = 'aromantic'
 
 
         # These things should only run when generating a new cat, rather than loading one in.
@@ -349,7 +354,7 @@ class Cat():
             aroace_chance = randint (0,30)
             straight_chance = randint(0,1)
             questioning_chance = randint(0,15)
-            if self.genderalign in ["female", "trans female"] and not self.status in ['newborn', 'kitten']:
+            if self.genderalign in ["female", "trans female"]:
                 if gay_chance == 1:
                     self.sexuality = "lesbian"
                 elif aroace_chance == 1:
@@ -360,7 +365,7 @@ class Cat():
                     self.sexuality = "pan"
                 elif straight_chance == 1:
                     self.sexuality = "straight"
-            elif self.genderalign in ["male", "trans male"] and not self.status in ['newborn', 'kitten']:
+            elif self.genderalign in ["male", "trans male"]:
                 if gay_chance == 1:
                     self.sexuality = "gay"
                 elif aroace_chance == 1:
@@ -371,8 +376,7 @@ class Cat():
                     self.sexuality = "pan"
                 elif straight_chance == 1:
                     self.sexuality = "straight"
-            elif self.genderalign not in ["male", "female", "trans female", "trans male"] \
-                and not self.status in ['newborn', 'kitten']:
+            elif self.genderalign not in ["male", "female", "trans female", "trans male"]:
                 if gay_chance == 1:
                     self.sexuality = "andro"
                 elif gay_chance == 2:
