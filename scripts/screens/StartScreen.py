@@ -95,9 +95,9 @@ class StartScreen(Screens):
             elif event.ui_element == self.social_buttons['discord_button']:
                 if platform.system() == 'Darwin':
                     subprocess.Popen(
-                        ["open", "-u", "https://discord.gg/clangen"])
+                        ["open", "-u", "https://discord.gg/lifegen"])
                 elif platform.system() == 'Windows':
-                    os.system(f"start \"\" {'https://discord.gg/clangen'}")
+                    os.system(f"start \"\" {'https://discord.gg/lifegen'}")
                 elif platform.system() == 'Linux':
                     subprocess.Popen(
                         ['xdg-open', "https://discord.gg/clangen"])

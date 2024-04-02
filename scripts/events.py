@@ -3787,6 +3787,20 @@ class Events:
     def get_flags(self, cat):
         """ gives appropriate bandanas to lgbt cats."""
 
+        # fix cat sexualities if the nonbinary ones mess up somehow
+                
+        if cat.sexuality == 'andro':
+            if cat.genderalign in ['male', 'trans male', 'demiboy']:
+                cat.sexuality = "gay"
+            elif cat.genderalign in ['female', 'trans female', 'demigirl']:
+                cat.sexuality = "straight"
+
+        elif cat.sexuality == 'gyno':
+            if cat.genderalign in ['female', 'trans female', 'demigirl']:
+                cat.sexuality = "lesbian"
+            elif cat.genderalign in ['male', 'trans male', 'demiboy']:
+                cat.sexuality = "straight"
+
         if not game.clan.clan_settings['all accessories']:
             # ^^ don't remove wrong flags if all accessories is on!
 
@@ -4200,20 +4214,6 @@ class Events:
                 else:
                     # no flags for cis people!!!!!!!!!!!!!!
                     pass
-
-                # fix cat sexualities if the nonbinary ones mess up somehow
-                        
-                if cat.sexuality == 'andro':
-                    if cat.genderalign in ['male', 'trans male', 'demiboy']:
-                        cat.sexuality = "gay"
-                    elif cat.genderalign in ['female', 'trans female', 'demigirl']:
-                        cat.sexuality = "straight"
-
-                elif cat.sexuality == 'gyno':
-                    if cat.genderalign in ['female', 'trans female', 'demigirl']:
-                        cat.sexuality = "lesbian"
-                    elif cat.genderalign in ['male', 'trans male', 'demiboy']:
-                        cat.sexuality = "straight"
 
     def check_and_promote_leader(self):
     
