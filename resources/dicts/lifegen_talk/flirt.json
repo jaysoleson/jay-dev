@@ -2006,5 +2006,71 @@
         [
             "I'm... taking things slow right now."
         ]
+    ],
+    "flirt_sh_J25": [
+        [
+            "Any",
+            "you_shunned",
+            "they_blind",
+            "you_blind",
+            "flirt"
+        ],
+        [
+            "Ew. Why would you say that to anycat, given your situation?",
+            "Murderers don't get love, y_c. Stop trying."
+        ]
+    ],
+    "flirt_sh_J26": [
+        [
+            "Any",
+            "you_shunned",
+            "they_blind",
+            "you_blind",
+            "flirt"
+        ],
+        [
+            "Please don't say that to me right now."
+        ]
+    ],
+    "flirt_sh_J27": [
+        [
+            "Any",
+            "you_shunned",
+            "they_blind",
+            "you_blind",
+            "flirt",
+            "they_deaf"
+        ],
+        [
+            "[t_c just blinks at you, trying not to react.]"
+        ]
+    ],
+    "flirt_sh_J28": [
+        [
+            "Any",
+            "you_shunned",
+            "they_blind",
+            "you_blind",
+            "flirt",
+            "from_mate"
+        ],
+        [
+            "Oh, darling. Not now."
+        ]
+    ],
+    "flirt_sh_J29": [
+        [
+            "Any",
+            "you_shunned",
+            "they_blind",
+            "you_blind",
+            "flirt",
+            "from_mate",
+            "they_deaf",
+            "you_deaf"
+        ],
+        [
+            "[t_c playfully taps you with their tail before pulling it away before anyone cat see.]"
+        ]
     ]
 }

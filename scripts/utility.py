@@ -365,7 +365,7 @@ def create_new_cat(Cat,
         
         
         # other Clan cats, apps, and kittens (kittens and apps get indoctrinated lmao no old names for them)
-        if other_clan or kit or litter or age < 12:
+        if other_clan or kit or litter or age < 12 and not (loner or kittypet):
             new_cat = Cat(moons=age,
                           status=status,
                           gender=_gender,
@@ -431,10 +431,9 @@ def create_new_cat(Cat,
                               parent2=parent2,
                               inventory=inventory)
 
-        # give em a collar if they got one
-        if accessory:
-            new_cat.pelt.accessories.append(accessory)
-            new_cat.pelt.inventory.append(accessory)
+            # give em a collar if they got one
+            if accessory:
+                new_cat.pelt.accessories.append(accessory)
 
         if df:
             if status != "kitten":
@@ -1111,13 +1110,17 @@ def ongoing_event_text_adjust(Cat, text, clan=None, other_clan_name=None):
     cat_dict = {}
     if "lead_name" in text:
         kitty = Cat.fetch_cat(game.clan.leader)
-        cat_dict["lead_name"] = (str(kitty.name), choice(kitty.pronouns))
+        if kitty:
+            cat_dict["lead_name"] = (str(kitty.name), choice(kitty.pronouns))
     if "dep_name" in text:
         kitty = Cat.fetch_cat(game.clan.deputy)
-        cat_dict["dep_name"] = (str(kitty.name), choice(kitty.pronouns))
+        if kitty:
+            cat_dict["dep_name"] = (str(kitty.name), choice(kitty.pronouns))
     if "med_name" in text:
-        kitty = choice(get_med_cats(Cat, working=False))
-        cat_dict["med_name"] = (str(kitty.name), choice(kitty.pronouns))
+        kitty_list = get_med_cats(Cat, working=False)
+        kitty = choice(kitty_list) if kitty_list else None 
+        if kitty:
+            cat_dict["med_name"] = (str(kitty.name), choice(kitty.pronouns))
 
     if cat_dict:
         text = process_text(text, cat_dict)
@@ -1178,10 +1181,14 @@ def event_text_adjust(Cat,
     #     acc = cat.pelt.accessories[-1]
     #     text = text.replace("acc_singular", str(ACC_DISPLAY[acc]["singular"]))
 
-    if murder_reveal:
-        victim_cat = Cat.fetch_cat(victim)
-        if victim_cat:
-            text = text.replace("mur_c", str(victim_cat.name))
+    # if murder_reveal:
+        
+    # I would like to keep an "if murder_reveal" type statement,
+    # but with this one, mur_c wont work on murder reveals where the Clan doesnt find out.
+        
+    victim_cat = Cat.fetch_cat(victim)
+    if victim_cat and "mur_c" in text:
+        text = text.replace("mur_c", str(victim_cat.name))
     
     if other_cat:
         if other_cat.pronouns:

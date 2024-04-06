@@ -1,3 +1,24 @@
+<strong>v0.7.0: StarClan's Guidance</strong>
+- Visit the Moonplace as a medicine cat
+- Learn prophecies and omens
+- Continue as a StarClan or Dark Forest cat
+- Talk to dead cats when you are dead
+- Talk to dead cats when you are alive with certain skills
+- Encounter random DF cats on DF patrols
+- Disasters and consequences
+- You can now gain a new "shunned" status when discovered for murder
+- New menu art! Old menu art will be rotated out of the pool as updates are released for the sake of space
+- New dialogue and patrols
+- Updated folder and application names
+- New camps: Desert and Tropical Island
+- New accessories
+- Updated "Your name is...?" screen
+- Search accessories
+- New thoughts and reactions
+- Return home when exiled
+- Additional birth events (and you can now have up to 5 siblings)
+
+
 <strong>v0.6.8: </strong>
 - New dialogue and writing
 - New accessories

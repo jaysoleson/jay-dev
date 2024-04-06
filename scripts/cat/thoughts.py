@@ -365,7 +365,7 @@ class Thoughts():
 
         THOUGHTS = []
         # newborns only pull from their status thoughts. this is done for convenience
-        if main_cat.age == 'newborn':
+        if main_cat.age == 'newborn' or main_cat.moons <= 0:
             with open(f"{base_path}{life_dir}{spec_dir}/newborn.json", 'r') as read_file:
                 THOUGHTS = ujson.loads(read_file.read())
             loaded_thoughts = THOUGHTS
@@ -377,14 +377,18 @@ class Thoughts():
                 GENTHOUGHTS = ujson.loads(read_file.read())
             SHUNNEDTHOUGHTS = []
             try:
-                if not main_cat.dead and not main_cat.outside and main_cat.revealed != 0 and game.clan.age - 3 <= main_cat.revealed:
+                if main_cat.shunned > 0 and not main_cat.dead and not main_cat.outside:
                     with open(f"{base_path}{life_dir}{spec_dir}/shunned.json", 'r') as read_file:
                         SHUNNEDTHOUGHTS = ujson.loads(read_file.read())
             except:
-                pass
-            loaded_thoughts = THOUGHTS 
-            loaded_thoughts += GENTHOUGHTS
-            loaded_thoughts += SHUNNEDTHOUGHTS
+                print ('Shunned thoughts could not be loaded.')
+            
+            if main_cat.shunned > 0 and not main_cat.outside:
+                loaded_thoughts = SHUNNEDTHOUGHTS
+            else:
+                loaded_thoughts = THOUGHTS
+                loaded_thoughts += GENTHOUGHTS
+                loaded_thoughts += SHUNNEDTHOUGHTS
         final_thoughts = Thoughts.create_thoughts(loaded_thoughts, main_cat, other_cat, game_mode, biome, season, camp)
 
         return final_thoughts
@@ -396,7 +400,6 @@ class Thoughts():
             chosen_thought_group = choice(Thoughts.load_thoughts(main_cat, other_cat, game_mode, biome, season, camp))
             chosen_thought = choice(chosen_thought_group["thoughts"])
         except Exception:
-            traceback.print_exc()
             chosen_thought = "Prrrp! You shouldn't see this! Report as a bug."
 
         return chosen_thought

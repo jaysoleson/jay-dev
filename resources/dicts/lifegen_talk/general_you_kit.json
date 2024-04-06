@@ -44,6 +44,79 @@
             "*Whisper* Even though, between you and me, we both know you could totally destroy them. Hehehe!"
         ]
     ],
+    "assertive_5": [
+        [
+            "kitten",
+            "dislike",
+            "assertive",
+            "cool",
+            "unlawful",
+            "neutral",
+            "non-related"
+        ],
+        [
+            "Hey, mouse-brain! Watch where you're going!",
+            "Wait, I recognize you. You're one of the new kits, right? Shouldn't you be in the nursery?",
+            "Hmph. Whatever. Just stay outta the real warriors' way, before someone squishes you."
+        ]
+    ],
+    "assertive_4": [
+        [
+            "kitten",
+            "assertive"
+        ],
+        [
+            "Whoa! Watch where you're going there, little pal! One wrong move, and you might get stepped on!",
+            "Ah, quit that, you don't need to apologize. Just be a bit more careful from now on, is all.",
+            "Or else, when you get bigger, it'll really become a problem. Hehe!"
+        ]
+    ],
+    "assertive_tokit1": [
+        [
+            "kitten",
+            "assertive",
+            "unlawful"
+        ],
+        [
+            "Ah, y_c! There's the little bruiser! How're you doing? Growing up big and strong?",
+            "Y'know, at your age, I used to get into all sorts of trouble. Sneaking out of the nursery, following around the apprentices ... not to give you any ideas, or anything. Ahaha!",
+            "[t_c's laugh is so loud that it almost shakes your whole body.]"
+        ]
+    ],
+    "assertive_tonewborn": [
+        [
+            "newborn",
+            "assertive"
+        ],
+        [
+            "Whoa! Hey there, little guy! Shouldn't you be in the nursery?",
+            "Hehe. You've got an adventurous spirit. I like that about you.",
+            "But for now, you gotta stay where it's safe! C'mon. Let's go back to your parents."
+        ]
+    ],
+    "assertive_tonewborn1": [
+        [
+            "newborn",
+            "assertive"
+        ],
+        [
+            "Aw ... little guy hasn't even gotten their eyes open yet!",
+            "They're gonna be a killer, though. I can already tell. See those little paws? This kit's got fight in 'em!"
+        ]
+    ],
+    "assertive_tonewborn3": [
+        [
+            "newborn",
+            "assertive",
+            "introspective",
+            "neurotic"
+        ],
+        [
+            "Whoa ... this is them? They're so small!",
+            "Hard to believe I was that small once ...",
+            "Hm ..."
+        ]
+    ],
     "assertive_parent21": [
         [
             "kitten",
@@ -114,10 +187,10 @@
     ],
     "assertive_murder4_2": [
         [
-            "murder",
             "kitten",
             "assertive",
-            "from_parent"
+            "from_parent",
+            "you_shunned"
         ],
         [
             "y_c, I ... why wouldn't you tell me?",
@@ -1467,8 +1540,8 @@
     "unabashed_murder": [
         [
             "Unabashed",
-            "Murder",
-            "any"
+            "any",
+            "you_shunned"
         ],
         [
             "How could you, you little, fox-hearted piece of dung?",
@@ -1478,8 +1551,8 @@
     "unabashed_murder1": [
         [
             "Unabashed",
-            "Murder",
-            "any"
+            "any",
+            "you_shunned"
         ],
         [
             "Stay away from me, you murderer! I don't want anything to do with you!"
@@ -1748,7 +1821,7 @@
     ],
     "grieving": [
         [
-            "grieving",
+            "they_grieving",
             "newborn"
         ],
         [
@@ -2067,6 +2140,530 @@
         [
             "[t_c scoffs at you.]",
             "... What a waste of prey."
+        ]
+    ],
+    "youkit_sh_J14": [
+        [
+            "both_shunned",
+            "kitten",
+            "they_kitten"
+        ],
+        [
+            "We did a lot of bad stuff, didn't we?",
+            "I'm sorry.",
+            "..."
+        ]
+    ],
+    "youkit_sh_J15": [
+        [
+            "they_shunned",
+            "kitten",
+            "they_kitten"
+        ],
+        [
+            "I'm sorry."
+        ]
+    ],
+    "youkit_sh_J16": [
+        [
+            "you_shunned",
+            "kitten",
+            "they_kitten"
+        ],
+        [
+            "Wait, what did you do?",
+            "r_q told me not to talk to you because you did something bad, but they won't tell me.",
+            "Will you tell me?",
+            "No?",
+            "Oh. Well, I'm sure they're overreacting."
+        ]
+    ],
+    "youkit_sh_J17": [
+        [
+            "both_shunned",
+            "they_older",
+            "kitten"
+        ],
+        [
+            "Hm? What's that?",
+            "Oh, yeah, they'll definitely let you back into the Clan. You're so small.",
+            "Me? Maybe not.",
+            "Oh, I'll be okay, don't be sad!"
+        ]
+    ],
+    "youkit_sh_J18": [
+        [
+            "they_shunned",
+            "they_older",
+            "kitten"
+        ],
+        [
+            "Didn't the queens tell you not to talk to me?",
+            "Well, they should have, if they didn't.",
+            "Go talk to r_c instead."
+        ]
+    ],
+    "youkit_sh_J19": [
+        [
+            "you_shunned",
+            "they_older",
+            "kitten"
+        ],
+        [
+            "I pray you'll grow up to know the error of your ways."
+        ]
+    ],
+    "youkit_sh_J20": [
+        [
+            "both_shunned",
+            "they_deaf",
+            "you_deaf",
+            "kitten",
+            "they_kitten"
+        ],
+        [
+            "[Sitting with t_c in your nest outside of the nursery, you're growing bored.]",
+            "[You bat at their tail, but they're too sad to play along.]",
+            ". . ."
+        ]
+    ],
+    "youkit_sh_J21": [
+        [
+            "they_shunned",
+            "kitten",
+            "they_deaf",
+            "you_deaf",
+            "they_kitten"
+        ],
+        [
+            "[You watch t_c idly pass a moss-ball from paw to paw at the edge of camp.]",
+            "[How many hours have they been doing this for?]",
+            "[You wish you could be so easily entertained, while also wishing that l_n would allow you to play with them.]"
+        ]
+    ],
+    "youkit_sh_J22": [
+        [
+            "you_shunned",
+            "kitten",
+            "they_deaf",
+            "you_deaf",
+            "they_kitten"
+        ],
+        [
+            "[Ever since you were shunned, t_c has seemed more on edge.]",
+            "[Unable to listen for danger, their neck must be tired from all of the wildly lookign around.]",
+            " !! ",
+            "[They jump anytime they see you.]"
+        ]
+    ],
+    "youkit_sh_J23": [
+        [
+            "both_shunned",
+            "they_older",
+            "they_deaf",
+            "kitten"
+        ],
+        [
+            "... ... ..."
+        ]
+    ],
+    "youkit_sh_J24": [
+        [
+            "they_shunned",
+            "they_older",
+            "they_deaf",
+            "kitten"
+        ],
+        [
+            "... ... ..."
+        ]
+    ],
+    "youkit_sh_J25": [
+        [
+            "you_shunned",
+            "they_older",
+            "they_deaf",
+            "kitten"
+        ],
+        [
+            "... ... ..."
+        ]
+    ],
+    "stable_shunned_you_Kit_01": [
+        [
+            "you_shunned",
+            "stable",
+            "kitten"
+        ],
+        [
+            "How could someone so young be so cruel?"
+        ]
+    ],
+    "stable_shunned_you_Kit_02": [
+        [
+            "you_shunned",
+            "stable",
+            "kitten"
+        ],
+        [
+            "We failed you, little one."
+        ]
+    ],
+    "stable_shunned_you_Kit_03": [
+        [
+            "you_shunned",
+            "stable",
+            "they_blind",
+            "you_blind",
+            "kitten"
+        ],
+        [
+            "The cats in the Dark Forest have found their host. Evil runs through your blood!",
+            "If it were my choice, I'd have you killed for your sins.",
+            "Cats like you were born rotten. And you will continue to die from the inside out as you grow. I cannot allow that to happen!"
+        ]
+    ],
+    "stable_shunned_you_Kit_04": [
+        [
+            "you_shunned",
+            "stable",
+            "kitten"
+        ],
+        [
+            "[As you stir in your sleep, you smell someone familiar invading the private space of the nursery where you are supervised by the queens.]",
+            "[You blink, your vision blurry only to see a looming shadow overhead.]",
+            "... ... ...",
+            "[Is that t_c? They stand above you, claws unsheathed, their pelt protected by the night. You let out a startled cry as they lunge towards you.]",
+            "[The nursery comes to life as queens awaken to your yowling. r_q leaps at t_c and pushes them out of the den. You watch fearfully.]",
+            "[t_c scrambles to their paws, blood leaking down their shoulder where the queen attacked them. The commotion wakes the rest of the camp, concerned cats emerging from their dens.]",
+            "You! You Dark Forest spawn! This was all YOU!",
+            "[They lift their head to the stars and scream to the Clan.]",
+            "We lost a clanmate! To a kit, nonetheless! And yet we stand here and protect the killer?! EVIL WILL SPREAD!",
+            "Make no mistake! They killed once, they'll kill again! And I <b>won't</b> let that happen!",
+            "[r_q tells t_c to go to the medicine den and stay there. The Clan will not harm you. t_c shows brief confusion before hissing their response.]",
+            "Just know, you can't protect them forever! One day, when you're not there, I will banish this evil myself! I don't care if blood stains my paws. Because at least I'll know StarClan will forgive me. They will never forgive you.",
+            "[A chill wracks through your body as you meet t_c's cold and heartless stare. They no longer have the warmth that they once had. Since your actions, you begin to wonder...]",
+            "[Maybe that cat you killed wasn't the only one who died that day.]"
+        ]
+    ],
+    "stable_shunned_you_Kit_05": [
+        [
+            "you_shunned",
+            "stable",
+            "they_blind",
+            "you_blind",
+            "kitten"
+        ],
+        [
+            "I wish it wasn't you.",
+            "Any cat, but you.",
+            "I'm so sorry, y_c."
+        ]
+    ],
+    "general_sh_H8": [
+        [
+            "you_shunned",
+            "kitten",
+            "from_parent"
+        ],
+        [
+            "Oh y_c, what have you done?",
+            "Oh, no, no... it wasn't your fault. What have I done? I should have watched over you better, raised you to be a good cat.",
+            "I can only hope the both of us can learn through our mistakes, my y_c. I can only hope."
+        ]
+    ],
+    "strange_sh_H1": [
+        [
+            "strange",
+            "you_shunned",
+            "any"
+        ],
+        [
+            "[t_c looks at you from across the camp with a blank stare. Their head tilts ever-so-slightly, eyes unwavering as the cats around them go about their day.]"
+        ]
+    ],
+    "strange_sh_H3": [
+        [
+            "strange",
+            "you_shunned",
+            "any"
+        ],
+        [
+            "[t_c comes up to you with a curious look.]",
+            "They say curiosity killed the cat, but I can't help it.",
+            "Why did you do it?",
+            "[r_w comes up from behind and drags t_c away by the scruff. t_c looks strangely offended as they're pulled away, assumingly, for their own safety.]",
+            "Wait- but wait! I was just asking a question!"
+        ]
+    ],
+    "strange_sh_H4": [
+        [
+            "strange",
+            "platonic_like",
+            "you_shunned",
+            "any"
+        ],
+        [
+            "[t_c deliberately looks around the camp for any cats, their eyes trailing back to you. You've been eating the left-over-- which so happens to be crowfood.]",
+            "Psstt--",
+            "[t_c quickly drops a fat rat next to your paw and trots the other way before you could thank them, and before anyone else could see.]"
+        ]
+    ],
+    "strange_sh_H9": [
+        [
+            "strange",
+            "you_shunned",
+            "kitten"
+        ],
+        [
+            "You're a strange kitten, and that's saying something coming from me.",
+            "For a cat so young to murder... I can only hope Starclan is looking out for us."
+        ]
+    ],
+    "strange_sh_H10": [
+        [
+            "strange",
+            "you_shunned",
+            "kitten"
+        ],
+        [
+            "I can't help but wonder what compelled you to do it. The curiosity will eat at me but alas, I'm not looking forward to an answer."
+        ]
+    ],
+    "strange_sh_H11": [
+        [
+            "strange",
+            "you_strange",
+            "you_shunned",
+            "trust",
+            "warrior"
+        ],
+        [
+            "I still trust you, even after everything you did. I think it's hard to break my trust when it's really set in.",
+            "You were always the more impulsive one out of the two of us, more dangerous. I can only wonder what made you crack.",
+            "What, y_c? Don't look at me like that. Of course, I'm not going to question your motives.",
+            "... Well..."
+        ]
+    ],
+    "sc_kit_df": [
+        [
+            "they_df",
+            "kitten",
+            "newborn",
+            "you_sc"
+        ],
+        [
+            "You don't belong here, kit. Scram!"
+        ]
+    ],
+    "sc_kit_df2": [
+        [
+            "they_df",
+            "you_sc",
+            "kitten",
+            "newborn"
+        ],
+        [
+            "[t_c hisses at you, teeth bared.]"
+        ]
+    ],
+    "sc_df_kit": [
+        [
+            "they_sc",
+            "you_df",
+            "kitten",
+            "newborn"
+        ],
+        [
+            "[t_c steps forward and you bound closer to them, curious about the shiny sparkles embedded in their pelt.]",
+            "[They stop suddenly.]",
+            "You're from the Dark Forest, aren't you? What are you doing so far from... home?",
+            "[Their expression seems conflicted.]",
+            "You're just a kit. You don't deserve to be in that place."
+        ]
+    ],
+    "grieving_sh_J26": [
+        [
+            "Any",
+            "they_shunned",
+            "they_grieving",
+            "kitten"
+        ],
+        [
+            "[t_c is laying on the ground, completely still, the shallow rising and falling of their chest the only indicator that they're still alive.]",
+            "You've never seen a cat look so sad before."
+        ]
+    ],
+    "grieving_sh_J27": [
+        [
+            "Any",
+            "they_shunned",
+            "you_grieving",
+            "kitten"
+        ],
+        [
+            "H-hey, kit... I'm sorry for your loss...",
+            "[r_q told you that t_c is a bad cat. Though they're being nice, you get up and run back to the nursery.]"
+        ]
+    ],
+    "grieving_sh_J28": [
+        [
+            "Any",
+            "you_shunned",
+            "you_grieving",
+            "kitten"
+        ],
+        [
+            "[t_c avoids looking at you completely.]"
+        ]
+    ],
+    "grieving_sh_J29": [
+        [
+            "Any",
+            "you_shunned",
+            "they_grieving",
+            "kitten"
+        ],
+        [
+            "[t_c bursts into tears when they see you.]"
+        ]
+    ],
+    "grieving_sh_J30": [
+        [
+            "Any",
+            "both_shunned",
+            "they_grieving",
+            "kitten"
+        ],
+        [
+            "Sigh..."
+        ]
+    ],
+    "grieving_sh_J31": [
+        [
+            "Any",
+            "both_shunned",
+            "you_grieving",
+            "kitten"
+        ],
+        [
+            "[t_c just sits near you, not attempting to speak.]"
+        ]
+    ],
+    "grieving_sh_J32": [
+        [
+            "Any",
+            "both_shunned",
+            "you_grieving",
+            "they_grieving",
+            "kitten"
+        ],
+        [
+            "[The air is thick with sadness as you lay near t_c.]"
+        ]
+    ],
+    "sc_sc_kit": [
+        [
+            "they_sc",
+            "you_sc",
+            "kitten",
+            "newborn"
+        ],
+        [
+            "[t_c smiles at you as they pass.]",
+            "Hello, y_c!"
+        ]
+    ],
+    "dfsc_3": [
+        [
+            "they_sc",
+            "you_df",
+            "Any",
+            "They_adult",
+            "kitten"
+        ],
+        [
+            "Oh, darling kit...",
+            "I'm sorry you ended up here."
+        ]
+    ],
+    "general_sh_J7": [
+        [
+            "you_shunned",
+            "kitten",
+            "any"
+        ],
+        [
+            "Um, um...",
+            "[t_c glances around quickly as you approach.]",
+            "r_q!",
+            "[At t_c's call, a queen rushes from the nursery and scoops the little kit up, flashing you a dirty look as they head back inside.]",
+            "[You just wanted to speak with somecat who didn't understand the situation, but it seems there are none.]"
+        ]
+    ],
+    "assertive_tokit5": [
+        [
+            "kitten",
+            "dislike",
+            "assertive",
+            "cool",
+            "unlawful",
+            "non-related"
+        ],
+        [
+            "Hey, mouse-brain! Watch where you're going!",
+            "Wait, I recognize you. You're one of the new kits, right? Shouldn't you be in the nursery?",
+            "Hmph. Whatever. Just stay outta the real warriors' way, before someone squishes you."
+        ]
+    ],
+    "sc_to_kit": [
+        [
+            "they_sc",
+            "kitten",
+            "newborn"
+        ],
+        [
+            "Hi, y_c.",
+            "You... you really shouldn't be here. Not until you're older, okay? Much older."
+        ]
+    ],
+    "sc_kit": [
+        [
+            "they_sc",
+            "they_adult",
+            "you_sc",
+            "kitten",
+            "newborn"
+        ],
+        [
+            "I'm sorry... y_c.",
+            "I'm sorry you didn't get more time."
+        ]
+    ],
+    "sc_kit2": [
+        [
+            "they_sc",
+            "you_sc",
+            "kitten",
+            "newborn"
+        ],
+        [
+            "In StarClan, little one, our job is very important.",
+            "We need to watch over those we left behind.",
+            "Do you understand?"
+        ]
+    ],
+    "sc_kit3": [
+        [
+            "they_sc",
+            "you_sc",
+            "kitten",
+            "newborn"
+        ],
+        [
+            "In StarClan, little one, our job is very important.",
+            "We need to watch over those we left behind.",
+            "Do you understand?"
         ]
     ]
 }

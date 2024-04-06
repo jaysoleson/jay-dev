@@ -308,19 +308,23 @@ class Inheritance():
         """Initial the class, with the focus of the grand parent relation."""
         for parent_id, value in self.parents.items():
             parent_cat = self.cat.fetch_cat(parent_id)
-            grandparents = self.get_parents(parent_cat)
-            for grand_id in grandparents:
-                if grand_id in self.parents.keys():
-                    continue
-                grand_type = RelationType.BLOOD if value["type"] == RelationType.BLOOD else RelationType.NOT_BLOOD
-                if grand_id not in self.grand_parents:
-                    self.grand_parents[grand_id] = {
-                        "type": grand_type,
-                        "additional": []
-                    }
-                    self.all_involved.append(grand_id)
-                    self.all_but_cousins.append(grand_id)
-                self.grand_parents[grand_id]["additional"].append(f"parent of {str(parent_cat.name)}")
+            if parent_cat:
+                grandparents = self.get_parents(parent_cat)
+                for grand_id in grandparents:
+                    if grand_id in self.parents.keys():
+                        parent_relation = self.parents[grand_id]
+                        if parent_relation["type"] == RelationType.BLOOD:
+                            print("WARNING - How did this happen? A grandparent is also the blood parent? Please report this!")
+                        continue # even it is not blood related, it is confusing
+                    grand_type = RelationType.BLOOD if value["type"] == RelationType.BLOOD else RelationType.NOT_BLOOD
+                    if grand_id not in self.grand_parents:
+                        self.grand_parents[grand_id] = {
+                            "type": grand_type,
+                            "additional": []
+                        }
+                        self.all_involved.append(grand_id)
+                        self.all_but_cousins.append(grand_id)
+                    self.grand_parents[grand_id]["additional"].append(f"parent of {str(parent_cat.name)}")
 
     def init_kits(self, inter_id, inter_cat):
         """Initial the class, with the focus of the kits relation."""
@@ -494,8 +498,8 @@ class Inheritance():
             return
         inter_parent_ids = self.get_parents(inter_cat)
         parents_cats = [self.cat.fetch_cat(c_id) for c_id in inter_parent_ids]
-        parent_cats_names = [str(c.name) for c in parents_cats]
-
+        parent_cats_names = [str(c.name) for c in parents_cats if c is not None]
+        
         for inter_parent_id in inter_parent_ids:
             if inter_parent_id in self.parents_siblings.keys():
                 rel_type = RelationType.BLOOD 

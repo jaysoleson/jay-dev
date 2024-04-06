@@ -1,8 +1,8 @@
 {
     "warrior_22193": [
         [
-            "murder",
-            "Any"
+            "Any",
+            "you_shunned"
         ],
         [
             "Your paws... they reek of blood."
@@ -34,8 +34,8 @@
     ],
     "elder_1": [
         [
-            "murder",
-            "Any"
+            "Any",
+            "you_shunned"
         ],
         [
             "Your eyes hold the weight of a life taken."
@@ -55,8 +55,8 @@
     ],
     "elder_10": [
         [
-            "murder",
-            "Any"
+            "Any",
+            "you_shunned"
         ],
         [
             "The cats of StarClan. I can see them. They shudder in the wake of your transgression."
@@ -687,7 +687,6 @@
             "Whatever. I'm going to go do something actually exciting. Don't wait up."
         ]
     ],
-    
     "assertive_app29": [
         [
             "mediator",
@@ -1049,7 +1048,7 @@
             "Yes, I'm okay. Just watching the cats in the camp-",
             "[t_c gently chuckles at your face before flicking your cheek with a paw gently.]",
             "Don't give me that look, what else do I have to do?",
-            "I've given my all to the clan, but I'm not in starclan yet. I've still got to give myself some form of entertainment.",
+            "I've given my all to the clan, but I'm not in StarClan yet. I've still got to give myself some form of entertainment.",
             "Hehe... That's okay. If you ever change your mind, just let me know. I'm not going anywhere."
         ]
     ],
@@ -1198,7 +1197,7 @@
         ],
         [
             "[You ask t_c if they have any cool stories from their youth they can tell you.]",
-            "Uhm ... Well, I guess one time, when I was a young warrior, I ripped a c_nClan cat's throat out with my teeth.",
+            "Uhm ... Well, I guess one time, when I was a young warrior, I ripped a o_cClan cat's throat out with my teeth.",
             "It happened so easily ... It was just like tearing into a piece of prey ... The taste didn't leave my mouth for moons afterwards, and -- Ope.",
             "[r_q quickly swoops in and hurries you away. Safe to say you won't be going to t_c for any stories anymore.]"
         ]
@@ -1301,6 +1300,19 @@
         [
             "All these young cats milling about ... Politics, drama ... It's all just play to me now.",
             "When you've been around as long as I have, you start to realize just how little stuff like that matters."
+        ]
+    ],
+    "stable_Elder_Gen_01": [
+        [
+            "Any",
+            "stable"
+        ],
+        [
+            "Arg, back in my day-",
+            "[All you did was walk past and t_c just begins rambling again. You sigh and sit down, listening to their story. As they talk more and more, you find yourself captivated.]",
+            "And that's why you never catch a ladybird under the thunderpath.",
+            "[Despite that story being... confusing you find it interesting how they can recall so much. You thank them and spend the rest of your day pondering the tale.]",
+            "[A story of a bug beneath the thunderpath that when caught brings thunder crashing down. You doubt there's a moral, or even if those were the actual events to have happened. But it's entertaining nonetheless.]"
         ]
     ]
 }

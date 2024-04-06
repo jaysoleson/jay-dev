@@ -221,12 +221,12 @@
     ],
     "app_28": [
         [
-            "murder",
             "Any",
             "assertive",
             "brooding",
             "unlawful",
-            "cool"
+            "cool",
+            "you_shunned"
         ],
         [
             "You're a foxhearted monster! I can't believe I trusted you."
@@ -234,8 +234,8 @@
     ],
     "app_293": [
         [
-            "murder",
-            "Any"
+            "Any",
+            "you_shunned"
         ],
         [
             "How can you live with yourself?"
@@ -243,10 +243,10 @@
     ],
     "app_29c": [
         [
-            "murder",
             "Any",
             "neurotic",
-            "introspective"
+            "introspective",
+            "you_shunned"
         ],
         [
             "D-don't come any closer."
@@ -254,11 +254,11 @@
     ],
     "app_29": [
         [
-            "murder",
             "Any",
             "stable",
             "assertive",
-            "brooding"
+            "brooding",
+            "you_shunned"
         ],
         [
             "You'll pay for what you've done!"
@@ -278,7 +278,6 @@
             "Hey! Be nice! When you're an apprentice, your mentor won't let that slide."
         ]
     ],
-   
     "app_2592": [
         [
             "Any",
@@ -452,57 +451,6 @@
             "I don't understand... Why are you being like this?"
         ]
     ],
-    "assertive_siblingneg": [
-        [
-            "Any",
-            "sibling",
-            "half sibling",
-            "kitten",
-            "adopted_sibling",
-            "half sibling",
-            "dislike",
-            "assertive",
-            "cool",
-            "brooding",
-            "upstanding",
-            "stable",
-            "unabashed"
-        ],
-        [
-            "What did I do in a past life to wind up related to you, y_c?",
-            "Must've been really terrible."
-        ]
-    ],
-    "assertivewarrior_mediatorapp1": [
-        [
-            "mediator apprentice",
-            "mediator",
-            "random_cat",
-            "assertive",
-            "unabashed"
-        ],
-        [
-            "Oh no you don't, y_c. Don't even try to convince me to make nice with r_c - it's not gonna happen. They totally stole the last fish from the freshkill pile! Don't they know that it's my favorite?",
-            "Okay, okay ... if you insist, I guess I can try talking to them again.",
-            "But don't try to get me to watch my tongue. If someone's acting like a stupid piece of fox-dung, I'm gonna call them a stupid piece of fox-dung!!!"
-        ]
-    ],
-    "assertivewarrior_mediatorapp3": [
-        [
-            "mediator apprentice",
-            "mediator",
-            "assertive",
-            "random_cat",
-            "silly",
-            "unlawful",
-            "cool"
-        ],
-        [
-            "Look, I know I can be reckless and headstrong and foolish and stubborn ...",
-            "But I didn't mean to steal r_c's catch! Seriously! And now they're acting all huffy about it ...",
-            "Any chance you could help me talk it out with them?"
-        ]
-    ],
     "assertive_medapp1": [
         [
             "medicine cat apprentice",
@@ -532,133 +480,6 @@
             "Tell you what, if you ever get scared or cold in the night, just come over to my den. You can sleep in my nest, with me. Okay?"
         ]
     ],
-    "assertive_5": [
-        [
-            "kitten",
-            "dislike",
-            "assertive",
-            "cool",
-            "unlawful",
-            "neutral",
-            "non-related"
-        ],
-        [
-            "Hey, mouse-brain! Watch where you're going!",
-            "Wait, I recognize you. You're one of the new kits, right? Shouldn't you be in the nursery?",
-            "Hmph. Whatever. Just stay outta the real warriors' way, before someone squishes you."
-        ]
-    ],
-    "assertive_4": [
-        [
-            "kitten",
-            "assertive"
-        ],
-        [
-            "Whoa! Watch where you're going there, little pal! One wrong move, and you might get stepped on!",
-            "Ah, quit that, you don't need to apologize. Just be a bit more careful from now on, is all.",
-            "Or else, when you get bigger, it'll really become a problem. Hehe!"
-        ]
-    ],
-    "assertive_tokit1": [
-        [
-            "kitten",
-            "assertive",
-            "unlawful"
-        ],
-        [
-            "Ah, y_c! There's the little bruiser! How're you doing? Growing up big and strong?",
-            "Y'know, at your age, I used to get into all sorts of trouble. Sneaking out of the nursery, following around the apprentices ... not to give you any ideas, or anything. Ahaha!",
-            "[t_c's laugh is so loud that it almost shakes your whole body.]"
-        ]
-    ],
-    "assertive_tonewborn": [
-        [
-            "newborn",
-            "assertive"
-        ],
-        [
-            "Whoa! Hey there, little guy! Shouldn't you be in the nursery?",
-            "Hehe. You've got an adventurous spirit. I like that about you.",
-            "But for now, you gotta stay where it's safe! C'mon. Let's go back to your parents."
-        ]
-    ],
-    "assertive_tonewborn1": [
-        [
-            "newborn",
-            "assertive"
-        ],
-        [
-            "Aw ... little guy hasn't even gotten their eyes open yet!",
-            "They're gonna be a killer, though. I can already tell. See those little paws? This kit's got fight in 'em!"
-        ]
-    ],
-    "assertive_tonewborn3": [
-        [
-            "newborn",
-            "assertive",
-            "introspective",
-            "neurotic"
-        ],
-        [
-            "Whoa ... this is them? They're so small!",
-            "Hard to believe I was that small once ...",
-            "Hm ..."
-        ]
-    ],
-    "assertive_apprentice6": [
-        [
-            "no_kit",
-            "platonic_like",
-            "assertive",
-            "silly",
-            "random_cat"
-        ],
-        [
-            "y_c. Buddy. Best friend. We've GOTTA TRY this. r_c told me that if you eat three mice, one rabbit, and howl at the moon, you get magic powers!",
-            "What? It's totally real, they wouldn't lie to me like that! I prommissseee."
-        ]
-    ],
-    "assertive_1": [
-        [
-            "Any",
-            "assertive",
-            "cool",
-            "they_clanfounder",
-            "they_clanborn",
-            "they_outsiderroots",
-            "they_half-Clan",
-            "they_orphaned",
-            "they_abandoned",
-            "newleaf",
-            "greenleaf",
-            "leaffall"
-        ],
-        [
-            "Hey there, y_c! Not bad weather today, hm?",
-            "Sun on my pelt, wind in my fur ... Could you imagine being a kittypet and having to be cooped up in a twoleg nest all day? I think I would go crazy!",
-            "Just another reason why it's great to be a clan cat."
-        ]
-    ],
-    "assertive_6": [
-        [
-            "Any",
-            "dislike",
-            "you_brooding",
-            "you_sweet",
-            "you_upstanding",
-            "you_introspective",
-            "you_neurotic",
-            "you_stable",
-            "assertive",
-            "cool",
-            "unlawful",
-            "silly"
-        ],
-        [
-            "*Sigh*. Hey, y_c. Come to ruin the fun again?",
-            "Whatever. I'm going to go do something actually exciting. Don't wait up."
-        ]
-    ],
     "assertive_app": [
         [
             "Any",
@@ -684,37 +505,6 @@
             "I can't stay quiet for that long!"
         ]
     ],
-    "assertive_app2": [
-        [
-            "Any",
-            "assertive",
-            "unabashed",
-            "neutral"
-        ],
-        [
-            "Whoa, lookout! Incoming!!!",
-            "[t_c is in hot pursuit of a mouse - right in the middle of camp! They skid to a halt inches from your face, destroying the pile of moss you were gathering for your nest.]",
-            "*Huff* *Huff* Sorry about that! Say, did you see which way the mouse went?",
-            "I swear, those little buggers are getting braver by the day ... And stupider, too. How long does it think it's gonna last in a clanful of cats?",
-            "Er, sorry about your moss. Did you need help cleaning it up?",
-            "[t_c clumsily attempts to reorganize the pile, breaking several pieces in the process.]",
-            "There! Good as new ... kinda. Heh. Sorry, again.",
-            "Be on the lookout for that mouse for me, will ya? Come find me if you see it again."
-        ]
-    ],
-    "assertive_app3": [
-        [
-            "mediator",
-            "mediator apprentice",
-            "assertive",
-            "random_cat"
-        ],
-        [
-            "Let me guess. You've come to patch things up between me and r_c, 'cause of the fight we had earlier. That right?",
-            "I'll save you a few words - it's not gonna happen. Why's it always me that's gotta be in the wrong, huh? Why not force them to apologize?",
-            "Go find somebody else's problem to fix."
-        ]
-    ],
     "assertive_app5": [
         [
             "medicine cat apprentice",
@@ -738,33 +528,13 @@
             "assertive",
             "silly",
             "unlawful",
-            "kitten",
             "from_adopted_kit",
-            "from_your_kit",
-            "from_your_apprentice"
+            "from_your_kit"
         ],
         [
             "[t_c stumbles across camp to you, soaking wet and covered in mud.]",
             "y_c! Before you get mad, I didn't do it!",
             "[The very peeved-off looking deputy locks eyes with you and storms in your direction. What mischief did t_c get into this time?]"
-        ]
-    ],
-    "assertive_app7": [
-        [
-            "elder",
-            "assertive",
-            "cool",
-            "silly",
-            "unlawful",
-            "platonic_like",
-            "romantic_like",
-            "from_mate"
-        ],
-        [
-            "Hey, furbag. I brought you something!",
-            "[t_c lays a colorful feather at your paws.]",
-            "I know this is your favorite color, and you miss exploring the territory. So I knew I just had to bring it to you.",
-            "Yeah, yeah, don't get all soft on me, hehe. Wanna grab a meal together?"
         ]
     ],
     "assertiveapp_leader": [
@@ -2530,8 +2300,8 @@
         ],
         [
             "Wake up, stretch, groom fur, have a meal, talk with friends, get up, go to mentor- Train! Train! Train!",
-            "I'm sorry, I don't mean to complain but by starclan I am tired. Everyday feels the same, at least I get to see you, you make it interesting at the very least-",
-            "I no wait, I didn't mean any offence. I'm sorry y_c, really, you're a good friend. Truly."
+            "I'm sorry, I don't mean to complain but by StarClan I am tired. Everyday feels the same... But at least I get to see you, you make it interesting at the very least-",
+            "I- wait, I didn't mean any offence. I'm sorry y_c, really, you're a good friend. Truly."
         ]
     ],
     "stable_apprentice_12": [
@@ -2925,25 +2695,24 @@
         ]
     ],
     "neurotic_app4": [
-	[
-		"no_kit",
-		"neurotic",
-		"upstanding",
-		"random_cat"
-	],
-	[
-		"Gah, stupid, stupid, so stupid, t_c ...",
-		"Wuh - y_c? How long have you been standing there?",
-		"Why was I talking to myself ...?",
-		"*Sigh* It's, like, the dumbest thing ever. t_mn gave me this surprise assessment today, and I totally flunked it!",
-		"How could I have answered that the best way to catch a fish is by swimming up to it? It doesn't even make any sense!",
-		"I just know that t_mn is still laughing at me ... the whole Clan probably is.",
-		"[You tell t_c not to be so hard on themself.]",
-		"But, if I'm not hard on myself, then how will I ever become stronger?",
-		"I refuse to be an embarrassment to my Clan and mentor. I'll pass that assessment next time ... Whatever it takes!"
-	]
-	],
-
+        [
+            "no_kit",
+            "neurotic",
+            "upstanding",
+            "random_cat"
+        ],
+        [
+            "Gah, stupid, stupid, so stupid, t_c ...",
+            "Wuh - y_c? How long have you been standing there?",
+            "Why was I talking to myself ...?",
+            "*Sigh* It's, like, the dumbest thing ever. t_mn gave me this surprise assessment today, and I totally flunked it!",
+            "How could I have answered that the best way to catch a fish is by swimming up to it? It doesn't even make any sense!",
+            "I just know that t_mn is still laughing at me ... the whole Clan probably is.",
+            "[You tell t_c not to be so hard on themself.]",
+            "But, if I'm not hard on myself, then how will I ever become stronger?",
+            "I refuse to be an embarrassment to my Clan and mentor. I'll pass that assessment next time ... Whatever it takes!"
+        ]
+    ],
     "neurotic_app3": [
         [
             "apprentice",
@@ -3055,6 +2824,23 @@
             "Gah! Not my beautiful face!",
             "[In the end, t_c's face comes out untouched ... though, the maneuver did leave many of their vital organs unprotected.]",
             "[Seems they don't exactly have their priorities in order.]"
+        ]
+    ],
+    "strange_DF_H3": [
+        [
+            "strange",
+            "you_df",
+            "they_df",
+            "apprentice"
+        ],
+        [
+            "Hey, y_c, do you wanna sneak out? You know, to the border.",
+            "I wanna see what it looks like! Is it a wall of goop, an untouchable border made of stars? Maybe Starclan cats patrol the area and chase us away.",
+            "... What?",
+            "[You tell t_c there is no point-- they already know what the border looks like: void of life.]",
+            "We don't know that until we see it ourselves! Ugh, fine. I'll go myself.",
+            "[t_c prances away with a huff, no cat bothering to stop their strange curiosity. But, before they can even step a paw away from the den, they falter and look out to the darkness.]",
+            "[It really is nothing but an empty void of black goo.]"
         ]
     ]
 }

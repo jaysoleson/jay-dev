@@ -19,8 +19,8 @@
     ],
     "leader_4d": [
         [
-            "murder",
-            "Any"
+            "Any",
+            "you_shunned"
         ],
         [
             "... Do you ever feel guilty?"
@@ -113,8 +113,8 @@
     ],
     "leader_4": [
         [
-            "murder",
-            "Any"
+            "Any",
+            "you_shunned"
         ],
         [
             "I never thought one of my own would stoop so low."
@@ -122,8 +122,8 @@
     ],
     "leader_5": [
         [
-            "murder",
-            "Any"
+            "Any",
+            "you_shunned"
         ],
         [
             "Your loyalty to our Clan is forever tarnished."
@@ -131,8 +131,8 @@
     ],
     "leader_6": [
         [
-            "murder",
-            "Any"
+            "Any",
+            "you_shunned"
         ],
         [
             "The blood of your victim stains your paws, and it will haunt you."
@@ -140,8 +140,8 @@
     ],
     "leader_7": [
         [
-            "murder",
-            "Any"
+            "Any",
+            "you_shunned"
         ],
         [
             "You have broken the code that binds us together as warriors."
@@ -149,8 +149,8 @@
     ],
     "leader_8": [
         [
-            "murder",
-            "Any"
+            "Any",
+            "you_shunned"
         ],
         [
             "Your actions have brought shame upon our entire Clan."
@@ -158,8 +158,8 @@
     ],
     "leader_9": [
         [
-            "murder",
-            "Any"
+            "Any",
+            "you_shunned"
         ],
         [
             "You will never be able to wash away the guilt that will follow you."
@@ -167,8 +167,8 @@
     ],
     "leader_10": [
         [
-            "murder",
-            "Any"
+            "Any",
+            "you_shunned"
         ],
         [
             "In the eyes of StarClan, you are a murderer."
@@ -1116,7 +1116,7 @@
             "... Good morning, y_c.",
             "Yes, yes. I'm fine. I've just... been thinking.",
             "Is StarClan and the Dark Forest all that's out there? Is there something beyond that? Maybe beyond our own perceptions.",
-            "Maybe all of our actions are being controlled by a being even stronger than starclan, using some sort of magic to view us to see what we're up to.",
+            "Maybe all of our actions are being controlled by a being even stronger than StarClan, using some sort of magic to view us to see what we're up to.",
             "Maybe they'd get bored of us, or think I'm not good enough to be leader, and force you to kill me to take my place.",
             "... Yes, t_c. You've been up too long. You need to go to bed.",
             "I'll... see you later, y_c. Please don't tell anyone we spoke about this. They'll probably think I'm going senile."
@@ -1925,6 +1925,30 @@
             "I weaved flowers into the Elder's Den to spruce it up a little.",
             "It's a little project I've been doing with the apprentices and kits of the clan. We're decorating!",
             "I just felt, after all the service you all have provided, that you deserved it first and foremost."
+        ]
+    ],
+    "leadershunned_J1": [
+        [
+            "they_shunned",
+            "any"
+        ],
+        [
+            "[t_c looks at you sadly as you approach.]",
+            "What? I'm not your leader anymore, remember?",
+            "Whatever it is, go ask l_n."
+        ]
+    ],
+    "stable_Leader_Gen_01": [
+        [
+            "Any",
+            "stable"
+        ],
+        [
+            "Deep breaths, t_c, deep breaths- You'll be okay. You can do this! Just go out there and tell them- it will be okay! It will be fine, it will be- GAH!",
+            "[You poke your head into the leader's den and stare at a bewildered t_c. They blink a couple of times, a silence looms in the air.]",
+            "You scared me, y_c! Please remember to meow or something before you come in. Sorry, I'm just nervous. I have an announcement I need to make at the gathering. But, I'm not looking forward to it.",
+            "o_cClan has once again, overstepped some boundaries, and look- I'm not one to shudder in fear when facing other leaders- but... The deputy just became leader. And are proving to be a rather big problem. No-",
+            "No I'm sorry, I shouldn't be discussing this out loud. I just- I just want to guarantee the safety of c_nClan. No matter what."
         ]
     ]
 }

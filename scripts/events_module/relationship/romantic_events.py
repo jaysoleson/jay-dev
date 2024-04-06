@@ -343,11 +343,12 @@ class Romantic_Events():
                         game.switches['new_mate'] = cat_from
                     MateScreen("events screen")
                 else:
-                    if cat_from.ID == game.clan.your_cat.ID:
-                        game.switches['new_mate'] = cat_to
-                    else:
-                        game.switches['new_mate'] = cat_from
-                    game.switches['windows_dict'].append('mate')
+                    if 'mate' not in game.switches['windows_dict']:
+                        if cat_from.ID == game.clan.your_cat.ID:
+                            game.switches['new_mate'] = cat_to
+                        else:
+                            game.switches['new_mate'] = cat_from
+                        game.switches['windows_dict'].append('mate')
             else:
                 cat_from.set_mate(cat_to)
                 game.cur_events_list.append(Single_Event(mate_string, ["relation", "misc"], [cat_from.ID, cat_to.ID]))
@@ -468,11 +469,12 @@ class Romantic_Events():
                         game.switches['new_mate'] = cat_from
                     MateScreen("events screen")
                 else:
-                    if cat_from.ID == game.clan.your_cat.ID:
-                        game.switches['new_mate'] = cat_to
-                    else:
-                        game.switches['new_mate'] = cat_from
-                    game.switches['windows_dict'].append('mate')
+                    if 'mate' not in game.switches['windows_dict']:
+                        if cat_from.ID == game.clan.your_cat.ID:
+                            game.switches['new_mate'] = cat_to
+                        else:
+                            game.switches['new_mate'] = cat_from
+                        game.switches['windows_dict'].append('mate')
             else:
                 cat_from.set_mate(cat_to)
                 mate_string = Romantic_Events.prepare_relationship_string(mate_string, cat_from, cat_to)
@@ -559,7 +561,7 @@ class Romantic_Events():
             return False, None
 
         alive_inclan_from_mates = [mate for mate in cat_from.mate if not cat_from.fetch_cat(mate).dead and not cat_from.fetch_cat(mate).outside]
-        alive_inclan_to_mates = [mate for mate in cat_to.mate if not cat_to.fetch_cat(mate).dead and not cat_to.fetch_cat(mate).outside]
+        alive_inclan_to_mates = [mate for mate in cat_to.mate if cat_to.fetch_cat(mate) is not None and not cat_to.fetch_cat(mate).dead and not cat_to.fetch_cat(mate).outside]
         poly = len(alive_inclan_from_mates) > 0 or len(alive_inclan_to_mates) > 0
 
         if poly and not Romantic_Events.current_mates_allow_new_mate(cat_from, cat_to):

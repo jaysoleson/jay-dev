@@ -53,6 +53,17 @@ class StartScreen(Screens):
         self.social_buttons = {}
         self.warning_label_background = None
 
+    def choose_random_menu(self, folder_path):
+        """This will choose a random menu to display from the menus folder."""
+        files = os.listdir(folder_path)
+        png_files = [file for file in files if file.endswith('.png')]
+
+        if png_files:
+            chosen_file = random.choice(png_files)
+            return "resources\\menus\\" + chosen_file
+        else:
+            return "resources\\images\\menu.png"
+
     def handle_event(self, event):
         """This is where events that occur on this page are handled.
         For the pygame_gui rewrite, button presses are also handled here. """
@@ -161,7 +172,7 @@ class StartScreen(Screens):
         self.continue_button = UIImageButton(scale(
             pygame.Rect((140, 620), (384, 70))),
             "",
-            object_id="#continue_button",
+            object_id="#continue_main_button",
             manager=MANAGER)
         self.switch_clan_button = UIImageButton(
             scale(pygame.Rect((140, 710), (384, 70))),

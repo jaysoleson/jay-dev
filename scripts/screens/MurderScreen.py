@@ -323,6 +323,15 @@ class MurderScreen(Screens):
                 History.add_death(cat_to_murder, f"{you.name} and {accomplice.name} murdered this cat.")
                 History.add_murders(cat_to_murder, accomplice, True, f"{you.name} murdered this cat along with {accomplice.name}.")
                 History.add_murders(cat_to_murder, you, True, f"{you.name} murdered this cat with the help of {accomplice.name}.")
+                
+                accguiltchance = randint(1,2)
+                if accguiltchance == 1:
+                    accomplice.get_injured("guilt")
+
+                youguiltchance = randint(1,4)
+                if youguiltchance == 1:
+                    accomplice.get_injured("guilt")
+
             else:
                 game.cur_events_list.insert(1, Single_Event("You successfully murdered "+ str(cat_to_murder.name) + "."))
                 History.add_death(cat_to_murder, f"{you.name} murdered this cat.")
@@ -334,8 +343,17 @@ class MurderScreen(Screens):
                     History.add_death(cat_to_murder, f"{you.name} and {accomplice.name} murdered this cat.")
                     History.add_murders(cat_to_murder, you, True, f"{you.name} murdered this cat along with {accomplice.name}.")
                     History.add_murders(cat_to_murder, accomplice, True, f"{you.name} murdered this cat along with {accomplice.name}.")
-
                     game.cur_events_list.insert(1, Single_Event("You successfully murdered "+ str(cat_to_murder.name) + " along with " + str(accomplice.name) + ". It seems no one is aware of your actions."))
+
+                    accguiltchance = randint(1,4)
+                    if accguiltchance == 1:
+                        accomplice.get_injured("guilt")
+
+                    youguiltchance = randint(1,6)
+                    if youguiltchance == 1:
+                        accomplice.get_injured("guilt")
+
+
                 else:
                     History.add_death(cat_to_murder, f"{you.name} murdered this cat.")
                     History.add_murders(cat_to_murder, you, True, f"{you.name} murdered this cat.")
@@ -359,6 +377,7 @@ class MurderScreen(Screens):
                 a_s = randint(1,2)
                 if a_s == 1 and accomplice.status != "leader":
                     game.cur_events_list.insert(2, Single_Event(f"Shocked at your request to be an accomplice to murder, {accomplice.name} reports your actions to the Clan leader."))
+                you.shunned = 1
             txt = ""
             if game.clan.your_cat.status in ['kitten', 'leader', 'deputy', 'medicine cat']:
                 txt = choice(self.mu_txt["murder_discovered " + game.clan.your_cat.status])
@@ -366,14 +385,18 @@ class MurderScreen(Screens):
                 txt = choice(self.mu_txt["murder_discovered general"])
             txt = txt.replace('v_c', str(cat_to_murder.name))
             game.cur_events_list.insert(2, Single_Event(txt))
+            you.shunned = 1
         elif punishment_chance == 2:
             txt = f"{accomplice.name} is blamed for the murder of v_c. However, you were not caught."
             txt = txt.replace('v_c', str(cat_to_murder.name))
             game.cur_events_list.insert(2, Single_Event(txt))
+            accomplice.shunned = 1
         else:
             txt = f"The unsettling truth of v_c's death is discovered, with you and {accomplice.name} responsible. The Clan decides both of your punishments."
             txt = txt.replace('v_c', str(cat_to_murder.name))
             game.cur_events_list.insert(2, Single_Event(txt))
+            you.shunned = 1
+            accomplice.shunned = 1
         
         if punishment_chance == 1 or punishment_chance == 3:
             kit_punishment = ["You are assigned counseling by the Clan's medicine cat to help you understand the severity of your actions and to guide you to make better decisions in the future.",

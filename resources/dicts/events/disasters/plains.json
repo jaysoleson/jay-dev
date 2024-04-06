@@ -31,10 +31,23 @@
             ]
         },
         "conclusion_events": [
-            "As the moons pass, green shoots break through the torn earth, a symbol of the plains' resilience. lead_name watches as their Clanmates work together to rebuild, their spirits lifted by the signs of recovery. The tornado's fury is etched in their memory, but so too is their unity in its aftermath.",
+            "As the moons pass, green shoots break through the torn earth, a symbol of the plains' resilience. lead_name watches as their Clanmates work together to rebuild. The tornado's fury is etched in their memory, but so too is their unity in its aftermath.",
             "The first hunt after the storm brings a glimmer of hope; prey is returning to the plains. The Clan gathers to share their meal, a moment of normalcy amid the chaos.",
             "With the rebuilding well underway, c_n gathers to honor those lost to the tornado."
         ],
-        "collateral_damage": {}
+        "collateral_damage": {
+            "injuries": [
+                "broken bone"
+            ],
+            "deaths": {
+                "death_text": [
+                    "As the tornado approached, m_c remembered the old nursery tales about a monster that could sweep cats away to the afterlife. Facing the raging storm, m_c realized how powerless they were against its force. The wind howled like the monster from those stories, and in a moment, m_c was lifted up, caught in the tornado's grip. There was no fighting back, no escape. As the tornado carried m_c away, those nursery tales didn't seem like just stories anymore.",
+                    "During the tornado, m_c was desperately seeking shelter when suddenly, a flying piece of debris struck them. Despite their attempts to avoid the danger, the impact was too much. m_c was found after the storm had passed, a victim of the tornado's destructive path."
+                ],
+                "history_text": {
+                    "reg_death": "m_c died in a tornado."
+                }
+            }
+        }
     }
 }

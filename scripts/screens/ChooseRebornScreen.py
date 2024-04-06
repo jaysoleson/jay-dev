@@ -49,6 +49,8 @@ class ChooseRebornScreen(Screens):
         self.heading = None
         self.mentor = None
         self.the_cat = None
+        self.dead_tab = None
+        self.alive_tab = None
 
     def handle_event(self, event):
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
@@ -65,6 +67,7 @@ class ChooseRebornScreen(Screens):
                     # self.update_buttons()
             elif event.ui_element == self.back_button:
                 self.change_screen('events screen')
+                game.switches['continue_after_death'] = False
             elif event.ui_element == self.next_cat_button:
                 if isinstance(Cat.fetch_cat(self.next_cat), Cat):
                     game.switches['cat'] = self.next_cat
@@ -159,6 +162,11 @@ class ChooseRebornScreen(Screens):
                                                   object_id="#relation_list_previous", manager=MANAGER)
         self.next_page_button = UIImageButton(scale(pygame.Rect((902, 1160), (68, 68))), "",
                                               object_id="#relation_list_next", manager=MANAGER)
+
+        # self.alive_tab = UIImageButton(scale(pygame.Rect((300, 860), (68, 68))), "",
+        #                                       object_id="#relation_list_next", manager=MANAGER)
+        # self.dead_tab = UIImageButton(scale(pygame.Rect((380, 860), (68, 68))), "",
+        #                                       object_id="#relation_list_next", manager=MANAGER)
 
         self.update_selected_cat()  # Updates the image and details of selected cat
         self.update_cat_list()
@@ -291,6 +299,7 @@ class ChooseRebornScreen(Screens):
         self.exit_screen()
         game.cur_events_list.clear()
         game.clan.your_cat = new_mentor
+        game.switches["attended half-moon"] = False
         if game.clan.your_cat.status not in ['newborn', 'kitten', 'apprentice', 'medicine cat apprentice', 'mediator apprentice', "queen's apprentice"]:
             game.clan.your_cat.w_done = True
         game.switches['cur_screen'] = "events screen"
@@ -375,7 +384,7 @@ class ChooseRebornScreen(Screens):
         valid_mentors = []
 
         for cat in Cat.all_cats_list:
-            if not cat.dead and not cat.outside:
+            if not cat.dead and not cat.outside and not cat.ID == game.clan.your_cat.ID:
                 valid_mentors.append(cat)
         
         return valid_mentors

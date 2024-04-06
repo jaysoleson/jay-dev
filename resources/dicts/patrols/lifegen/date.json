@@ -250,8 +250,8 @@
                 "weight": 20,
                 "accessory": [
                     {
-                        "cats": ["r_c"],
-                        "accessory": ["BELLFLOWERS"]
+                        "cats": ["p_l"],
+                        "accessory": ["FLOWER"]
                     }
                 ]
             }
@@ -590,7 +590,7 @@
                 "weight": 20,
                 "accessory": [
                     {
-                        "cats": ["r_c", "y_c"],
+                        "cats": ["p_l"],
                         "accessory": ["TULIPPETALS"]
                     }
                 ]

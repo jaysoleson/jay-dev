@@ -646,43 +646,6 @@
             "Maybe you can still make it to the medicine den if you hurry!"
         ]
     ],
-    "assertive_app29": [
-        [
-            "mediator",
-            "mediator apprentice",
-            "assertive",
-            "random_cat",
-            "platonic_like",
-            "comfort",
-            "trust",
-            "from_parent",
-            "from_mate",
-            "sibling",
-            "adopted_sibling"
-        ],
-        [
-            "Tch. Did you see what a snake-heart r_c was acting like earlier? And over a piece of prey, no less!",
-            "Cat's so mouse-brained, probably can't even tell their own tail from a willow branch ...",
-            "... Whoa, what? Wait, you want me to apologize to them?",
-            "But they were in the wrong, not me! Why even entertain their behavior with an apology?",
-            "If they're mad, who cares! Let 'em stay mad! They can stay mad forever, for all I care!",
-            "Look, I know you're the mediator, and it's your job to resolve conflicts, or whatever, but ... you love me. Shouldn't you be on my side?",
-            "You'd really choose them over me?"
-        ]
-    ],
-    "assertive_app29_2": [
-        [
-            "mediator",
-            "mediator apprentice",
-            "assertive",
-            "random_cat"
-        ],
-        [
-            "Let me guess. You've come to patch things up between me and r_c, 'cause of the fight we had earlier. That right?",
-            "I'll save you a few words - it's not gonna happen. Why's it always me that's gotta be in the wrong, huh? Why not force them to apologize?",
-            "Go find somebody else's problem to fix."
-        ]
-    ],
     "assertive_queensapp_4": [
         [
             "kitten",
@@ -782,24 +745,6 @@
             "Once upon a time, there was a young kit named Quietkit who always stayed up past her bedtime. She was so tired that, one day, she fell asleep on her paws, and fell into a hole so deep, it went straight into the Dark Forest!",
             "Now, her spirit haunts the nursery, waiting for more disobedient kits she can take down with her ...",
             "Now, do you wanna be Quietkit's next playmate? Or do you wanna put the moss-ball down and get in your nest?"
-        ]
-    ],
-    "assertive_elder_6": [
-        [
-            "elder",
-            "assertive",
-            "cool",
-            "silly",
-            "unlawful",
-            "platonic_like",
-            "romantic_like",
-            "from_mate"
-        ],
-        [
-            "Hey, furbag. I brought you something!",
-            "[t_c lays a colorful feather at your paws.",
-            "I know this is your favorite color, and you miss exploring the territory. So I knew I just had to bring it to you.",
-            "Yeah, yeah, don't get all soft on me, hehe. Wanna grab a meal together?"
         ]
     ],
     "assertivewarrior_leader5": [
@@ -947,87 +892,15 @@
             "medicine cat apprentice",
             "mediator apprentice",
             "assertive",
+            "stable",
+            "sweet",
+            "neurotic",
             "platonic_like"
         ],
         [
             "StarClan, y_c, look at you ... could you really have been one of my kits here in the nursery just a few moons ago?",
             "But, ah, no one can stay a kit forever, I suppose. And it's been such a joy, watching you grow.",
             "You're always welcome here any time you need!"
-        ]
-    ],
-    "assertive_like": [
-        [
-            "Any",
-            "assertive",
-            "silly",
-            "platonic_like",
-            "romantic_like",
-            "from_mate"
-        ],
-        [
-            "Hey, flea-brain! I've been eyeing this huge thrush on the freshkill pile all day - wanna share it?",
-            "What the - the thrush is totally missing! But I was saving it for us!",
-            "That's it! I will not rest until the cat who did this is hunted down ... AND BROUGHT TO JUSTICE!!!",
-            "[You and t_c dissolve into a fit of giggles.]"
-        ]
-    ],
-    "assertive_dislike1": [
-        [
-            "Any",
-            "assertive",
-            "silly",
-            "unlawful",
-            "dislike"
-        ],
-        [
-            "Sorry, is someone talking to me right now?"
-        ]
-    ],
-    "assertive_dislike1_2": [
-        [
-            "Any",
-            "assertive",
-            "unabashed",
-            "brooding",
-            "dislike"
-        ],
-        [
-            "Can't you see I'm busy, mousebrain? Go bother someone else!"
-        ]
-    ],
-    "assertive_dislike1_3": [
-        [
-            "Any",
-            "assertive",
-            "dislike"
-        ],
-        [
-            "Go away!!!"
-        ]
-    ],
-    "assertive_dislike1_4": [
-        [
-            "Any",
-            "assertive",
-            "cool",
-            "dislike",
-            "no_kit"
-        ],
-        [
-            "Hey, y_c. You're looking smaller than usual. Maybe it's time to catch up on your training.",
-            "*Snrk.*"
-        ]
-    ],
-    "assertive_rom": [
-        [
-            "Any",
-            "assertive",
-            "romantic_like"
-        ],
-        [
-            "Hey, y_c! I just got a new scar today! Wanna come take a look?",
-            "Yeah, I ran into a little dog out at the edge of a territory. Wasn't too hard to chase off, but it gave me a little nick. Medicine cat says it's probably never going away.",
-            "[You brush your tail over t_c's scar, and they seem a little too thrilled by the gesture for it to just be friendly.]"
         ]
     ],
     "assertive_rom1": [
@@ -1327,6 +1200,36 @@
             "Little y_c. I wonder what type of cat you'll become one day."
         ]
     ],
+    "cool_queen_1": [
+        [
+            "Any",
+            "Cool",
+            "neutral",
+            "clan_has_kits",
+            "random_cat"
+        ],
+        [
+            "[t_c stumbles out of the nursery, leaving the ear-piercing sounds of mewling kits behind them.]",
+            "[Exhausted, they almost run right into you.]",
+            "Oh, sorry, r_c. I didn't see you there.",
+            "I haven't had a good night's sleep in, like, a moon. Do you think anyone will notice if I sneak into the warrior's den tonight?",
+            "[You open your mouth to offer your opinion, or to tell them that they got your name wrong, but the sleepy queen has already brushed past you to head for the warrior's den.]",
+            "[Sweet dreams, t_c!]"
+        ]
+    ],
+    "cool_queen_2": [
+        [
+            "Any",
+            "Cool",
+            "clan_has_kits",
+            "random_cat"
+        ],
+        [
+            "[t_c is laying in front of the nursery, calmly washing their paws.]",
+            "[r_k is with them, wrestling their tail as if it were a feisty snake. As the tiny kit keeps fighting their battle, t_c looks up and catches your eye with a smile.]",
+            "Could you get me that sparrow from the top of the fresh-kill pile? I might be here a while."
+        ]
+    ],
     "upstanding_queen": [
         [
             "upstanding",
@@ -1477,7 +1380,7 @@
             "sweet"
         ],
         [
-            "-t_c lets out a soft yawn, stretching as you tug at their tail for attention-",
+            "[t_c lets out a soft yawn, stretching as you tug at their tail for attention]",
             "Oh, good evening, y_c! What is it that you need, littlest one?",
             "You had a nightmare...? Come here, tell me all about it... You don't ever need to worry, c_nClan will always keep you safe."
         ]
@@ -1514,7 +1417,8 @@
         [
             "Ah, y_c! You're filthy! Is everything alright?? Nothing happened, did it?",
             "Oh, it's just from training? I see... m_n is filthy too?",
-            "-t_c begins to gently laugh- Well, you both can go get your hindquarters cleaned!"
+            "[t_c begins to gently laugh.]",
+            "Well, you both can go get your hindquarters cleaned!"
         ]
     ],
     "sweet_queen_6": [
@@ -1771,6 +1675,56 @@
             "Hm, y_c? What's up?",
             "Oh, sure thing, I can bring everyone in the nursery over for storytime! Thank you, it's very kind of you to do this.",
             "You stay right there, I'll be back in a few moments!"
+        ]
+    ],
+    "unabashed_queen1": [
+        [
+            "unabashed",
+            "no_kit",
+            "dislike"
+        ],
+        [
+            "[t_c overhears you talking to one of the kits, and pulls you to the side.]",
+            "You shouldn't lie to the kits, y_c, you know. Telling the truth is good for them; when you lie to them, you're going to teach them that they can't trust their clanmates."
+        ]
+    ],
+    "DF_queen_H1": [
+        [
+            "you_DF",
+            "they_DF",
+            "queen"
+        ],
+        [
+            "A kitten has been mewling at the edge of the border, but I can't seem to find them.",
+            "[For a cat that somehow made their way into the Dark Forest, they sure don't act like any other cat around the void of muck.]",
+            "Oh, don't give me that look. I am a Queen-- it is my duty to take care of kittens, regardless of what I did while living.",
+            "But it's so strange... The Dark Forest really messes with your mind, out here.",
+            "I can't help but wonder if there even is a kitten at all."
+        ]
+    ],
+    "Df_queen_kitten": [
+        [
+            "they_df",
+            "you_sc",
+            "kitten",
+            "newborn"
+        ],
+        [
+            "[t_c appears from the darkness, a snarl on their lips before they notice you.]",
+            "[Their expression softens somewhat.]",
+            "This is no place for a kit like you, y_c. Head back to StarClan before it's too late.",
+            "[The former queen turns around, heading back into the darkness."
+        ]
+    ],
+    "stable_Queen_Gen_01": [
+        [
+            "Any",
+            "stable"
+        ],
+        [
+            "I swear these kits are going to be the death of me...",
+            "[r_k rolls around onto t_c's paw playfully. They look up with big buggy eyes. t_c's gaze softens.]",
+            "And I honestly think I wouldn't change it for the world. I know that might be hard for some cats to understand, y_c. But I cannot put into words how thankful I am that I wake up and do this job every day."
         ]
     ]
 }

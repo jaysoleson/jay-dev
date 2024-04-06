@@ -1031,5 +1031,53 @@
         [
             "[t_c is hard at work, kneading their nest with itty-bitty paws.]"
         ]
+    ],
+    "newborn_shunned1": [
+        [
+            "you_shunned",
+            "any"
+        ],
+        [
+            "[r_q picks up t_c and pulls them away as you approach.]"
+        ]
+    ],
+    "newborn_shunned2": [
+        [
+            "you_shunned",
+            "any"
+        ],
+        [
+            "[t_p has their whole body wrapped around t_c, shielding them from you.]"
+        ]
+    ],
+    "newborn_shunned3": [
+        [
+            "you_shunned",
+            "any"
+        ],
+        [
+            "[r_c quickly grabs t_c and carries them away as they stumble curiously towards you.]"
+        ]
+    ],
+    "newborn_shunned4": [
+        [
+            "you_shunned",
+            "any"
+        ],
+        [
+            "Mrow..?",
+            "[Could even this newborn kit be judging you?]"
+        ]
+    ],
+    "newborn_shunned5": [
+        [
+            "you_shunned",
+            "any"
+        ],
+        [
+            "[From across camp, you stare at one of the only members of c_nClan who doesn't know what you did.]",
+            "[r_q sees you staring and steps in front of t_c to block your view.]",
+            "[You sigh. It won't be long before someone lets them know.]"
+        ]
     ]
 }

@@ -3,6 +3,7 @@ import random
 from scripts.cat.cats import Cat
 from scripts.cat.history import History
 from scripts.cat.pelts import Pelt
+from scripts.cat_relations.relationship import Relationship
 from scripts.events_module.generate_events import GenerateEvents
 from scripts.utility import event_text_adjust, change_clan_relations, change_relationship_values
 from scripts.game_structure.game_essentials import game
@@ -90,6 +91,19 @@ class MiscEvents():
         elif "rel_up" in misc_event.tags:
             difference = 1
             change_clan_relations(other_clan, difference=difference)
+        
+        if "notreveal" in misc_event.tags:
+            reveal = False
+        elif "definite_shun" in misc_event.tags:
+            reveal = True
+        if "notreveal" not in misc_event.tags and "definite_shun" not in misc_event.tags and "murder_reveal" in misc_event.tags:
+            nosnitch = random.randint(1,6) 
+            if nosnitch == 1:
+                reveal = False
+            else:
+                reveal = True
+
+        
 
         event_text = event_text_adjust(Cat, misc_event.event_text, cat, other_cat, other_clan_name, murder_reveal=reveal, victim=victim)
         
@@ -106,6 +120,12 @@ class MiscEvents():
 
                 log_text = event_text + effect
 
+                if other_cat.ID not in cat.relationships:
+                    cat.relationships[other_cat.ID] = Relationship(cat, other_cat)
+
+                if cat.ID not in other_cat.relationships:
+                    other_cat.relationships[cat.ID] = Relationship(other_cat, cat)
+
                 if cat.moons == 1:
                     cat.relationships[other_cat.ID].log.append(log_text + f" - {cat.name} was {cat.moons} moon old")
                 else:
@@ -116,7 +136,7 @@ class MiscEvents():
             types.append("other_clans")
         if ceremony:
             types.append("ceremony")
-        if other_cat and reveal:
+        if other_cat and not reveal:
             if "mu" + str(other_cat.name) in event_text:
                 return
         if "r_c" in event_text:
@@ -124,6 +144,19 @@ class MiscEvents():
             print(event_text)
             return
         
+
+        # to remove double the event
+        # (example which might happen would be: "The tension between c_n and o_c is palpable, with even the smallest actions potentially leading to violence.")
+        same_text_events = [event for event in game.cur_events_list if event.text == event_text]
+        if len(same_text_events) > 0:
+            return
+        
+        if reveal and "definite_shun" not in misc_event.tags:
+            event_text += " " + str(other_cat.name) + " has told the Clan about the truth they discovered."
+        elif not reveal and "murder_reveal" in misc_event.tags:
+            event_text += " " + str(other_cat.name) + " has decided to keep their secret."
+
+
         game.cur_events_list.append(Single_Event(event_text, types, involved_cats))
         if reveal and victim:
             History.reveal_murder(cat, other_cat, Cat, victim, murder_index)

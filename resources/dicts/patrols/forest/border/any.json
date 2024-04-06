@@ -1,5 +1,5 @@
 [
-    {
+     {
         "patrol_id": "fst_bord_rogue1",
         "biome": ["forest"],
         "season": ["Any"],
@@ -558,7 +558,11 @@
                         "scars": ["SIDE"]
                     }
                 ],
-                "history_text": { "scar": "This cat was scarred by a badger." },
+                "history_text": {
+                    "scar": "m_c was scarred by a badger.",
+                    "reg_death": "m_c lost their life to a badger.",
+                    "lead_death": "{VERB/m_c/were/was} killed by a badger"
+                },
                 "relationships": [
                     {
                         "cats_to": ["r_c", "p_l"],
@@ -709,7 +713,11 @@
                         "scars": ["SIDE"]
                     }
                 ],
-                "history_text": { "scar": "This cat was scarred by a badger." },
+                "history_text": {
+                    "scar": "m_c was scarred by a badger.",
+                    "reg_death": "m_c lost their life to a badger.",
+                    "lead_death": "{VERB/m_c/were/was} killed by a badger"
+                },
                 "relationships": [
                     {
                         "cats_to": ["r_c", "p_l"],
@@ -835,7 +843,7 @@
         "chance_of_success": 30,
         "success_outcomes": [
             {
-                "text": "The pawprints lead to a trespassing rogue. r_c quickly hides themselves behind a bush and sets up an ambush that sends the rogue fleeing off c_n territory.",
+                "text": "The pawprints lead to a trespassing rogue. r_c quickly hides themself behind a bush and sets up an ambush that sends the rogue fleeing off c_n territory.",
                 "exp": 10,
                 "weight": 20
             },
@@ -881,7 +889,7 @@
                 "weight": 20
             },
             {
-                "text": "The pawprints lead to a trespassing rogue. s_c throws themselves at the rogue, hissing furiously, but this is one battle hardened trespasser, and s_c isn't as good of a fighter as they'd like to think. The rogue manages to escape their grasp and run off further into c_n territory.",
+                "text": "The pawprints lead to a trespassing rogue. s_c throws themselves at the rogue, hissing furiously, but this is one battle-hardened trespasser, and s_c isn't as good of a fighter as they'd like to think. The rogue manages to escape their grasp and run off further into c_n territory.",
                 "exp": 0,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,1"]
@@ -898,7 +906,7 @@
                 }
             },
             {
-                "text": "Nose to the ground following the trail, r_c doesn't see the blow coming. They haul themselves to their feet, spitting with outrage, but the rogue that did it has already turned and run.",
+                "text": "Nose to the ground following the trail, r_c doesn't see the blow coming. They haul themself to their feet, spitting with outrage, but the rogue that did it has already turned and run.",
                 "exp": 0,
                 "weight": 10,
                 "injury": [
@@ -1136,7 +1144,11 @@
                         "scars": ["BRIDGE"]
                     }
                 ],
-                "history_text": { "scar": "m_c was scarred by an invading rogue." },
+                "history_text": { 
+                    "scar": "m_c was scarred by an invading rogue.",
+                    "reg_death": "m_c was killed by an invading rogue.",
+                    "lead_death": "{VERB/m_c/were/was} killed by an invading rogue"
+                },
                 "relationships": [
                     {
                         "cats_to": ["patrol"],
@@ -1281,7 +1293,11 @@
                         "scars": ["CHEEK"]
                     }
                 ],
-                "history_text": { "scar": "m_c was scarred by an invading rogue." },
+                "history_text": {
+                    "scar": "m_c was scarred by an invading rogue.",
+                    "reg_death": "m_c was killed by an invading rogue.",
+                    "lead_death": "{VERB/m_c/were/was} killed by an invading rogue"
+                },
                 "relationships": [
                     {
                         "cats_to": ["patrol"],
@@ -1375,7 +1391,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "It turns out they were app1's own pawprints... app1 huffs with embarrassment, suddenly grateful that {PRONOUN/app1/poss} patrol is so small. Less eyes watching that embarrassing moment. {PRONOUN/app1/subject}{VERB/app1/don't/doesn't} want to look dumb in front of other cats.",
+                "text": "It turns out they were app1's own pawprints... app1 huffs with embarrassment, suddenly grateful that {PRONOUN/app1/poss} patrol is so small. Less eyes watching that embarrassing moment. {PRONOUN/app1/subject/CAP} {VERB/app1/don't/doesn't} want to look dumb in front of other cats.",
                 "exp": 0,
                 "weight": 20,
                 "relationships": [
@@ -1432,7 +1448,11 @@
                         "scars": ["CHEEK"]
                     }
                 ],
-                "history_text": { "scar": "m_c was scarred by an invading rogue." },
+                "history_text": {
+                    "scar": "m_c was scarred by an invading rogue.",
+                    "reg_death": "m_c was killed by an invading rogue.",
+                    "lead_death": "{VERB/m_c/were/was} killed by an invading rogue"
+                },
                 "relationships": [
                     {
                         "cats_to": ["patrol"],

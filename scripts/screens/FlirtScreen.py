@@ -47,6 +47,7 @@ class FlirtScreen(Screens):
         self.text = None
         self.profile_elements = {}
         self.talk_box_img = None
+        self.textbox_graphic_img = None
 
 
     def screen_switches(self):
@@ -75,6 +76,12 @@ class FlirtScreen(Screens):
                 scale(pygame.Rect((178, 942), (1248, 302))),
                 self.talk_box_img
             )
+        self.textbox_graphic_img = image_cache.load_image("resources/images/textbox_graphic.png").convert_alpha()
+        
+        self.textbox_graphic = pygame_gui.elements.UIImage(
+                scale(pygame.Rect((170, 942), (346, 302))),
+                self.textbox_graphic_img)
+        
         self.back_button = UIImageButton(scale(pygame.Rect((50, 50), (210, 60))), "",
                                         object_id="#back_button", manager=MANAGER)
         self.scroll_container = pygame_gui.elements.UIScrollingContainer(scale(pygame.Rect((500, 970), (900, 300))))
@@ -110,6 +117,8 @@ class FlirtScreen(Screens):
         del self.talk_box
         self.paw.kill()
         del self.paw
+        self.textbox_graphic.kill()
+        del self.textbox_graphic
 
     def update_camp_bg(self):
         light_dark = "light"

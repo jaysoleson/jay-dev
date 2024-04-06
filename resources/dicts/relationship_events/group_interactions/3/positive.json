@@ -5,7 +5,8 @@
 		"intensity": "high",
 		"interactions": [
 			"m_c is convincing r_c1 that r_c2 isn't so bad once you get to know {PRONOUN/r_c2/object}.",
-			"m_c chats with r_c1 about how r_c2 is a nice cat."
+			"m_c chats with r_c1 about how r_c2 is a nice cat.",
+			"r_c1 and r_c2 chatter as they trail behind m_c, meowing softly to avoid {PRONOUN/m_c/object} twitching ears. Why do they often follow behind m_c, like a kit to their mother? As the two express their vexation in silent, m_c twist {PRONOUN/m_c/poss} head at them, enchanting them with a bright, sweet smile. Oh. Now the two cats realized why as they blushed embarrassingly."
 		],
 		"trait_constraint": {
 			"m_c": ["charismatic", "empathetic", "loyal", "charming"]

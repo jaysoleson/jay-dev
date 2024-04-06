@@ -181,8 +181,8 @@
     ],
     "dep_32": [
         [
-            "murder",
-            "Any"
+            "Any",
+            "you_shunned"
         ],
         [
             "Stay far from me, murderer."
@@ -190,8 +190,8 @@
     ],
     "dep_1": [
         [
-            "murder",
-            "Any"
+            "Any",
+            "you_shunned"
         ],
         [
             "I can't look at you the same way anymore."
@@ -199,8 +199,8 @@
     ],
     "dep_2": [
         [
-            "murder",
-            "Any"
+            "Any",
+            "you_shunned"
         ],
         [
             "How do you live with yourself after what you've done?"
@@ -208,8 +208,8 @@
     ],
     "dep_3": [
         [
-            "murder",
-            "Any"
+            "Any",
+            "you_shunned"
         ],
         [
             "Every time I see your face, I'm reminded of the life you took."
@@ -217,8 +217,8 @@
     ],
     "dep_4": [
         [
-            "murder",
-            "Any"
+            "Any",
+            "you_shunned"
         ],
         [
             "You may think you got away with it, but I'll never forget."
@@ -226,8 +226,8 @@
     ],
     "dep_5": [
         [
-            "murder",
-            "Any"
+            "Any",
+            "you_shunned"
         ],
         [
             "I hope one day your conscience catches up with you."
@@ -235,8 +235,8 @@
     ],
     "dep_6": [
         [
-            "murder",
-            "Any"
+            "Any",
+            "you_shunned"
         ],
         [
             "The guilt must eat at you every single day."
@@ -244,8 +244,8 @@
     ],
     "dep_7": [
         [
-            "murder",
-            "Any"
+            "Any",
+            "you_shunned"
         ],
         [
             "You may have fooled everyone else, but not me."
@@ -253,8 +253,8 @@
     ],
     "dep_8": [
         [
-            "murder",
-            "Any"
+            "Any",
+            "you_shunned"
         ],
         [
             "I can't trust someone capable of such an act."
@@ -262,8 +262,8 @@
     ],
     "dep_9": [
         [
-            "murder",
-            "Any"
+            "Any",
+            "you_shunned"
         ],
         [
             "You're a walking reminder of the darkness that exists."
@@ -271,8 +271,8 @@
     ],
     "dep_10": [
         [
-            "murder",
-            "Any"
+            "Any",
+            "you_shunned"
         ],
         [
             "Your secret is safe with me, but don't expect my forgiveness."
@@ -1977,7 +1977,7 @@
             "I am your deputy, and I want to make sure I'm doing my best for all of you."
         ]
     ],
-    "sweet_deputy_12": [
+    "sweet_deputy_22": [
         [
             "warrior",
             "random_cat",
@@ -2100,6 +2100,44 @@
             "[You've lived many moons, but never have you seen a deputy quite like t_c.]",
             "[You watch them as they lay down, sending out patrols whilst letting r_k play with their tail.]",
             "[They've even planned to come and see you later for a story!]"
+        ]
+    ],
+    "stable_shunned_you_Apprentice_MedicineCat_04": [
+        [
+            "medicine cat apprentice",
+            "you_shunned",
+            "stable",
+            "they_deputy"
+        ],
+        [
+            "[t_c escorts you to pick up a piece of freshkill from the pile. Their gaze is full of silent hate. They walk with you back to the medicine den, just as r_c is leaving it.]",
+            "[You sit down and look over the den, something smells... off. You notice an odd smell coming from your nest and cautiously peel back the moss.]",
+            "[Under your bedding is a pile of deathberries, but they've been crushed, the juice seeping into your bed.]",
+            "What is that?",
+            "[d_n looks horrified, they immediately jump out of the den to track r_c down. You swallow the lump in your throat.]",
+            "[You feel like you're going to be sick.]"
+        ]
+    ],
+    "deputyshunned_J2": [
+        [
+            "they_shunned",
+            "any"
+        ],
+        [
+            "I'm not your deputy anymore.",
+            "You have no reason to talk to me."
+        ]
+    ],
+    "stable_Deputy_Gen_01": [
+        [
+            "Any",
+            "stable"
+        ],
+        [
+            "[d_n watches over the nursery next to the queens. They sigh heavily then lift their chin proudly. Some day, those kittens may look up to them as leader.]",
+            "[You couldn't imagine how that pressure would feel, a crushing weight on your shoulders. The fear of failure and mistakes, how that could lead to one, if not all the lives of those kits.]",
+            "[You smile confidently as the light bounces off their fur. You know that it won't happen, you know d_n is a good leader, a true spirit, and a just warrior. They'll be fine in whatever happens next.]",
+            "[You look to l_n, who couldn't look more prouder.]"
         ]
     ]
 }

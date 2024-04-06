@@ -1497,5 +1497,18 @@
             "In case you're wondering, it's a mixture of honey, chamomile and willow herb, and wrapped in a laurel leaf.",
             "... there we go. Thank you y_c. Hopefully there will be more fresh-kill soon."
         ]
+    ],
+    "starclan_medapp1": [
+        [
+            "you_sc",
+            "they_sc",
+            "medicine cat"
+        ],
+        [
+            "[It's the night of the half-moon meeting and t_c is watching the medicine cats approach closely, tail twitching with anticipation.]",
+            "Do you think I could send the message this time?--Before you say yes, it doesn't have to be a big one! Just a little one? Please?",
+            "[You hesitate for a moment at the pleading look in t_c's eyes, but eventually shake your head. They aren't well-trained enough for this.]",
+            "Oh... okay..."
+        ]
     ]
 }

@@ -4032,6 +4032,29 @@
             }
         }
     },
+    "#half_moon_button":
+    {
+        "prototype": "#image_button",
+        "images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/halfmoon_meeting.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/halfmoon_meeting_hover.png"
+            },
+            "selected_image":
+            {
+                "path": "resources/images/buttons/halfmoon_meeting_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/halfmoon_meeting_unavaliable.png"
+            }
+        }
+    },
     "#talk_button":
     {
         "prototype": "#image_button",
@@ -5820,6 +5843,7 @@
             }
         }
     },
+
     "#change_bi_button": 
     {
         "prototype": "#image_button",
@@ -5844,6 +5868,7 @@
         }
     },
     "#change_gay_button": 
+    
     {
         "prototype": "#image_button",
 		"images":
@@ -6139,6 +6164,52 @@
             "disabled_image":
             {
                 "path":"resources/images/buttons/change_greyaro_button_hover.png"
+            }
+        }
+    },
+    "#exile_return_button":
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/exile_return_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/exile_return_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/exile_return_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/exile_return_button_hover.png"
+            }
+        }
+    },
+    "#continue_dead_button":
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/continue_dead_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/continue_dead_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/continue_dead_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/continue_dead_button_hover.png"
             }
         }
     }

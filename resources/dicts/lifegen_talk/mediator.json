@@ -101,8 +101,8 @@
     ],
     "medi2": [
         [
-            "murder",
-            "Any"
+            "Any",
+            "you_shunned"
         ],
         [
             "I know that mistakes can happen, but it's crucial to take responsibility for our actions. Honesty and accountability are the foundations of trust within our community."
@@ -1112,9 +1112,9 @@
             "sweet"
         ],
         [
-            "-You see them mediating a pair of cats, who seemed to have gotten into a small fight over prey-",
+            "[You see t_c mediating a pair of cats, who seemed to have gotten into a small fight over prey]",
             "Oh, hey there y_c! I'll see you in a moment, if that's alright?",
-            "-It doesn't take too much longer before they trot over to you, a kind smile on their face-",
+            "[It doesn't take too much longer before they trot over to you, a kind smile on their face]",
             "Wow, today has been eventful! I've been kept on my toes, haha. What is it that you needed?",
             "Ahh, you and r_c can't agree on what the best thing to learn in training is? Alright, take me to them and I'll see what I can do!"
         ]
@@ -1387,66 +1387,106 @@
         [
             "upstanding",
             "no_kit",
-	"platonice_like",
-	"random_cat"
-	
+            "platonic_like",
+            "random_cat"
         ],
         [
-           "Hey y_c! You've been working pretty hard recently and I just thought I'd check up on you. Remember to take a break every once in a while, yeah? Rest is important after all!",
-"Oh, me? Don't worry, I'm not even doing much. Just gotta check up on a few of the warriors, see if r_c is doing alright, make sure the kits aren't fighting again, stop by the elder's den...",
-"...",
-"... don't look at me like that."
+            "Hey y_c! You've been working pretty hard recently and I just thought I'd check up on you. Remember to take a break every once in a while, yeah? Rest is important after all!",
+            "Oh, me? Don't worry, I'm not even doing much. Just gotta check up on a few of the warriors, see if r_c is doing alright, make sure the kits aren't fighting again, stop by the elder's den...",
+            "...",
+            "... don't look at me like that."
         ]
     ],
-
-"upstanding_mediator1": [
+    "upstanding_mediator1": [
         [
             "upstanding",
-"Any"
-	
+            "Any"
         ],
         [
-          "[It's easy to see how intimidating t_c can often be. Just a single glare can discourage even the most mischievous apprentice from pulling a prank!]"
+            "[It's easy to see how intimidating t_c can often be. Just a single glare can discourage even the most mischievous apprentice from pulling a prank!]"
         ]
     ],
-
-"upstanding_mediator2": [
+    "upstanding_mediator2": [
         [
             "upstanding",
-"kitten",
-"insult"
-	
+            "kitten",
+            "insult"
         ],
         [
-          "You and I are going to have a long talk about what you just said."
+            "You and I are going to have a long talk about what you just said."
         ]
     ],
-
-"upstanding_mediator3": [
+    "upstanding_mediator3": [
         [
             "upstanding",
-"from_mentor",
-"insult"
-	
+            "from_mentor",
+            "insult",
+            "any"
         ],
         [
-          "Looks like someone is one step closer to missing out on the upcoming Gathering."
+            "Looks like someone is one step closer to missing out on the upcoming Gathering."
         ]
     ],
-
-"upstanding_mediator4": [
+    "upstanding_mediator4": [
         [
-           "upstanding",
-"from_mentor",
-"platonic_like",
-"neutral"
-	
+            "upstanding",
+            "from_mentor",
+            "platonic_like",
+            "neutral",
+            "any"
         ],
         [
-          "[While the rest of the clan is fast asleep in their nests, you are woken up by a paw poking you in the side.]",
-"Rise and shine y_c! C'mon, up! Up! Up! Let's go! I want to try and get an early start on today's lesson.",
-"[t_c is certainly an excellent mentor, there's no doubt about that. However, as you sleepily follow them out of camp, you wish that they were slightly less enthusiastic when it comes to training.]"
+            "[While the rest of the clan is fast asleep in their nests, you are woken up by a paw poking you in the side.]",
+            "Rise and shine y_c! C'mon, up! Up! Up! Let's go! I want to try and get an early start on today's lesson.",
+            "[t_c is certainly an excellent mentor, there's no doubt about that. However, as you sleepily follow them out of camp, you wish that they were slightly less enthusiastic when it comes to training.]"
+        ]
+    ],
+    "unabashed_mediator22": [
+        [
+            "unabashed",
+            "mediator"
+        ],
+        [
+            "I hate some of the arguments that people have been having lately; It's ridiculous.",
+            "Like, have you heard some of these scuffles?!"
+        ]
+    ],
+    "unabashed_mediator2": [
+        [
+            "unabashed",
+            "mediator",
+            "no_kit"
+        ],
+        [
+            "Oh, y_c, you HAVE to hear this!",
+            "Y'know, I'm a mediator. And as a mediator, you get to know a bit about everyone..",
+            "And I gotta say, r_c and r_c2's relationship is SO WEIRD!",
+            "Have you noticed it too? Have you?",
+            "Listen, PLEASE come to me if you hear anything new! I'm dying to know!"
+        ]
+    ],
+    "unabashed_mediator3": [
+        [
+            "unabashed",
+            "mediator",
+            "no_kit",
+            "platonic_like"
+        ],
+        [
+            "Hey, y_c, can you help me out? I need some advice.",
+            "So r_c and r_c2 aren't getting along and I'm trying to think of a way to get them to cooperate and use teamwork without immediately biting the other's head off... Do you have any advice?",
+            "...a game? Hmmm... competition could make them argue more.",
+            "...unless I scare them into cooperating... Oh, that's perfect. Thanks, y_c!",
+            "[You have a feeling that r_c and r_c2 are in for a world of terror. Hopefully t_c won't tell them who gave them the idea.]"
+        ]
+    ],
+    "stable_Mediator_Gen_01": [
+        [
+            "Any",
+            "stable"
+        ],
+        [
+            "If you need someone to talk to, y_c, please don't be afraid to chase me up. It's my duty to help all those I can. I understand sometimes it's hard to ask for help, but if you're struggling- even with something small. I'm always here to help."
         ]
     ]
-
 }
