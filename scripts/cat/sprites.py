@@ -161,10 +161,10 @@ class Sprites():
 
             "pridebandanas3",
 
-            "nonpridebandanas"
+            "nonpridebandanas",
 
             # more lifegen 
-            
+
             "moipa"
 
         ]:
