@@ -40,6 +40,7 @@ class EventsScreen(Screens):
         self.health_events_button = None
         self.birth_death_events_button = None
         self.ceremonies_events_button = None
+        self.death_button = None
         self.all_events_button = None
         self.relationship_events_button = None
         self.events_list_box = None
@@ -342,6 +343,13 @@ class EventsScreen(Screens):
 
         self.timeskip_button = UIImageButton(scale(pygame.Rect((620, 436), (360, 60))), "", object_id="#timeskip_button"
                                              , manager=MANAGER)
+        
+        self.death_button = UIImageButton(scale(pygame.Rect((1020, 430), (68, 68))), "", object_id="#warrior", tool_tip_text="Revive"
+                                             , manager=MANAGER)
+        self.death_button.hide()
+
+        if game.switches['continue_after_death']:
+            self.death_button.show()
 
         # Sets up the buttons to switch between the event types.
         self.all_events_button = UIImageButton(
@@ -417,7 +425,8 @@ class EventsScreen(Screens):
 
     def exit_screen(self):
         self.open_involved_cat_button = None
-
+        if self.death_button:
+            self.death_button.kill()
         self.timeskip_button.kill()
         del self.timeskip_button
         if game.clan.game_mode != "classic":
