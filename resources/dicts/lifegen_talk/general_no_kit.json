@@ -154,7 +154,7 @@
             "Whoa, lookout! Incoming!!!",
             "[t_c is in hot pursuit of a mouse - right in the middle of camp! They skid to a halt inches from your face, destroying the pile of moss you were gathering for your nest.]",
             "*Huff* *Huff* Sorry about that! Say, did you see which way the mouse went?",
-            "I swear, those little buggers are getting braver by the day ... And stupider, too. How long does it think it's gonna last in a clanful of cats?",
+            "I swear, those little things are getting braver by the day ... And stupider, too. How long does it think it's gonna last in a clanful of cats?",
             "Er, sorry about your moss. Did you need help cleaning it up?",
             "[t_c clumsily attempts to reorganize the pile, breaking several pieces in the process.]",
             "There! Good as new ... kinda. Heh. Sorry, again.",
@@ -4314,7 +4314,7 @@
             "they_blind"
         ],
         [
-            "Leave me alone ..."
+            "Leave me alone..."
         ]
     ],
     "theygrief_7": [
@@ -13430,7 +13430,7 @@
         ],
         [
             "[Tired of sleeping at the edge of camp, one night, you poke your nose back into the warriors den to see most of your former denmates still awake.]",
-            "[They don't look angry to see you. A few cats begin to step forward, chuckling about 'payback' and 'punishment'.",
+            "[They don't look angry to see you. A few cats begin to step forward, chuckling about 'payback' and 'punishment'.]",
             "[Your fur bristles but before one can lunge, t_c skids in front of you and hisses at the attackers. The other cats begin to snarl.]",
             "[They question why t_c is defending you, why they dare step forward. t_c snaps at them, the other cats fleeing.]",
             "Before you say anything, y_c, I'm doing this because if someone hurts you, they're no better. I won't bring myself down to your level and I'll try and prevent my Clanmates from doing the same.",
@@ -13680,8 +13680,7 @@
         [
             "queen",
             "you_shunned",
-            "stable",
-            "hate"
+            "stable"
         ],
         [
             "[You sit off to the side of the nursery, your back turned. t_c sits with the kits and begins to sing a familiar song- it sounds like your song... The one you would always sing... But this is different.]",
@@ -14086,7 +14085,7 @@
         ],
         [
             "[StarClan cats pass by the thickly woven border, only slight glimmers of stars visible through the gaps. One of them catches your eye.]",
-            "Y_c? You shouldn't be so close to the border.",
+            "y_c? You shouldn't be so close to the border.",
             "[They back off when you take a swipe at the brambles.]"
         ]
     ],
@@ -14663,6 +14662,18 @@
             "Don't worry, y_c. I'll always remember you!"
         ]
     ],
+    "sc_they_living5": [
+        [
+            "you_sc",
+            "from_mate",
+            "any"
+        ],
+        [
+            "Hello, dear! You're looking very sparkly today.",
+            "Yes, of course that's a compliment! I can't wait to be as sparkly as you one day.",
+            "Oh, don't worry. I'll wait a little bit longer, love."
+        ]
+    ],
     "df_they_living": [
         [
             "you_df",
@@ -14699,6 +14710,261 @@
         ],
         [
             "What do you want?"
+        ]
+    ],
+    "df_they_living5": [
+        [
+            "you_df",
+            "from_mate",
+            "any"
+        ],
+        [
+            "Hello, darling!",
+            "You know, it hurts me to see you like this...",
+            "But, at the same time, the red goop brings out the colour in your eyes.",
+            "You're beautiful in any state of being."
+        ]
+    ],
+    "dead_theygrievingyou1": [
+        [
+            "you_sc",
+            "grievingyou",
+            "they_grieving",
+            "any"
+        ],
+        [
+            "y_c?",
+            "Is it really you? y_c?",
+            "Oh, I miss you so much, y_c, but...",
+            "I don't think I'm ready to join you yet. I thought I was, for a little bit, but...",
+            "I'll be there one day, okay? Please wait for me until then."
+        ]
+    ],
+    "dead_theygrievingyou2": [
+        [
+            "you_df",
+            "grievingyou",
+            "they_grieving",
+            "any"
+        ],
+        [
+            "[t_c jumps when they see you.]",
+            "Oh, my goodness, y_c?!",
+            "You... you look awful... You look like you're starving!",
+            "You can't really be a Dark Forest cat... Please tell me I'm seeing things."
+        ]
+    ],
+    "dead_theygrieving1": [
+        [
+            "you_sc",
+            "they_grieving",
+            "any"
+        ],
+        [
+            "[t_c blinks at you slowly.]",
+            "Oh, hello...",
+            "Is d_c with you? Are you coming to take me to them?",
+            "No? Oh...",
+            "Well, could you tell them to visit me when they can?"
+        ]
+    ],
+    "dead_theygrieving2": [
+        [
+            "you_df",
+            "they_grieving",
+            "any"
+        ],
+        [
+            "Wah! A Dark Forest Cat?",
+            "What are you doing here? You don't have d_c with you, do you? Surely they're in StarClan...",
+            "Oh, okay, good. That's... good.",
+            "[Despite their words, t_c seems disappointed.]"
+        ]
+    ],
+    "dead_theygrieving3": [
+        [
+            "you_df",
+            "you_sc",
+            "they_grieving",
+            "any"
+        ],
+        [
+            "Please, if you're not d_c, just go away..."
+        ]
+    ],
+    "dead_yougrieving1": [
+        [
+            "they_sc",
+            "grievingthem",
+            "you_grieving",
+            "any"
+        ],
+        [
+            "y_c! I've missed you a lot.",
+            "I know you're upset, but you can't join me up here. Not yet."
+        ]
+    ],
+    "dead_yougrieving2": [
+        [
+            "they_df",
+            "grievingthem",
+            "you_grieving",
+            "any"
+        ],
+        [
+            "y_c! I miss you.",
+            "But I'd never wish for you to join me here. Not ever.",
+            "Maybe, one day, we can speak with each other through the StarClan border.",
+            "But for now, this is just fine.",
+            "How is the Clan?"
+        ]
+    ],
+    "dead_yougrieving3": [
+        [
+            "they_sc",
+            "you_grieving",
+            "any"
+        ],
+        [
+            "Hello, y_c.",
+            "Don't worry, I'm not asking you to join me in the stars. Not yet.",
+            "d_c is ready to see you again, but only when it's your time."
+        ]
+    ],
+    "dead_yougrieving4": [
+        [
+            "they_df",
+            "you_grieving",
+            "any"
+        ],
+        [
+            "Whoa, a living cat? What do you need from me?",
+            "You don't seem to be doing too well... You probably shouldn't be talking to any of us."
+        ]
+    ],
+    "dead_youshunned1":
+    [
+        [
+            "they_df",
+            "you_shunned",
+            "any"
+        ],
+        [
+            "Clanmates ignoring you, huh?",
+            "Get used to it. That's just a little taste fo what you're in for when you get here."
+        ]
+    ],
+    "dead_youshunned2":
+    [
+        [
+            "they_sc",
+            "you_shunned",
+            "any"
+        ],
+        [
+            "How could someone with such a gift... turn out to be so evil?",
+            "No, I don't want to talk to you anymore. Find a Dark Forest cat to spend your time with."
+        ]
+    ],
+    "dead_youshunned3":
+    [
+        [
+            "they_df",
+            "you_shunned",
+            "you_grieving",
+            "any"
+        ],
+        [
+            "[t_c laughs.]",
+            "Having a bad moon, huh?"
+        ]
+    ],
+    "dead_youshunned4":
+    [
+        [
+            "they_sc",
+            "you_shunned",
+            "you_grieving",
+            "any"
+        ],
+        [
+            "You poor thing..."
+        ]
+    ],
+    "sc_living_kitten": [
+        [
+            "you_sc",
+            "any"
+        ],
+        [
+            "Is it true that some StarClan cats are powerful enough to make the moon cover the sun?"
+        ]
+    ],
+    "shunned_sc": [
+        [
+            "you_sc",
+            "any",
+            "they_shunned"
+        ],
+        [
+            "I've made some mistakes, I admit it.",
+            "But do I deserve this? I don't!",
+            "Ah, you wouldn't understand..."
+        ]
+    ],
+    "shunned_df": [
+        [
+            "you_df",
+            "any",
+            "they_shunned"
+        ],
+        [
+            "I've made some mistakes, I admit it.",
+            "But do I deserve this? I don't!",
+            "You would know, wouldn't you, y_c?"
+        ]
+    ],
+    "they_shunned_grieving": [
+        [
+            "any",
+            "they_shunned",
+            "they_grieving"
+        ],
+        [
+            "No one deserves what I'm being put through."
+        ]
+    ],
+    "they_shunned_grieving2": [
+        [
+            "any",
+            "they_shunned",
+            "they_grieving",
+            "you_sc"
+        ],
+        [
+            "No one deserves what I'm being put through."
+        ]
+    ],
+    "they_shunned_grieving3": [
+        [
+            "any",
+            "they_shunned",
+            "they_grieving",
+            "you_df"
+        ],
+        [
+            "No one deserves what I'm being put through."
+        ]
+    ],
+    "grieving_neruotic": [
+        [
+            "any",
+            "they_grieving",
+            "upstanding"
+        ],
+        [
+            "Leave me alone...",
+            "Please."
         ]
     ]
 }

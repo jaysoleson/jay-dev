@@ -733,7 +733,7 @@
         "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "As you hunt, you find a mouse nest, you burrow down into the nest and catch any you can get your claws on, the elders will be please tonight!",
+                "text": "As you hunt, you find a mouse nest, you burrow down into the nest and catch any you can get your claws on, the elders will be pleased tonight!",
                 "exp": 20,
                 "weight": 20
             }

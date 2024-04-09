@@ -405,10 +405,10 @@ class MurderScreen(Screens):
                                 "You will be required to take meals last and are forced to sleep in a separate den away from your clanmates.",
                                 "You are assigned to several moons of tasks that include cleaning out nests, checking elders for ticks, and other chores alongside your normal duties.",
                                 "You are assigned a mentor who will better educate you about the Warrior Code and the sacredness of life."]
-            demote_leader = ["Your lives will be stripped away and you will be demoted to a warrior, no longer trusted to be the Clan's leader."]
-            demote_deputy = ["The Clan decides that you will be demoted to a warrior, no longer trusting you as their deputy."]
-            demote_medicine_cat = ["The Clan decides that you will be demoted to a warrior, no longer trusting you as their medicine cat."]
-            exiled = ["The Clan decides that they no longer feel safe with you as a Clanmate. You will be exiled from the Clan."]
+            # demote_leader = ["Your lives will be stripped away and you will be demoted to a warrior, no longer trusted to be the Clan's leader."]
+            # demote_deputy = ["The Clan decides that you will be demoted to a warrior, no longer trusting you as their deputy."]
+            # demote_medicine_cat = ["The Clan decides that you will be demoted to a warrior, no longer trusting you as their medicine cat."]
+            # exiled = ["The Clan decides that they no longer feel safe with you as a Clanmate. You will be exiled from the Clan."]
             
             if you.status == 'kitten' or you.status == 'newborn':
                 game.cur_events_list.insert(3, Single_Event(choice(kit_punishment)))
@@ -416,38 +416,17 @@ class MurderScreen(Screens):
                 lead_choice = randint(1,3)
                 if lead_choice == 1:
                     game.cur_events_list.insert(3, Single_Event(choice(gen_punishment)))
-                elif lead_choice == 2:
-                    game.cur_events_list.insert(3, Single_Event(choice(demote_leader)))
-                    game.clan.your_cat.status_change('warrior')
-                else:
-                    game.cur_events_list.insert(3, Single_Event(choice(exiled)))
-                    Cat.exile(game.clan.your_cat)
             elif you.status == 'deputy':
                 lead_choice = randint(1,3)
                 if lead_choice == 1:
                     game.cur_events_list.insert(3, Single_Event(choice(gen_punishment)))
-                elif lead_choice == 2:
-                    game.cur_events_list.insert(3, Single_Event(choice(demote_deputy)))
-                    game.clan.your_cat.status_change('warrior')
-                else:
-                    game.cur_events_list.insert(3, Single_Event(choice(exiled)))
-                    Cat.exile(game.clan.your_cat)
             elif you.status == 'medicine cat':
                 lead_choice = randint(1,3)
                 if lead_choice == 1:
                     game.cur_events_list.insert(3, Single_Event(choice(gen_punishment)))
-                elif lead_choice == 2:
-                    game.cur_events_list.insert(3, Single_Event(choice(demote_medicine_cat)))
-                    game.clan.your_cat.status_change('warrior')
-                else:
-                    game.cur_events_list.insert(1, Single_Event(choice(exiled)))
-                    Cat.exile(game.clan.your_cat)
             else:
                 lead_choice = randint(1,5)
-                if lead_choice == 1:
-                    game.cur_events_list.insert(3, Single_Event(choice(exiled)))
-                    Cat.exile(game.clan.your_cat)
-                else:
+                if lead_choice in [1, 2, 3, 4]:
                     game.cur_events_list.insert(3, Single_Event(choice(gen_punishment)))
         
         if accomplice and accompliced and (punishment_chance == 2 or punishment_chance == 3):
@@ -458,48 +437,32 @@ class MurderScreen(Screens):
                                 f"{a_n} is required to take meals last and is forced to sleep in a separate den away from their clanmates.",
                                 f"{a_n} is assigned to several moons of tasks that include cleaning out nests, checking elders for ticks, and other chores alongside their normal duties.",
                                 f"{a_n} is assigned a mentor who will better educate them about the Warrior Code and the sacredness of life."]
-            demote_leader = [f"{a_n}'s lives will be stripped away and they will be demoted to a warrior, no longer trusted to be the Clan's leader."]
-            demote_deputy = [f"The Clan decides that {a_n} will be demoted to a warrior, no longer trusting them as their deputy."]
-            demote_medicine_cat = [f"The Clan decides that {a_n} will be demoted to a warrior, no longer trusting them as their medicine cat."]
-            exiled = [f"The Clan decides that they no longer feel safe with {a_n} as a Clanmate. They will be exiled from the Clan."]
+            
+            # demote_leader = [f"{a_n}'s lives will be stripped away and they will be demoted to a warrior, no longer trusted to be the Clan's leader."]
+            # demote_deputy = [f"The Clan decides that {a_n} will be demoted to a warrior, no longer trusting them as their deputy."]
+            # demote_medicine_cat = [f"The Clan decides that {a_n} will be demoted to a warrior, no longer trusting them as their medicine cat."]
+            # exiled = [f"The Clan decides that they no longer feel safe with {a_n} as a Clanmate. They will be exiled from the Clan."]
+
             if accomplice.status == 'kitten' or accomplice.status == 'newborn':
                 game.cur_events_list.insert(3, Single_Event(choice(kit_punishment)))
             elif accomplice.status == 'leader':
                 lead_choice = randint(1,3)
                 if lead_choice == 1:
                     game.cur_events_list.insert(3, Single_Event(choice(gen_punishment)))
-                elif lead_choice == 2:
-                    game.cur_events_list.insert(3, Single_Event(choice(demote_leader)))
-                    accomplice.status_change('warrior')
-                else:
-                    game.cur_events_list.insert(3, Single_Event(choice(exiled)))
-                    Cat.exile(accomplice)
+                
             elif accomplice.status == 'deputy':
                 lead_choice = randint(1,3)
                 if lead_choice == 1:
                     game.cur_events_list.insert(3, Single_Event(choice(gen_punishment)))
-                elif lead_choice == 2:
-                    game.cur_events_list.insert(3, Single_Event(choice(demote_deputy)))
-                    accomplice.status_change('warrior')
-                else:
-                    game.cur_events_list.insert(3, Single_Event(choice(exiled)))
-                    Cat.exile(accomplice)
+               
             elif accomplice.status == 'medicine cat':
                 lead_choice = randint(1,3)
                 if lead_choice == 1:
                     game.cur_events_list.insert(3, Single_Event(choice(gen_punishment)))
-                elif lead_choice == 2:
-                    game.cur_events_list.insert(3, Single_Event(choice(demote_medicine_cat)))
-                    accomplice.status_change('warrior')
-                else:
-                    game.cur_events_list.insert(1, Single_Event(choice(exiled)))
-                    Cat.exile(accomplice)
+                
             else:
                 lead_choice = randint(1,5)
-                if lead_choice == 1:
-                    game.cur_events_list.insert(3, Single_Event(choice(exiled)))
-                    Cat.exile(accomplice)
-                else:
+                if lead_choice in [1, 2, 3, 4]:
                     game.cur_events_list.insert(3, Single_Event(choice(gen_punishment)))
     
     def get_discover_chance(self, you, cat_to_murder, accomplice=None, accompliced=None):
@@ -654,8 +617,12 @@ class MurderScreen(Screens):
                     (270, 270)), manager=MANAGER)
 
             info = self.selected_cat.status + "\n" + \
-                   self.selected_cat.genderalign + "\n" + self.selected_cat.personality.trait + "\n" + \
-                   self.selected_cat.skills.skill_string(short=True)
+                   self.selected_cat.genderalign + "\n" + self.selected_cat.personality.trait + "\n"
+
+            if self.selected_cat.moons < 6:
+                info += "???"
+            else:
+                info += self.selected_cat.skills.skill_string(short=True)
             
             self.selected_details["selected_info"] = pygame_gui.elements.UITextBox(info,
                                                                                    scale(pygame.Rect((540, 325),
@@ -763,8 +730,12 @@ class MurderScreen(Screens):
                     (300, 300)), manager=MANAGER)
 
             info = self.selected_cat.status + "\n" + \
-                   self.selected_cat.genderalign + "\n" + self.selected_cat.personality.trait + "\n" + \
-                   self.selected_cat.skills.skill_string(short=True)
+                   self.selected_cat.genderalign + "\n" + self.selected_cat.personality.trait + "\n"
+            
+            if self.selected_cat.moons < 6:
+                info += "???"
+            else:
+                info += self.selected_cat.skills.skill_string(short=True)
             
             self.selected_details["selected_info"] = pygame_gui.elements.UITextBox(info,
                                                                                    scale(pygame.Rect((540, 325),

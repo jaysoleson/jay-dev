@@ -175,8 +175,6 @@ class Cat():
             self.set_faded()  # Sets the faded sprite and faded tag (self.faded = True)
 
             return
-        
-   
 
         self.generate_events = GenerateEvents()
 
@@ -305,10 +303,10 @@ class Cat():
 
         # backstory
         if self.backstory is None:
-           self.backstory = 'clanborn'
+            self.backstory = 'clanborn'
         else:
             self.backstory = self.backstory
-        
+
         # sex!?!??!?!?!??!?!?!?!??
         if self.gender is None:
             self.gender = choice(["female", "male"])
@@ -579,8 +577,8 @@ class Cat():
         if game.clan and game.clan.game_mode != 'classic' and not (self.outside or self.exiled) and body is not None:
             self.grief(body)
 
-        if not self.outside and self.status not in ["loner", "kittypet", "rogue"]:
-            #^^ seems redundant but fixes a bug where, if following the DF before the mc 
+        if not self.outside and self.status not in ["loner", "kittypet", "rogue", "former Clancat"]:
+            #^^ seems redundant but fixes a bug where, if following the DF before the mc
             # is born, and mc is not clanborn, their birth parent will be in both the DF and UR
             Cat.dead_cats.append(self)
             if game.clan.followingsc is False:
@@ -613,6 +611,9 @@ class Cat():
         if self.shunned > 0:
             self.shunned = 0
 
+        if self.exiled:
+            self.status = 'former Clancat'
+
         return text
 
     def exile(self):
@@ -630,9 +631,10 @@ class Cat():
             if fetched_cat:
                 fetched_cat.update_mentor()
         self.update_mentor()
+
 # pylint: disable=f-string-without-interpolation
     def handle_exile_returns(self):
-        """ exiled cats returnin"""
+        """outside cats returnin"""
        
             
         exiled_cats = [cat for cat in Cat.all_cats.values() if cat.exiled and not cat.dead]
@@ -679,11 +681,11 @@ class Cat():
 
     def return_home(self):
         """
-        Handles the exiled MC attempting to return to the Clan
+        Handles the outside MC attempting to return to the Clan
         """
 
         you = game.clan.your_cat
-        if not you.exiled:
+        if not you.outside:
             return
         
         murder_history = History.get_murders(you)
@@ -694,10 +696,11 @@ class Cat():
 
         nice = you.personality.trait in ["charismatic", "confident", "flexible", "witty", "loyal", "responsible", "faithful", "compassionate", "sincere", "sweet", "polite"]
         naughty = you.personality.trait in ["bloodthirsty", "sneaky", "manipulative", "strange", "rebellious", "troublesome", "stoic", "aloof", "cunning"]
-
+        acceptchance = randint(1,5)
+        killchance = randint(1,50)
         if you.exiled:
 
-            if num_victims <= 0:
+            if num_victims == 0:
                 acceptchance = randint (1,4)
                 killchance = randint(1,40)
             
@@ -757,9 +760,8 @@ class Cat():
 
         elif you.status in ["loner", "rogue", "kittypet", "former Clancat"]:
         # can only be former clancat rn but this is just to cover bases 4 the future
-            
-            if num_victims <= 0:
-                acceptchance = randint (1,3)
+            if num_victims == 0:
+                acceptchance = randint(1,3)
                 killchance = randint(1,50)
             
             elif num_victims == 1: # one victim
@@ -818,7 +820,8 @@ class Cat():
 
         if you.exiled:
             event_text = f"You muster up your courage and turn to walk back home, hoping that your Clanmates will be able to forgive you. At the {game.clan.name}Clan border, you sit and wait for a patrol. <br>"
-        else:
+
+        elif you.outside:
             event_text = f"You're ready to return home-- you're sure of it. You hope that your Clanmates will take you back in as you head for the {game.clan.name}Clan border to wait for a patrol. <br> "
         if acceptchance == 1:
             event_text = event_text + f"When one finally comes, they're wary, but they agree to take you back to camp, and a Clan meeting is held. After much deliberation, it's decided that you will be allowed back home."
@@ -832,11 +835,25 @@ class Cat():
             else:
                 you.status_change("kitten")
             you.thought = "Is happy to be home!"
+
+            if you.exiled:
+                you.exiled = False
+                
             Cat.add_to_clan(you)
 
         elif killchance == 1:
-            event_text = event_text + f"The patrol immediately meets you with hostility, and when you ask to visit camp, the more vengeful among the group instantly attack you, spitting at you that you don't desevre to step foot on {game.clan.name}Clan's territory after what you did. As your vision begins to blur, the last thing you hear is a former Clanmate damning you to the Dark Forest."
+            event_text = event_text + f"The patrol immediately meets you with hostility, and when you ask to visit camp, the more vengeful among the group instantly attack you, spitting at you that you don't deserve to step foot on {game.clan.name}Clan's territory after what you did. As your vision begins to blur, the last thing you hear is a former Clanmate damning you to the Dark Forest."
             Cat.die(you)
+            if you.moons > 119:
+                you.status_change("elder")
+            elif you.moons > 12:
+                you.status_change("warrior")
+            elif you.moons > 6:
+                you.status_change("apprentice")
+            else:
+                you.status_change("kitten")
+            if you.exiled:
+                you.exiled = False
         elif killchance in [2, 3, 4, 5, 6]:
             event_text = event_text + choice ([ f"The patrol responds to your greeting with hisses and growls. Before you can even ask to head back to camp with them, a set of claws shoots towards you and you're met with the view of your blood hitting the grass. You don't have to be told twice-- you retreat back to your makeshift home.",
             f"As soon as a patrol catches your eye, they erupt into hisses and yowls. You scramble to your paws, but you don't get away in time to avoid a fresh wound from an angry ex-clanmate. They scream after you that there will never be a place for you in {game.clan.name}Clan again."])
@@ -1398,7 +1415,7 @@ class Cat():
                     if kitty.ID not in game.clan.darkforest_cats:
                         continue
                 # guides aren't allowed here
-                if kitty == game.clan.instructor or game.clan.demon:
+                if kitty == game.clan.instructor or kitty == game.clan.demon:
                     continue
                 else:
                     dead_relations.append(rel)
@@ -1530,7 +1547,7 @@ class Cat():
                     continue
                 if "unknown_blessing" in tags:
                     continue
-                if "guide" in tags and giver_cat != (game.clan.instructor or game.clan.demon):
+                if "guide" in tags and giver_cat != game.clan.instructor and giver_cat != game.clan.demon:
                     continue
                 if game.clan.age != 0 and "new_clan" in tags:
                     continue
@@ -1666,9 +1683,6 @@ class Cat():
 
     def one_moon(self):
         """Handles a moon skip for an alive cat. """
-        if self.status == "kitten" and self.moons > 5:
-            print("something's wrong")
-        
         old_age = self.age
         self.moons += 1
         if self.moons == 1 and self.status == "newborn":
@@ -2807,7 +2821,7 @@ class Cat():
                 trust = 0
                 if game.settings['random relation']:
                     if game.clan:
-                        if the_cat == game.clan.instructor or game.clan.demon:
+                        if the_cat == game.clan.instructor or the_cat == game.clan.demon:
                             pass
                         elif randint(1, 20) == 1 and romantic_love < 1:
                             dislike = randint(10, 25)

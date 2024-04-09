@@ -321,7 +321,7 @@
             "... What does that mean?"
         ]
     ],
-    "assertivekit_1": [
+    "assertivekit_01": [
         [
             "no_kit",
             "assertive"
@@ -3568,7 +3568,8 @@
             "you_shunned",
             "they_blind",
             "you_blind",
-            "insult"
+            "insult",
+            "random_cat"
         ],
         [
             "r_c said I shouldn't listen to you."
@@ -3862,7 +3863,8 @@
         [
             "you_sc",
             "kitten",
-            "newborn"
+            "newborn",
+            "any"
         ],
         [
             "Who are you?",
@@ -3873,11 +3875,538 @@
         [
             "you_df",
             "kitten",
-            "newborn"
+            "newborn",
+            "any"
         ],
         [
             "W-who are you?",
             "You don't smell like you're from c_nClan!"
+        ]
+    ],
+    "sckit": [
+        [
+            "they_sc",
+            "they_kitten",
+            "any"
+        ],
+        [
+            "Hi there!",
+            "What are you doing here? You're not staying here forever, are you?",
+            "You still have a lot to do for c_nClan, trust me."
+        ]
+    ],
+    "dfkit": [
+        [
+            "they_df",
+            "they_kitten",
+            "any"
+        ],
+        [
+            "Hi, Clan cat!",
+            "You probably shouldn't be here. It's really scary.",
+            "Me? I'm fine! I'm super strong. Nothing scares me.",
+            "Nothing..."
+        ]
+    ],
+    "sckit3": [
+        [
+            "they_sc",
+            "you_sc",
+            "they_kitten",
+            "any"
+        ],
+        [
+            "y_c, come play with me!",
+            "And don't say you don't have the time. We have forever!"
+        ]
+    ],
+    "dfkit3": [
+        [
+            "they_df",
+            "you_df",
+            "they_kitten",
+            "any"
+        ],
+        [
+            "[t_c is tearing clumps of dirt form the ground beneath them. You ask why,]",
+            "This place sucks. I'm trying to destroy it.",
+            "I want to go live with the starry cats.",
+            "[Decide to join them. Maybe you two can dig far enough that you end up someplace new.]"
+        ]
+    ],
+    "sckit2": [
+        [
+            "they_sc",
+            "you_df",
+            "they_kitten",
+            "any"
+        ],
+        [
+            "[t_c runs away when they see you.]"
+        ]
+    ],
+    "dfkit2": [
+        [
+            "they_df",
+            "you_sc",
+            "they_kitten",
+            "any"
+        ],
+        [
+            "Your stars are so shiny!",
+            "They're so pretty. I wish I had some pretty stars."
+        ]
+    ],
+    "sckit4": [
+        [
+            "you_df",
+            "they_kitten",
+            "any"
+        ],
+        [
+            "[t_c runs away when they see you.]"
+        ]
+    ],
+    "dfkit4": [
+        [
+            "you_sc",
+            "they_kitten",
+            "any"
+        ],
+        [
+            "Your stars are so shiny!",
+            "They're so pretty. I wish I had some pretty stars."
+        ]
+    ],
+    "sckit5": [
+        [
+            "they_sc",
+            "they_kitten",
+            "any"
+        ],
+        [
+            "Whoa! There you are! The queens were telling me about you.",
+            "They say you're super duper special for being able to talk to us.",
+            "I'm glad you're super duper special. You're fun to talk to!",
+            "Wanna come play with me? They have these really sparkly leaves, here, they'd look great in your fur!",
+            "[You follow t_c deeper into StarClan territory as they ramble the whole way about their favourite parts of it.]",
+            "[It's adorable. You can't wait to join them here one day!]"
+        ]
+    ],
+    "sckit6": [
+        [
+            "they_sc",
+            "they_kitten",
+            "any"
+        ],
+        [
+            "You guys sure thank StarClan a lot!",
+            "I'm not sure what we did, but you're welcome!"
+        ]
+    ],
+    "sckit7": [
+        [
+            "they_sc",
+            "they_kitten",
+            "any"
+        ],
+        [
+            "It's really nice up here, but I miss the nursery.",
+            "How is it? Has it changed? Is my nest still there?"
+        ]
+    ],
+    "sc_sc_kittens": [
+        [
+            "kitten",
+            "you_sc",
+            "they_sc"
+        ],
+        [
+            "Hi, y_c! Wanna play?"
+        ]
+    ],
+    "sc_kitten2": [
+        [
+            "any",
+            "you_sc",
+            "they_sc"
+        ],
+        [
+            "I bet I'm a brighter star than you are!",
+            "[You ask t_c what they mean.]",
+            "Well, we all appear as stars to c_nClan cats, right?"
+        ]
+    ],
+    "sc_kitten3": [
+        [
+            "any",
+            "they_sc"
+        ],
+        [
+            "I wish I had more time with c_nClan...",
+            "Make sure you enjoy it while you can, okay y_c?"
+        ]
+    ],
+    "dead_theygrieving4": [
+        [
+            "any",
+            "you_sc",
+            "they_kitten",
+            "they_grieving"
+        ],
+        [
+            "A StarClan cat? Are you taking me too? Where's d_c?",
+            "No? Oh. Well, can you get d_c for me? I want to see them. Please."
+        ]
+    ],
+    "dead_theygrieving5": [
+        [
+            "any",
+            "you_df",
+            "they_kitten",
+            "they_grieving"
+        ],
+        [
+            "[t_c doesn't look scared of you at all. Maybe they're too sad to feel fear.]"
+        ]
+    ],
+    "dead_theygrieving6": [
+        [
+            "any",
+            "you_sc",
+            "they_kitten",
+            "they_grieving",
+            "grievingyou"
+        ],
+        [
+            "y_c!",
+            "[t_c bursts into tears and collapses into your starry fur.]",
+            "I miss you, y_c! Can you please come back? Please?"
+        ]
+    ],
+    "dead_theygrieving7": [
+        [
+            "any",
+            "you_df",
+            "they_kitten",
+            "they_grieving",
+            "grievingyou"
+        ],
+        [
+            "y_c! Are you really here? The queens told me you went to StarClan!",
+            "S-so, why do you look so scary?"
+        ]
+    ],
+    "sc_sc_kitten_1": [
+        [
+            "they_sc",
+            "you_sc",
+            "they_kitten",
+            "any"
+        ],
+        [
+            "We have an eternity to play together!"
+        ]
+    ],
+    "sc_sc_kitten_2": [
+        [
+            "they_sc",
+            "you_sc",
+            "they_kitten",
+            "any"
+        ],
+        [
+            "[t_c gazes down at their tiny paws.]",
+            "Do you think t_p remembers me?"
+        ]
+    ],
+    "sc_sc_kitten_3": [
+        [
+            "they_sc",
+            "you_sc",
+            "they_kitten",
+            "any"
+        ],
+        [
+            "[Brimming with energy, t_c bounces around you, their eyes alight.]",
+            "There's so much to see here! Have you explored all of it? Can you show me your favorite place?"
+        ]
+    ],
+    "sc_sc_kitten_5": [
+        [
+            "they_sc",
+            "you_sc",
+            "they_kitten",
+            "any",
+            "non-related"
+        ],
+        [
+            "Do you ever miss them? Your family, I mean. I see them in dreams sometimes, but it's not the same.",
+            "[The kit's eyes are clouded with a hint of sadness.]",
+            "Can we watch over them tonight? I just... I want to make sure they're okay."
+        ]
+    ],
+    "sc_sc_kitten_6": [
+        [
+            "they_sc",
+            "you_sc",
+            "they_kitten",
+            "any"
+        ],
+        [
+            "[t_c struts up to you, their eyes shining with excitement.]",
+            "Hey! Show me how to hunt!",
+            "[Your first instinct is to gently refuse, remembering they're just a kit. But then, the realization hits you; in StarClan, t_c remains forever young, and this moment could offer them joy they'd otherwise never know.]",
+            "[You nod and begin leading t_c to the StarClan hunting grounds.]"
+        ]
+    ],
+    "sc_sc_kitten_7": [
+        [
+            "they_sc",
+            "you_sc",
+            "they_kitten",
+            "any"
+        ],
+        [
+            "Do you think there's any cats that are looking down at us?",
+            "[You ask t_c what they mean. StarClan cats look down upon c_nClan cats.]",
+            "I know we're supposed to watch over c_nClan cats, but who's watching over us?",
+            "Maybe there's another StarClan... for StarClan cats. Maybe that's where cats go when they fade!"
+        ]
+    ],
+    "sc_sc_kitten_8": [
+        [
+            "they_sc",
+            "you_sc",
+            "they_kitten",
+            "any"
+        ],
+        [
+            "I had fun playing with the o_cClan kits the other day!",
+            "I wonder why o_cClan can't combine nurseries with c_nClan.",
+            "It would have been so much fun!"
+        ]
+    ],
+    "sc_sc_kitten_9": [
+        [
+            "they_sc",
+            "you_sc",
+            "they_kitten",
+            "kitten",
+            "any"
+        ],
+        [
+            "[You ask t_c if they want to play a game of 'warriors'.]",
+            "Fine, but only if I get to be a warrior from c_nClan!",
+            "[You sigh, and offer to be an enemy warrior from o_cClan.]",
+            "No! I talked with a o_cClan warrior yesterday and they were really nice! You can be a badger instead, okay? Now get ready, stinky badger!"
+        ]
+    ],
+    "sc_sc_kitten_10": [
+        [
+            "they_sc",
+            "you_sc",
+            "they_kitten",
+            "any"
+        ],
+        [
+            "It's almost time to watch the Gathering, y_c!",
+            "When I was back in c_nClan, I could never go to Gatherings. But now I can!"
+        ]
+    ],
+    "sc_living_kitten_1": [
+        [
+            "they_sc",
+            "they_kitten",
+            "any"
+        ],
+        [
+            "Eek! You scared me, y_c!",
+            "I can't talk to you right now!",
+            "I have some super important StarClan-y things to do okay?"
+        ]
+    ],
+    "sc_living_kitten_2": [
+        [
+            "they_sc",
+            "they_kitten",
+            "any"
+        ],
+        [
+            "Need something, y_c?",
+            "[t_c gazes at you with a wisdom unnatural for someone their age."
+        ]
+    ],
+    "sc_living_kitten_3": [
+        [
+            "they_sc",
+            "they_kitten",
+            "any",
+            "you_grieving"
+        ],
+        [
+            "I know you're really sad right now... You miss them a lot. I know.",
+            "But guess what?",
+            "They're always watching, even if you can't see them!"
+        ]
+    ],
+    "sc_living_kitten_4": [
+        [
+            "they_sc",
+            "they_kitten",
+            "any"
+        ],
+        [
+            "You might not see me, but I'm always here! Watching you!",
+            "Hehe, just kidding. You're not interesting enough to be watching all day."
+        ]
+    ],
+    "sc_living_kitten_5": [
+        [
+            "they_sc",
+            "they_kitten",
+            "any"
+        ],
+        [
+            "What's it like in StarClan, you ask?",
+            "Well, it's fun! But I miss being in c_nClan."
+        ]
+    ],
+    "sc_df_kitten_1": [
+        [
+            "they_sc",
+            "you_df",
+            "they_kitten",
+            "any"
+        ],
+        [
+            "Eek! Get away from me, stinky!"
+        ]
+    ],
+    "sc_df_kitten_2": [
+        [
+            "they_sc",
+            "you_df",
+            "they_kitten",
+            "any"
+        ],
+        [
+            "Someone told me you're strong because you're scary. But my parent says being kind is the real strong. Maybe you got it mixed up?"
+        ]
+    ],
+    "sc_df_kitten_3": [
+        [
+            "they_sc",
+            "you_df",
+            "they_kitten",
+            "any"
+        ],
+        [
+            "The queens told me you have ten eyes and six paws! And you eat kits for breakfast!",
+            "[You tell t_c that you're a normal cat just like them. Just one that's made a few mistakes.]"
+        ]
+    ],
+    "sc_df_kitten_4": [
+        [
+            "they_sc",
+            "you_df",
+            "they_kitten",
+            "any"
+        ],
+        [
+            "The elders of StarClan say there's good in every cat, even if it's buried deep like a tick. Maybe your good is just really, really, really deep down?"
+        ]
+    ],
+    "sc_df_kitten_5": [
+        [
+            "they_sc",
+            "you_df",
+            "they_kitten",
+            "any"
+        ],
+        [
+            "Even if you're in the Dark Forest now, it doesn't mean you have to stay there forever, right?"
+        ]
+    ],
+    "df_sc_kitten_1": [
+        [
+            "they_df",
+            "you_sc",
+            "they_kitten",
+            "any"
+        ],
+        [
+            "If StarClan is so powerful, why let bad things happen at all?"
+        ]
+    ],
+    "df_sc_kitten_2": [
+        [
+            "they_df",
+            "you_sc",
+            "they_kitten",
+            "any"
+        ],
+        [
+            "Why do you help those who don't listen? I've seen cats from c_nClan ignore your signs and then blame you when things go wrong. Why bother?"
+        ]
+    ],
+    "df_sc_kitten_3": [
+        [
+            "they_df",
+            "you_sc",
+            "they_kitten",
+            "any"
+        ],
+        [
+            "Is it true you can forgive anyone? Even someone who's done... a lot of bad things? I'm just asking... for a friend."
+        ]
+    ],
+    "df_sc_kitten_4": [
+        [
+            "they_df",
+            "you_sc",
+            "they_kitten",
+            "any"
+        ],
+        [
+            "Do you believe every cat can choose their path, or are some of us just born to be in the Dark Forest?",
+            "[t_c looks sad. Too sad, for someone their age.]",
+            "I... just want to be in the nursery again."
+        ]
+    ],
+    "df_sc_kitten_5": [
+        [
+            "they_df",
+            "you_sc",
+            "they_kitten",
+            "any"
+        ],
+        [
+            "How do you join StarClan?",
+            "Is there a task you can do? I can push the biggest rock here! Or swim in the muck for hours!",
+            "[t_c looks desperate.]",
+            "I... don't want to be cold anymore."
+        ]
+    ],
+    "sc_kitten_shunned": [
+        [
+            "you_sc",
+            "any",
+            "they_shunned"
+        ],
+        [
+            "It's not fair! It's not fair!"
+        ]
+    ],
+    "df_kitten_shunned": [
+        [
+            "you_df",
+            "any",
+            "they_shunned"
+        ],
+        [
+            "It's not fair! It's not fair!",
+            "Make them pay, y_c!"
         ]
     ]
 }

@@ -108,7 +108,7 @@
     {
         "id": "adventurous_leader",
         "thoughts": [
-            "Gives a particularly rousing speech in a Clan meeting with a puff chest",
+            "Gives a particularly rousing speech in a Clan meeting with a puffed chest",
             "Feels confident that the Clan admires {PRONOUN/m_c/object}",
             "Would rather be out exploring instead of in boring Clan meetings",
             "Is brimming with excitment for hypotheical battles",
@@ -315,9 +315,9 @@
             "Accepted a challenge leaping across the highest point in camp",
             "Is being cheeky during {PRONOUN/m_c/poss} Clan annoucements",
             "Was seen chasing out a fox to the border alone",
-            "Coldly scare off a rogue infringing on c_n's territory",
+            "Coldly scared off a rogue infringing on c_n's territory",
             "Is proposing a risky idea to gather a hefty amount of prey",
-            "Was seen leaping in the back of a predatory to nip its neck better"
+            "Was seen leaping in the back of a predator to nip its neck better"
         ],
         "main_trait_constraint": [
             "daring"
@@ -335,7 +335,7 @@
             "Hopes to sophisticate c_n",
             "Is combing out {PRONOUN/m_c/poss} coat with {PRONOUN/m_c/poss} tongue until it's shiny",
             "Took the time to cleaning out any unkempt mess from {PRONOUN/m_c/poss} sight",
-            "Is strunting throughout the camp with a waving tail",
+            "Is struting throughout the camp with a waving tail",
             "Has an eccentric style",
             "Is overdramatic"
         ],

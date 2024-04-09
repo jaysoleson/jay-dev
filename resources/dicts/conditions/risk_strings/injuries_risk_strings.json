@@ -216,7 +216,7 @@
     },
     "guilt": {
         "shock": [
-            "m_c is growing more and more haunyed by what {PRONOUN/m_c/subject}{VERB/m_c/'ve/'s} done."
+            "m_c is growing more and more haunted by what {PRONOUN/m_c/subject}{VERB/m_c/'ve/'s} done."
         ]
     }
 }

@@ -96,7 +96,8 @@
                 "Beware above, for strength together will not be enough."
             ],
             [
-                "Tempest comes. Tempest calls. Who are you to ignore the wind? Who are you to ignore the rain? Let it be. Let it storm, or else c_nClan will be no more."
+                "Tempest comes. Tempest calls. Who are you to ignore the wind? Who are you to ignore the rain?",
+                "Let it be. Let it storm, or else c_nClan will be no more."
             ],
             [
                 "Raise your heads to the sky."
@@ -113,9 +114,6 @@
             ],
             [
                 "Your vision suddenly goes white and your blood runs cold. You awake shivering in your nest."
-            ],
-            [
-                "t_c is walking across land, when they fall into a pool. When trying to swim up to the surface, the surface freezes before their eyes. They hear a voice in their ear \"the eyes of the lake shall close to their own.\" They gasp awake in their nest, their pelt and nest damp."
             ],
             [
                 "Prey will turn white like bone."
@@ -149,9 +147,6 @@
                 "The surrounding trees will feel the burning breeze."
             ],
             [
-                "t_c awakes to darkness, and scrambling at their lungs. The more they try to cough out the dark substance, the more of it climbs into their body. They fall to the floor, looking up for any signs of where they are, when they feel a dead twig scrape against their flank and a call, almost a crackle boom: 'The heart of the darkness is the most devious foe.' They wake up to an uncomfortable tingling in their paw pads."
-            ],
-            [
                 "With teeth that strip the trees to bone and claws that wear the ground to stone, a force that is grown from a single seed, beware the beast of endless greed."
             ],
             [
@@ -176,15 +171,6 @@
     },
     "Terrible Cold": {
         "text": [
-            [
-                "As t_c lays in their nest for the night, they begin to drift. They find themself wandering the camp under the stars, searching for their clanmates. Suddenly, a misted fog begins to build, obscuring the dens. Only a moment passes when searing pain grips at their haunches. t_c twists around to find a gaping maw, teeth glinting like frost in the star's light, ready to snap. Frozen with fear, the jaws sink every fang past their flesh and bones. The numbing darkness consumes, allowing only one thought to arise, 'The air will gnaw until all is trembling and still. It will sap your warmth, grip at your strength. Do not succumb to its bite.' t_c awakes with every hair on end."
-            ],
-            [
-                "t_c approaches the prey pile, grabbing the closest prey to them. As they close their jaws around it, a shock of cold spreads through their mouth. They instantly drop the prey, seeing that it has frozen solid from their grip. t_c stares at it, completely baffled. Is this... A sign?"
-            ],
-            [
-                "t_c nestles into their nest, feeling lulled by its warmth, but that comfort is soon lost when an eerie cold begins to settle in their lungs. Their eyes open to find they're no longer in the safety of their den, but instead, perched upon a vast frozen lake. Beneath the surface, t_c's Clanmates struggle desperately, their cries of anguish piercing the air as they claw to break free. Powerless to help, t_c can only watch as the lake's icy grip consumes them one by one. The vision fades, the den's warmth returns, yet a lingering chill persists in t_c's lungs."
-            ],
             [
                 "There is frost in your blood that no warmth can melt."
             ],
@@ -230,7 +216,7 @@
                 "Creatures, ignorant and vain, will settle in the land we claim."
             ],
             [
-                "t_c is sitting in their nest, when all of a sudden, they feel something grip into their pelt. They look up and see themself surrounded by large figures, several times their size looking down at them and reaching for them. t_c tries to run, but there's no escape. Just before their strange claws can sink into their pelt, they wake up safely in their den, with words dancing on their tongue: 'Fear the ones built like trees, for they shall do what they please.'"
+                "Fear the ones built like trees, for they shall do what they please."
             ],
             [
                 "Shadows walk into your camp, uninvited and unwanted."
@@ -307,9 +293,6 @@
             ],
             [
                 "Dangerous winds, howling ghosts, they've come to tear up what is needed most."
-            ],
-            [
-                "t_c watches a fallen leaf dance on the ground as the wind tosses it in the air. Instincts quietly take over as t_c approaches it with taunted eyes, ready to pounce. A powerful force of wind suddenly knocks them to their side and flattens them to the ground. The overpowering gust fades as quickly as it came, dazing t_c for a moment before they try to stand back upright. They look around wildly, a few of their clanmates eying t_c with confusion while they lick at their pelt in embarrassment. Did no one else feel that...?"
             ],
             [
                 "No amount of shelter will save the clan. When faced with power that loops and churns, you are left helpless. Your only hope is to run."

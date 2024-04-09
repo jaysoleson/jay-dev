@@ -1479,12 +1479,17 @@ class DeathScreen(UIWindow):
                 game.clan.your_cat.dead_for = 0
                 game.clan.your_cat.moons+=1
                 game.clan.your_cat.update_mentor()
-                if game.clan.your_cat.outside:
-                    game.clan.add_to_clan(game.clan.your_cat)
+                
+                game.switches['continue_after_death'] = False
+                # if game.clan.your_cat.outside:
+                #     game.clan.add_to_clan(game.clan.your_cat)
+
                 if game.clan.your_cat.ID in game.clan.starclan_cats:
                     game.clan.starclan_cats.remove(game.clan.your_cat.ID)
                 if game.clan.your_cat.ID in game.clan.darkforest_cats:
                     game.clan.darkforest_cats.remove(game.clan.your_cat.ID)
+                if game.clan.your_cat.ID in game.clan.unknown_cats:
+                    game.clan.unknown_cats.remove(game.clan.your_cat.ID)
                 you = game.clan.your_cat
                 if you.moons == 0 and you.status != "newborn":
                     you.status = 'newborn'
@@ -1830,7 +1835,9 @@ class ChangeCatToggles(UIWindow):
         self.checkboxes = {}
         
         # Prevent Fading
-        if self.the_cat == game.clan.instructor:
+        
+        if self.the_cat == game.clan.instructor or self.the_cat == game.clan.demon:
+
             box_type = "#checked_checkbox"
             tool_tip = "The afterlife guide can never fade."
         elif self.the_cat.prevent_fading:
@@ -1846,7 +1853,8 @@ class ChangeCatToggles(UIWindow):
                                                           object_id=box_type,
                                                           tool_tip_text=tool_tip)
         
-        if self.the_cat == game.clan.instructor:
+        if self.the_cat == game.clan.instructor or self.the_cat == game.clan.demon:
+
             self.checkboxes["prevent_fading"].disable()
         
         

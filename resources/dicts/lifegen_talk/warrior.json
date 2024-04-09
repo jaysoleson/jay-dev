@@ -962,7 +962,7 @@
             "Whoa, lookout! Incoming!!!",
             "[t_c is in hot pursuit of a mouse - right in the middle of camp! They skid to a halt inches from your face, destroying the pile of moss you were gathering for your nest.]",
             "*Huff* *Huff* Sorry about that! Say, did you see which way the mouse went?",
-            "I swear, those little buggers are getting braver by the day ... And stupider, too. How long does it think it's gonna last in a clanful of cats?",
+            "I swear, those little things are getting braver by the day ... And stupider, too. How long does it think it's gonna last in a clanful of cats?",
             "Er, sorry about your moss. Did you need help cleaning it up?",
             "[t_c clumsily attempts to reorganize the pile, breaking several pieces in the process.]",
             "There! Good as new ... kinda. Heh. Sorry, again.",
@@ -2848,7 +2848,8 @@
             "Okay! That's enough! t_a is my apprentice, I will handle this. All of you, don't you dare say another word to them.",
             "This is my responsibility, I will decide on a punishment if I see fit. They haven't even explained their reasoning because you won't let them say a word before shutting them down. t_a, lets go, follow me.",
             "[t_c and t_a walk out of the camp without batting an eye at anyone. It's obvious t_c is disappointed in t_a, yet they're willing to hear them out. You run back into the nursery after hearing l_n curse out loud.]",
-            "[While you think the whole thing was harsh, you're proud of t_c for standing up for their apprentice. But it's a lesson learned that you shouldn't overstep clan boundaries. You just hope t_c isn't punished too harshly for speaking up the way they did.]"
+            "[While you think the whole thing was harsh, you're proud of t_c for standing up for their apprentice. But it's a lesson learned that you shouldn't overstep clan boundaries.]",
+            "[You just hope t_c isn't punished too harshly for speaking up the way they did.]"
         ]
     ],
     "stable_warriortoKITTEN_8": [
@@ -3003,7 +3004,8 @@
             "I heard what r_w was saying to you earlier and I want you to ignore them. I- I'm sorry, let me choose my words more carefully.",
             "I am aware that with my history as a... Kittypet- Some cats think I'm not as skilled or as intelligent as a clanborn cat. But that's not true.",
             "They think I'm talentless and are a burden here, but I have proven myself time and time again. I'm determined to serve c_nClan as best as I can.",
-            "My past is a part of me, but it doesn't define me because I grew up and grew past that. Words mean so little, remember y_c, your actions hold the real weight. And I have proven through my actions, that I am as much of a warrior as anyone else."
+            "My past is a part of me, but it doesn't define me because I grew up and grew past that. Words mean so little-- remember, y_c-- your actions hold the real weight.",
+            "And I have proven, through my actions, that I am as much of a warrior as anyone else."
         ]
     ],
     "stable_warriortoKITTEN_FROMSIB_1": [
@@ -3159,7 +3161,7 @@
             "My Love?! Darling?! DEAR?!",
             "[It takes every fiber of your being to not burst out laughing as your mate hopelessly wanders through the camp looking for you. You're currently sitting just outside the camp entrance with d_n.]",
             "[d_n's body wracks with giggles and you shut your eyes so you don't do the same- you just wanted to report there was no sign of danger- you didn't want to come home to this.]",
-            "LOVELY?! Oh, where did you- y_c??? Y_c?!",
+            "LOVELY?! Oh, where did you- y_c??? y_c?!",
             "[Your eyes snap open to be met with t_c charging in your direction. d_n shuffles to the side and before you can react, you're being tackled to the ground by t_c.]",
             "My Love, I had no idea where you went! Please don't do that to me again!"
         ]
