@@ -70,6 +70,12 @@
             "Enable all accessories",
             "All cats will have all accessories available in their inventory",
             false
+        ],
+        
+        "auto equip": [
+            "Auto-equip pride accessories",
+            "Cats will automatically wear their pride flags.",
+            true
         ]
     },
     "role": {

@@ -333,6 +333,7 @@ class Romantic_Events():
         
         become_mates, mate_string = Romantic_Events.check_if_new_mate(cat_from, cat_to)
 
+
         if become_mates and mate_string:
             if cat_from.ID == game.clan.your_cat.ID or cat_to.ID == game.clan.your_cat.ID:
                 if not game.switches['window_open']:

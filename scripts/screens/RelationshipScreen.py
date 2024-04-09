@@ -296,12 +296,23 @@ class RelationshipScreen(Screens):
                                                                           scale(pygame.Rect((150, 150), (800, 100))),
                                                                           object_id=get_text_box_theme(
                                                                               "#text_box_34_horizleft"))
-        self.focus_cat_elements["details"] = pygame_gui.elements.UITextBox(self.the_cat.genderalign + " - " + \
-                                                                           str(self.the_cat.moons) + " moons - " + \
-                                                                           self.the_cat.personality.trait,
-                                                                           scale(pygame.Rect((160, 210), (800, 60))),
-                                                                           object_id=get_text_box_theme(
-                                                                               "#text_box_22_horizleft"))
+        
+        if self.the_cat.moons > 6:
+            self.focus_cat_elements["details"] = pygame_gui.elements.UITextBox(self.the_cat.genderalign + " - " + \
+                                                                                    self.the_cat.sexuality + " - " + \
+                                                                                    str(self.the_cat.moons) + " moons - " + \
+                                                                                    self.the_cat.personality.trait,
+                                                                                    scale(pygame.Rect((160, 210), (800, 50))),
+                                                                                    object_id=get_text_box_theme(
+                                                                                        "#text_box_22_horizleft"))
+        else:
+            self.focus_cat_elements["details"] = pygame_gui.elements.UITextBox(self.the_cat.genderalign + " - " + \
+                                                                                    str(self.the_cat.moons) + " moons - " + \
+                                                                                    self.the_cat.personality.trait,
+                                                                                    scale(pygame.Rect((160, 210), (800, 50))),
+                                                                                    object_id=get_text_box_theme(
+                                                                                        "#text_box_22_horizleft"))
+        
         self.focus_cat_elements["image"] = pygame_gui.elements.UIImage(scale(pygame.Rect((50, 150), (100, 100))),
                                                                        self.the_cat.sprite)
 
@@ -610,16 +621,62 @@ class RelationshipScreen(Screens):
         bar_count = 0
 
         # ROMANTIC LOVE
+
+        #CHECK SEXUALITY COMPATIBILITY
+
+        sexuality_incompatible= (self.the_cat.sexuality in ("gay", "andro") and \
+                                 the_relationship.cat_to.genderalign in ("female", "trans female", "demigirl")) or \
+                                (self.the_cat.sexuality in ("lesbian", "gyno") and \
+                                the_relationship.cat_to.genderalign in ("male", "trans male", "demiboy")) or \
+                                (self.the_cat.sexuality == "straight" and \
+                                self.the_cat.genderalign in ["male", "trans male", "demiboy"] and \
+                                the_relationship.cat_to.genderalign in ("male", "trans male", "demiboy")) or \
+                                (self.the_cat.sexuality == "straight" and \
+                                self.the_cat.genderalign in ["female", "trans female", "demigirl"] and \
+                                the_relationship.cat_to.genderalign in ("female", "trans female", "demigirl")) or \
+                                (self.the_cat.sexuality == "aroace")
+                               
+        incompatible_crush =    (self.the_cat.genderalign in ["male", "trans male", "demiboy"] and \
+                                the_relationship.cat_to.genderalign in ["male", "trans male", "demiboy"] and \
+                                the_relationship.cat_to.sexuality == "straight") or \
+                                (self.the_cat.genderalign in ["female", "trans female", "demigirl"] and \
+                                the_relationship.cat_to.genderalign in ["female", "trans female", "demigirl"] and \
+                                the_relationship.cat_to.sexuality == "straight") or \
+                                (self.the_cat.genderalign in ["male", "trans male", "demiboy"] and \
+                                the_relationship.cat_to.genderalign in ["female", "trans female", "demigirl"] and \
+                                the_relationship.cat_to.sexuality == "lesbian") or \
+                                (self.the_cat.genderalign in ["female", "trans female", "demigirl"] and \
+                                the_relationship.cat_to.genderalign in ["male", "trans male", "demiboy"] and \
+                                the_relationship.cat_to.sexuality == "gay")
+                                
+
         # CHECK AGE DIFFERENCE
         same_age = the_relationship.cat_to.age == self.the_cat.age
         adult_ages = ['young adult', 'adult', 'senior adult', 'senior']
         both_adult = the_relationship.cat_to.age in adult_ages and self.the_cat.age in adult_ages
         check_age = both_adult or same_age
+        arocat = self.the_cat.arospec = 'aromantic'
 
         # If they are not both adults, or the same age, OR they are related, don't display any romantic affection,
         # even if they somehow have some. They should not be able to get any, but it never hurts to check.
-        if not check_age or related:
+        if not check_age or related or arocat:
             display_romantic = 0
+
+        # and if they're incompatible, allow a little bit of a crush, but nothing more.
+        # this limits actual romantic attraction, not just the display
+        if sexuality_incompatible:
+            if the_relationship.romantic_love > 10:
+                the_relationship.romantic_love = 10
+
+            display_romantic = the_relationship.romantic_love
+
+        elif incompatible_crush:
+            max_romantic_love = 45
+            the_relationship.romantic_love = min(the_relationship.romantic_love, max_romantic_love)
+            display_romantic = the_relationship.romantic_love
+                
+            
+
             # Print, just for bug checking. Again, they should not be able to get love towards their relative.
             if the_relationship.romantic_love and related:
                 print(

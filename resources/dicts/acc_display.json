@@ -1435,6 +1435,171 @@
     "plural": "silver lunar chimes",
     "singular": "silver lunar chimes"
   },
+  "TRANS": {
+    "default": "trans bandana",
+    "plural": "a trans flag bandana",
+    "singular": "trans bandana"
+  },
+  "ENBY": {
+    "default": "nonbinary bandana",
+    "plural": "a nonbinary flag bandana",
+    "singular": "nonbinary bandana"
+  },
+  "DEMIROMANTIC": {
+    "default": "demiromantic bandana",
+    "plural": "a demiromantic flag bandana",
+    "singular": "demiromantic bandana"
+  },
+  "GENDERFLUID": {
+    "default": "genderfluid bandana",
+    "plural": "a genderfluid flag bandana",
+    "singular": "genderfluid bandana"
+  },
+  "AMBIGUOUS": {
+    "default": "ambiguous bandana",
+    "plural": "a gender-ambiguous flag bandana",
+    "singular": "ambiguous bandana"
+  },
+  "INTERSEX": {
+    "default": "intersex bandana",
+    "plural": "an intersex flag bandana",
+    "singular": "intersex bandana"
+  },
+  "RAINBOWBANDANA": {
+    "default": "rainbow bandana",
+    "plural": "a rainbow flag bandana",
+    "singular": "rainbow bandana"
+  },
+  "GAY": {
+    "default": "gay bandana",
+    "plural": "a gay flag bandana",
+    "singular": "gay bandana"
+  },
+  "LESBIAN": {
+    "default": "lesbian bandana",
+    "plural": "a lesbian flag bandana",
+    "singular": "lesbian bandana"
+  },
+  "BI": {
+    "default": "bi bandana",
+    "plural": "a bisexual flag bandana",
+    "singular": "bi bandana"
+  },
+  "AROACE": {
+    "default": "aroace bandana",
+    "plural": "an aroace flag bandana",
+    "singular": "an aroace bandana"
+  },
+  "PAN": {
+    "default": "pan bandana",
+    "plural": "a pan sexual bandana",
+    "singular": "pan bandana"
+  },
+  "POLYAM": {
+    "default": "polyam bandana",
+    "plural": "a polyamorous flag bandana",
+    "singular": "polyam bandana"
+  },
+  "DEMI": {
+    "default": "demisexual bandana",
+    "plural": "a demisexual flag bandana",
+    "singular": "demisexual bandana"
+  },
+  "GRAYACE": {
+    "default": "grey ace bandana",
+    "plural": "a greyasexual flag bandana",
+    "singular": "grey ace bandana"
+  },
+  "ACE": {
+    "default": "ace bandana",
+    "plural": "an asexual flag bandana",
+    "singular": "ace bandana"
+  },
+  "ARO": {
+    "default": "aro bandana",
+    "plural": "an aromantic flag bandana",
+    "singular": "aro bandana"
+  },
+  "GRAYARO": {
+    "default": "grey aromantic bandana",
+    "plural": "a grey aromantic bandana",
+    "singular": "grey aromantic bandana"
+  },
+  "URANIC": {
+    "default": "uranic bandana",
+    "plural": "a uranic flag bandana",
+    "singular": "uranic bandana"
+  },
+  "NEBULAROMANTIC": {
+    "default": "nebula bandana",
+    "plural": "a nebularomantic flag bandana",
+    "singular": "nebula bandana"
+  },
+  "CATGENDER": {
+    "default": "catgender bandana",
+    "plural": "a catgender flag bandana",
+    "singular": "catgender bandana"
+  },
+  "GENDERDOE": {
+    "default": "genderdoe bandana",
+    "plural": "a genderdoe flag bandana",
+    "singular": "genderdoe bandana"
+  },
+  "OMNISAPPHIC": {
+    "default": "omni-sapphic bandana",
+    "plural": "an omni-sapphic flag bandana",
+    "singular": "omni-sapphic bandana"
+  },
+  "MOTHGENDER": {
+    "default": "mothgender bandana",
+    "plural": "a mothgender flag bandana",
+    "singular": "mothgender bandana"
+  },
+  "SNOWLEOPARDGENDER": {
+    "default": "snowleopardgender bandana",
+    "plural": "a snowleopardgender flag bandana",
+    "singular": "snowleopardgender bandana"
+  },
+  "TIGERGENDER": {
+    "default": "tigergender bandana",
+    "plural": "a tigergender flag bandana",
+    "singular": "tigergender bandana"
+  },
+  "BUGGENDER": {
+    "default": "buggender bandana",
+    "plural": "a buggender flag bandana",
+    "singular": "buggender bandana"
+  },
+  "PLACEHOLDER": {
+    "default": "checkered bandana",
+    "plural": "a checkered flag bandana",
+    "singular": "checkered bandana"
+  },
+  "GYNO": {
+    "default": "gynosexual bandana",
+    "plural": "a gynosexual bandana",
+    "singular": "gynosexual bandana"
+  },
+  "ANDRO": {
+    "default": "androsexual bandana",
+    "plural": "an androsexual bandana",
+    "singular": "androsexual bandana"
+  },
+  "DEMIBOY": {
+    "default": "demiboy bandana",
+    "plural": "a demiboy bandana",
+    "singular": "demiboy bandana"
+  },
+  "DEMIGIRL": {
+    "default": "demigirl bandana",
+    "plural": "a demigirl bandana",
+    "singular": "demigirl bandana"
+  },
+  "BUTCH": {
+    "default": "butch lesbian bandana",
+    "plural": "a butch lesbian bandana",
+    "singular": "butch lesbian bandana"
+  },
   "FIDDLEHEADS" :{
     "default": "fiddleheads",
     "plural": "fiddleheads",

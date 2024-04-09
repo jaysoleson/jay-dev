@@ -636,7 +636,7 @@
                 "exp": 10,
                 "weight": 20,
                 "new_cat": [
-                    ["age:mate", "meeting", "mate:p_l", "backstory:loner3"]
+                    ["age:mate", "compmates", "meeting", "mate:p_l", "backstory:loner3"]
                 ],
                 "relationships": [
                     {
@@ -661,7 +661,7 @@
                 "exp": 10,
                 "weight": 20,
                 "new_cat": [
-                    ["age:mate", "meeting", "mate:p_l", "backstory:loner3"]
+                    ["age:mate", "compmates", "meeting", "mate:p_l", "backstory:loner3"]
                 ],
                 "relationships": [
                     {
@@ -686,7 +686,7 @@
                 "exp": 10,
                 "weight": 20,
                 "new_cat": [
-                    ["age:mate", "mate:p_l", "backstory:loner4"]
+                    ["age:mate", "compmates", "mate:p_l", "backstory:loner4"]
                 ],
                 "relationships": [
                     {
@@ -720,7 +720,7 @@
                 "exp": 0,
                 "weight": 20,
                 "new_cat": [
-                    ["age:mate", "meeting", "mate:p_l", "backstory:loner3"]
+                    ["age:mate", "compmates", "meeting", "mate:p_l", "backstory:loner3"]
                 ],
                 "lost_cats": ["p_l"],
                 "relationships": [
@@ -746,7 +746,7 @@
                 "exp": 0,
                 "weight": 20,
                 "new_cat": [
-                    ["age:mate", "meeting", "mate:p_l", "backstory:loner3"]
+                    ["age:mate", "compmates", "meeting", "mate:p_l", "backstory:loner3"]
                 ],
                 "relationships": [
                     {
@@ -773,7 +773,7 @@
                 "exp": 10,
                 "weight": 20,
                 "new_cat": [
-                    ["age:mate", "meeting", "mate:p_l", "backstory:loner3"]
+                    ["age:mate", "compmates", "meeting", "mate:p_l", "backstory:loner3"]
                 ],
                 "relationships": [
                     {
@@ -800,7 +800,7 @@
                 "exp": 10,
                 "weight": 20,
                 "new_cat": [
-                    ["age:mate", "meeting", "mate:p_l", "backstory:loner3"]
+                    ["age:mate", "compmates", "meeting", "mate:p_l", "backstory:loner3"]
                 ],
                 "relationships": [
                     {

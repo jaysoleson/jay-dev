@@ -55,7 +55,7 @@ class TalkScreen(Screens):
         self.current_scene = ""
         self.created_choice_buttons = False
         self.choicepanel = False
-        self.textbox_graphic = None
+        self.textbox_graphic_img = None
 
 
 
@@ -199,7 +199,6 @@ class TalkScreen(Screens):
         if self.texts:
             if self.texts[self.text_index][0] == "[" and self.texts[self.text_index][-1] == "]":
                 self.profile_elements["cat_image"].hide()
-                # self.textbox_graphic.show()
             else:
                 self.profile_elements["cat_image"].show()
                 # self.textbox_graphic.hide()

@@ -155,7 +155,6 @@ class Clan():
                 self.clan_settings[setting_name] = inf[2]
                 self.setting_lists[setting_name] = [inf[2], not inf[2]]
         
-        
         #Reputation is for loners/kittypets/outsiders in general that wish to join the clan. 
         #it's a range from 1-100, with 30-70 being neutral, 71-100 being "welcoming",
         #and 1-29 being "hostile". if you're hostile to outsiders, they will VERY RARELY show up.
@@ -186,7 +185,9 @@ class Clan():
 
     # The clan couldn't save itself in time due to issues arising, for example, from this function: "if deputy is not None: self.deputy.status_change('deputy') -> game.clan.remove_med_cat(self)"
     def post_initialization_functions(self):
-        if self.deputy is not None:
+
+
+        if self.deputy:
             self.deputy.status_change('deputy')
             self.clan_cats.append(self.deputy.ID)
 
@@ -194,11 +195,12 @@ class Clan():
             self.leader.status_change('leader')
             self.clan_cats.append(self.leader.ID)
 
-        if self.medicine_cat is not None:
+        if self.medicine_cat:
             self.clan_cats.append(self.medicine_cat.ID)
             self.med_cat_list.append(self.medicine_cat.ID)
             if self.medicine_cat.status != 'medicine cat':
                 Cat.all_cats[self.medicine_cat.ID].status_change('medicine cat')
+                
     def create_clan(self):
         """
         This function is only called once a new clan is
@@ -210,7 +212,9 @@ class Clan():
                               )
         self.instructor.dead = True
         self.instructor.dead_for = randint(20, 200)
-        self.instructor.backstory = choice(BACKSTORIES["backstory_categories"]["dead_cat_backstories"])
+        self.instructor.pelt.inventory = []
+        if self.instructor.pelt.inventory != []:
+            self.instructor.pelt.inventory = []
         self.add_cat(self.instructor)
         self.add_to_starclan(self.instructor)
         self.all_clans = []
@@ -222,11 +226,20 @@ class Clan():
         self.demon.dead = True
         self.demon.dead_for = randint(20, 200)
         self.demon.backstory = choice(BACKSTORIES["backstory_categories"]["df_backstories"])
+
+        self.demon.pelt.inventory = []
+        if self.demon.pelt.inventory != []:
+            self.demon.pelt.inventory = []
+
         self.add_cat(self.demon)
         self.add_to_darkforest(self.demon)
         self.all_clans = []
  
         if self.leader.status != "leader":
+            self.leader.status_change('leader')
+
+        # fixes weird non-leader leader issue 
+        if self.leader.status is not "leader":
             self.leader.status_change('leader')
 
         key_copy = tuple(Cat.all_cats.keys())
@@ -258,6 +271,12 @@ class Clan():
             elif Cat.all_cats.get(cat_id).status == 'medicine cat apprentice':
                 Cat.all_cats.get(cat_id).status_change('medicine cat apprentice')
             Cat.all_cats.get(cat_id).thoughts()
+
+            Cat.all_cats.get(cat_id).pelt.inventory = []
+
+            if Cat.all_cats.get(cat_id).pelt.inventory != []:
+                Cat.all_cats.get(cat_id).pelt.inventory = []
+
 
         game.save_cats()
         number_other_clans = randint(3, 5)
@@ -815,7 +834,7 @@ class Clan():
             game.clan.add_cat(game.clan.instructor)
             
         # demon Info
-        if "demon" in clan_data and clan_data["demon"] in Cat.all_cats:
+        if clan_data["demon"] in Cat.all_cats:
             game.clan.demon = Cat.all_cats[clan_data["demon"]]
             game.clan.add_cat(game.clan.demon)
             game.clan.demon.df = True
@@ -901,7 +920,6 @@ class Clan():
                 cat = c
                 age = cat.age
                 cat_sprite = str(cat.pelt.cat_sprites[cat.age])
-
                 # setting the cat_sprite (bc this makes things much easier)
                 if cat.not_working() and age != 'newborn' and game.config['cat_sprites']['sick_sprites']:
                     if age in ['kitten', 'adolescent']:
@@ -925,8 +943,18 @@ class Clan():
                     else:
                         cat_sprite = str(cat.pelt.cat_sprites[age])
 
-                possible_accs = ["WILD", "PLANT", "COLLAR", "FLOWER", "PLANT2", "SNAKE", "SMALLANIMAL", "DEADINSECT", "ALIVEINSECT", "FRUIT", "CRAFTED", "TAIL2"]
+
+                possible_accs = ["WILD", "PLANT", "COLLAR", "FLOWER", "PLANT2", "SNAKE", "SMALLANIMAL", "DEADINSECT", "ALIVEINSECT", "FRUIT", "CRAFTED", "PRIDE", "PRIDE2", "PRIDE3", "TAIL2", "BANDANAS"]
                 acc_list = []
+                if cat.moons > 6:
+                    if "PRIDE" in possible_accs:
+                        acc_list.extend(Pelt.pridebandanas)
+                    if "PRIDE2" in possible_accs:
+                        acc_list.extend(Pelt.pridebandanas2)
+                    if "PRIDE3" in possible_accs:
+                        acc_list.extend(Pelt.pridebandanas3)
+                if "BANDANAS" in possible_accs:
+                    acc_list.extend(Pelt.nonpridebandanas)
                 if "WILD" in possible_accs:
                     acc_list.extend(Pelt.wild_accessories)
                 if "PLANT" in possible_accs:

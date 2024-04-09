@@ -40,12 +40,12 @@ class EventsScreen(Screens):
         self.health_events_button = None
         self.birth_death_events_button = None
         self.ceremonies_events_button = None
+        self.death_button = None
         self.all_events_button = None
         self.relationship_events_button = None
         self.events_list_box = None
         self.toggle_borders_button = None
         self.timeskip_button = None
-        self.death_button = None
         self.freshkill_pile_button = None
         self.events_frame = None
         self.clan_age = None
@@ -94,7 +94,10 @@ class EventsScreen(Screens):
                 DeathScreen('events screen')
                 return
             if event.ui_element == self.timeskip_button and game.clan.your_cat.moons == 5 and game.clan.your_cat.status == 'kitten':
-                PickPath('events screen')
+                    PickPath('events screen')
+            elif event.ui_element == self.timeskip_button and (game.clan.your_cat.dead_for == 1 or game.clan.your_cat.exiled):
+                    DeathScreen('events screen')
+                    return
             elif event.ui_element == self.you or ("you" in self.display_events_elements and event.ui_element == self.display_events_elements["you"]):
                 game.switches['cat'] = game.clan.your_cat.ID
                 self.change_screen("profile screen")
@@ -340,7 +343,7 @@ class EventsScreen(Screens):
 
         self.timeskip_button = UIImageButton(scale(pygame.Rect((620, 436), (360, 60))), "", object_id="#timeskip_button"
                                              , manager=MANAGER)
-
+        
         self.death_button = UIImageButton(scale(pygame.Rect((1020, 430), (68, 68))), "", object_id="#warrior", tool_tip_text="Revive"
                                              , manager=MANAGER)
         self.death_button.hide()
@@ -422,11 +425,10 @@ class EventsScreen(Screens):
 
     def exit_screen(self):
         self.open_involved_cat_button = None
-
-        self.timeskip_button.kill()
-        del self.timeskip_button
         if self.death_button:
             self.death_button.kill()
+        self.timeskip_button.kill()
+        del self.timeskip_button
         if game.clan.game_mode != "classic":
             self.freshkill_pile_button.kill()
             del self.freshkill_pile_button

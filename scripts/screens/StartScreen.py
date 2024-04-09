@@ -46,8 +46,11 @@ class StartScreen(Screens):
     def __init__(self, name=None):
         super().__init__(name)
         self.warning_label = None
-        bg = self.choose_random_menu("resources/menus")
-        self.bg = pygame.image.load(bg).convert()
+
+        # bg = random.randint(1, 114)
+        bg = 1
+        self.bg = pygame.image.load("resources/menus/menu" + str(bg) + ".png").convert()
+
         self.bg = pygame.transform.scale(self.bg, (screen_x, screen_y))
         self.social_buttons = {}
         self.warning_label_background = None
@@ -105,9 +108,9 @@ class StartScreen(Screens):
             elif event.ui_element == self.social_buttons['discord_button']:
                 if platform.system() == 'Darwin':
                     subprocess.Popen(
-                        ["open", "-u", "https://discord.gg/clangen"])
+                        ["open", "-u", "https://discord.gg/lifegen"])
                 elif platform.system() == 'Windows':
-                    os.system(f"start \"\" {'https://discord.gg/clangen'}")
+                    os.system(f"start \"\" {'https://discord.gg/lifegen'}")
                 elif platform.system() == 'Linux':
                     subprocess.Popen(
                         ['xdg-open', "https://discord.gg/clangen"])

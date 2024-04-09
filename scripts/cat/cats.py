@@ -119,6 +119,9 @@ class Cat():
     def __init__(self,
                  prefix=None,
                  gender=None,
+                 sexuality=None,
+                 acespec = 'allosexual',
+                 arospec = 'alloromantic',
                  status="newborn",
                  backstory="clanborn",
                  parent1=None,
@@ -146,6 +149,9 @@ class Cat():
             self.mate = []
             self.status = status
             self.pronouns = [self.default_pronouns[0].copy()]
+            self.sexuality = sexuality
+            self.acespec = acespec
+            self.arospec = arospec
             self.moons = moons
             self.dead_for = 0
             self.shunned = 0
@@ -179,6 +185,9 @@ class Cat():
 
         # Public attributes
         self.gender = gender
+        self.sexuality = sexuality
+        self.acespec = acespec
+        self.arospec = arospec
         self.status = status
         self.backstory = backstory
         self.age = None
@@ -227,6 +236,8 @@ class Cat():
         self.no_kits = False
         self.no_mates = False
         self.no_retire = False
+        self.prevent_sexualitychange = False
+        self.prevent_genderchange = False
         self.backstory_str = ""
         self.courage = 0
         self.compassion = 0
@@ -261,7 +272,7 @@ class Cat():
             self.ID = potential_id
         else:
             self.ID = ID
-
+            
         # age and status
         if status is None and moons is None:
             self.age = choice(self.ages)
@@ -301,6 +312,23 @@ class Cat():
             self.gender = choice(["female", "male"])
         self.g_tag = self.gender_tags[self.gender]
 
+        # SEX???!?!?!?!?!?!?
+
+        if self.sexuality is None:
+           self.sexuality = 'bi'
+
+        if self.acespec is None:
+            if self.sexuality != 'aroace':
+                self.acespec = 'allosexual'
+            else:
+                self.acespec = 'asexual'
+        if self.arospec is None:
+            if self.sexuality != 'aroace':
+                self.acespec = 'alloromantic'
+            else:
+                self.acespec = 'aromantic'
+
+
         # These things should only run when generating a new cat, rather than loading one in.
         if not loading_cat:
             # trans cat chances
@@ -322,6 +350,87 @@ class Cat():
                     self.genderalign = self.gender
             else:
                 self.genderalign = self.gender
+
+            # sexuality chances
+            # straight chance bc bi is default
+            gay_chance = randint(0,10)
+            pan_chance = randint(1,3)
+            aroace_chance = randint (0,30)
+            straight_chance = randint(0,1)
+            questioning_chance = randint(0,15)
+            if self.genderalign in ["female", "trans female"]:
+                if gay_chance == 1:
+                    self.sexuality = "lesbian"
+                elif aroace_chance == 1:
+                    self.sexuality = "aroace"
+                    self.acespec = 'asexual'
+                    self.arospec = 'aromantic'
+                elif pan_chance == 1:
+                    self.sexuality = "pan"
+                elif straight_chance == 1:
+                    self.sexuality = "straight"
+            elif self.genderalign in ["male", "trans male"]:
+                if gay_chance == 1:
+                    self.sexuality = "gay"
+                elif aroace_chance == 1:
+                    self.sexuality = "aroace"
+                    self.acespec = 'asexual'
+                    self.arospec = 'aromantic'
+                elif pan_chance == 1:
+                    self.sexuality = "pan"
+                elif straight_chance == 1:
+                    self.sexuality = "straight"
+            elif self.genderalign not in ["male", "female", "trans female", "trans male"]:
+                if gay_chance == 1:
+                    self.sexuality = "andro"
+                elif gay_chance == 2:
+                    self.sexuality = "gyno"
+                elif pan_chance == 1:
+                    self.sexuality = "pan"
+                elif aroace_chance == 1:
+                    self.sexuality = "aroace"
+                    self.acespec = 'asexual'
+                    self.arospec = 'aromantic'
+                elif straight_chance == 1:
+                    self.sexuality = self.sexuality
+            
+            if questioning_chance == 1:
+                if randint(1,2) == 1:
+                    self.sexuality = 'questioning'
+                else:
+                    if self.genderalign in ['trans female', 'female', 'demigirl']:
+                        if self.sexuality == 'lesbian':
+                            self.sexuality = 'gyno'
+                        elif self.sexuality == 'straight':
+                            self.sexuality = 'andro'
+                    elif self.genderalign in ['trans male', 'male', 'demiboy']:
+                        if self.sexuality == 'straight':
+                            self.sexuality = 'gyno'
+                        elif self.sexuality == 'gay':
+                            self.sexuality = 'andro'
+                    self.genderalign = 'questioning'
+                    
+
+                
+            else:
+                self.sexuality = self.sexuality
+
+            # aro or ace chances
+            ace_chance = randint(1,20)
+            if self.sexuality != 'aroace':
+                if ace_chance == 1:
+                    self.arospec = "demiromantic"
+                elif ace_chance == 2:
+                    self.acepec = "demisexual"
+                elif ace_chance == 3:
+                    self.arospec = "grey aromantic"
+                elif ace_chance == 4:
+                    self.acespec = "grey asexual"
+                elif ace_chance == 5:
+                    self.arospec = "aromantic"
+                elif ace_chance == 6:
+                    self.acespec = "asexual"
+
 
             # """if self.genderalign in ["female", "trans female"]:
             #     self.pronouns = [self.default_pronouns[1].copy()]
@@ -2401,6 +2510,7 @@ class Cat():
                           other_cat: Cat,
                           for_love_interest: bool = False,
                           age_restriction: bool = True,
+                          sexuality_compatible: bool = True,
                           first_cousin_mates:bool = False,
                           ignore_no_mates:bool=False):
         """
@@ -2430,6 +2540,26 @@ class Cat():
         # check exiled, outside, and dead cats
         if (self.dead != other_cat.dead) or self.outside or other_cat.outside:
             return False
+
+        if sexuality_compatible:
+            if (self.sexuality == "aroace" or other_cat.sexuality == "aroace") or \
+            (self.sexuality in ["lesbian", "gyno"] and other_cat.genderalign in ["male", "trans male", "demiboy"]) or \
+            (self.sexuality in ["gay", "andro"] and other_cat.genderalign in ["female", "trans female", "demigirl"]) or \
+            (self.sexuality == "straight" and self.genderalign in ["male", "trans male", "demiboy"] and \
+                    other_cat.genderalign in ["male", "trans male", "demiboy"]) or \
+                (self.sexuality == "straight" and self.genderalign in ["female", "trans female", "demigirl"] and \
+                    other_cat.genderalign in ["female", "trans female", "demigirl"]) or \
+            (self.sexuality in ["lesbian", "gyno"] and self.genderalign in ["male", "trans male", "demiboy"]) or \
+            (self.sexuality in ["gay", "andro"] and self.genderalign in ["female", "trans female", "demigirl"]) or \
+            (self.sexuality == "straight" and self.genderalign in ["male", "trans male", "demiboy"] and \
+                    other_cat.genderalign in ["male", "trans male", "demiboy"]) or \
+                (self.sexuality == "straight" and self.genderalign in ["female", "trans female", "demigirl"] and \
+                    other_cat.genderalign in ["female", "trans female", "demigirl"]) or \
+                (self.genderalign in ['male', 'trans male', 'demiboy'] and \
+                self.sexuality == "gay" and other_cat.sexuality == "straight") or \
+                (self.genderalign in ['female', 'trans female', 'demigirl'] and \
+                self.sexuality == "lesbian" and other_cat.sexuality == "straight") and not for_love_interest:
+                return False
 
         # check for age
         if age_restriction:
@@ -2539,7 +2669,7 @@ class Cat():
             print(f"Unsetting mates: These {self.name} and {other_cat.name} are not mates!")
             return
 
-        # If only deal with relationships if this is a breakup. 
+        # If only deal with relationships if this is a breakup.
         if breakup:
             if not self.dead:
                 if other_cat.ID not in self.relationships:
@@ -2584,6 +2714,7 @@ class Cat():
 
     def set_mate(self, other_cat: Cat):
         """Sets up a mate relationship between self and other_cat."""
+        
         if other_cat.ID not in self.mate:
             self.mate.append(other_cat.ID)
         if self.ID not in other_cat.mate:
@@ -2620,6 +2751,7 @@ class Cat():
             other_relationship.comfortable += 20
             other_relationship.trust += 10
             other_relationship.mate = True
+        
 
     def create_inheritance_new_cat(self):
         """Creates the inheritance class for a new cat."""
@@ -2720,7 +2852,7 @@ class Cat():
                             admiration = randint(0, 20)
                             if randint(
                                     1, 100 - like
-                            ) == 1 and self.moons > 11 and the_cat.moons > 11:
+                            ) == 1 and self.moons > 11 and the_cat.moons > 11 and the_cat.is_potential_mate(self, the_cat):
                                 romantic_love = randint(15, 30)
                                 comfortable = int(comfortable * 1.3)
                                 trust = int(trust * 1.2)
@@ -2776,6 +2908,7 @@ class Cat():
         relation_cat_directory = relation_directory + self.ID + '_relations.json'
 
         self.relationships = {}
+                      
         if os.path.exists(relation_directory):
             if not os.path.exists(relation_cat_directory):
                 self.init_all_relationships()
@@ -3293,6 +3426,9 @@ class Cat():
                 "gender": self.gender,
                 "gender_align": self.genderalign,
                 #"pronouns": self.pronouns,
+                "sexuality": self.sexuality,
+                "acespec": self.acespec,
+                "arospec": self.arospec,
                 "birth_cooldown": self.birth_cooldown,
                 "status": self.status,
                 "backstory": self.backstory if self.backstory else None,
@@ -3313,6 +3449,8 @@ class Cat():
                 "exiled": self.exiled,
                 "no_retire": self.no_retire,
                 "no_mates": self.no_mates,
+                "keep_sexuality": self.prevent_sexualitychange,
+                "keep_gender": self.prevent_genderchange,
                 "pelt_name": self.pelt.name,
                 "pelt_color": self.pelt.colour,
                 "pelt_length": self.pelt.length,

@@ -1120,7 +1120,7 @@
                 "exp": 5,
                 "weight": 5,
                 "new_cat": [
-                    ["age:mate", "backstory:otherclan2", "mate:p_l"]
+                    ["age:mate", "compmates", "backstory:otherclan2", "mate:p_l"]
                 ],
                 "relationships": [
                     {

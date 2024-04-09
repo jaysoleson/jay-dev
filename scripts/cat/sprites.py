@@ -153,6 +153,18 @@ class Sprites():
 
             "chimes",
 
+            #pride by illadvisedart
+
+            "pridebandanas",
+
+            "pridebandanas2",
+
+            "pridebandanas3",
+
+            "nonpridebandanas",
+
+            # more lifegen 
+
             "moipa"
 
         ]:
@@ -533,6 +545,37 @@ class Sprites():
             "YELLOWCROWN", "REDCROWN", "LILYPADCROWN"]):
             self.make_group('crowns', (a, 0), f'acc_wild{i}')
 
+    #pride by illadvisedart ---------
+
+        for a, i in enumerate([
+            "TRANS", "ENBY", "GRAYARO", "DEMIBOY", "DEMIGIRL", "BUTCH"]):
+            self.make_group('pridebandanas', (a, 0), f'acc_pride{i}')
+        for a, i in enumerate([
+            "ANDRO", "GYNO"]):
+            self.make_group('pridebandanas', (a, 1), f'acc_pride{i}')
+
+        for a, i in enumerate([
+            "GENDERFLUID", "AMBIGUOUS", "INTERSEX", "RAINBOWBANDANA", "GAY", "LESBIAN"]):
+            self.make_group('pridebandanas2', (a, 0), f'acc_pride2{i}')
+        for a, i in enumerate([
+            "BI", "AROACE", "PAN", "POLYAM", "DEMI"]):
+            self.make_group('pridebandanas2', (a, 1), f'acc_pride2{i}')
+        for a, i in enumerate([
+            "GRAYACE", "ACE", "ARO", "DEMIROMANTIC"]):
+            self.make_group('pridebandanas2', (a, 2), f'acc_pride2{i}')
+
+        for a, i in enumerate([
+            "URANIC", "NEBULAROMANTIC", "CATGENDER", "GENDERDOE", "OMNISAPPHIC", "MOTHGENDER"]):
+            self.make_group('pridebandanas3', (a, 0), f'acc_pride3{i}')
+        for a, i in enumerate([
+            "SNOWLEOPARDGENDER", "TIGERGENDER", "BUGGENDER"]):
+            self.make_group('pridebandanas3', (a, 1), f'acc_pride3{i}')
+
+        for a, i in enumerate([
+            "PLACEHOLDER"]):
+            self.make_group('nonpridebandanas', (a, 0), f'acc_bandanas{i}')
+        
+    # --------------------------------
         for a, i in enumerate([
             "WOODDRAGON"]):
             self.make_group('wooddragon', (a, 0), f'acc_wild{i}')

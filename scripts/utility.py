@@ -23,7 +23,6 @@ from scripts.cat.pelts import Pelt
 from scripts.cat.sprites import sprites
 from scripts.game_structure.game_essentials import game, screen_x, screen_y
 
-
 # ---------------------------------------------------------------------------- #
 #                              Counting Cats                                   #
 # ---------------------------------------------------------------------------- #
@@ -275,12 +274,14 @@ def create_new_cat(Cat,
                    status:str=None,
                    age:int=None,
                    gender:str=None,
+                   sexuality:str=None,
                    thought:str='Is looking around the camp with wonder',
                    alive:bool=True,
                    df:bool=False,
                    outside:bool=False,
                    parent1:str=None,
-                   parent2:str=None
+                   parent2:str=None,
+                   inventory:dict=[]
     ) -> list:
     """
     This function creates new cats and then returns a list of those cats
@@ -296,15 +297,20 @@ def create_new_cat(Cat,
     :param status: set as the rank you want the new cat to have - default: None (will cause a random status to be picked)
     :param age: set the age of the new cat(s) - default: None (will be random or if kit/litter is true, will be kitten.
     :param gender: set the gender (BIRTH SEX) of the cat - default: None (will be random)
+    :param sexuality: set the sexuality of the cat - default: None (will be bi)
     :param thought: if you need to give a custom "welcome" thought, set it here
     :param alive: set this as False to generate the cat as already dead - default: True (alive)
     :param outside: set this as True to generate the cat as an outsider instead of as part of the Clan - default: False (Clan cat)
     :param parent1: Cat ID to set as the biological parent1
-    :param parent2: Cat ID object to set as the biological parert2
+    :param parent2: Cat ID object to set as the biological parent2
+    :param inventory: defines an individual inventory for each new cat (hopefully)
     """
     accessory = None
+    inventory = []
     if isinstance(backstory, list):
         backstory = choice(backstory)
+    if accessory in [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]:
+        accessory = None
 
     if backstory in (
             BACKSTORIES["backstory_categories"]["former_clancat_backstories"] or BACKSTORIES["backstory_categories"]["otherclan_categories"]):
@@ -356,15 +362,18 @@ def create_new_cat(Cat,
             _gender = choice(['female', 'male'])
         else:
             _gender = gender
-    
+        
+        
         # other Clan cats, apps, and kittens (kittens and apps get indoctrinated lmao no old names for them)
         if other_clan or kit or litter or age < 12 and not (loner or kittypet):
             new_cat = Cat(moons=age,
                           status=status,
                           gender=_gender,
+                          sexuality=sexuality,
                           backstory=backstory,
                           parent1=parent1,
-                          parent2=parent2)
+                          parent2=parent2,
+                          inventory=inventory)
         else:
             # grab starting names and accs for loners/kittypets
             if kittypet:
@@ -392,18 +401,22 @@ def create_new_cat(Cat,
                                   prefix=name,
                                   status=status,
                                   gender=_gender,
+                                  sexuality=sexuality,
                                   df=df,
                                   backstory=backstory,
                                   parent1=parent1,
-                                  parent2=parent2)
+                                  parent2=parent2,
+                                  inventory=inventory)
                 else:  # completely new name
                     new_cat = Cat(moons=age,
                                   status=status,
                                   gender=_gender,
+                                  sexuality=sexuality,
                                   df=df,
                                   backstory=backstory,
                                   parent1=parent1,
-                                  parent2=parent2)
+                                  parent2=parent2,
+                                  inventory=inventory)
             # these cats keep their old names
             else:
                 new_cat = Cat(moons=age,
@@ -411,10 +424,12 @@ def create_new_cat(Cat,
                               suffix="",
                               status=status,
                               gender=_gender,
+                              sexuality=sexuality,
                               df=df,
                               backstory=backstory,
                               parent1=parent1,
-                              parent2=parent2)
+                              parent2=parent2,
+                              inventory=inventory)
 
             # give em a collar if they got one
             if accessory:
@@ -497,6 +512,7 @@ def create_new_cat(Cat,
             new_cat.outside = True
         if not alive:
             new_cat.die()
+        
 
         if df:
             new_cat.df = True
@@ -509,6 +525,23 @@ def create_new_cat(Cat,
         # newbie thought
         new_cat.thought = thought
 
+        # sexuality from patrol outcome
+        if sexuality:
+            new_cat.sexuality = sexuality
+        else:
+            if new_cat.genderalign in ["male", "trans male", "demiboy"]:
+                new_cat.sexuality = choice(["gay", "gay", "gay", "gay", "bi", "bi", "bi", "bi", "bi", "bi", "straight", "straight",\
+                                             "straight", "straight", "straight", "straight", "aroace", "aroace"])
+                
+            elif new_cat.genderalign in ["female", "trans female", "demiboy"]:
+                new_cat.sexuality = choice(["lesbian", "lesbian", "lesbian", "lesbian", "bi", "bi", "bi", "bi", "bi", "bi", \
+                                            "straight", "straight", "straight", "straight", "straight", "straight", "aroace",\
+                                                "aroace"])
+            else:
+                new_cat.sexuality = choice(["gyno", "gyno", "gyno", "gyno", "bi", "bi", "bi", "bi", "bi", "bi", \
+                                            "andro", "andro", "andro", "andro", "aroace","aroace"])
+
+        
         # and they exist now
         created_cats.append(new_cat)
         game.clan.add_cat(new_cat)
@@ -520,6 +553,7 @@ def create_new_cat(Cat,
             new_cat.dead = True
             new_cat.status = status
      
+        
 
         # create relationships
         new_cat.create_relationships_new_cat()
@@ -527,10 +561,12 @@ def create_new_cat(Cat,
         # allow us to add parents.
         #new_cat.create_inheritance_new_cat()
 
+        
+
     return created_cats
 
 
-def create_outside_cat(Cat, status, backstory, alive=True, thought=None):
+def create_outside_cat(Cat, status, backstory, alive=True, thought=None, inventory=[]):
     """
         TODO: DOCS
         """
@@ -553,9 +589,14 @@ def create_outside_cat(Cat, status, backstory, alive=True, thought=None):
                 suffix=suffix,
                 status=status,
                 gender=choice(['female', 'male']),
-                backstory=backstory)
+                backstory=backstory,
+                inventory=inventory)
     if status == 'kittypet':
+        acc = choice(Pelt.collars)
         new_cat.pelt.accessories.append(choice(Pelt.collars))
+        new_cat.pelt.inventory.append(choice(Pelt.collars))
+        
+        
     new_cat.outside = True
 
     if not alive:
@@ -682,6 +723,7 @@ def get_cats_of_romantic_interest(cat):
         # Extra check to ensure they are potential mates
         if inter_cat.is_potential_mate(cat, for_love_interest=True) and cat.relationships[inter_cat.ID].romantic_love > 0:
             cats.append(inter_cat)
+            
     return cats
 
 
@@ -1125,16 +1167,19 @@ def event_text_adjust(Cat,
     if cat:
         cat_dict["m_c"] = (str(cat.name), choice(cat.pronouns))
         cat_dict["p_l"] = cat_dict["m_c"]
-    if "acc_plural" in text:
-        if cat.pelt.accessory and cat.pelt.accessory not in cat.pelt.accessories:
-            cat.pelt.accessories.append(cat.pelt.accessory)
-        acc = cat.pelt.accessories[-1]
-        text = text.replace("acc_plural", str(ACC_DISPLAY[acc]["plural"]))
-    if "acc_singular" in text:
-        if cat.pelt.accessory and cat.pelt.accessory not in cat.pelt.accessories:
-            cat.pelt.accessories.append(cat.pelt.accessory)
-        acc = cat.pelt.accessories[-1]
-        text = text.replace("acc_singular", str(ACC_DISPLAY[acc]["singular"]))
+
+    # commented out because i got rid of the tagging in the events. get_flags() conflicted with it
+
+    # if "acc_plural" in text:
+    #     if cat.pelt.accessory and cat.pelt.accessory not in cat.pelt.accessories:
+    #         cat.pelt.accessories.append(cat.pelt.accessory)
+    #     acc = cat.pelt.accessories[-1]
+    #     text = text.replace("acc_plural", str(ACC_DISPLAY[acc]["plural"]))
+    # if "acc_singular" in text:
+    #     if cat.pelt.accessory and cat.pelt.accessory not in cat.pelt.accessories:
+    #         cat.pelt.accessories.append(cat.pelt.accessory)
+    #     acc = cat.pelt.accessories[-1]
+    #     text = text.replace("acc_singular", str(ACC_DISPLAY[acc]["singular"]))
 
     # if murder_reveal:
         
@@ -1569,6 +1614,14 @@ def generate_sprite(cat, life_state=None, scars_hidden=False, acc_hidden=False, 
                         new_sprite.blit(sprites.sprites['acc_wild' + i + cat_sprite], (0, 0))
                     elif i in cat.pelt.collars:
                         new_sprite.blit(sprites.sprites['collars' + i + cat_sprite], (0, 0))
+                    elif i in cat.pelt.pridebandanas:
+                        new_sprite.blit(sprites.sprites['acc_pride' + i + cat_sprite], (0, 0))
+                    elif i in cat.pelt.pridebandanas2:
+                        new_sprite.blit(sprites.sprites['acc_pride2' + i + cat_sprite], (0, 0))
+                    elif i in cat.pelt.pridebandanas3:
+                        new_sprite.blit(sprites.sprites['acc_pride3' + i + cat_sprite], (0, 0))
+                    elif i in cat.pelt.nonpridebandanas:
+                        new_sprite.blit(sprites.sprites['acc_bandanas' + i + cat_sprite], (0, 0))
                     elif i in cat.pelt.flower_accessories:
                         new_sprite.blit(sprites.sprites['acc_flower' + i + cat_sprite], (0, 0))
                     elif i in cat.pelt.plant2_accessories:

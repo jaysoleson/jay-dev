@@ -484,6 +484,13 @@ class SpecifyCatGender(UIWindow):
                                                      object_id="#text_box_30_horizcenter_spacing_95",
                                                      manager=MANAGER,
                                                      container=self)
+        
+        self.xenos = UIImageButton(scale(pygame.Rect((125, 175), (62, 62))), "",
+            object_id="#help_button",
+            manager=MANAGER, tool_tip_text =
+            "<b> Xenogenders that <br> currently have bandanas: </b> <br> genderdoe <br> mothgender <br> buggender <br> catgender <br> snowleopardgender <br> tigergender <br>",
+            
+            container=self)
 
         self.gender_changed = pygame_gui.elements.UITextBox("Gender Changed!",
                                                             scale(pygame.Rect(
@@ -509,15 +516,42 @@ class SpecifyCatGender(UIWindow):
 
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
             if event.ui_element == self.done_button:
+
+                boyliker = (self.the_cat.genderalign in ['male', 'trans male', 'demiboy'] and self.the_cat.sexuality == 'gay') or\
+                self.the_cat.genderalign in ['female', 'trans female', 'demigirl'] and self.the_cat.sexuality == 'straight'
+
+                girlliker = (self.the_cat.genderalign in ['male', 'trans male', 'demiboy'] and self.the_cat.sexuality == 'straight') or\
+                self.the_cat.genderalign in ['female', 'trans female', 'demigirl'] and self.the_cat.sexuality == 'lesbian'
+
+                if boyliker:
+                    self.the_cat.sexuality = 'andro'
+                elif girlliker:
+                    self.the_cat.sexuality = 'gyno'
+
                 if sub(r'[^A-Za-z0-9 ]+', "", self.gender_entry_box.get_text()) != "":
                     self.the_cat.genderalign = sub(
                         r'[^A-Za-z0-9 ]+', "", self.gender_entry_box.get_text())
+                    
+                    # this for if someone specifies gender to a binary one for some reason
+                    if self.the_cat.genderalign in ['male', 'trans male', 'demiboy']:
+                        if self.the_cat.sexuality == 'andro':
+                            self.the_cat.sexuality = 'gay'
+                        elif self.the_cat.sexuality == 'gyno':
+                            self.the_cat.sexuality = 'straight'
+
+                    elif self.the_cat.genderalign in ['female', 'trans female', 'demigirl']:
+                        if self.the_cat.sexuality == 'andro':
+                            self.the_cat.sexuality = 'straight'
+                        elif self.the_cat.sexuality == 'gyno':
+                            self.the_cat.sexuality = 'lesbian'
                     self.gender_changed.show()
+
             elif event.ui_element == self.back_button:
                 game.switches['window_open'] = False
                 game.all_screens['profile screen'].exit_screen()
                 game.all_screens['profile screen'].screen_switches()
                 self.kill()
+            
 
 
 class KillCat(UIWindow):
@@ -1282,7 +1316,7 @@ class PickPath(UIWindow):
             f"You have an important decision to make...",
             scale(pygame.Rect((40, 40), (720, -1))),
             line_spacing=1,
-            object_id="#text_box_30_horizcenter",
+            object_id="text_box_30_horizcenter",
             container=self
         )
 
@@ -1373,7 +1407,7 @@ class DeathScreen(UIWindow):
             f"What will you do now?",
             scale(pygame.Rect((40, 40), (670, -1))),
             line_spacing=1,
-            object_id="#text_box_30_horizcenter",
+            object_id="text_box_30_horizcenter_spacing_95",
             container=self
         )
 
@@ -1401,20 +1435,18 @@ class DeathScreen(UIWindow):
             container=self,
             tool_tip_text='Revive'
         )
-
         self.mediator_button3 = UIImageButton(
             scale(pygame.Rect((130, 330), (498, 96))),
             "",
             object_id="#continue_dead_button",
             container=self,
         )
-        
 
         self.begin_anew_button.enable()
         self.mediator_button.enable()
         if game.clan.your_cat.revives < 5:
             self.mediator_button2.enable()
-        self.mediator_button3.enable()
+
 
     def process_event(self, event):
         super().process_event(event)
@@ -1424,24 +1456,20 @@ class DeathScreen(UIWindow):
                 game.last_screen_forupdate = None
                 game.switches['window_open'] = False
                 game.switches['cur_screen'] = 'start screen'
-                game.switches['continue_after_death'] = False
                 self.begin_anew_button.kill()
                 self.pick_path_message.kill()
                 self.mediator_button.kill()
                 self.mediator_button2.kill()
-                self.mediator_button3.kill()
                 self.kill()
                 game.all_screens['events screen'].exit_screen()
             elif event.ui_element == self.mediator_button:
                 game.last_screen_forupdate = None
                 game.switches['window_open'] = False
                 game.switches['cur_screen'] = "choose reborn screen"
-                game.switches['continue_after_death'] = False
                 self.begin_anew_button.kill()
                 self.pick_path_message.kill()
                 self.mediator_button.kill()
                 self.mediator_button2.kill()
-                self.mediator_button3.kill()
                 self.kill()
                 game.all_screens['events screen'].exit_screen()
             elif event.ui_element == self.mediator_button2:
@@ -1451,9 +1479,11 @@ class DeathScreen(UIWindow):
                 game.clan.your_cat.dead_for = 0
                 game.clan.your_cat.moons+=1
                 game.clan.your_cat.update_mentor()
+                
                 game.switches['continue_after_death'] = False
                 # if game.clan.your_cat.outside:
                 #     game.clan.add_to_clan(game.clan.your_cat)
+
                 if game.clan.your_cat.ID in game.clan.starclan_cats:
                     game.clan.starclan_cats.remove(game.clan.your_cat.ID)
                 if game.clan.your_cat.ID in game.clan.darkforest_cats:
@@ -1478,18 +1508,6 @@ class DeathScreen(UIWindow):
                 self.pick_path_message.kill()
                 self.mediator_button.kill()
                 self.mediator_button2.kill()
-                self.mediator_button3.kill()
-                self.kill()
-            elif event.ui_element == self.mediator_button3:
-                game.last_screen_forupdate = None
-                game.switches['window_open'] = False
-                game.switches['cur_screen'] = "events screen"
-                game.switches['continue_after_death'] = True
-                self.begin_anew_button.kill()
-                self.pick_path_message.kill()
-                self.mediator_button.kill()
-                self.mediator_button2.kill()
-                self.mediator_button3.kill()
                 self.kill()
                 
 class DeputyScreen(UIWindow):
@@ -1506,7 +1524,7 @@ class DeputyScreen(UIWindow):
             f"Choose your deputy",
             scale(pygame.Rect((40, 40), (500, -1))),
             line_spacing=1,
-            object_id="#text_box_30_horizcenter",
+            object_id="text_box_30_horizcenter",
             container=self
         )
 
@@ -1568,7 +1586,7 @@ class NameKitsWindow(UIWindow):
             f"Name your kits",
             scale(pygame.Rect((40, 40), (500, -1))),
             line_spacing=1,
-            object_id="#text_box_30_horizcenter",
+            object_id="text_box_30_horizcenter",
             container=self
         )
 
@@ -1636,7 +1654,7 @@ class MateScreen(UIWindow):
             f"{self.mate.name} confesses their feelings to you.",
             scale(pygame.Rect((40, 40), (520, -1))),
             line_spacing=1,
-            object_id="#text_box_30_horizcenter",
+            object_id="text_box_30_horizcenter",
             container=self
         )
 
@@ -1705,10 +1723,10 @@ class RetireScreen(UIWindow):
         game.switches['retire'] = False
         game.switches['retire_reject'] = False
         self.pick_path_message = UITextBoxTweaked(
-            f"You're asked if you would like to retire",
+            "You're asked if you would like to retire",
             scale(pygame.Rect((40, 40), (520, -1))),
             line_spacing=1,
-            object_id="#text_box_30_horizcenter",
+            object_id="text_box_30_horizcenter",
             container=self
         )
 
@@ -1783,23 +1801,31 @@ class ChangeCatToggles(UIWindow):
         self.refresh_checkboxes()
         
         # Text
-        self.text_1 = pygame_gui.elements.UITextBox("Prevent fading", scale(pygame.Rect(110, 60, -1, 50)), 
+        self.text_1 = pygame_gui.elements.UITextBox("Prevent fading", scale(pygame.Rect(110, 40, -1, 50)), 
                                                     object_id="#text_box_30_horizleft_pad_0_8",
                                                     container=self)
         
-        self.text_2 = pygame_gui.elements.UITextBox("Prevent kits", scale(pygame.Rect(110, 110, -1, 50)), 
+        self.text_2 = pygame_gui.elements.UITextBox("Prevent kits", scale(pygame.Rect(110, 90, -1, 50)), 
                                                     object_id="#text_box_30_horizleft_pad_0_8",
                                                     container=self)
         
-        self.text_3 = pygame_gui.elements.UITextBox("Prevent retirement", scale(pygame.Rect(110, 160, -1, 50)), 
+        self.text_3 = pygame_gui.elements.UITextBox("Prevent retirement", scale(pygame.Rect(110, 140, -1, 50)), 
                                                     object_id="#text_box_30_horizleft_pad_0_8",
                                                     container=self)
         
         self.text_4 = pygame_gui.elements.UITextBox("Limit romantic interactions and mate changes",
-                                                    scale(pygame.Rect(110, 210, -1, 50)), 
+                                                    scale(pygame.Rect(110, 190, -1, 50)), 
                                                     object_id="#text_box_30_horizleft_pad_0_8",
                                                     container=self)
         
+        self.text_5 = pygame_gui.elements.UITextBox("Prevent sexuality changes",
+                                                    scale(pygame.Rect(110, 240, -1, 50)), 
+                                                    object_id="#text_box_30_horizleft_pad_0_8",
+                                                    container=self)
+        self.text_6 = pygame_gui.elements.UITextBox("Prevent gender changes",
+                                                    scale(pygame.Rect(110, 290, -1, 50)), 
+                                                    object_id="#text_box_30_horizleft_pad_0_8",
+                                                    container=self)
         # Text
         
     def refresh_checkboxes(self):
@@ -1809,7 +1835,9 @@ class ChangeCatToggles(UIWindow):
         self.checkboxes = {}
         
         # Prevent Fading
+        
         if self.the_cat == game.clan.instructor or self.the_cat == game.clan.demon:
+
             box_type = "#checked_checkbox"
             tool_tip = "The afterlife guide can never fade."
         elif self.the_cat.prevent_fading:
@@ -1820,12 +1848,13 @@ class ChangeCatToggles(UIWindow):
             tool_tip = "Prevents cat from fading away after being dead for 202 moons."
         
         # Fading
-        self.checkboxes["prevent_fading"] = UIImageButton(scale(pygame.Rect(45, 50, 68, 68)), "",
+        self.checkboxes["prevent_fading"] = UIImageButton(scale(pygame.Rect(45, 30, 68, 68)), "",
                                                           container=self,
                                                           object_id=box_type,
                                                           tool_tip_text=tool_tip)
         
         if self.the_cat == game.clan.instructor or self.the_cat == game.clan.demon:
+
             self.checkboxes["prevent_fading"].disable()
         
         
@@ -1837,7 +1866,7 @@ class ChangeCatToggles(UIWindow):
             box_type = "#unchecked_checkbox"
             tool_tip = "Prevent the cat from adopting or having kittens."
         
-        self.checkboxes["prevent_kits"] = UIImageButton(scale(pygame.Rect(45, 100, 68, 68)), "",
+        self.checkboxes["prevent_kits"] = UIImageButton(scale(pygame.Rect(45, 80, 68, 68)), "",
                                                         container=self,
                                                         object_id=box_type,
                                                         tool_tip_text=tool_tip)
@@ -1850,7 +1879,7 @@ class ChangeCatToggles(UIWindow):
             box_type = "#unchecked_checkbox"
             tool_tip = "Prevent cat from retiring automatically."
         
-        self.checkboxes["prevent_retire"] = UIImageButton(scale(pygame.Rect(45, 150, 68, 68)), "",
+        self.checkboxes["prevent_retire"] = UIImageButton(scale(pygame.Rect(45, 130, 68, 68)), "",
                                                           container=self,
                                                           object_id=box_type,
                                                           tool_tip_text=tool_tip)
@@ -1863,7 +1892,30 @@ class ChangeCatToggles(UIWindow):
             box_type = "#unchecked_checkbox"
             tool_tip = "Prevent cat from automatically taking a mate, breaking up, or having romantic interactions with non-mates."
         
-        self.checkboxes["prevent_mates"] = UIImageButton(scale(pygame.Rect(45, 200, 68, 68)), "",
+        self.checkboxes["prevent_mates"] = UIImageButton(scale(pygame.Rect(45, 180, 68, 68)), "",
+                                                         container=self,
+                                                         object_id=box_type,
+                                                         tool_tip_text=tool_tip)
+        if self.the_cat.prevent_sexualitychange:
+            box_type = "#checked_checkbox"
+            tool_tip = "Prevent this cat's sexuality from changing in random events."
+        else:
+            box_type = "#unchecked_checkbox"
+            tool_tip = "Prevent this cat's sexuality from changing in random events."
+        
+        self.checkboxes["prevent_sexuality"] = UIImageButton(scale(pygame.Rect(45, 230, 68, 68)), "",
+                                                         container=self,
+                                                         object_id=box_type,
+                                                         tool_tip_text=tool_tip)
+        
+        if self.the_cat.prevent_genderchange:
+            box_type = "#checked_checkbox"
+            tool_tip = "Prevent this cat's gender from changing in random events."
+        else:
+            box_type = "#unchecked_checkbox"
+            tool_tip = "Prevent this cat's gender from changing in random events."
+
+        self.checkboxes["prevent_gender"] = UIImageButton(scale(pygame.Rect(45, 280, 68, 68)), "",
                                                          container=self,
                                                          object_id=box_type,
                                                          tool_tip_text=tool_tip)
@@ -1886,6 +1938,12 @@ class ChangeCatToggles(UIWindow):
                 self.refresh_checkboxes()
             elif event.ui_element == self.checkboxes["prevent_mates"]:
                 self.the_cat.no_mates = not self.the_cat.no_mates
+                self.refresh_checkboxes()
+            elif event.ui_element == self.checkboxes["prevent_sexuality"]:
+                self.the_cat.prevent_sexualitychange = not self.the_cat.prevent_sexualitychange
+                self.refresh_checkboxes()
+            elif event.ui_element == self.checkboxes["prevent_gender"]:
+                self.the_cat.prevent_genderchange = not self.the_cat.prevent_genderchange
                 self.refresh_checkboxes()
         
         return super().process_event(event)

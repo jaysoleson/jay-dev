@@ -55,6 +55,27 @@ def json_load():
     # create new cat objects
     for i, cat in enumerate(cat_data):
         try:
+            if "sexuality" not in cat:
+                if cat["gender_align"] == 'male':
+                    cat["sexuality"] = choice(['bi', 'straight', 'bi', 'straight', 'aroace', 'gay'])
+                elif cat["gender_align"] == 'female':
+                    cat["sexuality"] = choice(['bi', 'straight', 'bi', 'straight', 'aroace', 'lesbian'])
+                elif cat["gender_align"] == "nonbinary":
+                    cat["sexuality"] = choice(['bi', 'bi', 'andro', 'aroace', 'gyno'])
+                else:
+                    cat["sexuality"] = choice(['bi', 'bi', 'bi', 'aroace'])
+
+            if "acespec" not in cat:
+                cat["acespec"] = choice(['allosexual', 'allosexual', 'allosexual', 'allosexual', 'demisexual', 'grey asexual', 'asexual', 'asexual'])
+
+            if "arospec" not in cat:
+                cat["arospec"] = choice(['alloromantic', 'alloromantic', 'alloromantic', 'alloromantic', 'demiromantic', 'grey aromantic', 'aromantic', 'aromantic'])
+            
+            if "keep_sexuality" not in cat:
+                cat["keep_sexuality"] = False
+
+            if "keep_gender" not in cat:
+                cat["keep_gender"] = False
             
             if "shunned" not in cat:
                 cat["shunned"] = False
@@ -64,6 +85,9 @@ def json_load():
                         suffix=cat["name_suffix"],
                         specsuffix_hidden=(cat["specsuffix_hidden"] if 'specsuffix_hidden' in cat else False),
                         gender=cat["gender"],
+                        sexuality=cat["sexuality"],
+                        acespec =cat["acespec"],
+                        arospec=cat["arospec"],
                         status=cat["status"],
                         parent1=cat["parent1"],
                         parent2=cat["parent2"],
@@ -126,6 +150,9 @@ def json_load():
             new_cat.adoptive_parents = cat["adoptive_parents"] if "adoptive_parents" in cat else []
             
             new_cat.genderalign = cat["gender_align"]
+            new_cat.sexuality = cat["sexuality"]
+            new_cat.acespec = cat['acespec']
+            new_cat.arospec = cat["arospec"]
             new_cat.backstory = cat["backstory"] if "backstory" in cat else None
             if new_cat.backstory in BACKSTORIES["conversion"]:
                 new_cat.backstory = BACKSTORIES["conversion"][new_cat.backstory]
@@ -148,6 +175,8 @@ def json_load():
             new_cat.no_kits = cat["no_kits"]
             new_cat.no_mates = cat["no_mates"] if "no_mates" in cat else False
             new_cat.no_retire = cat["no_retire"] if "no_retire" in cat else False
+            new_cat.prevent_sexualitychange = cat["keep_sexuality"] if "keep_sexuality" in cat else False
+            new_cat.prevent_genderchange = cat["keep_gender"] if "keep_gender" in cat else False
             new_cat.exiled = cat["exiled"]
             new_cat.shunned = cat["shunned"]
 
@@ -306,6 +335,9 @@ def csv_load(all_cats):
                               pelt=the_pelt,
                               parent1=attr[6],
                               parent2=attr[7],
+                              sexuality=attr[8],
+                              acespec=attr[9],
+                              arospec=attr[10]
                             )
                 
                 
@@ -402,12 +434,17 @@ def csv_load(all_cats):
                 if len(attr) > 39:
                     the_cat.no_kits = bool(attr[39])
                 if len(attr) > 40:
-                    the_cat.exiled = bool(attr[40])
+                    the_cat.genderalign = attr[40]
                 if len(attr) > 41:
-                    the_cat.genderalign = attr[41]
+                    the_cat.sexuality = attr[41]
+                if len(attr) > 42:
+                    the_cat.acespec = attr[42]
+                if len(attr) > 43:
+                    the_cat.arospec = attr[43]
                 if len(attr
-                       ) > 42 and attr[42] is not None:  # KEEP THIS AT THE END
-                    the_cat.former_apprentices = attr[42].split(';')
+                       ) > 44 and attr[44] is not None:  # KEEP THIS AT THE END
+                    the_cat.former_apprentices = attr[44].split(';')
+  
         game.switches[
             'error_message'] = 'There was an error loading this clan\'s mentors, apprentices, relationships, or sprite info.'
         for inter_cat in all_cats.values():

@@ -94,6 +94,24 @@ class Pelt():
         "REDHARNESS", "NAVYHARNESS", "YELLOWHARNESS", "TEALHARNESS", "ORANGEHARNESS", "GREENHARNESS","MOSSHARNESS", "RAINBOWHARNESS", "BLACKHARNESS", "BEEHARNESS", "CREAMHARNESS","PINKHARNESS", "MAGENTAHARNESS", "PEACHHARNESS", "VIOLETHARNESS"
     ]
 
+    # pride by illadvisedart
+
+    pridebandanas = [
+        "TRANS", "ENBY", "GRAYARO", "DEMIBOY", 'DEMIGIRL', 'BUTCH', 'ANDRO', 'GYNO'
+    ]
+
+    pridebandanas2 = [
+        "GENDERFLUID", "AMBIGUOUS", "INTERSEX", "RAINBOWBANDANA", "GAY", "LESBIAN", "BI", "AROACE", "PAN", "POLYAM", "DEMI", "GRAYACE", "ACE", "ARO", "DEMIROMANTIC"
+    ]
+
+    pridebandanas3 = [
+        "URANIC", "NEBULAROMANTIC", "CATGENDER", "GENDERDOE", "OMNISAPPHIC", "MOTHGENDER", "SNOWLEOPARDGENDER", "TIGERGENDER", "BUGGENDER"
+    ]
+
+    nonpridebandanas = [
+        "PLACEHOLDER"
+    ]
+
     # ohdan's accessories
     flower_accessories = ["DAISY", "DIANTHUS", "BLEEDING HEARTS", "FRANGIPANI", "BLUE GLORY",
                           "CATNIP FLOWER", "BLANKET FLOWER", "ALLIUM", "LACELEAF", "PURPLE GLORY",
@@ -198,7 +216,7 @@ class Pelt():
                  para_adult_sprite:int=None,
                  reverse:bool=False,
                  accessories:list=None,
-                 inventory:list=[]
+                 inventory:list=None
                  ) -> None:
         self.name = name
         self.colour = colour
@@ -246,9 +264,14 @@ class Pelt():
         self.cat_sprites['para_young'] = 17
         self.cat_sprites["sick_adult"] = 18
         self.cat_sprites["sick_young"] = 19
-        
+
         self.reverse = reverse
         self.skin = skin
+
+        if inventory is None:
+            self.inventory = []
+        else:
+            self.inventory = inventory
 
     @staticmethod
     def generate_new_pelt(gender:str, parents:tuple=(), age:str="adult", dead_for=0):
@@ -725,7 +748,7 @@ class Pelt():
                 choice(Pelt.wild_accessories),
                 choice(Pelt.flower_accessories),
                 choice(Pelt.plant2_accessories),
-                choice(Pelt.snake_accessories),
+                choice(Pelt.snake_accessories), 
                 choice(Pelt.smallAnimal_accessories),
                 choice(Pelt.deadInsect_accessories),
                 choice(Pelt.aliveInsect_accessories),

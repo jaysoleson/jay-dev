@@ -210,7 +210,7 @@
           "Leaf-fall",
           "Leaf-bare"
       ],
-        "event_text": "m_c disappears for a few days, then returns to camp with a acc_singular around {PRONOUN/m_c/poss} neck.",
+        "event_text": "m_c disappears for a few days, then returns to camp with a collar around {PRONOUN/m_c/poss} neck.",
         "accessories": ["COLLAR"]
     },
     {
@@ -237,7 +237,7 @@
             "comfort",
             "trust"
         ],
-        "event_text": "m_c gifts {PRONOUN/m_c/poss} beloved r_c with a acc_singular to wear in {PRONOUN/r_c/poss} pelt.",
+        "event_text": "m_c gifts {PRONOUN/m_c/poss} beloved r_c with a plant to wear in {PRONOUN/r_c/poss} pelt.",
         "accessories": ["WILD", "PLANT", "FLOWER", "PLANT2", "FRUIT"]
     },
     {
@@ -314,7 +314,7 @@
             "Leaf-fall",
             "Leaf-bare"
         ],
-        "event_text": "m_c waltzes onto camp with a acc_singular following suit! {PRONOUN/m_c/subject/CAP} {VERB/m_c/snap/snaps} at any cat who attempts to snap at the poor thing, and m_c proudly states that it's {PRONOUN/m_c/poss} new pet.",
+        "event_text": "m_c waltzes onto camp with a squirrel following suit! {PRONOUN/m_c/subject/CAP} {VERB/m_c/snap/snaps} at any cat who attempts to snap at the poor thing, and m_c proudly states that it's {PRONOUN/m_c/poss} new pet.",
         "cat_trait": ["bold", "adventurous", "careful", "confident", "daring", "ambitious", "strange", "charismatic"],
         "accessories": ["GRAY SQUIRREL", "RED SQUIRREL", "INDIAN GIANT SQUIRREL"]
     },

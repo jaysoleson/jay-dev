@@ -86,6 +86,40 @@ class Thoughts():
             if main_cat.status not in thought['main_status_constraint'] and 'any' not in thought['main_status_constraint']:
                 return False
             
+        # constraints for main cat sexuality
+        if 'main_sexuality_constraint' in thought:
+            likes_shecats = (main_cat.genderalign in ['male', 'trans male', 'demiboy'] and main_cat.sexuality == "straight") or \
+            (main_cat.sexuality in ['lesbian', 'gyno', 'bi'])
+
+            if likes_shecats and "likes_shecats" not in thought['main_sexuality_constraint'] and 'any' not in thought['main_sexuality_constraint'] or main_cat.moons < 6:
+                return False
+            
+            likes_toms = (main_cat.genderalign in ['female', 'trans female', 'demigirl'] and main_cat.sexuality == "straight") or \
+            (main_cat.sexuality in ['gay', 'andro', 'bi'])
+
+            if likes_toms and "likes_toms" not in thought['main_sexuality_constraint'] and 'any' not in thought['main_sexuality_constraint'] or main_cat.moons < 6:
+                return False
+            
+            if main_cat.sexuality == "aroace" and "aroace" not in thought['main_sexuality_constraint'] and 'any' not in thought['main_sexuality_constraint'] or main_cat.moons < 6:
+                return False
+        
+        # cis/trans thoughts
+            
+        if 'main_gender_constraint' in thought:
+            if main_cat.genderalign != main_cat.gender and "trans" not in thought['main_gender_constraint'] and 'any' not in thought['main_gender_constraint']:
+                return False
+
+            if main_cat.genderalign == main_cat.gender and "cis" not in thought['main_gender_constraint'] and 'any' not in thought['main_gender_constraint']:
+                return False
+            
+            if main_cat.genderalign not in ['female', 'male', 'trans male', 'trans female', 'demiboy', 'demigirl'] and "enby" not in thought['main_gender_constraint'] and 'any' not in thought['main_gender_constraint']:
+                return False
+
+            if main_cat.genderalign in ['male', 'female', 'trans male', 'trans female', 'demiboy', 'demigirl']\
+            and main_cat.genderalign not in thought['main_gender_constraint'] and 'any' not in thought['main_gender_constraint']:
+                return False
+
+            
         # Constraints for the status of the random cat
         if 'random_status_constraint' in thought and random_cat:
             if random_cat.status not in thought['random_status_constraint'] and 'any' not in thought['random_status_constraint']:

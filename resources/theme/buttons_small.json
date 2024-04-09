@@ -5843,7 +5843,331 @@
             }
         }
     },
-    "#exile_return_button": 
+
+    "#change_bi_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_bi_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_bi_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_bi_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_bi_button_unavailable.png"
+            }
+        }
+    },
+    "#change_gay_button": 
+    
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_gay_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_gay_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_gay_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_bi_button_unavailable.png"
+            }
+        }
+    },
+    "#change_lesbian_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_lesbian_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_lesbian_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_lesbian_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_lesbian_button_unavailable.png"
+            }
+        }
+    },
+    "#change_aroace_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_aroace_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_aroace_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_aroace_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_aroace_button_unavailable.png"
+            }
+        }
+    },
+    "#change_straight_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_straight_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_straight_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_straight_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_straight_button_unavailable.png"
+            }
+        }
+    },
+    "#change_gyno_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_gyno_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_gyno_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_gyno_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_gyno_button.png"
+            }
+        }
+    },
+    "#change_andro_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_andro_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_andro_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_andro_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_andro_button.png"
+            }
+        }
+    },
+    "#change_pan_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_pan_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_pan_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_pan_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_pan_button_unavailable.png"
+            }
+        }
+    },
+    "#change_ace_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_ace_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_ace_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_ace_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_ace_button_hover.png"
+            }
+        }
+    },
+    "#change_demi_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_demi_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_demi_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_demi_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_demi_button_hover.png"
+            }
+        }
+    },
+    "#change_greyace_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_greyace_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_greyace_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_greyace_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_greyace_button_hover.png"
+            }
+        }
+    },
+    "#change_aro_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_aro_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_aro_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_aro_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_aro_button_hover.png"
+            }
+        }
+    },
+    "#change_demirom_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_demirom_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_demirom_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_demirom_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_demirom_button_hover.png"
+            }
+        }
+    },
+    "#change_greyaro_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_greyaro_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_greyaro_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_greyaro_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_greyaro_button_hover.png"
+            }
+        }
+    },
+    "#exile_return_button":
     {
         "prototype": "#image_button",
 		"images":
@@ -5852,7 +6176,7 @@
             {
                 "path": "resources/images/buttons/exile_return_button.png"
             },
-			"hovered_image":
+            "hovered_image":
             {
                 "path": "resources/images/buttons/exile_return_button_hover.png"
             },
@@ -5862,11 +6186,11 @@
             },
             "disabled_image":
             {
-                "path":"resources/images/buttons/exile_return_button_unavailable.png"
+                "path":"resources/images/buttons/exile_return_button_hover.png"
             }
         }
     },
-    "#continue_dead_button": 
+    "#continue_dead_button":
     {
         "prototype": "#image_button",
 		"images":
@@ -5875,7 +6199,7 @@
             {
                 "path": "resources/images/buttons/continue_dead.png"
             },
-			"hovered_image":
+            "hovered_image":
             {
                 "path": "resources/images/buttons/continue_dead_hover.png"
             },
@@ -5885,7 +6209,7 @@
             },
             "disabled_image":
             {
-                "path":"resources/images/buttons/continue_dead_unavailable.png"
+                "path":"resources/images/buttons/continue_dead_hover.png"
             }
         }
     }
