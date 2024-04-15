@@ -207,6 +207,25 @@ def get_free_possible_mates(cat):
             cats.append(inter_cat)
     return cats
 
+def get_free_possible_qpps(cat):
+    """Returns a list of available cats, which are possible mates for the given cat."""
+    cats = []
+    for inter_cat in cat.all_cats.values():
+        if inter_cat.dead or inter_cat.outside or inter_cat.exiled:
+            continue
+        if inter_cat.ID == cat.ID:
+            continue
+
+        if inter_cat.ID not in cat.relationships:
+            cat.create_one_relationship(inter_cat)
+            if cat.ID not in inter_cat.relationships:
+                inter_cat.create_one_relationship(cat)
+            continue
+
+        if inter_cat.is_potential_qpp(cat, for_love_interest=True):
+            cats.append(inter_cat)
+    return cats
+
 
 # ---------------------------------------------------------------------------- #
 #                          Handling Outside Factors                            #
@@ -640,6 +659,21 @@ def get_highest_romantic_relation(relationships, exclude_mate=False, potential_m
 
     return current_max_relationship
 
+def get_highest_platonic_relation(relationships, exclude_qpp=False):
+    """Returns the relationship with the highest platonic value for QPR purposes."""
+    max_love_value = 0
+    current_max_relationship = None
+    for rel in relationships:
+        if rel.platonic_like < 0:
+            continue
+        if exclude_qpp and rel.cat_from.ID in rel.cat_to.mate:
+            continue
+        if rel.platonic_like > max_love_value:
+            current_max_relationship = rel
+            max_love_value = rel.platonic_like
+
+    return current_max_relationship
+
 
 def check_relationship_value(cat_from, cat_to, rel_value=None):
     """
@@ -722,6 +756,27 @@ def get_cats_of_romantic_interest(cat):
         
         # Extra check to ensure they are potential mates
         if inter_cat.is_potential_mate(cat, for_love_interest=True) and cat.relationships[inter_cat.ID].romantic_love > 0:
+            cats.append(inter_cat)
+            
+    return cats
+
+def get_cats_of_qpp_interest(cat):
+    """Returns a list of cats, those cats are love interest of the given cat"""
+    cats = []
+    for inter_cat in cat.all_cats.values():
+        if inter_cat.dead or inter_cat.outside or inter_cat.exiled:
+            continue
+        if inter_cat.ID == cat.ID:
+            continue
+
+        if inter_cat.ID not in cat.relationships:
+            cat.create_one_relationship(inter_cat)
+            if cat.ID not in inter_cat.relationships:
+                inter_cat.create_one_relationship(cat)
+            continue
+        
+        # Extra check to ensure they are potential mates
+        if inter_cat.is_potential_qpp(cat, for_love_interest=True) and cat.relationships[inter_cat.ID].romantic_love > 0:
             cats.append(inter_cat)
             
     return cats

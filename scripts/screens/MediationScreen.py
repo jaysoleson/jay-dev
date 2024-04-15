@@ -490,7 +490,6 @@ class MediationScreen(Screens):
             # even if they somehow have some. They should not be able to get any, but it never hurts to check.
             if not check_age or related or not sexuality_compatible or the_relationship.cat_from.sexuality == "aroace":
                 display_romantic = 0
-                print ('Romance will not be affected-- Sexualities are incompatible.')
                 # Print, just for bug checking. Again, they should not be able to get love towards their relative.
                 if the_relationship.romantic_love and related:
                     print(str(cat.name) + " has " + str(the_relationship.romantic_love) + " romantic love "

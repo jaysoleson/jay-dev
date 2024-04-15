@@ -7,10 +7,11 @@ import ujson
 from scripts.game_structure.game_essentials import game
 from scripts.events_module.condition_events import Condition_Events
 from scripts.cat.cats import Cat
-from scripts.utility import get_cats_same_age, get_cats_of_romantic_interest, get_free_possible_mates
+from scripts.utility import get_cats_same_age, get_cats_of_romantic_interest, get_cats_of_qpp_interest, get_free_possible_mates, get_free_possible_qpps
 from scripts.event_class import Single_Event
 from scripts.cat_relations.relationship import Relationship
 from scripts.events_module.relationship.romantic_events import Romantic_Events
+from scripts.events_module.relationship.qpr_events import QPR_Events
 from scripts.events_module.relationship.welcoming_events import Welcoming_Events
 from scripts.events_module.relationship.group_events import Group_Events
 
@@ -56,8 +57,12 @@ class Relation_Events():
         # 1/16 for an additional event
         if not random.getrandbits(4):
             Relation_Events.romantic_events(cat)
+
+        if not random.getrandbits(4):
+            Relation_Events.qpr_events(cat)
             
         Romantic_Events.handle_mating_and_breakup(cat)
+        QPR_Events.handle_QPR_and_breakup(cat)
 
         
     # ---------------------------------------------------------------------------- #
@@ -74,6 +79,9 @@ class Relation_Events():
         """
         if cat.moons < 12:
             return
+        
+        if cat.arospec == 'aromantic':
+            return
 
         if not Relation_Events.can_trigger_events(cat):
             return
@@ -84,6 +92,69 @@ class Relation_Events():
         free_possible_mates = get_free_possible_mates(cat)
         other_love_interest = get_cats_of_romantic_interest(cat)  
         possible_cats = free_possible_mates
+        if len(other_love_interest) > 0 and len(other_love_interest) < 3:
+            possible_cats.extend(other_love_interest)
+            possible_cats.extend(other_love_interest)
+        elif len(other_love_interest) >= 3:
+            possible_cats = other_love_interest
+
+        # only adding cats which already have SOME relationship with each other
+        cat_to_choose_from = []
+        for inter_cat in possible_cats:
+            if inter_cat.ID not in cat.relationships:
+                cat.create_one_relationship(inter_cat)
+            if cat.ID not in inter_cat.relationships:
+                inter_cat.create_one_relationship(cat)
+
+            cat_to_inter = cat.relationships[inter_cat.ID].platonic_like > 10 or\
+                cat.relationships[inter_cat.ID].comfortable > 10
+            inter_to_cat = inter_cat.relationships[cat.ID].platonic_like > 10 or\
+                inter_cat.relationships[cat.ID].comfortable > 10
+            if cat_to_inter and inter_to_cat:
+                cat_to_choose_from.append(inter_cat)
+
+        # if the cat has one or more mates, check how high the chance is, 
+        # that the cat interacts romantic with ANOTHER cat than their mate
+        use_mate = False
+        if cat.mate:
+            chance_number = game.config["relationship"]["chance_romantic_not_mate"]
+             
+            # the more mates the cat has, the less likely it will be that they interact with another cat romantically
+            for mate_id in cat.mate:
+                chance_number -= int(cat.relationships[mate_id].romantic_love / 20)
+            use_mate = int(random.random() * chance_number)  
+            
+        # If use_mate is falsey, or if the cat has been marked as "no_mates", only allow romantic 
+        # relations with current mates
+        if use_mate or cat.no_mates:
+            cat_to_choose_from = [cat.all_cats[mate_id] for mate_id in cat.mate if\
+                                    not cat.all_cats[mate_id].dead and not cat.all_cats[mate_id].outside]
+
+        if not cat_to_choose_from:
+            return
+            
+        other_cat = choice(cat_to_choose_from)
+        if Romantic_Events.start_interaction(cat, other_cat):
+            Relation_Events.trigger_event(cat)
+            Relation_Events.trigger_event(other_cat)
+
+    @staticmethod
+    def qpr_events(cat):
+        """
+            hellooooo lgbt ocmmunity
+        """
+        if cat.moons < 10:
+            return
+
+        if not Relation_Events.can_trigger_events(cat):
+            return
+
+        other_cat = None
+
+        # get the cats which are relevant for romantic interactions
+        free_possible_qpps = get_free_possible_qpps(cat)
+        other_love_interest = get_cats_of_qpp_interest(cat)  
+        possible_cats = free_possible_qpps
         if len(other_love_interest) > 0 and len(other_love_interest) < 3:
             possible_cats.extend(other_love_interest)
             possible_cats.extend(other_love_interest)

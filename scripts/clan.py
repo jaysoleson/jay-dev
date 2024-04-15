@@ -912,7 +912,7 @@ class Clan():
         }
     
     def load_accessories(self):
-        if game.clan.clan_settings['all accessories']:
+        if game.clan.clan_settings['all accessories'] or game.clan.clan_settings['all pride accessories']:
             for c in Cat.all_cats_list:
                 cat = c
                 age = cat.age
@@ -940,8 +940,11 @@ class Clan():
                     else:
                         cat_sprite = str(cat.pelt.cat_sprites[age])
 
-
-                possible_accs = ["WILD", "PLANT", "COLLAR", "FLOWER", "PLANT2", "SNAKE", "SMALLANIMAL", "DEADINSECT", "ALIVEINSECT", "FRUIT", "CRAFTED", "PRIDE", "PRIDE2", "PRIDE3", "TAIL2", "BANDANAS"]
+                if game.clan.clan_settings['all accessories']:
+                    possible_accs = ["WILD", "PLANT", "COLLAR", "FLOWER", "PLANT2", "SNAKE", "SMALLANIMAL", "DEADINSECT", "ALIVEINSECT", "FRUIT", "CRAFTED", "PRIDE", "PRIDE2", "PRIDE3", "TAIL2", "BANDANAS"]
+                elif game.clan.clan_settings['all pride accessories']:
+                    possible_accs = ["PRIDE", "PRIDE2", "PRIDE3", "BANDANAS"]
+                    
                 acc_list = []
                 if cat.moons > 6:
                     if "PRIDE" in possible_accs:
@@ -950,8 +953,8 @@ class Clan():
                         acc_list.extend(Pelt.pridebandanas2)
                     if "PRIDE3" in possible_accs:
                         acc_list.extend(Pelt.pridebandanas3)
-                if "BANDANAS" in possible_accs:
-                    acc_list.extend(Pelt.nonpridebandanas)
+                    if "BANDANAS" in possible_accs:
+                        acc_list.extend(Pelt.nonpridebandanas)
                 if "WILD" in possible_accs:
                     acc_list.extend(Pelt.wild_accessories)
                 if "PLANT" in possible_accs:

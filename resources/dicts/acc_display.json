@@ -1600,6 +1600,31 @@
     "plural": "a butch lesbian bandana",
     "singular": "butch lesbian bandana"
   },
+  "NEPTUNIC": {
+    "default": "neptunic bandana",
+    "plural": "a neptunic bandana",
+    "singular": "neptunic bandana"
+  },
+  "LITHROMANTIC": {
+    "default": "lithromantic bandana",
+    "plural": "a lithromantic bandana",
+    "singular": "lithromantic bandana"
+  },
+  "CUPIOROMANTIC": {
+    "default": "cupioromantic bandana",
+    "plural": "a cupioromantic bandana",
+    "singular": "cupioromantic bandana"
+  },
+  "QUEERPLATONIC": {
+    "default": "queerplatonic bandana",
+    "plural": "a queerplatonic bandana",
+    "singular": "queerplatonic bandana"
+  },
+  "AROACEFLUX": {
+    "default": "aroaceflux bandana",
+    "plural": "a aroaceflux bandana",
+    "singular": "aroaceflux bandana"
+  },
   "FIDDLEHEADS" :{
     "default": "fiddleheads",
     "plural": "fiddleheads",

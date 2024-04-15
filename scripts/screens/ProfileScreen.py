@@ -1573,9 +1573,46 @@ class ProfileScreen(Screens):
                 else:
                     output += " other"
 
+        if len(the_cat.qpp) > 0:
+            output += "\n"
+
+
+            qpp_names = []
+            # Grab the names of only the first two, since that's all we will display
+            for _m in the_cat.qpp[:2]:
+                qpp_ob = Cat.fetch_cat(_m)
+                if not isinstance(qpp_ob, Cat):
+                    continue
+                if qpp_ob.dead != self.the_cat.dead:
+                    if the_cat.dead:
+                        former_indicate = "(living)"
+                    else:
+                        former_indicate = "(dead)"
+
+                    qpp_names.append(f"{str(qpp_ob.name)} {former_indicate}")
+                elif qpp_ob.outside != self.the_cat.outside:
+                    qpp_names.append(f"{str(qpp_ob.name)} (away)")
+                else:
+                    qpp_names.append(f"{str(qpp_ob.name)}")
+
+            if len(the_cat.qpp) == 1:
+                output += "QPP: "
+            else:
+                output += "QPP: "
+
+            output += ", ".join(qpp_names)
+
+            if len(the_cat.qpp) > 2:
+                output += f", and {len(the_cat.qpp) - 2}"
+                if len(the_cat.qpp) - 2 > 1:
+                    output += " others"
+                else:
+                    output += " other"
+
         if not the_cat.dead:
             # NEWLINE ----------
             output += "\n"
+
 
         return output
 

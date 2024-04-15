@@ -91,6 +91,7 @@ class Game():
         'naming_text': '',
         'timeskip': False,
         'mate': None,
+        'qpp': None,
         'choosing_mate': False,
         'mentor': None,
         'setting': None,
@@ -458,6 +459,11 @@ class Game():
                 for mate_id in inter_cat.mate:
                     if mate_id in self.cat_class.all_cats:
                         self.cat_class.all_cats[mate_id].unset_mate(inter_cat)
+            
+            if inter_cat.qpp:
+                for qpp_id in inter_cat.qpp:
+                    if qpp_id in self.cat_class.all_cats:
+                        self.cat_class.all_cats[qpp_id].unset_qpp(inter_cat)
 
             # If they have parents, add them to their parents "faded offspring" list:
             for x in inter_cat.get_parents():

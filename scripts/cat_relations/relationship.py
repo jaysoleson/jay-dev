@@ -22,12 +22,13 @@ from scripts.cat_relations.interaction import (
 class Relationship():
     used_interaction_ids = []
 
-    def __init__(self, cat_from, cat_to, mates=False, family=False, romantic_love=0, platonic_like=0, dislike=0,
+    def __init__(self, cat_from, cat_to, mates=False, qpps=False,family=False, romantic_love=0, platonic_like=0, dislike=0,
                  admiration=0, comfortable=0, jealousy=0, trust=0, log=None) -> None:
         self.history = History()
         self.cat_from = cat_from
         self.cat_to = cat_to
         self.mates = mates
+        self.qpps = qpps
         self.family = family
         self.opposite_relationship = None  # link to opposite relationship will be created later
         self.interaction_str = ''
@@ -67,6 +68,9 @@ class Relationship():
         # update relationship
         if self.cat_to.ID in self.cat_from.mate:
             self.mates = True
+
+        if self.cat_to.ID in self.cat_from.qpp:
+            self.qpps = True
 
         # check if opposite_relationship is here, otherwise creates it
         if self.opposite_relationship is None:
@@ -359,6 +363,10 @@ class Relationship():
         # increase the chance of a romantic interaction if there already mates
         if self.mates:
             value_weights["romantic"] += 1
+
+        # same here
+        if self.qpps:
+            value_weights["platonic"] += 1
 
         # create the list of choices
         types = []

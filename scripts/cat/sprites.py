@@ -551,8 +551,11 @@ class Sprites():
             "TRANS", "ENBY", "GRAYARO", "DEMIBOY", "DEMIGIRL", "BUTCH"]):
             self.make_group('pridebandanas', (a, 0), f'acc_pride{i}')
         for a, i in enumerate([
-            "ANDRO", "GYNO"]):
+            "ANDRO", "GYNO", "NEPTUNIC", "LITHROMANTIC", "CUPIOROMANTIC"]):
             self.make_group('pridebandanas', (a, 1), f'acc_pride{i}')
+        for a, i in enumerate([
+            "QUEERPLATONIC", 'AROACEFLUX']):
+            self.make_group('pridebandanas', (a, 2), f'acc_pride{i}')
 
         for a, i in enumerate([
             "GENDERFLUID", "AMBIGUOUS", "INTERSEX", "RAINBOWBANDANA", "GAY", "LESBIAN"]):

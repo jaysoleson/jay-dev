@@ -1,0 +1,39 @@
+{
+	"high_platonic": {
+		"m_c_qpps": [
+			"After a talk with [m_c_qpps], m_c confessed {PRONOUN/m_c/poss} feelings to r_c, and they have become qpps.",
+			"After a talk with {PRONOUN/m_c/poss} (m_c_qpp/qpps), m_c confessed {PRONOUN/m_c/poss} feelings to r_c, and they have become qpps."
+		],
+		"r_c_qpps": [
+			"m_c asked r_c out, after {PRONOUN/m_c/subject} talked with [r_c_qpps]. m_c and r_c have become qpps.",
+			"m_c asked r_c out, after {PRONOUN/m_c/subject} talked with {PRONOUN/m_c/poss} (r_c_qpp/qpps). m_c and r_c have become qpps."
+		],
+		"both_qpps": [
+			"m_c and r_c talked with their qpps, and happily announced that m_c and r_c are now qpps."
+		]
+	},
+	"low_platonic":{
+		"m_c_qpps": [
+			"After m_c talked about {PRONOUN/m_c/poss} feelings for r_c with [m_c_qpps], m_c and r_c have become qpps.",
+			"After m_c talked about {PRONOUN/m_c/poss} feelings for r_c with {PRONOUN/m_c/poss} (m_c_qpp/qpps), m_c and r_c have become qpps."
+		],
+		"r_c_qpps": [
+			"After r_c talked with [r_c_qpps] about {PRONOUN/m_c/poss} feelings for m_c, m_c and r_c have become qpps.",
+			"After r_c talked with {PRONOUN/m_c/poss} (r_c_qpp/qpps) about {PRONOUN/m_c/poss} feelings for m_c, m_c and r_c have become qpps."
+		],
+		"both_qpps": [
+			"m_c and r_c talked with their qpps, and announced that they are now qpps."
+		]
+	},
+	"rejected":{
+		"m_c_qpps": [
+			"rejected qpp text m_c_qpps"
+		],
+		"r_c_qpps": [
+			"rejected qpp text r_c_qpps"
+		],
+		"both_qpps": [
+			"rejected qpp text both_qpps"
+		]
+	}
+}

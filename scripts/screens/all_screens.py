@@ -35,6 +35,7 @@ from .AffairScreen import AffairScreen
 from .ClearingScreen import ClearingScreen
 from .QueenScreen import QueenScreen
 from .MoonplaceScreen import MoonplaceScreen
+from .ChooseQPPScreen import ChooseQPPScreen
 
 # ---------------------------------------------------------------------------- #
 #                                  UI RULES                                    #
@@ -83,6 +84,7 @@ choose_adoptive_parent_screen = ChooseAdoptiveParentScreen('choose adoptive pare
 relationship_screen = RelationshipScreen('relationship screen')
 view_children_screen = FamilyTreeScreen('see kits screen')
 mediation_screen = MediationScreen("mediation screen")
+choose_qpp_screen = ChooseQPPScreen('choose qpp screen')
 
 # LifeGen screens
 

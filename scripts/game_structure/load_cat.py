@@ -174,6 +174,7 @@ def json_load():
             new_cat.patrol_with_mentor = cat["patrol_with_mentor"] if "patrol_with_mentor" in cat else 0
             new_cat.no_kits = cat["no_kits"]
             new_cat.no_mates = cat["no_mates"] if "no_mates" in cat else False
+            new_cat.no_qpps = cat["no_qpps"] if "no_qpps" in cat else False
             new_cat.no_retire = cat["no_retire"] if "no_retire" in cat else False
             new_cat.prevent_sexualitychange = cat["keep_sexuality"] if "keep_sexuality" in cat else False
             new_cat.prevent_genderchange = cat["keep_gender"] if "keep_gender" in cat else False
@@ -197,6 +198,11 @@ def json_load():
             new_cat.mate = cat["mate"] if type(cat["mate"]) is list else [cat["mate"]]
             if None in new_cat.mate:
                 new_cat.mate = [i for i in new_cat.mate if i is not None]
+
+            new_cat.qpp = cat["qpp"] if type(cat["qpp"]) is list else [cat["qpp"]]
+            if None in new_cat.qpp:
+                new_cat.qpp = [i for i in new_cat.qpp if i is not None]
+
             new_cat.previous_mates = cat["previous_mates"] if "previous_mates" in cat else []
             new_cat.dead = cat["dead"]
             new_cat.dead_for = cat["dead_moons"]
@@ -301,10 +307,10 @@ def csv_load(all_cats):
             # PELT: pelt(9) - colour(10) - white(11) - length(12)
             # SPRITE: kitten(13) - apprentice(14) - warrior(15) - elder(16) - eye colour(17) - reverse(18)
             # - white patches(19) - pattern(20) - tortiebase(21) - tortiepattern(22) - tortiecolour(23) - skin(24) - skill(25) - NONE(26) - spec(27) - accessory(28) -
-            # spec2(29) - moons(30) - mate(31)
-            # dead(32) - SPRITE:dead(33) - exp(34) - dead for _ moons(35) - shunned moons (36) current apprentice(37)
-            # (BOOLS, either TRUE OR FALSE) paralyzed(38) - no kits(39) - exiled(40)
-            # genderalign(41) - former apprentices list (42)[FORMER APPS SHOULD ALWAYS BE MOVED TO THE END]
+            # spec2(29) - moons(30) - mate(31) - qpp(32)
+            # dead(33) - SPRITE:dead(34) - exp(35) - dead for _ moons(36) - shunned moons (37) current apprentice(38)
+            # (BOOLS, either TRUE OR FALSE) paralyzed(39) - no kits(40) - exiled(41)
+            # genderalign(42) - former apprentices list (43)[FORMER APPS SHOULD ALWAYS BE MOVED TO THE END]
             if i.strip() != '':
                 attr = i.split(',')
                 for x in range(len(attr)):
@@ -408,9 +414,12 @@ def csv_load(all_cats):
                         # assigning mate to cat, if any
                         the_cat.mate = [attr[31]]
                     if len(attr) >= 32:
+                        # assigning qpp to cat, if any
+                        the_cat.qpp = [attr[32]]
+                    if len(attr) >= 33:
                         # Is the cat dead
-                        the_cat.dead = attr[32]
-                        the_cat.pelt.cat_sprites['dead'] = attr[33]
+                        the_cat.dead = attr[33]
+                        the_cat.pelt.cat_sprites['dead'] = attr[34]
                 game.switches[
                     'error_message'] = '13There was an error loading cat # ' + str(
                     attr[0])

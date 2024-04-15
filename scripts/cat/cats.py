@@ -147,6 +147,7 @@ class Cat():
             self.parent2 = None
             self.adoptive_parents = []
             self.mate = []
+            self.qpp = []
             self.status = status
             self.pronouns = [self.default_pronouns[0].copy()]
             self.sexuality = sexuality
@@ -206,6 +207,7 @@ class Cat():
         self.former_apprentices = []
         self.relationships = {}
         self.mate = []
+        self.qpp = []
         self.previous_mates = []
         self.pronouns = [self.default_pronouns[0].copy()]
         self.placement = None
@@ -237,6 +239,7 @@ class Cat():
         self.revives = 0
         self.no_kits = False
         self.no_mates = False
+        self.no_qpps = False
         self.no_retire = False
         self.prevent_sexualitychange = False
         self.prevent_genderchange = False
@@ -2496,7 +2499,6 @@ class Cat():
                           other_cat: Cat,
                           for_love_interest: bool = False,
                           age_restriction: bool = True,
-                          sexuality_compatible: bool = True,
                           first_cousin_mates:bool = False,
                           ignore_no_mates:bool=False):
         """
@@ -2527,25 +2529,21 @@ class Cat():
         if (self.dead != other_cat.dead) or self.outside or other_cat.outside:
             return False
 
-        if sexuality_compatible:
-            if (self.sexuality == "aroace" or other_cat.sexuality == "aroace") or \
-            (self.sexuality in ["lesbian", "gyno"] and other_cat.genderalign in ["male", "trans male", "demiboy"]) or \
-            (self.sexuality in ["gay", "andro"] and other_cat.genderalign in ["female", "trans female", "demigirl"]) or \
-            (self.sexuality == "straight" and self.genderalign in ["male", "trans male", "demiboy"] and \
-                    other_cat.genderalign in ["male", "trans male", "demiboy"]) or \
-                (self.sexuality == "straight" and self.genderalign in ["female", "trans female", "demigirl"] and \
-                    other_cat.genderalign in ["female", "trans female", "demigirl"]) or \
-            (self.sexuality in ["lesbian", "gyno"] and self.genderalign in ["male", "trans male", "demiboy"]) or \
-            (self.sexuality in ["gay", "andro"] and self.genderalign in ["female", "trans female", "demigirl"]) or \
-            (self.sexuality == "straight" and self.genderalign in ["male", "trans male", "demiboy"] and \
-                    other_cat.genderalign in ["male", "trans male", "demiboy"]) or \
-                (self.sexuality == "straight" and self.genderalign in ["female", "trans female", "demigirl"] and \
-                    other_cat.genderalign in ["female", "trans female", "demigirl"]) or \
-                (self.genderalign in ['male', 'trans male', 'demiboy'] and \
-                self.sexuality == "gay" and other_cat.sexuality == "straight") or \
-                (self.genderalign in ['female', 'trans female', 'demigirl'] and \
-                self.sexuality == "lesbian" and other_cat.sexuality == "straight") and not for_love_interest:
-                return False
+        cat1_boy = self.genderalign in ['male', 'trans male', 'demiboy']
+        cat1_girl = self.genderalign in ['female', 'trans female', 'demigirl']
+
+        cat1_girlliker = self.sexuality in ['lesbian', 'gyno'] or (self.sexuality == 'straight' and cat1_boy)
+        cat1_boyliker = self.sexuality in ['gay', 'andro'] or (self.sexuality == 'straight' and cat1_girl)
+
+        cat2_boy = other_cat.genderalign in ['male', 'trans male', 'demiboy']
+        cat2_girl = other_cat.genderalign in ['female', 'trans female', 'demigirl']
+
+        cat2_girlliker = other_cat.sexuality in ['lesbian', 'gyno'] or (other_cat.sexuality == 'straight' and cat2_boy)
+        cat2_boyliker = other_cat.sexuality in ['gay', 'andro'] or (other_cat.sexuality == 'straight' and cat2_girl)
+
+        if (self.sexuality == "aroace" or other_cat.sexuality == "aroace") or \
+        (cat1_boy and cat2_girlliker) or (cat1_girl and cat2_boyliker) or (cat1_girlliker and cat2_boy) or (cat1_boyliker and cat2_girl):
+            return False
 
         # check for age
         if age_restriction:
@@ -2557,6 +2555,74 @@ class Cat():
             # game_config boolian "override_same_age_group" disables the same-age group check.
             if game.config["mates"].get("override_same_age_group", False) or self.age != other_cat.age:
                 if abs(self.moons - other_cat.moons)> game.config["mates"]["age_range"] + 1:
+                    return False
+
+        age_restricted_ages = ["newborn", "kitten", "adolescent"]
+        if self.age in age_restricted_ages or other_cat.age in age_restricted_ages:
+            if self.age != other_cat.age:
+                return False
+
+        # check for mentor
+        
+        # Current mentor
+        if other_cat.ID in self.apprentice or self.ID in other_cat.apprentice:
+            return False
+        
+        #Former mentor
+        is_former_mentor = (other_cat.ID in self.former_apprentices or self.ID in other_cat.former_apprentices)
+        if is_former_mentor and not game.clan.clan_settings['romantic with former mentor']:
+            return False
+
+        #current mentor
+        if other_cat.ID in self.apprentice or self.ID in other_cat.apprentice:
+            return False
+
+        return True
+    
+    def is_potential_qpp(self,
+                          other_cat: Cat,
+                          for_love_interest: bool = False,
+                          age_restriction: bool = True,
+                          first_cousin_mates:bool = False,
+                          ignore_no_qpps:bool=False):
+        """
+            Checks if this cat is potential qpp for the other cat.
+            There are no restrictions if the current cat already has a qpp or not.
+        """
+        
+        try:
+            first_cousin_mates = game.clan.clan_settings["first cousin mates"]
+        except:
+            if 'unittest' not in sys.modules:
+                raise
+                
+        
+        # just to be sure, check if it is not the same cat
+        if self.ID == other_cat.ID:
+            return False
+        
+        #No Mates Check
+        if not ignore_no_qpps and (self.no_qpps or other_cat.no_qpps):
+            return False
+
+        # Inheritance check
+        if self.is_related(other_cat, first_cousin_mates):
+            return False
+
+        # check exiled, outside, and dead cats
+        if (self.dead != other_cat.dead) or self.outside or other_cat.outside:
+            return False
+
+        # check for age
+        if age_restriction:
+            if (self.moons < 10 or other_cat.moons < 10) and not for_love_interest:
+                return False
+
+            # the +1 is necessary because both might not already aged up
+            # if only one is aged up at this point, later they are more moons apart than the setting defined
+            # game_config boolian "override_same_age_group" disables the same-age group check.
+            if game.config["QPR"].get("override_same_age_group", False) or self.age != other_cat.age:
+                if abs(self.moons - other_cat.moons)> game.config["QPR"]["age_range"] + 1:
                     return False
 
         age_restricted_ages = ["newborn", "kitten", "adolescent"]
@@ -2737,6 +2803,101 @@ class Cat():
             other_relationship.comfortable += 20
             other_relationship.trust += 10
             other_relationship.mate = True
+
+    def set_qpp(self, other_cat: Cat):
+        """Sets up a queerplatonic relationship between self and other_cat."""
+        
+        if other_cat.ID not in self.qpp:
+            self.qpp.append(other_cat.ID)
+        if self.ID not in other_cat.qpp:
+            other_cat.qpp.append(self.ID)
+
+        # If the current mate was in the previous mate list, remove them. 
+
+        # if other_cat.ID in self.previous_mates:
+        #     self.previous_mates.remove(other_cat.ID)
+        # if self.ID in other_cat.previous_mates:
+        #     other_cat.previous_mates.remove(self.ID)
+
+        # if other_cat.inheritance:
+        #     other_cat.inheritance.update_all_mates()
+        # if self.inheritance:
+        #     self.inheritance.update_all_mates()
+
+        # Set starting relationship values
+        if not self.dead:
+            if other_cat.ID not in self.relationships:
+                self.create_one_relationship(other_cat)
+                self.relationships[other_cat.ID].qpp =  True
+            self_relationship = self.relationships[other_cat.ID]
+            self_relationship.comfortable += 20
+            self_relationship.trust += 10
+            self_relationship.qpp = True
+
+        if not other_cat.dead:
+            if self.ID not in other_cat.relationships:
+                other_cat.create_one_relationship(self)
+                other_cat.relationships[self.ID].qpp = True
+            other_relationship = other_cat.relationships[self.ID]
+            other_relationship.comfortable += 20
+            other_relationship.trust += 10
+            other_relationship.qpp = True
+
+    def unset_qpp(self, other_cat: Cat, breakup: bool = False, fight: bool = False):
+        """Unset the qpp from both self and other_cat"""
+        if not other_cat:
+            return
+
+        # Both cats must have mates for this to work
+        if len(self.qpp) < 1 or len(other_cat.qpp) < 1:
+            return
+
+        # AND they must be qpps with each other. 
+        if self.ID not in other_cat.qpp or other_cat.ID not in self.qpp:
+            print(f"Unsetting qpps: These {self.name} and {other_cat.name} are not qpps!")
+            return
+
+        # If only deal with relationships if this is a breakup.
+        if breakup:
+            if not self.dead:
+                if other_cat.ID not in self.relationships:
+                    self.create_one_relationship(other_cat)
+                    self.relationships[other_cat.ID].qpp = True
+                self_relationship = self.relationships[other_cat.ID]
+                self_relationship.comfortable -= 20
+                self_relationship.trust -= 10
+                self_relationship.qpp = False
+                if fight:
+                    self_relationship.platonic_like -= 30
+                if randint(1,5) == 1:
+                    self.get_ill("heartbroken")
+                if randint(1,5) == 1 and not other_cat.dead:
+                    other_cat.get_ill("heartbroken")
+            if not other_cat.dead:
+                if self.ID not in other_cat.relationships:
+                    other_cat.create_one_relationship(self)
+                    other_cat.relationships[self.ID].qpp = True
+                other_relationship = other_cat.relationships[self.ID]
+                other_relationship.romantic_love -= 40
+                other_relationship.comfortable -= 20
+                other_relationship.trust -= 10
+                other_relationship.qpp = False
+                if fight:
+                    other_relationship.platonic_like -= 30
+
+        self.qpp.remove(other_cat.ID)
+        other_cat.qpp.remove(self.ID)
+
+        # Handle previous mates:
+        # if other_cat.ID not in self.previous_mates:
+        #     self.previous_mates.append(other_cat.ID)
+        # if self.ID not in other_cat.previous_mates:
+        #     other_cat.previous_mates.append(self.ID)
+
+        # if other_cat.inheritance:
+        #     other_cat.inheritance.update_all_mates()
+        # if self.inheritance:
+        #     self.inheritance.update_all_mates()
         
 
     def create_inheritance_new_cat(self):
@@ -3428,6 +3589,7 @@ class Cat():
                 "former_mentor": [cat for cat in self.former_mentor] if self.former_mentor else [],
                 "patrol_with_mentor": self.patrol_with_mentor if self.patrol_with_mentor else 0,
                 "mate": self.mate,
+                "qpp": self.qpp,
                 "previous_mates": self.previous_mates,
                 "dead": self.dead,
                 "paralyzed": self.pelt.paralyzed,
@@ -3435,6 +3597,7 @@ class Cat():
                 "exiled": self.exiled,
                 "no_retire": self.no_retire,
                 "no_mates": self.no_mates,
+                "no_qpps": self.no_qpps,
                 "keep_sexuality": self.prevent_sexualitychange,
                 "keep_gender": self.prevent_genderchange,
                 "pelt_name": self.pelt.name,

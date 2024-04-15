@@ -1689,6 +1689,8 @@ class MateScreen(UIWindow):
                     self.mediator_button.kill()
                     self.kill()
                     game.clan.your_cat.set_mate(game.switches['new_mate'])
+                    if game.switches['new_mate'] in game.clan.your_cat.qpp:
+                        game.clan.your_cat.unset_qpp(game.switches['new_mate'])
                     game.switches['accept'] = True
 
                 elif event.ui_element == self.mediator_button:
@@ -1704,6 +1706,78 @@ class MateScreen(UIWindow):
                     game.switches['reject'] = True
             except:
                 print("error with mate screen")
+
+class QPRScreen(UIWindow):
+    def __init__(self, last_screen):
+        super().__init__(scale(pygame.Rect((500, 400), (600, 500))),
+                         window_display_title='Choose your platonic partner',
+                         object_id='#game_over_window',
+                         resizable=False)
+        self.set_blocking(True)
+        game.switches['window_open'] = True
+        self.clan_name = str(game.clan.name + 'Clan')
+        self.last_screen = last_screen
+        self.qpp = game.switches['new_qpp']
+        self.pick_path_message = UITextBoxTweaked(
+            f"{self.qpp.name} wants to be your platonic partner.",
+            scale(pygame.Rect((40, 40), (520, -1))),
+            line_spacing=1,
+            object_id="text_box_30_horizcenter",
+            container=self
+        )
+
+        self.begin_anew_button = UIImageButton(
+            scale(pygame.Rect((130, 190), (150, 150))),
+            "",
+            object_id="#your_clan_button",
+            container=self,
+            tool_tip_text='Accept and become partners'
+        )
+        
+        self.mediator_button = UIImageButton(
+            scale(pygame.Rect((310, 190), (150, 150))),
+            "",
+            object_id="#outside_clan_button",
+            container=self,
+            tool_tip_text='Reject'
+
+        )
+        
+
+        self.begin_anew_button.enable()
+        self.mediator_button.enable()
+
+
+
+    def process_event(self, event):
+        super().process_event(event)
+        if event.type == pygame_gui.UI_BUTTON_START_PRESS:
+            try:
+                if event.ui_element == self.begin_anew_button:
+                    game.last_screen_forupdate = None
+                    game.switches['window_open'] = False
+                    # game.switch_screens = True                    
+                    self.begin_anew_button.kill()
+                    self.pick_path_message.kill()
+                    self.mediator_button.kill()
+                    self.kill()
+                    game.clan.your_cat.set_qpp(game.switches['new_qpp'])
+                    game.switches['qpraccept'] = True
+
+                elif event.ui_element == self.mediator_button:
+                    game.last_screen_forupdate = None
+                    game.switches['window_open'] = False
+                    # game.switch_screens = True
+                    self.begin_anew_button.kill()
+                    self.pick_path_message.kill()
+                    self.mediator_button.kill()
+                    self.kill()
+                    game.switches['new_qpp'].relationships[game.clan.your_cat.ID].platonic_like = 0
+                    game.clan.your_cat.relationships[game.switches['new_qpp'].ID].comfortable -= 10
+                    game.switches['qprreject'] = True
+            except:
+                print("error with qpr screen")
+
 
 class RetireScreen(UIWindow):
     def __init__(self, last_screen):
@@ -1930,6 +2004,9 @@ class ChangeCatToggles(UIWindow):
                 self.refresh_checkboxes()
             elif event.ui_element == self.checkboxes["prevent_mates"]:
                 self.the_cat.no_mates = not self.the_cat.no_mates
+                self.refresh_checkboxes()
+            elif event.ui_element == self.checkboxes["prevent_qpps"]:
+                self.the_cat.no_qpps = not self.the_cat.no_qpps
                 self.refresh_checkboxes()
             elif event.ui_element == self.checkboxes["prevent_sexuality"]:
                 self.the_cat.prevent_sexualitychange = not self.the_cat.prevent_sexualitychange

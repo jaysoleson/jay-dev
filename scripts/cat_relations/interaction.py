@@ -185,6 +185,10 @@ def rel_fulfill_rel_constraints(relationship, constraint, interaction_id) -> boo
     if "mates" in constraint and (relationship.cat_from.ID not in relationship.cat_to.mate or\
                                   relationship.cat_to.ID not in relationship.cat_from.mate ):
         return False
+    
+    if "qpps" in constraint and (relationship.cat_from.ID not in relationship.cat_to.qpp or\
+                                  relationship.cat_to.ID not in relationship.cat_from.qpp ):
+        return False
 
     if "not_mates" in constraint and (relationship.cat_from.ID in relationship.cat_to.mate or\
                                       relationship.cat_to.ID in relationship.cat_from.mate):

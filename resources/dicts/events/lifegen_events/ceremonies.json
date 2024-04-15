@@ -591,5 +591,13 @@
         "You feel the chill of the final dusk seeping into your fur. The edges of your vision blur, the sounds of the territory soften. As the stars in the sky merge into a comforting blanket of light, you can't help but reflect on your life. Have you made a difference?",
         "An unusual calm washes over you, the sensation of paws barely grazing the earth. The world starts to spin, colors of the territory blending into a watercolor haze. As the darkness edges closer, you find peace in the memories of your life. The lives you've touched, the bonds you've built, the laughter, the love - it feels like an eternity lived in moments. You take one last breath and embrace the everlasting peace.",
         "The pull of the darkness is gentle, like the ebbing of a slow-moving stream. Your limbs grow heavy and you lay your head down, eyes fixed on the starry sky. A sense of peace washes over you as you take stock of your life, of the bonds you've formed, the lessons you've learned, and the legacy you're leaving behind. With a soft sigh, you let go, and embrace the serenity of the darkness."
+    ],
+    "gain_qpp general": [
+        "You know that you and qpp1 are just friends, but somehow, it's also more than that. When they ask you to commit to a deeper platonic partnership with them, you're overjoyed that they feel the same, and respond with a resounding yes!",
+        "qpp1 approaches you shyly one night, a proposition on their tongue. You've always been such great friends, and they tell you that they'd like to deeper your platonic relationship as partners. You ask them why it took so long to ask!",
+        "You are now in a platonic partnership!"
+    ],
+    "gain_mate_from_qpr": [
+        "mate1 had insisted that you were just platonic partners, but it seemed their feelings had progressed without their knowledge. When they confess this to you, you're relived, as you'd felt exactly the same. You're now mates."
     ]
 }

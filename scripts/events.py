@@ -69,6 +69,8 @@ class Events:
         self.d_txt = None
         self.checks = [-1,-1,-1]
 
+        # AALLLLL the pride flags
+
         self.trans = Pelt.pridebandanas[0]
         self.enby = Pelt.pridebandanas[1]
         self.greyaro = Pelt.pridebandanas[2]
@@ -77,6 +79,11 @@ class Events:
         self.butch = Pelt.pridebandanas[5]
         self.andro = Pelt.pridebandanas[6]
         self.gyno = Pelt.pridebandanas[7]
+        self.neptunic = Pelt.pridebandanas[8]
+        self.lithromantic = Pelt.pridebandanas[9]
+        self.cupioromantic = Pelt.pridebandanas[10]
+        self.queerplatonic = Pelt.pridebandanas[11]
+        self.aroaceflux = Pelt.pridebandanas[12]
 
         self.genderfluid = Pelt.pridebandanas2[0]
         self.ambiguous = Pelt.pridebandanas2[1]
@@ -96,6 +103,7 @@ class Events:
         self.ace = Pelt.pridebandanas2[12]
         self.aro = Pelt.pridebandanas2[13]
         self.demiromantic = Pelt.pridebandanas2[14]
+        
         self.straight = Pelt.nonpridebandanas[0]
 
         self.uranic = Pelt.pridebandanas3[0]
@@ -115,15 +123,15 @@ class Events:
         TODO: DOCS
         """
         if self.checks == [-1,-1,-1] and game.clan.your_cat and game.clan.your_cat.inheritance:
-            self.checks = [len(game.clan.your_cat.apprentice), len(game.clan.your_cat.mate), len(game.clan.your_cat.inheritance.get_blood_kits()), None]
+            self.checks = [len(game.clan.your_cat.apprentice), len(game.clan.your_cat.mate), len(game.clan.your_cat.inheritance.get_blood_kits()), None, len(game.clan.your_cat.qpp) ]
             if game.clan.leader:
                 self.checks[3] = game.clan.leader.ID
         elif game.clan.your_cat.inheritance:
-            self.checks = [len(game.clan.your_cat.apprentice), len(game.clan.your_cat.mate), len(game.clan.your_cat.inheritance.get_blood_kits()), None]
+            self.checks = [len(game.clan.your_cat.apprentice), len(game.clan.your_cat.mate), len(game.clan.your_cat.inheritance.get_blood_kits()), None, len(game.clan.your_cat.qpp)]
             if game.clan.leader:
                 self.checks[3] = game.clan.leader.ID
         else:
-            self.checks = [len(game.clan.your_cat.apprentice), len(game.clan.your_cat.mate), 0, None]
+            self.checks = [len(game.clan.your_cat.apprentice), len(game.clan.your_cat.mate), 0, None, len(game.clan.your_cat.qpp)]
             if game.clan.leader:
                 self.checks[3] = game.clan.leader.ID
         game.cur_events_list = [] + game.next_events_list
@@ -405,11 +413,16 @@ class Events:
                 self.check_leader(self.checks)
                 if game.clan.your_cat.shunned == 0:
                     self.check_gain_app(self.checks)
+                
                 self.check_gain_mate(self.checks)
                 self.check_gain_kits(self.checks)
                 self.generate_mate_events()
+
                 if game.clan.your_cat.shunned == 0:
                     self.check_retire()
+
+            if game.clan.your_cat.moons >= 10:
+                self.check_gain_qpp(self.checks)
 
             if random.randint(1,15) == 1:
                 self.gain_acc()
@@ -794,7 +807,7 @@ class Events:
 
                 return birth_type, parent1, parent2, adoptive_parents
             except Exception as e:
-                print("Error in birth event" + e)
+                print("Error in birth event", e)
                 birth_type = random.choice(list(BirthType))
                 get_parents(birth_type)
 
@@ -1256,7 +1269,11 @@ class Events:
                         encoding="ascii") as read_file:
                     self.d_txt = ujson.loads(read_file.read())
                 try:
-                    ceremony_txt = random.choice(self.d_txt["gain_mate " + game.clan.your_cat.status.replace(" ", "") + " " + Cat.all_cats[game.clan.your_cat.mate[-1]].status.replace(" ", "")])
+                    if Cat.all_cats[game.clan.your_cat.mate[-1]] in game.clan.your_cat.qpp:
+                        ceremony_txt = random.choice(self.d_txt["gain_mate_from_qpr"])
+                        game.clan.your_cat.unset_qpp(Cat.all_cats[game.clan.your_cat.mate[-1]])
+                    else:
+                        ceremony_txt = random.choice(self.d_txt["gain_mate " + game.clan.your_cat.status.replace(" ", "") + " " + Cat.all_cats[game.clan.your_cat.mate[-1]].status.replace(" ", "")])
                 except:
                     ceremony_txt = random.choice(self.d_txt["gain_mate general"])
 
@@ -1273,25 +1290,98 @@ class Events:
                 with open(f"{resource_dir}mate_lifegen.json",
                         encoding="ascii") as read_file:
                     self.f_txt = ujson.loads(read_file.read())
-                r = random.randint(1,3)
-                if r == 1:
+                    
+                if Cat.all_cats[game.clan.your_cat.mate[-1]] in game.clan.your_cat.qpp:
+                    r = 4
                     game.switches['new_mate'].relationships[game.clan.your_cat.ID].romantic_love -= 8
-                elif r == 2:
-                    game.switches['new_mate'].relationships[game.clan.your_cat.ID].romantic_love -= 8
-                    game.switches['new_mate'].relationships[game.clan.your_cat.ID].platonic_like -= 8
-                    game.clan.your_cat.relationships[game.switches['new_mate'].ID].comfortable -= 5
-                elif r == 3:
-                    game.switches['new_mate'].relationships[game.clan.your_cat.ID].romantic_love -= 5
-                    game.switches['new_mate'].relationships[game.clan.your_cat.ID].platonic_like -= 10
-                    game.clan.your_cat.relationships[game.switches['new_mate'].ID].platonic_like -= 10
-                    game.clan.your_cat.relationships[game.switches['new_mate'].ID].dislike += 10
+                else:
+                    r = random.randint(1,3)
+                    if r == 1:
+                        game.switches['new_mate'].relationships[game.clan.your_cat.ID].romantic_love -= 8
+                    elif r == 2:
+                        game.switches['new_mate'].relationships[game.clan.your_cat.ID].romantic_love -= 8
+                        game.switches['new_mate'].relationships[game.clan.your_cat.ID].platonic_like -= 8
+                        game.clan.your_cat.relationships[game.switches['new_mate'].ID].comfortable -= 5
+                    elif r == 3:
+                        game.switches['new_mate'].relationships[game.clan.your_cat.ID].romantic_love -= 5
+                        game.switches['new_mate'].relationships[game.clan.your_cat.ID].platonic_like -= 10
+                        game.clan.your_cat.relationships[game.switches['new_mate'].ID].platonic_like -= 10
+                        game.clan.your_cat.relationships[game.switches['new_mate'].ID].dislike += 10
 
                 ceremony_txt = random.choice(self.f_txt['reject' + str(r)])
                 ceremony_txt = ceremony_txt.replace('mate1', str(game.switches['new_mate'].name))
                 game.cur_events_list.insert(0, Single_Event(ceremony_txt))
                 game.switches['reject'] = False
+                if r == 4:
+                    game.clan.your_cat.unset_qpp(Cat.all_cats[game.clan.your_cat.mate[-1]])
             except:
                 print("You rejected a cat but an event could not be shown")
+
+    def check_gain_qpp(self, checks):
+        
+        if len(game.clan.your_cat.qpp) == checks[4] + 1:
+            try:
+                print('QPP event running for', game.clan.your_cat.name, "and", str(Cat.all_cats[game.clan.your_cat.qpp[-1]].name) )
+                
+                resource_dir = "resources/dicts/events/lifegen_events/"
+                with open(f"{resource_dir}ceremonies.json",
+                        encoding="ascii") as read_file:
+                    self.d_txt = ujson.loads(read_file.read())
+                try:
+                    ceremony_txt = random.choice(self.d_txt["gain_qpp " + game.clan.your_cat.status.replace(" ", "") + " " + Cat.all_cats[game.clan.your_cat.qpp[-1]].status.replace(" ", "")])
+                except:
+                    ceremony_txt = random.choice(self.d_txt["gain_qpp general"])
+
+                ceremony_txt = ceremony_txt.replace('qpp1', str(Cat.all_cats[game.clan.your_cat.qpp[-1]].name))
+                game.cur_events_list.insert(0, Single_Event(ceremony_txt))
+                game.switches['qpraccept'] = False
+                game.switches['accept'] = False
+            except:
+                print("You gained a new qpp but an event could not be shown1")
+        elif 'qpraccept' in game.switches and game.switches['qpraccept']:
+            try:
+                resource_dir = "resources/dicts/events/lifegen_events/"
+                with open(f"{resource_dir}ceremonies.json",
+                        encoding="ascii") as read_file:
+                    self.d_txt = ujson.loads(read_file.read())
+                try:
+                    ceremony_txt = random.choice(self.d_txt["gain_qpp " + game.clan.your_cat.status.replace(" ", "") + " " + Cat.all_cats[game.clan.your_cat.qpp[-1]].status.replace(" ", "")])
+                except:
+                    ceremony_txt = random.choice(self.d_txt["gain_qpp general"])
+                ceremony_txt = ceremony_txt.replace('qpp1', str(Cat.all_cats[game.clan.your_cat.qpp[-1]].name))
+                game.cur_events_list.insert(0, Single_Event(ceremony_txt))
+                game.switches['qpraccept'] = False
+                game.switches['accept'] = False
+
+                checks[4] = len(game.clan.your_cat.qpp)
+            except:
+                print("You gained a new platonic partner but an event could not be shown1")
+
+        elif 'qprreject' in game.switches and game.switches['qprreject']:
+            try:
+                resource_dir = "resources/dicts/events/lifegen_events/"
+                with open(f"{resource_dir}qpr_reject.json",
+                        encoding="ascii") as read_file:
+                    self.f_txt = ujson.loads(read_file.read())
+                r = random.randint(1,3)
+                if r == 1:
+                    game.switches['new_qpp'].relationships[game.clan.your_cat.ID].romantic_love -= 8
+                elif r == 2:
+                    game.switches['new_qpp'].relationships[game.clan.your_cat.ID].romantic_love -= 8
+                    game.switches['new_qpp'].relationships[game.clan.your_cat.ID].platonic_like -= 8
+                    game.clan.your_cat.relationships[game.switches['new_qpp'].ID].comfortable -= 5
+                elif r == 3:
+                    game.switches['new_qpp'].relationships[game.clan.your_cat.ID].romantic_love -= 5
+                    game.switches['new_qpp'].relationships[game.clan.your_cat.ID].platonic_like -= 10
+                    game.clan.your_cat.relationships[game.switches['new_qpp'].ID].platonic_like -= 10
+                    game.clan.your_cat.relationships[game.switches['new_qpp'].ID].dislike += 10
+
+                ceremony_txt = random.choice(self.f_txt['reject' + str(r)])
+                ceremony_txt = ceremony_txt.replace('qpp1', str(game.switches['new_qpp'].name))
+                game.cur_events_list.insert(0, Single_Event(ceremony_txt))
+                game.switches['qprreject'] = False
+            except:
+                print("You rejected a qpp but an event could not be shown")
     
     def check_leader(self, checks):
         if game.clan.leader:
@@ -3692,7 +3782,7 @@ class Events:
                 bi_or_pan = randint(1,2)
                 if bi_or_pan == 1:
                     cat.sexuality = "bi"
-                    if not game.clan.clan_settings['all accessories']:
+                    if not game.clan.clan_settings['all accessories'] or game.clan.clan_settings['all pride accessories']:
                         
                         if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in self.all_bandanas for bandana in bandanas):
                             cat.pelt.accessories.append(Pelt.pridebandanas2[6])
@@ -3700,7 +3790,7 @@ class Events:
                 
                 else:
                     cat.sexuality = "pan"
-                    if not game.clan.clan_settings['all accessories']:
+                    if not game.clan.clan_settings['all accessories'] or game.clan.clan_settings['all pride accessories']:
                         
                         if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in self.all_bandanas for bandana in bandanas):
                             cat.pelt.accessories.append(Pelt.pridebandanas2[8])
@@ -3729,7 +3819,7 @@ class Events:
             if random.getrandbits(1):  # 50/50
                 if cat.genderalign in ["male", "trans male", "demiboy"]:
                     cat.sexuality = "gay"
-                    if not game.clan.clan_settings['all accessories']:
+                    if not game.clan.clan_settings['all accessories'] or game.clan.clan_settings['all pride accessories']:
                         flag = randint (1,4)
                         if flag == 1:
                             
@@ -3744,7 +3834,7 @@ class Events:
 
                 elif cat.genderalign in ["female", "trans female", "demigirl"]:
                     cat.sexuality = "lesbian"
-                    if not game.clan.clan_settings['all accessories']:
+                    if not game.clan.clan_settings['all accessories'] or game.clan.clan_settings['all pride accessories']:
                         flag = randint (1,10)
                         if flag == 1:
                             
@@ -3759,7 +3849,7 @@ class Events:
 
                 else:
                     cat.genderalign = "nonbinary"
-                    if not game.clan.clan_settings['all accessories']:
+                    if not game.clan.clan_settings['all accessories'] or game.clan.clan_settings['all pride accessories']:
                         sexuality = randint(1,2)
 
                         
@@ -3838,7 +3928,7 @@ class Events:
                 cat.sexuality = "aroace"
                 cat.acespec = "asexual"
                 cat.arospec = "aromantic"
-                if not game.clan.clan_settings['all accessories']:
+                if not game.clan.clan_settings['all accessories'] or game.clan.clan_settings['all pride accessories']:
 
                     
                     if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in self.all_bandanas for bandana in bandanas):
@@ -3965,15 +4055,15 @@ class Events:
 
                     if acechance == 1:
                         cat.arospec = "demiromantic"
-                        if self.demisexual not in cat.pelt.inventory and not game.clan.clan_settings['all accessories']:
+                        if self.demisexual not in cat.pelt.inventory and not game.clan.clan_settings['all accessories'] or game.clan.clan_settings['all pride accessories']:
                             cat.pelt.inventory.append(self.demiromantic)
                     elif acechance == 2:
                         cat.arospec = "grey aromantic"
-                        if self.greyaro not in cat.pelt.inventory and not game.clan.clan_settings['all accessories']:
+                        if self.greyaro not in cat.pelt.inventory and not game.clan.clan_settings['all accessories'] or game.clan.clan_settings['all pride accessories']:
                             cat.pelt.inventory.append(self.greyaro) 
                     else:
                         cat.arospec = "aromantic"
-                        if self.ace not in cat.pelt.inventory and not game.clan.clan_settings['all accessories']:
+                        if self.ace not in cat.pelt.inventory and not game.clan.clan_settings['all accessories'] or game.clan.clan_settings['all pride accessories']:
                             cat.pelt.inventory.append(self.aro) 
 
                     game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
@@ -4010,15 +4100,15 @@ class Events:
 
                     if acechance == 1:
                         cat.acespec = "demisexual"
-                        if self.demisexual not in cat.pelt.inventory and not game.clan.clan_settings['all accessories']:
+                        if self.demisexual not in cat.pelt.inventory and not game.clan.clan_settings['all accessories'] or game.clan.clan_settings['all pride accessories']:
                             cat.pelt.inventory.append(self.demisexual) # demi
                     elif acechance == 2:
                         cat.acespec = "grey asexual"
-                        if self.greyace not in cat.pelt.inventory and not game.clan.clan_settings['all accessories']:
+                        if self.greyace not in cat.pelt.inventory and not game.clan.clan_settings['all accessories'] or game.clan.clan_settings['all pride accessories']:
                             cat.pelt.inventory.append(self.greyace) # grey
                     else:
                         cat.acespec = "asexual"
-                        if self.ace not in cat.pelt.inventory and not game.clan.clan_settings['all accessories']:
+                        if self.ace not in cat.pelt.inventory and not game.clan.clan_settings['all accessories'] or game.clan.clan_settings['all pride accessories']:
                             cat.pelt.inventory.append(self.ace) # ace
 
                     game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
@@ -4065,7 +4155,7 @@ class Events:
             elif cat.genderalign in ['male', 'trans male', 'demiboy']:
                 cat.sexuality = "straight"
 
-        if not game.clan.clan_settings['all accessories']:
+        if not game.clan.clan_settings['all accessories'] or game.clan.clan_settings['all pride accessories']:
             # ^^ don't remove wrong flags if all accessories is on!
 
             # SEXUALITIES
@@ -4105,10 +4195,33 @@ class Events:
                     cat.pelt.accessories.remove(self.gyno)
                 cat.pelt.inventory.remove(self.gyno)
 
+            if cat.sexuality not in ['gyno', 'lesbian'] and not (cat.sexuality == 'straight' and cat.genderalign in ['male', 'trans male', 'demiboy']):
+                if self.neptunic in cat.pelt.inventory:
+                    if self.neptunic in cat.pelt.accessories:
+                        cat.pelt.accessories.remove(self.neptunic)
+                    cat.pelt.inventory.remove(self.neptunic)
+
+            if cat.sexuality not in ['andro', 'gay'] and not (cat.sexuality == 'straight' and cat.genderalign in ['female', 'trans female', 'demigirl']):
+                if self.uranic in cat.pelt.inventory:
+                    if self.uranic in cat.pelt.accessories:
+                        cat.pelt.accessories.remove(self.uranic)
+                    cat.pelt.inventory.remove(self.uranic)
+
+            # all pride accs exclusive flags-- only removes if theyre not currently wearing it
+            # so the setting can be removed but cats can keep their special flags if they want
+
+            if self.nebularomantic in cat.pelt.inventory and self.nebularomantic not in cat.pelt.accessories:
+                cat.pelt.inventory.remove(self.nebularomantic)
+
+            if self.omnisapphic in cat.pelt.inventory and self.omnisapphic not in cat.pelt.accessories:
+                cat.pelt.inventory.remove(self.omnisapphic)
+
             if cat.sexuality not in ['gay', 'lesbian', 'bi', 'pan'] and self.rainbow in cat.pelt.inventory:
                 if self.rainbow in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.rainbow)
                 cat.pelt.inventory.remove(self.rainbow)
+
+
 
             # ACESPEC
                 
@@ -4342,10 +4455,21 @@ class Events:
                 elif cat.sexuality == "aroace":
                     if self.aroace not in cat.pelt.inventory:
                         cat.pelt.inventory.append(self.aroace)
+                    if self.aroaceflux not in cat.pelt.inventory:
+                        cat.pelt.inventory.append(self.aroaceflux)
                     
                     if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in self.all_bandanas for bandana in bandanas):
                         if self.aroace not in cat.pelt.accessories:
                             cat.pelt.accessories.append(self.aroace)
+
+
+                if cat.sexuality in ['gyno', 'lesbian'] or (cat.sexuality == 'straight' and cat.genderalign in ['male', 'trans male', 'demiboy']):
+                    if self.neptunic not in cat.pelt.inventory:
+                        cat.pelt.inventory.append(self.neptunic)
+
+                elif cat.sexuality in ['andro', 'gay'] or (cat.sexuality == 'straight' and cat.genderalign in ['female', 'trans female', 'demigirl']):
+                    if self.uranic not in cat.pelt.inventory:
+                        cat.pelt.inventory.append(self.uranic)
 
                 # acespec
                 
@@ -4466,7 +4590,7 @@ class Events:
                             if self.catgender not in cat.pelt.accessories:
                                 cat.pelt.accessories.append(self.catgender)
                         cat.pelt.inventory.append(self.catgender)
-                        text = f"{cat.name}'s gender reflects every one of their clanmates around them."
+                        text = f"{cat.name}'s gender reflects every one of their Clanmates around them."
                         game.cur_events_list.append(Single_Event(text, "misc",  cat.ID))
                     
                     elif cat.genderalign == 'questioning' and self.ambiguous not in cat.pelt.inventory:

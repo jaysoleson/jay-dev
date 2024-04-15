@@ -92,6 +92,70 @@
 			"poly (each_other) - which conditions all current mate relationships haves to have towards the new possible mate + vise versa"
 		]
 	},
+	"QPR":{
+		"age_range": 50,
+		"override_same_age_group": false,
+		"chance_fulfilled_condition": 5,
+		"confession": {
+			"make_confession" : {
+				"romantic": 0,
+				"platonic": 60,
+				"dislike": -15,
+				"admiration": 0,
+				"comfortable": 10,
+				"jealousy": 0,
+				"trust": 0
+			},
+			"accept_confession" : {
+				"romantic": 1,
+				"platonic": 40,
+				"dislike": -10,
+				"admiration": 0,
+				"comfortable": 10,
+				"jealousy": 0,
+				"trust": 0
+			}
+		},
+		"qpp_condition": {
+			"romantic": 0,
+			"platonic": 50,
+			"dislike": -10,
+			"admiration": 0,
+			"comfortable": 20,
+			"jealousy": 0,
+			"trust": 0
+		},
+		"poly":{
+			"current_qpp_condition": {
+				"romantic": 0,
+				"platonic": 30,
+				"dislike": 0,
+				"admiration": 0,
+				"comfortable": 15,
+				"jealousy": -15,
+				"trust": 25
+			},
+			"qpps_to_each_other": {
+				"romantic": 0,
+				"platonic": 15,
+				"dislike": -10,
+				"admiration": 0,
+				"comfortable": 15,
+				"jealousy": -15,
+				"trust": 20
+			}
+		},
+		"comment":[
+			"chance_fulfilled_condition - 1/chance of becoming mates when the conditions are fulfilled",
+			"chance_friends_to_lovers - 1/chance of becoming mates, triggers with friends_to_lover (has to be a high number because many relationships are checked each moon)",
+			"VALUES IN RELATIONSHIP DICT - 0: no condition; positive number: value has to be higher than number; negative number: value has to be lower than number",
+			"confession (make_confession) - if one cat has these feelings for another, they confess (if there are more, the highest romantic will be chosen)",
+			"confession (confess_acceptance) - if these conditions are fulfilled by the opposite cat, they accept, otherwise, they reject.",
+			"conditions for mates - both relationships have to fulfill this condition",
+			"poly (current_mate) - which conditions all current mate relationships has to have towards the main cat + vise versa",
+			"poly (each_other) - which conditions all current mate relationships haves to have towards the new possible mate + vise versa"
+		]
+	},
 	"new_cat": {
 		"parent_buff": {
 			"kit_to_parent": {
