@@ -95,11 +95,12 @@
 	"QPR":{
 		"age_range": 50,
 		"override_same_age_group": false,
-		"chance_fulfilled_condition": 5,
+		"chance_fulfilled_condition": 35,
+		"aro_chance_fulfilled_condition": 25,
 		"confession": {
 			"make_confession" : {
 				"romantic": 0,
-				"platonic": 60,
+				"platonic": 70,
 				"dislike": -15,
 				"admiration": 0,
 				"comfortable": 10,
@@ -108,7 +109,7 @@
 			},
 			"accept_confession" : {
 				"romantic": 1,
-				"platonic": 40,
+				"platonic": 50,
 				"dislike": -10,
 				"admiration": 0,
 				"comfortable": 10,
@@ -118,7 +119,7 @@
 		},
 		"qpp_condition": {
 			"romantic": 0,
-			"platonic": 50,
+			"platonic": 70,
 			"dislike": -10,
 			"admiration": 0,
 			"comfortable": 20,
@@ -128,7 +129,7 @@
 		"poly":{
 			"current_qpp_condition": {
 				"romantic": 0,
-				"platonic": 30,
+				"platonic": 80,
 				"dislike": 0,
 				"admiration": 0,
 				"comfortable": 15,
@@ -137,7 +138,7 @@
 			},
 			"qpps_to_each_other": {
 				"romantic": 0,
-				"platonic": 15,
+				"platonic": 20,
 				"dislike": -10,
 				"admiration": 0,
 				"comfortable": 15,

@@ -265,7 +265,7 @@ class QPR_Events():
         """Triggers and handles any events that result in a new qpp """
         
         # First, check high love confession
-        flag = QPR_Events.handle_confession(cat)
+        flag = QPR_Events.handle_qpr_confession(cat)
         if flag:
             return
         
@@ -410,7 +410,7 @@ class QPR_Events():
         return True
 
     @staticmethod
-    def handle_confession(cat_from) -> bool:
+    def handle_qpr_confession(cat_from) -> bool:
         """
         Check if the cat has a high love for another and qpp them if there are in the boundaries 
         :param cat: cat in question
@@ -538,6 +538,9 @@ class QPR_Events():
         if cat_from.ID in cat_to.qpp:
             return False, None
         
+        if cat_from.ID in cat_to.mate:
+            return False, None
+        
         # Gather relationships
         if cat_to.ID in cat_from.relationships:
             relationship_from = cat_from.relationships[cat_to.ID]
@@ -549,9 +552,22 @@ class QPR_Events():
         else:
             relationship_to = cat_to.create_one_relationship(cat_from)
         
+
+        # qpp chances change based on aroace-ness! 
+
         qpp_string = None
+        aro_qpp_chance = game.config["QPR"]["aro_chance_fulfilled_condition"]
         qpp_chance = game.config["QPR"]["chance_fulfilled_condition"]
-        hit = int(random.random() * qpp_chance)
+
+        
+        if cat_from.sexuality == 'aroace' and cat_to.sexuality == 'aroace':
+            hit = int(random.random() * aro_qpp_chance - 8)
+        elif cat_from.sexuality == 'aroace' and cat_to.sexuality != 'aroace' or cat_from.sexuality != 'aroace' and cat_to.sexuality == 'aroace':
+            hit = int(random.random() * aro_qpp_chance - 5)
+        elif cat_from.arospec == 'aromantic':
+            hit = int(random.random() * aro_qpp_chance)
+        else:
+            hit = int(random.random() * qpp_chance)
 
         # has to be high because every moon this will be checked for each relationship in the game
 
@@ -740,19 +756,19 @@ class QPR_Events():
     @staticmethod
     def get_qpp_string(key, poly, cat_from, cat_to):
         """Returns the qpp string with the certain key, cats and poly."""
-        if not poly:
-            return choice(QPR_Events.QPP_DICTS[key])
-        else:
-            poly_key = ""
-            alive_inclan_from_qpps = [qpp for qpp in cat_from.qpp if not cat_from.fetch_cat(qpp).dead and not cat_from.fetch_cat(qpp).outside]
-            alive_inclan_to_qpps = [qpp for qpp in cat_to.qpp if not cat_to.fetch_cat(qpp).dead and not cat_to.fetch_cat(qpp).outside]
-            if len(alive_inclan_from_qpps) > 0 and len(alive_inclan_to_qpps) > 0:
-                poly_key = "both_qpps"
-            elif len(alive_inclan_from_qpps) > 0 and len(alive_inclan_to_qpps) <= 0:
-                poly_key = "m_c_qpps"
-            elif len(alive_inclan_from_qpps) <= 0 and len(alive_inclan_to_qpps) > 0:
-                poly_key = "r_c_qpps"
-            return choice(QPR_Events.POLY_QPP_DICTS[key][poly_key])
+        # if not poly:
+        return choice(QPR_Events.QPP_DICTS[key])
+        # else:
+        #     poly_key = ""
+        #     alive_inclan_from_qpps = [qpp for qpp in cat_from.qpp if not cat_from.fetch_cat(qpp).dead and not cat_from.fetch_cat(qpp).outside]
+        #     alive_inclan_to_qpps = [qpp for qpp in cat_to.qpp if not cat_to.fetch_cat(qpp).dead and not cat_to.fetch_cat(qpp).outside]
+        #     if len(alive_inclan_from_qpps) > 0 and len(alive_inclan_to_qpps) > 0:
+        #         poly_key = "both_qpps"
+        #     elif len(alive_inclan_from_qpps) > 0 and len(alive_inclan_to_qpps) <= 0:
+        #         poly_key = "m_c_qpps"
+        #     elif len(alive_inclan_from_qpps) <= 0 and len(alive_inclan_to_qpps) > 0:
+        #         poly_key = "r_c_qpps"
+        #     return choice(QPR_Events.POLY_QPP_DICTS[key][poly_key])
 
     # ---------------------------------------------------------------------------- #
     #                             get/calculate chances                            #

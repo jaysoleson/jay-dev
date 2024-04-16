@@ -3943,11 +3943,15 @@ class Events:
                     aroacekeepmate = randint(1,10)
                     for mate_id in cat.mate:
                         if Cat.all_cats.get(mate_id):
-                            if aroacekeepmate != 1:
+                            if aroacekeepmate in [1,2]:
+                                text = f"Since {cat.name} has realised that they're not one for romance, them and {Cat.all_cats.get(mate_id).name} have become platonic partners."
                                 cat.unset_mate(Cat.all_cats.get(mate_id))
-                                text = f"Since {cat.name} has realised that they don't care for romance, {cat.name} and {cat.mate} have broken up, but they are still great friends."
+                                cat.set_qpp(Cat.all_cats.get(mate_id))
+                            elif aroacekeepmate == 2:
+                                text = f"{cat.name} has realised that they're not one for romance, but {Cat.all_cats.get(mate_id).name} makes them incredibly happy, regardless. They have decided to stay mates."
                             else:
-                                text = f"{cat.name} has realised that they're not one for romance, but {Cat.all_cats.get(mate_id).name} makes them incredibly happy, regardless."
+                                cat.unset_mate(Cat.all_cats.get(mate_id))
+                                text = f"Since {cat.name} has realised that they don't care for romance, {cat.name} and {Cat.all_cats.get(mate_id).name} have broken up, but they are still great friends."
 
                 game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
 

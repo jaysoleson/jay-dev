@@ -65,6 +65,9 @@ def json_load():
                 else:
                     cat["sexuality"] = choice(['bi', 'bi', 'bi', 'aroace'])
 
+            if "qpp" not in cat:
+                cat['qpp'] = []
+
             if "acespec" not in cat:
                 cat["acespec"] = choice(['allosexual', 'allosexual', 'allosexual', 'allosexual', 'demisexual', 'grey asexual', 'asexual', 'asexual'])
 
