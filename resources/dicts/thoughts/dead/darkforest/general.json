@@ -70,7 +70,7 @@
             "Pull r_c into the Dark Forest in {PRONOUN/r_c/poss} dreams",
             "Is secretly training r_c",
             "Is begging r_c to vouch for {PRONOUN/m_c/object} to join StarClan",
-            "Is explaing to r_c about {PRONOUN/m_c/poss} backstory and why {PRONOUN/m_c/subject} {VERB/m_c/is/are} here"
+            "Is explaing to r_c about {PRONOUN/m_c/poss} backstory and why {PRONOUN/m_c/subject} {VERB/m_c/are/is} here"
         ],
         "random_living_status": [
             "living"

@@ -232,9 +232,12 @@ class Clan():
         self.demon.df = True
         self.demon.dead = True
         self.demon.dead_for = randint(20, 200)
+        self.demon.backstory = choice(BACKSTORIES["backstory_categories"]["df_backstories"])
+
         self.demon.pelt.inventory = []
         if self.demon.pelt.inventory != []:
             self.demon.pelt.inventory = []
+
         self.add_cat(self.demon)
         self.add_to_darkforest(self.demon)
         self.all_clans = []
@@ -250,7 +253,7 @@ class Clan():
         for i in key_copy:  # Going through all currently existing cats
             # cat_class is a Cat-object
             not_found = True
-            for x in self.starting_members:
+            for x in [self.leader, self.deputy, self.medicine_cat] + self.starting_members:
                 if Cat.all_cats[i] == x:
                     self.add_cat(Cat.all_cats[i])
                     not_found = False

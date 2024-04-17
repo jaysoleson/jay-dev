@@ -2063,5 +2063,19 @@
         [
             "Please move, y_c. I've got no time to get distracted. Please go somewhere else so you don't disturb my work. It's nothing personal."
         ]
+    ],
+    "sc_livingmed1": [
+        [
+            "you_sc",
+            "any",
+            "medicine cat",
+            "medicine cat apprentice"
+        ],
+        [
+            "Oh! Hello, there, y_c. Is everything alright?",
+            "Heh, you noticed, huh? Yeah, I'm having a bit of trouble here.",
+            "You wouldn't happen to know the best way to treat r_s, would you? They're not responding to the usual methods...",
+            "[You and t_c have a lengthy conversation, debating possible rememdies for their ill patient.]"
+        ]
     ]
 }

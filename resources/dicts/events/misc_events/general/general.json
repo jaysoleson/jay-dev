@@ -673,7 +673,7 @@
             "murder_reveal",
             "other_cat"
         ],
-        "event_text": "m_c is truthful when r_c questions {PRONOUN/m_c/object} about mur_c's strange death. m_c claims that mur_c deserved to die after what {PRONOUN/mur_c/subject} did to m_c.",
+        "event_text": "m_c is truthful when r_c questions {PRONOUN/m_c/object} about mur_c's strange death. m_c claims that mur_c deserved to die after what they did to m_c.",
         "cat_trait": [
             "vengeful"
         ]

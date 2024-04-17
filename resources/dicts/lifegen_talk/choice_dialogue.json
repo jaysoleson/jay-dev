@@ -632,11 +632,9 @@
     },
     "assertivekit_1": {
         "tags": [
-            "no_kit",
-            "assertive",
-            "platonic_like",
             "random_cat",
-            "they_kitten"
+            "they_kitten",
+            "any"
         ],
         "intro": [
             "y_c! y_c! Gimme a badger ride, c'mon, pleeease?",
@@ -2393,7 +2391,7 @@
     "upstanding_choice5": {
         "tags": [
             "upstanding",
-            "no_kit",
+            "any",
             "they_kitten"
         ],
         "intro": [
@@ -2755,6 +2753,105 @@
             "...",
             "[t_c pauses for a moment, completely still and silent, then turns around and leaves without another word.]",
             "[The sting of their disappointment is sharper than a thousand claws.]"
+        ]
+    },
+    "deadparent_choice1": {
+        "tags": [
+            "Any",
+            "they_df",
+            "from_parent",
+            "from_adoptive_parent",
+            "kitten"
+        ],
+        "intro": [
+            "Hey, y_c. Tell me, what would you like to be when you grow up?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "The Clan's leader",
+                "next_scene": "growup_leader"
+            },
+            "choice2": {
+                "text": "A warrior",
+                "next_scene": "growup_warrior"
+            },
+            "choice3": {
+                "text": "A medicine cat",
+                "next_scene": "growup_medcat"
+            },
+            "choice4": {
+                "text": "I don't know",
+                "next_scene": "growup_idk"
+            }
+        },
+        "growup_leader": [
+            "Aha! That's my y_c!",
+            "With you as leader, and me guiding you, c_nClan would be unstoppable!",
+            "You're a brilliant little kit, you know that? Keep at it."
+        ],
+        "growup_warrior": [
+            "A warrior is a good choice.",
+            "But wouldn't you like more one day? Deputy, leader..?",
+            "Ah, maybe you're too young to really know about all of that yet.",
+            "You'll be a wonderful warrior one day, I know it."
+        ],
+        "growup_medcat": [
+            "Oh, really? Being a medicine cat is tough, and you'll have to talk to all those stinky StarClan cats.",
+            "But if you want to do it, I believe that you can. You're very gifted, y_c.",
+            "My brilliant little kit."
+        ],
+        "growup_idk": [
+            "Ah, well, I suppose there's no rush...",
+            "You'll be an apprentice soon, though. Big choice to make.",
+            "No, no, don't worry. You can always ask me for more advice when the time comes.",
+            "I'll be right here."
+        ]
+    },
+    "deadparent_choice2": {
+        "tags": [
+            "Any",
+            "they_sc",
+            "from_parent",
+            "from_adoptive_parent",
+            "kitten"
+        ],
+        "intro": [
+            "Hey, y_c. Tell me, what would you like to be when you grow up?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "The Clan's leader",
+                "next_scene": "growup_leader"
+            },
+            "choice2": {
+                "text": "A warrior",
+                "next_scene": "growup_warrior"
+            },
+            "choice3": {
+                "text": "A medicine cat",
+                "next_scene": "growup_medcat"
+            },
+            "choice4": {
+                "text": "I don't know",
+                "next_scene": "growup_idk"
+            }
+        },
+        "growup_leader": [
+            "Leader! Quite ambitious, little one.",
+            "But I believe you can do it. With this gift you have, you'd be unstoppable!"
+        ],
+        "growup_warrior": [
+            "A warrior! Good choice.",
+            "Being a warrior is quite dangerous, though... I'd hate for you to have to come join me before your time...",
+            "Oh, I shouldn't worry about such things. You're going to be a wonderful warrior, darling."
+        ],
+        "growup_medcat": [
+            "A medicine cat! You'll be a wonderful medicine cat, dear, especially with this gift of yours.",
+            "It's a lot of herbs to memorise, but you're a smart kitty. You've got this."
+        ],
+        "growup_idk": [
+            "Well, there's no rush, darling.",
+            "You can be anything you want to be when the time comes."
         ]
     }
 }

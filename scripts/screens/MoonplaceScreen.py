@@ -168,9 +168,9 @@ class MoonplaceScreen(Screens):
         all_backgrounds = []
         for leaf in leaves:
             if game.clan.biome == "Forest":
-                platform_dir = "resources\images\moonplace\moongrove.png"
+                platform_dir = "resources/images/moonplace/moongrove.png"
             else:
-                platform_dir = "resources\images\moonplace\moonplace1.png"
+                platform_dir = "resources/images/moonplace/moonplace1.png"
             
             all_backgrounds.append(platform_dir)
 

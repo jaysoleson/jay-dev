@@ -1224,7 +1224,7 @@ class ProfileScreen(Screens):
             cat_alive_skills_condition = cat_alive_condition_sc or cat_alive_condition_df
             
             if cat_dead_conditions or cat_alive_skills_condition:
-                if self.the_cat.status not in ['leader', 'mediator', 'mediator apprentice', "queen", "queen's apprentice"]:
+                if self.the_cat.status not in ['mediator', 'mediator apprentice', "queen", "queen's apprentice"]:
                     button_position = (726, 220)
                 else:
                     button_position = (662, 220)
@@ -1366,7 +1366,7 @@ class ProfileScreen(Screens):
             elif "attended half-moon" in game.switches and game.switches["attended half-moon"]:
                 self.profile_elements["halfmoon"].disable()
 
-        if (self.the_cat.outside) and self.the_cat.ID == game.clan.your_cat.ID and not self.the_cat.dead:
+        if (self.the_cat.outside) and self.the_cat.ID == game.clan.your_cat.ID and not self.the_cat.dead and self.the_cat.exiled or self.the_cat.status == 'former Clancat':
             self.exile_return_button.show()
             if game.clan.exile_return:
                 self.exile_return_button.disable()
@@ -1648,7 +1648,7 @@ class ProfileScreen(Screens):
                 output += "<font color='#950000' >" + "Dark Forest "+ the_cat.status + "</font>"
         elif the_cat.dead and not the_cat.df and not the_cat.outside:
             if game.settings['dark mode']:
-                output += "<font color ='#7995FF'>" "StarClan " + the_cat.status + "</font>"
+                output += "<font color ='#A8BBFF'>" "StarClan " + the_cat.status + "</font>"
             else:
                 output += "<font color ='#2B3DC3'>" "StarClan " + the_cat.status + "</font>"
         else:
@@ -2885,6 +2885,10 @@ class ProfileScreen(Screens):
 
     def update_disabled_buttons_and_text(self):
         """Sets which tab buttons should be disabled. This is run when the cat is switched. """
+        if self.the_cat.moons == 0:
+            self.accessories_tab_button.disable()
+        else:
+            self.accessories_tab_button.enable()
         if self.open_tab is None:
             pass
         elif self.open_tab == 'relations':

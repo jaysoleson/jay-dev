@@ -1079,12 +1079,20 @@ class PatrolOutcome():
                 status = "kitten"
         
         # CHOOSE DEFAULT BACKSTORY BASED ON CAT TYPE, STATUS.
+       
+        if "newdfcat" in attribute_list:
+            if "oldstarclan" in attribute_list:
+                    chosen_backstory = choice(["oldstarclan1", "oldstarclan2", "oldstarclan3"])
+            else:
+                chosen_backstory = choice(BACKSTORIES["backstory_categories"]["df_backstories"])
+
         if status in ("kitten", "newborn"):
             chosen_backstory = choice(BACKSTORIES["backstory_categories"]["abandoned_backstories"])
         elif status == "medicine cat" and cat_type == "former Clancat":
             chosen_backstory = choice(["medicine_cat", "disgraced1"])
         elif status == "medicine cat":
             chosen_backstory = choice(["wandering_healer1", "wandering_healer2"])
+
         else:
             if cat_type == "former Clancat":
                 x = "former_clancat"

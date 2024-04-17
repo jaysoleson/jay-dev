@@ -1314,5 +1314,15 @@
             "[Despite that story being... confusing you find it interesting how they can recall so much. You thank them and spend the rest of your day pondering the tale.]",
             "[A story of a bug beneath the thunderpath that when caught brings thunder crashing down. You doubt there's a moral, or even if those were the actual events to have happened. But it's entertaining nonetheless.]"
         ]
+    ],
+    "df_elder": [
+        [
+            "you_sc",
+            "they_df",
+            "kitten"
+        ],
+        [
+            "Get out of the way before I step on you, kit."
+        ]
     ]
 }

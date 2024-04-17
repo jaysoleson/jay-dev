@@ -46,9 +46,11 @@ class StartScreen(Screens):
     def __init__(self, name=None):
         super().__init__(name)
         self.warning_label = None
+
         # bg = random.randint(1, 114)
         bg = 1
         self.bg = pygame.image.load("resources/menus/menu" + str(bg) + ".png").convert()
+
         self.bg = pygame.transform.scale(self.bg, (screen_x, screen_y))
         self.social_buttons = {}
         self.warning_label_background = None
@@ -60,9 +62,9 @@ class StartScreen(Screens):
 
         if png_files:
             chosen_file = random.choice(png_files)
-            return "resources\\menus\\" + chosen_file
+            return "resources/menus/" + chosen_file
         else:
-            return "resources\\images\\menu.png"
+            return "resources/images/menu.png"
 
     def handle_event(self, event):
         """This is where events that occur on this page are handled.
@@ -346,6 +348,7 @@ class StartScreen(Screens):
             for x in key_copy:
                 if x not in game.clan.clan_cats:
                     game.clan.remove_cat(x)
+                    print("1: removed" + str(x))
 
         # LOAD settings
         game.load_settings()
