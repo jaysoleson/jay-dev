@@ -99,7 +99,7 @@
 		"aro_chance_fulfilled_condition": 25,
 		"confession": {
 			"make_confession" : {
-				"romantic": 0,
+				"romantic": -30,
 				"platonic": 70,
 				"dislike": -15,
 				"admiration": 0,

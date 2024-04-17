@@ -672,9 +672,9 @@ class ChooseQPPScreen(Screens):
         if self.the_cat.qpp:
             info += f"\n{len(self.the_cat.qpp)} "
             if len(self.the_cat.qpp) > 1:
-                info += "qpps"
+                info += "QPPs"
             else:
-                info += "qpp"
+                info += "QPP"
         self.current_cat_elements["info"] = pygame_gui.elements.UITextBox(info,
                                                                           scale(pygame.Rect((412, 350), (188, 200))),
                                                                           object_id="#text_box_22_horizcenter_vertcenter_spacing_95",
@@ -711,7 +711,7 @@ class ChooseQPPScreen(Screens):
         qpps_tab_shown = False
         if self.the_cat.qpp:
             self.tab_buttons["qpps"] = UIImageButton(scale(pygame.Rect((button_x, 722), (306, 78))), "", 
-                                                      object_id="#qpps_tab_button",
+                                                      object_id="#mates_tab_button",
                                                       starting_height=2)
             qpps_tab_shown = True
             button_x += 320
@@ -809,9 +809,9 @@ class ChooseQPPScreen(Screens):
         if self.selected_cat.qpp:
             info += f"\n{len(self.selected_cat.qpp)} "
             if len(self.selected_cat.qpp) > 1:
-                info += "qpps"
+                info += "QPPs"
             else:
-                info += "qpp"
+                info += "QPP"
         
         self.selected_cat_elements["info"] = pygame_gui.elements.UITextBox(info,
                                                                    scale(pygame.Rect((1000, 350), (188, 200))),
@@ -822,7 +822,7 @@ class ChooseQPPScreen(Screens):
         
         # if not game.clan.clan_settings["same sex birth"] and self.the_cat.gender == self.selected_cat.gender:
         #     self.selected_cat_elements["no kit warning"] = pygame_gui.elements.UITextBox(
-        #         f"<font pixel_size={int(22 / 1400 * screen_y)}> This pair can't have biological kittens </font>", 
+        #         f"<font pixel_size={int(22 / 1400 * screen_y)}> This pair can't have biological kittens </font>",
         #         scale(pygame.Rect((550, 250), (498, 50))),
         #         object_id=get_text_box_theme("#text_box_22_horizcenter_vertcenter_spacing_95"))
         
@@ -859,19 +859,19 @@ class ChooseQPPScreen(Screens):
 
         # Set romantic hearts of current cat towards qpp or selected cat.
         if self.the_cat.dead:
-            romantic_love = 0
+            platonic_like = 0
         else:
             if self.selected_cat.ID in self.the_cat.relationships:
                 relation = self.the_cat.relationships[self.selected_cat.ID]
             else:
                 relation = self.the_cat.create_one_relationship(self.selected_cat)
-            romantic_love = relation.romantic_love
+            platonic_like = relation.platonic_like
 
-        if 10 <= romantic_love <= 30:
+        if 10 <= platonic_like <= 30:
             heart_number = 1
-        elif 31 <= romantic_love <= 80:
+        elif 31 <= platonic_like <= 80:
             heart_number = 2
-        elif 81 <= romantic_love:
+        elif 81 <= platonic_like:
             heart_number = 3
         else:
             heart_number = 0
@@ -888,19 +888,19 @@ class ChooseQPPScreen(Screens):
 
         # Set romantic hearts of qpp/selected cat towards current_cat.
         if self.selected_cat.dead:
-            romantic_love = 0
+            platonic_like = 0
         else:
             if self.the_cat.ID in self.selected_cat.relationships:
                 relation = self.selected_cat.relationships[self.the_cat.ID]
             else:
                 relation = self.selected_cat.create_one_relationship(self.the_cat)
-            romantic_love = relation.romantic_love
+            platonic_like = relation.platonic_like
 
-        if 10 <= romantic_love <= 30:
+        if 10 <= platonic_like <= 30:
             heart_number = 1
-        elif 31 <= romantic_love <= 80:
+        elif 31 <= platonic_like <= 80:
             heart_number = 2
-        elif 81 <= romantic_love:
+        elif 81 <= platonic_like:
             heart_number = 3
         else:
             heart_number = 0

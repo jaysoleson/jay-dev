@@ -430,6 +430,9 @@ class QPR_Events():
         cat_to = highest_platonic_relation.cat_to
         if not cat_to.is_potential_qpp(cat_from) or not cat_from.is_potential_qpp(cat_to):
             return False
+        
+        if cat_to in cat_from.qpp:
+            return False
 
         alive_inclan_from_qpps = [qpp for qpp in cat_from.qpp if not cat_from.fetch_cat(qpp).dead and not cat_from.fetch_cat(qpp).outside]
         alive_inclan_to_qpps = [qpp for qpp in cat_to.qpp if not cat_to.fetch_cat(qpp).dead and not cat_to.fetch_cat(qpp).outside]
@@ -610,7 +613,7 @@ class QPR_Events():
         Check if the relationship can fulfill the condition. 
         Example condition:
             {
-            "platonic": 20,
+            "romantic": 0,
             "platonic": 30,
             "dislike": -10,
             "admiration": 0,
@@ -803,8 +806,8 @@ class QPR_Events():
         
         
         chance_number = 30
-        chance_number += int(relationship_from.platonic_like / 10)
-        chance_number += int(relationship_to.platonic_like / 10)
+        chance_number += int(relationship_from.platonic_like / 5)
+        chance_number += int(relationship_to.platonic_like / 5)
         chance_number -= int(relationship_from.dislike / 15)
         chance_number -= int(relationship_from.jealousy / 15)
         chance_number -= int(relationship_to.dislike / 15)

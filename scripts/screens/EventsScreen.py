@@ -87,7 +87,7 @@ class EventsScreen(Screens):
             except:
                 print("too much button pressing!")
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
-            if event.ui_element == self.timeskip_button and game.clan.your_cat.dead_for == 1 and not game.switches['continue_after_death']:
+            if event.ui_element == self.timeskip_button and game.clan.your_cat.dead_for >= 1 and not game.switches['continue_after_death']:
                 DeathScreen('events screen')
                 return
             elif self.death_button and event.ui_element == self.death_button:
@@ -95,9 +95,9 @@ class EventsScreen(Screens):
                 return
             if event.ui_element == self.timeskip_button and game.clan.your_cat.moons == 5 and game.clan.your_cat.status == 'kitten':
                     PickPath('events screen')
-            elif event.ui_element == self.timeskip_button and (game.clan.your_cat.dead_for == 1 or game.clan.your_cat.exiled):
-                    DeathScreen('events screen')
-                    return
+            # elif event.ui_element == self.timeskip_button and (game.clan.your_cat.dead_for == 1 or game.clan.your_cat.exiled):
+            #         DeathScreen('events screen')
+            #         return
             elif event.ui_element == self.you or ("you" in self.display_events_elements and event.ui_element == self.display_events_elements["you"]):
                 game.switches['cat'] = game.clan.your_cat.ID
                 self.change_screen("profile screen")

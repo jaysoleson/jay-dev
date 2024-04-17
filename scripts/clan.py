@@ -236,7 +236,7 @@ class Clan():
             self.leader.status_change('leader')
 
         # fixes weird non-leader leader issue 
-        if self.leader.status is not "leader":
+        if self.leader.status != "leader":
             self.leader.status_change('leader')
 
         key_copy = tuple(Cat.all_cats.keys())

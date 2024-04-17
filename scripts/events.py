@@ -3894,21 +3894,13 @@ class Events:
                             Cat.all_cats.get(mate_id).genderalign in ['female', 'trans female', 'demigirl'] and cat.sexuality == "straight" ):
                                 cat.unset_mate(Cat.all_cats.get(mate_id))
                                 pref = "she-cats"
-                            elif cat.sexuality == "aroace":
-                                if aroacekeepmate == 1:
-                                    cat.unset_mate(Cat.all_cats.get(mate_id))
-                                pref = "romance"
                             else:
                                 return
 
-                            if aroacekeepmate == 1:
-                                text = f"{cat.name} has realised that they're not one for {pref}, but {Cat.all_cats.get(mate_id).name} makes them incredibly happy, regardless."
-                            else:
-                                text = f"Since {cat.name} doesn't care for {pref}, {cat.name} and {Cat.all_cats.get(mate_id).name} have broken up, but they are still great friends."
                             game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
                 
     def make_aroace(self, cat):
-        """turnin' the kitties gay..."""
+        """turnin' the kitties aroace..."""
         if cat.prevent_sexualitychange:
             return
         if cat.moons > 6:
@@ -3936,7 +3928,8 @@ class Events:
                     cat.pelt.inventory.append(Pelt.pridebandanas2[7])
                    
                 
-                text = f"{cat.name} doesn't seem very interested in romance or mates."
+                string = f"{cat.name} doesn't seem very interested in romance or mates."
+                game.cur_events_list.append(Single_Event(string, "misc", involved_cats))
                 
             
                 if len(cat.mate) > 0:
@@ -3953,7 +3946,7 @@ class Events:
                                 cat.unset_mate(Cat.all_cats.get(mate_id))
                                 text = f"Since {cat.name} has realised that they don't care for romance, {cat.name} and {Cat.all_cats.get(mate_id).name} have broken up, but they are still great friends."
 
-                game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
+                    game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
 
     def questioning(self, cat):
         """ chance for a cat's orientation to be switched to questioning"""
@@ -4096,6 +4089,7 @@ class Events:
                     return
 
                 if random.getrandbits(1):
+                    print('cat made acespec-- event text should be shown.')
                     acechance = randint (1,4)
                     if cat.acespec == "allosexual":
                         text = f"{cat.name} doesn't think they're as interested in mates as everyone else."
@@ -4118,15 +4112,16 @@ class Events:
                     game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
     
     def update_compatible_mates(self, cat):
-         """ updates compatible mates on moonskip"""
+         """ updates compatible mates on moonskip for when the player manually changes cats orientation """
          if len(cat.mate) > 0:
             involved_cats = [cat.ID]
             for mate_id in cat.mate:
                 if Cat.all_cats.get(mate_id):
                     if (cat.sexuality in ["lesbian", "gyno"] and Cat.all_cats.get(mate_id).genderalign in \
-                        ["male", "trans male", "demiboy"])\
-                    or (cat.genderalign in ['male', 'trans male', 'demiboy'] and Cat.all_cats.get(mate_id).genderalign in \
-                        ['male', 'trans male', 'demiboy'] and cat.sexuality == "straight" ):
+                        ["male", "trans male", "demiboy"]) or (cat.genderalign in ['male', 'trans male', 'demiboy'] \
+                        and Cat.all_cats.get(mate_id).genderalign in ['male', 'trans male', 'demiboy'] and \
+                        cat.sexuality == "straight" ):
+
                         cat.unset_mate(Cat.all_cats.get(mate_id))
                         pref = "toms"
                     elif (cat.sexuality in ["gay", "andro"] and Cat.all_cats.get(mate_id).genderalign in ["female", "trans female", "demigirl"]) or (cat.genderalign in ['female', 'trans female', 'demigirl'] and \
@@ -4299,18 +4294,10 @@ class Events:
                     if self.andro in cat.pelt.accessories:
                         cat.pelt.accessories.remove(self.andro)
                     cat.pelt.inventory.remove(self.andro)
-                if self.trans in cat.pelt.inventory:
-                    if self.trans in cat.pelt.accessories:
-                        cat.pelt.accessories.remove(self.trans)
-                    cat.pelt.inventory.remove(self.trans)
-                if self.enby in cat.pelt.inventory:
-                    if self.enby in cat.pelt.accessories:
-                        cat.pelt.accessories.remove(self.enby)
-                    cat.pelt.inventory.remove(self.enby)
                 
             # now for gender:
                     
-            if cat.genderalign in ['trans male', 'trans female']:
+            if cat.genderalign in ['trans male', 'trans female', 'demigirl', 'demiboy', 'male', 'female']:
                 if self.enby in cat.pelt.inventory:
                     if self.enby in cat.pelt.accessories:
                         cat.pelt.accessories.remove(self.enby)
@@ -4352,6 +4339,11 @@ class Events:
                 if self.demigirl in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.demigirl)
                 cat.pelt.inventory.remove(self.demigirl)
+
+            elif cat.genderalign not in ['trans male', 'trans female'] and self.trans in cat.pelt.inventory:
+                if self.trans in cat.pelt.accessories:
+                    cat.pelt.accessories.remove(self.trans)
+                cat.pelt.inventory.remove(self.trans)
 
 
             # removing xenogender flags if theyre not a xenogender
@@ -4519,13 +4511,14 @@ class Events:
                 # gender
                 
                 if cat.genderalign != cat.gender:
-                    if self.trans not in cat.pelt.inventory:
-                        cat.pelt.inventory.append(self.trans)
-                    
-                    if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in self.all_bandanas for bandana in bandanas):
-                        if self.trans not in cat.pelt.accessories:
-                            cat.pelt.accessories.append(self.trans)
-                    
+
+                    if cat.genderalign in ['trans male', 'trans female'] and self.trans not in cat.pelt.inventory:
+
+                        if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in self.all_bandanas for bandana in bandanas):
+                            if self.trans not in cat.pelt.accessories:
+                                cat.pelt.accessories.append(self.trans)
+                            cat.pelt.inventory.append(self.trans)
+
                     if cat.genderalign not in ['trans female', 'trans male', 'demigirl', 'demiboy']:
                         if self.ambiguous not in cat.pelt.inventory:
                             cat.pelt.inventory.append(self.ambiguous)
@@ -4535,17 +4528,23 @@ class Events:
                                 cat.pelt.accessories.append(self.genderfluid)
                         cat.pelt.inventory.append(self.genderfluid)
                     
-                    elif cat.genderalign == 'demiboy' and self.demiboy not in cat.pelt.inventory:
+                    if cat.genderalign == 'demiboy' and self.demiboy not in cat.pelt.inventory:
                         if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in self.all_bandanas for bandana in bandanas):
                             if self.demiboy not in cat.pelt.accessories:
                                 cat.pelt.accessories.append(self.demiboy)
                         cat.pelt.inventory.append(self.demiboy)
 
-                    elif cat.genderalign == 'demigirl' and self.demigirl not in cat.pelt.inventory:
+                    if cat.genderalign == 'demigirl' and self.demigirl not in cat.pelt.inventory:
                         if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in self.all_bandanas for bandana in bandanas):
                             if self.demigirl not in cat.pelt.accessories:
                                 cat.pelt.accessories.append(self.demigirl)
                         cat.pelt.inventory.append(self.demigirl)
+
+                    if cat.genderalign == 'nonbinary' and self.enby not in cat.pelt.inventory:
+                        if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in self.all_bandanas for bandana in bandanas):
+                            if self.enby not in cat.pelt.accessories:
+                                cat.pelt.accessories.append(self.enby)
+                        cat.pelt.inventory.append(self.enby)
 
                 #now the xenogenders! these are only attainable via specify gender, hence the event text here
 
