@@ -2200,9 +2200,10 @@ class Events:
         self.invite_new_cats(cat)
         self.other_interactions(cat)
         self.gain_accessories(cat)
-        self.update_compatible_mates(cat)
 
         self.get_flags(cat)
+
+        self.update_compatible_mates(cat)
 
         # switches between the two death handles
         if random.getrandbits(1):
@@ -3955,19 +3956,17 @@ class Events:
                     for mate_id in cat.mate:
                         if Cat.all_cats.get(mate_id):
 
-                            aroacekeepmate = randint(1,10)
-
                             if (cat.sexuality in ["lesbian", "gyno"] and Cat.all_cats.get(mate_id).genderalign in ["male", "trans male", "demiboy"]) or (cat.genderalign in ['male', 'trans male', 'demiboy'] and Cat.all_cats.get(mate_id).genderalign \
                                 in ['male', 'trans male', 'demiboy'] and cat.sexuality == "straight" ):
-                                cat.unset_mate(Cat.all_cats.get(mate_id))
                                 pref = "toms"
                             elif (cat.sexuality in ["gay", "andro"] and Cat.all_cats.get(mate_id).genderalign in ["female", "trans female", "demigirl"]) or (cat.genderalign in ['female', 'trans female', 'demigirl'] and \
                             Cat.all_cats.get(mate_id).genderalign in ['female', 'trans female', 'demigirl'] and cat.sexuality == "straight" ):
-                                cat.unset_mate(Cat.all_cats.get(mate_id))
                                 pref = "she-cats"
                             else:
                                 return
-
+                            
+                            cat.unset_mate(Cat.all_cats.get(mate_id))
+                            text = f"Since {cat.name} has realised that they don't care for {pref}, {cat.name} and {Cat.all_cats.get(mate_id).name} have broken up, but they are still great friends."
                             game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
                 
     def make_aroace(self, cat):
@@ -4041,13 +4040,6 @@ class Events:
                     if which == 1:
                         cat.sexuality = "questioning"
                         text = f"{cat.name} has no idea how they feel!"
-
-                        sexualityflags = [flag for flag in cat.pelt.inventory if flag == (Pelt.pridebandanas2[3] or Pelt.pridebandanas2[4] or Pelt.pridebandanas2[5] or Pelt.pridebandanas2[6] or self.aroace or Pelt.pridebandanas2[8] or self.ace or self.aro)]
-                        if sexualityflags:
-                            for bandana in sexualityflags:
-                                if bandana in cat.pelt.accessories:
-                                    cat.pelt.accessories.remove(bandana)
-                                cat.pelt.inventory.remove(bandana)
                     else:
                         if not cat.prevent_genderchange:
                             if (cat.sexuality == 'straight' and cat.genderalign in ['male', 'trans male', 'demiboy'])\
@@ -4064,6 +4056,14 @@ class Events:
                             cat.genderalign = "questioning"
 
                             text = f"{cat.name} doesn't know how every other cat is so sure of their gender."
+
+                    if self.all_bandanas: # this removes all flags, get_flags gives them back the right ones later. bc im lazy
+                        for bandana in self.all_bandanas:
+                            if bandana in cat.pelt.inventory:
+                                if bandana in cat.pelt.accessories:
+                                    cat.pelt.accessories.remove(bandana)
+                                cat.pelt.inventory.remove(bandana)
+
                     game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
             
             
