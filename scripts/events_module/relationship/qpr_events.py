@@ -387,7 +387,7 @@ class QPR_Events():
             relationship_to = cat_to.create_one_relationship(cat_from)
             
         # These are large decreases - they are to prevent becoming qpps again on the same moon.
-        relationship_to.romantic_love -= 15
+        relationship_to.romantic_love -= 5
         relationship_from.platonic_like -= 15
         relationship_to.comfortable -= 10
         relationship_from.comfortable -= 10
@@ -403,7 +403,7 @@ class QPR_Events():
         
         
         if had_fight:
-            text = f"{cat_from.name} and {cat_to.name} had a huge fight and broke off their platonic partnership."
+            text = f"{cat_from.name} and {cat_to.name} have parted ways as platonic partners."
         else:
             text = f"{cat_from.name} and {cat_to.name} have broken off their platonic partnership."
         game.cur_events_list.append(Single_Event(text, ["relation", "misc"], [cat_from.ID, cat_to.ID]))
@@ -432,6 +432,7 @@ class QPR_Events():
             return False
         
         if cat_to in cat_from.qpp:
+            print ('already qpps')
             return False
 
         alive_inclan_from_qpps = [qpp for qpp in cat_from.qpp if not cat_from.fetch_cat(qpp).dead and not cat_from.fetch_cat(qpp).outside]
@@ -805,7 +806,7 @@ class QPR_Events():
             return 0
         
         
-        chance_number = 30
+        chance_number = 35
         chance_number += int(relationship_from.platonic_like / 5)
         chance_number += int(relationship_to.platonic_like / 5)
         chance_number -= int(relationship_from.dislike / 15)

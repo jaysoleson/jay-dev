@@ -1212,9 +1212,16 @@ class ProfileScreen(Screens):
                     self.profile_elements["talk"].disable()
                 else:
                     self.profile_elements["talk"].enable()
-        elif game.clan.your_cat.moons >= 0 and self.the_cat.ID != game.clan.your_cat.ID and self.the_cat.ID not in game.clan.unknown_cats:
-            cat_dead_conditions = self.the_cat.dead and (game.clan.your_cat.dead or game.clan.your_cat.skills.meets_skill_requirement(SkillPath.STAR) or game.clan.your_cat.skills.meets_skill_requirement(SkillPath.DARK) or game.clan.your_cat.skills.meets_skill_requirement(SkillPath.GHOST))
-            cat_alive_skills_condition = not self.the_cat.dead and (self.the_cat.skills.meets_skill_requirement(SkillPath.STAR) or self.the_cat.skills.meets_skill_requirement(SkillPath.DARK) or self.the_cat.skills.meets_skill_requirement(SkillPath.GHOST))
+        elif game.clan.your_cat.moons >= 0 and self.the_cat.ID != game.clan.your_cat.ID and self.the_cat.ID not in game.clan.unknown_cats and not self.the_cat.outside and not game.clan.your_cat.outside:
+        
+            cat_dead_condition_sc = self.the_cat.dead and not self.the_cat.df and (game.clan.your_cat.dead or (game.clan.your_cat.skills.meets_skill_requirement(SkillPath.STAR) and game.clan.your_cat.moons >=6) or self.the_cat.joined_df)
+            cat_dead_condition_df = self.the_cat.dead and self.the_cat.df and (game.clan.your_cat.dead or (game.clan.your_cat.skills.meets_skill_requirement(SkillPath.DARK) and game.clan.your_cat.moons >=6) or game.clan.your_cat.joined_df)
+
+            cat_dead_conditions = cat_dead_condition_sc or cat_dead_condition_df
+
+            cat_alive_condition_sc = game.clan.your_cat.dead and not game.clan.your_cat.df and (self.the_cat.dead or (self.the_cat.skills.meets_skill_requirement(SkillPath.STAR) and self.the_cat.moons >= 6))
+            cat_alive_condition_df = game.clan.your_cat.dead and game.clan.your_cat.df and (self.the_cat.dead or (self.the_cat.skills.meets_skill_requirement(SkillPath.DARK) and self.the_cat.moons >= 6))
+            cat_alive_skills_condition = cat_alive_condition_sc or cat_alive_condition_df
             
             if cat_dead_conditions or cat_alive_skills_condition:
                 if self.the_cat.status not in ['leader', 'mediator', 'mediator apprentice', "queen", "queen's apprentice"]:
@@ -1442,7 +1449,7 @@ class ProfileScreen(Screens):
             output += the_cat.sexuality
         
         # NEWLINE ----------
-        if the_cat.moons > 6:
+        if the_cat.moons > 5:
             if the_cat.sexuality != 'aroace':
                 if the_cat.acespec != "allosexual":
                     output += "\n"
@@ -1628,12 +1635,15 @@ class ProfileScreen(Screens):
             output += "<font color='#FF0000'>exiled</font>"
         elif the_cat.shunned > 0 and not the_cat.dead:
             if the_cat.status != "former Clancat":
-                output += "<font color='#FF0000'>shunned " + the_cat.status + "</font>"
+                if game.settings['dark mode']:
+                    output += "<font color='#FF9999'>shunned " + the_cat.status + "</font>"
+                else:
+                    output += "<font color='#950000'>shunned " + the_cat.status + "</font>"
             else:
                 output += the_cat.status
         elif the_cat.df:
             if game.settings['dark mode']:
-                output += "<font color='#FF0000' >" + "Dark Forest "+ the_cat.status + "</font>"
+                output += "<font color='#FF9999' >" + "Dark Forest "+ the_cat.status + "</font>"
             else:
                 output += "<font color='#950000' >" + "Dark Forest "+ the_cat.status + "</font>"
         elif the_cat.dead and not the_cat.df and not the_cat.outside:

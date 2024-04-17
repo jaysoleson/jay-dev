@@ -1866,7 +1866,7 @@ class ChangeCatToggles(UIWindow):
     """This window allows the user to edit various cat behavior toggles"""
 
     def __init__(self, cat):
-        super().__init__(scale(pygame.Rect((600, 430), (800, 370))),
+        super().__init__(scale(pygame.Rect((600, 380), (850, 420))),
                          window_display_title='Change Cat Name',
                          object_id='#change_cat_name_window',
                          resizable=False)
@@ -1874,7 +1874,7 @@ class ChangeCatToggles(UIWindow):
         self.the_cat = cat
         self.set_blocking(True)
         self.back_button = UIImageButton(
-            scale(pygame.Rect((740, 10), (44, 44))),
+            scale(pygame.Rect((780, 15), (44, 44))),
             "",
             object_id="#exit_window_button",
             container=self
@@ -1900,13 +1900,17 @@ class ChangeCatToggles(UIWindow):
                                                     scale(pygame.Rect(110, 190, -1, 50)), 
                                                     object_id="#text_box_30_horizleft_pad_0_8",
                                                     container=self)
-        
-        self.text_5 = pygame_gui.elements.UITextBox("Prevent sexuality changes",
+        self.text_5 = pygame_gui.elements.UITextBox("Limit platonic partner changes",
                                                     scale(pygame.Rect(110, 240, -1, 50)), 
                                                     object_id="#text_box_30_horizleft_pad_0_8",
                                                     container=self)
-        self.text_6 = pygame_gui.elements.UITextBox("Prevent gender changes",
+        
+        self.text_6 = pygame_gui.elements.UITextBox("Prevent sexuality changes",
                                                     scale(pygame.Rect(110, 290, -1, 50)), 
+                                                    object_id="#text_box_30_horizleft_pad_0_8",
+                                                    container=self)
+        self.text_7 = pygame_gui.elements.UITextBox("Prevent gender changes",
+                                                    scale(pygame.Rect(110, 340, -1, 50)), 
                                                     object_id="#text_box_30_horizleft_pad_0_8",
                                                     container=self)
         # Text
@@ -1976,6 +1980,20 @@ class ChangeCatToggles(UIWindow):
                                                          container=self,
                                                          object_id=box_type,
                                                          tool_tip_text=tool_tip)
+        
+        if self.the_cat.no_qpps:
+            box_type = "#checked_checkbox"
+            tool_tip = "Prevent cat from automatically taking platonic partners or breaking up with existing ones."
+        else:
+            box_type = "#unchecked_checkbox"
+            tool_tip = "Prevent cat from automatically taking platonic partners or breaking up with existing ones."
+        
+        self.checkboxes["prevent_qpps"] = UIImageButton(scale(pygame.Rect(45, 230, 68, 68)), "",
+                                                         container=self,
+                                                         object_id=box_type,
+                                                         tool_tip_text=tool_tip)
+        
+
         if self.the_cat.prevent_sexualitychange:
             box_type = "#checked_checkbox"
             tool_tip = "Prevent this cat's sexuality from changing in random events."
@@ -1983,7 +2001,7 @@ class ChangeCatToggles(UIWindow):
             box_type = "#unchecked_checkbox"
             tool_tip = "Prevent this cat's sexuality from changing in random events."
         
-        self.checkboxes["prevent_sexuality"] = UIImageButton(scale(pygame.Rect(45, 230, 68, 68)), "",
+        self.checkboxes["prevent_sexuality"] = UIImageButton(scale(pygame.Rect(45, 280, 68, 68)), "",
                                                          container=self,
                                                          object_id=box_type,
                                                          tool_tip_text=tool_tip)
@@ -1995,7 +2013,7 @@ class ChangeCatToggles(UIWindow):
             box_type = "#unchecked_checkbox"
             tool_tip = "Prevent this cat's gender from changing in random events."
 
-        self.checkboxes["prevent_gender"] = UIImageButton(scale(pygame.Rect(45, 280, 68, 68)), "",
+        self.checkboxes["prevent_gender"] = UIImageButton(scale(pygame.Rect(45, 330, 68, 68)), "",
                                                          container=self,
                                                          object_id=box_type,
                                                          tool_tip_text=tool_tip)

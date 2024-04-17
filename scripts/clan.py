@@ -200,6 +200,13 @@ class Clan():
             self.med_cat_list.append(self.medicine_cat.ID)
             if self.medicine_cat.status != 'medicine cat':
                 Cat.all_cats[self.medicine_cat.ID].status_change('medicine cat')
+
+    def gettheflags(self, cat):
+        """ erm """
+        from scripts.events import Events
+        events_instance = Events()
+        events_instance.get_flags(cat)
+        # this kind of sucks LMAO but it works
                 
     def create_clan(self):
         """
@@ -256,7 +263,9 @@ class Clan():
                 Cat.all_cats[i].example = True
                 self.remove_cat(Cat.all_cats[i].ID)
 
+
         # give thoughts,actions and relationships to cats
+
         for cat_id in Cat.all_cats:
             Cat.all_cats.get(cat_id).init_all_relationships()
             if Cat.all_cats.get(cat_id).backstory is None:
@@ -274,6 +283,7 @@ class Clan():
             if Cat.all_cats.get(cat_id).pelt.inventory != []:
                 Cat.all_cats.get(cat_id).pelt.inventory = []
 
+            self.gettheflags(Cat.all_cats.get(cat_id))
 
         game.save_cats()
         number_other_clans = randint(3, 5)

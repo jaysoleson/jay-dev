@@ -97,7 +97,7 @@ class Pelt():
     # pride by illadvisedart
 
     pridebandanas = [
-        "TRANS", "ENBY", "GRAYARO", "DEMIBOY", 'DEMIGIRL', 'BUTCH', 'ANDRO', 'GYNO', 'NEPTUNIC', 'LITHROMANTIC', 'CUPIOROMANTIC', 'QUEERPLATONIC', 'AROACEFLUX'
+        "TRANS", "ENBY", "GRAYARO", "DEMIBOY", 'DEMIGIRL', 'BUTCH', 'ANDRO', 'GYNO', 'NEPTUNIC', 'LITHROMANTIC', 'CUPIOROMANTIC', 'QUEERPLATONIC', 'AROACEFLUX', 'BIGENDER'
     ]
 
     pridebandanas2 = [

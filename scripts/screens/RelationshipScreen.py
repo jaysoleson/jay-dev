@@ -583,6 +583,14 @@ class RelationshipScreen(Screens):
                                                                                                             (36, 36)))
 
         related = False
+        # QPP HEART
+        if len(self.the_cat.qpp) > 0 and the_relationship.cat_to.ID in self.the_cat.qpp:
+
+            self.relation_list_elements['qpr_icon' + str(i)] = pygame_gui.elements.UIImage(
+                scale(pygame.Rect((pos_x + 10, pos_y + 10),
+                                  (22, 20))),
+                image_cache.load_image(
+                    "resources/images/qprheart.png").convert_alpha())
         # MATE
         if len(self.the_cat.mate) > 0 and the_relationship.cat_to.ID in self.the_cat.mate:
 
@@ -591,6 +599,7 @@ class RelationshipScreen(Screens):
                                   (22, 20))),
                 image_cache.load_image(
                     "resources/images/heart_big.png").convert_alpha())
+            
         else:
             # FAMILY DOT
             # Only show family dot on cousins if first cousin mates are disabled.
