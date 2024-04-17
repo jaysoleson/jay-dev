@@ -742,7 +742,13 @@ class Romantic_Events():
     def get_mate_string(key, poly, cat_from, cat_to):
         """Returns the mate string with the certain key, cats and poly."""
         if not poly:
-            return choice(Romantic_Events.MATE_DICTS[key])
+            qpp_key = ""
+            if cat_from.ID in cat_to.qpp:
+                cat_from.unset_qpp(cat_to)
+                qpp_key = "qpps_to_lovers"
+            else:
+                qpp_key = "regular"
+            return choice(Romantic_Events.MATE_DICTS[key][qpp_key])
         else:
             poly_key = ""
             alive_inclan_from_mates = [mate for mate in cat_from.mate if not cat_from.fetch_cat(mate).dead and not cat_from.fetch_cat(mate).outside]

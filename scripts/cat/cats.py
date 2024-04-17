@@ -2844,6 +2844,7 @@ class Cat():
                 self.create_one_relationship(other_cat)
                 self.relationships[other_cat.ID].qpp =  True
             self_relationship = self.relationships[other_cat.ID]
+            self_relationship.platonic_like += 20
             self_relationship.comfortable += 20
             self_relationship.trust += 10
             self_relationship.qpp = True

@@ -327,10 +327,10 @@ class QPR_Events():
         """More in depth check if the cats will become qpps."""
         
         become_qpps, qpp_string = QPR_Events.check_if_new_qpp(cat_from, cat_to)
-        not_already = cat_from not in cat_to.qpp and cat_to not in cat_from.qpp
-        not_mates = cat_from not in cat_to.mate and cat_to not in cat_from.mate
+        # not_already = cat_from not in cat_to.qpp and cat_to not in cat_from.qpp
+        # not_mates = cat_from not in cat_to.mate and cat_to not in cat_from.mate
 
-        if become_qpps and qpp_string and not_already and not_mates:
+        if become_qpps and qpp_string:
             if cat_from.ID == game.clan.your_cat.ID or cat_to.ID == game.clan.your_cat.ID:
                 if not game.switches['window_open']:
                     if cat_from.ID == game.clan.your_cat.ID:
@@ -431,8 +431,10 @@ class QPR_Events():
         if not cat_to.is_potential_qpp(cat_from) or not cat_from.is_potential_qpp(cat_to):
             return False
         
-        if cat_to in cat_from.qpp:
-            print ('already qpps')
+        if cat_to.ID in cat_from.qpp:
+            return False
+        
+        if cat_to.ID in cat_from.mate:
             return False
 
         alive_inclan_from_qpps = [qpp for qpp in cat_from.qpp if not cat_from.fetch_cat(qpp).dead and not cat_from.fetch_cat(qpp).outside]
@@ -462,8 +464,8 @@ class QPR_Events():
             cat_from.relationships[cat_to.ID].platonic_like -= 10
             cat_to.relationships[cat_from.ID].comfortable -= 10
 
-        not_already = cat_from not in cat_to.qpp and cat_to not in cat_from.qpp
-        not_mates = cat_from not in cat_to.mate and cat_to not in cat_from.mate
+        not_already = cat_from.ID not in cat_to.qpp and cat_to.ID not in cat_from.qpp
+        not_mates = cat_from.ID not in cat_to.mate and cat_to.ID not in cat_from.mate
 
         if become_qpp and not_already and not_mates:
             if cat_from.ID == game.clan.your_cat.ID or cat_to.ID == game.clan.your_cat.ID:
@@ -761,6 +763,8 @@ class QPR_Events():
     def get_qpp_string(key, poly, cat_from, cat_to):
         """Returns the qpp string with the certain key, cats and poly."""
         # if not poly:
+        if cat_from.ID in cat_to.mate:
+            cat_from.unset_mate(cat_to)
         return choice(QPR_Events.QPP_DICTS[key])
         # else:
         #     poly_key = ""

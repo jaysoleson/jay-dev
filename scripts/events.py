@@ -1278,7 +1278,7 @@ class Events:
                         encoding="ascii") as read_file:
                     self.d_txt = ujson.loads(read_file.read())
                 try:
-                    if Cat.all_cats[game.clan.your_cat.mate[-1]] in game.clan.your_cat.qpp:
+                    if Cat.all_cats[game.clan.your_cat.mate[-1]].ID in game.clan.your_cat.qpp:
                         ceremony_txt = random.choice(self.d_txt["gain_mate_from_qpr"])
                         game.clan.your_cat.unset_qpp(Cat.all_cats[game.clan.your_cat.mate[-1]])
                     else:
@@ -1289,6 +1289,7 @@ class Events:
                 ceremony_txt = ceremony_txt.replace('mate1', str(Cat.all_cats[game.clan.your_cat.mate[-1]].name))
                 game.cur_events_list.insert(0, Single_Event(ceremony_txt))
                 game.switches['accept'] = False
+                game.switches['qpraccept'] = False
                 checks[1] = len(game.clan.your_cat.mate)
             except:
                 print("You gained a new mate but an event could not be shown1")
@@ -1300,7 +1301,7 @@ class Events:
                         encoding="ascii") as read_file:
                     self.f_txt = ujson.loads(read_file.read())
                     
-                if Cat.all_cats[game.clan.your_cat.mate[-1]] in game.clan.your_cat.qpp:
+                if Cat.all_cats[game.clan.your_cat.mate[-1]].ID in game.clan.your_cat.qpp:
                     r = 4
                     game.switches['new_mate'].relationships[game.clan.your_cat.ID].romantic_love -= 8
                 else:
@@ -4131,7 +4132,9 @@ class Events:
                     else:
                         cat.arospec = "aromantic"
                         if self.ace not in cat.pelt.inventory and not game.clan.clan_settings['all accessories'] or game.clan.clan_settings['all pride accessories']:
-                            cat.pelt.inventory.append(self.aro) 
+                            cat.pelt.inventory.append(self.aro)
+                        if cat.acespec == 'asexual':
+                            cat.sexuality = 'aroace'
 
                     game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
     
@@ -4176,6 +4179,8 @@ class Events:
                     cat.acespec = "asexual"
                     if self.ace not in cat.pelt.inventory and not game.clan.clan_settings['all accessories'] or game.clan.clan_settings['all pride accessories']:
                         cat.pelt.inventory.append(self.ace) # ace
+                    if cat.arospec == 'aromantic':
+                        cat.sexuality = 'aroace'
 
                 game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
     
@@ -4246,6 +4251,7 @@ class Events:
                 if self.lesbian in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.lesbian)
                 cat.pelt.inventory.remove(self.lesbian)
+            if cat.sexuality != 'lesbian' and self.butch in cat.pelt.inventory:
                 if self.butch in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.butch)
                 cat.pelt.inventory.remove(self.butch)

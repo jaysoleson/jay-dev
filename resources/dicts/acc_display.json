@@ -1622,8 +1622,13 @@
   },
   "AROACEFLUX": {
     "default": "aroaceflux bandana",
-    "plural": "a aroaceflux bandana",
+    "plural": "aN aroaceflux bandana",
     "singular": "aroaceflux bandana"
+  },
+  "BIGENDER": {
+    "default": "bigender bandana",
+    "plural": "a bigender bandana",
+    "singular": "bigender bandana"
   },
   "FIDDLEHEADS" :{
     "default": "fiddleheads",
