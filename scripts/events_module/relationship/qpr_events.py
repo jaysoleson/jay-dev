@@ -638,11 +638,6 @@ class QPR_Events():
                 return False
             if condition["platonic"] < 0 and relationship.platonic_like > abs(condition["platonic"]):
                 return False
-        if "platonic" in condition and condition["platonic"] != 0:
-            if condition["platonic"] > 0 and relationship.platonic_like < condition["platonic"]:
-                return False
-            if condition["platonic"] < 0 and relationship.platonic_like > abs(condition["platonic"]):
-                return False
         if "dislike" in condition and condition["dislike"] != 0:
             if condition["dislike"] > 0 and relationship.dislike < condition["dislike"]:
                 return False

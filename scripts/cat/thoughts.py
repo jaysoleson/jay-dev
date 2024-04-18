@@ -102,6 +102,9 @@ class Thoughts():
             
             if main_cat.sexuality == "aroace" and "aroace" not in thought['main_sexuality_constraint'] and 'any' not in thought['main_sexuality_constraint'] or main_cat.moons < 6:
                 return False
+            
+            if "aroace" in thought['main_sexuality_constraint'] and main_cat.sexuality != 'aroace':
+                return False
         
         # cis/trans thoughts
             

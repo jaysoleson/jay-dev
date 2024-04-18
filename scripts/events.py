@@ -695,15 +695,29 @@ class Events:
         def pick_valid_parent(other_parent=None):
             MAX_ATTEMPTS = 50
             
-            def is_valid_parent(candidate_id, other_parent_gender=None, other_parent_id=None, other_parent_age=None):
+            def is_valid_parent(candidate_id, other_parent_gender=None, other_parent_id=None, other_parent_age=None, other_parent_sexuality=None):
                 cat = Cat.all_cats[candidate_id]
                 is_age_compatible = (other_parent_age is None) or (cat.age == other_parent_age)
                 is_gender_compatible = True
                 if not game.clan.clan_settings["same sex birth"]:
                     is_gender_compatible = (other_parent_gender is None) or (cat.gender != other_parent_gender)
+
+                    compatible = False
+
+                    if cat.sexuality in ["bi", "pan"] and other_parent_sexuality in ["bi", "pan"]:
+                        compatible = True
+
+                    if cat.sexuality in ['gay', 'andro'] or (cat.genderalign in ['female', 'trans female', 'demigirl'] and cat.sexuality == 'straight'):
+                        compatible = True
+
+                    if cat.sexuality in ['lesbian', 'gyno'] or (cat.genderalign in ['male', 'trans male', 'demiboy'] and cat.sexuality == 'straight'):
+                        compatible = True
+
+                    is_sexuality_compatible = (other_parent_gender is None) or compatible
+
                 return (cat.ID != game.clan.your_cat.ID and cat.ID != other_parent_id and not cat.dead and not cat.outside 
                         and cat.age in ["young adult", "adult", "senior adult"] 
-                        and "apprentice" not in cat.status and is_age_compatible and is_gender_compatible)
+                        and "apprentice" not in cat.status and is_age_compatible and is_gender_compatible and is_sexuality_compatible)
 
             for _ in range(MAX_ATTEMPTS):
                 candidate_id = random.choice(Cat.all_cats_list).ID
@@ -2145,6 +2159,15 @@ class Events:
             if cat.dead:
                 return
             
+        self.make_acespec(cat)
+
+        if not cat.prevent_genderchange:
+            self.coming_out(cat)
+            if randint(1,4) == 1:
+                self.makeupurmind(cat)
+
+        self.questioning(cat)
+            
         self.change_sexuality(cat)
         self.make_aroace(cat)
 
@@ -2168,16 +2191,6 @@ class Events:
             if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in self.all_bandanas for bandana in bandanas) and game.clan.clan_settings['auto equip']:
                 cat.pelt.accessories.append(self.aroace)
 
-        self.make_acespec(cat)
-
-        if not cat.prevent_genderchange:
-            self.coming_out(cat)
-            if randint(1,4) == 1:
-                self.makeupurmind(cat)
-
-        self.questioning(cat)
-        
-
         Pregnancy_Events.handle_having_kits(cat, clan=game.clan)
         # Stop the timeskip if the cat died in childbirth
         if cat.dead:
@@ -2200,6 +2213,10 @@ class Events:
         self.invite_new_cats(cat)
         self.other_interactions(cat)
         self.gain_accessories(cat)
+
+        if cat.arospec == 'aromantic' and cat.acespec == 'asexual' and cat.sexuality != 'aroace':
+            cat.sexuality = 'aroace'
+            # fixing any aro/ace fuckery caused by other sexuality change events
 
         self.get_flags(cat)
 
@@ -4462,6 +4479,14 @@ class Events:
                     if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in self.all_bandanas for bandana in bandanas):
                         cat.pelt.accessories.append(self.polyam)
                     cat.pelt.inventory.append(self.polyam)
+
+            # then qpps
+
+            if len(cat.qpp) > 0:
+                if self.queerplatonic not in cat.pelt.inventory:
+                    if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in self.all_bandanas for bandana in bandanas):
+                        cat.pelt.accessories.append(self.queerplatonic)
+                    cat.pelt.inventory.append(self.queerplatonic)
                     
             if cat.moons > 5:
 
