@@ -3722,7 +3722,7 @@ class Events:
     def coming_out(self, cat):
         """turnin' the kitties trans..."""
         if cat.genderalign == cat.gender:
-            if cat.moons < 6:
+            if cat.moons < 4:
                 return
             
             if cat.prevent_genderchange:
@@ -4054,7 +4054,7 @@ class Events:
         """ chance for a cat's orientation to be switched to questioning"""
         if cat.prevent_sexualitychange:
             return
-        if cat.moons > 6:
+        if cat.moons > 3:
             involved_cats = [cat.ID]
             if cat.sexuality != "questioning":
                 if cat.age == 'adolescent':
@@ -4280,7 +4280,7 @@ class Events:
                 elif cat.sexuality == 'gay':
                     cat.sexuality = 'andro'
 
-        if not game.clan.clan_settings['all accessories'] or game.clan.clan_settings['all pride accessories']:
+        if not (game.clan.clan_settings['all accessories'] or game.clan.clan_settings['all pride accessories']):
             # ^^ don't remove wrong flags if all accessories is on!
 
             # SEXUALITIES
