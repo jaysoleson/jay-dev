@@ -202,7 +202,7 @@ class ChooseMateScreen(Screens):
                                              object_id="#next_cat_button")
         self.back_button = UIImageButton(scale(pygame.Rect((50, 1290), (210, 60))), "", object_id="#back_button")
 
-        self.qppscreen_button = UIImageButton(scale(pygame.Rect((685, 285), (230, 60))), "QPP Screen", object_id="")
+        self.qppscreen_button = UIImageButton(scale(pygame.Rect((685, 285), (230, 60))), "", object_id="#qpp_screen")
                                                          
         # Tab containers:
         contain_rect = scale(pygame.Rect((170, 800),(1260, 438)))

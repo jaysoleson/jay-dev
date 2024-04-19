@@ -565,6 +565,16 @@ class QPR_Events():
         aro_qpp_chance = game.config["QPR"]["aro_chance_fulfilled_condition"]
         qpp_chance = game.config["QPR"]["chance_fulfilled_condition"]
 
+        comp = get_personality_compatibility(cat_from, cat_to)
+        
+        if not comp:
+            if qpp_chance:
+                qpp_chance = qpp_chance + 10
+            if aro_qpp_chance:
+                aro_qpp_chance = aro_qpp_chance + 10
+
+        # cats r waay more likely to be qpps if theyre personality compatible
+
         
         if cat_from.sexuality == 'aroace' and cat_to.sexuality == 'aroace':
             hit = int(random.random() * aro_qpp_chance - 8)

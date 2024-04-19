@@ -6212,5 +6212,97 @@
                 "path":"resources/images/buttons/continue_dead_hover.png"
             }
         }
+    },
+    "#potential_qpps_tab_button":
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/potential_partners.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/potential_partners_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/potential_partners_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/potential_partners_unavailable.png"
+            }
+        }
+    },
+    "#mate_screen":
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/mate_screen.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/mate_screen_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/mate_screen_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/mate_screen_unavailable.png"
+            }
+        }
+    },
+    "#qpp_screen":
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/qpp_screen.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/qpp_screen_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/qpp_screen_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/qpp_screen_unavailable.png"
+            }
+        }
+    },
+    "#qpps_tab_button":
+    {
+        "prototype": "#image_button",
+        "images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/qpps_tab.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/qpps_tab_hover.png"
+            },
+            "selected_image":
+            {
+                "path": "resources/images/buttons/qpps_tab_hover.png"
+            },
+            "disabled_image":
+            {
+                "path": "resources/images/buttons/qpps_tab_unavailable.png"
+            }
+        }
     }
 }

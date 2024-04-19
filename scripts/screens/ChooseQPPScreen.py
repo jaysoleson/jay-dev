@@ -177,7 +177,9 @@ class ChooseQPPScreen(Screens):
     def screen_switches(self):
         """Sets up the elements that are always on the page"""
         self.info = pygame_gui.elements.UITextBox(
-            "Choose a platonic partner",
+           "Cat's with queer-platonic partners will still be able to take other platonic partners"
+            " and mates (unless those interactions are toggled off in their profile). "
+            "Cats in QPRs will not naturally have kits with each other as if they were mates.",
             scale(pygame.Rect((360, 120), (880, 200))),
             object_id=get_text_box_theme("#text_box_22_horizcenter_spacing_95")
         )
@@ -199,7 +201,7 @@ class ChooseQPPScreen(Screens):
                                              object_id="#next_cat_button")
         self.back_button = UIImageButton(scale(pygame.Rect((50, 1290), (210, 60))), "", object_id="#back_button")
 
-        self.qppscreen_button = UIImageButton(scale(pygame.Rect((646, 320), (110, 60))), "Mate Screen", object_id="")
+        self.qppscreen_button = UIImageButton(scale(pygame.Rect((685, 285), (230, 60))), "", object_id="#mate_screen")
                                                          
         # Tab containers:
         contain_rect = scale(pygame.Rect((170, 800),(1260, 438)))
@@ -245,7 +247,7 @@ class ChooseQPPScreen(Screens):
                                                                container=self.potential_container)
         
         #Checkboxes and text
-        self.single_only_text = pygame_gui.elements.UITextBox("No qpps", scale(pygame.Rect((1035, 22), (209, -1))),
+        self.single_only_text = pygame_gui.elements.UITextBox("No QPPs", scale(pygame.Rect((1035, 22), (209, -1))),
                                                               object_id="#text_box_26_horizcenter",
                                                               container=self.potential_container)
         
@@ -703,7 +705,7 @@ class ChooseQPPScreen(Screens):
         
         button_x = 200
         self.tab_buttons["potential"] = UIImageButton(scale(pygame.Rect((button_x, 722), (306, 78))), "",
-                                                      object_id="#potential_mates_tab_button",
+                                                      object_id="#potential_qpps_tab_button",
                                                       starting_height=2)
         button_x += 320
         
@@ -711,7 +713,7 @@ class ChooseQPPScreen(Screens):
         qpps_tab_shown = False
         if self.the_cat.qpp:
             self.tab_buttons["qpps"] = UIImageButton(scale(pygame.Rect((button_x, 722), (306, 78))), "", 
-                                                      object_id="#mates_tab_button",
+                                                      object_id="#qpps_tab_button",
                                                       starting_height=2)
             qpps_tab_shown = True
             button_x += 320
