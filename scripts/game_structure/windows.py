@@ -488,7 +488,7 @@ class SpecifyCatGender(UIWindow):
         self.xenos = UIImageButton(scale(pygame.Rect((125, 175), (62, 62))), "",
             object_id="#help_button",
             manager=MANAGER, tool_tip_text =
-            "<b> Xenogenders that <br> currently have bandanas: </b> <br> genderdoe <br> mothgender <br> buggender <br> catgender <br> snowleopardgender <br> tigergender <br>",
+            "<b> Xenogenders that <br> currently have bandanas: </b> <br> genderdoe <br> mothgender <br> buggender <br> catgender <br> snowleopardgender <br> tigergender <br> xenogender <br>",
             
             container=self)
 

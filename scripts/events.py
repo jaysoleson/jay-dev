@@ -4821,6 +4821,14 @@ class Events:
                     text = f"{cat.name}'s gender reflects every one of their Clanmates around them."
                     game.cur_events_list.append(Single_Event(text, "misc",  cat.ID))
                 
+                elif cat.genderalign == 'xenogender' and self.xenogender not in cat.pelt.inventory:
+                    if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in self.all_bandanas for bandana in bandanas):
+                        if self.xenogender not in cat.pelt.accessories:
+                            cat.pelt.accessories.append(self.xenogender)
+                    cat.pelt.inventory.append(self.xenogender)
+                    text = f"{cat.name}'s gender feels brand new!"
+                    game.cur_events_list.append(Single_Event(text, "misc", cat.ID))
+                
                 elif cat.genderalign == 'questioning' and self.ambiguous not in cat.pelt.inventory:
                     if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in self.all_bandanas for bandana in bandanas):
                         if self.ambiguous not in cat.pelt.accessories:
