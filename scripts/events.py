@@ -2170,8 +2170,9 @@ class Events:
 
         if not cat.prevent_genderchange:
             self.coming_out(cat)
-            if randint(1,4) == 1:
-                self.makeupurmind(cat)
+        
+        if randint(1,4) == 1:
+            self.makeupurmind(cat)
 
         if not cat.prevent_sexualitychange:
 
