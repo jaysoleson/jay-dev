@@ -578,7 +578,7 @@ class Sprites():
             self.make_group('pridebandanas3', (a, 2), f'acc_pride3{i}')
 
         for a, i in enumerate([
-            "STRAIGHT"]):
+            "PLACEHOLDER"]):
             self.make_group('nonpridebandanas', (a, 0), f'acc_bandanas{i}')
         
     # --------------------------------

@@ -109,7 +109,7 @@ class Pelt():
     ]
 
     nonpridebandanas = [
-        "STRAIGHT"
+        "PLACEHOLDER"
     ]
 
     # ohdan's accessories

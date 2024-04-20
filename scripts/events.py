@@ -4732,7 +4732,7 @@ class Events:
                             cat.pelt.accessories.append(self.trans)
                     cat.pelt.inventory.append(self.trans)
 
-                if cat.genderalign not in ['trans female', 'trans male', 'demigirl', 'demiboy']:
+                if cat.genderalign not in ['trans female', 'trans male', 'demigirl', 'demiboy', 'female', 'male']:
                     if self.ambiguous not in cat.pelt.inventory:
                         cat.pelt.inventory.append(self.ambiguous)
                 if cat.genderalign == 'genderfluid' and self.genderfluid not in cat.pelt.inventory:
@@ -4813,6 +4813,14 @@ class Events:
                     text = f"{cat.name} knows they're not a tom, but identifies with many levels of she-cat-ness."
                     game.cur_events_list.append(Single_Event(text, "misc",  cat.ID))
                 
+                elif cat.genderalign == 'genderfaun' and self.genderfaun not in cat.pelt.inventory:
+                    if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in self.all_bandanas for bandana in bandanas):
+                        if self.genderfaun not in cat.pelt.accessories:
+                            cat.pelt.accessories.append(self.genderfaun)
+                    cat.pelt.inventory.append(self.genderfaun)
+                    text = f"{cat.name} knows they're not a she-cat, but identifies with many levels of tom-ness."
+                    game.cur_events_list.append(Single_Event(text, "misc",  cat.ID))
+
                 elif cat.genderalign == 'catgender' and self.catgender not in cat.pelt.inventory:
                     if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in self.all_bandanas for bandana in bandanas):
                         if self.catgender not in cat.pelt.accessories:
