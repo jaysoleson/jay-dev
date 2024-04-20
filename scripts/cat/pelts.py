@@ -97,7 +97,7 @@ class Pelt():
     # pride by illadvisedart
 
     pridebandanas = [
-        "TRANS", "ENBY", "GRAYARO", "DEMIBOY", 'DEMIGIRL', 'BUTCH', 'ANDRO', 'GYNO', 'NEPTUNIC', 'LITHROMANTIC', 'CUPIOROMANTIC', 'QUEERPLATONIC', 'AROACEFLUX', 'BIGENDER'
+        "TRANS", "ENBY", "GRAYARO", "DEMIBOY", 'DEMIGIRL', 'BUTCH', 'ANDRO', 'GYNO', 'NEPTUNIC', 'LITHROMANTIC', 'CUPIOROMANTIC', 'QUEERPLATONIC', 'AROACEFLUX', 'BIGENDER', 'AGENDER'
     ]
 
     pridebandanas2 = [
@@ -105,11 +105,11 @@ class Pelt():
     ]
 
     pridebandanas3 = [
-        "URANIC", "NEBULAROMANTIC", "CATGENDER", "GENDERDOE", "OMNISAPPHIC", "MOTHGENDER", "SNOWLEOPARDGENDER", "TIGERGENDER", "BUGGENDER"
+        "URANIC", "NEBULAROMANTIC", "CATGENDER", "GENDERDOE", "OMNISAPPHIC", "MOTHGENDER", "SNOWLEOPARDGENDER", "TIGERGENDER", "BUGGENDER", "GENDERFAUN", "DEMIAROACE", "SAPPHIC", "ACHILLEAN", "XENOGENDER"
     ]
 
     nonpridebandanas = [
-        "PLACEHOLDER"
+        "STRAIGHT"
     ]
 
     # ohdan's accessories

@@ -1570,7 +1570,32 @@
     "plural": "a buggender flag bandana",
     "singular": "buggender bandana"
   },
-  "PLACEHOLDER": {
+  "GENDERFAUN": {
+    "default": "genderfaun bandana",
+    "plural": "a genderfaun flag bandana",
+    "singular": "genderfaun bandana"
+  },
+  "DEMIAROACE": {
+    "default": "demiaroace bandana",
+    "plural": "a demiaroace flag bandana",
+    "singular": "demiaroace bandana"
+  },
+  "SAPPHIC": {
+    "default": "sapphic bandana",
+    "plural": "a sapphic flag bandana",
+    "singular": "sapphic bandana"
+  },
+  "ACHILLEAN": {
+    "default": "achillean bandana",
+    "plural": "an achillean flag bandana",
+    "singular": "achillean bandana"
+  },
+  "XENOGENDER": {
+    "default": "xenogender bandana",
+    "plural": "a xenogender flag bandana",
+    "singular": "xenogender bandana"
+  },
+  "STRAIGHT": {
     "default": "checkered bandana",
     "plural": "a checkered flag bandana",
     "singular": "checkered bandana"
@@ -1629,6 +1654,11 @@
     "default": "bigender bandana",
     "plural": "a bigender bandana",
     "singular": "bigender bandana"
+  },
+  "AGENDER": {
+    "default": "agender bandana",
+    "plural": "an agender bandana",
+    "singular": "agender bandana"
   },
   "FIDDLEHEADS" :{
     "default": "fiddleheads",

@@ -554,7 +554,7 @@ class Sprites():
             "ANDRO", "GYNO", "NEPTUNIC", "LITHROMANTIC", "CUPIOROMANTIC"]):
             self.make_group('pridebandanas', (a, 1), f'acc_pride{i}')
         for a, i in enumerate([
-            "QUEERPLATONIC", 'AROACEFLUX', 'BIGENDER']):
+            "QUEERPLATONIC", 'AROACEFLUX', 'BIGENDER', 'AGENDER']):
             self.make_group('pridebandanas', (a, 2), f'acc_pride{i}')
 
         for a, i in enumerate([
@@ -571,11 +571,14 @@ class Sprites():
             "URANIC", "NEBULAROMANTIC", "CATGENDER", "GENDERDOE", "OMNISAPPHIC", "MOTHGENDER"]):
             self.make_group('pridebandanas3', (a, 0), f'acc_pride3{i}')
         for a, i in enumerate([
-            "SNOWLEOPARDGENDER", "TIGERGENDER", "BUGGENDER"]):
+            "SNOWLEOPARDGENDER", "TIGERGENDER", "BUGGENDER", "GENDERFAUN", "DEMIAROACE"]):
             self.make_group('pridebandanas3', (a, 1), f'acc_pride3{i}')
+        for a, i in enumerate([
+            "SAPPHIC", 'ACHILLEAN', 'XENOGENDER']):
+            self.make_group('pridebandanas3', (a, 2), f'acc_pride3{i}')
 
         for a, i in enumerate([
-            "PLACEHOLDER"]):
+            "STRAIGHT"]):
             self.make_group('nonpridebandanas', (a, 0), f'acc_bandanas{i}')
         
     # --------------------------------
