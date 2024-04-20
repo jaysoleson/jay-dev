@@ -815,12 +815,15 @@ class Events:
                 elif birth_type == BirthType.TWO_OUTSIDER_PARENTS:
                     parent1 = create_new_cat(Cat, Relationship,
                                                 status="warrior",
+                                                sexuality=choice(["bi", "pan"]),
                                                 alive=True,
                                                 age=random.randint(15,120),
                                                 outside=False)[0]
                     parent1.backstory = random.choice(["loner1", "loner2", "loner4", "kittypet1", "kittypet2", "kittypet3", "kittypet4", "kittypet6", "rogue1", "rogue2", "rogue3", "rogue5", "rogue8", "refugee2", "refugee3", "refugee4"])
+
                     parent2 = create_new_cat(Cat, Relationship,
                                                 status="warrior",
+                                                sexuality=choice(["bi", "pan"]),
                                                 alive=True,
                                                 age=parent1.moons + random.randint(1,5),
                                                 outside=False)[0]
