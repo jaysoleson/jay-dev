@@ -1263,14 +1263,17 @@ class ProfileScreen(Screens):
                     self.profile_elements["insult"].enable()
 
             if self.the_cat.is_dateable(game.clan.your_cat):
-                 if (game.clan.your_cat.sexuality in ["gay", "andro"] and\
-                    self.the_cat.genderalign not in ["female", "trans female", "demigirl"]) or\
-                (game.clan.your_cat.sexuality in ["lesbian", "gyno"] and\
-                    self.the_cat.genderalign not in ["male", "trans male", "demiboy"]) or\
-                (game.clan.your_cat.sexuality == "bi" and game.clan.your_cat.genderalign in ["male", "trans male", "demiboy"] and\
-                    self.the_cat.sexuality not in ["female", "trans female", "demigirl"]) or\
-                (game.clan.your_cat.sexuality == "bi" and game.clan.your_cat.genderalign in ["female", "trans female", "demigirl"] and\
-                    self.the_cat.sexuality not in ["male", "trans male", "demiboy"]):
+                canflirt = True
+                they_guy = self.the_cat.genderalign not in ['female', 'trans female', 'demigirl']
+                they_girl = self.the_cat.genderalign not in ['male', 'trans male', 'demiboy']
+
+                if game.clan.your_cat.sexuality in ['lesbian', 'gyno'] or (game.clan.your_cat.sexuality == 'straight' and game.clan.your_cat.genderalign in ['male', 'trans male', 'demiboy']):
+                    canflirt = False
+                
+                if game.clan.your_cat.sexuality in ['gay', 'andro'] or (game.clan.your_cat.sexuality == 'straight' and game.clan.your_cat.genderalign in ['female', 'trans female', 'demigirl']):
+                    canflirt = False
+
+                if canflirt:
                         
                     if self.the_cat.status not in ['leader', 'mediator', 'mediator apprentice', "queen", "queen's apprentice"]:
                         self.profile_elements["flirt"] = UIImageButton(scale(pygame.Rect(

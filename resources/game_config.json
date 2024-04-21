@@ -93,7 +93,7 @@
 		]
 	},
 	"QPR":{
-		"age_range": 50,
+		"age_range": 40,
 		"override_same_age_group": false,
 		"chance_fulfilled_condition": 30,
 		"aro_chance_fulfilled_condition": 20,

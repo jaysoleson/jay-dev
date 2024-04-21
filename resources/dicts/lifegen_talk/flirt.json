@@ -1,9 +1,107 @@
 {
+    "pridegen_reject_1": [
+        [
+            "Any",
+            "reject",
+            "tom_reject",
+            "assertive",
+            "stable",
+            "silly",
+            "introspective",
+            "brooding",
+            "unlawful",
+            "troublesome",
+            "neurotic",
+            "sweet",
+            "cool",
+            "upstanding"
+        ],
+        [
+            "Oh, um, sorry, I'm not really into toms."
+        ]
+    ],
+    "pridegen_reject_2": [
+        [
+            "Any",
+            "reject",
+            "shecat_reject",
+            "assertive",
+            "stable",
+            "silly",
+            "introspective",
+            "brooding",
+            "unlawful",
+            "troublesome",
+            "neurotic",
+            "sweet",
+            "cool",
+            "upstanding"
+        ],
+        [
+            "Oh, um, sorry, I'm not really into she-cats."
+        ]
+    ],
+    "pridegen_reject_3": [
+        [
+            "Any",
+            "shecat_reject",
+            "reject",
+            "platonic_like",
+            "sweet",
+            "stable",
+            "silly"
+
+        ],
+        [
+            "Aw, sorry. If I were into she-cats, you'd be my first pick!"
+        ]
+    ],
+    "pridegen_reject_4": [
+        [
+            "Any",
+            "tom_reject",
+            "reject",
+            "platonic_like",
+            "sweet",
+            "stable",
+            "silly"
+        ],
+        [
+            "Aw, sorry. If I were into toms, you'd be my first pick!"
+        ]
+    ],
+    "pridegen_reject_5": [
+        [
+            "Any",
+            "shecat_reject",
+            "reject",
+            "sweet",
+            "stable",
+            "assertive"
+        ],
+        [
+            "You're very nice, y_c, I'm just not into she-cats.",
+            "You're very pretty, though. You'll find someone, I know it."
+        ]
+    ],
+    "pridegen_reject_6": [
+        [
+            "Any",
+            "tom_reject",
+            "reject",
+            "sweet",
+            "stable",
+            "assertive"
+        ],
+        [
+            "You're very nice, y_c, I'm just not into toms.",
+            "You're a good guy, though. You'll find someone, I know it."
+        ]
+    ],
     "ad9wkx7": [
         [
             "Any",
             "reject",
-            "assertive",
             "stable"
         ],
         [

@@ -189,12 +189,12 @@ class FlirtScreen(Screens):
             if event.key == pygame.K_ESCAPE:
                 self.change_screen('profile screen')
         elif event.type == pygame.MOUSEBUTTONDOWN:
-                if self.frame_index == len(self.text_frames[self.text_index]) - 1:
-                    if self.text_index < len(self.texts) - 1:
-                        self.text_index += 1
-                        self.frame_index = 0
-                else:
-                    self.frame_index = len(self.text_frames[self.text_index]) - 1  # Go to the last frame
+            if self.frame_index == len(self.text_frames[self.text_index]) - 1:
+                if self.text_index < len(self.texts) - 1:
+                    self.text_index += 1
+                    self.frame_index = 0
+            else:
+                self.frame_index = len(self.text_frames[self.text_index]) - 1  # Go to the last frame
         return
     
     def get_possible_text(self, cat):
@@ -209,14 +209,16 @@ class FlirtScreen(Screens):
             
         texts_list = []
         for talk in possible_texts.values():
+
             if game.clan.your_cat.status not in talk[0] and "Any" not in talk[0]:
                 continue
             if "heartbroken" not in cat.illnesses.keys() and "heartbroken" in talk[0]:
                 continue
-            elif not success and "reject" not in talk[0]:
+            elif not success and ("reject" or "tom_reject" or "shecat_reject") not in talk[0]:
                 continue
-            elif success and "reject" in talk[0]:
+            elif success and ("reject" or "tom_reject" or "shecat_reject") in talk[0]:
                 continue
+
             if talk[0] and (cluster not in talk[0] and second_cluster not in talk[0]):
                 if len(talk[0]) != 1 and len(talk[0]) != 2:
                     continue
@@ -239,6 +241,16 @@ class FlirtScreen(Screens):
                 continue
             if ("you_insecure" in talk[0]) and game.clan.your_cat.personality.trait != "insecure":
                 continue
+
+            if cat.sexuality in ['lesbian', 'gyno'] or (cat.sexuality == 'straight' and cat.genderalign in ['male', 'trans male', 'demiboy']) and game.clan.your_cat.genderalign in ['male', 'trans male', 'demiboy']:
+                if "shecat_reject" in talk[0]:
+                    continue
+
+            elif cat.sexuality in ['gay', 'andro'] or (cat.sexuality == 'straight' and cat.genderalign in ['female', 'trans female', 'demigirl']) and game.clan.your_cat.genderalign in ['female', 'trans female', 'demigirl']:
+                if "tom_reject" in talk[0]:
+                    continue
+               
+
             if game.clan.your_cat.ID in cat.relationships:
                 if cat.relationships[game.clan.your_cat.ID].dislike < 50 and 'hate' in talk[0]:
                     continue
@@ -284,6 +296,18 @@ class FlirtScreen(Screens):
     def is_flirt_success(self, cat):
         cat_relationships = cat.relationships.get(game.clan.your_cat.ID)
         chance = 40
+
+        if cat.sexuality in ['lesbian', 'gyno'] or (cat.sexuality == 'straight' and cat.genderalign in ['male', 'trans male', 'demiboy']):
+            if game.clan.your_cat.genderalign in ['male', 'trans male', 'demiboy']:
+                return False
+            
+        if cat.sexuality in ['gay', 'andro'] or (cat.sexuality == 'straight' and cat.genderalign in ['female', 'trans female', 'demigirl']):
+            if game.clan.your_cat.genderalign in ['female', 'trans female', 'demigirl']:
+                return False
+            
+        if cat.sexuality == 'aroace':
+            return False
+
         if cat_relationships:
             if cat_relationships.romantic_love > 10:
                 chance += 50
