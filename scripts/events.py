@@ -447,7 +447,7 @@ class Events:
         game.clan.exile_return = False
         
         self.check_achievements()
-        self.checks = [len(game.clan.your_cat.apprentice), len(game.clan.your_cat.mate), len(game.clan.your_cat.inheritance.get_blood_kits()), None]
+        self.checks = [len(game.clan.your_cat.apprentice), len(game.clan.your_cat.mate), len(game.clan.your_cat.inheritance.get_blood_kits()), None, len(game.clan.your_cat.qpp)]
         if game.clan.leader:
             self.checks[3] = game.clan.leader.ID
             
