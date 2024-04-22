@@ -665,11 +665,6 @@ class RelationshipScreen(Screens):
         both_adult = the_relationship.cat_to.age in adult_ages and self.the_cat.age in adult_ages
         check_age = both_adult or same_age
 
-        # If they are not both adults, or the same age, OR they are related, don't display any romantic affection,
-        # even if they somehow have some. They should not be able to get any, but it never hurts to check.
-        if not check_age or related or self.the_cat.arospec == 'aromantic':
-            display_romantic = 0
-
         # and if they're incompatible, allow a little bit of a crush, but nothing more.
         # this limits actual romantic attraction, not just the display
         if sexuality_incompatible:
@@ -689,6 +684,12 @@ class RelationshipScreen(Screens):
             if the_relationship.romantic_love and related:
                 print(
                     f"WARNING: {self.the_cat.name} has {the_relationship.romantic_love} romantic love towards their relative, {the_relationship.cat_to.name}")
+        
+        # If they are not both adults, or the same age, OR they are related, don't display any romantic affection,
+        # even if they somehow have some. They should not be able to get any, but it never hurts to check.
+        if not check_age or related or self.the_cat.arospec == 'aromantic':
+            display_romantic = 0
+        
         else:
             display_romantic = the_relationship.romantic_love
 
