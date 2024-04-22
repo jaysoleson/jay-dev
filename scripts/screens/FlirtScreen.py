@@ -243,12 +243,51 @@ class FlirtScreen(Screens):
                 continue
 
             if cat.sexuality in ['lesbian', 'gyno'] or (cat.sexuality == 'straight' and cat.genderalign in ['male', 'trans male', 'demiboy']) and game.clan.your_cat.genderalign in ['male', 'trans male', 'demiboy']:
-                if "shecat_reject" in talk[0]:
+                if ("shecat_reject" or "aroace_reject") in talk[0]:
                     continue
 
             elif cat.sexuality in ['gay', 'andro'] or (cat.sexuality == 'straight' and cat.genderalign in ['female', 'trans female', 'demigirl']) and game.clan.your_cat.genderalign in ['female', 'trans female', 'demigirl']:
-                if "tom_reject" in talk[0]:
+                if ("tom_reject" or "aroace_reject") in talk[0]:
                     continue
+
+            elif cat.sexuality == 'aroace':
+                if ("tom_reject" or "shecat_reject") in talk[0]:
+                    continue
+
+
+            you_boyliker = game.clan.your_cat.sexuality in ['gay', 'andro'] or (game.clan.your_cat.sexuality == 'straight' and game.clan.your_cat.genderalign in ['female', 'trans female', 'demigirl'])
+
+            you_girlliker = game.clan.your_cat.sexuality in ['lesbian', 'gyno'] or (game.clan.your_cat.sexuality == 'straight' and game.clan.your_cat.genderalign in ['male', 'trans male', 'demiboy'])
+
+            they_boyliker = cat.sexuality in ['gay', 'andro'] or (cat.sexuality == 'straight' and cat.genderalign in ['female', 'trans female', 'demigirl'])
+
+            they_girlliker = cat.sexuality in ['lesbian', 'gyno'] or (cat.sexuality == 'straight' and cat.genderalign in ['male', 'trans male', 'demiboy'])
+
+            if "you_boyliker" in talk[0]:
+                if not you_boyliker:
+                    continue
+            if "you_girlliker" in talk[0]:
+                if not you_girlliker:
+                    continue
+            if "they_boyliker" in talk[0]:
+                if not they_boyliker:
+                    continue
+            if "they_girlliker" in talk[0]:
+                if not they_girlliker:
+                    continue
+            if "you_tom" in talk[0]:
+                if game.clan.your_cat.genderalign not in ['male', 'trans male', 'demiboy']:
+                    continue
+            if "you_shecat" in talk[0]:
+                if game.clan.your_cat.genderalign not in ['female', 'trans female', 'demigirl']:
+                    continue
+            if "they_tom" in talk[0]:
+                if cat.genderalign not in ['male', 'trans male', 'demiboy']:
+                    continue
+            if "they_shecat" in talk[0]:
+                if cat.genderalign not in ['female', 'trans female', 'demigirl']:
+                    continue
+
                
 
             if game.clan.your_cat.ID in cat.relationships:

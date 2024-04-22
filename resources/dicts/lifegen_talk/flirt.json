@@ -98,6 +98,43 @@
             "You're a good guy, though. You'll find someone, I know it."
         ]
     ],
+    "pridegen_reject_7": [
+        [
+            "Any",
+            "aroace_reject",
+            "reject",
+            "silly",
+            "introspective",
+            "neurotic",
+            "sweet",
+            "cool",
+            "upstanding"
+        ],
+        [
+            "Oh, well, thank you...",
+            "I'm just not looking for a mate right now. Or, um, ever. So please don't say those things to me.",
+            "You're very beautiful as well, though!"
+        ]
+    ],
+    "pridegen_reject_8": [
+        [
+            "Any",
+            "aroace_reject",
+            "reject",
+            "assertive",
+            "stable",
+            "introspective",
+            "brooding",
+            "unlawful",
+            "troublesome",
+            "neurotic",
+            "cool",
+            "upstanding"
+        ],
+        [
+            "Flirting with me is a waste of your time, you know."
+        ]
+    ],
     "ad9wkx7": [
         [
             "Any",
@@ -2169,6 +2206,37 @@
         ],
         [
             "[t_c playfully taps you with their tail before pulling it away before anyone cat see.]"
+        ]
+    ],
+    "pridegen_1": [
+        [
+            "Any",
+            "you_tom",
+            "you_boyliker",
+            "they_boyliker",
+            "cool",
+            "introspective",
+            "brooding",
+            "stable"
+
+        ],
+        [
+            "Haha, you're a funny guy, y_c...",
+            "[You seem to have flustered them!]"
+        ]
+    ],
+    "pridegen_2": [
+        [
+            "Any",
+            "you_shecat",
+            "they_shecat",
+            "you_girlliker",
+            "they_girlliker"
+
+        ],
+        [
+            "No, no, <i>you're</i> the prettiest!",
+            "Are they just being friendly..?"
         ]
     ]
 }
