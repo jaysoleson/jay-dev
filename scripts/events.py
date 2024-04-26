@@ -4288,6 +4288,14 @@ class Events:
             elif cat.genderalign in ['male', 'trans male', 'demiboy']:
                 cat.sexuality = "straight"
 
+        elif cat.sexuality == "gay" and cat.genderalign in ['female', 'trans female', 'demigirl']:
+            print("gay woman?!?!?!")
+            cat.sexuality = "straight"
+
+        elif cat.sexuality == "lesbian" and cat.genderalign in ['male', 'trans male', 'demiboy']:
+            print("lesbian man?!?!?!")
+            cat.sexuality = "straight" 
+
         nonbinary = cat.genderalign not in ['male', 'female', 'trans male', 'trans female', 'demiboy', 'demigirl']
 
         if cat.gender == 'female':

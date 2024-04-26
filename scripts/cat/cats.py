@@ -361,7 +361,7 @@ class Cat():
             aroace_chance = randint (0,30)
             straight_chance = randint(0,1)
             questioning_chance = randint(0,15)
-            if self.genderalign in ["female", "trans female"]:
+            if self.genderalign in ["female", "trans female", "demigirl"]:
                 if gay_chance == 1:
                     self.sexuality = "lesbian"
                 elif aroace_chance == 1:
@@ -372,7 +372,7 @@ class Cat():
                     self.sexuality = "pan"
                 elif straight_chance == 1:
                     self.sexuality = "straight"
-            elif self.genderalign in ["male", "trans male"]:
+            elif self.genderalign in ["male", "trans male", "demiboy"]:
                 if gay_chance == 1:
                     self.sexuality = "gay"
                 elif aroace_chance == 1:
@@ -383,7 +383,7 @@ class Cat():
                     self.sexuality = "pan"
                 elif straight_chance == 1:
                     self.sexuality = "straight"
-            elif self.genderalign not in ["male", "female", "trans female", "trans male"]:
+            else:
                 if gay_chance == 1:
                     self.sexuality = "andro"
                 elif gay_chance == 2:
