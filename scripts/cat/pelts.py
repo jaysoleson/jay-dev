@@ -112,6 +112,10 @@ class Pelt():
         "PLACEHOLDER"
     ]
 
+    customflags = [
+        "CUSTOMFLAG0", "CUSTOMFLAG1", "CUSTOMFLAG2", "CUSTOMFLAG3", "CUSTOMFLAG4", "CUSTOMFLAG5", "CUSTOMFLAG6", "CUSTOMFLAG7", "CUSTOMFLAG8", "CUSTOMFLAG9", "CUSTOMFLAG10", "CUSTOMFLAG11", "CUSTOMFLAG12", "CUSTOMFLAG13", "CUSTOMFLAG14", 
+    ]
+
     # ohdan's accessories
     flower_accessories = ["DAISY", "DIANTHUS", "BLEEDING HEARTS", "FRANGIPANI", "BLUE GLORY",
                           "CATNIP FLOWER", "BLANKET FLOWER", "ALLIUM", "LACELEAF", "PURPLE GLORY",
@@ -216,7 +220,8 @@ class Pelt():
                  para_adult_sprite:int=None,
                  reverse:bool=False,
                  accessories:list=None,
-                 inventory:list=None
+                 inventory:list=None,
+                 permanent_inventory: list=None
                  ) -> None:
         self.name = name
         self.colour = colour
@@ -233,6 +238,7 @@ class Pelt():
         self.accessory = accessory
         self.accessories = accessories if accessories is not None else []
         self.inventory = inventory
+        self.permanent_inventory = permanent_inventory
         self.paralyzed = paralyzed
         self.opacity = opacity
         self.scars = scars if isinstance(scars, list) else []
@@ -272,6 +278,8 @@ class Pelt():
             self.inventory = []
         else:
             self.inventory = inventory
+        
+        self.permanent_inventory = []
 
     @staticmethod
     def generate_new_pelt(gender:str, parents:tuple=(), age:str="adult", dead_for=0):

@@ -163,6 +163,8 @@ class Sprites():
 
             "nonpridebandanas",
 
+            "customflags",
+
             # more lifegen 
 
             "moipa"
@@ -580,6 +582,18 @@ class Sprites():
         for a, i in enumerate([
             "PLACEHOLDER"]):
             self.make_group('nonpridebandanas', (a, 0), f'acc_bandanas{i}')
+
+        for a, i in enumerate([
+            "CUSTOMFLAG0", "CUSTOMFLAG1", "CUSTOMFLAG2", "CUSTOMFLAG3", "CUSTOMFLAG4", "CUSTOMFLAG5"]):
+            self.make_group('customflags', (a, 0), f'acc_customflags{i}')
+        
+        for a, i in enumerate([
+            "CUSTOMFLAG6", "CUSTOMFLAG7", "CUSTOMFLAG8", "CUSTOMFLAG9", "CUSTOMFLAG10"]):
+            self.make_group('customflags', (a, 1), f'acc_customflags{i}')
+
+        for a, i in enumerate([
+            "CUSTOMFLAG11", "CUSTOMFLAG12", "CUSTOMFLAG13", "CUSTOMFLAG14"]):
+            self.make_group('customflags', (a, 2), f'acc_customflags{i}')
         
     # --------------------------------
         for a, i in enumerate([

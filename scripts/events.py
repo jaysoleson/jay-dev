@@ -4315,89 +4315,113 @@ class Events:
             # ^^ don't remove wrong flags if all accessories is on!
 
             # SEXUALITIES
-            if cat.sexuality != 'straight' and self.straight in cat.pelt.inventory:
+            if cat.sexuality != 'straight' and self.straight in cat.pelt.inventory and self.straight not in cat.pelt.permanent_inventory:
                 if self.straight in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.straight)
                 cat.pelt.inventory.remove(self.straight)
-            if cat.sexuality != 'bi' and self.bi in cat.pelt.inventory:
+            if cat.sexuality != 'bi' and self.bi in cat.pelt.inventory and self.bi not in cat.pelt.permanent_inventory:
                 if self.bi in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.bi)
                 cat.pelt.inventory.remove(self.bi)
-            if cat.sexuality != 'pan' and self.pan in cat.pelt.inventory:
+            if cat.sexuality != 'pan' and self.pan in cat.pelt.inventory and self.pan not in cat.pelt.permanent_inventory:
                 if self.pan in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.pan)
                 cat.pelt.inventory.remove(self.pan)
-            if cat.sexuality != 'gay' and self.gay in cat.pelt.inventory:
+            if cat.sexuality != 'gay' and self.gay in cat.pelt.inventory and self.gay not in cat.pelt.permanent_inventory:
                 if self.gay in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.gay)
                 cat.pelt.inventory.remove(self.gay)
-            if cat.sexuality != 'lesbian' and self.lesbian in cat.pelt.inventory:
+            if cat.sexuality != 'lesbian' and self.lesbian in cat.pelt.inventory and self.lesbian not in cat.pelt.permanent_inventory:
                 if self.lesbian in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.lesbian)
                 cat.pelt.inventory.remove(self.lesbian)
-            if cat.sexuality != 'lesbian' and self.butch in cat.pelt.inventory:
+            if cat.sexuality != 'lesbian' and self.butch in cat.pelt.inventory and self.butch not in cat.pelt.permanent_inventory:
                 if self.butch in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.butch)
                 cat.pelt.inventory.remove(self.butch)
-            if cat.sexuality != 'aroace' and self.aroace in cat.pelt.inventory:
+            if cat.sexuality != 'aroace' and self.aroace in cat.pelt.inventory and self.aroace not in cat.pelt.permanent_inventory:
                 if self.aroace in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.aroace)
                 cat.pelt.inventory.remove(self.aroace)
-            if cat.sexuality != 'andro' and self.andro in cat.pelt.inventory:
+                if self.aroaceflux in cat.pelt.accessories:
+                    cat.pelt.accessories.remove(self.aroaceflux)
+                cat.pelt.inventory.remove(self.aroaceflux)
+            if cat.sexuality != 'andro' and self.andro in cat.pelt.inventory and self.andro not in cat.pelt.permanent_inventory:
                 if self.andro in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.andro)
                 cat.pelt.inventory.remove(self.andro)
-            if cat.sexuality != 'gyno' and self.gyno in cat.pelt.inventory:
+            if cat.sexuality != 'gyno' and self.gyno in cat.pelt.inventory and self.gyno not in cat.pelt.permanent_inventory:
                 if self.gyno in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.gyno)
                 cat.pelt.inventory.remove(self.gyno)
 
             if cat.genderalign in ['female', 'trans female', 'demigirl']:
                 if cat.sexuality in ['straight', 'aroace']:
-                    if self.sapphic in cat.pelt.inventory:
+                    if self.sapphic in cat.pelt.inventory and self.sapphic not in cat.pelt.permanent_inventory:
                         if self.sapphic in cat.pelt.accessories:
                             cat.pelt.accessories.remove(self.sapphic)
                         cat.pelt.inventory.remove(self.sapphic)
             else:
-                if self.sapphic in cat.pelt.inventory:
+                if self.sapphic in cat.pelt.inventory and self.sapphic not in cat.pelt.permanent_inventory:
                     if self.sapphic in cat.pelt.accessories:
                         cat.pelt.accessories.remove(self.sapphic)
                     cat.pelt.inventory.remove(self.sapphic)
 
             if cat.genderalign in ['male', 'trans male', 'demiboy']:
                 if cat.sexuality in ['straight', 'aroace']:
-                    if self.achillean in cat.pelt.inventory:
+                    if self.achillean in cat.pelt.inventory and self.achillean not in cat.pelt.permanent_inventory:
                         if self.achillean in cat.pelt.accessories:
                             cat.pelt.accessories.remove(self.achillean)
                         cat.pelt.inventory.remove(self.achillean)
             else:
-                if self.achillean in cat.pelt.inventory:
+                if self.achillean in cat.pelt.inventory and self.achillean not in cat.pelt.permanent_inventory:
                     if self.achillean in cat.pelt.accessories:
                         cat.pelt.accessories.remove(self.achillean)
                     cat.pelt.inventory.remove(self.achillean)
 
-            if cat.sexuality not in ['gyno', 'lesbian'] and not (cat.sexuality == 'straight' and cat.genderalign in ['male', 'trans male', 'demiboy']):
-                if self.neptunic in cat.pelt.inventory:
+            if cat.sexuality not in ['gyno', 'lesbian']:
+                if self.neptunic in cat.pelt.inventory and self.neptunic not in cat.pelt.permanent_inventory:
                     if self.neptunic in cat.pelt.accessories:
                         cat.pelt.accessories.remove(self.neptunic)
                     cat.pelt.inventory.remove(self.neptunic)
 
-            if cat.sexuality not in ['andro', 'gay'] and not (cat.sexuality == 'straight' and cat.genderalign in ['female', 'trans female', 'demigirl']):
-                if self.uranic in cat.pelt.inventory:
+            if cat.sexuality not in ['andro', 'gay']:
+                if self.uranic in cat.pelt.inventory and self.uranic not in cat.pelt.permanent_inventory:
                     if self.uranic in cat.pelt.accessories:
                         cat.pelt.accessories.remove(self.uranic)
                     cat.pelt.inventory.remove(self.uranic)
 
+            if len(cat.mate) < 2:
+                if self.polyam in cat.pelt.inventory and self.polyam not in cat.pelt.permanent_inventory:
+                    if self.polyam in cat.pelt.accessories:
+                        cat.pelt.accessories.remove(self.polyam)
+                    cat.pelt.inventory.remove(self.polyam)
+
+            if len(cat.qpp) == 0:
+                if self.queerplatonic in cat.pelt.inventory and self.queerplatonic not in cat.pelt.permanent_inventory:
+                    if self.queerplatonic in cat.pelt.accessories:
+                        cat.pelt.accessories.remove(self.queerplatonic)
+                    cat.pelt.inventory.remove(self.queerplatonic)
+
             # all pride accs exclusive flags-- only removes if theyre not currently wearing it
             # so the setting can be removed but cats can keep their special flags if they want
 
-            if self.nebularomantic in cat.pelt.inventory and self.nebularomantic not in cat.pelt.accessories:
+            if self.nebularomantic in cat.pelt.inventory and self.nebularomantic not in cat.pelt.permanent_inventory:
                 cat.pelt.inventory.remove(self.nebularomantic)
 
-            if self.omnisapphic in cat.pelt.inventory and self.omnisapphic not in cat.pelt.accessories:
+            if self.omnisapphic in cat.pelt.inventory and self.omnisapphic not in cat.pelt.permanent_inventory:
                 cat.pelt.inventory.remove(self.omnisapphic)
 
-            if cat.sexuality not in ['gay', 'lesbian', 'bi', 'pan'] and self.rainbow in cat.pelt.inventory:
+            if self.lithromantic in cat.pelt.inventory and self.lithromantic not in cat.pelt.permanent_inventory:
+                cat.pelt.inventory.remove(self.lithromantic)
+
+            if self.cupioromantic in cat.pelt.inventory and self.cupioromantic not in cat.pelt.permanent_inventory:
+                cat.pelt.inventory.remove(self.cupioromantic)
+            
+            if self.intersex in cat.pelt.inventory and self.intersex not in cat.pelt.permanent_inventory:
+                cat.pelt.inventory.remove(self.intersex)
+
+            if cat.sexuality not in ['gay', 'lesbian', 'bi', 'pan'] and self.rainbow in cat.pelt.inventory and self.rainbow not in cat.pelt.permanent_inventory:
                 if self.rainbow in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.rainbow)
                 cat.pelt.inventory.remove(self.rainbow)
@@ -4406,35 +4430,35 @@ class Events:
 
             # ACESPEC
                 
-            if cat.acespec != 'asexual' and self.ace in cat.pelt.inventory:
+            if cat.acespec != 'asexual' and self.ace in cat.pelt.inventory and self.ace not in cat.pelt.permanent_inventory:
                 if self.ace in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.ace)
                 cat.pelt.inventory.remove(self.ace)
-            if cat.acespec != 'demisexual' and self.demisexual in cat.pelt.inventory:
+            if cat.acespec != 'demisexual' and self.demisexual in cat.pelt.inventory and self.demisexual not in cat.pelt.permanent_inventory:
                 if self.demisexual in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.ace)
                 cat.pelt.inventory.remove(self.demisexual)
-            if cat.acespec != 'grey asexual' and self.greyace in cat.pelt.inventory:
+            if cat.acespec != 'grey asexual' and self.greyace in cat.pelt.inventory and self.greyace not in cat.pelt.permanent_inventory:
                 if self.greyace in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.greyace)
                 cat.pelt.inventory.remove(self.greyace)
             
        
-            if cat.arospec != 'aromantic' and self.aro in cat.pelt.inventory:
+            if cat.arospec != 'aromantic' and self.aro in cat.pelt.inventory and self.aro not in cat.pelt.permanent_inventory:
                 if self.aro in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.aro)
                 cat.pelt.inventory.remove(self.aro)
-            if cat.arospec != 'demiromantic'and self.demiromantic in cat.pelt.inventory:
+            if cat.arospec != 'demiromantic'and self.demiromantic in cat.pelt.inventory and self.demiromantic not in cat.pelt.permanent_inventory:
                 if self.demiromantic in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.demiromantic)
                 cat.pelt.inventory.remove(self.demiromantic)
-            if cat.arospec != 'grey aromantic' and self.greyaro in cat.pelt.inventory:
+            if cat.arospec != 'grey aromantic' and self.greyaro in cat.pelt.inventory and self.greyaro not in cat.pelt.permanent_inventory:
                 if self.greyaro in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.greyaro)
                 cat.pelt.inventory.remove(self.greyaro)
 
             demiaroace = cat.arospec == 'demiromantic' and cat.acespec == 'demisexual'
-            if not demiaroace and self.demiaroace in cat.pelt.inventory:
+            if not demiaroace and self.demiaroace in cat.pelt.inventory and self.demiaroace not in cat.pelt.permanent_inventory:
                 if self.demiaroace in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.demiaroace)
                 cat.pelt.inventory.remove(self.demiaroace)
@@ -4442,43 +4466,47 @@ class Events:
 
             if cat.sexuality == 'questioning':
                 # there has to be a better way to do this omg sorry
-                if self.straight in cat.pelt.inventory:
+                if self.straight in cat.pelt.inventory and self.straight not in cat.pelt.permanent_inventory:
                     if self.straight in cat.pelt.accessories:
                         cat.pelt.accessories.remove(self.straight)
                     cat.pelt.inventory.remove(self.straight)
-                if self.rainbow in cat.pelt.inventory:
+                if self.rainbow in cat.pelt.inventory and self.rainbow not in cat.pelt.permanent_inventory:
                     if self.rainbow in cat.pelt.accessories:
                         cat.pelt.accessories.remove(self.rainbow)
                     cat.pelt.inventory.remove(self.rainbow)
-                if self.gay in cat.pelt.inventory:
+                if self.gay in cat.pelt.inventory and self.gay not in cat.pelt.permanent_inventory:
                     if self.gay in cat.pelt.accessories:
                         cat.pelt.accessories.remove(self.gay)
                     cat.pelt.inventory.remove(self.gay)
-                if self.lesbian in cat.pelt.inventory:
+                if self.lesbian in cat.pelt.inventory and self.lesbian not in cat.pelt.permanent_inventory:
                     if self.lesbian in cat.pelt.accessories:
                         cat.pelt.accessories.remove(self.lesbian)
                     cat.pelt.inventory.remove(self.lesbian)
-                if self.butch in cat.pelt.inventory:
+                if self.butch in cat.pelt.inventory and self.butch not in cat.pelt.permanent_inventory:
                     if self.butch in cat.pelt.accessories:
                         cat.pelt.accessories.remove(self.butch)
                     cat.pelt.inventory.remove(self.lesbian)
-                if self.bi in cat.pelt.inventory:
+                if self.bi in cat.pelt.inventory and self.bi not in cat.pelt.permanent_inventory:
                     if self.bi in cat.pelt.accessories:
                         cat.pelt.accessories.remove(self.bi)
                     cat.pelt.inventory.remove(self.bi)
-                if self.aroace in cat.pelt.inventory:
+                if self.aroace in cat.pelt.inventory and self.aroace not in cat.pelt.permanent_inventory:
                     if self.aroace in cat.pelt.accessories:
                         cat.pelt.accessories.remove(self.aroace)
                     cat.pelt.inventory.remove(self.aroace)
-                if self.pan in cat.pelt.inventory:
+                if self.aroaceflux in cat.pelt.inventory and self.aroaceflux not in cat.pelt.permanent_inventory:
+                    if self.aroace in cat.pelt.accessories:
+                        cat.pelt.accessories.remove(self.aroaceflux)
+                    cat.pelt.inventory.remove(self.aroaceflux)
+                if self.pan in cat.pelt.inventory and self.pan not in cat.pelt.permanent_inventory:
                     if self.pan in cat.pelt.accessories:
                         cat.pelt.accessories.remove(self.pan)
                     cat.pelt.inventory.remove(self.pan)
-                if self.gyno in cat.pelt.inventory:
+                if self.gyno in cat.pelt.inventory and self.gyno not in cat.pelt.permanent_inventory:
                     if self.gyno in cat.pelt.accessories:
                         cat.pelt.accessories.remove(self.gyno)
                     cat.pelt.inventory.remove(self.gyno)
-                if self.andro in cat.pelt.inventory:
+                if self.andro in cat.pelt.inventory and self.andro not in cat.pelt.permanent_inventory:
                     if self.andro in cat.pelt.accessories:
                         cat.pelt.accessories.remove(self.andro)
                     cat.pelt.inventory.remove(self.andro)
@@ -4486,91 +4514,99 @@ class Events:
             # now for gender:
                     
             if cat.genderalign in ['trans male', 'trans female', 'demigirl', 'demiboy', 'male', 'female']:
-                if self.enby in cat.pelt.inventory:
+                if self.enby in cat.pelt.inventory and self.enby not in cat.pelt.permanent_inventory:
                     if self.enby in cat.pelt.accessories:
                         cat.pelt.accessories.remove(self.enby)
                     cat.pelt.inventory.remove(self.enby)
-                if self.ambiguous in cat.pelt.inventory:
+                if self.ambiguous in cat.pelt.inventory and self.ambiguous not in cat.pelt.permanent_inventory:
                     if self.ambiguous in cat.pelt.accessories:
                         cat.pelt.accessories.remove(self.ambiguous)
                     cat.pelt.inventory.remove(self.ambiguous)
             
             if cat.genderalign == cat.gender:
-                if self.trans in cat.pelt.inventory:
+                if self.trans in cat.pelt.inventory and self.trans not in cat.pelt.permanent_inventory:
                     if self.trans in cat.pelt.accessories:
                         cat.pelt.accessories.remove(self.trans)
                     cat.pelt.inventory.remove(self.trans)
-                if self.enby in cat.pelt.inventory:
+                if self.enby in cat.pelt.inventory and self.enby not in cat.pelt.permanent_inventory:
                     if self.enby in cat.pelt.accessories:
                         cat.pelt.accessories.remove(self.enby)
                     cat.pelt.inventory.remove(self.enby)
-                if self.genderfluid in cat.pelt.inventory:
+                if self.genderfluid in cat.pelt.inventory and self.genderfluid not in cat.pelt.permanent_inventory:
                     if self.genderfluid in cat.pelt.accessories:
                         cat.pelt.accessories.remove(self.genderfluid)
                     cat.pelt.inventory.remove(self.genderfluid)
-                if self.bigender in cat.pelt.inventory:
+                if self.bigender in cat.pelt.inventory and self.bigender not in cat.pelt.permanent_inventory:
                     if self.bigender in cat.pelt.accessories:
                         cat.pelt.accessories.remove(self.bigender)
                     cat.pelt.inventory.remove(self.bigender)
-                if self.ambiguous in cat.pelt.inventory:
+                if self.ambiguous in cat.pelt.inventory and self.ambiguous not in cat.pelt.permanent_inventory:
                     if self.ambiguous in cat.pelt.accessories:
                         cat.pelt.accessories.remove(self.ambiguous)
                     cat.pelt.inventory.remove(self.ambiguous)
 
-            if cat.genderalign != 'genderfluid' and self.genderfluid in cat.pelt.inventory:
+            if cat.genderalign != 'genderfluid' and self.genderfluid in cat.pelt.inventory and self.genderfluid not in cat.pelt.permanent_inventory:
                 if self.genderfluid in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.genderfluid)
                 cat.pelt.inventory.remove(self.genderfluid)
 
-            if cat.genderalign != 'bigender' and self.bigender in cat.pelt.inventory:
+            if cat.genderalign != 'bigender' and self.bigender in cat.pelt.inventory and self.bigender not in cat.pelt.permanent_inventory:
                 if self.bigender in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.bigender)
                 cat.pelt.inventory.remove(self.bigender)
             
-            if cat.genderalign != 'agender' and self.agender in cat.pelt.inventory:
+            if cat.genderalign != 'agender' and self.agender in cat.pelt.inventory and self.agender not in cat.pelt.permanent_inventory:
                 if self.agender in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.agender)
                 cat.pelt.inventory.remove(self.agender)
             
-            if cat.genderalign != 'demiboy' and self.demiboy in cat.pelt.inventory:
+            if cat.genderalign != 'demiboy' and self.demiboy in cat.pelt.inventory and self.demiboy not in cat.pelt.permanent_inventory:
                 if self.demiboy in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.demiboy)
                 cat.pelt.inventory.remove(self.demiboy)
 
-            if cat.genderalign != 'demigirl' and self.demigirl in cat.pelt.inventory:
+            if cat.genderalign != 'demigirl' and self.demigirl in cat.pelt.inventory and self.demigirl not in cat.pelt.permanent_inventory:
                 if self.demigirl in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.demigirl)
                 cat.pelt.inventory.remove(self.demigirl)
 
-            if cat.genderalign not in ['trans male', 'trans female'] and self.trans in cat.pelt.inventory:
+            if cat.genderalign not in ['trans male', 'trans female'] and self.trans in cat.pelt.inventory and self.trans not in cat.pelt.permanent_inventory:
                 if self.trans in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.trans)
                 cat.pelt.inventory.remove(self.trans)
 
 
             # removing xenogender flags if theyre not a xenogender
-            if cat.genderalign not in ['mothgender', 'snowleopardgender', 'tigergender', 'buggender', 'genderdoe', 'catgender', 'xenogender']:
-                if self.mothgender in cat.pelt.inventory:
+            if cat.genderalign not in ['mothgender', 'snowleopardgender', 'tigergender', 'buggender', 'genderdoe', 'catgender', 'xenogender', 'genderfaun']:
+                if self.mothgender in cat.pelt.inventory and self.mothgender not in cat.pelt.permanent_inventory:
                     if self.mothgender in cat.pelt.accessories:
                         cat.pelt.accessories.remove(self.mothgender)
                     cat.pelt.inventory.remove(self.mothgender)
-                if self.tigergender in cat.pelt.inventory:
+                if self.tigergender in cat.pelt.inventory and self.tigergender not in cat.pelt.permanent_inventory:
                     if self.tigergender in cat.pelt.accessories:
                         cat.pelt.accessories.remove(self.tigergender)
                     cat.pelt.inventory.remove(self.tigergender)
-                if self.buggender in cat.pelt.inventory:
+                if self.snowleopardgender in cat.pelt.inventory and self.snowleopardgender not in cat.pelt.permanent_inventory:
+                    if self.snowleopardgender in cat.pelt.accessories:
+                        cat.pelt.accessories.remove(self.snowleopardgender)
+                    cat.pelt.inventory.remove(self.snowleopardgender)
+                if self.buggender in cat.pelt.inventory and self.buggender not in cat.pelt.permanent_inventory:
                     if self.buggender in cat.pelt.accessories:
                         cat.pelt.accessories.remove(self.buggender)
                     cat.pelt.inventory.remove(self.buggender)
-                if self.genderdoe in cat.pelt.inventory:
+                if self.genderdoe in cat.pelt.inventory and self.genderdoe not in cat.pelt.permanent_inventory:
                     if self.genderdoe in cat.pelt.accessories:
                         cat.pelt.accessories.remove(self.genderdoe)
                     cat.pelt.inventory.remove(self.genderdoe)
-                if self.catgender in cat.pelt.inventory:
+                if self.genderfaun in cat.pelt.inventory and self.genderfaun not in cat.pelt.permanent_inventory:
+                    if self.genderfaun in cat.pelt.accessories:
+                        cat.pelt.accessories.remove(self.genderfaun)
+                    cat.pelt.inventory.remove(self.genderfaun)
+                if self.catgender in cat.pelt.inventory and self.catgender not in cat.pelt.permanent_inventory:
                     if self.catgender in cat.pelt.accessories:
                         cat.pelt.accessories.remove(self.catgender)
                     cat.pelt.inventory.remove(self.catgender)
-                if self.xenogender in cat.pelt.inventory:
+                if self.xenogender in cat.pelt.inventory and self.xenogender not in cat.pelt.permanent_inventory:
                     if self.xenogender in cat.pelt.accessories:
                         cat.pelt.accessories.remove(self.xenogender)
                     cat.pelt.inventory.remove(self.xenogender)
@@ -4584,6 +4620,7 @@ class Events:
                     if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in self.all_bandanas for bandana in bandanas):
                         cat.pelt.accessories.append(self.polyam)
                     cat.pelt.inventory.append(self.polyam)
+
 
             # then qpps
 
@@ -4671,11 +4708,11 @@ class Events:
                             cat.pelt.accessories.append(self.aroace)
 
 
-                if cat.sexuality in ['gyno', 'lesbian'] or (cat.sexuality == 'straight' and cat.genderalign in ['male', 'trans male', 'demiboy']):
+                if cat.sexuality in ['gyno', 'lesbian']:
                     if self.neptunic not in cat.pelt.inventory:
                         cat.pelt.inventory.append(self.neptunic)
 
-                elif cat.sexuality in ['andro', 'gay'] or (cat.sexuality == 'straight' and cat.genderalign in ['female', 'trans female', 'demigirl']):
+                elif cat.sexuality in ['andro', 'gay']:
                     if self.uranic not in cat.pelt.inventory:
                         cat.pelt.inventory.append(self.uranic)
 

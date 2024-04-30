@@ -234,6 +234,7 @@ class Cat():
         self.joined_df = False
         self.revealed = 0
         self.inventory = []
+        self.permanent_inventory = []
         self.revives = 0
         self.no_kits = False
         self.no_mates = False
@@ -3659,6 +3660,7 @@ class Cat():
                 "joined_df": self.joined_df if self.joined_df else False,
                 "revealed": self.revealed if self.revealed and isinstance(self.revealed, int) else 0,
                 "inventory": self.pelt.inventory if self.pelt.inventory else [],
+                "permanent_inventory": self.permanent_inventory if self.permanent_inventory else [],
                 "revives": self.revives if self.revives else 0,
                 "backstory_str": self.backstory_str if self.backstory_str else "",
                 "courage": self.courage if self.courage else 0,

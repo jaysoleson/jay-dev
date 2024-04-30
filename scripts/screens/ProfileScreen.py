@@ -163,6 +163,8 @@ class ProfileScreen(Screens):
         self.page = 0
         self.max_pages = 1
         self.clear_accessories = None
+        self.add_perma_inventory = None
+        self.remove_perma_inventory = None
         self.search_bar_image = None
         self.search_bar = None
         self.previous_page_button = None
@@ -308,6 +310,17 @@ class ProfileScreen(Screens):
                     self.previous_page_button.enable()
                     self.next_page_button.enable()
                 self.update_disabled_buttons_and_text()
+            elif event.ui_element == self.add_perma_inventory:
+                for flag in self.the_cat.pelt.accessories:
+                    self.the_cat.pelt.permanent_inventory.append(flag)
+
+            elif event.ui_element == self.remove_perma_inventory:
+                for flag in self.the_cat.pelt.permanent_inventory:
+                    if flag in self.the_cat.pelt.accessories:
+                        self.the_cat.pelt.accessories.remove(flag)
+                    self.the_cat.pelt.inventory.remove(flag)
+                    self.the_cat.pelt.permanent_inventory.remove(flag)
+
             elif event.ui_element == self.clear_accessories:
                 self.the_cat.pelt.accessories.clear()
                 b_data = event.ui_element.blit_data[1]
@@ -318,6 +331,7 @@ class ProfileScreen(Screens):
                 cat = self.the_cat
                 age = cat.age
                 cat_sprite = str(cat.pelt.cat_sprites[cat.age])
+            
 
 
                 # setting the cat_sprite (bc this makes things much easier)
@@ -2592,6 +2606,12 @@ class ProfileScreen(Screens):
                                                   object_id="#arrow_right_button", manager=MANAGER)
             self.clear_accessories = UIImageButton(scale(pygame.Rect((1418, 1160), (68, 68))), "",
                                                   object_id="#exit_window_button", tool_tip_text="Remove all worn accessories", manager=MANAGER)
+            
+            self.add_perma_inventory = UIImageButton(scale(pygame.Rect((110, 1160), (68, 68))), "",
+                                                  object_id="#exit_window_button", tool_tip_text="Add worn accessories to permanent flag inventory", manager=MANAGER)
+            
+            self.remove_perma_inventory = UIImageButton(scale(pygame.Rect((110, 1085), (68, 68))), "",
+                                                  object_id="#exit_window_button", tool_tip_text="Remove worn accessories from permanent flag inventory", manager=MANAGER)
 
             self.search_bar_image = pygame_gui.elements.UIImage(scale(pygame.Rect((239, 910), (236, 68))),
                                                             pygame.image.load(
@@ -3366,6 +3386,8 @@ class ProfileScreen(Screens):
             self.next_page_button.kill()
             self.previous_page_button.kill()
             self.clear_accessories.kill()
+            self.add_perma_inventory.kill()
+            self.remove_perma_inventory.kill()
             self.search_bar_image.kill()
             self.search_bar.kill()
         elif self.open_tab == 'your tab':
