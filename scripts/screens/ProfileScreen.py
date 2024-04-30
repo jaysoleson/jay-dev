@@ -312,16 +312,25 @@ class ProfileScreen(Screens):
                 self.update_disabled_buttons_and_text()
             elif event.ui_element == self.add_perma_inventory:
                 for flag in self.the_cat.pelt.accessories:
-                    self.the_cat.pelt.permanent_inventory.append(flag)
+                    if flag in Pelt.nonpridebandanas or\
+                    flag in Pelt.pridebandanas or\
+                    flag in Pelt.pridebandanas2 or\
+                    flag in Pelt.pridebandanas3:
+                        self.the_cat.pelt.permanent_inventory.append(flag)
+                    else:
+                        print('accessory not a pride flag-- not added to permainventory')
 
             elif event.ui_element == self.remove_perma_inventory:
                 for flag in self.the_cat.pelt.permanent_inventory:
-                    if flag in self.the_cat.pelt.inventory:
-                        if flag in self.the_cat.pelt.accessories:
+                    if flag in self.the_cat.pelt.accessories:
+                        if flag in Pelt.nonpridebandanas or\
+                        flag in Pelt.pridebandanas or\
+                        flag in Pelt.pridebandanas2 or\
+                        flag in Pelt.pridebandanas3:
                             self.the_cat.pelt.accessories.remove(flag)
-                        if not (game.clan.clan_settings['all accessories'] or game.clan.clan_settings['all pride accessories']):
-                            self.the_cat.pelt.inventory.remove(flag)
-                    self.the_cat.pelt.permanent_inventory.remove(flag)
+                            self.the_cat.pelt.permanent_inventory.remove(flag)
+                        else:
+                            print('accessory not a pride flag-- not removed from permainventory')
 
             elif event.ui_element == self.clear_accessories:
                 self.the_cat.pelt.accessories.clear()
@@ -364,12 +373,24 @@ class ProfileScreen(Screens):
                 if b_data in b_2data:
                     value = b_2data.index(b_data)
                     n = value
-                    if self.accessories_list[n] == self.the_cat.pelt.accessory:
-                        self.the_cat.pelt.accessory = None
-                    if self.accessories_list[n] in self.the_cat.pelt.accessories:
-                        self.the_cat.pelt.accessories.remove(self.accessories_list[n])
+                    
+                    if self.accessories_list[n] in (Pelt.nonpridebandanas or Pelt.pridebandanas or Pelt.pridebandanas2 or Pelt.pridebandanas3):
+                        # only one flag should be equipped at a time for permainventory qol
+                        
+                        if self.accessories_list[n] in self.the_cat.pelt.accessories:
+                            self.the_cat.pelt.accessories.remove(self.accessories_list[n])
+                        else:
+                            for bandana in self.the_cat.inventory:
+                                if bandana != self.accessories_list[n] and bandana in self.the_cat.pelt.accessories and bandana in (Pelt.nonpridebandanas or Pelt.pridebandanas or Pelt.pridebandanas2 or Pelt.pridebandanas3):
+                                    self.the_cat.pelt.accessories.remove(bandana)
                     else:
-                        self.the_cat.pelt.accessories.append(self.accessories_list[n])
+
+                        if self.accessories_list[n] == self.the_cat.pelt.accessory:
+                            self.the_cat.pelt.accessory = None
+                        if self.accessories_list[n] in self.the_cat.pelt.accessories:
+                            self.the_cat.pelt.accessories.remove(self.accessories_list[n])
+                        else:
+                            self.the_cat.pelt.accessories.append(self.accessories_list[n])
                     for acc in self.accessory_buttons:
                         self.accessory_buttons[acc].kill()
                     for acc in self.cat_list_buttons:
@@ -817,6 +838,9 @@ class ProfileScreen(Screens):
             cat = self.the_cat
             age = cat.age
             cat_sprite = str(cat.pelt.cat_sprites[cat.age])
+            
+            self.add_perma_inventory.disable()
+            self.remove_perma_inventory.disable()
 
             # setting the cat_sprite (bc this makes things much easier)
             if cat.not_working() and age != 'newborn' and game.config['cat_sprites']['sick_sprites']:
@@ -846,22 +870,40 @@ class ProfileScreen(Screens):
             if b_data in b_2data:
                 value = b_2data.index(b_data)
                 n = value
-                self.add_perma_inventory.disable()
-                self.remove_perma_inventory.disable()
-                if self.accessories_list[n] == self.the_cat.pelt.accessory:
-                    self.the_cat.pelt.accessory = None
-                if self.accessories_list[n] in self.the_cat.pelt.accessories:
-                    self.the_cat.pelt.accessories.remove(self.accessories_list[n])
-                else:
-                    self.the_cat.pelt.accessories.append(self.accessories_list[n])
 
-                if self.accessories_list[n] in self.the_cat.pelt.permanent_inventory:
-                    self.remove_perma_inventory.enable()
-                else:
-                    if self.accessories_list[n] not in self.the_cat.pelt.permanent_inventory:
+                prideflag = self.accessories_list[n] in Pelt.nonpridebandanas or\
+                            self.accessories_list[n] in Pelt.pridebandanas or\
+                            self.accessories_list[n] in Pelt.pridebandanas2 or\
+                            self.accessories_list[n] in Pelt.pridebandanas3
+
+                if prideflag:
+                    # only one flag should be equipped at a time for permainventory qol
+                        
+                    if self.accessories_list[n] in self.the_cat.pelt.accessories:
+                        self.the_cat.pelt.accessories.remove(self.accessories_list[n])
+                        self.add_perma_inventory.disable()
+                        self.remove_perma_inventory.disable()
+                    else:
+                        self.the_cat.pelt.accessories.append(self.accessories_list[n])
+                        if self.accessories_list[n] in self.the_cat.pelt.permanent_inventory:
+                            self.remove_perma_inventory.enable()
+                        else:
                             self.add_perma_inventory.enable()
-
-
+                        for bandana in self.the_cat.pelt.accessories:
+                            if bandana != self.accessories_list[n]:
+                                if bandana in Pelt.nonpridebandanas or\
+                                    bandana in Pelt.pridebandanas or\
+                                    bandana in Pelt.pridebandanas2 or\
+                                    bandana in Pelt.pridebandanas3:
+                                        self.the_cat.pelt.accessories.remove(bandana)
+                                        
+                else:
+                    if self.accessories_list[n] == self.the_cat.pelt.accessory:
+                        self.the_cat.pelt.accessory = None
+                    if self.accessories_list[n] in self.the_cat.pelt.accessories:
+                        self.the_cat.pelt.accessories.remove(self.accessories_list[n])
+                    else:
+                        self.the_cat.pelt.accessories.append(self.accessories_list[n])
 
                 for acc in self.accessory_buttons:
                     self.accessory_buttons[acc].kill()
@@ -3229,6 +3271,7 @@ class ProfileScreen(Screens):
             for i in self.accessory_buttons:
                 self.accessory_buttons[i].kill()
             self.open_accessories()
+
         # History Tab:
         elif self.open_tab == 'history':
             # show/hide fav tab star

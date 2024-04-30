@@ -4343,6 +4343,7 @@ class Events:
                 if self.aroace in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.aroace)
                 cat.pelt.inventory.remove(self.aroace)
+            if cat.sexuality != 'aroace' and self.aroaceflux in cat.pelt.inventory and self.aroaceflux not in cat.pelt.permanent_inventory:
                 if self.aroaceflux in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.aroaceflux)
                 cat.pelt.inventory.remove(self.aroaceflux)

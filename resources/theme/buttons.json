@@ -6281,5 +6281,52 @@
                 "path":"resources/images/buttons/qpp_screen_unavailable.png"
             }
         }
+    },
+    "#remove_permainventory_button":
+    {
+        "prototype": "#image_button",
+        "images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/exit_window_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/exit_window_button_hover.png"
+            },
+            "selected_image":
+            {
+                "path": "resources/images/buttons/exit_button_active.png"
+            },
+            "disabled_image":
+            {
+                "path": "resources/images/buttons/exit_button_unavailable.png"
+            }
+        }
+    },
+    "#add_permainventory_button":
+    {
+        "prototype": "#image_button",
+        "images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/add_permainventory.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/add_permainventory_hover.png"
+            },
+            "selected_image":
+            {
+                "path": "resources/images/buttons/add_permainventory_active.png"
+            },
+            "disabled_image":
+            {
+                "path": "resources/images/buttons/add_permainventory_unavailable.png"
+            }
+            
+        }
     }
 }
