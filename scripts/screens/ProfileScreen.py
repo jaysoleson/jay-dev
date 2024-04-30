@@ -316,9 +316,11 @@ class ProfileScreen(Screens):
 
             elif event.ui_element == self.remove_perma_inventory:
                 for flag in self.the_cat.pelt.permanent_inventory:
-                    if flag in self.the_cat.pelt.accessories:
-                        self.the_cat.pelt.accessories.remove(flag)
-                    self.the_cat.pelt.inventory.remove(flag)
+                    if flag in self.the_cat.pelt.inventory:
+                        if flag in self.the_cat.pelt.accessories:
+                            self.the_cat.pelt.accessories.remove(flag)
+                        if not (game.clan.clan_settings['all accessories'] or game.clan.clan_settings['all pride accessories']):
+                            self.the_cat.pelt.inventory.remove(flag)
                     self.the_cat.pelt.permanent_inventory.remove(flag)
 
             elif event.ui_element == self.clear_accessories:
@@ -816,7 +818,6 @@ class ProfileScreen(Screens):
             age = cat.age
             cat_sprite = str(cat.pelt.cat_sprites[cat.age])
 
-
             # setting the cat_sprite (bc this makes things much easier)
             if cat.not_working() and age != 'newborn' and game.config['cat_sprites']['sick_sprites']:
                 if age in ['kitten', 'adolescent']:
@@ -845,12 +846,23 @@ class ProfileScreen(Screens):
             if b_data in b_2data:
                 value = b_2data.index(b_data)
                 n = value
+                self.add_perma_inventory.disable()
+                self.remove_perma_inventory.disable()
                 if self.accessories_list[n] == self.the_cat.pelt.accessory:
                     self.the_cat.pelt.accessory = None
                 if self.accessories_list[n] in self.the_cat.pelt.accessories:
                     self.the_cat.pelt.accessories.remove(self.accessories_list[n])
                 else:
                     self.the_cat.pelt.accessories.append(self.accessories_list[n])
+
+                if self.accessories_list[n] in self.the_cat.pelt.permanent_inventory:
+                    self.remove_perma_inventory.enable()
+                else:
+                    if self.accessories_list[n] not in self.the_cat.pelt.permanent_inventory:
+                            self.add_perma_inventory.enable()
+
+
+
                 for acc in self.accessory_buttons:
                     self.accessory_buttons[acc].kill()
                 for acc in self.cat_list_buttons:
@@ -2608,10 +2620,10 @@ class ProfileScreen(Screens):
                                                   object_id="#exit_window_button", tool_tip_text="Remove all worn accessories", manager=MANAGER)
             
             self.add_perma_inventory = UIImageButton(scale(pygame.Rect((110, 1160), (68, 68))), "",
-                                                  object_id="#exit_window_button", tool_tip_text="Add worn accessories to permanent flag inventory", manager=MANAGER)
+                                                  object_id="#add_permainventory_button", tool_tip_text="Add worn accessories to permanent flag inventory", manager=MANAGER)
             
             self.remove_perma_inventory = UIImageButton(scale(pygame.Rect((110, 1085), (68, 68))), "",
-                                                  object_id="#exit_window_button", tool_tip_text="Remove worn accessories from permanent flag inventory", manager=MANAGER)
+                                                  object_id="#remove_permainventory_button", tool_tip_text="Remove worn accessories from permanent flag inventory", manager=MANAGER)
 
             self.search_bar_image = pygame_gui.elements.UIImage(scale(pygame.Rect((239, 910), (236, 68))),
                                                             pygame.image.load(
@@ -2623,6 +2635,7 @@ class ProfileScreen(Screens):
                                                               manager=MANAGER)
             self.open_accessories()
             self.update_disabled_buttons_and_text()
+
 
     # def update_accessories(self):
 
