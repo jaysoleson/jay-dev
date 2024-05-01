@@ -162,6 +162,7 @@ class ProfileScreen(Screens):
         self.exile_return_button = None
         self.page = 0
         self.max_pages = 1
+        self.all_pride_accs = None
         self.clear_accessories = None
         self.add_perma_inventory = None
         self.remove_perma_inventory = None
@@ -331,6 +332,27 @@ class ProfileScreen(Screens):
                             self.the_cat.pelt.permanent_inventory.remove(flag)
                         else:
                             print('accessory not a pride flag-- not removed from permainventory')
+
+            elif event.ui_element == self.all_pride_accs:
+                if game.clan.clan_settings['all pride accessories']:
+                    game.clan.clan_settings['all pride accessories'] = False
+                    for flag in self.the_cat.pelt.inventory:
+                        if flag in Pelt.nonpridebandanas or\
+                        flag in Pelt.pridebandanas or\
+                        flag in Pelt.pridebandanas2 or\
+                        flag in Pelt.pridebandanas3:
+                            if flag in self.the_cat.pelt.accessories:
+                                self.the_cat.pelt.accessories.remove(flag)
+                            self.the_cat.pelt.inventory.remove(flag)
+
+                else:
+                    game.clan.clan_settings['all pride accessories'] = True
+
+                
+                self.clear_profile()
+                self.build_profile()
+                self.close_current_tab()
+                
 
             elif event.ui_element == self.clear_accessories:
                 self.the_cat.pelt.accessories.clear()
@@ -838,7 +860,7 @@ class ProfileScreen(Screens):
             cat = self.the_cat
             age = cat.age
             cat_sprite = str(cat.pelt.cat_sprites[cat.age])
-            
+
             self.add_perma_inventory.disable()
             self.remove_perma_inventory.disable()
 
@@ -2658,6 +2680,9 @@ class ProfileScreen(Screens):
                                               , manager=MANAGER)
             self.next_page_button = UIImageButton(scale(pygame.Rect((1418, 1000), (68, 68))), "",
                                                   object_id="#arrow_right_button", manager=MANAGER)
+            
+            self.all_pride_accs = UIImageButton(scale(pygame.Rect((1418, 1085), (68, 68))), "",
+                                                  object_id="#add_permainventory_button", tool_tip_text="Toggle all pride accessories", manager=MANAGER)
             self.clear_accessories = UIImageButton(scale(pygame.Rect((1418, 1160), (68, 68))), "",
                                                   object_id="#exit_window_button", tool_tip_text="Remove all worn accessories", manager=MANAGER)
             
@@ -3441,6 +3466,7 @@ class ProfileScreen(Screens):
                 self.accessory_buttons[i].kill()
             self.next_page_button.kill()
             self.previous_page_button.kill()
+            self.all_pride_accs.kill()
             self.clear_accessories.kill()
             self.add_perma_inventory.kill()
             self.remove_perma_inventory.kill()
