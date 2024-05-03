@@ -178,11 +178,10 @@ class ProfileScreen(Screens):
         self.search_inventory = []
 
     def gettheflags(self, cat):
-        """ erm """
+        """ Events instance so i can get flags """
         from scripts.events import Events
         events_instance = Events()
         events_instance.get_flags(cat)
-        # this kind of sucks LMAO but it works
 
     def handle_event(self, event):
 
@@ -355,7 +354,7 @@ class ProfileScreen(Screens):
                 self.change_screen(game.last_screen_forProfile)
                 self.change_screen('profile screen')
                 self.toggle_accessories_tab()
-                
+
                 # this bullshit is gonna stay unless i figure out a real way to refresh the inventory
 
             elif event.ui_element == self.clear_accessories:
@@ -634,6 +633,8 @@ class ProfileScreen(Screens):
                     self.the_cat.acespec = 'asexual'
                     self.the_cat.arospec = 'aromantic'
                 elif self.the_cat.sexuality == "aroace":
+                    self.the_cat.sexuality = "unlabelled"
+                elif self.the_cat.sexuality == "unlabelled":
                     if self.the_cat.genderalign not in ["male", "trans male", "demiboy", "female", "trans female", "demigirl"]:
                         self.the_cat.sexuality = "bi"
                     else:
@@ -3110,7 +3111,13 @@ class ProfileScreen(Screens):
                                                     tool_tip_text="Aroace cats will not feel romantic attraction.")
             
                 elif self.the_cat.sexuality == "aroace":
-                    if self.the_cat.genderalign != "nonbinary":
+
+                    self.change_sexuality_button = UIImageButton(scale(pygame.Rect((580, 940), (195, 75))), "unlabelled",
+                                                    starting_height=2, object_id="", tool_tip_text="unlabelled",
+                                                    manager=MANAGER)
+
+                elif self.the_cat.sexuality == "unlabelled":
+                    if self.the_cat.genderalign in ['male', 'trans male', 'demiboy', 'female', 'trans female', 'demigirl']:
                         self.change_sexuality_button = UIImageButton(scale(pygame.Rect((580, 940), (195, 75))), "",
                                                     starting_height=2, object_id="#change_straight_button", tool_tip_text="heterosexual",
                                                     manager=MANAGER)

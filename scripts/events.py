@@ -4495,6 +4495,10 @@ class Events:
                     if self.lesbian in cat.pelt.accessories:
                         cat.pelt.accessories.remove(self.lesbian)
                     cat.pelt.inventory.remove(self.lesbian)
+                if self.sapphic in cat.pelt.inventory and self.sapphic not in cat.pelt.permanent_inventory:
+                    if self.sapphic in cat.pelt.accessories:
+                        cat.pelt.accessories.remove(self.sapphic)
+                    cat.pelt.inventory.remove(self.sapphic)
                 if self.butch in cat.pelt.inventory and self.butch not in cat.pelt.permanent_inventory:
                     if self.butch in cat.pelt.accessories:
                         cat.pelt.accessories.remove(self.butch)
@@ -4523,6 +4527,10 @@ class Events:
                     if self.andro in cat.pelt.accessories:
                         cat.pelt.accessories.remove(self.andro)
                     cat.pelt.inventory.remove(self.andro)
+                if self.achillean in cat.pelt.inventory and self.achillean not in cat.pelt.permanent_inventory:
+                    if self.achillean in cat.pelt.accessories:
+                        cat.pelt.accessories.remove(self.achillean)
+                    cat.pelt.inventory.remove(self.achillean)
                 
             # now for gender:
                     
