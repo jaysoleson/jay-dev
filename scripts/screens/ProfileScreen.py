@@ -7,7 +7,7 @@ import pygame
 
 from ..cat.history import History
 from ..housekeeping.datadir import get_save_dir
-from ..game_structure.windows import ChangeCatName, SpecifyCatGender, KillCat, ChangeCatToggles
+from ..game_structure.windows import ChangeCatName, SpecifyCatGender, KillCat, ChangeCatToggles, SpecifyCatSexuality
 from scripts.events_module.relationship.pregnancy_events import Pregnancy_Events
 
 import ujson
@@ -611,6 +611,8 @@ class ProfileScreen(Screens):
                 elif self.the_cat.genderalign in ["male", "trans male"]:
                     self.the_cat.pronouns = [self.the_cat.default_pronouns[2].copy()]
                 else: self.the_cat.pronouns = [self.the_cat.default_pronouns[0].copy()]'''
+            elif event.ui_element == self.specify_sexuality_button:
+                SpecifyCatSexuality(self.the_cat)
             #when button is pressed...
             elif event.ui_element == self.change_sexuality_button:
                 if self.the_cat.sexuality == "straight":
@@ -634,13 +636,16 @@ class ProfileScreen(Screens):
                     self.the_cat.arospec = 'aromantic'
                 elif self.the_cat.sexuality == "aroace":
                     self.the_cat.sexuality = "unlabelled"
+                    self.the_cat.arospec = 'alloromantic'
+                    self.the_cat.acespec = 'allosexual'
                 elif self.the_cat.sexuality == "unlabelled":
                     if self.the_cat.genderalign not in ["male", "trans male", "demiboy", "female", "trans female", "demigirl"]:
                         self.the_cat.sexuality = "bi"
                     else:
                         self.the_cat.sexuality = "straight"
-                    self.the_cat.arospec = 'alloromantic'
-                    self.the_cat.acespec = 'allosexual'
+
+                if self.the_cat.sexualitylabel != self.the_cat.sexuality and self.the_cat.sexualitylabel is not None:
+                    self.the_cat.sexualitylabel = self.the_cat.sexuality
                 self.clear_profile()
                 self.build_profile()
                 self.update_disabled_buttons_and_text()
@@ -1560,7 +1565,10 @@ class ProfileScreen(Screens):
         if the_cat.moons < 6:
             output += "???"
         else:
-            output += the_cat.sexuality
+            if the_cat.sexualitylabel != the_cat.sexuality and the_cat.sexualitylabel is not None:
+                output += the_cat.sexualitylabel
+            else:
+                output += the_cat.sexuality
         
         # NEWLINE ----------
         if the_cat.moons >= 6:
@@ -2934,6 +2942,9 @@ class ProfileScreen(Screens):
             self.cat_toggles_button = UIImageButton(scale(pygame.Rect((804, 1148), (344, 72))), "",
                                              starting_height=2, object_id="#cat_toggles_button",
                                              manager=MANAGER)
+            self.specify_sexuality_button = UIImageButton(scale(pygame.Rect((1152, 1086), (352, 62))), "specify sexuality",
+                                                       starting_height=2,
+                                                       object_id="", manager=MANAGER)
             # These are a placeholders, to be killed and recreated in self.update_disabled_buttons().
             #   This it due to the image switch depending on the cat's status, and the location switch the close button
             #    If you can think of a better way to do this, please fix! 
@@ -3461,6 +3472,8 @@ class ProfileScreen(Screens):
             self.cat_toggles_button.kill()
             if self.specify_gender_button:
                 self.specify_gender_button.kill()
+            if self.specify_sexuality_button:
+                self.specify_sexuality_button.kill()
             if self.cis_trans_button:
                 self.cis_trans_button.kill()
         elif self.open_tab == 'dangerous':

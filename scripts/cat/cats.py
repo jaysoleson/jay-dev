@@ -187,6 +187,7 @@ class Cat():
         # Public attributes
         self.gender = gender
         self.sexuality = sexuality
+        self.sexualitylabel = None
         self.acespec = acespec
         self.arospec = arospec
         self.status = status
@@ -3591,6 +3592,7 @@ class Cat():
                 "gender_align": self.genderalign,
                 #"pronouns": self.pronouns,
                 "sexuality": self.sexuality,
+                "sexuality_label": self.sexualitylabel,
                 "acespec": self.acespec,
                 "arospec": self.arospec,
                 "birth_cooldown": self.birth_cooldown,
