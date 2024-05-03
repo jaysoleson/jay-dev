@@ -6328,5 +6328,28 @@
             }
             
         }
+    },
+    "#change_unlabelled_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_unlabelled.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_unlabelled_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_unlabelled_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_unlabelled_hover.png"
+            }
+        }
     }
 }

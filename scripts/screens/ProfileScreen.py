@@ -3137,7 +3137,7 @@ class ProfileScreen(Screens):
                 elif self.the_cat.sexuality == "aroace":
 
                     self.change_sexuality_button = UIImageButton(scale(pygame.Rect((580, 940), (195, 75))), "unlabelled",
-                                                    starting_height=2, object_id="", tool_tip_text="unlabelled",
+                                                    starting_height=2, object_id="#change_unlabelled_button", tool_tip_text="unlabelled",
                                                     manager=MANAGER)
 
                 elif self.the_cat.sexuality == "unlabelled":

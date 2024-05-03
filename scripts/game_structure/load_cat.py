@@ -154,6 +154,7 @@ def json_load():
             
             new_cat.genderalign = cat["gender_align"]
             new_cat.sexuality = cat["sexuality"]
+            new_cat.sexualitylabal = cat["sexualitylabel"]
             new_cat.acespec = cat['acespec']
             new_cat.arospec = cat["arospec"]
             new_cat.backstory = cat["backstory"] if "backstory" in cat else None
