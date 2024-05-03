@@ -24,6 +24,8 @@ import pygame_gui
 from re import sub
 from scripts.cat.skills import SkillPath
 
+from scripts.events import Events
+
 import math
 from scripts.cat.sprites import sprites
 from scripts.game_structure.image_button import UIImageButton, UITextBoxTweaked
@@ -174,6 +176,13 @@ class ProfileScreen(Screens):
         self.previous_search_text = "search"
         self.cat_list_buttons = None
         self.search_inventory = []
+
+    def gettheflags(self, cat):
+        """ erm """
+        from scripts.events import Events
+        events_instance = Events()
+        events_instance.get_flags(cat)
+        # this kind of sucks LMAO but it works
 
     def handle_event(self, event):
 
@@ -336,23 +345,18 @@ class ProfileScreen(Screens):
             elif event.ui_element == self.all_pride_accs:
                 if game.clan.clan_settings['all pride accessories']:
                     game.clan.clan_settings['all pride accessories'] = False
-                    for flag in self.the_cat.pelt.inventory:
-                        if flag in Pelt.nonpridebandanas or\
-                        flag in Pelt.pridebandanas or\
-                        flag in Pelt.pridebandanas2 or\
-                        flag in Pelt.pridebandanas3:
-                            if flag in self.the_cat.pelt.accessories:
-                                self.the_cat.pelt.accessories.remove(flag)
-                            self.the_cat.pelt.inventory.remove(flag)
+
+                    for the_cat in Cat.all_cats_list:
+                        self.gettheflags(the_cat)
 
                 else:
                     game.clan.clan_settings['all pride accessories'] = True
 
+                self.change_screen(game.last_screen_forProfile)
+                self.change_screen('profile screen')
+                self.toggle_accessories_tab()
                 
-                self.clear_profile()
-                self.build_profile()
-                self.close_current_tab()
-                
+                # this bullshit is gonna stay unless i figure out a real way to refresh the inventory
 
             elif event.ui_element == self.clear_accessories:
                 self.the_cat.pelt.accessories.clear()
@@ -396,24 +400,40 @@ class ProfileScreen(Screens):
                     value = b_2data.index(b_data)
                     n = value
                     
-                    if self.accessories_list[n] in (Pelt.nonpridebandanas or Pelt.pridebandanas or Pelt.pridebandanas2 or Pelt.pridebandanas3):
+                    prideflag = self.accessories_list[n] in Pelt.nonpridebandanas or\
+                            self.accessories_list[n] in Pelt.pridebandanas or\
+                            self.accessories_list[n] in Pelt.pridebandanas2 or\
+                            self.accessories_list[n] in Pelt.pridebandanas3
+
+                    if prideflag:
                         # only one flag should be equipped at a time for permainventory qol
-                        
+                            
                         if self.accessories_list[n] in self.the_cat.pelt.accessories:
                             self.the_cat.pelt.accessories.remove(self.accessories_list[n])
+                            self.add_perma_inventory.disable()
+                            self.remove_perma_inventory.disable()
                         else:
-                            for bandana in self.the_cat.inventory:
-                                if bandana != self.accessories_list[n] and bandana in self.the_cat.pelt.accessories and bandana in (Pelt.nonpridebandanas or Pelt.pridebandanas or Pelt.pridebandanas2 or Pelt.pridebandanas3):
-                                    self.the_cat.pelt.accessories.remove(bandana)
+                            self.the_cat.pelt.accessories.append(self.accessories_list[n])
+                            if self.accessories_list[n] in self.the_cat.pelt.permanent_inventory:
+                                self.remove_perma_inventory.enable()
+                            else:
+                                self.add_perma_inventory.enable()
+                            for bandana in self.the_cat.pelt.accessories:
+                                if bandana != self.accessories_list[n]:
+                                    if bandana in Pelt.nonpridebandanas or\
+                                        bandana in Pelt.pridebandanas or\
+                                        bandana in Pelt.pridebandanas2 or\
+                                        bandana in Pelt.pridebandanas3:
+                                            self.the_cat.pelt.accessories.remove(bandana)
+                                            
                     else:
-
                         if self.accessories_list[n] == self.the_cat.pelt.accessory:
                             self.the_cat.pelt.accessory = None
                         if self.accessories_list[n] in self.the_cat.pelt.accessories:
                             self.the_cat.pelt.accessories.remove(self.accessories_list[n])
                         else:
                             self.the_cat.pelt.accessories.append(self.accessories_list[n])
-                    for acc in self.accessory_buttons:
+
                         self.accessory_buttons[acc].kill()
                     for acc in self.cat_list_buttons:
                         self.cat_list_buttons[acc].kill()
@@ -1542,7 +1562,7 @@ class ProfileScreen(Screens):
             output += the_cat.sexuality
         
         # NEWLINE ----------
-        if the_cat.moons > 5:
+        if the_cat.moons >= 6:
             if the_cat.sexuality != 'aroace':
                 if the_cat.acespec != "allosexual":
                     output += "\n"
@@ -2681,13 +2701,19 @@ class ProfileScreen(Screens):
             self.next_page_button = UIImageButton(scale(pygame.Rect((1418, 1000), (68, 68))), "",
                                                   object_id="#arrow_right_button", manager=MANAGER)
             
-            self.all_pride_accs = UIImageButton(scale(pygame.Rect((1418, 1085), (68, 68))), "",
-                                                  object_id="#add_permainventory_button", tool_tip_text="Toggle all pride accessories", manager=MANAGER)
+            if not game.clan.clan_settings['all pride accessories']:
+                self.all_pride_accs = UIImageButton(scale(pygame.Rect((1418, 1085), (68, 68))), "",
+                                                    object_id="#add_permainventory_button", tool_tip_text="Enable all pride accessories", manager=MANAGER)
+                
+            else:
+                self.all_pride_accs = UIImageButton(scale(pygame.Rect((1418, 1085), (68, 68))), "",
+                                                    object_id="#remove_permainventory_button", tool_tip_text="Disable all pride accessories", manager=MANAGER)
+                
             self.clear_accessories = UIImageButton(scale(pygame.Rect((1418, 1160), (68, 68))), "",
                                                   object_id="#exit_window_button", tool_tip_text="Remove all worn accessories", manager=MANAGER)
             
             self.add_perma_inventory = UIImageButton(scale(pygame.Rect((110, 1160), (68, 68))), "",
-                                                  object_id="#add_permainventory_button", tool_tip_text="Add worn accessories to permanent flag inventory", manager=MANAGER)
+                                                  object_id="#add_permainventory_button", tool_tip_text="Add worn flag to permanent inventory. Flags in the permanent flag inventory will not be affected by auto-equip based on the cat's orientation.", manager=MANAGER)
             
             self.remove_perma_inventory = UIImageButton(scale(pygame.Rect((110, 1085), (68, 68))), "",
                                                   object_id="#remove_permainventory_button", tool_tip_text="Remove worn accessories from permanent flag inventory", manager=MANAGER)
@@ -2702,6 +2728,9 @@ class ProfileScreen(Screens):
                                                               manager=MANAGER)
             self.open_accessories()
             self.update_disabled_buttons_and_text()
+
+            self.add_perma_inventory.disable()
+            self.remove_perma_inventory.disable()
 
 
     # def update_accessories(self):
@@ -3290,6 +3319,7 @@ class ProfileScreen(Screens):
                     self.exit_df_button.hide()
                 if self.affair_button:
                     self.affair_button.hide()
+
         elif self.open_tab == "accessories":
             for i in self.cat_list_buttons:
                 self.cat_list_buttons[i].kill()

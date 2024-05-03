@@ -4089,25 +4089,37 @@ class Events:
                     return
                 
                 if random.getrandbits(1):
-                    which = randint(1,2)
-                    if which == 1:
-                        cat.sexuality = "questioning"
-                        text = f"{cat.name} has no idea how they feel!"
+                    which = randint(1,6)
+                    if which in [1,2,3]:
+                        if cat.prevent_sexualitychange:
+                            return
+                        
+                        if which in [1,2]:
+                            cat.sexuality = "questioning"
+                            text = f"{cat.name} has no idea how they feel!"
+                        else:
+                            cat.sexuality = "unlabelled"
+                            text = f"{cat.name} can't find the right words for their identity, so they've opted to use none."
                     else:
-                        if not cat.prevent_genderchange:
-                            if (cat.sexuality == 'straight' and cat.genderalign in ['male', 'trans male', 'demiboy'])\
-                            or cat.sexuality == 'lesbian':
-                                cat.sexuality = 'gyno'
+                        if cat.prevent_genderchange:
+                            return
+                        
+                        if (cat.sexuality == 'straight' and cat.genderalign in ['male', 'trans male', 'demiboy'])\
+                        or cat.sexuality == 'lesbian':
+                            cat.sexuality = 'gyno'
 
-                            elif (cat.sexuality == 'straight' and cat.genderalign in ['female', 'trans female', 'demigirl']\
-                            or cat.sexuality == 'gay'):
-                                cat.sexuality = 'andro'
+                        elif (cat.sexuality == 'straight' and cat.genderalign in ['female', 'trans female', 'demigirl']\
+                        or cat.sexuality == 'gay'):
+                            cat.sexuality = 'andro'
 
-                            elif cat.sexuality not in ["bi", "pan", "aroace"]:
-                                cat.sexuality = choice(['bi', 'bi', 'bi', 'bi', 'pan', 'pan', 'pan', 'pan', 'aroace'])
-                                
+                        elif cat.sexuality not in ["bi", "pan", "aroace"]:
+                            cat.sexuality = choice(['bi', 'bi', 'bi', 'bi', 'pan', 'pan', 'pan', 'pan', 'aroace'])
+                            
+                        if which == 4:
+                            cat.genderalign = "unlabelled"
+                            text = f"{cat.name} can't find the right words for their identity, so they've opted to use none."
+                        else:
                             cat.genderalign = "questioning"
-
                             text = f"{cat.name} doesn't know how every other cat is so sure of their gender."
 
                     self.get_flags(cat)
@@ -4465,7 +4477,7 @@ class Events:
                 cat.pelt.inventory.remove(self.demiaroace)
         
 
-            if cat.sexuality == 'questioning':
+            if cat.sexuality in ['questioning', 'unlabelled']:
                 # there has to be a better way to do this omg sorry
                 if self.straight in cat.pelt.inventory and self.straight not in cat.pelt.permanent_inventory:
                     if self.straight in cat.pelt.accessories:
@@ -4887,7 +4899,7 @@ class Events:
                     text = f"{cat.name}'s gender feels brand new!"
                     game.cur_events_list.append(Single_Event(text, "misc", cat.ID))
                 
-                elif cat.genderalign == 'questioning' and self.ambiguous not in cat.pelt.inventory:
+                elif cat.genderalign in ['questioning', 'unlabelled'] and self.ambiguous not in cat.pelt.inventory:
                     if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in self.all_bandanas for bandana in bandanas):
                         if self.ambiguous not in cat.pelt.accessories:
                             cat.pelt.accessories.append(self.ambiguous)

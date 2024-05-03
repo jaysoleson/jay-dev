@@ -68,19 +68,19 @@
         
         "all accessories": [
             "Enable all accessories",
-            "All cats will have all accessories available in their inventory",
+            "All cats will have all accessories available in their inventory.",
             false
         ],
         
         "auto equip": [
             "Auto-equip pride accessories",
-            "Cats will automatically wear their pride flags. NOT compatible with all pride accessories toggle.",
+            "Cats will automatically wear their pride flags.",
             true
         ],
         
         "all pride accessories": [
             "Enable all pride accessories",
-            "All cats will have all pride flags available in their inventory. NOT compatible with auto-equip toggle.",
+            "All cats will have all pride flags available in their inventory. Many will be overridden with auto-equip on, unless they're added to the cat's permanent inventory.",
             false
         ]
     },
