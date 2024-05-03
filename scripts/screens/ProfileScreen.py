@@ -324,7 +324,8 @@ class ProfileScreen(Screens):
                     if flag in Pelt.nonpridebandanas or\
                     flag in Pelt.pridebandanas or\
                     flag in Pelt.pridebandanas2 or\
-                    flag in Pelt.pridebandanas3:
+                    flag in Pelt.pridebandanas3 or\
+                    flag in Pelt.customflags:
                         self.the_cat.pelt.permanent_inventory.append(flag)
                     else:
                         print('accessory not a pride flag-- not added to permainventory')
@@ -335,7 +336,8 @@ class ProfileScreen(Screens):
                         if flag in Pelt.nonpridebandanas or\
                         flag in Pelt.pridebandanas or\
                         flag in Pelt.pridebandanas2 or\
-                        flag in Pelt.pridebandanas3:
+                        flag in Pelt.pridebandanas3 or\
+                        flag in Pelt.customflags:
                             self.the_cat.pelt.accessories.remove(flag)
                             self.the_cat.pelt.permanent_inventory.remove(flag)
                         else:
@@ -402,7 +404,8 @@ class ProfileScreen(Screens):
                     prideflag = self.accessories_list[n] in Pelt.nonpridebandanas or\
                             self.accessories_list[n] in Pelt.pridebandanas or\
                             self.accessories_list[n] in Pelt.pridebandanas2 or\
-                            self.accessories_list[n] in Pelt.pridebandanas3
+                            self.accessories_list[n] in Pelt.pridebandanas3 or\
+                            self.accessories_list[n] in Pelt.customflags
 
                     if prideflag:
                         # only one flag should be equipped at a time for permainventory qol
@@ -422,7 +425,8 @@ class ProfileScreen(Screens):
                                     if bandana in Pelt.nonpridebandanas or\
                                         bandana in Pelt.pridebandanas or\
                                         bandana in Pelt.pridebandanas2 or\
-                                        bandana in Pelt.pridebandanas3:
+                                        bandana in Pelt.pridebandanas3 or\
+                                        bandana in Pelt.customflags:
                                             self.the_cat.pelt.accessories.remove(bandana)
                                             
                     else:
@@ -475,6 +479,8 @@ class ProfileScreen(Screens):
                                 self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_pride3' + accessory + cat_sprite], manager=MANAGER)
                             elif accessory in cat.pelt.nonpridebandanas:
                                 self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_bandanas' + accessory + cat_sprite], manager=MANAGER)
+                            elif accessory in cat.pelt.customflags:
+                                self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_customflags' + accessory + cat_sprite], manager=MANAGER)
                             elif accessory in cat.pelt.flower_accessories:
                                 self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_flower' + accessory + cat_sprite], manager=MANAGER)
                             elif accessory in cat.pelt.plant2_accessories:
@@ -922,7 +928,9 @@ class ProfileScreen(Screens):
                 prideflag = self.accessories_list[n] in Pelt.nonpridebandanas or\
                             self.accessories_list[n] in Pelt.pridebandanas or\
                             self.accessories_list[n] in Pelt.pridebandanas2 or\
-                            self.accessories_list[n] in Pelt.pridebandanas3
+                            self.accessories_list[n] in Pelt.pridebandanas3 or\
+                            self.accessories_list[n] in Pelt.pridebandanas3 or\
+                            self.accessories_list[n] in Pelt.customflags
 
                 if prideflag:
                     # only one flag should be equipped at a time for permainventory qol
@@ -942,7 +950,8 @@ class ProfileScreen(Screens):
                                 if bandana in Pelt.nonpridebandanas or\
                                     bandana in Pelt.pridebandanas or\
                                     bandana in Pelt.pridebandanas2 or\
-                                    bandana in Pelt.pridebandanas3:
+                                    bandana in Pelt.pridebandanas3 or\
+                                    bandana in Pelt.customflags:
                                         self.the_cat.pelt.accessories.remove(bandana)
                                         
                 else:
@@ -998,6 +1007,8 @@ class ProfileScreen(Screens):
                                     self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_pride3' + accessory + cat_sprite], manager=MANAGER)
                                 elif accessory in cat.pelt.nonpridebandanas:
                                     self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_bandanas' + accessory + cat_sprite], manager=MANAGER)
+                                elif accessory in cat.pelt.customflags:
+                                    self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_customflags' + accessory + cat_sprite], manager=MANAGER)
                                 elif accessory in cat.pelt.flower_accessories:
                                     self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_flower' + accessory + cat_sprite], manager=MANAGER)
                                 elif accessory in cat.pelt.plant2_accessories:
@@ -2831,6 +2842,8 @@ class ProfileScreen(Screens):
                             self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_pride3' + accessory + cat_sprite], manager=MANAGER)
                         elif accessory in cat.pelt.nonpridebandanas:
                             self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_bandanas' + accessory + cat_sprite], manager=MANAGER)
+                        elif accessory in cat.pelt.customflags:
+                            self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_customflags' + accessory + cat_sprite], manager=MANAGER)
                         elif accessory in cat.pelt.flower_accessories:
                             self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_flower' + accessory + cat_sprite], manager=MANAGER)
                         elif accessory in cat.pelt.plant2_accessories:

@@ -328,7 +328,7 @@ def create_new_cat(Cat,
     inventory = []
     if isinstance(backstory, list):
         backstory = choice(backstory)
-    if accessory in [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas]:
+    if accessory in [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.nonpridebandanas, Pelt.customflags]:
         accessory = None
 
     if backstory in (
@@ -1677,6 +1677,8 @@ def generate_sprite(cat, life_state=None, scars_hidden=False, acc_hidden=False, 
                         new_sprite.blit(sprites.sprites['acc_pride3' + i + cat_sprite], (0, 0))
                     elif i in cat.pelt.nonpridebandanas:
                         new_sprite.blit(sprites.sprites['acc_bandanas' + i + cat_sprite], (0, 0))
+                    elif i in cat.pelt.customflags:
+                        new_sprite.blit(sprites.sprites['acc_customflags' + i + cat_sprite], (0, 0))
                     elif i in cat.pelt.flower_accessories:
                         new_sprite.blit(sprites.sprites['acc_flower' + i + cat_sprite], (0, 0))
                     elif i in cat.pelt.plant2_accessories:

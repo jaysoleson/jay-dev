@@ -4286,6 +4286,13 @@ class Events:
     def get_flags(self, cat):
         """ gives appropriate bandanas to lgbt cats."""
 
+        if not game.clan.clan_settings['all pride accessories']:
+            for flag in Pelt.customflags:
+                if flag in cat.pelt.inventory and flag not in cat.pelt.permanent_inventory:
+                    if flag in cat.pelt.accessories:
+                        cat.pelt.accessories.remove(flag)
+                    cat.pelt.inventory.remove(flag)
+
         # fix cat sexualities if the nonbinary ones mess up somehow
                 
         if cat.sexuality == 'andro':

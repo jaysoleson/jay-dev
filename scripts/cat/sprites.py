@@ -588,12 +588,8 @@ class Sprites():
             self.make_group('customflags', (a, 0), f'acc_customflags{i}')
         
         for a, i in enumerate([
-            "CUSTOMFLAG6", "CUSTOMFLAG7", "CUSTOMFLAG8", "CUSTOMFLAG9", "CUSTOMFLAG10"]):
+            "CUSTOMFLAG6", "CUSTOMFLAG7", "CUSTOMFLAG8"]):
             self.make_group('customflags', (a, 1), f'acc_customflags{i}')
-
-        for a, i in enumerate([
-            "CUSTOMFLAG11", "CUSTOMFLAG12", "CUSTOMFLAG13", "CUSTOMFLAG14"]):
-            self.make_group('customflags', (a, 2), f'acc_customflags{i}')
         
     # --------------------------------
         for a, i in enumerate([

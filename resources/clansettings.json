@@ -82,6 +82,12 @@
             "Enable all pride accessories",
             "All cats will have all pride flags available in their inventory. Many will be overridden with auto-equip on, unless they're added to the cat's permanent inventory.",
             false
+        ],
+
+        "custom flags": [
+            "Enable custom flag accessories",
+            "All flags from customflags.png will be accessible through 'all pride accessories'",
+            false
         ]
     },
     "role": {
