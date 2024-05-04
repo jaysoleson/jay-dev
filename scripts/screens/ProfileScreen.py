@@ -436,7 +436,8 @@ class ProfileScreen(Screens):
                             self.the_cat.pelt.accessories.remove(self.accessories_list[n])
                         else:
                             self.the_cat.pelt.accessories.append(self.accessories_list[n])
-
+                            
+                    for acc in self.accessory_buttons:
                         self.accessory_buttons[acc].kill()
                     for acc in self.cat_list_buttons:
                         self.cat_list_buttons[acc].kill()
