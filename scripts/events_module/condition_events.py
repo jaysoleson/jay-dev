@@ -500,8 +500,10 @@ class Condition_Events():
                 event = event_text_adjust(Cat, event, cat, other_cat=None)
                 event_list.append(event)
                 game.herb_events_list.append(event)
-
-                cat.illnesses.pop(illness)
+                try:
+                    cat.illnesses.pop(illness)
+                except:
+                    print("ERROR: removing illness")
                 # make sure complications get reset if infection or fester were healed
                 if illness in ['an infected wound', 'a festering wound']:
                     for injury in cat.injuries:

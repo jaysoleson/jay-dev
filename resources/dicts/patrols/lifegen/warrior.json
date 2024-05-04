@@ -14,7 +14,7 @@
             "hunting",
             "small_prey"
         ],
-        "patrol_art": "lg_warrior_default",
+        "patrol_art": "lg_warrior1",
         "min_cats": 1,
         "max_cats": 3,
         "min_max_status": {},
@@ -63,7 +63,7 @@
             "border",
             "small_prey"
         ],
-        "patrol_art": "lg_warrior_default",
+        "patrol_art": "lg_warrior2",
         "min_cats": 1,
         "max_cats": 3,
         "min_max_status": {},
@@ -673,7 +673,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "You leap towards the path, but miss the landing slamming into one of the boards- scaring all the birds away. Your clanmates are happy you're okay but are unimpressed by your fall",
+                "text": "You leap towards the path, but miss the landing slamming into one of the boards- scaring all the birds away. Your clanmates are happy you're okay but are unimpressed by your fall.",
                 "exp": 0,
                 "weight": 20
             }
@@ -829,6 +829,44 @@
         "fail_outcomes": [
             {
                 "text": "You pad closer, curious as to what it is. You realize its a jellyfish, and you begin poking it. Suddenly, a sharp, stinging pain immediately hit you, causing you to draw back your paw in pain. You quickly rush back to camp, where you're told that it isn't poisonous- but scolded for touching a potentially deadly jellyfish.",
+                "exp": 0,
+                "weight": 20
+			}
+		]
+	},
+	{
+		"patrol_id": "lifegen_shunned_warrior_1",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "hunting"
+        ],
+        "tags": [
+            "border",
+            "shunned"
+        ],
+        "patrol_art": "lg_warrior_default",
+        "min_cats": 1,
+        "max_cats": 1,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "Though you're not allowed out of camp, your paws are itching to hunt. It's late, and most cats are asleep, save for the night guard. You consider trying to sneak past them to finally catch some fresh prey for yourself.",
+        "decline_text": "No, it's far too risky. Not wanting to risk extending your punishment, you go to sleep with an empty stomach.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+		    {
+                "text": "Thankfully, your nest is already at the edge of camp. It's no challenge to slip out, and when you do, you have to stop yourself from yelping with joy at the sight of live prey. The sleeping squirrel doesn't awaken until far too late, and it's the most delicious meal you've had since your punishment began.",
+                "exp": 20,
+                "weight": 20
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You stand from your nest to attempt to slip out of camp, but the night guard senses the movement and snaps their head towards you. They shoot you a warning glance and you settle back into your nest, not wanting to extend your punishment further.",
                 "exp": 0,
                 "weight": 20
 			}

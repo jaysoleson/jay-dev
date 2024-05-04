@@ -93,11 +93,8 @@ class EventsScreen(Screens):
             elif self.death_button and event.ui_element == self.death_button:
                 DeathScreen('events screen')
                 return
-            if event.ui_element == self.timeskip_button and game.clan.your_cat.moons == 5 and game.clan.your_cat.status == 'kitten':
-                    PickPath('events screen')
-            # elif event.ui_element == self.timeskip_button and (game.clan.your_cat.dead_for == 1 or game.clan.your_cat.exiled):
-            #         DeathScreen('events screen')
-            #         return
+            if event.ui_element == self.timeskip_button and game.clan.your_cat.moons == 5 and game.clan.your_cat.status == 'kitten' and not game.clan.your_cat.outside and not game.clan.your_cat.dead:
+                PickPath('events screen')
             elif event.ui_element == self.you or ("you" in self.display_events_elements and event.ui_element == self.display_events_elements["you"]):
                 game.switches['cat'] = game.clan.your_cat.ID
                 self.change_screen("profile screen")
@@ -286,7 +283,7 @@ class EventsScreen(Screens):
                     self.display_events = self.misc_events
                     self.update_events_display()
             elif event.key == pygame.K_SPACE:
-                if game.clan.your_cat.moons == 5 and game.clan.your_cat.status == 'kitten':
+                if game.clan.your_cat.moons == 5 and game.clan.your_cat.status == 'kitten' and not game.clan.your_cat.outside and not game.clan.your_cat.dead:
                     PickPath('events screen')
                 elif (game.clan.your_cat.dead_for == 1 or game.clan.your_cat.exiled):
                     DeathScreen('events screen')

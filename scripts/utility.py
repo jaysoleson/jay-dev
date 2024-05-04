@@ -533,7 +533,7 @@ def create_new_cat(Cat,
             new_cat.die()
         
 
-        if df:
+        if not alive and df:
             new_cat.df = True
         else:
         # give apprentice aged cat a mentor
@@ -570,6 +570,10 @@ def create_new_cat(Cat,
         if new_cat.df:
             new_cat.dead_for = randint(90,190)
             new_cat.dead = True
+            new_cat.status = status
+
+        if new_cat.dead and not new_cat.df and not new_cat.outside:
+            new_cat.dead_for = randint(90,190)
             new_cat.status = status
      
         
@@ -911,15 +915,15 @@ def get_cluster(trait):
         # Mapping traits to their respective clusters
         trait_to_clusters = {
             "assertive": ["troublesome", "fierce", "bold", "daring", "confident", "adventurous", "arrogant", "competitive", "smug", "impulsive", "noisy"],
-            "brooding": ["bloodthirsty", "cold", "strict", "vengeful", "grumpy", "bullying", "secretive", "aloof", "stoic"],
-            "cool": ["charismatic", "sneaky", "cunning", "arrogant", "charming", "manipulative", "leader-like", "passionate", "witty", "flexible"],
-            "upstanding": ["righteous", "ambitious", "strict", "competitive", "responsible", "bossy", "know-it-all", "leader-like", "smug", "loyal"],
-            "introspective": ["lonesome", "righteous", "calm", "gloomy", "wise", "thoughtful", "quiet", "daydreamer", "flexible"],
-            "neurotic": ["nervous", "insecure", "lonesome", "quiet", "secretive", "careful", "meek", "mellow"],
-            "silly": ["troublesome", "childish", "playful", "strange", "noisy", "attention-seeker", "rebellious"],
+            "brooding": ["bloodthirsty", "cold", "strict", "vengeful", "grumpy", "bullying", "secretive", "aloof", "stoic", "reserved"],
+            "cool": ["charismatic", "sneaky", "cunning", "arrogant", "charming", "manipulative", "leader-like", "passionate", "witty", "flexible", "mellow"],
+            "upstanding": ["righteous", "ambitious", "strict", "competitive", "responsible", "bossy", "know-it-all", "leader-like", "smug", "loyal", "justified"],
+            "introspective": ["lonesome", "righteous", "calm", "gloomy", "wise", "thoughtful", "quiet", "daydreamer", "flexible", "mellow"],
+            "neurotic": ["nervous", "insecure", "lonesome", "quiet", "secretive", "careful", "meek", "cowardly", "reserved", "emotional"],
+            "silly": ["troublesome", "childish", "playful", "strange", "noisy", "attention-seeker", "rebellious", "bouncy", "energetic", "spontaneous"],
             "stable": ["loyal", "responsible", "wise", "faithful", "polite", "disciplined", "patient", "passionate", "witty", "trusting"],
-            "sweet": ["compassionate", "faithful", "loving", "oblivious", "sincere", "sweet", "polite", "daydreamer", "trusting", "humble"],
-            "unabashed": ["childish", "confident", "bold", "shameless", "strange", "oblivious", "flamboyant", "impulsive", "noisy", "honest"],
+            "sweet": ["compassionate", "faithful", "loving", "oblivious", "sincere", "sweet", "polite", "daydreamer", "trusting", "humble", "emotional"],
+            "unabashed": ["childish", "confident", "bold", "shameless", "strange", "oblivious", "flamboyant", "impulsive", "noisy", "honest", "spontaneous"],
             "unlawful": ["bloodthirsty", "sneaky", "rebellious", "manipulative", "obsessive", "aloof", "stoic"]
         }
         clusters = [key for key, values in trait_to_clusters.items() if trait in values]
@@ -993,7 +997,8 @@ def adjust_list_text(list_of_items):
     :param list_of_items: the list of items you want converted
     :return: the new string
     """
-
+    if len(list_of_items) == 0:
+        return ""
     if len(list_of_items) == 1:
         insert = f"{list_of_items[0]}"
     elif len(list_of_items) == 2:

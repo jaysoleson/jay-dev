@@ -161,10 +161,10 @@
             "Mew!",
             "[You turn to see a newborn crawling around on their own outside the nursery. How on earth did they get here?]",
             "[You pick them up, and carry them back to the nursery.]",
-            "[You turn around to have a chat with a clanmate for five minutes.]",
+            "[You turn around to have a chat with a Clanmate for five minutes.]",
             "Meeewww!",
             "[The kitten has somehow escaped again.]",
-            "[You need to have a chat with the Queens.]"
+            "[You need to have a chat with the queens.]"
         ]
     ],
     "introspective_NB_1": [
@@ -1274,6 +1274,25 @@
             "Grr..."
         ]
     ],
+    "newborn_7_df": [
+        [
+            "Any",
+            "they_df"
+        ],
+        [
+            "Grr..."
+        ]
+    ],
+    "newborn_8_df": [
+        [
+            "Any",
+            "they_df",
+            "you_shunned"
+        ],
+        [
+            "Grr..."
+        ]
+    ],
     "newborn_1_scdf": [
         [
             "Any",
@@ -1393,5 +1412,73 @@
         [
             "Grr..."
         ]
-    ]
+    ],
+    "newborn_ur_J1" : [
+        [
+            "they_ur",
+            "any"
+        ],
+        [
+            "... Mew..."
+        ]
+    ],
+    "newborn_ur_J2" : [
+        [
+            "they_ur",
+            "you_sc",
+            "any"
+        ],
+        [
+            "... Mew..."
+        ]
+    ],
+    "newborn_ur_J3" : [
+        [
+            "they_ur",
+            "you_df",
+            "any"
+        ],
+        [
+            "... Mew..."
+        ]
+    ],
+    "newborn_ur_J4" : [
+        [
+            "they_ur",
+            "you_shunned",
+            "any"
+        ],
+        [
+            "... Mew..."
+        ]
+    ],
+    "sc_sc_kit_R2": [
+        [
+            "they_newborn",
+            "they_sc",
+            "you_sc",
+            "any",
+            "you_blind",
+            "they_blind"
+        ],
+        [
+            "Mew!",
+            "[Oh, it's t_c. Should they be over here? Their family is probably looking for them.]"
+        ]
+    ],
+    
+    "df_df_kit_R1": [
+        [
+            "they_newborn",
+            "they_df",
+            "you_df",
+            "any",
+            "you_blind",
+            "they_blind"
+        ],
+        [
+            "Mewwww...",
+            "[t_c is whining for comfort again. They should know better by now that it's not coming.]"
+        ]
+    ]  
 }

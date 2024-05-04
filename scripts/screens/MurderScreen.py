@@ -275,7 +275,7 @@ class MurderScreen(Screens):
         self.exit_screen()
         r = randint(0,100)
         r2 = randint(-10, 10)
-        chance = self.get_kill(game.clan.your_cat, self.cat_to_murder, accomplice)
+        chance = self.get_kill(game.clan.your_cat, self.cat_to_murder, accomplice, accompliced)
         murdered = r < max(5, chance + r2)
         you = game.clan.your_cat
         cat_to_murder = self.cat_to_murder
@@ -370,8 +370,6 @@ class MurderScreen(Screens):
         punishment_chance = randint(1,3)
         if not accomplice or not accompliced:
             punishment_chance = 1
-        if punishment_chance == 1 or punishment_chance == 3:
-            you.revealed = game.clan.age
         if punishment_chance == 1:
             if accomplice and not accompliced:
                 a_s = randint(1,2)
@@ -433,7 +431,7 @@ class MurderScreen(Screens):
             a_n = str(accomplice.name)
             kit_punishment = [f"{a_n} is assigned counseling by the Clan's medicine cat to help them understand the severity of their actions and to guide them to make better decisions in the future.",
                             f"{a_n} is to be kept in the nursery under the watchful eye of the queens at all times until they become an apprentice."]
-            gen_punishment = [f"{a_n} is assigned counseling by the Clan's medicine cat to help them understand the severity of your actions and to guide them to make better decisions in the future.",
+            gen_punishment = [f"{a_n} is assigned counseling by the Clan's medicine cat to help them understand the severity of their actions and to guide them to make better decisions in the future.",
                                 f"{a_n} is required to take meals last and is forced to sleep in a separate den away from their clanmates.",
                                 f"{a_n} is assigned to several moons of tasks that include cleaning out nests, checking elders for ticks, and other chores alongside their normal duties.",
                                 f"{a_n} is assigned a mentor who will better educate them about the Warrior Code and the sacredness of life."]
@@ -510,7 +508,7 @@ class MurderScreen(Screens):
                 cat_to_murder.relationships[accomplice.ID].platonic_like -= randint(1,15)
                 cat_to_murder.relationships[accomplice.ID].comfortable -= randint(1,15)
                 cat_to_murder.relationships[accomplice.ID].trust -= randint(1,15)
-                cat_to_murder.relationships[accomplice.ID].admiration -= randint(1,15)
+                cat_to_murder.relationships[accomplice.ID].admiration -= randint(1,15)                
             else:
                 fail_texts = ["You attempted to murder "+ c_m + ", but your plot was unsuccessful. They appear to be slightly wary now.",
                                 "Your effort to end "+ c_m + "'s life was thwarted, and they now seem a bit more cautious around you.",
@@ -561,7 +559,7 @@ class MurderScreen(Screens):
     best_murder_skills = ["incredibly clever", "unusually strong fighter", "unnatural senses","fast as the wind"]
 
 
-    def get_kill(self, you, cat_to_murder, accomplice):
+    def get_kill(self, you, cat_to_murder, accomplice, accompliced):
         chance = self.status_chances.get(you.status, 0)
         your_skills = []
         if you.skills.primary:
@@ -598,7 +596,7 @@ class MurderScreen(Screens):
         if cat_to_murder.is_ill() or cat_to_murder.is_injured():
             chance += 20
             
-        if accomplice:
+        if accomplice and accompliced:
             chance += 20
         
         return chance
@@ -619,7 +617,7 @@ class MurderScreen(Screens):
             info = self.selected_cat.status + "\n" + \
                    self.selected_cat.genderalign + "\n" + self.selected_cat.personality.trait + "\n"
 
-            if self.selected_cat.moons < 6:
+            if self.selected_cat.moons < 1:
                 info += "???"
             else:
                 info += self.selected_cat.skills.skill_string(short=True)
@@ -641,7 +639,7 @@ class MurderScreen(Screens):
             if self.stage == 'choose murder cat':
                 if not self.selected_cat.dead and not self.selected_cat.outside:
                     c_text = ""
-                    chance = self.get_kill(game.clan.your_cat, self.selected_cat, None)
+                    chance = self.get_kill(game.clan.your_cat, self.selected_cat, None, False)
                     if chance < 20:
                         c_text = "very low"
                     elif chance < 30:
@@ -732,7 +730,7 @@ class MurderScreen(Screens):
             info = self.selected_cat.status + "\n" + \
                    self.selected_cat.genderalign + "\n" + self.selected_cat.personality.trait + "\n"
             
-            if self.selected_cat.moons < 6:
+            if self.selected_cat.moons < 1:
                 info += "???"
             else:
                 info += self.selected_cat.skills.skill_string(short=True)

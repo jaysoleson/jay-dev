@@ -88,6 +88,8 @@ def json_load():
             
             if "shunned" not in cat:
                 cat["shunned"] = False
+            if "revealed" in cat:
+                cat["forgiven"] = cat["revealed"]
 
             new_cat = Cat(ID=cat["ID"],
                         prefix=cat["name_prefix"],
@@ -230,13 +232,15 @@ def json_load():
             new_cat.insulted = cat["insulted"] if "insulted" in cat else False
             new_cat.flirted = cat['flirted'] if "flirted" in cat else False
             new_cat.joined_df = cat["joined_df"] if "joined_df" in cat else False
-            new_cat.revealed = cat["revealed"] if "revealed" in cat else 0
+            new_cat.forgiven = cat["forgiven"] if "forgiven" in cat else 0
             new_cat.revives = cat["revives"] if "revives" in cat else 0
             new_cat.courage = cat["courage"] if "courage" in cat else 0
             new_cat.intelligence = cat["intelligence"] if "intelligence" in cat else 0
             new_cat.empathy = cat["empathy"] if "empathy" in cat else 0
             new_cat.compassion = cat["compassion"] if "compassion" in cat else 0
             new_cat.did_activity = cat["did_activity"] if "did_activity" in cat else False
+            new_cat.df_mentor = cat["df_mentor"] if "df_mentor" in cat else None
+            new_cat.df_apprentices = cat["df_apprentices"] if "df_apprentices" in cat else []
             if "died_by" in cat or "scar_event" in cat or "mentor_influence" in cat:
                 new_cat.convert_history(
                     cat["died_by"] if "died_by" in cat else [],

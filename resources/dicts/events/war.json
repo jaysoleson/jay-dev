@@ -11,7 +11,7 @@
     "c_n launches a retaliatory strike against o_c, seeking justice for a past act of aggression, resulting in a back and forth war between the two Clans.",
     "Fuelled by a simmering resentment, o_c initiates a war with c_n, determined to reclaim their disputed territory.",
     "Amidst growing tensions, c_n launches a preemptive strike against o_c, fearing an imminent threat to their Clan's existence.",
-    "With the formation of battle strategies with dep_name completed, lead_name publicize the war against o_c to their warriors and they should ready themselves"
+    "With the formation of battle strategies with dep_name completed, lead_name publicizes the war against o_c to the warriors and instructs them to ready themselves."
   ],
   "progress_events": {
     "comment": [
@@ -31,9 +31,7 @@
       "Amidst turmoil, empathy blooms between the c_n and o_c leaders, kindling hope for reconciliation beyond the battlefield.",
       "Among the clans, a yearning for peace emerges, bridging divides and nurturing a shared hope for harmony.",
       "Hope finally begins to unite the Clanmates of c_n and o_c, fostering a shared vision of peace.",
-      "Surveying the numbers of bodies mustering to their medicine dens, c_n and o_c pray to StarClan to end the warfare",
-      "During a harsh battle, c_n's cats showed sudden mercy to o_c's cats while circling them. Maybe this will show o_c to be respectful and thankful",
-      "While scanning over c_n, lead_name's ears fell flat observing the trembling apprentices from this dreadful war."
+      "Surveying the number of bodies mustering in their medicine dens, c_n and o_c pray to StarClan for an end to the warfare.","During a harsh battle, c_n's cats showed sudden mercy to o_c's cats while encircling them. Perhaps this will teach o_c to be respectful and thankful.","While scanning over c_n, lead_name's ears fell flat as he observed the trembling apprentices traumatized by this dreadful war."
     ],
     "neutral": [
       "War continues to rage between c_n and o_c.",
@@ -51,9 +49,9 @@
       "o_c recently lead out a surprise attack to claim c_n territory, but to no avail.",
       "lead_name isn't sure what to think of the whole war situation with o_c anymore, as it develops even further.",
       "The war shows no signs of stopping, the hostility between c_n and o_c still going strong.",
-      "med_name gaze down at the amount of herbs they've recently accumlated, wondering if it'll be enough to tend c_n's warriors in this war.",
-      "Mustering in a massive, open area, lead_name led c_n warriors against o_c. The prolonged fray was vicious, but c_n triumphs in the battle with celebratory yowls as o_c, with tails tucked down, scurry away",
-      "Mustering in a massive, open area, lead_name led c_n warriors against o_c. The prolonged fray was vicious, however, c_n growls in defeat as they sink back into the darkness, ears twitching at o_c celebratory yowls behind them"
+      "med_name gazes down at the recently accumulated herbs, wondering if they will be enough to tend to c_n's warriors during this war."
+,"Mustered in a massive, open area, lead_name led c_n's warriors against o_c. The prolonged fray was vicious, but c_n triumphed in the battle, their celebratory yowls echoing as o_c, with tails tucked down, scurried away."
+,"Mustered in a massive, open area, lead_name led c_n's warriors against o_c. The prolonged fray was vicious; however, c_n growled in defeat as they retreated into the darkness, their ears twitching at o_c's celebratory yowls behind them."
     ],
     "rel_down": [
       "o_c has taken some of c_n's territory.",
@@ -69,8 +67,8 @@
       "c_n's surprise attacks on o_c have been increasing significantly lately.",
       "Even small sparks of disagreement between o_c and c_n can set off a huge battle.",
       "c_n's cats can't stop themselves from instinctively unsheathing their claws upon encountering an o_c cat.",
-      "In the thick of a cold night, lead_name agreeed to set up a meeting with the leader of o_c. At the end of the meeting, however, the two leaders couldn't agree on any points, leaving the two frustrated and called off the amity",
-      "A warrior of c_n guided dep_name to an unforgiveable invasion they've spotted while on patrol; borders lines vandalized and prey skrewed across the ground in heaps of fur, feathers and blood. o_c will pay for this."
+      "In the thick of a cold night, lead_name agreed to set up a meeting with the leader of o_c. At the end of the meeting, however, the two leaders could not agree on any points, leaving both frustrated and leading to the termination of the peace talks.",
+"A warrior of c_n guided dep_name to an unforgivable scene they had spotted while on patrol; border lines were vandalized, and prey was strewn across the ground in heaps of fur, feathers, and blood. o_c will pay for this."
     ]
   },
   "conclusion_events": [
@@ -88,6 +86,6 @@
     "The piercing war cries of o_c and c_n have turned into tired, lifeless mewls... And the cats are glad as the war finally comes to a close.",
     "The leaders of o_c and c_n have come to terms about the war, deciding that it would best for all the cats if it was formally settled here.",
     "Remembering all the blood that was shed in the war, o_c and c_n have decided to finally settle it, once and for all.",
-    "In the thick of a cold night, lead_name agreed to set up a meeting with the leader of o_c. At the end of the meeting, with purring smiles, lead_name and the o_c leader found a mutual peace for their Clans for the time being."
+    "In the thick of a cold night, lead_name agreed to set up a meeting with the leader of o_c. At the end of the meeting, with wide smiles, lead_name and the o_c leader found mutual peace for their Clans."
   ]
 }

@@ -618,7 +618,7 @@
         "go_with": [
             "Hehehe. Glad I could help open up your mind!",
             "I swear, y_c, this is actually going to blow c_nClan territory out of the water.",
-            "[The journey is short. t_c leads you to a dazzling network of caves just outside the twolegplace.]",
+            "[The journey is short. t_c leads you to a dazzling network of caves just outside the Twolegplace.]",
             "[t_c was right. The caves' beauty really is breathtaking ...]",
             "[You return to camp with your heart racing, thrilled by the experience.]"
         ],
@@ -672,7 +672,7 @@
         ],
         "intro": [
             "Hmph. When are they gonna let us out of this stuffy old nursery?",
-            "I want to explore! And I just know, if they let us battle, I could be the best warrior this clan has ever seen!!! I could probably take down two or three o_cClan cats, all by myself.",
+            "I want to explore! And I just know, if they let us battle, I could be the best warrior this Clan has ever seen!!! I could probably take down two or three o_cClan cats, all by myself.",
             "Hey ... maybe we could sneak out!",
             "Yeah, I know it's against the rules! What are you, a scaredy-cat?"
         ],
@@ -1248,7 +1248,7 @@
             "[You notice that t_c isn't asking like their usual, energetic self. You ask them what's wrong.]",
             "*Sigh* Oh, it's nothing really ...",
             "It's just that ... Sometimes, I feel so behind my denmates. Not just in training, but in everything!",
-            "Everybody else seems to already have everything figured out. What they want to do with their lives, their places in the clan, who they're going to become mates with ... I just don't know any of that stuff!"
+            "Everybody else seems to already have everything figured out. What they want to do with their lives, their places in the Clan, who they're going to become mates with ... I just don't know any of that stuff!"
         ],
         "intro_choices": {
             "choice1": {
@@ -1810,8 +1810,8 @@
         ],
         "youre_beautiful": [
             "Huh? Beautiful? Me? Y-You really mean that?",
-            "I, um ... I don't know what to say.",
-            "Thank you, y_c."
+            "I, um ... I don't know what to say. Thank you, y_c.",
+            "No one's ever told me that before."
         ]
     },
     "neurotic_gen5": {
@@ -2260,7 +2260,7 @@
         "admit": [
             "[Although t_c isn't exactly happy, they appreciate your honesty.]",
             "I'll tell you what. Go get some moss from the medicine den and meet me by the nursery. I'll lend you a paw and replace the nests, while you fix up the walls and clear any debris.",
-            "Afterward, we'll go out and catch some prey for the clan. Sound like a plan?"
+            "Afterward, we'll go out and catch some prey for the Clan. Sound like a plan?"
         ]
     },
     "upstanding_choice2": {
@@ -2272,7 +2272,7 @@
             "hate"
         ],
         "intro": [
-            "Look, I'd rather be eating a toad right now than speaking to you, but... we're still clanmates, and clanmates should at least try and tolerate one another, right?",
+            "Look, I'd rather be eating a toad right now than speaking to you, but... we're still Clanmates, and Clanmates should at least try and tolerate one another, right?",
             "So... here.",
             "[t_c tosses a mouse at your paws and watches you expectantly. It seems like they're waiting for a response.]"
         ],
@@ -2299,8 +2299,8 @@
         ],
         "insult": [
             "[t_c growls and snatches the mouse straight out of your paws.]",
-            "I don't know what your deal is, but c_nClan can't afford to have its clanmates at each other's throats. Pull yourself together and stop acting like a kit.",
-            "I'd hate to see you drive more of your clanmates away."
+            "I don't know what your deal is, but c_nClan can't afford to have its Clanmates at each other's throats. Pull yourself together and stop acting like a kit.",
+            "I'd hate to see you drive more of your Clanmates away."
         ]
     },
     "upstanding_choice3": {
@@ -2411,7 +2411,7 @@
             "Ohhhh, okay! Mices!"
         ],
         "apprentice": [
-            "You bet!! I'm gonna be the best apprentice in the entire clan; just you wait!"
+            "You bet!! I'm gonna be the best apprentice in the entire Clan; just you wait!"
         ]
     },
     "sweetchoice_2": {
@@ -2576,7 +2576,7 @@
             "Aha, I knew you believed in me!",
             "When I become leader again, you can be my deputy, huh?",
             "c_nClan will regret pushing us to the side...",
-            "[t_C has an odd glint in their eyes... Maybe you shouldn't be encouraging this.]"
+            "[t_c has an odd glint in their eyes... Maybe you shouldn't be encouraging this.]"
         ],
         "leaderagain_no": [
             "Really? But didn't I do a good job?",
@@ -2594,7 +2594,7 @@
         ],
         "intro": [
             "[t_c marches through the camp and nods at you, their gaze locked and brows knitted together deep in thought.]",
-            "y_c, have you seen d_n? I need to report a twoleg sighting near the northern borders."
+            "y_c, have you seen d_n? I need to report a Twoleg sighting near the northern borders."
         ],
         "intro_choices": {
             "choice1": {
@@ -2609,7 +2609,8 @@
         "ReportFail": [
             "Mouse-dung!",
             "[Your ears bend back slightly at their harsh tone.]",
-            "I'm sorry y_c, I didn't mean to yell... I'm just worried, StarClan knows how dangerous twolegs can be. Thank you for your honesty, I'll keep asking around. Hopefully, I can find them. Get back to me if you see d_n.",
+            "I'm sorry y_c, I didn't mean to yell... I'm just worried, StarClan knows how dangerous twolegs can be.",
+            "Thank you for your honesty, I'll keep asking around. Hopefully, I can find them. Get back to me if you see d_n.",
             "[You watch as t_c bounds off to ask more cats around camp, their stress evident in every step... Maybe you should help them?]"
         ],
         "ReportFail_choices": {
@@ -2625,11 +2626,12 @@
         "YouHelp": [
             "[t_c needs your help, this is an urgent matter that requires your assistance, for the sake of the clan! You get off your paws and begin to question the cats around you. Some more helpful than others.]",
             "[After endless rounds of asking your clanmates, t_c approaches you out of break and tired. Much to their surprise, you look the same.]",
-            "Thank you for helping me, y_c. Looks like some others are also asking around. You should see r_m, they're like a kitten with a mossball. StarClan, where is d_n? It's like they just up and disappeared-",
+            "Thank you for helping me, y_c. Looks like some others are also asking around. You should see r_m, they're like a kitten with a mossball.",
+            "StarClan, where is d_n? It's like they just up and disappeared-",
             "[As if on cue, d_n enters the camp with a mouse in their jaw, beside them is l_n who looks relaxed until they see the utter disarray the camp is in.]",
             "[Warriors running left and right, the kits in a panic, apprentices unsure what to do, elders and queens trying to settle the kits, medicine cats trying to gather the warriors and the poor mediators who are trying to settle the camp.]",
             "[A voice cuts through the crowd as l_n yells above the chaos, their gaze narrows as they demand to know the meaning of this mess. All eyes fall onto t_c and you...]",
-            "l_n, d_n, while I was out on patrol I saw twolegs near the territory and came back to camp to find you to organize a plan.",
+            "l_n, d_n, while I was out on patrol I saw Twolegs near the territory and came back to camp to find you to organize a plan.",
             "I thought just taking a patrol to follow them without approval was wrong and unfortunately, in my attempt to find you...",
             "[At the news of the threat, l_n immediately drops their prey and barks orders. They call for the warriors and ask t_c to lead the way. Within seconds order is restored and the brave patrol leaps to action.]",
             "[You wait patiently for a while and when they finally return, you are given the nod of approval from d_n and l_n.]",
@@ -2679,9 +2681,9 @@
             "Oh- really? You sound pretty confident in that statement, y'know what? Why not, I mean, I'm talking to you so it's not like I have much dignity to lose anyway.",
             "[They flop down next to you and position themselves to match your pose. Silence hangs in the air for a second as they think to themselves, eyes fixated on the sky as their brain formulates an opinion.]",
             "I hate the fact that you're right. This is actually really comfortable... Cheers to that y_c.",
-            "[You both lay down together and have a light-hearted talk, both smiling and giggling. You both couldn't care less how your clanmates stare at you. They just don't get it.]",
-            "Ha! Don't pay attention to them y_c, they're just jealous of our coolness! They'll never admit it, but I have no doubt when some of our clanmates are alone, they'll try it themselves.",
-            "[You snicker at the thought knowing that t_c is absolutely right, some of your clanmates will absolutely be trying this out later.]"
+            "[You both lay down together and have a light-hearted talk, both smiling and giggling. You both couldn't care less how your Clanmates stare at you. They just don't get it.]",
+            "Ha! Don't pay attention to them y_c, they're just jealous of our coolness! They'll never admit it, but I have no doubt when some of our Clanmates are alone, they'll try it themselves.",
+            "[You snicker at the thought knowing that t_c is absolutely right, some of your Clanmates will absolutely be trying this out later.]"
         ],
         "NowYouLackConfidence": [
             "Judging by the lack of confidence in your statement, I'm going to leave you to it. I mean, have fun, but...",
@@ -2692,7 +2694,7 @@
             "I'M SORRY! It's just- PFT!!!!",
             "HAHAHAHAHA!!!",
             "[Your ears feel red hot from the embarrassment, but also you can't help but scowl at this warrior.]",
-            "[Wasn't t_c supposed to be this respected and renowned warrior of the clan? Apparently not- they're just as weird as you.]"
+            "[Wasn't t_c supposed to be this respected and renowned warrior of the Clan? Apparently not- they're just as weird as you.]"
         ]
     },
     "Stablewarrior_interaction3_Any": {
@@ -2853,5 +2855,37 @@
             "Well, there's no rush, darling.",
             "You can be anything you want to be when the time comes."
         ]
+    },
+    "they_df_sh_ch_R1": {
+        "tags": [
+            "they_df",
+            "you_shunned"
+        ],
+        "intro": [
+            "y_c? I had a question for you that I want you to answer genuinely. Do you regret what you did?",
+            "It's alright if you don't, and it's alright if you do. I just wanted to find out."
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "I do",
+                "next_scene": "regret_ido"
+            },
+            "choice2": {
+                "text": "I don't",
+                "next_scene": "regret_idont"
+            }
+        },
+        
+            
+        "I do":[
+            "I see... Some advice to you then? Work for forgiveness and don't give up. Show them you deserve a second chance.",
+            "Everyone makes mistakes sometimes. You don't need to explain that to anyone either. Just do your best from now on.",
+            "You only live once after all. Make the most of it. And if you end up here in the end... It was still worth a try, right?"
+        ],
+        "I don't":[
+            "No shame in that at all. Respectable choice, really.",
+            "Just don't get caught if you do it again. I'd hate to see you kicked out for something like this. Those star-blind fools will know in the end...",
+            "But what your Clanmates don't know in life won't hurt them." 
+        ] 
     }
 }

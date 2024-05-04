@@ -680,13 +680,12 @@ class History:
         murder_history = History.get_murders(cat)
         victim_history = History.get_murders(victim)
 
-        cat.revealed += 1
-        if cat.revealed > 0 and cat.shunned < 1:
+        if cat.shunned == 0:
             cat.shunned = 1
             cat.thought = "Is upset that they have been shunned"
 
-            # if random.randint(1,4) == 1:
-            cat.get_injured("guilt")
+            if random.randint(1,4) == 1:
+                cat.get_injured("guilt")
 
             for app in cat.apprentice:
                 fetched_cat = Cat.fetch_cat(app)

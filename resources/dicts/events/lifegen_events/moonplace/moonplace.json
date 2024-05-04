@@ -29,7 +29,86 @@
             ]
         ]
     },
-    "med_cat_greetings": {},
+    "med_cat_greetings": {
+        "general_greeting_one_med": [
+            "[o_c_m from o_cn greets you when you arrive.]"
+        ],
+        "general_greeting_multi_med": [
+            "[o_c_m from o_cn greet you when you arrive.]"
+        ],
+        "general_greeting_war_one_med": [
+            "[o_c_m from o_cn doesn't acknowledge you when you arrive.]"
+        ],
+        "general_greeting_war_multi_med": [
+            "[o_c_m from o_cn don't acknowledge you when you arrive.]"
+        ],
+        "general_greeting_gracious_one_med": [
+            "[o_c_m from o_cn smiles at you when you arrive.]"
+        ],
+        "general_greeting_gracious_multi_med": [
+            "[o_c_m from o_cn smile at you when you arrive.]"
+        ],
+        "general_greeting_mellow_one_med": [
+            "[o_c_m from o_cn nods in greeting when you arrive.]"
+        ],
+        "general_greeting_mellow_multi_med": [
+            "[o_c_m from o_cn nod in greeting when you arrive.]"
+        ],
+        "general_greeting_logical_one_med": [
+            "[o_c_m from o_cn quizzes you about herbs as soon as you arrive.]"
+        ],
+        "general_greeting_logical_multi_med": [
+            "[o_c_m from o_cn quiz you about herbs as soon as you arrive.]"
+        ],
+        "general_greeting_amiable_one_med": [
+            "[o_c_m from o_cn starts up a conversation as soon as you arrive.]"
+        ],
+        "general_greeting_amiable_multi_med": [
+            "[o_c_m from o_cn start up a conversation as soon as you arrive.]"
+        ],
+        "general_greeting_stoic_one_med": [
+            "[o_c_m from o_cn dips their head in greeting.]"
+        ],
+        "general_greeting_stoic_multi_med": [
+            "[o_c_m from o_cn dip their head in greeting.]"
+        ],
+        "general_greeting_wary_one_med": [
+            "[o_c_m from o_cn watches you carefully as you approach.]"
+        ],
+        "general_greeting_wary_multi_med": [
+            "[o_c_m from o_cn watch you carefully as you approach.]"
+        ],
+        "general_greeting_cunning_one_med": [
+            "[o_c_m from o_cn gives you a sly smile as you arrive.]"
+        ],
+        "general_greeting_cunning_multi_med": [
+            "[o_c_m from o_cn give you a sly smile as you arrive.]"
+        ],
+        "general_greeting_proud_one_med": [
+            "[o_c_m from o_cn holds their head high as they greet you.]"
+        ],
+        "general_greeting_proud_multi_med": [
+            "[o_c_m from o_cn hold their heads high as they greet you.]"
+        ],
+        "general_greeting_bloodthirsty_one_med": [
+            "[o_c_m from o_cn has a fierce glint in their eyes as they meet you.]"
+        ],
+        "general_greeting_bloodthirsty_multi_med": [
+            "[o_c_m from o_cn have a fierce glint in their eyes as they meet you.]"
+        ],
+        "general_greeting_friendly_one_med": [
+            "[o_c_m from o_cn greets you warmly as you arrive.]"
+        ],
+        "general_greeting_friendly_multi_med": [
+            "[o_c_m from o_cn greet you warmly as you arrive.]"
+        ],
+        "general_greeting_unfriendly_one_med": [
+            "[o_c_m from o_cn gives you a cold look as you arrive.]"
+        ],
+        "general_greeting_unfriendly_multi_med": [
+            "[o_c_m from o_cn give you a cold look as you arrive.]"
+        ]
+    },
     "moonplace": {
         "starclan_general": [
             [

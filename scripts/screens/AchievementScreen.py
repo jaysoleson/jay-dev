@@ -153,12 +153,13 @@ class AchievementScreen(Screens):
                             if countranks >= 3:
                                 achievements.add("31")
         #code for achievement 23 + 24
-            if not Cat.all_cats.get(cat).dead and not Cat.all_cats.get(cat).outside:
-                count_alive_cats += 1
-            if count_alive_cats == 1 and Cat.all_cats.get(cat).ID == you.ID:
-                achievements.add('23')
-            elif count_alive_cats >= 100:
-                achievements.add('24')
+            if Clan.age >= 1:                          
+                if not Cat.all_cats.get(cat).dead and not Cat.all_cats.get(cat).outside:
+                    count_alive_cats += 1
+                if count_alive_cats == 1 and Cat.all_cats.get(cat).ID == you.ID:
+                    achievements.add('23')
+                elif count_alive_cats >= 100:
+                    achievements.add('24')
 
         if you.joined_df:
             achievements.add("7")

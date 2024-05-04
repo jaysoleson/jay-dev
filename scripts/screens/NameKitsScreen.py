@@ -226,7 +226,7 @@ class NameKitsScreen(Screens):
             info = self.selected_cat.status + "\n" + \
                    self.selected_cat.genderalign + "\n" + self.selected_cat.personality.trait + "\n"
 
-            if self.selected_cat.moons < 6:
+            if self.selected_cat.moons < 1:
                 info += "???"
             else:
                 info += self.selected_cat.skills.skill_string(short=True)

@@ -860,7 +860,7 @@
             "unabashed"
         ],
         [
-            "Frankly, I'd rather eat all our clan's dirt left in the dirtplace."
+            "Frankly, I'd rather eat all our Clan's dirt left in the dirtplace."
         ]
     ],
     "d5f4xs4": [
@@ -918,7 +918,7 @@
         ],
         [
             "Hehe. Thanks, cutie. But I just don't like you like that.",
-            "Hey, keep your chin up, though. Plenty of other cats in the clan who might catch your interest."
+            "Hey, keep your chin up, though. Plenty of other cats in the Clan who might catch your interest."
         ]
     ],
     "j7g8df9": [
@@ -2237,6 +2237,42 @@
         [
             "No, no, <i>you're</i> the prettiest!",
             "Are they just being friendly..?"
+        ]
+    ],
+    "flirt_sh_J30": [
+        [
+            "Any",
+            "you_shunned",
+            "they_blind",
+            "you_blind",
+            "flirt"
+        ],
+        [
+            "You're very cruel, y_c."
+        ]
+    ],
+    "flirt_sh_J31": [
+        [
+            "Any",
+            "you_shunned",
+            "they_blind",
+            "you_blind",
+            "flirt"
+        ],
+        [
+            "No, no, don't do that. Not now."
+        ]
+    ],
+    "flirt_sh_J32": [
+        [
+            "Any",
+            "you_shunned",
+            "they_blind",
+            "you_blind",
+            "flirt"
+        ],
+        [
+            "Maybe I could have liked you if you weren't so evil."
         ]
     ]
 }

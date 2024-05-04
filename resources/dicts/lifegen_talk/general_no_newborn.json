@@ -1,0 +1,407 @@
+{
+    "UR_wisp_H2": [
+        [
+            "they_ur",
+            "any"
+        ],
+        [
+            "I heard some of c_nClan's cats whisper about wisps. It was under their breath, as if they wanted the topic of wisps to be a secret. Supposedly, they've been appearing more often lately.",
+            "[t_c gathers their thoughts for a moment and glances at you.]",
+            "... Have you heard about wisps? No?",
+            "I was told by my parent that wisps are the cats who never make it to the afterlife. They float around aimlessly to help those in the living. Something about fate and destiny being weaved together like a cloth, whatever that means.",
+            "I couldn't help but connect it to where I am now. Am I a wisp? Or is this all coincidence..."
+        ]
+    ],
+    "living_ur_5c": [
+        [
+            "any",
+            "they_ur"
+        ],
+        [
+            "Why am I a ghost, you ask?",
+            "... I have some things I still need to do."
+        ]
+    ],
+    "living_ur_1c": [
+        [
+            "any",
+            "they_ur"
+        ],
+        [
+            "[t_c flicks their tail in your face. They look surprised when you flinch back.]",
+            "You can see me?"
+        ]
+    ],
+    "living_ur_2c": [
+        [
+            "any",
+            "they_ur"
+        ],
+        [
+            "If you're ever feeling lonely, I'm always here. I have nothing better to do than to keep you company."
+        ]
+    ],
+    "living_ur_3c": [
+        [
+            "any",
+            "they_ur"
+        ],
+        [
+            "[t_c drifts around idly.]"
+        ]
+    ],
+    "sc_ur_c1": [
+        [
+            "you_sc",
+            "they_ur",
+            "any",
+            "you_blind"
+        ],
+        [
+            "Hello, y_c!",
+            "I don't see you around these parts that often...",
+            "Any reason you're so far from home?"
+        ]
+    ],
+    "sc_ur_c2": [
+        [
+            "you_sc",
+            "they_ur",
+            "you_blind",
+            "they_blind",
+            "any"
+        ],
+        [
+            "What is it like, in StarClan?",
+            "Think I'll be able to visit sometime?"
+        ]
+    ],
+    "sc_ur_c3": [
+        [
+            "you_sc",
+            "they_ur",
+            "you_blind",
+            "they_blind",
+            "any"
+        ],
+        [
+            "I have things to do, y_c. Make it quick."
+        ]
+    ],
+    "sc_ur_c4": [
+        [
+            "you_sc",
+            "they_ur",
+            "any"
+        ],
+        [
+            "Looking for something, y_c?"
+        ]
+    ],
+    "sc_ur_c5": [
+        [
+            "you_sc",
+            "they_ur",
+            "they_blind",
+            "any"
+        ],
+        [
+            "[t_c flits around aimlessly. Their pelt is so transparent you can nearly see through them.]"
+        ]
+    ],
+    "UR_parent_H1": [
+        [
+            "from_parent",
+            "you_orphaned",
+            "they_ur",
+            "you_sc"
+        ],
+        [
+            "[t_c drifts to where you stand. They tilt their head and smile warily.]",
+            "Who are you? Not many of your kind walk through these lands.",
+            "[They don't seem to recognize you.]"
+        ]
+    ],
+    "UR_backstory_H2": [
+        [
+            "from_parent",
+            "you_orphaned",
+            "they_ur",
+            "you_sc",
+            "any"
+        ],
+        [
+            "[t_c double-takes, their eyes wide with giddy wonder as you approach their ghostly form]",
+            "My kit... Oh, look how you've grown, y_c.",
+            "I don't regret allowing them to take you, not one bit.",
+            "Not one bit, y_c."
+        ]
+    ],
+    "df_ur_c1": [
+        [
+            "you_df",
+            "they_ur",
+            "upstanding",
+            "assertive",
+            "unlawful",
+            "brooding",
+            "cool",
+            "any",
+            "you_blind",
+            "they_blind"
+        ],
+        [
+            "[t_c hisses in your face.]",
+            "You're not welcome here."
+        ]
+    ],
+    "df_ur_c2": [
+        [
+            "you_df",
+            "they_ur",
+            "introspective",
+            "neurotic",
+            "any",
+            "you_blind",
+            "they_blind"
+        ],
+        [
+            "I know what your kind has done.",
+            "There's always a reason that you get sent to that place."
+        ]
+    ],
+    "df_ur_c3": [
+        [
+            "you_df",
+            "they_ur",
+            "silly",
+            "stable",
+            "sweet",
+            "any",
+            "you_blind",
+            "they_blind"
+        ],
+        [
+            "I know that the Dark Forest is a harsh place...",
+            "If you ever want a rest, you're welcome to stay here."
+        ]
+    ],
+    "df_ur_c4": [
+        [
+            "you_df",
+            "they_ur",
+            "unabashed",
+            "any",
+            "you_blind",
+            "they_blind"
+        ],
+        [
+            "What'd you do to get sent to the Dark Forest?",
+            "[t_c's question is so blunt that it catches you off guard for a moment.]"
+        ]
+    ],
+    "df_ur_c5": [
+        [
+            "you_df",
+            "they_ur",
+            "any",
+            "you_blind",
+            "they_blind",
+            "you_deaf",
+            "they_deaf"
+        ],
+        [
+            "[You and t_c sit in a comfortable silence.]",
+            "[It's been so long since you've been near a cat that hasn't shown any hostility toward you. It's nice.]"
+        ]
+    ],
+    "ur_living_3c": [
+        [
+            "you_ur",
+            "any"
+        ],
+        [
+            "[t_c gazes sadly at you.]",
+            "Do you even remember what it was like to be alive?"
+        ]
+    ],
+    "ur_living_4c": [
+        [
+            "you_ur",
+            "any",
+            "you_blind",
+            "they_blind"
+        ],
+        [
+            "The elders taught me that ghosts like you haunt places.",
+            "Is that what you're doing? Haunting?"
+        ]
+    ],
+    "ur_living_5c": [
+        [
+            "you_ur",
+            "any",
+            "you_blind",
+            "they_blind"
+        ],
+        [
+            "Why do you stay here, y_c? Is there something you still need to find?"
+        ]
+    ],
+    "ur_living_6c": [
+        [
+            "you_ur",
+            "any"
+        ],
+        [
+            "Are you looking for someone? I can help you look, if you want."
+        ]
+    ],
+    "ur_living_8c": [
+        [
+            "you_ur",
+            "any",
+            "they_grieving",
+            "you_blind"
+        ],
+        [
+            "Go away, y_c. I don't want to see <i>you</i>."
+        ]
+    ],
+    "ur_df_c1": [
+        [
+            "you_ur",
+            "they_df",
+            "no_kit",
+            "you_blind",
+            "they_blind"
+        ],
+        [
+            "[As soon as t_c notices you, they leap onto you, sending both of you rolling on the ground.]",
+            "[They place a claw on your neck, then hesitate.]",
+            "Wait, you're not from StarClan... Am I still supposed to kill you?",
+            "[t_c steps off of you, their expression conflicted.]",
+            "Who are you anyway?"
+        ]
+    ],
+    "ur_df_c2": [
+        [
+            "you_ur",
+            "they_df",
+            "any",
+            "they_blind"
+        ],
+        [
+            "It's not so bad here, y_c.",
+            "I mean, it can't be as terrible as being a ghost, right?",
+            "[t_c shudders.]",
+            "I can't imagine just having to wander the world forever, all by yourself."
+        ]
+    ],
+    "ur_df_c3": [
+        [
+            "you_ur",
+            "they_df",
+            "any"
+        ],
+        [
+            "[t_c snarls at you.]",
+            "You're not welcome here, ghost. Go haunt someone else."
+        ]
+    ],
+    "ur_df_c4": [
+        [
+            "you_ur",
+            "they_df",
+            "any",
+            "you_deaf",
+            "they_blind",
+            "they_deaf"
+        ],
+        [
+            "[t_c shivers, tail wrapped tightly around themself.]",
+            "[You can't imagine an afterlife without ever feeling the sun.]"
+        ]
+    ],
+    "ur_df_c5": [
+        [
+            "you_ur",
+            "they_df",
+            "any",
+            "they_blind",
+            "you_deaf",
+            "they_deaf"
+        ],
+        [
+            "[t_c is practicing an advanced battle move, over and over again.]",
+            "[You wonder what they're training for.]"
+        ]
+    ],
+    "ur_sc_c1": [
+        [
+            "you_ur",
+            "they_sc",
+            "any",
+            "you_blind"
+        ],
+        [
+            "Hello, y_c!",
+            "I don't see you around these parts that often...",
+            "Any reason you're so far from home?"
+        ]
+    ],
+    "ur_sc_c2": [
+        [
+            "you_ur",
+            "they_sc",
+            "any",
+            "you_blind",
+            "they_blind",
+            "you_deaf",
+            "they_deaf"
+        ],
+        [
+            "[t_c is busy debating with another cat about which omen to send c_nClan.]",
+            "[You probably shouldn't bother them.]"
+        ]
+    ],
+    "ur_sc_c3": [
+        [
+            "you_ur",
+            "they_sc",
+            "any",
+            "you_blind",
+            "they_blind"
+        ],
+        [
+            "It's good hunting here, isn't it?",
+            "You're free to stay a while."
+        ]
+    ],
+    "ur_sc_c4": [
+        [
+            "you_ur",
+            "they_sc",
+            "any",
+            "you_blind",
+            "they_blind"
+        ],
+        [
+            "Say hi to t_k for me, alright?",
+            "I can't visit the living world as freely as you can."
+        ]
+    ],
+    "ur_sc_c5": [
+        [
+            "you_ur",
+            "they_sc",
+            "any",
+            "you_blind",
+            "they_blind"
+        ],
+        [
+            "Sorry, y_c. Can't talk with you right now.",
+            "It's StarClan stuff -- you wouldn't understand."
+        ]
+    ]
+}

@@ -452,7 +452,8 @@ class Pregnancy_Events():
         
         print_event = event_text_adjust(Cat, print_event, cat, other_cat, clan=clan)
         # display event
-        game.cur_events_list.append(Single_Event(print_event, ["health", "birth_death"], involved_cats))
+        if kits_amount != 0:
+            game.cur_events_list.append(Single_Event(print_event, ["health", "birth_death"], involved_cats))
 
     # ---------------------------------------------------------------------------- #
     #                          check if event is triggered                         #

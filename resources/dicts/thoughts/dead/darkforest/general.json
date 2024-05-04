@@ -54,8 +54,8 @@
             "Feels a sharp pang of hunger",
             "Can still feel {PRONOUN/m_c/poss} wounds that killed {PRONOUN/m_c/object}",
             "Is discussing future plans with the other Dark Forest cats",
-            "Is errily staring at the black abyss",
-            "Is yowling into the ebony void {PRONOUN/m_c/subject} don't belong here"
+            "Is eerily staring at the black abyss",
+            "Is yowling into the ebony void that {PRONOUN/m_c/subject} don't belong here"
         ]
     },
     {
@@ -67,7 +67,7 @@
             "Is watching r_c with a sly smile",
             "Is currently walking inside r_c's dreams, whispering of promises and lies",
             "Is taking over r_c's body in order to finish what {PRONOUN/m_c/subject} started",
-            "Pull r_c into the Dark Forest in {PRONOUN/r_c/poss} dreams",
+            "Pulls r_c into the Dark Forest in {PRONOUN/r_c/poss} dreams",
             "Is secretly training r_c",
             "Is begging r_c to vouch for {PRONOUN/m_c/object} to join StarClan",
             "Is explaing to r_c about {PRONOUN/m_c/poss} backstory and why {PRONOUN/m_c/subject} {VERB/m_c/are/is} here"
@@ -79,13 +79,13 @@
     {
         "id": "dark_forest_founder_dead_to_dead_other",
         "thoughts": [
-            "Is speaking with r_c how c_b came to be",
+            "Is speaking with r_c how c_n came to be",
             "Is telling the other Dark Forest cats stories of c_n's beginning",
-            "Proposed to {PRONOUN/m_c/self} {PRONOUN/m_c/poss} era was the most powerful and pure",
+            "Proposed to {PRONOUN/m_c/self} that {PRONOUN/m_c/poss} era was the most powerful and pure",
             "Is trying to take control over r_c with promises of protection",
-            "Hosting another death battle to boost {PRONOUN/m_c/poss} power over the forgotten souls",
-            "Glares down at the battles, reviewing and taunting r_c to improve",
-            "Lifts a dagger claw at a quivering, pitiful soul, then orders r_c to dispose of it"
+            "Is hosting another battle to the death to boost {PRONOUN/m_c/poss} power over the forgotten souls",
+            "Glares down at the battling trainees, rtaunting r_c to improve",
+            "Lifts a claw at a quivering, pitiful soul, then orders r_c to dispose of it"
         ],
         "main_age_constraint": [
             "adolescent",

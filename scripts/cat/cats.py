@@ -235,7 +235,7 @@ class Cat():
         self.insulted = False
         self.flirted = False
         self.joined_df = False
-        self.revealed = 0
+        self.forgiven = 0
         self.inventory = []
         self.permanent_inventory = []
         self.revives = 0
@@ -251,6 +251,8 @@ class Cat():
         self.intelligence = 0
         self.empathy = 0
         self.did_activity = False
+        self.df_mentor = None
+        self.df_apprentices = []
         
         self.prevent_fading = False  # Prevents a cat from fading.
         self.faded_offspring = []  # Stores of a list of faded offspring, for family page purposes.
@@ -585,32 +587,33 @@ class Cat():
         if game.clan and game.clan.game_mode != 'classic' and not (self.outside or self.exiled) and body is not None:
             self.grief(body)
 
-        if not self.outside and self.status not in ["loner", "kittypet", "rogue", "former Clancat"]:
-            #^^ seems redundant but fixes a bug where, if following the DF before the mc
-            # is born, and mc is not clanborn, their birth parent will be in both the DF and UR
-            Cat.dead_cats.append(self)
-            if game.clan.followingsc is False:
-                self.df = True
-                self.thought = "Is startled to find themselves wading in the muck of a shadowed forest"
-                game.clan.add_to_darkforest(self)
-            else:
-                self.thought = 'Is surprised to find themselves walking the stars of Silverpelt'
-                
-            if self.history:
-                if self.history.murder:
-                    if "is_murderer" in self.history.murder:
-                        if len(self.history.murder["is_murderer"]) > 2:
-                            self.df = True
-                            self.thought = "Is startled to find themselves wading in the muck of a shadowed forest"
-                            game.clan.add_to_darkforest(self)
+        if not self.outside:
+            if self.status not in ["loner", "kittypet", "rogue", "former Clancat"]:
+                #^^ seems redundant but fixes a bug where, if following the DF before the mc
+                # is born, and mc is not clanborn, their birth parent will be in both the DF and UR
+                Cat.dead_cats.append(self)
+                if game.clan.followingsc is False:
+                    self.df = True
+                    self.thought = "Is startled to find themselves wading in the muck of a shadowed forest"
+                    game.clan.add_to_darkforest(self)
+                else:
+                    self.thought = 'Is surprised to find themselves walking the stars of Silverpelt'
+                    
+                if self.history:
+                    if self.history.murder:
+                        if "is_murderer" in self.history.murder:
+                            if len(self.history.murder["is_murderer"]) > 2:
+                                self.df = True
+                                self.thought = "Is startled to find themselves wading in the muck of a shadowed forest"
+                                game.clan.add_to_darkforest(self)
 
-            if self.shunned > 0 and self.revealed > 1:
-                self.df = True
-                self.thought = "Is startled to find themselves wading in the muck of a shadowed forest"
-                game.clan.add_to_darkforest(self)
-            elif self.shunned > 0 and self.revealed == 1:
-                self.thought = "Is shocked they made it into StarClan"
-                game.clan.add_to_starclan(self)
+                if self.shunned > 0 and self.forgiven > 1:
+                    self.df = True
+                    self.thought = "Is startled to find themselves wading in the muck of a shadowed forest"
+                    game.clan.add_to_darkforest(self)
+                elif self.shunned == 0 and self.forgiven > 0:
+                    self.thought = "Is shocked they made it into StarClan"
+                    game.clan.add_to_starclan(self)
             
         else:
             self.thought = "Is fascinated by the new ghostly world they've stumbled into"
@@ -2497,7 +2500,7 @@ class Cat():
                         priority_mentors.append(cat)
             # First try for a cat who currently has no apprentices and is working
             if 'request apprentice' in game.switches:
-                if game.switches['request apprentice']:
+                if game.switches['request apprentice'] and self.moons == 6:
                     new_mentor = game.clan.your_cat
                 else:
                     if priority_mentors:  # length of list > 0
@@ -2510,6 +2513,30 @@ class Cat():
                 new_mentor = choice(potential_mentors)
             if new_mentor:
                 self.__add_mentor(new_mentor.ID)
+    
+    def update_df_mentor(self):
+        """Handles giving clan members df mentors"""
+        if not self.joined_df or self.dead or self.df_mentor:
+            return
+        
+        potential_mentors = []
+        for c in Cat.all_cats_list:
+            if c.dead and c.df and c.moons >= 6 and self.ID != c.ID:
+                potential_mentors.append(c)
+
+        priority_mentors = []
+        for c in potential_mentors: 
+            if len(self.df_apprentices) == 0:
+                priority_mentors.append(c)
+
+        if priority_mentors:
+            df_mentor = choice(priority_mentors)
+            self.df_mentor = df_mentor.ID
+            df_mentor.df_apprentices.append(self.ID)
+        elif potential_mentors:
+            df_mentor = choice(potential_mentors)
+            self.df_mentor = df_mentor.ID
+            df_mentor.df_apprentices.append(self.ID)
 
     # ---------------------------------------------------------------------------- #
     #                                 relationships                                #
@@ -3666,7 +3693,7 @@ class Cat():
                 "insulted": self.insulted if self.insulted else False,
                 "flirted": self.flirted if self.flirted else False,
                 "joined_df": self.joined_df if self.joined_df else False,
-                "revealed": self.revealed if self.revealed and isinstance(self.revealed, int) else 0,
+                "forgiven": self.forgiven if self.forgiven and isinstance(self.forgiven, int) else 0,
                 "inventory": self.pelt.inventory if self.pelt.inventory else [],
                 "permanent_inventory": self.permanent_inventory if self.permanent_inventory else [],
                 "revives": self.revives if self.revives else 0,
@@ -3675,7 +3702,9 @@ class Cat():
                 "compassion": self.compassion if self.compassion else 0,
                 "intelligence": self.intelligence if self.intelligence else 0,
                 "empathy": self.empathy if self.empathy else 0,
-                "did_activity": self.did_activity if self.did_activity else False
+                "did_activity": self.did_activity if self.did_activity else False,
+                "df_mentor": self.df_mentor if self.df_mentor else None,
+                "df_apprentices": self.df_apprentices if self.df_apprentices else []
             }
 
 

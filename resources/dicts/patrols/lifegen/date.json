@@ -8,7 +8,7 @@
             "leaf-bare"
         ],
         "types": [
-            "hunting"
+            "border"
         ],
         "tags": [
             "date"
@@ -45,7 +45,7 @@
             "Any"
         ],
         "types": [
-            "hunting"
+            "border"
         ],
         "tags": [
             "date"
@@ -82,7 +82,7 @@
             "Any"
         ],
         "types": [
-            "hunting"
+            "border"
         ],
         "tags": [
             "date"
@@ -119,7 +119,7 @@
             "Any"
         ],
         "types": [
-            "hunting"
+            "border"
         ],
         "tags": [
             "date"
@@ -156,7 +156,7 @@
             "Any"
         ],
         "types": [
-            "hunting"
+            "border"
         ],
         "tags": [
             "date"
@@ -193,12 +193,12 @@
             "Any"
         ],
         "types": [
-            "hunting"
+            "border"
         ],
         "tags": [
             "date"
         ],
-        "patrol_art": "date_default",
+        "patrol_art": "Patrol_beachdate",
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {},
@@ -230,7 +230,7 @@
             "leaf-bare"
         ],
         "types": [
-            "hunting"
+            "border"
         ],
         "tags": [
             "date"
@@ -273,7 +273,7 @@
             "Any"
         ],
         "types": [
-            "hunting"
+            "border"
         ],
         "tags": [
             "date"
@@ -310,7 +310,7 @@
             "leaf-fall"
         ],
         "types": [
-            "hunting"
+            "border"
         ],
         "tags": [
             "date"
@@ -347,7 +347,7 @@
             "Any"
         ],
         "types": [
-            "hunting"
+            "border"
         ],
         "tags": [
             "date"
@@ -384,7 +384,7 @@
             "Any"
         ],
         "types": [
-            "hunting"
+            "border"
         ],
         "tags": [
             "date"
@@ -421,7 +421,7 @@
             "Any"
         ],
         "types": [
-            "hunting"
+            "border"
         ],
         "tags": [
             "date"
@@ -458,7 +458,7 @@
             "Any"
         ],
         "types": [
-            "hunting"
+            "border"
         ],
         "tags": [
             "date",
@@ -496,7 +496,7 @@
             "Any"
         ],
         "types": [
-            "hunting"
+            "border"
         ],
         "tags": [
             "date"
@@ -533,7 +533,7 @@
             "Any"
         ],
         "types": [
-            "hunting"
+            "border"
         ],
         "tags": [
             "date"
@@ -570,7 +570,7 @@
             "Any"
         ],
         "types": [
-            "hunting"
+            "border"
         ],
         "tags": [
             "date"
@@ -613,7 +613,7 @@
             "Any"
         ],
         "types": [
-            "hunting"
+            "border"
         ],
         "tags": [
             "date"
@@ -650,7 +650,7 @@
             "Any"
         ],
         "types": [
-            "hunting"
+            "border"
         ],
         "tags": [
             "date"
@@ -687,7 +687,7 @@
             "Any"
         ],
         "types": [
-            "hunting"
+            "border"
         ],
         "tags": [
             "date"
@@ -724,7 +724,7 @@
             "leaf-fall"
         ],
         "types": [
-            "hunting"
+            "border"
         ],
         "tags": [
             "date"
@@ -767,7 +767,7 @@
             "Any"
         ],
         "types": [
-            "hunting"
+            "border"
         ],
         "tags": [
             "date"
@@ -804,13 +804,13 @@
             "Any"
         ],
         "types": [
-            "hunting"
+            "border"
         ],
         "tags": [
             "date",
             "df"
         ],
-        "patrol_art": "date_default",
+        "patrol_art": "df_training",
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {},
@@ -848,7 +848,7 @@
             "Any"
         ],
         "types": [
-            "hunting"
+            "border"
         ],
         "tags": [
             "date",
@@ -886,7 +886,7 @@
             "Any"
         ],
         "types": [
-            "hunting"
+            "border"
         ],
         "tags": [
             "date",
@@ -924,7 +924,7 @@
             "newleaf"
         ],
         "types": [
-            "hunting"
+            "border"
         ],
         "tags": [
             "date"
@@ -961,7 +961,7 @@
             "Any"
         ],
         "types": [
-            "hunting"
+            "border"
         ],
         "tags": [
             "date"
@@ -998,7 +998,7 @@
             "Any"
         ],
         "types": [
-            "hunting"
+            "border"
         ],
         "tags": [
             "date"
@@ -1035,7 +1035,7 @@
             "Any"
         ],
         "types": [
-            "hunting"
+            "border"
         ],
         "tags": [
             "date"

@@ -448,6 +448,8 @@ class Game():
 
         copy_of_info = ""
         for cat in game.cat_to_fade:
+            if cat not in self.cat_class.all_cats:
+                continue
 
             inter_cat = self.cat_class.all_cats[cat]
 

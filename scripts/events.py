@@ -19,6 +19,7 @@ from scripts.patrol.patrol import Patrol
 import ujson
 
 from scripts.cat.cats import Cat, cat_class
+from scripts.clan import Clan
 from scripts.clan import HERBS
 from scripts.clan_resources.freshkill import FRESHKILL_ACTIVE, FRESHKILL_EVENT_ACTIVE
 from scripts.conditions import medical_cats_condition_fulfilled, get_amount_cat_for_one_medic
@@ -39,7 +40,7 @@ from scripts.utility import get_cluster, get_alive_kits, get_alive_cats, get_ali
 from scripts.events_module.generate_events import GenerateEvents
 from scripts.events_module.relationship.pregnancy_events import Pregnancy_Events
 from scripts.game_structure.windows import SaveError
-from scripts.game_structure.windows import RetireScreen, DeputyScreen, NameKitsWindow
+from scripts.game_structure.windows import RetireScreen, DeputyScreen, NameKitsWindow, PickPath
 from enum import Enum, auto
 
 class BirthType(Enum):
@@ -155,7 +156,7 @@ class Events:
         # 1 = reg patrol 2 = lifegen patrol 3 = df patrol 4 = date
         game.switches['patrolled'] = []
         game.switches['window_open'] = False
-        if game.clan.your_cat.status == "medicine cat apprentice":
+        if game.clan.your_cat.status == "medicine cat apprentice" or game.clan.your_cat.status == "medicine cat":
             game.switches["attended half-moon"] = False
         
         if any(
@@ -397,7 +398,7 @@ class Events:
                 self.generate_birth_event()
             elif game.clan.your_cat.moons < 6:
                 self.generate_events() 
-            elif game.clan.your_cat.moons == 6 and game.clan.your_cat.shunned == 0:
+            elif game.clan.your_cat.moons == 6:
                 self.generate_app_ceremony()
             elif game.clan.your_cat.status in ['apprentice', 'medicine cat apprentice', 'mediator apprentice', "queen's apprentice"]:
                 self.generate_events()
@@ -444,6 +445,7 @@ class Events:
             self.generate_exile_event()
             
         game.clan.murdered = False
+        game.clan.affair = False
         game.clan.exile_return = False
         
         self.check_achievements()
@@ -624,12 +626,13 @@ class Events:
                             if countranks >= 3:
                                 achievements.add("31")
             #code for achievement 23 + 24
-            if not Cat.all_cats.get(cat).dead and not Cat.all_cats.get(cat).outside:
-                count_alive_cats += 1
-            if count_alive_cats == 1 and Cat.all_cats.get(cat).ID == you.ID:
-                achievements.add('23')
-            elif count_alive_cats >= 100:
-                achievements.add('24')
+            if Clan.age >= 1:
+                if not Cat.all_cats.get(cat).dead and not Cat.all_cats.get(cat).outside:
+                    count_alive_cats += 1
+                if count_alive_cats == 1 and Cat.all_cats.get(cat).ID == you.ID:
+                    achievements.add('23')
+                elif count_alive_cats >= 100:
+                    achievements.add('24')
 
         if you.joined_df:
             achievements.add("7")
@@ -954,8 +957,12 @@ class Events:
         try:
             if "r_c_sc" in text:
                 alive_app = Cat.all_cats.get(random.choice(game.clan.starclan_cats))
+                counter = 0
                 while alive_app.ID == game.clan.your_cat.ID:
+                    if counter == 15:
+                        return ""
                     alive_app = Cat.all_cats.get(random.choice(game.clan.starclan_cats))
+                    counter+=1
                 text = text.replace("r_c_sc", str(alive_app.name))
             if "r_c" in text:
                 alive_cats = self.get_living_cats()
@@ -1099,10 +1106,19 @@ class Events:
                 if game.clan.your_cat.mate is None:
                     return ""
                 text = text.replace("y_m", str(Cat.fetch_cat(random.choice(game.clan.your_cat.mate)).name))
+            if "df_y_a" in text:
+                if not game.clan.your_cat.dead or not game.clan.your_cat.df or len(game.clan.your_cat.df_apprentices) == 0:
+                    return ""
+                text = text.replace("df_y_a", str(Cat.fetch_cat(random.choice(game.clan.your_cat.df_apprentices)).name))
             if "y_a" in text:
                 if len(game.clan.your_cat.apprentice) == 0 or game.clan.your_cat.apprentice is None:
                     return ""
                 text = text.replace("y_a", str(Cat.fetch_cat(random.choice(game.clan.your_cat.apprentice)).name))
+            if "df_m_n" in text:
+                if game.clan.your_cat.joined_df and not game.clan.your_cat.dead and game.clan.your_cat.df_mentor:
+                    text = text.replace("df_m_n", Cat.all_cats.get(game.clan.your_cat.df_mentor))
+                else:
+                    return ""
             if "m_n" in text or "mentor1" in text:
                 if game.clan.your_cat.mentor is None:
                     return ""
@@ -1127,6 +1143,8 @@ class Events:
                 resource_dir = "resources/dicts/events/lifegen_events/events_dead_sc/"
             elif game.clan.your_cat.df and not game.clan.your_cat.outside:
                 resource_dir = "resources/dicts/events/lifegen_events/events_dead_df/"
+            elif not game.clan.your_cat.df and game.clan.your_cat.ID in game.clan.unknown_cats:
+                resource_dir = "resources/dicts/events/lifegen_events/events_dead_ur/"
 
         elif game.clan.your_cat.shunned > 0 and not game.clan.your_cat.outside and not game.clan.your_cat.dead:
             resource_dir = "resources/dicts/events/lifegen_events/shunned/"
@@ -1157,7 +1175,7 @@ class Events:
 
         # Add old events
         if not all_events:
-            return 
+            return
         if f"{status} old" in all_events:
             possible_events = possible_events + all_events[f"{status} old"]
 
@@ -1203,12 +1221,15 @@ class Events:
 
     def generate_app_ceremony(self):
         try:
-            game.clan.your_cat.status_change(game.clan.your_cat.status)
             ceremony_txt = ""
-            if game.clan.your_cat.mentor:
-                ceremony_txt = random.choice(self.b_txt[game.clan.your_cat.status + ' ceremony'])
+            if game.clan.your_cat.shunned != 0:
+                ceremony_txt = ceremony_txt = random.choice(self.b_txt['apprentice ceremony shunned'])
             else:
-                ceremony_txt = random.choice(self.b_txt[game.clan.your_cat.status + ' ceremony no mentor'])
+                game.clan.your_cat.status_change(game.clan.your_cat.status)
+                if game.clan.your_cat.mentor:
+                    ceremony_txt = random.choice(self.b_txt[game.clan.your_cat.status + ' ceremony'])
+                else:
+                    ceremony_txt = random.choice(self.b_txt[game.clan.your_cat.status + ' ceremony no mentor'])
             ceremony_txt = ceremony_txt.replace('c_n', str(game.clan.name))
             ceremony_txt = ceremony_txt.replace('y_c', str(game.clan.your_cat.name))
             try:
@@ -1487,7 +1508,7 @@ class Events:
                         return
                 c = Cat.all_cats.get(random.choice(game.clan.clan_cats))
                 counter = 0
-                while not c.relationships.get(game.clan.your_cat.ID) or c.relationships.get(game.clan.your_cat.ID).romantic_love < 10:
+                while not c.relationships.get(game.clan.your_cat.ID) or c.relationships.get(game.clan.your_cat.ID).romantic_love < 10 or c.outside:
                     if counter == 15:
                         return
                     c = Cat.all_cats.get(random.choice(game.clan.clan_cats))
@@ -1545,6 +1566,7 @@ class Events:
                 r_clanmate = Cat.all_cats.get(random.choice(game.clan.clan_cats))
             
             r_clanmate.joined_df = True
+            r_clanmate.update_df_mentor()
             evt_txt = random.choice(self.df_txt["clanmate"]).replace("c_m", str(r_clanmate.name))
             evt = Single_Event(evt_txt)
             if evt not in game.cur_events_list:
@@ -1951,9 +1973,19 @@ class Events:
         if additional_cats:
             text += " {PRONOUN/m_c/subject/CAP} {VERB/m_c/bring/brings} along {PRONOUN/m_c/poss} "
             if len(additional_cats) > 1:
-                text += str(len(additional_cats)) + " childen."
+                text += str(len(additional_cats)) + " children."
             else:
                 text += "child."
+
+        if lost_cat.ID == game.clan.your_cat.ID:
+            if lost_cat.status == "kitten" and lost_cat.moons > 4:
+                if lost_cat.moons < 119:
+                    PickPath('events screen')
+                    if lost_cat.moons < 12:
+                        self.generate_app_ceremony()
+                else:
+                    lost_cat.status = 'elder'
+                
          
         text = event_text_adjust(Cat, text, lost_cat, clan=game.clan)
         
@@ -2253,7 +2285,7 @@ class Events:
 
         self.handle_murder(cat)
 
-        if cat.status == 'deputy' and cat.ID != game.clan.your_cat.ID and game.clan.your_cat.status == 'deputy' and not game.clan.your_cat.dead:
+        if cat.status == 'deputy' and cat.ID != game.clan.your_cat.ID and game.clan.your_cat.status == 'deputy' and not game.clan.your_cat.dead and not (game.clan.your_cat.outside or game.clan.your_cat.exiled):
             cat.status = 'warrior'
 
             if game.clan.deputy.ID != game.clan.your_cat.ID:
@@ -2400,10 +2432,13 @@ class Events:
                            f'promising a new era for the Clans.'
                 else:
                     c = random.choice([1, 2, 3])
-                    if game.clan.biome == 'Forest':
-                        moonplace = 'Moongrove'
-                    else:
-                        moonplace = 'Moonfalls'
+                    moonplace_dict = {
+                        "Beach": "Mooncove",
+                        "Mountainous": "Moonfalls",
+                        "Forest": "Moonhollow",
+                        "Plains": "Moongrove"
+                    }
+                    moonplace = moonplace_dict.get(game.clan.biome, "Moonplace")
                     if c == 1:
                         text = str(game.clan.deputy.name.prefix) + str(
                             game.clan.deputy.name.suffix) + \
@@ -3177,6 +3212,9 @@ class Events:
 
         if cat.age in ["kitten", "newborn"]:
             return
+
+        if cat.ID == game.clan.your_cat.ID:
+            return
         
         # if this cat is unstable and aggressive, we lower the random murder chance
         random_murder_chance = int(game.config["death_related"]["base_random_murder_chance"])
@@ -3408,14 +3446,16 @@ class Events:
         if game.clan.second_disaster:
             self.handle_second_disaster()
     
-    def handle_disaster_impacts(self, current_disaster):        
+    def handle_disaster_impacts(self, current_disaster):      
         for i in range(random.randint(0,2)):
             cat = Cat.all_cats.get(random.choice(game.clan.clan_cats))
             for j in range(20):
                 if cat.outside or cat.dead or cat.moons < 6:
                     cat = Cat.all_cats.get(random.choice(game.clan.clan_cats))
                 else:
-                    return
+                    break
+            if cat.outside or cat.dead or cat.moons < 6:
+                return
             if current_disaster["collateral_damage"]:
                 if random.randint(1,10) == 1:
                     if random.randint(1,5) == 1:
@@ -3613,11 +3653,12 @@ class Events:
             # these numbers are kind of crazy but i wanted to keep the one randint
             if fate in [1, 2, 5, 6, 10, 11]:
                 cat.shunned = 0
+                cat.forgiven = game.clan.age
                 cat.exiled = False
                 cat.outside = False
                 cat.add_to_clan()
                 if cat.ID == game.clan.your_cat.ID:
-                    text = "A Clan meeting is called one day, and your clanmates vote to forgive you for what you did."
+                    text = "A Clan meeting is called one day, and your Clanmates vote to forgive you for what you did."
                 else:
                     text = random.choice([
                         f"After showing genuine remorse and guilt, {cat.name} has been forgiven and welcomed back into {game.clan.name}Clan, though some are quicker to forgive than others.",

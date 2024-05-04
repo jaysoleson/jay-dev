@@ -270,7 +270,7 @@ class StartScreen(Screens):
         try:
             global has_checked_for_update
             global update_available
-            if not get_version_info().is_source_build and not get_version_info().is_itch and get_version_info().upstream.lower() == "ClanGenOfficial/clangen".lower() and \
+            if not get_version_info().is_source_build and not get_version_info().is_itch and get_version_info().upstream.lower() == "sedgestripe/clangen".lower() and \
                     game.settings['check_for_updates'] and not has_checked_for_update:
                 if has_update(UpdateChannel(get_version_info().release_channel)):
                     update_available = True
@@ -341,13 +341,6 @@ class StartScreen(Screens):
                 self.open_data_directory_button.hide()
 
             self.closebtn.show()
-
-        if game.clan is not None:
-            key_copy = tuple(Cat.all_cats.keys())
-            for x in key_copy:
-                if x not in game.clan.clan_cats:
-                    game.clan.remove_cat(x)
-                    print("1: removed" + str(x))
 
         # LOAD settings
         game.load_settings()

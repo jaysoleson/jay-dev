@@ -24,8 +24,8 @@
         ],
         [
             "Is that y_c I see? Do anything fun today? r_w and I just got back from hunting! You should have been there! ",
-            "There was this huge bird. It certainly could feed half the clan, how fat it is!",
-            "Hmm? Oh, yes. Of course I caught it. Here, we can share with the rest of the clan.",
+            "There was this huge bird. It certainly could feed half the Clan, how fat it is!",
+            "Hmm? Oh, yes. Of course I caught it. Here, we can share with the rest of the Clan.",
             "[As t_c grins confidently, you have no doubt they managed such an accomplishment so easily.]"
         ]
     ],
@@ -241,7 +241,7 @@
         ],
         [
             "You were distracted during training today, is everything alright? I know it's been rough lately, but.. you're doing very good, you know that?",
-            "You caught so much prey, won so many mock battles, gave so much back to the clan..",
+            "You caught so much prey, won so many mock battles, gave so much back to the Clan..",
             "I'm proud of you, little one. I'm sure d_c is too."
         ]
     ],
@@ -251,10 +251,10 @@
         ],
         [
             "Hey! I was looking to talk with you. Is there a chance that you can help me out with something? If you aren't busy of course.",
-            "So... I had an argument with another clan member earlier. Who it was doesn't matter... but I think we both said some things that we shouldn't have. Lines were crossed and - we were both just really angry with each other.",
+            "So... I had an argument with another Clan member earlier. Who it was doesn't matter... but I think we both said some things that we shouldn't have. Lines were crossed and - we were both just really angry with each other.",
             "It was a stupid argument anyway. I've been trying to own up and apologize to them, maybe even have a conversation over what went wrong. I just don't know what to say, and that's where I was hoping you could help me out a little.",
             "That's... actually a good idea! I'll make sure to try that when I see them, maybe it will help us see eye to eye, or at least smooth some pelts a tad.",
-            "Thanks for helping me out, the clan really is lucky to have you. I'll update you on this whole situation later, hopefully I'll be able to bring good news."
+            "Thanks for helping me out, the Clan really is lucky to have you. I'll update you on this whole situation later, hopefully I'll be able to bring good news."
         ]
     ],
     "warrior2321": [
@@ -461,7 +461,7 @@
             "Just ... had a bad day, is all ...",
             "*Sigh* y_c, have you ever felt like you're not enough for anyone?",
             "Usually, when it comes to making a decision, I never hesitate. Whatever the obstacle, I'll run headfirst into it, no questions asked.",
-            "But, today, on patrol, I didn't listen to the leader, and accidentally ran straight into an enemy trap. Luckily, r_w was there to keep everyone safe, but because of me, my clanmates could've been hurt, or worse.",
+            "But, today, on patrol, I didn't listen to the leader, and accidentally ran straight into an enemy trap. Luckily, r_w was there to keep everyone safe, but because of me, my Clanmates could've been hurt, or worse.",
             "I just feel like such a failure. A liability. I can't help the way I am, but what if everyone's better off without me?",
             "[You offer t_c words of reassurance, but they seem troubled beyond comforting.]",
             "[Still, you sit with them through the night, hoping to stabilize them through whatever storm they might be weathering right now.]"
@@ -480,31 +480,8 @@
         [
             "Get up, y_c! We gotta go on a special patrol to check the o_cClan border!",
             "Of course I'm serious, mouse-brain! Are you really gonna make me break it down for you?",
-            "The leader gave me this assignment, and told me to pick the cat in the clan I trust the most to accompany me on it. Lo and behold, that's you!",
+            "The leader gave me this assignment, and told me to pick the cat in the Clan I trust the most to accompany me on it. Lo and behold, that's you!",
             "Now, c'mon, lazybones! We've got a long walk ahead of us!"
-        ]
-    ],
-    "assertive_respect1": [
-        [
-            "assertive",
-            "silly",
-            "respect",
-            "trust",
-            "comfort",
-            "platonic_like",
-            "romantic_like",
-            "from_mate",
-            "warrior",
-            "apprentice",
-            "deputy",
-            "leader"
-        ],
-        [
-            "y_c, if something happens to the clan, if we go into battle ...",
-            "You're the one cat in the clan that I want to be by my side.",
-            "So we better practice, mousebrain! If we coordinate our battle moves, we'll really be able to give our enemies a scare!",
-            "We could go by the trouble twins ... or the deadly duo.",
-            "Hahaha!"
         ]
     ],
     "assertive_trust": [
@@ -522,7 +499,7 @@
         [
             "Oh, hey, y_c ... Can I talk to you about something?",
             "I saw a rogue out on patrol today. I managed to chase her off the territory, but then I got carried away, and ... well, I kept following after her.",
-            "I don't know what I was trying to do. She just kept making me so angry! Calling me weak ... calling me a failure ... saying I was a disappointment to my clan.",
+            "I don't know what I was trying to do. She just kept making me so angry! Calling me weak ... calling me a failure ... saying I was a disappointment to my Clan.",
             "Eventually, I realized what I was doing, and I let her go. But I couldn't stop thinking about those things she said ...",
             "Sorry. What am I doing? I'm being such a downer today ...",
             "Thanks for being here for me, y_c.",
@@ -542,7 +519,7 @@
         ],
         [
             "Hey, y_c? Have you ever thought about, uh ...",
-            "What if something happens to you? Or something happens to me? Or something happens to the clan, and we're both demolished in a fiery pit of nothingness!",
+            "What if something happens to you? Or something happens to me? Or something happens to the Clan, and we're both demolished in a fiery pit of nothingness!",
             "Phew ... sorry, I know I'm not usually so grim. But I guess I'm just really worried.",
             "What if something goes wrong, and I'm not there to protect you?",
             "I won't let that happen ... I just won't!"
@@ -778,8 +755,8 @@
         ],
         [
             "Hey there, y_c! Not bad weather today, hm?",
-            "Sun on my pelt, wind in my fur ... Could you imagine being a kittypet and having to be cooped up in a twoleg nest all day? I think I would go crazy!",
-            "Just another reason why it's great to be a clan cat."
+            "Sun on my pelt, wind in my fur ... Could you imagine being a kittypet and having to be cooped up in a Twoleg nest all day? I think I would go crazy!",
+            "Just another reason why it's great to be a Clan cat."
         ]
     ],
     "assertive_4": [
@@ -928,7 +905,7 @@
             "Seriously, without you, I'd probably be a red smear on the forest floor by now. I owe you a bunch.",
             "... Say, do ya ever get lonely spending so much time in the medicine den?",
             "Hm ... What if I started eating my meals in here, with you?",
-            "I'll catch you up on all the latest clan gossip, and it'll keep me out of trouble!",
+            "I'll catch you up on all the latest Clan gossip, and it'll keep me out of trouble!",
             "C'mon, whaddaya say? It'd help one of your patients out!"
         ]
     ],
@@ -962,7 +939,7 @@
             "Whoa, lookout! Incoming!!!",
             "[t_c is in hot pursuit of a mouse - right in the middle of camp! They skid to a halt inches from your face, destroying the pile of moss you were gathering for your nest.]",
             "*Huff* *Huff* Sorry about that! Say, did you see which way the mouse went?",
-            "I swear, those little things are getting braver by the day ... And stupider, too. How long does it think it's gonna last in a clanful of cats?",
+            "I swear, those little things are getting braver by the day ... And stupider, too. How long does it think it's gonna last in a Clanful of cats?",
             "Er, sorry about your moss. Did you need help cleaning it up?",
             "[t_c clumsily attempts to reorganize the pile, breaking several pieces in the process.]",
             "There! Good as new ... kinda. Heh. Sorry, again.",
@@ -1064,7 +1041,7 @@
         [
             "Hehe. Of course you'd never leave the nursery, y_c.",
             "You don't have what it takes to be a real warrior. Not in a million moons!",
-            "But, uh, this is ... okay too, I guess! If you think becoming a full-time kitsitter is comparable to, y'know ... finding food and protecting the clan from danger.",
+            "But, uh, this is ... okay too, I guess! If you think becoming a full-time kitsitter is comparable to, y'know ... finding food and protecting the Clan from danger.",
             "Have fun hanging out with the queens, y_c. *Snrk*"
         ]
     ],
@@ -1078,7 +1055,7 @@
         ],
         [
             "Hmph. You may fight for peace, y_c, but I know it by another word - cowardice.",
-            "I know compromise has its place, but you'd say you'd really forsake your values - the values of this clan - just so all of us can just laze around on our haunches and never have to risk anything real?",
+            "I know compromise has its place, but you'd say you'd really forsake your values - the values of this Clan - just so all of us can just laze around on our haunches and never have to risk anything real?",
             "I don't think so. I fight for what I believe in. No matter what it costs.",
             "Maybe think about that the next time you try to make a compromise with the enemy."
         ]
@@ -1106,10 +1083,10 @@
             "upstanding"
         ],
         [
-            "Is it really true that you're allowed to just ... travel between the clans as you please?",
+            "Is it really true that you're allowed to just ... travel between the Clans as you please?",
             "Whoa! That's so cool!!! I've always wanted to explore the other territories, but I've never been allowed.",
             "Is it true that o_cClan cats can swim like fish? Or that their territory is full of snakes?",
-            "[You and t_c have a long conversation about the other clans. With each detail you share, their eyes grow bigger and bigger.]"
+            "[You and t_c have a long conversation about the other Clans. With each detail you share, their eyes grow bigger and bigger.]"
         ]
     ],
     "assertivewarrior_mediatorapp5": [
@@ -1122,8 +1099,8 @@
         ],
         [
             "*Huff**Huff* Hey, y_c! What's happening? I was just doing some sparring.",
-            "I heard that you aren't allowed to fight for the clan, 'cause it'd make you biased in your mediation - man, that must take some restraint.",
-            "If it were me, I'd want to claw the ears off of half the mouse-brains in this clan! Haha!"
+            "I heard that you aren't allowed to fight for the Clan, 'cause it'd make you biased in your mediation - man, that must take some restraint.",
+            "If it were me, I'd want to claw the ears off of half the mouse-brains in this Clan! Haha!"
         ]
     ],
     "assertivewarrior_med7": [
@@ -1174,7 +1151,7 @@
         [
             "Doesn't it drive you insane, being cooped up inside camp all day?",
             "What about the thrill of adventure? The wind in your fur? The satisfaction of killing a hard-earned piece of prey?",
-            "Respect to you, y_c. I could never do what you do. Though, I suppose the clan needs all types of cats to function."
+            "Respect to you, y_c. I could never do what you do. Though, I suppose the Clan needs all types of cats to function."
         ]
     ],
     "assertiveapp_medapp1": [
@@ -1261,7 +1238,7 @@
         [
             "[They twitch their ear, noticing you following them but not looking at you just yet. Perfect pouncing practice!]",
             "Yowch! That's quite the pounce you've got there, y_c! Hehe, with skills like that, you'll become a fine warrior in no time!",
-            "... but maybe hold off on biting your clanmates so hard, hehe. I'll go and get you some moss to practice on instead!"
+            "... but maybe hold off on biting your Clanmates so hard, hehe. I'll go and get you some moss to practice on instead!"
         ]
     ],
     "sweet_warrior_4": [
@@ -1486,7 +1463,7 @@
         [
             "y_c...? I just wanted to say...",
             "Thanks for not giving up on me. I know I'm very soft-hearted for a warrior, but...",
-            "Knowing I'm serving the best leader in all of the clans makes it all worth it."
+            "Knowing I'm serving the best leader in all of the Clans makes it all worth it."
         ]
     ],
     "sweet_warrior_23": [
@@ -1496,7 +1473,7 @@
         ],
         [
             "[t_c seems to bound in here, almost like an excited kit. They lay down in front of you, tucking their paws under their belly.]",
-            "It's story night tonight, right? How exciting! You have some of the best stories in all of the clans.",
+            "It's story night tonight, right? How exciting! You have some of the best stories in all of the Clans.",
             "[Perhaps elder stories aren't just for kits and apprentices after all.]"
         ]
     ],
@@ -1637,7 +1614,7 @@
         [
             "y_c, if I'm going to be honest with you, I can't help but feel like you've become a bit...lazier with patrols.",
             "Don't you get all bristly with me now, just think about it! You organize a couple, maybe a few patrols a day, and small ones at that. That leaves majority of us just lounging around camp like sitting ducks waiting for something to happen!",
-            "How are we supposed to provide for our clan if you can't even take your job seriously? I strongly suggest you start pulling your act together and take charge before l_n starts to realize how poor of a choice they made choosing you as deputy."
+            "How are we supposed to provide for our Clan if you can't even take your job seriously? I strongly suggest you start pulling your act together and take charge before l_n starts to realize how poor of a choice they made choosing you as deputy."
         ]
     ],
     "upstandingwarrior_warriorapp1": [
@@ -1652,7 +1629,7 @@
             "I don't mean to be so prickly, it's just something that happened on a patrol earlier really bugged me. Do you mind if I talk about it?",
             "So me and a few others were out on a hunting patrol, and we spotted an o_cClan cat cross right over the border! Can you believe that?",
             "They claimed that they had been stalking some prey before it went over our border, so that made it theirs. And get this, the rest of my patrol agreed with them!",
-            "How could some cat have such little respect for the rules and still get away with it? At this rate, the other clans will be prancing all over our territory faster than you can say 'mouse!'"
+            "How could some cat have such little respect for the rules and still get away with it? At this rate, the other Clans will be prancing all over our territory faster than you can say 'mouse!'"
         ]
     ],
     "upstanding_warrior3": [
@@ -1806,7 +1783,7 @@
         ],
         [
             "I heard d_n say that the fresh-kill pile was looking a little low today, and that got me thinking...",
-            "What if I just went out and caught a whole bunch of fish? What if I catch enough fish to feed the entire clan? What if I catch enough fish to feed TWO clans?",
+            "What if I just went out and caught a whole bunch of fish? What if I catch enough fish to feed the entire Clan? What if I catch enough fish to feed TWO Clans?",
             "I should get started right away! Don't worry though, I'll be back at... um... some point!",
             "Now, I got some fish to catch!"
         ]
@@ -1821,9 +1798,9 @@
             "y_c, can I ask you something?",
             "... do you think I'm doing enough for c_nClan?",
             "It might be a silly question, I know. I'm practically always on patrols, or helping the apprentices patch up dens, or whatever, but does that all really matter if you feel like you aren't making a difference?",
-            "All I've ever wanted was to help my clan and be someone other cats can look up to. I want to be able to inspire someone to work even harder, just like I was.",
+            "All I've ever wanted was to help my Clan and be someone other cats can look up to. I want to be able to inspire someone to work even harder, just like I was.",
             "But sometimes, it just feels like I'm getting nowhere, like I'm barely making a difference.",
-            "My whole life, I have been trying to live up to my clanmates' expectations, maybe even more than that! But now, it's starting to feel like the paw steps that I'm trying to fill are too big.",
+            "My whole life, I have been trying to live up to my Clanmates' expectations, maybe even more than that! But now, it's starting to feel like the paw steps that I'm trying to fill are too big.",
             "I appreciate you for being patient while I work through all of this. Just know that I'm trying okay? I promise I'm doing my best."
         ]
     ],
@@ -1851,7 +1828,7 @@
         [
             "[t_c is standing next to a pile of large stones, glaring up at the sky.]",
             "Stupid sea birds, thinking they can steal all of our... oh, y_c. Quick, do you see those seagulls over there? The ones sitting up in that tree?",
-            "Well, for the last few days, those seagulls have been stealing prey right out from under our noses! Fish? Gone! Land prey? Snatched! I'm getting sick and tired of it, and I'm sure everyone else in the clan is as well.",
+            "Well, for the last few days, those seagulls have been stealing prey right out from under our noses! Fish? Gone! Land prey? Snatched! I'm getting sick and tired of it, and I'm sure everyone else in the Clan is as well.",
             "So, naturally, I came up with the super great idea of building a little ledge that we can sit the fresh-kill pile under! That way, the seagulls won't be able to get any!",
             "It is taking a while though, getting all of these stones up from the beach took me from dawn to sunhigh... do you think you would be able to help out? Two sets of paws are much faster than one after all!"
         ]
@@ -1867,7 +1844,7 @@
             "y_c, has y_a been out in the territory by themself recently?",
             "Why do I ask? Well, it just so happens that I was out in the territory earlier, and I spotted your apprentice crossing right over the o_cClan border. They seemed to be trying to catch some prey that had crossed over from our territory.",
             "They were lucky they weren't spotted this time, but I don't want to see this happen again. I expected better out of them, and out of you as well.",
-            "If you aren't able to teach your apprentice how to respect clan boundaries, then I may need to have a word with l_n about this. Try not to let this happen again."
+            "If you aren't able to teach your apprentice how to respect Clan boundaries, then I may need to have a word with l_n about this. Try not to let this happen again."
         ]
     ],
     "bloodthirsty_pos": [
@@ -1882,7 +1859,7 @@
             "Hey, y_c. You want to see this scar I got? It's new.",
             "It happened during a training session. I was practicing my battle moves, and I guess I got carried away ...",
             "Everyone tells me I take things too far. In reality, I don't think I take things far enough.",
-            "I'm going to be the strongest warrior this clan has ever seen. Stronger than the strongest. I just have to figure out what I'm really capable of ..."
+            "I'm going to be the strongest warrior this Clan has ever seen. Stronger than the strongest. I just have to figure out what I'm really capable of ..."
         ]
     ],
     "bloodthirsty_pos1": [
@@ -1934,7 +1911,7 @@
         ],
         [
             "Hmph. You think my battle moves are too violent? Come on, y_c.",
-            "Violence is what makes the clans what they are! Without it, we'd be no better than kittypets!",
+            "Violence is what makes the Clans what they are! Without it, we'd be no better than kittypets!",
             "Don't tell me you're afraid of your own kit!"
         ]
     ],
@@ -2099,7 +2076,7 @@
         ],
         [
             "[While collecting moss with m_n, you decide to play a small prank to try and lighten the mood. As soon as they turn their back, you hook a large wad of moss in your claws and fling it over. It breaks apart on impact, showering their pelt with moss.]",
-            "[Unfortunately, the prank isn't well received. m_n proceeds to  give you a long and stern lecture about the value of clan resources and the importance of taking your duties seriously.]"
+            "[Unfortunately, the prank isn't well received. m_n proceeds to  give you a long and stern lecture about the value of Clan resources and the importance of taking your duties seriously.]"
         ]
     ],
     "upstanding_warrior15": [
@@ -2140,7 +2117,7 @@
             "any"
         ],
         [
-            "[While the rest of the clan is fast asleep in their nests, you are woken up by a paw poking you in the side.]",
+            "[While the rest of the Clan is fast asleep in their nests, you are woken up by a paw poking you in the side.]",
             "Rise and shine y_c! C'mon, up! Up! Up! Let's go! I want to try and get an early start on today's lesson.",
             "[t_c is certainly an excellent mentor, there's no doubt about that. However, as you sleepily follow them out of camp, you wish that they were slightly less enthusiastic when it comes to training.]"
         ]
@@ -2236,7 +2213,7 @@
             "['It might have been r_w, they were the last one on the hunting patrol I think.']",
             "Oh- OH Really?!",
             "[They muster through bared fangs, you flatten your ears at their crooked grin.]",
-            "Thank you so much for the help, t_c, this pile here is alright to eat. Now, if you don't mind, I'm going to go find a certain someone.",
+            "Thank you so much for the help, y_c, this pile here is alright to eat. Now, if you don't mind, I'm going to go find a certain someone.",
             "Don't worry, I'll ask politely if they could clean up this mess. Whomever was last at the pile needs to remember it's their job to check it for crowfood..."
         ]
     ],
@@ -2246,7 +2223,7 @@
             "stable"
         ],
         [
-            "[t_c sits in the shade of the clearing gazing over the cats of the clan. They mentally note the position of each cat. Their focus is unwavering as they observe the cats they vow to protect.]"
+            "[t_c sits in the shade of the clearing gazing over the cats of the Clan. They mentally note the position of each cat. Their focus is unwavering as they observe the cats they vow to protect.]"
         ]
     ],
     "stable_warrior_05": [
@@ -2256,7 +2233,7 @@
         ],
         [
             "Morning y_c, did you sleep well?",
-            "... You did? Wonderful! Sleep is the best form of healing, both mentally and physically. A strong warrior like myself needs good sleep to protect my clan, I also need it to stay sharp.",
+            "... You did? Wonderful! Sleep is the best form of healing, both mentally and physically. A strong warrior like myself needs good sleep to protect my Clan, I also need it to stay sharp.",
             "Remember y_c, one's mental health is just as important as your physical health."
         ]
     ],
@@ -2267,15 +2244,15 @@
             "you_formerlykittypet"
         ],
         [
-            "Hey y_c, do you know anything about twoleg items? You do? Cool, could I get some help please?",
+            "Hey y_c, do you know anything about Twoleg items? You do? Cool, could I get some help please?",
             "[t_c drops a strange looking item at your paws, it looks soft and circular. It acted as a grip of some kind, maybe one could slip some kind of item into it? It was familiar...]",
             "I know that look! You recognize it don't you?",
-            "[BOOM! It hit you, you look up and smile. You explain it's an item twolegs use to keep their drinks cold.]",
+            "[BOOM! It hit you, you look up and smile. You explain it's an item Twolegs use to keep their drinks cold.]",
             "[The drinks are normally in can tins that smell funny and have bubbly smelling liquid. Most of the time it wasn't water... It smelt like sugar...]",
-            "Seriously? That's strange, does it have a specific name? Like a twoleg title?",
-            "['Yes, I think they're called a stubby holder, that's what my twoleg called them.']",
+            "Seriously? That's strange, does it have a specific name? Like a Twoleg title?",
+            "['Yes, I think they're called a stubby holder, that's what my Twoleg called them.']",
             "A what? I'm sorry, go back- a stubby holder? What kind of name is that?",
-            "['Honestly, I have no idea. My twolegs were kinda odd... Half of the time I had no idea what they were saying.']",
+            "['Honestly, I have no idea. My Twolegs were kinda odd... Half of the time I had no idea what they were saying.']",
             "Twolegs are so weird...",
             "[You nod your head, they certainly are...]"
         ]
@@ -2319,7 +2296,7 @@
             "One day, I think you'll appreciate nature as much as I do. To be in tune with the world around you, y_c, it's a gift.",
             "Don't give me that look, I'm serious. Nothing beats being wild and free. Huh, remember that song? I haven't heard it in ages... How did it go again?",
             "There's no place like c_nClan, because here we're wild and free. And nobody can disagree, look at the stars, the way they shine. StarClan has given us bountiful time-",
-            "Well that's dumb, because they haven't. Life is short, y_c, too short to worry. Too short to take the clan for granted. Too short to take our home for granted.",
+            "Well that's dumb, because they haven't. Life is short, y_c, too short to worry. Too short to take the Clan for granted. Too short to take our home for granted.",
             "Too short not to take a nap in the sun."
         ]
     ],
@@ -2406,7 +2383,7 @@
         [
             "My word- Turn back around and get yourself cleaned up! You're not going out looking like that!",
             "[You quickly groom your fur to look neater- at least to t_c's standards. They sit waiting patiently in the clearing.]",
-            "Oh my stars, you look so much better. What were you think you fish brain?"
+            "Oh my stars, you look so much better. What were you thinking you fish brain?"
         ]
     ],
     "stable_warrior_16": [
@@ -2497,7 +2474,7 @@
             "stable"
         ],
         [
-            "Always a blessing when there's new life in the clan. You will do wondrous things for c_nClan, little y_c. Take my word for it.",
+            "Always a blessing when there's new life in the Clan. You will do wondrous things for c_nClan, little y_c. Take my word for it.",
             "That actually reminds me, here, got this as a celebration.",
             "[They carefully pull out a light moss blanket and wrap you up in it.]",
             "There we go, nice and snuggly."
@@ -2712,7 +2689,7 @@
             "stable"
         ],
         [
-            "I promise I'll always protect you. You're my kit and nothing will ever change you. As a warrior, I have a duty to protect this clan, but as a parent, I have a duty to protect you...",
+            "I promise I'll always protect you. You're my kit and nothing will ever change you. As a warrior, I have a duty to protect this Clan, but as a parent, I have a duty to protect you...",
             "[t_c wraps you into a fierce embrace.]",
             "...",
             "...",
@@ -2844,11 +2821,11 @@
             "[l_n hisses. 'WHAT IN STARCLAN'S NAME WERE YOU THINKING?! Part of your training states you are to respect the borders! That includes o_cClan!']",
             "[d_n nods beside the leader, they also start to rip into the apprentice. 'You deliberately disobeyed the warrior code and t_c! And for what, A MOUSE?!']",
             "[t_c looks at l_n and d_n, their nose scrunched, they look absolutely appalled.]",
-            "[t_a looks away, clearly embarrassed. The rest of the clan stares at them coldly. Before l_n can open their mouth again, t_c cuts in.]",
+            "[t_a looks away, clearly embarrassed. The rest of the Clan stares at them coldly. Before l_n can open their mouth again, t_c cuts in.]",
             "Okay! That's enough! t_a is my apprentice, I will handle this. All of you, don't you dare say another word to them.",
             "This is my responsibility, I will decide on a punishment if I see fit. They haven't even explained their reasoning because you won't let them say a word before shutting them down. t_a, lets go, follow me.",
             "[t_c and t_a walk out of the camp without batting an eye at anyone. It's obvious t_c is disappointed in t_a, yet they're willing to hear them out. You run back into the nursery after hearing l_n curse out loud.]",
-            "[While you think the whole thing was harsh, you're proud of t_c for standing up for their apprentice. But it's a lesson learned that you shouldn't overstep clan boundaries.]",
+            "[While you think the whole thing was harsh, you're proud of t_c for standing up for their apprentice. But it's a lesson learned that you shouldn't overstep Clan boundaries.]",
             "[You just hope t_c isn't punished too harshly for speaking up the way they did.]"
         ]
     ],
@@ -3002,7 +2979,7 @@
         ],
         [
             "I heard what r_w was saying to you earlier and I want you to ignore them. I- I'm sorry, let me choose my words more carefully.",
-            "I am aware that with my history as a... Kittypet- Some cats think I'm not as skilled or as intelligent as a clanborn cat. But that's not true.",
+            "I am aware that with my history as a... Kittypet- Some cats think I'm not as skilled or as intelligent as a Clanborn cat. But that's not true.",
             "They think I'm talentless and are a burden here, but I have proven myself time and time again. I'm determined to serve c_nClan as best as I can.",
             "My past is a part of me, but it doesn't define me because I grew up and grew past that. Words mean so little-- remember, y_c-- your actions hold the real weight.",
             "And I have proven, through my actions, that I am as much of a warrior as anyone else."
@@ -3114,8 +3091,8 @@
             "stable"
         ],
         [
-            "I wish I was as self-disciplined as you are when I was your age. I had a thorn for a tongue and was merciless... I wish I treated my clanmates with far more respect back then, but I've learned from my poor actions.",
-            "Keep it up, y_c, you have many good things ahead of you. You're doing well. With cats like you guiding our clanmates, things will change for the better."
+            "I wish I was as self-disciplined as you are when I was your age. I had a thorn for a tongue and was merciless... I wish I treated my Clanmates with far more respect back then, but I've learned from my poor actions.",
+            "Keep it up, y_c, you have many good things ahead of you. You're doing well. With cats like you guiding our Clanmates, things will change for the better."
         ]
     ],
     "stable_mate_13": [
@@ -3201,6 +3178,43 @@
             "['There's no such thing as a perfect parent and that's okay. What's important is that we learn from our mistakes. This is between us, raising our kits- It's our job. Not just mine, not just yours.']",
             "['We're in this together. And we'll figure it out. Please don't stress yourself over this, it's a good thing to think about and perfectly normal to be worried. If you really need to talk to someone about these concerns, how about we talk to a queen?']",
             "Yeah... Yeah, that sounds good. We'll be okay. We'll work this out. Thank you for everything, y_c."
+        ]
+    ],
+    "dftrainee_warrior1": [
+        [
+            "you_dftrainee",
+            "they_df",
+            "they_warrior",
+            "warrior"
+        ],
+        [
+            "Hey! Pay attention!",
+            "[t_c catches you with a claw across the muzzle when your mind wanders during training.]"
+        ]
+    ],
+    "dftrainee_warrior2": [
+        [
+            "you_dftrainee",
+            "they_df",
+            "they_warrior",
+            "warrior"
+        ],
+        [
+            "Do any of your Clanmates know you're here?",
+            "Okay... just let me know if they do. We'll have to take care of them."
+        ]
+    ],
+    "trainee_living_5c": [
+        [
+            "warrior",
+            "they_warrior",
+            "you_dftrainee",
+                    "you_blind",
+                    "they_blind"
+        ],
+        [
+            "[You settle into your nest, preparing yourself for a night of Dark Forest training.]",
+        "[Next to you, t_c is snoring loudly.]"
         ]
     ]
 }

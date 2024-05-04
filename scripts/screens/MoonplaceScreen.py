@@ -13,6 +13,7 @@ import pygame_gui
 from scripts.game_structure.image_button import UIImageButton
 from scripts.game_structure.game_essentials import game, screen_x, screen_y, MANAGER, screen
 from enum import Enum  # pylint: disable=no-name-in-module
+from scripts.cat.names import names, Name
 
 class RelationType(Enum):
     """An enum representing the possible age groups of a cat"""
@@ -33,7 +34,6 @@ class MoonplaceScreen(Screens):
         self.resource_dir = "resources/dicts/lifegen_talk/"
         self.texts = ""
         self.text_frames = [[text[:i+1] for i in range(len(text))] for text in self.texts]
-
         self.scroll_container = None
         self.life_text = None
         self.header = None
@@ -64,6 +64,7 @@ class MoonplaceScreen(Screens):
         game.switches["attended half-moon"] = True
         self.update_camp_bg()
         self.hide_menu_buttons()
+        self.handle_other_med()
         self.text_index = 0
         self.frame_index = 0
         self.choicepanel = False
@@ -77,7 +78,7 @@ class MoonplaceScreen(Screens):
                 (500, 870)),
             manager=MANAGER)
         self.profile_elements["cat_name"] = pygame_gui.elements.UITextBox(str(self.the_cat.name),
-                                                                       scale(pygame.Rect((300, 870), (-1, 80))),
+                                                                    scale(pygame.Rect((300, 870), (-1, 80))),
                                                                           object_id="#text_box_34_horizcenter_light",
                                                                           manager=MANAGER)
 
@@ -95,9 +96,9 @@ class MoonplaceScreen(Screens):
                                         object_id="#back_button", manager=MANAGER)
         self.scroll_container = pygame_gui.elements.UIScrollingContainer(scale(pygame.Rect((500, 970), (900, 300))))
         self.text = pygame_gui.elements.UITextBox("",
-                                                  scale(pygame.Rect((0, 0), (900, -100))),
-                                                  object_id="#text_box_30_horizleft",
-                                                  container=self.scroll_container,
+                                                scale(pygame.Rect((0, 0), (900, -100))),
+                                                object_id="#text_box_30_horizleft",
+                                                container=self.scroll_container,
                                                 manager=MANAGER)
 
         self.textbox_graphic = pygame_gui.elements.UIImage(
@@ -107,9 +108,9 @@ class MoonplaceScreen(Screens):
         # self.textbox_graphic.hide()
 
         self.profile_elements["cat_image"] = pygame_gui.elements.UIImage(scale(pygame.Rect((70, 900), (400, 400))),
-                                                                         pygame.transform.scale(
-                                                                             generate_sprite(self.the_cat),
-                                                                             (400, 400)), manager=MANAGER)
+                                                                        pygame.transform.scale(
+                                                                            generate_sprite(self.the_cat),
+                                                                            (400, 400)), manager=MANAGER)
         self.paw = pygame_gui.elements.UIImage(
                 scale(pygame.Rect((1370, 1180), (30, 30))),
                 image_cache.load_image("resources/images/cursor.png").convert_alpha()
@@ -309,9 +310,11 @@ class MoonplaceScreen(Screens):
 
         med_type = self.get_med_type(you)
 
+        other_med_greeting = self.get_other_med_greeting(possible_texts)
+
         if randint(1,2) == 1:
             # No message
-            return self.get_adjusted_txt(choice(possible_texts["intros"][med_type]) + choice(possible_texts["moonplace"]["starclan_no_message"]), cat)
+            return self.get_adjusted_txt(choice(possible_texts["intros"][med_type]) + other_med_greeting + choice(possible_texts["moonplace"]["starclan_no_message"]), cat)
 
         resource_dir = "resources/dicts/events/lifegen_events/moonplace/prophecies.json"
         possible_texts2 = {}
@@ -319,8 +322,44 @@ class MoonplaceScreen(Screens):
             possible_texts2 = ujson.loads(read_file.read())
         game.switches["next_possible_disaster"] = choice(list(possible_texts2.keys()))
         prophecy = choice(possible_texts2[game.switches["next_possible_disaster"]]["text"])
-        return self.get_adjusted_txt(choice(possible_texts["intros"][med_type]) + choice(possible_texts["moonplace"]["starclan_general"]) + prophecy, cat)
+        return self.get_adjusted_txt(choice(possible_texts["intros"][med_type]) + other_med_greeting + choice(possible_texts["moonplace"]["starclan_general"]) + prophecy, cat)
 
+    def get_other_med_greeting(self, possible_texts):
+        """ Handles other medicine cat greetings at the Moonplace """
+        other_clan_random = choice(game.switches["other_med_clan"])
+        other_clan_random_index = game.switches["other_med_clan"].index(other_clan_random)
+        other_meds = game.switches["other_med"][other_clan_random_index]
+        possible_greetings = []
+        if len(other_meds) == 1:
+            possible_greetings.extend(possible_texts["med_cat_greetings"]["general_greeting_one_med"])
+            possible_greetings.extend(possible_texts["med_cat_greetings"][f"general_greeting_{other_clan_random.temperament}_one_med"])
+            if game.clan.war.get("at_war", True) and other_clan_random.name == game.clan.war["enemy"]:
+                possible_greetings.extend(possible_texts["med_cat_greetings"]["general_greeting_war_one_med"])
+            if other_clan_random.relations > 16:
+                possible_greetings.extend(possible_texts["med_cat_greetings"]["general_greeting_friendly_one_med"])
+            elif other_clan_random.relations < 7:
+                possible_greetings.extend(possible_texts["med_cat_greetings"]["general_greeting_unfriendly_one_med"])
+        else:
+            possible_greetings.extend(possible_texts["med_cat_greetings"]["general_greeting_multi_med"])
+            possible_greetings.extend(possible_texts["med_cat_greetings"][f"general_greeting_{other_clan_random.temperament}_multi_med"])
+            if game.clan.war.get("at_war", True) and other_clan_random.name == game.clan.war["enemy"]:
+                possible_greetings.extend(possible_texts["med_cat_greetings"]["general_greeting_war_multi_med"])
+            if other_clan_random.relations > 16:
+                possible_greetings.extend(possible_texts["med_cat_greetings"]["general_greeting_friendly_multi_med"])
+            elif other_clan_random.relations < 7:
+                possible_greetings.extend(possible_texts["med_cat_greetings"]["general_greeting_unfriendly_multi_med"])
+
+        greeting = [choice(possible_greetings)]
+
+        if len(other_meds) == 1:
+            greeting = [s.replace("o_cn", str(other_clan_random.name) + "Clan").replace("o_c_m", str(other_meds[0])) for s in greeting]
+        elif len(other_meds) == 2:
+            greeting = [s.replace("o_cn", str(other_clan_random.name) + "Clan").replace("o_c_m", f"{other_meds[0]} and {other_meds[1]}") for s in greeting]
+        elif len(other_meds) == 3:
+            greeting = [s.replace("o_cn", str(other_clan_random.name) + "Clan").replace("o_c_m", f"{other_meds[0]}, {other_meds[1]}, and {other_meds[2]}") for s in greeting]
+
+        return greeting
+    
 
     def get_adjusted_txt(self, text, cat):
         you = game.clan.your_cat
@@ -374,6 +413,16 @@ class MoonplaceScreen(Screens):
 
     def adjust_txt(self, text, cat):
         try:
+            if "moonplace" in text or "Moonplace" in text:
+                moonplace_dict = {
+                        "Beach": "Mooncove",
+                        "Mountainous": "Moonfalls",
+                        "Forest": "Moonhollow",
+                        "Plains": "Moongrove"
+                    }
+                moonplace = moonplace_dict.get(game.clan.biome, "Moonplace")
+                text = text.replace("moonplace", moonplace)
+                text = text.replace("Moonplace", moonplace)
             if "your_crush" in text:
                 if len(game.clan.your_cat.mate) > 0 or game.clan.your_cat.no_mates:
                     return ""
@@ -784,3 +833,44 @@ class MoonplaceScreen(Screens):
 
 
         return text
+    
+    def handle_other_med(self):
+        if "other_med" not in game.switches:
+            game.switches["other_med"] = []
+            game.switches["other_med_clan"] = []
+            game.switches["last_visited_moonplace"] = game.clan.age
+
+            for clan_name in game.clan.all_clans:
+                other_clan_meds = []
+                for i in range(randint(1,3)):
+                    if randint(1,4) != 1:
+                        other_clan_meds.append(Name(status = "medicine cat"))
+                    else:
+                        other_clan_meds.append(Name(status = "medicine cat apprentice"))
+                game.switches["other_med"].append(other_clan_meds)
+                game.switches["other_med_clan"].append(clan_name)
+        else:
+            if "other_med_clan" not in game.switches:
+                game.switches['other_med_clan'] = []
+                for clan_name in game.clan.all_clans:
+                    game.switches["other_med_clan"].append(clan_name)
+
+            for i in range(len(game.switches["other_med_clan"])):
+                for cat_name in game.switches["other_med"][i]:
+                    if cat_name.status == "medicine cat apprentice":
+                        if randint(1,2) == 1:
+                            cat_name.status = "medicine cat"
+
+            game.switches["other_med"] = self.randomly_remove_string(game.switches["other_med"])
+            for clan_meds in game.switches["other_med"]:
+                if len(clan_meds) == 0:
+                    clan_meds.append(Name(status = "medicine cat apprentice"))
+                if len(clan_meds) < 3:
+                    if randint(1, 5) == 1:
+                        clan_meds.append(Name(status = "medicine cat apprentice"))
+
+    def randomly_remove_string(self, lists_of_strings):
+        for sublist in lists_of_strings:
+            new_sublist = [s for s in sublist if randint(1, 10) != 1]
+            sublist[:] = new_sublist
+        return lists_of_strings

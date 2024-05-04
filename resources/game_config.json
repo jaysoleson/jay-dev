@@ -394,5 +394,9 @@
 	},
 	"lock_season": false, 
 	"comment": "Forces the season to be locked at the Clan's starting_season",
+	"affair_success_chance": 1,
+	"affair_success_pregnancy_chance": 20,
+	"affair_relationship_change_lb": 10,
+	"affair_relationship_change_ub": 30,
 	"debug_ensure_dialogue": ""
 }

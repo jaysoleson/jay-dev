@@ -15,7 +15,7 @@
             "Gave a badger ride to r_c, and is now begged by more kittens to do the same",
             "Has been cornered by r_c in a game of tag",
             "Despite being bigger, {PRONOUN/m_c/subject} tries to gently tussle with r_c",
-            "Is being shadowed by a congo line of moss ball-shaped kits"
+            "Is being shadowed by a congo line of mossball-shaped kits"
         ],
         "random_status_constraint": [
             "kitten"
@@ -98,7 +98,7 @@
             "Had to drag a frowning r_c back into the nusery after bolting from {PRONOUN/m_c/poss} sight",
             "Is imagining the kind of cat r_c will become",
             "Is giving r_c a quick lession about the Clan's history",
-            "Giving r_c a surprised bath"
+            "Is giving r_c a surprise bath"
       ],
         "relationship_constraint": [
             "parent/child"
@@ -155,8 +155,8 @@
             "Is helping to escort the medicine cat to gather herbs",
             "Volunteers {PRONOUN/m_c/self} to help clear out old herbs",
             "Is visiting the medicine den for a minor injury",
-            "Was told {PRONOUN/m_c/poss} dreams was just normal dreams",
-            "Was told {PRONOUN/m_c/poss} dreams was abnormal and might be from StarClan",
+            "Was told {PRONOUN/m_c/poss} dreams are just normal dreams",
+            "Was told {PRONOUN/m_c/poss} dreams are abnormal and might be from StarClan",
             "Is visiting r_c so {PRONOUN/r_c/subject} can have company",
             "Is showing r_c a few fighting techniques" 
         ],
@@ -225,11 +225,11 @@
         "thoughts": [
             "Involves the kits in a game of make believe about traveling through a strange land",
             "Encourages the kits to explore as much as possible",
-            "With a group of restless and starry eyes kits, {PRONOUN/m_c/subject} spins an epic tale of vast landscapes {PRONOUN/m_c/subject} discovered",
+            "With a group of restless and starry-eyed kits, {PRONOUN/m_c/subject} spins an epic tale of vast landscapes {PRONOUN/m_c/subject} discovered",
             "Is showing off a collection of strange trickets and gems {PRONOUN/m_c/subject} found",
-            "In the mix of recounting a heroic tale of clashing with a scary creature, {PRONOUN/m_c/subject} accidently frighten r_c",
-            "Wanting to venture just as much, {PRONOUN/m_c/subject} promised r_c when {PRONOUN/r_c/subject}{VERB/r_c/'s/'re} older, {PRONOUN/r_c/subject} can join",
-            "Offering r_c the first pick to {PRONOUN/m_c/poss} collection of trickets and gems"
+            "Is in the middle of recounting a heroic tale of clashing with a scary creature, {PRONOUN/m_c/subject} accidentally frightening r_c",
+            "Promised r_c when {PRONOUN/r_c/subject}{VERB/r_c/'s/'re} older, {PRONOUN/r_c/subject} can join their adventures",
+            "Is offering r_c the first pick to {PRONOUN/m_c/poss} collection of trickets and gems"
         ],
         "random_status_constraint": [
             "kitten"
@@ -262,7 +262,7 @@
             "Evaluates how {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} going to sharpen up {PRONOUN/m_c/poss} battle skills",
             "Tries to emulate the leader's body language when talking to younger cats",
             "Feels inadequate about being nothing more than an ordinary warrior",
-            "{PRONOUN/m_c/subject/CAP}{VERB/m_c/'s/'re} willing to do anything to be acknowledge"        
+            "{PRONOUN/m_c/subject/CAP}{VERB/m_c/'s/'re} willing to do anything to be acknowledged"        
         ],
         "main_trait_constraint": [
             "ambitious"
@@ -271,22 +271,22 @@
     {
         "id": "arrogant_warrior",
         "thoughts": [
-            "Taking credit for c_n's acclaims, {PRONOUN/m_c/subject} regarded {PRONOUN/m_c/self} as the sole reason the Clan is dominant",
-            "Is always trying to lead patrols",
-            "Is in a spat with a rival Clan for mocking {PRONOUN/m_c/object}",
-            "Believes c_n is superior than the other Clans",
-            "Knows c_n could improve tremendously if {PRONOUN/m_c/subject} was leader",
-            "Constantly flaunts {PRONOUN/m_c/poss} perfect skills",
-            "Grin knowing Clanmates can never reach {PRONOUN/m_c/poss} greatness",
-            "Knows {PRONOUN/m_c/subject} {VERB/m_c/is/are} a model warrior every kit should strive for",
+            "Takes credit for c_n's success, regarding {PRONOUN/m_c/self} as the sole reason the Clan is dominant",
+            "Always seeks to lead patrols",
+            "Engaged in a dispute with a rival Clan after mocking {PRONOUN/m_c/object}",
+            "Believes c_n is superior to other Clans",
+            "Convinced c_n would improve significantly if {PRONOUN/m_c/subject} were leader",
+            "Constantly showcases {PRONOUN/m_c/poss} impeccable skills",
+            "Grins, knowing Clanmates can never match {PRONOUN/m_c/poss} greatness",
+            "Views themself as the model warrior whom every kit should emulate",
             "Publicly mocks r_c for {PRONOUN/r_c/poss} shortcomings",
-            "Is concealing {PRONOUN/m_c/poss} insecurities by hurling vile remarks at Clanmates",
-            "Was nearly injuried trying to face a fox alone while defending a Clanmate"
+            "Hides {PRONOUN/m_c/poss} insecurities by making disparaging remarks about Clanmates",
+            "Was nearly injured attempting to face a fox alone in defense of a Clanmate"
         ],
         "main_trait_constraint": [
             "arrogant"
         ]    
-    },
+    },    
     {
         "id": "bloodthirsty_warrior",
         "thoughts": [
@@ -324,14 +324,14 @@
             "Charges forward during a border patrol, eager and unafraid",
             "Is always first to volunteer when a dangerous mission is announced",
             "Impressed an audience with {PRONOUN/m_c/poss} deft techniques",
-            "Fought off a massive creature by {PRONOUN/m_c/self}",
-            "Bolts whiskers first into battle",
-            "Is heading out to capture the biggest prey ever",
-            "Has pinned down a venomous snake slithering too close for comfort",
-            "With a puffed chest, proclaimed {PRONOUN/m_c/subject} will protect {PRONOUN/m_c/poss} Clanmates with {PRONOUN/m_c/poss} life",
-            "Letting the breeze flow through {PRONOUN/m_c/poss} fur as {PRONOUN/m_c/subject} race acorss the lands",
-            "Isn't scared to go claw-to-claw against a rival Clan's toughest warriors",
-            "With a spikey coat and spitting hisses, {PRONOUN/m_c/subject} face off against a band of a rogues"
+    "Fought off a massive creature single-handedly",
+    "Bolts whiskers-first into battle",
+    "Is heading out to capture the biggest prey ever seen",
+    "Has pinned down a venomous snake that slithered too close for comfort",
+    "With a puffed chest, proclaimed {PRONOUN/m_c/subject} will protect {PRONOUN/m_c/poss} Clanmates with {PRONOUN/m_c/poss} life",
+    "Lets the breeze flow through {PRONOUN/m_c/poss} fur as {PRONOUN/m_c/subject} races across the lands",
+    "Isn't scared to go claw-to-claw against the toughest warriors of a rival Clan",
+    "With a spiky coat and spitting hisses, {PRONOUN/m_c/subject} faced off against a band of rogues"
         ],
         "main_trait_constraint": [
             "bold"
@@ -484,7 +484,7 @@
             "Bluntly told r_c {PRONOUN/r_c/subject} could do so much better than that",
             "Told r_c to do a technique over and over again until {PRONOUN/m_c/subject} is somewhat pleased",
             "Hissed at the apprentices to always watch each other backs",
-            "Reminded the apprentices {PRONOUN/m_c/subject} {VERB/m_c/is/are} harshed on them because {PRONOUN/m_c/subject} want them to be strong",
+            "Reminded the apprentices {PRONOUN/m_c/subject} {VERB/m_c/is/are} harsh on them because {PRONOUN/m_c/subject} want them to be strong",
             "Ordered r_c to put c_n above {PRONOUN/r_c/poss} needs or else"
         ],
         "random_status_constraint": [
@@ -695,56 +695,56 @@
     {
         "id": "flamboyant_warrior",
         "thoughts": [
-            "Would grace {PRONOUN/m_c/poss} Clanmates with {PRONOUN/m_c/poss} benevolent presence",
-            "Having a downtime furnishing {PRONOUN/m_c/poss} coat with alluring flowers and trickets",
-            "{PRONOUN/m_c/subject/CAP} proclaimed {PRONOUN/m_c/subject}{VERB/m_c/'s/'re} a favorite to everyone",
+            "Graces {PRONOUN/m_c/poss} Clanmates with {PRONOUN/m_c/poss} benevolent presence",
+            "Spends downtime adorning {PRONOUN/m_c/poss} coat with alluring flowers and trinkets",
+            "{PRONOUN/m_c/subject/CAP} proclaimed {PRONOUN/m_c/subject}{VERB/m_c/'s/'re} everyone's favorite",
             "{PRONOUN/m_c/subject/CAP} just combed through {PRONOUN/m_c/poss} coat, so {PRONOUN/m_c/subject} ordered an apprentice to do {PRONOUN/m_c/poss} chores",
-            "Not wanting {PRONOUN/m_c/poss} problems unknown, {PRONOUN/m_c/subject} caterwaul {PRONOUN/m_c/poss} distressing mood",
-            "Tries to redesign the camp with vibrant colors and style",
-            "Exclaimed furiously {PRONOUN/m_c/subject} would never lift a paw to those that pranked {PRONOUN/m_c/object}"
+            "Expresses {PRONOUN/m_c/poss} distressing moods loudly to ensure they are known",
+            "Attempts to redesign the camp with vibrant colors and styles",
+            "Exclaimed furiously that {PRONOUN/m_c/subject} would never lift a paw to help those who pranked {PRONOUN/m_c/object}"
         ],
         "main_trait_constraint": [
             "flamboyant"
-        ]   
+        ]
     },
     {
         "id": "gloomy_warrior",
         "thoughts": [
-            "With the constant battles, illness, and argurments, {PRONOUN/m_c/subject} rather be in {PRONOUN/m_c/poss} nest",
-            "Astounded {PRONOUN/m_c/subject} lived for this long, but doesn't want to jinx it",
-            "Dreading being the center of attention",
-            "Wanted to spead time with friends and kin, but fears StarClan might take them",
-            "Is expecting inevitable wars everyday",
-            "Whenever a Clanmate grieves, {PRONOUN/m_c/subject} warms them with empathy",
-            "Witnessing peace in the Clan, a bright, though weary smile would appear",
-            "Smiles silently when kits plant flowers on {PRONOUN/m_c/poss} coat"
+            "Prefers staying in {PRONOUN/m_c/poss} nest due to constant battles, illnesses, and arguments",
+            "Astonished to have lived this long, fearing to jinx it",
+            "Dreads being the center of attention",
+            "Wants to spend time with friends and kin but fears losing them to StarClan",
+            "Expects inevitable wars every day",
+            "Offers warmth and empathy to grieving Clanmates",
+            "Shows a bright, though weary, smile during peaceful moments in the Clan",
+            "Smiles silently when kits decorate {PRONOUN/m_c/poss} coat with flowers"
         ],
         "main_trait_constraint": [
             "gloomy"
-        ]  
+        ]
     },
     {
         "id": "grumpy_warrior",
         "thoughts": [
-            "Snort out a sigh",
-            "With a constant unnerving gaze, {PRONOUN/m_c/subject} often frighten kits",
-            "Has a tongue that can rival a venomous viper",
-            "Grogglely groan waking up too early",
-            "Often communicate with grunts and growls",
-            "Quietly admires {PRONOUN/m_c/poss} Clanmates from afar",
-            "Is building walls to conceal doubts and insecurities",
+            "Lets out a sigh",
+            "Often frightens kits with {PRONOUN/m_c/poss} constant unnerving gaze",
+            "Has a tongue as sharp as a venomous viper",
+            "Groans groggily upon waking up too early",
+            "Communicates primarily through grunts and growls",
+            "Admires {PRONOUN/m_c/poss} Clanmates quietly from afar",
+            "Builds walls to conceal {PRONOUN/m_c/poss} doubts and insecurities",
             "Is a bit too blunt with {PRONOUN/m_c/poss} words",
-            "Is the kits' cat size mountain they climb on",
-            "Discipline unruly apprentices {PRONOUN/m_c/poss} way",
-            "Grimly berates Clanmates that irks {PRONOUN/m_c/object}",
-            "Is repeatedly irritable",
+            "Acts as a mountain for kits to climb on",
+            "Disciplines unruly apprentices in {PRONOUN/m_c/poss} own way",
+            "Berates Clanmates that annoy {PRONOUN/m_c/object}",
+            "Is perpetually irritable",
             "Is as blunt as a razor claw",
-            "Told r_c {PRONOUN/m_c/subject} will not talk to {PRONOUN/r_c/object} until {PRONOUN/m_c/poss} morning moss water"
+            "Told r_c {PRONOUN/m_c/subject} will not talk to {PRONOUN/r_c/object} until {PRONOUN/m_c/poss} morning moss water is ready"
         ],
         "main_trait_constraint": [
             "grumpy"
-        ]     
-    },
+        ]
+    },    
     {
         "id": "insecure_warrior",
         "thoughts": [
@@ -1095,7 +1095,7 @@
         "id": "strict_warrior_to_living_apprentices",
         "thoughts": [
             "Snaps at some apprentices after they pull a harmless prank",
-            "Is setting up too much high expectations on r_c"
+            "Is setting up too many high expectations on r_c"
         ],
         "random_status_constraint": [
             "apprentice"
@@ -1235,9 +1235,9 @@
         "thoughts": [
             "Made a witty remark towards r_c",
             "Can easily find r_c's funny bone",
-            "Tries to cheer up a Clanmate losing a prey during a hunting patrol",
+            "Tries to cheer up a Clanmate when they lost prey during a hunting patrol",
             "Made a witty remark defending a Clanmate",
-            "Is quick-witted winning a spar against a Clanmate",
+            "Is quick-witted when winning a spar against a Clanmate",
             "Has the best tactical ideas on hunting patrols",
             "Is being cheeky",
             "Had outsmarted a Clanmate's prank",
@@ -1279,7 +1279,7 @@
 			"Doesn't seem to enjoy hunting anymore",
 			"Is avoiding {PRONOUN/m_c/poss} Clanmates",
 			"Is startled after r_c snuck up behind {PRONOUN/m_c/object}",
-            "Is wide awake, trying not to have another nightmare visit {PRONOUN/m_c/object}"
+            "Is wide awake, trying not to have another nightmare"
         ],
         "perm_conditions": {
             "m_c": [

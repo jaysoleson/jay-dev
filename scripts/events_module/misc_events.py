@@ -274,7 +274,8 @@ class MiscEvents():
 
         if not cat.pelt.inventory:
             cat.pelt.inventory = []
-        cat.pelt.inventory.append(acc)
+        if acc not in cat.pelt.inventory:
+            cat.pelt.inventory.append(acc)
 
     @staticmethod
     def handle_murder_self_reveals(cat):

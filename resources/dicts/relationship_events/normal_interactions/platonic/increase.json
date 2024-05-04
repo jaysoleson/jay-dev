@@ -212,14 +212,14 @@
 			"m_c pretends to be a warrior with r_c.",
 			"m_c is pretending to ward off foxes with r_c.",
 			"m_c is pretending to fight off badgers with r_c.",
-			"As if the two had soaring wings, m_c and r_c bolt beside each other, racing neck to neck across the clearing of the camp",
-            "Even though the two barely started life, m_c and r_c knows they'll be the bestest of friends!",
-            "In a mass of spikey and springly coats, m_c and r_c tussle hourly until their energy expire and collapse on top of each other asleep",
-            "While both coats was shivering in a frighten, m_c and r_c tries to outdo the other with chilling stories of the Dark Forest",
-            "In a split second of shock and awed, m_c couldn't believe r_c got {PRONOUN/m_c/object} with a good prank!",
-            "After dragging {PRONOUN/m_c/self} on wobbling paws, {PRONOUN/m_c/subject} plop {PRONOUN/m_c/self} on r_c to snuggle asleep on",
-            "To see who would stumble into the medicine den with a tummyache, m_c and r_c have a competition to eat the most beetles. No one won.",
-            "Having the sudden urge to see the wonders of Clan's camp, m_c leaps on r_c with an open invite to have a mini-exploration"
+			"As if they had soaring wings, m_c and r_c bolt beside each other, racing neck and neck across the clearing of the camp.",
+			"Even though the two have barely started life, m_c and r_c know they'll be the best of friends!",
+			"In a mass of spiked fur, m_c and r_c tussle until their energy wanes and they collapse on top of each other, fast asleep.",
+			"While both cats were shivering in fright, m_c and r_c tried to outdo each other with chilling stories of the Dark Forest.",
+			"In a moment of shock and awe, m_c couldn't believe r_c had successfully pranked {PRONOUN/m_c/object}!",
+			"After dragging {PRONOUN/m_c/self} on wobbling paws, {PRONOUN/m_c/subject} plops down on r_c to snuggle and fall asleep.",
+			"To see who would end up in the medicine den with a tummyache, m_c and r_c competed to eat the most beetles. In the end, no one won.",
+			"Having a sudden urge to see the wonders of the Clan's camp, m_c leaps on r_c with an open invitation for a mini-exploration."
 		],
 		"main_status_constraint": [
 			"kitten"
@@ -369,7 +369,7 @@
 			"m_c offers to help r_c clean out the elder's bedding.",
 			"m_c was playing with r_c and learned a fun new battle move from {PRONOUN/r_c/object}!",
 			"m_c is excitedly trying to guess what {PRONOUN/m_c/poss} and r_c's warrior names will be.",
-            "As if everycat has one, m_c teasely nudges r_c who is {PRONOUN/r_c/poss} secret crush"
+			"Knowing that everycat has one, m_c teasingly nudges r_c, asking who is {PRONOUN/r_c/poss} secret crush."
 		],
 		"main_status_constraint": [
 			"apprentice"
@@ -408,7 +408,7 @@
 			"m_c offers to teach r_c some fighting stances if r_c will teach {PRONOUN/m_c/object} about more herbs.",
 			"m_c and r_c spend time together despite their different training schedules.",
 			"m_c begs {PRONOUN/m_c/poss} mentor to let r_c come with for some hunting practice.",
-            "m_c begs r_c if {PRONOUN/r_c/subject} can see into the future and witness {PRONOUN/m_c/object} as a legendary warrior"
+			"m_c begs r_c if {PRONOUN/r_c/subject} can see into the future and witness {PRONOUN/m_c/object} as a legendary warrior"
 		],
 		"main_status_constraint": [
 			"apprentice"
@@ -423,7 +423,7 @@
 			"m_c gently grooms some cobwebs off r_c's fur.",
 			"m_c tells r_c that {PRONOUN/r_c/subject}'ll be an amazing medicine cat someday.",
 			"m_c believes in r_c, and reassures r_c that {PRONOUN/r_c/subject} made the right choice by becoming a medicine cat apprentice.",
-            "Stuck inside the medicine den, even though m_c grumbles at {PRONOUN/m_c/poss} wounds, {PRONOUN/m_c/subject} {VERB/m_c/is/are} happy r_c is tending {PRONOUN/m_c/object}"
+			"Stuck inside the medicine den, even though m_c grumbles at {PRONOUN/m_c/poss} wounds, {PRONOUN/m_c/subject} {VERB/m_c/is/are} happy r_c is tending {PRONOUN/m_c/object}"
 		],
 		"relationship_constraint": [
 			"platonic_40"
@@ -522,7 +522,7 @@
 			"m_c can't imagine {PRONOUN/m_c/poss} life if {PRONOUN/m_c/subject} never met r_c.",
 			"m_c thinks of r_c as {PRONOUN/m_c/poss} best friend.",
 			"m_c and r_c are inseparable, and can almost always be found with each other.",
-            "Even though the two didn't need to promise each other, m_c and r_c brimmed with pride knowing the other will watch each other backs"
+			"Even though the two didn't need to promise each other, m_c and r_c brimming with pride knowing the other will watch each other backs."
 		],
 		"relationship_constraint": [
 			"platonic_60"
