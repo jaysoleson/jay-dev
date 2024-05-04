@@ -601,7 +601,7 @@ class ChooseMateScreen(Screens):
         self.have_kits_text = None
         self.with_selected_cat_text.kill()
         self.with_selected_cat_text = None
-        
+  
         self.the_cat_frame.kill()
         self.the_cat_frame = None
         self.mate_frame.kill()
@@ -793,6 +793,18 @@ class ChooseMateScreen(Screens):
                         image_cache.load_image("resources/images/heart_maybe.png").convert_alpha(), 
                         (400, 156)))
             
+        if self.the_cat.t4t:
+            self.selected_cat_elements["t4t"] = pygame_gui.elements.UITextBox(
+                    f"{self.the_cat.name} is t4t!",
+                    scale(pygame.Rect((157, 615), (580, 60))),
+                    object_id=get_text_box_theme("#text_box_22_horizleft"))
+            
+        if self.selected_cat.t4t:
+            self.selected_cat_elements["t4t"] = pygame_gui.elements.UITextBox(
+                    f"{self.selected_cat.name} is t4t!",
+                    scale(pygame.Rect((1240, 615), (530, 130))),
+                    object_id=get_text_box_theme("#text_box_22_horizleft"))
+            
         
         self.selected_cat_elements["image"] = pygame_gui.elements.UIImage(scale(pygame.Rect((1200, 300), (300, 300))),
                                                                   pygame.transform.scale(
@@ -968,10 +980,14 @@ class ChooseMateScreen(Screens):
 
     def get_valid_mates(self):
         """Get a list of valid mates for the current cat"""
-        
-        # Behold! The uglest list comprehension ever created! 
+
+        # Behold! The uglest list comprehension ever created!
         valid_mates = [i for i in Cat.all_cats_list if
                        not i.faded
+
+                       and not ((i.gender == i.genderalign) and self.the_cat.t4t)
+                       and not ((self.the_cat.gender == self.the_cat.genderalign) and i.t4t)
+
                        and self.the_cat.is_potential_mate(
                            i, for_love_interest=False,
                            age_restriction=False, ignore_no_mates=True)

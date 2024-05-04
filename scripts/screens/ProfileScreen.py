@@ -321,7 +321,7 @@ class ProfileScreen(Screens):
                 self.update_disabled_buttons_and_text()
             elif event.ui_element == self.add_perma_inventory:
                 for flag in self.the_cat.pelt.accessories:
-                    if flag in Pelt.nonpridebandanas or\
+                    if flag in Pelt.pridebandanas4 or\
                     flag in Pelt.pridebandanas or\
                     flag in Pelt.pridebandanas2 or\
                     flag in Pelt.pridebandanas3 or\
@@ -333,7 +333,7 @@ class ProfileScreen(Screens):
             elif event.ui_element == self.remove_perma_inventory:
                 for flag in self.the_cat.pelt.permanent_inventory:
                     if flag in self.the_cat.pelt.accessories:
-                        if flag in Pelt.nonpridebandanas or\
+                        if flag in Pelt.pridebandanas4 or\
                         flag in Pelt.pridebandanas or\
                         flag in Pelt.pridebandanas2 or\
                         flag in Pelt.pridebandanas3 or\
@@ -401,7 +401,7 @@ class ProfileScreen(Screens):
                     value = b_2data.index(b_data)
                     n = value
                     
-                    prideflag = self.accessories_list[n] in Pelt.nonpridebandanas or\
+                    prideflag = self.accessories_list[n] in Pelt.pridebandanas4 or\
                             self.accessories_list[n] in Pelt.pridebandanas or\
                             self.accessories_list[n] in Pelt.pridebandanas2 or\
                             self.accessories_list[n] in Pelt.pridebandanas3 or\
@@ -422,7 +422,7 @@ class ProfileScreen(Screens):
                                 self.add_perma_inventory.enable()
                             for bandana in self.the_cat.pelt.accessories:
                                 if bandana != self.accessories_list[n]:
-                                    if bandana in Pelt.nonpridebandanas or\
+                                    if bandana in Pelt.pridebandanas4 or\
                                         bandana in Pelt.pridebandanas or\
                                         bandana in Pelt.pridebandanas2 or\
                                         bandana in Pelt.pridebandanas3 or\
@@ -477,7 +477,7 @@ class ProfileScreen(Screens):
                                 self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_pride2' + accessory + cat_sprite], manager=MANAGER)
                             elif accessory in cat.pelt.pridebandanas3:
                                 self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_pride3' + accessory + cat_sprite], manager=MANAGER)
-                            elif accessory in cat.pelt.nonpridebandanas:
+                            elif accessory in cat.pelt.pridebandanas4:
                                 self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_bandanas' + accessory + cat_sprite], manager=MANAGER)
                             elif accessory in cat.pelt.customflags:
                                 self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_customflags' + accessory + cat_sprite], manager=MANAGER)
@@ -620,6 +620,15 @@ class ProfileScreen(Screens):
             elif event.ui_element == self.specify_sexuality_button:
                 SpecifyCatSexuality(self.the_cat)
             #when button is pressed...
+            elif event.ui_element == self.t4t_button:
+                if self.the_cat.t4t:
+                    self.the_cat.t4t = False
+                else:
+                    self.the_cat.t4t = True
+
+                self.clear_profile()
+                self.build_profile()
+                self.update_disabled_buttons_and_text()
             elif event.ui_element == self.change_sexuality_button:
                 if self.the_cat.sexuality == "straight":
                     self.the_cat.sexuality = "bi"
@@ -925,7 +934,7 @@ class ProfileScreen(Screens):
                 value = b_2data.index(b_data)
                 n = value
 
-                prideflag = self.accessories_list[n] in Pelt.nonpridebandanas or\
+                prideflag = self.accessories_list[n] in Pelt.pridebandanas4 or\
                             self.accessories_list[n] in Pelt.pridebandanas or\
                             self.accessories_list[n] in Pelt.pridebandanas2 or\
                             self.accessories_list[n] in Pelt.pridebandanas3 or\
@@ -947,7 +956,7 @@ class ProfileScreen(Screens):
                             self.add_perma_inventory.enable()
                         for bandana in self.the_cat.pelt.accessories:
                             if bandana != self.accessories_list[n]:
-                                if bandana in Pelt.nonpridebandanas or\
+                                if bandana in Pelt.pridebandanas4 or\
                                     bandana in Pelt.pridebandanas or\
                                     bandana in Pelt.pridebandanas2 or\
                                     bandana in Pelt.pridebandanas3 or\
@@ -1005,7 +1014,7 @@ class ProfileScreen(Screens):
                                     self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_pride2' + accessory + cat_sprite], manager=MANAGER)
                                 elif accessory in cat.pelt.pridebandanas3:
                                     self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_pride3' + accessory + cat_sprite], manager=MANAGER)
-                                elif accessory in cat.pelt.nonpridebandanas:
+                                elif accessory in cat.pelt.pridebandanas4:
                                     self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_bandanas' + accessory + cat_sprite], manager=MANAGER)
                                 elif accessory in cat.pelt.customflags:
                                     self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_customflags' + accessory + cat_sprite], manager=MANAGER)
@@ -2840,7 +2849,7 @@ class ProfileScreen(Screens):
                             self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_pride2' + accessory + cat_sprite], manager=MANAGER)
                         elif accessory in cat.pelt.pridebandanas3:
                             self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_pride3' + accessory + cat_sprite], manager=MANAGER)
-                        elif accessory in cat.pelt.nonpridebandanas:
+                        elif accessory in cat.pelt.pridebandanas4:
                             self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_bandanas' + accessory + cat_sprite], manager=MANAGER)
                         elif accessory in cat.pelt.customflags:
                             self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_customflags' + accessory + cat_sprite], manager=MANAGER)
@@ -2962,6 +2971,7 @@ class ProfileScreen(Screens):
             #   This it due to the image switch depending on the cat's status, and the location switch the close button
             #    If you can think of a better way to do this, please fix! 
             self.change_sexuality_button = None
+            self.t4t_button = None
             self.change_acespec_button = None
             self.change_arospec_button = None
             self.label_info = None
@@ -3075,7 +3085,8 @@ class ProfileScreen(Screens):
                 self.change_mentor_button.enable()
 
         elif self.open_tab == "personal":
-
+            if self.t4t_button:
+                self.t4t_button.kill()
             if self.change_sexuality_button:
                 self.change_sexuality_button.kill()
             if self.change_acespec_button:
@@ -3084,6 +3095,17 @@ class ProfileScreen(Screens):
                 self.change_arospec_button.kill()
             if self.label_info:
                 self.label_info.kill()
+
+            if self.the_cat.gender != self.the_cat.genderalign:
+                if self.the_cat.t4t:
+                    self.t4t_button = UIImageButton(scale(pygame.Rect((1152, 977), (352, 104))), "not t4t",
+                                                        starting_height=2, object_id="",
+                                                        manager=MANAGER)
+                else:
+                    self.t4t_button = UIImageButton(scale(pygame.Rect((1152, 977), (352, 104))), "t4t",
+                                                        starting_height=2, object_id="",tool_tip_text="t4t cats are trans ctas who only feel comfortable being mates with other trans cats.",
+                                                        manager=MANAGER)
+                    
             if self.the_cat.moons > 5:
                 if self.the_cat.sexuality == "straight":
                     self.change_sexuality_button = UIImageButton(scale(pygame.Rect((580, 940), (195, 75))), "",
@@ -3473,6 +3495,8 @@ class ProfileScreen(Screens):
             self.manage_roles.kill()
             self.change_mentor_button.kill()
         elif self.open_tab == 'personal':
+            if self.t4t_button:
+                self.t4t_button.kill()
             if self.change_sexuality_button:
                 self.change_sexuality_button.kill()
             if self.change_acespec_button:

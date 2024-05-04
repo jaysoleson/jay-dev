@@ -4315,6 +4315,9 @@ class Events:
             print("lesbian man?!?!?!")
             cat.sexuality = "straight" 
 
+        if cat.gender == cat.genderalign and cat.t4t:
+            cat.t4t = False
+
         nonbinary = cat.genderalign not in ['male', 'female', 'trans male', 'trans female', 'demiboy', 'demigirl']
 
         if cat.gender == 'female':

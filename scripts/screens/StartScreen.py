@@ -47,7 +47,7 @@ class StartScreen(Screens):
         super().__init__(name)
         self.warning_label = None
 
-        bg = random.randint(1, 2)
+        bg = random.randint(1,3)
         self.bg = pygame.image.load("resources/menus/menu" + str(bg) + ".png").convert()
 
         self.bg = pygame.transform.scale(self.bg, (screen_x, screen_y))

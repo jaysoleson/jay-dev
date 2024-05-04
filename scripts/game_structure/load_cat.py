@@ -79,6 +79,12 @@ def json_load():
 
             if "keep_gender" not in cat:
                 cat["keep_gender"] = False
+
+            if "sexualitylabel" not in cat:
+                cat['sexualitylabel'] = cat['sexuality']
+            
+            if "t4t" not in cat:
+                cat["t4t"] = False
             
             if "shunned" not in cat:
                 cat["shunned"] = False

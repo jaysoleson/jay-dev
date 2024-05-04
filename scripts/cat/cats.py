@@ -148,6 +148,7 @@ class Cat():
             self.adoptive_parents = []
             self.mate = []
             self.qpp = []
+            self.t4t = False
             self.status = status
             self.pronouns = [self.default_pronouns[0].copy()]
             self.sexuality = sexuality
@@ -207,6 +208,7 @@ class Cat():
         self.relationships = {}
         self.mate = []
         self.qpp = []
+        self.t4t = False
         self.previous_mates = []
         self.pronouns = [self.default_pronouns[0].copy()]
         self.placement = None
@@ -2537,6 +2539,9 @@ class Cat():
         #No Mates Check
         if not ignore_no_mates and (self.no_mates or other_cat.no_mates):
             return False
+        
+        if self.t4t and other_cat.gender == other_cat.genderalign:
+            return False
 
         # Inheritance check
         if self.is_related(other_cat, first_cousin_mates):
@@ -3593,6 +3598,7 @@ class Cat():
                 #"pronouns": self.pronouns,
                 "sexuality": self.sexuality,
                 "sexuality_label": self.sexualitylabel,
+                "t4t": self.t4t,
                 "acespec": self.acespec,
                 "arospec": self.arospec,
                 "birth_cooldown": self.birth_cooldown,

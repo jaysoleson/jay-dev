@@ -41,7 +41,7 @@
             "Leaf-fall",
             "Leaf-bare"
         ],
-        "event_text": "m_c grins toothily at a acc_singular that wandered into camp! Instead of diving toward it like anyone would expect a cat to do, m_c decides to befriend it with seeds and nuts.",
+        "event_text": "m_c grins toothily at a mouse that wandered into camp! Instead of diving toward it like anyone would expect a cat to do, m_c decides to befriend it with seeds and nuts.",
         "accessories": ["RAT", "WHITE MOUSE", "BLACK MOUSE", "GRAY MOUSE", "BROWN MOUSE"]
     },
     {
@@ -58,7 +58,7 @@
             "jealousy", 
             "neg_trust"
         ],
-        "event_text": "r_c's eyes dilate as {PRONOUN/r_c/subject} {VERB/r_c/hunch/hunches} down to watch a acc_singular nibble at a fat seed! m_c stops r_c before {PRONOUN/r_c/subject} pounce, and manages to.. befriend the acc_singular! r_c rolls {PRONOUN/r_c/poss} eyes, grumbling about wasted food.",
+        "event_text": "r_c's eyes dilate as {PRONOUN/r_c/subject} {VERB/r_c/hunch/hunches} down to watch a mouse nibble at a fat seed! m_c stops r_c before {PRONOUN/r_c/subject} pounce, and manages to.. befriend the mouse! r_c rolls {PRONOUN/r_c/poss} eyes, grumbling about wasted food.",
         "other_cat_trait": ["bloodthirsty", "vengeful", "cold", "fierce", "shameless", "righteous", "strange"],
         "accessories": ["RAT", "WHITE MOUSE", "BLACK MOUSE", "GRAY MOUSE", "BROWN MOUSE"]
     },
