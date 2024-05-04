@@ -1222,22 +1222,22 @@ class PatrolOutcome():
             if patrol.patrol_leader.genderalign in ['female', 'trans female', 'demigirl']:
                 if patrol.patrol_leader.sexuality in ['lesbian', 'gyno']:
                     gender = "female"
-                    sexuality = choice(['lesbian', 'bi'])
+                    sexuality = random.choice(['lesbian', 'bi'])
 
                 elif patrol.patrol_leader.sexuality in ("bi", "pan"):
                     gender = choice(["male", "female"])
                     if gender == "female":
-                        sexuality = choice(["lesbian", "bi", "pan"])
+                        sexuality = random.choice(["lesbian", "bi", "pan"])
                         
                     elif gender == "female":
-                        sexuality = choice (["straight", "bi", "pan"])
+                        sexuality = random.choice (["straight", "bi", "pan"])
 
                     else:
-                        sexuality = choice(["gyno", "bi", "pan"])
+                        sexuality = random.choice(["gyno", "bi", "pan"])
 
                 elif patrol.patrol_leader.sexuality == "straight":
                     gender = "male"
-                    sexuality = choice(["straight", "bi", "pan"])
+                    sexuality = random.choice(["straight", "bi", "pan"])
           
 
             elif patrol.patrol_leader.genderalign in ["male", "trans male", "demiboy"]:
@@ -1245,27 +1245,27 @@ class PatrolOutcome():
                     gender = "male"
                     sexuality = random.choice(['gay', 'bi'])
                 elif patrol.patrol_leader.sexuality in ("bi", "pan"):
-                    gender = choice(["male", "female"])
+                    gender = random.choice(["male", "female"])
                     if gender == "male":
-                        sexuality = choice(["gay", "bi", "pan"])
+                        sexuality = random.choice(["gay", "bi", "pan"])
                     else:
-                        sexuality = choice (["straight", "bi", "pan"])
+                        sexuality = random.choice (["straight", "bi", "pan"])
                 elif patrol.patrol_leader.sexuality == "straight":
                     gender = "female"
                     sexuality = random.choice(["straight", "bi", "pan"])
             else:
                 if patrol.patrol_leader.sexuality == "andro":
                     gender = "male"
-                    sexuality = choice(["bi", "pan"])
+                    sexuality = random.choice(["bi", "pan"])
                         
                 elif patrol.patrol_leader.sexuality in ("bi", "pan"):
                     gender = random.choice(["male", "female"])
                     sexuality = choice(["bi", "pan"])
                 elif patrol.patrol_leader.sexuality == "gyno":
                     gender = "female"
-                    sexuality = choice ("bi", "pan")
+                    sexuality = random.choice (["bi", "pan"])
                 else:
-                    gender = choice(["male", "female"])
+                    gender = random.choice(["male", "female"])
                     
 
         if "newstarcat" in attribute_list:
