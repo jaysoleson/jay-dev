@@ -161,7 +161,7 @@ class Sprites():
 
             "pridebandanas3",
 
-            "nonpridebandanas",
+            "pridebandanas4",
 
             "customflags",
 
@@ -581,7 +581,7 @@ class Sprites():
 
         for a, i in enumerate([
             "PLACEHOLDER"]):
-            self.make_group('nonpridebandanas', (a, 0), f'acc_bandanas{i}')
+            self.make_group('pridebandanas4', (a, 0), f'acc_bandanas{i}')
 
         for a, i in enumerate([
             "CUSTOMFLAG0", "CUSTOMFLAG1", "CUSTOMFLAG2", "CUSTOMFLAG3", "CUSTOMFLAG4", "CUSTOMFLAG5"]):

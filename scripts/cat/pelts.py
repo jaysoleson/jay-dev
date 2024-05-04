@@ -108,7 +108,7 @@ class Pelt():
         "URANIC", "NEBULAROMANTIC", "CATGENDER", "GENDERDOE", "OMNISAPPHIC", "MOTHGENDER", "SNOWLEOPARDGENDER", "TIGERGENDER", "BUGGENDER", "GENDERFAUN", "DEMIAROACE", "SAPPHIC", "ACHILLEAN", "XENOGENDER"
     ]
 
-    nonpridebandanas = [
+    pridebandanas4 = [
         "PLACEHOLDER"
     ]
 

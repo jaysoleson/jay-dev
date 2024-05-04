@@ -972,7 +972,7 @@ class Clan():
                     if "PRIDE3" in possible_accs:
                         acc_list.extend(Pelt.pridebandanas3)
                     if "BANDANAS" in possible_accs:
-                        acc_list.extend(Pelt.nonpridebandanas)
+                        acc_list.extend(Pelt.pridebandanas4)
                     if "CUSTOM" in possible_accs:
                         acc_list.extend(Pelt.customflags)
                 if "WILD" in possible_accs:

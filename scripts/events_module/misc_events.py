@@ -262,7 +262,7 @@ class MiscEvents():
                     except ValueError:
                         print(f'attempted to remove {acc} from possible acc list, but it was not in the list!')
                         
-        for acc in Pelt.pridebandanas or Pelt.pridebandanas2 or Pelt.pridebandanas3 or Pelt.nonpridebandanas or Pelt.customflags:
+        for acc in Pelt.pridebandanas or Pelt.pridebandanas2 or Pelt.pridebandanas3 or Pelt.pridebandanas4 or Pelt.customflags:
             if acc in acc_list:
                     try:
                         acc_list.remove(acc)

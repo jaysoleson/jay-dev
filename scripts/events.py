@@ -106,7 +106,7 @@ class Events:
         self.aro = Pelt.pridebandanas2[13]
         self.demiromantic = Pelt.pridebandanas2[14]
         
-        self.straight = Pelt.nonpridebandanas[0]
+        self.straight = Pelt.pridebandanas4[0]
 
         self.uranic = Pelt.pridebandanas3[0]
         self.nebularomantic = Pelt.pridebandanas3[1]
@@ -123,7 +123,7 @@ class Events:
         self.achillean = Pelt.pridebandanas3[12]
         self.xenogender = Pelt.pridebandanas3[13]
 
-        self.all_bandanas = [Pelt.nonpridebandanas, Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3]
+        self.all_bandanas = [Pelt.pridebandanas4, Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3]
 
     def one_moon(self):
         """
