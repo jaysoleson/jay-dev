@@ -3169,7 +3169,7 @@ class ProfileScreen(Screens):
                                                         manager=MANAGER)
                 else:
                     self.t4t_button = UIImageButton(scale(pygame.Rect((1152, 977), (352, 104))), "t4t",
-                                                        starting_height=2, object_id="",tool_tip_text="t4t cats are trans ctas who only feel comfortable being mates with other trans cats.",
+                                                        starting_height=2, object_id="",tool_tip_text="t4t cats are trans cats who only feel comfortable being mates with other trans cats.",
                                                         manager=MANAGER)
                     
             if self.the_cat.moons > 5:
