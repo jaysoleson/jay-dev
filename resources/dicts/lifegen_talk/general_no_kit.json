@@ -10013,8 +10013,7 @@
             "platonic_love",
             "silly",
             "unlawful",
-            "unabashed",
-            "introspective"
+            "unabashed"
         ],
         [
             "y_c, I swear, sometimes it's like we're trapped here.",
@@ -14857,7 +14856,8 @@
     ],
     "revived_murderedyou_J1": [
         [
-            "murderedyou"
+            "murderedyou",
+            "any"
         ],
         [
             "What are you doing here?"
@@ -14866,7 +14866,8 @@
     "revived_murderedyou_J2": [
         [
             "murderedyou",
-            "they_shunned"
+            "they_shunned",
+            "any"
         ],
         [
             "What are you doing here?"
@@ -14876,7 +14877,8 @@
         [
             "murderedyou",
             "they_shunned",
-            "they_grieving"
+            "they_grieving",
+            "any"
         ],
         [
             "What are you doing here?"
@@ -14887,7 +14889,8 @@
             "murderedyou",
             "they_shunned",
             "they_grieving",
-            "grievingyou"
+            "grievingyou",
+            "any"
         ],
         [
             "Oh, StarClan, this... is too much for me."
@@ -15500,7 +15503,8 @@
     "youforgiven_J10": [
         [
             "they_forgiven",
-            "you_forgiven"
+            "you_forgiven",
+            "any"
         ],
         [
             "[It feels strange, sitting next to t_c, knowing both of your pasts.]",
@@ -16056,8 +16060,8 @@
             "they_deaf"
         ],
         [
-            "[You feel the presence of another ghost. But they smell slightly different.]",
-            "[It must be a StarClan cat! You turn to the cat, but you're left spinning as the scent dissipates. They must have left.]"
+            "...",
+            "[t_c's sparkles are almost blinding.]"
         ]
     ],
     "you_ur_J11": [
@@ -16069,8 +16073,11 @@
             "they_blind"
         ],
         [
-            "[You feel the presence of another ghost. But they smell slightly different.]",
-            "[It must be a StarClan cat! You turn to the cat, but you're left spinning as the scent dissipates. They must have left.]"
+            "Is it better being stuck down here than up in StarClan, would you say?",
+            "I mean, no, you wouldn't know what StarClan is like to really say, but...",
+            "I don't know. It gets a bit boring up there sometimes. I like to feel the ground beneath me sometimes.",
+            "['Sometimes', they say. You'd like to feel clouds and sun and endless prey sometimes, too.]",
+            "[You hold your tongue. Best not to snap at a StarClan cat.]"
         ]
     ],
     "you_ur_J12": [
@@ -16214,7 +16221,7 @@
             "they_sc",
             "any",
             "they_brooding",
-            "they_cool",
+            "cool",
             "you_blind"
             
         ],
@@ -16467,11 +16474,12 @@
             "[And being lucky enough to end up in the afterlife with t_c is just the prey on top.]"
         ]
     ],
-   "UR_H9": [
+    "UR_H9": [
         [
             "they_ur",
             "you_ur",
-            "neurotic"
+            "neurotic",
+            "any"
         ],
         [
             "I kinda like that I can snoop around in the living world and no one notices.",
@@ -17347,7 +17355,8 @@
             "they_dftrainee",
             "you_df",
             "you_blind",
-            "they_blind"
+            "they_blind",
+            "any"
         ],
         [
             "If StarClan cares so much about the Clans, why don't they have their own trainees?"
@@ -17358,7 +17367,8 @@
             "they_dftrainee",
             "you_df",
             "you_blind",
-            "they_blind"
+            "they_blind",
+            "any"
         ],
         [
             "If my Clan finds out that I'm training here, they'll understand, right?",
@@ -17370,7 +17380,8 @@
             "they_adult",
             "you_dftrainee",
             "they_not_dftrainee",
-            "sweet"
+            "sweet",
+            "any"
         ],
         [
             "... y_c?",
@@ -17385,7 +17396,8 @@
             "they_adult",
             "you_dftrainee",
             "they_not_dftrainee",
-            "sweet"
+            "sweet",
+            "any"
         ],
         [
             "[You wince as you wake up, last night's training was a bit too rough, and you're all scratched up.]",
@@ -17399,7 +17411,8 @@
             "they_adult",
             "you_dftrainee",
             "they_not_dftrainee",
-            "sweet"
+            "sweet",
+            "any"
         ],
         [
             "[You were sent outside to complete a task, t_c tagging along with you. Everything goes fine at first...]",
@@ -17537,7 +17550,8 @@
             "they_df"
         ],
         [
-            "[You've heard stories that Dark Forest cats can change their surroundings to their will -- for instance, make the rotten muck of the Dark Forest training areas seem as if they're beautiful StarClan meadows. One night, you inquire t_c about it. Surprisingly, t_c answers.]",
+            "[You've heard stories that Dark Forest cats can change their surroundings to their will -- for instance, make the rotten muck of the Dark Forest training areas seem as if they're beautiful StarClan meadows.]",
+            "[One night, you inquire t_c about it. Surprisingly, t_c answers.]",
             "It's an old power. Only powerful cats have learnt it, and it only works on those who are weak-willed.",
             "Watch this.",
             "[t_c digs into the sludge, scooping up a pawful and showing it to you. The sludge briefly takes the form of a flower.]",

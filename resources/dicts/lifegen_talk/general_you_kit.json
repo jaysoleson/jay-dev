@@ -1568,8 +1568,8 @@
         [
             "What are you doing here, y_c? You shouldn't be here... I just need time alone, please.",
             "What's it like? It feels like it's eating me up from the inside, tearing me apart, ripping me open, swallowing me whole. This hole, this pit, it's agonising. But- that's the cost to lose someone you love.",
-            "With love, comes loss, that's the price we pay. And it's so worth it. Because if we could do it again, we would, and wouldn't change a thing. To love is both a blessing and a curse. Don't let the fear of losing someone stop you from loving them, ever.",
-            "Cherish every moment, every fight, every breath.",
+            "With love, comes loss, that's the price we pay. And it's so worth it. Because if we could do it again, we would, and wouldn't change a thing. To love is both a blessing and a curse.",
+            "Don't let the fear of losing someone stop you from loving them, ever. Cherish every moment, every fight, every breath.",
             "Thank you for visiting me, y_c. You remind me so much of them, thank you... Now run off and play, and please, y_c, never stop loving those around you. Kin or Clanmate."
         ]
     ],
@@ -2287,7 +2287,8 @@
         [
             "you_shunned",
             "they_older",
-            "they_deaf"
+            "they_deaf",
+            "any"
         ],
         [
             "[t_c looks at you sceptically, like they're trying to figure something out.]"
@@ -3756,6 +3757,7 @@
             "they_ur",
             "any",
             "grievingthem",
+            "you_grieving",
             "they_older"
         ],
         [
@@ -3959,5 +3961,49 @@
         [
             "Poor thing..."
         ]
-    ]
+    ],
+    "urnew_sckit_R3": [
+        [
+            "newborn",
+            "they_kitten",
+            "you_ur",
+            "they_sc"
+        ],
+        [
+            "Hello y_c! How are you today?",
+            "Oh, you've got a funny look on your face, umm... Okay...Oh! Are you wondering why I'm here and not in StarClan?",
+            "I got permission to come visit you! Isn't that great?",
+            "Heehee, we're friends y_c, so of course I'll come visit. But it was a really long walk so I'm tired! Let's take a nap before we play."
+        ]
+    ],
+    "urnew_sckit_R4": [
+        [
+            "newborn",
+            "they_kitten",
+            "you_ur",
+            "they_sc",
+            "you_blind",
+            "they_blind"
+        ],
+        [
+            "[t_c seems lost in thought at the border. You squeak to catch their attention.]",
+            "y_c! You scared me! I thought you were one of those meanie dark muddy cats! Whew, I thought they were gonna get me...",
+            "But it's just you. How are you y_c?"
+        ]
+    ],
+    "scnew_urkit_R5": [
+        [
+            "newborn",
+            "they_kitten",
+            "you_ur",
+            "they_sc",
+            "you_blind",
+            "they_blind"
+        ],
+        [
+            "[t_c has joined you for a crawl along the border. They're literally crawling alongside you.]",
+            "This is sooooooo sloooooooooooooow y_c! Crawl faster!",
+            "[You try, but you have tiny legs.]"
+        ]
+    ]    
 }

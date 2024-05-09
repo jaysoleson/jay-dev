@@ -43,15 +43,15 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "Support l_n",
+                "text": "[Support l_n]",
                 "next_scene": "support"
             },
             "choice2": {
-                "text": "Diss l_n",
+                "text": "[Diss l_n]",
                 "next_scene": "diss"
             },
             "choice3": {
-                "text": "Refuse to answer",
+                "text": "[Refuse to answer]",
                 "next_scene": "refuse"
             }
         },
@@ -2875,17 +2875,453 @@
                 "next_scene": "regret_idont"
             }
         },
-        
-            
-        "I do":[
+        "I do": [
             "I see... Some advice to you then? Work for forgiveness and don't give up. Show them you deserve a second chance.",
             "Everyone makes mistakes sometimes. You don't need to explain that to anyone either. Just do your best from now on.",
             "You only live once after all. Make the most of it. And if you end up here in the end... It was still worth a try, right?"
         ],
-        "I don't":[
+        "I don't": [
             "No shame in that at all. Respectable choice, really.",
             "Just don't get caught if you do it again. I'd hate to see you kicked out for something like this. Those star-blind fools will know in the end...",
-            "But what your Clanmates don't know in life won't hurt them." 
-        ] 
+            "But what your Clanmates don't know in life won't hurt them."
+        ]
+    },
+    "strange_choice_1": {
+        "tags": [
+            "Any",
+            "strange",
+            "upstanding",
+            "stable",
+            "greenleaf",
+            "warrior",
+            "no_kit"
+        ],
+        "intro": [
+            "[Hot, humid, and too uncomfortable to sleep, you wander around c_nClan camp in hopes of growing tired enough to rest.]",
+            "[In the distance, you see a dark figure sitting under the night sky. They sit there, shuffling through the freshkill in nothing but a blanket of darkness in their wake.]"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "[Stalk closer to the dark figure.]",
+                "next_scene": "stalk_closer"
+            },
+            "choice2": {
+                "text": "[Watch at a safe distance.]",
+                "next_scene": "watching"
+            }
+        },
+        "stalk_closer": [
+            "[As you stalk closer, the figure turns around, hearing your approach. It's t_c.]",
+            "Oh, y_c, I didn't see you there! I'm just going through the freshkill pile for crowfood.",
+            "[You ask them why so late at night, when everyone else is sleeping.]",
+            "I couldn't sleep, so I may as well do something useful! I thought d_n would appreciate it if they woke up to the freshkill pile already searched through!",
+            "[t_c turns back to the freshkill pile, continuing to shift through the prey for crowfood.]"
+        ],
+        "watching": [
+            "[You watch the figure shuffle through the freshkill pile, realizing it's t_c.]",
+            "[Relieved it isn't a creature sneaking into the camp, you turn back to the den. t_c is a strange cat, that is for sure.]"
+        ]
+    },
+    "brooding_tomedappAJ1": {
+        "tags": [
+            "no_kit",
+            "medicine cat apprentice",
+            "medicine cat",
+            "brooding"
+        ],
+        "intro": [
+            "Have you heard anything from StarClan lately?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Yes!",
+                "next_scene": "yes"
+            },
+            "choice2": {
+                "text": "Not exactly ...",
+                "next_scene": "no"
+            }
+        },
+        "yes": [
+            "Oh ...? Is that so?",
+            "Well ... This is rather unexpected.",
+            "Maybe our ancestors haven't given up on us yet, after all."
+        ],
+        "no": [
+            "Hmph. Of course not. How typical.",
+            "Any longer and I'll start to believe our ancestors have given up on us."
+        ]
+    },
+    "brooding_bullyAJ": {
+        "tags": [
+            "kitten",
+            "they_kitten",
+            "brooding",
+            "assertive",
+            "unlawful",
+            "random_cat"
+        ],
+        "intro": [
+            "What's the matter, y_c? Missing something?",
+            "[t_c holds your favorite moss-ball high above your head.]",
+            "What are you gonna do about it? Come take it from me?",
+            "Hahahaha!"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "[Attack t_c]",
+                "next_scene": "attack"
+            },
+            "choice2": {
+                "text": "[Tattle on t_c]",
+                "next_scene": "tattle"
+            },
+            "choice3": {
+                "text": "[Leave t_c alone]",
+                "next_scene": "leave"
+            }
+        },
+        "attack": [
+            "[You gather up your little haunches and spring at t_c, knocking them off their paws and sending your moss-ball flying.]",
+            "[The two of you spend a few moments tussling in a whirl of fur, claws, and shrieks before a horrified r_q separates you.]",
+            "[r_q chides you and insists that you apologize to t_c for starting a fight. Do you do so?]"
+        ],
+        "attack_choices": {
+            "choice1": {
+                "text": "[Apologize]",
+                "next_scene": "apologize"
+            },
+            "choice2": {
+                "text": "[No regrets]",
+                "next_scene": "regrets"
+            }
+        },
+        "apologize": [
+            "[The shame of the battle courses hot through your veins. You can't meet t_c in the eye as you mumble out an apology.]",
+            "[t_c sniffs and flicks their tail, smug as anything.]",
+            "Yeah ... That's what I thought, y_c. Hehehe."
+        ],
+        "regrets": [
+            "[The queens always taught you that violence isn't the answer ... But with the thrill of the battle coursing hot through your veins, it's hard to come to terms with the fact that what you did might've been wrong.]",
+            "[You stick your tongue out at t_c and insist that you would do it again in a heartbeat.]",
+            "[The queens put you in timeout and your moss-ball is thrown away, but when you see the glint of fear in t_c's eye, all of it is made worth it.]",
+            "[Seems they won't be messing with you anymore!]"
+        ],
+        "tattle": [
+            "[You tug on r_q's tail and insist that t_c be punished for stealing your moss-ball from you.]",
+            "[r_q does as you ask, chiding the kit and retrieving your moss-ball.]",
+            "[But the whole time t_c is being lectured, their attention stays fixed squarely on you, gaze steely and resentful.]",
+            "Some warrior you are. Can't even fight your own battles ...",
+            "[It seems this is a moment t_c won't soon forget.]",
+            "[Better watch your moss-ball twice as carefully from now on!]"
+        ],
+        "leave": [
+            "[You refuse to put up with t_c's stupid games. You spin around and walk back to your nest with your nose held high, unbothered.]",
+            "[t_c plays with your moss-ball for a little while, but quickly abandons it, bored by your lack of a reaction.]",
+            "[Seems they've learned you're not a fun target.]"
+        ]
+    },
+    "brooding_shredAJ": {
+        "tags": [
+            "they_kitten",
+            "brooding",
+            "random_cat",
+            "unlawful",
+            "they_younger"
+        ],
+        "intro": [
+            "[t_c is tearing all the moss in r_q's nest to shreds.]",
+            "[Should ... Should you try and stop them?]"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "[Intervene]",
+                "next_scene": "intervene"
+            },
+            "choice2": {
+                "text": "[Let them be]",
+                "next_scene": "leave"
+            }
+        },
+        "intervene": [
+            "[You quickly pull t_c away from the nest, expecting them to run off and find something else to do.]",
+            "[But, to your surprise, without missing a beat, they sink their little claws into your leg instead!]",
+            "Lemme go! Get your paws off me!",
+            "[As you pull them off, a tuft of your fur goes with them, like unhooking a little burr.]",
+            "Hahaha! I got you good!",
+            "[You sit t_c down and force them to explain to you what happened. They whine and pout.]",
+            "Ugh ... It just isn't fair! I was just trying to get back at r_q, is all!",
+            "['Get back at them for what?']",
+            "For being a giant dung-faced mouse-brain, that's what.",
+            "... And for taking away my favorite toy.",
+            "Sure, I was hitting r_k with it, but still!",
+            "... I just can't stand getting bossed around all the time.",
+            "I can't wait until I'm big, like you are, y_c. Then, no one will be able to stop me from doing whatever I want.",
+            "[You consider telling the kit about Clan politics and responsibilities, but decide to spare them the lecture, lest you lose another tuft of fur.]",
+            "[It's no doubt, the kit is trouble ... But, there's no denying they've got a warrior's spirit.]",
+            "[They'll be sure to make an interesting Clanmate one day.]"
+        ],
+        "leave": [
+            "[You decide to leave t_c to their own devices, the sounds of ripping moss and faint giggling following you out of the nursery.]",
+            "[Later, you see them pouting in timeout, no doubt plotting their next scheme to get back at r_q for their punishment.]"
+        ]
+    },
+    "cool_likeAJ": {
+        "tags": [
+            "no_kit",
+            "cool",
+            "platonic_like",
+            "they_sameage",
+            "random_cat"
+        ],
+        "intro": [
+            "[You notice a small, well-loved trinket buried deep in the folds of t_c's nest.]",
+            "[You decide ask t_c about it the next time you see them.]",
+            "Psh, oh, that old thing? Yeah, just some random piece of junk. No idea how it even got there.",
+            "[You ask t_c if they'd like you to throw it out, then?]",
+            "Ehm ... Well, I don't know if I'd go that far ... It's not like I exactly mind it there, or anything.",
+            "[Oh ... You see what this is.]",
+            "[Clearly the trinket means something to t_c, but they're just too preoccupied keeping up the 'cool guy' routine to tell you!]"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "[Tease t_c]",
+                "next_scene": "tease"
+            },
+            "choice2": {
+                "text": "[Crack t_c's shell]",
+                "next_scene": "compliment"
+            },
+            "choice3": {
+                "text": "[Leave t_c alone]",
+                "next_scene": "leave"
+            }
+        },
+        "tease": [
+            "[You purr how ironic it is that the smooth, untouchable t_c still sleeps with a toy in their nest at night.]",
+            "Ack - Hey, keep your voice down, alright? I got a rep to maintain, here.",
+            "... Yes, I keep a toy in my nest from my nursery days, okay? The handsome wisecracker's got a soft interior. Congratulations. You've solved the mystery.",
+            "Just do me a favor and keep it under wraps, yeah? Pretend it was a gift from my sweet old granny or some similarly saccharine heartstring-pulling slop like that.",
+            "... Seriously. Please?",
+            "[Though t_c is smarmy as always, an uncharacteristic vulnerability tugs at the edges of their voice.]"
+        ],
+        "compliment": [
+            "[You purr that you think it's cute that t_c has a sensitive side, and they don't have to pretend to be someone they're not around you.]",
+            "Aww. Well, aren't you just too sweet?",
+            "[t_c wrinkles their nose at you.]",
+            "Do me a favor, cutie, and keep this whole interaction between us, okay?",
+            "Go around telling everyone about t_c's secret saccharine fancies and I just might have to vomit."
+        ],
+        "leave": [
+            "['You politely tell t_c that the trinket is theirs to do what they'd like with, and decide not to pry any more.']",
+            "[Though t_c acts unbothered, you can see in their eyes how much they appreciate your choice.]"
+        ]
+    },
+    "cool_loveAJ": {
+        "tags": [
+            "no_kit",
+            "cool",
+            "platonic_love"
+        ],
+        "intro": [
+            "Y'know, if you really think about it, not caring too much about anything is kinda like a superpower.",
+            "If you don't feel anything, then nothing can hurt you. Like a thicket of burrs around your heart, or something.",
+            "Isn't it incredible, the things I come up with? We should really claim ownership over this technique, y_c. We could be making a fortune here."
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Oh, t_c ...",
+                "next_scene": "disappointed"
+            },
+            "choice2": {
+                "text": "I'm not so heartless.",
+                "next_scene": "indignant"
+            },
+            "choice3": {
+                "text": "You're so right!",
+                "next_scene": "agree"
+            }
+        },
+        "disappointed": [
+            "What? Did I tug on your heartstrings, or something? Lighten up. It was just a joke.",
+            "[t_c chuckles and hits you lightly with their tail, but secretly, you can tell how much it pains them to have disappointed you.]"
+        ],
+        "indignant": [
+            "Hey, suit yourself. Just don't come crying to me when some sleazebag makes you wanna rip your fur out.",
+            "I'll be too busy relaxing, sipping spring water, living the high life. Call me super-t_c."
+        ],
+        "agree": [
+            "Heh. See, this is why I like you, t_c. You just get me.",
+            "Like two wings on the same bird, you and I.",
+            "Two self-obsessed, slightly sadistic, emotionally stunted wings."
+        ]
+    },
+    "brooding_tomedAJ": {
+        "tags": [
+            "medicine cat apprentice",
+            "medicine cat",
+            "brooding",
+            "random_cat"
+        ],
+        "intro": [
+            "Erm ... Hi.",
+            "Maybe you should check in on r_c sometime. Do you do check-ins? I don't actually know.",
+            "Um, anyways, they're worrying me a little lately ... sort of walking with a limp. I don't know if it's just in my head, or if they're really hurt.",
+            "Either way, you should check."
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "[Compliment t_c]",
+                "next_scene": "compliment"
+            },
+            "choice2": {
+                "text": "[Tease t_c]",
+                "next_scene": "tease"
+            },
+            "choice3": {
+                "text": "[Keep it professional]",
+                "next_scene": "profesh"
+            }
+        },
+        "compliment": [
+            "[You compliment t_c on their consideration for their fellow clanmate.]",
+            "Tch. Is this really so unusual? I'm just doing what any c_nClan cat would do.",
+            "[Their tone is cold, but you can't help but notice a slight purr as they look away, clearly pleased.]"
+        ],
+        "tease": [
+            "[You gently tease that it's cute how t_c is concerned for their fellow clanmate.]",
+            "Whuh - Cute? I'm not cute!",
+            "Just - forget it, alright? And if this gets out to anyone else in the Clan, trust me, I'll find out about it!",
+            "You'll see who's 'cute' then ..."
+        ],
+        "profesh": [
+            "[You curtly tell t_c that you'll see what you can do.]",
+            "Thanks. And, uh, do me a favor, don't tell r_c that it was me who sent you, either.",
+            "I don't want them to think I'm going soft."
+        ]
+    },
+    "brooding_kitten4AJ": {
+        "tags": [
+            "brooding",
+            "platonic_like"
+        ],
+        "intro": [
+            "y_c. I have something for you.",
+            "[t_c drops a smooth pebble at your paws.]",
+            "I ... saw it on patrol, and thought you might like it to play with.",
+            "Do you like it?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Yes",
+                "next_scene": "yes"
+            },
+            "choice2": {
+                "text": "No",
+                "next_scene": "no"
+            }
+        },
+        "yes": [
+            "[t_c lets out a soft 'mrrp' of contentment.]",
+            "Well, I'm glad. It's yours to keep."
+        ],
+        "no": [
+            "Really? Why not?",
+            "You don't like pebbles?",
+            "[t_c quickly snatches away the pebble, concealing it from sight.]",
+            "[You catch them in camp later, staring at it with a troubled expression.]",
+            "[Seems they had higher hopes for the gift than you might have anticipated.]"
+        ]
+    },
+    "sleepy_choicesAJ": {
+        "tags": [
+            "brooding",
+            "upstanding",
+            "stable",
+            "they_older"
+        ],
+        "intro": [
+            "[t_c sharply prods you with the side of a paw while you're lounging in camp.]",
+            "Look alive, y_c. Time to start the day.",
+            "I know you need your rest, but all c_nClan cats need to contribute, including you.",
+            "[With that, they trot away with a swish of their tail.]",
+            "[You don't want to disappoint t_c, but the sun is so warm and you can feel your eyelids growing heavier by the second ... What should you do?]"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Get up",
+                "next_scene": "rise"
+            },
+            "choice2": {
+                "text": "Keep sleeping",
+                "next_scene": "sleep"
+            }
+        },
+        "rise": [
+            "[You reluctantly rise and stretch your limbs, shaking scraps of sleep from your fur.]",
+            "[It hurts to leave your comfy spot behind ... But t_c's approving nod from across camp makes everything worth it.]"
+        ],
+        "sleep": [
+            "[You roll over and tuck your nose underneath your paw, determined to get a few more minutes of sleep in before you have to start the day.]",
+            "[t_c doesn't disturb you again, but you can't help a pang of guilt when you see them observing you sadly from across camp.]",
+            "[Was the extra sleep really worth it?]"
+        ]
+    },
+    "brooding_quizAJ": {
+        "tags": [
+            "brooding",
+            "introspective",
+            "stable",
+            "apprentice",
+            "medicine cat apprentice",
+            "mediator apprentice",
+            "queen's apprentice",
+            "they_older"
+        ],
+        "intro": [
+            "Earning your full name is about much more than learning new skills. You have to understand what it means to be a full member of c_nClan, and do whatever it takes to uphold our values.",
+            "So, that being said ... Have you memorized the warrior code?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Yes",
+                "next_scene": "yes"
+            },
+            "choice2": {
+                "text": "No",
+                "next_scene": "no"
+            }
+        },
+        "yes": [
+            "Really? Okay, then what's the first rule?"
+        ],
+        "yes_choices": {
+            "choice1": {
+                "text": "Kits and elders eat first",
+                "next_scene": "kitsprey"
+            },
+            "choice2": {
+                "text": "Always defend your Clan",
+                "next_scene": "defend"
+            },
+            "choice3": {
+                "text": "Don't waste prey",
+                "next_scene": "kitsprey"
+            }
+        },
+        "kitsprey": [
+            "... I might study it a little more thoroughly, if I were you.",
+            "[t_c narrows their eyes in scrutiny.]"
+        ],
+        "defend": [
+            "Heh. Well done.",
+            "I can already tell you'll make a great clanmate."
+        ],
+        "no": [
+            "... As much as I loathe to pay you a compliment for disrespecting the code ...",
+            "... It took a lot of honesty for you to admit that to me.",
+            "You're not such a bad cat, y_c.",
+            "Just make sure to put the work in next time. Don't let me catch you lacking again, got it?"
+        ]
     }
 }

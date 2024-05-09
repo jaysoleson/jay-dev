@@ -1733,6 +1733,9 @@ class DeathScreen(UIWindow):
                     you.status = 'newborn'
                 elif you.moons < 6 and you.status != "kitten":
                     you.status = "kitten"
+                elif you.moons >= 6 and you.status == "kitten":
+                    you.status = "apprentice"
+                    you.name.status = "apprentice"
 
                 game.clan.your_cat.thought = "Is surprised to find themselves back in the Clan"
                 game.last_screen_forupdate = None

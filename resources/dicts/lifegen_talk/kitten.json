@@ -4904,7 +4904,6 @@
             "only_they_deaf",
             "only_they_blind",
             "only_you_blind"
-            
         ],
         [
             "[You couldn't hear nor see in the waking world, and now, as a ghost, you can hardly even feel.]",
@@ -5206,6 +5205,32 @@
             "I told r_m about you, but they said I was lying.",
             "No one is allowed to see ghosts besides them, I guess.",
             "Does that mean I have to become a medicine cat?"
+        ]
+    ],
+    "bossy_kit": [
+        [
+            "Any",
+            "upstanding"
+        ],
+        [
+            "Hi, y_c! Wanna play pretend with me?",
+            "Okay! My character is Goldenstar, the leader of the Clan. You will be Stormshadow, the mysterious medicine cat with a tragic past.",
+            "The Clan was founded hundreds of moons ago by a group of cats escaping from their sworn enemy, the Wolf Tribe. Now, they must repay a karmic debt to StarClan in order to --",
+            "[You ask t_c when they're gonna be done explaining so you can finally start playing.]",
+            "But - But the explaining is, like, the funnest part!"
+        ]
+    ],
+    "verbose_kit": [
+        [
+            "Any",
+            "upstanding",
+            "random_cat"
+        ],
+        [
+            "Salutations, y_c! The climate today is exceedingly tepid! I anticipate substantial amount of perspiration later!",
+            "[You compliment t_c on their advanced vocabulary!]",
+            "Teehee! Thanks! I mean - gramercy!",
+            "r_q's been teaching me all sorts of words. I wanna know as many as possible so everyone will know how smart I am!"
         ]
     ],
     "they_df_sh_kit_R1": [

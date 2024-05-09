@@ -391,17 +391,8 @@ class FlirtScreen(Screens):
                 continue
             elif not success and "reject" not in tags:
                 continue
-            elif not success and ("reject" or "tom_reject" or "shecat_reject") not in talk[0]:
+            elif not success and ("reject" or "tom_reject" or "shecat_reject") not in tags:
                 continue
-            elif success and ("reject" or "tom_reject" or "shecat_reject") in talk[0]:
-                continue
-
-            if talk[0] and (cluster1 not in tags and cluster2 not in tags):
-                if len(tags) != 1 and len(tags) != 2:
-                    continue
-                else:
-                    if len(tags) == 2 and "reject" not in tags:
-                        continue
 
 
 
@@ -519,10 +510,11 @@ class FlirtScreen(Screens):
             murdered_them = False
             if you.history:
                 if you.history.murder:
-                    for murder_event in you.history.murder["is_murderer"]:
-                        if cat.ID == murder_event.get("victim"):
-                            murdered_them = True
-                            break
+                    if "is_murderer" in you.history.murder:
+                        for murder_event in you.history.murder["is_murderer"]:
+                            if cat.ID == murder_event.get("victim"):
+                                murdered_them = True
+                                break
 
             # if murdered_them and "murderedthem" not in tags:
             #     continue
@@ -533,10 +525,11 @@ class FlirtScreen(Screens):
             murdered_you = False
             if cat.history:
                 if cat.history.murder:
-                    for murder_event in cat.history.murder["is_murderer"]:
-                        if you.ID == murder_event.get("victim"):
-                            murdered_you = True
-                            break
+                    if "is_murderer" in cat.history.murder:
+                        for murder_event in cat.history.murder["is_murderer"]:
+                            if you.ID == murder_event.get("victim"):
+                                murdered_you = True
+                                break
 
             # if murdered_you and "murderedyou" not in tags:
             #     continue
@@ -575,18 +568,14 @@ class FlirtScreen(Screens):
                 if you.history:
                     if you.history.murder:
                         if "is_murderer" in you.history.murder:
-                            if len(you.history.murder["is_murderer"]) > 0 and you.shunned == 0 and not you.dead and "you_forgiven" not in tags:
-                                continue
-                            else:
+                            if len(you.history.murder["is_murderer"]) > 0 and you.shunned == 0 and not you.dead and "you_forgiven" in tags:
                                 youreforgiven = True
                                 
             if game.clan.age < cat.forgiven + 10:
                 if cat.history:
                     if cat.history.murder:
                         if "is_murderer" in cat.history.murder:
-                            if len(cat.history.murder["is_murderer"]) > 0 and cat.shunned == 0 and not cat.dead and  "they_forgiven" not in tags:
-                                continue
-                            else:
+                            if len(cat.history.murder["is_murderer"]) > 0 and cat.shunned == 0 and not cat.dead and  "they_forgiven" in tags:
                                 theyreforgiven = True
             
             if "you_forgiven" in tags and (you.shunned > 0 or not youreforgiven):
@@ -1618,9 +1607,15 @@ class FlirtScreen(Screens):
         # Your DF Mentor
         if "df_m_n" in text:
             if you.joined_df and not you.dead and you.df_mentor:
-                text = text.replace("df_m_n", Cat.all_cats.get(you.df_mentor))
+                text = text.replace("df_m_n", str(Cat.all_cats.get(you.df_mentor).name))
             else:
                 return ""
+        # Their mentor
+        if "t_mn" in text or "tm_n" in text:
+            if cat.mentor is None:
+                return ""
+            text = text.replace("t_mn", str(Cat.fetch_cat(cat.mentor).name))
+            text = text.replace("tm_n", str(Cat.fetch_cat(cat.mentor).name))
             
         # Your mentor
         if "m_n" in text:
@@ -1631,16 +1626,10 @@ class FlirtScreen(Screens):
         # Their DF metnor
         if "t_df_mn" in text:
             if cat.joined_df and not cat.dead and cat.df_mentor:
-                text = text.replace("df_m_n", Cat.all_cats.get(cat.df_mentor))
+                text = text.replace("df_m_n", str(Cat.all_cats.get(cat.df_mentor).name))
             else:
                 return ""
         
-        # Their mentor
-        if "t_mn" in text or "tm_n" in text:
-            if cat.mentor is None:
-                return ""
-            text = text.replace("t_mn", str(Cat.fetch_cat(cat.mentor).name))
-            text = text.replace("tm_n", str(Cat.fetch_cat(cat.mentor).name))
         
         # Clan leader's name
         if "l_n" in text:

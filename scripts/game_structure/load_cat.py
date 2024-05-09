@@ -231,6 +231,7 @@ def json_load():
             new_cat.talked_to = cat["talked_to"] if "talked_to" in cat else False
             new_cat.insulted = cat["insulted"] if "insulted" in cat else False
             new_cat.flirted = cat['flirted'] if "flirted" in cat else False
+            new_cat.backstory_str = cat["backstory_str"] if "backstory_str" in cat else ""
             new_cat.joined_df = cat["joined_df"] if "joined_df" in cat else False
             new_cat.forgiven = cat["forgiven"] if "forgiven" in cat else 0
             new_cat.revives = cat["revives"] if "revives" in cat else 0

@@ -1,3 +1,23 @@
+<strong>v0.7.1: </strong>
+- You can now talk to UR (Unknown Residence) cats when dead, or with the GHOST skill
+- Switch MCs to a dead cat
+- You can now have a Dark Forest mentor and trainees
+- Medicine cats from other clans will greet you when visiting the Moonplace
+- There are now specific names for the Moonplace depending on biome
+- More descriptive Meow! errors
+- You can now move any cat to the Unknown Residence
+- Moved "mellow" trait out of neurotic cluster
+- Successful date patrols now increase trust and comfort
+- New development config options for affairs
+- Readable version text on darker screens
+- Forgive cats when a shunned cat is welcomed back into Clan
+- Mediator Search
+- Auto-updater! Thank you Arch! After downloading this version, your game should automatically update
+- Lots of new dialogue/events
+- New traits
+- New patrol art
+- New menu art
+
 <strong>v0.7.0: StarClan's Guidance</strong>
 - Visit the Moonplace as a medicine cat
 - Learn prophecies and omens

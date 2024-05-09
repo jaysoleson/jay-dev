@@ -830,6 +830,8 @@ class Condition_Events():
         event_triggered = False
         if dictionary == cat.permanent_condition:
             event_triggered = True
+        if "risks" not in conditions[condition]:
+            return
         for risk in conditions[condition]["risks"]:
             if risk["name"] in (cat.injuries or cat.illnesses):
                 continue

@@ -173,7 +173,10 @@ class TalkScreen(Screens):
             if self.the_cat.dead and self.the_cat.outside and not self.the_cat.df:
                 platform_dir = "resources/images/urbg.png"
             elif self.the_cat.dead and not self.the_cat.outside and not self.the_cat.df:
-                platform_dir = "resources/images/starclanbg.png"
+                if game.clan.biome == "Forest":
+                    platform_dir = "resources/images/dead_camps/sunsetclouds.png"
+                else:
+                    platform_dir = "resources/images/starclanbg.png"
             elif self.the_cat.dead and not self.the_cat.outside and self.the_cat.df:
                 platform_dir = "resources/images/darkforestbg.png"
             else:
@@ -354,27 +357,42 @@ class TalkScreen(Screens):
         resource_dir = "resources/dicts/lifegen_talk/"
         possible_texts = {}
 
-        if cat.status not in ['loner', 'rogue', 'former Clancat', 'kittypet', 'exiled']:
+        if cat.status != 'exiled':
             with open(f"{resource_dir}{cat.status}.json", 'r') as read_file:
                 possible_texts = ujson.loads(read_file.read())
 
-        with open(f"{resource_dir}choice_dialogue.json", 'r') as read_file:
-            possible_texts.update(ujson.loads(read_file.read()))
+        if cat.status not in ['loner', 'rogue', 'former Clancat', 'kittypet', 'exiled']:
+            with open(f"{resource_dir}choice_dialogue.json", 'r') as read_file:
+                possible_texts.update(ujson.loads(read_file.read()))
 
-        if cat.status not in ['kitten', "newborn"] and you.status not in ['kitten', 'newborn']:
-            with open(f"{resource_dir}general_no_kit.json", 'r') as read_file:
-                possible_texts2 = ujson.loads(read_file.read())
-                possible_texts.update(possible_texts2)
+        if cat.status in ["rogue", "loner", "kittypet"]:
+            # former clancats only get their own file so we can write general dialogue about not knowing what a clan is
+            with open(f"{resource_dir}general_outsider.json", 'r') as read_file:
+                possible_texts4 = ujson.loads(read_file.read())
+                possible_texts.update(possible_texts4)
+        else:
+            with open(f"{resource_dir}choice_dialogue.json", 'r') as read_file:
+                possible_texts.update(ujson.loads(read_file.read()))
 
-        if cat.status not in ['kitten', "newborn"] and you.status in ['kitten', 'newborn']:
-            with open(f"{resource_dir}general_you_kit.json", 'r') as read_file:
-                possible_texts3 = ujson.loads(read_file.read())
-                possible_texts.update(possible_texts3)
+            if cat.status not in ['kitten', "newborn"] and you.status not in ['kitten', 'newborn']:
+                with open(f"{resource_dir}general_no_kit.json", 'r') as read_file:
+                    possible_texts2 = ujson.loads(read_file.read())
+                    possible_texts.update(possible_texts2)
 
-        if cat.status not in ['kitten', 'newborn'] and you.status not in ['kitten', 'newborn'] and randint(1,3)==1:
-            with open(f"{resource_dir}crush.json", 'r') as read_file:
-                possible_texts3 = ujson.loads(read_file.read())
-                possible_texts.update(possible_texts3)
+            if cat.status not in ["newborn"] and you.status not in ['newborn']:
+                with open(f"{resource_dir}general_no_newborn.json", 'r') as read_file:
+                    possible_texts4 = ujson.loads(read_file.read())
+                    possible_texts.update(possible_texts4)
+
+            if cat.status not in ['kitten', "newborn"] and you.status in ['kitten', 'newborn']:
+                with open(f"{resource_dir}general_you_kit.json", 'r') as read_file:
+                    possible_texts3 = ujson.loads(read_file.read())
+                    possible_texts.update(possible_texts3)
+
+            if cat.status not in ['kitten', 'newborn'] and you.status not in ['kitten', 'newborn'] and randint(1,3)==1:
+                with open(f"{resource_dir}crush.json", 'r') as read_file:
+                    possible_texts3 = ujson.loads(read_file.read())
+                    possible_texts.update(possible_texts3)
 
         return self.filter_texts(cat, possible_texts)
 
@@ -456,14 +474,38 @@ class TalkScreen(Screens):
             if "they_app" in tags and cat.status not in ['apprentice', 'medicine cat apprentice', 'mediator apprentice', "queen's apprentice"]:
                 continue
             
-            if not any(t in tags for t in ["they_sc", "they_df", "they_ur"]) and cat.dead:
+            if not any(t in tags for t in ["they_dead", "they_sc", "they_df", "they_ur"]) and cat.dead:
                 continue
-            if not any(t in tags for t in ["you_sc", "you_df", "you_ur"]) and you.dead:
+            if not any(t in tags for t in ["you_dead", "you_sc", "you_df", "you_ur"]) and you.dead:
                 continue
 
-            if any(t in tags for t in ["they_sc", "they_df", "they_ur"]) and not cat.dead:
+            if any(t in tags for t in ["they_dead", "they_sc", "they_df", "they_ur"]) and not cat.dead:
                 continue
-            if any(t in tags for t in ["you_sc", "you_df", "you_ur"]) and not you.dead:
+            if any(t in tags for t in ["you_dead", "you_sc", "you_df", "you_ur"]) and not you.dead:
+                continue
+
+
+            if "they_kittypet" in tags and not cat.status == "kittypet":
+                continue
+            if "they_rogue" in tags and not cat.status == "rogue":
+                continue
+            if "they_loner" in tags and not cat.status == "loner":
+                continue
+
+            # if "they_kittypet" not in tags and cat.status == "kittypet":
+            #     continue
+            # if "they_rogue" not in tags and cat.status == "rogue":
+            #     continue
+            # if "they_loner" not in tags and cat.status == "loner":
+            #     continue
+
+            # the status files already separate these, so statuses can be untagged in general
+
+            if "they_outside" in tags and not cat.outside:
+                continue
+            if "they_dead" in tags and not cat.dead:
+                continue
+            if "you_dead" in tags and not you.dead:
                 continue
 
             if "you_dftrainee" in tags and not you.joined_df:
@@ -489,6 +531,8 @@ class TalkScreen(Screens):
             if "they_ur" in tags and not cat.outside:
                 continue
             if "you_ur" in tags and not you.outside:
+                continue
+            if "they_dead" in tags and not cat.dead:
                 continue
 
             murdered_them = False
@@ -523,23 +567,23 @@ class TalkScreen(Screens):
 
             if "grief stricken" in cat.illnesses:
                 dead_cat = Cat.all_cats.get(cat.illnesses['grief stricken'].get("grief_cat"))
-                if "grievingyou" in tags:
-                    # if not game.clan.your_cat.dead:
-                    #     cat.illnesses.remove('grief stricken')
-                    if dead_cat.name != game.clan.your_cat.name:
-                        continue
-                else:
-                    if dead_cat.name == game.clan.your_cat.name:
-                        continue
+                if dead_cat:
+                    if "grievingyou" in tags:
+                        if dead_cat.name != game.clan.your_cat.name:
+                            continue
+                    else:
+                        if dead_cat.name == game.clan.your_cat.name:
+                            continue
 
             if "grief stricken" in you.illnesses:
                 dead_cat = Cat.all_cats.get(you.illnesses['grief stricken'].get("grief_cat"))
-                if "grievingthem" in tags:
-                    if dead_cat.name != cat.name:
-                        continue
-                else:
-                    if dead_cat.name == cat.name:
-                        continue
+                if dead_cat:
+                    if "grievingthem" in tags:
+                        if dead_cat.name != cat.name:
+                            continue
+                    else:
+                        if dead_cat.name == cat.name:
+                            continue
             
             # FORGIVEN TAGS
 
@@ -603,6 +647,9 @@ class TalkScreen(Screens):
             if "they_grieving" not in tags and "grief stricken" in cat.illnesses and not cat.dead:
                 continue
             if "they_grieving" in tags and "grief stricken" not in cat.illnesses and not cat.dead:
+                continue
+
+            if "you_not_kit" in tags and game.clan.your_cat.moons < 6:
                 continue
 
             # Cluster tags
@@ -1483,7 +1530,7 @@ class TalkScreen(Screens):
                     return ""
                 counter = 0
                 sibling = Cat.fetch_cat(choice(cat.inheritance.get_siblings()))
-                while sibling.outside or sibling.dead or sibling.ID == cat.ID or ("t_l" in text and sibling.moons != cat.moons):
+                while sibling.outside or sibling.dead or sibling.ID == game.clan.your_cat.ID or sibling.ID == cat.ID or ("t_l" in text and sibling.moons != cat.moons):
                     counter+=1
                     if counter > COUNTER_LIM:
                         return ""
@@ -1670,10 +1717,16 @@ class TalkScreen(Screens):
         # Your DF Mentor
         if "df_m_n" in text:
             if you.joined_df and not you.dead and you.df_mentor:
-                text = text.replace("df_m_n", Cat.all_cats.get(you.df_mentor))
+                text = text.replace("df_m_n", str(Cat.all_cats.get(you.df_mentor).name))
             else:
                 return ""
-            
+        # Their mentor
+        if "t_mn" in text or "tm_n" in text:
+            if cat.mentor is None:
+                return ""
+            text = text.replace("t_mn", str(Cat.fetch_cat(cat.mentor).name))
+            text = text.replace("tm_n", str(Cat.fetch_cat(cat.mentor).name))
+                
         # Your mentor
         if "m_n" in text:
             if you.mentor is None or you.mentor == cat.ID:
@@ -1683,16 +1736,11 @@ class TalkScreen(Screens):
         # Their DF metnor
         if "t_df_mn" in text:
             if cat.joined_df and not cat.dead and cat.df_mentor:
-                text = text.replace("df_m_n", Cat.all_cats.get(cat.df_mentor))
+                text = text.replace("df_m_n", str(Cat.all_cats.get(cat.df_mentor).name))
             else:
                 return ""
         
-        # Their mentor
-        if "t_mn" in text or "tm_n" in text:
-            if cat.mentor is None:
-                return ""
-            text = text.replace("t_mn", str(Cat.fetch_cat(cat.mentor).name))
-            text = text.replace("tm_n", str(Cat.fetch_cat(cat.mentor).name))
+        
         
         # Clan leader's name
         if "l_n" in text:
@@ -1723,6 +1771,19 @@ class TalkScreen(Screens):
                 text = text.replace("d_c", str(dead_cat.name))
             except:
                 return ""
+        
+        if "d_c" in text:
+            if "d_c" in self.cat_dict:
+                text = text.replace("d_c", self.cat_dict["d_c"])
+            else:
+                try:
+                    dead_cat = Cat.all_cats.get(game.clan.starclan_cats[-1])
+                    if not dead_cat:
+                        return ""
+                    self.cat_dict["d_c"] = str(dead_cat.name)
+                    text = text.replace("d_c", str(dead_cat.name))
+                except:
+                    return ""
         
         if "rsh_c" in text:
             random_cat = choice(self.get_living_cats())

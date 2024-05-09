@@ -917,7 +917,7 @@ def get_cluster(trait):
             "assertive": ["troublesome", "fierce", "bold", "daring", "confident", "adventurous", "arrogant", "competitive", "smug", "impulsive", "noisy"],
             "brooding": ["bloodthirsty", "cold", "strict", "vengeful", "grumpy", "bullying", "secretive", "aloof", "stoic", "reserved"],
             "cool": ["charismatic", "sneaky", "cunning", "arrogant", "charming", "manipulative", "leader-like", "passionate", "witty", "flexible", "mellow"],
-            "upstanding": ["righteous", "ambitious", "strict", "competitive", "responsible", "bossy", "know-it-all", "leader-like", "smug", "loyal", "justified"],
+            "upstanding": ["righteous", "ambitious", "strict", "competitive", "responsible", "bossy", "know-it-all", "leader-like", "smug", "loyal", "justified", "methodical"],
             "introspective": ["lonesome", "righteous", "calm", "gloomy", "wise", "thoughtful", "quiet", "daydreamer", "flexible", "mellow"],
             "neurotic": ["nervous", "insecure", "lonesome", "quiet", "secretive", "careful", "meek", "cowardly", "reserved", "emotional"],
             "silly": ["troublesome", "childish", "playful", "strange", "noisy", "attention-seeker", "rebellious", "bouncy", "energetic", "spontaneous"],
