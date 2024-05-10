@@ -682,6 +682,23 @@ class Events:
             achievements.add('27')
         if you.experience >= 300:
             achievements.add('28')
+
+
+        # pridegen achievements!
+
+        if you.sexuality in ['bi', 'pan'] and you.genderalign == "genderfluid":
+            achievements.add("35")
+
+        if you.sexuality == 'aroace' and you.genderalign == 'agender':
+            achievements.add("36")
+
+        if you.genderalign not in ['male', 'female', 'trans male', 'trans female', 'demiboy', 'demigirl', 'nonbinary', 'agender', 'genderfluid', 'bigender']:
+            achievements.add("37")
+
+        if len(you.qpp) > 0:
+            achievements.add("38")
+
+        
         
         for i in game.clan.achievements:
             achievements.add(i)
