@@ -698,8 +698,48 @@ class Events:
         if len(you.qpp) > 0:
             achievements.add("38")
 
-        
-        
+        straight = False
+        bi = False
+        pan = False
+        gay = False
+        lesbian = False
+        aroace = False
+        trans = False
+        nonbinary = False
+        genderfluid = False
+        bigender = False
+        demiboy = False
+        demigirl = False
+
+        for cat in clan_cats:
+            if Cat.all_cats.get(cat).sexuality == "straight":
+                straight = True
+            if Cat.all_cats.get(cat).sexuality == "bi":
+                bi = True
+            if Cat.all_cats.get(cat).sexuality == "pan":
+                pan = True
+            if Cat.all_cats.get(cat).sexuality == "gay":
+                gay = True
+            if Cat.all_cats.get(cat).sexuality == "lesbian":
+                lesbian = True
+            if Cat.all_cats.get(cat).sexuality == "aroace":
+                aroace = True
+            if Cat.all_cats.get(cat).genderalign in ['trans male', 'trans female']:
+                trans = True
+            if Cat.all_cats.get(cat).genderalign == 'nonbinary':
+                nonbinary = True
+            if Cat.all_cats.get(cat).genderalign == 'genderfluid':
+                genderfluid = True
+            if Cat.all_cats.get(cat).genderalign == 'bigender':
+                bigender = True
+            if Cat.all_cats.get(cat).genderalign == "demiboy":
+                demiboy = True
+            if Cat.all_cats.get(cat).genderalign == "demigirl":
+                demigirl = True
+
+            if bi and pan and gay and lesbian and aroace and trans and nonbinary and genderfluid and bigender and demiboy and demigirl:
+                achievements.add("39")
+
         for i in game.clan.achievements:
             achievements.add(i)
         
