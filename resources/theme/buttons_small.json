@@ -4877,5 +4877,74 @@
                 "path":"resources/images/buttons/change_unlabelled_hover.png"
             }
         }
+    },
+    "#specify_sexuality_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/specify_sexuality.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/specify_sexuality_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/specify_sexuality_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/specify_sexuality_unavailable.png"
+            }
+        }
+    },
+    "#change_t4t_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/t4t.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/t4t_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/t4t_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/t4t_unavailable.png"
+            }
+        }
+    },
+    "#change_non_t4t_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/non_t4t.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/non_t4t_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/non_t4t_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/non_t4t_unavailable.png"
+            }
+        }
     }
 }

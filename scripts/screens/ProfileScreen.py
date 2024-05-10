@@ -3030,9 +3030,9 @@ class ProfileScreen(Screens):
             self.cat_toggles_button = UIImageButton(scale(pygame.Rect((804, 1148), (344, 72))), "",
                                              starting_height=2, object_id="#cat_toggles_button",
                                              manager=MANAGER)
-            self.specify_sexuality_button = UIImageButton(scale(pygame.Rect((1152, 1086), (352, 62))), "specify sexuality",
+            self.specify_sexuality_button = UIImageButton(scale(pygame.Rect((1147, 1086), (352, 60))), "",
                                                        starting_height=2,
-                                                       object_id="", manager=MANAGER)
+                                                       object_id="#specify_sexuality_button", manager=MANAGER)
             # These are a placeholders, to be killed and recreated in self.update_disabled_buttons().
             #   This it due to the image switch depending on the cat's status, and the location switch the close button
             #    If you can think of a better way to do this, please fix! 
@@ -3164,12 +3164,12 @@ class ProfileScreen(Screens):
 
             if self.the_cat.gender != self.the_cat.genderalign:
                 if self.the_cat.t4t:
-                    self.t4t_button = UIImageButton(scale(pygame.Rect((1152, 977), (352, 104))), "not t4t",
-                                                        starting_height=2, object_id="",
+                    self.t4t_button = UIImageButton(scale(pygame.Rect((1147, 984), (352, 91))), "",
+                                                        starting_height=2, object_id="#change_non_t4t_button",
                                                         manager=MANAGER)
                 else:
-                    self.t4t_button = UIImageButton(scale(pygame.Rect((1152, 977), (352, 104))), "t4t",
-                                                        starting_height=2, object_id="",tool_tip_text="t4t cats are trans cats who only feel comfortable being mates with other trans cats.",
+                    self.t4t_button = UIImageButton(scale(pygame.Rect((1147, 984), (352, 91))), "",
+                                                        starting_height=2, object_id="#change_t4t_button",tool_tip_text="t4t cats are trans cats who only feel comfortable being mates with other trans cats.",
                                                         manager=MANAGER)
                     
             if self.the_cat.moons > 5:
