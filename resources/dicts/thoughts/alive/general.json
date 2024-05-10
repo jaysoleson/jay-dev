@@ -2,7 +2,7 @@
     {
         "id": "anytrans",
         "thoughts": [
-            "Politely corrects a clanmate on their pronouns",
+            "Politely corrects a Clanmate on their pronouns",
             "Wonders if they got their gender right",
             "Is proud of who they are"
           
@@ -21,8 +21,7 @@
         "id": "transwoman",
         "thoughts": [
             "Asks their closest friend if they look like a tom, and tells them to be honest",
-            "Doesn't miss tom life",
-            "Is proud of who they are"
+            "Doesn't miss tom life"
           
         ],
         "main_status_constraint": [
@@ -37,8 +36,7 @@
         "id": "transman",
         "thoughts": [
             "Asks their closest friend if they look like a she-cat, and tells them to be honest",
-            "Doesn't miss she-cat life",
-            "Is proud of who they are"
+            "Doesn't miss she-cat life"
           
         ],
         "main_status_constraint": [

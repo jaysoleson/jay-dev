@@ -109,7 +109,7 @@ class Pelt():
     ]
 
     pridebandanas4 = [
-        "PLACEHOLDER"
+        "PLACEHOLDER", "MOSSGENDER", "MOONGENDER", "SUNGENDER", "STARGENDER"
     ]
 
     customflags = [

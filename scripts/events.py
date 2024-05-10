@@ -108,6 +108,10 @@ class Events:
         self.demiromantic = Pelt.pridebandanas2[14]
         
         self.straight = Pelt.pridebandanas4[0]
+        self.mossgender = Pelt.pridebandanas4[1]
+        self.moongender = Pelt.pridebandanas4[2]
+        self.sungender = Pelt.pridebandanas4[3]
+        self.stargender = Pelt.pridebandanas4[4]
 
         self.uranic = Pelt.pridebandanas3[0]
         self.nebularomantic = Pelt.pridebandanas3[1]
@@ -4350,6 +4354,8 @@ class Events:
             print("lesbian man?!?!?!")
             cat.sexuality = "straight" 
 
+        # check for cis t4t cats. cis people can NOT only like trans people.
+        # this is done here to also change it if someone edits the save to make it this way
         if cat.gender == cat.genderalign and cat.t4t:
             cat.t4t = False
 
@@ -4643,40 +4649,14 @@ class Events:
 
 
             # removing xenogender flags if theyre not a xenogender
-            if cat.genderalign not in ['mothgender', 'snowleopardgender', 'tigergender', 'buggender', 'genderdoe', 'catgender', 'xenogender', 'genderfaun']:
-                if self.mothgender in cat.pelt.inventory and self.mothgender not in cat.pelt.permanent_inventory:
-                    if self.mothgender in cat.pelt.accessories:
-                        cat.pelt.accessories.remove(self.mothgender)
-                    cat.pelt.inventory.remove(self.mothgender)
-                if self.tigergender in cat.pelt.inventory and self.tigergender not in cat.pelt.permanent_inventory:
-                    if self.tigergender in cat.pelt.accessories:
-                        cat.pelt.accessories.remove(self.tigergender)
-                    cat.pelt.inventory.remove(self.tigergender)
-                if self.snowleopardgender in cat.pelt.inventory and self.snowleopardgender not in cat.pelt.permanent_inventory:
-                    if self.snowleopardgender in cat.pelt.accessories:
-                        cat.pelt.accessories.remove(self.snowleopardgender)
-                    cat.pelt.inventory.remove(self.snowleopardgender)
-                if self.buggender in cat.pelt.inventory and self.buggender not in cat.pelt.permanent_inventory:
-                    if self.buggender in cat.pelt.accessories:
-                        cat.pelt.accessories.remove(self.buggender)
-                    cat.pelt.inventory.remove(self.buggender)
-                if self.genderdoe in cat.pelt.inventory and self.genderdoe not in cat.pelt.permanent_inventory:
-                    if self.genderdoe in cat.pelt.accessories:
-                        cat.pelt.accessories.remove(self.genderdoe)
-                    cat.pelt.inventory.remove(self.genderdoe)
-                if self.genderfaun in cat.pelt.inventory and self.genderfaun not in cat.pelt.permanent_inventory:
-                    if self.genderfaun in cat.pelt.accessories:
-                        cat.pelt.accessories.remove(self.genderfaun)
-                    cat.pelt.inventory.remove(self.genderfaun)
-                if self.catgender in cat.pelt.inventory and self.catgender not in cat.pelt.permanent_inventory:
-                    if self.catgender in cat.pelt.accessories:
-                        cat.pelt.accessories.remove(self.catgender)
-                    cat.pelt.inventory.remove(self.catgender)
-                if self.xenogender in cat.pelt.inventory and self.xenogender not in cat.pelt.permanent_inventory:
-                    if self.xenogender in cat.pelt.accessories:
-                        cat.pelt.accessories.remove(self.xenogender)
-                    cat.pelt.inventory.remove(self.xenogender)
+            if cat.genderalign not in ['mothgender', 'snowleopardgender', 'tigergender', 'buggender', 'genderdoe', 'catgender', 'xenogender', 'genderfaun', 'mossgender', 'moongender', 'sungender', 'stargender']:
 
+                for flag in [self.mothgender, self.snowleopardgender, self.tigergender, self.buggender, self.genderdoe, self.catgender, self.xenogender, self.genderfaun, self.mossgender, self.moongender, self.sungender, self.stargender]:
+
+                    if flag in cat.pelt.inventory and flag not in cat.pelt.permanent_inventory:
+                        if flag in cat.pelt.accessories:
+                            cat.pelt.accessories.remove(flag)
+                        cat.pelt.inventory.remove(flag)
 
             # giving cats appropriate pride bandanas if they dont have them already
             # first, cats w more than one mate get the poly bandana
@@ -4950,6 +4930,38 @@ class Events:
                             cat.pelt.accessories.append(self.xenogender)
                     cat.pelt.inventory.append(self.xenogender)
                     text = f"{cat.name}'s gender feels brand new!"
+                    game.cur_events_list.append(Single_Event(text, "misc", cat.ID))
+
+                elif cat.genderalign == 'mossgender' and self.mossgender not in cat.pelt.inventory:
+                    if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in self.all_bandanas for bandana in bandanas):
+                        if self.mossgender not in cat.pelt.accessories:
+                            cat.pelt.accessories.append(self.mossgender)
+                    cat.pelt.inventory.append(self.mossgender)
+                    text = f"{cat.name} identifies with the moss growing around camp."
+                    game.cur_events_list.append(Single_Event(text, "misc", cat.ID))
+
+                elif cat.genderalign == 'moongender' and self.moongender not in cat.pelt.inventory:
+                    if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in self.all_bandanas for bandana in bandanas):
+                        if self.moongender not in cat.pelt.accessories:
+                            cat.pelt.accessories.append(self.moongender)
+                    cat.pelt.inventory.append(self.moongender)
+                    text = f"{cat.name}'s gender feels aligned with the moon, cool and comforting."
+                    game.cur_events_list.append(Single_Event(text, "misc", cat.ID))
+
+                elif cat.genderalign == 'sungender' and self.sungender not in cat.pelt.inventory:
+                    if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in self.all_bandanas for bandana in bandanas):
+                        if self.sungender not in cat.pelt.accessories:
+                            cat.pelt.accessories.append(self.sungender)
+                    cat.pelt.inventory.append(self.sungender)
+                    text = f"{cat.name}'s gender feels aligned with the sun, warm and bright."
+                    game.cur_events_list.append(Single_Event(text, "misc", cat.ID))
+
+                elif cat.genderalign == 'stargender' and self.sungender not in cat.pelt.inventory:
+                    if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in self.all_bandanas for bandana in bandanas):
+                        if self.stargender not in cat.pelt.accessories:
+                            cat.pelt.accessories.append(self.stargender)
+                    cat.pelt.inventory.append(self.stargender)
+                    text = f"{cat.name}'s gender feels aligned with the stars up in Silverpelt."
                     game.cur_events_list.append(Single_Event(text, "misc", cat.ID))
                 
                 elif cat.genderalign in ['questioning', 'unlabelled'] and self.ambiguous not in cat.pelt.inventory:

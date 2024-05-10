@@ -1600,6 +1600,26 @@
     "plural": "a checkered flag bandana",
     "singular": "checkered bandana"
   },
+  "MOSSGENDER": {
+    "default": "mossgender bandana",
+    "plural": "a mossgender flag bandana",
+    "singular": "mossgender bandana"
+  },
+  "MOONGENDER": {
+    "default": "moongender bandana",
+    "plural": "a moongender flag bandana",
+    "singular": "moongender bandana"
+  },
+  "SUNGENDER": {
+    "default": "sungender bandana",
+    "plural": "a sungender flag bandana",
+    "singular": "sungender bandana"
+  },
+  "STARGENDER": {
+    "default": "stargender bandana",
+    "plural": "a stargender flag bandana",
+    "singular": "stargender bandana"
+  },
   "GYNO": {
     "default": "gynosexual bandana",
     "plural": "a gynosexual bandana",
