@@ -2174,6 +2174,9 @@ class Events:
             else:
                 cat.dead_for += 1
             self.handle_fading(cat)  # Deal with fading.
+
+            self.get_flags(cat)
+            self.update_compatible_mates(cat)
         
             cat.talked_to = False
             return
@@ -2297,6 +2300,8 @@ class Events:
             if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in self.all_bandanas for bandana in bandanas) and game.clan.clan_settings['auto equip']:
                 cat.pelt.accessories.append(self.aroace)
 
+
+
         Pregnancy_Events.handle_having_kits(cat, clan=game.clan)
         # Stop the timeskip if the cat died in childbirth
         if cat.dead:
@@ -2325,7 +2330,6 @@ class Events:
             # fixing any aro/ace fuckery caused by other sexuality change events
 
         self.get_flags(cat)
-
         self.update_compatible_mates(cat)
 
         # switches between the two death handles
@@ -4433,6 +4437,7 @@ class Events:
 
         if not game.clan.clan_settings['all accessories'] and not game.clan.clan_settings['all pride accessories']:
             # ^^ don't remove wrong flags if all accessories is on!
+            
 
             # SEXUALITIES
             if cat.sexuality != 'straight' and self.straight in cat.pelt.inventory and self.straight not in cat.pelt.permanent_inventory:

@@ -983,9 +983,9 @@ class Clan():
                     possible_accs = ["WILD", "PLANT", "COLLAR", "FLOWER", "PLANT2", "SNAKE", "SMALLANIMAL", "DEADINSECT", "ALIVEINSECT", "FRUIT", "CRAFTED", "PRIDE", "PRIDE2", "PRIDE3", "TAIL2", "BANDANAS"]
                 elif game.clan.clan_settings['all pride accessories']:
                     if game.clan.clan_settings['custom flags']:
-                        possible_accs = ["PRIDE", "PRIDE2", "PRIDE3", "BANDANAS", "CUSTOM"]
+                        possible_accs = ["PRIDE", "PRIDE2", "PRIDE3", "PRIDE4", "CUSTOM"]
                     else:
-                        possible_accs = ["PRIDE", "PRIDE2", "PRIDE3", "BANDANAS"]
+                        possible_accs = ["PRIDE", "PRIDE2", "PRIDE3", "PRIDE4"]
                 elif game.clan.clan_settings['custom flags'] and not game.clan.clan_settings['all pride accessories']:
                     possible_accs = ['CUSTOM']
                     
@@ -997,7 +997,7 @@ class Clan():
                         acc_list.extend(Pelt.pridebandanas2)
                     if "PRIDE3" in possible_accs:
                         acc_list.extend(Pelt.pridebandanas3)
-                    if "BANDANAS" in possible_accs:
+                    if "PRIDE4" in possible_accs:
                         acc_list.extend(Pelt.pridebandanas4)
                     if "CUSTOM" in possible_accs:
                         acc_list.extend(Pelt.customflags)
