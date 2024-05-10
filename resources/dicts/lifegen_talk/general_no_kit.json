@@ -1840,9 +1840,9 @@
         ],
         [
             "Psst. y_c, come here. Careful! No sudden moves!",
-            "Look up there, at that tree branch. See that? No? Look carefully …",
+            "Look up there, at that tree branch. See that? No? Look carefully ...",
             "[You follow t_c’s careful gaze, squinting through the mass of leaves until, finally, you spot a bird’s nest, filled with colorful eggs.]",
-            "Isn’t it beautiful? Life is such a precious thing …",
+            "Isn’t it beautiful? Life is such a precious thing ...",
             "Plus, I suppose they’ll make good prey once they hatch, too. Heh!"
         ]
     ],
@@ -2948,10 +2948,10 @@
             "romantic_like"
         ],
         [
-            "So, y_c, I hear you want romantic advice, huh? Well, you’ve come to the right cat. Everybody seems to fall head over paws for me, and I can’t quite figure out why …",
-            "Whatever the case, it’s all about confidence. And coolness. You gotta be smooth, play hard to get …",
+            "So, y_c, I hear you want romantic advice, huh? Well, you’ve come to the right cat. Everybody seems to fall head over paws for me, and I can’t quite figure out why ...",
+            "Whatever the case, it’s all about confidence. And coolness. You gotta be smooth, play hard to get ...",
             "Ah, who am I kidding. You’re such a catch, m_c, I’m sure you could have any cat in the whole clan you wanted.",
-            "And, uh, I’m not just saying that either, y’know. I … I really mean it.",
+            "And, uh, I’m not just saying that either, y’know. I ... I really mean it.",
             "[t_c hits you with one of their trademark grins, but for some reason, it seems a bit deeper this time. A bit more pained.]"
         ]
     ],
@@ -3007,9 +3007,9 @@
             "neutral"
         ],
         [
-            "y_c, what in StarClan’s name are you doing just lazing around camp? You should be out training! Or taking extra patrols! Or - Or …",
+            "y_c, what in StarClan’s name are you doing just lazing around camp? You should be out training! Or taking extra patrols! Or - Or ...",
             "*Sigh*. I’m sorry. I guess I’m just more stressed than usual lately. I shouldn’t take it out on you. Maybe a walk to clear my head is what I need.",
-            "And on my walk, maybe I can check the twolegplace border, and harvest from the herb gardens for r_m, and help restock the prey pile …",
+            "And on my walk, maybe I can check the twolegplace border, and harvest from the herb gardens for r_m, and help restock the prey pile ...",
             "... What? Nothing wrong with multitasking!"
         ]
     ],
