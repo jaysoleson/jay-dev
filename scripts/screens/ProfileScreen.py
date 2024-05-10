@@ -1626,9 +1626,15 @@ class ProfileScreen(Screens):
             output += "???"
         else:
             if the_cat.sexualitylabel != the_cat.sexuality and the_cat.sexualitylabel is not None:
-                output += the_cat.sexualitylabel
+                if the_cat.t4t:
+                    output += the_cat.sexualitylabel + " | t4t"
+                else:
+                    output += the_cat.sexualitylabel
             else:
-                output += the_cat.sexuality
+                if the_cat.t4t:
+                    output += the_cat.sexuality + " | t4t"
+                else:
+                    output += the_cat.sexuality
         
         # NEWLINE ----------
         if the_cat.moons >= 6:
