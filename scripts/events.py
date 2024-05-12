@@ -4825,11 +4825,11 @@ class Events:
                         cat.pelt.inventory.append(self.uranic)
 
                 
-                if cat.genderalign in ['female', 'trans female', 'demigirl'] and cat.sexuality not in ['straight', 'aroace']:
+                if cat.genderalign in ['female', 'trans female', 'demigirl'] and cat.sexuality not in ['straight', 'aroace', 'questioning', 'unlabelled']:
                     if self.sapphic not in cat.pelt.inventory:
                         cat.pelt.inventory.append(self.sapphic)
 
-                if cat.genderalign in ['male', 'trans male', 'demiboy'] and cat.sexuality not in ['straight', 'aroace']:
+                if cat.genderalign in ['male', 'trans male', 'demiboy'] and cat.sexuality not in ['straight', 'aroace', 'questioning', 'unlabelled']:
                     if self.achillean not in cat.pelt.inventory:
                         cat.pelt.inventory.append(self.achillean)
 
