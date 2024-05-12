@@ -425,16 +425,19 @@ class FlirtScreen(Screens):
                 continue
 
             if cat.sexuality in ['lesbian', 'gyno'] or (cat.sexuality == 'straight' and cat.genderalign in ['male', 'trans male', 'demiboy']) and game.clan.your_cat.genderalign in ['male', 'trans male', 'demiboy']:
-                if ("shecat_reject" or "aroace_reject") in talk[0]:
+                if "shecat_reject" in tags:
                     continue
 
             elif cat.sexuality in ['gay', 'andro'] or (cat.sexuality == 'straight' and cat.genderalign in ['female', 'trans female', 'demigirl']) and game.clan.your_cat.genderalign in ['female', 'trans female', 'demigirl']:
-                if ("tom_reject" or "aroace_reject") in talk[0]:
+                if "tom_reject" in tags:
                     continue
 
             elif cat.sexuality == 'aroace':
-                if ("tom_reject" or "shecat_reject") in talk[0]:
+                if ("tom_reject" or "shecat_reject") in tags:
                     continue
+
+            if cat.sexuality != "aroace" and "aroace_reject" in tags:
+                continue
 
 
             you_boyliker = game.clan.your_cat.sexuality in ['gay', 'andro'] or (game.clan.your_cat.sexuality == 'straight' and game.clan.your_cat.genderalign in ['female', 'trans female', 'demigirl'])
