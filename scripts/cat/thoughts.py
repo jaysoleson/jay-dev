@@ -91,13 +91,13 @@ class Thoughts():
             likes_shecats = (main_cat.genderalign in ['male', 'trans male', 'demiboy'] and main_cat.sexuality == "straight") or \
             (main_cat.sexuality in ['lesbian', 'gyno', 'bi'])
 
-            if likes_shecats and "likes_shecats" not in thought['main_sexuality_constraint'] and 'any' not in thought['main_sexuality_constraint'] or main_cat.moons < 6:
+            if ("likes_shecats" in thought['main_sexuality_constraint'] and not likes_shecats and 'any' not in thought['main_sexuality_constraint']) or main_cat.moons < 6:
                 return False
             
             likes_toms = (main_cat.genderalign in ['female', 'trans female', 'demigirl'] and main_cat.sexuality == "straight") or \
             (main_cat.sexuality in ['gay', 'andro', 'bi'])
 
-            if (likes_toms and "likes_toms" not in thought['main_sexuality_constraint'] and 'any' not in thought['main_sexuality_constraint']) or main_cat.moons < 6:
+            if ("likes_toms" in thought['main_sexuality_constraint'] and not likes_toms and 'any' not in thought['main_sexuality_constraint']) or main_cat.moons < 6:
                 return False
             
             if (main_cat.sexuality == "aroace" and "aroace" not in thought['main_sexuality_constraint'] and 'any' not in thought['main_sexuality_constraint'] and len(main_cat.mate) > 0) or main_cat.moons < 6:
