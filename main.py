@@ -275,7 +275,7 @@ else:
 
 if get_version_info().is_source_build or get_version_info().is_dev():
     dev_watermark = pygame_gui.elements.UILabel(
-        scale(pygame.Rect((1050, 1321), (600, 100))),
+        scale(pygame.Rect((1020, 1321), (600, 130))),
         "Pridegen: ",
         object_id="#dev_watermark"
     )
