@@ -109,14 +109,15 @@
     ],
     "assertive_mentor2": [
         [
-            "any",
+            "you_app",
             "assertive",
             "sweet",
             "stable",
             "unabashed",
             "unlawful",
             "from_mentor",
-            "platonic_like"
+            "platonic_like",
+            "respect"
         ],
         [
             "Alright, y_c! You're totally mastering that skill I taught you the other day ... you're improving so fast, pretty soon, you're gonna be outperforming me! Haha!",
@@ -179,7 +180,8 @@
     ],
     "assertive_6": [
         [
-            "Any",
+            "they_any",
+            "you_any",
             "dislike",
             "you_brooding",
             "you_sweet",
@@ -272,9 +274,12 @@
     ],
     "assertive_rom1": [
         [
-            "Any",
+            "you_any",
+            "they_any",
             "assertive",
             "cool",
+            "romantic_like",
+            "platonic_like",
             "from_mate"
         ],
         [
@@ -287,10 +292,12 @@
     "assertive_rom2": [
         [
             "no_kit",
+            "clan_has_kits",
+            "you_any",
+            "they_any",
             "assertive",
             "silly",
-            "romantic_like",
-            "non-mates"
+            "romantic_like"
         ],
         [
             "Hey, y_c! I just finished visiting the kits in the nursery. StarClan, they're cute!",
@@ -301,10 +308,12 @@
     ],
     "assertive_rom3": [
         [
-            "Any",
+            "you_any",
+            "they_any",
             "assertive",
             "unabashed",
-            "romantic_like"
+            "romantic_like",
+            "from_mate"
         ],
         [
             "Hey, y_c, what are your thoughts on feathers as a nesting material?",
@@ -315,14 +324,12 @@
     ],
     "assertive_elder": [
         [
-            "warrior",
-            "apprentice",
-            "they_medicine_cat",
-            "they_mediator",
-            "they_mediator_apprentice",
-            "they_medicine_cat_apprentice",
-            "they_queen",
-            "they_queen's_apprentice",
+            "they_any",
+            "they_older",
+            "you_app",
+            "sibling",
+            "adopted_sibling",
+            "half sibling",
             "assertive",
             "upstanding",
             "stable",
@@ -381,23 +388,6 @@
             "Go find somebody else's problem to fix."
         ]
     ],
-    "assertive_parent04": [
-        [
-            "any",
-            "assertive",
-            "dislike",
-            "cool",
-            "upstanding",
-            "brooding",
-            "neurotic",
-            "from_adopted_kit",
-            "from_kit"
-        ],
-        [
-            "Ugh, StarClan, would you leave me alone?",
-            "Seriously, I don't know any other parent who bothers their grown kit this much!"
-        ]
-    ],
     "assertive_jealous01_2": [
         [
             "no_kit",
@@ -453,11 +443,13 @@
     ],
     "assertivewarrior_mediatorapp": [
         [
-            "mediator apprentice",
-            "assertive",
+            "you_mediator_apprentice",
+            "they_any",
             "they_older",
             "they_blind",
             "you_blind",
+            "no_kit",
+            "assertive",
             "platonic_like"
         ],
         [
@@ -507,7 +499,8 @@
     ],
     "assertive_rom4": [
         [
-            "Any",
+            "you_app",
+            "they_app",
             "assertive",
             "unabashed",
             "romantic_like"
@@ -591,12 +584,27 @@
             "I wish I were as smart as you when I was an apprentice ... it might've saved me a lot of trouble! Heh."
         ]
     ],
-    "assertive_warrior_or_elder1": [
+    "assertive_jealous2": [
         [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice",
-            "queen's apprentice",
+            "Any",
+            "sibling",
+            "half sibling",
+            "adopted_sibling",
+            "dislike",
+            "assertive",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "What did I do in a past life to wind up related to you, y_c?",
+            "Must've been really terrible."
+        ]
+    ],
+    "assertive_warrior_or_elder_2_2": [
+        [
+            "you_app",
+            "they_any",
+            "they_older",
             "assertive",
             "cool",
             "silly",
@@ -818,7 +826,7 @@
         [
             "Any",
             "assertive",
-            "neurotic",
+            "silly",
             "comfort",
             "trust",
             "platonic_love",
@@ -2093,9 +2101,9 @@
             "Any",
             "introspective",
             "you_outsiderroots",
-            "you_formerlykittypet",
-            "you_formerlyloner",
-            "you_formerlyrogue",
+            "you_formerlyakittypet",
+            "you_formerlyaloner",
+            "you_formerlyarogue",
             "they_Clanfounder",
             "they_Clanborn",
             "they_half-Clan",
@@ -13511,6 +13519,17 @@
             "[You and t_c are both too sad to try to speak.]"
         ]
     ],
+    "grieving_sh_J36": [
+        [
+            "Any",
+            "you_shunned",
+            "they_grieving",
+            "insult"
+        ],
+        [
+            "You must be truly evil."
+        ]
+    ],
     "starClan_default": [
         [
             "they_sc",
@@ -17468,6 +17487,107 @@
             "Do you think tm_n even likes me?",
             "It seems like, every new skill they try and teach me, I always seem to mess it up somehow ...",
             "I just hope I'm not making them look like a bad mentor."
+        ]
+    ],
+    "assertive_mentor1": [
+        [
+            "you_app",
+            "assertive",
+            "upstanding",
+            "unabashed",
+            "from_mentor",
+            "they_any",
+            "dislike"
+        ],
+        [
+            "What's going on, y_c? ... Hey, don't give me that nasty look! I can see you, you know!",
+            "For an apprentice, you sure have a lot of attitude. I get you've got spirit, but if this is gonna work out, the two of us have to work together.",
+            "So drop it. And I'd better not catch you looking at me like that again!"
+        ]
+    ],
+    "assertive_parenthate1": [
+        [
+            "assertive",
+            "hate",
+            "brooding",
+            "you_any",
+            "they_any",
+            "from_adopted_kit",
+            "from_kit",
+            "sibling",
+            "adopted_sibling",
+            "half sibling",
+            "from_parent"
+        ],
+        [
+            "What do you want? Do you need something?",
+            "... You just want to talk? Why?",
+            "... Because we're family?",
+            "Do we still even count as family anymore?"
+        ]
+    ],
+    "assertive_parentdislike1": [
+        [
+            "assertive",
+            "dislike",
+            "neutral",
+            "cool",
+            "upstanding",
+            "brooding",
+            "neurotic",
+            "from_adopted_kit",
+            "from_kit",
+            "no_kit",
+            "they_any",
+            "you_any"
+        ],
+        [
+            "Ugh, StarClan, would you leave me alone?",
+            "Seriously, I don't know any other parent who bothers their grown kit this much!"
+        ]
+    ],
+    "assertive_parent4_3": [
+        [
+            "assertive",
+            "platonic_like",
+            "sweet",
+            "upstanding",
+            "stable",
+            "they_any",
+            "you_any"
+        ],
+        [
+            "Sorry, y_c! No time to talk right now, I just got a task from d_n.",
+            "I'll be sure to catch up with you some other time, though!"
+        ]
+    ],
+    "assertivewarrior_theyapp1": [
+        [
+            "they_app",
+            "no_kit",
+            "you_any",
+            "from_adopted_kit",
+            "from_kit",
+            "platonic_like",
+            "assertive"
+        ],
+        [
+            "[Seeing the bold, daring, fierce cat that t_c has grown into fills your heart with pride.]",
+            "[Could they really have been your kit in the nursery a few moons ago?]"
+        ]
+    ],
+    "assertivewarrior_leader3": [
+        [
+            "you_leader",
+            "they_any",
+            "assertive",
+            "silly",
+            "unabashed"
+        ],
+        [
+            "Hey, boss! Come down to mingle with us common folk? Hehe.",
+            "Everything's going just fine around camp, as far as I can tell. There's a leak in the warrior's den that someone should probably get on ... wanna lend a paw?",
+            "... Really? Okay! I'll go grab the brambles!"
         ]
     ]
 }

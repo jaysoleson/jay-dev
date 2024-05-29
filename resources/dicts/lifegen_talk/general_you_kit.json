@@ -63,8 +63,9 @@
     "assertive_4": [
         [
             "you_kitten",
-            "assertive",
-            "they_any"
+            "they_older",
+            "they_any",
+            "assertive"
         ],
         [
             "Whoa! Watch where you're going there, little pal! One wrong move, and you might get stepped on!",
@@ -87,8 +88,8 @@
     "assertive_tonewborn": [
         [
             "you_newborn",
-            "assertive",
-            "any"
+            "they_any",
+            "assertive"
         ],
         [
             "Whoa! Hey there, little guy! Shouldn't you be in the nursery?",
@@ -99,12 +100,24 @@
     "assertive_tonewborn1": [
         [
             "you_newborn",
-            "assertive",
-            "any"
+            "they_any",
+            "assertive"
         ],
         [
             "Aw ... little guy hasn't even gotten their eyes open yet!",
             "They're gonna be a killer, though. I can already tell. See those little paws? This kit's got fight in 'em!"
+        ]
+    ],
+    "assertive_tonewborn_2": [
+        [
+            "you_newborn",
+            "they_any",
+            "assertive"
+        ],
+        [
+            "Little guy seems to be in good condition!",
+            "And spirited, too ...",
+            "Welcome to the world, little y_c!"
         ]
     ],
     "assertive_parent21": [
@@ -2658,7 +2671,7 @@
     "general_sh_J7": [
         [
             "you_shunned",
-            "kitten",
+            "they_kitten",
             "any"
         ],
         [
@@ -4204,6 +4217,26 @@
             "Wait, you're so young... Do you know that you're..?",
             "Ah, never mind. You're looking very nice today, y_c.",
             "[What are they talking about?]"
+        ]
+    ],
+    "newborninsult_J1": [
+        [
+            "newborn",
+            "they_older",
+            "insult"
+        ],
+        [
+            "Um... hello..?"
+        ]
+    ],
+    "newborninsult_J2": [
+        [
+            "newborn",
+            "they_older",
+            "insult"
+        ],
+        [
+            "Wha.. What was that?"
         ]
     ]
 }
