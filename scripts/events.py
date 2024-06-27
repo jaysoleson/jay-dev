@@ -4229,7 +4229,7 @@ class Events:
                             # No additional involved cats
                         else:
                             if game.clan.deputy:
-                                if game.clan.deputy.outside or game.clan.deputy.dead:
+                                if game.clan.deputy.outside or game.clan.deputy.dead and game.clan.deputy.shunned == 0:
                                     previous_deputy_mention = random.choice([
                                         f"They know that {game.clan.deputy.name} would approve.",
                                         f"They hope that {game.clan.deputy.name} would approve.",
@@ -4239,7 +4239,6 @@ class Events:
                                 elif game.clan.deputy.shunned == 2:
                                     previous_deputy_mention = f"Since {game.clan.deputy.name}'s crime was revealed, a new cat must be chosen to take their place."
                                 
-
                                 else:
                                     text = "Error!"
                                     previous_deputy_mention = "Report as bug."

@@ -652,7 +652,7 @@ class ListScreen(Screens):
         self.death_status = "living"
         self.full_cat_list = []
         for the_cat in Cat.all_cats_list:
-            if not the_cat.dead and not the_cat.outside:
+            if not the_cat.dead and not the_cat.outside and not the_cat.moons == -1:
                 self.full_cat_list.append(the_cat)
 
                 # update_sprite(cat)

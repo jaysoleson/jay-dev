@@ -420,7 +420,7 @@ class ProfileScreen(Screens):
                     if cat.pelt.inventory:
                         for a, accessory in enumerate(new_inv[start_index:min(end_index, inventory_len + start_index)], start = start_index):
                             if accessory in cat.pelt.accessories:
-                                self.accessory_buttons[str(i)] = UIImageButton(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), "", object_id="#fav_marker")
+                                self.accessory_buttons[str(i)] = UIImageButton(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), "", object_id=f"#fav_marker_{cat.favourite}")
                             else:
                                 self.accessory_buttons[str(i)] = UIImageButton(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), "", object_id="#blank_button")
                             if accessory in cat.pelt.plant_accessories:
@@ -856,7 +856,7 @@ class ProfileScreen(Screens):
                         try:
                             if self.search_bar.get_text() in ["", "search"] or self.search_bar.get_text().lower() in accessory.lower():
                                 if accessory in cat.pelt.accessories:
-                                    self.accessory_buttons[str(i) + str(randint(0,5000))] = UIImageButton(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), "", object_id="#fav_marker")
+                                    self.accessory_buttons[str(i) + str(randint(0,5000))] = UIImageButton(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), "", object_id=f"#fav_marker_{cat.favourite}")
                                 else:
                                     self.accessory_buttons[str(i) + str(randint(0,5000))] = UIImageButton(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), "", object_id="#blank_button")
                                 if accessory in cat.pelt.plant_accessories:
@@ -2899,7 +2899,7 @@ class ProfileScreen(Screens):
                 try:
                     if self.search_bar.get_text() in ["", "search"] or self.search_bar.get_text().lower() in accessory.lower():
                         if accessory in cat.pelt.accessories:
-                            self.accessory_buttons[str(i)] = UIImageButton(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), "", object_id="#fav_marker")
+                            self.accessory_buttons[str(i)] = UIImageButton(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), "", object_id=f"#fav_marker_{cat.favourite}")
                         else:
                             self.accessory_buttons[str(i)] = UIImageButton(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), "", object_id="#blank_button")
                         if accessory in cat.pelt.plant_accessories:

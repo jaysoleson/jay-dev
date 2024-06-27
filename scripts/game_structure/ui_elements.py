@@ -773,7 +773,7 @@ class UIBasicCatListDisplay(UIContainer):
 
         for i, kitty in enumerate(display_cats):
             if game.clan.clan_settings["show fav"] and kitty.favourite:
-                self.create_favor_indicator(i, pos_x, pos_y)
+                self.create_favor_indicator(i, pos_x, pos_y, kitty)
 
             self.create_cat_button(i, kitty, pos_x, pos_y)
 
@@ -795,10 +795,10 @@ class UIBasicCatListDisplay(UIContainer):
             starting_height=1
         )
 
-    def create_favor_indicator(self, i, pos_x, pos_y):
+    def create_favor_indicator(self, i, pos_x, pos_y, cat):
         _favor_circle = pygame.transform.scale(
             pygame.image.load(
-                f"resources/images/fav_marker.png"
+                f"resources/images/fav_marker_{cat.favourite}.png"
             ).convert_alpha(),
             (100, 100),
         )
@@ -933,7 +933,7 @@ class UINamedCatListDisplay(UIBasicCatListDisplay):
 
         for i, kitty in enumerate(display_cats):
             if game.clan.clan_settings["show fav"] and kitty.favourite:
-                self.create_favor_indicator(i, pos_x, pos_y)
+                self.create_favor_indicator(i, pos_x, pos_y, kitty)
 
             self.create_cat_button(i, kitty, pos_x, pos_y)
 
