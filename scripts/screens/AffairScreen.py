@@ -7,10 +7,9 @@ from .Screens import Screens
 from scripts.utility import get_text_box_theme, scale
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
-from scripts.game_structure.image_button import UIImageButton, UISpriteButton
 from scripts.game_structure.game_essentials import game, screen, screen_x, screen_y, MANAGER
 from scripts.events_module.relationship.pregnancy_events import Pregnancy_Events
-
+from scripts.game_structure.ui_elements import UIImageButton, UISpriteButton
 
 class AffairScreen(Screens):
     selected_cat = None

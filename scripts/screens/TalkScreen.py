@@ -7,11 +7,11 @@ from scripts.utility import scale
 
 from .Screens import Screens
 
-from scripts.utility import generate_sprite, get_cluster, get_alive_kits, get_alive_cats, get_alive_apps, get_alive_meds, get_alive_mediators, get_alive_queens, get_alive_elders, get_alive_warriors, pronoun_repl
+from scripts.utility import generate_sprite, get_cluster, pronoun_repl, get_alive_cats, get_alive_status_cats
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
+from scripts.game_structure.ui_elements import IDImageButton, UIImageButton, UISpriteButton
 import pygame_gui
-from scripts.game_structure.image_button import UIImageButton
 from scripts.game_structure.game_essentials import game, screen_x, screen_y, MANAGER, screen
 from enum import Enum  # pylint: disable=no-name-in-module
 from scripts.housekeeping.version import VERSION_NAME
@@ -828,7 +828,7 @@ class TalkScreen(Screens):
                         if you.parent2 == cat.ID:
                             fam = True
                 if "adopted_parent" in tags or "from adopted_parent" in tags or "from_adopted_parent" in tags:
-                    if cat.ID in you.inheritance.get_no_blood_parents():
+                    if cat.ID in you.inheritance.get_adoptive_parents():
                         fam = True
                 if "from_kit" in tags or "from_your_kit" in tags:
                     if cat.ID in you.inheritance.get_blood_kits():
@@ -1689,7 +1689,7 @@ class TalkScreen(Screens):
                     else:
                         text = re.sub(fr'(?<!\/)r_w{i}(?!\/)', str(self.cat_dict[f"r_w{i}"].name), text)
                     continue
-                alive_cats = get_alive_warriors(Cat)
+                alive_cats = get_alive_status_cats(Cat, ["warrior"])
                 if len(alive_cats) < 3:
                     return ""
                 alive_cat = choice(alive_cats)
@@ -1844,7 +1844,26 @@ class TalkScreen(Screens):
                 else:
                     text = re.sub(r'(?<!\/)r_k(?!\/)', str(self.cat_dict["r_k"].name), text)
             else:
-                alive_kits = get_alive_kits(Cat)
+                x = ""
+
+            match2 = re.search(r'(\w+)r_k', text)
+            if match2:
+                r = match2.group(1).strip("_")
+                rel = True
+            else:
+                r = ""
+
+            if f"r_k_{x}" in self.cat_dict or "r_k" in self.cat_dict or f"{r}_r_k" in self.cat_dict or f"{r}_r_k_{x}" in self.cat_dict:
+                if cluster and rel:
+                    text = re.sub(fr'(?<!\/){r}_r_k_{x}(?!\/)', str(self.cat_dict[f"{r}_r_k_{x}"].name), text)
+                elif cluster and not rel:
+                    text = re.sub(fr'(?<!\/)r_k_{x}(?!\/)', str(self.cat_dict[f"r_k_{x}"].name), text)
+                elif rel and not cluster:
+                    text = re.sub(fr'(?<!\/){r}_r_k_(?!\/)', str(self.cat_dict[f"{r}_r_k"].name), text)
+                else:
+                    text = re.sub(r'(?<!\/)r_k(?!\/)', str(self.cat_dict["r_k"].name), text)
+            else:
+                alive_kits = get_alive_status_cats(Cat, ["kitten","newborn"])
                 if len(alive_kits) <= 1:
                     return ""
 
@@ -1974,7 +1993,19 @@ class TalkScreen(Screens):
                 else:
                     text = re.sub(r'(?<!\/)r_w(?!\/)', str(self.cat_dict["r_w"].name), text)
             else:
-                alive_apps = get_alive_warriors(Cat)
+                r = ""
+
+            if f"r_a_{x}" in self.cat_dict or "r_a" in self.cat_dict or f"{r}_r_a" in self.cat_dict or f"{r}_r_a_{x}" in self.cat_dict:
+                if cluster and rel:
+                    text = re.sub(fr'(?<!\/){r}_r_a_{x}(?!\/)', str(self.cat_dict[f"{r}_r_a_{x}"].name), text)
+                elif cluster and not rel:
+                    text = re.sub(fr'(?<!\/)r_a_{x}(?!\/)', str(self.cat_dict[f"r_a_{x}"].name), text)
+                elif rel and not cluster:
+                    text = re.sub(fr'(?<!\/){r}_r_a_(?!\/)', str(self.cat_dict[f"{r}_r_a"].name), text)
+                else:
+                    text = re.sub(r'(?<!\/)r_a(?!\/)', str(self.cat_dict["r_a"].name), text)
+            else:
+                alive_apps = get_alive_status_cats(Cat, ["apprentice"])
                 if len(alive_apps) <= 1:
                     return ""
 
@@ -2038,7 +2069,25 @@ class TalkScreen(Screens):
                 else:
                     text = re.sub(r'(?<!\/)r_m(?!\/)', str(self.cat_dict["r_m"].name), text)
             else:
-                alive_apps = get_alive_meds(Cat)
+                x = ""
+            match2 = re.search(r'(\w+)r_m', text)
+            if match2:
+                r = match2.group(1).strip("_")
+                rel = True
+            else:
+                r = ""
+
+            if f"r_m_{x}" in self.cat_dict or "r_m" in self.cat_dict or f"{r}_r_m" in self.cat_dict or f"{r}_r_m_{x}" in self.cat_dict:
+                if cluster and rel:
+                    text = re.sub(fr'(?<!\/){r}_r_m_{x}(?!\/)', str(self.cat_dict[f"{r}_r_m_{x}"].name), text)
+                elif cluster and not rel:
+                    text = re.sub(fr'(?<!\/)r_m_{x}(?!\/)', str(self.cat_dict[f"r_m_{x}"].name), text)
+                elif rel and not cluster:
+                    text = re.sub(fr'(?<!\/){r}_r_m_(?!\/)', str(self.cat_dict[f"{r}_r_m"].name), text)
+                else:
+                    text = re.sub(r'(?<!\/)r_m(?!\/)', str(self.cat_dict["r_m"].name), text)
+            else:
+                alive_apps = get_alive_status_cats(Cat, ["medicine cat", "medicine cat apprentice"])
                 if len(alive_apps) <= 1:
                     return ""
                 alive_app = choice(alive_apps)
@@ -2097,7 +2146,24 @@ class TalkScreen(Screens):
                 else:
                     text = re.sub(r'(?<!\/)r_d(?!\/)', str(self.cat_dict["r_d"].name), text)
             else:
-                alive_apps = get_alive_mediators(Cat)
+                x = ""
+            match2 = re.search(r'(\w+)r_d', text)
+            if match2:
+                r = match2.group(1).strip("_")
+                rel = True
+            else:
+                r = ""
+            if f"r_d_{x}" in self.cat_dict or "r_d" in self.cat_dict or f"{r}_r_d" in self.cat_dict or f"{r}_r_d_{x}" in self.cat_dict:
+                if cluster and rel:
+                    text = re.sub(fr'(?<!\/){r}_r_d_{x}(?!\/)', str(self.cat_dict[f"{r}_r_d_{x}"].name), text)
+                elif cluster and not rel:
+                    text = re.sub(fr'(?<!\/)r_d_{x}(?!\/)', str(self.cat_dict[f"r_d_{x}"].name), text)
+                elif rel and not cluster:
+                    text = re.sub(fr'(?<!\/){r}_r_d_(?!\/)', str(self.cat_dict[f"{r}_r_d"].name), text)
+                else:
+                    text = re.sub(r'(?<!\/)r_d(?!\/)', str(self.cat_dict["r_d"].name), text)
+            else:
+                alive_apps = get_alive_status_cats(Cat, ["mediator", "mediator apprentice"])
                 if len(alive_apps) <= 1:
                     return ""
                 alive_app = choice(alive_apps)
@@ -2157,7 +2223,25 @@ class TalkScreen(Screens):
                 else:
                     text = re.sub(r'(?<!\/)r_q(?!\/)', str(self.cat_dict["r_q"].name), text)
             else:
-                alive_apps = get_alive_queens(Cat)
+                x = ""
+            match2 = re.search(r'(\w+)r_q', text)
+            if match2:
+                r = match2.group(1).strip("_")
+                rel = True
+            else:
+                r = ""
+
+            if f"r_q_{x}" in self.cat_dict or "r_q" in self.cat_dict or f"{r}_r_q" in self.cat_dict or f"{r}_r_q_{x}" in self.cat_dict:
+                if cluster and rel:
+                    text = re.sub(fr'(?<!\/){r}_r_q_{x}(?!\/)', str(self.cat_dict[f"{r}_r_q_{x}"].name), text)
+                elif cluster and not rel:
+                    text = re.sub(fr'(?<!\/)r_q_{x}(?!\/)', str(self.cat_dict[f"r_q_{x}"].name), text)
+                elif rel and not cluster:
+                    text = re.sub(fr'(?<!\/){r}_r_q_(?!\/)', str(self.cat_dict[f"{r}_r_q"].name), text)
+                else:
+                    text = re.sub(r'(?<!\/)r_q(?!\/)', str(self.cat_dict["r_q"].name), text)
+            else:
+                alive_apps = get_alive_status_cats(Cat, ["queen", "queen's apprentice"])
                 if len(alive_apps) <= 1:
                     return ""
                 alive_app = choice(alive_apps)
@@ -2217,7 +2301,24 @@ class TalkScreen(Screens):
                 else:
                     text = re.sub(r'(?<!\/)r_e(?!\/)', str(self.cat_dict["r_e"].name), text)
             else:
-                alive_apps = get_alive_elders(Cat)
+                x = ""
+            match2 = re.search(r'(\w+)r_e', text)
+            if match2:
+                r = match2.group(1).strip("_")
+                rel = True
+            else:
+                r = ""
+            if f"r_e_{x}" in self.cat_dict or "r_e" in self.cat_dict or f"{r}_r_e" in self.cat_dict or f"{r}_r_e_{x}" in self.cat_dict:
+                if cluster and rel:
+                    text = re.sub(fr'(?<!\/){r}_r_e_{x}(?!\/)', str(self.cat_dict[f"{r}_r_e_{x}"].name), text)
+                elif cluster and not rel:
+                    text = re.sub(fr'(?<!\/)r_e_{x}(?!\/)', str(self.cat_dict[f"r_e_{x}"].name), text)
+                elif rel and not cluster:
+                    text = re.sub(fr'(?<!\/){r}_r_e_(?!\/)', str(self.cat_dict[f"{r}_r_e"].name), text)
+                else:
+                    text = re.sub(r'(?<!\/)r_e(?!\/)', str(self.cat_dict["r_e"].name), text)
+            else:
+                alive_apps = get_alive_status_cats(Cat, ["elder"])
                 if len(alive_apps) <= 1:
                     return ""
                 alive_app = choice(alive_apps)
