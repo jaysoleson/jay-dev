@@ -2116,7 +2116,7 @@ class ChangeCatToggles(UIWindow):
     """This window allows the user to edit various cat behavior toggles"""
 
     def __init__(self, cat):
-        super().__init__(scale(pygame.Rect((600, 380), (850, 420))),
+        super().__init__(scale(pygame.Rect((600, 320), (850, 470))),
                          window_display_title='Change Cat Name',
                          object_id='#change_cat_name_window',
                          resizable=False)
@@ -2284,7 +2284,7 @@ class ChangeCatToggles(UIWindow):
             box_type = "#unchecked_checkbox"
             tool_tip = "Lock this cat's faith to 0."
         
-        self.checkboxes["no_faith"] = UIImageButton(scale(pygame.Rect(45, 250, 68, 68)), "",
+        self.checkboxes["no_faith"] = UIImageButton(scale(pygame.Rect(45, 380, 68, 68)), "",
                                                          container=self,
                                                          object_id=box_type,
                                                          tool_tip_text=tool_tip)
