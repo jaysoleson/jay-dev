@@ -94,7 +94,9 @@ class Cat():
             "poss": "their",
             "inposs": "theirs",
             "self": "themself",
-            "conju": 1
+            "conju": 1,
+            "parent": "parent",
+            "sibling": "sibling"
         },
         {
             "subject": "she",
@@ -102,7 +104,9 @@ class Cat():
             "poss": "her",
             "inposs": "hers",
             "self": "herself",
-            "conju": 2
+            "conju": 2,
+            "parent": "mother",
+            "sibling": "sister"
         },
         {
             "subject": "he",
@@ -110,7 +114,9 @@ class Cat():
             "poss": "his",
             "inposs": "his",
             "self": "himself",
-            "conju": 2
+            "conju": 2,
+            "parent": "father",
+            "sibling": "brother"
         }
     ]
 
@@ -229,7 +235,6 @@ class Cat():
         self.permanent_condition = {}
         self.df = False
         self.experience_level = None
-        self.no_kits = False
         self.w_done = False
         self.talked_to = False
         self.insulted = False
@@ -245,6 +250,7 @@ class Cat():
         self.no_retire = False
         self.prevent_sexualitychange = False
         self.prevent_genderchange = False
+        self.no_faith = False
         self.backstory_str = ""
         self.courage = 0
         self.compassion = 0
@@ -253,6 +259,8 @@ class Cat():
         self.did_activity = False
         self.df_mentor = None
         self.df_apprentices = []
+        self.faith = randint(-3, 3)
+        self.connected_dialogue = {}
         
         self.prevent_fading = False  # Prevents a cat from fading.
         self.faded_offspring = []  # Stores of a list of faded offspring, for family page purposes.
@@ -260,7 +268,7 @@ class Cat():
         self.faded = faded  # This is only used to flag cat that are faded, but won't be added to the faded list until
         # the next save.
 
-        self.favourite = False
+        self.favourite = 0
 
         self.specsuffix_hidden = specsuffix_hidden
         self.inheritance = None
@@ -607,7 +615,7 @@ class Cat():
                                 self.thought = "Is startled to find themselves wading in the muck of a shadowed forest"
                                 game.clan.add_to_darkforest(self)
                 if not self.df:
-                    if self.shunned > 0 and self.forgiven > 1:
+                    if self.shunned > 0 and self.forgiven > 0:
                         self.df = True
                         self.thought = "Is startled to find themselves wading in the muck of a shadowed forest"
                         game.clan.add_to_darkforest(self)
@@ -633,6 +641,7 @@ class Cat():
         self.exiled = True
         self.outside = True
         self.shunned = 0
+        self.faith -= 0.5
         self.status = 'exiled'
         if self.personality.trait == 'vengeful':
             self.thought = "Swears their revenge for being exiled"
@@ -1015,7 +1024,6 @@ class Cat():
                 
                 Cat.grief_strings[cat.ID].append((text, (self.ID, cat.ID), "negative"))
                 
-
     def familial_grief(self, living_cat: Cat):
         """
         returns relevant grief strings for family members, if no relevant strings then returns None
@@ -1035,6 +1043,7 @@ class Cat():
         """ Makes a Clan cat an "outside" cat. Handles removing them from special positions, and removing
         mentors and apprentices. """
         self.outside = True
+        self.faith -= 0.3
         
         if self.status in ['leader', 'warrior']:
             self.status_change("warrior")
@@ -1157,8 +1166,7 @@ class Cat():
         # If we have it sorted by rank, we also need to re-sort
         if game.sort_type == "rank" and resort:
             Cat.sort_cats()
-
-    
+   
     def rank_change_traits_skill(self, mentor):
         """Updates trait and skill upon ceremony"""  
 
@@ -1187,14 +1195,13 @@ class Cat():
             return
         
         self.personality.set_kit(self.is_baby()) #Update kit trait stuff
-        
 
     def describe_cat(self, short=False):
         """ Generates a string describing the cat's appearance and gender. Mainly used for generating
         the allegiances. If short is true, it will generate a very short one, with the minimal amount of information. """
         output = Pelt.describe_appearance(self, short)
         # Add "a" or "an"
-        if output[0].lower() in "aiou":
+        if output[0].lower() in "aeiou":
             output = f"an {output}"
         else:
             output = f"a {output}"
@@ -1333,7 +1340,6 @@ class Cat():
             )
 
             print(f"WARNING: saving history of cat #{self.ID} didn't work")
-            
 
     def generate_lead_ceremony(self):
         """
@@ -1689,7 +1695,7 @@ class Cat():
         
         if old_age != self.age:
             # Things to do if the age changes
-            self.personality.facet_wobble(max=2)
+            self.personality.facet_wobble(max=1)
         
         # Set personality to correct type
         self.personality.set_kit(self.is_baby())
@@ -1832,7 +1838,17 @@ class Cat():
         else:
             moons_with = 0
 
+        # focus buff
+        moons_prior = game.config["focus"]["rest and recover"]["moons_earlier_healed"]
+
         if self.illnesses[illness]["duration"] - moons_with <= 0:
+            self.healed_condition = True
+            return False
+
+        # CLAN FOCUS! - if the focus 'rest and recover' is selected
+        elif game.clan.clan_settings.get("rest and recover") and\
+            self.illnesses[illness]["duration"] + moons_prior - moons_with <= 0:
+            # print(f"rest and recover - illness {illness} of {self.name} healed earlier")
             self.healed_condition = True
             return False
 
@@ -1863,8 +1879,19 @@ class Cat():
             moons_with = game.clan.age - self.injuries[injury]["moon_start"]
 
 
+        # focus buff
+        moons_prior = game.config["focus"]["rest and recover"]["moons_earlier_healed"]
+
         # if the cat has an infected wound, the wound shouldn't heal till the illness is cured
         if not self.injuries[injury]["complication"] and self.injuries[injury]["duration"] - moons_with <= 0:
+            self.healed_condition = True
+            return False
+
+        # CLAN FOCUS! - if the focus 'rest and recover' is selected
+        elif not self.injuries[injury]["complication"] and \
+            game.clan.clan_settings.get("rest and recover") and\
+            self.injuries[injury]["duration"] + moons_prior - moons_with <= 0:
+            # print(f"rest and recover - injury {injury} of {self.name} healed earlier")
             self.healed_condition = True
             return False
 
@@ -3665,7 +3692,7 @@ class Cat():
                 "faded_offspring": self.faded_offspring,
                 "opacity": self.pelt.opacity,
                 "prevent_fading": self.prevent_fading,
-                "favourite": self.favourite,
+                "favourite": self.favourite if self.favourite else 0,
                 "w_done": self.w_done if self.w_done else False,
                 "talked_to": self.talked_to if self.talked_to else False,
                 "insulted": self.insulted if self.insulted else False,
@@ -3682,7 +3709,10 @@ class Cat():
                 "empathy": self.empathy if self.empathy else 0,
                 "did_activity": self.did_activity if self.did_activity else False,
                 "df_mentor": self.df_mentor if self.df_mentor else None,
-                "df_apprentices": self.df_apprentices if self.df_apprentices else []
+                "df_apprentices": self.df_apprentices if self.df_apprentices else [],
+                "faith": self.faith if self.faith else 0,
+                "no_faith": self.no_faith if self.no_faith else False,
+                "connected_dialogue": self.connected_dialogue if self.connected_dialogue else {}
             }
 
 
@@ -3902,7 +3932,15 @@ class Personality():
             possible_traits.append(trait)
             
         if possible_traits:
-            self.trait = choice(possible_traits)
+            for i in range(5):
+                new_trait = choice(possible_traits)
+                new_trait_cluster1, new_trait_cluster2 = get_cluster(new_trait)
+                trait_cluster1, trait_cluster2 = get_cluster(self.trait)
+                if any(cluster in [trait_cluster1, trait_cluster2] for cluster in [new_trait_cluster1, new_trait_cluster2]):
+                    break
+                else:
+                    new_trait = choice(possible_traits)
+            self.trait = new_trait
         else:
             print("No possible traits! Using 'strange'")
             self.trait = "strange"
