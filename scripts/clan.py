@@ -209,11 +209,10 @@ class Clan():
                 Cat.all_cats[self.medicine_cat.ID].status_change('medicine cat')
 
     def gettheflags(self, cat):
-        """ erm """
+        """ Grabbing the get_flags function so the Clan can generate with flags in their inventories already """
         from scripts.events import Events
         events_instance = Events()
         events_instance.get_flags(cat)
-        # this kind of sucks LMAO but it works
                 
     def create_clan(self):
         """
