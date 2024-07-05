@@ -448,7 +448,7 @@ class Events:
             if game.clan.your_cat.moons >= 10:
                 self.check_gain_qpp(self.checks)
 
-            if random.randint(1,15) == 1:
+            if random.randint(1,15) == 1 and game.clan.your_cat.status != "newborn":
                 self.gain_acc()
 
         elif game.clan.your_cat.dead and game.clan.your_cat.dead_for == 0:
@@ -524,7 +524,7 @@ class Events:
                 game.clan.focus = "starving"
             elif random.randint(1,30) == 1:
                 possible_focuses = ["valentines", "hailstorm"]
-                if not game.clan.leader.dead and not game.clan.leader.outside and game.clan.leader.ID != game.clan.your_cat.ID:
+                if game.clan.leader and not game.clan.leader.dead and not game.clan.leader.outside and game.clan.leader.ID != game.clan.your_cat.ID:
                     possible_focuses.append("leader")
                 focus_chosen = random.choice(possible_focuses)
                 if dialogue_focuses[focus_chosen]["season"] == "Any" or dialogue_focuses[focus_chosen]["season"] == game.clan.current_season:
@@ -991,7 +991,7 @@ class Events:
                 self.cat_dict["parent1"] = parent1
                 replacements["parent1"] = str(parent1.name)
             if parent2 and not parent2.dead:
-                self.cat_dict["parent2"] = parent1
+                self.cat_dict["parent2"] = parent2
                 replacements["parent2"] = str(parent2.name)
             if len(adoptive_parents) == 1:
                 self.cat_dict["parent1"] = Cat.all_cats.get(adoptive_parents[0])
@@ -1027,7 +1027,13 @@ class Events:
                     birth_txt = self.adjust_txt(birth_txt)
                     if birth_txt:
                         break
-                
+            process_text_dict = self.cat_dict.copy()
+            for abbrev in process_text_dict.keys():
+                abbrev_cat = process_text_dict[abbrev]
+                process_text_dict[abbrev] = (abbrev_cat, random.choice(abbrev_cat.pronouns))
+
+            birth_txt = re.sub(r"\{(.*?)\}", lambda x: pronoun_repl(x, process_text_dict, False), birth_txt)
+            
             game.cur_events_list.append(Single_Event(birth_txt))
 
         birth_type, parent1, parent2, adoptive_parents = get_parents(birth_type)
@@ -1216,7 +1222,7 @@ class Events:
             if "l_n" in text:
                 if game.clan.leader is None:
                     return ""
-                if game.clan.leader.dead or game.clan.leader.outside or game.clan.leader.shunned > 0:
+                if game.clan.leader.dead or game.clan.leader.outside or game.clan.leader.shunned > 0 or game.clan.leader.ID == game.clan.your_cat.ID:
                     return ""
                 text = re.sub(r'(?<!\/)l_n(?!\/)', str(game.clan.leader.name), text)
                 self.cat_dict["l_n"] = game.clan.leader
@@ -3391,8 +3397,7 @@ class Events:
         if cat.status in ["warrior", "medicine cat", "mediator", "queen"]:
             History.add_app_ceremony(cat, random_honor)
         
-        ceremony_tags, ceremony_text = self.CEREMONY_TXT[random.choice(
-            list(possible_ceremonies))]
+        ceremony_tags, ceremony_text = self.CEREMONY_TXT[random.choice(list(possible_ceremonies))]
 
         # This is a bit strange, but it works. If there is
         # only one parent involved, but more than one living
@@ -3553,7 +3558,7 @@ class Events:
             
         if cat.status in [
             "apprentice", "medicine cat apprentice", "mediator apprentice", "queen's apprentice"
-        ]:
+        ] and cat.shunned == 0:
 
             if cat.not_working() and int(random.random() * 3):
                 return
@@ -4244,7 +4249,6 @@ class Events:
             else:
                 fate = random.randint(1, int(game.config["shunned_cat"]["exile_chance"][cat.age]))
 
-            # these numbers are kind of crazy but i wanted to keep the one randint
             if fate != 1:
                 cat.shunned = 0
                 cat.forgiven = 1
@@ -4295,7 +4299,7 @@ class Events:
                         elif cat.moons >= 6:
                             if cat.status == "medicine cat apprentice":
                                 self.ceremony(cat, "medicine cat")
-                            elif cat.status == "mediator apprentice apprentice":
+                            elif cat.status == "mediator apprentice":
                                 self.ceremony(cat, "mediator apprentice")
                             elif cat.status == "queen's apprentice":
                                 self.ceremony(cat, "queen's apprentice")
@@ -4303,7 +4307,7 @@ class Events:
                                 self.ceremony(cat, "apprentice")
                             
                     elif cat.status in ["kitten", "newborn"] and cat.moons >= 6:
-                        self.ceremony(cat, "apprentice") 
+                        self.ceremony(cat, "medicine cat apprentice")
                         cat.name.status = cat.status
                     else:
                         if cat.moons == 0:
@@ -4315,7 +4319,7 @@ class Events:
                         elif cat.moons < 120:
                             cat.status_change('warrior')
                         else:
-                            cat.status_change('elder')   
+                            cat.status_change('elder')
                 
                 elif cat.status == 'leader':
                     if random.randint(1,4) == 1:
@@ -4329,7 +4333,7 @@ class Events:
                         if game.clan.leader:
                             game.clan.leader.status_change('deputy')
                         cat.status_change('leader')
-                        cat.name.status = cat.status
+                        # cat.name.status = cat.status
                     else:
                         if cat.ID == game.clan.your_cat.ID:
                             text = text + " You will not return as the Clan's leader."

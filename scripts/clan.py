@@ -229,6 +229,7 @@ class Clan():
         self.instructor.pelt.inventory = []
         if self.instructor.pelt.inventory != []:
             self.instructor.pelt.inventory = []
+        self.instructor.backstory = choice(BACKSTORIES["backstory_categories"]["starclan_backstories"])
         self.add_cat(self.instructor)
         self.add_to_starclan(self.instructor)
         self.all_clans = []

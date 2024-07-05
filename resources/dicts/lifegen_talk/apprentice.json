@@ -1684,7 +1684,7 @@
         ],
         [
             "y_c...? May I ask you a question?",
-            "I'm gonna become a qarrior soon... yeah? I um... I'm just worried, I guess.",
+            "I'm gonna become a warrior soon... yeah? I um... I'm just worried, I guess.",
             "Am I gonna have to... hurt... other cats? I'd much rather hunt and patrol, but... I guess if I have to... I could...",
             "... I understand. Thank you for listening to me!"
         ]
@@ -1862,10 +1862,10 @@
         ],
         [
             "y_c! I've been looking for you! I've been thinking all day about this... I've been begging for a cat to bounce ideas off of.",
-            "So, I think I wanna do something funny to plike_r_c. Like a prank. {PRONOUN/plike_r_c/subject}{VERB/plike_r_c/'ve/'s} been having a rough time recently and I wanna do something funny to cheer {PRONOUN/r_c/object} up.",
-            "But I don't have the slightest clue what I wanna do... everything I can think of either hasn't worked or would just upset them further.",
-            "I wanted to put a frog pet in their den, since I love looking for cool frogs, but couldn't find one {PRONOUN/plike_r_c/subject} would like.",
-            "Then, I tried looking for flowers to give them, but apparently the ones I found were called foxgloves, and they're really dangerous.",
+            "So, I think I wanna do something funny to plike_r_c. Like a prank. {PRONOUN/plike_r_c/subject/CAP}{VERB/plike_r_c/'ve/'s} been having a rough time recently and I wanna do something funny to cheer {PRONOUN/plike_r_c/object} up.",
+            "But I don't have the slightest clue what I wanna do... everything I can think of either hasn't worked or would just upset {PRONOUN/plike_r_c/object} further.",
+            "I wanted to put a frog pet in {PRONOUN/plike_r_c/poss} den, since I love looking for cool frogs, but couldn't find one {PRONOUN/plike_r_c/subject} would like.",
+            "Then, I tried looking for flowers to give {PRONOUN/plike_r_c/object}, but apparently the ones I found were called foxgloves, and they're really dangerous.",
             "PLEASE tell me if you think of something! I think I've thought so hard about this I could probably consider myself a, uh... what are the thinky cats called again? I know there's a name, come on...",
             "...Like the ones who come up with really big ideas that fundamentally change how their Clan operates? Like that one cat from o_cClan? Please? It's a real thing, it's on the tip of my jaw, I swear!"
         ]
@@ -3349,6 +3349,50 @@
             "It starts now! Seeya, y_c!",
             "[t_c bolts out of camp before you can process {PRONOUN/t_c/poss} response. Once it clicks, you chase {PRONOUN/t_c/object} faster than you've chased any rabbit before.]"
         ]
+    ],
+    "injury_kit_H2": [
+        [
+            "they_app",
+            "you_app",
+            "you_kitten",
+            "they_ill",
+            "they_injured"
+        ],
+        [
+            "You- you want to play? Sure...",
+            "[t_c shakily stands from {PRONOUN/t_c/poss} nest, having some difficulty. Yet, t_c keeps a big smile on {PRONOUN/t_c/poss} face to avoid worrying you.]",
+            "Yeah! What do you wanna play? Moss ball? Or maybe splash in the river nearby? I'm sure r_m wouldn't mind if I go out for a little bit.",
+            "What? No, no I'm fine! I swear! Don't worry about me- I want to play too."
+        ]
+    ],
+    "injury_kit_H3": [
+        [
+            "they_app",
+            "you_app",
+            "you_kitten",
+            "they_wastingdisease"
+        ],
+        [
+            "You- you want to play? Sure...",
+            "[t_c shakily stands from {PRONOUN/t_c/poss} nest, having some difficulty. Yet, t_c keeps a big smile on {PRONOUN/t_c/poss} face to avoid worrying you.]",
+            "Yeah! What do you wanna play? Moss ball? Or maybe splash in the river nearby? I'm sure r_m wouldn't mind if I go out for a little bit.",
+            "What? No, no I'm fine! I swear! Don't worry about me- I want to play too."
+        ]
+    ],
+    "Introspective_trust_H2": [
+        [
+            "they_introspective",
+            "they_kitten",
+            "they_app",
+            "trust",
+            "non-related",
+            "platonic_like",
+            "you_mediator"
+        ],
+        [
+            "[t_c pads up to you with hesitance in {PRONOUN/t_c/poss} step but determination on {PRONOUN/t_c/poss} face.]",
+            "I need you to fix my relationship with t_p_negative, please.",
+            "And- and only you! I don't want r_d to do it. I trust you more."
+        ]
     ]
-
 }

@@ -2802,7 +2802,7 @@
         ],
         [
             "Huh, y_c? You were looking for me?",
-            "Yes, I got into an argument with r_c_assertive this morning. I'm not sure what the issue is. {PRONOUN/r_c/subject/CAP} always {VERB/r_c/keep/keeps} telling me that I need to speak up more, and then {VERB/t_c/get/gets} angry at me when I do.",
+            "Yes, I got into an argument with r_c_assertive this morning. I'm not sure what the issue is. {PRONOUN/r_c/subject/CAP} always {VERB/r_c_assertive/keep/keeps} telling me that I need to speak up more, and then {VERB/r_c_assertive/get/gets} angry at me when I do.",
             "I swear. This is the reason why you're one of the only cats I talk to. You make sense, you're reasonable.",
             "I'm going to bed, y_c. I'll speak to you in the morning."
         ]
@@ -14249,7 +14249,9 @@
         [
             "they_sc",
             "you_sc",
-            "any"
+            "any",
+            "cool",
+            "brooding"
         ],
         [
             "Do you miss being in c_nClan?",
@@ -14263,7 +14265,9 @@
         [
             "they_sc",
             "you_sc",
-            "any"
+            "any",
+            "they_deaf",
+            "you_deaf"
         ],
         [
             "[t_c is grooming {PRONOUN/t_c/poss} pelt, sending stardust scattering across the grass with every rasp of {PRONOUN/t_c/poss} tongue.]"
@@ -14299,7 +14303,7 @@
             "any"
         ],
         [
-            "A gathering is approaching.",
+            "A Gathering is approaching.",
             "Let's hope the living cats know to behave themselves. Or else we might have to intervene."
         ]
     ],
@@ -19036,12 +19040,23 @@
     "dead_deaf_J3": [
         [
             "any",
-            "you_deaf",
+            "only_you_deaf",
             "they_deaf",
             "they_dead"
         ],
         [
-            "[t_c smiles at you.]"
+            "[t_c's ghostly form vanishes as soon as you catch a glimpse of {PRONOUN/t_c/object}.]"
+        ]
+    ],
+    "dead_deaf_J4": [
+        [
+            "any",
+            "you_deaf",
+            "only_they_deaf",
+            "they_dead"
+        ],
+        [
+            "[You watch t_c as {PRONOUN/t_c/subject} wistfully {VERB/t_c/watch/watches} the birds fluttering through the trees that surround c_nClan camp.]"
         ]
     ],
     "neurotic_general_SQ1": [
@@ -19184,7 +19199,7 @@
 	],
 	[
 		"Man, I wonder what kinda cat t_kk is gonna grow up to be?",
-		"{PRONOUN/t_kk/CAP} could be a historic medicine cat, or an influential mediator, or - hey, who knows? Even leader of the Clan!",
+		"{PRONOUN/t_kk/subject/CAP} could be a historic medicine cat, or an influential mediator, or - hey, who knows? Even leader of the Clan!",
  		"[You ask t_c why {PRONOUN/t_c/subject} didn't mention the path of a regular warrior?]",
 		"Yeah, like my kit's just gonna end up as some generic patrol member. No way I'm gonna let that happen!",
 		"Just you wait, t_c! t_kk's gonna go down in history!" 
@@ -19567,7 +19582,7 @@
             "Any",
             "leafbare",
             "silly",
-            "they_formerlykittypet",
+            "they_formerlyakittypet",
             "they_went_blind"
         ],
         [
@@ -19582,7 +19597,7 @@
             "Any",
             "leafbare",
             "silly",
-            "they_formerlykittypet",
+            "they_formerlyakittypet",
             "you_blind",
             "they_went_blind"
         ],
@@ -19597,7 +19612,7 @@
             "Any",
             "leafbare",
             "silly",
-            "they_formerlykittypet",
+            "they_formerlyakittypet",
             "you_blind",
             "they_went_blind"
         ],
@@ -19661,7 +19676,7 @@
             "Any",
             "silly",
             "leaffall",
-            "they_formerlykittypet",
+            "they_formerlyakittypet",
             "they_went_blind"
         ],
         [
@@ -19710,7 +19725,7 @@
         ],
         [
             "Hey... y_c?",
-            "What do you think d_c is doing right now? Surely {PRONOUN/d_c/subject}{VERB/d_c/'ve/'s} made {PRONOUN/d_c/poaa} way to Silverpelt, right? Who do you think {PRONOUN/d_c/subject}{VERB/d_c/'re/'s} talking to? Could {PRONOUN/d_c/subject} be watching us right now?",
+            "What do you think d_c is doing right now? Surely {PRONOUN/d_c/subject}{VERB/d_c/'ve/'s} made {PRONOUN/d_c/poss} way to Silverpelt, right? Who do you think {PRONOUN/d_c/subject}{VERB/d_c/'re/'s} talking to? Could {PRONOUN/d_c/subject} be watching us right now?",
             "Please don't tell me d_c was watching me this morning, I'm embarrassed enough as it is..."
         ]
     ],
@@ -19727,6 +19742,470 @@
 	        "[t_c lowers {PRONOUN/t_c/poss} voice when you try to speak to {PRONOUN/t_c/object}, for once in {PRONOUN/t_c/poss} life.]",
             "y_c. I know, it's terrible, I know, I should feel so much worse saying this. Maybe I should just forgive you, but it's hard, and I've never been one to keep my mouth shut.",
 	        "Ah... sometimes I wish it was you instead of d_c."
+        ]
+    ],
+    "shunned_sc_leader_H1": [
+        [
+            "you_leader",
+            "you_shunned",
+            "they_sc"
+        ],
+        [
+            "You have stained the lives we gave you as if they were things to be thrown away.",
+            "Do our gifts mean so little?"
+        ]
+    ],
+    "injury_H1": [
+        [
+            "they_injured",
+            "platonic_love",
+            "you_medicine_cat",
+            "you_medicine_cat_apprentice",
+            "you_neurotic"
+        ],
+        [
+            "y_c, how many times have you checked on me today?",
+            "[You stutter an excuse for your excessive check-ups, and t_c can only laugh.]",
+            "Oh, I am fine, as long as I am under your paws. You underestimate yourself."
+        ]
+    ],
+    "injury_H2": [
+        [
+            "they_injured",
+            "dislike",
+            "you_medicine_cat",
+            "they_any"
+        ],
+        [
+            "Can you hurry up already?",
+            "I have places to be, you know-- ouch!",
+            "[t_c yelps as you paw at {PRONOUN/t_c/poss} injury, attempting to inspect the damage.]",
+            "[You grumble that impatience is not going to heal {PRONOUN/t_c/poss} injury, nor {PRONOUN/t_c/poss} pride.]",
+            "Yes-- well-- ugh.",
+            "I guess it serves me right."
+        ]
+    ],
+    "injury_H3": [
+        [
+            "they_injured",
+            "they_ill",
+            "any"
+        ],
+        [
+            "[t_c huffs and heaves in {PRONOUN/t_c/poss} nest.]",
+            "[<i>Maybe</i> it's not the best idea to make conversation. You should leave before r_m scolds you for disrupting one of {PRONOUN/r_m/poss} patients.]"
+        ]
+    ],
+    "yourecovering_H4": [
+        [
+            "you_recovering_from_birth",
+            "you_any",
+            "they_any"
+        ],
+        [
+            "Hi, y_c! How are you feeling today?",
+            "Not too good, I'm sure. You must be tired.",
+    "Who am I kidding, of course you are! The little ones must be tiring you out!"
+        ]
+    ],
+   "yourecovering_H6": [
+        [
+            "you_recovering_from_birth",
+            "sibling",
+            "adopted_sibling",
+            "half sibling",
+            "you_any",
+            "they_any",
+            "no_kit",
+    "comfort",
+            "platonic_love"
+        ],
+        [
+            "[t_c walks into the nursery with a hefty piece of prey, {PRONOUN/t_c/poss} eyes set on you.]",
+            "Mrrmm, mmumrr mrru?",
+            "[t_c lays the prey gentle on one of your paws with a sheepish smile.]",
+            "Sorry, I meant to say-- How are you feeling?",
+            "Yes, yes, I know you're tired of everyone asking you the same question, but seriously! Can't a {PRONOUN/t_c/sibling} be curious about your health without a rebuttal?",
+            "[t_c giggles as you playfully swat {PRONOUN/t_c/object} away and out of the nursery.]"
+        ]
+    ],
+   "yourecovering_H5": [
+        [
+            "they_neurotic",
+            "they_introspective",
+            "you_recovering_from_birth",
+            "from_mate",
+            "you_any"
+        ],
+        [
+            "Sorry if it feels like I'm hovering.",
+            "I just want to make sure you and the kits are okay... If that's okay?"
+        ]
+    ],
+    "Soot_H1": [
+        [
+            "you_medicine_cat",
+            "you_medicine_apprentice",
+            "they_any",
+            "no_kit"
+        ],
+        [
+            "[t_c comes back to camp covered in soot and grime, a sheepish smile across {PRONOUN/t_c/poss} muzzle. You stop t_c with worried curiosity, wondering how {PRONOUN/t_c/subject} gotten {PRONOUN/t_c/self} in that mess.]",
+            "Oh... the soot? Well... I may or may not have tripped and fell into the black stones two-legs use to cook their prey.",
+            "And look at me! I could be mistaken for another cat with this grime in my fur."
+        ]
+    ],
+    "Introspective_trust_H1": [
+        [
+            "they_introspective",
+            "they_any",
+            "you_any",
+            "no_kit",
+            "trust",
+            "non-related"
+        ],
+        [
+            "[You notice t_c looking bummed out at the edge of camp, curled and staring out to the bush in thought.]",
+            "Hm? Oh, um.",
+            "I'm just thinking about t_p_negative. I feel like our relationship has gotten worse these past few moons.",
+            "I don't think I caused it, but... maybe I did? I've been stuck in my head about it and I guess I just feel bad.",
+            "But I don't want to bother you with that, haha! Has anything interesting happened to you lately?"
+        ]
+    ],
+    "Introspective_trust_H3": [
+        [
+            "they_introspective",
+            "they_any",
+            "you_any",
+            "trust"
+        ],
+        [
+            "Hmm, I can't tell if I'm being too hard on t_a or not.",
+            "Maybe I'm thinking too much about it, but I could be less strict and give {PRONOUN/t_a/object} more time outside of training. Or make training more fun?",
+            "[t_c seems to be thinking out loud, yet it's nice that t_c trusts you with {PRONOUN/t_c/poss} thoughts anyway.]",
+            "I think it would be best if I spoke to t_a about it... yes, yes, that sounds like a good plan."
+        ]
+    ],
+    "Neurotic_mates_H2": [
+        [
+            "from_mate",
+            "they_neurotic",
+            "romantic_like",
+            "comfort",
+            "trust"
+        ],
+        [
+            "You make me calm, I think. Whenever I'm around you, all my worries go away and...",
+            "I don't know how to put it into words."
+        ]
+    ],
+    "Neurotic_mates_H3": [
+        [
+            "from_mate",
+            "they_neurotic",
+            "romantic_like",
+            "comfort",
+            "trust"
+        ],
+        [
+            "I don't remember the last time I felt this content.",
+            "Haha, that sounds more sad than I wanted. I guess I just wanted to let you know."
+        ]
+    ],
+    "Neurotic_mates_H4": [
+        [
+            "from_mate",
+            "they_neurotic",
+            "they_any",
+            "romantic_like",
+            "comfort",
+            "trust"
+        ],
+        [
+            "[t_c makes a beeline to you, looking extra overwhelmed today. {PRONOUN/t_c/subject/CAP} automatically {VERB/t_c/press/presses} {PRONOUN/t_c/poss} face into your fur when close enough, hiding from the outside world.]",
+            "... Sorry. Today was just-- it was a lot."
+        ]
+    ],
+    "Neurotic_mates_H5": [
+        [
+            "from_mate",
+            "they_neurotic",
+            "they_any",
+            "dislike",
+            "romantic_like"
+        ],
+        [
+            "[t_c paws at the ground, looking unapproachable and lost in thought in this moment.]",
+            "[t_c has been growing distant with you lately. You wonder why.]"
+        ]
+    ],
+    "Neurotic_mates_H6": [
+        [
+            "from_mate",
+            "they_neurotic",
+            "they_any",
+            "trust"
+        ],
+        [
+            "The thought of kits makes me nervous.",
+            "[t_c squirms and tries to put {PRONOUN/t_c/poss} thoughts into words, finding some difficulty.]",
+            "Sorry if that came out of nowhere, y_c. But I overheard r_q talking about kits and I thought about it, and maybe I got in my head a little and--",
+            "Ugh, sorry! I guess I'm not quite ready to talk about it, am I?"
+        ]
+    ],
+    "Neurotic_mates_H7": [
+        [
+            "from_mate",
+            "they_neurotic",
+            "they_any",
+            "trust",
+            "comfort"
+        ],
+        [
+            "Do you think I should see r_d again?",
+            "Oh, um, I don't know. I guess I just need the extra support -- Not like you're not enough support!!",
+            "You're more than enough support and make me feel safe. But maybe sometimes I just need an outside opinion on my nervous tendencies..."
+        ]
+    ],
+    "injury_kit_H2": [
+        [
+            "they_app",
+            "you_app",
+            "you_kitten",
+            "they_ill",
+            "they_injured"
+        ],
+        [
+            "You- you want to play? Sure...",
+            "[t_c shakily stands from {PRONOUN/t_c/poss} nest, having some difficulty. Yet, t_c keeps a big smile on {PRONOUN/t_c/poss} face to avoid worrying you.]",
+            "Yeah! What do you wanna play? Moss ball? Or maybe splash in the river nearby? I'm sure r_m wouldn't mind if I go out for a little bit.",
+            "What? No, no I'm fine! I swear! Don't worry about me- I want to play too."
+        ]
+    ],
+    "injury_kit_H3": [
+        [
+            "they_app",
+            "you_app",
+            "you_kitten",
+            "they_wastingdisease"
+        ],
+        [
+            "You- you want to play? Sure...",
+            "[t_c shakily stands from {PRONOUN/t_c/poss} nest, having some difficulty. Yet, t_c keeps a big smile on {PRONOUN/t_c/poss} face to avoid worrying you.]",
+            "Yeah! What do you wanna play? Moss ball? Or maybe splash in the river nearby? I'm sure r_m wouldn't mind if I go out for a little bit.",
+            "What? No, no I'm fine! I swear! Don't worry about me- I want to play too."
+        ]
+    ],
+    "Introspective_trust_H2": [
+        [
+            "they_introspective",
+            "they_kitten",
+            "they_app",
+            "trust",
+            "non-related",
+            "platonic_like",
+            "you_mediator"
+        ],
+        [
+            "[t_c pads up to you with hesitance in {PRONOUN/t_c/poss} step but determination on {PRONOUN/t_c/poss} face.]",
+            "I need you to fix my relationship with t_p_negative, please.",
+            "And- and only you! I don't want r_d to do it. I trust you more."
+        ]
+    ],
+    "neurotic_shunned_CM1": [
+        [
+            "Any",
+            "they_shunned",
+            "neurotic" 
+        ],
+        [
+            "[t_c is looking around wildly.]",
+            "Ah ... y_c. W-where are you going?"
+        ]
+    ],
+    "hate_insult_shunned_CM1": [
+        [
+            "no_kit",
+            "you_shunned",
+            "hate",
+            "any",
+            "insult"
+        ],
+        [
+            "... No. You know what, y_c?",
+            "Nothing could describe just how much I hate you. If I could repeat that sentence for as long as I live, it would still not equal half of the hatred I have for you.",
+            "You're a murderer, nothing but a pile of dirt waiting to blow away in the breeze. Mouse-dung waiting to be buried.",
+            "I am thrilled to see you finally getting what you deserve after all these moons.",
+            "And now everycat can hate you, <i>does</i> hate you, but it will still never be equal to the rage I get from your very existence.",
+            "Sad, isn't it?" 
+        ]
+    ],
+    "from_mate_u_shunned_CM1": [
+        [
+            "Any",
+            "from_mate",
+            "you_shunned"
+        ],
+        [
+            "[As dusk sets, t_c finds you in your half-built, scrappy 'nest' at the edge of camp.]",
+            "I brought you some fresh moss, y_c.",
+            "No, no -- I'm still upset with you. But I love you, and I don't want you to suffer.",
+            "I just hope that suffering isn't the only way to teach you a lesson." 
+        ]
+    ],
+    "from_mate_u_shunned_CM2": [
+        [
+            "Any",
+            "from_mate",
+            "you_shunned"
+        ],
+        [
+            ".....",
+            "Hello, y_c.",
+            "Let's not talk here. Not now.",
+            "[t_c walks away slowly, entangling {PRONOUN/t_c/poss} tail around yours as  {PRONOUN/t_c/subject} pass.]" 
+        ]
+    ],
+    "from_mate_u_shunned_CM3": [
+        [
+            "Any",
+            "from_mate",
+            "you_shunned", 
+            "romantic_love" 
+        ],
+        [
+            "[In the middle of the night, you feel a sudden warmth at your side.]",
+            "[Opening your eyes, you see t_c settling next to you.]",
+            "Shhh. I... know I shouldn't be doing this.", 
+            "I just can't stand you looking so alone. Sometimes, I wish I could be there for you. Other times, I know this is what you deserve. Even if it hurts.", 
+            "Just tonight. Let's just have this for tonight.", 
+            "[Eventually, you both drift back to sleep, intertwined together. When you finally awaken, you find t_c gone, but having seemingly left a small flower near your resting spot.]"
+        ]
+    ],
+    "mate_they_shunned_CM1": [
+        [
+            "Any",
+            "from_mate",
+            "they_shunned"
+        ],
+        [
+            "I'm sorry, love. I really am.",
+            "[t_c looks at you with an indescribable amount of sadness and longing in {PRONOUN/t_c/poss} eyes. It takes a lot of willpower to walk away from {PRONOUN/t_c/object}.]"
+        ]
+    ],
+    "mate_they_shunned_CM2": [
+        [
+            "Any",
+            "from_mate",
+            "they_shunned"
+        ],
+        [
+            "[You spot t_c from across the camp, your eyes meeting for a long moment.]", 
+            "[r_w nudges your side as {PRONOUN/r_w/subject} pass, breaking your focus on your mate. When you look back, t_c is gone. Maybe some other time...]" 
+        ]
+    ],
+    "praying_connected_J1~1": [
+        [
+            "you_sc",
+            "any",
+            "no_kit",
+            "they_shunned",
+            "stable",
+            "cool",
+            "sc_faith",
+            "you_blind",
+            "they_blind"
+        ],
+        [
+            "[y_c is praying, and you're the StarClan cat who has happened to hear it.]",
+            "Um, hey, StarClan... Can you hear me?",
+            "I messed up, StarClan... and, I guess I was just wondering if you'd be willing to forgive me.",
+            "I get it if you're not, but...",
+            "Let me know?"
+        ]
+    ],
+    "praying_connected_J1~2": [
+        [
+            "you_sc",
+            "any",
+            "no_kit",
+            "they_forgiven",
+            "stable",
+            "cool",
+            "sc_faith",
+            "connected",
+            "you_blind",
+            "they_blind"
+        ],
+        [
+            "[You listen in to t_c as {PRONOUN/t_c/subject} {VERB/t_c/pray/prays} once more.]",
+            "Hey, StarClan. Me again.",
+            "I've been let back into the Clan! I don't know if you guys had anything to do with that, but, uh, thanks, if so.",
+            "I'm gonna try to do better now."
+        ]
+    ],
+    "praying_connected_J1~3": [
+        [
+            "you_sc",
+            "any",
+            "no_kit",
+            "stable",
+            "cool",
+            "sc_faith",
+            "connected",
+            "you_blind",
+            "they_blind"
+        ],
+        [
+            "Whoa, y_c! Hi! What are you doing here?",
+            "Oh, you heard me praying before? I guess that makes sense...",
+            "That's a bit embarrassing, though.",
+            "Well, thanks for listening, anyway. I guess it worked, huh?",
+            "Make sure you save me a spot up in StarClan!"
+        ]
+    ],
+    "longdead_J1": [
+        [
+            "min_they_deadfor_100",
+            "max_you_deadfor_20",
+            "you_sc",
+            "they_sc",
+            "any",
+            "they_adult",
+            "they_brooding"
+        ],
+        [
+            "[While stargazing with t_c, you point out a bright purple dot to them.]",
+            "Don't point out the planets to me, rookie. You think I haven't seen them before?",
+            "I've been stargazing up here for years. Of course I've seen the purple one.",
+            "There's a red one that shows itself every once in a while. I'll come get you when I see it next."
+        ]
+    ],
+    "gnk_youdeaf_J1": [
+        [
+            "only_you_deaf",
+            "you_warrior",
+            "they_deputy",
+            "they_warrior"
+        ],
+        [
+            "... ?",
+            "[t_c flicks {PRONOUN/t_c/poss} tail towards the camp entrance and looks at you imporingly, asking if you'd like to join {PRONOUN/t_c/poss} patrol.]",
+            "[You cock your head. What type?]",
+            "[t_c crouches and smacks one of {PRONOUN/t_c/poss} paws overtop of the other.]",
+            "[The sign for hunting! You give {PRONOUN/t_c/object} a nod and quickly stand up to join.]"
+        ]
+    ],
+    "gnk_youdeaf_J2": [
+        [
+            "only_you_born_deaf",
+            "any"
+        ],
+        [
+            "[As you sit in camp one day, watching the trees blow idly in the wind, you suddenly recieve a smack to the side of your head.]",
+            "[You stumble and, tail lashing, turn to face your attacker, t_c.]",
+            "[t_c lowers {PRONOUN/t_c/poss} head as you turn to them. {PRONOUN/t_c/subject/CAP} {VERB/t_c/look/looks} apologetic and quickly {VERB/t_c/sign/signs} to you that there was a wasp by your ear.]",
+            "[Oh. You let your anger resign and give t_c a thankful nod.]"
         ]
     ]
 }
