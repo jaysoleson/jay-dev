@@ -487,7 +487,10 @@ class Condition_Events():
 
             # death event text and break bc any other illnesses no longer matter
             if cat.dead and cat.status != 'leader':
-                event = f"{cat.name} died of {illness}."
+                if illness not in ["stage one", "stage two", "stage three", "stage four"]:
+                    event = f"{cat.name} died of {illness}."
+                else:
+                    event = f"{cat.name} was killed by the infection."
                 # clear event list to get rid of any healed or risk event texts from other illnesses
                 event_list.clear()
                 event_list.append(event)

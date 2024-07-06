@@ -78,5 +78,20 @@
             "m_c wakes and wails, {PRONOUN/m_c/poss} dreams haunted by visions of {PRONOUN/m_c/poss} dead loved one.",
             "m_c jolts awake and immediately leaves the den to clear {PRONOUN/m_c/poss} head, hoping some fresh night air will help {PRONOUN/m_c/object} cope with the sadness and memories."
         ]
+    },
+    "stage one": {
+        "stage two": [
+            "m_c's infection has reached stage two."
+        ]
+    },
+    "stage two": {
+        "stage three": [
+            "m_c's infection has reached stage three."
+        ]
+    },
+    "stage three": {
+        "stage four": [
+            "m_c's infection has reached stage four."
+        ]
     }
 }

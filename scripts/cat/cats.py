@@ -210,6 +210,7 @@ class Cat():
         self.outside = False
         self.dead_for = 0  # moons
         self.shunned = 0 # moons
+        self.infected_for = 0 # moons!
         self.thought = ''
         self.genderalign = None
         self.birth_cooldown = 0
@@ -3327,6 +3328,7 @@ class Cat():
                 # "pronouns": self.pronouns,
                 "birth_cooldown": self.birth_cooldown,
                 "status": self.status,
+                "infected_moons": self.infected_for,
                 "backstory": self.backstory if self.backstory else None,
                 "moons": self.moons,
                 "trait": self.personality.trait,

@@ -2380,6 +2380,8 @@ class Events:
         and new cat events
         """
 
+        # if cat.infected_for == 1:
+        #     cat.get_ill("stage one")
         if cat.dead:
             
             cat.thoughts()

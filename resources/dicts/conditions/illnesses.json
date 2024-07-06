@@ -670,5 +670,129 @@
             "thyme",
             "poppy"
         ]
+    },
+    "stage one": {
+        "severity": "minor",
+        "mortality": {
+            "newborn": 3,
+            "kitten": 3,
+            "adolescent": 8,
+            "young adult": 8,
+            "adult": 0,
+            "senior adult": 0,
+            "senior": 3
+        },
+        "medicine_mortality": {
+            "newborn": 7,
+            "kitten": 7,
+            "adolescent": 12,
+            "young adult": 20,
+            "adult": 25,
+            "senior adult": 20,
+            "senior": 7
+        },
+        "duration": 10,
+        "medicine_duration": 10,
+        "infectiousness": 10,
+        "risks": [
+            {
+                "name": "stage two",
+                "chance": 20
+            }
+        ],
+        "herbs": [
+        ]
+    },
+    "stage two": {
+        "severity": "minor",
+        "mortality": {
+            "newborn": 3,
+            "kitten": 3,
+            "adolescent": 7,
+            "young adult": 7,
+            "adult": 0,
+            "senior adult": 0,
+            "senior": 3
+        },
+        "medicine_mortality": {
+            "newborn": 7,
+            "kitten": 7,
+            "adolescent": 12,
+            "young adult": 20,
+            "adult": 25,
+            "senior adult": 20,
+            "senior": 7
+        },
+        "duration": 10,
+        "medicine_duration": 10,
+        "infectiousness": 20,
+        "risks": [
+            {
+                "name": "stage three",
+                "chance": 10
+            }
+        ],
+        "herbs": [
+        ]
+    },
+    "stage three": {
+        "severity": "major",
+        "mortality": {
+            "newborn": 3,
+            "kitten": 3,
+            "adolescent": 6,
+            "young adult": 6,
+            "adult": 8,
+            "senior adult": 0,
+            "senior": 3
+        },
+        "medicine_mortality": {
+            "newborn": 7,
+            "kitten": 7,
+            "adolescent": 12,
+            "young adult": 20,
+            "adult": 25,
+            "senior adult": 20,
+            "senior": 7
+        },
+        "duration": 10,
+        "medicine_duration": 10,
+        "infectiousness": 30,
+        "risks": [
+            {
+                "name": "stage four",
+                "chance": 4
+            }
+        ],
+        "herbs": [
+        ]
+    },
+    "stage four": {
+        "severity": "severe",
+        "mortality": {
+            "newborn": 2,
+            "kitten": 2,
+            "adolescent": 2,
+            "young adult": 5,
+            "adult": 8,
+            "senior adult": 8,
+            "senior": 3
+        },
+        "medicine_mortality": {
+            "newborn": 7,
+            "kitten": 7,
+            "adolescent": 12,
+            "young adult": 20,
+            "adult": 25,
+            "senior adult": 20,
+            "senior": 7
+        },
+        "duration": 10,
+        "medicine_duration": 10,
+        "infectiousness": 40,
+        "risks": [
+        ],
+        "herbs": [
+        ]
     }
 }

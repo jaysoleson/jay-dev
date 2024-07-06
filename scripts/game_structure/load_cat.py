@@ -65,6 +65,8 @@ def json_load():
                 cat["favourite"] = 0
             elif cat["favourite"] is True:
                 cat["favourite"] = 1
+            if "infected_moons" not in cat:
+                cat["infected_moons"] = 0
 
             new_cat = Cat(ID=cat["ID"],
                         prefix=cat["name_prefix"],
@@ -179,6 +181,7 @@ def json_load():
             new_cat.previous_mates = cat["previous_mates"] if "previous_mates" in cat else []
             new_cat.dead = cat["dead"]
             new_cat.dead_for = cat["dead_moons"]
+            new_cat.infected_for = cat["infected_moons"]
             new_cat.experience = cat["experience"]
             new_cat.apprentice = cat["current_apprentice"]
             new_cat.former_apprentices = cat["former_apprentices"]
