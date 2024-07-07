@@ -429,10 +429,11 @@ class TreatmentScreen(Screens):
             self.textbox_graphic.kill()
             del self.textbox_graphic
 
-    def get_adjusted_txt(self, text, cat):
+    def get_adjusted_txt(self, text, patient, the_cat):
         you = game.clan.your_cat
         for i in range(len(text)):
             if text[i] == "":
+                print("here capn")
                 return ""
 
         process_text_dict = self.cat_dict.copy()
@@ -441,58 +442,34 @@ class TreatmentScreen(Screens):
             abbrev_cat = process_text_dict[abbrev]
             process_text_dict[abbrev] = (abbrev_cat, choice(abbrev_cat.pronouns))
         
-        process_text_dict["y_c"] = (game.clan.your_cat, choice(game.clan.your_cat.pronouns))
-        process_text_dict["m_c"] = (self.selected_cat, choice(self.selected_cat.pronouns))
+        if the_cat != game.clan.your_cat:
+            process_text_dict["r_m"] = (the_cat, choice(the_cat.pronouns))
+        process_text_dict["m_c"] = (patient, choice(patient.pronouns))
         
         for i in range(len(text)):
             text[i] = re.sub(r"\{(.*?)\}", lambda x: pronoun_repl(x, process_text_dict, False), text[i])
-        
-        text = [t1.replace("c_n", game.clan.name) for t1 in text]
-        text = [t1.replace("y_c", str(you.name)) for t1 in text]
-        text = [t1.replace("m_c", str(self.selected_cat.name)) for t1 in text]
 
-        text = [t1.replace("herb1", self.herb1) for t1 in text]
-        text = [t1.replace("herb2", self.herb2) for t1 in text]
-        text = [t1.replace("herb3", self.herb3) for t1 in text]
-        text = [t1.replace("herb4", self.herb4) for t1 in text]
+        text = [t1.replace("c_n", game.clan.name) for t1 in text]
+        text = [t1.replace("m_c", str(patient.name)) for t1 in text]
+        if the_cat != game.clan.your_cat:
+            text = [t1.replace("r_m", str(the_cat.name)) for t1 in text]
+
+        # text = [t1.replace("herb1", self.herb1) for t1 in text if self.herb1 is not None]
+        # text = [t1.replace("herb2", self.herb2) for t1 in text if self.herb2 is not None]
+        # text = [t1.replace("herb3", self.herb3) for t1 in text if self.herb3 is not None]
+        # text = [t1.replace("herb4", self.herb4) for t1 in text if self.herb4 is not None]
 
         return text
 
-    def find_next_previous_cats(self):
-        """Determines where the previous and next buttons lead"""
-        is_instructor = False
-        if self.the_cat.dead and game.clan.instructor.ID == self.the_cat.ID:
-            is_instructor = True
+    def get_failure_chance(self, patient):
+        """ determine if the medcat will even be effective in attempting treatment. """
+        patient = self.selected_cat
+        fail = choice([1, 2])
 
-        self.previous_cat = 0
-        self.next_cat = 0
-        if self.the_cat.dead and not is_instructor and not self.the_cat.df:
-            self.previous_cat = game.clan.instructor.ID
-
-        if is_instructor:
-            self.next_cat = 1
-
-        for check_cat in Cat.all_cats_list:
-            if check_cat.ID == self.the_cat.ID:
-                self.next_cat = 1
-
-            if self.next_cat == 0 and check_cat.ID != self.the_cat.ID and check_cat.dead == self.the_cat.dead and \
-                    check_cat.ID != game.clan.instructor.ID and not check_cat.exiled and check_cat.status in \
-                    ["apprentice", "medicine cat apprentice", "mediator apprentice", "queen's apprentice"] \
-                    and check_cat.df == self.the_cat.df:
-                self.previous_cat = check_cat.ID
-
-            elif self.next_cat == 1 and check_cat.ID != self.the_cat.ID and check_cat.dead == self.the_cat.dead and \
-                    check_cat.ID != game.clan.instructor.ID and not check_cat.exiled and check_cat.status in \
-                    ["apprentice", "medicine cat apprentice", "mediator apprentice", "queen's apprentice"] \
-                    and check_cat.df == self.the_cat.df:
-                self.next_cat = check_cat.ID
-
-            elif int(self.next_cat) > 1:
-                break
-
-        if self.next_cat == 1:
-            self.next_cat = 0
+        if fail == 1:
+            return False
+        else:
+            return True
 
     RESOURCE_DIR = "resources/dicts/events/lifegen_events/infection"
 
@@ -502,6 +479,21 @@ class TreatmentScreen(Screens):
                 encoding="ascii") as read_file:
             self.m_txt = ujson.loads(read_file.read())
 
+        medcats = []
+        for cat in Cat.all_cats_list:
+            if cat.status in ["medicine cat", "medicine cat apprentice"]:
+                medcats.append(cat)
+        self.the_cat = choice(medcats)
+
+        who_key = ""
+        if self.the_cat == game.clan.your_cat:
+            who_key = "you "
+
+        successkey = ""
+        success = self.get_failure_chance(patient)
+
+        if not success:
+            successkey = " failure"
         
         if self.herb1 in game.infection["cure"]:
             herb_1 = True
@@ -521,17 +513,16 @@ class TreatmentScreen(Screens):
             herb_4 = False
 
         herblist = [herb_1, herb_2, herb_3, herb_4]
+        self_herblist = [self.herb1, self.herb2, self.herb3, self.herb4]
 
         correct = 0
-        correctherbs = ""
-
         for guess in herblist:
             if guess is True:
                 correct += 1
         
-        if correct == 0:
-            correctherbs = "noneright"
-        elif correct == 1:
+        correctherbs = "zeroright"
+
+        if correct == 1:
             correctherbs = "oneright"
         elif correct == 2:
             correctherbs = "tworight"
@@ -541,22 +532,30 @@ class TreatmentScreen(Screens):
             correctherbs = "fourright"
 
         herbcount = 0
-        for herb in herblist:
-            if herb is not None:
+        for herb in self_herblist:
+            if herb != None:
                 herbcount += 1
         
         herbinsert = f" {str(herbcount)}herb"
 
         infection_stage = [i for i in self.selected_cat.illnesses if i in ["stage one", "stage two", "stage three", "stage four"]]
         infection_stage_stripped = str(infection_stage).replace('[', '').replace(']', '').replace("'", '')
-        print(infection_stage_stripped.replace(' ', '') + " " + correctherbs + herbinsert)
+        print([infection_stage_stripped.replace(' ', '') + " " + correctherbs + herbinsert + successkey])
         try:
-            ceremony_txt = self.m_txt[infection_stage_stripped.replace(' ', '') + " " + correctherbs + herbinsert]
-            ceremony_txt = choice(ceremony_txt)
-        except:
-            ceremony_txt = choice(self.m_txt["error text"])
-            
-        return self.get_adjusted_txt(ceremony_txt, self.selected_cat)
+            ceremony_txt = self.m_txt[who_key + infection_stage_stripped.replace(' ', '') + " " + correctherbs + herbinsert + successkey]
+        except KeyError:
+            try:
+                ceremony_txt =(self.m_txt[who_key + "anystage" + " " + correctherbs + herbinsert + successkey])
+            except:
+                try:
+                    ceremony_txt.extend(self.m_txt[who_key + "anystage" + " " + correctherbs + " anyherb" + successkey])
+                except:
+                    print("NO TEXT FOUND")
+                    ceremony_txt =(self.m_txt[who_key + "anystage anyright anyherb" + successkey])
+
+        chosenkey = choice(ceremony_txt)
+        print("CHOSEN TEXT:", chosenkey)
+        return self.get_adjusted_txt(chosenkey, self.selected_cat, self.the_cat)
         # return ceremony_txt
 
     def change_cat(self, patient):

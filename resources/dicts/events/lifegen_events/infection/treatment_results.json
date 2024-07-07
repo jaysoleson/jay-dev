@@ -1,56 +1,86 @@
 {
-    "error text": [
+    "anystage anyright anyherb": [
         [
-        "No treatment text found."
+            "r_m gives m_c the herbs..."
         ]
     ],
-    "stageone oneright 4herb": [
+    "anystage anyright anyherb failure": [
+        [
+            "m_c lunges at r_m before {PRONOUN/r_m/subject} can attempt to treat {PRONOUN/m_c/object}."
+        ]
+    ],
+    "you anystage anyright anyherb": [
+        [
+            "Your patient takes the herbs..."
+        ]
+    ],
+    "you anystage anyright anyherb failure": [
+        [
+            "m_c lunges at you before you can attempt to treat {PRONOUN/m_c/object}."
+        ]
+    ],
+    "you anystage zeroright 4herb": [
+        [
+            "The herbs have no effect."
+        ]
+    ],
+    "you stageone oneright 4herb": [
         [
             "m_c seems to be responding well to one of the herbs in the large mixture! You're not sure which, though..."
         ]
     ],
-    "stageone oneright 3herb": [
+    "you stageone oneright 3herb": [
         [
             "m_c seems to be responding well to one of the herbs in the mixture! You're not sure which, though..."
         ]
     ],
-    "stageone oneright 2herb": [
+    "you stageone oneright 2herb": [
         [
             "m_c seems to be responding well to one of the two herbs you've given {PRONOUN/m_c/object}! You're not sure which, though..."
         ]
     ],
-    "stageone oneright 1herb": [
+    "you stageone oneright 1herb": [
         [
             "m_c responds well to the herb!"
         ]
     ],
-    "stageone fourright 4herb": [
+    "you stageone fourright 4herb": [
         [
             "The herbs you've given m_c seem to be the perfect mixture. {PRONOUN/m_c/poss/CAP} eyes clear up instantly, and {PRONOUN/m_c/subject} {VERB/m_c/stop/stops} shaking.",
             "You've done it!"
         ]
     ],
-    "stagetwo fourright 4herb": [
+    "you stageone zeroright 4herb": [
+        [
+            "m_c doesn't seem to be having a positive reaction to any of the herbs you're giving them."
+        ]
+    ],
+    "you stageone zeroright 1herb": [
+        [
+            "Your patient doesn't seem to be having a positive reaction to the treatment at all..."
+        ]
+    ],
+    "you stagetwo fourright 4herb": [
         [
             "The herbs you've given m_c seem to be the perfect mixture. {PRONOUN/m_c/poss/CAP} eyes clear up instantly, and {PRONOUN/m_c/subject} {VERB/m_c/stop/stops} shaking.",
             "You've done it!"
         ]
     ],
-    "stagethree fourright 4herb": [
+    "you stagethree fourright 4herb": [
         [
             "The herbs you've given m_c seem to be the perfect mixture. {PRONOUN/m_c/poss/CAP} eyes clear up instantly, and {PRONOUN/m_c/subject} {VERB/m_c/stop/stops} shaking.",
             "You've done it!"
         ]
     ],
-    "stagefour fourright 4herb": [
+    "you stagefour fourright 4herb": [
         [
             "The herbs you've given m_c seem to be the perfect mixture. {PRONOUN/m_c/poss/CAP} eyes clear up instantly, and {PRONOUN/m_c/subject} {VERB/m_c/stop/stops} shaking.",
             "You've done it!"
         ]
     ],
-    "stageone noneright 4herb": [
+    "you stagefour anyright anyherb failure": [
         [
-            "m_c doesn't seem to be having a positive reaction to any of the herbs you're giving {PRONOUN/m_c/object}."
+            ""
         ]
     ]
 }

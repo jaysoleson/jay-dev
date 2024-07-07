@@ -883,8 +883,7 @@ def pronoun_repl(m, cat_pronouns_dict, raise_exception=False):
         logger.exception("Failed to find pronoun: " + m.group(1))
         print("Failed to find pronoun:", m.group(1))
         return "error2"
-
-
+    
 def name_repl(m, cat_dict):
     ''' Name replacement '''
     return cat_dict[m.group(0)][0]
