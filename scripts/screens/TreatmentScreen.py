@@ -542,13 +542,22 @@ class TreatmentScreen(Screens):
         infection_stage_stripped = str(infection_stage).replace('[', '').replace(']', '').replace("'", '')
         print([infection_stage_stripped.replace(' ', '') + " " + correctherbs + herbinsert + successkey])
         try:
-            ceremony_txt = self.m_txt[who_key + infection_stage_stripped.replace(' ', '') + " " + correctherbs + herbinsert + successkey]
+            if success:
+                ceremony_txt = self.m_txt[who_key + infection_stage_stripped.replace(' ', '') + " " + correctherbs + herbinsert + successkey]
+            else:
+                ceremony_txt = self.m_txt[who_key + infection_stage_stripped.replace(' ', '') + " " + herbinsert + successkey]
         except KeyError:
             try:
-                ceremony_txt =(self.m_txt[who_key + "anystage" + " " + correctherbs + herbinsert + successkey])
+                if success:
+                    ceremony_txt =(self.m_txt[who_key + "anystage" + " " + correctherbs + herbinsert + successkey])
+                else:
+                    ceremony_txt =(self.m_txt[who_key + "anystage" + " " + herbinsert + successkey])
             except:
                 try:
-                    ceremony_txt.extend(self.m_txt[who_key + "anystage" + " " + correctherbs + " anyherb" + successkey])
+                    if success:
+                        ceremony_txt.extend(self.m_txt[who_key + "anystage" + " " + correctherbs + " anyherb" + successkey])
+                    else:
+                        ceremony_txt.extend(self.m_txt[who_key + "anystage" + " " + " anyherb" + successkey])
                 except:
                     print("NO TEXT FOUND")
                     ceremony_txt =(self.m_txt[who_key + "anystage anyright anyherb" + successkey])

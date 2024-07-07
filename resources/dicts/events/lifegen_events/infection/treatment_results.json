@@ -19,68 +19,732 @@
             "m_c lunges at you before you can attempt to treat {PRONOUN/m_c/object}."
         ]
     ],
-    "you anystage zeroright 4herb": [
+    "stageone zeroright 1herb": [
         [
-            "The herbs have no effect."
+            "Despite not being very confident in {PRONOUN/r_m/self}, r_m approaches the sick m_c with a new attempt for a cure.",
+            "m_c, after some coaxing, takes the herbs, while r_m waits anxiously.",
+            "m_c's eyes stay clouded, and {PRONOUN/m_c/poss} paws continue to shake. It seems that r_m's treatment has done nothing."
         ]
     ],
-    "you stageone oneright 4herb": [
+    "stageone zeroright 2herb": [
         [
-            "m_c seems to be responding well to one of the herbs in the large mixture! You're not sure which, though..."
+            "Despite not being very confident in {PRONOUN/r_m/self}, r_m approaches the sick m_c with a new attempt for a cure.",
+            "m_c, after some coaxing, takes the herbs, while r_m waits anxiously.",
+            "m_c's eyes stay clouded, and {PRONOUN/m_c/poss} paws continue to shake. It seems that r_m's treatment has done nothing."
         ]
     ],
-    "you stageone oneright 3herb": [
+    "stageone zeroright 3herb": [
         [
-            "m_c seems to be responding well to one of the herbs in the mixture! You're not sure which, though..."
+            "Despite not being very confident in {PRONOUN/r_m/self}, r_m approaches the sick m_c with a new attempt for a cure.",
+            "m_c, after some coaxing, takes the herbs, while r_m waits anxiously.",
+            "m_c's eyes stay clouded, and {PRONOUN/m_c/poss} paws continue to shake. It seems that r_m's treatment has done nothing."
         ]
     ],
-    "you stageone oneright 2herb": [
+    "stageone zeroright 4herb": [
         [
-            "m_c seems to be responding well to one of the two herbs you've given {PRONOUN/m_c/object}! You're not sure which, though..."
+            "Despite not being very confident in {PRONOUN/r_m/self}, r_m approaches the sick m_c with a new attempt for a cure.",
+            "m_c, after some coaxing, takes the herbs, while r_m waits anxiously.",
+            "m_c's eyes stay clouded, and {PRONOUN/m_c/poss} paws continue to shake. It seems that r_m's treatment has done nothing."
         ]
     ],
-    "you stageone oneright 1herb": [
+    "stageone oneright 1herb": [
         [
-            "m_c responds well to the herb!"
+            "Text needed for key!"
         ]
     ],
-    "you stageone fourright 4herb": [
+    "stageone oneright 2herb": [
         [
-            "The herbs you've given m_c seem to be the perfect mixture. {PRONOUN/m_c/poss/CAP} eyes clear up instantly, and {PRONOUN/m_c/subject} {VERB/m_c/stop/stops} shaking.",
-            "You've done it!"
+            "Text needed for key!"
         ]
     ],
-    "you stageone zeroright 4herb": [
+    "stageone oneright 3herb": [
         [
-            "m_c doesn't seem to be having a positive reaction to any of the herbs you're giving them."
+            "Text needed for key!"
+        ]
+    ],
+    "stageone oneright 4herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stageone tworight 2herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stageone tworight 3herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stageone tworight 4herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stageone threeright 3herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stageone threeright 4herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stageone fourright 4herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stageone 1herb failure": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stageone 2herb failure": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stageone 3herb failure": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stageone 4herb failure": [
+        [
+            "Text needed for key!"
         ]
     ],
     "you stageone zeroright 1herb": [
         [
-            "Your patient doesn't seem to be having a positive reaction to the treatment at all..."
+            "Text needed for key!"
+        ]
+    ],
+    "you stageone zeroright 2herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stageone zeroright 3herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stageone zeroright 4herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stageone oneright 1herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stageone oneright 2herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stageone oneright 3herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stageone oneright 4herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stageone tworight 2herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stageone tworight 3herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stageone tworight 4herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stageone threeright 3herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stageone threeright 4herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stageone fourright 4herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stageone 1herb failure": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stageone 2herb failure": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stageone 3herb failure": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stageone 4herb failure": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagetwo zeroright 1herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagetwo zeroright 2herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagetwo zeroright 3herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagetwo zeroright 4herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagetwo oneright 1herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagetwo oneright 2herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagetwo oneright 3herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagetwo oneright 4herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagetwo tworight 2herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagetwo tworight 3herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagetwo tworight 4herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagetwo threeright 3herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagetwo threeright 4herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagetwo fourright 4herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagetwo 1herb failure": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagetwo 2herb failure": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagetwo 3herb failure": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagetwo 4herb failure": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagetwo zeroright 1herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagetwo zeroright 2herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagetwo zeroright 3herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagetwo zeroright 4herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagetwo oneright 1herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagetwo oneright 2herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagetwo oneright 3herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagetwo oneright 4herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagetwo tworight 2herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagetwo tworight 3herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagetwo tworight 4herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagetwo threeright 3herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagetwo threeright 4herb": [
+        [
+            "Text needed for key!"
         ]
     ],
     "you stagetwo fourright 4herb": [
         [
-            "The herbs you've given m_c seem to be the perfect mixture. {PRONOUN/m_c/poss/CAP} eyes clear up instantly, and {PRONOUN/m_c/subject} {VERB/m_c/stop/stops} shaking.",
-            "You've done it!"
+            "Text needed for key!"
+        ]
+    ],
+    "you stagetwo 1herb failure": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagetwo 2herb failure": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagetwo 3herb failure": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagetwo 4herb failure": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagethree zeroright 1herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagethree zeroright 2herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagethree zeroright 3herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagethree zeroright 4herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagethree oneright 1herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagethree oneright 2herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagethree oneright 3herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagethree oneright 4herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagethree tworight 2herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagethree tworight 3herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagethree tworight 4herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagethree threeright 3herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagethree threeright 4herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagethree fourright 4herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagethree 1herb failure": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagethree 2herb failure": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagethree 3herb failure": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagethree 4herb failure": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagethree zeroright 1herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagethree zeroright 2herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagethree zeroright 3herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagethree zeroright 4herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagethree oneright 1herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagethree oneright 2herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagethree oneright 3herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagethree oneright 4herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagethree tworight 2herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagethree tworight 3herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagethree tworight 4herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagethree threeright 3herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagethree threeright 4herb": [
+        [
+            "Text needed for key!"
         ]
     ],
     "you stagethree fourright 4herb": [
         [
-            "The herbs you've given m_c seem to be the perfect mixture. {PRONOUN/m_c/poss/CAP} eyes clear up instantly, and {PRONOUN/m_c/subject} {VERB/m_c/stop/stops} shaking.",
-            "You've done it!"
+            "Text needed for key!"
+        ]
+    ],
+    "you stagethree 1herb failure": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagethree 2herb failure": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagethree 3herb failure": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagethree 4herb failure": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagefour zeroright 1herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagefour zeroright 2herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagefour zeroright 3herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagefour zeroright 4herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagefour oneright 1herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagefour oneright 2herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagefour oneright 3herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagefour oneright 4herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagefour tworight 2herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagefour tworight 3herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagefour tworight 4herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagefour threeright 3herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagefour threeright 4herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagefour fourright 4herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagefour 1herb failure": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagefour 2herb failure": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagefour 3herb failure": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "stagefour 4herb failure": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagefour zeroright 1herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagefour zeroright 2herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagefour zeroright 3herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagefour zeroright 4herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagefour oneright 1herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagefour oneright 2herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagefour oneright 3herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagefour oneright 4herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagefour tworight 2herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagefour tworight 3herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagefour tworight 4herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagefour threeright 3herb": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagefour threeright 4herb": [
+        [
+            "Text needed for key!"
         ]
     ],
     "you stagefour fourright 4herb": [
         [
-            "The herbs you've given m_c seem to be the perfect mixture. {PRONOUN/m_c/poss/CAP} eyes clear up instantly, and {PRONOUN/m_c/subject} {VERB/m_c/stop/stops} shaking.",
-            "You've done it!"
+            "Text needed for key!"
         ]
     ],
-    "you stagefour anyright anyherb failure": [
+    "you stagefour 1herb failure": [
         [
-            ""
+            "Text needed for key!"
+        ]
+    ],
+    "you stagefour 2herb failure": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagefour 3herb failure": [
+        [
+            "Text needed for key!"
+        ]
+    ],
+    "you stagefour 4herb failure": [
+        [
+            "Text needed for key!"
         ]
     ]
 }
