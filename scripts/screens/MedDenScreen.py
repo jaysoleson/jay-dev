@@ -45,6 +45,8 @@ class MedDenScreen(Screens):
         self.meds = None
         self.back_button = None
 
+        self.treatment_button = None
+
         self.tab_showing = self.in_den_tab
         self.tab_list = self.in_den_cats
 
@@ -55,7 +57,7 @@ class MedDenScreen(Screens):
     def handle_event(self, event):
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
             if event.ui_element == self.back_button:
-                self.change_screen(game.last_screen_forupdate)
+                self.change_screen('camp screen')
             elif event.ui_element == self.next_med:
                 self.current_med += 1
                 self.update_med_cat()
@@ -104,9 +106,13 @@ class MedDenScreen(Screens):
                 self.log_tab.disable()
                 self.cats_tab.enable()
                 self.handle_tab_toggles()
+            elif event.ui_element == self.treatment_button:
+                self.change_screen('treatment screen')
 
     def screen_switches(self):
         self.hide_menu_buttons()
+        self.treatment_button = UIImageButton(scale(pygame.Rect((1170, 120), (260, 60))), "Attempt a Cure", object_id=""
+                                         , manager=MANAGER)
         self.back_button = UIImageButton(scale(pygame.Rect((50, 50), (210, 60))), "", object_id="#back_button"
                                          , manager=MANAGER)
         self.next_med = UIImageButton(scale(pygame.Rect((1290, 556), (68, 68))), "", object_id="#arrow_right_button"
@@ -567,6 +573,7 @@ class MedDenScreen(Screens):
         if self.med_name:
             self.med_name.kill()
         self.back_button.kill()
+        self.treatment_button.kill()
         if game.clan.game_mode != 'classic':
             self.help_button.kill()
             self.cat_bg.kill()

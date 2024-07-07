@@ -1729,6 +1729,8 @@ class ProfileScreen(Screens):
                 output += 'grieving!'
             elif "fleas" in the_cat.illnesses:
                 output += 'flea-ridden!'
+            elif "stage one" in the_cat.illnesses or "stage two" in the_cat.illnesses or "stage three" in the_cat.illnesses or "stage four" in the_cat.illnesses: #im too lazy to compact this Sue me
+                output += "<font color='#FF0000'>infected</font>"
             else:
                 output += 'sick!'
 

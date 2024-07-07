@@ -404,6 +404,15 @@ class Patrol():
         
         if patrol.pl_trait_constraints and self.patrol_leader.personality.trait not in patrol.pl_trait_constraints:
             return False
+
+        if game.infection["logs"] != []: # if theres stuff in your logs
+            for i in patrol.log_prereq:
+                if i not in game.infection["logs"]:
+                    return False
+        else:
+
+            if patrol.log_prereq != []:
+                return False
             
         return True
 
@@ -668,6 +677,12 @@ class Patrol():
                         # need both cats to be trainees for goop romance
                         continue
                     
+            if "infection_beginning" in patrol.tags and game.infection["clan_infected"] is True or game.infection["infection_moons"] > 0:
+                continue
+
+            if "infection" in patrol.tags and game.infection["clan_infected"] is False:
+                continue
+
             #  correct button check
             if game.current_screen == 'patrol screen2':
                 if patrol_type == "general":
@@ -767,7 +782,9 @@ class Patrol():
                                                                      antagonize=True),
                 relationship_constraints=patrol.get("relationship_constraint"),
                 pl_skill_constraints=patrol.get("pl_skill_constraint"),
-                pl_trait_constraints=patrol.get("pl_trait_constraints")
+                pl_trait_constraints=patrol.get("pl_trait_constraints"),
+
+                log_prereq=patrol.get("log_prereq")
             )
 
             all_patrol_events.append(patrol_event)
@@ -1523,6 +1540,7 @@ This is a good starting point for writing your own patrols.
     "chance_of_success": 50,
     "relationship_constraint": [],
     "pl_skill_constraint": [],
+    "log_prereq": [],
     "intro_text": "The patrol heads out.",
     "decline_text": "And they head right back!",
     "success_outcomes": [

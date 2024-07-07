@@ -37,6 +37,8 @@ from .QueenScreen import QueenScreen
 from .MoonplaceScreen import MoonplaceScreen
 from .WarriorDenScreen import WarriorDenScreen
 from .GiftScreen import GiftScreen
+from .CureLogScreen import CureLogScreen
+from .TreatmentScreen import TreatmentScreen
 
 # ---------------------------------------------------------------------------- #
 #                                  UI RULES                                    #
@@ -63,6 +65,8 @@ screens = Screens()
 # ---------------------------------------------------------------------------- #
 #                                 cat_screens.py                               #
 # ---------------------------------------------------------------------------- #
+cure_log_screen = CureLogScreen('cure log screen')
+treatment_screen = TreatmentScreen('treatment screen')
 
 profile_screen = ProfileScreen('profile screen')
 ceremony_screen = CeremonyScreen('ceremony screen')

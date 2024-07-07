@@ -192,6 +192,14 @@ def load_data():
                 game.switches[
                     'error_message'] = 'There was an error loading the cats file!'
                 game.switches['traceback'] = e
+        try:
+            game.load_infection()
+        except Exception as e:
+            logging.exception("File failed to load")
+            if not game.switches['error_message']:
+                game.switches[
+                    'error_message'] = 'There was an error loading the infection file!'
+                game.switches['traceback'] = e
     
     finished_loading = True
 

@@ -98,15 +98,15 @@
         "WARNING: this string should never appear, nutrition are handled only in freshkill events."
     ],
     "stage one": [
-        "m_c has recovered from {PRONOUN/t_c/poss} stage one infection!"
+        "m_c has recovered from {PRONOUN/m_c/poss} stage one infection!"
     ],
     "stage two": [
-        "m_c has recovered from {PRONOUN/t_c/poss} stage two infection!"
+        "m_c has recovered from {PRONOUN/m_c/poss} stage two infection!"
     ],
     "stage three": [
-        "m_c has recovered from {PRONOUN/t_c/poss} stage three infection!"
+        "m_c has recovered from {PRONOUN/m_c/poss} stage three infection!"
     ],
     "stage four": [
-        "m_c has recovered from {PRONOUN/t_c/poss} stage four infection!"
+        "m_c has recovered from {PRONOUN/m_c/poss} stage four infection!"
     ]
 }

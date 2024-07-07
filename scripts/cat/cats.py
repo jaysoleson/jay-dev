@@ -517,6 +517,9 @@ class Cat():
         if self.exiled:
             self.status = 'former Clancat'
 
+        if self.infected_for > 0:
+            self.infected_for = 0
+
         return text
 
     def exile(self):

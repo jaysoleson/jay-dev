@@ -1472,7 +1472,16 @@ def generate_sprite(cat, life_state=None, scars_hidden=False, acc_hidden=False, 
             new_sprite.blit(sprites.sprites['lighting' + cat_sprite], (0, 0))
 
         if not dead:
-            new_sprite.blit(sprites.sprites['lines' + cat_sprite], (0, 0))
+            if "stage one" in cat.illnesses:
+                new_sprite.blit(sprites.sprites['lineartstageone' + cat_sprite], (0, 0))
+            elif "stage two" in cat.illnesses:
+                new_sprite.blit(sprites.sprites['lineartstagetwo' + cat_sprite], (0, 0))
+            elif "stage three" in cat.illnesses:
+                new_sprite.blit(sprites.sprites['lineartstagethree' + cat_sprite], (0, 0))
+            elif "stage four" in cat.illnesses:
+                new_sprite.blit(sprites.sprites['lineartstagefour' + cat_sprite], (0, 0))
+            else:
+                new_sprite.blit(sprites.sprites['lines' + cat_sprite], (0, 0))
         elif cat.df:
             new_sprite.blit(sprites.sprites['lineartdf' + cat_sprite], (0, 0))
         elif dead:

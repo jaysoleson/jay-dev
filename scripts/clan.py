@@ -129,6 +129,7 @@ class Clan():
         self.camp_bg = camp_bg
         self.game_mode = game_mode
         self.pregnancy_data = {}
+        self.infection_data = {}
         self.inheritance = {}
         self.murdered = False
         self.exile_return = False
@@ -137,6 +138,20 @@ class Clan():
         self.talks = []
         self.focus = ""
         self.focus_moons = 0
+
+        # infection stuff! yippee
+        self.clan_infected = False
+        herb1 = random.choice(HERBS)
+        herb2 = random.choice(HERBS)
+        herb3 = random.choice(HERBS)
+        herb4 = random.choice(HERBS)
+
+        self.cure = [herb1, herb2, herb3, herb4]
+        self.cure_attempt = False
+        self.infection_type = 'fungal'
+        self.treatment_attempts = []
+        self.infection_moons = 0
+        self.cure_logs = []
         
         # Init Settings
         self.clan_settings = {}
@@ -492,6 +507,16 @@ class Clan():
             "affair": self.affair
         }
 
+        infection_data = {
+            "clan_infected": self.clan_infected,
+            "infection_type": self.infection_type,
+            "cure": self.cure,
+            "cure_attempt": self.cure_attempt,
+            "treatments": self.treatment_attempts,
+            "infection_moons": self.infection_moons,
+            "logs": self.cure_logs
+        }
+
         # LEADER DATA
         if self.leader:
             clan_data["leader"] = self.leader.ID
@@ -553,11 +578,13 @@ class Clan():
         self.save_herbs(game.clan)
         self.save_disaster(game.clan)
         self.save_pregnancy(game.clan)
+        self.save_infection(game.clan)
 
         self.save_clan_settings()
         if game.clan.game_mode in ['expanded', 'cruel season']:
             self.save_freshkill_pile(game.clan)
 
+        game.safe_save(f"{get_save_dir()}/{game.clan.name}/infection.json", infection_data)
         game.safe_save(f"{get_save_dir()}/{self.name}clan.json", clan_data)
 
         if os.path.exists(get_save_dir() + f'/{self.name}clan.txt'):
@@ -1087,6 +1114,28 @@ class Clan():
             return
 
         game.safe_save(f"{get_save_dir()}/{game.clan.name}/pregnancy.json", clan.pregnancy_data)
+
+    def load_infection(self, clan):
+        """
+        .
+        """
+        if not game.clan.name:
+            return
+        file_path = get_save_dir() + f"/{game.clan.name}/infection.json"
+        if os.path.exists(file_path):
+            with open(file_path, 'r', encoding='utf-8') as read_file:  # pylint: disable=redefined-outer-name
+                clan.infection_data = ujson.load(read_file)
+        else:
+            clan.infection_data = {}
+
+    def save_infection(self, clan):
+        """
+        Save the information about what cat is pregnant and in what 'state' they are in the pregnancy.
+        """
+        if not game.clan.name:
+            return
+
+        game.safe_save(f"{get_save_dir()}/{game.clan.name}/infection.json", clan.infection_data)
 
     def load_disaster(self, clan):
         """

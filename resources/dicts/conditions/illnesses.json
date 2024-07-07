@@ -674,30 +674,30 @@
     "stage one": {
         "severity": "minor",
         "mortality": {
-            "newborn": 3,
-            "kitten": 3,
-            "adolescent": 8,
-            "young adult": 8,
-            "adult": 0,
-            "senior adult": 0,
-            "senior": 3
+            "newborn": 15,
+            "kitten": 15,
+            "adolescent": 30,
+            "young adult": 35,
+            "adult": 40,
+            "senior adult": 40,
+            "senior": 35
         },
         "medicine_mortality": {
-            "newborn": 7,
-            "kitten": 7,
-            "adolescent": 12,
-            "young adult": 20,
-            "adult": 25,
-            "senior adult": 20,
-            "senior": 7
+            "newborn": 0,
+            "kitten": 0,
+            "adolescent": 0,
+            "young adult": 0,
+            "adult": 0,
+            "senior adult": 0,
+            "senior": 0
         },
-        "duration": 10,
+        "duration": 5,
         "medicine_duration": 10,
-        "infectiousness": 10,
+        "infectiousness": 20,
         "risks": [
             {
                 "name": "stage two",
-                "chance": 20
+                "chance": 5
             }
         ],
         "herbs": [
@@ -706,26 +706,26 @@
     "stage two": {
         "severity": "minor",
         "mortality": {
-            "newborn": 3,
-            "kitten": 3,
-            "adolescent": 7,
-            "young adult": 7,
-            "adult": 0,
-            "senior adult": 0,
-            "senior": 3
-        },
-        "medicine_mortality": {
-            "newborn": 7,
-            "kitten": 7,
-            "adolescent": 12,
+            "newborn": 10,
+            "kitten": 10,
+            "adolescent": 15,
             "young adult": 20,
             "adult": 25,
-            "senior adult": 20,
-            "senior": 7
+            "senior adult": 25,
+            "senior": 20
         },
-        "duration": 10,
+        "medicine_mortality": {
+            "newborn": 0,
+            "kitten": 0,
+            "adolescent": 0,
+            "young adult": 0,
+            "adult": 0,
+            "senior adult": 0,
+            "senior": 0
+        },
+        "duration": 8,
         "medicine_duration": 10,
-        "infectiousness": 20,
+        "infectiousness": 12,
         "risks": [
             {
                 "name": "stage three",
@@ -736,15 +736,15 @@
         ]
     },
     "stage three": {
-        "severity": "major",
+        "severity": "minor",
         "mortality": {
-            "newborn": 3,
-            "kitten": 3,
-            "adolescent": 6,
-            "young adult": 6,
-            "adult": 8,
-            "senior adult": 0,
-            "senior": 3
+            "newborn": 10,
+            "kitten": 13,
+            "adolescent": 16,
+            "young adult": 16,
+            "adult": 18,
+            "senior adult": 18,
+            "senior": 1
         },
         "medicine_mortality": {
             "newborn": 7,
@@ -755,28 +755,28 @@
             "senior adult": 20,
             "senior": 7
         },
-        "duration": 10,
+        "duration": 8,
         "medicine_duration": 10,
-        "infectiousness": 30,
+        "infectiousness": 9,
         "risks": [
             {
                 "name": "stage four",
-                "chance": 4
+                "chance": 6
             }
         ],
         "herbs": [
         ]
     },
     "stage four": {
-        "severity": "severe",
+        "severity": "minor",
         "mortality": {
-            "newborn": 2,
-            "kitten": 2,
-            "adolescent": 2,
-            "young adult": 5,
-            "adult": 8,
-            "senior adult": 8,
-            "senior": 3
+            "newborn": 8,
+            "kitten": 8,
+            "adolescent": 10,
+            "young adult": 10,
+            "adult": 15,
+            "senior adult": 15,
+            "senior": 10
         },
         "medicine_mortality": {
             "newborn": 7,
@@ -787,9 +787,9 @@
             "senior adult": 20,
             "senior": 7
         },
-        "duration": 10,
+        "duration": 20,
         "medicine_duration": 10,
-        "infectiousness": 40,
+        "infectiousness": 5,
         "risks": [
         ],
         "herbs": [

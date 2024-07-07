@@ -28,7 +28,8 @@ class PatrolEvent:
                 min_max_status: dict = None,
                 relationship_constraints: List[str] = None,
                 pl_skill_constraints: List[str] = None,
-                pl_trait_constraints: List[str] = None):
+                pl_trait_constraints: List[str] = None,
+                log_prereq: List[str] = None):
         
         self.patrol_id = patrol_id
         self.weight = weight
@@ -57,6 +58,7 @@ class PatrolEvent:
                                               is not None else []
         self.pl_skill_constraints = pl_skill_constraints if pl_skill_constraints is not None else []
         self.pl_trait_constraints = pl_trait_constraints if pl_trait_constraints is not None else []
+        self.log_prereq = log_prereq if log_prereq is not None else []
         self.min_max_status = min_max_status if min_max_status is not None else {}
 
     @property

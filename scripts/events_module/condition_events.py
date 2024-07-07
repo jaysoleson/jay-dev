@@ -463,7 +463,10 @@ class Condition_Events():
             "an infected wound": "a festering wound",
             "heat exhaustion": "heat stroke",
             "stomachache": "diarrhea",
-            "grief stricken": "lasting grief"
+            "grief stricken": "lasting grief",
+            "stage one": "stage two",
+            "stage two": "stage three",
+            "stage three": "stage four"
         }
         # ---------------------------------------------------------------------------- #
         #                         handle currently sick cats                           #
@@ -500,7 +503,10 @@ class Condition_Events():
 
             # if the leader died, then break before handling other illnesses cus they'll be fully healed or dead dead
             elif cat.status == 'leader' and starting_life_count != game.clan.leader_lives:
-                History.add_death(cat, f"died to {illness}")
+                if illness not in ["stage one", "stage two", "stage three", "stage four"]:
+                    History.add_death(cat, f"died to {illness}")
+                else:
+                    History.add_death(cat, "died to the infection") 
                 break
 
             # heal the cat

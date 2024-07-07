@@ -814,5 +814,69 @@
                 "weight": 20
             }
         ]
+    },
+    {
+        "patrol_id": "log_patrol",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen",
+            "new_cat"
+        ],
+        "tags": [
+            "infection_beginning"
+        ],
+        "patrol_art": "lg_warrior1",
+        "min_cats": 1,
+        "max_cats": 3,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "You find an infected cat.",
+        "decline_text": "You decide against it.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "You invite them into the Clan for treatment.",
+                "exp": 10,
+                "weight": 20,
+                "cure_log": [
+                    {
+                        "entry": "1"
+                    }
+                ],
+                "injury": [
+                    {
+                        "cats": ["n_c:0"],
+                        "injuries": ["stage one"],
+                        "no_results": true
+                    }
+                ],
+                "new_cat": [
+                    ["loner"]
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You reject the cat, but you begin feeling woozy on your way back home...",
+                "exp": 10,
+                "weight": 20,
+                "cure_log": [
+                    {
+                        "entry": "1"
+                    }
+                ],
+                "injury": [
+                    {
+                        "cats": ["p_l"],
+                        "injuries": ["stage one"]
+                    }
+                ]
+            }
+        ]
     }
 ]

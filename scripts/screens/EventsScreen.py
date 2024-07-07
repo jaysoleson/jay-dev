@@ -62,6 +62,8 @@ class EventsScreen(Screens):
         self.events_thread = None
         self.you = None
 
+        self.log_button = None
+
         self.faves1 = False
         self.faves2 = False
         self.faves3 = False
@@ -101,6 +103,7 @@ class EventsScreen(Screens):
                 PickPath('events screen')
             elif event.ui_element == self.you or ("you" in self.display_events_elements and event.ui_element == self.display_events_elements["you"]):
                 game.switches['cat'] = game.clan.your_cat.ID
+                # self.change_screen("profile screen")
                 self.change_screen("profile screen")
             elif event.ui_element == self.timeskip_button:
                 # Save the start time, so the loading animation can be
@@ -352,6 +355,8 @@ class EventsScreen(Screens):
             elif event.ui_element in self.cat_profile_buttons:
                 game.switches['cat'] = event.ui_element.ids
                 self.change_screen('profile screen')
+            elif event.ui_element == self.log_button:
+                self.change_screen('cure log screen')
             else:
                 self.menu_button_pressed(event)
             
@@ -491,6 +496,8 @@ class EventsScreen(Screens):
         elif game.clan.your_cat.moons == 1:
             self.clan_age.set_text(f'Your age: {game.clan.your_cat.moons} moon')
 
+        self.log_button = UIImageButton(scale(pygame.Rect((270, 300), (140, 90))), "Logs", object_id=""
+                                             , manager=MANAGER)
 
         self.timeskip_button = UIImageButton(scale(pygame.Rect((620, 436), (360, 60))), "", object_id="#timeskip_button"
                                              , manager=MANAGER)
@@ -755,6 +762,8 @@ class EventsScreen(Screens):
 
         self.timeskip_button.kill()
         del self.timeskip_button
+        self.log_button.kill()
+        del self.log_button
         if self.death_button:
             self.death_button.kill()
         self.all_events_button.kill()

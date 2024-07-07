@@ -184,6 +184,8 @@ class Game():
     config = {}
     prey_config = {}
 
+    infection = None
+
     rpc = None
 
     is_close_menu_open = False
@@ -528,6 +530,15 @@ class Game():
             f"{get_save_dir()}/{self.clan.name}/faded_cats/{parent}.json", cat_info)
 
         return True
+    
+    def load_infection(self):
+        """ uuuhh """
+        try:
+            with open(f"saves/{self.clan.name}/infection.json", 'r') as read_file:
+                self.infection = ujson.loads(read_file.read())
+        except FileNotFoundError:
+            print("You have no infection file!")
+            # somethign here to create one for old saves later
 
     def load_events(self):
         """

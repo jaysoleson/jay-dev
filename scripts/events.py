@@ -75,6 +75,7 @@ class Events:
         """
         Handles the moon skipping of the whole Clan.
         """
+
         if self.checks == [-1,-1,-1] and game.clan.your_cat and game.clan.your_cat.inheritance:
             self.checks = [len(game.clan.your_cat.apprentice), len(game.clan.your_cat.mate), len(game.clan.your_cat.inheritance.get_blood_kits()), None]
             if game.clan.leader:
@@ -396,6 +397,7 @@ class Events:
         
         self.current_events.clear()
         self.check_achievements()
+        self.check_logs()
         self.generate_dialogue_focus()
         self.checks = [len(game.clan.your_cat.apprentice), len(game.clan.your_cat.mate), len(game.clan.your_cat.inheritance.get_blood_kits()), None]
         if game.clan.leader:
@@ -656,7 +658,19 @@ class Events:
             achievements.add(i)
         
         game.clan.achievements = list(achievements)
-                
+
+    def check_logs(self):
+        you = game.clan.your_cat
+        cure_logs = set()
+        clan_cats = game.clan.clan_cats
+  
+        if game.infection["clan_infected"] is True:
+            cure_logs.add("1")
+
+        for i in game.infection["logs"]:
+            cure_logs.add(i)
+        
+        game.infection["logs"] = list(cure_logs)
 
     def generate_birth_event(self):
         '''Handles birth event generation and creation of inheritance for your cat'''
@@ -2380,8 +2394,17 @@ class Events:
         and new cat events
         """
 
-        # if cat.infected_for == 1:
-        #     cat.get_ill("stage one")
+        cat_infected = ("stage one" or "stage two" or "stage three" or "stage four") in cat.illnesses
+
+        if cat_infected and cat.infected_for == 0:
+            cat.infected_for = 1
+
+        elif cat_infected and cat.infected_for > 0:
+            cat.infected_for += 1
+
+        if not cat_infected and cat.infected_for > 0:
+            cat.infected_for = 0
+
         if cat.dead:
             
             cat.thoughts()
@@ -3868,12 +3891,11 @@ class Events:
         # or if Clan has sufficient med cats in expanded mode
         if not cat.is_ill() or game.clan.game_mode == 'classic':
             return
-
         # check how many kitties are already ill
         already_sick = list(
             filter(
                 lambda kitty:
-                (not kitty.dead and not kitty.outside and kitty.is_ill()),
+                (not kitty.dead and not kitty.outside and kitty.is_ill() and not ("stage one" or "stage two" or "stage three" or "stage four") in kitty.illnesses), # so outbreaks arent capped if its the infection mwahaha
                 Cat.all_cats.values()))
         already_sick_count = len(already_sick)
 

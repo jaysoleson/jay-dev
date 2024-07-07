@@ -60,7 +60,9 @@ class PatrolOutcome():
             relationship_constaints: List[str] = None,
             outcome_art: Union[str, None] = None,
             outcome_art_clean: Union[str, None] = None,
-            stat_cat: Cat = None):
+            stat_cat: Cat = None,
+            cure_log: List[str] = None
+            ):
         
         self.success = success
         self.antagonize = antagonize
@@ -91,6 +93,8 @@ class PatrolOutcome():
         self.relationship_constaints = relationship_constaints if relationship_constaints is not None else []
         self.outcome_art = outcome_art
         self.outcome_art_clean = outcome_art_clean
+        
+        self.cure_log = cure_log if cure_log is not None else []
         
         # This will hold the stat cat, for filtering purposes
         self.stat_cat = stat_cat 
@@ -178,7 +182,9 @@ class PatrolOutcome():
                     relationship_effects=_d.get("relationships"),
                     relationship_constaints=_d.get("relationship_constraint"),
                     outcome_art=_d.get("art"),
-                    outcome_art_clean=_d.get("art_clean")
+                    outcome_art_clean=_d.get("art_clean"),
+                    
+                    cure_log = _d.get("cure_log")
                 )
             )
         
@@ -210,6 +216,7 @@ class PatrolOutcome():
         results.append(self._handle_herbs(patrol))
         results.append(self._handle_exp(patrol))
         results.append(self._handle_mentor_app(patrol))
+        results.append(self._handle_cure_log(patrol))
         
         # Filter out empty results strings
         results = [x for x in results if x]
@@ -572,6 +579,36 @@ class PatrolOutcome():
         
         # return " ".join(results)
         return " "
+    
+    def _handle_cure_log(self, patrol:'Patrol') -> str:
+        """ handles adding to the cure log """
+        
+        if not self.cure_log:
+            return ""
+        
+        
+ 
+        results = []
+        for block in self.cure_log:
+            entry = block.get("entry")
+          
+        cure_logs = set()
+  
+        cure_logs.add(entry)
+
+        for i in game.infection["logs"]:
+            cure_logs.add(i)
+        
+        game.infection["logs"] = list(cure_logs)
+        
+        if entry == "1":
+            results.append("Your Clan is now infected.")
+            game.infection["clan_infected"] = True
+
+        else:
+            results.append("Your log has been updated.")
+            
+        return " ".join(results)
         
     
     def _handle_murder(self, patrol:'Patrol') -> str:

@@ -120,6 +120,9 @@ class Sprites():
             'medcatherbs', 'lineartdf', 'lightingnew', 'fademask',
             'fadestarclan', 'fadedarkforest',
 
+            # INFECTION lineart
+            'lineartstageone', 'lineartstagetwo', 'lineartstagethree', 'lineartstagefour',
+
             #OHDANS
             'flower_accessories', 'plant2_accessories', 'snake_accessories', 'smallAnimal_accessories', 'deadInsect_accessories',
             'aliveInsect_accessories', 'fruit_accessories', 'crafted_accessories', 'tail2_accessories',
@@ -174,6 +177,11 @@ class Sprites():
 
         self.make_group('lineartdead', (0, 0), 'lineartdead')
         self.make_group('lineartdf', (0, 0), 'lineartdf')
+
+        self.make_group('lineartstageone', (0, 0), 'lineartstageone')
+        self.make_group('lineartstagetwo', (0, 0), 'lineartstagetwo')
+        self.make_group('lineartstagethree', (0, 0), 'lineartstagethree')
+        self.make_group('lineartstagefour', (0, 0), 'lineartstagefour')
 
         # Fading Fog
         for i in range(0, 3):
