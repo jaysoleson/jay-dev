@@ -45,45 +45,123 @@ logger = logging.getLogger(__name__)
 has_checked_for_update = False
 update_available = False
 
+
+
 class CureLogScreen(Screens):
     """
     TODO: DOCS
     """
 
+    def __init__(self, name=None):
+        super().__init__(name)
+        self.next_page_button = None
+        self.previous_page_button = None
+        self.stage = "logs"
+        self.treatment_logs = {}
+        self.moon_text = None
+        self.moon_text_box = None
+        self.treatment_text = None
+        self.treatment_text_box = None
+        self.correct_text = None
+        self.correct_text_box = None
+
     def screen_switches(self):
         """
         TODO: DOCS
         """
-        
-        self.set_disabled_menu_buttons(["stats"])
-        self.show_menu_buttons()
-        self.update_heading_text(f'{game.clan.name}Clan')
-        a_txt = ""
-        with open('resources/dicts/infection/logs.json', 'r', encoding='utf-8') as f:
-            a_txt = ujson.load(f)
+        if self.stage == "logs":
+            self.moon_text = None
+            self.moon_text_box = None
+            self.treatment_text = None
+            self.treatment_text_box = None
+            self.correct_text = None
+            self.correct_text_box = None
 
-        self.check_logs()
-        
-        
-        # Determine stats
-        stats_text = "Logs:"
-        for i in game.clan.infection["logs"]:
-            stats_text += "\n" + a_txt[i]
-            
-            
+            self.set_disabled_menu_buttons(["stats"])
+            self.show_menu_buttons()
+            self.update_heading_text(f'{game.clan.name}Clan')
+            a_txt = ""
+            with open('resources/dicts/infection/logs.json', 'r', encoding='utf-8') as f:
+                a_txt = ujson.load(f)
 
-        self.stats_box = pygame_gui.elements.UITextBox(
-            stats_text,
-            scale(pygame.Rect((200, 300), (1200, 1000))),
-            manager=MANAGER,
-            object_id=get_text_box_theme("#text_box_30_horizcenter"))
+            self.check_logs()
+        
+            # Determine stats
+            stats_text = "Information:"
+            for i in game.clan.infection["logs"]:
+                stats_text += "\n" + a_txt[i]
+                
+            
+            self.previous_page_button = UIImageButton(scale(pygame.Rect((100, 700), (68, 68))), "",
+                                                    object_id="#relation_list_previous", manager=MANAGER)
+            self.next_page_button = UIImageButton(scale(pygame.Rect((1430, 700), (68, 68))), "",
+                                                object_id="#relation_list_next", manager=MANAGER)
+
+            self.stats_box = pygame_gui.elements.UITextBox(
+                stats_text,
+                scale(pygame.Rect((200, 300), (1200, 1000))),
+                manager=MANAGER,
+                object_id=get_text_box_theme("#text_box_30_horizcenter"))
+            
+            self.previous_page_button.disable()
+            if len(game.clan.infection["treatments"]) > 0:
+                self.next_page_button.enable()
+            else:
+                self.next_page_button.disable()
+            
+        elif self.stage == "treatments":
+
+            self.set_disabled_menu_buttons(["stats"])
+            self.show_menu_buttons()
+            self.update_heading_text(f'{game.clan.name}Clan')
+
+         # Determine stats
+            stats_text = "Treatments:"
+
+            y_offset = 200
+            for treatment in game.clan.infection['treatments']:
+                moon_text = f"<b>Moon: {treatment['moon']}</b>"
+                moon_text_box = pygame_gui.elements.UITextBox(moon_text,
+                                    pygame.Rect((100, y_offset), (300, 50)),
+                                    manager=MANAGER,
+                                    object_id=get_text_box_theme("#text_box_30_horizcenter"))
+                
+                treatment_text = f"Herbs Tried: {', '.join(treatment['herbs'])}"
+                treatment_text_box = pygame_gui.elements.UITextBox(treatment_text,
+                                    pygame.Rect((100, (y_offset + 30)), (300, 100)),
+                                    manager=MANAGER,
+                                    object_id=get_text_box_theme("#text_box_30_horizcenter"))
+                
+                # correct_text = f"Effective Herbs: {treatment['correct_herbs']}"
+                if int(treatment['correct_herbs']) > 0:
+                    correct_text = f"At least one effective herb"
+                else:
+                    correct_text = f"<font color='#FF0000'>Zero Effective Herbs</font>"
+
+                correct_text_box = pygame_gui.elements.UITextBox(correct_text,
+                                    pygame.Rect((100, (y_offset + 80)), (300, 50)),
+                                    manager=MANAGER,
+                                    object_id=get_text_box_theme("#text_box_30_horizcenter"))
+                y_offset += 140
+
+            self.previous_page_button = UIImageButton(scale(pygame.Rect((100, 700), (68, 68))), "",
+                                                    object_id="#relation_list_previous", manager=MANAGER)
+            self.next_page_button = UIImageButton(scale(pygame.Rect((1430, 700), (68, 68))), "",
+                                                object_id="#relation_list_next", manager=MANAGER)
+
+            self.stats_box = pygame_gui.elements.UITextBox(
+                stats_text,
+                scale(pygame.Rect((200, 300), (1200, 1000))),
+                manager=MANAGER,
+                object_id=get_text_box_theme("#text_box_30_horizcenter"))
+            
+            self.previous_page_button.enable()
+            self.next_page_button.disable()
 
     def check_logs(self):
         you = game.clan.your_cat
         cure_logs = set()
         clan_cats = game.clan.clan_cats
-
-        print(game.clan.infection)
   
         if game.clan.infection["clan_infected"] is True:
             cure_logs.add("1")
@@ -99,12 +177,50 @@ class CureLogScreen(Screens):
         self.stats_box.kill()
         del self.stats_box
 
+        if self.next_page_button:
+            self.next_page_button.kill()
+            del self.next_page_button
+        if self.previous_page_button:
+            self.previous_page_button.kill()
+            del self.previous_page_button
+
+        if self.moon_text:
+            self.moon_text.kill()
+            del self.moon_text
+        if self.moon_text_box:
+            self.moon_text_box.kill()
+            del self.moon_text_box
+
+        if self.treatment_text:
+            self.treatment_text.kill()
+            del self.treatment_text
+        if self.treatment_text_box:
+            self.treatment_text_box.kill()
+            del self.treatment_text_box
+
+        if self.correct_text:
+            self.correct_text.kill()
+            del self.correct_text
+        if self.correct_text_box:
+            self.correct_text_box.kill()
+            del self.correct_text_box
+
     def handle_event(self, event):
         """
         TODO: DOCS
         """
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
             self.menu_button_pressed(event)
+            if event.ui_element == self.next_page_button:
+                if self.stage == "logs":
+                    self.stage = "treatments"
+                    self.exit_screen()
+                    self.screen_switches()
+            if event.ui_element == self.previous_page_button:
+                if self.stage == "treatments":
+                    self.stage = "logs"
+                    self.exit_screen()
+                    self.screen_switches()
 
     def on_use(self):
         """

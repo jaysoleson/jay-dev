@@ -111,7 +111,7 @@ class MedDenScreen(Screens):
 
     def screen_switches(self):
         self.hide_menu_buttons()
-        self.treatment_button = UIImageButton(scale(pygame.Rect((1170, 120), (260, 60))), "Attempt a Cure", object_id=""
+        self.treatment_button = UIImageButton(scale(pygame.Rect((1170, 120), (270, 80))), "Attempt a Cure", object_id=""
                                          , manager=MANAGER)
         self.back_button = UIImageButton(scale(pygame.Rect((50, 50), (210, 60))), "", object_id="#back_button"
                                          , manager=MANAGER)
@@ -486,7 +486,13 @@ class MedDenScreen(Screens):
                 pos_y += 160
             i += 1
 
+
     def draw_med_den(self):
+        if game.clan.infection["cure_attempt"] == True:
+            self.treatment_button.disable()
+        else:
+            self.treatment_button.enable()
+
         sorted_dict = dict(sorted(game.clan.herbs.items()))
         herbs_stored = sorted_dict.items()
         herb_list = []

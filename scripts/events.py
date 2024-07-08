@@ -395,6 +395,8 @@ class Events:
         game.clan.affair = False
         game.clan.exile_return = False
         
+        game.clan.infection["cure_attempt"] = False
+        
         self.current_events.clear()
         self.check_achievements()
         self.check_logs()

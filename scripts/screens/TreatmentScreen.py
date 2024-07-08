@@ -562,15 +562,33 @@ class TreatmentScreen(Screens):
                     print("NO TEXT FOUND")
                     ceremony_txt =(self.m_txt[who_key + "anystage anyright anyherb" + successkey])
 
+        if success:
+            self.add_to_treatments()
+        game.clan.infection["cure_attempt"] = True
+        print(game.clan.infection["cure_attempt"])
+
         chosenkey = choice(ceremony_txt)
-        print("CHOSEN TEXT:", chosenkey)
         return self.get_adjusted_txt(chosenkey, self.selected_cat, self.the_cat)
         # return ceremony_txt
+
+    def add_to_treatments(self):
+        """ Adds the treatment information to the json for logging. """
+
+        herblist = [self.herb1, self.herb2, self.herb3, self.herb4]
+        correctherbs = [herb for herb in herblist if herb in game.clan.infection["cure"]]
+
+        treatment = {
+            "moon": game.clan.age,
+            "herbs": [herb for herb in herblist if herb != None],
+            "correct_herbs": len(correctherbs)
+        }
+
+        game.clan.infection["treatments"].append(treatment)
+        print(game.clan.infection["treatments"])
 
     def change_cat(self, patient):
         self.exit_screen()
         patient = self.selected_cat
-        game.clan.infection["cure_attempt"] = True
         self.choose_treatment_text(patient)
         
     def update_selected_cat(self):

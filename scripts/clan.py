@@ -129,10 +129,13 @@ class Clan():
         self.camp_bg = camp_bg
         self.game_mode = game_mode
         self.pregnancy_data = {}
+
+        herb1, herb2, herb3, herb4 = random.sample(HERBS, 4)
+
         self.infection = {
             "clan_infected": False,
             "infection_type": "",
-            "cure": [],
+            "cure": [herb1, herb2, herb3, herb4],
             "cure_attempt": False,
             "cure_discovered": [],
             "treatments": [],
@@ -150,11 +153,6 @@ class Clan():
 
         # infection stuff! yippee
         self.clan_infected = False
-        herb1 = random.choice(HERBS)
-        herb2 = random.choice(HERBS)
-        herb3 = random.choice(HERBS)
-        herb4 = random.choice(HERBS)
-
         self.cure = [herb1, herb2, herb3, herb4]
         self.cure_attempt = False
         self.infection_type = 'fungal'
@@ -1129,9 +1127,8 @@ class Clan():
 
     def load_infection(self, clan):
         """
-        ermfjg
+        Load the infection.json
         """
-        print("INFECTION DICT", game.clan.infection)
         if not game.clan.name:
             return
         file_path = get_save_dir() + f"/{game.clan.name}/infection.json"
@@ -1141,11 +1138,9 @@ class Clan():
         else:
             clan.infection = {}
 
-        print(clan.infection)
-
     def save_infection(self, clan):
         """
-        Save the information about what cat is pregnant and in what 'state' they are in the pregnancy.
+        Save the infection.json
         """
         if not game.clan.name:
             return
