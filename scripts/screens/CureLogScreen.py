@@ -67,7 +67,7 @@ class CureLogScreen(Screens):
         
         # Determine stats
         stats_text = "Logs:"
-        for i in game.infection["logs"]:
+        for i in game.clan.infection["logs"]:
             stats_text += "\n" + a_txt[i]
             
             
@@ -82,14 +82,16 @@ class CureLogScreen(Screens):
         you = game.clan.your_cat
         cure_logs = set()
         clan_cats = game.clan.clan_cats
+
+        print(game.clan.infection)
   
-        if game.infection["clan_infected"] is True:
+        if game.clan.infection["clan_infected"] is True:
             cure_logs.add("1")
 
-        for i in game.infection["logs"]:
+        for i in game.clan.infection["logs"]:
             cure_logs.add(i)
         
-        game.infection["logs"] = list(cure_logs)
+        game.clan.infection["logs"] = list(cure_logs)
     def exit_screen(self):
         """
         TODO: DOCS

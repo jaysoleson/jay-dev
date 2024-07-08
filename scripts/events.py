@@ -663,14 +663,14 @@ class Events:
         you = game.clan.your_cat
         cure_logs = set()
         clan_cats = game.clan.clan_cats
-  
-        if game.infection["clan_infected"] is True:
+
+        if game.clan.infection["clan_infected"] is True:
             cure_logs.add("1")
 
-        for i in game.infection["logs"]:
+        for i in game.clan.infection["logs"]:
             cure_logs.add(i)
         
-        game.infection["logs"] = list(cure_logs)
+        game.clan.infection["logs"] = list(cure_logs)
 
     def generate_birth_event(self):
         '''Handles birth event generation and creation of inheritance for your cat'''

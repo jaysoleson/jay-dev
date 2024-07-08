@@ -596,14 +596,14 @@ class PatrolOutcome():
   
         cure_logs.add(entry)
 
-        for i in game.infection["logs"]:
+        for i in game.clan.infection["logs"]:
             cure_logs.add(i)
         
-        game.infection["logs"] = list(cure_logs)
+        game.clan.infection["logs"] = list(cure_logs)
         
         if entry == "1":
             results.append("Your Clan is now infected.")
-            game.infection["clan_infected"] = True
+            game.clan.infection["clan_infected"] = True
 
         else:
             results.append("Your log has been updated.")

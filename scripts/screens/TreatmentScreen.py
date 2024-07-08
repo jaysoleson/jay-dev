@@ -495,19 +495,19 @@ class TreatmentScreen(Screens):
         if not success:
             successkey = " failure"
         
-        if self.herb1 in game.infection["cure"]:
+        if self.herb1 in game.clan.infection["cure"]:
             herb_1 = True
         else:
             herb_1 = False
-        if self.herb2 in game.infection["cure"]:
+        if self.herb2 in game.clan.infection["cure"]:
             herb_2 = True
         else:
             herb_2 = False
-        if self.herb3 in game.infection["cure"]:
+        if self.herb3 in game.clan.infection["cure"]:
             herb_3 = True
         else:
             herb_3 = False
-        if self.herb4 in game.infection["cure"]:
+        if self.herb4 in game.clan.infection["cure"]:
             herb_4 = True
         else:
             herb_4 = False
@@ -570,7 +570,7 @@ class TreatmentScreen(Screens):
     def change_cat(self, patient):
         self.exit_screen()
         patient = self.selected_cat
-        game.infection["cure_attempt"] = True
+        game.clan.infection["cure_attempt"] = True
         self.choose_treatment_text(patient)
         
     def update_selected_cat(self):

@@ -184,8 +184,6 @@ class Game():
     config = {}
     prey_config = {}
 
-    infection = None
-
     rpc = None
 
     is_close_menu_open = False

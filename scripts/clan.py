@@ -129,7 +129,16 @@ class Clan():
         self.camp_bg = camp_bg
         self.game_mode = game_mode
         self.pregnancy_data = {}
-        self.infection_data = {}
+        self.infection = {
+            "clan_infected": False,
+            "infection_type": "",
+            "cure": [],
+            "cure_attempt": False,
+            "cure_discovered": [],
+            "treatments": [],
+            "infection_moons": 0,
+            "logs": []
+        }
         self.inheritance = {}
         self.murdered = False
         self.exile_return = False
@@ -149,7 +158,8 @@ class Clan():
         self.cure = [herb1, herb2, herb3, herb4]
         self.cure_attempt = False
         self.infection_type = 'fungal'
-        self.treatment_attempts = []
+        self.treatments = []
+        self.cure_discovered = []
         self.infection_moons = 0
         self.cure_logs = []
         
@@ -508,13 +518,14 @@ class Clan():
         }
 
         infection_data = {
-            "clan_infected": self.clan_infected,
-            "infection_type": self.infection_type,
-            "cure": self.cure,
-            "cure_attempt": self.cure_attempt,
-            "treatments": self.treatment_attempts,
-            "infection_moons": self.infection_moons,
-            "logs": self.cure_logs
+            "clan_infected": self.infection["clan_infected"],
+            "infection_type": self.infection["infection_type"],
+            "cure": self.infection["cure"],
+            "cure_attempt": self.infection["cure_attempt"],
+            "cure_discovered": self.infection["cure_discovered"],
+            "treatments": self.infection["treatments"],
+            "infection_moons": self.infection["infection_moons"],
+            "logs": self.infection["logs"]
         }
 
         # LEADER DATA
@@ -927,6 +938,7 @@ class Clan():
                 game.mediated = clan_data["mediated"]
 
         self.load_pregnancy(game.clan)
+        self.load_infection(game.clan)
         self.load_herbs(game.clan)
         self.load_disaster(game.clan)
         self.load_accessories()
@@ -1117,16 +1129,19 @@ class Clan():
 
     def load_infection(self, clan):
         """
-        .
+        ermfjg
         """
+        print("INFECTION DICT", game.clan.infection)
         if not game.clan.name:
             return
         file_path = get_save_dir() + f"/{game.clan.name}/infection.json"
         if os.path.exists(file_path):
             with open(file_path, 'r', encoding='utf-8') as read_file:  # pylint: disable=redefined-outer-name
-                clan.infection_data = ujson.load(read_file)
+                clan.infection = ujson.load(read_file)
         else:
-            clan.infection_data = {}
+            clan.infection = {}
+
+        print(clan.infection)
 
     def save_infection(self, clan):
         """
@@ -1135,7 +1150,7 @@ class Clan():
         if not game.clan.name:
             return
 
-        game.safe_save(f"{get_save_dir()}/{game.clan.name}/infection.json", clan.infection_data)
+        game.safe_save(f"{get_save_dir()}/{game.clan.name}/infection.json", clan.infection)
 
     def load_disaster(self, clan):
         """

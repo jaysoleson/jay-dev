@@ -405,9 +405,9 @@ class Patrol():
         if patrol.pl_trait_constraints and self.patrol_leader.personality.trait not in patrol.pl_trait_constraints:
             return False
 
-        if game.infection["logs"] != []: # if theres stuff in your logs
+        if game.clan.infection["logs"] != []: # if theres stuff in your logs
             for i in patrol.log_prereq:
-                if i not in game.infection["logs"]:
+                if i not in game.clan.infection["logs"]:
                     return False
         else:
 
@@ -677,10 +677,10 @@ class Patrol():
                         # need both cats to be trainees for goop romance
                         continue
                     
-            if "infection_beginning" in patrol.tags and game.infection["clan_infected"] is True or game.infection["infection_moons"] > 0:
+            if "infection_beginning" in patrol.tags and game.clan.infection["clan_infected"] is True or game.clan.infection["infection_moons"] > 0:
                 continue
 
-            if "infection" in patrol.tags and game.infection["clan_infected"] is False:
+            if "infection" in patrol.tags and game.clan.infection["clan_infected"] is False:
                 continue
 
             #  correct button check
