@@ -198,6 +198,7 @@ class TreatmentScreen(Screens):
             self.selected_cat = None
             self.talk_box = None
             self.patient_sprite = None
+            self.medcat_sprite = None
             self.text = None
             self.textbox_graphic = None
 
@@ -240,6 +241,7 @@ class TreatmentScreen(Screens):
             self.list_frame = None
             self.talk_box = None
             self.patient_sprite = None
+            self.medcat_sprite = None
             self.text = None
             self.textbox_graphic = None
 
@@ -337,10 +339,14 @@ class TreatmentScreen(Screens):
             # Layout Images:
 
             self.patient_sprite = pygame_gui.elements.UIImage(
-                                            scale(pygame.Rect((650, 360), (320, 320))),
+                                            scale(pygame.Rect((650, 360), (380, 380))),
                                             pygame.transform.scale(
                                                 self.selected_cat.sprite,
                                                 (300, 300)), manager=MANAGER)
+            self.medcat_sprite = pygame_gui.elements.UIImage(scale(pygame.Rect((70, 900), (400, 400))),
+                                                                        pygame.transform.scale(
+                                                                            self.the_cat.sprite,
+                                                                            (400, 400)), manager=MANAGER)
             
             self.back_button = UIImageButton(scale(pygame.Rect((50, 1290), (210, 60))), "", object_id="#back_button")
         
@@ -424,6 +430,10 @@ class TreatmentScreen(Screens):
         if self.patient_sprite:
             self.patient_sprite.kill()
             del self.patient_sprite
+
+        if self.medcat_sprite:
+            self.medcat_sprite.kill()
+            del self.medcat_sprite
         
         if self.textbox_graphic:
             self.textbox_graphic.kill()
@@ -462,11 +472,30 @@ class TreatmentScreen(Screens):
         return text
 
     def get_failure_chance(self, patient):
-        """ determine if the medcat will even be effective in attempting treatment. """
-        patient = self.selected_cat
-        fail = choice([1, 2])
+        """ determine if the medcat will even be effective in attempting treatment. if a treatment is failed, no information on the herbs is given to the player. """
+        
+        stageone = True if "stage one" in patient.illnesses else False
+        stagetwo = True if "stage two" in patient.illnesses else False
+        stagethree = True if "stage three" in patient.illnesses else False
+        stagefour = True if "stage four" in patient.illnesses else False
 
-        if fail == 1:
+        failchance = 0
+
+        if stageone:
+            failchance += 30
+        elif stagetwo:
+            failchance += 40
+        elif stagethree:
+            failchance += 60
+        elif stagefour:
+            failchance += 80
+
+        if self.the_cat.status == "medicine cat":
+            failchance = failchance * 0.8
+            # more likely to work if theyre not an app
+        
+        chance = randint(1,100)
+        if chance < failchance:
             return False
         else:
             return True
@@ -565,7 +594,6 @@ class TreatmentScreen(Screens):
         if success:
             self.add_to_treatments()
         game.clan.infection["cure_attempt"] = True
-        print(game.clan.infection["cure_attempt"])
 
         chosenkey = choice(ceremony_txt)
         return self.get_adjusted_txt(chosenkey, self.selected_cat, self.the_cat)
@@ -584,7 +612,30 @@ class TreatmentScreen(Screens):
         }
 
         game.clan.infection["treatments"].append(treatment)
-        print(game.clan.infection["treatments"])
+        
+        herbs = game.clan.herbs.copy()
+        for herb in herbs:
+            if herb in herblist:
+                game.clan.herbs[herb] -= 1
+
+        used_herbs = []
+        for herb in herblist:
+            if herb != None:
+                used_herbs.append(herb)
+
+        if self.the_cat.ID == game.clan.your_cat.ID:
+            insert = "You"
+        else:
+            insert = self.the_cat.name
+
+        if len(used_herbs) == 1:
+            medlog = f"{insert} used {used_herbs[-1].replace('_', ' ')} as an attempt to cure the infection."
+        elif len(used_herbs) == 2:
+            medlog = f"{insert} used {' '.join([herb.replace('_', ' ') for herb in used_herbs[:-1]])} and {used_herbs[-1].replace('_', ' ')} as an attempt to cure the infection."
+        else:
+            medlog = f"{insert} used {', '.join([herb.replace('_', ' ') for herb in used_herbs[:-1]])}, and {used_herbs[-1].replace('_', ' ')} as an attempt to cure the infection."
+
+        game.herb_events_list.append(medlog)
 
     def change_cat(self, patient):
         self.exit_screen()

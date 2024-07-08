@@ -49,7 +49,8 @@
     ],
     "stageone oneright 1herb": [
         [
-            "Text needed for key!"
+            "r_m is able to wake m_c up for just long enough to convince {PRONOUN/m_c/object} to try out an herb.",
+            "When {PRONOUN/m_c/subject} {VERB/m_c/take/takes} it, m_c blinks, and r_m swears that, for a moment, {PRONOUN/r_m/subject} {VERB/m_c/see/sees} a spark briefly return to {PRONOUN/r_m/poss} patient's eyes."
         ]
     ],
     "stageone oneright 2herb": [
@@ -69,7 +70,8 @@
     ],
     "stageone tworight 2herb": [
         [
-            "Text needed for key!"
+            "r_m is able to wake m_c up for just long enough to convince {PRONOUN/m_c/object} to try out a couple of herbs.",
+            "When {PRONOUN/m_c/subject} {VERB/m_c/take/takes} them, m_c blinks, and r_m swears that, for a moment, {PRONOUN/r_m/subject} {VERB/m_c/see/sees} a spark briefly return to {PRONOUN/r_m/poss} patient's eyes."
         ]
     ],
     "stageone tworight 3herb": [
@@ -84,7 +86,8 @@
     ],
     "stageone threeright 3herb": [
         [
-            "Text needed for key!"
+            "r_m is able to wake m_c up for just long enough to convince {PRONOUN/m_c/object} to try out a few herbs.",
+            "When {PRONOUN/m_c/subject} {VERB/m_c/take/takes} them, m_c blinks, and r_m swears that, for a moment, {PRONOUN/r_m/subject} {VERB/m_c/see/sees} a spark briefly return to {PRONOUN/r_m/poss} patient's eyes."
         ]
     ],
     "stageone threeright 4herb": [
@@ -94,7 +97,8 @@
     ],
     "stageone fourright 4herb": [
         [
-            "Text needed for key!"
+            "r_m is able to wake m_c up for just long enough to convince {PRONOUN/m_c/object} to try out a mixture of.",
+            "When {PRONOUN/m_c/subject} {VERB/m_c/take/takes} it, m_c blinks, and r_m swears that, for a moment, {PRONOUN/r_m/subject} {VERB/m_c/see/sees} a spark briefly return to {PRONOUN/r_m/poss} patient's eyes."
         ]
     ],
     "stageone 1herb failure": [
@@ -459,22 +463,26 @@
     ],
     "stagethree 1herb failure": [
         [
-            "Text needed for key!"
+            "m_c is asleep, jaws firmly clamped shut.",
+            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... r_m drops the herb at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/suject}{VERB/m_c/'re/'s} hungry enough to try it."
         ]
     ],
     "stagethree 2herb failure": [
         [
-            "Text needed for key!"
+            "m_c is asleep, jaws firmly clamped shut.",
+            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... r_m drops the herbs at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/suject}{VERB/m_c/'re/'s} hungry enough to try it."
         ]
     ],
     "stagethree 3herb failure": [
         [
-            "Text needed for key!"
+            "m_c is asleep, jaws firmly clamped shut.",
+            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... r_m drops the herbs at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/suject}{VERB/m_c/'re/'s} hungry enough to try it."
         ]
     ],
     "stagethree 4herb failure": [
         [
-            "Text needed for key!"
+            "m_c is asleep, jaws firmly clamped shut.",
+            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... r_m drops the herbs at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/suject}{VERB/m_c/'re/'s} hungry enough to try it."
         ]
     ],
     "you stagethree zeroright 1herb": [
@@ -549,22 +557,26 @@
     ],
     "you stagethree 1herb failure": [
         [
-            "Text needed for key!"
+            "m_c is asleep, jaws firmly clamped shut.",
+            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... You drop the herb at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/suject}{VERB/m_c/'re/'s} hungry enough to try it."
         ]
     ],
     "you stagethree 2herb failure": [
         [
-            "Text needed for key!"
+            "m_c is asleep, jaws firmly clamped shut.",
+            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... You drop the herbs at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/suject}{VERB/m_c/'re/'s} hungry enough to try it."
         ]
     ],
     "you stagethree 3herb failure": [
         [
-            "Text needed for key!"
+            "m_c is asleep, jaws firmly clamped shut.",
+            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... You drop the herbs at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/suject}{VERB/m_c/'re/'s} hungry enough to try it."
         ]
     ],
     "you stagethree 4herb failure": [
         [
-            "Text needed for key!"
+            "m_c is asleep, jaws firmly clamped shut.",
+            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... You drop the herbs at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/suject}{VERB/m_c/'re/'s} hungry enough to try it."
         ]
     ],
     "stagefour zeroright 1herb": [
@@ -639,22 +651,30 @@
     ],
     "stagefour 1herb failure": [
         [
-            "Text needed for key!"
+            "r_m approaches m_c, only one herb in their jaws, praying that it will have some sort of effect on the patient.",
+            "However, when m_c sees them, they lunge forwards with a snarl. r_m drops the herb and runs."
+        ],
+        [
+            "m_c is asleep, jaws firmly clamped shut.",
+            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... r_m drops the herb at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/suject}{VERB/m_c/'re/'s} hungry enough to try it."
         ]
     ],
     "stagefour 2herb failure": [
         [
-            "Text needed for key!"
+            "m_c is asleep, jaws firmly clamped shut.",
+            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... r_m drops the herbs at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/suject}{VERB/m_c/'re/'s} hungry enough to try it."
         ]
     ],
     "stagefour 3herb failure": [
         [
-            "Text needed for key!"
+            "m_c is asleep, jaws firmly clamped shut.",
+            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... r_m drops the herbs at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/suject}{VERB/m_c/'re/'s} hungry enough to try it."
         ]
     ],
     "stagefour 4herb failure": [
         [
-            "Text needed for key!"
+            "m_c is asleep, jaws firmly clamped shut.",
+            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... r_m drops the herbs at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/suject}{VERB/m_c/'re/'s} hungry enough to try it."
         ]
     ],
     "you stagefour zeroright 1herb": [
@@ -729,22 +749,26 @@
     ],
     "you stagefour 1herb failure": [
         [
-            "Text needed for key!"
+            "m_c is asleep, jaws firmly clamped shut.",
+            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... You drop the herb at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/suject}{VERB/m_c/'re/'s} hungry enough to try it."
         ]
     ],
     "you stagefour 2herb failure": [
         [
-            "Text needed for key!"
+            "m_c is asleep, jaws firmly clamped shut.",
+            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... You drop the herbs at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/suject}{VERB/m_c/'re/'s} hungry enough to try it."
         ]
     ],
     "you stagefour 3herb failure": [
         [
-            "Text needed for key!"
+            "m_c is asleep, jaws firmly clamped shut.",
+            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... You drop the herbs at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/suject}{VERB/m_c/'re/'s} hungry enough to try it."
         ]
     ],
     "you stagefour 4herb failure": [
         [
-            "Text needed for key!"
+            "m_c is asleep, jaws firmly clamped shut.",
+            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... You drop the herbs at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/suject}{VERB/m_c/'re/'s} hungry enough to try it."
         ]
     ]
 }

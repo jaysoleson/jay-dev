@@ -347,9 +347,9 @@ class MakeClanScreen(Screens):
             else:
                 r = random.randint(1,90)
                 s = "warrior"
-                if r > 85:
+                if r > 86:
                     s = "medicine cat"
-                elif r > 80:
+                elif r > 82:
                     s = "medicine cat apprentice"
                 elif r > 40:
                     s = "warrior"
