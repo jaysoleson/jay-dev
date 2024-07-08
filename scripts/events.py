@@ -667,7 +667,7 @@ class Events:
         clan_cats = game.clan.clan_cats
 
         if game.clan.infection["clan_infected"] is True:
-            cure_logs.add("1")
+            cure_logs.add("start")
 
         for i in game.clan.infection["logs"]:
             cure_logs.add(i)

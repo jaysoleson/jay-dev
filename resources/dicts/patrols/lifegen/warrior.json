@@ -816,7 +816,7 @@
         ]
     },
     {
-        "patrol_id": "log_patrol",
+        "patrol_id": "warrior_infection_beginning_1",
         "biome": [
             "Any"
         ],
@@ -835,17 +835,17 @@
         "max_cats": 3,
         "min_max_status": {},
         "weight": 20,
-        "intro_text": "You find an infected cat.",
-        "decline_text": "You decide against it.",
+        "intro_text": "You see a mysterious figure on the border. As it walks the border, it stumbles, as if weighed down by something. Maybe they're sick..?",
+        "decline_text": "Unnerved, you decide to head back to camp and hope that they're okay. You can't deal with this right now.",
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "You invite them into the Clan for treatment.",
+                "text": "You can't leave an injured cat to fend for themselves. You approach {PRONOUN/n_c:0/object}, and when you offer {PRONOUN/n_c:0/object} a place to recover, {PRONOUN/n_c:0/subject} {VERB/n_c:0/look/looks} like {PRONOUN/n_c:0/subject} barely {VERB/n_c:0/hear/hears} you. {PRONOUN/n_c:0/subject/CAP} {VERB/n_c:0/do/does}, however, turn and {VERB/n_c:0/stagger/staggers} after you when you start back towards camp. {PRONOUN/n_c:0/subject/CAP} must be really out of it. You hope that the Clan will be able to help {PRONOUN/n_c:0/object}.",
                 "exp": 10,
                 "weight": 20,
                 "cure_log": [
                     {
-                        "entry": "1"
+                        "entry": "start"
                     }
                 ],
                 "injury": [
@@ -862,19 +862,23 @@
         ],
         "fail_outcomes": [
             {
-                "text": "You reject the cat, but you begin feeling woozy on your way back home...",
+                "text": "You approach the cat, but before you can offer them a place to recover, {PRONOUN/n_c:0/subject} {VERB/n_c:0/lunge/lunges} towards you with a snarl. {PRONOUN/n_c:0/poss/CAP} eyes are wild and clouded... maybe you should leave {PRONOUN/n_c:0/object} alone.",
                 "exp": 10,
                 "weight": 20,
                 "cure_log": [
                     {
-                        "entry": "1"
+                        "entry": "discovered"
                     }
                 ],
                 "injury": [
                     {
-                        "cats": ["p_l"],
-                        "injuries": ["stage one"]
+                        "cats": ["n_c:0"],
+                        "injuries": ["stage two"],
+                        "no_results": true
                     }
+                ],
+                "new_cat": [
+                    ["loner", "meeting"]
                 ]
             }
         ]

@@ -132,12 +132,14 @@ class Clan():
 
         herb1, herb2, herb3, herb4 = random.sample(HERBS, 4)
 
+
         self.infection = {
             "clan_infected": False,
-            "infection_type": "",
+            "infection_type": choice(["fungal", "parasitic", "void"]),
             "cure": [herb1, herb2, herb3, herb4],
             "cure_attempt": False,
             "cure_discovered": [],
+            "spread_by": choice(["air", "bite"]),
             "treatments": [],
             "infection_moons": 0,
             "logs": []
@@ -158,6 +160,7 @@ class Clan():
         self.infection_type = 'fungal'
         self.treatments = []
         self.cure_discovered = []
+        self.spread_by = "air"
         self.infection_moons = 0
         self.cure_logs = []
         
@@ -521,6 +524,7 @@ class Clan():
             "cure": self.infection["cure"],
             "cure_attempt": self.infection["cure_attempt"],
             "cure_discovered": self.infection["cure_discovered"],
+            "spread_by": self.infection["spread_by"],
             "treatments": self.infection["treatments"],
             "infection_moons": self.infection["infection_moons"],
             "logs": self.infection["logs"]

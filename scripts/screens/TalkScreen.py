@@ -1485,8 +1485,6 @@ class TalkScreen(Screens):
         text = [t1.replace("y_c", str(you.name)) for t1 in text]
         text = [t1.replace("t_c", str(cat.name)) for t1 in text]
 
-        print(self.cat_dict)
-
         return text
 
     def get_living_cats(self):

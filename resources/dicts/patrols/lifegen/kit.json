@@ -719,6 +719,54 @@
                 "weight": 20
             }
         ]
+    },
+    {
+        "patrol_id": "kitten_infection_beginning_1",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen",
+            "new_cat"
+        ],
+        "tags": [
+            "infection_beginning"
+        ],
+        "patrol_art": "lg_kit_default",
+        "min_cats": 1,
+        "max_cats": 3,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "Tonight, you've finally worked up the courage to sneak out of camp! Making sure no one heard you, you make your way into the territory and find a small swarm of butterflies. You watch them for a bit, entraced. After a while, though, you start to notice that two of the fireflies aren't moving. They're deep inside of a bush. They almost look like... eyes?",
+        "decline_text": "Suddenly sober of your need for nighttime adventure, you run back to camp to snuggle back into your warm, safe nest.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "When you make eye contact, the furious pair of eyes lunges towards you, but the cat can't seem to get themselves free of the branches of the bush. You yelp and race back to camp, your need for adventure thoroughly satisfied.",
+                "exp": 10,
+                "weight": 20,
+                "injury": [
+                    {
+                        "cats": ["n_c:0"],
+                        "injuries": ["stage two"],
+                        "no_results": true
+                    }
+                ],
+                "new_cat": [
+                    ["rogue"]
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "Upon meeting your gaze, the creature turns its head and walks away from you. Maybe it's a good thing you have no idea who-- or what-- that was...",
+                "exp": 10,
+                "weight": 20
+            }
+        ]
     }
 
 ]

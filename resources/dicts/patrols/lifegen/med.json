@@ -472,5 +472,73 @@
                 "weight": 20
             }
         ]
+    },
+    {
+        "patrol_id": "med_infection_beginning_1",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen",
+            "new_cat"
+        ],
+        "tags": [
+            "infection_beginning"
+        ],
+        "patrol_art": "lg_medcat_default",
+        "min_cats": 1,
+        "max_cats": 3,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "Today, you've decided to investigate a section of the territory you haven't been to in a while. When you get there, you find that every herb patch you can remember has been torn to shreds. You hear a noise behind you and whip around, locking your gaze with two mysterious, glowing eyes situated deep within the trees.",
+        "decline_text": "Your stomach drops, and you immediately turn tail and race back to camp. Whatever that was, it can have those barren herb patches for itself!",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "The eyes start moving, and you freeze. What stumbles out of the trees is a cat, and {PRONOUN/n_c:0/subject} {VERB/n_c:0/look/looks}... sick. When you offer to bring {PRONOUN/n_c:0/object} back home for some treatment, {PRONOUN/n_c:0/subject} feverishly {VERB/n_c:0/nod/nods} and {VERB/n_c:0/follow/follows} you back at a distance.",
+                "exp": 10,
+                "weight": 20,
+                "cure_log": [
+                    {
+                        "entry": "start"
+                    }
+                ],
+                "injury": [
+                    {
+                        "cats": ["n_c:0"],
+                        "injuries": ["stage one"],
+                        "no_results": true
+                    }
+                ],
+                "new_cat": [
+                    ["loner"]
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "Before you can react, the owner of the eyes bursts out of the trees and tackles you to the ground. Your attacker seems to have a very strange illness, however, and it seems to have weakened them. You're able to kick the cat off of you, and run back to camp without being pursued, even though it hurts your heart as a medicine cat to abandon a sick cat like that.",
+                "exp": 10,
+                "weight": 20,
+                "cure_log": [
+                    {
+                        "entry": "discovered"
+                    }
+                ],
+                "injury": [
+                    {
+                        "cats": ["n_c:0"],
+                        "injuries": ["stage three"],
+                        "no_results": true
+                    }
+                ],
+                "new_cat": [
+                    ["loner", "meeting"]
+                ]
+            }
+        ]
     }
 ]

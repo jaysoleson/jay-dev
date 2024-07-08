@@ -1,4 +1,9 @@
 {
-    "1": "The Clan has become infected.",
-    "2": "The disease appears to be fungal in nature."
+    "start": "There is infection in the Clan.",
+    "discovered": "The Clan has met an outsider with a mysterious illness. The Clan will keep an eye on it.",
+    "fungal_1": "The disease appears to be fungal in nature.",
+    "parasitic_1": "The infection seems to be caused by some sort of parasite.",
+    "void_1": "The infection seems to be... supernatural, in origin. Proceed with caution.",
+    "spread_by_air": "The infection is airborne.",
+    "spread_by_bite": "One becomes infected when bitten by an infected creature."
 }

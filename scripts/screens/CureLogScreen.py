@@ -76,6 +76,7 @@ class CureLogScreen(Screens):
             self.treatment_text_box = None
             self.correct_text = None
             self.correct_text_box = None
+            self.scroll_container = None
 
             self.set_disabled_menu_buttons(["stats"])
             self.show_menu_buttons()
@@ -99,7 +100,7 @@ class CureLogScreen(Screens):
 
             self.stats_box = pygame_gui.elements.UITextBox(
                 stats_text,
-                scale(pygame.Rect((200, 300), (1200, 1000))),
+                scale(pygame.Rect((200, 250), (1200, 1000))),
                 manager=MANAGER,
                 object_id=get_text_box_theme("#text_box_30_horizcenter"))
             
@@ -115,34 +116,43 @@ class CureLogScreen(Screens):
             self.show_menu_buttons()
             self.update_heading_text(f'{game.clan.name}Clan')
 
-         # Determine stats
+            self.scroll_container = pygame_gui.elements.UIScrollingContainer(scale(pygame.Rect(
+            (100, 350), (730, 790))),
+            allow_scroll_x=False,
+            manager=MANAGER)
+
             stats_text = "Treatments:"
 
-            y_offset = 200
+            y_offset = 440
             for treatment in game.clan.infection['treatments']:
-                moon_text = f"<b>Moon: {treatment['moon']}</b>"
-                moon_text_box = pygame_gui.elements.UITextBox(moon_text,
-                                    pygame.Rect((100, y_offset), (300, 50)),
+                self.moon_text = f"<b>Moon {treatment['moon']}</b>"
+                self.moon_text_box = pygame_gui.elements.UITextBox(self.moon_text,
+                                    pygame.Rect((80, y_offset), (260, 50)),
+                                    container=self.scroll_container,
                                     manager=MANAGER,
                                     object_id=get_text_box_theme("#text_box_30_horizcenter"))
                 
-                treatment_text = f"Herbs Tried: {', '.join(treatment['herbs'])}"
-                treatment_text_box = pygame_gui.elements.UITextBox(treatment_text,
-                                    pygame.Rect((100, (y_offset + 30)), (300, 100)),
+                self.treatment_text = f"{', '.join([herb.replace('_', ' ') for herb in treatment['herbs']])}"
+                self.treatment_text_box = pygame_gui.elements.UITextBox(self.treatment_text,
+                                    pygame.Rect((80, (y_offset + 30)), (260, 100)),
+                                    container=self.scroll_container,
                                     manager=MANAGER,
                                     object_id=get_text_box_theme("#text_box_30_horizcenter"))
                 
                 # correct_text = f"Effective Herbs: {treatment['correct_herbs']}"
                 if int(treatment['correct_herbs']) > 0:
-                    correct_text = f"At least one effective herb"
+                    self.correct_text = f"<font color = '#DBD076'> At least one effective herb </font>"
+                elif int(treatment['correct_herbs']) == len(treatment["herbs"]) and len(treatment["herbs"]) == 4:
+                    self.correct_text = f"<font color='#A2D86C'>Cure Found!</font>"
                 else:
-                    correct_text = f"<font color='#FF0000'>Zero Effective Herbs</font>"
+                    self.correct_text = f"<font color='#FF0000'>Zero Effective Herbs</font>"
 
-                correct_text_box = pygame_gui.elements.UITextBox(correct_text,
-                                    pygame.Rect((100, (y_offset + 80)), (300, 50)),
+                self.correct_text_box = pygame_gui.elements.UITextBox(self.correct_text,
+                                    pygame.Rect((80, (y_offset + 80)), (260, 50)),
+                                    container=self.scroll_container,
                                     manager=MANAGER,
                                     object_id=get_text_box_theme("#text_box_30_horizcenter"))
-                y_offset += 140
+                y_offset -= 140
 
             self.previous_page_button = UIImageButton(scale(pygame.Rect((100, 700), (68, 68))), "",
                                                     object_id="#relation_list_previous", manager=MANAGER)
@@ -151,10 +161,16 @@ class CureLogScreen(Screens):
 
             self.stats_box = pygame_gui.elements.UITextBox(
                 stats_text,
-                scale(pygame.Rect((200, 300), (1200, 1000))),
+                scale(pygame.Rect((200, 250), (1200, 1000))),
                 manager=MANAGER,
                 object_id=get_text_box_theme("#text_box_30_horizcenter"))
             
+            self.scroll_container.set_scrollable_area_dimensions((1360 / 1600 * screen_x, y_offset / 1400 * screen_y))
+            
+            # self.scroll_container.vert_scroll_bar.scroll_position = self.scroll_container.vert_scroll_bar.scrollable_height
+            # self.scroll_container.vert_scroll_bar.start_percentage = self.scroll_container.vert_scroll_bar.scroll_position / self.scroll_container.vert_scroll_bar.scrollable_height
+            # self.scroll_container.vert_scroll_bar.has_moved_recently = True
+
             self.previous_page_button.enable()
             self.next_page_button.disable()
 
@@ -164,7 +180,7 @@ class CureLogScreen(Screens):
         clan_cats = game.clan.clan_cats
   
         if game.clan.infection["clan_infected"] is True:
-            cure_logs.add("1")
+            cure_logs.add("start")
 
         for i in game.clan.infection["logs"]:
             cure_logs.add(i)
@@ -177,6 +193,10 @@ class CureLogScreen(Screens):
         self.stats_box.kill()
         del self.stats_box
 
+        if self.scroll_container:
+            self.scroll_container.kill()
+            del self.scroll_container
+
         if self.next_page_button:
             self.next_page_button.kill()
             del self.next_page_button
@@ -184,23 +204,14 @@ class CureLogScreen(Screens):
             self.previous_page_button.kill()
             del self.previous_page_button
 
-        if self.moon_text:
-            self.moon_text.kill()
-            del self.moon_text
         if self.moon_text_box:
             self.moon_text_box.kill()
             del self.moon_text_box
 
-        if self.treatment_text:
-            self.treatment_text.kill()
-            del self.treatment_text
         if self.treatment_text_box:
             self.treatment_text_box.kill()
             del self.treatment_text_box
 
-        if self.correct_text:
-            self.correct_text.kill()
-            del self.correct_text
         if self.correct_text_box:
             self.correct_text_box.kill()
             del self.correct_text_box
@@ -213,15 +224,14 @@ class CureLogScreen(Screens):
             self.menu_button_pressed(event)
             if event.ui_element == self.next_page_button:
                 if self.stage == "logs":
-                    self.stage = "treatments"
                     self.exit_screen()
+                    self.stage = "treatments"
                     self.screen_switches()
             if event.ui_element == self.previous_page_button:
                 if self.stage == "treatments":
-                    self.stage = "logs"
                     self.exit_screen()
+                    self.stage = "logs"
                     self.screen_switches()
-
     def on_use(self):
         """
         TODO: DOCS

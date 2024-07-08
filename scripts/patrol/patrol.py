@@ -683,6 +683,31 @@ class Patrol():
             if "infection" in patrol.tags and game.clan.infection["clan_infected"] is False:
                 continue
 
+            if game.clan.infection["infection_type"] == "fungal":
+                if "parasitic" in patrol.tags:
+                    continue
+                if "void" in patrol.tags:
+                    continue
+
+            if game.clan.infection["infection_type"] == "parasitic":
+                if "fungal" in patrol.tags:
+                    continue
+                if "void" in patrol.tags:
+                    continue
+
+            if game.clan.infection["infection_type"] == "void":
+                if "parasitic" in patrol.tags:
+                    continue
+                if "fungal" in patrol.tags:
+                    continue
+
+            if game.clan.infection["spread_by"] == "air":
+                if "bite" in patrol.tags:
+                    continue
+            if game.clan.infection["spread_by"] == "bite":
+                if "air" in patrol.tags:
+                    continue
+
             #  correct button check
             if game.current_screen == 'patrol screen2':
                 if patrol_type == "general":

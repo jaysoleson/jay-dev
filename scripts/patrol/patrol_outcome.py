@@ -586,8 +586,6 @@ class PatrolOutcome():
         if not self.cure_log:
             return ""
         
-        
- 
         results = []
         for block in self.cure_log:
             entry = block.get("entry")
@@ -601,12 +599,17 @@ class PatrolOutcome():
         
         game.clan.infection["logs"] = list(cure_logs)
         
-        if entry == "1":
+        if entry == "start":
             results.append("Your Clan is now infected.")
             game.clan.infection["clan_infected"] = True
+            if "discovered" in game.clan.infection["logs"]:
+                game.clan.infection["logs"].remove("discovered")
 
         else:
-            results.append("Your log has been updated.")
+            if "entry" not in game.clan.infection["logs"]:
+                results.append("Your log has been updated.")
+            else:
+                results.append("")
             
         return " ".join(results)
         
