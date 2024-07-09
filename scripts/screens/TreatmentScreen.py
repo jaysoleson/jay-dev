@@ -224,9 +224,9 @@ class TreatmentScreen(Screens):
             self.next_page_button = UIImageButton(scale(pygame.Rect((902, 1155), (68, 68))), "",
                                                 object_id="#relation_list_next", manager=MANAGER)
             
-            self.previous_stage_button = UIImageButton(scale(pygame.Rect((630, 1005), (120, 80))), "Back",
+            self.previous_stage_button = UIImageButton(scale(pygame.Rect((200, 670), (120, 80))), "Back",
                                                     object_id="", manager=MANAGER)
-            self.next_stage_button = UIImageButton(scale(pygame.Rect((902, 1005), (120, 80))), "Next",
+            self.next_stage_button = UIImageButton(scale(pygame.Rect((430, 670), (120, 80))), "Next",
                                                 object_id="", manager=MANAGER)
             
             self.previous_stage_button.disable()
@@ -292,9 +292,9 @@ class TreatmentScreen(Screens):
             self.next_page_button = UIImageButton(scale(pygame.Rect((902, 1155), (68, 68))), "",
                                                 object_id="#relation_list_next", manager=MANAGER)
             
-            self.previous_stage_button = UIImageButton(scale(pygame.Rect((630, 1005), (120, 80))), "Back",
+            self.previous_stage_button = UIImageButton(scale(pygame.Rect((200, 670), (120, 80))), "Back",
                                                     object_id="", manager=MANAGER)
-            self.next_stage_button = UIImageButton(scale(pygame.Rect((902, 1005), (120, 80))), "Next",
+            self.next_stage_button = UIImageButton(scale(pygame.Rect((430, 670), (120, 80))), "Next",
                                                 object_id="", manager=MANAGER)
             
             self.next_stage_button.disable()
@@ -494,6 +494,7 @@ class TreatmentScreen(Screens):
             failchance = failchance * 0.8
             # more likely to work if theyre not an app
         
+        
         chance = randint(1,100)
         if chance < failchance:
             return False
@@ -510,7 +511,7 @@ class TreatmentScreen(Screens):
 
         medcats = []
         for cat in Cat.all_cats_list:
-            if cat.status in ["medicine cat", "medicine cat apprentice"]:
+            if cat.status in ["medicine cat", "medicine cat apprentice"] and not cat.not_working() and cat.infected_for == 0:
                 medcats.append(cat)
         self.the_cat = choice(medcats)
 
@@ -592,18 +593,30 @@ class TreatmentScreen(Screens):
                     ceremony_txt =(self.m_txt[who_key + "anystage anyright anyherb" + successkey])
 
         if success:
-            self.add_to_treatments()
+            self.add_to_treatments(patient)
         game.clan.infection["cure_attempt"] = True
 
         chosenkey = choice(ceremony_txt)
         return self.get_adjusted_txt(chosenkey, self.selected_cat, self.the_cat)
         # return ceremony_txt
 
-    def add_to_treatments(self):
+    def add_to_treatments(self, patient):
         """ Adds the treatment information to the json for logging. """
 
         herblist = [self.herb1, self.herb2, self.herb3, self.herb4]
         correctherbs = [herb for herb in herblist if herb in game.clan.infection["cure"]]
+
+        cure = False
+        if len(correctherbs) == 4:
+            cure = True
+
+        if cure:
+            patient.cure_progress += 1
+            patient.infected_for = 0
+
+            if "cure_found" not in game.clan.infection["logs"]:
+                game.clan.infection["logs"].append("cure_found")
+
 
         treatment = {
             "moon": game.clan.age,

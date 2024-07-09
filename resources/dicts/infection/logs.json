@@ -5,5 +5,6 @@
     "parasitic_1": "The infection seems to be caused by some sort of parasite.",
     "void_1": "The infection seems to be... supernatural, in origin. Proceed with caution.",
     "spread_by_air": "The infection is airborne.",
-    "spread_by_bite": "One becomes infected when bitten by an infected creature."
+    "spread_by_bite": "One becomes infected when bitten by an infected creature.",
+    "cure_found": "A cure to the disease has been discovered! It consists of a mixture of herb1, herb2, herb3 and herb4."
 }

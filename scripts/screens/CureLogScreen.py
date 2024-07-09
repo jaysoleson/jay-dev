@@ -64,6 +64,7 @@ class CureLogScreen(Screens):
         self.treatment_text_box = None
         self.correct_text = None
         self.correct_text_box = None
+        self.screen_art = None
 
     def screen_switches(self):
         """
@@ -77,6 +78,7 @@ class CureLogScreen(Screens):
             self.correct_text = None
             self.correct_text_box = None
             self.scroll_container = None
+            self.screen_art = None
 
             self.set_disabled_menu_buttons(["stats"])
             self.show_menu_buttons()
@@ -90,7 +92,9 @@ class CureLogScreen(Screens):
             # Determine stats
             stats_text = "Information:"
             for i in game.clan.infection["logs"]:
-                stats_text += "\n" + a_txt[i]
+                log = a_txt[i].replace("herb1", str(game.clan.infection["cure"][0])).replace("herb2", str(game.clan.infection["cure"][1])).replace("herb3", str(game.clan.infection["cure"][2])).replace("herb4", str(game.clan.infection["cure"][3]))
+
+                stats_text += "\n" + log
                 
             
             self.previous_page_button = UIImageButton(scale(pygame.Rect((100, 700), (68, 68))), "",
@@ -123,18 +127,25 @@ class CureLogScreen(Screens):
 
             stats_text = "Treatments:"
 
-            y_offset = 440
+            if game.settings["fullscreen"]:
+                log_width = 660
+                y_offset = 440
+            else:
+                log_width = 260
+                y_offset = 0
+                # fullscreen i hate u
+            
             for treatment in game.clan.infection['treatments']:
                 self.moon_text = f"<b>Moon {treatment['moon']}</b>"
                 self.moon_text_box = pygame_gui.elements.UITextBox(self.moon_text,
-                                    pygame.Rect((80, y_offset), (260, 50)),
+                                    pygame.Rect((80, y_offset), (log_width, 50)),
                                     container=self.scroll_container,
                                     manager=MANAGER,
                                     object_id=get_text_box_theme("#text_box_30_horizcenter"))
                 
                 self.treatment_text = f"{', '.join([herb.replace('_', ' ') for herb in treatment['herbs']])}"
                 self.treatment_text_box = pygame_gui.elements.UITextBox(self.treatment_text,
-                                    pygame.Rect((80, (y_offset + 30)), (260, 100)),
+                                    pygame.Rect((80, (y_offset + 30)), (log_width, 100)),
                                     container=self.scroll_container,
                                     manager=MANAGER,
                                     object_id=get_text_box_theme("#text_box_30_horizcenter"))
@@ -148,7 +159,7 @@ class CureLogScreen(Screens):
                     self.correct_text = f"<font color='#FF0000'>Zero Effective Herbs</font>"
 
                 self.correct_text_box = pygame_gui.elements.UITextBox(self.correct_text,
-                                    pygame.Rect((80, (y_offset + 80)), (260, 50)),
+                                    pygame.Rect((80, (y_offset + 80)), (log_width, 50)),
                                     container=self.scroll_container,
                                     manager=MANAGER,
                                     object_id=get_text_box_theme("#text_box_30_horizcenter"))
@@ -158,6 +169,12 @@ class CureLogScreen(Screens):
                                                     object_id="#relation_list_previous", manager=MANAGER)
             self.next_page_button = UIImageButton(scale(pygame.Rect((1430, 700), (68, 68))), "",
                                                 object_id="#relation_list_next", manager=MANAGER)
+            
+            self.screen_art = pygame_gui.elements.UIImage(scale(pygame.Rect(((110, 155), (1453, 1272)))),
+                                                                 pygame.transform.scale(
+                                                                     pygame.image.load(
+                                                                         "resources/images/treatment_log_dark.png").convert_alpha(),
+                                                                     (1600, 1400)), manager=MANAGER)
 
             self.stats_box = pygame_gui.elements.UITextBox(
                 stats_text,
@@ -165,7 +182,7 @@ class CureLogScreen(Screens):
                 manager=MANAGER,
                 object_id=get_text_box_theme("#text_box_30_horizcenter"))
             
-            self.scroll_container.set_scrollable_area_dimensions((1360 / 1600 * screen_x, y_offset / 1400 * screen_y))
+            self.scroll_container.set_scrollable_area_dimensions((1360 / 1600 * screen_x, 0 / 1400 * screen_y))
             
             # self.scroll_container.vert_scroll_bar.scroll_position = self.scroll_container.vert_scroll_bar.scrollable_height
             # self.scroll_container.vert_scroll_bar.start_percentage = self.scroll_container.vert_scroll_bar.scroll_position / self.scroll_container.vert_scroll_bar.scrollable_height
@@ -192,6 +209,10 @@ class CureLogScreen(Screens):
         """
         self.stats_box.kill()
         del self.stats_box
+
+        if self.screen_art:
+            self.screen_art.kill()
+            del self.screen_art
 
         if self.scroll_container:
             self.scroll_container.kill()

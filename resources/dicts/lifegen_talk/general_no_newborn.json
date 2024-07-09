@@ -3252,5 +3252,24 @@
             "[t_c has a far off look in their eye.]",
             "[It's best to leave them alone.]"
         ]
+    ],
+    "infection_J1": [
+        [
+            "any",
+            "infection"
+        ],
+        [
+            "This disease is scary..."
+        ]
+    ],
+    "infection_J2": [
+        [
+            "any",
+            "infection",
+            "they_infected"
+        ],
+        [
+            "Uuuuuuugggghhhh......"
+        ]
     ]
 }

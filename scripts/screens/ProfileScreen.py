@@ -603,6 +603,12 @@ class ProfileScreen(Screens):
         elif self.open_tab == 'dangerous':
             if event.ui_element == self.kill_cat_button:
                 KillCat(self.the_cat)
+            elif event.ui_element == self.quarantine_button:
+                self.the_cat.quarantined = True
+                self.update_disabled_buttons_and_text()
+            elif event.ui_element == self.remove_quarantine_button:
+                self.the_cat.quarantined = False
+                self.update_disabled_buttons_and_text()
             elif event.ui_element == self.murder_cat_button:
                 self.change_screen('murder screen')
             elif event.ui_element == self.join_df_button:
@@ -2805,6 +2811,40 @@ class ProfileScreen(Screens):
                 tool_tip_text='This will open a confirmation window and allow you to input a death reason',
                 starting_height=2, manager=MANAGER
             )
+            if self.the_cat.ID != game.clan.your_cat.ID:
+                self.quarantine_button = UIImageButton(
+                    scale(pygame.Rect((1156, 1050), (344, 72))),
+                    "quarantine",
+                    object_id="",
+                    tool_tip_text='quarantine this cat.',
+                    starting_height=2, manager=MANAGER
+                )
+            else:
+                self.quarantine_button = UIImageButton(
+                scale(pygame.Rect((830, 972), (344, 72))),
+                "quarantine",
+                object_id="",
+                tool_tip_text='quarantine this cat.',
+                starting_height=2, manager=MANAGER
+                )
+
+            if self.the_cat.ID != game.clan.your_cat.ID:
+                self.remove_quarantine_button = UIImageButton(
+                    scale(pygame.Rect((1156, 1050), (344, 72))),
+                    "remove from quarantine",
+                    object_id="",
+                    tool_tip_text='quarantine this cat.',
+                    starting_height=2, manager=MANAGER
+                )
+            else:
+                self.remove_quarantine_button = UIImageButton(
+                scale(pygame.Rect((830, 972), (344, 72))),
+                "remove from quarantine",
+                object_id="",
+                tool_tip_text='quarantine this cat.',
+                starting_height=2, manager=MANAGER
+                )
+
             self.murder_cat_button = UIImageButton(
                 scale(pygame.Rect((1156, 1045), (344, 72))),
                 "",
@@ -2966,6 +3006,66 @@ class ProfileScreen(Screens):
             # Exile/Guide/Follow button
             if self.exile_cat_button:
                 self.exile_cat_button.kill()
+            if self.quarantine_button:
+                self.quarantine_button.kill()
+            if self.remove_quarantine_button:
+                self.remove_quarantine_button.kill()
+
+            if self.the_cat.ID != game.clan.your_cat.ID:
+                self.quarantine_button = UIImageButton(
+                    scale(pygame.Rect((1156, 1050), (344, 72))),
+                    "quarantine",
+                    object_id="",
+                    tool_tip_text='quarantine this cat.',
+                    starting_height=2, manager=MANAGER
+                )
+            else:
+                self.quarantine_button = UIImageButton(
+                scale(pygame.Rect((830, 972), (344, 72))),
+                "quarantine",
+                object_id="",
+                tool_tip_text='quarantine this cat.',
+                starting_height=2, manager=MANAGER
+                )
+
+            if self.the_cat.ID != game.clan.your_cat.ID:
+                self.remove_quarantine_button = UIImageButton(
+                    scale(pygame.Rect((1156, 1050), (344, 72))),
+                    "remove from quarantine",
+                    object_id="",
+                    tool_tip_text='quarantine this cat.',
+                    starting_height=2, manager=MANAGER
+                )
+            else:
+                self.remove_quarantine_button = UIImageButton(
+                scale(pygame.Rect((830, 972), (344, 72))),
+                "remove from quarantine",
+                object_id="",
+                tool_tip_text='quarantine this cat.',
+                starting_height=2, manager=MANAGER
+                )
+
+            infected = False
+            stages = ["stage one", "stage two", "stage three", "stage four"]
+            for stage in stages:
+                if stage in self.the_cat.illnesses:
+                    infected = True
+                    
+            if infected:
+                if self.the_cat.quarantined:
+                    self.remove_quarantine_button.show()
+                    self.quarantine_button.hide()
+                else:
+                    self.remove_quarantine_button.hide()
+                    self.quarantine_button.show()
+            else:
+                if self.the_cat.quarantined:
+                    self.remove_quarantine_button.show()
+                    self.quarantine_button.hide()
+                else:
+                    self.remove_quarantine_button.hide()
+                    self.quarantine_button.hide()
+
             if not self.the_cat.dead:
                 self.exile_cat_button = UIImageButton(
                     scale(pygame.Rect((1156, 900), (344, 72))),
@@ -3188,6 +3288,8 @@ class ProfileScreen(Screens):
                 self.cis_trans_button.kill()
         elif self.open_tab == 'dangerous':
             self.kill_cat_button.kill()
+            self.quarantine_button.kill()
+            self.remove_quarantine_button.kill()
             self.exile_cat_button.kill()
             self.murder_cat_button.kill()
             if self.join_df_button:

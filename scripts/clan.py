@@ -139,6 +139,7 @@ class Clan():
             "cure": [herb1, herb2, herb3, herb4],
             "cure_attempt": False,
             "cure_discovered": [],
+            "cure_moons": randint(2,5),
             "spread_by": choice(["air", "bite"]),
             "treatments": [],
             "infection_moons": 0,
@@ -160,6 +161,7 @@ class Clan():
         self.infection_type = 'fungal'
         self.treatments = []
         self.cure_discovered = []
+        self.cure_moons = 0
         self.spread_by = "air"
         self.infection_moons = 0
         self.cure_logs = []
@@ -524,6 +526,7 @@ class Clan():
             "cure": self.infection["cure"],
             "cure_attempt": self.infection["cure_attempt"],
             "cure_discovered": self.infection["cure_discovered"],
+            "cure_moons": self.infection["cure_moons"],
             "spread_by": self.infection["spread_by"],
             "treatments": self.infection["treatments"],
             "infection_moons": self.infection["infection_moons"],

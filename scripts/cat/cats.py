@@ -158,6 +158,7 @@ class Cat():
             self.dead = True
             self.outside = False
             self.exiled = False
+            self.quarantined = False
             self.inheritance = None # This should never be used, but just for safety
             if "df" in kwargs:
                 self.df = kwargs["df"]
@@ -207,10 +208,12 @@ class Cat():
         self.example = example
         self.dead = False
         self.exiled = False
+        self.quarantined = False
         self.outside = False
         self.dead_for = 0  # moons
         self.shunned = 0 # moons
         self.infected_for = 0 # moons!
+        self.cure_progress = 0
         self.thought = ''
         self.genderalign = None
         self.birth_cooldown = 0
@@ -519,6 +522,9 @@ class Cat():
 
         if self.infected_for > 0:
             self.infected_for = 0
+
+        if self.cure_progress > 0:
+            self.cure_progress = 0
 
         return text
 
@@ -2200,6 +2206,72 @@ class Cat():
         if len(self.permanent_condition) <= 0:
             is_disabled = False
         return is_disabled is not False
+    
+    def infection_go(self):
+        """
+        wah wah wah
+        """
+        cats = [i for i in Cat.all_cats_list if i.ID in self.relationships]
+
+        kitty = choice(cats)
+
+        self.infection_spread(kitty)
+
+    def infection_spread(self, cat: Cat):
+        """mweehehe"""
+
+        if not any(t in cat.illnesses for t in ["stage one", "stage two", "stage three", "stage four"]):
+            return
+
+        if self.ID == cat.ID:
+            # cant infect yourself!
+            return
+        
+        infectious_illnesses = []
+        if cat.is_ill():
+            for illness in cat.illnesses:
+                if illness in ["stage one", "stage two", "stage three", "stage four"]:
+                    infectious_illnesses.append(illness)
+            if len(infectious_illnesses) == 0:
+                return
+            
+
+        for illness in infectious_illnesses:
+            illness_name = illness
+            rate = cat.illnesses[illness]["infectiousness"]
+            if self.is_injured():
+                for y in self.injuries:
+                    illness_infect = list(
+                        filter(lambda ill: ill["name"] == illness_name, self.injuries[y]["illness_infectiousness"]))
+                    if illness_infect is not None and len(illness_infect) > 0:
+                        illness_infect = illness_infect[0]
+                        rate -= illness_infect["lower_by"]
+
+                    # prevent rate lower 0 and print warning message
+                    if rate < 0:
+                        print(
+                            f"WARNING: injury {self.injuries[y]['name']} has lowered chance of {illness_name} infection to {rate}")
+                        rate = 1
+
+            print(cat.name, illness, cat.illnesses[illness]["infectiousness"])
+            if randint(1, cat.illnesses[illness]["infectiousness"]) == 1:
+                if game.clan.infection["spread_by"] == "bite":
+                    text = f"{self.name} was bitten by {cat.name} and is now infected."
+                    self.get_injured("cat bite")
+                    if "spread_by_bite" not in game.clan.infection["logs"]:
+                        game.clan.infection["logs"].append("spread_by_bite")
+                        text += "\nYour log has been updated."
+                else:
+                    text = f"{self.name} has contracted the infection from {cat.name}."
+                    if "spread_by_air" not in game.clan.infection["logs"]:
+                        game.clan.infection["logs"].append("spread_by_air")
+                        text += "\nYour log has been updated."
+                # game.health_events_list.append(text)
+                game.cur_events_list.append(Single_Event(text, "health", [self.ID, cat.ID]))
+                self.get_ill("stage one")
+            else:
+                print("chance failed for infection spread")
+
 
     def contact_with_ill_cat(self, cat: Cat):
         """handles if one cat had contact with an ill cat"""
@@ -2322,7 +2394,7 @@ class Cat():
         if 'apprentice' not in self.status:
             return False
         # Dead cats don't need mentors
-        if self.dead or self.outside or self.exiled or self.shunned > 0:
+        if self.dead or self.outside or self.exiled or self.quarantined or self.infected_for > 0 or self.shunned > 0:
             return False
         return True
 
@@ -3332,6 +3404,7 @@ class Cat():
                 "birth_cooldown": self.birth_cooldown,
                 "status": self.status,
                 "infected_moons": self.infected_for,
+                "cure_progress": self.cure_progress,
                 "backstory": self.backstory if self.backstory else None,
                 "moons": self.moons,
                 "trait": self.personality.trait,
@@ -3348,6 +3421,7 @@ class Cat():
                 "paralyzed": self.pelt.paralyzed,
                 "no_kits": self.no_kits,
                 "exiled": self.exiled,
+                "quarantined": self.quarantined,
                 "no_retire": self.no_retire,
                 "no_mates": self.no_mates,
                 "pelt_name": self.pelt.name,

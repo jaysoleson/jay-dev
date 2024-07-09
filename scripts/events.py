@@ -2405,13 +2405,23 @@ class Events:
         and new cat events
         """
 
-        cat_infected = ("stage one" or "stage two" or "stage three" or "stage four") in cat.illnesses
+        cat_infected = True if ("stage one" or "stage two" or "stage three" or "stage four") in cat.illnesses else False
 
         if cat_infected and cat.infected_for == 0:
             cat.infected_for = 1
 
         elif cat_infected and cat.infected_for > 0:
             cat.infected_for += 1
+        
+        stages = ["stage one", "stage two", "stage three", "stage four"]
+        if cat_infected and cat.cure_progress > 0:
+            cat.cure_progress += 1
+            if cat.cure_progress == game.clan.infection["cure_moons"]:
+                for stage in stages:
+                    if stage in cat.illnesses:
+                        cat.illnesses.remove(stage)
+                if "cure_moons_discovered" not in game.clan.infection["logs"]:
+                    game.clan.infection["logs"].append("cure_moons_discovered")
 
         if not cat_infected and cat.infected_for > 0:
             cat.infected_for = 0
@@ -2504,6 +2514,7 @@ class Events:
             cat.relationship_interaction()
             cat.thoughts()
             return
+        cat.infection_go()
         
         if not cat.outside and not cat.exiled:
             if cat.shunned == 0:
@@ -3905,9 +3916,10 @@ class Events:
         # check how many kitties are already ill
         already_sick = list(
             filter(
-                lambda kitty:
-                (not kitty.dead and not kitty.outside and kitty.is_ill() and not ("stage one" or "stage two" or "stage three" or "stage four") in kitty.illnesses), # so outbreaks arent capped if its the infection mwahaha
-                Cat.all_cats.values()))
+                lambda kitty: (not kitty.dead and not kitty.outside and kitty.is_ill()),
+                Cat.all_cats.values(),
+            )
+        )
         already_sick_count = len(already_sick)
 
         # round up the living kitties
@@ -3925,6 +3937,9 @@ class Events:
         meds = get_med_cats(Cat)
 
         for illness in cat.illnesses:
+            # outbreaks wont happen if the infection isnt airborne
+            if illness in ["stage one", "stage two", "stage three", "stage four"] and game.clan.infection["spread_by"] == "bite":
+                continue
             # check if illness can infect other cats
             if cat.illnesses[illness]["infectiousness"] == 0:
                 continue
@@ -3951,7 +3966,10 @@ class Events:
                              not kitty.outside), Cat.all_cats.values()))
                     alive_count = len(alive_cats)
 
-                max_infected = int(alive_count / 2)  # 1/2 of alive cats
+                if illness not in ["stage one", "stage two", "stage three", "stage four"]:
+                    max_infected = int(alive_count / 2)  # 1/2 of alive cats
+                max_infected = int(alive_count / 3)  # a bit less bc they can get it in other ways tooo ill be niiiceeee
+
                 # If there are less than two cat to infect,
                 # you are allowed to infect all the cats
                 if max_infected < 2:
@@ -3977,8 +3995,12 @@ class Events:
                 for sick_meowmeow in infected_cats:
                     infected_names.append(str(sick_meowmeow.name))
                     involved_cats.append(sick_meowmeow.ID)
-                    sick_meowmeow.get_ill(
-                        illness, event_triggered=True)  # SPREAD THE GERMS >:)
+                    if illness in ["stage two", "stage three", "stage four"]:
+                        sick_meowmeow.get_ill(
+                            "stage one", event_triggered=True)
+                    else:
+                        sick_meowmeow.get_ill(
+                            illness, event_triggered=True)  # SPREAD THE GERMS >:)
 
                 illness_name = str(illness).capitalize()
                 if illness == 'kittencough':
@@ -3989,6 +4011,10 @@ class Events:
                     event = f'Fleas have been hopping from pelt to pelt and now ' \
                             f'{", ".join(infected_names[:-1])}, ' \
                             f'and {infected_names[-1]} are all infested.'
+                elif illness in ["stage one", "stage two", "stage three", "stage four"]:
+                    event = f'The infection is hard to contain. ' \
+                            f'{", ".join(infected_names[:-1])}, and ' \
+                            f'{infected_names[-1]} have become ill.'
                 else:
                     event = f'{illness_name} has spread around the camp. ' \
                             f'{", ".join(infected_names[:-1])}, and ' \

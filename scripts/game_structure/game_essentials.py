@@ -555,6 +555,7 @@ class Game():
                     "cure": [herb1, herb2, herb3, herb4],
                     "cure_attempt": False,
                     "cure_discovered": [],
+                    "cure_moons": randint(2,5),
                     "spread_by": random.choice(["air", "bite"]),
                     "treatments": [],
                     "infection_moons": 0,

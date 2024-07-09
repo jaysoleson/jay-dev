@@ -489,6 +489,19 @@ class TalkScreen(Screens):
             if "insult" in tags:
                 continue
 
+            if "infection" in tags and game.clan.infection["clan_infected"] is False:
+                continue
+
+            if "you_infected" in tags and you.infected_for == 0:
+                continue
+            elif "you_not_infected" in tags and you.infected_for > 0:
+                continue
+
+            if "they_infected" in tags and cat.infected_for == 0:
+                continue
+            elif "they_not_infected" in tags and cat.infected_for > 0:
+                continue
+
             if you.moons == 0 and "newborn" not in tags:
                 continue
 
@@ -1392,7 +1405,7 @@ class TalkScreen(Screens):
             weight = 1
             if any(tag in weighted_tags for tag in tags):
                 weight += 3
-            if "focus" in tags or "connected" in tags:
+            if "focus" in tags or "connected" in tags or "infection" in tags:
                 weight += 8
             weights.append(weight)
 

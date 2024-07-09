@@ -19,17 +19,23 @@ class MedDenScreen(Screens):
         self.help_button = None
         self.log_box = None
         self.log_title = None
+        self.infected_title = None
+        self.quarantined_title = None
         self.log_tab = None
         self.cats_tab = None
         self.hurt_sick_title = None
         self.display_med = None
         self.med_cat = None
         self.minor_tab = None
+        self.infected_tab = None
+        self.quarantined_tab = None
         self.out_den_tab = None
         self.in_den_tab = None
         self.injured_and_sick_cats = None
         self.minor_cats = None
         self.out_den_cats = None
+        self.infected_cats = None
+        self.quarantined_cats = None
         self.in_den_cats = None
         self.meds_messages = None
         self.current_med = None
@@ -87,6 +93,26 @@ class MedDenScreen(Screens):
                 self.tab_list = self.minor_cats
                 self.tab_showing = self.minor_tab
                 self.minor_tab.disable()
+                self.update_sick_cats()
+            elif event.ui_element == self.infected_tab:
+                self.hurt_sick_title.hide()
+                self.log_title.hide()
+                self.infected_title.show()
+                self.quarantined_title.hide()
+                self.tab_showing.enable()
+                self.tab_list = self.infected_cats
+                self.tab_showing = self.infected_tab
+                self.infected_tab.disable()
+                self.update_sick_cats()
+            elif event.ui_element == self.quarantined_tab:
+                self.hurt_sick_title.hide()
+                self.log_title.hide()
+                self.infected_title.hide()
+                self.quarantined_title.show()
+                self.tab_showing.enable()
+                self.tab_list = self.quarantined_cats
+                self.tab_showing = self.quarantined_tab
+                self.quarantined_tab.disable()
                 self.update_sick_cats()
             elif event.ui_element in self.cat_buttons.values():
                 cat = event.ui_element.return_cat_object()
@@ -148,7 +174,19 @@ class MedDenScreen(Screens):
                 scale(pygame.Rect((281, 820), (400, 60))),
                 object_id=get_text_box_theme("#text_box_40_horizcenter"), manager=MANAGER
             )
+            self.infected_title = pygame_gui.elements.UITextBox(
+                "Infected Cats",
+                scale(pygame.Rect((281, 820), (400, 60))),
+                object_id=get_text_box_theme("#text_box_40_horizcenter"), manager=MANAGER
+            )
+            self.quarantined_title = pygame_gui.elements.UITextBox(
+                "Quarantined Cats",
+                scale(pygame.Rect((281, 820), (400, 60))),
+                object_id=get_text_box_theme("#text_box_40_horizcenter"), manager=MANAGER
+            )
             self.log_title.hide()
+            self.infected_title.hide()
+            self.quarantined_title.hide()
             self.cat_bg = pygame_gui.elements.UIImage(scale(pygame.Rect
                                                             ((280, 880), (1120, 400))),
                                                       pygame.image.load(
@@ -191,10 +229,20 @@ class MedDenScreen(Screens):
                                                  ((1174, 818), (140, 70))),
                                            "",
                                            object_id="#minor_tab", manager=MANAGER)
+            self.infected_tab = UIImageButton(scale(pygame.Rect
+                                                 ((1400, 924), (70, 128))),
+                                           "infected",
+                                           object_id="", manager=MANAGER)
+            self.quarantined_tab = UIImageButton(scale(pygame.Rect
+                                                 ((1400, 1104), (70, 127))),
+                                           "quarantined",
+                                           object_id="", manager=MANAGER)
             self.tab_showing = self.in_den_tab
 
             self.in_den_cats = []
             self.out_den_cats = []
+            self.infected_cats = []
+            self.quarantined_cats = []
             self.minor_cats = []
             self.injured_and_sick_cats = []
             for the_cat in Cat.all_cats_list:
@@ -218,12 +266,19 @@ class MedDenScreen(Screens):
                             if cat in self.minor_cats:
                                 self.minor_cats.remove(cat)
                             break
+                        elif cat.infected_for > 0:
+                            if cat not in self.infected_cats:
+                                if cat not in self.infected_cats:
+                                    self.infected_cats.append(cat)
+                            if cat in self.minor_cats:
+                                self.minor_cats.remove(cat)
+                            break
                         elif cat not in (self.in_den_cats or self.out_den_cats):
                             if cat not in self.minor_cats:
                                 self.minor_cats.append(cat)
                 if cat.illnesses:
                     for illness in cat.illnesses:
-                        if cat.illnesses[illness]["severity"] != 'minor' and illness != 'grief stricken':
+                        if cat.illnesses[illness]["severity"] != 'minor' and illness not in ['grief stricken', 'stage one', 'stage two', 'stage three', 'stage four'] and not cat.quarantined:
                             if cat not in self.in_den_cats:
                                 self.in_den_cats.append(cat)
                             if cat in self.out_den_cats:
@@ -231,16 +286,28 @@ class MedDenScreen(Screens):
                             elif cat in self.minor_cats:
                                 self.minor_cats.remove(cat)
                             break
-                        elif illness == 'grief stricken':
+                        elif illness == 'grief stricken' and not cat.quarantined:
                             if cat not in self.in_den_cats:
                                 if cat not in self.out_den_cats:
                                     self.out_den_cats.append(cat)
                             if cat in self.minor_cats:
                                 self.minor_cats.remove(cat)
                             break
+                        elif illness in ['stage one', 'stage two', 'stage three', 'stage four']:
+                            if cat not in self.infected_cats:
+                                if cat not in self.infected_cats:
+                                    self.infected_cats.append(cat)
+                            if cat in self.minor_cats:
+                                self.minor_cats.remove(cat)
+                            break
                         else:
                             if cat not in self.in_den_cats and cat not in self.out_den_cats and cat not in self.minor_cats:
                                 self.minor_cats.append(cat)
+                if cat.quarantined:
+                    if cat not in self.quarantined_cats:
+                        self.quarantined_cats.append(cat)
+                    if cat in self.in_den_cats:
+                        self.in_den_cats.remove(cat)
             self.tab_list = self.in_den_cats
             self.current_page = 1
             self.update_sick_cats()
@@ -249,6 +316,11 @@ class MedDenScreen(Screens):
 
         self.draw_med_den()
         self.update_med_cat()
+
+        if game.clan.infection["cure_attempt"] == True or len(self.meds) <= 0:
+            self.treatment_button.disable()
+        else:
+            self.treatment_button.enable()
 
         self.meds_messages = UITextBoxTweaked(
             "",
@@ -310,14 +382,22 @@ class MedDenScreen(Screens):
     def handle_tab_toggles(self):
         if self.open_tab == "cats":
             self.log_title.hide()
+            self.infected_title.hide()
+            self.quarantined_title.hide()
             self.log_box.hide()
-
-            self.hurt_sick_title.show()
+            if self.tab_list == self.infected_cats:
+                self.infected_title.show()
+            elif self.tab_list == self.quarantined_cats:
+                self.quarantined_title.show()
+            else:
+                self.hurt_sick_title.show()
             self.last_page.show()
             self.next_page.show()
             self.in_den_tab.show()
             self.out_den_tab.show()
             self.minor_tab.show()
+            self.infected_tab.show()
+            self.quarantined_tab.show()
             for cat in self.cat_buttons:
                 self.cat_buttons[cat].show()
             for x in range(len(self.cat_names)):
@@ -331,6 +411,8 @@ class MedDenScreen(Screens):
             self.in_den_tab.hide()
             self.out_den_tab.hide()
             self.minor_tab.hide()
+            self.infected_tab.hide()
+            self.quarantined_tab.hide()
             for cat in self.cat_buttons:
                 self.cat_buttons[cat].hide()
             for x in range(len(self.cat_names)):
@@ -339,6 +421,8 @@ class MedDenScreen(Screens):
                 self.conditions_hover[button].hide()
 
             self.log_title.show()
+            self.infected_title.hide()
+            self.quarantined_title.hide()
             self.log_box.show()
 
     def update_med_cat(self):
@@ -488,10 +572,6 @@ class MedDenScreen(Screens):
 
 
     def draw_med_den(self):
-        if game.clan.infection["cure_attempt"] == True:
-            self.treatment_button.disable()
-        else:
-            self.treatment_button.enable()
 
         sorted_dict = dict(sorted(game.clan.herbs.items()))
         herbs_stored = sorted_dict.items()
@@ -588,11 +668,15 @@ class MedDenScreen(Screens):
             self.in_den_tab.kill()
             self.out_den_tab.kill()
             self.minor_tab.kill()
+            self.infected_tab.kill()
+            self.quarantined_tab.kill()
             self.clear_cat_buttons()
             self.hurt_sick_title.kill()
             self.cats_tab.kill()
             self.log_tab.kill()
             self.log_title.kill()
+            self.infected_title.kill()
+            self.quarantined_title.kill()
             self.log_box.kill()
         if self.med_cat:
             self.med_cat.kill()

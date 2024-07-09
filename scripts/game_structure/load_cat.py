@@ -61,12 +61,18 @@ def json_load():
             if "revealed" in cat:
                 cat["forgiven"] = cat["revealed"]
 
+            if "quarantined" not in cat:
+                cat["quarantined"] = False
+
             if cat["favourite"] is False:
                 cat["favourite"] = 0
             elif cat["favourite"] is True:
                 cat["favourite"] = 1
             if "infected_moons" not in cat:
                 cat["infected_moons"] = 0
+
+            if "cure_progress" not in cat:
+                cat["cure_progress"] = 0
 
             new_cat = Cat(ID=cat["ID"],
                         prefix=cat["name_prefix"],
@@ -159,6 +165,7 @@ def json_load():
             new_cat.no_retire = cat["no_retire"] if "no_retire" in cat else False
             new_cat.no_faith = cat["no_faith"] if "no_faith" in cat else False
             new_cat.exiled = cat["exiled"]
+            new_cat.quarantined = cat["quarantined"]
             new_cat.shunned = cat["shunned"]
 
             if "skill_dict" in cat:
