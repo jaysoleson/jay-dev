@@ -1595,6 +1595,11 @@
     "plural": "a xenogender flag bandana",
     "singular": "xenogender bandana"
   },
+  "GENDERFLUX": {
+    "default": "genderflux bandana",
+    "plural": "a genderflux flag bandana",
+    "singular": "genderflux bandana"
+  },
   "PLACEHOLDER": {
     "default": "checkered bandana",
     "plural": "a checkered flag bandana",
@@ -1619,6 +1624,21 @@
     "default": "stargender bandana",
     "plural": "a stargender flag bandana",
     "singular": "stargender bandana"
+  },
+  "APAGENDER": {
+    "default": "apagender bandana",
+    "plural": "an apagender flag bandana",
+    "singular": "apagender bandana"
+  },
+  "UNLABELLED": {
+    "default": "unlabelled bandana",
+    "plural": "an unlabelled flag bandana",
+    "singular": "unlabelled bandana"
+  },
+  "QUESTIONING": {
+    "default": "questioning bandana",
+    "plural": "a questioning flag bandana",
+    "singular": "questioning bandana"
   },
   "GYNO": {
     "default": "gynosexual bandana",

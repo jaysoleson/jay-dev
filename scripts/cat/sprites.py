@@ -579,12 +579,16 @@ class Sprites():
             "SNOWLEOPARDGENDER", "TIGERGENDER", "BUGGENDER", "GENDERFAUN", "DEMIAROACE"]):
             self.make_group('pridebandanas3', (a, 1), f'acc_pride3{i}')
         for a, i in enumerate([
-            "SAPPHIC", 'ACHILLEAN', 'XENOGENDER']):
+            "SAPPHIC", 'ACHILLEAN', 'XENOGENDER', 'GENDERFLUX']):
             self.make_group('pridebandanas3', (a, 2), f'acc_pride3{i}')
 
         for a, i in enumerate([
-            "PLACEHOLDER", "MOSSGENDER", "MOONGENDER", "SUNGENDER", "STARGENDER"]):
+            "PLACEHOLDER", "MOSSGENDER", "MOONGENDER", "SUNGENDER", "STARGENDER", 'APAGENDER']):
             self.make_group('pridebandanas4', (a, 0), f'acc_bandanas{i}')
+
+        for a, i in enumerate([
+            'UNLABELLED', 'QUESTIONING']):
+            self.make_group('pridebandanas4', (a, 1), f'acc_bandanas{i}')
 
         for a, i in enumerate([
             "CUSTOMFLAG0", "CUSTOMFLAG1", "CUSTOMFLAG2", "CUSTOMFLAG3", "CUSTOMFLAG4", "CUSTOMFLAG5"]):

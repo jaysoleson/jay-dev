@@ -115,6 +115,9 @@ class Events:
         self.moongender = Pelt.pridebandanas4[2]
         self.sungender = Pelt.pridebandanas4[3]
         self.stargender = Pelt.pridebandanas4[4]
+        self.apagender = Pelt.pridebandanas4[5]
+        self.unlabelled = Pelt.pridebandanas4[6]
+        self.questioning = Pelt.pridebandanas4[7]
 
         self.uranic = Pelt.pridebandanas3[0]
         self.nebularomantic = Pelt.pridebandanas3[1]
@@ -130,6 +133,7 @@ class Events:
         self.sapphic = Pelt.pridebandanas3[11]
         self.achillean = Pelt.pridebandanas3[12]
         self.xenogender = Pelt.pridebandanas3[13]
+        self.genderflux = Pelt.pridebandanas3[14]
 
         self.all_bandanas = [Pelt.pridebandanas4, Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3]
 
@@ -2729,7 +2733,7 @@ class Events:
 
         if not cat.prevent_sexualitychange:
 
-            self.questioning(cat)
+            self.make_questioning(cat)
                 
             self.change_sexuality(cat)
             self.make_aroace(cat)
@@ -4727,7 +4731,7 @@ class Events:
 
                     game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
 
-    def questioning(self, cat):
+    def make_questioning(self, cat):
         """ chance for a cat's orientation to be switched to questioning"""
         if cat.prevent_sexualitychange:
             return
@@ -4994,48 +4998,56 @@ class Events:
         if not game.clan.clan_settings['all accessories'] and not game.clan.clan_settings['all pride accessories']:
             # ^^ don't remove wrong flags if all accessories is on!
             
-
             # SEXUALITIES
-            if cat.sexuality != 'straight' and self.straight in cat.pelt.inventory and self.straight not in cat.pelt.permanent_inventory:
+            if cat.sexuality != 'straight' and cat.sexualitylabel != 'straight' and self.straight in cat.pelt.inventory and self.straight not in cat.pelt.permanent_inventory:
                 if self.straight in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.straight)
                 cat.pelt.inventory.remove(self.straight)
-            if cat.sexuality != 'bi' and self.bi in cat.pelt.inventory and self.bi not in cat.pelt.permanent_inventory:
+            if cat.sexuality != 'bi' and cat.sexualitylabel != 'bi' and self.bi in cat.pelt.inventory and self.bi not in cat.pelt.permanent_inventory:
                 if self.bi in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.bi)
                 cat.pelt.inventory.remove(self.bi)
-            if cat.sexuality != 'pan' and self.pan in cat.pelt.inventory and self.pan not in cat.pelt.permanent_inventory:
+            if cat.sexuality != 'pan' and cat.sexualitylabel != 'pan' and self.pan in cat.pelt.inventory and self.pan not in cat.pelt.permanent_inventory:
                 if self.pan in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.pan)
                 cat.pelt.inventory.remove(self.pan)
-            if cat.sexuality != 'gay' and self.gay in cat.pelt.inventory and self.gay not in cat.pelt.permanent_inventory:
+            if cat.sexuality != 'gay' and cat.sexualitylabel != 'gay' and self.gay in cat.pelt.inventory and self.gay not in cat.pelt.permanent_inventory:
                 if self.gay in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.gay)
                 cat.pelt.inventory.remove(self.gay)
-            if cat.sexuality != 'lesbian' and self.lesbian in cat.pelt.inventory and self.lesbian not in cat.pelt.permanent_inventory:
+            if cat.sexuality != 'lesbian' and cat.sexualitylabel != 'lesbian' and self.lesbian in cat.pelt.inventory and self.lesbian not in cat.pelt.permanent_inventory:
                 if self.lesbian in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.lesbian)
                 cat.pelt.inventory.remove(self.lesbian)
-            if cat.sexuality != 'lesbian' and self.butch in cat.pelt.inventory and self.butch not in cat.pelt.permanent_inventory:
+            if cat.sexuality != 'lesbian' and cat.sexualitylabel != 'lesbian' and self.butch in cat.pelt.inventory and self.butch not in cat.pelt.permanent_inventory:
                 if self.butch in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.butch)
                 cat.pelt.inventory.remove(self.butch)
-            if cat.sexuality != 'aroace' and self.aroace in cat.pelt.inventory and self.aroace not in cat.pelt.permanent_inventory:
+            if cat.sexuality != 'aroace' and cat.sexualitylabel != 'aroace' and self.aroace in cat.pelt.inventory and self.aroace not in cat.pelt.permanent_inventory:
                 if self.aroace in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.aroace)
                 cat.pelt.inventory.remove(self.aroace)
-            if cat.sexuality != 'aroace' and self.aroaceflux in cat.pelt.inventory and self.aroaceflux not in cat.pelt.permanent_inventory:
+            if cat.sexuality != 'aroace' and cat.sexualitylabel != 'aroace' and self.aroaceflux in cat.pelt.inventory and self.aroaceflux not in cat.pelt.permanent_inventory:
                 if self.aroaceflux in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.aroaceflux)
                 cat.pelt.inventory.remove(self.aroaceflux)
-            if cat.sexuality != 'andro' and self.andro in cat.pelt.inventory and self.andro not in cat.pelt.permanent_inventory:
+            if cat.sexuality != 'andro' and cat.sexualitylabel not in ['andro', 'androsexual'] and self.andro in cat.pelt.inventory and self.andro not in cat.pelt.permanent_inventory:
                 if self.andro in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.andro)
                 cat.pelt.inventory.remove(self.andro)
-            if cat.sexuality != 'gyno' and self.gyno in cat.pelt.inventory and self.gyno not in cat.pelt.permanent_inventory:
+            if cat.sexuality != 'gyno' and cat.sexualitylabel not in ['gyno', 'gynosexual'] and self.gyno in cat.pelt.inventory and self.gyno not in cat.pelt.permanent_inventory:
                 if self.gyno in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.gyno)
                 cat.pelt.inventory.remove(self.gyno)
+            if cat.sexuality != 'unlabelled' and cat.sexualitylabel != 'unlabelled' and self.unlabelled in cat.pelt.inventory and self.unlabelled not in cat.pelt.permanent_inventory:
+                if self.unlabelled in cat.pelt.accessories:
+                    cat.pelt.accessories.remove(self.unlabelled)
+                cat.pelt.inventory.remove(self.unlabelled)
+
+            if cat.sexuality != 'questioning' and cat.sexualitylabel != 'questioning' and cat.genderalign != 'questioning' and self.questioning in cat.pelt.inventory and self.questioning not in cat.pelt.permanent_inventory:
+                if self.questioning in cat.pelt.accessories:
+                    cat.pelt.accessories.remove(self.questioning)
+                cat.pelt.inventory.remove(self.questioning)
 
             if cat.genderalign in ['female', 'trans female', 'demigirl']:
                 if cat.sexuality in ['straight', 'aroace']:
@@ -5212,6 +5224,15 @@ class Events:
                     if self.ambiguous in cat.pelt.accessories:
                         cat.pelt.accessories.remove(self.ambiguous)
                     cat.pelt.inventory.remove(self.ambiguous)
+
+                if cat.sexuality != 'unlabelled' and cat.sexualitylabel != 'unlabelled' and self.unlabelled in cat.pelt.inventory and self.unlabelled not in cat.pelt.permanent_inventory:
+                    if self.unlabelled in cat.pelt.accessories:
+                        cat.pelt.accessories.remove(self.unlabelled)
+                    cat.pelt.inventory.remove(self.unlabelled)
+                if cat.sexuality != 'questioning' and cat.sexualitylabel != 'questioning' and self.questioning in cat.pelt.inventory and self.questioning not in cat.pelt.permanent_inventory:
+                    if self.questioning in cat.pelt.accessories:
+                        cat.pelt.accessories.remove(self.questioning)
+                    cat.pelt.inventory.remove(self.questioning)
             
             if cat.genderalign == cat.gender:
                 if self.trans in cat.pelt.inventory and self.trans not in cat.pelt.permanent_inventory:
@@ -5234,6 +5255,14 @@ class Events:
                     if self.ambiguous in cat.pelt.accessories:
                         cat.pelt.accessories.remove(self.ambiguous)
                     cat.pelt.inventory.remove(self.ambiguous)
+                if cat.sexuality != 'unlabelled' and cat.sexualitylabel != 'unlabelled' and self.unlabelled in cat.pelt.inventory and self.unlabelled not in cat.pelt.permanent_inventory:
+                    if self.unlabelled in cat.pelt.accessories:
+                        cat.pelt.accessories.remove(self.unlabelled)
+                    cat.pelt.inventory.remove(self.unlabelled)
+                if cat.sexuality != 'questioning' and cat.sexualitylabel != 'questioning' and self.questioning in cat.pelt.inventory and self.questioning not in cat.pelt.permanent_inventory:
+                    if self.questioning in cat.pelt.accessories:
+                        cat.pelt.accessories.remove(self.questioning)
+                    cat.pelt.inventory.remove(self.questioning)
 
             if cat.genderalign != 'genderfluid' and self.genderfluid in cat.pelt.inventory and self.genderfluid not in cat.pelt.permanent_inventory:
                 if self.genderfluid in cat.pelt.accessories:
@@ -5296,7 +5325,7 @@ class Events:
             if cat.moons > 5:
 
                 # auto-equip + fills inventories
-                if cat.sexuality == "straight":
+                if cat.sexuality == "straight" or cat.sexualitylabel == "straight":
                     if self.straight not in cat.pelt.inventory:
                         cat.pelt.inventory.append(self.straight)
                     
@@ -5304,7 +5333,7 @@ class Events:
                         if self.straight not in cat.pelt.accessories:
                             cat.pelt.accessories.append(self.straight)
 
-                elif cat.sexuality == "bi":
+                elif cat.sexuality == "bi" or cat.sexualitylabel == "bi":
                     if self.bi not in cat.pelt.inventory:
                         cat.pelt.inventory.append(self.bi)
                     
@@ -5312,7 +5341,7 @@ class Events:
                         if self.bi not in cat.pelt.accessories:
                             cat.pelt.accessories.append(self.bi)
                 
-                elif cat.sexuality == "pan":
+                elif cat.sexuality == "pan" or cat.sexualitylabel == "pan":
                     if self.pan not in cat.pelt.inventory:
                         cat.pelt.inventory.append(self.pan)
                     
@@ -5320,7 +5349,7 @@ class Events:
                         if self.pan not in cat.pelt.accessories:
                             cat.pelt.accessories.append(self.pan)
                 
-                elif cat.sexuality == "gay":
+                elif cat.sexuality == "gay" or cat.sexualitylabel == "gay":
                     if self.gay not in cat.pelt.inventory:
                         cat.pelt.inventory.append(self.gay)
 
@@ -5331,7 +5360,7 @@ class Events:
                         if self.gay not in cat.pelt.accessories:
                             cat.pelt.accessories.append(self.gay)
                 
-                elif cat.sexuality == "lesbian":
+                elif cat.sexuality == "lesbian" or cat.sexualitylabel == "lesbian":
                     if self.lesbian not in cat.pelt.inventory:
                         cat.pelt.inventory.append(self.lesbian)
 
@@ -5345,7 +5374,7 @@ class Events:
                         if self.lesbian not in cat.pelt.accessories:
                             cat.pelt.accessories.append(self.lesbian)
 
-                elif cat.sexuality == "gyno":
+                elif cat.sexuality == "gyno" or cat.sexualitylabel in ["gyno", "gynosexual"]:
                     if self.gyno not in cat.pelt.inventory:
                         cat.pelt.inventory.append(self.gyno)
                     
@@ -5353,7 +5382,7 @@ class Events:
                         if self.gyno not in cat.pelt.accessories:
                             cat.pelt.accessories.append(self.gyno)
 
-                elif cat.sexuality == "andro":
+                elif cat.sexuality == "andro" or cat.sexualitylabel in ["andro", "androsexual"]:
                     if self.andro not in cat.pelt.inventory:
                         cat.pelt.inventory.append(self.andro)
                     
@@ -5361,7 +5390,7 @@ class Events:
                         if self.andro not in cat.pelt.accessories:
                             cat.pelt.accessories.append(self.andro)
                 
-                elif cat.sexuality == "aroace":
+                elif cat.sexuality == "aroace" or cat.sexualitylabel == "aroace":
                     if self.aroace not in cat.pelt.inventory:
                         cat.pelt.inventory.append(self.aroace)
                     if self.aroaceflux not in cat.pelt.inventory:
@@ -5370,6 +5399,22 @@ class Events:
                     if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in self.all_bandanas for bandana in bandanas):
                         if self.aroace not in cat.pelt.accessories:
                             cat.pelt.accessories.append(self.aroace)
+
+                elif cat.sexuality == "unlabelled" or cat.sexualitylabel == "unlabelled" or cat.genderalign == "unlabelled":
+                    if self.unlabelled not in cat.pelt.inventory:
+                        cat.pelt.inventory.append(self.unlabelled)
+                    
+                    if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in self.all_bandanas for bandana in bandanas):
+                        if self.aroace not in cat.pelt.accessories:
+                            cat.pelt.accessories.append(self.aroace)
+                        
+                elif cat.sexuality == "questioning" or cat.sexualitylabel == "questioning" or cat.genderalign == "questioning":
+                    if self.questioning not in cat.pelt.inventory:
+                        cat.pelt.inventory.append(self.questioning)
+                    
+                    if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in self.all_bandanas for bandana in bandanas):
+                        if self.questioning not in cat.pelt.accessories:
+                            cat.pelt.accessories.append(self.questioning)
 
 
                 if cat.sexuality in ['gyno', 'lesbian']:
@@ -5574,12 +5619,28 @@ class Events:
                     text = f"{cat.name}'s gender feels aligned with the sun, warm and bright."
                     game.cur_events_list.append(Single_Event(text, "misc", cat.ID))
 
-                elif cat.genderalign == 'stargender' and self.sungender not in cat.pelt.inventory:
+                elif cat.genderalign == 'stargender' and self.stargender not in cat.pelt.inventory:
                     if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in self.all_bandanas for bandana in bandanas):
                         if self.stargender not in cat.pelt.accessories:
                             cat.pelt.accessories.append(self.stargender)
                     cat.pelt.inventory.append(self.stargender)
                     text = f"{cat.name}'s gender feels aligned with the stars up in Silverpelt."
+                    game.cur_events_list.append(Single_Event(text, "misc", cat.ID))
+
+                elif cat.genderalign == 'genderflux' and self.genderflux not in cat.pelt.inventory:
+                    if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in self.all_bandanas for bandana in bandanas):
+                        if self.genderflux not in cat.pelt.accessories:
+                            cat.pelt.accessories.append(self.genderflux)
+                    cat.pelt.inventory.append(self.genderflux)
+                    text = f"{cat.name}'s gender seems to flucuate in intensity over time."
+                    game.cur_events_list.append(Single_Event(text, "misc", cat.ID))
+
+                elif cat.genderalign == 'apagender' and self.apagender not in cat.pelt.inventory:
+                    if game.clan.clan_settings['auto equip'] and not any(bandana in cat.pelt.accessories for bandanas in self.all_bandanas for bandana in bandanas):
+                        if self.apagender not in cat.pelt.accessories:
+                            cat.pelt.accessories.append(self.apagender)
+                    cat.pelt.inventory.append(self.apagender)
+                    text = f"{cat.name} doesn't really care much about gender at all."
                     game.cur_events_list.append(Single_Event(text, "misc", cat.ID))
                 
                 elif cat.genderalign in ['questioning', 'unlabelled'] and self.ambiguous not in cat.pelt.inventory:

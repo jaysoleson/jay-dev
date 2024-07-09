@@ -757,9 +757,9 @@ class EventsScreen(Screens):
 
         self.timeskip_button.kill()
         del self.timeskip_button
-        if game.clan.game_mode != "classic":
-            self.freshkill_pile_button.kill()
-            del self.freshkill_pile_button
+        # if game.clan.game_mode != "classic":
+        #     self.freshkill_pile_button.kill()
+        #     del self.freshkill_pile_button
             
         self.all_events_button.kill()
         del self.all_events_button
