@@ -693,7 +693,7 @@
         },
         "duration": 5,
         "medicine_duration": 10,
-        "infectiousness": 20,
+        "infectiousness": 30,
         "risks": [
             {
                 "name": "stage two",
@@ -725,7 +725,7 @@
         },
         "duration": 8,
         "medicine_duration": 10,
-        "infectiousness": 12,
+        "infectiousness": 32,
         "risks": [
             {
                 "name": "stage three",
@@ -757,7 +757,7 @@
         },
         "duration": 8,
         "medicine_duration": 10,
-        "infectiousness": 9,
+        "infectiousness": 35,
         "risks": [
             {
                 "name": "stage four",
@@ -789,7 +789,7 @@
         },
         "duration": 20,
         "medicine_duration": 10,
-        "infectiousness": 5,
+        "infectiousness": 40,
         "risks": [
         ],
         "herbs": [

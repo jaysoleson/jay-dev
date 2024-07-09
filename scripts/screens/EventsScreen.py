@@ -119,6 +119,11 @@ class EventsScreen(Screens):
                 self.fav_group_3.hide()
                 self.fav_group_3_selected.hide()
                 self.cat_icon.hide()
+
+                if len(game.clan.infection["logs"]) > 0:
+                    self.log_button.enable()
+                else:
+                    self.log_button.disable()
             
             elif game.clan.game_mode != "classic" and event.ui_element == self.freshkill_pile_button:
                 self.change_screen('clearing screen')
@@ -505,6 +510,10 @@ class EventsScreen(Screens):
         self.death_button = UIImageButton(scale(pygame.Rect((1020, 430), (68, 68))), "", object_id="#warrior", tool_tip_text="Revive"
                                              , manager=MANAGER)
         self.death_button.hide()
+        if len(game.clan.infection["logs"]) > 0:
+            self.log_button.enable()
+        else:
+            self.log_button.disable()
 
         if game.switches['continue_after_death']:
             self.death_button.show()

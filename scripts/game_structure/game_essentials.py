@@ -1,5 +1,8 @@
 import pygame
 import pygame_gui
+import json
+
+import random
 
 from scripts.housekeeping.datadir import get_save_dir, get_temp_dir
 
@@ -10,7 +13,6 @@ from ast import literal_eval
 from scripts.event_class import Single_Event
 
 pygame.init()
-
 
 # G A M E
 class Game():
@@ -533,10 +535,34 @@ class Game():
         """ uuuhh """
         try:
             with open(f"saves/{self.clan.name}/infection.json", 'r') as read_file:
-                self.infection = ujson.loads(read_file.read())
+                self.clan.infection = ujson.loads(read_file.read())
         except FileNotFoundError:
-            print("You have no infection file!")
-            # somethign here to create one for old saves later
+            print("Welcome to INFECTION! You have no infection file. Creating one...")
+            # old saves get to suffer too <3
+            if not os.path.exists(f"saves/{self.clan.name}/infection.json"):
+                herblist = [
+                        "elder_leaves", "cobwebs", "daisy", "horsetail", "juniper", "lungwort", "mallow", "marigold", "moss",
+                        "oak_leaves", "ragwort", "raspberry", "tansy", "thyme", "wild_garlic", "dandelion", "mullein", "rosemary",
+                        "burdock", "blackberry", "betony", "goldenrod", "poppy", "plantain", "catmint"
+                        ]
+                # cant import HERBS bc of circular import. peapaw despair
+
+                herb1, herb2, herb3, herb4 = random.sample(herblist, 4)
+                
+                self.clan.infection = {
+                    "clan_infected": False,
+                    "infection_type": random.choice(["fungal", "parasitic", "void"]),
+                    "cure": [herb1, herb2, herb3, herb4],
+                    "cure_attempt": False,
+                    "cure_discovered": [],
+                    "spread_by": random.choice(["air", "bite"]),
+                    "treatments": [],
+                    "infection_moons": 0,
+                    "logs": []
+                }
+                
+                with open(f"saves/{self.clan.name}/infection.json", 'w') as create_file:
+                    json.dump(self.clan.infection, create_file, indent=4)
 
     def load_events(self):
         """
