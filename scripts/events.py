@@ -5269,6 +5269,16 @@ class Events:
                     cat.pelt.accessories.remove(self.genderfluid)
                 cat.pelt.inventory.remove(self.genderfluid)
 
+            if cat.genderalign != 'genderflux' and self.genderflux in cat.pelt.inventory and self.genderflux not in cat.pelt.permanent_inventory:
+                if self.genderflux in cat.pelt.accessories:
+                    cat.pelt.accessories.remove(self.genderflux)
+                cat.pelt.inventory.remove(self.genderflux)
+
+            if cat.genderalign != 'apagender' and self.apagender in cat.pelt.inventory and self.apagender not in cat.pelt.permanent_inventory:
+                if self.apagender in cat.pelt.accessories:
+                    cat.pelt.accessories.remove(self.apagender)
+                cat.pelt.inventory.remove(self.apagender)
+
             if cat.genderalign != 'bigender' and self.bigender in cat.pelt.inventory and self.bigender not in cat.pelt.permanent_inventory:
                 if self.bigender in cat.pelt.accessories:
                     cat.pelt.accessories.remove(self.bigender)
