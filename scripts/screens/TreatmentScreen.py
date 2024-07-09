@@ -3,6 +3,7 @@ import pygame_gui.elements
 from random import choice, randint
 import ujson
 import re
+import random
 
 from scripts.cat_relations.inheritance import Inheritance
 from scripts.cat.history import History
@@ -494,14 +495,22 @@ class TreatmentScreen(Screens):
             failchance = failchance * 0.8
             # more likely to work if theyre not an app
         
+        medcats = [i for i in Cat.all_cats.values() if
+                  (i.status == 'medicine cat' or i.status == 'medicine cat apprentice') and not i.dead and not i.outside and not i.not_working() and i.infected_for == 0]
         
+
+        if len(medcats) == 2:
+            failchance -= 10
+        elif len(medcats) > 2:
+            failchance -= 10 + 2 * (len(medcats) - 2)
+
         chance = randint(1,100)
         if chance < failchance:
             return False
         else:
             return True
 
-    RESOURCE_DIR = "resources/dicts/events/lifegen_events/infection"
+    RESOURCE_DIR = "resources/dicts/infection"
 
     def choose_treatment_text(self, patient):
         """ choosing text from the json regarding the success or failure of the treatment."""
@@ -521,6 +530,9 @@ class TreatmentScreen(Screens):
 
         successkey = ""
         success = self.get_failure_chance(patient)
+
+        success = True
+        # ^ debug
 
         if not success:
             successkey = " failure"
@@ -606,16 +618,60 @@ class TreatmentScreen(Screens):
         herblist = [self.herb1, self.herb2, self.herb3, self.herb4]
         correctherbs = [herb for herb in herblist if herb in game.clan.infection["cure"]]
 
+        cure_one = False
+        if len(correctherbs) == 1:
+            cure_one = True
+        cure_two = False
+        if len(correctherbs) == 2:
+            cure_two = True
+        cure_three = False
+        if len(correctherbs) == 3:
+            cure_three = True
         cure = False
         if len(correctherbs) == 4:
             cure = True
 
-        if cure:
-            patient.cure_progress += 1
-            patient.infected_for = 0
+        if cure or cure_one or cure_two or cure_three:
+            if not cure and "stage one" not in patient.illnesses:
+                remission_chance = 80
+                if not patient.is_injured():
+                    remission_chance -= 10
+                sick = False
+                for illness in patient.illnesses:
+                    if illness not in ["stage one", "stage two", "stage three", "stage four"]:
+                        sick = True
+                if not sick:
+                    remission_chance -= 10
 
-            if "cure_found" not in game.clan.infection["logs"]:
-                game.clan.infection["logs"].append("cure_found")
+                if cure_one:
+                    remission_chance -= remission_chance / 4
+                elif cure_two:
+                    remission_chance -= remission_chance / 3
+                elif cure_three:
+                    remission_chance -= remission_chance / 2
+                
+                medcats = [i for i in Cat.all_cats.values() if
+                  (i.status == 'medicine cat' or i.status == 'medicine cat apprentice') and not i.dead and not i.outside and not i.not_working() and i.infected_for == 0]
+                
+                if len(medcats) < 2:
+                    remission_chance += len(medcats) / 5
+                elif len(medcats) < 4:
+                    remission_chance += len(medcats) / 3
+                else:
+                    remission_chance += len(medcats) / 2
+
+                print("REMISSION CHANCE:", remission_chance)
+
+                if int(random.random() * remission_chance):
+                # ^ debug
+                # if not int(random.random() * remission_chance):
+                    patient.cure_progress += 1
+                    print("REMISSION CHANCE HIT")
+
+            if cure:
+                patient.infected_for = 0
+                if "cure_found" not in game.clan.infection["logs"]:
+                    game.clan.infection["logs"].append("cure_found")
 
 
         treatment = {

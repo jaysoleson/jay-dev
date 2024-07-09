@@ -662,9 +662,7 @@ class Events:
         game.clan.achievements = list(achievements)
 
     def check_logs(self):
-        you = game.clan.your_cat
         cure_logs = set()
-        clan_cats = game.clan.clan_cats
 
         if game.clan.infection["clan_infected"] is True:
             cure_logs.add("start")
@@ -2405,26 +2403,56 @@ class Events:
         and new cat events
         """
 
-        cat_infected = True if ("stage one" or "stage two" or "stage three" or "stage four") in cat.illnesses else False
-
-        if cat_infected and cat.infected_for == 0:
-            cat.infected_for = 1
-
-        elif cat_infected and cat.infected_for > 0:
-            cat.infected_for += 1
-        
         stages = ["stage one", "stage two", "stage three", "stage four"]
-        if cat_infected and cat.cure_progress > 0:
+
+        for stage in stages:
+
+            if stage in cat.illnesses and cat.infected_for == 0:
+                cat.infected_for = 1
+
+            elif stage in cat.illnesses and cat.infected_for > 0:
+                cat.infected_for += 1
+        
+        if not any(t in cat.illnesses for t in ["stage one", "stage two", "stage three", "stage four"]) and cat.infected_for > 0:
+            cat.infected_for = 0
+        
+        if cat.infected_for > 0 and cat.cure_progress > 0:
             cat.cure_progress += 1
-            if cat.cure_progress == game.clan.infection["cure_moons"]:
+            print(cat.name, cat.cure_progress)
+            print("CURE MOONS:", game.clan.infection["cure_moons"])
+            if cat.cure_progress >= game.clan.infection["cure_moons"]:
+                involved_cats = []
                 for stage in stages:
                     if stage in cat.illnesses:
-                        cat.illnesses.remove(stage)
-                if "cure_moons_discovered" not in game.clan.infection["logs"]:
-                    game.clan.infection["logs"].append("cure_moons_discovered")
+                        involved_cats.append(cat.ID)
+                        old_stage = stage
+                        if len(game.clan.infection["cure"]) == len(game.clan.infection["cure_discovered"]):
+                            cat.illnesses.pop(stage)
+                            if "cure_moons_discovered" not in game.clan.infection["logs"]:
+                                game.clan.infection["logs"].append("cure_moons_discovered")
+                        else:
+                            if "partial_cure" not in game.clan.infection["logs"]:
+                                addon = "\nYour log has been updated."
+                                game.clan.infection["logs"].append("partial_cure")
+                            else:
+                                addon = ""
+                            if stage == "stage two":
+                                cat.illnesses.pop("stage two")
+                                cat.get_ill("stage one")
+                                new_stage = "stage one"
+                            elif stage == "stage three":
+                                cat.illnesses.pop("stage three")
+                                cat.get_ill("stage two")
+                                new_stage = "stage two"
+                            elif stage == "stage four":
+                                cat.illnesses.pop("stage four")
+                                cat.get_ill("stage three")
+                                new_stage = "stage three"
 
-        if not cat_infected and cat.infected_for > 0:
-            cat.infected_for = 0
+                        event = f"Thanks to recieving treatment, {cat.name}'s infection has remissed from {old_stage} to {new_stage}!{addon}"
+                        game.cur_events_list.insert(0, Single_Event(event, "health", involved_cats))
+
+                
 
         if cat.dead:
             
@@ -3916,7 +3944,7 @@ class Events:
         # check how many kitties are already ill
         already_sick = list(
             filter(
-                lambda kitty: (not kitty.dead and not kitty.outside and kitty.is_ill()),
+                lambda kitty: (not kitty.dead and not kitty.outside and kitty.is_ill() and kitty.infected_for == 0),
                 Cat.all_cats.values(),
             )
         )
@@ -3935,9 +3963,11 @@ class Events:
             return
 
         meds = get_med_cats(Cat)
+        quarantined_cats = [i for i in Cat.all_cats_list if i.quarantined]
 
         for illness in cat.illnesses:
             # outbreaks wont happen if the infection isnt airborne
+            # maybe change this to just be less likely?
             if illness in ["stage one", "stage two", "stage three", "stage four"] and game.clan.infection["spread_by"] == "bite":
                 continue
             # check if illness can infect other cats
@@ -3945,6 +3975,9 @@ class Events:
                 continue
             chance = cat.illnesses[illness]["infectiousness"]
             chance += len(meds) * 7
+            if illness in ["stage one", "stage two", "stage three", "stage four"]:
+                chance += len(quarantined_cats) * 5
+                # quarantining cats slows the infection!
             if not int(random.random() * chance):  # 1/chance to infect
                 # fleas are the only condition allowed to spread outside of cold seasons
                 if game.clan.current_season not in ["Leaf-bare", "Leaf-fall"
@@ -3983,8 +4016,7 @@ class Events:
                 population = []
                 for n in range(2, max_infected + 1):
                     population.append(n)
-                    weight = 1 / (0.75 * n
-                                  )  # Lower chance for more infected cats
+                    weight = 1 / (0.75 * n)  # Lower chance for more infected cats
                     weights.append(weight)
                 infected_count = random.choices(
                     population, weights=weights)[0]  # the infected..

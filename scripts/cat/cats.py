@@ -2234,7 +2234,12 @@ class Cat():
                     infectious_illnesses.append(illness)
             if len(infectious_illnesses) == 0:
                 return
+            if cat.quarantined and not self.quarantined:
+                if randint(1,3) != 1:
+                    return
             
+        quarchance = 2
+        # chances of random bites r reduced by half when the cat is quarantined
 
         for illness in infectious_illnesses:
             illness_name = illness
@@ -2253,24 +2258,22 @@ class Cat():
                             f"WARNING: injury {self.injuries[y]['name']} has lowered chance of {illness_name} infection to {rate}")
                         rate = 1
 
-            print(cat.name, illness, cat.illnesses[illness]["infectiousness"])
             if randint(1, cat.illnesses[illness]["infectiousness"]) == 1:
-                if game.clan.infection["spread_by"] == "bite":
-                    text = f"{self.name} was bitten by {cat.name} and is now infected."
-                    self.get_injured("cat bite")
-                    if "spread_by_bite" not in game.clan.infection["logs"]:
-                        game.clan.infection["logs"].append("spread_by_bite")
-                        text += "\nYour log has been updated."
-                else:
-                    text = f"{self.name} has contracted the infection from {cat.name}."
-                    if "spread_by_air" not in game.clan.infection["logs"]:
-                        game.clan.infection["logs"].append("spread_by_air")
-                        text += "\nYour log has been updated."
-                # game.health_events_list.append(text)
-                game.cur_events_list.append(Single_Event(text, "health", [self.ID, cat.ID]))
-                self.get_ill("stage one")
-            else:
-                print("chance failed for infection spread")
+                if int(random() * quarchance) and cat.quarantined:
+                    if game.clan.infection["spread_by"] == "bite":
+                        text = f"{self.name} was bitten by {cat.name} and is now infected."
+                        self.get_injured("cat bite")
+                        if "spread_by_bite" not in game.clan.infection["logs"]:
+                            game.clan.infection["logs"].append("spread_by_bite")
+                            text += "\nYour log has been updated."
+                    else:
+                        text = f"{self.name} has contracted the infection from {cat.name}."
+                        if "spread_by_air" not in game.clan.infection["logs"]:
+                            game.clan.infection["logs"].append("spread_by_air")
+                            text += "\nYour log has been updated."
+                    
+                    game.cur_events_list.append(Single_Event(text, "health", [self.ID, cat.ID]))
+                    self.get_ill("stage one")
 
 
     def contact_with_ill_cat(self, cat: Cat):

@@ -691,7 +691,7 @@
             "senior adult": 0,
             "senior": 0
         },
-        "duration": 5,
+        "duration": 50,
         "medicine_duration": 10,
         "infectiousness": 10,
         "risks": [
@@ -723,7 +723,7 @@
             "senior adult": 0,
             "senior": 0
         },
-        "duration": 24,
+        "duration": 50,
         "medicine_duration": 10,
         "infectiousness": 10,
         "risks": [
@@ -755,7 +755,7 @@
             "senior adult": 20,
             "senior": 7
         },
-        "duration": 40,
+        "duration": 50,
         "medicine_duration": 10,
         "infectiousness": 10,
         "risks": [
@@ -787,7 +787,7 @@
             "senior adult": 20,
             "senior": 7
         },
-        "duration": 40,
+        "duration": 80,
         "medicine_duration": 10,
         "infectiousness": 5,
         "risks": [
