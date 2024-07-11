@@ -464,25 +464,25 @@
     "stagethree 1herb failure": [
         [
             "m_c is asleep, jaws firmly clamped shut.",
-            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... r_m drops the herb at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/suject}{VERB/m_c/'re/'s} hungry enough to try it."
+            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... r_m drops the herb at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} hungry enough to try it."
         ]
     ],
     "stagethree 2herb failure": [
         [
             "m_c is asleep, jaws firmly clamped shut.",
-            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... r_m drops the herbs at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/suject}{VERB/m_c/'re/'s} hungry enough to try it."
+            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... r_m drops the herbs at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} hungry enough to try it."
         ]
     ],
     "stagethree 3herb failure": [
         [
             "m_c is asleep, jaws firmly clamped shut.",
-            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... r_m drops the herbs at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/suject}{VERB/m_c/'re/'s} hungry enough to try it."
+            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... r_m drops the herbs at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} hungry enough to try it."
         ]
     ],
     "stagethree 4herb failure": [
         [
             "m_c is asleep, jaws firmly clamped shut.",
-            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... r_m drops the herbs at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/suject}{VERB/m_c/'re/'s} hungry enough to try it."
+            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... r_m drops the herbs at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} hungry enough to try it."
         ]
     ],
     "you stagethree zeroright 1herb": [
@@ -558,25 +558,25 @@
     "you stagethree 1herb failure": [
         [
             "m_c is asleep, jaws firmly clamped shut.",
-            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... You drop the herb at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/suject}{VERB/m_c/'re/'s} hungry enough to try it."
+            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... You drop the herb at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} hungry enough to try it."
         ]
     ],
     "you stagethree 2herb failure": [
         [
             "m_c is asleep, jaws firmly clamped shut.",
-            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... You drop the herbs at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/suject}{VERB/m_c/'re/'s} hungry enough to try it."
+            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... You drop the herbs at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} hungry enough to try it."
         ]
     ],
     "you stagethree 3herb failure": [
         [
             "m_c is asleep, jaws firmly clamped shut.",
-            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... You drop the herbs at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/suject}{VERB/m_c/'re/'s} hungry enough to try it."
+            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... You drop the herbs at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} hungry enough to try it."
         ]
     ],
     "you stagethree 4herb failure": [
         [
             "m_c is asleep, jaws firmly clamped shut.",
-            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... You drop the herbs at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/suject}{VERB/m_c/'re/'s} hungry enough to try it."
+            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... You drop the herbs at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} hungry enough to try it."
         ]
     ],
     "stagefour zeroright 1herb": [
@@ -656,25 +656,25 @@
         ],
         [
             "m_c is asleep, jaws firmly clamped shut.",
-            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... r_m drops the herb at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/suject}{VERB/m_c/'re/'s} hungry enough to try it."
+            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... r_m drops the herb at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} hungry enough to try it."
         ]
     ],
     "stagefour 2herb failure": [
         [
             "m_c is asleep, jaws firmly clamped shut.",
-            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... r_m drops the herbs at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/suject}{VERB/m_c/'re/'s} hungry enough to try it."
+            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... r_m drops the herbs at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} hungry enough to try it."
         ]
     ],
     "stagefour 3herb failure": [
         [
             "m_c is asleep, jaws firmly clamped shut.",
-            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... r_m drops the herbs at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/suject}{VERB/m_c/'re/'s} hungry enough to try it."
+            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... r_m drops the herbs at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} hungry enough to try it."
         ]
     ],
     "stagefour 4herb failure": [
         [
             "m_c is asleep, jaws firmly clamped shut.",
-            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... r_m drops the herbs at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/suject}{VERB/m_c/'re/'s} hungry enough to try it."
+            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... r_m drops the herbs at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} hungry enough to try it."
         ]
     ],
     "you stagefour zeroright 1herb": [
@@ -750,25 +750,25 @@
     "you stagefour 1herb failure": [
         [
             "m_c is asleep, jaws firmly clamped shut.",
-            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... You drop the herb at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/suject}{VERB/m_c/'re/'s} hungry enough to try it."
+            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... You drop the herb at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} hungry enough to try it."
         ]
     ],
     "you stagefour 2herb failure": [
         [
             "m_c is asleep, jaws firmly clamped shut.",
-            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... You drop the herbs at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/suject}{VERB/m_c/'re/'s} hungry enough to try it."
+            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... You drop the herbs at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} hungry enough to try it."
         ]
     ],
     "you stagefour 3herb failure": [
         [
             "m_c is asleep, jaws firmly clamped shut.",
-            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... You drop the herbs at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/suject}{VERB/m_c/'re/'s} hungry enough to try it."
+            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... You drop the herbs at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} hungry enough to try it."
         ]
     ],
     "you stagefour 4herb failure": [
         [
             "m_c is asleep, jaws firmly clamped shut.",
-            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... You drop the herbs at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/suject}{VERB/m_c/'re/'s} hungry enough to try it."
+            "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... You drop the herbs at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} hungry enough to try it."
         ]
     ]
 }

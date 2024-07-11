@@ -568,7 +568,7 @@ class Condition_Events():
         elif risk in Condition_Events.INJURIES:
             cat.get_injured(risk)
         elif risk in Condition_Events.PERMANENT:
-            cat.get_permanent_condition(new_condition_name, event_triggered=event_triggered)
+            cat.get_permanent_condition(risk, event_triggered=False)
         else:
             print("WARNING: Infection risk not in any dicts.")
             return
