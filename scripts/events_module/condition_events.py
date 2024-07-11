@@ -110,6 +110,9 @@ class Condition_Events():
 
         if cat.is_ill():
             event_string = Condition_Events.handle_already_ill(cat)
+            if cat.infected_for > 0:
+                # this sucks idk how to do it better
+                infection_events.append(event_string)
         else:
             # ---------------------------------------------------------------------------- #
             #                              make cats sick                                  #
@@ -192,7 +195,6 @@ class Condition_Events():
         if event_string:
             types = ["health"]
             if event_string in infection_events:
-                print('infection event!')
                 types.append("infection")
             if cat.dead:
                 types.append("birth_death")
@@ -557,10 +559,8 @@ class Condition_Events():
                 possible_risks.extend(["partial hearing loss", "partial hearing loss", "deaf", "failing eyesight", "failing eyesight", "one bad eye", "blind"])
 
         risk = random.choice(possible_risks)
-        print(cat.name, "getting", risk)
 
         if risk in cat.illnesses:
-            print("They already had it!!")
             return
 
         if risk in Condition_Events.ILLNESSES:
@@ -570,7 +570,7 @@ class Condition_Events():
         elif risk in Condition_Events.PERMANENT:
             cat.get_permanent_condition(risk, event_triggered=False)
         else:
-            print("WARNING: Infection risk not in any dicts.")
+            print("INFECTION WARNING: Risk not in any dicts.")
             return
         
         possible_string_list = Condition_Events.INFECTION_RISK_STRINGS[risk]
@@ -1049,8 +1049,6 @@ class Condition_Events():
 
                     # if it is a progressive condition, then remove the old condition and keep the new one
                     if condition in progression and new_condition_name == progression.get(condition):
-                        if cat.infected_for > 0:
-                            print(cat.name, "'s infection will progress to", new_condition_name)
                         removed_condition = True
                         dictionary.pop(condition)
 

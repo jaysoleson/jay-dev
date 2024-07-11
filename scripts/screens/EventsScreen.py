@@ -1036,7 +1036,7 @@ class EventsScreen(Screens):
 
                 if i % 2 == 0:
                     if game.settings["dark mode"]:
-                        if "infection" in ev.types or "has reached" in str(ev):
+                        if "infection" in ev.types:
                             self.display_events_elements["shading" + str(i)] = pygame_gui.elements.UIImage(
                             pygame.Rect((0, y),(box_length + 100,
                             self.display_events_elements["event" + str(i)].get_relative_rect()[3] + padding)),
@@ -1048,7 +1048,7 @@ class EventsScreen(Screens):
                                 image_cache.load_image("resources/images/shading_dark.png"), container=self.event_container,
                                 manager=MANAGER)
                     else:
-                        if "infection" in ev.types or "has reached" in str(ev): 
+                        if "infection" in ev.types: 
                             # this sucks idk how to get the risk event in the infection type
                             self.display_events_elements["shading" + str(i)] = pygame_gui.elements.UIImage(
                             pygame.Rect((0, y),(box_length + 100,
@@ -1066,14 +1066,14 @@ class EventsScreen(Screens):
                     self.display_events_elements["shading" + str(i)].disable()
                 else:
                     if game.settings["dark mode"]:
-                        if "infection" in ev.types or "has reached" in str(ev):
+                        if "infection" in ev.types:
                             self.display_events_elements["shading" + str(i)] = pygame_gui.elements.UIImage(
                             pygame.Rect((0, y),(box_length + 100,
                             self.display_events_elements["event" + str(i)].get_relative_rect()[3] + padding)),
                             image_cache.load_image("resources/images/shading_infected_dark.png"), container=self.event_container
                             , manager=MANAGER)
                     else:
-                        if "infection" in ev.types or "has reached" in str(ev):
+                        if "infection" in ev.types:
                             self.display_events_elements["shading" + str(i)] = pygame_gui.elements.UIImage(
                             pygame.Rect((0, y),(box_length + 100,
                             self.display_events_elements["event" + str(i)].get_relative_rect()[3] + padding)),

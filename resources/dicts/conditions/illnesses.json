@@ -674,13 +674,13 @@
     "fungal stage one": {
         "severity": "minor",
         "mortality": {
-            "newborn": 200,
-            "kitten": 200,
-            "adolescent": 200,
-            "young adult": 200,
-            "adult": 200,
-            "senior adult": 200,
-            "senior": 200
+            "newborn": 0,
+            "kitten": 0,
+            "adolescent": 0,
+            "young adult": 0,
+            "adult": 0,
+            "senior adult": 0,
+            "senior": 0
         },
         "medicine_mortality": {
             "newborn": 0,
@@ -691,7 +691,7 @@
             "senior adult": 0,
             "senior": 0
         },
-        "duration": 50,
+        "duration": 100,
         "medicine_duration": 10,
         "infectiousness": 80,
         "risks": [
@@ -706,13 +706,13 @@
     "fungal stage two": {
         "severity": "minor",
         "mortality": {
-            "newborn": 200,
-            "kitten": 200,
-            "adolescent": 200,
-            "young adult": 200,
-            "adult": 200,
-            "senior adult": 200,
-            "senior": 200
+            "newborn": 0,
+            "kitten": 0,
+            "adolescent": 0,
+            "young adult": 0,
+            "adult": 0,
+            "senior adult": 0,
+            "senior": 0
         },
         "medicine_mortality": {
             "newborn": 0,
@@ -723,7 +723,7 @@
             "senior adult": 0,
             "senior": 0
         },
-        "duration": 50,
+        "duration": 100,
         "medicine_duration": 10,
         "infectiousness": 80,
         "risks": [
@@ -738,13 +738,13 @@
     "fungal stage three": {
         "severity": "minor",
         "mortality": {
-            "newborn": 200,
-            "kitten": 200,
-            "adolescent": 200,
-            "young adult": 200,
-            "adult": 200,
-            "senior adult": 200,
-            "senior": 200
+            "newborn": 0,
+            "kitten": 0,
+            "adolescent": 0,
+            "young adult": 0,
+            "adult": 0,
+            "senior adult": 0,
+            "senior": 0
         },
         "medicine_mortality": {
             "newborn": 7,
@@ -755,7 +755,7 @@
             "senior adult": 20,
             "senior": 7
         },
-        "duration": 50,
+        "duration": 100,
         "medicine_duration": 10,
         "infectiousness": 80,
         "risks": [
@@ -787,7 +787,7 @@
             "senior adult": 20,
             "senior": 7
         },
-        "duration": 80,
+        "duration": 100,
         "medicine_duration": 10,
         "infectiousness": 80,
         "risks": [
@@ -798,13 +798,13 @@
     "parasitic stage one": {
         "severity": "minor",
         "mortality": {
-            "newborn": 200,
-            "kitten": 200,
-            "adolescent": 200,
-            "young adult": 200,
-            "adult": 200,
-            "senior adult": 200,
-            "senior": 200
+            "newborn": 0,
+            "kitten": 0,
+            "adolescent": 0,
+            "young adult": 0,
+            "adult": 0,
+            "senior adult": 0,
+            "senior": 0
         },
         "medicine_mortality": {
             "newborn": 0,
@@ -815,7 +815,7 @@
             "senior adult": 0,
             "senior": 0
         },
-        "duration": 50,
+        "duration": 100,
         "medicine_duration": 10,
         "infectiousness": 80,
         "risks": [
@@ -830,13 +830,13 @@
     "parasitic stage two": {
         "severity": "minor",
         "mortality": {
-            "newborn": 200,
-            "kitten": 200,
-            "adolescent": 200,
-            "young adult": 200,
-            "adult": 200,
-            "senior adult": 200,
-            "senior": 200
+            "newborn": 0,
+            "kitten": 0,
+            "adolescent": 0,
+            "young adult": 0,
+            "adult": 0,
+            "senior adult": 0,
+            "senior": 0
         },
         "medicine_mortality": {
             "newborn": 0,
@@ -847,7 +847,7 @@
             "senior adult": 0,
             "senior": 0
         },
-        "duration": 50,
+        "duration": 100,
         "medicine_duration": 10,
         "infectiousness": 80,
         "risks": [
@@ -862,13 +862,13 @@
     "parasitic stage three": {
         "severity": "minor",
         "mortality": {
-            "newborn": 200,
-            "kitten": 200,
-            "adolescent": 200,
-            "young adult": 200,
-            "adult": 200,
-            "senior adult": 200,
-            "senior": 200
+            "newborn": 0,
+            "kitten": 0,
+            "adolescent": 0,
+            "young adult": 0,
+            "adult": 0,
+            "senior adult": 0,
+            "senior": 0
         },
         "medicine_mortality": {
             "newborn": 7,
@@ -879,7 +879,7 @@
             "senior adult": 20,
             "senior": 7
         },
-        "duration": 50,
+        "duration": 100,
         "medicine_duration": 10,
         "infectiousness": 80,
         "risks": [
@@ -911,7 +911,7 @@
             "senior adult": 20,
             "senior": 7
         },
-        "duration": 80,
+        "duration": 100,
         "medicine_duration": 10,
         "infectiousness": 80,
         "risks": [
@@ -922,13 +922,13 @@
     "void stage one": {
         "severity": "minor",
         "mortality": {
-            "newborn": 200,
-            "kitten": 200,
-            "adolescent": 200,
-            "young adult": 200,
-            "adult": 200,
-            "senior adult": 200,
-            "senior": 200
+            "newborn": 0,
+            "kitten": 0,
+            "adolescent": 0,
+            "young adult": 0,
+            "adult": 0,
+            "senior adult": 0,
+            "senior": 0
         },
         "medicine_mortality": {
             "newborn": 0,
@@ -939,7 +939,7 @@
             "senior adult": 0,
             "senior": 0
         },
-        "duration": 50,
+        "duration": 100,
         "medicine_duration": 10,
         "infectiousness": 80,
         "risks": [
@@ -954,13 +954,13 @@
     "void stage two": {
         "severity": "minor",
         "mortality": {
-            "newborn": 200,
-            "kitten": 200,
-            "adolescent": 200,
-            "young adult": 200,
-            "adult": 200,
-            "senior adult": 200,
-            "senior": 200
+            "newborn": 0,
+            "kitten": 0,
+            "adolescent": 0,
+            "young adult": 0,
+            "adult": 0,
+            "senior adult": 0,
+            "senior": 0
         },
         "medicine_mortality": {
             "newborn": 0,
@@ -971,7 +971,7 @@
             "senior adult": 0,
             "senior": 0
         },
-        "duration": 50,
+        "duration": 100,
         "medicine_duration": 10,
         "infectiousness": 80,
         "risks": [
@@ -1003,7 +1003,7 @@
             "senior adult": 20,
             "senior": 7
         },
-        "duration": 50,
+        "duration": 100,
         "medicine_duration": 10,
         "infectiousness": 80,
         "risks": [
@@ -1035,7 +1035,7 @@
             "senior adult": 20,
             "senior": 7
         },
-        "duration": 80,
+        "duration": 100,
         "medicine_duration": 10,
         "infectiousness": 80,
         "risks": [

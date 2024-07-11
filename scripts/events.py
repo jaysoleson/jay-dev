@@ -2434,9 +2434,11 @@ class Events:
         
         if not any(t in cat.illnesses for t in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]) and cat.infected_for > 0:
             if cat.infected_for > 0:
-                print("removing infection from", cat.name)
-                print(cat.illnesses)
                 cat.infected_for = 0
+        
+        if any(t in cat.illnesses for t in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]) and cat.infected_for == 0:
+            print(cat.name, "is infected, but moons are zero? Giving bro some moons")
+            cat.infected_for = 1
         
         if cat.infected_for > 0 and cat.cure_progress > 0:
             cat.cure_progress += 1
