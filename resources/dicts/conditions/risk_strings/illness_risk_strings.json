@@ -80,47 +80,47 @@
         ]
     },
     "fungal stage one": {
-        "stage two": [
+        "fungal stage two": [
             "m_c's infection has reached stage two."
         ]
     },
     "fungal stage two": {
-        "stage three": [
+        "fungal stage three": [
             "m_c's infection has reached stage three."
         ]
     },
     "fungal stage three": {
-        "stage four": [
+        "fungal stage four": [
             "m_c's infection has reached stage four."
         ]
     },
     "parasitic stage one": {
-        "stage two": [
+        "parasitic stage two": [
             "m_c's infection has reached stage two."
         ]
     },
     "parasitic stage two": {
-        "stage three": [
+        "parasitic stage three": [
             "m_c's infection has reached stage three."
         ]
     },
     "parasitic stage three": {
-        "stage four": [
+        "parasitic stage four": [
             "m_c's infection has reached stage four."
         ]
     },
     "void stage one": {
-        "stage two": [
+        "void stage two": [
             "m_c's infection has reached stage two."
         ]
     },
     "void stage two": {
-        "stage three": [
+        "void stage three": [
             "m_c's infection has reached stage three."
         ]
     },
     "void stage three": {
-        "stage four": [
+        "void stage four": [
             "m_c's infection has reached stage four."
         ]
     }

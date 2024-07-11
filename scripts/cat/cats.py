@@ -1696,6 +1696,7 @@ class Cat():
 
     def moon_skip_illness(self, illness):
         """handles the moon skip for illness"""
+        inftype = game.clan.infection['infection_type']
         if not self.is_ill():
             return True
 
@@ -1716,12 +1717,18 @@ class Cat():
                 self.leader_death_heal = True
                 game.clan.leader_lives -= 1
                 if game.clan.leader_lives > 0:
-                    text = f"{self.name} lost a life to {illness}."
+                    if illness in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]:
+                        text = f"{self.name} lost a life to the infection."
+                    else:
+                        text = f"{self.name} lost a life to {illness}."
                     # game.health_events_list.append(text)
                     # game.birth_death_events_list.append(text)
                     game.cur_events_list.append(Single_Event(text, ["birth_death", "health"], game.clan.leader.ID))
                 elif game.clan.leader_lives <= 0:
-                    text = f"{self.name} lost their last life to {illness}."
+                    if illness in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]:
+                        text = f"{self.name} lost their last life to the infection."
+                    else:
+                        text = f"{self.name} lost their last life to {illness}."
                     # game.health_events_list.append(text)
                     # game.birth_death_events_list.append(text)
                     game.cur_events_list.append(Single_Event(text, ["birth_death", "health"], game.clan.leader.ID))
@@ -1737,23 +1744,22 @@ class Cat():
         moons_prior = game.config["focus"]["rest and recover"]["moons_earlier_healed"]
 
         if self.illnesses[illness]["duration"] - moons_with <= 0:
-            if self.infected_for > 0:
-                self.healed_condition = False
-                # thisll be here until i can actually fix the duration problem i guess
-                # for now, no naturally healing from infection!!!!
-            else:
-                if any( i in [f"{game.clan.infection['infection_type']} stage one", f"{game.clan.infection['infection_type']} stage two", f"{game.clan.infection['infection_type']} stage three", f"{game.clan.infection['infection_type']} stage four"] for i in self.illnesses):
-                    print(self.name, "is infected, but infected_for is zero?")
+            # if self.infected_for > 0:
+            #     self.healed_condition = False
+            #     # thisll be here until i can actually fix the duration problem i guess
+            #     # for now, no naturally healing from infection!!!!
+            # else:
+            #     if any( i in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"] for i in self.illnesses):
+            #         print(self.name, "is infected, but infected_for is zero?")
                 
-                self.healed_condition = True
+            self.healed_condition = True
             return False
 
         # CLAN FOCUS! - if the focus 'rest and recover' is selected
         elif game.clan.clan_settings.get("rest and recover") and\
             self.illnesses[illness]["duration"] + moons_prior - moons_with <= 0:
             # print(f"rest and recover - illness {illness} of {self.name} healed earlier")
-            if self.infected_for == 0:
-                self.healed_condition = True
+            self.healed_condition = True
             return False
 
     def moon_skip_injury(self, injury):

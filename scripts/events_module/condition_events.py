@@ -1050,7 +1050,7 @@ class Condition_Events():
                     # if it is a progressive condition, then remove the old condition and keep the new one
                     if condition in progression and new_condition_name == progression.get(condition):
                         if cat.infected_for > 0:
-                            print(cat.name, "'s infection hwill progress to", new_condition_name)
+                            print(cat.name, "'s infection will progress to", new_condition_name)
                         removed_condition = True
                         dictionary.pop(condition)
 

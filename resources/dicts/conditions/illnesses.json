@@ -696,12 +696,9 @@
         "infectiousness": 80,
         "risks": [
             {
-                "name": "stage two",
+                "name": "fungal stage two",
                 "chance": 5
             }
-        ],
-        "cause_permanent": [
-            "raspy lungs"
         ],
         "herbs": [
         ]
@@ -731,7 +728,7 @@
         "infectiousness": 80,
         "risks": [
             {
-                "name": "stage three",
+                "name": "fungal stage three",
                 "chance": 10
             }
         ],
@@ -763,7 +760,7 @@
         "infectiousness": 80,
         "risks": [
             {
-                "name": "stage four",
+                "name": "fungal stage four",
                 "chance": 6
             }
         ],
@@ -823,7 +820,7 @@
         "infectiousness": 80,
         "risks": [
             {
-                "name": "stage two",
+                "name": "parasitic stage two",
                 "chance": 5
             }
         ],
@@ -855,7 +852,7 @@
         "infectiousness": 80,
         "risks": [
             {
-                "name": "stage three",
+                "name": "parasitic stage three",
                 "chance": 10
             }
         ],
@@ -887,7 +884,7 @@
         "infectiousness": 80,
         "risks": [
             {
-                "name": "stage four",
+                "name": "parasitic stage four",
                 "chance": 6
             }
         ],
@@ -947,7 +944,7 @@
         "infectiousness": 80,
         "risks": [
             {
-                "name": "stage two",
+                "name": "void stage two",
                 "chance": 5
             }
         ],
@@ -979,7 +976,7 @@
         "infectiousness": 80,
         "risks": [
             {
-                "name": "stage three",
+                "name": "void stage three",
                 "chance": 10
             }
         ],
@@ -1011,7 +1008,7 @@
         "infectiousness": 80,
         "risks": [
             {
-                "name": "stage four",
+                "name": "void stage four",
                 "chance": 6
             }
         ],
