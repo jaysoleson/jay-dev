@@ -596,12 +596,12 @@ class TreatmentScreen(Screens):
             except:
                 try:
                     if success:
-                        ceremony_txt.extend(self.m_txt[who_key + "anystage" + " " + correctherbs + " anyherb" + successkey])
+                        ceremony_txt = (self.m_txt[who_key + "anystage" + " " + correctherbs + " anyherb" + successkey])
                     else:
-                        ceremony_txt.extend(self.m_txt[who_key + "anystage" + " " + " anyherb" + successkey])
+                        ceremony_txt = (self.m_txt[who_key + "anystage" + " " + " anyherb" + successkey])
                 except:
                     print("NO TEXT FOUND")
-                    ceremony_txt =(self.m_txt[who_key + "anystage anyright anyherb" + successkey])
+                    ceremony_txt = (self.m_txt[who_key + "anystage anyright anyherb" + successkey])
 
         if success:
             self.add_to_treatments(patient)
