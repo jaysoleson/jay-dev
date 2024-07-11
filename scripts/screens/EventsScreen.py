@@ -1028,31 +1028,57 @@ class EventsScreen(Screens):
         button_padding = 80/1400 * screen_x
         for ev in self.display_events:
             if isinstance(ev.text, str):  # Check to make sure text is a string.
-                self.display_events_elements["event" + str(i)] = pygame_gui.elements.UITextBox(ev.text,
-                                                                                               pygame.Rect((0, y), (box_length - 20, -1)),
-                                                                                               object_id=get_text_box_theme("#text_box_30_horizleft"),
-                                                                                               container=self.event_container,
-                                                                                               starting_height=2,
-                                                                                               manager=MANAGER)
+                self.display_events_elements["event" + str(i)] = pygame_gui.elements.UITextBox(ev.text,pygame.Rect((0, y), (box_length - 20, -1)),object_id=get_text_box_theme("#text_box_30_horizleft"),container=self.event_container,starting_height=2,
+                manager=MANAGER)
+                
                 self.display_events_elements["event" + str(i)].disable()
                 # Find the next y-height by finding the height of the text box, and adding 35 for the cats button
 
                 if i % 2 == 0:
                     if game.settings["dark mode"]:
-                        self.display_events_elements["shading" + str(i)] = pygame_gui.elements.UIImage(
-                            pygame.Rect((0, y), (box_length + 100, self.display_events_elements["event" + str(i)].get_relative_rect()[3] + padding)),
-                            image_cache.load_image("resources/images/shading_dark.png"), container=self.event_container,
-                            manager=MANAGER)
+                        if "infection" in ev.types or "has reached" in str(ev):
+                            self.display_events_elements["shading" + str(i)] = pygame_gui.elements.UIImage(
+                            pygame.Rect((0, y),(box_length + 100,
+                            self.display_events_elements["event" + str(i)].get_relative_rect()[3] + padding)),
+                            image_cache.load_image("resources/images/shading_infected_dark.png"), container=self.event_container
+                            , manager=MANAGER)
+                        else:
+                            self.display_events_elements["shading" + str(i)] = pygame_gui.elements.UIImage(
+                                pygame.Rect((0, y), (box_length + 100, self.display_events_elements["event" + str(i)].get_relative_rect()[3] + padding)),
+                                image_cache.load_image("resources/images/shading_dark.png"), container=self.event_container,
+                                manager=MANAGER)
                     else:
-                        self.display_events_elements["shading" + str(i)] = pygame_gui.elements.UIImage(
+                        if "infection" in ev.types or "has reached" in str(ev): 
+                            # this sucks idk how to get the risk event in the infection type
+                            self.display_events_elements["shading" + str(i)] = pygame_gui.elements.UIImage(
+                            pygame.Rect((0, y),(box_length + 100,
+                            self.display_events_elements["event" + str(i)].get_relative_rect()[3] + padding)),
+                            image_cache.load_image("resources/images/shading_infected_light.png"), container=self.event_container
+                            , manager=MANAGER)
+                        else:
+                            self.display_events_elements["shading" + str(i)] = pygame_gui.elements.UIImage(
                             pygame.Rect((0, y),
                                         (box_length + 100,
                                          self.display_events_elements["event" + str(i)].get_relative_rect()[3] + padding)),
                             image_cache.load_image("resources/images/shading.png"), container=self.event_container
                             , manager=MANAGER)
-
+                        
                     self.display_events_elements["shading" + str(i)].disable()
-
+                else:
+                    if game.settings["dark mode"]:
+                        if "infection" in ev.types or "has reached" in str(ev):
+                            self.display_events_elements["shading" + str(i)] = pygame_gui.elements.UIImage(
+                            pygame.Rect((0, y),(box_length + 100,
+                            self.display_events_elements["event" + str(i)].get_relative_rect()[3] + padding)),
+                            image_cache.load_image("resources/images/shading_infected_dark.png"), container=self.event_container
+                            , manager=MANAGER)
+                    else:
+                        if "infection" in ev.types or "has reached" in str(ev):
+                            self.display_events_elements["shading" + str(i)] = pygame_gui.elements.UIImage(
+                            pygame.Rect((0, y),(box_length + 100,
+                            self.display_events_elements["event" + str(i)].get_relative_rect()[3] + padding)),
+                            image_cache.load_image("resources/images/shading_infected_light.png"), container=self.event_container
+                            , manager=MANAGER)
                 y += self.display_events_elements["event" + str(i)].get_relative_rect()[3]
 
                 self.involved_cat_buttons.append(IDImageButton(pygame.Rect(

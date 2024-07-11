@@ -121,7 +121,9 @@ class Sprites():
             'fadestarclan', 'fadedarkforest',
 
             # INFECTION lineart
-            'lineartstageone', 'lineartstagetwo', 'lineartstagethree', 'lineartstagefour',
+            'fungallineartstageone', 'fungallineartstagetwo', 'fungallineartstagethree', 'fungallineartstagefour',
+            'parasiticlineartstageone', 'parasiticlineartstagetwo', 'parasiticlineartstagethree', 'parasiticlineartstagefour',
+            'voidlineartstageone', 'voidlineartstagetwo', 'voidlineartstagethree', 'voidlineartstagefour',
 
             #OHDANS
             'flower_accessories', 'plant2_accessories', 'snake_accessories', 'smallAnimal_accessories', 'deadInsect_accessories',
@@ -178,10 +180,20 @@ class Sprites():
         self.make_group('lineartdead', (0, 0), 'lineartdead')
         self.make_group('lineartdf', (0, 0), 'lineartdf')
 
-        self.make_group('lineartstageone', (0, 0), 'lineartstageone')
-        self.make_group('lineartstagetwo', (0, 0), 'lineartstagetwo')
-        self.make_group('lineartstagethree', (0, 0), 'lineartstagethree')
-        self.make_group('lineartstagefour', (0, 0), 'lineartstagefour')
+        self.make_group('fungallineartstageone', (0, 0), 'fungallineartstageone')
+        self.make_group('fungallineartstagetwo', (0, 0), 'fungallineartstagetwo')
+        self.make_group('fungallineartstagethree', (0, 0), 'fungallineartstagethree')
+        self.make_group('fungallineartstagefour', (0, 0), 'fungallineartstagefour')
+
+        self.make_group('parasiticlineartstageone', (0, 0), 'parasiticlineartstageone')
+        self.make_group('parasiticlineartstagetwo', (0, 0), 'parasiticlineartstagetwo')
+        self.make_group('parasiticlineartstagethree', (0, 0), 'parasiticlineartstagethree')
+        self.make_group('parasiticlineartstagefour', (0, 0), 'parasiticlineartstagefour')
+
+        self.make_group('voidlineartstageone', (0, 0), 'voidlineartstageone')
+        self.make_group('voidlineartstagetwo', (0, 0), 'voidlineartstagetwo')
+        self.make_group('voidlineartstagethree', (0, 0), 'voidlineartstagethree')
+        self.make_group('voidlineartstagefour', (0, 0), 'voidlineartstagefour')
 
         # Fading Fog
         for i in range(0, 3):

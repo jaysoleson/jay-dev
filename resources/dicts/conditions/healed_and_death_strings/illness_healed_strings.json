@@ -97,16 +97,40 @@
     "starving": [
         "WARNING: this string should never appear, nutrition are handled only in freshkill events."
     ],
-    "stage one": [
+    "fungal stage one": [
         "m_c has recovered from {PRONOUN/m_c/poss} stage one infection!"
     ],
-    "stage two": [
+    "fungal stage two": [
         "m_c has recovered from {PRONOUN/m_c/poss} stage two infection!"
     ],
-    "stage three": [
+    "fungal stage three": [
         "m_c has recovered from {PRONOUN/m_c/poss} stage three infection!"
     ],
-    "stage four": [
+    "fungal stage four": [
+        "m_c has recovered from {PRONOUN/m_c/poss} stage four infection!"
+    ],
+    "parasitic stage one": [
+        "m_c has recovered from {PRONOUN/m_c/poss} stage one infection!"
+    ],
+    "parasitic stage two": [
+        "m_c has recovered from {PRONOUN/m_c/poss} stage two infection!"
+    ],
+    "parasitic stage three": [
+        "m_c has recovered from {PRONOUN/m_c/poss} stage three infection!"
+    ],
+    "parasitic stage four": [
+        "m_c has recovered from {PRONOUN/m_c/poss} stage four infection!"
+    ],
+    "void stage one": [
+        "m_c has recovered from {PRONOUN/m_c/poss} stage one infection!"
+    ],
+    "void stage two": [
+        "m_c has recovered from {PRONOUN/m_c/poss} stage two infection!"
+    ],
+    "void stage three": [
+        "m_c has recovered from {PRONOUN/m_c/poss} stage three infection!"
+    ],
+    "void stage four": [
         "m_c has recovered from {PRONOUN/m_c/poss} stage four infection!"
     ]
 }

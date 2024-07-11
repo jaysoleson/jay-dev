@@ -1,0 +1,41 @@
+{
+    "lost their leg": [
+        "m_c has lost their leg due to the infection."
+    ],
+    "lost their tail": [
+        "m_c has lost their tail due to the infection."
+    ],
+    "failing eyesight": [
+        "m_c's infection has been rapidly worsening {PRONOUN/m_c/poss} eyesight."
+    ],
+    "blind": [
+        "m_c's infection has stolen {PRONOUN/m_c/poss} eyesight."
+    ],
+    "partial hearing loss": [
+        "m_c's infection has been rapidly worsening {PRONOUN/m_c/poss} hearing."
+    ],
+    "deaf": [
+        "m_c's infection has stolen {PRONOUN/m_c/poss} sense of hearing."
+    ],
+    "sore": [
+        "m_c's infection has left {PRONOUN/m_c/object} very sore."
+    ],
+    "scrapes": [
+        "The infection has been leaving small scrapes all over m_c's body."
+    ],
+    "poisoned":[
+        "m_c is dealing with a wave of toxic sickness due to the infection."
+    ],
+    "blood loss":[
+        "With the infection tearing m_c's body apart, {PRONOUN/m_c/subject} {VERB/m_c/are/is} dealing with a lot of blood loss."
+    ],
+    "shivering":[
+        "The infection is causing m_c to feel incredibly cold."
+    ],
+    "fleas": [
+        "MY BOY HAS FLEAS............"
+    ],
+    "one bad eye": [
+        "The infection has attacked one of m_c eyes."
+    ]
+}

@@ -203,5 +203,26 @@
             "m_c tries to keep the disappointment down. Logically, {PRONOUN/m_c/subject} knew this was inevitable. Emotionally, {PRONOUN/m_c/subject} just can't accept that {PRONOUN/m_c/subject}'ll never walk again.",
             "m_c continues to do {PRONOUN/m_c/poss} exercises dutifully, hoping beyond hope that someday it will pay off. For now though, {PRONOUN/m_c/subject} {VERB/m_c/know/knows} this paralysis is {PRONOUN/m_c/poss} new reality."
         ]
+    },
+    "parasitic stage three": {
+        "lost their tail": [
+            "m_c's infection has destroyed {PRONOUN/m_c/poss} tail so badly that it fell off."
+        ],
+        "lost their leg": [
+            "m_c's infection has destroyed {PRONOUN/m_c/poss} leg so badly that it fell off."
+        ]
+    },
+    "parasitic stage four": {
+        "lost their tail": [
+            "m_c's infection has destroyed {PRONOUN/m_c/poss} tail so badly that it fell off."
+        ],
+        "lost their leg": [
+            "m_c's infection has destroyed {PRONOUN/m_c/poss} leg so badly that it fell off."
+        ]
+    },
+    "fungal stage one": {
+        "raspy lungs": [
+            "m_c has raspy lungs as a result of the infection."
+        ]
     }
 }

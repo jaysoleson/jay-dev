@@ -330,8 +330,6 @@ class TreatmentScreen(Screens):
                                                     container=self.scroll_container,
                                                     manager=MANAGER)
             
-            self.scroll_container = pygame_gui.elements.UIScrollingContainer(scale(pygame.Rect((500, 970), (900, 300))))
-            
             self.heading = pygame_gui.elements.UITextBox("Results",
                                                         scale(pygame.Rect((300, 50), (1000, 80))),
                                                         object_id=get_text_box_theme("#text_box_34_horizcenter"),
@@ -475,10 +473,10 @@ class TreatmentScreen(Screens):
     def get_failure_chance(self, patient):
         """ determine if the medcat will even be effective in attempting treatment. if a treatment is failed, no information on the herbs is given to the player. """
         
-        stageone = True if "stage one" in patient.illnesses else False
-        stagetwo = True if "stage two" in patient.illnesses else False
-        stagethree = True if "stage three" in patient.illnesses else False
-        stagefour = True if "stage four" in patient.illnesses else False
+        stageone = True if f"{game.clan.infection['infection_type']} stage one" in patient.illnesses else False
+        stagetwo = True if "{game.clan.infection['infection_type']} stage two" in patient.illnesses else False
+        stagethree = True if f"{game.clan.infection['infection_type']} stage three" in patient.illnesses else False
+        stagefour = True if f"{game.clan.infection['infection_type']} stage four" in patient.illnesses else False
 
         failchance = 0
 
@@ -514,13 +512,14 @@ class TreatmentScreen(Screens):
 
     def choose_treatment_text(self, patient):
         """ choosing text from the json regarding the success or failure of the treatment."""
+        inftype = game.clan.infection["infection_type"]
         with open(f"{self.RESOURCE_DIR}/treatment_results.json",
                 encoding="ascii") as read_file:
             self.m_txt = ujson.loads(read_file.read())
 
         medcats = []
         for cat in Cat.all_cats_list:
-            if cat.status in ["medicine cat", "medicine cat apprentice"] and not cat.not_working() and cat.infected_for == 0:
+            if cat.status in ["medicine cat", "medicine cat apprentice"] and not cat.not_working() and cat.infected_for == 0 and not cat.outside and not cat.dead:
                 medcats.append(cat)
         self.the_cat = choice(medcats)
 
@@ -580,7 +579,7 @@ class TreatmentScreen(Screens):
         
         herbinsert = f" {str(herbcount)}herb"
 
-        infection_stage = [i for i in self.selected_cat.illnesses if i in ["stage one", "stage two", "stage three", "stage four"]]
+        infection_stage = [i for i in self.selected_cat.illnesses if i in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]]
         infection_stage_stripped = str(infection_stage).replace('[', '').replace(']', '').replace("'", '')
         print([infection_stage_stripped.replace(' ', '') + " " + correctherbs + herbinsert + successkey])
         try:
@@ -614,6 +613,7 @@ class TreatmentScreen(Screens):
 
     def add_to_treatments(self, patient):
         """ Adds the treatment information to the json for logging. """
+        inftype = game.clan.infection["infection_type"]
 
         herblist = [self.herb1, self.herb2, self.herb3, self.herb4]
         correctherbs = [herb for herb in herblist if herb in game.clan.infection["cure"]]
@@ -632,13 +632,13 @@ class TreatmentScreen(Screens):
             cure = True
 
         if cure or cure_one or cure_two or cure_three:
-            if not cure and "stage one" not in patient.illnesses:
+            if not cure and f"{inftype} stage one" not in patient.illnesses:
                 remission_chance = 80
                 if not patient.is_injured():
                     remission_chance -= 10
                 sick = False
                 for illness in patient.illnesses:
-                    if illness not in ["stage one", "stage two", "stage three", "stage four"]:
+                    if illness not in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]:
                         sick = True
                 if not sick:
                     remission_chance -= 10
@@ -713,6 +713,7 @@ class TreatmentScreen(Screens):
         
     def update_selected_cat(self):
         """Updates the image and information on the currently selected mentor"""
+        inftype = game.clan.infection["infection_type"]
         for ele in self.selected_details:
             self.selected_details[ele].kill()
         self.selected_details = {}
@@ -724,7 +725,7 @@ class TreatmentScreen(Screens):
                     self.selected_cat.sprite,
                     (270, 270)), manager=MANAGER)
 
-            infection_stage = [i for i in self.selected_cat.illnesses if i in ["stage one", "stage two", "stage three", "stage four"]]
+            infection_stage = [i for i in self.selected_cat.illnesses if i in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]]
 
             infection_stage_stripped = str(infection_stage).replace('[', '').replace(']', '').replace("'", '')
 
@@ -792,10 +793,11 @@ class TreatmentScreen(Screens):
 
     def get_valid_cats(self):
         """ find all of the infected cats to choose from """
+        inftype = game.clan.infection["infection_type"]
         infected_cats = []
 
         for cat in Cat.all_cats_list:
-            if not cat.dead and not cat.outside and ("stage one" in cat.illnesses or "stage two" in cat.illnesses or "stage three" in cat.illnesses or "stage four" in cat.illnesses):
+            if not cat.dead and not cat.outside and (f"{inftype} stage one" in cat.illnesses or f"{inftype} stage two" in cat.illnesses or f"{inftype} stage three" in cat.illnesses or f"{inftype} stage four" in cat.illnesses):
                 infected_cats.append(cat)
         
         return infected_cats

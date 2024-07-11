@@ -83,6 +83,12 @@ class Condition_Events():
     INJURY_DEATH_STRINGS = None
     with open(f"resources/dicts/conditions/healed_and_death_strings/injury_death_strings.json", 'r') as read_file:
         INJURY_DEATH_STRINGS = ujson.loads(read_file.read())
+    
+    INFECTION_RISK_STRINGS = None
+    with open(f"resources/dicts/infection/infection_risk_strings.json", 'r') as read_file:
+        INFECTION_RISK_STRINGS = ujson.loads(read_file.read())
+
+    # infection type variable
 
     @staticmethod
     def handle_illnesses(cat, season=None):
@@ -90,6 +96,8 @@ class Condition_Events():
         This function handles overall the illnesses in 'expanded' (or 'cruel season') game mode.
         It will return a bool to indicate if the cat is dead.
         """
+        inftype = game.clan.infection["infection_type"]
+
         # return immediately if they're already dead or in the wrong game-mode
         triggered = False
         if cat.dead or game.clan.game_mode == "classic":
@@ -98,6 +106,7 @@ class Condition_Events():
             return triggered
 
         event_string = None
+        infection_events = []
 
         if cat.is_ill():
             event_string = Condition_Events.handle_already_ill(cat)
@@ -115,13 +124,25 @@ class Condition_Events():
                     if not int(random.random() * stopping_chance):
                         # print(f"rest and recover - illness prevented for {cat.name}")
                         return triggered
-
+                    
                 season_dict = Condition_Events.ILLNESSES_SEASON_LIST[season]
                 possible_illnesses = []
+                types = ["fungal", "parasitic", "void"]
 
                 # pick up possible illnesses from the season dict
                 for illness_name in season_dict:
-                    possible_illnesses += [illness_name] * season_dict[illness_name]
+                    if illness_name == f"{inftype} stage one":
+                        if not game.clan.infection["clan_infected"]:
+                            return triggered
+                        else:
+                            possible_illnesses += [illness_name] * (season_dict[illness_name])
+                    else:
+                        possible_illnesses += [illness_name] * (season_dict[illness_name] * 3)
+                        # multiply by three because i cant divide stage one by three, and i want it to be less likely
+
+                for i in types:
+                    if f"{i} stage one" in possible_illnesses and game.clan.infection["infection_type"] != i:
+                        possible_illnesses.remove(f"{i} stage one")
 
                 # pick a random illness from those possible
                 random_index = int(random.random() * len(possible_illnesses))
@@ -129,18 +150,50 @@ class Condition_Events():
                 # if a non-kitten got kittencough, switch it to whitecough instead
                 if chosen_illness == 'kittencough' and cat.status != 'kitten':
                     chosen_illness = 'whitecough'
+
                 # make em sick
                 cat.get_ill(chosen_illness)
-
                 # create event text
                 if chosen_illness in ["running nose", "stomachache"]:
                     event_string = f"{cat.name} has gotten a {chosen_illness}."
+                elif chosen_illness == f"{inftype} stage one":
+                    if game.clan.infection["spread_by"] == "bite":
+                        strings = [
+                            f"{cat.name} was bitten by an infected rogue.",
+                            f"{cat.name} stumbles back into camp after an outing with a fresh cat bite and a clouded look in their eyes.",
+                            f"{cat.name} tries to hide their fresh wound, but the potent smell of the infection coming from them is too hard to ignore."
+                        ]
+                        event_string = random.choice(strings)
+                        if "spread_by_bite" not in game.clan.infection["logs"]:
+                            game.clan.infection["logs"].append("spread_by_bite")
+                            event_string += "\nYour log has been updated."
+                        cat.get_injured("cat bite")
+                    elif game.clan.infection["spread_by"] == "air":
+                        strings = [
+                            f"{cat.name} leaves camp alone and comes back with clouded eyes that can only mean one thing.",
+                            f"{cat.name} stumbles back into camp after an outing with a clouded look in their eyes.",
+                            f"{cat.name} has come down with the infection."
+                        ]                        
+                        event_string = random.choice(strings)
+                        if "spread_by_air" not in game.clan.infection["logs"]:
+                            game.clan.infection["logs"].append("spread_by_air")
+                            event_string += "\nYour log has been updated."
+
+                    infection_events.append(event_string)
+                    cat.infected_for += 1
                 else:
+                    types = ["fungal", "void", "parasitic"]
+                    for i in types:
+                        if chosen_illness == f"{i} stage one" and i != inftype:
+                            return
                     event_string = f"{cat.name} has gotten {chosen_illness}."
 
         # if an event happened, then add event to cur_event_list and save death if it happened.
         if event_string:
             types = ["health"]
+            if event_string in infection_events:
+                print('infection event!')
+                types.append("infection")
             if cat.dead:
                 types.append("birth_death")
             game.cur_events_list.append(Single_Event(event_string, types, cat.ID))
@@ -376,6 +429,7 @@ class Condition_Events():
     def handle_permanent_conditions(cat,
                                     condition=None,
                                     injury_name=None,
+                                    illness_name=None,
                                     scar=None,
                                     born_with=False):
         """
@@ -414,6 +468,25 @@ class Condition_Events():
         perm_condition = None
         possible_conditions = []
 
+        if illness_name is not None:
+            if scar is not None and scar in scar_to_condition:
+                possible_conditions = scar_to_condition.get(scar)
+                perm_condition = random.choice(possible_conditions)
+            elif scar is None:
+                try:
+                    if Condition_Events.ILLNESSES[illness_name] is not None:
+                        conditions = Condition_Events.ILLNESSES[illness_name]["cause_permanent"]
+                        for x in conditions:
+                            if x in scarless_conditions:
+                                possible_conditions.append(x)
+                        if len(possible_conditions) > 0 and not int(random.random() * game.config["condition_related"]["permanent_condition_chance"]):
+                            perm_condition = random.choice(possible_conditions)
+                        else:
+                            return perm_condition
+                except KeyError:
+                    print(f"WARNING: {illness_name} couldn't be found in illness dict! no permanent condition was given")
+                    return perm_condition
+
         if injury_name is not None:
             if scar is not None and scar in scar_to_condition:
                 possible_conditions = scar_to_condition.get(scar)
@@ -449,8 +522,69 @@ class Condition_Events():
     # ---------------------------------------------------------------------------- #
 
     @staticmethod
+    def handle_infection_risks(cat):
+        inftype = game.clan.infection["infection_type"]
+        spreadby = game.clan.infection["spread_by"]
+        possible_risks = []
+
+        # this sucks
+        possible_risks.extend(["sore", "scrapes"])
+
+        if inftype == "fungal":
+            possible_risks.append("poisoned")
+        elif inftype == "parasitic":
+            possible_risks.append("blood loss")
+        elif inftype == "void":
+            possible_risks.append("shivering")
+
+        if f"{inftype} stage one" in cat.illnesses:
+            if inftype == "fungal":
+                possible_risks.append("fleas")
+
+        elif f"{inftype} stage two" in cat.illnesses:
+            pass
+
+        elif f"{inftype} stage three" in cat.illnesses:
+            if inftype == "parasitic":
+                possible_risks.append("lost their tail")
+            elif inftype == "void":
+                possible_risks.extend(["partial hearing loss", "failing eyesight", "one bad eye"])
+
+        elif f"{inftype} stage four" in cat.illnesses:
+            if inftype == "parasitic":
+                possible_risks.extend(["lost their tail", "lost their leg"])
+            elif inftype == "void":
+                possible_risks.extend(["partial hearing loss", "partial hearing loss", "deaf", "failing eyesight", "failing eyesight", "one bad eye", "blind"])
+
+        risk = random.choice(possible_risks)
+        print(cat.name, "getting", risk)
+
+        if risk in cat.illnesses:
+            print("They already had it!!")
+            return
+
+        if risk in Condition_Events.ILLNESSES:
+            cat.get_ill(risk)
+        elif risk in Condition_Events.INJURIES:
+            cat.get_injured(risk)
+        elif risk in Condition_Events.PERMANENT:
+            cat.get_permanent_condition(new_condition_name, event_triggered=event_triggered)
+        else:
+            print("WARNING: Infection risk not in any dicts.")
+            return
+        
+        possible_string_list = Condition_Events.INFECTION_RISK_STRINGS[risk]
+        
+        # choose event string
+        random_index = int(random.random() * len(possible_string_list))
+        event = possible_string_list[random_index]
+        event = event_text_adjust(Cat, event, cat, other_cat=None)  # adjust the text
+        game.cur_events_list.append(Single_Event(event, ["health", "infection"], cat.ID))
+
+    @staticmethod
     def handle_already_ill(cat):
 
+        inftype = game.clan.infection["infection_type"]
         starting_life_count = game.clan.leader_lives
         cat.healed_condition = False
         event_list = []
@@ -464,9 +598,9 @@ class Condition_Events():
             "heat exhaustion": "heat stroke",
             "stomachache": "diarrhea",
             "grief stricken": "lasting grief",
-            "stage one": "stage two",
-            "stage two": "stage three",
-            "stage three": "stage four"
+            f"{inftype} stage one": f"{inftype} stage two",
+            f"{inftype} stage two": f"{inftype} stage three",
+            f"{inftype} stage three": f"{inftype} stage four"
         }
         # ---------------------------------------------------------------------------- #
         #                         handle currently sick cats                           #
@@ -490,7 +624,7 @@ class Condition_Events():
 
             # death event text and break bc any other illnesses no longer matter
             if cat.dead and cat.status != 'leader':
-                if illness not in ["stage one", "stage two", "stage three", "stage four"]:
+                if illness not in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]:
                     event = f"{cat.name} died of {illness}."
                 else:
                     event = f"{cat.name} was killed by the infection."
@@ -503,7 +637,7 @@ class Condition_Events():
 
             # if the leader died, then break before handling other illnesses cus they'll be fully healed or dead dead
             elif cat.status == 'leader' and starting_life_count != game.clan.leader_lives:
-                if illness not in ["stage one", "stage two", "stage three", "stage four"]:
+                if illness not in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]:
                     History.add_death(cat, f"died to {illness}")
                 else:
                     History.add_death(cat, "died to the infection") 
@@ -631,7 +765,7 @@ class Condition_Events():
                 cat.healed_condition = False
 
                 # try to give a permanent condition based on healed injury and new scar if any
-                condition_got = Condition_Events.handle_permanent_conditions(cat, injury_name=injury, scar=scar_given)
+                condition_got = Condition_Events.handle_permanent_conditions(cat, injury_name=injury, illness_name=None, scar=scar_given)
 
                 if condition_got is not None:
                     # gather potential event strings for gotten condition
@@ -915,6 +1049,8 @@ class Condition_Events():
 
                     # if it is a progressive condition, then remove the old condition and keep the new one
                     if condition in progression and new_condition_name == progression.get(condition):
+                        if cat.infected_for > 0:
+                            print(cat.name, "'s infection hwill progress to", new_condition_name)
                         removed_condition = True
                         dictionary.pop(condition)
 
@@ -930,7 +1066,11 @@ class Condition_Events():
                         med_cat = random.choice(med_list)
                         if med_cat == cat:
                             random_index = 1
-                    event = possible_string_list[random_index]
+                    try:
+                        event = possible_string_list[random_index]
+                    except:
+                        print(random_index, "random index out of range. infection bug i think")
+                        return
                 except KeyError:
                     print(f"WARNING: {condition} couldn't be found in the risk strings! placeholder string was used")
                     event = "m_c's condition has gotten worse."

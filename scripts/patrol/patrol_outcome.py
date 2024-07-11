@@ -672,6 +672,7 @@ class PatrolOutcome():
             return ""
         
         results = []
+        inftype = game.clan.infection["infection_type"]
         condition_lists = {
             "battle_injury": ["claw-wound", "mangled leg", "mangled tail", "torn pelt", "cat bite"],
             "minor_injury": ["sprain", "sore", "bruises", "scrapes"],
@@ -682,7 +683,11 @@ class PatrolOutcome():
             "small_bite_injury": ["bite-wound", "torn ear", "torn pelt", "scrapes"],
             "beak_bite": ["beak bite", "torn ear", "scrapes"],
             "rat_bite": ["rat bite", "torn ear", "torn pelt"],
-            "sickness": ["greencough", "redcough", "whitecough", "yellowcough"]
+            "sickness": ["greencough", "redcough", "whitecough", "yellowcough"],
+            "stage one": [f"{inftype} stage one"],
+            "stage two": [f"{inftype} stage two"],
+            "stage three": [f"{inftype} stage three"],
+            "stage four": [f"{inftype} stage four"]
         }
         
         for block in self.injury:

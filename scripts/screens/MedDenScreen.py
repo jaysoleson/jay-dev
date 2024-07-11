@@ -277,8 +277,9 @@ class MedDenScreen(Screens):
                             if cat not in self.minor_cats:
                                 self.minor_cats.append(cat)
                 if cat.illnesses:
+                    inftype = game.clan.infection["infection_type"]
                     for illness in cat.illnesses:
-                        if cat.illnesses[illness]["severity"] != 'minor' and illness not in ['grief stricken', 'stage one', 'stage two', 'stage three', 'stage four'] and not cat.quarantined:
+                        if cat.illnesses[illness]["severity"] != 'minor' and illness not in ['grief stricken', f'{inftype} stage one', f'{inftype} stage two', f'{inftype} stage three', f'{inftype} stage four'] and not cat.quarantined:
                             if cat not in self.in_den_cats:
                                 self.in_den_cats.append(cat)
                             if cat in self.out_den_cats:
@@ -293,12 +294,12 @@ class MedDenScreen(Screens):
                             if cat in self.minor_cats:
                                 self.minor_cats.remove(cat)
                             break
-                        elif illness in ['stage one', 'stage two', 'stage three', 'stage four']:
+                        elif illness in [f'{inftype} stage one', f'{inftype} stage two', f'{inftype} stage three', f'{inftype} stage four']:
                             if cat not in self.infected_cats:
                                 if cat not in self.infected_cats:
                                     self.infected_cats.append(cat)
-                            if cat in self.minor_cats:
-                                self.minor_cats.remove(cat)
+                            if cat in self.in_den_cats:
+                                self.in_den_cats.remove(cat)
                             break
                         else:
                             if cat not in self.in_den_cats and cat not in self.out_den_cats and cat not in self.minor_cats:
@@ -546,6 +547,21 @@ class MedDenScreen(Screens):
                 for condition in cat.permanent_condition:
                     if cat.permanent_condition[condition]["moons_until"] == -2:
                         condition_list.extend(cat.permanent_condition.keys())
+
+            inftype = game.clan.infection["infection_type"]
+
+            # changing tooltip display to just say stages instead of type
+            for idx, condition in enumerate(condition_list):
+                if condition == f"{inftype} stage one":
+                    condition_list[idx] = "stage one infection"
+                if condition == f"{inftype} stage two":
+                    condition_list[idx] = "stage two infection"
+                if condition == f"{inftype} stage three":
+                    condition_list[idx] = "stage three infection"
+                if condition == f"{inftype} stage four":
+                    condition_list[idx] = "stage four infection"
+
+
             conditions = ",<br>".join(condition_list)
 
             self.cat_buttons["able_cat" + str(i)] = UISpriteButton(scale(pygame.Rect

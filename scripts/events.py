@@ -116,6 +116,8 @@ class Events:
 
         # age up the clan, set current season
         game.clan.age += 1
+        if game.clan.infection["clan_infected"]:
+            game.clan.infection["infection_moons"] += 1
         get_current_season()
         Pregnancy_Events.handle_pregnancy_age(game.clan)
         self.check_war()
@@ -1732,12 +1734,29 @@ class Events:
             event_list = []
             meds_available = get_med_cats(Cat)
             for med in meds_available:
-                if game.clan.current_season in ['Newleaf', 'Greenleaf']:
-                    amount = random.choices([0, 1, 2, 3], [1, 2, 2, 2], k=1)
-                elif game.clan.current_season == 'Leaf-fall':
-                    amount = random.choices([0, 1, 2], [3, 2, 1], k=1)
-                else:
+                if game.clan.infection["infection_moons"] >= 40 and game.clan.infection["infection_type"] == "fungal":
+                    # da fungus kills da herbs.......
                     amount = random.choices([0, 1], [3, 1], k=1)
+                    if "herb_death" not in game.clan.infection["logs"]:
+                        game.clan.infection["logs"].append("herb_death")
+
+                        herb = random.choice(HERBS)
+                        counter = 0
+                        while herb in ["cobwebs", "moss"]:
+                            counter += 1
+                            if counter == 30:
+                                herb = "catmint"
+                        
+                        text = f"On a run out of camp for some herbs, the medicine cats discover that a potent patch of fungus has destroyed their {herb} supply. It won't be long before this starts affecting the rest of the herbs in the territory. \nYour log has been updated."
+                        game.cur_events_list.insert(0, Single_Event(text, ["alert", "infection"]))
+
+                else:
+                    if game.clan.current_season in ['Newleaf', 'Greenleaf']:
+                        amount = random.choices([0, 1, 2, 3], [1, 2, 2, 2], k=1)
+                    elif game.clan.current_season == 'Leaf-fall':
+                        amount = random.choices([0, 1, 2], [3, 2, 1], k=1)
+                    else:
+                        amount = random.choices([0, 1], [3, 1], k=1)
                 if amount[0] != 0:
                     herbs_found = random.sample(HERBS, k=amount[0])
                     herb_display = []
@@ -2380,6 +2399,9 @@ class Events:
         cat.one_moon()
         cat.manage_outside_trait()
         self.handle_outside_EX(cat)
+
+        if cat.infected_for > 0:
+            cat.infected_for += 1
             
         cat.skills.progress_skill(cat)
         Pregnancy_Events.handle_having_kits(cat, clan=game.clan)
@@ -2402,19 +2424,19 @@ class Events:
         -if the cat was not injured or ill, then they will do all of the above *and* trigger misc events, acc events,
         and new cat events
         """
+        inftype = game.clan.infection["infection_type"]
 
-        stages = ["stage one", "stage two", "stage three", "stage four"]
+        stages = [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]
 
         for stage in stages:
-
-            if stage in cat.illnesses and cat.infected_for == 0:
-                cat.infected_for = 1
-
-            elif stage in cat.illnesses and cat.infected_for > 0:
+            if stage in cat.illnesses:
                 cat.infected_for += 1
         
-        if not any(t in cat.illnesses for t in ["stage one", "stage two", "stage three", "stage four"]) and cat.infected_for > 0:
-            cat.infected_for = 0
+        if not any(t in cat.illnesses for t in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]) and cat.infected_for > 0:
+            if cat.infected_for > 0:
+                print("removing infection from", cat.name)
+                print(cat.illnesses)
+                cat.infected_for = 0
         
         if cat.infected_for > 0 and cat.cure_progress > 0:
             cat.cure_progress += 1
@@ -2436,23 +2458,21 @@ class Events:
                                 game.clan.infection["logs"].append("partial_cure")
                             else:
                                 addon = ""
-                            if stage == "stage two":
-                                cat.illnesses.pop("stage two")
-                                cat.get_ill("stage one")
-                                new_stage = "stage one"
-                            elif stage == "stage three":
-                                cat.illnesses.pop("stage three")
-                                cat.get_ill("stage two")
-                                new_stage = "stage two"
-                            elif stage == "stage four":
-                                cat.illnesses.pop("stage four")
-                                cat.get_ill("stage three")
-                                new_stage = "stage three"
+                            if stage == f"{inftype} stage two":
+                                cat.illnesses.pop(f"{inftype} stage two")
+                                cat.get_ill(f"{inftype} stage one")
+                                new_stage = f"{inftype} stage one"
+                            elif stage == f"{inftype} stage three":
+                                cat.illnesses.pop(f"{inftype} stage three")
+                                cat.get_ill(f"{inftype} stage two")
+                                new_stage = f"{inftype} stage two"
+                            elif stage == f"{inftype} stage four":
+                                cat.illnesses.pop(f"{inftype} stage four")
+                                cat.get_ill(f"{inftype} stage three")
+                                new_stage = f"{inftype} stage three"
 
                         event = f"Thanks to recieving treatment, {cat.name}'s infection has remissed from {old_stage} to {new_stage}!{addon}"
-                        game.cur_events_list.insert(0, Single_Event(event, "health", involved_cats))
-
-                
+                        game.cur_events_list.insert(0, Single_Event(event, ["health", "infection"], involved_cats))
 
         if cat.dead:
             
@@ -2530,6 +2550,11 @@ class Events:
                 Condition_Events.handle_illnesses(cat)
             else:
                 Condition_Events.handle_injuries(cat)
+
+            if cat.infected_for > 0:
+                risk = int(random.random() * 40) - cat.infected_for / 2
+            if cat.infected_for > 0 and not risk:
+                Condition_Events.handle_infection_risks(cat)
             game.switches['skip_conditions'].clear()
             if cat.dead:
                 return
@@ -3965,17 +3990,18 @@ class Events:
         meds = get_med_cats(Cat)
         quarantined_cats = [i for i in Cat.all_cats_list if i.quarantined]
 
+        inftype = game.clan.infection["infection_type"]
         for illness in cat.illnesses:
             # outbreaks wont happen if the infection isnt airborne
             # maybe change this to just be less likely?
-            if illness in ["stage one", "stage two", "stage three", "stage four"] and game.clan.infection["spread_by"] == "bite":
+            if illness in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"] and game.clan.infection["spread_by"] == "bite":
                 continue
             # check if illness can infect other cats
             if cat.illnesses[illness]["infectiousness"] == 0:
                 continue
             chance = cat.illnesses[illness]["infectiousness"]
             chance += len(meds) * 7
-            if illness in ["stage one", "stage two", "stage three", "stage four"]:
+            if illness in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]:
                 chance += len(quarantined_cats) * 5
                 # quarantining cats slows the infection!
             if not int(random.random() * chance):  # 1/chance to infect
@@ -3999,7 +4025,7 @@ class Events:
                              not kitty.outside), Cat.all_cats.values()))
                     alive_count = len(alive_cats)
 
-                if illness not in ["stage one", "stage two", "stage three", "stage four"]:
+                if illness not in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]:
                     max_infected = int(alive_count / 2)  # 1/2 of alive cats
                 max_infected = int(alive_count / 3)  # a bit less bc they can get it in other ways tooo ill be niiiceeee
 
@@ -4027,9 +4053,9 @@ class Events:
                 for sick_meowmeow in infected_cats:
                     infected_names.append(str(sick_meowmeow.name))
                     involved_cats.append(sick_meowmeow.ID)
-                    if illness in ["stage two", "stage three", "stage four"]:
+                    if illness in [f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]:
                         sick_meowmeow.get_ill(
-                            "stage one", event_triggered=True)
+                            f"{inftype} stage one", event_triggered=True)
                     else:
                         sick_meowmeow.get_ill(
                             illness, event_triggered=True)  # SPREAD THE GERMS >:)
@@ -4043,17 +4069,24 @@ class Events:
                     event = f'Fleas have been hopping from pelt to pelt and now ' \
                             f'{", ".join(infected_names[:-1])}, ' \
                             f'and {infected_names[-1]} are all infested.'
-                elif illness in ["stage one", "stage two", "stage three", "stage four"]:
+                elif illness in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]:
                     event = f'The infection is hard to contain. ' \
                             f'{", ".join(infected_names[:-1])}, and ' \
                             f'{infected_names[-1]} have become ill.'
+                    if "spread_by_air" not in game.clan.infection["logs"]:
+                        game.clan.infection["logs"].append("spread_by_air")
+                        event += "\nYour log has been updated."
                 else:
                     event = f'{illness_name} has spread around the camp. ' \
                             f'{", ".join(infected_names[:-1])}, and ' \
                             f'{infected_names[-1]} have been infected.'
 
-                game.cur_events_list.append(
-                    Single_Event(event, "health", involved_cats))
+                if illness in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]:
+                    game.cur_events_list.append(
+                        Single_Event(event, ["health", "infection"], involved_cats))
+                else:
+                    game.cur_events_list.append(
+                        Single_Event(event, "health", involved_cats))
                 # game.health_events_list.append(event)
                 break
     

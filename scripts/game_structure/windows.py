@@ -580,8 +580,11 @@ class KillCat(UIWindow):
 
             self.prompt = process_text(
                 'This cat died when {PRONOUN/m_c/subject}...', cat_dict)
-            self.initial = process_text(
-                '{VERB/m_c/were/was} killed by a higher power.', cat_dict)
+            
+            if self.the_cat.infected_for > 0:
+                self.initial = process_text('{VERB/m_c/were/was} killed by the Clan to prevent the spread of the infection', cat_dict)
+            else: 
+                self.initial = process_text('{VERB/m_c/were/was} killed by a higher power.', cat_dict)
 
             self.all_lives_check.hide()
             self.life_text = pygame_gui.elements.UITextBox('Take all the leader\'s lives',
@@ -631,7 +634,10 @@ class KillCat(UIWindow):
                                              manager=MANAGER,
                                              container=self)
         else:
-            self.initial = 'This cat was killed by a higher power.'
+            if self.the_cat.infected_for > 0:
+                self.initial = 'This cat was killed by the Clan to prevent the spread of the infection.'
+            else:
+                self.initial = 'This cat was killed by a higher power.'
             self.prompt = None
             self.all_lives_check.hide()
             self.one_life_check.hide()

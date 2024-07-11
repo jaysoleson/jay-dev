@@ -477,6 +477,11 @@ class TalkScreen(Screens):
         ]
         skill_list = ['teacher', 'hunter', 'fighter', 'runner', 'climber', 'swimmer', 'speaker', 'mediator1', 'clever', 'insightful', 'sense', 'kit', 'story', 'lore', 'camp', 'healer', 'star', 'omen', 'dream', 'clairvoyant', 'prophet', 'ghost', 'explorer', 'tracker', 'artistan', 'guardian', 'tunneler', 'navigator', 'song', 'grace', 'clean', 'innovator', 'comforter', 'matchmaker', 'thinker', 'cooperative', 'scholar', 'time', 'treasure', 'fisher', 'language', 'sleeper']
         you_skill_list = ['you_teacher', 'you_hunter', 'you_fighter', 'you_runner', 'you_climber', 'you_swimmer', 'you_speaker', 'you_mediator1', 'you_clever', 'you_insightful', 'you_sense', 'you_kit', 'you_story', 'you_lore', 'you_camp', 'you_healer', 'you_star', 'you_omen', 'you_dream', 'you_clairvoyant', 'you_prophet', 'you_ghost', 'you_explorer', 'you_tracker', 'you_artistan', 'you_guardian', 'you_tunneler', 'you_navigator', 'you_song', 'you_grace', 'you_clean', 'you_innovator', 'you_comforter', 'you_matchmaker', 'you_thinker', 'you_cooperative', 'you_scholar', 'you_time', 'you_treasure', 'you_fisher', 'you_language', 'you_sleeper']
+
+        inftype = game.clan.infection["infection_type"]
+
+        stages = [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]
+
         for talk_key, talk in possible_texts.items():
             tags = talk["tags"] if "tags" in talk else talk[0]
             for i in range(len(tags)):
@@ -500,6 +505,33 @@ class TalkScreen(Screens):
             if "they_infected" in tags and cat.infected_for == 0:
                 continue
             elif "they_not_infected" in tags and cat.infected_for > 0:
+                continue
+
+            nope = False
+            for stage in stages:
+                stage_tag = stage.replace(' ', '_')
+                if f"they_{stage_tag}" in tags:
+                    if stage not in cat.illnesses:
+                        nope = True
+                        break
+                elif f"you_{stage_tag}" in tags:
+                    if stage not in you.illnesses:
+                        nope = True
+                        break
+            
+            if nope is True:
+                continue
+
+            logs = game.clan.infection["logs"]
+            if "spread_by_air" in tags and game.clan.infection["spread_by"] != "air" and "spread_by_air" not in logs:
+                continue
+            elif "spread_by_bite" in tags and game.clan.infection["spread_by"] != "bite" and "spread_by_bite" not in logs:
+                continue
+
+            if "spread_by_unknown" in tags and "spread_by_bite" in logs or "spread_by_air" in logs:
+                continue
+
+            if "discovered" in tags and "discovered" not in logs:
                 continue
 
             if you.moons == 0 and "newborn" not in tags:
@@ -1405,8 +1437,18 @@ class TalkScreen(Screens):
             weight = 1
             if any(tag in weighted_tags for tag in tags):
                 weight += 3
-            if "focus" in tags or "connected" in tags or "infection" in tags:
+            if "focus" in tags or "connected" in tags:
                 weight += 8
+            if "they_infected" in tags or "you_infected" in tags:
+                inftype = game.clan.infection["infection_type"]
+                if f"{inftype} stage one" in cat.illnesses:
+                    weight += 15
+                elif f"{inftype} stage two" in cat.illnesses:
+                    weight += 22
+                elif f"{inftype} stage three" in cat.illnesses:
+                    weight += 29
+                elif f"{inftype} stage four" in cat.illnesses:
+                    weight += 36
             weights.append(weight)
 
         # Check for debug mode

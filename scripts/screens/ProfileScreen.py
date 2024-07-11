@@ -434,7 +434,7 @@ class ProfileScreen(Screens):
                 self.change_screen('ceremony screen')
             elif "talk" in self.profile_elements and \
                     event.ui_element == self.profile_elements["talk"]:
-                self.the_cat.talked_to = True
+                # self.the_cat.talked_to = True
                 if not self.the_cat.dead and not game.clan.your_cat.dead and game.clan.your_cat.ID in self.the_cat.relationships and self.the_cat.ID in game.clan.your_cat.relationships and game.clan.your_cat.shunned == 0:
                     self.the_cat.relationships[game.clan.your_cat.ID].platonic_like += randint(0,5)
                     game.clan.your_cat.relationships[self.the_cat.ID].platonic_like += randint(0,5)
@@ -1353,9 +1353,6 @@ class ProfileScreen(Screens):
         else:
             self.exile_return_button.hide()
 
-        # if self.the_cat.shunned == 0 and self.the_cat.revealed > 0 and not self.the_cat.outside and not self.the_cat.exiled:
-        #     print("This cat has been forgiven for murder.")
-
     def determine_previous_and_next_cat(self):
         """'Determines where the next and previous buttons point too."""
 
@@ -1721,6 +1718,7 @@ class ProfileScreen(Screens):
                 output += "\n"
                 break
 
+        inftype = game.clan.infection["infection_type"]
         if the_cat.is_injured():
             if "recovering from birth" in the_cat.injuries:
                 output += 'recovering from birth!'
@@ -1735,7 +1733,7 @@ class ProfileScreen(Screens):
                 output += 'grieving!'
             elif "fleas" in the_cat.illnesses:
                 output += 'flea-ridden!'
-            elif "stage one" in the_cat.illnesses or "stage two" in the_cat.illnesses or "stage three" in the_cat.illnesses or "stage four" in the_cat.illnesses: #im too lazy to compact this Sue me
+            elif f"{inftype} stage one" in the_cat.illnesses or f"{inftype} stage two" in the_cat.illnesses or f"{inftype} stage three" in the_cat.illnesses or f"{inftype} stage four" in the_cat.illnesses: #im too lazy to compact this Sue me
                 output += "<font color='#FF0000'>infected</font>"
             else:
                 output += 'sick!'
@@ -2363,6 +2361,8 @@ class ProfileScreen(Screens):
         self.condition_container = pygame_gui.core.UIContainer(
             scale(pygame.Rect((178, 942), (1248, 302))),
             MANAGER)
+        
+        inftype = game.clan.infection["infection_type"]
 
         # gather a list of all the conditions and info needed.
         all_illness_injuries = [(i, self.get_condition_details(i)) for i in self.the_cat.permanent_condition if
@@ -2370,7 +2370,7 @@ class ProfileScreen(Screens):
                                      self.the_cat.permanent_condition[i]["moons_until"] != -2)]
         all_illness_injuries.extend([(i, self.get_condition_details(i)) for i in self.the_cat.injuries])
         all_illness_injuries.extend([(i, self.get_condition_details(i)) for i in self.the_cat.illnesses if
-                                     i not in ("an infected wound", "a festering wound")])
+                                     i not in ("an infected wound", "a festering wound", f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four")])
         all_illness_injuries = chunks(all_illness_injuries, 4)
 
         if not all_illness_injuries:
@@ -3045,12 +3045,14 @@ class ProfileScreen(Screens):
                 starting_height=2, manager=MANAGER
                 )
 
+            inftype = game.clan.infection["infection_type"]
             infected = False
-            stages = ["stage one", "stage two", "stage three", "stage four"]
+            stages = [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]
             for stage in stages:
                 if stage in self.the_cat.illnesses:
                     infected = True
-                    
+
+            quar_cats = [cat for cat in Cat.all_cats_list if cat.quarantined]
             if infected:
                 if self.the_cat.quarantined:
                     self.remove_quarantine_button.show()
@@ -3065,6 +3067,11 @@ class ProfileScreen(Screens):
                 else:
                     self.remove_quarantine_button.hide()
                     self.quarantine_button.hide()
+
+            if len(quar_cats) >= 10:
+                self.quarantine_button.disable()
+            else:
+                self.quarantine_button.enable()
 
             if not self.the_cat.dead:
                 self.exile_cat_button = UIImageButton(

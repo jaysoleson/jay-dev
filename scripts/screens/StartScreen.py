@@ -46,7 +46,8 @@ class StartScreen(Screens):
     def __init__(self, name=None):
         super().__init__(name)
         self.warning_label = None
-        bg = self.choose_random_menu("resources/menus")
+        # bg = self.choose_random_menu("resources/menus")
+        bg = "resources/menus/INFECTION_title.png"
         self.bg = pygame.image.load(bg).convert()
         self.bg = pygame.transform.scale(self.bg, (screen_x, screen_y))
         self.social_buttons = {}
@@ -304,10 +305,10 @@ class StartScreen(Screens):
                 with open(f"{get_cache_dir()}/changelog_popup_shown", 'w') as write_file:
                     write_file.write(get_version_info().version_number)
         self.warning_label_background = UIImageButton(scale(pygame.Rect((100, 1244), (1400, 55))), "", object_id="blank_button", manager=MANAGER)
-        self.warning_label_background.disable()
+        self.warning_label_background.hide()
         self.warning_label = pygame_gui.elements.UITextBox(
-            "Warning: this game includes descriptions of gore, violence, murder, kit death, and animal abuse",
-            scale(pygame.Rect((100, 1244), (1400, 60))),
+            "Warning: this game includes descriptions of gore, violence, murder, kit death, and animal abuse.",
+            scale(pygame.Rect((100, 35), (1400, 60))),
             object_id="#default_dark",
             manager=MANAGER)
 

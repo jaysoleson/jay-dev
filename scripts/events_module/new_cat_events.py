@@ -303,7 +303,9 @@ class NewCatEvents:
 
     @staticmethod
     def select_outside_cat():
-        outside_cats = [i for i in Cat.all_cats.values() if i.status in ["kittypet", "loner", "rogue", "former Clancat"] and not i.dead and i.outside]
+        outside_cats = [i for i in Cat.all_cats.values() if i.status in ["kittypet", "loner", "rogue", "former Clancat"] and not i.dead and i.outside and i.infected_for == 0]
+        # infected cats cant randomly join the clan, that would be mean.
+        # the player can chase them down with the leaders den for treatment if they want
         if outside_cats:
             return random.choice(outside_cats)
         else:

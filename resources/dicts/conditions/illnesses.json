@@ -671,16 +671,16 @@
             "poppy"
         ]
     },
-    "stage one": {
+    "fungal stage one": {
         "severity": "minor",
         "mortality": {
-            "newborn": 15,
-            "kitten": 15,
-            "adolescent": 30,
-            "young adult": 35,
-            "adult": 40,
-            "senior adult": 40,
-            "senior": 35
+            "newborn": 200,
+            "kitten": 200,
+            "adolescent": 200,
+            "young adult": 200,
+            "adult": 200,
+            "senior adult": 200,
+            "senior": 200
         },
         "medicine_mortality": {
             "newborn": 0,
@@ -693,26 +693,29 @@
         },
         "duration": 50,
         "medicine_duration": 10,
-        "infectiousness": 10,
+        "infectiousness": 80,
         "risks": [
             {
                 "name": "stage two",
                 "chance": 5
             }
         ],
+        "cause_permanent": [
+            "raspy lungs"
+        ],
         "herbs": [
         ]
     },
-    "stage two": {
+    "fungal stage two": {
         "severity": "minor",
         "mortality": {
-            "newborn": 10,
-            "kitten": 10,
-            "adolescent": 15,
-            "young adult": 20,
-            "adult": 25,
-            "senior adult": 25,
-            "senior": 20
+            "newborn": 200,
+            "kitten": 200,
+            "adolescent": 200,
+            "young adult": 200,
+            "adult": 200,
+            "senior adult": 200,
+            "senior": 200
         },
         "medicine_mortality": {
             "newborn": 0,
@@ -725,7 +728,7 @@
         },
         "duration": 50,
         "medicine_duration": 10,
-        "infectiousness": 10,
+        "infectiousness": 80,
         "risks": [
             {
                 "name": "stage three",
@@ -735,16 +738,16 @@
         "herbs": [
         ]
     },
-    "stage three": {
+    "fungal stage three": {
         "severity": "minor",
         "mortality": {
-            "newborn": 10,
-            "kitten": 13,
-            "adolescent": 16,
-            "young adult": 16,
-            "adult": 18,
-            "senior adult": 18,
-            "senior": 1
+            "newborn": 200,
+            "kitten": 200,
+            "adolescent": 200,
+            "young adult": 200,
+            "adult": 200,
+            "senior adult": 200,
+            "senior": 200
         },
         "medicine_mortality": {
             "newborn": 7,
@@ -757,7 +760,7 @@
         },
         "duration": 50,
         "medicine_duration": 10,
-        "infectiousness": 10,
+        "infectiousness": 80,
         "risks": [
             {
                 "name": "stage four",
@@ -767,16 +770,16 @@
         "herbs": [
         ]
     },
-    "stage four": {
+    "fungal stage four": {
         "severity": "minor",
         "mortality": {
-            "newborn": 3,
-            "kitten": 3,
-            "adolescent": 4,
-            "young adult": 5,
-            "adult": 5,
-            "senior adult": 5,
-            "senior": 4
+            "newborn": 200,
+            "kitten": 200,
+            "adolescent": 200,
+            "young adult": 200,
+            "adult": 200,
+            "senior adult": 200,
+            "senior": 200
         },
         "medicine_mortality": {
             "newborn": 7,
@@ -789,7 +792,255 @@
         },
         "duration": 80,
         "medicine_duration": 10,
-        "infectiousness": 5,
+        "infectiousness": 80,
+        "risks": [
+        ],
+        "herbs": [
+        ]
+    },
+    "parasitic stage one": {
+        "severity": "minor",
+        "mortality": {
+            "newborn": 200,
+            "kitten": 200,
+            "adolescent": 200,
+            "young adult": 200,
+            "adult": 200,
+            "senior adult": 200,
+            "senior": 200
+        },
+        "medicine_mortality": {
+            "newborn": 0,
+            "kitten": 0,
+            "adolescent": 0,
+            "young adult": 0,
+            "adult": 0,
+            "senior adult": 0,
+            "senior": 0
+        },
+        "duration": 50,
+        "medicine_duration": 10,
+        "infectiousness": 80,
+        "risks": [
+            {
+                "name": "stage two",
+                "chance": 5
+            }
+        ],
+        "herbs": [
+        ]
+    },
+    "parasitic stage two": {
+        "severity": "minor",
+        "mortality": {
+            "newborn": 200,
+            "kitten": 200,
+            "adolescent": 200,
+            "young adult": 200,
+            "adult": 200,
+            "senior adult": 200,
+            "senior": 200
+        },
+        "medicine_mortality": {
+            "newborn": 0,
+            "kitten": 0,
+            "adolescent": 0,
+            "young adult": 0,
+            "adult": 0,
+            "senior adult": 0,
+            "senior": 0
+        },
+        "duration": 50,
+        "medicine_duration": 10,
+        "infectiousness": 80,
+        "risks": [
+            {
+                "name": "stage three",
+                "chance": 10
+            }
+        ],
+        "herbs": [
+        ]
+    },
+    "parasitic stage three": {
+        "severity": "minor",
+        "mortality": {
+            "newborn": 200,
+            "kitten": 200,
+            "adolescent": 200,
+            "young adult": 200,
+            "adult": 200,
+            "senior adult": 200,
+            "senior": 200
+        },
+        "medicine_mortality": {
+            "newborn": 7,
+            "kitten": 7,
+            "adolescent": 12,
+            "young adult": 20,
+            "adult": 25,
+            "senior adult": 20,
+            "senior": 7
+        },
+        "duration": 50,
+        "medicine_duration": 10,
+        "infectiousness": 80,
+        "risks": [
+            {
+                "name": "stage four",
+                "chance": 6
+            }
+        ],
+        "herbs": [
+        ]
+    },
+    "parasitic stage four": {
+        "severity": "minor",
+        "mortality": {
+            "newborn": 200,
+            "kitten": 200,
+            "adolescent": 200,
+            "young adult": 200,
+            "adult": 200,
+            "senior adult": 200,
+            "senior": 200
+        },
+        "medicine_mortality": {
+            "newborn": 7,
+            "kitten": 7,
+            "adolescent": 12,
+            "young adult": 20,
+            "adult": 25,
+            "senior adult": 20,
+            "senior": 7
+        },
+        "duration": 80,
+        "medicine_duration": 10,
+        "infectiousness": 80,
+        "risks": [
+        ],
+        "herbs": [
+        ]
+    },
+    "void stage one": {
+        "severity": "minor",
+        "mortality": {
+            "newborn": 200,
+            "kitten": 200,
+            "adolescent": 200,
+            "young adult": 200,
+            "adult": 200,
+            "senior adult": 200,
+            "senior": 200
+        },
+        "medicine_mortality": {
+            "newborn": 0,
+            "kitten": 0,
+            "adolescent": 0,
+            "young adult": 0,
+            "adult": 0,
+            "senior adult": 0,
+            "senior": 0
+        },
+        "duration": 50,
+        "medicine_duration": 10,
+        "infectiousness": 80,
+        "risks": [
+            {
+                "name": "stage two",
+                "chance": 5
+            }
+        ],
+        "herbs": [
+        ]
+    },
+    "void stage two": {
+        "severity": "minor",
+        "mortality": {
+            "newborn": 200,
+            "kitten": 200,
+            "adolescent": 200,
+            "young adult": 200,
+            "adult": 200,
+            "senior adult": 200,
+            "senior": 200
+        },
+        "medicine_mortality": {
+            "newborn": 0,
+            "kitten": 0,
+            "adolescent": 0,
+            "young adult": 0,
+            "adult": 0,
+            "senior adult": 0,
+            "senior": 0
+        },
+        "duration": 50,
+        "medicine_duration": 10,
+        "infectiousness": 80,
+        "risks": [
+            {
+                "name": "stage three",
+                "chance": 10
+            }
+        ],
+        "herbs": [
+        ]
+    },
+    "void stage three": {
+        "severity": "minor",
+        "mortality": {
+            "newborn": 200,
+            "kitten": 200,
+            "adolescent": 200,
+            "young adult": 200,
+            "adult": 200,
+            "senior adult": 200,
+            "senior": 200
+        },
+        "medicine_mortality": {
+            "newborn": 7,
+            "kitten": 7,
+            "adolescent": 12,
+            "young adult": 20,
+            "adult": 25,
+            "senior adult": 20,
+            "senior": 7
+        },
+        "duration": 50,
+        "medicine_duration": 10,
+        "infectiousness": 80,
+        "risks": [
+            {
+                "name": "stage four",
+                "chance": 6
+            }
+        ],
+        "herbs": [
+        ]
+    },
+    "void stage four": {
+        "severity": "minor",
+        "mortality": {
+            "newborn": 200,
+            "kitten": 200,
+            "adolescent": 200,
+            "young adult": 200,
+            "adult": 200,
+            "senior adult": 200,
+            "senior": 200
+        },
+        "medicine_mortality": {
+            "newborn": 7,
+            "kitten": 7,
+            "adolescent": 12,
+            "young adult": 20,
+            "adult": 25,
+            "senior adult": 20,
+            "senior": 7
+        },
+        "duration": 80,
+        "medicine_duration": 10,
+        "infectiousness": 80,
         "risks": [
         ],
         "herbs": [

@@ -550,7 +550,6 @@ class Cat():
     def handle_exile_returns(self):
         """outside cats returnin"""
        
-            
         exiled_cats = [cat for cat in Cat.all_cats.values() if cat.exiled and not cat.dead]
         
         if len(exiled_cats) > 20:
@@ -563,8 +562,11 @@ class Cat():
             run = randint(1,20)
         
         if run == 2:
-
             exiled_cat = choice(exiled_cats)
+
+            if exiled_cat.infected_for > 0:
+                # i dont wanna come up w anything for this rn. infected cats u are NOT coming back
+                return
 
             event_text = f"The entire Clan is shocked when {exiled_cat.name} shows up at the camp entrance. They asked to be let back into the Clan, "
 
@@ -1735,14 +1737,23 @@ class Cat():
         moons_prior = game.config["focus"]["rest and recover"]["moons_earlier_healed"]
 
         if self.illnesses[illness]["duration"] - moons_with <= 0:
-            self.healed_condition = True
+            if self.infected_for > 0:
+                self.healed_condition = False
+                # thisll be here until i can actually fix the duration problem i guess
+                # for now, no naturally healing from infection!!!!
+            else:
+                if any( i in [f"{game.clan.infection['infection_type']} stage one", f"{game.clan.infection['infection_type']} stage two", f"{game.clan.infection['infection_type']} stage three", f"{game.clan.infection['infection_type']} stage four"] for i in self.illnesses):
+                    print(self.name, "is infected, but infected_for is zero?")
+                
+                self.healed_condition = True
             return False
 
         # CLAN FOCUS! - if the focus 'rest and recover' is selected
         elif game.clan.clan_settings.get("rest and recover") and\
             self.illnesses[illness]["duration"] + moons_prior - moons_with <= 0:
             # print(f"rest and recover - illness {illness} of {self.name} healed earlier")
-            self.healed_condition = True
+            if self.infected_for == 0:
+                self.healed_condition = True
             return False
 
     def moon_skip_injury(self, injury):
@@ -1776,14 +1787,14 @@ class Cat():
         moons_prior = game.config["focus"]["rest and recover"]["moons_earlier_healed"]
 
         # if the cat has an infected wound, the wound shouldn't heal till the illness is cured
-        if not self.injuries[injury]["complication"] and self.injuries[injury]["duration"] - moons_with <= 0:
+        if not self.injuries[injury]["complication"] and self.injuries[injury]["duration"] - moons_with <= 0 and self.infected_for == 0:
             self.healed_condition = True
             return False
 
         # CLAN FOCUS! - if the focus 'rest and recover' is selected
         elif not self.injuries[injury]["complication"] and \
             game.clan.clan_settings.get("rest and recover") and\
-            self.injuries[injury]["duration"] + moons_prior - moons_with <= 0:
+            self.injuries[injury]["duration"] + moons_prior - moons_with <= 0 and self.infected_for == 0:
             # print(f"rest and recover - injury {injury} of {self.name} healed earlier")
             self.healed_condition = True
             return False
@@ -2211,16 +2222,22 @@ class Cat():
         """
         wah wah wah
         """
-        cats = [i for i in Cat.all_cats_list if i.ID in self.relationships]
+        cats1 = [i for i in Cat.all_cats_list if i.ID in self.relationships and i.infected_for > 0 and not i.dead and not i.outside]
+        if cats1 != []:
+            kitty1 = choice(cats1)
+        else:
+            kitty1 = self
+            # this assigned the infecter to be the same as the infectee. then infection_spread will just return nothing
 
-        kitty = choice(cats)
-
-        self.infection_spread(kitty)
+        self.infection_spread(kitty1)
 
     def infection_spread(self, cat: Cat):
         """mweehehe"""
 
-        if not any(t in cat.illnesses for t in ["stage one", "stage two", "stage three", "stage four"]):
+        if cat.infected_for == 0:
+            return
+        
+        if self.infected_for > 0:
             return
 
         if self.ID == cat.ID:
@@ -2230,13 +2247,10 @@ class Cat():
         infectious_illnesses = []
         if cat.is_ill():
             for illness in cat.illnesses:
-                if illness in ["stage one", "stage two", "stage three", "stage four"]:
+                if illness in [f"{game.clan.infection['infection_type']} stage one", f"{game.clan.infection['infection_type']} stage two", f"{game.clan.infection['infection_type']} stage three", f"{game.clan.infection['infection_type']} stage four"]:
                     infectious_illnesses.append(illness)
             if len(infectious_illnesses) == 0:
                 return
-            if cat.quarantined and not self.quarantined:
-                if randint(1,3) != 1:
-                    return
             
         quarchance = 2
         # chances of random bites r reduced by half when the cat is quarantined
@@ -2258,23 +2272,27 @@ class Cat():
                             f"WARNING: injury {self.injuries[y]['name']} has lowered chance of {illness_name} infection to {rate}")
                         rate = 1
 
-            if randint(1, cat.illnesses[illness]["infectiousness"]) == 1:
-                if int(random() * quarchance) and cat.quarantined:
-                    if game.clan.infection["spread_by"] == "bite":
-                        text = f"{self.name} was bitten by {cat.name} and is now infected."
-                        self.get_injured("cat bite")
-                        if "spread_by_bite" not in game.clan.infection["logs"]:
-                            game.clan.infection["logs"].append("spread_by_bite")
-                            text += "\nYour log has been updated."
-                    else:
-                        text = f"{self.name} has contracted the infection from {cat.name}."
-                        if "spread_by_air" not in game.clan.infection["logs"]:
-                            game.clan.infection["logs"].append("spread_by_air")
-                            text += "\nYour log has been updated."
-                    
-                    game.cur_events_list.append(Single_Event(text, "health", [self.ID, cat.ID]))
-                    self.get_ill("stage one")
+            chamce = int(random() * (cat.illnesses[illness]["infectiousness"] * 2))
+            if cat.quarantined:
+                chamce = chamce * 0.3
+            if game.clan.infection["spread_by"] == "air":
+                chamce = chamce * 1.5
 
+            if not chamce:
+                if game.clan.infection["spread_by"] == "bite":
+                    text = f"{self.name} was bitten by {cat.name} and is now infected."
+                    self.get_injured("cat bite")
+                    if "spread_by_bite" not in game.clan.infection["logs"]:
+                        game.clan.infection["logs"].append("spread_by_bite")
+                        text += "\nYour log has been updated."
+                else:
+                    text = f"{self.name} has contracted the infection from {cat.name}."
+                    if "spread_by_air" not in game.clan.infection["logs"]:
+                        game.clan.infection["logs"].append("spread_by_air")
+                        text += "\nYour log has been updated."
+                
+                game.cur_events_list.append(Single_Event(text, ["health", "infection"], [self.ID, cat.ID]))
+                self.get_ill(f"{game.clan.infection['infection_type']} stage one")
 
     def contact_with_ill_cat(self, cat: Cat):
         """handles if one cat had contact with an ill cat"""

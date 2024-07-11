@@ -7,5 +7,10 @@
     "spread_by_air": "The infection is airborne.",
     "spread_by_bite": "One becomes infected when bitten by an infected creature.",
     "cure_found": "A cure to the disease has been discovered! It consists of a mixture of herb1, herb2, herb3 and herb4.",
-    "partial_cure": "Even if it's not a full cure, it seems that some herbs are able to temporarily reverse the infection's progression."
+    "partial_cure": "Even if it's not a full cure, it seems that some herbs are able to temporarily reverse the infection's progression.",
+    "herb_death": "The infection has begun killing off herbs in the territory at an alarming rate.",
+    "prey_death": "Prey has started being affected by the infection. Hunting patrols avoid the sick prey and come home with less food each day.",
+    "parasitic_2": "While the body slowly dies, the brain stays active.",
+    "parasitic_3": "Twolegs are also being infected.",
+    "void_2": "Victims are very prone to violence. Proceed with caution."
 }

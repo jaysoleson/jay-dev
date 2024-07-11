@@ -1470,15 +1470,16 @@ def generate_sprite(cat, life_state=None, scars_hidden=False, acc_hidden=False, 
             new_sprite.blit(sprites.sprites['shaders' + cat_sprite], (0, 0), special_flags=pygame.BLEND_RGB_MULT)
             new_sprite.blit(sprites.sprites['lighting' + cat_sprite], (0, 0))
 
+        inftype = game.clan.infection["infection_type"]
         if not dead:
-            if "stage one" in cat.illnesses:
-                new_sprite.blit(sprites.sprites['lineartstageone' + cat_sprite], (0, 0))
-            elif "stage two" in cat.illnesses:
-                new_sprite.blit(sprites.sprites['lineartstagetwo' + cat_sprite], (0, 0))
-            elif "stage three" in cat.illnesses:
-                new_sprite.blit(sprites.sprites['lineartstagethree' + cat_sprite], (0, 0))
-            elif "stage four" in cat.illnesses:
-                new_sprite.blit(sprites.sprites['lineartstagefour' + cat_sprite], (0, 0))
+            if f"{inftype} stage one" in cat.illnesses:
+                new_sprite.blit(sprites.sprites[f'{inftype}lineartstageone' + cat_sprite], (0, 0))
+            elif f"{inftype} stage two" in cat.illnesses:
+                new_sprite.blit(sprites.sprites[f'{inftype}lineartstagetwo' + cat_sprite], (0, 0))
+            elif f"{inftype} stage three" in cat.illnesses:
+                new_sprite.blit(sprites.sprites[f'{inftype}lineartstagethree' + cat_sprite], (0, 0))
+            elif f"{inftype} stage four" in cat.illnesses:
+                new_sprite.blit(sprites.sprites[f'{inftype}lineartstagefour' + cat_sprite], (0, 0))
             else:
                 new_sprite.blit(sprites.sprites['lines' + cat_sprite], (0, 0))
         elif cat.df:
