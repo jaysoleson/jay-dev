@@ -2472,9 +2472,14 @@ class Events:
                                 cat.illnesses.pop(f"{inftype} stage four")
                                 cat.get_ill(f"{inftype} stage three")
                                 new_stage = f"{inftype} stage three"
-
-                        event = f"Thanks to recieving treatment, {cat.name}'s infection has remissed from {old_stage} to {new_stage}!{addon}"
-                        game.cur_events_list.insert(0, Single_Event(event, ["health", "infection"], involved_cats))
+                            else:
+                                new_stage = "Error!"
+                            
+                            if new_stage == "Error!":
+                                print(cat.name, "is trying to remiss from stage one? No way buster")
+                            else:
+                                event = f"Thanks to recieving treatment, {cat.name}'s infection has remissed from {old_stage.replace(f'{inftype}', '')} to {new_stage.replace(f'{inftype}', '')}!{addon}"
+                                game.cur_events_list.insert(0, Single_Event(event, ["health", "infection"], involved_cats))
 
         if cat.dead:
             

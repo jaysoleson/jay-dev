@@ -645,6 +645,11 @@ class Condition_Events():
 
             # heal the cat
             elif cat.healed_condition is True:
+                if illness in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three",f"{inftype} stage four"]:
+                    # id rather stop it from ever being true in the first place for infected cats
+                    # because after a certain point, this is happening every moon
+                    # but whatever. this works.
+                    return
                 History.remove_possible_history(cat, illness)
                 game.switches['skip_conditions'].append(illness)
                 # gather potential event strings for healed illness

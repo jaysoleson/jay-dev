@@ -12,5 +12,6 @@
     "prey_death": "Prey has started being affected by the infection. Hunting patrols avoid the sick prey and come home with less food each day.",
     "parasitic_2": "While the body slowly dies, the brain stays active.",
     "parasitic_3": "Twolegs are also being infected.",
-    "void_2": "Victims are very prone to violence. Proceed with caution."
+    "void_2": "Victims are very prone to violence. Proceed with caution.",
+    "cure_moons_discovered": "It takes a few moons for the cure for the infection to work."
 }

@@ -1,24 +1,4 @@
 {
-    "anystage anyright anyherb": [
-        [
-            "r_m gives m_c the herbs..."
-        ]
-    ],
-    "anystage anyright anyherb failure": [
-        [
-            "m_c lunges at r_m before {PRONOUN/r_m/subject} can attempt to treat {PRONOUN/m_c/object}."
-        ]
-    ],
-    "you anystage anyright anyherb": [
-        [
-            "Your patient takes the herbs..."
-        ]
-    ],
-    "you anystage anyright anyherb failure": [
-        [
-            "m_c lunges at you before you can attempt to treat {PRONOUN/m_c/object}."
-        ]
-    ],
     "stageone zeroright 1herb": [
         [
             "Despite not being very confident in {PRONOUN/r_m/self}, r_m approaches the sick m_c with a new attempt for a cure.",
@@ -103,42 +83,56 @@
     ],
     "stageone 1herb failure": [
         [
-            "Text needed for key!"
+            "m_c says that {PRONOUN/m_c/subject} {VERB/m_c/feel/feels} sick and {VERB/m_c/refuse/refuses} to take the herb."
         ]
     ],
     "stageone 2herb failure": [
         [
-            "Text needed for key!"
+            "m_c says that {PRONOUN/m_c/subject} {VERB/m_c/feel/feels} sick and {VERB/m_c/refuse/refuses} to take the herbs."
         ]
     ],
     "stageone 3herb failure": [
         [
-            "Text needed for key!"
+            "m_c says that {PRONOUN/m_c/subject} {VERB/m_c/feel/feels} sick and {VERB/m_c/refuse/refuses} to take the herbs."
         ]
     ],
     "stageone 4herb failure": [
         [
-            "Text needed for key!"
+            "m_c says that {PRONOUN/m_c/subject} {VERB/m_c/feel/feels} sick and {VERB/m_c/refuse/refuses} to take the herbs."
         ]
     ],
     "you stageone zeroright 1herb": [
         [
-            "Text needed for key!"
+            "You slip the herbs into a piece of prey, which you toss into m_c's den and watch {PRONOUN/m_c/object} devour.",
+            "You monitor {PRONOUN/m_c/object} for the next few days and notice no changes in {PRONOUN/m_c/poss} condition."
         ]
     ],
     "you stageone zeroright 2herb": [
         [
-            "Text needed for key!"
+            "You slip the herbs into a piece of prey, which you toss into m_c's den and watch {PRONOUN/m_c/object} devour.",
+            "You monitor {PRONOUN/m_c/object} for the next few days and notice no changes in {PRONOUN/m_c/poss} condition."
         ]
     ],
     "you stageone zeroright 3herb": [
         [
-            "Text needed for key!"
+            "You slip the herbs into a piece of prey, which you toss into m_c's den and watch {PRONOUN/m_c/object} devour.",
+            "You monitor {PRONOUN/m_c/object} for the next few days and notice no changes in {PRONOUN/m_c/poss} condition."
+        ],
+        [
+            "You approach m_c with an herb mixture, hoping that the large variety will have some sort of positive effect.",
+            "m_c, though a bit woozy, takes the herbs gratefully. But over the next few days, nothing happens.",
+            "You're disappointed, but not surprised."
         ]
     ],
     "you stageone zeroright 4herb": [
         [
-            "Text needed for key!"
+            "You slip the herbs into a piece of prey, which you toss into m_c's den and watch {PRONOUN/m_c/object} devour.",
+            "You monitor {PRONOUN/m_c/object} for the next few days and notice no changes in {PRONOUN/m_c/poss} condition."
+        ],
+        [
+            "You approach m_c with an herb mixture, hoping that the large variety will have some sort of positive effect.",
+            "m_c, though a bit woozy, takes the herbs gratefully. But over the next few days, nothing happens.",
+            "You're disappointed, but not surprised."
         ]
     ],
     "you stageone oneright 1herb": [
@@ -193,42 +187,42 @@
     ],
     "you stageone 1herb failure": [
         [
-            "Text needed for key!"
+            "m_c says that {PRONOUN/m_c/subject} {VERB/m_c/feel/feels} sick and {VERB/m_c/refuse/refuses} to take the herbs."
         ]
     ],
     "you stageone 2herb failure": [
         [
-            "Text needed for key!"
+            "m_c says that {PRONOUN/m_c/subject} {VERB/m_c/feel/feels} sick and {VERB/m_c/refuse/refuses} to take the herbs."
         ]
     ],
     "you stageone 3herb failure": [
         [
-            "Text needed for key!"
+            "m_c says that {PRONOUN/m_c/subject} {VERB/m_c/feel/feels} sick and {VERB/m_c/refuse/refuses} to take the herbs."
         ]
     ],
     "you stageone 4herb failure": [
         [
-            "Text needed for key!"
+            "m_c says that {PRONOUN/m_c/subject} {VERB/m_c/feel/feels} sick and {VERB/m_c/refuse/refuses} to take the herbs."
         ]
     ],
     "stagetwo zeroright 1herb": [
         [
-            "Text needed for key!"
+            "r_m deliver's m_c a nice mouse with an herb on top, but it has no effect on {PRONOUN/m_c/poss} condition."
         ]
     ],
     "stagetwo zeroright 2herb": [
         [
-            "Text needed for key!"
+            "r_m deliver's m_c a nice mouse with some herbs on top, but it has no effect on {PRONOUN/m_c/poss} condition."
         ]
     ],
     "stagetwo zeroright 3herb": [
         [
-            "Text needed for key!"
+            "r_m deliver's m_c a nice mouse with some herbs on top, but it has no effect on {PRONOUN/m_c/poss} condition."
         ]
     ],
     "stagetwo zeroright 4herb": [
         [
-            "Text needed for key!"
+            "r_m deliver's m_c a nice mouse with some herbs on top, but it has no effect on {PRONOUN/m_c/poss} condition."
         ]
     ],
     "stagetwo oneright 1herb": [
@@ -303,27 +297,42 @@
     ],
     "you stagetwo zeroright 1herb": [
         [
-            "Text needed for key!"
+            "You slip the herbs into a piece of prey, which you toss into m_c's den and watch {PRONOUN/m_c/object} devour.",
+            "You monitor {PRONOUN/m_c/object} for the next few days and notice no changes in {PRONOUN/m_c/poss} condition."
         ]
     ],
     "you stagetwo zeroright 2herb": [
         [
-            "Text needed for key!"
+            "You slip the herbs into a piece of prey, which you toss into m_c's den and watch {PRONOUN/m_c/object} devour.",
+            "You monitor {PRONOUN/m_c/object} for the next few days and notice no changes in {PRONOUN/m_c/poss} condition."
         ]
     ],
     "you stagetwo zeroright 3herb": [
         [
-            "Text needed for key!"
+            "You slip the herbs into a piece of prey, which you toss into m_c's den and watch {PRONOUN/m_c/object} devour.",
+            "You monitor {PRONOUN/m_c/object} for the next few days and notice no changes in {PRONOUN/m_c/poss} condition."
+        ],
+        [
+            "You approach m_c with an herb mixture, hoping that the large variety will have some sort of positive effect.",
+            "m_c, though a bit woozy, takes the herbs gratefully. But over the next few days, nothing happens.",
+            "You're disappointed, but not surprised."
         ]
     ],
     "you stagetwo zeroright 4herb": [
         [
-            "Text needed for key!"
+            "You slip the herbs into a piece of prey, which you toss into m_c's den and watch {PRONOUN/m_c/object} devour.",
+            "You monitor {PRONOUN/m_c/object} for the next few days and notice no changes in {PRONOUN/m_c/poss} condition."
+        ],
+        [
+            "You approach m_c with an herb mixture, hoping that the large variety will have some sort of positive effect.",
+            "m_c, though a bit woozy, takes the herbs gratefully. But over the next few days, nothing happens.",
+            "You're disappointed, but not surprised."
         ]
     ],
     "you stagetwo oneright 1herb": [
         [
-            "Text needed for key!"
+            "You slip the herbs into a piece of prey, which you toss into m_c's den and watch {PRONOUN/m_c/object} devour.",
+            "You monitor {PRONOUN/m_c/object} for the next few days and notice no changes in {PRONOUN/m_c/poss} condition."
         ]
     ],
     "you stagetwo oneright 2herb": [
@@ -487,22 +496,26 @@
     ],
     "you stagethree zeroright 1herb": [
         [
-            "Text needed for key!"
+            "You slip the herbs into a piece of prey, which you toss into m_c's den and watch {PRONOUN/m_c/object} devour.",
+            "You monitor {PRONOUN/m_c/object} for the next few days and notice no changes in {PRONOUN/m_c/poss} condition."
         ]
     ],
     "you stagethree zeroright 2herb": [
         [
-            "Text needed for key!"
+            "You slip the herbs into a piece of prey, which you toss into m_c's den and watch {PRONOUN/m_c/object} devour.",
+            "You monitor {PRONOUN/m_c/object} for the next few days and notice no changes in {PRONOUN/m_c/poss} condition."
         ]
     ],
     "you stagethree zeroright 3herb": [
         [
-            "Text needed for key!"
+            "You slip the herbs into a piece of prey, which you toss into m_c's den and watch {PRONOUN/m_c/object} devour.",
+            "You monitor {PRONOUN/m_c/object} for the next few days and notice no changes in {PRONOUN/m_c/poss} condition."
         ]
     ],
     "you stagethree zeroright 4herb": [
         [
-            "Text needed for key!"
+            "You slip the herbs into a piece of prey, which you toss into m_c's den and watch {PRONOUN/m_c/object} devour.",
+            "You monitor {PRONOUN/m_c/object} for the next few days and notice no changes in {PRONOUN/m_c/poss} condition."
         ]
     ],
     "you stagethree oneright 1herb": [
@@ -679,22 +692,26 @@
     ],
     "you stagefour zeroright 1herb": [
         [
-            "Text needed for key!"
+            "You slip the herbs into a piece of prey, which you toss into m_c's den and watch {PRONOUN/m_c/object} devour.",
+            "You monitor {PRONOUN/m_c/object} for the next few days and notice no changes in {PRONOUN/m_c/poss} condition."
         ]
     ],
     "you stagefour zeroright 2herb": [
         [
-            "Text needed for key!"
+            "You slip the herbs into a piece of prey, which you toss into m_c's den and watch {PRONOUN/m_c/object} devour.",
+            "You monitor {PRONOUN/m_c/object} for the next few days and notice no changes in {PRONOUN/m_c/poss} condition."
         ]
     ],
     "you stagefour zeroright 3herb": [
         [
-            "Text needed for key!"
+            "You slip the herbs into a piece of prey, which you toss into m_c's den and watch {PRONOUN/m_c/object} devour.",
+            "You monitor {PRONOUN/m_c/object} for the next few days and notice no changes in {PRONOUN/m_c/poss} condition."
         ]
     ],
     "you stagefour zeroright 4herb": [
         [
-            "Text needed for key!"
+            "You slip the herbs into a piece of prey, which you toss into m_c's den and watch {PRONOUN/m_c/object} devour.",
+            "You monitor {PRONOUN/m_c/object} for the next few days and notice no changes in {PRONOUN/m_c/poss} condition."
         ]
     ],
     "you stagefour oneright 1herb": [
@@ -744,7 +761,11 @@
     ],
     "you stagefour fourright 4herb": [
         [
-            "Text needed for key!"
+            "Being this close to the infected is scary. But as a medicine cat, you took an oath to help all cats no matter what. Even if they're not your Clanmate... anymore.",
+            "You approach m_c with the bundle of herbs and drop it next to {PRONOUN/m_c/object}, shuffling backwards quickly to be out of paw's reach. m_c turns, sniffs the herbs, and, to your surprise, laps them up.",
+            "For a moment, all is still. And then... {PRONOUN/m_c/subject} {VERB/m_c/blink/blinks}. {VERB/m_c/Shake/Shakes} {PRONOUN/m_c/poss} head. You swear you see recognition in {PRONOUN/m_c/poss} eyes when {PRONOUN/m_c/subject} {VERB/m_c/lift/lifts} {PRONOUN/m_c/poss} head.",
+            "... ... ...",
+            "You've made an important discovery today."
         ]
     ],
     "you stagefour 1herb failure": [

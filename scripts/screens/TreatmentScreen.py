@@ -581,12 +581,12 @@ class TreatmentScreen(Screens):
 
         infection_stage = [i for i in self.selected_cat.illnesses if i in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]]
         infection_stage_stripped = str(infection_stage).replace('[', '').replace(']', '').replace("'", '')
-        print([infection_stage_stripped.replace(' ', '') + " " + correctherbs + herbinsert + successkey])
+        print([infection_stage_stripped.replace(' ', '').replace(f'{inftype}', '') + " " + correctherbs + herbinsert + successkey])
         try:
             if success:
-                ceremony_txt = self.m_txt[who_key + infection_stage_stripped.replace(' ', '') + " " + correctherbs + herbinsert + successkey]
+                ceremony_txt = self.m_txt[who_key + infection_stage_stripped.replace(' ', '').replace(f'{inftype}', '') + " " + correctherbs + herbinsert + successkey]
             else:
-                ceremony_txt = self.m_txt[who_key + infection_stage_stripped.replace(' ', '') + " " + herbinsert + successkey]
+                ceremony_txt = self.m_txt[who_key + infection_stage_stripped.replace(' ', '').replace(f'{inftype}', '') + " " + herbinsert + successkey]
         except KeyError:
             try:
                 if success:
@@ -672,7 +672,9 @@ class TreatmentScreen(Screens):
                 patient.infected_for = 0
                 if "cure_found" not in game.clan.infection["logs"]:
                     game.clan.infection["logs"].append("cure_found")
-
+                for herb in correctherbs:
+                    if herb not in game.clan.infection["cure_discovered"]:
+                        game.clan.infection["cure_discovered"].append(herb)
 
         treatment = {
             "moon": game.clan.age,
@@ -686,6 +688,8 @@ class TreatmentScreen(Screens):
         for herb in herbs:
             if herb in herblist:
                 game.clan.herbs[herb] -= 1
+                if game.clan.herbs[herb] <= 0:
+                    game.clan.herbs.pop(herb)
 
         used_herbs = []
         for herb in herblist:
