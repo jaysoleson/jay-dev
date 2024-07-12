@@ -3243,6 +3243,7 @@ class ProfileScreen(Screens):
                                   "-Encase text between 'font size=number of size' and '/font' to change the text size.",
 
                 )
+                print("user notes", self.user_notes)
                 if self.editing_notes is True:
                     self.save_text = UIImageButton(scale(pygame.Rect(
                         (104, 1028), (68, 68))),

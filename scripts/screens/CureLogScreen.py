@@ -20,6 +20,8 @@ import logging
 import random
 from html import escape
 
+from re import sub
+
 import pygame
 import pygame_gui
 import ujson
@@ -36,9 +38,11 @@ from scripts.game_structure.windows import DeleteCheck, UpdateAvailablePopup, Ch
 from scripts.utility import get_text_box_theme, scale, quit  # pylint: disable=redefined-builtin
 from scripts.cat.history import History
 from .Screens import Screens
-from ..housekeeping.datadir import get_data_dir, get_cache_dir
+from ..housekeeping.datadir import get_data_dir, get_cache_dir, get_save_dir
 from ..housekeeping.update import has_update, UpdateChannel, get_latest_version_number
 from ..housekeeping.version import get_version_info
+
+from scripts.game_structure.image_button import UITextBoxTweaked
 
 
 logger = logging.getLogger(__name__)
@@ -66,6 +70,13 @@ class CureLogScreen(Screens):
         self.correct_text_box = None
         self.screen_art = None
 
+        # notes
+        self.editing_notes = False
+        self.user_notes = None
+        self.save_text = None
+        self.edit_text = None
+        self.display_notes = None
+
     def screen_switches(self):
         """
         TODO: DOCS
@@ -79,6 +90,10 @@ class CureLogScreen(Screens):
             self.correct_text_box = None
             self.scroll_container = None
             self.screen_art = None
+            self.notes_entry = None
+            self.display_notes = None
+            self.edit_text = None
+            self.save_text = None
 
             self.set_disabled_menu_buttons(["stats"])
             self.show_menu_buttons()
@@ -108,7 +123,6 @@ class CureLogScreen(Screens):
                 manager=MANAGER,
                 object_id=get_text_box_theme("#text_box_30_horizcenter"))
             
-            self.previous_page_button.disable()
             if len(game.clan.infection["treatments"]) > 0:
                 self.next_page_button.enable()
             else:
@@ -119,6 +133,10 @@ class CureLogScreen(Screens):
             self.set_disabled_menu_buttons(["stats"])
             self.show_menu_buttons()
             self.update_heading_text(f'{game.clan.name}Clan')
+            self.notes_entry = None
+            self.display_notes = None
+            self.edit_text = None
+            self.save_text = None
 
             self.scroll_container = pygame_gui.elements.UIScrollingContainer(scale(pygame.Rect(
             (100, 350), (730, 790))),
@@ -205,8 +223,6 @@ class CureLogScreen(Screens):
             # Set the scroll bar to the bottom
             # self.scroll_container.vert_scroll_bar.start_percentage = 1.0
 
-            self.previous_page_button.enable()
-
         if self.stage == "notes":
             self.moon_text = None
             self.moon_text_box = None
@@ -216,31 +232,80 @@ class CureLogScreen(Screens):
             self.correct_text_box = None
             self.scroll_container = None
             self.screen_art = None
+            self.save_text = None
+            self.edit_text = None
 
             self.set_disabled_menu_buttons(["stats"])
             self.show_menu_buttons()
             self.update_heading_text(f'{game.clan.name}Clan')
-            a_txt = ""
-            with open('resources/dicts/infection/logs.json', 'r', encoding='utf-8') as f:
-                a_txt = ujson.load(f)
-
-            self.check_logs()
         
             # Determine stats
-            stats_text = "Notes:"
+            stats_text = "<b>Notes:</b>"
+            self.load_user_notes()
+            if self.user_notes is None:
+                self.user_notes = 'INFECTION notes entry'
+
+            self.notes_entry = pygame_gui.elements.UITextEntryBox(
+                scale(pygame.Rect((200, 450), (1200, 750))),
+                initial_text=self.user_notes,
+                object_id='#text_box_26_horizleft_pad_10_14',
+                manager=MANAGER
+            )
+            self.display_notes = UITextBoxTweaked(self.user_notes,
+                                              scale(pygame.Rect((200, 450), (120, 750))),
+                                              object_id="#text_box_26_horizleft_pad_10_14",
+                                              line_spacing=1, manager=MANAGER)
             
             self.previous_page_button = UIImageButton(scale(pygame.Rect((100, 700), (68, 68))), "",
-                                                    object_id="#arrow_left_button", manager=MANAGER)
+                                                    object_id="#arrow_left_button",manager=MANAGER)
             self.next_page_button = UIImageButton(scale(pygame.Rect((1430, 700), (68, 68))), "",
                                                 object_id="#arrow_right_button", manager=MANAGER)
             
             self.stats_box = pygame_gui.elements.UITextBox(
                 stats_text,
-                scale(pygame.Rect((280, 250), (500, 1000))),
+                scale(pygame.Rect((160, 350), (200, 80))),
                 manager=MANAGER,
                 object_id=get_text_box_theme("#text_box_30_horizcenter"))
             
-            self.next_page_button.disable()
+            self.update_notes_buttons()
+    
+    def save_user_notes(self):
+        """Saves user-entered notes. """
+        clanname = game.clan.name
+
+        notes = self.user_notes
+
+        notes_directory = get_save_dir() + '/' + clanname + '/notes'
+        notes_file_path = 'infection_notes.json'
+
+        if not os.path.exists(notes_directory):
+            print("making notes folder")
+            os.makedirs(notes_directory)
+
+        if notes is None or notes == 'nonINFECTION notes entry':
+            return
+
+        new_notes = {"infection_notes": notes}
+
+        game.safe_save(f"{get_save_dir()}/{clanname}/notes/infection_notes.json", new_notes)
+
+    def load_user_notes(self):
+        """Loads user-entered notes. """
+        clanname = game.clan.name
+
+        notes_directory = get_save_dir() + '/' + clanname + '/notes'
+        notes_file_path = notes_directory + '/infection_notes.json'
+
+        if not os.path.exists(notes_file_path):
+            return
+
+        try:
+            with open(notes_file_path, 'r') as read_file:
+                rel_data = ujson.loads(read_file.read())
+                if "infection_notes" in rel_data:
+                    self.user_notes = rel_data.get("infection_notes")
+        except Exception as e:
+            print(f"ERROR: there was an error reading the INFECTION notes file.\n", e)
 
 
     def check_logs(self):
@@ -255,6 +320,44 @@ class CureLogScreen(Screens):
             cure_logs.add(i)
         
         game.clan.infection["logs"] = list(cure_logs)
+
+    def update_notes_buttons(self):
+        """ wee """
+
+        if self.save_text:
+            self.save_text.kill()
+        if self.notes_entry:
+            self.notes_entry.kill()
+        if self.edit_text:
+            self.edit_text.kill()
+        if self.display_notes:
+            self.display_notes.kill()
+
+        if self.editing_notes is True:
+            self.save_text = UIImageButton(scale(pygame.Rect(
+                (104, 1028), (68, 68))),
+                "",
+                object_id="#unchecked_checkbox",
+                tool_tip_text='lock and save text', manager=MANAGER
+            )
+
+            self.notes_entry = pygame_gui.elements.UITextEntryBox(
+                scale(pygame.Rect((200, 450), (1200, 750))),
+                initial_text=self.user_notes,
+                object_id='#text_box_26_horizleft_pad_10_14', manager=MANAGER
+            )
+        else:
+            self.edit_text = UIImageButton(scale(pygame.Rect(
+                (104, 1028), (68, 68))),
+                "",
+                object_id="#checked_checkbox_smalltooltip",
+                tool_tip_text='edit text', manager=MANAGER
+            )
+
+            self.display_notes = UITextBoxTweaked(self.user_notes,
+                                                    scale(pygame.Rect((200, 450), (1200, 750))),
+                                                    object_id="#text_box_26_horizleft_pad_10_14",
+                                                    line_spacing=1, manager=MANAGER)
     def exit_screen(self):
         """
         TODO: DOCS
@@ -288,6 +391,18 @@ class CureLogScreen(Screens):
         if self.correct_text_box:
             self.correct_text_box.kill()
             del self.correct_text_box
+        if self.notes_entry:
+            self.notes_entry.kill()
+            del self.notes_entry
+        if self.display_notes:
+            self.display_notes.kill()
+            del self.display_notes
+        if self.edit_text:
+            self.edit_text.kill()
+            del self.edit_text
+        if self.save_text:
+            self.save_text.kill()
+            del self.save_text
 
     def handle_event(self, event):
         """
@@ -304,8 +419,16 @@ class CureLogScreen(Screens):
                     self.exit_screen()
                     self.stage = "notes"
                     self.screen_switches()
-            if event.ui_element == self.previous_page_button:
-                if self.stage == "treatments":
+                elif self.stage == "notes":
+                    self.exit_screen()
+                    self.stage = "logs"
+                    self.screen_switches()
+            elif event.ui_element == self.previous_page_button:
+                if self.stage == "logs":
+                    self.exit_screen()
+                    self.stage = "notes"
+                    self.screen_switches()
+                elif self.stage == "treatments":
                     self.exit_screen()
                     self.stage = "logs"
                     self.screen_switches()
@@ -313,6 +436,14 @@ class CureLogScreen(Screens):
                     self.exit_screen()
                     self.stage = "treatments"
                     self.screen_switches()
+            elif event.ui_element == self.save_text:
+                self.user_notes = sub(r"[^A-Za-z0-9<->/.()*'&#!?,| _+=@~:;[]{}%$^`]+", "", self.notes_entry.get_text())
+                self.save_user_notes()
+                self.editing_notes = False
+                self.update_notes_buttons()
+            elif event.ui_element == self.edit_text:
+                self.editing_notes = True
+                self.update_notes_buttons()
     def on_use(self):
         """
         TODO: DOCS
