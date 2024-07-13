@@ -507,9 +507,11 @@ class TalkScreen(Screens):
             elif "they_not_infected" in tags and cat.infected_for > 0:
                 continue
 
-            nope = False
+            nope = False 
+           
             for stage in stages:
-                stage_tag = stage.replace(' ', '_')
+                stage_tag = stage.replace(' ', '_').replace(f"{inftype}_", "")
+
                 if f"they_{stage_tag}" in tags:
                     if stage not in cat.illnesses:
                         nope = True
@@ -518,8 +520,8 @@ class TalkScreen(Screens):
                     if stage not in you.illnesses:
                         nope = True
                         break
-            
-            if nope is True:
+
+            if nope:
                 continue
 
             logs = game.clan.infection["logs"]
@@ -528,7 +530,7 @@ class TalkScreen(Screens):
             elif "spread_by_bite" in tags and game.clan.infection["spread_by"] != "bite" and "spread_by_bite" not in logs:
                 continue
 
-            if "spread_by_unknown" in tags and "spread_by_bite" in logs or "spread_by_air" in logs:
+            if "spread_by_unknown" in tags and ("spread_by_bite" in logs or "spread_by_air" in logs):
                 continue
 
             if "discovered" in tags and "discovered" not in logs:

@@ -2426,6 +2426,19 @@ class Events:
         """
         inftype = game.clan.infection["infection_type"]
 
+        types = ["fungal", "void", "parasitic"]
+        base_stages = ["stage one", "stage two", "stage three", "stage four"]
+        for i in types:
+            if i != inftype:
+                for stage in base_stages:
+                    if f"{i} {stage}" in cat.illnesses:
+                        print("WRONG TYPE: Removing", stage, i, "infection from", cat.name)
+                        print("Giving", cat.name, f"{inftype} {stage}")
+                        cat.illnesses.pop(f"{i} {stage}")
+                        cat.get_ill(f"{inftype} {stage}")
+
+            
+
         stages = [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]
 
         for stage in stages:

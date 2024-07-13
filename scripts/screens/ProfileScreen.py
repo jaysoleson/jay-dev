@@ -434,7 +434,7 @@ class ProfileScreen(Screens):
                 self.change_screen('ceremony screen')
             elif "talk" in self.profile_elements and \
                     event.ui_element == self.profile_elements["talk"]:
-                # self.the_cat.talked_to = True
+                self.the_cat.talked_to = True
                 if not self.the_cat.dead and not game.clan.your_cat.dead and game.clan.your_cat.ID in self.the_cat.relationships and self.the_cat.ID in game.clan.your_cat.relationships and game.clan.your_cat.shunned == 0:
                     self.the_cat.relationships[game.clan.your_cat.ID].platonic_like += randint(0,5)
                     game.clan.your_cat.relationships[self.the_cat.ID].platonic_like += randint(0,5)

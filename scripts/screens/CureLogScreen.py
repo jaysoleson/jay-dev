@@ -105,7 +105,7 @@ class CureLogScreen(Screens):
             self.check_logs()
         
             # Determine stats
-            stats_text = "Information:"
+            stats_text = "<b>Information:</b>"
             for i in game.clan.infection["logs"]:
                 log = a_txt[i].replace("herb1", str(game.clan.infection["cure"][0])).replace("herb2", str(game.clan.infection["cure"][1])).replace("herb3", str(game.clan.infection["cure"][2])).replace("herb4", str(game.clan.infection["cure"][3]))
 
@@ -119,7 +119,7 @@ class CureLogScreen(Screens):
 
             self.stats_box = pygame_gui.elements.UITextBox(
                 stats_text,
-                scale(pygame.Rect((200, 250), (1200, 1000))),
+                scale(pygame.Rect((200, 220), (1200, 1000))),
                 manager=MANAGER,
                 object_id=get_text_box_theme("#text_box_30_horizcenter"))
             
@@ -173,19 +173,19 @@ class CureLogScreen(Screens):
                 # correct_text = f"Effective Herbs: {treatment['correct_herbs']}"
                 if int(treatment['correct_herbs']) > 0 and int(treatment['correct_herbs']) < 4:
                     if game.settings["dark mode"]:
-                        self.correct_text = f"<font color = '#DBD076'> At least one effective herb </font>"
+                        self.correct_text = "<font color = '#DBD076'> At least one effective herb </font>"
                     else:
-                        self.correct_text = f"<font color = '#473B0A'> At least one effective herb </font>"
+                        self.correct_text = "<font color = '#473B0A'> At least one effective herb </font>"
                 elif int(treatment['correct_herbs']) == 4:
                     if game.settings["dark mode"]:
-                        self.correct_text = f"<font color='#A2D86C'>Cure Found!</font>"
+                        self.correct_text = "<font color='#A2D86C'>Cure Found!</font>"
                     else:
-                        self.correct_text = f"<font color='#136D05'>Cure Found!</font>"
+                        self.correct_text = "<font color='#136D05'>Cure Found!</font>"
                 else:
                     if game.settings["dark mode"]:
-                        self.correct_text = f"<font color='#FF0000'>Zero Effective Herbs</font>"
+                        self.correct_text = "<font color='#FF0000'>Zero Effective Herbs</font>"
                     else:
-                        self.correct_text = f"<font color='#550D0D'>Zero Effective Herbs</font>"
+                        self.correct_text = "<font color='#550D0D'>Zero Effective Herbs</font>"
 
                 self.correct_text_box = pygame_gui.elements.UITextBox(self.correct_text,
                                     pygame.Rect((80, (y_offset + 67)), (log_width, 50)),
@@ -218,10 +218,7 @@ class CureLogScreen(Screens):
                 manager=MANAGER,
                 object_id=get_text_box_theme("#text_box_30_horizcenter"))
            
-            self.scroll_container.set_scrollable_area_dimensions((1360 / 1600 * screen_x, y_offset + 50))  # Add some padding to y_offset
-
-            # Set the scroll bar to the bottom
-            # self.scroll_container.vert_scroll_bar.start_percentage = 1.0
+            self.scroll_container.set_scrollable_area_dimensions((1360 / 1600 * screen_x, y_offset + 50))
 
         if self.stage == "notes":
             self.moon_text = None
@@ -230,30 +227,34 @@ class CureLogScreen(Screens):
             self.treatment_text_box = None
             self.correct_text = None
             self.correct_text_box = None
-            self.scroll_container = None
-            self.screen_art = None
             self.save_text = None
             self.edit_text = None
+            self.scroll_container = pygame_gui.elements.UIScrollingContainer(scale(pygame.Rect(
+            (790, 290), (800, 910))),
+            allow_scroll_x=False,
+            manager=MANAGER)
 
             self.set_disabled_menu_buttons(["stats"])
             self.show_menu_buttons()
             self.update_heading_text(f'{game.clan.name}Clan')
         
             # Determine stats
-            stats_text = "<b>Notes:</b>"
+            stats_text = "<b>Journal:</b>"
             self.load_user_notes()
             if self.user_notes is None:
-                self.user_notes = 'INFECTION notes entry'
+                self.user_notes = 'Take your notes here.'
 
             self.notes_entry = pygame_gui.elements.UITextEntryBox(
-                scale(pygame.Rect((200, 450), (1200, 750))),
+                scale(pygame.Rect((45, 50), (480, 750))),
                 initial_text=self.user_notes,
+                container=self.scroll_container,
                 object_id='#text_box_26_horizleft_pad_10_14',
                 manager=MANAGER
             )
             self.display_notes = UITextBoxTweaked(self.user_notes,
-                                              scale(pygame.Rect((200, 450), (120, 750))),
+                                              scale(pygame.Rect((45, 50), (120, 750))),
                                               object_id="#text_box_26_horizleft_pad_10_14",
+                                              container=self.scroll_container,
                                               line_spacing=1, manager=MANAGER)
             
             self.previous_page_button = UIImageButton(scale(pygame.Rect((100, 700), (68, 68))), "",
@@ -263,9 +264,29 @@ class CureLogScreen(Screens):
             
             self.stats_box = pygame_gui.elements.UITextBox(
                 stats_text,
-                scale(pygame.Rect((160, 350), (200, 80))),
+                scale(pygame.Rect((200, 220), (1200, 100))),
                 manager=MANAGER,
                 object_id=get_text_box_theme("#text_box_30_horizcenter"))
+            
+            if game.settings["dark mode"]:
+                self.screen_art = pygame_gui.elements.UIImage(scale(pygame.Rect(((20, 65), (1558, 1351)))),
+                                                                 pygame.transform.scale(
+                                                                     pygame.image.load(
+                                                                         "resources/images/journal_dark.png").convert_alpha(),
+                                                                     (1600, 1400)), manager=MANAGER)
+            else:
+                self.screen_art = pygame_gui.elements.UIImage(scale(pygame.Rect(((20, 65), (1558, 1351)))),
+                                                                 pygame.transform.scale(
+                                                                     pygame.image.load(
+                                                                         "resources/images/journal_light.png").convert_alpha(),
+                                                                     (1600, 1400)), manager=MANAGER)
+            if len(game.clan.infection["treatments"]) > 0:
+                self.previous_page_button.enable()
+            else:
+                self.previous_page_button.disable()
+
+            self.scroll_container.set_scrollable_area_dimensions((1360 / 1600 * screen_x, 1400 * screen_y))
+
             
             self.update_notes_buttons()
     
@@ -282,7 +303,7 @@ class CureLogScreen(Screens):
             print("making notes folder")
             os.makedirs(notes_directory)
 
-        if notes is None or notes == 'nonINFECTION notes entry':
+        if notes is None or notes == 'Take your notes here.':
             return
 
         new_notes = {"infection_notes": notes}
@@ -335,28 +356,30 @@ class CureLogScreen(Screens):
 
         if self.editing_notes is True:
             self.save_text = UIImageButton(scale(pygame.Rect(
-                (104, 1028), (68, 68))),
+                (1430, 350), (68, 68))),
                 "",
                 object_id="#unchecked_checkbox",
                 tool_tip_text='lock and save text', manager=MANAGER
             )
 
             self.notes_entry = pygame_gui.elements.UITextEntryBox(
-                scale(pygame.Rect((200, 450), (1200, 750))),
+                scale(pygame.Rect((45, 50), (480, 750))),
                 initial_text=self.user_notes,
+                container=self.scroll_container,
                 object_id='#text_box_26_horizleft_pad_10_14', manager=MANAGER
             )
         else:
             self.edit_text = UIImageButton(scale(pygame.Rect(
-                (104, 1028), (68, 68))),
+                (1430, 350), (68, 68))),
                 "",
                 object_id="#checked_checkbox_smalltooltip",
                 tool_tip_text='edit text', manager=MANAGER
             )
 
             self.display_notes = UITextBoxTweaked(self.user_notes,
-                                                    scale(pygame.Rect((200, 450), (1200, 750))),
+                                                    scale(pygame.Rect((45, 50), (480, 750))),
                                                     object_id="#text_box_26_horizleft_pad_10_14",
+                                                    container=self.scroll_container,
                                                     line_spacing=1, manager=MANAGER)
     def exit_screen(self):
         """

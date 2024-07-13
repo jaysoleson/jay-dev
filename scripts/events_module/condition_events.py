@@ -144,8 +144,9 @@ class Condition_Events():
                         # multiply by three because i cant divide stage one by three, and i want it to be less likely
 
                 for i in types:
-                    if f"{i} stage one" in possible_illnesses and game.clan.infection["infection_type"] != i:
-                        possible_illnesses.remove(f"{i} stage one")
+                    wrong_illness = f"{i} stage one"
+                    while wrong_illness in possible_illnesses and game.clan.infection["infection_type"] != i:
+                        possible_illnesses.remove(wrong_illness)
 
                 # pick a random illness from those possible
                 random_index = int(random.random() * len(possible_illnesses))
@@ -153,9 +154,18 @@ class Condition_Events():
                 # if a non-kitten got kittencough, switch it to whitecough instead
                 if chosen_illness == 'kittencough' and cat.status != 'kitten':
                     chosen_illness = 'whitecough'
-
+                # wrongtype checker
+                dont = False
+                types = ["fungal", "parasitic", "void"]
+                for i in types:
+                    if i in chosen_illness and i != game.clan.infection["infection_type"]:
+                        # failsafe-- you should never see this
+                        print("Tried to give", cat.name, "a ", i, "infection?")
+                        dont = True
+                        break
                 # make em sick
-                cat.get_ill(chosen_illness)
+                if not dont:
+                    cat.get_ill(chosen_illness)
                 # create event text
                 if chosen_illness in ["running nose", "stomachache"]:
                     event_string = f"{cat.name} has gotten a {chosen_illness}."

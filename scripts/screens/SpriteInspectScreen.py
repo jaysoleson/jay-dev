@@ -38,6 +38,7 @@ class SpriteInspectScreen(Screens):
         self.displayed_lifestage = None
         self.scars_shown = True
         self.override_dead_lineart = False
+        self.override_infected_lineart = False
         self.acc_shown = True
         self.override_not_working = False
         
@@ -104,6 +105,14 @@ class SpriteInspectScreen(Screens):
                     self.override_dead_lineart = False
                 else:
                     self.override_dead_lineart = True
+                
+                self.make_cat_image()
+                self.update_checkboxes()
+            elif event.ui_element == self.checkboxes["override_infected_lineart"]:
+                if self.override_infected_lineart:
+                    self.override_infected_lineart = False
+                else:
+                    self.override_infected_lineart = True
                 
                 self.make_cat_image()
                 self.update_checkboxes()
@@ -180,6 +189,11 @@ class SpriteInspectScreen(Screens):
                                                                         object_id=get_text_box_theme(
                                                                               "#text_box_34_horizcenter"), 
                                                                         starting_height=2)
+        self.override_infected_lineart_text = pygame_gui.elements.UITextBox("Show as uninfected",
+                                                                        scale(pygame.Rect((500, 1060), (-1, 100))),
+                                                                        object_id=get_text_box_theme(
+                                                                              "#text_box_34_horizcenter"), 
+                                                                        starting_height=2)
         self.override_not_working_text = pygame_gui.elements.UITextBox("Show as Healthy",
                                                                        scale(pygame.Rect((900, 1260), (-1, 100))),
                                                                  object_id=get_text_box_theme(
@@ -231,6 +245,7 @@ class SpriteInspectScreen(Screens):
         self.lifestage = None
         self.scars_shown = True
         self.override_dead_lineart = False
+        self.override_infected_lineart = False
         self.acc_shown = True
         self.override_not_working = False
         
@@ -356,6 +371,14 @@ class SpriteInspectScreen(Screens):
         self.make_one_checkbox((400, 1250), "override_dead_lineart", self.override_dead_lineart, self.the_cat.dead,
                                disabled_object_id="#checked_checkbox")
         
+        catinfected = False
+        inftype = game.clan.infection["infection_type"]
+        if any(i in self.the_cat.illnesses for i in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]):
+            catinfected = True
+        
+        self.make_one_checkbox((400, 1050), "override_infected_lineart", self.override_infected_lineart, catinfected,
+                               disabled_object_id="#checked_checkbox")
+        
         # "Show as healthy"
         self.make_one_checkbox((800, 1250), "override_not_working", self.override_not_working, self.the_cat.not_working(),
                                disabled_object_id="#checked_checkbox")
@@ -388,6 +411,7 @@ class SpriteInspectScreen(Screens):
         self.cat_image = generate_sprite(self.the_cat, life_state=self.valid_life_stages[self.displayed_life_stage], 
                                          scars_hidden=not self.scars_shown,
                                          acc_hidden=not self.acc_shown, always_living=self.override_dead_lineart, 
+                                         uninfected = self.override_infected_lineart,
                                          no_not_working=self.override_not_working)
         
         self.cat_elements["cat_image"] = pygame_gui.elements.UIImage(
@@ -465,6 +489,8 @@ class SpriteInspectScreen(Screens):
         self.acc_shown_text = None
         self.override_dead_lineart_text.kill()
         self.override_dead_lineart_text = None
+        self.override_infected_lineart_text.kill()
+        self.override_infected_lineart_text = None
         self.override_not_working_text.kill()
         self.override_not_working_text = None
         

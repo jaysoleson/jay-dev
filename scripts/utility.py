@@ -1347,7 +1347,7 @@ def update_sprite(cat):
     cat.all_cats[cat.ID] = cat
 
 
-def generate_sprite(cat, life_state=None, scars_hidden=False, acc_hidden=False, always_living=False, 
+def generate_sprite(cat, life_state=None, scars_hidden=False, acc_hidden=False, always_living=False, uninfected = False,
                     no_not_working=False) -> pygame.Surface:
     """Generates the sprite for a cat, with optional arugments that will override certain things. 
         life_stage: sets the age life_stage of the cat, overriding the one set by it's age. Set to string. 
@@ -1367,6 +1367,11 @@ def generate_sprite(cat, life_state=None, scars_hidden=False, acc_hidden=False, 
         dead = False
     else:
         dead = cat.dead
+    
+    if uninfected:
+        infected = False
+    else:
+        infected = True
     
     # setting the cat_sprite (bc this makes things much easier)
     if not no_not_working and cat.not_working() and age != 'newborn' and game.config['cat_sprites']['sick_sprites']:
@@ -1471,7 +1476,7 @@ def generate_sprite(cat, life_state=None, scars_hidden=False, acc_hidden=False, 
             new_sprite.blit(sprites.sprites['lighting' + cat_sprite], (0, 0))
 
         inftype = game.clan.infection["infection_type"]
-        if not dead:
+        if not dead and infected:
             if f"{inftype} stage one" in cat.illnesses:
                 new_sprite.blit(sprites.sprites[f'{inftype}lineartstageone' + cat_sprite], (0, 0))
             elif f"{inftype} stage two" in cat.illnesses:
@@ -1486,6 +1491,9 @@ def generate_sprite(cat, life_state=None, scars_hidden=False, acc_hidden=False, 
             new_sprite.blit(sprites.sprites['lineartdf' + cat_sprite], (0, 0))
         elif dead:
             new_sprite.blit(sprites.sprites['lineartdead' + cat_sprite], (0, 0))
+
+        if not infected:
+            new_sprite.blit(sprites.sprites['lines' + cat_sprite], (0, 0))
         # draw skin and scars2
         blendmode = pygame.BLEND_RGBA_MIN
         new_sprite.blit(sprites.sprites['skin' + cat.pelt.skin + cat_sprite], (0, 0))
