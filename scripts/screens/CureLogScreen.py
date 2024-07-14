@@ -101,15 +101,13 @@ class CureLogScreen(Screens):
             a_txt = ""
             with open('resources/dicts/infection/logs.json', 'r', encoding='utf-8') as f:
                 a_txt = ujson.load(f)
-
-            self.check_logs()
         
             # Determine stats
             stats_text = "<b>Information:</b>"
             for i in game.clan.infection["logs"]:
                 log = a_txt[i].replace("herb1", str(game.clan.infection["cure"][0])).replace("herb2", str(game.clan.infection["cure"][1])).replace("herb3", str(game.clan.infection["cure"][2])).replace("herb4", str(game.clan.infection["cure"][3]))
 
-                stats_text += "\n" + log
+                stats_text += "\n" + "<br>" + log
                 
             
             self.previous_page_button = UIImageButton(scale(pygame.Rect((100, 700), (68, 68))), "",
@@ -269,7 +267,7 @@ class CureLogScreen(Screens):
                 object_id=get_text_box_theme("#text_box_30_horizcenter"))
             
             if game.settings["dark mode"]:
-                self.screen_art = pygame_gui.elements.UIImage(scale(pygame.Rect(((20, 65), (1558, 1351)))),
+                self.screen_art = pygame_gui.elements.UIImage(scale(pygame.Rect(((175, 307), (1249, 892)))),
                                                                  pygame.transform.scale(
                                                                      pygame.image.load(
                                                                          "resources/images/journal_dark.png").convert_alpha(),
@@ -327,20 +325,6 @@ class CureLogScreen(Screens):
                     self.user_notes = rel_data.get("infection_notes")
         except Exception as e:
             print(f"ERROR: there was an error reading the INFECTION notes file.\n", e)
-
-
-    def check_logs(self):
-        you = game.clan.your_cat
-        cure_logs = set()
-        clan_cats = game.clan.clan_cats
-  
-        if game.clan.infection["clan_infected"] is True:
-            cure_logs.add("start")
-
-        for i in game.clan.infection["logs"]:
-            cure_logs.add(i)
-        
-        game.clan.infection["logs"] = list(cure_logs)
 
     def update_notes_buttons(self):
         """ wee """

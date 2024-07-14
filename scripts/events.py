@@ -401,7 +401,6 @@ class Events:
         
         self.current_events.clear()
         self.check_achievements()
-        self.check_logs()
         self.generate_dialogue_focus()
         self.checks = [len(game.clan.your_cat.apprentice), len(game.clan.your_cat.mate), len(game.clan.your_cat.inheritance.get_blood_kits()), None]
         if game.clan.leader:
@@ -662,17 +661,6 @@ class Events:
             achievements.add(i)
         
         game.clan.achievements = list(achievements)
-
-    def check_logs(self):
-        cure_logs = set()
-
-        if game.clan.infection["clan_infected"] is True:
-            cure_logs.add("start")
-
-        for i in game.clan.infection["logs"]:
-            cure_logs.add(i)
-        
-        game.clan.infection["logs"] = list(cure_logs)
 
     def generate_birth_event(self):
         '''Handles birth event generation and creation of inheritance for your cat'''
