@@ -405,6 +405,9 @@ class Events:
         self.checks = [len(game.clan.your_cat.apprentice), len(game.clan.your_cat.mate), len(game.clan.your_cat.inheritance.get_blood_kits()), None]
         if game.clan.leader:
             self.checks[3] = game.clan.leader.ID
+
+        # INFECTION: other clans
+        self.other_clans_infection()
             
         # Resort
         if game.sort_type != "id":
@@ -1585,6 +1588,13 @@ class Events:
         evt = Single_Event(random.choice(self.c_txt["exiled"]))
         if evt not in game.cur_events_list:
             game.cur_events_list.append(evt)
+
+    def other_clans_infection(self):
+        for clan in game.clan.all_clans:
+            print("CLAN:", clan.name)
+            print("TEMPER:", clan.temperament)
+            print("INFECTION:", clan.infection_level)
+        
             
     def generate_df_events(self):
         if random.randint(1,3) == 1:
@@ -1735,7 +1745,7 @@ class Events:
                             if counter == 30:
                                 herb = "catmint"
                         
-                        text = f"On a run out of camp for some herbs, the medicine cats discover that a potent patch of fungus has destroyed their {herb} supply. It won't be long before this starts affecting the rest of the herbs in the territory. \nYour log has been updated."
+                        text = f"On a run out of camp for some herbs, the medicine cats discover that a potent patch of fungus has destroyed their {herb.replace('_', ' ')} supply. It won't be long before this starts affecting the rest of the herbs in the territory. \nYour log has been updated."
                         game.cur_events_list.insert(0, Single_Event(text, ["alert", "infection"]))
 
                 else:
@@ -2526,8 +2536,6 @@ class Events:
 
         # Handle Mediator Events
         self.mediator_events(cat)
-
-       
 
         # handle nutrition amount
         # (CARE: the cats has to be fed before - should be handled in "one_moon" function)

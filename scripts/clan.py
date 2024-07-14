@@ -574,6 +574,8 @@ class Clan():
             [str(i.relations) for i in self.all_clans])
         clan_data["other_clan_temperament"] = ",".join(
             [str(i.temperament) for i in self.all_clans])
+        clan_data["other_clan_infected"] = ",".join(
+            [str(i.infection_level) for i in self.all_clans])
         clan_data["war"] = self.war
         clan_data['achievements'] = self.achievements
         clan_data['talks'] = self.talks
@@ -906,11 +908,26 @@ class Clan():
         game.clan.med_cat_predecessors = clan_data["med_cat_predecessors"]
         game.clan.med_cat_number = clan_data["med_cat_number"]
 
-        for name, relation, temper in zip(
+        if "other_clan_infected" not in clan_data:
+            other_clans_names = clan_data["other_clans_names"].split(", ")
+            infection_levels = ["0"] * len(other_clans_names)
+            infection_levels_str = ",".join(infection_levels)
+
+
+            for name, relation, temper, infection_level in zip(
                 clan_data["other_clans_names"].split(","),
                 clan_data["other_clans_relations"].split(","),
-                clan_data["other_clan_temperament"].split(",")):
-            game.clan.all_clans.append(OtherClan(name, int(relation), temper))
+                clan_data["other_clan_temperament"].split(","),
+                infection_levels_str.split(",")):
+                # INFECTION: this literally sucks so bad but it works lol. idk how the otherclan code works!!!!!!
+                game.clan.all_clans.append(OtherClan(name, int(relation), temper, int(infection_level)))
+        else:
+            for name, relation, temper, infection_level in zip(
+                clan_data["other_clans_names"].split(","),
+                clan_data["other_clans_relations"].split(","),
+                clan_data["other_clan_temperament"].split(","),
+                clan_data["other_clan_infected"].split(",")):
+                game.clan.all_clans.append(OtherClan(name, int(relation), temper, int(infection_level)))
 
         for cat in clan_data["clan_cats"].split(","):
             if cat in Cat.all_cats:
@@ -1387,7 +1404,7 @@ class OtherClan():
     TODO: DOCS
     """
 
-    def __init__(self, name='', relations=0, temperament=''):
+    def __init__(self, name='', relations=0, temperament='', infection_level=0):
         temperament_list = [
             'cunning', 'wary', 'logical', 'proud', 'stoic', 'mellow',
             'bloodthirsty', 'amiable', 'gracious'
@@ -1397,6 +1414,7 @@ class OtherClan():
         self.temperament = temperament or choice(temperament_list)
         if self.temperament not in temperament_list:
             self.temperament = choice(temperament_list)
+        self.infection_level = infection_level or 0
 
     def __repr__(self):
         return f"{self.name}Clan"

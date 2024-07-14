@@ -324,7 +324,7 @@ class CureLogScreen(Screens):
                 if "infection_notes" in rel_data:
                     self.user_notes = rel_data.get("infection_notes")
         except Exception as e:
-            print(f"ERROR: there was an error reading the INFECTION notes file.\n", e)
+            print("ERROR: there was an error reading the INFECTION notes file.\n", e)
 
     def update_notes_buttons(self):
         """ wee """
