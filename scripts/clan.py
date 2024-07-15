@@ -143,7 +143,8 @@ class Clan():
             "spread_by": choice(["air", "bite"]),
             "treatments": [],
             "infection_moons": 0,
-            "logs": []
+            "logs": [],
+            "fallen_clans": []
         }
         self.inheritance = {}
         self.murdered = False
@@ -161,6 +162,7 @@ class Clan():
         self.infection_type = 'fungal'
         self.treatments = []
         self.cure_discovered = []
+        self.fallen_clans = []
         self.cure_moons = 0
         self.spread_by = "air"
         self.infection_moons = 0
@@ -530,7 +532,8 @@ class Clan():
             "spread_by": self.infection["spread_by"],
             "treatments": self.infection["treatments"],
             "infection_moons": self.infection["infection_moons"],
-            "logs": self.infection["logs"]
+            "logs": self.infection["logs"],
+            "fallen_clans": self.infection["fallen_clans"]
         }
 
         # LEADER DATA

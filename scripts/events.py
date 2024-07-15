@@ -1591,11 +1591,80 @@ class Events:
 
     def other_clans_infection(self):
         """ progresses the infection for clans who are infected."""
+
+        # if game.clan.infection["clan_infected"] is False:
+        #     return
+         
+        temperament_list = [
+            'cunning', 'wary', 'logical', 'proud', 'stoic', 'mellow',
+            'bloodthirsty', 'amiable', 'gracious'
+        ]
+        chance_increase = [
+            '3', '2', '2', '1', '3', '2', '4', '2', '3'
+        ] # lower the number, higher the chance
+
+        increase_chance = 0
         for clan in game.clan.all_clans:
-            print("CLAN:", clan.name)
-            print("INFECTION:", clan.infection_level)
-        
-            
+            if clan.infection_level > 0:
+                if clan.temperament in temperament_list:
+                    index = temperament_list.index(clan.temperament)
+                    increase_amount = int(chance_increase[index])
+                    increase_chance += (increase_amount + random.randint(-2,5))
+
+                increase_chance = max(1, min(increase_chance, 10))
+
+                if random.random() < 1 / increase_chance:
+                    increase = random.randint(1, 8)
+                    clan.infection_level += increase
+                    print(clan.name, "infection increased to:", clan.infection_level)
+                
+            # clan infection events
+            if clan.infection_level >= 10:
+                if random.randint(1,2) == 40:
+                    events = [
+                        f"A {clan.name}Clan medicine cat is seen on the border. They ask for herbs, and though they refuse to say why they need them, the unmistakable scent of the infection clings to their pelt.",
+                        f"A patrol returns home and reports seeing an infected rogue across the border in {clan.name}Clan territory."
+                    ]
+                    text = random.choice(events)
+                    game.cur_events_list.insert(0, Single_Event(text, ["other_clans", "infection"]))
+
+            elif clan.infection_level >= 70:
+                chance = 20
+                if random.randint(1,2) == 25:
+                    events = [
+                        f"{clan.name}Clan has been showing up to Gatherings with fewer and fewer cats.",
+                        f"To a half-moon meeting, {clan.name}'s senior medicine cat shows up alone. When asked where their apprentice is, they do not answer, but the rest of the gathered cats exchange knowing looks."
+                    ]
+                    text = random.choice(events)
+                    game.cur_events_list.insert(0, Single_Event(text, ["other_clans", "infection"]))
+
+            elif clan.infection_level >= 80:
+                chance = 10
+                if random.randint(1,2) == 10:
+                    events = [
+                        f"{clan.name}Clan has been burying their infected dead near the border. The plants in the ground nearby have started to wilt.",
+                        f"{clan.name}Clan has stopped showing up to Gatherings.",
+                        f"{clan.name}Clan has closed their borders indefinitely."
+                    ]
+
+                    text = random.choice(events)
+                    game.cur_events_list.insert(0, Single_Event(text, ["other_clans", "infection"]))
+
+            elif clan.infection_level >= 100 and clan.name not in game.clan.infection["fallen_clan"]:
+                game.clan.infection["fallen_clans"].append(clan.name)
+
+                game.clan.all_clans.remove(clan)
+                events = [
+                    f"The infection has taken its toll. The {clan.name}Clan camp has been completely abandoned.",
+                    f"{clan.name}Clan has fallen."
+                ]
+
+                if game.clan.war["enemy"] == clan.name:
+                    events.append[f"A battle patrol descends upon the {clan.name}Clan camp. When they get there, however, they find a chilling sight. The camp is empty, the only cats in sight being a few scattered, infected corpses. {clan.name}Clan has fallen to the infection."]
+                
+                text = random.choice(events)
+                game.cur_events_list.insert(0, Single_Event(text, ["other_clans", "infection"]))
+                
     def generate_df_events(self):
         if random.randint(1,3) == 1:
             evt = self.adjust_txt(random.choice(self.df_txt["general"]))
@@ -1904,6 +1973,8 @@ class Events:
                 if game.clan.herbs[herb_given] > 2:
                     herb_amount = random.randrange(
                         1, int(game.clan.herbs[herb_given] - 1))
+                    chosen_ally.infection_level -= random.randint(2,5)
+
                     # deplete the herb
                     game.clan.herbs[herb_given] -= herb_amount
                     possible_events = [
@@ -1924,6 +1995,7 @@ class Events:
                         ])
                     chosen_ally.relations += 5
                 else:
+                    chosen_ally.infection_level += random.randint(2,5)
                     possible_events = [
                         f"The {chosen_ally.name}Clan medicine cat comes asking if your Clan has any {herb_given.replace('_', ' ')} to spare. "  # pylint: disable=line-too-long
                         f"However, your Clan only has enough for themselves and they refuse to share.",

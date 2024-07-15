@@ -559,7 +559,8 @@ class Game():
                     "spread_by": random.choice(["air", "bite"]),
                     "treatments": [],
                     "infection_moons": 0,
-                    "logs": []
+                    "logs": [],
+                    "fallen_clans": []
                 }
                 
                 with open(f"saves/{self.clan.name}/infection.json", 'w') as create_file:
