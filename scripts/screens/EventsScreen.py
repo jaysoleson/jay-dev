@@ -3,13 +3,13 @@ import pygame_gui
 from .Screens import Screens
 import pygame
 from scripts.events import events_class
-from scripts.utility import get_living_clan_cat_count, get_text_box_theme, scale, shorten_text_to_fit
+from scripts.utility import get_living_clan_cat_count, get_text_box_theme, scale, shorten_text_to_fit, get_non_infected_clan_cat_count
 from scripts.game_structure.image_button import IDImageButton, UIImageButton, UISpriteButton
 from scripts.game_structure.game_essentials import game, screen_x, screen_y, MANAGER
 from ..cat.cats import Cat
 from ..game_structure import image_cache
 from scripts.event_class import Single_Event
-from scripts.game_structure.windows import GameOver, PickPath, DeathScreen, EventLoading
+from scripts.game_structure.windows import GameOver, PickPath, DeathScreen, EventLoading, InfectionGameOver
 import ujson
 import random
 from scripts.game_structure.propagating_thread import PropagatingThread
@@ -862,6 +862,9 @@ class EventsScreen(Screens):
         self.scroll_height = {}
         if get_living_clan_cat_count(Cat) == 0:
             GameOver('events screen')
+        
+        elif get_non_infected_clan_cat_count(Cat) == 0:
+            InfectionGameOver('events screen')
         
         if self.event_display_type != 'relationship events':
             self.cat_icon.hide()

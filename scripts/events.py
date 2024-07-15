@@ -1645,15 +1645,18 @@ class Events:
                         f"{clan.name}Clan has been burying their infected dead near the border. The plants in the ground nearby have started to wilt.",
                         f"{clan.name}Clan has stopped showing up to Gatherings.",
                         f"{clan.name}Clan has closed their borders indefinitely."
-                    ]
+                    ] # do i wanna add some function to this border close stuff... im so lazy......
 
                     text = random.choice(events)
                     game.cur_events_list.insert(0, Single_Event(text, ["other_clans", "infection"]))
 
             elif clan.infection_level >= 100 and clan.name not in game.clan.infection["fallen_clan"]:
-                game.clan.infection["fallen_clans"].append(clan.name)
 
+                game.clan.infection["fallen_clans"].append(clan.name)
                 game.clan.all_clans.remove(clan)
+                # i have to add the fallen_clans list to the leaders den once i have it
+                # like. the clan as normal but its crossed out
+
                 events = [
                     f"The infection has taken its toll. The {clan.name}Clan camp has been completely abandoned.",
                     f"{clan.name}Clan has fallen."

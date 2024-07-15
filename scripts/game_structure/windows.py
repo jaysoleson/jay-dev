@@ -280,6 +280,64 @@ class GameOver(UIWindow):
                 self.kill()
 
 
+class InfectionGameOver(UIWindow):
+    def __init__(self, last_screen):
+        super().__init__(scale(pygame.Rect((500, 400), (600, 360))),
+                         window_display_title='Game Over',
+                         object_id='#game_over_window',
+                         resizable=False)
+        self.set_blocking(True)
+        game.switches['window_open'] = True
+        self.clan_name = str(game.clan.name + 'Clan')
+        self.last_screen = last_screen
+        self.game_over_message = UITextBoxTweaked(
+            f"{self.clan_name} is completely infected. There is no hope of recovery.<br>"
+            f"What will you do?",
+            scale(pygame.Rect((40, 40), (520, -1))),
+            line_spacing=1,
+            object_id="",
+            container=self
+        )
+
+        self.game_over_message = UITextBoxTweaked(
+            f"(leaving will not erase the save file)",
+            scale(pygame.Rect((40, 310), (520, -1))),
+            line_spacing=.8,
+            object_id="#text_box_22_horizcenter",
+            container=self
+        )
+
+        self.begin_anew_button = UIImageButton(
+            scale(pygame.Rect((50, 230), (222, 60))),
+            "",
+            object_id="#begin_anew_button",
+            container=self
+        )
+        self.not_yet_button = UIImageButton(
+            scale(pygame.Rect((318, 230), (222, 60))),
+            "",
+            object_id="#not_yet_button",
+            container=self
+        )
+
+        self.not_yet_button.enable()
+        self.begin_anew_button.enable()
+
+    def process_event(self, event):
+        super().process_event(event)
+
+        if event.type == pygame_gui.UI_BUTTON_START_PRESS:
+            if event.ui_element == self.begin_anew_button:
+                game.last_screen_forupdate = game.switches['cur_screen']
+                game.switches['cur_screen'] = 'start screen'
+                game.switch_screens = True
+                game.switches['window_open'] = False
+                self.kill()
+            elif event.ui_element == self.not_yet_button:
+                game.switches['window_open'] = False
+                self.kill()
+
+
 class ChangeCatName(UIWindow):
     """This window allows the user to change the cat's name"""
 

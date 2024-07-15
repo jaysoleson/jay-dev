@@ -167,6 +167,16 @@ def get_living_clan_cat_count(Cat):
         count += 1
     return count
 
+def get_non_infected_clan_cat_count(Cat):
+    """
+    TODO: DOCS
+    """
+    count = 0
+    for the_cat in Cat.all_cats.values():
+        if the_cat.dead or the_cat.exiled or the_cat.outside or the_cat.infected_for != 0:
+            continue
+        count += 1
+    return count
 
 def get_cats_same_age(cat, range=10):  # pylint: disable=redefined-builtin
     """Look for all cats in the Clan and returns a list of cats, which are in the same age range as the given cat."""
