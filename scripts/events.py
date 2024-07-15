@@ -1590,9 +1590,9 @@ class Events:
             game.cur_events_list.append(evt)
 
     def other_clans_infection(self):
+        """ progresses the infection for clans who are infected."""
         for clan in game.clan.all_clans:
             print("CLAN:", clan.name)
-            print("TEMPER:", clan.temperament)
             print("INFECTION:", clan.infection_level)
         
             

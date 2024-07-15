@@ -1,46 +1,20 @@
 # pylint: disable=line-too-long
-"""
-
-This file contains:
-  The start screen,
-  The switch clan screen,
-  The settings screen,
-  And the statistics screen.
-
-
-
-"""  # pylint: enable=line-too-long
+# pylint: enable=line-too-long
 
 import logging
 import os
-import platform
-import subprocess
-import traceback
-import logging
-import random
-from html import escape
 
 from re import sub
 
 import pygame
 import pygame_gui
 import ujson
-from requests.exceptions import RequestException, Timeout
 
-from scripts.cat.cats import Cat
-from scripts.clan import Clan
-from scripts.cat.pelts import Pelt
-from scripts.game_structure import image_cache
-from scripts.game_structure.discord_rpc import _DiscordRPC
-from scripts.game_structure.game_essentials import game, screen, screen_x, screen_y, MANAGER
+from scripts.game_structure.game_essentials import game, screen_x, screen_y, MANAGER
 from scripts.game_structure.image_button import UIImageButton
-from scripts.game_structure.windows import DeleteCheck, UpdateAvailablePopup, ChangelogPopup, SaveError
-from scripts.utility import get_text_box_theme, scale, quit  # pylint: disable=redefined-builtin
-from scripts.cat.history import History
+from scripts.utility import get_text_box_theme, scale  # pylint: disable=redefined-builtin
 from .Screens import Screens
-from ..housekeeping.datadir import get_data_dir, get_cache_dir, get_save_dir
-from ..housekeeping.update import has_update, UpdateChannel, get_latest_version_number
-from ..housekeeping.version import get_version_info
+from ..housekeeping.datadir import get_save_dir
 
 from scripts.game_structure.image_button import UITextBoxTweaked
 
