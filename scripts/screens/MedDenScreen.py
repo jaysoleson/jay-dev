@@ -4,7 +4,7 @@ import pygame_gui
 from .Screens import Screens
 from scripts.cat.cats import Cat
 from scripts.game_structure.image_button import UISpriteButton, UIImageButton, UITextBoxTweaked
-from scripts.utility import get_text_box_theme, scale, get_med_cats, shorten_text_to_fit
+from scripts.utility import get_text_box_theme, scale, get_med_cats, shorten_text_to_fit, get_infected_clan_cat_count
 from scripts.game_structure.game_essentials import game, MANAGER
 from ..conditions import get_amount_cat_for_one_medic, medical_cats_condition_fulfilled
 
@@ -318,7 +318,12 @@ class MedDenScreen(Screens):
         self.draw_med_den()
         self.update_med_cat()
 
-        if game.clan.infection["cure_attempt"] == True or len(self.meds) <= 0:
+        medcats = []
+        for cat in Cat.all_cats_list:
+            if cat.status in ["medicine cat", "medicine cat apprentice"] and not cat.not_working() and cat.infected_for == 0 and not cat.outside and not cat.dead:
+                medcats.append(cat)
+
+        if game.clan.infection["cure_attempt"] is True or get_infected_clan_cat_count(Cat) == 0 or len(medcats) <= 0:
             self.treatment_button.disable()
         else:
             self.treatment_button.enable()

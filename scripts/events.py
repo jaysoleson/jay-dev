@@ -1620,7 +1620,7 @@ class Events:
                 
             # clan infection events
             if clan.infection_level >= 10:
-                if random.randint(1,2) == 40:
+                if random.randint(1,30) == 1:
                     events = [
                         f"A {clan.name}Clan medicine cat is seen on the border. They ask for herbs, and though they refuse to say why they need them, the unmistakable scent of the infection clings to their pelt.",
                         f"A patrol returns home and reports seeing an infected rogue across the border in {clan.name}Clan territory."
@@ -1630,7 +1630,7 @@ class Events:
 
             elif clan.infection_level >= 70:
                 chance = 20
-                if random.randint(1,2) == 25:
+                if random.randint(1,20) == 1:
                     events = [
                         f"{clan.name}Clan has been showing up to Gatherings with fewer and fewer cats.",
                         f"To a half-moon meeting, {clan.name}'s senior medicine cat shows up alone. When asked where their apprentice is, they do not answer, but the rest of the gathered cats exchange knowing looks."
@@ -1640,7 +1640,7 @@ class Events:
 
             elif clan.infection_level >= 80:
                 chance = 10
-                if random.randint(1,2) == 10:
+                if random.randint(1,10) == 1:
                     events = [
                         f"{clan.name}Clan has been burying their infected dead near the border. The plants in the ground nearby have started to wilt.",
                         f"{clan.name}Clan has stopped showing up to Gatherings.",

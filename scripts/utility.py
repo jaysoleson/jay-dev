@@ -129,7 +129,7 @@ def get_med_cats(Cat, working=True):
                          i.status in ['medicine cat apprentice', 'medicine cat'] and not (i.dead or i.outside)]
 
     if working:
-        possible_med_cats = [i for i in possible_med_cats if not i.not_working()]
+        possible_med_cats = [i for i in possible_med_cats if not i.not_working() or i.infected_for > 0]
 
     # Sort the cats by age before returning
     possible_med_cats = sorted(possible_med_cats, key=lambda cat: cat.moons, reverse=True)
@@ -174,6 +174,17 @@ def get_non_infected_clan_cat_count(Cat):
     count = 0
     for the_cat in Cat.all_cats.values():
         if the_cat.dead or the_cat.exiled or the_cat.outside or the_cat.infected_for != 0:
+            continue
+        count += 1
+    return count
+
+def get_infected_clan_cat_count(Cat):
+    """
+    TODO: DOCS
+    """
+    count = 0
+    for the_cat in Cat.all_cats.values():
+        if the_cat.dead or the_cat.exiled or the_cat.outside or the_cat.infected_for == 0:
             continue
         count += 1
     return count
@@ -1382,9 +1393,18 @@ def generate_sprite(cat, life_state=None, scars_hidden=False, acc_hidden=False, 
         infected = False
     else:
         infected = True
+
+    notworkin = False
+    for illness in cat.illnesses:
+        if cat.illnesses[illness]['severity'] != 'minor':
+            notworkin = True
+    for injury in cat.injuries:
+        if cat.injuries[injury]['severity'] != 'minor':
+            notworkin = True
+    # i have to do this so infected cats dont all get the sick sprite woooommmpp
     
     # setting the cat_sprite (bc this makes things much easier)
-    if not no_not_working and cat.not_working() and age != 'newborn' and game.config['cat_sprites']['sick_sprites']:
+    if not no_not_working and notworkin and age != 'newborn' and game.config['cat_sprites']['sick_sprites']:
         if age in ['kitten', 'adolescent']:
             cat_sprite = str(19)
         else:

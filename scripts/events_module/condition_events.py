@@ -88,8 +88,6 @@ class Condition_Events():
     with open(f"resources/dicts/infection/infection_risk_strings.json", 'r') as read_file:
         INFECTION_RISK_STRINGS = ujson.loads(read_file.read())
 
-    # infection type variable
-
     @staticmethod
     def handle_illnesses(cat, season=None):
         """ 
@@ -109,10 +107,14 @@ class Condition_Events():
         infection_events = []
 
         if cat.is_ill():
-            event_string = Condition_Events.handle_already_ill(cat)
-            if cat.infected_for > 0:
-                # this sucks idk how to do it better
-                infection_events.append(event_string)
+            event_string, infection_event = Condition_Events.handle_already_ill(cat)
+            if cat.infected_for > 0 and event_string is not None:
+                if not infection_event and "has reached" not in event_string:
+                    # im a hack
+                    # print("NOT APPENDING", event_string, "TO INFECTION EVENTS")
+                    pass
+                else:
+                    infection_events.append(event_string)
         else:
             # ---------------------------------------------------------------------------- #
             #                              make cats sick                                  #
@@ -551,7 +553,8 @@ class Condition_Events():
 
         if f"{inftype} stage one" in cat.illnesses:
             if inftype == "fungal":
-                possible_risks.append("fleas")
+                # possible_risks.append("fleas")
+                pass
 
         elif f"{inftype} stage two" in cat.illnesses:
             pass
@@ -616,6 +619,7 @@ class Condition_Events():
         #                         handle currently sick cats                           #
         # ---------------------------------------------------------------------------- #
 
+        infection_event = False
         # making a copy, so we can iterate through copy and modify the real dict at the same time
         illnesses = deepcopy(cat.illnesses)
         for illness in illnesses:
@@ -638,6 +642,7 @@ class Condition_Events():
                     event = f"{cat.name} died of {illness}."
                 else:
                     event = f"{cat.name} was killed by the infection."
+                    infection_event = True
                 # clear event list to get rid of any healed or risk event texts from other illnesses
                 event_list.clear()
                 event_list.append(event)
@@ -651,6 +656,7 @@ class Condition_Events():
                     History.add_death(cat, f"died to {illness}")
                 else:
                     History.add_death(cat, "died to the infection") 
+                    infection_event = True
                 break
 
             # heal the cat
@@ -659,7 +665,8 @@ class Condition_Events():
                     # id rather stop it from ever being true in the first place for infected cats
                     # because after a certain point, this is happening every moon
                     # but whatever. this works.
-                    return
+                    infection_event = True
+                    continue
                 History.remove_possible_history(cat, illness)
                 game.switches['skip_conditions'].append(illness)
                 # gather potential event strings for healed illness
@@ -694,12 +701,16 @@ class Condition_Events():
                 continue
 
             Condition_Events.give_risks(cat, event_list, illness, illness_progression, illnesses, cat.illnesses)
+            if infection_event:
+                infec = Condition_Events.give_risks(cat, event_list, illness, illness_progression, illnesses, cat.illnesses)
+                print("INFEC:", infec)
+
 
         # joining event list into one event string
         event_string = None
         if len(event_list) > 0:
             event_string = ' '.join(event_list)
-        return event_string
+        return event_string, infection_event
 
     @staticmethod
     def handle_already_injured(cat):
@@ -1004,6 +1015,7 @@ class Condition_Events():
                             
     @staticmethod
     def give_risks(cat, event_list, condition, progression, conditions, dictionary):
+        inftype = game.clan.infection["infection_type"]
         event_triggered = False
         if dictionary == cat.permanent_condition:
             event_triggered = True
@@ -1014,6 +1026,9 @@ class Condition_Events():
                 continue
             if risk["name"] == 'an infected wound' and 'a festering wound' in cat.illnesses:
                 continue
+            infection_event = False
+            if risk["name"] in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]:
+                infection_event = True
 
             # adjust chance of risk gain if Clan has enough meds
             chance = risk["chance"]
@@ -1118,6 +1133,8 @@ class Condition_Events():
                     break
 
                 # break out of risk giving loop cus we don't want to give multiple risks for one condition
+                if infection_event:
+                    return infection_event
                 break
 
     @staticmethod

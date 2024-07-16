@@ -2178,6 +2178,8 @@ class Cat():
         for injury in self.injuries:
             if self.injuries[injury]['severity'] != 'minor':
                 return True
+        if self.infected_for > 5:
+            return True
         return False
 
     def not_work_because_hunger(self):
