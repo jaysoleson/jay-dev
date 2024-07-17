@@ -113,7 +113,7 @@ class Condition_Events():
                     # im a hack
                     # print("NOT APPENDING", event_string, "TO INFECTION EVENTS")
                     pass
-                else:
+                elif infection_event or "has reached" in event_string:
                     infection_events.append(event_string)
         else:
             # ---------------------------------------------------------------------------- #

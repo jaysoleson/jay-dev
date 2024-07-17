@@ -1619,7 +1619,7 @@ class Events:
                     print(clan.name, "infection increased to:", clan.infection_level)
                 
             # clan infection events
-            if clan.infection_level >= 10:
+            if clan.infection_level <= 10:
                 if random.randint(1,30) == 1:
                     events = [
                         f"A {clan.name}Clan medicine cat is seen on the border. They ask for herbs, and though they refuse to say why they need them, the unmistakable scent of the infection clings to their pelt.",
@@ -1628,7 +1628,7 @@ class Events:
                     text = random.choice(events)
                     game.cur_events_list.insert(0, Single_Event(text, ["other_clans", "infection"]))
 
-            elif clan.infection_level >= 70:
+            elif clan.infection_level <= 40:
                 chance = 20
                 if random.randint(1,20) == 1:
                     events = [
@@ -1638,7 +1638,7 @@ class Events:
                     text = random.choice(events)
                     game.cur_events_list.insert(0, Single_Event(text, ["other_clans", "infection"]))
 
-            elif clan.infection_level >= 80:
+            elif clan.infection_level <= 80:
                 chance = 10
                 if random.randint(1,10) == 1:
                     events = [
@@ -1650,7 +1650,7 @@ class Events:
                     text = random.choice(events)
                     game.cur_events_list.insert(0, Single_Event(text, ["other_clans", "infection"]))
 
-            elif clan.infection_level >= 100 and clan.name not in game.clan.infection["fallen_clan"]:
+            elif clan.infection_level >= 100 and clan.name not in game.clan.infection["fallen_clans"]:
 
                 game.clan.infection["fallen_clans"].append(clan.name)
                 game.clan.all_clans.remove(clan)
@@ -1659,8 +1659,10 @@ class Events:
 
                 events = [
                     f"The infection has taken its toll. The {clan.name}Clan camp has been completely abandoned.",
-                    f"{clan.name}Clan has fallen."
+                    f"{clan.name}Clan has fallen to the infection.",
+                    f"At a Gathering, the {clan.name}Clan leader announces that they will be leaving to scape the infection. The next morning, their borders are unmarked. {clan.name}Clan is gone."
                 ]
+                # MAKE A JSON FOR THESE LAZY
 
                 if game.clan.war["enemy"] == clan.name:
                     events.append[f"A battle patrol descends upon the {clan.name}Clan camp. When they get there, however, they find a chilling sight. The camp is empty, the only cats in sight being a few scattered, infected corpses. {clan.name}Clan has fallen to the infection."]
