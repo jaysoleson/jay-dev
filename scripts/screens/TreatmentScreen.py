@@ -304,45 +304,6 @@ class TreatmentScreen(Screens):
                                                                     "resources/images/choosing_cat1_frame_ment.png").convert_alpha(),
                                                                 (569, 399)), manager=MANAGER)
             
-
-            # x_start = 880
-            # y_start = 190
-            # x_spacing = 130
-            # y_spacing = 130
-            # grid_size = 5
-
-            # x_pos = x_start
-            # y_pos = y_start
-
-            # selected_herbs = [self.herb1, self.herb2, self.herb3, self.herb4]
-
-            # for index, herb in enumerate(HERBS):
-            #     if herb not in selected_herbs:
-            #         self.herb_buttons[herb] = UIImageButton(
-            #             scale(pygame.Rect((x_pos, y_pos), (110, 110))), 
-            #             f"{herb}",
-            #             tool_tip_text=f"{herb}",
-            #             object_id=f"#{herb}",
-            #             manager=MANAGER
-            #         )
-            #     else:
-            #         self.herb_buttons[herb] = UIImageButton(
-            #             scale(pygame.Rect((x_pos, y_pos), (110, 110))), 
-            #             f"{herb}",
-            #             tool_tip_text=f"{herb}",
-            #             object_id=f"#{herb}_selected",
-            #             manager=MANAGER
-            #         )
-                
-            #     if (index + 1) % grid_size == 0:
-            #         x_pos = x_start  # Reset x position for new row
-            #         y_pos += y_spacing  # Move to the next row
-            #     else:
-            #         x_pos += x_spacing  # Move to the next column
-
-            #     if herb not in game.clan.herbs:
-            #         self.herb_buttons[herb].disable()
-
             self.update_herb_buttons()
 
             self.back_button = UIImageButton(scale(pygame.Rect((50, 1290), (210, 60))), "", object_id="#back_button")

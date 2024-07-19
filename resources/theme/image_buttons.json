@@ -5062,5 +5062,39 @@
                 "path": "resources/images/journal_stamps/murder3.png"
             }
         }
+    },
+    "#stamp_pacifist": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/journal_stamps/pacifist.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/journal_stamps/pacifist_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/journal_stamps/pacifist_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/journal_stamps/pacifist.png"
+            }
+        }
+    },
+    "#stamp_start": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/journal_stamps/start.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/journal_stamps/start_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/journal_stamps/start_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/journal_stamps/start.png"
+            }
+        }
     }
 }
