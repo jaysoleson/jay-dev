@@ -10,11 +10,18 @@ import pygame
 import pygame_gui
 import ujson
 
-from scripts.game_structure.game_essentials import game, screen_x, screen_y, MANAGER
+from scripts.game_structure.game_essentials import game, screen, screen_x, screen_y, MANAGER
 from scripts.game_structure.image_button import UIImageButton
 from scripts.utility import get_text_box_theme, scale  # pylint: disable=redefined-builtin
 from .Screens import Screens
 from ..housekeeping.datadir import get_save_dir
+
+from scripts.game_structure import image_cache
+
+from scripts.cat.history import History
+from scripts.cat.cats import Cat
+from scripts.clan import Clan
+from scripts.cat.pelts import Pelt
 
 from scripts.game_structure.image_button import UITextBoxTweaked
 
@@ -29,6 +36,8 @@ class CureLogScreen(Screens):
     """
     TODO: DOCS
     """
+    stamps = {}
+    journalart = None
 
     def __init__(self, name=None):
         super().__init__(name)
@@ -51,6 +60,143 @@ class CureLogScreen(Screens):
         self.edit_text = None
         self.display_notes = None
 
+    
+    def check_achivements(self):
+        you = game.clan.your_cat
+        achievements = set()
+        murder_history = History.get_murders(you)
+        clan_cats = game.clan.clan_cats
+        count_alive_cats = 0
+        if murder_history:
+            if 'is_murderer' in murder_history:
+                num_victims = len(murder_history["is_murderer"])
+                if num_victims >= 0:
+                    achievements.add("1")
+                if num_victims >= 5:
+                    achievements.add("2")
+                if num_victims >= 20:
+                    achievements.add("3")
+                if num_victims >= 50:
+                    achievements.add("4")
+        else:
+            if you.moons >= 120:
+                achievements.add("25")
+                
+        for cat in clan_cats:
+            if Cat.all_cats.get(cat).pelt.tortiebase and Cat.all_cats.get(cat).gender == 'male':
+                achievements.add("5")
+            if Cat.all_cats.get(cat).insulted == True:
+                achievements.add("29")
+            if (Cat.all_cats.get(cat).name.prefix == "Coffee" and Cat.all_cats.get(cat).name.suffix == "dot") or (Cat.all_cats.get(cat).name.prefix == "Chibi" and Cat.all_cats.get(cat).name.suffix == "Galaxies"):
+                achievements.add("30")
+            if Cat.all_cats.get(cat).status == 'apprentice' and Cat.all_cats.get(cat).name.prefix == "Pea" and Cat.all_cats.get(cat).pelt.white_colours:
+                achievements.add("33")
+            if Cat.all_cats.get(cat).status == 'kitten' and Cat.all_cats.get(cat).moons > 5:
+                achievements.add("34")
+            ##WILDCARD check, because I've lost control of my life
+            ##Declare Lists of wildcard combos for comparison. (Will be made more professional later.)
+            not_wildcard_patterns = ['tabby', 'ticked', 'mackerel', 'classic', 'agouti', 'smoke', 'single']
+            ##Actual check for wildcardness
+            if Cat.all_cats.get(cat).pelt.name == "Tortie" or Cat.all_cats.get(cat).pelt.name == "Calico":
+                ID_check = Cat.all_cats.get(cat).ID 
+                ##Check if wildcard colour combo
+                if (Cat.all_cats.get(cat).pelt.colour == "WHITE" and not Cat.all_cats.get(cat).pelt.tortiecolour == "WHITE"):
+                    achievements.add("6")
+                elif ((Cat.all_cats.get(cat).pelt.colour in Pelt.black_colours or Cat.all_cats.get(cat).pelt.colour in Pelt.white_colours) and Cat.all_cats.get(cat).pelt.tortiecolour in Pelt.black_colours or Cat.all_cats.get(cat).pelt.tortiecolour in Pelt.white_colours):
+                    achievements.add("6")
+                elif ((Cat.all_cats.get(cat).pelt.colour in Pelt.ginger_colours) and Cat.all_cats.get(cat).pelt.tortiecolour in Pelt.ginger_colours or Cat.all_cats.get(cat).pelt.tortiecolour in Pelt.white_colours):
+                    achievements.add("6")
+                elif ((Cat.all_cats.get(cat).pelt.colour in Pelt.brown_colours) and Cat.all_cats.get(cat).pelt.tortiecolour in Pelt.white_colours):
+                    achievements.add("6")
+                ##Check if wildcard pattern combo       
+                ##rewritten wildcard pattern combo
+                if Cat.all_cats.get(cat).pelt.tortiebase in Pelt.tabbies and not Cat.all_cats.get(cat).pelt.tortiepattern == "single" and Cat.all_cats.get(cat).pelt.tortiebase != Cat.all_cats.get(cat).pelt.tortiepattern:
+                    achievements.add("6")
+                if Cat.all_cats.get(cat).pelt.tortiebase in Pelt.spotted and not Cat.all_cats.get(cat).pelt.tortiepattern == "single" and Cat.all_cats.get(cat).pelt.tortiebase != Cat.all_cats.get(cat).pelt.tortiepattern:
+                    achievements.add("6")
+                if Cat.all_cats.get(cat).pelt.tortiebase in Pelt.exotic and not Cat.all_cats.get(cat).pelt.tortiepattern == "single" and Cat.all_cats.get(cat).pelt.tortiebase != Cat.all_cats.get(cat).pelt.tortiepattern:
+                    achievements.add("6")
+                if Cat.all_cats.get(cat).pelt.tortiebase in Pelt.plain and not Cat.all_cats.get(cat).pelt.tortiepattern in not_wildcard_patterns and Cat.all_cats.get(cat).pelt.tortiebase != Cat.all_cats.get(cat).pelt.tortiepattern:
+                    achievements.add("6")
+            ##code block for achievement 31
+            achieve31RankList = ['warrior', 'mediator', 'leader']
+            achieve31UsedRanks = []
+            if len(Cat.all_cats.get(cat).mate) >= 2:
+                catMateIDs = Cat.all_cats.get(cat).mate.copy()
+                if Cat.all_cats.get(cat).status in achieve31RankList:
+                    achieve31UsedRanks.append(Cat.all_cats.get(cat).status)
+                    for cat in clan_cats:
+                        if Cat.all_cats.get(cat).ID in catMateIDs:
+                            if (Cat.all_cats.get(cat).status in achieve31RankList) and (Cat.all_cats.get(cat).status not in achieve31UsedRanks):
+                                achieve31UsedRanks.append(Cat.all_cats.get(cat).status)
+                        countranks = 0
+                        for i in achieve31UsedRanks:
+                            if i in achieve31RankList:
+                                countranks += 1
+                            if countranks >= 3:
+                                achievements.add("31")
+        #code for achievement 23 + 24
+            if Clan.age >= 1:                          
+                if not Cat.all_cats.get(cat).dead and not Cat.all_cats.get(cat).outside:
+                    count_alive_cats += 1
+                if count_alive_cats == 1 and Cat.all_cats.get(cat).ID == you.ID:
+                    achievements.add('23')
+                elif count_alive_cats >= 100:
+                    achievements.add('24')
+
+        if you.joined_df:
+            achievements.add("7")
+        
+        if len(you.former_apprentices) >= 1:
+            achievements.add("8")
+        if len(you.former_apprentices) >= 5:
+            achievements.add("9")
+        
+        if you.inheritance.get_children():
+            achievements.add("10")
+        for i in you.relationships.keys():
+            if you.relationships.get(i).dislike >= 60:
+                achievements.add("11")
+            if you.relationships.get(i).romantic_love >= 60:
+                achievements.add('12')
+            
+        if len(you.mate) >= 5:
+            achievements.add('13')
+        if you.status == 'warrior':
+            achievements.add('14')
+        elif you.status == 'medicine cat':
+            achievements.add('15')
+        elif you.status == 'mediator':
+            achievements.add('16')
+        elif you.status == 'deputy':
+            achievements.add('17')
+        elif you.status == 'leader':
+            achievements.add('18')
+        elif you.status == 'elder':
+            achievements.add('19')
+        elif you.status == 'queen':
+            achievements.add('32')
+        
+        if you.moons >= 200:
+            achievements.add('20')
+        if you.exiled:
+            achievements.add('21')
+        elif you.outside:
+            achievements.add('22')
+            
+        if you.experience >= 100:
+            achievements.add('26')
+        if you.experience >= 200:
+            achievements.add('27')
+        if you.experience >= 300:
+            achievements.add('28')        
+        
+        for i in game.clan.achievements:
+            achievements.add(i)
+        
+        game.clan.achievements = list(achievements)
+
+
     def screen_switches(self):
         """
         TODO: DOCS
@@ -68,6 +214,7 @@ class CureLogScreen(Screens):
             self.display_notes = None
             self.edit_text = None
             self.save_text = None
+            self.journalart = None
 
             self.set_disabled_menu_buttons(["stats"])
             self.show_menu_buttons()
@@ -109,6 +256,7 @@ class CureLogScreen(Screens):
             self.display_notes = None
             self.edit_text = None
             self.save_text = None
+            self.journalart = None
 
             self.scroll_container = pygame_gui.elements.UIScrollingContainer(scale(pygame.Rect(
             (100, 350), (730, 790))),
@@ -201,6 +349,8 @@ class CureLogScreen(Screens):
             self.correct_text_box = None
             self.save_text = None
             self.edit_text = None
+            self.screen_art = None
+
             self.scroll_container = pygame_gui.elements.UIScrollingContainer(scale(pygame.Rect(
             (790, 290), (800, 910))),
             allow_scroll_x=False,
@@ -209,8 +359,7 @@ class CureLogScreen(Screens):
             self.set_disabled_menu_buttons(["stats"])
             self.show_menu_buttons()
             self.update_heading_text(f'{game.clan.name}Clan')
-        
-            # Determine stats
+
             stats_text = "<b>Journal:</b>"
             self.load_user_notes()
             if self.user_notes is None:
@@ -240,18 +389,21 @@ class CureLogScreen(Screens):
                 manager=MANAGER,
                 object_id=get_text_box_theme("#text_box_30_horizcenter"))
             
+            width_scale_factor = 1300 / 1600
+            height_scale_factor = 820 / 1300
+
+            # Adjust scaling factors to make the image smaller
+            adjustment_factor = 0.95  # 90% of the original size
+            width_scale_factor *= adjustment_factor
+            height_scale_factor *= adjustment_factor
+            
             if game.settings["dark mode"]:
-                self.screen_art = pygame_gui.elements.UIImage(scale(pygame.Rect(((175, 307), (1249, 892)))),
-                                                                 pygame.transform.scale(
-                                                                     pygame.image.load(
-                                                                         "resources/images/journal_dark.png").convert_alpha(),
-                                                                     (1600, 1400)), manager=MANAGER)
+                self.journalart = pygame.transform.scale(image_cache.load_image("resources/images/journal_dark.png").convert_alpha(),
+                                        (width_scale_factor * screen_x, height_scale_factor * screen_y))
             else:
-                self.screen_art = pygame_gui.elements.UIImage(scale(pygame.Rect(((20, 65), (1558, 1351)))),
-                                                                 pygame.transform.scale(
-                                                                     pygame.image.load(
-                                                                         "resources/images/journal_light.png").convert_alpha(),
-                                                                     (1600, 1400)), manager=MANAGER)
+                self.journalart = pygame.transform.scale(image_cache.load_image("resources/images/journal_dark.png").convert_alpha(),
+                                        (width_scale_factor * screen_x, height_scale_factor * screen_y))
+
             if len(game.clan.infection["treatments"]) > 0:
                 self.previous_page_button.enable()
             else:
@@ -259,8 +411,40 @@ class CureLogScreen(Screens):
 
             self.scroll_container.set_scrollable_area_dimensions((1360 / 1600 * screen_x, 1400 * screen_y))
 
+            # JOURNAL STAMPS
+            # wwhoooaaaaoo
+            self.check_achivements()
+            # chibi misspelled the function and im keeping it that way bc its funny
+
+            # MURDER
+            if "1" in game.clan.achievements:
+                murder = "murder1"
+                hover = "Killed one cat"
+                self.stamps["murder"] = UIImageButton(scale(pygame.Rect((290, 360), (38, 72))), "",
+                                                object_id=f"#stamp_{murder}", tool_tip_text=f"{hover}", manager=MANAGER)
+            if "2" in game.clan.achievements:
+                murder = "murder1"
+                hover = "Killed five cats"
+                self.stamps["murder"] = UIImageButton(scale(pygame.Rect((290, 360), (38, 72))), "",
+                                                object_id=f"#stamp_{murder}", tool_tip_text=f"{hover}", manager=MANAGER)
+            if "3" in game.clan.achievements:
+                murder = "murder2"
+                hover = "Killed twenty cats"
+                self.stamps["murder"] = UIImageButton(scale(pygame.Rect((290, 360), (67, 86))), "",
+                                                object_id=f"#stamp_{murder}", tool_tip_text=f"{hover}", manager=MANAGER)
+            if "4" in game.clan.achievements:
+                murder = "murder3"
+                hover = "Killed fifty cats"
+                self.stamps["murder"] = UIImageButton(scale(pygame.Rect((280, 350), (116, 99))), "",
+                                                object_id=f"#stamp_{murder}", tool_tip_text=f"{hover}", manager=MANAGER)
+
             
             self.update_notes_buttons()
+    
+    def on_use(self):
+        # Due to a bug in pygame, any image with buttons over it must be blited
+        if self.journalart:
+            screen.blit(self.journalart, (182 / 1600 * screen_x, 90 / 400 * screen_y))
     
     def save_user_notes(self):
         """Saves user-entered notes. """
@@ -346,6 +530,10 @@ class CureLogScreen(Screens):
         self.stats_box.kill()
         del self.stats_box
 
+        for ele in self.stamps:
+            self.stamps[ele].kill()
+        self.stamps = {}
+
         if self.screen_art:
             self.screen_art.kill()
             del self.screen_art
@@ -384,6 +572,11 @@ class CureLogScreen(Screens):
         if self.save_text:
             self.save_text.kill()
             del self.save_text
+
+    # def on_use(self):
+    #     # Due to a bug in pygame, any image with buttons over it must be blited
+    #     if self.screen_art and self.stage == "notes":
+    #         screen.blit(self.journal_surface, (175, 307), (1165, 832, 1165, 832))
 
     def handle_event(self, event):
         """
@@ -425,7 +618,3 @@ class CureLogScreen(Screens):
             elif event.ui_element == self.edit_text:
                 self.editing_notes = True
                 self.update_notes_buttons()
-    def on_use(self):
-        """
-        TODO: DOCS
-        """

@@ -180,6 +180,7 @@ class TreatmentScreen(Screens):
                     print("HERB2:", self.herb2)
                     print("HERB3:", self.herb3)
                     print("HERB4:", self.herb4)
+                    self.update_herb_buttons()
 
         if self.stage == "treatment results" and event.type == pygame.MOUSEBUTTONDOWN:
             if self.text_frames:
@@ -189,6 +190,51 @@ class TreatmentScreen(Screens):
                         self.frame_index = 0
                 else:
                     self.frame_index = len(self.text_frames[self.text_index]) - 1  # Go to the last frame
+
+    def update_herb_buttons(self):
+        """ Displays and updates herb buttons """
+
+        for ele in self.herb_buttons:
+            self.herb_buttons[ele].kill()
+        self.herb_buttons = {}
+
+        x_start = 880
+        y_start = 190
+        x_spacing = 130
+        y_spacing = 130
+        grid_size = 5
+
+        x_pos = x_start
+        y_pos = y_start
+
+        selected_herbs = [self.herb1, self.herb2, self.herb3, self.herb4]
+
+        for index, herb in enumerate(HERBS):
+            if herb not in selected_herbs:
+                self.herb_buttons[herb] = UIImageButton(
+                    scale(pygame.Rect((x_pos, y_pos), (110, 110))), 
+                    f"{herb}",
+                    tool_tip_text=f"{herb}",
+                    object_id=f"#{herb}",
+                    manager=MANAGER
+                )
+            else:
+                self.herb_buttons[herb] = UIImageButton(
+                    scale(pygame.Rect((x_pos, y_pos), (110, 110))), 
+                    f"{herb}",
+                    tool_tip_text=f"{herb}",
+                    object_id=f"#{herb}_selected",
+                    manager=MANAGER
+                )
+            
+            if (index + 1) % grid_size == 0:
+                x_pos = x_start  # Reset x position for new row
+                y_pos += y_spacing  # Move to the next row
+            else:
+                x_pos += x_spacing  # Move to the next column
+
+            if herb not in game.clan.herbs:
+                self.herb_buttons[herb].disable()
 
 
     def screen_switches(self):
@@ -212,10 +258,10 @@ class TreatmentScreen(Screens):
                                                         manager=MANAGER)
             
             # Layout Images:
-            self.mentor_frame = pygame_gui.elements.UIImage(scale(pygame.Rect((200, 226), (569, 399))),
+            self.mentor_frame = pygame_gui.elements.UIImage(scale(pygame.Rect((200, 226), (562, 394))),
                                                             pygame.transform.scale(
                                                                 image_cache.load_image(
-                                                                    "resources/images/murder_select.png").convert_alpha(),
+                                                                    "resources/images/choosing_cat1_frame_ment.png").convert_alpha(),
                                                                 (569, 399)), manager=MANAGER)
             
             self.back_button = UIImageButton(scale(pygame.Rect((50, 1290), (210, 60))), "", object_id="#back_button")
@@ -252,39 +298,52 @@ class TreatmentScreen(Screens):
                                                         manager=MANAGER)
             
             # Layout Images:
-            self.mentor_frame = pygame_gui.elements.UIImage(scale(pygame.Rect((200, 226), (569, 399))),
+            self.mentor_frame = pygame_gui.elements.UIImage(scale(pygame.Rect((200, 226), (562, 394))),
                                                             pygame.transform.scale(
                                                                 image_cache.load_image(
-                                                                    "resources/images/murder_select.png").convert_alpha(),
+                                                                    "resources/images/choosing_cat1_frame_ment.png").convert_alpha(),
                                                                 (569, 399)), manager=MANAGER)
             
 
-            x_start = 880
-            y_start = 190
-            x_spacing = 130
-            y_spacing = 130
-            grid_size = 5
+            # x_start = 880
+            # y_start = 190
+            # x_spacing = 130
+            # y_spacing = 130
+            # grid_size = 5
 
-            x_pos = x_start
-            y_pos = y_start
+            # x_pos = x_start
+            # y_pos = y_start
 
-            for index, herb in enumerate(HERBS):
-                self.herb_buttons[herb] = UIImageButton(
-                    scale(pygame.Rect((x_pos, y_pos), (110, 110))), 
-                    f"{herb}",
-                    tool_tip_text=f"{herb}",
-                    object_id="", 
-                    manager=MANAGER
-                )
+            # selected_herbs = [self.herb1, self.herb2, self.herb3, self.herb4]
+
+            # for index, herb in enumerate(HERBS):
+            #     if herb not in selected_herbs:
+            #         self.herb_buttons[herb] = UIImageButton(
+            #             scale(pygame.Rect((x_pos, y_pos), (110, 110))), 
+            #             f"{herb}",
+            #             tool_tip_text=f"{herb}",
+            #             object_id=f"#{herb}",
+            #             manager=MANAGER
+            #         )
+            #     else:
+            #         self.herb_buttons[herb] = UIImageButton(
+            #             scale(pygame.Rect((x_pos, y_pos), (110, 110))), 
+            #             f"{herb}",
+            #             tool_tip_text=f"{herb}",
+            #             object_id=f"#{herb}_selected",
+            #             manager=MANAGER
+            #         )
                 
-                if (index + 1) % grid_size == 0:
-                    x_pos = x_start  # Reset x position for new row
-                    y_pos += y_spacing  # Move to the next row
-                else:
-                    x_pos += x_spacing  # Move to the next column
+            #     if (index + 1) % grid_size == 0:
+            #         x_pos = x_start  # Reset x position for new row
+            #         y_pos += y_spacing  # Move to the next row
+            #     else:
+            #         x_pos += x_spacing  # Move to the next column
 
-                if herb not in game.clan.herbs:
-                    self.herb_buttons[herb].disable()
+            #     if herb not in game.clan.herbs:
+            #         self.herb_buttons[herb].disable()
+
+            self.update_herb_buttons()
 
             self.back_button = UIImageButton(scale(pygame.Rect((50, 1290), (210, 60))), "", object_id="#back_button")
 

@@ -4593,5 +4593,192 @@
                 "path": "resources/images/buttons/continue_dead_unavailable.png"
             }
         }
+    },
+    "#elder_leaves": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/herb_buttons/elder_leaves.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/herb_buttons/elder_leaves_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/herb_buttons/elder_leaves_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/herb_buttons/elder_leaves_unavailable.png"
+            }
+        }
+    },
+    "#cobwebs": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/herb_buttons/cobwebs.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/herb_buttons/cobwebs_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/herb_buttons/cobwebs_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/herb_buttons/cobwebs_unavailable.png"
+            }
+        }
+    },
+    "#daisy": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/herb_buttons/daisy.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/herb_buttons/daisy_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/herb_buttons/daisy_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/herb_buttons/daisy_unavailable.png"
+            }
+        }
+    },
+    "#horsetail": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/herb_buttons/horsetail.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/herb_buttons/horsetail_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/herb_buttons/horsetail_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/herb_buttons/horsetail_unavailable.png"
+            }
+        }
+    },
+    "#juniper": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/herb_buttons/juniper.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/herb_buttons/juniper_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/herb_buttons/juniper_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/herb_buttons/juniper_unavailable.png"
+            }
+        }
+    },
+    "#lungwort": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/herb_buttons/lungwort.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/herb_buttons/lungwort_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/herb_buttons/lungwort_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/herb_buttons/lungwort_unavailable.png"
+            }
+        }
+    },
+    "#mallow": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/herb_buttons/mallow.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/herb_buttons/mallow_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/herb_buttons/mallow_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/herb_buttons/mallow_unavailable.png"
+            }
+        }
+    },
+    "#marigold": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/herb_buttons/marigold.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/herb_buttons/marigold_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/herb_buttons/marigold_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/herb_buttons/marigold_unavailable.png"
+            }
+        }
+    },
+    "#moss": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/herb_buttons/moss.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/herb_buttons/moss_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/herb_buttons/moss_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/herb_buttons/moss_unavailable.png"
+            }
+        }
+    },
+    "#oak_leaves": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/herb_buttons/oak_leaves.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/herb_buttons/oak_leaves_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/herb_buttons/oak_leaves_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/herb_buttons/oak_leaves_unavailable.png"
+            }
+        }
+    },
+    "#ragwort": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/herb_buttons/ragwort.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/herb_buttons/ragwort_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/herb_buttons/ragwort_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/herb_buttons/ragwort_unavailable.png"
+            }
+        }
     }
 }

@@ -5011,5 +5011,56 @@
                 "path": "resources/images/buttons/dens_unavailable.png"
             }
         }
+    },
+    "#stamp_murder1": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/journal_stamps/murder1.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/journal_stamps/murder1.png"
+            },
+            "selected_image": {
+                "path": "resources/images/journal_stamps/murder1.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/journal_stamps/murder1.png"
+            }
+        }
+    },
+    "#stamp_murder2": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/journal_stamps/murder2.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/journal_stamps/murder2.png"
+            },
+            "selected_image": {
+                "path": "resources/images/journal_stamps/murder2.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/journal_stamps/murder2.png"
+            }
+        }
+    },
+    "#stamp_murder3": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/journal_stamps/murder3.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/journal_stamps/murder3.png"
+            },
+            "selected_image": {
+                "path": "resources/images/journal_stamps/murder3.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/journal_stamps/murder3.png"
+            }
+        }
     }
 }
