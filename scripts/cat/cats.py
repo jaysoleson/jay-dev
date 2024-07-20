@@ -214,6 +214,7 @@ class Cat():
         self.shunned = 0 # moons
         self.infected_for = 0 # moons!
         self.cure_progress = 0
+        self.story_cat = None
         self.thought = ''
         self.genderalign = None
         self.birth_cooldown = 0
@@ -442,6 +443,9 @@ class Cat():
 
         May return some additional text to add to the death event.
         """
+        if self.story_cat is not None:
+            print(self.name, "PLOT ARMOUR!!!!!")
+            return ""
         if self.status == 'leader' and 'pregnant' in self.injuries and game.clan.leader_lives > 0:
             self.illnesses.clear()
             self.injuries = { key : value for (key, value) in self.injuries.items() if key == 'pregnant'}
@@ -3434,6 +3438,7 @@ class Cat():
                 "status": self.status,
                 "infected_moons": self.infected_for,
                 "cure_progress": self.cure_progress,
+                "story_cat": self.story_cat,
                 "backstory": self.backstory if self.backstory else None,
                 "moons": self.moons,
                 "trait": self.personality.trait,

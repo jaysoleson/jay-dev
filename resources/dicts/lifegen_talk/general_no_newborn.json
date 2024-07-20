@@ -3412,5 +3412,134 @@
         [
             "Why would StarClan do this to me..?"
         ]
-    ]
+    ],
+    "story_key_story_1_step_2": [
+        [
+            "any",
+            "story_1",
+            "story_1_step_2"
+        ],
+        [
+            "[You approach t_c, a question on your mind.]",
+            "Hm? Oh, a rogue? What did they look like?",
+            "... ... ...",
+            "I don't know why you'd be talking to <i>me</i> about this. You think I know who that is? I don't.",
+            "... ... ... ...",
+            "Where did you say you found them?",
+            "[You point t_c in a vague direction and {PRONOUN/t_c/subject} {VERB/t_c/run/runs} off. It seems {PRONOUN/t_c/subject} {VERB/t_c/know/knows} more than {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} letting on, and {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} terrible at hiding it.]",
+            "[Your log has been updated.]"
+        ]
+    ],
+    "story_key_story_1_step_3": {
+        "tags": [
+            "any",
+            "story_1",
+            "post_story_1_step_2",
+            "story_1_step_3"
+        ],
+        "intro": [
+            "Okay, fine. I know sc_2 won't tell you, but I know you really want to know. Just, don't tell anyone else, okay?",
+            "When you found me out in the territory... that hole in the ground that I wouldn't show you...",
+            "*Sigh*",
+            "My friend was in there. Our friend. Me and sc_2's, I mean.",
+            "She got infected really early on. She was already pretty sickly, so, it killed her pretty quickly.",
+            "I didn't want to leave her. I think sc_2 is still in denial about the whole thing, really."
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "What was her name?",
+                "next_scene": "name"
+            },
+            "choice2": {
+                "text": "I'm so sorry.",
+                "next_scene": "sorry"
+            }
+        },
+        "name": [
+            "[t_c chokes up for a moment. You feel a bit bad for asking.]",
+            "Her name was Sunflower. She was wonderful.",
+            "Always looking up, never in the shade...",
+            "I guess that's why I never really buried her. I didn't want to hide her from the sun, you know?",
+            "... ... ..."
+        ],
+        "name_choices": {
+            "choice1": {
+                "text": "You should rest.",
+                "next_scene": "getsomerest"
+            },
+            "choice2": {
+                "text": "I'll sit with you.",
+                "next_scene": "sitwithyou"
+            }
+        },
+        "sorry": [
+            "Oh, it's okay... that's just how life is now, huh?",
+            "Maybe it's good she stepped out right as it all started."
+        ],
+        "sorry_choices": {
+            "choice1": {
+                "text": "What was her name?",
+                "next_scene": "name"
+            },
+            "choice2": {
+                "text": "Get some rest",
+                "next_scene": "getsomerest"
+            }
+        },
+        "getsomerest":[
+            "I guess you're right. You've got some comfy nests here, don't you? Haven't had one of those in a while.",
+            "I'll go find sc_2. Thank you.",
+            "[Your log has been updated.]"
+        ],
+        "sitwithyou": [
+            "Thank you. I'm a bit tired of talking, too, actually...",
+            "[You crouch down next to t_c, and the emotionally exhausted cat begins snoring into your fur almost immediately.]",
+            "[Your log has been updated.]"
+        ]
+    },
+    "story_key_story_1_step_4": {
+        "tags": [
+            "any",
+            "story_1",
+            "post_story_1_step_3",
+            "story_1_step_4"
+        ],
+        "intro": [
+            "*Sigh*",
+            "sc_1 told you, huh?",
+            "That's fine. {PRONOUN/sc_1/subject/CAP} could never keep {PRONOUN/sc_1/poss} mouth shut.",
+            "[t_c purrs affectionately.]",
+            "I met sc_1 a long time ago. Just out on the territory. I know I should've kicked {PRONOUN/sc_1/object} out, but... they were so... charming. I wanted to keep them around.",
+            "Does that make me a bad warrior?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "No",
+                "next_scene": "badwarrior_no"
+            },
+            "choice2": {
+                "text": "Yes",
+                "next_scene": "badwarrior_yes"
+            }
+        },
+        "badwarrior_yes": [
+            "Haha! Okay, I guess I deserve that.",
+            "I don't regret keeping {PRONOUN/sc_1/object} around, though. Not one bit.",
+            "{PRONOUN/sc_1/subject/CAP} introduced me to Sunflower. I assume {PRONOUN/sc_1/subject} told you about her?",
+            "She didn't deserve to die. But, I guess none of us do, and it still happens.",
+            "I'm rambling. Feel free to ignore me.",
+            "I'm gonna go find sc_1.",
+            "[t_c skips away to go find their friend.]",
+            "[Your log has been updated.]"
+        ],
+        "badwarrior_no": [
+            "Ah, well, I'm glad. I wouldn't regret it, either way. {PRONOUN/sc_1/subject/CAP} {VERB/sc_1/make/makes} me happy.",
+            "{PRONOUN/sc_1/subject/CAP} introduced me to Sunflower. I assume {PRONOUN/sc_1/subject} told you about her?",
+            "She didn't deserve to die. But, I guess none of us do, and it still happens.",
+            "I'm rambling. Feel free to ignore me.",
+            "I'm gonna go find sc_1.",
+            "[t_c skips away to go find their friend.]",
+            "[Your log has been updated.]"
+        ]
+    }
 }

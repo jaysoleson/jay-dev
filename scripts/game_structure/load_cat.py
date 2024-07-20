@@ -74,6 +74,9 @@ def json_load():
             if "cure_progress" not in cat:
                 cat["cure_progress"] = 0
 
+            if "story_cat" not in cat:
+                cat["story_cat"] = None
+
             new_cat = Cat(ID=cat["ID"],
                         prefix=cat["name_prefix"],
                         suffix=cat["name_suffix"],
@@ -194,6 +197,7 @@ def json_load():
             new_cat.former_apprentices = cat["former_apprentices"]
             new_cat.df = cat["df"] if "df" in cat else False
             new_cat.shunned = cat["shunned"] if "shunned" in cat else False
+            new_cat.story_cat = cat["story_cat"] if "story_cat" in cat else None
             new_cat.outside = cat["outside"] if "outside" in cat else False
             new_cat.faded_offspring = cat["faded_offspring"] if "faded_offspring" in cat else []
             new_cat.prevent_fading = cat["prevent_fading"] if "prevent_fading" in cat else False

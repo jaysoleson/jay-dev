@@ -20616,5 +20616,22 @@
             "[Clanmates smile at the sight and even r_m joins you and teaches you techniques for t_c's specific condition. It isn't long before t_c falls asleep and the medicine cat bows {PRONOUN/r_m/poss} head gratefully.]",
             "[{PRONOUN/r_m/poss/CAP}  {VERB/t_c/thank/thanks} you for taking the time to care for your Clanmate and it's the little things like this that make the biggest difference. Sometimes it's just being there for someone. You think of t_c's smile, the glowing grin of joy. You can't help but agree.]"
         ]
+    ],
+    "story_J1": [
+        [
+            "any",
+            "story_1",
+            "pre_story_1_step_2",
+            "they_deputy",
+            "they_warrior",
+            "they_leader"
+        ],
+        [
+            "Where in StarClan's name is sc_2? y_c, have you seen {PRONOUN/sc_2/object}?",
+            "No? Ugh. Probably out touching noses with that rogue again...",
+            "Oh, sorry. It's not polite to gossip. It's just, my patrol last night spotted {PRONOUN/sc_2/object} talking to an infected rogue. Getting that close to infected strangers sure isn't gonna help the Clan stay strong...",
+            "*Sigh* Can you just let {PRONOUN/sc_2/object} know I'm looking for {PRONOUN/sc_2/object} if you find {PRONOUN/sc_2/object} before I do?",
+            "Thanks."
+        ]
     ]
 }

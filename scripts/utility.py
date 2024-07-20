@@ -294,6 +294,7 @@ def create_new_cat(Cat,
                    other_clan:bool=None,
                    backstory:bool=None,
                    status:str=None,
+                   story_cat:str=None,
                    age:int=None,
                    gender:str=None,
                    thought:str='Is looking around the camp with wonder',
@@ -315,6 +316,7 @@ def create_new_cat(Cat,
     :param other_clan: if new cat(s) are from a neighboring clan, set true
     :param backstory: a list of possible backstories.json for the new cat(s) - default: None
     :param status: set as the rank you want the new cat to have - default: None (will cause a random status to be picked)
+    :param story_cat: INFECTION lore oh yeah
     :param age: set the age of the new cat(s) - default: None (will be random or if kit/litter is true, will be kitten.
     :param gender: set the gender (BIRTH SEX) of the cat - default: None (will be random)
     :param thought: if you need to give a custom "welcome" thought, set it here
@@ -414,6 +416,7 @@ def create_new_cat(Cat,
                                   status=status,
                                   gender=_gender,
                                   df=df,
+                                  story_cat=story_cat,
                                   backstory=backstory,
                                   parent1=parent1,
                                   parent2=parent2)
@@ -422,6 +425,7 @@ def create_new_cat(Cat,
                                   status=status,
                                   gender=_gender,
                                   df=df,
+                                  story_cat=story_cat,
                                   backstory=backstory,
                                   parent1=parent1,
                                   parent2=parent2)
@@ -433,6 +437,7 @@ def create_new_cat(Cat,
                               status=status,
                               gender=_gender,
                               df=df,
+                              story_cat=story_cat,
                               backstory=backstory,
                               parent1=parent1,
                               parent2=parent2)
@@ -468,9 +473,6 @@ def create_new_cat(Cat,
                 if scarchance == 1:
                     scar = choice(Pelt.scars1)
                     new_cat.pelt.scars.append(scar)
-            
-                
-                
 
         # Remove disabling scars on living cats, if they generated.
         if not df: 
@@ -518,6 +520,8 @@ def create_new_cat(Cat,
             new_cat.outside = True
         if not alive:
             new_cat.die()
+        
+        new_cat.story_cat = story_cat
 
         if not alive and df:
             new_cat.df = True

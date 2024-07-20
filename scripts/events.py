@@ -408,7 +408,9 @@ class Events:
 
         # INFECTION: other clans
         self.other_clans_infection()
-            
+
+        self.infection_story(cat)
+
         # Resort
         if game.sort_type != "id":
             Cat.sort_cats()
@@ -426,6 +428,35 @@ class Events:
             except:
                 SaveError(traceback.format_exc())
     
+    def infection_story(self, cat):
+        # INFECTION: story
+        # STORY 1
+        if game.clan.infection["story"] == "1":
+            # assigning a second cat for story 1-- the cat who has a history with the firdt cat (encountered rogue)
+            if "story_1_step_1" in game.clan.infection["logs"]:
+                already_second = False
+                first = None
+                for cat in Cat.all_cats_list:
+                    if cat.story_cat == "second":
+                        if "story_1_step_2" not in game.clan.infection["logs"]:
+                            if cat.dead or cat.outside or cat.exiled or cat.moons > 90:
+                                print("second cat is now illegible. rerolling while we still can!")
+                                break
+                            else:
+                                already_second = True
+                                break
+                        else:
+                            already_second = True
+                    if cat.story_cat == "first":
+                        first = cat
+                        break
+                if not already_second:
+                    eligible_cats = [cat for cat in Cat.all_cats_list if cat.status not in ["newborn", "kitten", "elder"] and cat.moons > 10 and cat.moons < 90 and cat.infected_for == 0 and cat.ID != game.clan.your_cat.ID and not cat.outside and not cat.dead and not cat.exiled and cat.ID != first.ID]
+                    second = random.choice(eligible_cats)
+                    second.story_cat = "second"
+                    print(second.name, "is now the", second.story_cat, "story cat")
+
+
     def add_freshkill(self):
         """Adds amount of freshkill needed for the Clan"""
         game.clan.freshkill_pile.add_freshkill(game.clan.freshkill_pile.amount_food_needed())
@@ -1633,7 +1664,7 @@ class Events:
                 if random.randint(1,20) == 1:
                     events = [
                         f"{clan.name}Clan has been showing up to Gatherings with fewer and fewer cats.",
-                        f"To a half-moon meeting, {clan.name}'s senior medicine cat shows up alone. When asked where their apprentice is, they do not answer, but the rest of the gathered cats exchange knowing looks."
+                        f"To a half-moon meeting, {clan.name}Clan's senior medicine cat shows up alone. When asked where their apprentice is, they do not answer, but the rest of the gathered cats exchange knowing looks."
                     ]
                     text = random.choice(events)
                     game.cur_events_list.insert(0, Single_Event(text, ["other_clans", "infection"]))
@@ -1665,7 +1696,7 @@ class Events:
                 # MAKE A JSON FOR THESE LAZY
 
                 if game.clan.war["enemy"] == clan.name:
-                    events.append[f"A battle patrol descends upon the {clan.name}Clan camp. When they get there, however, they find a chilling sight. The camp is empty, the only cats in sight being a few scattered, infected corpses. {clan.name}Clan has fallen to the infection."]
+                    events.append(f"A battle patrol descends upon the {clan.name}Clan camp. When they get there, however, they find a chilling sight. The camp is empty, the only cats in sight being a few scattered, infected corpses. {clan.name}Clan has fallen to the infection.")
                 
                 text = random.choice(events)
                 game.cur_events_list.insert(0, Single_Event(text, ["other_clans", "infection"]))
@@ -3564,6 +3595,12 @@ class Events:
             # Otherwise, other_cat is None
             other_cat = None
 
+        storycat = False
+        for cat in Cat.all_cats_list:
+            if cat.story_cat != None and cat.status in ["rogue", "loner", "kittypet", "former Clancat"] and not cat.dead:
+                chance = 2
+                storycat = True
+
         if not int(random.random() * chance) and \
                 cat.age != 'kitten' and cat.age != 'adolescent' and not self.new_cat_invited:
             self.new_cat_invited = True
@@ -3581,7 +3618,7 @@ class Events:
                 other_cat=other_cat,
                 war=game.clan.war.get("at_war", False),
                 enemy_clan=enemy_clan,
-                alive_kits=get_alive_kits(Cat))
+                alive_kits=get_alive_kits(Cat), story=storycat)
             Relation_Events.welcome_new_cats(new_cats)
 
     def other_interactions(self, cat):

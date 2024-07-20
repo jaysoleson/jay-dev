@@ -560,7 +560,8 @@ class Game():
                     "treatments": [],
                     "infection_moons": 0,
                     "logs": [],
-                    "fallen_clans": []
+                    "fallen_clans": [],
+                    "story": random.choice(["1", "2"])
                 }
                 
                 with open(f"saves/{self.clan.name}/infection.json", 'w') as create_file:

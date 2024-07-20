@@ -536,6 +536,46 @@ class TalkScreen(Screens):
             if "discovered" in tags and "discovered" not in logs:
                 continue
 
+            # INFECTION STORY TAGS
+            # STORY 1
+            if game.clan.infection["story"] == "1":
+                if "story_1_step_2" in tags:
+                    if "story_1_step_1" not in game.clan.infection["logs"]:
+                        continue
+                    if "story_1_step_2" in game.clan.infection["logs"]:
+                        continue
+                    if cat.story_cat != "second":
+                        continue
+
+            steps = ["1", "2", "3", "4"]
+            stories = ["1", "2"]
+            skip = False
+            for story in stories:
+                if f"story_{story}" in tags and game.clan.infection["story"] != story:
+                    skip = True
+
+                for step in steps:
+                    if f"story_{story}_step_{step}" in tags and f"story_{story}_step_{step}" in game.clan.infection["logs"]:
+                        skip = True
+                        break
+                    if f"pre_story_{story}_step_{step}" in tags and f"story_{story}_step_{step}" in game.clan.infection["logs"]:
+                        skip = True
+                        break
+                    if f"post_story_{story}_step_{step}" in tags and f"story_{story}_step_{step}" not in game.clan.infection["logs"]:
+                        print(game.clan.infection["logs"])
+                        skip = True
+                        break
+            if skip:
+                continue
+
+            
+            if "story_cat_1" in tags and cat.story_cat != "first":
+                continue
+            if "story_cat_2" in tags and cat.story_cat != "second":
+                continue
+            if "story_cat_3" in tags and cat.story_cat != "third":
+                continue
+
             if you.moons == 0 and "newborn" not in tags:
                 continue
 
@@ -1451,6 +1491,8 @@ class TalkScreen(Screens):
                     weight += 29
                 elif f"{inftype} stage four" in cat.illnesses:
                     weight += 36
+            if "story_1" in tags:
+                weight += 15
             weights.append(weight)
 
         # Check for debug mode
@@ -1490,6 +1532,11 @@ class TalkScreen(Screens):
                 if "~" in text_chosen_key:
                     text_chosen_key_split = text_chosen_key.split("~")
                     cat.connected_dialogue[text_chosen_key_split[0]] = int(text_chosen_key_split[1])
+                if text_chosen_key.startswith("story_key_"):
+                    match = re.search(r'story_key_(\w+)', text_chosen_key)
+                    if match:
+                        print("mg1", match.group(1))
+                        game.clan.infection["logs"].append(match.group(1))
                 return new_text
 
         # If no valid text found, choose one based on tag weights
@@ -1516,6 +1563,7 @@ class TalkScreen(Screens):
         if "~" in text_chosen_key:
             text_chosen_key_split = text_chosen_key.split("~")
             cat.connected_dialogue[text_chosen_key_split[0]] = int(text_chosen_key_split[1])
+
         game.clan.talks.append(text_chosen_key)
         return new_text
 
@@ -4312,6 +4360,116 @@ class TalkScreen(Screens):
                     else:
                         self.cat_dict["e_c"] = alive_app
                         text = re.sub(r'(?<!\/)e_c(?!\/)', str(alive_app.name), text)
+
+            if "sc_1" in text:
+                cluster = False
+                rel = False
+                match = re.search(r'sc_1(\w+)', text)
+                if match:
+                    x = match.group(1).strip("_")
+                    cluster = True
+                else:
+                    x = ""
+                match2 = re.search(r'(\w+)sc_1', text)
+                if match2:
+                    r = match2.group(1).strip("_")
+                    rel = True
+                else:
+                    r = ""
+                if f"sc_1_{x}" in self.cat_dict or "sc_1" in self.cat_dict or f"{r}_sc_1" in self.cat_dict or f"{r}_sc_1_{x}" in self.cat_dict:
+                    if cluster and rel:
+                        text = re.sub(fr'(?<!\/){r}_sc_1_{x}(?!\/)', str(self.cat_dict[f"{r}_sc_1_{x}"].name), text)
+                    elif cluster and not rel:
+                        text = re.sub(fr'(?<!\/)sc_1_{x}(?!\/)', str(self.cat_dict[f"sc_1_{x}"].name), text)
+                    elif rel and not cluster:
+                        text = re.sub(fr'(?<!\/){r}_sc_1(?!\/)', str(self.cat_dict[f"{r}_sc_1"].name), text)
+                    else:
+                        text = re.sub(r'(?<!\/)sc_1(?!\/)', str(self.cat_dict["sc_1"].name), text)
+                else:
+                    alive_cats = [x for x in Cat.all_cats_list if x.story_cat == "first"]
+                    story_cat_second = choice(alive_cats)
+
+                    if story_cat_second.outside or story_cat_second.dead or story_cat_second.ID == cat.ID or\
+                    (cluster and x not in get_cluster(story_cat_second.personality.trait)) or (rel and (story_cat_second.ID not in cat.relationships) or\
+                    (r == "plike" and cat.relationships[story_cat_second.ID].platonic_like < 20) or\
+                    (r == "plove" and cat.relationships[story_cat_second.ID].platonic_like < 50) or\
+                    (r == "rlike" and cat.relationships[story_cat_second.ID].romantic_love < 10) or\
+                    (r == "rlove" and cat.relationships[story_cat_second.ID].romantic_love < 50) or\
+                    (r == "dislike" and cat.relationships[story_cat_second.ID].dislike < 15) or\
+                    (r == "hate" and cat.relationships[story_cat_second.ID].dislike < 50) or\
+                    (r == "jealous" and cat.relationships[story_cat_second.ID].jeaousy < 20) or\
+                    (r == "trust" and cat.relationships[story_cat_second.ID].trust < 20) or\
+                    (r == "comfort" and cat.relationships[story_cat_second.ID].comfortable < 20) or \
+                    (r == "respect" and cat.relationships[story_cat_second.ID].admiration < 20) or\
+                    (r == "neutral" and ((cat.relationships[story_cat_second.ID].platonic_like > 20) or (cat.relationships[story_cat_second.ID].romantic_love > 20) or (cat.relationships[story_cat_second.ID].dislike > 20) or (cat.relationships[story_cat_second.ID].jealousy > 20) or (cat.relationships[story_cat_second.ID].trust > 20) or (cat.relationships[story_cat_second.ID].comfortable > 20) or (cat.relationships[story_cat_second.ID].admiration > 20)))):
+                        return ""
+                    if cluster and rel:
+                        self.cat_dict[f"{r}_sc_1_{x}"] = story_cat_second
+                        text = re.sub(fr'(?<!\/){r}_sc_1_{x}(?!\/)', str(story_cat_second.name), text)
+                    elif cluster and not rel:
+                        self.cat_dict[f"sc_1_{x}"] = story_cat_second
+                        text = re.sub(fr'(?<!\/)sc_1_{x}(?!\/)', str(story_cat_second.name), text)
+                    elif rel and not cluster:
+                        self.cat_dict[f"{r}_sc_1"] = story_cat_second
+                        text = re.sub(fr'(?<!\/){r}_sc_1(?!\/)', str(story_cat_second.name), text)
+                    else:
+                        self.cat_dict["sc_1"] = story_cat_second
+                        text = re.sub(r'(?<!\/)sc_1(?!\/)', str(story_cat_second.name), text)
+                        
+            if "sc_2" in text:
+                cluster = False
+                rel = False
+                match = re.search(r'sc_2(\w+)', text)
+                if match:
+                    x = match.group(1).strip("_")
+                    cluster = True
+                else:
+                    x = ""
+                match2 = re.search(r'(\w+)sc_2', text)
+                if match2:
+                    r = match2.group(1).strip("_")
+                    rel = True
+                else:
+                    r = ""
+                if f"sc_2_{x}" in self.cat_dict or "sc_2" in self.cat_dict or f"{r}_sc_2" in self.cat_dict or f"{r}_sc_2_{x}" in self.cat_dict:
+                    if cluster and rel:
+                        text = re.sub(fr'(?<!\/){r}_sc_2_{x}(?!\/)', str(self.cat_dict[f"{r}_sc_2_{x}"].name), text)
+                    elif cluster and not rel:
+                        text = re.sub(fr'(?<!\/)sc_2_{x}(?!\/)', str(self.cat_dict[f"sc_2_{x}"].name), text)
+                    elif rel and not cluster:
+                        text = re.sub(fr'(?<!\/){r}_sc_2(?!\/)', str(self.cat_dict[f"{r}_sc_2"].name), text)
+                    else:
+                        text = re.sub(r'(?<!\/)sc_2(?!\/)', str(self.cat_dict["sc_2"].name), text)
+                else:
+                    alive_cats = [x for x in Cat.all_cats_list if x.story_cat == "second"]
+                    story_cat_second = choice(alive_cats)
+
+                    if story_cat_second.outside or story_cat_second.dead or story_cat_second.ID == cat.ID or\
+                    (cluster and x not in get_cluster(story_cat_second.personality.trait)) or (rel and (story_cat_second.ID not in cat.relationships) or\
+                    (r == "plike" and cat.relationships[story_cat_second.ID].platonic_like < 20) or\
+                    (r == "plove" and cat.relationships[story_cat_second.ID].platonic_like < 50) or\
+                    (r == "rlike" and cat.relationships[story_cat_second.ID].romantic_love < 10) or\
+                    (r == "rlove" and cat.relationships[story_cat_second.ID].romantic_love < 50) or\
+                    (r == "dislike" and cat.relationships[story_cat_second.ID].dislike < 15) or\
+                    (r == "hate" and cat.relationships[story_cat_second.ID].dislike < 50) or\
+                    (r == "jealous" and cat.relationships[story_cat_second.ID].jeaousy < 20) or\
+                    (r == "trust" and cat.relationships[story_cat_second.ID].trust < 20) or\
+                    (r == "comfort" and cat.relationships[story_cat_second.ID].comfortable < 20) or \
+                    (r == "respect" and cat.relationships[story_cat_second.ID].admiration < 20) or\
+                    (r == "neutral" and ((cat.relationships[story_cat_second.ID].platonic_like > 20) or (cat.relationships[story_cat_second.ID].romantic_love > 20) or (cat.relationships[story_cat_second.ID].dislike > 20) or (cat.relationships[story_cat_second.ID].jealousy > 20) or (cat.relationships[story_cat_second.ID].trust > 20) or (cat.relationships[story_cat_second.ID].comfortable > 20) or (cat.relationships[story_cat_second.ID].admiration > 20)))):
+                        return ""
+                    if cluster and rel:
+                        self.cat_dict[f"{r}_sc_2_{x}"] = story_cat_second
+                        text = re.sub(fr'(?<!\/){r}_sc_2_{x}(?!\/)', str(story_cat_second.name), text)
+                    elif cluster and not rel:
+                        self.cat_dict[f"sc_2_{x}"] = story_cat_second
+                        text = re.sub(fr'(?<!\/)sc_2_{x}(?!\/)', str(story_cat_second.name), text)
+                    elif rel and not cluster:
+                        self.cat_dict[f"{r}_sc_2"] = story_cat_second
+                        text = re.sub(fr'(?<!\/){r}_sc_2(?!\/)', str(story_cat_second.name), text)
+                    else:
+                        self.cat_dict["sc_2"] = story_cat_second
+                        text = re.sub(r'(?<!\/)sc_2(?!\/)', str(story_cat_second.name), text)
         except:
             return ""
         

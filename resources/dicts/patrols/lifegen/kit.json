@@ -740,7 +740,7 @@
         "max_cats": 3,
         "min_max_status": {},
         "weight": 20,
-        "intro_text": "Tonight, you've finally worked up the courage to sneak out of camp! Making sure no one heard you, you make your way into the territory and find a small swarm of butterflies. You watch them for a bit, entraced. After a while, though, you start to notice that two of the fireflies aren't moving. They're deep inside of a bush. They almost look like... eyes?",
+        "intro_text": "Tonight, you've finally worked up the courage to sneak out of camp! Making sure no one heard you, you make your way into the territory and find a small swarm of fireflies. You watch them for a bit, entranced. After a while, though, you start to notice that two of the fireflies aren't moving. They're deep inside of a bush. They almost look like... eyes?",
         "decline_text": "Suddenly sober of your need for nighttime adventure, you run back to camp to snuggle back into your warm, safe nest.",
         "chance_of_success": 50,
         "success_outcomes": [
@@ -768,5 +768,4 @@
             }
         ]
     }
-
 ]

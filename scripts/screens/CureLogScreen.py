@@ -417,25 +417,25 @@ class CureLogScreen(Screens):
             # chibi misspelled the function and im keeping it that way bc its funny
 
             # MURDER
-            if "2" in game.clan.achievements:
+            if "1" in game.clan.achievements:
                 murder = "murder1"
                 hover = "Killed one cat"
-                self.stamps["murder"] = UIImageButton(scale(pygame.Rect((290, 360), (38, 72))), "",
+                self.stamps["murder"] = UIImageButton(scale(pygame.Rect((310, 380), (38, 72))), "",
                                                 object_id=f"#stamp_{murder}", tool_tip_text=f"{hover}", manager=MANAGER)
             if "2" in game.clan.achievements:
                 murder = "murder1"
                 hover = "Killed five cats"
-                self.stamps["murder"] = UIImageButton(scale(pygame.Rect((290, 360), (38, 72))), "",
+                self.stamps["murder"] = UIImageButton(scale(pygame.Rect((310, 380), (38, 72))), "",
                                                 object_id=f"#stamp_{murder}", tool_tip_text=f"{hover}", manager=MANAGER)
             if "3" in game.clan.achievements:
                 murder = "murder2"
                 hover = "Killed twenty cats"
-                self.stamps["murder"] = UIImageButton(scale(pygame.Rect((290, 360), (67, 86))), "",
+                self.stamps["murder"] = UIImageButton(scale(pygame.Rect((310, 370), (67, 86))), "",
                                                 object_id=f"#stamp_{murder}", tool_tip_text=f"{hover}", manager=MANAGER)
             if "4" in game.clan.achievements:
                 murder = "murder3"
                 hover = "Killed fifty cats"
-                self.stamps["murder"] = UIImageButton(scale(pygame.Rect((280, 350), (116, 99))), "",
+                self.stamps["murder"] = UIImageButton(scale(pygame.Rect((280, 370), (116, 99))), "",
                                                 object_id=f"#stamp_{murder}", tool_tip_text=f"{hover}", manager=MANAGER)
             
             if "25" in game.clan.achievements:
@@ -445,6 +445,10 @@ class CureLogScreen(Screens):
             if "start" in game.clan.infection["logs"]:
                 self.stamps["start"] = UIImageButton(scale(pygame.Rect((425, 570), (206, 205))), "",
                                                 object_id="#stamp_start", tool_tip_text="You've discovered the infection.", manager=MANAGER)
+                
+            # if "cure_discovered" in game.clan.infection["logs"]:
+            self.stamps["cure_discovered"] = UIImageButton(scale(pygame.Rect((425, 340), (195, 170))), "",
+                                            object_id="#stamp_cure", tool_tip_text="You've discovered the cure!", manager=MANAGER)
 
             
             self.update_notes_buttons()

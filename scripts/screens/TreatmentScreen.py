@@ -31,6 +31,7 @@ class TreatmentScreen(Screens):
     selected_details = {}
     cat_list_buttons = {}
     herb_buttons = {}
+    herb_displays = {}
     stage = 'choose patient'
 
     def __init__(self, name=None):
@@ -176,11 +177,8 @@ class TreatmentScreen(Screens):
                         elif self.herb4 is None:
                             self.herb4 = herb
 
-                    print("HERB1:", self.herb1)
-                    print("HERB2:", self.herb2)
-                    print("HERB3:", self.herb3)
-                    print("HERB4:", self.herb4)
                     self.update_herb_buttons()
+                    self.update_treatment_display()
 
         if self.stage == "treatment results" and event.type == pygame.MOUSEBUTTONDOWN:
             if self.text_frames:
@@ -190,6 +188,34 @@ class TreatmentScreen(Screens):
                         self.frame_index = 0
                 else:
                     self.frame_index = len(self.text_frames[self.text_index]) - 1  # Go to the last frame
+
+    def update_treatment_display(self):
+        for ele in self.herb_displays:
+            self.herb_displays[ele].kill()
+        self.herb_displays = {}
+
+        self.herb_displays["desc"] = pygame_gui.elements.UITextBox("<u>Pick up to four herbs to try.</u>",
+                                                        scale(pygame.Rect((300, 880), (1000, 80))),
+                                                        object_id=get_text_box_theme("#text_box_34_horizcenter"),
+                                                        manager=MANAGER)
+        
+        self_herbs = [self.herb1, self.herb2, self.herb3, self.herb4]
+        herb_list = []
+        for herb in self_herbs:
+            if herb is not None:
+                herb_list.append(herb)
+
+        if len(herb_list) == 0:
+            text = ""
+        elif len(herb_list) == 1:
+            text = f"{herb_list[-1].replace('_', ' ')}"
+        else:
+            text = f"{', '.join([herb.replace('_', ' ') for herb in herb_list[:-1]])}, {herb_list[-1].replace('_', ' ')}"
+
+        self.herb_displays["herbs"] = pygame_gui.elements.UITextBox(f"<i>{text}</i>",
+                                                    scale(pygame.Rect((300, 950), (1000, 80))),
+                                                    object_id=get_text_box_theme("#text_box_34_horizcenter"),
+                                                    manager=MANAGER)
 
     def update_herb_buttons(self):
         """ Displays and updates herb buttons """
@@ -208,24 +234,34 @@ class TreatmentScreen(Screens):
         y_pos = y_start
 
         selected_herbs = [self.herb1, self.herb2, self.herb3, self.herb4]
+        picked = 0
+        for h in selected_herbs:
+            if h is not None:
+                picked += 1
 
         for index, herb in enumerate(HERBS):
             if herb not in selected_herbs:
                 self.herb_buttons[herb] = UIImageButton(
                     scale(pygame.Rect((x_pos, y_pos), (110, 110))), 
-                    f"{herb}",
-                    tool_tip_text=f"{herb}",
+                    "",
+                    tool_tip_text=f"{herb.replace('_', ' ')}",
                     object_id=f"#{herb}",
                     manager=MANAGER
                 )
             else:
                 self.herb_buttons[herb] = UIImageButton(
                     scale(pygame.Rect((x_pos, y_pos), (110, 110))), 
-                    f"{herb}",
-                    tool_tip_text=f"{herb}",
+                    "",
+                    tool_tip_text=f"{herb.replace('_', ' ')}",
                     object_id=f"#{herb}_selected",
                     manager=MANAGER
                 )
+            
+            if picked == 4:
+                if herb not in selected_herbs:
+                    self.herb_buttons[herb].disable()
+            
+                
             
             if (index + 1) % grid_size == 0:
                 x_pos = x_start  # Reset x position for new row
@@ -271,10 +307,10 @@ class TreatmentScreen(Screens):
             self.next_page_button = UIImageButton(scale(pygame.Rect((902, 1155), (68, 68))), "",
                                                 object_id="#relation_list_next", manager=MANAGER)
             
-            self.previous_stage_button = UIImageButton(scale(pygame.Rect((200, 670), (120, 80))), "Back",
-                                                    object_id="", manager=MANAGER)
-            self.next_stage_button = UIImageButton(scale(pygame.Rect((430, 670), (120, 80))), "Next",
-                                                object_id="", manager=MANAGER)
+            self.previous_stage_button = UIImageButton(scale(pygame.Rect((220, 670), (68, 68))), "",
+                                                    object_id="#arrow_left_button", manager=MANAGER)
+            self.next_stage_button = UIImageButton(scale(pygame.Rect((450, 670), (68, 68))), "",
+                                                object_id="#arrow_right_button", manager=MANAGER)
             
             self.previous_stage_button.disable()
             self.next_stage_button.disable()
@@ -313,15 +349,17 @@ class TreatmentScreen(Screens):
             self.next_page_button = UIImageButton(scale(pygame.Rect((902, 1155), (68, 68))), "",
                                                 object_id="#relation_list_next", manager=MANAGER)
             
-            self.previous_stage_button = UIImageButton(scale(pygame.Rect((200, 670), (120, 80))), "Back",
-                                                    object_id="", manager=MANAGER)
-            self.next_stage_button = UIImageButton(scale(pygame.Rect((430, 670), (120, 80))), "Next",
-                                                object_id="", manager=MANAGER)
+            self.previous_stage_button = UIImageButton(scale(pygame.Rect((220, 670), (68, 68))), "",
+                                                    object_id="#arrow_left_button", manager=MANAGER)
+            self.next_stage_button = UIImageButton(scale(pygame.Rect((450, 670), (68, 68))), "",
+                                                object_id="#arrow_right_button", tool_tip_text="Proceed to treatment",manager=MANAGER)
             
             self.next_stage_button.disable()
             self.update_selected_cat()
             self.previous_page_button.hide()
             self.next_page_button.hide()
+
+            self.update_treatment_display()
         else:
             self.frame_index = 0
             self.text_index = 0
@@ -374,10 +412,10 @@ class TreatmentScreen(Screens):
             self.next_page_button = UIImageButton(scale(pygame.Rect((902, 1155), (68, 68))), "",
                                                 object_id="#relation_list_next", manager=MANAGER)
             
-            self.previous_stage_button = UIImageButton(scale(pygame.Rect((630, 1005), (120, 80))), "Back",
-                                                    object_id="", manager=MANAGER)
-            self.next_stage_button = UIImageButton(scale(pygame.Rect((902, 1005), (120, 80))), "Next",
-                                                object_id="", manager=MANAGER)
+            self.previous_stage_button = UIImageButton(scale(pygame.Rect((630, 1005), (68, 68))), "",
+                                                    object_id="#arrow_left_button", manager=MANAGER)
+            self.next_stage_button = UIImageButton(scale(pygame.Rect((902, 1005), (68, 68))), "",
+                                                object_id="#arrow_right_button", manager=MANAGER)
             
             self.paw = pygame_gui.elements.UIImage(
                 scale(pygame.Rect((1370, 1180), (30, 30))),
@@ -407,6 +445,10 @@ class TreatmentScreen(Screens):
         for ele in self.herb_buttons:
             self.herb_buttons[ele].kill()
         self.herb_buttons = {}
+
+        for ele in self.herb_displays:
+            self.herb_displays[ele].kill()
+        self.herb_displays = {}
 
         for ele in self.apprentice_details:
             self.apprentice_details[ele].kill()
@@ -653,15 +695,15 @@ class TreatmentScreen(Screens):
 
         if cure or cure_one or cure_two or cure_three:
             if not cure and f"{inftype} stage one" not in patient.illnesses:
-                remission_chance = 80
+                remission_chance = 20
                 if not patient.is_injured():
-                    remission_chance -= 10
+                    remission_chance -= 8
                 sick = False
                 for illness in patient.illnesses:
                     if illness not in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]:
                         sick = True
                 if not sick:
-                    remission_chance -= 10
+                    remission_chance -= 8
 
                 if cure_one:
                     remission_chance -= remission_chance / 4
@@ -680,11 +722,14 @@ class TreatmentScreen(Screens):
                 else:
                     remission_chance += len(medcats) / 2
 
+                if remission_chance <= 1:
+                    remission_chance = 1
+
                 print("REMISSION CHANCE:", remission_chance)
 
-                if int(random.random() * remission_chance):
+                # if int(random.random() * remission_chance):
                 # ^ debug
-                # if not int(random.random() * remission_chance):
+                if not int(random.random() * remission_chance):
                     patient.cure_progress += 1
                     print("REMISSION CHANCE HIT")
 
@@ -751,7 +796,7 @@ class TreatmentScreen(Screens):
 
             infection_stage = [i for i in self.selected_cat.illnesses if i in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]]
 
-            infection_stage_stripped = str(infection_stage).replace('[', '').replace(']', '').replace("'", '')
+            infection_stage_stripped = str(infection_stage).replace('[', '').replace(']', '').replace("'", '').replace(f"{inftype} ", "")
 
             info = self.selected_cat.status + "\n" + \
                    self.selected_cat.genderalign + "\n <b>" + infection_stage_stripped + "</b> \n"

@@ -144,7 +144,8 @@ class Clan():
             "treatments": [],
             "infection_moons": 0,
             "logs": [],
-            "fallen_clans": []
+            "fallen_clans": [],
+            "story": choice(["1", "2"])
         }
         self.inheritance = {}
         self.murdered = False
@@ -163,6 +164,7 @@ class Clan():
         self.treatments = []
         self.cure_discovered = []
         self.fallen_clans = []
+        self.story = '1'
         self.cure_moons = 0
         self.spread_by = "air"
         self.infection_moons = 0
@@ -236,6 +238,7 @@ class Clan():
             self.med_cat_list.append(self.medicine_cat.ID)
             if self.medicine_cat.status != 'medicine cat':
                 Cat.all_cats[self.medicine_cat.ID].status_change('medicine cat')
+
     def create_clan(self):
         """
         This function is only called once a new clan is
@@ -533,7 +536,8 @@ class Clan():
             "treatments": self.infection["treatments"],
             "infection_moons": self.infection["infection_moons"],
             "logs": self.infection["logs"],
-            "fallen_clans": self.infection["fallen_clans"]
+            "fallen_clans": self.infection["fallen_clans"],
+            "story": self.infection["story"]
         }
 
         # LEADER DATA
