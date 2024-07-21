@@ -804,6 +804,7 @@ class Events:
                                                 thought=thought,
                                                 age=random.randint(15,120),
                                                 outside=True)[0]
+                    parent1.backstory = random.choice(["refugee2", "refugee3", "refugee4"])
                     parent2 = create_new_cat(Cat, Relationship,
                                                 status=random.choice(["loner", "kittypet"]),
                                                 alive=False,
@@ -814,8 +815,11 @@ class Events:
                         if parent1.gender == parent2.gender:
                             if parent1.gender == "female":
                                 parent1.gender = "male"
+                                parent1.genderalign = "male"
                             else:
                                 parent1.gender = "female"
+                                parent1.genderalign == "female"
+                    parent2.backstory = random.choice(["refugee2", "refugee3", "refugee4"])
 
                 elif birth_type == BirthType.ONE_OUTSIDER_PARENT:
                     parent1 = create_new_cat(Cat, Relationship,
