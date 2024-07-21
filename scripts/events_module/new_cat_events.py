@@ -41,7 +41,6 @@ class NewCatEvents:
             if story:
                 if outside_cat.story_cat is not None:
                     if game.clan.infection["story"] == "1" and outside_cat.story_cat == "first" and "story_1_step_2" not in game.clan.infection["logs"]:
-                        print("naauuuwwppp")
                         return
                     chance = 1
                 else:

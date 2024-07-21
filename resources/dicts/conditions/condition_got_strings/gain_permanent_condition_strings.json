@@ -227,22 +227,22 @@
     },
     "withering": {
         "one bad eye": [
-            "WITHERING: m_c has one bad eye."
+            "The infection has taken one of m_c's eyes."
         ],
         "lost their tail": [
-            "WITHERING: m_c has lost their tail."
+            "The infection has destaroyed m_c's tail so badly that it fell off."
         ],
         "partial hearing loss": [
-            "WITHERING: m_c has partial hearing loss."
+            "The infection has damaged m_c's ear so abdly that {PRONOUN/m_c/poss} ability to hear has also suffered."
         ],
         "lost a leg": [
-            "WITHERING: m_c has lost their leg."
+            "The infection has destroyed m_c's leg so badly that it fell off."
         ],
         "weak leg": [
-            "WITHERING: m_c has a weak leg."
+            "The infection has permanently weakened m_c's leg."
         ],
         "paralyzed": [
-            "WITHERING: m_c is now paralyzed."
+            "The infection has taken such a toll on m_c's body that {PRONOUN/m_c/subject} {VERB/m_c/have/has} lost the ability to move {PRONOUN/m_c/poss} hind legs."
         ]
     }
 }
