@@ -1647,7 +1647,6 @@ class Events:
                 if random.random() < 1 / increase_chance:
                     increase = random.randint(1, 8)
                     clan.infection_level += increase
-                    print(clan.name, "infection increased to:", clan.infection_level)
                 
             # clan infection events
             if clan.infection_level <= 10:

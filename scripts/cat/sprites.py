@@ -111,7 +111,7 @@ class Sprites():
 
         for x in [
             'lineart', 'singlecolours', 'speckledcolours', 'tabbycolours',
-            'whitepatches', 'eyes', 'eyes2', 'skin', 'scars', 'missingscars',
+            'whitepatches', 'eyes', 'eyes2', 'skin', 'scars', 'missingscars', 'infectionscars',
             'collars', 'bellcollars', 'bowcollars', 'nyloncollars',
             'bengalcolours', 'marbledcolours', 'rosettecolours', 'smokecolours', 'tickedcolours', 
             'mackerelcolours', 'classiccolours', 'sokokecolours', 'agouticolours', 'singlestripecolours',
@@ -392,6 +392,12 @@ class Sprites():
         for a, i in enumerate(
                 ["LEFTEAR", "RIGHTEAR", "NOTAIL", "NOLEFTEAR", "NORIGHTEAR", "NOEAR", "HALFTAIL", "NOPAW"]):
             self.make_group('missingscars', (a, 0), f'scars{i}')
+
+        # INFECTION
+        for a, i in enumerate(
+                ["EXPOSEDRIBS", "EYESOCKET", "ARMBONE"]):
+            self.make_group('infectionscars', (a, 0), f'scars{i}')
+
 
             # Accessories
         for a, i in enumerate([

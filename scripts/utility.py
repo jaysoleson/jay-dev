@@ -477,7 +477,7 @@ def create_new_cat(Cat,
         # Remove disabling scars on living cats, if they generated.
         if not df: 
             not_allowed = ['NOPAW', 'NOTAIL', 'HALFTAIL', 'NOEAR', 'BOTHBLIND', 'RIGHTBLIND', 
-                        'LEFTBLIND', 'BRIGHTHEART', 'NOLEFTEAR', 'NORIGHTEAR', 'MANLEG']
+                        'LEFTBLIND', 'BRIGHTHEART', 'NOLEFTEAR', 'NORIGHTEAR', 'MANLEG', 'EXPOSEDRIBS', 'EYESOCKET', 'ARMBONE']
             for scar in new_cat.pelt.scars:
                 if scar in not_allowed:
                     new_cat.pelt.scars.remove(scar)
@@ -1536,6 +1536,9 @@ def generate_sprite(cat, life_state=None, scars_hidden=False, acc_hidden=False, 
             for scar in cat.pelt.scars:
                 if scar in cat.pelt.scars2:
                     new_sprite.blit(sprites.sprites['scars' + scar + cat_sprite], (0, 0), special_flags=blendmode)
+                # INFECTION scars -- here bc they have to be on top of lineart
+                if scar in cat.pelt.scars4:
+                    new_sprite.blit(sprites.sprites['scars' + scar + cat_sprite], (0, 0))
 
         # draw accessories
         clangen_accessories = ['MAPLE LEAF',

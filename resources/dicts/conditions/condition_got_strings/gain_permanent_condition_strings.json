@@ -224,5 +224,25 @@
         "raspy lungs": [
             "m_c has raspy lungs as a result of the infection."
         ]
+    },
+    "withering": {
+        "one bad eye": [
+            "WITHERING: m_c has one bad eye."
+        ],
+        "lost their tail": [
+            "WITHERING: m_c has lost their tail."
+        ],
+        "partial hearing loss": [
+            "WITHERING: m_c has partial hearing loss."
+        ],
+        "lost a leg": [
+            "WITHERING: m_c has lost their leg."
+        ],
+        "weak leg": [
+            "WITHERING: m_c has a weak leg."
+        ],
+        "paralyzed": [
+            "WITHERING: m_c is now paralyzed."
+        ]
     }
 }

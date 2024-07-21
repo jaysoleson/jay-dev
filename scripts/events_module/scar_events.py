@@ -65,7 +65,10 @@ class Scar_Events():
     back_scars = [
         "TWO", "TAILBASE", "BACK"
     ]
-    
+    zombie_scars = [
+        "EXPOSEDRIBS", "EYESOCKET", "ARMBONE", "NOTAIL", "NOPAW", "HALFTAIL"
+    ]
+
     scar_allowed = {
         "bite-wound": canid_scars,
         "cat-bite": bite_scars,
@@ -84,6 +87,7 @@ class Scar_Events():
         "broken jaw": head_scars,
         "broken back": back_scars,
         "broken bone": bone_scars,
+        "withering": zombie_scars + ear_scars
     }
 
     @staticmethod
@@ -102,24 +106,27 @@ class Scar_Events():
         amount_per_med = get_amount_cat_for_one_medic(game.clan)
         if medical_cats_condition_fulfilled(game.cat_class.all_cats.values(), amount_per_med):
             chance += 2
+
+        if injury_name == "withering":
+            chance = 2
         
         if len(cat.pelt.scars) < 4 and not int(random.random() * chance):
             
             # move potential scar text into displayed scar text
-            
-
             specialty = None  # Scar to be set
 
             scar_pool = [i for i in Scar_Events.scar_allowed[injury_name] if i not in cat.pelt.scars]
             if 'NOPAW' in cat.pelt.scars:
-                scar_pool = [i for i in scar_pool if i not in ['TOETRAP', 'RATBITE', "FROSTSOCK"]]
+                scar_pool = [i for i in scar_pool if i not in ['TOETRAP', 'RATBITE', "FROSTSOCK", "ARMBONE"]]
             if 'NOTAIL' in cat.pelt.scars:
                 scar_pool = [i for i in scar_pool if i not in ["HALFTAIL", "TAILBASE", "TAILSCAR", "MANTAIL", "BURNTAIL", "FROSTTAIL"]]
             if 'HALFTAIL' in cat.pelt.scars:
                 scar_pool = [i for i in scar_pool if i not in ["TAILSCAR", "MANTAIL", "FROSTTAIL"]]
             if "BRIGHTHEART" in cat.pelt.scars:
-                scar_pool = [i for i in scar_pool if i not in ["RIGHTBLIND", "BOTHBLIND"]]
+                scar_pool = [i for i in scar_pool if i not in ["RIGHTBLIND", "BOTHBLIND", "EYESOCKET"]]
             if 'BOTHBLIND' in cat.pelt.scars:
+                scar_pool = [i for i in scar_pool if i not in ["THREE", "RIGHTBLIND", "LEFTBLIND", "BOTHBLIND", "BRIGHTHEART", "EYESOCKET"]]
+            if 'EYESOCKET' in cat.pelt.scars:
                 scar_pool = [i for i in scar_pool if i not in ["THREE", "RIGHTBLIND", "LEFTBLIND", "BOTHBLIND", "BRIGHTHEART"]]
             if 'NOEAR' in cat.pelt.scars:
                 scar_pool = [i for i in scar_pool if i not in ["LEFTEAR", "RIGHTEAR", 'NOLEFTEAR', 'NORIGHTEAR', "FROSTFACE"]]
@@ -133,25 +140,29 @@ class Scar_Events():
                 scar_pool = [i for i in scar_pool if i not in ['LEFTEAR']]
             if 'NORIGHT' in cat.pelt.scars:
                 scar_pool = [i for i in scar_pool if i not in ['RIGHTEAR']]
+            if 'ARMBONE' in cat.pelt.scars:
+                scar_pool = [i for i in scar_pool if i not in ['NOPAW']]
                 
             # Extra check for disabling scars.
             if int(random.random() * 3):
                 condition_scars = {
                     "LEGBITE", "THREE", "NOPAW", "TOETRAP", "NOTAIL", "HALFTAIL", "LEFTEAR", "RIGHTEAR",
                     "MANLEG", "BRIGHTHEART", "NOLEFTEAR", "NORIGHTEAR", "NOEAR", "LEFTBLIND",
-                    "RIGHTBLIND", "BOTHBLIND", "RATBITE"
+                    "RIGHTBLIND", "BOTHBLIND", "RATBITE", "EYESOCKET", "ARMBONE"
                 }
-                
                 scar_pool = list(set(scar_pool).difference(condition_scars))
                 
-                
-            
             # If there are not new scars to give them, return None, None.
             if not scar_pool:
                 return None, None
             
-            # If we've reached this point, we can move foward with giving history. 
-            History.add_scar(cat,
+            # If we've reached this point, we can move foward with giving history.
+            if injury_name == "withering":
+                History.add_scar(cat,
+                                  "m_c was greatly scarred by the infection.",
+                                  condition=injury_name)
+            else:
+                History.add_scar(cat,
                                   f"m_c was scarred from an injury ({injury_name}).",
                                   condition=injury_name)
 
@@ -176,14 +187,19 @@ class Scar_Events():
                 cat.pelt.scars.remove("RIGHTBLIND")
                 specialty = 'BOTHBLIND'
 
-            
             cat.pelt.scars.append(specialty)
 
-            scar_gain_strings = [
-                f"{cat.name}'s {injury_name} has healed, but they'll always carry evidence of the incident on their pelt.",
-                f"{cat.name} healed from their {injury_name} but will forever be marked by a scar.",
-                f"{cat.name}'s {injury_name} has healed, but the injury left them scarred.",
-            ]
+            if injury_name == "withering":
+                scar_gain_strings = [
+                    f"Part of {cat.name}'s body has withered away, leaving a nasty sight.",
+                    f"The infection is eating away at {cat.name}'s body."
+                ]
+            else:
+                scar_gain_strings = [
+                    f"{cat.name}'s {injury_name} has healed, but they'll always carry evidence of the incident on their pelt.",
+                    f"{cat.name} healed from their {injury_name} but will forever be marked by a scar.",
+                    f"{cat.name}'s {injury_name} has healed, but the injury left them scarred.",
+                ]
             return random.choice(scar_gain_strings), specialty
         else:
             return None, None

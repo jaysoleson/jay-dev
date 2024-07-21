@@ -115,6 +115,27 @@ class Condition_Events():
                     pass
                 elif infection_event or "has reached" in event_string:
                     infection_events.append(event_string)
+            if inftype == "parasitic":
+                infected = False
+                if "parasitic stage one" in cat.illnesses:
+                    witherchance = 85
+                    infected = True
+                elif "parasitic stage two" in cat.illnesses:
+                    witherchance = 70
+                    infected = True
+                elif "parasitic stage three" in cat.illnesses:
+                    witherchance = 40
+                    infected = True
+                elif "parasitic stage four" in cat.illnesses:
+                    witherchance = 30
+                    infected = True
+                
+                if infected:
+                    if random.random() < 1 / witherchance:
+                        cat.get_injured("withering")
+                        print(cat.name, "is withering")
+                        event = f"The infection is beginning to destroy {cat.name}'s body."
+                        game.cur_events_list.append(Single_Event(event, ["health", "infection"], cat.ID))
         else:
             # ---------------------------------------------------------------------------- #
             #                              make cats sick                                  #
@@ -469,7 +490,9 @@ class Condition_Events():
             "LEFTBLIND": ["one bad eye", "failing eyesight"],
             "RIGHTBLIND": ["one bad eye", "failing eyesight"],
             "BOTHBLIND": ["blind"],
-            "RATBITE": ["weak leg"]
+            "RATBITE": ["weak leg"],
+            "EYESOCKET": ["one bad eye"],
+            "ARMBONE": ["weak leg"]
         }
         
         scarless_conditions = [
@@ -551,25 +574,27 @@ class Condition_Events():
         elif inftype == "void":
             possible_risks.append("shivering")
 
-        if f"{inftype} stage one" in cat.illnesses:
-            if inftype == "fungal":
-                # possible_risks.append("fleas")
-                pass
+        # if f"{inftype} stage one" in cat.illnesses:
+        #     if inftype == "fungal":
+        #         # possible_risks.append("fleas")
+        #         pass
 
-        elif f"{inftype} stage two" in cat.illnesses:
-            pass
+        # elif f"{inftype} stage two" in cat.illnesses:
+        #     pass
 
-        elif f"{inftype} stage three" in cat.illnesses:
-            if inftype == "parasitic":
-                possible_risks.append("lost their tail")
-            elif inftype == "void":
-                possible_risks.extend(["partial hearing loss", "failing eyesight", "one bad eye"])
+        # elif f"{inftype} stage three" in cat.illnesses:
+        #     if inftype == "parasitic":
+        #         possible_risks.append("lost their tail")
+        #     elif inftype == "void":
+        #         possible_risks.extend(["partial hearing loss", "failing eyesight", "one bad eye"])
 
-        elif f"{inftype} stage four" in cat.illnesses:
-            if inftype == "parasitic":
-                possible_risks.extend(["lost their tail", "lost their leg"])
-            elif inftype == "void":
-                possible_risks.extend(["partial hearing loss", "partial hearing loss", "deaf", "failing eyesight", "failing eyesight", "one bad eye", "blind"])
+        # elif f"{inftype} stage four" in cat.illnesses:
+        #     if inftype == "parasitic":
+        #         possible_risks.extend(["lost their tail", "lost their leg"])
+        #     elif inftype == "void":
+        #         possible_risks.extend(["partial hearing loss", "partial hearing loss", "deaf", "failing eyesight", "failing eyesight", "one bad eye", "blind"])
+
+        # taking care of perms in withering........
 
         risk = random.choice(possible_risks)
 
