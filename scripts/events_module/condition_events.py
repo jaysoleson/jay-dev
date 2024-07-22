@@ -131,7 +131,7 @@ class Condition_Events():
                     infected = True
                 
                 if infected:
-                    if random.random() < 1 / witherchance:
+                    if random.random() < 1 / witherchance and "withering" not in cat.injuries:
                         cat.get_injured("withering")
                         print(cat.name, "is withering")
                         event = f"The infection is beginning to destroy {cat.name}'s body."

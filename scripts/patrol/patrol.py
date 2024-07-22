@@ -666,6 +666,14 @@ class Patrol():
                 if "bloodthirsty_only" in patrol.tags:
                     if Cat.all_cats.get(game.clan.your_cat.mentor).personality.trait != "bloodthirsty":
                         continue
+                
+                stories = ["1", "2"]
+                skip = False
+                for story in stories:
+                    if f"story_{story}" in patrol.tags and game.clan.infection["story"] != story:
+                        skip = True
+                if skip:
+                    continue
 
             if game.current_screen == 'patrol screen4':
                 if "you_med" in patrol.tags:

@@ -21,7 +21,7 @@ class NewCatEvents:
     """All events with a connection to new cats."""
 
     @staticmethod
-    def handle_new_cats(cat: Cat, other_cat, war, enemy_clan, alive_kits, story):
+    def handle_new_cats(cat: Cat, other_cat, war, enemy_clan, alive_kits):
         """ 
         This function handles the new cats
         """
@@ -38,15 +38,17 @@ class NewCatEvents:
         #Determine
         if NewCatEvents.has_outside_cat():
             outside_cat = NewCatEvents.select_outside_cat()
-            if story:
-                if outside_cat.story_cat is not None:
-                    if game.clan.infection["story"] == "1" and outside_cat.story_cat == "first" and "story_1_step_2" not in game.clan.infection["logs"]:
-                        return
-                    chance = 1
+            if outside_cat.story_cat is not None:
+                if game.clan.infection["story"] == "1" and outside_cat.story_cat == "first":
+                    if "story_1_step_2" not in game.clan.infection["logs"]:
+                        print("Preventing", outside_cat.name, "(", outside_cat.story_cat, ") from joining the Clan.")
+                        chance = 2
+                    else:
+                        chance = 1
                 else:
-                    chance = random.randint (1,10) # tryign to rebalance the chances LMAAOAO this SUCKS
+                    chance = random.randint(1, 3)
             else:
-                chance = random.randint(1, 3)
+                chance = random.randint (1,10) # tryign to rebalance the chances LMAAOAO this SUCKS
             if chance == 1:
                 backstory = outside_cat.status
                 outside_cat = NewCatEvents.update_cat_properties(outside_cat)
@@ -95,7 +97,7 @@ class NewCatEvents:
                         # 2nd cat joining for story 1
                         # give a relationship with the second cat + lasting grief
                         if "story_1_step_2" in game.clan.infection["logs"]:
-                            if story and outside_cat.story_cat == "first":
+                            if outside_cat.story_cat == "first":
                                 for cat in Cat.all_cats_list:
                                     if cat.story_cat == "second":
                                         secondcat = cat
@@ -112,7 +114,6 @@ class NewCatEvents:
                                 outside_cat.relationships[secondcat.ID].trust = random.randint(45,60)
                                 outside_cat.relationships[secondcat.ID].comfort = random.randint(20,40)
                                 outside_cat.get_permanent_condition("lasting grief", born_with=False)
-                                print(outside_cat.name, "and", secondcat.name, ":)")
 
                 # takes cat out of the outside cat list
                 game.clan.add_to_clan(outside_cat)

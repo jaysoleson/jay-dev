@@ -447,6 +447,7 @@ class Events:
                                 break
                         else:
                             already_second = True
+                for cat in Cat.all_cats_list:
                     if cat.story_cat == "first":
                         first = cat
                         break
@@ -3602,12 +3603,6 @@ class Events:
             # Otherwise, other_cat is None
             other_cat = None
 
-        storycat = False
-        for cat in Cat.all_cats_list:
-            if cat.story_cat != None and cat.status in ["rogue", "loner", "kittypet", "former Clancat"] and not cat.dead:
-                chance = 2
-                storycat = True
-
         if not int(random.random() * chance) and \
                 cat.age != 'kitten' and cat.age != 'adolescent' and not self.new_cat_invited:
             self.new_cat_invited = True
@@ -3625,7 +3620,7 @@ class Events:
                 other_cat=other_cat,
                 war=game.clan.war.get("at_war", False),
                 enemy_clan=enemy_clan,
-                alive_kits=get_alive_kits(Cat), story=storycat)
+                alive_kits=get_alive_kits(Cat))
             Relation_Events.welcome_new_cats(new_cats)
 
     def other_interactions(self, cat):

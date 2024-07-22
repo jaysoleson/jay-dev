@@ -3417,7 +3417,8 @@
         [
             "any",
             "story_1",
-            "story_1_step_2"
+            "story_1_step_2",
+            "story_key"
         ],
         [
             "[You approach t_c, a question on your mind.]",
@@ -3435,7 +3436,8 @@
             "any",
             "story_1",
             "post_story_1_step_2",
-            "story_1_step_3"
+            "story_1_step_3",
+            "story_key"
         ],
         "intro": [
             "Okay, fine. I know sc_2 won't tell you, but I know you really want to know. Just, don't tell anyone else, okay?",
@@ -3502,7 +3504,8 @@
             "any",
             "story_1",
             "post_story_1_step_3",
-            "story_1_step_4"
+            "story_1_step_4",
+            "story_key"
         ],
         "intro": [
             "*Sigh*",

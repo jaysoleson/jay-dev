@@ -91,7 +91,7 @@ class Scar_Events():
         "broken jaw": head_scars,
         "broken back": back_scars,
         "broken bone": bone_scars,
-        "withering": zombie_scars + ear_scars
+        "withering": infection_scars
     }
 
     @staticmethod

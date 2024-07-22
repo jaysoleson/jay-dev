@@ -1491,9 +1491,8 @@ class TalkScreen(Screens):
                     weight += 29
                 elif f"{inftype} stage four" in cat.illnesses:
                     weight += 36
-            for tag in tags:
-                if tag.startswith("story_key"):
-                    weight += 20
+            if "story_key" in tags:
+                weight += 15
             weights.append(weight)
 
         # Check for debug mode
@@ -1521,14 +1520,14 @@ class TalkScreen(Screens):
                                 # making the new cat!
                                 sunflower = create_new_cat(Cat, Relationship,
                                                 new_name=False,
-                                                status=choice(["loner", "kittypet"]),
+                                                status=choice(["rogue"]),
                                                 alive=False,
-                                                thought="Is missing their friends",
+                                                thought="Mrrraow? You shouldn't be seeing this! INFECTION bug.",
                                                 age=randint(20,90),
                                                 outside=True,
                                                 story_cat="third")[0]
-                                sunflower.backstory = choice(["refugee2", "refugee3", "refugee4"])
-                                sunflower.dead_for = randint(8,20)
+                                sunflower.backstory = "outsider_infection"
+                                sunflower.dead_for = randint(8,15)
                         elif match.group(1).endswith("step_4"):
                             
                             print("story finished!")
@@ -1539,11 +1538,13 @@ class TalkScreen(Screens):
         # Try to find a valid, unused text
         for _ in range(MAX_RETRIES):
             storykey = False
-            for i in texts_list:
-                if i.startswith("story_key"):
-                    text_chosen_key = i
-                    storykey = True
-                    break
+            # for i in texts_list:
+            #     if i.startswith("story_key"):
+            #         text_chosen_key = i
+            #         storykey = True
+            #         break
+            # ^^ uncomment for constant story key dialogue
+            # maybe put this in game config sometime.........
             if not storykey:
                 text_chosen_key = choices(list(texts_list.keys()), weights=weights)[0]
             text = texts_list[text_chosen_key]["intro"] if "intro" in texts_list[text_chosen_key] else texts_list[text_chosen_key][1]
@@ -1578,14 +1579,14 @@ class TalkScreen(Screens):
                                 # making the new cat!
                                 sunflower = create_new_cat(Cat, Relationship,
                                                 new_name=False,
-                                                status=choice(["loner", "kittypet"]),
+                                                status=choice(["rogue"]),
                                                 alive=False,
-                                                thought="Is missing their friends",
+                                                thought="Mrrraow? You shouldn't be seeing this! INFECTION bug.",
                                                 age=randint(20,90),
                                                 outside=True,
                                                 story_cat="third")[0]
-                                sunflower.backstory = choice(["refugee2", "refugee3", "refugee4"])
-                                sunflower.dead_for = randint(8,20)
+                                sunflower.backstory = "outsider_infection"
+                                sunflower.dead_for = randint(8,15)
                         elif match.group(1).endswith("step_4"):
                             
                             print("story finished!")
