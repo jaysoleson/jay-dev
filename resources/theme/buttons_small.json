@@ -5443,5 +5443,73 @@
                 "path": "resources/images/herb_buttons/catmint_unavailable.png"
             }
         }
+    },
+    "#med_den_infected_button": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/buttons/med_den_infected.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/buttons/med_den_infected_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/buttons/med_den_infected_select.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/buttons/med_den_infected_select.png"
+            }
+        }
+    },
+    "#med_den_quarantined_button": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/buttons/med_den_quarantined.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/buttons/med_den_quarantined_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/buttons/med_den_quarantined_select.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/buttons/med_den_quarantined_select.png"
+            }
+        }
+    },
+    "#log_button": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/buttons/log_button.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/buttons/log_button_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/buttons/log_button_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/buttons/log_button.png"
+            }
+        }
+    },
+    "#attempt_cure_button": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/buttons/attempt_cure.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/buttons/attempt_cure_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/buttons/attempt_cure_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/buttons/attempt_cure_unavailable.png"
+            }
+        }
     }
 }

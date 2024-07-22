@@ -866,7 +866,7 @@ class Patrol():
                 self.patrol_random_cat.relationships[game.clan.your_cat.ID].comfortable -= randint(1,5)
             except:
                 print("ERROR: handling relationship changes in date patrol")
-        print(f"PATROL ID: {patrol_id} | SUCCESS: {success}")
+        print(f"PATROL ID: {self.patrol_event.patrol_id} | SUCCESS: {success}")
         
         # Run the chosen outcome
         return final_event.execute_outcome(self)

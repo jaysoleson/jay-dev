@@ -616,7 +616,7 @@
         "max_cats": 3,
         "min_max_status": {},
         "weight": 20,
-        "intro_text": "On a lone hunting excursion out of camp, you find a rogue. They're crouched by a large hole in the ground, and they appear to be infected. When they hear you, they turn around with a snarl, and tell you that if you have a brain, you'll leave them be. But you're curious about what they seem to be protecting.",
+        "intro_text": "On a lone hunting excursion out of camp, you find a rogue. They're crouched by a large hole in the ground, and they look exhausted. When they hear you, they turn around with a snarl, and tell you that if you have a brain, you'll leave them be. But you're curious about what they seem to be protecting.",
         "decline_text": "You decide to leave. You'd rather not risk getting infected to solve this mystery.",
         "chance_of_success": 50,
         "success_outcomes": [

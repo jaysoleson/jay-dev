@@ -137,7 +137,7 @@ class MedDenScreen(Screens):
 
     def screen_switches(self):
         self.hide_menu_buttons()
-        self.treatment_button = UIImageButton(scale(pygame.Rect((1170, 120), (270, 80))), "Attempt a Cure", object_id=""
+        self.treatment_button = UIImageButton(scale(pygame.Rect((1075, 190), (402, 120))), "", object_id="#attempt_cure_button"
                                          , manager=MANAGER)
         self.back_button = UIImageButton(scale(pygame.Rect((50, 50), (210, 60))), "", object_id="#back_button"
                                          , manager=MANAGER)
@@ -231,12 +231,12 @@ class MedDenScreen(Screens):
                                            object_id="#minor_tab", manager=MANAGER)
             self.infected_tab = UIImageButton(scale(pygame.Rect
                                                  ((1400, 924), (70, 128))),
-                                           "infected",
-                                           object_id="", manager=MANAGER)
+                                           "",
+                                           object_id="#med_den_infected_button", manager=MANAGER)
             self.quarantined_tab = UIImageButton(scale(pygame.Rect
                                                  ((1400, 1104), (70, 127))),
-                                           "quarantined",
-                                           object_id="", manager=MANAGER)
+                                           "",
+                                           object_id="#med_den_quarantined_button", manager=MANAGER)
             self.tab_showing = self.in_den_tab
 
             self.in_den_cats = []

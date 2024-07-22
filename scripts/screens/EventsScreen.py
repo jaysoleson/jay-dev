@@ -501,7 +501,7 @@ class EventsScreen(Screens):
         elif game.clan.your_cat.moons == 1:
             self.clan_age.set_text(f'Your age: {game.clan.your_cat.moons} moon')
 
-        self.log_button = UIImageButton(scale(pygame.Rect((270, 300), (140, 90))), "Logs", object_id=""
+        self.log_button = UIImageButton(scale(pygame.Rect((270, 280), (158, 124))), "", object_id="#log_button"
                                              , manager=MANAGER)
 
         self.timeskip_button = UIImageButton(scale(pygame.Rect((620, 436), (360, 60))), "", object_id="#timeskip_button"
