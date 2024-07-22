@@ -443,9 +443,6 @@ class Cat():
 
         May return some additional text to add to the death event.
         """
-        if self.story_cat is not None:
-            print(self.name, "PLOT ARMOUR!!!!!")
-            return ""
         if self.status == 'leader' and 'pregnant' in self.injuries and game.clan.leader_lives > 0:
             self.illnesses.clear()
             self.injuries = { key : value for (key, value) in self.injuries.items() if key == 'pregnant'}

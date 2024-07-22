@@ -145,7 +145,8 @@ class Clan():
             "infection_moons": 0,
             "logs": [],
             "fallen_clans": [],
-            "story": choice(["1", "2"])
+            "story": choice(["1", "2"]),
+            "story_finished": False
         }
         self.inheritance = {}
         self.murdered = False
@@ -165,6 +166,7 @@ class Clan():
         self.cure_discovered = []
         self.fallen_clans = []
         self.story = '1'
+        self.story_finished = False
         self.cure_moons = 0
         self.spread_by = "air"
         self.infection_moons = 0
@@ -537,7 +539,8 @@ class Clan():
             "infection_moons": self.infection["infection_moons"],
             "logs": self.infection["logs"],
             "fallen_clans": self.infection["fallen_clans"],
-            "story": self.infection["story"]
+            "story": self.infection["story"],
+            "story_finished": self.infection["story_finished"]
         }
 
         # LEADER DATA

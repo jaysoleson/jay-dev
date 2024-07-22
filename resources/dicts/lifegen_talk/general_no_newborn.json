@@ -3442,12 +3442,12 @@
             "When you found me out in the territory... that hole in the ground that I wouldn't show you...",
             "*Sigh*",
             "My friend was in there. Our friend. Me and sc_2's, I mean.",
-            "She got infected really early on. She was already pretty sickly, so, it killed her pretty quickly.",
-            "I didn't want to leave her. I think sc_2 is still in denial about the whole thing, really."
+            "{PRONOUN/sc_3/subject/CAP} got infected really early on. {PRONOUN/sc_3/subject/CAP} {VERB/sc_3/were/was} already pretty sickly, so, it killed {PRONOUN/sc_3/object} pretty quickly.",
+            "I didn't want to leave {PRONOUN/sc_3/object}. I think sc_2 is still in denial about the whole thing, really."
         ],
         "intro_choices": {
             "choice1": {
-                "text": "What was her name?",
+                "text": "What was {PRONOUN/sc_3/poss} name?",
                 "next_scene": "name"
             },
             "choice2": {
@@ -3457,9 +3457,9 @@
         },
         "name": [
             "[t_c chokes up for a moment. You feel a bit bad for asking.]",
-            "Her name was Sunflower. She was wonderful.",
-            "Always looking up, never in the shade...",
-            "I guess that's why I never really buried her. I didn't want to hide her from the sun, you know?",
+            "{PRONOUN/sc_3/poss/CAP} name was sc_3. {PRONOUN/sc_3/subject/CAP} {VERB/sc_3/were/was} wonderful.",
+            "{PRONOUN/sc_3/subject/CAP} really loved sunflowers. {PRONOUN/sc_3/subject/CAP} {VERB/sc_3/were/was} just like them, I think. Always looking up, never in the shade...",
+            "I guess that's why I never really buried {PRONOUN/sc_3/object}. I didn't want to hide {PRONOUN/sc_3/object} from the sun, you know?",
             "... ... ..."
         ],
         "name_choices": {
@@ -3474,11 +3474,11 @@
         },
         "sorry": [
             "Oh, it's okay... that's just how life is now, huh?",
-            "Maybe it's good she stepped out right as it all started."
+            "Maybe it's good {PRONOUN/sc_3/subject} stepped out right as it all started."
         ],
         "sorry_choices": {
             "choice1": {
-                "text": "What was her name?",
+                "text": "What was {PRONOUN/sc_3/poss} name?",
                 "next_scene": "name"
             },
             "choice2": {
@@ -3525,20 +3525,20 @@
         "badwarrior_yes": [
             "Haha! Okay, I guess I deserve that.",
             "I don't regret keeping {PRONOUN/sc_1/object} around, though. Not one bit.",
-            "{PRONOUN/sc_1/subject/CAP} introduced me to Sunflower. I assume {PRONOUN/sc_1/subject} told you about her?",
-            "She didn't deserve to die. But, I guess none of us do, and it still happens.",
+            "{PRONOUN/sc_1/subject/CAP} introduced me to sc_3. I assume {PRONOUN/sc_1/subject} told you about {PRONOUN/sc_3/object}?",
+            "{PRONOUN/sc_3/subject/CAP} didn't deserve to die. But, I guess none of us do, and it still happens.",
             "I'm rambling. Feel free to ignore me.",
             "I'm gonna go find sc_1.",
-            "[t_c skips away to go find their friend.]",
+            "[t_c skips away to go find {PRONOUN/t_c/poss} friend.]",
             "[Your log has been updated.]"
         ],
         "badwarrior_no": [
             "Ah, well, I'm glad. I wouldn't regret it, either way. {PRONOUN/sc_1/subject/CAP} {VERB/sc_1/make/makes} me happy.",
-            "{PRONOUN/sc_1/subject/CAP} introduced me to Sunflower. I assume {PRONOUN/sc_1/subject} told you about her?",
-            "She didn't deserve to die. But, I guess none of us do, and it still happens.",
+            "{PRONOUN/sc_1/subject/CAP} introduced me to sc_3. I assume {PRONOUN/sc_1/subject} told you about {PRONOUN/sc_3/object}?",
+            "{PRONOUN/sc_3/subject/CAP} didn't deserve to die. But, I guess none of us do, and it still happens.",
             "I'm rambling. Feel free to ignore me.",
             "I'm gonna go find sc_1.",
-            "[t_c skips away to go find their friend.]",
+            "[t_c skips away to go find {PRONOUN/t_c/poss} friend.]",
             "[Your log has been updated.]"
         ]
     }

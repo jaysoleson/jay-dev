@@ -31,6 +31,11 @@
             "Enable background color to get more red as you murder more cats",
             true
         ],
+        "infection gore": [
+            "INFECTION gore",
+            "Enables new scars for parasitic infections, featuring blood and bone.",
+            false
+        ],
         "custom cursor": [
             "Custom cursor",
             "The cursor will be replaced with a cat paw.",

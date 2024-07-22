@@ -7,8 +7,9 @@ from scripts.utility import scale
 
 from .Screens import Screens
 
-from scripts.utility import generate_sprite, get_cluster, get_alive_kits, get_alive_cats, get_alive_apps, get_alive_meds, get_alive_mediators, get_alive_queens, get_alive_elders, get_alive_warriors, pronoun_repl
+from scripts.utility import generate_sprite, get_cluster, get_alive_kits, get_alive_cats, get_alive_apps, get_alive_meds, get_alive_mediators, get_alive_queens, get_alive_elders, get_alive_warriors, pronoun_repl, create_new_cat
 from scripts.cat.cats import Cat
+from scripts.cat_relations.relationship import Relationship
 from scripts.game_structure import image_cache
 import pygame_gui
 from scripts.game_structure.image_button import UIImageButton
@@ -562,7 +563,6 @@ class TalkScreen(Screens):
                         skip = True
                         break
                     if f"post_story_{story}_step_{step}" in tags and f"story_{story}_step_{step}" not in game.clan.infection["logs"]:
-                        print(game.clan.infection["logs"])
                         skip = True
                         break
             if skip:
@@ -1472,7 +1472,7 @@ class TalkScreen(Screens):
             game.clan.talks.clear()
 
         # Assign weights based on tags
-        weighted_tags = ["you_pregnant", "they_pregnant", "from_mentor", "from_your_parent", "from_adopted_parent", "adopted_parent", "half sibling", "littermate", "siblings_mate", "cousin", "adopted_sibling", "parents_siblings", "from_df_mentor", "from_your_kit", "from_your_apprentice", "from_df_apprentice", "from_mate", "from_parent", "adopted_parent", "from_kit", "sibling", "from_adopted_kit", "they_injured", "they_ill", "you_injured", "you_ill", "you_grieving", "you_forgiven", "they_forgiven", "murderedyou", "murderedthem"] # List of tags that increase the weight
+        weighted_tags = ["you_pregnant", "they_pregnant", "from_mentor", "from_your_parent", "from_adopted_parent", "adopted_parent", "half sibling", "littermate", "siblings_mate", "cousin", "adopted_sibling", "parents_siblings", "from_df_mentor", "from_your_kit", "from_your_apprentice", "from_df_apprentice", "from_mate", "from_parent", "adopted_parent", "from_kit", "sibling", "from_adopted_kit", "they_injured", "they_ill", "you_injured", "you_ill", "you_grieving", "you_forgiven", "they_forgiven", "murderedyou", "murderedthem", "story_1", "story_2"] # List of tags that increase the weight
         weights = []
         for item in texts_list.values():
             tags = item["tags"] if "tags" in item else item[0]
@@ -1491,8 +1491,9 @@ class TalkScreen(Screens):
                     weight += 29
                 elif f"{inftype} stage four" in cat.illnesses:
                     weight += 36
-            if "story_1" in tags:
-                weight += 15
+            for tag in tags:
+                if tag.startswith("story_key"):
+                    weight += 20
             weights.append(weight)
 
         # Check for debug mode
@@ -1507,12 +1508,44 @@ class TalkScreen(Screens):
                 if "~" in text_chosen_key:
                     text_chosen_key_split = text_chosen_key.split("~")
                     cat.connected_dialogue[text_chosen_key_split[0]] = int(text_chosen_key_split[1])
+
+                # INFECTION STORY KEYS
+                if text_chosen_key.startswith("story_key_"):
+                    match = re.search(r'story_key_(\w+)', text_chosen_key)
+                    if match:
+                        game.clan.infection["logs"].append(match.group(1))
+
+                        # Here, we handle the outcomes of the story dialogues
+                        if match.group(1).endswith("step_2"):
+                            if game.clan.infection["story"] == "1":
+                                # making the new cat!
+                                sunflower = create_new_cat(Cat, Relationship,
+                                                new_name=False,
+                                                status=choice(["loner", "kittypet"]),
+                                                alive=False,
+                                                thought="Is missing their friends",
+                                                age=randint(20,90),
+                                                outside=True,
+                                                story_cat="third")[0]
+                                sunflower.backstory = choice(["refugee2", "refugee3", "refugee4"])
+                                sunflower.dead_for = randint(8,20)
+                        elif match.group(1).endswith("step_4"):
+                            
+                            print("story finished!")
+                            game.clan.infection["story_finished"] = True
                 return new_text
             print("Could not find debug ensure dialogue within possible dialogues")
 
         # Try to find a valid, unused text
         for _ in range(MAX_RETRIES):
-            text_chosen_key = choices(list(texts_list.keys()), weights=weights)[0]
+            storykey = False
+            for i in texts_list:
+                if i.startswith("story_key"):
+                    text_chosen_key = i
+                    storykey = True
+                    break
+            if not storykey:
+                text_chosen_key = choices(list(texts_list.keys()), weights=weights)[0]
             text = texts_list[text_chosen_key]["intro"] if "intro" in texts_list[text_chosen_key] else texts_list[text_chosen_key][1]
             new_text = self.get_adjusted_txt(text, cat)
             
@@ -1532,11 +1565,31 @@ class TalkScreen(Screens):
                 if "~" in text_chosen_key:
                     text_chosen_key_split = text_chosen_key.split("~")
                     cat.connected_dialogue[text_chosen_key_split[0]] = int(text_chosen_key_split[1])
+
+                # INFECTION STORY KEYS
                 if text_chosen_key.startswith("story_key_"):
                     match = re.search(r'story_key_(\w+)', text_chosen_key)
                     if match:
-                        print("mg1", match.group(1))
                         game.clan.infection["logs"].append(match.group(1))
+
+                        # Here, we handle the outcomes of the story dialogues
+                        if match.group(1).endswith("step_2"):
+                            if game.clan.infection["story"] == "1":
+                                # making the new cat!
+                                sunflower = create_new_cat(Cat, Relationship,
+                                                new_name=False,
+                                                status=choice(["loner", "kittypet"]),
+                                                alive=False,
+                                                thought="Is missing their friends",
+                                                age=randint(20,90),
+                                                outside=True,
+                                                story_cat="third")[0]
+                                sunflower.backstory = choice(["refugee2", "refugee3", "refugee4"])
+                                sunflower.dead_for = randint(8,20)
+                        elif match.group(1).endswith("step_4"):
+                            
+                            print("story finished!")
+                            game.clan.infection["story_finished"] = True
                 return new_text
 
         # If no valid text found, choose one based on tag weights
@@ -3658,7 +3711,6 @@ class TalkScreen(Screens):
                     (r == "respect" and cat.relationships[random_cat.ID].admiration < 20) or\
                     (r == "neutral" and ((cat.relationships[random_cat.ID].platonic_like > 20) or (cat.relationships[random_cat.ID].romantic_love > 20) or (cat.relationships[random_cat.ID].dislike > 20) or (cat.relationships[random_cat.ID].jealousy > 20) or (cat.relationships[random_cat.ID].trust > 20) or (cat.relationships[random_cat.ID].comfortable > 20) or (cat.relationships[random_cat.ID].admiration > 20))))):
                         if counter == 30:
-                            print("counter moment")
                             return ""
                         random_cat = Cat.all_cats.get(choice(game.clan.darkforest_cats))
                         counter +=1
@@ -4470,6 +4522,61 @@ class TalkScreen(Screens):
                     else:
                         self.cat_dict["sc_2"] = story_cat_second
                         text = re.sub(r'(?<!\/)sc_2(?!\/)', str(story_cat_second.name), text)
+
+            if "sc_3" in text:
+                cluster = False
+                rel = False
+                match = re.search(r'sc_3(\w+)', text)
+                if match:
+                    x = match.group(1).strip("_")
+                    cluster = True
+                else:
+                    x = ""
+                match2 = re.search(r'(\w+)sc_3', text)
+                if match2:
+                    r = match2.group(1).strip("_")
+                    rel = True
+                else:
+                    r = ""
+                if f"sc_3_{x}" in self.cat_dict or "sc_3" in self.cat_dict or f"{r}_sc_3" in self.cat_dict or f"{r}_sc_3_{x}" in self.cat_dict:
+                    if cluster and rel:
+                        text = re.sub(fr'(?<!\/){r}_sc_3_{x}(?!\/)', str(self.cat_dict[f"{r}_sc_3_{x}"].name), text)
+                    elif cluster and not rel:
+                        text = re.sub(fr'(?<!\/)sc_3_{x}(?!\/)', str(self.cat_dict[f"sc_3_{x}"].name), text)
+                    elif rel and not cluster:
+                        text = re.sub(fr'(?<!\/){r}_sc_3(?!\/)', str(self.cat_dict[f"{r}_sc_3"].name), text)
+                    else:
+                        text = re.sub(r'(?<!\/)sc_3(?!\/)', str(self.cat_dict["sc_3"].name), text)
+                else:
+                    alive_cats = [x for x in Cat.all_cats_list if x.story_cat == "third"]
+                    story_cat_second = choice(alive_cats)
+
+                    if story_cat_second.ID == cat.ID or story_cat_second == game.clan.your_cat.ID or\
+                    (cluster and x not in get_cluster(story_cat_second.personality.trait)) or (rel and (story_cat_second.ID not in cat.relationships) or\
+                    (r == "plike" and cat.relationships[story_cat_second.ID].platonic_like < 20) or\
+                    (r == "plove" and cat.relationships[story_cat_second.ID].platonic_like < 50) or\
+                    (r == "rlike" and cat.relationships[story_cat_second.ID].romantic_love < 10) or\
+                    (r == "rlove" and cat.relationships[story_cat_second.ID].romantic_love < 50) or\
+                    (r == "dislike" and cat.relationships[story_cat_second.ID].dislike < 15) or\
+                    (r == "hate" and cat.relationships[story_cat_second.ID].dislike < 50) or\
+                    (r == "jealous" and cat.relationships[story_cat_second.ID].jeaousy < 20) or\
+                    (r == "trust" and cat.relationships[story_cat_second.ID].trust < 20) or\
+                    (r == "comfort" and cat.relationships[story_cat_second.ID].comfortable < 20) or \
+                    (r == "respect" and cat.relationships[story_cat_second.ID].admiration < 20) or\
+                    (r == "neutral" and ((cat.relationships[story_cat_second.ID].platonic_like > 20) or (cat.relationships[story_cat_second.ID].romantic_love > 20) or (cat.relationships[story_cat_second.ID].dislike > 20) or (cat.relationships[story_cat_second.ID].jealousy > 20) or (cat.relationships[story_cat_second.ID].trust > 20) or (cat.relationships[story_cat_second.ID].comfortable > 20) or (cat.relationships[story_cat_second.ID].admiration > 20)))):
+                        return ""
+                    if cluster and rel:
+                        self.cat_dict[f"{r}_sc_3_{x}"] = story_cat_second
+                        text = re.sub(fr'(?<!\/){r}_sc_3_{x}(?!\/)', str(story_cat_second.name), text)
+                    elif cluster and not rel:
+                        self.cat_dict[f"sc_3_{x}"] = story_cat_second
+                        text = re.sub(fr'(?<!\/)sc_3_{x}(?!\/)', str(story_cat_second.name), text)
+                    elif rel and not cluster:
+                        self.cat_dict[f"{r}_sc_3"] = story_cat_second
+                        text = re.sub(fr'(?<!\/){r}_sc_3(?!\/)', str(story_cat_second.name), text)
+                    else:
+                        self.cat_dict["sc_3"] = story_cat_second
+                        text = re.sub(r'(?<!\/)sc_3(?!\/)', str(story_cat_second.name), text)
         except:
             return ""
         

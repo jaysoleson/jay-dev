@@ -294,7 +294,6 @@ def create_new_cat(Cat,
                    other_clan:bool=None,
                    backstory:bool=None,
                    status:str=None,
-                   story_cat:str=None,
                    age:int=None,
                    gender:str=None,
                    thought:str='Is looking around the camp with wonder',
@@ -302,7 +301,8 @@ def create_new_cat(Cat,
                    df:bool=False,
                    outside:bool=False,
                    parent1:str=None,
-                   parent2:str=None
+                   parent2:str=None,
+                   story_cat:str=None
     ) -> list:
     """
     This function creates new cats and then returns a list of those cats
@@ -316,7 +316,6 @@ def create_new_cat(Cat,
     :param other_clan: if new cat(s) are from a neighboring clan, set true
     :param backstory: a list of possible backstories.json for the new cat(s) - default: None
     :param status: set as the rank you want the new cat to have - default: None (will cause a random status to be picked)
-    :param story_cat: INFECTION lore oh yeah
     :param age: set the age of the new cat(s) - default: None (will be random or if kit/litter is true, will be kitten.
     :param gender: set the gender (BIRTH SEX) of the cat - default: None (will be random)
     :param thought: if you need to give a custom "welcome" thought, set it here
@@ -324,6 +323,7 @@ def create_new_cat(Cat,
     :param outside: set this as True to generate the cat as an outsider instead of as part of the Clan - default: False (Clan cat)
     :param parent1: Cat ID to set as the biological parent1
     :param parent2: Cat ID object to set as the biological parert2
+    :param story_cat: INFECTION lore oh yeah
     """
     accessory = None
     if isinstance(backstory, list):

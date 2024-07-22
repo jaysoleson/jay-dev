@@ -771,6 +771,7 @@ class Events:
                                                 thought=thought,
                                                 age=random.randint(15,120),
                                                 outside=True)[0]
+                    parent1.backstory = random.choice(["refugee2", "refugee3", "refugee4"])
                     parent2 = create_new_cat(Cat, Relationship,
                                                 status=random.choice(["loner", "kittypet"]),
                                                 alive=False,
@@ -781,8 +782,11 @@ class Events:
                         if parent1.gender == parent2.gender:
                             if parent1.gender == "female":
                                 parent1.gender = "male"
+                                parent1.genderalign = "male"
                             else:
                                 parent1.gender = "female"
+                                parent1.genderalign = "female"
+                    parent2.backstory = random.choice(["refugee2", "refugee3", "refugee4"])
                 
 
                 elif birth_type == BirthType.TWO_ADOPTIVE_PARENTS:
@@ -3856,7 +3860,7 @@ class Events:
         """Affects random cats in the clan, no cat needs to be passed to this function."""
         alive_cats = list(
             filter(
-                lambda kitty: (kitty.status != "leader" and not kitty.dead and
+                lambda kitty: (kitty.status != "leader" and not kitty.dead and kitty.story_cat == None and
                                not kitty.outside), Cat.all_cats.values()))
         alive_count = len(alive_cats)
         if alive_count > 15:

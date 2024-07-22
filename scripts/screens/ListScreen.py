@@ -538,6 +538,9 @@ class ListScreen(Screens):
         for the_cat in Cat.all_cats_list:
             if the_cat.ID in game.clan.unknown_cats and not the_cat.faded:
                 self.full_cat_list.append(the_cat)
+            if the_cat.story_cat == "third" and game.clan.infection["story"] == "1":
+                if "story_1_step_3" not in game.clan.infection["logs"]:
+                    self.full_cat_list.remove(the_cat)
 
     def update_search_cats(self, search_text):
         """Run this function when the search text changes, or when the screen is switched to."""

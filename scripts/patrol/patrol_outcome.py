@@ -433,6 +433,9 @@ class PatrolOutcome():
         
         results = []
         for _cat in cats_to_kill:
+            if _cat.story_cat is not None and game.clan.infection["story_finished"] is False:
+                # plot armour for story cats. trying to prevent them dying randomly
+                return ""
             if _cat.status == "leader":
                 if "all_lives" in self.dead_cats:
                     game.clan.leader_lives = 0

@@ -68,6 +68,10 @@ class Scar_Events():
     zombie_scars = [
         "EXPOSEDRIBS", "EYESOCKET", "ARMBONE", "NOTAIL", "NOPAW", "HALFTAIL"
     ]
+    if game.settings["infection gore"]:
+        infection_scars = zombie_scars + ear_scars
+    else:
+        infection_scars = ear_scars + frostbite_scars
 
     scar_allowed = {
         "bite-wound": canid_scars,
