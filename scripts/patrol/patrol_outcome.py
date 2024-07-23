@@ -872,15 +872,11 @@ class PatrolOutcome():
             for _cat in cats:
                 sc = str(story_cat)
                 game.clan.infection[f"story_cat_{sc}"] = _cat.ID
-                # if self.__handle_story(_cat, story_cat):
-                #     print(cat.name, "is story cat", story_cat)
             
             if cats2 and story_cat2:
                 for _cat in cats2:
                     sc = str(story_cat2)
                     game.clan.infection[f"story_cat_{sc}"] = _cat.ID
-                    # if self.__handle_story(_cat, story_cat):
-                    #     print(cat.name, "is story cat", story_cat)
 
         return ""
     
@@ -1701,13 +1697,3 @@ class PatrolOutcome():
             cat.pelt.accessories.append(chosen_acc)
 
         return chosen_acc
-    
-    def __handle_story(self, cat: Cat, storycat: str) -> str:
-
-    
-        if not acc_list:
-            return None
-
-        game.clan.infection[f"story_cat_{storycat}"] = cat.ID
-
-        return storycat
