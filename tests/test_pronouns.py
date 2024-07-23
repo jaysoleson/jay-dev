@@ -123,7 +123,11 @@ def test():
         "plike_r_c": _r,
         "r_c_stable": _r,
         "r_w_assertive": _r,
-        "r_c_assertive": _r
+        "r_c_assertive": _r,
+        "sc_1": _r,
+        "sc_2": _r,
+        "sc_3": _r,
+        "sc_4": _r
     }
     
     cluster_addons = [

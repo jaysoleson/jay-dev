@@ -231,7 +231,7 @@ class CureLogScreen(Screens):
             sc4 = Cat.all_cats.get(game.clan.infection["story_cat_4"])
             for i in game.clan.infection["logs"]:
                 log = a_txt[i].replace("herb1", str(game.clan.infection["cure"][0])).replace("herb2", str(game.clan.infection["cure"][1])).replace("herb3", str(game.clan.infection["cure"][2])).replace("herb4", str(game.clan.infection["cure"][3])).replace("sc1", str(sc1.name)).replace("sc2", str(sc2.name)).replace("sc3", str(sc3.name)).replace("sc4", str(sc4.name))
-
+                # longest replace replace replace ever omg ugly as hell
                 stats_text += "\n" + "<br>" + log
                 
             
