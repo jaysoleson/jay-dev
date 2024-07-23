@@ -214,7 +214,6 @@ class Cat():
         self.shunned = 0 # moons
         self.infected_for = 0 # moons!
         self.cure_progress = 0
-        self.story_cat = None
         self.thought = ''
         self.genderalign = None
         self.birth_cooldown = 0
@@ -3435,7 +3434,6 @@ class Cat():
                 "status": self.status,
                 "infected_moons": self.infected_for,
                 "cure_progress": self.cure_progress,
-                "story_cat": self.story_cat,
                 "backstory": self.backstory if self.backstory else None,
                 "moons": self.moons,
                 "trait": self.personality.trait,
@@ -3773,7 +3771,7 @@ class Personality():
 def create_example_cats():
     e = sample(range(12), 3)
     not_allowed = ['NOPAW', 'NOTAIL', 'HALFTAIL', 'NOEAR', 'BOTHBLIND', 'RIGHTBLIND', 'LEFTBLIND', 'BRIGHTHEART',
-                   'NOLEFTEAR', 'NORIGHTEAR', 'MANLEG', 'EXPOSEDRIBS', 'EYESOCKET', 'ARMBONE']
+                   'NOLEFTEAR', 'NORIGHTEAR', 'MANLEG', 'EXPOSEDRIBS', 'EYESOCKET', 'ARMBONE', 'VOIDBACK', 'VOIDEYE', 'VOIDTAIL']
     for a in range(12):
         if a in e:
             game.choose_cats[a] = Cat(status='kitten', biome=None)

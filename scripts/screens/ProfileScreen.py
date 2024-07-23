@@ -1733,10 +1733,10 @@ class ProfileScreen(Screens):
                 output += 'grieving!'
             elif "fleas" in the_cat.illnesses:
                 output += 'flea-ridden!'
-            elif f"{inftype} stage one" in the_cat.illnesses or f"{inftype} stage two" in the_cat.illnesses or f"{inftype} stage three" in the_cat.illnesses or f"{inftype} stage four" in the_cat.illnesses: #im too lazy to compact this Sue me
-                output += "<font color='#FF0000'>infected</font>"
             else:
-                output += 'sick!'
+                output += "sick!"
+        if f"{inftype} stage one" in the_cat.illnesses or f"{inftype} stage two" in the_cat.illnesses or f"{inftype} stage three" in the_cat.illnesses or f"{inftype} stage four" in the_cat.illnesses: #im too lazy to compact this Sue me
+            output += "\n<font color='#FF0000'>infected</font>"
 
         return output
 

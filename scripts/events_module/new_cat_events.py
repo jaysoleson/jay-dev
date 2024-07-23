@@ -38,8 +38,8 @@ class NewCatEvents:
         #Determine
         if NewCatEvents.has_outside_cat():
             outside_cat = NewCatEvents.select_outside_cat()
-            if outside_cat.story_cat is not None:
-                if game.clan.infection["story"] == "1" and outside_cat.story_cat == "first":
+            if outside_cat not in [game.clan.infection["story_cat_1"], game.clan.infection["story_cat_2"], game.clan.infection["story_cat_3"], game.clan.infection["story_cat_4"]]:
+                if game.clan.infection["story"] == "1" and outside_cat.ID == game.clan.infection["story_cat_1"]:
                     if "story_1_step_2" not in game.clan.infection["logs"]:
                         print("Preventing", outside_cat.name, "(", outside_cat.story_cat, ") from joining the Clan.")
                         chance = 2
@@ -97,11 +97,8 @@ class NewCatEvents:
                         # 2nd cat joining for story 1
                         # give a relationship with the second cat + lasting grief
                         if "story_1_step_2" in game.clan.infection["logs"]:
-                            if outside_cat.story_cat == "first":
-                                for cat in Cat.all_cats_list:
-                                    if cat.story_cat == "second":
-                                        secondcat = cat
-                                        break
+                            if outside_cat.ID == game.clan.infection["story_cat_1"]:
+                                secondcat = game.clan.infection["story_cat_2"]
                                 secondcat.create_one_relationship(outside_cat)
                                 outside_cat.create_one_relationship(secondcat)
 

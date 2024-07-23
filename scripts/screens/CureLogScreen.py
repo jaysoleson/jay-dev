@@ -225,8 +225,12 @@ class CureLogScreen(Screens):
         
             # Determine stats
             stats_text = "<b>Information:</b>"
+            sc1 = Cat.all_cats.get(game.clan.infection["story_cat_1"])
+            sc2 = Cat.all_cats.get(game.clan.infection["story_cat_2"])
+            sc3 = Cat.all_cats.get(game.clan.infection["story_cat_3"])
+            sc4 = Cat.all_cats.get(game.clan.infection["story_cat_4"])
             for i in game.clan.infection["logs"]:
-                log = a_txt[i].replace("herb1", str(game.clan.infection["cure"][0])).replace("herb2", str(game.clan.infection["cure"][1])).replace("herb3", str(game.clan.infection["cure"][2])).replace("herb4", str(game.clan.infection["cure"][3]))
+                log = a_txt[i].replace("herb1", str(game.clan.infection["cure"][0])).replace("herb2", str(game.clan.infection["cure"][1])).replace("herb3", str(game.clan.infection["cure"][2])).replace("herb4", str(game.clan.infection["cure"][3])).replace("sc1", str(sc1.name)).replace("sc2", str(sc2.name)).replace("sc3", str(sc3.name)).replace("sc4", str(sc4.name))
 
                 stats_text += "\n" + "<br>" + log
                 
@@ -446,8 +450,8 @@ class CureLogScreen(Screens):
                 self.stamps["start"] = UIImageButton(scale(pygame.Rect((425, 570), (206, 205))), "",
                                                 object_id="#stamp_start", tool_tip_text="You've discovered the infection.", manager=MANAGER)
                 
-            # if "cure_discovered" in game.clan.infection["logs"]:
-            self.stamps["cure_discovered"] = UIImageButton(scale(pygame.Rect((425, 340), (195, 170))), "",
+            if "cure_discovered" in game.clan.infection["logs"]:
+                self.stamps["cure_discovered"] = UIImageButton(scale(pygame.Rect((425, 340), (195, 170))), "",
                                             object_id="#stamp_cure", tool_tip_text="You've discovered the cure!", manager=MANAGER)
 
             

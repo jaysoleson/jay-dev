@@ -521,7 +521,8 @@ def create_new_cat(Cat,
         if not alive:
             new_cat.die()
         
-        new_cat.story_cat = story_cat
+        if story_cat is not None:
+            game.clan.infection[f"story_cat_{story_cat}"] = new_cat.ID
 
         if not alive and df:
             new_cat.df = True
@@ -1540,6 +1541,8 @@ def generate_sprite(cat, life_state=None, scars_hidden=False, acc_hidden=False, 
                 # these also go on top of shaders i hope that doesnt cause any Problems
                 if game.settings["infection gore"]:
                     if scar in cat.pelt.scars4:
+                        new_sprite.blit(sprites.sprites['scars' + scar + cat_sprite], (0, 0))
+                    if scar in cat.pelt.scars5:
                         new_sprite.blit(sprites.sprites['scars' + scar + cat_sprite], (0, 0))
 
         # draw accessories

@@ -244,5 +244,16 @@
         "paralyzed": [
             "The infection has taken such a toll on m_c's body that {PRONOUN/m_c/subject} {VERB/m_c/have/has} lost the ability to move {PRONOUN/m_c/poss} hind legs."
         ]
+    },
+    "void sickness": {
+        "one bad eye": [
+            "The infection has taken one of m_c's eyes."
+        ],
+        "partial hearing loss": [
+            "The infection consuming m_c's body has begun taking {PRONOUN/m_c/poss} ability to hear."
+        ],
+        "lost a leg": [
+            "The infection has consumed m_c's paw."
+        ]
     }
 }

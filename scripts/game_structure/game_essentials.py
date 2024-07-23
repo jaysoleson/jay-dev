@@ -562,6 +562,10 @@ class Game():
                     "logs": [],
                     "fallen_clans": [],
                     "story": random.choice(["1", "2"]),
+                    "story_cat_1": None,
+                    "story_cat_2": None,
+                    "story_cat_3": None,
+                    "story_cat_4": None,
                     "story_finished": False
                 }
                 

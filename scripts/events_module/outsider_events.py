@@ -18,7 +18,7 @@ class OutsiderEvents:
     def killing_outsiders(cat: Cat):
         # killing outside cats
         if cat.outside:
-            if random.getrandbits(6) == 1 and not cat.dead and (cat.story_cat == None and game.clan.infection["story_finished"] is False):
+            if random.getrandbits(6) == 1 and not cat.dead and (cat.ID not in [game.clan.infection["story_cat_1"], game.clan.infection["story_cat_2"], game.clan.infection["story_cat_3"], game.clan.infection["story_cat_4"]] and game.clan.infection["story_finished"] is False):
                 death_history = "m_c died outside of the Clan."
                 if cat.exiled:
                     text = f'Rumors reach your Clan that the exiled {cat.name} has died recently.'

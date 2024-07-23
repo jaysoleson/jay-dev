@@ -912,11 +912,19 @@
                 "exp": 10,
                 "weight": 20,
                 "new_cat": [
-                    ["rogue", "meeting", "story:first"]
+                    ["rogue", "meeting", "story:1"]
                 ],
                 "cure_log": [
                     {
                         "entry": "story_1_step_1"
+                    }
+                ],
+                "story_cat": [
+                    {
+                        "cats": ["p_l"],
+                        "story_cat": 4,
+                        "cats2": ["n_c:0"],
+                        "story_cat2": 1
                     }
                 ]
             }
@@ -927,11 +935,19 @@
                 "exp": 10,
                 "weight": 20,
                 "new_cat": [
-                    ["rogue", "meeting", "story:first"]
+                    ["rogue", "meeting", "story:1"]
                 ],
                 "cure_log": [
                     {
                         "entry": "story_1_step_1"
+                    }
+                ],
+                "story_cat": [
+                    {
+                        "cats": ["p_l"],
+                        "story_cat": 4,
+                        "cats2": ["n_c:0"],
+                        "story_cat2": 1
                     }
                 ]
             }

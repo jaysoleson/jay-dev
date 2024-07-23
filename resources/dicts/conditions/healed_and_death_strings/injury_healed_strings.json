@@ -224,5 +224,8 @@
     ],
     "withering": [
         "For now, m_c's body has stopped withering."
+    ],
+    "void sickness": [
+        "m_c has recovered from {PRONOUN/m_c/poss} void sickness."
     ]
 }

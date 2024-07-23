@@ -65,13 +65,17 @@ class Scar_Events():
     back_scars = [
         "TWO", "TAILBASE", "BACK"
     ]
-    zombie_scars = [
-        "EXPOSEDRIBS", "EYESOCKET", "ARMBONE", "NOTAIL", "NOPAW", "HALFTAIL"
+    parasitic_scars = [
+        "EXPOSEDRIBS", "EYESOCKET", "ARMBONE"
+    ]
+    void_scars = [
+        "VOIDBACK", "VOIDEYE", "VOIDTAIL", "NOPAW"
     ]
     if game.settings["infection gore"]:
-        infection_scars = zombie_scars + ear_scars
+        infection_scars = parasitic_scars + ear_scars + ["NOTAIL", "NOPAW", "HALFTAIL"]
     else:
-        infection_scars = ear_scars + frostbite_scars
+        infection_scars = ear_scars + frostbite_scars + ["NOTAIL", "NOPAW", "HALFTAIL"]
+
 
     scar_allowed = {
         "bite-wound": canid_scars,
@@ -91,7 +95,8 @@ class Scar_Events():
         "broken jaw": head_scars,
         "broken back": back_scars,
         "broken bone": bone_scars,
-        "withering": infection_scars
+        "withering": infection_scars,
+        "void sickness": void_scars
     }
 
     @staticmethod
@@ -123,15 +128,17 @@ class Scar_Events():
             if 'NOPAW' in cat.pelt.scars:
                 scar_pool = [i for i in scar_pool if i not in ['TOETRAP', 'RATBITE', "FROSTSOCK", "ARMBONE"]]
             if 'NOTAIL' in cat.pelt.scars:
-                scar_pool = [i for i in scar_pool if i not in ["HALFTAIL", "TAILBASE", "TAILSCAR", "MANTAIL", "BURNTAIL", "FROSTTAIL"]]
+                scar_pool = [i for i in scar_pool if i not in ["HALFTAIL", "TAILBASE", "TAILSCAR", "MANTAIL", "BURNTAIL", "FROSTTAIL", "VOIDTAIL"]]
             if 'HALFTAIL' in cat.pelt.scars:
                 scar_pool = [i for i in scar_pool if i not in ["TAILSCAR", "MANTAIL", "FROSTTAIL"]]
             if "BRIGHTHEART" in cat.pelt.scars:
-                scar_pool = [i for i in scar_pool if i not in ["RIGHTBLIND", "BOTHBLIND", "EYESOCKET"]]
+                scar_pool = [i for i in scar_pool if i not in ["RIGHTBLIND", "BOTHBLIND", "EYESOCKET", "VOIDEYE"]]
             if 'BOTHBLIND' in cat.pelt.scars:
-                scar_pool = [i for i in scar_pool if i not in ["THREE", "RIGHTBLIND", "LEFTBLIND", "BOTHBLIND", "BRIGHTHEART", "EYESOCKET"]]
+                scar_pool = [i for i in scar_pool if i not in ["THREE", "RIGHTBLIND", "LEFTBLIND", "BOTHBLIND", "BRIGHTHEART", "EYESOCKET", "VOIDEYE"]]
             if 'EYESOCKET' in cat.pelt.scars:
-                scar_pool = [i for i in scar_pool if i not in ["THREE", "RIGHTBLIND", "LEFTBLIND", "BOTHBLIND", "BRIGHTHEART"]]
+                scar_pool = [i for i in scar_pool if i not in ["THREE", "RIGHTBLIND", "LEFTBLIND", "BOTHBLIND", "BRIGHTHEART", "VOIDEYE"]]
+            if 'VOIDEYE' in cat.pelt.scars:
+                scar_pool = [i for i in scar_pool if i not in ["THREE", "RIGHTBLIND", "LEFTBLIND", "BOTHBLIND", "BRIGHTHEART", "EYESOCKET"]]
             if 'NOEAR' in cat.pelt.scars:
                 scar_pool = [i for i in scar_pool if i not in ["LEFTEAR", "RIGHTEAR", 'NOLEFTEAR', 'NORIGHTEAR', "FROSTFACE"]]
             if 'MANTAIL' in cat.pelt.scars:
@@ -152,7 +159,7 @@ class Scar_Events():
                 condition_scars = {
                     "LEGBITE", "THREE", "NOPAW", "TOETRAP", "NOTAIL", "HALFTAIL", "LEFTEAR", "RIGHTEAR",
                     "MANLEG", "BRIGHTHEART", "NOLEFTEAR", "NORIGHTEAR", "NOEAR", "LEFTBLIND",
-                    "RIGHTBLIND", "BOTHBLIND", "RATBITE", "EYESOCKET", "ARMBONE"
+                    "RIGHTBLIND", "BOTHBLIND", "RATBITE", "EYESOCKET", "ARMBONE", "VOIDEYE"
                 }
                 scar_pool = list(set(scar_pool).difference(condition_scars))
                 
@@ -161,7 +168,7 @@ class Scar_Events():
                 return None, None
             
             # If we've reached this point, we can move foward with giving history.
-            if injury_name == "withering":
+            if injury_name in ["withering", "void sickness"]:
                 History.add_scar(cat,
                                   "m_c was greatly scarred by the infection.",
                                   condition=injury_name)
@@ -196,6 +203,11 @@ class Scar_Events():
             if injury_name == "withering":
                 scar_gain_strings = [
                     f"Part of {cat.name}'s body has withered away, leaving a nasty sight.",
+                    f"The infection is eating away at {cat.name}'s body."
+                ]
+            elif injury_name == "void sickness":
+                scar_gain_strings = [
+                    f"{cat.name}'s sickness has consumed part of their body.",
                     f"The infection is eating away at {cat.name}'s body."
                 ]
             else:

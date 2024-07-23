@@ -74,9 +74,6 @@ def json_load():
             if "cure_progress" not in cat:
                 cat["cure_progress"] = 0
 
-            if "story_cat" not in cat:
-                cat["story_cat"] = None
-
             new_cat = Cat(ID=cat["ID"],
                         prefix=cat["name_prefix"],
                         suffix=cat["name_suffix"],

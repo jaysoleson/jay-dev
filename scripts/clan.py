@@ -146,6 +146,10 @@ class Clan():
             "logs": [],
             "fallen_clans": [],
             "story": choice(["1", "2"]),
+            "story_cat_1": None,
+            "story_cat_2": None,
+            "story_cat_3": None,
+            "story_cat_4": None,
             "story_finished": False
         }
         self.inheritance = {}
@@ -166,6 +170,10 @@ class Clan():
         self.cure_discovered = []
         self.fallen_clans = []
         self.story = '1'
+        self.story_cat_1 = None
+        self.story_cat_2 = None
+        self.story_cat_3 = None
+        self.story_cat_4 = None
         self.story_finished = False
         self.cure_moons = 0
         self.spread_by = "air"
@@ -540,6 +548,10 @@ class Clan():
             "logs": self.infection["logs"],
             "fallen_clans": self.infection["fallen_clans"],
             "story": self.infection["story"],
+            "story_cat_1": self.infection["story_cat_1"],
+            "story_cat_2": self.infection["story_cat_2"],
+            "story_cat_3": self.infection["story_cat_3"],
+            "story_cat_4": self.infection["story_cat_4"],
             "story_finished": self.infection["story_finished"]
         }
 
@@ -606,12 +618,33 @@ class Clan():
         self.save_herbs(game.clan)
         self.save_disaster(game.clan)
         self.save_pregnancy(game.clan)
-        self.save_infection(game.clan)
 
         self.save_clan_settings()
         if game.clan.game_mode in ['expanded', 'cruel season']:
             self.save_freshkill_pile(game.clan)
 
+        if self.infection["story_cat_1"]:
+            infection_data["story_cat_1"] = Cat.all_cats.get(self.infection["story_cat_1"]).ID
+        else:
+            infection_data["story_cat_1"] = None
+
+        if self.infection["story_cat_2"]:
+            infection_data["story_cat_2"] = Cat.all_cats.get(self.infection["story_cat_2"]).ID
+        else:
+            infection_data["story_cat_2"] = None
+
+        if self.infection["story_cat_3"]:
+            infection_data["story_cat_3"] = Cat.all_cats.get(self.infection["story_cat_3"]).ID
+        else:
+            infection_data["story_cat_3"] = None
+
+        if self.infection["story_cat_4"]:
+            infection_data["story_cat_4"] = Cat.all_cats.get(self.infection["story_cat_4"]).ID
+        else:
+            infection_data["story_cat_4"] = None
+
+
+        self.save_infection(game.clan)
         game.safe_save(f"{get_save_dir()}/{game.clan.name}/infection.json", infection_data)
         game.safe_save(f"{get_save_dir()}/{self.name}clan.json", clan_data)
 
@@ -1169,6 +1202,25 @@ class Clan():
         if os.path.exists(file_path):
             with open(file_path, 'r', encoding='utf-8') as read_file:  # pylint: disable=redefined-outer-name
                 clan.infection = ujson.load(read_file)
+                if clan.infection["story_cat_1"]:
+                    clan.infection["story_cat_1"] = Cat.all_cats[clan.infection["story_cat_1"]]
+                else:
+                    clan.infection["story_cat_1"] = None
+
+                if clan.infection["story_cat_2"]:
+                    clan.infection["story_cat_2"] = Cat.all_cats[clan.infection["story_cat_2"]]
+                else:
+                    clan.infection["story_cat_2"] = None
+
+                if clan.infection["story_cat_3"]:
+                    clan.infection["story_cat_3"] = Cat.all_cats[clan.infection["story_cat_3"]]
+                else:
+                    clan.infection["story_cat_3"] = None
+
+                if clan.infection["story_cat_4"]:
+                    clan.infection["story_cat_4"] = Cat.all_cats[clan.infection["story_cat_4"]]
+                else:
+                    clan.infection["story_cat_4"] = None
         else:
             clan.infection = {}
 
@@ -1178,6 +1230,26 @@ class Clan():
         """
         if not game.clan.name:
             return
+        
+        # if self.story_cat_1:
+        #     clan.infection["story_cat_1"] = self.story_cat_1.ID
+        # else:
+        #     clan.infection["story_cat_1"] = None
+        
+        # if self.story_cat_2:
+        #     clan.infection["story_cat_2"] = self.story_cat_2.ID
+        # else:
+        #     clan.infection["story_cat_2"] = None
+        
+        # if self.story_cat_3:
+        #     clan.infection["story_cat_3"] = self.story_cat_3.ID
+        # else:
+        #     clan.infection["story_cat_3"] = None
+        
+        # if self.story_cat_4:
+        #     clan.infection["story_cat_4"] = self.story_cat_4.ID
+        # else:
+        #     clan.infection["story_cat_4"] = None
 
         game.safe_save(f"{get_save_dir()}/{game.clan.name}/infection.json", clan.infection)
 

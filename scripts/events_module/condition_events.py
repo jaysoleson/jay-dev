@@ -115,6 +115,8 @@ class Condition_Events():
                     pass
                 elif infection_event or "has reached" in event_string:
                     infection_events.append(event_string)
+            # INFECTION
+            # withering, void sickness, rot
             if inftype == "parasitic":
                 infected = False
                 if "parasitic stage one" in cat.illnesses:
@@ -134,6 +136,27 @@ class Condition_Events():
                     if random.random() < 1 / witherchance and "withering" not in cat.injuries:
                         cat.get_injured("withering")
                         print(cat.name, "is withering")
+                        event = f"The infection is beginning to destroy {cat.name}'s body."
+                        game.cur_events_list.append(Single_Event(event, ["health", "infection"], cat.ID))
+            elif inftype == "void":
+                infected = False
+                if "void stage one" in cat.illnesses:
+                    witherchance = 85
+                    infected = True
+                elif "void stage two" in cat.illnesses:
+                    witherchance = 70
+                    infected = True
+                elif "void stage three" in cat.illnesses:
+                    witherchance = 40
+                    infected = True
+                elif "void stage four" in cat.illnesses:
+                    witherchance = 30
+                    infected = True
+                
+                if infected:
+                    if random.random() < 1 / witherchance and "void sickness" not in cat.injuries:
+                        cat.get_injured("void sickness")
+                        print(cat.name, "is void sick")
                         event = f"The infection is beginning to destroy {cat.name}'s body."
                         game.cur_events_list.append(Single_Event(event, ["health", "infection"], cat.ID))
         else:
@@ -492,7 +515,8 @@ class Condition_Events():
             "BOTHBLIND": ["blind"],
             "RATBITE": ["weak leg"],
             "EYESOCKET": ["one bad eye"],
-            "ARMBONE": ["weak leg"]
+            "ARMBONE": ["weak leg"],
+            "VOIDEYE": ["one bad eye"]
         }
         
         scarless_conditions = [

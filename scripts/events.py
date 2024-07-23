@@ -437,7 +437,7 @@ class Events:
                 already_second = False
                 first = None
                 for cat in Cat.all_cats_list:
-                    if cat.story_cat == "second":
+                    if cat.ID == game.clan.infection["story_cat_2"]:
                         if "story_1_step_2" not in game.clan.infection["logs"]:
                             if cat.dead or cat.outside or cat.exiled or cat.moons > 90:
                                 print("second cat is now illegible. rerolling while we still can!")
@@ -447,15 +447,12 @@ class Events:
                                 break
                         else:
                             already_second = True
-                for cat in Cat.all_cats_list:
-                    if cat.story_cat == "first":
-                        first = cat
-                        break
+                first = game.clan.infection["story_cat_1"]
                 if not already_second:
-                    eligible_cats = [cat for cat in Cat.all_cats_list if cat.status not in ["newborn", "kitten", "elder"] and cat.moons > 10 and cat.moons < 90 and cat.infected_for == 0 and cat.ID != game.clan.your_cat.ID and not cat.outside and not cat.dead and not cat.exiled and cat.ID != first.ID]
+                    eligible_cats = [cat for cat in Cat.all_cats_list if cat.status not in ["newborn", "kitten", "elder"] and cat.moons > 10 and cat.moons < 90 and cat.infected_for == 0 and cat.ID != game.clan.your_cat.ID and not cat.outside and not cat.dead and not cat.exiled and cat.ID != first]
                     second = random.choice(eligible_cats)
-                    second.story_cat = "second"
-                    print(second.name, "is now the", second.story_cat, "story cat")
+                    game.clan.infection["story_cat_2"] = second.ID
+                    print(second.name, "is now the second story cat")
 
 
     def add_freshkill(self):

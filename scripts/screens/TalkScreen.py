@@ -545,7 +545,7 @@ class TalkScreen(Screens):
                         continue
                     if "story_1_step_2" in game.clan.infection["logs"]:
                         continue
-                    if cat.story_cat != "second":
+                    if cat.ID != game.clan.infection["story_cat_2"]:
                         continue
 
             steps = ["1", "2", "3", "4"]
@@ -569,11 +569,11 @@ class TalkScreen(Screens):
                 continue
 
             
-            if "story_cat_1" in tags and cat.story_cat != "first":
+            if "story_cat_1" in tags and cat.ID != game.clan.infection["story_cat_1"]:
                 continue
-            if "story_cat_2" in tags and cat.story_cat != "second":
+            if "story_cat_2" in tags and cat.ID != game.clan.infection["story_cat_2"]:
                 continue
-            if "story_cat_3" in tags and cat.story_cat != "third":
+            if "story_cat_3" in tags and cat.ID != game.clan.infection["story_cat_3"]:
                 continue
 
             if you.moons == 0 and "newborn" not in tags:
@@ -1522,10 +1522,10 @@ class TalkScreen(Screens):
                                                 new_name=False,
                                                 status=choice(["rogue"]),
                                                 alive=False,
-                                                thought="Mrrraow? You shouldn't be seeing this! INFECTION bug.",
+                                                thought="Is missing their friends",
                                                 age=randint(20,90),
                                                 outside=True,
-                                                story_cat="third")[0]
+                                                story_cat="3")[0]
                                 sunflower.backstory = "outsider_infection"
                                 sunflower.dead_for = randint(8,15)
                         elif match.group(1).endswith("step_4"):
@@ -1538,11 +1538,11 @@ class TalkScreen(Screens):
         # Try to find a valid, unused text
         for _ in range(MAX_RETRIES):
             storykey = False
-            # for i in texts_list:
-            #     if i.startswith("story_key"):
-            #         text_chosen_key = i
-            #         storykey = True
-            #         break
+            for i in texts_list:
+                if i.startswith("story_key"):
+                    text_chosen_key = i
+                    storykey = True
+                    break
             # ^^ uncomment for constant story key dialogue
             # maybe put this in game config sometime.........
             if not storykey:
@@ -1581,10 +1581,10 @@ class TalkScreen(Screens):
                                                 new_name=False,
                                                 status=choice(["rogue"]),
                                                 alive=False,
-                                                thought="Mrrraow? You shouldn't be seeing this! INFECTION bug.",
+                                                thought="Is missing their friends",
                                                 age=randint(20,90),
                                                 outside=True,
-                                                story_cat="third")[0]
+                                                story_cat="3")[0]
                                 sunflower.backstory = "outsider_infection"
                                 sunflower.dead_for = randint(8,15)
                         elif match.group(1).endswith("step_4"):
@@ -4439,7 +4439,7 @@ class TalkScreen(Screens):
                     else:
                         text = re.sub(r'(?<!\/)sc_1(?!\/)', str(self.cat_dict["sc_1"].name), text)
                 else:
-                    alive_cats = [x for x in Cat.all_cats_list if x.story_cat == "first"]
+                    alive_cats = [x for x in Cat.all_cats_list if x.ID == game.clan.infection["story_cat_1"]]
                     story_cat_second = choice(alive_cats)
 
                     if story_cat_second.outside or story_cat_second.dead or story_cat_second.ID == cat.ID or\
@@ -4494,7 +4494,7 @@ class TalkScreen(Screens):
                     else:
                         text = re.sub(r'(?<!\/)sc_2(?!\/)', str(self.cat_dict["sc_2"].name), text)
                 else:
-                    alive_cats = [x for x in Cat.all_cats_list if x.story_cat == "second"]
+                    alive_cats = [x for x in Cat.all_cats_list if x.ID == game.clan.infection["story_cat_2"]]
                     story_cat_second = choice(alive_cats)
 
                     if story_cat_second.outside or story_cat_second.dead or story_cat_second.ID == cat.ID or\
@@ -4549,7 +4549,7 @@ class TalkScreen(Screens):
                     else:
                         text = re.sub(r'(?<!\/)sc_3(?!\/)', str(self.cat_dict["sc_3"].name), text)
                 else:
-                    alive_cats = [x for x in Cat.all_cats_list if x.story_cat == "third"]
+                    alive_cats = [x for x in Cat.all_cats_list if x.ID == game.clan.infection["story_cat_3"]]
                     story_cat_second = choice(alive_cats)
 
                     if story_cat_second.ID == cat.ID or story_cat_second == game.clan.your_cat.ID or\
