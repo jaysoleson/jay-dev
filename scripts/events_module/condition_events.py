@@ -1075,10 +1075,7 @@ class Condition_Events():
                 continue
             if risk["name"] == 'an infected wound' and 'a festering wound' in cat.illnesses:
                 continue
-            infection_event = False
-            if risk["name"] in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]:
-                infection_event = True
-
+            
             # adjust chance of risk gain if Clan has enough meds
             chance = risk["chance"]
             if medical_cats_condition_fulfilled(Cat.all_cats.values(),
@@ -1088,6 +1085,11 @@ class Condition_Events():
                 chance = int(chance * .75)  # higher risk if no meds and risk chance wasn't 0
                 if chance <= 0:  # ensure that chance is never 0
                     chance = 1
+            
+            infection_event = False
+            if risk["name"] in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]:
+                infection_event = True
+                chance = 3
 
             # if we hit the chance, then give the risk if the cat does not already have the risk
             if chance != 0 and not int(random.random() * chance) and risk['name'] not in dictionary:
