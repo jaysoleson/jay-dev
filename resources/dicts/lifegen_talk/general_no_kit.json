@@ -20624,14 +20624,112 @@
             "pre_story_1_step_2",
             "they_deputy",
             "they_warrior",
-            "they_leader"
+            "they_leader",
+            "they_blind"
         ],
         [
             "Where in StarClan's name is sc_2? y_c, have you seen {PRONOUN/sc_2/object}?",
             "No? Ugh. Probably out touching noses with that rogue again...",
-            "Oh, sorry. It's not polite to gossip. It's just, my patrol last night spotted {PRONOUN/sc_2/object} talking to an infected rogue. Getting that close to infected strangers sure isn't gonna help the Clan stay strong...",
+            "Oh, sorry. It's not polite to gossip. It's just, my patrol last night spotted {PRONOUN/sc_2/object} talking to a rogue. Getting that close to strangers sure isn't gonna help the Clan stay strong... They could be infected!",
             "*Sigh* Can you just let {PRONOUN/sc_2/object} know I'm looking for {PRONOUN/sc_2/object} if you find {PRONOUN/sc_2/object} before I do?",
             "Thanks."
+        ]
+    ],
+    "about_infected_J1": [
+        [
+            "any",
+            "spread_by_bite",
+            "they_not_infected",
+            "you_not_infected",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "plove_inf_c lunged at me yesterday. To bite me.",
+            "I... I thought {PRONOUN/plove_inf_c/subject}'d be different. That {PRONOUN/plove_inf_c/subject} wouldn't let {PRONOUN/plove_inf_c/poss} brain get taken over by this disease.",
+            "I'm really scared."
+        ]
+    ],
+    "about_infected_J2": [
+        [
+            "any",
+            "spread_by_air",
+            "they_not_infected",
+            "you_not_infected",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "It's really hard not getting close to plove_inf_c. I used to sit with {PRONOUN/plove_inf_c/object} every day, and now I'm not supposed to at all?",
+            "Maybe I can convince r_m to let me, just, plug my nose, or something..."
+        ]
+    ],
+    "about_infected_J3": [
+        [
+            "any",
+            "they_not_infected",
+            "you_not_infected",
+            "brooding",
+            "cool",
+            "assertive",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "You know, this infection isn't so bad.",
+            "I have an excuse to avoid dislike_inf_c like the plague now.",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/were/was} definitely already doing that...]"
+        ]
+    ],
+    "about_infected_J4": [
+        [
+            "any",
+            "they_not_infected",
+            "you_not_infected",
+            "you_medicine_cat",
+            "you_medicine_cat_apprentice",
+            "they_medicine_cat",
+            "they_medicine_cat_apprentice",
+            "they_blind"
+        ],
+        [
+            "[t_c looks exhausted. {VERB/t_c/Have/Has} {PRONOUN/t_c/subject} slept at all recently?]",
+            "inf_c is looking especially bad today. {PRONOUN/inf_c/poss/CAP} condition's getting worse.",
+            "And so is... every other patient...",
+            "But we have to choose somewhere to start. Go try another treatment on inf_c. Please."
+        ]
+    ],
+    "infected_J1": [
+        [
+            "any",
+            "they_infected",
+            "they_medicine_cat",
+            "they_medicine_cat_apprentice",
+            "they_stage_one",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "I'm fine. I can still work.",
+            "Don't look at me like that."
+        ]
+    ],
+    "infected_J2": [
+        [
+            "any",
+            "they_infected",
+            "you_infected",
+            "spread_by_bite",
+            "they_stage_four",
+            "you_stage_two",
+            "they_blind",
+            "they_deaf",
+            "you_deaf"
+        ],
+        [
+            "[t_c lunges towards r_c, and it takes three warriors to shove {PRONOUN/t_c/object} away and rush r_c to safety.]",
+            "[All of these infected cats are acting like starved foxes in the forest, attacking anything that moves.]",
+            "[Will that be you soon..?]"
         ]
     ]
 }

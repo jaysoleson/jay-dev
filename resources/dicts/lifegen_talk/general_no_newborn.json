@@ -3418,7 +3418,8 @@
             "any",
             "story_1",
             "story_1_step_2",
-            "story_key"
+            "story_key",
+            "you_sc_4"
         ],
         [
             "[You approach t_c, a question on your mind.]",
@@ -3437,7 +3438,8 @@
             "story_1",
             "post_story_1_step_2",
             "story_1_step_3",
-            "story_key"
+            "story_key",
+            "you_sc_4"
         ],
         "intro": [
             "Okay, fine. I know sc_2 won't tell you, but I know you really want to know. Just, don't tell anyone else, okay?",
@@ -3499,13 +3501,14 @@
             "[Your log has been updated.]"
         ]
     },
-    "story_key_story_1_step_4": {
+    "story_1_filler_1": {
         "tags": [
             "any",
             "story_1",
             "post_story_1_step_3",
-            "story_1_step_4",
-            "story_key"
+            "pre_story_1_step_4",
+            "you_sc_4",
+            "they_sc_2"
         ],
         "intro": [
             "*Sigh*",
@@ -3544,5 +3547,17 @@
             "[t_c skips away to go find {PRONOUN/t_c/poss} friend.]",
             "[Your log has been updated.]"
         ]
-    }
+    },
+    "story_1_filler_2":[
+        [
+            "they_sc_1",
+            "you_sc_4",
+            "post_story_1_step_4",
+            "any"
+        ],
+        [
+            "What is it you Clan cats say about dead cats, again? That each one is a star?",
+            "So, sc_3 must be one of them, right? I've been staring at them this whole time without even knowing."
+        ]
+    ]
 }

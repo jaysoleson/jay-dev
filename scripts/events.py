@@ -2568,7 +2568,7 @@ class Events:
             cat.cure_progress += 1
             print(cat.name, cat.cure_progress)
             print("CURE MOONS:", game.clan.infection["cure_moons"])
-            if cat.cure_progress >= game.clan.infection["cure_moons"]:
+            if cat.cure_progress == game.clan.infection["cure_moons"]:
                 involved_cats = []
                 for stage in stages:
                     if stage in cat.illnesses:
@@ -3599,6 +3599,9 @@ class Events:
         else:
             # Otherwise, other_cat is None
             other_cat = None
+        
+        # debuggguuh
+        chance = 2
 
         if not int(random.random() * chance) and \
                 cat.age != 'kitten' and cat.age != 'adolescent' and not self.new_cat_invited:
@@ -4437,7 +4440,7 @@ class Events:
                 possible_deputies = list(
                     filter(
                         lambda x: not x.dead and not x.outside and x.shunned == 0 and x.status ==
-                                  "warrior" and (x.apprentice or x.former_apprentices),
+                                  "warrior" and (x.apprentice or x.former_apprentices) and x.infected_for == 0,
                         Cat.all_cats_list))
 
                 # If there are possible deputies, choose from that list.

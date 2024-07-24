@@ -255,5 +255,13 @@
         "lost a leg": [
             "The infection has consumed m_c's paw."
         ]
+    },
+    "rot": {
+        "one bad eye": [
+            "One of m_c's eyes has become overgrown."
+        ],
+        "weak leg": [
+            "One of m_c's legs has become overgrown and hard to move."
+        ]
     }
 }

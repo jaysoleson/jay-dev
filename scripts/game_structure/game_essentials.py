@@ -561,7 +561,7 @@ class Game():
                     "infection_moons": 0,
                     "logs": [],
                     "fallen_clans": [],
-                    "story": random.choice(["1", "2"]),
+                    "story": None,
                     "story_cat_1": None,
                     "story_cat_2": None,
                     "story_cat_3": None,

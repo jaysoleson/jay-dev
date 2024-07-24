@@ -117,47 +117,66 @@ class Condition_Events():
                     infection_events.append(event_string)
             # INFECTION
             # withering, void sickness, rot
+            # so i can change the chances between them if i wanna
             if inftype == "parasitic":
                 infected = False
                 if "parasitic stage one" in cat.illnesses:
-                    witherchance = 85
+                    witherchance = 185
                     infected = True
                 elif "parasitic stage two" in cat.illnesses:
-                    witherchance = 70
+                    witherchance = 120
                     infected = True
                 elif "parasitic stage three" in cat.illnesses:
-                    witherchance = 40
+                    witherchance = 80
                     infected = True
                 elif "parasitic stage four" in cat.illnesses:
-                    witherchance = 30
+                    witherchance = 20
                     infected = True
                 
                 if infected:
                     if random.random() < 1 / witherchance and "withering" not in cat.injuries:
                         cat.get_injured("withering")
-                        print(cat.name, "is withering")
                         event = f"The infection is beginning to destroy {cat.name}'s body."
                         game.cur_events_list.append(Single_Event(event, ["health", "infection"], cat.ID))
             elif inftype == "void":
                 infected = False
                 if "void stage one" in cat.illnesses:
-                    witherchance = 85
+                    witherchance = 185
                     infected = True
                 elif "void stage two" in cat.illnesses:
-                    witherchance = 70
+                    witherchance = 120
                     infected = True
                 elif "void stage three" in cat.illnesses:
-                    witherchance = 40
+                    witherchance = 80
                     infected = True
                 elif "void stage four" in cat.illnesses:
-                    witherchance = 30
+                    witherchance = 50
                     infected = True
                 
                 if infected:
                     if random.random() < 1 / witherchance and "void sickness" not in cat.injuries:
                         cat.get_injured("void sickness")
-                        print(cat.name, "is void sick")
-                        event = f"The infection is beginning to destroy {cat.name}'s body."
+                        event = f"{cat.name}'s body is slowly being consumed by the infection."
+                        game.cur_events_list.append(Single_Event(event, ["health", "infection"], cat.ID))
+            elif inftype == "fungal":
+                infected = False
+                if "fungal stage one" in cat.illnesses:
+                    witherchance = 185
+                    infected = True
+                elif "fungal stage two" in cat.illnesses:
+                    witherchance = 120
+                    infected = True
+                elif "fungal stage three" in cat.illnesses:
+                    witherchance = 80
+                    infected = True
+                elif "fungal stage four" in cat.illnesses:
+                    witherchance = 50
+                    infected = True
+                
+                if infected:
+                    if random.random() < 1 / witherchance and "rot" not in cat.injuries:
+                        cat.get_injured("rot")
+                        event = f"{cat.name}'s body is becoming very overgrown."
                         game.cur_events_list.append(Single_Event(event, ["health", "infection"], cat.ID))
         else:
             # ---------------------------------------------------------------------------- #
@@ -516,7 +535,9 @@ class Condition_Events():
             "RATBITE": ["weak leg"],
             "EYESOCKET": ["one bad eye"],
             "ARMBONE": ["weak leg"],
-            "VOIDEYE": ["one bad eye"]
+            "VOIDEYE": ["one bad eye"],
+            "EYEMOSS": ["one bad eye"],
+            "PAWMOSS": ["weak leg"]
         }
         
         scarless_conditions = [

@@ -73,6 +73,7 @@ class Pelt():
     # these are in seperate groups to make it easier to not give scars from the wrong infection type
     scars4 = ["EXPOSEDRIBS", "EYESOCKET", "ARMBONE"]
     scars5 = ["VOIDBACK", "VOIDEYE", "VOIDTAIL"]
+    scars6 = ["SHELFMUSHROOMS", "EYEMOSS", "PAWMOSS"]
 
     # make sure to add plural and singular forms of new accs to acc_display.json so that they will display nicely
     plant_accessories = ["MAPLE LEAF", "HOLLY", "BLUE BERRIES", "FORGET ME NOTS", "RYE STALK", "LAUREL",

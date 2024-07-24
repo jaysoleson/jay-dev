@@ -62,6 +62,7 @@ class CureLogScreen(Screens):
 
     
     def check_achivements(self):
+        # this is still here for the stamps
         you = game.clan.your_cat
         achievements = set()
         murder_history = History.get_murders(you)
@@ -230,9 +231,17 @@ class CureLogScreen(Screens):
             sc3 = Cat.all_cats.get(game.clan.infection["story_cat_3"])
             sc4 = Cat.all_cats.get(game.clan.infection["story_cat_4"])
             for i in game.clan.infection["logs"]:
-                log = a_txt[i].replace("herb1", str(game.clan.infection["cure"][0])).replace("herb2", str(game.clan.infection["cure"][1])).replace("herb3", str(game.clan.infection["cure"][2])).replace("herb4", str(game.clan.infection["cure"][3])).replace("sc1", str(sc1.name)).replace("sc2", str(sc2.name)).replace("sc3", str(sc3.name)).replace("sc4", str(sc4.name))
+                log = a_txt[i].replace("herb1", str(game.clan.infection["cure"][0])).replace("herb2", str(game.clan.infection["cure"][1])).replace("herb3", str(game.clan.infection["cure"][2])).replace("herb4", str(game.clan.infection["cure"][3]))
+                
+                sc1name = str(sc1.name) if sc1 else ""
+                sc2name = str(sc2.name) if sc2 else ""
+                sc3name = str(sc3.name) if sc3 else ""
+                sc4name = str(sc4.name) if sc4 else ""
+
+                log2 = log.replace("sc1", sc1name).replace("sc2", sc2name).replace("sc3", sc3name).replace("sc4", sc4name)
                 # longest replace replace replace ever omg ugly as hell
-                stats_text += "\n" + "<br>" + log
+                
+                stats_text += "\n" + "<br>" + log2
                 
             
             self.previous_page_button = UIImageButton(scale(pygame.Rect((100, 700), (68, 68))), "",
@@ -472,7 +481,6 @@ class CureLogScreen(Screens):
         notes_file_path = 'infection_notes.json'
 
         if not os.path.exists(notes_directory):
-            print("making notes folder")
             os.makedirs(notes_directory)
 
         if notes is None or notes == 'Take your notes here.':

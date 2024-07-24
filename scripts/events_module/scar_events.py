@@ -71,6 +71,9 @@ class Scar_Events():
     void_scars = [
         "VOIDBACK", "VOIDEYE", "VOIDTAIL", "NOPAW"
     ]
+    fungal_scars = [
+        "SHELFMUSHROOMS", "EYEMOSS", "PAWMOSS"
+    ]
     if game.settings["infection gore"]:
         infection_scars = parasitic_scars + ear_scars + ["NOTAIL", "NOPAW", "HALFTAIL"]
     else:
@@ -96,7 +99,8 @@ class Scar_Events():
         "broken back": back_scars,
         "broken bone": bone_scars,
         "withering": infection_scars,
-        "void sickness": void_scars
+        "void sickness": void_scars,
+        "rot": fungal_scars
     }
 
     @staticmethod
@@ -116,10 +120,12 @@ class Scar_Events():
         if medical_cats_condition_fulfilled(game.cat_class.all_cats.values(), amount_per_med):
             chance += 2
 
-        if injury_name == "withering":
+        if injury_name in ["rot", "withering", "void sickness"]:
             chance = 2
         
         if len(cat.pelt.scars) < 4 and not int(random.random() * chance):
+            if injury_name in ["rot", "withering", "void sickness"]:
+                print(cat.name, "got an infection scar!")
             
             # move potential scar text into displayed scar text
             specialty = None  # Scar to be set
@@ -139,6 +145,8 @@ class Scar_Events():
                 scar_pool = [i for i in scar_pool if i not in ["THREE", "RIGHTBLIND", "LEFTBLIND", "BOTHBLIND", "BRIGHTHEART", "VOIDEYE"]]
             if 'VOIDEYE' in cat.pelt.scars:
                 scar_pool = [i for i in scar_pool if i not in ["THREE", "RIGHTBLIND", "LEFTBLIND", "BOTHBLIND", "BRIGHTHEART", "EYESOCKET"]]
+            if 'EYEMOSS' in cat.pelt.scars:
+                scar_pool = [i for i in scar_pool if i not in ["THREE", "RIGHTBLIND", "LEFTBLIND", "BOTHBLIND", "BRIGHTHEART", "EYESOCKET", "VOIDEYE"]]
             if 'NOEAR' in cat.pelt.scars:
                 scar_pool = [i for i in scar_pool if i not in ["LEFTEAR", "RIGHTEAR", 'NOLEFTEAR', 'NORIGHTEAR', "FROSTFACE"]]
             if 'MANTAIL' in cat.pelt.scars:
@@ -168,7 +176,7 @@ class Scar_Events():
                 return None, None
             
             # If we've reached this point, we can move foward with giving history.
-            if injury_name in ["withering", "void sickness"]:
+            if injury_name in ["withering", "void sickness", "rot"]:
                 History.add_scar(cat,
                                   "m_c was greatly scarred by the infection.",
                                   condition=injury_name)
@@ -209,6 +217,11 @@ class Scar_Events():
                 scar_gain_strings = [
                     f"{cat.name}'s sickness has consumed part of their body.",
                     f"The infection is eating away at {cat.name}'s body."
+                ]
+            elif injury_name == "rot":
+                scar_gain_strings = [
+                    f"{cat.name}'s body is being overtaken by the infection.",
+                    f"{cat.name}'s body has become a host for infectious plant life."
                 ]
             else:
                 scar_gain_strings = [

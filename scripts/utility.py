@@ -1544,6 +1544,8 @@ def generate_sprite(cat, life_state=None, scars_hidden=False, acc_hidden=False, 
                         new_sprite.blit(sprites.sprites['scars' + scar + cat_sprite], (0, 0))
                     if scar in cat.pelt.scars5:
                         new_sprite.blit(sprites.sprites['scars' + scar + cat_sprite], (0, 0))
+                    if scar in cat.pelt.scars6:
+                        new_sprite.blit(sprites.sprites['scars' + scar + cat_sprite], (0, 0))
 
         # draw accessories
         clangen_accessories = ['MAPLE LEAF',

@@ -596,15 +596,11 @@ class PatrolOutcome():
         results = []
         for block in self.cure_log:
             entry = block.get("entry")
+            story = block.get("story")
           
-        cure_logs = set()
-  
-        cure_logs.add(entry)
-
-        for i in game.clan.infection["logs"]:
-            cure_logs.add(i)
-        
-        game.clan.infection["logs"] = list(cure_logs)
+        if story:
+            if game.clan.infection["story"] is None:
+                game.clan.infection["story"] = story
         
         if entry == "start":
             results.append("Your Clan is now infected.")
@@ -613,10 +609,21 @@ class PatrolOutcome():
                 game.clan.infection["logs"].remove("discovered")
 
         else:
-            if "entry" not in game.clan.infection["logs"]:
+            if entry not in game.clan.infection["logs"]:
                 results.append("Your log has been updated.")
             else:
                 results.append("")
+            if entry.endswith("step_4"):
+                print("story finished!")
+
+        # now add it to the log!
+        cure_logs = set()
+        cure_logs.add(entry)
+        for i in game.clan.infection["logs"]:
+            cure_logs.add(i)
+        
+        game.clan.infection["logs"] = list(cure_logs)
+
             
         return " ".join(results)
         

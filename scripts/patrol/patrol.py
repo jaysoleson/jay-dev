@@ -668,10 +668,16 @@ class Patrol():
                         continue
                 
                 stories = ["1", "2"]
+                steps = ["1", "2", "3", "4"]
                 skip = False
                 for story in stories:
                     if f"story_{story}" in patrol.tags and game.clan.infection["story"] != story:
                         skip = True
+
+                    for step in steps:
+                        if patrol.patrol_id.endswith(f"story_{story}_step_{step}") and f"story_{story}_step_{step}" in game.clan.infection["logs"]:
+                            continue
+
                 if skip:
                     continue
 
@@ -1179,11 +1185,25 @@ class Patrol():
         if not text:
             text = 'This should not appear, report as a bug please!'
 
+        sc1 = Cat.all_cats.get(game.clan.infection["story_cat_1"])
+        sc2 = Cat.all_cats.get(game.clan.infection["story_cat_2"])
+        sc3 = Cat.all_cats.get(game.clan.infection["story_cat_3"])
+        sc4 = Cat.all_cats.get(game.clan.infection["story_cat_4"])
+
         replace_dict = {
             "p_l": (str(self.patrol_leader.name), choice(self.patrol_leader.pronouns)),
             "r_c": (str(self.patrol_random_cat.name), choice(self.patrol_random_cat.pronouns)),
-            "y_c": (str(game.clan.your_cat.name), choice(game.clan.your_cat.pronouns)),
+            "y_c": (str(game.clan.your_cat.name), choice(game.clan.your_cat.pronouns))
         }
+
+        if sc1 is not None:
+            replace_dict["sc_1"] =  (str(sc1.name), choice(sc1.pronouns))
+        if sc2 is not None:
+            replace_dict["sc_2"] =  (str(sc2.name), choice(sc2.pronouns))
+        if sc3 is not None:
+            replace_dict["sc_3"] =  (str(sc3.name), choice(sc3.pronouns))
+        if sc4 is not None:
+            replace_dict["sc_4"] =  (str(sc4.name), choice(sc4.pronouns))
 
         other_cats = [i for i in self.patrol_cats if i not in [self.patrol_leader, self.patrol_random_cat, game.clan.your_cat]]
         if game.current_screen == "patrol screen4":

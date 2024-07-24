@@ -111,7 +111,7 @@ class Sprites():
 
         for x in [
             'lineart', 'singlecolours', 'speckledcolours', 'tabbycolours',
-            'whitepatches', 'eyes', 'eyes2', 'skin', 'scars', 'missingscars', 'parasiticscars', 'voidscars',
+            'whitepatches', 'eyes', 'eyes2', 'skin', 'scars', 'missingscars', 'parasiticscars', 'voidscars', 'fungalscars',
             'collars', 'bellcollars', 'bowcollars', 'nyloncollars',
             'bengalcolours', 'marbledcolours', 'rosettecolours', 'smokecolours', 'tickedcolours', 
             'mackerelcolours', 'classiccolours', 'sokokecolours', 'agouticolours', 'singlestripecolours',
@@ -402,6 +402,10 @@ class Sprites():
         for a, i in enumerate(
                 ["VOIDBACK", "VOIDEYE", "VOIDTAIL"]):
             self.make_group('voidscars', (a, 0), f'scars{i}')
+        # fungal
+        for a, i in enumerate(
+                ["SHELFMUSHROOMS", "EYEMOSS", "PAWMOSS"]):
+            self.make_group('fungalscars', (a, 0), f'scars{i}')
 
 
             # Accessories

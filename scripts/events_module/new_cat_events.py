@@ -38,7 +38,7 @@ class NewCatEvents:
         #Determine
         if NewCatEvents.has_outside_cat():
             outside_cat = NewCatEvents.select_outside_cat()
-            if outside_cat not in [game.clan.infection["story_cat_1"], game.clan.infection["story_cat_2"], game.clan.infection["story_cat_3"], game.clan.infection["story_cat_4"]]:
+            if outside_cat.ID in [game.clan.infection["story_cat_1"], game.clan.infection["story_cat_2"], game.clan.infection["story_cat_3"], game.clan.infection["story_cat_4"]]:
                 if game.clan.infection["story"] == "1" and outside_cat.ID == game.clan.infection["story_cat_1"]:
                     if "story_1_step_2" not in game.clan.infection["logs"]:
                         print("Preventing", outside_cat.name, "(", outside_cat.story_cat, ") from joining the Clan.")
@@ -98,7 +98,7 @@ class NewCatEvents:
                         # give a relationship with the second cat + lasting grief
                         if "story_1_step_2" in game.clan.infection["logs"]:
                             if outside_cat.ID == game.clan.infection["story_cat_1"]:
-                                secondcat = game.clan.infection["story_cat_2"]
+                                secondcat = Cat.all_cats.get(game.clan.infection["story_cat_2"])
                                 secondcat.create_one_relationship(outside_cat)
                                 outside_cat.create_one_relationship(secondcat)
 
@@ -333,8 +333,8 @@ class NewCatEvents:
 
     @staticmethod
     def select_outside_cat():
-        outside_cats = [i for i in Cat.all_cats.values() if i.status in ["kittypet", "loner", "rogue", "former Clancat"] and not i.dead and i.outside and i.infected_for == 0]
-        # infected cats cant randomly join the clan, that would be mean.
+        outside_cats = [i for i in Cat.all_cats.values() if i.status in ["kittypet", "loner", "rogue", "former Clancat"] and not i.dead and i.outside and (i.infected_for == 0 and i.ID not in game.clan.infection["story_cat_1"], game.clan.infection["story_cat_2"], game.clan.infection["story_cat_3"], game.clan.infection["story_cat_4"])]
+        # non-story infected cats cant randomly join the clan, that would be mean.
         # the player can chase them down with the leaders den for treatment if they want
         if outside_cats:
             return random.choice(outside_cats)

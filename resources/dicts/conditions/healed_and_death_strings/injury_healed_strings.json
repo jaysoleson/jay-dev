@@ -227,5 +227,8 @@
     ],
     "void sickness": [
         "m_c has recovered from {PRONOUN/m_c/poss} void sickness."
+    ],
+    "rot": [
+        "m_c's rot has abated."
     ]
 }

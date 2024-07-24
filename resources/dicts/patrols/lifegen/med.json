@@ -542,7 +542,7 @@
         ]
     },
     {
-        "patrol_id": "story_1_step_1",
+        "patrol_id": "med_story_1_step_1",
         "biome": [
             "Any"
         ],
@@ -574,7 +574,8 @@
                 ],
                 "cure_log": [
                     {
-                        "entry": "story_1_step_1"
+                        "entry": "story_1_step_1",
+                        "story": "1"
                     }
                 ]
             }
@@ -589,7 +590,8 @@
                 ],
                 "cure_log": [
                     {
-                        "entry": "story_1_step_1"
+                        "entry": "story_1_step_1",
+                        "story": "1"
                     }
                 ]
             }

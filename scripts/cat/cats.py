@@ -448,6 +448,13 @@ class Cat():
         else:
             self.injuries.clear()
             self.illnesses.clear()
+
+
+        infection_scars = ["EXPOSEDRIBS", "EYESOCKET", "ARMBONE", "VOIDBACK", "VOIDEYE", "VOIDTAIL", "SHELFMUSHROOMS", "EYEMOSS", "PAWMOSS"]
+        for scar in infection_scars:
+            if scar in self.pelt.scars:
+                self.pelt.scars.remove(scar)
+                print("removed infection scar", scar, "from", self.name, "upon their death")
         
         # Deal with leader death
         text = ""
@@ -2351,7 +2358,10 @@ class Cat():
         condition_directory = get_save_dir() + '/' + clanname + '/conditions'
         condition_file_path = condition_directory + '/' + self.ID + '_conditions.json'
 
-        if (not self.is_ill() and not self.is_injured() and not self.is_disabled()) or self.dead or self.outside:
+        story_cats = [game.clan.infection["story_cat_1"], game.clan.infection["story_cat_2"], game.clan.infection["story_cat_3"], game.clan.infection["story_cat_4"]]
+        # some outside cats need to be able to keep a condition. only story cats
+
+        if (not self.is_ill() and not self.is_injured() and not self.is_disabled()) or self.dead or (self.outside and self.ID not in story_cats):
             if os.path.exists(condition_file_path):
                 os.remove(condition_file_path)
             return
