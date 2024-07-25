@@ -1567,8 +1567,35 @@ class TalkScreen(Screens):
                         if not choice_text:
                             new_text = ""
                             break
-            
+            spread = game.clan.infection["spread_by"]
             if text_chosen_key not in game.clan.talks and new_text:
+                chance = 0
+                # chance is out of 100 ish
+                # increase chance of you getting infected if the cat is infected
+                if cat.infected_for > 0:
+                    if f"{inftype} stage one" in cat.illnesses:
+                        chance += 10
+                    elif f"{inftype} stage two" in cat.illnesses:
+                        chance += 16
+                    elif f"{inftype} stage three" in cat.illnesses:
+                        chance += 20
+                    elif f"{inftype} stage four" in cat.illnesses:
+                        chance += 26
+
+                    if spread == "bite":
+                        chance /= 2
+                        # lower chance for bite infections
+
+                    if you.status in ["medicine cat", "medicine cat apprentice"]:
+                        chance *= 1.3
+                    
+                    if you.is_ill() or you.is_injured():
+                        chance *= 1.3
+
+                    game.clan.infection["yourcat_infection_chance"] -= chance
+                    print("you talked to an infected cat! infection chance:", game.clan.infection["yourcat_infection_chance"])
+
+
                 game.clan.talks.append(text_chosen_key)
                 if "intro" in texts_list[text_chosen_key]:
                     self.text_type = "choices"
@@ -1586,7 +1613,7 @@ class TalkScreen(Screens):
                         # Here, we handle the outcomes of the story dialogues
                         if match.group(1).endswith("step_2"):
                             if game.clan.infection["story"] == "1":
-                                # making the new cat!
+                                # making the new story 1 cat!
                                 sunflower = create_new_cat(Cat, Relationship,
                                                 new_name=False,
                                                 status=choice(["rogue"]),

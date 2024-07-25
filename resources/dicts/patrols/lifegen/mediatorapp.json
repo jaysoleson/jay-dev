@@ -329,7 +329,8 @@
             "new_cat"
         ],
         "tags": [
-            "infection"
+            "infection",
+            "story_beginning"
         ],
         "patrol_art": "lg_mediatorapp_default",
         "min_cats": 1,

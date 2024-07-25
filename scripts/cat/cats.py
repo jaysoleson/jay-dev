@@ -2259,6 +2259,10 @@ class Cat():
             # cant infect yourself!
             return
         
+        if self.ID == game.clan.your_cat.ID:
+            # no random infection for MC
+            return
+        
         infectious_illnesses = []
         if cat.is_ill():
             for illness in cat.illnesses:
@@ -2268,7 +2272,7 @@ class Cat():
                 return
             
         quarchance = 2
-        # chances of random bites r reduced by half when the cat is quarantined
+        # chances of random spreading is reduced by half when the cat is quarantined
 
         for illness in infectious_illnesses:
             illness_name = illness
@@ -2289,9 +2293,9 @@ class Cat():
 
             chamce = int(random() * (cat.illnesses[illness]["infectiousness"] * 2))
             if cat.quarantined:
-                chamce = chamce * 0.3
+                chamce = chamce * 0.3 # lower rate for quarantined cats
             if game.clan.infection["spread_by"] == "air":
-                chamce = chamce * 1.5
+                chamce = chamce * 1.5 # higher rate for airborne
 
             if not chamce:
                 if game.clan.infection["spread_by"] == "bite":
@@ -2308,6 +2312,7 @@ class Cat():
                 
                 game.cur_events_list.append(Single_Event(text, ["health", "infection"], [self.ID, cat.ID]))
                 self.get_ill(f"{game.clan.infection['infection_type']} stage one")
+                self.infected_for += 1
 
     def contact_with_ill_cat(self, cat: Cat):
         """handles if one cat had contact with an ill cat"""

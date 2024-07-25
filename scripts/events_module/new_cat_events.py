@@ -21,7 +21,7 @@ class NewCatEvents:
     """All events with a connection to new cats."""
 
     @staticmethod
-    def handle_new_cats(cat: Cat, other_cat, war, enemy_clan, alive_kits):
+    def handle_new_cats(cat: Cat, other_cat, war, enemy_clan, alive_kits, story, story_cat):
         """ 
         This function handles the new cats
         """
@@ -31,24 +31,24 @@ class NewCatEvents:
             other_clan = random.choice(game.clan.all_clans)
         other_clan_name = f'{other_clan.name}Clan'
 
+        print("STORY IN FUNCTION:", story)
+        if story_cat is not None:
+            print("STORYCAT IN FUNCTION:", story_cat.name)
+        else:
+            print("STORYCAT IN FUNCTION:", story_cat)
+
         if other_clan_name == 'None':
             other_clan = game.clan.all_clans[0]
             other_clan_name = f'{other_clan.name}Clan'
 
         #Determine
         if NewCatEvents.has_outside_cat():
-            outside_cat = NewCatEvents.select_outside_cat()
-            if outside_cat.ID in [game.clan.infection["story_cat_1"], game.clan.infection["story_cat_2"], game.clan.infection["story_cat_3"], game.clan.infection["story_cat_4"]]:
-                if game.clan.infection["story"] == "1" and outside_cat.ID == game.clan.infection["story_cat_1"]:
-                    if "story_1_step_2" not in game.clan.infection["logs"]:
-                        print("Preventing", outside_cat.name, "(", outside_cat.story_cat, ") from joining the Clan.")
-                        chance = 2
-                    else:
-                        chance = 1
-                else:
-                    chance = random.randint(1, 3)
+            if story_cat is not None:
+                outside_cat = story_cat
+                chance = 1
             else:
-                chance = random.randint (1,10) # tryign to rebalance the chances LMAAOAO this SUCKS
+                outside_cat = NewCatEvents.select_outside_cat()
+                chance = random.randint(1, 3)
             if chance == 1:
                 backstory = outside_cat.status
                 outside_cat = NewCatEvents.update_cat_properties(outside_cat)
@@ -333,7 +333,7 @@ class NewCatEvents:
 
     @staticmethod
     def select_outside_cat():
-        outside_cats = [i for i in Cat.all_cats.values() if i.status in ["kittypet", "loner", "rogue", "former Clancat"] and not i.dead and i.outside and (i.infected_for == 0 and i.ID not in game.clan.infection["story_cat_1"], game.clan.infection["story_cat_2"], game.clan.infection["story_cat_3"], game.clan.infection["story_cat_4"])]
+        outside_cats = [i for i in Cat.all_cats.values() if i.status in ["kittypet", "loner", "rogue", "former Clancat"] and not i.dead and i.outside and i.infected_for == 0]
         # non-story infected cats cant randomly join the clan, that would be mean.
         # the player can chase them down with the leaders den for treatment if they want
         if outside_cats:

@@ -210,7 +210,8 @@ class Condition_Events():
 
                 for i in types:
                     wrong_illness = f"{i} stage one"
-                    while wrong_illness in possible_illnesses and game.clan.infection["infection_type"] != i:
+                    while wrong_illness in possible_illnesses and (game.clan.infection["infection_type"] != i or cat.ID == game.clan.your_cat.ID):
+                        # no wrong type infection OR random infections for MC
                         possible_illnesses.remove(wrong_illness)
 
                 # pick a random illness from those possible
@@ -228,6 +229,7 @@ class Condition_Events():
                         print("Tried to give", cat.name, "a ", i, "infection?")
                         dont = True
                         break
+
                 # make em sick
                 if not dont:
                     cat.get_ill(chosen_illness)

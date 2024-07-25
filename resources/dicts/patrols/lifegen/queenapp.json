@@ -189,7 +189,8 @@
             "new_cat"
         ],
         "tags": [
-            "infection"
+            "infection",
+            "story_beginning"
         ],
         "patrol_art": "lg_queenapp_default",
         "min_cats": 1,

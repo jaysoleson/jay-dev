@@ -427,8 +427,32 @@ class Events:
                 game.save_events()
             except:
                 SaveError(traceback.format_exc())
+            
+    def yourcat_infection(self, cat):
+        """ yardi kno """
+        if cat.ID != game.clan.your_cat.ID:
+            return
+        if cat.infected_for > 0:
+            return
+        
+        infection_chance = game.clan.infection["yourcat_infection_chance"]
+
+        if infection_chance <= 0:
+            infection_chance = 1
+
+        print("Moon", game.clan.age, "Chance: 1/", infection_chance)
+        if not random.random() * infection_chance:
+            cat.get_ill(f"{game.clan.infection['infection_type']} stage one")
+            event = "It seems you've been in contact with too many infected cats. You are now infected."
+            game.cur_events_list.insert(0, Single_Event(event, ["alert", "infection"], cat.ID))
+        
+        # reset back to 100 for next moon
+        game.clan.infection["yourcat_infection_chance"] = 100
+            
     
     def infection_story(self, cat):
+        """ handles certain infection story beats.
+            mostly the,, technical stuff. """
         # INFECTION: story
         # STORY 1
         if game.clan.infection["story"] == "1":
@@ -2317,6 +2341,7 @@ class Events:
                         cat.get_injured(chosen_injury)
                         involved_cats["injured"].append(cat.ID)
                 else:
+                    inftype = game.clan.infection["infection_type"]
                     chance = game.config["focus"]["hoarding"]["illness_chance"]
                     if not int(random.random() * chance): # 1/chance
                         possible_illnesses = []
@@ -2324,7 +2349,9 @@ class Events:
                         for illness, amount in injury_dict.items():
                             possible_illnesses.extend([illness] * amount)
                         chosen_illness = random.choice(possible_illnesses)
-                        cat.get_ill(chosen_illness)
+                        if not (chosen_illness == f"{inftype} stage one" and cat.ID == game.clan.your_cat.ID):
+                            # no random infection for MC
+                            cat.get_ill(chosen_illness)
                         involved_cats["sick"].append(cat.ID)
 
             # if it is raiding, lower the relation to other clans
@@ -2601,6 +2628,7 @@ class Events:
                             
                             if new_stage == "Error!":
                                 print(cat.name, "is trying to remiss from stage one? No way buster")
+                                # might change this if i wanna be nice so stage oners can still be cured quickly..... i probably should tbh
                             else:
                                 event = f"Thanks to recieving treatment, {cat.name}'s infection has remissed from {old_stage.replace(f'{inftype}', '')} to {new_stage.replace(f'{inftype}', '')}!{addon}"
                                 game.cur_events_list.insert(0, Single_Event(event, ["health", "infection"], involved_cats))
@@ -2697,6 +2725,8 @@ class Events:
             cat.thoughts()
             return
         cat.infection_go()
+
+        self.yourcat_infection(game.clan.your_cat)
         
         if not cat.outside and not cat.exiled:
             if cat.shunned == 0:
@@ -3601,7 +3631,30 @@ class Events:
             other_cat = None
         
         # debuggguuh
-        chance = 2
+        # chance = 2
+
+        story_cat = None
+        story = False
+
+        if game.clan.infection["story"] == "1":
+            sc1 = Cat.all_cats.get(game.clan.infection["story_cat_1"])
+            if sc1 is not None:
+                if sc1.outside and "story_1_step_2" in game.clan.infection["logs"]:
+                    story_cat = sc1
+                    story = True
+                    chance = 20
+        
+        elif game.clan.infection["story"] == "2":
+            sc1 = Cat.all_cats.get(game.clan.infection["story_cat_1"])
+            if sc1 is not None:
+                if sc1.outside:
+                    story_cat = sc1
+                    story = True
+                    chance = 20
+
+        # story and story_cat make it so that if theres a storycat outsider, they'll always be next to join.
+        # chance is also a flat 1/20 for now. This will only apply to the story cat
+        # i might stick to dividing by two with the new leaders den stuff.
 
         if not int(random.random() * chance) and \
                 cat.age != 'kitten' and cat.age != 'adolescent' and not self.new_cat_invited:
@@ -3620,7 +3673,9 @@ class Events:
                 other_cat=other_cat,
                 war=game.clan.war.get("at_war", False),
                 enemy_clan=enemy_clan,
-                alive_kits=get_alive_kits(Cat))
+                alive_kits=get_alive_kits(Cat),
+                story=story,
+                story_cat=story_cat)
             Relation_Events.welcome_new_cats(new_cats)
 
     def other_interactions(self, cat):
@@ -4157,9 +4212,19 @@ class Events:
                              not kitty.outside), Cat.all_cats.values()))
                     alive_count = len(alive_cats)
 
+                if illness in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]:
+                    # adjust alive cats list to disclude MC for infection
+                    alive_cats = list(
+                        filter(
+                            lambda kitty:
+                            (not kitty.dead and kitty.ID != game.clan.your_cat.ID and
+                             not kitty.outside), Cat.all_cats.values()))
+                    alive_count = len(alive_cats)
+
                 if illness not in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]:
                     max_infected = int(alive_count / 2)  # 1/2 of alive cats
-                max_infected = int(alive_count / 3)  # a bit less bc they can get it in other ways tooo ill be niiiceeee
+                else:
+                    max_infected = int(alive_count / 3)  # a bit less bc they can get it in other ways tooo ill be niiiceeee
 
                 # If there are less than two cat to infect,
                 # you are allowed to infect all the cats
@@ -4216,6 +4281,9 @@ class Events:
                 if illness in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]:
                     game.cur_events_list.append(
                         Single_Event(event, ["health", "infection"], involved_cats))
+                    for i in involved_cats:
+                        Cat.all_cats.get(i).infected_for += 1
+                        print("yeyeyeahh")
                 else:
                     game.cur_events_list.append(
                         Single_Event(event, "health", involved_cats))

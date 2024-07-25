@@ -566,7 +566,8 @@ class Game():
                     "story_cat_2": None,
                     "story_cat_3": None,
                     "story_cat_4": None,
-                    "story_finished": False
+                    "story_finished": False,
+                    "yourcat_infection_chance": 100
                 }
                 
                 with open(f"saves/{self.clan.name}/infection.json", 'w') as create_file:

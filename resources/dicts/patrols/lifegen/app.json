@@ -1181,7 +1181,8 @@
             "new_cat"
         ],
         "tags": [
-            "infection"
+            "infection",
+            "story_beginning"
         ],
         "patrol_art": "lg_app4",
         "min_cats": 1,

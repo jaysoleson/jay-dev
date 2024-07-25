@@ -150,7 +150,8 @@ class Clan():
             "story_cat_2": None,
             "story_cat_3": None,
             "story_cat_4": None,
-            "story_finished": False
+            "story_finished": False,
+            "yourcat_infection_chance": 100
         }
         self.inheritance = {}
         self.murdered = False
@@ -175,6 +176,7 @@ class Clan():
         self.story_cat_3 = None
         self.story_cat_4 = None
         self.story_finished = False
+        self.yourcat_infection_chance = 100
         self.cure_moons = 0
         self.spread_by = "air"
         self.infection_moons = 0
@@ -552,7 +554,8 @@ class Clan():
             "story_cat_2": self.infection["story_cat_2"],
             "story_cat_3": self.infection["story_cat_3"],
             "story_cat_4": self.infection["story_cat_4"],
-            "story_finished": self.infection["story_finished"]
+            "story_finished": self.infection["story_finished"],
+            "yourcat_infection_chance": self.infection["yourcat_infection_chance"]
         }
 
         # LEADER DATA

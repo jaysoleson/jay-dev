@@ -681,6 +681,9 @@ class Patrol():
                 if skip:
                     continue
 
+                if game.clan.infection["story"] is not None and "story_beginning" in patrol.tags:
+                    continue
+
                 if patrol.patrol_id in game.clan.infection["logs"]:
                     print("skippie")
                     continue

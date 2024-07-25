@@ -609,7 +609,8 @@
             "new_cat"
         ],
         "tags": [
-            "infection"
+            "infection",
+            "story_beginning"
         ],
         "patrol_art": "DefaultDeputy",
         "min_cats": 1,

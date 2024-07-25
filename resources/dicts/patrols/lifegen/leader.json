@@ -407,7 +407,8 @@
             "new_cat"
         ],
         "tags": [
-            "infection"
+            "infection",
+            "story_beginning"
         ],
         "patrol_art": "lg_leader_default",
         "min_cats": 1,
