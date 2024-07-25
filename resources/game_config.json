@@ -438,6 +438,10 @@
 	"affair_relationship_change_ub": 30,
 	"murder_chance":-1,
 	"accomplice_chance":-1,
+
+	"your_cat_infection_chance": 100,
+	"debug_ensure_story_dialogue": true,
+
 	"debug_ensure_dialogue": "",
 
 	"shunned_cat": {

@@ -1548,13 +1548,13 @@ class TalkScreen(Screens):
         # Try to find a valid, unused text
         for _ in range(MAX_RETRIES):
             storykey = False
-            for i in texts_list:
-                if i.startswith("story_key"):
-                    text_chosen_key = i
-                    storykey = True
-                    break
-            # ^^ uncomment for constant story key dialogue
-            # maybe put this in game config sometime.........
+            if game.config["debug_ensure_story_dialogue"]:
+                for i in texts_list:
+                    if i.startswith("story_key"):
+                        print("DEBUG STORY DIALOGUE:", i)
+                        text_chosen_key = i
+                        storykey = True
+                        break
             if not storykey:
                 text_chosen_key = choices(list(texts_list.keys()), weights=weights)[0]
             text = texts_list[text_chosen_key]["intro"] if "intro" in texts_list[text_chosen_key] else texts_list[text_chosen_key][1]
@@ -1569,33 +1569,6 @@ class TalkScreen(Screens):
                             break
             spread = game.clan.infection["spread_by"]
             if text_chosen_key not in game.clan.talks and new_text:
-                chance = 0
-                # chance is out of 100 ish
-                # increase chance of you getting infected if the cat is infected
-                if cat.infected_for > 0:
-                    if f"{inftype} stage one" in cat.illnesses:
-                        chance += 10
-                    elif f"{inftype} stage two" in cat.illnesses:
-                        chance += 16
-                    elif f"{inftype} stage three" in cat.illnesses:
-                        chance += 20
-                    elif f"{inftype} stage four" in cat.illnesses:
-                        chance += 26
-
-                    if spread == "bite":
-                        chance /= 2
-                        # lower chance for bite infections
-
-                    if you.status in ["medicine cat", "medicine cat apprentice"]:
-                        chance *= 1.3
-                    
-                    if you.is_ill() or you.is_injured():
-                        chance *= 1.3
-
-                    game.clan.infection["yourcat_infection_chance"] -= chance
-                    print("you talked to an infected cat! infection chance:", game.clan.infection["yourcat_infection_chance"])
-
-
                 game.clan.talks.append(text_chosen_key)
                 if "intro" in texts_list[text_chosen_key]:
                     self.text_type = "choices"

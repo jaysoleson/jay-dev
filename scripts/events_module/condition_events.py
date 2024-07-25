@@ -225,11 +225,10 @@ class Condition_Events():
                 types = ["fungal", "parasitic", "void"]
                 for i in types:
                     if i in chosen_illness and i != game.clan.infection["infection_type"]:
-                        # failsafe-- you should never see this
+                        # INFECTION failsafe-- you should never see this
                         print("Tried to give", cat.name, "a ", i, "infection?")
                         dont = True
                         break
-
                 # make em sick
                 if not dont:
                     cat.get_ill(chosen_illness)

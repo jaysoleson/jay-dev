@@ -103,11 +103,9 @@ class NewCatEvents:
                                 outside_cat.create_one_relationship(secondcat)
 
                                 secondcat.relationships[outside_cat.ID].platonic_like = random.randint(65,80)
-                                secondcat.relationships[outside_cat.ID].romantic_love = random.randint(10,20)
                                 secondcat.relationships[outside_cat.ID].trust = random.randint(45,60)
                                 secondcat.relationships[outside_cat.ID].comfort = random.randint(30,60)
                                 outside_cat.relationships[secondcat.ID].platonic_like = random.randint(65,80)
-                                outside_cat.relationships[secondcat.ID].romantic_love = random.randint(10,30)
                                 outside_cat.relationships[secondcat.ID].trust = random.randint(45,60)
                                 outside_cat.relationships[secondcat.ID].comfort = random.randint(20,40)
                                 outside_cat.get_permanent_condition("lasting grief", born_with=False)
@@ -127,6 +125,8 @@ class NewCatEvents:
         final_events = GenerateEvents.filter_possible_short_events(possible_events, cat, other_cat, war,
                                                                         enemy_clan,
                                                                         other_clan, alive_kits)
+        print("why am i here")
+
         if not final_events:
             print('ERROR: no new cat moon events available')
             return

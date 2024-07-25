@@ -12,6 +12,8 @@ from collections import Counter
 import random
 import traceback
 
+import math
+
 from scripts.cat.history import History
 from scripts.patrol.patrol import Patrol
 
@@ -173,6 +175,8 @@ class Events:
                 if clan_cat_cat:
                     clan_cat_cat.faith -= round(random.uniform(-0.1,0), 2)
             self.handle_disaster()
+
+        self.yourcat_infection(game.clan.your_cat)
         
         for cat in Cat.all_cats.copy().values():
             if not cat.outside or cat.dead:
@@ -428,26 +432,64 @@ class Events:
             except:
                 SaveError(traceback.format_exc())
             
-    def yourcat_infection(self, cat):
-        """ yardi kno """
-        if cat.ID != game.clan.your_cat.ID:
+    def yourcat_infection(self, you):
+        """ Determines the chances for MC to get infected. Based on infected cats talked to and the percentage of infected cats in camp. """
+
+        if you.dead:
             return
-        if cat.infected_for > 0:
+        if you.outside:
+            return
+        if you.infected_for > 0:
             return
         
-        infection_chance = game.clan.infection["yourcat_infection_chance"]
+        infection_chance = game.config["your_cat_infection_chance"]
+        
+        infected_cats = [cat for cat in Cat.all_cats_list if not cat.dead and not cat.outside and cat.infected_for > 0 and cat.ID != you.ID]
+        all_cats = [cat for cat in Cat.all_cats_list if not cat.dead and not cat.outside and cat.ID != you.ID]
 
-        if infection_chance <= 0:
-            infection_chance = 1
+        if len(infected_cats) == 0:
+            return
 
-        print("Moon", game.clan.age, "Chance: 1/", infection_chance)
-        if not random.random() * infection_chance:
-            cat.get_ill(f"{game.clan.infection['infection_type']} stage one")
+        percentage = len(infected_cats) / len(all_cats)
+
+        points = 0
+        infected_talked_to = []
+        for cat in Cat.all_cats_list:
+            if cat.talked_to:
+                # if cat.infected_for > 0:
+                #     infected_talked_to.append(cat.ID)
+                if f"{game.clan.infection['infection_type']} stage one" in cat.illnesses:
+                    points += 1
+                elif f"{game.clan.infection['infection_type']} stage two" in cat.illnesses:
+                    points += 2
+                elif f"{game.clan.infection['infection_type']} stage three" in cat.illnesses:
+                    points += 3
+                elif f"{game.clan.infection['infection_type']} stage four" in cat.illnesses:
+                    points += 4
+        
+        # if len(infected_talked_to) == 0 and (len(all_cats) - len(infected_cats)) > len(infected_cats):
+        #     return
+
+        infection_chance = infection_chance + (-points * 2)
+
+        decay_factor = 2
+        infection_chance = infection_chance / math.exp(decay_factor * percentage)
+
+        min_chance = 1
+        infection_chance = max(infection_chance, min_chance)
+
+        # print("infected:", len(infected_cats), "/", len(all_cats))
+
+        chance = math.ceil(infection_chance)
+
+        # print("Moon", game.clan.age, "Chance: 1/", chance)
+
+        num = random.randint(1, chance)
+        if num == 1:
+            you.get_ill(f"{game.clan.infection['infection_type']} stage one")
             event = "It seems you've been in contact with too many infected cats. You are now infected."
+            print("Infection chance HIT: You are now infected.")
             game.cur_events_list.insert(0, Single_Event(event, ["alert", "infection"], cat.ID))
-        
-        # reset back to 100 for next moon
-        game.clan.infection["yourcat_infection_chance"] = 100
             
     
     def infection_story(self, cat):
@@ -2725,8 +2767,6 @@ class Events:
             cat.thoughts()
             return
         cat.infection_go()
-
-        self.yourcat_infection(game.clan.your_cat)
         
         if not cat.outside and not cat.exiled:
             if cat.shunned == 0:
@@ -3639,7 +3679,8 @@ class Events:
         if game.clan.infection["story"] == "1":
             sc1 = Cat.all_cats.get(game.clan.infection["story_cat_1"])
             if sc1 is not None:
-                if sc1.outside and "story_1_step_2" in game.clan.infection["logs"]:
+                if sc1.outside and "story_1_step_2" in game.clan.infection["logs"] and sc1.status in ["loner", "rogue", "former Clancat", "kittypet"]:
+                    # doesnt work for lost cats
                     story_cat = sc1
                     story = True
                     chance = 20
@@ -3647,7 +3688,7 @@ class Events:
         elif game.clan.infection["story"] == "2":
             sc1 = Cat.all_cats.get(game.clan.infection["story_cat_1"])
             if sc1 is not None:
-                if sc1.outside:
+                if sc1.outside and sc1.status in ["loner", "rogue", "former Clancat", "kittypet"]:
                     story_cat = sc1
                     story = True
                     chance = 20
@@ -4283,7 +4324,6 @@ class Events:
                         Single_Event(event, ["health", "infection"], involved_cats))
                     for i in involved_cats:
                         Cat.all_cats.get(i).infected_for += 1
-                        print("yeyeyeahh")
                 else:
                     game.cur_events_list.append(
                         Single_Event(event, "health", involved_cats))
