@@ -115,6 +115,7 @@ class Condition_Events():
                     pass
                 elif infection_event or "has reached" in event_string:
                     infection_events.append(event_string)
+
             # INFECTION
             # withering, void sickness, rot
             # so i can change the chances between them if i wanna
@@ -210,7 +211,7 @@ class Condition_Events():
 
                 for i in types:
                     wrong_illness = f"{i} stage one"
-                    while wrong_illness in possible_illnesses and (game.clan.infection["infection_type"] != i or cat.ID == game.clan.your_cat.ID):
+                    while wrong_illness in possible_illnesses and (game.clan.infection["infection_type"] != i or cat.ID == game.clan.your_cat.ID or cat.infected_for > 0):
                         # no wrong type infection OR random infections for MC
                         possible_illnesses.remove(wrong_illness)
 
@@ -236,13 +237,15 @@ class Condition_Events():
                 if chosen_illness in ["running nose", "stomachache"]:
                     event_string = f"{cat.name} has gotten a {chosen_illness}."
                 elif chosen_illness == f"{inftype} stage one":
+
+                    infected_cats = [cat for cat in Cat.all_cats_list if not cat.outside and not cat.dead and cat.infected_for > 0]
+
                     if game.clan.infection["spread_by"] == "bite":
                         strings = [
                             f"{cat.name} was bitten by an infected rogue.",
                             f"{cat.name} stumbles back into camp after an outing with a fresh cat bite and a clouded look in their eyes.",
                             f"{cat.name} tries to hide their fresh wound, but the potent smell of the infection coming from them is too hard to ignore."
                         ]
-                        event_string = random.choice(strings)
                         if "spread_by_bite" not in game.clan.infection["logs"]:
                             game.clan.infection["logs"].append("spread_by_bite")
                             event_string += "\nYour log has been updated."
@@ -253,11 +256,16 @@ class Condition_Events():
                             f"{cat.name} stumbles back into camp after an outing with a clouded look in their eyes.",
                             f"{cat.name} has come down with the infection."
                         ]                        
-                        event_string = random.choice(strings)
+                        
                         if "spread_by_air" not in game.clan.infection["logs"]:
                             game.clan.infection["logs"].append("spread_by_air")
                             event_string += "\nYour log has been updated."
+                    
+                    if len(infected_cats) > 5:
+                        strings.append(f"The Clan is often kept awake at night by the pained wails of infected cats, but tonight, you notice that a new voice has joined their numbers. {cat.name} has been infected.")
 
+                    event_string = random.choice(strings)
+                    print("infection event string worked af")
                     infection_events.append(event_string)
                     cat.infected_for += 1
                 else:
@@ -738,6 +746,8 @@ class Condition_Events():
                     # but whatever. this works.
                     infection_event = True
                     continue
+                else:
+                    infection_event = False
                 History.remove_possible_history(cat, illness)
                 game.switches['skip_conditions'].append(illness)
                 # gather potential event strings for healed illness
@@ -1110,8 +1120,11 @@ class Condition_Events():
             
             infection_event = False
             if risk["name"] in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]:
+                if cat.cure_progress > 0:
+                    print("not progressing illness for", cat.name)
+                    return
                 infection_event = True
-                chance = 3
+                chance /= 2
 
             # if we hit the chance, then give the risk if the cat does not already have the risk
             if chance != 0 and not int(random.random() * chance) and risk['name'] not in dictionary:

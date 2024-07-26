@@ -459,7 +459,7 @@ class CureLogScreen(Screens):
                 self.stamps["start"] = UIImageButton(scale(pygame.Rect((425, 570), (206, 205))), "",
                                                 object_id="#stamp_start", tool_tip_text="You've discovered the infection.", manager=MANAGER)
                 
-            if "cure_discovered" in game.clan.infection["logs"]:
+            if "cure_found" in game.clan.infection["logs"]:
                 self.stamps["cure_discovered"] = UIImageButton(scale(pygame.Rect((425, 340), (195, 170))), "",
                                             object_id="#stamp_cure", tool_tip_text="You've discovered the cure!", manager=MANAGER)
 

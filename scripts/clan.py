@@ -139,7 +139,6 @@ class Clan():
             "cure": [herb1, herb2, herb3, herb4],
             "cure_attempt": False,
             "cure_discovered": [],
-            "cure_moons": randint(2,5),
             "spread_by": choice(["air", "bite"]),
             "treatments": [],
             "infection_moons": 0,
@@ -150,7 +149,8 @@ class Clan():
             "story_cat_2": None,
             "story_cat_3": None,
             "story_cat_4": None,
-            "story_finished": False
+            "story_finished": False,
+            "priority_herb": None
         }
         self.inheritance = {}
         self.murdered = False
@@ -175,10 +175,10 @@ class Clan():
         self.story_cat_3 = None
         self.story_cat_4 = None
         self.story_finished = False
-        self.cure_moons = 0
         self.spread_by = "air"
         self.infection_moons = 0
         self.cure_logs = []
+        self.priority_herb = None
         
         # Init Settings
         self.clan_settings = {}
@@ -541,7 +541,6 @@ class Clan():
             "cure": self.infection["cure"],
             "cure_attempt": self.infection["cure_attempt"],
             "cure_discovered": self.infection["cure_discovered"],
-            "cure_moons": self.infection["cure_moons"],
             "spread_by": self.infection["spread_by"],
             "treatments": self.infection["treatments"],
             "infection_moons": self.infection["infection_moons"],
@@ -552,7 +551,8 @@ class Clan():
             "story_cat_2": self.infection["story_cat_2"],
             "story_cat_3": self.infection["story_cat_3"],
             "story_cat_4": self.infection["story_cat_4"],
-            "story_finished": self.infection["story_finished"]
+            "story_finished": self.infection["story_finished"],
+            "priority_herb": self.infection["priority_herb"]
         }
 
         # LEADER DATA

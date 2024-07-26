@@ -77,7 +77,7 @@
     ],
     "stageone fourright 4herb": [
         [
-            "r_m is able to wake m_c up for just long enough to convince {PRONOUN/m_c/object} to try out a mixture of.",
+            "r_m is able to wake m_c up for just long enough to convince {PRONOUN/m_c/object} to try out a mixture of herbs.",
             "When {PRONOUN/m_c/subject} {VERB/m_c/take/takes} it, m_c blinks, and r_m swears that, for a moment, {PRONOUN/r_m/subject} {VERB/m_c/see/sees} a spark briefly return to {PRONOUN/r_m/poss} patient's eyes."
         ]
     ],

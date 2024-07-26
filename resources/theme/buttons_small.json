@@ -5488,10 +5488,10 @@
                 "path": "resources/images/buttons/log_button_hover.png"
             },
             "selected_image": {
-                "path": "resources/images/buttons/log_button_hover.png"
+                "path": "resources/images/buttons/log_button_selected.png"
             },
             "disabled_image": {
-                "path": "resources/images/buttons/log_button.png"
+                "path": "resources/images/buttons/log_button_unavailable.png"
             }
         }
     },
@@ -5509,6 +5509,40 @@
             },
             "disabled_image": {
                 "path": "resources/images/buttons/attempt_cure_unavailable.png"
+            }
+        }
+    },
+    "#quarantine_button": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/buttons/quarantine_button.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/buttons/quarantine_button_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/buttons/quarantine_button_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/buttons/quarantine_button_unavailable.png"
+            }
+        }
+    },
+    "#unquarantine_button": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/buttons/unquarantine_button.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/buttons/unquarantine_button_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/buttons/unquarantine_button_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/buttons/unquarantine_button_unavailable.png"
             }
         }
     }

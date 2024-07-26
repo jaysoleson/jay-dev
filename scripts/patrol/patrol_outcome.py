@@ -1027,6 +1027,14 @@ class PatrolOutcome():
         
         # Determine which herbs get picked
         specfic_herbs = [x for x in self.herbs if x in HERBS]
+
+        # INFECTION: Prioritised herb gathering
+        priority_herb = game.clan.infection["priority_herb"]
+        weight = 4
+
+        if priority_herb is not None:
+            specfic_herbs.extend([priority_herb] * weight)
+
         if "random_herbs" in self.herbs:
             specfic_herbs += random.sample(HERBS, k=choices([1, 2, 3], [6, 5, 1], k=1)[0])
             

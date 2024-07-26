@@ -555,7 +555,6 @@ class Game():
                     "cure": [herb1, herb2, herb3, herb4],
                     "cure_attempt": False,
                     "cure_discovered": [],
-                    "cure_moons": random.randint(2,5),
                     "spread_by": random.choice(["air", "bite"]),
                     "treatments": [],
                     "infection_moons": 0,
@@ -566,7 +565,8 @@ class Game():
                     "story_cat_2": None,
                     "story_cat_3": None,
                     "story_cat_4": None,
-                    "story_finished": False
+                    "story_finished": False,
+                    "priority_herb": None
                 }
                 
                 with open(f"saves/{self.clan.name}/infection.json", 'w') as create_file:

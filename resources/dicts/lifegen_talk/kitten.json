@@ -6702,5 +6702,88 @@
             "Do you... even do anything? Except steal attention, eat, and sleep, that is.",
             "No response? ... Are you broken? t_p, I think {PRONOUN/y_c/subject}{VERB/y_c/'re/'s} broken."
         ]
+    ],
+    "infected_kit_floof_1": [
+        [
+            "you_not_kit",
+            "they_kitten",
+            "they_infected",
+            "they_stage_one",
+            "infection"
+        ],
+        [
+            "y_c?",
+            "Am I really going to turn into a monster?"
+        ]
+    ],
+    "infected_kit_floof_2": [
+        [
+            "you_infected",
+            "you_stage_one",
+            "they_kitten",
+            "they_not_infected",
+            "any",
+            "infection"
+        ],
+        [
+            "y_c?",
+            "Are you really going to turn into a big scary monster?"
+        ]
+    ],
+    "infection_sam_2": {
+        "tags": [
+            "they_kitten",
+            "from_your_kit",
+            "sweet",
+            "any",
+            "they_not_infected",
+            "you_infected",
+            "they_blind",
+            "you_blind",
+            "infection"
+        ],
+        "intro": [
+            "[t_c is standing in your den's entrance, whispering.]",
+            "Mc? Why did you move out of the nursery?",
+            "You're sick? Well that's okay with me! I don't mind getting sick.",
+            "[You pause for a moment, in awe of how selfless t_c is.]"
+
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Send t_c back to the nursery.",
+                "next_scene": "backtonursery"
+            },
+            "choice2": {
+                "text": "Explain the infection.",
+                "next_scene": "explain"
+            }
+        },
+        "backtonursery": [
+            "O- okay! I'll visit again later."
+        ],
+        "explain": [
+            "Oh.. so you could die? Not definitely, though, right? You might survive?",
+            "[You reassure your kit that there's definitely a chance you'll survive, and you tell {PRONOUN/t_c/object} to go back to playing with {PRONOUN/t_c/poss} friends.]",
+            "Okay! I'll visit you again soon! I love you!"
+
+        ]
+    },
+    "infection_sam_3": [
+        [
+            "they_kitten",
+            "they_infected",
+            "any",
+            "you_not_kit",
+            "they_blind",
+            "you_blind",
+            "infection"
+        ],
+        [
+            "Mew?",
+            "[Every single little mew from this kit seems to be a struggle, but {PRONOUN/t_c/subject} still {VERB/t_c/try/tries} so hard.]",
+            "[Your heart aches.]"
+
+        ]
     ]
 }

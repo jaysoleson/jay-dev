@@ -1489,7 +1489,7 @@ class TalkScreen(Screens):
             weight = 1
             if any(tag in weighted_tags for tag in tags):
                 weight += 3
-            if "focus" in tags or "connected" in tags:
+            if "focus" in tags or "connected" in tags or "infection" in tags:
                 weight += 8
             if "they_infected" in tags or "you_infected" in tags:
                 inftype = game.clan.infection["infection_type"]

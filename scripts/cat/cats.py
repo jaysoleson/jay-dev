@@ -2237,12 +2237,17 @@ class Cat():
         """
         wah wah wah
         """
-        cats1 = [i for i in Cat.all_cats_list if i.ID in self.relationships and i.infected_for > 0 and not i.dead and not i.outside]
+        if self.infected_for > 0:
+            return
+        if self.status in ["newborn", "kitten"]:
+            cats1 = [i for i in Cat.all_cats_list if i.status in ["kitten", "newborn"] and i.infected_for > 0 and not i.dead and not i.outside]
+        else:
+            cats1 = [i for i in Cat.all_cats_list if i.ID in self.relationships and i.infected_for > 0 and not i.dead and not i.outside]
         if cats1 != []:
             kitty1 = choice(cats1)
         else:
             kitty1 = self
-            # this assigned the infecter to be the same as the infectee. then infection_spread will just return nothing
+            # this assigns the infecter to be the same as the infectee. then infection_spread will just return nothing
 
         self.infection_spread(kitty1)
 
@@ -2262,6 +2267,10 @@ class Cat():
         if self.ID == game.clan.your_cat.ID:
             # no random infection for MC
             return
+        
+        if cat.quarantined:
+            return
+            # okaayy ill be nice
         
         infectious_illnesses = []
         if cat.is_ill():
@@ -2296,8 +2305,20 @@ class Cat():
                 chamce = chamce * 0.3 # lower rate for quarantined cats
             if game.clan.infection["spread_by"] == "air":
                 chamce = chamce * 1.5 # higher rate for airborne
+        
+            littermate_infection = False
+            # littermates of infected newborns
+            if cat.status in ["kitten", "newborn"] and self.status in ["newborn", "kitten"] and not cat.quarantined:
+                chamce = 3
+                littermate_infection = True
 
-            if not chamce:
+            if self.infected_for == -1:
+                if "no_reinfection" not in game.clan.infection["logs"]:
+                    event = f"{self.name} has been in contact with the infected {cat.name}, but isn't getting ill. It seems that cats who have been infected in the past are unable to become infected again!"
+                    game.cur_events_list.append(Single_Event(event, ["health", "infection"], [self.ID, cat.ID]))
+                    game.clan.infection["logs"].append("no_reinfection")
+
+            if not int(random() * chamce):
                 if game.clan.infection["spread_by"] == "bite":
                     text = f"{self.name} was bitten by {cat.name} and is now infected."
                     self.get_injured("cat bite")

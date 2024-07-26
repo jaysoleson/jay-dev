@@ -3256,7 +3256,9 @@
     "infection_J1": [
         [
             "any",
-            "infection"
+            "infection",
+            "they_blind",
+            "you_blind"
         ],
         [
             "This disease is scary..."
@@ -3266,7 +3268,11 @@
         [
             "any",
             "infection",
-            "they_infected"
+            "they_infected",
+            "infection",
+            "you_blind",
+            "they_blind",
+            "they_deaf"
         ],
         [
             "Uuuuuuugggghhhh......"
@@ -3283,7 +3289,8 @@
             "they_stage_two",
             "spread_by_bite",
             "they_blind",
-            "you_blind"
+            "you_blind",
+            "infection"
         ],
         [
             "y_c. y_c, please don't walk away from me.",
@@ -3295,7 +3302,10 @@
             "they_infected",
             "any",
             "they_stage_two",
-            "spread_by_bite"
+            "spread_by_bite",
+            "infection",
+            "they_deaf",
+            "you_deaf"
         ],
         [
             "[You notice t_c's jaw tense when you walk by {PRONOUN/t_c/object}.]",
@@ -3308,7 +3318,8 @@
             "any",
             "they_stage_three",
             "they_stage_four",
-            "spread_by_bite"
+            "spread_by_bite",
+            "infection"
         ],
         [
             "[t_c looks at you like you're a piece of prey.]"
@@ -3318,99 +3329,12 @@
         [
             "they_infected",
             "any",
-            "they_stage_four"
+            "they_stage_four",
+            "infection"
         ],
         [
             "[t_c barely looks like a cat...]",
             "[You feel awful, but you force yourself not to sympathise. t_c is so sick, {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} barely your Clanmate anymore.]"
-        ]
-    ],
-    "infection_J7": [
-        [
-            "they_infected",
-            "any",
-            "they_stage_four",
-            "spread_by_bite"
-        ],
-        [
-            "Come here, y_c.",
-            "[You don't see your Clanmate behind those cloudy eyes anymore.]"
-        ]
-    ],
-    "infection_J8": [
-        [
-            "they_infected",
-            "any",
-            "they_stage_four"
-        ],
-        [
-            "[You don't see your Clanmate behind those cloudy eyes anymore.]"
-        ]
-    ],
-    "infection_J9": [
-        [
-            "they_infected",
-            "any",
-            "they_stage_one",
-            "spread_by_air",
-            "spread_by_bite",
-            "assertive",
-            "upstanding",
-            "brooding",
-            "cool"
-        ],
-        [
-            "I don't know why everyone's panicking. I feel totally fine.",
-            "Maybe my body is just stronger than everyone else's."
-        ]
-    ],
-    "infection_J10": [
-        [
-            "they_infected",
-            "any",
-            "they_stage_one",
-            "brooding",
-            "cool",
-            "stable"
-        ],
-        [
-            "[r_m checks over t_c's body at a distance.]",
-            "You don't have to be so scared. I think it's just whitecough, or something."
-        ]
-    ],
-    "infection_J11": [
-        [
-            "they_infected",
-            "any",
-            "they_stage_two",
-            "brooding",
-            "cool",
-            "stable"
-        ],
-        [
-            "Ugh. I feel worse every day...",
-            "I'm-- I'm not going crazy, or anything, though. I think it's just greencough..."
-        ]
-    ],
-    "infection_J12": [
-        [
-            "they_infected",
-            "any",
-            "they_stage_two"
-        ],
-        [
-            "Go... go away, y_c...",
-            "[t_c is struggling to speak.]"
-        ]
-    ],
-    "infection_J14": [
-        [
-            "they_infected",
-            "they_stage_two",
-            "any"
-        ],
-        [
-            "Why would StarClan do this to me..?"
         ]
     ],
     "story_key_story_1_step_2": [
@@ -3510,7 +3434,9 @@
             "post_story_1_step_3",
             "pre_story_1_step_4",
             "you_sc_4",
-            "they_sc_2"
+            "they_sc_2",
+            "they_blind",
+            "you_blind"
         ],
         "intro": [
             "*Sigh*",
@@ -3559,6 +3485,21 @@
         [
             "What is it you Clan cats say about dead cats, again? That each one is a star?",
             "So, sc_3 must be one of them, right? I've been staring at them this whole time without even knowing."
+        ]
+    ],
+    "infected_shunned_J1": [
+        [
+            "they_infected",
+            "they_shunned",
+            "any",
+            "you_deaf",
+            "they_deaf",
+            "they_blind",
+            "infection"
+        ],
+        [
+            "[t_c looks so sad and tired.]",
+            "{PRONOUN/t_c/poss} condition just keeps getting worse, in every way..."
         ]
     ]
 }

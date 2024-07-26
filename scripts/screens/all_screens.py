@@ -39,6 +39,7 @@ from .WarriorDenScreen import WarriorDenScreen
 from .GiftScreen import GiftScreen
 from .CureLogScreen import CureLogScreen
 from .TreatmentScreen import TreatmentScreen
+from .PriorityHerbScreen import PriorityHerbScreen
 
 # ---------------------------------------------------------------------------- #
 #                                  UI RULES                                    #
@@ -67,6 +68,7 @@ screens = Screens()
 # ---------------------------------------------------------------------------- #
 cure_log_screen = CureLogScreen('cure log screen')
 treatment_screen = TreatmentScreen('treatment screen')
+priority_herb_screen = PriorityHerbScreen('priority herb screen')
 
 profile_screen = ProfileScreen('profile screen')
 ceremony_screen = CeremonyScreen('ceremony screen')

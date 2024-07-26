@@ -683,71 +683,73 @@ class TreatmentScreen(Screens):
         cure_one = False
         if len(correctherbs) == 1:
             cure_one = True
+
         cure_two = False
         if len(correctherbs) == 2:
             cure_two = True
+
         cure_three = False
         if len(correctherbs) == 3:
             cure_three = True
+
         cure = False
         if len(correctherbs) == 4:
             cure = True
 
-        if cure or cure_one or cure_two or cure_three:
-            if not cure and f"{inftype} stage one" not in patient.illnesses:
-                remission_chance = 20
-                if not patient.is_injured():
-                    remission_chance -= 8
-                sick = False
-                for illness in patient.illnesses:
-                    if illness not in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]:
-                        sick = True
-                if not sick:
-                    remission_chance -= 8
+        if cure_one or cure_two or cure_three:
+            remission_chance = 20
+            if not patient.is_injured():
+                remission_chance -= 8
+            sick = False
+            for illness in patient.illnesses:
+                if illness not in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]:
+                    sick = True
+            if not sick:
+                remission_chance -= 8
 
-                if cure_one:
-                    remission_chance -= remission_chance / 4
-                elif cure_two:
-                    remission_chance -= remission_chance / 3
-                elif cure_three:
-                    remission_chance -= remission_chance / 2
-                
-                medcats = [i for i in Cat.all_cats.values() if
-                  (i.status == 'medicine cat' or i.status == 'medicine cat apprentice') and not i.dead and not i.outside and not i.not_working() and i.infected_for == 0]
-                
-                if len(medcats) < 2:
-                    remission_chance += len(medcats) / 5
-                elif len(medcats) < 4:
-                    remission_chance += len(medcats) / 3
-                else:
-                    remission_chance += len(medcats) / 2
+            if cure_one:
+                remission_chance -= remission_chance / 4
+            elif cure_two:
+                remission_chance -= remission_chance / 3
+            elif cure_three:
+                remission_chance -= remission_chance / 2
+            
+            medcats = [i for i in Cat.all_cats.values() if
+                (i.status == 'medicine cat' or i.status == 'medicine cat apprentice') and not i.dead and not i.outside and not i.not_working() and i.infected_for == 0]
+            
+            if len(medcats) < 2:
+                remission_chance += len(medcats) / 5
+            elif len(medcats) < 4:
+                remission_chance += len(medcats) / 3
+            else:
+                remission_chance += len(medcats) / 2
 
-                if remission_chance <= 1:
-                    remission_chance = 1
+            if remission_chance <= 1:
+                remission_chance = 1
 
-                print("REMISSION CHANCE:", remission_chance)
+            print("REMISSION CHANCE:", remission_chance)
 
-                # if int(random.random() * remission_chance):
-                # ^ debug
-                if not int(random.random() * remission_chance):
-                    patient.cure_progress += 1
-                    print("REMISSION CHANCE HIT")
+            # if int(random.random() * remission_chance):
+            # ^ debug
+            if not int(random.random() * remission_chance):
+                patient.cure_progress += 1
+                print("REMISSION CHANCE HIT")
 
-            if cure:
-                patient.infected_for = 0
-                if "cure_found" not in game.clan.infection["logs"]:
-                    game.clan.infection["logs"].append("cure_found")
-                for herb in correctherbs:
-                    if herb not in game.clan.infection["cure_discovered"]:
-                        game.clan.infection["cure_discovered"].append(herb)
+        if cure:
+            patient.cure_progress += 1
+            print("this fucking working")
+            for herb in correctherbs:
+                if herb not in game.clan.infection["cure_discovered"]:
+                    game.clan.infection["cure_discovered"].append(herb)
 
-        treatment = {
-            "moon": game.clan.age,
-            "herbs": [herb for herb in herblist if herb != None],
-            "correct_herbs": len(correctherbs)
-        }
+        if len(game.clan.infection["cure_discovered"]) < 4:
+            treatment = {
+                "moon": game.clan.age,
+                "herbs": [herb for herb in herblist if herb is not None],
+                "correct_herbs": len(correctherbs)
+            }
 
-        game.clan.infection["treatments"].append(treatment)
+            game.clan.infection["treatments"].append(treatment)
         
         herbs = game.clan.herbs.copy()
         for herb in herbs:

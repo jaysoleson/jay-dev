@@ -1,5 +1,6 @@
 from random import choice, randint
 import random
+import math
 
 from scripts.cat.history import History
 from scripts.utility import (
@@ -223,14 +224,22 @@ class Pregnancy_Events():
                 "moons": 0,
                 "amount": 0
             }
+            infectionevent = False
+            if cat.infected_for > 0:
+                text = choice(Pregnancy_Events.PREGNANT_STRINGS["infected_announcement"])
+                infectionevent = True
+            else:
+                text = choice(Pregnancy_Events.PREGNANT_STRINGS["announcement"])
 
-            text = choice(Pregnancy_Events.PREGNANT_STRINGS["announcement"])
             if clan.game_mode != 'classic':
                 severity = random.choices(["minor", "major"], [3, 1], k=1)
                 cat.get_injured("pregnant", severity=severity[0])
                 text += choice(Pregnancy_Events.PREGNANT_STRINGS[f"{severity[0]}_severity"])
             text = event_text_adjust(Cat, text, cat, clan=clan)
-            game.cur_events_list.append(Single_Event(text, "birth_death", cat.ID))
+            if infectionevent:
+                game.cur_events_list.append(Single_Event(text, ["birth_death", "infection"], cat.ID))
+            else:
+                game.cur_events_list.append(Single_Event(text, "birth_death", cat.ID))
         else:
             if not other_cat and cat.gender == 'male':
                 amount = Pregnancy_Events.get_amount_of_kits(cat)
@@ -259,14 +268,22 @@ class Pregnancy_Events():
                 "moons": 0,
                 "amount": 0
             }
+            infectionevent = False
+            if cat.infected_for > 0:
+                text = choice(Pregnancy_Events.PREGNANT_STRINGS["infected_announcement"])
+                infectionevent = True
+            else:
+                text = choice(Pregnancy_Events.PREGNANT_STRINGS["announcement"])
 
-            text = choice(Pregnancy_Events.PREGNANT_STRINGS["announcement"])
             if clan.game_mode != 'classic':
                 severity = random.choices(["minor", "major"], [3, 1], k=1)
                 pregnant_cat.get_injured("pregnant", severity=severity[0])
                 text += choice(Pregnancy_Events.PREGNANT_STRINGS[f"{severity[0]}_severity"])
             text = event_text_adjust(Cat, text, pregnant_cat, clan=clan)
-            game.cur_events_list.append(Single_Event(text, "birth_death", pregnant_cat.ID))
+            if infectionevent:
+                game.cur_events_list.append(Single_Event(text, ["birth_death", "infection"], pregnant_cat.ID))
+            else:
+                game.cur_events_list.append(Single_Event(text, "birth_death", pregnant_cat.ID))
 
     @staticmethod
     def handle_one_moon_pregnant(cat: Cat, clan=game.clan):
@@ -340,6 +357,7 @@ class Pregnancy_Events():
         kits_amount = len(kits)
         Pregnancy_Events.set_biggest_family()
 
+
         # delete the cat out of the pregnancy dictionary
         del clan.pregnancy_data[cat.ID]
 
@@ -394,6 +412,14 @@ class Pregnancy_Events():
             event_list.append(choice(events["birth"]["affair"]))
         else:
             event_list.append(choice(events["birth"]["unmated_parent"]))
+
+        infectedkit = False
+        for kit in kits:
+            if kit.infected_for > 0:
+                event_list = []
+                event_list.append(choice(events["birth"]["infected_kits"]))
+                infectedkit = True
+                break
 
         if clan.game_mode != 'classic':
             try:
@@ -456,7 +482,10 @@ class Pregnancy_Events():
         print_event = event_text_adjust(Cat, print_event, cat, other_cat, clan=clan)
         # display event
         if kits_amount != 0:
-            game.cur_events_list.append(Single_Event(print_event, ["health", "birth_death"], involved_cats))
+            if infectedkit:
+                game.cur_events_list.append(Single_Event(print_event, ["health", "birth_death", "infection"], involved_cats))
+            else:
+                game.cur_events_list.append(Single_Event(print_event, ["health", "birth_death"], involved_cats))
             for clan_cat in game.clan.clan_cats:
                 clan_cat_cat = Cat.fetch_cat(clan_cat)
                 if clan_cat_cat:
@@ -742,6 +771,44 @@ class Pregnancy_Events():
                     elif kit.permanent_condition[condition] == 'born without a tail':
                         kit.pelt.scars.append('NOTAIL')
                 Condition_Events.handle_already_disabled(kit)
+
+            # INFECTION: the chance to be born infected with an infected parent
+            if (cat and cat.infected_for > 0) or (other_cat and other_cat.infected_for > 0):
+                print(cat.name, ", parent, infected for", cat.infected_for)
+                chance = game.config["kit_gain_infection_chance"]
+                inftype = game.clan.infection["infection_type"]
+
+                if cat.infected_for > 0 and other_cat.infected_for > 0:
+                    chance *= 0.75
+                elif (cat.infected_for > 0 and not other_cat.infected_for > 0) or (not cat.infected_for > 0 and other_cat.infected_for > 0):
+                    chance *= 1.5
+                
+                infected_parents = []
+                if cat.infected_for > 0:
+                    infected_parents.append(cat)
+                if other_cat.infected_for > 0:
+                    infected_parents.append(other_cat)
+
+                for parent in infected_parents:
+                    if f"{inftype} stage one" in parent.illnesses:
+                        chance *= 1.5
+                    elif f"{inftype} stage two" in parent.illnesses:
+                        chance *= 1.2
+                    elif f"{inftype} stage three" in parent.illnesses:
+                        chance *= 0.8
+                    elif f"{inftype} stage four" in parent.illnesses:
+                        chance *= 0.5
+                    
+                chance = math.ceil(chance)
+                print("KIT INFECTION CHANCE:", chance)
+
+                chance = 2
+                # debug
+
+                if game.clan and not int(random.random() * int(chance)):
+                    kit.get_ill(f"{inftype} stage one")
+                    kit.infected_for += 1
+                    print(kit.name, "inherited the infection")
 
             # create and update relationships
             for cat_id in clan.clan_cats:

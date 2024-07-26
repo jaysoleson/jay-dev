@@ -2811,35 +2811,31 @@ class ProfileScreen(Screens):
             )
             if self.the_cat.ID != game.clan.your_cat.ID:
                 self.quarantine_button = UIImageButton(
-                    scale(pygame.Rect((1156, 1050), (344, 72))),
-                    "quarantine",
-                    object_id="",
-                    tool_tip_text='quarantine this cat.',
+                    scale(pygame.Rect((1156, 1044), (344, 72))),
+                    "",
+                    object_id="#quarantine_button",
                     starting_height=2, manager=MANAGER
                 )
             else:
                 self.quarantine_button = UIImageButton(
                 scale(pygame.Rect((830, 972), (344, 72))),
-                "quarantine",
-                object_id="",
-                tool_tip_text='quarantine this cat.',
+                "",
+                object_id="#quarantine_button",
                 starting_height=2, manager=MANAGER
                 )
 
             if self.the_cat.ID != game.clan.your_cat.ID:
                 self.remove_quarantine_button = UIImageButton(
-                    scale(pygame.Rect((1156, 1050), (344, 72))),
-                    "remove from quarantine",
-                    object_id="",
-                    tool_tip_text='quarantine this cat.',
+                    scale(pygame.Rect((1156, 1044), (344, 72))),
+                    "",
+                    object_id="#unquarantine_button",
                     starting_height=2, manager=MANAGER
                 )
             else:
                 self.remove_quarantine_button = UIImageButton(
                 scale(pygame.Rect((830, 972), (344, 72))),
-                "remove from quarantine",
-                object_id="",
-                tool_tip_text='quarantine this cat.',
+                "",
+                object_id="#unquarantine_button",
                 starting_height=2, manager=MANAGER
                 )
 
@@ -3011,35 +3007,31 @@ class ProfileScreen(Screens):
 
             if self.the_cat.ID != game.clan.your_cat.ID:
                 self.quarantine_button = UIImageButton(
-                    scale(pygame.Rect((1156, 1050), (344, 72))),
-                    "quarantine",
-                    object_id="",
-                    tool_tip_text='quarantine this cat.',
+                    scale(pygame.Rect((1156, 1044), (344, 72))),
+                    "",
+                    object_id="#quarantine_button",
                     starting_height=2, manager=MANAGER
                 )
             else:
                 self.quarantine_button = UIImageButton(
                 scale(pygame.Rect((830, 972), (344, 72))),
-                "quarantine",
-                object_id="",
-                tool_tip_text='quarantine this cat.',
+                "",
+                object_id="#quarantine_button",
                 starting_height=2, manager=MANAGER
                 )
 
             if self.the_cat.ID != game.clan.your_cat.ID:
                 self.remove_quarantine_button = UIImageButton(
-                    scale(pygame.Rect((1156, 1050), (344, 72))),
-                    "remove from quarantine",
-                    object_id="",
-                    tool_tip_text='quarantine this cat.',
+                    scale(pygame.Rect((1156, 1044), (344, 72))),
+                    "",
+                    object_id="#unquarantine_button",
                     starting_height=2, manager=MANAGER
                 )
             else:
                 self.remove_quarantine_button = UIImageButton(
                 scale(pygame.Rect((830, 972), (344, 72))),
-                "remove from quarantine",
-                object_id="",
-                tool_tip_text='quarantine this cat.',
+                "",
+                object_id="#unquarantine_button",
                 starting_height=2, manager=MANAGER
                 )
 

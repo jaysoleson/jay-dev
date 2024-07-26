@@ -2266,5 +2266,21 @@
         [
             "[t_c is stomping {PRONOUN/t_c/poss} little paws on the ground, figuring out how to use them.]"
         ]
+    ],
+    "nb_infection_sam_3": [
+        [
+            "they_newborn",
+            "they_infected",
+            "any",
+            "you_not_kit",
+            "they_blind",
+            "you_blind",
+            "infection"
+        ],
+        [
+            "Mew?",
+            "[Every single little mew from this kit seems to be a struggle, but {PRONOUN/t_c/subject} still {VERB/t_c/try/tries} so hard.]",
+            "[Your heart aches.]"
+        ]
     ]
 }

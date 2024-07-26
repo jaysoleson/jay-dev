@@ -31,12 +31,6 @@ class NewCatEvents:
             other_clan = random.choice(game.clan.all_clans)
         other_clan_name = f'{other_clan.name}Clan'
 
-        print("STORY IN FUNCTION:", story)
-        if story_cat is not None:
-            print("STORYCAT IN FUNCTION:", story_cat.name)
-        else:
-            print("STORYCAT IN FUNCTION:", story_cat)
-
         if other_clan_name == 'None':
             other_clan = game.clan.all_clans[0]
             other_clan_name = f'{other_clan.name}Clan'
@@ -125,7 +119,6 @@ class NewCatEvents:
         final_events = GenerateEvents.filter_possible_short_events(possible_events, cat, other_cat, war,
                                                                         enemy_clan,
                                                                         other_clan, alive_kits)
-        print("why am i here")
 
         if not final_events:
             print('ERROR: no new cat moon events available')

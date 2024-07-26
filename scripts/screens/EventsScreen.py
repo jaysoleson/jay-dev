@@ -63,6 +63,7 @@ class EventsScreen(Screens):
         self.you = None
 
         self.log_button = None
+        self.priority_herb_button = None
 
         self.faves1 = False
         self.faves2 = False
@@ -122,8 +123,11 @@ class EventsScreen(Screens):
 
                 if len(game.clan.infection["logs"]) > 0:
                     self.log_button.enable()
+                    self.priority_herb_button.show()
                 else:
                     self.log_button.disable()
+                    self.priority_herb_button.hide()
+                    
             
             elif game.clan.game_mode != "classic" and event.ui_element == self.freshkill_pile_button:
                 self.change_screen('clearing screen')
@@ -362,6 +366,8 @@ class EventsScreen(Screens):
                 self.change_screen('profile screen')
             elif event.ui_element == self.log_button:
                 self.change_screen('cure log screen')
+            elif event.ui_element == self.priority_herb_button:
+                self.change_screen('priority herb screen')
             else:
                 self.menu_button_pressed(event)
             
@@ -501,7 +507,10 @@ class EventsScreen(Screens):
         elif game.clan.your_cat.moons == 1:
             self.clan_age.set_text(f'Your age: {game.clan.your_cat.moons} moon')
 
-        self.log_button = UIImageButton(scale(pygame.Rect((270, 280), (158, 124))), "", object_id="#log_button"
+        self.log_button = UIImageButton(scale(pygame.Rect((320, 250), (164, 148))), "", object_id="#log_button"
+                                             , manager=MANAGER)
+        
+        self.priority_herb_button = UIImageButton(scale(pygame.Rect((150, 250), (164, 148))), "Priority Herb", object_id=""
                                              , manager=MANAGER)
 
         self.timeskip_button = UIImageButton(scale(pygame.Rect((620, 436), (360, 60))), "", object_id="#timeskip_button"
@@ -512,8 +521,10 @@ class EventsScreen(Screens):
         self.death_button.hide()
         if len(game.clan.infection["logs"]) > 0:
             self.log_button.enable()
+            self.priority_herb_button.show()
         else:
             self.log_button.disable()
+            self.priority_herb_button.hide()
 
         if game.switches['continue_after_death']:
             self.death_button.show()
@@ -773,6 +784,8 @@ class EventsScreen(Screens):
         del self.timeskip_button
         self.log_button.kill()
         del self.log_button
+        self.priority_herb_button.kill()
+        del self.priority_herb_button
         if self.death_button:
             self.death_button.kill()
         self.all_events_button.kill()
@@ -1043,7 +1056,7 @@ class EventsScreen(Screens):
                             self.display_events_elements["shading" + str(i)] = pygame_gui.elements.UIImage(
                             pygame.Rect((0, y),(box_length + 100,
                             self.display_events_elements["event" + str(i)].get_relative_rect()[3] + padding)),
-                            image_cache.load_image("resources/images/shading_infected_dark.png"), container=self.event_container
+                            image_cache.load_image("resources/images/shading_infected_dark_2.png"), container=self.event_container
                             , manager=MANAGER)
                         else:
                             self.display_events_elements["shading" + str(i)] = pygame_gui.elements.UIImage(
@@ -1052,11 +1065,10 @@ class EventsScreen(Screens):
                                 manager=MANAGER)
                     else:
                         if "infection" in ev.types: 
-                            # this sucks idk how to get the risk event in the infection type
                             self.display_events_elements["shading" + str(i)] = pygame_gui.elements.UIImage(
                             pygame.Rect((0, y),(box_length + 100,
                             self.display_events_elements["event" + str(i)].get_relative_rect()[3] + padding)),
-                            image_cache.load_image("resources/images/shading_infected_light.png"), container=self.event_container
+                            image_cache.load_image("resources/images/shading_infected_light_2.png"), container=self.event_container
                             , manager=MANAGER)
                         else:
                             self.display_events_elements["shading" + str(i)] = pygame_gui.elements.UIImage(

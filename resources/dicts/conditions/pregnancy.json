@@ -2,6 +2,10 @@
   "announcement": [
     "m_c announced that {PRONOUN/m_c/subject} {VERB/m_c/are/is} expecting kits."
   ],
+  "infected_announcement": [
+    "To a shocked yet hesitantly supportive response, m_c has announced that {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} expecting kits. No one dares ask {PRONOUN/m_c/object} what {PRONOUN/m_c/subject}'ll do if {PRONOUN/m_c/subject} {VERB/m_c/pass/passes} {PRONOUN/m_c/poss} infection to the kits.",
+    "When m_c announces {PRONOUN/m_c/poss} pregnancy, the Clan has very mixed reactions. Some cats are asking 'what if the kits are born infected?' Others are saying that it's good that {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} expanding the Clan before {PRONOUN/m_c/subject} inevitably {VERB/m_c/die/dies}. But one thing's for sure: m_c will love {PRONOUN/m_c/poss} kits no matter what."
+  ],
   "litter_guess": [
     "m_c hopes the litter will be small - {PRONOUN/m_c/subject} {VERB/m_c/feel/feels} overwhelmed at the idea of a big litter.",
     "m_c is hoping for a big litter!",
@@ -144,6 +148,11 @@
     "lead_death": [
       "m_c lost one of {PRONOUN/m_c/poss} nine lives, but gave birth to a {insert}.",
       "Although m_c gave birth to a {insert}, it came at the cost of one of {PRONOUN/m_c/poss} nine lives."
+    ],
+    "infected_kits": [
+      "m_c is overjoyed after giving birth, but upon further inspection of the {insert}, {PRONOUN/m_c/subject} {VERB/m_c/make/makes} a chilling discovery. The infection has been passed down from parent to kit.",
+      "m_c is relieved to have finally given birth, but even more anxiety lies ahead. The infection is inheritable, and it's been passed down to {PRONOUN/m_c/poss} {insert}.",
+      "To m_c's horror, {PRONOUN/m_c/poss} {insert} hasn't been born free from the infection."
     ]
   }
 }

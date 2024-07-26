@@ -2144,5 +2144,22 @@
             "[But now, you've been here long enough for it to go away.]",
             "Gone? Good. That's good to hear."
         ]
+    ],
+    "infection_sam_1": [
+        [
+            "they_medicine_cat",
+            "they_not_infected",
+            "you_not_infected",
+            "neurotic",
+            "stable",
+            "infection"
+        ],
+        [
+            "[t_c sighs, searching through the herb stores half-heartedly. {PRONOUN/t_c/subject} {VERB/t_c/don't/doesn't} seem to notice when you walk in.]",
+            "Oh! y_c! You aren't infected right?",
+            "[t_c starts pacing, muttering about StarClan knows what.]",
+            "[You quickly assure t_c that you aren't infected, and just came into the medicine den because of a small cut.]",
+            "Oh! Thank StarClan. I'll get to taking care of that for you then."
+        ]
     ]
 }
