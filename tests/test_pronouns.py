@@ -127,7 +127,10 @@ def test():
         "sc_1": _r,
         "sc_2": _r,
         "sc_3": _r,
-        "sc_4": _r
+        "sc_4": _r,
+        "inf_c": _r,
+        "plove_inf_c": _r,
+        "dislike_inf_c": _r
     }
     
     cluster_addons = [
