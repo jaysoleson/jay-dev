@@ -509,20 +509,39 @@ class TalkScreen(Screens):
                 continue
 
             nope = False 
-           
+            cat_stage = None
+            you_stage = None
+            for stage in stages:
+                if stage in cat.illnesses:
+                    cat_stage = stage
+                if stage in you.illnesses:
+                    you_stage = stage
+                    
             for stage in stages:
                 stage_tag = stage.replace(' ', '_').replace(f"{inftype}_", "")
+                if cat_stage:
+                    cat_stage = cat_stage.replace(' ', '_').replace(f"{inftype}_", "")
+                if you_stage:
+                    you_stage = you_stage.replace(' ', '_').replace(f"{inftype}_", "")
 
                 if f"they_{stage_tag}" in tags:
-                    if stage not in cat.illnesses:
+                    if stage not in cat.illnesses and (cat_stage is not None and f"they_{cat_stage}" not in tags):
+                        # this is so i can multitag stages in dialogue :3
                         nope = True
                         break
                 elif f"you_{stage_tag}" in tags:
-                    if stage not in you.illnesses:
+                    if stage not in you.illnesses and (you_stage is not None and f"you_{you_stage}" not in tags):
                         nope = True
                         break
 
             if nope:
+                continue
+
+            if "void" in tags and game.clan.infection["infection_type"] != "void":
+                continue
+            if "parasitic" in tags and game.clan.infection["infection_type"] != "parasitic":
+                continue
+            if "fungal" in tags and game.clan.infection["infection_type"] != "fungal":
                 continue
 
             logs = game.clan.infection["logs"]
@@ -535,6 +554,12 @@ class TalkScreen(Screens):
                 continue
 
             if "discovered" in tags and "discovered" not in logs:
+                continue
+
+            if "cure_found" in tags and "cure_found" not in logs:
+                continue
+
+            if "cure_not_found" in tags and "cure_found" in logs:
                 continue
 
             # INFECTION STORY TAGS
@@ -2658,7 +2683,7 @@ class TalkScreen(Screens):
                     elif rel and not cluster:
                         text = re.sub(fr'(?<!\/){r}_y_s(?!\/)', str(self.cat_dict[f"{r}_y_s"].name), text)
                     else:
-                        text = re.sub(r'(?<!\/)y_s(?!\/)', str(self.cat_dict["t_s"].name), text)
+                        text = re.sub(r'(?<!\/)y_s(?!\/)', str(self.cat_dict[y].name), text)
                 else:
                     if len(you.inheritance.get_siblings()) == 0:
                         return ""

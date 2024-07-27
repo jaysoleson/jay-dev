@@ -258,7 +258,7 @@
 		"best_stat_modifier": 10,
 		"fail_stat_cat_modifier": -15,
 		"chance_of_romance_patrol": 16,
-		"debug_ensure_patrol_id": "warrior_story_1_step_1",
+		"debug_ensure_patrol_id": "",
 		"comment": [
 			"the Cruel Season difficulty modifier needs to have a space rather than an underscore,",
 			"due to how it's written in the save files. So don't try to 'fix' it."
@@ -450,10 +450,10 @@
 		"kit_gain_infection_chance is the base chance for kits with infected blood parents to be born infected."
 	],
 
-	"debug_ensure_story_dialogue": true,
+	"debug_ensure_story_dialogue": false,
 	"INFECTION_comment_2": "All story-related dialogue will be given as soon as it's available. Remember that not all story beats are dialogue, though.",
 
-	"debug_ensure_dialogue": "",
+	"debug_ensure_dialogue": "infection_J15",
 
 	"shunned_cat": {
 		"exile_chance": {

@@ -2746,7 +2746,6 @@ class Events:
             cat.cure_progress += 1
             print(cat.name, cat.cure_progress)
             if cat.cure_progress == game.config["cure_moons"]:
-                print("curing", cat.name)
                 for stage in stages:
                     if stage in cat.illnesses:
                         old_stage = stage

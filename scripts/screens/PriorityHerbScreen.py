@@ -49,7 +49,6 @@ class PriorityHerbScreen(Screens):
                         self.priorityherb = None
                     else:
                         self.priorityherb = herb
-                    print(self.priorityherb)
                     self.update_herb_buttons()
                     self.update_text()
 
@@ -58,12 +57,23 @@ class PriorityHerbScreen(Screens):
             self.herb_displays[ele].kill()
         self.herb_displays = {}
 
-        self.herb_displays["desc"] = pygame_gui.elements.UITextBox("<u>Priority Herb:</u>",
-                                                        scale(pygame.Rect((300, 880), (1000, 80))),
+        self.herb_displays["title"] = pygame_gui.elements.UITextBox("<u>Priority Herb</u>",
+                                                        scale(pygame.Rect((300, 80), (1000, 80))),
                                                         object_id=get_text_box_theme("#text_box_34_horizcenter"),
                                                         manager=MANAGER)
+        
+        self.herb_displays["subtitle"] = pygame_gui.elements.UITextBox(f"{game.clan.name}Clan will focus their efforts into finding more:",
+                                                        scale(pygame.Rect((300, 880), (1000, 80))),
+                                                        object_id=get_text_box_theme("#text_box_30_horizcenter"),
+                                                        manager=MANAGER)
 
-        self.herb_displays["herbs"] = pygame_gui.elements.UITextBox(f"<i>{self.priorityherb}</i>",
+        if game.settings["dark mode"]:
+            self.herb_displays["herbs"] = pygame_gui.elements.UITextBox(f"<font color='#A2D86C'>{self.priorityherb.replace('_', ' ')}</font>",
+                                                    scale(pygame.Rect((300, 950), (1000, 80))),
+                                                    object_id=get_text_box_theme("#text_box_34_horizcenter"),
+                                                    manager=MANAGER)
+        else:
+            self.herb_displays["herbs"] = pygame_gui.elements.UITextBox(f"<font color='#136D05'>{self.priorityherb.replace('_', ' ')}</font>",
                                                     scale(pygame.Rect((300, 950), (1000, 80))),
                                                     object_id=get_text_box_theme("#text_box_34_horizcenter"),
                                                     manager=MANAGER)

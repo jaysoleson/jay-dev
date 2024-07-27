@@ -210,11 +210,25 @@ class Pregnancy_Events():
                     insert = 'a single kitten'
                 if amount > 1:
                     insert = f'a litter of {amount} kits'
-                print_event = f"{cat.name} brought {insert} back to camp, but refused to talk about their origin."
+
+                infected = False
+                for kit in kits:
+                    if f"{game.clan.infection['infection_type']} stage one" in kit.illnesses:
+                        infected = True
+                        break
+                
+                if infected:
+                    print_event = f"{cat.name} brought {insert} back to camp, but refused to talk about their origin. Even worse, the {insert} seems to have inherited the infection from {cat.name}."
+                else:
+                    print_event = f"{cat.name} brought {insert} back to camp, but refused to talk about their origin."
                 cats_involved = [cat.ID]
                 for kit in kits:
                     cats_involved.append(kit.ID)
-                game.cur_events_list.append(Single_Event(print_event, "birth_death", cats_involved))
+
+                if infected:
+                    game.cur_events_list.append(Single_Event(print_event, ["birth_death", "infection"], cats_involved))
+                else:
+                    game.cur_events_list.append(Single_Event(print_event, "birth_death", cats_involved))
                 return
             
             # same sex birth enables all cats to get pregnant,
@@ -249,11 +263,23 @@ class Pregnancy_Events():
                     insert = 'a single kitten'
                 if amount > 1:
                     insert = f'a litter of {amount} kits'
-                print_event = f"{cat.name} brought {insert} back to camp, but refused to talk about their origin."
+
+                for kit in kits:
+                    if f"{game.clan.infection['infection_type']} stage one" in kit.illnesses:
+                        infected = True
+                        break
+                
+                if infected:
+                    print_event = f"{cat.name} brought {insert} back to camp, but refused to talk about their origin. Even worse, the {insert} seems to have inherited the infection from {cat.name}."
+                else:
+                    print_event = f"{cat.name} brought {insert} back to camp, but refused to talk about their origin."
                 cats_involved = [cat.ID]
                 for kit in kits:
                     cats_involved.append(kit.ID)
-                game.cur_events_list.append(Single_Event(print_event, "birth_death", cats_involved))
+                if infected:
+                    game.cur_events_list.append(Single_Event(print_event, ["birth_death", "infection"], cats_involved))
+                else:
+                    game.cur_events_list.append(Single_Event(print_event, "birth_death", cats_involved))
                 return
 
             # if the other cat is a female and the current cat is a male, make the female cat pregnant
@@ -670,6 +696,39 @@ class Pregnancy_Events():
 
         return None
 
+    def kit_infection(self, cat, other_cat, kit):
+        """ Determines the chances of kits gaining the infection from infected parents """
+        if (cat and cat.infected_for > 0) or (other_cat and other_cat.infected_for > 0):
+            chance = game.config["kit_gain_infection_chance"]
+            inftype = game.clan.infection["infection_type"]
+
+            if (cat and cat.infected_for > 0) and (other_cat and other_cat.infected_for > 0):
+                chance *= 0.75
+            elif ((cat and cat.infected_for > 0) and not (other_cat and other_cat.infected_for > 0)) or (not (cat and cat.infected_for > 0) and (other_cat and other_cat.infected_for > 0)):
+                chance *= 1.5
+            
+            infected_parents = []
+            if cat and cat.infected_for > 0:
+                infected_parents.append(cat)
+            if other_cat and other_cat.infected_for > 0:
+                infected_parents.append(other_cat)
+
+            for parent in infected_parents:
+                if f"{inftype} stage one" in parent.illnesses:
+                    chance *= 1.5
+                elif f"{inftype} stage two" in parent.illnesses:
+                    chance *= 1.2
+                elif f"{inftype} stage three" in parent.illnesses:
+                    chance *= 0.8
+                elif f"{inftype} stage four" in parent.illnesses:
+                    chance *= 0.5
+                
+            chance = math.ceil(chance)
+
+            if game.clan and not int(random.random() * int(chance)):
+                kit.get_ill(f"{inftype} stage one")
+                kit.infected_for = 1
+
     @staticmethod
     def get_kits(kits_amount, cat=None, other_cat=None, clan=game.clan, adoptive_parents=None):
         """Create some amount of kits
@@ -773,42 +832,7 @@ class Pregnancy_Events():
                 Condition_Events.handle_already_disabled(kit)
 
             # INFECTION: the chance to be born infected with an infected parent
-            if (cat and cat.infected_for > 0) or (other_cat and other_cat.infected_for > 0):
-                print(cat.name, ", parent, infected for", cat.infected_for)
-                chance = game.config["kit_gain_infection_chance"]
-                inftype = game.clan.infection["infection_type"]
-
-                if cat.infected_for > 0 and other_cat.infected_for > 0:
-                    chance *= 0.75
-                elif (cat.infected_for > 0 and not other_cat.infected_for > 0) or (not cat.infected_for > 0 and other_cat.infected_for > 0):
-                    chance *= 1.5
-                
-                infected_parents = []
-                if cat.infected_for > 0:
-                    infected_parents.append(cat)
-                if other_cat.infected_for > 0:
-                    infected_parents.append(other_cat)
-
-                for parent in infected_parents:
-                    if f"{inftype} stage one" in parent.illnesses:
-                        chance *= 1.5
-                    elif f"{inftype} stage two" in parent.illnesses:
-                        chance *= 1.2
-                    elif f"{inftype} stage three" in parent.illnesses:
-                        chance *= 0.8
-                    elif f"{inftype} stage four" in parent.illnesses:
-                        chance *= 0.5
-                    
-                chance = math.ceil(chance)
-                print("KIT INFECTION CHANCE:", chance)
-
-                chance = 2
-                # debug
-
-                if game.clan and not int(random.random() * int(chance)):
-                    kit.get_ill(f"{inftype} stage one")
-                    kit.infected_for += 1
-                    print(kit.name, "inherited the infection")
+            Pregnancy_Events.kit_infection(Pregnancy_Events, cat, other_cat, kit)
 
             # create and update relationships
             for cat_id in clan.clan_cats:

@@ -124,8 +124,6 @@ class Scar_Events():
             chance = 2
         
         if len(cat.pelt.scars) < 4 and not int(random.random() * chance):
-            if injury_name in ["rot", "withering", "void sickness"]:
-                print(cat.name, "got an infection scar!")
             
             # move potential scar text into displayed scar text
             specialty = None  # Scar to be set

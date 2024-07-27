@@ -2235,7 +2235,7 @@ class Cat():
     
     def infection_go(self):
         """
-        wah wah wah
+        for infection_spread so i can call the damn thing
         """
         if self.infected_for > 0:
             return
@@ -2252,7 +2252,7 @@ class Cat():
         self.infection_spread(kitty1)
 
     def infection_spread(self, cat: Cat):
-        """mweehehe"""
+        """ handles specific events where a cat gets the infection from someone else """
 
         if cat.infected_for == 0:
             return
@@ -2268,9 +2268,8 @@ class Cat():
             # no random infection for MC
             return
         
-        if cat.quarantined:
-            return
-            # okaayy ill be nice
+        # if cat.quarantined and self.status not in ["medicine cat", "medicine cat apprentice"]:
+        #     return
         
         infectious_illnesses = []
         if cat.is_ill():

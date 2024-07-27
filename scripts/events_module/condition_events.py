@@ -782,9 +782,6 @@ class Condition_Events():
                 continue
 
             Condition_Events.give_risks(cat, event_list, illness, illness_progression, illnesses, cat.illnesses)
-            if infection_event:
-                infec = Condition_Events.give_risks(cat, event_list, illness, illness_progression, illnesses, cat.illnesses)
-                print("INFEC:", infec)
 
 
         # joining event list into one event string

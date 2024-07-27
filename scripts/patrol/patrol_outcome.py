@@ -1027,16 +1027,37 @@ class PatrolOutcome():
         
         # Determine which herbs get picked
         specfic_herbs = [x for x in self.herbs if x in HERBS]
-
-        # INFECTION: Prioritised herb gathering
+        
         priority_herb = game.clan.infection["priority_herb"]
-        weight = 4
 
-        if priority_herb is not None:
-            specfic_herbs.extend([priority_herb] * weight)
-
+        # INFECTION: Prioritised herb gathering for random_herbs patrols
         if "random_herbs" in self.herbs:
-            specfic_herbs += random.sample(HERBS, k=choices([1, 2, 3], [6, 5, 1], k=1)[0])
+            weight = 13
+            selected_herbs = HERBS
+            if priority_herb is not None:
+                selected_herbs.extend([priority_herb] * weight)
+
+            print("random herbs", selected_herbs)
+
+            specfic_herbs += random.sample(selected_herbs, k=choices([1, 2, 3], [6, 5, 1], k=1)[0])
+        
+        else:
+            if priority_herb is not None:
+                chance = 10
+                medcats = [cat for cat in patrol.patrol_cats if cat.status in ["medicine cat", "medicine cat apprentice"]]
+                for meddie in medcats:
+                    print(meddie.name, meddie.experience)
+                    if meddie.experience >= 300:
+                        chance -= 5
+                    elif meddie.experience >= 200:
+                        chance -= 3
+                    else:
+                        chance -= 1
+                if chance < 1:
+                    chance = 1
+                print("chance:", chance)
+                if not random.random() * chance:
+                    specfic_herbs.extend([priority_herb])
             
         # Remove duplicates
         specfic_herbs = list(set(specfic_herbs))

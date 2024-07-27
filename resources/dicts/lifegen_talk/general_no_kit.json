@@ -20771,7 +20771,9 @@
             "they_infected",
             "any",
             "they_stage_four",
-            "infection"
+            "infection",
+            "they_deaf",
+            "you_deaf"
         ],
         [
             "[You don't see your Clanmate behind those cloudy eyes anymore.]"
@@ -20786,7 +20788,9 @@
             "upstanding",
             "brooding",
             "cool",
-            "infection"
+            "infection",
+            "they_blind",
+            "you_blind"
         ],
         [
             "I don't know why everyone's panicking. I feel totally fine.",
@@ -20801,7 +20805,8 @@
             "brooding",
             "cool",
             "stable",
-            "infection"
+            "infection",
+            "they_blind"
         ],
         [
             "[r_m checks over t_c's body at a distance.]",
@@ -20812,11 +20817,13 @@
         [
             "they_infected",
             "any",
-            "they_stage_two",
+            "they_stage_one",
             "brooding",
             "cool",
             "stable",
-            "infection"
+            "infection",
+            "they_blind",
+            "you_blind"
         ],
         [
             "Ugh. I feel worse every day...",
@@ -20828,7 +20835,9 @@
             "they_infected",
             "any",
             "they_stage_two",
-            "infection"
+            "infection",
+            "they_blind",
+            "you_blind"
         ],
         [
             "Go... go away, y_c...",
@@ -20840,10 +20849,53 @@
             "they_infected",
             "they_stage_two",
             "any",
-            "infection"
+            "infection",
+            "they_blind",
+            "you_blind"
         ],
         [
             "Why would StarClan do this to me..?"
+        ]
+    ],
+    "infection_J15": [
+        [
+            "they_infected",
+            "they_stage_one",
+            "they_stage_two",
+            "they_stage_three",
+            "any",
+            "infection",
+            "neurotic",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "This isn't happening. This isn't happening. This isn't happening. This isn't happening.",
+            "No, no, no, no, no, no...",
+            "Wake up. Wake up, t_c. Wake up.",
+            "[t_c doesn't seem very optimistic about {PRONOUN/t_c/poss} recovery...]"
+        ]
+    ],
+    "infection_J16": [
+        [
+            "they_stage_four",
+            "they_stage_three",
+            "you_stage_four",
+            "you_stage_three",
+            "you_infected",
+            "they_infected",
+            "infection",
+            "any",
+            "void",
+            "cure_not_found",
+            "they_blind",
+            "they_deaf",
+            "you_deaf"
+        ],
+        [
+            "[You and t_c have both lost the energy to speak.]",
+            "[You sit in each other's company, with nothing to pay attention to but the black poison seeping from your body.]",
+            "[You're not hopeful that any sort of herbs can fix this.]"
         ]
     ]
 }

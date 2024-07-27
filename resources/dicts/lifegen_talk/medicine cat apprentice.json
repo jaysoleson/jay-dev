@@ -1815,5 +1815,44 @@
             "[But now, you've been here long enough for it to go away.]",
             "Gone? Good. That's good to hear."
         ]
-    ]
+    ],
+    "infection_floof_3": {
+        "tags": [
+            "they_medicine_cat_apprentice",
+            "they_not_infected",
+            "you_infected",
+            "you_stage_two",
+            "infection"
+        ],
+        "intro": [
+            "y_c, do you need anything? Fresh-kill, water..?",
+            "[The young cat seems concerned, clearly stressed over this infection.]"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Scare {PRONOUN/t_c/object} away",
+                "next_scene": "scareaway"
+            },
+            "choice2": {
+                "text": "Water",
+                "next_scene": "water"
+            },
+            "choice3": {
+                "text": "Food",
+                "next_scene": "food"
+            }
+        },
+        "scareaway": [
+            "[You glare at the medicine cat and snarl that you just want to be alone. Who knows when you'll truly become dangerous? Better to just push other cats away now, even medicine cats. r_c is a nice cat, just not a cautious one.]",
+            "O- okay, but if you need anything just ask me for help!"
+        ],
+        "water": [
+            "[You tell the apprentice you would like some water and the young cat scurries off to get some, seeming happy about having something to do. Despite knowing that this could get worse, at least one cat is being kind.]"
+        ],
+        "food": [
+            "[You accept {PRONOUN/t_c/poss} offer... maybe it's because of the infection, but you feel extra hungry.",
+            "You can't help but wonder if one day you'll lose control completely and these kind cats will only look at you with disdain instead...]",
+            "[Your darker thoughts are interrupted by the medicine cat apprentice coming back with a fresh bird. Better to not tell {PRONOUN/t_c/object} about your thoughts. Not right now, at least.]"
+        ]
+    }
 }

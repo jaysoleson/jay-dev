@@ -737,7 +737,6 @@ class TreatmentScreen(Screens):
 
         if cure:
             patient.cure_progress += 1
-            print("this fucking working")
             for herb in correctherbs:
                 if herb not in game.clan.infection["cure_discovered"]:
                     game.clan.infection["cure_discovered"].append(herb)
