@@ -501,7 +501,7 @@ class EventsScreen(Screens):
             print("Chose " + str(game.clan.your_cat.name))
         # Set text for clan age
         if game.clan.your_cat.moons == -1:
-            self.clan_age.set_text(f'Your age: Unborn')
+            self.clan_age.set_text('Your age: Unborn')
         elif game.clan.your_cat.moons != 1:
             self.clan_age.set_text(f'Your age: {game.clan.your_cat.moons} moons')
         elif game.clan.your_cat.moons == 1:
@@ -510,7 +510,7 @@ class EventsScreen(Screens):
         self.log_button = UIImageButton(scale(pygame.Rect((320, 250), (164, 148))), "", object_id="#log_button"
                                              , manager=MANAGER)
         
-        self.priority_herb_button = UIImageButton(scale(pygame.Rect((150, 250), (164, 148))), "Priority Herb", object_id=""
+        self.priority_herb_button = UIImageButton(scale(pygame.Rect((160, 268), (120, 120))), "", object_id="#change_priority_herb_button"
                                              , manager=MANAGER)
 
         self.timeskip_button = UIImageButton(scale(pygame.Rect((620, 436), (360, 60))), "", object_id="#timeskip_button"

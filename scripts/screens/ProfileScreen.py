@@ -2818,9 +2818,9 @@ class ProfileScreen(Screens):
                 )
             else:
                 self.quarantine_button = UIImageButton(
-                scale(pygame.Rect((830, 972), (344, 72))),
+                scale(pygame.Rect((814, 983), (342, 60))),
                 "",
-                object_id="#quarantine_button",
+                object_id="#yourcat_quarantine_button",
                 starting_height=2, manager=MANAGER
                 )
 
@@ -2833,9 +2833,9 @@ class ProfileScreen(Screens):
                 )
             else:
                 self.remove_quarantine_button = UIImageButton(
-                scale(pygame.Rect((830, 972), (344, 72))),
+                scale(pygame.Rect((814, 983), (342, 60))),
                 "",
-                object_id="#unquarantine_button",
+                object_id="#yourcat_unquarantine_button",
                 starting_height=2, manager=MANAGER
                 )
 
@@ -3014,9 +3014,9 @@ class ProfileScreen(Screens):
                 )
             else:
                 self.quarantine_button = UIImageButton(
-                scale(pygame.Rect((830, 972), (344, 72))),
+                scale(pygame.Rect((814, 983), (342, 60))),
                 "",
-                object_id="#quarantine_button",
+                object_id="#yourcat_quarantine_button",
                 starting_height=2, manager=MANAGER
                 )
 
@@ -3029,9 +3029,9 @@ class ProfileScreen(Screens):
                 )
             else:
                 self.remove_quarantine_button = UIImageButton(
-                scale(pygame.Rect((830, 972), (344, 72))),
+                scale(pygame.Rect((814, 983), (342, 60))),
                 "",
-                object_id="#unquarantine_button",
+                object_id="#yourcat_unquarantine_button",
                 starting_height=2, manager=MANAGER
                 )
 

@@ -5545,5 +5545,56 @@
                 "path": "resources/images/buttons/unquarantine_button_unavailable.png"
             }
         }
+    },
+    "#yourcat_quarantine_button": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/buttons/yourcat_quarantine_button.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/buttons/yourcat_quarantine_button_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/buttons/yourcat_quarantine_button_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/buttons/yourcat_quarantine_button_unavailable.png"
+            }
+        }
+    },
+    "#yourcat_unquarantine_button": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/buttons/yourcat_unquarantine_button.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/buttons/yourcat_unquarantine_button_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/buttons/yourcat_unquarantine_button_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/buttons/yourcat_unquarantine_button_unavailable.png"
+            }
+        }
+    },
+    "#change_priority_herb_button": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/buttons/change_priority_herb.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/buttons/change_priority_herb_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/buttons/change_priority_herb_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/buttons/change_priority_herb_hover.png"
+            }
+        }
     }
 }

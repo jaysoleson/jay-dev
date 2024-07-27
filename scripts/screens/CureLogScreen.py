@@ -430,28 +430,37 @@ class CureLogScreen(Screens):
             # chibi misspelled the function and im keeping it that way bc its funny
 
             # MURDER
-            if "1" in game.clan.achievements:
+            murderer = False
+            # doing this so stamps can change if u switch mc to a non murderer
+            if not game.clan.your_cat.history:
+                game.clan.your_cat.load_history()
+            if game.clan.your_cat.history:
+                if game.clan.your_cat.history.murder:
+                    if "is_murderer" in game.clan.your_cat.history.murder:
+                        murderer = True
+
+            if "1" in game.clan.achievements and murderer:
                 murder = "murder1"
                 hover = "Killed one cat"
                 self.stamps["murder"] = UIImageButton(scale(pygame.Rect((310, 380), (38, 72))), "",
                                                 object_id=f"#stamp_{murder}", tool_tip_text=f"{hover}", manager=MANAGER)
-            if "2" in game.clan.achievements:
-                murder = "murder1"
-                hover = "Killed five cats"
-                self.stamps["murder"] = UIImageButton(scale(pygame.Rect((310, 380), (38, 72))), "",
-                                                object_id=f"#stamp_{murder}", tool_tip_text=f"{hover}", manager=MANAGER)
-            if "3" in game.clan.achievements:
-                murder = "murder2"
-                hover = "Killed twenty cats"
-                self.stamps["murder"] = UIImageButton(scale(pygame.Rect((310, 370), (67, 86))), "",
-                                                object_id=f"#stamp_{murder}", tool_tip_text=f"{hover}", manager=MANAGER)
-            if "4" in game.clan.achievements:
-                murder = "murder3"
-                hover = "Killed fifty cats"
-                self.stamps["murder"] = UIImageButton(scale(pygame.Rect((280, 370), (116, 99))), "",
-                                                object_id=f"#stamp_{murder}", tool_tip_text=f"{hover}", manager=MANAGER)
             
-            if "25" in game.clan.achievements:
+                if "2" in game.clan.achievements:
+                    murder = "murder1"
+                    hover = "Killed five cats"
+                    self.stamps["murder"] = UIImageButton(scale(pygame.Rect((310, 380), (38, 72))), "",
+                                                    object_id=f"#stamp_{murder}", tool_tip_text=f"{hover}", manager=MANAGER)
+                if "3" in game.clan.achievements:
+                    murder = "murder2"
+                    hover = "Killed twenty cats"
+                    self.stamps["murder"] = UIImageButton(scale(pygame.Rect((310, 370), (67, 86))), "",
+                                                    object_id=f"#stamp_{murder}", tool_tip_text=f"{hover}", manager=MANAGER)
+                if "4" in game.clan.achievements:
+                    murder = "murder3"
+                    hover = "Killed fifty cats"
+                    self.stamps["murder"] = UIImageButton(scale(pygame.Rect((280, 370), (116, 99))), "",
+                                                    object_id=f"#stamp_{murder}", tool_tip_text=f"{hover}", manager=MANAGER)
+            elif "25" in game.clan.achievements:
                 self.stamps["pacifist"] = UIImageButton(scale(pygame.Rect((280, 350), (135, 77))), "",
                                                 object_id="#stamp_pacifist", tool_tip_text="Lived to be 120 moons without committing a  murder", manager=MANAGER)
             
