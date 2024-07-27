@@ -2868,5 +2868,19 @@
         "random_living_status": [
             "living"
         ]
+    },
+    {
+        "id": "gen_infected",
+        "thoughts": [
+            "Hisses at r_c to stay away, concerned {PRONOUN/m_c/subject}'ll infect {PRONOUN/r_c/object}",
+            "Is feeling awful",
+            "Wonders if Twolegs would know the cure",
+            "Can't stand this",
+            "Wishes {PRONOUN/m_c/poss} appearance didn't scare the kits so much",
+            "Doesn't recognise {PRONOUN/m_c/poss} reflection anymore"
+        ],
+        "main_infected_constraint": [
+            "infected"
+        ]
     }
 ]

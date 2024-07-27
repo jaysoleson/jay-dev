@@ -751,6 +751,31 @@ class Condition_Events():
                 History.remove_possible_history(cat, illness)
                 game.switches['skip_conditions'].append(illness)
                 # gather potential event strings for healed illness
+                
+                # chance for a cat to become a medcat after grieving an infection victim
+                infected_griefcat = False
+
+                if illness == "grief stricken":
+                    deadguy = Cat.all_cats.get(cat.illnesses['grief stricken'].get("grief_cat"))
+                    if deadguy:
+                        if not deadguy.history:
+                            deadguy.load_history()
+                        if deadguy.history:
+                            if deadguy.history.died_by:
+                                if deadguy.history.died_by[0]["text"]:
+                                    if deadguy.history.died_by[0]["text"] == f"{deadguy.name} was killed by the infection.":
+                                        infected_griefcat = True
+                    if infected_griefcat:
+                        if not int(random.random() * 25): # 1/25 chance
+                            if cat.status not in ["newborn", "kitten", "leader", "medicine cat", "medicine cat apprentice"]:
+                                event = f"Sorrow turned to determination, {cat.name} has decided to become a medicine cat to help prevent the infection from killing any more cats like it did to {deadguy.name}."
+                                if cat.status in ["apprentice", "queen's apprentice", "mediator apprentice"]:
+                                    cat.status = "medicine cat apprentice"
+                                else:
+                                    cat.status = "medicine cat"
+
+                                game.cur_events_list.append(Single_Event(event, ["health", "infection"], cat.ID))
+
                 try:
                     possible_string_list = Condition_Events.ILLNESS_HEALED_STRINGS[illness]
                 except:

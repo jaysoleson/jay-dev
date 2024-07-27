@@ -118,6 +118,18 @@ class Thoughts():
         if 'random_trait_constraint' in thought and random_cat:
             if random_cat.personality.trait not in thought['random_trait_constraint']:
                 return False
+            
+        if "main_infected_constraint" in thought:
+            if "infected" in "main_infected_constraint" and main_cat.infected_for < 1:
+                return False
+            if "infected" not in "main_infected_constraint" and main_cat.infected_for > 0:
+                return False
+            
+        if "random_infected_constraint" in thought:
+            if "infected" in "random_infected_constraint" and random_cat.infected_for < 1:
+                return False
+            if "infected" not in "random_infected_constraint" and random_cat.infected_for > 0:
+                return False
 
         if 'main_skill_constraint' in thought:
             _flag = False

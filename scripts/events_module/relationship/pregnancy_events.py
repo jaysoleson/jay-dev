@@ -264,6 +264,7 @@ class Pregnancy_Events():
                 if amount > 1:
                     insert = f'a litter of {amount} kits'
 
+                infected = False
                 for kit in kits:
                     if f"{game.clan.infection['infection_type']} stage one" in kit.illnesses:
                         infected = True
