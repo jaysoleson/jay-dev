@@ -1,6 +1,5 @@
 import random
 
-from scripts.cat.cats import Cat
 from scripts.cat.history import History
 from scripts.conditions import get_amount_cat_for_one_medic, medical_cats_condition_fulfilled
 from scripts.game_structure.game_essentials import game
@@ -108,20 +107,20 @@ class Scar_Events():
         """ 
         This function handles the scars
         """
-        
+
         # If the injury can't give a scar, move return None, None
         if injury_name not in Scar_Events.scar_allowed:
             return None, None
-        
+
         moons_with = game.clan.age - cat.injuries[injury_name]["moon_start"]
         chance = max(5 - moons_with, 1)
-        
+
         amount_per_med = get_amount_cat_for_one_medic(game.clan)
         if medical_cats_condition_fulfilled(game.cat_class.all_cats.values(), amount_per_med):
             chance += 2
 
         if injury_name in ["rot", "withering", "void sickness"]:
-            chance = 2
+            chance = 8
         
         if len(cat.pelt.scars) < 4 and not int(random.random() * chance):
             
@@ -146,7 +145,8 @@ class Scar_Events():
             if 'EYEMOSS' in cat.pelt.scars:
                 scar_pool = [i for i in scar_pool if i not in ["THREE", "RIGHTBLIND", "LEFTBLIND", "BOTHBLIND", "BRIGHTHEART", "EYESOCKET", "VOIDEYE"]]
             if 'NOEAR' in cat.pelt.scars:
-                scar_pool = [i for i in scar_pool if i not in ["LEFTEAR", "RIGHTEAR", 'NOLEFTEAR', 'NORIGHTEAR', "FROSTFACE"]]
+                scar_pool = [i for i in scar_pool if
+                             i not in ["LEFTEAR", "RIGHTEAR", 'NOLEFTEAR', 'NORIGHTEAR', "FROSTFACE"]]
             if 'MANTAIL' in cat.pelt.scars:
                 scar_pool = [i for i in scar_pool if i not in ["BURNTAIL", 'FROSTTAIL']]
             if 'BURNTAIL' in cat.pelt.scars:
@@ -183,6 +183,10 @@ class Scar_Events():
                                   f"m_c was scarred from an injury ({injury_name}).",
                                   condition=injury_name)
 
+            # If we've reached this point, we can move forward with giving history.
+            History.add_scar(cat,
+                             f"m_c was scarred from an injury ({injury_name}).",
+                             condition=injury_name)
 
             specialty = random.choice(scar_pool)
             if specialty in ["NOTAIL", "HALFTAIL"]:
@@ -230,5 +234,3 @@ class Scar_Events():
             return random.choice(scar_gain_strings), specialty
         else:
             return None, None
-           
-
