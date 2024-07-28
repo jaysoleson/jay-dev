@@ -2161,5 +2161,52 @@
             "[You quickly assure t_c that you aren't infected, and just came into the medicine den because of a small cut.]",
             "Oh! Thank StarClan. I'll get to taking care of that for you then."
         ]
+    ],
+    "infection_insult_lyric_3": [
+        [
+            "they_not_infected",
+            "you_not_infected",
+            "they_medicine_cat",
+            "cool",
+            "brooding",
+            "unabashed",
+            "insult",
+            "any",
+            "infection"
+        ],
+        [
+            "You'd better hope you aren't infected soon, y_c. I might have to postpone finding the cure just for you."
+        ]
+    ],
+    "infection_insult_J1": [
+        [
+            "they_not_infected",
+            "you_not_infected",
+            "they_medicine_cat",
+            "cool",
+            "brooding",
+            "any",
+            "insult",
+            "infection"
+        ],
+        [
+            "Best not to insult the medicine cat with a deadly disease in camp, huh?"
+        ]
+    ],
+    "infection_insult_J2": [
+        [
+            "they_not_infected",
+            "you_not_infected",
+            "you_medicine_cat",
+            "sweet",
+            "stable",
+            "insult",
+            "they_any",
+            "max_dislike_10",
+            "infection"
+        ],
+        [
+            "I'm sorry, y_c. I know you're very stressed."
+        ]
     ]
 }

@@ -2,6 +2,8 @@ import os
 import traceback
 from random import choice
 
+from scripts.utility import get_cluster
+
 import ujson
 from scripts.game_structure.game_essentials import game
 
@@ -119,16 +121,28 @@ class Thoughts():
             if random_cat.personality.trait not in thought['random_trait_constraint']:
                 return False
             
-        if "main_infected_constraint" in thought:
-            if "infected" in "main_infected_constraint" and main_cat.infected_for < 1:
+        # INFECTION
+            
+        if "main_cluster_constraint" in thought:
+            cluster, cluster2 = get_cluster(main_cat.personality.trait)
+            if cluster not in thought["main_cluster_constraint"] and (cluster2 and cluster2 not in thought["main_cluster_constraint"]):
                 return False
-            if "infected" not in "main_infected_constraint" and main_cat.infected_for > 0:
+        
+        if "random_cluster_constraint" in thought and random_cat:
+            cluster, cluster2 = get_cluster(random_cat.personality.trait)
+            if cluster not in thought["random_cluster_constraint"] and (cluster2 and cluster2 not in thought["random_cluster_constraint"]):
+                return False
+
+        if "main_infected_constraint" in thought:
+            if "infected" in thought["main_infected_constraint"] and main_cat.infected_for < 1:
+                return False
+            if "not_infected" in thought["main_infected_constraint"] and main_cat.infected_for > 0:
                 return False
             
-        if "random_infected_constraint" in thought:
-            if "infected" in "random_infected_constraint" and random_cat.infected_for < 1:
+        if "random_infected_constraint" in thought and random_cat:
+            if "infected" in thought["random_infected_constraint"] and random_cat.infected_for < 1:
                 return False
-            if "infected" not in "random_infected_constraint" and random_cat.infected_for > 0:
+            if "not_infected" in thought["random_infected_constraint"] and main_cat.infected_for > 0:
                 return False
 
         if 'main_skill_constraint' in thought:
@@ -379,10 +393,13 @@ class Thoughts():
     @staticmethod
     def get_chosen_thought(main_cat, other_cat, game_mode, biome, season, camp):
         # get possible thoughts
-        try:
-            chosen_thought_group = choice(Thoughts.load_thoughts(main_cat, other_cat, game_mode, biome, season, camp))
-            chosen_thought = choice(chosen_thought_group["thoughts"])
-        except Exception:
-            chosen_thought = "Prrrp! You shouldn't see this! Report as a bug."
+        # try:
+        #     chosen_thought_group = choice(Thoughts.load_thoughts(main_cat, other_cat, game_mode, biome, season, camp))
+        #     chosen_thought = choice(chosen_thought_group["thoughts"])
+        # except Exception:
+        #     chosen_thought = "Prrrp! You shouldn't see this! Report as a bug."
+
+        chosen_thought_group = choice(Thoughts.load_thoughts(main_cat, other_cat, game_mode, biome, season, camp))
+        chosen_thought = choice(chosen_thought_group["thoughts"])
 
         return chosen_thought

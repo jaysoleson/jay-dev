@@ -702,6 +702,19 @@
             "cold",
             "vengeful"
         ]
+    },
+    {
+        "id": "leader_infection",
+        "thoughts": [
+            "Is trying to keep the Clan from erupting into mass hysteria"
+        ],
+        "main_cluster_constraint": [
+            "upstanding",
+            "stable"
+        ],
+        "main_infected_constraint": [
+            "not_infected"
+        ]
     }
    
 ]

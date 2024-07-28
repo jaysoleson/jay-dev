@@ -6785,5 +6785,77 @@
             "[Your heart aches.]"
 
         ]
+    ],
+    "infection_reesesgopoof_2": [
+        [
+            "they_kitten",
+            "you_queen",
+            "you_queen's_apprentice",
+            "they_infected",
+            "they_stage_one",
+            "you_infected",
+            "you_deaf",
+            "they_deaf",
+            "they_blind",
+            "infection"
+        ],
+        [
+            "[Once you got the infection, you worried so much about the kits. They wouldn't have anyone keeping them out of danger, and that thought hurt.]",
+           " [But one day you see t_c being led to your den because there's nowhere else to go, and your heart aches for this sick kit.]",
+            "[You swear to yourself, as long as t_c is with you, even the infection won't hurt {PRONOUN/t_c/object}.]"
+        ]
+    ],
+    "infection_lyric_1": [
+        [
+            "they_kitten",
+            "they_not_infected",
+            "you_not_infected",
+            "stable",
+            "sweet",
+            "any",
+            "infection",
+            "you_blind"
+        ],
+        [
+            "Hey y_c! Do you know why r_m won't let me see inf_c?",
+            "Infected?... When will {PRONOUN/inf_c/subject} be better?",
+            "Can I help? Maybe if I make a very cool moss ball, it'll help {PRONOUN/inf_c/object} feel better!",
+            "[You can't help but feel sympathy for the kit. Growing up amidst all this must be horrifying...]"
+        ]
+    ],
+    "infection_lyric_4": [
+        [
+            "they_kitten",
+            "upstanding",
+            "sweet",
+            "stable",
+            "you_medicine_cat",
+            "you_medicine_cat_apprentice",
+            "infection",
+            "you_blind",
+            "they_blind"
+        ],
+        [
+            "So y_c, how do you help cats like plike_inf_c get better?",
+            "[You paw at the herbs, explaining your general process.]",
+            "Oh!",
+            "Can I help? I want {PRONOUN/plike_inf_c/object} to feel better and not icky!"
+        ]
+    ],
+    "infection_celeste_1": [
+        [
+            "they_infected",
+            "they_stage_two",
+            "they_stage_three",
+            "they_stage_four",
+            "they_kitten",
+            "any"
+        ],
+        [
+            "[You walk near the edge of camp to see t_c out of {PRONOUN/t_c/poss} nest, the little kit's legs trembling with the effort of moving.]",
+            "y_c? I'm sorry, I know I should be resting, but..",
+            "[t_c sighs.]",
+            "I just want to play again. It's not fair."
+        ]
     ]
 }

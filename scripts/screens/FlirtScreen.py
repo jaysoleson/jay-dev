@@ -387,6 +387,11 @@ class FlirtScreen(Screens):
         ]
         skill_list = ['teacher', 'hunter', 'fighter', 'runner', 'climber', 'swimmer', 'speaker', 'mediator1', 'clever', 'insightful', 'sense', 'kit', 'story', 'lore', 'camp', 'healer', 'star', 'omen', 'dream', 'clairvoyant', 'prophet', 'ghost', 'explorer', 'tracker', 'artistan', 'guardian', 'tunneler', 'navigator', 'song', 'grace', 'clean', 'innovator', 'comforter', 'matchmaker', 'thinker', 'cooperative', 'scholar', 'time', 'treasure', 'fisher', 'language', 'sleeper']
         you_skill_list = ['you_teacher', 'you_hunter', 'you_fighter', 'you_runner', 'you_climber', 'you_swimmer', 'you_speaker', 'you_mediator1', 'you_clever', 'you_insightful', 'you_sense', 'you_kit', 'you_story', 'you_lore', 'you_camp', 'you_healer', 'you_star', 'you_omen', 'you_dream', 'you_clairvoyant', 'you_prophet', 'you_ghost', 'you_explorer', 'you_tracker', 'you_artistan', 'you_guardian', 'you_tunneler', 'you_navigator', 'you_song', 'you_grace', 'you_clean', 'you_innovator', 'you_comforter', 'you_matchmaker', 'you_thinker', 'you_cooperative', 'you_scholar', 'you_time', 'you_treasure', 'you_fisher', 'you_language', 'you_sleeper']
+        
+        inftype = game.clan.infection["infection_type"]
+
+        stages = [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]
+        
         for talk_key, talk in possible_texts.items():
             tags = talk["tags"] if "tags" in talk else talk[0]
             for i in range(len(tags)):
@@ -402,20 +407,134 @@ class FlirtScreen(Screens):
                 continue
 
 
+            # INFECTION
+            if "infection" in tags and game.clan.infection["clan_infected"] is False:
+                continue
 
-            # bc i dont wanna remove my deaf dialogue rn lol
+            if "you_infected" in tags and you.infected_for == 0:
+                continue
+            elif "you_not_infected" in tags and you.infected_for > 0:
+                continue
 
-            # if "deaf" in cat.permanent_condition and "they_deaf" not in tags:
-            #     continue
+            if "they_infected" in tags and cat.infected_for == 0:
+                continue
+            elif "they_not_infected" in tags and cat.infected_for > 0:
+                continue
 
-            # if "blind" in cat.permanent_condition and "they_blind" not in tags:
-            #     continue
+            nope = False 
+            cat_stage = None
+            you_stage = None
+            for stage in stages:
+                if stage in cat.illnesses:
+                    cat_stage = stage
+                if stage in you.illnesses:
+                    you_stage = stage
+                    
+            for stage in stages:
+                stage_tag = stage.replace(' ', '_').replace(f"{inftype}_", "")
+                if cat_stage:
+                    cat_stage = cat_stage.replace(' ', '_').replace(f"{inftype}_", "")
+                if you_stage:
+                    you_stage = you_stage.replace(' ', '_').replace(f"{inftype}_", "")
 
-            # if "deaf" in you.permanent_condition and "you_deaf" not in tags:
-            #     continue
+                if f"they_{stage_tag}" in tags:
+                    if stage not in cat.illnesses and (cat_stage is not None and f"they_{cat_stage}" not in tags):
+                        # this is so i can multitag stages in dialogue :3
+                        nope = True
+                        break
+                elif f"you_{stage_tag}" in tags:
+                    if stage not in you.illnesses and (you_stage is not None and f"you_{you_stage}" not in tags):
+                        nope = True
+                        break
 
-            # if "blind" in you.permanent_condition and "you_blind" not in tags:
-            #     continue
+            if nope:
+                continue
+
+            if "void" in tags and game.clan.infection["infection_type"] != "void":
+                continue
+            if "parasitic" in tags and game.clan.infection["infection_type"] != "parasitic":
+                continue
+            if "fungal" in tags and game.clan.infection["infection_type"] != "fungal":
+                continue
+
+            logs = game.clan.infection["logs"]
+            if "spread_by_air" in tags and game.clan.infection["spread_by"] != "air" and "spread_by_air" not in logs:
+                continue
+            elif "spread_by_bite" in tags and game.clan.infection["spread_by"] != "bite" and "spread_by_bite" not in logs:
+                continue
+
+            if "spread_by_unknown" in tags and ("spread_by_bite" in logs or "spread_by_air" in logs):
+                continue
+
+            if "discovered" in tags and "discovered" not in logs:
+                continue
+
+            if "cure_found" in tags and "cure_found" not in logs:
+                continue
+
+            if "cure_not_found" in tags and "cure_found" in logs:
+                continue
+
+            # INFECTION STORY TAGS
+            # STORY 1
+            if game.clan.infection["story"] == "1":
+                if "story_1_step_2" in tags:
+                    if "story_1_step_1" not in game.clan.infection["logs"]:
+                        continue
+                    if "story_1_step_2" in game.clan.infection["logs"]:
+                        continue
+                    if cat.ID != game.clan.infection["story_cat_2"]:
+                        continue
+
+            steps = ["1", "2", "3", "4"]
+            stories = ["1", "2"]
+            storycats = ["1", "2", "3", "4"]
+
+            skip = False
+
+            for num in storycats:
+                if f"you_sc_{num}" in tags and game.clan.infection[f"story_cat_{num}"] != you.ID:
+                    skip = True
+                if f"they_sc_{num}" in tags and game.clan.infection[f"story_cat_{num}"] != cat.ID:
+                    skip = True
+
+
+            for story in stories:
+                if f"story_{story}" in tags and game.clan.infection["story"] != story:
+                    skip = True
+
+                for step in steps:
+                    if f"story_{story}_step_{step}" in tags and f"story_{story}_step_{step}" in game.clan.infection["logs"]:
+                        skip = True
+                        break
+                    if f"pre_story_{story}_step_{step}" in tags and f"story_{story}_step_{step}" in game.clan.infection["logs"]:
+                        skip = True
+                        break
+                    if f"post_story_{story}_step_{step}" in tags and f"story_{story}_step_{step}" not in game.clan.infection["logs"]:
+                        skip = True
+                        break
+            if skip:
+                continue
+
+            infected_cats = [cat for cat in Cat.all_cats_list if not cat.dead and not cat.outside and cat.infected_for > 0 and cat.ID != you.ID]
+            all_cats = [cat for cat in Cat.all_cats_list if not cat.dead and not cat.outside and cat.ID != you.ID]
+
+            percentage = len(infected_cats) / len(all_cats)
+            percentage *= 100
+
+            numbers = [10, 25, 50, 75]
+            for num in numbers:
+                if f"{str(num)}_percent_infected" in tags and percentage < num:
+                    continue
+
+            
+            if "story_cat_1" in tags and cat.ID != game.clan.infection["story_cat_1"]:
+                continue
+            if "story_cat_2" in tags and cat.ID != game.clan.infection["story_cat_2"]:
+                continue
+            if "story_cat_3" in tags and cat.ID != game.clan.infection["story_cat_3"]:
+                continue
+
 
             # Status tags
             if you.status not in tags and f"you_{you.status}" not in tags and "any" not in tags and "young elder" not in tags and "no_kit" not in tags and "you_any" not in tags:

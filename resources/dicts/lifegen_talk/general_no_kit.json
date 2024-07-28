@@ -20897,5 +20897,130 @@
             "[You sit in each other's company, with nothing to pay attention to but the black poison seeping from your body.]",
             "[You're not hopeful that any sort of herbs can fix this.]"
         ]
+    ],
+    "infection_vicki_1": [
+        [
+            "from_mate",
+            "they_infected",
+            "you_not_infected",
+            "any",
+            "they_stage_two",
+            "they_stage_three",
+            "cool",
+            "brooding",
+            "assertive",
+            "infection"
+        ],
+        [
+            "[Although t_c's gaze doesn't meet yours, you can tell {PRONOUN/t_c/subject} {VERB/t_c/know/knows} you're there.]",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/look/looks}... awful. And you feel as if that's a strong way to put it, but nothing else comes to mind.]",
+            "[{PRONOUN/t_c/poss/CAP} eyes are foggy, {PRONOUN/t_c/poss} head is hanging low, and you swear you've never seen {PRONOUN/t_c/object} so... utterly miserable.]",
+            "[You try to move closer, but {PRONOUN/t_c/subject} immediately {VERB/t_c/scoot/scoots} away with a frustrated growl. {PRONOUN/t_c/poss/CAP} voice is barely audible, but you can still make it out.]",
+            "Why are you here, y_c? You know you're not supposed to be around me.",
+            "[You tell {PRONOUN/t_c/object} that some lousy infection won't stop you from spending time with your mate, and it's then that {PRONOUN/t_c/subject} {VERB/t_c/turn/turns} to stare at you.]",
+            "[Your survival instinct makes you flinch in terror, causing t_c to let out a pained chuckle.]",
+            "Haha. Do I really look that terrible?",
+            "[You stumble on your own words as you profusely apologize, but t_c shakes {PRONOUN/t_c/poss} head and directs {PRONOUN/t_c/poss} gaze to the ground once more.]",
+            "It's okay, y_c. I'd be scared, too.",
+            "...I mean, I <i>am</i> scared. Scared of what I'll turn into.",
+            "What if I hurt my Clanmates? What if I hurt you?",
+            "[With a sigh, you try to convince {PRONOUN/t_c/object} that {PRONOUN/t_c/subject}'ll be okay, and that the infection won't get any worse.]",
+            "[t_c doesn't seem to have heard you, though. {PRONOUN/t_c/poss/CAP} attention appears to be elsewhere.]",
+            "Please, y_c. I mean it. You should go. I feel worse by the day, and I don't want you becoming like me. Because I love you. Because I want you to live the life I know I won't get to have.",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/fall/falls} silent then, and you reluctantly decide to leave {PRONOUN/t_c/object} alone for now.]",
+            "[You figure it's probably a good idea to tell r_m about {PRONOUN/t_c/poss} condition... but {PRONOUN/t_c/poss} words refuse to leave your head.]",
+            "[{VERB/t_c/Are/Is} {PRONOUN/t_c/subject} that convinced {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} going to die?]",
+            "[For the first time in your life, you pray that your mate is mistaken.]"
+        ]
+    ],
+    "infection_reesesgopoof_3": [
+        [
+            "you_infected",
+            "they_not_infected",
+            "min_platonic_50",
+            "any",
+            "brooding",
+            "cool",
+            "infection",
+            "they_blind"
+        ],
+        [
+           "[You wake up one night, after a long while of restless sleeping, to a shadow a few tail-lengths in front of you.]",
+            "[Before you have the chance to panic, you hear a voice you know come from the shadow. t_c's voice.]",
+            "Oh, StarClan... how...",
+            "[Something's off. {PRONOUN/t_c/poss/CAP} usual caring demeanor has been replaced by a desperation. An anger you've never seen before.]",
+            "How DARE you!? How dare you curse such a loyal cat! How can you sit up there and watch us all die?",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/lash/lashes} {PRONOUN/t_c/poss} tail, and {VERB/t_c/hiss/hisses} the next words.]",
+            "I will darken every star in the sky if m_c is taken from me. If {PRONOUN/y_c/subject} {VERB/y_c/die/dies}, I--",
+            "[t_c's voice breaks, and {PRONOUN/t_c/subject} {VERB/t_c/press/presses} {PRONOUN/t_c/poss} nose into your pelt.]",
+            "I don't know what I'd do.",
+            "[You watch as {PRONOUN/t_c/subject} {VERB/t_c/slink/slinks} out of camp. The next morning, when {PRONOUN/t_c/subject} {VERB/t_c/come/comes} to check on you, there isn't a single trace of what you saw the previous night.]"
+        ]
+    ],
+    "infection_lyric_5": [
+        [
+            "any",
+            "they_not_infected",
+            "sweet",
+            "stable",
+            "upstanding",
+            "infection"
+        ],
+        [
+            "[Although t_c isn't supposed to, {PRONOUN/t_c/subject}{VERB/t_c/'ve/'s} snuck into the medicine den to see plove_inf_c and {VERB/t_c/are/is} licking the top of {PRONOUN/plove_inf_c/poss} head quietly.]",
+            "It's okay... It'll be okay. I'm here, I promise, plove_inf_c. You'll be better soon.",
+            "[The cat is clearly in pain, but t_c being there is soothing it ever so slightly.]"
+        ]
+    ],
+    "infection_insult_lyric_7": [
+        [
+            "they_not_infected",
+            "you_infected",
+            "any",
+            "insult",
+            "brooding",
+            "assertive",
+            "stable",
+            "you_blind",
+            "they_blind"
+        ],
+        [
+            "At least I wasn't stupid enough to get myself infected."
+        ]
+    ],
+    "infection_insult_lyric_8": [
+        [
+            "insult",
+            "infection",
+            "you_leader",
+            "you_medicine_cat",
+            "they_infected",
+            "you_not_infected",
+            "neurotic",
+            "you_blind",
+            "they_blind"
+        ],
+        [
+            "Please don't tell me you're going to let me die to the infected because you don't like me! I'm not ready to die!",
+            "[Now you feel bad...]"
+        ]
+    ],
+    "infection_insult_lyric_9": [
+        [
+            "they_not_infected",
+            "you_not_infected",
+            "insult",
+            "infection",
+            "they_medicine_cat",
+            "you_medicine_cat",
+            "they_medicine_cat_apprentice",
+            "you_medicine_cat_apprentice",
+            "you_blind",
+            "they_blind"
+        ],
+        [
+            "You know, even if you don't like me, I'll still ensure you're safe from the infected.",
+            "I just hope that if that day comes where I'm in that situation, you'll do the same, y_c."
+        ]
     ]
 }

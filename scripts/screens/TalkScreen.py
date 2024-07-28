@@ -495,6 +495,7 @@ class TalkScreen(Screens):
             if "insult" in tags:
                 continue
 
+            # INFECTION
             if "infection" in tags and game.clan.infection["clan_infected"] is False:
                 continue
 
@@ -602,6 +603,17 @@ class TalkScreen(Screens):
                         break
             if skip:
                 continue
+
+            infected_cats = [cat for cat in Cat.all_cats_list if not cat.dead and not cat.outside and cat.infected_for > 0 and cat.ID != you.ID]
+            all_cats = [cat for cat in Cat.all_cats_list if not cat.dead and not cat.outside and cat.ID != you.ID]
+
+            percentage = len(infected_cats) / len(all_cats)
+            percentage *= 100
+
+            numbers = [10, 25, 50, 75]
+            for num in numbers:
+                if f"{str(num)}_percent_infected" in tags and percentage < num:
+                    continue
 
             
             if "story_cat_1" in tags and cat.ID != game.clan.infection["story_cat_1"]:

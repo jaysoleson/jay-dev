@@ -1810,5 +1810,25 @@
             "You do realize you're hurting their feelings, correct? Brushing off their pleads for playtime, ignoring the requests for stories...",
             "y_c, let it be known. I have no patience for queens who ignore their duties within this Clan."
         ]
+    ],
+    "infection_reesesgopoof_1": [
+        [
+            "they_queen",
+            "neurotic",
+            "any",
+            "they_not_infected",
+            "you_not_infected",
+            "they_blind",
+            "infection"
+        ],
+        [
+            "[For the fourth time today, t_c falls asleep when eating fresh-kill. You wake {PRONOUN/t_c/object} up with a gentle nudge, and {PRONOUN/t_c/subject} {VERB/t_c/bolt/bolts} upright, fur standing on edge.]",
+            "Huh? What? Where's r_k? Did {PRONOUN/r_k/object}--",
+            "[You reassure {PRONOUN/t_c/object} that there's nothing wrong, and {PRONOUN/t_c/subject} {VERB/t_c/let/lets} out a deep sigh.]",
+            "Ah. Sorry, y_c. I guess I'm just tired.",
+            "[As {PRONOUN/t_c/subject} {VERB/t_c/start/starts} to stand up, you cut {PRONOUN/t_c/object} off, asking {PRONOUN/t_c/object} when the last time {PRONOUN/t_c/subject} slept was.]",
+            "Oh. I, um, don't have time for that. The kits need me. They have to be safe.",
+            "[You insist that {PRONOUN/t_c/object} {VERB/t_c/sleep/sleeps}, and that you'll look after the kits. Even though {PRONOUN/t_c/subject} {VERB/t_c/don't/doesn't} say it, you can tell {PRONOUN/t_c/subject} {VERB/t_c/appreciate/appreciates} the help.]"
+        ]
     ]
 }

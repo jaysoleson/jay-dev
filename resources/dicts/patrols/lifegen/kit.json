@@ -721,6 +721,65 @@
         ]
     },
     {
+        "patrol_id": "kit_infection_mango_1", 
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "border",
+            "infection",
+            "parasitic"
+        ],
+        "patrol_art": "lg_kit_default",
+        "min_cats": 1,
+        "max_cats": 1,
+        "min_max_status": {},
+        "weight": 10,
+        "intro_text": "Feeling quite bored with the nursery and envious of all the apprentices and warriors, you decide that you're ready to explore the territory like they do. You squeeze through the gaps of the camp walls undetected, and while you explore the territory, a strong foul smell suddenly catches you off guard.",
+        "decline_text": "Feeling uneasy by the smell, you decide not to investigate further and return to the nursey. If only you could avoid the lecture that followed with your return!",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "You follow the smell to a shadowy corner and discover a sickly, infected cat huddled among the leaves and debris. The infected cat is a gaunt, scruffy creature with fur matted and clumped together. Their pelt is mishmash of dirt and grime, streaked through by tangled clumps of fur. Their eyes are dull and cloudy, half-closed, and seem to show but a flicker of life behind them. The sight alone makes you tremble with fear, and you hastily retreat back to the safety of the camp.",
+                "exp": 10,
+                "weight": 10,
+                "new_cat": [
+                    ["rogue", "meeting"]
+                ],
+                "injury": [
+                    {
+                        "cats": ["n_c:0"],
+                        "injuries": ["stage four"],
+                        "no_results": true
+                    }
+                ]
+            },
+            {
+                "text": "You follow the scent all the way to a shallow hole, inside of which you discover the skeleton of an infected cat. Feeling queasy, you stumble back to camp.",
+                "exp": 5,
+                "weight": 30
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You creep forward to investigate, but you find nothing. By the time you return to camp, your Clanmates have been worried sick about you, and you recieve a lecture about sneaking out.",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "As you creep forward to investigate the noise, you hear a hiss from the shadows and instantly turn to run back to camp, not wanting to find out who-- or what-- that was.",
+                "exp": 0,
+                "weight": 20
+            }
+        ]
+    },
+    {
         "patrol_id": "kitten_infection_beginning_1",
         "biome": [
             "Any"

@@ -5345,5 +5345,21 @@
             "[You bat it back eagerly and the game is on. r_q watches the game with a smile.]",
             "[In the end, you're exhausted, and t_c flops against you with {PRONOUN/t_c/poss} whole body vibrating with a purr!]"
         ]
+    ],
+    "infection_insult_lyric_6": [
+        [
+            "they_kitten",
+            "insult",
+            "any",
+            "you_not_infected",
+            "you_kitten",
+            "infection",
+            "you_blind",
+            "they_blind"
+        ],
+        [
+            "Well, you're a meanie!",
+            "I hope inf_c gives you a badger ride and infects you!"
+        ]
     ]
 }

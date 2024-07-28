@@ -3412,5 +3412,25 @@
             "[With a smile you tell {PRONOUN/t_c/object} to ask r_w to take whichever patrol {PRONOUN/t_c/subject} {VERB/t_c/don't/doesn't} want to do.]",
             "[t_c beams at you and nods before walking off with {PRONOUN/t_c/poss} head held high. Problem solved!]"
         ]
+    ],
+    "infection_lyric_2": [
+        [
+            "50_percent_infected",
+            "they_not_infected",
+            "you_not_infected",
+            "they_apprentice",
+            "no_kit",
+            "any",
+            "introsepctive",
+            "neurotic",
+            "stable",
+            "infection",
+            "you_blind",
+            "they_blind"
+        ],
+        [
+            "I'm scared that I won't get to have a ceremony for when I become a warrior...",
+            "I mean, it's not like many cats would be able to come... Right?"
+        ]
     ]
 }

@@ -913,7 +913,7 @@
                 "exp": 10,
                 "weight": 20,
                 "new_cat": [
-                    ["rogue", "meeting", "story:1"]
+                    ["rogue", "meeting"]
                 ],
                 "cure_log": [
                     {

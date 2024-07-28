@@ -395,5 +395,17 @@
             "apprentice",
             "kitten"
         ]
-    }     
+    },
+    {
+        "id": "medcat_infected",
+        "thoughts": [
+            "Hasn't slept in days"
+        ],
+        "main_infected_constraint": [
+            "not_infected"
+        ],
+        "main_cluster_constraint": [
+            "neurotic"
+        ]
+    }
 ]

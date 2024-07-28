@@ -2882,5 +2882,27 @@
         "main_infected_constraint": [
             "infected"
         ]
+    },
+    {
+        "id": "neurotic_infected",
+        "thoughts": [
+            "Coughs and then panics, thinking {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} infected"
+        ],
+        "main_cluster_constraint": [
+            "neurotic"
+        ],
+        "main_infected_constraint": [
+            "not_infected"
+        ]
+    },
+    {
+        "id": "gen_infected_rc",
+        "thoughts": "Saw r_c getting dragged out of the medicine den",
+        "main_infected_constraint": [
+            "not_infected"
+        ],
+        "random_infected_constraint": [
+            "infected"
+        ]
     }
 ]
