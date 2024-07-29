@@ -18,7 +18,7 @@ from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
 from scripts.cat.pelts import Pelt
 from scripts.game_structure.windows import GameOver, PickPath, DeathScreen
-from scripts.game_structure.image_button import UIImageButton, UISpriteButton, UIRelationStatusBar
+from scripts.game_structure.ui_elements import UIImageButton, UISpriteButton, UIRelationStatusBar
 from scripts.game_structure.game_essentials import game, screen, screen_x, screen_y, MANAGER
 from scripts.game_structure.windows import RelationshipLog
 from scripts.game_structure.propagating_thread import PropagatingThread
@@ -57,26 +57,42 @@ class PriorityHerbScreen(Screens):
             self.herb_displays[ele].kill()
         self.herb_displays = {}
 
-        self.herb_displays["title"] = pygame_gui.elements.UITextBox("<u>Priority Herb</u>",
-                                                        scale(pygame.Rect((300, 80), (1000, 80))),
-                                                        object_id=get_text_box_theme("#text_box_34_horizcenter"),
-                                                        manager=MANAGER)
+        self.herb_displays["title"] = pygame_gui.elements.UITextBox(
+            "<u>Priority Herb</u>",
+            scale(pygame.Rect((300, 80), (1000, 80))),
+            object_id=get_text_box_theme("#text_box_34_horizcenter"),
+            manager=MANAGER
+        )
         
-        self.herb_displays["subtitle"] = pygame_gui.elements.UITextBox(f"{game.clan.name}Clan will focus their efforts into finding more:",
-                                                        scale(pygame.Rect((300, 880), (1000, 80))),
-                                                        object_id=get_text_box_theme("#text_box_30_horizcenter"),
-                                                        manager=MANAGER)
+        self.herb_displays["subtitle"] = pygame_gui.elements.UITextBox(
+            f"{game.clan.name}Clan will focus their efforts into finding more:",
+            scale(pygame.Rect((300, 880), (1000, 80))),
+            object_id=get_text_box_theme("#text_box_30_horizcenter"),
+            manager=MANAGER
+        )
 
-        if game.settings["dark mode"]:
-            self.herb_displays["herbs"] = pygame_gui.elements.UITextBox(f"<font color='#A2D86C'>{self.priorityherb.replace('_', ' ')}</font>",
-                                                    scale(pygame.Rect((300, 950), (1000, 80))),
-                                                    object_id=get_text_box_theme("#text_box_34_horizcenter"),
-                                                    manager=MANAGER)
+        if self.priorityherb is not None:
+            if game.settings["dark mode"]:
+                self.herb_displays["herbs"] = pygame_gui.elements.UITextBox(
+                    f"<font color='#A2D86C'>{self.priorityherb.replace('_', ' ')}</font>",
+                    scale(pygame.Rect((300, 950), (1000, 80))),
+                    object_id=get_text_box_theme("#text_box_34_horizcenter"),
+                    manager=MANAGER
+                )
+            else:
+                self.herb_displays["herbs"] = pygame_gui.elements.UITextBox(
+                    f"<font color='#136D05'>{self.priorityherb.replace('_', ' ')}</font>",
+                    scale(pygame.Rect((300, 950), (1000, 80))),
+                    object_id=get_text_box_theme("#text_box_34_horizcenter"),
+                    manager=MANAGER
+                )
         else:
-            self.herb_displays["herbs"] = pygame_gui.elements.UITextBox(f"<font color='#136D05'>{self.priorityherb.replace('_', ' ')}</font>",
-                                                    scale(pygame.Rect((300, 950), (1000, 80))),
-                                                    object_id=get_text_box_theme("#text_box_34_horizcenter"),
-                                                    manager=MANAGER)
+            self.herb_displays["herbs"] = pygame_gui.elements.UITextBox(
+                "None",
+                scale(pygame.Rect((300, 950), (1000, 80))),
+                object_id=get_text_box_theme("#text_box_34_horizcenter"),
+                manager=MANAGER
+            )
 
     def update_herb_buttons(self):
         """ Displays and updates herb buttons """

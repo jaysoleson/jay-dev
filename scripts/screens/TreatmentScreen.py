@@ -18,7 +18,7 @@ from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
 from scripts.cat.pelts import Pelt
 from scripts.game_structure.windows import GameOver, PickPath, DeathScreen
-from scripts.game_structure.image_button import UIImageButton, UISpriteButton, UIRelationStatusBar
+from scripts.game_structure.ui_elements import UIImageButton, UISpriteButton, UIRelationStatusBar
 from scripts.game_structure.game_essentials import game, screen, screen_x, screen_y, MANAGER
 from scripts.game_structure.windows import RelationshipLog
 from scripts.game_structure.propagating_thread import PropagatingThread
@@ -556,7 +556,7 @@ class TreatmentScreen(Screens):
             # more likely to work if theyre not an app
         
         medcats = [i for i in Cat.all_cats.values() if
-                  (i.status == 'medicine cat' or i.status == 'medicine cat apprentice') and not i.dead and not i.outside and not i.not_working() and i.infected_for == 0]
+                  (i.status == 'medicine cat' or i.status == 'medicine cat apprentice') and not i.dead and not i.outside and not i.not_working() and i.infected_for < 1]
         
 
         if len(medcats) == 2:
@@ -581,7 +581,7 @@ class TreatmentScreen(Screens):
 
         medcats = []
         for cat in Cat.all_cats_list:
-            if cat.status in ["medicine cat", "medicine cat apprentice"] and not cat.not_working() and cat.infected_for == 0 and not cat.outside and not cat.dead:
+            if cat.status in ["medicine cat", "medicine cat apprentice"] and not cat.not_working() and cat.infected_for < 1 and not cat.outside and not cat.dead:
                 medcats.append(cat)
         self.the_cat = choice(medcats)
 
@@ -715,7 +715,7 @@ class TreatmentScreen(Screens):
                 remission_chance -= remission_chance / 2
             
             medcats = [i for i in Cat.all_cats.values() if
-                (i.status == 'medicine cat' or i.status == 'medicine cat apprentice') and not i.dead and not i.outside and not i.not_working() and i.infected_for == 0]
+                (i.status == 'medicine cat' or i.status == 'medicine cat apprentice') and not i.dead and not i.outside and not i.not_working() and i.infected_for < 1]
             
             if len(medcats) < 2:
                 remission_chance += len(medcats) / 5

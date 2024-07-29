@@ -7,7 +7,7 @@ from scripts.utility import scale
 
 from .Screens import Screens
 
-from scripts.utility import generate_sprite, get_cluster, pronoun_repl, get_alive_cats, get_alive_status_cats
+from scripts.utility import generate_sprite, get_cluster, pronoun_repl, get_alive_cats, get_alive_status_cats, create_new_cat
 from scripts.cat.cats import Cat
 from scripts.cat_relations.relationship import Relationship
 from scripts.game_structure import image_cache
@@ -503,14 +503,14 @@ class TalkScreen(Screens):
             if "infection" in tags and game.clan.infection["clan_infected"] is False:
                 continue
 
-            if "you_infected" in tags and you.infected_for == 0:
+            if "you_infected" in tags and you.infected_for < 1:
                 continue
             elif "you_not_infected" in tags and you.infected_for > 0:
                 continue
 
-            if "they_infected" in tags and cat.infected_for == 0:
+            if "they_infected" in tags and cat.infected_for < 1:
                 continue
-            elif "they_not_infected" in tags and cat.infected_for > 0:
+            elif "they_not_infected" in tags and cat.infected_for < 1:
                 continue
 
             nope = False 
@@ -1597,8 +1597,8 @@ class TalkScreen(Screens):
                         # Here, we handle the outcomes of the story dialogues
                         if match.group(1).endswith("step_2"):
                             if game.clan.infection["story"] == "1":
-                                # making the new cat!
-                                sunflower = create_new_cat(Cat, Relationship,
+                                # making the new story 1 cat!
+                                sunflower = create_new_cat(Cat,
                                                 new_name=False,
                                                 status=choice(["rogue"]),
                                                 alive=False,
@@ -1657,7 +1657,7 @@ class TalkScreen(Screens):
                         if match.group(1).endswith("step_2"):
                             if game.clan.infection["story"] == "1":
                                 # making the new story 1 cat!
-                                sunflower = create_new_cat(Cat, Relationship,
+                                sunflower = create_new_cat(Cat,
                                                 new_name=False,
                                                 status=choice(["rogue"]),
                                                 alive=False,

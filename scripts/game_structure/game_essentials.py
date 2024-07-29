@@ -588,6 +588,8 @@ class Game:
                     "story_cat_3": None,
                     "story_cat_4": None,
                     "story_finished": False,
+                    "past_stories": [],
+                    "story_break_moons": [],
                     "priority_herb": None
                 }
                 

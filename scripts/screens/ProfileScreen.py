@@ -687,6 +687,8 @@ class ProfileScreen(Screens):
             elif event.ui_element == self.exile_cat_button:
                 if not self.the_cat.dead and not self.the_cat.exiled:
                     Cat.exile(self.the_cat)
+                    if self.the_cat.quarantined:
+                        self.the_cat.quarantined = False
                     self.clear_profile()
                     self.build_profile()
                     self.update_disabled_buttons_and_text()
@@ -1836,6 +1838,10 @@ class ProfileScreen(Screens):
                 output += "guilty!"
             else:
                 output += "injured!"
+
+            # NEWLINE ----------
+            output += "\n"
+
         elif the_cat.is_ill():
             if "grief stricken" in the_cat.illnesses:
                 output += "grieving!"
@@ -1843,8 +1849,17 @@ class ProfileScreen(Screens):
                 output += "flea-ridden!"
             else:
                 output += "sick!"
-        if f"{inftype} stage one" in the_cat.illnesses or f"{inftype} stage two" in the_cat.illnesses or f"{inftype} stage three" in the_cat.illnesses or f"{inftype} stage four" in the_cat.illnesses: #im too lazy to compact this Sue me
-            output += "\n<font color='#FF0000'>infected</font>"
+
+            # NEWLINE ----------
+            output += "\n"
+
+        if the_cat.infected_for > 0:
+            output += "<font color='#FF0000'>infected</font>"
+        elif the_cat.infected_for == -1 and "no_reinfection" in game.clan.infection["logs"]:
+            if game.settings["dark mode"]:
+                output += "<font color='#A2D86C'>immune </font>"
+            else:
+                output += "<font color='#136D05'>immune </font>"
 
         return output
 
@@ -3393,6 +3408,10 @@ class ProfileScreen(Screens):
                 self.quarantine_button.disable()
             else:
                 self.quarantine_button.enable()
+
+            if self.the_cat.outside:
+                self.quarantine_button.disable()
+                self.remove_quarantine_button.disable()
 
             if not self.the_cat.dead:
                 self.exile_cat_button = UIImageButton(

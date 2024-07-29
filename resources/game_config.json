@@ -453,7 +453,7 @@
 		"kit_gain_infection_chance is the base chance for kits with infected blood parents to be born infected."
 	],
 
-	"debug_ensure_story_dialogue": false,
+	"debug_ensure_story_dialogue": true,
 	"INFECTION_comment_2": "All story-related dialogue will be given as soon as it's available. Remember that not all story beats are dialogue, though.",
 
 	"debug_ensure_dialogue": "infection_J15",

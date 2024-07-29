@@ -148,6 +148,27 @@ class Events:
         game.clan.age += 1
         if game.clan.infection["clan_infected"]:
             game.clan.infection["infection_moons"] += 1
+
+        if game.clan.infection["story_finished"] is True:
+            game.clan.infection["story_break_moons"] += 1
+        
+        if game.clan.infection["story_break_moons"] == 10: # put this in game config maybe
+            print("STORY RESET")
+            game.clan.infection["story_finished"] = False
+            game.clan.infection["story_break_moons"] = 0
+            game.clan.infection["past_stories"].append(game.clan.infection["story"])
+            for log in game.clan.infection["logs"].copy():
+                if log.startswith(f"story_{game.clan.infection['story']}"):
+                    game.clan.infection["logs"].remove(log)
+            game.clan.infection["story"] = None
+            game.clan.infection["story_cat_1"] = None
+            game.clan.infection["story_cat_2"] = None
+            game.clan.infection["story_cat_3"] = None
+            game.clan.infection["story_cat_4"] = None
+
+            # clearing the story info after a while so we can get another one!
+
+
         get_current_season()
         Pregnancy_Events.handle_pregnancy_age(game.clan)
         self.check_war()
@@ -609,7 +630,7 @@ class Events:
                             already_second = True
                 first = game.clan.infection["story_cat_1"]
                 if not already_second:
-                    eligible_cats = [cat for cat in Cat.all_cats_list if cat.status not in ["newborn", "kitten", "elder"] and cat.moons > 10 and cat.moons < 90 and cat.infected_for == 0 and cat.ID != game.clan.your_cat.ID and not cat.outside and not cat.dead and not cat.exiled and cat.ID != first]
+                    eligible_cats = [cat for cat in Cat.all_cats_list if cat.status not in ["newborn", "kitten", "elder"] and cat.moons > 10 and cat.moons < 90 and cat.infected_for < 1 and cat.ID != game.clan.your_cat.ID and not cat.outside and not cat.dead and not cat.exiled and cat.ID != first]
                     second = random.choice(eligible_cats)
                     game.clan.infection["story_cat_2"] = second.ID
                     print(second.name, "is now the second story cat")
@@ -1804,7 +1825,7 @@ class Events:
 
         increase_chance = 0
         for clan in game.clan.all_clans:
-            if clan.infection_level > 0:
+            if int(clan.infection_level) > 0:
                 if clan.temperament in temperament_list:
                     index = temperament_list.index(clan.temperament)
                     increase_amount = int(chance_increase[index])
@@ -1817,7 +1838,7 @@ class Events:
                     clan.infection_level += increase
                 
             # clan infection events
-            if clan.infection_level == 0:
+            if int(clan.infection_level) == 0:
                 if random.randint(1,30) == 1:
                     events = [
                         f"{clan.name}Clan looked well at the last Gathering. Perhaps the infection hasn't reached them yet.",
@@ -1825,7 +1846,7 @@ class Events:
                     ]
                     text = random.choice(events)
                     game.cur_events_list.insert(0, Single_Event(text, ["other_clans", "infection"]))
-            elif clan.infection_level <= 10:
+            elif int(clan.infection_level) <= 10:
                 if random.randint(1,30) == 1:
                     events = [
                         f"A {clan.name}Clan medicine cat is seen on the border. They ask for herbs, and though they refuse to say why they need them, the unmistakable scent of the infection clings to their pelt.",
@@ -1834,7 +1855,7 @@ class Events:
                     text = random.choice(events)
                     game.cur_events_list.insert(0, Single_Event(text, ["other_clans", "infection"]))
 
-            elif clan.infection_level <= 40:
+            elif int(clan.infection_level) <= 40:
                 chance = 20
                 if random.randint(1,20) == 1:
                     events = [
@@ -1844,7 +1865,7 @@ class Events:
                     text = random.choice(events)
                     game.cur_events_list.insert(0, Single_Event(text, ["other_clans", "infection"]))
 
-            elif clan.infection_level <= 80:
+            elif int(clan.infection_level) <= 80:
                 chance = 10
                 if random.randint(1,10) == 1:
                     events = [
@@ -1856,7 +1877,7 @@ class Events:
                     text = random.choice(events)
                     game.cur_events_list.insert(0, Single_Event(text, ["other_clans", "infection"]))
 
-            elif clan.infection_level >= 100 and clan.name not in game.clan.infection["fallen_clans"]:
+            elif int(clan.infection_level) >= 100 and clan.name not in game.clan.infection["fallen_clans"]:
 
                 game.clan.infection["fallen_clans"].append(clan.name)
                 game.clan.all_clans.remove(clan)
@@ -2216,20 +2237,20 @@ class Events:
                                                 sort=True)
         for med in meds_available:
             if game.clan.infection["infection_moons"] >= 40 and game.clan.infection["infection_type"] == "fungal":
-                    # da fungus kills da herbs.......
-                    amount = random.choices([0, 1], [3, 1], k=1)
-                    if "herb_death" not in game.clan.infection["logs"]:
-                        game.clan.infection["logs"].append("herb_death")
+                # da fungus kills da herbs.......
+                amount = random.choices([0, 1], [3, 1], k=1)
+                if "herb_death" not in game.clan.infection["logs"]:
+                    game.clan.infection["logs"].append("herb_death")
 
-                        herb = random.choice(HERBS)
-                        counter = 0
-                        while herb in ["cobwebs", "moss"]:
-                            counter += 1
-                            if counter == 30:
-                                herb = "catmint"
-                        
-                        text = f"On a run out of camp for some herbs, the medicine cats discover that a potent patch of fungus has destroyed their {herb.replace('_', ' ')} supply. It won't be long before this starts affecting the rest of the herbs in the territory. \nYour log has been updated."
-                        game.cur_events_list.insert(0, Single_Event(text, ["alert", "infection"]))
+                    herb = random.choice(HERBS)
+                    counter = 0
+                    while herb in ["cobwebs", "moss"]:
+                        counter += 1
+                        if counter == 30:
+                            herb = "catmint"
+                    
+                    text = f"On a run out of camp for some herbs, the medicine cats discover that a potent patch of fungus has destroyed their {herb.replace('_', ' ')} supply. It won't be long before this starts affecting the rest of the herbs in the territory. \nYour log has been updated."
+                    game.cur_events_list.insert(0, Single_Event(text, ["alert", "infection"]))
             else:
                 if game.clan.current_season in ["Newleaf", "Greenleaf"]:
                     amount = random.choices([0, 1, 2, 3], [1, 2, 2, 2], k=1)
@@ -2238,7 +2259,11 @@ class Events:
                 else:
                     amount = random.choices([0, 1], [3, 1], k=1)
                 if amount[0] != 0:
-                    herbs_found = random.sample(HERBS, k=amount[0])
+                    herblist = HERBS.copy()
+                    if game.clan.infection["priority_herb"] is not None:
+                        weight = 25
+                        herblist.extend([game.clan.infection["priority_herb"]] * weight)
+                    herbs_found = random.sample(herblist, k=amount[0])
                     herb_display = []
                     for herb in herbs_found:
                         if herb in ["blackberry"]:
@@ -2882,7 +2907,6 @@ class Events:
         
         if cat.cure_progress > 0:
             cat.cure_progress += 1
-            print(cat.name, cat.cure_progress)
             if cat.cure_progress == game.config["cure_moons"]:
                 for stage in stages:
                     if stage in cat.illnesses:

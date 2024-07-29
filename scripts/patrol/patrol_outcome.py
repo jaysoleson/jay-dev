@@ -243,6 +243,10 @@ class PatrolOutcome:
                                            patrol_leader=patrol.patrol_leader,
                                            random_cat=patrol.random_cat,
                                            stat_cat=self.stat_cat,
+                                           story_cat_1 = Cat.all_cats.get(game.clan.infection["story_cat_1"]),
+                                           story_cat_2 = Cat.all_cats.get(game.clan.infection["story_cat_2"]),
+                                           story_cat_3 = Cat.all_cats.get(game.clan.infection["story_cat_3"]),
+                                           story_cat_4 = Cat.all_cats.get(game.clan.infection["story_cat_4"]),
                                            patrol_cats=patrol.patrol_cats,
                                            patrol_apprentices=patrol.patrol_apprentices,
                                            new_cats=patrol.new_cats,
@@ -523,7 +527,7 @@ class PatrolOutcome:
             
             for _cat in cat_list:
                 if _cat == "r_c":
-                    out_set.add(patrol.patrol_random_cat)
+                    out_set.add(patrol.random_cat)
                 elif _cat == "p_l":
                     out_set.add(patrol.patrol_leader)
                 elif _cat == "s_c":
@@ -569,7 +573,7 @@ class PatrolOutcome:
             
             for _cat in cat_list:
                 if _cat == "r_c":
-                    out_set.add(patrol.patrol_random_cat)
+                    out_set.add(patrol.random_cat)
                 elif _cat == "p_l":
                     out_set.add(patrol.patrol_leader)
                 elif _cat == "s_c":
@@ -643,6 +647,7 @@ class PatrolOutcome:
                 results.append("")
             if entry.endswith("step_4"):
                 print("story finished!")
+                game.clan.infection["story_finished"] = True
 
         # now add it to the log!
         cure_logs = set()
@@ -667,7 +672,7 @@ class PatrolOutcome:
             
             for _cat in cat_list:
                 if _cat == "r_c":
-                    out_set.add(patrol.patrol_random_cat)
+                    out_set.add(patrol.random_cat)
                 elif _cat == "p_l":
                     out_set.add(patrol.patrol_leader)
                 elif _cat == "s_c":
@@ -716,6 +721,9 @@ class PatrolOutcome:
         results = []
         condition_lists = INJURY_GROUPS
 
+        # INFECTION
+        stages = ["stage one", "stage two", "stage three", "stage four"]
+
         for block in self.injury:
             cats = gather_cat_objects(Cat, block.get("cats", ()), patrol, self.stat_cat)
             injury = block.get("injuries", ())
@@ -731,6 +739,8 @@ class PatrolOutcome:
                     possible_injuries.extend(condition_lists[_tag])
                 elif _tag in INJURIES or _tag in ILLNESSES or _tag in PERMANENT:
                     possible_injuries.append(_tag)
+                elif _tag in stages:
+                    possible_injuries.append(f"{game.clan.infection['infection_type']} {_tag}")
 
             lethal = True
             if "non_lethal" in injury:
@@ -810,7 +820,7 @@ class PatrolOutcome:
             
             for _cat in cat_list:
                 if _cat == "r_c":
-                    out_set.add(patrol.patrol_random_cat)
+                    out_set.add(patrol.random_cat)
                 elif _cat == "p_l":
                     out_set.add(patrol.patrol_leader)
                 elif _cat == "s_c":
@@ -867,7 +877,7 @@ class PatrolOutcome:
             
             for _cat in cat_list:
                 if _cat == "r_c":
-                    out_set.add(patrol.patrol_random_cat)
+                    out_set.add(patrol.random_cat)
                 elif _cat == "p_l":
                     out_set.add(patrol.patrol_leader)
                 elif _cat == "s_c":
@@ -1057,20 +1067,19 @@ class PatrolOutcome:
             large_bonus = True
 
         # Determine which herbs get picked
-        specfic_herbs = [x for x in self.herbs if x in HERBS]
+        specific_herbs = [x for x in self.herbs if x in HERBS]
         
         priority_herb = game.clan.infection["priority_herb"]
 
         # INFECTION: Prioritised herb gathering for random_herbs patrols
         if "random_herbs" in self.herbs:
-            weight = 13
-            selected_herbs = HERBS
+            weight = 20
+            selected_herbs = HERBS.copy()
             if priority_herb is not None:
                 selected_herbs.extend([priority_herb] * weight)
 
-            print("random herbs", selected_herbs)
-
-            specfic_herbs += random.sample(selected_herbs, k=choices([1, 2, 3], [6, 5, 1], k=1)[0])
+            specific_herbs += random.sample(selected_herbs, k=choices([1, 2, 3], [6, 5, 1], k=1)[0])
+            print(specific_herbs)
         
         else:
             if priority_herb is not None:
@@ -1086,9 +1095,9 @@ class PatrolOutcome:
                         chance -= 1
                 if chance < 1:
                     chance = 1
-                print("chance:", chance)
-                if not random.random() * chance:
-                    specfic_herbs.extend([priority_herb])
+                if not int(random.random() * chance):
+                    print("PRIORITY HERB ADDED TO FIXED HERB PATROL")
+                    specific_herbs.extend([priority_herb])
             
         # Remove duplicates
         specific_herbs = list(set(specific_herbs))
@@ -1242,7 +1251,7 @@ class PatrolOutcome:
         # GATHER MATES
         in_patrol_cats = {
             "p_l": patrol.patrol_leader,
-            "r_c": patrol.patrol_random_cat,
+            "r_c": patrol.random_cat,
         }
         if self.stat_cat:
             in_patrol_cats["s_c"] = self.stat_cat

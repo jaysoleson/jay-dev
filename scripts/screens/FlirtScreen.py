@@ -410,12 +410,12 @@ class FlirtScreen(Screens):
             if "infection" in tags and game.clan.infection["clan_infected"] is False:
                 continue
 
-            if "you_infected" in tags and you.infected_for == 0:
+            if "you_infected" in tags and you.infected_for < 1:
                 continue
             elif "you_not_infected" in tags and you.infected_for > 0:
                 continue
 
-            if "they_infected" in tags and cat.infected_for == 0:
+            if "they_infected" in tags and cat.infected_for < 1:
                 continue
             elif "they_not_infected" in tags and cat.infected_for > 0:
                 continue

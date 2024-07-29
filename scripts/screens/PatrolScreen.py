@@ -730,10 +730,13 @@ class PatrolScreen(Screens):
 
         # ASSIGN TO ABLE CATS
         for the_cat in Cat.all_cats_list:
+            # INFECTION: allowing stage ones to still go on patrol. bc im nice
+            stages = [f"{game.clan.infection['infection_type']} stage two", f"{game.clan.infection['infection_type']} stage three", f"{game.clan.infection['infection_type']} stage four"]
+
             if the_cat.ID == game.clan.your_cat.ID and the_cat.status not in [
                 'elder', 'kitten', 'mediator', 'mediator apprentice', "queen", "queen's apprentice", "newborn"
             ] and not the_cat.outside and the_cat not in self.current_patrol and not the_cat.not_working() \
-                    and not the_cat.dead and not the_cat.shunned and the_cat.infected_for < 1:
+                    and not the_cat.dead and not the_cat.shunned and not any(i in the_cat.illnesses for i in stages):
                 if "patrolled" not in game.switches:
                     game.switches['patrolled'] = []
                 if "1" not in game.switches['patrolled']:
@@ -741,7 +744,7 @@ class PatrolScreen(Screens):
 
             elif not the_cat.dead and the_cat.in_camp and the_cat.ID not in game.patrolled and the_cat.status not in [
                 'elder', 'kitten', 'mediator', 'mediator apprentice', "queen", "queen's apprentice", "newborn"
-            ] and not the_cat.outside and the_cat not in self.current_patrol and not the_cat.not_working() and not the_cat.shunned and the_cat.infected_for < 1:
+            ] and not the_cat.outside and the_cat not in self.current_patrol and not the_cat.not_working() and not the_cat.shunned and  not any(i in the_cat.illnesses for i in stages):
                 if the_cat.status == 'newborn' or game.config['fun']['all_cats_are_newborn']:
                     if game.config['fun']['newborns_can_patrol']:
                         self.able_cats.append(the_cat)

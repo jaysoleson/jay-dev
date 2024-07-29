@@ -2016,7 +2016,6 @@ class Cat:
         if (
             not self.injuries[injury]["complication"]
             and self.injuries[injury]["duration"] - moons_with <= 0
-            and self.infected_for == 0
         ):
             self.healed_condition = True
             return False
@@ -2026,7 +2025,6 @@ class Cat:
             not self.injuries[injury]["complication"]
             and game.clan.clan_settings.get("rest and recover")
             and self.injuries[injury]["duration"] + moons_prior - moons_with <= 0
-            and self.infected_for == 0
         ):
             self.healed_condition = True
             return False
@@ -2508,7 +2506,7 @@ class Cat:
     def infection_spread(self, cat: Cat):
         """ handles specific events where a cat gets the infection from someone else """
 
-        if cat.infected_for == 0:
+        if cat.infected_for < 1:
             return
         
         if self.infected_for > 0:
@@ -2556,15 +2554,13 @@ class Cat:
             chamce = int(random() * (cat.illnesses[illness]["infectiousness"] * 2))
             if cat.quarantined:
                 chamce = chamce * 0.3 # lower rate for quarantined cats
-            if game.clan.infection["spread_by"] == "air":
-                chamce = chamce * 1.5 # higher rate for airborne
+            if game.clan.infection["spread_by"] == "bite":
+                chamce = chamce * 0.75 # for a higher rate for airborne
         
-            littermate_infection = False
-            # littermates of infected newborns
+            # littermates of infected kits
             if cat.status in ["kitten", "newborn"] and self.status in ["newborn", "kitten"] and not cat.quarantined:
-                chamce = 3
-                littermate_infection = True
-
+                chamce /= 3
+            
             if self.infected_for == -1:
                 if "no_reinfection" not in game.clan.infection["logs"]:
                     event = f"{self.name} has been in contact with the infected {cat.name}, but isn't getting ill. It seems that cats who have been infected in the past are unable to become infected again!"

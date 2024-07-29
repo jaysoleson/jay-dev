@@ -8,7 +8,7 @@ from scripts.game_structure.ui_elements import (
     UIImageButton,
     UITextBoxTweaked,
 )
-from scripts.utility import get_text_box_theme, scale, get_alive_status_cats, shorten_text_to_fit, get_living_clan_cat_count
+from scripts.utility import get_text_box_theme, scale, get_alive_status_cats, shorten_text_to_fit, get_living_clan_cat_count, get_infected_clan_cat_count
 from .Screens import Screens
 from ..conditions import get_amount_cat_for_one_medic, medical_cats_condition_fulfilled
 
@@ -389,7 +389,7 @@ class MedDenScreen(Screens):
 
         medcats = []
         for cat in Cat.all_cats_list:
-            if cat.status in ["medicine cat", "medicine cat apprentice"] and not cat.not_working() and cat.infected_for == 0 and not cat.outside and not cat.dead:
+            if cat.status in ["medicine cat", "medicine cat apprentice"] and not cat.not_working() and cat.infected_for < 1 and not cat.outside and not cat.dead:
                 medcats.append(cat)
 
         if game.clan.infection["cure_attempt"] is True or get_infected_clan_cat_count(Cat) == 0 or len(medcats) <= 0:

@@ -1182,7 +1182,8 @@
         ],
         "tags": [
             "infection",
-            "story_beginning"
+            "story_beginning",
+            "story_1"
         ],
         "patrol_art": "lg_app4",
         "min_cats": 1,
@@ -1238,9 +1239,10 @@
             "new_cat"
         ],
         "tags": [
-            "infection"
+            "infection",
+            "story_beginning"
         ],
-        "patrol_art": "lg_kit_default",
+        "patrol_art": "lg_app4",
         "min_cats": 1,
         "max_cats": 3,
         "min_max_status": {},
@@ -1250,7 +1252,7 @@
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "You tell the rogue to wait, and you'll fetch {PRONOUN/n_c:0/poss} something yourself. After slowly creeping to the fresh kill pile without being detected by any guards, you grab the only prey you think you can get away with-- a single mouse. The intruder appreciates the effort, and says you're a good kid. Before {PRONOUN/n_c:0/subject} {VERB/n_c:0/leave/leaves}, {PRONOUN/n_c:0/subject} {VERB/n_c:0/give/gives} you a thankful nod and {VERB/n_c:0/turn/turns} away with {PRONOUN/n_c:0/poss} small meal. You're a bit sad to see your new friend go!",
+                "text": "You tell the rogue to wait, and you'll fetch {PRONOUN/n_c:0/object} something yourself. After slowly creeping to the fresh kill pile without being detected by any guards, you grab the only prey you think you can get away with-- a single mouse. The intruder appreciates the effort, and says you're a good kid. Before {PRONOUN/n_c:0/subject} {VERB/n_c:0/leave/leaves}, {PRONOUN/n_c:0/subject} {VERB/n_c:0/give/gives} you a thankful nod and {VERB/n_c:0/turn/turns} away with {PRONOUN/n_c:0/poss} small meal. You're a bit sad to see your new friend go!",
                 "exp": 10,
                 "weight": 20,
                 "injury": [

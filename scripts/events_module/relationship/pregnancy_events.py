@@ -1,5 +1,6 @@
 import random
 from random import choice, randint
+import math
 
 import ujson
 
@@ -261,7 +262,7 @@ class Pregnancy_Events:
                 severity = random.choices(["minor", "major"], [3, 1], k=1)
                 cat.get_injured("pregnant", severity=severity[0])
                 text += choice(Pregnancy_Events.PREGNANT_STRINGS[f"{severity[0]}_severity"])
-            text = event_text_adjust(Cat, text, cat, clan=clan)
+            text = event_text_adjust(Cat, text, main_cat=cat, clan=clan)
             if infectionevent:
                 game.cur_events_list.append(Single_Event(text, ["birth_death", "infection"], cat.ID))
             else:
@@ -322,7 +323,7 @@ class Pregnancy_Events:
                 severity = random.choices(["minor", "major"], [3, 1], k=1)
                 pregnant_cat.get_injured("pregnant", severity=severity[0])
                 text += choice(Pregnancy_Events.PREGNANT_STRINGS[f"{severity[0]}_severity"])
-            text = event_text_adjust(Cat, text, pregnant_cat, clan=clan)
+            text = event_text_adjust(Cat, text, main_cat=pregnant_cat, clan=clan)
             if infectionevent:
                 game.cur_events_list.append(Single_Event(text, ["birth_death", "infection"], pregnant_cat.ID))
             else:

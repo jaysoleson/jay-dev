@@ -613,7 +613,7 @@ class Patrol:
                 steps = ["1", "2", "3", "4"]
                 skip = False
                 for story in stories:
-                    if f"story_{story}" in patrol.tags and game.clan.infection["story"] != story:
+                    if f"story_{story}" in patrol.tags and ((game.clan.infection["story"] is not None and game.clan.infection["story"] != story) or story in game.clan.infection["past_stories"]):
                         skip = True
 
                     for step in steps:
@@ -1192,20 +1192,20 @@ class Patrol:
 
         replace_dict = {
             "p_l": (str(self.patrol_leader.name), choice(self.patrol_leader.pronouns)),
-            "r_c": (str(self.patrol_random_cat.name), choice(self.patrol_random_cat.pronouns)),
+            "r_c": (str(self.random_cat.name), choice(self.random_cat.pronouns)),
             "y_c": (str(game.clan.your_cat.name), choice(game.clan.your_cat.pronouns))
         }
 
         if sc1 is not None:
-            replace_dict["sc_1"] =  (str(sc1.name), choice(sc1.pronouns))
+            replace_dict["sc_1"] = (str(sc1.name), choice(sc1.pronouns))
         if sc2 is not None:
-            replace_dict["sc_2"] =  (str(sc2.name), choice(sc2.pronouns))
+            replace_dict["sc_2"] = (str(sc2.name), choice(sc2.pronouns))
         if sc3 is not None:
-            replace_dict["sc_3"] =  (str(sc3.name), choice(sc3.pronouns))
+            replace_dict["sc_3"] = (str(sc3.name), choice(sc3.pronouns))
         if sc4 is not None:
-            replace_dict["sc_4"] =  (str(sc4.name), choice(sc4.pronouns))
+            replace_dict["sc_4"] = (str(sc4.name), choice(sc4.pronouns))
 
-        other_cats = [i for i in self.patrol_cats if i not in [self.patrol_leader, self.patrol_random_cat, game.clan.your_cat]]
+        other_cats = [i for i in self.patrol_cats if i not in [self.patrol_leader, self.random_cat, game.clan.your_cat]]
         if game.current_screen == "patrol screen4":
             other_cats = [i for i in self.patrol_cats if i not in [self.random_cat, game.clan.your_cat]]
         if len(other_cats) >= 1:

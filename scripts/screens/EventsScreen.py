@@ -13,6 +13,8 @@ from scripts.utility import (
     scale,
     shorten_text_to_fit,
     clan_symbol_sprite,
+    get_non_infected_clan_cat_count,
+    get_infected_clan_cat_count
 )
 from .Screens import Screens
 from ..cat.cats import Cat
@@ -132,10 +134,10 @@ class EventsScreen(Screens):
                 self.cat_icon.hide()
 
                 if len(game.clan.infection["logs"]) > 0:
-                    self.log_button.enable()
+                    self.log_button.show()
                     self.priority_herb_button.show()
                 else:
-                    self.log_button.disable()
+                    self.log_button.hide()
                     self.priority_herb_button.hide()
                     
             
@@ -520,7 +522,7 @@ class EventsScreen(Screens):
         self.update_display_events_lists()
 
         self.clan_symbol = pygame_gui.elements.UIImage(
-            scale(pygame.Rect((255, 220), (200, 200))),
+            scale(pygame.Rect((300, 220), (200, 200))),
             pygame.transform.scale(clan_symbol_sprite(game.clan), (200, 200)),
             object_id=f"clan_symbol",
             starting_height=1,
@@ -574,7 +576,7 @@ class EventsScreen(Screens):
         elif game.clan.your_cat.moons == 1:
             self.clan_age.set_text(f'Your age: {game.clan.your_cat.moons} moon')
 
-        self.log_button = UIImageButton(scale(pygame.Rect((320, 250), (164, 148))), "", object_id="#log_button"
+        self.log_button = UIImageButton(scale(pygame.Rect((1280, 250), (164, 148))), "", object_id="#log_button"
                                              , manager=MANAGER)
         
         self.priority_herb_button = UIImageButton(scale(pygame.Rect((160, 268), (120, 120))), "", object_id="#change_priority_herb_button"
@@ -591,10 +593,10 @@ class EventsScreen(Screens):
                                              , manager=MANAGER)
         self.death_button.hide()
         if len(game.clan.infection["logs"]) > 0:
-            self.log_button.enable()
+            self.log_button.show()
             self.priority_herb_button.show()
         else:
-            self.log_button.disable()
+            self.log_button.hide()
             self.priority_herb_button.hide()
 
         if game.switches['continue_after_death']:

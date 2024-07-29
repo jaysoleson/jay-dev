@@ -401,6 +401,7 @@ class Condition_Events:
                 if chosen_illness in ["running nose", "stomachache"]:
                     event_string = f"{cat.name} has gotten a {chosen_illness}."
                 elif chosen_illness == f"{inftype} stage one":
+                    insert = ""
 
                     infected_cats = [cat for cat in Cat.all_cats_list if not cat.outside and not cat.dead and cat.infected_for > 0]
 
@@ -412,7 +413,7 @@ class Condition_Events:
                         ]
                         if "spread_by_bite" not in game.clan.infection["logs"]:
                             game.clan.infection["logs"].append("spread_by_bite")
-                            event_string += "\nYour log has been updated."
+                            insert= "\nYour log has been updated."
                         cat.get_injured("cat bite")
                     elif game.clan.infection["spread_by"] == "air":
                         strings = [
@@ -423,13 +424,13 @@ class Condition_Events:
                         
                         if "spread_by_air" not in game.clan.infection["logs"]:
                             game.clan.infection["logs"].append("spread_by_air")
-                            event_string += "\nYour log has been updated."
+                            insert= "\nYour log has been updated."
                     
                     if len(infected_cats) > 5:
                         strings.append(f"The Clan is often kept awake at night by the pained wails of infected cats, but tonight, you notice that a new voice has joined their numbers. {cat.name} has been infected.")
 
                     event_string = random.choice(strings)
-                    print("infection event string worked af")
+                    event_string += insert
                     infection_events.append(event_string)
                     cat.infected_for += 1
                 else:
@@ -716,7 +717,7 @@ class Condition_Events:
         # choose event string
         random_index = int(random.random() * len(possible_string_list))
         event = possible_string_list[random_index]
-        event = event_text_adjust(Cat, event, cat, other_cat=None)  # adjust the text
+        event = event_text_adjust(Cat, event, main_cat=cat, random_cat=None)  # adjust the text
         game.cur_events_list.append(Single_Event(event, ["health", "infection"], cat.ID))
 
     @staticmethod
@@ -871,7 +872,7 @@ class Condition_Events:
         event_string = None
         if len(event_list) > 0:
             event_string = " ".join(event_list)
-        return event_string
+        return event_string, infection_event
 
     @staticmethod
     def handle_already_injured(cat):
@@ -1256,7 +1257,6 @@ class Condition_Events:
             infection_event = False
             if risk["name"] in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]:
                 if cat.cure_progress > 0:
-                    print("not progressing illness for", cat.name)
                     return
                 infection_event = True
                 chance /= 2
