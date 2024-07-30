@@ -230,6 +230,8 @@ class WarriorDenScreen(Screens):
                 container=self.focus["button_container"],
                 starting_height=2,
                 manager=MANAGER)
+            
+            print(desc[4])
 
             if game.clan.clan_settings[code]:
                 self.focus_buttons[code].disable()

@@ -1,6 +1,6 @@
 {
     "start": "There is infection in the Clan.",
-    "discovered": "The Clan has met an outsider with a mysterious illness. The Clan will keep an eye on it.",
+    "discovered": "The Clan has come across a bizarre illness. The Clan will keep an eye on it.",
     "fungal_1": "The disease appears to be fungal in nature.",
     "parasitic_1": "The infection seems to be caused by some sort of parasite.",
     "void_1": "The infection seems to be... supernatural, in origin. Proceed with caution.",
@@ -15,10 +15,10 @@
     "parasitic_3": "Twolegs are also being infected.",
     "void_2": "Victims are very prone to violence. Proceed with caution.",
 
-    "story_1_step_1": "You've met a mysterious rogue who seems to know one of your Clanmates...",
-    "story_1_step_2": "You've spoken with sc2, who seems to know more about that strange rogue than they'd like to admit.",
-    "story_1_step_3": "The rogue, sc1, has joined your Clan, having found the strength to leave the body of their beloved friend, sc3, in the territory.",
-    "story_1_step_4": "sc2 and sc1 are together again, and now you know what they've gone through.",
+    "story_1_step_1": "sc4 has met a mysterious rogue who seems to know one of their Clanmates...",
+    "story_1_step_2": "sc4 has spoken with sc2, who seems to know more about that strange rogue than they'd like to admit.",
+    "story_1_step_3": "The rogue, sc1, has joined the Clan, having found the strength to leave the body of their beloved friend, sc3, in the territory.",
+    "story_1_step_4": "sc2 and sc1 are together again, and now sc4 knows what they've gone through.",
     
-    "story_2_step_1": "You've met a mysterious rogue named sc1 at the edge of camp."
+    "story_2_step_1": "sc4 has met a mysterious rogue named sc1 at the edge of camp."
 }

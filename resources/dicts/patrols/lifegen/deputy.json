@@ -626,7 +626,7 @@
                 "exp": 10,
                 "weight": 20,
                 "new_cat": [
-                    ["rogue", "meeting", "story:first"]
+                    ["rogue", "meeting"]
                 ],
                 "cure_log": [
                     {
@@ -642,7 +642,7 @@
                 "exp": 10,
                 "weight": 20,
                 "new_cat": [
-                    ["rogue", "meeting", "story:first"]
+                    ["rogue", "meeting"]
                 ],
                 "cure_log": [
                     {

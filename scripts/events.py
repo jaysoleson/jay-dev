@@ -1809,6 +1809,34 @@ class Events:
         if evt not in game.cur_events_list:
             game.cur_events_list.append(evt)
 
+    def undead_cats(self, cat):
+        """ undead kitties being crazy """
+        if "undead" not in cat.illnesses:
+            return
+        
+        chance = 4
+        cats = [i for i in Cat.all_cats_list if i.infected_for == 0 and not i.outside and not i.dead]
+        if cats == []:
+            return
+        random_cat = random.choice(cats)
+        if not int(random.random() * chance):
+            random_cat.get_ill(f"{game.clan.infection['infection_type']} stage one")
+            if game.clan.infection["spread_by"] == "bite":
+                if random.randint(1,4) == 1:
+                    random_cat.get_injured(random.choice(["cat bite", "claw wound", "broken bone", "scrapes"]))
+                random_cat.get_injured("cat bite")
+            else:
+                random_cat.get_injured(random.choice(["cat bite", "claw wound", "broken bone", "scrapes"]))
+                
+
+            event_list = [
+                f"{cat.name} attacked {random_cat.name}, leaving the cat both injured and infected."
+            ]
+        
+            event = random.choice(event_list)
+            game.cur_events_list.append(Single_Event(event, ["health", "infection"], [random_cat.ID, cat.ID]))
+            
+
     def other_clans_infection(self):
         """ progresses the infection for clans who are infected."""
 
@@ -1835,7 +1863,10 @@ class Events:
 
                 if random.random() < 1 / increase_chance:
                     increase = random.randint(1, 8)
-                    clan.infection_level += increase
+                    level = int(clan.infection_level)
+                    level += increase
+                    clan.infection_level = str(level)
+                    # this sucks
                 
             # clan infection events
             if int(clan.infection_level) == 0:
@@ -2955,6 +2986,9 @@ class Events:
                 cat.cure_progress = 0
         
         cat.infection_go()
+
+        if "undead" in cat.illnesses:
+            self.undead_cats(cat)
 
         # newborns don't do much
         if cat.status == "newborn":

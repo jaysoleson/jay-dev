@@ -3540,5 +3540,60 @@
             "[t_c looks so sad and tired.]",
             "{PRONOUN/t_c/poss} condition just keeps getting worse, in every way..."
         ]
+    ],
+    "undead_J1": [
+        [
+            "they_undead",
+            "any",
+            "they_deaf",
+            "you_deaf",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "Grrrr......."
+        ]
+    ],
+    "undead_J2": [
+        [
+            "they_undead",
+            "any",
+            "they_deaf",
+            "you_deaf",
+            "they_blind",
+            "you_blind",
+            "you_shunned"
+        ],
+        [
+            "Grrrr......."
+        ]
+    ],
+    "undead_J3": [
+        [
+            "they_undead",
+            "any",
+            "they_deaf",
+            "you_deaf",
+            "they_blind",
+            "you_blind",
+            "they_shunned"
+        ],
+        [
+            "Grrrr......."
+        ]
+    ],
+    "undead_J4": [
+        [
+            "they_undead",
+            "any",
+            "they_deaf",
+            "you_deaf",
+            "they_blind",
+            "you_blind",
+            "both_shunned"
+        ],
+        [
+            "Grrrr......."
+        ]
     ]
 }

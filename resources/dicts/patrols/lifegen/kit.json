@@ -788,8 +788,7 @@
             "Any"
         ],
         "types": [
-            "lifegen",
-            "new_cat"
+            "lifegen"
         ],
         "tags": [
             "infection_beginning"
@@ -822,6 +821,58 @@
         "fail_outcomes": [
             {
                 "text": "Upon meeting your gaze, the creature turns its head and walks away from you. Maybe it's a good thing you have no idea who-- or what-- that was...",
+                "exp": 10,
+                "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "kitten_infection_beginning_2",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection_beginning"
+        ],
+        "patrol_art": "lg_kit_default",
+        "min_cats": 1,
+        "max_cats": 3,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "You notice a sick squirrel at the edge of camp. It's dragging its legs and its eyes looks strange and cloudy. Maybe the warriors would be impressed if you brought home some prey, even if it was already hurt.",
+        "decline_text": "You decide against it. The Clan would be more impressed if you brought them some healthy prey.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "You crouch and make your way towards the stumbling squirrel. Though you're not exactly quiet, the critter doesn't seem to notice you coming, and catching it is easy. You triumphantly grab your catch and drag it over to the fresh-kill pile, proud of your achievement, but when the warriors notice it, they don't seem as happy...",
+                "exp": 10,
+                "weight": 20,
+                "cure_log": [
+                    {
+                        "entry": "start"
+                    }
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You creep towards the prey, but beofe you can get to it, a senior warrior scoops you up and tosses you away from it, warning you that the sick prey could be dangerous. They send you back to the nursery while they assemble a crowd to inspect the squirrel.",
+                "exp": 10,
+                "weight": 20,
+                "cure_log": [
+                    {
+                        "entry": "discovered"
+                    }
+                ]
+            },
+            {
+                "text": "When you get close to the squirrel, it turns and hisses, which you didn't even know squirrels could do, and swipes your nose before stumbling off beyond the camp walls. Are squirrels really that mean?",
                 "exp": 10,
                 "weight": 20
             }

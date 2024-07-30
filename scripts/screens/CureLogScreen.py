@@ -324,8 +324,8 @@ class CureLogScreen(Screens):
 
             if game.settings["fullscreen"]:
                 log_width = 660
-                y_offset = 440
-                x_button_y_offset = 460
+                y_offset = 0
+                x_button_y_offset = 0
             else:
                 log_width = 260
                 y_offset = 0
@@ -353,9 +353,15 @@ class CureLogScreen(Screens):
                                     manager=MANAGER,
                                     object_id=get_text_box_theme("#text_box_30_horizcenter"))
                 
+                if game.settings["fullscreen"]:
+                    offset2 = 40
+                else:
+                    offset2 = 20
+
+                
                 self.treatment_text = f"{', '.join([herb.replace('_', ' ') for herb in treatment['herbs']])}"
                 self.treatment_text_box = pygame_gui.elements.UITextBox(self.treatment_text,
-                                    pygame.Rect((80, (y_offset + 20)), (log_width, 100)),
+                                    pygame.Rect((80, (y_offset + offset2)), (log_width, 100)),
                                     container=self.scroll_container,
                                     manager=MANAGER,
                                     object_id=get_text_box_theme("#text_box_30_horizcenter"))
@@ -377,13 +383,23 @@ class CureLogScreen(Screens):
                     else:
                         self.correct_text = "<font color='#550D0D'>Zero Effective Herbs</font>"
 
+                if game.settings["fullscreen"]:
+                    offset3 = 130
+                else:
+                    offset3 = 67
                 self.correct_text_box = pygame_gui.elements.UITextBox(self.correct_text,
-                                    pygame.Rect((80, (y_offset + 67)), (log_width, 50)),
+                                    pygame.Rect((80, (y_offset + offset3)), (log_width, 50)),
                                     container=self.scroll_container,
                                     manager=MANAGER,
                                     object_id=get_text_box_theme("#text_box_30_horizcenter"))
-                y_offset += 140
-                x_button_y_offset += 280
+                
+                if game.settings["fullscreen"]:
+                    y_offset += 240
+                    x_button_y_offset += 240
+                else:
+                    y_offset += 140
+                    x_button_y_offset += 280
+                # FULLSCREEN YOU SUCK
 
             self.previous_page_button = UIImageButton(scale(pygame.Rect((100, 700), (68, 68))), "",
                                                     object_id="#arrow_left_button", manager=MANAGER)

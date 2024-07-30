@@ -2700,7 +2700,7 @@ def generate_sprite(
                 new_sprite.blit(sprites.sprites[f'{inftype}lineartstagetwo' + cat_sprite], (0, 0))
             elif f"{inftype} stage three" in cat.illnesses:
                 new_sprite.blit(sprites.sprites[f'{inftype}lineartstagethree' + cat_sprite], (0, 0))
-            elif f"{inftype} stage four" in cat.illnesses:
+            elif f"{inftype} stage four" in cat.illnesses or "undead" in cat.illnesses:
                 new_sprite.blit(sprites.sprites[f'{inftype}lineartstagefour' + cat_sprite], (0, 0))
             else:
                 new_sprite.blit(sprites.sprites['lines' + cat_sprite], (0, 0))

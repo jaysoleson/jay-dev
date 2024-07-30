@@ -513,6 +513,11 @@ class TalkScreen(Screens):
             elif "they_not_infected" in tags and cat.infected_for < 1:
                 continue
 
+            if "undead" in cat.illnesses and "they_undead" not in tags:
+                continue
+            if "undead" in you.illnesses and "you_undead" not in tags:
+                continue
+
             nope = False 
             cat_stage = None
             you_stage = None

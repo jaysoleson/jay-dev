@@ -563,6 +563,38 @@ class Cat:
         :return: True if alive, False if dead
         """
         return not self.dead
+    
+    def zombie(self):
+        """
+        kills the cat, but they come back >:3
+        """
+        print(self.name, "ZOMBIE", self.infected_for)
+        if (
+            self.status == "leader"
+            and "pregnant" in self.injuries
+            and game.clan.leader_lives > 0
+        ):
+            self.illnesses.clear()
+
+            self.injuries = {
+                key: value
+                for (key, value) in self.injuries.items()
+                if key == "pregnant"
+            }
+        else:
+            self.injuries.clear()
+            self.illnesses.clear()
+        
+        for app in self.apprentice.copy():
+            fetched_cat = Cat.fetch_cat(app)
+            if fetched_cat:
+                fetched_cat.update_mentor()
+        self.update_mentor()
+
+        self.get_ill("undead")
+        self.thought = "... ... ... ... ..."
+        event = f"{self.name} has died, but the infection seems to have enough power over their mind to keep them standing..."
+        game.cur_events_list.append(Single_Event(event, ["birth_death", "health", "infection"], self.ID))
 
     def die(self, body: bool = True):
         """Kills cat.
@@ -591,7 +623,6 @@ class Cat:
         for scar in infection_scars:
             if scar in self.pelt.scars:
                 self.pelt.scars.remove(scar)
-                print("removed infection scar", scar, "from", self.name, "upon their death")
         
         # Deal with leader death
         text = ""
@@ -1935,9 +1966,12 @@ class Cat:
         if not self.is_ill():
             return True
 
-        if self.illnesses[illness]["event_triggered"]:
-            self.illnesses[illness]["event_triggered"] = False
-            return True
+        try:
+            if self.illnesses[illness]["event_triggered"]:
+                self.illnesses[illness]["event_triggered"] = False
+                return True
+        except:
+            print("what", illness)
 
         mortality = self.illnesses[illness]["mortality"]
 
@@ -1947,11 +1981,17 @@ class Cat:
             if mortality == 0:
                 mortality = 1
 
+        # if illness == "void stage four":
+        #     mortality = 2
+
         if mortality and not int(random() * mortality):
             if self.status == "leader":
                 self.leader_death_heal = True
                 game.clan.leader_lives -= 1
-            self.die()
+            if f"{game.clan.infection['infection_type']} stage four" in self.illnesses:
+                self.zombie()
+            else:
+                self.die()
             return False
         if "moon_start" in self.illnesses[illness]:
             moons_with = game.clan.age - self.illnesses[illness]["moon_start"]
@@ -1963,14 +2003,6 @@ class Cat:
         moons_prior = game.config["focus"]["rest and recover"]["moons_earlier_healed"]
 
         if self.illnesses[illness]["duration"] - moons_with <= 0:
-            # if self.infected_for > 0:
-            #     self.healed_condition = False
-            #     # thisll be here until i can actually fix the duration problem i guess
-            #     # for now, no naturally healing from infection!!!!
-            # else:
-            #     if any( i in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"] for i in self.illnesses):
-            #         print(self.name, "is infected, but infected_for is zero?")
-                
             self.healed_condition = True
             return False
 
