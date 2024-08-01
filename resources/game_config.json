@@ -442,12 +442,11 @@
 	"murder_chance":-1,
 	"accomplice_chance":-1,
 
-	"your_cat_infection_chance": 0,
+	"your_cat_infection_chance": 30,
 	"cure_moons": 2,
 	"talking_ups_infection_chance": true,
 	"kit_gain_infection_chance": 10,
 	"INFECTION_comment": [
-		"30 by default. Setting the chance to zero will mean you can never get infected! For those who like their plot-armoured protagonists.",
 		"Cure moons is how long the cure takes to be effective. 2 means it will happen the next moon. It cannnot be 1.",
 		"Setting talking_ups_infection_chance to false will mean talking to infected cats has no affect on infection chance. For those who would like to read dialogue without risk! Useless if the infection_chance is already 0.",
 		"kit_gain_infection_chance is the base chance for kits with infected blood parents to be born infected."

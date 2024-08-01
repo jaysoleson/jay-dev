@@ -25,6 +25,7 @@ from scripts.game_structure.propagating_thread import PropagatingThread
 
 class PriorityHerbScreen(Screens):
     herb_buttons = {}
+    corners = {}
     herb_displays = {}
     back_button = None
 
@@ -59,14 +60,14 @@ class PriorityHerbScreen(Screens):
 
         self.herb_displays["title"] = pygame_gui.elements.UITextBox(
             "<u>Priority Herb</u>",
-            scale(pygame.Rect((300, 80), (1000, 80))),
+            scale(pygame.Rect((300, 72), (1000, 80))),
             object_id=get_text_box_theme("#text_box_34_horizcenter"),
             manager=MANAGER
         )
         
         self.herb_displays["subtitle"] = pygame_gui.elements.UITextBox(
             f"{game.clan.name}Clan will focus their efforts into finding more:",
-            scale(pygame.Rect((300, 880), (1000, 80))),
+            scale(pygame.Rect((300, 910), (1000, 80))),
             object_id=get_text_box_theme("#text_box_30_horizcenter"),
             manager=MANAGER
         )
@@ -75,24 +76,35 @@ class PriorityHerbScreen(Screens):
             if game.settings["dark mode"]:
                 self.herb_displays["herbs"] = pygame_gui.elements.UITextBox(
                     f"<font color='#A2D86C'>{self.priorityherb.replace('_', ' ')}</font>",
-                    scale(pygame.Rect((300, 950), (1000, 80))),
+                    scale(pygame.Rect((300, 965), (1000, 80))),
                     object_id=get_text_box_theme("#text_box_34_horizcenter"),
                     manager=MANAGER
                 )
             else:
                 self.herb_displays["herbs"] = pygame_gui.elements.UITextBox(
                     f"<font color='#136D05'>{self.priorityherb.replace('_', ' ')}</font>",
-                    scale(pygame.Rect((300, 950), (1000, 80))),
+                    scale(pygame.Rect((300, 965), (1000, 80))),
                     object_id=get_text_box_theme("#text_box_34_horizcenter"),
                     manager=MANAGER
                 )
         else:
             self.herb_displays["herbs"] = pygame_gui.elements.UITextBox(
                 "None",
-                scale(pygame.Rect((300, 950), (1000, 80))),
+                scale(pygame.Rect((300, 965), (1000, 80))),
                 object_id=get_text_box_theme("#text_box_34_horizcenter"),
                 manager=MANAGER
             )
+
+        insert = ""
+        if game.settings["dark mode"]:
+            insert = "_dark"
+
+        self.herb_displays["art"] = pygame_gui.elements.UIImage(
+            scale(pygame.Rect((1, 880), (1640, 386))),
+            pygame.image.load(f"resources/images/priority_herb_screen{insert}.png").convert_alpha(),
+            starting_height=1,
+            manager=MANAGER
+        )
 
     def update_herb_buttons(self):
         """ Displays and updates herb buttons """
@@ -100,6 +112,9 @@ class PriorityHerbScreen(Screens):
         for ele in self.herb_buttons:
             self.herb_buttons[ele].kill()
         self.herb_buttons = {}
+        for ele in self.corners:
+            self.corners[ele].kill()
+        self.corners = {}
 
         x_start = 480
         y_start = 190
@@ -140,13 +155,44 @@ class PriorityHerbScreen(Screens):
             else:
                 x_pos += x_spacing  # Move to the next column
 
+        # these have to go after the herb buttons to avoid hover issues
+
+        insert = ""
+        if game.settings["dark mode"]:
+            insert = "_dark"
+
+        self.corners["1"] = pygame_gui.elements.UIImage(
+                            scale(pygame.Rect((430, 140), (150, 150))),
+                            pygame.image.load(f"resources/images/corner_deco{insert}.png").convert_alpha(),
+                            starting_height=1,
+                            manager=MANAGER
+                            )
+        self.corners["2"] = pygame_gui.elements.UIImage(
+                            scale(pygame.Rect((1010, 140), (150, 150))),
+                            pygame.transform.flip(pygame.image.load(f"resources/images/corner_deco{insert}.png").convert_alpha(), True, False),
+                            starting_height=1,
+                            manager=MANAGER
+                            )
+        self.corners["3"] = pygame_gui.elements.UIImage(
+                            scale(pygame.Rect((430, 720), (150, 150))),
+                            pygame.transform.flip(pygame.image.load(f"resources/images/corner_deco{insert}.png").convert_alpha(), False, True),
+                            starting_height=1,
+                            manager=MANAGER
+                            )
+        self.corners["4"] = pygame_gui.elements.UIImage(
+                            scale(pygame.Rect((1010, 720), (150, 150))),
+                            pygame.transform.flip(pygame.image.load(f"resources/images/corner_deco{insert}.png").convert_alpha(), True, True),
+                            starting_height=1,
+                            manager=MANAGER
+                            )
+
     def screen_switches(self):
         
         self.priorityherb = game.clan.infection["priority_herb"]
         self.update_herb_buttons()
 
         self.back_button = UIImageButton(scale(pygame.Rect((50, 1290), (210, 60))), "", object_id="#back_button")
-
+        
         self.update_text()
 
     def exit_screen(self):
@@ -155,6 +201,10 @@ class PriorityHerbScreen(Screens):
         for ele in self.herb_buttons:
             self.herb_buttons[ele].kill()
         self.herb_buttons = {}
+
+        for ele in self.corners:
+            self.corners[ele].kill()
+        self.corners = {}
 
         for ele in self.herb_displays:
             self.herb_displays[ele].kill()

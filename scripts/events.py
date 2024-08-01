@@ -556,7 +556,8 @@ class Events:
         infection_chance = game.config["your_cat_infection_chance"]
 
         if infection_chance == 0:
-            return
+            # 0 is impossible Just set urself to be immune pussy
+            infection_chance = 30
         
         infected_cats = [cat for cat in Cat.all_cats_list if not cat.dead and not cat.outside and cat.infected_for > 0 and cat.ID != you.ID]
         all_cats = [cat for cat in Cat.all_cats_list if not cat.dead and not cat.outside and cat.ID != you.ID]
@@ -1823,10 +1824,10 @@ class Events:
             random_cat.get_ill(f"{game.clan.infection['infection_type']} stage one")
             if game.clan.infection["spread_by"] == "bite":
                 if random.randint(1,4) == 1:
-                    random_cat.get_injured(random.choice(["cat bite", "claw wound", "broken bone", "scrapes"]))
+                    random_cat.get_injured(random.choice(["cat bite", "claw-wound", "broken bone", "scrapes"]))
                 random_cat.get_injured("cat bite")
             else:
-                random_cat.get_injured(random.choice(["cat bite", "claw wound", "broken bone", "scrapes"]))
+                random_cat.get_injured(random.choice(["cat bite", "claw-wound", "broken bone", "scrapes"]))
                 
 
             event_list = [
