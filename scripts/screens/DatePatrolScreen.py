@@ -238,7 +238,7 @@ class DatePatrolScreen(Screens):
 
     def screen_switches(self):
         self.set_disabled_menu_buttons(["patrol_screen"])
-        self.update_heading_text(f'{game.clan.name}Clan')
+        self.update_heading_text('The Arena')
         self.show_menu_buttons()
         self.open_choose_cats_screen()
 

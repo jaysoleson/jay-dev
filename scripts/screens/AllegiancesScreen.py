@@ -42,7 +42,7 @@ class AllegiancesScreen(Screens):
         # Set Menu Buttons.
         self.show_menu_buttons()
         self.set_disabled_menu_buttons(["allegiances"])
-        self.update_heading_text(f"{game.clan.name}Clan")
+        self.update_heading_text(f"The Tributes")
         allegiance_list = self.get_allegiances_text()
 
         self.scroll_container = pygame_gui.elements.UIScrollingContainer(

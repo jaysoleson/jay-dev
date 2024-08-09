@@ -71,7 +71,19 @@ class Game:
         'cat8': None,
         'cat9': None,
         'cat10': None,
-        'cat11': None
+        'cat11': None,
+        'cat12': None,
+        'cat13': None,
+        'cat14': None,
+        'cat15': None,
+        'cat16': None,
+        'cat17': None,
+        'cat18': None,
+        'cat19': None,
+        'cat20': None,
+        'cat21': None,
+        'cat22': None,
+        'cat23': None
     }"""
     patrol_cats = {}
     patrolled = []

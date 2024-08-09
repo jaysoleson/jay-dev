@@ -134,6 +134,13 @@ def rel_fulfill_rel_constraints(relationship, constraint, interaction_id) -> boo
         or relationship.cat_to.ID not in relationship.cat_from.mate
     ):
         return False
+    
+    # HUNGER GAMES
+    if "allies" in constraint and (
+        relationship.cat_from.ID not in relationship.cat_to.allies
+        or relationship.cat_to.ID not in relationship.cat_from.allies
+    ):
+        return False
 
     if "not_mates" in constraint and (
         relationship.cat_from.ID in relationship.cat_to.mate

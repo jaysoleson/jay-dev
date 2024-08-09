@@ -320,6 +320,7 @@ class Screens():
                 continue
             else:
                 button.show()
+                # ill actually delete em later
 
     # Enables all menu buttons but the ones passed in.
     # Sloppy, but works. Consider making it nicer.

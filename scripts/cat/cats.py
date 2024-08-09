@@ -161,6 +161,8 @@ class Cat:
         prefix=None,
         gender=None,
         status="newborn",
+        cat_clan=None,
+        map_position = "0_0",
         backstory="clanborn",
         parent1=None,
         parent2=None,
@@ -180,6 +182,8 @@ class Cat:
         :param prefix: Cat's prefix (e.g. Fire- for Fireheart)
         :param gender: Cat's gender, default None
         :param status: Cat's age range, default "newborn"
+        :param cat_clan: HUNGER GAMES: the cat's Clan, default None"
+        :param map_position: HUNGER GAMES: the cats physical location, default centre"
         :param backstory: Cat's origin, default "clanborn"
         :param parent1: ID of parent 1, default None
         :param parent2: ID of parent 2, default None
@@ -213,6 +217,9 @@ class Cat:
         # Public attributes
         self.gender = gender
         self.status = status
+        self.cat_clan = cat_clan
+        self.map_position = map_position
+        self.allies = []
         self.backstory = backstory
         self.age = None
         self.skills = CatSkills(skill_dict=skill_dict)
@@ -1780,33 +1787,34 @@ class Cat:
     def one_moon(self):
         """Handles a moon skip for an alive cat."""
         old_age = self.age
-        self.moons += 1
-        if self.moons == 0 and self.status != "newborn":
-            self.status = "newborn"
-        if self.moons == 1 and self.status == "newborn":
-            self.status = "kitten"
-        self.in_camp = 1
+        if game.clan.days in [30, 60, 90, 120, 150]:
+            self.moons += 1
+            if self.moons == 0 and self.status != "newborn":
+                self.status = "newborn"
+            if self.moons == 1 and self.status == "newborn":
+                self.status = "kitten"
+            self.in_camp = 1
 
-        if self.exiled or self.outside:
-            # this is handled in events.py
+            if self.exiled or self.outside:
+                # this is handled in events.py
+                self.personality.set_kit(self.is_baby())
+                self.thoughts()
+                return
+
+            if self.dead:
+                self.thoughts()
+                return
+
+            if old_age != self.age:
+                # Things to do if the age changes
+                self.personality.facet_wobble(facet_max=2)
+
+            # Set personality to correct type
             self.personality.set_kit(self.is_baby())
-            self.thoughts()
-            return
+            # Upon age-change
 
-        if self.dead:
-            self.thoughts()
-            return
-
-        if old_age != self.age:
-            # Things to do if the age changes
-            self.personality.facet_wobble(facet_max=2)
-
-        # Set personality to correct type
-        self.personality.set_kit(self.is_baby())
-        # Upon age-change
-
-        if self.status in ['apprentice', 'mediator apprentice', 'medicine cat apprentice', "queen's apprentice"]:
-            self.update_mentor()
+            if self.status in ['apprentice', 'mediator apprentice', 'medicine cat apprentice', "queen's apprentice"]:
+                self.update_mentor()
 
     def thoughts(self):
         """Generates a thought for the cat, which displays on their profile."""
@@ -2952,6 +2960,85 @@ class Cat:
             other_relationship.trust += 10
             other_relationship.mate = True
 
+    def unset_ally(self, other_cat: Cat, breakup: bool = False, fight: bool = False):
+        """removes two cats as allies"""
+        if not other_cat:
+            return
+
+        if len(self.allies) < 1 or len(other_cat.allies) < 1:
+            return
+
+        if self.ID not in other_cat.allies or other_cat.ID not in self.allies:
+            print(
+                f"Unsetting allies: These {self.name} and {other_cat.name} are not allies!"
+            )
+            return
+
+        # If only deal with relationships if this is a breakup.
+        if breakup:
+            self_relationship = None
+            if not self.dead:
+                if other_cat.ID not in self.relationships:
+                    self.create_one_relationship(other_cat)
+                    self.relationships[other_cat.ID].allies = True
+                self_relationship = self.relationships[other_cat.ID]
+                self_relationship.platonic_like -= 40
+                self_relationship.comfortable = 10
+                self_relationship.trust = 5
+                self_relationship.allies = False
+                if fight:
+                    self_relationship.trust = 0
+                    self_relationship.comfortable = 0
+            if not other_cat.dead:
+                if self.ID not in other_cat.relationships:
+                    other_cat.create_one_relationship(self)
+                    other_cat.relationships[self.ID].allies = True
+                other_relationship = other_cat.relationships[self.ID]
+                self_relationship.platonic_like -= 40
+                self_relationship.comfortable = 10
+                self_relationship.trust = 5
+                other_relationship.allies = False
+                if fight:
+                    other_relationship.platonic_like -= 30
+
+        self.allies.remove(other_cat.ID)
+        other_cat.allies.remove(self.ID)
+
+    def set_ally(self, other_cat: Cat):
+        """HUNGER GAMES: sets two cats to be allies"""
+        if other_cat.ID not in self.mate:
+            self.allies.append(other_cat.ID)
+        if self.ID not in other_cat.mate:
+            other_cat.allies.append(self.ID)
+
+        # If the current mate was in the previous mate list, remove them.
+        # if other_cat.ID in self.previous_mates:
+        #     self.previous_mates.remove(other_cat.ID)
+        # if self.ID in other_cat.previous_mates:
+        #     other_cat.previous_mates.remove(self.ID)
+        # if i want prev allies
+
+        # Set starting relationship values
+        if not self.dead:
+            if other_cat.ID not in self.relationships:
+                self.create_one_relationship(other_cat)
+                self.relationships[other_cat.ID].allies = True
+            self_relationship = self.relationships[other_cat.ID]
+            self_relationship.platonic_like += 20
+            self_relationship.comfortable += 30
+            self_relationship.trust += 20
+            self_relationship.allies = True
+
+        if not other_cat.dead:
+            if self.ID not in other_cat.relationships:
+                other_cat.create_one_relationship(self)
+                other_cat.relationships[self.ID].allies = True
+            other_relationship = other_cat.relationships[self.ID]
+            other_relationship.platonic_like += 20
+            other_relationship.comfortable += 30
+            other_relationship.trust += 20
+            other_relationship.allies = True
+
     def create_inheritance_new_cat(self):
         """Creates the inheritance class for a new cat."""
         # set the born status to true, just for safety
@@ -3758,6 +3845,9 @@ class Cat:
                 "pronouns": self.pronouns,
                 "birth_cooldown": self.birth_cooldown,
                 "status": self.status,
+                "clan": self.cat_clan,
+                "map_position": self.map_position,
+                "allies": self.allies,
                 "backstory": self.backstory if self.backstory else None,
                 "moons": self.moons,
                 "trait": self.personality.trait,
@@ -3780,7 +3870,6 @@ class Cat:
                 "exiled": self.exiled,
                 "no_retire": self.no_retire,
                 "no_mates": self.no_mates,
-                "exiled": self.exiled,
                 "driven_out": self.driven_out,
                 "pelt_name": self.pelt.name,
                 "pelt_color": self.pelt.colour,
@@ -4162,19 +4251,16 @@ def create_cat(status, moons=None, biome=None):
     
     return new_cat
 
-
-
-# Twelve example cats
+# 24 example cats-- two for each district!
 def create_example_cats():
-    e = sample(range(12), 3)
+    e = sample(range(24), 3)
     not_allowed = ['NOPAW', 'NOTAIL', 'HALFTAIL', 'NOEAR', 'BOTHBLIND', 'RIGHTBLIND', 'LEFTBLIND', 'BRIGHTHEART',
                    'NOLEFTEAR', 'NORIGHTEAR', 'MANLEG']
-    for a in range(12):
+    for a in range(24):
         if a in e:
-            game.choose_cats[a] = Cat(status='kitten', biome=None)
+            game.choose_cats[a] = Cat(status=choice(["apprentice", "medicine cat apprentice", "mediator apprentice", "queen's apprentice", "warrior", "medicine cat", "mediator", "queen", "elder"]), biome=None)
         else:
-            game.choose_cats[a] = Cat(status=choice(
-                ['kitten']), biome=None)
+            game.choose_cats[a] = Cat(status=choice(["apprentice", "medicine cat apprentice", "mediator apprentice", "queen's apprentice", "warrior", "medicine cat", "mediator", "queen", "elder"]), biome=None)
         if game.choose_cats[a].moons >= 160:
             game.choose_cats[a].moons = choice(range(120, 155))
         elif game.choose_cats[a].moons == 0:
@@ -4211,7 +4297,21 @@ def create_example_cats():
                     game.choose_cats[a].pelt.scars.append('NOPAW')
                 elif chosen_condition in ['lost their tail', 'born without a tail']:
                     game.choose_cats[a].pelt.scars.append("NOTAIL")
-        #update_sprite(game.choose_cats[a])
+        
+        if a in e:
+            game.choose_cats[a] = Cat(status=game.choose_cats[a].status, biome=None)
+        
+        backstories = ['halfclan1', 'halfclan2', 'outsider_roots1', 'outsider_roots2', 'loner1', 'loner2', 'kittypet1', 'kittypet2', 'kittypet3', 'kittypet4', 'rogue1', 'rogue2', 'rogue3', 'rogue4', 'rogue5', 'rogue6', 'rogue7', 'rogue8', 'abandoned1', 'abandoned2', 'abandoned3', 'abandoned4', 'otherclan1', 'otherclan2', 'otherclan3', 'otherclan4', 'otherclan5', 'otherclan6', 'otherclan7', 'otherclan8', 'otherclan9', 'otherclan10', 'disgraced1', 'disgraced2', 'disgraced3', 'refugee1', 'refugee2', 'refugee3', 'refugee4', 'refugee5', 'tragedy_survivor1', 'tragedy_survivor2', 'tragedy_survivor3', 'tragedy_survivor4', 'tragedy_survivor5', 'tragedy_survivor6', 'guided1', 'guided2', 'guided3', 'guided4', 'orphaned1', 'orphaned2', 'orphaned3', 'orphaned4', 'orphaned5', 'orphaned6', 'outsider1', 'outsider2', 'outsider3', 'kittypet5', 'kittypet6', 'kittypet7', 'guided5', 'guided6', 'outsider4', 'outsider5', 'outsider6', 'orphaned7', 'halfclan4', 'halfclan5', 'halfclan6', 'halfclan7', 'halfclan8', 'halfclan9', 'halfclan10', 'outsider_roots3', 'outsider_roots4', 'outsider_roots5', 'outsider_roots6', 'outsider_roots7', 'outsider_roots8']
+
+        if game.choose_cats[a].moons >= 160:
+            game.choose_cats[a].moons = choice(range(120, 155))
+        elif game.choose_cats[a].moons == 0:
+            game.choose_cats[a].moons = choice([1, 2, 3, 4, 5])
+
+        if randint(1,5) == 1 and game.choose_cats[a].status not in ['newborn', 'kitten']:
+            game.choose_cats[a].backstory = choice(backstories)
+        else:
+            game.choose_cats[a].backstory = 'clanborn'
     
 
 # CAT CLASS ITEMS

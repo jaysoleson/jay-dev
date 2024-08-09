@@ -1666,6 +1666,10 @@ class ProfileScreen(Screens):
 
         # NEWLINE ----------
         output += "\n"
+        if the_cat.cat_clan is not None:
+            output += the_cat.cat_clan + "Clan"
+            # NEWLINE ----------
+            output += "\n"
 
         # LEADER LIVES:
         # Optional - Only shows up for leaders

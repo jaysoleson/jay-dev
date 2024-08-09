@@ -2,6 +2,9 @@ import random
 import traceback
 from copy import deepcopy
 
+import math
+import os
+
 import pygame
 import pygame_gui
 
@@ -10,13 +13,15 @@ from scripts.game_structure import image_cache
 from scripts.game_structure.game_essentials import game, screen, screen_x, screen_y
 from scripts.game_structure.ui_elements import UISpriteButton, UIImageButton
 from scripts.game_structure.windows import SaveError
-from scripts.utility import scale
+from scripts.utility import scale, check_possible_directions
 from .Screens import Screens
 
 
 class ClanScreen(Screens):
     max_sprites_displayed = 400  # we don't want 100,000 sprites rendering at once. 400 is enough.
     cat_buttons = []
+    platforms = {}
+    direction_buttons = {}
 
     def __init__(self, name=None):
         super().__init__(name)
@@ -64,6 +69,22 @@ class ClanScreen(Screens):
             if event.ui_element in self.cat_buttons:
                 game.switches["cat"] = event.ui_element.return_cat_id()
                 self.change_screen('profile screen')
+            
+            if event.ui_element == self.direction_buttons["north"]:
+                game.clan.next_direction = "north"
+                self.update_buttons_and_text()
+            elif event.ui_element == self.direction_buttons["east"]:
+                game.clan.next_direction = "east"
+                self.update_buttons_and_text()
+            elif event.ui_element == self.direction_buttons["south"]:
+                game.clan.next_direction = "south"
+                self.update_buttons_and_text()
+            elif event.ui_element == self.direction_buttons["west"]:
+                game.clan.next_direction = "west"
+                self.update_buttons_and_text()
+            elif event.ui_element == self.direction_buttons["bloodbath"]:
+                game.clan.next_direction = None
+                self.update_buttons_and_text()
             if event.ui_element == self.label_toggle:
                 if game.clan.clan_settings['den labels']:
                     game.clan.clan_settings['den labels'] = False
@@ -100,28 +121,67 @@ class ClanScreen(Screens):
                 self.update_buttons_and_text()
 
     def screen_switches(self):
-        self.update_camp_bg()
+        self.update_current_map()
         game.switches['cat'] = None
         if game.clan.biome + game.clan.camp_bg in game.clan.layouts:
             self.layout = game.clan.layouts[game.clan.biome + game.clan.camp_bg]
         else:
             self.layout = game.clan.layouts["default"]
-
         self.choose_cat_positions()
 
         self.set_disabled_menu_buttons(["camp_screen"])
-        self.update_heading_text(f'{game.clan.name}Clan')
+        self.update_heading_text('The Arena')
         self.show_menu_buttons()
 
-        # Creates and places the cat sprites.
         self.cat_buttons = []  # To contain all the buttons.
+
+        self.direction_buttons["north"] = UIImageButton(scale(pygame.Rect(
+            (760, 200), (70, 70))),
+            "^",
+            tool_tip_text="Travel north",
+            object_id="",
+            starting_height=2
+        )
+        self.direction_buttons["east"] = UIImageButton(scale(pygame.Rect(
+            (1400, 710), (70, 70))),
+            ">",
+            tool_tip_text="Travel east",
+            object_id="",
+            starting_height=2
+        )
+        self.direction_buttons["south"] = UIImageButton(scale(pygame.Rect(
+            (770, 1200), (70, 70))),
+            "v",
+            tool_tip_text="Travel south",
+            object_id="",
+            starting_height=2
+        )
+        self.direction_buttons["west"] = UIImageButton(scale(pygame.Rect(
+            (140, 710), (70, 70))),
+            "<",
+            tool_tip_text="Travel west",
+            object_id="",
+            starting_height=2
+        )
+        self.direction_buttons["bloodbath"] = UIImageButton(scale(pygame.Rect(
+            (760, 710), (70, 70))),
+            "X",
+            tool_tip_text="Join the bloodbath",
+            object_id="",
+            starting_height=2
+        )
+
+        self.direction_buttons["north"].enable()
+        self.direction_buttons["east"].enable()
+        self.direction_buttons["south"].enable()
+        self.direction_buttons["west"].enable()
 
         # We have to convert the positions to something pygame_gui buttons will understand
         # This should be a temp solution. We should change the code that determines positions.
         i = 0
         for x in game.clan.clan_cats:
             if Cat.all_cats[x].moons != -1 and not Cat.all_cats[x].dead and Cat.all_cats[x].in_camp and \
-                    not (Cat.all_cats[x].exiled or Cat.all_cats[x].outside) and (Cat.all_cats[x].status != 'newborn' or game.config['fun']['all_cats_are_newborn'] or game.config['fun']['newborns_can_roam']):
+                    not (Cat.all_cats[x].exiled or Cat.all_cats[x].outside) and (Cat.all_cats[x].status != 'newborn' or game.config['fun']['all_cats_are_newborn'] or game.config['fun']['newborns_can_roam']) and Cat.all_cats[x].map_position == game.clan.your_cat.map_position:
 
                 i += 1
                 if i > self.max_sprites_displayed:
@@ -192,8 +252,12 @@ class ClanScreen(Screens):
                                                                image_cache.load_image(
                                                                    'resources/images/show_den_labels.png'),
                                                                (334, 68)))
-        self.show_den_labels.disable()
+        
+        # HUNGER GAMES: no den labels!!!
+        # self.show_den_labels.disable()
+        self.show_den_labels.hide()
         self.label_toggle = UIImageButton(scale(pygame.Rect((50, 1282), (64, 64))), "", object_id="#checked_checkbox")
+        self.label_toggle.hide()
 
         self.save_button = UIImageButton(scale(pygame.Rect(((686, 1286), (228, 60)))), "", object_id="#save_button")
         self.save_button.enable()
@@ -217,6 +281,14 @@ class ClanScreen(Screens):
         for button in self.cat_buttons:
             button.kill()
         self.cat_buttons = []
+
+        for ele in self.platforms:
+            self.platforms[ele].kill()
+        self.platforms = {}
+
+        for ele in self.direction_buttons:
+            self.direction_buttons[ele].kill()
+        self.direction_buttons = {}
 
         # Kill all other elements, and destroy the reference so they aren't hanging around
         self.save_button.kill()
@@ -280,6 +352,33 @@ class ClanScreen(Screens):
             pygame.image.load(all_backgrounds[2]).convert(), (screen_x, screen_y))
         self.leaffall_bg = pygame.transform.scale(
             pygame.image.load(all_backgrounds[3]).convert(), (screen_x, screen_y))
+        
+    def update_current_map(self):
+
+        camp_bg_base_dir = 'resources/images/hg_maps/'
+        leaves = ["newleaf", "greenleaf", "leafbare", "leaffall"]
+        position = game.clan.your_cat.map_position
+
+        available_biome = ['Forest', 'Mountainous', 'Plains', 'Beach']
+        biome = game.clan.biome
+        if biome not in available_biome:
+            biome = available_biome[0]
+            game.clan.biome = biome
+        biome = biome.lower()
+
+        all_backgrounds = []
+        for leaf in leaves:
+            platform_dir = f'{camp_bg_base_dir}/{biome}/{leaf}_{position}.png'
+            all_backgrounds.append(platform_dir)
+
+        self.newleaf_bg = pygame.transform.scale(
+            pygame.image.load(all_backgrounds[0]).convert(), (screen_x, screen_y))
+        self.greenleaf_bg = pygame.transform.scale(
+            pygame.image.load(all_backgrounds[1]).convert(), (screen_x, screen_y))
+        self.leafbare_bg = pygame.transform.scale(
+            pygame.image.load(all_backgrounds[2]).convert(), (screen_x, screen_y))
+        self.leaffall_bg = pygame.transform.scale(
+            pygame.image.load(all_backgrounds[3]).convert(), (screen_x, screen_y))
 
     def choose_nonoverlapping_positions(self, first_choices, dens, weights=None):
         if not weights:
@@ -323,7 +422,7 @@ class ClanScreen(Screens):
         if "y" in pos[1]:
             just_pos[1] += 15
         return tuple(just_pos)
-
+    
     def choose_cat_positions(self):
         """Determines the positions of cat on the clan screen."""
         # These are the first choices. As positions are chosen, they are removed from the options to indicate they are
@@ -336,50 +435,84 @@ class ClanScreen(Screens):
         # Allow two cat in the same position.
         for x in all_dens:
             first_choices[x].extend(first_choices[x])
+            
+        x_radius = 500
+        y_radius = 350
+        center_x = 750
+        center_y = 690
 
-        for x in game.clan.clan_cats:
-            if Cat.all_cats[x].dead or Cat.all_cats[x].outside or Cat.all_cats[x].moons <= 0:
-                continue
+        num_items = 24
+        angle_increment = 2 * math.pi / num_items
 
-            # Newborns are not meant to be placed. They are hiding.
-            if Cat.all_cats[x].status == 'newborn' or Cat.all_cats[x].moons == -1 or game.config['fun']['all_cats_are_newborn']:
-                if game.config['fun']['all_cats_are_newborn'] or game.config['fun']['newborns_can_roam']:
-                    # Free them
-                    Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
-                                                                                     [1, 100, 1, 1, 1, 100, 50])
-                else:
+        if game.clan.timeskips == 1:
+            for i, x in enumerate(game.clan.clan_cats):
+                if Cat.all_cats[x].dead or Cat.all_cats[x].outside or Cat.all_cats[x].moons <= 0:
                     continue
- 
-            if Cat.all_cats[x].status in ['apprentice', 'mediator apprentice', "queen's apprentice"]:
-                Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
-                                                                                 [1, 50, 1, 1, 100, 100, 1])
-            elif Cat.all_cats[x].status == 'deputy':
-                Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
-                                                                                 [1, 50, 1, 1, 1, 50, 1])
 
-            elif Cat.all_cats[x].status == 'elder':
-                Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
-                                                                                 [1, 1, 2000, 1, 1, 1, 1])
-            elif Cat.all_cats[x].status == 'kitten':
-                Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
-                                                                                 [60, 8, 1, 1, 1, 1, 1])
-            elif Cat.all_cats[x].status == 'queen':
-                Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
-                                                                                 [60, 8, 1, 1, 1, 1, 1])
-            elif Cat.all_cats[x].status == "queen's apprentice":
-                Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
-                                                                                 [60, 8, 1, 1, 1, 1, 1])                                                                     
-            elif Cat.all_cats[x].status in [
-                'medicine cat apprentice', 'medicine cat'
-            ]:
-                Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
-                                                                                 [20, 20, 20, 400, 1, 1, 1])
-            elif Cat.all_cats[x].status in ['warrior', 'mediator']:
-                Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
-                                                                                 [1, 1, 1, 1, 1, 60, 60])
-            elif Cat.all_cats[x].status == "leader":
-                Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
-                                                                                  [1, 200, 1, 1, 1, 1, 1])
+                angle = i * angle_increment
+                item_x = center_x + x_radius * math.cos(angle)
+                item_y = center_y + y_radius * math.sin(angle)
+
+                Cat.all_cats[x].placement = (item_x, item_y)
+
+                self.platforms[x] = pygame_gui.elements.UIImage(
+                    scale(pygame.Rect((item_x, item_y + 55), (100, 60))),
+                    pygame.transform.scale(
+                    image_cache.load_image('resources/images/buttons/fav_marker.png'),
+                    (206, 56))
+                )
+
+        else:
+            for x in game.clan.clan_cats:
+                Cat.all_cats[x].placement = None
+
+                if Cat.all_cats[x].dead or Cat.all_cats[x].outside or Cat.all_cats[x].moons <= 0:
+                    continue
+                if Cat.all_cats[x].map_position != game.clan.your_cat.map_position:
+                    continue
+                
+                if Cat.all_cats[x].ID == game.clan.your_cat.ID:
+                    Cat.all_cats[x].placement = (775, 675)
+
+                else:
+                    if Cat.all_cats[x].status == 'newborn' or Cat.all_cats[x].moons == -1 or game.config['fun']['all_cats_are_newborn']:
+                        if game.config['fun']['all_cats_are_newborn'] or game.config['fun']['newborns_can_roam']:
+                            # Free them
+                            Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
+                                                                                            [1, 100, 1, 1, 1, 100, 50])
+                        else:
+                            continue
+        
+                    if Cat.all_cats[x].status in ['apprentice', 'mediator apprentice', "queen's apprentice"]:
+                        Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
+                                                                                        [1, 50, 1, 1, 100, 100, 1])
+                    elif Cat.all_cats[x].status == 'deputy':
+                        Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
+                                                                                        [1, 50, 1, 1, 1, 50, 1])
+
+                    elif Cat.all_cats[x].status == 'elder':
+                        Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
+                                                                                        [1, 1, 2000, 1, 1, 1, 1])
+                    elif Cat.all_cats[x].status == 'kitten':
+                        Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
+                                                                                        [60, 8, 1, 1, 1, 1, 1])
+                    elif Cat.all_cats[x].status == 'queen':
+                        Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
+                                                                                        [60, 8, 1, 1, 1, 1, 1])
+                    elif Cat.all_cats[x].status == "queen's apprentice":
+                        Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
+                                                                                        [60, 8, 1, 1, 1, 1, 1])                                                                     
+                    elif Cat.all_cats[x].status in [
+                        'medicine cat apprentice', 'medicine cat'
+                    ]:
+                        Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
+                                                                                        [20, 20, 20, 400, 1, 1, 1])
+                    elif Cat.all_cats[x].status in ['warrior', 'mediator']:
+                        Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
+                                                                                        [1, 1, 1, 1, 1, 60, 60])
+                    elif Cat.all_cats[x].status == "leader":
+                        Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
+                                                                                        [1, 200, 1, 1, 1, 1, 1])
 
     def update_buttons_and_text(self):
         if game.switches['saved_clan']:
@@ -393,6 +526,7 @@ class ClanScreen(Screens):
         if game.clan.clan_settings['den labels']:
             self.label_toggle = UIImageButton(scale(pygame.Rect((50, 1282), (68, 68))), "", starting_height=2,
                                               object_id="#checked_checkbox")
+            self.label_toggle.hide()
             self.warrior_den_label.show()
             self.clearing_label.show()
             self.nursery_label.show()
@@ -403,6 +537,7 @@ class ClanScreen(Screens):
         else:
             self.label_toggle = UIImageButton(scale(pygame.Rect((50, 1282), (68, 68))), "", starting_height=2,
                                               object_id="#unchecked_checkbox")
+            self.label_toggle.hide()
             self.warrior_den_label.hide()
             self.clearing_label.hide()
             self.nursery_label.hide()
@@ -410,3 +545,47 @@ class ClanScreen(Screens):
             self.leader_den_label.hide()
             self.med_den_label.hide()
             self.elder_den_label.hide()
+        
+        row_position, column_position = game.clan.your_cat.map_position.split("_")
+
+        north, east, south, west = check_possible_directions(row_position, column_position)
+
+        if not north:
+            print("no north")
+            self.direction_buttons["north"].hide()
+        else:
+            self.direction_buttons["north"].show()
+
+        if not east:
+            print("no east")
+            self.direction_buttons["east"].hide()
+        else:
+            self.direction_buttons["east"].show()
+
+        if south is False:
+            print("no south")
+            self.direction_buttons["south"].hide()
+        else:
+            self.direction_buttons["south"].show()
+
+        if not west:
+            print("no west")
+            self.direction_buttons["west"].hide()
+        else:
+            self.direction_buttons["west"].show()
+
+
+        directions = ["north", "east", "south", "west"]
+        for x in directions:
+            if game.clan.next_direction == x:
+                self.direction_buttons[x].disable()
+            else:
+                self.direction_buttons[x].enable()
+        
+        if game.clan.timeskips == 1:
+            if game.clan.next_direction is None:
+                self.direction_buttons["bloodbath"].disable()
+            else:
+                self.direction_buttons["bloodbath"].enable()
+        else:
+            self.direction_buttons["bloodbath"].hide()

@@ -63,6 +63,9 @@ def json_load():
             elif cat["favourite"] is True:
                 cat["favourite"] = 1
 
+            if "allies" not in cat:
+                cat["allies"] = []
+
             new_cat = Cat(
                 ID=cat["ID"],
                 prefix=cat["name_prefix"],
@@ -72,6 +75,7 @@ def json_load():
                 ),
                 gender=cat["gender"],
                 status=cat["status"],
+                cat_clan=cat["clan"],
                 parent1=cat["parent1"],
                 parent2=cat["parent2"],
                 moons=cat["moons"],
@@ -224,6 +228,10 @@ def json_load():
             new_cat.previous_mates = (
                 cat["previous_mates"] if "previous_mates" in cat else []
             )
+            new_cat.allies = cat["allies"] if (type(cat["allies"]) is list and "allies" in cat) else [cat["allies"]]
+            if None in new_cat.allies:
+                new_cat.allies = [i for i in new_cat.allies if i is not None]
+           
             new_cat.dead = cat["dead"]
             new_cat.dead_for = cat["dead_moons"]
             new_cat.experience = cat["experience"]

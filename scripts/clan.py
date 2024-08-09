@@ -156,6 +156,9 @@ class Clan:
         self.focus_moons = 0
         self.focus_cat = focus_cat
         self.clan_age = clan_age if clan_age else "established"
+        self.days = 0
+        self.timeskips = 1
+        self.next_direction = None
         self.custom_pronouns = []
 
         # Init Settings
@@ -241,7 +244,7 @@ class Clan:
         self.add_cat(self.instructor)
         self.add_to_starclan(self.instructor)
         self.all_clans = []
-        
+
         self.demon = Cat(status=choice(["apprentice", "mediator apprentice", "medicine cat apprentice", "warrior",
                                             "medicine cat", "leader", "mediator", "queen", "queen's apprentice", "deputy", "elder"]),
                             )
@@ -252,9 +255,6 @@ class Clan:
         self.add_cat(self.demon)
         self.add_to_darkforest(self.demon)
         self.all_clans = []
- 
-        if self.leader.status != "leader":
-            self.leader.status_change('leader')
 
         key_copy = tuple(Cat.all_cats.keys())
         for i in key_copy:  # Going through all currently existing cats
@@ -290,7 +290,7 @@ class Clan:
             self.generate_mates()
 
         game.save_cats()
-        number_other_clans = randint(3, 5)
+        number_other_clans = 11
         for _ in range(number_other_clans):
             other_clan_names = [str(i.name) for i in self.all_clans] + [game.clan.name]
             other_clan_name = choice(names.names_dict["normal_prefixes"])
@@ -300,6 +300,29 @@ class Clan:
             self.all_clans.append(other_clan)
         if 'other_med' in game.switches:
             del game.switches['other_med']
+
+        # HUNGER GAMES
+        self.your_cat.cat_clan = self.name
+        clan_count = 0
+        cats_in_clan = 0
+        clans = []
+        for i in self.all_clans:
+            clans.append(i)
+        clans.append(self.name)
+        tributes = [i for i in Cat.all_cats if not Cat.all_cats.get(i).dead and not Cat.all_cats.get(i).outside]
+        for i in tributes:
+            # looping through each tribute and giving them a clan from the other clans list.
+            # only two tributes may be from the same clan. once theres two (cats_in_clan), the code will move onto the next clan.
+            # the last cat in the list will always be from the same clan as MC!
+            if Cat.all_cats.get(i).cat_clan is None:
+                Cat.all_cats.get(i).cat_clan = str(clans[clan_count]).replace("Clan", "")
+                cats_in_clan += 1
+                if cats_in_clan == 2:
+                    clan_count += 1
+                    cats_in_clan = 0
+        game.save_cats()
+        # have to save cats here again rather than just up there so the tributes clans can save correctly!
+
         self.save_clan()
         game.save_clanlist(self.name)
         game.switches["clan_list"] = game.read_clans()
@@ -565,7 +588,10 @@ class Clan:
             "exile_return": self.exile_return,
             "affair": self.affair,
             "custom_pronouns": self.custom_pronouns,
-            "clan_age": self.clan_age
+            "clan_age": self.clan_age,
+            "days": self.days,
+            "timeskips": self.timeskips,
+            "next_direction": self.next_direction
         }
 
         # LEADER DATA
@@ -634,6 +660,11 @@ class Clan:
                     cats.append(c.prefix + "," + c.suffix + "," + c.status)
                 other_med.append(cats)
             clan_data["other_med"] = other_med
+
+        if self.next_direction:
+            clan_data["next_direction"] = self.next_direction
+        else:
+            clan_data["next_direction"] = None
 
         self.save_herbs(game.clan)
         self.save_disaster(game.clan)

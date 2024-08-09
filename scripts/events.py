@@ -27,7 +27,7 @@ from scripts.events_module.outsider_events import OutsiderEvents
 from scripts.event_class import Single_Event
 from scripts.game_structure.game_essentials import game
 from scripts.cat_relations.relationship import Relationship
-from scripts.utility import change_clan_relations, change_clan_reputation, get_cluster, ceremony_text_adjust, get_current_season, adjust_list_text, ongoing_event_text_adjust, event_text_adjust, create_new_cat, pronoun_repl, get_alive_status_cats, get_alive_cats, get_cats_same_age
+from scripts.utility import change_clan_relations, change_clan_reputation, get_cluster, ceremony_text_adjust, get_current_season, adjust_list_text, ongoing_event_text_adjust, event_text_adjust, create_new_cat, pronoun_repl, get_alive_status_cats, get_alive_cats, get_cats_same_age, check_possible_directions
 from scripts.events_module.generate_events import GenerateEvents
 from scripts.cat.cats import Cat, cat_class, BACKSTORIES
 from scripts.cat.history import History
@@ -138,7 +138,19 @@ class Events:
                 for cat in Cat.all_cats.values()):
             game.switches['no_able_left'] = False
 
+        self.travel_map(game.clan.next_direction)
         # age up the clan, set current season
+        game.clan.timeskips += 1
+        if game.clan.timeskips == 10:
+            game.clan.days += 1
+            game.clan.timeskips = 0
+        if game.clan.days in [30, 60, 90, 120, 150]:
+            game.clan.age += 1
+
+        # print("TIME")
+        # print("Moon:", game.clan.age)
+        # print("Day:", game.clan.days)
+        # print("Skip:", game.clan.timeskips)
         game.clan.age += 1
         get_current_season()
         Pregnancy_Events.handle_pregnancy_age(game.clan)
@@ -383,8 +395,9 @@ class Events:
                     game.cur_events_list.insert(0, Single_Event(string, "alert"))
 
         # Promote leader and deputy, if needed.
-        self.check_and_promote_leader()
-        self.check_and_promote_deputy()
+        # HUNGER GAMES: we dont need these anymore. ill delete later
+        # self.check_and_promote_leader()
+        # self.check_and_promote_deputy()
 
         if game.clan.game_mode in ["expanded", "cruel season"]:
             amount_per_med = get_amount_cat_for_one_medic(game.clan)
@@ -432,25 +445,25 @@ class Events:
                   encoding="ascii") as read_file:
             self.df_txt = ujson.loads(read_file.read())
         if not game.clan.your_cat.dead and game.clan.your_cat.status != 'exiled' and not game.clan.your_cat.outside:
-            if game.clan.your_cat.moons == 0:
-                self.generate_birth_event()
-            elif game.clan.your_cat.moons < 6:
-                self.generate_events() 
-            elif game.clan.your_cat.moons == 6:
-                self.generate_app_ceremony()
-            elif game.clan.your_cat.status in ['apprentice', 'medicine cat apprentice', 'mediator apprentice', "queen's apprentice"]:
+            # if game.clan.your_cat.moons == 0:
+            #     self.generate_birth_event()
+            # elif game.clan.your_cat.moons < 6:
+            #     self.generate_events() 
+            # elif game.clan.your_cat.moons == 6:
+            #     self.generate_app_ceremony()
+            if game.clan.your_cat.status in ['apprentice', 'medicine cat apprentice', 'mediator apprentice', "queen's apprentice"]:
                 self.generate_events()
-            elif game.clan.your_cat.status in ['warrior', 'medicine cat', 'mediator', "queen"] and not game.clan.your_cat.w_done and game.clan.your_cat.shunned == 0:
-                self.generate_ceremony()
+            # elif game.clan.your_cat.status in ['warrior', 'medicine cat', 'mediator', "queen"] and not game.clan.your_cat.w_done and game.clan.your_cat.shunned == 0:
+            #     self.generate_ceremony()
             elif game.clan.your_cat.status != 'elder' and game.clan.your_cat.moons != 119:
                 self.generate_events()
-            elif game.clan.your_cat.moons == 119 and not game.clan.your_cat.outside and game.clan.your_cat.shunned == 0:
-                if not game.switches['window_open']:
-                    RetireScreen('events screen')
-                else:
-                    game.switches['windows_dict'].append('retire')
-            elif game.clan.your_cat.moons == 120 and game.clan.your_cat.status == 'elder' and game.clan.your_cat.shunned == 0:
-                self.generate_elder_ceremony()
+            # elif game.clan.your_cat.moons == 119 and not game.clan.your_cat.outside and game.clan.your_cat.shunned == 0:
+            #     if not game.switches['window_open']:
+            #         RetireScreen('events screen')
+            #     else:
+            #         game.switches['windows_dict'].append('retire')
+            # elif game.clan.your_cat.moons == 120 and game.clan.your_cat.status == 'elder' and game.clan.your_cat.shunned == 0:
+            #     self.generate_elder_ceremony()
             elif game.clan.your_cat.status == 'elder':
                 self.generate_events()
             
@@ -474,8 +487,8 @@ class Events:
             self.generate_death_event()
         elif game.clan.your_cat.dead:
             self.generate_events()
-        elif game.clan.your_cat.status == 'exiled':
-            self.generate_exile_event()
+        # elif game.clan.your_cat.status == 'exiled':
+        #     self.generate_exile_event()
             
         game.clan.murdered = False
         game.clan.affair = False
@@ -504,7 +517,7 @@ class Events:
                 game.save_events()
             except:
                 SaveError(traceback.format_exc())
-    
+
     def add_freshkill(self):
         """Adds amount of freshkill needed for the Clan"""
         game.clan.freshkill_pile.add_freshkill(game.clan.freshkill_pile.amount_food_needed())
@@ -2521,7 +2534,8 @@ class Events:
         exiled cat events
         """
         # aging the cat
-        cat.one_moon()
+        if game.clan.days % 30 == 0:
+            cat.one_moon()
         cat.manage_outside_trait()
 
         self.handle_outside_EX(cat)
@@ -2550,43 +2564,44 @@ class Events:
         if cat.dead:
 
             cat.thoughts()
-            if cat.ID in game.just_died:
-                cat.moons += 1
-            else:
-                cat.dead_for += 1
+            if game.clan.days % 30 == 0:
+                if cat.ID in game.just_died:
+                    cat.moons += 1
+                else:
+                    cat.dead_for += 1
             self.handle_fading(cat)  # Deal with fading.
             cat.talked_to = False
             return
         
-        if cat.forgiven > 0:
-            cat.forgiven += 1
-            # reset forgiven back to zero when it hits max to it doesnt just count up forever lol
-            # that + 1 is because it technically starts at one
-            if cat.forgiven >= game.config["shunned_cat"]["max_forgiven_moons"] + 1:
-                cat.forgiven = 0
+        # if cat.forgiven > 0:
+        #     cat.forgiven += 1
+        #     # reset forgiven back to zero when it hits max to it doesnt just count up forever lol
+        #     # that + 1 is because it technically starts at one
+        #     if cat.forgiven >= game.config["shunned_cat"]["max_forgiven_moons"] + 1:
+        #         cat.forgiven = 0
         
-        if cat.shunned > 0 and cat.status != "former Clancat":
-            cat.shunned += 1
-            if cat.shunned >3:
-                exilechance = random.randint(1,15)
-                # Chance for a cat to be exiled, forgiven, or leave before the ten moon limit
-                if exilechance == 1:
-                    self.exile_or_forgive(cat)
-                else:
-                # Max number of moons a cat can be shunned before the clan makes up their damn mind
-                # Currently ten, but it was also roll if its set to more than that in a cat's save
-                    if cat.shunned >= game.config["shunned_cat"]["max_shunned_moons"]:
-                        self.exile_or_forgive(cat)
+        # if cat.shunned > 0 and cat.status != "former Clancat":
+        #     cat.shunned += 1
+        #     if cat.shunned >3:
+        #         exilechance = random.randint(1,15)
+        #         # Chance for a cat to be exiled, forgiven, or leave before the ten moon limit
+        #         if exilechance == 1:
+        #             self.exile_or_forgive(cat)
+        #         else:
+        #         # Max number of moons a cat can be shunned before the clan makes up their damn mind
+        #         # Currently ten, but it was also roll if its set to more than that in a cat's save
+        #             if cat.shunned >= game.config["shunned_cat"]["max_shunned_moons"]:
+        #                 self.exile_or_forgive(cat)
         
-        if cat.status == 'leader' and cat.shunned > 0 and cat.name.specsuffix_hidden is False:
-            cat.name.specsuffix_hidden = True
+        # if cat.status == 'leader' and cat.shunned > 0 and cat.name.specsuffix_hidden is False:
+        #     cat.name.specsuffix_hidden = True
 
         # corrects the name if the leader is shunned but their special suffix isnt hidden
-        
 
         # all actions, which do not trigger an event display and
         # are connected to cats are located in there
-        cat.one_moon()
+        if game.clan.days % 30 == 0:
+            cat.one_moon()
 
 
         # Handle Mediator Events
@@ -2800,6 +2815,76 @@ class Events:
             Cat, event, other_clan_name=f"{enemy_clan.name}Clan", clan=game.clan
         )
         game.cur_events_list.append(Single_Event(event, "other_clans"))
+
+    def travel_map(self, next_direction):
+        row, column = game.clan.your_cat.map_position.split("_")
+        # grabbing the current position from the clan_cats string
+
+        row = int(row)
+        column = int(column)
+        # convert to integers so we can add or subtract
+
+        if next_direction == "north":
+            column -= 1
+        elif next_direction == "east":
+            row += 1
+        elif next_direction == "south":
+            column += 1
+        elif next_direction == "west":
+            row -= 1
+
+        game.clan.your_cat.map_position = f"{int(row)}_{int(column)}"
+        # turn back into a string and update the cat's position!
+
+        if next_direction is not None:
+            game.cur_events_list.insert(0, Single_Event(f"You travel {next_direction}. {game.clan.your_cat.map_position}", "alert", game.clan.your_cat.ID))
+        else:
+            if game.clan.timeskips == 1:
+                game.cur_events_list.insert(0, Single_Event(f"You join the bloodbath. {game.clan.your_cat.map_position}", "alert", game.clan.your_cat.ID))
+            else:
+                game.cur_events_list.insert(0, Single_Event(f"You stay put. {game.clan.your_cat.map_position}", "alert", game.clan.your_cat.ID))
+
+        game.clan.next_direction = None
+
+        # now for the npcs
+        if game.clan.timeskips != 1:
+            for npc in Cat.all_cats_list:
+                if npc.ID == game.clan.your_cat.ID:
+                    continue
+                cat_row, cat_column = npc.map_position.split("_")
+                cat_row = int(cat_row)
+                cat_column = int(cat_column)
+
+                cat_north, cat_east, cat_south, cat_west = check_possible_directions(cat_row, cat_column)
+
+
+                movement = random.randint(1,6)
+                if movement == 1:
+                    if cat_east:
+                        cat_row += 1
+                elif movement == 2:
+                    if cat_south:
+                        cat_column += 1
+                elif movement == 3:
+                    if cat_east:
+                        cat_row += 1
+                    if cat_south:
+                        cat_column += 1
+                elif movement == 4:
+                    if cat_west:
+                        cat_row -= 1
+                elif movement == 5:
+                    if cat_north:
+                        cat_column -= 1
+                elif movement == 6:
+                    if cat_west:
+                        cat_row -= 1
+                    if cat_north:
+                        cat_column -= 1
+                
+                # ill do a better version of this later lol
+
+                npc.map_position = f"{int(cat_row)}_{int(cat_column)}"
 
     def perform_ceremonies(self, cat):
         """
@@ -3134,6 +3219,9 @@ class Events:
         promote cats and add to event list
         """
         # ceremony = []
+        if game.clan.your_cat:
+            return
+        
         _ment = Cat.fetch_cat(cat.mentor) if cat.mentor else None # Grab current mentor, if they have one, before it's removed. 
         old_name = str(cat.name)
         cat.status_change(promoted_to)

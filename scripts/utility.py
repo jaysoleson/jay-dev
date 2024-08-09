@@ -8,6 +8,9 @@ TODO: Docs
 
 import logging
 import re
+
+import os
+
 from itertools import combinations
 from random import choice, choices, randint, random, sample, randrange, gauss
 from sys import exit as sys_exit
@@ -235,7 +238,43 @@ def get_warring_clan():
 # ---------------------------------------------------------------------------- #
 #                          Handling Outside Factors                            #
 # ---------------------------------------------------------------------------- #
+def check_possible_directions(row_position, column_position):
+    row_position = int(row_position)
+    column_position = int(column_position)
 
+    camp_bg_base_dir = 'resources/images/hg_maps'
+    leaves = ["newleaf", "greenleaf", "leafbare", "leaffall"]
+    
+    available_biome = ['Forest', 'Mountainous', 'Plains', 'Beach']
+    biome = game.clan.biome
+    if biome not in available_biome:
+        biome = available_biome[0]
+        game.clan.biome = biome
+    biome = biome.lower()
+
+    pathstart = f'{camp_bg_base_dir}/{biome}/{(game.clan.current_season).lower()}'
+
+    # disabling travel buttons if the next image doesn't exist!
+    # this allows me to expand the map as much as i want without recoding >:3
+
+    north = True
+    east = True
+    south = True
+    west = True
+
+    if not os.path.exists(f"{pathstart}_{row_position + 1}_{column_position}.png"):
+        east = False
+
+    if not os.path.exists(f"{pathstart}_{row_position - 1}_{column_position}.png"):
+        west = False
+
+    if not os.path.exists(f"{pathstart}_{row_position}_{column_position + 1}.png"):
+        south = False
+
+    if not os.path.exists(f"{pathstart}_{row_position}_{column_position - 1}.png"):
+        north = False
+
+    return north, east, south, west
 
 def get_current_season():
     """

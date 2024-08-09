@@ -56,7 +56,7 @@ class AchievementScreen(Screens):
         
         self.set_disabled_menu_buttons(["stats"])
         self.show_menu_buttons()
-        self.update_heading_text(f'{game.clan.name}Clan')
+        self.update_heading_text(f'The Arena')
         a_txt = ""
         with open('resources/dicts/achievements.json', 'r', encoding='utf-8') as f:
             a_txt = ujson.load(f)
