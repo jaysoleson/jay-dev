@@ -3421,6 +3421,8 @@ class ProfileScreen(Screens):
                     self.exit_df_button.hide()
                 if self.affair_button:
                     self.affair_button.hide()
+            self.kill_cat_button.disable()
+            self.exile_cat_button.disable()
         elif self.open_tab == "accessories":
             for i in self.cat_list_buttons:
                 self.cat_list_buttons[i].kill()

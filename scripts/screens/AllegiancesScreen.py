@@ -31,13 +31,6 @@ class AllegiancesScreen(Screens):
         pass
 
     def screen_switches(self):
-        # Heading
-        self.heading = pygame_gui.elements.UITextBox(
-            f"{game.clan.name}Clan Allegiances",
-            scale(pygame.Rect((390, 230), (800, 80))),
-            object_id=get_text_box_theme("#text_box_34_horizcenter"),
-            manager=MANAGER,
-        )
 
         # Set Menu Buttons.
         self.show_menu_buttons()
@@ -92,170 +85,149 @@ class AllegiancesScreen(Screens):
         del self.names_boxes
         self.scroll_container.kill()
         del self.scroll_container
-        self.heading.kill()
-        del self.heading
 
     def generate_one_entry(self, cat, extra_details=""):
         """Extra Details will be placed after the cat description, but before the apprentice (if they have one. )"""
-        output = f"{str(cat.name).upper()} - {cat.describe_cat()} {extra_details}"
-
-        if len(cat.apprentice) > 0:
-            if len(cat.apprentice) == 1:
-                output += "\n      APPRENTICE: "
+        if cat.dead:
+            if game.settings["dark mode"]:
+                extra_details = "<font color='#FF9999' ><b>DEAD: </b></font>"
             else:
-                output += "\n      APPRENTICES: "
-            output += ", ".join(
-                [
-                    str(Cat.fetch_cat(i).name).upper()
-                    for i in cat.apprentice
-                    if Cat.fetch_cat(i)
-                ]
-            )
+                extra_details = "<font color='#950000' ><b>DEAD: </b></font>"
+
+        output = f"{extra_details} {str(cat.name).upper()} - {cat.describe_cat()}"
+
+        # if len(cat.apprentice) > 0:
+        #     if len(cat.apprentice) == 1:
+        #         output += "\n      APPRENTICE: "
+        #     else:
+        #         output += "\n      APPRENTICES: "
+        #     output += ", ".join(
+        #         [
+        #             str(Cat.fetch_cat(i).name).upper()
+        #             for i in cat.apprentice
+        #             if Cat.fetch_cat(i)
+        #         ]
+        #     )
 
         return output
 
     def get_allegiances_text(self):
         """Determine Text. Ouputs list of tuples."""
 
-        living_cats = [i for i in Cat.all_cats.values() if not (i.dead or i.outside)]
-        living_meds = []
-        living_mediators = []
-        living_warriors = []
-        living_apprentices = []
-        living_queens = []
-        living_kits = []
-        living_elders = []
-        for cat in living_cats:
-            if cat.status == "medicine cat":
-                living_meds.append(cat)
-            elif cat.status == "warrior":
-                living_warriors.append(cat)
-            elif cat.status == "mediator":
-                living_mediators.append(cat)
-            elif cat.status == 'queen':
-                living_queens.append(cat)
-            elif cat.status in ["apprentice", "medicine cat apprentice", "mediator apprentice", "queen's apprentice"]:
-                living_apprentices.append(cat)
-            elif cat.status in ["kitten", "newborn"]:
-                living_kits.append(cat)
-            elif cat.status == "elder":
-                living_elders.append(cat)
-
-        # Find Queens:
-        queen_dict, living_kits = get_alive_clan_queens(living_cats)
-
-        # Remove queens from warrior or elder lists, if they are there.  Let them stay on any other lists.
-        for q in queen_dict:
-            queen = Cat.fetch_cat(q)
-            if not queen:
-                continue
-            if queen in living_warriors:
-                living_warriors.remove(queen)
-            elif queen in living_elders:
-                living_elders.remove(queen)
-
-        # Clan Leader Box:
-        # Pull the Clan leaders
-        outputs = []
-        if game.clan.leader and not (game.clan.leader.dead or game.clan.leader.outside):
-            outputs.append(
-                ["<b><u>LEADER</u></b>", self.generate_one_entry(game.clan.leader)]
-            )
-
-        # Deputy Box:
-        if game.clan.deputy and not (game.clan.deputy.dead or game.clan.deputy.outside):
-            outputs.append(
-                ["<b><u>DEPUTY</u></b>", self.generate_one_entry(game.clan.deputy)]
-            )
-
-        # Medicine Cat Box:
-        if living_meds:
-            _box = ["", ""]
-            if len(living_meds) == 1:
-                _box[0] = "<b><u>MEDICINE CAT</u></b>"
-            else:
-                _box[0] = "<b><u>MEDICINE CATS</u></b>"
-
-            _box[1] = "\n".join([self.generate_one_entry(i) for i in living_meds])
-            outputs.append(_box)
-
-        # Mediator Box:
-        if living_mediators:
-            _box = ["", ""]
-            if len(living_mediators) == 1:
-                _box[0] = "<b><u>MEDIATOR</u></b>"
-            else:
-                _box[0] = "<b><u>MEDIATORS</u></b>"
-
-            _box[1] = "\n".join([self.generate_one_entry(i) for i in living_mediators])
-            outputs.append(_box)
-
-        # Warrior Box:
-        if living_warriors:
-            _box = ["", ""]
-            if len(living_warriors) == 1:
-                _box[0] = "<b><u>WARRIOR</u></b>"
-            else:
-                _box[0] = "<b><u>WARRIORS</u></b>"
-
-            _box[1] = "\n".join([self.generate_one_entry(i) for i in living_warriors])
-            outputs.append(_box)
-
-        # Apprentice Box:
-        if living_apprentices:
-            _box = ["", ""]
-            if len(living_apprentices) == 1:
-                _box[0] = "<b><u>APPRENTICE</u></b>"
-            else:
-                _box[0] = "<b><u>APPRENTICES</u></b>"
-
-            _box[1] = "\n".join(
-                [self.generate_one_entry(i) for i in living_apprentices]
-            )
-            outputs.append(_box)
+        living_cats = [i for i in Cat.all_cats.values()]
+        clan1 = []
+        clan2 = []
+        clan3 = []
+        clan4 = []
+        clan5 = []
+        clan6 = []
+        clan7 = []
+        clan8 = []
+        clan9 = []
+        clan10 = []
+        clan11 = []
+        clan12 = []
         
-        # Queens and Kits Box:
-        if queen_dict or living_kits or living_queens:
+        for cat in living_cats:
+            if cat.cat_clan == str(game.clan.all_clans[0]).replace("Clan", ""):
+                clan1.append(cat)
+            if cat.cat_clan == str(game.clan.all_clans[1]).replace("Clan", ""):
+                clan2.append(cat)
+            if cat.cat_clan == str(game.clan.all_clans[2]).replace("Clan", ""):
+                clan3.append(cat)
+            if cat.cat_clan == str(game.clan.all_clans[3]).replace("Clan", ""):
+                clan4.append(cat)
+            if cat.cat_clan == str(game.clan.all_clans[4]).replace("Clan", ""):
+                clan5.append(cat)
+            if cat.cat_clan == str(game.clan.all_clans[5]).replace("Clan", ""):
+                clan6.append(cat)
+            if cat.cat_clan == str(game.clan.all_clans[6]).replace("Clan", ""):
+                clan7.append(cat)
+            if cat.cat_clan == str(game.clan.all_clans[7]).replace("Clan", ""):
+                clan8.append(cat)
+            if cat.cat_clan == str(game.clan.all_clans[8]).replace("Clan", ""):
+                clan9.append(cat)
+            if cat.cat_clan == str(game.clan.all_clans[9]).replace("Clan", ""):
+                clan10.append(cat)
+            if cat.cat_clan == str(game.clan.all_clans[10]).replace("Clan", ""):
+                clan11.append(cat)
+            if cat.cat_clan == game.clan.name:
+                clan12.append(cat)
+
+        outputs = []
+        # all the clans!
+        # clan 12 first because its the MC's Clan
+        if clan12:
             _box = ["", ""]
-            _box[0] = "<b><u>QUEENS AND KITS</u></b>"
+            _box[0] = f"<b><u>{game.clan.name}Clan</u></b>"
 
-            # This one is a bit different.  First all the queens, and the kits they are caring for.
-            all_entries = []
-            for q in queen_dict:
-                queen = Cat.fetch_cat(q)
-                if not queen:
-                    continue
-                kittens = []
-                for k in queen_dict[q]:
-                    kittens += [f"{k.name} - {k.describe_cat(short=True)}"]
-                if len(kittens) == 1:
-                    kittens = f" <i>(caring for {kittens[0]})</i>"
-                else:
-                    kittens = f" <i>(caring for {', '.join(kittens[:-1])}, and {kittens[-1]})</i>"
-
-                all_entries.append(self.generate_one_entry(queen, kittens))
-
-            for k in living_queens:
-                if k.ID not in queen_dict.keys():
-                    all_entries.append(self.generate_one_entry(k))
-            #Now kittens without carers
-            for k in living_kits:
-                all_entries.append(
-                    f"{str(k.name).upper()} - {k.describe_cat(short=True)}"
-                )
-
-            _box[1] = "\n".join(all_entries)
+            _box[1] = "\n".join([self.generate_one_entry(i) for i in clan12])
             outputs.append(_box)
-
-        # Elder Box:
-        if living_elders:
+        if clan1:
             _box = ["", ""]
-            if len(living_elders) == 1:
-                _box[0] = "<b><u>ELDER</u></b>"
-            else:
-                _box[0] = "<b><u>ELDERS</u></b>"
+            _box[0] = f"<b><u>{game.clan.all_clans[0]}</u></b>"
 
-            _box[1] = "\n".join([self.generate_one_entry(i) for i in living_elders])
+            _box[1] = "\n".join([self.generate_one_entry(i) for i in clan1])
+            outputs.append(_box)
+        if clan2:
+            _box = ["", ""]
+            _box[0] = f"<b><u>{game.clan.all_clans[1]}</u></b>"
+
+            _box[1] = "\n".join([self.generate_one_entry(i) for i in clan2])
+            outputs.append(_box)
+        if clan3:
+            _box = ["", ""]
+            _box[0] = f"<b><u>{game.clan.all_clans[2]}</u></b>"
+
+            _box[1] = "\n".join([self.generate_one_entry(i) for i in clan3])
+            outputs.append(_box)
+        if clan4:
+            _box = ["", ""]
+            _box[0] = f"<b><u>{game.clan.all_clans[3]}</u></b>"
+
+            _box[1] = "\n".join([self.generate_one_entry(i) for i in clan4])
+            outputs.append(_box)
+        if clan5:
+            _box = ["", ""]
+            _box[0] = f"<b><u>{game.clan.all_clans[4]}</u></b>"
+
+            _box[1] = "\n".join([self.generate_one_entry(i) for i in clan5])
+            outputs.append(_box)
+        if clan6:
+            _box = ["", ""]
+            _box[0] = f"<b><u>{game.clan.all_clans[5]}</u></b>"
+
+            _box[1] = "\n".join([self.generate_one_entry(i) for i in clan6])
+            outputs.append(_box)
+        if clan7:
+            _box = ["", ""]
+            _box[0] = f"<b><u>{game.clan.all_clans[6]}</u></b>"
+
+            _box[1] = "\n".join([self.generate_one_entry(i) for i in clan7])
+            outputs.append(_box)
+        if clan8:
+            _box = ["", ""]
+            _box[0] = f"<b><u>{game.clan.all_clans[7]}</u></b>"
+
+            _box[1] = "\n".join([self.generate_one_entry(i) for i in clan8])
+            outputs.append(_box)
+        if clan9:
+            _box = ["", ""]
+            _box[0] = f"<b><u>{game.clan.all_clans[8]}</u></b>"
+
+            _box[1] = "\n".join([self.generate_one_entry(i) for i in clan9])
+            outputs.append(_box)
+        if clan10:
+            _box = ["", ""]
+            _box[0] = f"<b><u>{game.clan.all_clans[9]}</u></b>"
+
+            _box[1] = "\n".join([self.generate_one_entry(i) for i in clan10])
+            outputs.append(_box)
+        if clan11:
+            _box = ["", ""]
+            _box[0] = f"<b><u>{game.clan.all_clans[10]}</u></b>"
+
+            _box[1] = "\n".join([self.generate_one_entry(i) for i in clan11])
             outputs.append(_box)
 
         return outputs

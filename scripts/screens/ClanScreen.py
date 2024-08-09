@@ -319,40 +319,6 @@ class ClanScreen(Screens):
         # reset save status
         game.switches['saved_clan'] = False
 
-    def update_camp_bg(self):
-        light_dark = "light"
-        if game.settings["dark mode"]:
-            light_dark = "dark"
-
-        camp_bg_base_dir = 'resources/images/camp_bg/'
-        leaves = ["newleaf", "greenleaf", "leafbare", "leaffall"]
-        camp_nr = game.clan.camp_bg
-
-        if camp_nr is None:
-            camp_nr = 'camp1'
-            game.clan.camp_bg = camp_nr
-
-        available_biome = ['Forest', 'Mountainous', 'Plains', 'Beach']
-        biome = game.clan.biome
-        if biome not in available_biome:
-            biome = available_biome[0]
-            game.clan.biome = biome
-        biome = biome.lower()
-
-        all_backgrounds = []
-        for leaf in leaves:
-            platform_dir = f'{camp_bg_base_dir}/{biome}/{leaf}_{camp_nr}_{light_dark}.png'
-            all_backgrounds.append(platform_dir)
-
-        self.newleaf_bg = pygame.transform.scale(
-            pygame.image.load(all_backgrounds[0]).convert(), (screen_x, screen_y))
-        self.greenleaf_bg = pygame.transform.scale(
-            pygame.image.load(all_backgrounds[1]).convert(), (screen_x, screen_y))
-        self.leafbare_bg = pygame.transform.scale(
-            pygame.image.load(all_backgrounds[2]).convert(), (screen_x, screen_y))
-        self.leaffall_bg = pygame.transform.scale(
-            pygame.image.load(all_backgrounds[3]).convert(), (screen_x, screen_y))
-        
     def update_current_map(self):
 
         camp_bg_base_dir = 'resources/images/hg_maps/'
@@ -551,26 +517,26 @@ class ClanScreen(Screens):
         north, east, south, west = check_possible_directions(row_position, column_position)
 
         if not north:
-            print("no north")
             self.direction_buttons["north"].hide()
+            print("no north")
         else:
             self.direction_buttons["north"].show()
 
         if not east:
-            print("no east")
             self.direction_buttons["east"].hide()
+            print("no east")
         else:
             self.direction_buttons["east"].show()
 
-        if south is False:
-            print("no south")
+        if not south:
             self.direction_buttons["south"].hide()
+            print("no south")
         else:
             self.direction_buttons["south"].show()
 
         if not west:
-            print("no west")
             self.direction_buttons["west"].hide()
+            print("no west")
         else:
             self.direction_buttons["west"].show()
 
@@ -588,4 +554,4 @@ class ClanScreen(Screens):
             else:
                 self.direction_buttons["bloodbath"].enable()
         else:
-            self.direction_buttons["bloodbath"].hide()
+            self.direction_buttons["bloodbath"].kill()

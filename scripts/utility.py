@@ -252,7 +252,9 @@ def check_possible_directions(row_position, column_position):
         game.clan.biome = biome
     biome = biome.lower()
 
-    pathstart = f'{camp_bg_base_dir}/{biome}/{(game.clan.current_season).lower()}'
+    season = game.clan.current_season.replace("-", "")
+
+    pathstart = f'{camp_bg_base_dir}/{biome}/{(season).lower()}'
 
     # disabling travel buttons if the next image doesn't exist!
     # this allows me to expand the map as much as i want without recoding >:3
