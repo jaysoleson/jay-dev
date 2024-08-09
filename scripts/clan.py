@@ -1158,6 +1158,16 @@ class Clan:
         self.load_accessories()
         if game.clan.game_mode != "classic":
             self.load_freshkill_pile(game.clan)
+
+        if "timeskips" in clan_data:
+            game.clan.timeskips = clan_data["timeskips"]
+        else:
+            game.clan.timeskips = 1
+
+        if "days" in clan_data:
+            game.clan.days = clan_data["days"]
+        else:
+            game.clan.days = 0
         
         if "your_cat" in clan_data:
             game.clan.your_cat = Cat.all_cats[clan_data["your_cat"]]

@@ -410,7 +410,11 @@ class ClanScreen(Screens):
         num_items = 24
         angle_increment = 2 * math.pi / num_items
 
-        if game.clan.timeskips == 1:
+        for ele in self.platforms:
+            self.platforms[ele].kill()
+        self.platforms = {}
+
+        if game.clan.timeskips == 1 and game.clan.days == 0:
             for i, x in enumerate(game.clan.clan_cats):
                 if Cat.all_cats[x].dead or Cat.all_cats[x].outside or Cat.all_cats[x].moons <= 0:
                     continue
@@ -548,7 +552,7 @@ class ClanScreen(Screens):
             else:
                 self.direction_buttons[x].enable()
         
-        if game.clan.timeskips == 1:
+        if game.clan.timeskips == 1 and game.clan.days == 0:
             if game.clan.next_direction is None:
                 self.direction_buttons["bloodbath"].disable()
             else:

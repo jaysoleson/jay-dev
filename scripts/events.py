@@ -2844,7 +2844,7 @@ class Events:
         if next_direction is not None:
             game.cur_events_list.insert(0, Single_Event(f"You travel {next_direction}. {game.clan.your_cat.map_position}", "alert", game.clan.your_cat.ID))
         else:
-            if game.clan.timeskips == 1:
+            if game.clan.timeskips == 1 and game.clan.days == 0:
                 game.cur_events_list.insert(0, Single_Event(f"You join the bloodbath. {game.clan.your_cat.map_position}", "alert", game.clan.your_cat.ID))
             else:
                 game.cur_events_list.insert(0, Single_Event(f"You stay put. {game.clan.your_cat.map_position}", "alert", game.clan.your_cat.ID))
