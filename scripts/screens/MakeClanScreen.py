@@ -349,7 +349,9 @@ class MakeClanScreen(Screens):
             self.clan_name = ""
             self.open_name_clan()
         elif event.ui_element == self.elements['customize']:
+            print(self.selected_cat.name)
             self.open_customize_cat()
+            print(self.selected_cat.name)
             
     def handle_choose_name_event(self, event):
         if event.ui_element == self.elements['next_step']:
@@ -1448,8 +1450,7 @@ class MakeClanScreen(Screens):
             c_moons = 121
 
         self.elements['preview age'].disable()
-
-        self.selected_cat = Cat(moons = c_moons, pelt=pelt2, loading_cat=True)
+        self.selected_cat.pelt = pelt2
         self.selected_cat.sprite = generate_sprite(self.selected_cat)
         self.elements["sprite"] = UISpriteButton(scale(pygame.Rect
                                          ((250,280), (350, 350))),
@@ -1962,6 +1963,7 @@ class MakeClanScreen(Screens):
                 self.randomize_custom_cat()
                 self.open_customize_cat()
             elif event.ui_element == self.elements['next_step']:
+                
                 new_cat = self.selected_cat
                 new_cat.pelt = self.selected_cat.pelt
                 new_cat.gender = self.sex
@@ -2037,7 +2039,9 @@ class MakeClanScreen(Screens):
             c_moons = 12
         elif self.preview_age == "elder":
             c_moons = 121
-        self.selected_cat = Cat(moons = c_moons, pelt=pelt2, loading_cat=True)
+        # self.selected_cat = Cat(moons = c_moons, pelt=pelt2, loading_cat=True)
+
+        self.selected_cat.pelt = pelt2
 
         self.selected_cat.sprite = generate_sprite(self.selected_cat)
         self.elements['sprite'].kill()
@@ -2405,7 +2409,7 @@ class MakeClanScreen(Screens):
         self.elements["continue"] = UIImageButton(scale(pygame.Rect((692, 600), (204, 60))), "",
                                                   object_id="#continue_button_small")
         self.elements["save_confirm"] = pygame_gui.elements.UITextBox(
-            'May the odds be ever in your favour, ' + str(self.your_cat.name),
+            'May the odds be ever in your favour, ' + str(self.your_cat.name) + ".",
             scale(pygame.Rect((200, 470), (1200, 60))),
             object_id=get_text_box_theme("#text_box_30_horizcenter"),
             manager=MANAGER)
