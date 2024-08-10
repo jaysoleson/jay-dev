@@ -16,7 +16,7 @@ import re
 
 from scripts.cat.cats import Cat, cat_class
 from scripts.clan import Clan
-from scripts.clan import HERBS
+from scripts.clan import HERBS, ITEMS
 from scripts.clan_resources.freshkill import FRESHKILL_ACTIVE, FRESHKILL_EVENT_ACTIVE
 from scripts.conditions import medical_cats_condition_fulfilled, get_amount_cat_for_one_medic
 from scripts.events_module.relation_events import Relation_Events
@@ -32,7 +32,6 @@ from scripts.events_module.generate_events import GenerateEvents
 from scripts.cat.cats import Cat, cat_class, BACKSTORIES
 from scripts.cat.history import History
 from scripts.cat.names import Name
-from scripts.clan import HERBS
 from scripts.clan_resources.freshkill import FRESHKILL_EVENT_ACTIVE
 from scripts.conditions import (
     medical_cats_condition_fulfilled,
@@ -147,10 +146,10 @@ class Events:
         if game.clan.days in [30, 60, 90, 120, 150]:
             game.clan.age += 1
 
-        # print("TIME")
-        # print("Moon:", game.clan.age)
-        # print("Day:", game.clan.days)
-        # print("Skip:", game.clan.timeskips)
+        print("TIME")
+        print("Moon:", game.clan.age)
+        print("Day:", game.clan.days)
+        print("Skip:", game.clan.timeskips)
         game.clan.age += 1
         get_current_season()
         Pregnancy_Events.handle_pregnancy_age(game.clan)
@@ -606,7 +605,7 @@ class Events:
                         print(f'attempted to remove {acc} from possible acc list, but it was not in the list!')
 
         if not game.clan.your_cat.pelt.inventory:
-            game.clan.your_cat.pelt.inventory = []
+            game.clan.your_cat.pelt.inventory = {}
         acc = random.choice(acc_list)
         counter = 0
         while acc in game.clan.your_cat.pelt.inventory:
@@ -614,7 +613,7 @@ class Events:
             if counter == 30:
                 break
             acc = random.choice(acc_list)
-        game.clan.your_cat.pelt.inventory.append(acc)
+        game.clan.your_cat.pelt.inventory.update({acc: 1})
         ACC_DISPLAY = None
         with open(f"resources/dicts/acc_display.json", 'r') as read_file:
             ACC_DISPLAY = ujson.loads(read_file.read())
@@ -2608,6 +2607,14 @@ class Events:
         if game.clan.days % 30 == 0:
             cat.one_moon()
 
+        if game.clan.days == 0 and game.clan.timeskips == 2:
+            if cat.map_position == "0_0":
+                self.bloodbath(cat)
+            else:
+                self.one_moon_inventory(cat)
+        else:
+            self.one_moon_inventory(cat)
+
 
         # Handle Mediator Events
         # TODO: this is not a great way to handle them, ideally they should be converted to ShortEvent format
@@ -2676,6 +2683,7 @@ class Events:
         if cat.dead:
             return
 
+        cat.moonskip_stats(cat)
         cat.relationship_interaction()
         cat.thoughts()
 
@@ -2690,7 +2698,7 @@ class Events:
         if cat.exiled:
             Cat.handle_exile_returns(self)
         
-        self.invite_new_cats(cat)
+        # self.invite_new_cats(cat)
         self.other_interactions(cat)
         # self.gain_accessories(cat)
 
@@ -2820,6 +2828,127 @@ class Events:
             Cat, event, other_clan_name=f"{enemy_clan.name}Clan", clan=game.clan
         )
         game.cur_events_list.append(Single_Event(event, "other_clans"))
+    
+    def bloodbath(self, cat):
+        if not (game.clan.timeskips == 2 and game.clan.days == 0):
+            return
+        if cat.map_position != "0_0":
+            return
+
+        biome_prey = ITEMS[(game.clan.biome).lower()]["food"]
+        gen_prey = ITEMS["general"]["food"]
+
+        prey = []
+        for i in biome_prey.keys():
+            prey.append(i)
+        for i in gen_prey.keys():
+            prey.append(i)
+        
+        amount = random.choices([1, 2, 3, 4], [1, 2, 3, 2], k=1)
+        random_prey = random.sample(prey, k=amount[0])
+
+        for i in random_prey:
+            if i in ["RASPBERRY", "BLACKBERRY"]:
+                a = random.randint(1,5) 
+                cat.pelt.inventory.update({i: a})
+            else:
+                cat.pelt.inventory.update({i: 1})
+
+        prey_list = []
+        for i in random_prey:
+            i = i.lower()
+            i.replace("'", "")
+            prey_list.append(i)
+
+        if len(prey_list) > 2:
+            prey_str = f"{', '.join(prey_list[:-1])}, and {prey_list[-1]}."
+        elif len(prey_list) > 1:
+            prey_str = f"{''.join(prey_list[:-1])} and {prey_list[-1]}."
+        else:
+            prey_str = f"{prey_list[-1]}"
+
+        if cat.ID == game.clan.your_cat.ID:
+            # this function gives prey to everyone, but only MC gets event text for it
+            event = f"You join the bloodbath! You have gained: {prey_str}"
+            game.cur_events_list.insert(0, Single_Event(event, "alert", game.clan.your_cat.ID))
+
+        # print(prey)
+
+    def one_moon_inventory(self, cat):
+        """ Handles an NPC's inventory on timeskip. """
+        if cat.ID == game.clan.your_cat.ID:
+            # mc random inventory gains will be Different
+            return
+        if not int(random.random() * 2): # 1/2
+            if cat.pelt.inventory == {}:
+                return
+            foodlist = []
+            for i in cat.pelt.inventory.keys():
+                foodlist.append(i)
+            food = random.choice(foodlist)
+
+            oldhunger = cat.stats.hunger
+            if food in ITEMS[(game.clan.biome).lower()]["food"]:
+                satiation_value = ITEMS[(game.clan.biome).lower()]["food"].get(food, 0)
+
+            elif food in ITEMS["general"]["food"]:
+                satiation_value = ITEMS["general"]["food"].get(food, 0)
+
+            else:
+                print("RETURNING: You can't eat", food)
+                return
+            
+            # if eating the food would put them over 100,
+            # they don't eat it. would be a waste!
+            if cat.stats.hunger + satiation_value > 100:
+                return
+            
+            # now they eat!!
+            cat.stats.hunger += satiation_value
+
+            cat.pelt.inventory[food] -= 1
+
+            if cat.pelt.inventory[food] <= 0:
+                cat.pelt.inventory.pop(food)
+            
+            print(f"{cat.name} ate one {food}. Their hunger has gone from {oldhunger} to {cat.stats.hunger}.")
+            
+        
+        if not int(random.random() * 2):
+            biome_prey = ITEMS[(game.clan.biome).lower()]["food"]
+            gen_prey = ITEMS["general"]["food"]
+
+            prey = []
+            weights = {}
+            for i in biome_prey.keys():
+                prey.append(i)
+            for i in gen_prey.keys():
+                prey.append(i)
+
+            biomes= [game.clan.biome, "general"]
+            for biome in biomes:
+                for i in prey:
+                    value = ITEMS[(biome).lower()]["food"].get(i, 0)
+                    weight = 100 - value
+                    if i not in weights:
+                        weights[i] = 0
+                    weights[i] += weight
+
+            # backhere
+                    
+            items_with_weights = list(weights.items())  
+
+            items, item_weights = zip(*items_with_weights)
+
+            amount = random.choices([1, 2], [2, 1], k=1)[0]
+
+            random_prey = random.choices(items, weights=item_weights, k=amount)
+
+            print(f"{cat.name} random food: {random_prey}")
+
+            a = random.randint(1,3)
+            for i in random_prey:
+                cat.pelt.inventory.update({i: a})
 
     def travel_map(self, next_direction):
         row, column = game.clan.your_cat.map_position.split("_")
@@ -2845,14 +2974,14 @@ class Events:
             game.cur_events_list.insert(0, Single_Event(f"You travel {next_direction}. {game.clan.your_cat.map_position}", "alert", game.clan.your_cat.ID))
         else:
             if game.clan.timeskips == 1 and game.clan.days == 0:
-                game.cur_events_list.insert(0, Single_Event(f"You join the bloodbath. {game.clan.your_cat.map_position}", "alert", game.clan.your_cat.ID))
+                pass
             else:
                 game.cur_events_list.insert(0, Single_Event(f"You stay put. {game.clan.your_cat.map_position}", "alert", game.clan.your_cat.ID))
 
         game.clan.next_direction = None
 
         # now for the npcs
-        if game.clan.timeskips != 1:
+        if game.clan.timeskips != 0:
             for npc in Cat.all_cats_list:
                 if npc.ID == game.clan.your_cat.ID:
                     continue
@@ -2862,8 +2991,11 @@ class Events:
 
                 cat_north, cat_east, cat_south, cat_west = check_possible_directions(cat_row, cat_column)
 
-
-                movement = random.randint(1,6)
+                if game.clan.timeskips == 1 and game.clan.days == 0:
+                    # movement is less likely during the bloodbath bc they wanna join in!!!
+                    movement = random.randint(1,12)
+                else:
+                    movement = random.randint(1,8)
                 if movement == 1:
                     if cat_east:
                         cat_row += 1
@@ -2886,6 +3018,9 @@ class Events:
                         cat_row -= 1
                     if cat_north:
                         cat_column -= 1
+                else:
+                    pass
+                # these guys dont move
                 
                 # ill do a better version of this later lol
 

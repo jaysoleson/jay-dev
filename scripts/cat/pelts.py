@@ -211,7 +211,7 @@ class Pelt:
                  para_adult_sprite: int = None,
                  reverse: bool = False,
                  accessories:list=None,
-                 inventory:list=[]
+                 inventory:dict={}
                  ) -> None:
         self.name = name
         self.colour = colour
@@ -264,7 +264,7 @@ class Pelt:
         self.skin = skin
 
         if inventory is None:
-            self.inventory = []
+            self.inventory = {}
         else:
             self.inventory = inventory
 

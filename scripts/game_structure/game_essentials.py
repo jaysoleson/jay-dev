@@ -428,6 +428,11 @@ class Game:
             os.makedirs(directory + "/relationships")
         for f in os.listdir(directory + "/relationships"):
             os.remove(os.path.join(directory + "/relationships", f))
+            
+        if not os.path.exists(directory + "/stats"):
+            os.makedirs(directory + "/stats")
+        for f in os.listdir(directory + "/stats"):
+            os.remove(os.path.join(directory + "/stats", f))
 
         self.save_faded_cats(clanname)  # Fades cat and saves them, if needed
 
@@ -448,6 +453,7 @@ class Game:
                 inter_cat.history = None
             if not inter_cat.dead:
                 inter_cat.save_relationship_of_cat(directory + "/relationships")
+                inter_cat.save_stats_of_cat(directory + "/stats")
 
         self.safe_save(f"{get_save_dir()}/{clanname}/clan_cats.json", clan_cats)
 

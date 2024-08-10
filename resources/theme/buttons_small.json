@@ -2769,6 +2769,32 @@
             "filled_bar": "#8CB250"
         }
     },
+    "#stats_bar": {
+        "colours": {
+            "normal_border": "#1E1501",
+            "filled_bar": "#BDA31C",
+            "unfilled_bar": "#F7EDC7"
+        },
+        "misc": {
+            "shape": "rounded_rectangle",
+            "shape_corner_radius": "3",
+            "border_width": "2",
+            "shadow_width": "0"
+        }
+    },
+    "#stats_bar_dark": {
+        "colours": {
+            "normal_border": "#1E1501",
+            "filled_bar": "#BDA31C",
+            "unfilled_bar": "#F7EDC7"
+        },
+        "misc": {
+            "shape": "rounded_rectangle",
+            "shape_corner_radius": "3",
+            "border_width": "2",
+            "shadow_width": "0"
+        }
+    },
     "#entreat_focus_button": {
             "prototype": "#image_button",
             "images": {

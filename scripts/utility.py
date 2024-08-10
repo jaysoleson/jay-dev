@@ -239,8 +239,11 @@ def get_warring_clan():
 #                          Handling Outside Factors                            #
 # ---------------------------------------------------------------------------- #
 def check_possible_directions(row_position, column_position):
-    row_position = int(row_position)
-    column_position = int(column_position)
+    """ HUNGER GAMES: Checks the directions it is possible for a cat to travel in
+        (aka, if they're at the edge of the map already)"""
+    
+    row_position = int(row_position) # the cat's X position
+    column_position = int(column_position) # the cat's Y position
 
     camp_bg_base_dir = 'resources/images/hg_maps'
     leaves = ["newleaf", "greenleaf", "leafbare", "leaffall"]
@@ -252,13 +255,12 @@ def check_possible_directions(row_position, column_position):
         game.clan.biome = biome
     biome = biome.lower()
 
-    season = game.clan.current_season.replace("-", "")
+    season = game.clan.current_season.replace("-", "") # leaf-fall was fuckin w me
 
     pathstart = f'{camp_bg_base_dir}/{biome}/{(season).lower()}'
 
     # disabling travel buttons if the next image doesn't exist!
     # this allows me to expand the map as much as i want without recoding >:3
-
     north = True
     east = True
     south = True

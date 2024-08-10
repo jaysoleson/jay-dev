@@ -522,25 +522,21 @@ class ClanScreen(Screens):
 
         if not north:
             self.direction_buttons["north"].hide()
-            print("no north")
         else:
             self.direction_buttons["north"].show()
 
         if not east:
             self.direction_buttons["east"].hide()
-            print("no east")
         else:
             self.direction_buttons["east"].show()
 
         if not south:
             self.direction_buttons["south"].hide()
-            print("no south")
         else:
             self.direction_buttons["south"].show()
 
         if not west:
             self.direction_buttons["west"].hide()
-            print("no west")
         else:
             self.direction_buttons["west"].show()
 

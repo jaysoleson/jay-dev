@@ -286,6 +286,10 @@ class Clan:
                 Cat.all_cats.get(cat_id).status_change('medicine cat apprentice')
             Cat.all_cats.get(cat_id).thoughts()
 
+            # giving everyone their hunger, exposure and energy stats
+            Cat.init_stats(Cat.all_cats.get(cat_id))
+            Cat.load_stats_of_cat(Cat.all_cats.get(cat_id))
+
         if self.clan_age == "established":
             self.generate_mates()
             self.generate_families()
@@ -1289,10 +1293,10 @@ class Clan:
                                 print(f'attempted to remove {acc} from possible acc list, but it was not in the list!')
 
                 if not c.pelt.inventory:
-                    c.pelt.inventory = []
+                    c.pelt.inventory = {}
                 for acc in acc_list:
-                    if acc not in c.pelt.inventory:
-                        c.pelt.inventory.append(acc)
+                    if acc not in c.pelt.inventory.keys():
+                        c.pelt.inventory.update({acc: 1})
 
     def load_clan_settings(self):
         if os.path.exists(
@@ -1729,3 +1733,7 @@ clan_class.remove_cat(cat_class.ID)
 HERBS = None
 with open("resources/dicts/herbs.json", "r", encoding="utf-8") as read_file:
     HERBS = ujson.loads(read_file.read())
+
+ITEMS = None
+with open("resources/dicts/items.json", "r", encoding="utf-8") as read_file:
+    ITEMS = ujson.loads(read_file.read())

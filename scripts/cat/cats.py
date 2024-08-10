@@ -25,6 +25,7 @@ from scripts.utility import get_personality_compatibility, event_text_adjust, up
     leader_ceremony_text_adjust, get_cluster
 from scripts.game_structure.game_essentials import game, screen
 from scripts.cat_relations.relationship import Relationship
+from scripts.cat_relations.stats import Stats
 from scripts.game_structure import image_cache
 from scripts.event_class import Single_Event
 from .thoughts import Thoughts
@@ -34,7 +35,6 @@ from scripts.cat.pelts import Pelt
 from scripts.cat.skills import CatSkills
 from scripts.cat.thoughts import Thoughts
 from scripts.cat_relations.inheritance import Inheritance
-from scripts.cat_relations.relationship import Relationship
 from scripts.conditions import (
     Illness,
     Injury,
@@ -235,6 +235,7 @@ class Cat:
         self.apprentice = []
         self.former_apprentices = []
         self.relationships = {}
+        self.stats = {}
         self.mate = []
         self.previous_mates = []
         self.pronouns = [self.default_pronouns[0].copy()]
@@ -263,7 +264,7 @@ class Cat:
         self.flirted = False
         self.joined_df = False
         self.forgiven = 0
-        self.inventory = []
+        self.inventory = {}
         self.revives = 0
         self.no_kits = False
         self.no_mates = False
@@ -1894,6 +1895,15 @@ class Cat:
         # insert thought
         self.thought = str(chosen_thought)
 
+    def moonskip_stats(self, cat):
+        """ changes cats HG stats passively every moonskip """
+        
+        if self.dead or self.outside:
+            return
+        self.stats.hunger -= randint(1,6)
+        self.stats.exposure -= randint(1,6)
+        self.stats.energy -= randint(1,6)
+
     def relationship_interaction(self):
         """Randomly choose a cat of the Clan and have an interaction with them."""
         cats_to_choose = [
@@ -3180,6 +3190,26 @@ class Cat:
                 )
                 self.relationships[the_cat.ID] = rel
 
+    def init_stats(self):
+        """give em stats"""
+
+        # set the different stats
+        try:
+            hunger = self.stats.hunger
+            exposure = self.stats.exposure
+            energy = self.stats.energy
+        except:
+            hunger = 100
+            exposure = 30
+            energy = 100
+
+        info = Stats(
+            hunger=hunger if hunger else 100,
+            exposure=exposure if exposure else 30,
+            energy=energy if energy else 100
+        )
+        self.stats = info
+
     def save_relationship_of_cat(self, relationship_dir):
         # save relationships for each cat
 
@@ -3248,6 +3278,59 @@ class Cat:
             except:
                 print(
                     f"WARNING: There was an error reading the relationship file of cat #{self}."
+                )
+
+    def save_stats_of_cat(self, stats_dir):
+        # save stats for each cat
+
+        try:
+            r_data = {
+                "hunger": self.stats.hunger,
+                "exposure": self.stats.exposure,
+                "energy": self.stats.energy
+            }
+        except:
+            r_data = {
+                "hunger": 100,
+                "exposure": 30,
+                "energy": 100
+            }
+
+        game.safe_save(f"{stats_dir}/{self.ID}_stats.json", r_data)
+
+    def load_stats_of_cat(self):
+        if game.switches["clan_name"] != "":
+            clanname = game.switches["clan_name"]
+        else:
+            clanname = game.switches["clan_list"][0]
+
+        stats_directory = get_save_dir() + "/" + clanname + "/stats/"
+        stats_cat_directory = stats_directory + self.ID + "_stats.json"
+
+        self.stats = {}
+        if os.path.exists(stats_directory):
+            if not os.path.exists(stats_cat_directory):
+                self.init_stats()
+                # for cat in Cat.all_cats.values():
+                #     cat.create_one_relationship(self)
+                return
+            try:
+                with open(stats_cat_directory, "r", encoding="utf-8") as read_file:
+                    rel_data = ujson.loads(read_file.read())
+                    # for rel in rel_data:
+                        # cat_to = self.all_cats.get(rel["cat_to_id"])
+                        # if cat_to is None or rel["cat_to_id"] == self.ID:
+                        #     continue
+                    new_stats = Stats(
+                        hunger=(rel_data["hunger"] if rel_data["hunger"] else 100
+                        ),
+                        exposure=rel_data["exposure"] if rel_data["exposure"] else 30,
+                        energy=rel_data["energy"] if rel_data["energy"] else 100,
+                    )
+                    self.stats = new_stats
+            except:
+                print(
+                    f"WARNING: There was an error reading the stats file of cat #{self}."
                 )
 
     @staticmethod
@@ -3913,7 +3996,7 @@ class Cat:
                 "flirted": self.flirted if self.flirted else False,
                 "joined_df": self.joined_df if self.joined_df else False,
                 "forgiven": self.forgiven if self.forgiven and isinstance(self.forgiven, int) else 0,
-                "inventory": self.pelt.inventory if self.pelt.inventory else [],
+                "inventory": self.pelt.inventory if self.pelt.inventory else {},
                 "revives": self.revives if self.revives else 0,
                 "backstory_str": self.backstory_str if self.backstory_str else "",
                 "courage": self.courage if self.courage else 0,
@@ -4258,9 +4341,9 @@ def create_example_cats():
                    'NOLEFTEAR', 'NORIGHTEAR', 'MANLEG']
     for a in range(24):
         if a in e:
-            game.choose_cats[a] = Cat(status=choice(["apprentice", "medicine cat apprentice", "mediator apprentice", "queen's apprentice", "warrior", "medicine cat", "mediator", "queen", "elder"]), biome=None)
+            game.choose_cats[a] = Cat(status=choice(["apprentice", "medicine cat apprentice", "mediator apprentice", "queen's apprentice", "warrior", "medicine cat", "mediator", "queen", "elder"]), biome=None, inventory={})
         else:
-            game.choose_cats[a] = Cat(status=choice(["apprentice", "medicine cat apprentice", "mediator apprentice", "queen's apprentice", "warrior", "medicine cat", "mediator", "queen", "elder"]), biome=None)
+            game.choose_cats[a] = Cat(status=choice(["apprentice", "medicine cat apprentice", "mediator apprentice", "queen's apprentice", "warrior", "medicine cat", "mediator", "queen", "elder"]), biome=None, inventory={})
         if game.choose_cats[a].moons >= 160:
             game.choose_cats[a].moons = choice(range(120, 155))
         elif game.choose_cats[a].moons == 0:
@@ -4299,7 +4382,7 @@ def create_example_cats():
                     game.choose_cats[a].pelt.scars.append("NOTAIL")
         
         if a in e:
-            game.choose_cats[a] = Cat(status=game.choose_cats[a].status, biome=None)
+            game.choose_cats[a] = Cat(status=game.choose_cats[a].status, biome=None, inventory={})
         
         backstories = ['halfclan1', 'halfclan2', 'outsider_roots1', 'outsider_roots2', 'loner1', 'loner2', 'kittypet1', 'kittypet2', 'kittypet3', 'kittypet4', 'rogue1', 'rogue2', 'rogue3', 'rogue4', 'rogue5', 'rogue6', 'rogue7', 'rogue8', 'abandoned1', 'abandoned2', 'abandoned3', 'abandoned4', 'otherclan1', 'otherclan2', 'otherclan3', 'otherclan4', 'otherclan5', 'otherclan6', 'otherclan7', 'otherclan8', 'otherclan9', 'otherclan10', 'disgraced1', 'disgraced2', 'disgraced3', 'refugee1', 'refugee2', 'refugee3', 'refugee4', 'refugee5', 'tragedy_survivor1', 'tragedy_survivor2', 'tragedy_survivor3', 'tragedy_survivor4', 'tragedy_survivor5', 'tragedy_survivor6', 'guided1', 'guided2', 'guided3', 'guided4', 'orphaned1', 'orphaned2', 'orphaned3', 'orphaned4', 'orphaned5', 'orphaned6', 'outsider1', 'outsider2', 'outsider3', 'kittypet5', 'kittypet6', 'kittypet7', 'guided5', 'guided6', 'outsider4', 'outsider5', 'outsider6', 'orphaned7', 'halfclan4', 'halfclan5', 'halfclan6', 'halfclan7', 'halfclan8', 'halfclan9', 'halfclan10', 'outsider_roots3', 'outsider_roots4', 'outsider_roots5', 'outsider_roots6', 'outsider_roots7', 'outsider_roots8']
 

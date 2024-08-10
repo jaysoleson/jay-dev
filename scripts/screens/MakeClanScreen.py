@@ -164,7 +164,7 @@ class MakeClanScreen(Screens):
         self.reverse=False
         self.skill = "Random"
         self.accessories=[]
-        self.inventory = []
+        self.inventory = {}
         self.sex = "male"
         self.personality = "troublesome"
         self.accessory = None
@@ -1349,7 +1349,7 @@ class MakeClanScreen(Screens):
             senior_sprite=self.selected_cat.pelt.cat_sprites["senior"] if self.selected_cat.pelt.cat_sprites["senior"] > 2 else self.selected_cat.pelt.cat_sprites["senior"] + 12,
             reverse=self.selected_cat.pelt.reverse,
             accessories=[self.selected_cat.pelt.accessory] if self.selected_cat.pelt.accessory else [],
-            inventory=[self.selected_cat.pelt.accessory] if self.selected_cat.pelt.accessory else []
+            inventory={self.selected_cat.pelt.accessory: 1} if self.selected_cat.pelt.accessory else {}
         )
         if self.selected_cat.pelt.length == 'long' and self.selected_cat.pelt.cat_sprites["adult"] < 9:
             pelt2.cat_sprites['young adult'] = self.selected_cat.pelt.cat_sprites["adult"] + 9
@@ -1990,7 +1990,8 @@ class MakeClanScreen(Screens):
                     self.your_cat.permanent_condition['born without a leg']["moons_with"] = -1
                     self.your_cat.permanent_condition['born without a leg']['born_with'] = True
                 self.your_cat.accessories = [self.accessory]
-                self.your_cat.inventory = [self.accessory]
+                self.your_cat.inventory = {}
+                self.your_cat.inventory.update({self.accessory: 1})
                 self.your_cat.personality = Personality(trait=self.personality, kit_trait=True)
                 if self.skill == "Random":
                     self.skill = random.choice(self.skills)
@@ -2026,7 +2027,7 @@ class MakeClanScreen(Screens):
             senior_sprite=self.selected_cat.pelt.cat_sprites["senior"] if self.selected_cat.pelt.cat_sprites["senior"] > 2 else self.selected_cat.pelt.cat_sprites["senior"] + 12,
             reverse=self.selected_cat.pelt.reverse,
             accessories=[self.selected_cat.pelt.accessory] if self.selected_cat.pelt.accessory else [],
-            inventory=[self.selected_cat.pelt.accessory] if self.selected_cat.pelt.accessory else []
+            inventory={self.selected_cat.pelt.accessory: 1} if self.selected_cat.pelt.accessory else {}
         )
         if self.selected_cat.pelt.length == 'long' and self.selected_cat.pelt.cat_sprites["adult"] < 9:
             pelt2.cat_sprites['young adult'] = self.selected_cat.pelt.cat_sprites["adult"] + 9

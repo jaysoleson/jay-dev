@@ -1369,7 +1369,7 @@ class PatrolOutcome:
                 else:
                     results.append(f"{cat.name} joined the Clan.")
 
-                cat.pelt.inventory = []
+                cat.pelt.inventory = {}
                 # ^^ this stops the multi-cat inventory thing for kittypets joining from patrols!!
             
         # Check to see if any young litters joined with alive parents.
@@ -1592,7 +1592,7 @@ class PatrolOutcome:
 
         chosen_acc = choice(acc_list)
         if chosen_acc not in cat.pelt.inventory:
-            cat.pelt.inventory.append(chosen_acc)
+            cat.pelt.inventory.update({chosen_acc: 1})
             cat.pelt.accessories.append(chosen_acc)
 
         return chosen_acc

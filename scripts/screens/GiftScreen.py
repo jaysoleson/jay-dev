@@ -626,7 +626,7 @@ class GiftScreen(Screens):
                 game.clan.your_cat.pelt.accessories.remove(acc)
             if acc == game.clan.your_cat.pelt.accessory:
                 game.clan.your_cat.pelt.accessory = None
-            self.selected_cat.pelt.inventory.append(acc)
+            self.selected_cat.pelt.inventory.update({acc: 1})
             if (acc in ACC_REACTION[cluster1]["like"] or (cluster2 and acc in ACC_REACTION[cluster2]["like"])) or reaction == "accept_favourite":
                 if len(self.selected_cat.pelt.accessories) <= 4:
                     self.selected_cat.pelt.accessories.append(acc)
@@ -838,12 +838,14 @@ class GiftScreen(Screens):
         end_index = start_index + 30
 
         if cat.pelt.accessory:
-            if cat.pelt.accessory not in cat.pelt.inventory:
-                cat.pelt.inventory.append(cat.pelt.accessory)
+            if cat.pelt.accessory not in cat.pelt.inventory.keys():
+                cat.pelt.inventory.update({cat.pelt.accessory: 1})
+                cat.pelt.accessories.append(cat.pelt.accessory)
+                cat.pelt.accessory = None
 
-        for acc in cat.pelt.accessories:
-            if acc not in cat.pelt.inventory:
-                cat.pelt.inventory.append(acc)
+        for i in cat.pelt.accessories:
+            if i not in cat.pelt.inventory.keys():
+                cat.pelt.inventory.update({i: 1})
 
         inventory_len = 0
         new_inv = []

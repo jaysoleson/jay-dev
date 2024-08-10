@@ -69,6 +69,10 @@ def json_load():
             if "map_position" not in cat:
                 cat["map_position"] = "0_0"
 
+            if "inventory" in cat:
+                if type(cat["inventory"]) == list:
+                    cat["inventory"] = {}
+
             new_cat = Cat(
                 ID=cat["ID"],
                 prefix=cat["name_prefix"],
@@ -147,7 +151,8 @@ def json_load():
                 accessory=cat["accessory"],
                 opacity=cat["opacity"] if "opacity" in cat else 100,
                 accessories=cat["accessories"] if "accessories" in cat else [],
-                inventory = cat["inventory"] if "inventory" in cat else []
+
+                inventory = cat["inventory"] if "inventory" in cat else {}
             )
 
             # Runs a bunch of apperence-related convertion of old stuff.
@@ -330,6 +335,23 @@ def json_load():
             )
             game.switches["error_message"] = (
                 f"There was an error loading relationships for cat #{cat}."
+            )
+            game.switches["traceback"] = e
+            raise
+
+        # load the stats
+        try:
+            if not cat.dead:
+                cat.init_stats()
+                cat.load_stats_of_cat()
+            else:
+                cat.stats = {}
+        except Exception as e:
+            logger.exception(
+                f"There was an error loading stats for cat #{cat}."
+            )
+            game.switches["error_message"] = (
+                f"There was an error loading stats for cat #{cat}."
             )
             game.switches["traceback"] = e
             raise
