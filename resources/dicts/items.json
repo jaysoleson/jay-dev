@@ -64,7 +64,10 @@
         "food": {
             "COCONUT": 10,
             "CRAB": 15,
-            "BABY SEA TURTLE": 10
+            "BABY SEA TURTLE": 10,
+            "LINGCOD": 10,
+            "SARDINE": 8,
+            "ROCKFISH": 10
         },
         "weapons": {
 

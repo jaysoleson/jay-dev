@@ -1,0 +1,42 @@
+{
+    "hg_1": [
+        [
+            "bloodbath",
+            "any",
+            "not_same_clan"
+        ],
+        [
+            "Back off before I make you, c_nClan!"
+        ]
+    ],
+    "hg_2": [
+        [
+            "bloodbath",
+            "same_clan",
+            "any"
+        ],
+        [
+            "No. Sorry, y_c. I'm going on my own."
+        ]
+    ],
+    "hg_3": [
+        [
+            "any"
+        ],
+        [
+            "Get away from me."
+        ]
+    ],
+    "hg_4": [
+        [
+            "any",
+            "they_deaf",
+            "they_blind",
+            "you_deaf",
+            "you_blind"
+        ],
+        [
+            "[t_c hisses at you.]"
+        ]
+    ]
+}

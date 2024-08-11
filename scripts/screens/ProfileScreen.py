@@ -49,7 +49,7 @@ from ..cat.history import History
 from ..game_structure.windows import ChangeCatName, KillCat, ChangeCatToggles
 from ..housekeeping.datadir import get_save_dir
 
-from scripts.clan import ITEMS
+from scripts.clan import ITEMS, HERBS
 
 
 # ---------------------------------------------------------------------------- #
@@ -461,9 +461,9 @@ class ProfileScreen(Screens):
                             try:
                                 self.item_list(accessory, cat)
                                 pos_x += 135
-                                if pos_x >= 1100:
+                                if pos_x >= 1170:
                                     pos_x = 0
-                                    pos_y += 120
+                                    pos_y += 140
                                 i += 1
                             except:
                                 continue
@@ -481,11 +481,13 @@ class ProfileScreen(Screens):
                                                                         "#text_box_22_horizleft"),
                                                                     line_spacing=0.95, manager=MANAGER)
                 self.update_disabled_buttons_and_text()
+                self.column_adjust()
             elif "leader_ceremony" in self.profile_elements and \
                     event.ui_element == self.profile_elements["leader_ceremony"]:
                 self.change_screen('ceremony screen')
             elif "talk" in self.profile_elements and \
                     event.ui_element == self.profile_elements["talk"]:
+                self.close_current_tab()
                 self.the_cat.talked_to = True
                 if not self.the_cat.dead and not game.clan.your_cat.dead and game.clan.your_cat.ID in self.the_cat.relationships and self.the_cat.ID in game.clan.your_cat.relationships and game.clan.your_cat.shunned == 0:
                     self.the_cat.relationships[game.clan.your_cat.ID].platonic_like += randint(0,5)
@@ -876,10 +878,10 @@ class ProfileScreen(Screens):
                     for a, accessory in enumerate(new_inv[start_index:min(end_index, inventory_len + start_index)], start = start_index):
                         try:
                             self.item_list(accessory, cat)
-                            pos_x += 133
-                            if pos_x >= 1100:
+                            pos_x += 135
+                            if pos_x >= 1170:
                                 pos_x = 0
-                                pos_y += 120
+                                pos_y += 140
                             i += 1
                         except:
                             continue
@@ -897,6 +899,7 @@ class ProfileScreen(Screens):
                                                                     object_id=get_text_box_theme(
                                                                         "#text_box_22_horizleft"),
                                                                     line_spacing=0.95, manager=MANAGER)
+                self.column_adjust()
 
 
     def screen_switches(self):
@@ -998,20 +1001,32 @@ class ProfileScreen(Screens):
         self.inspect_button.kill()
         self.close_current_tab()
 
-    def column_2_adjust(self):
-        """ need to shorten column 2 when the eat button comes up so the hover works"""
+    def column_adjust(self):
+        """ need to shorten columns when the eat button comes up so nothing gets covered"""
+        if self.profile_elements["cat_info_column1"]:
+            self.profile_elements["cat_info_column1"].kill()
         if self.profile_elements["cat_info_column2"]:
             self.profile_elements["cat_info_column2"].kill()
 
         if self.selected_item is None:
-            value = 360
+            value1 = 360
+            value2 = 360
         else:
-            value = 250
-        self.profile_elements["cat_info_column2"] = UITextBoxTweaked(self.generate_column2(self.the_cat),
-                                                                    scale(pygame.Rect((980, 460), (500, value))),
-                                                                    object_id=get_text_box_theme(
-                                                                        "#text_box_22_horizleft"),
-                                                                    line_spacing=0.95, manager=MANAGER)
+            value1 = 225
+            value2 = 250
+
+        self.profile_elements["cat_info_column1"] = UITextBoxTweaked(
+            self.generate_column1(self.the_cat),
+            scale(pygame.Rect((600, 460), (360, value1))),
+            object_id=get_text_box_theme("#text_box_22_horizleft"),
+            line_spacing=0.95, manager=MANAGER
+        )
+        self.profile_elements["cat_info_column2"] = UITextBoxTweaked(
+            self.generate_column2(self.the_cat),
+            scale(pygame.Rect((980, 460), (500, value2))),
+            object_id=get_text_box_theme("#text_box_22_horizleft"),
+            line_spacing=0.95, manager=MANAGER
+        )
 
 
     def build_profile(self):
@@ -1097,7 +1112,7 @@ class ProfileScreen(Screens):
                                                                     object_id=get_text_box_theme(
                                                                         "#text_box_22_horizleft"),
                                                                     line_spacing=0.95, manager=MANAGER)
-        self.column_2_adjust()
+        self.column_adjust()
 
         # Set the cat backgrounds.
         if game.clan.clan_settings["backgrounds"]:
@@ -2879,6 +2894,8 @@ class ProfileScreen(Screens):
                                                               object_id="#search_entry_box",
                                                               initial_text="search",
                                                               manager=MANAGER)
+            self.search_bar_image.hide()
+            self.search_bar.hide()
             self.open_accessories()
             self.update_disabled_buttons_and_text()
 
@@ -2959,10 +2976,10 @@ class ProfileScreen(Screens):
             for a, accessory in enumerate(new_inv[start_index:min(end_index, inventory_len)], start = start_index):
                 try:
                     self.item_list(accessory, cat, pos_x, pos_y, i)
-                    pos_x += 133
-                    if pos_x >= 1100:
+                    pos_x += 135
+                    if pos_x >= 1170:
                         pos_x = 0
-                        pos_y += 120
+                        pos_y += 140
                     i += 1
                 except:
                     continue
@@ -2973,13 +2990,14 @@ class ProfileScreen(Screens):
             self.item_window_elements[ele].kill()
         self.item_window_elements = {}
         
-        self.column_2_adjust()
+        self.column_adjust()
         
         if self.selected_item is None:
             return
         
         if self.the_cat.ID != game.clan.your_cat.ID:
             return
+        
         if self.selected_item in ITEMS[(game.clan.biome).lower()]["food"]:
             value = ITEMS[(game.clan.biome).lower()]["food"].get(self.selected_item, 0)
 
@@ -2992,10 +3010,22 @@ class ProfileScreen(Screens):
             image_cache.load_image("resources/images/option_bg.png").convert_alpha()
         )
         item = self.selected_item.lower().replace(" ", "_")
-        self.item_window_elements["item"] = pygame_gui.elements.UIImage(
-            scale(pygame.Rect((600, 670), (128, 144))),
-            image_cache.load_image(f"resources/images/inventory_items/{item}.png").convert_alpha()
-        )
+        if item in HERBS:
+            try:
+                self.item_window_elements["item"] = pygame_gui.elements.UIImage(
+                    scale(pygame.Rect((600, 670), (128, 144))),
+                    image_cache.load_image(f"resources/images/inventory_items/{item}.png").convert_alpha()
+                )
+            except:
+                self.item_window_elements["item"] = pygame_gui.elements.UIImage(
+                    scale(pygame.Rect((600, 670), (128, 144))),
+                    image_cache.load_image(f"resources/images/inventory_items/placeholder_herb.png").convert_alpha()
+                )
+        else:
+            self.item_window_elements["item"] = pygame_gui.elements.UIImage(
+                scale(pygame.Rect((600, 670), (128, 144))),
+                image_cache.load_image(f"resources/images/inventory_items/{item}.png").convert_alpha()
+            )
 
         name = str(self.selected_item) 
         if 14 <= len(name):
@@ -3003,16 +3033,25 @@ class ProfileScreen(Screens):
             name = short_name + '...'
 
         self.item_window_elements["item_text"] = pygame_gui.elements.UITextBox(
-            f"<b>{name}</b>",
+            f"<b>{name.replace('_', ' ')}</b>",
             scale(pygame.Rect((700, 720), (280, 100))),
             object_id="#text_box_30_horizcenter",
         )
-        self.item_window_elements["eat_button"] = UIImageButton(
-            scale(pygame.Rect((1000, 700), (120, 120))),
-            "Eat",
-            tool_tip_text=f"Eat for +{value} satiation",
-            object_id=""
-        )
+        if item in HERBS:
+            self.item_window_elements["eat_button"] = UIImageButton(
+                scale(pygame.Rect((1000, 700), (120, 120))),
+                "Eat",
+                tool_tip_text=f"",
+                object_id=""
+            )
+            self.item_window_elements["eat_button"].disable()
+        else:
+            self.item_window_elements["eat_button"] = UIImageButton(
+                scale(pygame.Rect((1000, 700), (120, 120))),
+                "Eat",
+                tool_tip_text=f"Eat for +{value} satiation",
+                object_id=""
+            )
 
         self.item_window_elements["hunger_bar"] = UIStatsStatusBar(
                 scale(
@@ -3052,12 +3091,27 @@ class ProfileScreen(Screens):
         age = cat.age
         cat_sprite = str(cat.pelt.cat_sprites[cat.age])
         invitems = []
+
+        item_type = "accessory"
+
+        item_options = ["food", "weapons", "misc"]
+        for item in item_options:
+            if accessory[0] in ITEMS[(game.clan.biome).lower()][item]:
+                item_type = "item"
+            elif accessory[0] in ITEMS["general"][item]:
+                item_type = "item"
+
+        if accessory[0].lower() in HERBS:
+            item_type = "herb"
+
+        if item_type is None:
+            item_type = "accessory"
+        
         if self.search_bar.get_text() in ["", "search"] or self.search_bar.get_text().lower() in accessory.lower():
-            inventory_item = False
-            try:
+            if item_type == "item":
                 item = str(accessory[0]).lower().replace(" ", "_")
                 self.inventory_items[item + str(i)] = pygame_gui.elements.UIImage(
-                    scale(pygame.Rect((200 + pos_x, 730 + pos_y), (99, 112))),
+                    scale(pygame.Rect((188 + pos_x, 725 + pos_y), (99, 112))),
                     image_cache.load_image(f"resources/images/inventory_items/{item}.png").convert_alpha())
                 invitems.append(accessory)
 
@@ -3071,46 +3125,82 @@ class ProfileScreen(Screens):
                         object_id="#text_box_22_horizleft",
                     )
                 self.inventory_buttons[item + str(i)] = UIImageButton(
-                    scale(pygame.Rect((200 + pos_x, 730 + pos_y), (99, 112))),
+                    scale(pygame.Rect((188 + pos_x, 725 + pos_y), (99, 112))),
                     "",
                     tool_tip_text=accessory,
                     object_id="#blank_button")
                 
                 self.inventory_items_list.append(accessory[0])
                 
-                inventory_item = True
-                
-            except:
+            elif item_type == "herb":
+                item = str(accessory[0]).lower().replace(" ", "_")
+                try:
+                    self.inventory_items[item + str(i)] = pygame_gui.elements.UIImage(
+                        scale(pygame.Rect((188 + pos_x, 725 + pos_y), (99, 112))),
+                        image_cache.load_image(f"resources/images/inventory_items/{item}.png").convert_alpha())
+                except:
+                    self.inventory_items[item + str(i)] = pygame_gui.elements.UIImage(
+                        scale(pygame.Rect((188 + pos_x, 725 + pos_y), (99, 112))),
+                        image_cache.load_image(f"resources/images/inventory_items/placeholder_herb.png").convert_alpha()
+                    )
+                    name = str(accessory[0]).lower().replace("_", " ")
+                    if 8 <= len(name):
+                        short_name = str(name)[0:5]
+                        name = short_name + '...'
+                    self.inventory_items[item + "_placeholdername" + str(i)] = pygame_gui.elements.UITextBox(
+                        f"{name}",
+                        scale(pygame.Rect((175 + pos_x, 690 + pos_y), (120, 50))),
+                        object_id="#text_box_22_horizcenter",
+                    )
+                invitems.append(accessory)
 
+                self.inventory_items[item + "_number_bg" + str(i)] = pygame_gui.elements.UIImage(
+                    scale(pygame.Rect((265 + pos_x, 802 + pos_y), (50, 50))),
+                    image_cache.load_image(f"resources/images/fav_marker_1.png").convert_alpha())
+                
+                self.inventory_items[item + "_number_" + str(i)] = pygame_gui.elements.UITextBox(
+                        f"<b>{str(accessory[1])}</b>",
+                        scale(pygame.Rect((270 + pos_x, 800 + pos_y), (50, 50))),
+                        object_id="#text_box_22_horizleft",
+                    )
+                self.inventory_buttons[item + str(i)] = UIImageButton(
+                    scale(pygame.Rect((188 + pos_x, 725 + pos_y), (99, 112))),
+                    "",
+                    tool_tip_text=accessory,
+                    object_id="#blank_button")
+                
+                self.inventory_items_list.append(accessory[0])
+                
+            elif item_type == "accessory":
                 accessory = accessory[0]
                 if accessory in cat.pelt.accessories:
-                    self.accessory_buttons[str(i) + str(randint(0,5000))] = UIImageButton(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), "", tool_tip_text=accessory, object_id="#fav_marker")
+                    self.accessory_buttons[str(i) + str(randint(0,5000))] = UIImageButton(scale(pygame.Rect((188 + pos_x, 725 + pos_y), (100, 100))), "", tool_tip_text=accessory, object_id="#fav_marker")
                 else:
-                    self.accessory_buttons[str(i) + str(randint(0,5000))] = UIImageButton(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), "", tool_tip_text=accessory, object_id="#blank_button")
+                    self.accessory_buttons[str(i) + str(randint(0,5000))] = UIImageButton(scale(pygame.Rect((188 + pos_x, 725 + pos_y), (100, 100))), "", tool_tip_text=accessory, object_id="#blank_button")
                 if accessory in cat.pelt.plant_accessories:
-                    self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_herbs' + accessory + cat_sprite], manager=MANAGER)
+                    self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((188 + pos_x, 725 + pos_y), (100, 100))), sprites.sprites['acc_herbs' + accessory + cat_sprite], manager=MANAGER)
                 elif accessory in cat.pelt.wild_accessories:
-                    self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_wild' + accessory + cat_sprite], manager=MANAGER)
+                    self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((188 + pos_x, 725 + pos_y), (100, 100))), sprites.sprites['acc_wild' + accessory + cat_sprite], manager=MANAGER)
                 elif accessory in cat.pelt.collars:
-                    self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['collars' + accessory + cat_sprite], manager=MANAGER)
+                    self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((188 + pos_x, 725 + pos_y), (100, 100))), sprites.sprites['collars' + accessory + cat_sprite], manager=MANAGER)
                 elif accessory in cat.pelt.flower_accessories:
-                    self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_flower' + accessory + cat_sprite], manager=MANAGER)
+                    self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((188 + pos_x, 725 + pos_y), (100, 100))), sprites.sprites['acc_flower' + accessory + cat_sprite], manager=MANAGER)
                 elif accessory in cat.pelt.plant2_accessories:
-                    self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_plant2' + accessory + cat_sprite], manager=MANAGER)
+                    self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((188 + pos_x, 725 + pos_y), (100, 100))), sprites.sprites['acc_plant2' + accessory + cat_sprite], manager=MANAGER)
                 elif accessory in cat.pelt.snake_accessories:
-                    self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_snake' + accessory + cat_sprite], manager=MANAGER)
+                    self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((188 + pos_x, 725 + pos_y), (100, 100))), sprites.sprites['acc_snake' + accessory + cat_sprite], manager=MANAGER)
                 elif accessory in cat.pelt.smallAnimal_accessories:
-                    self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_smallAnimal' + accessory + cat_sprite], manager=MANAGER)
+                    self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((188 + pos_x, 725 + pos_y), (100, 100))), sprites.sprites['acc_smallAnimal' + accessory + cat_sprite], manager=MANAGER)
                 elif accessory in cat.pelt.deadInsect_accessories:
-                    self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_deadInsect' + accessory + cat_sprite], manager=MANAGER)
+                    self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((188 + pos_x, 725 + pos_y), (100, 100))), sprites.sprites['acc_deadInsect' + accessory + cat_sprite], manager=MANAGER)
                 elif accessory in cat.pelt.aliveInsect_accessories:
-                    self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_aliveInsect' + accessory + cat_sprite], manager=MANAGER)
+                    self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((188 + pos_x, 725 + pos_y), (100, 100))), sprites.sprites['acc_aliveInsect' + accessory + cat_sprite], manager=MANAGER)
                 elif accessory in cat.pelt.fruit_accessories:
-                    self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_fruit' + accessory + cat_sprite], manager=MANAGER)
+                    self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((188 + pos_x, 725 + pos_y), (100, 100))), sprites.sprites['acc_fruit' + accessory + cat_sprite], manager=MANAGER)
                 elif accessory in cat.pelt.crafted_accessories:
-                    self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_crafted' + accessory + cat_sprite], manager=MANAGER)
+                    self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((188 + pos_x, 725 + pos_y), (100, 100))), sprites.sprites['acc_crafted' + accessory + cat_sprite], manager=MANAGER)
                 elif accessory in cat.pelt.tail2_accessories:
-                    self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))), sprites.sprites['acc_tail2' + accessory + cat_sprite], manager=MANAGER)
+                    self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((188 + pos_x, 725 + pos_y), (100, 100))), sprites.sprites['acc_tail2' + accessory + cat_sprite], manager=MANAGER)
 
 
                 self.accessories_list.append(accessory)

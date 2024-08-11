@@ -2872,14 +2872,33 @@ class Events:
             event = f"You join the bloodbath! You have gained: {prey_str}"
             game.cur_events_list.insert(0, Single_Event(event, "alert", game.clan.your_cat.ID))
 
+        bloodbath_cats = []
+        involved_cats = []
+        for i in Cat.all_cats_list:
+            if not i.dead and not i.outside:
+                if i.map_position == "0_0":
+                    bloodbath_cats.append(str(i.name))
+                    involved_cats.append(i.ID)
+
+        if len(bloodbath_cats) > 2:
+            string = f"{', '.join(bloodbath_cats[:-1])}, and {bloodbath_cats[-1]} partake in the bloodbath."
+        elif len(prey_list) > 1:
+            string = f"{''.join(bloodbath_cats[:-1])} and {bloodbath_cats[-1]} partake in the bloodbath."
+        elif len(bloodbath_cats) == 1:
+            string = f"{bloodbath_cats[-1]} was the only cat to gather supplies from the Cornucopia."
+        else:
+            string = f"None of the tributes attempt to gather supplies from the Cornucopia."
+
+        game.cur_events_list.insert(0, Single_Event(string, "alert", involved_cats))
+
         # print(prey)
 
     def one_moon_inventory(self, cat):
         """ Handles an NPC's inventory on timeskip. """
-        if cat.ID == game.clan.your_cat.ID:
-            # mc random inventory gains will be Different
-            return
-        if not int(random.random() * 2): # 1/2
+        # if cat.ID == game.clan.your_cat.ID:
+        #     # mc random inventory gains will be Different
+        #     return
+        if not int(random.random() * 4): # 1/4
             if cat.pelt.inventory == {}:
                 return
             foodlist = []
@@ -2887,7 +2906,12 @@ class Events:
                 foodlist.append(i)
             food = random.choice(foodlist)
 
-            oldhunger = cat.stats.hunger
+            try:
+                oldhunger = cat.stats.hunger
+            except:
+                print("STATS ERROR FOR", cat.name)
+                print(cat.stats)
+                return
             if food in ITEMS[(game.clan.biome).lower()]["food"]:
                 satiation_value = ITEMS[(game.clan.biome).lower()]["food"].get(food, 0)
 
@@ -2895,7 +2919,6 @@ class Events:
                 satiation_value = ITEMS["general"]["food"].get(food, 0)
 
             else:
-                print("RETURNING: You can't eat", food)
                 return
             
             # if eating the food would put them over 100,
@@ -2912,9 +2935,14 @@ class Events:
                 cat.pelt.inventory.pop(food)
             
             print(f"{cat.name} ate one {food}. Their hunger has gone from {oldhunger} to {cat.stats.hunger}.")
+
+        if not int(random.random() * 3):
+            herb = random.choice(HERBS)
+            cat.pelt.inventory.update({herb: 1})
+            print(cat.name, "has found:", herb, "!")
             
         
-        if not int(random.random() * 2):
+        if not int(random.random() * 4):
             biome_prey = ITEMS[(game.clan.biome).lower()]["food"]
             gen_prey = ITEMS["general"]["food"]
 
@@ -3021,10 +3049,11 @@ class Events:
                 else:
                     pass
                 # these guys dont move
-                
+
                 # ill do a better version of this later lol
 
                 npc.map_position = f"{int(cat_row)}_{int(cat_column)}"
+
 
     def perform_ceremonies(self, cat):
         """
