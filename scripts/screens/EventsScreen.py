@@ -60,7 +60,6 @@ class EventsScreen(Screens):
         self.events_frame = None
         self.clan_age = None
         self.season = None
-        self.heading = None
         self.display_events_elements = {}
         self.involved_cat_buttons = []
         self.cat_profile_buttons = {}
@@ -511,23 +510,14 @@ class EventsScreen(Screens):
             manager=MANAGER,
         )
 
-        self.heading = pygame_gui.elements.UITextBox("",
-                                                     scale(pygame.Rect((600, 220), (400, 80))),
-                                                     object_id=get_text_box_theme("#text_box_30_horizcenter"),
-                                                     manager=MANAGER)
         self.season = pygame_gui.elements.UITextBox('',
                                                     scale(pygame.Rect((600, 280), (400, 80))),
                                                     object_id=get_text_box_theme("#text_box_30_horizcenter"),
                                                     manager=MANAGER)
         self.clan_age = pygame_gui.elements.UITextBox("",
-                                                      scale(pygame.Rect((600, 280), (400, 80))),
+                                                      scale(pygame.Rect((600, 370), (400, 80))),
                                                       object_id=get_text_box_theme("#text_box_30_horizcenter"),
                                                       manager=MANAGER)
-        self.leaf = pygame_gui.elements.UITextBox("leafbare",
-                                                      scale(pygame.Rect((500, 340), (600, 80))),
-                                                      object_id=get_text_box_theme("#text_box_30_horizcenter"),
-                                                      manager=MANAGER)
- 
         self.events_frame = pygame_gui.elements.UIImage(scale(pygame.Rect((412, 532), (1068, 740))),
                                                         image_cache.load_image(
                                                             "resources/images/event_page_frame.png").convert_alpha()
@@ -550,17 +540,10 @@ class EventsScreen(Screens):
                 counter+=1
                 
             print("Chose " + str(game.clan.your_cat.name))
-        # Set text for clan age
-        if game.clan.your_cat.moons == -1:
-            self.clan_age.set_text(f'Your age: Unborn')
-        elif game.clan.your_cat.moons != 1:
-            self.clan_age.set_text(f'Your age: {game.clan.your_cat.moons} moons')
-        elif game.clan.your_cat.moons == 1:
-            self.clan_age.set_text(f'Your age: {game.clan.your_cat.moons} moon')
 
 
         self.timeskip_button = UIImageButton(
-            scale(pygame.Rect((620, 436), (360, 60))),
+            scale(pygame.Rect((620, 446), (360, 60))),
             "",
             object_id="#timeskip_button",
             manager=MANAGER,
@@ -878,10 +861,6 @@ class EventsScreen(Screens):
         del self.clan_age
         self.season.kill()
         del self.season
-        self.leaf.kill()
-        del self.leaf
-        self.heading.kill()
-        del self.heading
         self.event_container.kill()
         self.cat_icon.kill()
         del self.cat_icon
@@ -1081,14 +1060,17 @@ class EventsScreen(Screens):
 
     def update_events_display(self):
         
-        self.leaf.set_text(f'Season: {game.clan.current_season} - Clan Age: {game.clan.age}')
-        self.heading.set_text(str(game.clan.your_cat.name))
-        if game.clan.your_cat.moons == -1:
-            self.clan_age.set_text(f'Your age: Unborn')
-        elif game.clan.your_cat.moons != 1:
-            self.clan_age.set_text(f'Your age: {game.clan.your_cat.moons} moons')
-        elif game.clan.your_cat.moons == 1:
-            self.clan_age.set_text(f'Your age: {game.clan.your_cat.moons} moon')
+        if game.clan.timeskips in [1, 2, 3, 4, 5]:
+            self.clan_age.set_text(f'Day: {(game.clan.days) + 1}')
+        else:
+            self.clan_age.set_text(f'Night: {(game.clan.days) + 1}')
+
+        # if game.clan.your_cat.moons == -1:
+        #     self.clan_age.set_text(f'Your age: Unborn')
+        # elif game.clan.your_cat.moons != 1:
+        #     self.clan_age.set_text(f'Your age: {game.clan.your_cat.moons} moons')
+        # elif game.clan.your_cat.moons == 1:
+        #     self.clan_age.set_text(f'Your age: {game.clan.your_cat.moons} moon')
 
         for ele in self.display_events_elements:
             self.display_events_elements[ele].kill()
@@ -1113,9 +1095,17 @@ class EventsScreen(Screens):
         self.make_events_container()
 
         # Stop if Clan is new, so that events from previously loaded Clan don't show up
-        if game.clan.age == 0:
+        if game.clan.age == 0 and game.clan.days == 0 and game.clan.timeskips == 1:
             return
-
+        
+        self.display_events_elements["timeskips"] = pygame_gui.elements.UIImage(
+            scale(pygame.Rect((610, 195), (378, 213))),
+            pygame.transform.scale(
+            image_cache.load_image(f"resources/images/timeskip_display/timeskips_{game.clan.timeskips}.png").convert_alpha(),
+            (500, 870)),
+            manager=MANAGER
+        )
+        
         # Make display, with buttons and all that.
         box_length = self.event_container.get_relative_rect()[2]
         i = 0

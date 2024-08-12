@@ -67,7 +67,7 @@ class TalkScreen(Screens):
         self.the_cat = Cat.all_cats.get(game.switches['cat'])
         self.cat_dict.clear()
         self.other_dict.clear()
-        self.update_camp_bg()
+        self.update_current_map()
         self.hide_menu_buttons()
         self.text_index = 0
         self.frame_index = 0
@@ -150,18 +150,11 @@ class TalkScreen(Screens):
             self.option_bgs[option_bg].kill()
         self.option_bgs = {}
 
-    def update_camp_bg(self):
-        light_dark = "light"
-        if game.settings["dark mode"]:
-            light_dark = "dark"
+    def update_current_map(self):
 
-        camp_bg_base_dir = 'resources/images/camp_bg/'
+        camp_bg_base_dir = 'resources/images/hg_maps/'
         leaves = ["newleaf", "greenleaf", "leafbare", "leaffall"]
-        camp_nr = game.clan.camp_bg
-
-        if camp_nr is None:
-            camp_nr = 'camp1'
-            game.clan.camp_bg = camp_nr
+        position = game.clan.your_cat.map_position
 
         available_biome = ['Forest', 'Mountainous', 'Plains', 'Beach']
         biome = game.clan.biome
@@ -172,31 +165,31 @@ class TalkScreen(Screens):
 
         all_backgrounds = []
         for leaf in leaves:
-
-            platform_dir = ""
-            if self.the_cat.dead and self.the_cat.outside and not self.the_cat.df:
-                platform_dir = "resources/images/urbg.png"
-            elif self.the_cat.dead and not self.the_cat.outside and not self.the_cat.df:
-                platform_dir = "resources/images/dead_camps/scbackground_sunsetclouds.png"
-                # maybe one day itll differ based on biome
-                # if game.clan.biome == "Forest":
-                #     platform_dir = "resources/images/dead_camps/scbackground_sunsetclouds.png"
-                # else:
-                #     platform_dir = "resources/images/starclanbg.png"
-            elif self.the_cat.dead and not self.the_cat.outside and self.the_cat.df:
-                platform_dir = "resources/images/dead_camps/dfbackground_eclipse.png"
-            else:
-                platform_dir = f'{camp_bg_base_dir}/{biome}/{leaf}_{camp_nr}_{light_dark}.png'
+            platform_dir = f'{camp_bg_base_dir}/{biome}/{leaf}_{position}.png'
             all_backgrounds.append(platform_dir)
 
         self.newleaf_bg = pygame.transform.scale(
             pygame.image.load(all_backgrounds[0]).convert(), (screen_x, screen_y))
-        self.greenleaf_bg = pygame.transform.scale(
-            pygame.image.load(all_backgrounds[1]).convert(), (screen_x, screen_y))
-        self.leafbare_bg = pygame.transform.scale(
-            pygame.image.load(all_backgrounds[2]).convert(), (screen_x, screen_y))
-        self.leaffall_bg = pygame.transform.scale(
-            pygame.image.load(all_backgrounds[3]).convert(), (screen_x, screen_y))
+        try:
+            self.greenleaf_bg = pygame.transform.scale(
+                pygame.image.load(all_backgrounds[1]).convert(), (screen_x, screen_y))
+        except:
+            self.greenleaf_bg = pygame.transform.scale(
+            pygame.image.load(all_backgrounds[0]).convert(), (screen_x, screen_y))
+        
+        try:
+            self.leafbare_bg = pygame.transform.scale(
+                pygame.image.load(all_backgrounds[2]).convert(), (screen_x, screen_y))
+        except:
+            self.leafbare_bg = pygame.transform.scale(
+            pygame.image.load(all_backgrounds[0]).convert(), (screen_x, screen_y))
+
+        try:
+            self.leaffall_bg = pygame.transform.scale(
+                pygame.image.load(all_backgrounds[3]).convert(), (screen_x, screen_y))
+        except:
+            self.leaffall_bg = pygame.transform.scale(
+            pygame.image.load(all_backgrounds[0]).convert(), (screen_x, screen_y))
 
     def on_use(self):
         if game.clan.clan_settings['backgrounds']:

@@ -1060,7 +1060,10 @@ class Condition_Events:
                         med_cat = random.choice(med_list)
                         if med_cat == cat:
                             random_index = 1
-                    event = possible_string_list[random_index]
+                    try:
+                        event = possible_string_list[random_index]
+                    except:
+                        print("conditions list issue again")
                 except KeyError:
                     print(
                         f"WARNING: {condition} couldn't be found in the risk strings! placeholder string was used"

@@ -339,12 +339,26 @@ class ClanScreen(Screens):
 
         self.newleaf_bg = pygame.transform.scale(
             pygame.image.load(all_backgrounds[0]).convert(), (screen_x, screen_y))
-        self.greenleaf_bg = pygame.transform.scale(
-            pygame.image.load(all_backgrounds[1]).convert(), (screen_x, screen_y))
-        self.leafbare_bg = pygame.transform.scale(
-            pygame.image.load(all_backgrounds[2]).convert(), (screen_x, screen_y))
-        self.leaffall_bg = pygame.transform.scale(
-            pygame.image.load(all_backgrounds[3]).convert(), (screen_x, screen_y))
+        try:
+            self.greenleaf_bg = pygame.transform.scale(
+                pygame.image.load(all_backgrounds[1]).convert(), (screen_x, screen_y))
+        except:
+            self.greenleaf_bg = pygame.transform.scale(
+            pygame.image.load(all_backgrounds[0]).convert(), (screen_x, screen_y))
+        
+        try:
+            self.leafbare_bg = pygame.transform.scale(
+                pygame.image.load(all_backgrounds[2]).convert(), (screen_x, screen_y))
+        except:
+            self.leafbare_bg = pygame.transform.scale(
+            pygame.image.load(all_backgrounds[0]).convert(), (screen_x, screen_y))
+
+        try:
+            self.leaffall_bg = pygame.transform.scale(
+                pygame.image.load(all_backgrounds[3]).convert(), (screen_x, screen_y))
+        except:
+            self.leaffall_bg = pygame.transform.scale(
+            pygame.image.load(all_backgrounds[0]).convert(), (screen_x, screen_y))
 
     def choose_nonoverlapping_positions(self, first_choices, dens, weights=None):
         if not weights:
@@ -520,22 +534,22 @@ class ClanScreen(Screens):
 
         north, east, south, west = check_possible_directions(row_position, column_position)
 
-        if not north:
+        if not north or game.clan.your_cat.dead:
             self.direction_buttons["north"].hide()
         else:
             self.direction_buttons["north"].show()
 
-        if not east:
+        if not east or game.clan.your_cat.dead:
             self.direction_buttons["east"].hide()
         else:
             self.direction_buttons["east"].show()
 
-        if not south:
+        if not south or game.clan.your_cat.dead:
             self.direction_buttons["south"].hide()
         else:
             self.direction_buttons["south"].show()
 
-        if not west:
+        if not west or game.clan.your_cat.dead:
             self.direction_buttons["west"].hide()
         else:
             self.direction_buttons["west"].show()
