@@ -149,6 +149,9 @@ class Condition_Events:
             nutrition_info : dict
                 dictionary of all nutrition information (can be found in the freshkill pile)
         """
+        if cat.stats == {}:
+            return
+        
         if not FRESHKILL_ACTIVE:
             return
 
@@ -157,14 +160,15 @@ class Condition_Events:
             return
 
         # get all events for a certain status of a cat
-        cat_nutrition = nutrition_info[cat.ID]
+        # cat_nutrition = nutrition_info[cat.ID]
 
         event = None
         illness = None
         heal = False
 
         # handle death first, if percentage is 0 or lower, the cat will die
-        if cat_nutrition.percentage <= 0:
+        if cat.stats.hunger <= 0:
+            print(cat.name, "STARVING!!!!!!!")
             text = ""
             if cat.status == "leader":
                 game.clan.leader_lives -= 1
@@ -189,8 +193,6 @@ class Condition_Events:
             # if the cat is the leader and isn't full dead
             # make them malnourished and refill nutrition slightly
             if cat.status == "leader" and game.clan.leader_lives > 0:
-                mal_score = nutrition_info[cat.ID].max_score / 100 * (MAL_PERCENTAGE + 1)
-                nutrition_info[cat.ID].current_score = round(mal_score, 2)
                 cat.get_ill("malnourished")
 
             types = ["birth_death"]
@@ -198,14 +200,15 @@ class Condition_Events:
             return
 
         # heal cat if percentage is high enough and cat is ill
-        elif cat_nutrition.percentage > MAL_PERCENTAGE and cat.is_ill() and "malnourished" in cat.illnesses:
+        elif cat.stats.hunger > MAL_PERCENTAGE and cat.is_ill() and "malnourished" in cat.illnesses:
+            print(cat.name, "HEALING FROM MALNOURISHMENT")
             illness = "malnourished"
             event = random.choice(Condition_Events.ILLNESS_HEALED_STRINGS["malnourished"])
             heal = True
 
         # heal cat if percentage is high enough and cat is ill
-        elif cat_nutrition.percentage > STARV_PERCENTAGE and cat.is_ill() and "starving" in cat.illnesses:
-            if cat_nutrition.percentage < MAL_PERCENTAGE:
+        elif cat.stats.hunger > STARV_PERCENTAGE and cat.is_ill() and "starving" in cat.illnesses:
+            if cat.stats.hunger < MAL_PERCENTAGE:
                 if "malnourished" not in cat.illnesses:
                     cat.get_ill("malnourished")
                 illness = "starving"
@@ -213,16 +216,20 @@ class Condition_Events:
             else:
                 illness = "starving"
                 heal = True
+            print(cat.name, "GONE FROM MALNOURISHED TO STARVING")
 
-        elif MAL_PERCENTAGE >= cat_nutrition.percentage > STARV_PERCENTAGE:
+        elif MAL_PERCENTAGE >= cat.stats.hunger > STARV_PERCENTAGE:
             # because of the smaller 'nutrition buffer', kitten and elder should get the starving condition.
             if cat.status in ["kitten", "elder"]:
                 illness = "starving"
             else:
                 illness = "malnourished"
+            print(cat.name, "MALNOUISHEBEH")
 
-        elif cat_nutrition.percentage <= STARV_PERCENTAGE:
+        elif cat.stats.hunger <= STARV_PERCENTAGE:
             illness = "starving"
+
+            print(cat.name, "STARVING")
 
         # handle the gaining/healing illness
         if heal:

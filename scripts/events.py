@@ -16,7 +16,7 @@ import re
 
 from scripts.cat.cats import Cat, cat_class
 from scripts.clan import Clan
-from scripts.clan import HERBS, ITEMS
+from scripts.clan import HERBS, ITEM_VALUES
 from scripts.clan_resources.freshkill import FRESHKILL_ACTIVE, FRESHKILL_EVENT_ACTIVE
 from scripts.conditions import medical_cats_condition_fulfilled, get_amount_cat_for_one_medic
 from scripts.events_module.relation_events import Relation_Events
@@ -95,6 +95,8 @@ class Events:
         self.cat_dict = {}
         self.current_events = []
 
+        self.MAP_POSITION_INFO = None
+
     def one_moon(self):
         """
         Handles the moon skipping of the whole Clan.
@@ -143,16 +145,16 @@ class Events:
         if game.clan.timeskips >= 11:
             game.clan.days += 1
             game.clan.timeskips = 1
-        if game.clan.days in [30, 60, 90, 120, 150]:
+        if game.clan.days in [30, 60, 90, 120, 150, 180]:
             game.clan.age += 1
             get_current_season()
+            Pregnancy_Events.handle_pregnancy_age(game.clan)
         print("TIME")
         print("Moon:", game.clan.age)
         print("Day:", game.clan.days)
         print("Skip:", game.clan.timeskips)
         # game.clan.age += 1
         
-        Pregnancy_Events.handle_pregnancy_age(game.clan)
         self.check_war()
         if 'freshkill' in game.clan.clan_settings:
             if game.clan.clan_settings['freshkill']:
@@ -2768,14 +2770,9 @@ class Events:
         if cat.map_position != "0_0":
             return
         
-        print(cat.name, "bloodbath function")
-
-        biome_prey = ITEMS[(game.clan.biome).lower()]["food"]
-        gen_prey = ITEMS["general"]["food"]
+        gen_prey = ITEM_VALUES["food"]
 
         prey = []
-        for i in biome_prey.keys():
-            prey.append(i)
         for i in gen_prey.keys():
             prey.append(i)
         
@@ -2847,11 +2844,8 @@ class Events:
                 print("STATS ERROR FOR", cat.name)
                 print(cat.stats)
                 return
-            if food in ITEMS[(game.clan.biome).lower()]["food"]:
-                satiation_value = ITEMS[(game.clan.biome).lower()]["food"].get(food, 0)
-
-            elif food in ITEMS["general"]["food"]:
-                satiation_value = ITEMS["general"]["food"].get(food, 0)
+            if food in ITEM_VALUES["food"]:
+                satiation_value = ITEM_VALUES["food"].get(food, 0)
 
             else:
                 return
@@ -2869,35 +2863,65 @@ class Events:
             if cat.pelt.inventory[food] <= 0:
                 cat.pelt.inventory.pop(food)
             
-            print(f"{cat.name} ate one {food}. Their hunger has gone from {oldhunger} to {cat.stats.hunger}.")
+            # print(f"{cat.name} ate one {food}. Their hunger has gone from {oldhunger} to {cat.stats.hunger}.")
+        
+        with open(f"resources/dicts/hunger_games_dicts/{(game.clan.biome).lower()}/item_dict.json", "r", encoding="utf-8") as read_file:
+            self.MAP_POSITION_INFO = ujson.loads(read_file.read())
 
         if not int(random.random() * 3):
-            herb = random.choice(HERBS)
-            cat.pelt.inventory.update({herb: 1})
-            print(cat.name, "has found:", herb, "!")
+            try:
+                herbs = random.choice(self.MAP_POSITION_INFO[cat.map_position]["herbs"])
+            except:
+                return
+            weights = {}
+            for i in herbs:
+                weight = self.MAP_POSITION_INFO[cat.map_position]["herbs"].get(i, 0) # grabbing the weight from the json
+                if i not in weights:
+                    weights[i] = 0
+                weights[i] += weight
+                    
+            items_with_weights = list(weights.items())  
+
+            items, item_weights = zip(*items_with_weights)
+
+            amount = random.choices([1, 2], [2, 1], k=1)[0]
+
+            try:
+                herb = random.choices(items, weights=item_weights, k=amount)
+            except ValueError as e:
+                print("HUNGER GAMES: Random herb weight error!")
+                # i dont think this is happening anymore but eh
+                return
+
+            for i in herb:
+                cat.pelt.inventory.update({i: 1})
             
-        
-        if not int(random.random() * 4):
-            biome_prey = ITEMS[(game.clan.biome).lower()]["food"]
-            gen_prey = ITEMS["general"]["food"]
+        try:
+            chance = self.MAP_POSITION_INFO[cat.map_position]["prey_abundance"]
+        except:
+            chance = 4
+
+        if not int(random.random() * chance):
+            try:
+                gen_prey = self.MAP_POSITION_INFO[cat.map_position]["food"]
+            except:
+                gen_prey = {
+                    "MOUSE": 1,
+                    "RABBIT": 2
+                } # placeholder
 
             prey = []
             weights = {}
-            for i in biome_prey.keys():
-                prey.append(i)
             for i in gen_prey.keys():
                 prey.append(i)
-
-            biomes= [game.clan.biome, "general"]
-            for biome in biomes:
-                for i in prey:
-                    value = ITEMS[(biome).lower()]["food"].get(i, 0)
-                    weight = 100 - value
-                    if i not in weights:
-                        weights[i] = 0
-                    weights[i] += weight
-
-            # backhere
+            for i in prey:
+                try:
+                    weight = self.MAP_POSITION_INFO[cat.map_position]["food"].get(i, 0) # grabbing the weight from the json
+                except:
+                    weight = 1 # placeholder
+                if i not in weights:
+                    weights[i] = 0
+                weights[i] += weight
                     
             items_with_weights = list(weights.items())  
 
@@ -2906,8 +2930,6 @@ class Events:
             amount = random.choices([1, 2], [2, 1], k=1)[0]
 
             random_prey = random.choices(items, weights=item_weights, k=amount)
-
-            print(f"{cat.name} random food: {random_prey}")
 
             a = random.randint(1,3)
             for i in random_prey:

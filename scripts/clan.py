@@ -1734,6 +1734,6 @@ HERBS = None
 with open("resources/dicts/herbs.json", "r", encoding="utf-8") as read_file:
     HERBS = ujson.loads(read_file.read())
 
-ITEMS = None
-with open("resources/dicts/items.json", "r", encoding="utf-8") as read_file:
-    ITEMS = ujson.loads(read_file.read())
+ITEM_VALUES = None
+with open("resources/dicts/hunger_games_dicts/item_values.json", "r", encoding="utf-8") as read_file:
+    ITEM_VALUES = ujson.loads(read_file.read())

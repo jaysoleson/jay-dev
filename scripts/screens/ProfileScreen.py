@@ -49,7 +49,7 @@ from ..cat.history import History
 from ..game_structure.windows import ChangeCatName, KillCat, ChangeCatToggles
 from ..housekeeping.datadir import get_save_dir
 
-from scripts.clan import ITEMS, HERBS
+from scripts.clan import ITEM_VALUES, HERBS
 
 
 # ---------------------------------------------------------------------------- #
@@ -1116,7 +1116,7 @@ class ProfileScreen(Screens):
 
         # Set the cat backgrounds.
         if game.clan.clan_settings["backgrounds"]:
-            if not self.the_cat.dead:
+            if not self.the_cat.dead and self.the_cat.cat_clan is not None:
                 theclan = None
                 cat_clan = self.the_cat.cat_clan
                 if cat_clan != game.clan.name:
@@ -2998,11 +2998,8 @@ class ProfileScreen(Screens):
         if self.the_cat.ID != game.clan.your_cat.ID:
             return
         
-        if self.selected_item in ITEMS[(game.clan.biome).lower()]["food"]:
-            value = ITEMS[(game.clan.biome).lower()]["food"].get(self.selected_item, 0)
-
-        elif self.selected_item in ITEMS["general"]["food"]:
-            value = ITEMS["general"]["food"].get(self.selected_item, 0)
+        if self.selected_item in ITEM_VALUES["food"]:
+            value = ITEM_VALUES["food"].get(self.selected_item, 0)
 
         
         self.item_window_elements["back"] = pygame_gui.elements.UIImage(
@@ -3067,11 +3064,8 @@ class ProfileScreen(Screens):
     def eat(self):
         """ eata da food """
 
-        if self.selected_item in ITEMS[(game.clan.biome).lower()]["food"]:
-            game.clan.your_cat.stats.hunger += ITEMS[(game.clan.biome).lower()]["food"].get(self.selected_item, 0)
-
-        elif self.selected_item in ITEMS["general"]["food"]:
-            game.clan.your_cat.stats.hunger += ITEMS["general"]["food"].get(self.selected_item, 0)
+        if self.selected_item in ITEM_VALUES["food"]:
+            game.clan.your_cat.stats.hunger += ITEM_VALUES["food"].get(self.selected_item, 0)
 
         game.clan.your_cat.pelt.inventory[self.selected_item] -= 1
 
@@ -3096,9 +3090,7 @@ class ProfileScreen(Screens):
 
         item_options = ["food", "weapons", "misc"]
         for item in item_options:
-            if accessory[0] in ITEMS[(game.clan.biome).lower()][item]:
-                item_type = "item"
-            elif accessory[0] in ITEMS["general"][item]:
+            if accessory[0] in ITEM_VALUES[item]:
                 item_type = "item"
 
         if accessory[0].lower() in HERBS:

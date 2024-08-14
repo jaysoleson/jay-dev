@@ -246,18 +246,16 @@ def check_possible_directions(row_position, column_position):
     column_position = int(column_position) # the cat's Y position
 
     camp_bg_base_dir = 'resources/images/hg_maps'
-    leaves = ["newleaf", "greenleaf", "leafbare", "leaffall"]
     
-    available_biome = ['Forest', 'Mountainous', 'Plains', 'Beach']
-    biome = game.clan.biome
-    if biome not in available_biome:
-        biome = available_biome[0]
-        game.clan.biome = biome
-    biome = biome.lower()
+    time = ""
+    if game.clan.timeskips in [2, 3, 4]:
+        time = "day"
+    elif game.clan.timeskips in [1, 5, 6, 10]:
+        time = "sunset"
+    else:
+        time = "night"
 
-    season = game.clan.current_season.replace("-", "") # leaf-fall was fuckin w me
-
-    pathstart = f'{camp_bg_base_dir}/{biome}/{(season).lower()}'
+    pathstart = f'{camp_bg_base_dir}/{(game.clan.biome).lower()}/{time}/'
 
     # disabling travel buttons if the next image doesn't exist!
     # this allows me to expand the map as much as i want without recoding >:3
@@ -266,16 +264,16 @@ def check_possible_directions(row_position, column_position):
     south = True
     west = True
 
-    if not os.path.exists(f"{pathstart}_{row_position + 1}_{column_position}.png"):
+    if not os.path.exists(f"{pathstart}{row_position + 1}_{column_position}.png"):
         east = False
 
-    if not os.path.exists(f"{pathstart}_{row_position - 1}_{column_position}.png"):
+    if not os.path.exists(f"{pathstart}{row_position - 1}_{column_position}.png"):
         west = False
 
-    if not os.path.exists(f"{pathstart}_{row_position}_{column_position + 1}.png"):
+    if not os.path.exists(f"{pathstart}{row_position}_{column_position + 1}.png"):
         south = False
 
-    if not os.path.exists(f"{pathstart}_{row_position}_{column_position - 1}.png"):
+    if not os.path.exists(f"{pathstart}{row_position}_{column_position - 1}.png"):
         north = False
 
     return north, east, south, west

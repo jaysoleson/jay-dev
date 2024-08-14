@@ -1,0 +1,24 @@
+{
+    "food": {
+        "SALMON": 10,
+        "ROCKFISH": 10,
+        "LINGCOD": 10,
+        "STRAWBERRY": 3,
+        "BLUEBERRY": 2,
+        "COCONUT": 10,
+        "MOUSE": 8,
+        "RABBIT": 10,
+        "BLACKBIRD": 8,
+        "CROW": 10,
+        "SARDINE": 6,
+        "SQUIRREL": 8,
+        "CRAB": 10,
+        "BABY SEA TURTLE": 7
+    },
+    "weapons": {
+
+    },
+    "misc": [
+        
+    ]
+}

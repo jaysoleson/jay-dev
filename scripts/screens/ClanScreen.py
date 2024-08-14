@@ -2,6 +2,8 @@ import random
 import traceback
 from copy import deepcopy
 
+import ujson
+
 import math
 import os
 
@@ -37,16 +39,11 @@ class ClanScreen(Screens):
         self.warrior_den_label = None
         self.layout = None
 
+        MAP_POSITION_INFO = None
+
     def on_use(self):
         if game.clan.clan_settings['backgrounds']:
-            if game.clan.current_season == 'Newleaf':
-                screen.blit(self.newleaf_bg, (0, 0))
-            elif game.clan.current_season == 'Greenleaf':
-                screen.blit(self.greenleaf_bg, (0, 0))
-            elif game.clan.current_season == 'Leaf-bare':
-                screen.blit(self.leafbare_bg, (0, 0))
-            elif game.clan.current_season == 'Leaf-fall':
-                screen.blit(self.leaffall_bg, (0, 0))
+            screen.blit(self.arena_bg, (0, 0))
 
     def handle_event(self, event):
         if game.switches['window_open']:
@@ -132,6 +129,9 @@ class ClanScreen(Screens):
         self.set_disabled_menu_buttons(["camp_screen"])
         self.update_heading_text('The Arena')
         self.show_menu_buttons()
+
+        with open(f"resources/dicts/hunger_games_dicts/{(game.clan.biome).lower()}/item_dict.json", "r", encoding="utf-8") as read_file:
+            self.MAP_POSITION_INFO = ujson.loads(read_file.read())
 
         self.cat_buttons = []  # To contain all the buttons.
 
@@ -322,43 +322,20 @@ class ClanScreen(Screens):
     def update_current_map(self):
 
         camp_bg_base_dir = 'resources/images/hg_maps/'
-        leaves = ["newleaf", "greenleaf", "leafbare", "leaffall"]
         position = game.clan.your_cat.map_position
 
-        available_biome = ['Forest', 'Mountainous', 'Plains', 'Beach']
-        biome = game.clan.biome
-        if biome not in available_biome:
-            biome = available_biome[0]
-            game.clan.biome = biome
-        biome = biome.lower()
+        time = ""
+        if game.clan.timeskips in [2, 3, 4]:
+            time = "day"
+        elif game.clan.timeskips in [1, 5, 6, 10]:
+            time = "sunset"
+        else:
+            time = "night"
 
-        all_backgrounds = []
-        for leaf in leaves:
-            platform_dir = f'{camp_bg_base_dir}/{biome}/{leaf}_{position}.png'
-            all_backgrounds.append(platform_dir)
+        platform_dir = f'{camp_bg_base_dir}/{(game.clan.biome).lower()}/{time}/{position}.png'
 
-        self.newleaf_bg = pygame.transform.scale(
-            pygame.image.load(all_backgrounds[0]).convert(), (screen_x, screen_y))
-        try:
-            self.greenleaf_bg = pygame.transform.scale(
-                pygame.image.load(all_backgrounds[1]).convert(), (screen_x, screen_y))
-        except:
-            self.greenleaf_bg = pygame.transform.scale(
-            pygame.image.load(all_backgrounds[0]).convert(), (screen_x, screen_y))
-        
-        try:
-            self.leafbare_bg = pygame.transform.scale(
-                pygame.image.load(all_backgrounds[2]).convert(), (screen_x, screen_y))
-        except:
-            self.leafbare_bg = pygame.transform.scale(
-            pygame.image.load(all_backgrounds[0]).convert(), (screen_x, screen_y))
-
-        try:
-            self.leaffall_bg = pygame.transform.scale(
-                pygame.image.load(all_backgrounds[3]).convert(), (screen_x, screen_y))
-        except:
-            self.leaffall_bg = pygame.transform.scale(
-            pygame.image.load(all_backgrounds[0]).convert(), (screen_x, screen_y))
+        self.arena_bg = pygame.transform.scale(
+            pygame.image.load(platform_dir).convert(), (screen_x, screen_y))
 
     def choose_nonoverlapping_positions(self, first_choices, dens, weights=None):
         if not weights:
@@ -447,6 +424,7 @@ class ClanScreen(Screens):
                 )
 
         else:
+            taken_placements = []
             for x in game.clan.clan_cats:
                 Cat.all_cats[x].placement = None
 
@@ -456,47 +434,67 @@ class ClanScreen(Screens):
                     continue
                 
                 if Cat.all_cats[x].ID == game.clan.your_cat.ID:
-                    Cat.all_cats[x].placement = (775, 675)
+                    try:
+                        Cat.all_cats[x].placement = self.MAP_POSITION_INFO[game.clan.your_cat.map_position]["mc_placement"]
+                    except:
+                        Cat.all_cats[x].placement = [750, 750]
+
 
                 else:
-                    if Cat.all_cats[x].status == 'newborn' or Cat.all_cats[x].moons == -1 or game.config['fun']['all_cats_are_newborn']:
-                        if game.config['fun']['all_cats_are_newborn'] or game.config['fun']['newborns_can_roam']:
-                            # Free them
-                            Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
-                                                                                            [1, 100, 1, 1, 1, 100, 50])
+                    try:
+                        # Attempt to find a valid placement
+                        for _ in range(30):  # Limit attempts to avoid infinite loop
+                            placement = random.choice(self.MAP_POSITION_INFO[Cat.all_cats[x].map_position]["placements"])
+                            if placement not in taken_placements:
+                                taken_placements.append(placement)  # Record the placement
+                                Cat.all_cats[x].placement = placement
+                                break
                         else:
-                            continue
-        
-                    if Cat.all_cats[x].status in ['apprentice', 'mediator apprentice', "queen's apprentice"]:
-                        Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
-                                                                                        [1, 50, 1, 1, 100, 100, 1])
-                    elif Cat.all_cats[x].status == 'deputy':
-                        Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
-                                                                                        [1, 50, 1, 1, 1, 50, 1])
+                            # If we exit the loop without breaking, no valid placement was found
+                            Cat.all_cats[x].placement = random.choice(self.MAP_POSITION_INFO[Cat.all_cats[x].map_position]["placements"])
+                    except:
+                        Cat.all_cats[x].placement = [750, 750]
 
-                    elif Cat.all_cats[x].status == 'elder':
-                        Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
-                                                                                        [1, 1, 2000, 1, 1, 1, 1])
-                    elif Cat.all_cats[x].status == 'kitten':
-                        Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
-                                                                                        [60, 8, 1, 1, 1, 1, 1])
-                    elif Cat.all_cats[x].status == 'queen':
-                        Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
-                                                                                        [60, 8, 1, 1, 1, 1, 1])
-                    elif Cat.all_cats[x].status == "queen's apprentice":
-                        Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
-                                                                                        [60, 8, 1, 1, 1, 1, 1])                                                                     
-                    elif Cat.all_cats[x].status in [
-                        'medicine cat apprentice', 'medicine cat'
-                    ]:
-                        Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
-                                                                                        [20, 20, 20, 400, 1, 1, 1])
-                    elif Cat.all_cats[x].status in ['warrior', 'mediator']:
-                        Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
-                                                                                        [1, 1, 1, 1, 1, 60, 60])
-                    elif Cat.all_cats[x].status == "leader":
-                        Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
-                                                                                        [1, 200, 1, 1, 1, 1, 1])
+                    # not doing allat
+
+                    # if Cat.all_cats[x].status == 'newborn' or Cat.all_cats[x].moons == -1 or game.config['fun']['all_cats_are_newborn']:
+                    #     if game.config['fun']['all_cats_are_newborn'] or game.config['fun']['newborns_can_roam']:
+                    #         # Free them
+                    #         Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
+                    #                                                                         [1, 100, 1, 1, 1, 100, 50])
+                    #     else:
+                    #         continue
+        
+                    # if Cat.all_cats[x].status in ['apprentice', 'mediator apprentice', "queen's apprentice"]:
+                    #     Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
+                    #                                                                     [1, 50, 1, 1, 100, 100, 1])
+                    # elif Cat.all_cats[x].status == 'deputy':
+                    #     Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
+                    #                                                                     [1, 50, 1, 1, 1, 50, 1])
+
+                    # elif Cat.all_cats[x].status == 'elder':
+                    #     Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
+                    #                                                                     [1, 1, 2000, 1, 1, 1, 1])
+                    # elif Cat.all_cats[x].status == 'kitten':
+                    #     Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
+                    #                                                                     [60, 8, 1, 1, 1, 1, 1])
+                    # elif Cat.all_cats[x].status == 'queen':
+                    #     Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
+                    #                                                                     [60, 8, 1, 1, 1, 1, 1])
+                    # elif Cat.all_cats[x].status == "queen's apprentice":
+                    #     Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
+                    #                                                                     [60, 8, 1, 1, 1, 1, 1])                                                                     
+                    # elif Cat.all_cats[x].status in [
+                    #     'medicine cat apprentice', 'medicine cat'
+                    # ]:
+                    #     Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
+                    #                                                                     [20, 20, 20, 400, 1, 1, 1])
+                    # elif Cat.all_cats[x].status in ['warrior', 'mediator']:
+                    #     Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
+                    #                                                                     [1, 1, 1, 1, 1, 60, 60])
+                    # elif Cat.all_cats[x].status == "leader":
+                    #     Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
+                    #                                                                     [1, 200, 1, 1, 1, 1, 1])
 
     def update_buttons_and_text(self):
         if game.switches['saved_clan']:

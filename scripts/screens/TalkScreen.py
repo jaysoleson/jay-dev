@@ -153,54 +153,24 @@ class TalkScreen(Screens):
     def update_current_map(self):
 
         camp_bg_base_dir = 'resources/images/hg_maps/'
-        leaves = ["newleaf", "greenleaf", "leafbare", "leaffall"]
         position = game.clan.your_cat.map_position
 
-        available_biome = ['Forest', 'Mountainous', 'Plains', 'Beach']
-        biome = game.clan.biome
-        if biome not in available_biome:
-            biome = available_biome[0]
-            game.clan.biome = biome
-        biome = biome.lower()
+        time = ""
+        if game.clan.timeskips in [2, 3, 4]:
+            time = "day"
+        elif game.clan.timeskips in [1, 5, 6, 10]:
+            time = "sunset"
+        else:
+            time = "night"
 
-        all_backgrounds = []
-        for leaf in leaves:
-            platform_dir = f'{camp_bg_base_dir}/{biome}/{leaf}_{position}.png'
-            all_backgrounds.append(platform_dir)
+        platform_dir = f'{camp_bg_base_dir}/{(game.clan.biome).lower()}/{time}/{position}.png'
 
-        self.newleaf_bg = pygame.transform.scale(
-            pygame.image.load(all_backgrounds[0]).convert(), (screen_x, screen_y))
-        try:
-            self.greenleaf_bg = pygame.transform.scale(
-                pygame.image.load(all_backgrounds[1]).convert(), (screen_x, screen_y))
-        except:
-            self.greenleaf_bg = pygame.transform.scale(
-            pygame.image.load(all_backgrounds[0]).convert(), (screen_x, screen_y))
-        
-        try:
-            self.leafbare_bg = pygame.transform.scale(
-                pygame.image.load(all_backgrounds[2]).convert(), (screen_x, screen_y))
-        except:
-            self.leafbare_bg = pygame.transform.scale(
-            pygame.image.load(all_backgrounds[0]).convert(), (screen_x, screen_y))
-
-        try:
-            self.leaffall_bg = pygame.transform.scale(
-                pygame.image.load(all_backgrounds[3]).convert(), (screen_x, screen_y))
-        except:
-            self.leaffall_bg = pygame.transform.scale(
-            pygame.image.load(all_backgrounds[0]).convert(), (screen_x, screen_y))
+        self.arena_bg = pygame.transform.scale(
+            pygame.image.load(platform_dir).convert(), (screen_x, screen_y))
 
     def on_use(self):
         if game.clan.clan_settings['backgrounds']:
-            if game.clan.current_season == 'Newleaf':
-                screen.blit(self.newleaf_bg, (0, 0))
-            elif game.clan.current_season == 'Greenleaf':
-                screen.blit(self.greenleaf_bg, (0, 0))
-            elif game.clan.current_season == 'Leaf-bare':
-                screen.blit(self.leafbare_bg, (0, 0))
-            elif game.clan.current_season == 'Leaf-fall':
-                screen.blit(self.leaffall_bg, (0, 0))
+            screen.blit(self.arena_bg, (0, 0))
         now = pygame.time.get_ticks()
         if self.texts:
             if self.texts[self.text_index][0] == "[" and self.texts[self.text_index][-1] == "]":
