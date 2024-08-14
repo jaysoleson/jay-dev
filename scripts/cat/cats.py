@@ -1900,7 +1900,7 @@ class Cat:
         
         if self.dead or self.outside:
             return
-        self.stats.hunger -= randint(1,4)
+        self.stats.hunger -= randint(1,2)
         self.stats.exposure -= randint(1,6)
         self.stats.energy -= randint(1,6)
 

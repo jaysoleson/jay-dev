@@ -2830,6 +2830,13 @@ class Events:
         # if cat.ID == game.clan.your_cat.ID:
         #     # mc random inventory gains will be Different
         #     return
+        chance = 4
+        if "malnourished" in cat.illnesses:
+            print(cat.name, "malnourished, eating")
+            chance = 2
+        elif "starving" in cat.illnesses:
+            print(cat.name, "starving, eating")
+            chance = 1
         if not int(random.random() * 4): # 1/4
             if cat.pelt.inventory == {}:
                 return
