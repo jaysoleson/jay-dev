@@ -1504,5 +1504,15 @@
     "default": "bat harness",
     "plural": "bat harnesses",
     "singular": "bat harness"
+  },
+  "BACKPACK1": {
+    "default": "tier one backpack",
+    "plural": "tier one backpack",
+    "singular": "tier one backpack"
+  },
+  "BACKPACK2": {
+    "default": "tier two backpack",
+    "plural": "tier two backpack",
+    "singular": "tier two backpack"
   }
 }

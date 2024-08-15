@@ -3193,6 +3193,9 @@ class ProfileScreen(Screens):
                     self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((188 + pos_x, 725 + pos_y), (100, 100))), sprites.sprites['acc_crafted' + accessory + cat_sprite], manager=MANAGER)
                 elif accessory in cat.pelt.tail2_accessories:
                     self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((188 + pos_x, 725 + pos_y), (100, 100))), sprites.sprites['acc_tail2' + accessory + cat_sprite], manager=MANAGER)
+                    
+                elif accessory in cat.pelt.backpacks:
+                    self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(scale(pygame.Rect((188 + pos_x, 725 + pos_y), (100, 100))), sprites.sprites['backpacks' + accessory + cat_sprite], manager=MANAGER)
 
 
                 self.accessories_list.append(accessory)

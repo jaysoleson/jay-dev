@@ -133,6 +133,9 @@ class Pelt:
 
     tail2_accessories = ["SEAWEED", "DAISY CORSAGE"]
 
+    # hunger games backpacks
+    backpacks = ["BACKPACK1", "BACKPACK2"]
+
 
     tabbies = ["Tabby", "Ticked", "Mackerel", "Classic", "Sokoke", "Agouti"]
     spotted = ["Speckled", "Rosette"]

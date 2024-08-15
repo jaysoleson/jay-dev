@@ -173,7 +173,10 @@ class Sprites:
 
             "eggs",
 
-            "pumpkinbatharness"
+            "pumpkinbatharness",
+
+            # hunger games
+            "backpacks"
 
         ]:
             if 'lineart' in x and game.config['fun']['april_fools']:
@@ -456,6 +459,10 @@ class Sprites:
         for a, i in enumerate([
             "BATHARNESS"]):
             self.make_group('pumpkinbatharness', (a, 0), f'acc_crafted{i}')
+
+        for a, i in enumerate([
+            "BACKPACK1", "BACKPACK2"]):
+            self.make_group('backpacks', (a, 0), f'backpacks{i}')
         
         # Define scars
         scars_data = [
