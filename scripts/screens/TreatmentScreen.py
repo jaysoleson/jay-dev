@@ -51,6 +51,7 @@ class TreatmentScreen(Screens):
         self.current_mentor_text = None
         self.info = None
         self.heading = None
+        self.subtitle = None
         self.mentor = None
         self.the_cat = None
         self.patient = None
@@ -284,6 +285,7 @@ class TreatmentScreen(Screens):
             self.medcat_sprite = None
             self.text = None
             self.textbox_graphic = None
+            self.subtitle = None
 
             self.list_frame = pygame.transform.scale(image_cache.load_image("resources/images/choosing_frame.png").convert_alpha(),
                                         (1300 / 1600 * screen_x, 355 / 1300 * screen_y))
@@ -327,6 +329,7 @@ class TreatmentScreen(Screens):
             self.medcat_sprite = None
             self.text = None
             self.textbox_graphic = None
+            self.subtitle = None
 
             self.heading = pygame_gui.elements.UITextBox("Choose a treatment",
                                                         scale(pygame.Rect((300, 50), (1000, 80))),
@@ -391,6 +394,25 @@ class TreatmentScreen(Screens):
             self.heading = pygame_gui.elements.UITextBox("Results",
                                                         scale(pygame.Rect((300, 50), (1000, 80))),
                                                         object_id=get_text_box_theme("#text_box_34_horizcenter"),
+                                                        manager=MANAGER)
+
+            herb_list = [self.herb1, self.herb2, self.herb3, self.herb4]
+            newlist = []
+            for i in herb_list:
+                if i is not None:
+                    newlist.append(i)
+            
+            if len(newlist) > 1:
+                text = f"{', '.join([herb.replace('_', ' ') for herb in newlist[:-1]])}, {newlist[-1].replace('_', ' ')}"
+            else:
+                text = f"{', '.join([herb.replace('_', ' ') for herb in newlist[:-1]])} {newlist[-1].replace('_', ' ')}"
+
+
+            string = f"{self.selected_cat.name} - Moon {game.clan.age} - {text}"
+            
+            self.subtitle = pygame_gui.elements.UITextBox(string,
+                                                        scale(pygame.Rect((300, 100), (1000, 80))),
+                                                        object_id=get_text_box_theme("#text_box_30_horizcenter"),
                                                         manager=MANAGER)
             
             # Layout Images:
@@ -461,6 +483,11 @@ class TreatmentScreen(Screens):
         if self.heading:
             self.heading.kill()
             del self.heading
+      
+        
+        if self.subtitle:
+            self.subtitle.kill()
+            del self.subtitle
       
         if self.mentor_frame:
             self.mentor_frame.kill()
@@ -592,7 +619,7 @@ class TreatmentScreen(Screens):
         successkey = ""
         success = self.get_failure_chance(patient)
 
-        success = True
+        # success = False
         # ^ debug
 
         if not success:
@@ -636,7 +663,7 @@ class TreatmentScreen(Screens):
 
         herbcount = 0
         for herb in self_herblist:
-            if herb != None:
+            if herb is not None:
                 herbcount += 1
         
         herbinsert = f" {str(herbcount)}herb"
@@ -644,26 +671,32 @@ class TreatmentScreen(Screens):
         infection_stage = [i for i in self.selected_cat.illnesses if i in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]]
         infection_stage_stripped = str(infection_stage).replace('[', '').replace(']', '').replace("'", '')
         print([infection_stage_stripped.replace(' ', '').replace(f'{inftype}', '') + " " + correctherbs + herbinsert + successkey])
-        try:
-            if success:
-                ceremony_txt = self.m_txt[who_key + infection_stage_stripped.replace(' ', '').replace(f'{inftype}', '') + " " + correctherbs + herbinsert + successkey]
-            else:
-                ceremony_txt = self.m_txt[who_key + infection_stage_stripped.replace(' ', '').replace(f'{inftype}', '') + " " + herbinsert + successkey]
-        except KeyError:
+        if len(game.clan.infection["cure_discovered"]) < 4 or (len(game.clan.infection["cure_discovered"]) == 4 and correct < 4):
             try:
                 if success:
-                    ceremony_txt =(self.m_txt[who_key + "anystage" + " " + correctherbs + herbinsert + successkey])
+                    ceremony_txt = self.m_txt[who_key + infection_stage_stripped.replace(' ', '').replace(f'{inftype}', '') + " " + correctherbs + herbinsert + successkey]
                 else:
-                    ceremony_txt =(self.m_txt[who_key + "anystage" + " " + herbinsert + successkey])
-            except:
+                    ceremony_txt = self.m_txt[who_key + infection_stage_stripped.replace(' ', '').replace(f'{inftype}', '') + herbinsert + successkey]
+
+                    
+            except KeyError:
                 try:
                     if success:
-                        ceremony_txt = (self.m_txt[who_key + "anystage" + " " + correctherbs + " anyherb" + successkey])
+                        ceremony_txt =(self.m_txt[who_key + " " + correctherbs + herbinsert + successkey])
                     else:
-                        ceremony_txt = (self.m_txt[who_key + "anystage" + " " + " anyherb" + successkey])
+                        ceremony_txt =(self.m_txt[who_key + herbinsert + successkey])
                 except:
-                    print("NO TEXT FOUND")
-                    ceremony_txt = (self.m_txt[who_key + "anystage anyright anyherb" + successkey])
+                    try:
+                        if success:
+                            ceremony_txt = (self.m_txt[who_key + " " + correctherbs  + successkey])
+                        else:
+                            ceremony_txt = (self.m_txt[who_key + " " + successkey])
+                    except:
+                        print("NO TEXT FOUND")
+                        ceremony_txt = (self.m_txt[who_key + "anystage anyright anyherb" + successkey])
+        
+        else:
+           ceremony_txt = (self.m_txt[who_key + "cure_found"])
 
         if success:
             self.add_to_treatments(patient)
@@ -671,7 +704,6 @@ class TreatmentScreen(Screens):
 
         chosenkey = choice(ceremony_txt)
         return self.get_adjusted_txt(chosenkey, self.selected_cat, self.the_cat)
-        # return ceremony_txt
 
     def add_to_treatments(self, patient):
         """ Adds the treatment information to the json for logging. """
@@ -726,8 +758,6 @@ class TreatmentScreen(Screens):
 
             if remission_chance <= 1:
                 remission_chance = 1
-
-            print("REMISSION CHANCE:", remission_chance)
 
             # if int(random.random() * remission_chance):
             # ^ debug

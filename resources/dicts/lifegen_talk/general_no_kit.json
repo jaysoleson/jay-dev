@@ -21024,5 +21024,66 @@
             "You know, even if you don't like me, I'll still ensure you're safe from the infected.",
             "I just hope that if that day comes where I'm in that situation, you'll do the same, y_c."
         ]
+    ],
+    "infection_sam_5": [
+        [
+            "they_pregnant",
+            "they_infected",
+            "min_platonic_30",
+            "any"
+        ],
+        [
+            "y_c? What am I supposed to do? Will they take my kits away from me as soon as they're born?",
+            "What if.. my kits are born infected? Will they die before they get to live?",
+            "[You see an indescribable look wash over t_c's face, a mix of anger, fear, and sadness. But this doesn't seem like regular anger, not even a parental anger. This seems entirely new.]",
+            "[You could swear t_c's eyes turn red for a moment.]",
+            "[You watch as the look disappears, and t_c looks... confused?]",
+            "What just happened..?",
+            "[You worriedly run off to go get r_m to check up on {PRONOUN/t_c/object}.]"
+
+        ]
+    ],
+    "infection_sam_6": [
+        [
+            "from_mate",
+            "they_infected",
+            "you_infected",
+            "they_stage_two",
+            "they_stage_three",
+            "they_stage_four",
+            "you_stage_one",
+            "any",
+            "min_romantic_30"
+        ],
+        [
+            "[As r_m is helping you get settled into the den for infected cats, t_c wakes up and notices you.]",
+            "Oh.. y_c. I'm glad I get to see you more, I just wish it wasn't under these conditions. Wait, did you get infected because of me?",
+            "[You reassure {PRONOUN/t_c/object} that you did not get infected because of {PRONOUN/t_c/object}, you must've just wandered too close to the infected cat den.]",
+            "Good... I wouldn't forgive myself if it was my fault that you ended up in here.",
+            "[You contemplate asking t_c if {PRONOUN/t_c/subject} {VERB/t_c/want/wants} to combine {PRONOUN/t_c/poss} nest with yours, but {PRONOUN/t_c/subject} must be able to read your mind.]",
+            "No... we shouldn't. r_m said the further the infection goes along, the less control a cat has. I wouldn't want to hurt you.",
+            "Once we're both cured, we can go back to sharing a nest. Don't worry."
+
+        ]
+    ],
+    "infection_sam_8": [
+        [
+            "you_medicine_cat",
+            "you_medicine_cat_apprentice",
+            "min_platonic_50",
+            "they_any",
+            "you_not_infected",
+            "they_not_infected"
+        ],
+        [
+            "[You're looking through your herbs, trying to find something, anything, to fight this infection.]",
+            "[Come on, y_c, think. Something to help with the infected wounds, fatigue, that's pretty simple, right? What haven't you tried?]",
+            "y_c, have you been up all night working on a cure for the infection again? Come on, you know you can't keep doing that.",
+            "[You try to explain to t_c that you think you've got something, but {PRONOUN/t_c/subject} {VERB/t_c/don't/doesn't} listen.]",
+            "Nope, nope. I don't want to hear it. Come on, you need to rest too.",
+            "You can work on the cure later, okay? At this rate you're going to get sick and I'm going to get to say 'I told you so.'",
+            "[You didn't realize how tired you were, and you fall asleep almost instantly when you get into your nest.]",
+            "Get some rest, y_c. I'll clean up for you."
+        ]
     ]
 }

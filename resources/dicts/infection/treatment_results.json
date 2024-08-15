@@ -77,8 +77,9 @@
     ],
     "stageone fourright 4herb": [
         [
-            "r_m is able to wake m_c up for just long enough to convince {PRONOUN/m_c/object} to try out a mixture of herbs.",
-            "When {PRONOUN/m_c/subject} {VERB/m_c/take/takes} it, m_c blinks, and r_m swears that, for a moment, {PRONOUN/r_m/subject} {VERB/m_c/see/sees} a spark briefly return to {PRONOUN/r_m/poss} patient's eyes."
+            "When r_m slips a new mixture of herbs into m_c's prey, {PRONOUN/r_m/subject} {VERB/r_m/don't/doesn't} have high hopes.",
+            "But throughout the day, the sick cat starts to look better. The spark returns to {PRONOUN/m_c/poss} eyes. {PRONOUN/m_c/subject/CAP} {VERB/m_c/take/takes} a deep breath of fresh air, the infection starting to vacate {PRONOUN/m_c/poss} body.",
+            "r_m has made an important discovery today. {PRONOUN/r_m/subject/CAP} {VERB/r_m/race/races} around camp telling every cat the good news!"
         ]
     ],
     "stageone 1herb failure": [
@@ -137,17 +138,17 @@
     ],
     "you stageone oneright 1herb": [
         [
-            "Text needed for key!"
+            "m_c thanks you for the single herb. {PRONOUN/m_c/subject/CAP} even {VERB/m_c/say/says} it makes {PRONOUN/m_c/object} feel a little bit better!"
         ]
     ],
     "you stageone oneright 2herb": [
         [
-            "Text needed for key!"
+            "m_c thanks you for the herbs. {PRONOUN/m_c/subject/CAP} even {VERB/m_c/say/says} it makes {PRONOUN/m_c/object} feel a little bit better!"
         ]
     ],
     "you stageone oneright 3herb": [
         [
-            "Text needed for key!"
+            "m_c thanks you for the herbs. {PRONOUN/m_c/subject/CAP} even {VERB/m_c/say/says} it makes {PRONOUN/m_c/object} feel a little bit better!"
         ]
     ],
     "you stageone oneright 4herb": [
@@ -157,32 +158,34 @@
     ],
     "you stageone tworight 2herb": [
         [
-            "Text needed for key!"
+            "m_c thanks you for the herbs. {PRONOUN/m_c/subject/CAP} even {VERB/m_c/say/says} it makes {PRONOUN/m_c/object} feel a little bit better!"
         ]
     ],
     "you stageone tworight 3herb": [
         [
-            "Text needed for key!"
+            "m_c thanks you for the herbs. {PRONOUN/m_c/subject/CAP} even {VERB/m_c/say/says} it makes {PRONOUN/m_c/object} feel a bit better!"
         ]
     ],
     "you stageone tworight 4herb": [
         [
-            "Text needed for key!"
+            "m_c thanks you for the herbs. {PRONOUN/m_c/subject/CAP} even {VERB/m_c/say/says} it makes {PRONOUN/m_c/object} feel a bit better!"
         ]
     ],
     "you stageone threeright 3herb": [
         [
-            "Text needed for key!"
+            "m_c thanks you for the herbs. {PRONOUN/m_c/subject/CAP} even {VERB/m_c/say/says} it makes {PRONOUN/m_c/object} feel a lot better!"
         ]
     ],
     "you stageone threeright 4herb": [
         [
-            "Text needed for key!"
+            "m_c thanks you for the herbs. {PRONOUN/m_c/subject/CAP} even {VERB/m_c/say/says} it makes {PRONOUN/m_c/object} feel a lot better!"
         ]
     ],
     "you stageone fourright 4herb": [
         [
-            "Text needed for key!"
+            "m_c thanks you for the herbs, and tells you it makes them feel better almost instantly.",
+            "A <i>lot</i> better!",
+            "You've made an important discovery today."
         ]
     ],
     "you stageone 1herb failure": [
@@ -227,72 +230,74 @@
     ],
     "stagetwo oneright 1herb": [
         [
-            "Text needed for key!"
+            "r_m's single herb makes the sickly m_c feel a little bit better."
         ]
     ],
     "stagetwo oneright 2herb": [
         [
-            "Text needed for key!"
+            "r_m's herb mixture makes the sickly m_c feel a little bit better."
         ]
     ],
     "stagetwo oneright 3herb": [
         [
-            "Text needed for key!"
+            "r_m's herb mixture makes the sickly m_c feel a little bit better."
         ]
     ],
     "stagetwo oneright 4herb": [
         [
-            "Text needed for key!"
+            "r_m's herb mixture makes the sickly m_c feel a little bit better."
         ]
     ],
     "stagetwo tworight 2herb": [
         [
-            "Text needed for key!"
+            "r_m's herb mixture makes the sickly m_c feel a bit better."
         ]
     ],
     "stagetwo tworight 3herb": [
         [
-            "Text needed for key!"
+            "r_m's herb mixture makes the sickly m_c feel a bit better."
         ]
     ],
     "stagetwo tworight 4herb": [
         [
-            "Text needed for key!"
+            "r_m's herb mixture makes the sickly m_c feel a bit better."
         ]
     ],
     "stagetwo threeright 3herb": [
         [
-            "Text needed for key!"
+            "r_m's herb mixture makes the sickly m_c feel a lot better, at least for now."
         ]
     ],
     "stagetwo threeright 4herb": [
         [
-            "Text needed for key!"
+            "r_m's herb mixture makes the sickly m_c feel a lot better, at least for now."
         ]
     ],
     "stagetwo fourright 4herb": [
         [
-            "Text needed for key!"
+            "When r_m slips a new mixture of herbs into m_c's prey, {PRONOUN/r_m/subject} {VERB/r_m/don't/doesn't} have high hopes.",
+            "But throughout the day, the sick cat starts to look better. The spark returns to {PRONOUN/m_c/poss} eyes. {PRONOUN/m_c/subject/CAP} {VERB/m_c/take/takes} a deep breath of fresh air, the infection starting to vacate {PRONOUN/m_c/poss} body.",
+            "r_m has made an important discovery today. {PRONOUN/r_m/subject/CAP} {VERB/r_m/race/races} around camp telling every cat the good news!"
         ]
     ],
     "stagetwo 1herb failure": [
         [
-            "Text needed for key!"
+            "m_c rejects the treatment, saying {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} fine."
         ]
     ],
     "stagetwo 2herb failure": [
         [
-            "Text needed for key!"
+            "m_c rejects the treatment, saying {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} fine."
         ]
     ],
     "stagetwo 3herb failure": [
         [
-            "Text needed for key!"
+            "m_c rejects the treatment, saying {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} fine."
         ]
     ],
     "stagetwo 4herb failure": [
         [
-            "Text needed for key!"
+            "m_c rejects the treatment, saying {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} fine."
         ]
     ],
     "you stagetwo zeroright 1herb": [
@@ -331,143 +336,147 @@
     ],
     "you stagetwo oneright 1herb": [
         [
-            "You slip the herbs into a piece of prey, which you toss into m_c's den and watch {PRONOUN/m_c/object} devour.",
-            "You monitor {PRONOUN/m_c/object} for the next few days and notice no changes in {PRONOUN/m_c/poss} condition."
+            "m_c takes the herb after some convincing and begrudgingly admits that it makes {PRONOUN/m_c/object} feel a little bit better."
         ]
     ],
     "you stagetwo oneright 2herb": [
         [
-            "Text needed for key!"
+            "m_c takes the herbs after some convincing and begrudgingly admits that it makes {PRONOUN/m_c/object} feel a little bit better."
         ]
     ],
     "you stagetwo oneright 3herb": [
         [
-            "Text needed for key!"
+            "m_c takes the herbs after some convincing and begrudgingly admits that it makes {PRONOUN/m_c/object} feel a little bit better."
         ]
     ],
     "you stagetwo oneright 4herb": [
         [
-            "Text needed for key!"
+            "m_c takes the herbs after some convincing and begrudgingly admits that it makes {PRONOUN/m_c/object} feel a little bit better."
         ]
     ],
     "you stagetwo tworight 2herb": [
         [
-            "Text needed for key!"
+            "m_c takes the herbs after some convincing and begrudgingly admits that it makes {PRONOUN/m_c/object} feel a bit better."
         ]
     ],
     "you stagetwo tworight 3herb": [
         [
-            "Text needed for key!"
+            "m_c takes the herbs after some convincing and begrudgingly admits that it makes {PRONOUN/m_c/object} feel a bit better."
         ]
     ],
     "you stagetwo tworight 4herb": [
         [
-            "Text needed for key!"
+            "m_c takes the herbs after some convincing and begrudgingly admits that it makes {PRONOUN/m_c/object} feel a bit better."
         ]
     ],
     "you stagetwo threeright 3herb": [
         [
-            "Text needed for key!"
+            "m_c takes the herbs after some convincing and begrudgingly admits that it makes {PRONOUN/m_c/object} feel a lot better."
         ]
     ],
     "you stagetwo threeright 4herb": [
         [
-            "Text needed for key!"
+            "m_c takes the herbs after some convincing and begrudgingly admits that it makes {PRONOUN/m_c/object} feel a lot better."
         ]
     ],
     "you stagetwo fourright 4herb": [
         [
-            "Text needed for key!"
+            "You drop the bundle of herbs by m_c's nest and quickly flee to avoid getting sick.",
+            "Later that day, m_c rushes up to you and you puff up, ready to fight back against the infected.",
+            "But, instead of being hostile, m_c is smiling. {PRONOUN/m_c/subject/CAP} {VERB/m_c/say/says} your treatment made {PRONOUN/m_c/object} feel a lot better, and {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} thinking clearly again!",
+            "You've made an important discovery today."
         ]
     ],
     "you stagetwo 1herb failure": [
         [
-            "Text needed for key!"
+            "Immaturely, m_c covers {PRONOUN/m_c/poss} mouth with {PRONOUN/m_c/poss} paws, refusing to try any herbs."
         ]
     ],
     "you stagetwo 2herb failure": [
         [
-            "Text needed for key!"
+            "Immaturely, m_c covers {PRONOUN/m_c/poss} mouth with {PRONOUN/m_c/poss} paws, refusing to try any herbs."
         ]
     ],
     "you stagetwo 3herb failure": [
         [
-            "Text needed for key!"
+            "Immaturely, m_c covers {PRONOUN/m_c/poss} mouth with {PRONOUN/m_c/poss} paws, refusing to try any herbs."
         ]
     ],
     "you stagetwo 4herb failure": [
         [
-            "Text needed for key!"
+            "Immaturely, m_c covers {PRONOUN/m_c/poss} mouth with {PRONOUN/m_c/poss} paws, refusing to try any herbs."
         ]
     ],
     "stagethree zeroright 1herb": [
         [
-            "Text needed for key!"
+            "m_c looks just as awful after taking the herb as {PRONOUN/m_c/subject} did before."
         ]
     ],
     "stagethree zeroright 2herb": [
         [
-            "Text needed for key!"
+            "m_c looks just as awful after taking the herbs as {PRONOUN/m_c/subject} did before."
         ]
     ],
     "stagethree zeroright 3herb": [
         [
-            "Text needed for key!"
+            "m_c looks just as awful after taking the herbs as {PRONOUN/m_c/subject} did before."
         ]
     ],
     "stagethree zeroright 4herb": [
         [
-            "Text needed for key!"
+            "m_c looks just as awful after taking the herbs as {PRONOUN/m_c/subject} did before."
         ]
     ],
     "stagethree oneright 1herb": [
         [
-            "Text needed for key!"
+            "m_c can barely speak, but r_m can tell that the treatment made {PRONOUN/m_c/object} feel a tiny bit better."
         ]
     ],
     "stagethree oneright 2herb": [
         [
-            "Text needed for key!"
+            "m_c can barely speak, but r_m can tell that the treatment made {PRONOUN/m_c/object} feel a tiny bit better."
         ]
     ],
     "stagethree oneright 3herb": [
         [
-            "Text needed for key!"
+            "m_c can barely speak, but r_m can tell that the treatment made {PRONOUN/m_c/object} feel a tiny bit better."
         ]
     ],
     "stagethree oneright 4herb": [
         [
-            "Text needed for key!"
+            "m_c can barely speak, but r_m can tell that the treatment made {PRONOUN/m_c/object} feel a tiny bit better."
         ]
     ],
     "stagethree tworight 2herb": [
         [
-            "Text needed for key!"
+            "m_c can barely speak, but r_m can tell that the treatment made {PRONOUN/m_c/object} feel a bit better."
         ]
     ],
     "stagethree tworight 3herb": [
         [
-            "Text needed for key!"
+            "m_c can barely speak, but r_m can tell that the treatment made {PRONOUN/m_c/object} feel a bit better."
         ]
     ],
     "stagethree tworight 4herb": [
         [
-            "Text needed for key!"
+            "m_c can barely speak, but r_m can tell that the treatment made {PRONOUN/m_c/object} feel a bit better."
         ]
     ],
     "stagethree threeright 3herb": [
         [
-            "Text needed for key!"
+            "m_c can barely speak, but r_m can tell that the treatment made {PRONOUN/m_c/object} feel a bit better."
         ]
     ],
     "stagethree threeright 4herb": [
         [
-            "Text needed for key!"
+            "m_c can barely speak, but r_m can tell that the treatment made {PRONOUN/m_c/object} feel a bit better."
         ]
     ],
     "stagethree fourright 4herb": [
         [
-            "Text needed for key!"
+            "When r_m slips a new mixture of herbs into m_c's prey, {PRONOUN/r_m/subject} {VERB/r_m/don't/doesn't} have high hopes.",
+            "But throughout the day, the sick cat starts to look better. The spark returns to {PRONOUN/m_c/poss} eyes. {PRONOUN/m_c/subject/CAP} {VERB/m_c/take/takes} a deep breath of fresh air, the infection starting to vacate {PRONOUN/m_c/poss} body.",
+            "r_m has made an important discovery today. {PRONOUN/r_m/subject/CAP} {VERB/r_m/race/races} around camp telling every cat the good news!"
         ]
     ],
     "stagethree 1herb failure": [
@@ -520,52 +529,54 @@
     ],
     "you stagethree oneright 1herb": [
         [
-            "Text needed for key!"
+            "m_c can barely speak, but you can tell that the treatment made {PRONOUN/m_c/object} feel a tiny bit better."
         ]
     ],
     "you stagethree oneright 2herb": [
         [
-            "Text needed for key!"
+            "m_c can barely speak, but you can tell that the treatment made {PRONOUN/m_c/object} feel a tiny bit better."
         ]
     ],
     "you stagethree oneright 3herb": [
         [
-            "Text needed for key!"
+            "m_c can barely speak, but you can tell that the treatment made {PRONOUN/m_c/object} feel a tiny bit better."
         ]
     ],
     "you stagethree oneright 4herb": [
         [
-            "Text needed for key!"
+            "m_c can barely speak, but you can tell that the treatment made {PRONOUN/m_c/object} feel a tiny bit better."
         ]
     ],
     "you stagethree tworight 2herb": [
         [
-            "Text needed for key!"
+            "m_c can barely speak, but you can tell that the treatment made {PRONOUN/m_c/object} feel a bit better."
         ]
     ],
     "you stagethree tworight 3herb": [
         [
-            "Text needed for key!"
+            "m_c can barely speak, but you can tell that the treatment made {PRONOUN/m_c/object} feel a bit better."
         ]
     ],
     "you stagethree tworight 4herb": [
         [
-            "Text needed for key!"
+            "m_c can barely speak, but you can tell that the treatment made {PRONOUN/m_c/object} feel a bit better."
         ]
     ],
     "you stagethree threeright 3herb": [
         [
-            "Text needed for key!"
+            "m_c can barely speak, but you can tell that the treatment made {PRONOUN/m_c/object} feel a lot better."
         ]
     ],
     "you stagethree threeright 4herb": [
         [
-            "Text needed for key!"
+            "m_c can barely speak, but you can tell that the treatment made {PRONOUN/m_c/object} feel a lot better."
         ]
     ],
     "you stagethree fourright 4herb": [
         [
-            "Text needed for key!"
+            "When m_c takes the herbs, you sit and watch from a distance. It has to work this time. It has to.",
+            "It's not instantaneous, but after taking the herbs, m_c's eyes start the clear up. {PRONOUN/m_c/subject/CAP} {VERB/m_c/lift/lifts} {PRONOUN/m_c/poss} head and {VERB/m_c/lock/locks} {PRONOUN/m_c/poss} eyes with yours, where you see recognition for the first time in a long time.",
+            "You've made an important discovery today."
         ]
     ],
     "you stagethree 1herb failure": [
@@ -594,72 +605,74 @@
     ],
     "stagefour zeroright 1herb": [
         [
-            "Text needed for key!"
+            "m_c looks just as awful after taking the herbs as {PRONOUN/m_c/subject} did before."
         ]
     ],
     "stagefour zeroright 2herb": [
         [
-            "Text needed for key!"
+            "m_c looks just as awful after taking the herbs as {PRONOUN/m_c/subject} did before."
         ]
     ],
     "stagefour zeroright 3herb": [
         [
-            "Text needed for key!"
+            "m_c looks just as awful after taking the herbs as {PRONOUN/m_c/subject} did before."
         ]
     ],
     "stagefour zeroright 4herb": [
         [
-            "Text needed for key!"
+            "m_c looks just as awful after taking the herbs as {PRONOUN/m_c/subject} did before."
         ]
     ],
     "stagefour oneright 1herb": [
         [
-            "Text needed for key!"
+            "The shaking of m_c's body noticeably subsides a tiny bit after taking the herb."
         ]
     ],
     "stagefour oneright 2herb": [
         [
-            "Text needed for key!"
+            "The shaking of m_c's body noticeably subsides a tiny bit after taking the herbs."
         ]
     ],
     "stagefour oneright 3herb": [
         [
-            "Text needed for key!"
+            "The shaking of m_c's body noticeably subsides a tiny bit after taking the herbs."
         ]
     ],
     "stagefour oneright 4herb": [
         [
-            "Text needed for key!"
+            "The shaking of m_c's body noticeably subsides a tiny bit after taking the herbs."
         ]
     ],
     "stagefour tworight 2herb": [
         [
-            "Text needed for key!"
+            "The shaking of m_c's body noticeably subsides a bit after taking the herbs."
         ]
     ],
     "stagefour tworight 3herb": [
         [
-            "Text needed for key!"
+            "The shaking of m_c's body noticeably subsides a bit after taking the herbs."
         ]
     ],
     "stagefour tworight 4herb": [
         [
-            "Text needed for key!"
+            "The shaking of m_c's body noticeably subsides a bit after taking the herbs."
         ]
     ],
     "stagefour threeright 3herb": [
         [
-            "Text needed for key!"
+            "The shaking of m_c's body noticeably subsides after taking the herbs."
         ]
     ],
     "stagefour threeright 4herb": [
         [
-            "Text needed for key!"
+            "The shaking of m_c's body noticeably subsides after taking the herbs."
         ]
     ],
     "stagefour fourright 4herb": [
         [
-            "Text needed for key!"
+            "When r_m slips a new mixture of herbs into m_c's prey, {PRONOUN/r_m/subject} {VERB/r_m/don't/doesn't} have high hopes.",
+            "But throughout the day, the sick cat starts to look better. The spark returns to {PRONOUN/m_c/poss} eyes. {PRONOUN/m_c/subject/CAP} {VERB/m_c/take/takes} a deep breath of fresh air, the infection starting to vacate {PRONOUN/m_c/poss} body.",
+            "r_m has made an important discovery today. {PRONOUN/r_m/subject/CAP} {VERB/r_m/race/races} around camp telling every cat the good news!"
         ]
     ],
     "stagefour 1herb failure": [
@@ -716,47 +729,47 @@
     ],
     "you stagefour oneright 1herb": [
         [
-            "Text needed for key!"
+            "Your patient is almost to sick to open their mouth, but that thankfully means {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} also too sick to lash out at you. The herbs seem to improve {PRONOUN/m_c/poss} mood a little bit, but it's not enough. You don't know if anything will be at this point."
         ]
     ],
     "you stagefour oneright 2herb": [
         [
-            "Text needed for key!"
+            "Your patient is almost to sick to open their mouth, but that thankfully means {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} also too sick to lash out at you. The herbs seem to improve {PRONOUN/m_c/poss} mood a little bit, but it's not enough. You don't know if anything will be at this point."
         ]
     ],
     "you stagefour oneright 3herb": [
         [
-            "Text needed for key!"
+            "Your patient is almost to sick to open their mouth, but that thankfully means {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} also too sick to lash out at you. The herbs seem to improve {PRONOUN/m_c/poss} mood a little bit, but it's not enough. You don't know if anything will be at this point."
         ]
     ],
     "you stagefour oneright 4herb": [
         [
-            "Text needed for key!"
+            "Your patient is almost to sick to open their mouth, but that thankfully means {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} also too sick to lash out at you. The herbs seem to improve {PRONOUN/m_c/poss} mood a little bit, but it's not enough. You don't know if anything will be at this point."
         ]
     ],
     "you stagefour tworight 2herb": [
         [
-            "Text needed for key!"
+            "Your patient is almost to sick to open their mouth, but that thankfully means {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} also too sick to lash out at you. The herbs seem to improve {PRONOUN/m_c/poss} mood, but it's not enough. You don't know if anything will be at this point."
         ]
     ],
     "you stagefour tworight 3herb": [
         [
-            "Text needed for key!"
+            "Your patient is almost to sick to open their mouth, but that thankfully means {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} also too sick to lash out at you. The herbs seem to improve {PRONOUN/m_c/poss} mood, but it's not enough. You don't know if anything will be at this point."
         ]
     ],
     "you stagefour tworight 4herb": [
         [
-            "Text needed for key!"
+            "Your patient is almost to sick to open their mouth, but that thankfully means {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} also too sick to lash out at you. The herbs seem to improve {PRONOUN/m_c/poss} mood, but it's not enough. You don't know if anything will be at this point."
         ]
     ],
     "you stagefour threeright 3herb": [
         [
-            "Text needed for key!"
+            "Your patient is almost to sick to open their mouth, but that thankfully means {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} also too sick to lash out at you. The herbs seem to improve {PRONOUN/m_c/poss} mood, but it's not enough. You don't know if anything will be at this point."
         ]
     ],
     "you stagefour threeright 4herb": [
         [
-            "Text needed for key!"
+            "Your patient is almost to sick to open their mouth, but that thankfully means {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} also too sick to lash out at you. The herbs seem to improve {PRONOUN/m_c/poss} mood, but it's not enough. You don't know if anything will be at this point."
         ]
     ],
     "you stagefour fourright 4herb": [
@@ -790,6 +803,36 @@
         [
             "m_c is asleep, jaws firmly clamped shut.",
             "It would be too dangerous to attempt to wake {PRONOUN/m_c/object} up... You drop the herbs at {PRONOUN/m_c/poss} bedside, hoping {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} hungry enough to try it."
+        ]
+    ],
+    "you cure_found": [
+        [
+            "Your patient takes the cure gratefully."
+        ]
+    ],
+    "cure_found": [
+        [
+            "The patient takes the cure gratefully."
+        ]
+    ],
+    "you anystage anyright anyherb failure": [
+        [
+            "m_c rejects the treatment."
+        ]
+    ],
+    "anystage anyright anyherb failure": [
+        [
+            "m_c rejects the treatment."
+        ]
+    ],
+    "you anystage anyright anyherb": [
+        [
+            "m_c takes the treatment..."
+        ]
+    ],
+    "anystage anyright anyherb": [
+        [
+            "m_c takes the treatment..."
         ]
     ]
 }

@@ -1,0 +1,836 @@
+[
+    {
+        "patrol_id": "story_1_step_1",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen",
+            "new_cat"
+        ],
+        "tags": [
+            "infection",
+            "story_beginning",
+            "story_1"
+        ],
+        "patrol_art": "lg_app4",
+        "min_cats": 1,
+        "max_cats": 3,
+        "min_max_status": {
+            "kitten": [-1, 0]
+        },
+        "weight": 20,
+        "intro_text": "On a lone excursion out of camp, you find a rogue. They're crouched by a large hole in the ground, and they look exhausted. When they hear you, they turn around with a snarl, and tell you that if you have a brain, you'll leave them be. But you're curious about what they seem to be protecting.",
+        "decline_text": "You decide to leave. You'd rather not risk getting infected to solve this mystery.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "When you hesitantly ask what's going on, the rogue hisses, bitterly, that you should try asking one of your Clanmates about it. They won't tell you who.",
+                "exp": 10,
+                "weight": 20,
+                "new_cat": [
+                    ["rogue", "meeting"]
+                ],
+                "cure_log": [
+                    {
+                        "entry": "story_1_step_1",
+                        "story": "1"
+                    }
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "When you hesitantly ask what's going on, the rogue hisses, bitterly, that you should try asking one of your Clanmates about it. They won't tell you who.",
+                "exp": 10,
+                "weight": 20,
+                "new_cat": [
+                    ["rogue", "meeting"]
+                ],
+                "cure_log": [
+                    {
+                        "entry": "story_1_step_1",
+                        "story": "1"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "patrol_id": "warrior_story_1_step_4",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection",
+            "story_1",
+            "story_1_step_4"
+        ],
+        "patrol_art": "lg_warrior_default",
+        "min_cats": 1,
+        "max_cats": 3,
+        "min_max_status": {},
+        "weight": 50,
+        "intro_text": "Today has been a long time coming. sc_1 and sc_2 have invited you on a trip out into the territory to finally bury their friend, sc_3.",
+        "decline_text": "You politely decline, as you don't think it's your place. However, sc_1 doesn't think {PRONOUN/sc_1/subject}{VERB/sc_1/'re/'s} strong enough to do it without you, so the two postpone to another day.",
+        "chance_of_success": 60,
+        "success_outcomes": [
+            {
+                "text": "You accept the invite and follow the two out of camp. sc_1 leads you and sc_2 right to where you first met {PRONOUN/sc_1/object}, and you recognise the open grave. Inside, still, is the resting body of sc_3. {PRONOUN/sc_3/subject/CAP} {VERB/sc_3/don't/doesn't} look the best, having been exposed to the elements for so long. <br>sc_1 takes a long look into the hole before scooping a pawful from the dirt pile beside it and dropping it in. With heavy hearts, all three of you work to fill in the hole, and when the ground is finally level, you arrange some pebbles into the shape of a flower on top. Goodbye, sc_3.",
+                "exp": 10,
+                "weight": 20,
+                "cure_log": [
+                    {
+                        "entry": "story_1_step_4"
+                    }
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You accept the invite and follow the two out of camp. sc_1 leads you and sc_2 right to where you first met {PRONOUN/sc_1/object}, and you recognise the open grave. Inside, still, is the resting body of sc_3. {PRONOUN/sc_3/subject/CAP} {VERB/sc_3/don't/doesn't} look the best, having been exposed to the elements for so long.<br>When you grab a pawful of dirt and drop it into the hole, sc_1's fur puffs up, and {PRONOUN/sc_1/subject} {VERB/sc_1/hiss/hisses} at you not to drop it so rudely. You apologise.<br>It's a long time before sc_1 musters up the strength to begin filling in the hole, but when {PRONOUN/sc_1/subject} {VERB/sc_1/do/does}, you and sc_2 join in. When the ground is finally level, you arrange some pebbles into the shape of a flower on top and head back to camp with heavy hearts. Goodbye, sc_3.",
+                "exp": 10,
+                "weight": 20,
+                "cure_log": [
+                    {
+                        "entry": "story_1_step_4"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "patrol_id": "app_story_2_step_1",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen",
+            "new_cat"
+        ],
+        "tags": [
+            "infection",
+            "story_beginning",
+            "story_2_step_1"
+        ],
+        "patrol_art": "lg_app4",
+        "min_cats": 1,
+        "max_cats": 3,
+        "min_max_status": {
+            "all apprentices": [1, 1]
+        },
+        "weight": 60,
+        "intro_text": "One night, at the edge of camp, you spot some movement. When you approach it, you discover a cat that doesn't smell like they're from a Clan. When they see you, the intruder explains that they just wanted to take one thing from the fresh-kill pile, and if you let them, they won't hurt anyone. The cat is scary, and smells of that new sickness the medicine cats are talking about. You wonder if bringing them a piece of prey will get them to leave.",
+        "decline_text": "Without a word, you turn and race back to your den. That scary cat can take every last bit of prey for all you care!",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "You tell the rogue to wait, and you'll fetch {PRONOUN/n_c:0/object} something yourself. After slowly creeping to the fresh kill pile without being detected by any guards, you grab the only prey you think you can get away with-- a single mouse. The intruder appreciates the effort, and says you're a good kid. Before {PRONOUN/n_c:0/subject} {VERB/n_c:0/leave/leaves}, {PRONOUN/n_c:0/subject} {VERB/n_c:0/give/gives} you a thankful nod and {VERB/n_c:0/turn/turns} away with {PRONOUN/n_c:0/poss} small meal. You're a bit sad to see your new friend go!",
+                "exp": 10,
+                "weight": 20,
+                "injury": [
+                    {
+                        "cats": ["n_c:0"],
+                        "injuries": ["stage one"],
+                        "no_results": true
+                    }
+                ],
+                "new_cat": [
+                    ["rogue", "meeting"]
+                ],
+                "cure_log": [
+                    {
+                        "entry": "story_2_step_1",
+                        "story": "2"
+                    }
+                ],
+                "story_cat": [
+                    {
+                        "cats": ["p_l"],
+                        "story_cat": 4,
+                        "cats2": ["n_c:0"],
+                        "story_cat2": 1
+                    }
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You tell the rogue to wait, and you'll fetch them something yourself. But as you start towards the fresh-kill pile, a warrior on guard duty notices you and asks where you're going. You quickly explain that you're returning from a nighttime walk and slip back into your den. By the time you're able to get out and return to the edge of camp, the sick intruder has vanished.",
+                "exp": 10,
+                "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "kit_story_2_step_1",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen",
+            "new_cat"
+        ],
+        "tags": [
+            "infection",
+            "story_beginning",
+            "story_2_step_1"
+        ],
+        "patrol_art": "lg_kit_default",
+        "min_cats": 1,
+        "max_cats": 3,
+        "min_max_status": {
+            "kitten": [1, 1]
+        },
+        "weight": 60,
+        "intro_text": "One night, at the edge of camp, you spot some movement. When you approach it, you discover a cat that doesn't smell like they're from a Clan. When they see you, the intruder explains that they just wanted to take one thing from the fresh-kill pile, and if you let them, they won't hurt anyone. The cat is scary, and smells of that new sickness the medicine cats are talking about. You wonder if bringing them a piece of prey will get them to leave.",
+        "decline_text": "Without a word, you turn and race back to the nursery. That scary cat can take every last bit of prey for all you care!",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "You tell the rogue to wait, and you'll fetch {PRONOUN/n_c:0/object} something yourself. After slowly creeping to the fresh kill pile without being detected by any guards, you grab the only prey you're big enough to hold onto-- a single mouse. The intruder appreciates the effort, and says you're a good kit. Before {PRONOUN/n_c:0/subject} {VERB/n_c:0/leave/leaves}, {PRONOUN/n_c:0/subject} {VERB/n_c:0/give/gives} you a thankful nod and {VERB/n_c:0/turn/turns} away with {PRONOUN/n_c:0/poss} small meal. You're a bit sad to see your new friend go!",
+                "exp": 10,
+                "weight": 20,
+                "injury": [
+                    {
+                        "cats": ["n_c:0"],
+                        "injuries": ["stage one"],
+                        "no_results": true
+                    }
+                ],
+                "new_cat": [
+                    ["rogue", "meeting"]
+                ],
+                "cure_log": [
+                    {
+                        "entry": "story_2_step_1",
+                        "story": "2"
+                    }
+                ],
+                "story_cat": [
+                    {
+                        "cats": ["p_l"],
+                        "story_cat": 4,
+                        "cats2": ["n_c:0"],
+                        "story_cat2": 1
+                    }
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You tell the rogue to wait, and you'll fetch them something yourself. But as you start towards the fresh-kill pile, a warrior on guard duty notices you and nudges you back into the nursery. By the time you're able to get out and return to the edge of camp, the sick intruder has vanished.",
+                "exp": 10,
+                "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "kitten_infection_beginning_2",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection_beginning"
+        ],
+        "patrol_art": "lg_kit_default",
+        "min_cats": 1,
+        "max_cats": 3,
+        "min_max_status": {
+            "kitten": [1, 1]
+        },
+        "weight": 20,
+        "intro_text": "You notice a sick squirrel at the edge of camp. It's dragging its legs and its eyes looks strange and cloudy. Maybe the warriors would be impressed if you brought home some prey, even if it was already hurt.",
+        "decline_text": "You decide against it. The Clan would be more impressed if you brought them some healthy prey.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "You crouch and make your way towards the stumbling squirrel. Though you're not exactly quiet, the critter doesn't seem to notice you coming, and catching it is easy. You triumphantly grab your catch and drag it over to the fresh-kill pile, proud of your achievement, but when the warriors notice it, they don't seem as happy...",
+                "exp": 10,
+                "weight": 20,
+                "cure_log": [
+                    {
+                        "entry": "start"
+                    }
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You creep towards the prey, but beofe you can get to it, a senior warrior scoops you up and tosses you away from it, warning you that the sick prey could be dangerous. They send you back to the nursery while they assemble a crowd to inspect the squirrel.",
+                "exp": 10,
+                "weight": 20,
+                "cure_log": [
+                    {
+                        "entry": "discovered"
+                    }
+                ]
+            },
+            {
+                "text": "When you get close to the squirrel, it turns and hisses, which you didn't even know squirrels could do, and swipes your nose before stumbling off beyond the camp walls. Are squirrels really that mean?",
+                "exp": 10,
+                "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "kitten_infection_beginning_1",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection_beginning"
+        ],
+        "patrol_art": "lg_kit_default",
+        "min_cats": 1,
+        "max_cats": 3,
+        "min_max_status": {
+            "kitten": [1, 1]
+        },
+        "weight": 20,
+        "intro_text": "Tonight, you've finally worked up the courage to sneak out of camp! Making sure no one heard you, you make your way into the territory and find a small swarm of fireflies. You watch them for a bit, entranced. After a while, though, you start to notice that two of the fireflies aren't moving. They're deep inside of a bush. They almost look like... eyes?",
+        "decline_text": "Suddenly sober of your need for nighttime adventure, you run back to camp to snuggle back into your warm, safe nest.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "When you make eye contact, the furious pair of eyes lunges towards you, but the cat can't seem to get themselves free of the branches of the bush. You yelp and race back to camp, your need for adventure thoroughly satisfied.",
+                "exp": 10,
+                "weight": 20,
+                "injury": [
+                    {
+                        "cats": ["n_c:0"],
+                        "injuries": ["stage two"],
+                        "no_results": true
+                    }
+                ],
+                "new_cat": [
+                    ["rogue", "meeting"]
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "Upon meeting your gaze, the creature turns its head and walks away from you. Maybe it's a good thing you have no idea who-- or what-- that was...",
+                "exp": 10,
+                "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "kit_infection_mango_1", 
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection"
+        ],
+        "patrol_art": "lg_kit_default",
+        "min_cats": 1,
+        "max_cats": 1,
+        "min_max_status": {
+            "kitten": [1, 1]
+        },
+        "weight": 10,
+        "intro_text": "Feeling quite bored with the nursery and envious of all the apprentices and warriors, you decide that you're ready to explore the territory like they do. You squeeze through the gaps of the camp walls undetected, and while you explore the territory, a strong foul smell suddenly catches you off guard.",
+        "decline_text": "Feeling uneasy by the smell, you decide not to investigate further and return to the nursey. If only you could avoid the lecture that followed with your return!",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "You follow the smell to a shadowy corner and discover a sickly, infected cat huddled among the leaves and debris. The infected cat is a gaunt, scruffy creature with fur matted and clumped together. Their pelt is mishmash of dirt and grime, streaked through by tangled clumps of fur. Their eyes are dull and cloudy, half-closed, and seem to show but a flicker of life behind them. The sight alone makes you tremble with fear, and you hastily retreat back to the safety of the camp.",
+                "exp": 10,
+                "weight": 10,
+                "new_cat": [
+                    ["rogue", "meeting"]
+                ],
+                "injury": [
+                    {
+                        "cats": ["n_c:0"],
+                        "injuries": ["stage four"],
+                        "no_results": true
+                    }
+                ]
+            },
+            {
+                "text": "You follow the scent all the way to a shallow hole, inside of which you discover the skeleton of an infected cat. Feeling queasy, you stumble back to camp.",
+                "exp": 5,
+                "weight": 30
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You creep forward to investigate, but you find nothing. By the time you return to camp, your Clanmates have been worried sick about you, and you recieve a lecture about sneaking out.",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "As you creep forward to investigate the noise, you hear a hiss from the shadows and instantly turn to run back to camp, not wanting to find out who-- or what-- that was.",
+                "exp": 0,
+                "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "para_twoleg_infected",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection",
+            "bite",
+            "parasitic",
+            "parasitic_3"
+        ],
+        "patrol_art": "lg_app4",
+        "min_cats": 1,
+        "max_cats": 3,
+        "min_max_status": {
+            "kitten": [-1, 0],
+            "healer cats": [-1, 0]
+        },
+        "weight": 20,
+        "intro_text": "You've left camp try try and find some herbs, as you feel awful for the poor medicine cats dealing with this sickness right now. Just as you spot a nice-looking patch several fox-lengths away, you lift your head and see a Twoleg. Or... what you think is a Twoleg. It looks sick, just like the cats back at camp.",
+        "decline_text": "You leave without gathering any herbs. You don't know what that Twoleg is capable of.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "You creep towards the herb patch, keeping an eye on the Twoleg. It doesn't seem to notice you as it stumbles around, bumping into trees and stumbling over rocks. Just as you reach the herb patch, it hears you and turns its head. You grab the first thing in reach and bolt back to camp, praying to StarClan that the stupid thing is too slow to try and follow you.",
+                "exp": 10,
+                "weight": 20,
+                "herbs": ["random_herbs"],
+                "cure_log": [
+                    {
+                        "entry": "parasitic_3"
+                    }
+                ]
+            },
+            {
+                "text": "You slowly crawl towards the herb patch, and as you do, the sick Twoleg starts stumbling in the opposite direction. You almost feel bad for the thing. Is that what your Clanmates are going to turn into?",
+                "exp": 10,
+                "weight": 20,
+                "herbs": ["random_herbs"],
+                "cure_log": [
+                    {
+                        "entry": "parasitic_3"
+                    }
+                ]
+            }
+            
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You start towards the herbs, but snap a twig on your way and the Twoleg turns to look at you. You puff up, ready to turn and run, but the thing trips on a stone and lands face-first in the patch of herbs. You're safe for now, but you return to camp empty-pawed and shaken from the encounter.",
+                "exp": 10,
+                "weight": 20,
+                "cure_log": [
+                    {
+                        "entry": "parasitic_3"
+                    }
+                ]
+            },
+            {
+                "text": "The thing is slow, so you make a run for the herbs. You grab a mouthful of random leaves, but the towering Twoleg heard the commotion, and when it turns to walk towarrd you, it trips and lands right next to you. You yowl as a bloody, grey, Twoleg paw grabs your leg and opens its mouth to bite you. It's by the grace of StarClan that you're able to wiggle free, though you return to camp empty-pawed and very shaken by the ordeal.",
+                "exp": 10,
+                "weight": 10,
+                "cure_log": [
+                    {
+                        "entry": "parasitic_3"
+                    }
+                ],
+                "injury": [
+                {
+                "cats": ["p_l"],
+                "injuries": ["shock", "bruises"]
+                }
+            ]
+            },
+            {
+                "text": "Before you can start towards the herbs, the shambling Twoleg turns its head and spots you. You turn and race back home, not wanting to risk dealing with that thing.",
+                "exp": 10,
+                "weight": 20,
+                "cure_log": [
+                    {
+                        "entry": "parasitic_3"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "patrol_id": "warrior_infection_J1",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection"
+        ],
+        "patrol_art": "lg_warrior_default",
+        "min_cats": 1,
+        "max_cats": 3,
+        "min_max_status": {
+            "healer cats": [-1, 0],
+            "kitten": [-1, 0]
+        },
+        "weight": 50,
+        "intro_text": "Today, you've decided to head out into the territory and find some herbs. The medicine cats are always looking for more, and you can tell how stressed they are about this whole situation.",
+        "decline_text": "You end up turning around and heading back to camp empty-pawed. You're not a medicine cat-- what will you know about the right herbs to gather?",
+        "chance_of_success": 60,
+        "success_outcomes": [
+            {
+                "text": "You end up finding a patch of herbs you recognise and you bring them back to the medicine cats, who thank you enthusiastically for the help.",
+                "exp": 10,
+                "weight": 20,
+                "herbs": ["random_herbs"]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You search the territory for a while, but you're unable to find any herbs that you recognise.",
+                "exp": 10,
+                "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "infection_beginning_1",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen",
+            "new_cat"
+        ],
+        "tags": [
+            "infection_beginning"
+        ],
+        "patrol_art": "lg_warrior1",
+        "min_cats": 1,
+        "max_cats": 3,
+        "min_max_status": {
+            "kitten": [-1, 0]
+        },
+        "weight": 40,
+        "intro_text": "You see a mysterious figure on the border. As it walks the border, it stumbles, as if weighed down by something. Maybe they're sick..?",
+        "decline_text": "Unnerved, you decide to head back to camp and hope that they're okay. You can't deal with this right now.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "You can't leave an injured cat to fend for themselves. You approach {PRONOUN/n_c:0/object}, and when you offer {PRONOUN/n_c:0/object} a place to recover, {PRONOUN/n_c:0/subject} {VERB/n_c:0/look/looks} like {PRONOUN/n_c:0/subject} barely {VERB/n_c:0/hear/hears} you. {PRONOUN/n_c:0/subject/CAP} {VERB/n_c:0/do/does}, however, turn and {VERB/n_c:0/stagger/staggers} after you when you start back towards camp. {PRONOUN/n_c:0/subject/CAP} must be really out of it. You hope that the Clan will be able to help {PRONOUN/n_c:0/object}.",
+                "exp": 10,
+                "weight": 20,
+                "cure_log": [
+                    {
+                        "entry": "start"
+                    }
+                ],
+                "injury": [
+                    {
+                        "cats": ["n_c:0"],
+                        "injuries": ["stage one"],
+                        "no_results": true
+                    }
+                ],
+                "new_cat": [
+                    ["loner"]
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You approach the cat, but before you can offer them a place to recover, {PRONOUN/n_c:0/subject} {VERB/n_c:0/lunge/lunges} towards you with a snarl. {PRONOUN/n_c:0/poss/CAP} eyes are wild and clouded... maybe you should leave {PRONOUN/n_c:0/object} alone.",
+                "exp": 10,
+                "weight": 20,
+                "cure_log": [
+                    {
+                        "entry": "discovered"
+                    }
+                ],
+                "injury": [
+                    {
+                        "cats": ["n_c:0"],
+                        "injuries": ["stage two"],
+                        "no_results": true
+                    }
+                ],
+                "new_cat": [
+                    ["loner", "meeting"]
+                ]
+            }
+        ]
+    },
+    {
+        "patrol_id": "med_infection_beginning_1",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen",
+            "new_cat"
+        ],
+        "tags": [
+            "infection_beginning"
+        ],
+        "patrol_art": "lg_medcat_default",
+        "min_cats": 1,
+        "max_cats": 3,
+        "min_max_status": {
+            "healer cats": [-1, 1]
+        },
+        "weight": 40,
+        "intro_text": "Today, you've decided to investigate a section of the territory you haven't been to in a while. When you get there, you find that every herb patch you can remember has been torn to shreds. You hear a noise behind you and whip around, locking your gaze with two mysterious, glowing eyes situated deep within the trees.",
+        "decline_text": "Your stomach drops, and you immediately turn tail and race back to camp. Whatever that was, it can have those barren herb patches for itself!",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "The eyes start moving, and you freeze. What stumbles out of the trees is a cat, and {PRONOUN/n_c:0/subject} {VERB/n_c:0/look/looks}... sick. When you offer to bring {PRONOUN/n_c:0/object} back home for some treatment, {PRONOUN/n_c:0/subject} feverishly {VERB/n_c:0/nod/nods} and {VERB/n_c:0/follow/follows} you back at a distance.",
+                "exp": 10,
+                "weight": 20,
+                "cure_log": [
+                    {
+                        "entry": "start"
+                    }
+                ],
+                "injury": [
+                    {
+                        "cats": ["n_c:0"],
+                        "injuries": ["stage one"],
+                        "no_results": true
+                    }
+                ],
+                "new_cat": [
+                    ["loner"]
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "Before you can react, the owner of the eyes bursts out of the trees and tackles you to the ground. Your attacker seems to have a very strange illness, however, and it seems to have weakened them. You're able to kick the cat off of you, and run back to camp without being pursued, even though it hurts your heart as a medicine cat to abandon a sick cat like that.",
+                "exp": 10,
+                "weight": 20,
+                "cure_log": [
+                    {
+                        "entry": "discovered"
+                    }
+                ],
+                "injury": [
+                    {
+                        "cats": ["n_c:0"],
+                        "injuries": ["stage three"],
+                        "no_results": true
+                    }
+                ],
+                "new_cat": [
+                    ["loner", "meeting"]
+                ]
+            }
+        ]
+    },
+    {
+        "patrol_id": "medapp_infection_beginning_1",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen",
+            "new_cat"
+        ],
+        "tags": [
+            "infection_beginning"
+        ],
+        "patrol_art": "lg_medcatapp_default",
+        "min_cats": 1,
+        "max_cats": 3,
+        "min_max_status": {
+            "medicine cat apprentice": [1, 1]
+        },
+        "weight": 20,
+        "intro_text": "You've gotten a bit lost today while searching for herbs without your mentor. Unsure of your location, you decide to just follow the scent of herbs, and when you finally find the source, you see that every herb in the patch has been torn to shreds. You hear a noise behind you and whip around, locking your gaze with two mysterious, glowing eyes situated deep within the trees.",
+        "decline_text": "Your stomach drops, and you immediately turn tail and race back int he direction you came from. Whatever that was, it can have those barren herb patches for itself!",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "The eyes start moving, and you freeze. What stumbles out of the trees is a cat, and {PRONOUN/n_c:0/subject} {VERB/n_c:0/look/looks}... sick. When you offer to bring {PRONOUN/n_c:0/object} back home for some treatment, {PRONOUN/n_c:0/subject} feverishly {VERB/n_c:0/nod/nods} and {VERB/n_c:0/follow/follows} you back at a distance.",
+                "exp": 10,
+                "weight": 20,
+                "cure_log": [
+                    {
+                        "entry": "start"
+                    }
+                ],
+                "injury": [
+                    {
+                        "cats": ["n_c:0"],
+                        "injuries": ["stage one"],
+                        "no_results": true
+                    }
+                ],
+                "new_cat": [
+                    ["loner"]
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "Before you can react, the owner of the eyes bursts out of the trees and tackles you to the ground. Your attacker seems to have a very strange illness, however, and it seems to have weakened them. You're able to kick the cat off of you, and run back to camp without being pursued, even though it hurts your heart as a medicine cat to abandon a sick cat like that.",
+                "exp": 10,
+                "weight": 20,
+                "cure_log": [
+                    {
+                        "entry": "discovered"
+                    }
+                ],
+                "injury": [
+                    {
+                        "cats": ["n_c:0"],
+                        "injuries": ["stage three"],
+                        "no_results": true
+                    }
+                ],
+                "new_cat": [
+                    ["loner", "meeting"]
+                ]
+            }
+        ]
+    },
+    {
+        "patrol_id": "med_2",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection"
+        ],
+        "patrol_art": "lg_medcatapp_default",
+        "min_cats": 1,
+        "max_cats": 3,
+        "min_max_status": {
+        },
+        "weight": 20,
+        "intro_text": "yea",
+        "decline_text": "naur",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "yeah",
+                "exp": 10,
+                "weight": 20
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "yeahh",
+                "exp": 10,
+                "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "normal_adult_1",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection"
+        ],
+        "patrol_art": "lg_warrior_default",
+        "min_cats": 1,
+        "max_cats": 3,
+        "min_max_status": {
+            "normal adult": [1, 1]
+        },
+        "weight": 20,
+        "intro_text": "While guarding the camp one night, you spot a pair of glowing, infected eyes moving about in the trees. You unsheathe your claws and creep towards the camp's edge, ready to protect your Clan from further illness.",
+        "decline_text": "You decide against it, not wanting to risk the infected cat fighting back.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "When the creature's eyes lock with your, they disappear, and you hear footsteps receding into the territory. Hopefully they'll run far enough to cross the border and never come back.",
+                "exp": 10,
+                "weight": 20
+            },
+            {
+                "text": "You creep towards the creature until you're mere tail-lengths away, then attack. The squabble is quick, and as soon as the cat is able to wriggle out of your grasp, they turn and sprint away from camp, leaving a few chunks of fur behind.",
+                "exp": 10,
+                "weight": 20
+            }
+            
+        ],
+        "fail_outcomes": [
+            {
+                "text": "As you sneak forwards to launch a surprise attack on the infected creature, you accidentally kick a pebble, and the infected hears you. Luckily, all they do is hiss before stumbling away from camp, not wanting to put up a fight,",
+                "exp": 10,
+                "weight": 20
+            },
+            {
+                "text": "Just as you're close enough to attack, the infected creature notices you and leaps at you before you can react. You yowl for help as the sick rogue's fangs reach for your throat, and luckily a group of warriors wakes up to save you and get rid of your assailant for good.",
+                "exp": 10,
+                "weight": 10
+            }
+        ]
+    }
+]
