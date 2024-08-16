@@ -52,6 +52,7 @@ class TreatmentScreen(Screens):
         self.info = None
         self.heading = None
         self.subtitle = None
+        self.screenart = None
         self.mentor = None
         self.the_cat = None
         self.patient = None
@@ -286,6 +287,7 @@ class TreatmentScreen(Screens):
             self.text = None
             self.textbox_graphic = None
             self.subtitle = None
+            self.screenart = None
 
             self.list_frame = pygame.transform.scale(image_cache.load_image("resources/images/choosing_frame.png").convert_alpha(),
                                         (1300 / 1600 * screen_x, 355 / 1300 * screen_y))
@@ -330,6 +332,7 @@ class TreatmentScreen(Screens):
             self.text = None
             self.textbox_graphic = None
             self.subtitle = None
+            self.screenart = None
 
             self.heading = pygame_gui.elements.UITextBox("Choose a treatment",
                                                         scale(pygame.Rect((300, 50), (1000, 80))),
@@ -369,6 +372,15 @@ class TreatmentScreen(Screens):
             self.mentor_frame = None
             for ele in self.selected_details:
                 self.selected_details[ele].kill()
+
+            if game.settings["dark mode"]:
+                img = "treatment_den_dark"
+            else:
+                img = "treatment_den_light"
+            self.screenart = pygame_gui.elements.UIImage(
+                scale(pygame.Rect((0, 0), (1600, 806))),
+                image_cache.load_image(f"resources/images/{img}.png").convert_alpha()
+            )
             
             self.text_type = ""
             self.texts = self.choose_treatment_text(self.selected_cat)
@@ -484,10 +496,13 @@ class TreatmentScreen(Screens):
             self.heading.kill()
             del self.heading
       
-        
         if self.subtitle:
             self.subtitle.kill()
             del self.subtitle
+      
+        if self.screenart:
+            self.screenart.kill()
+            del self.screenart
       
         if self.mentor_frame:
             self.mentor_frame.kill()
@@ -672,6 +687,8 @@ class TreatmentScreen(Screens):
         infection_stage_stripped = str(infection_stage).replace('[', '').replace(']', '').replace("'", '')
         print([infection_stage_stripped.replace(' ', '').replace(f'{inftype}', '') + " " + correctherbs + herbinsert + successkey])
         if len(game.clan.infection["cure_discovered"]) < 4 or (len(game.clan.infection["cure_discovered"]) == 4 and correct < 4):
+            if self.selected_cat.status == "newborn":
+                ceremony_txt = (self.m_txt[who_key + "newborn" + successkey])
             try:
                 if success:
                     ceremony_txt = self.m_txt[who_key + infection_stage_stripped.replace(' ', '').replace(f'{inftype}', '') + " " + correctherbs + herbinsert + successkey]

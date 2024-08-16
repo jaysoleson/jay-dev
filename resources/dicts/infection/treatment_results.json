@@ -834,5 +834,25 @@
         [
             "m_c takes the treatment..."
         ]
+    ],
+    "newborn": [
+        [
+            "m_c takes the small portion of herbs. {PRONOUN/m_c/subject/CAP}{VERB/m_c/'re/s} too small for r_m to be able to tell how it's affecting {PRONOUN/m_c/object}."
+        ]
+    ],
+    "you newborn": [
+        [
+            "m_c takes the small portion of herbs. {PRONOUN/m_c/subject/CAP}{VERB/m_c/'re/s} too small for you to be able to tell how it's affecting {PRONOUN/m_c/object}."
+        ]
+    ],
+    "newborn failure": [
+        [
+            "r_m can't get m_c to swallow any of the herbs."
+        ]
+    ],
+    "you newborn failure": [
+        [
+            "You can't get m_c to swallow any of the herbs."
+        ]
     ]
 }
