@@ -18,7 +18,7 @@ from .Screens import Screens
 
 from scripts.game_structure.ui_elements import UIStatsStatusBar
 
-from scripts.utility import get_text_box_theme, scale_dimentions, shorten_text_to_fit, clan_symbol_sprite
+from scripts.utility import get_text_box_theme, scale_dimentions, shorten_text_to_fit, clan_symbol_sprite, get_inventory_size
 from scripts.cat.cats import Cat, BACKSTORIES
 from scripts.cat.pelts import Pelt
 from scripts.game_structure import image_cache
@@ -138,8 +138,14 @@ class ProfileScreen(Screens):
     backstory_tab = image_cache.load_image(
         "resources/images/backstory_bg.png"
     ).convert_alpha()
-    inventory_tab = image_cache.load_image(
-        "resources/images/inventory_bg.png"
+    lvl1_inventory_tab = image_cache.load_image(
+        "resources/images/lvl1_inventory_bg.png"
+    ).convert_alpha()
+    lvl2_inventory_tab = image_cache.load_image(
+        "resources/images/lvl2_inventory_bg.png"
+    ).convert_alpha()
+    lvl3_inventory_tab = image_cache.load_image(
+        "resources/images/lvl3_inventory_bg.png"
     ).convert_alpha()
     conditions_tab = image_cache.load_image(
         "resources/images/conditions_tab_backdrop.png"
@@ -203,7 +209,6 @@ class ProfileScreen(Screens):
         self.join_df_button = None
         self.exit_df_button = None
         self.accessories_tab_button = None
-        self.exile_return_button = None
         self.page = 0
         self.max_pages = 1
         self.clear_accessories = None
@@ -229,17 +234,12 @@ class ProfileScreen(Screens):
 
             if game.switches["window_open"]:
                 pass
-            elif event.ui_element == self.exile_return_button:
-                game.clan.exile_return = True
-                Cat.return_home(self)
-                self.change_screen('events screen')
-                # self.exit_screen()
-                # game.switches['cur_screen'] = "events screen"
             elif event.ui_element == self.back_button:
                 self.close_current_tab()
                 self.change_screen(game.last_screen_forProfile)
             elif event.ui_element == self.previous_cat_button:
                 if isinstance(Cat.fetch_cat(self.previous_cat), Cat):
+                    self.selected_item = None
                     self.clear_profile()
                     game.switches["cat"] = self.previous_cat
                     self.build_profile()
@@ -267,6 +267,10 @@ class ProfileScreen(Screens):
                             self.previous_page_button.enable()
                             self.next_page_button.enable()
                     self.update_disabled_buttons_and_text()
+                    if self.open_tab == 'accessories':
+                        self.close_current_tab()
+                        self.toggle_accessories_tab()
+                        # need to do this for the inventory BG to update
                 else:
                     print("invalid previous cat", self.previous_cat)
             elif event.ui_element == self.next_cat_button:
@@ -301,6 +305,10 @@ class ProfileScreen(Screens):
                             self.previous_page_button.enable()
                             self.next_page_button.enable()
                     self.update_disabled_buttons_and_text()
+                    if self.open_tab == 'accessories':
+                        self.close_current_tab()
+                        self.toggle_accessories_tab()
+                        # need to do this for the inventory BG to update
                 else:
                     print("invalid next cat", self.previous_cat)
             elif event.ui_element == self.inspect_button:
@@ -919,9 +927,6 @@ class ProfileScreen(Screens):
                                             object_id="#magnify_button",
                                             manager=MANAGER)
         
-        self.exile_return_button = UIImageButton(scale(pygame.Rect((746, 220), (68, 68))), "Return Home",
-                                                object_id="#exile_return_button",  tool_tip_text='Ask your Clan for your nest back.', manager=MANAGER)
-        
         self.relations_tab_button = UIImageButton(scale(pygame.Rect((96, 840), (352, 60))), "",
                                                 object_id="#relations_tab_button", manager=MANAGER)
         self.roles_tab_button = UIImageButton(scale(pygame.Rect((448, 840), (352, 60))), "",
@@ -988,8 +993,6 @@ class ProfileScreen(Screens):
         self.back_button.kill()
         self.next_cat_button.kill()
         self.previous_cat_button.kill()
-        if self.exile_return_button:
-            self.exile_return_button.kill()
         self.relations_tab_button.kill()
         self.roles_tab_button.kill()
         self.personal_tab_button.kill()
@@ -1281,7 +1284,8 @@ class ProfileScreen(Screens):
                                             manager=MANAGER)
 
         if self.the_cat.ID != game.clan.your_cat.ID and not game.clan.your_cat.dead and not self.the_cat.dead and not self.the_cat.outside and not game.clan.your_cat.outside and not game.clan.your_cat.moons < 0:
-            if self.the_cat.status not in ['leader', 'mediator', 'mediator apprentice', "queen", "queen's apprentice"]:
+            if self.the_cat.map_position == game.clan.your_cat.map_position:
+            # if self.the_cat.status not in ['leader', 'mediator', 'mediator apprentice', "queen", "queen's apprentice"]:
                 self.profile_elements["talk"] = UIImageButton(scale(pygame.Rect(
                     (726, 220), (68, 68))),
                     "",
@@ -1292,17 +1296,17 @@ class ProfileScreen(Screens):
                     self.profile_elements["talk"].disable()
                 else:
                     self.profile_elements["talk"].enable()
-            else:
-                self.profile_elements["talk"] = UIImageButton(scale(pygame.Rect(
-                    (662, 220), (68, 68))),
-                    "",
-                    object_id="#talk_button",
-                    tool_tip_text="Talk to this Cat", manager=MANAGER
-                )
-                if self.the_cat.talked_to:
-                    self.profile_elements["talk"].disable()
-                else:
-                    self.profile_elements["talk"].enable()
+                # else:
+                #     self.profile_elements["talk"] = UIImageButton(scale(pygame.Rect(
+                #         (662, 220), (68, 68))),
+                #         "",
+                #         object_id="#talk_button",
+                #         tool_tip_text="Talk to this Cat", manager=MANAGER
+                #     )
+                #     if self.the_cat.talked_to:
+                #         self.profile_elements["talk"].disable()
+                #     else:
+                #         self.profile_elements["talk"].enable()
 
         elif game.clan.your_cat.moons >= 0 and self.the_cat.ID != game.clan.your_cat.ID:
         
@@ -1338,7 +1342,8 @@ class ProfileScreen(Screens):
                     self.profile_elements["talk"].enable()
 
         if self.the_cat.ID != game.clan.your_cat.ID and not self.the_cat.dead and not self.the_cat.outside and not game.clan.your_cat.dead and not game.clan.your_cat.outside and not game.clan.your_cat.moons < 0:
-            if self.the_cat.status not in ['leader', 'mediator', 'mediator apprentice', "queen", "queen's apprentice"]:
+            if self.the_cat.map_position == game.clan.your_cat.map_position:
+            # if self.the_cat.status not in ['leader', 'mediator', 'mediator apprentice', "queen", "queen's apprentice"]:
                 self.profile_elements["insult"] = UIImageButton(scale(pygame.Rect(
                     (806, 220), (68, 68))),
                     "",
@@ -1349,20 +1354,20 @@ class ProfileScreen(Screens):
                     self.profile_elements["insult"].disable()
                 else:
                     self.profile_elements["insult"].enable()
-            else:
-                self.profile_elements["insult"] = UIImageButton(scale(pygame.Rect(
-                    (830, 220), (68, 68))),
-                    "",
-                    object_id="#insult_button",
-                    tool_tip_text="Insult this Cat", manager=MANAGER
-                )
-                if self.the_cat.insulted:
-                    self.profile_elements["insult"].disable()
-                else:
-                    self.profile_elements["insult"].enable()
+                # else:
+                #     self.profile_elements["insult"] = UIImageButton(scale(pygame.Rect(
+                #         (830, 220), (68, 68))),
+                #         "",
+                #         object_id="#insult_button",
+                #         tool_tip_text="Insult this Cat", manager=MANAGER
+                #     )
+                #     if self.the_cat.insulted:
+                #         self.profile_elements["insult"].disable()
+                #     else:
+                #         self.profile_elements["insult"].enable()
 
-            if self.the_cat.is_dateable(game.clan.your_cat):
-                if self.the_cat.status not in ['leader', 'mediator', 'mediator apprentice', "queen", "queen's apprentice"]:
+                if self.the_cat.is_dateable(game.clan.your_cat):
+                    # if self.the_cat.status not in ['leader', 'mediator', 'mediator apprentice', "queen", "queen's apprentice"]:
                     self.profile_elements["flirt"] = UIImageButton(scale(pygame.Rect(
                         (646, 220), (68, 68))),
                         "",
@@ -1373,17 +1378,17 @@ class ProfileScreen(Screens):
                         self.profile_elements["flirt"].disable()
                     else:
                         self.profile_elements["flirt"].enable()
-                else:
-                    self.profile_elements["flirt"] = UIImageButton(scale(pygame.Rect(
-                        (910, 220), (68, 68))),
-                        "",
-                        object_id="#flirt_button",
-                        tool_tip_text="Flirt with this Cat", manager=MANAGER
-                    )
-                    if self.the_cat.flirted:
-                        self.profile_elements["flirt"].disable()
-                    else:
-                        self.profile_elements["flirt"].enable()
+                    # else:
+                    #     self.profile_elements["flirt"] = UIImageButton(scale(pygame.Rect(
+                    #         (910, 220), (68, 68))),
+                    #         "",
+                    #         object_id="#flirt_button",
+                    #         tool_tip_text="Flirt with this Cat", manager=MANAGER
+                    #     )
+                    #     if self.the_cat.flirted:
+                    #         self.profile_elements["flirt"].disable()
+                    #     else:
+                    #         self.profile_elements["flirt"].enable()
 
         if self.the_cat.ID == game.clan.your_cat.ID and not game.clan.your_cat.dead and not game.clan.your_cat.outside:
             if self.open_tab == "faith":
@@ -1407,77 +1412,66 @@ class ProfileScreen(Screens):
             else:
                 self.placeholder_tab_3.enable()
         
+        # HUNGER GAMES: dont need work buttons 
 
-
-        if self.the_cat.status == 'leader' and not self.the_cat.dead:
-            self.profile_elements["leader_ceremony"] = UIImageButton(scale(pygame.Rect(
-                (746, 220), (68, 68))),
-                "",
-                object_id="#leader_ceremony_button",
-                tool_tip_text="Leader Ceremony",
-                manager=MANAGER,
-            )
-        elif self.the_cat.status in ["mediator", "mediator apprentice"]:
-            self.profile_elements["mediation"] = UIImageButton(scale(pygame.Rect(
-                (746, 220), (68, 68))),
-                "",
-                object_id="#mediation_button",
-                manager=MANAGER,
-            )
-            if self.the_cat.dead or self.the_cat.outside or self.the_cat.shunned > 0:
-                self.profile_elements["mediation"].disable()
-        elif self.the_cat.status in ["queen", "queen's apprentice"]:
-            self.profile_elements["queen"] = UIImageButton(scale(pygame.Rect(
-                (746, 220), (68, 68))),
-                "",
-                object_id="#queen_activity_button", manager=MANAGER
-            )
-            if self.the_cat.dead or self.the_cat.outside or self.the_cat.shunned > 0:
-                self.profile_elements["queen"].disable()
-        elif self.the_cat.status in ["medicine cat", "medicine cat apprentice"] and self.the_cat.ID == game.clan.your_cat.ID:
-            self.profile_elements["halfmoon"] = UIImageButton(scale(pygame.Rect(
-                (746, 220), (68, 68))),
-                "",
-                object_id="#half_moon_button", 
-                tool_tip_text= "You may attend the half-moon gathering every six moons",
-                manager=MANAGER
-            )
-            if self.the_cat.dead or self.the_cat.outside or (game.clan.age % 6 != 0) or self.the_cat.shunned > 0:
-                self.profile_elements["halfmoon"].disable()
-            elif "attended half-moon" in game.switches and game.switches["attended half-moon"]:
-                self.profile_elements["halfmoon"].disable()
-        elif self.the_cat.status in ["queen's apprentice", "mediator apprentice", "apprentice"] and self.the_cat.ID == game.clan.your_cat.ID:
-            if self.the_cat.status == "apprentice":
-                self.profile_elements["halfmoon"] = UIImageButton(scale(pygame.Rect(
-                    (746, 220), (68, 68))),
-                    "",
-                    object_id="#half_moon_button", 
-                    tool_tip_text= "You may visit the Moonplace once during your apprenticeship.",
-                    manager=MANAGER
-                )
-            else:
-                self.profile_elements["halfmoon"] = UIImageButton(scale(pygame.Rect(
-                (662, 220), (68, 68))),
-                "",
-                object_id="#half_moon_button", 
-                tool_tip_text= "You may visit the Moonplace once during your apprenticeship.",
-                manager=MANAGER
-            )
-            if self.the_cat.dead or self.the_cat.outside or self.the_cat.shunned > 0:
-                self.profile_elements["halfmoon"].disable()
-            elif "attended half-moon" in game.switches and game.switches["attended half-moon"]:
-                self.profile_elements["halfmoon"].disable()
-
-        if self.the_cat.ID == game.clan.your_cat.ID:
-            if not self.the_cat.dead and self.the_cat.exiled or self.the_cat.status == 'former_Clancat':
-                if game.clan.exile_return:
-                    self.exile_return_button.disable()
-                else:
-                    self.exile_return_button.show()
-            else:
-                self.exile_return_button.hide()
-        else:
-            self.exile_return_button.hide()
+        # if self.the_cat.status == 'leader' and not self.the_cat.dead:
+        #     self.profile_elements["leader_ceremony"] = UIImageButton(scale(pygame.Rect(
+        #         (746, 220), (68, 68))),
+        #         "",
+        #         object_id="#leader_ceremony_button",
+        #         tool_tip_text="Leader Ceremony",
+        #         manager=MANAGER,
+        #     )
+        # elif self.the_cat.status in ["mediator", "mediator apprentice"]:
+        #     self.profile_elements["mediation"] = UIImageButton(scale(pygame.Rect(
+        #         (746, 220), (68, 68))),
+        #         "",
+        #         object_id="#mediation_button",
+        #         manager=MANAGER,
+        #     )
+        #     if self.the_cat.dead or self.the_cat.outside or self.the_cat.shunned > 0:
+        #         self.profile_elements["mediation"].disable()
+        # elif self.the_cat.status in ["queen", "queen's apprentice"]:
+        #     self.profile_elements["queen"] = UIImageButton(scale(pygame.Rect(
+        #         (746, 220), (68, 68))),
+        #         "",
+        #         object_id="#queen_activity_button", manager=MANAGER
+        #     )
+        #     if self.the_cat.dead or self.the_cat.outside or self.the_cat.shunned > 0:
+        #         self.profile_elements["queen"].disable()
+        # elif self.the_cat.status in ["medicine cat", "medicine cat apprentice"] and self.the_cat.ID == game.clan.your_cat.ID:
+        #     self.profile_elements["halfmoon"] = UIImageButton(scale(pygame.Rect(
+        #         (746, 220), (68, 68))),
+        #         "",
+        #         object_id="#half_moon_button", 
+        #         tool_tip_text= "You may attend the half-moon gathering every six moons",
+        #         manager=MANAGER
+        #     )
+        #     if self.the_cat.dead or self.the_cat.outside or (game.clan.age % 6 != 0) or self.the_cat.shunned > 0:
+        #         self.profile_elements["halfmoon"].disable()
+        #     elif "attended half-moon" in game.switches and game.switches["attended half-moon"]:
+        #         self.profile_elements["halfmoon"].disable()
+        # elif self.the_cat.status in ["queen's apprentice", "mediator apprentice", "apprentice"] and self.the_cat.ID == game.clan.your_cat.ID:
+        #     if self.the_cat.status == "apprentice":
+        #         self.profile_elements["halfmoon"] = UIImageButton(scale(pygame.Rect(
+        #             (746, 220), (68, 68))),
+        #             "",
+        #             object_id="#half_moon_button", 
+        #             tool_tip_text= "You may visit the Moonplace once during your apprenticeship.",
+        #             manager=MANAGER
+        #         )
+        #     else:
+        #         self.profile_elements["halfmoon"] = UIImageButton(scale(pygame.Rect(
+        #         (662, 220), (68, 68))),
+        #         "",
+        #         object_id="#half_moon_button", 
+        #         tool_tip_text= "You may visit the Moonplace once during your apprenticeship.",
+        #         manager=MANAGER
+        #     )
+        #     if self.the_cat.dead or self.the_cat.outside or self.the_cat.shunned > 0:
+        #         self.profile_elements["halfmoon"].disable()
+        #     elif "attended half-moon" in game.switches and game.switches["attended half-moon"]:
+        #         self.profile_elements["halfmoon"].disable()
 
         self.inventory_item_options()
 
@@ -2869,13 +2863,21 @@ class ProfileScreen(Screens):
         self.close_current_tab()
         self.page = 0
 
-
         if previous_open_tab == 'accessories':
             pass
         else:
             self.open_tab = "accessories"
-            self.backstory_background = pygame_gui.elements.UIImage(scale(pygame.Rect((178, 930), (1240, 314))),
-                                                                    self.inventory_tab)
+            if "BACKPACK1" in self.the_cat.pelt.inventory.keys():
+                self.backstory_background = pygame_gui.elements.UIImage(scale(pygame.Rect((178, 930), (1240, 314))),
+                                                                    self.lvl2_inventory_tab)
+            elif "BACKPACK2" in self.the_cat.pelt.inventory.keys():
+                self.backstory_background = pygame_gui.elements.UIImage(scale(pygame.Rect((178, 930), (1240, 314))),
+                                                                    self.lvl3_inventory_tab)
+            else:
+                self.backstory_background = pygame_gui.elements.UIImage(scale(pygame.Rect((178, 930), (1240, 314))),
+                                                                    self.lvl1_inventory_tab)
+
+
             self.backstory_background.disable()
 
             self.previous_page_button = UIImageButton(scale(pygame.Rect((110, 1000), (68, 68))), "",

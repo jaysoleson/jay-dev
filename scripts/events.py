@@ -27,7 +27,7 @@ from scripts.events_module.outsider_events import OutsiderEvents
 from scripts.event_class import Single_Event
 from scripts.game_structure.game_essentials import game
 from scripts.cat_relations.relationship import Relationship
-from scripts.utility import change_clan_relations, change_clan_reputation, get_cluster, ceremony_text_adjust, get_current_season, adjust_list_text, ongoing_event_text_adjust, event_text_adjust, create_new_cat, pronoun_repl, get_alive_status_cats, get_alive_cats, get_cats_same_age, check_possible_directions
+from scripts.utility import change_clan_relations, change_clan_reputation, get_cluster, ceremony_text_adjust, get_current_season, adjust_list_text, ongoing_event_text_adjust, event_text_adjust, create_new_cat, pronoun_repl, get_alive_status_cats, get_alive_cats, get_cats_same_age, check_possible_directions, get_inventory_size
 from scripts.events_module.generate_events import GenerateEvents
 from scripts.cat.cats import Cat, cat_class, BACKSTORIES
 from scripts.cat.history import History
@@ -548,7 +548,11 @@ class Events:
             if counter == 30:
                 break
             acc = random.choice(acc_list)
-        game.clan.your_cat.pelt.inventory.update({acc: 1})
+
+        size = get_inventory_size(game.clan.your_cat)
+        if len(game.clan.your_cat.pelt.inventory.keys()) < size:
+            game.clan.your_cat.pelt.inventory.update({acc: 1})
+
         ACC_DISPLAY = None
         with open(f"resources/dicts/acc_display.json", 'r') as read_file:
             ACC_DISPLAY = ujson.loads(read_file.read())
@@ -2782,9 +2786,14 @@ class Events:
         for i in random_prey:
             if i in ["STRAWBERRY", "BLUEBERRY"]:
                 a = random.randint(1,5) 
+            else:
+                a = 1
+            
+            size = get_inventory_size(cat)
+            if len(cat.pelt.inventory.keys()) < size:
                 cat.pelt.inventory.update({i: a})
             else:
-                cat.pelt.inventory.update({i: 1})
+                print(cat.name, "'s inventory is full!")
 
         prey_list = []
         for i in random_prey:
@@ -2901,7 +2910,11 @@ class Events:
                 return
 
             for i in herb:
-                cat.pelt.inventory.update({i: 1})
+                size = get_inventory_size(cat)
+                if len(cat.pelt.inventory.keys()) < size:
+                    cat.pelt.inventory.update({i: 1})
+                else:
+                    print(cat.name, "'s inventory is full!")
             
         try:
             chance = self.MAP_POSITION_INFO[cat.map_position]["prey_abundance"]
@@ -2940,7 +2953,11 @@ class Events:
 
             a = random.randint(1,3)
             for i in random_prey:
-                cat.pelt.inventory.update({i: a})
+                size = get_inventory_size(cat)
+                if len(cat.pelt.inventory.keys()) < size:
+                    cat.pelt.inventory.update({i: a})
+                else:
+                    print(cat.name, "'s inventory is full!")
 
     def travel_map(self, next_direction):
         row, column = game.clan.your_cat.map_position.split("_")

@@ -22,7 +22,8 @@ from scripts.utility import (
     create_new_cat,
     unpack_rel_block,
     event_text_adjust,
-    gather_cat_objects
+    gather_cat_objects,
+    get_inventory_size
 )
 from scripts.game_structure.game_essentials import game
 from scripts.cat.skills import SkillPath
@@ -1584,7 +1585,7 @@ class PatrolOutcome:
             acc_list = [x for x in acc_list if x in Pelt.plant_accessories + Pelt.plant2_accessories + Pelt.wild_accessories +\
         Pelt.tail_accessories + Pelt.collars + Pelt.flower_accessories + Pelt.snake_accessories + Pelt.smallAnimal_accessories + \
         Pelt.deadInsect_accessories + Pelt.aliveInsect_accessories + Pelt.fruit_accessories + Pelt.crafted_accessories + \
-        Pelt.tail2_accessories
+        Pelt.tail2_accessories + Pelt.backpacks
                             and x not in cat.pelt.inventory]
 
         if not acc_list:
@@ -1592,7 +1593,9 @@ class PatrolOutcome:
 
         chosen_acc = choice(acc_list)
         if chosen_acc not in cat.pelt.inventory:
-            cat.pelt.inventory.update({chosen_acc: 1})
-            cat.pelt.accessories.append(chosen_acc)
+            size = get_inventory_size(cat)
+            if len(cat.pelt.inventory.keys()) < size:
+                cat.pelt.inventory.update({chosen_acc: 1})
+                cat.pelt.accessories.append(chosen_acc)
 
         return chosen_acc

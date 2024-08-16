@@ -876,6 +876,8 @@ def create_new_cat(
             # give em a collar if they got one
             if accessory:
                 new_cat.pelt.accessories.append(accessory)
+                new_cat.pelt.inventory.update({accessory: 1})
+                
         # give apprentice aged cat a mentor
         if new_cat.age == "adolescent":
             new_cat.update_mentor()
@@ -2892,6 +2894,16 @@ def get_text_box_theme(theme_name=""):
             return "#text_box"
         else:
             return theme_name
+        
+def get_inventory_size(cat):
+    if "BACKPACK1" in cat.pelt.inventory.keys():
+        size = 9
+    elif "BACKPACK2" in cat.pelt.inventory.keys():
+        size = 18
+    else:
+        size = 5
+
+    return size
 
 
 def quit(savesettings=False, clearevents=False):
