@@ -136,7 +136,8 @@
             "reject",
             "brooding",
             "cool",
-            "assertive"
+            "assertive",
+            "pg_reject"
         ],
         [
             "What? Are you serious?",
