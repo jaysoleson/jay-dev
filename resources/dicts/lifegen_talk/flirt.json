@@ -1,114 +1,95 @@
 {
-    "pridegen_reject_1": [
+    "t_pridegen_reject_1": [
         [
             "Any",
             "reject",
-            "tom_reject",
-            "assertive",
-            "stable",
-            "silly",
-            "introspective",
-            "brooding",
-            "unlawful",
-            "troublesome",
-            "neurotic",
-            "sweet",
-            "cool",
-            "upstanding"
+            "they_girlliker",
+            "you_tom",
+            "pg_reject"
         ],
         [
             "Oh, um, sorry, I'm not really into toms."
         ]
     ],
-    "pridegen_reject_2": [
+    "sh_pridegen_reject_2": [
         [
             "Any",
             "reject",
-            "shecat_reject",
-            "assertive",
-            "stable",
-            "silly",
-            "introspective",
-            "brooding",
-            "unlawful",
-            "troublesome",
-            "neurotic",
-            "sweet",
-            "cool",
-            "upstanding"
+            "they_boyliker",
+            "you_shecat",
+            "pg_reject"
         ],
         [
             "Oh, um, sorry, I'm not really into she-cats."
         ]
     ],
-    "pridegen_reject_3": [
+    "sh_pridegen_reject_3": [
         [
             "Any",
-            "shecat_reject",
+            "they_boyliker",
             "reject",
-            "platonic_like",
-            "sweet",
-            "stable",
-            "silly"
+            "you_shecat",
+            "pg_reject",
+            "min_platonic_40",
+            "silly",
+            "sweet"
 
         ],
         [
             "Aw, sorry. If I were into she-cats, you'd be my first pick!"
         ]
     ],
-    "pridegen_reject_4": [
+    "t_pridegen_reject_4": [
         [
             "Any",
-            "tom_reject",
+            "they_girlliker",
             "reject",
-            "platonic_like",
-            "sweet",
-            "stable",
-            "silly"
+            "you_tom",
+            "pg_reject",
+            "min_platonic_40",
+            "silly",
+            "sweet"
         ],
         [
             "Aw, sorry. If I were into toms, you'd be my first pick!"
         ]
     ],
-    "pridegen_reject_5": [
+    "sh_pridegen_reject_5": [
         [
             "Any",
-            "shecat_reject",
+            "they_boyliker",
+            "you_shecat",
             "reject",
-            "sweet",
-            "stable",
-            "assertive"
+            "pg_reject",
+            "min_platonic_20"
         ],
         [
             "You're very nice, y_c, I'm just not into she-cats.",
-            "You're very pretty, though. You'll find someone, I know it."
+            "You're really sweet, though. You'll find someone, I know it."
         ]
     ],
-    "pridegen_reject_6": [
+    "t_pridegen_reject_6": [
         [
             "Any",
-            "tom_reject",
+            "they_girlliker",
+            "you_tom",
             "reject",
-            "sweet",
-            "stable",
-            "assertive"
+            "pg_reject",
+            "min_platonic_20"
         ],
         [
             "You're very nice, y_c, I'm just not into toms.",
             "You're a good guy, though. You'll find someone, I know it."
         ]
     ],
-    "pridegen_reject_7": [
+    "a_pridegen_reject_7": [
         [
             "Any",
             "aroace_reject",
             "reject",
-            "silly",
-            "introspective",
+            "pg_reject",
             "neurotic",
-            "sweet",
-            "cool",
-            "upstanding"
+            "introspective"
         ],
         [
             "Oh, well, thank you...",
@@ -116,7 +97,7 @@
             "You're very beautiful as well, though!"
         ]
     ],
-    "pridegen_reject_8": [
+    "a_pridegen_reject_8": [
         [
             "Any",
             "aroace_reject",
@@ -129,10 +110,38 @@
             "troublesome",
             "neurotic",
             "cool",
-            "upstanding"
+            "upstanding",
+            "pg_reject"
         ],
         [
             "Flirting with me is a waste of your time, you know."
+        ]
+    ],
+    "t_pridegen_reject_9": [
+        [
+            "any",
+            "you_tom",
+            "tom_reject",
+            "they_girlliker",
+            "pg_reject"
+        ],
+        [
+            "Oh, um..."
+        ]
+    ],
+    "a_pridegen_reject_10": [
+        [
+            "any",
+            "aroace_reject",
+            "reject",
+            "brooding",
+            "cool",
+            "assertive"
+        ],
+        [
+            "What? Are you serious?",
+            "I'm not into romance. Or mates. Or any of it. Did you really not know that?",
+            "Well, at least that awful flirt was used up on somecat you had no chance with anyway."
         ]
     ],
     "ad9wkx7": [
@@ -452,7 +461,7 @@
             "you_blind"
         ],
         [
-            "You are <i>so</i> not my type."
+            "You are so not my type."
         ]
     ],
     "d5h7gs9": [

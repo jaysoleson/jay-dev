@@ -26,7 +26,7 @@ from scripts.game_structure.image_button import UIImageButton, UITextBoxTweaked
 from scripts.housekeeping.progress_bar_updater import UIUpdateProgressBar
 from scripts.housekeeping.update import self_update, UpdateChannel, get_latest_version_number
 from scripts.event_class import Single_Event
-from scripts.utility import scale, quit, update_sprite, scale_dimentions, logger, process_text
+from scripts.utility import scale, quit, update_sprite, scale_dimentions, logger, process_text, xenogender_event
 from scripts.game_structure.game_essentials import game, MANAGER
 from scripts.housekeeping.version import get_version_info
 
@@ -490,7 +490,7 @@ class SpecifyCatGender(UIWindow):
         self.xenos = UIImageButton(scale(pygame.Rect((125, 175), (62, 62))), "",
             object_id="#help_button",
             manager=MANAGER, tool_tip_text =
-            "<b> Xenogenders that <br> currently have bandanas: </b> <br> genderdoe <br> genderfaun <br> mothgender <br> buggender <br> catgender <br> snowleopardgender <br> tigergender <br> xenogender <br> mossgender <br> moongender <br> sungender <br> stargender <br> apagender <br> genderflux",
+            "<b> Genders that <br> currently have bandanas: </b> <br> genderdoe <br> genderfaun <br> mothgender <br> buggender <br> catgender <br> snowleopardgender <br> tigergender <br> xenogender <br> mossgender <br> moongender <br> sungender <br> stargender <br> apagender <br> genderflux",
             
             container=self)
 
@@ -547,6 +547,13 @@ class SpecifyCatGender(UIWindow):
                         elif self.the_cat.sexuality == 'gyno':
                             self.the_cat.sexuality = 'lesbian'
                     self.gender_changed.show()
+                    if self.the_cat.genderalign in [
+                        "genderdoe", "mothgender", "buggender", "tigergender", "snowleopardgender",
+                        "genderfaun", "xenogender", "mossgender", "moongender", "stargender", "sungender", "apagender",
+                        "catgender"
+                    ]:
+                        event = xenogender_event(self.the_cat)
+                        game.cur_events_list.insert(0, Single_Event(event, ["misc", "alert"], self.the_cat.ID))
 
             elif event.ui_element == self.back_button:
                 game.switches['window_open'] = False

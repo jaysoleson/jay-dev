@@ -1782,6 +1782,96 @@ def get_text_box_theme(theme_name=""):
             return "#text_box"
         else:
             return theme_name
+        
+
+def xenogender_event(cat):
+    """ Special events for specified genders. """
+    catgender = Pelt.pridebandanas3[2]
+    genderdoe = Pelt.pridebandanas3[3]
+    mothgender = Pelt.pridebandanas3[5]
+    snowleopardgender = Pelt.pridebandanas3[6]
+    tigergender = Pelt.pridebandanas3[7]
+    buggender = Pelt.pridebandanas3[8]
+    genderfaun = Pelt.pridebandanas3[9]
+    xenogender = Pelt.pridebandanas3[13]
+    genderflux = Pelt.pridebandanas3[14]
+    mossgender = Pelt.pridebandanas4[1]
+    moongender = Pelt.pridebandanas4[2]
+    sungender = Pelt.pridebandanas4[3]
+    stargender = Pelt.pridebandanas4[4]
+    apagender = Pelt.pridebandanas4[5]
+     
+    if cat.genderalign == 'mothgender':
+        if mothgender not in cat.pelt.permanent_inventory:
+            cat.pelt.inventory.append(mothgender)
+        text = f"{cat.name} identifies with the moths that flutter through camp at night."
+
+    elif cat.genderalign == 'snowleopardgender':
+        if snowleopardgender not in cat.pelt.permanent_inventory:
+            cat.pelt.inventory.append(snowleopardgender)
+        text = f"{cat.name} identifies with the large, spotted cats in the mountains."
+
+    elif cat.genderalign == 'tigergender':
+        if tigergender not in cat.pelt.permanent_inventory:
+            cat.pelt.inventory.append(tigergender)
+        text = f"{cat.name} identifies with the the large, striped cats of the savanna."
+
+    elif cat.genderalign == 'buggender':
+        if buggender not in cat.pelt.permanent_inventory:
+            cat.pelt.inventory.append(buggender)
+        text = f"{cat.name} identifies with the the many insects that also call {game.clan.name}Clan camp their home."
+    
+    elif cat.genderalign == 'genderdoe':
+        if genderdoe not in cat.pelt.permanent_inventory:
+            cat.pelt.inventory.append(genderdoe)
+        text = f"{cat.name} knows they're not a tom, but identifies with many levels of she-cat-ness."
+    
+    elif cat.genderalign == 'genderfaun':
+        if genderfaun not in cat.pelt.permanent_inventory:
+            cat.pelt.inventory.append(genderfaun)
+        text = f"{cat.name} knows they're not a she-cat, but identifies with many levels of tom-ness."
+
+    elif cat.genderalign == 'catgender':
+        if catgender not in cat.pelt.permanent_inventory:
+            cat.pelt.inventory.append(catgender)
+        text = f"{cat.name}'s gender reflects every one of their Clanmates around them."
+    
+    elif cat.genderalign == 'xenogender':
+        if xenogender not in cat.pelt.permanent_inventory:
+            cat.pelt.inventory.append(xenogender)
+        text = f"{cat.name}'s gender feels brand new!"
+
+    elif cat.genderalign == 'mossgender':
+        if mossgender not in cat.pelt.permanent_inventory:
+            cat.pelt.inventory.append(mossgender)
+        text = f"{cat.name} identifies with the moss growing around camp."
+
+    elif cat.genderalign == 'moongender':
+        if moongender not in cat.pelt.permanent_inventory:
+            cat.pelt.inventory.append(moongender)
+        text = f"{cat.name}'s gender feels aligned with the moon, cool and comforting."
+
+    elif cat.genderalign == 'sungender':
+        if sungender not in cat.pelt.permanent_inventory:
+            cat.pelt.inventory.append(sungender)
+        text = f"{cat.name}'s gender feels aligned with the sun, warm and bright."
+
+    elif cat.genderalign == 'stargender':
+        if stargender not in cat.pelt.permanent_inventory:
+            cat.pelt.inventory.append(stargender)
+        text = f"{cat.name}'s gender feels aligned with the stars up in Silverpelt."
+
+    elif cat.genderalign == 'genderflux':
+        if genderflux not in cat.pelt.permanent_inventory:
+            cat.pelt.inventory.append(genderflux)
+        text = f"{cat.name}'s gender seems to flucuate in intensity over time."
+
+    elif cat.genderalign == 'apagender':
+        if apagender not in cat.pelt.permanent_inventory:
+            cat.pelt.inventory.append(apagender)
+        text = f"{cat.name} doesn't really care much about gender at all."
+
+    return text
 
 
 def quit(savesettings=False, clearevents=False):

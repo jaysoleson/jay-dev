@@ -396,9 +396,6 @@ class FlirtScreen(Screens):
                 continue
             elif not success and "reject" not in tags:
                 continue
-            elif not success and ("reject" or "tom_reject" or "shecat_reject") not in tags:
-                continue
-
 
 
             # bc i dont wanna remove my deaf dialogue rn lol
@@ -429,11 +426,11 @@ class FlirtScreen(Screens):
             if "they_app" in tags and cat.status not in ['apprentice', 'medicine cat apprentice', 'mediator apprentice', "queen's apprentice"]:
                 continue
 
-            if cat.sexuality in ['lesbian', 'gyno'] or (cat.sexuality == 'straight' and cat.genderalign in ['male', 'trans male', 'demiboy']) and game.clan.your_cat.genderalign in ['male', 'trans male', 'demiboy']:
+            if cat.sexuality in ['lesbian', 'gyno'] or ((cat.sexuality == 'straight' and cat.genderalign in ['male', 'trans male', 'demiboy']) and game.clan.your_cat.genderalign in ['male', 'trans male', 'demiboy']):
                 if "shecat_reject" in tags:
                     continue
 
-            elif cat.sexuality in ['gay', 'andro'] or (cat.sexuality == 'straight' and cat.genderalign in ['female', 'trans female', 'demigirl']) and game.clan.your_cat.genderalign in ['female', 'trans female', 'demigirl']:
+            elif cat.sexuality in ['gay', 'andro'] or ((cat.sexuality == 'straight' and cat.genderalign in ['female', 'trans female', 'demigirl']) and game.clan.your_cat.genderalign in ['female', 'trans female', 'demigirl']):
                 if "tom_reject" in tags:
                     continue
 
@@ -477,12 +474,6 @@ class FlirtScreen(Screens):
             if "they_shecat" in talk[0]:
                 if cat.genderalign not in ['female', 'trans female', 'demigirl']:
                     continue
-
-               
-
-            # if game.clan.your_cat.ID in cat.relationships:
-            #     if cat.relationships[game.clan.your_cat.ID].dislike < 50 and 'hate' in talk[0]:
-            # left over from merge idk ^^
             
             if not any(t in tags for t in ["they_sc", "they_df"]) and cat.dead:
                 continue
@@ -959,6 +950,7 @@ class FlirtScreen(Screens):
                     continue
 
             texts_list[talk_key] = talk
+            
 
         return self.choose_text(cat, texts_list)
 
@@ -1015,6 +1007,13 @@ class FlirtScreen(Screens):
         if len(game.clan.talks) > 50:
             game.clan.talks.clear()
 
+        rejects = []
+        for i in texts_list.keys():
+            if "pridegen" in i:
+                rejects.append(i)
+        # print("POSSIBLE TEXT:", rejects)
+        # print("POSSIBLE TEXT:", texts_list.keys())
+
         weights2 = []
         weighted_tags = ["you_pregnant", "they_pregnant", "they_injured", "they_ill", "you_injured", "you_ill", "you_grieving", "you_forgiven", "they_forgiven", "murderedyou", "murderedthem"]
         for item in texts_list.values():
@@ -1022,6 +1021,11 @@ class FlirtScreen(Screens):
             num_fam_mentor_tags = 1
             if any(i in weighted_tags for i in tags):
                 num_fam_mentor_tags+=3
+
+            if "pg_reject" in tags:
+                num_fam_mentor_tags += 10
+
+
             weights2.append(num_fam_mentor_tags)
 
         if "debug_ensure_dialogue" in game.config and game.config["debug_ensure_dialogue"]:
@@ -3213,7 +3217,6 @@ class FlirtScreen(Screens):
                 (r == "respect" and cat.relationships[random_cat.ID].admiration < 20) or\
                 (r == "neutral" and ((cat.relationships[random_cat.ID].platonic_like > 20) or (cat.relationships[random_cat.ID].romantic_love > 20) or (cat.relationships[random_cat.ID].dislike > 20) or (cat.relationships[random_cat.ID].jealousy > 20) or (cat.relationships[random_cat.ID].trust > 20) or (cat.relationships[random_cat.ID].comfortable > 20) or (cat.relationships[random_cat.ID].admiration > 20))))):
                     if counter == 30:
-                        print("counter moment")
                         return ""
                     random_cat = Cat.all_cats.get(choice(game.clan.darkforest_cats))
                     counter +=1
