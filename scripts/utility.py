@@ -2532,13 +2532,10 @@ def generate_sprite(
             else:
                 cat_sprite = str(15)
     else:
-        if age == "elder" and not game.config["fun"]["all_cats_are_newborn"]:
+        if age == "elder":
             age = "senior"
 
-        if game.config["fun"]["all_cats_are_newborn"]:
-            cat_sprite = str(cat.pelt.cat_sprites["newborn"])
-        else:
-            cat_sprite = str(cat.pelt.cat_sprites[age])
+        cat_sprite = str(cat.pelt.cat_sprites[age])
 
     new_sprite = pygame.Surface(
         (sprites.size, sprites.size), pygame.HWSURFACE | pygame.SRCALPHA
@@ -2901,7 +2898,7 @@ def get_inventory_size(cat):
     elif "BACKPACK2" in cat.pelt.inventory.keys():
         size = 18
     else:
-        size = 5
+        size = 9
 
     return size
 

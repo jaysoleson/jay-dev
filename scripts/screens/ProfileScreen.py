@@ -51,6 +51,14 @@ from ..housekeeping.datadir import get_save_dir
 
 from scripts.clan import ITEM_VALUES, HERBS
 
+resource_directory = "resources/dicts/conditions/"
+ILLNESSES = None
+with open(f"{resource_directory}illnesses.json", "r") as read_file:
+    ILLNESSES = ujson.loads(read_file.read())
+
+INJURIES = None
+with open(f"{resource_directory}injuries.json", "r") as read_file:
+    INJURIES = ujson.loads(read_file.read())
 
 # ---------------------------------------------------------------------------- #
 #             change how accessory info displays on cat profiles               #
@@ -399,13 +407,10 @@ class ProfileScreen(Screens):
                         else:
                             cat_sprite = str(15)
                 else:
-                    if age == 'elder' and not game.config['fun']['all_cats_are_newborn']:
+                    if age == 'elder':
                         age = 'senior'
 
-                    if game.config['fun']['all_cats_are_newborn']:
-                        cat_sprite = str(cat.pelt.cat_sprites['newborn'])
-                    else:
-                        cat_sprite = str(cat.pelt.cat_sprites[age])
+                    cat_sprite = str(cat.pelt.cat_sprites[age])
 
                 for b in self.accessory_buttons.values():
                     b_2data.append(b.blit_data[1])
@@ -497,24 +502,24 @@ class ProfileScreen(Screens):
                     event.ui_element == self.profile_elements["talk"]:
                 self.close_current_tab()
                 self.the_cat.talked_to = True
-                if not self.the_cat.dead and not game.clan.your_cat.dead and game.clan.your_cat.ID in self.the_cat.relationships and self.the_cat.ID in game.clan.your_cat.relationships and game.clan.your_cat.shunned == 0:
-                    self.the_cat.relationships[game.clan.your_cat.ID].platonic_like += randint(0,5)
-                    game.clan.your_cat.relationships[self.the_cat.ID].platonic_like += randint(0,5)
+                # if not self.the_cat.dead and not game.clan.your_cat.dead and game.clan.your_cat.ID in self.the_cat.relationships and self.the_cat.ID in game.clan.your_cat.relationships and game.clan.your_cat.shunned == 0:
+                #     self.the_cat.relationships[game.clan.your_cat.ID].platonic_like += randint(0,5)
+                #     game.clan.your_cat.relationships[self.the_cat.ID].platonic_like += randint(0,5)
                 self.change_screen('talk screen')
             elif "insult" in self.profile_elements and \
                     event.ui_element == self.profile_elements["insult"]:
                 self.the_cat.insulted = True
-                if game.clan.your_cat.status != "kitten":
-                    self.the_cat.relationships[game.clan.your_cat.ID].dislike += randint(1,10)
-                    self.the_cat.relationships[game.clan.your_cat.ID].platonic_like -= randint(1,5)
-                    self.the_cat.relationships[game.clan.your_cat.ID].comfortable -= randint(1,5)
-                    self.the_cat.relationships[game.clan.your_cat.ID].trust -= randint(1,5)
-                    self.the_cat.relationships[game.clan.your_cat.ID].admiration -= randint(1,5)
-                    game.clan.your_cat.relationships[self.the_cat.ID].dislike += randint(1,10)
-                    game.clan.your_cat.relationships[self.the_cat.ID].platonic_like -= randint(1,5)
-                    game.clan.your_cat.relationships[self.the_cat.ID].comfortable -= randint(1,5)
-                    game.clan.your_cat.relationships[self.the_cat.ID].trust -= randint(1,5)
-                    game.clan.your_cat.relationships[self.the_cat.ID].admiration -= randint(1,5)
+                # if game.clan.your_cat.status != "kitten":
+                #     self.the_cat.relationships[game.clan.your_cat.ID].dislike += randint(1,10)
+                #     self.the_cat.relationships[game.clan.your_cat.ID].platonic_like -= randint(1,5)
+                #     self.the_cat.relationships[game.clan.your_cat.ID].comfortable -= randint(1,5)
+                #     self.the_cat.relationships[game.clan.your_cat.ID].trust -= randint(1,5)
+                #     self.the_cat.relationships[game.clan.your_cat.ID].admiration -= randint(1,5)
+                #     game.clan.your_cat.relationships[self.the_cat.ID].dislike += randint(1,10)
+                #     game.clan.your_cat.relationships[self.the_cat.ID].platonic_like -= randint(1,5)
+                #     game.clan.your_cat.relationships[self.the_cat.ID].comfortable -= randint(1,5)
+                #     game.clan.your_cat.relationships[self.the_cat.ID].trust -= randint(1,5)
+                #     game.clan.your_cat.relationships[self.the_cat.ID].admiration -= randint(1,5)
                 self.change_screen('insult screen')
             elif "flirt" in self.profile_elements and \
                     event.ui_element == self.profile_elements["flirt"]:
@@ -553,7 +558,10 @@ class ProfileScreen(Screens):
                 self.profile_elements["favourite_button_3"].hide()
                 self.profile_elements["not_favourite_button"].hide()
             elif self.selected_item and event.ui_element == self.item_window_elements["eat_button"]:
-                self.eat()
+                if self.selected_item in HERBS:
+                    self.use_herb()
+                else:
+                    self.eat()
             else:
                 self.handle_tab_events(event)
 
@@ -815,13 +823,10 @@ class ProfileScreen(Screens):
                     else:
                         cat_sprite = str(15)
             else:
-                if age == 'elder' and not game.config['fun']['all_cats_are_newborn']:
+                if age == 'elder':
                     age = 'senior'
 
-                if game.config['fun']['all_cats_are_newborn']:
-                    cat_sprite = str(cat.pelt.cat_sprites['newborn'])
-                else:
-                    cat_sprite = str(cat.pelt.cat_sprites[age])
+                cat_sprite = str(cat.pelt.cat_sprites[age])
 
             for b in self.accessory_buttons.values():
                 b_2data.append(b.blit_data[1])
@@ -1672,6 +1677,43 @@ class ProfileScreen(Screens):
                     output += " others"
                 else:
                     output += " other"
+        
+        # MATE
+        if len(the_cat.allies) > 0:
+            output += "\n"
+            
+            
+            ally_names = []
+            # Grab the names of only the first two, since that's all we will display
+            for _m in the_cat.allies[:2]:
+                ally_ob = Cat.fetch_cat(_m)
+                if not isinstance(ally_ob, Cat):
+                    continue
+                if ally_ob.dead != self.the_cat.dead:
+                    if the_cat.dead:
+                        former_indicate = "(living)"
+                    else:
+                        former_indicate = "(dead)"
+                    
+                    ally_names.append(f"{str(ally_ob.name)} {former_indicate}")
+                elif ally_ob.outside != self.the_cat.outside:
+                    ally_names.append(f"{str(ally_ob.name)} (away)")
+                else:
+                    ally_names.append(f"{str(ally_ob.name)}")
+                    
+            if len(the_cat.allies) == 1:
+                output += "ally: " 
+            else:
+                output += "allies: "
+            
+            output += ", ".join(ally_names)
+            
+            if len(the_cat.allies) > 2:
+                output += f", and {len(the_cat.allies) - 2}"
+                if len(the_cat.allies) - 2 > 1:
+                    output += " others"
+                else:
+                    output += " other"
 
         if not the_cat.dead:
             # NEWLINE ----------
@@ -1891,6 +1933,10 @@ class ProfileScreen(Screens):
                 output += "guilty!"
             else:
                 output += "injured!"
+            if the_cat.sleeping is True:
+                output += "\n"
+                output += "asleep!"
+
         elif the_cat.is_ill():
             if "grief stricken" in the_cat.illnesses:
                 output += "grieving!"
@@ -1898,6 +1944,13 @@ class ProfileScreen(Screens):
                 output += "flea-ridden!"
             else:
                 output += "sick!"
+        
+            if the_cat.sleeping is True:
+                output += "\n"
+                output += "asleep!"
+        else:
+            if the_cat.sleeping is True:
+                output += "asleep!"
 
         return output
 
@@ -2869,13 +2922,13 @@ class ProfileScreen(Screens):
             self.open_tab = "accessories"
             if "BACKPACK1" in self.the_cat.pelt.inventory.keys():
                 self.backstory_background = pygame_gui.elements.UIImage(scale(pygame.Rect((178, 930), (1240, 314))),
-                                                                    self.lvl2_inventory_tab)
+                                                                    self.lvl3_inventory_tab)
             elif "BACKPACK2" in self.the_cat.pelt.inventory.keys():
                 self.backstory_background = pygame_gui.elements.UIImage(scale(pygame.Rect((178, 930), (1240, 314))),
                                                                     self.lvl3_inventory_tab)
             else:
                 self.backstory_background = pygame_gui.elements.UIImage(scale(pygame.Rect((178, 930), (1240, 314))),
-                                                                    self.lvl1_inventory_tab)
+                                                                self.lvl2_inventory_tab)
 
 
             self.backstory_background.disable()
@@ -2925,13 +2978,10 @@ class ProfileScreen(Screens):
                 else:
                     cat_sprite = str(15)
         else:
-            if age == 'elder' and not game.config['fun']['all_cats_are_newborn']:
+            if age == 'elder':
                 age = 'senior'
 
-            if game.config['fun']['all_cats_are_newborn']:
-                cat_sprite = str(cat.pelt.cat_sprites['newborn'])
-            else:
-                cat_sprite = str(cat.pelt.cat_sprites[age])
+            cat_sprite = str(cat.pelt.cat_sprites[age])
 
 
         self.cat_list_buttons = {}
@@ -3039,11 +3089,22 @@ class ProfileScreen(Screens):
         if item in HERBS:
             self.item_window_elements["eat_button"] = UIImageButton(
                 scale(pygame.Rect((1000, 700), (120, 120))),
-                "Eat",
+                "Use",
                 tool_tip_text=f"",
                 object_id=""
             )
             self.item_window_elements["eat_button"].disable()
+
+            if self.the_cat.is_injured():
+                for injury in self.the_cat.injuries:
+                    if item in INJURIES[injury]["herbs"]:
+                        self.item_window_elements["eat_button"].enable()
+
+            if self.the_cat.is_ill():
+                for condition in self.the_cat.illnesses:
+                    if item in ILLNESSES[condition]["herbs"]:
+                        self.item_window_elements["eat_button"].enable()
+
         else:
             self.item_window_elements["eat_button"] = UIImageButton(
                 scale(pygame.Rect((1000, 700), (120, 120))),
@@ -3062,6 +3123,41 @@ class ProfileScreen(Screens):
                 self.the_cat.stats.hunger,
                 dark_mode=game.settings["dark mode"],
             )
+        
+    def use_herb(self):
+        cured_condition = None
+        if self.the_cat.is_injured():
+            for injury in self.the_cat.injuries:
+                if self.selected_item in INJURIES[injury]["herbs"]:
+                    cured_condition = injury
+
+        if self.the_cat.is_ill():
+            for condition in self.the_cat.illnesses:
+                if self.selected_item in ILLNESSES[condition]["herbs"]:
+                    cured_condition = condition
+
+        if cured_condition is not None:
+            game.clan.your_cat.pelt.inventory[self.selected_item] -= 1
+            if game.clan.your_cat.pelt.inventory[self.selected_item] <= 0:
+                game.clan.your_cat.pelt.inventory.pop(self.selected_item)
+            
+            if cured_condition in self.the_cat.illnesses:
+                self.the_cat.illnesses.pop(cured_condition)
+
+            elif cured_condition in self.the_cat.injuries:
+                self.the_cat.injuries.pop(cured_condition)
+
+            self.close_current_tab()
+
+            self.clear_profile()
+            self.build_profile()
+        
+            self.selected_item = None
+            self.inventory_item_options()
+            self.update_disabled_buttons_and_text()
+            self.toggle_accessories_tab()
+                    
+
 
     def eat(self):
         """ eata da food """
@@ -3935,7 +4031,10 @@ class ProfileScreen(Screens):
 
         if biome not in available_biome:
             biome = available_biome[0]
-        if the_cat.age == "newborn" or the_cat.not_working():
+
+        # HUNGER GAMES: not working cats get to sleep on the FLOOR NOW!!!!
+        # if the_cat.age == "newborn" or the_cat.not_working():
+        if the_cat.age == "newborn":
             biome = "nest"
 
         biome = biome.lower()

@@ -275,7 +275,7 @@ class Clan:
 
         # give thoughts,actions and relationships to cats
         for cat_id in Cat.all_cats:
-            Cat.all_cats.get(cat_id).init_all_relationships()
+            # Cat.all_cats.get(cat_id).init_all_relationships()
             if Cat.all_cats.get(cat_id).backstory is None:
                 Cat.all_cats.get(cat_id).backstory = 'clan_founder'
             if Cat.all_cats.get(cat_id).status == 'apprentice':
@@ -1250,13 +1250,10 @@ class Clan:
                         else:
                             cat_sprite = str(15)
                 else:
-                    if age == 'elder' and not game.config['fun']['all_cats_are_newborn']:
+                    if age == 'elder':
                         age = 'senior'
 
-                    if game.config['fun']['all_cats_are_newborn']:
-                        cat_sprite = str(cat.pelt.cat_sprites['newborn'])
-                    else:
-                        cat_sprite = str(cat.pelt.cat_sprites[age])
+                    cat_sprite = str(cat.pelt.cat_sprites[age])
 
                 possible_accs = ["WILD", "PLANT", "COLLAR", "FLOWER", "PLANT2", "SNAKE", "SMALLANIMAL", "DEADINSECT", "ALIVEINSECT", "FRUIT", "CRAFTED", "TAIL2"]
                 acc_list = []

@@ -8,7 +8,7 @@
 		"max_interaction": 5,
 		"max_interaction_special": 8,
 		"compatibility_effect": 5,
-		"passive_influence_div": 1.5,
+		"passive_influence_div": 4,
 		"chance_for_neutral": 10,
 		"chance_of_special_group": 8,
 		"chance_romantic_not_mate": 15,
@@ -420,7 +420,6 @@
 	},
 	"fun": {
 		"april_fools": false,
-		"all_cats_are_newborn": false,
 		"newborns_can_roam": false,
 		"newborns_can_patrol": false,
 		"always_halloween": false
@@ -437,7 +436,7 @@
 	"affair_relationship_change_ub": 30,
 	"murder_chance":-1,
 	"accomplice_chance":-1,
-	"debug_ensure_dialogue": "",
+	"debug_ensure_dialogue": "meeting_hg_4",
 
 	"shunned_cat": {
 		"exile_chance": {

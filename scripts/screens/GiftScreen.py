@@ -819,13 +819,10 @@ class GiftScreen(Screens):
                 else:
                     self.cat_sprite = str(15)
         else:
-            if age == 'elder' and not game.config['fun']['all_cats_are_newborn']:
+            if age == 'elder':
                 age = 'senior'
 
-            if game.config['fun']['all_cats_are_newborn']:
-                self.cat_sprite = str(cat.pelt.cat_sprites['newborn'])
-            else:
-                self.cat_sprite = str(cat.pelt.cat_sprites[age])
+            self.cat_sprite = str(cat.pelt.cat_sprites[age])
 
         pos_x = 20
         pos_y = 250

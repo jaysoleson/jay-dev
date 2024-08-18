@@ -163,6 +163,7 @@ class Cat:
         status="newborn",
         cat_clan=None,
         map_position = "0_0",
+        sleeping=False,
         backstory="clanborn",
         parent1=None,
         parent2=None,
@@ -183,7 +184,8 @@ class Cat:
         :param gender: Cat's gender, default None
         :param status: Cat's age range, default "newborn"
         :param cat_clan: HUNGER GAMES: the cat's Clan, default None"
-        :param map_position: HUNGER GAMES: the cats physical location, default centre"
+        :param map_position: HUNGER GAMES: the cats physical location, default 0_0"
+        :param sleeping: HUNGER GAMES: whether the cat is sleeping or not, default False"
         :param backstory: Cat's origin, default "clanborn"
         :param parent1: ID of parent 1, default None
         :param parent2: ID of parent 2, default None
@@ -219,6 +221,7 @@ class Cat:
         self.status = status
         self.cat_clan = cat_clan
         self.map_position = map_position
+        self.sleeping = sleeping
         self.allies = []
         self.backstory = backstory
         self.age = None
@@ -1895,14 +1898,21 @@ class Cat:
         # insert thought
         self.thought = str(chosen_thought)
 
-    def moonskip_stats(self, cat):
+    def moonskip_stats(self):
         """ changes cats HG stats passively every moonskip """
-        
         if self.dead or self.outside:
             return
-        self.stats.hunger -= randint(1,2)
         self.stats.exposure -= randint(1,6)
-        self.stats.energy -= randint(1,6)
+        # i dont think i need fucking exposure for anything actually
+        # idk
+
+        if self.sleeping is False:
+            if self.not_working():
+                self.stats.hunger -= randint(2,5)
+                self.stats.energy -= randint(9,15)
+            else:
+                self.stats.hunger -= randint(1,4)
+                self.stats.energy -= randint(6,12)
 
     def relationship_interaction(self):
         """Randomly choose a cat of the Clan and have an interaction with them."""
@@ -1913,6 +1923,8 @@ class Cat:
             and not iter_cat.outside
             and not iter_cat.exiled
             and not iter_cat.dead
+            and iter_cat.map_position == self.map_position
+            and not iter_cat.sleeping
         ]
         # if there are no cats to interact, stop
         if len(cats_to_choose) < 1:
@@ -2420,6 +2432,9 @@ class Cat:
         for injury in self.injuries:
             if self.injuries[injury]["severity"] != "minor":
                 return True
+        if self.sleeping:
+            return True
+        
         return False
 
     def not_work_because_hunger(self):
@@ -3128,47 +3143,47 @@ class Cat:
                 comfortable = 0
                 jealousy = 0
                 trust = 0
-                if game.settings["random relation"]:
-                    if game.clan:
-                        if the_cat == game.clan.instructor or the_cat == game.clan.demon:
-                            pass
-                        elif randint(1, 20) == 1 and romantic_love < 1:
-                            dislike = randint(10, 25)
-                            jealousy = randint(5, 15)
-                            if randint(1, 30) == 1:
-                                trust = randint(1, 10)
-                        else:
-                            like = randint(0, 35)
-                            comfortable = randint(0, 25)
-                            trust = randint(0, 15)
-                            admiration = randint(0, 20)
-                            if (
-                                randint(1, 100 - like) == 1
-                                and self.moons > 11
-                                and the_cat.moons > 11
-                            ):
-                                romantic_love = randint(15, 30)
-                                comfortable = int(comfortable * 1.3)
-                                trust = int(trust * 1.2)
-                    else:
-                        if randint(1, 20) == 1 and romantic_love < 1:
-                            dislike = randint(10, 25)
-                            jealousy = randint(5, 15)
-                            if randint(1, 30) == 1:
-                                trust = randint(1, 10)
-                        else:
-                            like = randint(0, 35)
-                            comfortable = randint(0, 25)
-                            trust = randint(0, 15)
-                            admiration = randint(0, 20)
-                            if (
-                                randint(1, 100 - like) == 1
-                                and self.moons > 11
-                                and the_cat.moons > 11
-                            ):
-                                romantic_love = randint(15, 30)
-                                comfortable = int(comfortable * 1.3)
-                                trust = int(trust * 1.2)
+                # if game.settings["random relation"]:
+                #     if game.clan:
+                #         if the_cat == game.clan.instructor or the_cat == game.clan.demon:
+                #             pass
+                #         elif randint(1, 20) == 1 and romantic_love < 1:
+                #             dislike = randint(10, 25)
+                #             jealousy = randint(5, 15)
+                #             if randint(1, 30) == 1:
+                #                 trust = randint(1, 10)
+                #         else:
+                #             like = randint(0, 35)
+                #             comfortable = randint(0, 25)
+                #             trust = randint(0, 15)
+                #             admiration = randint(0, 20)
+                #             if (
+                #                 randint(1, 100 - like) == 1
+                #                 and self.moons > 11
+                #                 and the_cat.moons > 11
+                #             ):
+                #                 romantic_love = randint(15, 30)
+                #                 comfortable = int(comfortable * 1.3)
+                #                 trust = int(trust * 1.2)
+                #     else:
+                #         if randint(1, 20) == 1 and romantic_love < 1:
+                #             dislike = randint(10, 25)
+                #             jealousy = randint(5, 15)
+                #             if randint(1, 30) == 1:
+                #                 trust = randint(1, 10)
+                #         else:
+                #             like = randint(0, 35)
+                #             comfortable = randint(0, 25)
+                #             trust = randint(0, 15)
+                #             admiration = randint(0, 20)
+                #             if (
+                #                 randint(1, 100 - like) == 1
+                #                 and self.moons > 11
+                #                 and the_cat.moons > 11
+                #             ):
+                #                 romantic_love = randint(15, 30)
+                #                 comfortable = int(comfortable * 1.3)
+                #                 trust = int(trust * 1.2)
 
                 if are_parents and like < 60:
                     like = 60
@@ -3930,6 +3945,7 @@ class Cat:
                 "status": self.status,
                 "clan": self.cat_clan,
                 "map_position": self.map_position,
+                "sleeping": self.sleeping,
                 "allies": self.allies,
                 "backstory": self.backstory if self.backstory else None,
                 "moons": self.moons,
@@ -4341,9 +4357,9 @@ def create_example_cats():
                    'NOLEFTEAR', 'NORIGHTEAR', 'MANLEG']
     for a in range(24):
         if a in e:
-            game.choose_cats[a] = Cat(status=choice(["apprentice", "medicine cat apprentice", "mediator apprentice", "queen's apprentice", "warrior", "medicine cat", "mediator", "queen", "elder"]), biome=None, inventory={})
+            game.choose_cats[a] = Cat(status=choice(["apprentice", "medicine cat apprentice", "mediator apprentice", "queen's apprentice", "warrior", "medicine cat", "mediator", "queen"]), biome=None, inventory={})
         else:
-            game.choose_cats[a] = Cat(status=choice(["apprentice", "medicine cat apprentice", "mediator apprentice", "queen's apprentice", "warrior", "medicine cat", "mediator", "queen", "elder"]), biome=None, inventory={})
+            game.choose_cats[a] = Cat(status=choice(["apprentice", "medicine cat apprentice", "mediator apprentice", "queen's apprentice", "warrior", "medicine cat", "mediator", "queen"]), biome=None, inventory={})
         if game.choose_cats[a].moons >= 160:
             game.choose_cats[a].moons = choice(range(120, 155))
         elif game.choose_cats[a].moons == 0:

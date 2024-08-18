@@ -69,6 +69,9 @@ def json_load():
             if "map_position" not in cat:
                 cat["map_position"] = "0_0"
 
+            if "sleeping" not in cat:
+                cat["sleeping"] = False
+
             if "inventory" in cat:
                 if type(cat["inventory"]) == list:
                     cat["inventory"] = {}
@@ -241,6 +244,7 @@ def json_load():
                 new_cat.allies = [i for i in new_cat.allies if i is not None]
             
             new_cat.map_position = cat["map_position"]
+            new_cat.sleeping = cat["sleeping"]
            
             new_cat.dead = cat["dead"]
             new_cat.dead_for = cat["dead_moons"]

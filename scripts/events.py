@@ -5,7 +5,7 @@ TODO: Docs
 
 
 """
-
+import math
 import random
 # pylint: enable=line-too-long
 import traceback
@@ -2553,13 +2553,10 @@ class Events:
                 self.one_moon_inventory(cat)
         else:
             self.one_moon_inventory(cat)
-
-
+            
         # Handle Mediator Events
         # TODO: this is not a great way to handle them, ideally they should be converted to ShortEvent format
         self.mediator_events(cat)
-
-       
 
         # handle nutrition amount
         # (CARE: the cats have to be fed before this happens - should be handled in "one_moon" function)
@@ -2622,9 +2619,11 @@ class Events:
         if cat.dead:
             return
 
-        cat.moonskip_stats(cat)
+        cat.moonskip_stats()
         cat.relationship_interaction()
         cat.thoughts()
+
+        self.sleep(cat)
 
         # relationships have to be handled separately, because of the ceremony name change
         if not cat.dead and not cat.outside:
@@ -2792,8 +2791,8 @@ class Events:
             size = get_inventory_size(cat)
             if len(cat.pelt.inventory.keys()) < size:
                 cat.pelt.inventory.update({i: a})
-            else:
-                print(cat.name, "'s inventory is full!")
+            # else:
+            #     print(cat.name, "'s inventory is full!")
 
         prey_list = []
         for i in random_prey:
@@ -2886,8 +2885,9 @@ class Events:
 
         if not int(random.random() * 3):
             try:
-                herbs = random.choice(self.MAP_POSITION_INFO[cat.map_position]["herbs"])
+                herbs = self.MAP_POSITION_INFO[cat.map_position]["herbs"]
             except:
+                herbs = HERBS
                 return
             weights = {}
             for i in herbs:
@@ -2913,8 +2913,9 @@ class Events:
                 size = get_inventory_size(cat)
                 if len(cat.pelt.inventory.keys()) < size:
                     cat.pelt.inventory.update({i: 1})
-                else:
-                    print(cat.name, "'s inventory is full!")
+                    # print(cat.name, "got", i)
+                # else:
+                #     print(cat.name, "'s inventory is full!")
             
         try:
             chance = self.MAP_POSITION_INFO[cat.map_position]["prey_abundance"]
@@ -2956,8 +2957,47 @@ class Events:
                 size = get_inventory_size(cat)
                 if len(cat.pelt.inventory.keys()) < size:
                     cat.pelt.inventory.update({i: a})
-                else:
-                    print(cat.name, "'s inventory is full!")
+                # else:
+                #     print(cat.name, "'s inventory is full!")
+    
+    def sleep(self, cat):
+        if cat.stats.energy >= 90:
+            cat.sleeping = False
+            return
+        if cat.sleeping is True:
+            print(cat.name, cat.stats.energy)
+            cat.stats.energy += random.randint(15, 22)
+            print(cat.name, cat.stats.energy)
+
+            percent = 100 - cat.stats.energy
+
+            num = math.ceil(percent)
+
+            if cat.ID == game.clan.your_cat.ID:
+                print(f'{cat.name} wakeuy percentage {num}')
+                print(f'{cat.name} energy {cat.stats.energy}')
+
+            if not int(random.random() * num):
+                cat.sleeping = False
+                print(f"{cat.name} woke up!")
+
+        else:
+            if cat.stats.energy > 50:
+                return
+
+            percent = 100 - cat.stats.energy
+
+            num = math.ceil(percent)
+
+            if cat.ID == game.clan.your_cat.ID:
+                print(f'{cat.name} sleepy percentage {num}')
+                print(f'{cat.name} energy {cat.stats.energy}')
+
+
+            if not int(random.random() * num):
+                cat.sleeping = True
+                print(f"{cat.name} fell asleep!")
+
 
     def travel_map(self, next_direction):
         row, column = game.clan.your_cat.map_position.split("_")
@@ -2994,6 +3034,8 @@ class Events:
             for npc in Cat.all_cats_list:
                 if npc.ID == game.clan.your_cat.ID:
                     continue
+                if npc.sleeping is True:
+                    return
                 cat_row, cat_column = npc.map_position.split("_")
                 cat_row = int(cat_row)
                 cat_column = int(cat_column)
@@ -3004,7 +3046,10 @@ class Events:
                     # movement is less likely during the bloodbath bc they wanna join in!!!
                     movement = random.randint(1,12)
                 else:
-                    movement = random.randint(1,8)
+                    if game.clan.timeskips in [6, 7, 8, 9, 10]:
+                        movement = random.randint(1,15)
+                    else:
+                        movement = random.randint(1,8)
                 if movement == 1:
                     if cat_east:
                         cat_row += 1
@@ -3029,11 +3074,18 @@ class Events:
                         cat_column -= 1
                 else:
                     pass
-                # these guys dont move
 
-                # ill do a better version of this later lol
 
                 npc.map_position = f"{int(cat_row)}_{int(cat_column)}"
+
+                # ill do a better version of this later lol
+                if npc.allies != []:
+                    for i in npc.allies:
+                        ally = Cat.all_cats.get(i)
+                        if ally.map_position != npc.map_position:
+                            npc.map_position = ally.map_position
+                            print("moving allies", ally.name, "and", npc.name)
+
 
 
     def perform_ceremonies(self, cat):

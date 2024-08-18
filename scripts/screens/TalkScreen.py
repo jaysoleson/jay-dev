@@ -1,14 +1,17 @@
 from random import choice, choices, randint
+import random
 import pygame
 import ujson
 import re
 
 from scripts.utility import scale
+from scripts.clan import HERBS, ITEM_VALUES
 
 from .Screens import Screens
 
-from scripts.utility import generate_sprite, get_cluster, pronoun_repl, get_alive_cats, get_alive_status_cats
+from scripts.utility import generate_sprite, get_cluster, pronoun_repl, get_alive_cats, get_alive_status_cats, get_inventory_size
 from scripts.cat.cats import Cat
+from scripts.cat.pelts import Pelt
 from scripts.game_structure import image_cache
 from scripts.game_structure.ui_elements import IDImageButton, UIImageButton, UISpriteButton
 import pygame_gui
@@ -288,6 +291,185 @@ class TalkScreen(Screens):
                 break
             random_cat = Cat.all_cats.get(choice(game.clan.clan_cats))
         return random_cat
+    
+    def rel_changes(self, cat, texts_list, texts_chosen_key):
+        rel_block = texts_list[texts_chosen_key][f"{self.current_scene}_rel_changes"]
+
+        if game.clan.your_cat.ID not in cat.relationships:
+            cat.create_one_relationship(game.clan.your_cat)
+            if cat.ID not in game.clan.your_cat.relationships:
+                game.clan.your_cat.create_one_relationship(cat)
+
+        if "allies" in rel_block:
+            if rel_block["allies"] is True:
+                if game.clan.your_cat.ID not in cat.allies:
+                    if cat.ID not in game.clan.your_cat.allies:
+                        cat.set_ally(game.clan.your_cat)
+            else:
+                if game.clan.your_cat.ID in cat.allies:
+                    if cat.ID in game.clan.your_cat.allies:
+                        cat.unset_ally(game.clan.your_cat)
+
+        if "they_to_you" in rel_block:
+            for item in rel_block["they_to_you"].items():
+                value = item[0]
+                # i dont feel like figuring out a better way to do this
+                if value == "platonic_like":
+                    cat.relationships[game.clan.your_cat.ID].platonic_like += item[1]
+                elif value == "romantic_love":
+                    cat.relationships[game.clan.your_cat.ID].romantic_love += item[1]
+                elif value == "dislike":
+                    cat.relationships[game.clan.your_cat.ID].dislike += item[1]
+                elif value == "comfort":
+                    cat.relationships[game.clan.your_cat.ID].comfortable += item[1]
+                elif value == "trust":
+                    cat.relationships[game.clan.your_cat.ID].trust += item[1]
+                elif value == "admiration":
+                    cat.relationships[game.clan.your_cat.ID].admiration += item[1]
+                elif value == "jealousy":
+                    cat.relationships[game.clan.your_cat.ID].jealousy += item[1]
+
+        if "you_to_them" in rel_block:
+            for item in rel_block["you_to_them"].items():
+                value = item[0]
+                if value == "platonic_like":
+                    game.clan.your_cat.relationships[cat.ID].platonic_like += item[1]
+                elif value == "romantic_love":
+                    game.clan.your_cat.relationships[cat.ID].romantic_love += item[1]
+                elif value == "dislike":
+                    game.clan.your_cat.relationships[cat.ID].dislike += item[1]
+                elif value == "comfort":
+                    game.clan.your_cat.relationships[cat.ID].comfortable += item[1]
+                elif value == "trust":
+                    game.clan.your_cat.relationships[cat.ID].trust += item[1]
+                elif value == "admiration":
+                    game.clan.your_cat.relationships[cat.ID].admiration += item[1]
+                elif value == "jealousy":
+                    game.clan.your_cat.relationships[cat.ID].jealousy += item[1]
+    
+    def inventory_update(self, cat, texts_list, texts_chosen_key):
+        inventory_block = texts_list[texts_chosen_key][f"{self.current_scene}_inventory_update"]
+        if "remove" in inventory_block:
+            for item in inventory_block["remove"].items():
+                if item[0] in ["random_herbs", "random_food", "random_accessory"]:
+                    if item[0] == "random_herbs":
+                        # picking one random herb from your inventory to Snatch
+                        herbs_to_take = []
+                        for i in game.clan.your_cat.pelt.inventory.keys():
+                            if i in HERBS:
+                                herbs_to_take.append(i)
+                        amount = item[1]
+                        taken_herb = choice(herbs_to_take)
+                        print('taking', taken_herb)
+                        game.clan.your_cat.pelt.inventory[taken_herb] -= amount
+                        if game.clan.your_cat.pelt.inventory[taken_herb] <= 0:
+                            game.clan.your_cat.pelt.inventory.pop(taken_herb)
+
+                    if item[0] == "random_food":
+                        # now some random food
+                        food_to_take = []
+                        for i in game.clan.your_cat.pelt.inventory.keys():
+                            if i in ITEM_VALUES["food"].keys():
+                                food_to_take.append(i)
+                        amount = item[1]
+                        taken_food = choice(food_to_take)
+                        print('taking', taken_food)
+                        game.clan.your_cat.pelt.inventory[taken_food] -= amount
+                        if game.clan.your_cat.pelt.inventory[taken_food] <= 0:
+                            game.clan.your_cat.pelt.inventory.pop(taken_food)
+
+                    if item[0] == "random_accessory":
+                        # now some random food
+                        accs_to_take = []
+                        for i in game.clan.your_cat.pelt.inventory.keys():
+                            if i not in ITEM_VALUES["food"].keys() and i not in HERBS and i not in ["BACKPACK1", "BACKPACK2"]:
+                                accs_to_take.append(i)
+                        amount = item[1]
+                        taken_acc = choice(accs_to_take)
+                        print('taking', taken_acc)
+                        game.clan.your_cat.pelt.inventory[taken_acc] -= amount
+                        if game.clan.your_cat.pelt.inventory[taken_acc] <= 0:
+                            game.clan.your_cat.pelt.inventory.pop(taken_acc)
+                else:
+                    for item in inventory_block["remove"].items():
+                        taken_item = item[0]
+                        amount = item[1]
+                        game.clan.your_cat.pelt.inventory[taken_item] -= amount
+                        if game.clan.your_cat.pelt.inventory[taken_item] <= 0:
+                            game.clan.your_cat.pelt.inventory.pop(taken_item)
+        if "add" in inventory_block:
+            size = get_inventory_size(game.clan.your_cat)
+            if len(game.clan.your_cat.pelt.inventory.keys()) >= size:
+                print("CANT GIVE ITEM: INVENTORY FULL")
+                return
+            for item in inventory_block["add"].items():
+                if item[0] in ["random_herbs", "random_food", "random_accessory"]:
+                    if item[0] == "random_herbs":
+                        # picking one random herb from their inventory to give
+                        herbs_to_give = []
+                        for i in cat.pelt.inventory.keys():
+                            if i in HERBS:
+                                herbs_to_give.append(i)
+                        amount = item[1]
+                        given_herb = choice(herbs_to_give)
+                        print('giving', given_herb)
+                        game.clan.your_cat.pelt.inventory.update({given_herb: amount})
+
+                        cat.pelt.inventory[given_herb] -= amount
+                        if cat.pelt.inventory[given_herb] <= 0:
+                            cat.pelt.inventory.pop(given_herb)
+
+                    if item[0] == "random_food":
+                        # now some random food
+                        food_to_give = []
+                        for i in cat.pelt.inventory.keys():
+                            if i in ITEM_VALUES["food"].keys():
+                                food_to_give.append(i)
+                        amount = item[1]
+                        given_food = choice(food_to_give)
+                        print('giving', given_food)
+                        
+                        if given_food in game.clan.your_cat.pelt.inventory.keys():
+                            game.clan.your_cat.pelt.inventory[given_food] += 1
+                        else:
+                            game.clan.your_cat.pelt.inventory.update({given_food: amount})
+                        
+                        cat.pelt.inventory[given_food] -= amount
+                        if cat.pelt.inventory[given_food] <= 0:
+                            cat.pelt.inventory.pop(given_food)
+
+                    if item[0] == "random_accessory":
+                        # now some random food
+                        accs_to_give = []
+                        for i in cat.pelt.inventory.keys():
+                            if i not in ITEM_VALUES["food"].keys() and i not in HERBS and i not in ["BACKPACK1", "BACKPACK2"]:
+                                accs_to_give.append(i)
+                        amount = item[1]
+                        given_acc = choice(accs_to_give)
+                        print('taking', given_acc)
+
+                        if given_acc in game.clan.your_cat.pelt.inventory.keys():
+                            game.clan.your_cat.pelt.inventory[given_acc] += 1
+                        else:
+                            game.clan.your_cat.pelt.inventory.update({given_acc: amount})
+
+                        cat.pelt.inventory[given_acc] -= amount
+                        if cat.pelt.inventory[given_acc] <= 0:
+                            cat.pelt.inventory.pop(given_acc)
+                else:
+                    for item in inventory_block["add"].items():
+                        given_item = item[0]
+                        amount = item[1]
+
+                        if given_item in game.clan.your_cat.pelt.inventory.keys():
+                            game.clan.your_cat.pelt.inventory[given_item] += 1
+                        else:
+                            game.clan.your_cat.pelt.inventory.update({given_item: amount})
+
+                        cat.pelt.inventory[given_item] -= amount
+                        if cat.pelt.inventory[given_item] <= 0:
+                            cat.pelt.inventory.pop(given_item)
+
 
     def display_intro(self, cat, texts_list, texts_chosen_key):
         chosen_text_intro = texts_list[texts_chosen_key]["intro"]
@@ -295,9 +477,17 @@ class TalkScreen(Screens):
         self.current_scene = "intro"
         self.possible_texts = texts_list
         self.chosen_text_key = texts_chosen_key
+
+        if f"{self.current_scene}_inventory_update" in self.possible_texts[self.chosen_text_key]:
+            self.inventory_update(self.the_cat, self.possible_texts, self.chosen_text_key)
+
+        if f"{self.current_scene}_rel_changes" in self.possible_texts[self.chosen_text_key]:
+            self.rel_changes(self.the_cat, self.possible_texts, self.chosen_text_key)
+
         return chosen_text_intro
 
     def create_choice_buttons(self):
+        """ This creates choice buttons, as well as taking care of Hugner Games inventory and relationship changes """
         y_pos = 0
         if f"{self.current_scene}_choices" not in self.possible_texts[self.chosen_text_key]:
             self.paw.visible = True
@@ -348,6 +538,14 @@ class TalkScreen(Screens):
         self.text_index = 0
         self.frame_index = 0
         self.created_choice_buttons = False
+
+        if f"{self.current_scene}_inventory_update" in self.possible_texts[self.chosen_text_key]:
+            self.inventory_update(self.the_cat, self.possible_texts, self.chosen_text_key)
+            print(self.current_scene, "inventory update")
+
+        if f"{self.current_scene}_rel_changes" in self.possible_texts[self.chosen_text_key]:
+            self.rel_changes(self.the_cat, self.possible_texts, self.chosen_text_key)
+            print(self.current_scene, "rel change")
 
 
     def load_texts(self, cat):
@@ -452,16 +650,167 @@ class TalkScreen(Screens):
                 if game.config["debug_ensure_dialogue"] == talk_key:
                     pass
 
+            # ---------------------------------------------- #
+            #              HUNGER GAMES TAGS                 #
+            # ---------------------------------------------- #
+
+            items = []
+
+            for i in list(ITEM_VALUES["food"].keys()):
+                items.append(i)
+            for i in list(ITEM_VALUES["weapons"].keys()):
+                items.append(i)
+            for i in HERBS:
+                items.append(i)
+            for i in Pelt.plant_accessories or Pelt.wild_accessories or Pelt.collars or Pelt.flower_accessories or Pelt.plant2_accessories or Pelt.snake_accessories or Pelt.smallAnimal_accessories or Pelt.deadInsect_accessories or Pelt.aliveInsect_accessories or Pelt.fruit_accessories or Pelt.crafted_accessories or Pelt.tail2_accessories:
+                items.append(i)
+
+            # Specified inventory removals
+            item_skip = False
+            for item in items:
+                if f"you_have_{item.lower()}" in tags and item not in game.clan.your_cat.pelt.inventory.keys():
+                    item_skip = True
+            for item in items:
+                if f"they_have_{item.lower()}" in tags:
+                    size = get_inventory_size(game.clan.your_cat)
+                    if len(game.clan.your_cat.pelt.inventory.keys()) >= size:
+                        item_skip = True
+                    if item not in cat.pelt.inventory.keys():
+                        item_skip = True
+
+            if item_skip:
+                continue
+
+            # To be used with dialogue that removes "random_food" from inventory
+            have_food = False
+            they_have_food = False
+            for i in game.clan.your_cat.pelt.inventory.keys():
+                if i in ITEM_VALUES["food"].keys():
+                    have_food = True
+                    break
+            for i in cat.pelt.inventory.keys():
+                if i in ITEM_VALUES["food"].keys():
+                    they_have_food = True
+                    break
+
+            size = get_inventory_size(game.clan.your_cat)
+            if len(game.clan.your_cat.pelt.inventory.keys()) >= size:
+                they_have_food = False
+
+            if "you_have_food" in tags and have_food is False:
+                continue
+            if "they_have_food" in tags and they_have_food is False:
+                continue
+
+            # To be used with dialogue that removes "random_herbs" from inventory
+            have_herbs = False
+            they_have_herbs = False
+            for i in game.clan.your_cat.pelt.inventory.keys():
+                if i in HERBS:
+                    have_herbs = True
+                    break
+            for i in cat.pelt.inventory.keys():
+                if i in HERBS:
+                    they_have_herbs = True
+                    break
+
+            size = get_inventory_size(game.clan.your_cat)
+            if len(game.clan.your_cat.pelt.inventory.keys()) >= size:
+                they_have_herbs = False
+
+            if "you_have_herbs" in tags and have_herbs is False:
+                continue
+            if "they_have_herbs" in tags and they_have_herbs is False:
+                continue
+
+            have_acc = False
+            they_have_acc = False
+            for i in game.clan.your_cat.pelt.inventory.keys():
+                if i not in HERBS and i not in ITEM_VALUES["food"].keys():
+                    have_acc = True
+                    break
+            for i in cat.pelt.inventory.keys():
+                if i not in HERBS and i not in ITEM_VALUES["food"].keys():
+                    they_have_acc = True
+                    break
+
+            size = get_inventory_size(game.clan.your_cat)
+            if len(game.clan.your_cat.pelt.inventory.keys()) >= size:
+                they_have_acc = False
+
+            if "you_have_acc" in tags and have_acc is False:
+                continue
+            if "they_have_acc" in tags and they_have_acc is False:
+                continue
+
+            # tags for the current map position
+            map_skip = False
+            for x in range(-3,4):
+                for y in range(-3, 4):
+                    if f"{(game.clan.biome).lower()}_{x}_{y}" in tags and game.clan.your_cat.map_position != f"{x}_{y}":
+                        map_skip = True
+
+            if map_skip is True:
+                continue
+
+            # you cant get meeting dialogue if you've already met!
+            youmet = True
+            if game.clan.your_cat.relationships[cat.ID].platonic_like == 0:
+                if game.clan.your_cat.relationships[cat.ID].romantic_love == 0:
+                    if game.clan.your_cat.relationships[cat.ID].admiration == 0:
+                        if game.clan.your_cat.relationships[cat.ID].dislike == 0:
+                            if game.clan.your_cat.relationships[cat.ID].jealousy == 0:
+                                if game.clan.your_cat.relationships[cat.ID].trust == 0:
+                                    if game.clan.your_cat.relationships[cat.ID].comfortable == 0:
+                                        youmet = False
+            theymet = True
+            if cat.relationships[game.clan.your_cat.ID].platonic_like == 0:
+                if cat.relationships[game.clan.your_cat.ID].romantic_love == 0:
+                    if cat.relationships[game.clan.your_cat.ID].admiration == 0:
+                        if cat.relationships[game.clan.your_cat.ID].dislike == 0:
+                            if cat.relationships[game.clan.your_cat.ID].jealousy == 0:
+                                if cat.relationships[game.clan.your_cat.ID].trust == 0:
+                                    if cat.relationships[game.clan.your_cat.ID].comfortable == 0:
+                                        theymet = False
+            # this sucks
+
+            if "meeting" in tags:
+                if theymet:
+                    continue
+                if youmet:
+                    continue
+
+            # ----------------------------------------------------------------------
+
             if "insult" in tags:
                 continue
 
             if "bloodbath" in tags and not (game.clan.timeskips == 2 and game.clan.days == 0):
                 continue
-
-            if "same_clan" in tags and cat.cat_clan != game.clan.name:
+            if "bloodbath" in tags and game.clan.your_cat.map_position != "0_0":
+                continue
+            if "bloodbath" in tags and cat.map_position != "0_0":
                 continue
 
-            if "not_same_clan" in tags and cat.cat_clan == game.clan.name:
+            if (game.clan.timeskips == 1 and game.clan.days == 0) and "pre_bloodbath" not in tags:
+                continue
+
+            if "same_clan" in tags and cat.cat_clan != game.clan.your_cat.cat_clan:
+                continue
+
+            if "not_same_clan" in tags and cat.cat_clan == game.clan.your_cat.cat_clan:
+                continue
+
+            if "allies" in tags and game.clan.your_cat.ID not in cat.allies:
+                continue
+
+            if "not_allies" in tags and game.clan.your_cat.ID in cat.allies:
+                continue
+
+            if "night" in tags and game.clan.timeskips not in [ 7, 8, 9]:
+                continue
+
+            if "day" in tags and game.clan.timeskips not in [2, 3, 4]:
                 continue
 
             if you.moons == 0 and "newborn" not in tags:
@@ -489,6 +838,9 @@ class TalkScreen(Screens):
                 continue
 
             if "they_app" in tags and cat.status not in ['apprentice', 'medicine cat apprentice', 'mediator apprentice', "queen's apprentice"]:
+                continue
+
+            if "you_app" in tags and you.status not in ['apprentice', 'medicine cat apprentice', 'mediator apprentice', "queen's apprentice"]:
                 continue
             
             if not any(t in tags for t in ["they_dead", "they_sc", "they_df", "they_ur"]) and cat.dead:
@@ -1527,6 +1879,9 @@ class TalkScreen(Screens):
         COUNTER_LIM = 30
         you = game.clan.your_cat
         try:
+            if "(clan)" in text:
+                text = text.replace("(clan)", f"{cat.cat_clan}Clan")
+
             if "your_crush" in text:
                 cluster = False
                 rel = False

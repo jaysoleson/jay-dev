@@ -349,9 +349,7 @@ class MakeClanScreen(Screens):
             self.clan_name = ""
             self.open_name_clan()
         elif event.ui_element == self.elements['customize']:
-            print(self.selected_cat.name)
             self.open_customize_cat()
-            print(self.selected_cat.name)
             
     def handle_choose_name_event(self, event):
         if event.ui_element == self.elements['next_step']:

@@ -1,42 +1,659 @@
 {
-    "hg_1": [
-        [
+    "hg_1": {
+        "tags": [
             "bloodbath",
             "any",
-            "not_same_clan"
+            "not_same_clan",
+            "you_blind",
+            "they_blind",
+            "not_allies"
         ],
-        [
+        "intro": [
             "Back off before I make you, c_nClan!"
         ]
-    ],
-    "hg_2": [
-        [
+    },
+    "hg_2": { 
+        "tags": [
             "bloodbath",
             "same_clan",
-            "any"
+            "any",
+            "you_blind",
+            "they_blind",
+            "not_allies"
         ],
-        [
+        "intro": [
             "No. Sorry, y_c. I'm going on my own."
         ]
-    ],
-    "hg_3": [
-        [
-            "any"
+    },
+    "hg_3":{ 
+        "tags": [
+            "any",
+            "you_blind",
+            "they_blind",
+            "not_allies"
         ],
-        [
+        "intro": [
             "Get away from me."
         ]
-    ],
-    "hg_4": [
-        [
+    },
+    "hg_4": {
+        "tags": [
             "any",
             "they_deaf",
             "they_blind",
             "you_deaf",
-            "you_blind"
+            "you_blind",
+            "not_allies"
         ],
-        [
+        "intro": [
             "[t_c hisses at you.]"
         ]
-    ]
+    },
+    "hg_5": {
+        "tags": [
+            "any",
+            "you_have_herbs",
+            "you_blind",
+            "not_allies",
+            "not_same_clan"
+        ],
+        "intro": [
+            "c_nClan. Hey! I see you with those herbs.",
+            "Hand some over. Now.",
+            "... Sorry. I know I'm gonna need them."
+        ],
+        "inventory_update": {
+            "remove": {
+                "random_herbs": 2
+            }
+        }
+    },
+    "hg_6": {
+        "tags": [
+            "any",
+            "pre_bloodbath",
+            "you_blind",
+            "they_blind",
+            "you_deaf",
+            "they_deaf"
+        ],
+        "intro": [
+            "... ... ..."
+        ]
+    },
+    "hg_7": {
+        "tags": [
+            "any",
+            "they_have_lingcod",
+            "neurotic",
+            "max_trust_5",
+            "they_blind",
+            "you_blind",
+            "not_allies"
+        ],
+        "intro": [
+            "Aah!!",
+            "Please don't hurt me. Here, take a fish.",
+            "[t_c tosses a lingcod at your paws and sprints away.]",
+            "[You have gained a LINGCOD!]"
+        ],
+        "inventory_update": {
+            "add": {
+                "LINGCOD": 1
+            }
+        }
+    },
+    "hg_8": {
+        "tags": [
+            "any",
+            "beach_0_0",
+            "they_have_food",
+            "they_older",
+            "same_clan",
+            "brooding",
+            "cool",
+            "assertive",
+            "they_blind",
+            "you_blind"
+        ],
+        "intro": [
+            "You should get away from the Cornucopia, y_c. It's dangerous."
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "No",
+                "next_scene": "leave_no"
+            },
+            "choice2": {
+                "text": "Okay",
+                "next_scene": "leave_okay"
+            }
+        },
+        "leave_no": [
+            "You want trouble, y_c?",
+            "You're gonna regret that."
+        ],
+        "leave_okay": [
+            "Hurry up, then. Here's some food for the road. See you around.",
+            "[You have gained some food!]"
+        ],
+        "leave_okay_inventory_update": {
+            "add" : {
+                "random_food": 2
+            }
+        }
+    },
+    "hg_9": {
+        "tags": [
+            "any",
+            "min_trust_15",
+            "they_have_blueberry",
+            "allies",
+            "sweet",
+            "neurotic",
+            "silly",
+            "unabashed",
+            "they_blind"
+        ],
+        "intro": [
+            "y_c. Hey.",
+            "[You jump and lift your head to see t_c, gently holding a blueberry in {PRONOUN/t_c/poss} mouth.]",
+            "[They set it down at your paws.]",
+            "It's not a lot, but it's a really nice one! Perfectly round, not bruised at all... Looks really juicy!",
+            "I'll go find some more.",
+            "[You have gained a BLUEBERRY!]"
+        ],
+        "intro_inventory_update": {
+            "add" : {
+                "BLUEBERRY": 1
+            }
+        }
+    },
+    "hg_10": {
+        "tags": [
+            "any",
+            "allies",
+            "unlawful",
+            "unabashed",
+            "assertive",
+            "min_platonic_20",
+            "they_have_salmon"
+        ],
+        "intro": [
+            "y_c! Help! I'm being chased!",
+            "[t_c careens around a tree and almost runs into you, a large salmon in {PRONOUN/t_c/poss} jaws. You unsheathe your claws and puff up, preparing for {PRONOUN/t_c/poss} pursuer to catch up to {PRONOUN/t_c/object} any second.]",
+            "Hahahaha! Just kidding. I didn't steal this. Caught it fair and square. Eat up!",
+            "Oh, don't give me that look. You can't take a joke!",
+            "[You sigh. You may just die of a heart attack before anything else with t_c as your ally.]",
+            "[You have gained a SALMON!]"
+        ],
+        "intro_inventory_update": {
+            "add" : {
+                "SALMON": 1
+            }
+        }
+    },
+    "hg_11": {
+        "tags": [
+            "any",
+            "max_trust_5",
+            "brooding",
+            "cool",
+            "unlawful",
+            "assertive"
+        ],
+        "intro": [
+            "What are you looking at?",
+            "Better scurry off. You're lucky I'm too tired to try and kill you right now."
+        ]
+    },
+    "hg_12": {
+        "tags": [
+            "any",
+            "not_allies",
+            "min_trust_10",
+            "they_deaf",
+            "you_deaf"
+        ],
+        "intro": [
+            "[t_c blinks warmly at you and keeps walking.]"
+        ]
+    },
+    "hg_13": {
+        "tags": [
+            "any",
+            "you_app",
+            "they_app",
+            "they_have_food",
+            "they_have_herbs"
+        ],
+        "intro": [
+            "Aaah!!",
+            "[t_c barrels into you while sprinting away from an older tribute.]",
+            "[They scramble back up to their paws, their eyes wild with fear, before racing away, leaving some of their stuff behind them.]",
+            "[You have gained some FOOD and HERBS!]"
+        ],
+        "intro_inventory_update": {
+            "add" : {
+                "random_herbs": 4,
+                "random_food": 3
+            }
+        }
+    },
+    "hg_14": {
+        "tags": [
+            "any",
+            "max_trust_5",
+            "neurotic",
+            "they_app"
+        ],
+        "intro": [
+            "[t_c is hiding behind a tree, one eye poking out to watch you.]"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Approach {PRONOUN/t_c/object}",
+                "next_scene": "approach"
+            },
+            "choice2": {
+                "text": "Ignore {PRONOUN/t_c/object}",
+                "next_scene": "ignore"
+            }
+        },
+        "approach": [
+            "[You walk towards t_c with your head down, trying to communicate that you're not a threat.]",
+            "[However, when you get within a few tail-lengths, the apprentice turns and runs.]"
+        ],
+        "ignore": [
+            "[You walk away-- you have other things to focus on.]"
+        ]
+    },
+    "hg_15": {
+        "tags": [
+            "any",
+            "allies",
+            "night",
+            "assertive",
+            "cool",
+            "upstanding",
+            "neurotic"
+        ],
+        "intro": [
+            "We should get moving. Hunting will be easier at night.",
+            "Unless that's what everyone else is also thinking..."
+        ]
+    },
+    "hg_16": {
+        "tags": [
+            "any",
+            "allies",
+            "they_app",
+            "you_app",
+            "min_platonic_20",
+            "silly",
+            "upstanding",
+            "assertive",
+            "stable"
+        ],
+        "intro": [
+            "Do you think one of us will be able to make it?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "I will",
+                "next_scene": "iwill"
+            },
+            "choice2": {
+                "text": "You will",
+                "next_scene": "youwill"
+            },
+            "choice3": {
+                "text": "No",
+                "next_scene": "no"
+            },
+            "choice4": {
+                "text": "Yes",
+                "next_scene": "yes"
+            }
+        },
+        "iwill": [
+            "Just you?",
+            "Love your confidence, but, jeez... have a little faith!"
+        ],
+        "iwill_rel_changes": {
+            "they_to_you": {
+                "comfort": -8,
+                "trust": -10
+            }
+        },
+        "youwill": [
+            "Do you really think so? Just me?",
+            "I don't want you to die... But I guess one of us has to, huh?",
+            "... ... ...",
+            "Let's not think about it."
+        ],
+        "no": [
+            "Really? Neither of us?",
+            "So pessimistic... you've gotta at least pretend you have a chance!"
+        ],
+        "yes": [
+            "So do I!",
+            "I guess it can only be one of us, but... we don't have to think about that.",
+            "Maybe if I pretend to kill you, you'll be able to sneak out, and we can meet up again once I win, hehe!",
+            "Or the other way around, of course."
+        ],
+        "yes_rel_changes": {
+            "they_to_you": {
+                "comfort": 10,
+                "trust": 10,
+                "platonic_like": 10
+            },
+            "you_to_them": {
+                "comfort": 10,
+                "trust": 10,
+                "platonic_like": 10
+            }
+        }
+    },
+    "hg_17": {
+        "tags": [
+            "any",
+            "allies",
+            "they_have_acc",
+            "beach"
+        ],
+        "intro": [
+            "Hey, how's it going?",
+            "I found something cool by the shore. Here.",
+            "[You have gained an accessory.]"
+        ],
+        "intro_inventory_update": {
+            "add" : {
+                "random_accessory": 1
+            }
+        }
+    },
+    "meeting_hg_1": {
+        "tags": [
+            "beach_-3_-1",
+            "any",
+            "they_have_salmon",
+            "meeting",
+            "sweet",
+            "stable",
+            "they_blind",
+            "you_blind"
+        ],
+        "intro": [
+            "H-hey! y_c, right?",
+            "This is a great place to fish. You can join, I don't mind. There's plenty of room.",
+            "Do you want one of mine?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "No",
+                "next_scene": "fish_no"
+            },
+            "choice2": {
+                "text": "Yes",
+                "next_scene": "fish_yes"
+            }
+        },
+        "fish_no": [
+            "Okay. You sure? I don't mind sharing.",
+            "Though... salmon is my favourite, so I'm kind of glad to keep it, hehe.",
+            "What's your name?",
+            "[You learn that this cat's name is t_c. For the next few hours, you fish together at the beach, several fox-lengths of sand between you.]"
+        ],
+        "fish_yes": [
+            "O-okay! Here, you can have this.",
+            "[From where {PRONOUN/t_c/subject} {VERB/t_c/stand/stands} several fox-lengths away, the cat tosses you a SALMON.]",
+            "Salmon's my favourite. Enjoy!",
+            "I'm t_c, by the way. Nice to meet you!",
+            "[t_c resumes fishing, though {PRONOUN/t_c/poss} ears remain swivelled towards you defensively.]"
+        ],
+        "fish_yes_inventory_update": {
+            "add" : {
+                "SALMON": 1
+            }
+        },
+        "intro_rel_changes": {
+            "they_to_you": {
+                "platonic_like": 8
+            },
+            "you_to_them": {
+                "platonic_like": 8
+            }
+        },
+        "fish_yes_rel_changes": {
+            "you_to_them": {
+                "platonic_like": 10
+            }
+        }
+    },
+    "meeting_hg_2": {
+        "tags": [
+            "any",
+            "meeting",
+            "they_have_food",
+            "they_blind",
+            "you_blind"
+        ],
+        "intro": [
+            "[The tribute turns on you and hisses, swiping the air in front of your nose with claws unsheathed.]",
+            "Back off, c_nClan! This is my food!"
+        ],
+        "intro_rel_changes": {
+            "they_to_you": {
+                "dislike": 8
+            }
+        }
+    },
+    "meeting_hg_3": {
+        "tags": [
+            "any",
+            "meeting",
+            "not_same_clan",
+            "they_deaf",
+            "you_deaf"
+        ],
+        "intro": [
+            "[The (clan) cat turns and sprints away as soon as you catch {PRONOUN/t_c/poss} eye.]"
+        ]
+    },
+    "meeting_hg_4": {
+        "tags": [
+            "any",
+            "meeting",
+            "they_app",
+            "you_adult",
+            "not_same_clan",
+            "cool",
+            "unabashed",
+            "unlawful",
+            "silly"
+        ],
+        "intro": [
+            "Back off, c_nClan cat!",
+            "I'm just an apprentice. You wouldn't kill little ol' t_c, would you?!",
+            "[While you blink in confusion, t_c skips away from you and disappears in the arena.]"
+        ],
+        "intro_rel_changes": {
+            "they_to_you": {
+                "platonic_like": 8,
+                "trust": 5,
+                "comfort": 5
+            },
+            "you_to_them": {
+                "platonic_like": 8,
+                "admiration": 5
+            }
+        }
+    },
+    "meeting_hg_5": {
+        "tags": [
+            "any",
+            "meeting",
+            "you_have_food",
+            "they_have_food",
+            "brooding",
+            "assertive",
+            "unlawful",
+            "not_same_clan",
+            "they_adult",
+            "you_app"
+        ],
+        "intro": [
+            "[When you get near the (clan) cat, {PRONOUN/t_c/subject} {VERB/t_c/tackle/tackles} you before you can react. You struggle under {PRONOUN/t_c/poss} paws, nose pressed into the ground, but your opponent is too strong for you to wriggle free.]",
+            "Relax, c_nClan. I'm not going to kill you. But I want some of your food. Now.",
+            "[This cat's paws certainly aren't empty. This is greed, not desperation. You don't want to let {PRONOUN/t_c/object} push you around.]"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Refuse",
+                "next_scene": "refuse"
+            },
+            "choice2": {
+                "text": "Hand over some food",
+                "next_scene": "handover"
+            }
+        },
+        "refuse": [
+            "[You hiss up at your assailant, spitting that you refuse to give up the food you've earned.]",
+            "Alright kid. Fine.",
+            "I'll come get it later."
+        ],
+        "handover": [
+            "[Shaken, you agree to give the cat some food if {PRONOUN/t_c/subject}'ll just leave you alone.]",
+            "That's what I like to hear. Hey, what's your name?",
+            "I'm t_c. Thanks for the dinner.",
+            "[You have lost some food.]"
+        ],
+        "refuse_rel_changes": {
+            "they_to_you": {
+                "dislike": 10,
+                "admiration": 10
+            },
+            "you_to_them": {
+                "dislike": 10,
+                "jealousy": 5
+            }
+        },
+        "handover_rel_changes": {
+            "they_to_you": {
+                "dislike": 5,
+                "admiration": 15
+            },
+            "you_to_them": {
+                "dislike": 15
+            }
+        },
+        "handover_inventory_update": {
+            "remove" : {
+                "random_food": 3
+            }
+        }
+    },
+    "meeting_hg_6": {
+        "tags": [
+            "any",
+            "same_clan",
+            "bloodbath",
+            "you_sweet",
+            "you_neurotic",
+            "you_deaf",
+            "they_deaf",
+            "they_blind"
+        ],
+        "intro": [
+            "[You lock eyes with t_C from across the arena. You didn't really know each other back in c_nClan, but you still feel some comraderie towards your Clanmate.]",
+            "[You watch {PRONOUN/t_c/object} snatch something from the loot pile, duck under a flying paw, and sprint out of sight. You hope {PRONOUN/t_c/subject}'ll be okay, at least for a little bit.]"
+        ]
+    },
+    "meeting_hg_7": {
+        "tags": [
+            "any",
+            "sameclan",
+            "bloodbath",
+            "fighter",
+            "they_app",
+            "they_have_food"
+        ],
+        "intro": [
+            "[You're concerned for your Clanmate, t_c. You spot {PRONOUN/t_c/object} in the crowd of the bloodbath, expecting to see a stranger attacking {PRONOUN/t_c/object}.]",
+            "[However, the first thing you see is blood flying as {PRONOUN/t_c/subject} {VERB/t_c/slash/slashes} an opponent in the cheek, protecting the small stash of food {PRONOUN/t_c/subject}{VERB/t_c/'ve/'s} garnered.]",
+            "[You look away. Maybe you should be more scared than concerned...]"
+        ]
+    },
+    "meeting_hg_8": {
+        "tags": [
+            "any",
+            "they_older",
+            "max_dislike_10",
+            "meeting",
+            "stable",
+            "introspective"
+        ],
+        "intro": [
+            "Hello, hello.",
+            "y_c, right? You're not feeling violent, are you?",
+            "Ah. I guess we all are."
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Leave",
+                "next_scene": "leave"
+            },
+            "choice2": {
+                "text": "Keep talking",
+                "next_scene": "stay"
+            }
+        },
+        "leave": [
+            "[Without a word, you turn and walk away from the enemy tribute. You don't know what they're capable of.]"
+        ],
+        "stay": [
+            "Hehe, that's a joke. I'm not feeling violent. Are you?"
+        ],
+        "stay_choices": {
+            "choice1": {
+                "text": "No",
+                "next_scene": "no"
+            },
+            "choice2": {
+                "text": "Yes",
+                "next_scene": "yes"
+            }
+        },
+        "no": [
+            "Good, good. That's good.",
+            "The two of us might not last very long, but at least we'll die with our integrity intact."
+        ],
+        "yes": [
+            "Ha! At least you're honest. That's gotta be worth something.",
+            "I'm going to go do some foraging. No need to follow me. I'll see you later, alright? Stay safe.",
+            "[What a peculiar cat...]"
+        ],
+        "no_rel_changes": {
+            "they_to_you": {
+                "trust": 15,
+                "admiration": 15,
+                "comfort": 10
+            },
+            "you_to_them": {
+                "trust": 10,
+                "comfort": 10
+            }
+        },
+        "yes_rel_changes": {
+            "they_to_you": {
+                "trust": 5,
+                "admiration": 15
+            },
+            "you_to_them": {
+                "trust": 5,
+                "comfort": 10
+            }
+        }
+    }
 }

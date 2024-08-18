@@ -9,8 +9,8 @@
         "herbs": {
             "moss": 1
         },
-        "safety": 10,
-        "camp_safety": 15,
+        "safety": 0.5,
+        "camp_safety": 0.75,
         "prey_abundance": 2,
         "placements": [
             [1480, 1220],
@@ -39,8 +39,8 @@
             "betony": 2,
             "thyme": 1
         },
-        "safety": 8,
-        "camp_safety": 10,
+        "safety": 1,
+        "camp_safety": 1.2,
         "prey_abundance": 3,
         "placements": [
             [260, 890],
@@ -74,8 +74,8 @@
             "raspberry": 3,
             "blackberry": 3
         },
-        "safety": 10,
-        "camp_safety": 25,
+        "safety": 1,
+        "camp_safety": 2,
         "prey_abundance": 1,
         "placements": [
             [800, 850],
@@ -103,8 +103,8 @@
             "moss": 6,
             "plantain": 1
         },
-        "safety": 6,
-        "camp_safety": 10,
+        "safety": 1.2,
+        "camp_safety": 1.5,
         "prey_abundance": 4,
         "placements": [
             [250, 790],
@@ -125,8 +125,8 @@
         "herbs": {
             "moss": 1
         },
-        "safety": 8,
-        "camp_safety": 10,
+        "safety": 0.5,
+        "camp_safety": 0.75,
         "prey_abundance": 2,
         "placements": [
             [1180, 1060],
@@ -149,8 +149,8 @@
             "tansy": 1,
             "thyme": 1
         },
-        "safety": 8,
-        "camp_safety": 10,
+        "safety": 0.75,
+        "camp_safety": 1,
         "prey_abundance": 5,
         "placements": [
             [300, 360],
@@ -177,8 +177,8 @@
             "tansy": 1,
             "thyme": 1
         },
-        "safety": 8,
-        "camp_safety": 10,
+        "safety": 0.75,
+        "camp_safety": 1,
         "prey_abundance": 4,
         "placements": [
             [300, 360],
@@ -205,8 +205,8 @@
             "tansy": 1,
             "thyme": 1
         },
-        "safety": 10,
-        "camp_safety": 12,
+        "safety": 1,
+        "camp_safety": 1.2,
         "prey_abundance": 3,
         "placements": [
             [300, 360],
@@ -239,8 +239,8 @@
             "oak_leaves": 1,
             "elder_leaves": 1
         },
-        "safety": 10,
-        "camp_safety": 12,
+        "safety": 1.2,
+        "camp_safety": 1.5,
         "prey_abundance": 3,
         "placements": [
             [240, 400],
@@ -268,8 +268,8 @@
         "herbs": {
             "moss": 1
         },
-        "safety": 8,
-        "camp_safety": 10,
+        "safety": 0.5,
+        "camp_safety": 0.75,
         "prey_abundance": 2,
         "placements": [
             [[1100, 890]],
@@ -279,6 +279,147 @@
             [[1400, 1180]]
         ],
         "mc_placement": [1220, 930],
+        "camp_placement": [1030, 1070]
+    },
+    "-2_-1": {
+        "food": {
+            "LINGCOD": 1,
+            "SALMON": 1,
+            "SARDINE": 1,
+            "ROCKFISH": 1,
+            "COCONUT": 1,
+            "CRAB": 1
+        },
+        "herbs": {
+            "moss": 1,
+            "plantain": 1
+        },
+        "safety": 0.75,
+        "camp_safety": 1,
+        "prey_abundance": 3,
+        "placements": [
+            [[1100, 890]],
+            [[990, 1030]],
+            [[1190, 1120]],
+            [[1240, 790]],
+            [[1400, 1180]]
+        ],
+        "mc_placement": [750, 750],
+        "camp_placement": [1030, 1070]
+    },
+    "-1_-1": {
+        "food": {
+            "COCONUT": 3,
+            "CRAB": 1
+        },
+        "herbs": {
+            "plantain": 1
+        },
+        "safety": 0.5,
+        "camp_safety": 0.75,
+        "prey_abundance": 3,
+        "placements": [
+            [[1100, 890]],
+            [[990, 1030]],
+            [[1190, 1120]],
+            [[1240, 790]],
+            [[1400, 1180]]
+        ],
+        "mc_placement": [750, 750],
+        "camp_placement": [1030, 1070]
+    },
+    "0_-1": {
+        "food": {
+            "COCONUT": 1
+        },
+        "herbs": {
+            "plantain": 1
+        },
+        "safety": 0.5,
+        "camp_safety": 0.75,
+        "prey_abundance": 2,
+        "placements": [
+            [[1100, 890]],
+            [[990, 1030]],
+            [[1190, 1120]],
+            [[1240, 790]],
+            [[1400, 1180]]
+        ],
+        "mc_placement": [750, 750],
+        "camp_placement": [1030, 1070]
+    },
+    "1_-1": {
+        "food": {
+            "COCONUT": 4,
+            "CROW": 1
+        },
+        "herbs": {
+            "plantain": 1
+        },
+        "safety": 0.75,
+        "camp_safety": 1,
+        "prey_abundance": 2,
+        "placements": [
+            [[1100, 890]],
+            [[990, 1030]],
+            [[1190, 1120]],
+            [[1240, 790]],
+            [[1400, 1180]]
+        ],
+        "mc_placement": [750, 750],
+        "camp_placement": [1030, 1070]
+    },
+    "2_-1": {
+        "food": {
+            "COCONUT": 2,
+            "CROW": 1,
+            "BLACKBIRD": 1,
+            "MOUSE": 1
+        },
+        "herbs": {
+            "plantain": 1,
+            "dandelion": 1,
+            "goldenrod": 1,
+            "marigold": 1
+        },
+        "safety": 1,
+        "camp_safety": 1.5,
+        "prey_abundance": 2,
+        "placements": [
+            [[1100, 890]],
+            [[990, 1030]],
+            [[1190, 1120]],
+            [[1240, 790]],
+            [[1400, 1180]]
+        ],
+        "mc_placement": [750, 750],
+        "camp_placement": [1030, 1070]
+    },
+    "3_-1": {
+        "food": {
+            "CROW": 1,
+            "BLACKBIRD": 1,
+            "MOUSE": 1,
+            "SQUIRREL": 1,
+            "RABBIT": 1
+        },
+        "herbs": {
+            "plantain": 1,
+            "dandelion": 1,
+            "goldenrod": 1,
+            "marigold": 1
+        },
+        "safety": 1.2,
+        "camp_safety": 1.5,
+        "prey_abundance": 4,
+        "placements": [
+            [[1100, 890]],
+            [[990, 1030]],
+            [[1190, 1120]],
+            [[1240, 790]],
+            [[1400, 1180]]
+        ],
+        "mc_placement": [750, 750],
         "camp_placement": [1030, 1070]
     },
     "-1_0": {
@@ -302,8 +443,8 @@
             "blackberry": 1,
             "plantain": 1
         },
-        "safety": 10,
-        "camp_safety": 14,
+        "safety": 0.5,
+        "camp_safety": 0.75,
         "prey_abundance": 2,
         "placements": [
             [580, 930],
@@ -329,8 +470,8 @@
             "cobwebs": 1,
             "horsetail": 1
         },
-        "safety": 10,
-        "camp_safety": 14,
+        "safety": 0.75,
+        "camp_safety": 1,
         "prey_abundance": 2,
         "placements": [
             [300, 360],
@@ -356,16 +497,15 @@
             "cobwebs": 1,
             "horsetail": 1
         },
-        "safety": 6,
-        "camp_safety": 10,
+        "safety": 0.5,
+        "camp_safety": 0.75,
         "prey_abundance": 2,
         "placements": [
             [1180, 1060],
             [1320, 400],
             [1340, 920],
             [1380, 1150],
-            [1060, 820],
-            [710, 900]
+            [1060, 820]
         ],
         "mc_placement": [1260, 750],
         "camp_placement": [1000, 250]
@@ -404,8 +544,8 @@
             "plantain": 1,
             "catmint": 1
         },
-        "safety": 8,
-        "camp_safety": 12,
+        "safety": 0.25,
+        "camp_safety": 1,
         "prey_abundance": 2,
         "placements": [
             [930, 860],
@@ -445,8 +585,8 @@
             "blackberry": 1,
             "plantain": 1
         },
-        "safety": 10,
-        "camp_safety": 14,
+        "safety": 0.5,
+        "camp_safety": 0.75,
         "prey_abundance": 2,
         "placements": [
             [930, 860],
@@ -485,8 +625,8 @@
             "lungwort": 1,
             "ragwort": 1
         },
-        "safety": 15,
-        "camp_safety": 25,
+        "safety": 1.5,
+        "camp_safety": 2,
         "prey_abundance": 2,
         "placements": [
             [930, 860],
@@ -516,8 +656,8 @@
             "goldenrod": 1,
             "mallow": 1
         },
-        "safety": 15,
-        "camp_safety": 25,
+        "safety": 1,
+        "camp_safety": 1.5,
         "prey_abundance": 2,
         "placements": [
             [1020, 340],
@@ -540,8 +680,8 @@
             "wild_garlic": 1,
             "plantain": 1
         },
-        "safety": 10,
-        "camp_safety": 15,
+        "safety": 0.75,
+        "camp_safety": 1,
         "prey_abundance": 3,
         "placements": [
             [1300, 850],
@@ -562,8 +702,8 @@
             "wild_garlic": 1,
             "plantain": 1
         },
-        "safety": 10,
-        "camp_safety": 15,
+        "safety": 1,
+        "camp_safety": 1.2,
         "prey_abundance": 3,
         "placements": [
             [1300, 850],
@@ -573,6 +713,274 @@
             [1060, 600]
         ],
         "mc_placement": [1120, 570],
+        "camp_placement": [590, 760]
+    },
+    "-1_1": {
+        "food": {
+            "COCONUT": 2,
+            "STRAWBERRY": 1
+        },
+        "herbs": {
+            "tansy": 1,
+            "wild_garlic": 1,
+            "plantain": 1,
+            "elder_leaves": 1,
+            "thyme": 1
+        },
+        "safety": 1.2,
+        "camp_safety": 1.5,
+        "prey_abundance": 3,
+        "placements": [
+            [1300, 850],
+            [1290, 310],
+            [1180, 180],
+            [1080, 320],
+            [1060, 600]
+        ],
+        "mc_placement": [750, 750],
+        "camp_placement": [590, 760]
+    },
+    "0_1": {
+        "food": {
+            "COCONUT": 2,
+            "STRAWBERRY": 1
+        },
+        "herbs": {
+            "tansy": 1,
+            "plantain": 1,
+            "elder_leaves": 1,
+            "thyme": 1,
+            "raspberry": 1,
+            "blackberry": 1
+        },
+        "safety": 1,
+        "camp_safety": 1.2,
+        "prey_abundance": 3,
+        "placements": [
+            [1300, 850],
+            [1290, 310],
+            [1180, 180],
+            [1080, 320],
+            [1060, 600]
+        ],
+        "mc_placement": [750, 750],
+        "camp_placement": [590, 760]
+    },
+    "1_1": {
+        "food": {
+            "COCONUT": 2,
+            "STRAWBERRY": 1
+        },
+        "herbs": {
+            "elder_leaves": 1,
+            "thyme": 1,
+            "raspberry": 1,
+            "blackberry": 1,
+            "goldenrod": 1
+        },
+        "safety": 1.2,
+        "camp_safety": 1.5,
+        "prey_abundance": 3,
+        "placements": [
+            [1300, 850],
+            [1290, 310],
+            [1180, 180],
+            [1080, 320],
+            [1060, 600]
+        ],
+        "mc_placement": [750, 750],
+        "camp_placement": [590, 760]
+    },
+    "2_1": {
+        "food": {
+            "STRAWBERRY": 1,
+            "MOUSE": 1,
+            "RABBIT": 1
+        },
+        "herbs": {
+            "elder_leaves": 1,
+            "raspberry": 1,
+            "blackberry": 1,
+            "goldenrod": 1,
+            "mallow": 1
+        },
+        "safety": 1.5,
+        "camp_safety": 1.75,
+        "prey_abundance": 4,
+        "placements": [
+            [1300, 850],
+            [1290, 310],
+            [1180, 180],
+            [1080, 320],
+            [1060, 600]
+        ],
+        "mc_placement": [750, 750],
+        "camp_placement": [590, 760]
+    },
+    "3_1": {
+        "food": {
+            "MOUSE": 1,
+            "RABBIT": 1,
+            "CROW": 1,
+            "BLACKBIRD": 1
+        },
+        "herbs": {
+            "elder_leaves": 1,
+            "raspberry": 1,
+            "blackberry": 1,
+            "goldenrod": 1,
+            "mallow": 1,
+            "dandelion": 1,
+            "lungwort": 1,
+            "ragwort": 1
+        },
+        "safety": 0.75,
+        "camp_safety": 1,
+        "prey_abundance": 4,
+        "placements": [
+            [1300, 850],
+            [1290, 310],
+            [1180, 180],
+            [1080, 320],
+            [1060, 600]
+        ],
+        "mc_placement": [750, 750],
+        "camp_placement": [590, 760]
+    },
+    "-2_2": {
+        "food": {
+            "CRAB": 2,
+            "SALMON": 1,
+            "SARDINE": 2
+        },
+        "herbs": {
+            "plantain": 1
+        },
+        "safety": 1,
+        "camp_safety": 2,
+        "prey_abundance": 4,
+        "placements": [
+            [1300, 850],
+            [1290, 310],
+            [1180, 180],
+            [1080, 320],
+            [1060, 600]
+        ],
+        "mc_placement": [750, 750],
+        "camp_placement": [590, 760]
+    },
+    "-1_2": {
+        "food": {
+            "MOUSE": 1,
+            "RABBIT": 1,
+            "CROW": 1,
+            "BLACKBIRD": 1
+        },
+        "herbs": {
+            "elder_leaves": 1,
+            "goldenrod": 1,
+            "mallow": 1,
+            "dandelion": 1,
+            "lungwort": 1,
+            "ragwort": 1
+        },
+        "safety": 0.75,
+        "camp_safety": 1,
+        "prey_abundance": 2,
+        "placements": [
+            [1300, 850],
+            [1290, 310],
+            [1180, 180],
+            [1080, 320],
+            [1060, 600]
+        ],
+        "mc_placement": [750, 750],
+        "camp_placement": [590, 760]
+    },
+    "0_2": {
+        "food": {
+            "MOUSE": 1,
+            "RABBIT": 1,
+            "CROW": 1,
+            "BLACKBIRD": 1
+        },
+        "herbs": {
+            "elder_leaves": 1,
+            "goldenrod": 1,
+            "mallow": 1,
+            "dandelion": 1,
+            "lungwort": 1,
+            "ragwort": 1
+        },
+        "safety": 0.75,
+        "camp_safety": 1,
+        "prey_abundance": 4,
+        "placements": [
+            [1300, 850],
+            [1290, 310],
+            [1180, 180],
+            [1080, 320],
+            [1060, 600]
+        ],
+        "mc_placement": [750, 750],
+        "camp_placement": [590, 760]
+    },
+    "1_2": {
+        "food": {
+            "MOUSE": 1,
+            "RABBIT": 1,
+            "CROW": 1,
+            "BLACKBIRD": 1,
+            "COCONUT": 1
+        },
+        "herbs": {
+            "elder_leaves": 1,
+            "goldenrod": 1,
+            "mallow": 1,
+            "dandelion": 1,
+            "lungwort": 1,
+            "ragwort": 1
+        },
+        "safety": 0.75,
+        "camp_safety": 1,
+        "prey_abundance": 4,
+        "placements": [
+            [1300, 850],
+            [1290, 310],
+            [1180, 180],
+            [1080, 320],
+            [1060, 600]
+        ],
+        "mc_placement": [750, 750],
+        "camp_placement": [590, 760]
+    },
+    "2_2": {
+        "food": {
+            "MOUSE": 1,
+            "RABBIT": 1,
+            "CROW": 1,
+            "BLACKBIRD": 1,
+            "COCONUT": 1
+        },
+        "herbs": {
+            "elder_leaves": 1,
+            "goldenrod": 1,
+            "mallow": 1,
+            "dandelion": 1,
+            "lungwort": 1,
+            "ragwort": 1
+        },
+        "safety": 0.5,
+        "camp_safety": 0.75,
+        "prey_abundance": 3,
+        "placements": [
+            [1300, 850],
+            [1290, 310],
+            [1180, 180],
+            [1080, 320],
+            [1060, 600]
+        ],
+        "mc_placement": [750, 750],
         "camp_placement": [590, 760]
     }
 }

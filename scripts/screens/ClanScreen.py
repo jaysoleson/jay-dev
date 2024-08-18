@@ -181,7 +181,7 @@ class ClanScreen(Screens):
         i = 0
         for x in game.clan.clan_cats:
             if Cat.all_cats[x].moons != -1 and not Cat.all_cats[x].dead and Cat.all_cats[x].in_camp and \
-                    not (Cat.all_cats[x].exiled or Cat.all_cats[x].outside) and (Cat.all_cats[x].status != 'newborn' or game.config['fun']['all_cats_are_newborn'] or game.config['fun']['newborns_can_roam']) and Cat.all_cats[x].map_position == game.clan.your_cat.map_position:
+                    not (Cat.all_cats[x].exiled or Cat.all_cats[x].outside) and (Cat.all_cats[x].status != 'newborn' or game.config['fun']['newborns_can_roam']) and Cat.all_cats[x].map_position == game.clan.your_cat.map_position:
 
                 i += 1
                 if i > self.max_sprites_displayed:

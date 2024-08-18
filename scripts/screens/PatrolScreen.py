@@ -742,7 +742,7 @@ class PatrolScreen(Screens):
             elif not the_cat.dead and the_cat.in_camp and the_cat.ID not in game.patrolled and the_cat.status not in [
                 'elder', 'kitten', 'mediator', 'mediator apprentice', "queen", "queen's apprentice", "newborn"
             ] and not the_cat.outside and the_cat not in self.current_patrol and not the_cat.not_working() and not the_cat.shunned:
-                if the_cat.status == 'newborn' or game.config['fun']['all_cats_are_newborn']:
+                if the_cat.status == 'newborn':
                     if game.config['fun']['newborns_can_patrol']:
                         self.able_cats.append(the_cat)
                 else:
