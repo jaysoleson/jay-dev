@@ -1045,6 +1045,8 @@ class ProfileScreen(Screens):
         if self.the_cat.dead and game.clan.demon.ID == self.the_cat.ID:
             self.the_cat.df = True
 
+        print(self.the_cat.map_position)
+
         # use these attributes to create differing profiles for StarClan cats etc.
         is_sc_instructor = False
         is_df_instructor = False

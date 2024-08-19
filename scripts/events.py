@@ -3081,17 +3081,39 @@ class Events:
                         print("No possible random tribute! Picking a non r_t option.")
                         skip = True
                         break
-
+            if not skip:
                 print("R_T:", random_tribute.name, random_tribute.map_position)
                 print("YOU:", game.clan.your_cat.map_position)
 
             if skip is True:
+                # finding an outcome text without r_t in it
+                
+                if game.clan.next_activity == "investigate":
+                    outcome_options = (
+                        activities[game.clan.next_activity]["outcomes"][game.clan.your_cat.map_position][outcome]
+                    )
+                else:
+                    outcome_options = (
+                        activities[game.clan.next_activity]["outcomes"][outcome]
+                    )
+
+                non_rt_options = []
+                # making a list of non r_t options
+                # would probably be easier to just. seperate the text options in the json
+                # but fuck it
                 try:
-                    print("OPTTIIONS:", outcome)
-                    non_rt_options = [i for i in outcome if "r_t" not in i["text"].items()]
+                    for o in outcome_options.items():
+                        for i in o[1].items():
+                            if i[0] == 'text':
+                                for string in i[1]:
+                                    if "r_t" not in string:
+                                        non_rt_options.append(string)
+                                        outcome_choice = o[0]
+
                     outcome_text = random.choice(non_rt_options)
+                    print("NON R_T TEXT")
                 except:
-                    print(f"No non-r_t outcome text for", game.clan.next_activity, ",", outcome)
+                    print(f"No non-r_t outcome text for", game.clan.next_activity, "+", outcome)
                     intro_text = "Mrow?"
                     outcome_text = f"This is a Hunger Games bug! Please report."
         
@@ -3185,13 +3207,13 @@ class Events:
         game.clan.your_cat.map_position = f"{int(row)}_{int(column)}"
         # turn back into a string and update the cat's position!
 
-        if next_direction is not None:
-            game.cur_events_list.insert(0, Single_Event(f"You travel {next_direction}. {game.clan.your_cat.map_position}", "alert", game.clan.your_cat.ID))
-        else:
-            if game.clan.timeskips == 1 and game.clan.days == 0:
-                pass
-            else:
-                game.cur_events_list.insert(0, Single_Event(f"You stay put. {game.clan.your_cat.map_position}", "alert", game.clan.your_cat.ID))
+        # if next_direction is not None:
+        #     game.cur_events_list.insert(0, Single_Event(f"You travel {next_direction}. {game.clan.your_cat.map_position}", "alert", game.clan.your_cat.ID))
+        # else:
+        #     if game.clan.timeskips == 1 and game.clan.days == 0:
+        #         pass
+        #     else:
+        #         game.cur_events_list.insert(0, Single_Event(f"You stay put. {game.clan.your_cat.map_position}", "alert", game.clan.your_cat.ID))
 
         game.clan.next_direction = None
 

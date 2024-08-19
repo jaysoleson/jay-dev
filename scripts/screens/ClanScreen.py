@@ -318,6 +318,8 @@ class ClanScreen(Screens):
         self.update_buttons_and_text()
 
     def exit_screen(self):
+        self.open_popup = None
+        
         # removes the cat sprites.
         for button in self.cat_buttons:
             button.kill()
@@ -397,8 +399,8 @@ class ClanScreen(Screens):
         for activity in self.activity_list.items():
             self.activity_buttons[f"{activity[0]}"] = UIImageButton(scale(pygame.Rect(
                 (activity[1][0], activity[1][1]), (50, 50))),
-                "X",
-                object_id="",
+                "",
+                object_id="#paw_patrol_button",
                 starting_height=2
             )
 
@@ -443,9 +445,9 @@ class ClanScreen(Screens):
 
                 self.popup_buttons[f"{activity[0]}"] = UIImageButton(scale(pygame.Rect(
                     (activity[1][0] - 98, activity[1][1] - 70), (60, 60))),
-                    "O",
+                    "",
                     tool_tip_text=f"{insert2}",
-                    object_id="",
+                    object_id="#paw_patrol_button",
                     starting_height=2
                 )
             else:
