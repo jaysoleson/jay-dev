@@ -3014,9 +3014,15 @@ class Events:
             activities = ujson.loads(read_file.read())
 
         if game.clan.next_activity == "investigate":
-            intro_text = random.choice(
-                activities[game.clan.next_activity]["intro_text"][game.clan.your_cat.map_position]
-            )
+            try:
+                intro_text = random.choice(
+                    activities[game.clan.next_activity]["intro_text"][game.clan.your_cat.map_position]
+                )
+            except KeyError:
+                print(game.clan.your_cat.map_position, "has no intro text. Aborting activity.")
+                game.cur_events_list.insert(0, Single_Event("Miaow! This is a Hunger Games bug. Please report!", "alert", game.clan.your_cat.ID))
+                return
+
         else:
             intro_text = random.choice(
                 activities[game.clan.next_activity]["intro_text"]
