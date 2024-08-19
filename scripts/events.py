@@ -3026,8 +3026,13 @@ class Events:
 
         options = []
         if game.clan.next_activity == "investigate":
-            for key in (activities[game.clan.next_activity]["outcomes"][game.clan.your_cat.map_position][outcome]).keys():
-                options.append(key)
+            try:
+                for key in (activities[game.clan.next_activity]["outcomes"][game.clan.your_cat.map_position][outcome]).keys():
+                    options.append(key)
+            except KeyError:
+                print(game.clan.your_cat.map_position, "has no investigate outcomes. Aborting activity.")
+                game.cur_events_list.insert(0, Single_Event("Mrrp! This is a Hunger Games bug. Please report!", "alert", game.clan.your_cat.ID))
+                return
         else:
             for key in (activities[game.clan.next_activity]["outcomes"][outcome]).keys():
                 options.append(key)
