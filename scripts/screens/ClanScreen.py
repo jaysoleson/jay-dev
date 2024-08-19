@@ -15,8 +15,10 @@ from scripts.game_structure import image_cache
 from scripts.game_structure.game_essentials import game, screen, screen_x, screen_y
 from scripts.game_structure.ui_elements import UISpriteButton, UIImageButton
 from scripts.game_structure.windows import SaveError
-from scripts.utility import scale, check_possible_directions
+from scripts.utility import scale, check_possible_directions, get_text_box_theme
 from .Screens import Screens
+
+# pylint: disable=consider-using-dict-items
 
 
 class ClanScreen(Screens):
@@ -24,6 +26,10 @@ class ClanScreen(Screens):
     cat_buttons = []
     platforms = {}
     direction_buttons = {}
+    activity_buttons = {}
+    activity_button_popups = {}
+    activity_labels = {}
+    popup_buttons = {}
 
     def __init__(self, name=None):
         super().__init__(name)
@@ -39,7 +45,8 @@ class ClanScreen(Screens):
         self.warrior_den_label = None
         self.layout = None
 
-        MAP_POSITION_INFO = None
+        self.open_popup = None
+        self.activity_list = None
 
     def on_use(self):
         if game.clan.clan_settings['backgrounds']:
@@ -100,6 +107,26 @@ class ClanScreen(Screens):
                 self.change_screen('warrior den screen')
             if event.ui_element == self.leader_den_label:
                 self.change_screen('leader den screen')
+            
+    
+            for item in self.activity_buttons:
+                if event.ui_element == self.activity_buttons[item]:
+                    if self.open_popup != item:
+                        self.open_popup = item
+                    else:
+                        self.open_popup = None
+
+                    self.update_activity_buttons()
+            
+            if self.popup_buttons != {}:
+                for item in self.popup_buttons:
+                    if event.ui_element == self.popup_buttons[item]:
+                        if game.clan.next_activity != item:
+                            game.clan.next_activity = item
+                        else:
+                            game.clan.next_activity = None
+
+                        self.update_activity_buttons()
 
         elif event.type == pygame.KEYDOWN and game.settings['keybinds']:
             if event.key == pygame.K_RIGHT:
@@ -119,6 +146,20 @@ class ClanScreen(Screens):
 
     def screen_switches(self):
         self.update_current_map()
+
+        if not (game.clan.timeskips == 2 and game.clan.days == 0):
+            # noooo activities durig the bloodbath
+            try:
+                ACTIVITIES = None
+                base_dir = 'resources/dicts/hunger_games_dicts'
+                with open(f"{base_dir}/{(game.clan.biome).lower()}/activity_locations.json", "r", encoding="utf-8") as read_file:
+                    ACTIVITIES = ujson.loads(read_file.read())
+                self.activity_list = ACTIVITIES[game.clan.your_cat.map_position]
+
+                self.place_activity_buttons()
+            except:
+                print("No activity placements for", game.clan.your_cat.map_position)
+
         game.switches['cat'] = None
         if game.clan.biome + game.clan.camp_bg in game.clan.layouts:
             self.layout = game.clan.layouts[game.clan.biome + game.clan.camp_bg]
@@ -290,6 +331,22 @@ class ClanScreen(Screens):
             self.direction_buttons[ele].kill()
         self.direction_buttons = {}
 
+        for ele in self.activity_buttons:
+            self.activity_buttons[ele].kill()
+        self.activity_buttons = {}
+
+        for ele in self.activity_button_popups:
+            self.activity_button_popups[ele].kill()
+        self.activity_button_popups = {}
+
+        for ele in self.activity_labels:
+            self.activity_labels[ele].kill()
+        self.activity_labels = {}
+
+        for ele in self.popup_buttons:
+            self.popup_buttons[ele].kill()
+        self.popup_buttons = {}
+
         # Kill all other elements, and destroy the reference so they aren't hanging around
         self.save_button.kill()
         del self.save_button
@@ -318,6 +375,82 @@ class ClanScreen(Screens):
 
         # reset save status
         game.switches['saved_clan'] = False
+
+    def place_activity_buttons(self):
+        """ places activity buttons on da page """
+        for ele in self.activity_buttons:
+            self.activity_buttons[ele].kill()
+        self.activity_buttons = {}
+
+        for ele in self.activity_button_popups:
+            self.activity_button_popups[ele].kill()
+        self.activity_button_popups = {}
+
+        for ele in self.activity_labels:
+            self.activity_labels[ele].kill()
+        self.activity_labels = {}
+
+        for ele in self.popup_buttons:
+            self.popup_buttons[ele].kill()
+        self.popup_buttons = {}
+
+        for activity in self.activity_list.items():
+            self.activity_buttons[f"{activity[0]}"] = UIImageButton(scale(pygame.Rect(
+                (activity[1][0], activity[1][1]), (50, 50))),
+                "X",
+                object_id="",
+                starting_height=2
+            )
+
+    def update_activity_buttons(self):
+        """ updates buttons when theyre pressed """
+
+        for ele in self.activity_button_popups:
+            self.activity_button_popups[ele].kill()
+        self.activity_button_popups = {}
+
+        for ele in self.activity_labels:
+            self.activity_labels[ele].kill()
+        self.activity_labels = {}
+
+        for ele in self.popup_buttons:
+            self.popup_buttons[ele].kill()
+        self.popup_buttons = {}
+        
+        for activity in self.activity_list.items():
+            if self.open_popup == activity[0]:
+                # open a new popup
+
+                self.activity_button_popups[f"{activity[0]}"] = pygame_gui.elements.UIImage(
+                    scale(pygame.Rect((activity[1][0] - 38, activity[1][1] - 70), (150, 60))),
+                    pygame.transform.scale(
+                    image_cache.load_image("resources/images/search_bar.png"),
+                    (206, 56))
+                )
+                if activity[0] == game.clan.next_activity:
+                    insert = f"<u><font color='#000000'>{(activity[0]).capitalize()}</font><u>"
+                    insert2 = "Cancel activity"
+                else:
+                    insert = f"<font color='#000000'>{(activity[0]).capitalize()}</font>"
+                    insert2 = "Select activity"
+                
+                self.activity_labels[f"{activity[0]}"] = pygame_gui.elements.UITextBox(
+                    insert,
+                    scale(pygame.Rect((activity[1][0] - 41, activity[1][1] - 73), (150, 60))),
+                    object_id=get_text_box_theme(
+                    "#text_box_22_horizcenter")
+                )
+
+                self.popup_buttons[f"{activity[0]}"] = UIImageButton(scale(pygame.Rect(
+                    (activity[1][0] - 98, activity[1][1] - 70), (60, 60))),
+                    "O",
+                    tool_tip_text=f"{insert2}",
+                    object_id="",
+                    starting_height=2
+                )
+            else:
+                pass
+
 
     def update_current_map(self):
 

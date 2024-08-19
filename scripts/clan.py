@@ -159,6 +159,7 @@ class Clan:
         self.days = 0
         self.timeskips = 1
         self.next_direction = None
+        self.next_activity = None
         self.custom_pronouns = []
 
         # Init Settings
@@ -673,7 +674,8 @@ class Clan:
             "clan_age": self.clan_age,
             "days": self.days,
             "timeskips": self.timeskips,
-            "next_direction": self.next_direction
+            "next_direction": self.next_direction,
+            "next_activity": self.next_activity
         }
 
         # LEADER DATA
@@ -747,6 +749,11 @@ class Clan:
             clan_data["next_direction"] = self.next_direction
         else:
             clan_data["next_direction"] = None
+
+        if self.next_activity:
+            clan_data["next_activity"] = self.next_activity
+        else:
+            clan_data["next_activity"] = None
 
         self.save_herbs(game.clan)
         self.save_disaster(game.clan)

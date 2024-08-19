@@ -139,7 +139,6 @@ class Events:
                 for cat in Cat.all_cats.values()):
             game.switches['no_able_left'] = False
 
-        self.travel_map(game.clan.next_direction)
         # age up the clan, set current season
         game.clan.timeskips += 1
         if game.clan.timeskips >= 11:
@@ -1129,15 +1128,15 @@ class Events:
                     alive_app = random.choice(alive_apps)
                 text = re.sub(r'(?<!\/)r_i(?!\/)', str(alive_app.name), text)
                 self.cat_dict["r_i"] = alive_app
-            if "r_t" in text:
-                alive_apps = get_alive_cats(Cat)
-                if len(alive_apps) <= 1:
-                    return ""
-                alive_app = random.choice(alive_apps)
-                while alive_app.ID == game.clan.your_cat.ID or not "starving" in alive_app.illnesses:
-                    alive_app = random.choice(alive_apps)
-                text = re.sub(r'(?<!\/)r_t(?!\/)', str(alive_app.name), text)
-                self.cat_dict["r_t"] = alive_app
+            # if "r_t" in text:
+            #     alive_apps = get_alive_cats(Cat)
+            #     if len(alive_apps) <= 1:
+            #         return ""
+            #     alive_app = random.choice(alive_apps)
+            #     while alive_app.ID == game.clan.your_cat.ID or not "starving" in alive_app.illnesses:
+            #         alive_app = random.choice(alive_apps)
+            #     text = re.sub(r'(?<!\/)r_t(?!\/)', str(alive_app.name), text)
+            #     self.cat_dict["r_t"] = alive_app
             if "l_n" in text:
                 if game.clan.leader is None:
                     return ""
@@ -2625,6 +2624,13 @@ class Events:
 
         self.sleep(cat)
 
+        if not (game.clan.timeskips == 2 and game.clan.days == 0):
+            self.travel_map(game.clan.next_direction)
+
+        if cat.ID == game.clan.your_cat.ID:
+            self.hg_activity()
+        
+
         # relationships have to be handled separately, because of the ceremony name change
         if not cat.dead and not cat.outside:
             Relation_Events.handle_relationships(cat)
@@ -2998,6 +3004,155 @@ class Events:
                 cat.sleeping = True
                 print(f"{cat.name} fell asleep!")
 
+    def hg_activity(self):
+        """ activities from the clan screen!"""
+
+        if game.clan.next_activity is None:
+            return
+
+        with open(f"resources/dicts/hunger_games_dicts/{(game.clan.biome).lower()}/activities.json",encoding="ascii") as read_file:
+            activities = ujson.loads(read_file.read())
+
+        if game.clan.next_activity == "investigate":
+            intro_text = random.choice(
+                activities[game.clan.next_activity]["intro_text"][game.clan.your_cat.map_position]
+            )
+        else:
+            intro_text = random.choice(
+                activities[game.clan.next_activity]["intro_text"]
+            )
+
+        outcome = random.choice(["positive", "neutral", "negative"])
+
+        options = []
+        if game.clan.next_activity == "investigate":
+            for key in (activities[game.clan.next_activity]["outcomes"][game.clan.your_cat.map_position][outcome]).keys():
+                options.append(key)
+        else:
+            for key in (activities[game.clan.next_activity]["outcomes"][outcome]).keys():
+                options.append(key)
+
+        if len(options) == 1:
+            outcome_choice = options[-1]
+        elif len(options) > 1:
+            outcome_choice = random.choice(options)
+
+        if game.clan.next_activity == "investigate":
+            outcome_options = (
+                activities[game.clan.next_activity]["outcomes"][game.clan.your_cat.map_position][outcome][outcome_choice]["text"]
+            )
+
+        else:
+            outcome_options = (
+                activities[game.clan.next_activity]["outcomes"][outcome][outcome_choice]["text"]
+            )
+
+        outcome_text = random.choice(outcome_options)
+        skip = False
+        if "r_t" in outcome_text:
+            random_tributes = [i for i in Cat.all_cats_list if not i.dead and not i.outside and i.ID != game.clan.your_cat.ID and i.map_position == game.clan.your_cat.map_position]
+
+            if random_tributes:
+                print("POSSIBLE RANDOM TRIBUTES:", [i.name for i in random_tributes])
+                random_tribute = random.choice(random_tributes)
+            else:
+                random_tribute = None
+                print("No possible random tributes.")
+                skip = True
+
+            if not skip:
+                counter = 0
+                while random_tribute.sleeping or random_tribute.ID in game.clan.your_cat.allies:
+                    counter += 1
+                    random_tribute = random.choice(random_tributes)
+                    print("counter going")
+                    if counter >= 23:
+                        print("No possible random tribute! Picking a non r_t option.")
+                        skip = True
+                        break
+
+                print("R_T:", random_tribute.name, random_tribute.map_position)
+                print("YOU:", game.clan.your_cat.map_position)
+
+            if skip is True:
+                try:
+                    print("OPTTIIONS:", outcome)
+                    non_rt_options = [i for i in outcome if "r_t" not in i["text"].items()]
+                    outcome_text = random.choice(non_rt_options)
+                except:
+                    print(f"No non-r_t outcome text for", game.clan.next_activity, ",", outcome)
+                    intro_text = "Mrow?"
+                    outcome_text = f"This is a Hunger Games bug! Please report."
+        
+            if not skip:
+                outcome_text = re.sub(r'(?<!\/)r_t(?!\/)', str(random_tribute.name), outcome_text)
+                self.cat_dict["r_t"] = random_tribute
+
+        event_text = intro_text + " " + outcome_text
+
+        process_text_dict = self.cat_dict.copy()
+        for abbrev in process_text_dict.keys():
+            abbrev_cat = process_text_dict[abbrev]
+            process_text_dict[abbrev] = (abbrev_cat, random.choice(abbrev_cat.pronouns))
+        event_text = re.sub(r"\{(.*?)\}", lambda x: pronoun_repl(x, process_text_dict, False), event_text)
+
+        event_text = self.adjust_txt(event_text)
+
+        game.cur_events_list.insert(0, Single_Event(event_text, "alert", game.clan.your_cat.ID))
+
+        # INVENTORY BLOCK
+        inventory = None
+        if game.clan.next_activity == "investigate":
+            if "inventory" in activities[game.clan.next_activity]["outcomes"][game.clan.your_cat.map_position][outcome][outcome_choice]:
+                inventory = activities[game.clan.next_activity]["outcomes"][game.clan.your_cat.map_position][outcome][outcome_choice]["inventory"]
+        else:
+            if "inventory" in activities[game.clan.next_activity]["outcomes"][outcome][outcome_choice]:
+                inventory = activities[game.clan.next_activity]["outcomes"][outcome][outcome_choice]["inventory"]
+
+        if inventory is not None:
+            given_items = []
+            num = random.choices([1,2], [2, 1], k=1)
+            given_items = random.sample(inventory["items"], k=num[0])
+            # id rather grab items from the item_dict.json food for each placement
+            # but its not seperated by prey + non-prey and im too lazy to change that
+
+            if inventory["cat"] == "r_t":
+                gain_cat = random_tribute
+            elif inventory["cat"] == "you":
+                gain_cat = game.clan.your_cat
+            else:
+                print("Incorrectly formatted inventory['cat'] block in activities.")
+
+            for i in given_items:
+                gain_cat.pelt.inventory.update({i: random.randint(1,3)})
+                print(gain_cat.name, "has gained:", i, "from the", (game.clan.next_activity).upper(), "activity!")
+
+
+        # INJURY BLOCK
+        injury = None
+        
+        if game.clan.next_activity == "investigate":
+            if "injury" in activities[game.clan.next_activity]["outcomes"][game.clan.your_cat.map_position][outcome][outcome_choice]:
+                injury = activities[game.clan.next_activity]["outcomes"][game.clan.your_cat.map_position][outcome][outcome_choice]["injury"]
+        else:
+            if "injury" in activities[game.clan.next_activity]["outcomes"][outcome][outcome_choice]:
+                injury = activities[game.clan.next_activity]["outcomes"][outcome][outcome_choice]["injury"]
+
+        if injury is not None:
+            for item in injury.items():
+                if item[0] == "you":
+                    injured_cat = game.clan.your_cat
+                elif item[0] == "r_t":
+                    injured_cat = random_tribute
+                else:
+                    print("Incorrectly formatted injury block in activities.")
+
+                try:
+                    injured_cat.get_injured(item[1])
+                except:
+                    print("Incorrect injury in activity: ", item[1])
+
+        game.clan.next_activity = None
 
     def travel_map(self, next_direction):
         row, column = game.clan.your_cat.map_position.split("_")
@@ -3030,63 +3185,59 @@ class Events:
         game.clan.next_direction = None
 
         # now for the npcs
-        if game.clan.timeskips != 0:
-            for npc in Cat.all_cats_list:
-                if npc.ID == game.clan.your_cat.ID:
-                    continue
-                if npc.sleeping is True:
-                    return
-                cat_row, cat_column = npc.map_position.split("_")
-                cat_row = int(cat_row)
-                cat_column = int(cat_column)
+        for npc in Cat.all_cats_list:
+            if npc.ID == game.clan.your_cat.ID:
+                continue
+            if npc.sleeping is True:
+                return
+            cat_row, cat_column = npc.map_position.split("_")
+            cat_row = int(cat_row)
+            cat_column = int(cat_column)
 
-                cat_north, cat_east, cat_south, cat_west = check_possible_directions(cat_row, cat_column)
+            cat_north, cat_east, cat_south, cat_west = check_possible_directions(cat_row, cat_column)
 
-                if game.clan.timeskips == 1 and game.clan.days == 0:
-                    # movement is less likely during the bloodbath bc they wanna join in!!!
-                    movement = random.randint(1,12)
+            if game.clan.timeskips == 1 and game.clan.days == 0:
+                # movement is less likely during the bloodbath bc they wanna join in!!!
+                movement = random.randint(1,12)
+            else:
+                if game.clan.timeskips in [6, 7, 8, 9, 10]:
+                    movement = random.randint(1,15)
                 else:
-                    if game.clan.timeskips in [6, 7, 8, 9, 10]:
-                        movement = random.randint(1,15)
-                    else:
-                        movement = random.randint(1,8)
-                if movement == 1:
-                    if cat_east:
-                        cat_row += 1
-                elif movement == 2:
-                    if cat_south:
-                        cat_column += 1
-                elif movement == 3:
-                    if cat_east:
-                        cat_row += 1
-                    if cat_south:
-                        cat_column += 1
-                elif movement == 4:
-                    if cat_west:
-                        cat_row -= 1
-                elif movement == 5:
-                    if cat_north:
-                        cat_column -= 1
-                elif movement == 6:
-                    if cat_west:
-                        cat_row -= 1
-                    if cat_north:
-                        cat_column -= 1
-                else:
-                    pass
+                    movement = random.randint(1,8)
+            if movement == 1:
+                if cat_east:
+                    cat_row += 1
+            elif movement == 2:
+                if cat_south:
+                    cat_column += 1
+            elif movement == 3:
+                if cat_east:
+                    cat_row += 1
+                if cat_south:
+                    cat_column += 1
+            elif movement == 4:
+                if cat_west:
+                    cat_row -= 1
+            elif movement == 5:
+                if cat_north:
+                    cat_column -= 1
+            elif movement == 6:
+                if cat_west:
+                    cat_row -= 1
+                if cat_north:
+                    cat_column -= 1
+            else:
+                # these guys dont move
+                pass
 
+            npc.map_position = f"{int(cat_row)}_{int(cat_column)}"
 
-                npc.map_position = f"{int(cat_row)}_{int(cat_column)}"
-
-                # ill do a better version of this later lol
-                if npc.allies != []:
-                    for i in npc.allies:
-                        ally = Cat.all_cats.get(i)
-                        if ally.map_position != npc.map_position:
-                            npc.map_position = ally.map_position
-                            print("moving allies", ally.name, "and", npc.name)
-
-
+            # ill do a better version of this later lol
+            if npc.allies:
+                for i in npc.allies:
+                    ally = Cat.all_cats.get(i)
+                    if ally.map_position != npc.map_position:
+                        npc.map_position = ally.map_position
 
     def perform_ceremonies(self, cat):
         """

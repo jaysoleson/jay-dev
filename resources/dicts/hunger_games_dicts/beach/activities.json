@@ -1,0 +1,297 @@
+{
+    "hunting": {
+        "intro_text": [
+            "You spend some time hunting.",
+            "You decide to dedicate some time to hunting."
+        ],
+        "outcomes": {
+            "positive": {
+                "1": {
+                    "text": [
+                        "You manage to find some prey!",
+                        "The hunt goes well, and you gather some prey.",
+                        "The arena has afforded you soem kindness-- you find some fresh prey."
+                    ],
+                    "inventory": {
+                        "items": [
+                            "SQUIRREL",
+                            "RABBIT",
+                            "MOUSE",
+                            "CRAB",
+                            "CROW",
+                            "BLACKBIRD"
+                        ],
+                        "cat": "you"
+                    }
+                },
+                "2": {
+                    "text": [
+                        "Though another tribute, r_t, tries to snatch it from you, you leave {PRONOUN/r_t/object} with a scratch and win the prey for yourself.",
+                        "You spot another tribute, r_t, tracking the same prey as you. You're able to fight them off and leave them lightly injured, winning the prey for yourself.",
+                        "You're able to wrestle some prey out of r_t's paws."
+                    ],
+                    "inventory": {
+                        "items": [
+                            "SQUIRREL",
+                            "RABBIT",
+                            "MOUSE",
+                            "CRAB",
+                            "CROW",
+                            "BLACKBIRD"
+                        ],
+                        "cat": "you"
+                    },
+                    "injury": {
+                        "r_t": "scrapes"
+                    }
+                }
+            },
+            "neutral": {
+                "1": {
+                    "text": [
+                        "Unfortunately, you're not able to find any prey.",
+                        "However, you end up empty-pawed."
+                    ]
+                }
+            },
+            "negative": {
+                "1": {
+                    "text": [
+                        "Unfortunately, while tracking some prey through the grass, you come nose-to-nose with the tribute r_t, who leaves you scraped before {PRONOUN/r_t/subject} {VERB/r_t/run/runs} away with your potential catch.",
+                        "Unfortunately, as soon as you catch something, r_t leaps out of the bushes and wrestles it away from you, leaving you injured.",
+                        "You manage to trip and injure yourself while hunting, and you watch r_t take your catch and disappear."
+                    ],
+                    "inventory": {
+                        "items": [
+                            "SQUIRREL",
+                            "RABBIT",
+                            "MOUSE",
+                            "CRAB",
+                            "CROW",
+                            "BLACKBIRD"
+                        ],
+                        "cat": "r_t"
+                    },
+                    "injury": {
+                        "you": "scrapes"
+                    }
+                },
+                "2": {
+                    "text": [
+                        "You end up chasing after a rabbit until you finally have to give up, exhausted and sore."
+                    ],
+                    "injury": {
+                        "you": "sore"
+                    }
+                }
+            }
+        }
+    },
+    "fishing": {
+        "intro_text": [
+            "You decide to test out your fishing skills."
+        ],
+        "outcomes": {
+            "positive": {
+                "1": {
+                    "text": [
+                        "It goes well! You manage to catch some fish."
+                    ],
+                    "inventory": {
+                        "items": [
+                            "LINGCOD",
+                            "SALMON",
+                            "ROCKFISH",
+                            "SARDINE"
+                        ]
+                    },
+                    "cat": "you"
+                }
+            },
+            "neutral": {
+                "1": {
+                    "text": [
+                        "You don't end up catching anything, but you're able to relax a bit while sitting by the water."
+                    ]
+                }
+            },
+            "negative": {
+                "1": {
+                    "text": [
+                        "While you fish, r_t tackles you from behind. You tussle a bit in the water and you manage to escape, fish-less and soaking wet, but thankfully alive."
+                    ]
+                }
+            }
+        }
+    },
+    "investigate": {
+        "intro_text": {
+            "2_0": [
+                "Curious, you take a look into the large cave."
+            ],
+            "0_-3": [
+                "You spend some time investigating the large shipwreck."
+            ],
+            "0_0": [
+                "You spend some time searching the Cornucopia."
+            ]
+        },
+        "outcomes": {
+            "0_0": {
+                "positive": {
+                    "1": {
+                        "text": [
+                            "You don't find any food or herbs, but you find some interesting trinkets!"
+                        ],
+                        "inventory": {
+                            "items": [
+                                "DRIEDORANGE",
+                                "ROESKULL",
+                                "POPTABS"
+                            ],
+                            "cat": "you"
+                        }
+                    },
+                    "2": {
+                        "text": [
+                            "You find some fresh prey."
+                        ],
+                        "inventory": {
+                            "items": [
+                                "SQUIRREL",
+                                "RABBIT",
+                                "MOUSE",
+                                "CRAB",
+                                "CROW",
+                                "BLACKBIRD"
+                            ],
+                            "cat": "you"
+                        }
+                    }
+                },
+                "neutral": {
+                    "1": {
+                        "text": [
+                            "Unfortunately, you're not able to find anything useful."
+                        ]
+                    }
+                },
+                "negative": {
+                    "1": {
+                        "text": [
+                            "However, you're not the only cat with the idea. r_t is already there, and {PRONOUN/r_t/subject} {VERB/r_t/chase/chases} you off before you're able to take a look."
+                        ],
+                        "inventory": {
+                            "items": [
+                                "SQUIRREL",
+                                "RABBIT",
+                                "MOUSE",
+                                "CRAB",
+                                "CROW",
+                                "BLACKBIRD"
+                            ],
+                            "cat": "r_t"
+                        }
+                    },
+                    "2": {
+                        "text": [
+                            "When you crouch by the edge of the cave to look inside, your paw slips and you tumble to the bottom. You scramble back up to the surface when you hear laughing coming from somewhere in the cave's depths."
+                        ],
+                        "injury": {
+                            "you": "bruises"
+                        }
+                    }
+                }
+            },
+            "2_0": {
+                "positive": {
+                    "1": {
+                        "text": [
+                            "You manage to find some herbs growing on the cave's floor!"
+                        ],
+                        "inventory": {
+                            "items": [
+                                "thyme",
+                                "elder_leaves",
+                                "tansy"
+                            ],
+                            "cat": "you"
+                        }
+                    },
+                    "2": {
+                        "text": [
+                            "To your surprise, you find a rabbit! It must have fallen in and gotten stuck. What must have been a horrible day for the poor rabbit turns into a lucky one for you."
+                        ],
+                        "inventory": {
+                            "items": [
+                                "RABBIT",
+                                "RABBIT"
+                            ],
+                            "cat": "you"
+                        }
+                    }
+                },
+                "neutral": {
+                    "1": {
+                        "text": [
+                            "Unfortunately, you're not able to find anything useful."
+                        ]
+                    }
+                },
+                "negative": {
+                    "1": {
+                        "text": [
+                            "However, when you drop down into the hole, r_t is already there, and hisses at you to leave immediately. {PRONOUN/r_t/subject/CAP} {VERB/r_t/don't/doesn't} have to tell you twice! You leave to avoid further trouble."
+                        ]
+                    }
+                }
+            },
+            "0_-3": {
+                "positive": {
+                    "1": {
+                        "text": [
+                            "You're able to find some herbs inside of a large Twoleg box."
+                        ],
+                        "inventory": {
+                            "items": [
+                                "goldenrod",
+                                "marigold",
+                                "raspberry",
+                                "blackberry",
+                                "catmint"
+                            ],
+                            "cat": "you"
+                        }
+                    },
+                    "2": {
+                        "text": [
+                            "You're able to find some food inside of a large Twoleg box."
+                        ],
+                        "inventory": {
+                            "items": [
+                                "STRAWBERRY",
+                                "COCONUT",
+                                "BLUEBERRY"
+                            ],
+                            "cat": "you"
+                        }
+                    }
+                },
+                "neutral": {
+                    "1": {
+                        "text": [
+                            "Unfortunately, you're not able to find anything useful."
+                        ]
+                    }
+                },
+                "negative": {
+                    "1": {
+                        "text": [
+                            "In the darkness of the ship's interior, you trip on a sharp plank of wood, making a loud crash. You spend the next while hiding in the corner, hoping no cat was close enough to hear and come looking for you."
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}
