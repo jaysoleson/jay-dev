@@ -1,44 +1,44 @@
 {
-    "dead_outsider_J1": [
-        [
+    "dead_outsider_J1": {
+        "tags": [
             "they_dead",
             "you_dead",
             "any",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "This isn't what I expected from the afterlife. Was this what you were hoping for?"
         ]
-    ],
-    "dead_outsider_J2": [
-        [
+    },
+    "dead_outsider_J2": {
+        "tags": [
             "they_dead",
             "any",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "I don't know why you can see me. It kind of freaks me out."
         ]
-    ],
-    "dead_outsider_J3": [
-        [
+    },
+    "dead_outsider_J3": {
+        "tags": [
             "they_sc",
             "you_ur",
             "any",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "I don't think it's fair that I'm over here, and you're not.",
             "Maybe there's some way I could sneak you in..?",
             "No, no, I couldn't do that. If I do, they might kick me out...",
             "I'm sorry, y_c."
         ]
-    ],
-    "dead_outsider_J4": [
-        [
+    },
+    "dead_outsider_J4": {
+        "tags": [
             "they_dead",
             "you_shunned",
             "any",
@@ -48,12 +48,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Clans are cruel. This wouldn't be happening to you if you just left."
         ]
-    ],
-    "dead_outsider_J5": [
-        [
+    },
+    "dead_outsider_J5": {
+        "tags": [
             "they_dead",
             "grievingthem",
             "you_grieving",
@@ -66,15 +66,15 @@
             "they_deaf",
             "you_deaf"
         ],
-        [
-            "[t_c butts {PRONOUN/t_c/poss} ghostly head against yours.]",
-            "[You can't tell if being able to see {PRONOUN/t_c/object} as a ghost makes you more happy or sad.]",
-            "[{PRONOUN/t_c/poss/CAP} pelt is translucent, lacking any colour or feeling...]",
+        "intro": [
+            "[t_c butts {PRONOUN\/t_c\/poss} ghostly head against yours.]",
+            "[You can't tell if being able to see {PRONOUN\/t_c\/object} as a ghost makes you more happy or sad.]",
+            "[{PRONOUN\/t_c\/poss\/CAP} pelt is translucent, lacking any colour or feeling...]",
             "[You miss the living t_c. So, so much.]"
         ]
-    ],
-    "dead_outsider_J6": [
-        [
+    },
+    "dead_outsider_J6": {
+        "tags": [
             "they_dead",
             "you_grieving",
             "any",
@@ -84,13 +84,13 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "I'm sorry for your loss, y_c.",
             "Clanmates... they really care for each other, don't they?"
         ]
-    ],
-    "dead_outsider_J7": [
-        [
+    },
+    "dead_outsider_J7": {
+        "tags": [
             "they_df",
             "any",
             "no_kit",
@@ -99,14 +99,14 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "How awful must I have been, to end up in the hell for a belief that I didn't even hold?",
             "[t_c chuckles.]",
             "Guess I'd better start learning some of this 'Clan' stuff. Hey, wanna teach me?"
         ]
-    ],
-    "dead_outsider_J8": [
-        [
+    },
+    "dead_outsider_J8": {
+        "tags": [
             "they_df",
             "you_sc",
             "no_kit",
@@ -115,13 +115,13 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Do you StarClan cats think this is funny? You enjoy sending helpless cats to purgatory forever, even when they're not from a Clan?",
             "I don't belong here. I've seen the ghosts that wander the living world. I'm supposed to be one of them."
         ]
-    ],
-    "dead_outsider_J9": [
-        [
+    },
+    "dead_outsider_J9": {
+        "tags": [
             "they_df",
             "you_ur",
             "no_kit",
@@ -130,65 +130,65 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Hey, Clancat.",
             "Wanna swap places? I'll be a ghost, and you can join your Clan's afterlife. It's not fair for either of to be where we are, anyhow.",
             "What? It's only fair! Come on!"
         ]
-    ],
-    "dead_outsider_J10": [
-        [
+    },
+    "dead_outsider_J10": {
+        "tags": [
             "they_df",
             "you_df",
             "no_kit",
             "you_blind",
             "they_blind"
         ],
-        [
+        "intro": [
             "This sucks."
         ]
-    ],
-    "dead_outsider_J11": [
-        [
+    },
+    "dead_outsider_J11": {
+        "tags": [
             "they_df",
             "you_sc",
             "kitten",
             "you_blind",
             "they_blind"
         ],
-        [
+        "intro": [
             "Hey, there, buddy.",
             "How did you get over here? Is there an open spot at the border? Can you show me?"
         ]
-    ],
-    "dead_outsider_J12": [
-        [
+    },
+    "dead_outsider_J12": {
+        "tags": [
             "they_df",
             "you_ur",
             "kitten",
             "you_blind",
             "they_blind"
         ],
-        [
+        "intro": [
             "Are... are you lost?",
             "So am I."
         ]
-    ],
-    "dead_outsider_J13": [
-        [
+    },
+    "dead_outsider_J13": {
+        "tags": [
             "they_df",
             "you_df",
             "kitten",
             "you_blind",
             "they_blind"
         ],
-        [
+        "intro": [
             "An outsider and a kit in the Dark Forest.",
             "I think these 'StarClan' cats need to take a good look at who it really is they're sending to purgatory."
         ]
-    ],
-    "dead_outsider_J14": [
-        [
+    },
+    "dead_outsider_J14": {
+        "tags": [
             "they_dead",
             "you_shunned",
             "grievingthem",
@@ -198,12 +198,12 @@
             "you_deaf",
             "they_deaf"
         ],
-        [
+        "intro": [
             "[t_c gives you a sympathetic look.]"
         ]
-    ],
-    "dead_outsider_J15": [
-        [
+    },
+    "dead_outsider_J15": {
+        "tags": [
             "they_dead",
             "you_shunned",
             "grievingthem",
@@ -213,52 +213,52 @@
             "you_blind",
             "they_blind"
         ],
-        [
+        "intro": [
             "Aw, y_c. Bad moon, huh?"
         ]
-    ],
-    "dead_outsider_J16": [
-        [
+    },
+    "dead_outsider_J16": {
+        "tags": [
             "they_ur",
             "any",
             "they_kitten",
             "you_not_kit",
             "they_blind"
         ],
-        [
+        "intro": [
             "Aah!",
-            "[You turn your head when you hear a small yelp. t_c is slowly floating towards you, nearly a tail-length off of the ground. {PRONOUN/t_c/poss/CAP} paws are swinging wildly in the air as {PRONOUN/t_c/subject} {VERB/t_c/try/tries} to ground {PRONOUN/t_c/self}.]",
-            "[Though you weren't sure it would, {PRONOUN/t_c/poss} ghostly pelt reacts to your touch and you're able to gently push {PRONOUN/t_c/object} back onto the ground.]",
+            "[You turn your head when you hear a small yelp. t_c is slowly floating towards you, nearly a tail-length off of the ground. {PRONOUN\/t_c\/poss\/CAP} paws are swinging wildly in the air as {PRONOUN\/t_c\/subject} {VERB\/t_c\/try\/tries} to ground {PRONOUN\/t_c\/self}.]",
+            "[Though you weren't sure it would, {PRONOUN\/t_c\/poss} ghostly pelt reacts to your touch and you're able to gently push {PRONOUN\/t_c\/object} back onto the ground.]",
             "Whoa! Thanks, Clancat! That was super scary.",
             "It was kind of fun, though... I'm gonna try again."
         ]
-    ],
-    "dead_urourside_c1": [
-        [
+    },
+    "dead_urourside_c1": {
+        "tags": [
             "you_dead",
             "they_ur",
             "they_outside",
             "any"
         ],
-        [
+        "intro": [
             "[t_c is watching c_nClan curiously.]",
             "I've always wondered how Clans worked. Do you know anything about them, y_c?"
         ]
-    ],
-    "dead_urourside_c2": [
-        [
+    },
+    "dead_urourside_c2": {
+        "tags": [
             "you_dead",
             "they_ur",
             "they_outside",
             "any"
         ],
-        [
+        "intro": [
             "[t_c wanders around c_nClan's territory.]",
             "I've never been able to see this area when I was alive. Those Clan cats always chased me away before I could take a closer look."
         ]
-    ],
-    "dead_urourside_c3": [
-        [
+    },
+    "dead_urourside_c3": {
+        "tags": [
             "you_dead",
             "they_ur",
             "they_outside",
@@ -266,37 +266,37 @@
             "they_deaf",
             "you_deaf"
         ],
-        [
+        "intro": [
             "[t_c easily navigates the maze of Twoleg dens, leaping from fence to fence reminiscent of the way Clan cats jump through trees.]"
         ]
-    ],
-    "dead_uroutside_c4": [
-        [
+    },
+    "dead_uroutside_c4": {
+        "tags": [
             "you_dead",
             "they_ur",
             "they_outside",
             "they_kitten",
             "any"
         ],
-        [
+        "intro": [
             "Die! Die! Die! Die! Die!",
             "[Alarmed, you sprint over to where the commotion is.]",
-            "[You find t_c stomping on an ant colony, but {PRONOUN/t_c/poss} paws pass harmlessly through them.]"
+            "[You find t_c stomping on an ant colony, but {PRONOUN\/t_c\/poss} paws pass harmlessly through them.]"
         ]
-    ],
-    "alive_urourside_c": [
-        [
+    },
+    "alive_urourside_c": {
+        "tags": [
             "they_ur",
             "they_outside",
             "any"
         ],
-        [
+        "intro": [
             "[t_c is watching c_nClan curiously.]",
             "I've always wondered how Clans worked. Can you tell me more about them?"
         ]
-    ],
-    "scnew_urnew_R1": [
-        [
+    },
+    "scnew_urnew_R1": {
+        "tags": [
             "newborn",
             "they_newborn",
             "you_sc",
@@ -305,15 +305,15 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Meewwww!",
             "[Oh? Who is that? You toddle closer curiously.]",
             "Meeew mew.",
             "[You're friends now. The day is spent napping together.]"
         ]
-    ],
-    "scnew_urnew_R2": [
-        [
+    },
+    "scnew_urnew_R2": {
+        "tags": [
             "newborn",
             "they_newborn",
             "you_sc",
@@ -324,14 +324,14 @@
             "you_deaf",
             "they_deaf"
         ],
-        [
+        "intro": [
             "[You've met a strange new kit who smells weird.]",
             "[You both spend time sniffing and scrunching your noses at each other before calling an apparent truce.]",
             "[You toddle away first when a queen spots you.]"
         ]
-    ],
-    "scnew_urnew_R3": [
-        [
+    },
+    "scnew_urnew_R3": {
+        "tags": [
             "newborn",
             "they_newborn",
             "you_sc",
@@ -340,15 +340,15 @@
             "you_blind",
             "they_blind"
         ],
-        [
+        "intro": [
             "Mew! Mew! Mew! Mew!",
             "[What's that sound?]",
             "Mew! Meeew! Meeeew! Meeeew!",
             "[You decide to mew back, and soon there is a volley of tiny squeaks echoing softly between the two of you.]"
         ]
-    ],
-    "scnew_urnew_R4": [
-        [
+    },
+    "scnew_urnew_R4": {
+        "tags": [
             "newborn",
             "they_newborn",
             "you_sc",
@@ -359,15 +359,15 @@
             "you_deaf",
             "they_deaf"
         ],
-        [
+        "intro": [
             "[A queen has noticed a strange newborn amongst the regulars. You already knew t_c was there.]",
-            "[You snuggle closer to {PRONOUN/t_c/object}, laying your tiny head on the small of {PRONOUN/t_c/poss} back.]",
+            "[You snuggle closer to {PRONOUN\/t_c\/object}, laying your tiny head on the small of {PRONOUN\/t_c\/poss} back.]",
             "[t_c yawns cutely.]",
             "[The queen can't bring themself to separate you two for the moment.]"
         ]
-    ],
-    "sckit_urnew_R3": [
-        [
+    },
+    "sckit_urnew_R3": {
+        "tags": [
             "kitten",
             "they_newborn",
             "you_sc",
@@ -376,16 +376,16 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Mew. Mew. Mew. Mew. Mew. Mew. Meeeew.",
-            "[Is that... t_c? {VERB/t_c/Aren't/Isn't} {PRONOUN/t_c/subject} a kittypet? You heard one of the queens say that before.]",
-            "[{PRONOUN/t_c/subject/CAP}{VERB/t_c/'re/'s} mewing with each step as {PRONOUN/t_c/subject} {VERB/t_c/go/goes} past. Maybe {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} counting...?]",
+            "[Is that... t_c? {VERB\/t_c\/Aren't\/Isn't} {PRONOUN\/t_c\/subject} a kittypet? You heard one of the queens say that before.]",
+            "[{PRONOUN\/t_c\/subject\/CAP}{VERB\/t_c\/'re\/'s} mewing with each step as {PRONOUN\/t_c\/subject} {VERB\/t_c\/go\/goes} past. Maybe {PRONOUN\/t_c\/subject}{VERB\/t_c\/'re\/'s} counting...?]",
             "[... Can newborns count?]",
-            "[t_c toddles off, unaware of the existential thoughts going through your head because of {PRONOUN/t_c/object}.]"
+            "[t_c toddles off, unaware of the existential thoughts going through your head because of {PRONOUN\/t_c\/object}.]"
         ]
-    ],
-    "sckit_urnew_R4": [
-        [
+    },
+    "sckit_urnew_R4": {
+        "tags": [
             "kitten",
             "they_newborn",
             "you_sc",
@@ -394,17 +394,17 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "[In the middle of a scavenger hunt, you stumble across t_c!]",
             "[... Well... It wouldn't hurt to have a friend to join you!]",
             "Mew?",
-            "[You pick up t_c and help {PRONOUN/t_c/object} tag along for the game. You don't win, but {PRONOUN/t_c/subject} seemed to have had lots of fun, and that makes it worth it!]",
-            "[You take {PRONOUN/t_c/object} back to the border with a cheerful goodbye.]",
+            "[You pick up t_c and help {PRONOUN\/t_c\/object} tag along for the game. You don't win, but {PRONOUN\/t_c\/subject} seemed to have had lots of fun, and that makes it worth it!]",
+            "[You take {PRONOUN\/t_c\/object} back to the border with a cheerful goodbye.]",
             "Mew mew! Meeew!"
         ]
-    ],
-    "sckit_urnew_R5": [
-        [
+    },
+    "sckit_urnew_R5": {
+        "tags": [
             "kitten",
             "they_newborn",
             "you_sc",
@@ -413,98 +413,98 @@
             "they_blind",
             "you_blind"
         ],
-        [
-            "[One of the queens asks you for a favor since they're alone with the newborns right now. t_c has wandered in, but it's time for {PRONOUN/t_c/object} to go home.]",
-            "[The little kittypet wriggles as you struggle to carry {PRONOUN/t_c/object} to the border.]",
+        "intro": [
+            "[One of the queens asks you for a favor since they're alone with the newborns right now. t_c has wandered in, but it's time for {PRONOUN\/t_c\/object} to go home.]",
+            "[The little kittypet wriggles as you struggle to carry {PRONOUN\/t_c\/object} to the border.]",
             "Meeeww! Meeewwww! Mew! Mew! Meerroooow!",
-            "[{PRONOUN/t_c/subject/CAP}{VERB/t_c/'re/'s} certainly grumpy today!]"
+            "[{PRONOUN\/t_c\/subject\/CAP}{VERB\/t_c\/'re\/'s} certainly grumpy today!]"
         ]
-    ],
-    "dead_outsider_J17": [
-        [
+    },
+    "dead_outsider_J17": {
+        "tags": [
             "they_sc",
             "kitten",
             "they_blind",
             "they_deaf",
             "you_deaf"
         ],
-        [
+        "intro": [
             "[t_c is frolicking through stardust.]"
         ]
-    ],
-    "dead_outsider_J18": [
-        [
+    },
+    "dead_outsider_J18": {
+        "tags": [
             "they_sc",
             "kitten",
             "you_blind"
         ],
-        [
+        "intro": [
             "Oh, hey there! You're cute.",
-            "[You wonder what t_c is doing here when {PRONOUN/t_c/subject} {VERB/t_c/don't/doesn't} smell like a Clan cat.]"
+            "[You wonder what t_c is doing here when {PRONOUN\/t_c\/subject} {VERB\/t_c\/don't\/doesn't} smell like a Clan cat.]"
         ]
-    ],
-    "you_living_they_outsider_sc_CM1": [
-        [
+    },
+    "you_living_they_outsider_sc_CM1": {
+        "tags": [
             "they_sc",
             "any"
         ],
-        [
-            "[t_c is staring at {PRONOUN/t_c/poss} surroundings, eyes wide as {PRONOUN/t_c/subject} {VERB/t_c/watch/watches} starry-pelted cats walk by. Suddenly, {PRONOUN/t_c/subject} {VERB/t_c/turn/turns} to you, seemingly surprised.]",
+        "intro": [
+            "[t_c is staring at {PRONOUN\/t_c\/poss} surroundings, eyes wide as {PRONOUN\/t_c\/subject} {VERB\/t_c\/watch\/watches} starry-pelted cats walk by. Suddenly, {PRONOUN\/t_c\/subject} {VERB\/t_c\/turn\/turns} to you, seemingly surprised.]",
             "Oh! y_c! Are you -- No, it's not your time yet.",
-            "[You slowly recognize that this is a cat that you've never seen nor heard of before. You gently question why {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} here.]",
+            "[You slowly recognize that this is a cat that you've never seen nor heard of before. You gently question why {PRONOUN\/t_c\/subject}{VERB\/t_c\/'re\/'s} here.]",
             "I don't know, but no one seems to mind.",
             "No matter that I wasn't one of you in life, if I ended up here... It must be my duty to protect you.",
             "So I will."
         ]
-    ],
-    "dead_outsider_J19": [
-        [
+    },
+    "dead_outsider_J19": {
+        "tags": [
             "they_dead",
             "you_dead",
             "newborn",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Oh, goodness...",
             "I'm sorry you have to be here, little guy."
         ]
-    ],
-    "oshunned_deaf_J1": [
-        [
+    },
+    "oshunned_deaf_J1": {
+        "tags": [
             "you_shunned",
             "they_dead",
             "you_deaf",
             "any"
         ],
-        [
+        "intro": [
             "[t_c looks at you very curiously, but makes no attempt to communicate.]"
         ]
-    ],
-    "oshunned_deaf_J2": [
-        [
+    },
+    "oshunned_deaf_J2": {
+        "tags": [
             "you_shunned",
             "they_dead",
             "they_deaf",
             "you_deaf",
             "any"
         ],
-        [
+        "intro": [
             "[t_c is looking at you with pity.]",
             "[You flash them a harsh glare. A ghost shouldn't be sympathising with a killer.]"
         ]
-    ],
-    "oshunned_deaf_J3": [
-        [
+    },
+    "oshunned_deaf_J3": {
+        "tags": [
             "you_shunned",
             "they_ur",
             "they_dead",
             "you_deaf",
             "any"
         ],
-        [
+        "intro": [
             "[t_c is looking at you with pity.]",
             "[You flash them a harsh glare. A ghost shouldn't be sympathising with a killer.]"
         ]
-    ]
+    }
 }

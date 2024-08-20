@@ -1,148 +1,148 @@
 {
-    "newborn_1": [
-        [
+    "newborn_1": {
+        "tags": [
             "Any",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Mew?"
         ]
-    ],
-    "newborn_2": [
-        [
+    },
+    "newborn_2": {
+        "tags": [
             "Any",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Meow!"
         ]
-    ],
-    "newborn_3": [
-        [
+    },
+    "newborn_3": {
+        "tags": [
             "Any",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Purrrrr..."
         ]
-    ],
-    "newborn_4": [
-        [
+    },
+    "newborn_4": {
+        "tags": [
             "Any",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Mrow!"
         ]
-    ],
-    "newborn_5": [
-        [
+    },
+    "newborn_5": {
+        "tags": [
             "Any",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "MROOOOOOOOW!!!!!!!!"
         ]
-    ],
-    "newborn_6": [
-        [
+    },
+    "newborn_6": {
+        "tags": [
             "Any",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Grr..."
         ]
-    ],
-    "newborn_7": [
-        [
+    },
+    "newborn_7": {
+        "tags": [
             "Any",
             "insult",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Grr..."
         ]
-    ],
-    "newborn_11": [
-        [
+    },
+    "newborn_11": {
+        "tags": [
             "newborn",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Mew?"
         ]
-    ],
-    "newborn_12": [
-        [
+    },
+    "newborn_12": {
+        "tags": [
             "newborn",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Meow!"
         ]
-    ],
-    "newborn_13": [
-        [
+    },
+    "newborn_13": {
+        "tags": [
             "newborn",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Purrrrr..."
         ]
-    ],
-    "newborn_14": [
-        [
+    },
+    "newborn_14": {
+        "tags": [
             "newborn",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Mrow!"
         ]
-    ],
-    "newborn_15": [
-        [
+    },
+    "newborn_15": {
+        "tags": [
             "newborn",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "MROOOOOOOOW!!!!!!!!"
         ]
-    ],
-    "newborn_16": [
-        [
+    },
+    "newborn_16": {
+        "tags": [
             "newborn",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Grr..."
         ]
-    ],
-    "newborn_17": [
-        [
+    },
+    "newborn_17": {
+        "tags": [
             "newborn",
             "insult",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Grr..."
         ]
-    ],
-    "newborn_littermate": [
-        [
+    },
+    "newborn_littermate": {
+        "tags": [
             "newborn",
             "littermate",
             "they_blind",
@@ -150,109 +150,109 @@
             "they_deaf",
             "you_deaf"
         ],
-        [
-            "[You flop on top of t_c and {PRONOUN/t_c/subject} {VERB/t_c/let/lets} out an annoyed squeak.]"
+        "intro": [
+            "[You flop on top of t_c and {PRONOUN\/t_c\/subject} {VERB\/t_c\/let\/lets} out an annoyed squeak.]"
         ]
-    ],
-    "assertive_newborn1": [
-        [
+    },
+    "assertive_newborn1": {
+        "tags": [
             "Any",
             "assertive",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Mroww...",
-            "[t_c seems to already be trying to squirm {PRONOUN/t_c/poss} way out of the nest!]"
+            "[t_c seems to already be trying to squirm {PRONOUN\/t_c\/poss} way out of the nest!]"
         ]
-    ],
-    "assertive_newborn2": [
-        [
+    },
+    "assertive_newborn2": {
+        "tags": [
             "Any",
             "assertive",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Meowmeowmeowmeowmeow!",
             "[t_c is the loudest kitten in the nursery!]"
         ]
-    ],
-    "assertive_newborn3": [
-        [
+    },
+    "assertive_newborn3": {
+        "tags": [
             "Any",
             "assertive",
             "they_blind",
             "you_blind",
             "they_deaf"
         ],
-        [
+        "intro": [
             "Prrr...",
-            "[t_c noses {PRONOUN/t_c/poss} siblings out of the way to nurse.]"
+            "[t_c noses {PRONOUN\/t_c\/poss} siblings out of the way to nurse.]"
         ]
-    ],
-    "introspective_NB": [
-        [
+    },
+    "introspective_NB": {
+        "tags": [
             "any",
             "introspective",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Mew!",
-            "[You turn to see a newborn crawling around on {PRONOUN/t_c/poss} own outside the nursery. How on earth did {PRONOUN/t_c/subject} get here?]",
-            "[You pick {PRONOUN/t_c/object} up and carry {PRONOUN/t_c/object} back to the nursery.]",
+            "[You turn to see a newborn crawling around on {PRONOUN\/t_c\/poss} own outside the nursery. How on earth did {PRONOUN\/t_c\/subject} get here?]",
+            "[You pick {PRONOUN\/t_c\/object} up and carry {PRONOUN\/t_c\/object} back to the nursery.]",
             "[You turn around to have a chat with a Clanmate for five minutes.]",
             "Meeewww!",
             "[The kitten has somehow escaped again.]",
             "[You need to have a chat with the queens.]"
         ]
-    ],
-    "introspective_NB_1": [
-        [
+    },
+    "introspective_NB_1": {
+        "tags": [
             "any",
             "introspective",
             "they_deaf",
             "you_deaf"
         ],
-        [
+        "intro": [
             "[You walk into the nursery to check on the kittens.]",
-            "[r_q smiles and gestures to a newborn tucked into {PRONOUN/r_q/poss} side, gently snoring]",
+            "[r_q smiles and gestures to a newborn tucked into {PRONOUN\/r_q\/poss} side, gently snoring]",
             "...zzzz...",
             "[You politely smile at the queen and leave.]"
         ]
-    ],
-    "introspective_NB_2": [
-        [
+    },
+    "introspective_NB_2": {
+        "tags": [
             "any",
             "introspective",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "[You're sat grooming yourself in the clearing.]",
             "[A little newborn stumbles into you.]",
             "Squeak! Meow!",
-            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/turn/turns} around and {VERB/t_c/stumble/stumbles} away. You're too surprised to grab {PRONOUN/t_c/object} before {PRONOUN/t_c/subject} {VERB/t_c/crawl/crawls} back to the nursery. Seems at the minimum that {PRONOUN/t_c/subject} {VERB/t_c/have/has} a good sense of direction?]"
+            "[{PRONOUN\/t_c\/subject\/CAP} {VERB\/t_c\/turn\/turns} around and {VERB\/t_c\/stumble\/stumbles} away. You're too surprised to grab {PRONOUN\/t_c\/object} before {PRONOUN\/t_c\/subject} {VERB\/t_c\/crawl\/crawls} back to the nursery. Seems at the minimum that {PRONOUN\/t_c\/subject} {VERB\/t_c\/have\/has} a good sense of direction?]"
         ]
-    ],
-    "introspective_NB_3": [
-        [
+    },
+    "introspective_NB_3": {
+        "tags": [
             "any",
             "introspective",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Mew?",
             "[t_c walks into your side when wandering around the nursery.]",
             "Meow! Prrr...",
-            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/flop/flops} over and {VERB/t_c/lay/lays} against you, seemingly satisfied with where {PRONOUN/t_c/subject} {VERB/t_c/are/is}.]",
+            "[{PRONOUN\/t_c\/subject\/CAP} {VERB\/t_c\/flop\/flops} over and {VERB\/t_c\/lay\/lays} against you, seemingly satisfied with where {PRONOUN\/t_c\/subject} {VERB\/t_c\/are\/is}.]",
             "[Guess you're not moving any time soon.]"
         ]
-    ],
-    "introspective_NB_4": [
-        [
+    },
+    "introspective_NB_4": {
+        "tags": [
             "any",
             "introspective",
             "they_blind",
@@ -260,26 +260,26 @@
             "they_deaf",
             "you_deaf"
         ],
-        [
+        "intro": [
             "[You notice a newborn kitten... t_c? t_c sits in the corner.]",
             "...",
-            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/don't/doesn't} look distressed so you decide to leave {PRONOUN/t_c/object} there.]"
+            "[{PRONOUN\/t_c\/subject\/CAP} {VERB\/t_c\/don't\/doesn't} look distressed so you decide to leave {PRONOUN\/t_c\/object} there.]"
         ]
-    ],
-    "introspective_NB_5": [
-        [
+    },
+    "introspective_NB_5": {
+        "tags": [
             "any",
             "introspective",
             "they_blind"
         ],
-        [
+        "intro": [
             "Mewww???",
-            "[A newborn kitten yells at you from the nursery. You walk over and flick your tail over {PRONOUN/t_c/poss} face.]",
+            "[A newborn kitten yells at you from the nursery. You walk over and flick your tail over {PRONOUN\/t_c\/poss} face.]",
             "Meow!"
         ]
-    ],
-    "sweet_newborn_1": [
-        [
+    },
+    "sweet_newborn_1": {
+        "tags": [
             "Any",
             "sweet",
             "they_blind",
@@ -287,24 +287,24 @@
             "they_deaf",
             "you_deaf"
         ],
-        [
+        "intro": [
             "[t_c seems to cuddle closer to you, purring.]"
         ]
-    ],
-    "sweet_newborn_2": [
-        [
+    },
+    "sweet_newborn_2": {
+        "tags": [
             "Any",
             "sweet",
             "they_blind",
             "they_deaf",
             "you_deaf"
         ],
-        [
-            "[t_c reaches {PRONOUN/t_c/poss} tiny little paw up, placing it on your nose with what you could swear is an itty bitty smile.]"
+        "intro": [
+            "[t_c reaches {PRONOUN\/t_c\/poss} tiny little paw up, placing it on your nose with what you could swear is an itty bitty smile.]"
         ]
-    ],
-    "silly_newborn_1": [
-        [
+    },
+    "silly_newborn_1": {
+        "tags": [
             "Any",
             "silly",
             "they_blind",
@@ -312,132 +312,132 @@
             "they_deaf",
             "you_deaf"
         ],
-        [
+        "intro": [
             "[t_c reaches up and tries to touch your nose.]"
         ]
-    ],
-    "silly_newborn_2": [
-        [
+    },
+    "silly_newborn_2": {
+        "tags": [
             "Any",
             "silly",
             "they_blind",
             "you_blind"
         ],
-        [
-            "[t_c mews even louder than the rest of {PRONOUN/t_c/poss} litter, as if it were a competition.]"
+        "intro": [
+            "[t_c mews even louder than the rest of {PRONOUN\/t_c\/poss} litter, as if it were a competition.]"
         ]
-    ],
-    "silly_newborn_3": [
-        [
+    },
+    "silly_newborn_3": {
+        "tags": [
             "Any",
             "silly",
             "they_blind",
             "you_blind",
             "they_deaf"
         ],
-        [
+        "intro": [
             "[t_c is making a sound that sounds vaguely like giggling.]"
         ]
-    ],
-    "silly_newborn_4": [
-        [
+    },
+    "silly_newborn_4": {
+        "tags": [
             "Any",
             "silly",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "MROOW!",
             "MEOW! MEOW MEOW MEOW MEOW!",
             "Mew!"
         ]
-    ],
-    "broodingnewborn": [
-        [
+    },
+    "broodingnewborn": {
+        "tags": [
             "newborn",
             "brooding",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Mrow!",
             "[Did ... Did t_c just try to bat you away?]"
         ]
-    ],
-    "broodingnewborn_2": [
-        [
+    },
+    "broodingnewborn_2": {
+        "tags": [
             "newborn",
             "brooding",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Grrr ...",
             "[t_c squirms away from your touch.]"
         ]
-    ],
-    "broodingnewborn_3": [
-        [
+    },
+    "broodingnewborn_3": {
+        "tags": [
             "newborn",
             "brooding",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Hisssss ..."
         ]
-    ],
-    "broodingnewborn_4": [
-        [
+    },
+    "broodingnewborn_4": {
+        "tags": [
             "newborn",
             "brooding",
             "they_blind",
             "you_blind",
             "they_deaf"
         ],
-        [
+        "intro": [
             "...",
             "[t_c must be the quietest kit you've ever met!]"
         ]
-    ],
-    "stable_newborn_01": [
-        [
+    },
+    "stable_newborn_01": {
+        "tags": [
             "Any",
             "stable",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Mew mew.",
-            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/bury/buries} {PRONOUN/t_c/poss} nose into {PRONOUN/t_c/poss} little paws.]"
+            "[{PRONOUN\/t_c\/subject\/CAP} {VERB\/t_c\/bury\/buries} {PRONOUN\/t_c\/poss} nose into {PRONOUN\/t_c\/poss} little paws.]"
         ]
-    ],
-    "stable_newborn_02": [
-        [
+    },
+    "stable_newborn_02": {
+        "tags": [
             "Any",
             "stable",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Mreow?",
-            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/shift/shifts} in {PRONOUN/t_c/poss} sleep, chest rising and falling slowly.]"
+            "[{PRONOUN\/t_c\/subject\/CAP} {VERB\/t_c\/shift\/shifts} in {PRONOUN\/t_c\/poss} sleep, chest rising and falling slowly.]"
         ]
-    ],
-    "stable_newborn_03": [
-        [
+    },
+    "stable_newborn_03": {
+        "tags": [
             "Any",
             "stable",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Meep...",
-            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/press/presses} into your belly, snuggling closer.]"
+            "[{PRONOUN\/t_c\/subject\/CAP} {VERB\/t_c\/press\/presses} into your belly, snuggling closer.]"
         ]
-    ],
-    "stable_newborn_04": [
-        [
+    },
+    "stable_newborn_04": {
+        "tags": [
             "Any",
             "stable",
             "they_blind",
@@ -445,146 +445,146 @@
             "they_deaf",
             "you_deaf"
         ],
-        [
-            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/kick/kicks} {PRONOUN/t_c/poss} legs in {PRONOUN/t_c/poss} sleep in a running motion.]"
+        "intro": [
+            "[{PRONOUN\/t_c\/subject\/CAP} {VERB\/t_c\/kick\/kicks} {PRONOUN\/t_c\/poss} legs in {PRONOUN\/t_c\/poss} sleep in a running motion.]"
         ]
-    ],
-    "stable_newborn_05": [
-        [
+    },
+    "stable_newborn_05": {
+        "tags": [
             "Any",
             "stable",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "MMMMAAAARRRRRWWOOOOO!",
-            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/wail/wails} at the top of {PRONOUN/t_c/poss} lungs.]"
+            "[{PRONOUN\/t_c\/subject\/CAP} {VERB\/t_c\/wail\/wails} at the top of {PRONOUN\/t_c\/poss} lungs.]"
         ]
-    ],
-    "stable_newborn_06": [
-        [
+    },
+    "stable_newborn_06": {
+        "tags": [
             "Any",
             "stable",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Meowel...",
-            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/rest/rests} against {PRONOUN/t_c/poss} siblings and {VERB/t_c/purr/purrs}. It seems {PRONOUN/t_c/subject}{VERB/t_c/'ve/'s} already made an unbreakable promise of protection- far earlier then what you would have expected!]"
+            "[{PRONOUN\/t_c\/subject\/CAP} {VERB\/t_c\/rest\/rests} against {PRONOUN\/t_c\/poss} siblings and {VERB\/t_c\/purr\/purrs}. It seems {PRONOUN\/t_c\/subject}{VERB\/t_c\/'ve\/'s} already made an unbreakable promise of protection- far earlier then what you would have expected!]"
         ]
-    ],
-    "stable_newborn_07": [
-        [
+    },
+    "stable_newborn_07": {
+        "tags": [
             "Any",
             "stable",
             "they_blind",
             "you_blind",
             "they_deaf"
         ],
-        [
+        "intro": [
             "...",
-            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/lay/lays} still and quiet. You press your nose to {PRONOUN/t_c/object} in fear to make sure {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} okay, seems {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} just a quiet one...]"
+            "[{PRONOUN\/t_c\/subject\/CAP} {VERB\/t_c\/lay\/lays} still and quiet. You press your nose to {PRONOUN\/t_c\/object} in fear to make sure {PRONOUN\/t_c\/subject}{VERB\/t_c\/'re\/'s} okay, seems {PRONOUN\/t_c\/subject}{VERB\/t_c\/'re\/'s} just a quiet one...]"
         ]
-    ],
-    "stable_newborn_08": [
-        [
+    },
+    "stable_newborn_08": {
+        "tags": [
             "Any",
             "stable",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Maow!",
-            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/squirm/squirms} up to you and {VERB/t_c/place/places} {PRONOUN/t_c/poss} paws on your nose, holding you as close as {PRONOUN/t_c/subject} can.]"
+            "[{PRONOUN\/t_c\/subject\/CAP} {VERB\/t_c\/squirm\/squirms} up to you and {VERB\/t_c\/place\/places} {PRONOUN\/t_c\/poss} paws on your nose, holding you as close as {PRONOUN\/t_c\/subject} can.]"
         ]
-    ],
-    "stable_newborn_09": [
-        [
+    },
+    "stable_newborn_09": {
+        "tags": [
             "Any",
             "stable",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Meow.",
             "[Never did you think a kitten could say meow' so bluntly, but here you are.]"
         ]
-    ],
-    "stable_newborn_10": [
-        [
+    },
+    "stable_newborn_10": {
+        "tags": [
             "Any",
             "stable",
             "they_blind"
         ],
-        [
+        "intro": [
             "Mew wow ow.",
-            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/puff/puffs} out {PRONOUN/t_c/poss} little chest as {PRONOUN/t_c/subject} {VERB/t_c/peep/peeps} in protest of staying still in the nest- it seems {PRONOUN/t_c/subject} {VERB/t_c/want/wants} to explore before {PRONOUN/t_c/subject} can even see!]"
+            "[{PRONOUN\/t_c\/subject\/CAP} {VERB\/t_c\/puff\/puffs} out {PRONOUN\/t_c\/poss} little chest as {PRONOUN\/t_c\/subject} {VERB\/t_c\/peep\/peeps} in protest of staying still in the nest- it seems {PRONOUN\/t_c\/subject} {VERB\/t_c\/want\/wants} to explore before {PRONOUN\/t_c\/subject} can even see!]"
         ]
-    ],
-    "stable_newborn_11": [
-        [
+    },
+    "stable_newborn_11": {
+        "tags": [
             "Any",
             "stable",
             "they_blind"
         ],
-        [
+        "intro": [
             "Meow, me mow.",
-            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/shake/shakes} {PRONOUN/t_c/poss} head at you disapprovingly. {PRONOUN/t_c/subject/CAP} {VERB/t_c/have/has} so much to learn...]"
+            "[{PRONOUN\/t_c\/subject\/CAP} {VERB\/t_c\/shake\/shakes} {PRONOUN\/t_c\/poss} head at you disapprovingly. {PRONOUN\/t_c\/subject\/CAP} {VERB\/t_c\/have\/has} so much to learn...]"
         ]
-    ],
-    "stable_newborn_112": [
-        [
+    },
+    "stable_newborn_112": {
+        "tags": [
             "Any",
             "stable",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "... ... ...",
             "Mew... me..."
         ]
-    ],
-    "stable_newborn_113": [
-        [
+    },
+    "stable_newborn_113": {
+        "tags": [
             "Any",
             "stable",
             "they_blind",
             "they_deaf",
             "you_deaf"
         ],
-        [
-            "[You watch curiously as t_c opens {PRONOUN/t_c/poss} little mouth again and again making a small popping sound. {PRONOUN/t_c/subject/CAP}{VERB/t_c/'re/'s} so cute!!!]"
+        "intro": [
+            "[You watch curiously as t_c opens {PRONOUN\/t_c\/poss} little mouth again and again making a small popping sound. {PRONOUN\/t_c\/subject\/CAP}{VERB\/t_c\/'re\/'s} so cute!!!]"
         ]
-    ],
-    "stable_newborn_14": [
-        [
+    },
+    "stable_newborn_14": {
+        "tags": [
             "newborn",
             "littermate",
             "stable",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Meep!",
-            "[t_c boops your nose as you roll into {PRONOUN/t_c/object}.]"
+            "[t_c boops your nose as you roll into {PRONOUN\/t_c\/object}.]"
         ]
-    ],
-    "stable_newborn_15": [
-        [
+    },
+    "stable_newborn_15": {
+        "tags": [
             "newborn",
             "littermate",
             "stable",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Mraow. Mew?",
-            "[You climb on top of t_c's back and begin to purr as {PRONOUN/t_c/poss} tiny body settles. The two of you seem comfortable despite the distant yowling of your parents in worry. y_p attempts to separate the two of you.]",
-            "[To {PRONOUN/y_p/poss} disdain, in a few moments you both are in the same spot, but this time t_c sleeps on your back.]"
+            "[You climb on top of t_c's back and begin to purr as {PRONOUN\/t_c\/poss} tiny body settles. The two of you seem comfortable despite the distant yowling of your parents in worry. y_p attempts to separate the two of you.]",
+            "[To {PRONOUN\/y_p\/poss} disdain, in a few moments you both are in the same spot, but this time t_c sleeps on your back.]"
         ]
-    ],
-    "stable_newborn_16": [
-        [
+    },
+    "stable_newborn_16": {
+        "tags": [
             "newborn",
             "littermate",
             "stable",
@@ -593,38 +593,38 @@
             "they_deaf",
             "you_deaf"
         ],
-        [
+        "intro": [
             "[y_p carefully places a moss blanket over you and your littermates. You smile softly as you curl up under the warm coverage. t_c nudges your paw and settles beside you.]",
             "[Together like this, you're safe. Nothing outside the nursery matters. Not here and now, not while you and t_c are together.]"
         ]
-    ],
-    "stable_newborn_17": [
-        [
+    },
+    "stable_newborn_17": {
+        "tags": [
             "newborn",
             "littermate",
             "stable",
             "they_blind"
         ],
-        [
+        "intro": [
             "Mehehe mew.",
-            "[t_c cheekily giggles as {PRONOUN/t_c/subject} {VERB/t_c/roll/rolls} around the nest. You and y_l purr in tiny laughter as you squint, watching {PRONOUN/t_c/poss} little form.]"
+            "[t_c cheekily giggles as {PRONOUN\/t_c\/subject} {VERB\/t_c\/roll\/rolls} around the nest. You and y_l purr in tiny laughter as you squint, watching {PRONOUN\/t_c\/poss} little form.]"
         ]
-    ],
-    "stable_newborn_18": [
-        [
+    },
+    "stable_newborn_18": {
+        "tags": [
             "newborn",
             "littermate",
             "stable",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "MEOW!",
             "[You flinch back as t_c yowls in your little ear.]"
         ]
-    ],
-    "stable_newborn_19": [
-        [
+    },
+    "stable_newborn_19": {
+        "tags": [
             "newborn",
             "littermate",
             "stable",
@@ -633,169 +633,169 @@
             "they_deaf",
             "you_deaf"
         ],
-        [
-            "[You and t_c snuggle together in a pile of feathers that r_q gave y_p as a present. You both smile as you knead the soft texture. t_c seems like {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} especially enjoying it!]"
+        "intro": [
+            "[You and t_c snuggle together in a pile of feathers that r_q gave y_p as a present. You both smile as you knead the soft texture. t_c seems like {PRONOUN\/t_c\/subject}{VERB\/t_c\/'re\/'s} especially enjoying it!]"
         ]
-    ],
-    "stable_newborn_20": [
-        [
+    },
+    "stable_newborn_20": {
+        "tags": [
             "newborn",
             "littermate",
             "stable",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Me...",
             "Wuv...",
             "... ... ...",
             "Mew!"
         ]
-    ],
-    "stable_newborn_21": [
-        [
+    },
+    "stable_newborn_21": {
+        "tags": [
             "newborn",
             "littermate",
             "stable",
             "they_blind",
             "you_blind"
         ],
-        [
-            "[You curl against y_p and shiver slightly as a cool breeze enters the nursery. Despite {PRONOUN/t_c/poss} small size, t_c takes notice.]",
+        "intro": [
+            "[You curl against y_p and shiver slightly as a cool breeze enters the nursery. Despite {PRONOUN\/t_c\/poss} small size, t_c takes notice.]",
             "Meow!",
-            "[y_p stares in shock at the little kitten who spoke so clearly only to see tiny t_c pointing at you with {PRONOUN/t_c/poss} little paws. y_p immediately pulls you both closer and purrs loudly.]"
+            "[y_p stares in shock at the little kitten who spoke so clearly only to see tiny t_c pointing at you with {PRONOUN\/t_c\/poss} little paws. y_p immediately pulls you both closer and purrs loudly.]"
         ]
-    ],
-    "unabashed_newborn": [
-        [
+    },
+    "unabashed_newborn": {
+        "tags": [
             "newborn",
             "unabashed",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Mew! Meoow! Mrrrrow!",
-            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/paw/paws} at you playfully.]"
+            "[{PRONOUN\/t_c\/subject\/CAP} {VERB\/t_c\/paw\/paws} at you playfully.]"
         ]
-    ],
-    "unabashed_newborn1": [
-        [
+    },
+    "unabashed_newborn1": {
+        "tags": [
             "unabashed",
             "newborn",
             "they_deaf",
             "you_deaf",
             "they_blind"
         ],
-        [
+        "intro": [
             "[You spot t_c crawling around in circles, before suddenly biting r_c's leg.]"
         ]
-    ],
-    "cool_newborn_1": [
-        [
+    },
+    "cool_newborn_1": {
+        "tags": [
             "Any",
             "cool",
             "they_blind"
         ],
-        [
-            "[t_c mewls in response to you saying {PRONOUN/t_c/poss} name.]",
-            "[It appears as if {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} already trying to puff out the fur of {PRONOUN/t_c/poss} chest.]"
+        "intro": [
+            "[t_c mewls in response to you saying {PRONOUN\/t_c\/poss} name.]",
+            "[It appears as if {PRONOUN\/t_c\/subject}{VERB\/t_c\/'re\/'s} already trying to puff out the fur of {PRONOUN\/t_c\/poss} chest.]"
         ]
-    ],
-    "cool_newborn_2": [
-        [
+    },
+    "cool_newborn_2": {
+        "tags": [
             "Any",
             "cool",
             "they_blind",
             "they_deaf",
             "you_deaf"
         ],
-        [
-            "[t_c wobbles {PRONOUN/t_c/poss} little paws out in front of {PRONOUN/t_c/self}, mewling loudly.]",
-            "[Fresh to the world, it seems like {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} already trying to find steady ground to explore.]"
+        "intro": [
+            "[t_c wobbles {PRONOUN\/t_c\/poss} little paws out in front of {PRONOUN\/t_c\/self}, mewling loudly.]",
+            "[Fresh to the world, it seems like {PRONOUN\/t_c\/subject}{VERB\/t_c\/'re\/'s} already trying to find steady ground to explore.]"
         ]
-    ],
-    "upstanding_newborn": [
-        [
+    },
+    "upstanding_newborn": {
+        "tags": [
             "upstanding",
             "queen's_apprentice",
             "queen",
             "they_blind"
         ],
-        [
+        "intro": [
             "MEEEEW!",
             "[As you turn to comfort t_c, you spot a few kits trying to sneak out of the nursery!]"
         ]
-    ],
-    "upstanding_newborn1": [
-        [
+    },
+    "upstanding_newborn1": {
+        "tags": [
             "upstanding",
             "Any",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "MROW!",
-            "[t_c mewls angrily as {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} shoved out of {PRONOUN/t_c/poss} nest.]"
+            "[t_c mewls angrily as {PRONOUN\/t_c\/subject}{VERB\/t_c\/'re\/'s} shoved out of {PRONOUN\/t_c\/poss} nest.]"
         ]
-    ],
-    "upstanding_newborn2": [
-        [
+    },
+    "upstanding_newborn2": {
+        "tags": [
             "upstanding",
             "Any",
             "they_blind",
             "they_deaf",
             "you_deaf"
         ],
-        [
-            "[t_c is hard at work, kneading {PRONOUN/t_c/poss} nest with itty-bitty paws.]"
+        "intro": [
+            "[t_c is hard at work, kneading {PRONOUN\/t_c\/poss} nest with itty-bitty paws.]"
         ]
-    ],
-    "neurotic_newborn": [
-        [
+    },
+    "neurotic_newborn": {
+        "tags": [
             "Any",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Squeak!"
         ]
-    ],
-    "neurotic_newborn1": [
-        [
+    },
+    "neurotic_newborn1": {
+        "tags": [
             "Any",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Eep!",
-            "[t_c buries {PRONOUN/t_c/self} deep into the fluff of t_p's tail.]"
+            "[t_c buries {PRONOUN\/t_c\/self} deep into the fluff of t_p's tail.]"
         ]
-    ],
-    "neurotic_newborn2": [
-        [
+    },
+    "neurotic_newborn2": {
+        "tags": [
             "Any",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Mrow!",
-            "[t_c is buried under a pile of {PRONOUN/t_c/poss} siblings!]"
+            "[t_c is buried under a pile of {PRONOUN\/t_c\/poss} siblings!]"
         ]
-    ],
-    "neurotic_newborn3": [
-        [
+    },
+    "neurotic_newborn3": {
+        "tags": [
             "Any",
             "neurotic",
             "they_blind",
             "they_deaf",
             "you_deaf"
         ],
-        [
-            "[You can barely make out t_c, they're so deeply buried in {PRONOUN/t_c/poss} parent's nest.]"
+        "intro": [
+            "[You can barely make out t_c, they're so deeply buried in {PRONOUN\/t_c\/poss} parent's nest.]"
         ]
-    ],
-    "newborn_yourkit": [
-        [
+    },
+    "newborn_yourkit": {
+        "tags": [
             "any",
             "from_your_kit",
             "from_adopted_kit",
@@ -804,26 +804,26 @@
             "they_deaf",
             "you_deaf"
         ],
-        [
+        "intro": [
             "[t_c snuggles deep into your belly fur.]",
-            "[You wrap your tail around {PRONOUN/t_c/object}, shielding {PRONOUN/t_c/object} from the cold.]"
+            "[You wrap your tail around {PRONOUN\/t_c\/object}, shielding {PRONOUN\/t_c\/object} from the cold.]"
         ]
-    ],
-    "newborn_yourkit1": [
-        [
+    },
+    "newborn_yourkit1": {
+        "tags": [
             "any",
             "from_your_kit",
             "from_adopted_kit",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "[t_c squirms at your side, mewling frantically.]",
-            "[You lick the top of {PRONOUN/t_c/poss} head, quieting {PRONOUN/t_c/poss} cries.]"
+            "[You lick the top of {PRONOUN\/t_c\/poss} head, quieting {PRONOUN\/t_c\/poss} cries.]"
         ]
-    ],
-    "newborn_yourkit2": [
-        [
+    },
+    "newborn_yourkit2": {
+        "tags": [
             "any",
             "from_your_kit",
             "from_adopted_kit",
@@ -832,13 +832,13 @@
             "they_deaf",
             "you_deaf"
         ],
-        [
+        "intro": [
             "[t_c presses against your side, sound asleep.]",
-            "[You breathe in {PRONOUN/t_c/poss} milky scent, swearing to love {PRONOUN/t_c/object} forever.]"
+            "[You breathe in {PRONOUN\/t_c\/poss} milky scent, swearing to love {PRONOUN\/t_c\/object} forever.]"
         ]
-    ],
-    "newborn_yourkit3": [
-        [
+    },
+    "newborn_yourkit3": {
+        "tags": [
             "any",
             "from_your_kit",
             "from_adopted_kit",
@@ -847,13 +847,13 @@
             "they_deaf",
             "you_deaf"
         ],
-        [
+        "intro": [
             "[t_c ... t_c ... t_c ...]",
             "[You run your beautiful new kit's perfect name over and over through your mind, certain you'll never ever forget it.]"
         ]
-    ],
-    "newborn_UNLAWFUL": [
-        [
+    },
+    "newborn_UNLAWFUL": {
+        "tags": [
             "any",
             "unlawful",
             "they_blind",
@@ -861,124 +861,124 @@
             "they_deaf",
             "you_deaf"
         ],
-        [
-            "[t_c reaches up and bats at you. {PRONOUN/t_c/poss/CAP} tiny claws prick your nose.]",
+        "intro": [
+            "[t_c reaches up and bats at you. {PRONOUN\/t_c\/poss\/CAP} tiny claws prick your nose.]",
             "[You reel back with a yelp.]"
         ]
-    ],
-    "newborn_UNLAWFUL2": [
-        [
+    },
+    "newborn_UNLAWFUL2": {
+        "tags": [
             "any",
             "they_blind",
             "they_deaf",
             "you_deaf"
         ],
-        [
-            "[t_c has managed to wiggle {PRONOUN/t_c/poss} way out of {PRONOUN/t_c/poss} nest and is trying to make {PRONOUN/t_c/poss} way out of the nursery.]",
+        "intro": [
+            "[t_c has managed to wiggle {PRONOUN\/t_c\/poss} way out of {PRONOUN\/t_c\/poss} nest and is trying to make {PRONOUN\/t_c\/poss} way out of the nursery.]",
             "[t_p doesn't seem to notice.]"
         ]
-    ],
-    "newborn_unlawful": [
-        [
+    },
+    "newborn_unlawful": {
+        "tags": [
             "unlawful",
             "Any",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Squeak!",
-            "[t_c is already trying to crawl out of {PRONOUN/t_c/poss} nest!]"
+            "[t_c is already trying to crawl out of {PRONOUN\/t_c\/poss} nest!]"
         ]
-    ],
-    "newborn_unlawful1": [
-        [
+    },
+    "newborn_unlawful1": {
+        "tags": [
             "unlawful",
             "Any",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "[What's this newborn doing outside of the nursery?]",
             "Mew?",
-            "[You pick up the kit and return {PRONOUN/t_c/object} to r_q. t_c is gonna be a troublemaker, you can already tell.]"
+            "[You pick up the kit and return {PRONOUN\/t_c\/object} to r_q. t_c is gonna be a troublemaker, you can already tell.]"
         ]
-    ],
-    "newborn_unabashed1": [
-        [
+    },
+    "newborn_unabashed1": {
+        "tags": [
             "unabashed",
             "Any",
             "they_deaf",
             "you_deaf"
         ],
-        [
+        "intro": [
             "[t_c looks up at you, seeming confused and almost wary.]",
-            "[...did {PRONOUN/t_c/subject} just make a face of disgust?]",
+            "[...did {PRONOUN\/t_c\/subject} just make a face of disgust?]",
             "[You want to feel offended, but it's kind of hilarious to see that expression on a newborn's face.]"
         ]
-    ],
-    "newborn_unabashed2": [
-        [
+    },
+    "newborn_unabashed2": {
+        "tags": [
             "unabashed",
             "Any",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "[t_c is making a ruckus.]",
-            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/seem/seems} pretty proud of {PRONOUN/t_c/self} when {PRONOUN/t_c/subject} {VERB/t_c/disturb/disturbs} one of the other kits. What a little nuisance!]"
+            "[{PRONOUN\/t_c\/subject\/CAP} {VERB\/t_c\/seem\/seems} pretty proud of {PRONOUN\/t_c\/self} when {PRONOUN\/t_c\/subject} {VERB\/t_c\/disturb\/disturbs} one of the other kits. What a little nuisance!]"
         ]
-    ],
-    "newborn_unabashed3": [
-        [
+    },
+    "newborn_unabashed3": {
+        "tags": [
             "unabashed",
             "Any",
             "they_blind",
             "they_deaf",
             "you_deaf"
         ],
-        [
-            "[t_c is shoving all the other kits out of {PRONOUN/t_c/poss} way. How can a newborn be this unstoppable?!]"
+        "intro": [
+            "[t_c is shoving all the other kits out of {PRONOUN\/t_c\/poss} way. How can a newborn be this unstoppable?!]"
         ]
-    ],
-    "newborn_unabashed4": [
-        [
+    },
+    "newborn_unabashed4": {
+        "tags": [
             "unabashed",
             "Any",
             "they_blind",
             "they_deaf",
             "you_deaf"
         ],
-        [
+        "intro": [
             "[t_c is squirming and shoving poor t_l around.]",
-            "[...It looks like t_l has just accepted {PRONOUN/t_c/poss} fate.]"
+            "[...It looks like t_l has just accepted {PRONOUN\/t_c\/poss} fate.]"
         ]
-    ],
-    "stable_newborn_12": [
-        [
+    },
+    "stable_newborn_12": {
+        "tags": [
             "Any",
             "stable",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "... ... ...",
             "Mew... me..."
         ]
-    ],
-    "stable_newborn_13": [
-        [
+    },
+    "stable_newborn_13": {
+        "tags": [
             "Any",
             "stable",
             "they_blind",
             "they_deaf",
             "you_deaf"
         ],
-        [
-            "[You watch curiously as t_c opens {PRONOUN/t_c/poss} little mouth again and again making a small popping sound. {PRONOUN/t_c/poss/CAP}{VERB/t_c/'re/'s} so cute!!!]"
+        "intro": [
+            "[You watch curiously as t_c opens {PRONOUN\/t_c\/poss} little mouth again and again making a small popping sound. {PRONOUN\/t_c\/poss\/CAP}{VERB\/t_c\/'re\/'s} so cute!!!]"
         ]
-    ],
-    "newborn_fromlittermate": [
-        [
+    },
+    "newborn_fromlittermate": {
+        "tags": [
             "newborn",
             "littermate",
             "assertive",
@@ -988,13 +988,13 @@
             "they_deaf",
             "you_deaf"
         ],
-        [
+        "intro": [
             "[You're trying to find your way to a queen to feed you when... SMACK!]",
             "[t_c has shoved you out of the way!]"
         ]
-    ],
-    "newborn_fromlittermate2": [
-        [
+    },
+    "newborn_fromlittermate2": {
+        "tags": [
             "newborn",
             "littermate",
             "they_blind",
@@ -1002,12 +1002,12 @@
             "they_deaf",
             "you_deaf"
         ],
-        [
+        "intro": [
             "[You snuggle up next to t_c, falling into a peaceful slumber.]"
         ]
-    ],
-    "newborn_fromlittermate3": [
-        [
+    },
+    "newborn_fromlittermate3": {
+        "tags": [
             "newborn",
             "littermate",
             "introspective",
@@ -1015,27 +1015,27 @@
             "stable",
             "neurotic"
         ],
-        [
-            "[You mew at t_c, and {PRONOUN/t_c/subject} {VERB/t_c/turn/turns} to stare at you.]",
-            "[...{PRONOUN/t_c/subject/CAP} {VERB/t_c/don't/doesn't} reply.]"
+        "intro": [
+            "[You mew at t_c, and {PRONOUN\/t_c\/subject} {VERB\/t_c\/turn\/turns} to stare at you.]",
+            "[...{PRONOUN\/t_c\/subject\/CAP} {VERB\/t_c\/don't\/doesn't} reply.]"
         ]
-    ],
-    "newborn_fromlittermate4": [
-        [
+    },
+    "newborn_fromlittermate4": {
+        "tags": [
             "newborn",
             "littermate",
             "unabashed",
             "silly",
             "assertive"
         ],
-        [
-            "[You mew at t_c, and {PRONOUN/t_c/subject} {VERB/t_c/turn/turns} to stare at you, before squeaking back a reply.]",
+        "intro": [
+            "[You mew at t_c, and {PRONOUN\/t_c\/subject} {VERB\/t_c\/turn\/turns} to stare at you, before squeaking back a reply.]",
             "[This turns into a meow war, that ends with you winning by mewling far louder than t_c- and promptly getting shushed by the queens.]",
             "[...Worth it.]"
         ]
-    ],
-    "newborn_fromlittermate5": [
-        [
+    },
+    "newborn_fromlittermate5": {
+        "tags": [
             "newborn",
             "littermate",
             "unabashed",
@@ -1046,12 +1046,12 @@
             "they_deaf",
             "you_deaf"
         ],
-        [
-            "[You step on t_c's tail, and {PRONOUN/t_c/subject} {VERB/t_c/bite/bites} you in return. The two of you get into a fight, and have to be separated.]"
+        "intro": [
+            "[You step on t_c's tail, and {PRONOUN\/t_c\/subject} {VERB\/t_c\/bite\/bites} you in return. The two of you get into a fight, and have to be separated.]"
         ]
-    ],
-    "newborn_fromlittermate6": [
-        [
+    },
+    "newborn_fromlittermate6": {
+        "tags": [
             "newborn",
             "littermate",
             "sweet",
@@ -1060,40 +1060,40 @@
             "you_blind",
             "they_deaf"
         ],
-        [
+        "intro": [
             "[You start crying, but t_c snuggles next to you, and the comforting warmth makes you calm down.]",
             "[You two sleep for the day, not making a peep.]"
         ]
-    ],
-    "stable_newborn_littermate1": [
-        [
+    },
+    "stable_newborn_littermate1": {
+        "tags": [
             "newborn",
             "littermate",
             "stable",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Meep!",
-            "[t_c boops your nose as you roll into {PRONOUN/t_c/object}.]"
+            "[t_c boops your nose as you roll into {PRONOUN\/t_c\/object}.]"
         ]
-    ],
-    "stable_newborn_littermate2": [
-        [
+    },
+    "stable_newborn_littermate2": {
+        "tags": [
             "newborn",
             "littermate",
             "stable",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Mraow. Mew?",
-            "[You climb on top of t_c's back and begin to purr as {PRONOUN/t_c/poss} tiny body settles. The two of you seem comfortable despite the distant yowling of your parents in worry. y_p attempts to separate the two of you.]",
-            "[To {PRONOUN/y_p/poss} disdain, a few moments you both are in the same spot, but this time t_c sleeps on your back.]"
+            "[You climb on top of t_c's back and begin to purr as {PRONOUN\/t_c\/poss} tiny body settles. The two of you seem comfortable despite the distant yowling of your parents in worry. y_p attempts to separate the two of you.]",
+            "[To {PRONOUN\/y_p\/poss} disdain, a few moments you both are in the same spot, but this time t_c sleeps on your back.]"
         ]
-    ],
-    "stable_newborn_littermate3": [
-        [
+    },
+    "stable_newborn_littermate3": {
+        "tags": [
             "newborn",
             "littermate",
             "stable",
@@ -1102,38 +1102,38 @@
             "they_deaf",
             "you_deaf"
         ],
-        [
+        "intro": [
             "[y_p carefully places a moss blanket over you and your littermates. You smile softly as you curl up under the warm coverage. t_c nudges your paw and settles beside you.]",
             "[Together like this, you're safe. Nothing outside the nursery matters. Not here and now, not while you and t_c are together.]"
         ]
-    ],
-    "stable_newborn_littermate4": [
-        [
+    },
+    "stable_newborn_littermate4": {
+        "tags": [
             "newborn",
             "littermate",
             "stable",
             "they_blind"
         ],
-        [
+        "intro": [
             "Mehehe mew.",
-            "[t_c cheekily giggles as {PRONOUN/t_c/subject} {VERB/t_c/roll/rolls} around the nest. You and y_l purr in tiny laughter as you squint, watching {PRONOUN/t_c/poss} little form.]"
+            "[t_c cheekily giggles as {PRONOUN\/t_c\/subject} {VERB\/t_c\/roll\/rolls} around the nest. You and y_l purr in tiny laughter as you squint, watching {PRONOUN\/t_c\/poss} little form.]"
         ]
-    ],
-    "stable_newborn_littermate5": [
-        [
+    },
+    "stable_newborn_littermate5": {
+        "tags": [
             "newborn",
             "littermate",
             "stable",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "MEOW!",
             "[You flinch back as t_c yowls in your little ear.]"
         ]
-    ],
-    "stable_newborn_littermate6": [
-        [
+    },
+    "stable_newborn_littermate6": {
+        "tags": [
             "newborn",
             "littermate",
             "stable",
@@ -1142,80 +1142,80 @@
             "they_deaf",
             "you_blind"
         ],
-        [
-            "[You and t_c snuggle together in a pile of feathers that r_q gave y_p as a present. You both smile as you knead the soft texture. t_c seems like {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} especially enjoying it.]"
+        "intro": [
+            "[You and t_c snuggle together in a pile of feathers that r_q gave y_p as a present. You both smile as you knead the soft texture. t_c seems like {PRONOUN\/t_c\/subject}{VERB\/t_c\/'re\/'s} especially enjoying it.]"
         ]
-    ],
-    "stable_newborn_littermate7": [
-        [
+    },
+    "stable_newborn_littermate7": {
+        "tags": [
             "newborn",
             "littermate",
             "stable",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Me...",
             "Wuv...",
             "... ... ...",
             "Mew!"
         ]
-    ],
-    "stable_newborn_littermate8": [
-        [
+    },
+    "stable_newborn_littermate8": {
+        "tags": [
             "newborn",
             "littermate",
             "stable",
             "they_blind",
             "you_blind"
         ],
-        [
-            "[You curl against y_p and shiver slightly as a cool breeze enters the nursery. Despite {PRONOUN/t_c/poss} small size, t_c takes notice.]",
+        "intro": [
+            "[You curl against y_p and shiver slightly as a cool breeze enters the nursery. Despite {PRONOUN\/t_c\/poss} small size, t_c takes notice.]",
             "Meow!",
-            "[y_p stares in shock at the little kitten who spoke so clearly only to see tiny t_c pointing at you with {PRONOUN/t_c/poss} little paws. y_p immediately pulls you both closer and purrs loudly.]"
+            "[y_p stares in shock at the little kitten who spoke so clearly only to see tiny t_c pointing at you with {PRONOUN\/t_c\/poss} little paws. y_p immediately pulls you both closer and purrs loudly.]"
         ]
-    ],
-    "sweet_newborn_3": [
-        [
+    },
+    "sweet_newborn_3": {
+        "tags": [
             "Any",
             "sweet",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "[t_c seems to let out a very polite mew towards you, wiggling towards you in order to lean against you.]",
             "[What a sweet kit!]"
         ]
-    ],
-    "sweet_newborn_4": [
-        [
+    },
+    "sweet_newborn_4": {
+        "tags": [
             "Any",
             "sweet",
             "they_blind",
             "you_blind",
             "they_deaf"
         ],
-        [
+        "intro": [
             "Purr...",
             "[Seems the kitten only started purring when you drew near.]"
         ]
-    ],
-    "sweet_newborn_6": [
-        [
+    },
+    "sweet_newborn_6": {
+        "tags": [
             "Any",
             "sweet",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "[You're not having a good day, sighing as you lay down on a rock close to the nursery.]",
             "Mew!",
-            "[You feel the small t_c plop down on your tail. You have no idea how {PRONOUN/t_c/subject} got here.]",
-            "[{PRONOUN/t_c/subject/CAP} seems drawn to you though, and keeps snuggling you... and you start to feel better.]"
+            "[You feel the small t_c plop down on your tail. You have no idea how {PRONOUN\/t_c\/subject} got here.]",
+            "[{PRONOUN\/t_c\/subject\/CAP} seems drawn to you though, and keeps snuggling you... and you start to feel better.]"
         ]
-    ],
-    "upstanding_newborn3": [
-        [
+    },
+    "upstanding_newborn3": {
+        "tags": [
             "upstanding",
             "Any",
             "they_blind",
@@ -1223,12 +1223,12 @@
             "they_deaf",
             "you_deaf"
         ],
-        [
-            "[t_c has somehow managed to shift all of the moss in {PRONOUN/t_c/poss} nest to one side and is now lying in the center of a small mossy fort.]"
+        "intro": [
+            "[t_c has somehow managed to shift all of the moss in {PRONOUN\/t_c\/poss} nest to one side and is now lying in the center of a small mossy fort.]"
         ]
-    ],
-    "upstanding_newborn4": [
-        [
+    },
+    "upstanding_newborn4": {
+        "tags": [
             "upstanding",
             "newborn",
             "they_blind",
@@ -1236,36 +1236,36 @@
             "they_deaf",
             "you_deaf"
         ],
-        [
-            "[t_c has somehow managed to shift all of the moss in {PRONOUN/t_c/poss} nest to one side and is now lying in the center of a small mossy fort.]"
+        "intro": [
+            "[t_c has somehow managed to shift all of the moss in {PRONOUN\/t_c\/poss} nest to one side and is now lying in the center of a small mossy fort.]"
         ]
-    ],
-    "upstanding_newborn5": [
-        [
+    },
+    "upstanding_newborn5": {
+        "tags": [
             "upstanding",
             "newborn",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "MROW!",
-            "[t_c mewls angrily as {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} shoved out of {PRONOUN/t_c/poss} nest.]"
+            "[t_c mewls angrily as {PRONOUN\/t_c\/subject}{VERB\/t_c\/'re\/'s} shoved out of {PRONOUN\/t_c\/poss} nest.]"
         ]
-    ],
-    "upstanding_newborn6": [
-        [
+    },
+    "upstanding_newborn6": {
+        "tags": [
             "upstanding",
             "newborn",
             "they_blind",
             "they_deaf",
             "you_deaf"
         ],
-        [
-            "[t_c is hard at work, kneading {PRONOUN/t_c/poss} nest with itty-bitty paws.]"
+        "intro": [
+            "[t_c is hard at work, kneading {PRONOUN\/t_c\/poss} nest with itty-bitty paws.]"
         ]
-    ],
-    "newborn_shunned1": [
-        [
+    },
+    "newborn_shunned1": {
+        "tags": [
             "you_shunned",
             "any",
             "they_blind",
@@ -1273,12 +1273,12 @@
             "they_deaf",
             "you_deaf"
         ],
-        [
-            "[r_q picks up t_c and pulls {PRONOUN/t_c/object} away as you approach.]"
+        "intro": [
+            "[r_q picks up t_c and pulls {PRONOUN\/t_c\/object} away as you approach.]"
         ]
-    ],
-    "newborn_shunned2": [
-        [
+    },
+    "newborn_shunned2": {
+        "tags": [
             "you_shunned",
             "any",
             "they_blind",
@@ -1286,12 +1286,12 @@
             "they_deaf",
             "you_deaf"
         ],
-        [
-            "[t_p has {PRONOUN/t_c/poss} whole body wrapped around t_c, shielding {PRONOUN/t_c/object} from you.]"
+        "intro": [
+            "[t_p has {PRONOUN\/t_c\/poss} whole body wrapped around t_c, shielding {PRONOUN\/t_c\/object} from you.]"
         ]
-    ],
-    "newborn_shunned3": [
-        [
+    },
+    "newborn_shunned3": {
+        "tags": [
             "you_shunned",
             "any",
             "they_blind",
@@ -1299,49 +1299,49 @@
             "they_deaf",
             "you_deaf"
         ],
-        [
-            "[r_c quickly grabs t_c and carries {PRONOUN/t_c/object} away as {PRONOUN/t_c/poss} {VERB/t_c/stumble/stumbles} curiously towards you.]"
+        "intro": [
+            "[r_c quickly grabs t_c and carries {PRONOUN\/t_c\/object} away as {PRONOUN\/t_c\/poss} {VERB\/t_c\/stumble\/stumbles} curiously towards you.]"
         ]
-    ],
-    "newborn_shunned4": [
-        [
+    },
+    "newborn_shunned4": {
+        "tags": [
             "you_shunned",
             "any",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Mrow..?",
             "[Could even this newborn kit be judging you?]"
         ]
-    ],
-    "newborn_shunned5": [
-        [
+    },
+    "newborn_shunned5": {
+        "tags": [
             "you_shunned",
             "any",
             "they_blind",
             "they_deaf",
             "you_deaf"
         ],
-        [
+        "intro": [
             "[From across camp, you stare at one of the only members of c_nClan who doesn't know what you did.]",
             "[r_q sees you staring and steps in front of t_c to block your view.]",
-            "[You sigh. It won't be long before someone lets {PRONOUN/t_c/object} know.]"
+            "[You sigh. It won't be long before someone lets {PRONOUN\/t_c\/object} know.]"
         ]
-    ],
-    "starclannewborn": [
-        [
+    },
+    "starclannewborn": {
+        "tags": [
             "they_sc",
             "newborn",
             "they_deaf",
             "you_deaf"
         ],
-        [
-            "[t_c limply bats at the stars glimmering around {PRONOUN/t_c/object}.]"
+        "intro": [
+            "[t_c limply bats at the stars glimmering around {PRONOUN\/t_c\/object}.]"
         ]
-    ],
-    "starclannewborn1": [
-        [
+    },
+    "starclannewborn1": {
+        "tags": [
             "they_sc",
             "you_sc",
             "Any",
@@ -1350,433 +1350,433 @@
             "they_deaf",
             "you_deaf"
         ],
-        [
-            "[t_c purrs softly as {PRONOUN/t_c/subject} {VERB/t_c/bask/basks} in the starlit grass.]"
+        "intro": [
+            "[t_c purrs softly as {PRONOUN\/t_c\/subject} {VERB\/t_c\/bask\/basks} in the starlit grass.]"
         ]
-    ],
-    "starclannewborn2": [
-        [
+    },
+    "starclannewborn2": {
+        "tags": [
             "they_sc",
             "you_sc",
             "Any",
             "they_blind"
         ],
-        [
+        "intro": [
             "[You find yourself wandering close to the Dark Forest border when you spot movement out of the corner of your eye.]",
             "[You turn your head to see... is that- is that t_c?!]",
             "MEEEW!",
-            "[With a jolt you realize that t_c is stumbling right towards the border. You lunge forward and grab the kit, ignoring {PRONOUN/t_c/poss} mewls of protest as you carry {PRONOUN/t_c/object} back towards StarClan's hunting grounds.]"
+            "[With a jolt you realize that t_c is stumbling right towards the border. You lunge forward and grab the kit, ignoring {PRONOUN\/t_c\/poss} mewls of protest as you carry {PRONOUN\/t_c\/object} back towards StarClan's hunting grounds.]"
         ]
-    ],
-    "starclannewborn3": [
-        [
+    },
+    "starclannewborn3": {
+        "tags": [
             "they_sc",
             "you_sc",
             "Any",
             "they_blind"
         ],
-        [
+        "intro": [
             "Meeew!",
             "[t_c has somehow managed to climb onto a large rock.]",
             "MEW!",
-            "[Should you... should you help {PRONOUN/t_c/object} down?]"
+            "[Should you... should you help {PRONOUN\/t_c\/object} down?]"
         ]
-    ],
-    "dfnewborn": [
-        [
+    },
+    "dfnewborn": {
+        "tags": [
             "they_df",
             "newborn",
             "they_blind",
             "you_blind"
         ],
-        [
-            "[t_c yowls as you come near, {PRONOUN/t_c/poss} little voice shaking.]"
+        "intro": [
+            "[t_c yowls as you come near, {PRONOUN\/t_c\/poss} little voice shaking.]"
         ]
-    ],
-    "youstarclannewborn": [
-        [
+    },
+    "youstarclannewborn": {
+        "tags": [
             "you_sc",
-            "newborn",
-            "they_blind",
-            "they_deaf",
-            "you_deaf"
-        ],
-        [
-            "[t_c looks confused.]"
-        ]
-    ],
-    "youdfnewborn": [
-        [
-            "you_df",
             "newborn",
             "they_blind",
             "they_deaf",
             "you_deaf"
         ],
-        [
+        "intro": [
             "[t_c looks confused.]"
         ]
-    ],
-    "newborn_1_sc": [
-        [
+    },
+    "youdfnewborn": {
+        "tags": [
+            "you_df",
+            "newborn",
+            "they_blind",
+            "they_deaf",
+            "you_deaf"
+        ],
+        "intro": [
+            "[t_c looks confused.]"
+        ]
+    },
+    "newborn_1_sc": {
+        "tags": [
             "Any",
             "they_sc",
             "you_sc",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Mew?"
         ]
-    ],
-    "newborn_2_sc": [
-        [
+    },
+    "newborn_2_sc": {
+        "tags": [
             "Any",
             "they_sc",
             "you_sc",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Meow!"
         ]
-    ],
-    "newborn_3_sc": [
-        [
+    },
+    "newborn_3_sc": {
+        "tags": [
             "Any",
             "they_sc",
             "you_sc",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Purrrrr..."
         ]
-    ],
-    "newborn_4_sc": [
-        [
+    },
+    "newborn_4_sc": {
+        "tags": [
             "Any",
             "they_sc",
             "you_sc",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Mrow!"
         ]
-    ],
-    "newborn_5_sc": [
-        [
+    },
+    "newborn_5_sc": {
+        "tags": [
             "Any",
             "they_sc",
             "you_sc",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "MROOOOOOOOW!!!!!!!!"
         ]
-    ],
-    "newborn_6_sc": [
-        [
+    },
+    "newborn_6_sc": {
+        "tags": [
             "Any",
             "they_sc",
             "you_sc",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Grr..."
         ]
-    ],
-    "newborn_1_df": [
-        [
+    },
+    "newborn_1_df": {
+        "tags": [
             "Any",
             "they_df",
             "you_df",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Mew?"
         ]
-    ],
-    "newborn_2_df": [
-        [
+    },
+    "newborn_2_df": {
+        "tags": [
             "Any",
             "they_df",
             "you_df",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Meow!"
         ]
-    ],
-    "newborn_3_df": [
-        [
+    },
+    "newborn_3_df": {
+        "tags": [
             "Any",
             "they_df",
             "you_df",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Purrrrr..."
         ]
-    ],
-    "newborn_4_df": [
-        [
+    },
+    "newborn_4_df": {
+        "tags": [
             "Any",
             "they_df",
             "you_df",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Mrow!"
         ]
-    ],
-    "newborn_5_df": [
-        [
+    },
+    "newborn_5_df": {
+        "tags": [
             "Any",
             "they_df",
             "you_df",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "MROOOOOOOOW!!!!!!!!"
         ]
-    ],
-    "newborn_6_df": [
-        [
+    },
+    "newborn_6_df": {
+        "tags": [
             "Any",
             "they_df",
             "you_df",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Grr..."
         ]
-    ],
-    "newborn_7_df": [
-        [
+    },
+    "newborn_7_df": {
+        "tags": [
             "Any",
             "they_df",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Grr..."
         ]
-    ],
-    "newborn_8_df": [
-        [
+    },
+    "newborn_8_df": {
+        "tags": [
             "Any",
             "they_df",
             "you_shunned",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Grr..."
         ]
-    ],
-    "newborn_1_scdf": [
-        [
+    },
+    "newborn_1_scdf": {
+        "tags": [
             "Any",
             "they_sc",
             "you_df",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Mew?"
         ]
-    ],
-    "newborn_2_scdf": [
-        [
+    },
+    "newborn_2_scdf": {
+        "tags": [
             "Any",
             "they_sc",
             "you_df",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Meow!"
         ]
-    ],
-    "newborn_3_scdf": [
-        [
+    },
+    "newborn_3_scdf": {
+        "tags": [
             "Any",
             "they_sc",
             "you_df",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Purrrrr..."
         ]
-    ],
-    "newborn_4_scdf": [
-        [
+    },
+    "newborn_4_scdf": {
+        "tags": [
             "Any",
             "they_sc",
             "you_df",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Mrow!"
         ]
-    ],
-    "newborn_5_scdf": [
-        [
+    },
+    "newborn_5_scdf": {
+        "tags": [
             "Any",
             "they_sc",
             "you_df",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "MROOOOOOOOW!!!!!!!!"
         ]
-    ],
-    "newborn_6_scdf": [
-        [
+    },
+    "newborn_6_scdf": {
+        "tags": [
             "Any",
             "they_sc",
             "you_sc",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Grr..."
         ]
-    ],
-    "newborn_1_dfsc": [
-        [
+    },
+    "newborn_1_dfsc": {
+        "tags": [
             "Any",
             "they_df",
             "you_sc",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Mew?"
         ]
-    ],
-    "newborn_2_dfsc": [
-        [
+    },
+    "newborn_2_dfsc": {
+        "tags": [
             "Any",
             "they_df",
             "you_sc",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Meow!"
         ]
-    ],
-    "newborn_3_dfsc": [
-        [
+    },
+    "newborn_3_dfsc": {
+        "tags": [
             "Any",
             "they_df",
             "you_sc",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Purrrrr..."
         ]
-    ],
-    "newborn_4_dfsc": [
-        [
+    },
+    "newborn_4_dfsc": {
+        "tags": [
             "Any",
             "they_df",
             "you_sc",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Mrow!"
         ]
-    ],
-    "newborn_5_dfsc": [
-        [
+    },
+    "newborn_5_dfsc": {
+        "tags": [
             "Any",
             "they_df",
             "you_sc",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "MROOOOOOOOW!!!!!!!!"
         ]
-    ],
-    "newborn_6_dfsc": [
-        [
+    },
+    "newborn_6_dfsc": {
+        "tags": [
             "Any",
             "they_df",
             "you_sc",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Grr..."
         ]
-    ],
-    "newborn_ur_J1": [
-        [
+    },
+    "newborn_ur_J1": {
+        "tags": [
             "they_ur",
             "any",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "... Mew..."
         ]
-    ],
-    "newborn_ur_J2": [
-        [
+    },
+    "newborn_ur_J2": {
+        "tags": [
             "they_ur",
             "you_sc",
             "any",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "... Mew..."
         ]
-    ],
-    "newborn_ur_J3": [
-        [
+    },
+    "newborn_ur_J3": {
+        "tags": [
             "they_ur",
             "you_df",
             "any",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "... Mew..."
         ]
-    ],
-    "newborn_ur_J4": [
-        [
+    },
+    "newborn_ur_J4": {
+        "tags": [
             "they_ur",
             "you_shunned",
             "any",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "... Mew..."
         ]
-    ],
-    "sc_sc_kit_R2": [
-        [
+    },
+    "sc_sc_kit_R2": {
+        "tags": [
             "they_newborn",
             "they_sc",
             "you_sc",
@@ -1784,13 +1784,13 @@
             "you_blind",
             "they_blind"
         ],
-        [
+        "intro": [
             "Mew!",
-            "[Oh, it's t_c. Should {PRONOUN/t_c/subject} be over here? {PRONOUN/t_c/poss/CAP} family is probably looking for {PRONOUN/t_c/object}.]"
+            "[Oh, it's t_c. Should {PRONOUN\/t_c\/subject} be over here? {PRONOUN\/t_c\/poss\/CAP} family is probably looking for {PRONOUN\/t_c\/object}.]"
         ]
-    ],
-    "df_df_kit_R1": [
-        [
+    },
+    "df_df_kit_R1": {
+        "tags": [
             "they_newborn",
             "they_df",
             "you_df",
@@ -1798,28 +1798,28 @@
             "you_blind",
             "they_blind"
         ],
-        [
+        "intro": [
             "Mewwww...",
-            "[t_c is whining for comfort again. {PRONOUN/t_c/subject/CAP} should know better by now that it's not coming.]"
+            "[t_c is whining for comfort again. {PRONOUN\/t_c\/subject\/CAP} should know better by now that it's not coming.]"
         ]
-    ],
-    "ur_they_newborn_CM1": [
-        [
+    },
+    "ur_they_newborn_CM1": {
+        "tags": [
             "any",
             "you_ur",
             "they_ur",
             "they_newborn",
             "they_blind"
         ],
-        [
+        "intro": [
             "[You see t_c rolling in the misty fields, the tiny kitten angrily flopping around.]",
             "MEW!!!!",
-            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/squeal/squeals}, stomping {PRONOUN/t_c/poss} little paws onto the ground.]",
-            "[Is.. is this what a tantrum from {PRONOUN/t_c/object} looks like?]"
+            "[{PRONOUN\/t_c\/subject\/CAP} {VERB\/t_c\/squeal\/squeals}, stomping {PRONOUN\/t_c\/poss} little paws onto the ground.]",
+            "[Is.. is this what a tantrum from {PRONOUN\/t_c\/object} looks like?]"
         ]
-    ],
-    "newborn_1dead_dead": [
-        [
+    },
+    "newborn_1dead_dead": {
+        "tags": [
             "Any",
             "you_dead",
             "they_dead",
@@ -1827,12 +1827,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Mew?"
         ]
-    ],
-    "newborn_2dead_dead": [
-        [
+    },
+    "newborn_2dead_dead": {
+        "tags": [
             "Any",
             "you_dead",
             "they_dead",
@@ -1840,12 +1840,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Meow!"
         ]
-    ],
-    "newborn_3dead_dead": [
-        [
+    },
+    "newborn_3dead_dead": {
+        "tags": [
             "Any",
             "you_dead",
             "they_dead",
@@ -1853,12 +1853,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Purrrrr..."
         ]
-    ],
-    "newborn_4dead_dead": [
-        [
+    },
+    "newborn_4dead_dead": {
+        "tags": [
             "Any",
             "you_dead",
             "they_dead",
@@ -1866,12 +1866,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Mrow!"
         ]
-    ],
-    "newborn_5dead_dead": [
-        [
+    },
+    "newborn_5dead_dead": {
+        "tags": [
             "Any",
             "you_dead",
             "they_dead",
@@ -1879,12 +1879,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "MROOOOOOOOW!!!!!!!!"
         ]
-    ],
-    "newborn_6dead_dead": [
-        [
+    },
+    "newborn_6dead_dead": {
+        "tags": [
             "Any",
             "you_dead",
             "they_dead",
@@ -1892,12 +1892,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Grr..."
         ]
-    ],
-    "newborn_7dead_dead": [
-        [
+    },
+    "newborn_7dead_dead": {
+        "tags": [
             "Any",
             "insult",
             "you_dead",
@@ -1906,12 +1906,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Grr..."
         ]
-    ],
-    "newborn_11dead_dead": [
-        [
+    },
+    "newborn_11dead_dead": {
+        "tags": [
             "any",
             "you_dead",
             "they_dead",
@@ -1919,12 +1919,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Mew?"
         ]
-    ],
-    "newborn_12dead_dead": [
-        [
+    },
+    "newborn_12dead_dead": {
+        "tags": [
             "any",
             "you_dead",
             "they_dead",
@@ -1932,12 +1932,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Meow!"
         ]
-    ],
-    "newborn_13dead_dead": [
-        [
+    },
+    "newborn_13dead_dead": {
+        "tags": [
             "any",
             "you_dead",
             "they_dead",
@@ -1945,12 +1945,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Purrrrr..."
         ]
-    ],
-    "newborn_14dead_dead": [
-        [
+    },
+    "newborn_14dead_dead": {
+        "tags": [
             "any",
             "you_dead",
             "they_dead",
@@ -1958,12 +1958,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Mrow!"
         ]
-    ],
-    "newborn_15dead_dead": [
-        [
+    },
+    "newborn_15dead_dead": {
+        "tags": [
             "any",
             "you_dead",
             "they_dead",
@@ -1971,12 +1971,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "MROOOOOOOOW!!!!!!!!"
         ]
-    ],
-    "newborn_16dead_dead": [
-        [
+    },
+    "newborn_16dead_dead": {
+        "tags": [
             "any",
             "you_dead",
             "they_dead",
@@ -1984,79 +1984,79 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Grr..."
         ]
-    ],
-    "newborn_1dead": [
-        [
+    },
+    "newborn_1dead": {
+        "tags": [
             "Any",
             "they_dead",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Mew?"
         ]
-    ],
-    "newborn_2dead": [
-        [
+    },
+    "newborn_2dead": {
+        "tags": [
             "Any",
             "they_dead",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Meow!"
         ]
-    ],
-    "newborn_3dead": [
-        [
+    },
+    "newborn_3dead": {
+        "tags": [
             "Any",
             "they_dead",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Purrrrr..."
         ]
-    ],
-    "newborn_4dead": [
-        [
+    },
+    "newborn_4dead": {
+        "tags": [
             "Any",
             "they_dead",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Mrow!"
         ]
-    ],
-    "newborn_5dead": [
-        [
+    },
+    "newborn_5dead": {
+        "tags": [
             "Any",
             "they_dead",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "MROOOOOOOOW!!!!!!!!"
         ]
-    ],
-    "newborn_1new": [
-        [
+    },
+    "newborn_1new": {
+        "tags": [
             "you_dead",
             "they_dead",
             "any",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Mew?"
         ]
-    ],
-    "newborn_2new": [
-        [
+    },
+    "newborn_2new": {
+        "tags": [
             "you_dead",
             "they_dead",
             "any",
@@ -2064,60 +2064,60 @@
             "they_deaf",
             "you_deaf"
         ],
-        [
+        "intro": [
             "[t_c is rolling around in the grass.]"
         ]
-    ],
-    "newborn_3new": [
-        [
+    },
+    "newborn_3new": {
+        "tags": [
             "you_dead",
             "they_dead",
             "any",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Purrrrr..."
         ]
-    ],
-    "newborn_4new": [
-        [
+    },
+    "newborn_4new": {
+        "tags": [
             "you_dead",
             "they_dead",
             "any",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Mrow!"
         ]
-    ],
-    "newborn_5new": [
-        [
+    },
+    "newborn_5new": {
+        "tags": [
             "you_dead",
             "they_dead",
             "any",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "MROOOOOOOOW!!!!!!!!"
         ]
-    ],
-    "newborn_sh_insult_J1": [
-        [
+    },
+    "newborn_sh_insult_J1": {
+        "tags": [
             "insult",
             "any",
             "you_shunned",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "MROOOOOOOOW!!!!!!!!"
         ]
-    ],
-    "newborn_J1": [
-        [
+    },
+    "newborn_J1": {
+        "tags": [
             "grievingthem",
             "any",
             "you_shunned",
@@ -2125,36 +2125,36 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Purr......"
         ]
-    ],
-    "newborn_J2": [
-        [
+    },
+    "newborn_J2": {
+        "tags": [
             "grievingthem",
             "any",
             "they_dead",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Purr......"
         ]
-    ],
-    "deadnewborns_J1": [
-        [
+    },
+    "deadnewborns_J1": {
+        "tags": [
             "they_dead",
             "you_dead",
             "newborn",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Mrrp?"
         ]
-    ],
-    "deadnewborns_J2": [
-        [
+    },
+    "deadnewborns_J2": {
+        "tags": [
             "they_shunned",
             "they_grieving",
             "any",
@@ -2162,39 +2162,39 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Um... hi, little fellow.",
             "You probably shouldn't be here."
         ]
-    ],
-    "deadnewborns_J3": [
-        [
+    },
+    "deadnewborns_J3": {
+        "tags": [
             "they_shunned",
             "any",
             "you_dead",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Um... hi, little fellow.",
             "You probably shouldn't be here."
         ]
-    ],
-    "deadnewborns_J4": [
-        [
+    },
+    "deadnewborns_J4": {
+        "tags": [
             "they_grieving",
             "any",
             "you_dead",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Um... hi, little fellow.",
             "You probably shouldn't be here."
         ]
-    ],
-    "deadnewborns_J5": [
-        [
+    },
+    "deadnewborns_J5": {
+        "tags": [
             "they_shunned",
             "they_grieving",
             "grievingyou",
@@ -2203,12 +2203,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Oh, y_c... It's torture to see you everywhere."
         ]
-    ],
-    "deadnewborns_J6": [
-        [
+    },
+    "deadnewborns_J6": {
+        "tags": [
             "you_shunned",
             "you_grieving",
             "any",
@@ -2216,55 +2216,55 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Mew? Mew? ... Mew?"
         ]
-    ],
-    "deadnewborns_J7": [
-        [
+    },
+    "deadnewborns_J7": {
+        "tags": [
             "you_grieving",
             "any",
             "they_dead",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Mew? Mew? ... Mew?"
         ]
-    ],
-    "deadnewborns_J8": [
-        [
+    },
+    "deadnewborns_J8": {
+        "tags": [
             "you_shunned",
             "any",
             "they_dead",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Mew? Mew? ... Mew?"
         ]
-    ],
-    "deafnewborn_J1": [
-        [
+    },
+    "deafnewborn_J1": {
+        "tags": [
             "they_deaf",
             "they_blind",
             "you_deaf",
             "you_blind",
             "any"
         ],
-        [
+        "intro": [
             "... ... ..."
         ]
-    ],
-    "deafnewborn_J2": [
-        [
+    },
+    "deafnewborn_J2": {
+        "tags": [
             "they_deaf",
             "they_blind",
             "you_deaf",
             "any"
         ],
-        [
-            "[t_c is stomping {PRONOUN/t_c/poss} little paws on the ground, figuring out how to use them.]"
+        "intro": [
+            "[t_c is stomping {PRONOUN\/t_c\/poss} little paws on the ground, figuring out how to use them.]"
         ]
-    ]
+    }
 }

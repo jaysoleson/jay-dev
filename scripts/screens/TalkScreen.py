@@ -298,6 +298,76 @@ class TalkScreen(Screens):
 
     def get_cluster_list_you(self):
         return ["you_assertive", "you_brooding", "you_cool", "you_upstanding", "you_introspective", "you_neurotic", "you_silly", "you_stable", "you_sweet", "you_unabashed", "you_unlawful"]
+    
+    def rel_changes(self, cat, texts_list, texts_chosen_key):
+        rel_block = texts_list[texts_chosen_key][f"{self.current_scene}_rel_changes"]
+
+        if game.clan.your_cat.ID not in cat.relationships:
+            cat.create_one_relationship(game.clan.your_cat)
+            if cat.ID not in game.clan.your_cat.relationships:
+                game.clan.your_cat.create_one_relationship(cat)
+
+        if "mutual" in rel_block:
+            for item in rel_block["mutual"].items():
+                value = item[0]
+                if value == "platonic_like":
+                    cat.relationships[game.clan.your_cat.ID].platonic_like += item[1]
+                    game.clan.your_cat.relationships[cat.ID].platonic_like += item[1]
+                elif value == "romantic_love":
+                    cat.relationships[game.clan.your_cat.ID].romantic_love += item[1]
+                    game.clan.your_cat.relationships[cat.ID].romantic_love += item[1]
+                elif value == "dislike":
+                    cat.relationships[game.clan.your_cat.ID].dislike += item[1]
+                    game.clan.your_cat.relationships[cat.ID].dislike += item[1]
+                elif value == "comfort":
+                    cat.relationships[game.clan.your_cat.ID].comfortable += item[1]
+                    game.clan.your_cat.relationships[cat.ID].comfortable += item[1]
+                elif value == "trust":
+                    cat.relationships[game.clan.your_cat.ID].trust += item[1]
+                    game.clan.your_cat.relationships[cat.ID].trust += item[1]
+                elif value == "admiration":
+                    cat.relationships[game.clan.your_cat.ID].admiration += item[1]
+                    game.clan.your_cat.relationships[cat.ID].admiration += item[1]
+                elif value == "jealousy":
+                    cat.relationships[game.clan.your_cat.ID].jealousy += item[1]
+                    game.clan.your_cat.relationships[cat.ID].jealousy += item[1]
+
+        if "they_to_you" in rel_block:
+            for item in rel_block["they_to_you"].items():
+                value = item[0]
+                # i dont feel like figuring out a better way to do this
+                if value == "platonic_like":
+                    cat.relationships[game.clan.your_cat.ID].platonic_like += item[1]
+                elif value == "romantic_love":
+                    cat.relationships[game.clan.your_cat.ID].romantic_love += item[1]
+                elif value == "dislike":
+                    cat.relationships[game.clan.your_cat.ID].dislike += item[1]
+                elif value == "comfort":
+                    cat.relationships[game.clan.your_cat.ID].comfortable += item[1]
+                elif value == "trust":
+                    cat.relationships[game.clan.your_cat.ID].trust += item[1]
+                elif value == "admiration":
+                    cat.relationships[game.clan.your_cat.ID].admiration += item[1]
+                elif value == "jealousy":
+                    cat.relationships[game.clan.your_cat.ID].jealousy += item[1]
+
+        if "you_to_them" in rel_block:
+            for item in rel_block["you_to_them"].items():
+                value = item[0]
+                if value == "platonic_like":
+                    game.clan.your_cat.relationships[cat.ID].platonic_like += item[1]
+                elif value == "romantic_love":
+                    game.clan.your_cat.relationships[cat.ID].romantic_love += item[1]
+                elif value == "dislike":
+                    game.clan.your_cat.relationships[cat.ID].dislike += item[1]
+                elif value == "comfort":
+                    game.clan.your_cat.relationships[cat.ID].comfortable += item[1]
+                elif value == "trust":
+                    game.clan.your_cat.relationships[cat.ID].trust += item[1]
+                elif value == "admiration":
+                    game.clan.your_cat.relationships[cat.ID].admiration += item[1]
+                elif value == "jealousy":
+                    game.clan.your_cat.relationships[cat.ID].jealousy += item[1]
 
 
     def relationship_check(self, talk, cat_relationship):
@@ -333,6 +403,10 @@ class TalkScreen(Screens):
         self.current_scene = "intro"
         self.possible_texts = texts_list
         self.chosen_text_key = texts_chosen_key
+
+        if f"{self.current_scene}_rel_changes" in self.possible_texts[self.chosen_text_key]:
+            self.rel_changes(self.the_cat, self.possible_texts, self.chosen_text_key)
+            
         return chosen_text_intro
 
     def create_choice_buttons(self):
@@ -386,6 +460,10 @@ class TalkScreen(Screens):
         self.text_index = 0
         self.frame_index = 0
         self.created_choice_buttons = False
+
+        if f"{self.current_scene}_rel_changes" in self.possible_texts[self.chosen_text_key]:
+            self.rel_changes(self.the_cat, self.possible_texts, self.chosen_text_key)
+            print(self.current_scene, "rel change")
 
 
     def load_texts(self, cat):

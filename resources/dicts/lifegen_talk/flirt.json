@@ -1,6 +1,6 @@
 {
-    "ad9wkx7": [
-        [
+    "ad9wkx7": {
+        "tags": [
             "Any",
             "reject",
             "assertive",
@@ -9,47 +9,47 @@
             "platonic_like",
             "you_blind"
         ],
-        [
+        "intro": [
             "Er, sorry, y_c ... But I don't see you that way."
         ]
-    ],
-    "bestie_reject": [
-        [
+    },
+    "bestie_reject": {
+        "tags": [
             "Any",
             "reject",
             "platonic_love",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Uh, you meant that in, like, a 'best friends' way ... right?"
         ]
-    ],
-    "bestie_reject1": [
-        [
+    },
+    "bestie_reject1": {
+        "tags": [
             "Any",
             "reject",
             "platonic_love",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Ehh ... Good one, bestie! Heh ..."
         ]
-    ],
-    "h2k7jd2": [
-        [
+    },
+    "h2k7jd2": {
+        "tags": [
             "Any",
             "reject",
             "introspective",
             "non-mates"
         ],
-        [
+        "intro": [
             "Oh... I didn't know you... saw me that way."
         ]
-    ],
-    "d9r2gs4": [
-        [
+    },
+    "d9r2gs4": {
+        "tags": [
             "Any",
             "silly",
             "sweet",
@@ -57,27 +57,27 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Oh wow, that was funny!",
             "You're such a good friend."
         ]
-    ],
-    "j9h3sd5": [
-        [
+    },
+    "j9h3sd5": {
+        "tags": [
             "Any",
             "reject",
             "cool",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Oh, honey ...",
             "That was... pretty terrible.",
             "Please, let me teach you how to flirt."
         ]
-    ],
-    "h2d5jf0": [
-        [
+    },
+    "h2d5jf0": {
+        "tags": [
             "Any",
             "reject",
             "neurotic",
@@ -86,24 +86,24 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Sorry, I... already like someone else?"
         ]
-    ],
-    "p4s3kc1": [
-        [
+    },
+    "p4s3kc1": {
+        "tags": [
             "Any",
             "reject",
             "cool",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Huh? Oh, um... thank you? *Snrk*"
         ]
-    ],
-    "h2w5gs2": [
-        [
+    },
+    "h2w5gs2": {
+        "tags": [
             "Any",
             "reject",
             "sweet",
@@ -111,12 +111,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "That's... nice of you to say."
         ]
-    ],
-    "b9g2hs4": [
-        [
+    },
+    "b9g2hs4": {
+        "tags": [
             "Any",
             "reject",
             "sweet",
@@ -125,12 +125,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Haha! That's the funniest joke I've heard all season!"
         ]
-    ],
-    "j7h3xs5": [
-        [
+    },
+    "j7h3xs5": {
+        "tags": [
             "Any",
             "reject",
             "brooding",
@@ -138,12 +138,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "...That's a joke, right?"
         ]
-    ],
-    "k3x7js6": [
-        [
+    },
+    "k3x7js6": {
+        "tags": [
             "Any",
             "reject",
             "assertive",
@@ -153,36 +153,36 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "You've got to be joking."
         ]
-    ],
-    "b8d3gs7": [
-        [
+    },
+    "b8d3gs7": {
+        "tags": [
             "Any",
             "reject",
             "assertive",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Eh, hehehe ... Might wanna rethink that one a little y_c."
         ]
-    ],
-    "g5h6xd8": [
-        [
+    },
+    "g5h6xd8": {
+        "tags": [
             "Any",
             "reject",
             "brooding",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Whatever."
         ]
-    ],
-    "a9w5kf9": [
-        [
+    },
+    "a9w5kf9": {
+        "tags": [
             "Any",
             "reject",
             "brooding",
@@ -191,36 +191,36 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "... Is that the best you could do?"
         ]
-    ],
-    "b9d3ks0": [
-        [
+    },
+    "b9d3ks0": {
+        "tags": [
             "Any",
             "reject",
             "unabashed",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Stop that, it's not getting you anywhere."
         ]
-    ],
-    "h4j7xs1": [
-        [
+    },
+    "h4j7xs1": {
+        "tags": [
             "Any",
             "reject",
             "brooding",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "What is it going to take in order for you to leave me alone?"
         ]
-    ],
-    "f8h5xs2": [
-        [
+    },
+    "f8h5xs2": {
+        "tags": [
             "Any",
             "reject",
             "unabashed",
@@ -229,13 +229,13 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Congratulations, y_c!",
             "That might just be the worst attempt at flirting I've heard in moons!"
         ]
-    ],
-    "h2k5jd3": [
-        [
+    },
+    "h2k5jd3": {
+        "tags": [
             "Any",
             "reject",
             "cool",
@@ -243,12 +243,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "... Okay?"
         ]
-    ],
-    "j5d7hs4": [
-        [
+    },
+    "j5d7hs4": {
+        "tags": [
             "Any",
             "reject",
             "unabashed",
@@ -258,12 +258,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "... Ew."
         ]
-    ],
-    "k3w9gf5": [
-        [
+    },
+    "k3w9gf5": {
+        "tags": [
             "Any",
             "reject",
             "unabashed",
@@ -273,12 +273,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Ew. No."
         ]
-    ],
-    "h3k7gf6": [
-        [
+    },
+    "h3k7gf6": {
+        "tags": [
             "Any",
             "reject",
             "silly",
@@ -289,24 +289,24 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Not a chance in StarClan."
         ]
-    ],
-    "j5h3sd7": [
-        [
+    },
+    "j5h3sd7": {
+        "tags": [
             "medicine_cat",
             "medicine_cat_apprentice",
             "reject",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "I think StarClan gave me an omen warning me about this."
         ]
-    ],
-    "h6w5kd8": [
-        [
+    },
+    "h6w5kd8": {
+        "tags": [
             "Any",
             "reject",
             "assertive",
@@ -315,12 +315,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
-            "You are <i>so</i> not my type."
+        "intro": [
+            "You are <i>so<\/i> not my type."
         ]
-    ],
-    "d5h7gs9": [
-        [
+    },
+    "d5h7gs9": {
+        "tags": [
             "Any",
             "reject",
             "stable",
@@ -328,13 +328,13 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "... y_c, was that supposed to be an insult, or an attempt at flirting?",
             "Sorry, I genuinely can't tell."
         ]
-    ],
-    "j8h3ks0": [
-        [
+    },
+    "j8h3ks0": {
+        "tags": [
             "Any",
             "reject",
             "silly",
@@ -344,12 +344,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Um... No. You're not even on my playing field."
         ]
-    ],
-    "b3d5gs1": [
-        [
+    },
+    "b3d5gs1": {
+        "tags": [
             "Any",
             "reject",
             "upstanding",
@@ -358,12 +358,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Ew. I'm too good for you..."
         ]
-    ],
-    "b3d5gs111": [
-        [
+    },
+    "b3d5gs111": {
+        "tags": [
             "Any",
             "reject",
             "upstanding",
@@ -371,12 +371,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Sorry, but I just don't see how this factors into my 20-moon plan."
         ]
-    ],
-    "f5w7ks3": [
-        [
+    },
+    "f5w7ks3": {
+        "tags": [
             "Any",
             "reject",
             "sweet",
@@ -386,12 +386,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "... What are you trying to do?"
         ]
-    ],
-    "j5h9sd5": [
-        [
+    },
+    "j5h9sd5": {
+        "tags": [
             "Any",
             "reject",
             "silly",
@@ -400,49 +400,49 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "I think I'd rather take my chances with a Dark Forest cat."
         ]
-    ],
-    "k3s7gs8": [
-        [
+    },
+    "k3s7gs8": {
+        "tags": [
             "Any",
             "platonic_like",
             "reject",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Hehe! That was so funny, y_c!",
             "This is why you're one of my closest friends."
         ]
-    ],
-    "j3s7gs0": [
-        [
+    },
+    "j3s7gs0": {
+        "tags": [
             "Any",
             "reject",
             "assertive",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "... Are you trying to start a fight?"
         ]
-    ],
-    "b9h5ks1": [
-        [
+    },
+    "b9h5ks1": {
+        "tags": [
             "Any",
             "reject",
             "neurotic",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Um, was that sarcasm?"
         ]
-    ],
-    "k7h3xs2": [
-        [
+    },
+    "k7h3xs2": {
+        "tags": [
             "Any",
             "reject",
             "introspective",
@@ -451,12 +451,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "...No. I'm sorry but just... no."
         ]
-    ],
-    "j5d3gs3": [
-        [
+    },
+    "j5d3gs3": {
+        "tags": [
             "Any",
             "reject",
             "neurotic",
@@ -467,12 +467,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Uh- me? Sorry, you aren't exactly my type..."
         ]
-    ],
-    "h6d7ks4": [
-        [
+    },
+    "h6d7ks4": {
+        "tags": [
             "Any",
             "reject",
             "sweet",
@@ -482,12 +482,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Um... no."
         ]
-    ],
-    "b5w3kd5": [
-        [
+    },
+    "b5w3kd5": {
+        "tags": [
             "Any",
             "reject",
             "brooding",
@@ -496,12 +496,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Don't talk to me."
         ]
-    ],
-    "j6h5ks6": [
-        [
+    },
+    "j6h5ks6": {
+        "tags": [
             "Any",
             "reject",
             "sweet",
@@ -510,12 +510,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Just...no."
         ]
-    ],
-    "b8w7jd7": [
-        [
+    },
+    "b8w7jd7": {
+        "tags": [
             "Any",
             "reject",
             "sweet",
@@ -525,61 +525,61 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Uhm, I'd rather... not."
         ]
-    ],
-    "k7w3gf8": [
-        [
+    },
+    "k7w3gf8": {
+        "tags": [
             "Any",
             "reject",
             "neutral",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Do I know you?"
         ]
-    ],
-    "d6h5ks9": [
-        [
+    },
+    "d6h5ks9": {
+        "tags": [
             "Any",
             "reject",
             "neutral",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Uh, what's your name again?"
         ]
-    ],
-    "a2s6df1": [
-        [
+    },
+    "a2s6df1": {
+        "tags": [
             "Any",
             "reject",
             "assertive",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Ahahahahahaha! That was too good!",
             "Wait, wait, stay right there! r_w, get over here! Listen to what y_c just said!"
         ]
-    ],
-    "h3d4jk2": [
-        [
+    },
+    "h3d4jk2": {
+        "tags": [
             "warrior",
             "reject",
             "neurotic",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Oh, uh I'm sorry, but I think I have to go..."
         ]
-    ],
-    "j5g6sd3": [
-        [
+    },
+    "j5g6sd3": {
+        "tags": [
             "Any",
             "reject",
             "brooding",
@@ -587,27 +587,27 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "...",
             "...",
             "...",
             "Let's pretend that didn't happen."
         ]
-    ],
-    "d4f7xs4": [
-        [
+    },
+    "d4f7xs4": {
+        "tags": [
             "Any",
             "reject",
             "upstanding",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Um, what made you think I'd ever say yes?"
         ]
-    ],
-    "h2d6gs5": [
-        [
+    },
+    "h2d6gs5": {
+        "tags": [
             "Any",
             "reject",
             "unabashed",
@@ -615,36 +615,36 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "*Snrk* Did a badger teach you how to flirt?"
         ]
-    ],
-    "d7f5xs6": [
-        [
+    },
+    "d7f5xs6": {
+        "tags": [
             "Any",
             "reject",
             "brooding",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Stop."
         ]
-    ],
-    "h3d9gf7": [
-        [
+    },
+    "h3d9gf7": {
+        "tags": [
             "Any",
             "reject",
             "neurotic",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "You're... you're kidding, right?"
         ]
-    ],
-    "f8w4kd8": [
-        [
+    },
+    "f8w4kd8": {
+        "tags": [
             "Any",
             "reject",
             "unabashed",
@@ -653,35 +653,35 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "You're delusional if you think you're good enough for me."
         ]
-    ],
-    "d9w3gf0": [
-        [
+    },
+    "d9w3gf0": {
+        "tags": [
             "Any",
             "reject",
             "sweet",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Oh! Um, I'm gonna go..."
         ]
-    ],
-    "d8f5xs2": [
-        [
+    },
+    "d8f5xs2": {
+        "tags": [
             "Any",
             "reject",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Sorry, I... just remembered something I have to do. Bye."
         ]
-    ],
-    "d5f6xs5": [
-        [
+    },
+    "d5f6xs5": {
+        "tags": [
             "Any",
             "reject",
             "neurotic",
@@ -690,24 +690,24 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "... What's that supposed to mean?"
         ]
-    ],
-    "j5g6df6": [
-        [
+    },
+    "j5g6df6": {
+        "tags": [
             "Any",
             "reject",
             "platonic_love",
             "non-mates",
             "you_blind"
         ],
-        [
+        "intro": [
             "Sorry, but I just see us as friends."
         ]
-    ],
-    "j7s5gf8": [
-        [
+    },
+    "j7s5gf8": {
+        "tags": [
             "Any",
             "reject",
             "cool",
@@ -715,12 +715,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Oh dear. Let me teach you how to flirt."
         ]
-    ],
-    "h4d5xs9": [
-        [
+    },
+    "h4d5xs9": {
+        "tags": [
             "Any",
             "reject",
             "stable",
@@ -730,36 +730,36 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Uh... sorry, but that was... horrible."
         ]
-    ],
-    "f8d4gf0": [
-        [
+    },
+    "f8d4gf0": {
+        "tags": [
             "Any",
             "reject",
             "sweet",
             "introspective",
             "you_blind"
         ],
-        [
+        "intro": [
             "... You've got a little something on your face..."
         ]
-    ],
-    "d7f4xs1": [
-        [
+    },
+    "d7f4xs1": {
+        "tags": [
             "Any",
             "reject",
             "introspective",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Ugh... I'm not that shallow."
         ]
-    ],
-    "h6d5gf3": [
-        [
+    },
+    "h6d5gf3": {
+        "tags": [
             "Any",
             "reject",
             "silly",
@@ -768,12 +768,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Frankly, I'd rather eat all our Clan's dirt left in the dirtplace."
         ]
-    ],
-    "d5f4xs4": [
-        [
+    },
+    "d5f4xs4": {
+        "tags": [
             "Any",
             "reject",
             "brooding",
@@ -781,38 +781,38 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Hmph. Not interested."
         ]
-    ],
-    "j8g6df5": [
-        [
+    },
+    "j8g6df5": {
+        "tags": [
             "Any",
             "reject",
             "cool",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Um ... oof, this is awkward.",
             "Tell you what, y_c. I'll do us both a favor and pretend this never happened. M'kay?"
         ]
-    ],
-    "j8g6df55": [
-        [
+    },
+    "j8g6df55": {
+        "tags": [
             "Any",
             "reject",
             "cool",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Aww, isn't that cute?",
             "*Snrk*"
         ]
-    ],
-    "h7d5xs6": [
-        [
+    },
+    "h7d5xs6": {
+        "tags": [
             "Any",
             "reject",
             "stable",
@@ -823,27 +823,27 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Okay, I'm gonna stop you right there. I can see what you're doing and I'll save you the embarrassment in two simple words:",
             "Not interested."
         ]
-    ],
-    "f8d5gf7": [
-        [
+    },
+    "f8d5gf7": {
+        "tags": [
             "Any",
             "reject",
             "has_mate",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Uh ... hehe! How sweet of you.",
-            "I'll be sure to tell that one to my mate later. {PRONOUN/t_m/subject/CAP}'ll definitely love it.",
+            "I'll be sure to tell that one to my mate later. {PRONOUN\/t_m\/subject\/CAP}'ll definitely love it.",
             "Ahem, and just to repeat it one more time ... my mate. Who I am in a very committed relationship with."
         ]
-    ],
-    "d9f6xs8": [
-        [
+    },
+    "d9f6xs8": {
+        "tags": [
             "Any",
             "reject",
             "cool",
@@ -851,13 +851,13 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Hehe. Thanks, cutie. But I just don't like you like that.",
             "Hey, keep your chin up, though. Plenty of other cats in the Clan who might catch your interest."
         ]
-    ],
-    "j7g8df9": [
-        [
+    },
+    "j7g8df9": {
+        "tags": [
             "Any",
             "reject",
             "cool",
@@ -865,12 +865,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Oh, dear ... Um, why don't you just stick to admiring me from afar?"
         ]
-    ],
-    "h8d7gf0": [
-        [
+    },
+    "h8d7gf0": {
+        "tags": [
             "Any",
             "reject",
             "assertive",
@@ -882,14 +882,14 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Hahaha! That one got me laughing!",
             "As if we'd actually get together ... could you imagine?",
             "Wait, could you say it again? I want to try it out on my crush."
         ]
-    ],
-    "f9d6xs1": [
-        [
+    },
+    "f9d6xs1": {
+        "tags": [
             "Any",
             "reject",
             "brooding",
@@ -898,12 +898,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "... For your own sake, I better have misheard you."
         ]
-    ],
-    "h9d5xs21": [
-        [
+    },
+    "h9d5xs21": {
+        "tags": [
             "Any",
             "reject",
             "sweet",
@@ -913,12 +913,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Aw, bestie! That's sweet, but no. My heart belongs to another."
         ]
-    ],
-    "h9d5xs2": [
-        [
+    },
+    "h9d5xs2": {
+        "tags": [
             "Any",
             "reject",
             "brooding",
@@ -926,12 +926,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "... You don't wanna be with a cat like me. Trust me."
         ]
-    ],
-    "j8g7df4": [
-        [
+    },
+    "j8g7df4": {
+        "tags": [
             "Any",
             "reject",
             "unabashed",
@@ -939,12 +939,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Woah... Your breath stinks..."
         ]
-    ],
-    "h7d6gf6": [
-        [
+    },
+    "h7d6gf6": {
+        "tags": [
             "Any",
             "reject",
             "introspective",
@@ -953,12 +953,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Eh ... Have you washed today..?"
         ]
-    ],
-    "f9d6xs7": [
-        [
+    },
+    "f9d6xs7": {
+        "tags": [
             "Any",
             "reject",
             "silly",
@@ -967,12 +967,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "I'm sorry, y_c... We just ain't got that chemistry, you feel me?"
         ]
-    ],
-    "d9f7gf8": [
-        [
+    },
+    "d9f7gf8": {
+        "tags": [
             "Any",
             "reject",
             "sweet",
@@ -984,49 +984,49 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Ha! Very funny y_c!",
             "Wait, you were serious?"
         ]
-    ],
-    "d4f2xs46453": [
-        [
+    },
+    "d4f2xs46453": {
+        "tags": [
             "Any",
             "from_mate",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "[t_c purrs and presses into your pelt.]",
             "Say it again, just one more time?"
         ]
-    ],
-    "d4f2xs4919191": [
-        [
+    },
+    "d4f2xs4919191": {
+        "tags": [
             "Any",
             "from_mate",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Oh ... That one took me back to our courtship days. ~"
         ]
-    ],
-    "crush": [
-        [
+    },
+    "crush": {
+        "tags": [
             "Any",
             "from_mate",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Ha, I remember when you first tried that line out on me.",
             "For the next three days, it was all I could think about.",
             "You really had me smitten!"
         ]
-    ],
-    "j5g1sd5": [
-        [
+    },
+    "j5g1sd5": {
+        "tags": [
             "reject",
             "cool",
             "assertive",
@@ -1036,23 +1036,23 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "If I act like I'm interested will it get you to stop?"
         ]
-    ],
-    "f6d8xs6": [
-        [
+    },
+    "f6d8xs6": {
+        "tags": [
             "Any",
             "brooding",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "W-whatever..."
         ]
-    ],
-    "j7g6df7": [
-        [
+    },
+    "j7g6df7": {
+        "tags": [
             "reject",
             "cool",
             "from_mate",
@@ -1061,63 +1061,63 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "As much as I like you, we have got to work on your flirting ability, dear."
         ]
-    ],
-    "j9g8df9": [
-        [
+    },
+    "j9g8df9": {
+        "tags": [
             "Any",
             "neurotic",
             "sweet",
             "introspective",
             "stable"
         ],
-        [
+        "intro": [
             "Um- I like your eyes, too! They're really pretty!"
         ]
-    ],
-    "neurotic_flirt": [
-        [
+    },
+    "neurotic_flirt": {
+        "tags": [
             "Any",
             "neurotic",
             "non-mates",
             "they_blind"
         ],
-        [
+        "intro": [
             "Ha ha. Very funny. No way a cat like you would ever flirt with me.",
             "W-Wait, you mean ... It's not a joke? You really mean it?",
             "[t_c suddenly flushes bright red.]",
             "Uh, T-Thank you, y_c!"
         ]
-    ],
-    "neurotic_flirt1": [
-        [
+    },
+    "neurotic_flirt1": {
+        "tags": [
             "Any",
             "neurotic",
             "non-mates",
             "they_blind"
         ],
-        [
+        "intro": [
             "Eep!",
             "[t_c rushes away, blushing like crazy.]",
             "[Seems like a good sign ...?]"
         ]
-    ],
-    "f9d0xs1": [
-        [
+    },
+    "f9d0xs1": {
+        "tags": [
             "Any",
             "sweet",
             "neurotic",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Y- You really think so? Ah- thank you so much!"
         ]
-    ],
-    "h0d9gf2": [
-        [
+    },
+    "h0d9gf2": {
+        "tags": [
             "warrior",
             "deputy",
             "leader",
@@ -1133,14 +1133,14 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Were you always this charming?",
             "You certainly weren't when we were apprentices, that's for sure!",
             "You bet I remember that time you fell face first into the lake. Who doesn't!"
         ]
-    ],
-    "j0g1df3": [
-        [
+    },
+    "j0g1df3": {
+        "tags": [
             "Any",
             "stable",
             "upstanding",
@@ -1150,12 +1150,12 @@
             "assertive",
             "you_blind"
         ],
-        [
+        "intro": [
             "Your pelt looks lovely in this lighting!"
         ]
-    ],
-    "h1d2gf4": [
-        [
+    },
+    "h1d2gf4": {
+        "tags": [
             "Any",
             "sweet",
             "stable",
@@ -1163,312 +1163,286 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Aw, that's so nice of you!"
         ]
-    ],
-    "f3d4xs6": [
-        [
+    },
+    "f3d4xs6": {
+        "tags": [
             "Any",
             "sweet",
             "neurotic",
             "stable",
             "introspective"
         ],
-        [
+        "intro": [
             "T-Thank you... I guess I should say you've always been looking quite beautiful too!",
             "Especially in the moonlight!"
         ]
-    ],
-    "h3d5gf7": [
-        [
+    },
+    "h3d5gf7": {
+        "tags": [
             "Any",
             "cool",
             "silly",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Oh, you're so cute sometimes! Do tell me more, hehe."
         ]
-    ],
-	"brooding_flirt_AJ": [
-        [
+    },
+    "brooding_flirt_AJ": {
+        "tags": [
             "Any",
             "brooding",
-	    "reject"
+            "reject"
         ],
-        [
+        "intro": [
             "No."
         ]
-    ],
-
-	"brooding_flirt_AJ1": [
-        [
+    },
+    "brooding_flirt_AJ1": {
+        "tags": [
             "Any",
             "brooding"
         ],
-        [
+        "intro": [
             "...",
-	    "...*Blush*"
+            "...*Blush*"
         ]
-    ],
-
-	"brooding_flirt_AJ2": [
-        [
+    },
+    "brooding_flirt_AJ2": {
+        "tags": [
             "Any",
             "brooding"
         ],
-        [
+        "intro": [
             "... You're very sweet. To say that."
         ]
-    ],
-
-	"brooding_flirt_AJ3": [
-        [
+    },
+    "brooding_flirt_AJ3": {
+        "tags": [
             "Any",
             "brooding",
-	    "reject"
+            "reject"
         ],
-        [
+        "intro": [
             "Uhm. Why?"
         ]
-    ],
-
-	"brooding_flirt_AJ4": [
-        [
+    },
+    "brooding_flirt_AJ4": {
+        "tags": [
             "Any",
             "brooding"
         ],
-        [
-            "[t_c buries {PRONOUN/t_c/poss} face in {PRONOUN/t_c/poss} paws shyly.]"
+        "intro": [
+            "[t_c buries {PRONOUN\/t_c\/poss} face in {PRONOUN\/t_c\/poss} paws shyly.]"
         ]
-    ],
-
-	"brooding_flirt_AJ5": [
-        [
+    },
+    "brooding_flirt_AJ5": {
+        "tags": [
             "Any",
             "brooding"
         ],
-        [
+        "intro": [
             "[t_c starts to purr.]"
         ]
-    ],
-
-	"brooding_flirt_AJ6": [
-        [
+    },
+    "brooding_flirt_AJ6": {
+        "tags": [
             "Any",
             "brooding",
-	    "reject"
+            "reject"
         ],
-        [
+        "intro": [
             "Do you think I'm so shallow ...?"
         ]
-    ],
-
-	"brooding_flirt_AJ7": [
-        [
+    },
+    "brooding_flirt_AJ7": {
+        "tags": [
             "Any",
             "brooding",
-	    "reject"
+            "reject"
         ],
-        [
-            "[t_c narrows {PRONOUN/t_c/poss} eyes suspiciously.]",
-	    "What's your angle?"
+        "intro": [
+            "[t_c narrows {PRONOUN\/t_c\/poss} eyes suspiciously.]",
+            "What's your angle?"
         ]
-    ],
-
-	"brooding_flirt_AJ8": [
-        [
+    },
+    "brooding_flirt_AJ8": {
+        "tags": [
             "Any",
             "brooding",
-	    "reject",
-	    "non-mates",
-	    "neutral"
+            "reject",
+            "non-mates",
+            "neutral"
         ],
-        [
+        "intro": [
             "Uhm ... Have you considered seeing r_d?",
-	    "If you're seriously interested in me, you probably have some issues to work through."
+            "If you're seriously interested in me, you probably have some issues to work through."
         ]
-    ],
-
-	"brooding_flirt_AJ9": [
-        [
+    },
+    "brooding_flirt_AJ9": {
+        "tags": [
             "Any",
             "brooding"
         ],
-        [
-            "[t_c allows the faintest hint of a smile to crack over {PRONOUN/t_c/poss} face.]",
-	    "... Thank you."
+        "intro": [
+            "[t_c allows the faintest hint of a smile to crack over {PRONOUN\/t_c\/poss} face.]",
+            "... Thank you."
         ]
-    ],
-
-
-    "cool_flirt": [
-        [
+    },
+    "cool_flirt": {
+        "tags": [
             "Any",
             "cool",
             "non-mates",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Never took you for such a smooth talker, y_c. It's a little unnerving.",
             "... But, I don't exactly hate it, either. ~"
         ]
-    ],
-
-    "cool_flirt_AJ": [
-        [
+    },
+    "cool_flirt_AJ": {
+        "tags": [
             "Any",
             "cool",
-        	"reject",
-        	
-        	"you_blind",
-        	"they_blind"
+            "reject",
+            "you_blind",
+            "they_blind"
         ],
-        [
+        "intro": [
             "Echh. Someone get r_m. That was so sincere, I think it's causing an allergic reaction."
         ]
-    ],
-
-    "cool_flirt_AJ1": [
-        [
+    },
+    "cool_flirt_AJ1": {
+        "tags": [
             "Any",
             "cool",
-	        "reject",
-	        "you_blind",
-	        "they_blind"
+            "reject",
+            "you_blind",
+            "they_blind"
         ],
-        [
+        "intro": [
             "Cute. Can I go now?"
         ]
-    ],
-
-    "cool_flirt_AJ2": [
-        [
+    },
+    "cool_flirt_AJ2": {
+        "tags": [
             "Any",
             "cool",
-        	"reject",
-	        
-	        "they_blind",
-	        "you_blind"
+            "reject",
+            "they_blind",
+            "you_blind"
         ],
-        [
+        "intro": [
             "Hey, r_q? Remind me how you teach the kits to spell 'Out of your league'?"
         ]
-    ],
-
-    "cool_flirt_AJ3": [
-        [
+    },
+    "cool_flirt_AJ3": {
+        "tags": [
             "Any",
             "cool",
-          	"you_blind",
-        	"they_blind"
+            "you_blind",
+            "they_blind"
         ],
-        [
+        "intro": [
             "Y'know, if I didn't know any better, I'd say you were flirting with me, y_c.~",
-	        "Well, why'd you stop? I never said I didn't like it!"
+            "Well, why'd you stop? I never said I didn't like it!"
         ]
-    ],
-
-    "cool_flirt_AJ4": [
-        [
+    },
+    "cool_flirt_AJ4": {
+        "tags": [
             "Any",
             "cool",
-        	"brooding",
-	        "you_blind",
-	        "they_blind"
+            "brooding",
+            "you_blind",
+            "they_blind"
         ],
-        [
+        "intro": [
             "That was. So lame. Ha.",
-	    "[t_c looks away, blushing.]"
+            "[t_c looks away, blushing.]"
         ]
-    ],
-
-"cool_flirt_AJ5": [
-        [
+    },
+    "cool_flirt_AJ5": {
+        "tags": [
             "Any",
             "cool",
-        	"platonic_like",
-        	"you_blind",
-        	"they_blind"
+            "platonic_like",
+            "you_blind",
+            "they_blind"
         ],
-        [
+        "intro": [
             "Huh. Y'know, that really wasn't half bad.",
-    	    "Who taught you that line? Was it me?"
+            "Who taught you that line? Was it me?"
         ]
-    ],
-
-    "cool_flirt_AJ6": [
-        [
+    },
+    "cool_flirt_AJ6": {
+        "tags": [
             "Any",
             "cool",
-	        "reject",
-	        "you_blind",
-	        "they_blind",
+            "reject",
+            "you_blind",
+            "they_blind",
             "min_platonic_30"
         ],
-        [
+        "intro": [
             "Hey, didn't I teach you that line?"
         ]
-    ],
-
-    "cool_flirt_AJ7": [
-        [
+    },
+    "cool_flirt_AJ7": {
+        "tags": [
             "Any",
             "cool",
-        	"assertive",
-	        "you_blind",
-	        "they_blind"
+            "assertive",
+            "you_blind",
+            "they_blind"
         ],
-        [
+        "intro": [
             "Testy. I like it."
         ]
-    ],
-
-"cool_flirt_AJ8": [
-        [
+    },
+    "cool_flirt_AJ8": {
+        "tags": [
             "Any",
             "cool",
-	        "from_mate",
-	        "you_blind",
-	        "they_blind"
+            "from_mate",
+            "you_blind",
+            "they_blind"
         ],
-        [
+        "intro": [
             "Feeling's mutual, babe!~"
         ]
-    ],
-
-    "cool_flirt_AJ9": [
-        [
+    },
+    "cool_flirt_AJ9": {
+        "tags": [
             "Any",
             "cool",
-	        "you_blind",
-	        "they_blind"
+            "you_blind",
+            "they_blind"
         ],
-        [
+        "intro": [
             "Heh. Always loved that line."
         ]
-    ],
-
-    "cool_flirt_AJ10": [
-        [
+    },
+    "cool_flirt_AJ10": {
+        "tags": [
             "Any",
             "cool",
-        	"they_blind",
-        	"you_blind"
+            "they_blind",
+            "you_blind"
         ],
-        [
+        "intro": [
             "Uhm - What is this feeling?",
-        	"I'm actually getting ... nervous?",
-	        "Is this how regular cats feel all the time?"
+            "I'm actually getting ... nervous?",
+            "Is this how regular cats feel all the time?"
         ]
-    ],
-
-
-    "h5d6xs9": [
-        [
+    },
+    "h5d6xs9": {
+        "tags": [
             "Any",
             "sweet",
             "stable",
@@ -1477,96 +1451,96 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Y-You deserve compliments much more than I do!"
         ]
-    ],
-    "f6d7gf0": [
-        [
+    },
+    "f6d7gf0": {
+        "tags": [
             "Any",
             "silly",
             "sweet",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Awee, me? No way, you deserve all these compliments!"
         ]
-    ],
-    "j7g6xs1": [
-        [
+    },
+    "j7g6xs1": {
+        "tags": [
             "Any",
             "brooding",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Heh... Thanks..."
         ]
-    ],
-    "h6d5gf2": [
-        [
+    },
+    "h6d5gf2": {
+        "tags": [
             "Any",
             "sweet",
             "stable",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Aw, thank you! That's so sweet of you!"
         ]
-    ],
-    "f7d8gf3": [
-        [
+    },
+    "f7d8gf3": {
+        "tags": [
             "Any",
             "stable",
             "introspective",
             "upstanding",
             "non-mates"
         ],
-        [
+        "intro": [
             "Wow... Your fur is really shiny today...",
             "Was it always like that?"
         ]
-    ],
-    "j8g7xs4": [
-        [
+    },
+    "j8g7xs4": {
+        "tags": [
             "Any",
             "unabashed",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Is that so? Well, go on. Tell me more about how wonderful I am."
         ]
-    ],
-    "h7d8gf5": [
-        [
+    },
+    "h7d8gf5": {
+        "tags": [
             "Any",
             "silly",
             "sweet"
         ],
-        [
+        "intro": [
             "Oh goodness! You're so sweet!",
             "Let me try...",
             "Your fur looks so radiant in the sun today! Almost as radiant as your eyes.",
             "Did I do good?"
         ]
-    ],
-    "f8d9xs6": [
-        [
+    },
+    "f8d9xs6": {
+        "tags": [
             "Any",
             "neurotic",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "hGK- Oh my goodness-",
             "Sorry I wasn't expecting something as smooth as that!"
         ]
-    ],
-    "j9g8xs7": [
-        [
+    },
+    "j9g8xs7": {
+        "tags": [
             "Any",
             "sweet",
             "stable",
@@ -1574,22 +1548,22 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "AWW!! That's so sweet of you!! You really think of me that way?"
         ]
-    ],
-    "h8d9gf8": [
-        [
+    },
+    "h8d9gf8": {
+        "tags": [
             "Any",
             "unlawful",
             "unabashed"
         ],
-        [
+        "intro": [
             "Heh. I am quite attractive, aren't I? Do go on."
         ]
-    ],
-    "f9d0gf9": [
-        [
+    },
+    "f9d0gf9": {
+        "tags": [
             "Any",
             "silly",
             "unabashed",
@@ -1597,22 +1571,22 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Finally! Someone who noticed."
         ]
-    ],
-    "j0g9xs0": [
-        [
+    },
+    "j0g9xs0": {
+        "tags": [
             "Any",
             "brooding",
             "unlawful"
         ],
-        [
+        "intro": [
             "At least you have eyes."
         ]
-    ],
-    "h9d0xs1": [
-        [
+    },
+    "h9d0xs1": {
+        "tags": [
             "Any",
             "unlawful",
             "unabashed",
@@ -1620,36 +1594,36 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Obviously."
         ]
-    ],
-    "f0d9gf2": [
-        [
+    },
+    "f0d9gf2": {
+        "tags": [
             "reject",
             "unabashed",
             "assertive",
             "Any"
         ],
-        [
+        "intro": [
             "I always look lovely. Are you trying to imply that I don't?"
         ]
-    ],
-    "j1g0xs3": [
-        [
+    },
+    "j1g0xs3": {
+        "tags": [
             "Any",
             "neurotic",
             "non-mates",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "R-Really... me? ...",
             "T... Thanks... it.. It really means a lot."
         ]
-    ],
-    "h0d1gf4": [
-        [
+    },
+    "h0d1gf4": {
+        "tags": [
             "Any",
             "reject",
             "assertive",
@@ -1658,35 +1632,35 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "..That was an awful attempt at flirting, but you are cute, so I'll let it slide."
         ]
-    ],
-    "f1d2gf5": [
-        [
+    },
+    "f1d2gf5": {
+        "tags": [
             "Any",
             "brooding",
             "they_hearing",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "... Thanks. I needed to hear that."
         ]
-    ],
-    "j3g4df9": [
-        [
+    },
+    "j3g4df9": {
+        "tags": [
             "from_mate",
             "Any",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Ah- I love you so much."
         ]
-    ],
-    "h4d5xs0": [
-        [
+    },
+    "h4d5xs0": {
+        "tags": [
             "reject",
             "cool",
             "silly",
@@ -1695,12 +1669,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "...Hahaha! At least you're funny."
         ]
-    ],
-    "upstanding_reject": [
-        [
+    },
+    "upstanding_reject": {
+        "tags": [
             "reject",
             "upstanding",
             "stable",
@@ -1708,45 +1682,45 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Sorry, I just don't have time for something like this right now."
         ]
-    ],
-    "f5d6gf1": [
-        [
+    },
+    "f5d6gf1": {
+        "tags": [
             "Any",
             "introspective",
             "upstanding"
         ],
-        [
+        "intro": [
             "You noticed!? Aw, thank you! I spent extra time grooming my pelt today!"
         ]
-    ],
-    "j6g5df2": [
-        [
+    },
+    "j6g5df2": {
+        "tags": [
             "Any",
             "silly",
             "unabashed",
             "you_blind"
         ],
-        [
+        "intro": [
             "Hehe! You've got something on your face.. Here I'll get it!"
         ]
-    ],
-    "h5d6hxs3": [
-        [
+    },
+    "h5d6hxs3": {
+        "tags": [
             "reject",
             "upstanding",
             "unlawful",
             "brooding",
             "Any"
         ],
-        [
+        "intro": [
             "..Thanks.. Your pelt looks... scruffy today?"
         ]
-    ],
-    "f6d7gf4": [
-        [
+    },
+    "f6d7gf4": {
+        "tags": [
             "Any",
             "from_mate",
             "assertive",
@@ -1757,23 +1731,23 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Aw! I love you, too!"
         ]
-    ],
-    "j7g6xs5": [
-        [
+    },
+    "j7g6xs5": {
+        "tags": [
             "from_mate",
             "Any",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "You're still just as good at flirting as when we first got together, you know?"
         ]
-    ],
-    "h6d7gf6": [
-        [
+    },
+    "h6d7gf6": {
+        "tags": [
             "from_mate",
             "Any",
             "assertive",
@@ -1783,43 +1757,43 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "What's your secret? You always know what I need to hear before I do."
         ]
-    ],
-    "f7d8xs7": [
-        [
+    },
+    "f7d8xs7": {
+        "tags": [
             "Any",
             "introspective",
             "upstanding",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Do you have some sort of secret StarClan cat in your dreams telling you how to woo me?",
             "If so, tell them they're doing a great job."
         ]
-    ],
-    "j8g7df8": [
-        [
+    },
+    "j8g7df8": {
+        "tags": [
             "Any",
             "sweet",
             "stable",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Awww!! Thank you!"
         ]
-    ],
-    "f8d9xs0": [
-        [
+    },
+    "f8d9xs0": {
+        "tags": [
             "Any",
             "silly",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Wait! Let me try one!",
             "...",
             ".....",
@@ -1827,20 +1801,20 @@
             "UHHHH....",
             "You smell like the freshkill I ate this morning! It tasted really really good!"
         ]
-    ],
-    "j9g81df1": [
-        [
+    },
+    "j9g81df1": {
+        "tags": [
             "Any",
             "sweet",
             "unabashed",
             "silly"
         ],
-        [
+        "intro": [
             "Aw! Aren't you adorable!"
         ]
-    ],
-    "h8d9gf2": [
-        [
+    },
+    "h8d9gf2": {
+        "tags": [
             "from_mate",
             "Any",
             "stable",
@@ -1849,12 +1823,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "If StarClan came for me tomorrow, I would be ready to go, knowing that I got to spend time with a cat as wonderful as you."
         ]
-    ],
-    "f9d0gf3": [
-        [
+    },
+    "f9d0gf3": {
+        "tags": [
             "from_mate",
             "Any",
             "stable",
@@ -1864,12 +1838,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "You know, I never knew that I'd end up with a cat like you... but now that I'm here, I wouldn't have it any other way."
         ]
-    ],
-    "j0g1df4": [
-        [
+    },
+    "j0g1df4": {
+        "tags": [
             "Any",
             "stable",
             "introspective",
@@ -1877,12 +1851,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "O-Oh! Wow, you're wonderful, you know that, right?"
         ]
-    ],
-    "h9d0xs5": [
-        [
+    },
+    "h9d0xs5": {
+        "tags": [
             "beach",
             "reject",
             "silly",
@@ -1892,34 +1866,34 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "I must have sand in my ears... What was that again?"
         ]
-    ],
-    "f0d1gf6": [
-        [
+    },
+    "f0d1gf6": {
+        "tags": [
             "forest",
             "Any",
             "introspective",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Mmm! You smell wonderful, like the forest just after rain!"
         ]
-    ],
-    "j1g2df7": [
-        [
+    },
+    "j1g2df7": {
+        "tags": [
             "Any",
             "brooding",
             "unlawful"
         ],
-        [
+        "intro": [
             "I... must agree that was actually neat. Look, I'm surprised."
         ]
-    ],
-    "h0d2gf8": [
-        [
+    },
+    "h0d2gf8": {
+        "tags": [
             "Any",
             "introspective",
             "silly",
@@ -1927,34 +1901,34 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Uh- you smell good too! Like- catmint and lavender!"
         ]
-    ],
-    "f1d3gf9": [
-        [
+    },
+    "f1d3gf9": {
+        "tags": [
             "Any",
             "introspective"
         ],
-        [
+        "intro": [
             "You know, your eyes look just like pools of water when they flash like that.",
             "Has anyone ever told you that?"
         ]
-    ],
-    "f2d5gf2": [
-        [
+    },
+    "f2d5gf2": {
+        "tags": [
             "reject",
             "cool",
             "Any",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Hey, didn't I teach you that line?"
         ]
-    ],
-    "f3d7gf5": [
-        [
+    },
+    "f3d7gf5": {
+        "tags": [
             "Any",
             "neurotic",
             "sweet",
@@ -1962,12 +1936,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "What- uh, thanks! That's really nice of you."
         ]
-    ],
-    "j5g0df9": [
-        [
+    },
+    "j5g0df9": {
+        "tags": [
             "reject",
             "brooding",
             "unlawful",
@@ -1976,104 +1950,104 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "...",
             "Okay then. Thanks, I guess."
         ]
-    ],
-    "h4d0gf0": [
-        [
+    },
+    "h4d0gf0": {
+        "tags": [
             "Any",
             "introspective",
             "assertive"
         ],
-        [
+        "intro": [
             "Really? Well, your eyes are like moonlight!",
             "And, uhm.. I'm not usually this nervous.. You flatter me."
         ]
-    ],
-    "j6g2df2": [
-        [
+    },
+    "j6g2df2": {
+        "tags": [
             "Any",
             "silly"
         ],
-        [
+        "intro": [
             "You're beautiful like a butterfly, and you sparkle in the moonlight. Was that good, or what?"
         ]
-    ],
-    "h5d2gf3": [
-        [
+    },
+    "h5d2gf3": {
+        "tags": [
             "Any",
             "unabashed",
             "silly",
             "cool"
         ],
-        [
+        "intro": [
             "Thanks! That's the 15th time someone said I was beautiful today! I'm trying to get to 20!"
         ]
-    ],
-    "f6d3gf4": [
-        [
+    },
+    "f6d3gf4": {
+        "tags": [
             "Any",
             "neurotic",
             "introspective",
             "non-mates"
         ],
-        [
+        "intro": [
             "...",
             "Dear StarClan, I- uhm..",
             "I'm really not used to this..",
             "Thank you. You're pretty, too."
         ]
-    ],
-    "j7g4df5": [
-        [
+    },
+    "j7g4df5": {
+        "tags": [
             "Any",
             "brooding",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Your compliments are like a ray of sunshine in my bleak world."
         ]
-    ],
-    "j8g6df8": [
-        [
+    },
+    "j8g6df8": {
+        "tags": [
             "Any",
             "silly",
             "sweet"
         ],
-        [
+        "intro": [
             "Is it my turn now, hehe?",
             "You're beautiful like moonlight, and, and, and...",
             "Your fur is as soft as moss!",
             "This is fun!"
         ]
-    ],
-    "h7d6gf9": [
-        [
+    },
+    "h7d6gf9": {
+        "tags": [
             "Any",
             "unabashed",
             "upstanding"
         ],
-        [
+        "intro": [
             "You're distracting me...",
             "I need to focus on my duties, but you're too attractive."
         ]
-    ],
-    "j9g8df1": [
-        [
+    },
+    "j9g8df1": {
+        "tags": [
             "Any",
             "silly",
             "neurotic",
             "you_blind"
         ],
-        [
+        "intro": [
             "Arrggh, stop making me feel weird! It feels like there's butterflies in my belly whenever I see you as is!"
         ]
-    ],
-    "j9gf8df1": [
-        [
+    },
+    "j9gf8df1": {
+        "tags": [
             "Any",
             "from_mate",
             "cool",
@@ -2082,12 +2056,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "I knew it. I've got the best mate EVER!"
         ]
-    ],
-    "j9g8dbf1": [
-        [
+    },
+    "j9g8dbf1": {
+        "tags": [
             "reject",
             "from_mate",
             "stable",
@@ -2097,12 +2071,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Thanks, honey. That was really cute even though it was kind of lame..."
         ]
-    ],
-    "jx9g8df1": [
-        [
+    },
+    "jx9g8df1": {
+        "tags": [
             "reject",
             "from_mate",
             "silly",
@@ -2112,27 +2086,27 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Don't worry! You'll get better one day."
         ]
-    ],
-    "j9g8dvf1": [
-        [
+    },
+    "j9g8dvf1": {
+        "tags": [
             "Any",
             "from_mate",
             "neurotic",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Thank you! I really appreciate it...",
             "...Y'know, sometimes I doubt if I even deserve to be your mate.",
             "But I just keep telling myself that you'd tell me if you didn't want to be mates.",
             "And what you just said made me feel much better!"
         ]
-    ],
-    "j9g8d4f1": [
-        [
+    },
+    "j9g8d4f1": {
+        "tags": [
             "reject",
             "from_mate",
             "cool",
@@ -2142,12 +2116,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "You really suck at that, you know? Hah."
         ]
-    ],
-    "j9g28df1": [
-        [
+    },
+    "j9g28df1": {
+        "tags": [
             "Any",
             "from_mate",
             "brooding",
@@ -2155,25 +2129,25 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "... Oh, stop it. ~"
         ]
-    ],
-    "j9g8ddf1": [
-        [
+    },
+    "j9g8ddf1": {
+        "tags": [
             "Any",
             "brooding",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "About that, I'm sorry for being so..",
             "...Cold? -- Around you. I've been trying to get better with that sort of thing.",
             "I guess I just get nervous."
         ]
-    ],
-    "heartbroken_1": [
-        [
+    },
+    "heartbroken_1": {
+        "tags": [
             "Any",
             "heartbroken",
             "introspective",
@@ -2181,12 +2155,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "It's kind of you to say that, but my heart is elsewhere."
         ]
-    ],
-    "heartbroken_2": [
-        [
+    },
+    "heartbroken_2": {
+        "tags": [
             "Any",
             "heartbroken",
             "assertive",
@@ -2196,12 +2170,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "I appreciate the gesture, but I'm not ready for this."
         ]
-    ],
-    "heartbroken_3": [
-        [
+    },
+    "heartbroken_3": {
+        "tags": [
             "Any",
             "heartbroken",
             "brooding",
@@ -2209,12 +2183,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Right now, my emotions are too raw for anything more."
         ]
-    ],
-    "heartbroken_4": [
-        [
+    },
+    "heartbroken_4": {
+        "tags": [
             "Any",
             "heartbroken",
             "upstanding",
@@ -2223,12 +2197,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "I need some time to heal. Please understand."
         ]
-    ],
-    "heartbroken_5": [
-        [
+    },
+    "heartbroken_5": {
+        "tags": [
             "Any",
             "heartbroken",
             "assertive",
@@ -2238,12 +2212,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Now's not a good time for me. I hope you get that."
         ]
-    ],
-    "heartbroken_6": [
-        [
+    },
+    "heartbroken_6": {
+        "tags": [
             "Any",
             "heartbroken",
             "assertive",
@@ -2251,24 +2225,24 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "It's not about you, it's about where my heart is right now."
         ]
-    ],
-    "heartbroken_7": [
-        [
+    },
+    "heartbroken_7": {
+        "tags": [
             "Any",
             "heartbroken",
             "neurotic",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Um, thank you... but I'm... I'm still processing things."
         ]
-    ],
-    "heartbroken_8": [
-        [
+    },
+    "heartbroken_8": {
+        "tags": [
             "Any",
             "heartbroken",
             "assertive",
@@ -2276,12 +2250,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Not the time or the place. Move along."
         ]
-    ],
-    "heartbroken_9": [
-        [
+    },
+    "heartbroken_9": {
+        "tags": [
             "Any",
             "heartbroken",
             "cool",
@@ -2290,12 +2264,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Well, that's just what I needed. More complicated feelings!"
         ]
-    ],
-    "heartbroken_10": [
-        [
+    },
+    "heartbroken_10": {
+        "tags": [
             "Any",
             "heartbroken",
             "cool",
@@ -2304,12 +2278,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "That's cool, but I've got other things on my mind."
         ]
-    ],
-    "heartbroken_11": [
-        [
+    },
+    "heartbroken_11": {
+        "tags": [
             "Any",
             "heartbroken",
             "unlawful",
@@ -2317,12 +2291,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Life's strange, isn't it? I'm still trying to recover from my last relationship, and here you are."
         ]
-    ],
-    "heartbroken_12": [
-        [
+    },
+    "heartbroken_12": {
+        "tags": [
             "Any",
             "heartbroken",
             "cool",
@@ -2331,12 +2305,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Kind words, but I'm walking a solitary path for now."
         ]
-    ],
-    "heartbroken_13": [
-        [
+    },
+    "heartbroken_13": {
+        "tags": [
             "Any",
             "heartbroken",
             "assertive",
@@ -2345,12 +2319,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Why now? Why me?"
         ]
-    ],
-    "heartbroken_14": [
-        [
+    },
+    "heartbroken_14": {
+        "tags": [
             "Any",
             "heartbroken",
             "stable",
@@ -2359,12 +2333,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Trust is earned. Let's keep things as they are."
         ]
-    ],
-    "heartbroken_15": [
-        [
+    },
+    "heartbroken_15": {
+        "tags": [
             "Any",
             "heartbroken",
             "silly",
@@ -2373,12 +2347,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Tempting, but I'm playing hard to get right now."
         ]
-    ],
-    "heartbroken_16": [
-        [
+    },
+    "heartbroken_16": {
+        "tags": [
             "Any",
             "heartbroken",
             "neurotic",
@@ -2387,12 +2361,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "I'm... taking things slow right now."
         ]
-    ],
-    "flirt_sh_J25": [
-        [
+    },
+    "flirt_sh_J25": {
+        "tags": [
             "Any",
             "you_shunned",
             "they_blind",
@@ -2401,13 +2375,13 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Ew. Why would you say that to anycat, given your situation?",
             "Murderers don't get love, y_c. Stop trying."
         ]
-    ],
-    "flirt_sh_J26": [
-        [
+    },
+    "flirt_sh_J26": {
+        "tags": [
             "Any",
             "you_shunned",
             "they_blind",
@@ -2416,36 +2390,36 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Please don't say that to me right now."
         ]
-    ],
-    "flirt_sh_J27": [
-        [
+    },
+    "flirt_sh_J27": {
+        "tags": [
             "Any",
             "you_shunned",
             "they_blind",
             "you_blind",
             "they_deaf"
         ],
-        [
+        "intro": [
             "[t_c just blinks at you, trying not to react.]"
         ]
-    ],
-    "flirt_sh_J28": [
-        [
+    },
+    "flirt_sh_J28": {
+        "tags": [
             "Any",
             "you_shunned",
             "they_blind",
             "you_blind",
             "from_mate"
         ],
-        [
+        "intro": [
             "Oh, darling. Not now."
         ]
-    ],
-    "flirt_sh_J29": [
-        [
+    },
+    "flirt_sh_J29": {
+        "tags": [
             "Any",
             "you_shunned",
             "they_blind",
@@ -2454,259 +2428,259 @@
             "they_deaf",
             "you_deaf"
         ],
-        [
-            "[t_c playfully taps you with {PRONOUN/t_c/poss} tail before pulling it away before anyone can see.]"
+        "intro": [
+            "[t_c playfully taps you with {PRONOUN\/t_c\/poss} tail before pulling it away before anyone can see.]"
         ]
-    ],
-    "flirt_sh_J30": [
-        [
+    },
+    "flirt_sh_J30": {
+        "tags": [
             "Any",
             "you_shunned",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "You're very cruel, y_c."
         ]
-    ],
-    "flirt_sh_J31": [
-        [
+    },
+    "flirt_sh_J31": {
+        "tags": [
             "Any",
             "you_shunned",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "No, no, don't do that. Not now."
         ]
-    ],
-    "flirt_sh_J32": [
-        [
+    },
+    "flirt_sh_J32": {
+        "tags": [
             "Any",
             "you_shunned",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Maybe I could have liked you if you weren't so evil."
         ]
-    ],
-    "flirt_sh_J33": [
-        [
+    },
+    "flirt_sh_J33": {
+        "tags": [
             "Any",
             "they_shunned",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Oh, um... thank you..."
         ]
-    ],
-    "flirt_sh_J34": [
-        [
+    },
+    "flirt_sh_J34": {
+        "tags": [
             "Any",
             "they_shunned",
             "grievingyou",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "What's going on..?"
         ]
-    ],
-    "flirt_sh_J35": [
-        [
+    },
+    "flirt_sh_J35": {
+        "tags": [
             "Any",
             "grievingyou",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "What's going on..?"
         ]
-    ],
-    "flirt_sh_J36": [
-        [
+    },
+    "flirt_sh_J36": {
+        "tags": [
             "Any",
             "they_shunned",
             "they_grieving",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "What's going on..?"
         ]
-    ],
-    "flirt_sh_J37": [
-        [
+    },
+    "flirt_sh_J37": {
+        "tags": [
             "Any",
             "they_grieving",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "What's going on..?"
         ]
-    ],
-    "flirt_sh_J38": [
-        [
+    },
+    "flirt_sh_J38": {
+        "tags": [
             "Any",
             "both_shunned",
             "they_blind",
             "you_blind",
             "reject"
         ],
-        [
+        "intro": [
             "Ugh... Not now..."
         ]
-    ],
-    "flirt_sh_J39": [
-        [
+    },
+    "flirt_sh_J39": {
+        "tags": [
             "Any",
             "reject",
             "you_shunned"
         ],
-        [
+        "intro": [
             "Ugh..."
         ]
-    ],
-    "flirt_sh_J40": [
-        [
+    },
+    "flirt_sh_J40": {
+        "tags": [
             "Any",
             "reject",
             "they_shunned"
         ],
-        [
+        "intro": [
             "Ugh..."
         ]
-    ],
-    "flirting_shunned_CM1": [
-        [
+    },
+    "flirting_shunned_CM1": {
+        "tags": [
             "any",
             "they_shunned",
             "they_blind"
         ],
-        [
+        "intro": [
             "...... What?",
             "y_c, oh, y_c. You know what I've done. You can't - we can't... oh no..",
-            "[t_c curls up on the ground, burying {PRONOUN/t_c/poss} face into {PRONOUN/t_c/poss} pelt as {PRONOUN/t_c/poss} muzzle turns red.]"
+            "[t_c curls up on the ground, burying {PRONOUN\/t_c\/poss} face into {PRONOUN\/t_c\/poss} pelt as {PRONOUN\/t_c\/poss} muzzle turns red.]"
         ]
-    ],
-    "flirting_shunned_CM2": [
-        [
+    },
+    "flirting_shunned_CM2": {
+        "tags": [
             "any",
             "they_shunned",
             "reject"
         ],
-        [
-            "[t_c frowns at you, {PRONOUN/t_c/poss} claws pressing out.]",
+        "intro": [
+            "[t_c frowns at you, {PRONOUN\/t_c\/poss} claws pressing out.]",
             "You're not supposed to be talking to me, nevermind saying stupid things like that."
         ]
-    ],
-    "flirting_shunned_CM3": [
-        [
+    },
+    "flirting_shunned_CM3": {
+        "tags": [
             "any",
             "they_shunned",
             "reject",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "No.",
             "Now get lost before I tell l_n all about what you just said to me.",
-            "I'm sure {PRONOUN/l_n/poss} face would be hilarious."
+            "I'm sure {PRONOUN\/l_n\/poss} face would be hilarious."
         ]
-    ],
-    "flirting_shunned_Ren1": [
-        [
+    },
+    "flirting_shunned_Ren1": {
+        "tags": [
             "any",
             "they_shunned",
             "they_blind",
             "you_blind"
         ],
-        [
-            "[You approached t_c, quietly starting to flirt with {PRONOUN/t_c/object}.]",
+        "intro": [
+            "[You approached t_c, quietly starting to flirt with {PRONOUN\/t_c\/object}.]",
             "y_c. I murdered our Clanmate. Why are you talking to me, let alone like this?",
             "[You tell t_c that you never liked that Clanmate anyway, and maybe you like a little danger too.]"
         ]
-    ],
-    "flirting_shunned_Ren2": [
-        [
+    },
+    "flirting_shunned_Ren2": {
+        "tags": [
             "any",
             "they_shunned",
             "reject",
             "they_blind",
             "you_blind"
         ],
-        [
-            "[You decide to start flirting with t_c in an attempt to see where it leads. {PRONOUN/t_c/subject/CAP} {VERB/t_c/do/does} not seem amused.]",
+        "intro": [
+            "[You decide to start flirting with t_c in an attempt to see where it leads. {PRONOUN\/t_c\/subject\/CAP} {VERB\/t_c\/do\/does} not seem amused.]",
             "y_c. I murdered our Clanmate. I'm not afraid to go after you too if you keep at it.",
-            "[You try one more time, but t_c lashes out at you, not afraid to get more blood on their claws. It seems {PRONOUN/t_c/subject} {VERB/t_c/aren't/isn't} too fond of you.]"
+            "[You try one more time, but t_c lashes out at you, not afraid to get more blood on their claws. It seems {PRONOUN\/t_c\/subject} {VERB\/t_c\/aren't\/isn't} too fond of you.]"
         ]
-    ],
-    "flirting_shunned_SQ3": [
-        [
+    },
+    "flirting_shunned_SQ3": {
+        "tags": [
             "Any",
             "you_shunned",
             "reject",
             "they_blind",
             "you_blind"
         ],
-        [
-            "[t_c backs away, {PRONOUN/t_c/poss} fur bristling.]",
-            "You aren't allowed to <i>talk</i> to me, let alone say something like that.",
+        "intro": [
+            "[t_c backs away, {PRONOUN\/t_c\/poss} fur bristling.]",
+            "You aren't allowed to <i>talk<\/i> to me, let alone say something like that.",
             "I might not be a murderer, but I still know how to use these claws.",
-            "Remember that next time you even <i>think</i> about opening your mouth."
+            "Remember that next time you even <i>think<\/i> about opening your mouth."
         ]
-    ],
-    "flirt_sh_J41": [
-        [
+    },
+    "flirt_sh_J41": {
+        "tags": [
             "Any",
             "reject",
             "they_shunned",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Ugh..."
         ]
-    ],
-    "flirt_sh_J42": [
-        [
+    },
+    "flirt_sh_J42": {
+        "tags": [
             "Any",
             "they_shunned",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Ugh..."
         ]
-    ],
-    "flirt_sh_J43": [
-        [
+    },
+    "flirt_sh_J43": {
+        "tags": [
             "Any",
             "both_shunned",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Hehe, I don't think that now is really the time..."
         ]
-    ],
-    "flirt_sh_J44": [
-        [
+    },
+    "flirt_sh_J44": {
+        "tags": [
             "Any",
             "both_shunned",
             "reject",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Not the time, y_c."
         ]
-    ],
-    "flirt_sh_J45": [
-        [
+    },
+    "flirt_sh_J45": {
+        "tags": [
             "Any",
             "both_shunned",
             "they_grieving",
@@ -2714,79 +2688,79 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Um... no."
         ]
-    ],
-    "flirt_sh_J46": [
-        [
+    },
+    "flirt_sh_J46": {
+        "tags": [
             "Any",
             "both_shunned",
             "they_grieving",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Maybe later, y_c."
         ]
-    ],
-    "flirting_shunned_SQ4": [
-        [
+    },
+    "flirting_shunned_SQ4": {
+        "tags": [
             "Any",
             "you_shunned",
             "they_blind",
             "you_blind"
         ],
-        [
-            "[You call softly to t_c as {PRONOUN/t_c/subject} {VERB/t_c/pass/passes}, and {PRONOUN/t_c/subject} {VERB/t_c/stop/stops} in {PRONOUN/t_c/poss} tracks.]",
+        "intro": [
+            "[You call softly to t_c as {PRONOUN\/t_c\/subject} {VERB\/t_c\/pass\/passes}, and {PRONOUN\/t_c\/subject} {VERB\/t_c\/stop\/stops} in {PRONOUN\/t_c\/poss} tracks.]",
             "I... y_c?",
-            "[Across the camp, l_n pulls away from a discussion with r_w and strides towards you, {PRONOUN/l_n/poss} eyes narrowed.]",
-            "[t_c hastily backs away as {PRONOUN/t_c/subject} also {VERB/t_c/notice/notices} l_n, though you see {PRONOUN/t_c/object} trying to hide {PRONOUN/t_c/poss} smile.]"
+            "[Across the camp, l_n pulls away from a discussion with r_w and strides towards you, {PRONOUN\/l_n\/poss} eyes narrowed.]",
+            "[t_c hastily backs away as {PRONOUN\/t_c\/subject} also {VERB\/t_c\/notice\/notices} l_n, though you see {PRONOUN\/t_c\/object} trying to hide {PRONOUN\/t_c\/poss} smile.]"
         ]
-    ],
-    "flirting_shunned_CM4": [
-        [
+    },
+    "flirting_shunned_CM4": {
+        "tags": [
             "any",
             "both_shunned",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             ".. That gives me an idea, y_c.",
             "c_nClan will never see us the same. We'll always be the dirt on their paws because we have blood on our own.",
             "We should leave, y_c, make something for us - maybe an entire Clan. But I won't leave until you're ready to come with me.",
             "I couldn't do it alone."
         ]
-    ],
-    "flirting_shunned_SQ1": [
-        [
+    },
+    "flirting_shunned_SQ1": {
+        "tags": [
             "Any",
             "both_shunned",
             "reject"
         ],
-        [
-            "[t_c stares as you for a second, {PRONOUN/t_c/poss} tail lashing.]",
-            "What is wrong with you? Do you think this is some kind of opportunity? Just because the Clan hates us doesn't mean I have to... <i>like</i> you.",
-            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/turn/turns} away, hissing over {PRONOUN/t_c/poss} shoulder.]",
+        "intro": [
+            "[t_c stares as you for a second, {PRONOUN\/t_c\/poss} tail lashing.]",
+            "What is wrong with you? Do you think this is some kind of opportunity? Just because the Clan hates us doesn't mean I have to... <i>like<\/i> you.",
+            "[{PRONOUN\/t_c\/subject\/CAP} {VERB\/t_c\/turn\/turns} away, hissing over {PRONOUN\/t_c\/poss} shoulder.]",
             "I have other things to worry about, y_c. You should probably get your priorities straight, too."
         ]
-    ],
-    "flirting_shunned_SQ2": [
-        [
+    },
+    "flirting_shunned_SQ2": {
+        "tags": [
             "Any",
             "both_shunned",
             "they_blind",
             "you_blind"
         ],
-        [
-            "[Long after sundown, you and t_c are curled up in your makeshift nests at the edge of camp, but from {PRONOUN/t_c/poss} constant shifting, it's clear {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} having trouble sleeping.]",
-            "[You lean over and rest your head on t_c, whispering to {PRONOUN/t_c/object}. For a moment, {PRONOUN/t_c/subject} {VERB/t_c/seem/seems} frozen, but then {PRONOUN/t_c/subject} {VERB/t_c/press/presses} closer.]",
+        "intro": [
+            "[Long after sundown, you and t_c are curled up in your makeshift nests at the edge of camp, but from {PRONOUN\/t_c\/poss} constant shifting, it's clear {PRONOUN\/t_c\/subject}{VERB\/t_c\/'re\/'s} having trouble sleeping.]",
+            "[You lean over and rest your head on t_c, whispering to {PRONOUN\/t_c\/object}. For a moment, {PRONOUN\/t_c\/subject} {VERB\/t_c\/seem\/seems} frozen, but then {PRONOUN\/t_c\/subject} {VERB\/t_c\/press\/presses} closer.]",
             "You... mean that? Even now?",
-            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/curl/curls} {PRONOUN/t_c/poss} tail around you, and you do the same. You stay like that for a while, listening to t_c's breathing and sounds from the camp where neither of you are welcome.]"
+            "[{PRONOUN\/t_c\/subject\/CAP} {VERB\/t_c\/curl\/curls} {PRONOUN\/t_c\/poss} tail around you, and you do the same. You stay like that for a while, listening to t_c's breathing and sounds from the camp where neither of you are welcome.]"
         ]
-    ],
-    "grieving_flirt_CM1": [
-        [
+    },
+    "grieving_flirt_CM1": {
+        "tags": [
             "Any",
             "they_grieving",
             "reject",
@@ -2794,15 +2768,15 @@
             "they_blind",
             "you_blind"
         ],
-        [
-            "[t_c barely looks up at you, choking out a sob as {PRONOUN/t_c/subject} {VERB/t_c/tremble/trembles}.]",
-            "y_c, y_c I'm sorry. I- <i>hic</i> I can't...",
+        "intro": [
+            "[t_c barely looks up at you, choking out a sob as {PRONOUN\/t_c\/subject} {VERB\/t_c\/tremble\/trembles}.]",
+            "y_c, y_c I'm sorry. I- <i>hic<\/i> I can't...",
             "I can't love anyone like I did d_c.",
             "It.. if I lost you... it would destroy me if I did."
         ]
-    ],
-    "grieving_flirt_reuse1": [
-        [
+    },
+    "grieving_flirt_reuse1": {
+        "tags": [
             "Any",
             "they_grieving",
             "brooding",
@@ -2811,12 +2785,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Right now, my emotions are too raw for anything more."
         ]
-    ],
-    "grieving_flirt_reuse2": [
-        [
+    },
+    "grieving_flirt_reuse2": {
+        "tags": [
             "Any",
             "they_grieving",
             "upstanding",
@@ -2826,12 +2800,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "I need some time to heal. Please understand."
         ]
-    ],
-    "grieving_flirt_reuse3": [
-        [
+    },
+    "grieving_flirt_reuse3": {
+        "tags": [
             "Any",
             "they_grieving",
             "assertive",
@@ -2842,23 +2816,23 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Now's not a good time for me. I hope you get that."
         ]
-    ],
-    "grieving_flirt_reuse4": [
-        [
+    },
+    "grieving_flirt_reuse4": {
+        "tags": [
             "Any",
             "they_grieving",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Um, thank you... but I'm... I'm still processing things."
         ]
-    ],
-    "grieving_flirt_reuse5": [
-        [
+    },
+    "grieving_flirt_reuse5": {
+        "tags": [
             "Any",
             "they_grieving",
             "assertive",
@@ -2867,12 +2841,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Not the time or the place. Move along."
         ]
-    ],
-    "grieving_flirt_reuse6": [
-        [
+    },
+    "grieving_flirt_reuse6": {
+        "tags": [
             "Any",
             "they_grieving",
             "cool",
@@ -2882,12 +2856,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Well, that's just what I needed. More complicated feelings!"
         ]
-    ],
-    "grieving_flirt_reuse7": [
-        [
+    },
+    "grieving_flirt_reuse7": {
+        "tags": [
             "Any",
             "they_grieving",
             "assertive",
@@ -2897,12 +2871,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Why now? Why me?"
         ]
-    ],
-    "grieving_flirt_Guy1": [
-        [
+    },
+    "grieving_flirt_Guy1": {
+        "tags": [
             "Any",
             "they_grieving",
             "dead_close",
@@ -2910,13 +2884,13 @@
             "they_blind",
             "you_blind"
         ],
-        [
-            "[t_c opens {PRONOUN/t_c/poss} maws and snarls at you]",
-            "How <b>dare</b> you y_c. How dare you think you can replace d_c!"
+        "intro": [
+            "[t_c opens {PRONOUN\/t_c\/poss} maws and snarls at you]",
+            "How <b>dare<\/b> you y_c. How dare you think you can replace d_c!"
         ]
-    ],
-    "grieving_flirt_reuse11": [
-        [
+    },
+    "grieving_flirt_reuse11": {
+        "tags": [
             "Any",
             "they_grieving",
             "you_grieving",
@@ -2926,12 +2900,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Right now, my emotions are too raw for anything more."
         ]
-    ],
-    "grieving_flirt_reuse22": [
-        [
+    },
+    "grieving_flirt_reuse22": {
+        "tags": [
             "Any",
             "they_grieving",
             "you_grieving",
@@ -2942,12 +2916,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "I need some time to heal. Please understand."
         ]
-    ],
-    "grieving_flirt_reuse31": [
-        [
+    },
+    "grieving_flirt_reuse31": {
+        "tags": [
             "Any",
             "they_grieving",
             "you_grieving",
@@ -2959,24 +2933,24 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Now's not a good time for me. I hope you get that."
         ]
-    ],
-    "grieving_flirt_reuse42": [
-        [
+    },
+    "grieving_flirt_reuse42": {
+        "tags": [
             "Any",
             "they_grieving",
             "you_grieving",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Um, thank you... but I'm... I'm still processing things."
         ]
-    ],
-    "grieving_flirt_reuse51": [
-        [
+    },
+    "grieving_flirt_reuse51": {
+        "tags": [
             "Any",
             "they_grieving",
             "you_grieving",
@@ -2986,12 +2960,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Not the time or the place. Move along."
         ]
-    ],
-    "grieving_flirt_reuse62": [
-        [
+    },
+    "grieving_flirt_reuse62": {
+        "tags": [
             "Any",
             "they_grieving",
             "you_grieving",
@@ -3002,12 +2976,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Well, that's just what I needed. More complicated feelings!"
         ]
-    ],
-    "grieving_flirt_reuse71": [
-        [
+    },
+    "grieving_flirt_reuse71": {
+        "tags": [
             "Any",
             "they_grieving",
             "you_grieving",
@@ -3018,12 +2992,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Why now? Why me?"
         ]
-    ],
-    "grieving_flirt_Guy21": [
-        [
+    },
+    "grieving_flirt_Guy21": {
+        "tags": [
             "Any",
             "they_grieving",
             "you_grieving",
@@ -3032,25 +3006,25 @@
             "they_blind",
             "you_blind"
         ],
-        [
-            "[t_c opens {PRONOUN/t_c/poss} maws and snarls at you]",
-            "How <b>dare</b> you y_c. How dare you think you can replace d_c!"
+        "intro": [
+            "[t_c opens {PRONOUN\/t_c\/poss} maws and snarls at you]",
+            "How <b>dare<\/b> you y_c. How dare you think you can replace d_c!"
         ]
-    ],
-    "grieving_flirt_reuse432": [
-        [
+    },
+    "grieving_flirt_reuse432": {
+        "tags": [
             "Any",
             "they_grieving",
             "you_shunned",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Um, thank you... but I'm... I'm still processing things."
         ]
-    ],
-    "grieving_flirt_reuse5121": [
-        [
+    },
+    "grieving_flirt_reuse5121": {
+        "tags": [
             "Any",
             "they_grieving",
             "you_shunned",
@@ -3058,24 +3032,24 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Not the time or the place. Move along."
         ]
-    ],
-    "grieving_flirt_reuse41": [
-        [
+    },
+    "grieving_flirt_reuse41": {
+        "tags": [
             "Any",
             "they_shunned",
             "you_grieving",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Um, thank you... but I'm... I'm still processing things."
         ]
-    ],
-    "grieving_flirt_reuse511": [
-        [
+    },
+    "grieving_flirt_reuse511": {
+        "tags": [
             "Any",
             "they_shunned",
             "you_grieving",
@@ -3083,26 +3057,26 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Not the time or the place. Move along."
         ]
-    ],
-    "grievingyou_J1": [
-        [
+    },
+    "grievingyou_J1": {
+        "tags": [
             "they_grieving",
             "grievingyou",
             "any",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Wh-what?! y_c?!",
             "I've finally lost my mind.",
             "But, um... thank you, ghost."
         ]
-    ],
-    "grievingyou_J2": [
-        [
+    },
+    "grievingyou_J2": {
+        "tags": [
             "they_grieving",
             "grievingyou",
             "any",
@@ -3110,24 +3084,24 @@
             "they_blind",
             "you_blind"
         ],
-        [
-            "I must be going insane. y_c is dead... {PRONOUN/y_c/subject} would never say that..."
+        "intro": [
+            "I must be going insane. y_c is dead... {PRONOUN\/y_c\/subject} would never say that..."
         ]
-    ],
-    "grievingthem_J1": [
-        [
+    },
+    "grievingthem_J1": {
+        "tags": [
             "you_grieving",
             "grievingthem",
             "any",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "I love and missed you too, y_c."
         ]
-    ],
-    "grievingthem_J2": [
-        [
+    },
+    "grievingthem_J2": {
+        "tags": [
             "you_grieving",
             "grievingthem",
             "any",
@@ -3135,12 +3109,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "You're not thinking clearly right now..."
         ]
-    ],
-    "bothgrieving_flirt_J1": [
-        [
+    },
+    "bothgrieving_flirt_J1": {
+        "tags": [
             "grievingyou",
             "grievingthem",
             "they_grieving",
@@ -3149,12 +3123,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "I don't know what's going on anymore."
         ]
-    ],
-    "bothgrieving_flirt_J2": [
-        [
+    },
+    "bothgrieving_flirt_J2": {
+        "tags": [
             "grievingyou",
             "grievingthem",
             "they_grieving",
@@ -3164,12 +3138,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "I don't know what's going on anymore."
         ]
-    ],
-    "bothgrieving_flirt_J3": [
-        [
+    },
+    "bothgrieving_flirt_J3": {
+        "tags": [
             "grievingyou",
             "grievingthem",
             "they_grieving",
@@ -3179,12 +3153,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "I don't know what's going on anymore."
         ]
-    ],
-    "bothgrieving_flirt_J4": [
-        [
+    },
+    "bothgrieving_flirt_J4": {
+        "tags": [
             "grievingyou",
             "grievingthem",
             "they_grieving",
@@ -3194,12 +3168,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "I don't know what's going on anymore."
         ]
-    ],
-    "bothgrieving_flirt_J5": [
-        [
+    },
+    "bothgrieving_flirt_J5": {
+        "tags": [
             "grievingyou",
             "grievingthem",
             "they_grieving",
@@ -3209,12 +3183,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "I don't know what's going on anymore."
         ]
-    ],
-    "bothgrieving_flirt_J6": [
-        [
+    },
+    "bothgrieving_flirt_J6": {
+        "tags": [
             "grievingyou",
             "grievingthem",
             "they_grieving",
@@ -3225,12 +3199,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "I don't know what's going on anymore."
         ]
-    ],
-    "bothgrieving_flirt_J7": [
-        [
+    },
+    "bothgrieving_flirt_J7": {
+        "tags": [
             "grievingyou",
             "grievingthem",
             "they_grieving",
@@ -3241,12 +3215,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "I don't know what's going on anymore."
         ]
-    ],
-    "bothgrieving_flirt_J8": [
-        [
+    },
+    "bothgrieving_flirt_J8": {
+        "tags": [
             "grievingyou",
             "grievingthem",
             "they_grieving",
@@ -3257,12 +3231,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "I don't know what's going on anymore."
         ]
-    ],
-    "bothgrieving_flirt_J9": [
-        [
+    },
+    "bothgrieving_flirt_J9": {
+        "tags": [
             "they_grieving",
             "you_grieving",
             "you_shunned",
@@ -3271,12 +3245,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Absolutely not, y_c. Neither of us are in any state for this. Especially you."
         ]
-    ],
-    "bothgrieving_flirt_J10": [
-        [
+    },
+    "bothgrieving_flirt_J10": {
+        "tags": [
             "they_grieving",
             "you_grieving",
             "you_shunned",
@@ -3284,25 +3258,25 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Come back later, y_c. Thank you, but I can't do this right now."
         ]
-    ],
-    "flirt_success_H9": [
-        [
+    },
+    "flirt_success_H9": {
+        "tags": [
             "flirt",
             "they_forgiven",
             "any",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "After all this time... you'll still speak to me so sweetly? Even after everything I've done?",
             "You're a wonderful cat, y_c. I cannot thank you enough for your forgiveness."
         ]
-    ],
-    "flirt_reject_H6": [
-        [
+    },
+    "flirt_reject_H6": {
+        "tags": [
             "reject",
             "any",
             "non-mates",
@@ -3311,12 +3285,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Do you have a death wish, or is this just to humiliate me?"
         ]
-    ],
-    "flirt_reject_H7": [
-        [
+    },
+    "flirt_reject_H7": {
+        "tags": [
             "reject",
             "any",
             "non-mates",
@@ -3324,13 +3298,13 @@
             "they_shunned",
             "they_blind"
         ],
-        [
+        "intro": [
             "Get lost, I'm serious.",
-            "[t_c hisses in your direction, {PRONOUN/t_c/poss} tail lashing and claws extending.]"
+            "[t_c hisses in your direction, {PRONOUN\/t_c\/poss} tail lashing and claws extending.]"
         ]
-    ],
-    "flirt_reject_H8": [
-        [
+    },
+    "flirt_reject_H8": {
+        "tags": [
             "reject",
             "any",
             "from_mate",
@@ -3339,12 +3313,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "You're going to get in trouble, you know that."
         ]
-    ],
-    "flirt_reject_H9": [
-        [
+    },
+    "flirt_reject_H9": {
+        "tags": [
             "reject",
             "any",
             "flirt",
@@ -3352,14 +3326,14 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "I'm a murderer and you're still trying to get with me?",
             "You have some dedication.",
             "Not-- No, that's not a compliment!"
         ]
-    ],
-    "flirt_reject_H15": [
-        [
+    },
+    "flirt_reject_H15": {
+        "tags": [
             "flirt",
             "reject",
             "they_shunned",
@@ -3367,51 +3341,51 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "You know, I would be flattered if there was some freshkill sent my way.",
             "... No? Then you're not worth my time."
         ]
-    ],
-    "flirt_success_H6": [
-        [
+    },
+    "flirt_success_H6": {
+        "tags": [
             "flirt",
             "they_shunned",
             "any",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Hmm... you amuse me, I'll give you that."
         ]
-    ],
-    "flirt_success_H7": [
-        [
+    },
+    "flirt_success_H7": {
+        "tags": [
             "flirt",
             "they_shunned",
             "any",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "I'll admit, you have bravery saying those things under these circumstances.",
             "I can't help but feel a bit flattered."
         ]
-    ],
-    "flirt_success_H8": [
-        [
+    },
+    "flirt_success_H8": {
+        "tags": [
             "flirt",
             "they_shunned",
             "any",
             "they_deaf",
             "you_deaf"
         ],
-        [
+        "intro": [
             "[t_c looks away, flustered.]",
             "[Mission accomplished.]"
         ]
-    ],
-    "flirt_reject_H16": [
-        [
+    },
+    "flirt_reject_H16": {
+        "tags": [
             "flirt",
             "they_shunned",
             "heartbroken",
@@ -3419,13 +3393,13 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "I cannot deal with this. Not while my life crumbles so quickly.",
             "... Is this my karma?"
         ]
-    ],
-    "flirting_shunned_SQ5": [
-        [
+    },
+    "flirting_shunned_SQ5": {
+        "tags": [
             "Any",
             "they_shunned",
             "non-mates",
@@ -3433,14 +3407,14 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "[t_c hisses at you.]",
             "I'm not even allowed to talk with t_m.",
             "What makes you think I'd want to talk with you?"
         ]
-    ],
-    "flirt_reject_H17": [
-        [
+    },
+    "flirt_reject_H17": {
+        "tags": [
             "flirt",
             "reject",
             "you_shunned",
@@ -3448,13 +3422,13 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "You must be a fool to believe I would take kindly to that.",
             "Scram."
         ]
-    ],
-    "flirt_reject_H18": [
-        [
+    },
+    "flirt_reject_H18": {
+        "tags": [
             "flirt",
             "reject",
             "you_shunned",
@@ -3462,12 +3436,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "I'd consider this an insult."
         ]
-    ],
-    "flirt_reject_H10": [
-        [
+    },
+    "flirt_reject_H10": {
+        "tags": [
             "reject",
             "any",
             "flirt",
@@ -3476,13 +3450,13 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "d_c just died and you're trying to flirt with me?",
             "... You need to get your priorities in order, y_c. Seriously."
         ]
-    ],
-    "flirt_reject_H13": [
-        [
+    },
+    "flirt_reject_H13": {
+        "tags": [
             "reject",
             "any",
             "flirt",
@@ -3491,73 +3465,73 @@
             "you_deaf",
             "they_deaf"
         ],
-        [
-            "[t_c's tail lashes angrily and {PRONOUN/t_c/subject} {VERB/t_c/turn/turns} the other way.]",
+        "intro": [
+            "[t_c's tail lashes angrily and {PRONOUN\/t_c\/subject} {VERB\/t_c\/turn\/turns} the other way.]",
             "[Your flirting is not welcome, it seems.]"
         ]
-    ],
-    "flirt_Guy1": [
-        [
+    },
+    "flirt_Guy1": {
+        "tags": [
             "unlawful",
             "brooding",
             "introspective",
             "reject"
         ],
-        [
-            "[t_c rolls {PRONOUN/t_c/poss} eyes and scoffs.]",
+        "intro": [
+            "[t_c rolls {PRONOUN\/t_c\/poss} eyes and scoffs.]",
             "Words said so often that they lack any meaning."
         ]
-    ],
-    "flirting_neurotic_SQ1": [
-        [
+    },
+    "flirting_neurotic_SQ1": {
+        "tags": [
             "neurotic",
             "Any",
             "reject"
         ],
-        [
-            "[t_c shrinks back. {PRONOUN/t_c/subject/CAP} {VERB/t_c/narrow/narrows} {PRONOUN/t_c/poss} eyes at {PRONOUN/t_c/poss} paws.]",
+        "intro": [
+            "[t_c shrinks back. {PRONOUN\/t_c\/subject\/CAP} {VERB\/t_c\/narrow\/narrows} {PRONOUN\/t_c\/poss} eyes at {PRONOUN\/t_c\/poss} paws.]",
             "Are you making fun of me? That's not nice, y_c."
         ]
-    ],
-    "flirting_neurotic_SQ2": [
-        [
+    },
+    "flirting_neurotic_SQ2": {
+        "tags": [
             "neurotic",
             "any"
         ],
-        [
+        "intro": [
             "...me?",
-            "[t_c's fur fluffs. {PRONOUN/t_c/poss/CAP} eyes dart from side to side, never quite meeting yours, as if {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} looking for another cat you might have been addressing.]",
+            "[t_c's fur fluffs. {PRONOUN\/t_c\/poss\/CAP} eyes dart from side to side, never quite meeting yours, as if {PRONOUN\/t_c\/subject}{VERB\/t_c\/'re\/'s} looking for another cat you might have been addressing.]",
             "T-thank you?"
         ]
-    ],
-    "flirt_success_H1": [
-        [
+    },
+    "flirt_success_H1": {
+        "tags": [
             "flirt",
             "they_app",
             "you_app",
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Heh, you... you mean that?",
             "Wow..."
         ]
-    ],
-    "flirt_success_H2": [
-        [
+    },
+    "flirt_success_H2": {
+        "tags": [
             "flirt",
             "they_app",
             "you_app",
             "they_deaf",
             "you_deaf"
         ],
-        [
-            "[t_c's ears go red and {PRONOUN/t_c/poss} eyes light up in awe.]",
-            "[You seem to have broken {PRONOUN/t_c/object} slightly with your awkward flirting.]"
+        "intro": [
+            "[t_c's ears go red and {PRONOUN\/t_c\/poss} eyes light up in awe.]",
+            "[You seem to have broken {PRONOUN\/t_c\/object} slightly with your awkward flirting.]"
         ]
-    ],
-    "flirt_success_H3": [
-        [
+    },
+    "flirt_success_H3": {
+        "tags": [
             "flirt",
             "they_app",
             "you_app",
@@ -3565,13 +3539,13 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "I thought we were just friends.",
             "Heh, just kidding. I think you're really cute too."
         ]
-    ],
-    "flirt_success_H4": [
-        [
+    },
+    "flirt_success_H4": {
+        "tags": [
             "flirt",
             "they_app",
             "you_app",
@@ -3579,14 +3553,14 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "You're joking with me.",
             "N-no? You're not?",
             "Am I dreaming or is this the luckiest day of my life?"
         ]
-    ],
-    "flirt_reject_H1": [
-        [
+    },
+    "flirt_reject_H1": {
+        "tags": [
             "reject",
             "any",
             "non-mates",
@@ -3594,12 +3568,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Oh, wrap it up."
         ]
-    ],
-    "flirt_reject_H2": [
-        [
+    },
+    "flirt_reject_H2": {
+        "tags": [
             "reject",
             "any",
             "non-mates",
@@ -3608,12 +3582,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "No, thanks."
         ]
-    ],
-    "flirt_reject_H3": [
-        [
+    },
+    "flirt_reject_H3": {
+        "tags": [
             "reject",
             "any",
             "non-mates",
@@ -3621,12 +3595,12 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "... And what am I supposed to do with this information, exactly?"
         ]
-    ],
-    "flirt_reject_H4": [
-        [
+    },
+    "flirt_reject_H4": {
+        "tags": [
             "reject",
             "any",
             "non-mates",
@@ -3634,13 +3608,13 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "... Right, that made no sense.",
             "You should work on your flirting a little more before you come back for more."
         ]
-    ],
-    "flirt_reject_H5": [
-        [
+    },
+    "flirt_reject_H5": {
+        "tags": [
             "reject",
             "any",
             "non-mates",
@@ -3651,14 +3625,14 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "Uh, sorry I think I just heard r_w calling for me.",
             "Time to do my duties! Haha... ha...",
             "[t_c skitters off in a hurry. Was your flirting really that bad?]"
         ]
-    ],
-    "flirt_reject_H11": [
-        [
+    },
+    "flirt_reject_H11": {
+        "tags": [
             "reject",
             "any",
             "flirt",
@@ -3666,13 +3640,13 @@
             "you_blind",
             "they_hearing"
         ],
-        [
+        "intro": [
             "Hm? What?",
             "Sorry, I couldn't hear you."
         ]
-    ],
-    "flirt_reject_H12": [
-        [
+    },
+    "flirt_reject_H12": {
+        "tags": [
             "reject",
             "any",
             "flirt",
@@ -3681,26 +3655,26 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "What are you doing outside? It's so cold!",
-            "[t_c coaxes you back to somewhere warm and alas, your attempt at flirting either went over {PRONOUN/t_c/poss} head... or was ignored.]",
+            "[t_c coaxes you back to somewhere warm and alas, your attempt at flirting either went over {PRONOUN\/t_c\/poss} head... or was ignored.]",
             "[You can't decide which one is worse.]"
         ]
-    ],
-    "flirt_reject_H14": [
-        [
+    },
+    "flirt_reject_H14": {
+        "tags": [
             "reject",
             "any",
             "flirt",
             "heartbroken"
         ],
-        [
-            "[t_c's tail lashes angrily and {PRONOUN/t_c/subject} {VERB/t_c/turn/turns} the other way.]",
+        "intro": [
+            "[t_c's tail lashes angrily and {PRONOUN\/t_c\/subject} {VERB\/t_c\/turn\/turns} the other way.]",
             "[Your flirting is not welcome, it seems.]"
         ]
-    ],
-    "flirt_reject_H19": [
-        [
+    },
+    "flirt_reject_H19": {
+        "tags": [
             "flirt",
             "reject",
             "any",
@@ -3708,25 +3682,25 @@
             "they_blind",
             "you_blind"
         ],
-        [
+        "intro": [
             "You have some nerve..."
         ]
-    ],
-    "deafflirt_J1": [
-        [
+    },
+    "deafflirt_J1": {
+        "tags": [
             "any",
             "they_blind",
             "you_blind",
             "they_deaf",
             "you_deaf"
         ],
-        [
-            "[While laying next to t_c in camp, you reach your paw towards {PRONOUN/t_c/inposs}.]",
-            "[{PRONOUN/t_c/poss/CAP} blush is so strong that you can feel it!]"
+        "intro": [
+            "[While laying next to t_c in camp, you reach your paw towards {PRONOUN\/t_c\/inposs}.]",
+            "[{PRONOUN\/t_c\/poss\/CAP} blush is so strong that you can feel it!]"
         ]
-    ],
-    "deafflirt_J2": [
-        [
+    },
+    "deafflirt_J2": {
+        "tags": [
             "any",
             "reject",
             "they_blind",
@@ -3734,13 +3708,13 @@
             "they_deaf",
             "you_deaf"
         ],
-        [
-            "[While laying next to t_c in camp, you reach your paw towards {PRONOUN/t_c/inposs}.]",
-            "[{PRONOUN/t_c/subject/CAP} quickly {VERB/t_c/flinch/flinches} and {VERB/t_c/shuffle/shuffles} away from you.]"
+        "intro": [
+            "[While laying next to t_c in camp, you reach your paw towards {PRONOUN\/t_c\/inposs}.]",
+            "[{PRONOUN\/t_c\/subject\/CAP} quickly {VERB\/t_c\/flinch\/flinches} and {VERB\/t_c\/shuffle\/shuffles} away from you.]"
         ]
-    ],
-    "hasmate_success_H1": [
-        [
+    },
+    "hasmate_success_H1": {
+        "tags": [
             "flirt",
             "has_mate",
             "Any",
@@ -3748,12 +3722,12 @@
             "you_blind",
             "they_blind"
         ],
-        [
-            "Don't tell t_m, but your flirting is a lot better than {PRONOUN/t_m/inposs}."
+        "intro": [
+            "Don't tell t_m, but your flirting is a lot better than {PRONOUN\/t_m\/inposs}."
         ]
-    ],
-    "hasmate_success_H2": [
-        [
+    },
+    "hasmate_success_H2": {
+        "tags": [
             "flirt",
             "dislike",
             "romantic_like",
@@ -3761,13 +3735,13 @@
             "any",
             "they_blind"
         ],
-        [
+        "intro": [
             "You have a lot of nerve.",
-            "[Despite t_c's words, {PRONOUN/t_c/subject} {VERB/t_c/turn/turns} to hide a smile.]"
+            "[Despite t_c's words, {PRONOUN\/t_c\/subject} {VERB\/t_c\/turn\/turns} to hide a smile.]"
         ]
-    ],
-   "hasmate_success_H3": [
-        [
+    },
+    "hasmate_success_H3": {
+        "tags": [
             "flirt",
             "has_mate",
             "romantic_like",
@@ -3775,41 +3749,41 @@
             "they_deaf",
             "you_deaf"
         ],
-        [
+        "intro": [
             "[t_c looks away, flustered by your flirting.]",
-            "[Just over {PRONOUN/t_c/poss} shoulder, you see t_m watching from the distance, {PRONOUN/t_m/poss} tail lashing.]",
+            "[Just over {PRONOUN\/t_c\/poss} shoulder, you see t_m watching from the distance, {PRONOUN\/t_m\/poss} tail lashing.]",
             "[... Whoops.]"
         ]
-    ],
-    "hasmate_success_H4": [
-        [
+    },
+    "hasmate_success_H4": {
+        "tags": [
             "flirt",
             "has_mate",
             "romantic_like",
             "Any",
             "they_blind"
         ],
-        [
+        "intro": [
             "Oh, do you mean that?",
-            "[t_m calls for t_c in the distance. t_c almost jumps out of {PRONOUN/t_c/poss} fur in guilty surprise.]",
+            "[t_m calls for t_c in the distance. t_c almost jumps out of {PRONOUN\/t_c\/poss} fur in guilty surprise.]",
             "Sorry, gotta go! I'll talk to you later!"
         ]
-    ],
-    "hasmate_success_H5": [
-        [
+    },
+    "hasmate_success_H5": {
+        "tags": [
             "flirt",
             "has_mate",
             "romantic_like",
             "Any",
             "they_blind"
         ],
-        [
+        "intro": [
             "Does every cat want a piece of me, or what?",
             "[t_c's chest puffs out, smug from all the attention.]"
         ]
-    ],
-    "hasmate_success_H6": [
-        [
+    },
+    "hasmate_success_H6": {
+        "tags": [
             "flirt",
             "has_mate",
             "from_mate",
@@ -3818,60 +3792,60 @@
             "you_blind",
             "they_blind"
         ],
-        [
+        "intro": [
             "Oh, t_m beat you to it! Maybe next moon *wink*."
         ]
-    ],
-    "flirt_reject_H20": [
-        [
+    },
+    "flirt_reject_H20": {
+        "tags": [
             "flirt",
             "reject",
             "any"
         ],
-        [
+        "intro": [
             "Oh, y_c! Thank you! Do you know who else has gorgeous eyes?",
             "their_crush!~",
             "[t_c sighs blissfully.]"
         ]
-    ],
-    "flirt_reject_H21": [
-        [
+    },
+    "flirt_reject_H21": {
+        "tags": [
             "flirt",
             "reject",
             "any",
             "you_blind",
             "they_blind"
         ],
-        [
+        "intro": [
             "Oh, I wish their_crush spoke to me like that!"
         ]
-    ],
-    "flirt_reject_H22": [
-        [
+    },
+    "flirt_reject_H22": {
+        "tags": [
             "flirt",
             "reject",
             "any",
             "you_blind",
             "they_blind"
         ],
-        [
+        "intro": [
             "You're really nice, y_c, but...",
             "I can't get over their_crush. I hope you understand!"
         ]
-    ],
-   "flirt_reject_H23": [
-        [
+    },
+    "flirt_reject_H23": {
+        "tags": [
             "flirt",
             "reject",
             "any",
             "you_blind"
         ],
-        [
+        "intro": [
             "Sorry, y_c but... I have my eyes set out for their_crush."
         ]
-    ],
-    "flirt_reject_H24": [
-        [
+    },
+    "flirt_reject_H24": {
+        "tags": [
             "flirt",
             "reject",
             "they_medicine_cat",
@@ -3879,38 +3853,38 @@
             "you_blind",
             "they_blind"
         ],
-        [
+        "intro": [
             "I would rather chew on ragwort than flirt with you."
         ]
-    ],
-    "flirt_reject_H25": [
-        [
+    },
+    "flirt_reject_H25": {
+        "tags": [
             "flirt",
             "reject",
             "they_queen",
-	        "clan_has_kits",
+            "clan_has_kits",
             "platonic_like",
             "you_blind",
             "they_blind"
         ],
-        [
+        "intro": [
             "I'm really busy with the kits right now , sorry! I'll talk to you later?"
         ]
-    ],
-    "flirt_reject_H26": [
-        [
+    },
+    "flirt_reject_H26": {
+        "tags": [
             "flirt",
             "reject",
             "they_mediator",
             "you_blind",
             "they_blind"
         ],
-        [
+        "intro": [
             "... This is a weird way to ask for mediation."
         ]
-    ],
-    "flirt_reject_H27": [
-        [
+    },
+    "flirt_reject_H27": {
+        "tags": [
             "flirt",
             "reject",
             "they_warrior",
@@ -3918,12 +3892,12 @@
             "you_blind",
             "they_blind"
         ],
-        [
+        "intro": [
             "StarClan, do I need to ask d_n to set me out on more patrols so you'll stop flirting with me?"
         ]
-    ],
-   "hasmate_reject_H1": [
-        [
+    },
+    "hasmate_reject_H1": {
+        "tags": [
             "flirt",
             "has_mate",
             "non-mates",
@@ -3932,12 +3906,12 @@
             "you_blind",
             "they_blind"
         ],
-        [
+        "intro": [
             "That was a nice attempt, but I am very happy with t_m."
         ]
-    ],
-    "hasmate_reject_H2": [
-        [
+    },
+    "hasmate_reject_H2": {
+        "tags": [
             "flirt",
             "has_mate",
             "non-mates",
@@ -3947,13 +3921,13 @@
             "you_blind",
             "they_blind"
         ],
-        [
+        "intro": [
             "[t_c laughs loudly at your flirting.]",
             "Haha, good one, y_c! Oh, I can't wait to pass your joke to t_m!"
         ]
-    ],
-    "hasmate_reject_H3": [
-        [
+    },
+    "hasmate_reject_H3": {
+        "tags": [
             "flirt",
             "has_mate",
             "non-mates",
@@ -3962,13 +3936,13 @@
             "you_blind",
             "they_blind"
         ],
-        [
+        "intro": [
             "Are you joking? You must be joking.",
             "... you know I'm happily in a relationship with t_m... right?"
         ]
-    ],
-    "hasmate_reject_H4": [
-        [
+    },
+    "hasmate_reject_H4": {
+        "tags": [
             "flirt",
             "has_mate",
             "non-mates",
@@ -3978,12 +3952,12 @@
             "you_blind",
             "they_blind"
         ],
-        [
+        "intro": [
             "Back off before I call t_m over."
         ]
-    ],
-    "hasmate_reject_H5": [
-        [
+    },
+    "hasmate_reject_H5": {
+        "tags": [
             "flirt",
             "has_mate",
             "non-mates",
@@ -3993,13 +3967,13 @@
             "you_blind",
             "they_blind"
         ],
-        [
+        "intro": [
             "[t_c hisses at you, unamused with your flirting.]",
             "Stop that! Don't you know I'm with t_m?"
         ]
-    ],
-    "hasmate_reject_H6": [
-        [
+    },
+    "hasmate_reject_H6": {
+        "tags": [
             "flirt",
             "has_mate",
             "non-mates",
@@ -4008,72 +3982,72 @@
             "you_blind",
             "they_blind"
         ],
-        [
+        "intro": [
             "Sorry, you're definitely not my type of cat."
         ]
-    ],
-    "hasmate_reject_H7": [
-        [
+    },
+    "hasmate_reject_H7": {
+        "tags": [
             "flirt",
             "has_mate",
             "non-mates",
             "reject",
-	        "Any",
+            "Any",
             "you_blind",
             "they_blind"
         ],
-        [
+        "intro": [
             "What?",
-            "Oh. Sorry, you're nothing like the <i>love of my life</i>.",
+            "Oh. Sorry, you're nothing like the <i>love of my life<\/i>.",
             "Do you get the hint, or..."
         ]
-    ],
-    "hasmate_reject_H8": [
-        [
+    },
+    "hasmate_reject_H8": {
+        "tags": [
             "flirt",
-	        "Any",
+            "Any",
             "has_mate",
             "non-mates",
             "reject"
         ],
-        [
+        "intro": [
             "Look, y_c, do you not see how happy I am with t_m?",
-            "You can't separate me from {PRONOUN/t_m/object}, but good luck trying."
+            "You can't separate me from {PRONOUN\/t_m\/object}, but good luck trying."
         ]
-    ],
-    "hasmate_reject_H9": [
-        [
+    },
+    "hasmate_reject_H9": {
+        "tags": [
             "flirt",
-	        "Any",
+            "Any",
             "has_mate",
             "non-mates",
             "reject",
             "you_blind",
             "they_blind"
         ],
-        [
+        "intro": [
             "Oh uh, I just remembered that I need to do something!",
             "With t_m, yup!",
             "[t_c skitters off in a hurry.]"
         ]
-    ],
-    "hasmate_reject_H10": [
-        [
+    },
+    "hasmate_reject_H10": {
+        "tags": [
             "flirt",
-	        "Any",
+            "Any",
             "has_mate",
             "non-mates",
             "reject",
             "they_deputy"
         ],
-        [
-            "[t_c narrows {PRONOUN/t_c/poss} eyes at you, thoughtful.]",
+        "intro": [
+            "[t_c narrows {PRONOUN\/t_c\/poss} eyes at you, thoughtful.]",
             "y_c, you are very brave, I'll give you that.",
             "Oh, you know what? Since you're so brave, how about I place you on more border patrols?"
         ]
-    ],
-   "frommate_reject_H1": [
-        [
+    },
+    "frommate_reject_H1": {
+        "tags": [
             "flirt",
             "reject",
             "from_mate",
@@ -4082,12 +4056,12 @@
             "you_blind",
             "they_blind"
         ],
-        [
+        "intro": [
             "y_c, I'm not in the mood."
         ]
-    ],
-    "frommate_reject_H2": [
-        [
+    },
+    "frommate_reject_H2": {
+        "tags": [
             "flirt",
             "reject",
             "from_mate",
@@ -4095,13 +4069,13 @@
             "you_blind",
             "they_blind"
         ],
-        [
+        "intro": [
             "y_c... is it just me or did your flirting become worse over the moons we've been together?",
             "Oh... Yes, I am totally joking! Haha... ha..."
         ]
-    ],
-    "frommate_reject_H3": [
-        [
+    },
+    "frommate_reject_H3": {
+        "tags": [
             "flirt",
             "reject",
             "from_mate",
@@ -4110,12 +4084,12 @@
             "you_blind",
             "they_blind"
         ],
-        [
+        "intro": [
             "You must not mean that."
         ]
-    ],
-    "frommate_reject_H4": [
-        [
+    },
+    "frommate_reject_H4": {
+        "tags": [
             "flirt",
             "reject",
             "from_mate",
@@ -4123,14 +4097,14 @@
             "you_blind",
             "they_blind"
         ],
-        [
+        "intro": [
             "Awh! I can tell you've been... practicing that one!",
             "Oh. You didn't? Uhem.",
             "Ah -- Of course, I knew that! You're very... good. At flirting."
         ]
-    ],
-    "frommate_reject_H5": [
-        [
+    },
+    "frommate_reject_H5": {
+        "tags": [
             "flirt",
             "reject",
             "from_mate",
@@ -4138,9 +4112,9 @@
             "you_blind",
             "they_blind"
         ],
-        [
+        "intro": [
             "I'm going to be honest.",
             "That was the worst, y_c."
         ]
-    ]
+    }
 }
