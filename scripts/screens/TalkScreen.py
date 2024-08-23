@@ -755,23 +755,29 @@ class TalkScreen(Screens):
 
             # you cant get meeting dialogue if you've already met!
             youmet = True
-            if game.clan.your_cat.relationships[cat.ID].platonic_like == 0:
-                if game.clan.your_cat.relationships[cat.ID].romantic_love == 0:
-                    if game.clan.your_cat.relationships[cat.ID].admiration == 0:
-                        if game.clan.your_cat.relationships[cat.ID].dislike == 0:
-                            if game.clan.your_cat.relationships[cat.ID].jealousy == 0:
-                                if game.clan.your_cat.relationships[cat.ID].trust == 0:
-                                    if game.clan.your_cat.relationships[cat.ID].comfortable == 0:
-                                        youmet = False
+            if cat.ID not in game.clan.your_cat.relationships:
+                youmet = False
+            else:
+                if game.clan.your_cat.relationships[cat.ID].platonic_like == 0:
+                    if game.clan.your_cat.relationships[cat.ID].romantic_love == 0:
+                        if game.clan.your_cat.relationships[cat.ID].admiration == 0:
+                            if game.clan.your_cat.relationships[cat.ID].dislike == 0:
+                                if game.clan.your_cat.relationships[cat.ID].jealousy == 0:
+                                    if game.clan.your_cat.relationships[cat.ID].trust == 0:
+                                        if game.clan.your_cat.relationships[cat.ID].comfortable == 0:
+                                            youmet = False
             theymet = True
-            if cat.relationships[game.clan.your_cat.ID].platonic_like == 0:
-                if cat.relationships[game.clan.your_cat.ID].romantic_love == 0:
-                    if cat.relationships[game.clan.your_cat.ID].admiration == 0:
-                        if cat.relationships[game.clan.your_cat.ID].dislike == 0:
-                            if cat.relationships[game.clan.your_cat.ID].jealousy == 0:
-                                if cat.relationships[game.clan.your_cat.ID].trust == 0:
-                                    if cat.relationships[game.clan.your_cat.ID].comfortable == 0:
-                                        theymet = False
+            if game.clan.your_cat.ID not in cat.relationships:
+                theymet = False
+            else:
+                if cat.relationships[game.clan.your_cat.ID].platonic_like == 0:
+                    if cat.relationships[game.clan.your_cat.ID].romantic_love == 0:
+                        if cat.relationships[game.clan.your_cat.ID].admiration == 0:
+                            if cat.relationships[game.clan.your_cat.ID].dislike == 0:
+                                if cat.relationships[game.clan.your_cat.ID].jealousy == 0:
+                                    if cat.relationships[game.clan.your_cat.ID].trust == 0:
+                                        if cat.relationships[game.clan.your_cat.ID].comfortable == 0:
+                                            theymet = False
             # this sucks
 
             if "meeting" in tags:

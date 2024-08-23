@@ -1,5 +1,5 @@
 {
-    "hunting": {
+    "hunt": {
         "intro_text": [
             "You spend some time hunting.",
             "You decide to dedicate some time to hunting."
@@ -87,7 +87,7 @@
             }
         }
     },
-    "fishing": {
+    "fish": {
         "intro_text": [
             "You decide to test out your fishing skills."
         ],
@@ -300,6 +300,466 @@
                             "In the darkness of the ship's interior, you trip on a sharp plank of wood, making a loud crash. You spend the next while hiding in the corner, hoping no cat was close enough to hear and come looking for you."
                         ]
                     }
+                }
+            }
+        }
+    },
+    "gather tansy": {
+        "intro_text": [
+            "You spend some time gathering tansy from a nearby patch.",
+            "You've decided to pick some tansy."
+        ],
+        "outcomes": {
+            "positive": {
+                "1": {
+                    "text": [
+                        "You're able to pick some nice, healthy flowers to keep."
+                    ],
+                    "inventory": {
+                        "items": [
+                            "tansy",
+                            "tansy"
+                        ],
+                        "cat": "you"
+                    }
+                }
+            },
+            "neutral": {
+                "1": {
+                    "text": [
+                        "However, upon further inspection of the herb patch, you find that most of the flowers have gone too bad to be of use."
+                    ]
+                }
+            },
+            "negative": {
+                "1": {
+                    "text": [
+                        "But when you stick your nose into the herb patch, you're met with an angry family of wasps! You're able to run away before recieving a sting, but that tansy patch will remain their territory for the time being."
+                    ]
+                }
+            }
+        }
+    },
+    "gather mallow": {
+        "intro_text": [
+            "You spend some time gathering mallow from a nearby patch.",
+            "You've decided to pick some mallow."
+        ],
+        "outcomes": {
+            "positive": {
+                "1": {
+                    "text": [
+                        "You're able to pick some nice, healthy flowers to keep."
+                    ],
+                    "inventory": {
+                        "items": [
+                            "mallow",
+                            "mallow"
+                        ],
+                        "cat": "you"
+                    }
+                }
+            },
+            "neutral": {
+                "1": {
+                    "text": [
+                        "However, upon further inspection of the herb patch, you find that most of the flowers have gone too bad to be of use."
+                    ]
+                }
+            },
+            "negative": {
+                "1": {
+                    "text": [
+                        "But when you stick your nose into the herb patch, you're met with an angry family of wasps! You're able to run away before recieving a sting, but that mallow patch will remain their territory for the time being."
+                    ]
+                }
+            }
+        }
+    },
+    "gather goldenrod": {
+        "intro_text": [
+            "You spend some time gathering goldenrod from a nearby patch.",
+            "You've decided to pick some goldenrod."
+        ],
+        "outcomes": {
+            "positive": {
+                "1": {
+                    "text": [
+                        "You're able to pick some nice, healthy flowers to keep."
+                    ],
+                    "inventory": {
+                        "items": [
+                            "goldenrod",
+                            "goldenrod"
+                        ],
+                        "cat": "you"
+                    }
+                }
+            },
+            "neutral": {
+                "1": {
+                    "text": [
+                        "However, upon further inspection of the herb patch, you find that most of the flowers have gone too bad to be of use."
+                    ]
+                }
+            },
+            "negative": {
+                "1": {
+                    "text": [
+                        "But when you stick your nose into the herb patch, you're met with an angry family of wasps! You're able to run away before recieving a sting, but that goldenrod patch will remain their territory for the time being."
+                    ]
+                }
+            }
+        }
+    },
+    "gather daisy": {
+        "intro_text": [
+            "You spend some time gathering daisies from a nearby patch.",
+            "You've decided to pick some daisy."
+        ],
+        "outcomes": {
+            "positive": {
+                "1": {
+                    "text": [
+                        "You're able to pick some nice, healthy flowers to keep."
+                    ],
+                    "inventory": {
+                        "items": [
+                            "daisy",
+                            "daisy"
+                        ],
+                        "cat": "you"
+                    }
+                }
+            },
+            "neutral": {
+                "1": {
+                    "text": [
+                        "However, upon further inspection of the herb patch, you find that most of the flowers have gone too bad to be of use."
+                    ]
+                }
+            },
+            "negative": {
+                "1": {
+                    "text": [
+                        "But when you stick your nose into the herb patch, you're met with an angry family of wasps! You're able to run away before recieving a sting, but that daisy patch will remain their territory for the time being."
+                    ]
+                }
+            }
+        }
+    },
+    "gather lungwort": {
+        "intro_text": [
+            "You spend some time gathering lungwort from a nearby patch.",
+            "You've decided to pick some lungwort."
+        ],
+        "outcomes": {
+            "positive": {
+                "1": {
+                    "text": [
+                        "You're able to pick some nice, healthy flowers to keep."
+                    ],
+                    "inventory": {
+                        "items": [
+                            "lungwort",
+                            "lungwort"
+                        ],
+                        "cat": "you"
+                    }
+                }
+            },
+            "neutral": {
+                "1": {
+                    "text": [
+                        "However, upon further inspection of the herb patch, you find that most of the flowers have gone too bad to be of use."
+                    ]
+                }
+            },
+            "negative": {
+                "1": {
+                    "text": [
+                        "But when you stick your nose into the herb patch, you're met with an angry family of wasps! You're able to run away before recieving a sting, but that lungwort patch will remain their territory for the time being."
+                    ]
+                }
+            }
+        }
+    },
+    "gather ragwort": {
+        "intro_text": [
+            "You spend some time gathering ragwort from a nearby patch.",
+            "You've decided to pick some ragwort."
+        ],
+        "outcomes": {
+            "positive": {
+                "1": {
+                    "text": [
+                        "You're able to pick some nice, healthy flowers to keep."
+                    ],
+                    "inventory": {
+                        "items": [
+                            "ragwort",
+                            "ragwort"
+                        ],
+                        "cat": "you"
+                    }
+                }
+            },
+            "neutral": {
+                "1": {
+                    "text": [
+                        "However, upon further inspection of the herb patch, you find that most of the flowers have gone too bad to be of use."
+                    ]
+                }
+            },
+            "negative": {
+                "1": {
+                    "text": [
+                        "But when you stick your nose into the herb patch, you're met with an angry family of wasps! You're able to run away before recieving a sting, but that ragwort patch will remain their territory for the time being."
+                    ]
+                }
+            }
+        }
+    },
+    "gather poppy": {
+        "intro_text": [
+            "You spend some time gathering poppies from a nearby patch.",
+            "You've decided to pick some poppies."
+        ],
+        "outcomes": {
+            "positive": {
+                "1": {
+                    "text": [
+                        "You're able to pick some nice, healthy flowers to keep."
+                    ],
+                    "inventory": {
+                        "items": [
+                            "poppy",
+                            "poppy"
+                        ],
+                        "cat": "you"
+                    }
+                }
+            },
+            "neutral": {
+                "1": {
+                    "text": [
+                        "However, upon further inspection of the herb patch, you find that most of the flowers have gone too bad to be of use."
+                    ]
+                }
+            },
+            "negative": {
+                "1": {
+                    "text": [
+                        "But when you stick your nose into the herb patch, you're met with an angry family of wasps! You're able to run away before recieving a sting, but that poppy patch will remain their territory for the time being."
+                    ]
+                }
+            }
+        }
+    },
+    "gather mullein": {
+        "intro_text": [
+            "You spend some time gathering mullein from a nearby patch.",
+            "You've decided to pick some mullein."
+        ],
+        "outcomes": {
+            "positive": {
+                "1": {
+                    "text": [
+                        "You're able to pick some nice herbs to keep."
+                    ],
+                    "inventory": {
+                        "items": [
+                            "mullein",
+                            "mullein"
+                        ],
+                        "cat": "you"
+                    }
+                }
+            },
+            "neutral": {
+                "1": {
+                    "text": [
+                        "However, upon further inspection of the herb patch, you find that most of the mullein has gone too bad to be of use."
+                    ]
+                }
+            },
+            "negative": {
+                "1": {
+                    "text": [
+                        "But when you stick your nose into the herb patch, you're met with an angry family of wasps! You're able to run away before recieving a sting, but that mullein patch will remain their territory for the time being."
+                    ]
+                }
+            }
+        }
+    },
+    "gather rosemary": {
+        "intro_text": [
+            "You spend some time gathering rosemary from a nearby patch.",
+            "You've decided to pick some rosemary."
+        ],
+        "outcomes": {
+            "positive": {
+                "1": {
+                    "text": [
+                        "You're able to pick some nice herbs to keep."
+                    ],
+                    "inventory": {
+                        "items": [
+                            "rosemary",
+                            "rosemary"
+                        ],
+                        "cat": "you"
+                    }
+                }
+            },
+            "neutral": {
+                "1": {
+                    "text": [
+                        "However, upon further inspection of the herb patch, you find that most of the rosemary has gone too bad to be of use."
+                    ]
+                }
+            },
+            "negative": {
+                "1": {
+                    "text": [
+                        "But when you stick your nose into the herb patch, you're met with an angry family of wasps! You're able to run away before recieving a sting, but that rosemary patch will remain their territory for the time being."
+                    ]
+                }
+            }
+        }
+    },
+    "gather juniper": {
+        "intro_text": [
+            "You spend some time gathering juniper berries from a nearby patch.",
+            "You've decided to pick some juniper berries."
+        ],
+        "outcomes": {
+            "positive": {
+                "1": {
+                    "text": [
+                        "You're able to pick some nice herbs to keep."
+                    ],
+                    "inventory": {
+                        "items": [
+                            "juniper",
+                            "juniper"
+                        ],
+                        "cat": "you"
+                    }
+                }
+            },
+            "neutral": {
+                "1": {
+                    "text": [
+                        "However, upon further inspection of the bush, you find that most of the berries have spoiled."
+                    ]
+                }
+            },
+            "negative": {
+                "1": {
+                    "text": [
+                        "But when you stick your nose into the bush, you're met with an angry family of wasps! You're able to run away before recieving a sting, but that juniper bush will remain their territory for the time being."
+                    ]
+                }
+            }
+        }
+    },
+    "gather dandelion": {
+        "intro_text": [
+            "You spend some time gathering dandelions from a nearby patch.",
+            "You've decided to pick some dandelions."
+        ],
+        "outcomes": {
+            "positive": {
+                "1": {
+                    "text": [
+                        "You're able to pick some nice herbs to keep."
+                    ],
+                    "inventory": {
+                        "items": [
+                            "dandelion",
+                            "dandelion"
+                        ],
+                        "cat": "you"
+                    }
+                }
+            },
+            "neutral": {
+                "1": {
+                    "text": [
+                        "However, upon further inspection of the herb patch, you find that most of the herbs have withered."
+                    ]
+                }
+            },
+            "negative": {
+                "1": {
+                    "text": [
+                        "But when you stick your nose into the herb patch, you're met with an angry family of wasps! You're able to run away before recieving a sting, but that dandelion patch will remain their territory for the time being."
+                    ]
+                }
+            }
+        }
+    },
+    "gather wild_garlic": {
+        "intro_text": [
+            "You spend some time gathering wild garlic from a nearby patch.",
+            "You've decided to collect some wild garlic."
+        ],
+        "outcomes": {
+            "positive": {
+                "1": {
+                    "text": [
+                        "You're able to pick some nice herbs to keep."
+                    ],
+                    "inventory": {
+                        "items": [
+                            "wild_garlic",
+                            "wild_garlic"
+                        ],
+                        "cat": "you"
+                    }
+                }
+            },
+            "neutral": {
+                "1": {
+                    "text": [
+                        "However, upon further inspection of the herb patch, you find that most of the herbs have withered."
+                    ]
+                }
+            },
+            "negative": {
+                "1": {
+                    "text": [
+                        "But when you stick your nose into the herb patch, you're met with an angry family of wasps! You're able to run away before recieving a sting, but that garlic patch will remain their territory for the time being."
+                    ]
+                }
+            }
+        }
+    },
+    "sleep": {
+        "intro_text": [
+            ""
+        ],
+        "outcomes": {
+            "positive": {
+                "1": {
+                    "text": [
+                        "You sleep.... Zzzzz........."
+                    ]
+                }
+            },
+            "neutral": {
+                "1": {
+                    "text": [
+                        "You sleep.... Zzzzz........."
+                    ]
+                }
+            },
+            "negative": {
+                "1": {
+                    "text": [
+                        "Something has startled you awake."
+                    ]
                 }
             }
         }

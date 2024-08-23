@@ -743,6 +743,40 @@
             }
         }
     },
+    "#arrow_down_button": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/buttons/arrow_down.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/buttons/arrow_down_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/buttons/arrow_down_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/buttons/arrow_down_unavailable.png"
+            }
+        }
+    },
+    "#arrow_up_button": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/buttons/arrow_up.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/buttons/arrow_up_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/buttons/arrow_up_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/buttons/arrow_up_unavailable.png"
+            }
+        }
+    },
     "#to_living_button": {
         "prototype": "#image_button",
         "images": {

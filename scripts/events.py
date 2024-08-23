@@ -210,9 +210,10 @@ class Events:
                     clan_cat_cat.faith -= round(random.uniform(-0.1,0), 2)
             self.handle_disaster()
         
+        taken_placements = []
         for cat in Cat.all_cats.copy().values():
             if not cat.outside or cat.dead:
-                self.one_moon_cat(cat)
+                self.one_moon_cat(cat, taken_placements)
             else:
                 self.one_moon_outside_cat(cat)
 
@@ -2488,7 +2489,7 @@ class Events:
         if not cat.dead:
             OutsiderEvents.killing_outsiders(cat)
 
-    def one_moon_cat(self, cat):
+    def one_moon_cat(self, cat, taken_placements):
         """
         Triggers various moon events for a cat.
         -If dead, cat is given thought, dead_for count increased, and fading handled (then function is returned)
@@ -2545,14 +2546,6 @@ class Events:
         if game.clan.days % 30 == 0:
             cat.one_moon()
 
-        if game.clan.days == 0 and game.clan.timeskips == 2:
-            if cat.map_position == "0_0":
-                self.bloodbath(cat)
-            else:
-                self.one_moon_inventory(cat)
-        else:
-            self.one_moon_inventory(cat)
-            
         # Handle Mediator Events
         # TODO: this is not a great way to handle them, ideally they should be converted to ShortEvent format
         self.mediator_events(cat)
@@ -2626,10 +2619,46 @@ class Events:
 
         if not (game.clan.timeskips == 2 and game.clan.days == 0):
             self.travel_map(game.clan.next_direction)
+        else:
+            if cat.ID == game.clan.your_cat.ID:
+                self.travel_map(game.clan.next_direction)
+
+
+        if game.clan.days == 0 and game.clan.timeskips == 2:
+            if cat.map_position == "0_0":
+                self.bloodbath(cat)
+            else:
+                self.one_moon_inventory(cat)
+        else:
+            self.one_moon_inventory(cat)
 
         if cat.ID == game.clan.your_cat.ID:
             self.hg_activity()
+
+        # MAP PLACEMENTS.
+        # cant be done in clanscreen anymore bc i want them to stay in place every moon
+        with open(f"resources/dicts/hunger_games_dicts/{(game.clan.biome).lower()}/item_dict.json", "r", encoding="utf-8") as read_file:
+            self.MAP_POSITION_INFO = ujson.loads(read_file.read())
         
+        if not cat.sleeping:
+            if cat.ID == game.clan.your_cat.ID:
+                try:
+                    cat.moon_placement = self.MAP_POSITION_INFO[game.clan.your_cat.map_position]["mc_placement"]
+                except:
+                    cat.moon_placement = [750, 800]
+            else:
+                try:
+                    # Attempt to find a valid placement
+                    for _ in range(30):  # Limit attempts to avoid infinite loop
+                        moon_placement = random.choice(self.MAP_POSITION_INFO[cat.map_position]["placements"])
+                        if moon_placement not in taken_placements:
+                            taken_placements.append(moon_placement)  # Record the placement
+                            cat.moon_placement = moon_placement
+                            break
+                        # If we exit the loop without breaking, no valid placement was found
+                        cat.moon_placement = random.choice(self.MAP_POSITION_INFO[cat.map_position]["placements"])
+                except:
+                    cat.moon_placement = [750, 750]
 
         # relationships have to be handled separately, because of the ceremony name change
         if not cat.dead and not cat.outside:
@@ -2776,6 +2805,7 @@ class Events:
     def bloodbath(self, cat):
         if not (game.clan.timeskips == 2 and game.clan.days == 0):
             return
+        
         if cat.map_position != "0_0":
             return
         
@@ -2851,7 +2881,7 @@ class Events:
         elif "starving" in cat.illnesses:
             print(cat.name, "starving, eating")
             chance = 1
-        if not int(random.random() * 4): # 1/4
+        if not int(random.random() * chance):
             if cat.pelt.inventory == {}:
                 return
             foodlist = []
@@ -2983,9 +3013,21 @@ class Events:
                 print(f'{cat.name} wakeuy percentage {num}')
                 print(f'{cat.name} energy {cat.stats.energy}')
 
+            if game.clan.timeskips in [6, 7, 8, 9, 10]:
+                num -= (num / 4)
+
             if not int(random.random() * num):
                 cat.sleeping = False
                 print(f"{cat.name} woke up!")
+                if cat.ID == game.clan.your_cat.ID and game.clan.next_activity == "sleep":
+                    game.clan.next_activity = None
+                    game.cur_events_list.append(
+                        Single_Event(
+                        "You have awoken, well-rested!",
+                        "alert",
+                        game.clan.your_cat.ID
+                        )
+                    )
 
         else:
             if cat.stats.energy > 50:
@@ -2996,6 +3038,7 @@ class Events:
             num = math.ceil(percent)
 
             if cat.ID == game.clan.your_cat.ID:
+                num *= 2
                 print(f'{cat.name} sleepy percentage {num}')
                 print(f'{cat.name} energy {cat.stats.energy}')
 
@@ -3003,12 +3046,29 @@ class Events:
             if not int(random.random() * num):
                 cat.sleeping = True
                 print(f"{cat.name} fell asleep!")
+                if cat.ID == game.clan.your_cat.ID:
+                    game.cur_events_list.append(
+                        Single_Event(
+                        "You have fallen asleep, too exhausted to stay up.",
+                        "alert",
+                        game.clan.your_cat.ID
+                        )
+                    )
 
     def hg_activity(self):
         """ activities from the clan screen!"""
 
         if game.clan.next_activity is None:
             return
+        
+        if game.clan.next_activity == "sleep" and game.clan.your_cat.sleeping is False:
+            # ^^ so this only happens when attempting to go to sleep, not while you're already asleep.
+            safety = (self.MAP_POSITION_INFO[game.clan.your_cat.map_position]["safety"]) * 10
+            if not int(random.random() * safety):
+                event = "You don't feel safe enough here to sleep."
+                game.cur_events_list.insert(0, Single_Event(event, "alert", game.clan.your_cat.ID))
+                game.clan.next_activity = None
+                return
 
         with open(f"resources/dicts/hunger_games_dicts/{(game.clan.biome).lower()}/activities.json",encoding="ascii") as read_file:
             activities = ujson.loads(read_file.read())
@@ -3028,7 +3088,11 @@ class Events:
                 activities[game.clan.next_activity]["intro_text"]
             )
 
-        outcome = random.choice(["positive", "neutral", "negative"])
+        if game.clan.next_activity == "sleep":
+
+            outcome = random.choice(["positive", "neutral", "positive", "neutral", "negative"])
+        else:
+            outcome = random.choice(["positive", "neutral", "negative"])
 
         options = []
         if game.clan.next_activity == "investigate":
@@ -3185,9 +3249,22 @@ class Events:
                 except:
                     print("Incorrect injury in activity: ", item[1])
 
-        game.clan.next_activity = None
+        # eepy time
+        if game.clan.next_activity != "sleep":
+            game.clan.next_activity = None
+        else:
+            if outcome == "negative":
+                game.clan.your_cat.sleeping = False
+                game.clan.next_activity = None
+            else:
+                if not game.clan.your_cat.sleeping:
+                    game.clan.your_cat.sleeping = True
+    
 
     def travel_map(self, next_direction):
+        if game.clan.your_cat.sleeping is True:
+            return
+        
         row, column = game.clan.your_cat.map_position.split("_")
         # grabbing the current position from the clan_cats string
 
@@ -3206,14 +3283,6 @@ class Events:
 
         game.clan.your_cat.map_position = f"{int(row)}_{int(column)}"
         # turn back into a string and update the cat's position!
-
-        # if next_direction is not None:
-        #     game.cur_events_list.insert(0, Single_Event(f"You travel {next_direction}. {game.clan.your_cat.map_position}", "alert", game.clan.your_cat.ID))
-        # else:
-        #     if game.clan.timeskips == 1 and game.clan.days == 0:
-        #         pass
-        #     else:
-        #         game.cur_events_list.insert(0, Single_Event(f"You stay put. {game.clan.your_cat.map_position}", "alert", game.clan.your_cat.ID))
 
         game.clan.next_direction = None
 

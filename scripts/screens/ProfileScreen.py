@@ -1290,8 +1290,18 @@ class ProfileScreen(Screens):
                                             tool_tip_text='Switch MC',
                                             manager=MANAGER)
 
-        if self.the_cat.ID != game.clan.your_cat.ID and not game.clan.your_cat.dead and not self.the_cat.dead and not self.the_cat.outside and not game.clan.your_cat.outside and not game.clan.your_cat.moons < 0:
-            if self.the_cat.map_position == game.clan.your_cat.map_position:
+        if (
+            self.the_cat.ID != game.clan.your_cat.ID and
+            not game.clan.your_cat.dead and
+            not self.the_cat.dead and
+            not self.the_cat.outside and
+            not game.clan.your_cat.outside and
+            not game.clan.your_cat.moons < 0
+            ):
+            if (
+                self.the_cat.map_position == game.clan.your_cat.map_position and
+                game.clan.your_cat.sleeping is False
+                ):
             # if self.the_cat.status not in ['leader', 'mediator', 'mediator apprentice', "queen", "queen's apprentice"]:
                 self.profile_elements["talk"] = UIImageButton(scale(pygame.Rect(
                     (726, 220), (68, 68))),

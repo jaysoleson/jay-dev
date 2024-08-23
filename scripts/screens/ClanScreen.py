@@ -123,6 +123,7 @@ class ClanScreen(Screens):
                     if event.ui_element == self.popup_buttons[item]:
                         if game.clan.next_activity != item:
                             game.clan.next_activity = item
+                            game.clan.next_direction = None
                         else:
                             game.clan.next_activity = None
 
@@ -147,9 +148,9 @@ class ClanScreen(Screens):
     def screen_switches(self):
         self.update_current_map()
 
-        # this has to be opened before placements
-        with open(f"resources/dicts/hunger_games_dicts/{(game.clan.biome).lower()}/item_dict.json", "r", encoding="utf-8") as read_file:
-            self.MAP_POSITION_INFO = ujson.loads(read_file.read())
+        # # this has to be opened before placements
+        # with open(f"resources/dicts/hunger_games_dicts/{(game.clan.biome).lower()}/item_dict.json", "r", encoding="utf-8") as read_file:
+        #     self.MAP_POSITION_INFO = ujson.loads(read_file.read())
 
         if not (game.clan.timeskips == 2 and game.clan.days == 0):
             # noooo activities durig the bloodbath
@@ -160,7 +161,12 @@ class ClanScreen(Screens):
                     ACTIVITIES = ujson.loads(read_file.read())
                 self.activity_list = ACTIVITIES[game.clan.your_cat.map_position]
 
-                self.place_activity_buttons()
+                if not (
+                    game.clan.timeskips == 1 and
+                    game.clan.days == 0 and
+                    game.clan.your_cat.map_position == "0_0"
+                    ):
+                    self.place_activity_buttons()
             except:
                 print("No activity placements for", game.clan.your_cat.map_position)
 
@@ -179,29 +185,29 @@ class ClanScreen(Screens):
         self.cat_buttons = []  # To contain all the buttons.
 
         self.direction_buttons["north"] = UIImageButton(scale(pygame.Rect(
-            (760, 200), (70, 70))),
+            (760, 200), (68, 68))),
             "^",
             tool_tip_text="Travel north",
-            object_id="",
+            object_id="#arrow_up_button",
             starting_height=2
         )
         self.direction_buttons["east"] = UIImageButton(scale(pygame.Rect(
-            (1400, 710), (70, 70))),
+            (1400, 710), (68, 68))),
             "",
             tool_tip_text="Travel east",
             object_id="#arrow_right_button",
             starting_height=2
         )
         self.direction_buttons["south"] = UIImageButton(scale(pygame.Rect(
-            (770, 1200), (70, 70))),
+            (770, 1200), (68, 68))),
             "",
             tool_tip_text="Travel south",
-            object_id="#arrow_left_button",
+            object_id="#arrow_down_button",
             starting_height=2
         )
 
         self.direction_buttons["west"] = UIImageButton(scale(pygame.Rect(
-            (140, 710), (70, 70))),
+            (140, 710), (68, 68))),
             "",
             tool_tip_text="Travel west",
             object_id="#arrow_left_button",
@@ -215,10 +221,27 @@ class ClanScreen(Screens):
             starting_height=2
         )
 
-        self.direction_buttons["north"].enable()
-        self.direction_buttons["east"].enable()
-        self.direction_buttons["south"].enable()
-        self.direction_buttons["west"].enable()
+        if game.clan.next_activity is not None:
+            self.direction_buttons["north"].disable()
+            self.direction_buttons["east"].disable()
+            self.direction_buttons["south"].disable()
+            self.direction_buttons["west"].disable()
+            for ele in self.activity_buttons:
+                self.activity_buttons[ele].disable()
+        elif game.clan.your_cat.sleeping is True:
+            self.direction_buttons["north"].disable()
+            self.direction_buttons["east"].disable()
+            self.direction_buttons["south"].disable()
+            self.direction_buttons["west"].disable()
+            for ele in self.activity_buttons:
+                self.activity_buttons[ele].disable()
+        else:
+            self.direction_buttons["north"].enable()
+            self.direction_buttons["east"].enable()
+            self.direction_buttons["south"].enable()
+            self.direction_buttons["west"].enable()
+            for ele in self.activity_buttons:
+                self.activity_buttons[ele].enable()
 
         # We have to convert the positions to something pygame_gui buttons will understand
         # This should be a temp solution. We should change the code that determines positions.
@@ -233,7 +256,7 @@ class ClanScreen(Screens):
 
                 try:
                     self.cat_buttons.append(
-                        UISpriteButton(scale(pygame.Rect(tuple(Cat.all_cats[x].placement), (100, 100))),
+                        UISpriteButton(scale(pygame.Rect(tuple(Cat.all_cats[x].moon_placement), (100, 100))),
                                        Cat.all_cats[x].sprite,
                                        cat_id=x,
                                        starting_height=i)
@@ -426,35 +449,61 @@ class ClanScreen(Screens):
             if self.open_popup == activity[0]:
                 # open a new popup
 
-                self.activity_button_popups[f"{activity[0]}"] = pygame_gui.elements.UIImage(
-                    scale(pygame.Rect((activity[1][0] - 38, activity[1][1] - 70), (150, 60))),
-                    pygame.transform.scale(
-                    image_cache.load_image("resources/images/search_bar.png"),
-                    (206, 56))
-                )
-                if activity[0] == game.clan.next_activity:
-                    insert = f"<u><font color='#000000'>{(activity[0]).capitalize()}</font><u>"
-                    insert2 = "Cancel activity"
-                else:
-                    insert = f"<font color='#000000'>{(activity[0]).capitalize()}</font>"
-                    insert2 = "Select activity"
-                
-                self.activity_labels[f"{activity[0]}"] = pygame_gui.elements.UITextBox(
-                    insert,
-                    scale(pygame.Rect((activity[1][0] - 41, activity[1][1] - 73), (150, 60))),
-                    object_id=get_text_box_theme(
-                    "#text_box_22_horizcenter")
-                )
+                if not (game.clan.timeskips == 1 and game.clan.days == 0):
 
-                self.popup_buttons[f"{activity[0]}"] = UIImageButton(scale(pygame.Rect(
-                    (activity[1][0] - 98, activity[1][1] - 70), (60, 60))),
-                    "",
-                    tool_tip_text=f"{insert2}",
-                    object_id="#paw_patrol_button",
-                    starting_height=2
-                )
-            else:
-                pass
+                    self.activity_button_popups[f"{activity[0]}"] = pygame_gui.elements.UIImage(
+                        scale(pygame.Rect((activity[1][0] - 38, activity[1][1] - 70), (150, 60))),
+                        pygame.transform.scale(
+                        image_cache.load_image("resources/images/search_bar.png"),
+                        (206, 56))
+                    )
+                    if "gather" in activity[0]:
+                        textdisplay = "Gather"
+                    else:
+                        textdisplay = (activity[0]).capitalize()
+                    if activity[0] == game.clan.next_activity:
+                        insert = f"<u><font color='#000000'>{textdisplay}</font><u>"
+                        insert2 = "Cancel activity"
+                    else:
+                        insert = f"<font color='#000000'>{textdisplay}</font>"
+                        insert2 = (activity[0]).capitalize()
+                    
+                    self.activity_labels[f"{activity[0]}"] = pygame_gui.elements.UITextBox(
+                        insert,
+                        scale(pygame.Rect((activity[1][0] - 41, activity[1][1] - 73), (150, 60))),
+                        object_id=get_text_box_theme(
+                        "#text_box_22_horizcenter")
+                    )
+
+                    self.popup_buttons[f"{activity[0]}"] = UIImageButton(scale(pygame.Rect(
+                        (activity[1][0] - 98, activity[1][1] - 70), (60, 60))),
+                        "",
+                        tool_tip_text=f"{insert2}",
+                        object_id="#paw_patrol_button",
+                        starting_height=2
+                    )
+        
+        if game.clan.next_activity is not None:
+            self.direction_buttons["north"].disable()
+            self.direction_buttons["east"].disable()
+            self.direction_buttons["south"].disable()
+            self.direction_buttons["west"].disable()
+            for ele in self.activity_buttons:
+                self.activity_buttons[ele].disable()
+        elif game.clan.your_cat.sleeping is True:
+            self.direction_buttons["north"].disable()
+            self.direction_buttons["east"].disable()
+            self.direction_buttons["south"].disable()
+            self.direction_buttons["west"].disable()
+            for ele in self.activity_buttons:
+                self.activity_buttons[ele].disable()
+        else:
+            self.direction_buttons["north"].enable()
+            self.direction_buttons["east"].enable()
+            self.direction_buttons["south"].enable()
+            self.direction_buttons["west"].enable()
+            for ele in self.activity_buttons:
+                self.activity_buttons[ele].enable()
 
 
     def update_current_map(self):
@@ -552,7 +601,7 @@ class ClanScreen(Screens):
                 item_x = center_x + x_radius * math.cos(angle)
                 item_y = center_y + y_radius * math.sin(angle)
 
-                Cat.all_cats[x].placement = (item_x, item_y)
+                Cat.all_cats[x].moon_placement = (item_x, item_y)
 
                 self.platforms[x] = pygame_gui.elements.UIImage(
                     scale(pygame.Rect((item_x, item_y + 55), (100, 60))),
@@ -561,39 +610,38 @@ class ClanScreen(Screens):
                     (206, 56))
                 )
 
-        else:
-            taken_placements = []
-            for x in game.clan.clan_cats:
-                Cat.all_cats[x].placement = None
+        # else:
+        #     taken_placements = []
+        #     for x in game.clan.clan_cats:
+        #         Cat.all_cats[x].placement = None
 
-                if Cat.all_cats[x].dead or Cat.all_cats[x].outside or Cat.all_cats[x].moons <= 0:
-                    continue
-                if Cat.all_cats[x].map_position != game.clan.your_cat.map_position:
-                    continue
+        #         if Cat.all_cats[x].dead or Cat.all_cats[x].outside or Cat.all_cats[x].moons <= 0:
+        #             continue
+        #         if Cat.all_cats[x].map_position != game.clan.your_cat.map_position:
+        #             continue
                 
-                if Cat.all_cats[x].ID == game.clan.your_cat.ID:
-                    try:
-                        Cat.all_cats[x].placement = self.MAP_POSITION_INFO[game.clan.your_cat.map_position]["mc_placement"]
-                    except:
-                        Cat.all_cats[x].placement = [750, 800]
+        #         if Cat.all_cats[x].ID == game.clan.your_cat.ID:
+        #             try:
+        #                 Cat.all_cats[x].placement = self.MAP_POSITION_INFO[game.clan.your_cat.map_position]["mc_placement"]
+        #             except:
+        #                 Cat.all_cats[x].placement = [750, 800]
 
 
-                else:
-                    try:
-                        # Attempt to find a valid placement
-                        for _ in range(30):  # Limit attempts to avoid infinite loop
-                            placement = random.choice(self.MAP_POSITION_INFO[Cat.all_cats[x].map_position]["placements"])
-                            if placement not in taken_placements:
-                                taken_placements.append(placement)  # Record the placement
-                                Cat.all_cats[x].placement = placement
-                                break
-                        else:
-                            print("30 attempts reached")
-                            # If we exit the loop without breaking, no valid placement was found
-                            Cat.all_cats[x].placement = random.choice(self.MAP_POSITION_INFO[Cat.all_cats[x].map_position]["placements"])
-                    except:
-                        print(Cat.all_cats[x].name, "placement could not be given")
-                        Cat.all_cats[x].placement = [750, 750]
+        #         else:
+        #             try:
+        #                 # Attempt to find a valid placement
+        #                 for _ in range(30):  # Limit attempts to avoid infinite loop
+        #                     placement = random.choice(self.MAP_POSITION_INFO[Cat.all_cats[x].map_position]["placements"])
+        #                     if placement not in taken_placements:
+        #                         taken_placements.append(placement)  # Record the placement
+        #                         Cat.all_cats[x].placement = placement
+        #                         break
+        #                 else:
+        #                     print("30 attempts reached")
+        #                     # If we exit the loop without breaking, no valid placement was found
+        #                     Cat.all_cats[x].placement = random.choice(self.MAP_POSITION_INFO[Cat.all_cats[x].map_position]["placements"])
+        #             except:
+        #                 Cat.all_cats[x].placement = [750, 750]
 
                     # not doing allat
 

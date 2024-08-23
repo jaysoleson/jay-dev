@@ -163,6 +163,7 @@ class Cat:
         status="newborn",
         cat_clan=None,
         map_position = "0_0",
+        moon_placement = [],
         sleeping=False,
         backstory="clanborn",
         parent1=None,
@@ -185,6 +186,7 @@ class Cat:
         :param status: Cat's age range, default "newborn"
         :param cat_clan: HUNGER GAMES: the cat's Clan, default None"
         :param map_position: HUNGER GAMES: the cats physical location, default 0_0"
+        :param moon_placement: HUNGER GAMES: the cats current placement on the map bg"
         :param sleeping: HUNGER GAMES: whether the cat is sleeping or not, default False"
         :param backstory: Cat's origin, default "clanborn"
         :param parent1: ID of parent 1, default None
@@ -221,6 +223,7 @@ class Cat:
         self.status = status
         self.cat_clan = cat_clan
         self.map_position = map_position
+        self.moon_placement = moon_placement
         self.sleeping = sleeping
         self.allies = []
         self.backstory = backstory
@@ -3945,6 +3948,7 @@ class Cat:
                 "status": self.status,
                 "clan": self.cat_clan,
                 "map_position": self.map_position,
+                "moon_placement": self.moon_placement,
                 "sleeping": self.sleeping,
                 "allies": self.allies,
                 "backstory": self.backstory if self.backstory else None,
