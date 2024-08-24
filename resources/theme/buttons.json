@@ -4729,5 +4729,22 @@
                 "path": "resources/images/buttons/gift_again_unavailable.png"
             }
         }
+    },
+    "#hg_timeskip_button": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/buttons/hg_timeskip.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/buttons/hg_timeskip_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/buttons/hg_timeskip_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/buttons/hg_timeskip_unavailable.png"
+            }
+        }
     }
 }

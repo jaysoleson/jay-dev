@@ -543,9 +543,9 @@ class EventsScreen(Screens):
 
 
         self.timeskip_button = UIImageButton(
-            scale(pygame.Rect((620, 446), (360, 60))),
+            scale(pygame.Rect((700, 446), (204, 60))),
             "",
-            object_id="#timeskip_button",
+            object_id="#hg_timeskip_button",
             manager=MANAGER,
         )
 

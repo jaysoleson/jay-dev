@@ -30,7 +30,8 @@
             "any",
             "you_blind",
             "they_blind",
-            "not_allies"
+            "not_allies",
+            "max_platonic_15"
         ],
         "intro": [
             "Get away from me."
@@ -43,7 +44,8 @@
             "they_blind",
             "you_deaf",
             "you_blind",
-            "not_allies"
+            "not_allies",
+            "max_platonic_15"
         ],
         "intro": [
             "[t_c hisses at you.]"
@@ -55,7 +57,8 @@
             "you_have_herbs",
             "you_blind",
             "not_allies",
-            "not_same_clan"
+            "not_same_clan",
+            "max_platonic_35"
         ],
         "intro": [
             "c_nClan. Hey! I see you with those herbs.",
@@ -158,7 +161,7 @@
         "intro": [
             "y_c. Hey.",
             "[You jump and lift your head to see t_c, gently holding a blueberry in {PRONOUN/t_c/poss} mouth.]",
-            "[They set it down at your paws.]",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/set/sets} it down at your paws.]",
             "It's not a lot, but it's a really nice one! Perfectly round, not bruised at all... Looks really juicy!",
             "I'll go find some more.",
             "[You have gained a BLUEBERRY!]"
@@ -197,6 +200,7 @@
         "tags": [
             "any",
             "max_trust_5",
+            "max_platonic_10",
             "brooding",
             "cool",
             "unlawful",
@@ -429,6 +433,193 @@
             "you_to_them": {
                 "platonic_like": 10
             }
+        }
+    },
+    "hg_18": {
+        "tags": [
+            "bloodbath",
+            "any",
+            "not_same_clan",
+            "you_blind",
+            "they_blind",
+            "not_allies",
+            "sweet",
+            "stable",
+            "silly",
+            "meeting"
+        ],
+        "intro": [
+            "I don't have time to make friends!"
+        ],
+        "intro_rel_changes": {
+            "they_to_you": {
+                "platonic_like": 5
+            },
+            "you_to_them": {
+                "platonic_like": 8
+            }
+        }
+    },
+    "hg_19": {
+        "tags": [
+            "bloodbath",
+            "any",
+            "not_same_clan",
+            "you_blind",
+            "they_blind",
+            "not_allies",
+            "sweet",
+            "stable",
+            "silly",
+            "meeting"
+        ],
+        "intro": [
+            "Aah!",
+            "You look nice, but I'm very busy!"
+        ],
+        "intro_rel_changes": {
+            "they_to_you": {
+                "platonic_like": 5
+            },
+            "you_to_them": {
+                "platonic_like": 5
+            }
+        }
+    },
+    "hg_20": {
+        "tags": [
+            "bloodbath",
+            "any",
+            "not_same_clan",
+            "you_blind",
+            "they_blind",
+            "not_allies",
+            "brooding",
+            "cool",
+            "assertive",
+            "upstanding",
+            "neutral",
+            "they_have_food"
+        ],
+        "intro": [
+            "What do you want?",
+            "I know you're not gonna kill me. Are you trying to take my supplies? Not gonna happen.",
+            "Go find some other cat to pester. You're lucky I don't feel like killing anyone yet."
+        ]
+    },
+    "hg_21": {
+        "tags": [
+            "brooding",
+            "any",
+            "max_platonic_20"
+        ],
+        "intro": [
+            "[t_c gives you such a cold glare as you approach that you decide to leave.]"
+        ]
+    },
+    "hg_22": {
+        "tags": [
+            "sweet",
+            "silly",
+            "they_app",
+            "any",
+            "max_platonic_20"
+        ],
+        "intro": [
+            "[t_c pins {PRONOUN/t_c/poss} ears to {PRONOUN/t_c/poss} head and gives you an anxious smile and nod, then scurries away before you can say anything.]"
+        ]
+    },
+    "hg_23": {
+        "tags": [
+            "you_app",
+            "they_adult",
+            "any",
+            "max_platonic_20",
+            "bloodbath",
+            "assertive"
+        ],
+        "intro": [
+            "[In the chaos of the bloodbath, t_c growls as you approach.]",
+            "You wanna be next, kid?!"
+        ]
+    },
+    "hg_24": {
+        "tags": [
+            "any",
+            "min_platonic_30",
+            "not_allies",
+            "neurotic",
+            "sweet",
+            "stable",
+            "introspective",
+            "upstanding"
+        ],
+        "intro": [
+            "Hi. y_c, right?",
+            "Do, uh... do you need an ally?",
+            "I can help you out. I can keep watch at night, and I'm pretty good at fishing. Or I can gather herbs. I'm just not very good at the, uh... killing part of all this.",
+            "Could you do that for us?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "No",
+                "next_scene": "kill_no"
+            },
+            "choice2": {
+                "text": "Yes",
+                "next_scene": "kill_yes"
+            }
+        },
+        "kill_no": [
+            "Oh. Haha, well, maybe we can find someplace to hide for the time being.",
+            "What do you say? Wanna team up?"
+        ],
+        "kill_yes": [
+            "That's good. Just, uh, don't kill me, and we're good.",
+            "So? Wanna team up?"
+        ],
+        "kill_no_choices": {
+            "choice1": {
+                "text": "No",
+                "next_scene": "ally_no"
+            },
+            "choice2": {
+                "text": "Yes",
+                "next_scene": "ally_yes"
+            }
+        },
+        "kill_yes_choices": {
+            "choice1": {
+                "text": "No",
+                "next_scene": "ally_no"
+            },
+            "choice2": {
+                "text": "Yes",
+                "next_scene": "ally_yes"
+            }
+        },
+        "ally_no": [
+            "Oh. Okay, I understand wanting to be alone.",
+            "I'll see you later, then.",
+            "[t_c runs off in a hurry.]"
+        ],
+        "ally_yes": [
+            "Really? You're not just saying yes so you can have an opportunity to kill me, are you?",
+            "Promise?",
+            "[You promise.]",
+            "Alright! I won't let you down, I swear."
+        ],
+        "ally_no_rel_changes": {
+            "they_to_you": {
+                "dislike": 10,
+                "trust": -10,
+                "platonic_like": -10
+            },
+            "you_to_them": {
+                "trust": -10,
+                "platonic_like": -10
+            },
+            "allies": true
         }
     },
     "meeting_hg_2": {

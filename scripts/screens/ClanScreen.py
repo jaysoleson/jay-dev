@@ -228,13 +228,17 @@ class ClanScreen(Screens):
             self.direction_buttons["west"].disable()
             for ele in self.activity_buttons:
                 self.activity_buttons[ele].disable()
-        elif game.clan.your_cat.sleeping is True:
-            self.direction_buttons["north"].disable()
-            self.direction_buttons["east"].disable()
-            self.direction_buttons["south"].disable()
-            self.direction_buttons["west"].disable()
-            for ele in self.activity_buttons:
-                self.activity_buttons[ele].disable()
+
+            if game.clan.your_cat.sleeping is True:
+                self.direction_buttons["north"].disable()
+                self.direction_buttons["east"].disable()
+                self.direction_buttons["south"].disable()
+                self.direction_buttons["west"].disable()
+                for ele in self.activity_buttons:
+                    if ele != "sleep":
+                        self.activity_buttons[ele].disable()
+                    else:
+                        self.activity_buttons[ele].enable()
         else:
             self.direction_buttons["north"].enable()
             self.direction_buttons["east"].enable()
@@ -490,13 +494,17 @@ class ClanScreen(Screens):
             self.direction_buttons["west"].disable()
             for ele in self.activity_buttons:
                 self.activity_buttons[ele].disable()
-        elif game.clan.your_cat.sleeping is True:
-            self.direction_buttons["north"].disable()
-            self.direction_buttons["east"].disable()
-            self.direction_buttons["south"].disable()
-            self.direction_buttons["west"].disable()
-            for ele in self.activity_buttons:
-                self.activity_buttons[ele].disable()
+
+            if game.clan.your_cat.sleeping is True:
+                self.direction_buttons["north"].disable()
+                self.direction_buttons["east"].disable()
+                self.direction_buttons["south"].disable()
+                self.direction_buttons["west"].disable()
+                for ele in self.activity_buttons:
+                    if ele != "sleep":
+                        self.activity_buttons[ele].disable()
+                    else:
+                        self.activity_buttons[ele].enable()
         else:
             self.direction_buttons["north"].enable()
             self.direction_buttons["east"].enable()

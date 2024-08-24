@@ -556,6 +556,42 @@
             }
         }
     },
+    "gather marigold": {
+        "intro_text": [
+            "You spend some time gathering marigold from a nearby patch.",
+            "You've decided to pick some marigold."
+        ],
+        "outcomes": {
+            "positive": {
+                "1": {
+                    "text": [
+                        "You're able to pick some nice, healthy flowers to keep."
+                    ],
+                    "inventory": {
+                        "items": [
+                            "poppy",
+                            "poppy"
+                        ],
+                        "cat": "you"
+                    }
+                }
+            },
+            "neutral": {
+                "1": {
+                    "text": [
+                        "However, upon further inspection of the herb patch, you find that most of the flowers have gone too bad to be of use."
+                    ]
+                }
+            },
+            "negative": {
+                "1": {
+                    "text": [
+                        "But when you stick your nose into the herb patch, you're met with an angry family of wasps! You're able to run away before recieving a sting, but that marigold patch will remain their territory for the time being."
+                    ]
+                }
+            }
+        }
+    },
     "gather mullein": {
         "intro_text": [
             "You spend some time gathering mullein from a nearby patch.",

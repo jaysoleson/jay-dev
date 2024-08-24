@@ -5,7 +5,7 @@ import random
 import ujson
 
 from scripts.game_structure.game_essentials import game
-from scripts.utility import filter_relationship_type, get_living_clan_cat_count,get_alive_status_cats
+from scripts.utility import filter_relationship_type, get_living_clan_cat_count, get_cluster, get_alive_status_cats
 
 resource_directory = "resources/dicts/events/"
 
@@ -310,6 +310,77 @@ class GenerateEvents:
                     continue
                 elif "low_lives" in event.tags and leader_lives not in [1, 2, 3]:
                     continue
+
+            # HG stuff
+
+            # Cluster tags for murders
+            if "cluster" in event.m_c and event.m_c["cluster"]:
+                cluster1, cluster2 = get_cluster(cat.personality.trait)
+                if cluster1 not in event.m_c["cluster"] and cluster2 not in event.m_c["cluster"]:
+                    continue
+            # BEACH
+            if game.clan.timeskips == 3 and game.clan.days == 0:
+                if "murder" in event.sub_type and "bloodbath" not in event.tags:
+                    continue
+            else:
+                if "bloodbath" in event.tags:
+                    continue
+
+                if "HG_beachbiome_beach_murder" in event.tags:
+                    if cat.map_position not in [
+                        "-1_-3",
+                        "-2_-3",
+                        "-2_-2",
+                        "-2_-1",
+                        "-3_-1",
+                        "-2_2"
+                    ]:
+                        continue
+                
+                if "HG_beachbiome_shipwreck_murder" in event.tags:
+                    if cat.map_position not in [
+                        "0_-3",
+                        "1_-3"
+                    ]:
+                        continue
+                
+                if "HG_beachbiome_forest_murder" in event.tags:
+                    if cat.map_position not in [
+                        "2_-2",
+                        "1_-1",
+                        "2_-1",
+                        "3_-1",
+                        "0_0",
+                        "1_0",
+                        "2_0",
+                        "3_0",
+                        "-1_1",
+                        "0_1",
+                        "1_1",
+                        "2_1",
+                        "3_1",
+                        "-1_2",
+                        "0_2",
+                        "1_2",
+                        "2_2"
+                    ]:
+                        continue
+
+                if "HG_beachbiome_cliff_murder" in event.tags:
+                    if cat.map_position not in [
+                        "2_-2",
+                        "3_-1",
+                        "-3_0",
+                        "3_0",
+                        "-3_1",
+                        "3_1",
+                        "-1_2",
+                        "0_2",
+                        "1_2",
+                        "2_2",
+                        "3_2"
+                    ]:
+                        continue
 
             discard = False
             for rank in Cat_class.rank_sort_order:

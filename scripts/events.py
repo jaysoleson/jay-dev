@@ -217,6 +217,8 @@ class Events:
             else:
                 self.one_moon_outside_cat(cat)
 
+        self.bloodbath()
+        
         # Adding in any potential lead den events that have been saved
         if "lead_den_interaction" in game.clan.clan_settings:
             if game.clan.clan_settings["lead_den_interaction"]:
@@ -2622,15 +2624,8 @@ class Events:
         else:
             if cat.ID == game.clan.your_cat.ID:
                 self.travel_map(game.clan.next_direction)
-
-
-        if game.clan.days == 0 and game.clan.timeskips == 2:
-            if cat.map_position == "0_0":
-                self.bloodbath(cat)
-            else:
-                self.one_moon_inventory(cat)
-        else:
-            self.one_moon_inventory(cat)
+        
+        self.one_moon_inventory(cat)
 
         if cat.ID == game.clan.your_cat.ID:
             self.hg_activity()
@@ -2802,51 +2797,54 @@ class Events:
         )
         game.cur_events_list.append(Single_Event(event, "other_clans"))
     
-    def bloodbath(self, cat):
+    def bloodbath(self):
+        
         if not (game.clan.timeskips == 2 and game.clan.days == 0):
             return
         
-        if cat.map_position != "0_0":
-            return
+        for kitty in Cat.all_cats_list:
         
-        gen_prey = ITEM_VALUES["food"]
-
-        prey = []
-        for i in gen_prey.keys():
-            prey.append(i)
-        
-        amount = random.choices([1, 2, 3, 4], [1, 2, 3, 2], k=1)
-        random_prey = random.sample(prey, k=amount[0])
-
-        for i in random_prey:
-            if i in ["STRAWBERRY", "BLUEBERRY"]:
-                a = random.randint(1,5) 
-            else:
-                a = 1
+            if kitty.map_position != "0_0":
+                continue
             
-            size = get_inventory_size(cat)
-            if len(cat.pelt.inventory.keys()) < size:
-                cat.pelt.inventory.update({i: a})
-            # else:
-            #     print(cat.name, "'s inventory is full!")
+            gen_prey = ITEM_VALUES["food"]
 
-        prey_list = []
-        for i in random_prey:
-            i = i.lower()
-            i.replace("'", "")
-            prey_list.append(i)
+            prey = []
+            for i in gen_prey.keys():
+                prey.append(i)
+            
+            amount = random.choices([1, 2, 3, 4], [1, 2, 3, 2], k=1)
+            random_prey = random.sample(prey, k=amount[0])
 
-        if len(prey_list) > 2:
-            prey_str = f"{', '.join(prey_list[:-1])}, and {prey_list[-1]}."
-        elif len(prey_list) > 1:
-            prey_str = f"{''.join(prey_list[:-1])} and {prey_list[-1]}."
-        else:
-            prey_str = f"{prey_list[-1]}"
+            for i in random_prey:
+                if i in ["STRAWBERRY", "BLUEBERRY"]:
+                    a = random.randint(1,5) 
+                else:
+                    a = 1
+                
+                size = get_inventory_size(kitty)
+                if len(kitty.pelt.inventory.keys()) < size:
+                    kitty.pelt.inventory.update({i: a})
+                # else:
+                #     print(cat.name, "'s inventory is full!")
 
-        if cat.ID == game.clan.your_cat.ID:
-            # this function gives prey to everyone, but only MC gets event text for it
-            event = f"You join the bloodbath! You have gained: {prey_str}"
-            game.cur_events_list.insert(0, Single_Event(event, "alert", game.clan.your_cat.ID))
+            prey_list = []
+            for i in random_prey:
+                i = i.lower()
+                i.replace("'", "")
+                prey_list.append(i)
+
+            if len(prey_list) > 2:
+                prey_str = f"{', '.join(prey_list[:-1])}, and {prey_list[-1]}."
+            elif len(prey_list) > 1:
+                prey_str = f"{''.join(prey_list[:-1])} and {prey_list[-1]}."
+            else:
+                prey_str = f"{prey_list[-1]}"
+
+            if kitty.ID == game.clan.your_cat.ID:
+                # this function gives prey to everyone, but only MC gets event text for it
+                event = f"You join the bloodbath! You have gained: {prey_str}"
+                game.cur_events_list.insert(0, Single_Event(event, "alert", game.clan.your_cat.ID))
 
         bloodbath_cats = []
         involved_cats = []
@@ -3001,24 +2999,22 @@ class Events:
             cat.sleeping = False
             return
         if cat.sleeping is True:
-            print(cat.name, cat.stats.energy)
             cat.stats.energy += random.randint(15, 22)
-            print(cat.name, cat.stats.energy)
 
             percent = 100 - cat.stats.energy
 
             num = math.ceil(percent)
 
-            if cat.ID == game.clan.your_cat.ID:
-                print(f'{cat.name} wakeuy percentage {num}')
-                print(f'{cat.name} energy {cat.stats.energy}')
+            # if cat.ID == game.clan.your_cat.ID:
+            #     print(f'{cat.name} wakeuy percentage {num}')
+            #     print(f'{cat.name} energy {cat.stats.energy}')
 
             if game.clan.timeskips in [6, 7, 8, 9, 10]:
                 num -= (num / 4)
 
             if not int(random.random() * num):
                 cat.sleeping = False
-                print(f"{cat.name} woke up!")
+                # print(f"{cat.name} woke up!")
                 if cat.ID == game.clan.your_cat.ID and game.clan.next_activity == "sleep":
                     game.clan.next_activity = None
                     game.cur_events_list.append(
@@ -3032,20 +3028,23 @@ class Events:
         else:
             if cat.stats.energy > 50:
                 return
+            
+            if cat.ID == game.clan.your_cat.ID:
+                if cat.stats.energy > 20:
+                    return
 
-            percent = 100 - cat.stats.energy
+            percent = cat.stats.energy
 
             num = math.ceil(percent)
 
-            if cat.ID == game.clan.your_cat.ID:
-                num *= 2
-                print(f'{cat.name} sleepy percentage {num}')
-                print(f'{cat.name} energy {cat.stats.energy}')
+            # if cat.ID == game.clan.your_cat.ID:
+                # print(f'{cat.name} sleepy percentage {num}')
+                # print(f'{cat.name} energy {cat.stats.energy}')
 
 
             if not int(random.random() * num):
                 cat.sleeping = True
-                print(f"{cat.name} fell asleep!")
+                # print(f"{cat.name} fell asleep!")
                 if cat.ID == game.clan.your_cat.ID:
                     game.cur_events_list.append(
                         Single_Event(
@@ -3054,6 +3053,7 @@ class Events:
                         game.clan.your_cat.ID
                         )
                     )
+                    game.clan.next_activity = "sleep"
 
     def hg_activity(self):
         """ activities from the clan screen!"""
@@ -3069,6 +3069,12 @@ class Events:
                 game.cur_events_list.insert(0, Single_Event(event, "alert", game.clan.your_cat.ID))
                 game.clan.next_activity = None
                 return
+        elif game.clan.next_activity != "sleep" and game.clan.your_cat.sleeping is True:
+            print("activity is not sleep, and you are asleep")
+            event = "You're awake."
+            game.cur_events_list.insert(0, Single_Event(event, "alert", game.clan.your_cat.ID))
+            game.clan.your_cat.sleeping = False
+            return
 
         with open(f"resources/dicts/hunger_games_dicts/{(game.clan.biome).lower()}/activities.json",encoding="ascii") as read_file:
             activities = ujson.loads(read_file.read())
@@ -3079,7 +3085,7 @@ class Events:
                     activities[game.clan.next_activity]["intro_text"][game.clan.your_cat.map_position]
                 )
             except KeyError:
-                print(game.clan.your_cat.map_position, "has no intro text. Aborting activity.")
+                print(game.clan.your_cat.map_position, "has no intro text for INVESTIGATE. Aborting activity.")
                 game.cur_events_list.insert(0, Single_Event("Miaow! This is a Hunger Games bug. Please report!", "alert", game.clan.your_cat.ID))
                 return
 
@@ -3089,8 +3095,7 @@ class Events:
             )
 
         if game.clan.next_activity == "sleep":
-
-            outcome = random.choice(["positive", "neutral", "positive", "neutral", "negative"])
+            outcome = random.choice(["positive", "neutral", "positive", "neutral", "positive", "neutral", "negative"])
         else:
             outcome = random.choice(["positive", "neutral", "negative"])
 
@@ -4258,6 +4263,9 @@ class Events:
             return
         if cat.ID == game.clan.your_cat.ID:
             return
+        
+        if game.clan.timeskips == 2 and game.clan.days == 0:
+            return
 
         # if this cat is unstable and aggressive, we lower the random murder chance
         random_murder_chance = int(
@@ -4267,15 +4275,22 @@ class Events:
             (cat.personality.aggression) + (16 - cat.personality.stability)
         )
 
+        if game.clan.timeskips == 3 and game.clan.days == 0:
+            random_murder_chance *= 0.85
+
         # Check to see if random murder is triggered.
         # If so, we allow targets to be anyone they have even the smallest amount of dislike for
+        # CHANGED FOR HG: random murders will allow for the killing of anyone, regardless of platonic like
         if random.getrandbits(max(1, int(random_murder_chance))) == 1:
+            print("Murder!")
             targets = [
                 i
                 for i in relationships
-                if i.dislike > 1
+                if i.platonic_like < 100
                 and not Cat.fetch_cat(i.cat_to).dead
                 and not Cat.fetch_cat(i.cat_to).outside
+                and Cat.fetch_cat(i.cat_to).map_position == cat.map_position
+                and Cat.fetch_cat(i.cat_to).ID != game.clan.your_cat.ID
             ]
             if not targets:
                 return
@@ -4307,12 +4322,17 @@ class Events:
             return
 
         # If random murder is not triggered, targets can only be those they have some dislike for
+        # ^^ CHANGED FOR HG: cats will kill based on lack of platonic like. not prescence of dislike
+        # this doesnt account for allies bc their like will usually be above 15 anyway
+        # but if not,,, oo drama
         hate_relation = [
             i
             for i in relationships
-            if i.dislike > 15
+            if i.platonic_like < 15
             and not Cat.fetch_cat(i.cat_to).dead
             and not Cat.fetch_cat(i.cat_to).outside
+            and Cat.fetch_cat(i.cat_to).map_position == cat.map_position
+            and Cat.fetch_cat(i.cat_to).ID != game.clan.your_cat.ID
         ]
         targets.extend(hate_relation)
         resent_relation = [
@@ -4321,6 +4341,8 @@ class Events:
             if i.jealousy > 15
             and not Cat.fetch_cat(i.cat_to).dead
             and not Cat.fetch_cat(i.cat_to).outside
+            and Cat.fetch_cat(i.cat_to).map_position == cat.map_position
+            and Cat.fetch_cat(i.cat_to).ID != game.clan.your_cat.ID
         ]
         targets.extend(resent_relation)
 
@@ -4331,35 +4353,42 @@ class Events:
             kill_chance = game.config["death_related"]["base_murder_kill_chance"]
 
             relation_modifier = int(
-                0.5 * int(chosen_target.dislike + chosen_target.jealousy)
+                0.5 * int( chosen_target.platonic_like
+                    + chosen_target.trust
+                    + chosen_target.comfortable)
             ) - int(
                 0.5
                 * int(
-                    chosen_target.platonic_like
-                    + chosen_target.trust
-                    + chosen_target.comfortable
+                    chosen_target.dislike + chosen_target.jealousy
                 )
             )
             kill_chance -= relation_modifier
 
-            if (
-                len(chosen_target.log) > 0
-                and "(high negative effect)" in chosen_target.log[-1]
-            ):
-                kill_chance -= 50
+            if Cat.fetch_cat(chosen_target.cat_to).ID in cat.allies:
+                kill_chance *= 2
+            
+            if len(Cat.fetch_cat(chosen_target.cat_to).allies) > 0:
+                kill_chance -= (kill_chance / 4)
 
-            if (
-                len(chosen_target.log) > 0
-                and "(medium negative effect)" in chosen_target.log[-1]
-            ):
-                kill_chance -= 20
+            # if (
+            #     len(chosen_target.log) > 0
+            #     and "(high negative effect)" in chosen_target.log[-1]
+            # ):
+            #     kill_chance -= 50
+
+            # if (
+            #     len(chosen_target.log) > 0
+            #     and "(medium negative effect)" in chosen_target.log[-1]
+            # ):
+            #     kill_chance -= 20
 
             # little easter egg just for fun
-            if (
-                cat.personality.trait == "ambitious"
-                and Cat.fetch_cat(chosen_target.cat_to).status == "leader"
-            ):
-                kill_chance -= 10
+            # no need for HG
+            # if (
+            #     cat.personality.trait == "ambitious"
+            #     and Cat.fetch_cat(chosen_target.cat_to).status == "leader"
+            # ):
+            #     kill_chance -= 10
 
             kill_chance = max(1, int(kill_chance))
 

@@ -354,7 +354,6 @@ class HandleShortEvents:
             body = False
         else:
             body = True
-        pass
 
         if self.chosen_event.m_c["dies"] and self.main_cat not in dead_list:
             dead_list.append(self.main_cat)
