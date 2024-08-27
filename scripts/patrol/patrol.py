@@ -623,7 +623,6 @@ class Patrol:
                 already_have = False
                 for i in possible_logs.keys():
                     if i in patrol.tags and i in game.clan.infection["logs"]:
-                        print(i, "is in both")
                         # making log patrols impossible when u already have the log
                         already_have = True
                         break

@@ -2956,6 +2956,14 @@ class Events:
                             else:
                                 event = f"{cat.name} has been cured of the infection!"
                             cat.infected_for = -1
+                            for scar in cat.pelt.scars:
+                                # remove infection scars!
+                                if scar in cat.pelt.scars4:
+                                    cat.pelt.remove(scar)
+                                if scar in cat.pelt.scars5:
+                                    cat.pelt.remove(scar)
+                                if scar in cat.pelt.scars6:
+                                    cat.pelt.remove(scar)
                             game.cur_events_list.insert(0, Single_Event(event, ["health", "infection"], cat.ID))
                         else:
                             cured = False

@@ -32,6 +32,7 @@ class TreatmentScreen(Screens):
     cat_list_buttons = {}
     herb_buttons = {}
     herb_displays = {}
+    additional_infected_sprites = {}
     stage = 'choose patient'
 
     def __init__(self, name=None):
@@ -381,6 +382,51 @@ class TreatmentScreen(Screens):
                 scale(pygame.Rect((0, 0), (1600, 806))),
                 image_cache.load_image(f"resources/images/{img}.png").convert_alpha()
             )
+
+            infected_cats = [
+                i for i in Cat.all_cats_list if\
+                not i.dead and not i.outside and \
+                i.infected_for > 0 and \
+                i not in [self.selected_cat, self.the_cat]
+                ]
+
+            infected = len(infected_cats)
+            if infected > 0:
+                infected_cat_1 = choice(infected_cats)
+                infected_cats.remove(infected_cat_1)
+                self.additional_infected_sprites["1"] = pygame_gui.elements.UIImage(
+                                            scale(pygame.Rect((150, 400), (300, 300))),
+                                            pygame.transform.scale(
+                                            infected_cat_1.sprite,
+                                            (300, 300)), manager=MANAGER
+                                            )
+            if infected > 1:
+                infected_cat_2 = choice(infected_cats)
+                infected_cats.remove(infected_cat_2)
+                self.additional_infected_sprites["2"] = pygame_gui.elements.UIImage(
+                                            scale(pygame.Rect((1010, 430), (250, 250))),
+                                            pygame.transform.scale(
+                                            infected_cat_2.sprite,
+                                            (300, 300)), manager=MANAGER
+                                            )
+            if infected > 2:
+                infected_cat_3 = choice(infected_cats)
+                infected_cats.remove(infected_cat_3)
+                self.additional_infected_sprites["3"] = pygame_gui.elements.UIImage(
+                                            scale(pygame.Rect((450, 460), (200, 200))),
+                                            pygame.transform.scale(
+                                            infected_cat_3.sprite,
+                                            (300, 300)), manager=MANAGER
+                                            )
+            if infected > 3:
+                infected_cat_4 = choice(infected_cats)
+                infected_cats.remove(infected_cat_4)
+                self.additional_infected_sprites["4"] = pygame_gui.elements.UIImage(
+                                            scale(pygame.Rect((1250, 460), (200, 200))),
+                                            pygame.transform.scale(
+                                            infected_cat_4.sprite,
+                                            (300, 300)), manager=MANAGER
+                                            )
             
             self.text_type = ""
             self.texts = self.choose_treatment_text(self.selected_cat)
@@ -483,6 +529,10 @@ class TreatmentScreen(Screens):
         for ele in self.herb_displays:
             self.herb_displays[ele].kill()
         self.herb_displays = {}
+
+        for ele in self.additional_infected_sprites:
+            self.additional_infected_sprites[ele].kill()
+        self.additional_infected_sprites = {}
 
         for ele in self.apprentice_details:
             self.apprentice_details[ele].kill()

@@ -1,0 +1,922 @@
+{
+    "infection_reesesgopoof_1": [
+        [
+            "they_queen",
+            "neurotic",
+            "any",
+            "they_not_infected",
+            "you_not_infected",
+            "they_blind",
+            "infection"
+        ],
+        [
+            "[For the fourth time today, t_c falls asleep when eating fresh-kill. You wake {PRONOUN/t_c/object} up with a gentle nudge, and {PRONOUN/t_c/subject} {VERB/t_c/bolt/bolts} upright, fur standing on edge.]",
+            "Huh? What? Where's r_k? Did {PRONOUN/r_k/object}--",
+            "[You reassure {PRONOUN/t_c/object} that there's nothing wrong, and {PRONOUN/t_c/subject} {VERB/t_c/let/lets} out a deep sigh.]",
+            "Ah. Sorry, y_c. I guess I'm just tired.",
+            "[As {PRONOUN/t_c/subject} {VERB/t_c/start/starts} to stand up, you cut {PRONOUN/t_c/object} off, asking {PRONOUN/t_c/object} when the last time {PRONOUN/t_c/subject} slept was.]",
+            "Oh. I, um, don't have time for that. The kits need me. They have to be safe.",
+            "[You insist that {PRONOUN/t_c/object} {VERB/t_c/sleep/sleeps}, and that you'll look after the kits. Even though {PRONOUN/t_c/subject} {VERB/t_c/don't/doesn't} say it, you can tell {PRONOUN/t_c/subject} {VERB/t_c/appreciate/appreciates} the help.]"
+        ]
+    ],
+    "story_J1": [
+        [
+            "any",
+            "story_1",
+            "pre_story_1_step_2",
+            "they_deputy",
+            "they_warrior",
+            "they_leader",
+            "they_blind"
+        ],
+        [
+            "Where in StarClan's name is sc_2? y_c, have you seen {PRONOUN/sc_2/object}?",
+            "No? Ugh. Probably out touching noses with that rogue again...",
+            "Oh, sorry. It's not polite to gossip. It's just, my patrol last night spotted {PRONOUN/sc_2/object} talking to a rogue. Getting that close to strangers sure isn't gonna help the Clan stay strong... They could be infected!",
+            "*Sigh* Can you just let {PRONOUN/sc_2/object} know I'm looking for {PRONOUN/sc_2/object} if you find {PRONOUN/sc_2/object} before I do?",
+            "Thanks."
+        ]
+    ],
+    "about_infected_J1": [
+        [
+            "any",
+            "spread_by_bite",
+            "they_not_infected",
+            "you_not_infected",
+            "they_blind",
+            "you_blind",
+            "infection"
+        ],
+        [
+            "plove_inf_c lunged at me yesterday. To bite me.",
+            "I... I thought {PRONOUN/plove_inf_c/subject}'d be different. That {PRONOUN/plove_inf_c/subject} wouldn't let {PRONOUN/plove_inf_c/poss} brain get taken over by this disease.",
+            "I'm really scared."
+        ]
+    ],
+    "about_infected_J2": [
+        [
+            "any",
+            "spread_by_air",
+            "they_not_infected",
+            "you_not_infected",
+            "they_blind",
+            "you_blind",
+            "infection"
+        ],
+        [
+            "It's really hard not getting close to plove_inf_c. I used to sit with {PRONOUN/plove_inf_c/object} every day, and now I'm not supposed to at all?",
+            "Maybe I can convince r_m to let me, just, plug my nose, or something..."
+        ]
+    ],
+    "about_infected_J3": [
+        [
+            "any",
+            "they_not_infected",
+            "you_not_infected",
+            "brooding",
+            "cool",
+            "assertive",
+            "they_blind",
+            "you_blind",
+            "infection"
+        ],
+        [
+            "You know, this infection isn't so bad.",
+            "I have an excuse to avoid dislike_inf_c like the plague now.",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/were/was} definitely already doing that...]"
+        ]
+    ],
+    "about_infected_J4": [
+        [
+            "any",
+            "they_not_infected",
+            "you_not_infected",
+            "you_medicine_cat",
+            "you_medicine_cat_apprentice",
+            "they_medicine_cat",
+            "they_medicine_cat_apprentice",
+            "they_blind",
+            "infection"
+        ],
+        [
+            "[t_c looks exhausted. {VERB/t_c/Have/Has} {PRONOUN/t_c/subject} slept at all recently?]",
+            "inf_c is looking especially bad today. {PRONOUN/inf_c/poss/CAP} condition's getting worse.",
+            "And so is... every other patient...",
+            "But we have to choose somewhere to start. Go try another treatment on inf_c. Please."
+        ]
+    ],
+    "infected_J1": [
+        [
+            "any",
+            "they_infected",
+            "they_medicine_cat",
+            "they_medicine_cat_apprentice",
+            "they_stage_one",
+            "they_blind",
+            "you_blind",
+            "infection"
+        ],
+        [
+            "I'm fine. I can still work.",
+            "Don't look at me like that."
+        ]
+    ],
+    "infected_J2": [
+        [
+            "any",
+            "they_infected",
+            "you_infected",
+            "spread_by_bite",
+            "they_stage_four",
+            "you_stage_two",
+            "they_blind",
+            "they_deaf",
+            "you_deaf",
+            "infection"
+        ],
+        [
+            "[t_c lunges towards r_c, and it takes three warriors to shove {PRONOUN/t_c/object} away and rush r_c to safety.]",
+            "[All of these infected cats are acting like starved foxes in the forest, attacking anything that moves.]",
+            "[Will that be you soon..?]"
+        ]
+    ],
+    "infected_floof_1": [
+        [
+            "they_stage_one",
+            "they_infected",
+            "any",
+            "they_blind",
+            "infection"
+        ],
+        [
+            "Hey, y_c. I was really worried about the infection going around camp. Guess I caught it huh?",
+            "...I didn't really think about what would've happened if I caught... whatever this is.",
+            "Glad some cats are checking in on me though!",
+            "[t_c forces a smile.]"
+        ]
+    ],
+    "infection_J7": [
+        [
+            "they_infected",
+            "any",
+            "they_stage_four",
+            "spread_by_bite",
+            "infection"
+        ],
+        [
+            "Come here, y_c.",
+            "[You don't see your Clanmate behind those cloudy eyes anymore.]"
+        ]
+    ],
+    "infection_J8": [
+        [
+            "they_infected",
+            "any",
+            "they_stage_four",
+            "infection",
+            "they_deaf",
+            "you_deaf"
+        ],
+        [
+            "[You don't see your Clanmate behind those cloudy eyes anymore.]"
+        ]
+    ],
+    "infection_J9": [
+        [
+            "they_infected",
+            "any",
+            "they_stage_one",
+            "assertive",
+            "upstanding",
+            "brooding",
+            "cool",
+            "infection",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "I don't know why everyone's panicking. I feel totally fine.",
+            "Maybe my body is just stronger than everyone else's."
+        ]
+    ],
+    "infection_J10": [
+        [
+            "they_infected",
+            "any",
+            "they_stage_one",
+            "brooding",
+            "cool",
+            "stable",
+            "infection",
+            "they_blind"
+        ],
+        [
+            "[r_m checks over t_c's body at a distance.]",
+            "You don't have to be so scared. I think it's just whitecough, or something."
+        ]
+    ],
+    "infection_J11": [
+        [
+            "they_infected",
+            "any",
+            "they_stage_one",
+            "brooding",
+            "cool",
+            "stable",
+            "infection",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "Ugh. I feel worse every day...",
+            "I'm-- I'm not going crazy, or anything, though. I think it's just greencough..."
+        ]
+    ],
+    "infection_J12": [
+        [
+            "they_infected",
+            "any",
+            "they_stage_two",
+            "infection",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "Go... go away, y_c...",
+            "[t_c is struggling to speak.]"
+        ]
+    ],
+    "infection_J14": [
+        [
+            "they_infected",
+            "they_stage_two",
+            "any",
+            "infection",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "Why would StarClan do this to me..?"
+        ]
+    ],
+    "infection_J15": [
+        [
+            "they_infected",
+            "they_stage_one",
+            "they_stage_two",
+            "they_stage_three",
+            "any",
+            "infection",
+            "neurotic",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "This isn't happening. This isn't happening. This isn't happening. This isn't happening.",
+            "No, no, no, no, no, no...",
+            "Wake up. Wake up, t_c. Wake up.",
+            "[t_c doesn't seem very optimistic about {PRONOUN/t_c/poss} recovery...]"
+        ]
+    ],
+    "infection_J16": [
+        [
+            "they_stage_four",
+            "they_stage_three",
+            "you_stage_four",
+            "you_stage_three",
+            "you_infected",
+            "they_infected",
+            "infection",
+            "any",
+            "void",
+            "cure_not_found",
+            "they_blind",
+            "they_deaf",
+            "you_deaf"
+        ],
+        [
+            "[You and t_c have both lost the energy to speak.]",
+            "[You sit in each other's company, with nothing to pay attention to but the black poison seeping from your body.]",
+            "[You're not hopeful that any sort of herbs can fix this.]"
+        ]
+    ],
+    "infection_vicki_1": [
+        [
+            "from_mate",
+            "they_infected",
+            "you_not_infected",
+            "any",
+            "they_stage_two",
+            "they_stage_three",
+            "cool",
+            "brooding",
+            "assertive",
+            "infection"
+        ],
+        [
+            "[Although t_c's gaze doesn't meet yours, you can tell {PRONOUN/t_c/subject} {VERB/t_c/know/knows} you're there.]",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/look/looks}... awful. And you feel as if that's a strong way to put it, but nothing else comes to mind.]",
+            "[{PRONOUN/t_c/poss/CAP} eyes are foggy, {PRONOUN/t_c/poss} head is hanging low, and you swear you've never seen {PRONOUN/t_c/object} so... utterly miserable.]",
+            "[You try to move closer, but {PRONOUN/t_c/subject} immediately {VERB/t_c/scoot/scoots} away with a frustrated growl. {PRONOUN/t_c/poss/CAP} voice is barely audible, but you can still make it out.]",
+            "Why are you here, y_c? You know you're not supposed to be around me.",
+            "[You tell {PRONOUN/t_c/object} that some lousy infection won't stop you from spending time with your mate, and it's then that {PRONOUN/t_c/subject} {VERB/t_c/turn/turns} to stare at you.]",
+            "[Your survival instinct makes you flinch in terror, causing t_c to let out a pained chuckle.]",
+            "Haha. Do I really look that terrible?",
+            "[You stumble on your own words as you profusely apologize, but t_c shakes {PRONOUN/t_c/poss} head and directs {PRONOUN/t_c/poss} gaze to the ground once more.]",
+            "It's okay, y_c. I'd be scared, too.",
+            "...I mean, I <i>am</i> scared. Scared of what I'll turn into.",
+            "What if I hurt my Clanmates? What if I hurt you?",
+            "[With a sigh, you try to convince {PRONOUN/t_c/object} that {PRONOUN/t_c/subject}'ll be okay, and that the infection won't get any worse.]",
+            "[t_c doesn't seem to have heard you, though. {PRONOUN/t_c/poss/CAP} attention appears to be elsewhere.]",
+            "Please, y_c. I mean it. You should go. I feel worse by the day, and I don't want you becoming like me. Because I love you. Because I want you to live the life I know I won't get to have.",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/fall/falls} silent then, and you reluctantly decide to leave {PRONOUN/t_c/object} alone for now.]",
+            "[You figure it's probably a good idea to tell r_m about {PRONOUN/t_c/poss} condition... but {PRONOUN/t_c/poss} words refuse to leave your head.]",
+            "[{VERB/t_c/Are/Is} {PRONOUN/t_c/subject} that convinced {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} going to die?]",
+            "[For the first time in your life, you pray that your mate is mistaken.]"
+        ]
+    ],
+    "infection_reesesgopoof_3": [
+        [
+            "you_infected",
+            "they_not_infected",
+            "min_platonic_50",
+            "any",
+            "brooding",
+            "cool",
+            "infection",
+            "they_blind"
+        ],
+        [
+           "[You wake up one night, after a long while of restless sleeping, to a shadow a few tail-lengths in front of you.]",
+            "[Before you have the chance to panic, you hear a voice you know come from the shadow. t_c's voice.]",
+            "Oh, StarClan... how...",
+            "[Something's off. {PRONOUN/t_c/poss/CAP} usual caring demeanor has been replaced by a desperation. An anger you've never seen before.]",
+            "How DARE you!? How dare you curse such a loyal cat! How can you sit up there and watch us all die?",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/lash/lashes} {PRONOUN/t_c/poss} tail, and {VERB/t_c/hiss/hisses} the next words.]",
+            "I will darken every star in the sky if m_c is taken from me. If {PRONOUN/y_c/subject} {VERB/y_c/die/dies}, I--",
+            "[t_c's voice breaks, and {PRONOUN/t_c/subject} {VERB/t_c/press/presses} {PRONOUN/t_c/poss} nose into your pelt.]",
+            "I don't know what I'd do.",
+            "[You watch as {PRONOUN/t_c/subject} {VERB/t_c/slink/slinks} out of camp. The next morning, when {PRONOUN/t_c/subject} {VERB/t_c/come/comes} to check on you, there isn't a single trace of what you saw the previous night.]"
+        ]
+    ],
+    "infection_lyric_5": [
+        [
+            "any",
+            "they_not_infected",
+            "sweet",
+            "stable",
+            "upstanding",
+            "infection"
+        ],
+        [
+            "[Although t_c isn't supposed to, {PRONOUN/t_c/subject}{VERB/t_c/'ve/'s} snuck into the medicine den to see plove_inf_c and {VERB/t_c/are/is} licking the top of {PRONOUN/plove_inf_c/poss} head quietly.]",
+            "It's okay... It'll be okay. I'm here, I promise, plove_inf_c. You'll be better soon.",
+            "[The cat is clearly in pain, but t_c being there is soothing it ever so slightly.]"
+        ]
+    ],
+    "infection_insult_lyric_7": [
+        [
+            "they_not_infected",
+            "you_infected",
+            "any",
+            "insult",
+            "brooding",
+            "assertive",
+            "stable",
+            "you_blind",
+            "they_blind",
+            "infection"
+        ],
+        [
+            "At least I wasn't stupid enough to get myself infected."
+        ]
+    ],
+    "infection_insult_lyric_8": [
+        [
+            "insult",
+            "infection",
+            "you_leader",
+            "you_medicine_cat",
+            "they_infected",
+            "you_not_infected",
+            "neurotic",
+            "you_blind",
+            "they_blind",
+            "infection"
+        ],
+        [
+            "Please don't tell me you're going to let me die to the infected because you don't like me! I'm not ready to die!",
+            "[Now you feel bad...]"
+        ]
+    ],
+    "infection_insult_lyric_9": [
+        [
+            "they_not_infected",
+            "you_not_infected",
+            "insult",
+            "infection",
+            "they_medicine_cat",
+            "you_medicine_cat",
+            "they_medicine_cat_apprentice",
+            "you_medicine_cat_apprentice",
+            "you_blind",
+            "they_blind",
+            "infection"
+        ],
+        [
+            "You know, even if you don't like me, I'll still ensure you're safe from the infected.",
+            "I just hope that if that day comes where I'm in that situation, you'll do the same, y_c."
+        ]
+    ],
+    "infection_sam_5": [
+        [
+            "they_pregnant",
+            "they_infected",
+            "min_platonic_30",
+            "any"
+        ],
+        [
+            "y_c? What am I supposed to do? Will they take my kits away from me as soon as they're born?",
+            "What if.. my kits are born infected? Will they die before they get to live?",
+            "[You see an indescribable look wash over t_c's face, a mix of anger, fear, and sadness. But this doesn't seem like regular anger, not even a parental anger. This seems entirely new.]",
+            "[You could swear t_c's eyes turn red for a moment.]",
+            "[You watch as the look disappears, and t_c looks... confused?]",
+            "What just happened..?",
+            "[You worriedly run off to go get r_m to check up on {PRONOUN/t_c/object}.]"
+
+        ]
+    ],
+    "infection_sam_6": [
+        [
+            "from_mate",
+            "they_infected",
+            "you_infected",
+            "they_stage_two",
+            "they_stage_three",
+            "they_stage_four",
+            "you_stage_one",
+            "any",
+            "min_romantic_30"
+        ],
+        [
+            "[As r_m is helping you get settled into the den for infected cats, t_c wakes up and notices you.]",
+            "Oh.. y_c. I'm glad I get to see you more, I just wish it wasn't under these conditions. Wait, did you get infected because of me?",
+            "[You reassure {PRONOUN/t_c/object} that you did not get infected because of {PRONOUN/t_c/object}, you must've just wandered too close to the infected cat den.]",
+            "Good... I wouldn't forgive myself if it was my fault that you ended up in here.",
+            "[You contemplate asking t_c if {PRONOUN/t_c/subject} {VERB/t_c/want/wants} to combine {PRONOUN/t_c/poss} nest with yours, but {PRONOUN/t_c/subject} must be able to read your mind.]",
+            "No... we shouldn't. r_m said the further the infection goes along, the less control a cat has. I wouldn't want to hurt you.",
+            "Once we're both cured, we can go back to sharing a nest. Don't worry."
+
+        ]
+    ],
+    "infection_sam_8": [
+        [
+            "you_medicine_cat",
+            "you_medicine_cat_apprentice",
+            "min_platonic_50",
+            "they_any",
+            "you_not_infected",
+            "they_not_infected"
+        ],
+        [
+            "[You're looking through your herbs, trying to find something, anything, to fight this infection.]",
+            "[Come on, y_c, think. Something to help with the infected wounds, fatigue, that's pretty simple, right? What haven't you tried?]",
+            "y_c, have you been up all night working on a cure for the infection again? Come on, you know you can't keep doing that.",
+            "[You try to explain to t_c that you think you've got something, but {PRONOUN/t_c/subject} {VERB/t_c/don't/doesn't} listen.]",
+            "Nope, nope. I don't want to hear it. Come on, you need to rest too.",
+            "You can work on the cure later, okay? At this rate you're going to get sick and I'm going to get to say 'I told you so.'",
+            "[You didn't realize how tired you were, and you fall asleep almost instantly when you get into your nest.]",
+            "Get some rest, y_c. I'll clean up for you."
+        ]
+    ],
+    "infection_J1": [
+        [
+            "any",
+            "infection",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "This disease is scary..."
+        ]
+    ],
+    "infection_J2": [
+        [
+            "any",
+            "infection",
+            "they_infected",
+            "infection",
+            "you_blind",
+            "they_blind",
+            "they_deaf"
+        ],
+        [
+            "Uuuuuuugggghhhh......"
+        ]
+    ],
+    "infection_J3": [
+        [
+            "they_infected",
+            "sweet",
+            "stable",
+            "neurotic",
+            "any",
+            "they_stage_one",
+            "they_stage_two",
+            "spread_by_bite",
+            "they_blind",
+            "you_blind",
+            "infection"
+        ],
+        [
+            "y_c. y_c, please don't walk away from me.",
+            "I'm still a cat, you know? I'm not going to bite you. I'm not like them."
+        ]
+    ],
+    "infection_J4": [
+        [
+            "they_infected",
+            "any",
+            "they_stage_two",
+            "spread_by_bite",
+            "infection",
+            "they_deaf",
+            "you_deaf"
+        ],
+        [
+            "[You notice t_c's jaw tense when you walk by {PRONOUN/t_c/object}.]",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/don't/doesn't} move, but {PRONOUN/t_c/poss} eyes look at you in the same way your Clanmates look at the fresh-kill pile...]"
+        ]
+    ],
+    "infection_J5": [
+        [
+            "they_infected",
+            "any",
+            "they_stage_three",
+            "they_stage_four",
+            "spread_by_bite",
+            "infection"
+        ],
+        [
+            "[t_c looks at you like you're a piece of prey.]"
+        ]
+    ],
+    "infection_J6": [
+        [
+            "they_infected",
+            "any",
+            "they_stage_four",
+            "infection"
+        ],
+        [
+            "[t_c barely looks like a cat...]",
+            "[You feel awful, but you force yourself not to sympathise. t_c is so sick, {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} barely your Clanmate anymore.]"
+        ]
+    ],
+    "story_key_story_1_step_2": [
+        [
+            "any",
+            "story_1",
+            "story_1_step_2",
+            "story_key",
+            "you_sc_4",
+            "they_sc_2",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "[You approach t_c, a question on your mind.]",
+            "Hm? Oh, a rogue? What did they look like?",
+            "... ... ...",
+            "I don't know why you'd be talking to <i>me</i> about this. You think I know who that is? I don't.",
+            "... ... ... ...",
+            "Where did you say you found {PRONOUN/sc_1/object}?",
+            "[You direct t_c in a vague direction and {PRONOUN/t_c/subject} {VERB/t_c/run/runs} off. It seems {PRONOUN/t_c/subject} {VERB/t_c/know/knows} more than {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} letting on, and {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} terrible at hiding it.]",
+            "[Your log has been updated.]"
+        ]
+    ],
+    "story_key_story_1_step_3": {
+        "tags": [
+            "any",
+            "story_1",
+            "post_story_1_step_2",
+            "story_1_step_3",
+            "story_key",
+            "you_sc_4",
+            "they_sc_1"
+        ],
+        "intro": [
+            "Okay, fine. I know sc_2 won't tell you, but I know you really want to know. Just, don't tell anyone else, okay?",
+            "When you found me out in the territory... that hole in the ground that I wouldn't show you...",
+            "*Sigh*",
+            "My friend was in there. Our friend. Me and sc_2's, I mean.",
+            "{PRONOUN/sc_3/subject/CAP} got infected really early on. {PRONOUN/sc_3/subject/CAP} {VERB/sc_3/were/was} already pretty sickly, so, it killed {PRONOUN/sc_3/object} pretty quickly.",
+            "I didn't want to leave {PRONOUN/sc_3/object}. I think sc_2 is still in denial about the whole thing, really."
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "What was {PRONOUN/sc_3/poss} name?",
+                "next_scene": "name"
+            },
+            "choice2": {
+                "text": "I'm so sorry.",
+                "next_scene": "sorry"
+            }
+        },
+        "name": [
+            "[t_c chokes up for a moment. You feel a bit bad for asking.]",
+            "{PRONOUN/sc_3/poss/CAP} name was sc_3. {PRONOUN/sc_3/subject/CAP} {VERB/sc_3/were/was} wonderful.",
+            "{PRONOUN/sc_3/subject/CAP} really loved sunflowers. {PRONOUN/sc_3/subject/CAP} {VERB/sc_3/were/was} just like them, I think. Always looking up, never in the shade...",
+            "I guess that's why I never really buried {PRONOUN/sc_3/object}. I didn't want to hide {PRONOUN/sc_3/object} from the sun, you know?",
+            "... ... ..."
+        ],
+        "name_choices": {
+            "choice1": {
+                "text": "You should rest.",
+                "next_scene": "getsomerest"
+            },
+            "choice2": {
+                "text": "I'll sit with you.",
+                "next_scene": "sitwithyou"
+            }
+        },
+        "sorry": [
+            "Oh, it's okay... that's just how life is now, huh?",
+            "Maybe it's good {PRONOUN/sc_3/subject} stepped out right as it all started."
+        ],
+        "sorry_choices": {
+            "choice1": {
+                "text": "What was {PRONOUN/sc_3/poss} name?",
+                "next_scene": "name"
+            },
+            "choice2": {
+                "text": "Get some rest",
+                "next_scene": "getsomerest"
+            }
+        },
+        "getsomerest":[
+            "I guess you're right. You've got some comfy nests here, don't you? Haven't had one of those in a while.",
+            "I'll go find sc_2. Thank you.",
+            "[Your log has been updated.]"
+        ],
+        "sitwithyou": [
+            "Thank you. I'm a bit tired of talking, too, actually...",
+            "[You crouch down next to t_c, and the emotionally exhausted cat begins snoring into your fur almost immediately.]",
+            "[Your log has been updated.]"
+        ]
+    },
+    "story_1_filler_1": {
+        "tags": [
+            "any",
+            "story_1",
+            "post_story_1_step_3",
+            "pre_story_1_step_4",
+            "you_sc_4",
+            "they_sc_2",
+            "they_blind",
+            "you_blind"
+        ],
+        "intro": [
+            "*Sigh*",
+            "sc_1 told you, huh?",
+            "That's fine. {PRONOUN/sc_1/subject/CAP} could never keep {PRONOUN/sc_1/poss} mouth shut.",
+            "[t_c purrs affectionately.]",
+            "I met sc_1 a long time ago. Just out on the territory. I know I should've kicked {PRONOUN/sc_1/object} out, but... {PRONOUN/sc_1/subject} {VERB/sc_1/were/was} so... charming. I wanted to keep {PRONOUN/sc_1/object} around.",
+            "Does that make me a bad Clanmate?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "No",
+                "next_scene": "badwarrior_no"
+            },
+            "choice2": {
+                "text": "Yes",
+                "next_scene": "badwarrior_yes"
+            }
+        },
+        "badwarrior_yes": [
+            "Haha! Okay, I guess I deserve that.",
+            "I don't regret keeping {PRONOUN/sc_1/object} around, though. Not one bit.",
+            "{PRONOUN/sc_1/subject/CAP} introduced me to sc_3. I assume {PRONOUN/sc_1/subject} told you about {PRONOUN/sc_3/object}?",
+            "{PRONOUN/sc_3/subject/CAP} didn't deserve to die. But, I guess none of us do, and it still happens.",
+            "I'm rambling. Feel free to ignore me.",
+            "I'm gonna go find sc_1.",
+            "[t_c skips away to go find {PRONOUN/t_c/poss} friend.]"
+        ],
+        "badwarrior_no": [
+            "Ah, well, I'm glad. I wouldn't regret it, either way. {PRONOUN/sc_1/subject/CAP} {VERB/sc_1/make/makes} me happy.",
+            "{PRONOUN/sc_1/subject/CAP} introduced me to sc_3. I assume {PRONOUN/sc_1/subject} told you about {PRONOUN/sc_3/object}?",
+            "{PRONOUN/sc_3/subject/CAP} didn't deserve to die. But, I guess none of us do, and it still happens.",
+            "I'm rambling. Feel free to ignore me.",
+            "I'm gonna go find sc_1.",
+            "[t_c skips away to go find {PRONOUN/t_c/poss} friend.]"
+        ]
+    },
+    "story_1_filler_2":[
+        [
+            "they_sc_1",
+            "post_story_1_step_4",
+            "any"
+        ],
+        [
+            "What is it you Clan cats say about dead cats, again? That each one is a star?",
+            "So, sc_3 must be one of them, right? I've been staring at them this whole time without even knowing."
+        ]
+    ],
+    "infected_shunned_J1": [
+        [
+            "they_infected",
+            "they_shunned",
+            "any",
+            "you_deaf",
+            "they_deaf",
+            "they_blind",
+            "infection"
+        ],
+        [
+            "[t_c looks so sad and tired.]",
+            "{PRONOUN/t_c/poss} condition just keeps getting worse, in every way..."
+        ]
+    ],
+    "undead_J1": [
+        [
+            "they_undead",
+            "any",
+            "they_deaf",
+            "you_deaf",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "Grrr...."
+        ]
+    ],
+    "infection_lyric_4": [
+        [
+            "they_kitten",
+            "upstanding",
+            "sweet",
+            "stable",
+            "you_medicine_cat",
+            "you_medicine_cat_apprentice",
+            "infection"
+        ],
+        [
+            "So y_c, how do you help cats like plike_inf_c get better?",
+            "[You paw at the herbs, explaining your general process.]",
+            "Oh!",
+            "Can I help? I want {PRONOUN/plike_inf_c/object} to feel better and not icky!"
+        ]
+    ],
+    "infection_celeste_1": [
+        [
+            "they_infected",
+            "they_stage_two",
+            "they_stage_three",
+            "they_stage_four",
+            "they_kitten",
+            "any"
+        ],
+        [
+            "[You walk near the edge of camp to see t_c out of {PRONOUN/t_c/poss} nest, the little kit's legs trembling with the effort of moving.]",
+            "y_c? I'm sorry, I know I should be resting, but..",
+            "[t_c sighs.]",
+            "I just want to play again. It's not fair."
+        ]
+    ],
+    "infection_sam_4": [
+        [
+            "they_kitten",
+            "they_infected",
+            "unabashed",
+            "you_not_kit",
+            "any"
+        ],
+        [
+            "y_c? Why do I have to sleep away from the rest of the Clan? r_m said it was because I was 'infected', but I don't know what that means. Usually when I get sick, I just have to stay in the medicine den.",
+            "[You hesitate for a moment, not sure how to break the news to t_c.]",
+            "[You explain that {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} infected with a dangerous illness that might kill another cat if they get it, but you promise that it won't kill {PRONOUN/t_c/object}.]",
+            "Haha! I knew it! I'm too strong to die from this 'infection'!",
+            "[t_c seems too happy for you to break the news to {PRONOUN/t_c/object}.]"
+
+        ]
+    ],
+    "infection_sam_7": [
+        [
+            "from_your_kit",
+            "you_infected",
+            "any",
+            "you_stage_three"
+        ],
+        [
+            "[You're sleeping when something bumps you. You jolt awake and hiss, before realizing that it's just t_c.]",
+            "[You've... never reacted to being woken up like that before. You shrink away, staring down at your paws.]",
+            "H- hey, you didn't mean it. It's okay. I'll go get r_m to come check up on you, okay?",
+            "[As {PRONOUN/t_c/subject} {VERB/t_c/walk/walks} out, you can hear {PRONOUN/t_c/poss} sobs. {PRONOUN/t_c/subject/CAP}{VERB/t_c/'re/'s} muttering something about wanting {PRONOUN/t_c/poss} {PRONOUN/y_c/parent} back, and you can't blame {PRONOUN/t_c/object}.]",
+            "[You just want yourself back.]"
+        ]
+    ],
+    "infection_sam_9": [
+        [
+            "they_infected",
+            "they_stage_three",
+            "silly",
+            "sweet",
+            "upstanding"
+        ],
+        [
+            "[t_c's been... more energetic lately. At first, r_m thought it was because {PRONOUN/t_c/subject} {VERB/t_c/were/was} recovering. Then, t_c's symptoms started getting worse.]",
+            "[{PRONOUN/t_c/subject/CAP}'d attack almost anyone near {PRONOUN/t_c/object}, including t_p. Then, {PRONOUN/t_c/subject}'d come back to reality confused, as if {PRONOUN/t_c/subject} had just blacked out during that time.]",
+            "[Today, it's happening again.]",
+            "RRROAGHHH!",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/start/starts} chasing you with {PRONOUN/t_c/poss} claws unsheathed.]",
+            "[Right before {PRONOUN/t_c/subject} {VERB/t_c/catch/catches} up to you, {PRONOUN/t_c/subject} {VERB/t_c/stop/stops}.]",
+            "...y_c? Did it happen again?",
+            "Oh no! Did I hurt you?",
+            "[Before you can reassure t_c that {PRONOUN/t_c/subject} didn't injure you, {PRONOUN/t_c/subject} {VERB/t_c/run/runs} off sobbing.]",
+            "[Poor t_c just wants to be a normal kit.]"
+        ]
+    ],
+    "infection_J17": {
+        "tags": [
+            "they_warrior",
+            "they_deputy",
+            "you_kitten",
+            "they_blind",
+            "you_blind"
+        ],
+        "intro": [
+            "[t_c is in hushed conversation with l_n.]",
+            "[They're talking about some infection. Is one of them injured? Maybe they should be talking to r_m.]"
+        ]
+    },
+    "infection_vicki_2": [
+        [
+            "infection",
+            "they_infected",
+            "you_infected",
+            "they_newborn",
+            "from_your_kit",
+            "ant"
+        ],
+        [
+            "Meeew....",
+            "[Your kit's grumbling and growling makes your heart sink.]",
+            "[You were always looking forward to being a parent, but not like this.]",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/seem/seems} weak and sickly, and you desperately groom {PRONOUN/t_c/poss} fur in an attempt to make {PRONOUN/t_c/object} look at least a little better.]",
+            "[You're not sure if it's too late for you. But you hope with all your heart that t_c, your beautiful, perfect t_c, can still have the bright future {PRONOUN/t_c/subject} {VERB/t_c/deserve/deserves}.]"
+            
+        ]
+    ],
+    "infection_vicki_3": [
+        [
+            "they_not_infected",
+            "min_platonic_40",
+            "you_not_infected",
+            "no_kit",
+            "any",
+            "you_not_med"
+        ],
+        [
+            "Still thinking about plove_inf_c?",
+            "[t_c's words bring you back down to Earth. {PRONOUN/t_c/poss/CAP} expression is a mix of amusement and sympathy.]",
+            "Sorry, didn't mean to startle you.",
+            "[Before the ensuing silence can get too awkward, t_c speaks up again, reaching a paw out toward you.]",
+            "I know you're going through a lot right now, y_c. But I'm convinced plove_inf_c will get better. r_m has been working hard for all of us, and {VERB/t_c/have/has} {PRONOUN/t_c/subject} ever let the Clan down?",
+            "[You ponder t_c's question for a moment.]",
+            "[...No, you suppose not. You can't imagine what being in r_m's position is like right now.]",
+            "[Realizing t_c needs an answer, you shake your head.]",
+            "See? r_m is a fantastic medicine cat. And plove_inf_c is strong, too. They're brave. That infection won't do anything to them.",
+            "[t_c leans closer, dropping the lighthearted, almost optimistic tone in favor of something more tender.]",
+            "But if somehow, something happens to plove_inf_c, I'll be here for you. Always.",
+            "[You purr in appreciation, letting a tiny smile appear on your face.]",
+            "[It's been a while since you've smiled.]",
+            "We'll get through this together, y_c. All of us."
+        ]
+    ],
+    "infection_vicki_4": [
+        [
+            "they_infected",
+            "you_infected",
+            "from_mate",
+            "min_romantic_30"
+        ],
+        [
+            "[Being infected sometimes has its advantages. Being able to talk to your mate, after you'd been separated for way too long, was one of them.]",
+            "[You know it's morbid, but it's the truth. You weren't sure if you could spend any more time away from t_c.]",
+            "[And you're perfectly aware they feel the same way, judging by the huge grin {PRONOUN/t_c/subject} {VERB/t_c/greet/greets} you with when {PRONOUN/t_c/subject} {VERB/t_c/see/sees} you approach.]",
+            "y_c!",
+            "[{PRONOUN/t_c/subject}/CAP {VERB/t_c/press/presses} {PRONOUN/t_c/poss} head against your fur, and although it hurts, you allow it.]",
+            "[{PRONOUN/t_c/poss/CAP} purr is perhaps the loudest you've ever heard.]",
+            "Sweetheart! Oh, I've missed you so much!",
+            "[With a warped, raspy chuckle, you tell t_c that you haven't been gone for that long.]",
+            "[{PRONOUN/t_c/subject/CAP} playfully {VERB/t_c/scoff/scoffs} in response.]",
+            "Well, I feel as if it's been an eternity! I'm not sure if it's because of the whole 'being infected' thing, but...",
+            "Ah, nevermind that. Have you been holding up alright?",
+            "[You say that you've been as alright as you possibly can be. If you pay no mind to the constant pain and your decaying body...]",
+            "Oh, darling... I know. I know it's hard. But at least we can be rotting, crumbling messes together, don't you think?",
+            "[You can't help but agree with {PRONOUN/t_c/object}. Your body would've probably already given up by now if it weren't for t_c.]",
+            "[You have a glimmer of hope that this will all end soon. For now, the least you can do is keep fighting. For t_c.]"
+        ]
+    ]
+}

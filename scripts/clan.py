@@ -1519,23 +1519,36 @@ class Clan:
         if os.path.exists(file_path):
             with open(file_path, 'r', encoding='utf-8') as read_file:  # pylint: disable=redefined-outer-name
                 clan.infection = ujson.load(read_file)
-                if clan.infection["story_cat_1"]:
-                    clan.infection["story_cat_1"] = Cat.all_cats[clan.infection["story_cat_1"]]
+                if "story_cat_1" in clan.infection:
+                    if clan.infection["story_cat_1"]:
+                        clan.infection["story_cat_1"] = Cat.all_cats[clan.infection["story_cat_1"]]
+                    else:
+                        clan.infection["story_cat_1"] = None
                 else:
                     clan.infection["story_cat_1"] = None
 
-                if clan.infection["story_cat_2"]:
-                    clan.infection["story_cat_2"] = Cat.all_cats[clan.infection["story_cat_2"]]
-                else:
-                    clan.infection["story_cat_2"] = None
 
-                if clan.infection["story_cat_3"]:
-                    clan.infection["story_cat_3"] = Cat.all_cats[clan.infection["story_cat_3"]]
+                if "story_cat_2" in clan.infection:
+                    if clan.infection["story_cat_2"]:
+                        clan.infection["story_cat_2"] = Cat.all_cats[clan.infection["story_cat_2"]]
+                    else:
+                        clan.infection["story_cat_2"] = None
                 else:
                     clan.infection["story_cat_3"] = None
 
-                if clan.infection["story_cat_4"]:
-                    clan.infection["story_cat_4"] = Cat.all_cats[clan.infection["story_cat_4"]]
+                if "story_cat_3" in clan.infection:
+                    if clan.infection["story_cat_3"]:
+                        clan.infection["story_cat_3"] = Cat.all_cats[clan.infection["story_cat_3"]]
+                    else:
+                        clan.infection["story_cat_3"] = None
+                else:
+                    clan.infection["story_cat_3"] = None
+
+                if "story_cat_4" in clan.infection:
+                    if clan.infection["story_cat_4"]:
+                        clan.infection["story_cat_4"] = Cat.all_cats[clan.infection["story_cat_4"]]
+                    else:
+                        clan.infection["story_cat_4"] = None
                 else:
                     clan.infection["story_cat_4"] = None
         else:

@@ -2536,7 +2536,8 @@ class Cat:
         self.infection_spread(kitty1)
 
     def infection_spread(self, cat: Cat):
-        """ handles specific events where a cat gets the infection from someone else """
+        """ handles specific events where a cat gets the infection from someone else.
+        cat is the infected cat, self is the cat getting the infection. """
 
         if cat.infected_for < 1:
             return
@@ -2598,6 +2599,7 @@ class Cat:
                     event = f"{self.name} has been in contact with the infected {cat.name}, but isn't getting ill. It seems that cats who have been infected in the past are unable to become infected again!"
                     game.cur_events_list.append(Single_Event(event, ["health", "infection"], [self.ID, cat.ID]))
                     game.clan.infection["logs"].append("no_reinfection")
+                return
 
             if not int(random() * chamce):
                 if game.clan.infection["spread_by"] == "bite":
@@ -2611,7 +2613,7 @@ class Cat:
                     if "spread_by_air" not in game.clan.infection["logs"]:
                         game.clan.infection["logs"].append("spread_by_air")
                         text += "\nYour log has been updated."
-                
+
                 game.cur_events_list.append(Single_Event(text, ["health", "infection"], [self.ID, cat.ID]))
                 self.get_ill(f"{game.clan.infection['infection_type']} stage one")
                 self.infected_for += 1
@@ -2673,13 +2675,11 @@ class Cat:
         condition_directory = get_save_dir() + "/" + clanname + "/conditions"
         condition_file_path = condition_directory + "/" + self.ID + "_conditions.json"
 
-        story_cats = [game.clan.infection["story_cat_1"], game.clan.infection["story_cat_2"], game.clan.infection["story_cat_3"], game.clan.infection["story_cat_4"]]
-        # some outside cats need to be able to keep a condition. only story cats
+       # in INFECTION, outsiders can keep conditions.
 
         if (
             (not self.is_ill() and not self.is_injured() and not self.is_disabled())
             or self.dead
-            or (self.outside and self.ID not in story_cats)
         ):
             if os.path.exists(condition_file_path):
                 os.remove(condition_file_path)

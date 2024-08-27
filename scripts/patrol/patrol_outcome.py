@@ -1094,7 +1094,9 @@ class PatrolOutcome:
                 selected_herbs.extend([priority_herb] * weight)
 
             specific_herbs += random.sample(selected_herbs, k=choices([1, 2, 3], [6, 5, 1], k=1)[0])
-            print(specific_herbs)
+
+        elif "priority_herb" in self.herbs:
+            specific_herbs.extend([priority_herb])
         
         else:
             if priority_herb is not None:

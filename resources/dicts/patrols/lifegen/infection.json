@@ -8,13 +8,11 @@
             "Any"
         ],
         "types": [
-            "lifegen",
-            "new_cat"
+            "lifegen"
         ],
         "tags": [
             "infection",
-            "story_beginning",
-            "story_1"
+            "story_beginning"
         ],
         "patrol_art": "lg_app4",
         "min_cats": 1,
@@ -28,7 +26,7 @@
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "When you hesitantly ask what's going on, the rogue hisses, bitterly, that you should try asking one of your Clanmates about it. They won't tell you who.",
+                "text": "When you hesitantly ask what's going on, the rogue hisses, bitterly, that you should try asking one of your Clanmates about it. {PRONOUN/n_c:0/subject/CAP} won't tell you who.",
                 "exp": 10,
                 "weight": 20,
                 "new_cat": [
@@ -39,12 +37,27 @@
                         "entry": "story_1_step_1",
                         "story": "1"
                     }
+                ],
+                "injury": [
+                    {
+                        "cats": ["n_c:0"],
+                        "injuries": ["lasting grief"],
+                        "no_results": true
+                    }
+                ],
+                "story_cat": [
+                    {
+                        "cats": ["p_l"],
+                        "story_cat": 4,
+                        "cats2": ["n_c:0"],
+                        "story_cat2": 1
+                    }
                 ]
             }
         ],
         "fail_outcomes": [
             {
-                "text": "When you hesitantly ask what's going on, the rogue hisses, bitterly, that you should try asking one of your Clanmates about it. They won't tell you who.",
+                "text": "When you hesitantly ask what's going on, the rogue hisses, bitterly, that you should try asking one of your Clanmates about it. {PRONOUN/n_c:0/subject/CAP} won't tell you who.",
                 "exp": 10,
                 "weight": 20,
                 "new_cat": [
@@ -54,6 +67,21 @@
                     {
                         "entry": "story_1_step_1",
                         "story": "1"
+                    }
+                ],
+                "injury": [
+                    {
+                        "cats": ["n_c:0"],
+                        "injuries": ["lasting grief"],
+                        "no_results": true
+                    }
+                ],
+                "story_cat": [
+                    {
+                        "cats": ["p_l"],
+                        "story_cat": 4,
+                        "cats2": ["n_c:0"],
+                        "story_cat2": 1
                     }
                 ]
             }
@@ -344,6 +372,52 @@
         ]
     },
     {
+        "patrol_id": "gen_infection_beginning_1",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection_beginning",
+            "fungal"
+        ],
+        "patrol_art": "lg_warrior_default",
+        "min_cats": 1,
+        "max_cats": 3,
+        "min_max_status": {
+            "leader": [-1, 0]
+        },
+        "weight": 20,
+        "intro_text": "There's a mysterious glowing mushroom at the edge of camp.",
+        "decline_text": "You decide not to touch it.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "You creep towards the mushroom and tap it with your paw. Some black spores fly off of it and fall to the ground, heavy. You back away and make a mental note to tell l_n about that later.",
+                "exp": 10,
+                "weight": 20
+            },
+            {
+                "text": "You grab r_w_assertive, who decides with you to destory the thing. You both know that spores can be dangerous, so the warrior rolls a large rock o top of it. Hopefully this will stop its fungus from spreading and destorying any herbs."
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You approach the mushroom and sniff is hesitantly. When you do, it starts to lean towards you, as if it has a mind of its own. Slightly unsettled, you stand up and walk away, hoping it wont follow you, somehow.",
+                "exp": 10,
+                "weight": 20
+            },
+            {
+                "text": "You approach the mushroom. Sniffing it hurts your nose, and you decide to back off before it makes you sick."
+            }
+        ]
+    },
+    {
         "patrol_id": "kit_infection_mango_1", 
         "biome": [
             "Any"
@@ -624,7 +698,7 @@
         "min_cats": 1,
         "max_cats": 3,
         "min_max_status": {
-            "healer cats": [-1, 1]
+            "healer cats": [1, 1]
         },
         "weight": 40,
         "intro_text": "Today, you've decided to investigate a section of the territory you haven't been to in a while. When you get there, you find that every herb patch you can remember has been torn to shreds. You hear a noise behind you and whip around, locking your gaze with two mysterious, glowing eyes situated deep within the trees.",
@@ -763,21 +837,25 @@
         "min_cats": 1,
         "max_cats": 3,
         "min_max_status": {
+            "healer cats": [-1, 0]
         },
         "weight": 20,
-        "intro_text": "yea",
-        "decline_text": "naur",
+        "intro_text": "r_m_neurotic, frantically, asks you to fetch them an herb. {PRONOUN/r_m_neurotic/subject/CAP}{VERB/r_m_neurotic/'ve/'s} been frantically trying to treat {PRONOUN/r_m_neurotic/poss} infected patients all day, and you know that accidentally handing {PRONOUN/r_m_neurotic/object} the wrong herb might cause some sort of explosion...",
+        "decline_text": "You tell r_m_neurotic that you're not confident to find the herb for {PRONOUN/r_m_neurotic/object}, and {PRONOUN/r_m_neurotic/subject} {VERB/r_m_neurotic/snap/snaps} at you to get away from the medicine den if you're going to be of no help.",
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "yeah",
+                "text": "You wrack your brain and locate the herb that r_m_neurotic was looking for. When you hand it to {PRONOUN/r_m_neurotic/object}, {PRONOUN/r_m_neurotic/subject} {VERB/r_m_neurotic/thank/thanks} you with a nod, then all but shove you back out of the medicine den, that herb having done nothing to ease {PRONOUN/r_m_neurotic/poss} stress. Poor cat.",
                 "exp": 10,
                 "weight": 20
+            },
+            {
+                "text": "You have no idea what this herb is! You grab a random one from the stores and hand it over, and to your surprise, it appears to be the right one! r_m_neurotic thanks you briefly before turning back to {PRONOUN/r_m_neurotic/poss} work."
             }
         ],
         "fail_outcomes": [
             {
-                "text": "yeahh",
+                "text": "You have no idea what this herb is! You grab a random leaf from the stores and hand it over, but r_m_neurotic just slaps it out of your paws and shoves you back out of the medicine den. It seems that medicine is still not your calling.",
                 "exp": 10,
                 "weight": 20
             }
@@ -829,6 +907,191 @@
             {
                 "text": "Just as you're close enough to attack, the infected creature notices you and leaps at you before you can react. You yowl for help as the sick rogue's fangs reach for your throat, and luckily a group of warriors wakes up to save you and get rid of your assailant for good.",
                 "exp": 10,
+                "weight": 10
+            }
+        ]
+    },
+    {
+        "patrol_id": "gen_med_infection_1",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection"
+        ],
+        "patrol_art": "lg_medcat_default",
+        "min_cats": 1,
+        "max_cats": 3,
+        "min_max_status": {
+            "healer cats": [1, 1]
+        },
+        "weight": 20,
+        "intro_text": "plike_inf_c calls your name from the edge of the medicine den, infection clouding {PRONOUN/plike_inf_c/poss} eyes.",
+        "decline_text": "You turn and leave. You don't want to risk having an idle chat with such a potentially dangerous cat.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "You look {PRONOUN/plike_inf_c/poss} way, but don't move any closer. plike_inf_c tells you that {PRONOUN/plike_inf_c/subject} {VERB/plike_inf_c/appreciate/appreciates} you being here for {PRONOUN/plike_inf_c/object}, even though {PRONOUN/plike_inf_c/subject} {VERB/plike_inf_c/don't/doesn't} think you'll find a cure. You tell {PRONOUN/plike_inf_c/object} not to think like that.",
+                "exp": 10,
+                "weight": 20
+            }
+            
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You slowly approach the cat, but {PRONOUN/plike_inf_c/subject} {VERB/plike_inf_c/start/starts} hissing when you draw near. You retreat. You'll speak to {PRONOUN/plike_inf_c/object} later, when the infection isn't actively taking its toll.",
+                "exp": 10,
+                "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "gen_med_infection_2",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection"
+        ],
+        "patrol_art": "lg_medcat_default",
+        "min_cats": 1,
+        "max_cats": 3,
+        "min_max_status": {
+            "healer cats": [1, 1]
+        },
+        "weight": 20,
+        "intro_text": "c_n has decided on a specific herb to search for. Not satisfied with your stores, you set out at night to go find some for yourself.",
+        "decline_text": "On second thought, heading out of camp at night is dangerous. You head back home, certain you can find some in a patrol tomorrow instead.",
+        "chance_of_success": 60,
+        "success_outcomes": [
+            {
+                "text": "Your search is successful! You bring home a decent stock to attempt to treat your patients in the morning.",
+                "exp": 10,
+                "weight": 20,
+                "herbs": ["priority_herb"]
+            }
+            
+        ],
+        "fail_outcomes": [
+            {
+                "text": "Despite your resolve, you're unable to find the herb. You head back to camp when the sun starts to rise.",
+                "exp": 10,
+                "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "gen_med_infection_3",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection"
+        ],
+        "patrol_art": "lg_medcat_default",
+        "min_cats": 1,
+        "max_cats": 3,
+        "min_max_status": {
+            "healer cats": [1, 1]
+        },
+        "weight": 20,
+        "intro_text": "Perched on a tree just outside of c_n camp, you survey the territory, trying to locate any new herb patch locations than you may not have spotted from the ground.",
+        "decline_text": "A gale of wind shakes your branch and you decide to return to the ground where you'll be safer.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "After a few moments, you spot an unfamiliar patch of colour. Making a mental note of where it is, you return to the ground and grab a couple of Clanmates to go investigate it with you. When you get there, you find a fresh patch of herbs!",
+                "exp": 10,
+                "weight": 20,
+                "herbs": ["random_herbs"]
+            },
+            {
+                "text": "You think you see an unfamiliar cat stalking through the undergrowth. When you get back down to the ground and run to the scene, all that you find is the scent of a rogue and a conveniently packed bundle fo herbs. Did someone leave this here for you..?",
+                "exp": 10,
+                "weight": 10,
+                "herbs": ["random_herbs"]
+            }
+            
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You think you spot a new patch of colour, but when you get down to the ground and rush out of camp to find it, you can't find the spot you were looking at. You wander around for a while before giving up and heading back home.",
+                "exp": 10,
+                "weight": 20
+            },
+            {
+                "text": "It's almost the entire day that you're up in that tree, but you're unable to spot anything.",
+                "exp": 10,
+                "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "gen_med_infection_4",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection"
+        ],
+        "patrol_art": "lg_medcat_default",
+        "min_cats": 1,
+        "max_cats": 3,
+        "min_max_status": {
+            "healer cats": [1, 1]
+        },
+        "weight": 20,
+        "intro_text": "It's been an exhausting day. You lift your head and stare up at the sky. Does StarClan have anything to say about this?",
+        "decline_text": "You don't need to know. StarClan can't help your Clanmates-- only you can. You stand up to get back to work.",
+        "chance_of_success": 60,
+        "success_outcomes": [
+            {
+                "text": "After a moment of waiting, you start to feel a presence. Suddenly, d_c's starry pelt is in front of you. They don't say a word, but they drop a gift at your paws, give you a nod, and dissipate into the trees.",
+                "exp": 10,
+                "weight": 10,
+                "herbs": ["priority_herb"]
+            },
+            {
+                "text": "The stars seem to have nothing to say. However, just when you're about to stand up and leave, you feel something smack you in the face. The wind has blown some herbs right into your paws!",
+                "exp": 10,
+                "weight": 20,
+                "herbs": ["random_herbs"]
+            }
+            
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You wait for a long time, but recieve no answer. Frustrated, you hiss under your breath that you don't need StarClan's help anyway and return to the medicine den, tail twitching.",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "You wait for a long time for a response from your ancestors, but instead of some reassurance, it starts raining. You're forced to abandon your prayer and head back inside. Did StarClan send that rain? Are they upset with you and your Clan?",
+                "exp": 0,
                 "weight": 10
             }
         ]

@@ -455,7 +455,7 @@
 	"debug_ensure_story_dialogue": true,
 	"INFECTION_comment_2": "All story-related dialogue will be given as soon as it's available. Remember that not all story beats are dialogue, though.",
 
-	"debug_ensure_dialogue": "infection_J15",
+	"debug_ensure_dialogue": "",
 
 	"shunned_cat": {
 		"exile_chance": {

@@ -440,6 +440,10 @@ class TalkScreen(Screens):
                     with open(f"{resource_dir}focuses/{game.clan.focus}.json", 'r') as read_file:
                         possible_texts5 = ujson.loads(read_file.read())
                         possible_texts.update(possible_texts5)
+
+                with open(f"{resource_dir}infection.json", 'r') as read_file:
+                    infection_dialogue = ujson.loads(read_file.read())
+                    possible_texts.update(infection_dialogue)
                     
         return self.filter_texts(cat, possible_texts)
 
@@ -545,12 +549,17 @@ class TalkScreen(Screens):
 
             if "they_infected" in tags and cat.infected_for < 1:
                 continue
-            elif "they_not_infected" in tags and cat.infected_for < 1:
+            elif "they_not_infected" in tags and cat.infected_for > 1:
                 continue
 
             if "undead" in cat.illnesses and "they_undead" not in tags:
                 continue
             if "undead" in you.illnesses and "you_undead" not in tags:
+                continue
+
+            if "they_undead" in tags and "undead" not in cat.illnesses:
+                continue
+            if "you_undead" in tags and "undead" not in you.illnesses:
                 continue
 
             nope = False 
@@ -936,6 +945,9 @@ class TalkScreen(Screens):
                 continue
 
             if "you_not_kit" in tags and game.clan.your_cat.moons < 6:
+                continue
+
+            if "you_not_med" in tags and game.clan.your_cat.status in ["medicine cat", "medicine cat apprentice"]:
                 continue
 
 

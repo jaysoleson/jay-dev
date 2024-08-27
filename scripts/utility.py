@@ -4666,6 +4666,179 @@ def adjust_txt(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
 
                 text = add_to_cat_dict("e_c", cluster, x, rel, r, alive_app, text, cat_dict)
 
+        # INFECTION
+        if "sc_1" in text:
+            cluster = False
+            rel = False
+            match = re.search(r'sc_1(\w+)', text)
+            if match:
+                x = match.group(1).strip("_")
+                cluster = True
+            else:
+                x = ""
+            match2 = re.search(r'(\w+)sc_1', text)
+            if match2:
+                r = match2.group(1).strip("_")
+                rel = True
+            else:
+                r = ""
+
+            text, in_dict = cat_dict_check("sc_1", cluster, x, rel, r, text, cat_dict)
+
+            if in_dict is False:
+                alive_cats = [x for x in Cat.all_cats_list if x.ID == game.clan.infection["story_cat_1"]]
+                if len(alive_cats) <= 0:
+                    return ""
+                alive_app = choice(alive_cats)
+                addon_check = abbrev_addons(cat, alive_app, cluster, x, rel, r)
+                counter = 0
+
+                while (alive_app.ID == you.ID or alive_app.ID == cat.ID or addon_check is False):
+                    alive_app = choice(alive_cats)
+                    addon_check = abbrev_addons(cat, alive_app, cluster, x, rel, r)
+                    counter += 1
+                    if counter == 30:
+                        return ""
+
+                text = add_to_cat_dict("sc_1", cluster, x, rel, r, alive_app, text, cat_dict)
+        if "sc_2" in text:
+            cluster = False
+            rel = False
+            match = re.search(r'sc_2(\w+)', text)
+            if match:
+                x = match.group(1).strip("_")
+                cluster = True
+            else:
+                x = ""
+            match2 = re.search(r'(\w+)sc_2', text)
+            if match2:
+                r = match2.group(1).strip("_")
+                rel = True
+            else:
+                r = ""
+
+            text, in_dict = cat_dict_check("sc_2", cluster, x, rel, r, text, cat_dict)
+
+            if in_dict is False:
+                alive_cats = [x for x in Cat.all_cats_list if x.ID == game.clan.infection["story_cat_2"]]
+                if len(alive_cats) <= 0:
+                    return ""
+                alive_app = choice(alive_cats)
+                addon_check = abbrev_addons(cat, alive_app, cluster, x, rel, r)
+                counter = 0
+
+                while (alive_app.ID == you.ID or alive_app.ID == cat.ID or addon_check is False):
+                    alive_app = choice(alive_cats)
+                    addon_check = abbrev_addons(cat, alive_app, cluster, x, rel, r)
+                    counter += 1
+                    if counter == 30:
+                        return ""
+
+                text = add_to_cat_dict("sc_2", cluster, x, rel, r, alive_app, text, cat_dict)
+        if "sc_3" in text:
+            cluster = False
+            rel = False
+            match = re.search(r'sc_3(\w+)', text)
+            if match:
+                x = match.group(1).strip("_")
+                cluster = True
+            else:
+                x = ""
+            match2 = re.search(r'(\w+)sc_3', text)
+            if match2:
+                r = match2.group(1).strip("_")
+                rel = True
+            else:
+                r = ""
+
+            text, in_dict = cat_dict_check("sc_3", cluster, x, rel, r, text, cat_dict)
+
+            if in_dict is False:
+                alive_cats = [x for x in Cat.all_cats_list if x.ID == game.clan.infection["story_cat_3"]]
+                if len(alive_cats) <= 0:
+                    return ""
+                alive_app = choice(alive_cats)
+                addon_check = abbrev_addons(cat, alive_app, cluster, x, rel, r)
+                counter = 0
+
+                while (alive_app.ID == you.ID or alive_app.ID == cat.ID or addon_check is False):
+                    alive_app = choice(alive_cats)
+                    addon_check = abbrev_addons(cat, alive_app, cluster, x, rel, r)
+                    counter += 1
+                    if counter == 30:
+                        return ""
+
+                text = add_to_cat_dict("sc_3", cluster, x, rel, r, alive_app, text, cat_dict)
+        if "sc_4" in text:
+            cluster = False
+            rel = False
+            match = re.search(r'sc_4(\w+)', text)
+            if match:
+                x = match.group(1).strip("_")
+                cluster = True
+            else:
+                x = ""
+            match2 = re.search(r'(\w+)sc_4', text)
+            if match2:
+                r = match2.group(1).strip("_")
+                rel = True
+            else:
+                r = ""
+
+            text, in_dict = cat_dict_check("sc_4", cluster, x, rel, r, text, cat_dict)
+
+            if in_dict is False:
+                alive_cats = [x for x in Cat.all_cats_list if x.ID == game.clan.infection["story_cat_4"]]
+                if len(alive_cats) <= 0:
+                    return ""
+                alive_app = choice(alive_cats)
+                addon_check = abbrev_addons(cat, alive_app, cluster, x, rel, r)
+                counter = 0
+
+                while (alive_app.ID == you.ID or alive_app.ID == cat.ID or addon_check is False):
+                    alive_app = choice(alive_cats)
+                    addon_check = abbrev_addons(cat, alive_app, cluster, x, rel, r)
+                    counter += 1
+                    if counter == 30:
+                        return ""
+
+                text = add_to_cat_dict("sc_3", cluster, x, rel, r, alive_app, text, cat_dict)
+
+        if "inf_c" in text:
+            cluster = False
+            rel = False
+            match = re.search(r'inf_c(\w+)', text)
+            if match:
+                x = match.group(1).strip("_")
+                cluster = True
+            else:
+                x = ""
+            match2 = re.search(r'(\w+)inf_c', text)
+            if match2:
+                r = match2.group(1).strip("_")
+                rel = True
+            else:
+                r = ""
+
+            text, in_dict = cat_dict_check("inf_c", cluster, x, rel, r, text, cat_dict)
+
+            if in_dict is False:
+                alive_cats = [x for x in Cat.all_cats_list if x.infected_for > 0]
+                if len(alive_cats) <= 0:
+                    return ""
+                alive_app = choice(alive_cats)
+                addon_check = abbrev_addons(cat, alive_app, cluster, x, rel, r)
+                counter = 0
+
+                while (alive_app.ID == you.ID or alive_app.ID == cat.ID or addon_check is False):
+                    alive_app = choice(alive_cats)
+                    addon_check = abbrev_addons(cat, alive_app, cluster, x, rel, r)
+                    counter += 1
+                    if counter == 30:
+                        return ""
+
+                text = add_to_cat_dict("inf_c", cluster, x, rel, r, alive_app, text, cat_dict)
+
         # Dialogue focus cat
         if game.clan.focus_cat is not None:
             if "fc_c" in text:

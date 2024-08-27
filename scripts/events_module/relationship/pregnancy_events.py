@@ -437,6 +437,16 @@ class Pregnancy_Events:
         # choose event string
         # TODO: currently they don't choose which 'mate' is the 'blood' parent or not
         # change or leaf as it is?
+
+        # INFECTION: need this to get the event
+        infected_kit_affair = False
+
+        infectedkit = False
+        for kit in kits:
+            if kit.infected_for > 0:
+                infectedkit = True
+                break
+
         events = Pregnancy_Events.PREGNANT_STRINGS
         event_list = []
         if not cat.outside and other_cat is None:
@@ -463,17 +473,18 @@ class Pregnancy_Events:
             and not other_cat.dead
         ):
             involved_cats.append(other_cat.ID)
-            event_list.append(choice(events["birth"]["affair"]))
+            if infectedkit:
+                event_list.append(choice(events["birth"]["infected_kits_affair"]))
+                infected_kit_affair = True
+            else:
+                event_list.append(choice(events["birth"]["affair"]))
         else:
             event_list.append(choice(events["birth"]["unmated_parent"]))
 
-        infectedkit = False
-        for kit in kits:
-            if kit.infected_for > 0:
-                event_list = []
-                event_list.append(choice(events["birth"]["infected_kits"]))
-                infectedkit = True
-                break
+        if infectedkit and not infected_kit_affair:
+            # this sucks
+            event_list = []
+            event_list.append(choice(events["birth"]["infected_kits"]))
 
         if clan.game_mode != 'classic':
             try:
