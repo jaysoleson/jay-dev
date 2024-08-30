@@ -169,7 +169,8 @@ class Clan:
             "story_finished": False,
             "past_stories": [],
             "story_break_moons": 0,
-            "priority_herb": None
+            "priority_herb": None,
+            "time_to_next_infection": 0
         }
         self.inheritance = {}
         self.murdered = False
@@ -200,6 +201,9 @@ class Clan:
         self.infection_moons = 0
         self.cure_logs = []
         self.priority_herb = None
+        self.time_to_next_infection = 0
+
+
         self.focus_cat = focus_cat
         self.clan_age = clan_age if clan_age else "established"
         self.custom_pronouns = []
@@ -752,7 +756,8 @@ class Clan:
             "story_finished": self.infection["story_finished"],
             "past_stories": self.infection["past_stories"],
             "story_break_moons": self.infection["story_break_moons"],
-            "priority_herb": self.infection["priority_herb"]
+            "priority_herb": self.infection["priority_herb"],
+            "time_to_next_infection": self.infection["time_to_next_infection"]
         }
 
         # LEADER DATA

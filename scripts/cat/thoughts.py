@@ -117,34 +117,38 @@ class Thoughts:
         if 'main_trait_constraint' in thought:
             if main_cat.personality.trait not in thought['main_trait_constraint']:
                 return False
-            
+
         if 'not_main_trait_constraint' in thought:
             if main_cat.personality.trait in thought['not_main_trait_constraint']:
                 return False
-            
+
         if 'random_trait_constraint' in thought and random_cat:
             if random_cat.personality.trait not in thought['random_trait_constraint']:
                 return False
-            
+
         # INFECTION
-            
+
         if "main_cluster_constraint" in thought:
             cluster, cluster2 = get_cluster(main_cat.personality.trait)
             if cluster not in thought["main_cluster_constraint"] and (cluster2 and cluster2 not in thought["main_cluster_constraint"]):
                 return False
-        
+
         if "random_cluster_constraint" in thought and random_cat:
             cluster, cluster2 = get_cluster(random_cat.personality.trait)
             if cluster not in thought["random_cluster_constraint"] and (cluster2 and cluster2 not in thought["random_cluster_constraint"]):
                 return False
 
         if "main_infected_constraint" in thought:
+            # if game.clan.infection["clan_infected"] is False:
+            #     return False
             if "infected" in thought["main_infected_constraint"] and main_cat.infected_for < 1:
                 return False
             if "not_infected" in thought["main_infected_constraint"] and main_cat.infected_for > 0:
                 return False
             
         if "random_infected_constraint" in thought and random_cat:
+            # if game.clan.infection["clan_infected"] is False:
+            #     return False
             if "infected" in thought["random_infected_constraint"] and random_cat.infected_for < 1:
                 return False
             if "not_infected" in thought["random_infected_constraint"] and main_cat.infected_for > 0:
@@ -418,14 +422,11 @@ class Thoughts:
     @staticmethod
     def get_chosen_thought(main_cat, other_cat, game_mode, biome, season, camp):
         # get possible thoughts
-        # try:
-        #     chosen_thought_group = choice(Thoughts.load_thoughts(main_cat, other_cat, game_mode, biome, season, camp))
-        #     chosen_thought = choice(chosen_thought_group["thoughts"])
-        # except Exception:
-        #     chosen_thought = "Prrrp! You shouldn't see this! Report as a bug."
-
-        chosen_thought_group = choice(Thoughts.load_thoughts(main_cat, other_cat, game_mode, biome, season, camp))
-        chosen_thought = choice(chosen_thought_group["thoughts"])
+        try:
+            chosen_thought_group = choice(Thoughts.load_thoughts(main_cat, other_cat, game_mode, biome, season, camp))
+            chosen_thought = choice(chosen_thought_group["thoughts"])
+        except Exception:
+            chosen_thought = "Prrrp! You shouldn't see this! Report as a bug."
 
         return chosen_thought
     

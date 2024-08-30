@@ -345,32 +345,32 @@ class Patrol:
             # INFECTION PATROLS
             possible_patrols.extend(self.generate_patrol_events(self.infection_patrols))
 
-            # dis_chance = int(random.getrandbits(3))  # reg patrol chance ? temp
-            # if dis_chance == 1:
-            # if game.clan.your_cat.status == 'kitten':
-            #     possible_patrols.extend(self.generate_patrol_events(self.kit_lifegen))
-            # elif game.clan.your_cat.status == 'apprentice':
-            #     possible_patrols.extend(self.generate_patrol_events(self.app_lifegen))
-            # elif game.clan.your_cat.status == 'medicine cat apprentice':
-            #     possible_patrols.extend(self.generate_patrol_events(self.medapp_lifegen))
-            # elif game.clan.your_cat.status == 'mediator apprentice':
-            #     possible_patrols.extend(self.generate_patrol_events(self.mediatorapp_lifegen))
-            # elif game.clan.your_cat.status == "queen's apprentice":
-            #     possible_patrols.extend(self.generate_patrol_events(self.queenapp_lifegen))
-            # elif game.clan.your_cat.status == "queen":
-            #     possible_patrols.extend(self.generate_patrol_events(self.queen_lifegen))
-            # elif game.clan.your_cat.status == 'medicine cat':
-            #     possible_patrols.extend(self.generate_patrol_events(self.med_lifegen))
-            # elif game.clan.your_cat.status == 'mediator':
-            #     possible_patrols.extend(self.generate_patrol_events(self.mediator_lifegen))
-            # elif game.clan.your_cat.status == 'deputy':
-            #     possible_patrols.extend(self.generate_patrol_events(self.deputy_lifegen))
-            # elif game.clan.your_cat.status == 'leader':
-            #     possible_patrols.extend(self.generate_patrol_events(self.leader_lifegen))
-            # elif game.clan.your_cat.status == 'elder':
-            #     possible_patrols.extend(self.generate_patrol_events(self.elder_lifegen))
-            # else:
-            #     possible_patrols.extend(self.generate_patrol_events(self.warrior_lifegen))
+            if game.clan.infection["clan_infected"] is False:
+                # no normal shit once ur infected
+                if game.clan.your_cat.status == 'kitten':
+                    possible_patrols.extend(self.generate_patrol_events(self.kit_lifegen))
+                elif game.clan.your_cat.status == 'apprentice':
+                    possible_patrols.extend(self.generate_patrol_events(self.app_lifegen))
+                elif game.clan.your_cat.status == 'medicine cat apprentice':
+                    possible_patrols.extend(self.generate_patrol_events(self.medapp_lifegen))
+                elif game.clan.your_cat.status == 'mediator apprentice':
+                    possible_patrols.extend(self.generate_patrol_events(self.mediatorapp_lifegen))
+                elif game.clan.your_cat.status == "queen's apprentice":
+                    possible_patrols.extend(self.generate_patrol_events(self.queenapp_lifegen))
+                elif game.clan.your_cat.status == "queen":
+                    possible_patrols.extend(self.generate_patrol_events(self.queen_lifegen))
+                elif game.clan.your_cat.status == 'medicine cat':
+                    possible_patrols.extend(self.generate_patrol_events(self.med_lifegen))
+                elif game.clan.your_cat.status == 'mediator':
+                    possible_patrols.extend(self.generate_patrol_events(self.mediator_lifegen))
+                elif game.clan.your_cat.status == 'deputy':
+                    possible_patrols.extend(self.generate_patrol_events(self.deputy_lifegen))
+                elif game.clan.your_cat.status == 'leader':
+                    possible_patrols.extend(self.generate_patrol_events(self.leader_lifegen))
+                elif game.clan.your_cat.status == 'elder':
+                    possible_patrols.extend(self.generate_patrol_events(self.elder_lifegen))
+                else:
+                    possible_patrols.extend(self.generate_patrol_events(self.warrior_lifegen))
         elif game.current_screen == 'patrol screen4':
             possible_patrols.extend(self.generate_patrol_events(self.date_lifegen))
         else:

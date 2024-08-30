@@ -372,6 +372,45 @@
         ]
     },
     {
+        "patrol_id": "kitten_infection_beginning_2",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection_beginning"
+        ],
+        "patrol_art": "lg_kit_default",
+        "min_cats": 1,
+        "max_cats": 3,
+        "min_max_status": {
+            "kitten": [1, 1]
+        },
+        "weight": 20,
+        "intro_text": "You poke your nose into the medicine den, curious to see what r_m does in there all day.",
+        "decline_text": "When {PRONOUN/r_m/subject} {VERB/r_m/shoo/shoos} you away, you leave without a fight.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "r_m sees you peering at {PRONOUN/r_m/object} from around the corner and invites you in. When you ask why there's so many different herbs, {PRONOUN/r_m/subject} {VERB/r_m/tell/tells} you that you're never sure what you could need them for, and that it's better to be safe than sorry. Fair enough!",
+                "exp": 10,
+                "weight": 20
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "When {PRONOUN/r_m/subject} {VERB/r_m/see/sees} you, r_m shoos you out of the den, saying {PRONOUN/r_m/subject}{VERB/r_m/'re/'s} too busy to show you around today.",
+                "exp": 10,
+                "weight": 20
+            }
+        ]
+    },
+    {
         "patrol_id": "gen_infection_beginning_1",
         "biome": [
             "Any"
@@ -565,6 +604,61 @@
                         "entry": "parasitic_3"
                     }
                 ]
+            }
+        ]
+    },
+    {
+        "patrol_id": "para_twoleg_infected_2",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection",
+            "parasitic"
+        ],
+        "patrol_art": "lg_warrior_default",
+        "min_cats": 2,
+        "max_cats": 3,
+        "min_max_status": {
+            "kitten": [-1, 0],
+            "healer cats": [-1, 0],
+            "normal adult": [1, 1]
+        },
+        "log_prereq": ["parasitic_3"],
+        "weight": 20,
+        "intro_text": "r_w bursts into camp after an outing. {PRONOUN/r_w/subject/CAP} {VERB/r_w/yell/yells} that one of those infected Twolegs is shambling towards camp!",
+        "decline_text": "You duck your head and retreat to your den. You're not equipped to help deal with this.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "You jump to your paws and follow r_w's impromptu patrol out of camp, leaving the concerned muttering of your Clanmates behind you. What must be less than ten fox lengths from the camp's entrance, you see a Twoleg. It's clearly sick, extremely dirty, and very torn up and bloodied. You, r_w and the rest of the patrol are able to draw it away and lead it towards the river, into which it stumbles and disappears.",
+                "exp": 10,
+                "weight": 20
+            },
+            {
+                "text": "You jump to your paws to volunteer, but by the time r_w notices you, they've already assembled a group of warriors. They tell you to stay back and help guard the camp. The patrol returns some time later, and r_w remarks, covered in Twoleg blood, that things went well.",
+                "exp": 10,
+                "weight": 20
+            }
+            
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You eagerly jump up to assist, but as you start to leave camp, you run right into the Twoleg, trying to crawl through the entrance! With a snarl, you swipe at its gaunt face, and it doesn't react. It ends up taking every warrior in the Clan to drag the thing backwards and lead it out of the territory.",
+                "exp": 10,
+                "weight": 20
+            },
+            {
+                "text": "You volunteer immediately and race out of camp with r_w to take care of the problem. However, the Twoleg has already covered more ground than r_w anticipated, and you run right into it. The thing stumbles and lands right on top of r_w, but {PRONOUN/r_w/subject}{VERB/r_w/'re/'s} able to scramble out of the beast's grip and disappear into the territory, panicked. When the Twoleg pursues, all you can do is return home and hope that r_w is able to get away.",
+                "exp": 10,
+                "weight": 10,
+                "lost_cats": ["r_w"]
             }
         ]
     },
@@ -1093,6 +1187,52 @@
                 "text": "You wait for a long time for a response from your ancestors, but instead of some reassurance, it starts raining. You're forced to abandon your prayer and head back inside. Did StarClan send that rain? Are they upset with you and your Clan?",
                 "exp": 0,
                 "weight": 10
+            }
+        ]
+    },
+    {
+        "patrol_id": "infection_vulture_culture_1",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection"
+        ],
+        "patrol_art": "lg_warrior_default",
+        "min_cats": 1,
+        "max_cats": 3,
+        "min_max_status": {
+            "normal adult": [1, 1]
+        },
+        "weight": 20,
+        "intro_text": "You're out on a late patrol with r_w as you realize the two of you seem to be lost out in the territory. Your companion swears {PRONOUN/r_w/subject} {VERB/r_w/know.knows} precisely where you both are, volunteering to take the lead, but you have your doubts and the weather is starting to turn. Should you trust {PRONOUN/r_w/poss} instincts?",
+        "decline_text": "You tell your patrolmate to stop acting like {PRONOUN/r_w/subject} {VERB/r_w/know/knows} the way ahead, because you two are <i>clearly</i> lost. There's a bit of grumbling as you both go to retrace your steps, but you make it back to camp safely and swiftly, only a little ruffled from the wind.",
+        "chance_of_success": 60,
+        "success_outcomes": [
+            {
+                "text": "You follow r_w, deciding to put your faith in {PRONOUN/r_w/poss} sense of direction. Unfortunately, said sense proves to be lacking and it takes half an eternity to find your way back, frustration and unease rising in both of you as the evening wears on into dusk. The two of you make it home eventually with stray leaves plastered to your pelts by the wind, ruffled but unhurt, besides {PRONOUN/r_w/poss} pride and your patience.",
+                "exp": 10,
+                "weight": 10
+            }            
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You walk for so long that it feels like your paws are going to fall off, brush and low branches whipping both of your faces as you wander with what turns out to be no direction at all. Neither of you want to stop and rest, however, your growing frustration quickly being set aside. Ill scents drift over on the breeze and you become less sure if it was merely paranoia talking when you thought you heard an extra set of pawsteps a bit ago. It's a great relief when you finally start to recognize the landmarks again, r_w's unease turning to simple sheepishness, and the two of you return with only some soreness and a few little scratches.",
+                "exp": 0,
+                "weight": 20,
+                "injury": [
+                    {
+                        "cats": ["y_c"],
+                        "injuries": ["sore"],
+                        "no_results": false
+                    }
+                ]
             }
         ]
     }

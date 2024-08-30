@@ -146,8 +146,46 @@ class Events:
 
         # age up the clan, set current season
         game.clan.age += 1
-        if game.clan.infection["clan_infected"]:
-            game.clan.infection["infection_moons"] += 1
+        if game.clan.infection["clan_infected"] is True:
+
+            # checking if the clan is actually no longer infected
+            not_infected = True
+            for kitty in Cat.all_cats_list:
+                if kitty.infected_for > 0:
+                    not_infected = False
+                    break
+
+            if not_infected is True:
+                game.clan.infection["clan_infected"] = False
+                if "cure_found" in game.clan.infection["logs"]:
+                    print("You have cured and overcome the infection!")
+                    game.clan.infection["time_to_next_infection"] = random.randint(80,110)
+                else:
+                    print("You have staved off the infection for now.")
+                    game.clan.infection["time_to_next_infection"] = random.randint(15,40)
+
+            else:
+                game.clan.infection["infection_moons"] += 1
+        else:
+            if game.clan.infection["time_to_next_infection"] == 1:
+                game.clan.infection["clan_infected"] = True
+                current_type = game.clan.infection["infection_type"]
+
+                # RESETTING SHIT
+                if "cure_found" in game.clan.infection["logs"]:
+                    # u only get new shit if u cured the first one
+                    inftypes = ["fungal", "void", "parasitic"]
+                    inftypes.remove(current_type)
+                    game.clan.infection["infection_type"] = random.choice(inftypes)
+                    herb1, herb2, herb3, herb4 = random.sample(HERBS, 4)
+                    game.clan.infection["cure"] = [herb1, herb2, herb3, herb4]
+                    game.clan.infection["cure_discovered"] = []
+                    game.clan.infection["logs"] = []
+
+                game.clan.infection["infection_moons"] = 0
+
+            else:
+                game.clan.infection["time_to_next_infection"] -= 1
 
         if game.clan.infection["story_finished"] is True:
             game.clan.infection["story_break_moons"] += 1
@@ -167,6 +205,7 @@ class Events:
             game.clan.infection["story_cat_4"] = None
 
             # clearing the story info after a while so we can get another one!
+            
 
 
         get_current_season()
@@ -2996,7 +3035,9 @@ class Events:
                             game.cur_events_list.insert(0, Single_Event(event, ["health", "infection"], cat.ID))
                 cat.cure_progress = 0
         
-        cat.infection_go()
+        if game.clan.infection["clan_infected"] is True:
+            # spreads the infection if the clan is infected! 
+            cat.infection_go()
 
         if "undead" in cat.illnesses:
             self.undead_cats(cat)

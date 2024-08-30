@@ -554,10 +554,12 @@ class Game:
         return True
     
     def load_infection(self):
-        """ uuuhh """
+        """ load the infection json! """
         try:
             with open(f"saves/{self.clan.name}/infection.json", 'r') as read_file:
                 self.clan.infection = ujson.loads(read_file.read())
+        except AttributeError:
+            print("Clan is None?")
         except FileNotFoundError:
             print("Welcome to INFECTION! You have no infection file. Creating one...")
             # old saves get to suffer too <3
@@ -570,7 +572,7 @@ class Game:
                 # cant import HERBS bc of circular import. peapaw despair
 
                 herb1, herb2, herb3, herb4 = random.sample(herblist, 4)
-                
+
                 self.clan.infection = {
                     "clan_infected": False,
                     "infection_type": random.choice(["fungal", "parasitic", "void"]),
