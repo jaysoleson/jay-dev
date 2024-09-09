@@ -918,5 +918,103 @@
             "[You can't help but agree with {PRONOUN/t_c/object}. Your body would've probably already given up by now if it weren't for t_c.]",
             "[You have a glimmer of hope that this will all end soon. For now, the least you can do is keep fighting. For t_c.]"
         ]
+    ],
+    "undead_J2": [
+        [
+            "they_undead",
+            "any",
+            "they_deaf",
+            "you_deaf",
+            "they_blind",
+            "you_blind",
+            "you_shunned"
+        ],
+        [
+            "Grrrr......."
+        ]
+    ],
+    "undead_J3": [
+        [
+            "they_undead",
+            "any",
+            "they_deaf",
+            "you_deaf",
+            "they_blind",
+            "you_blind",
+            "they_shunned"
+        ],
+        [
+            "Grrrr......."
+        ]
+    ],
+    "undead_J4": [
+        [
+            "they_undead",
+            "any",
+            "they_deaf",
+            "you_deaf",
+            "they_blind",
+            "you_blind",
+            "both_shunned"
+        ],
+        [
+            "Grrrr......."
+        ]
+    ],
+    "infection_floof_3": {
+        "tags": [
+            "they_medicine_cat_apprentice",
+            "they_not_infected",
+            "you_infected",
+            "you_stage_two",
+            "infection"
+        ],
+        "intro": [
+            "y_c, do you need anything? Fresh-kill, water..?",
+            "[The young cat seems concerned, clearly stressed over this infection.]"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Scare {PRONOUN/t_c/object} away",
+                "next_scene": "scareaway"
+            },
+            "choice2": {
+                "text": "Water",
+                "next_scene": "water"
+            },
+            "choice3": {
+                "text": "Food",
+                "next_scene": "food"
+            }
+        },
+        "scareaway": [
+            "[You glare at the medicine cat and snarl that you just want to be alone. Who knows when you'll truly become dangerous? Better to just push other cats away now, even medicine cats. r_c is a nice cat, just not a cautious one.]",
+            "O- okay, but if you need anything just ask me for help!"
+        ],
+        "water": [
+            "[You tell the apprentice you would like some water and the young cat scurries off to get some, seeming happy about having something to do. Despite knowing that this could get worse, at least one cat is being kind.]"
+        ],
+        "food": [
+            "[You accept {PRONOUN/t_c/poss} offer... maybe it's because of the infection, but you feel extra hungry.",
+            "You can't help but wonder if one day you'll lose control completely and these kind cats will only look at you with disdain instead...]",
+            "[Your darker thoughts are interrupted by the medicine cat apprentice coming back with a fresh bird. Better to not tell {PRONOUN/t_c/object} about your thoughts. Not right now, at least.]"
+        ]
+    },
+    "infection_sam_1": [
+        [
+            "they_medicine_cat",
+            "they_not_infected",
+            "you_not_infected",
+            "neurotic",
+            "stable",
+            "infection"
+        ],
+        [
+            "[t_c sighs, searching through the herb stores half-heartedly. {PRONOUN/t_c/subject} {VERB/t_c/don't/doesn't} seem to notice when you walk in.]",
+            "Oh! y_c! You aren't infected right?",
+            "[t_c starts pacing, muttering about StarClan knows what.]",
+            "[You quickly assure t_c that you aren't infected, and just came into the medicine den because of a small cut.]",
+            "Oh! Thank StarClan. I'll get to taking care of that for you then."
+        ]
     ]
 }

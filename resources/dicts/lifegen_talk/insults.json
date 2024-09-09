@@ -3114,34 +3114,81 @@
         ]
     ],
     "TinyTeddy_stable_neg_youkitten_theywarrior_01": [
-    [
-"insult",
-"you_kitten",
-"they_warrior",
-"they_stable"
-    ],
-    [
-"WHAT THE- Who in StarClan's name...",
-"r_q! r_q! Hey, I think someone's been teaching the kits some... less than appropriate words.",
-"[{PRONOUN/t_c/subject} turns to you in a sharp movement, {PRONOUN/t_c/poss} gaze billowing in anger and {PRONOUN/t_c/poss} hair on end.]",
-"Who taught you this? Who was it? Was it t_a? r_w? r_a??? Out with it kit!",
-"[The queen tries to calm down the warrior who scoffs with a roll of {PRONOUN/t_c/poss} eyes.]",
-"NO! No kitten should speak like this, do not excuse {PRONOUN/y_c/poss} actions, this kind of behaviour is disgusting at best and harmful at worst."
-    ]
+        [
+            "insult",
+            "you_kitten",
+            "they_warrior",
+            "they_stable"
+        ],
+        [
+            "WHAT THE- Who in StarClan's name...",
+            "r_q! r_q! Hey, I think someone's been teaching the kits some... less than appropriate words.",
+            "[{PRONOUN/t_c/subject} turns to you in a sharp movement, {PRONOUN/t_c/poss} gaze billowing in anger and {PRONOUN/t_c/poss} hair on end.]",
+            "Who taught you this? Who was it? Was it t_a? r_w? r_a??? Out with it kit!",
+            "[The queen tries to calm down the warrior who scoffs with a roll of {PRONOUN/t_c/poss} eyes.]",
+            "NO! No kitten should speak like this, do not excuse {PRONOUN/y_c/poss} actions, this kind of behaviour is disgusting at best and harmful at worst."
+        ]
     ],
     "TinyTeddy_stable_neg_youadult_theyapp_01": [
-    [
-"insult",
-"you_adult",
-"they_app",
-"they_stable"
+        [
+            "insult",
+            "you_adult",
+            "they_app",
+            "they_stable"
+        ],
+        [
+            "I-",
+            "I get that I make mistakes, but I'm trying y_c... I'm really trying I- *sniff* I'm sorry, I- *sniff*...",
+            "[t_c stands with wobbly legs, {PRONOUN/t_c/poss} eyes welling with tears. {PRONOUN/t_c/subject} brushes {PRONOUN/t_c/poss} paw over {PRONOUN/t_c/poss} eyes quickly and stumble backwards.]",
+            "I- I need to go!",
+            "[You watch as {PRONOUN/t_c/subject} scampers off, tears rolling down {PRONOUN/t_c/poss} cheeks. Other cats watch as t_c runs away, then all eyes turn to face you. You can't help but flinch under the harsh gaze of the warriors or scowls of the queens.]"
+        ]
     ],
-    [
-"I-",
-"I get that I make mistakes, but I'm trying y_c... I'm really trying I- *sniff* I'm sorry, I- *sniff*...",
-"[t_c stands with wobbly legs, {PRONOUN/t_c/poss} eyes welling with tears. {PRONOUN/t_c/subject} brushes {PRONOUN/t_c/poss} paw over {PRONOUN/t_c/poss} eyes quickly and stumble backwards.]",
-"I- I need to go!",
-"[You watch as {PRONOUN/t_c/subject} scampers off, tears rolling down {PRONOUN/t_c/poss} cheeks. Other cats watch as t_c runs away, then all eyes turn to face you. You can't help but flinch under the harsh gaze of the warriors or scowls of the queens.]"
-    ]
+    "infection_insult_lyric_3": [
+        [
+            "they_not_infected",
+            "you_not_infected",
+            "they_medicine_cat",
+            "cool",
+            "brooding",
+            "unabashed",
+            "insult",
+            "any",
+            "infection"
+        ],
+        [
+            "You'd better hope you aren't infected soon, y_c. I might have to postpone finding the cure just for you."
+        ]
+    ],
+    "infection_insult_J1": [
+        [
+            "they_not_infected",
+            "you_not_infected",
+            "they_medicine_cat",
+            "cool",
+            "brooding",
+            "any",
+            "insult",
+            "infection"
+        ],
+        [
+            "Best not to insult the medicine cat with a deadly disease in camp, huh?"
+        ]
+    ],
+    "infection_insult_J2": [
+        [
+            "they_not_infected",
+            "you_not_infected",
+            "you_medicine_cat",
+            "sweet",
+            "stable",
+            "insult",
+            "they_any",
+            "max_dislike_10",
+            "infection"
+        ],
+        [
+            "I'm sorry, y_c. I know you're very stressed."
+        ]
     ]
 }
