@@ -782,7 +782,7 @@
             "I don't know why you're trying so hard, r_m. All the more chervil for us!",
             "[The kit falls quiet, ears pricking in interest.]",
             "I always loved eating these, and since we get to have them so rarely ...",
-            "[t_c scoops up a small scrap of the chervil root and pops it in their mouth, grinning as {PRONOUN/t_c/subject} {VERB/t_c/savor/savors} the taste.]",
+            "[t_c scoops up a small scrap of the chervil root and pops it in {PRONOUN/t_c/poss} mouth, grinning as {PRONOUN/t_c/subject} {VERB/t_c/savor/savors} the taste.]",
             "Mmm. Tastes like fresh honey. Just like I remembered.",
             "[r_k eyes the root suspiciously, but t_c guards it with a paw.]",
             "Hey, none for you! You had your chance. This is all mine now.",
@@ -976,7 +976,8 @@
             "Any",
             "silly",
             "you_blind",
-            "they_hearing"
+            "they_hearing",
+            "you_adult"
         ],
         [
             "Oh, hello, y_c! Ya know, I had a question I wanted to ask you earlier.",
@@ -1780,43 +1781,60 @@
             "Gone? Good. That's good to hear."
         ]
     ],
-    "infection_floof_3": {
-        "tags": [
+    "neurotic_medapp_SQ1": [
+        [
+            "they_neurotic",
             "they_medicine_cat_apprentice",
-            "they_not_infected",
-            "you_infected",
-            "you_stage_two",
-            "infection"
+            "no_kit"
+        ],
+        [
+            "Catmint, goldenrod, tansy, thyme... no wait, rosemary! Catmint, goldenrod, tansy, rosemary.",
+            "[t_c's laid an array of herbs out on the ground and is going through them one at a time, murmuring their names under {PRONOUN/t_c/poss} breath.]"
+        ]
+    ],
+    "neurotic_medapp_SQ2": [
+        [
+            "they_neurotic",
+            "they_medicine_cat_apprentice",
+            "you_medicine_cat"
+        ],
+        [
+            "Um... could you show me how the herbs are organized, again?",
+            "I think I might've mixed up the places for marigold and tansy, and I can't find the raspberry anywhere..."
+        ]
+    ],
+    "Introspective_kitten_choice_H1~2": {
+        "tags": [
+            "they_introspective",
+            "you_medicine_cat",
+            "they_medicine_cat_apprentice",
+            "platonic_like",
+            "from_your_apprentice",
+            "connected"
         ],
         "intro": [
-            "y_c, do you need anything? Fresh-kill, water..?",
-            "[The young cat seems concerned, clearly stressed over this infection.]"
+            "[t_c is sorting through the herb pile as instructed, completing the task with practiced ease.]",
+            "Hey, y_c? Remember when I asked to help organize the herb pile when I was a kitten?"
         ],
         "intro_choices": {
             "choice1": {
-                "text": "Scare {PRONOUN/t_c/object} away",
-                "next_scene": "scareaway"
+                "text": "Yes, I do.",
+                "next_scene": "Yup"
             },
             "choice2": {
-                "text": "Water",
-                "next_scene": "water"
-            },
-            "choice3": {
-                "text": "Food",
-                "next_scene": "food"
+                "text": "I don't.",
+                "next_scene": "donot"
             }
         },
-        "scareaway": [
-            "[You glare at the medicine cat and snarl that you just want to be alone. Who knows when you'll truly become dangerous? Better to just push other cats away now, even medicine cats. r_c is a nice cat, just not a cautious one.]",
-            "O- okay, but if you need anything just ask me for help!"
+        "Yup": [
+            "I was having a bit of nostalgia, haha! I was so curious about what you were doing back then.",
+            "And now look at me - I'm your apprentice and on the path of being a medicine cat.",
+            "It's funny how things work out, huh?"
         ],
-        "water": [
-            "[You tell the apprentice you would like some water and the young cat scurries off to get some, seeming happy about having something to do. Despite knowing that this could get worse, at least one cat is being kind.]"
-        ],
-        "food": [
-            "[You accept {PRONOUN/t_c/poss} offer... maybe it's because of the infection, but you feel extra hungry.",
-            "You can't help but wonder if one day you'll lose control completely and these kind cats will only look at you with disdain instead...]",
-            "[Your darker thoughts are interrupted by the medicine cat apprentice coming back with a fresh bird. Better to not tell {PRONOUN/t_c/object} about your thoughts. Not right now, at least.]"
+        "donot": [
+            "Ah, hm. When I was a kitten, I wanted to help you sort through the herb pile.",
+            "No, you don't remember?",
+            "Your memory strikes again y_c, hehe. Forget it, I was feeling nostalgic!"
         ]
     }
 }

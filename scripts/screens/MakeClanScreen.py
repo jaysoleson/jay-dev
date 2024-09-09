@@ -435,6 +435,9 @@ class MakeClanScreen(Screens):
             elif game.choose_cats[a].moons == 0:
                 game.choose_cats[a].moons = choice([1, 2, 3, 4, 5])
 
+            # fucking inventory
+            game.choose_cats[a].pelt.inventory = []
+
             if self.clan_age == "new":
                 if game.choose_cats[a].status not in ['newborn', 'kitten']:
                     unique_backstories = ["clan_founder4", "clan_founder13", "clan_founder14", "clan_founder15"]
@@ -509,7 +512,7 @@ class MakeClanScreen(Screens):
             if self.biome_selected == 'Forest':
                 self.selected_camp_tab = randrange(1, 7)
             elif self.biome_selected == "Mountainous":
-                self.selected_camp_tab = randrange(1, 6)
+                self.selected_camp_tab = randrange(1, 7)
             elif self.biome_selected == "Plains":
                 self.selected_camp_tab = randrange(1, 6)
             else:
@@ -595,7 +598,6 @@ class MakeClanScreen(Screens):
         return super().exit_screen()
 
     def on_use(self):
-
         # Don't allow someone to enter no name for their clan
         if self.sub_screen == "name clan":
             if self.elements["name_entry"].get_text() == "":
@@ -820,7 +822,7 @@ class MakeClanScreen(Screens):
                         sprites.sprites[self.symbol_selected], (200, 200)
                     ).convert_alpha()
                 )
-                symbol_name = self.symbol_selected.removeprefix("symbol")
+                symbol_name = self.symbol_selected.replace("symbol", "")
                 self.text["selected"].set_text(f"Selected Symbol: {symbol_name}")
                 self.elements["selected_symbol"].show()
                 self.elements["done_button"].enable()
@@ -859,6 +861,12 @@ class MakeClanScreen(Screens):
                                               , manager=MANAGER)
             self.tabs["tab5"] = UIImageButton(scale(pygame.Rect((85, 640), (308, 60))), "", object_id="#quarry_tab"
                                               , manager=MANAGER)
+            self.tabs["tab6"] = UIImageButton(
+                scale(pygame.Rect((215, 710), (308, 60))),
+                "",
+                object_id="#ruins_tab",
+                manager=MANAGER,
+            )
         elif self.biome_selected == 'Plains':
             self.tabs["tab1"] = UIImageButton(scale(pygame.Rect((128, 360), (308, 60))), "", object_id="#grasslands_tab"
                                               , manager=MANAGER, )
@@ -877,7 +885,7 @@ class MakeClanScreen(Screens):
                                                 , manager=MANAGER)
             self.tabs["tab3"] = UIImageButton(scale(pygame.Rect((140, 500), (308, 60))), "", object_id="#shipwreck_tab"
                                                 , manager=MANAGER)
-            self.tabs["tab4"] = UIImageButton(scale(pygame.Rect((95, 570), (308, 60))), "", object_id="#tropical_island_tab"
+            self.tabs["tab4"] = UIImageButton(scale(pygame.Rect((78, 570), (308, 60))), "", object_id="#tropical_island_tab"
                                                 , manager=MANAGER)
 
         if self.selected_camp_tab == 1:
@@ -993,14 +1001,23 @@ class MakeClanScreen(Screens):
             if "cat" + str(u) in self.elements:
                 self.elements["cat" + str(u)].kill()
             if game.choose_cats[u] == selected:
-                self.elements["cat" + str(u)] = self.elements["cat" + str(u)] = UISpriteButton(
-                    scale(pygame.Rect((540, 350), (300, 300))),
+                self.elements["cat" + str(u)] = self.elements[
+                    "cat" + str(u)
+                ] = UISpriteButton(
+                    scale(pygame.Rect((540, 400), (300, 300))),
                     pygame.transform.scale(game.choose_cats[u].sprite, (300, 300)),
-                    cat_object=game.choose_cats[u])
-            elif game.choose_cats[u] in [self.leader, self.deputy, self.med_cat] + self.members:
-                self.elements["cat" + str(u)] = UISpriteButton(scale(pygame.Rect((1300, 300 + 100 * u), (100, 100))),
-                                                               game.choose_cats[u].sprite,
-                                                               cat_object=game.choose_cats[u], manager=MANAGER)
+                    cat_object=game.choose_cats[u],
+                )
+            elif (
+                game.choose_cats[u]
+                in [self.leader, self.deputy, self.med_cat] + self.members
+            ):
+                self.elements["cat" + str(u)] = UISpriteButton(
+                    scale(pygame.Rect((1300, 250 + 100 * u), (100, 100))),
+                    game.choose_cats[u].sprite,
+                    cat_object=game.choose_cats[u],
+                    manager=MANAGER,
+                )
                 self.elements["cat" + str(u)].disable()
             else:
                 self.elements["cat" + str(u)] = UISpriteButton(
@@ -1012,7 +1029,7 @@ class MakeClanScreen(Screens):
                 self.elements["cat" + str(u)].kill()
             if game.choose_cats[u] == selected:
                 self.elements["cat" + str(u)] = self.elements["cat" + str(u)] = UISpriteButton(
-                    scale(pygame.Rect((540, 350), (300, 300))),
+                    scale(pygame.Rect((540, 400), (300, 300))),
                     pygame.transform.scale(game.choose_cats[u].sprite, (300, 300)),
                     cat_object=game.choose_cats[u], manager=MANAGER)
             elif game.choose_cats[u] in [self.leader, self.deputy, self.med_cat] + self.members:
@@ -2024,8 +2041,8 @@ class MakeClanScreen(Screens):
                     self.your_cat.permanent_condition['born without a leg']["moons_until"] = 1
                     self.your_cat.permanent_condition['born without a leg']["moons_with"] = -1
                     self.your_cat.permanent_condition['born without a leg']['born_with'] = True
-                self.your_cat.accessories = [self.accessory]
-                self.your_cat.inventory = [self.accessory]
+                self.your_cat.pelt.accessories = [self.accessory]
+                self.your_cat.pelt.inventory = [self.accessory]
                 self.your_cat.personality = Personality(trait=self.personality, kit_trait=True)
                 if self.skill == "Random":
                     self.skill = random.choice(self.skills)
@@ -2318,7 +2335,7 @@ class MakeClanScreen(Screens):
                 )
 
         if self.symbol_selected:
-            symbol_name = self.symbol_selected.removeprefix("symbol")
+            symbol_name = self.symbol_selected.replace("symbol", "")
             self.text["selected"].set_text(f"Selected Symbol: {symbol_name}")
 
             self.elements["selected_symbol"] = pygame_gui.elements.UIImage(

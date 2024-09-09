@@ -420,6 +420,10 @@ class ChooseMateScreen(Screens):
         else:
             display_cats = []
 
+        for marker in self.fav:
+            self.fav[marker].kill()
+        self.fav = {}
+
         pos_x = 30
         pos_y = 0
         i = 0
@@ -1125,6 +1129,8 @@ class ChooseMateScreen(Screens):
                 and not check_cat.outside
                 and check_cat.age not in ["adolescent", "kitten", "newborn"]
                 and check_cat.df == self.the_cat.df
+                # LG
+                and not check_cat.moons < 0
             ):
                 self.previous_cat = check_cat.ID
 
@@ -1137,6 +1143,8 @@ class ChooseMateScreen(Screens):
                 and not check_cat.outside
                 and check_cat.age not in ["adolescent", "kitten", "newborn"]
                 and check_cat.df == self.the_cat.df
+                # LG
+                and not check_cat.moons < 0
             ):
                 self.next_cat = check_cat.ID
 

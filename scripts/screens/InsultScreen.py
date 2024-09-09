@@ -357,34 +357,6 @@ class InsultScreen(Screens):
         resource_dir = "resources/dicts/lifegen_talk/"
         possible_texts = {}
 
-        # if cat.status not in ['loner', 'rogue', 'former Clancat', 'kittypet', 'exiled']:
-        #     with open(f"{resource_dir}{cat.status}.json", 'r') as read_file:
-        #         possible_texts = ujson.loads(read_file.read())
-                
-        # if cat.status not in ['loner', 'rogue', 'former Clancat', 'kittypet', 'exiled']:
-        #     with open(f"{resource_dir}choice_dialogue.json", 'r') as read_file:
-        #         possible_texts.update(ujson.loads(read_file.read()))
-
-        # if cat.status not in ['kitten', "newborn"] and you.status not in ['kitten', 'newborn']:
-        #     with open(f"{resource_dir}general_no_kit.json", 'r') as read_file:
-        #         possible_texts2 = ujson.loads(read_file.read())
-        #         possible_texts.update(possible_texts2)
-        
-        # if cat.status not in ["newborn"] and you.status not in ['newborn']:
-        #     with open(f"{resource_dir}general_no_newborn.json", 'r') as read_file:
-        #         possible_texts4 = ujson.loads(read_file.read())
-        #         possible_texts.update(possible_texts4)
-
-        # if cat.status not in ['kitten', "newborn"] and you.status in ['kitten', 'newborn']:
-        #     with open(f"{resource_dir}general_you_kit.json", 'r') as read_file:
-        #         possible_texts3 = ujson.loads(read_file.read())
-        #         possible_texts.update(possible_texts3)
-
-        # if cat.status not in ['kitten', 'newborn'] and you.status not in ['kitten', 'newborn'] and randint(1,3)==1:
-        #     with open(f"{resource_dir}crush.json", 'r') as read_file:
-        #         possible_texts3 = ujson.loads(read_file.read())
-        #         possible_texts.update(possible_texts3)
-
         with open(f"{resource_dir}insults.json", 'r') as read_file:
             possible_texts = ujson.loads(read_file.read())
 
@@ -571,20 +543,24 @@ class InsultScreen(Screens):
             if "story_cat_3" in tags and cat.ID != game.clan.infection["story_cat_3"]:
                 continue
 
-            if you.moons == 0 and "newborn" not in tags:
+            if you.moons == 0 and "newborn" not in tags and "you_newborn" not in tags:
                 continue
 
-            # if "deaf" in cat.permanent_condition and "they_deaf" not in tags:
-            #     continue
+            if cat.moons == 0 and "they_newborn" not in tags:
+                continue
 
-            # if "blind" in cat.permanent_condition and "they_blind" not in tags:
-            #     continue
 
-            # if "deaf" in you.permanent_condition and "you_deaf" not in tags:
-            #     continue
+            if "deaf" in cat.permanent_condition and "they_deaf" not in tags:
+                continue
 
-            # if "blind" in you.permanent_condition and "you_blind" not in tags:
-            #     continue
+            if "blind" in cat.permanent_condition and "they_blind" not in tags:
+                continue
+
+            if "deaf" in you.permanent_condition and "you_deaf" not in tags:
+                continue
+
+            if "blind" in you.permanent_condition and "you_blind" not in tags:
+                continue
 
             # Status tags
             if you.status not in tags and f"you_{you.status}" not in tags and "any" not in tags and "young elder" not in tags and "no_kit" not in tags and "you_any" not in tags:
@@ -919,6 +895,9 @@ class InsultScreen(Screens):
             if "non-related" in tags:
                 if you.inheritance.get_exact_rel_type(cat.ID) == RelationType.RELATED:
                     continue
+            
+            if "they_not_kit" in tags and cat.moons < 6:
+                continue
 
             # If you have murdered someone and have been revealed
 

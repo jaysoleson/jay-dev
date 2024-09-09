@@ -471,16 +471,6 @@ class Events:
         # Clear the list of cats that died this moon.
         game.just_died.clear()
 
-        new_list = []
-        other_list = []
-        for i in game.cur_events_list:
-            if (str(game.clan.your_cat.name) in i.text or "alert" in i.types) and i not in new_list:
-                new_list.append(i)
-            elif i not in other_list and i not in new_list:
-                other_list.append(i)
-        
-        game.cur_events_list = new_list
-        game.other_events_list = other_list
         resource_dir = "resources/dicts/events/lifegen_events/"
         with open(f"{resource_dir}ceremonies.json",
                   encoding="ascii") as read_file:
@@ -713,7 +703,7 @@ class Events:
         if game.clan.focus:
             game.clan.focus_moons += 1
             if game.clan.focus_moons == 1 and dialogue_focuses[game.clan.focus]["moon_event"]:
-                game.cur_events_list.append(Single_Event(self.process_text(random.choice(dialogue_focuses[game.clan.focus]["moon_event"])), "misc"))
+                game.cur_events_list.insert(0, Single_Event(self.process_text(random.choice(dialogue_focuses[game.clan.focus]["moon_event"])), "misc"))
 
                 
     def gain_acc(self):
@@ -931,7 +921,7 @@ class Events:
                 if not game.clan.clan_settings["same sex birth"]:
                     is_gender_compatible = (other_parent_gender is None) or (cat.gender != other_parent_gender)
                 return (cat.ID != game.clan.your_cat.ID and cat.ID != other_parent_id and not cat.dead and not cat.outside
-                        and cat.age in ["young adult", "adult", "senior adult"] 
+                        and cat.age in ["young adult", "adult", "senior adult"] and cat.moons > 17
                         and "apprentice" not in cat.status and is_age_compatible and is_gender_compatible and is_relation_compatible)
 
             for _ in range(MAX_ATTEMPTS):
@@ -1142,7 +1132,7 @@ class Events:
                 process_text_dict[abbrev] = (abbrev_cat, random.choice(abbrev_cat.pronouns))
             birth_txt = re.sub(r"\{(.*?)\}", lambda x: pronoun_repl(x, process_text_dict, False), birth_txt)
 
-            birth_txt = self.process_text(birth_txt)
+            birth_txt = self.process_text_birth(birth_txt)
 
             for key, value in replacements.items():
                 birth_txt = birth_txt.replace(key, str(value))
@@ -1156,14 +1146,16 @@ class Events:
                         abbrev_cat = process_text_dict[abbrev]
                         process_text_dict[abbrev] = (abbrev_cat, random.choice(abbrev_cat.pronouns))
                     birth_txt = re.sub(r"\{(.*?)\}", lambda x: pronoun_repl(x, process_text_dict, False), birth_txt)
+                    birth_txt = self.process_text_birth(birth_txt)
+
                     for key, value in replacements.items():
                         birth_txt = birth_txt.replace(key, str(value))
-                    birth_txt = self.process_text(birth_txt)
+                    
                     if birth_txt:
                         break
 
             
-            game.cur_events_list.append(Single_Event(birth_txt, ["alert", "birth_death"]))
+            game.cur_events_list.insert(0, Single_Event(birth_txt, ["alert", "birth_death"]))
 
         birth_type, parent1, parent2, adoptive_parents = get_parents(birth_type)
         siblings = create_siblings(parent1, parent2, adoptive_parents) if random.randint(1,4) != 1 else []
@@ -1197,6 +1189,7 @@ class Events:
         game.clan.your_cat.w_done = False
         game.clan.your_cat.age = "newborn"
         game.switches['continue_after_death'] = False
+        self.cat_dict.clear()
         
     def get_living_cats(self):
         living_cats = []
@@ -1204,6 +1197,20 @@ class Events:
             if not the_cat.dead and not the_cat.outside and not the_cat.moons == -1:
                 living_cats.append(the_cat)
         return living_cats
+
+    def process_text_birth(self, text):
+        process_text_dict = self.cat_dict.copy()
+        for abbrev in process_text_dict.keys():
+            abbrev_cat = process_text_dict[abbrev]
+            process_text_dict[abbrev] = (abbrev_cat, random.choice(abbrev_cat.pronouns))
+
+        text = re.sub(r"\{(.*?)\}", lambda x: pronoun_repl(x, process_text_dict, False), text)
+
+        text = text.replace("c_n", str(game.clan.name))
+        if "w_c" in text:
+            if game.clan.war.get("at_war", True):
+                text = text.replace("w_c", str(game.clan.war["enemy"]))
+        return text
 
     def process_text(self, text):
         self.cat_dict.clear()
@@ -1507,8 +1514,8 @@ class Events:
                     current_event = self.process_text(event)
                 current_event = Single_Event(current_event)
                 if event not in self.current_events:
-                    self.current_events.append(event)
-                    game.cur_events_list.append(current_event)
+                    self.current_events.insert(0, event)
+                    game.cur_events_list.insert(0, current_event)
             else:
                 print('No possible events?') # im too lazy to figure out why this is happening but i wanna stop crashing
             
@@ -1538,7 +1545,7 @@ class Events:
                                     abbrev_cat = process_text_dict[abbrev]
                                     process_text_dict[abbrev] = (abbrev_cat, random.choice(abbrev_cat.pronouns))
                                 kit_event = re.sub(r"\{(.*?)\}", lambda x: pronoun_repl(x, process_text_dict, False), kit_event)
-                                game.cur_events_list.append(kit_event)
+                                game.cur_events_list.insert(0, kit_event)
                             break
 
     def generate_app_ceremony(self):
@@ -1570,7 +1577,7 @@ class Events:
                 process_text_dict[abbrev] = (abbrev_cat, random.choice(abbrev_cat.pronouns))
             ceremony_txt = re.sub(r"\{(.*?)\}", lambda x: pronoun_repl(x, process_text_dict, False), ceremony_txt)
             
-            game.cur_events_list.append(Single_Event(ceremony_txt))
+            game.cur_events_list.insert(0, Single_Event(ceremony_txt))
         except:
             print("ERROR with app ceremony")
                 
@@ -1642,7 +1649,7 @@ class Events:
             abbrev_cat = process_text_dict[abbrev]
             process_text_dict[abbrev] = (abbrev_cat, random.choice(abbrev_cat.pronouns))
         ceremony_txt = re.sub(r"\{(.*?)\}", lambda x: pronoun_repl(x, process_text_dict, False), ceremony_txt)
-        game.cur_events_list.append(Single_Event(ceremony_txt))
+        game.cur_events_list.insert(0, Single_Event(ceremony_txt))
     
     
     def check_gain_app(self, checks):
@@ -1849,7 +1856,7 @@ class Events:
     def generate_exile_event(self):
         evt = Single_Event(random.choice(self.c_txt["exiled"]))
         if evt not in game.cur_events_list:
-            game.cur_events_list.append(evt)
+            game.cur_events_list.insert(0, evt)
 
     def undead_cats(self, cat):
         """ undead kitties being crazy """
@@ -1976,7 +1983,7 @@ class Events:
             if evt:
                 evt = Single_Event(evt)
                 if evt not in game.cur_events_list:
-                    game.cur_events_list.append(evt)
+                    game.cur_events_list.insert(0, evt)
         if random.randint(1,30) == 1:
             r_clanmate = Cat.all_cats.get(random.choice(game.clan.clan_cats))
             counter = 0
@@ -1999,7 +2006,7 @@ class Events:
             evt_txt = re.sub(r"\{(.*?)\}", lambda x: pronoun_repl(x, process_text_dict, False), evt_txt)
             evt = Single_Event(evt_txt)
             if evt not in game.cur_events_list:
-                game.cur_events_list.append(evt)
+                game.cur_events_list.insert(0, evt)
 
     def handle_lead_den_event(self):
         """
@@ -4274,7 +4281,7 @@ class Events:
             game.clan.disaster = ""
         
         event_string = ongoing_event_text_adjust(Cat, event_string)
-        game.cur_events_list.append(
+        game.cur_events_list.insert(0, 
                         Single_Event(event_string, "alert"))
         if game.clan.second_disaster:
             self.handle_second_disaster()
@@ -4312,7 +4319,7 @@ class Events:
                             History.add_death(cat, death_text=current_disaster["collateral_damage"]["deaths"]["history_text"]["reg_death"])
                         cat.die()
                         death_text = random.choice(current_disaster["collateral_damage"]["deaths"]["death_text"]).replace("m_c", str(cat.name)).replace("c_n", str(game.clan.name) + "Clan")
-                        game.cur_events_list.append(
+                        game.cur_events_list.insert(0,
                             Single_Event(death_text, "birth_death", cat.ID))
 
     def handle_second_disaster(self):
@@ -4327,14 +4334,14 @@ class Events:
             event_string = random.choice(current_disaster["progress_events"]["moon" + str(current_moon)])
             event_string = ongoing_event_text_adjust(Cat, event_string)
             game.clan.second_disaster_moon += 1
-            game.cur_events_list.append(
+            game.cur_events_list.insert(0,
                         Single_Event(event_string, "alert"))
         elif current_moon == current_disaster["duration"]:
             event_string = random.choice(current_disaster["conclusion_events"])
             game.clan.second_disaster_moon = 0
             game.clan.second_disaster = ""
             event_string = ongoing_event_text_adjust(Cat, event_string)
-            game.cur_events_list.append(
+            game.cur_events_list.insert(0,
                         Single_Event(event_string, "alert"))
 
     def handle_illnesses_or_illness_deaths(self, cat):

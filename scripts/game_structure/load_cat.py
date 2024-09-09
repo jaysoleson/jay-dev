@@ -71,6 +71,12 @@ def json_load():
             if "cure_progress" not in cat:
                 cat["cure_progress"] = 0
 
+            # moving clangen accs over to accessories + inventory
+            if cat["accessory"] is not None:
+                cat["accessories"].append(cat["accessory"])
+                cat["inventory"].append(cat["accessory"])
+                cat["accessory"] = None
+
             new_cat = Cat(
                 ID=cat["ID"],
                 prefix=cat["name_prefix"],

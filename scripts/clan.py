@@ -354,6 +354,8 @@ class Clan:
         # this has to be done after saving the first time
         # doing this without any previous clans will cause a crash otherwise
         if self.clan_age == "established":
+            self.generate_mates()
+            self.generate_families()
             self.populate_sc()
             self.populate_ur()
             self.populate_df()
@@ -488,6 +490,7 @@ class Clan:
                 "dead15"])
             sc_cats = create_new_cat(Cat, new_name=True, alive=False, backstory=random_backstory, thought="Watches over the Clan")
             sc_cats[0].history.beginning = None
+            sc_cats[0].dead_for = randint(20, 200)
 
     def populate_ur(self):
         for i in range(randint(0,5)):
@@ -505,7 +508,7 @@ class Clan:
             status = random.choice(["loner","kittypet"])
             ur_cats = create_new_cat(Cat, alive=False, status = status, loner=True if status == "loner" else False, kittypet=True if status == "kittypet" else False, outside=True, backstory=random_backstory, thought="Wanders the Unknown Residence")
             ur_cats[0].history.beginning = None
-            ur_cats[0].dead_for = randint(1,100)
+            ur_cats[0].dead_for = randint(20,100)
 
     def populate_df(self):
         for i in range(randint(0,5)):
@@ -520,6 +523,7 @@ class Clan:
                 "dead14"])
             df_cats = create_new_cat(Cat, new_name=True, alive=False, df=True, backstory=random_backstory, thought="Watches the Clan from the gloom")
             df_cats[0].history.beginning = None
+            df_cats[0].dead_for = randint(20, 200)
 
     def add_cat(self, cat):  # cat is a 'Cat' object
         """Adds cat into the list of clan cats"""
@@ -861,7 +865,7 @@ class Clan:
         game.safe_save(f"{get_save_dir()}/{game.clan.name}/infection.json", infection_data)
         game.safe_save(f"{get_save_dir()}/{self.name}clan.json", clan_data)
 
-        if os.path.exists(get_save_dir() + f"/{self.name}clan.txt"):
+        if os.path.exists(get_save_dir() + f"/{self.name}clan.txt") & (self.name != 'current'):
             os.remove(get_save_dir() + f"/{self.name}clan.txt")
 
     def switch_setting(self, setting_name):

@@ -44,7 +44,7 @@
             "Is proud of the way the Clan is handling things lately",
             "Promises to take care of the Clan with {PRONOUN/m_c/poss} lives",
             "Is busy planning out priorities for the day",
-            "At an elevated height, {PRONOUN/m_c/subject} observe the Clan",
+            "Observes the Clan from an elevated height",
             "Had a quick meeting with a neighboring Clan leader"
         ]
     },
@@ -98,7 +98,7 @@
             "Thinks {PRONOUN/m_c/subject} {VERB/m_c/have/has} been hearing the voices of Dark Forest cats...",
             "Is pondering recent dreams {PRONOUN/m_c/subject} {VERB/m_c/have/has} had... perhaps from the Dark Forest?",
             "Can hear the venomous voice of Dark Forest cats in {PRONOUN/m_c/poss} ears, whispering concerning events yet to come",
-            "Was thrusted into a sunless landscape in {PRONOUN/m_c/poss} dreams, luminous, uncannily eyes watching {PRONOUN/m_c/object}",
+            "Was thrusted into a sunless landscape in {PRONOUN/m_c/poss} dreams, luminous, uncanny eyes watching {PRONOUN/m_c/object}",
             "Was startled awake when a black, smokey creature launched from the shadows and tried to claw at {PRONOUN/m_c/poss} throat"
         ],
         "random_living_status": [

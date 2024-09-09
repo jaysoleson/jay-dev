@@ -346,7 +346,8 @@
     "introspective_MdtorApp_1": [
         [
             "any",
-            "introspective"
+            "introspective",
+            "you_adult"
         ],
         [
             "[You're sitting staring at a piece of fresh kill, when you feel something nudge into your shoulder, you turn your head to see t_c.]",
@@ -1218,5 +1219,127 @@
             "[You sign to t_c for {PRONOUN/t_c/poss} opinion. Between the two of you, you come up with a solid plan to drive off the dog.]",
             "[Your head lifts as your ears wriggle and your whiskers twitch in the sign for 'thank you' before getting up to visit d_n and tell {PRONOUN/d_n/object} the plan.]"
         ]
-    ]
+    ],
+    "neurotic_mediator_SQ1": [
+        [
+            "they_neurotic",
+            "they_mediator",
+            "no_kit",
+            "min_platonic_20"
+        ],
+        [
+            "Hey, y_c. I don't mean to intrude, but let me know if I could ever help you and y_a talk through anything?",
+            "It's my job, after all, and I know relationships between mentors and apprentices sometimes take a while to figure out...",
+            "Just an offer, of course! I'm sure you're doing fine on your own."
+        ]
+    ],
+    "neurotic_youforgiven_SQ7": [
+        [
+            "they_neurotic",
+            "they_mediator",
+            "they_mediator_apprentice",
+            "no_kit",
+            "you_forgiven",
+            "neutral",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "[You accidentally bump into r_w on your way from the dirtplace. t_c practically teleports to your side.]",
+            "I just wanted to check... is there, um, tension between you and r_w that would be good to talk through?",
+            "No? Okay, sorry for assuming. It's my job, though, and I just want to make sure...",
+            "Well, I just want to make sure nothing bad happens to anyone! You, uh, you know."
+        ]
+    ],
+    "TinyTeddy_stable_theymediator_youapp_01": [
+[
+"they_mediator",
+"they_stable",
+"you_app"
+],
+[
+"You seem like you're doing well, y_c. That's good, I'm guessing you and m_n have worked out your differences?",
+"If you're ever having trouble, just let me know and we can set up another session. I'm always here to help! Any day, any time."
+ ]
+],
+"TinyTeddy_stable_theymediator_youapp_02": [
+[
+"they_mediator",
+"they_stable",
+"you_app"
+],
+[
+"You apprentices stress me out, I'm so worried that you'll behave recklessly and get hurt...",
+"Make smart choices, y_c, don't be that cat. Don't put it all on the line just for the attention of your peers, it's never worth it. Many good cats have ignored my warnings, I beg for your sake that you do not."
+ ]
+],
+"TinyTeddy_stable_theymediator_youapp_03": [
+[
+"they_mediator",
+"they_stable",
+"you_app"
+],
+[
+"Good morning, y_c. Make good choices, don't get into trouble and treat your clanmates with respect. Act in accordance with those three rules and you will be just fine. See you around."
+ ]
+],
+"TinyTeddy_stable_theyqueen_mentor_youmediatorapp_01": [
+[
+"they_mediator",
+"they_stable",
+"from_mentor",
+"you_mediator_apprentice"
+],
+[
+"Hey, just between mentor and apprentice, can I just say- that my patience with r_w1 and r_w2 is running so thin...",
+"['I couldn't agree more, it was just a mouse and very soon they'll turn it into a full on war...']",
+"Wait- THEY'RE TALKING TO YOU AS WELL?!?!?!"
+ ]
+],
+"TinyTeddy_stable_theyqueen_mentor_youmediatorapp_02": [
+[
+"they_mediator",
+"they_stable",
+"from_mentor",
+"you_mediator_apprentice"
+],
+[
+"I saw that mediation you did earlier today. You did very well and had full control of the situation, you've really gotten the hang of this. I'm proud, good job y_c.",
+"You've got good things ahead of you."
+ ]
+],
+"TinyTeddy_stable_theymediator_youadult_01": [
+[
+"they_mediator",
+"they_stable",
+"you_adult"
+],
+[
+"Please tell me that this is a friendly hello and not a 't_c, t_c, help me, help me, I've made a mistake!' kind of conversation.",
+"[You glance away for a second and suck in a breath. t_c sighs loudly, {PRONOUN/t_c/poss} brows crease in defeat.]",
+"What is it now, y_c?"
+ ]
+],
+"TinyTeddy_stable_theymediator_youadult_02": [
+[
+"they_mediator",
+"they_stable",
+"you_adult"
+],
+[
+"Sorry, y_c, I'm not in the mood to chat right now, I need a breather. Can we catch up later today when I'm feeling a little better?"
+ ]
+],
+"TinyTeddy_stable_theymediator_youadult_03": [
+[
+"they_mediator",
+"they_stable",
+"you_adult"
+],
+[
+"[t_c stumbles into camp, {PRONOUN/t_c/poss} eyes wide in astonishment. You can't see who slips around behind {PRONOUN/t_c/object}... Clearly someone had some massive baggage to dump on the mediator.]",
+"The knowledge I hold, no one should ever have to hear...",
+"I need to lay down..."
+ ]
+]
 }
