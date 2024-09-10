@@ -140,6 +140,16 @@ class EventsScreen(Screens):
                     self.events_thread = self.loading_screen_start_work(
                         events_class.one_moon
                     )
+
+                    # INF
+                    if len(game.clan.infection["logs"]) > 0:
+                        self.log_button.show()
+                        self.priority_herb_button.show()
+                    else:
+                        self.log_button.hide()
+                        self.priority_herb_button.hide()
+                    ####
+
             elif self.death_button and event.ui_element == self.death_button:
                 DeathScreen('events screen')
                 return
@@ -147,6 +157,13 @@ class EventsScreen(Screens):
                 game.switches['cat'] = game.clan.your_cat.ID
                 # self.change_screen("profile screen")
                 self.change_screen("profile screen")
+
+            # INF
+            elif event.ui_element == self.log_button:
+                self.change_screen('cure log screen')
+            elif event.ui_element == self.priority_herb_button:
+                self.change_screen('priority herb screen')
+            ####
 
             elif "cat_icon" in self.fave_filter_elements and element == self.fave_filter_elements["cat_icon"]:
                 if self.filters_open is True:
@@ -361,6 +378,22 @@ class EventsScreen(Screens):
             container=self.event_screen_container,
             manager=MANAGER,
         )
+
+        # INF
+        self.log_button = UIImageButton(
+            scale(pygame.Rect((1280, 250), (164, 148))),
+            "",
+            object_id="#log_button",
+            manager=MANAGER
+            )
+        
+        self.priority_herb_button = UIImageButton(
+            scale(pygame.Rect((160, 268), (120, 120))),
+            "",
+            object_id="#change_priority_herb_button",
+            manager=MANAGER
+            )
+        ####
 
         # fave filters
         self.fave_filter_elements["cat_icon"] = UIImageButton(
@@ -823,16 +856,22 @@ class EventsScreen(Screens):
             # SHADING
             if i % 2 == 0:
                 image_path = "resources/images/shading"
+
+                # INF
+                if "infection" in event_object.types:
+                    image_path += "_infected"
+                ####
+
                 if game.settings["dark mode"]:
                     image_path += "_dark.png"
                 else:
                     image_path += ".png"
 
+
                 if event_object.cats_involved:
                     y_len = text_box_len + 125
                 else:
                     y_len = text_box_len + 45
-
                 self.event_display_elements[f"shading{i}"] = pygame_gui.elements.UIImage(
                     scale(pygame.Rect((0, y_pos), (1028, y_len))),
                     image_cache.load_image(image_path),
@@ -842,6 +881,25 @@ class EventsScreen(Screens):
                     manager=MANAGER
                 )
                 self.event_display_elements[f"shading{i}"].disable()
+            # INF
+            # shading for the non-shaded box too
+            else:
+                if "infection" in event_object.types:
+                    image_path = "resources/images/shading_infected_2"
+                    if game.settings["dark mode"]:
+                        image_path += "_dark.png"
+                    else:
+                        image_path += ".png"
+
+                    self.event_display_elements[f"shading{i}"] = pygame_gui.elements.UIImage(
+                        scale(pygame.Rect((0, y_pos), (1028, y_len))),
+                        image_cache.load_image(image_path),
+                        starting_height=1,
+                        object_id=f"shading{i}",
+                        container=self.event_display,
+                        manager=MANAGER
+                    )
+            ####
 
             if event_object.cats_involved:
                 # INVOLVED CAT BUTTON
