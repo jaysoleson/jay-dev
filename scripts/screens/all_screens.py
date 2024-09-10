@@ -1,24 +1,10 @@
-from .Screens import Screens
-from .StartScreen import StartScreen
-from .PatrolScreen import PatrolScreen
 from .AllegiancesScreen import AllegiancesScreen
 from .CeremonyScreen import CeremonyScreen
+from .ChangeGenderScreen import ChangeGenderScreen
 from .ChooseAdoptiveParentScreen import ChooseAdoptiveParentScreen
-from .ProfileScreen import ProfileScreen
-from .RoleScreen import RoleScreen
-from .SpriteInspectScreen import SpriteInspectScreen
-from .MakeClanScreen import MakeClanScreen
-from .MedDenScreen import MedDenScreen
-from .RelationshipScreen import RelationshipScreen
-from .SettingsScreen import SettingsScreen
-from .SwitchClanScreen import SwitchClanScreen
-from .ClanScreen import ClanScreen
-from .ListScreen import ListScreen
-from .EventsScreen import EventsScreen
 from .ChooseMateScreen import ChooseMateScreen
 from .ChooseMentorScreen import ChooseMentorScreen
-from .FamilyTreeScreen import FamilyTreeScreen
-from .MediationScreen import MediationScreen
+from .ClanScreen import ClanScreen
 from .ClanSettingsScreen import ClanSettingsScreen
 from .TalkScreen import TalkScreen
 from .InsultScreen import InsultScreen
@@ -28,14 +14,27 @@ from .AchievementScreen import AchievementScreen
 from .MurderScreen import MurderScreen
 from .DeputyScreen import DeputyScreen
 from .NameKitsScreen import NameKitsScreen
-from .LifeGenPatrolScreen import LifeGenPatrolScreen
-from .DFPatrolScreen import DFPatrolScreen
-from .DatePatrolScreen import DatePatrolScreen
 from .AffairScreen import AffairScreen
 from .ClearingScreen import ClearingScreen
 from .QueenScreen import QueenScreen
 from .MoonplaceScreen import MoonplaceScreen
 from .ChooseQPPScreen import ChooseQPPScreen
+from .EventsScreen import EventsScreen
+from .FamilyTreeScreen import FamilyTreeScreen
+from .LeaderDenScreen import LeaderDenScreen
+from .ListScreen import ListScreen
+from .MakeClanScreen import MakeClanScreen
+from .MedDenScreen import MedDenScreen
+from .MediationScreen import MediationScreen
+from .PatrolScreen import PatrolScreen
+from .ProfileScreen import ProfileScreen
+from .RelationshipScreen import RelationshipScreen
+from .RoleScreen import RoleScreen
+from .Screens import Screens
+from .SettingsScreen import SettingsScreen
+from .SpriteInspectScreen import SpriteInspectScreen
+from .StartScreen import StartScreen
+from .SwitchClanScreen import SwitchClanScreen
 from .WarriorDenScreen import WarriorDenScreen
 from .GiftScreen import GiftScreen
 
@@ -76,6 +75,8 @@ catlist_screen = ListScreen('list screen')
 med_den_screen = MedDenScreen('med den screen')
 freshkill_pile_screen = ClearingScreen('clearing screen')
 warrior_den_screen = WarriorDenScreen('warrior den screen')
+leader_den_screen = LeaderDenScreen('leader den screen')
+
 
 events_screen = EventsScreen('events screen')
 settings_screen = SettingsScreen('settings screen')
@@ -88,7 +89,7 @@ choose_adoptive_parent_screen = ChooseAdoptiveParentScreen('choose adoptive pare
 relationship_screen = RelationshipScreen('relationship screen')
 view_children_screen = FamilyTreeScreen('see kits screen')
 mediation_screen = MediationScreen("mediation screen")
-choose_qpp_screen = ChooseQPPScreen('choose qpp screen')
+change_gender_screen = ChangeGenderScreen("change gender screen")
 
 # LifeGen screens
 
@@ -106,8 +107,7 @@ queen_screen = QueenScreen("queen screen")
 moonplace_screen = MoonplaceScreen("moonplace screen")
 gift_screen = GiftScreen("gift screen")
 
-patrol_screen = PatrolScreen('patrol screen2')
-patrol_screen2 = LifeGenPatrolScreen('patrol screen')
-patrol_screen3 = DFPatrolScreen('patrol screen3')
-patrol_screen4 = DatePatrolScreen('patrol screen4')
+patrol_screen = PatrolScreen('patrol screen')
 
+# Pridegen 
+choose_qpp_screen = ChooseQPPScreen('choose qpp screen')

@@ -122,7 +122,7 @@
         "min_max_status": {},
         "weight": 20,
         "intro_text": "A shuffling gaggle of kits surrounds you, their eyes gleaming with mischief. Their challenge? Sneak into the leader's den, a territory typically shrouded in reverential silence, while the leader is away.",
-        "decline_text": "Remembering the warrior code, you express your reservations about invading the leader's personal space. While this earns you some grumbles from the daring group, your moral stance also brings a quiet respect from the more thoughtful kits.",
+        "decline_text": "Remembering the Warrior Code, you express your reservations about invading the leader's personal space. While this earns you some grumbles from the daring group, your moral stance also brings a quiet respect from the more thoughtful kits.",
         "chance_of_success": 35,
         "success_outcomes": [
             {
@@ -536,7 +536,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "lg_kit16",
+        "patrol_art": "lifegen_kit16",
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
@@ -571,7 +571,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "lg_kit17",
+        "patrol_art": "lifegen_kit17",
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
@@ -606,7 +606,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "lg_kit18",
+        "patrol_art": "lifegen_kit18",
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
@@ -653,7 +653,7 @@
         "chance_of_success": 95,
         "success_outcomes": [
             {
-                "text": "You pick up the moss-ball with your mouth and bring it over to the group. When you drop it and paw it in r_k's direction, they hit it back, and soon all three of you are playing together like nothing has even changed.",
+                "text": "You pick up the moss-ball with your mouth and bring it over to the group. When you drop it and paw it in r_k's direction, {PRONOUN/r_k/subject} hit it back, and soon all three of you are playing together like nothing has even changed.",
                 "exp": 0,
                 "weight": 20
             }

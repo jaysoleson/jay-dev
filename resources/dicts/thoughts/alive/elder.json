@@ -1,6 +1,6 @@
 [
     {
-        "id": "elder_gen_dead",
+      "id": "elder_gen_to_dead_gen",
         "thoughts": [
             "Is telling stories about r_c",
             "Wishes that r_c were still alive",
@@ -56,13 +56,35 @@
         ]
     },
     {
-        "id": "elder_alive_younger_cats",
+        "id": "flamboyant_senior_elder",
         "thoughts": [
-            "Is giving advice to younger cats",
-            "Is bossing around the younger cats",
+            "Happily plays the role of a sleeping monster for a queen's game",
+            "Demands the leader come to visit them",
+            "Winces when {PRONOUN/m_c/subject} {VERB/m_c/move/moves} too fast in a dramatic gesture",
+            "Bemoans aching joints and soreness and tiredness and...",
+            "Claims that back in {PRONOUN/m_c/poss} day...",
+            "Complains that {PRONOUN/m_c/poss} trends and styles have been forgotten about...",
+            "Plays the pitiful elder act too well to get {PRONOUN/m_c/poss} way",
+            "Brags about {PRONOUN/m_c/poss} glory days",
+            "Hollers playfully after kits to get out of {PRONOUN/m_c/poss} den",
+            "Is proud that {PRONOUN/m_c/subject} never changed {PRONOUN/m_c/poss} values"
+        ],
+        "main_age_constraint": [
+            "senior",
+            "senior adult"
+        ],
+        "main_trait_constraint": [
+          "flamboyant"
+        ]
+    },
+    {
+      "id": "elder_to_alive_younger_cats",
+        "thoughts": [
+          "Is giving advice to the younger cats",
+          "Is bossing the younger cats around",
             "Is telling scary stories to the younger cats",
-            "Is sharing wisdom with younger cats that is... less than helpful",
-            "Is recounting daring expeditions for the younger cats to hear",
+          "Is sharing wisdom with the younger cats that is... less than helpful",
+          "Is recounting daring expeditions for the younger cats",
             "Is telling a rather tall tale to any cat who will listen"
         ],
         "main_age_constraint": [
@@ -76,7 +98,7 @@
         ]
     },
     {
-        "id": "elder_alive_apprentice",
+      "id": "elder_to_alive_apprentice",
         "thoughts": [
             "Is requesting an apprentice's help with {PRONOUN/m_c/poss} ticks",
             "Is asking apprentices to help check {PRONOUN/m_c/object} for ticks"
