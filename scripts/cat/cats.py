@@ -161,6 +161,10 @@ class Cat:
         prefix=None,
         gender=None,
         sexuality=None,
+        male_attracted=True,
+        female_attracted=True,
+        enby_attracted=True,
+        t4t=False,
         acespec = 'allosexual',
         arospec = 'alloromantic',
         status="newborn",
@@ -182,7 +186,9 @@ class Cat:
 
         :param prefix: Cat's prefix (e.g. Fire- for Fireheart)
         :param gender: Cat's gender, default None
-        :param sexuality: Cat's sexuality, default straight
+        :param male_attracted: if the Cat likes men, default true
+        :param female_attracted: if the Cat likes women, default true
+        :param enby_attracted: if the Cat likes enbies, default true
         :param acespec: Cat's acespec, default allosexual
         :param arospec: Cat's arospec, default alloromantic
         :param status: Cat's age range, default "newborn"
@@ -219,7 +225,11 @@ class Cat:
         # Public attributes
         self.gender = gender
         self.sexuality = sexuality
+        self.male_attracted = male_attracted
+        self.female_attracted = female_attracted
+        self.enby_attracted = enby_attracted
         self.sexualitylabel = None
+        self.t4t = False
         self.acespec = acespec
         self.arospec = arospec
         self.status = status
@@ -240,7 +250,6 @@ class Cat:
         self.relationships = {}
         self.mate = []
         self.qpp = []
-        self.t4t = False
         self.previous_mates = []
         self.pronouns = [self.default_pronouns[0].copy()]
         self.placement = None
@@ -368,8 +377,12 @@ class Cat:
 
         # SEX???!?!?!?!?!?!?
 
-        if self.sexuality is None:
-           self.sexuality = 'bi'
+        # if self.sexuality is None:
+        #    self.sexuality = 'bi'
+
+        for i in [self.male_attracted, self.female_attracted, self.enby_attracted]:
+            if not isinstance(i, bool):
+                i = True
 
         if self.acespec is None:
             if self.sexuality != 'aroace':
@@ -412,41 +425,16 @@ class Cat:
             aroace_chance = randint (0,30)
             straight_chance = randint(0,1)
             questioning_chance = randint(0,15)
-            if self.genderalign in ["female", "trans female", "demigirl"]:
-                if gay_chance == 1:
-                    self.sexuality = "lesbian"
-                elif aroace_chance == 1:
-                    self.sexuality = "aroace"
-                    self.acespec = 'asexual'
-                    self.arospec = 'aromantic'
-                elif pan_chance == 1:
-                    self.sexuality = "pan"
-                elif straight_chance == 1:
-                    self.sexuality = "straight"
-            elif self.genderalign in ["male", "trans male", "demiboy"]:
-                if gay_chance == 1:
-                    self.sexuality = "gay"
-                elif aroace_chance == 1:
-                    self.sexuality = "aroace"
-                    self.acespec = 'asexual'
-                    self.arospec = 'aromantic'
-                elif pan_chance == 1:
-                    self.sexuality = "pan"
-                elif straight_chance == 1:
-                    self.sexuality = "straight"
-            else:
-                if gay_chance == 1:
-                    self.sexuality = "andro"
-                elif gay_chance == 2:
-                    self.sexuality = "gyno"
-                elif pan_chance == 1:
-                    self.sexuality = "pan"
-                elif aroace_chance == 1:
-                    self.sexuality = "aroace"
-                    self.acespec = 'asexual'
-                    self.arospec = 'aromantic'
-                elif straight_chance == 1:
-                    self.sexuality = self.sexuality
+            
+            self.male_attracted = choice([True, False])
+            self.female_attracted = choice([True, False])
+            self.enby_attracted = True # no only not liking enbies thats weird
+
+            self.make_sexuality_label()
+            if self.sexualitylabel == "aroace":
+                self.arospec = "aromantic"
+                self.acespec = "asexual"
+            # very not finished this yet
             
             if self.moons > 3:
                 if questioning_chance == 1:
@@ -565,6 +553,31 @@ class Cat:
 
         if self.ID not in ["0", None]:
             Cat.insert_cat(self)
+
+    def make_sexuality_label(self):
+        """ gets da sexuality label for the cat obviously """
+        if self.genderalign in ["male", "trans male", "demiboy"]:
+            if self.male_attracted is True:
+                if self.female_attracted is True:
+                    self.sexualitylabel = random.choice(["bi", "pan"])
+                else:
+                    self.sexualitylabel = "gay"
+            else:
+                if self.female_attracted is True:
+                    self.sexualitylabel = "straight"
+                else:
+                    self.sexualitylabel = "aroace"
+        elif self.genderalign in ["female", "trans female", "demigirl"]:
+            if self.male_attracted is True:
+                if self.female_attracted is True:
+                    self.sexualitylabel = random.choice(["bi", "pan"])
+                else:
+                    self.sexualitylabel = "straight"
+            else:
+                if self.female_attracted is True:
+                    self.sexualitylabel = "lesbian"
+                else:
+                    self.sexualitylabel = "aroace"
 
     def init_faded(self, ID, status, prefix, suffix, moons, **kwargs):
         """Perform faded-specific initialisation
