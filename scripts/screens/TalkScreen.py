@@ -534,6 +534,7 @@ class TalkScreen(Screens):
         ]
         for talk_key, talk in possible_texts.items():
             tags = talk["tags"] if "tags" in talk else talk[0]
+
             for i in range(len(tags)):
                 tags[i] = tags[i].lower()
 
@@ -543,6 +544,24 @@ class TalkScreen(Screens):
 
             if "insult" in tags:
                 continue
+
+            # INF
+            log_prereq = talk["log_prereq"] if "log_prereq" in talk else None
+
+            skip = False
+            if log_prereq is not None:
+                for i in log_prereq: # its a list so there can be multiple
+                    if i not in game.clan.infection["logs"]:
+                        skip = True
+                        break
+                if skip is True:
+                    continue
+            
+            if any(tag in tags for tag in ["fungal", "parasitic", "void"]):
+                if inftype not in tags:
+                    continue
+            ####
+
 
             # INFECTION
             if "infection" in tags and game.clan.infection["clan_infected"] is False:
@@ -622,47 +641,6 @@ class TalkScreen(Screens):
             if "cure_not_found" in tags and "cure_found" in logs:
                 continue
 
-            # INFECTION STORY TAGS
-            # STORY 1
-            if game.clan.infection["story"] == "1":
-                if "story_1_step_2" in tags:
-                    if "story_1_step_1" not in game.clan.infection["logs"]:
-                        continue
-                    if "story_1_step_2" in game.clan.infection["logs"]:
-                        continue
-                    if cat.ID != game.clan.infection["story_cat_2"]:
-                        continue
-
-            steps = ["1", "2", "3", "4"]
-            stories = ["1", "2"]
-            storycats = ["1", "2", "3", "4"]
-
-            skip = False
-
-            for num in storycats:
-                if f"you_sc_{num}" in tags and game.clan.infection[f"story_cat_{num}"] != you.ID:
-                    skip = True
-                if f"they_sc_{num}" in tags and game.clan.infection[f"story_cat_{num}"] != cat.ID:
-                    skip = True
-
-
-            for story in stories:
-                if f"story_{story}" in tags and game.clan.infection["story"] != story:
-                    skip = True
-
-                for step in steps:
-                    if f"story_{story}_step_{step}" in tags and f"story_{story}_step_{step}" in game.clan.infection["logs"]:
-                        skip = True
-                        break
-                    if f"pre_story_{story}_step_{step}" in tags and f"story_{story}_step_{step}" in game.clan.infection["logs"]:
-                        skip = True
-                        break
-                    if f"post_story_{story}_step_{step}" in tags and f"story_{story}_step_{step}" not in game.clan.infection["logs"]:
-                        skip = True
-                        break
-            if skip:
-                continue
-
             infected_cats = [cat for cat in Cat.all_cats_list if not cat.dead and not cat.outside and cat.infected_for > 0 and cat.ID != you.ID]
             all_cats = [cat for cat in Cat.all_cats_list if not cat.dead and not cat.outside and cat.ID != you.ID]
 
@@ -673,14 +651,6 @@ class TalkScreen(Screens):
             for num in numbers:
                 if f"{str(num)}_percent_infected" in tags and percentage < num:
                     continue
-
-            
-            if "story_cat_1" in tags and cat.ID != game.clan.infection["story_cat_1"]:
-                continue
-            if "story_cat_2" in tags and cat.ID != game.clan.infection["story_cat_2"]:
-                continue
-            if "story_cat_3" in tags and cat.ID != game.clan.infection["story_cat_3"]:
-                continue
 
             if you.moons == 0 and "newborn" not in tags:
                 continue
@@ -1690,7 +1660,7 @@ class TalkScreen(Screens):
             game.clan.talks.clear()
 
         # Assign weights based on tags
-        weighted_tags = ["you_pregnant", "they_pregnant", "from_mentor", "from_your_parent", "from_adopted_parent", "adopted_parent", "half sibling", "littermate", "siblings_mate", "cousin", "adopted_sibling", "parents_siblings", "from_df_mentor", "from_your_kit", "from_your_apprentice", "from_df_apprentice", "from_mate", "from_parent", "adopted_parent", "from_kit", "sibling", "from_adopted_kit", "they_injured", "they_ill", "you_injured", "you_ill", "you_grieving", "you_forgiven", "they_forgiven", "murderedyou", "murderedthem", "story_1", "story_2"] # List of tags that increase the weight
+        weighted_tags = ["you_pregnant", "they_pregnant", "from_mentor", "from_your_parent", "from_adopted_parent", "adopted_parent", "half sibling", "littermate", "siblings_mate", "cousin", "adopted_sibling", "parents_siblings", "from_df_mentor", "from_your_kit", "from_your_apprentice", "from_df_apprentice", "from_mate", "from_parent", "adopted_parent", "from_kit", "sibling", "from_adopted_kit", "they_injured", "they_ill", "you_injured", "you_ill", "you_grieving", "you_forgiven", "they_forgiven", "murderedyou", "murderedthem"] # List of tags that increase the weight
         weights = []
         for item in texts_list.values():
             tags = item["tags"] if "tags" in item else item[0]
@@ -1725,47 +1695,12 @@ class TalkScreen(Screens):
                 if "~" in text_chosen_key:
                     text_chosen_key_split = text_chosen_key.split("~")
                     cat.connected_dialogue[text_chosen_key_split[0]] = int(text_chosen_key_split[1])
-
-                # INFECTION STORY KEYS
-                if text_chosen_key.startswith("story_key_"):
-                    match = re.search(r'story_key_(\w+)', text_chosen_key)
-                    if match:
-                        game.clan.infection["logs"].append(match.group(1))
-
-                        # Here, we handle the outcomes of the story dialogues
-                        if match.group(1).endswith("step_2"):
-                            if game.clan.infection["story"] == "1":
-                                # making the new story 1 cat!
-                                sunflower = create_new_cat(Cat,
-                                                new_name=False,
-                                                status=choice(["rogue"]),
-                                                alive=False,
-                                                thought="Is missing their friends",
-                                                age=randint(20,90),
-                                                outside=True,
-                                                story_cat="3")[0]
-                                sunflower.backstory = "outsider_infection"
-                                sunflower.dead_for = randint(8,15)
-                        elif match.group(1).endswith("step_4"):
-                            
-                            print("story finished!")
-                            game.clan.infection["story_finished"] = True
                 return new_text
             print("Could not find debug ensure dialogue within possible dialogues")
 
-
         # Try to find a valid, unused text
         for _ in range(MAX_RETRIES):
-            storykey = False
-            if game.config["debug_ensure_story_dialogue"]:
-                for i in texts_list:
-                    if i.startswith("story_key"):
-                        print("DEBUG STORY DIALOGUE:", i)
-                        text_chosen_key = i
-                        storykey = True
-                        break
-            if not storykey:
-                text_chosen_key = choices(list(texts_list.keys()), weights=weights)[0]
+            text_chosen_key = choices(list(texts_list.keys()), weights=weights)[0]
             text = texts_list[text_chosen_key]["intro"] if "intro" in texts_list[text_chosen_key] else texts_list[text_chosen_key][1]
             new_text = self.get_adjusted_txt(text, cat)
             
@@ -1785,31 +1720,6 @@ class TalkScreen(Screens):
                 if "~" in text_chosen_key:
                     text_chosen_key_split = text_chosen_key.split("~")
                     cat.connected_dialogue[text_chosen_key_split[0]] = int(text_chosen_key_split[1])
-
-                # INFECTION STORY KEYS
-                if text_chosen_key.startswith("story_key_"):
-                    match = re.search(r'story_key_(\w+)', text_chosen_key)
-                    if match:
-                        game.clan.infection["logs"].append(match.group(1))
-
-                        # Here, we handle the outcomes of the story dialogues
-                        if match.group(1).endswith("step_2"):
-                            if game.clan.infection["story"] == "1":
-                                # making the new story 1 cat!
-                                sunflower = create_new_cat(Cat,
-                                                new_name=False,
-                                                status=choice(["rogue"]),
-                                                alive=False,
-                                                thought="Is missing their friends",
-                                                age=randint(20,90),
-                                                outside=True,
-                                                story_cat="3")[0]
-                                sunflower.backstory = "outsider_infection"
-                                sunflower.dead_for = randint(8,15)
-                        elif match.group(1).endswith("step_4"):
-                            
-                            print("story finished!")
-                            game.clan.infection["story_finished"] = True
                 return new_text
 
         # If no valid text found, choose one based on tag weights

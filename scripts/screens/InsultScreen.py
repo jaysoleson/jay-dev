@@ -483,47 +483,6 @@ class InsultScreen(Screens):
             if "cure_not_found" in tags and "cure_found" in logs:
                 continue
 
-            # INFECTION STORY TAGS
-            # STORY 1
-            if game.clan.infection["story"] == "1":
-                if "story_1_step_2" in tags:
-                    if "story_1_step_1" not in game.clan.infection["logs"]:
-                        continue
-                    if "story_1_step_2" in game.clan.infection["logs"]:
-                        continue
-                    if cat.ID != game.clan.infection["story_cat_2"]:
-                        continue
-
-            steps = ["1", "2", "3", "4"]
-            stories = ["1", "2"]
-            storycats = ["1", "2", "3", "4"]
-
-            skip = False
-
-            for num in storycats:
-                if f"you_sc_{num}" in tags and game.clan.infection[f"story_cat_{num}"] != you.ID:
-                    skip = True
-                if f"they_sc_{num}" in tags and game.clan.infection[f"story_cat_{num}"] != cat.ID:
-                    skip = True
-
-
-            for story in stories:
-                if f"story_{story}" in tags and game.clan.infection["story"] != story:
-                    skip = True
-
-                for step in steps:
-                    if f"story_{story}_step_{step}" in tags and f"story_{story}_step_{step}" in game.clan.infection["logs"]:
-                        skip = True
-                        break
-                    if f"pre_story_{story}_step_{step}" in tags and f"story_{story}_step_{step}" in game.clan.infection["logs"]:
-                        skip = True
-                        break
-                    if f"post_story_{story}_step_{step}" in tags and f"story_{story}_step_{step}" not in game.clan.infection["logs"]:
-                        skip = True
-                        break
-            if skip:
-                continue
-
             infected_cats = [cat for cat in Cat.all_cats_list if not cat.dead and not cat.outside and cat.infected_for > 0 and cat.ID != you.ID]
             all_cats = [cat for cat in Cat.all_cats_list if not cat.dead and not cat.outside and cat.ID != you.ID]
 
@@ -534,14 +493,6 @@ class InsultScreen(Screens):
             for num in numbers:
                 if f"{str(num)}_percent_infected" in tags and percentage < num:
                     continue
-
-            
-            if "story_cat_1" in tags and cat.ID != game.clan.infection["story_cat_1"]:
-                continue
-            if "story_cat_2" in tags and cat.ID != game.clan.infection["story_cat_2"]:
-                continue
-            if "story_cat_3" in tags and cat.ID != game.clan.infection["story_cat_3"]:
-                continue
 
             if you.moons == 0 and "newborn" not in tags and "you_newborn" not in tags:
                 continue

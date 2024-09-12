@@ -812,18 +812,18 @@ class PatrolScreen(Screens):
         if "patrolled" not in game.switches:
             game.switches['patrolled'] = []
 
-        stages = [f"{game.clan.infection['infection_type']} stage two", f"{game.clan.infection['infection_type']} stage three", f"{game.clan.infection['infection_type']} stage four"]
+        stages = [f"{game.clan.infection['infection_type']} stage two", f"{game.clan.infection['infection_type']} stage three", f"{game.clan.infection['infection_type']} stage four", "undead"]
 
         if game.switches["patrol_category"] == "clangen":
             for the_cat in Cat.all_cats_list:
                 if the_cat.ID == game.clan.your_cat.ID:
                     if "1" not in game.switches['patrolled'] and not the_cat.dead and the_cat.in_camp and the_cat.status not in [
                     'elder', 'kitten', 'mediator', 'mediator apprentice', 'queen', "queen's apprentice", "newborn"
-                        ] and not the_cat.outside and the_cat not in self.current_patrol and not the_cat.not_working() and the_cat.shunned == 0 and not any(i in the_cat.illnesses for i in stages):
+                        ] and not the_cat.outside and the_cat not in self.current_patrol and not the_cat.not_working() and the_cat.shunned == 0 and not any(i in stages for i in the_cat.illnesses):
                         self.able_cats.append(the_cat)
                 elif not the_cat.dead and the_cat.in_camp and the_cat.ID not in game.patrolled and the_cat.status not in [
                     'elder', 'kitten', 'mediator', 'mediator apprentice', 'queen', "queen's apprentice", "newborn"
-                ] and not the_cat.outside and the_cat not in self.current_patrol and not the_cat.not_working() and the_cat.shunned == 0:
+                ] and not the_cat.outside and the_cat not in self.current_patrol and not the_cat.not_working() and the_cat.shunned == 0 and not any(i in stages for i in the_cat.illnesses):
                     self.able_cats.append(the_cat)
 
         elif game.switches["patrol_category"] == "lifegen":

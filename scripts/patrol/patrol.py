@@ -282,7 +282,7 @@ class Patrol:
         possible_patrols = []
         # This is for debugging purposes, load-in *ALL* the possible patrols when debug_override_patrol_stat_requirements is true. (May require longer loading time)
         if (game.config["patrol_generation"]["debug_override_patrol_stat_requirements"]):
-            leaves = ["greenleaf", "leaf-bare", "leaf-fall", "newleaf", "any"]
+            leaves = ["greenleaf", "leaf-bare", "leaf-fall", "newleaf", "any", "infection"]
             for biome in game.clan.BIOME_TYPES:
                 for leaf in leaves:
                     biome_dir = f"{biome.lower()}/"
@@ -304,6 +304,15 @@ class Patrol:
                     possible_patrols.extend(self.generate_patrol_events(self.NEW_CAT_HOSTILE))
                     possible_patrols.extend(self.generate_patrol_events(self.OTHER_CLAN_ALLIES))
                     possible_patrols.extend(self.generate_patrol_events(self.OTHER_CLAN_HOSTILE))
+
+                    # INF
+                    possible_patrols.extend(self.generate_patrol_events(self.BORDER_INF))
+                    possible_patrols.extend(self.generate_patrol_events(self.TRAINING_INF))
+                    possible_patrols.extend(self.generate_patrol_events(self.HUNTING_INF))
+                    possible_patrols.extend(self.generate_patrol_events(self.MEDCAT_INF))
+                    possible_patrols.extend(self.generate_patrol_events(self.NEW_CAT_INFECTION))
+                    possible_patrols.extend(self.generate_patrol_events(self.OTHER_CLAN_INFECTION))
+                    ####
 
         # this next one is needed for Classic specifically
         patrol_type = (
@@ -370,6 +379,16 @@ class Patrol:
             possible_patrols.extend(self.generate_patrol_events(self.BORDER_GEN))
             possible_patrols.extend(self.generate_patrol_events(self.TRAINING_GEN))
             possible_patrols.extend(self.generate_patrol_events(self.MEDCAT_GEN))
+
+            # INF
+            possible_patrols.extend(self.generate_patrol_events(self.BORDER_INF))
+            possible_patrols.extend(self.generate_patrol_events(self.TRAINING_INF))
+            possible_patrols.extend(self.generate_patrol_events(self.HUNTING_INF))
+            possible_patrols.extend(self.generate_patrol_events(self.MEDCAT_INF))
+            possible_patrols.extend(self.generate_patrol_events(self.NEW_CAT_INFECTION))
+            possible_patrols.extend(self.generate_patrol_events(self.OTHER_CLAN_INFECTION))
+            ####
+
         elif game.switches["patrol_category"] == 'lifegen':
             # INFECTION PATROLS
             possible_patrols.extend(self.generate_patrol_events(self.infection_patrols))
@@ -695,30 +714,7 @@ class Patrol:
 
                 if already_have:
                     continue
-                
-                stories = ["1", "2"]
-                steps = ["1", "2", "3", "4"]
-                sc1 = Cat.all_cats.get(game.clan.infection["story_cat_1"])
-                sc2 = Cat.all_cats.get(game.clan.infection["story_cat_2"])
-                sc3 = Cat.all_cats.get(game.clan.infection["story_cat_3"])
-                sc4 = Cat.all_cats.get(game.clan.infection["story_cat_4"])
 
-                storycats = [sc1, sc2, sc3, sc4]
-
-                skip = False
-                for story in stories:
-                    if f"story_{story}" in patrol.tags and (((game.clan.infection["story"] is not None and game.clan.infection["story"] != story) or story in game.clan.infection["past_stories"]) or game.clan.your_cat not in storycats):
-                        skip = True
-
-                    for step in steps:
-                        if patrol.patrol_id.endswith(f"story_{story}_step_{step}") and f"story_{story}_step_{step}" in game.clan.infection["logs"]:
-                            continue
-
-                if skip:
-                    continue
-
-                if game.clan.infection["story"] is not None and "story_beginning" in patrol.tags:
-                    continue
 
                 if patrol.patrol_id in game.clan.infection["logs"]:
                     continue
@@ -1037,6 +1033,13 @@ class Patrol:
             self.HUNTING = None
             with open(f"{resource_dir}{biome_dir}hunting/any.json", 'r', encoding='ascii') as read_file:
                 self.HUNTING = ujson.loads(read_file.read())
+
+            # INF
+            self.HUNTING_INF = None
+            with open(f"{resource_dir}{biome_dir}hunting/infection.json", 'r', encoding='ascii') as read_file:
+                self.HUNTING_INF = ujson.loads(read_file.read())
+            ####
+
             # BORDER #
             self.BORDER_SZN = None
             with open(f"{resource_dir}{biome_dir}border/{leaf}.json", 'r', encoding='ascii') as read_file:
@@ -1044,6 +1047,13 @@ class Patrol:
             self.BORDER = None
             with open(f"{resource_dir}{biome_dir}border/any.json", 'r', encoding='ascii') as read_file:
                 self.BORDER = ujson.loads(read_file.read())
+
+            # INF
+            self.BORDER_INF = None
+            with open(f"{resource_dir}{biome_dir}border/infection.json", 'r', encoding='ascii') as read_file:
+                self.BORDER_INF = ujson.loads(read_file.read())
+            ####
+
             # TRAINING #
             self.TRAINING_SZN = None
             with open(f"{resource_dir}{biome_dir}training/{leaf}.json", 'r', encoding='ascii') as read_file:
@@ -1051,6 +1061,13 @@ class Patrol:
             self.TRAINING = None
             with open(f"{resource_dir}{biome_dir}training/any.json", 'r', encoding='ascii') as read_file:
                 self.TRAINING = ujson.loads(read_file.read())
+                
+            # INF
+            self.TRAINING_INF = None
+            with open(f"{resource_dir}{biome_dir}training/infection.json", 'r', encoding='ascii') as read_file:
+                self.TRAINING_INF = ujson.loads(read_file.read())
+            ####
+
             # MED #
             self.MEDCAT_SZN = None
             with open(f"{resource_dir}{biome_dir}med/{leaf}.json", 'r', encoding='ascii') as read_file:
@@ -1058,6 +1075,13 @@ class Patrol:
             self.MEDCAT = None
             with open(f"{resource_dir}{biome_dir}med/any.json", 'r', encoding='ascii') as read_file:
                 self.MEDCAT = ujson.loads(read_file.read())
+                    
+            # INF
+            self.MEDCAT_INF = None
+            with open(f"{resource_dir}{biome_dir}med/infection.json", 'r', encoding='ascii') as read_file:
+                self.MEDCAT_INF = ujson.loads(read_file.read())
+            ####
+
             # NEW CAT #
             self.NEW_CAT = None
             with open(f"{resource_dir}new_cat.json", 'r', encoding='ascii') as read_file:
@@ -1068,6 +1092,13 @@ class Patrol:
             self.NEW_CAT_WELCOMING = None
             with open(f"{resource_dir}new_cat_welcoming.json", 'r', encoding='ascii') as read_file:
                 self.NEW_CAT_WELCOMING = ujson.loads(read_file.read())
+                    
+            # INF
+            self.NEW_CAT_INFECTION = None
+            with open(f"{resource_dir}new_cat_infection.json", 'r', encoding='ascii') as read_file:
+                self.NEW_CAT_INFECTION = ujson.loads(read_file.read())
+            ####
+            
             # OTHER CLAN #
             self.OTHER_CLAN = None
             with open(f"{resource_dir}other_clan.json", 'r', encoding='ascii') as read_file:
@@ -1078,9 +1109,17 @@ class Patrol:
             self.OTHER_CLAN_HOSTILE = None
             with open(f"{resource_dir}other_clan_hostile.json", 'r', encoding='ascii') as read_file:
                 self.OTHER_CLAN_HOSTILE = ujson.loads(read_file.read())
+                    
+            # INF
+            self.OTHER_CLAN_INFECTION = None
+            with open(f"{resource_dir}other_clan_infection.json", 'r', encoding='ascii') as read_file:
+                self.OTHER_CLAN_INFECTION = ujson.loads(read_file.read())
+            ####
+            
             self.DISASTER = None
             with open(f"{resource_dir}disaster.json", 'r', encoding='ascii') as read_file:
                 self.DISASTER = ujson.loads(read_file.read())
+
             # sighing heavily as I add general patrols back in
             self.HUNTING_GEN = None
             with open(f"{resource_dir}general/hunting.json", 'r', encoding='ascii') as read_file:
@@ -1264,12 +1303,6 @@ class Patrol:
         if not text:
             text = "This should not appear, report as a bug please!"
 
-        sc1 = Cat.all_cats.get(game.clan.infection["story_cat_1"])
-        sc2 = Cat.all_cats.get(game.clan.infection["story_cat_2"])
-        sc3 = Cat.all_cats.get(game.clan.infection["story_cat_3"])
-        sc4 = Cat.all_cats.get(game.clan.infection["story_cat_4"])
-
-        
         # new dict for lifegen abbrevs ^^
         
         replace_dict = {
@@ -1277,15 +1310,6 @@ class Patrol:
             "r_c": (str(self.random_cat.name), choice(self.random_cat.pronouns)),
             "y_c": (str(game.clan.your_cat.name), choice(game.clan.your_cat.pronouns))
         }
-
-        if sc1 is not None:
-            replace_dict["sc_1"] = (str(sc1.name), choice(sc1.pronouns))
-        if sc2 is not None:
-            replace_dict["sc_2"] = (str(sc2.name), choice(sc2.pronouns))
-        if sc3 is not None:
-            replace_dict["sc_3"] = (str(sc3.name), choice(sc3.pronouns))
-        if sc4 is not None:
-            replace_dict["sc_4"] = (str(sc4.name), choice(sc4.pronouns))
 
         other_cats = [i for i in self.patrol_cats if i not in [self.patrol_leader, self.random_cat, game.clan.your_cat]]
         if game.switches["patrol_category"] == 'df':

@@ -1,24 +1,27 @@
 {
     "start": "There is infection in the Clan.",
     "discovered": "The Clan has come across a bizarre illness. The Clan will keep an eye on it.",
-    "fungal_1": "The disease appears to be fungal in nature.",
-    "parasitic_1": "The infection seems to be caused by some sort of parasite.",
-    "void_1": "The infection seems to be... supernatural, in origin. Proceed with caution.",
-    "spread_by_air": "The infection is airborne.",
-    "spread_by_bite": "One becomes infected when bitten by an infected creature.",
     "cure_found": "A cure to the disease has been discovered! It consists of a mixture of herb1, herb2, herb3 and herb4.",
     "partial_cure": "Even if it's not a full cure, it seems that some herbs are able to temporarily reverse the infection's progression.",
-    "no_reinfection": "Cats who have been infected and cured are unable to become infected again.",
     "herb_death": "The infection has begun killing off herbs in the territory at an alarming rate.",
     "prey_death": "Prey has started being affected by the infection. Hunting patrols avoid the sick prey and come home with less food each day.",
-    "parasitic_2": "While the body slowly dies, the brain stays active.",
-    "parasitic_3": "Twolegs are also being infected.",
-    "void_2": "Victims are very prone to violence. Proceed with caution.",
 
-    "story_1_step_1": "sc4 has met a mysterious rogue who seems to know one of their Clanmates...",
-    "story_1_step_2": "sc4 has spoken with sc2, who seems to know more about that strange rogue than they'd like to admit.",
-    "story_1_step_3": "The rogue, sc1, has joined the Clan, having found the strength to leave the body of their beloved friend, sc3, in the territory.",
-    "story_1_step_4": "sc2 and sc1 are together again, and now sc4 knows what they've gone through.",
-    
-    "story_2_step_1": "sc4 has met a mysterious rogue named sc1 at the edge of camp."
+    "lore_spread_by_air": "The infection is airborne.",
+    "lore_spread_by_bite": "One becomes infected when bitten by an infected creature.",
+    "lore_no_reinfection": "Cats who have been infected and cured are unable to become infected again.",
+    "lore_undead": "When a cat dies of the infection, the disease continues to control their body.",
+
+    "lore_fungal_1": "The disease appears to be fungal in nature.",
+    "lore_fungal_2": "Twolegs may have found a cure",
+    "lore_fungal_3": "Cats who recieve care from Twolegs become immune to the infection.",
+
+    "lore_void_1": "The infection seems to be... supernatural, in origin.",
+    "lore_void_2": "Victims are very prone to violence. Proceed with caution.",
+    "lore_void_3": "Upon death, the victim's body simply vanishes.",
+    "lore_void_4": "Twolegs have gone missing.",
+
+    "lore_parasitic_1": "The infection seems to be caused by some sort of parasite.",
+    "lore_parasitic_2": "While the body slowly dies, the brain stays active.",
+    "lore_parasitic_3": "Twolegs are also being infected.",
+    "lore_parasitic_4": "Twolegs have been seen killing their infected."
 }

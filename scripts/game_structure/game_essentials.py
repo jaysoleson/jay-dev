@@ -585,14 +585,6 @@ class Game:
                     "infection_moons": 0,
                     "logs": [],
                     "fallen_clans": [],
-                    "story": None,
-                    "story_cat_1": None,
-                    "story_cat_2": None,
-                    "story_cat_3": None,
-                    "story_cat_4": None,
-                    "story_finished": False,
-                    "past_stories": [],
-                    "story_break_moons": [],
                     "priority_herb": None
                 }
                 

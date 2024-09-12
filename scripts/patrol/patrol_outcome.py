@@ -253,12 +253,6 @@ class PatrolOutcome:
                                         patrol_cat_dict=patrol.patrol_cat_dict,
                                         random_cat=patrol.random_cat,
                                         stat_cat=self.stat_cat,
-                                        # INF
-                                        story_cat_1 = Cat.all_cats.get(game.clan.infection["story_cat_1"]),
-                                        story_cat_2 = Cat.all_cats.get(game.clan.infection["story_cat_2"]),
-                                        story_cat_3 = Cat.all_cats.get(game.clan.infection["story_cat_3"]),
-                                        story_cat_4 = Cat.all_cats.get(game.clan.infection["story_cat_4"]),
-                                        ####
                                         patrol_cats=patrol.patrol_cats,
                                         patrol_apprentices=patrol.patrol_apprentices,
                                         new_cats=patrol.new_cats,
@@ -486,9 +480,6 @@ class PatrolOutcome:
 
         results = []
         for _cat in cats_to_kill:
-            if _cat.ID in [game.clan.infection["story_cat_1"], game.clan.infection["story_cat_2"], game.clan.infection["story_cat_3"], game.clan.infection["story_cat_4"]] and game.clan.infection["story_finished"] is False:
-                # plot armour for story cats. trying to prevent them dying without player control
-                return ""
             if _cat.status == "leader":
                 if "all_lives" in self.dead_cats:
                     game.clan.leader_lives = 0

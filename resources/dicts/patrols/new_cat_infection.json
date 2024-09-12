@@ -1,0 +1,113 @@
+[
+    {
+        "patrol_id": "newcat_infection_J1",
+        "biome": ["any"],
+        "season": ["any"],
+        "types": ["border"],
+        "tags": ["new_cat", "infection"],
+        "patrol_art": "gen_bord_newcat",
+        "min_cats": 2,
+        "max_cats": 6,
+        "min_max_status": {},
+        "weight": 30,
+        "intro_text": "The patrol stumbles across a loner who smells of infection.",
+        "decline_text": "The patrol dismisses them quickly and heads back to camp.",
+        "chance_of_success": 40,
+        "success_outcomes": [
+            {
+                "text": "The patrol invites the loner into the Clan for treatment, and {PRONOUN/n_c:0/subject} warily {VERB/n_c:0/accept/accepts}.",
+                "exp": 10,
+                "weight": 20,
+                "new_cat": [
+                    ["loner", "status:warrior"]
+                ],
+                "relationships": [
+                    {
+                        "cats_from": ["n_c:0"],
+                        "cats_to": ["patrol"],
+                        "values": ["platonic", "trust", "comfort"],
+                        "amount": 10
+                    }
+                ],
+                "outsider_rep": 1,
+                "injury": [
+                    {
+                        "cats": ["n_c:0"],
+                        "injuries": ["stage two"],
+                        "no_results": true
+                    }
+                ]
+            },
+            {
+                "text": "The patrol offers the loner a place to stay in the Clan for treatment, and {PRONOUN/n_c:0/subject} {VERB/n_c:0/accept/accepts} with a quick nod, unable to speak very clearly.",
+                "exp": 10,
+                "weight": 5,
+                "new_cat": [
+                    ["loner", "status:warrior"]
+                ],
+                "relationships": [
+                    {
+                        "cats_from": ["n_c:0"],
+                        "cats_to": ["patrol"],
+                        "values": ["platonic", "trust", "comfort"],
+                        "amount": 10
+                    }
+                ],
+                "outsider_rep": 1,
+                "injury": [
+                    {
+                        "cats": ["n_c:0"],
+                        "injuries": ["stage three"],
+                        "no_results": true
+                    }
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "The patrol offers the loner a place to stay for treatment, but {PRONOUN/n_c:0/object} {VERB/n_c:0/refuse/refuses} and {VERB/n_c:0/stumble/stumble} off in a daze.",
+                "exp": 0,
+                "weight": 20,
+                "outsider_rep": -1,
+                "new_cat": [
+                    ["meeting", "loner"]
+                ],
+                "injury": [
+                    {
+                        "cats": ["n_c:0"],
+                        "injuries": ["stage two"],
+                        "no_results": true
+                    }
+                ]
+            }
+        ],
+        "antag_fail_outcomes": [
+            {
+                "text": "The patrol threatens the infected cat, but the loner doesn't seem to be listening. In a daze, {PRONOUN/n_c:0/subject} {VERB/n_c:0/stumble/stumble} off.",
+                "exp": 0,
+                "weight": 20,
+                "outsider_rep": -1,
+                "new_cat": [
+                    ["meeting", "loner"]
+                ],
+                "relationships": [
+                    {
+                        "cats_from": ["n_c:0"],
+                        "cats_to": ["patrol"],
+                        "mutual": true,
+                        "values": ["dislike"],
+                        "amount": 40
+                    }
+                ]
+            }
+        ],
+        "antag_success_outcomes": [
+            {
+                "text": "The patrol drives the loner off of the territory.",
+                "exp": 10,
+                "weight": 20,
+                "outsider_rep": -2
+            }
+        ]
+    }
+]

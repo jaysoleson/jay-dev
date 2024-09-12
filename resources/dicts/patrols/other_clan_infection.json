@@ -1,0 +1,52 @@
+[
+    {
+        "patrol_id": "otherclan_infection_J1",
+        "biome": ["any"],
+        "season": ["any"],
+        "types": ["border"],
+        "tags": ["other_clan", "infection"],
+        "patrol_art": "gen_bord_otherclan_allies",
+        "min_cats": 1,
+        "max_cats": 6,
+        "min_max_status": {},
+        "weight": 30,
+        "intro_text": "The patrol catches the scent of infection as they near the o_c_n border.",
+        "decline_text": "They decide to patrol elsewhere.",
+        "chance_of_success": 60,
+        "success_outcomes": [
+            {
+                "text": "When they near the border, they find a patrol of o_c_n cats crouched over an infected squirrel. p_l warns the o_c_n cats not to touch it, and they take {PRONOUN/p_l/poss} advice, standing up and leaving the prey with a respectful nod to the c_n patrol.",
+                "exp": 10,
+                "weight": 20,
+                "other_clan_rep": 2
+            },
+            {
+                "text": "When they reach the source of the scent, the patrol finds a couple of o_c_n cats on their side of the border, burying an infected piece of prey. They warn the patrol to check the eyes of their prey before they eat it. Something unfortunate must have happened.",
+                "exp": 10,
+                "weight": 10,
+                "other_clan_rep": 0
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "The patrol finds a couple of o_c_n cats burying some infected prey at the border. p_l warns them to bury their dangerous prey away from c_n territory next time, and the o_c_n cats leave, tails twitching.",
+                "exp": 0,
+                "weight": 20,
+                "stat_trait": ["vengeful", "troublesome", "cold", "strict"],
+                "other_clan_rep": -1
+            },
+            {
+                "text": "The patrol wanders for a moment, trying to pinpoint the scent, but the wind carries it away before it can be found.",
+                "exp": 0,
+                "weight": 20,
+                "other_clan_rep": 0
+            },
+            {
+                "text": "The patrol approaches the border just as a small o_c_n patrol is leaving. On the border line lays a dead, infected mouse. What is that supposed to mean?",
+                "exp": 0,
+                "weight": 20,
+                "other_clan_rep": -2
+            }
+        ]
+    }
+]

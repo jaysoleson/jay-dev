@@ -2636,23 +2636,23 @@ class Cat:
                 chamce /= 3
             
             if self.infected_for == -1:
-                if "no_reinfection" not in game.clan.infection["logs"]:
+                if "lore_no_reinfection" not in game.clan.infection["logs"]:
                     event = f"{self.name} has been in contact with the infected {cat.name}, but isn't getting ill. It seems that cats who have been infected in the past are unable to become infected again!"
                     game.cur_events_list.append(Single_Event(event, ["health", "infection"], [self.ID, cat.ID]))
-                    game.clan.infection["logs"].append("no_reinfection")
+                    game.clan.infection["logs"].append("lore_no_reinfection")
                 return
 
             if not int(random() * chamce):
                 if game.clan.infection["spread_by"] == "bite":
                     text = f"{self.name} was bitten by {cat.name} and is now infected."
                     self.get_injured("cat bite")
-                    if "spread_by_bite" not in game.clan.infection["logs"]:
-                        game.clan.infection["logs"].append("spread_by_bite")
+                    if "lore_spread_by_bite" not in game.clan.infection["logs"]:
+                        game.clan.infection["logs"].append("lore_spread_by_bite")
                         text += "\nYour log has been updated."
                 else:
                     text = f"{self.name} has contracted the infection from {cat.name}."
-                    if "spread_by_air" not in game.clan.infection["logs"]:
-                        game.clan.infection["logs"].append("spread_by_air")
+                    if "lore_spread_by_air" not in game.clan.infection["logs"]:
+                        game.clan.infection["logs"].append("lore_spread_by_air")
                         text += "\nYour log has been updated."
 
                 game.cur_events_list.append(Single_Event(text, ["health", "infection"], [self.ID, cat.ID]))

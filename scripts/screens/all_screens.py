@@ -113,4 +113,3 @@ moonplace_screen = MoonplaceScreen("moonplace screen")
 gift_screen = GiftScreen("gift screen")
 
 patrol_screen = PatrolScreen('patrol screen')
-

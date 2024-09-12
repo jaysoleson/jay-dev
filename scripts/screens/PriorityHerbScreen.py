@@ -191,6 +191,8 @@ class PriorityHerbScreen(Screens):
         self.priorityherb = game.clan.infection["priority_herb"]
         self.update_herb_buttons()
 
+        self.hide_menu_buttons()
+
         self.back_button = UIImageButton(scale(pygame.Rect((50, 1290), (210, 60))), "", object_id="#back_button")
         
         self.update_text()

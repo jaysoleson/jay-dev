@@ -249,38 +249,28 @@ class CureLogScreen(Screens):
             self.next_page_button = UIImageButton(scale(pygame.Rect((1430, 700), (68, 68))), "",
                                                 object_id="#arrow_right_button", manager=MANAGER)
             # logs !
-            sc1 = Cat.all_cats.get(game.clan.infection["story_cat_1"])
-            sc2 = Cat.all_cats.get(game.clan.infection["story_cat_2"])
-            sc3 = Cat.all_cats.get(game.clan.infection["story_cat_3"])
-            sc4 = Cat.all_cats.get(game.clan.infection["story_cat_4"])
 
-            infologs = [i for i in game.clan.infection["logs"] if not i.startswith("story_")]
-            storylogs = [i for i in game.clan.infection["logs"] if i.startswith("story_")]
+            infologs = [i for i in game.clan.infection["logs"] if not i.startswith("lore_")]
+            lorelogs = [i for i in game.clan.infection["logs"] if i.startswith("lore_")]
             stats_text = ""
+            stats_text2 = ""
             for i in infologs:
                 log = a_txt[i].replace("herb1", str(game.clan.infection["cure"][0])).replace("herb2", str(game.clan.infection["cure"][1])).replace("herb3", str(game.clan.infection["cure"][2])).replace("herb4", str(game.clan.infection["cure"][3]))
                 
                 stats_text += "-" + log + "\n" + "<br>"
-
-            stats_text2 = ""
-            for i in storylogs:
-                sc1name = str(sc1.name) if sc1 else ""
-                sc2name = str(sc2.name) if sc2 else ""
-                sc3name = str(sc3.name) if sc3 else ""
-                sc4name = str(sc4.name) if sc4 else ""
-
-                log2 = a_txt[i].replace("sc1", f"<font color='#011E39'><b>{sc1name}</b></font>").replace("sc2", f"<font color='#263518'><b>{sc2name}</b></font>").replace("sc3", f"<font color='#331A56'><b>{sc3name}</b></font>").replace("sc4", f"<font color='#24123D'><b>{sc4name}</b></font>")
-
-                stats_text2 += "-" + log2 + "\n" + "<br>"
+            for i in lorelogs:
+                log = a_txt[i].replace("herb1", str(game.clan.infection["cure"][0])).replace("herb2", str(game.clan.infection["cure"][1])).replace("herb3", str(game.clan.infection["cure"][2])).replace("herb4", str(game.clan.infection["cure"][3]))
+                
+                stats_text2 += "-" + log + "\n" + "<br>"
 
             self.heading1 = pygame_gui.elements.UITextBox(
-                f"<b>Information:</b>",
+                f"<b>Events:</b>",
                 scale(pygame.Rect((200, 220), (560, 60))),
                 manager=MANAGER,
                 object_id=get_text_box_theme("#text_box_30_horizcenter"))
 
             self.heading2 = pygame_gui.elements.UITextBox(
-                f"<b>Story:</b>",
+                f"<b>Information:</b>",
                 scale(pygame.Rect((800, 220), (560, 60))),
                 manager=MANAGER,
                 object_id=get_text_box_theme("#text_box_30_horizcenter"))
@@ -293,7 +283,7 @@ class CureLogScreen(Screens):
             
             self.stats_box2 = pygame_gui.elements.UITextBox(
                 f"<font color='#120905'>{stats_text2}</font>",
-                scale(pygame.Rect((820, 340), (530, 720))),
+                scale(pygame.Rect((800, 340), (530, 720))),
                 manager=MANAGER,
                 object_id=get_text_box_theme("#text_box_30_horizcenter"))
             

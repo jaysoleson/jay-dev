@@ -187,27 +187,6 @@ class Events:
             else:
                 game.clan.infection["time_to_next_infection"] -= 1
 
-        if game.clan.infection["story_finished"] is True:
-            game.clan.infection["story_break_moons"] += 1
-        
-        if game.clan.infection["story_break_moons"] == 10: # put this in game config maybe
-            print("STORY RESET")
-            game.clan.infection["story_finished"] = False
-            game.clan.infection["story_break_moons"] = 0
-            game.clan.infection["past_stories"].append(game.clan.infection["story"])
-            for log in game.clan.infection["logs"].copy():
-                if log.startswith(f"story_{game.clan.infection['story']}"):
-                    game.clan.infection["logs"].remove(log)
-            game.clan.infection["story"] = None
-            game.clan.infection["story_cat_1"] = None
-            game.clan.infection["story_cat_2"] = None
-            game.clan.infection["story_cat_3"] = None
-            game.clan.infection["story_cat_4"] = None
-
-            # clearing the story info after a while so we can get another one!
-            
-
-
         get_current_season()
         Pregnancy_Events.handle_pregnancy_age(game.clan)
         self.check_war()
@@ -543,8 +522,6 @@ class Events:
         # INFECTION: other clans
         self.other_clans_infection()
 
-        self.infection_story(cat)
-
         # Resort
         if game.sort_type != "id":
             Cat.sort_cats()
@@ -601,8 +578,6 @@ class Events:
                         points += 3
                     elif f"{game.clan.infection['infection_type']} stage four" in cat.illnesses:
                         points += 4
-            
-
             infection_chance = infection_chance + (-points * 2)
 
         # if len(infected_talked_to) == 0 and (len(all_cats) - len(infected_cats)) > len(infected_cats):
@@ -625,36 +600,6 @@ class Events:
             event = "It seems you've been in contact with too many infected cats. You are now infected."
             print("Infection chance HIT: You are now infected.")
             game.cur_events_list.insert(0, Single_Event(event, ["alert", "infection"]))
-            
-    
-    def infection_story(self, cat):
-        """ handles certain infection story beats.
-            mostly the,, technical stuff. """
-        # INFECTION: story
-        # STORY 1
-        if game.clan.infection["story"] == "1":
-            # assigning a second cat for story 1-- the cat who has a history with the firdt cat (encountered rogue)
-            if "story_1_step_1" in game.clan.infection["logs"]:
-                already_second = False
-                first = None
-                for cat in Cat.all_cats_list:
-                    if cat.ID == game.clan.infection["story_cat_2"]:
-                        if "story_1_step_2" not in game.clan.infection["logs"]:
-                            if cat.dead or cat.outside or cat.exiled or cat.moons > 90:
-                                print("second cat is now illegible. rerolling while we still can!")
-                                break
-                            else:
-                                already_second = True
-                                break
-                        else:
-                            already_second = True
-                first = game.clan.infection["story_cat_1"]
-                if not already_second:
-                    eligible_cats = [cat for cat in Cat.all_cats_list if cat.status not in ["newborn", "kitten", "elder"] and cat.moons > 10 and cat.moons < 90 and cat.infected_for < 1 and cat.ID != game.clan.your_cat.ID and not cat.outside and not cat.dead and not cat.exiled and cat.ID != first]
-                    second = random.choice(eligible_cats)
-                    game.clan.infection["story_cat_2"] = second.ID
-                    print(second.name, "is now the second story cat")
-
 
     def add_freshkill(self):
         """Adds amount of freshkill needed for the Clan"""

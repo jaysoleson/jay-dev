@@ -19,24 +19,6 @@
             "[You insist that {PRONOUN/t_c/object} {VERB/t_c/sleep/sleeps}, and that you'll look after the kits. Even though {PRONOUN/t_c/subject} {VERB/t_c/don't/doesn't} say it, you can tell {PRONOUN/t_c/subject} {VERB/t_c/appreciate/appreciates} the help.]"
         ]
     ],
-    "story_J1": [
-        [
-            "any",
-            "story_1",
-            "pre_story_1_step_2",
-            "they_deputy",
-            "they_warrior",
-            "they_leader",
-            "they_blind"
-        ],
-        [
-            "Where in StarClan's name is sc_2? y_c, have you seen {PRONOUN/sc_2/object}?",
-            "No? Ugh. Probably out touching noses with that rogue again...",
-            "Oh, sorry. It's not polite to gossip. It's just, my patrol last night spotted {PRONOUN/sc_2/object} talking to a rogue. Getting that close to strangers sure isn't gonna help the Clan stay strong... They could be infected!",
-            "*Sigh* Can you just let {PRONOUN/sc_2/object} know I'm looking for {PRONOUN/sc_2/object} if you find {PRONOUN/sc_2/object} before I do?",
-            "Thanks."
-        ]
-    ],
     "about_infected_J1": [
         [
             "any",
@@ -573,156 +555,6 @@
             "[You feel awful, but you force yourself not to sympathise. t_c is so sick, {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} barely your Clanmate anymore.]"
         ]
     ],
-    "story_key_story_1_step_2": [
-        [
-            "any",
-            "story_1",
-            "story_1_step_2",
-            "story_key",
-            "you_sc_4",
-            "they_sc_2",
-            "they_blind",
-            "you_blind"
-        ],
-        [
-            "[You approach t_c, a question on your mind.]",
-            "Hm? Oh, a rogue? What did they look like?",
-            "... ... ...",
-            "I don't know why you'd be talking to <i>me</i> about this. You think I know who that is? I don't.",
-            "... ... ... ...",
-            "Where did you say you found {PRONOUN/sc_1/object}?",
-            "[You direct t_c in a vague direction and {PRONOUN/t_c/subject} {VERB/t_c/run/runs} off. It seems {PRONOUN/t_c/subject} {VERB/t_c/know/knows} more than {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} letting on, and {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} terrible at hiding it.]",
-            "[Your log has been updated.]"
-        ]
-    ],
-    "story_key_story_1_step_3": {
-        "tags": [
-            "any",
-            "story_1",
-            "post_story_1_step_2",
-            "story_1_step_3",
-            "story_key",
-            "you_sc_4",
-            "they_sc_1"
-        ],
-        "intro": [
-            "Okay, fine. I know sc_2 won't tell you, but I know you really want to know. Just, don't tell anyone else, okay?",
-            "When you found me out in the territory... that hole in the ground that I wouldn't show you...",
-            "*Sigh*",
-            "My friend was in there. Our friend. Me and sc_2's, I mean.",
-            "{PRONOUN/sc_3/subject/CAP} got infected really early on. {PRONOUN/sc_3/subject/CAP} {VERB/sc_3/were/was} already pretty sickly, so, it killed {PRONOUN/sc_3/object} pretty quickly.",
-            "I didn't want to leave {PRONOUN/sc_3/object}. I think sc_2 is still in denial about the whole thing, really."
-        ],
-        "intro_choices": {
-            "choice1": {
-                "text": "What was {PRONOUN/sc_3/poss} name?",
-                "next_scene": "name"
-            },
-            "choice2": {
-                "text": "I'm so sorry.",
-                "next_scene": "sorry"
-            }
-        },
-        "name": [
-            "[t_c chokes up for a moment. You feel a bit bad for asking.]",
-            "{PRONOUN/sc_3/poss/CAP} name was sc_3. {PRONOUN/sc_3/subject/CAP} {VERB/sc_3/were/was} wonderful.",
-            "{PRONOUN/sc_3/subject/CAP} really loved sunflowers. {PRONOUN/sc_3/subject/CAP} {VERB/sc_3/were/was} just like them, I think. Always looking up, never in the shade...",
-            "I guess that's why I never really buried {PRONOUN/sc_3/object}. I didn't want to hide {PRONOUN/sc_3/object} from the sun, you know?",
-            "... ... ..."
-        ],
-        "name_choices": {
-            "choice1": {
-                "text": "You should rest.",
-                "next_scene": "getsomerest"
-            },
-            "choice2": {
-                "text": "I'll sit with you.",
-                "next_scene": "sitwithyou"
-            }
-        },
-        "sorry": [
-            "Oh, it's okay... that's just how life is now, huh?",
-            "Maybe it's good {PRONOUN/sc_3/subject} stepped out right as it all started."
-        ],
-        "sorry_choices": {
-            "choice1": {
-                "text": "What was {PRONOUN/sc_3/poss} name?",
-                "next_scene": "name"
-            },
-            "choice2": {
-                "text": "Get some rest",
-                "next_scene": "getsomerest"
-            }
-        },
-        "getsomerest":[
-            "I guess you're right. You've got some comfy nests here, don't you? Haven't had one of those in a while.",
-            "I'll go find sc_2. Thank you.",
-            "[Your log has been updated.]"
-        ],
-        "sitwithyou": [
-            "Thank you. I'm a bit tired of talking, too, actually...",
-            "[You crouch down next to t_c, and the emotionally exhausted cat begins snoring into your fur almost immediately.]",
-            "[Your log has been updated.]"
-        ]
-    },
-    "story_1_filler_1": {
-        "tags": [
-            "any",
-            "story_1",
-            "post_story_1_step_3",
-            "pre_story_1_step_4",
-            "you_sc_4",
-            "they_sc_2",
-            "they_blind",
-            "you_blind"
-        ],
-        "intro": [
-            "*Sigh*",
-            "sc_1 told you, huh?",
-            "That's fine. {PRONOUN/sc_1/subject/CAP} could never keep {PRONOUN/sc_1/poss} mouth shut.",
-            "[t_c purrs affectionately.]",
-            "I met sc_1 a long time ago. Just out on the territory. I know I should've kicked {PRONOUN/sc_1/object} out, but... {PRONOUN/sc_1/subject} {VERB/sc_1/were/was} so... charming. I wanted to keep {PRONOUN/sc_1/object} around.",
-            "Does that make me a bad Clanmate?"
-        ],
-        "intro_choices": {
-            "choice1": {
-                "text": "No",
-                "next_scene": "badwarrior_no"
-            },
-            "choice2": {
-                "text": "Yes",
-                "next_scene": "badwarrior_yes"
-            }
-        },
-        "badwarrior_yes": [
-            "Haha! Okay, I guess I deserve that.",
-            "I don't regret keeping {PRONOUN/sc_1/object} around, though. Not one bit.",
-            "{PRONOUN/sc_1/subject/CAP} introduced me to sc_3. I assume {PRONOUN/sc_1/subject} told you about {PRONOUN/sc_3/object}?",
-            "{PRONOUN/sc_3/subject/CAP} didn't deserve to die. But, I guess none of us do, and it still happens.",
-            "I'm rambling. Feel free to ignore me.",
-            "I'm gonna go find sc_1.",
-            "[t_c skips away to go find {PRONOUN/t_c/poss} friend.]"
-        ],
-        "badwarrior_no": [
-            "Ah, well, I'm glad. I wouldn't regret it, either way. {PRONOUN/sc_1/subject/CAP} {VERB/sc_1/make/makes} me happy.",
-            "{PRONOUN/sc_1/subject/CAP} introduced me to sc_3. I assume {PRONOUN/sc_1/subject} told you about {PRONOUN/sc_3/object}?",
-            "{PRONOUN/sc_3/subject/CAP} didn't deserve to die. But, I guess none of us do, and it still happens.",
-            "I'm rambling. Feel free to ignore me.",
-            "I'm gonna go find sc_1.",
-            "[t_c skips away to go find {PRONOUN/t_c/poss} friend.]"
-        ]
-    },
-    "story_1_filler_2":[
-        [
-            "they_sc_1",
-            "post_story_1_step_4",
-            "any"
-        ],
-        [
-            "What is it you Clan cats say about dead cats, again? That each one is a star?",
-            "So, sc_3 must be one of them, right? I've been staring at them this whole time without even knowing."
-        ]
-    ],
     "infected_shunned_J1": [
         [
             "they_infected",
@@ -1016,5 +848,49 @@
             "[You quickly assure t_c that you aren't infected, and just came into the medicine den because of a small cut.]",
             "Oh! Thank StarClan. I'll get to taking care of that for you then."
         ]
-    ]
+    ],
+    "log_prereq_J1": {
+        "tags": [
+            "any",
+            "neurotic",
+            "stable",
+            "introspective",
+            "cool",
+            "no_kit",
+            "infection",
+            "parasitic",
+            "they_not_infected",
+            "you_not_infected",
+            "they_blind",
+            "you_blind"
+        ],
+        "log_prereq": [
+            "lore_parasitic_3"
+        ],
+        "intro": [
+            "I always thought Twolegs were supposed to be stronger than us.",
+            "Not smarter, of course. Just stronger. But this infection is getting them too, isn't it?",
+            "Are we going to survive if even the Twolegs can't?"
+        ]
+    },
+    "log_prereq_J2": {
+        "tags": [
+            "any",
+            "neurotic",
+            "no_kit",
+            "infection",
+            "parasitic",
+            "they_not_infected",
+            "you_not_infected",
+            "they_blind",
+            "you_blind"
+        ],
+        "log_prereq": [
+            "lore_parasitic_4"
+        ],
+        "intro": [
+            "If Twolegs are killing each other, does that mean that will happen to us?",
+            "Will we have to kill plove_inf_c?"
+        ]
+    }
 }
