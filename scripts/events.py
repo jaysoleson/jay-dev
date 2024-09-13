@@ -1847,20 +1847,23 @@ class Events:
 
         increase_chance = 0
         for clan in game.clan.all_clans:
-            if int(clan.infection_level) > 0:
-                if clan.temperament in temperament_list:
-                    index = temperament_list.index(clan.temperament)
-                    increase_amount = int(chance_increase[index])
-                    increase_chance += (increase_amount + random.randint(-2,5))
+            if clan.name in game.clan.infection["fallen_clans"]:
+                continue
+            if clan.temperament in temperament_list:
+                index = temperament_list.index(clan.temperament)
+                increase_amount = int(chance_increase[index])
+                increase_chance += (increase_amount + random.randint(-2,5))
 
-                increase_chance = max(1, min(increase_chance, 10))
+            increase_chance = max(1, min(increase_chance, 10))
 
-                if random.random() < 1 / increase_chance:
-                    increase = random.randint(1, 8)
-                    level = int(clan.infection_level)
-                    level += increase
-                    clan.infection_level = str(level)
-                    # this sucks
+            increase_chance = 1
+
+            if random.random() < 1 / increase_chance:
+                increase = random.randint(1, 8)
+                level = int(clan.infection_level)
+                level += increase
+                clan.infection_level = str(level)
+                # this sucks
                 
             # clan infection events
             if int(clan.infection_level) == 0:
@@ -1905,14 +1908,51 @@ class Events:
             elif int(clan.infection_level) >= 100 and clan.name not in game.clan.infection["fallen_clans"]:
 
                 game.clan.infection["fallen_clans"].append(clan.name)
-                game.clan.all_clans.remove(clan)
-                # i have to add the fallen_clans list to the leaders den once i have it
-                # like. the clan as normal but its crossed out
+                print(clan.name, "IS FALLEN")
+
+                # now, create some new cats to be former clancats to be discovered by the clan
+                new_cats_num = random.randint(1,6)
+
+                if new_cats_num > 0:
+                    event = f"Some {clan.name}Clan cats have fled to live just beyond their old territory."
+                    game.cur_events_list.insert(0, Single_Event(event, ["other_clans", "infection"]))
+
+                new_cats = {}
+                new_kits = {}
+                for i in range(new_cats_num):
+                    new_cats[i] = create_new_cat(Cat,
+                                            new_name=True,
+                                            backstory = "infection_refugee",
+                                            thought=f"Wishes to return to {clan.name}Clan",
+                                            age=random.randint(6,120),
+                                            outside=True)[0]
+                for x in new_cats.items():
+                    print("new cat dict item", x)
+                    new_cat = x[1]
+                    new_cat.status = "former Clancat"
+                    # changing the status after so they properly get clan names
+
+                    if new_cat.moons > 20 and new_cat.moons < 90:
+                        if random.randint(1,2) == 1:
+                            print("giving kits to", new_cat.name)
+                            kit_age = random.randint(0,5)
+                            kit_count = random.randint(1,5)
+
+                            for i in range(kit_count):
+                                new_kits[i] = create_new_cat(Cat,
+                                                backstory = "infection_refugee",
+                                                status="kitten",
+                                                thought="Is scared",
+                                                age=kit_age,
+                                                outside=True,
+                                                parent1=new_cat.ID)[0]
+                            for new_kit in new_kits.items():
+                                new_kit[1].status = "former Clancat"
 
                 events = [
                     f"The infection has taken its toll. The {clan.name}Clan camp has been completely abandoned.",
                     f"{clan.name}Clan has fallen to the infection.",
-                    f"At a Gathering, the {clan.name}Clan leader announces that they will be leaving to scape the infection. The next morning, their borders are unmarked. {clan.name}Clan is gone."
+                    f"At a Gathering, the {clan.name}Clan leader announces that they will be leaving to escape the infection. The next morning, their borders are unmarked. {clan.name}Clan is gone."
                 ]
                 # MAKE A JSON FOR THESE LAZY
 
@@ -2406,6 +2446,14 @@ class Events:
                 )
             )
             med_amount = game.config["focus"]["herb gathering"]["med"]
+
+            # INF
+            if "herb_death" in game.clan.infection["logs"]:
+                med_amount /= 2
+                med_amount = math.ceil(med_amount)
+                # divide herbs by two if herb death
+            ####
+
             for med in healthy_meds:
                 herbs_found.extend(random.sample(HERBS, k=med_amount))
 

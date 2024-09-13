@@ -100,5 +100,32 @@
         }
       ]
     }
+  },
+  {
+    "interaction_type": "invite",
+    "event_text": "m_c was found and invited back into Clan life.",
+    "reputation": ["any"],
+    "rep_change": -1,
+    "m_c": {
+      "status": ["former Clancat"],
+      "new_thought": "Is glad to be back in a Clan",
+      "kit_thought": "Is enjoying the new nursery",
+      "relationships": [
+        {
+          "cats_from": ["m_c"],
+          "cats_to": ["clan"],
+          "mutual": false,
+          "values": ["dislike"],
+          "amount": -5
+        },
+        {
+          "cats_from": ["m_c"],
+          "cats_to": ["some_clan"],
+          "mutual": false,
+          "values": ["trust"],
+          "amount": 5
+        }
+      ]
+    }
   }
 ]

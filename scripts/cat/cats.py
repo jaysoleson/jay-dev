@@ -2594,8 +2594,12 @@ class Cat:
             # no random infection for MC
             return
         
+        if "undead" in self.illnesses:
+            return
+        
         # if cat.quarantined and self.status not in ["medicine cat", "medicine cat apprentice"]:
         #     return
+        # uncomment for easy mode if that ever happens
         
         infectious_illnesses = []
         if cat.is_ill():

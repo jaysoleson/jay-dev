@@ -155,6 +155,14 @@ class TreatmentScreen(Screens):
             elif event.ui_element == self.previous_page_button:
                 self.current_page -= 1
                 self.update_cat_list()
+            elif "cure_button" in self.herb_displays and event.ui_element == self.herb_displays["cure_button"]:
+                self.herb1 = game.clan.infection["cure"][0]
+                self.herb2 = game.clan.infection["cure"][1]
+                self.herb3 = game.clan.infection["cure"][2]
+                self.herb4 = game.clan.infection["cure"][3]
+                self.update_herb_buttons()
+                self.update_treatment_display()
+
             for herb, button in self.herb_buttons.items():
                 if self.herb1 is None and self.herb2 is None and self.herb3 is None and self.herb4 is None:
                     self.next_stage_button.disable()
@@ -197,10 +205,12 @@ class TreatmentScreen(Screens):
             self.herb_displays[ele].kill()
         self.herb_displays = {}
 
-        self.herb_displays["desc"] = pygame_gui.elements.UITextBox("<u>Pick up to four herbs to try.</u>",
-                                                        scale(pygame.Rect((300, 880), (1000, 80))),
-                                                        object_id=get_text_box_theme("#text_box_34_horizcenter"),
-                                                        manager=MANAGER)
+        self.herb_displays["desc"] = pygame_gui.elements.UITextBox(
+            "<u>Pick up to four herbs to try.</u>",
+            scale(pygame.Rect((300, 880), (1000, 80))),
+            object_id=get_text_box_theme("#text_box_34_horizcenter"),
+            manager=MANAGER
+            )
         
         self_herbs = [self.herb1, self.herb2, self.herb3, self.herb4]
         herb_list = []
@@ -215,10 +225,29 @@ class TreatmentScreen(Screens):
         else:
             text = f"{', '.join([herb.replace('_', ' ') for herb in herb_list[:-1]])}, {herb_list[-1].replace('_', ' ')}"
 
-        self.herb_displays["herbs"] = pygame_gui.elements.UITextBox(f"<i>{text}</i>",
-                                                    scale(pygame.Rect((300, 950), (1000, 80))),
-                                                    object_id=get_text_box_theme("#text_box_34_horizcenter"),
-                                                    manager=MANAGER)
+        self.herb_displays["herbs"] = pygame_gui.elements.UITextBox(
+            f"<i>{text}</i>",
+            scale(pygame.Rect((300, 950), (1000, 80))),
+            object_id=get_text_box_theme("#text_box_34_horizcenter"),
+            manager=MANAGER
+            )
+        
+        if "cure_found" in game.clan.infection["logs"]:
+            self.herb_displays["cure_button"] = UIImageButton(
+                    scale(pygame.Rect((300, 780), (160, 80))), 
+                    "Use cure",
+                    object_id="",
+                    manager=MANAGER
+                )
+        
+        if "cure_button" in self.herb_displays:
+            cure_unstocked = False
+            for herb in game.clan.infection["cure"]:
+                if herb not in game.clan.herbs.keys():
+                    cure_unstocked = True
+                    break
+            if cure_unstocked is True:
+                self.herb_displays["cure_button"].disable()
 
     def update_herb_buttons(self):
         """ Displays and updates herb buttons """

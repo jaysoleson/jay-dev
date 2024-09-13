@@ -8,7 +8,9 @@
         "patrol_art": "gen_bord_otherclan_allies",
         "min_cats": 1,
         "max_cats": 6,
-        "min_max_status": {},
+        "min_max_status": {
+            "healer cats": [-1, 0]
+        },
         "weight": 30,
         "intro_text": "The patrol catches the scent of infection as they near the o_c_n border.",
         "decline_text": "They decide to patrol elsewhere.",

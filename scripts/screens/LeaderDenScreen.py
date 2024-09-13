@@ -431,7 +431,7 @@ class LeaderDenScreen(Screens):
 
             self.other_clan_selection_elements[f"clan_name{i}"] = (
                 pygame_gui.elements.UILabel(
-                    scale(pygame.Rect((27 + (x_pos * i), 210), (244, -1))),
+                    scale(pygame.Rect((27 + (x_pos * i), 200), (244, -1))),
                     text=f"{other_clan.name}Clan",
                     object_id=get_text_box_theme("#text_box_30_horizcenter"),
                     container=self.other_clan_selection_container,
@@ -440,7 +440,7 @@ class LeaderDenScreen(Screens):
             )
             self.other_clan_selection_elements[f"clan_temper{i}"] = (
                 pygame_gui.elements.UILabel(
-                    scale(pygame.Rect((27 + (x_pos * i), 260), (244, -1))),
+                    scale(pygame.Rect((27 + (x_pos * i), 250), (244, -1))),
                     text=f"{other_clan.temperament.strip()}",
                     object_id=get_text_box_theme("#text_box_22_horizcenter"),
                     container=self.other_clan_selection_container,
@@ -449,13 +449,23 @@ class LeaderDenScreen(Screens):
             )
             self.other_clan_selection_elements[f"clan_rel{i}"] = (
                 pygame_gui.elements.UILabel(
-                    scale(pygame.Rect((27 + (x_pos * i), 290), (244, -1))),
+                    scale(pygame.Rect((27 + (x_pos * i), 280), (244, -1))),
                     text=f"{get_other_clan_relation(other_clan.relations).strip()}",
                     object_id=get_text_box_theme("#text_box_22_horizcenter"),
                     container=self.other_clan_selection_container,
                     manager=MANAGER,
                 )
             )
+            if other_clan.name in game.clan.infection["fallen_clans"]:
+                self.other_clan_selection_elements[f"clan_fallen{i}"] = (
+                    pygame_gui.elements.UILabel(
+                        scale(pygame.Rect((27 + (x_pos * i), 315), (244, -1))),
+                        text="FALLEN",
+                        object_id=get_text_box_theme("#text_box_22_horizcenter_green"),
+                        container=self.other_clan_selection_container,
+                        manager=MANAGER,
+                    )
+                )
 
     def create_outsider_selection_box(self):
         self.outsider_selection_container = pygame_gui.elements.UIAutoResizingContainer(
@@ -588,23 +598,32 @@ class LeaderDenScreen(Screens):
             manager=MANAGER,
         )
 
-        self.focus_frame_elements["negative_interaction"] = UIImageButton(
-            scale(pygame.Rect((118, 531), (242, 60))),
-            "",
-            object_id="#clan_befriend",
+        if self.focus_clan.name not in game.clan.infection["fallen_clans"]:
+            self.focus_frame_elements["negative_interaction"] = UIImageButton(
+                scale(pygame.Rect((118, 531), (242, 60))),
+                "",
+                object_id="#clan_befriend",
+                container=self.focus_clan_container,
+                starting_height=3,
+                manager=MANAGER,
+                visible=False,
+            )
+            self.focus_frame_elements["positive_interaction"] = UIImageButton(
+                scale(pygame.Rect((118, 611), (242, 60))),
+                "",
+                object_id="#clan_provoke",
+                container=self.focus_clan_container,
+                starting_height=3,
+                manager=MANAGER,
+                visible=False,
+            )
+        else:
+            self.focus_clan_elements["clan_fallen_text"] = pygame_gui.elements.UILabel(
+            scale(pygame.Rect((x_pos, 500), (439, -1))),
+            text=f"{self.focus_clan.name}Clan has fallen.",
+            object_id="#text_box_30_horizcenter",
             container=self.focus_clan_container,
-            starting_height=3,
             manager=MANAGER,
-            visible=False,
-        )
-        self.focus_frame_elements["positive_interaction"] = UIImageButton(
-            scale(pygame.Rect((118, 611), (242, 60))),
-            "",
-            object_id="#clan_provoke",
-            container=self.focus_clan_container,
-            starting_height=3,
-            manager=MANAGER,
-            visible=False,
         )
 
         if self.no_gathering:
