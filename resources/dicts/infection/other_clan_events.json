@@ -1,0 +1,69 @@
+{
+    "none": [
+        "o_c_n looked well at the last Gathering. Perhaps the infection hasn't reached them yet.",
+        "o_c_n's border markers smell clean and uninfected. Have they somehow not come across the disease yet?",
+        "The healthy group of o_c_n cats avoids the other Clans at the Gathering."
+    ],
+    "none_allies": [
+        "The o_c_n leader offers their sympathy to c_n while they deal with this infection, though they cannot relate."
+    ],
+    "none_hostile": [
+        "The o_c_n leader snickers when lead_name informs the Gathering of their struggle with the infection."
+    ],
+    "low": [
+        "A patrol returns home and reports seeing an infected rogue across the border in o_c_n territory.",
+        "o_c_n's border markers have started to occasionally smell of infection.",
+        "One of o_c_n's medicine cats is seen on the border. They ask for herbs, and though they refuse to say why they need them, the unmistakable scent of the infection clings to their pelt."
+    ],
+    "low_allies": [
+        "med_name offers the o_c_n medicine cats some herbs to hopefully deal with the infection, but o_c_n politely declines, trying to insist that they're fine."
+    ],
+    "low_hostile": [
+        "Herb patches closer to the o_c_n border are more bare than usual...",
+        "o_c_n's medicine cats don't show up to the Gathering. Their leader snaps that they're just busy in camp, but c_n knows exactly what that means."
+    ],
+    "mid": [
+        "o_c_n has been showing up to Gatherings with fewer and fewer cats.",
+        "To a half-moon meeting, o_c_n's senior medicine cat shows up alone. When asked where their apprentice is, they do not answer, but the rest of the gathered cats exchange knowing looks.",
+        "With sad eyes, the o_c_n leader announces at the Gathering that they've lost a Clanmate to the infection."
+    ],
+    "mid_allies": [
+        "o_c_n reaches out to try and trade some herbs."
+    ],
+    "mid_hostile": [
+        "An infected o_c_n apprentice is scolded for hopping the border to steal herbs."
+    ],
+    "high": [
+        "o_c_n has been burying their infected dead near the border. The plants in the ground nearby have started to wilt.",
+        "o_c_n has stopped showing up to Gatherings.",
+        "o_c_n has closed their borders indefinitely.",
+        "A patrol returns to camp one morning, announcing that they'd fought off a small wave of sick o_c_n cats that were mindlessly stumbling over the border.",
+        "o_c_n's border marking has become wildly inconsistent as the scent of the infection from their territory grows stronger.",
+        "o_c_n's leader shows up to the Gathering alone."
+    ],
+    "high_allies": [
+        "o_c_n's leader turns away c_n mediators, saying that they don't want to infect c_n when o_c_n is doing so terribly."
+    ],
+    "high_hostile": [
+        "When c_n and o_c_n patrols meet on the border, both sides pretend that nothing is wrong, but c_n can see how quickly o_c_n's numbers are dwindling."
+    ],
+    "fallen": [
+        "The infection has taken its toll. The o_c_n camp has been completely abandoned.",
+        "At a Gathering, the o_c_n leader announces that they will be leaving to escape the infection. The next morning, their borders are unmarked. o_c_n is gone.",
+        "At the Gathering, a lone o_c_n apprentice announces that the rest of their Clan has fled the territory to escape the infection, before leaving the Gathering grounds to join their Clanmates.",
+        "lead_name hasn't heard from o_c_n lately, and med_name hasn't seen o_c_n's medicine cats at the half-moon meetings. After sending a patrol to o_c_n's camp, the Clan has learned that o_c_n is no more."
+
+    ],
+    "fallen_allies": [
+        "lead_name's voice shakes with sadness when announcing to the camp that their allies, o_c_n, have fallen to the infection.",
+        "c_n's allies, o_c_n, have succumbed to the infection and disbanded.",
+        "med_name pays a visit to o_c_n to discuss some herb supply issues with their medicine cat. However, upon arrival, med_name finds a horrible sight. The only cats left in o_c_n camp are the infected, and the Clan is no more."
+    ],
+    "fallen_hostile": [
+        "c_n wasn't on good terms with o_c_n, but they still hold a silent vigil when they learn that o_c_n has fallen to the infection."
+    ],
+    "fallen_war": [
+        "A battle patrol descends upon the o_c_n camp. When they get there, however, they find a chilling sight. The camp is empty, the only cats in sight being a few scattered, infected corpses. o_c_n has fallen to the infection.",
+        "A battle patrol fights a group of heavily infected o_c_n cats. When they get to their camp, however, they realise that there are no healthy cats left. o_c_n camp has been abandoned, and it belongs to the infected now."
+    ]
+}

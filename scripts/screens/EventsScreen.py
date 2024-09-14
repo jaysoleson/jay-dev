@@ -892,7 +892,7 @@ class EventsScreen(Screens):
                         image_path += ".png"
 
                     self.event_display_elements[f"shading{i}"] = pygame_gui.elements.UIImage(
-                        scale(pygame.Rect((0, y_pos), (1028, y_len + 50))),
+                        scale(pygame.Rect((0, y_pos), (1028, text_box_len + 125))),
                         image_cache.load_image(image_path),
                         starting_height=1,
                         object_id=f"shading{i}",

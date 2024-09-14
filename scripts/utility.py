@@ -3007,8 +3007,15 @@ def abbrev_addons(t_c, r_c, cluster, x, rel, r):
         cluster and rel are booleans for if the addons are present.
     """
 
-    if (cluster and x not in get_cluster(r_c.personality.trait)):
+    if cluster and x == "infected" and r_c.infected_for < 1:
         return False
+
+    if cluster and x != "infected" and r_c.infected_for > 0:
+        return False
+
+    if (cluster and x != "infected" and x not in get_cluster(r_c.personality.trait)):
+        return False
+        
     
     if (rel and (r_c.ID not in t_c.relationships) or\
     (r == "plike" and t_c.relationships[r_c.ID].platonic_like < 20) or\

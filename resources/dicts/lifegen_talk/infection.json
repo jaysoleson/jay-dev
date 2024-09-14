@@ -30,8 +30,8 @@
             "infection"
         ],
         [
-            "plove_inf_c lunged at me yesterday. To bite me.",
-            "I... I thought {PRONOUN/plove_inf_c/subject}'d be different. That {PRONOUN/plove_inf_c/subject} wouldn't let {PRONOUN/plove_inf_c/poss} brain get taken over by this disease.",
+            "plove_r_c_infected lunged at me yesterday. To bite me.",
+            "I... I thought {PRONOUN/plove_r_c_infected/subject}'d be different. That {PRONOUN/plove_r_c_infected/subject} wouldn't let {PRONOUN/plove_r_c_infected/poss} brain get taken over by this disease.",
             "I'm really scared."
         ]
     ],
@@ -46,7 +46,7 @@
             "infection"
         ],
         [
-            "It's really hard not getting close to plove_inf_c. I used to sit with {PRONOUN/plove_inf_c/object} every day, and now I'm not supposed to at all?",
+            "It's really hard not getting close to plove_r_c_infected. I used to sit with {PRONOUN/plove_r_c_infected/object} every day, and now I'm not supposed to at all?",
             "Maybe I can convince r_m to let me, just, plug my nose, or something..."
         ]
     ],
@@ -64,7 +64,7 @@
         ],
         [
             "You know, this infection isn't so bad.",
-            "I have an excuse to avoid dislike_inf_c like the plague now.",
+            "I have an excuse to avoid dislike_r_c_infected like the plague now.",
             "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/were/was} definitely already doing that...]"
         ]
     ],
@@ -82,9 +82,9 @@
         ],
         [
             "[t_c looks exhausted. {VERB/t_c/Have/Has} {PRONOUN/t_c/subject} slept at all recently?]",
-            "inf_c is looking especially bad today. {PRONOUN/inf_c/poss/CAP} condition's getting worse.",
+            "r_c_infected is looking especially bad today. {PRONOUN/r_c_infected/poss/CAP} condition's getting worse.",
             "And so is... every other patient...",
-            "But we have to choose somewhere to start. Go try another treatment on inf_c. Please."
+            "But we have to choose somewhere to start. Go try another treatment on r_c_infected. Please."
         ]
     ],
     "infected_J1": [
@@ -351,8 +351,8 @@
             "infection"
         ],
         [
-            "[Although t_c isn't supposed to, {PRONOUN/t_c/subject}{VERB/t_c/'ve/'s} snuck into the medicine den to see plove_inf_c and {VERB/t_c/are/is} licking the top of {PRONOUN/plove_inf_c/poss} head quietly.]",
-            "It's okay... It'll be okay. I'm here, I promise, plove_inf_c. You'll be better soon.",
+            "[Although t_c isn't supposed to, {PRONOUN/t_c/subject}{VERB/t_c/'ve/'s} snuck into the medicine den to see plove_r_c_infected and {VERB/t_c/are/is} licking the top of {PRONOUN/plove_r_c_infected/poss} head quietly.]",
+            "It's okay... It'll be okay. I'm here, I promise, plove_r_c_infected. You'll be better soon.",
             "[The cat is clearly in pain, but t_c being there is soothing it ever so slightly.]"
         ]
     ],
@@ -594,10 +594,10 @@
             "infection"
         ],
         [
-            "So y_c, how do you help cats like plike_inf_c get better?",
+            "So y_c, how do you help cats like plike_r_c_infected get better?",
             "[You paw at the herbs, explaining your general process.]",
             "Oh!",
-            "Can I help? I want {PRONOUN/plike_inf_c/object} to feel better and not icky!"
+            "Can I help? I want {PRONOUN/plike_r_c_infected/object} to feel better and not icky!"
         ]
     ],
     "infection_celeste_1": [
@@ -710,17 +710,17 @@
             "you_not_med"
         ],
         [
-            "Still thinking about plove_inf_c?",
+            "Still thinking about plove_r_c_infected?",
             "[t_c's words bring you back down to Earth. {PRONOUN/t_c/poss/CAP} expression is a mix of amusement and sympathy.]",
             "Sorry, didn't mean to startle you.",
             "[Before the ensuing silence can get too awkward, t_c speaks up again, reaching a paw out toward you.]",
-            "I know you're going through a lot right now, y_c. But I'm convinced plove_inf_c will get better. r_m has been working hard for all of us, and {VERB/t_c/have/has} {PRONOUN/t_c/subject} ever let the Clan down?",
+            "I know you're going through a lot right now, y_c. But I'm convinced plove_r_c_infected will get better. r_m has been working hard for all of us, and {VERB/t_c/have/has} {PRONOUN/t_c/subject} ever let the Clan down?",
             "[You ponder t_c's question for a moment.]",
             "[...No, you suppose not. You can't imagine what being in r_m's position is like right now.]",
             "[Realizing t_c needs an answer, you shake your head.]",
-            "See? r_m is a fantastic medicine cat. And plove_inf_c is strong, too. They're brave. That infection won't do anything to them.",
+            "See? r_m is a fantastic medicine cat. And plove_r_c_infected is strong, too. They're brave. That infection won't do anything to them.",
             "[t_c leans closer, dropping the lighthearted, almost optimistic tone in favor of something more tender.]",
-            "But if somehow, something happens to plove_inf_c, I'll be here for you. Always.",
+            "But if somehow, something happens to plove_r_c_infected, I'll be here for you. Always.",
             "[You purr in appreciation, letting a tiny smile appear on your face.]",
             "[It's been a while since you've smiled.]",
             "We'll get through this together, y_c. All of us."
@@ -890,7 +890,16 @@
         ],
         "intro": [
             "If Twolegs are killing each other, does that mean that will happen to us?",
-            "Will we have to kill plove_inf_c?"
+            "Will we have to kill plove_r_c_infected?"
         ]
-    }
+    },
+    "testdialogue": [
+        [
+            "any",
+            "infection"
+        ],
+        [
+            "r_c_infected is infected."
+        ]
+    ]
 }

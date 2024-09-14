@@ -388,6 +388,44 @@ class GenerateEvents:
                         if not has_skill:
                             continue
 
+                    # INF
+                    if "infected" in event.m_c and event.m_c["infected"]:
+                        if event.m_c["infected"] == True and cat.infected_for < 1:
+                            continue
+                        elif event.m_c["infected"] == False and cat.infected_for > 0:
+                            continue
+                    if "infected" in event.r_c and event.r_c["infected"]:
+                        if event.r_c["infected"] == True and random_cat.infected_for < 1:
+                            continue
+                        elif event.r_c["infected"] == False and random_cat.infected_for > 0:
+                            continue
+                    
+                    inftype = game.clan.infection["infection_type"]
+                    if "stage" in event.m_c and event.m_c["stage"]:
+                        stages = ["stage one", "stage two", "stage three", "stage four"]
+                        skip = False
+                        for stage in stages:
+                            if f"{inftype} {stage}" in cat.illnesses and stage not in event.m_c["stage"]:
+                                skip = True
+                        if skip is True:
+                            continue
+                    if "stage" in event.r_c and event.r_c["stage"]:
+                        stages = ["stage one", "stage two", "stage three", "stage four"]
+                        skip = False
+                        for stage in stages:
+                            if f"{inftype} {stage}" in random_cat.illnesses and stage not in event.r_c["stage"]:
+                                skip = True
+                        if skip is True:
+                            continue
+                    
+                    if "type" in event.m_c and event.m_c["type"]:
+                        if inftype not in event.m_c["type"]:
+                            continue
+                    if "type" in event.r_c and event.r_c["type"]:
+                        if inftype not in event.r_c["type"]:
+                            continue
+                    ####
+
                     # check cat negate trait and skill
                     has_trait = False
                     if event.m_c["not_trait"]:

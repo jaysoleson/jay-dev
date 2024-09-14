@@ -598,26 +598,26 @@ class LeaderDenScreen(Screens):
             manager=MANAGER,
         )
 
-        if self.focus_clan.name not in game.clan.infection["fallen_clans"]:
-            self.focus_frame_elements["negative_interaction"] = UIImageButton(
-                scale(pygame.Rect((118, 531), (242, 60))),
-                "",
-                object_id="#clan_befriend",
-                container=self.focus_clan_container,
-                starting_height=3,
-                manager=MANAGER,
-                visible=False,
-            )
-            self.focus_frame_elements["positive_interaction"] = UIImageButton(
-                scale(pygame.Rect((118, 611), (242, 60))),
-                "",
-                object_id="#clan_provoke",
-                container=self.focus_clan_container,
-                starting_height=3,
-                manager=MANAGER,
-                visible=False,
-            )
-        else:
+        self.focus_frame_elements["negative_interaction"] = UIImageButton(
+            scale(pygame.Rect((118, 531), (242, 60))),
+            "",
+            object_id="#clan_befriend",
+            container=self.focus_clan_container,
+            starting_height=3,
+            manager=MANAGER,
+            visible=False,
+        )
+        self.focus_frame_elements["positive_interaction"] = UIImageButton(
+            scale(pygame.Rect((118, 611), (242, 60))),
+            "",
+            object_id="#clan_provoke",
+            container=self.focus_clan_container,
+            starting_height=3,
+            manager=MANAGER,
+            visible=False,
+        )
+
+        if self.focus_clan.name in game.clan.infection["fallen_clans"]:
             self.focus_clan_elements["clan_fallen_text"] = pygame_gui.elements.UILabel(
             scale(pygame.Rect((x_pos, 500), (439, -1))),
             text=f"{self.focus_clan.name}Clan has fallen.",
@@ -640,6 +640,11 @@ class LeaderDenScreen(Screens):
             f"#clan_{interaction[1]}"
         )
         self.focus_frame_elements["positive_interaction"].show()
+
+        # INF
+        if self.focus_clan.name in game.clan.infection["fallen_clans"]:
+            self.focus_frame_elements["negative_interaction"].hide()
+            self.focus_frame_elements["positive_interaction"].hide()
 
     def update_clan_interaction_choice(self, object_id):
         """

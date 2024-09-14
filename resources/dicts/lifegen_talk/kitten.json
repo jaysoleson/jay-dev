@@ -6459,9 +6459,9 @@
             "you_blind"
         ],
         [
-            "Hey y_c! Do you know why r_m won't let me see inf_c?",
-            "Infected?... When will {PRONOUN/inf_c/subject} be better?",
-            "Can I help? Maybe if I make a very cool moss ball, it'll help {PRONOUN/inf_c/object} feel better!",
+            "Hey y_c! Do you know why r_m won't let me see plove_r_c_infected?",
+            "Infected?... When will {PRONOUN/plove_r_c_infected/subject} be better?",
+            "Can I help? Maybe if I make a very cool moss ball, it'll help {PRONOUN/plove_r_c_infected/object} feel better!",
             "[You can't help but feel sympathy for the kit. Growing up amidst all this must be horrifying...]"
         ]
     ],

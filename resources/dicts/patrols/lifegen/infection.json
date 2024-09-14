@@ -19,7 +19,7 @@
         "min_max_status": {
             "kitten": [1, 1]
         },
-        "weight": 20,
+        "weight": 40,
         "intro_text": "You notice a sick squirrel at the edge of camp. It's dragging its legs and its eyes looks strange and cloudy. Maybe the warriors would be impressed if you brought home some prey, even if it was already hurt.",
         "decline_text": "You decide against it. The Clan would be more impressed if you brought them some healthy prey.",
         "chance_of_success": 50,
@@ -597,7 +597,7 @@
         "min_max_status": {
             "medicine cat apprentice": [1, 1]
         },
-        "weight": 20,
+        "weight": 40,
         "intro_text": "You've gotten a bit lost today while searching for herbs without your mentor. Unsure of your location, you decide to just follow the scent of herbs, and when you finally find the source, you see that every herb in the patch has been torn to shreds. You hear a noise behind you and whip around, locking your gaze with two mysterious, glowing eyes situated deep within the trees.",
         "decline_text": "Your stomach drops, and you immediately turn tail and race back int he direction you came from. Whatever that was, it can have those barren herb patches for itself!",
         "chance_of_success": 50,
@@ -759,12 +759,12 @@
             "healer cats": [1, 1]
         },
         "weight": 20,
-        "intro_text": "plike_inf_c calls your name from the edge of the medicine den, infection clouding {PRONOUN/plike_inf_c/poss} eyes.",
+        "intro_text": "r_w_infected calls your name from the edge of the medicine den, infection clouding {PRONOUN/r_w_infected/poss} eyes.",
         "decline_text": "You turn and leave. You don't want to risk having an idle chat with such a potentially dangerous cat.",
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "You look {PRONOUN/plike_inf_c/poss} way, but don't move any closer. plike_inf_c tells you that {PRONOUN/plike_inf_c/subject} {VERB/plike_inf_c/appreciate/appreciates} you being here for {PRONOUN/plike_inf_c/object}, even though {PRONOUN/plike_inf_c/subject} {VERB/plike_inf_c/don't/doesn't} think you'll find a cure. You tell {PRONOUN/plike_inf_c/object} not to think like that.",
+                "text": "You look {PRONOUN/r_w_infected/poss} way, but don't move any closer. r_w_infected tells you that {PRONOUN/r_w_infected/subject} {VERB/r_w_infected/appreciate/appreciates} you being here for {PRONOUN/r_w_infected/object}, even though {PRONOUN/r_w_infected/subject} {VERB/r_w_infected/don't/doesn't} think you'll find a cure. You tell {PRONOUN/r_w_infected/object} not to think like that.",
                 "exp": 10,
                 "weight": 20
             }
@@ -772,7 +772,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "You slowly approach the cat, but {PRONOUN/plike_inf_c/subject} {VERB/plike_inf_c/start/starts} hissing when you draw near. You retreat. You'll speak to {PRONOUN/plike_inf_c/object} later, when the infection isn't actively taking its toll.",
+                "text": "You slowly approach the cat, but {PRONOUN/r_w_infected/subject} {VERB/r_w_infected/start/starts} hissing when you draw near. You retreat. You'll speak to {PRONOUN/r_w_infected/object} later, when the infection isn't actively taking its toll.",
                 "exp": 10,
                 "weight": 20
             }
@@ -840,7 +840,7 @@
             "healer cats": [1, 1]
         },
         "weight": 20,
-        "intro_text": "Perched on a tree just outside of c_n camp, you survey the territory, trying to locate any new herb patch locations than you may not have spotted from the ground.",
+        "intro_text": "Perched on a tree just outside of c_n camp, you survey the territory, trying to locate any new herb patch locations that you may not have spotted from the ground.",
         "decline_text": "A gale of wind shakes your branch and you decide to return to the ground where you'll be safer.",
         "chance_of_success": 50,
         "success_outcomes": [
@@ -851,7 +851,7 @@
                 "herbs": ["random_herbs"]
             },
             {
-                "text": "You think you see an unfamiliar cat stalking through the undergrowth. When you get back down to the ground and run to the scene, all that you find is the scent of a rogue and a conveniently packed bundle fo herbs. Did someone leave this here for you..?",
+                "text": "You think you see an unfamiliar cat stalking through the undergrowth. When you get back down to the ground and run to the scene, all that you find is the scent of a rogue and a conveniently packed bundle of herbs. Did someone leave this here for you..?",
                 "exp": 10,
                 "weight": 10,
                 "herbs": ["random_herbs"]

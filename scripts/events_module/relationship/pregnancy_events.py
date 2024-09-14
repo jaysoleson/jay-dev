@@ -252,7 +252,10 @@ class Pregnancy_Events:
                 "amount": 0,
             }
             infectionevent = False
-            if cat.infected_for > 0:
+            if (
+                (other_cat and other_cat.infected_for > 0 and other_cat.ID in cat.mate)
+                or cat.infected_for
+                ):
                 text = choice(Pregnancy_Events.PREGNANT_STRINGS["infected_announcement"])
                 infectionevent = True
             else:
@@ -313,7 +316,10 @@ class Pregnancy_Events:
                 "amount": 0,
             }
             infectionevent = False
-            if cat.infected_for > 0:
+            if (
+                (second_parent and second_parent.infected_for > 0 and second_parent.ID in pregnant_cat.mate)
+                or pregnant_cat.infected_for
+                ):
                 text = choice(Pregnancy_Events.PREGNANT_STRINGS["infected_announcement"])
                 infectionevent = True
             else:

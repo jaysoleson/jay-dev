@@ -83,9 +83,9 @@ class Patrol:
         )
 
         # lifegen: debug to print all possible patrols
-        # print("Patrols:")
-        # for i in final_patrols:
-        #     print(i.patrol_id)
+        print("Patrols:")
+        for i in final_patrols:
+            print(i.patrol_id)
 
         print(
             f"Total Number of Possible Patrols | normal: {len(final_patrols)}, romantic: {len(final_romance_patrols)} "
@@ -395,6 +395,7 @@ class Patrol:
 
             if game.clan.infection["clan_infected"] is False:
                 # no normal shit once ur infected
+                print("hey", game.clan.infection["clan_infected"])
                 if game.clan.your_cat.status == 'kitten':
                     possible_patrols.extend(self.generate_patrol_events(self.kit_lifegen))
                 elif game.clan.your_cat.status == 'apprentice':

@@ -71,6 +71,9 @@ def json_load():
             if "cure_progress" not in cat:
                 cat["cure_progress"] = 0
 
+            if "inventory" not in cat:
+                cat["inventory"] = []
+
             # moving clangen accs over to accessories + inventory
             if cat["accessory"] is not None:
                 cat["accessories"].append(cat["accessory"])
