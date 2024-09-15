@@ -892,14 +892,5 @@
             "If Twolegs are killing each other, does that mean that will happen to us?",
             "Will we have to kill plove_r_c_infected?"
         ]
-    },
-    "testdialogue": [
-        [
-            "any",
-            "infection"
-        ],
-        [
-            "r_c_infected is infected."
-        ]
-    ]
+    }
 }

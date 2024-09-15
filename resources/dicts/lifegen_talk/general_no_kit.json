@@ -23500,21 +23500,21 @@
 "I love you for who you are, not what you are."
  ]
 ],
-"TinyTeddy_stable_theyparent_theyany_youleader_03": [
-[
-"they_adult",
-"they_stable",
-"you_leader",
-"you_grieving",
-"from_parent"
-],
-[
-"[You're alone in the privacy of your den, you rarely go outside since d_c passed. Thankfully d_n has stepped up and taken the lead.]",
-"Oh sweetie...",
-"[t_c carefully steps in the den and curls up next to you. {PRONOUN/t_c/subject/CAP} lays there for a moment, watching as you try and suppress your tears. {PRONOUN/t_c/subject/CAP} ears peel back as they hold you tighter.]",
-"I've got you, it's okay. You can let it all out. You should never feel ashamed to cry in front of me.",
-"[You bury your head into {PRONOUN/t_c/object} and begin to sob. It all just comes out, you feel like you can't stop it. t_c's tail pats you lightly, they hold you tight and don't let go.]",
-"Just because you're the leader, it doesn't mean you can't cry. Oh little one, I can't imagine the pain you're in. Or how you must have felt keeping it all hidden. But I've got you, and I'm not letting go."
- ]
-]
+    "TinyTeddy_stable_theyparent_theyany_youleader_03": [
+        [
+            "they_adult",
+            "they_stable",
+            "you_leader",
+            "you_grieving",
+            "from_parent"
+        ],
+        [
+            "[You're alone in the privacy of your den, you rarely go outside since d_c passed. Thankfully d_n has stepped up and taken the lead.]",
+            "Oh sweetie...",
+            "[t_c carefully steps in the den and curls up next to you. {PRONOUN/t_c/subject/CAP} lays there for a moment, watching as you try and suppress your tears. {PRONOUN/t_c/subject/CAP} ears peel back as they hold you tighter.]",
+            "I've got you, it's okay. You can let it all out. You should never feel ashamed to cry in front of me.",
+            "[You bury your head into {PRONOUN/t_c/object} and begin to sob. It all just comes out, you feel like you can't stop it. t_c's tail pats you lightly, they hold you tight and don't let go.]",
+            "Just because you're the leader, it doesn't mean you can't cry. Oh little one, I can't imagine the pain you're in. Or how you must have felt keeping it all hidden. But I've got you, and I'm not letting go."
+        ]
+    ]
 }
