@@ -232,10 +232,13 @@ class Patrol:
             else:
                 self.patrol_leader = choice(self.patrol_cats)
 
-        if clan.all_clans and len(clan.all_clans) > 0:
-            self.other_clan = choice(clan.all_clans)
+        # INF edited
+        all_clans = [i for i in clan.all_clans if i.name not in game.clan.infection["fallen_clans"]]
+        if all_clans and len(all_clans) > 0:
+            self.other_clan = choice(all_clans)
         else:
             self.other_clan = None
+            print("No possible Clans")
             
         # DETERMINE RANDOM CAT
         #Find random cat
@@ -698,6 +701,20 @@ class Patrol:
                         continue
                     elif 'herb_gathering' not in patrol.types and patrol_type == 'med':
                         continue
+
+                    # INF
+                    if "other_clan" in patrol.tags:
+                        fallen_clans = game.clan.infection["fallen_clans"]
+                        clan_left = False
+                        for i in game.clan.all_clans:
+                            if i.name == game.clan.name:
+                                continue
+                            if i.name not in fallen_clans:
+                                clan_left = True
+                                break
+                        if clan_left is False:
+                            continue
+                    ####
 
             if game.switches["patrol_category"] in ['lifegen', 'df', 'date']:
 
@@ -1403,27 +1420,28 @@ class Patrol:
         text = process_text(text, replace_dict)
         text = adjust_prey_abbr(text)
 
-        other_clan_name = self.other_clan.name
-        s = 0
-        for x in range(text.count("o_c_n")):
-            if "o_c_n" in text:
-                for y in vowels:
-                    if str(other_clan_name).startswith(y):
-                        modify = text.split()
-                        pos = 0
-                        if "o_c_n" in modify:
-                            pos = modify.index("o_c_n")
-                        if "o_c_n's" in modify:
-                            pos = modify.index("o_c_n's")
-                        if "o_c_n." in modify:
-                            pos = modify.index("o_c_n.")
-                        if modify[pos - 1] == "a":
-                            modify.remove("a")
-                            modify.insert(pos - 1, "an")
-                        text = " ".join(modify)
-                        break
+        if self.other_clan:
+            other_clan_name = self.other_clan.name
+            s = 0
+            for x in range(text.count("o_c_n")):
+                if "o_c_n" in text:
+                    for y in vowels:
+                        if str(other_clan_name).startswith(y):
+                            modify = text.split()
+                            pos = 0
+                            if "o_c_n" in modify:
+                                pos = modify.index("o_c_n")
+                            if "o_c_n's" in modify:
+                                pos = modify.index("o_c_n's")
+                            if "o_c_n." in modify:
+                                pos = modify.index("o_c_n.")
+                            if modify[pos - 1] == "a":
+                                modify.remove("a")
+                                modify.insert(pos - 1, "an")
+                            text = " ".join(modify)
+                            break
 
-        text = text.replace("o_c_n", str(other_clan_name) + "Clan")
+            text = text.replace("o_c_n", str(other_clan_name) + "Clan")
 
         clan_name = game.clan.name
         s = 0
