@@ -1041,6 +1041,10 @@ class MurderScreen(Screens):
             except:
                 pass
         murdered = r < max(5, chance + r2)
+
+        # murdered = True
+        # debug to ensure success ^^
+
         you = game.clan.your_cat
         cat_to_murder = self.cat_to_murder
         game.clan.murdered = True
@@ -1369,7 +1373,35 @@ class MurderScreen(Screens):
             key = i[0]
             murder_dict = i[1]
 
+            inftype = game.clan.infection["infection_type"]
+            stages = [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]
+
             if "your_status" in murder_dict:
+
+                # INF
+                if any(t in murder_dict["your_status"] for t in ["infected_1", "infected_2", "infected_3", "infected_4"]):
+                    if you.infected_for < 1:
+                        continue
+                    if f"{inftype} stage one" in you.illnesses:
+                        if "infected_1" not in murder_dict["your_status"]:
+                            continue
+                    if f"{inftype} stage two" in you.illnesses:
+                        if "infected_2" not in murder_dict["your_status"]:
+                            continue
+                    if f"{inftype} stage three" in you.illnesses:
+                        if "infected_3" not in murder_dict["your_status"]:
+                            continue
+                    if f"{inftype} stage four" in you.illnesses:
+                        if "infected_4" not in murder_dict["your_status"]:
+                            continue
+                if "undead" in murder_dict["your_status"]:
+                    if "undead" not in you.illnesses:
+                        continue
+                else:
+                    if "undead" in you.illnesses:
+                        continue
+                # ---
+                
                 if "adult" in murder_dict["your_status"]:
                     if you.moons < 12:
                         continue
@@ -1391,6 +1423,35 @@ class MurderScreen(Screens):
                         continue
 
             if "victim_status" in murder_dict:
+
+                # INF
+                if any(t in murder_dict["victim_status"] for t in ["infected_1", "infected_2", "infected_3", "infected_4"]):
+                    if cat_to_murder.infected_for < 1:
+                        continue
+                    if f"{inftype} stage one" in cat_to_murder.illnesses:
+                        if "infected_1" not in murder_dict["victim_status"]:
+                            continue
+                    if f"{inftype} stage two" in cat_to_murder.illnesses:
+                        if "infected_2" not in murder_dict["victim_status"]:
+                            continue
+                    if f"{inftype} stage three" in cat_to_murder.illnesses:
+                        if "infected_3" not in murder_dict["victim_status"]:
+                            continue
+                    if f"{inftype} stage four" in cat_to_murder.illnesses:
+                        if "infected_4" not in murder_dict["victim_status"]:
+                            continue
+                else:
+                    if "uninfected" in murder_dict["victim_status"]:
+                        if any(i in cat_to_murder.illnesses for i in stages):
+                            continue
+                if "undead" in murder_dict["victim_status"]:
+                    if "undead" not in cat_to_murder.illnesses:
+                        continue
+                else:
+                    if "undead" in cat_to_murder.illnesses:
+                        continue
+                # ---
+
                 if "adult" in murder_dict["victim_status"]:
                     if cat_to_murder.moons < 12:
                         continue
@@ -1443,8 +1504,6 @@ class MurderScreen(Screens):
                 if "your_mentor" in murder_dict["relationship"]:
                     if game.clan.your_cat.mentor != cat_to_murder.ID:
                         continue
-
-                        
 
             if "biome" in murder_dict and murder_dict["biome"]:
                 if biome and biome not in murder_dict["biome"]:
@@ -1522,9 +1581,19 @@ class MurderScreen(Screens):
 
         options = []
         for i in murder_events.items():
-            options.append(i)
+            if isinstance(game.config["event_generation"]["debug_ensure_event_id"], str):
+                print(i[0])
+                if i[0] == game.config["event_generation"]["debug_ensure_event_id"]:
+                    options.append(i)
+                    break
+            else:
+                options.append(i)
 
-        chosen_event = choice(options)
+        try:
+            chosen_event = choice(options)
+        except IndexError:
+            print("Debug event is impossible! Injury:", injury, "| Death:", death)
+            return
 
         if "texts" in chosen_event[1]:
             if chosen_event[1]["texts"]:
@@ -1545,8 +1614,6 @@ class MurderScreen(Screens):
                             you.get_injured(owie)
 
         ceremony_txt = choice(ceremony_txt)
-
-
 
         other_clan = choice(game.clan.all_clans)
         ceremony_txt = ceremony_txt.replace('c_n', game.clan.name)
@@ -1588,9 +1655,9 @@ class MurderScreen(Screens):
 
         ceremony_txt = process_text(ceremony_txt, replace_dict)
 
-        if cat_to_murder.status == 'leader' and all_leader_lives:
-            game.clan.leader_lives = 0
-        cat_to_murder.die()
+        # if cat_to_murder.status == 'leader' and all_leader_lives:
+        #     game.clan.leader_lives = 0
+        # cat_to_murder.die()
         game.cur_events_list.insert(0, Single_Event(ceremony_txt))
 
         discover_chance = self.get_discover_chance(cat_to_murder, accomplice, accompliced)
@@ -1637,7 +1704,7 @@ class MurderScreen(Screens):
                     game.cur_events_list.insert(1, Single_Event("You successfully murdered "+ str(cat_to_murder.name) + "."))
                 History.add_death(cat_to_murder, f"{you.name} murdered this cat.")
                 History.add_murders(cat_to_murder, you, True, f"{you.name} murdered this cat.")
-            self.choose_discover_punishment(you, cat_to_murder, accomplice, accompliced)
+            self.choose_discover_punishment(you, cat_to_murder, accomplice, accompliced, all_leader_lives)
         else:
             if accomplice:
                 if accompliced:
@@ -1681,19 +1748,37 @@ class MurderScreen(Screens):
         self.stage = "choose murder cat"
         
           
-    def choose_discover_punishment(self, you, cat_to_murder, accomplice, accompliced):
+    def choose_discover_punishment(self, you, cat_to_murder, accomplice, accompliced, all_leader_lives):
         """determines punishment text, shunned and guilt outcomes"""
         # 1 = you punished, 2 = accomplice punished, 3 = both punished
+        # INF-- they're infected, no punishment
+        # INF-- you're infected, no punishment
         if game.clan.your_cat.dead:
+            print("yeah")
             if randint (1,2) == 1:
                 punishment_chance = 2
             else:
                 return
         else:
             punishment_chance = randint(1,3)
+            if not accomplice or not accompliced and punishment_chance in [2, 3]:
+                punishment_chance = 1
 
-        if not accomplice or not accompliced:
-            punishment_chance = 1
+            if randint(1,3) != 1:
+                if cat_to_murder.infected_for > 0:
+                    punishment_chance = 4
+                if you.infected_for > 0:
+                    punishment_chance = 5
+        if "undead" in you.illnesses:
+            punishment_chance = 6
+        
+        # INF
+        # this is moved here for the infected_for stuff
+        if cat_to_murder.status == 'leader' and all_leader_lives:
+            game.clan.leader_lives = 0
+        cat_to_murder.die()
+
+        print("punishment chance =", punishment_chance)
         if punishment_chance == 1:
             if accomplice and not accompliced:
                 a_s = randint(1,2)
@@ -1728,7 +1813,7 @@ class MurderScreen(Screens):
             if not accomplice.dead:
                 accomplice.shunned = 1
             accomplice.faith -= 0.5
-        else:
+        elif punishment_chance == 3:
             txt = f"The unsettling truth of v_c's death is discovered, with you and {accomplice.name} responsible. The Clan decides both of your punishments."
             txt = txt.replace('v_c', str(cat_to_murder.name))
             game.cur_events_list.insert(2, Single_Event(txt))
@@ -1737,6 +1822,18 @@ class MurderScreen(Screens):
             if not accomplice.dead:
                 accomplice.shunned = 1
             accomplice.faith -= 0.5
+
+        # INF
+        elif punishment_chance == 4:
+            txt = f"The Clan reluctantly agrees that the infected {cat_to_murder.name} was a danger, and you are not punished for your crime."
+            game.cur_events_list.insert(2, Single_Event(txt))
+        elif punishment_chance == 5:
+            txt = f"The Clan knows that the infection causes cats to act out beyond their control, and you are not punished for {cat_to_murder.name}'s death."
+            game.cur_events_list.insert(2, Single_Event(txt))
+        elif punishment_chance == 6:
+            txt = "The Clan is aware that you can't control yourself. They don't know what to do."
+            game.cur_events_list.insert(2, Single_Event(txt))
+        # ---
         
         if punishment_chance == 1 or punishment_chance == 3:
             kit_punishment = ["You are assigned counseling by the Clan's medicine cat to help you understand the severity of your actions and to guide you to make better decisions in the future.",

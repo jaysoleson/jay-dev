@@ -561,7 +561,7 @@
             "death"
         ],
         "texts": [
-            "You attack and kill v_c, but {PRONOUN/v_c/subject} {VERB/v_c/leave/leaves} you with such heavy injuries that you succumb to {PRONOUN/v_c/object} the next morning."
+            "You attack and kill v_c, but {PRONOUN/v_c/subject} {VERB/v_c/leave/leaves} you with such heavy injuries that you succumb to them the next morning."
         ]
     },
     "murder_event30": {
@@ -6548,6 +6548,271 @@
         "tags": [],
         "texts": [
             "You approach v_c at dusk, telling {PRONOUN/v_c/object} about a surprise test. {PRONOUN/v_c/subject} {VERB/v_c/drag/drags} {PRONOUN/v_c/poss} paws as {PRONOUN/v_c/subject} {VERB/v_c/follow/follows} you out of camp and into the territory. When the both of you come to a pile of boulders, you tell {PRONOUN/v_c/object} that {PRONOUN/v_c/poss} {VERB/v_c/need/needs} to try to make it to the top. The lighting is dim, and when v_c eventually makes the mistake of not checking {PRONOUN/v_c/poss} footing, you're not around to break {PRONOUN/v_c/poss} fall."
+        ]
+    },
+    "uninfected_v_infected_J1": {
+        "your_status": [
+            "any",
+            "uninfected"
+        ],
+        "victim_status": [
+            "any",
+            "infected_1",
+            "infected_2",
+            "infected_3",
+            "infected_4"
+        ],
+        "strategy": [
+
+        ],
+        "biome": [],
+        "tags": [],
+        "texts": [
+            "You know it's wrong, but v_c is infected, and {PRONOUN/v_c/subject}{VERB/v_c/'re/'s} putting the Clan at risk. You kill {PRONOUN/v_c/object} swiftly, feeling sorry but not regretful."
+        ]
+    },
+    "uninfected_v_infected_vicki1": {
+        "your_status": [
+            "any",
+            "uninfected"
+        ],
+        "victim_status": [
+            "any",
+            "infected_1",
+            "infected_2",
+            "infected_3",
+            "infected_4"
+        ],
+        "strategy": [
+        ],
+        "biome": [],
+        "tags": [],
+        "texts": [
+            "Frankly, you don't understand why the Clan is wasting their time trying to cure v_c of the infection. {PRONOUN/v_c/subject/CAP}{VERB/v_c/'re/'s} a hopeless case, yet your Clanmates fail to see that. {PRONOUN/v_c/subject/CAP} {VERB/v_c/do/does} nothing but grumble and complain - not to mention, {PRONOUN/v_c/subject}{VERB/v_c/'re/'s} a danger to everyone around {PRONOUN/v_c/object}! You finally decide that the best solution is to put {PRONOUN/v_c/object} out of {PRONOUN/v_c/poss} misery. It's better this way."
+        ]
+    },
+    "infected_v_uninfected_J1": {
+        "your_status": [
+            "any",
+            "infected_1",
+            "infected_2",
+            "infected_3",
+            "infected_4"
+        ],
+        "victim_status": [
+            "any",
+            "uninfected"
+        ],
+        "strategy": [
+            "attack"
+        ],
+        "biome": [],
+        "tags": [],
+        "texts": [
+            "Your mind is clear, but your Clanmates don't know that. You attack and kill v_c, telling the Clan that you're too sick to remember what you've done."
+        ]
+    },
+    "undead_J1": {
+        "your_status": [
+            "any",
+            "undead"
+        ],
+        "victim_status": [
+            "any"
+        ],
+        "strategy": [
+            "attack"
+        ],
+        "biome": [],
+        "tags": [],
+        "texts": [
+            "Blinded by infection, you're vaguely aware of v_c's fur beneath your claws as you end {PRONOUN/v_c/poss} life, but you don't have the mental strength to stop."
+        ]
+    },
+    "undead_J2": {
+        "your_status": [
+            "any",
+            "undead"
+        ],
+        "victim_status": [
+            "any"
+        ],
+        "strategy": [
+            "predator",
+            "territory",
+            "border"
+        ],
+        "biome": [],
+        "tags": [],
+        "texts": [
+            "You brain is foggy as you stumble out of camp. v_c follows you, concerned, but when {PRONOUN/v_c/subject} {VERB/v_c/get/gets} too close, you turn on {PRONOUN/v_c/object}, mouth foaming and eyes clouded with rage. v_c turns with a yelp and runs, tripping over the snake that was passing behind {PRONOUN/v_c/object}. You don't remember anything after that."
+        ]
+    },
+    "undead_J3": {
+        "your_status": [
+            "any",
+            "undead"
+        ],
+        "victim_status": [
+            "any"
+        ],
+        "strategy": [
+            "accident",
+            "attack"
+        ],
+        "biome": [],
+        "tags": [
+            "injury",
+            "bruises"
+        ],
+        "texts": [
+            "Blinded by infection, you attack v_c. You two tumble down a nearby drop, v_c hitting {PRONOUN/v_c/poss} head on a rock and dying instantly, while you recieve a couple of bruises that you can't really feel."
+        ]
+    },
+    "undead_J4": {
+        "your_status": [
+            "any",
+            "undead"
+        ],
+        "victim_status": [
+            "any"
+        ],
+        "strategy": [
+            "accident",
+            "attack"
+        ],
+        "biome": [],
+        "tags": [
+        ],
+        "texts": [
+            "Blinded by infection, you attack v_c. You two tumble down a nearby drop, v_c hitting {PRONOUN/v_c/poss} head on a rock and dying instantly."
+        ]
+    },
+    "undead_J5": {
+        "your_status": [
+            "any",
+            "undead"
+        ],
+        "victim_status": [
+            "any"
+        ],
+        "strategy": [
+            "accident",
+            "attack"
+        ],
+        "biome": [],
+        "tags": [
+            "death"
+        ],
+        "texts": [
+            "Blinded by infection, you attack v_c. You two tumble down a nearby drop and onto some sharp rocks that end the both of you."
+        ]
+    },
+    "undead_J6": {
+        "your_status": [
+            "any",
+            "undead"
+        ],
+        "victim_status": [
+            "any"
+        ],
+        "strategy": [
+        ],
+        "biome": [],
+        "tags": [
+        ],
+        "texts": [
+            "The infection has taken over your mind. v_c is dead now, and it's your fault, but you can't remember why."
+        ]
+    },
+    "undead_J7": {
+        "your_status": [
+            "any",
+            "undead"
+        ],
+        "victim_status": [
+            "any"
+        ],
+        "strategy": [
+        ],
+        "biome": [],
+        "tags": [
+            "injury"
+        ],
+        "texts": [
+            "The infection has taken over your mind. v_c is dead now, and it's your fault. You were injured in the process, but you can't remember how."
+        ]
+    },
+    "undead_J8": {
+        "your_status": [
+            "any",
+            "undead"
+        ],
+        "victim_status": [
+            "any"
+        ],
+        "strategy": [
+        ],
+        "biome": [],
+        "tags": [
+            "death"
+        ],
+        "texts": [
+            "Your invaded mind leads you to end v_c's life, but you don't have enough control to stop yourself from being killed in the process."
+        ]
+    },
+    "undead_J9": {
+        "your_status": [
+            "any"
+        ],
+        "victim_status": [
+            "any",
+            "undead"
+        ],
+        "strategy": [
+        ],
+        "biome": [],
+        "tags": [
+        ],
+        "texts": [
+            "v_c is dangerous and violent. You end {PRONOUN/v_c/poss} life, knowing it will keep the Clan safe."
+        ]
+    },
+    "undead_J10": {
+        "your_status": [
+            "any"
+        ],
+        "victim_status": [
+            "any",
+            "undead"
+        ],
+        "strategy": [
+        ],
+        "biome": [],
+        "tags": [
+            "injury",
+            "claw-wound"
+        ],
+        "texts": [
+            "v_c is dangerous and violent. You end {PRONOUN/v_c/poss} life, knowing it will keep the Clan safe, but {PRONOUN/v_c/subject} {VERB/v_c/leave/leaves} you with a wound in the process."
+        ]
+    },
+    "undead_J11": {
+        "your_status": [
+            "any"
+        ],
+        "victim_status": [
+            "any",
+            "undead"
+        ],
+        "strategy": [
+        ],
+        "biome": [],
+        "tags": [
+            "death"
+        ],
+        "texts": [
+            "v_c is dangerous and violent. You end {PRONOUN/v_c/poss} life, but the animated corpse takes you with {PRONOUN/v_c/object}."
         ]
     }
 }

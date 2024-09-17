@@ -388,7 +388,7 @@ class EventsScreen(Screens):
             )
         
         self.priority_herb_button = UIImageButton(
-            scale(pygame.Rect((160, 268), (120, 120))),
+            scale(pygame.Rect((120, 268), (120, 120))),
             "",
             object_id="#change_priority_herb_button",
             manager=MANAGER
