@@ -1,6 +1,6 @@
 [
     {
-        "patrol_id": "kitten_infection_beginning_2",
+        "patrol_id": "kitten_infection_beginning_1",
         "biome": [
             "Any"
         ],
@@ -19,7 +19,7 @@
         "min_max_status": {
             "kitten": [1, 1]
         },
-        "weight": 40,
+        "weight": 50,
         "intro_text": "You notice a sick squirrel at the edge of camp. It's dragging its legs and its eyes looks strange and cloudy. Maybe the warriors would be impressed if you brought home some prey, even if it was already hurt.",
         "decline_text": "You decide against it. The Clan would be more impressed if you brought them some healthy prey.",
         "chance_of_success": 50,
@@ -54,7 +54,7 @@
         ]
     },
     {
-        "patrol_id": "kitten_infection_beginning_1",
+        "patrol_id": "kitten_infection_beginning_2",
         "biome": [
             "Any"
         ],
@@ -73,7 +73,7 @@
         "min_max_status": {
             "kitten": [1, 1]
         },
-        "weight": 20,
+        "weight": 50,
         "intro_text": "Tonight, you've finally worked up the courage to sneak out of camp! Making sure no one heard you, you make your way into the territory and find a small swarm of fireflies. You watch them for a bit, entranced. After a while, though, you start to notice that two of the fireflies aren't moving. They're deep inside of a bush. They almost look like... eyes?",
         "decline_text": "Suddenly sober of your need for nighttime adventure, you run back to camp to snuggle back into your warm, safe nest.",
         "chance_of_success": 50,
@@ -103,7 +103,7 @@
         ]
     },
     {
-        "patrol_id": "kitten_infection_beginning_2",
+        "patrol_id": "kitten_infection_beginning_3",
         "biome": [
             "Any"
         ],
@@ -122,7 +122,7 @@
         "min_max_status": {
             "kitten": [1, 1]
         },
-        "weight": 20,
+        "weight": 50,
         "intro_text": "You poke your nose into the medicine den, curious to see what r_m does in there all day.",
         "decline_text": "When {PRONOUN/r_m/subject} {VERB/r_m/shoo/shoos} you away, you leave without a fight.",
         "chance_of_success": 50,
@@ -162,7 +162,7 @@
         "min_max_status": {
             "leader": [-1, 0]
         },
-        "weight": 20,
+        "weight": 50,
         "intro_text": "There's a mysterious glowing mushroom at the edge of camp.",
         "decline_text": "You decide not to touch it.",
         "chance_of_success": 50,
@@ -184,6 +184,51 @@
             },
             {
                 "text": "You approach the mushroom. Sniffing it hurts your nose, and you decide to back off before it makes you sick."
+            }
+        ]
+    },
+    {
+        "patrol_id": "gen_infection_beginning_2",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection_beginning",
+            "parasitic"
+        ],
+        "patrol_art": "lg_warrior_default",
+        "min_cats": 1,
+        "max_cats": 3,
+        "min_max_status": {
+        },
+        "weight": 50,
+        "intro_text": "A piece of shiny Twoleg rubbish rolls into camp on the wind. It smells sour and sick.",
+        "decline_text": "",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "",
+                "exp": 10,
+                "weight": 20
+            },
+            {
+                "text": ""
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "",
+                "exp": 10,
+                "weight": 20
+            },
+            {
+                "text": ""
             }
         ]
     },
@@ -457,7 +502,7 @@
         "min_max_status": {
             "kitten": [-1, 0]
         },
-        "weight": 40,
+        "weight": 50,
         "intro_text": "You see a mysterious figure on the border. As it walks the border, it stumbles, as if weighed down by something. Maybe they're sick..?",
         "decline_text": "Unnerved, you decide to head back to camp and hope that they're okay. You can't deal with this right now.",
         "chance_of_success": 50,
@@ -527,7 +572,7 @@
         "min_max_status": {
             "healer cats": [1, 1]
         },
-        "weight": 40,
+        "weight": 50,
         "intro_text": "Today, you've decided to investigate a section of the territory you haven't been to in a while. When you get there, you find that every herb patch you can remember has been torn to shreds. You hear a noise behind you and whip around, locking your gaze with two mysterious, glowing eyes situated deep within the trees.",
         "decline_text": "Your stomach drops, and you immediately turn tail and race back to camp. Whatever that was, it can have those barren herb patches for itself!",
         "chance_of_success": 50,
@@ -597,7 +642,7 @@
         "min_max_status": {
             "medicine cat apprentice": [1, 1]
         },
-        "weight": 40,
+        "weight": 50,
         "intro_text": "You've gotten a bit lost today while searching for herbs without your mentor. Unsure of your location, you decide to just follow the scent of herbs, and when you finally find the source, you see that every herb in the patch has been torn to shreds. You hear a noise behind you and whip around, locking your gaze with two mysterious, glowing eyes situated deep within the trees.",
         "decline_text": "Your stomach drops, and you immediately turn tail and race back int he direction you came from. Whatever that was, it can have those barren herb patches for itself!",
         "chance_of_success": 50,
