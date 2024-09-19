@@ -209,26 +209,20 @@
         },
         "weight": 50,
         "intro_text": "A piece of shiny Twoleg rubbish rolls into camp on the wind. It smells sour and sick.",
-        "decline_text": "",
+        "decline_text": "You have better things to focus on. It will likely get carried back out by the wind sometime soon.",
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "",
+                "text": "You wander towards it, but r_w_neurotic calls out to you, warning you not to get your nose too close. {PRONOUN/r_w_neurotic/subject} finds a large stick and uses it to nudge the weird thing out of camp until it' picked up again by the wind and carried away.",
                 "exp": 10,
                 "weight": 20
-            },
-            {
-                "text": ""
             }
         ],
         "fail_outcomes": [
             {
-                "text": "",
+                "text": "When you cautiously approach it, the wind picks it back up and sends it right back into your face. You cough and the scent and smack it away.",
                 "exp": 10,
                 "weight": 20
-            },
-            {
-                "text": ""
             }
         ]
     },

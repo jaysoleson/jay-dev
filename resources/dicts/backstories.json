@@ -135,7 +135,9 @@
     "dfkit1": "This cat was born in the Dark Forest, with one Dark Forest parent and one living one.",
     "dfkit2": "This cat was born in the Dark Forest and taken to live with the Clan by {PRONOUN/m_c/poss} living parent.",
     "outsider_infection": "This cat died to the infection.",
-    "infection_refugee": "This cat was forced to leave {PRONOUN/m_c/poss} original Clan when it fell to the infection."
+    "infection_refugee": "This cat was forced to leave {PRONOUN/m_c/poss} original Clan when it fell to the infection.",
+
+    "immune_kittypet": "This cat used to be a kittypet, but left to find a Clan to help fight the infection."
   },
   "backstory_display": {
     "clan_founder_backstories": "Clan founder",
@@ -290,7 +292,8 @@
       "refugee3",
       "tragedy_survivor3",
       "guided1",
-      "refugee6"
+      "refugee6",
+      "immune_kittypet"
     ],
     "former_clancat_backstories": [
       "otherclan1",

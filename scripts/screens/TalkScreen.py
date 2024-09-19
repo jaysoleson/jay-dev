@@ -334,6 +334,10 @@ class TalkScreen(Screens):
         self.current_scene = "intro"
         self.possible_texts = texts_list
         self.chosen_text_key = texts_chosen_key
+
+        if f"{self.current_scene}_log" in self.possible_texts[self.chosen_text_key]:
+            self.log_entry(self.the_cat, self.possible_texts, self.chosen_text_key)
+
         return chosen_text_intro
 
     def create_choice_buttons(self):
@@ -387,6 +391,18 @@ class TalkScreen(Screens):
         self.text_index = 0
         self.frame_index = 0
         self.created_choice_buttons = False
+
+        if f"{self.current_scene}_log" in self.possible_texts[self.chosen_text_key]:
+            self.log_entry(self.the_cat, self.possible_texts, self.chosen_text_key)
+    
+    def log_entry(self, cat, texts_list, texts_chosen_key):
+        log_block = texts_list[texts_chosen_key][f"{self.current_scene}_log_entry"]
+
+        if "entry" in log_block:
+            try:
+                game.clan.infection["logs"].append(log_block["entry"])
+            except:
+                print("Can't add", log_block["entry"], "to logs")
 
 
     def load_texts(self, cat):
@@ -504,7 +520,9 @@ class TalkScreen(Screens):
             "you_originallyfromanotherclan",
             "you_orphaned",
             "you_abandoned",
-            "you_ancientspirit"
+            "you_ancientspirit",
+
+            "you_immunekittypet"
         ]
         they_backstory_list = ["they_clanfounder",
             "they_clanborn",
@@ -517,7 +535,9 @@ class TalkScreen(Screens):
             "they_originallyfromanotherclan",
             "they_orphaned",
             "they_abandoned",
-            "they_ancientspirit"
+            "they_ancientspirit",
+
+            "they_immunekittypet"
         ]
        
         inftype = game.clan.infection["infection_type"]
@@ -640,6 +660,10 @@ class TalkScreen(Screens):
 
             if "cure_not_found" in tags and "cure_found" in logs:
                 continue
+
+            for log in logs:
+                if log in tags:
+                    continue
 
             infected_cats = [cat for cat in Cat.all_cats_list if not cat.dead and not cat.outside and cat.infected_for > 0 and cat.ID != you.ID]
             all_cats = [cat for cat in Cat.all_cats_list if not cat.dead and not cat.outside and cat.ID != you.ID]

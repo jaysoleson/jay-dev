@@ -14,7 +14,9 @@ you_backstory_list = [
     "you_formerlyaoutsider",
     "you_originallyfromanotherclan",
     "you_orphaned",
-    "you_abandoned"
+    "you_abandoned",
+
+    "you_immunekittypet"
 ]
 they_backstory_list = ["they_clanfounder",
                        "they_clanborn",
@@ -26,7 +28,10 @@ they_backstory_list = ["they_clanfounder",
                        "they_formerlyaoutsider",
                        "they_originallyfromanotherclan",
                        "they_orphaned",
-                       "they_abandoned"
+                       "they_abandoned",
+
+                       
+                       "they_immunekittypet"
                        ]
 skill_list = ['teacher', 'hunter', 'fighter', 'runner', 'climber', 'swimmer', 'speaker', 'mediator', 'clever', 'insightful', 'sense', 'kit', 'story', 'lore', 'camp', 'healer', 'star', 'omen', 'dream', 'clairvoyant', 'prophet', 'ghost',
               'explorer', 'tracker', 'artistan', 'guardian', 'tunneler', 'navigator', 'song', 'grace', 'clean', 'innovator', 'comforter', 'matchmaker', 'thinker', 'cooperative', 'scholar', 'time', 'treasure', 'fisher', 'language', 'sleeper']

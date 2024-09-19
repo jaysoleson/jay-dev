@@ -111,5 +111,50 @@
                 "outsider_rep": -2
             }
         ]
+    },
+    {
+        "patrol_id": "fungal_lore_1",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection",
+            "fungal"
+        ],
+        "patrol_art": "gen_bord_newcatkittypet1",
+        "min_cats": 2,
+        "max_cats": 6,
+        "min_max_status": {
+        },
+        "weight": 50,
+        "intro_text": "The patrol finds a kittypet picking their way through the territory. The kittypet states that they want to help the Clan fight the infection.",
+        "decline_text": "The patrol turns the cat away. What could a kittypet do to help?",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "When the patrol offers the kittypet a space in the Clan, {PRONOUN/n_c:0/subject} happily {VERB/n_c:0/agree/agrees} and {VERB/n_c:0/follow/follows} them back to camp with {PRONOUN/n_c:0/poss} tail held high.",
+                "exp": 10,
+                "weight": 20,
+                "new_cat": [
+                    ["kittypet", "backstory:immune_kittypet", "immune", "status:medicine cat"]
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "The patrol asks what the kittypet could do to help, and {PRONOUN/n_c:0/subject} can't seem to answer. Tail held high, {PRONOUN/n_c:0/subject} hastily {VERB/n_c:0/promise/promises} to gather more information and come back later.",
+                "exp": 10,
+                "weight": 20,
+                "new_cat": [
+                    ["meeting", "kittypet", "backstory:immune_kittypet", "immune"]
+                ]
+            }
+        ]
     }
 ]

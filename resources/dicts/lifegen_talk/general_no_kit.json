@@ -23516,5 +23516,27 @@
             "[You bury your head into {PRONOUN/t_c/object} and begin to sob. It all just comes out, you feel like you can't stop it. t_c's tail pats you lightly, they hold you tight and don't let go.]",
             "Just because you're the leader, it doesn't mean you can't cry. Oh little one, I can't imagine the pain you're in. Or how you must have felt keeping it all hidden. But I've got you, and I'm not letting go."
         ]
-    ]
+    ],
+    "testdialogue": {
+        "tags": [
+            "they_immune_kittypet",
+            "any",
+            "you_not_kit",
+            "they_medicine_cat",
+            "fungal_lore_3"
+        ],
+        "log_prereq": [
+            "fungal_lore_2"
+        ],
+        "intro": [
+            "[Now that you know that Twolegs have a cure to the infection, you've decided to ask t_c about it.]",
+            "Hm? Oh, yeah, I think they do...",
+            "They took me to the vet, and they poked and prodded me a bunch, and now I don't think I can get sick.",
+            "[No wonder t_c has been so confidently interacting with the infected cats...]",
+            "[Your log has been updated.]"
+        ],
+        "intro_log_entry": [
+            "fungal_lore_3"
+        ]
+    }
 }

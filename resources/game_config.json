@@ -258,7 +258,7 @@
 		"best_stat_modifier": 10,
 		"fail_stat_cat_modifier": -15,
 		"chance_of_romance_patrol": 16,
-		"debug_ensure_patrol_id": null,
+		"debug_ensure_patrol_id": "fungal_lore_1",
 		"debug_override_patrol_stat_requirements": false,
 		"debug_ensure_patrol_outcome": null,
 		"comment": [
@@ -450,11 +450,11 @@
 	"kit_gain_infection_chance": 10,
 	"INFECTION_comment": [
 		"Cure moons is how long the cure takes to be effective. 2 means it will happen the next moon. It cannnot be 1.",
-		"Setting talking_ups_infection_chance to false will mean talking to infected cats has no affect on infection chance. For those who would like to read dialogue without risk! Useless if the infection_chance is already 0.",
+		"Setting talking_ups_infection_chance to false will mean talking to infected cats has no affect on infection chance. For those who would like to read dialogue without risk! Useless if your_cat_infection_chance is already 0.",
 		"kit_gain_infection_chance is the base chance for kits with infected blood parents to be born infected."
 	],
 
-	"debug_ensure_dialogue": "",
+	"debug_ensure_dialogue": "testdialogue",
 
 	"shunned_cat": {
 		"exile_chance": {

@@ -502,6 +502,7 @@ def create_new_cat_block(
     chosen_backstory = choice(BACKSTORIES["backstory_categories"].get(f"{x}_backstories", ["outsider1"]))
 
     # OPTION TO OVERRIDE DEFAULT BACKSTORY
+    immune = False
     bs_override = False
     stor = []
     for _tag in attribute_list:
@@ -512,6 +513,8 @@ def create_new_cat_block(
                 bs_override = True
                 continue
             chosen_backstory = choice(stor)
+            if chosen_backstory == "immune_kittypet":
+                immune = True
             break
 
     # KITTEN THOUGHT
@@ -655,6 +658,10 @@ def create_new_cat_block(
         # THIS DOES NOT ADD RELATIONS TO CATS IN THE EVENT, those are added within the relationships block of the event
 
         for n_c in new_cats:
+
+            # INF
+            if immune is True:
+                n_c.infected_for = -1
 
             # LIFEGEN: encountered dead cat stuff -----------------------------
             beginning = History.get_beginning(n_c)
