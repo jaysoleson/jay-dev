@@ -1036,7 +1036,7 @@
         "chance_of_success": 60,
         "success_outcomes": [
             {
-                "text": "You watch for a moment as the thing wanders aimlessly. Suddenly, there's a loud <i>bang</i>, and the Twoleg falls to the ground. Two uninfected Twolegs suddenly come into view, and they look over the infected body before walking away.",
+                "text": "You watch for a moment as the thing wanders aimlessly. Suddenly, there's a loud <i>bang</i>, and the Twoleg falls to the ground. Two more uninfected Twolegs suddenly come into view, and they look over the infected body before walking away. Whatever just happened, you don't want to be a part of it, and you race back to camp.",
                 "exp": 10,
                 "weight": 10,
                 "cure_log": [

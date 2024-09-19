@@ -121,7 +121,7 @@
             "Any"
         ],
         "types": [
-            "lifegen"
+            "border"
         ],
         "tags": [
             "infection",
@@ -153,6 +153,93 @@
                 "weight": 20,
                 "new_cat": [
                     ["meeting", "kittypet", "backstory:immune_kittypet", "immune"]
+                ]
+            }
+        ]
+    },
+    {
+        "patrol_id": "fungal_lore_2",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "border"
+        ],
+        "tags": [
+            "infection",
+            "fungal",
+            "lore_fungal_2"
+        ],
+        "patrol_art": "gen_bord_newcatkittypet1",
+        "min_cats": 2,
+        "max_cats": 6,
+        "min_max_status": {
+            "healer cats": [1, 6]
+        },
+        "weight": 50,
+        "intro_text": "While sniffing around the edge of a Twolegplace, p_l feels something hit their head. They look up and see a kittypet sitting up in the branch of a tree, apologising for dropping their twig while giggling.",
+        "decline_text": "The patrol decides to patrol elsewhere, leaving the kittypet to entertain themself.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "When the patrol asks what they're doing out of their Twoleg den with this infection going around, the kittypet shrugs and says that their Twolegs cured them ages ago, so they can still explore.",
+                "exp": 10,
+                "weight": 20,
+                "new_cat": [
+                    ["kittypet", "backstory:immune_kittypet", "immune", "status:medicine cat"]
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": ".",
+                "exp": 10,
+                "weight": 20,
+                "new_cat": [
+                    ["meeting", "kittypet", "backstory:immune_kittypet", "immune"]
+                ]
+            }
+        ],
+        "antag_fail_outcomes": [
+            {
+                "text": "",
+                "exp": 0,
+                "weight": 20,
+                "outsider_rep": -1,
+                "new_cat": [
+                    ["meeting", "loner"]
+                ],
+                "relationships": [
+                    {
+                        "cats_from": ["n_c:0"],
+                        "cats_to": ["clan"],
+                        "mutual": true,
+                        "values": ["dislike"],
+                        "amount": 15
+                    }
+                ]
+            }
+        ],
+        "antag_success_outcomes": [
+            {
+                "text": "",
+                "exp": 10,
+                "weight": 20,
+                "outsider_rep": -2,
+                "new_cat": [
+                    ["loner", "meeting"]
+                ],
+                "relationships": [
+                    {
+                        "cats_from": ["n_c:0"],
+                        "cats_to": ["patrol"],
+                        "mutual": false,
+                        "values": ["dislike"],
+                        "amount": 10
+                    }
                 ]
             }
         ]
