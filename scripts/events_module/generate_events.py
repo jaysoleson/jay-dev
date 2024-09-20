@@ -209,7 +209,7 @@ class GenerateEvents:
         return event_list
 
     @staticmethod
-    def filter_possible_short_events(Cat_class, possible_events, cat, random_cat, other_clan, freshkill_active, freshkill_trigger_factor, sub_types=None, ):
+    def filter_possible_short_events(Cat_class, possible_events, cat, random_cat, other_clan, freshkill_active, freshkill_trigger_factor, sub_types=None, log_prereq=None):
 
         final_events = []
         incorrect_format = []
@@ -222,6 +222,8 @@ class GenerateEvents:
             sub_types.remove("war")
 
         for event in possible_events:
+            if event.event_id == "fungal_runaway_J1":
+                print("filtering:", event.event_id)
             if event.history:
                 if not isinstance(event.history, list) or "cats" not in event.history[0]:
                     if f"{event.event_id} history formatted incorrectly" not in incorrect_format:
@@ -230,6 +232,20 @@ class GenerateEvents:
                 if not isinstance(event.injury, list) or "cats" not in event.injury[0]:
                     if f"{event.event_id} injury formatted incorrectly" not in incorrect_format:
                         incorrect_format.append(f"{event.event_id} injury formatted incorrectly")
+
+            # INF
+            if log_prereq:
+                skip = False
+                for i in log_prereq:
+                    if i not in game.clan.infection["logs"]:
+                        skip = True
+                        print("Skipping event", event.event_id, "as there is no", i, "in logs.")
+                    else:
+                        print(i, "in logs, enabling", event.event.id, "event.")
+                if skip is True:
+                    continue
+            if event.event_id == "fungal_runaway_J1":
+                print("post prereq: filtering:", event.event_id)
 
             # check for event sub_type
             wrong_type = False
@@ -452,6 +468,9 @@ class GenerateEvents:
                 if event.m_c["backstory"]:
                     if cat.backstory not in event.m_c["backstory"]:
                         continue
+
+            if event.event_id == "fungal_runaway_J1":
+                print("post mc: filtering:", event.event_id)
 
             # check that a random_cat is available to use for r_c
             if event.r_c and random_cat:
@@ -747,8 +766,8 @@ class GenerateEvents:
                 if discard:
                     continue
 
-            # if event.sub_type and "murder_reveal" in event.sub_type:
-            #     print("MURDER REVEAL", event)
+            if event.event_id == "fungal_runaway_J1":
+                print("end: filtering:", event.event_id)
 
             final_events.append(event)
 

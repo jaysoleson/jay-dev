@@ -6015,271 +6015,295 @@
         }
     ]
   },
-  {
-    "event_id": "infection_murder_J1",
-    "location": ["any"],
-    "season": [
-        "any"
-    ],
-    "sub_type":  [
-        "murder"
-    ],
-    "tags": [],
-    "weight": 20,
-    "event_text": "r_c kills m_c in an attempt to rid the Clan of further infection.",
-    "m_c": {
-        "age": [ "any" ],
-        "status": [
+    {
+        "event_id": "infection_murder_J1",
+        "location": ["any"],
+        "season": [
             "any"
         ],
-        "dies": true,
-        "infected": true
-    },
-    "r_c": {
-        "age": ["adolescent", "young adult", "adult", "senior adult"],
-        "infected": false
-    },
-    "history": [{
-        "cats": ["m_c"],
-        "reg_death": "m_c was murdered by r_c to try and rid the Clan of infection."
-    }],
-    "relationships": [
-        {
-            "cats_from": [
-                "r_c"
+        "sub_type":  [
+            "murder"
+        ],
+        "tags": [],
+        "weight": 20,
+        "event_text": "r_c kills m_c in an attempt to rid the Clan of further infection.",
+        "m_c": {
+            "age": [ "any" ],
+            "status": [
+                "any"
             ],
-            "cats_to": [
-                "m_c"
-            ],
-            "values": [
-                "platonic"
-            ],
-            "amount": -15
+            "dies": true,
+            "infected": true
         },
-        {
-            "cats_from": [
-                "r_c"
-            ],
-            "cats_to": [
-                "m_c"
-            ],
-            "values": [
-                "dislike"
-            ],
-            "amount": 15
-        }
-    ]
-  },
-  {
-    "event_id": "infection_murder_J2",
-    "location": ["any"],
-    "season": [
-        "any"
-    ],
-    "sub_type":  [
-        "murder"
-    ],
-    "tags": [],
-    "weight": 20,
-    "event_text": "m_c attacks r_c, infection clouding {PRONOUN/m_c/poss} mind. r_c kills {PRONOUN/m_c/object} in self-defense.",
-    "m_c": {
-        "age": ["any"],
-        "status": ["any"],
-        "dies": true,
-        "infected": true
-    },
-    "r_c": {
-        "age": ["adolescent", "young adult", "adult", "senior adult"],
-        "infected": false
-    },
-    "history": [{
-        "cats": ["m_c"],
-        "reg_death": "m_c was killed by r_c in self-defense."
-    }],
-    "relationships": [
-        {
-            "cats_from": [
-                "r_c"
-            ],
-            "cats_to": [
-                "m_c"
-            ],
-            "values": [
-                "platonic"
-            ],
-            "amount": -15
+        "r_c": {
+            "age": ["adolescent", "young adult", "adult", "senior adult"],
+            "infected": false
         },
-        {
-            "cats_from": [
-                "r_c"
-            ],
-            "cats_to": [
-                "m_c"
-            ],
-            "values": [
-                "dislike"
-            ],
-            "amount": 15
-        }
-    ]
-  },
-  {
-    "event_id": "infection_murder_J3",
-    "location": ["any"],
-    "season": [
-        "any"
-    ],
-    "sub_type":  [
-        "murder"
-    ],
-    "tags": [],
-    "weight": 20,
-    "event_text": "r_c tells m_c to take a treatment for the infection. m_c gratefully takes the leaf-full of deathberries and r_c looks away as {PRONOUN/m_c/subject} {VERB/m_c/die/dies}.",
-    "m_c": {
-        "age": ["any"],
-        "status": ["medicine cat", "medicine cat apprentice"],
-        "dies": true,
-        "infected": true
+        "history": [{
+            "cats": ["m_c"],
+            "reg_death": "m_c was murdered by r_c to try and rid the Clan of infection."
+        }],
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c"
+                ],
+                "cats_to": [
+                    "m_c"
+                ],
+                "values": [
+                    "platonic"
+                ],
+                "amount": -15
+            },
+            {
+                "cats_from": [
+                    "r_c"
+                ],
+                "cats_to": [
+                    "m_c"
+                ],
+                "values": [
+                    "dislike"
+                ],
+                "amount": 15
+            }
+        ]
     },
-    "r_c": {
-        "age": ["adolescent", "young adult", "adult", "senior adult"],
-        "infected": false
-    },
-    "history": [{
-        "cats": ["m_c"],
-        "reg_death": "m_c was tricked into eating poisonous berries after being told they were a treatment for the infection."
-    }],
-    "relationships": [
-        {
-            "cats_from": [
-                "r_c"
-            ],
-            "cats_to": [
-                "m_c"
-            ],
-            "values": [
-                "platonic"
-            ],
-            "amount": -15
+    {
+        "event_id": "infection_murder_J2",
+        "location": ["any"],
+        "season": [
+            "any"
+        ],
+        "sub_type":  [
+            "murder"
+        ],
+        "tags": [],
+        "weight": 20,
+        "event_text": "m_c attacks r_c, infection clouding {PRONOUN/m_c/poss} mind. r_c kills {PRONOUN/m_c/object} in self-defense.",
+        "m_c": {
+            "age": ["any"],
+            "status": ["any"],
+            "dies": true,
+            "infected": true
         },
-        {
-            "cats_from": [
-                "r_c"
-            ],
-            "cats_to": [
-                "m_c"
-            ],
-            "values": [
-                "dislike"
-            ],
-            "amount": 15
-        }
-    ]
-},
-  {
-    "event_id": "infection_murder_J4",
-    "location": ["any"],
-    "season": [
-        "any"
-    ],
-    "sub_type":  [
-        "murder"
-    ],
-    "tags": [],
-    "weight": 20,
-    "event_text": "The infection clouding their mind, r_c attacks and kills m_c in the middle of the night. When they come to, they don't remember what they've done.",
-    "m_c": {
-        "age": ["any"],
-        "status": ["any"],
-        "dies": true
-    },
-    "r_c": {
-        "age": ["any"],
-        "infected": true,
-        "stage": ["stage three", "stage four"]
-    },
-    "history": [{
-        "cats": ["m_c"],
-        "reg_death": "m_c was killed by an infected r_c in the middle of the night."
-    }],
-    "relationships": [
-        {
-            "cats_from": [
-                "r_c"
-            ],
-            "cats_to": [
-                "m_c"
-            ],
-            "values": [
-                "platonic"
-            ],
-            "amount": -15
+        "r_c": {
+            "age": ["adolescent", "young adult", "adult", "senior adult"],
+            "infected": false
         },
-        {
-            "cats_from": [
-                "r_c"
-            ],
-            "cats_to": [
-                "m_c"
-            ],
-            "values": [
-                "dislike"
-            ],
-            "amount": 15
-        }
-    ]
-},
-  {
-    "event_id": "infection_murder_J5",
-    "location": ["any"],
-    "season": [
-        "any"
-    ],
-    "sub_type":  [
-        "murder"
-    ],
-    "tags": [],
-    "weight": 20,
-    "event_text": "r_c attacks and kills m_c while m_c attempts to deliver a treatment to them.",
-    "m_c": {
-        "age": ["any"],
-        "status": ["any"],
-        "dies": true
+        "history": [{
+            "cats": ["m_c"],
+            "reg_death": "m_c was killed by r_c in self-defense."
+        }],
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c"
+                ],
+                "cats_to": [
+                    "m_c"
+                ],
+                "values": [
+                    "platonic"
+                ],
+                "amount": -15
+            },
+            {
+                "cats_from": [
+                    "r_c"
+                ],
+                "cats_to": [
+                    "m_c"
+                ],
+                "values": [
+                    "dislike"
+                ],
+                "amount": 15
+            }
+        ]
     },
-    "r_c": {
-        "age": ["any"],
-        "infected": true,
-        "stage": ["stage three", "stage four"]
-    },
-    "history": [{
-        "cats": ["m_c"],
-        "reg_death": "m_c was killed by an infected r_c in the middle of the night."
-    }],
-    "relationships": [
-        {
-            "cats_from": [
-                "r_c"
-            ],
-            "cats_to": [
-                "m_c"
-            ],
-            "values": [
-                "platonic"
-            ],
-            "amount": -15
+    {
+        "event_id": "infection_murder_J3",
+        "location": ["any"],
+        "season": [
+            "any"
+        ],
+        "sub_type":  [
+            "murder"
+        ],
+        "tags": [],
+        "weight": 20,
+        "event_text": "r_c tells m_c to take a treatment for the infection. m_c gratefully takes the leaf-full of deathberries and r_c looks away as {PRONOUN/m_c/subject} {VERB/m_c/die/dies}.",
+        "m_c": {
+            "age": ["any"],
+            "status": ["medicine cat", "medicine cat apprentice"],
+            "dies": true,
+            "infected": true
         },
-        {
-            "cats_from": [
-                "r_c"
-            ],
-            "cats_to": [
-                "m_c"
-            ],
-            "values": [
-                "dislike"
-            ],
-            "amount": 15
+        "r_c": {
+            "age": ["adolescent", "young adult", "adult", "senior adult"],
+            "infected": false
+        },
+        "history": [{
+            "cats": ["m_c"],
+            "reg_death": "m_c was tricked into eating poisonous berries after being told they were a treatment for the infection."
+        }],
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c"
+                ],
+                "cats_to": [
+                    "m_c"
+                ],
+                "values": [
+                    "platonic"
+                ],
+                "amount": -15
+            },
+            {
+                "cats_from": [
+                    "r_c"
+                ],
+                "cats_to": [
+                    "m_c"
+                ],
+                "values": [
+                    "dislike"
+                ],
+                "amount": 15
+            }
+        ]
+    },
+    {
+        "event_id": "infection_murder_J4",
+        "location": ["any"],
+        "season": [
+            "any"
+        ],
+        "sub_type":  [
+            "murder"
+        ],
+        "tags": [],
+        "weight": 20,
+        "event_text": "The infection clouding their mind, r_c attacks and kills m_c in the middle of the night. When they come to, they don't remember what they've done.",
+        "m_c": {
+            "age": ["any"],
+            "status": ["any"],
+            "dies": true
+        },
+        "r_c": {
+            "age": ["any"],
+            "infected": true,
+            "stage": ["stage three", "stage four"]
+        },
+        "history": [{
+            "cats": ["m_c"],
+            "reg_death": "m_c was killed by an infected r_c in the middle of the night."
+        }],
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c"
+                ],
+                "cats_to": [
+                    "m_c"
+                ],
+                "values": [
+                    "platonic"
+                ],
+                "amount": -15
+            },
+            {
+                "cats_from": [
+                    "r_c"
+                ],
+                "cats_to": [
+                    "m_c"
+                ],
+                "values": [
+                    "dislike"
+                ],
+                "amount": 15
+            }
+        ]
+    },
+    {
+        "event_id": "infection_murder_J5",
+        "location": ["any"],
+        "season": [
+            "any"
+        ],
+        "sub_type":  [
+            "murder"
+        ],
+        "tags": [],
+        "weight": 20,
+        "event_text": "r_c attacks and kills m_c while m_c attempts to deliver a treatment to them.",
+        "m_c": {
+            "age": ["any"],
+            "status": ["any"],
+            "dies": true
+        },
+        "r_c": {
+            "age": ["any"],
+            "infected": true,
+            "stage": ["stage three", "stage four"]
+        },
+        "history": [{
+            "cats": ["m_c"],
+            "reg_death": "m_c was killed by an infected r_c in the middle of the night."
+        }],
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c"
+                ],
+                "cats_to": [
+                    "m_c"
+                ],
+                "values": [
+                    "platonic"
+                ],
+                "amount": -15
+            },
+            {
+                "cats_from": [
+                    "r_c"
+                ],
+                "cats_to": [
+                    "m_c"
+                ],
+                "values": [
+                    "dislike"
+                ],
+                "amount": 15
+            }
+        ]
+    },
+    {
+        "event_id": "fungal_runaway_J1",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "tags": [],
+        "log_prereq": [
+            "start"
+        ],
+        "weight": 20,
+        "event_text": "m_c tells r_c that they're running away to escape the infection. r_c tries, but can't stop them, and m_c flees the Clan in the night.",
+        "m_c": {
+            "age": ["any"],
+            "status": ["any"],
+            "lost": true
+        },
+        "r_c": {
+            "age": ["any"],
+            "status": ["any"]
         }
-    ]
-}
+    }
 ]

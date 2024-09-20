@@ -54,6 +54,12 @@ class HandleShortEvents:
         self.murder_index = None
         self.multi_cat: List = []
         self.dead_cats = []
+
+        # INF
+        self.lost_cats = []
+        self.log_prereqs = []
+        # ---
+
         self.chosen_herb = None
 
         self.other_clan = None
@@ -69,6 +75,7 @@ class HandleShortEvents:
         random_cat: Cat,
         freshkill_pile: FreshkillPile,
         sub_type: list = None,
+        log_prereq: list = None,
     ):
         """
         This function handles the generation and execution of the event
@@ -83,6 +90,12 @@ class HandleShortEvents:
         self.types.append(event_type)
         if sub_type:
             self.sub_types.extend(sub_type)
+        
+        # INF
+        if log_prereq:
+            self.log_prereqs.extend(log_prereq)
+            print(self.log_prereqs)
+        # ---
 
         self.main_cat = main_cat
         self.random_cat = random_cat
@@ -135,6 +148,7 @@ class HandleShortEvents:
             freshkill_active=FRESHKILL_EVENT_ACTIVE,
             freshkill_trigger_factor=FRESHKILL_EVENT_TRIGGER_FACTOR,
             sub_types=self.sub_types,
+            log_prereq=self.log_prereqs,
         )
 
         if isinstance(game.config["event_generation"]["debug_ensure_event_id"], str):
@@ -227,6 +241,11 @@ class HandleShortEvents:
         # kill cats
         self.handle_death()
 
+        # INF
+        # runaways
+        self.handle_lost()
+        # ---
+
         # add necessary histories
         self.handle_death_history()
 
@@ -283,6 +302,7 @@ class HandleShortEvents:
 
         if "clan_wide" in self.chosen_event.tags:
             self.involved_cats.clear()
+
 
         # if "murder" in self.chosen_event.sub_type:
         #     self.additional_event_text = f"MURDER MURDER MURDER"
@@ -445,6 +465,31 @@ class HandleShortEvents:
 
             else:
                 cat.die(body)
+
+    # INF
+    def handle_lost(self):
+        """
+        INFECTION: handles individual cats running away/getting lost
+        """
+        lost_list = self.lost_cats if self.lost_cats else []
+
+        if "lost" in self.chosen_event.m_c and self.chosen_event.m_c["lost"] and self.main_cat not in lost_list:
+            lost_list.append(self.main_cat)
+        if self.chosen_event.r_c:
+            if  "lost" in self.chosen_event.r_c and self.chosen_event.r_c["lost"] and self.random_cat not in lost_list:
+                lost_list.append(self.random_cat)
+
+        if not lost_list:
+            return
+
+        # kill cats
+        for cat in lost_list:
+            if "misc" not in self.types:
+                self.types.append("misc")
+                cat.gone()
+            else:
+                cat.gone()
+    # ---
 
     def handle_mass_death(self):
         """
@@ -873,6 +918,12 @@ class HandleShortEvents:
         self.murder_index = None
         self.multi_cat: List = []
         self.dead_cats = []
+
+        # INF
+        self.lost_cats = []
+        self.log_prereqs = []
+        # ---
+
         self.chosen_herb = None
 
         self.other_clan = None

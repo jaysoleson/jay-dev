@@ -258,7 +258,7 @@
 		"best_stat_modifier": 10,
 		"fail_stat_cat_modifier": -15,
 		"chance_of_romance_patrol": 16,
-		"debug_ensure_patrol_id": "fungal_lore_1",
+		"debug_ensure_patrol_id": null,
 		"debug_override_patrol_stat_requirements": false,
 		"debug_ensure_patrol_outcome": null,
 		"comment": [
@@ -267,7 +267,7 @@
 		]
 	},
 	"event_generation": {
-		"debug_ensure_event_id": null
+		"debug_ensure_event_id": "fungal_runaway_J1"
 	},
 	"death_related": {
 		"leader_death_chance": 50,
