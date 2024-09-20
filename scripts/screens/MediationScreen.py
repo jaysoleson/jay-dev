@@ -613,7 +613,7 @@ class MediationScreen(Screens):
 
             # If they are not both adults, or the same age, OR they are related, don't display any romantic affection,
             # even if they somehow have some. They should not be able to get any, but it never hurts to check.
-            if not check_age or related or not sexuality_compatible or the_relationship.cat_from.sexuality == "aroace":
+            if not check_age or related or the_relationship.cat_from.sexuality == "aroace":
                 display_romantic = 0
                 # Print, just for bug checking. Again, they should not be able to get love towards their relative.
                 if the_relationship.romantic_love and related:
@@ -625,7 +625,13 @@ class MediationScreen(Screens):
                         "towards their relative, " + str(the_relationship.cat_to.name)
                     )
             else:
-                display_romantic = the_relationship.romantic_love
+                if not sexuality_compatible:
+                    if the_relationship.cat_from.relationships[the_relationship.cat_to.ID].romantic_love > 10:
+                        display_romantic = 10
+                    else:
+                        display_romantic = the_relationship.romantic_love
+                else:
+                    display_romantic = the_relationship.romantic_love
 
             if display_romantic > 49:
                 text = "romantic love:"

@@ -2899,9 +2899,15 @@ class Events:
             Condition_Events.handle_already_disabled(cat)
             if cat.dead:
                 return
-            
+
+        if len(cat.mate) > 0:
+            comeout_chance = 10
+        else:
+            comeout_chance = 1
+
         if not cat.prevent_sexualitychange:
-            self.make_acespec(cat)
+            if not int(random.random()) * comeout_chance:
+                self.make_acespec(cat)
 
         if not cat.prevent_genderchange:
             self.coming_out(cat)
@@ -2910,9 +2916,10 @@ class Events:
             self.makeupurmind(cat)
 
         if not cat.prevent_sexualitychange:
-            self.make_questioning(cat)
-            self.change_sexuality(cat)
-            self.make_aroace(cat)
+            if not int(random.random()) * comeout_chance:
+                self.make_questioning(cat)
+                self.change_sexuality(cat)
+                self.make_aroace(cat)
 
         Pregnancy_Events.handle_having_kits(cat, clan=game.clan)
         # Stop the timeskip if the cat died in childbirth
@@ -4518,12 +4525,26 @@ class Events:
                 if demi_chance == 1:
                     if cat.gender == "male":
                         cat.genderalign = "demiboy"
+                        cat.pronouns = [
+                            cat.default_pronouns[0].copy(),
+                            [cat.default_pronouns[2].copy()]]
                     elif cat.gender == "female":
                         cat.genderalign = "demigirl"
+                        cat.pronouns = [
+                            cat.default_pronouns[0].copy(),
+                            [cat.default_pronouns[1].copy()]]
                 elif fluid_chance == 1:
                     cat.genderalign = 'genderfluid'
+                    cat.pronouns = [
+                            cat.default_pronouns[0].copy(),
+                            cat.default_pronouns[1].copy(),
+                            [cat.default_pronouns[2].copy()]]
                 elif fluid_chance == 2:
                     cat.genderalign = 'bigender'
+                    cat.pronouns = [
+                            cat.default_pronouns[0].copy(),
+                            cat.default_pronouns[1].copy(),
+                            [cat.default_pronouns[2].copy()]]
                 else:
                     if cat.gender == "male":
                         cat.genderalign = "trans female"
@@ -4531,28 +4552,17 @@ class Events:
                             cat.sexuality = "lesbian"
                         elif cat.sexuality == "gay":
                             cat.sexuality = "straight"
-                        # cat.pronouns = [cat.default_pronouns[1].copy()]
+                        cat.pronouns = [cat.default_pronouns[1].copy()]
                     elif cat.gender == "female":
                         cat.genderalign = "trans male"
                         if cat.sexuality == "straight":
                             cat.sexuality = "gay"
                         elif cat.sexuality == "lesbian":
                             cat.sexuality = "straight"
-                        # cat.pronouns = [cat.default_pronouns[2].copy()]
-                            
-                    if cat.genderalign in ["trans female", "trans male"]:
-                        pass
-
-                    elif cat.genderalign == 'demiboy':
-                        pass
-
-                    elif cat.genderalign == 'demigirl':
-                        pass
-                    # keep these to assing pronouns later
-
+                        cat.pronouns = [cat.default_pronouns[2].copy()]
                     else:
                         cat.genderalign = "nonbinary"
-                        # cat.pronouns = [cat.default_pronouns[0].copy()]
+                        cat.pronouns = [cat.default_pronouns[0].copy()]
                         if cat.sexuality == 'gay':
                             cat.sexuality = 'andro'
                         elif cat.sexuality == 'lesbian':
@@ -4926,8 +4936,8 @@ class Events:
                 game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
     
     def update_compatible_mates(self, cat):
-         """ updates compatible mates on moonskip for when the player manually changes cats orientation """
-         if len(cat.mate) > 0:
+        """ updates compatible mates on moonskip for when the player manually changes cats orientation """
+        if len(cat.mate) > 0:
             involved_cats = [cat.ID]
             for mate_id in cat.mate:
                 if Cat.all_cats.get(mate_id):
@@ -4950,7 +4960,7 @@ class Events:
                     if Cat.all_cats.get(mate_id).outside or Cat.all_cats.get(mate_id).exiled and not Cat.all_cats.get(mate_id).dead:
                         text = f"{cat.name} has realised that they don't care for {pref}, which includes their mate, {Cat.all_cats.get(mate_id).name}. They feel sorry that they won't be able to tell {Cat.all_cats.get(mate_id).name} about this, but ultimately decded to stop considering them as their mate."
                     if Cat.all_cats.get(mate_id).dead:
-                        text = f"{cat.name} has realised that they don't care for {pref}, which includes their late mate, {Cat.all_cats.get(mate_id).name}. {cat.name} has stopped considering {Cat.all_cats.get(mate_id).name} as their mate, but are still just as excited to reunite with them one day."
+                        text = f"{cat.name} has realised that they don't care for {pref}, which includes their late mate, {Cat.all_cats.get(mate_id).name}. {cat.name} has stopped considering {Cat.all_cats.get(mate_id).name} as their mate, but is still just as excited to reunite one day."
                     else:
                         text = f"Since {cat.name} doesn't care for {pref}, {cat.name} and {Cat.all_cats.get(mate_id).name} have broken up, but they are still great friends."
                     cat.unset_mate(Cat.all_cats.get(mate_id))

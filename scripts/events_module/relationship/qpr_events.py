@@ -750,18 +750,18 @@ class QPR_Events():
             qpp_string = qpp_string.replace("[r_c_qpps]", qpp_name_string)
 
         if "(m_c_qpp/qpps)" in qpp_string:
-            insert = "qpp"
+            insert = "partner"
             if len(cat_from.qpp) > 1:
-                insert = "qpps"
+                insert = "partners"
             qpp_string = qpp_string.replace("(m_c_qpp/qpps)", insert)
 
         if "(r_c_qpp/qpps)" in qpp_string:
-            insert = "qpp"
+            insert = "partner"
             if len(cat_to.qpp) > 1:
-                insert = "qpps"
+                insert = "partners"
             qpp_string = qpp_string.replace("(r_c_qpp/qpps)", insert)
 
-        qpp_string = event_text_adjust(Cat, qpp_string, cat_from, cat_to)
+        qpp_string = event_text_adjust(Cat, qpp_string, main_cat=cat_from, random_cat=cat_to)
         return qpp_string
 
     @staticmethod

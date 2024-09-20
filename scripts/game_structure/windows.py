@@ -710,21 +710,6 @@ class PronounCreation(UIWindow):
             manager=MANAGER,
             container=self,
         )
-        # self.heading = pygame_gui.elements.UITextBox(f"-Change {self.the_cat.name}'s Gender-"
-        #                                              f"<br> You can set this to anything! "
-        #                                              f"Gender alignment does not affect gameplay.",
-        #                                              scale(pygame.Rect(
-        #                                                  (20, 20), (760, 150))),
-        #                                              object_id="#text_box_30_horizcenter_spacing_95",
-        #                                              manager=MANAGER,
-        #                                              container=self)
-        
-        # self.xenos = UIImageButton(scale(pygame.Rect((125, 175), (62, 62))), "",
-        #     object_id="#help_button",
-        #     manager=MANAGER, tool_tip_text =
-        #     "<b> Genders that <br> currently have bandanas: </b> <br> genderdoe <br> genderfaun <br> mothgender <br> buggender <br> catgender <br> snowleopardgender <br> tigergender <br> xenogender <br> mossgender <br> moongender <br> sungender <br> stargender <br> apagender <br> genderflux",
-            
-        #     container=self)
 
         # Create a sub-container for the Demo frame and sample text
         demo_container_rect = scale(pygame.Rect((795, 115), (851, 1184)))
@@ -1039,270 +1024,11 @@ class PronounCreation(UIWindow):
             if value is False:
                 return False
         return True
-
+    
     def process_event(self, event):
         super().process_event(event)
 
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
-            if event.ui_element == self.done_button:
-
-                boyliker = (self.the_cat.genderalign in ['male', 'trans male', 'demiboy'] and self.the_cat.sexuality == 'gay') or\
-                self.the_cat.genderalign in ['female', 'trans female', 'demigirl'] and self.the_cat.sexuality == 'straight'
-
-                girlliker = (self.the_cat.genderalign in ['male', 'trans male', 'demiboy'] and self.the_cat.sexuality == 'straight') or\
-                self.the_cat.genderalign in ['female', 'trans female', 'demigirl'] and self.the_cat.sexuality == 'lesbian'
-
-                if boyliker:
-                    self.the_cat.sexuality = 'andro'
-                elif girlliker:
-                    self.the_cat.sexuality = 'gyno'
-
-                if sub(r'[^A-Za-z0-9 ]+', "", self.gender_entry_box.get_text()) != "":
-                    self.the_cat.genderalign = sub(
-                        r'[^A-Za-z0-9 ]+', "", self.gender_entry_box.get_text())
-                    
-                    # this for if someone specifies gender to a binary one for some reason
-                    if self.the_cat.genderalign in ['male', 'trans male', 'demiboy']:
-                        if self.the_cat.sexuality == 'andro':
-                            self.the_cat.sexuality = 'gay'
-                        elif self.the_cat.sexuality == 'gyno':
-                            self.the_cat.sexuality = 'straight'
-
-                    elif self.the_cat.genderalign in ['female', 'trans female', 'demigirl']:
-                        if self.the_cat.sexuality == 'andro':
-                            self.the_cat.sexuality = 'straight'
-                        elif self.the_cat.sexuality == 'gyno':
-                            self.the_cat.sexuality = 'lesbian'
-                    self.gender_changed.show()
-                    if self.the_cat.genderalign in [
-                        "genderdoe", "mothgender", "buggender", "tigergender", "snowleopardgender",
-                        "genderfaun", "xenogender", "mossgender", "moongender", "stargender", "sungender", "apagender",
-                        "catgender"
-                    ]:
-                        event = xenogender_event(self.the_cat)
-                        game.cur_events_list.insert(0, Single_Event(event, ["misc", "alert"], self.the_cat.ID))
-
-            elif event.ui_element == self.back_button:
-                game.switches['window_open'] = False
-                game.all_screens['profile screen'].exit_screen()
-                game.all_screens['profile screen'].screen_switches()
-                self.kill()
-            
-
-class SpecifyCatSexuality(UIWindow):
-    """This window allows the user to specify the cat's sexuality"""
-
-    def __init__(self, cat):
-        super().__init__(scale(pygame.Rect((600, 430), (800, 500))),
-                         window_display_title='Custom Sexuality',
-                         object_id='#change_cat_gender_window',
-                         resizable=False)
-        game.switches['window_open'] = True
-        self.the_cat = cat
-        self.back_button = UIImageButton(
-            scale(pygame.Rect((740, 10), (44, 44))),
-            "",
-            object_id="#exit_window_button",
-            container=self
-        )
-        self.heading = pygame_gui.elements.UITextBox(f"-Change {self.the_cat.name}'s sexuality label-"
-                                                     f"<br> Remember to check off the appropriate boxes!",
-                                                     scale(pygame.Rect(
-                                                         (20, 20), (760, 150))),
-                                                     object_id="#text_box_30_horizcenter_spacing_95",
-                                                     manager=MANAGER,
-                                                     container=self)
-        
-        # self.xenos = UIImageButton(scale(pygame.Rect((125, 175), (62, 62))), "",
-        #     object_id="#help_button",
-        #     manager=MANAGER, tool_tip_text =
-        #     "<b> Xenogenders that <br> currently have bandanas: </b> <br> genderdoe <br< genderfaun <br> mothgender <br> buggender <br> catgender <br> snowleopardgender <br> tigergender <br> xenogender <br>",
-            
-        #     container=self)
-
-        self.label_changed = pygame_gui.elements.UITextBox("Label changed!",
-                                                            scale(pygame.Rect(
-                                                                (490, 260), (800, 300))),
-                                                            visible=False,
-                                                            object_id="#text_box_30_horizleft",
-                                                            manager=MANAGER,
-                                                            container=self)
-
-        self.done_button = UIImageButton(scale(pygame.Rect((323, 330), (154, 60))), "",
-                                         object_id="#done_button",
-                                         manager=MANAGER,
-                                         container=self)
-
-        self.label_entry_box = pygame_gui.elements.UITextEntryLine(scale(pygame.Rect((200, 200), (400, 80))),
-                                                                    placeholder_text="",
-                                                                    manager=MANAGER,
-                                                                    container=self)
-        
-        self.none_unchecked = UIImageButton(scale(pygame.Rect((130, 150), (68, 68))), "", object_id="#unchecked_checkbox",
-                                            tool_tip_text=(
-                                            'No romantic attraction'),container=self)
-        self.none_checked = UIImageButton(scale(pygame.Rect((130, 150), (68, 68))), "", object_id="#checked_checkbox",
-                                         container=self)
-        
-        self.toms_unchecked = UIImageButton(scale(pygame.Rect((130, 210), (68, 68))), "", object_id="#unchecked_checkbox",
-                                            tool_tip_text=(
-                                            'Attracted to toms. Includes enbies'),container=self)
-        self.toms_checked = UIImageButton(scale(pygame.Rect((130, 210), (68, 68))), "", object_id="#checked_checkbox",
-                                         container=self)
-
-        self.shecats_unchecked = UIImageButton(scale(pygame.Rect((130, 270), (68, 68))), "", object_id="#unchecked_checkbox",
-                                            tool_tip_text=(
-                                            'Attracted to she-cats. Includes enbies'),container=self)
-        self.shecats_checked = UIImageButton(scale(pygame.Rect((130, 270), (68, 68))), "", object_id="#checked_checkbox",
-                                         container=self)
-        
-        self.remove_unchecked = UIImageButton(scale(pygame.Rect((130, 350), (68, 68))), "", object_id="#unchecked_checkbox",
-                                            tool_tip_text=(
-                                            'Remove custom label'),container=self)
-        self.remove_checked = UIImageButton(scale(pygame.Rect((130, 350), (68, 68))), "", object_id="#checked_checkbox",
-                                         container=self)
-        
-        self.none_checked.hide()
-        self.toms_checked.hide()
-        self.shecats_checked.hide()
-        self.remove_checked.hide()
-
-        self.none_attracted = False
-        self.tom_attracted = False
-        self.shecat_attracted = False
-        self.removelabel = False
-
-        self.done_button.disable()
-        
-        self.set_blocking(True)
-
-    def process_event(self, event):
-        super().process_event(event)
-
-        if event.type == pygame_gui.UI_BUTTON_START_PRESS:
-
-            if event.ui_element == self.toms_unchecked:
-                self.tom_attracted = True
-                self.none_attracted = False
-                self.removelabel = False
-
-                self.toms_unchecked.hide()
-                self.toms_checked.show()
-                
-            elif event.ui_element == self.toms_checked:
-                self.tom_attracted = False
-                self.toms_checked.hide()
-                self.toms_unchecked.show()
-
-            elif event.ui_element == self.shecats_unchecked:
-                self.shecat_attracted = True
-                self.none_attracted = False
-                self.removelabel = False
-                
-                self.shecats_unchecked.hide()
-                self.shecats_checked.show()
-
-                self.remove_checked.hide()
-                self.remove_unchecked.show()
-
-            elif event.ui_element == self.shecats_checked:
-                self.shecat_attracted = False
-                self.shecats_checked.hide()
-                self.shecats_unchecked.show()
-
-                self.remove_checked.hide()
-                self.remove_unchecked.show()
-
-            elif event.ui_element == self.none_unchecked:
-                self.none_attracted = True
-                self.shecat_attracted = False
-                self.tom_attracted = False
-
-                self.shecats_checked.hide()
-                self.shecats_unchecked.show()
-
-                self.toms_checked.hide()
-                self.toms_unchecked.show()
-
-                self.none_unchecked.hide()
-                self.none_checked.show()
-
-                self.remove_checked.hide()
-                self.remove_unchecked.show()
-            elif event.ui_element == self.none_checked:
-                self.none_attracted = False
-                self.none_checked.hide()
-                self.none_unchecked.show()
-
-                self.remove_checked.hide()
-                self.remove_unchecked.show()
-
-            elif event.ui_element == self.remove_unchecked:
-                self.none_attracted = False
-                self.shecat_attracted = False
-                self.tom_attracted = False
-                self.removelabel = True
-
-                self.remove_unchecked.hide()
-                self.remove_checked.show()
-            elif event.ui_element == self.remove_checked:
-                self.none_attracted = False
-                self.shecat_attracted = False
-                self.tom_attracted = False
-                self.removelabel = False
-
-                self.remove_checked.hide()
-                self.remove_unchecked.show()
-
-            elif event.ui_element == self.done_button:
-
-                if (self.the_cat.arospec == 'aromantic' and self.the_cat.acespec == 'acespec') and self.the_cat.sexuality != 'aroace':
-                    self.the_cat.arospec = 'alloromantic'
-                    self.the_cat.acespec = 'alloromantic'
-                
-                if self.tom_attracted and self.shecat_attracted:
-                    self.the_cat.sexuality = "bi"
-                    print('attracted to both')
-                elif self.tom_attracted:
-                    print('attracted to men')
-                    if self.the_cat.genderalign in ['male', 'trans male', 'demiboy']:
-                        self.the_cat.sexuality = 'gay'
-                    elif self.the_cat.genderalign in ['female', 'trans female', 'demigirl']:
-                        self.the_cat.sexuality = 'straight'
-                    else:
-                        self.the_cat.sexuality = 'andro'
-                elif self.shecat_attracted:
-                    print('attracted to women')
-                    if self.the_cat.genderalign in ['male', 'trans male', 'demiboy']:
-                        self.the_cat.sexuality = 'straight'
-                    elif self.the_cat.genderalign in ['female', 'trans female', 'demigirl']:
-                        self.the_cat.sexuality = 'lesbian'
-                    else:
-                        self.the_cat.sexuality = 'gyno'
-                elif self.none_attracted:
-                    print('attracted to NONE')
-                    self.the_cat.sexuality = 'aroace'
-                    self.the_cat.arospec = 'aromantic'
-                    self.the_cat.acespec = 'asexual'
-                elif self.removelabel:
-                    print('label gone')
-                    self.the_cat.sexualitylabel = self.the_cat.sexuality
-
-                if sub(r'[^A-Za-z0-9 ]+', "", self.label_entry_box.get_text()) != "":
-                    self.the_cat.sexualitylabel = sub(
-                        r'[^A-Za-z0-9 ]+', "", self.label_entry_box.get_text())
-                    
-                    self.label_changed.show()
-
-            elif event.ui_element == self.back_button:
-                game.switches['window_open'] = False
-                game.all_screens['profile screen'].exit_screen()
-                game.all_screens['profile screen'].screen_switches()
-                self.kill()
-
-            if self.none_attracted or self.tom_attracted or self.shecat_attracted or self.removelabel:
-                self.done_button.enable()
-            
             if event.ui_element == self.back_button:
                 game.switches["window_open"] = False
                 game.all_screens["change gender screen"].exit_screen()
@@ -1359,6 +1085,352 @@ class SpecifyCatSexuality(UIWindow):
         text += sentence.capitalize()"""
         # print (len(game.clan.custom_pronouns)+1)
         return text
+            
+
+class SpecifyCatSexuality(UIWindow):
+    """This window allows the user to specify the cat's sexuality"""
+
+    def __init__(self, cat):
+        super().__init__(scale(pygame.Rect((600, 430), (800, 500))),
+                         window_display_title='Custom Sexuality',
+                         object_id='#change_cat_gender_window',
+                         resizable=False)
+        game.switches['window_open'] = True
+        self.the_cat = cat
+        self.back_button = UIImageButton(
+            scale(pygame.Rect((740, 10), (44, 44))),
+            "",
+            object_id="#exit_window_button",
+            container=self
+        )
+        self.heading = pygame_gui.elements.UITextBox(
+            f"-Change {self.the_cat.name}'s sexuality label-"
+            f"<br> Remember to check off the appropriate boxes!",
+            scale(pygame.Rect((20, 20), (760, 150))),
+            object_id="#text_box_30_horizcenter_spacing_95",
+            manager=MANAGER,
+            container=self)
+        
+        self.xenos = UIImageButton(scale(pygame.Rect((625, 210), (62, 62))), "",
+            object_id="#help_button",
+            manager=MANAGER, tool_tip_text = "<b> Unique genders that <br> currently have bandanas: </b> <br> genderdoe <br> genderfaun <br> mothgender <br> buggender <br> catgender <br> snowleopardgender <br> tigergender <br> xenogender <br> mossgender <br> moongender <br> sungender <br> stargender <br> apagender <br> genderflux",
+            container=self
+            )
+
+        self.label_changed = pygame_gui.elements.UITextBox(
+            "Label changed!",
+            scale(pygame.Rect((490, 260), (800, 300))),
+            visible=False,
+            object_id="#text_box_30_horizleft",
+            manager=MANAGER,
+            container=self
+            )
+
+        self.done_button = UIImageButton(
+            scale(pygame.Rect((323, 330), (154, 60))),
+            "",
+            object_id="#done_button",
+            manager=MANAGER,
+            container=self
+            )
+
+        label = cat.sexualitylabel if cat.sexualitylabel is not None else cat.sexuality
+        self.label_entry_box = pygame_gui.elements.UITextEntryLine(
+            scale(pygame.Rect((250, 200), (350, 80))),
+            placeholder_text=f"{label}",
+            manager=MANAGER,
+            container=self)
+        
+        self.none_unchecked = UIImageButton(
+            scale(pygame.Rect((150, 150), (68, 68))),
+            "",
+            object_id="#unchecked_checkbox",
+            tool_tip_text=('No romantic attraction'),
+            container=self
+            )
+
+        self.nonetext = pygame_gui.elements.UITextBox(
+            "None",
+            scale(pygame.Rect((5, 155), (200, 75))),
+            object_id="#text_box_22_horizcenter",
+            manager=MANAGER,
+            container=self
+            )
+
+        self.none_checked = UIImageButton(
+            scale(pygame.Rect((150, 150), (68, 68))),
+            "",
+            object_id="#checked_checkbox",
+            container=self
+            )
+
+        self.toms_unchecked = UIImageButton(
+            scale(pygame.Rect((150, 210), (68, 68))),
+            "",
+            object_id="#unchecked_checkbox",
+            tool_tip_text=('Attracted to toms. Includes enbies'),
+            container=self
+            )
+        self.tomtext = pygame_gui.elements.UITextBox(
+            "Toms",
+            scale(pygame.Rect((5, 215), (200, 75))),
+            object_id="#text_box_22_horizcenter",
+            manager=MANAGER,
+            container=self
+            )
+        self.toms_checked = UIImageButton(
+            scale(pygame.Rect((150, 210), (68, 68))),
+            "",
+            object_id="#checked_checkbox",
+            container=self
+            )
+
+        self.shecats_unchecked = UIImageButton(
+            scale(pygame.Rect((150, 270), (68, 68))),
+            "",
+            object_id="#unchecked_checkbox",
+            tool_tip_text=('Attracted to she-cats. Includes enbies'),
+            container=self
+            )
+        
+        self.shecattext = pygame_gui.elements.UITextBox(
+            "She-cats",
+            scale(pygame.Rect((5, 275), (200, 75))),
+            object_id="#text_box_22_horizcenter",
+            manager=MANAGER,
+            container=self
+            )
+
+        self.shecats_checked = UIImageButton(
+            scale(pygame.Rect((150, 270), (68, 68))),
+            "",
+            object_id="#checked_checkbox",
+            container=self
+            )
+
+        self.remove_unchecked = UIImageButton(
+            scale(pygame.Rect((150, 350), (68, 68))),
+            "",
+            object_id="#unchecked_checkbox",
+            tool_tip_text=('Remove custom label'),
+            container=self
+            )
+        
+        self.removetext = pygame_gui.elements.UITextBox(
+            "Reset label",
+            scale(pygame.Rect((0, 355), (200, 75))),
+            object_id="#text_box_22_horizcenter",
+            manager=MANAGER,
+            container=self
+            )
+
+        self.remove_checked = UIImageButton(
+            scale(pygame.Rect((150, 350), (68, 68))),
+            "",
+            object_id="#checked_checkbox",
+            container=self
+            )
+        
+        self.none_attracted = False
+        self.tom_attracted = False
+        self.shecat_attracted = False
+        self.removelabel = False
+
+        if cat.sexuality in ["bi", "pan"]:
+            self.none_attracted = False
+            self.tom_attracted = True
+            self.shecat_attracted = True
+        elif (
+            cat.sexuality in ["lesbian", "gyno"] or
+            (cat.genderalign in ["male", "trans male", "demiboy"] and cat.sexuality == "straight")
+            ):
+            self.none_attracted = False
+            self.tom_attracted = False
+            self.shecat_attracted = True
+        elif (
+            cat.sexuality in ["gay", "andro"] or
+            (cat.genderalign in ["female", "trans female", "demigirl"] and cat.sexuality == "straight")
+            ):
+            self.none_attracted = False
+            self.tom_attracted = True
+            self.shecat_attracted = False
+        elif cat.sexuality == "aroace":
+            self.none_attracted = True
+            self.tom_attracted = False
+            self.shecat_attracted = False
+
+        self.done_button.disable()
+        self.update_checkboxes()
+        
+        self.set_blocking(True)
+
+    def update_checkboxes(self):
+        # self.none_checked.hide()
+        # self.toms_checked.hide()
+        # self.shecats_checked.hide()
+        # self.remove_checked.hide()
+
+        print(self.none_attracted, self.shecat_attracted, self.tom_attracted)
+
+        if self.none_attracted:
+            self.tom_attracted = False
+            self.shecat_attracted = False
+        
+        if self.tom_attracted or self.shecat_attracted:
+            self.none_attracted = False
+            self.none_unchecked.show()
+            self.none_checked.hide()
+
+        if self.tom_attracted:
+            self.toms_checked.show()
+            self.toms_unchecked.hide()
+        else:
+            self.toms_unchecked.show()
+            self.toms_checked.hide()
+
+        if self.shecat_attracted:
+            self.shecats_checked.show()
+            self.shecats_unchecked.hide()
+        else:
+            self.shecats_unchecked.show()
+            self.shecats_checked.hide()
+        
+        if self.none_attracted:
+            self.none_checked.show()
+            self.none_unchecked.hide()
+        else:
+            self.none_unchecked.show()
+            self.none_checked.hide()
+        
+        if self.removelabel:
+            self.remove_checked.show()
+            self.remove_unchecked.hide()
+        else:
+            self.remove_unchecked.show()
+            self.remove_checked.hide()
+
+        if self.none_attracted is True or self.shecat_attracted is True or self.tom_attracted is True:
+            self.done_button.enable()
+        else:
+            self.done_button.disable()
+
+    def process_event(self, event):
+        super().process_event(event)
+
+        if event.type == pygame_gui.UI_BUTTON_START_PRESS:
+
+            if event.ui_element == self.toms_unchecked:
+                self.tom_attracted = True
+                self.none_attracted = False
+                self.removelabel = False
+
+                self.update_checkboxes()
+                
+            elif event.ui_element == self.toms_checked:
+                self.tom_attracted = False
+                self.update_checkboxes()
+
+            elif event.ui_element == self.shecats_unchecked:
+                self.shecat_attracted = True
+                self.none_attracted = False
+                self.removelabel = False
+                
+                self.update_checkboxes()
+
+                self.remove_checked.hide()
+                self.remove_unchecked.show()
+
+            elif event.ui_element == self.shecats_checked:
+                self.shecat_attracted = False
+                self.update_checkboxes()
+
+                self.remove_checked.hide()
+                self.remove_unchecked.show()
+
+            elif event.ui_element == self.none_unchecked:
+                self.none_attracted = True
+                self.shecat_attracted = False
+                self.tom_attracted = False
+
+                self.update_checkboxes()
+
+                self.none_unchecked.hide()
+                self.none_checked.show()
+
+                self.remove_checked.hide()
+                self.remove_unchecked.show()
+            elif event.ui_element == self.none_checked:
+                self.none_attracted = False
+
+                self.update_checkboxes()
+
+                self.remove_checked.hide()
+                self.remove_unchecked.show()
+
+            elif event.ui_element == self.remove_unchecked:
+                self.none_attracted = False
+                self.shecat_attracted = False
+                self.tom_attracted = False
+                self.removelabel = True
+                
+                self.remove_unchecked.hide()
+                self.remove_checked.show()
+            elif event.ui_element == self.remove_checked:
+                self.none_attracted = False
+                self.shecat_attracted = False
+                self.tom_attracted = False
+                self.removelabel = False
+
+                self.remove_checked.hide()
+                self.remove_unchecked.show()
+
+            elif event.ui_element == self.done_button:
+                if (self.the_cat.arospec == 'aromantic' and self.the_cat.acespec == 'acespec') and self.the_cat.sexuality != 'aroace':
+                    self.the_cat.arospec = 'alloromantic'
+                    self.the_cat.acespec = 'alloromantic'
+                
+                if self.tom_attracted and self.shecat_attracted:
+                    self.the_cat.sexuality = "bi"
+                    print('attracted to both')
+                elif self.tom_attracted:
+                    print('attracted to men')
+                    if self.the_cat.genderalign in ['male', 'trans male', 'demiboy']:
+                        self.the_cat.sexuality = 'gay'
+                    elif self.the_cat.genderalign in ['female', 'trans female', 'demigirl']:
+                        self.the_cat.sexuality = 'straight'
+                    else:
+                        self.the_cat.sexuality = 'andro'
+                elif self.shecat_attracted:
+                    print('attracted to women')
+                    if self.the_cat.genderalign in ['male', 'trans male', 'demiboy']:
+                        self.the_cat.sexuality = 'straight'
+                    elif self.the_cat.genderalign in ['female', 'trans female', 'demigirl']:
+                        self.the_cat.sexuality = 'lesbian'
+                    else:
+                        self.the_cat.sexuality = 'gyno'
+                elif self.none_attracted:
+                    print('attracted to NONE')
+                    self.the_cat.sexuality = 'aroace'
+                    self.the_cat.arospec = 'aromantic'
+                    self.the_cat.acespec = 'asexual'
+                elif self.removelabel:
+                    print('label gone')
+                    self.the_cat.sexualitylabel = self.the_cat.sexuality
+
+                if sub(r'[^A-Za-z0-9 ]+', "", self.label_entry_box.get_text()) != "":
+                    self.the_cat.sexualitylabel = sub(
+                        r'[^A-Za-z0-9 ]+', "", self.label_entry_box.get_text())
+                    
+                    self.label_changed.show()
+
+            elif event.ui_element == self.back_button:
+                game.switches['window_open'] = False
+                game.all_screens['profile screen'].exit_screen()
+                game.all_screens['profile screen'].screen_switches()
+                self.kill()
+
+            if self.none_attracted or self.tom_attracted or self.shecat_attracted or self.removelabel:
+                self.done_button.enable()
 
 
 class KillCat(UIWindow):

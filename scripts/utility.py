@@ -740,6 +740,7 @@ def create_new_cat(
         other_clan: bool = None,
         backstory: bool = None,
         status: str = None,
+        sexuality: str = None,
         age: int = None,
         gender: str = None,
         thought: str = 'Is looking around the camp with wonder',
@@ -1037,6 +1038,8 @@ def create_new_cat(
         # Note - we always update inheritance after the cats are generated, to
         # allow us to add parents.
         # new_cat.create_inheritance_new_cat()
+
+        new_cat.sexualitylabel = new_cat.sexuality
 
         
 

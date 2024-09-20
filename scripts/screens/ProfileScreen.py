@@ -675,7 +675,8 @@ class ProfileScreen(Screens):
                 ChangeCatName(self.the_cat)
             elif event.ui_element == self.specify_gender_button:
                 self.change_screen("change gender screen")
-            # when button is pressed...
+            elif event.ui_element == self.specify_sexuality_button:
+                SpecifyCatSexuality(self.the_cat)
             elif event.ui_element == self.cis_trans_button:
                 # if the cat is anything besides m/f/transm/transf then turn them back to cis
                 if self.the_cat.genderalign not in [
@@ -766,6 +767,75 @@ class ProfileScreen(Screens):
                 self.clear_profile()
                 self.build_profile()
                 self.update_disabled_buttons_and_text()
+            elif event.ui_element == self.change_sexuality_button:
+                if self.the_cat.sexuality == "straight":
+                    self.the_cat.sexuality = "bi"
+                elif self.the_cat.sexuality == "bi":
+                    self.the_cat.sexuality = "pan"
+                elif self.the_cat.sexuality == "pan":
+                    if self.the_cat.genderalign in ["female", "trans female", "demigirl"]:
+                        self.the_cat.sexuality = "lesbian"
+                    elif self.the_cat.genderalign in ["male", "trans male", "demiboy"]:
+                        self.the_cat.sexuality = "gay"
+                    # elif self.the_cat.genderalign == "nonbinary":
+                    elif self.the_cat.genderalign not in ["male", "trans male", "demiboy", "female", "trans female", "demigirl"]:
+                        # ^^ doing this instead of "if cat.sexuality == "nonbinary" allows for specified genders
+                        self.the_cat.sexuality = "gyno"
+                elif self.the_cat.sexuality == "gyno":
+                        self.the_cat.sexuality = "andro"
+                elif self.the_cat.sexuality in ["lesbian", "gay", "andro"]:
+                    self.the_cat.sexuality = "aroace"
+                    self.the_cat.acespec = 'asexual'
+                    self.the_cat.arospec = 'aromantic'
+                elif self.the_cat.sexuality == "aroace":
+                    self.the_cat.sexuality = "unlabelled"
+                    self.the_cat.arospec = 'alloromantic'
+                    self.the_cat.acespec = 'allosexual'
+                elif self.the_cat.sexuality == "unlabelled":
+                    if self.the_cat.genderalign not in ["male", "trans male", "demiboy", "female", "trans female", "demigirl"]:
+                        self.the_cat.sexuality = "bi"
+                    else:
+                        self.the_cat.sexuality = "straight"
+
+                if self.the_cat.sexualitylabel != self.the_cat.sexuality and self.the_cat.sexualitylabel is not None:
+                    self.the_cat.sexualitylabel = self.the_cat.sexuality
+                self.clear_profile()
+                self.build_profile()
+                self.update_disabled_buttons_and_text()
+            elif event.ui_element == self.change_acespec_button:
+                if self.the_cat.acespec == 'allosexual':
+                    self.the_cat.acespec = 'demisexual'
+                elif self.the_cat.acespec == 'demisexual':
+                    self.the_cat.acespec = 'grey asexual'
+                elif self.the_cat.acespec == 'grey asexual':
+                    self.the_cat.acespec = 'asexual'
+                    if self.the_cat.arospec == 'aromantic':
+                        self.the_cat.sexuality = 'aroace'
+                elif self.the_cat.acespec == 'asexual':
+                    self.the_cat.acespec = 'allosexual'
+                    if self.the_cat.sexuality == 'aroace':
+                        self.the_cat.sexuality = 'bi'
+                self.clear_profile()
+                self.build_profile()
+                self.update_disabled_buttons_and_text()
+            
+            elif event.ui_element == self.change_arospec_button:
+                if self.the_cat.arospec == 'alloromantic':
+                    self.the_cat.arospec = 'demiromantic'
+                elif self.the_cat.arospec == 'demiromantic':
+                    self.the_cat.arospec = 'grey aromantic'
+                elif self.the_cat.arospec == 'grey aromantic':
+                    self.the_cat.arospec = 'aromantic'
+                    if self.the_cat.acespec == 'asexual':
+                        self.the_cat.sexuality = 'aroace'
+                elif self.the_cat.arospec == 'aromantic':
+                    self.the_cat.arospec = 'alloromantic'
+                    if self.the_cat.sexuality == 'aroace':
+                        self.the_cat.sexuality = 'bi'
+                self.clear_profile()
+                self.build_profile()
+                self.update_disabled_buttons_and_text()
+
             elif event.ui_element == self.cat_toggles_button:
                 ChangeCatToggles(self.the_cat)
         elif self.open_tab == 'your tab':
@@ -3331,6 +3401,14 @@ class ProfileScreen(Screens):
                 "",
                 starting_height=2,
                 object_id="#cat_toggles_button",
+                manager=MANAGER,
+            )
+
+            self.specify_sexuality_button = UIImageButton(
+                scale(pygame.Rect((1147, 1086), (352, 60))),
+                "",
+                starting_height=2,
+                object_id="#specify_sexuality_button",
                 manager=MANAGER,
             )
 
