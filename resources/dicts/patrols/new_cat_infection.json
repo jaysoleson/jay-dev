@@ -177,25 +177,29 @@
         "min_cats": 2,
         "max_cats": 6,
         "min_max_status": {
-            "healer cats": [1, 6]
         },
         "weight": 50,
-        "intro_text": "While sniffing around the edge of a Twolegplace, p_l feels something hit their head. They look up and see a kittypet sitting up in the branch of a tree, apologising for dropping their twig while giggling.",
-        "decline_text": "The patrol decides to patrol elsewhere, leaving the kittypet to entertain themself.",
+        "intro_text": "While sniffing around the edge of a Twolegplace, p_l feels something hit {PRONOUN/p_l/poss} head. {PRONOUN/p_l/subject/CAP} {VERB/p_l/look/looks} up and {VERB/p_l/see/sees} a kittypet sitting up in the branch of a tree, apologising for dropping their twig while giggling.",
+        "decline_text": "The cats decide to patrol elsewhere, leaving the kittypet to entertain themself.",
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "When the patrol asks what they're doing out of their Twoleg den with this infection going around, the kittypet shrugs and says that their Twolegs cured them ages ago, so they can still explore.",
+                "text": "When the patrol asks what {PRONOUN/n_c:0/subject}{VERB/n_c:0/'re/'s} doing out of {PRONOUN/n_c:0/poss} Twoleg den with this infection going around, the kittypet shrugs and says that {PRONOUN/n_c:0/poss} Twolegs cured {PRONOUN/n_c:0/object} ages ago, so {PRONOUN/n_c:0/subject} can still explore. The kittypet can't answer any further questions and quickly leaps out of sight, unsettled by the patrol's persistence to learn more.",
                 "exp": 10,
                 "weight": 20,
                 "new_cat": [
-                    ["kittypet", "backstory:immune_kittypet", "immune", "status:medicine cat"]
+                    ["meeting", "kittypet", "backstory:immune_kittypet", "immune", "status:medicine cat"]
+                ],
+                "cure_log": [
+                    {
+                        "entry": "lore_fungal_2"
+                    }
                 ]
             }
         ],
         "fail_outcomes": [
             {
-                "text": ".",
+                "text": "p_l tries to ask the kittypet what they're doing out here, but they're giggling too hard to themself to pay much attention. p_l turns the patrol around, frustrated, leaving the kittypet to their own devices.",
                 "exp": 10,
                 "weight": 20,
                 "new_cat": [
@@ -205,13 +209,10 @@
         ],
         "antag_fail_outcomes": [
             {
-                "text": "",
+                "text": "With lashing tails, the patrol threatens the kittypet for being on their territory. The kittypet doesn't seem amused, but when r_c lunges for the base of the tree they've up in, they quickly hop onto a neighbouring branch and disappear.",
                 "exp": 0,
                 "weight": 20,
                 "outsider_rep": -1,
-                "new_cat": [
-                    ["meeting", "loner"]
-                ],
                 "relationships": [
                     {
                         "cats_from": ["n_c:0"],
@@ -220,6 +221,94 @@
                         "values": ["dislike"],
                         "amount": 15
                     }
+                ],
+                "new_cat": [
+                    ["meeting", "kittypet"]
+                ]
+            }
+        ],
+        "antag_success_outcomes": [
+            {
+                "text": "r_c instantly leaps onto the tree as the rest of the patrol heckles the kittypet to get off of their land. The kittypet yelps and quickly leaps into a neighbouring tree before r_c can get to them, disappearing into the leaves as they flee.",
+                "exp": 10,
+                "weight": 20,
+                "outsider_rep": -2,
+                "relationships": [
+                    {
+                        "cats_from": ["n_c:0"],
+                        "cats_to": ["patrol"],
+                        "mutual": false,
+                        "values": ["dislike"],
+                        "amount": 10
+                    }
+                ],
+                "new_cat": [
+                    ["meeting", "kittypet"]
+                ]
+            }
+        ]
+    },
+    {
+        "patrol_id": "fungal_lore_3",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "border"
+        ],
+        "tags": [
+            "infection",
+            "fungal"
+        ],
+        "patrol_art": "gen_bord_newcatkittypet1",
+        "min_cats": 2,
+        "max_cats": 6,
+        "min_max_status": {
+            "healer cats": [1, 6]
+        },
+        "weight": 15,
+        "intro_text": "The patrol comes across a kittypet, who is immediately apologetic for trespassing. They have some priority_herb The kittypet explains that they're looking for a friend of theirs to attempt to treat their infection.",
+        "decline_text": "",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "The patrol agrees to help the kittypet look for {PRONOUN/n_c:0/poss} friend. Eventually, the group finds {PRONOUN/n_c:1/object}-- an infected rogue hiding in the corner of the territory. Though the kittypet has to return home, {PRONOUN/n_c:0/subject} {VERB/n_c:0/beg/begs} the patrol to let {PRONOUN/n_c:0/poss} friend join the Clan for treatment, and the patrol obliges.",
+                "exp": 10,
+                "weight": 20,
+                "new_cat": [
+                    ["meeting", "kittypet"],
+                    ["rogue"]
+                ],
+                "herbs": ["priority_herb"]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "They try to help the kittypet locate their friend, but the sun begins to set and they haven't found a scent trail. The kittypet departs to head back to their Twolegs, looking dejected and taking the priority_herb with them.",
+                "exp": 10,
+                "weight": 20
+            }
+        ],
+        "antag_fail_outcomes": [
+            {
+                "text": "",
+                "exp": 0,
+                "weight": 20,
+                "outsider_rep": -1,
+                "relationships": [
+                    {
+                        "cats_from": ["n_c:0"],
+                        "cats_to": ["clan"],
+                        "mutual": true,
+                        "values": ["dislike"],
+                        "amount": 15
+                    }
+                ],
+                "new_cat": [
+                    ["meeting", "kittypet"]
                 ]
             }
         ],
@@ -229,9 +318,6 @@
                 "exp": 10,
                 "weight": 20,
                 "outsider_rep": -2,
-                "new_cat": [
-                    ["loner", "meeting"]
-                ],
                 "relationships": [
                     {
                         "cats_from": ["n_c:0"],
@@ -240,6 +326,9 @@
                         "values": ["dislike"],
                         "amount": 10
                     }
+                ],
+                "new_cat": [
+                    ["meeting", "kittypet"]
                 ]
             }
         ]

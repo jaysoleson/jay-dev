@@ -6134,7 +6134,7 @@
         ],
         "tags": [],
         "weight": 20,
-        "event_text": "r_c tells m_c to take a treatment for the infection. m_c gratefully takes the leaf-full of deathberries and r_c looks away as {PRONOUN/m_c/subject} {VERB/m_c/die/dies}.",
+        "event_text": "r_c tells m_c to take a treatment for the infection that they've just discovered. m_c gratefully takes the leaf-full of deathberries and is dead within minutes.",
         "m_c": {
             "age": ["any"],
             "status": ["medicine cat", "medicine cat apprentice"],
@@ -6187,7 +6187,7 @@
         ],
         "tags": [],
         "weight": 20,
-        "event_text": "The infection clouding their mind, r_c attacks and kills m_c in the middle of the night. When they come to, they don't remember what they've done.",
+        "event_text": "The infection clouding their mind, r_c attacks and kills m_c in the middle of the night. When {PRONOUN/r_c/subject} {VERB/r_c/come/comes} to, {PRONOUN/r_c/subject} {VERB/r_c/don't/doesn't} remember what {PRONOUN/r_c/subject}{VERB/r_c/'ve/'s} done.",
         "m_c": {
             "age": ["any"],
             "status": ["any"],
@@ -6243,7 +6243,7 @@
         "event_text": "r_c attacks and kills m_c while m_c attempts to deliver a treatment to them.",
         "m_c": {
             "age": ["any"],
-            "status": ["any"],
+            "status": ["medicine cat", "medicine cat apprentice"],
             "dies": true
         },
         "r_c": {
@@ -6253,7 +6253,7 @@
         },
         "history": [{
             "cats": ["m_c"],
-            "reg_death": "m_c was killed by an infected r_c in the middle of the night."
+            "reg_death": "m_c was killed by an infected r_c while trying to treat {PRONOUN/r_c/poss} infection."
         }],
         "relationships": [
             {
@@ -6283,19 +6283,74 @@
         ]
     },
     {
-        "event_id": "fungal_runaway_J1",
+        "event_id": "infection_murder_J6",
+        "location": ["any"],
+        "season": [
+            "any"
+        ],
+        "sub_type":  [
+            "murder"
+        ],
+        "tags": [],
+        "weight": 20,
+        "event_text": "r_c leaps on m_c, tiny claws reaching for {PRONOUN/m_c/poss} throat, and m_c can't bring {PRONOUN/m_c/self} to fight back. m_c took an oath when {PRONOUN/m_c/subject} began training as a queen, and {PRONOUN/m_c/subject} could never hurt a kit, even in self defense. r_c manages to end m_c's life, and {PRONOUN/r_c/subject} {VERB/r_c/are/is} inconsolable when {PRONOUN/r_c/subject} {VERB/r_c/return/return} to consciousness and find out what {PRONOUN/r_c/subject}{VERB/r_c/'ve/'s} done.",
+        "m_c": {
+            "age": ["any"],
+            "status": ["queen", "queen's apprentice"],
+            "infected": false,
+            "dies": true
+        },
+        "r_c": {
+            "status": ["kitten"],
+            "infected": true,
+            "stage": ["stage two", "stage three", "stage four"]
+        },
+        "history": [{
+            "cats": ["m_c"],
+            "reg_death": "r_c killed m_c while under the influence of the infection."
+        }],
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c"
+                ],
+                "cats_to": [
+                    "m_c"
+                ],
+                "values": [
+                    "platonic"
+                ],
+                "amount": -15
+            },
+            {
+                "cats_from": [
+                    "r_c"
+                ],
+                "cats_to": [
+                    "m_c"
+                ],
+                "values": [
+                    "dislike"
+                ],
+                "amount": 15
+            }
+        ]
+    },
+    {
+        "event_id": "infection_runaway_J1",
         "location": [
             "any"
         ],
         "season": [
             "any"
         ],
-        "tags": [],
+        "tags": [
+            "infection"
+        ],
         "log_prereq": [
-            "start"
         ],
         "weight": 20,
-        "event_text": "m_c tells r_c that they're running away to escape the infection. r_c tries, but can't stop them, and m_c flees the Clan in the night.",
+        "event_text": "m_c tells r_c that {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} running away to escape the infection. r_c tries, but can't stop {PRONOUN/m_c/object}, and m_c flees the Clan in the night.",
         "m_c": {
             "age": ["any"],
             "status": ["any"],
@@ -6304,6 +6359,29 @@
         "r_c": {
             "age": ["any"],
             "status": ["any"]
+        }
+    },
+    {
+        "event_id": "infection_runaway_J2",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "tags": [
+            "infection",
+            "no_cure"
+        ],
+        "log_prereq": [
+            "lore_fungal_3"
+        ],
+        "weight": 30,
+        "event_text": "m_c can't stop thinking about the potential cure to the infection-- and how Twolegs have found it. They sneak out in the middle of the night, unable to take the stress anymore.",
+        "m_c": {
+            "age": ["any"],
+            "status": ["any"],
+            "lost": true
         }
     }
 ]

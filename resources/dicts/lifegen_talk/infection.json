@@ -341,6 +341,28 @@
             "[You watch as {PRONOUN/t_c/subject} {VERB/t_c/slink/slinks} out of camp. The next morning, when {PRONOUN/t_c/subject} {VERB/t_c/come/comes} to check on you, there isn't a single trace of what you saw the previous night.]"
         ]
     ],
+    "infection_reesesgopoof_4": [
+        [
+            "you_grieving",
+            "you_infected",
+            "they_not_infected",
+            "min_platonic_30",
+            "stable",
+            "sweet",
+            "cool"
+        ],
+        [
+            "[t_c is sitting a distance away from the opening of your den.]",
+            "Hey. y_c. I'm sorry about what happened. {PRONOUN/d_c/subject/CAP} {VERB/d_c/were/was} really were a special cat.",
+            "[They look regretfully at the piece of prey at their paws.]",
+            "I caught something for you, but r_m said I couldn't give it to you, so...",
+            "[{PRONOUN/t_c/subject/CAP} can't meet your eyes. You don't blame {PRONOUN/t_c/object}-- you don't want to think about it either.]",
+            "[{PRONOUN/t_c/subject/CAP}{VERB/t_c/'re/'s} quick to change the topic back.]",
+            "Sorry. I'm sure {PRONOUN/d_c/subject}{VERB/d_c/'re/'s} watching over you from StarClan. Feel better soon.",
+            "[You watch as {PRONOUN/t_c/subject} quickly {VERB/t_c/pas/pads} away. You know {PRONOUN/t_c/subject} had good intentions, but...]",
+            "[Now you just feel worse.]"
+        ]
+    ],
     "infection_lyric_5": [
         [
             "any",

@@ -5,7 +5,7 @@ import random
 import ujson
 
 from scripts.game_structure.game_essentials import game
-from scripts.utility import filter_relationship_type, get_living_clan_cat_count,get_alive_status_cats
+from scripts.utility import filter_relationship_type, get_living_clan_cat_count,get_alive_status_cats, get_cluster
 
 resource_directory = "resources/dicts/events/"
 
@@ -304,6 +304,15 @@ class GenerateEvents:
             if game.clan.game_mode in ["classic", "expanded"] and "cruel_season" in event.tags:
                 continue
 
+            # INF
+            if "infection" in event.tags:
+                if game.clan.infection["clan_infected"] is False:
+                    continue
+            if "no_cure" in event.tags:
+                if "cure_found" in game.clan.infection["logs"]:
+                    continue
+            # ---
+
             # make complete leader death less likely until the leader is over 150 moons (or unless it's a murder)
             if cat.status == "leader":
                 if "all_lives" in event.tags and "murder" not in event.sub_type:
@@ -374,6 +383,44 @@ class GenerateEvents:
                                                     event_id=event.event_id):
                         continue
 
+                # INF
+                has_cluster = False
+                if event.m_c["cluster"]:
+                    cluster1, cluster2 = get_cluster(cat.personality.trait)
+                    if cluster1 in event.m_c["cluster"] or cluster2 in event.m_c["cluster"]:
+                        has_cluster = True
+                if event.m_c["cluster"]:
+                    if not has_cluster:
+                        continue
+
+                if "infected" in event.m_c and event.m_c["infected"]:
+                    if event.m_c["infected"] == True and cat.infected_for < 1:
+                        continue
+                    elif event.m_c["infected"] == False and cat.infected_for > 0:
+                        continue
+                if "infected" in event.r_c and event.r_c["infected"]:
+                    if event.r_c["infected"] == True and random_cat.infected_for < 1:
+                        continue
+                    elif event.r_c["infected"] == False and random_cat.infected_for > 0:
+                        continue
+                
+                inftype = game.clan.infection["infection_type"]
+                if "stage" in event.m_c and event.m_c["stage"]:
+                    stages = ["stage one", "stage two", "stage three", "stage four"]
+                    skip = False
+                    for stage in stages:
+                        if f"{inftype} {stage}" in cat.illnesses and stage not in event.m_c["stage"]:
+                            skip = True
+                    if "undead" in event.m_c["stage"] and "undead" not in cat.illnesses:
+                        skip = True
+                    if skip is True:
+                        continue
+                
+                if "type" in event.m_c and event.m_c["type"]:
+                    if inftype not in event.m_c["type"]:
+                        continue
+                # ---
+
                 # check cat trait and skill
                 if int(random.random() * trait_skill_bypass) or prevent_bypass:  # small chance to bypass
                     has_trait = False
@@ -403,44 +450,6 @@ class GenerateEvents:
                     elif event.m_c["skill"]:
                         if not has_skill:
                             continue
-
-                    # INF
-                    if "infected" in event.m_c and event.m_c["infected"]:
-                        if event.m_c["infected"] == True and cat.infected_for < 1:
-                            continue
-                        elif event.m_c["infected"] == False and cat.infected_for > 0:
-                            continue
-                    if "infected" in event.r_c and event.r_c["infected"]:
-                        if event.r_c["infected"] == True and random_cat.infected_for < 1:
-                            continue
-                        elif event.r_c["infected"] == False and random_cat.infected_for > 0:
-                            continue
-                    
-                    inftype = game.clan.infection["infection_type"]
-                    if "stage" in event.m_c and event.m_c["stage"]:
-                        stages = ["stage one", "stage two", "stage three", "stage four"]
-                        skip = False
-                        for stage in stages:
-                            if f"{inftype} {stage}" in cat.illnesses and stage not in event.m_c["stage"]:
-                                skip = True
-                        if skip is True:
-                            continue
-                    if "stage" in event.r_c and event.r_c["stage"]:
-                        stages = ["stage one", "stage two", "stage three", "stage four"]
-                        skip = False
-                        for stage in stages:
-                            if f"{inftype} {stage}" in random_cat.illnesses and stage not in event.r_c["stage"]:
-                                skip = True
-                        if skip is True:
-                            continue
-                    
-                    if "type" in event.m_c and event.m_c["type"]:
-                        if inftype not in event.m_c["type"]:
-                            continue
-                    if "type" in event.r_c and event.r_c["type"]:
-                        if inftype not in event.r_c["type"]:
-                            continue
-                    ####
 
                     # check cat negate trait and skill
                     has_trait = False
@@ -483,6 +492,31 @@ class GenerateEvents:
                                                     filter_types=event.r_c["relationship_status"],
                                                     event_id=event.event_id):
                         continue
+
+                # INF
+                has_cluster = False
+                if event.r_c["cluster"]:
+                    cluster1, cluster2 = get_cluster(cat.personality.trait)
+                    if cluster1 in event.r_c["cluster"] or cluster2 in event.r_c["cluster"]:
+                        has_cluster = True
+                if event.r_c["cluster"]:
+                    if not has_cluster:
+                        continue
+
+                if "stage" in event.r_c and event.r_c["stage"]:
+                    stages = ["stage one", "stage two", "stage three", "stage four"]
+                    skip = False
+                    for stage in stages:
+                        if f"{inftype} {stage}" in random_cat.illnesses and stage not in event.r_c["stage"]:
+                            skip = True
+                    if "undead" in event.r_c["stage"] and "undead" not in random_cat.illnesses:
+                        skip = True
+                    if skip is True:
+                        continue
+                if "type" in event.r_c and event.r_c["type"]:
+                    if inftype not in event.r_c["type"]:
+                        continue
+                # ---
 
                 # check cat trait and skill
                 if int(random.random() * trait_skill_bypass) or prevent_bypass:  # small chance to bypass
