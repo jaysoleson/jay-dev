@@ -276,16 +276,20 @@ class Condition_Events:
             if inftype == "parasitic":
                 infected = False
                 if "parasitic stage one" in cat.illnesses:
-                    witherchance = 185
-                    infected = True
-                elif "parasitic stage two" in cat.illnesses:
+                    # witherchance = 3
                     witherchance = 120
                     infected = True
-                elif "parasitic stage three" in cat.illnesses:
+                elif "parasitic stage two" in cat.illnesses:
+                    # witherchance = 3
                     witherchance = 80
                     infected = True
+                elif "parasitic stage three" in cat.illnesses:
+                    # witherchance = 3
+                    witherchance = 50
+                    infected = True
                 elif "parasitic stage four" in cat.illnesses:
-                    witherchance = 20
+                    # witherchance = 3
+                    witherchance = 15
                     infected = True
                 
                 if infected:

@@ -83,9 +83,9 @@ class Patrol:
         )
 
         # lifegen: debug to print all possible patrols
-        print("Patrols:")
-        for i in final_patrols:
-            print(i.patrol_id)
+        # print("Patrols:")
+        # for i in final_patrols:
+        #     print(i.patrol_id)
 
         print(
             f"Total Number of Possible Patrols | normal: {len(final_patrols)}, romantic: {len(final_romance_patrols)} "

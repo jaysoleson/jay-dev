@@ -385,11 +385,11 @@ class GenerateEvents:
 
                 # INF
                 has_cluster = False
-                if event.m_c["cluster"]:
+                if "cluster" in event.m_c and event.m_c["cluster"]:
                     cluster1, cluster2 = get_cluster(cat.personality.trait)
                     if cluster1 in event.m_c["cluster"] or cluster2 in event.m_c["cluster"]:
                         has_cluster = True
-                if event.m_c["cluster"]:
+                if "cluster" in event.m_c and event.m_c["cluster"]:
                     if not has_cluster:
                         continue
 
@@ -495,11 +495,11 @@ class GenerateEvents:
 
                 # INF
                 has_cluster = False
-                if event.r_c["cluster"]:
+                if "cluster" in event.r_c and event.r_c["cluster"]:
                     cluster1, cluster2 = get_cluster(cat.personality.trait)
                     if cluster1 in event.r_c["cluster"] or cluster2 in event.r_c["cluster"]:
                         has_cluster = True
-                if event.r_c["cluster"]:
+                if "cluster" in event.r_c and event.r_c["cluster"]:
                     if not has_cluster:
                         continue
 

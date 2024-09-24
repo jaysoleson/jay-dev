@@ -2660,9 +2660,24 @@ class ProfileScreen(Screens):
             )
 
             y_adjust = 60
+
+            # INF
+            inftype = game.clan.infection["infection_type"]
+
+            if con[0] == f"{inftype} stage one":
+                condition_name = "stage one infection"
+            elif con[0] == f"{inftype} stage two":
+                condition_name = "stage two infection"
+            elif con[0] == f"{inftype} stage three":
+                condition_name = "stage three infection"
+            elif con[0] == f"{inftype} stage four":
+                condition_name = "stage four infection"
+            else:
+                condition_name = con[0]
+            # ---
             
             name = UITextBoxTweaked(
-                con[0],
+                condition_name,
                 scale(pygame.Rect((x_pos, 26), (272, -1))),
                 line_spacing=1,
                 object_id="#text_box_30_horizcenter",

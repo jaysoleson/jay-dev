@@ -804,6 +804,13 @@ class PatrolOutcome:
                 if give_injury in INJURIES:
                     _cat.get_injured(give_injury, lethal=lethal)
                 elif give_injury in ILLNESSES:
+                    if give_injury in [
+                        f"{game.clan.infection['infection_type']} stage one",
+                        f"{game.clan.infection['infection_type']} stage two",
+                        f"{game.clan.infection['infection_type']} stage three",
+                        f"{game.clan.infection['infection_type']} stage four"
+                    ]:
+                        _cat.infected_for = random.randint(1, _cat.moons)
                     _cat.get_ill(give_injury, lethal=lethal)
                 elif give_injury in PERMANENT:
                     _cat.get_permanent_condition(give_injury)

@@ -2083,6 +2083,13 @@ class Events:
                     # ADD TO CLAN AND CHECK FOR KITS
                     additional_kits = outsider_cat.add_to_clan()
 
+                    # INF
+                    if outsider_cat.infected_for > 0:
+                        if "start" not in game.clan.infection["logs"]:
+                            game.clan.infection["logs"].append("start")
+                            game.clan.infection["clan_infected"] = True
+
+
                     if additional_kits:
                         event_text += " m_c brings along {PRONOUN/m_c/poss} "
                         if len(additional_kits) > 1:
@@ -2185,8 +2192,13 @@ class Events:
                 text=event_text,
                 main_cat=outsider_cat,
                 clan=game.clan)
+            
+            if outsider_cat.infected_for > 0:
+                types = ["misc", "infection"]
+            else:
+                types = "misc"
 
-            game.cur_events_list.insert(4, Single_Event(event_text, "misc", involved_cats))
+            game.cur_events_list.insert(4, Single_Event(event_text, types, involved_cats))
 
             game.clan.clan_settings["lead_den_outsider_event"] = {}
 

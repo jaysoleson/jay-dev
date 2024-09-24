@@ -5731,20 +5731,54 @@
             }
         }
     },
-    "#stamp_start": {
+    "#fungal_stamp_start": {
         "prototype": "#image_button",
         "images": {
             "normal_image": {
-                "path": "resources/images/journal_stamps/start.png"
+                "path": "resources/images/journal_stamps/fungal_stamp_start.png"
             },
             "hovered_image": {
-                "path": "resources/images/journal_stamps/start_hover.png"
+                "path": "resources/images/journal_stamps/fungal_stamp_start_hover.png"
             },
             "selected_image": {
-                "path": "resources/images/journal_stamps/start_hover.png"
+                "path": "resources/images/journal_stamps/fungal_stamp_start_hover.png"
             },
             "disabled_image": {
-                "path": "resources/images/journal_stamps/start.png"
+                "path": "resources/images/journal_stamps/fungal_stamp_start.png"
+            }
+        }
+    },
+    "#void_stamp_start": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/journal_stamps/void_stamp_start.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/journal_stamps/void_stamp_start_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/journal_stamps/void_stamp_start_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/journal_stamps/void_stamp_start.png"
+            }
+        }
+    },
+    "#parasitic_stamp_start": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/journal_stamps/parasitic_stamp_start.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/journal_stamps/parasitic_stamp_start_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/journal_stamps/parasitic_stamp_start_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/journal_stamps/parasitic_stamp_start.png"
             }
         }
     },
@@ -5762,6 +5796,91 @@
             },
             "disabled_image": {
                 "path": "resources/images/journal_stamps/stamp_cure.png"
+            }
+        }
+    },
+    "#stamp_fallen_clans_1": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/journal_stamps/stamp_fallen_1.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/journal_stamps/stamp_fallen_1.png"
+            },
+            "selected_image": {
+                "path": "resources/images/journal_stamps/stamp_fallen_1.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/journal_stamps/stamp_fallen_1.png"
+            }
+        }
+    },
+    "#stamp_fallen_clans_2": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/journal_stamps/stamp_fallen_2.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/journal_stamps/stamp_fallen_2.png"
+            },
+            "selected_image": {
+                "path": "resources/images/journal_stamps/stamp_fallen_2.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/journal_stamps/stamp_fallen_2.png"
+            }
+        }
+    },
+    "#stamp_fallen_clans_3": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/journal_stamps/stamp_fallen_3.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/journal_stamps/stamp_fallen_3.png"
+            },
+            "selected_image": {
+                "path": "resources/images/journal_stamps/stamp_fallen_3.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/journal_stamps/stamp_fallen_3.png"
+            }
+        }
+    },
+    "#stamp_fallen_clans_4": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/journal_stamps/stamp_fallen_4.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/journal_stamps/stamp_fallen_4.png"
+            },
+            "selected_image": {
+                "path": "resources/images/journal_stamps/stamp_fallen_4.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/journal_stamps/stamp_fallen_4.png"
+            }
+        }
+    },
+    "#stamp_fallen_clans_5": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/journal_stamps/stamp_fallen_5.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/journal_stamps/stamp_fallen_5.png"
+            },
+            "selected_image": {
+                "path": "resources/images/journal_stamps/stamp_fallen_5.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/journal_stamps/stamp_fallen_5.png"
             }
         }
     }
