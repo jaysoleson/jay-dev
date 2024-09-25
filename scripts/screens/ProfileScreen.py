@@ -1036,6 +1036,13 @@ class ProfileScreen(Screens):
             line_spacing=0.95, manager=MANAGER
         )
 
+        if self.selected_item is None:
+            self.profile_elements["cat_info_column1"].show()
+            self.profile_elements["cat_info_column2"].show()
+        else:
+            self.profile_elements["cat_info_column1"].hide()
+            self.profile_elements["cat_info_column2"].hide()
+
 
     def build_profile(self):
         """Rebuild builds the cat profile. Run when you switch cats
@@ -3067,74 +3074,99 @@ class ProfileScreen(Screens):
 
         
         self.item_window_elements["back"] = pygame_gui.elements.UIImage(
-            scale(pygame.Rect((590, 700), (400, 120))),
+            scale(pygame.Rect((590, 430), (320, 340))),
+            image_cache.load_image("resources/images/condition_details_box.png").convert_alpha()
+        )
+        self.item_window_elements["name_bg"] = pygame_gui.elements.UIImage(
+            scale(pygame.Rect((980, 430), (300, 70))),
+            image_cache.load_image("resources/images/option_bg.png").convert_alpha()
+        )
+        self.item_window_elements["hunger_bg"] = pygame_gui.elements.UIImage(
+            scale(pygame.Rect((980, 530), (300, 70))),
             image_cache.load_image("resources/images/option_bg.png").convert_alpha()
         )
         item = self.selected_item.lower().replace(" ", "_")
+        item_pos = [655, 500]
         if item in HERBS:
             try:
                 self.item_window_elements["item"] = pygame_gui.elements.UIImage(
-                    scale(pygame.Rect((600, 670), (128, 144))),
+                    scale(pygame.Rect((item_pos), (176, 198))),
                     image_cache.load_image(f"resources/images/inventory_items/{item}.png").convert_alpha()
                 )
             except:
                 self.item_window_elements["item"] = pygame_gui.elements.UIImage(
-                    scale(pygame.Rect((600, 670), (128, 144))),
+                    scale(pygame.Rect((item_pos), (176, 198))),
                     image_cache.load_image(f"resources/images/inventory_items/placeholder_herb.png").convert_alpha()
                 )
         else:
             self.item_window_elements["item"] = pygame_gui.elements.UIImage(
-                scale(pygame.Rect((600, 670), (128, 144))),
+                scale(pygame.Rect((item_pos), (176, 198))),
                 image_cache.load_image(f"resources/images/inventory_items/{item}.png").convert_alpha()
             )
 
-        name = str(self.selected_item) 
-        if 14 <= len(name):
-            short_name = str(name)[0:12]
+        itemname = str(self.selected_item).lower()
+        name = itemname.capitalize()
+        if 17 <= len(name):
+            short_name = str(name)[0:14]
             name = short_name + '...'
 
         self.item_window_elements["item_text"] = pygame_gui.elements.UITextBox(
             f"<b>{name.replace('_', ' ')}</b>",
-            scale(pygame.Rect((700, 720), (280, 100))),
-            object_id="#text_box_30_horizcenter",
+            scale(pygame.Rect((985, 430), (280, 100))),
+            object_id="#text_box_34_horizcenter",
         )
         if item in HERBS:
             self.item_window_elements["eat_button"] = UIImageButton(
-                scale(pygame.Rect((1000, 700), (120, 120))),
+                scale(pygame.Rect((980, 690), (300, 70))),
                 "Use",
                 tool_tip_text=f"",
                 object_id=""
             )
             self.item_window_elements["eat_button"].disable()
 
+            treatable_conditions = []
+
             if self.the_cat.is_injured():
                 for injury in self.the_cat.injuries:
                     if item in INJURIES[injury]["herbs"]:
+                        treatable_conditions.append(INJURIES[injury]["name"])
                         self.item_window_elements["eat_button"].enable()
 
             if self.the_cat.is_ill():
                 for condition in self.the_cat.illnesses:
                     if item in ILLNESSES[condition]["herbs"]:
+                        treatable_conditions.append(ILLNESSES[condition]["name"])
                         self.item_window_elements["eat_button"].enable()
+            
+            if treatable_conditions:
+                displayed_condition = choice(treatable_conditions)
+            else:
+                displayed_condition = "None"
+            
+            self.item_window_elements["item_info"] = pygame_gui.elements.UITextBox(
+                displayed_condition,
+                scale(pygame.Rect((985, 535), (280, 100))),
+                object_id="#text_box_34_horizcenter",
+            )
 
         else:
             self.item_window_elements["eat_button"] = UIImageButton(
-                scale(pygame.Rect((1000, 700), (120, 120))),
+                scale(pygame.Rect((980, 690), (300, 70))),
                 "Eat",
                 tool_tip_text=f"Eat for +{value} satiation",
                 object_id=""
             )
 
-        self.item_window_elements["hunger_bar"] = UIStatsStatusBar(
-                scale(
-                    pygame.Rect(
-                        (1150, 750 + (44 * 0)),
-                        (200, 20),
-                    )
-                ),
-                self.the_cat.stats.hunger,
-                dark_mode=game.settings["dark mode"],
-            )
+            self.item_window_elements["item_info"] = UIStatsStatusBar(
+                    scale(
+                        pygame.Rect(
+                            (1025, 560 + (54 * 0)),
+                            (200, 20),
+                        )
+                    ),
+                    self.the_cat.stats.hunger,
+                    dark_mode=game.settings["dark mode"],
+                )
         
     def use_herb(self):
         cured_condition = None

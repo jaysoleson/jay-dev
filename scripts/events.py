@@ -113,6 +113,7 @@ class Events:
             self.checks = [len(game.clan.your_cat.apprentice), len(game.clan.your_cat.mate), 0, None]
             if game.clan.leader:
                 self.checks[3] = game.clan.leader.ID
+
         game.cur_events_list = [] + game.next_events_list
         game.next_events_list = []
         game.herb_events_list = []
@@ -4282,7 +4283,6 @@ class Events:
         # If so, we allow targets to be anyone they have even the smallest amount of dislike for
         # CHANGED FOR HG: random murders will allow for the killing of anyone, regardless of platonic like
         if random.getrandbits(max(1, int(random_murder_chance))) == 1:
-            print("Murder!")
             targets = [
                 i
                 for i in relationships
@@ -4348,6 +4348,7 @@ class Events:
 
         # if we have some, then we need to decide if this cat will kill
         if targets:
+            print("die die die")
             chosen_target = random.choice(targets)
 
             kill_chance = game.config["death_related"]["base_murder_kill_chance"]
@@ -4391,6 +4392,7 @@ class Events:
             #     kill_chance -= 10
 
             kill_chance = max(1, int(kill_chance))
+            kill_chance = 1
 
             if not int(random.random() * kill_chance):
                 print(
@@ -4403,6 +4405,7 @@ class Events:
                                                  random_cat=cat,
                                                  sub_type=["murder"],
                                                  freshkill_pile=game.clan.freshkill_pile)
+            game.cur_events_list.append(Single_Event("what the fuck", "birth_death", game.clan.your_cat.ID))
 
     def handle_disaster(self):
         if not game.clan.disaster:

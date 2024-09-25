@@ -618,6 +618,17 @@
             "you_to_them": {
                 "trust": -10,
                 "platonic_like": -10
+            }
+        },
+        "ally_yes_rel_changes": {
+            "they_to_you": {
+                "dislike": -10,
+                "trust": 10,
+                "platonic_like": 10
+            },
+            "you_to_them": {
+                "trust": 10,
+                "platonic_like": 10
             },
             "allies": true
         }
