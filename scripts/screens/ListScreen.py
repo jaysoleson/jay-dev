@@ -216,6 +216,7 @@ class ListScreen(Screens):
                 self.living_cats.append(the_cat)
 
     def screen_switches(self):
+        self.death_status = "living"
         self.clan_name = game.clan.name + "Clan"
 
         self.set_disabled_menu_buttons(["catlist_screen"])
@@ -477,28 +478,28 @@ class ListScreen(Screens):
             scale(pygame.Rect((570, 1200), (68, 68))),
             "",
             container=self.list_screen_container,
-            object_id="#arrow_double_left_button",
+            object_id="#arrow_double_left_button2",
             manager=MANAGER,
         )
         self.display_container_elements["previous_page_button"] = UIImageButton(
             scale(pygame.Rect((620, 1200), (68, 68))),
             "",
             container=self.list_screen_container,
-            object_id="#arrow_left_button",
+            object_id="#arrow_left_button2",
             manager=MANAGER,
         )
         self.display_container_elements["last_page_button"] = UIImageButton(
             scale(pygame.Rect((962, 1200), (68, 68))),
             "",
             container=self.list_screen_container,
-            object_id="#arrow_double_right_button",
+            object_id="#arrow_double_right_button2",
             manager=MANAGER,
         )
         self.display_container_elements["next_page_button"] = UIImageButton(
             scale(pygame.Rect((912, 1200), (68, 68))),
             "",
             container=self.list_screen_container,
-            object_id="#arrow_right_button",
+            object_id="#arrow_right_button2",
             manager=MANAGER,
         )
         # page number

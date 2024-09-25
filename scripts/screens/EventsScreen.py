@@ -699,7 +699,6 @@ class EventsScreen(Screens):
         self.ceremony_events = [
             x for x in game.cur_events_list if "ceremony" in x.types
         ]
-
         self.birth_death_events = [
             x for x in game.cur_events_list if "birth_death" in x.types
         ]

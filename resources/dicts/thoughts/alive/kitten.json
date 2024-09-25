@@ -80,7 +80,7 @@
             "Is annoying older cats",
             "Is asking the older cats about how kittens are made",
             "Is pestering older cats to play with {PRONOUN/m_c/object}",
-            "Is yowling after the older cats to gather more trickets for {PRONOUN/m_c/poss} collections"
+            "Is yowling after the older cats to gather more trinkets for {PRONOUN/m_c/poss} collections"
         ],
         "random_age_constraint": [
             "adolescent",
@@ -195,7 +195,7 @@
             "Is squeaky clean",
             "Is bleping {PRONOUN/m_c/poss} tongue out cutely",
             "Isn't bashful after being called cute",
-            "Is trying to dazzle {PRONOUN/m_c/poss} coat until it sparkles",
+            "Is trying to shine {PRONOUN/m_c/poss} coat until it sparkles",
             "Poses magnificently"
         ],
         "main_trait_constraint": [
