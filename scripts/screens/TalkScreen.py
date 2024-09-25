@@ -9,7 +9,7 @@ from scripts.clan import HERBS, ITEM_VALUES
 
 from .Screens import Screens
 
-from scripts.utility import generate_sprite, get_cluster, pronoun_repl, adjust_txt
+from scripts.utility import generate_sprite, get_cluster, pronoun_repl, adjust_txt, get_inventory_size
 from scripts.cat.cats import Cat
 from scripts.cat.pelts import Pelt
 from scripts.game_structure import image_cache

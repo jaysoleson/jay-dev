@@ -16,8 +16,6 @@ import re
 
 from scripts.clan import Clan
 from scripts.clan import HERBS, ITEM_VALUES
-from scripts.clan_resources.freshkill import FRESHKILL_ACTIVE, FRESHKILL_EVENT_ACTIVE
-from scripts.conditions import medical_cats_condition_fulfilled, get_amount_cat_for_one_medic
 from scripts.events_module.relation_events import Relation_Events
 from scripts.events_module.condition_events import Condition_Events
 from scripts.cat.pelts import Pelt
@@ -26,8 +24,28 @@ from scripts.events_module.outsider_events import OutsiderEvents
 from scripts.event_class import Single_Event
 from scripts.game_structure.game_essentials import game
 from scripts.cat_relations.relationship import Relationship
-from scripts.utility import change_clan_relations, change_clan_reputation, get_cluster, ceremony_text_adjust, get_current_season, adjust_list_text, ongoing_event_text_adjust, event_text_adjust, create_new_cat, pronoun_repl, get_alive_status_cats, get_alive_cats, get_cats_same_age, check_possible_directions, get_inventory_size
-from scripts.events_module.generate_events import GenerateEvents
+from scripts.utility import (
+    change_clan_relations,
+    change_clan_reputation,
+    get_cluster,
+    ceremony_text_adjust,
+    get_current_season,
+    adjust_list_text,
+    ongoing_event_text_adjust,
+    event_text_adjust,
+    create_new_cat,
+    pronoun_repl,
+    get_alive_status_cats,
+    get_alive_cats,
+    get_cats_same_age,
+    check_possible_directions,
+    get_inventory_size,
+    get_other_clan,
+    history_text_adjust,
+    adjust_txt,
+    unpack_rel_block,
+    get_random_moon_cat
+    )
 from scripts.cat.cats import Cat, cat_class, BACKSTORIES
 from scripts.cat.history import History
 from scripts.cat.names import Name
@@ -42,6 +60,7 @@ from scripts.events_module.relationship.pregnancy_events import Pregnancy_Events
 from scripts.game_structure.windows import SaveError
 from scripts.game_structure.windows import RetireScreen, DeputyScreen, NameKitsWindow, PickPath
 from enum import Enum, auto
+from scripts.patrol.patrol import Patrol
 
 class BirthType(Enum):
     NO_PARENTS = "birth_no_parents"
@@ -51,23 +70,6 @@ class BirthType(Enum):
     TWO_ADOPTIVE_PARENTS = "birth_two_adoptive_parents"
     ONE_OUTSIDER_PARENT = "birth_one_parent_outsider"
     TWO_OUTSIDER_PARENTS = "birth_two_parent_outsiders"
-from scripts.patrol.patrol import Patrol
-from scripts.utility import (
-    change_clan_relations,
-    change_clan_reputation,
-    get_alive_status_cats,
-    get_living_clan_cat_count,
-    get_random_moon_cat,
-    ceremony_text_adjust,
-    get_current_season,
-    adjust_list_text,
-    ongoing_event_text_adjust,
-    event_text_adjust,
-    get_other_clan,
-    history_text_adjust,
-    unpack_rel_block
-)
-
 
 class Events:
     """
@@ -2355,7 +2357,7 @@ class Events:
 
         # Handle Mediator Events
         # TODO: this is not a great way to handle them, ideally they should be converted to ShortEvent format
-        self.mediator_events(cat)
+        # self.mediator_events(cat)
 
         # handle nutrition amount
         # (CARE: the cats have to be fed before this happens - should be handled in "one_moon" function)
@@ -2403,7 +2405,7 @@ class Events:
             if cat.shunned == 0:
                 self.handle_apprentice_EX(cat)  # This must be before perform_ceremonies!
             # this HAS TO be before the cat.is_disabled() so that disabled kits can choose a med cat or mediator position
-            self.perform_ceremonies(cat)
+            # self.perform_ceremonies(cat)
         cat.skills.progress_skill(cat) # This must be done after ceremonies. 
 
         # check for death/reveal/risks/retire caused by permanent conditions
@@ -3003,7 +3005,7 @@ class Events:
             process_text_dict[abbrev] = (abbrev_cat, random.choice(abbrev_cat.pronouns))
         event_text = re.sub(r"\{(.*?)\}", lambda x: pronoun_repl(x, process_text_dict, False), event_text)
 
-        event_text = self.adjust_txt(event_text)
+        event_text = self.process_text(event_text)
 
         game.cur_events_list.insert(0, Single_Event(event_text, "alert", game.clan.your_cat.ID))
 
@@ -4242,7 +4244,6 @@ class Events:
                                                  random_cat=cat,
                                                  sub_type=["murder"],
                                                  freshkill_pile=game.clan.freshkill_pile)
-            game.cur_events_list.append(Single_Event("what the fuck", "birth_death", game.clan.your_cat.ID))
 
     def handle_disaster(self):
         if not game.clan.disaster:

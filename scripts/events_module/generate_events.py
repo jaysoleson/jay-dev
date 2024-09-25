@@ -326,7 +326,7 @@ class GenerateEvents:
                 if "bloodbath" in event.tags:
                     continue
 
-                if "HG_beachbiome_beach_murder" in event.tags:
+                if "HG_beachbiome_beach" in event.tags:
                     if cat.map_position not in [
                         "-1_-3",
                         "-2_-3",
@@ -337,14 +337,14 @@ class GenerateEvents:
                     ]:
                         continue
                 
-                if "HG_beachbiome_shipwreck_murder" in event.tags:
+                if "HG_beachbiome_shipwreck" in event.tags:
                     if cat.map_position not in [
                         "0_-3",
                         "1_-3"
                     ]:
                         continue
                 
-                if "HG_beachbiome_forest_murder" in event.tags:
+                if "HG_beachbiome_forest" in event.tags:
                     if cat.map_position not in [
                         "2_-2",
                         "1_-1",
@@ -366,7 +366,7 @@ class GenerateEvents:
                     ]:
                         continue
 
-                if "HG_beachbiome_cliff_murder" in event.tags:
+                if "HG_beachbiome_cliff" in event.tags:
                     if cat.map_position not in [
                         "2_-2",
                         "3_-1",

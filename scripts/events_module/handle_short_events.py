@@ -103,21 +103,23 @@ class HandleShortEvents:
             self.other_clan_name = f"{self.other_clan.name}Clan"
 
         # checking if a murder reveal should happen
-        if event_type == "misc":
-            self.victim_cat = None
-            cat_history = History.get_murders(self.main_cat)
-            if cat_history:
-                if "is_murderer" in cat_history:
-                    murder_history = cat_history["is_murderer"]
-                    for murder in murder_history:
-                        self.murder_index = murder_history.index(murder)
-                        if murder_history[self.murder_index]["revealed"] is True:
-                            continue
-                        self.victim_cat = Cat.fetch_cat(
-                            murder_history[self.murder_index]["victim"]
-                        )
-                        self.sub_types.append("murder_reveal")
-                        break
+        # no reveals for HG
+
+        # if event_type == "misc":
+        #     self.victim_cat = None
+        #     cat_history = History.get_murders(self.main_cat)
+        #     if cat_history:
+        #         if "is_murderer" in cat_history:
+        #             murder_history = cat_history["is_murderer"]
+        #             for murder in murder_history:
+        #                 self.murder_index = murder_history.index(murder)
+        #                 if murder_history[self.murder_index]["revealed"] is True:
+        #                     continue
+        #                 self.victim_cat = Cat.fetch_cat(
+        #                     murder_history[self.murder_index]["victim"]
+        #                 )
+        #                 self.sub_types.append("murder_reveal")
+        #                 break
 
         # NOW find the possible events and filter
         if event_type == "birth_death":
@@ -404,7 +406,7 @@ class HandleShortEvents:
             # lifegen vv
             new_acc = random.choice(acc_list)
             self.main_cat.pelt.accessories.append(new_acc)
-            self.main_cat.pelt.inventory.append(new_acc)
+            self.main_cat.pelt.inventory.update({new_acc: 1})
 
     def handle_death(self):
         """
