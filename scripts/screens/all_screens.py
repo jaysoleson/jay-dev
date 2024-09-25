@@ -7,8 +7,6 @@ from .ChooseMentorScreen import ChooseMentorScreen
 from .ClanScreen import ClanScreen
 from .ClanSettingsScreen import ClanSettingsScreen
 from .TalkScreen import TalkScreen
-from .InsultScreen import InsultScreen
-from .FlirtScreen import FlirtScreen
 from .ChooseRebornScreen import ChooseRebornScreen
 from .AchievementScreen import AchievementScreen
 from .MurderScreen import MurderScreen
@@ -39,6 +37,7 @@ from .GiftScreen import GiftScreen
 from .CureLogScreen import CureLogScreen
 from .TreatmentScreen import TreatmentScreen
 from .PriorityHerbScreen import PriorityHerbScreen
+from .NewLifeScreen import NewLifeScreen
 
 # ---------------------------------------------------------------------------- #
 #                                  UI RULES                                    #
@@ -99,9 +98,6 @@ change_gender_screen = ChangeGenderScreen("change gender screen")
 # LifeGen screens
 
 talk_screen = TalkScreen('talk screen')
-insult_screen = InsultScreen('insult screen')
-flirt_screen = FlirtScreen('flirt screen')
-
 achivement_screen = AchievementScreen('achievement screen')
 murder_screen = MurderScreen("murder screen")
 deputy_screen = DeputyScreen("deputy screen")
@@ -111,5 +107,6 @@ affair_screen = AffairScreen("affair screen")
 queen_screen = QueenScreen("queen screen")
 moonplace_screen = MoonplaceScreen("moonplace screen")
 gift_screen = GiftScreen("gift screen")
-
+new_life_screen = NewLifeScreen("new life screen")
 patrol_screen = PatrolScreen('patrol screen')
+

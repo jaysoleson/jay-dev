@@ -238,7 +238,10 @@ class Patrol:
             self.other_clan = choice(all_clans)
         else:
             self.other_clan = None
-            print("No possible Clans")
+
+        if "patrol_category" in game.switches and game.switches["patrol_category"] in ["df", "date", "lifegen"]:
+            self.patrol_leader = game.clan.your_cat
+            # youre always da leader here
             
         # DETERMINE RANDOM CAT
         #Find random cat
@@ -780,10 +783,10 @@ class Patrol:
 
                 if len(patrol.antag_fail_outcomes) > 0:
                     for i in patrol.antag_fail_outcomes:
-                        tests.append(i)
+                        tests.append(i.text)
                 if len(patrol.antag_success_outcomes) > 0:
                     for i in patrol.antag_success_outcomes:
-                        tests.append(i)
+                        tests.append(i.text)
 
                 for i in patrol.success_outcomes:
                     tests.append(i.text)
@@ -791,10 +794,10 @@ class Patrol:
                     tests.append(i.text)
 
                 for i in tests:
-                    test_runs[i] = adjust_txt(Cat, i, self.patrol_leader, self.patrol_cat_dict, r_c_allowed=False, o_c_allowed=False)
+                    test_runs[i] = adjust_txt(Cat, str(i), self.patrol_leader, self.patrol_cat_dict, r_c_allowed=False, o_c_allowed=False)
                     if test_runs[i] == "":
                         skip = True
-                        print("Lifegen abbrev repl failed: Skipping", patrol.patrol_id)
+                        # print("Lifegen abbrev repl failed: Skipping", patrol.patrol_id)
                         break
                     # else:
                     #     print(i)

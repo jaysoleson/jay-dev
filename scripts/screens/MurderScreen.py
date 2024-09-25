@@ -1325,9 +1325,10 @@ class MurderScreen(Screens):
             death = True
         
         if death and not injury:
-            you.die()
             if you.status == "leader":
                 game.clan.leader_lives -= 1
+            you.die()
+            
 
         if injury and not death:
             if self.method == "attack":
@@ -1655,9 +1656,9 @@ class MurderScreen(Screens):
 
         ceremony_txt = process_text(ceremony_txt, replace_dict)
 
-        # if cat_to_murder.status == 'leader' and all_leader_lives:
-        #     game.clan.leader_lives = 0
-        # cat_to_murder.die()
+        if cat_to_murder.status == 'leader' and all_leader_lives:
+            game.clan.leader_lives = 0
+        
         game.cur_events_list.insert(0, Single_Event(ceremony_txt))
 
         discover_chance = self.get_discover_chance(cat_to_murder, accomplice, accompliced)
@@ -1668,7 +1669,7 @@ class MurderScreen(Screens):
             if discover_chance < 7:
                 discover_chance = randint(7,9)
         # if u kill the leader n they wake up like an hour later Yeah ur probably gonna get caught
-
+        cat_to_murder.die()
         # discover_chance = 3
         # discovery_num = 1
         # ^^ shun debug
