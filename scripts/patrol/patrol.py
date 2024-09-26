@@ -397,7 +397,8 @@ class Patrol:
 
         elif game.switches["patrol_category"] == 'lifegen':
             # INFECTION PATROLS
-            possible_patrols.extend(self.generate_patrol_events(self.infection_patrols))
+            if "cure_found" not in game.clan.infection["logs"]:
+                possible_patrols.extend(self.generate_patrol_events(self.infection_patrols))
 
             if game.clan.infection["clan_infected"] is False:
                 # no normal shit once ur infected

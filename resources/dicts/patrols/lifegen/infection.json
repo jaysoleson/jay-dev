@@ -142,6 +142,191 @@
         ]
     },
     {
+        "patrol_id": "kitten_infection_beginning_4",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection_beginning",
+            "void",
+            "discovered"
+        ],
+        "patrol_art": "lg_kit_default",
+        "min_cats": 1,
+        "max_cats": 3,
+        "min_max_status": {
+            "kitten": [1, 1]
+        },
+        "weight": 60,
+        "intro_text": "From where you sit in front of the nursery, you can see a bird on a high-up branch. Its eyes are a bright yellow and its feathers are jet black. A second bird flutters up to join, and the first bird begins attacking it!",
+        "decline_text": "You can't do anything about it! You head back inside as the birds squabble.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "Startled, you alert the nearby r_w_brooding, who agrees that the squabbling is annoying. {PRONOUN/r_w_brooding/subject/CAP} quickly {VERB/r_w_brooding/scale/scales} the tree and {VERB/r_w_brooding/manage/manages} to snatch the second bird from the branch with one paw while it's distracted. You feel bad for the poor thing, but when r_w_brooding offers to share the prey with you, your sadness quickly dissipates into hunger!",
+                "exp": 10,
+                "weight": 20,
+                "relationships": [
+                    {
+                        "cats_to": ["r_w_brooding"],
+                        "cats_from": ["y_c"],
+                        "mutual": true,
+                        "values": ["platonic"],
+                        "amount": 8
+                    }
+                ]
+            },
+            {
+                "text": "You run up to the base of the tree and start yowling at the birds to knock it off. When they notice you, the fight stops, and the second bird manages to scramble out of the first bird's grip and fly away. The first bird, however, just stares down at you. Its gaze is unsettling, so you decide to leave it be.",
+                "exp": 10,
+                "weight": 20
+            },
+            {
+                "text": "A couple of feathers fly out of the angry bird-ball, and you race forward to collect them. Those birds might not be having a very great day, but you sure are!",
+                "exp": 10,
+                "weight": 20,
+                "accessory": [
+                    {
+                        "cats": [
+                            "y_c"
+                        ],
+                        "accessory": [
+                            "BLUE FEATHERS"
+                        ]
+                    }
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "In their impassioned fight, the two birds slip off of the tree branch and land in a furious ball at the edge of camp! You race up to the birds, hoping to catch them for the fresh-kill pile to impress your denmates, but you're caught off-guard by a concerning smell before you can get too close. The bird with the strange eyes looks sick with something... Maybe your Clanmates shouldn't eat it.",
+                "exp": 10,
+                "weight": 20
+            },
+            {
+                "text": "The angry bird-ball stumbles off of the branch and hits the ground of the camp with a thud, the sickly, yellow-eyed bird still intent on attacking the other one. r_w quickly runs up to the birds and quickly ends the both of them, but r_m advises against keeping the first one. When they leave to bury it outside of camp, you can't help but feel bad for the little bird.",
+                "exp": 10,
+                "weight": 20,
+                "cure_log": [
+                    {
+                        "entry": "discovered"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "patrol_id": "kitten_infection_J1",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection"
+        ],
+        "patrol_art": "lg_kit_default",
+        "min_cats": 1,
+        "max_cats": 3,
+        "min_max_status": {
+            "kitten": [1, 1]
+        },
+        "weight": 60,
+        "intro_text": "infected_r_k is staring at you from across the nursery.",
+        "decline_text": "Shaken, you leave the nursery to get away from {PRONOUN/infected_r_k/object}.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "You cautiously bat a moss ball across the nursery towards where they sit in the darkest corner. It takes a moment, but after a shake of the head, infected_r_k hits it back, and you play a nice long-distance game of moss ball. Almost as if everything were normal.",
+                "exp": 10,
+                "weight": 20,
+                "relationships": [
+                    {
+                        "cats_to": ["infected_r_k"],
+                        "cats_from": ["y_c"],
+                        "mutual": true,
+                        "values": ["trust", "platonic"],
+                        "amount": 8
+                    }
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You puff your fur up, trying to scare them away, but they lunge towards you with cloudy eyes. You yelp and race out of the nursery before {PRONOUN/infected_r_k/subject} can get you. You wish running from {PRONOUN/infected_r_k/object} was just a game.",
+                "exp": 10,
+                "weight": 20,
+                "relationships": [
+                    {
+                        "cats_to": ["infected_r_k"],
+                        "cats_from": ["y_c"],
+                        "mutual": false,
+                        "values": ["trust"],
+                        "amount": -10
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "patrol_id": "kitten_infection_J2",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection"
+        ],
+        "patrol_art": "lg_kit_default",
+        "min_cats": 1,
+        "max_cats": 3,
+        "min_max_status": {
+            "kitten": [1, 1]
+        },
+        "weight": 60,
+        "intro_text": "r_m_unabashed seems very stressed about this strange illness. You ask {PRONOUN/r_m_unabashed/object} what makes this illness so upsetting, and {PRONOUN/r_m_unabashed/subject} {VERB/r_m_unabashed/ask/asks} if you really, <i>really</i> want to know.",
+        "decline_text": "On second thought, maybe some things are better left to the grown ups.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "You nod fervently. r_m_unabashed tells you that this disease has no known cure. No cat knows how to stop it, and it could kill anycat at any time. Even r_w, even l_n. Even y_p. After thoroughly scaring you, r_m_unabashed tells you that the Clan has to work hard to gather the right herbs to stop this, and {PRONOUN/r_m_unabashed/subject} {VERB/r_m_unabashed/teach/teaches} you about a couple of herbs to take your mind off of the horror.",
+                "exp": 10,
+                "weight": 20,
+                "relationships": [
+                    {
+                        "cats_to": ["r_m_unabashed"],
+                        "cats_from": ["y_c"],
+                        "mutual": true,
+                        "values": ["platonic"],
+                        "amount": 8
+                    }
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "r_m_unabashed launches into a spooky story about deadly diseases and sick Clanmates turning evil and killing misbehaving kittens. You're not sure if you believe {PRONOUN/r_m_unabashed/object}... but you're still a shaken when you leave the den.",
+                "exp": 10,
+                "weight": 20
+            }
+        ]
+    },
+    {
         "patrol_id": "gen_infection_beginning_1",
         "biome": [
             "Any"
