@@ -6,7 +6,6 @@ import time
 from platform import system
 from random import choice
 from re import search as re_search
-import platform
 import ujson
 import pygame
 import pygame_gui
@@ -18,8 +17,6 @@ import logging
 import subprocess
 import random
 
-from re import sub
-
 import pygame
 import pygame_gui
 from pygame_gui.elements import UIWindow
@@ -30,7 +27,7 @@ from scripts.game_structure import image_cache
 from scripts.housekeeping.progress_bar_updater import UIUpdateProgressBar
 from scripts.housekeeping.update import self_update, UpdateChannel, get_latest_version_number
 from scripts.event_class import Single_Event
-from scripts.utility import scale, quit, update_sprite, scale_dimentions, logger, process_text, xenogender_event
+from scripts.utility import scale, quit, update_sprite, scale_dimentions, logger, process_text
 from scripts.game_structure.game_essentials import game, MANAGER
 from scripts.game_structure.ui_elements import UIImageButton, UITextBoxTweaked
 from scripts.housekeeping.datadir import (
@@ -1110,12 +1107,6 @@ class SpecifyCatSexuality(UIWindow):
             object_id="#text_box_30_horizcenter_spacing_95",
             manager=MANAGER,
             container=self)
-        
-        self.xenos = UIImageButton(scale(pygame.Rect((625, 210), (62, 62))), "",
-            object_id="#help_button",
-            manager=MANAGER, tool_tip_text = "<b> Unique genders that <br> currently have bandanas: </b> <br> genderdoe <br> genderfaun <br> mothgender <br> buggender <br> catgender <br> snowleopardgender <br> tigergender <br> xenogender <br> mossgender <br> moongender <br> sungender <br> stargender <br> apagender <br> genderflux",
-            container=self
-            )
 
         self.label_changed = pygame_gui.elements.UITextBox(
             "Label changed!",

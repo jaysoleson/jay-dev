@@ -9,9 +9,10 @@ import ujson
 from scripts.cat.cats import Cat
 from scripts.game_structure.game_essentials import game, MANAGER
 from scripts.game_structure.ui_elements import UIImageButton, CatButton
-from scripts.utility import get_text_box_theme, shorten_text_to_fit
+from scripts.utility import get_text_box_theme, shorten_text_to_fit, xenogender_event
 from scripts.utility import scale
 from .Screens import Screens
+from scripts.event_class import Single_Event
 from ..game_structure.windows import PronounCreation
 
 with open("resources/dicts/pronouns.json", "r", encoding="utf-8") as f:
@@ -36,6 +37,8 @@ class ChangeGenderScreen(Screens):
         self.removalbuttons = {}
         self.deletebuttons = {}
         self.addbuttons = {}
+
+        self.xenos = None
         self.pronoun_template = [
             {
                 "subject": "",
@@ -70,6 +73,12 @@ class ChangeGenderScreen(Screens):
                 if self.are_boxes_full():
                     gender_identity = self.get_new_identity()
                     self.the_cat.genderalign = gender_identity
+
+                    # pride
+                    xeno_event = xenogender_event(self.the_cat)
+                    if xeno_event != "":
+                        game.next_events_list.append(Single_Event(xeno_event, "misc", self.the_cat.ID))
+
                     self.selected_cat_elements["identity_changed"].show()
                     self.selected_cat_elements["cat_gender"].kill()
                     self.selected_cat_elements["cat_gender"] = (
@@ -124,6 +133,15 @@ class ChangeGenderScreen(Screens):
             object_id="#back_button",
             manager=MANAGER,
         )
+
+        self.xenos = UIImageButton(
+            scale(pygame.Rect((1300, 440), (62, 62))),
+            "",
+            object_id="#help_button",
+            manager=MANAGER,
+            tool_tip_text = "<b> Unique genders that <br> currently have bandanas: </b> <br> genderdoe <br> genderfaun <br> mothgender <br> buggender <br> catgender <br> snowleopardgender <br> tigergender <br> xenogender <br> mossgender <br> moongender <br> sungender <br> stargender <br> apagender <br> genderflux"
+            )
+        
         self.update_selected_cat()
 
     def get_new_identity(self):
@@ -641,5 +659,8 @@ class ChangeGenderScreen(Screens):
         del self.previous_cat_button
         self.elements["cat_frame"].kill()
         del self.elements["cat_frame"]
+
+        self.xenos.kill()
+        del self.xenos
 
         self.reset_buttons_and_boxes()

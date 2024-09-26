@@ -3028,6 +3028,8 @@ def xenogender_event(cat):
     sungender = Pelt.pridebandanas4[3]
     stargender = Pelt.pridebandanas4[4]
     apagender = Pelt.pridebandanas4[5]
+
+    text = ""
      
     if cat.genderalign == 'mothgender':
         if mothgender not in cat.pelt.permanent_inventory:

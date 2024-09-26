@@ -1761,7 +1761,7 @@ class Events:
         
         if len(game.clan.your_cat.qpp) == checks[4] + 1:
             try:
-                print('QPP event running for', game.clan.your_cat.name, "and", str(Cat.all_cats[game.clan.your_cat.qpp[-1]].name) )
+                # print('QPP event running for', game.clan.your_cat.name, "and", str(Cat.all_cats[game.clan.your_cat.qpp[-1]].name) )
                 
                 resource_dir = "resources/dicts/events/lifegen_events/"
                 with open(f"{resource_dir}ceremonies.json",
@@ -5084,7 +5084,6 @@ class Events:
                 cat.pelt.inventory.append(self.aroaceflux)
 
         elif cat.sexuality == "unlabelled" or cat.sexualitylabel == "unlabelled":
-            print(cat.name, "is unlabelled")
             if self.unlabelled not in cat.pelt.permanent_inventory:
                 cat.pelt.inventory.append(self.unlabelled)
 
