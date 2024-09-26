@@ -1507,7 +1507,7 @@ class MakeClanScreen(Screens):
                 scale(pygame.Rect((column1_x, y_pos[7] ),(1200,-1))),
                 object_id=get_text_box_theme("#text_box_30_horizleft"), manager=MANAGER
             )
-        self.elements['pose'] = UIDropDownMenuWithID(["0", "1", "2"], str(self.kitten_sprite), scale(pygame.Rect((column1_x, y_pos[8]), (250, 70))), object_id = "#drop_down_menu",  manager=MANAGER)
+        self.elements['pose'] = pygame_gui.elements.UIDropDownMenu(["0", "1", "2"], str(self.kitten_sprite), scale(pygame.Rect((column1_x, y_pos[8]), (250, 70))), manager=MANAGER)
             
         self.elements['pose text2'] = pygame_gui.elements.UITextBox(
                 'Adolescent Pose',
