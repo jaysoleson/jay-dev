@@ -11,7 +11,8 @@
             "lifegen"
         ],
         "tags": [
-            "infection_beginning"
+            "infection_beginning",
+            "discovered"
         ],
         "patrol_art": "lg_kit_default",
         "min_cats": 1,
@@ -37,7 +38,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "You creep towards the prey, but beofe you can get to it, a senior warrior scoops you up and tosses you away from it, warning you that the sick prey could be dangerous. They send you back to the nursery while they assemble a crowd to inspect the squirrel.",
+                "text": "You creep towards the prey, but before you can get to it, a senior warrior scoops you up and tosses you away from it, warning you that the sick prey could be dangerous. They send you back to the nursery while they assemble a crowd to inspect the squirrel.",
                 "exp": 10,
                 "weight": 20,
                 "cure_log": [

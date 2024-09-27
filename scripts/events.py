@@ -29,7 +29,7 @@ from scripts.events_module.outsider_events import OutsiderEvents
 from scripts.event_class import Single_Event
 from scripts.game_structure.game_essentials import game
 from scripts.cat_relations.relationship import Relationship
-from scripts.utility import change_clan_relations, change_clan_reputation, get_cluster, ceremony_text_adjust, get_current_season, adjust_list_text, ongoing_event_text_adjust, event_text_adjust, create_new_cat, pronoun_repl, get_alive_status_cats, get_alive_cats, get_cats_same_age, adjust_txt
+from scripts.utility import change_clan_relations, change_clan_reputation, get_cluster, ceremony_text_adjust, get_current_season, adjust_list_text, ongoing_event_text_adjust, event_text_adjust, create_new_cat, pronoun_repl, get_alive_status_cats, get_alive_cats, get_cats_same_age, adjust_txt, get_infected_clan_cat_count
 from scripts.cat.cats import Cat, cat_class, BACKSTORIES
 from scripts.cat.history import History
 from scripts.cat.names import Name
@@ -144,18 +144,22 @@ class Events:
             if infected_cats == 0:
                 game.clan.infection["clan_infected"] = False
                 if "cure_found" in game.clan.infection["logs"]:
-                    print("You have cured and overcome the infection!")
+                    event_text = "The infection has been cured, and no infected cats remain in camp! Now, the infection that ravaged the Clans will be nothing but a tale told to future generations of kits."
                     game.clan.infection["time_to_next_infection"] = random.randint(80,110)
                 else:
-                    print("You have staved off the infection for now.")
-                    game.clan.infection["time_to_next_infection"] = random.randint(15,40)
+                    event_text = "No infection remains in the camp. You've staved it off... for now."
+                    game.clan.infection["time_to_next_infection"] = random.randint(5,10)
 
+                game.cur_events_list.insert(0, Single_Event(event_text, ["alert", "infection"]))
+                print(game.clan.infection["time_to_next_infection"])
             else:
                 game.clan.infection["infection_moons"] += 1
         else:
-            if game.clan.infection["time_to_next_infection"] == 1:
-                game.clan.infection["clan_infected"] = True
+            if game.clan.infection["time_to_next_infection"] == 1 and game.clan.infection["infection_moons"] != 0:
+                # this sucks
                 current_type = game.clan.infection["infection_type"]
+
+                print("Time to next infection = 0. Infection reset!")
 
                 # RESETTING SHIT
                 if "cure_found" in game.clan.infection["logs"]:
@@ -168,9 +172,14 @@ class Events:
                     game.clan.infection["cure_discovered"] = []
                     game.clan.infection["logs"] = []
 
+                    for kitty in Cat.all_cats_list:
+                        if kitty.infected_for == -1:
+                            # no immunity for the new infection!!!!
+                            kitty.infected_for = 0
+
                 game.clan.infection["infection_moons"] = 0
 
-            else:
+            elif game.clan.infection["time_to_next_infection"] > 1:
                 game.clan.infection["time_to_next_infection"] -= 1
 
         get_current_season()

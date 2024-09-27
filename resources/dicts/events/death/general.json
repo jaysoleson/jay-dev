@@ -6025,7 +6025,7 @@
             "murder"
         ],
         "tags": [],
-        "weight": 20,
+        "weight": 50,
         "event_text": "r_c kills m_c in an attempt to rid the Clan of further infection.",
         "m_c": {
             "age": [ "any" ],
@@ -6080,7 +6080,7 @@
             "murder"
         ],
         "tags": [],
-        "weight": 20,
+        "weight": 50,
         "event_text": "m_c attacks r_c, infection clouding {PRONOUN/m_c/poss} mind. r_c kills {PRONOUN/m_c/object} in self-defense.",
         "m_c": {
             "age": ["any"],
@@ -6133,7 +6133,7 @@
             "murder"
         ],
         "tags": [],
-        "weight": 20,
+        "weight": 50,
         "event_text": "r_c tells m_c to take a treatment for the infection that they've just discovered. m_c gratefully takes the leaf-full of deathberries and is dead within minutes.",
         "m_c": {
             "age": ["any"],
@@ -6186,7 +6186,7 @@
             "murder"
         ],
         "tags": [],
-        "weight": 20,
+        "weight": 50,
         "event_text": "The infection clouding their mind, r_c attacks and kills m_c in the middle of the night. When {PRONOUN/r_c/subject} {VERB/r_c/come/comes} to, {PRONOUN/r_c/subject} {VERB/r_c/don't/doesn't} remember what {PRONOUN/r_c/subject}{VERB/r_c/'ve/'s} done.",
         "m_c": {
             "age": ["any"],
@@ -6239,8 +6239,8 @@
             "murder"
         ],
         "tags": [],
-        "weight": 20,
-        "event_text": "r_c attacks and kills m_c while m_c attempts to deliver a treatment to them.",
+        "weight": 50,
+        "event_text": "r_c attacks and kills m_c while m_c attempts to deliver a treatment to {PRONOUN/r_c/object}.",
         "m_c": {
             "age": ["any"],
             "status": ["medicine cat", "medicine cat apprentice"],
@@ -6292,7 +6292,7 @@
             "murder"
         ],
         "tags": [],
-        "weight": 20,
+        "weight": 50,
         "event_text": "r_c leaps on m_c, tiny claws reaching for {PRONOUN/m_c/poss} throat, and m_c can't bring {PRONOUN/m_c/self} to fight back. m_c took an oath when {PRONOUN/m_c/subject} began training as a queen, and {PRONOUN/m_c/subject} could never hurt a kit, even in self defense. r_c manages to end m_c's life, and {PRONOUN/r_c/subject} {VERB/r_c/are/is} inconsolable when {PRONOUN/r_c/subject} {VERB/r_c/return/return} to consciousness and find out what {PRONOUN/r_c/subject}{VERB/r_c/'ve/'s} done.",
         "m_c": {
             "age": ["any"],

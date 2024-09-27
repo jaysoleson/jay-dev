@@ -267,7 +267,7 @@
 		]
 	},
 	"event_generation": {
-		"debug_ensure_event_id": "fungal_runaway_J1"
+		"debug_ensure_event_id": "infection_murder_J2"
 	},
 	"death_related": {
 		"leader_death_chance": 50,
