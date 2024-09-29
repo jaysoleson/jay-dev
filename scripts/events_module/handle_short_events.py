@@ -325,6 +325,15 @@ class HandleShortEvents:
         if self.chosen_herb:
             game.herb_events_list.append(f"{self.chosen_event} {self.herb_notice}.")
 
+        # INF
+        if "murder" in self.sub_types:
+            if (
+                "infection" not in self.types and
+                self.main_cat.infected_for > 0 or
+                (isinstance(self.random_cat, Cat) and self.random_cat.infected_for > 0)
+                ):
+                self.types.append("infection")
+
         game.cur_events_list.append(
             Single_Event(
                 self.text + " " + self.additional_event_text,

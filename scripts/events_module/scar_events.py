@@ -120,7 +120,7 @@ class Scar_Events():
             chance += 2
 
         if injury_name in ["rot", "withering", "void sickness"]:
-            chance = 8
+            chance = 4
         
         if len(cat.pelt.scars) < 4 and not int(random.random() * chance):
             

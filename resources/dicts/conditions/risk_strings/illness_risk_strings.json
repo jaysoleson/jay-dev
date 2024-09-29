@@ -1,7 +1,7 @@
 {
     "greencough": {
         "yellowcough": [
-             "There has to be a solution - if r_c tries hard enough, surely {PRONOUN/r_c/subject} can still save m_c from the yellowcough {PRONOUN/m_c/poss} greencough has progressed to.",
+            "There has to be a solution - if r_c tries hard enough, surely {PRONOUN/r_c/subject} can still save m_c from the yellowcough {PRONOUN/m_c/poss} greencough has progressed to.",
             "m_c sits miserably in the medicine cat den, coughing so hard it feels like {PRONOUN/m_c/subject} can barely get a breath in. The outlook looks grim as {PRONOUN/m_c/poss} greencough has progressed to yellowcough."
 
         ]
@@ -37,7 +37,7 @@
     "yellowcough": {
         "redcough": [
             "r_c spots the specks of blood in the bedding where m_c has been coughing and swallows a wail of despair. If {PRONOUN/m_c/poss} yellowcough has progressed to redcough, it's practically a death sentence.",
-             "m_c is going to be fine. {PRONOUN/m_c/subject/CAP}{VERB/m_c/'re/'s} sure of it. {PRONOUN/m_c/poss/CAP} lungs don't hurt nearly as much anymore, and if there's blood in {PRONOUN/m_c/poss} mouth when {PRONOUN/m_c/subject} {VERB/m_c/finish/finishes} a coughing fit, what of it?"
+            "m_c is going to be fine. {PRONOUN/m_c/subject/CAP}{VERB/m_c/'re/'s} sure of it. {PRONOUN/m_c/poss/CAP} lungs don't hurt nearly as much anymore, and if there's blood in {PRONOUN/m_c/poss} mouth when {PRONOUN/m_c/subject} {VERB/m_c/finish/finishes} a coughing fit, what of it?"
 
         ]
     },
@@ -81,47 +81,71 @@
     },
     "fungal stage one": {
         "fungal stage two": [
-            "m_c's infection has reached stage two."
+            "m_c's infection has reached stage two.",
+            "m_c's infection has progressed to stage two.",
+            "m_c's infection is getting worse."
         ]
     },
     "fungal stage two": {
         "fungal stage three": [
-            "m_c's infection has reached stage three."
+            "m_c's infection has reached stage three.",
+            "m_c's infection has progressed to stage three.",
+            "m_c's infection is getting worse."
         ]
     },
     "fungal stage three": {
         "fungal stage four": [
-            "m_c's infection has reached stage four."
+            "The mushrooms growing from m_c's pelt are making it hard to walk. As {PRONOUN/m_c/subject} {VERB/m_c/stumble/stumbles} across camp in an attempt to blindly attack a Clanmate, it becomes clear that {PRONOUN/m_c/poss} infection is getting much worse.",
+            "m_c's infection has reached stage four.",
+            "m_c's infection has progressed to stage four.",
+            "m_c's infection is getting worse."
         ]
     },
     "parasitic stage one": {
         "parasitic stage two": [
-            "m_c's infection has reached stage two."
+            "m_c's infection has reached stage two.",
+            "m_c's infection has progressed to stage two.",
+            "m_c's infection is getting worse."
         ]
     },
     "parasitic stage two": {
         "parasitic stage three": [
-            "m_c's infection has reached stage three."
+            "m_c's infection has reached stage three.",
+            "m_c's infection has progressed to stage three.",
+            "m_c's infection is getting worse."
         ]
     },
     "parasitic stage three": {
         "parasitic stage four": [
-            "m_c's infection has reached stage four."
+            "While m_c sleeps, r_c desperately tries to mend {PRONOUN/m_c/poss} pelt back together with cobwebs, to no avail. m_c's illness is continuing to progress, and {PRONOUN/m_c/poss} body is falling apart.",
+            "m_c's infection has reached stage four.",
+            "m_c's infection has progressed to stage four.",
+            "m_c's infection is getting worse."
         ]
     },
     "void stage one": {
         "void stage two": [
-            "m_c's infection has reached stage two."
+            "r_c watches m_c from afar as the black poison of the infection begins overtaking {PRONOUN/m_c/poss} body. {PRONOUN/m_c/poss/CAP} illness has progressed another stage.",
+            "m_c's infection has reached stage two.",
+            "m_c's infection has progressed to stage two.",
+            "m_c's infection is getting worse."
         ]
     },
     "void stage two": {
         "void stage three": [
-            "m_c's infection has reached stage three."
+            "r_c watches m_c from afar as the black poison of the infection continues to overtake {PRONOUN/m_c/poss} body. {PRONOUN/m_c/poss/CAP} illness has progressed another stage.",
+            "m_c's infection has reached stage three.",
+            "m_c's infection has progressed to stage three.",
+            "m_c's infection is getting worse."
         ]
     },
     "void stage three": {
         "void stage four": [
-            "m_c's infection has reached stage four."
+            "r_c watches m_c from afar as the black poison of the infection continues to overtake {PRONOUN/m_c/poss} body. {PRONOUN/m_c/poss/CAP} illness has progressed another stage.",
+            "m_c has been lashing out at {PRONOUN/m_c/poss} Clanmates more and more frequently. It becomes apparent to the Clan that {PRONOUN/m_c/poss} infection is progressing.",
+            "m_c's infection has reached stage four.",
+            "m_c's infection has progressed to stage four.",
+            "m_c's infection is getting worse."
         ]
     }
 }

@@ -578,6 +578,69 @@ class Cat:
         """
         return not self.dead
     
+    def cure(self):
+        """ 
+        Cures a cat of the infection!
+        """
+        inftype = game.clan.infection["infection_type"]
+        stages = [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]
+
+        print(self.name, "is cured!")
+        for stage in stages:
+            if stage in self.illnesses:
+                old_stage = stage
+                if len(game.clan.infection["cure"]) == len(game.clan.infection["cure_discovered"]):
+                    self.illnesses.pop(stage)
+                    infection_scars = ["EXPOSEDRIBS", "EYESOCKET", "ARMBONE", "VOIDBACK", "VOIDEYE", "VOIDTAIL", "SHELFMUSHROOMS", "EYEMOSS", "PAWMOSS"]
+                    for scar in infection_scars:
+                        if scar in self.pelt.scars:
+                            self.pelt.scars.remove(scar)
+                    
+                    if "cure_found" not in game.clan.infection["logs"]:
+                        event = choice([
+                            f"The Clan awakens to screams from the medicine den. Warriors scramble outside, claws unsheathed, to the sight of the medicine cats yowling and jumping with joy. The startled crowd is confused until the medicine cats explain. The cure has been discovered, and {self.name} is the first to be cured!<br>Your log has been updated."
+                            ])
+                        game.clan.infection["logs"].append("cure_found")
+                    else:
+                        event = f"{self.name} has been cured of the infection!"
+                    self.infected_for = -1
+                    for scar in self.pelt.scars:
+                        # remove infection scars!
+                        if scar in [Pelt.scars4, Pelt.scars5, Pelt.scars6]:
+                            self.pelt.scars.remove(scar)
+                    game.cur_events_list.insert(0, Single_Event(event, ["health", "infection"], self.ID))
+                else:
+                    cured = False
+                    if stage == f"{inftype} stage two":
+                        self.illnesses.pop(stage)
+                        self.get_ill(f"{inftype} stage one")
+                        new_stage = f"{inftype} stage one"
+                    elif stage == f"{inftype} stage three":
+                        self.illnesses.pop(stage)
+                        self.get_ill(f"{inftype} stage two")
+                        new_stage = f"{inftype} stage two"
+                    elif stage == f"{inftype} stage four":
+                        self.illnesses.pop(stage)
+                        self.get_ill(f"{inftype} stage three")
+                        new_stage = f"{inftype} stage three"
+                    else:
+                        cured = True
+                        self.illnesses.pop(stage)
+                    
+                    if cured:
+                        if "partial_cure" not in game.clan.infection["logs"]:
+                            addon = "\nYour log has been updated."
+                            event = f"Evidently, it's not a full cure, but it seems that {self.name}'s infection was in an early enough stage for the partial cure to work!"
+                            game.clan.infection["logs"].append("partial_cure")
+                        else:
+                            addon = ""
+                            event = f"The partial cure has worked on {self.name}'s stage one infection."
+                        self.infected_for = -1
+                    else:
+                        event = f"Thanks to recieving treatment, {self.name}'s infection has remissed from {old_stage.replace(f'{inftype}', '')} to {new_stage.replace(f'{inftype}', '')}!{addon}"
+                    game.cur_events_list.insert(0, Single_Event(event, ["health", "infection"], self.ID))
+        self.cure_progress = 0
+    
     def zombie(self):
         """
         kills the cat, but they come back >:3
@@ -587,7 +650,7 @@ class Cat:
             self.status == "leader"
             and "pregnant" in self.injuries
             and game.clan.leader_lives > 0
-        ):
+            ):
             self.illnesses.clear()
 
             self.injuries = {
@@ -2613,7 +2676,12 @@ class Cat:
         infectious_illnesses = []
         if cat.is_ill():
             for illness in cat.illnesses:
-                if illness in [f"{game.clan.infection['infection_type']} stage one", f"{game.clan.infection['infection_type']} stage two", f"{game.clan.infection['infection_type']} stage three", f"{game.clan.infection['infection_type']} stage four"]:
+                if illness in [
+                    f"{game.clan.infection['infection_type']} stage one",
+                    f"{game.clan.infection['infection_type']} stage two",
+                    f"{game.clan.infection['infection_type']} stage three",
+                    f"{game.clan.infection['infection_type']} stage four"
+                    ]:
                     infectious_illnesses.append(illness)
             if len(infectious_illnesses) == 0:
                 return

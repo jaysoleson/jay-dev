@@ -625,7 +625,6 @@ class TreatmentScreen(Screens):
         you = game.clan.your_cat
         for i in range(len(text)):
             if text[i] == "":
-                print("here capn")
                 return ""
 
         process_text_dict = self.cat_dict.copy()
@@ -764,10 +763,9 @@ class TreatmentScreen(Screens):
 
         infection_stage = [i for i in self.selected_cat.illnesses if i in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]]
         infection_stage_stripped = str(infection_stage).replace('[', '').replace(']', '').replace("'", '')
-        print([infection_stage_stripped.replace(' ', '').replace(f'{inftype}', '') + " " + correctherbs + herbinsert + successkey])
         if len(game.clan.infection["cure_discovered"]) < 4 or (len(game.clan.infection["cure_discovered"]) == 4 and correct < 4):
             if self.selected_cat.status == "newborn":
-                ceremony_txt = (self.m_txt[who_key + "newborn" + successkey])
+                ceremony_txt = self.m_txt[who_key + "newborn" + successkey]
             try:
                 if success:
                     ceremony_txt = self.m_txt[who_key + infection_stage_stripped.replace(' ', '').replace(f'{inftype}', '') + " " + correctherbs + herbinsert + successkey]
@@ -778,15 +776,15 @@ class TreatmentScreen(Screens):
             except KeyError:
                 try:
                     if success:
-                        ceremony_txt =(self.m_txt[who_key + " " + correctherbs + herbinsert + successkey])
+                        ceremony_txt = self.m_txt[who_key + " " + correctherbs + herbinsert + successkey]
                     else:
-                        ceremony_txt =(self.m_txt[who_key + herbinsert + successkey])
+                        ceremony_txt = self.m_txt[who_key + herbinsert + successkey]
                 except:
                     try:
                         if success:
-                            ceremony_txt = (self.m_txt[who_key + " " + correctherbs  + successkey])
+                            ceremony_txt = self.m_txt[who_key + " " + correctherbs  + successkey]
                         else:
-                            ceremony_txt = (self.m_txt[who_key + " " + successkey])
+                            ceremony_txt = self.m_txt[who_key + " " + successkey]
                     except:
                         print("NO TEXT FOUND")
                         ceremony_txt = (self.m_txt[who_key + "anystage anyright anyherb" + successkey])
@@ -859,7 +857,6 @@ class TreatmentScreen(Screens):
             # ^ debug
             if not int(random.random() * remission_chance):
                 patient.cure_progress += 1
-                print("REMISSION CHANCE HIT")
 
         if cure:
             patient.cure_progress += 1

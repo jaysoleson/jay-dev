@@ -710,7 +710,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "You approach the cat, but before you can offer them a place to recover, {PRONOUN/n_c:0/subject} {VERB/n_c:0/lunge/lunges} towards you with a snarl. {PRONOUN/n_c:0/poss/CAP} eyes are wild and clouded... maybe you should leave {PRONOUN/n_c:0/object} alone.",
+                "text": "You approach the cat, but before you can offer {PRONOUN/n_c:0/object} a place to recover, {PRONOUN/n_c:0/subject} {VERB/n_c:0/lunge/lunges} towards you with a snarl. {PRONOUN/n_c:0/poss/CAP} eyes are wild and clouded... maybe you should leave {PRONOUN/n_c:0/object} alone.",
                 "exp": 10,
                 "weight": 20,
                 "cure_log": [
@@ -952,7 +952,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "As you sneak forwards to launch a surprise attack on the infected creature, you accidentally kick a pebble, and the infected hears you. Luckily, all they do is hiss before stumbling away from camp, not wanting to put up a fight,",
+                "text": "As you sneak forwards to launch a surprise attack on the infected creature, you accidentally kick a pebble, and it hears you. Luckily, all they do is hiss before stumbling away from camp, not wanting to put up a fight.",
                 "exp": 10,
                 "weight": 20
             },
@@ -1169,7 +1169,7 @@
             "normal adult": [1, 1]
         },
         "weight": 20,
-        "intro_text": "You're out on a late patrol with r_w as you realize the two of you seem to be lost out in the territory. Your companion swears {PRONOUN/r_w/subject} {VERB/r_w/know.knows} precisely where you both are, volunteering to take the lead, but you have your doubts and the weather is starting to turn. Should you trust {PRONOUN/r_w/poss} instincts?",
+        "intro_text": "You're out on a late patrol with r_w as you realize the two of you seem to be lost out in the territory. Your companion swears {PRONOUN/r_w/subject} {VERB/r_w/know/knows} precisely where you both are, volunteering to take the lead, but you have your doubts and the weather is starting to turn. Should you trust {PRONOUN/r_w/poss} instincts?",
         "decline_text": "You tell your patrolmate to stop acting like {PRONOUN/r_w/subject} {VERB/r_w/know/knows} the way ahead, because you two are <i>clearly</i> lost. There's a bit of grumbling as you both go to retrace your steps, but you make it back to camp safely and swiftly, only a little ruffled from the wind.",
         "chance_of_success": 60,
         "success_outcomes": [

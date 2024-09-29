@@ -433,7 +433,7 @@ class Condition_Events:
                         ]                        
                         
                         if "spread_by_air" not in game.clan.infection["logs"]:
-                            game.clan.infection["logs"].append("spread_by_air")
+                            game.clan.infection["logs"].append("lore_spread_by_air")
                             insert= "\nYour log has been updated."
                     
                     if len(infected_cats) > 5:
@@ -808,13 +808,7 @@ class Condition_Events:
             # heal the cat
             elif cat.healed_condition is True:
                 if illness in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three",f"{inftype} stage four"]:
-                    # id rather stop it from ever being true in the first place for infected cats
-                    # because after a certain point, this is happening every moon
-                    # but whatever. this works.
-                    infection_event = True
                     continue
-                else:
-                    infection_event = False
                 History.remove_possible_history(cat, illness)
                 game.switches["skip_conditions"].append(illness)
                 # gather potential event strings for healed illness
@@ -873,10 +867,17 @@ class Condition_Events:
                 # move to next illness, the cat can't get a risk from an illness that has healed
                 continue
 
+            if illness in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three",f"{inftype} stage four"]:
+                # id rather stop it from ever being true in the first place for infected cats
+                # because after a certain point, this is happening every moon
+                # but whatever. this works.
+                infection_event = True
+            else:
+                infection_event = False
+
             Condition_Events.give_risks(
                 cat, event_list, illness, illness_progression, illnesses, cat.illnesses
             )
-
 
         # joining event list into one event string
         event_string = None
@@ -1340,8 +1341,8 @@ class Condition_Events:
                     try:
                         event = possible_string_list[random_index]
                     except:
-                        print(random_index, "random index out of range. infection bug i think")
-                        return
+                        event = ""
+                        print("Need more risk text for", condition, "!")
                 except KeyError:
                     print(
                         f"WARNING: {condition} couldn't be found in the risk strings! placeholder string was used"

@@ -400,8 +400,11 @@ class Patrol:
             if "cure_found" not in game.clan.infection["logs"]:
                 possible_patrols.extend(self.generate_patrol_events(self.infection_patrols))
 
-            if game.clan.infection["clan_infected"] is False:
-                # no normal shit once ur infected
+            if (
+                game.clan.infection["clan_infected"] is False and
+                game.clan.infection["time_to_next_infection"] != 1 and
+                random.randint(1,2) == 2
+                ):
                 if game.clan.your_cat.status == 'kitten':
                     possible_patrols.extend(self.generate_patrol_events(self.kit_lifegen))
                 elif game.clan.your_cat.status == 'apprentice':
@@ -661,8 +664,7 @@ class Patrol:
             if (
                 "infection_beginning" in patrol.tags and
                 (game.clan.infection["clan_infected"] is True or
-                 game.clan.infection["infection_moons"] > 0 or
-                 game.clan.infection["time_to_next_infection"] == 0)
+                 game.clan.infection["infection_moons"] > 0)
                  ):
                 continue
 

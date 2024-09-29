@@ -175,6 +175,9 @@ class MakeClanScreen(Screens):
         self.adult_pose = 0
         self.elder_pose = 0
         self.faith = "flexible"
+
+        self.infection_type = None
+
         game.choose_cats = {}
         self.skills = []
         for skillpath in SkillPath:
@@ -272,6 +275,32 @@ class MakeClanScreen(Screens):
             self.elements['established'].enable()
             self.elements['new'].disable()
             self.clan_age = "new"
+
+        elif event.ui_element == self.elements["fungal"]:
+            self.infection_type = "fungal"
+            self.elements["fungal"].disable()
+            self.elements["void"].enable()
+            self.elements["parasitic"].enable()
+            self.elements["random_type"].enable()
+        elif event.ui_element == self.elements["void"]:
+            self.infection_type = "void"
+            self.elements["void"].disable()
+            self.elements["fungal"].enable()
+            self.elements["parasitic"].enable()
+            self.elements["random_type"].enable()
+        elif event.ui_element == self.elements["parasitic"]:
+            self.infection_type = "parasitic"
+            self.elements["parasitic"].disable()
+            self.elements["fungal"].enable()
+            self.elements["void"].enable()
+            self.elements["random_type"].enable()
+        elif event.ui_element == self.elements["random_type"]:
+            self.infection_type = random.choice(["fungal", "void", "parasitic"])
+            self.elements["random_type"].disable()
+            self.elements["fungal"].enable()
+            self.elements["void"].enable()
+            self.elements["parasitic"].enable()
+
     
     def random_clan_name(self):
         clan_names = names.names_dict["normal_prefixes"] + names.names_dict["clan_prefixes"]
@@ -1219,6 +1248,32 @@ class MakeClanScreen(Screens):
         self.elements["established"] = UIImageButton(scale(pygame.Rect((600,200), (192, 60))), "Old", object_id="#clan_age_old", tool_tip_text="The Clan has existed for many moons and cats' backstories will reflect this.",manager=MANAGER)
         self.elements["new"] = UIImageButton(scale(pygame.Rect((850,200), (192, 60))), "New", object_id="#clan_age_new", tool_tip_text="The Clan is newly established and cats' backstories will reflect this.", manager=MANAGER)
         self.elements["established"].disable()
+
+        # INF
+        self.elements["fungal"] = UIImageButton(
+            scale(pygame.Rect((600,500), (192, 60))),
+            "Fungal",
+            object_id="",
+            manager=MANAGER
+            )
+        self.elements["parasitic"] = UIImageButton(
+            scale(pygame.Rect((850,500), (192, 60))),
+            "Parasitic",
+            object_id="",
+            manager=MANAGER
+            )
+        self.elements["void"] = UIImageButton(
+            scale(pygame.Rect((1100,500), (192, 60))),
+            "Void",
+            object_id="",
+            manager=MANAGER
+            )
+        self.elements["random_type"] = UIImageButton(
+            scale(pygame.Rect((1350,500), (192, 60))),
+            "Random",
+            object_id="",
+            manager=MANAGER
+            )
 
     def clan_name_header(self):
         self.elements["name_backdrop"] = pygame_gui.elements.UIImage(
@@ -2500,6 +2555,10 @@ class MakeClanScreen(Screens):
                         starting_season=self.selected_season,
                         your_cat=self.your_cat,
                         clan_age=self.clan_age)
+        game.clan.infection = {
+            "infection_type": self.infection_type
+        }
+        print("makeclanscreen", game.clan.infection["infection_type"])
         game.clan.your_cat.moons = -1
         game.clan.create_clan()
         if self.clan_age == "established":

@@ -146,24 +146,7 @@ class Clan:
         self.chosen_symbol = symbol
         self.game_mode = game_mode
         self.pregnancy_data = {}
-
-        herb1, herb2, herb3, herb4 = random.sample(HERBS, 4)
-
-
-        self.infection = {
-            "clan_infected": False,
-            "infection_type": choice(["fungal", "parasitic", "void"]),
-            "cure": [herb1, herb2, herb3, herb4],
-            "cure_attempt": False,
-            "cure_discovered": [],
-            "spread_by": choice(["air", "bite"]),
-            "treatments": [],
-            "infection_moons": 0,
-            "logs": [],
-            "fallen_clans": [],
-            "priority_herb": None,
-            "time_to_next_infection": 0
-        }
+        self.infection = {}
         self.inheritance = {}
         self.murdered = False
         self.exile_return = False
@@ -175,7 +158,7 @@ class Clan:
 
         # infection stuff! yippee
         self.clan_infected = False
-        self.cure = [herb1, herb2, herb3, herb4]
+        self.cure = []
         self.cure_attempt = False
         self.infection_type = 'fungal'
         self.treatments = []
@@ -296,6 +279,30 @@ class Clan:
  
         if self.leader.status != "leader":
             self.leader.status_change('leader')
+
+        # INF
+        herb1, herb2, herb3, herb4 = random.sample(HERBS, 4)
+
+        print("clan.py 1", self.infection["infection_type"])
+
+        self.infection = {
+            "clan_infected": False,
+            "infection_type": self.infection["infection_type"] if self.infection["infection_type"] else choice(["fungal", "parasitic", "void"]),
+            "cure": [herb1, herb2, herb3, herb4],
+            "cure_attempt": False,
+            "cure_discovered": [],
+            "spread_by": choice(["air", "bite"]),
+            "treatments": [],
+            "infection_moons": 0,
+            "logs": [],
+            "fallen_clans": [],
+            "priority_herb": None,
+            "time_to_next_infection": 0
+        }
+        # ---
+
+        print("clan.py 2", self.infection["infection_type"])
+
 
         key_copy = tuple(Cat.all_cats.keys())
         for i in key_copy:  # Going through all currently existing cats

@@ -1656,36 +1656,36 @@ class Events:
 
                 addon = ""
                 if clan.relations > 17:
-                    addon = "allies"
+                    addon = "_allies"
                 elif clan.relations < 7:
-                    addon = "hostile"
+                    addon = "_hostile"
                     
                 # clan infection events
                 if int(clan.infection_level) == 0:
                     if random.randint(1,30) == 1:
                         events = other_clan_events["none"]
-                        events.extend(other_clan_events[f"none_{addon}"])
+                        events.extend(other_clan_events[f"none{addon}"])
                     else:
                         return
                         
                 elif int(clan.infection_level) <= 30:
                     if random.randint(1,30) == 1:
                         events = other_clan_events["low"]
-                        events.extend(other_clan_events[f"low_{addon}"])
+                        events.extend(other_clan_events[f"low{addon}"])
                     else:
                         return
 
                 elif int(clan.infection_level) <= 70:
                     if random.randint(1,20) == 1:
                         events = other_clan_events["mid"]
-                        events.extend(other_clan_events[f"mid_{addon}"])
+                        events.extend(other_clan_events[f"mid{addon}"])
                     else:
                         return
 
                 elif int(clan.infection_level) <= 99:
                     if random.randint(1,10) == 1:
                         events = other_clan_events["high"]
-                        events.extend(other_clan_events[f"high_{addon}"])
+                        events.extend(other_clan_events[f"high{addon}"])
                     else:
                         return
 
@@ -1734,7 +1734,7 @@ class Events:
                                     new_kit[1].status = "former Clancat"
 
                     events = other_clan_events["fallen"]
-                    events.extend(other_clan_events[f"fallen_{addon}"])
+                    events.extend(other_clan_events[f"fallen{addon}"])
 
                     if game.clan.war["enemy"] == clan.name:
                         events.extend(other_clan_events["fallen_war"])
@@ -1742,7 +1742,7 @@ class Events:
                 try:
                     text = random.choice(events)
                 except IndexError:
-                    text = f"Mrow! INFECTION bug: Other Clans. {clan.name}Clan, {addon}, {clan.infection_level}"
+                    text = "Mrow! INFECTION bug, please report!"
                     print(f"No possible other clans infection events for {clan.name}Clan.")
                 text = event_text_adjust(Cat, text, other_clan=clan)
                 game.cur_events_list.insert(0, Single_Event(text, ["other_clans", "infection"]))
@@ -2773,76 +2773,41 @@ class Events:
             if stage in cat.illnesses:
                 cat.infected_for += 1
         
-        if not any(t in cat.illnesses for t in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]) and cat.infected_for > 0:
+        if (
+            not any(t in cat.illnesses for t in [
+            f"{inftype} stage one",
+            f"{inftype} stage two",
+            f"{inftype} stage three",
+            f"{inftype} stage four"
+            ])
+            ):
             if cat.infected_for > 0:
+                print(cat.name, "has infected moons, but is not infected?")
                 cat.infected_for = 0
         
-        if any(t in cat.illnesses for t in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]) and cat.infected_for == 0:
-            cat.infected_for = 1
+        if (
+            any(t in cat.illnesses for t in [
+            f"{inftype} stage one",
+            f"{inftype} stage two",
+            f"{inftype} stage three",
+            f"{inftype} stage four"
+            ])
+            ):
+            if cat.infected_for == 0:
+                print(cat.name, "has no infected moons, but is infected?")
+                cat.infected_for = 1
         
         if cat.cure_progress > 0:
             cat.cure_progress += 1
             if cat.cure_progress == game.config["cure_moons"]:
-                for stage in stages:
-                    if stage in cat.illnesses:
-                        old_stage = stage
-                        if len(game.clan.infection["cure"]) == len(game.clan.infection["cure_discovered"]):
-                            cat.illnesses.pop(stage)
-                            
-                            if "cure_found" not in game.clan.infection["logs"]:
-                                event = random.choice([
-                                    f"The Clan awakens to screams from the medicine den. Warriors scramble outside, claws unsheathed, to the sight of the medicine cats yowling and jumping with joy. The startled crowd is confused until the medicine cats explain. The cure has been discovered, and {cat.name} is the first to be cured!<br>Your log has been updated."
-                                    ])
-                                game.clan.infection["logs"].append("cure_found")
-                            else:
-                                event = f"{cat.name} has been cured of the infection!"
-                            cat.infected_for = -1
-                            for scar in cat.pelt.scars:
-                                # remove infection scars!
-                                if scar in cat.pelt.scars4:
-                                    cat.pelt.remove(scar)
-                                if scar in cat.pelt.scars5:
-                                    cat.pelt.remove(scar)
-                                if scar in cat.pelt.scars6:
-                                    cat.pelt.remove(scar)
-                            game.cur_events_list.insert(0, Single_Event(event, ["health", "infection"], cat.ID))
-                        else:
-                            cured = False
-                            if "partial_cure" not in game.clan.infection["logs"]:
-                                addon = "\nYour log has been updated."
-                                game.clan.infection["logs"].append("partial_cure")
-                            else:
-                                addon = ""
-                            if stage == f"{inftype} stage two":
-                                cat.illnesses.pop(f"{inftype} stage two")
-                                cat.get_ill(f"{inftype} stage one")
-                                new_stage = f"{inftype} stage one"
-                            elif stage == f"{inftype} stage three":
-                                cat.illnesses.pop(f"{inftype} stage three")
-                                cat.get_ill(f"{inftype} stage two")
-                                new_stage = f"{inftype} stage two"
-                            elif stage == f"{inftype} stage four":
-                                cat.illnesses.pop(f"{inftype} stage four")
-                                cat.get_ill(f"{inftype} stage three")
-                                new_stage = f"{inftype} stage three"
-                            else:
-                                cured = True
-                                cat.illnesses.pop(f"{inftype} stage one")
-                            
-                            if cured:
-                                event = f"Evidently, it's not a full cure, but it seems that {cat.name}'s infection was in an early enough stage for the partial cure to work!"
-                                cat.infected_for = -1
-                            else:
-                                event = f"Thanks to recieving treatment, {cat.name}'s infection has remissed from {old_stage.replace(f'{inftype}', '')} to {new_stage.replace(f'{inftype}', '')}!{addon}"
-                            game.cur_events_list.insert(0, Single_Event(event, ["health", "infection"], cat.ID))
-                cat.cure_progress = 0
+                cat.cure()
         
         if game.clan.infection["clan_infected"] is True:
             # spreads the infection if the clan is infected! 
             cat.infection_go()
 
-        if "undead" in cat.illnesses:
-            self.undead_cats(cat)
+        # if "undead" in cat.illnesses:
+        #     self.undead_cats(cat)
 
         # newborns don't do much
         if cat.status == "newborn":
@@ -3970,6 +3935,11 @@ class Events:
             (cat.personality.aggression) + (16 - cat.personality.stability)
         )
 
+        if "undead" in cat.illnesses:
+            print("pre undead chance:", random_murder_chance)
+            random_murder_chance *= 0.5 # doubles chances
+            print("post undead chance:", random_murder_chance)
+
         # Check to see if random murder is triggered.
         # If so, we allow targets to be anyone they have even the smallest amount of dislike for
         if random.getrandbits(max(1, int(random_murder_chance))) == 1:
@@ -4338,7 +4308,7 @@ class Events:
                             f'{", ".join(infected_names[:-1])}, and ' \
                             f'{infected_names[-1]} have become ill.'
                     if "spread_by_air" not in game.clan.infection["logs"]:
-                        game.clan.infection["logs"].append("spread_by_air")
+                        game.clan.infection["logs"].append("lore_spread_by_air")
                         event += "\nYour log has been updated."
                 else:
                     event = (

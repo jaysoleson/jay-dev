@@ -1002,9 +1002,6 @@ def create_new_cat(
             new_cat.outside = True
         if not alive:
             new_cat.die()
-        
-        if story_cat is not None:
-            game.clan.infection[f"story_cat_{story_cat}"] = new_cat.ID
 
         if df:
             new_cat.df = True
@@ -2743,24 +2740,34 @@ def generate_sprite(
             )
             new_sprite.blit(sprites.sprites["lighting" + cat_sprite], (0, 0))
 
-        inftype = game.clan.infection["infection_type"]
-        if not dead and infected:
-            if f"{inftype} stage one" in cat.illnesses:
-                new_sprite.blit(sprites.sprites[f'{inftype}lineartstageone' + cat_sprite], (0, 0))
-            elif f"{inftype} stage two" in cat.illnesses:
-                new_sprite.blit(sprites.sprites[f'{inftype}lineartstagetwo' + cat_sprite], (0, 0))
-            elif f"{inftype} stage three" in cat.illnesses:
-                new_sprite.blit(sprites.sprites[f'{inftype}lineartstagethree' + cat_sprite], (0, 0))
-            elif f"{inftype} stage four" in cat.illnesses or "undead" in cat.illnesses:
-                new_sprite.blit(sprites.sprites[f'{inftype}lineartstagefour' + cat_sprite], (0, 0))
-            else:
+        if game.clan:
+            inftype = game.clan.infection["infection_type"]
+            if not dead and infected:
+                if f"{inftype} stage one" in cat.illnesses:
+                    new_sprite.blit(sprites.sprites[f'{inftype}lineartstageone' + cat_sprite], (0, 0))
+                elif f"{inftype} stage two" in cat.illnesses:
+                    new_sprite.blit(sprites.sprites[f'{inftype}lineartstagetwo' + cat_sprite], (0, 0))
+                elif f"{inftype} stage three" in cat.illnesses:
+                    new_sprite.blit(sprites.sprites[f'{inftype}lineartstagethree' + cat_sprite], (0, 0))
+                elif f"{inftype} stage four" in cat.illnesses or "undead" in cat.illnesses:
+                    new_sprite.blit(sprites.sprites[f'{inftype}lineartstagefour' + cat_sprite], (0, 0))
+                else:
+                    new_sprite.blit(sprites.sprites['lines' + cat_sprite], (0, 0))
+            elif cat.df:
+                new_sprite.blit(sprites.sprites["lineartdf" + cat_sprite], (0, 0))
+            elif cat.dead and cat.outside:
+                new_sprite.blit(sprites.sprites["lineartur" + cat_sprite], (0, 0))
+            elif dead:
+                new_sprite.blit(sprites.sprites['lineartdead' + cat_sprite], (0, 0))
+        else:
+            if not dead:
                 new_sprite.blit(sprites.sprites['lines' + cat_sprite], (0, 0))
-        elif cat.df:
-            new_sprite.blit(sprites.sprites["lineartdf" + cat_sprite], (0, 0))
-        elif cat.dead and cat.outside:
-            new_sprite.blit(sprites.sprites["lineartur" + cat_sprite], (0, 0))
-        elif dead:
-            new_sprite.blit(sprites.sprites['lineartdead' + cat_sprite], (0, 0))
+            elif cat.df:
+                new_sprite.blit(sprites.sprites["lineartdf" + cat_sprite], (0, 0))
+            elif cat.dead and cat.outside:
+                new_sprite.blit(sprites.sprites["lineartur" + cat_sprite], (0, 0))
+            elif dead:
+                new_sprite.blit(sprites.sprites['lineartdead' + cat_sprite], (0, 0))
 
         if not infected:
             new_sprite.blit(sprites.sprites['lines' + cat_sprite], (0, 0))
