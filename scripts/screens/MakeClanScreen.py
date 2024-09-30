@@ -1442,11 +1442,11 @@ class MakeClanScreen(Screens):
 
 
         self.elements['preview text'] = pygame_gui.elements.UITextBox(
-                'Preview Age',
+                'Age',
                 scale(pygame.Rect((x_align, y_pos[5]),(1200,-1))),
                 object_id=get_text_box_theme("#text_box_30_horizleft"), manager=MANAGER
             )
-        self.elements['preview age'] = pygame_gui.elements.UIDropDownMenu(["kitten", "adolescent", "adult", "elder"], str(self.preview_age), scale(pygame.Rect((x_align, y_pos[6]), (260, 70))), manager=MANAGER)
+        self.elements['preview age'] = pygame_gui.elements.UIDropDownMenu(["adolescent", "adult", "elder"], str(self.preview_age), scale(pygame.Rect((x_align, y_pos[6]), (260, 70))), manager=MANAGER)
         c_moons = 1
         if self.preview_age == "adolescent":
             c_moons = 6
@@ -1455,7 +1455,7 @@ class MakeClanScreen(Screens):
         elif self.preview_age == "elder":
             c_moons = 121
 
-        self.elements['preview age'].disable()
+        # self.elements['preview age'].disable()
         self.selected_cat.pelt = pelt2
         self.selected_cat.sprite = generate_sprite(self.selected_cat)
         self.elements["sprite"] = UISpriteButton(scale(pygame.Rect
@@ -1465,32 +1465,27 @@ class MakeClanScreen(Screens):
                                    starting_height=0, manager=MANAGER)
         
         self.elements['pose text'] = pygame_gui.elements.UITextBox(
-                'Kitten Pose',
-                scale(pygame.Rect((column1_x, y_pos[7] ),(1200,-1))),
-                object_id=get_text_box_theme("#text_box_30_horizleft"), manager=MANAGER
+            'Pose',
+            scale(pygame.Rect((column1_x, y_pos[7] ),(1200,-1))),
+            object_id=get_text_box_theme("#text_box_30_horizleft"),
+            manager=MANAGER
             )
-        self.elements['pose'] = pygame_gui.elements.UIDropDownMenu(["0", "1", "2"], str(self.selected_cat.pelt.cat_sprites[self.selected_cat.age]), scale(pygame.Rect((column1_x, y_pos[8]), (250, 70))), manager=MANAGER)
-            
-        self.elements['pose text2'] = pygame_gui.elements.UITextBox(
-                'Adolescent Pose',
-                scale(pygame.Rect((column2_x, y_pos[7] ),(1200,-1))),
-                object_id=get_text_box_theme("#text_box_30_horizleft"), manager=MANAGER
+        
+        spritenum = 0
+        if self.selected_cat.age == "adolescent":
+            spritenum = 3
+        elif self.selected_cat.age in ["adult", "young adult", "senior adult"]:
+            spritenum = 6
+        elif self.selected_cat.age == "senior":
+            spritenum = 12
+        
+        self.elements['pose'] = pygame_gui.elements.UIDropDownMenu(
+            ["0", "1", "2"],
+            str(int(self.selected_cat.pelt.cat_sprites[self.selected_cat.age]) - spritenum),
+            scale(pygame.Rect((column1_x, y_pos[8]), (250, 70))),
+            manager=MANAGER
             )
-        self.elements['adolescent pose'] = pygame_gui.elements.UIDropDownMenu(["0", "1", "2"], str(self.selected_cat.pelt.cat_sprites["adolescent"]), scale(pygame.Rect((column2_x, y_pos[8]), (250, 70))), manager=MANAGER)
 
-        self.elements['pose text3'] = pygame_gui.elements.UITextBox(
-                'Adult Pose',
-                scale(pygame.Rect((column1_x, y_pos[9] ),(1200,-1))),
-                object_id=get_text_box_theme("#text_box_30_horizleft"), manager=MANAGER
-            )
-        self.elements['adult pose'] = pygame_gui.elements.UIDropDownMenu(["0", "1", "2"], str(self.selected_cat.pelt.cat_sprites["adult"]), scale(pygame.Rect((column1_x, y_pos[10]), (250, 70))), manager=MANAGER)
-
-        self.elements['pose text4'] = pygame_gui.elements.UITextBox(
-                'Elder Pose',
-                scale(pygame.Rect((column2_x, y_pos[9] ),(1200,-1))),
-                object_id=get_text_box_theme("#text_box_30_horizleft"), manager=MANAGER
-            )
-        self.elements['elder pose'] = pygame_gui.elements.UIDropDownMenu(["0", "1", "2"], str(self.selected_cat.pelt.cat_sprites["senior"]), scale(pygame.Rect((column2_x, y_pos[10]), (250, 70))), manager=MANAGER)
 
         # page 0
         # pose
@@ -1770,7 +1765,16 @@ class MakeClanScreen(Screens):
     def handle_customize_cat_event(self, event):
         if event.type == pygame_gui.UI_DROP_DOWN_MENU_CHANGED:
             if event.ui_element == self.elements['preview age']:
-                self.preview_age = event.text
+                age = event.text
+                if age == "adolescent":
+                    self.selected_cat.moons = 6
+                    self.selected_cat.age = "adolescent"
+                elif age == "adult":
+                    self.selected_cat.moons = 15
+                    self.selected_cat.age = "young adult"
+                else:
+                    self.selected_cat.moons = 120
+                    self.selected_cat.age = "senior"
                 self.update_sprite()
             if self.page == 0:
                 if event.ui_element == self.elements['pelt dropdown']:
@@ -1789,19 +1793,14 @@ class MakeClanScreen(Screens):
                         self.selected_cat.pelt.tint = event.text
                     self.update_sprite()
                 elif event.ui_element == self.elements['pose']:
-                    self.selected_cat.pelt.cat_sprites["kitten"] = int(event.text)
-                    self.update_sprite()
-                elif event.ui_element == self.elements['adolescent pose']:
-                    self.selected_cat.pelt.cat_sprites["adolescent"] = int(event.text)
-                    self.update_sprite()
-                elif event.ui_element == self.elements['adult pose']:
-                    if self.selected_cat.pelt.length in ['short', 'medium']:
-                        self.selected_cat.pelt.cat_sprites["adult"] = int(event.text)
-                    elif self.selected_cat.pelt.length == 'long':
-                        self.selected_cat.pelt.cat_sprites["adult"] = int(event.text)
-                    self.update_sprite()
-                elif event.ui_element == self.elements['elder pose']:
-                    self.selected_cat.pelt.cat_sprites["senior"] = int(event.text)
+                    spritenum = 0
+                    if self.selected_cat.age == "adolescent":
+                        spritenum = 3
+                    elif self.selected_cat.age in ["adult", "young adult"]:
+                        spritenum = 6
+                    elif self.selected_cat.age == "senior":
+                        spritenum = 12
+                    self.selected_cat.pelt.cat_sprites[self.selected_cat.age] = int(event.text) + spritenum
                     self.update_sprite()
                 elif event.ui_element == self.elements['white patches']:
                     if event.text == "none":
@@ -1876,19 +1875,14 @@ class MakeClanScreen(Screens):
                         self.selected_cat.pelt.points = event.text
                     self.update_sprite()
                 elif event.ui_element == self.elements['pose']:
-                    self.selected_cat.pelt.cat_sprites["kitten"] = int(event.text)
-                    self.update_sprite()
-                elif event.ui_element == self.elements['adolescent pose']:
-                    self.selected_cat.pelt.cat_sprites["adolescent"] = int(event.text)
-                    self.update_sprite()
-                elif event.ui_element == self.elements['adult pose']:
-                    if self.selected_cat.pelt.length in ['short', 'medium']:
-                        self.selected_cat.pelt.cat_sprites["adult"] = int(event.text)
-                    elif self.selected_cat.pelt.length == 'long':
-                        self.selected_cat.pelt.cat_sprites["adult"] = int(event.text)
-                    self.update_sprite()
-                elif event.ui_element == self.elements['elder pose']:
-                    self.selected_cat.pelt.cat_sprites["senior"] = int(event.text)
+                    spritenum = 0
+                    if self.selected_cat.age == "adolescent":
+                        spritenum = 3
+                    elif self.selected_cat.age in ["adult", "young adult"]:
+                        spritenum = 6
+                    elif self.selected_cat.age == "senior":
+                        spritenum = 12
+                    self.selected_cat.pelt.cat_sprites[self.selected_cat.age] = int(event.text) + spritenum
                     self.update_sprite()
                 
             elif self.page == 2:
@@ -1947,25 +1941,20 @@ class MakeClanScreen(Screens):
                 elif event.ui_element == self.elements['personality']:
                     self.personality = event.text
                 elif event.ui_element == self.elements['pose']:
-                    self.selected_cat.pelt.cat_sprites["kitten"] = int(event.text)
-                    self.update_sprite()
-                elif event.ui_element == self.elements['adolescent pose']:
-                    self.selected_cat.pelt.cat_sprites["adolescent"] = int(event.text)
-                    self.update_sprite()
-                elif event.ui_element == self.elements['adult pose']:
-                    if self.length in ['short', 'medium']:
-                        self.selected_cat.pelt.cat_sprites["adult"] = int(event.text)
-                    elif self.length == 'long':
-                        self.selected_cat.pelt.cat_sprites["adult"] = int(event.text)
-                    self.update_sprite()
-                elif event.ui_element == self.elements['elder pose']:
-                    self.selected_cat.pelt.cat_sprites["senior"] = int(event.text)
+                    spritenum = 0
+                    if self.selected_cat.age == "adolescent":
+                        spritenum = 3
+                    elif self.selected_cat.age in ["adult", "young adult"]:
+                        spritenum = 6
+                    elif self.selected_cat.age == "senior":
+                        spritenum = 12
+                    self.selected_cat.pelt.cat_sprites[self.selected_cat.age] = int(event.text) + spritenum
                     self.update_sprite()
                 elif event.ui_element == self.elements['skills']:
-                    self.skill = event.text
+                    self.selected_cat.skill = event.text
             elif self.page == 3:
                 if event.ui_element == self.elements['faith']:
-                    self.faith = event.text
+                    self.selected_cat.faith = event.text
         
         elif event.type == pygame_gui.UI_BUTTON_START_PRESS:
             if event.ui_element == self.main_menu:

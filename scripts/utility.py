@@ -2864,9 +2864,6 @@ def generate_sprite(
                         new_sprite.blit(sprites.sprites['acc_crafted' + i + cat_sprite], (0, 0))
                     elif i in cat.pelt.tail2_accessories:
                         new_sprite.blit(sprites.sprites['acc_tail2' + i + cat_sprite], (0, 0))
-                        
-                    elif i in cat.pelt.backpacks:
-                        new_sprite.blit(sprites.sprites['backpacks' + i + cat_sprite], (0, 0))
                 except:
                     continue
 
@@ -2955,12 +2952,7 @@ def get_text_box_theme(theme_name=""):
             return theme_name
         
 def get_inventory_size(cat):
-    if "BACKPACK1" in cat.pelt.inventory.keys():
-        size = 9
-    elif "BACKPACK2" in cat.pelt.inventory.keys():
-        size = 18
-    else:
-        size = 9
+    size = 18
 
     return size
 

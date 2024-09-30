@@ -703,8 +703,6 @@ class EventsScreen(Screens):
             x for x in game.cur_events_list if "birth_death" in x.types
         ]
 
-        print("HEY WTF", [x.text for x in self.birth_death_events])
-
         self.relation_events = [
             x for x in game.cur_events_list if "relation" in x.types
         ]

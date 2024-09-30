@@ -175,10 +175,6 @@ class Sprites:
 
             "pumpkinbatharness",
 
-            # hunger games
-            "backpacks",
-
-            # more lg
             "toast",
 
             "stoats"
@@ -468,10 +464,6 @@ class Sprites:
         for a, i in enumerate([
             "BATHARNESS"]):
             self.make_group('pumpkinbatharness', (a, 0), f'acc_crafted{i}')
-
-        for a, i in enumerate([
-            "BACKPACK1", "BACKPACK2"]):
-            self.make_group('backpacks', (a, 0), f'backpacks{i}')
 
         for a, i in enumerate([
             "TOAST", "TOASTBERRY", "TOASTGRAPE", "TOASTNUTELLA", "TOASTPB"]):
