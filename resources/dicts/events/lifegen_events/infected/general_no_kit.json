@@ -1,0 +1,24 @@
+{
+    "general general": [
+       "Your Clanmates avoid you like crow-food.",
+       "You're in too much pain to get to sleep.",
+       "You have the instinct to lunge when r_k waddles past you. You shake the horrible thought from your mind.",
+       "You wonder how long it will be until you lose control."
+    ],
+    "general assertive": [],
+    "general brooding": [],
+    "general cool": [
+        "You insist to r_m that you feel perfectly fine."
+    ],
+    "general upstanding": [],
+    "general introspective": [],
+    "general neurotic": [
+        "You fear this will never end."
+    ],
+    "general silly": [],
+    "general stable": [],
+    "general sweet": [],
+    "general unabashed": [],
+    "general unlawful": [],
+    "general rare": []
+}

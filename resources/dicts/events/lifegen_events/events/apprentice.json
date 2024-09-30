@@ -147,5 +147,9 @@
         "You wonder if becoming a warrior is truly the path you are destined for.",
         "After an arguement between you and m_n, you find yourself crying yourself to sleep that night.",
         "When a dog threatens the camp, you tap into a hidden courage, luring it away from the nursery despite your fear."
+    ],
+    "infected apprentice": [
+        "r_a_infected offers to spar with you, but you decline, not wanting to risk getting sick.",
+        "You curse this infection for getting in the way fo your apprenticeship."
     ]
 }

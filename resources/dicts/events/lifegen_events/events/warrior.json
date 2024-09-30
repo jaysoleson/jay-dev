@@ -47,5 +47,8 @@
         "You 'accidentally' forget to wake up r_w for their dawn patrol shift after they annoyed you the day before.",
         "r_a catches you sneaking out of camp at night, but you threaten them to keep quiet about it."
     ],
-    "warrior rare": []
+    "warrior rare": [],
+    "infected warrior": [
+        "You meticulously inspect every piece of prey you catch, making sure it's not infected before bringing it back to your Clanmates."
+    ]
 }

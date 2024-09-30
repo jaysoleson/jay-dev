@@ -55,5 +55,8 @@
         "You wonder if d_n is really the right cat to be your successor.",
         "You pray that r_w knows where {PRONOUN/r_w/poss} loyalties lie after watching {PRONOUN/r_w/object} sneak out of camp in the middle of the night.",
         "After losing a close friend, you can't help but wonder if your nine lives are truly a blessing."
+    ],
+    "infected leader": [
+        "You wonder how StarClan expects you to lead in a time like this."
     ]
 }

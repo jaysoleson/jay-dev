@@ -1186,6 +1186,10 @@ class Events:
         elif game.clan.your_cat.shunned > 0 and not game.clan.your_cat.outside and not game.clan.your_cat.dead:
             resource_dir = "resources/dicts/events/lifegen_events/shunned/"
 
+        inf = False
+        if game.clan.your_cat.infected_for > 0 and not game.clan.your_cat.outside:
+            resource_dir = "resources/dicts/events/lifegen_events/infected/"
+            inf = True
         
         all_events = {}
         if game.clan.your_cat.status != 'exiled' and game.clan.your_cat.status != 'newborn' or (game.clan.your_cat.status == "newborn" and game.clan.your_cat.dead):
@@ -1228,6 +1232,40 @@ class Events:
             possible_events = possible_events + all_events[f"{status} {cluster}"] + general_events[f"general {cluster}"]
         if second_cluster:
             possible_events = possible_events + all_events[f"{status} {second_cluster}"] + general_events[f"general {second_cluster}"]
+
+        # INF
+        infected_events = []
+        if cluster:
+            try:
+                infected_events.extend(all_events[f"infected {status} {cluster}"] + general_events[f"infected {status}"])
+            except KeyError:
+                try:
+                    if inf is True:
+                        # if youre infected
+                        if cluster:
+                            infected_events.extend(all_events[f"{status} {cluster}"])
+                        if second_cluster:
+                            infected_events.extend(all_events[f"{status} {second_cluster}"])
+
+                        infected_events.extend(general_events[f"{status} general"])
+                    else:
+                        infected_events.extend(all_events[f"infected {status}"])
+                        infected_events.extend(general_events["infected general"])
+                except KeyError:
+                    pass
+        if second_cluster:
+            try:
+                infected_events.extend(all_events[f"infected {status} {second_cluster}"])
+            except KeyError:
+                pass
+
+
+        count = get_infected_clan_cat_count(Cat)
+
+        for event in infected_events:
+            for i in range(count):
+                possible_events.append(event)
+        # ---
 
         for i in range(random.randint(0,5)):
             involved_cats = []

@@ -38,5 +38,8 @@
     "medicine cat apprentice rare": [
         "Whilst you're out training, you see a strange looking cat. You run after them, only to find yourself falling into an empty darkness, only lit by the glow of stars. When you bring this to m_n, {PRONOUN/r_m/subject} immediately {VERB/r_m/seem/seems} concerned, and have you tell l_n everything that happened.",
         "You swear that you can hear ghostly whispers in the wind, begging you to listen."
+    ],
+    "infected medicine cat apprentice": [
+        "You don't feel that any amount of training will be enough to deal with this."
     ]
 }

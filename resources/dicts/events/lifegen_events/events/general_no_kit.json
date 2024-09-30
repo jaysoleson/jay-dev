@@ -73,5 +73,8 @@
         "You overhear l_n speaking about you. It seems quite serious.",
         "d_n is looking at you strangely. You pause to ask them, but they shake their head and quietly walk away. Weird.",
         "When r_d takes you aside you expect a few things. None of them happen though, as they simply study you for a few moments before they walk away. What was that..?"
+    ],
+    "general infected": [
+        "Chaos continues to spawn from the medicine den as the infection takes its toll."
     ]
 }

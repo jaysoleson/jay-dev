@@ -1,5 +1,7 @@
 {
-    "young elder general": [],
+    "young elder general": [
+        
+    ],
     "young elder assertive": [],
     "young elder brooding": [],
     "young elder cool": [],
@@ -11,8 +13,5 @@
     "young elder sweet": [],
     "young elder unabashed": [],
     "young elder unlawful": [],
-    "young elder rare": [],
-    "infected young elder": [
-        "You help the medicine cats organise herbs amidst all of the panic-- it's the least you can do."
-    ]
+    "young elder rare": []
 }

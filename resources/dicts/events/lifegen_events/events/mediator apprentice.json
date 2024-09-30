@@ -28,5 +28,8 @@
     ],
     "mediator apprentice rare": [
         "A gathering goes badly and you lash out, only making the situation more tense. m_n scolds you, and as the Clan returns home, you hold your head low in shame."
+    ],
+    "infected mediator apprentice": [
+        "Arguments are getting more and more frequent as the infection sows seeds of panic. You don't feel prepared to deal with it."
     ]
 }

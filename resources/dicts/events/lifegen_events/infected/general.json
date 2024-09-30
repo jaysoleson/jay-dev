@@ -1,5 +1,6 @@
 {
-    "general general": [],
+    "general general": [
+    ],
     "general assertive": [],
     "general brooding": [],
     "general cool": [],
@@ -11,9 +12,5 @@
     "general sweet": [],
     "general unabashed": [],
     "general unlawful": [],
-    "general rare": [],
-    "infected general": [
-        "Some of your Clanmates are getting very scary to be around.",
-        "You've begun flinching every time an infected cat lifts their head."
-    ]
+    "general rare": []
 }
