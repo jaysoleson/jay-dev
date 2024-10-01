@@ -10,6 +10,7 @@
     "lore_spread_by_bite": "One becomes infected when bitten by an infected creature.",
     "lore_no_reinfection": "Cats who have been infected and cured are unable to become infected again.",
     "lore_undead": "When a cat dies of the infection, the disease continues to control their body.",
+    "lore_premature_death": "An infected cat who is killed before the infection reaches maturity will not come back.",
 
     "lore_fungal_1": "The disease appears to be fungal in nature.",
     "lore_fungal_2": "Twolegs may have found a cure.",

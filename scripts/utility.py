@@ -3028,8 +3028,7 @@ def abbrev_addons(t_c, r_c, cluster, x, rel, r):
 
     if (cluster and x != "infected" and x not in get_cluster(r_c.personality.trait)):
         return False
-        
-    
+
     if (
             (
             rel and (

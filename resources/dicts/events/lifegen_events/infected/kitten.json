@@ -1,8 +1,12 @@
 {
     "kitten general": [
-       "You don't understand why you're always in so much pain."
+       "You don't understand why you're always in so much pain.",
+       "You try to pass r_k a moss ball, but {PRONOUN/r_/subject} {VERB/r_k/yelp/yelps} and {VERB/r_k/run/runs} away.",
+       "Every time you catch a glimpse of yourself in a puddle, you look scarier than last time."
     ],
-    "kitten assertive": [],
+    "kitten assertive": [
+        "Why are all of the adults babying you so much?! You keeping telling them you feel perfectly fine!"
+    ],
     "kitten brooding": [],
     "kitten cool": [],
     "kitten upstanding": [],

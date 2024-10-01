@@ -1,8 +1,12 @@
 {
     "leader general": [
-       
+       "You insist over and over that you're still fit to lead.",
+       "As you and d_n_infected lay in the leader's den together, you wonder if there's any hope left for c_nClan.",
+       "You let d_n take over leadership for today."
     ],
-    "leader assertive": [],
+    "leader assertive": [
+        "You snap at any Clanmate who cares suggest you let d_n take over."
+    ],
     "leader brooding": [],
     "leader cool": [],
     "leader upstanding": [],
