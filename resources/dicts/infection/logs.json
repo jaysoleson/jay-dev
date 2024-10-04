@@ -5,6 +5,8 @@
     "partial_cure": "Even if it's not a full cure, it seems that some herbs are able to temporarily reverse the infection's progression.",
     "herb_death": "The infection has begun killing off herbs in the territory at an alarming rate.",
     "prey_death": "Prey has started being affected by the infection. Hunting patrols avoid the sick prey and come home with less food each day.",
+    "inherited_infection": "The infection can be passed down from parent to kit.",
+    "inherited_immunity": "A kit with an immune parent may be born immune to the infection!",
 
     "lore_spread_by_air": "The infection is airborne.",
     "lore_spread_by_bite": "One becomes infected when bitten by an infected creature.",
