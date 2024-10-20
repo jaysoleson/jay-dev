@@ -2852,25 +2852,23 @@ class ChangeCatToggles(UIWindow):
     """This window allows the user to edit various cat behavior toggles"""
 
     def __init__(self, cat):
-        super().__init__(
-            scale(pygame.Rect((600, 430), (800, 370))),
-            window_display_title="Change Cat Name",
-            object_id="#change_cat_name_window",
-            resizable=False,
-        )
-        game.switches["window_open"] = True
+        super().__init__(scale(pygame.Rect((600, 330), (850, 470))),
+                         window_display_title='Change Cat Name',
+                         object_id='#change_cat_name_window',
+                         resizable=False)
+        game.switches['window_open'] = True
         self.the_cat = cat
         self.set_blocking(True)
         self.back_button = UIImageButton(
             scale(pygame.Rect((780, 15), (44, 44))),
             "",
             object_id="#exit_window_button",
-            container=self,
+            container=self
         )
 
         self.checkboxes = {}
         self.refresh_checkboxes()
-
+        
         # Text
         self.text_1 = pygame_gui.elements.UITextBox("Prevent fading", scale(pygame.Rect(110, 40, -1, 50)), 
                                                     object_id="#text_box_30_horizleft_pad_0_8",
@@ -2905,15 +2903,14 @@ class ChangeCatToggles(UIWindow):
                                                     scale(pygame.Rect(110, 390, -1, 50)), 
                                                     object_id="#text_box_30_horizleft_pad_0_8",
                                                     container=self)
-        
         # Text
-
+        
     def refresh_checkboxes(self):
-
+        
         for x in self.checkboxes.values():
             x.kill()
         self.checkboxes = {}
-
+        
         # Prevent Fading
         
         if self.the_cat == game.clan.instructor or self.the_cat == game.clan.demon:
@@ -2926,53 +2923,45 @@ class ChangeCatToggles(UIWindow):
         else:
             box_type = "#unchecked_checkbox"
             tool_tip = "Prevents cat from fading away after being dead for 202 moons."
-
+        
         # Fading
-        self.checkboxes["prevent_fading"] = UIImageButton(
-            scale(pygame.Rect(45, 50, 68, 68)),
-            "",
-            container=self,
-            object_id=box_type,
-            tool_tip_text=tool_tip,
-        )
-
+        self.checkboxes["prevent_fading"] = UIImageButton(scale(pygame.Rect(45, 30, 68, 68)), "",
+                                                          container=self,
+                                                          object_id=box_type,
+                                                          tool_tip_text=tool_tip)
+        
         if self.the_cat == game.clan.instructor or self.the_cat == game.clan.demon:
 
             self.checkboxes["prevent_fading"].disable()
-
-        # No Kits
+        
+        
+        #No Kits
         if self.the_cat.no_kits:
             box_type = "#checked_checkbox"
             tool_tip = "Prevent the cat from adopting or having kittens."
         else:
             box_type = "#unchecked_checkbox"
             tool_tip = "Prevent the cat from adopting or having kittens."
-
-        self.checkboxes["prevent_kits"] = UIImageButton(
-            scale(pygame.Rect(45, 100, 68, 68)),
-            "",
-            container=self,
-            object_id=box_type,
-            tool_tip_text=tool_tip,
-        )
-
-        # No Retire
+        
+        self.checkboxes["prevent_kits"] = UIImageButton(scale(pygame.Rect(45, 80, 68, 68)), "",
+                                                        container=self,
+                                                        object_id=box_type,
+                                                        tool_tip_text=tool_tip)
+        
+        #No Retire
         if self.the_cat.no_retire:
             box_type = "#checked_checkbox"
             tool_tip = "Allow cat to retiring automatically."
         else:
             box_type = "#unchecked_checkbox"
             tool_tip = "Prevent cat from retiring automatically."
-
-        self.checkboxes["prevent_retire"] = UIImageButton(
-            scale(pygame.Rect(45, 150, 68, 68)),
-            "",
-            container=self,
-            object_id=box_type,
-            tool_tip_text=tool_tip,
-        )
-
-        # No mates
+        
+        self.checkboxes["prevent_retire"] = UIImageButton(scale(pygame.Rect(45, 130, 68, 68)), "",
+                                                          container=self,
+                                                          object_id=box_type,
+                                                          tool_tip_text=tool_tip)
+        
+        #No mates
         if self.the_cat.no_mates:
             box_type = "#checked_checkbox"
             tool_tip = "Prevent cat from automatically taking a mate, breaking up, or having romantic interactions with non-mates."
@@ -3038,9 +3027,9 @@ class ChangeCatToggles(UIWindow):
     def process_event(self, event):
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
             if event.ui_element == self.back_button:
-                game.switches["window_open"] = False
-                game.all_screens["profile screen"].exit_screen()
-                game.all_screens["profile screen"].screen_switches()
+                game.switches['window_open'] = False
+                game.all_screens['profile screen'].exit_screen()
+                game.all_screens['profile screen'].screen_switches()
                 self.kill()
             elif event.ui_element == self.checkboxes["prevent_fading"]:
                 self.the_cat.prevent_fading = not self.the_cat.prevent_fading
@@ -3062,6 +3051,7 @@ class ChangeCatToggles(UIWindow):
                 self.refresh_checkboxes()
             elif event.ui_element == self.checkboxes["prevent_gender"]:
                 self.the_cat.prevent_genderchange = not self.the_cat.prevent_genderchange
+                self.refresh_checkboxes()
             elif event.ui_element == self.checkboxes["no_faith"]:
                 self.the_cat.no_faith = not self.the_cat.no_faith
                 self.refresh_checkboxes()
