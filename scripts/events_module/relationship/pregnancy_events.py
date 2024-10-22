@@ -1160,4 +1160,31 @@ class Pregnancy_Events:
         if settings_allow and Pregnancy_Events.biggest_family_is_big():
             inverse_chance = int(inverse_chance * 0.9)
 
+        # PRIDE: reducing kit chances for acespec cats
+        if first_parent.acespec == "grey asexual":
+            inverse_chance = int(inverse_chance * 1.3)
+        if second_parent and second_parent.acespec == "grey asexual":
+            inverse_chance = int(inverse_chance * 1.3)
+
+        if first_parent.acespec == "asexual":
+            inverse_chance = int(inverse_chance * 2)
+        if second_parent and second_parent.acespec == "asexual":
+            inverse_chance = int(inverse_chance * 2)
+
+        if (
+            first_parent.acespec == "demisexual" and
+            second_parent and 
+            (second_parent.ID in first_parent.relationships and
+            first_parent.relationships[second_parent.ID].platonic_like < 30)
+            ):
+            inverse_chance = int(inverse_chance * 1.6)
+
+        if (
+            second_parent and
+            second_parent.acespec == "demisexual" and
+            (first_parent.ID in second_parent.relationships and
+            second_parent.relationships[first_parent.ID].platonic_like < 30)
+            ):
+            inverse_chance = int(inverse_chance * 1.6)
+
         return inverse_chance

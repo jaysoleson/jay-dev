@@ -467,6 +467,8 @@ class Romantic_Events:
             return False
 
         condition = game.config["mates"]["confession"]["make_confession"]
+        if cat_from.arospec == "demiromantic":
+            condition["platonic"] *= 1.5
         if not Romantic_Events.relationship_fulfill_condition(
             highest_romantic_relation, condition
         ):
