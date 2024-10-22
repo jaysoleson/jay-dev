@@ -6041,7 +6041,8 @@
         },
         "history": [{
             "cats": ["m_c"],
-            "reg_death": "m_c was murdered by r_c to try and rid the Clan of infection."
+            "reg_death": "m_c was murdered by r_c to try and rid the Clan of infection.",
+            "lead_death": "{VERB/m_c/were/was} murdered by r_c to try and rid the Clan of infection"
         }],
         "relationships": [
             {
@@ -6094,7 +6095,8 @@
         },
         "history": [{
             "cats": ["m_c"],
-            "reg_death": "m_c was killed by r_c in self-defense."
+            "reg_death": "m_c was killed by r_c in self-defense.",
+            "lead_death": "{VERB/m_c/were/was} killed by r_c in self-defense"
         }],
         "relationships": [
             {
@@ -6147,7 +6149,8 @@
         },
         "history": [{
             "cats": ["m_c"],
-            "reg_death": "m_c was tricked into eating poisonous berries after being told they were a treatment for the infection."
+            "reg_death": "m_c was tricked into eating poisonous berries after being told they were a treatment for the infection.",
+            "lead_death": "{VERB/m_c/were/was} tricked into eating poisonous berries after being told they were a treatment for the infection"
         }],
         "relationships": [
             {
@@ -6200,7 +6203,8 @@
         },
         "history": [{
             "cats": ["m_c"],
-            "reg_death": "m_c was killed by an infected r_c in the middle of the night."
+            "reg_death": "m_c was killed by an infected r_c in the middle of the night.",
+            "lead_death": "{VERB/m_c/were/was} killed by an infected r_c in the middle of the night"
         }],
         "relationships": [
             {
@@ -6253,7 +6257,8 @@
         },
         "history": [{
             "cats": ["m_c"],
-            "reg_death": "m_c was killed by an infected r_c while trying to treat {PRONOUN/r_c/poss} infection."
+            "reg_death": "m_c was killed by an infected r_c while trying to treat {PRONOUN/r_c/poss} infection.",
+            "lead_death": "{VERB/m_c/were/was} killed by an infected r_c while trying to treat {PRONOUN/r_c/poss} infection"
         }],
         "relationships": [
             {
@@ -6289,7 +6294,8 @@
             "any"
         ],
         "sub_type":  [
-            "murder"
+            "murder",
+            "infection"
         ],
         "tags": [],
         "weight": 50,
@@ -6307,7 +6313,8 @@
         },
         "history": [{
             "cats": ["m_c"],
-            "reg_death": "r_c killed m_c while under the influence of the infection."
+            "reg_death": "r_c killed m_c while under the influence of the infection.",
+            "lead_death": "{VERB/m_c/were/was} killed by r_c while under the influence of the infection"
         }],
         "relationships": [
             {
@@ -6343,7 +6350,8 @@
             "any"
         ],
         "sub_type":  [
-            "murder"
+            "murder",
+            "infection"
         ],
         "tags": [],
         "weight": 50,
@@ -6352,7 +6360,7 @@
             "age": ["any"],
             "status": ["any"],
             "infected": true,
-            "stage": ["stage two", "stage three", "stage four"],
+            "stage": ["stage two", "stage three"],
             "dies": true
         },
         "r_c": {
@@ -6361,7 +6369,63 @@
         },
         "history": [{
             "cats": ["m_c"],
-            "reg_death": "r_c killed m_c to put {PRONOUN/m_c/object} out of {PRONOUN/m_c/poss} misery."
+            "reg_death": "r_c killed m_c to put {PRONOUN/m_c/object} out of {PRONOUN/m_c/poss} misery.",
+            "lead_death": "{VERB/m_c/were/was} killed by r_c to put {PRONOUN/m_c/object} out of {PRONOUN/m_c/poss} misery"
+        }],
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c"
+                ],
+                "cats_to": [
+                    "m_c"
+                ],
+                "values": [
+                    "platonic"
+                ],
+                "amount": -15
+            },
+            {
+                "cats_from": [
+                    "r_c"
+                ],
+                "cats_to": [
+                    "m_c"
+                ],
+                "values": [
+                    "dislike"
+                ],
+                "amount": 15
+            }
+        ]
+    },
+    {
+        "event_id": "infection_murder_anon_1",
+        "location": ["any"],
+        "season": [
+            "any"
+        ],
+        "sub_type":  [
+            "murder"
+        ],
+        "tags": [],
+        "weight": 50,
+        "event_text": "When the Clan wakes up in the morning, they discover m_c roaming around the camp. However, {PRONOUN/m_c/poss} movements are strange... tripping trip every so often, and aimlessly bumping into things. Then, the Clan takes notice of the claw marks on m_c's throat. {PRONOUN/m_c/subject/CAP} {VERB/m_c/were/was} murdered, but the infection had already progressed too far for {PRONOUN/m_c/object} to stay down.",
+        "m_c": {
+            "age": ["any"],
+            "status": ["any"],
+            "infected": true,
+            "stage": ["stage four"],
+            "dies": true
+        },
+        "r_c": {
+            "age": ["adolescent", "young adult", "adult", "senior adult"],
+            "status": ["any"]
+        },
+        "history": [{
+            "cats": ["m_c"],
+            "reg_death": "r_c killed m_c to put {PRONOUN/m_c/object} out of {PRONOUN/m_c/poss} misery.",
+            "lead_death": "{VERB/m_c/were/was} killed by r_c to put {PRONOUN/m_c/object} out of {PRONOUN/m_c/poss} misery"
         }],
         "relationships": [
             {

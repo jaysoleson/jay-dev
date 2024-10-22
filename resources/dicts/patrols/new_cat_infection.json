@@ -332,5 +332,132 @@
                 ]
             }
         ]
+    },
+    {
+        "patrol_id": "newcat_infection_sao_1",
+        "biome": ["any"],
+        "season": ["any"],
+        "types": ["border"],
+        "tags": ["new_cat", "infection"],
+        "patrol_art": "bord_general_intro",
+        "min_cats": 2,
+        "max_cats": 6,
+        "min_max_status": {
+        },
+        "weight": 20,
+        "intro_text": "While patrolling the border, the cats notice some disturbing signs: strange scratch marks on trees, paw markings leading into their territory, and the stale scent of decay. The patrol fears that their Clanmates may be in danger.",
+        "decline_text": "p_l states that it's likely just a fox or a passing rogue, but {PRONOUN/p_l/subject} still {VERB/p_l/cut/cuts} the patrol short to report back to the Clan about the mysterious discovery.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "As they track the scent, the patrol comes across a far-gone infected cat lurking in the underbrush. This undead cat is not aggressive, just wandering aimlessly. The cat's pelt is completely obscure and unrecognisable, so the patrol rushes back to camp to ensure that it's not any of their Clanmates.",
+                "exp": 10,
+                "weight": 10,
+                "outsider_rep": 0,
+                "new_cat": [
+                    ["meeting", "loner"]
+                ],
+                "injury": [
+                    {
+                        "cats": ["n_c:0"],
+                        "injuries": ["undead"],
+                        "no_results": true
+                    }
+                ]
+            },
+            {
+                "text": "The patrol follows the scent until they discover the source-- a fresh pile of dirt at the edge of the Twolegplace. A worn kittypet collar rests on top of it. The patrol sends a solemn prayer to StarClan for the kittypet, and even for its Twolegs, who must be grieving the poor cat.",
+                "exp": 10,
+                "weight": 10,
+                "new_cat": [
+                    ["dead", "kittypet"]
+                ]
+            },
+            {
+                "text": "The patrol investigates the scent, prepared for an infected cat to pop out of the bush at any moment. When they find the source of the scent, however, it's simply an infected squirrel, scratching up the bark of a tree mindlessly, The patrol puts it out of its misery and buries it far from camp.",
+                "exp": 10,
+                "weight": 20
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "The patrol wanders for a while, but the scent leads them in circles. They return to camp and request some extra guards in camp tonight.",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "The scent trail ends up leading to the edge of a Twolegplace. The patrol decides not to investigate further, but it seems kittypets and Twolegs may not be safe.",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "It's not long before the patrol stumbles across a fox kit. Typically small and unthreatening, this kit is infected, and leaps at r_c before they can fight back. The rest of the patrol kills the fox before it can sink its teeth into r_c's throat, and they're rushed to the medicine den.",
+                "exp": 0,
+                "weight": 10,
+                "injury": [
+                    {
+                        "cats": ["r_c"],
+                        "injuries": ["battle_injury"]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "patrol_id": "newcat_infection_sao_2",
+        "biome": ["any"],
+        "season": ["any"],
+        "types": ["border"],
+        "tags": ["new_cat", "infection"],
+        "patrol_art": "gen_bord_newkit",
+        "min_cats": 1,
+        "max_cats": 6,
+        "min_max_status": {
+        },
+        "weight": 20,
+        "intro_text": "The patrol comes across a small kit near their border. It seems healthy at first glance but shows small signs of infection: clouded eyes, stiff movements.. The kit pleads for help, claiming that its Twolegs abandoned it.",
+        "decline_text": "The patrol decides to turn down the kit, despite all their pleading.",
+        "chance_of_success": 30,
+        "success_outcomes": [
+            {
+                "text": "The infected kit is brought back to Clan and rushed to the medicine den.",
+                "exp": 10,
+                "weight": 10,
+                "outsider_rep": 1,
+                "new_cat": [
+                    ["status:kitten", "backstory:abandoned1"]
+                ],
+                "injury": [
+                    {
+                        "cats": ["n_c:0"],
+                        "injuries": ["stage one"],
+                        "no_results": true
+                    }
+                ]
+            },
+            {
+                "text": "p_l lets the kitten climb onto {PRONOUN/p_l/poss} back and {PRONOUN/n_c:0/subject}{VERB/n_c:0/'re/'s} taken back to the Clan, where {PRONOUN/n_c:0/subject}{VERB/n_c:0/'re/'s} given a new nest in the medicine den.",
+                "exp": 10,
+                "weight": 10,
+                "outsider_rep": 1,
+                "new_cat": [
+                    ["status:kitten", "backstory:abandoned1"]
+                ],
+                "injury": [
+                    {
+                        "cats": ["n_c:0"],
+                        "injuries": ["stage one"],
+                        "no_results": true
+                    }
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "The patrol takes the weak, sick kitten back to camp, but despite the medicine cat's best efforts, {PRONOUN/n_c:0/subject} {VERB/n_c:0/succumb/succumbs} to the infection overnight.",
+                "exp": 0,
+                "weight": 20
+            }
+        ]
     }
 ]

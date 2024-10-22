@@ -1730,7 +1730,6 @@ class Events:
                 elif int(clan.infection_level) >= 100 and clan.name not in game.clan.infection["fallen_clans"]:
 
                     game.clan.infection["fallen_clans"].append(clan.name)
-                    print(clan.name, "IS FALLEN")
 
                     # now, create some new cats to be former clancats to be discovered by the clan
                     new_cats_num = random.randint(1,6)
@@ -1749,7 +1748,6 @@ class Events:
                                                 age=random.randint(6,120),
                                                 outside=True)[0]
                     for x in new_cats.items():
-                        print("new cat dict item", x)
                         new_cat = x[1]
                         new_cat.status = "former Clancat"
                         # changing the status after so they properly get clan names

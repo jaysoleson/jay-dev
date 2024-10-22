@@ -176,7 +176,7 @@ class MakeClanScreen(Screens):
         self.elder_pose = 0
         self.faith = "flexible"
 
-        self.infection_type = None
+        self.infection_type = random.choice(["fungal", "void", "parasitic"])
 
         game.choose_cats = {}
         self.skills = []
@@ -1251,29 +1251,58 @@ class MakeClanScreen(Screens):
 
         # INF
         self.elements["fungal"] = UIImageButton(
-            scale(pygame.Rect((600,500), (192, 60))),
+            scale(pygame.Rect((200, 350), (192, 60))),
             "Fungal",
             object_id="",
             manager=MANAGER
             )
+        self.elements["fungal_text"] = pygame_gui.elements.UITextBox(
+            "An intrusive fungus.",
+            scale(pygame.Rect((400, 350), (600, 60))),
+            object_id="#text_box_30_horizleft_light",
+            manager=MANAGER
+            )
         self.elements["parasitic"] = UIImageButton(
-            scale(pygame.Rect((850,500), (192, 60))),
+            scale(pygame.Rect((200, 430), (192, 60))),
             "Parasitic",
             object_id="",
             manager=MANAGER
             )
+        self.elements["parasitic_text"] = pygame_gui.elements.UITextBox(
+            "Gorey and violent.",
+            scale(pygame.Rect((400, 430), (600, 60))),
+            object_id="#text_box_30_horizleft_light",
+            manager=MANAGER
+            )
         self.elements["void"] = UIImageButton(
-            scale(pygame.Rect((1100,500), (192, 60))),
+            scale(pygame.Rect((200, 510), (192, 60))),
             "Void",
             object_id="",
             manager=MANAGER
             )
+        self.elements["void_text"] = pygame_gui.elements.UITextBox(
+            "A sickness with supernatural properties.",
+            scale(pygame.Rect((400, 510), (600, 60))),
+            object_id="#text_box_30_horizleft_light",
+            manager=MANAGER
+            )
         self.elements["random_type"] = UIImageButton(
-            scale(pygame.Rect((1350,500), (192, 60))),
+            scale(pygame.Rect((200, 590), (192, 60))),
             "Random",
             object_id="",
             manager=MANAGER
             )
+        self.elements["random_text"] = pygame_gui.elements.UITextBox(
+            "Leave your fate up to chance.",
+            scale(pygame.Rect((400, 590), (600, 60))),
+            object_id="#text_box_30_horizleft_light",
+            manager=MANAGER
+            )
+        
+        self.elements["random_type"].disable()
+        self.elements["fungal"].enable()
+        self.elements["void"].enable()
+        self.elements["parasitic"].enable()
 
     def clan_name_header(self):
         self.elements["name_backdrop"] = pygame_gui.elements.UIImage(

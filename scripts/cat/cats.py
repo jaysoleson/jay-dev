@@ -645,7 +645,7 @@ class Cat:
         """
         kills the cat, but they come back >:3
         """
-        print(self.name, "ZOMBIE", self.infected_for)
+
         if (
             self.status == "leader"
             and "pregnant" in self.injuries
@@ -680,6 +680,11 @@ class Cat:
         that grief messages will align with body status
         - if it is None, a lost cat died and therefore not trigger grief, since the clan does not know
         """
+
+        if f"{game.clan.infection['infection_type']} stage four" in self.illnesses:
+            self.zombie()
+            return
+
         if (
             self.status == "leader"
             and "pregnant" in self.injuries
@@ -740,7 +745,6 @@ class Cat:
                 fetched_cat.update_mentor()
         self.update_mentor()
 
-        # if game.clan and game.clan.game_mode != 'classic' and not (self.outside or self.exiled) and body is not None:
         if (
             game.clan
             and not self.outside
