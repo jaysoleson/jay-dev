@@ -914,5 +914,66 @@
             "If Twolegs are killing each other, does that mean that will happen to us?",
             "Will we have to kill plove_r_c_infected?"
         ]
-    }
+    },
+    "infection_J18": [
+        [
+            "brooding",
+            "assertive",
+            "unlawful",
+            "no_kit",
+            "any",
+            "they_infected",
+            "you_not_infected"
+        ],
+        [
+            "What? Don't look at me like that! I'm fine!",
+            "Sorry. I'm not... infected-angry at you. Just regular angry."
+        ]
+    ],
+    "infection_J19": [
+        [
+            "brooding",
+            "assertive",
+            "stable",
+            "unabashed",
+            "no_kit",
+            "any",
+            "they_infected",
+            "you_not_infected",
+            "min_dislike_10"
+        ],
+        [
+            "Do you ever get tired of gawking at us poor sick cats?",
+            "Go find something better to do. I'm not your entertainment."
+        ]
+    ],
+    "infection_bingbing_1": [
+        [
+            "you_app",
+            "they_not_infected",
+            "you_infected"
+        ],
+        [
+            "[You and t_c are sitting together, having a nice chat and thinking back to when life was simpler.]",
+            "[t_c cups your face in their paws and turns you to look at them.]",
+            "My poor kit...",
+            "I could have done more to protect you, I should have done more.",
+            "I'm doing all I can to make sure you make it out of this. You're going to be ok, I promise.",
+            "You know I love you, right?"
+
+        ]
+    ],
+    "infection_person_1": [
+        [
+            "you_not_kit",
+            "they_kitten",
+            "you_infected",
+            "they_not_infected",
+            "any"
+        ],
+        [
+            "MONSTER!",
+            "[t_c backs away, hissing.]"
+        ]
+    ]
 }

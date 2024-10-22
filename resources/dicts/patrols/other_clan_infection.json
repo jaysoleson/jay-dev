@@ -50,5 +50,62 @@
                 "other_clan_rep": -2
             }
         ]
+    },
+    {
+        "patrol_id": "otherclan_infection_sao_1",
+        "biome": ["any"],
+        "season": ["any"],
+        "types": ["border"],
+        "tags": ["other_clan", "infection"],
+        "patrol_art": "gen_bord_otherclan_allies",
+        "min_cats": 2,
+        "max_cats": 6,
+        "min_max_status": {
+            "healer cats": [-1, 0]
+        },
+        "weight": 30,
+        "intro_text": "The patrol goes to negotiate a formal truce with o_c_n to support them in the spread of the infection, as both Clans are suffering heavy losses.",
+        "decline_text": "The patrol decides to turn around. They don't need o_c_n's support!",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "They meet the o_c_n patrol at the border, both sides exchanging polite nods. o_c_n hands a freshly caught rabbit to the patrol, while r_c passes them a bundle of herbs. The two groups part ways after a respectful, yet sombre, conversation.",
+                "exp": 10,
+                "weight": 20,
+                "other_clan_rep": 2
+            },
+            {
+                "text": "The o_c_n patrol arrives, looking exhausted, but healthy. The groups exchange pleasantries, sharing small amounts of prey and herbs, before parting ways.",
+                "exp": 10,
+                "weight": 10,
+                "other_clan_rep": 1
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "When the o_c_n patrol gets to the border, it's unmistakeable that one of their cats is infected. The patrol turns away, scolding o_c_n for being so careless.",
+                "exp": 0,
+                "weight": 20,
+                "other_clan_rep": -1
+            },
+            {
+                "text": "Before the o_c_n patrol can even get to the border, p_l announces that they smell an infected cat. Is o_c_n sending infected cats to their truce meeting? The patrol turns around right away, making sure to muddy up the border marker as a sign of their disdain.",
+                "exp": 0,
+                "weight": 20,
+                "other_clan_rep": -1
+            },
+            {
+                "text": "The o_c_n patrol is already at the border when the patrol arrives. When they get close, p_l and r_c exchange uncertain glances about one of the other patrol members-- it seems o_c_n has brought an infected cat to the border meeting. Just before p_l can propose parting ways early, the infected cat lunges over the border, reaching for r_c with unsheathed claws. p_l manages to pull {PRONOUN/r_c/object} out of the way, and the rest of o_c_n's patrol is apologetic, but the damage has been done.",
+                "exp": 0,
+                "weight": 20,
+                "other_clan_rep": -2
+            },
+            {
+                "text": "The patrol gets to the border at the arranged meeting time, but after waiting for several hours, the o_c_n patrol never shows up. p_l remarks that they hope nothing too terrible happened to stop them from showing up, and they head back home.",
+                "exp": 0,
+                "weight": 20,
+                "other_clan_rep": 0
+            }
+        ]
     }
 ]

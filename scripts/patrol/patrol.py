@@ -1062,12 +1062,6 @@ class Patrol:
             with open(f"{resource_dir}{biome_dir}hunting/any.json", 'r', encoding='ascii') as read_file:
                 self.HUNTING = ujson.loads(read_file.read())
 
-            # INF
-            self.HUNTING_INF = None
-            with open(f"{resource_dir}{biome_dir}hunting/infection.json", 'r', encoding='ascii') as read_file:
-                self.HUNTING_INF = ujson.loads(read_file.read())
-            ####
-
             # BORDER #
             self.BORDER_SZN = None
             with open(f"{resource_dir}{biome_dir}border/{leaf}.json", 'r', encoding='ascii') as read_file:
@@ -1076,12 +1070,6 @@ class Patrol:
             with open(f"{resource_dir}{biome_dir}border/any.json", 'r', encoding='ascii') as read_file:
                 self.BORDER = ujson.loads(read_file.read())
 
-            # INF
-            self.BORDER_INF = None
-            with open(f"{resource_dir}{biome_dir}border/infection.json", 'r', encoding='ascii') as read_file:
-                self.BORDER_INF = ujson.loads(read_file.read())
-            ####
-
             # TRAINING #
             self.TRAINING_SZN = None
             with open(f"{resource_dir}{biome_dir}training/{leaf}.json", 'r', encoding='ascii') as read_file:
@@ -1089,12 +1077,6 @@ class Patrol:
             self.TRAINING = None
             with open(f"{resource_dir}{biome_dir}training/any.json", 'r', encoding='ascii') as read_file:
                 self.TRAINING = ujson.loads(read_file.read())
-                
-            # INF
-            self.TRAINING_INF = None
-            with open(f"{resource_dir}{biome_dir}training/infection.json", 'r', encoding='ascii') as read_file:
-                self.TRAINING_INF = ujson.loads(read_file.read())
-            ####
 
             # MED #
             self.MEDCAT_SZN = None
@@ -1103,12 +1085,6 @@ class Patrol:
             self.MEDCAT = None
             with open(f"{resource_dir}{biome_dir}med/any.json", 'r', encoding='ascii') as read_file:
                 self.MEDCAT = ujson.loads(read_file.read())
-                    
-            # INF
-            self.MEDCAT_INF = None
-            with open(f"{resource_dir}{biome_dir}med/infection.json", 'r', encoding='ascii') as read_file:
-                self.MEDCAT_INF = ujson.loads(read_file.read())
-            ####
 
             # NEW CAT #
             self.NEW_CAT = None
@@ -1161,6 +1137,20 @@ class Patrol:
             self.MEDCAT_GEN = None
             with open(f"{resource_dir}general/medcat.json", 'r', encoding='ascii') as read_file:
                 self.MEDCAT_GEN = ujson.loads(read_file.read())
+            
+            # INFECTION GEN PATROLS
+            self.HUNTING_INF = None
+            with open(f"{resource_dir}general/infection_hunting.json", 'r', encoding='ascii') as read_file:
+                self.HUNTING_INF = ujson.loads(read_file.read())
+            self.BORDER_INF = None
+            with open(f"{resource_dir}general/infection_border.json", 'r', encoding='ascii') as read_file:
+                self.BORDER_INF = ujson.loads(read_file.read())
+            self.TRAINING_INF = None
+            with open(f"{resource_dir}general/infection_training.json", 'r', encoding='ascii') as read_file:
+                self.TRAINING_INF = ujson.loads(read_file.read())
+            self.MEDCAT_INF = None
+            with open(f"{resource_dir}general/infection_medcat.json", 'r', encoding='ascii') as read_file:
+                self.MEDCAT_INF = ujson.loads(read_file.read())
         elif game.switches["patrol_category"] == 'lifegen':
 
             # INF 

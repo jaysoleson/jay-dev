@@ -1,0 +1,73 @@
+[
+    {
+        "patrol_id": "sao_border_infection_1",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "border"
+        ],
+        "tags": [],
+        "patrol_art": "bord_general_intro",
+        "min_cats": 2,
+        "max_cats": 6,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "r_c has been acting weird, with sluggish movements, and a slight fever. Despite this, {PRONOUN/r_c/subject} {VERB/r_c/want/wants} to continue the patrol, not wanting to be left behind.",
+        "decline_text": "The patrol says r_c should go back to camp, as {PRONOUN/r_c/subject}{VERB/r_c/'ve/'s} been showing obvious signs of the infection. Despite {PRONOUN/r_c/poss} cries, the patrol drags {PRONOUN/r_c/object} back to camp to get treated, where the medicine cats thankfully say that it's just a cold.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "r_c manages to convince the patrol that {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} okay, and the group carries on as normal, p_l paying close attention to r_c's eyes as they patrol. Thankfully, they stay clear and focussed and the patrol returns to camp happy and healthy.",
+                "exp": 20,
+                "weight": 20
+            },
+            {
+                "text": "Unable to keep the stubborn r_c out of the patrol, p_l catches a mouse and asks r_c to eat it, hoping it'll make {PRONOUN/r_c/object} feel better. After the short break, r_c stands and licks {PRONOUN/r_c/poss} lips, feeling refreshed and ready to tackle the patrol, {PRONOUN/r_c/poss} minor cold unable to stop {PRONOUN/r_c/object}!",
+                "exp": 20,
+                "weight": 20,
+                "relationships": [
+                    {
+                        "cats_to": ["r_c"],
+                        "cats_from": ["p_l"],
+                        "mutual": true,
+                        "values": ["platonic"],
+                        "amount": 6
+                    }
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "The patrol agrees to let r_c stay. They continue as normal until r_c suddenly collapses, and cannot go on. They rush r_c back to camp and have to abandon the patrol.",
+                "exp": 0,
+                "weight": 20,
+                "injury": [
+                    {
+                        "cats": ["r_c"],
+                        "injuries": ["stage one"]
+                    }
+                ]
+            },
+            {
+                "text": "r_c grows more and more disoriented and distracted as the patrol carries on. It's when {PRONOUN/r_c/subject} {VERB/r_c/bump/bumps} into a tree that p_l orders {PRONOUN/r_c/object} to return to cat and visit the medicine den. The remaining patrol does not get good news when they return home.",
+                "exp": 0,
+                "weight": 20,
+                "injury": [
+                    {
+                        "cats": ["r_c"],
+                        "injuries": ["stage one"]
+                    }
+                ]
+            },
+            {
+                "text": "When r_c, disoriented and half-awake, kicks a pebble and startles a snake into p_l's paws, p_l sends {PRONOUN/r_c/object} back to camp to see the medicine cat and get some rest.",
+                "exp": 0,
+                "weight": 20
+            }
+        ]
+    }
+]

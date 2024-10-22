@@ -267,7 +267,7 @@
 		]
 	},
 	"event_generation": {
-		"debug_ensure_event_id": "infection_murder_J2"
+		"debug_ensure_event_id": null
 	},
 	"death_related": {
 		"leader_death_chance": 50,
@@ -455,7 +455,7 @@
 		"kit_gain_infection_chance is the base chance for kits with infected blood parents to be born infected."
 	],
 
-	"debug_ensure_dialogue": "testdialogue",
+	"debug_ensure_dialogue": "",
 
 	"shunned_cat": {
 		"exile_chance": {

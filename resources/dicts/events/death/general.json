@@ -6337,6 +6337,60 @@
         ]
     },
     {
+        "event_id": "infection_murder_bingbing_1",
+        "location": ["any"],
+        "season": [
+            "any"
+        ],
+        "sub_type":  [
+            "murder"
+        ],
+        "tags": [],
+        "weight": 50,
+        "event_text": "m_c has been deteriorating for the last few moons and everyone knows it, even if some cats won't admit it. MURDERER decides it would be cruel to let them live any longer. If the clan is too scared to do the dirty work, they'll just take it into their own paws. r_c lures m_c out of camp one night and before they could even ask what was going on, MURDERER had already dealt the fatal blow.",
+        "m_c": {
+            "age": ["any"],
+            "status": ["any"],
+            "infected": true,
+            "stage": ["stage two", "stage three", "stage four"],
+            "dies": true
+        },
+        "r_c": {
+            "age": ["adolescent", "young adult", "adult", "senior adult"],
+            "status": ["any"]
+        },
+        "history": [{
+            "cats": ["m_c"],
+            "reg_death": "r_c killed m_c to put {PRONOUN/m_c/object} out of {PRONOUN/m_c/poss} misery."
+        }],
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c"
+                ],
+                "cats_to": [
+                    "m_c"
+                ],
+                "values": [
+                    "platonic"
+                ],
+                "amount": -15
+            },
+            {
+                "cats_from": [
+                    "r_c"
+                ],
+                "cats_to": [
+                    "m_c"
+                ],
+                "values": [
+                    "dislike"
+                ],
+                "amount": 15
+            }
+        ]
+    },
+    {
         "event_id": "infection_runaway_J1",
         "location": [
             "any"
@@ -6377,7 +6431,7 @@
             "lore_fungal_3"
         ],
         "weight": 30,
-        "event_text": "m_c can't stop thinking about the potential cure to the infection-- and how Twolegs have found it. They sneak out in the middle of the night, unable to take the stress anymore.",
+        "event_text": "m_c can't stop thinking about the potential cure to the infection-- and how Twolegs have found it. {PRONOUN/m_c/subject/CAP} {VERB/m_c/sneak/sneaks} out in the middle of the night, unable to take the stress anymore.",
         "m_c": {
             "age": ["any"],
             "status": ["any"],
