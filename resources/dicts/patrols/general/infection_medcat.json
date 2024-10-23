@@ -1,0 +1,72 @@
+[
+    {
+        "patrol_id": "gen_infection_med_J1",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+        ],
+        "types": [
+            "herb_gathering"
+        ],
+        "tags": [
+            "infection_beginning",
+            "fungal",
+            "discovered",
+            "airborne"
+        ],
+        "patrol_art": "med_general_intro",
+        "min_cats": 1,
+        "max_cats": 1,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "p_l stumbles across a rotting, withered patch of herbs. It smells sick in a way that {PRONOUN/p_l/subject}{VERB/p_l/'ve/'s} never smelled before.",
+        "decline_text": "p_l turns away from the mysterious herbs. {PRONOUN/p_l/subject/CAP} {VERB/p_l/don't/doesn't} want to risk bringing some foreign disease into camp.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "p_l picks a single leaf to carry back to camp. Clearly, these herbs won't be any good, but whatever has begun destroying them should be brought back home and studied.",
+                "exp": 0,
+                "weight": 20,
+                "cure_log": [
+                    {
+                        "entry": "discovered"
+                    }
+                ]
+            },
+            {
+                "text": "p_l watches in silence as a small rabbit hops up to the herb patch, begins to nibble, and collapses after a few moments. Whatever this herb sickness is, it does the opposite of healing!",
+                "exp": 0,
+                "weight": 20,
+                "cure_log": [
+                    {
+                        "entry": "discovered"
+                    }
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "p_l leans in to sniff the sick herbs. However, when {PRONOUN/p_l/subject} {VERB/p_l/get/gets} close, a cluster of black spores is shaken from one of the leaves and p_l has the displeasure of accidentally inhaling it. {PRONOUN/p_l/subject/CAP} {VERB/p_l/return/returns} to camp with an awful headache.",
+                "exp": 0,
+                "weight": 10,
+                "injury": [
+                    {
+                        "cats": ["p_l"],
+                        "injuries": ["stage one"]
+                    }
+                ],
+                "cure_log": [
+                    {
+                        "entry": "start"
+                    }
+                ]
+            },
+            {
+                "text": "p_l tries to approach the herbs, but the rotten scent is too strong for {PRONOUN/p_l/object} to get very close. {PRONOUN/p_l/subject/CAP} {VERB/p_l/return/returns} to camp to check {PRONOUN/p_l/poss} own herb stores for the strange disease.",
+                "exp": 0,
+                "weight": 20
+            }
+        ]
+    }
+]

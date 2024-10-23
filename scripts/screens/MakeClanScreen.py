@@ -519,6 +519,9 @@ class MakeClanScreen(Screens):
         elif event.ui_element == self.tabs["tab6"]:
             self.selected_camp_tab = 6
             self.refresh_selected_camp()
+        elif event.ui_element == self.tabs["tab7"]:
+            self.selected_camp_tab = 7
+            self.refresh_selected_camp()
         elif event.ui_element == self.tabs["newleaf_tab"]:
             self.selected_season = "Newleaf"
             self.refresh_text_and_buttons()
@@ -866,6 +869,7 @@ class MakeClanScreen(Screens):
         self.tabs["tab4"].kill()
         self.tabs["tab5"].kill()
         self.tabs["tab6"].kill()
+        self.tabs["tab7"].kill()
 
         if self.biome_selected == 'Forest':
             self.tabs["tab1"] = UIImageButton(scale(pygame.Rect((190, 360), (308, 60))), "", object_id="#classic_tab"
@@ -879,6 +883,8 @@ class MakeClanScreen(Screens):
             self.tabs["tab5"] = UIImageButton(scale(pygame.Rect((170, 640), (308, 60))), "", object_id="#pine_tab"
                                               , manager=MANAGER)
             self.tabs["tab6"] = UIImageButton(scale(pygame.Rect((170, 710), (308, 60))), "", object_id="#birch_camp_tab"
+                                              , manager=MANAGER)
+            self.tabs["tab7"] = UIImageButton(scale(pygame.Rect((170, 780), (308, 60))), "Graveyard", object_id="#graveyad_camp_tab"
                                               , manager=MANAGER)
         elif self.biome_selected == 'Mountainous':
             self.tabs["tab1"] = UIImageButton(scale(pygame.Rect((222, 360), (308, 60))), "", object_id="#cliff_tab"
@@ -925,6 +931,7 @@ class MakeClanScreen(Screens):
             self.tabs["tab4"].enable()
             self.tabs["tab5"].enable()
             self.tabs["tab6"].enable()
+            self.tabs["tab7"].enable()
         elif self.selected_camp_tab == 2:
             self.tabs["tab1"].enable()
             self.tabs["tab2"].disable()
@@ -932,6 +939,7 @@ class MakeClanScreen(Screens):
             self.tabs["tab4"].enable()
             self.tabs["tab5"].enable()
             self.tabs["tab6"].enable()
+            self.tabs["tab7"].enable()
         elif self.selected_camp_tab == 3:
             self.tabs["tab1"].enable()
             self.tabs["tab2"].enable()
@@ -939,6 +947,7 @@ class MakeClanScreen(Screens):
             self.tabs["tab4"].enable()
             self.tabs["tab5"].enable()
             self.tabs["tab6"].enable()
+            self.tabs["tab7"].enable()
         elif self.selected_camp_tab == 4:
             self.tabs["tab1"].enable()
             self.tabs["tab2"].enable()
@@ -946,6 +955,7 @@ class MakeClanScreen(Screens):
             self.tabs["tab4"].disable()
             self.tabs["tab5"].enable()
             self.tabs["tab6"].enable()
+            self.tabs["tab7"].enable()
         elif self.selected_camp_tab == 5:
             self.tabs["tab1"].enable()
             self.tabs["tab2"].enable()
@@ -953,6 +963,7 @@ class MakeClanScreen(Screens):
             self.tabs["tab4"].enable()
             self.tabs["tab5"].disable()
             self.tabs["tab6"].enable()
+            self.tabs["tab7"].enable()
         elif self.selected_camp_tab == 6:
             self.tabs["tab1"].enable()
             self.tabs["tab2"].enable()
@@ -960,6 +971,15 @@ class MakeClanScreen(Screens):
             self.tabs["tab4"].enable()
             self.tabs["tab5"].enable()
             self.tabs["tab6"].disable()
+            self.tabs["tab7"].enable()
+        elif self.selected_camp_tab == 7:
+            self.tabs["tab1"].enable()
+            self.tabs["tab2"].enable()
+            self.tabs["tab3"].enable()
+            self.tabs["tab4"].enable()
+            self.tabs["tab5"].enable()
+            self.tabs["tab6"].enable()
+            self.tabs["tab7"].disable()
         else:
             self.tabs["tab1"].enable()
             self.tabs["tab2"].enable()
@@ -967,6 +987,7 @@ class MakeClanScreen(Screens):
             self.tabs["tab4"].enable()
             self.tabs["tab5"].enable()
             self.tabs["tab6"].enable()
+            self.tabs["tab7"].enable()
 
         # I have to do this for proper layering.
         if "camp_art" in self.elements:
@@ -2259,6 +2280,8 @@ class MakeClanScreen(Screens):
                                           visible=False, manager=MANAGER)
         self.tabs["tab6"] = UIImageButton(scale(pygame.Rect((0, 0), (0, 0))), "",
                                           visible=False, manager=MANAGER)
+        self.tabs["tab7"] = UIImageButton(scale(pygame.Rect((0, 0), (0, 0))), "",
+                                          visible=False, manager=MANAGER)
         y_pos = 550
         self.tabs["newleaf_tab"] = UIImageButton(scale(pygame.Rect((1255, y_pos), (78, 68))), "",
                                                  object_id="#newleaf_toggle_button",
@@ -2570,7 +2593,7 @@ class MakeClanScreen(Screens):
         game.cat_to_fade.clear()
         Cat.outside_cats.clear()
         Patrol.used_patrols.clear()
-        convert_camp = {1: 'camp1', 2: 'camp2', 3: 'camp3', 4: 'camp4', 5: 'camp5', 6: 'camp6'}
+        convert_camp = {1: 'camp1', 2: 'camp2', 3: 'camp3', 4: 'camp4', 5: 'camp5', 6: 'camp6', 7: 'camp7'}
         self.your_cat.create_inheritance_new_cat()
         game.clan = Clan(name = self.clan_name,
                         leader = self.leader,

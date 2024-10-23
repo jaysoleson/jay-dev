@@ -311,15 +311,6 @@ class Patrol:
                     possible_patrols.extend(self.generate_patrol_events(self.OTHER_CLAN_ALLIES))
                     possible_patrols.extend(self.generate_patrol_events(self.OTHER_CLAN_HOSTILE))
 
-                    # INF
-                    possible_patrols.extend(self.generate_patrol_events(self.BORDER_INF))
-                    possible_patrols.extend(self.generate_patrol_events(self.TRAINING_INF))
-                    possible_patrols.extend(self.generate_patrol_events(self.HUNTING_INF))
-                    possible_patrols.extend(self.generate_patrol_events(self.MEDCAT_INF))
-                    possible_patrols.extend(self.generate_patrol_events(self.NEW_CAT_INFECTION))
-                    possible_patrols.extend(self.generate_patrol_events(self.OTHER_CLAN_INFECTION))
-                    ####
-
         # this next one is needed for Classic specifically
         patrol_type = (
             "med"

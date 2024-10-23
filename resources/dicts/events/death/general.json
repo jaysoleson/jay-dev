@@ -6410,7 +6410,7 @@
         ],
         "tags": [],
         "weight": 50,
-        "event_text": "When the Clan wakes up in the morning, they discover m_c roaming around the camp. However, {PRONOUN/m_c/poss} movements are strange... tripping trip every so often, and aimlessly bumping into things. Then, the Clan takes notice of the claw marks on m_c's throat. {PRONOUN/m_c/subject/CAP} {VERB/m_c/were/was} murdered, but the infection had already progressed too far for {PRONOUN/m_c/object} to stay down.",
+        "event_text": "When the Clan wakes up in the morning, they discover m_c roaming around the camp. However, {PRONOUN/m_c/poss} movements are strange... tripping every so often and aimlessly bumping into things. Then, the Clan takes notice of the claw marks on m_c's throat. {PRONOUN/m_c/subject/CAP} {VERB/m_c/were/was} murdered, but the infection had already progressed too far for {PRONOUN/m_c/object} to stay down.",
         "m_c": {
             "age": ["any"],
             "status": ["any"],
