@@ -16,6 +16,7 @@ class History:
                 lead_ceremony=None,
                 possible_history=None,
                 died_by=None,
+                died_infected=None,
                 scar_events=None,
                 murder=None,
                 wrong_placement=False
@@ -26,6 +27,7 @@ class History:
         self.lead_ceremony = lead_ceremony if lead_ceremony else None
         self.possible_history = possible_history if possible_history else {}
         self.died_by = died_by if died_by else []
+        self.died_infected = died_infected if died_infected else False
         self.scar_events = scar_events if scar_events else []
         self.murder = murder if murder else {}
         self.wrong_placement = wrong_placement if wrong_placement else False
@@ -148,6 +150,7 @@ class History:
             "lead_ceremony": cat.history.lead_ceremony,
             "possible_history": cat.history.possible_history,
             "died_by": cat.history.died_by,
+            "died_infected": cat.history.died_infected,
             "scar_events": cat.history.scar_events,
             "murder": cat.history.murder,
             "wrong_placement": cat.history.wrong_placement
@@ -437,6 +440,9 @@ class History:
             "text": death_text,
             "moon": game.clan.age
         })
+
+        if cat.infected_for > 0:
+            cat.history.died_infected = True
 
     @staticmethod
     def add_scar(cat, scar_text, condition=None, other_cat=None):

@@ -3026,11 +3026,24 @@ class Events:
             leader_dead = game.clan.leader.dead
             leader_outside = game.clan.leader.outside
             leader_shunned = game.clan.leader.shunned > 0
+            leader_infected = game.clan.leader.infected_for > 4
         else:
             leader_dead = True
             # If leader is None, treat them as dead (since they are dead - and faded away.)
             leader_outside = True
             leader_shunned = True
+            leader_infected = True
+
+        # INF: shitty infection correction
+        for kitty in Cat.all_cats_list:
+            if kitty.outside or kitty.dead:
+                continue
+            if kitty.status == "leader" and kitty.ID != game.clan.leader.ID:
+                if kitty.moons < 120:
+                    kitty.status_change("warrior")
+                else:
+                    kitty.status_change("elder")
+        # ---
 
         # If a Clan deputy exists, and the leader is dead,
         #  outside, or doesn't exist, make the deputy leader.
@@ -3039,7 +3052,8 @@ class Events:
                     not game.clan.deputy.dead and \
                     not game.clan.deputy.outside and \
                     game.clan.deputy.shunned == 0 and \
-                    (leader_dead or leader_outside or leader_shunned):
+                    game.clan.deputy.infected_for < 1 and \
+                    (leader_dead or leader_outside or leader_shunned or leader_infected):
                 game.clan.new_leader(game.clan.deputy)
                 game.clan.leader_lives = 9
                 text = ''
@@ -3066,35 +3080,45 @@ class Events:
                         "Plains": "Moongrove"
                     }
                     moonplace = moonplace_dict.get(game.clan.biome, "Moonplace")
-                    if c == 1:
-                        text = str(game.clan.deputy.name.prefix) + str(
+                    if leader_infected:
+                        types = ["ceremony", "infection"]
+                        text = 'The Clan pushes ' + str(game.clan.deputy.name.prefix) + str(
                             game.clan.deputy.name.suffix) + \
-                               ' has been promoted to the new leader of the Clan. ' \
+                               f' to step up as leader, since their current leader is much too sick. ' \
                                f'They travel immediately to the {moonplace} to get their ' \
                                'nine lives and are hailed by their new name, ' + \
                                str(game.clan.deputy.name) + '.'
-                    elif c == 2:
-                        text = (
-                            f"{game.clan.deputy.name} has become the new leader of the Clan. "
-                            f"They vow that they will protect the Clan, "
-                            f"even at the cost of their nine lives."
-                        )
-                    elif c == 3:
-                        text = (
-                            f"{game.clan.deputy.name} has received "
-                            f"their nine lives and became the "
-                            f"new leader of the Clan. They feel like "
-                            f"they are not ready for this new "
-                            f"responsibility, but will try their best "
-                            f"to do what is right for the Clan."
-                        )
+                    else:
+                        types = "ceremony"
+                        if c == 1:
+                            text = str(game.clan.deputy.name.prefix) + str(
+                                game.clan.deputy.name.suffix) + \
+                                ' has been promoted to the new leader of the Clan. ' \
+                                f'They travel immediately to the {moonplace} to get their ' \
+                                'nine lives and are hailed by their new name, ' + \
+                                str(game.clan.deputy.name) + '.'
+                        elif c == 2:
+                            text = (
+                                f"{game.clan.deputy.name} has become the new leader of the Clan. "
+                                f"They vow that they will protect the Clan, "
+                                f"even at the cost of their nine lives."
+                            )
+                        elif c == 3:
+                            text = (
+                                f"{game.clan.deputy.name} has received "
+                                f"their nine lives and became the "
+                                f"new leader of the Clan. They feel like "
+                                f"they are not ready for this new "
+                                f"responsibility, but will try their best "
+                                f"to do what is right for the Clan."
+                            )
 
                 # game.ceremony_events_list.append(text)
                 text += f"\nVisit {game.clan.deputy.name}'s " \
                         "profile to see their full leader ceremony."
                 event = shuntext + text
                 game.cur_events_list.append(
-                    Single_Event(event, "ceremony", game.clan.deputy.ID))
+                    Single_Event(event, types, game.clan.deputy.ID))
                 self.ceremony_accessory = True
                 self.gain_accessories(cat)
                 game.clan.deputy = None
@@ -4540,7 +4564,12 @@ class Events:
         """Checks if a new leader need to be promoted, and promotes them, if needed."""
         # check for leader
         if game.clan.leader:
-            leader_invalid = game.clan.leader.dead or game.clan.leader.outside or game.clan.leader.shunned > 0
+            leader_invalid = (
+                game.clan.leader.dead or
+                game.clan.leader.outside or
+                game.clan.leader.shunned > 0 or
+                game.clan.leader.infected_for > 4
+                )
         else:
             leader_invalid = True
 
@@ -4553,20 +4582,25 @@ class Events:
                 leader_dead = game.clan.leader.dead
                 leader_outside = game.clan.leader.outside
                 leader_shunned = game.clan.leader.shunned > 0
+                leader_infected = game.clan.leader.infected_for > 0
             else:
                 leader_dead = True
                 leader_outside = True
                 leader_shunned = True
+                leader_infected = True
 
 
             if leader_dead or leader_outside or leader_shunned:
                 game.cur_events_list.insert(
                     0, Single_Event(f"{game.clan.name}Clan has no leader!", "alert"))
+            elif leader_infected:
+                game.cur_events_list.insert(
+                    0, Single_Event(f"{game.clan.name}Clan's leader is infected!", ["infection", "alert"]))
 
     def check_and_promote_deputy(self):
         """Checks if a new deputy needs to be appointed, and appointed them if needed. """
         if (not game.clan.deputy or game.clan.deputy.dead or game.clan.deputy.shunned > 0
-                or game.clan.deputy.outside or game.clan.deputy.status == "elder"):
+                or game.clan.deputy.outside or game.clan.deputy.status == "elder" or game.clan.deputy.infected_for > 0):
             if game.clan.clan_settings['deputy']:
                 text = ""
 
@@ -4657,6 +4691,10 @@ class Events:
                             f"They all turn to {random_cat.name} with hope for the future."
                         )
                     elif leader_status == "here" and deputy_status == "here":
+                        if game.clan.deputy.infected_for > 0:
+                            possible_events = [
+                                f"{random_cat.name} has been chosen to take over as deputy while {game.clan.deputy.name} is infected."
+                            ]
                         possible_events = [
                             f"{random_cat.name} has been chosen as the new deputy. "  # pylint: disable=line-too-long
                             f"The Clan yowls their name in approval.",  # pylint: disable=line-too-long

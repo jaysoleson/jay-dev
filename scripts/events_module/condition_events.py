@@ -273,6 +273,8 @@ class Condition_Events:
             # INFECTION
             # withering, void sickness, rot
             # so i can change the chances between them if i wanna
+            witherchance = 10
+
             if inftype == "parasitic":
                 infected = False
                 if "parasitic stage one" in cat.illnesses:
@@ -822,10 +824,8 @@ class Condition_Events:
                         if not deadguy.history:
                             deadguy.load_history()
                         if deadguy.history:
-                            if deadguy.history.died_by:
-                                if deadguy.history.died_by[0]["text"]:
-                                    if deadguy.history.died_by[0]["text"] == f"{deadguy.name} was killed by the infection.":
-                                        infected_griefcat = True
+                            if deadguy.history.died_infected:
+                                infected_griefcat = True
                     if infected_griefcat:
                         if not int(random.random() * 25): # 1/25 chance
                             if cat.status not in ["newborn", "kitten", "leader", "medicine cat", "medicine cat apprentice"]:

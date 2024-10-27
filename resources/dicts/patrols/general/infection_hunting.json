@@ -1,3 +1,52 @@
 [
-    
+    {
+        "patrol_id": "infection_hunting_J1",
+        "biome": ["any"],
+        "season": ["any"],
+        "types": ["hunting"],
+        "tags": [
+            "infection_beginning"
+        ],
+        "patrol_art": "gen_hunt_strangerabbit",
+        "min_cats": 1,
+        "max_cats": 6,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "The patrol notices a plump rabbit up ahead, but it's acting strangely, and smells sick in an unfamiliar way.",
+        "decline_text": "The patrol ignores the rabbit.",
+        "chance_of_success": 60,
+        "success_outcomes": [
+            {
+                "text": "The patrol decides to catch the rabbit and bring it back to camp. It didn't turn out to be too sick to eat.",
+                "exp": 10,
+                "weight": 20,
+                "prey": ["small"]
+            },
+            {
+                "text": "r_c starts towards the rabbit, but p_l warns them that the rabbit's sickness may be dangerous. The patrol decides to search for healthy prey elsewhere.",
+                "exp": 10,
+                "weight": 5,
+                "prey": ["small"]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "The patrol isn't concerned about its sickness and they catch the rabbit to bring home. However, when r_c decides to eat it later, they come down with a mysterious sickness.",
+                "exp": 0,
+                "weight": 20,
+                "prey": ["very_small"],
+                "injury": [
+                    {
+                        "cats": ["r_c"],
+                        "injuries": ["stage one"]
+                    }
+                ],
+                "cure_log": [
+                    {
+                        "entry": "start"
+                    }
+                ]
+            }
+        ]
+    }
 ]

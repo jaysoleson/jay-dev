@@ -498,10 +498,16 @@
             "any",
             "infection",
             "they_blind",
-            "you_blind"
+            "you_blind",
+            "max_platonic_20",
+            "brooding",
+            "cool",
+            "stable",
+            "upstanding",
+            "unlawful"
         ],
         [
-            "This disease is scary..."
+            "Nw is not the time for small talk."
         ]
     ],
     "infection_J2": [
@@ -947,6 +953,20 @@
             "Go find something better to do. I'm not your entertainment."
         ]
     ],
+    "infection_J20": [
+        [
+            "you_infected",
+            "they_medicine_cat",
+            "they_medicine_cat_apprentice",
+            "you_kitten",
+            "sweet",
+            "stable"
+        ],
+        [
+            "Oh, don't worry, little one. You're going to be okay.",
+            "[When you ask t_c what {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} going to do to make you feel better, {PRONOUN/t_c/subject} just {VERB/t_c/look/looks} away awkwardly.]"
+        ]
+    ],
     "infection_bingbing_1": [
         [
             "you_app",
@@ -974,6 +994,298 @@
         [
             "MONSTER!",
             "[t_c backs away, hissing.]"
+        ]
+    ],
+    "infected_kit_floof_1": [
+        [
+            "you_not_kit",
+            "they_kitten",
+            "they_infected",
+            "they_stage_one",
+            "infection"
+        ],
+        [
+            "y_c?",
+            "Am I really going to turn into a monster?"
+        ]
+    ],
+    "infected_kit_floof_2": [
+        [
+            "you_infected",
+            "you_stage_one",
+            "they_kitten",
+            "they_not_infected",
+            "any",
+            "infection"
+        ],
+        [
+            "y_c?",
+            "Are you really going to turn into a big scary monster?"
+        ]
+    ],
+    "infection_sam_2": {
+        "tags": [
+            "they_kitten",
+            "from_your_kit",
+            "sweet",
+            "any",
+            "they_not_infected",
+            "you_infected",
+            "they_blind",
+            "you_blind",
+            "infection"
+        ],
+        "intro": [
+            "[t_c is standing in your den's entrance, whispering.]",
+            "Mc? Why did you move out of the nursery?",
+            "You're sick? Well that's okay with me! I don't mind getting sick.",
+            "[You pause for a moment, in awe of how selfless t_c is.]"
+
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Send t_c back to the nursery.",
+                "next_scene": "backtonursery"
+            },
+            "choice2": {
+                "text": "Explain the infection.",
+                "next_scene": "explain"
+            }
+        },
+        "backtonursery": [
+            "O- okay! I'll visit again later."
+        ],
+        "explain": [
+            "Oh.. so you could die? Not definitely, though, right? You might survive?",
+            "[You reassure your kit that there's definitely a chance you'll survive, and you tell {PRONOUN/t_c/object} to go back to playing with {PRONOUN/t_c/poss} friends.]",
+            "Okay! I'll visit you again soon! I love you!"
+
+        ]
+    },
+    "infection_sam_3": [
+        [
+            "they_kitten",
+            "they_infected",
+            "any",
+            "you_not_kit",
+            "they_blind",
+            "you_blind",
+            "infection"
+        ],
+        [
+            "Mew?",
+            "[Every single little mew from this kit seems to be a struggle, but {PRONOUN/t_c/subject} still {VERB/t_c/try/tries} so hard.]",
+            "[Your heart aches.]"
+
+        ]
+    ],
+    "infection_reesesgopoof_2": [
+        [
+            "they_kitten",
+            "you_queen",
+            "you_queen's_apprentice",
+            "they_infected",
+            "they_stage_one",
+            "you_infected",
+            "you_deaf",
+            "they_deaf",
+            "they_blind",
+            "infection"
+        ],
+        [
+            "[Once you got the infection, you worried so much about the kits. They wouldn't have anyone keeping them out of danger, and that thought hurt.]",
+           " [But one day you see t_c being led to your den because there's nowhere else to go, and your heart aches for this sick kit.]",
+            "[You swear to yourself, as long as t_c is with you, even the infection won't hurt {PRONOUN/t_c/object}.]"
+        ]
+    ],
+    "infection_lyric_1": [
+        [
+            "they_kitten",
+            "they_not_infected",
+            "you_not_infected",
+            "stable",
+            "sweet",
+            "any",
+            "infection",
+            "you_blind"
+        ],
+        [
+            "Hey y_c! Do you know why r_m won't let me see plove_r_c_infected?",
+            "Infected?... When will {PRONOUN/plove_r_c_infected/subject} be better?",
+            "Can I help? Maybe if I make a very cool moss ball, it'll help {PRONOUN/plove_r_c_infected/object} feel better!",
+            "[You can't help but feel sympathy for the kit. Growing up amidst all this must be horrifying...]"
+        ]
+    ],
+    "infection_lyric_2": [
+        [
+            "they_df",
+            "infection",
+            "you_not_infected",
+            "brooding",
+            "unlawful",
+            "any",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "You know, I've heard from the others that your Clan is in chaos." ,
+            "I think it's funny. And they deserve it.",
+            "I hope whatever filth StarClan sent them rots them all." 
+        ]
+    ],
+    "infection_lyric_10": [
+        [
+            "they_df",
+            "you_dftrainee",
+            "infection",
+            "you_not_infected",
+            "brooding",
+            "unlawful",
+            "upstanding",
+            "any",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "[You're in the midst of training, and you're distracted, thinking about plove_r_c_infected. t_c growls and spits at you.]",
+            "What's your problem, y_c? You're never this useless.",
+            "What? A Clanmate is sick?",
+            "So what? You're really going to be such a mouseheart over something like that?",
+            "Get back to it, or you;ll be sorry."
+        ]
+    ],
+    "infection_lyric_11": [
+        [
+            "they_df",
+            "you_infected",
+            "they_kitten",
+            "you_not_kit",
+            "infection"
+        ],
+        [
+            "What's all that on you?",
+            "It makes you look silly. And stupid. Here! I'll get it off!",
+            "[[Name] starts to dig their claws into your pelt to tear off the infection. It hurts, agonizingly.]",
+            "[How could such a sweet looking kitten hurt so badly?]"
+        ]
+    ],
+    "infection_lyric_12": [
+        [
+            "they_df",
+            "they_kitten",
+            "they_blind",
+            "you_blind",
+            "infection"
+        ],
+        [
+            "There's so many more cats here than I remember. Are they coming from that silly sickness c_n is having?" 
+        ]
+    ],
+    "infection_lyric_13": [
+        [
+            "they_sc",
+            "you_blind",
+            "any",
+            "infection"
+        ],
+        [
+            "It looks so disastrous down there... We are doing all we can, I assure you."
+        ]
+    ],
+    "infection_lyric_14": [
+        [
+            "they_sc",
+            "you_blind",
+            "they_blind",
+            "any",
+            "infection"
+        ],
+        [
+            "Keep r_c safe, please. Unfortunate things may be in {PRONOUN/r_c/poss} future..."
+        ]
+    ],
+    "infection_lyric_15": [
+        [
+            "they_sc",
+            "you_blind",
+            "they_blind",
+            "any",
+            "sweet",
+            "stable",
+            "infection"
+        ],
+        [
+            "I wish we had answers. I truly do.",
+            "Please don't give up on us."
+        ]
+    ],
+    "infection_lyric_16": [
+        [
+            "they_sc",
+            "you_blind",
+            "they_blind",
+            "any",
+            "brooding",
+            "infection"
+        ],
+        [
+            "We're doing all we can. Harassing us won't help."
+        ]
+    ],
+    "infection_lyric_17": [
+        [
+            "they_sc",
+            "they_blind",
+            "any",
+            "infection",
+            "you_deaf",
+            "they_deaf"
+        ],
+        [
+            "[t_c is in what appears to be a meeting with a couple of other StarClan cats, {PRONOUN/t_c/poss} eyes full of worry and stress.]",
+            "[Perhaps now isn't the right time.]"
+        ]
+    ],
+    "infection_lyric_18": [
+        [
+            "you_grieving",
+            "brooding",
+            "cool",
+            "unabashed",
+            "neurotic",
+            "any",
+            "they_blind",
+            "you_blind",
+            "they_not_infected"
+        ],
+        [
+            "[Although t_c seems like {PRONOUN/t_c/subject} {VERB/t_c/want/wants} to help, {PRONOUN/t_c/subject} {VERB/t_c/have/has} no idea how to.]",
+            "At least {PRONOUN/d_c_infected/subject} won't be able to infect anyone else..?",
+            "Sorry.",
+            "[You'd rather d_c_infected infect everyone than be gone.]"
+        ]
+    ],
+    "infection_lyric_19": [
+        [
+            "you_grieving",
+            "any",
+            "they_medicine_cat",
+            "they_medicine_cat_apprentice",
+            "they_mediator",
+            "they_not_infected",
+            "you_not_infected"
+        ],
+        [
+            "I know. It's going to be okay. {PRONOUN/d_c_infected/subject/CAP}{VERB/d_c_infected/'re/'s} in a better place." ,
+            "{PRONOUN/d_c_infected/subject/CAP} deserved better than to live with that disease."
+        ]
+    ],
+    "infection_lyric_20": [
+        [
+            "you_grieving"
+        ],
+        [
+            "It's for the better {PRONOUN/d_c_infected/subject/CAP}{VERB/d_c_infected/'re/'s} gone. The loss of one is better than the loss of many. "
         ]
     ]
 }

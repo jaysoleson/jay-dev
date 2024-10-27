@@ -26,12 +26,18 @@
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "You crouch and make your way towards the stumbling squirrel. Though you're not exactly quiet, the critter doesn't seem to notice you coming, and catching it is easy. You triumphantly grab your catch and drag it over to the fresh-kill pile, proud of your achievement, but when the warriors notice it, they don't seem as happy...",
+                "text": "You crouch and make your way towards the stumbling squirrel. Though you're not exactly quiet, the critter doesn't seem to notice you coming, and catching it is easy. You triumphantly grab your catch and drag it over to the fresh-kill pile, proud of your achievement, but when r_w eats it, {PRONOUN/r_w/subject} {VERB/r_w/get/gets} mysteriously ill.",
                 "exp": 10,
                 "weight": 20,
                 "cure_log": [
                     {
                         "entry": "start"
+                    }
+                ],
+                "injury": [
+                    {
+                        "cats": ["r_w"],
+                        "injuries": ["stage one"]
                     }
                 ]
             }
@@ -243,17 +249,17 @@
             "kitten": [1, 1]
         },
         "weight": 60,
-        "intro_text": "infected_r_k is staring at you from across the nursery.",
-        "decline_text": "Shaken, you leave the nursery to get away from {PRONOUN/infected_r_k/object}.",
+        "intro_text": "r_k_infected is staring at you from across the nursery.",
+        "decline_text": "Shaken, you leave the nursery to get away from {PRONOUN/r_k_infected/object}.",
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "You cautiously bat a moss ball across the nursery towards where they sit in the darkest corner. It takes a moment, but after a shake of the head, infected_r_k hits it back, and you play a nice long-distance game of moss ball. Almost as if everything were normal.",
+                "text": "You cautiously bat a moss ball across the nursery towards where they sit in the darkest corner. It takes a moment, but after a shake of the head, r_k_infected hits it back, and you play a nice long-distance game of moss ball. Almost as if everything were normal.",
                 "exp": 10,
                 "weight": 20,
                 "relationships": [
                     {
-                        "cats_to": ["infected_r_k"],
+                        "cats_to": ["r_k_infected"],
                         "cats_from": ["y_c"],
                         "mutual": true,
                         "values": ["trust", "platonic"],
@@ -264,12 +270,12 @@
         ],
         "fail_outcomes": [
             {
-                "text": "You puff your fur up, trying to scare them away, but they lunge towards you with cloudy eyes. You yelp and race out of the nursery before {PRONOUN/infected_r_k/subject} can get you. You wish running from {PRONOUN/infected_r_k/object} was just a game.",
+                "text": "You puff your fur up, trying to scare {PRONOUN/r_k_infected/object} away, but {PRONOUN/r_k_infected/subject} {VERB/r_k_infected/lunge/lunges} towards you with cloudy eyes. You yelp and race out of the nursery before {PRONOUN/r_k_infected/subject} can get you. You wish running from {PRONOUN/r_k_infected/object} was just a game.",
                 "exp": 10,
                 "weight": 20,
                 "relationships": [
                     {
-                        "cats_to": ["infected_r_k"],
+                        "cats_to": ["r_k_infected"],
                         "cats_from": ["y_c"],
                         "mutual": false,
                         "values": ["trust"],

@@ -3020,11 +3020,20 @@ def abbrev_addons(t_c, r_c, cluster, x, rel, r):
         cluster and rel are booleans for if the addons are present.
     """
 
-    if cluster and x == "infected" and r_c.infected_for < 1:
-        return False
+    if cluster and x == "infected":
+        if r_c.dead:
+            if not r_c.history:
+                r_c.load_history()
+            else:
+                if "died_infected" in r_c.history:
+                    if r_c.history.died_infected is False:
+                        return False
+        else:
+            if r_c.infected_for < 1:
+                return False
 
-    if cluster and x != "infected" and r_c.infected_for > 0:
-        return False
+    # if cluster and x != "infected" and r_c.infected_for > 0:
+    #     return False
 
     if (cluster and x != "infected" and x not in get_cluster(r_c.personality.trait)):
         return False

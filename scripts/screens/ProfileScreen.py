@@ -923,6 +923,10 @@ class ProfileScreen(Screens):
         self.the_cat = Cat.all_cats.get(game.switches['cat'])
         self.page = 0
 
+        if self.the_cat.history:
+            if self.the_cat.history.died_infected is True:
+                print("This cat died while infected.")
+
         # Set up the menu buttons, which appear on all cat profile images.
         self.next_cat_button = UIImageButton(scale(pygame.Rect((1244, 50), (306, 60))), "", object_id="#next_cat_button"
                                             , manager=MANAGER)

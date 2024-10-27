@@ -585,7 +585,6 @@ class Cat:
         inftype = game.clan.infection["infection_type"]
         stages = [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]
 
-        print(self.name, "is cured!")
         for stage in stages:
             if stage in self.illnesses:
                 old_stage = stage
@@ -682,6 +681,10 @@ class Cat:
         """
 
         if f"{game.clan.infection['infection_type']} stage four" in self.illnesses:
+            
+            if self.history.died_infected is True:
+                self.history.died_infected = False
+
             self.zombie()
             return
 
@@ -1471,6 +1474,7 @@ class Cat:
                 lead_ceremony=None,
                 possible_history={},
                 died_by=[],
+                died_infected=False,
                 scar_events=[],
                 murder={},
             )
@@ -1505,6 +1509,11 @@ class Cat:
                     died_by=(
                         history_data["died_by"] if "died_by" in history_data else []
                     ),
+                    # INF
+                    died_infected=(
+                        history_data["died_infected"] if "died_infected" in history_data else False
+                    ),
+                    # ---
                     scar_events=(
                         history_data["scar_events"]
                         if "scar_events" in history_data
@@ -1541,6 +1550,7 @@ class Cat:
                 lead_ceremony=None,
                 possible_history={},
                 died_by=[],
+                died_infected=False,
                 scar_events=[],
                 murder={},
             )
