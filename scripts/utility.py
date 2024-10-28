@@ -3065,7 +3065,6 @@ def abbrev_addons(t_c, r_c, cluster, x, rel, r):
                 )
             )
         ):
-        print("abbrev addon failed")
         return False
     return True
 

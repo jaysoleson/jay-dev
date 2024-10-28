@@ -4618,6 +4618,10 @@ class Events:
 
                 # If there are possible deputies, choose from that list.
                 if possible_deputies:
+                    # INF
+                    event_types = []
+                    # ---
+
                     random_cat = random.choice(possible_deputies)
                     involved_cats = [random_cat.ID]
 
@@ -4695,25 +4699,28 @@ class Events:
                             possible_events = [
                                 f"{random_cat.name} has been chosen to take over as deputy while {game.clan.deputy.name} is infected."
                             ]
-                        possible_events = [
-                            f"{random_cat.name} has been chosen as the new deputy. "  # pylint: disable=line-too-long
-                            f"The Clan yowls their name in approval.",  # pylint: disable=line-too-long
-                            f"{random_cat.name} has been chosen as the new deputy. "  # pylint: disable=line-too-long
-                            f"Some of the older Clan members question the wisdom in this choice.",
-                            # pylint: disable=line-too-long
-                            f"{random_cat.name} has been chosen as the new deputy. "  # pylint: disable=line-too-long
-                            f"They hold their head up high and promise to do their best for the Clan.",
-                            # pylint: disable=line-too-long
-                            f"{game.clan.leader.name} has been thinking deeply all day who they would "  # pylint: disable=line-too-long
-                            f"respect and trust enough to stand at their side, and at sunhigh makes the "  # pylint: disable=line-too-long
-                            f"announcement that {random_cat.name} will be the Clan's new deputy.",
-                            # pylint: disable=line-too-long
-                            f"{random_cat.name} has been chosen as the new deputy. They pray to "  # pylint: disable=line-too-long
-                            f"StarClan that they are the right choice for the Clan.",  # pylint: disable=line-too-long
-                            f"{random_cat.name} has been chosen as the new deputy. Although"  # pylint: disable=line-too-long
-                            f"they are nervous, they put on a brave front and look forward to serving"  # pylint: disable=line-too-long
-                            f"the clan.",
-                        ]
+                            event_types = ["ceremony", "infection"]
+                        else:
+                            event_types = "ceremony"
+                            possible_events = [
+                                f"{random_cat.name} has been chosen as the new deputy. "  # pylint: disable=line-too-long
+                                f"The Clan yowls their name in approval.",  # pylint: disable=line-too-long
+                                f"{random_cat.name} has been chosen as the new deputy. "  # pylint: disable=line-too-long
+                                f"Some of the older Clan members question the wisdom in this choice.",
+                                # pylint: disable=line-too-long
+                                f"{random_cat.name} has been chosen as the new deputy. "  # pylint: disable=line-too-long
+                                f"They hold their head up high and promise to do their best for the Clan.",
+                                # pylint: disable=line-too-long
+                                f"{game.clan.leader.name} has been thinking deeply all day who they would "  # pylint: disable=line-too-long
+                                f"respect and trust enough to stand at their side, and at sunhigh makes the "  # pylint: disable=line-too-long
+                                f"announcement that {random_cat.name} will be the Clan's new deputy.",
+                                # pylint: disable=line-too-long
+                                f"{random_cat.name} has been chosen as the new deputy. They pray to "  # pylint: disable=line-too-long
+                                f"StarClan that they are the right choice for the Clan.",  # pylint: disable=line-too-long
+                                f"{random_cat.name} has been chosen as the new deputy. Although "  # pylint: disable=line-too-long
+                                f"they are nervous, they put on a brave front and look forward to serving "  # pylint: disable=line-too-long
+                                f"the Clan.",
+                            ]
                         # No additional involved cats
                         text = random.choice(possible_events)
                     else:
@@ -4726,6 +4733,9 @@ class Events:
                         filter(
                             lambda x: not x.dead
                             and not x.outside
+                            # INF
+                            and x.infected_for < 0
+                            # ---
                             and x.status == "warrior",
                             Cat.all_cats_list,
                         )
@@ -4752,13 +4762,19 @@ class Events:
                 game.clan.deputy = random_cat
 
                 game.cur_events_list.append(
-                    Single_Event(text, "ceremony", involved_cats)
+                    Single_Event(text, event_types, involved_cats)
                 )
 
             else:
-                game.cur_events_list.insert(
-                    0, Single_Event(f"{game.clan.name}Clan has no deputy!", "alert")
-                )
+                # INF
+                if game.clan.deputy.infected_for > 0:
+                    game.cur_events_list.insert(
+                        0, Single_Event(f"{game.clan.name}Clan's deputy is infected!", ["infection", "alert"])
+                    )
+                else:
+                    game.cur_events_list.insert(
+                        0, Single_Event(f"{game.clan.name}Clan has no deputy!", "alert")
+                    )
 
 
 events_class = Events()

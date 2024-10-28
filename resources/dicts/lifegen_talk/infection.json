@@ -507,7 +507,7 @@
             "unlawful"
         ],
         [
-            "Nw is not the time for small talk."
+            "Now is not the time for small talk."
         ]
     ],
     "infection_J2": [
@@ -1256,7 +1256,8 @@
             "any",
             "they_blind",
             "you_blind",
-            "they_not_infected"
+            "they_not_infected",
+            "infection"
         ],
         [
             "[Although t_c seems like {PRONOUN/t_c/subject} {VERB/t_c/want/wants} to help, {PRONOUN/t_c/subject} {VERB/t_c/have/has} no idea how to.]",
@@ -1273,7 +1274,8 @@
             "they_medicine_cat_apprentice",
             "they_mediator",
             "they_not_infected",
-            "you_not_infected"
+            "you_not_infected",
+            "infection"
         ],
         [
             "I know. It's going to be okay. {PRONOUN/d_c_infected/subject/CAP}{VERB/d_c_infected/'re/'s} in a better place." ,
@@ -1282,10 +1284,150 @@
     ],
     "infection_lyric_20": [
         [
-            "you_grieving"
+            "you_grieving",
+            "they_leader",
+            "they_not_infected",
+            "any",
+            "they_blind",
+            "you_blind",
+            "infection"
         ],
         [
             "It's for the better {PRONOUN/d_c_infected/subject/CAP}{VERB/d_c_infected/'re/'s} gone. The loss of one is better than the loss of many. "
+        ]
+    ],
+    "infection_void_J1": [
+        [
+            "void",
+            "they_stage_four",
+            "they_stage_three",
+            "they_infected",
+            "they_deaf",
+            "you_deaf",
+            "any",
+            "infection"
+        ],
+        [
+            "[t_c races in circles, frantically trying to scrape the black poison from {PRONOUN/t_c/poss} pelt, but {PRONOUN/t_c/poss} paws just pass through the darkness like water.]"
+        ]
+    ],
+    "infection_void_J2": [
+        [
+            "void",
+            "neurotic",
+            "stable",
+            "upstanding",
+            "they_infected",
+            "you_medicine_cat",
+            "you_medicine_cat_apprentice",
+            "non-related",
+            "cure_not_found",
+            "they_stage_four",
+            "they_stage_three",
+            "they_stage_two",
+            "no_kit",
+            "infection"
+        ],
+        [
+            "I'm disappearing, y_c!",
+            "Look! I had a piece of fur by the base of my tail that would always stick up. I could never get it down, no matter how much I groomed it. I wished I could just tear it out, sometimes!",
+            "B- but, now, it's gone. I can't even feel it!",
+            "What kind of sickness is this, y_c? I'm disappearing like Newleaf snow. I don't want to disappear.",
+            "Please tell me there's some way to fix this."
+        ]
+    ],
+    "infection_void_J3": [
+        [
+            "void",
+            "you_infected",
+            "they_not_infected",
+            "from_mate",
+            "you_stage_one",
+            "you_stage_two",
+            "no_kit",
+            "infection"
+        ],
+        [
+            "Come here, y_c.",
+            "No, don't worry about getting me sick. You need a wash.",
+            "[t_c reaches for the jet-black patches of sickness on your pelt and tries to give them a lick, but {PRONOUN/t_c/poss} tongue falls into the darkness and you don't feel a thing.]",
+            "Aah! Cold!",
+            "Okay... well, at least I can still see your beautiful face.",
+            "[t_c reaches forwards and gives your nose a quick kiss. You're glad to have {PRONOUN/t_c/object} here while you go through this.]"
+        ]
+    ],
+    "infection_void_J4": [
+        [
+            "void",
+            "you_infected",
+            "you_stage_four",
+            "brooding",
+            "assertive",
+            "upstanding",
+            "unlawful",
+            "they_blind",
+            "infection"
+        ],
+        [
+            "[You can barely see t_c through the black spots in your vision. You stumble closer, trying to get a better look.]",
+            "Don't get any closer, y_c! I'm not an easy target!"
+        ]
+    ],
+    "infection_void_J5": [
+        [
+            "void",
+            "they_infected",
+            "silly",
+            "sweet",
+            "stable",
+            "you_blind",
+            "infection"
+        ],
+        [
+            "I always thought I'd look better with some darker fur...",
+            "Maybe I shouldn't have thought that so hard, hah..."
+        ]
+    ],
+    "infection_void_J6": [
+        [
+            "void",
+            "they_infected",
+            "any",
+            "infection"
+        ],
+        [
+            "[t_c is curled up in a ball, shivering, unable to find any warmth.]"
+        ]
+    ],
+    "infection_void_J7": [
+        [
+            "void",
+            "you_kitten",
+            "they_not_infected",
+            "you_not_infected",
+            "from_parent",
+            "infection"
+        ],
+        [
+            "[You ask t_c why some cats have those cool, spooky black patches.]",
+            "Oh, no, no, they're not 'cool'. Those cats are very sick, honey.",
+            "Just stay close to me, okay? Neither of us will get sick if we just stick together."
+        ]
+    ],
+    "infection_void_J8": [
+        [
+            "they_dftrainee",
+            "you_dftrainee",
+            "you_infected",
+            "they_not_infected",
+            "any",
+            "void",
+            "infection"
+        ],
+        [
+            "You know, that muck looks pretty similar to the rivers in the Dark Forest.",
+            "You think it's the same stuff? Maybe we should ask rdf_c.",
+            "Er, uh, I'll ask. You take it easy."
         ]
     ]
 }
