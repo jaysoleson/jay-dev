@@ -1,7 +1,7 @@
 {
     "kitten general": [
        "You don't understand why you're always in so much pain.",
-       "You try to pass r_k a moss ball, but {PRONOUN/r_/subject} {VERB/r_k/yelp/yelps} and {VERB/r_k/run/runs} away.",
+       "You try to pass r_k a moss ball, but {PRONOUN/r_k/subject} {VERB/r_k/yelp/yelps} and {VERB/r_k/run/runs} away.",
        "Every time you catch a glimpse of yourself in a puddle, you look scarier than last time."
     ],
     "kitten assertive": [
