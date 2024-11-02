@@ -434,7 +434,7 @@ class Condition_Events:
                             f"{cat.name} has come down with the infection."
                         ]                        
                         
-                        if "spread_by_air" not in game.clan.infection["logs"]:
+                        if "lore_spread_by_air" not in game.clan.infection["logs"]:
                             game.clan.infection["logs"].append("lore_spread_by_air")
                             insert= "\nYour log has been updated."
                     

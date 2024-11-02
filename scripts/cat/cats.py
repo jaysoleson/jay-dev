@@ -2692,8 +2692,8 @@ class Cat:
         if "undead" in self.illnesses:
             return
         
-        # if cat.quarantined and self.status not in ["medicine cat", "medicine cat apprentice"]:
-        #     return
+        if cat.quarantined and self.status not in ["medicine cat", "medicine cat apprentice"]:
+            return
         # uncomment for easy mode if that ever happens
         
         infectious_illnesses = []

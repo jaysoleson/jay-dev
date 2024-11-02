@@ -685,12 +685,12 @@ class TalkScreen(Screens):
                 continue
 
             logs = game.clan.infection["logs"]
-            if "spread_by_air" in tags and game.clan.infection["spread_by"] != "air" and "spread_by_air" not in logs:
+            if "spread_by_air" in tags and game.clan.infection["spread_by"] != "air" and "lore_spread_by_air" not in logs:
                 continue
-            elif "spread_by_bite" in tags and game.clan.infection["spread_by"] != "bite" and "spread_by_bite" not in logs:
+            elif "spread_by_bite" in tags and game.clan.infection["spread_by"] != "bite" and "lore_spread_by_bite" not in logs:
                 continue
 
-            if "spread_by_unknown" in tags and ("spread_by_bite" in logs or "spread_by_air" in logs):
+            if "spread_by_unknown" in tags and ("lore_spread_by_bite" in logs or "lore_spread_by_air" in logs):
                 continue
 
             if "discovered" in tags and "discovered" not in logs:
