@@ -484,10 +484,14 @@ class TalkScreen(Screens):
 
                     if special_date:
                         with open(f"{resource_dir}focuses/{special_date.patrol_tag}.json", 'r') as read_file:
-                            possible_texts = ujson.loads(read_file.read())
+                            possible_texts6 = ujson.loads(read_file.read())
+                            possible_texts.update(possible_texts6)
+
                     if game.config['fun']['april_fools']:
                         with open(f"{resource_dir}focuses/aprilfools.json", 'r') as read_file:
-                            possible_texts = ujson.loads(read_file.read())
+                            possible_texts7 = ujson.loads(read_file.read())
+                            possible_texts.update(possible_texts7)
+
 
                 with open(f"{resource_dir}infection.json", 'r') as read_file:
                     infection_dialogue = ujson.loads(read_file.read())
