@@ -769,7 +769,7 @@
             "you_deaf"
         ],
         [
-            "[You can barely make out t_c, they're so deeply buried in {PRONOUN/t_c/poss} parent's nest.]"
+            "[You can barely make out t_c, {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} so deeply buried in {PRONOUN/t_c/poss} parent's nest.]"
         ]
     ],
     "newborn_yourkit": [
@@ -1278,7 +1278,7 @@
             "you_deaf"
         ],
         [
-            "[r_c quickly grabs t_c and carries {PRONOUN/t_c/subject} away as {PRONOUN/t_c/poss} {VERB/t_c/stumble/stumbles} curiously towards you.]"
+            "[r_c quickly grabs t_c and carries {PRONOUN/t_c/poss} away as {PRONOUN/t_c/subject} {VERB/t_c/stumble/stumbles} curiously towards you.]"
         ]
     ],
     "newborn_shunned4": [

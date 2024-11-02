@@ -2517,16 +2517,25 @@ class Cat:
 
         if 'NOTAIL' in self.pelt.scars or 'HALFTAIL' in self.pelt.scars:
             for acc in [
-                'RED FEATHERS', 'BLUE FEATHERS',
-                'JAY FEATHERS', "SEAWEED",
-                "DAISY CORSAGE", "GULL FEATHERS",
-                "SPARROW FEATHERS", "CLOVER",
-                "DAISY"
+                'RED FEATHERS', 'BLUE FEATHERS', 'JAY FEATHERS', "SEAWEED",
+                "DAISY CORSAGE", "GULL FEATHERS", "SPARROW FEATHERS", "CLOVER", "DAISY",
+                "SPRINGFEATHERS", "CLOVER", "LAVENDERTAILWRAP", "CELESTIALCHIMES",
+                "LUNARCHIMES", "SILVERLUNARCHIMES", "FLOWER MOSS", "SANVITALIAFLOWERS",
+                "STARFLOWERS", "SHELL PACK", "MOSS2", "MUSHROOMS", "CLOVERS", "MUD", "LADYBUGS",
+                "FIRBRANCHES", "CHERRYBLOSSOM", "MISTLETOE", "BROWNMOSSPELT", "BLEEDINGVINES",
+                "BLEEDINGHEART", "MOREFERN", "GRAYMOSSPELT", "FERN"
                 ]:
                 if acc in self.pelt.accessories:
                     self.pelt.inventory.remove(acc)
                 if acc in self.pelt.inventory:
                     self.pelt.inventory.remove(acc)
+        if "NOPAW" in self.pelt.scars:
+            for acc in ["VINE", "ASHY PAWS", "MUD PAWS", "MUD", "STARFLOWERS", "LAVENDERANKLET", "HOLLY2", "HOLLYVINES"]:
+                if acc in self.pelt.accessories:
+                    self.pelt.inventory.remove(acc)
+                if acc in self.pelt.inventory:
+                    self.pelt.inventory.remove(acc)
+
 
         condition = PERMANENT[name]
         new_condition = False
@@ -2938,9 +2947,9 @@ class Cat:
             return
         # Check if cat can have a mentor
         illegible_for_mentor = self.dead or self.outside or self.exiled or self.shunned > 0 or self.dead_for > 1 or self.status not in ["apprentice",
-                                                                                                                                        "mediator apprentice",
-                                                                                                                                        "medicine cat apprentice",
-                                                                                                                                        "queen's apprentice"]
+        "mediator apprentice",
+        "medicine cat apprentice",
+        "queen's apprentice"]
         if illegible_for_mentor:
             self.__remove_mentor()
             return
@@ -2968,7 +2977,7 @@ class Cat:
                         priority_mentors.append(cat)
             # First try for a cat who currently has no apprentices and is working
             if 'request apprentice' in game.switches:
-                if game.switches['request apprentice'] and self.moons == 6:
+                if game.switches['request apprentice'] and self.moons == 6 and not game.clan.your_cat.dead and not game.clan.your_cat.outside:
                     new_mentor = game.clan.your_cat
                 else:
                     if priority_mentors:  # length of list > 0

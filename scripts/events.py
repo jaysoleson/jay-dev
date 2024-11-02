@@ -29,7 +29,6 @@ from scripts.events_module.outsider_events import OutsiderEvents
 from scripts.event_class import Single_Event
 from scripts.game_structure.game_essentials import game
 from scripts.cat_relations.relationship import Relationship
-from scripts.utility import change_clan_relations, change_clan_reputation, get_cluster, ceremony_text_adjust, get_current_season, adjust_list_text, ongoing_event_text_adjust, event_text_adjust, create_new_cat, pronoun_repl, get_alive_status_cats, get_alive_cats, get_cats_same_age, adjust_txt, get_infected_clan_cat_count
 from scripts.cat.cats import Cat, cat_class, BACKSTORIES
 from scripts.cat.history import History
 from scripts.cat.names import Name
@@ -67,7 +66,11 @@ from scripts.utility import (
     event_text_adjust,
     get_other_clan,
     history_text_adjust,
-    unpack_rel_block
+    unpack_rel_block,
+    pronoun_repl,
+    create_new_cat,
+    adjust_txt,
+    get_cluster
 )
 
 
@@ -292,6 +295,7 @@ class Events:
             ghost_names = []
             shaken_cats = []
             extra_event = None
+            event = None
             for ghost in Cat.dead_cats:
                 if not ghost.dead_for > 1:
                     ghost_names.append(str(ghost.name))
@@ -301,7 +305,7 @@ class Events:
             if ghost_names:
                 insert = adjust_list_text(ghost_names)
 
-            if len(Cat.dead_cats) > 1:
+            if len(Cat.dead_cats) > 1 and insert:
                 event = f"The past moon, {insert} have taken their place in StarClan. {game.clan.name}Clan mourns their " \
                         f"loss, and their Clanmates will miss where they had been in their lives. Moments of their " \
                         f"lives are shared in stories around the circle of mourners as those that were closest to them " \
@@ -349,7 +353,7 @@ class Events:
                     else:
                         extra_event = f"So much grief and death has taken its toll on the cats of {game.clan.name}Clan. {insert} are particularly shaken by it. "
 
-            else:
+            elif insert:
                 event = (
                     f"The past moon, {insert} has taken their place in StarClan. {game.clan.name}Clan mourns their "
                     f"loss, and their Clanmates will miss the spot they took up in their lives. Moments of their "
@@ -357,9 +361,10 @@ class Events:
                     f"take them to their final resting place."
                 )
 
-            game.cur_events_list.append(
-                Single_Event(event, ["birth_death"], [i.ID for i in Cat.dead_cats])
-            )
+            if event:
+                game.cur_events_list.append(
+                    Single_Event(event, ["birth_death"], [i.ID for i in Cat.dead_cats])
+                )
             if extra_event:
                 game.cur_events_list.append(
                     Single_Event(
@@ -1421,6 +1426,8 @@ class Events:
     
     
     def check_gain_app(self, checks):
+        if game.clan.your_cat.dead or game.clan.your_cat.outside:
+            return
         if len(game.clan.your_cat.apprentice) == checks[0] + 1:
             if 'request apprentice' in game.switches:
                 game.switches['request apprentice'] = False
@@ -2729,7 +2736,6 @@ class Events:
                     self.exile_or_forgive(cat)
                 else:
                 # Max number of moons a cat can be shunned before the clan makes up their damn mind
-                # Currently ten, but it was also roll if its set to more than that in a cat's save
                     if cat.shunned >= game.config["shunned_cat"]["max_shunned_moons"]:
                         self.exile_or_forgive(cat)
         
@@ -3590,12 +3596,20 @@ class Events:
             text = self.CEREMONY_TXT[ceremony][1]
 
             if LG_TYPE == "shunned":
+                # a ceremony for a cat WHILE theyre shunned
                 if "shunned" not in tags:
                     continue
             
             elif LG_TYPE == "forgiven":
+                # a ceremony for a cat returning to work after being forgiven
                 if "forgiven" not in tags:
                     continue
+                if (cat.moons - cat.shunned) > 5:
+                    if "shunned_as_apprentice" not in tags:
+                        continue
+                else:
+                    if "shunned_as_kit" not in tags:
+                        continue
             
             else:
                 if "forgiven" in tags or "shunned" in tags:
@@ -3618,6 +3632,7 @@ class Events:
             except IndexError:
                 print("WARNING: A ceremony could not be chosen for", cat.name, LG_TYPE)
                 print(new_ceremonies)
+                print(cat.moons - cat.shunned)
                 return
         else:
         # -------------------
@@ -4445,28 +4460,12 @@ class Events:
                         "apprentice",
                         "medicine cat apprentice",
                         "mediator apprentice",
-                        "queen's apprentice",
-                        "warrior",
-                        "medicine cat",
-                        "mediator",
-                        "queen",
+                        "queen's apprentice"
                         ]:
                         self.ceremony(cat, cat.status, LG_TYPE="forgiven")
 
                     elif cat.status in ["kitten", "newborn"] and cat.moons >= 6:
                         self.ceremony(cat, "apprentice", LG_TYPE="forgiven")
-
-                    else:
-                        if cat.moons == 0:
-                            cat.status = 'newborn'
-                        elif cat.moons < 6:
-                            cat.status = "kitten"
-                        elif cat.moons < 12:
-                            cat.status_change('apprentice')
-                        elif cat.moons < 120:
-                            cat.status_change('warrior')
-                        else:
-                            cat.status_change('elder')
                 
                 elif cat.status == 'leader':
                     if random.randint(1,4) == 1:

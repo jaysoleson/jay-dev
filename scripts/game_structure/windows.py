@@ -2041,8 +2041,6 @@ class PickPath(UIWindow):
         self.mediator_button.enable()
         self.random_button.enable()
 
-
-
     def process_event(self, event):
         super().process_event(event)
 
@@ -2084,6 +2082,7 @@ class PickPath(UIWindow):
                 self.kill()
         except:
             print('Error with PickPath window!')
+            
                 
 class DeathScreen(UIWindow):
     def __init__(self, last_screen):

@@ -5840,7 +5840,7 @@
         ],
         [
             "The other StarClan cats told me you might not be allowed here when you die. Did you do something bad?",
-            "I'll tell them they should reconsider. I'm super smart with words, they'll have to listen to me, just watch!",
+            "I'll tell them they should reconsider. I'm super smart with words, they'll have to listen to me!",
             "[t_c runs off.]"
         ]
     ],
@@ -5882,6 +5882,19 @@
         ],
         [
             "Why are you here?"
+        ]
+    ],
+    "deadkit_J7": [
+        [
+            "they_sc",
+            "you_shunned",
+            "any",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "You did something bad, didn't you? I can sense it.",
+            "It's okay. You seem nice. I'll forgive you!"
         ]
     ],
     "allergies_H2": [
@@ -6648,7 +6661,7 @@
         ],
         "pushherb": [
             "[You watch in the corner of your eye as t_c paws at the herbs, sorting through them with a careful touch. {PRONOUN/t_c/subject/CAP} seem to know what {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} doing.]",
-            "[Have {PRONOUN/t_c/subject} been watching you for a while? Or is t_c just this observant?]",
+            "[{VERB/t_c/Have/Has} {PRONOUN/t_c/subject} been watching you for a while? Or is t_c just this observant?]",
             "y_c, can I have more?"
         ]
     },

@@ -2106,11 +2106,13 @@ def event_text_adjust(
 
     # main_cat
     if "m_c" in text:
-        replace_dict["m_c"] = (str(main_cat.name), choice(main_cat.pronouns))
+        if main_cat:
+            replace_dict["m_c"] = (str(main_cat.name), choice(main_cat.pronouns))
 
     # patrol_lead
     if "p_l" in text:
-        replace_dict["p_l"] = (str(patrol_leader.name), choice(patrol_leader.pronouns))
+        if patrol_leader:
+            replace_dict["p_l"] = (str(patrol_leader.name), choice(patrol_leader.pronouns))
 
     # random_cat
     if "r_c" in text:
@@ -3035,7 +3037,25 @@ def abbrev_addons(t_c, r_c, cluster, x, rel, r):
     # if cluster and x != "infected" and r_c.infected_for > 0:
     #     return False
 
-    if (cluster and x != "infected" and x not in get_cluster(r_c.personality.trait)):
+    rc_skillpath1 = str(r_c.skills.primary.path) if r_c.skills.primary else None
+    rc_skillpath2 = str(r_c.skills.secondary.path) if r_c.skills.secondary else None
+
+    if rc_skillpath1:
+        rc_skill1 = rc_skillpath1.split(".")[1].lower()
+    else:
+        rc_skill1 = "none"
+    if rc_skillpath2:
+        rc_skill2 = rc_skillpath2.split(".")[1].lower()
+    else:
+        rc_skill2 = "any"
+
+    if (
+        cluster and (
+            x != "infected" and
+            x not in get_cluster(r_c.personality.trait) and
+            x != r_c.personality.trait and
+            x not in [rc_skill1, rc_skill2])
+        ):
         return False
 
     if (
@@ -3085,7 +3105,7 @@ def cat_dict_check(abbrev, cluster, x, rel, r, text, cat_dict):
             else:
                 text = re.sub(fr'(?<!\/){abbrev}(?!\/)', str(cat_dict[f"{abbrev}"].name), text)
     except KeyError:
-        print("WARNING: Keyerror with", abbrev, ". Do you have dialogue debugged? If not, report as bug!")
+        print("WARNING: Keyerror with", abbrev, ".")
         text = ""
         # returning an empty string to reroll for dialogue
     return text, in_dict

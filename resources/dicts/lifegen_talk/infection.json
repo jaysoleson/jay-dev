@@ -1429,5 +1429,27 @@
             "You think it's the same stuff? Maybe we should ask rdf_c.",
             "Er, uh, I'll ask. You take it easy."
         ]
-    ]
+    ],
+    "fungal_lore_2_J1": {
+        "tags": [
+            "they_immune_kittypet",
+            "any",
+            "you_not_kit",
+            "they_medicine_cat",
+            "fungal_lore_3"
+        ],
+        "log_prereq": [
+            "fungal_lore_2"
+        ],
+        "intro": [
+            "[Now that you know that Twolegs have a cure to the infection, you've decided to ask t_c about it.]",
+            "Hm? Oh, yeah, I think they do...",
+            "They took me to the vet, and they poked and prodded me a bunch, and now I don't think I can get sick.",
+            "[No wonder t_c has been so confidently interacting with the infected cats...]",
+            "[Your log has been updated.]"
+        ],
+        "intro_log_entry": [
+            "fungal_lore_3"
+        ]
+    }
 }
