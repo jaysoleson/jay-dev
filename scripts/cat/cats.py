@@ -791,7 +791,7 @@ class Cat:
         if self.exiled:
             self.status = 'former Clancat'
 
-        if self.infected_for > 0:
+        if self.infected_for != 0:
             self.infected_for = 0
 
         if self.cure_progress > 0:

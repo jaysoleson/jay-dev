@@ -4383,7 +4383,7 @@ class Events:
                     event = f'The infection is hard to contain. ' \
                             f'{", ".join(infected_names[:-1])}, and ' \
                             f'{infected_names[-1]} have become ill.'
-                    if "spread_by_air" not in game.clan.infection["logs"]:
+                    if "lore_spread_by_air" not in game.clan.infection["logs"]:
                         game.clan.infection["logs"].append("lore_spread_by_air")
                         event += "\nYour log has been updated."
                 else:
@@ -4593,7 +4593,7 @@ class Events:
             if leader_dead or leader_outside or leader_shunned:
                 game.cur_events_list.insert(
                     0, Single_Event(f"{game.clan.name}Clan has no leader!", "alert"))
-            elif leader_infected:
+            elif game.clan.leader and leader_infected:
                 game.cur_events_list.insert(
                     0, Single_Event(f"{game.clan.name}Clan's leader is infected!", ["infection", "alert"]))
 
@@ -4767,7 +4767,7 @@ class Events:
 
             else:
                 # INF
-                if game.clan.deputy.infected_for > 0:
+                if game.clan.deputy and game.clan.deputy.infected_for > 0:
                     game.cur_events_list.insert(
                         0, Single_Event(f"{game.clan.name}Clan's deputy is infected!", ["infection", "alert"])
                     )
