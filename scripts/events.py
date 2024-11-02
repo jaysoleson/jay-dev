@@ -70,7 +70,8 @@ from scripts.utility import (
     pronoun_repl,
     create_new_cat,
     adjust_txt,
-    get_cluster
+    get_cluster,
+    get_infected_clan_cat_count
 )
 
 

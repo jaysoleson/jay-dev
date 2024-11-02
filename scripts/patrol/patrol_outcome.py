@@ -1000,8 +1000,8 @@ class PatrolOutcome:
             values = [x for x in block.get("values", ()) if x in possible_values]
             
             # Gather acual cat objects:
-            cats_from_ob = self.gather_cat_objects(cats_from, patrol)
-            cats_to_ob = self.gather_cat_objects(cats_to, patrol)
+            cats_from_ob = gather_cat_objects(cats_from, patrol)
+            cats_to_ob = gather_cat_objects(cats_to, patrol)
             
             # Remove any "None" that might have snuck in
             if None in cats_from_ob:
