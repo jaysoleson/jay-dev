@@ -628,14 +628,16 @@ class Cat:
                     
                     if cured:
                         if "partial_cure" not in game.clan.infection["logs"]:
-                            addon = "\nYour log has been updated."
-                            event = f"Evidently, it's not a full cure, but it seems that {self.name}'s infection was in an early enough stage for the partial cure to work!"
+                            event = f"Evidently, it's not a full cure, but it seems that {self.name}'s infection was in an early enough stage for the partial cure to work!\nYour log has been updated."
                             game.clan.infection["logs"].append("partial_cure")
                         else:
-                            addon = ""
                             event = f"The partial cure has worked on {self.name}'s stage one infection."
                         self.infected_for = -1
                     else:
+                        if "partial_cure" not in game.clan.infection["logs"]:
+                            addon = "\n Your log has been updated."
+                        else:
+                            addon = ""
                         event = f"Thanks to recieving treatment, {self.name}'s infection has remissed from {old_stage.replace(f'{inftype}', '')} to {new_stage.replace(f'{inftype}', '')}!{addon}"
                     game.cur_events_list.insert(0, Single_Event(event, ["health", "infection"], self.ID))
         self.cure_progress = 0
@@ -885,8 +887,8 @@ class Cat:
         naughty = you.personality.trait in ["bloodthirsty", "sneaky", "manipulative", "strange", "rebellious", "troublesome", "stoic", "aloof", "cunning"]
         acceptchance = randint(1,5)
         killchance = randint(1,50)
+        return_home_upperbound = int(game.config["shunned_cat"]["return_home_chance"])
         if you.exiled:
-            return_home_upperbound = int(game.config["shunned_cat"]["return_home_chance"])
 
             if num_victims == 0:
                 acceptchance = randint (1,4)
