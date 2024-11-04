@@ -684,8 +684,10 @@ class Cat:
 
         if f"{game.clan.infection['infection_type']} stage four" in self.illnesses:
             
-            if self.history.died_infected is True:
-                self.history.died_infected = False
+            if self.history:
+                if self.history.died_infected:
+                    if self.history.died_infected is True:
+                        self.history.died_infected = False
 
             self.zombie()
             return

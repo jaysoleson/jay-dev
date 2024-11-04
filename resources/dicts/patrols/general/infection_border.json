@@ -10,7 +10,9 @@
         "types": [
             "border"
         ],
-        "tags": [],
+        "tags": [
+            "infection"
+        ],
         "patrol_art": "bord_general_intro",
         "min_cats": 2,
         "max_cats": 6,

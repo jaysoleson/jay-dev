@@ -13,7 +13,8 @@
             "infection_beginning",
             "fungal",
             "discovered",
-            "airborne"
+            "airborne",
+            "infection"
         ],
         "patrol_art": "med_general_intro",
         "min_cats": 1,
