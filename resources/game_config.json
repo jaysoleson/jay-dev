@@ -354,6 +354,7 @@
 	"condition_related": {
 		"expanded_illness_chance": 250,
 		"cruel season_illness_chance": 200,
+		"classic_illness_chance": 500,
 		"classic_injury_chance": 450,
 		"expanded_injury_chance": 250,
 		"cruel season_injury_chance": 150,
@@ -509,6 +510,7 @@
 	"murder_chance":-1,
 	"accomplice_chance":-1,
 	"debug_ensure_dialogue": "",
+	"debug_meow_error_locating": false,
 
 	"shunned_cat": {
 		"exile_chance": {

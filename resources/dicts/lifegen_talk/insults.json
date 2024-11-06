@@ -2410,7 +2410,7 @@
     "leader_1ax5x": [
         [
             "Any",
-            "they_kitten",
+            "you_kitten",
             "insult",
             "you_blind",
             "they_blind",
@@ -3113,35 +3113,162 @@
             "[Looks like {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} not in the mood for banter.]"
         ]
     ],
-    "TinyTeddy_stable_neg_youkitten_theywarrior_01": [
-    [
-"insult",
-"you_kitten",
-"they_warrior",
-"they_stable"
+    "they_kitten_H1": [
+        [
+            "they_kitten",
+            "insult",
+            "any",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "Well - You - You're, uhh...",
+            "Stinky, like rotten fresh-kill!",
+            "Yeah! You need to bathe! Ewwww!!"
+        ]
     ],
-    [
-"WHAT THE- Who in StarClan's name...",
-"r_q! r_q! Hey, I think someone's been teaching the kits some... less than appropriate words.",
-"[{PRONOUN/t_c/subject} turns to you in a sharp movement, {PRONOUN/t_c/poss} gaze billowing in anger and {PRONOUN/t_c/poss} hair on end.]",
-"Who taught you this? Who was it? Was it t_a? r_w? r_a??? Out with it kit!",
-"[The queen tries to calm down the warrior who scoffs with a roll of {PRONOUN/t_c/poss} eyes.]",
-"NO! No kitten should speak like this, do not excuse {PRONOUN/y_c/poss} actions, this kind of behaviour is disgusting at best and harmful at worst."
-    ]
+    "they_kitten_H2": [
+        [
+            "insult",
+            "they_kitten",
+            "any",
+            "they_deaf",
+            "you_deaf",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "[t_c simply laughs in your face.]"
+        ]
+    ],
+    "they_kitten_H3": [
+        [
+            "they_kitten",
+            "insult",
+            "any"
+        ],
+        [
+            "Hah! As if that affects me at all!",
+            "[You can definitely see the unshed tears in {PRONOUN/t_c/poss} eyes.]"
+        ]
+    ],
+    "they_kitten_H4": [
+        [
+            "they_kitten",
+            "insult",
+            "any"
+        ],
+        [
+            "... Did you know you have a bald spot on your neck?",
+            "Everycat has been too nice to say anything."
+        ]
+    ],
+    "they_kitten_H5": [
+        [
+            "they_kitten",
+            "insult",
+            "any"
+        ],
+        [
+            "You're so mean..."
+        ]
+    ],
+    "they_kitten_H6": [
+        [
+            "they_kitten",
+            "insult",
+            "any"
+        ],
+        [
+            "Yeah? Well, your ears are too big for your face.",
+            "You look like a dirty mouse."
+        ]
+    ],
+    "they_kitten_H7": [
+        [
+            "they_kitten",
+            "insult",
+            "any"
+        ],
+        [
+            "Well - Well I hope you run into those black and white cat wannabes with the stinky farts!"
+        ]
+    ],
+    "they_kitten_H8": [
+        [
+            "they_kitten",
+            "insult",
+            "any",
+            "they_deaf",
+            "you_deaf"
+        ],
+        [
+            "[t_c stares at you intently.]",
+            "[... Minutes go past without a word. It's starting to become creepy.]"
+        ]
+    ],
+    "TinyTeddy_stable_neg_youkitten_theywarrior_01": [
+        [
+            "insult",
+            "you_kitten",
+            "they_warrior",
+            "they_stable"
+        ],
+        [
+            "WHAT THE- Who in StarClan's name...",
+            "r_q! r_q! Hey, I think someone's been teaching the kits some... less than appropriate words.",
+            "[{PRONOUN/t_c/subject} turns to you in a sharp movement, {PRONOUN/t_c/poss} gaze billowing in anger and {PRONOUN/t_c/poss} hair on end.]",
+            "Who taught you this? Who was it? Was it t_a? r_w? r_a??? Out with it kit!",
+            "[The queen tries to calm down the warrior who scoffs with a roll of {PRONOUN/t_c/poss} eyes.]",
+            "NO! No kitten should speak like this, do not excuse {PRONOUN/y_c/poss} actions, this kind of behaviour is disgusting at best and harmful at worst."
+        ]
     ],
     "TinyTeddy_stable_neg_youadult_theyapp_01": [
-    [
-"insult",
-"you_adult",
-"they_app",
-"they_stable"
+        [
+            "insult",
+            "you_adult",
+            "they_app",
+            "they_stable"
+        ],
+        [
+            "I-",
+            "I get that I make mistakes, but I'm trying y_c... I'm really trying I- *sniff* I'm sorry, I- *sniff*...",
+            "[t_c stands with wobbly legs, {PRONOUN/t_c/poss} eyes welling with tears. {PRONOUN/t_c/subject} brushes {PRONOUN/t_c/poss} paw over {PRONOUN/t_c/poss} eyes quickly and stumble backwards.]",
+            "I- I need to go!",
+            "[You watch as {PRONOUN/t_c/subject} scampers off, tears rolling down {PRONOUN/t_c/poss} cheeks. Other cats watch as t_c runs away, then all eyes turn to face you. You can't help but flinch under the harsh gaze of the warriors or scowls of the queens.]"
+        ]
     ],
-    [
-"I-",
-"I get that I make mistakes, but I'm trying y_c... I'm really trying I- *sniff* I'm sorry, I- *sniff*...",
-"[t_c stands with wobbly legs, {PRONOUN/t_c/poss} eyes welling with tears. {PRONOUN/t_c/subject} brushes {PRONOUN/t_c/poss} paw over {PRONOUN/t_c/poss} eyes quickly and stumble backwards.]",
-"I- I need to go!",
-"[You watch as {PRONOUN/t_c/subject} scampers off, tears rolling down {PRONOUN/t_c/poss} cheeks. Other cats watch as t_c runs away, then all eyes turn to face you. You can't help but flinch under the harsh gaze of the warriors or scowls of the queens.]"
-    ]
+    "blind_to_shunnedcat_insult_H1": [
+        [
+            "insult",
+            "they_shunned",
+            "you_blind",
+            "no_kit"
+        ],
+        [
+            "Are you having fun insulting me when you're vulnerable? And alone?",
+            "I'd back up if I was you."
+        ]
+    ],
+    "deaf_to_shunnedcat_insult_H2": [
+        [
+            "insult",
+            "they_shunned",
+            "you_deaf",
+            "any"
+        ],
+        [
+            "[t_c hisses at you, then walks away with a tail flick.]"
+        ]
+    ],
+    "kitten_to_kitten_H1": [
+        [
+            "they_kitten",
+            "you_kitten",
+            "insult"
+        ],
+        [
+            "Well - Well- you're short too!!"
+        ]
     ]
 }

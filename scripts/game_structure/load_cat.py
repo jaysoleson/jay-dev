@@ -94,6 +94,10 @@ def json_load():
                 cat["favourite"] = 1
 
             # moving clangen accs over to accessories + inventory
+            if "accessories" not in cat:
+                cat["accessories"] = []
+            if "inventory" not in cat:
+                cat["inventory"] = []
             if cat["accessory"] is not None:
                 cat["accessories"].append(cat["accessory"])
                 cat["inventory"].append(cat["accessory"])
@@ -246,6 +250,7 @@ def json_load():
             new_cat.prevent_sexualitychange = cat["keep_sexuality"] if "keep_sexuality" in cat else False
             new_cat.prevent_genderchange = cat["keep_gender"] if "keep_gender" in cat else False
             new_cat.no_faith = cat["no_faith"] if "no_faith" in cat else False
+            new_cat.lock_faith = cat["lock_faith"] if "lock_faith" in cat else "flexible"
             new_cat.exiled = cat["exiled"]
             new_cat.shunned = cat["shunned"]
             new_cat.driven_out = cat["driven_out"] if "driven_out" in cat else False

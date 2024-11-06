@@ -15,6 +15,7 @@ import pygame_gui
 from scripts.game_structure.game_essentials import game, screen_x, screen_y, MANAGER, screen
 from enum import Enum  # pylint: disable=no-name-in-module
 from scripts.housekeeping.version import VERSION_NAME
+from scripts.special_dates import get_special_date, contains_special_date_tag
 # pylint: disable=consider-using-dict-items
 # pylint: disable=consider-using-enumerate
 
@@ -63,6 +64,8 @@ class TalkScreen(Screens):
         self.replaced_index = (False, 0)
         self.other_dict = {}
 
+        self.testing = False
+
     def screen_switches(self):
         self.the_cat = Cat.all_cats.get(game.switches['cat'])
         self.cat_dict.clear()
@@ -86,8 +89,27 @@ class TalkScreen(Screens):
                                                                         object_id="#text_box_34_horizcenter_light",
                                                                         manager=MANAGER)
 
+
         self.text_type = ""
-        self.texts = self.load_texts(self.the_cat)
+        if game.config["debug_meow_error_locating"]:
+            self.debug_meow_error_locator(self.the_cat)
+        else:
+            self.texts = self.load_texts(self.the_cat)
+
+        if game.switches["talk_category"] == "flirt":
+            flirt_success = self.is_flirt_success(self.the_cat)
+            if flirt_success is True:
+                self.the_cat.relationships.get(game.clan.your_cat.ID).romantic_love += randint(1,10)
+                game.clan.your_cat.relationships.get(self.the_cat.ID).romantic_love += randint(1,10)
+            else:
+                if game.clan.your_cat.ID in self.the_cat.relationships:
+                    self.the_cat.relationships.get(game.clan.your_cat.ID).romantic_love -= randint(1,5)
+                    self.the_cat.relationships.get(game.clan.your_cat.ID).comfortable -= randint(1,5)
+                    self.the_cat.relationships.get(game.clan.your_cat.ID).dislike += randint(1,5)
+                else:
+                    print("no relationship :(")
+
+
         self.text_frames = [[text[:i+1] for i in range(len(text))] for text in self.texts]
         self.talk_box_img = image_cache.load_image("resources/images/talk_box.png").convert_alpha()
 
@@ -288,6 +310,50 @@ class TalkScreen(Screens):
                     self.frame_index = len(self.text_frames[self.text_index]) - 1  # Go to the last frame
             
         return
+    
+    def debug_meow_error_locator(self, cat):
+        """
+        When talking to one cat, searches through all cats and identifies if any of them would cause a meow error.
+        """
+        test_texts = {}
+        for kitty in Cat.all_cats_list:
+            if kitty == game.clan.your_cat:
+                continue
+            test_texts[kitty] = self.load_texts(kitty)
+        meows = []
+        for dialogue in test_texts.items():
+            # print(dialogue[1])
+            if "#dialogue-bugs" in str(dialogue[1]):
+                # skip over the dialogue that doesnt need anything bc its impossible anyway
+                if game.clan.your_cat.status == "newborn" and dialogue[0].dead:
+                    continue
+                if dialogue[0].outside and not dialogue[0].dead:
+                    continue
+                if game.clan.your_cat.dead and dialogue[0].status == "newborn":
+                    continue
+                if dialogue[0].dead and game.switches["talk_category"] in ["insult", "flirt"]:
+                    continue
+                if game.switches["talk_category"] == "flirt" and not dialogue[0].is_dateable(game.clan.your_cat):
+                    continue
+                self.text_type = ""
+                meows.append(dialogue)
+                print("----------------")
+                print("Meow error!", game.switches["talk_category"].upper())
+                print("You:", game.clan.your_cat.name)
+                print("Them: ", dialogue[0].name)
+                if self.the_cat == dialogue[0]:
+                    text = self.load_and_replace_placeholders(
+                        "resources/dicts/lifegen_talk/general.json",
+                        self.the_cat,
+                        game.clan.your_cat
+                        )[1]
+                    self.texts = self.get_adjusted_txt(text, dialogue[0])
+                else:
+                    self.texts = [f"Meow error found for {game.clan.your_cat.name} and {dialogue[0].name}."]
+        if not meows:
+            print("No meows possible right neow!")
+            self.text_type = ""
+            self.texts = self.load_texts(self.the_cat)
 
     def get_cluster_list(self):
         return ["assertive", "brooding", "cool", "upstanding", "introspective", "neurotic", "silly", "stable", "sweet", "unabashed", "unlawful"]
@@ -388,56 +454,76 @@ class TalkScreen(Screens):
 
 
     def load_texts(self, cat):
-        you = game.clan.your_cat
         resource_dir = "resources/dicts/lifegen_talk/"
         possible_texts = {}
+        you = game.clan.your_cat
 
-        if cat.status != 'exiled':
-            with open(f"{resource_dir}{cat.status}.json", 'r') as read_file:
+        special_date = get_special_date()
+
+        if game.switches["talk_category"] == "insult":
+            with open(f"{resource_dir}insults.json", 'r') as read_file:
                 possible_texts = ujson.loads(read_file.read())
-
-        # if cat.status not in ['loner', 'rogue', 'former Clancat', 'kittypet', 'exiled', 'newborn']:
-        #     with open(f"{resource_dir}choice_dialogue.json", 'r') as read_file:
-        #         possible_texts.update(ujson.loads(read_file.read()))
-
-        if cat.status in ["rogue", "loner", "kittypet"]:
-            # former clancats only get their own file so we can write general dialogue about not knowing what a clan is
-            with open(f"{resource_dir}general_outsider.json", 'r') as read_file:
-                possible_texts4 = ujson.loads(read_file.read())
-                possible_texts.update(possible_texts4)
+        elif game.switches["talk_category"] == "flirt":
+            with open(f"{resource_dir}flirt.json", 'r') as read_file:
+                possible_texts.update(ujson.loads(read_file.read()))
         else:
-            if cat.status == "newborn":
-                # newborns will no longer participate in nuanced discussion (focus + choices)
-                with open(f"{resource_dir}newborn.json", 'r') as read_file:
-                    possible_texts.update(ujson.loads(read_file.read()))
+            if cat.status != 'exiled':
+                with open(f"{resource_dir}{cat.status}.json", 'r') as read_file:
+                    possible_texts = ujson.loads(read_file.read())
+
+            # if cat.status not in ['loner', 'rogue', 'former Clancat', 'kittypet', 'exiled', 'newborn']:
+            #     with open(f"{resource_dir}choice_dialogue.json", 'r') as read_file:
+            #         possible_texts.update(ujson.loads(read_file.read()))
+
+            if cat.status in ["rogue", "loner", "kittypet"]:
+                # former clancats only get their own file so we can write general dialogue about not knowing what a clan is
+                with open(f"{resource_dir}general_outsider.json", 'r') as read_file:
+                    possible_texts4 = ujson.loads(read_file.read())
+                    possible_texts.update(possible_texts4)
             else:
-                with open(f"{resource_dir}choice_dialogue.json", 'r') as read_file:
-                    possible_texts.update(ujson.loads(read_file.read()))
+                if cat.status == "newborn":
+                    # newborns will no longer participate in nuanced discussion (focus + choices)
+                    with open(f"{resource_dir}newborn.json", 'r') as read_file:
+                        possible_texts.update(ujson.loads(read_file.read()))
+                else:
+                    with open(f"{resource_dir}choice_dialogue.json", 'r') as read_file:
+                        possible_texts.update(ujson.loads(read_file.read()))
 
-                if cat.status not in ['kitten', "newborn"] and you.status not in ['kitten', 'newborn']:
-                    with open(f"{resource_dir}general_no_kit.json", 'r') as read_file:
-                        possible_texts2 = ujson.loads(read_file.read())
-                        possible_texts.update(possible_texts2)
+                    if cat.status not in ['kitten', "newborn"] and you.status not in ['kitten', 'newborn']:
+                        with open(f"{resource_dir}general_no_kit.json", 'r') as read_file:
+                            possible_texts2 = ujson.loads(read_file.read())
+                            possible_texts.update(possible_texts2)
 
-                if cat.status not in ["newborn"] and you.status not in ['newborn']:
-                    with open(f"{resource_dir}general_no_newborn.json", 'r') as read_file:
-                        possible_texts4 = ujson.loads(read_file.read())
-                        possible_texts.update(possible_texts4)
+                    if cat.status not in ["newborn"] and you.status not in ['newborn']:
+                        with open(f"{resource_dir}general_no_newborn.json", 'r') as read_file:
+                            possible_texts4 = ujson.loads(read_file.read())
+                            possible_texts.update(possible_texts4)
 
-                if cat.status not in ['kitten', "newborn"] and you.status in ['kitten', 'newborn']:
-                    with open(f"{resource_dir}general_you_kit.json", 'r') as read_file:
-                        possible_texts3 = ujson.loads(read_file.read())
-                        possible_texts.update(possible_texts3)
+                    if cat.status not in ['kitten', "newborn"] and you.status in ['kitten', 'newborn']:
+                        with open(f"{resource_dir}general_you_kit.json", 'r') as read_file:
+                            possible_texts3 = ujson.loads(read_file.read())
+                            possible_texts.update(possible_texts3)
 
-                if cat.status not in ['kitten', 'newborn'] and you.status not in ['kitten', 'newborn'] and randint(1,3)==1:
-                    with open(f"{resource_dir}crush.json", 'r') as read_file:
-                        possible_texts3 = ujson.loads(read_file.read())
-                        possible_texts.update(possible_texts3)
+                    if cat.status not in ['kitten', 'newborn'] and you.status not in ['kitten', 'newborn'] and randint(1,3)==1:
+                        with open(f"{resource_dir}crush.json", 'r') as read_file:
+                            possible_texts3 = ujson.loads(read_file.read())
+                            possible_texts.update(possible_texts3)
 
-                if game.clan.focus:
-                    with open(f"{resource_dir}focuses/{game.clan.focus}.json", 'r') as read_file:
-                        possible_texts5 = ujson.loads(read_file.read())
-                        possible_texts.update(possible_texts5)
+                    if game.clan.focus:
+                        with open(f"{resource_dir}focuses/{game.clan.focus}.json", 'r') as read_file:
+                            possible_texts5 = ujson.loads(read_file.read())
+                            possible_texts.update(possible_texts5)
+
+                    if special_date:
+                        with open(f"{resource_dir}focuses/{special_date.patrol_tag}.json", 'r') as read_file:
+                            possible_texts2 = ujson.loads(read_file.read())
+                            possible_texts.update(possible_texts2)
+                            
+                    if game.config['fun']['april_fools']:
+                        with open(f"{resource_dir}focuses/aprilfools.json", 'r') as read_file:
+                            possible_texts2 = ujson.loads(read_file.read())
+                            possible_texts.update(possible_texts2)
+
                     
         return self.filter_texts(cat, possible_texts)
 
@@ -521,6 +607,7 @@ class TalkScreen(Screens):
             'song', 'grace', 'clean', 'innovator', 'comforter', 'matchmaker', 'thinker',
             'cooperative', 'scholar', 'time', 'treasure', 'fisher', 'language', 'sleeper', 'dark'
         ]
+        special_date = get_special_date()
         for talk_key, talk in possible_texts.items():
             tags = talk["tags"] if "tags" in talk else talk[0]
             for i in range(len(tags)):
@@ -530,16 +617,37 @@ class TalkScreen(Screens):
                 if game.config["debug_ensure_dialogue"] == talk_key:
                     pass
 
-            if "insult" in tags:
+            if contains_special_date_tag(tags):
+                if not special_date or special_date.patrol_tag not in tags:
+                    continue
+
+            if game.switches["talk_category"] == "talk" and ("insult" in tags or "reject" in tags or "accept" in tags):
                 continue
 
-            if you.moons == 0 and "newborn" not in tags:
+            if game.switches["talk_category"] == "insult" and "insult" not in tags:
+                continue
+
+            if game.switches["talk_category"] == "flirt" and ("insult" in tags or ("reject" not in tags and "accept" not in tags)):
+                continue
+
+            if you.moons == 0 and "newborn" not in tags and "you_newborn" not in tags:
                 continue
 
             if "sc_faith" in tags and cat.faith < 0:
                 continue
             if "df_faith" in tags and cat.faith > 0:
                 continue
+
+            if game.switches["talk_category"] == "flirt":
+                success = self.is_flirt_success(cat)
+                if "heartbroken" not in cat.illnesses.keys() and "heartbroken" in tags:
+                    continue
+                elif not success and "reject" not in tags:
+                    continue
+                elif success and "reject" in tags:
+                    continue
+                elif not success and "reject" not in tags:
+                    continue
 
             # Status tags
             if (
@@ -692,10 +800,10 @@ class TalkScreen(Screens):
                 dead_cat = Cat.all_cats.get(cat.illnesses['grief stricken'].get("grief_cat"))
                 if dead_cat:
                     if "grievingyou" in tags:
-                        if dead_cat.name != game.clan.your_cat.name:
+                        if dead_cat.ID != game.clan.your_cat.ID:
                             continue
                     else:
-                        if dead_cat.name == game.clan.your_cat.name:
+                        if dead_cat.ID == game.clan.your_cat.ID:
                             continue
 
             if "grief stricken" in you.illnesses:
@@ -807,6 +915,7 @@ class TalkScreen(Screens):
 
             if "they_grieving" not in tags and "grief stricken" in cat.illnesses and not cat.dead:
                 continue
+
             if "you_grieving" in tags and "grief stricken" not in you.illnesses and not you.dead:
                 continue
 
@@ -876,9 +985,13 @@ class TalkScreen(Screens):
                 continue
 
             # Season tags
-            if ('leafbare' in tags and game.clan.current_season != 'Leaf-bare') or ('newleaf' in tags and game.clan.current_season != 'Newleaf') or ('leaffall' in tags and game.clan.current_season != 'Leaf-fall') or ('greenleaf' in tags and game.clan.current_season != 'Greenleaf'):
-                continue
+            # if ('leafbare' in tags and game.clan.current_season != 'Leaf-bare') or ('newleaf' in tags and game.clan.current_season != 'Newleaf') or ('leaffall' in tags and game.clan.current_season != 'Leaf-fall') or ('greenleaf' in tags and game.clan.current_season != 'Greenleaf'):
+            #     continue
 
+            if any(i in ["leafbare", "newleaf", "leaffall", "greenleaf"] for i in tags):
+                season = game.clan.current_season.replace("-", "")
+                if season.lower() not in tags:
+                    continue
             # Biome tags
             if any(i in ['beach', 'forest', 'plains', 'mountainous', 'wetlands', 'desert'] for i in tags):
                 if game.clan.biome.lower() not in tags:
@@ -1516,7 +1629,7 @@ class TalkScreen(Screens):
             if "deaf" in cat.permanent_condition:
                 add_on2 += " d"
             t_c_text += add_on2
-            possible_texts['general'][1][0] += f" {VERSION_NAME}"
+            possible_texts['general'][1][0] += f" {VERSION_NAME} {(game.switches['talk_category']).upper()}"
             possible_texts['general'][1][0] += "\n"
             possible_texts['general'][1][0] += y_c_text + f" {you.moons}"
             possible_texts['general'][1][0] += "\n"
@@ -1548,7 +1661,12 @@ class TalkScreen(Screens):
             "you_injured", "you_ill", "you_grieving", "they_grieving", "you_forgiven",
             "they_forgiven", "murderedyou", "murderedthem"
         ] # List of tags that increase the weight
+
+        special_date = get_special_date()
+        if special_date:
+            weighted_tags.append(special_date)
         weights = []
+
         for item in texts_list.values():
             tags = item["tags"] if "tags" in item else item[0]
             weight = 1
@@ -1623,6 +1741,7 @@ class TalkScreen(Screens):
             text_chosen_key_split = text_chosen_key.split("~")
             cat.connected_dialogue[text_chosen_key_split[0]] = int(text_chosen_key_split[1])
         game.clan.talks.append(text_chosen_key)
+
         return new_text
 
     def get_adjusted_txt(self, text, cat):
@@ -1680,3 +1799,25 @@ class TalkScreen(Screens):
         if not bs_display:
             return "clanfounder"
         return bs_display
+
+    def is_flirt_success(self, cat):
+        cat_relationships = cat.relationships.get(game.clan.your_cat.ID)
+        chance = 40
+        if cat_relationships:
+            if cat_relationships.romantic_love > 10:
+                chance += 50
+            if cat_relationships.platonic_like > 10:
+                chance += 20
+            if cat_relationships.comfortable > 10:
+                chance += 20
+            if cat_relationships.admiration > 10:
+                chance += 20
+            if cat_relationships.dislike > 10:
+                chance -= 30
+            r = randint(1,100) < chance
+            if r:
+                return True
+            else:
+                return False
+        else:
+            return False

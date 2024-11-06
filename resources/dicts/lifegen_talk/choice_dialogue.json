@@ -621,7 +621,7 @@
             "assertive",
             "unlawful",
             "cool",
-            "they_kitten",
+            "you_kitten",
             "they_blind",
             "you_blind"
         ],
@@ -3000,7 +3000,7 @@
             "Right then, I'll get going, I'll let you get first pick once I'm back."
         ],
         "AnotherThingToTheList": [
-            "Robin? Okay! Sounds good, I actually really like Robin myself so this is a treat! I personally cannot stand vole. Fish sometimes, but vole? GAH!",
+            "Robin? Okay! Sounds good, I actually really like robin myself so this is a treat! I personally cannot stand vole. Fish sometimes, but vole? GAH!",
             "It's a horrendous little creature that's just bone and fat, there's no meat, no flavour. You have taste, thus, you have my respect. I'll be back before moonrise, y_c, see ya!"
         ]
     },
@@ -4031,7 +4031,7 @@
         },
         "danger": [
             "But, but! It wasn't like I was really close to them!",
-            "r_q said observing things we don't understand is a great way to learn about it. So... why can't I watch two-legs?",
+            "r_q said observing things we don't understand is a great way to learn about it. So... why can't I watch Twolegs?",
             "You were a kittypet once, you should understand me!"
         ],
         "sheep": [
@@ -4041,7 +4041,7 @@
         ],
         "goat": [
             "Hmm, you don't sound so sure either, y_c...",
-            "It's okay! I'll just call them walking clouds for now. They don't need a fancy name for me to know they're fluffy and hang out with two-legs!"
+            "It's okay! I'll just call them walking clouds for now. They don't need a fancy name for me to know they're fluffy and hang out with Twolegs!"
         ]
     },
     "neurotic_choice_urkittypet_to_living_SQ1": {
@@ -5234,6 +5234,36 @@
         "leave": [
             "[You turn away, ready to fight in case t_c takes the opportunity to attack you.]",
             "[You feel {PRONOUN/t_c/poss} eyes on your back as you vanish into the shadows.]"
+        ]
+    },
+    "dfskill_choice_SQ2": {
+        "tags": [
+	"they_artistan",
+"no_kit",
+"they_df",
+"any"
+        ],
+        "intro": [
+            "[t_c's made an arrangement of dried, crumbling flowers at the base of a tree. Muck on the ground is creeping up their stems, pulling the bouquet apart.]",
+"[t_c isn't around right now. You consider trying to clean {PRONOUN/t_c/poss} creation off.]"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "[Leave it alone.]",
+                "next_scene": "leave"
+            },
+ "choice2": {
+                "text": "[Try to clean it.]",
+                "next_scene": "clean"
+            }
+        },
+        "leave": [
+            "[You decide to leave t_c's arrangement alone. Those flowers look like they'd fall apart if you so much as breathed on them, and you don't need t_c coming by and accusing you of destroying {PRONOUN/t_c/poss} creation.]",
+"[You walk away, leaving the muck to devour the flowers bit by bit.]"
+        ],
+        "clean": [
+ 	"[You try your best to clean off the flowers, but you only succeed in getting muck all over your paws.]",
+"[When one of the flowers completely crumbles, you give up and quickly leave the scene.]"
         ]
     }
 }
