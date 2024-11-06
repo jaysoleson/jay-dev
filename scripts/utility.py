@@ -24,6 +24,7 @@ from scripts.cat.pelts import Pelt
 from scripts.cat.sprites import sprites
 from scripts.game_structure.game_essentials import game, screen_x, screen_y
 
+
 # ---------------------------------------------------------------------------- #
 #                               Getting Cats                                   #
 # ---------------------------------------------------------------------------- #
@@ -168,25 +169,6 @@ def get_free_possible_mates(cat):
             continue
 
         if inter_cat.is_potential_mate(cat, for_love_interest=True):
-            cats.append(inter_cat)
-    return cats
-
-def get_free_possible_qpps(cat):
-    """Returns a list of available cats, which are possible mates for the given cat."""
-    cats = []
-    for inter_cat in cat.all_cats.values():
-        if inter_cat.dead or inter_cat.outside or inter_cat.exiled:
-            continue
-        if inter_cat.ID == cat.ID:
-            continue
-
-        if inter_cat.ID not in cat.relationships:
-            cat.create_one_relationship(inter_cat)
-            if cat.ID not in inter_cat.relationships:
-                inter_cat.create_one_relationship(cat)
-            continue
-
-        if inter_cat.is_potential_qpp(cat, for_love_interest=True):
             cats.append(inter_cat)
     return cats
 
@@ -741,7 +723,6 @@ def create_new_cat(
         other_clan: bool = None,
         backstory: bool = None,
         status: str = None,
-        sexuality: str = None,
         age: int = None,
         gender: str = None,
         thought: str = 'Is looking around the camp with wonder',
@@ -773,11 +754,8 @@ def create_new_cat(
     """
     # TODO: it would be nice to rewrite this to be less bool-centric
     accessory = None
-    inventory = []
     if isinstance(backstory, list):
         backstory = choice(backstory)
-    if accessory in [Pelt.pridebandanas, Pelt.pridebandanas2, Pelt.pridebandanas3, Pelt.pridebandanas4, Pelt.customflags]:
-        accessory = None
 
     if backstory in (
             BACKSTORIES["backstory_categories"]["former_clancat_backstories"]
@@ -828,15 +806,13 @@ def create_new_cat(
             _gender = choice(["female", "male"])
         else:
             _gender = gender
-        
-        
+    
         # other Clan cats, apps, and kittens (kittens and apps get indoctrinated lmao no old names for them)
         if other_clan or kit or litter or age < 12 and not (loner or kittypet):
             new_cat = Cat(
                 moons=age,
                 status=status,
                 gender=_gender,
-                sexuality=sexuality,
                 backstory=backstory,
                 parent1=parent1,
                 parent2=parent2,
@@ -872,7 +848,6 @@ def create_new_cat(
                         prefix=name,
                         status=status,
                         gender=_gender,
-                        sexuality=sexuality,
                         backstory=backstory,
                         parent1=parent1,
                         parent2=parent2,
@@ -882,7 +857,6 @@ def create_new_cat(
                         moons=age,
                         status=status,
                         gender=_gender,
-                        sexuality=sexuality,
                         backstory=backstory,
                         parent1=parent1,
                         parent2=parent2,
@@ -895,7 +869,6 @@ def create_new_cat(
                     suffix="",
                     status=status,
                     gender=_gender,
-                    sexuality=sexuality,
                     backstory=backstory,
                     parent1=parent1,
                     parent2=parent2,
@@ -994,7 +967,6 @@ def create_new_cat(
             new_cat.outside = True
         if not alive:
             new_cat.die()
-        
 
         if df:
             new_cat.df = True
@@ -1006,23 +978,6 @@ def create_new_cat(
         # newbie thought
         new_cat.thought = thought
 
-        # sexuality from patrol outcome
-        if sexuality:
-            new_cat.sexuality = sexuality
-        else:
-            if new_cat.genderalign in ["male", "trans male", "demiboy"]:
-                new_cat.sexuality = choice(["gay", "gay", "gay", "gay", "bi", "bi", "bi", "bi", "bi", "bi", "straight", "straight",\
-                                             "straight", "straight", "straight", "straight", "aroace", "aroace"])
-                
-            elif new_cat.genderalign in ["female", "trans female", "demiboy"]:
-                new_cat.sexuality = choice(["lesbian", "lesbian", "lesbian", "lesbian", "bi", "bi", "bi", "bi", "bi", "bi", \
-                                            "straight", "straight", "straight", "straight", "straight", "straight", "aroace",\
-                                                "aroace"])
-            else:
-                new_cat.sexuality = choice(["gyno", "gyno", "gyno", "gyno", "bi", "bi", "bi", "bi", "bi", "bi", \
-                                            "andro", "andro", "andro", "andro", "aroace","aroace"])
-
-        
         # and they exist now
         created_cats.append(new_cat)
         game.clan.add_cat(new_cat)
@@ -1034,10 +989,6 @@ def create_new_cat(
         # Note - we always update inheritance after the cats are generated, to
         # allow us to add parents.
         # new_cat.create_inheritance_new_cat()
-
-        new_cat.sexualitylabel = new_cat.sexuality
-
-        
 
     return created_cats
 
@@ -1065,21 +1016,6 @@ def get_highest_romantic_relation(
         if rel.romantic_love > max_love_value:
             current_max_relationship = rel
             max_love_value = rel.romantic_love
-
-    return current_max_relationship
-
-def get_highest_platonic_relation(relationships, exclude_qpp=False):
-    """Returns the relationship with the highest platonic value for QPR purposes."""
-    max_love_value = 0
-    current_max_relationship = None
-    for rel in relationships:
-        if rel.platonic_like < 0:
-            continue
-        if exclude_qpp and rel.cat_from.ID in rel.cat_to.mate:
-            continue
-        if rel.platonic_like > max_love_value:
-            current_max_relationship = rel
-            max_love_value = rel.platonic_like
 
     return current_max_relationship
 
@@ -1174,28 +1110,6 @@ def get_cats_of_romantic_interest(cat):
                 and cat.relationships[inter_cat.ID].romantic_love > 0
         ):
             cats.append(inter_cat)
-            
-    return cats
-
-def get_cats_of_qpp_interest(cat):
-    """Returns a list of cats, those cats are love interest of the given cat"""
-    cats = []
-    for inter_cat in cat.all_cats.values():
-        if inter_cat.dead or inter_cat.outside or inter_cat.exiled:
-            continue
-        if inter_cat.ID == cat.ID:
-            continue
-
-        if inter_cat.ID not in cat.relationships:
-            cat.create_one_relationship(inter_cat)
-            if cat.ID not in inter_cat.relationships:
-                inter_cat.create_one_relationship(cat)
-            continue
-        
-        # Extra check to ensure they are potential mates
-        if inter_cat.is_potential_qpp(cat, for_love_interest=True) and cat.relationships[inter_cat.ID].romantic_love > 0:
-            cats.append(inter_cat)
-            
     return cats
 
 
@@ -2894,16 +2808,6 @@ def generate_sprite(
                         new_sprite.blit(sprites.sprites['acc_wild' + i + cat_sprite], (0, 0))
                     elif i in cat.pelt.collars:
                         new_sprite.blit(sprites.sprites['collars' + i + cat_sprite], (0, 0))
-                    elif i in cat.pelt.pridebandanas:
-                        new_sprite.blit(sprites.sprites['acc_pride' + i + cat_sprite], (0, 0))
-                    elif i in cat.pelt.pridebandanas2:
-                        new_sprite.blit(sprites.sprites['acc_pride2' + i + cat_sprite], (0, 0))
-                    elif i in cat.pelt.pridebandanas3:
-                        new_sprite.blit(sprites.sprites['acc_pride3' + i + cat_sprite], (0, 0))
-                    elif i in cat.pelt.pridebandanas4:
-                        new_sprite.blit(sprites.sprites['acc_bandanas' + i + cat_sprite], (0, 0))
-                    elif i in cat.pelt.customflags:
-                        new_sprite.blit(sprites.sprites['acc_customflags' + i + cat_sprite], (0, 0))
                     elif i in cat.pelt.flower_accessories:
                         new_sprite.blit(sprites.sprites['acc_flower' + i + cat_sprite], (0, 0))
                     elif i in cat.pelt.plant2_accessories:
@@ -3008,98 +2912,6 @@ def get_text_box_theme(theme_name=""):
             return "#text_box"
         else:
             return theme_name
-        
-
-def xenogender_event(cat):
-    """ Special events for specified genders. """
-    catgender = Pelt.pridebandanas3[2]
-    genderdoe = Pelt.pridebandanas3[3]
-    mothgender = Pelt.pridebandanas3[5]
-    snowleopardgender = Pelt.pridebandanas3[6]
-    tigergender = Pelt.pridebandanas3[7]
-    buggender = Pelt.pridebandanas3[8]
-    genderfaun = Pelt.pridebandanas3[9]
-    xenogender = Pelt.pridebandanas3[13]
-    genderflux = Pelt.pridebandanas3[14]
-    mossgender = Pelt.pridebandanas4[1]
-    moongender = Pelt.pridebandanas4[2]
-    sungender = Pelt.pridebandanas4[3]
-    stargender = Pelt.pridebandanas4[4]
-    apagender = Pelt.pridebandanas4[5]
-
-    text = ""
-     
-    if cat.genderalign == 'mothgender':
-        if mothgender not in cat.pelt.permanent_inventory:
-            cat.pelt.inventory.append(mothgender)
-        text = f"{cat.name} identifies with the moths that flutter through camp at night."
-
-    elif cat.genderalign == 'snowleopardgender':
-        if snowleopardgender not in cat.pelt.permanent_inventory:
-            cat.pelt.inventory.append(snowleopardgender)
-        text = f"{cat.name} identifies with the large, spotted cats in the mountains."
-
-    elif cat.genderalign == 'tigergender':
-        if tigergender not in cat.pelt.permanent_inventory:
-            cat.pelt.inventory.append(tigergender)
-        text = f"{cat.name} identifies with the the large, striped cats of the savanna."
-
-    elif cat.genderalign == 'buggender':
-        if buggender not in cat.pelt.permanent_inventory:
-            cat.pelt.inventory.append(buggender)
-        text = f"{cat.name} identifies with the the many insects that also call {game.clan.name}Clan camp their home."
-    
-    elif cat.genderalign == 'genderdoe':
-        if genderdoe not in cat.pelt.permanent_inventory:
-            cat.pelt.inventory.append(genderdoe)
-        text = f"{cat.name} knows they're not a tom, but identifies with many levels of she-cat-ness."
-    
-    elif cat.genderalign == 'genderfaun':
-        if genderfaun not in cat.pelt.permanent_inventory:
-            cat.pelt.inventory.append(genderfaun)
-        text = f"{cat.name} knows they're not a she-cat, but identifies with many levels of tom-ness."
-
-    elif cat.genderalign == 'catgender':
-        if catgender not in cat.pelt.permanent_inventory:
-            cat.pelt.inventory.append(catgender)
-        text = f"{cat.name}'s gender reflects every one of their Clanmates around them."
-    
-    elif cat.genderalign == 'xenogender':
-        if xenogender not in cat.pelt.permanent_inventory:
-            cat.pelt.inventory.append(xenogender)
-        text = f"{cat.name}'s gender feels brand new!"
-
-    elif cat.genderalign == 'mossgender':
-        if mossgender not in cat.pelt.permanent_inventory:
-            cat.pelt.inventory.append(mossgender)
-        text = f"{cat.name} identifies with the moss growing around camp."
-
-    elif cat.genderalign == 'moongender':
-        if moongender not in cat.pelt.permanent_inventory:
-            cat.pelt.inventory.append(moongender)
-        text = f"{cat.name}'s gender feels aligned with the moon, cool and comforting."
-
-    elif cat.genderalign == 'sungender':
-        if sungender not in cat.pelt.permanent_inventory:
-            cat.pelt.inventory.append(sungender)
-        text = f"{cat.name}'s gender feels aligned with the sun, warm and bright."
-
-    elif cat.genderalign == 'stargender':
-        if stargender not in cat.pelt.permanent_inventory:
-            cat.pelt.inventory.append(stargender)
-        text = f"{cat.name}'s gender feels aligned with the stars up in Silverpelt."
-
-    elif cat.genderalign == 'genderflux':
-        if genderflux not in cat.pelt.permanent_inventory:
-            cat.pelt.inventory.append(genderflux)
-        text = f"{cat.name}'s gender seems to flucuate in intensity over time."
-
-    elif cat.genderalign == 'apagender':
-        if apagender not in cat.pelt.permanent_inventory:
-            cat.pelt.inventory.append(apagender)
-        text = f"{cat.name} doesn't really care much about gender at all."
-
-    return text
 
 # ---------------------------------------------------------------------------- #
 #                            LIFEGEN TEXT ABBREVS                              #
