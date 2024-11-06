@@ -446,13 +446,20 @@ class RelationshipScreen(Screens):
             scale(pygame.Rect((150, 150), (800, 100))),
             object_id=get_text_box_theme("#text_box_34_horizleft"),
         )
+
+        if self.the_cat.sexualitylabel:
+            sexuality = self.the_cat.sexualitylabel
+        else:
+            sexuality = self.the_cat.sexuality
         self.focus_cat_elements["details"] = pygame_gui.elements.UITextBox(
             self.the_cat.genderalign
             + " - "
             + str(self.the_cat.moons)
             + " moons - "
-            + self.the_cat.personality.trait,
-            scale(pygame.Rect((160, 210), (800, 60))),
+            + self.the_cat.personality.trait
+            + " - "
+            + sexuality,
+            scale(pygame.Rect((160, 200), (800, 60))),
             object_id=get_text_box_theme("#text_box_22_horizleft"),
         )
         self.focus_cat_elements["image"] = pygame_gui.elements.UIImage(

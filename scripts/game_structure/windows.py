@@ -1110,7 +1110,7 @@ class SpecifyCatSexuality(UIWindow):
 
         self.label_changed = pygame_gui.elements.UITextBox(
             "Label changed!",
-            scale(pygame.Rect((490, 260), (800, 300))),
+            scale(pygame.Rect((285, 265), (800, 300))),
             visible=False,
             object_id="#text_box_30_horizleft",
             manager=MANAGER,

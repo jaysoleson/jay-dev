@@ -80,6 +80,9 @@ def json_load():
             if "sexualitylabel" not in cat:
                 cat['sexualitylabel'] = cat['sexuality']
             
+            elif cat["sexualitylabel"] is None:
+                cat['sexualitylabel'] = cat['sexuality']
+            
             if "t4t" not in cat:
                 cat["t4t"] = False
             
