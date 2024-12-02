@@ -322,9 +322,13 @@ class ProfileScreen(Screens):
             elif event.ui_element == self.inspect_button:
                 self.close_current_tab()
                 self.change_screen("sprite inspect screen")
-            elif self.the_cat.ID == game.clan.your_cat.ID and event.ui_element == self.profile_elements["change_cat"]:
-                self.close_current_tab()
-                self.change_screen("choose reborn screen")
+            elif self.the_cat.ID == game.clan.your_cat.ID and event.ui_element == self.profile_elements["sleep"]:
+                if game.clan.your_cat.sleeping:
+                    game.clan.your_cat.sleeping = False
+                else:
+                    game.clan.your_cat.sleeping = True
+                self.clear_profile()
+                self.build_profile()
             elif event.ui_element == self.relations_tab_button:
                 self.toggle_relations_tab()
             elif event.ui_element == self.roles_tab_button:
@@ -475,8 +479,8 @@ class ProfileScreen(Screens):
                                 self.item_list(accessory, cat)
                                 pos_x += 135
                                 if pos_x >= 1170:
-                                    pos_x = 0
-                                    pos_y += 140
+                                    pos_x = 20
+                                    pos_y += 155
                                 i += 1
                             except:
                                 continue
@@ -896,8 +900,8 @@ class ProfileScreen(Screens):
                             self.item_list(accessory, cat)
                             pos_x += 135
                             if pos_x >= 1170:
-                                pos_x = 0
-                                pos_y += 140
+                                pos_x = 20
+                                pos_y += 155
                             i += 1
                         except:
                             continue
@@ -1054,8 +1058,6 @@ class ProfileScreen(Screens):
 
         if self.the_cat.dead and game.clan.demon.ID == self.the_cat.ID:
             self.the_cat.df = True
-
-        print(self.the_cat.map_position)
 
         # use these attributes to create differing profiles for StarClan cats etc.
         is_sc_instructor = False
@@ -1295,10 +1297,18 @@ class ProfileScreen(Screens):
             print("Chose " + str(game.clan.your_cat.name))
 
         if self.the_cat.ID == game.clan.your_cat.ID:
-            self.profile_elements["change_cat"] = UIImageButton(scale(pygame.Rect((1400, 120),(68,68))), "",
-                                            object_id="#random_dice_button",
-                                            tool_tip_text='Switch MC',
-                                            manager=MANAGER)
+            # HG
+            sleeptext = ""
+            if game.clan.your_cat.sleeping:
+                sleeptext = "Wake up"
+            else:
+                sleeptext = "Sleep"
+            self.profile_elements["sleep"] = UIImageButton(
+                scale(pygame.Rect((1330, 120),(140,68))),
+                sleeptext,
+                object_id="",
+                manager=MANAGER
+                )
             
         # TALK BUTTONS
 
@@ -1313,7 +1323,9 @@ class ProfileScreen(Screens):
                 (not self.the_cat.dead and not self.the_cat.outside and game.clan.your_cat.outside and not game.clan.your_cat.dead) or 
                 game.clan.your_cat.moons < 0 or
                 self.the_cat.ID == game.clan.your_cat.ID or
-                ((game.clan.your_cat.dead or self.the_cat.dead) and dead_talk is False)
+                ((game.clan.your_cat.dead or self.the_cat.dead) and dead_talk is False) or
+                game.clan.your_cat.map_position != self.the_cat.map_position or
+                game.clan.your_cat.sleeping or self.the_cat.sleeping
             ):
                 cant_talk = True
                 
@@ -1342,6 +1354,8 @@ class ProfileScreen(Screens):
                 game.clan.your_cat.dead or
                 self.the_cat.dead
                 # when/if dead insulting is added, these two lines can just be removed
+                or game.clan.your_cat.map_position != self.the_cat.map_position or
+                game.clan.your_cat.sleeping or self.the_cat.sleeping
             ):
                 cant_insult = True
 
@@ -1370,6 +1384,8 @@ class ProfileScreen(Screens):
                 game.clan.your_cat.dead or
                 self.the_cat.dead
                 # when/if dead flirting is added, these two lines can just be removed
+                or game.clan.your_cat.map_position != self.the_cat.map_position or
+                game.clan.your_cat.sleeping or self.the_cat.sleeping
             ):
                 cant_flirt = True
 
@@ -2947,16 +2963,10 @@ class ProfileScreen(Screens):
             pass
         else:
             self.open_tab = "accessories"
-            if "BACKPACK1" in self.the_cat.pelt.inventory.keys():
-                self.backstory_background = pygame_gui.elements.UIImage(scale(pygame.Rect((178, 930), (1240, 314))),
-                                                                    self.lvl3_inventory_tab)
-            elif "BACKPACK2" in self.the_cat.pelt.inventory.keys():
-                self.backstory_background = pygame_gui.elements.UIImage(scale(pygame.Rect((178, 930), (1240, 314))),
-                                                                    self.lvl3_inventory_tab)
-            else:
-                self.backstory_background = pygame_gui.elements.UIImage(scale(pygame.Rect((178, 930), (1240, 314))),
-                                                                self.lvl2_inventory_tab)
-
+            self.backstory_background = pygame_gui.elements.UIImage(
+                scale(pygame.Rect((178, 930), (1240, 314))),
+                self.lvl3_inventory_tab
+                )
 
             self.backstory_background.disable()
 
@@ -3057,8 +3067,8 @@ class ProfileScreen(Screens):
                     self.item_list(accessory, cat, pos_x, pos_y, i)
                     pos_x += 135
                     if pos_x >= 1170:
-                        pos_x = 0
-                        pos_y += 140
+                        pos_x = 20
+                        pos_y += 155
                     i += 1
                 except:
                     continue
@@ -3135,15 +3145,17 @@ class ProfileScreen(Screens):
             treatable_conditions = []
 
             if self.the_cat.is_injured():
-                for injury in self.the_cat.injuries:
-                    if item in INJURIES[injury]["herbs"]:
-                        treatable_conditions.append(INJURIES[injury]["name"])
+                for injury in self.the_cat.injuries.items():
+                    if item in INJURIES[injury[0]]["herbs"]:
+                        print(injury[0])
+                        treatable_conditions.append(injury[0])
                         self.item_window_elements["eat_button"].enable()
 
             if self.the_cat.is_ill():
-                for condition in self.the_cat.illnesses:
-                    if item in ILLNESSES[condition]["herbs"]:
-                        treatable_conditions.append(ILLNESSES[condition]["name"])
+                for condition in self.the_cat.illnesses.items():
+                    if item in ILLNESSES[condition[0]]["herbs"]:
+                        print(condition[0])
+                        treatable_conditions.append(condition[0])
                         self.item_window_elements["eat_button"].enable()
             
             if treatable_conditions:
@@ -4089,6 +4101,7 @@ class ProfileScreen(Screens):
         # if the_cat.age == "newborn" or the_cat.not_working():
         if the_cat.age == "newborn":
             biome = "nest"
+            # newborns can still get a nest if they somehow manage to be born <3
 
         biome = biome.lower()
 

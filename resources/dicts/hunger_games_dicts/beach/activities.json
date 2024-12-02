@@ -103,9 +103,9 @@
                             "SALMON",
                             "ROCKFISH",
                             "SARDINE"
-                        ]
-                    },
-                    "cat": "you"
+                        ],
+                        "cat": "you"
+                    }
                 }
             },
             "neutral": {

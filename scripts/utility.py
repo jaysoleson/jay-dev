@@ -1250,6 +1250,17 @@ def filter_relationship_type(
             if x[0].ID not in x[1].mate:
                 return False
 
+    if "allies" in filter_types:
+        if len(group) == 1:
+            return False
+
+        if not all(len(i.allies) >= (len(group) - 1) for i in group):
+            return False
+
+        for x in combinations(group, 2):
+            if x[0].ID not in x[1].allies:
+                return False
+
     # check if all cats are mates with p_l (they do not have to be mates with each other)
     if "mates_with_pl" in filter_types:
         # First test if there is more than one cat
@@ -1268,6 +1279,11 @@ def filter_relationship_type(
         # opposite of mate check
         for x in combinations(group, 2):
             if x[0].ID in x[1].mate:
+                return False
+
+    if "not_allies" in filter_types:
+        for x in combinations(group, 2):
+            if x[0].ID in x[1].allies:
                 return False
 
     # Check if the cats are in a parent/child relationship

@@ -151,7 +151,9 @@ class Events:
         print("Day:", game.clan.days)
         print("Skip:", game.clan.timeskips)
         # game.clan.age += 1
-        
+
+        self.travel_map(game.clan.next_direction)
+
         self.check_war()
         if 'freshkill' in game.clan.clan_settings:
             if game.clan.clan_settings['freshkill']:
@@ -2425,12 +2427,6 @@ class Events:
         cat.thoughts()
 
         self.sleep(cat)
-
-        if not (game.clan.timeskips == 2 and game.clan.days == 0):
-            self.travel_map(game.clan.next_direction)
-        else:
-            if cat.ID == game.clan.your_cat.ID:
-                self.travel_map(game.clan.next_direction)
         
         self.one_moon_inventory(cat)
 
@@ -2679,12 +2675,10 @@ class Events:
         # if cat.ID == game.clan.your_cat.ID:
         #     # mc random inventory gains will be Different
         #     return
-        chance = 4
+        chance = 3
         if "malnourished" in cat.illnesses:
-            print(cat.name, "malnourished, eating")
-            chance = 2
+            chance = 1
         elif "starving" in cat.illnesses:
-            print(cat.name, "starving, eating")
             chance = 1
         if not int(random.random() * chance):
             if cat.pelt.inventory == {}:
@@ -2837,17 +2831,12 @@ class Events:
                 return
             
             if cat.ID == game.clan.your_cat.ID:
-                if cat.stats.energy > 20:
+                if cat.stats.energy > 10:
                     return
 
             percent = cat.stats.energy
 
             num = math.ceil(percent)
-
-            # if cat.ID == game.clan.your_cat.ID:
-                # print(f'{cat.name} sleepy percentage {num}')
-                # print(f'{cat.name} energy {cat.stats.energy}')
-
 
             if not int(random.random() * num):
                 cat.sleeping = True
@@ -2921,7 +2910,7 @@ class Events:
 
         if len(options) == 1:
             outcome_choice = options[-1]
-        elif len(options) > 1:
+        else:
             outcome_choice = random.choice(options)
 
         if game.clan.next_activity == "investigate":
@@ -3074,9 +3063,7 @@ class Events:
     
 
     def travel_map(self, next_direction):
-        if game.clan.your_cat.sleeping is True:
-            return
-        
+        print("travel map")
         row, column = game.clan.your_cat.map_position.split("_")
         # grabbing the current position from the clan_cats string
 
@@ -3145,6 +3132,7 @@ class Events:
                 pass
 
             npc.map_position = f"{int(cat_row)}_{int(cat_column)}"
+            print(npc.name, "moved to", npc.map_position, "!")
 
             # ill do a better version of this later lol
             if npc.allies:

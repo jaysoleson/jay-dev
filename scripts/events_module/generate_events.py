@@ -112,6 +112,7 @@ class GenerateEvents:
                         event_id=event["event_id"] if "event_id" in event else "",
                         location=event["location"] if "location" in event else ["any"],
                         season=event["season"] if "season" in event else ["any"],
+                        time=event["time"] if "time" in event else ["any"],
                         sub_type=event["sub_type"] if "sub_type" in event else [],
                         tags=event["tags"] if "tags" in event else [],
                         weight=event["weight"] if "weight" in event else 20,
@@ -153,6 +154,7 @@ class GenerateEvents:
                         event=event["event"],
                         camp=event["camp"],
                         season=event["season"],
+                        time=event["time"],
                         tags=event["tags"],
                         priority=event["priority"],
                         duration=event["duration"],
@@ -175,6 +177,7 @@ class GenerateEvents:
                         event=event["event"],
                         camp=event["camp"],
                         season=event["season"],
+                        time=event["time"],
                         tags=event["tags"],
                         priority=event["priority"],
                         duration=event["duration"],
@@ -277,6 +280,18 @@ class GenerateEvents:
             # check season
             if game.clan.current_season.lower() not in event.season and "any" not in event.season:
                 continue
+
+            time = ""
+            if "any" not in event.time:
+                if game.clan.timeskips in [2, 3, 4] and "day" not in event.time:
+                    continue
+                elif game.clan.timeskips in [1, 10] and "sunrise" not in event.time:
+                    continue
+                elif game.clan.timeskips in [1, 10] and "sunset" not in event.time:
+                    continue
+                else:
+                    if "night" not in event.time:
+                        continue
 
             # check tags
             prevent_bypass = "skill_trait_required" in event.tags
@@ -418,8 +433,9 @@ class GenerateEvents:
                     continue
 
             if event.m_c:
+                if cat.sleeping:
+                    continue
                 if cat.age not in event.m_c["age"] and "any" not in event.m_c["age"]:
-
                     continue
                 if cat.status not in event.m_c["status"] and "any" not in event.m_c["status"]:
                     continue
@@ -919,6 +935,7 @@ class ShortEvent:
             event_id="",
             location=None,
             season=None,
+            time=None,
             sub_type=None,
             tags=None,
             weight=0,
@@ -939,6 +956,7 @@ class ShortEvent:
         self.event_id = event_id
         self.location = location if location else ["any"]
         self.season = season if season else ["any"]
+        self.time = time if time else ["any"]
         self.sub_type = sub_type if sub_type else []
         self.tags = tags if tags else []
         self.weight = weight
@@ -1016,6 +1034,7 @@ class OngoingEvent:
                  event=None,
                  camp=None,
                  season=None,
+                 time=None,
                  tags=None,
                  priority='secondary',
                  duration=None,
@@ -1030,6 +1049,7 @@ class OngoingEvent:
         self.event = event
         self.camp = camp
         self.season = season
+        self.time = time
         self.tags = tags
         self.priority = priority
         self.duration = duration
