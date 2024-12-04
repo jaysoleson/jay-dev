@@ -5,11 +5,10 @@
         "season": ["any"],
         "types": ["hunting"],
         "tags": [
-            "infection_beginning",
-            "infection"
+            "infection_beginning"
         ],
         "patrol_art": "gen_hunt_strangerabbit",
-        "min_cats": 1,
+        "min_cats": 2,
         "max_cats": 6,
         "min_max_status": {},
         "weight": 20,
