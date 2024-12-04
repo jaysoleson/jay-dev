@@ -4342,24 +4342,24 @@ class Events:
                         cat.genderalign = "demiboy"
                         cat.pronouns = [
                             cat.default_pronouns[0].copy(),
-                            [cat.default_pronouns[2].copy()]]
+                            cat.default_pronouns[2].copy()]
                     elif cat.gender == "female":
                         cat.genderalign = "demigirl"
                         cat.pronouns = [
                             cat.default_pronouns[0].copy(),
-                            [cat.default_pronouns[1].copy()]]
+                            cat.default_pronouns[1].copy()]
                 elif fluid_chance == 1:
                     cat.genderalign = 'genderfluid'
                     cat.pronouns = [
                             cat.default_pronouns[0].copy(),
                             cat.default_pronouns[1].copy(),
-                            [cat.default_pronouns[2].copy()]]
+                            cat.default_pronouns[2].copy()]
                 elif fluid_chance == 2:
                     cat.genderalign = 'bigender'
                     cat.pronouns = [
                             cat.default_pronouns[0].copy(),
                             cat.default_pronouns[1].copy(),
-                            [cat.default_pronouns[2].copy()]]
+                            cat.default_pronouns[2].copy()]
                 else:
                     if cat.gender == "male":
                         cat.genderalign = "trans female"
