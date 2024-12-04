@@ -307,7 +307,6 @@ class HandleShortEvents:
         if self.chosen_herb:
             game.herb_events_list.append(f"{self.chosen_event} {self.herb_notice}.")
 
-        print(self.text, self.types)
         game.cur_events_list.append(
             Single_Event(
                 self.text + " " + self.additional_event_text,

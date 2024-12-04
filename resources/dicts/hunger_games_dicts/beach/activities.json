@@ -771,33 +771,5 @@
                 }
             }
         }
-    },
-    "sleep": {
-        "intro_text": [
-            ""
-        ],
-        "outcomes": {
-            "positive": {
-                "1": {
-                    "text": [
-                        "You sleep.... Zzzzz........."
-                    ]
-                }
-            },
-            "neutral": {
-                "1": {
-                    "text": [
-                        "You sleep.... Zzzzz........."
-                    ]
-                }
-            },
-            "negative": {
-                "1": {
-                    "text": [
-                        "Something has startled you awake."
-                    ]
-                }
-            }
-        }
     }
 }

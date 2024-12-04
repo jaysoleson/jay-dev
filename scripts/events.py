@@ -2816,15 +2816,13 @@ class Events:
             if not int(random.random() * num):
                 cat.sleeping = False
                 # print(f"{cat.name} woke up!")
-                if cat.ID == game.clan.your_cat.ID and game.clan.next_activity == "sleep":
-                    game.clan.next_activity = None
-                    game.cur_events_list.append(
-                        Single_Event(
-                        "You have awoken, well-rested!",
-                        "alert",
-                        game.clan.your_cat.ID
-                        )
+                game.cur_events_list.append(
+                    Single_Event(
+                    "You have awoken, well-rested!",
+                    "alert",
+                    game.clan.your_cat.ID
                     )
+                )
 
         else:
             if cat.stats.energy > 50:
@@ -2849,27 +2847,11 @@ class Events:
                         game.clan.your_cat.ID
                         )
                     )
-                    game.clan.next_activity = "sleep"
 
     def hg_activity(self):
         """ activities from the clan screen!"""
 
         if game.clan.next_activity is None:
-            return
-        
-        if game.clan.next_activity == "sleep" and game.clan.your_cat.sleeping is False:
-            # ^^ so this only happens when attempting to go to sleep, not while you're already asleep.
-            safety = (self.MAP_POSITION_INFO[game.clan.your_cat.map_position]["safety"]) * 10
-            if not int(random.random() * safety):
-                event = "You don't feel safe enough here to sleep."
-                game.cur_events_list.insert(0, Single_Event(event, "alert", game.clan.your_cat.ID))
-                game.clan.next_activity = None
-                return
-        elif game.clan.next_activity != "sleep" and game.clan.your_cat.sleeping is True:
-            print("activity is not sleep, and you are asleep")
-            event = "You're awake."
-            game.cur_events_list.insert(0, Single_Event(event, "alert", game.clan.your_cat.ID))
-            game.clan.your_cat.sleeping = False
             return
 
         with open(f"resources/dicts/hunger_games_dicts/{(game.clan.biome).lower()}/activities.json",encoding="ascii") as read_file:
@@ -2890,10 +2872,7 @@ class Events:
                 activities[game.clan.next_activity]["intro_text"]
             )
 
-        if game.clan.next_activity == "sleep":
-            outcome = random.choice(["positive", "neutral", "positive", "neutral", "positive", "neutral", "negative"])
-        else:
-            outcome = random.choice(["positive", "neutral", "negative"])
+        outcome = random.choice(["positive", "neutral", "negative"])
 
         options = []
         if game.clan.next_activity == "investigate":
@@ -3050,20 +3029,9 @@ class Events:
                 except:
                     print("Incorrect injury in activity: ", item[1])
 
-        # eepy time
-        if game.clan.next_activity != "sleep":
-            game.clan.next_activity = None
-        else:
-            if outcome == "negative":
-                game.clan.your_cat.sleeping = False
-                game.clan.next_activity = None
-            else:
-                if not game.clan.your_cat.sleeping:
-                    game.clan.your_cat.sleeping = True
-    
+        game.clan.next_activity = None
 
     def travel_map(self, next_direction):
-        print("travel map")
         row, column = game.clan.your_cat.map_position.split("_")
         # grabbing the current position from the clan_cats string
 
@@ -3132,7 +3100,6 @@ class Events:
                 pass
 
             npc.map_position = f"{int(cat_row)}_{int(cat_column)}"
-            print(npc.name, "moved to", npc.map_position, "!")
 
             # ill do a better version of this later lol
             if npc.allies:
