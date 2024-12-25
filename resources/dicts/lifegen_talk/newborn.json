@@ -239,7 +239,7 @@
             "you_deaf"
         ],
         [
-            "[You notice a newborn kitten... t_c? t_c sits in the corner.]",
+            "[You notice a newborn kitten... T_c? t_c sits in the corner.]",
             "...",
             "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/don't/doesn't} look distressed so you decide to leave {PRONOUN/t_c/object} there.]"
         ]
@@ -826,7 +826,7 @@
             "you_deaf"
         ],
         [
-            "[t_c ... t_c ... t_c ...]",
+            "[t_c ... T_c ... T_c ...]",
             "[You run your beautiful new kit's perfect name over and over through your mind, certain you'll never ever forget it.]"
         ]
     ],
@@ -941,18 +941,6 @@
         [
             "... ... ...",
             "Mew... me..."
-        ]
-    ],
-    "stable_newborn_13": [
-        [
-            "Any",
-            "stable",
-            "they_blind",
-            "they_deaf",
-            "you_deaf"
-        ],
-        [
-            "[You watch curiously as t_c opens {PRONOUN/t_c/poss} little mouth again and again making a small popping sound. {PRONOUN/t_c/poss/CAP}{VERB/t_c/'re/'s} so cute!!!]"
         ]
     ],
     "newborn_fromlittermate": [
@@ -1793,7 +1781,7 @@
             "[You see t_c rolling in the misty fields, the tiny kitten angrily flopping around.]",
             "MEW!!!!",
             "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/squeal/squeals}, stomping {PRONOUN/t_c/poss} little paws onto the ground.]",
-            "[Is.. is this what a tantrum from {PRONOUN/t_c/object} looks like?]"
+            "[Is... is this what a tantrum from {PRONOUN/t_c/object} looks like?]"
         ]
     ],
     "newborn_1dead_dead": [
@@ -2233,6 +2221,45 @@
             "Mew?",
             "[Every single little mew from this kit seems to be a struggle, but {PRONOUN/t_c/subject} still {VERB/t_c/try/tries} so hard.]",
             "[Your heart aches.]"
+        ]
+    ],
+    "newborn_H1": [
+        [
+            "they_newborn",
+            "any",
+            "they_deaf",
+            "you_deaf",
+            "they_blind"
+        ],
+        [
+            "[t_c rolls around in the nest, getting a feeling of {PRONOUN/t_c/poss} surroundings.]"
+        ]
+    ],
+    "newborn_sc_SAM1": [
+        [
+            "they_newborn",
+            "any",
+            "you_deaf",
+            "they_blind",
+            "they_deaf",
+            "they_sc"
+        ],
+        [
+            "[t_c is stumbling around blindly.]"
+        ]
+    ],
+    "newborn_sc_H1": [
+        [
+            "they_newborn",
+            "they_sc",
+            "any",
+            "you_deaf",
+            "they_blind",
+            "they_deaf",
+            "they_sc"
+        ],
+        [
+            "[The little body among stars surprises you.]"
         ]
     ]
 }

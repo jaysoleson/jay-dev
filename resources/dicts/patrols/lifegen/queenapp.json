@@ -24,7 +24,12 @@
                 "text": "Your soothing lullaby calms the distressed kits, allowing them to sleep peacefully. The Clan praises your caring nature.",
                 "exp": 10,
                 "weight": 20,
-                "stat_skill": ["SINGER,1"]
+                "stat_skill": [
+                    "SINGER,1"
+                ],
+                "can_have_stat": [
+                    "p_l"
+                ]
             },
             {
                 "text": "You start to hum a lullaby, only to realize singing will not calm down the anxious kits this time. With quick thinking, you decide to tell the kits a story instead to distract them from their nightmares. Soon enough, you find yourself telling story after story until all the kittens are fast asleep.",
@@ -39,6 +44,9 @@
                     "lonesome",
                     "gloomy",
                     "mellow"
+                ],
+                "can_have_stat": [
+                    "p_l"
                 ]
             },
             {
@@ -53,6 +61,9 @@
                     "meek",
                     "cowardly",
                     "emotional"
+                ],
+                "can_have_stat": [
+                    "p_l"
                 ]
             },
             {
@@ -79,6 +90,9 @@
                     "meek",
                     "cowardly",
                     "emotional"
+                ],
+                "can_have_stat": [
+                    "p_l"
                 ]
             },
             {
@@ -90,7 +104,12 @@
                 "text": "You sing the lullaby, yet after a few moments of quiet, you find yourself nodding off with the rest of the kits. m_n finds you later snoring away and scolds you for falling asleep when you're supposed to be watching the kittens. Whoops.",
                 "exp": 10,
                 "weight": 20,
-                "stat_skill": ["SLEEPER,1"]
+                "stat_skill": [
+                    "SLEEPER,1"
+                ],
+                "can_have_stat": [
+                    "p_l"
+                ]
             }
         ]
     },
@@ -133,6 +152,9 @@
                     "lonesome",
                     "gloomy",
                     "mellow"
+                ],
+                "can_have_stat": [
+                    "p_l"
                 ]
             }
         ],
@@ -155,6 +177,9 @@
                     "lonesome",
                     "gloomy",
                     "mellow"
+                ],
+                "can_have_stat": [
+                    "p_l"
                 ]
             },
             {
@@ -169,6 +194,9 @@
                     "meek",
                     "cowardly",
                     "emotional"
+                ],
+                "can_have_stat": [
+                    "p_l"
                 ]
             }
         ]
@@ -195,7 +223,7 @@
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "You propose a new layout to the nursery, and even suggest making a rotating system so cats don't feel cramped with every cat in there at once. The queens bring up some worries for your ideas but decide to keep them as a possible solution.",
+                "text": "You propose a new layout to the nursery, and even suggest making a rotating system so cats don't feel cramped with everycat in there at once. The queens bring up some worries for your ideas but decide to keep them as a possible solution.",
                 "exp": 10,
                 "weight": 20
             },
@@ -212,6 +240,9 @@
                     "lonesome",
                     "gloomy",
                     "mellow"
+                ],
+                "can_have_stat": [
+                    "p_l"
                 ]
             }
         ],
@@ -227,7 +258,7 @@
                 "weight": 20
             },
             {
-                "text": "Although the meeting was calm and every cat pitched in ideas, the meeting ends with confusion and a promise to continue another moon. m_n mentions this is normal for arrangement meetings to last a few moons, so you shouldn't worry. Yet, wouldn't waiting for a solution cause the solution to fester?",
+                "text": "Although the meeting was calm and everycat pitched in ideas, the meeting ends with confusion and a promise to continue another moon. m_n mentions this is normal for arrangement meetings to last a few moons, so you shouldn't worry. Yet, wouldn't waiting for a solution cause the solution to fester?",
                 "exp": 0,
                 "weight": 20,
                 "stat_trait": [
@@ -239,6 +270,9 @@
                     "lonesome",
                     "gloomy",
                     "mellow"
+                ],
+                "can_have_stat": [
+                    "p_l"
                 ]
             }
         ]
@@ -260,7 +294,7 @@
         "max_cats": 3,
         "min_max_status": {},
         "weight": 20,
-        "intro_text": "r_k has become fussy and refuses to eat. {PRONOUN/r_k/subject}{VERB/r_k/'ve/'s} turned {PRONOUN/r_k/poss} back on m_n, so you're called in to assist. It's up to you to try to get through to r_k - and get {PRONOUN/r_k/object} to enjoy some prey.",
+        "intro_text": "r_k has become fussy and refuses to eat. {PRONOUN/r_k/subject/CAP}{VERB/r_k/'ve/'s} turned {PRONOUN/r_k/poss} back on m_n, so you're called in to assist. It's up to you to try to get through to r_k - and get {PRONOUN/r_k/object} to enjoy some prey.",
         "decline_text": "You assure the kit's parents r_k will eat eventually and you do not need to intervene.",
         "chance_of_success": 55,
         "success_outcomes": [
@@ -273,7 +307,12 @@
                 "text": "You hum and state the issue could be more serious than a fussy kit. Although it takes you a few tries and a lot of screaming from r_k, you examine the kit's mouth and determine something is wrong with r_k's teeth. You refer the parent's to r_m for further evaluation. m_n jokes you should have became a medicine cat apprentice instead with a fond look.",
                 "exp": 10,
                 "weight": 20,
-                "stat_skill": ["HEALER,1"]
+                "stat_skill": [
+                    "HEALER,1"
+                ],
+                "can_have_stat": [
+                    "p_l"
+                ]
             },
             {
                 "text": "You loudly and dramatically sigh, stating you guess r_k doesn't want to have a competition anymore! r_k gets curious and you challenge {PRONOUN/r_k/object} to a competition. Whoever eats a fresh-kill faster gets a badger ride! r_k brightens up and immediately starts eating. You allow r_k to win, as a reward, of course.",
@@ -288,6 +327,9 @@
                     "spontaneous",
                     "energetic",
                     "bouncy"
+                ],
+                "can_have_stat": [
+                    "p_l"
                 ]
             },
             {
@@ -296,6 +338,9 @@
                 "weight": 20,
                 "stat_trait": [
                     "strange"
+                ],
+                "can_have_stat": [
+                    "p_l"
                 ]
             }
         ],
@@ -327,6 +372,9 @@
                     "meek",
                     "cowardly",
                     "emotional"
+                ],
+                "can_have_stat": [
+                    "p_l"
                 ]
             }
         ]
@@ -462,6 +510,9 @@
                     "lonesome",
                     "gloomy",
                     "mellow"
+                ],
+                "can_have_stat": [
+                    "p_l"
                 ]
             }
         ],

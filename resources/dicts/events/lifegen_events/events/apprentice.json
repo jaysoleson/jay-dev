@@ -47,7 +47,7 @@
         "y_p checks in on you in the apprentice's den. You're doing fantastic in training! You brag that you're the best of the apprentices - or at least the one wanting to go go go!."
     ],
     "apprentice brooding": [
-        "r_d gives you a quick lesson on mediation but you don't bother to listen. {PRONOUN/r_d/poss} techniques don't work, anyway.",
+        "r_d gives you a quick lesson on mediation but you don't bother to listen. {PRONOUN/r_d/poss/CAP} techniques don't work, anyway.",
         "You spend a day in the medicine cat's den. r_m instructs you about some basic herbs and their uses. You listen in silence, occasionally giving a curt nod.",
         "You sulk in your nest, questioning whether you're truly cut out to be a warrior after a mistake during training.",
         "Jealousy swells in your chest as you watch m_n praising r_a. You wonder bitterly if you'll ever be good enough.",
@@ -101,7 +101,6 @@
         "When r_e tells you stories, you're comforted by the cats and places you recognize.",
         "You spend so long double-checking r_e for ticks that {PRONOUN/r_e/subject} fall asleep.",
         "You wonder if you're living up to y_p's hopes and expectations."
-
     ],
     "apprentice silly": [
         "You put a beetle in r_a's nest as a prank, giggling uncontrollably when {PRONOUN/r_a/subject} {VERB/r_a/leap/leaps} up in surprise.",

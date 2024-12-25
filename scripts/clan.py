@@ -338,9 +338,9 @@ class Clan:
         number_other_clans = randint(3, 5)
         for _ in range(number_other_clans):
             other_clan_names = [str(i.name) for i in self.all_clans] + [game.clan.name]
-            other_clan_name = choice(names.names_dict["normal_prefixes"])
+            other_clan_name = choice(names.names_dict["normal_prefixes"] + names.names_dict["clan_prefixes"])
             while other_clan_name in other_clan_names:
-                other_clan_name = choice(names.names_dict["normal_prefixes"])
+                other_clan_name = choice(names.names_dict["normal_prefixes"] + names.names_dict["clan_prefixes"])
             other_clan = OtherClan(name=other_clan_name)
             self.all_clans.append(other_clan)
         if 'other_med' in game.switches:
@@ -924,18 +924,20 @@ class Clan:
         clan_data["patrolled_cats"] = [str(i) for i in game.patrolled]
 
         # OTHER CLANS
-        # Clan Names
-        clan_data["other_clans_names"] = ",".join([str(i.name) for i in self.all_clans])
-        clan_data["other_clans_relations"] = ",".join(
-            [str(i.relations) for i in self.all_clans]
-        )
-        clan_data["other_clan_temperament"] = ",".join(
-            [str(i.temperament) for i in self.all_clans])
-        clan_data["other_clan_infected"] = ",".join(
-            [str(i.infection_level) for i in self.all_clans])
-        clan_data["other_clan_chosen_symbol"] = ",".join(
-            [str(i.chosen_symbol) for i in self.all_clans]
-        )
+        # # Clan Names
+        # clan_data["other_clans_names"] = ",".join([str(i.name) for i in self.all_clans])
+        # clan_data["other_clans_relations"] = ",".join(
+        #     [str(i.relations) for i in self.all_clans]
+        # )
+        # clan_data["other_clan_temperament"] = ",".join(
+        #     [str(i.temperament) for i in self.all_clans])
+        # clan_data["other_clan_infected"] = ",".join(
+        #     [str(i.infection_level) for i in self.all_clans])
+        # clan_data["other_clan_chosen_symbol"] = ",".join(
+        #     [str(i.chosen_symbol) for i in self.all_clans]
+        # )
+        clan_data["other_clans"] = [vars(i) for i in self.all_clans]
+        
         clan_data["war"] = self.war
         clan_data['achievements'] = self.achievements
         clan_data['talks'] = self.talks
@@ -1023,7 +1025,7 @@ class Clan:
         """
         TODO: DOCS
         """
-        other_clans = []
+
         if game.switches["clan_list"] == "":
             number_other_clans = randint(3, 5)
             for _ in range(number_other_clans):
@@ -1247,7 +1249,7 @@ class Clan:
         else:
             med_cat = None
 
-        game.switches["error_message"] = "Error loading ---clan.json. Check clanname/biome/camp_bg/gamemode"
+        game.switches["error_message"] = "Error loading ---clan.json. Check clanname/biome/camp_bg/gamemode or leader/deputy/medcat info"
         game.clan = Clan(
             name=clan_data["clanname"],
             leader=leader,
@@ -1328,23 +1330,9 @@ class Clan:
         else:
             game.clan.chosen_symbol = clan_symbol_sprite(game.clan, return_string=True)
 
-        if "other_clan_chosen_symbol" not in clan_data:
-            if "other_clan_infected" not in clan_data:
-                other_clans_names = clan_data["other_clans_names"].split(", ")
-                infection_levels = ["0"] * len(other_clans_names)
-                infection_levels_str = ",".join(infection_levels)
-
-                infection = infection_levels_str.split(",")
-            else:
-                infection = clan_data["other_clan_infected"].split(",")
-
-            for name, relation, temper, infection_level in zip(
-                clan_data["other_clans_names"].split(","),
-                clan_data["other_clans_relations"].split(","),
-                clan_data["other_clan_temperament"].split(","),
-                infection
-            ):
-                game.clan.all_clans.append(OtherClan(name, int(relation), temper, infection_level))
+        if "other_clans" in clan_data:
+            for other_clan in clan_data["other_clans"]:
+                game.clan.all_clans.append(OtherClan(other_clan["name"], int(other_clan["relations"]), other_clan["temperament"], other_clan["chosen_symbol"], int(other_clan["infection_level"])))
         else:
             if "other_clan_infected" not in clan_data:
                 other_clans_names = clan_data["other_clans_names"].split(", ")
@@ -1355,16 +1343,25 @@ class Clan:
             else:
                 infection = clan_data["other_clan_infected"].split(",")
 
-            for name, relation, temper, infection_level, symbol in zip(
-                clan_data["other_clans_names"].split(","),
-                clan_data["other_clans_relations"].split(","),
-                clan_data["other_clan_temperament"].split(","),
-                infection,
-                clan_data["other_clan_chosen_symbol"].split(","),
-            ):
-                game.clan.all_clans.append(
-                    OtherClan(name, int(relation), temper, infection_level, symbol)
-                )
+            if "other_clan_chosen_symbol" not in clan_data:
+                for name, relation, temper, infection_level in zip(
+                    clan_data["other_clans_names"].split(","),
+                    clan_data["other_clans_relations"].split(","),
+                    clan_data["other_clan_temperament"].split(","),
+                    infection,
+                ):
+                    game.clan.all_clans.append(OtherClan(name, int(relation), temper, int(infection_level)))
+            else:
+                for name, relation, temper, infection_level, symbol in zip(
+                    clan_data["other_clans_names"].split(","),
+                    clan_data["other_clans_relations"].split(","),
+                    clan_data["other_clan_temperament"].split(","),
+                    infection,
+                    clan_data["other_clan_chosen_symbol"].split(","),
+                ):
+                    game.clan.all_clans.append(
+                        OtherClan(name, int(relation), temper, int(infection_level), symbol)
+                    )
 
         for cat in clan_data["clan_cats"].split(","):
             if cat in Cat.all_cats:
