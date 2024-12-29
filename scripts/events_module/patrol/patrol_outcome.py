@@ -73,8 +73,7 @@ class PatrolOutcome:
         outcome_art: Union[str, None] = None,
         outcome_art_clean: Union[str, None] = None,
         stat_cat: Cat = None,
-        cure_log: List[str] = None,
-        story_cat: List[str] = None
+        cure_log: List[str] = None
     ):
         self.success = success
         self.antagonize = antagonize
@@ -119,7 +118,6 @@ class PatrolOutcome:
         self.outcome_art_clean = outcome_art_clean
 
         self.cure_log = cure_log if cure_log is not None else []
-        self.story_cat = story_cat if story_cat is not None else []
 
         # This will hold the stat cat, for filtering purposes
         self.stat_cat = stat_cat
@@ -222,8 +220,7 @@ class PatrolOutcome:
                     outcome_art=_d.get("art"),
                     outcome_art_clean=_d.get("art_clean"),
                     
-                    cure_log = _d.get("cure_log"),
-                    story_cat = _d.get("story_cat")
+                    cure_log = _d.get("cure_log")
                 )
             )
 
@@ -307,7 +304,7 @@ class PatrolOutcome:
                 Cat, self.relationship_effects, patrol, stat_cat=self.stat_cat
             )
         )
-        results.append(self._handle_rep_changes())
+        results.append(self._handle_rep_changes(patrol))
         results.append(self._handle_other_clan_relations(patrol))
         results.append(self._handle_prey(patrol))
         results.append(self._handle_herbs(patrol))
@@ -961,69 +958,6 @@ class PatrolOutcome:
                         results.append(f"{_cat.name} got an accessory!")
 
         return " ".join(results)
-    
-    def _handle_story_cats(self, patrol:'Patrol') -> str:
-        """ cats getting accessories """
-        
-        if not self.story_cat:
-            return ""
-        
-        def gather_cat_objects(cat_list, patrol: 'Patrol') -> list:
-            out_set = set()
-            
-            for _cat in cat_list:
-                if _cat == "r_c":
-                    out_set.add(patrol.random_cat)
-                elif _cat == "p_l":
-                    out_set.add(patrol.patrol_leader)
-                elif _cat == "s_c":
-                    out_set.add(self.stat_cat)
-                elif _cat == "y_c":
-                    out_set.add(game.clan.your_cat)
-                elif _cat == "o_c1":
-                    out_set.add(patrol.patrol_cats[2])
-                elif _cat == "app1" and len(patrol.patrol_apprentices) >= 1:
-                    out_set.add(patrol.patrol_apprentices[0])
-                elif _cat == "app2" and len(patrol.patrol_apprentices) >= 2:
-                    out_set.add(patrol.patrol_apprentices[1])
-                elif _cat == "patrol":
-                    out_set.update(patrol.patrol_cats)
-                elif _cat == "multi":
-                    cat_num = random.randint(1, max(1, len(patrol.patrol_cats) - 1))
-                    out_set.update(random.sample(patrol.patrol_cats, cat_num))
-                elif _cat == "some_clan":
-                    clan_cats = [x for x in Cat.all_cats_list if not (x.dead or x.outside)]
-                    out_set.update(random.sample(clan_cats, k=min(len(clan_cats), choice([2, 3, 4]))))
-                elif re.match(r"n_c:[0-9]+", _cat):
-                    index = re.match(r"n_c:([0-9]+)", _cat).group(1)
-                    index = int(index)
-                    if index < len(patrol.new_cats):
-                        out_set.update(patrol.new_cats[index])
-                    
-                    
-            return list(out_set)
-        
-        results = []
-       
-        for block in self.story_cat:
-            cats = gather_cat_objects(block.get("cats", ()), patrol)
-            cats2 = gather_cat_objects(block.get("cats2", ()), patrol)
-            story_cat = block.get("story_cat", ())
-            story_cat2 = block.get("story_cat2", ())
-            if not (cats and story_cat):
-                print(f"something is wrong with story_cat - {block}")
-                continue
-
-            for _cat in cats:
-                sc = str(story_cat)
-                game.clan.infection[f"story_cat_{sc}"] = _cat.ID
-            
-            if cats2 and story_cat2:
-                for _cat in cats2:
-                    sc = str(story_cat2)
-                    game.clan.infection[f"story_cat_{sc}"] = _cat.ID
-
-        return ""
             
     def _handle_rep_changes(self, patrol:'Patrol') -> str:
         """ Handles any changes in outsider rep"""

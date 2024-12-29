@@ -1332,7 +1332,7 @@ class Clan:
 
         if "other_clans" in clan_data:
             for other_clan in clan_data["other_clans"]:
-                game.clan.all_clans.append(OtherClan(other_clan["name"], int(other_clan["relations"]), other_clan["temperament"], other_clan["chosen_symbol"], int(other_clan["infection_level"])))
+                game.clan.all_clans.append(OtherClan(other_clan["name"], int(other_clan["relations"]), other_clan["temperament"], int(other_clan["infection_level"]), other_clan["chosen_symbol"]))
         else:
             if "other_clan_infected" not in clan_data:
                 other_clans_names = clan_data["other_clans_names"].split(", ")

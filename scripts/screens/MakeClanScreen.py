@@ -1194,10 +1194,12 @@ class MakeClanScreen(Screens):
             )
 
             # INF
+            tab_rect = ui_scale(pygame.Rect((0, 0), (135, 30)))
+            tab_rect.topright = ui_scale_offset((5, 5))
             self.tabs["tab7"] = UISurfaceImageButton(
                 tab_rect,
                 "Graveyard",
-                get_button_dict(ButtonStyles.VERTICAL_TAB, (115, 30)),
+                get_button_dict(ButtonStyles.VERTICAL_TAB, (135, 30)),
                 object_id="@buttonstyles_vertical_tab",
                 manager=MANAGER,
                 anchors={
@@ -1260,20 +1262,6 @@ class MakeClanScreen(Screens):
                     "right_target": self.elements["art_frame"],
                     "top_target": self.tabs["tab3"],
                 }
-            )
-            tab_rect = ui_scale(pygame.Rect((0, 0), (80, 30)))
-            tab_rect.topright = ui_scale_offset((5, 5))
-            self.tabs["tab5"] = UISurfaceImageButton(
-                tab_rect,
-                "Ruins",
-                get_button_dict(ButtonStyles.VERTICAL_TAB, (80, 30)),
-                object_id="@buttonstyles_vertical_tab",
-                manager=MANAGER,
-                anchors={
-                    "right": "right",
-                    "right_target": self.elements["art_frame"],
-                    "top_target": self.tabs["tab4"],
-                },
             )
             # LG
             tab_rect = ui_scale(pygame.Rect((0, 0), (85, 30)))
@@ -1795,108 +1783,106 @@ class MakeClanScreen(Screens):
         
         if game.settings['dark mode']:
             self.elements["clan_size"] = pygame_gui.elements.UITextBox("This Clan will be... ",
-                                                              ui_scale(pygame.Rect((200, 100), (405, 25))),
+                                                              ui_scale(pygame.Rect((200, 85), (405, 25))),
                                                               object_id="#text_box_30_horizcenter_light",
                                                               manager=MANAGER)
         else:
             self.elements["clan_size"] = pygame_gui.elements.UITextBox("This Clan will be... ",
-                                                              ui_scale(pygame.Rect((200, 100), (405, 25))),
+                                                              ui_scale(pygame.Rect((200, 85), (405, 25))),
                                                               object_id="#text_box_30_horizcenter",
                                                               manager=MANAGER)
 
         self.elements["small"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((220, 160), (100, 30))),
+            ui_scale(pygame.Rect((220, 120), (100, 30))),
             "Small",
             get_button_dict(ButtonStyles.SQUOVAL, (100, 30)),
-            object_id="@buttonstyles_icon",
+            object_id="@buttonstyles_squoval",
             manager=MANAGER
         )
 
         self.elements["medium"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((350, 160), (100, 30))),
+            ui_scale(pygame.Rect((350, 120), (100, 30))),
             "Medium",
             get_button_dict(ButtonStyles.SQUOVAL, (100, 30)),
-            object_id="@buttonstyles_icon",
+            object_id="@buttonstyles_squoval",
             manager=MANAGER
         )
 
         self.elements["large"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((480, 160), (100, 30))),
+            ui_scale(pygame.Rect((480, 120), (100, 30))),
             "Large",
             get_button_dict(ButtonStyles.SQUOVAL, (100, 30)),
-            object_id="@buttonstyles_icon",
+            object_id="@buttonstyles_squoval",
             manager=MANAGER
         )
 
         self.elements["medium"].disable()
 
         self.elements["established"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((295, 200), (80, 30))),
+            ui_scale(pygame.Rect((295, 170), (80, 30))),
             "Old",
             get_button_dict(ButtonStyles.SQUOVAL, (80, 30)),
-            object_id="@buttonstyles_icon",
+            object_id="@buttonstyles_squoval",
             tool_tip_text="The Clan has existed for many moons and cats' backstories will reflect this.",
             manager=MANAGER
         )
         self.elements["new"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((425, 200), (80, 30))),
+            ui_scale(pygame.Rect((425, 170), (80, 30))),
             "New",
             get_button_dict(ButtonStyles.SQUOVAL, (80, 30)),
-            object_id="@buttonstyles_icon",
+            object_id="@buttonstyles_squoval",
             tool_tip_text="The Clan is newly established and cats' backstories will reflect this.",
             manager=MANAGER
         )
         self.elements["established"].disable()
 
         # INF
-        self.elements["fungal"] = UIImageButton(
-            scale(pygame.Rect((200, 350), (192, 60))),
-            "Fungal",
-            object_id="",
+        if game.settings['dark mode']:
+            self.elements["infection_type"] = pygame_gui.elements.UITextBox("Your infection will be...",
+                                                              ui_scale(pygame.Rect((200, 245), (405, 25))),
+                                                              object_id="#text_box_30_horizcenter_light",
+                                                              manager=MANAGER)
+        else:
+            self.elements["infection_type"] = pygame_gui.elements.UITextBox("Your infection will be...",
+                                                              ui_scale(pygame.Rect((200, 245), (405, 25))),
+                                                              object_id="#text_box_30_horizcenter",
+                                                              manager=MANAGER)
+        
+        self.elements["fungal"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((227, 275), (110, 30))),
+            Icon.HERB + " Fungal",
+            get_button_dict(ButtonStyles.SQUOVAL, (110, 30)),
+            object_id="@buttonstyles_squoval",
+            tool_tip_text="An intrusive fungus.",
             manager=MANAGER
-            )
-        self.elements["fungal_text"] = pygame_gui.elements.UITextBox(
-            "An intrusive fungus.",
-            scale(pygame.Rect((400, 350), (600, 60))),
-            object_id="#text_box_30_horizleft_light",
+        )
+        
+        self.elements["parasitic"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((347, 275), (110, 30))),
+            Icon.SCRATCHES + " Parasitic",
+            get_button_dict(ButtonStyles.SQUOVAL, (110, 30)),
+            object_id="@buttonstyles_squoval",
+            tool_tip_text="Gorey and violent.",
             manager=MANAGER
-            )
-        self.elements["parasitic"] = UIImageButton(
-            scale(pygame.Rect((200, 430), (192, 60))),
-            "Parasitic",
-            object_id="",
+        )
+        
+        self.elements["void"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((467, 275), (110, 30))),
+            Icon.DARKFOREST + " Void",
+            get_button_dict(ButtonStyles.SQUOVAL, (110, 30)),
+            object_id="@buttonstyles_squoval",
+            tool_tip_text="A sickness with supernatural properties.",
             manager=MANAGER
-            )
-        self.elements["parasitic_text"] = pygame_gui.elements.UITextBox(
-            "Gorey and violent.",
-            scale(pygame.Rect((400, 430), (600, 60))),
-            object_id="#text_box_30_horizleft_light",
+        )
+        
+        self.elements["random_type"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((182, 275), (30, 30))),
+            Icon.DICE,
+            get_button_dict(ButtonStyles.ICON, (30, 30)),
+            object_id="@buttonstyles_icon",
+            tool_tip_text="Leave your fate up to chance.",
             manager=MANAGER
-            )
-        self.elements["void"] = UIImageButton(
-            scale(pygame.Rect((200, 510), (192, 60))),
-            "Void",
-            object_id="",
-            manager=MANAGER
-            )
-        self.elements["void_text"] = pygame_gui.elements.UITextBox(
-            "A sickness with supernatural properties.",
-            scale(pygame.Rect((400, 510), (600, 60))),
-            object_id="#text_box_30_horizleft_light",
-            manager=MANAGER
-            )
-        self.elements["random_type"] = UIImageButton(
-            scale(pygame.Rect((200, 590), (192, 60))),
-            "Random",
-            object_id="",
-            manager=MANAGER
-            )
-        self.elements["random_text"] = pygame_gui.elements.UITextBox(
-            "Leave your fate up to chance.",
-            scale(pygame.Rect((400, 590), (600, 60))),
-            object_id="#text_box_30_horizleft_light",
-            manager=MANAGER
-            )
+        )
         
         self.elements["random_type"].disable()
         self.elements["fungal"].enable()
@@ -4560,7 +4546,7 @@ class MakeClanScreen(Screens):
             game.cat_to_fade.clear()
             Cat.outside_cats.clear()
             Patrol.used_patrols.clear()
-            convert_camp = {1: 'camp1', 2: 'camp2', 3: 'camp3', 4: 'camp4', 5: 'camp5', 6: 'camp6'}
+            convert_camp = {1: 'camp1', 2: 'camp2', 3: 'camp3', 4: 'camp4', 5: 'camp5', 6: 'camp6', 7: 'camp7'}
             self.your_cat.create_inheritance_new_cat()
             game.clan = Clan(name = self.clan_name,
                             leader = self.leader,

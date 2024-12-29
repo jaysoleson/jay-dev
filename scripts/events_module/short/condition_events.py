@@ -439,6 +439,7 @@ class Condition_Events:
 
                     infected_cats = [cat for cat in Cat.all_cats_list if not cat.outside and not cat.dead and cat.infected_for > 0]
 
+                    strings = []
                     if game.clan.infection["spread_by"] == "bite":
                         strings = [
                             f"{cat.name} was bitten by an infected rogue.",
@@ -630,25 +631,6 @@ class Condition_Events:
         got_condition = False
         perm_condition = None
         possible_conditions = []
-
-        if illness_name is not None:
-            if scar is not None and scar in scar_to_condition:
-                possible_conditions = scar_to_condition.get(scar)
-                perm_condition = random.choice(possible_conditions)
-            elif scar is None:
-                try:
-                    if Condition_Events.ILLNESSES[illness_name] is not None:
-                        conditions = Condition_Events.ILLNESSES[illness_name]["cause_permanent"]
-                        for x in conditions:
-                            if x in scarless_conditions:
-                                possible_conditions.append(x)
-                        if len(possible_conditions) > 0 and not int(random.random() * game.config["condition_related"]["permanent_condition_chance"]):
-                            perm_condition = random.choice(possible_conditions)
-                        else:
-                            return perm_condition
-                except KeyError:
-                    print(f"WARNING: {illness_name} couldn't be found in illness dict! no permanent condition was given")
-                    return perm_condition
 
         if injury_name is not None:
             if scar is not None and scar in scar_to_condition:

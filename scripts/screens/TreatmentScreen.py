@@ -13,20 +13,24 @@ from scripts.events import events_class
 from scripts.clan import HERBS
 
 from .Screens import Screens
-from scripts.utility import get_personality_compatibility, get_text_box_theme, scale, scale_dimentions, shorten_text_to_fit, pronoun_repl
+from scripts.utility import get_personality_compatibility, get_text_box_theme, ui_scale, shorten_text_to_fit, pronoun_repl
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
 from scripts.cat.pelts import Pelt
 from scripts.game_structure.windows import GameOver, PickPath, DeathScreen
-from scripts.game_structure.ui_elements import UIImageButton, UISpriteButton, UIRelationStatusBar
-from scripts.game_structure.game_essentials import game, screen, screen_x, screen_y, MANAGER
+from scripts.game_structure.ui_elements import UIImageButton, UISpriteButton, UIRelationStatusBar, UISurfaceImageButton
+from scripts.game_structure.game_essentials import game
 from scripts.game_structure.windows import RelationshipLog
 from scripts.game_structure.propagating_thread import PropagatingThread
+from ..game_structure.screen_settings import MANAGER
+from ..ui.generate_box import BoxStyles, get_box
+from ..ui.generate_button import get_button_dict, ButtonStyles
+from ..ui.get_arrow import get_arrow
+from ..ui.icon import Icon
 
 class TreatmentScreen(Screens):
     selected_cat = None
     current_page = 1
-    list_frame = None
     apprentice_details = {}
     selected_details = {}
     cat_list_buttons = {}
@@ -38,6 +42,7 @@ class TreatmentScreen(Screens):
     def __init__(self, name=None):
         super().__init__(name)
         self.list_page = None
+        self.list_frame = None
         self.next_cat = None
         self.previous_cat = None
         self.next_page_button = None
@@ -207,7 +212,7 @@ class TreatmentScreen(Screens):
 
         self.herb_displays["desc"] = pygame_gui.elements.UITextBox(
             "<u>Pick up to four herbs to try.</u>",
-            scale(pygame.Rect((300, 880), (1000, 80))),
+            ui_scale(pygame.Rect((150, 440), (500, 40))),
             object_id=get_text_box_theme("#text_box_34_horizcenter"),
             manager=MANAGER
             )
@@ -227,14 +232,14 @@ class TreatmentScreen(Screens):
 
         self.herb_displays["herbs"] = pygame_gui.elements.UITextBox(
             f"<i>{text}</i>",
-            scale(pygame.Rect((300, 950), (1000, 80))),
+            ui_scale(pygame.Rect((150, 475), (500, 40))),
             object_id=get_text_box_theme("#text_box_34_horizcenter"),
             manager=MANAGER
             )
         
         if "cure_found" in game.clan.infection["logs"]:
             self.herb_displays["cure_button"] = UIImageButton(
-                    scale(pygame.Rect((300, 780), (160, 80))), 
+                    ui_scale(pygame.Rect((150, 390), (80, 40))), 
                     "Use cure",
                     object_id="",
                     manager=MANAGER
@@ -256,11 +261,11 @@ class TreatmentScreen(Screens):
             self.herb_buttons[ele].kill()
         self.herb_buttons = {}
 
-        x_start = 880
-        y_start = 190
-        x_spacing = 130
-        y_spacing = 130
-        grid_size = 5
+        x_start = 440
+        y_start = 95
+        x_spacing = 65
+        y_spacing = 65
+        grid_size = 2
 
         x_pos = x_start
         y_pos = y_start
@@ -274,7 +279,7 @@ class TreatmentScreen(Screens):
         for index, herb in enumerate(HERBS):
             if herb not in selected_herbs:
                 self.herb_buttons[herb] = UIImageButton(
-                    scale(pygame.Rect((x_pos, y_pos), (110, 110))), 
+                    ui_scale(pygame.Rect((x_pos, y_pos), (55, 55))), 
                     "",
                     tool_tip_text=f"{herb.replace('_', ' ')}",
                     object_id=f"#{herb}",
@@ -282,7 +287,7 @@ class TreatmentScreen(Screens):
                 )
             else:
                 self.herb_buttons[herb] = UIImageButton(
-                    scale(pygame.Rect((x_pos, y_pos), (110, 110))), 
+                    ui_scale(pygame.Rect((x_pos, y_pos), (55, 55))), 
                     "",
                     tool_tip_text=f"{herb.replace('_', ' ')}",
                     object_id=f"#{herb}_selected",
@@ -319,32 +324,54 @@ class TreatmentScreen(Screens):
             self.subtitle = None
             self.screenart = None
 
-            self.list_frame = pygame.transform.scale(image_cache.load_image("resources/images/choosing_frame.png").convert_alpha(),
-                                        (1300 / 1600 * screen_x, 355 / 1300 * screen_y))
+            list_frame = get_box(BoxStyles.ROUNDED_BOX, (650, 226))
+            self.list_frame = pygame_gui.elements.UIImage(
+                ui_scale(pygame.Rect((75, 360), (650, 226))), list_frame, starting_height=1
+            )
             
             self.heading = pygame_gui.elements.UITextBox("Choose the patient",
-                                                        scale(pygame.Rect((300, 50), (1000, 80))),
+                                                        ui_scale(pygame.Rect((150, 25), (500, 40))),
                                                         object_id=get_text_box_theme("#text_box_34_horizcenter"),
                                                         manager=MANAGER)
             
             # Layout Images:
-            self.mentor_frame = pygame_gui.elements.UIImage(scale(pygame.Rect((200, 226), (562, 394))),
+            self.mentor_frame = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((100, 113), (281, 197))),
                                                             pygame.transform.scale(
                                                                 image_cache.load_image(
                                                                     "resources/images/choosing_cat1_frame_ment.png").convert_alpha(),
-                                                                (569, 399)), manager=MANAGER)
+                                                                (284, 199)), manager=MANAGER)
             
-            self.back_button = UIImageButton(scale(pygame.Rect((50, 1290), (210, 60))), "", object_id="#back_button")
-        
-            self.previous_page_button = UIImageButton(scale(pygame.Rect((630, 1155), (68, 68))), "",
-                                                    object_id="#relation_list_previous", manager=MANAGER)
-            self.next_page_button = UIImageButton(scale(pygame.Rect((902, 1155), (68, 68))), "",
-                                                object_id="#relation_list_next", manager=MANAGER)
+            self.back_button = UIImageButton(ui_scale(pygame.Rect((25, 645), (105, 30))), "", object_id="#back_button")
             
-            self.previous_stage_button = UIImageButton(scale(pygame.Rect((220, 670), (68, 68))), "",
-                                                    object_id="#arrow_left_button", manager=MANAGER)
-            self.next_stage_button = UIImageButton(scale(pygame.Rect((450, 670), (68, 68))), "",
-                                                object_id="#arrow_right_button", manager=MANAGER)
+            self.previous_page_button = UISurfaceImageButton(
+                ui_scale(pygame.Rect((315, 579), (34, 34))),
+                Icon.ARROW_LEFT,
+                get_button_dict(ButtonStyles.ICON, (34, 34)),
+                object_id="@buttonstyles_icon",
+                starting_height=0,
+            )
+            self.next_page_button = UISurfaceImageButton(
+                ui_scale(pygame.Rect((451, 579), (34, 34))),
+                Icon.ARROW_RIGHT,
+                get_button_dict(ButtonStyles.ICON, (34, 34)),
+                object_id="@buttonstyles_icon",
+                starting_height=0,
+            )
+
+            self.previous_stage_button = UISurfaceImageButton(
+                ui_scale(pygame.Rect((110, 335), (34, 34))),
+                Icon.ARROW_LEFT,
+                get_button_dict(ButtonStyles.ICON, (34, 34)),
+                object_id="@buttonstyles_icon",
+                starting_height=0,
+            )
+            self.next_stage_button = UISurfaceImageButton(
+                ui_scale(pygame.Rect((225, 335), (34, 34))),
+                Icon.ARROW_RIGHT,
+                get_button_dict(ButtonStyles.ICON, (34, 34)),
+                object_id="@buttonstyles_icon",
+                starting_height=0,
+            )
             
             self.previous_stage_button.disable()
             self.next_stage_button.disable()
@@ -365,31 +392,51 @@ class TreatmentScreen(Screens):
             self.screenart = None
 
             self.heading = pygame_gui.elements.UITextBox("Choose a treatment",
-                                                        scale(pygame.Rect((300, 50), (1000, 80))),
+                                                        ui_scale(pygame.Rect((150, 25), (500, 40))),
                                                         object_id=get_text_box_theme("#text_box_34_horizcenter"),
                                                         manager=MANAGER)
             
             # Layout Images:
-            self.mentor_frame = pygame_gui.elements.UIImage(scale(pygame.Rect((200, 226), (562, 394))),
+            self.mentor_frame = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((100, 113), (281, 197))),
                                                             pygame.transform.scale(
                                                                 image_cache.load_image(
                                                                     "resources/images/choosing_cat1_frame_ment.png").convert_alpha(),
-                                                                (569, 399)), manager=MANAGER)
+                                                                (281, 197)), manager=MANAGER)
             
             self.update_herb_buttons()
 
-            self.back_button = UIImageButton(scale(pygame.Rect((50, 1290), (210, 60))), "", object_id="#back_button")
+            self.back_button = UIImageButton(ui_scale(pygame.Rect((25, 645), (105, 30))), "", object_id="#back_button")
 
-            self.previous_page_button = UIImageButton(scale(pygame.Rect((630, 1155), (68, 68))), "",
-                                                    object_id="#relation_list_previous", manager=MANAGER)
-            self.next_page_button = UIImageButton(scale(pygame.Rect((902, 1155), (68, 68))), "",
-                                                object_id="#relation_list_next", manager=MANAGER)
-            
-            self.previous_stage_button = UIImageButton(scale(pygame.Rect((220, 670), (68, 68))), "",
-                                                    object_id="#arrow_left_button", manager=MANAGER)
-            self.next_stage_button = UIImageButton(scale(pygame.Rect((450, 670), (68, 68))), "",
-                                                object_id="#arrow_right_button", tool_tip_text="Proceed to treatment",manager=MANAGER)
-            
+            self.previous_page_button = UISurfaceImageButton(
+                ui_scale(pygame.Rect((315, 579), (34, 34))),
+                Icon.ARROW_LEFT,
+                get_button_dict(ButtonStyles.ICON, (34, 34)),
+                object_id="@buttonstyles_icon",
+                starting_height=0,
+            )
+            self.next_page_button = UISurfaceImageButton(
+                ui_scale(pygame.Rect((451, 579), (34, 34))),
+                Icon.ARROW_RIGHT,
+                get_button_dict(ButtonStyles.ICON, (34, 34)),
+                object_id="@buttonstyles_icon",
+                starting_height=0,
+            )
+
+            self.previous_stage_button = UISurfaceImageButton(
+                ui_scale(pygame.Rect((110, 335), (34, 34))),
+                Icon.ARROW_LEFT,
+                get_button_dict(ButtonStyles.ICON, (34, 34)),
+                object_id="@buttonstyles_icon",
+                starting_height=0,
+            )
+            self.next_stage_button = UISurfaceImageButton(
+                ui_scale(pygame.Rect((225, 335), (34, 34))),
+                Icon.ARROW_RIGHT,
+                get_button_dict(ButtonStyles.ICON, (34, 34)),
+                object_id="@buttonstyles_icon",
+                starting_height=0,
+            )
+
             self.next_stage_button.disable()
             self.update_selected_cat()
             self.previous_page_button.hide()
@@ -408,7 +455,7 @@ class TreatmentScreen(Screens):
             else:
                 img = "treatment_den_light"
             self.screenart = pygame_gui.elements.UIImage(
-                scale(pygame.Rect((0, 0), (1600, 806))),
+                ui_scale(pygame.Rect((0, 0), (800, 403))),
                 image_cache.load_image(f"resources/images/{img}.png").convert_alpha()
             )
 
@@ -424,37 +471,37 @@ class TreatmentScreen(Screens):
                 infected_cat_1 = choice(infected_cats)
                 infected_cats.remove(infected_cat_1)
                 self.additional_infected_sprites["1"] = pygame_gui.elements.UIImage(
-                                            scale(pygame.Rect((150, 400), (300, 300))),
+                                            ui_scale(pygame.Rect((75, 200), (150, 150))),
                                             pygame.transform.scale(
                                             infected_cat_1.sprite,
-                                            (300, 300)), manager=MANAGER
+                                            (150, 150)), manager=MANAGER
                                             )
             if infected > 1:
                 infected_cat_2 = choice(infected_cats)
                 infected_cats.remove(infected_cat_2)
                 self.additional_infected_sprites["2"] = pygame_gui.elements.UIImage(
-                                            scale(pygame.Rect((1010, 430), (250, 250))),
+                                            ui_scale(pygame.Rect((505, 215), (125, 125))),
                                             pygame.transform.scale(
                                             infected_cat_2.sprite,
-                                            (300, 300)), manager=MANAGER
+                                            (125, 125)), manager=MANAGER
                                             )
             if infected > 2:
                 infected_cat_3 = choice(infected_cats)
                 infected_cats.remove(infected_cat_3)
                 self.additional_infected_sprites["3"] = pygame_gui.elements.UIImage(
-                                            scale(pygame.Rect((450, 460), (200, 200))),
+                                            ui_scale(pygame.Rect((225, 230), (100, 100))),
                                             pygame.transform.scale(
                                             infected_cat_3.sprite,
-                                            (300, 300)), manager=MANAGER
+                                            (100, 100)), manager=MANAGER
                                             )
             if infected > 3:
                 infected_cat_4 = choice(infected_cats)
                 infected_cats.remove(infected_cat_4)
                 self.additional_infected_sprites["4"] = pygame_gui.elements.UIImage(
-                                            scale(pygame.Rect((1250, 460), (200, 200))),
+                                            ui_scale(pygame.Rect((625, 230), (100, 100))),
                                             pygame.transform.scale(
                                             infected_cat_4.sprite,
-                                            (300, 300)), manager=MANAGER
+                                            (100, 100)), manager=MANAGER
                                             )
             
             self.text_type = ""
@@ -463,23 +510,23 @@ class TreatmentScreen(Screens):
             self.talk_box_img = image_cache.load_image("resources/images/talk_box.png").convert_alpha()
 
             self.talk_box = pygame_gui.elements.UIImage(
-                    scale(pygame.Rect((178, 942), (1248, 302))),
+                    ui_scale(pygame.Rect((89, 471), (624, 151))),
                     self.talk_box_img
                 )
             self.textbox_graphic = pygame_gui.elements.UIImage(
-                scale(pygame.Rect((170, 942), (346, 302))),
+                ui_scale(pygame.Rect((85, 471), (173, 151))),
                 image_cache.load_image("resources/images/textbox_graphic.png").convert_alpha()
             )
 
-            self.scroll_container = pygame_gui.elements.UIScrollingContainer(scale(pygame.Rect((500, 970), (900, 300))))
+            self.scroll_container = pygame_gui.elements.UIScrollingContainer(ui_scale(pygame.Rect((250, 485), (450, 150))))
             self.text = pygame_gui.elements.UITextBox("",
-                                                    scale(pygame.Rect((0, 0), (900, -100))),
+                                                    ui_scale(pygame.Rect((0, 0), (450, -50))),
                                                     object_id="#text_box_30_horizleft",
                                                     container=self.scroll_container,
                                                     manager=MANAGER)
             
             self.heading = pygame_gui.elements.UITextBox("Results",
-                                                        scale(pygame.Rect((300, 50), (1000, 80))),
+                                                        ui_scale(pygame.Rect((150, 25), (500, 40))),
                                                         object_id=get_text_box_theme("#text_box_34_horizcenter"),
                                                         manager=MANAGER)
 
@@ -498,36 +545,56 @@ class TreatmentScreen(Screens):
             string = f"{self.selected_cat.name} - Moon {game.clan.age} - {text}"
             
             self.subtitle = pygame_gui.elements.UITextBox(string,
-                                                        scale(pygame.Rect((300, 100), (1000, 80))),
+                                                        ui_scale(pygame.Rect((150, 50), (500, 40))),
                                                         object_id=get_text_box_theme("#text_box_30_horizcenter"),
                                                         manager=MANAGER)
             
             # Layout Images:
 
             self.patient_sprite = pygame_gui.elements.UIImage(
-                                            scale(pygame.Rect((650, 360), (380, 380))),
+                                            ui_scale(pygame.Rect((325, 130), (190, 190))),
                                             pygame.transform.scale(
                                                 self.selected_cat.sprite,
-                                                (300, 300)), manager=MANAGER)
-            self.medcat_sprite = pygame_gui.elements.UIImage(scale(pygame.Rect((70, 900), (400, 400))),
+                                                (190, 190)), manager=MANAGER)
+            self.medcat_sprite = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((35, 450), (200, 200))),
                                                                         pygame.transform.scale(
                                                                             self.the_cat.sprite,
-                                                                            (400, 400)), manager=MANAGER)
+                                                                            (200, 200)), manager=MANAGER)
             
-            self.back_button = UIImageButton(scale(pygame.Rect((50, 1290), (210, 60))), "", object_id="#back_button")
+            self.back_button = UIImageButton(ui_scale(pygame.Rect((25, 645), (105, 30))), "", object_id="#back_button")
         
-            self.previous_page_button = UIImageButton(scale(pygame.Rect((630, 1155), (68, 68))), "",
-                                                    object_id="#relation_list_previous", manager=MANAGER)
-            self.next_page_button = UIImageButton(scale(pygame.Rect((902, 1155), (68, 68))), "",
-                                                object_id="#relation_list_next", manager=MANAGER)
-            
-            self.previous_stage_button = UIImageButton(scale(pygame.Rect((630, 1005), (68, 68))), "",
-                                                    object_id="#arrow_left_button", manager=MANAGER)
-            self.next_stage_button = UIImageButton(scale(pygame.Rect((902, 1005), (68, 68))), "",
-                                                object_id="#arrow_right_button", manager=MANAGER)
+            self.previous_page_button = UISurfaceImageButton(
+                ui_scale(pygame.Rect((315, 579), (34, 34))),
+                Icon.ARROW_LEFT,
+                get_button_dict(ButtonStyles.ICON, (34, 34)),
+                object_id="@buttonstyles_icon",
+                starting_height=0,
+            )
+            self.next_page_button = UISurfaceImageButton(
+                ui_scale(pygame.Rect((451, 579), (34, 34))),
+                Icon.ARROW_RIGHT,
+                get_button_dict(ButtonStyles.ICON, (34, 34)),
+                object_id="@buttonstyles_icon",
+                starting_height=0,
+            )
+
+            self.previous_stage_button = UISurfaceImageButton(
+                ui_scale(pygame.Rect((110, 335), (34, 34))),
+                Icon.ARROW_LEFT,
+                get_button_dict(ButtonStyles.ICON, (34, 34)),
+                object_id="@buttonstyles_icon",
+                starting_height=0,
+            )
+            self.next_stage_button = UISurfaceImageButton(
+                ui_scale(pygame.Rect((225, 335), (34, 34))),
+                Icon.ARROW_RIGHT,
+                get_button_dict(ButtonStyles.ICON, (34, 34)),
+                object_id="@buttonstyles_icon",
+                starting_height=0,
+            )
             
             self.paw = pygame_gui.elements.UIImage(
-                scale(pygame.Rect((1370, 1180), (30, 30))),
+                ui_scale(pygame.Rect((685, 590), (15, 15))),
                 image_cache.load_image("resources/images/cursor.png").convert_alpha()
             )
             self.paw.visible = False
@@ -913,10 +980,10 @@ class TreatmentScreen(Screens):
         if self.selected_cat:
 
             self.selected_details["selected_image"] = pygame_gui.elements.UIImage(
-                scale(pygame.Rect((233, 310), (270, 270))),
+                ui_scale(pygame.Rect((116, 155), (135, 135))),
                 pygame.transform.scale(
                     self.selected_cat.sprite,
-                    (270, 270)), manager=MANAGER)
+                    (135, 135)), manager=MANAGER)
 
             infection_stage = [i for i in self.selected_cat.illnesses if i in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]]
 
@@ -926,8 +993,8 @@ class TreatmentScreen(Screens):
                    self.selected_cat.genderalign + "\n <b>" + infection_stage_stripped + "</b> \n"
             
             self.selected_details["selected_info"] = pygame_gui.elements.UITextBox(info,
-                                                                                   scale(pygame.Rect((540, 325),
-                                                                                                     (210, 250))),
+                                                                                   ui_scale(pygame.Rect((270, 162),
+                                                                                                     (105, 125))),
                                                                                    object_id="#text_box_22_horizcenter_vertcenter_spacing_95",
                                                                                    manager=MANAGER)
 
@@ -936,7 +1003,7 @@ class TreatmentScreen(Screens):
                 short_name = str(name)[0:9]
                 name = short_name + '...'
             self.selected_details["victim_name"] = pygame_gui.elements.ui_label.UILabel(
-                scale(pygame.Rect((260, 230), (220, 60))),
+                ui_scale(pygame.Rect((130, 115), (110, 30))),
                 name,
                 object_id="#text_box_34_horizcenter", manager=MANAGER)
 
@@ -972,16 +1039,16 @@ class TreatmentScreen(Screens):
         self.cat_list_buttons = {}
 
         pos_x = 0
-        pos_y = 90
+        pos_y = 45
         i = 0
         for cat in display_cats:
             self.cat_list_buttons["cat" + str(i)] = UISpriteButton(
-                scale(pygame.Rect((200 + pos_x, 730 + pos_y), (100, 100))),
+                ui_scale(pygame.Rect((100 + pos_x, 365 + pos_y), (50, 50))),
                 cat.sprite, cat_object=cat, manager=MANAGER)
-            pos_x += 120
-            if pos_x >= 1100:
+            pos_x += 60
+            if pos_x >= 550:
                 pos_x = 0
-                pos_y += 120
+                pos_y += 60
             i += 1
 
     def get_valid_cats(self):
@@ -996,9 +1063,7 @@ class TreatmentScreen(Screens):
         return infected_cats
 
     def on_use(self):
-        # Due to a bug in pygame, any image with buttons over it must be blited
-        if self.list_frame:
-            screen.blit(self.list_frame, (150 / 1600 * screen_x, 790 / 1400 * screen_y))
+        super().on_use()
 
         now = pygame.time.get_ticks()
 

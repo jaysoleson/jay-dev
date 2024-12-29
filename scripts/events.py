@@ -13,7 +13,7 @@ import traceback
 import math
 
 from scripts.cat.history import History
-from scripts.patrol.patrol import Patrol
+from scripts.events_module.patrol.patrol import Patrol
 from collections import Counter
 
 import ujson
@@ -44,8 +44,6 @@ from scripts.events_module.relationship.pregnancy_events import Pregnancy_Events
 from scripts.game_structure.windows import SaveError
 from scripts.game_structure.windows import RetireScreen, DeputyScreen, NameKitsWindow, PickPath
 from enum import Enum, auto
-
-from scripts.events_module.patrol.patrol import Patrol
 from scripts.utility import (
     change_clan_relations,
     change_clan_reputation,
@@ -2033,6 +2031,10 @@ class Events:
             
             if outsider_cat.infected_for > 0:
                 types = ["misc", "infection"]
+                print("outsider is infected")
+                if game.clan.infection["clan_infected"] is False:
+                    game.clan.infection["clan_infected"] = True
+                    game.clan.infection["logs"].append("start")
             else:
                 types = "misc"
 
