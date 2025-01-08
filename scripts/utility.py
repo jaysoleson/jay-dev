@@ -2936,13 +2936,12 @@ def generate_sprite(
                     new_sprite.blit(sprites.sprites['scars' + scar + cat_sprite], (0, 0), special_flags=blendmode)
                 # INFECTION scars -- here bc they have to be on top of lineart
                 # these also go on top of shaders i hope that doesnt cause any Problems
-                if game.settings["infection gore"]:
-                    if scar in cat.pelt.scars4:
-                        new_sprite.blit(sprites.sprites['scars' + scar + cat_sprite], (0, 0))
-                    if scar in cat.pelt.scars5:
-                        new_sprite.blit(sprites.sprites['scars' + scar + cat_sprite], (0, 0))
-                    if scar in cat.pelt.scars6:
-                        new_sprite.blit(sprites.sprites['scars' + scar + cat_sprite], (0, 0))
+                if scar in cat.pelt.scars4:
+                    new_sprite.blit(sprites.sprites['scars' + scar + cat_sprite], (0, 0))
+                if scar in cat.pelt.scars5:
+                    new_sprite.blit(sprites.sprites['scars' + scar + cat_sprite], (0, 0))
+                if scar in cat.pelt.scars6:
+                    new_sprite.blit(sprites.sprites['scars' + scar + cat_sprite], (0, 0))
 
         # draw accessories
         clangen_accessories = ['MAPLE LEAF',

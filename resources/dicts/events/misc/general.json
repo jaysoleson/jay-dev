@@ -8556,44 +8556,11 @@
     ],
     "infection": {
       "infected": true,
-      "type": ["parasitic"],
-      "level": ["70", "100"],
-      "spread_by": ["any"]
-    },
-    "weight": 10,
-    "event_text": "m_c and r_c hide silently in a bush as a herd of very sick rogues shambles by during a border patrol.",
-    "m_c": {
-      "status": [
-        "warrior",
-        "apprentice",
-        "deputy",
-        "leader"
-      ]
-    },
-    "r_c": {
-      "status": [
-        "warrior",
-        "apprentice",
-        "deputy",
-        "leader"
-      ]
-    }
-  },
-  {
-    "event_id": "gen_infection_J1",
-    "location": [
-      "any"
-    ],
-    "season": [
-      "any"
-    ],
-    "infection": {
-      "infected": true,
       "type": ["any"],
       "level": ["5", "100"],
       "spread_by": ["bite"]
     },
-    "weight": 10,
+    "weight": 20,
     "event_text": "A very infected rogue wanders into camp and chases m_c up a tree. The Clan kills the rogue, leaving m_c shaken but safe.",
     "m_c": {
       "status": [
@@ -8615,7 +8582,7 @@
       "level": ["5", "30"],
       "spread_by": ["bite"]
     },
-    "weight": 10,
+    "weight": 20,
     "event_text": "m_c smacks a leaf out of r_c paws as {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} about to take it for {PRONOUN/r_c/poss} headache. Upon close inspection, r_c is able to notice the spores growing on its stem. {PRONOUN/r_c/subject/CAP} {VERB/r_c/thank/thanks} {PRONOUN/r_c/poss} colleague for saving {PRONOUN/r_c/object}.",
     "m_c": {
       "status": [
@@ -8729,7 +8696,8 @@
       "status": [
         "medicine cat",
         "medicine cat apprentice"
-      ]
+      ],
+      "infected": false
     },
     "r_c": {
       "status": [
@@ -8737,7 +8705,8 @@
         "medicine cat apprentice",
         "leader",
         "deputy"
-      ]
+      ],
+      "infected": false
     }
   },
   {
@@ -8764,7 +8733,77 @@
     }
   },
   {
-    "event_id": "gen_infection_J5",
+    "event_id": "gen_infection_J6",
+    "location": [
+      "any"
+    ],
+    "season": [
+      "any"
+    ],
+    "infection": {
+      "type": ["any"],
+      "level": ["any"],
+      "spread_by": ["any"],
+      "cured": false
+    },
+    "weight": 20,
+    "event_text": "m_c swears if they have to look at one more herb today, {PRONOUN/m_c/subject}'ll go insane!",
+    "m_c": {
+      "status": [
+        "medicine cat",
+        "medicine cat apprentice"
+      ],
+      "infected": false
+    }
+  },
+  {
+    "event_id": "gen_infection_J7",
+    "location": [
+      "any"
+    ],
+    "season": [
+      "any"
+    ],
+    "infection": {
+      "infected": true,
+      "type": ["any"],
+      "level": ["60", "100"],
+      "spread_by": ["any"]
+    },
+    "weight": 20,
+    "event_text": "m_c and r_c start digging a secret escape route at the back of the warrior's den... just in case.",
+    "m_c": {
+      "status": [
+        "warrior",
+        "deputy"
+      ],
+      "infected": false
+    },
+    "r_c": {
+      "status": [
+        "warrior",
+        "deputy"
+      ],
+      "infected": false
+    },
+    "relationships": [
+      {
+        "cats_from": [
+          "r_c"
+        ],
+        "cats_to": [
+          "m_c"
+        ],
+        "mutual": true,
+        "values": [
+          "trust"
+        ],
+        "amount": 10
+      }
+    ]
+  },
+  {
+    "event_id": "gen_infection_J8",
     "location": [
       "any"
     ],
@@ -8783,6 +8822,231 @@
       "status": [
         "medicine cat",
         "medicine cat apprentice"
+      ],
+      "infected": false
+    }
+  },
+  {
+    "event_id": "gen_infection_J9",
+    "location": [
+      "any"
+    ],
+    "season": [
+      "any"
+    ],
+    "infection": {
+      "type": ["any"],
+      "level": ["any"],
+      "spread_by": ["any"],
+      "cured": false
+    },
+    "weight": 20,
+    "event_text": "m_c finds claw-marks that smell of infection on a tree near the nursery. Them and r_c spend the rest of the day strengthening the walls.",
+    "m_c": {
+      "status": [
+        "queen",
+        "queen's apprentice"
+      ],
+      "infected": false
+    },
+    "r_c": {
+      "age": [
+        "adolescent",
+        "young adult",
+        "adult",
+        "senior adult",
+        "senior"
+      ],
+      "infected": false
+    },
+    "relationships": [
+      {
+        "cats_from": [
+          "r_c"
+        ],
+        "cats_to": [
+          "m_c"
+        ],
+        "mutual": true,
+        "values": [
+          "trust"
+        ],
+        "amount": 10
+      }
+    ]
+  },
+  {
+    "event_id": "gen_infection_J10",
+    "location": [
+      "any"
+    ],
+    "season": [
+      "any"
+    ],
+    "infection": {
+      "infected": true,
+      "type": ["any"],
+      "level": ["1", "20"],
+      "spread_by": ["any"],
+      "cured": false
+    },
+    "weight": 20,
+    "event_text": "When m_c overhears r_c pretending to be infected to scare the other kits, they give them a good lecture about the severity of the situation.",
+    "m_c": {
+      "status": [
+        "queen",
+        "queen's apprentice",
+        "mediator"
+      ],
+      "infected": false
+    },
+    "r_c": {
+      "status": [
+        "kitten"
+      ],
+      "cluster": [
+        "unlawful", "assertive"
+      ],
+      "infected": false
+    }
+  },
+  {
+    "event_id": "gen_infection_J11",
+    "location": [
+      "plains"
+    ],
+    "season": [
+      "any"
+    ],
+    "infection": {
+      "infected": true,
+      "type": ["fungal"],
+      "level": ["0", "100"],
+      "spread_by": ["any"]
+    },
+    "weight": 20,
+    "event_text": "m_c has started sleeping away from the entrance to the den, unable to tell the difference between fireflies and the sickening glow of the infection in the distance.",
+    "m_c": {
+      "age": [
+        "adolescent",
+        "young adult",
+        "adult",
+        "senior adult",
+        "senior"
+      ],
+      "infected": false
+    }
+  },
+  {
+    "event_id": "gen_infection_J12",
+    "location": [
+      "any"
+    ],
+    "season": [
+      "any"
+    ],
+    "infection": {
+      "infected": true,
+      "type": ["parasitic"],
+      "level": ["70", "100"],
+      "spread_by": ["any"]
+    },
+    "weight": 10,
+    "event_text": "m_c and r_c hide silently in a bush as a herd of very sick rogues shambles by during a border patrol.",
+    "m_c": {
+      "status": [
+        "warrior",
+        "apprentice",
+        "deputy",
+        "leader"
+      ],
+      "infected": false
+    },
+    "r_c": {
+      "status": [
+        "warrior",
+        "apprentice",
+        "deputy",
+        "leader"
+      ],
+      "infected": false
+    },
+    "relationships": [
+      {
+        "cats_from": [
+          "r_c"
+        ],
+        "cats_to": [
+          "m_c"
+        ],
+        "mutual": true,
+        "values": [
+          "trust",
+          "comfort"
+        ],
+        "amount": 10
+      }
+    ]
+  },
+  {
+    "event_id": "gen_infection_J13",
+    "location": [
+      "any"
+    ],
+    "season": [
+      "any"
+    ],
+    "infection": {
+      "infected": true,
+      "type": ["any"],
+      "level": ["any"],
+      "spread_by": ["bite"]
+    },
+    "weight": 10,
+    "event_text": "A sick squirrel runs into camp, stumbling wildly and bumping into dens. When m_c finally catches it, {PRONOUN/m_c/subject} {VERB/m_c/notice/notices} a deliberate set of teeth marks in its back. Did an infected rogue bite this prey to infect it and set it free..?",
+    "m_c": {
+      "status": [
+        "warrior",
+        "apprentice",
+        "deputy",
+        "leader"
+      ],
+      "infected": false
+    }
+  },
+  {
+    "event_id": "gen_infection_J14",
+    "location": [
+      "any"
+    ],
+    "season": [
+      "any"
+    ],
+    "infection": {
+      "infected": true,
+      "type": ["any"],
+      "level": ["30", "100"],
+      "spread_by": ["any"],
+      "cured": false
+    },
+    "weight": 10,
+    "event_text": "m_c and r_c wonder how kittypets are dealing with this.",
+    "m_c": {
+      "status": [
+        "adolescent",
+        "young adult",
+        "adult",
+        "senior adult",
+        "senior"
+      ]
+    },
+    "r_c": {
+      "status": [
+        "adolescent",
+        "young adult",
+        "adult",
+        "senior adult",
+        "senior"
       ]
     }
   }

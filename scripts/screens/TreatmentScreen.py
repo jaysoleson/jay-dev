@@ -543,7 +543,7 @@ class TreatmentScreen(Screens):
                 infected_cat_1 = choice(infected_cats)
                 infected_cats.remove(infected_cat_1)
                 self.additional_infected_sprites["1"] = pygame_gui.elements.UIImage(
-                                            ui_scale(pygame.Rect((70, 230), (150, 150))),
+                                            ui_scale(pygame.Rect((70, 220), (150, 150))),
                                             pygame.transform.scale(
                                             infected_cat_1.sprite,
                                             (150, 150)), manager=MANAGER
@@ -624,7 +624,7 @@ class TreatmentScreen(Screens):
             # Layout Images:
 
             self.patient_sprite = pygame_gui.elements.UIImage(
-                                            ui_scale(pygame.Rect((325, 130), (190, 190))),
+                                            ui_scale(pygame.Rect((325, 170), (190, 190))),
                                             pygame.transform.scale(
                                                 self.selected_cat.sprite,
                                                 (190, 190)), manager=MANAGER)

@@ -68,5 +68,90 @@
                 "weight": 20
             }
         ]
+    },
+    {
+        "patrol_id": "gen_infection_med_J2",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+        ],
+        "types": [
+            "herb_gathering"
+        ],
+        "tags": [
+            "infection_beginning",
+            "new_cat"
+        ],
+        "patrol_art": "med_general_intro",
+        "min_cats": 2,
+        "max_cats": 4,
+        "min_max_status": {
+            "healer cats": [1, 1]
+        },
+        "weight": 40,
+        "intro_text": "r_c breaks off from the herb gathering group. When p_l finds {PRONOUN/r_c/object}, {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} herbless, chatting with a loner up in a tree.",
+        "decline_text": "The medicine cat, impatient, clears {PRONOUN/p_l/poss} throat loud enough to get r_c's attention, and they head back to camp.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "When p_l looks up at the loner, {PRONOUN/p_l/subject} {VERB/p_l/see/sees} a mysterious sickness in the cat's eyes. {PRONOUN/p_l/subject/CAP}'d love to help, but whatever it is, p_l is unfamiliar, and {PRONOUN/p_l/subject} can't promise the cat they'll have the resources to help. p_l gently nudges r_c away from the tree, reluctantly leaving the sick loner to fend for {PRONOUN/n_c:0/self}.",
+                "exp": 0,
+                "weight": 20,
+                "herbs": ["random_herbs"],
+                "cure_log": [
+                    {
+                        "entry": "discovered"
+                    }
+                ],
+                "injury": [
+                    {
+                        "cats": ["n_c:0"],
+                        "injuries": ["stage one"],
+                        "no_results": true
+                    }
+                ],
+                "new_cat": [
+                    ["loner", "meeting"]
+                ]
+            },
+            {
+                "text": "The loner enthusiastically waves {PRONOUN/n_c:0/poss} tail at p_l as {PRONOUN/p_l/subject} {VERB/p_l/approach/approaches}. With a polite nod of {PRONOUN/p_l/poss} head, p_l nudges r_c away from the tree, telling r_c's new friend that they have to get back to work.",
+                "exp": 0,
+                "weight": 20,
+                "herbs": ["random_herbs"],
+                "new_cat": [
+                    ["loner", "meeting"]
+                ]
+            },
+            {
+                "text": "p_l can smell the scent of sickness as {PRONOUN/p_l/subject} {VERB/p_l/approach/approaches} the tree, though {PRONOUN/p_l/subject}{VERB/p_l/'re/'s} not able to place what exactly this loner might be ill with. Rather than asking {PRONOUN/n_c:0/subject} to leave the territory, p_l asks if the loner would like to come back to camp for treatment, and {PRONOUN/n_c:0/subject} gratefully {VERB/n_c:0/accept/accepts}.",
+                "exp": 0,
+                "weight": 20,
+                "injury": [
+                    {
+                        "cats": ["n_c:0"],
+                        "injuries": ["stage one"],
+                        "no_results": true
+                    }
+                ],
+                "new_cat": [
+                    ["loner"]
+                ],
+                "cure_log": [
+                    {
+                        "entry": "start"
+                    }
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "As p_l approaches the tree, visibly agitated, the loner gets started and disappears into the trees. r_c tries to shout a goodbye, but the cat must be quick. Now, back to work!",
+                "exp": 0,
+                "weight": 10,
+                "herbs": ["random_herbs"]
+            }
+        ]
     }
 ]

@@ -1245,5 +1245,44 @@
                 "weight": 20
             }
         ]
+    },
+    {
+        "patrol_id": "gen_med_infection_2",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection"
+        ],
+        "patrol_art": "lg_medcat_default",
+        "min_cats": 1,
+        "max_cats": 3,
+        "min_max_status": {
+            "healer cats": [1, 1]
+        },
+        "weight": 60,
+        "intro_text": "You desperately want to take a break from the medicine den and leave camp for a bit, but you're worried someone might need you if you do.",
+        "decline_text": "You stay put, on call for any fevers or scratches your Clanmates may have. It's your duty, after all!",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "You decide that taking a quick walk for a few minutes can't hurt. You trot out of camp, immediately being hit by a refreshing breeze. When you return, nothing has gone wrong and you're able to return to your duties with a clear head.",
+                "exp": 10,
+                "weight": 20
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You decide to risk it and begin trotting towards the camp entrance, but you stop in your tracks when you hear a cough behind you. Nope, you're too important to leave! You turn around to find the source, hoping that a Clanmate just has something in their throat.",
+                "exp": 10,
+                "weight": 20
+            }
+        ]
     }
 ]

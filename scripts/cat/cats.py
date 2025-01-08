@@ -2368,6 +2368,14 @@ class Cat:
             return
         if name == "kittencough" and self.status != "kitten":
             return
+        
+        if name in [
+            f"{game.clan.infection['infection_type']} stage one",
+            f"{game.clan.infection['infection_type']} stage two",
+            f"{game.clan.infection['infection_type']} stage three",
+            f"{game.clan.infection['infection_type']} stage four"
+        ] and self.infected_for == 0:
+            self.infected_for = 1
 
         illness = ILLNESSES[name]
         mortality = illness["mortality"][self.age]
@@ -3107,6 +3115,17 @@ class Cat:
             self.age in age_restricted_ages or other_cat.age in age_restricted_ages
         ) and self.age != other_cat.age:
             return False
+        
+        # INF: also checking for status
+        # in heavily infected clans, apps stop graduating until the max age
+        # so 20 moon old apprentices are becoming mates with warriors
+        # the ages are fine of course, but im still weirded out reading it lol
+        if (
+            self.status in ["apprentice", "queen's apprentice", "mediator apprentice", "medicine cat apprentice"]
+            or other_cat.status in ["apprentice", "queen's apprentice", "mediator apprentice", "medicine cat apprentice"]
+            ):
+            return False
+        # ---
 
         # check for mentor
 

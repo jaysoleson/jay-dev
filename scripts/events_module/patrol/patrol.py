@@ -384,13 +384,11 @@ class Patrol:
 
         elif game.switches["patrol_category"] == 'lifegen':
             # INFECTION PATROLS
-            if "cure_found" not in game.clan.infection["logs"]:
-                possible_patrols.extend(self.generate_patrol_events(self.infection_patrols))
+            possible_patrols.extend(self.generate_patrol_events(self.infection_patrols))
 
             if (
                 game.clan.infection["clan_infected"] is False and
-                game.clan.infection["time_to_next_infection"] != 1 and
-                random.randint(1,2) == 2
+                game.clan.infection["time_to_next_infection"] != 1
                 ):
 
                 if game.clan.your_cat.shunned != 0:
@@ -681,6 +679,11 @@ class Patrol:
                 continue
 
             if "infection" in patrol.tags and game.clan.infection["clan_infected"] is False:
+                continue
+
+            if "infection" in patrol.tags and "cure_found" in patrol.tags and "cure_found" not in game.clan.infection["logs"]:
+                continue
+            if "infection" in patrol.tags and "not_cure_found" in patrol.tags and "cure_found" in game.clan.infection["logs"]:
                 continue
 
             if game.clan.infection["infection_type"] == "fungal":

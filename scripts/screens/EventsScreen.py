@@ -1033,6 +1033,15 @@ class EventsScreen(Screens):
         alternate_color = (pygame.Color(87, 76, 55)
                     if game.settings["dark mode"]
                     else pygame.Color(167, 148, 111))
+        
+        infection_alternate_colour = (pygame.Color(63, 73, 26)
+                    if game.settings["dark mode"]
+                    else pygame.Color(119, 135, 89))
+
+        # this colour goes in the empty spaces where theres no colour initially
+        infection_alternate_colour_2 = (pygame.Color(40, 48, 7)
+                    if game.settings["dark mode"]
+                    else pygame.Color(180, 200, 141))
 
         for i, event_object in enumerate(self.display_events):
             if not isinstance(event_object.text, str):
@@ -1056,8 +1065,17 @@ class EventsScreen(Screens):
             self.event_display_containers.append(display_element_container)
 
             if i % 2 == 0:
-                display_element_container.background_colour = alternate_color
+                if "infection" in event_object.types:
+                    colour = infection_alternate_colour
+                else:
+                    colour = alternate_color
+                display_element_container.background_colour = colour
                 display_element_container.rebuild()
+            else:
+                if "infection" in event_object.types:
+                    colour = infection_alternate_colour_2
+                    display_element_container.background_colour = colour
+                    display_element_container.rebuild()
 
             # TEXT BOX
             display_element_event = pygame_gui.elements.UITextBox(

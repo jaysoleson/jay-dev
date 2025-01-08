@@ -73,10 +73,7 @@ class Scar_Events():
     fungal_scars = [
         "SHELFMUSHROOMS", "EYEMOSS", "PAWMOSS"
     ]
-    if game.settings["infection gore"]:
-        infection_scars = parasitic_scars + ear_scars + ["NOTAIL", "NOPAW", "HALFTAIL"]
-    else:
-        infection_scars = ear_scars + frostbite_scars + ["NOTAIL", "NOPAW", "HALFTAIL"]
+    infection_scars = parasitic_scars + ear_scars + ["NOTAIL", "NOPAW", "HALFTAIL"]
 
 
     scar_allowed = {

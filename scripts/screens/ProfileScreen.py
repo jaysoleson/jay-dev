@@ -1847,6 +1847,15 @@ class ProfileScreen(Screens):
             # NEWLINE ----------
             output += "\n"
 
+        if the_cat.infected_for > 0:
+            if "undead" not in the_cat.illnesses:
+                output += "<font color='#FF0000'>infected</font>"
+        elif the_cat.infected_for == -1 and "lore_no_reinfection" in game.clan.infection["logs"]:
+            if game.settings["dark mode"]:
+                output += "<font color='#A2D86C'>immune </font>"
+            else:
+                output += "<font color='#136D05'>immune </font>"
+        
         elif the_cat.is_ill():
             if "undead" in the_cat.illnesses:
                 output += "<font color='#FF0000'>undead</font>"
@@ -1859,15 +1868,6 @@ class ProfileScreen(Screens):
 
             # NEWLINE ----------
             output += "\n"
-
-        if the_cat.infected_for > 0:
-            if "undead" not in the_cat.illnesses:
-                output += "<font color='#FF0000'>infected</font>"
-        elif the_cat.infected_for == -1 and "lore_no_reinfection" in game.clan.infection["logs"]:
-            if game.settings["dark mode"]:
-                output += "<font color='#A2D86C'>immune </font>"
-            else:
-                output += "<font color='#136D05'>immune </font>"
 
         return output
 

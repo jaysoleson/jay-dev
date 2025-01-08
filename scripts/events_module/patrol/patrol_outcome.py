@@ -1033,7 +1033,6 @@ class PatrolOutcome:
                 if chance < 1:
                     chance = 1
                 if not int(random.random() * chance):
-                    print("PRIORITY HERB ADDED TO FIXED HERB PATROL")
                     specific_herbs.extend([priority_herb])
             
         # Remove duplicates
@@ -1057,6 +1056,21 @@ class PatrolOutcome:
                 game.clan.herbs[_herb] += amount_gotten
             else:
                 game.clan.herbs[_herb] = amount_gotten
+        
+        # INF
+        additional_text = ""
+        if (
+            game.clan.infection["clan_infected"] is False
+            and game.clan.infection["infection_type"] in ["fungal", "void"]
+            ):
+            chance = 25
+            if not int(random.random() * chance):
+                infected_cat = random.choice(patrol.patrol_cats)
+                infected_cat.get_ill(f"{game.clan.infection['infection_type']} stage one")
+                additional_text = f"\n<font color='#A6D000'>The herbs are infected!</font> {infected_cat.name} has become mysteriously ill after carrying them home..."
+
+                game.clan.infection["logs"].append("start")
+                game.clan.infection["clan_infected"] = True
 
         plural_herbs_list = ["cobwebs", "oak leaves"]
 
@@ -1075,7 +1089,7 @@ class PatrolOutcome:
         insert = re.sub("[_]", " ", insert)
 
         game.herb_events_list.append(f"{insert.capitalize()} gathered on a patrol.")
-        return f"{insert.capitalize()} gathered."
+        return f"{insert.capitalize()} gathered." + additional_text
 
     def _handle_prey(self, patrol: "Patrol") -> str:
         """Handle giving prey"""

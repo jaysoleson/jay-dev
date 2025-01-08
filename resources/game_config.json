@@ -272,7 +272,7 @@
 		]
 	},
 	"event_generation": {
-		"debug_ensure_event_id": "gen_newcat_infected_J1"
+		"debug_ensure_event_id": "gen_infection_J11"
 	},
 	"death_related": {
 		"leader_death_chance": 50,
