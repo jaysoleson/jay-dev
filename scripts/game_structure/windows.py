@@ -1345,6 +1345,12 @@ class KillCat(UIWindow):
                     else:
                         game.clan.leader_lives -= 1
 
+                # INF
+                if self.the_cat.infected_for > 0:
+                    killed_cats = game.clan.infection["killed_infected"].split(",")
+                    killed_cats.append(str(self.the_cat.ID))
+                    game.clan.infection["killed_infected"] = ",".join([str(i) for i in killed_cats])
+                # ---
                 self.the_cat.die()
                 self.history.add_death(self.the_cat, death_message)
                 update_sprite(self.the_cat)

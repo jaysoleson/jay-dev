@@ -8474,5 +8474,316 @@
       "gender": ["male"]
     },
     "new_gender": ["trans female", "nonbinary"]
+  },
+  {
+    "event_id": "gen_newcat_infected_J1",
+    "location": [
+      "any"
+    ],
+    "season": [
+      "any"
+    ],
+    "weight": 20,
+    "event_text": "m_c is spotted sneaking herbs to a sick cat across the border.",
+    "m_c": {
+      "age": [
+        "adolescent",
+        "young adult",
+        "adult",
+        "senior adult",
+        "senior"
+      ]
+    },
+    "new_cat": [
+      [
+        "meeting",
+        "loner",
+        "exists",
+        "infected"
+      ]
+    ],
+    "relationships": [
+      {
+        "cats_from": [
+          "m_c"
+        ],
+        "cats_to": [
+          "n_c:0"
+        ],
+        "mutual": true,
+        "values": [
+          "respect",
+          "trust"
+        ],
+        "amount": 5
+      }
+    ]
+  },
+  {
+    "event_id": "gen_newcat_infected_J2",
+    "location": [
+      "any"
+    ],
+    "season": [
+      "any"
+    ],
+    "weight": 10,
+    "event_text": "m_c tells the Clan about a sick cat {PRONOUN/m_c/subject} saw in o_c_n territory on a patrol.",
+    "m_c": {
+      "status": [
+        "warrior",
+        "apprentice",
+        "deputy",
+        "leader"
+      ]
+    },
+    "new_cat": [
+      [
+        "meeting",
+        "loner",
+        "exists",
+        "infected"
+      ]
+    ]
+  },
+  {
+    "event_id": "gen_infection_J1",
+    "location": [
+      "any"
+    ],
+    "season": [
+      "any"
+    ],
+    "infection": {
+      "infected": true,
+      "type": ["parasitic"],
+      "level": ["70", "100"],
+      "spread_by": ["any"]
+    },
+    "weight": 10,
+    "event_text": "m_c and r_c hide silently in a bush as a herd of very sick rogues shambles by during a border patrol.",
+    "m_c": {
+      "status": [
+        "warrior",
+        "apprentice",
+        "deputy",
+        "leader"
+      ]
+    },
+    "r_c": {
+      "status": [
+        "warrior",
+        "apprentice",
+        "deputy",
+        "leader"
+      ]
+    }
+  },
+  {
+    "event_id": "gen_infection_J1",
+    "location": [
+      "any"
+    ],
+    "season": [
+      "any"
+    ],
+    "infection": {
+      "infected": true,
+      "type": ["any"],
+      "level": ["5", "100"],
+      "spread_by": ["bite"]
+    },
+    "weight": 10,
+    "event_text": "A very infected rogue wanders into camp and chases m_c up a tree. The Clan kills the rogue, leaving m_c shaken but safe.",
+    "m_c": {
+      "status": [
+        "kitten"
+      ]
+    }
+  },
+  {
+    "event_id": "gen_infection_J2",
+    "location": [
+      "any"
+    ],
+    "season": [
+      "any"
+    ],
+    "infection": {
+      "infected": true,
+      "type": ["fungal"],
+      "level": ["5", "30"],
+      "spread_by": ["bite"]
+    },
+    "weight": 10,
+    "event_text": "m_c smacks a leaf out of r_c paws as {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} about to take it for {PRONOUN/r_c/poss} headache. Upon close inspection, r_c is able to notice the spores growing on its stem. {PRONOUN/r_c/subject/CAP} {VERB/r_c/thank/thanks} {PRONOUN/r_c/poss} colleague for saving {PRONOUN/r_c/object}.",
+    "m_c": {
+      "status": [
+        "medicine cat",
+        "medicine cat apprentice"
+      ],
+      "infected": false
+    },
+    "r_c": {
+      "status": [
+        "medicine cat",
+        "medicine cat apprentice"
+      ],
+      "infected": false
+    }
+  },
+  {
+    "event_id": "gen_infection_J3",
+    "location": [
+      "any"
+    ],
+    "season": [
+      "any"
+    ],
+    "infection": {
+      "infected": true,
+      "type": ["parasitic"],
+      "level": ["50", "100"],
+      "spread_by": ["any"]
+    },
+    "weight": 5,
+    "event_text": "An infected creature passes through the camp at night, leaving a blood trail in its wake. m_c follows it, but cannot find where it went.",
+    "m_c": {
+      "status": [
+        "leader"
+      ],
+      "infected": false
+    }
+  },
+  {
+    "event_id": "gen_infection_J3",
+    "location": [
+      "any"
+    ],
+    "season": [
+      "leaf-bare"
+    ],
+    "infection": {
+      "infected": true,
+      "type": ["fungal"],
+      "level": ["5", "20"],
+      "spread_by": ["any"]
+    },
+    "weight": 20,
+    "event_text": "m_c digs through all the snow around camp, ensuring no infected plants are hiding underneath.",
+    "m_c": {
+      "age": [
+        "adolescent",
+        "your adult",
+        "adult",
+        "senior adult",
+        "senior"
+      ],
+      "infected": false,
+      "cluster": ["neurotic"]
+    }
+  },
+  {
+    "event_id": "gen_infection_J4",
+    "location": [
+      "any"
+    ],
+    "season": [
+      "any"
+    ],
+    "infection": {
+      "infected": true,
+      "type": ["any"],
+      "level": ["70", "100"],
+      "spread_by": ["any"]
+    },
+    "weight": 20,
+    "event_text": "m_c considers running away.",
+    "m_c": {
+      "age": [
+        "adolescent",
+        "your adult",
+        "adult",
+        "senior adult",
+        "senior"
+      ]
+    }
+  },
+  {
+    "event_id": "gen_infection_J5",
+    "location": [
+      "any"
+    ],
+    "season": [
+      "any"
+    ],
+    "infection": {
+      "type": ["any"],
+      "level": ["any"],
+      "spread_by": ["any"],
+      "cured": true
+    },
+    "weight": 20,
+    "event_text": "m_c briefly forgets one ingredient to the cure and panics, but r_c quickly reminds {PRONOUN/r_c/object} with a purr.",
+    "m_c": {
+      "status": [
+        "medicine cat",
+        "medicine cat apprentice"
+      ]
+    },
+    "r_c": {
+      "status": [
+        "medicine cat",
+        "medicine cat apprentice",
+        "leader",
+        "deputy"
+      ]
+    }
+  },
+  {
+    "event_id": "gen_infection_J5",
+    "location": [
+      "any"
+    ],
+    "season": [
+      "any"
+    ],
+    "infection": {
+      "infected": true,
+      "type": ["any"],
+      "level": ["60", "100"],
+      "spread_by": ["any"],
+      "cured": false
+    },
+    "weight": 20,
+    "event_text": "m_c isn't sure how {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} supposed to lead in a time like this.",
+    "m_c": {
+      "status": [
+        "leader"
+      ]
+    }
+  },
+  {
+    "event_id": "gen_infection_J5",
+    "location": [
+      "any"
+    ],
+    "season": [
+      "any"
+    ],
+    "infection": {
+      "type": ["any"],
+      "level": ["any"],
+      "spread_by": ["any"],
+      "cured": true
+    },
+    "weight": 20,
+    "event_text": "m_c repeats the cure to {PRONOUN/m_c/self} under {PRONOUN/m_c/poss} breath all day, making sure not to forget it.",
+    "m_c": {
+      "status": [
+        "medicine cat",
+        "medicine cat apprentice"
+      ]
+    }
   }
 ]

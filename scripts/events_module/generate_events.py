@@ -11,7 +11,8 @@ from scripts.utility import (
     filter_relationship_type,
     get_living_clan_cat_count,
     get_alive_status_cats,
-    get_cluster
+    get_cluster,
+    get_infected_clan_cat_count
 )
 
 resource_directory = "resources/dicts/events/"
@@ -125,6 +126,13 @@ class GenerateEvents:
                         event_id=event["event_id"] if "event_id" in event else "",
                         location=event["location"] if "location" in event else ["any"],
                         season=event["season"] if "season" in event else ["any"],
+                        infection=event["infection"] if "infection" in event else {
+                            "infected": False,
+                            "type": ["any"],
+                            "level": ["any"],
+                            "spread_by": ["any"],
+                            "cured": False
+                        },
                         sub_type=event["sub_type"] if "sub_type" in event else [],
                         tags=event["tags"] if "tags" in event else [],
                         weight=event["weight"] if "weight" in event else 20,
@@ -152,6 +160,7 @@ class GenerateEvents:
                 return event_list
         except:
             print(f"WARNING: {file_path} was not found, check short event generation")
+            return event_list
 
     @staticmethod
     def generate_ongoing_events(event_type, biome, specific_event=None):
@@ -169,6 +178,7 @@ class GenerateEvents:
                         event=event["event"],
                         camp=event["camp"],
                         season=event["season"],
+                        infection=event["infection"],
                         tags=event["tags"],
                         priority=event["priority"],
                         duration=event["duration"],
@@ -191,6 +201,7 @@ class GenerateEvents:
                         event=event["event"],
                         camp=event["camp"],
                         season=event["season"],
+                        infection=event["infection"],
                         tags=event["tags"],
                         priority=event["priority"],
                         duration=event["duration"],
@@ -330,6 +341,40 @@ class GenerateEvents:
             if (
                 game.clan.current_season.lower() not in event.season
                 and "any" not in event.season
+            ):
+                continue
+
+            # INF
+            if (
+                game.clan.infection["clan_infected"] is False
+                and "infected" in event.infection
+                and event.infection["infected"] is True
+            ):
+                continue
+            if (
+                game.clan.infection["clan_infected"] is True
+                and "infected" in event.infection
+                and event.infection["infected"] is False
+            ):
+                continue
+            if (
+                "type" in event.infection
+                and game.clan.infection["infection_type"] not in event.infection["type"]
+            ):
+                continue
+            if (
+                "level" in event.infection
+            ):
+                percent_infected = (get_infected_clan_cat_count(Cat_class) / get_living_clan_cat_count(Cat_class)) * 100
+                
+                if "any" not in event.infection["level"] and int(event.infection["level"][0]) < percent_infected:
+                    continue
+                if "any" not in event.infection["level"] and int(event.infection["level"][1]) > percent_infected:
+                    continue
+            if (
+                "spread_by" in event.infection
+                and "any" not in event.infection["spread_by"]
+                and game.clan.infection["spread_by"] not in event.infection["spread_by"]
             ):
                 continue
 
@@ -1102,6 +1147,13 @@ class GenerateEvents:
             if "trait" in cat_info:
                 if cat.personality.trait not in cat_info["trait"]:
                     continue
+            # INF
+            if "infected" in cat_info:
+                if cat_info["infected"] is True and cat.infected_for < 1:
+                    continue
+                if cat_info["infected"] is False and cat.infected_for > 0:
+                    continue
+            # ---
             if "skill" in cat_info:
                 has_skill = False
                 for _skill in cat_info["skill"]:

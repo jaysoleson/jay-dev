@@ -1023,7 +1023,7 @@ class Events:
                 backstory = "clanborn"
             elif birth_type == BirthType.ONE_OUTSIDER_PARENT:
                 backstory = "outsider1"
-            elif birth_type == BirthType.TWO_OUTSIDER_PARENTS:
+            else:
                 backstory = "outsider1"
             
             game.clan.your_cat.backstory = backstory
@@ -1785,12 +1785,17 @@ class Events:
                     if game.clan.war["enemy"] == clan.name:
                         events.extend(other_clan_events["fallen_war"])
 
+                # remove the ineligible ones
+                for event in events:
+                    if "med_name" in events and get_alive_status_cats(Cat, ["medicine cat"]) == 0:
+                        events.remove(event)
+                    if "lead_name" in events and not game.clan.leader:
+                        events.remove(event)
                 try:
                     text = random.choice(events)
+                    text = event_text_adjust(Cat, text, other_clan=clan)
                 except IndexError:
-                    text = "Mrow! INFECTION bug, please report!"
                     print(f"No possible other clans infection events for {clan.name}Clan.")
-                text = event_text_adjust(Cat, text, other_clan=clan)
                 game.cur_events_list.insert(0, Single_Event(text, ["other_clans", "infection"]))
             else:
                 return
@@ -1902,6 +1907,11 @@ class Events:
             game.clan.reputation += chosen_event["rep_change"]
 
             additional_kits = None
+
+            # INF event types
+            types = "misc"
+            # ---
+
             # SUCCESS/FAIL
             if info_dict["success"]:
                 if info_dict["interaction_type"] == "hunt":
@@ -1993,6 +2003,17 @@ class Events:
                             else:
                                 invited_cat.status = "warrior"
 
+                            # INF
+                            if invited_cat.infected_for > 0:
+                                types = ["misc", "infection"]
+                                if game.clan.infection["clan_infected"] is False:
+                                    game.clan.infection["clan_infected"] = True
+                                    game.clan.infection["logs"].append("start")
+
+                                    if "discovered" in game.clan.infection["logs"]:
+                                        game.clan.infection["logs"].remove("discovered")
+                            # ---
+
                         invited_cat.create_relationships_new_cat()
 
                 # this handles ceremonies for cats coming into the clan
@@ -2028,15 +2049,6 @@ class Events:
                 text=event_text,
                 main_cat=outsider_cat,
                 clan=game.clan)
-            
-            if outsider_cat.infected_for > 0:
-                types = ["misc", "infection"]
-                print("outsider is infected")
-                if game.clan.infection["clan_infected"] is False:
-                    game.clan.infection["clan_infected"] = True
-                    game.clan.infection["logs"].append("start")
-            else:
-                types = "misc"
 
             game.cur_events_list.insert(4, Single_Event(event_text, types, involved_cats))
 

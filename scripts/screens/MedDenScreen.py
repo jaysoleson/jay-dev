@@ -227,12 +227,12 @@ class MedDenScreen(Screens):
             )
             self.infected_title = pygame_gui.elements.UITextBox(
                 "Infected Cats",
-                scale(pygame.Rect((281, 820), (400, 60))),
+                ui_scale(pygame.Rect((140, 410), (200, 30))),
                 object_id=get_text_box_theme("#text_box_40_horizcenter"), manager=MANAGER
             )
             self.quarantined_title = pygame_gui.elements.UITextBox(
                 "Quarantined Cats",
-                scale(pygame.Rect((281, 820), (400, 60))),
+                ui_scale(pygame.Rect((140, 410), (200, 30))),
                 object_id=get_text_box_theme("#text_box_40_horizcenter"), manager=MANAGER
             )
             self.log_title.hide()
@@ -274,13 +274,13 @@ class MedDenScreen(Screens):
             self.in_den_tab.disable()
            
             self.infected_tab = UIImageButton(
-                scale(pygame.Rect((1400, 924), (70, 128))),
+                ui_scale(pygame.Rect((700, 462), (30, 64))),
                 "",
                 object_id="#med_den_infected_button",
                 manager=MANAGER
             )
             self.quarantined_tab = UIImageButton(
-                scale(pygame.Rect((1400, 1104), (70, 127))),
+                ui_scale(pygame.Rect((700, 552), (30, 64))),
                 "",
                 object_id="#med_den_quarantined_button",
                 manager=MANAGER

@@ -4,5 +4,9 @@
   "forest_playlist": [],
   "plains_playlist": [],
   "beach_playlist": [],
-  "mountainous_playlist": []
+  "mountainous_playlist": [],
+
+  "fungal_playlist": ["resources/audio/music/infection/infection_start_fungal_3.mp3"],
+  "parasitic_playlist": ["resources/audio/music/infection/infection_start_parasitic_3.mp3"],
+  "void_playlist": ["resources/audio/music/infection/infection_start_void_3.mp3"]
 }

@@ -217,7 +217,7 @@ class SpriteInspectScreen(Screens):
         )
         self.override_infected_lineart_text = pygame_gui.elements.UITextBox(
             "Show as uninfected",
-            scale(pygame.Rect((500, 1060), (-1, 100))),
+            ui_scale(pygame.Rect((290, 530), (-1, 50))),
             object_id=get_text_box_theme("#text_box_34_horizcenter"), 
             starting_height=2
         )
@@ -353,13 +353,13 @@ class SpriteInspectScreen(Screens):
         if any(i in self.the_cat.illnesses for i in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]):
             catinfected = True
         
-        # Show as uninfected
+        # "Show as uninfected"
         self.make_one_checkbox(
-            (200, 525),
+            ui_scale_offset((235, 525)),
             "override_infected_lineart",
             self.override_infected_lineart,
             catinfected,
-            disabled_object_id="#checked_checkbox"
+            disabled_object_id="@checked_checkbox"
         )
         
         # "Show as living"

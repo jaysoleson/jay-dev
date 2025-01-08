@@ -12,6 +12,7 @@ class ShortEvent:
             event_id: str = "",
             location: List[str] = None,
             season: List[str] = None,
+            infection: dict = None,
             sub_type: List[str] = None,
             tags: List[str] = None,
             weight: int = 0,
@@ -33,6 +34,7 @@ class ShortEvent:
         self.event_id = event_id
         self.location = location if location else ["any"]
         self.season = season if season else ["any"]
+        self.infection = infection if infection else {}
         self.sub_type = sub_type if sub_type else []
         self.tags = tags if tags else []
         self.weight = weight

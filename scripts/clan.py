@@ -171,6 +171,9 @@ class Clan:
         self.priority_herb = None
         self.time_to_next_infection = 0
 
+        self.exiled_infected = ""
+        self.killed_infected = ""
+
 
         self.focus_cat = focus_cat
         self.clan_age = clan_age if clan_age else "established"
@@ -297,7 +300,9 @@ class Clan:
             "logs": [],
             "fallen_clans": [],
             "priority_herb": None,
-            "time_to_next_infection": 0
+            "time_to_next_infection": 0,
+            "exiled_infected": "",
+            "killed_infected": ""
         }
         # ---
 
@@ -887,7 +892,9 @@ class Clan:
             "logs": self.infection["logs"],
             "fallen_clans": self.infection["fallen_clans"],
             "priority_herb": self.infection["priority_herb"],
-            "time_to_next_infection": self.infection["time_to_next_infection"]
+            "time_to_next_infection": self.infection["time_to_next_infection"],
+            "exiled_infected": self.infection["exiled_infected"],
+            "killed_infected": self.infection["killed_infected"]
         }
 
         # LEADER DATA
@@ -1332,7 +1339,15 @@ class Clan:
 
         if "other_clans" in clan_data:
             for other_clan in clan_data["other_clans"]:
-                game.clan.all_clans.append(OtherClan(other_clan["name"], int(other_clan["relations"]), other_clan["temperament"], int(other_clan["infection_level"]), other_clan["chosen_symbol"]))
+                game.clan.all_clans.append(
+                    OtherClan(
+                        other_clan["name"],
+                        int(other_clan["relations"]),
+                        other_clan["temperament"],
+                        int(other_clan["infection_level"]) if "infection_level" in other_clan else 0,
+                        other_clan["chosen_symbol"]
+                        )
+                    )
         else:
             if "other_clan_infected" not in clan_data:
                 other_clans_names = clan_data["other_clans_names"].split(", ")

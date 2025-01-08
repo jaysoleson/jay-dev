@@ -5,6 +5,7 @@ from shutil import move as shutil_move
 
 import pygame
 import ujson
+import random
 
 from scripts.event_class import Single_Event
 from scripts.game_structure.screen_settings import toggle_fullscreen
@@ -588,11 +589,13 @@ class Game:
                     "logs": [],
                     "fallen_clans": [],
                     "priority_herb": None,
-                    "time_to_next_infection": 0
+                    "time_to_next_infection": 0,
+                    "killed_infected": "",
+                    "exiled_infected": ""
                 }
                 
                 with open(f"saves/{self.clan.name}/infection.json", 'w') as create_file:
-                    json.dump(self.clan.infection, create_file, indent=4)
+                    ujson.dump(self.clan.infection, create_file, indent=4)
 
     def load_events(self):
         """

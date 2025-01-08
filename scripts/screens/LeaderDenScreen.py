@@ -257,19 +257,27 @@ class LeaderDenScreen(Screens):
         self.clan_temper = game.clan.temperament
 
         self.screen_elements["clan_notice_text"] = pygame_gui.elements.UITextBox(
-            relative_rect=ui_scale(pygame.Rect((68, 375), (445, -1))),
+            relative_rect=ui_scale(pygame.Rect((68, 372), (445, -1))),
             html_text=f" {self.leader_name} is considering how to handle the next Gathering. ",
             object_id=get_text_box_theme("#text_box_30_horizcenter_spacing_95"),
             visible=False,
             manager=MANAGER,
         )
         self.screen_elements["outsider_notice_text"] = pygame_gui.elements.UITextBox(
-            relative_rect=ui_scale(pygame.Rect((68, 375), (445, -1))),
+            relative_rect=ui_scale(pygame.Rect((68, 372), (445, -1))),
             html_text=f" {self.leader_name} is considering what to do about nearby Outsiders. ",
             object_id=get_text_box_theme("#text_box_30_horizcenter_spacing_95"),
             visible=False,
             manager=MANAGER,
         )
+         # INF
+        living_clans = []
+        for clan in game.clan.all_clans:
+            if clan.name in game.clan.infection["fallen_clans"]:
+                continue
+            if clan.name == game.clan.name:
+                continue
+            living_clans.append(clan.name)
 
         # if no one is alive, give a special notice
         if not get_living_clan_cat_count(Cat):
@@ -310,9 +318,19 @@ class LeaderDenScreen(Screens):
 
         self.screen_elements["clan_notice_text"].show()
 
+
+        if len(living_clans) > 1:
+            den_text = f"The other Clans think {game.clan.name}Clan is {self.clan_temper}.",
+        elif len(living_clans) == 1:
+            den_text = f"{str(living_clans[0].name)}Clan thinks {game.clan.name}Clan is {self.clan_temper}.",
+        else:
+            den_text = f"{game.clan.name}Clan is all alone."
+        # ---
+
+
         self.screen_elements["temper_text"] = pygame_gui.elements.UITextBox(
-            relative_rect=ui_scale(pygame.Rect((68, 410), (445, -1))),
-            html_text=f"The other Clans think {game.clan.name}Clan is {self.clan_temper}.",
+            relative_rect=ui_scale(pygame.Rect((68, 415), (445, -1))),
+            html_text=den_text,
             object_id=get_text_box_theme("#text_box_30_horizcenter"),
             manager=MANAGER,
         )
@@ -434,7 +452,7 @@ class LeaderDenScreen(Screens):
             self.other_clan_selection_elements[
                 f"clan_symbol{i}"
             ] = pygame_gui.elements.UIImage(
-                ui_scale(pygame.Rect((0, -30), (50, 50))),
+                ui_scale(pygame.Rect((0, -45), (50, 50))),
                 clan_symbol_sprite(other_clan),
                 object_id=f"#clan_symbol{i}",
                 starting_height=1,
@@ -446,7 +464,7 @@ class LeaderDenScreen(Screens):
             self.other_clan_selection_elements[
                 f"clan_name{i}"
             ] = pygame_gui.elements.UILabel(
-                ui_scale(pygame.Rect((0, 20), (133, -1))),
+                ui_scale(pygame.Rect((0, 5), (133, -1))),
                 text=f"{other_clan.name}Clan",
                 object_id=get_text_box_theme("#text_box_30_horizcenter"),
                 container=self.other_clan_selection_elements[f"container{i}"],
@@ -459,7 +477,7 @@ class LeaderDenScreen(Screens):
             self.other_clan_selection_elements[
                 f"clan_temper{i}"
             ] = pygame_gui.elements.UILabel(
-                ui_scale(pygame.Rect((0, 2), (133, -1))),
+                ui_scale(pygame.Rect((0, 0), (133, -1))),
                 text=f"{other_clan.temperament.strip()}",
                 object_id=get_text_box_theme("#text_box_22_horizcenter"),
                 container=self.other_clan_selection_elements[f"container{i}"],
@@ -472,7 +490,7 @@ class LeaderDenScreen(Screens):
             self.other_clan_selection_elements[
                 f"clan_rel{i}"
             ] = pygame_gui.elements.UILabel(
-                ui_scale(pygame.Rect((0, 2), (133, -1))),
+                ui_scale(pygame.Rect((0, 0), (133, -1))),
                 text=f"{get_other_clan_relation(other_clan.relations).strip()}",
                 object_id=get_text_box_theme("#text_box_22_horizcenter"),
                 container=self.other_clan_selection_elements[f"container{i}"],
@@ -483,15 +501,23 @@ class LeaderDenScreen(Screens):
                 },
             )
             if other_clan.name in game.clan.infection["fallen_clans"]:
-                self.other_clan_selection_elements[f"clan_fallen{i}"] = (
-                    pygame_gui.elements.UILabel(
-                        ui_scale(pygame.Rect((13 + (x_pos * i), 157), (122, -1))),
-                        text="FALLEN",
-                        object_id=get_text_box_theme("#text_box_22_horizcenter_green"),
-                        container=self.other_clan_selection_container,
-                        manager=MANAGER,
-                    )
+                text = "FALLEN"
+                theme="#text_box_22_horizcenter_green"
+            elif other_clan.infection_level > 0:
+                text = "infected"
+                theme="#text_box_22_horizcenter_green"
+            else:
+                text = "uninfected"
+                theme="#text_box_22_horizcenter"
+            self.other_clan_selection_elements[f"clan_fallen{i}"] = (
+                pygame_gui.elements.UILabel(
+                    ui_scale(pygame.Rect((13 + (x_pos * i), 150), (122, -1))),
+                    text=text,
+                    object_id=theme,
+                    container=self.other_clan_selection_container,
+                    manager=MANAGER,
                 )
+            )
 
     def create_outsider_selection_box(self):
         self.outsider_selection_container = pygame_gui.elements.UIAutoResizingContainer(
@@ -664,11 +690,12 @@ class LeaderDenScreen(Screens):
 
         if self.focus_clan.name in game.clan.infection["fallen_clans"]:
             self.focus_clan_elements["clan_fallen_text"] = pygame_gui.elements.UILabel(
-            ui_scale(pygame.Rect((x_pos, 250), (318, -1))),
+            ui_scale(pygame.Rect((0, 260), (200, -1))),
             text=f"{self.focus_clan.name}Clan has fallen.",
             object_id="#text_box_30_horizcenter",
             container=self.focus_clan_container,
             manager=MANAGER,
+            anchors={"centerx": "centerx"}
         )
 
         # if self.no_gathering:

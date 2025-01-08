@@ -201,6 +201,9 @@ class MusicManager:
             new_playlist = self.playlists["beach_playlist"]
         elif biome == "Beach":
             new_playlist = self.playlists["mountainous_playlist"]
+        
+        if game.clan.infection["clan_infected"] is True:
+            new_playlist = self.playlists[f"{game.clan.infection['infection_type']}_playlist"]
 
         return new_playlist
 

@@ -42,8 +42,6 @@ class CureLogScreen(Screens):
     """
     TODO: DOCS
     """
-    stamps = {}
-    journalart = None
 
     def __init__(self, name=None):
         super().__init__(name)
@@ -68,6 +66,9 @@ class CureLogScreen(Screens):
         self.save_text = None
         self.edit_text = None
         self.display_notes = None
+
+        self.journalart = None
+        self.stamps = {}
 
     
     def check_achivements(self):
@@ -235,24 +236,25 @@ class CureLogScreen(Screens):
             with open('resources/dicts/infection/logs.json', 'r', encoding='utf-8') as f:
                 a_txt = ujson.load(f)
                 
-            journal = pygame.transform.scale(image_cache.load_image("resources/images/journal_dark.png").convert_alpha())
+            journal = pygame.transform.scale(image_cache.load_image("resources/images/journal_dark.png").convert_alpha(), (800, 700))
                 
             self.journalart = pygame_gui.elements.UIImage(
-                ui_scale(pygame.Rect((0, 70), (582, 416))),
+                ui_scale(pygame.Rect((0, 0), (582, 416))),
                 journal,
                 manager=MANAGER,
-                anchors={"centerx": "centerx"},
+                anchors={"centerx": "centerx",
+                         "centery": "centery"},
             )
                 
             self.previous_page_button = UISurfaceImageButton(
-                ui_scale(pygame.Rect((315, 579), (34, 34))),
+                ui_scale(pygame.Rect((315, 595), (34, 34))),
                 Icon.ARROW_LEFT,
                 get_button_dict(ButtonStyles.ICON, (34, 34)),
                 object_id="@buttonstyles_icon",
                 starting_height=0,
             )
             self.next_page_button = UISurfaceImageButton(
-                ui_scale(pygame.Rect((451, 579), (34, 34))),
+                ui_scale(pygame.Rect((451, 595), (34, 34))),
                 Icon.ARROW_RIGHT,
                 get_button_dict(ButtonStyles.ICON, (34, 34)),
                 object_id="@buttonstyles_icon",
@@ -275,7 +277,7 @@ class CureLogScreen(Screens):
 
             self.heading1 = pygame_gui.elements.UITextBox(
                 "<b>Events:</b>",
-                ui_scale(pygame.Rect((100, 110), (280, 30))),
+                ui_scale(pygame.Rect((105, 110), (280, 30))),
                 manager=MANAGER,
                 object_id=get_text_box_theme("#text_box_30_horizcenter"))
 
@@ -287,7 +289,7 @@ class CureLogScreen(Screens):
             
             self.stats_box = pygame_gui.elements.UITextBox(
                 f"<font color='#120905'>{stats_text}</font>",
-                ui_scale(pygame.Rect((130, 170), (265, 360))),
+                ui_scale(pygame.Rect((135, 170), (265, 360))),
                 manager=MANAGER,
                 object_id=get_text_box_theme("#text_box_30_horizcenter"))
             
@@ -322,7 +324,7 @@ class CureLogScreen(Screens):
 
             stats_text = "<b>Treatments:</b>"
 
-            log_width = 130
+            log_width = 260
             y_offset = 0
             x_button_y_offset = 12
             
@@ -331,7 +333,7 @@ class CureLogScreen(Screens):
                 logs += 1
 
                 self.x_buttons[str(treatment['moon'])] = UIImageButton(ui_scale(pygame.Rect((60, x_button_y_offset), (25, 25))),
-                                "X",
+                                "",
                                 object_id="#exit_window_button",
                                 tool_tip_text=f"Delete moon {str(treatment['moon'])}'s entry (cannot be undone!)",
                                 container=self.scroll_container,
@@ -342,7 +344,7 @@ class CureLogScreen(Screens):
 
                 self.moon_text = f"<b>Moon {treatment['moon']}</b>"
                 self.moon_text_box = pygame_gui.elements.UITextBox(self.moon_text,
-                                    pygame.Rect((40, y_offset), (log_width, 25)),
+                                    pygame.Rect((80, y_offset), (log_width, 25)),
                                     container=self.scroll_container,
                                     manager=MANAGER,
                                     object_id=get_text_box_theme("#text_box_30_horizcenter"))
@@ -374,33 +376,25 @@ class CureLogScreen(Screens):
                     else:
                         self.correct_text = "<font color='#550D0D'>Zero Effective Herbs</font>"
 
-                if game.settings["fullscreen"]:
-                    offset3 = 130
-                else:
-                    offset3 = 67
+                offset3 = 67
                 self.correct_text_box = pygame_gui.elements.UITextBox(self.correct_text,
                                     pygame.Rect((80, (y_offset + offset3)), (log_width, 50)),
                                     container=self.scroll_container,
                                     manager=MANAGER,
                                     object_id=get_text_box_theme("#text_box_30_horizcenter"))
                 
-                if game.settings["fullscreen"]:
-                    y_offset += 240
-                    x_button_y_offset += 240
-                else:
-                    y_offset += 140
-                    x_button_y_offset += 280
-                # FULLSCREEN YOU SUCK
+                y_offset += 140
+                x_button_y_offset += 139
 
             self.previous_page_button = UISurfaceImageButton(
-                ui_scale(pygame.Rect((315, 579), (34, 34))),
+                ui_scale(pygame.Rect((315, 595), (34, 34))),
                 Icon.ARROW_LEFT,
                 get_button_dict(ButtonStyles.ICON, (34, 34)),
                 object_id="@buttonstyles_icon",
                 starting_height=0,
             )
             self.next_page_button = UISurfaceImageButton(
-                ui_scale(pygame.Rect((451, 579), (34, 34))),
+                ui_scale(pygame.Rect((451, 595), (34, 34))),
                 Icon.ARROW_RIGHT,
                 get_button_dict(ButtonStyles.ICON, (34, 34)),
                 object_id="@buttonstyles_icon",
@@ -422,7 +416,7 @@ class CureLogScreen(Screens):
 
             self.stats_box = pygame_gui.elements.UITextBox(
                 stats_text,
-                ui_scale(pygame.Rect((135, 125), (350, 500))),
+                ui_scale(pygame.Rect((135, 125), (350, 50))),
                 manager=MANAGER,
                 object_id=get_text_box_theme("#text_box_30_horizcenter"))
             
@@ -448,7 +442,7 @@ class CureLogScreen(Screens):
             self.heading2 = None
 
             self.scroll_container = pygame_gui.elements.UIScrollingContainer(ui_scale(pygame.Rect(
-            (197, 72), (200, 227))),
+            (385, 160), (270, 370))),
             allow_scroll_x=False,
             manager=MANAGER)
 
@@ -475,14 +469,14 @@ class CureLogScreen(Screens):
                                               line_spacing=1, manager=MANAGER)
             
             self.previous_page_button = UISurfaceImageButton(
-                ui_scale(pygame.Rect((315, 579), (34, 34))),
+                ui_scale(pygame.Rect((315, 595), (34, 34))),
                 Icon.ARROW_LEFT,
                 get_button_dict(ButtonStyles.ICON, (34, 34)),
                 object_id="@buttonstyles_icon",
                 starting_height=0,
             )
             self.next_page_button = UISurfaceImageButton(
-                ui_scale(pygame.Rect((451, 579), (34, 34))),
+                ui_scale(pygame.Rect((451, 595), (34, 34))),
                 Icon.ARROW_RIGHT,
                 get_button_dict(ButtonStyles.ICON, (34, 34)),
                 object_id="@buttonstyles_icon",
@@ -497,13 +491,14 @@ class CureLogScreen(Screens):
             
             self.stats_box2 = None
             
-            journal = pygame.transform.scale(image_cache.load_image("resources/images/journal_dark.png").convert_alpha())
+            journal = pygame.transform.scale(image_cache.load_image("resources/images/journal_dark.png").convert_alpha(), (800, 700))
                 
             self.journalart = pygame_gui.elements.UIImage(
-                ui_scale(pygame.Rect((0, 70), (582, 416))),
+                ui_scale(pygame.Rect((0, 0), (582, 416))),
                 journal,
                 manager=MANAGER,
-                anchors={"centerx": "centerx"},
+                anchors={"centerx": "centerx",
+                         "centery": "centery"},
             )
 
             if len(game.clan.infection["treatments"]) > 0:
@@ -585,6 +580,8 @@ class CureLogScreen(Screens):
                     tool_tip_text=f"Fallen Clans: {str(len(game.clan.infection['fallen_clans']))}",
                     manager=MANAGER
                     )
+                
+            
 
             
             self.update_notes_buttons()
@@ -642,32 +639,38 @@ class CureLogScreen(Screens):
             self.display_notes.kill()
 
         if self.editing_notes is True:
-            self.save_text = UIImageButton(ui_scale(pygame.Rect(
-                (715, 175), (34, 34))),
-                "",
-                object_id="#unchecked_checkbox",
-                tool_tip_text='lock and save text', manager=MANAGER
+            self.save_text = UISurfaceImageButton(
+                ui_scale(pygame.Rect((705, 175), (80, 30))),
+                "save",
+                get_button_dict(ButtonStyles.ROUNDED_RECT, (80, 30)),
+                object_id="@buttonstyles_rounded_rect",
+                starting_height=0,
             )
 
             self.notes_entry = pygame_gui.elements.UITextEntryBox(
-                ui_scale(pygame.Rect((22, 25), (240, 375))),
+                ui_scale(pygame.Rect((22, 25), (240, 305))),
                 initial_text=self.user_notes,
                 container=self.scroll_container,
                 object_id='#text_box_26_horizleft_pad_10_14', manager=MANAGER
             )
         else:
-            self.edit_text = UIImageButton(ui_scale(pygame.Rect(
-                (715, 175), (34, 34))),
-                "",
-                object_id="#checked_checkbox_smalltooltip",
-                tool_tip_text='edit text', manager=MANAGER
+            self.edit_text = UISurfaceImageButton(
+                ui_scale(pygame.Rect((705, 175), (80, 30))),
+                "edit",
+                get_button_dict(ButtonStyles.ROUNDED_RECT, (80, 30)),
+                object_id="@buttonstyles_rounded_rect",
+                starting_height=0,
             )
 
-            self.display_notes = UITextBoxTweaked(self.user_notes,
-                                                    ui_scale(pygame.Rect((22, 20), (240, 375))),
-                                                    object_id="#text_box_26_horizleft_pad_10_14",
-                                                    container=self.scroll_container,
-                                                    line_spacing=1, manager=MANAGER)
+            self.display_notes = UITextBoxTweaked(
+                self.user_notes,
+                ui_scale(pygame.Rect((22, 20), (240, 305))),
+                object_id="#text_box_26_horizleft_pad_10_14",
+                container=self.scroll_container,
+                line_spacing=1,
+                manager=MANAGER
+                )
+            
     def exit_screen(self):
         """
         TODO: DOCS
@@ -699,6 +702,10 @@ class CureLogScreen(Screens):
         if self.screen_art:
             self.screen_art.kill()
             del self.screen_art
+
+        if self.journalart:
+            self.journalart.kill()
+            del self.journalart
 
         if self.scroll_container:
             self.scroll_container.kill()
@@ -737,11 +744,6 @@ class CureLogScreen(Screens):
         if self.save_text:
             self.save_text.kill()
             del self.save_text
-
-    # def on_use(self):
-    #     # Due to a bug in pygame, any image with buttons over it must be blited
-    #     if self.screen_art and self.stage == "notes":
-    #         screen.blit(self.journal_surface, (175, 307), (1165, 832, 1165, 832))
 
     def delete_entry(self, treatment):
         treatment_to_remove = None

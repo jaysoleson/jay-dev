@@ -1,32 +1,14 @@
 import pygame.transform
 import pygame_gui.elements
-from random import choice, randint
-import ujson
-import re
-import random
-
-from scripts.cat_relations.inheritance import Inheritance
-from scripts.cat.history import History
-from scripts.event_class import Single_Event
-from scripts.events import events_class
-
 from scripts.clan import HERBS
 
-from scripts.utility import get_personality_compatibility, get_text_box_theme, ui_scale, shorten_text_to_fit, pronoun_repl
-from scripts.cat.cats import Cat
-from scripts.game_structure import image_cache
-from scripts.cat.pelts import Pelt
-from scripts.game_structure.windows import GameOver, PickPath, DeathScreen
-from scripts.game_structure.ui_elements import UIImageButton, UISpriteButton, UIRelationStatusBar
+from scripts.utility import get_text_box_theme, ui_scale
+from scripts.game_structure.ui_elements import UIImageButton, UISurfaceImageButton
 from scripts.game_structure.game_essentials import game
-from scripts.game_structure.windows import RelationshipLog
-from scripts.game_structure.propagating_thread import PropagatingThread
 from .Screens import Screens
 from ..game_structure.screen_settings import MANAGER
-from ..ui.generate_box import BoxStyles, get_box
 from ..ui.generate_button import get_button_dict, ButtonStyles
 from ..ui.get_arrow import get_arrow
-from ..ui.icon import Icon
 
 class PriorityHerbScreen(Screens):
     herb_buttons = {}
@@ -122,7 +104,7 @@ class PriorityHerbScreen(Screens):
         self.corners = {}
 
         x_start = 240
-        y_start = 80
+        y_start = 90
         x_spacing = 65
         y_spacing = 65
         grid_size = 2
@@ -136,7 +118,9 @@ class PriorityHerbScreen(Screens):
             if h is not None:
                 picked += 1
 
+        count = 0
         for index, herb in enumerate(HERBS):
+            count += 1
             if herb != self.priorityherb:
                 self.herb_buttons[herb] = UIImageButton(
                     ui_scale(pygame.Rect((x_pos, y_pos), (55, 55))), 
@@ -154,11 +138,12 @@ class PriorityHerbScreen(Screens):
                     manager=MANAGER
                 )
             
-            if (index + 1) % grid_size == 0:
-                x_pos = x_start  # Reset x position for new row
-                y_pos += y_spacing  # Move to the next row
+            if count == 5:
+                count = 0
+                x_pos = x_start 
+                y_pos += y_spacing
             else:
-                x_pos += x_spacing  # Move to the next column
+                x_pos += x_spacing 
 
         # these have to go after the herb buttons to avoid hover issues
 
@@ -199,7 +184,13 @@ class PriorityHerbScreen(Screens):
 
         self.hide_menu_buttons()
 
-        self.back_button = UIImageButton(ui_scale(pygame.Rect((25, 645), (105, 30))), "", object_id="#back_button")
+        self.back_button = UISurfaceImageButton(
+            ui_scale(pygame.Rect((25, 60), (105, 30))),
+            get_arrow(2) + " Back",
+            get_button_dict(ButtonStyles.SQUOVAL, (105, 30)),
+            object_id="@buttonstyles_squoval",
+            manager=MANAGER,
+        )
         
         self.update_text()
     
