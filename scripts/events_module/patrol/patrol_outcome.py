@@ -857,13 +857,6 @@ class PatrolOutcome:
                 if give_injury in INJURIES:
                     _cat.get_injured(give_injury, lethal=lethal)
                 elif give_injury in ILLNESSES:
-                    if give_injury in [
-                        f"{game.clan.infection['infection_type']} stage one",
-                        f"{game.clan.infection['infection_type']} stage two",
-                        f"{game.clan.infection['infection_type']} stage three",
-                        f"{game.clan.infection['infection_type']} stage four"
-                    ]:
-                        _cat.infected_for = random.randint(1, _cat.moons)
                     _cat.get_ill(give_injury, lethal=lethal)
                 elif give_injury in PERMANENT:
                     _cat.get_permanent_condition(give_injury)
@@ -889,8 +882,16 @@ class PatrolOutcome:
                 if not block.get("no_results"):
                     for given_condition in given_conditions:
                         self.__handle_condition_history(_cat, given_condition, patrol)
-                    combined_conditions = ", ".join(given_conditions)
-                    results.append(f"{_cat.name} got: {combined_conditions}.")
+                    if give_injury in [
+                        f"{game.clan.infection['infection_type']} stage one",
+                        f"{game.clan.infection['infection_type']} stage two",
+                        f"{game.clan.infection['infection_type']} stage three",
+                        f"{game.clan.infection['infection_type']} stage four"
+                    ]:
+                        results.append(f"\n<font color='#A6D000'>{_cat.name} is infected.</font")
+                    else:  
+                        combined_conditions = ", ".join(given_conditions)
+                        results.append(f"{_cat.name} got: {combined_conditions}.")
                 else:
                     # If no results are shown, assume the cat didn't get the patrol history. Default override.
                     self.__handle_condition_history(
@@ -1155,6 +1156,19 @@ class PatrolOutcome:
                 total_amount * (HUNTER_BONUS[str(highest_hunter_tier)] / 20 + 1)
             )
 
+        additional_text = ""
+        if (
+            game.clan.infection["clan_infected"] is False
+            ):
+            chance = 25
+            if not int(random.random() * chance):
+                infected_cat = random.choice(patrol.patrol_cats)
+                infected_cat.get_ill(f"{game.clan.infection['infection_type']} stage one")
+                additional_text = f"\n<font color='#A6D000'>The prey is infected!</font> {infected_cat.name} has become mysteriously ill after eating it..."
+
+                game.clan.infection["logs"].append("start")
+                game.clan.infection["clan_infected"] = True
+
         results = ""
         if total_amount > 0:
             amount_text = used_tag
@@ -1167,7 +1181,7 @@ class PatrolOutcome:
                 f"{total_amount} pieces of prey were caught on a patrol."
             )
             game.clan.freshkill_pile.add_freshkill(total_amount)
-            results = f"A {amount_text} amount of prey is brought to camp."
+            results = f"A {amount_text} amount of prey is brought to camp." + additional_text
 
         return results
 
@@ -1214,6 +1228,9 @@ class PatrolOutcome:
                     results.append(f"The patrol met {cat.name}.")
                 else:
                     results.append(f"{cat.name} joined the Clan.")
+
+                if cat.infected_for > 0:
+                    results.append(f"\n<font color='#A6D000'>{cat.name} is infected.</font")
 
                 cat.pelt.inventory = []
                 # ^^ this stops the multi-cat inventory thing for kittypets joining from patrols!!

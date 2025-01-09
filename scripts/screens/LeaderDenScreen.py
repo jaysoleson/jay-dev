@@ -320,9 +320,9 @@ class LeaderDenScreen(Screens):
 
 
         if len(living_clans) > 1:
-            den_text = f"The other Clans think {game.clan.name}Clan is {self.clan_temper}.",
+            den_text = f"The other Clans think {game.clan.name}Clan is {self.clan_temper}."
         elif len(living_clans) == 1:
-            den_text = f"{str(living_clans[0].name)}Clan thinks {game.clan.name}Clan is {self.clan_temper}.",
+            den_text = f"{str(living_clans[0].name)}Clan thinks {game.clan.name}Clan is {self.clan_temper}."
         else:
             den_text = f"{game.clan.name}Clan is all alone."
         # ---
@@ -508,7 +508,7 @@ class LeaderDenScreen(Screens):
                 theme="#text_box_22_horizcenter_green"
             else:
                 text = "uninfected"
-                theme="#text_box_22_horizcenter"
+                theme=get_text_box_theme("#text_box_22_horizcenter")
             self.other_clan_selection_elements[f"clan_fallen{i}"] = (
                 pygame_gui.elements.UILabel(
                     ui_scale(pygame.Rect((13 + (x_pos * i), 150), (122, -1))),

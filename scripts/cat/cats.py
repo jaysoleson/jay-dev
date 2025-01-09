@@ -2376,6 +2376,10 @@ class Cat:
             f"{game.clan.infection['infection_type']} stage four"
         ] and self.infected_for == 0:
             self.infected_for = 1
+            if self.outside is False:
+                if game.clan.infection["clan_infected"] is False:
+                    game.clan.infection["clan_infected"] = True
+                    game.clan.infection["logs"].append('start')
 
         illness = ILLNESSES[name]
         mortality = illness["mortality"][self.age]

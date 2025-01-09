@@ -589,7 +589,8 @@ class Game:
                     "logs": [],
                     "fallen_clans": [],
                     "priority_herb": None,
-                    "time_to_next_infection": 0,
+                    "next_infection_allowed": False,
+                    "between_infections": False,
                     "killed_infected": "",
                     "exiled_infected": ""
                 }

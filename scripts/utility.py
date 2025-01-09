@@ -563,6 +563,13 @@ def create_new_cat_block(
         alive = False
         thought = "Explores a new, starry world"
 
+    infected = False
+    if "infected" in attribute_list:
+        infected = True
+    immune = False
+    if "immune" in attribute_list:
+        immune = True
+
     # LIFEGEN: encountered dead cat residences -----------------------
     df = False
     encountered_dead_df = False
@@ -693,6 +700,22 @@ def create_new_cat_block(
             # INF
             if immune is True:
                 n_c.infected_for = -1
+            
+            if infected is True:
+                n_c.get_ill(f"{game.clan.infection['infection_type']} stage one")
+            
+            # random infection
+            percentage = (get_infected_clan_cat_count(Cat) / get_living_clan_cat_count(Cat)) * 100
+            chance = round((100 - percentage) / 3)
+
+            if game.clan.infection["clan_infected"] is False:
+                chance = 10
+
+            print(n_c.name, "infection chance: 1/"+ str(chance))
+
+            if not int(random() * chance) and not n_c.dead:
+                print("random infected cat chance hit for", n_c.name)
+                n_c.get_ill(f"{game.clan.infection['infection_type']} stage one")
 
             # LIFEGEN: encountered dead cat stuff -----------------------------
             beginning = History.get_beginning(n_c)

@@ -199,7 +199,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "p_l tries to ask the kittypet what they're doing out here, but they're giggling too hard to themself to pay much attention. p_l turns the patrol around, frustrated, leaving the kittypet to their own devices.",
+                "text": "p_l tries to ask the kittypet what {PRONOUN/n_c:0/subject}{VERB/n_c:0/'re/'s} doing out here, but {PRONOUN/n_c:0/subject}{VERB/n_c:0/'re/'s} giggling too hard to {PRONOUN/n_c:0/self} to pay much attention. p_l turns the patrol around, frustrated, leaving the kittypet to {PRONOUN/n_c:0/poss} own devices.",
                 "exp": 10,
                 "weight": 20,
                 "new_cat": [
@@ -209,7 +209,7 @@
         ],
         "antag_fail_outcomes": [
             {
-                "text": "With lashing tails, the patrol threatens the kittypet for being on their territory. The kittypet doesn't seem amused, but when r_c lunges for the base of the tree they've up in, they quickly hop onto a neighbouring branch and disappear.",
+                "text": "With lashing tails, the patrol threatens the kittypet for being on their territory. The kittypet doesn't seem amused, but when r_c lunges for the base of the tree {PRONOUN/n_c:0/subject}{VERB/n_c:0/'re/'s} up in, {PRONOUN/n_c:0/subject} quickly {VERB/n_c:0/hop/hops} onto a neighbouring branch and {VERB/n_c:0/disappears}.",
                 "exp": 0,
                 "weight": 20,
                 "outsider_rep": -1,
@@ -232,19 +232,7 @@
                 "text": "r_c instantly leaps onto the tree as the rest of the patrol heckles the kittypet to get off of their land. The kittypet yelps and quickly leaps into a neighbouring tree before r_c can get to them, disappearing into the leaves as they flee.",
                 "exp": 10,
                 "weight": 20,
-                "outsider_rep": -2,
-                "relationships": [
-                    {
-                        "cats_from": ["n_c:0"],
-                        "cats_to": ["patrol"],
-                        "mutual": false,
-                        "values": ["dislike"],
-                        "amount": 10
-                    }
-                ],
-                "new_cat": [
-                    ["meeting", "kittypet"]
-                ]
+                "outsider_rep": -2
             }
         ]
     },
@@ -270,7 +258,7 @@
             "healer cats": [1, 6]
         },
         "weight": 15,
-        "intro_text": "The patrol comes across a kittypet, who is immediately apologetic for trespassing. They have some priority_herb The kittypet explains that they're looking for a friend of theirs to attempt to treat their infection.",
+        "intro_text": "The patrol comes across a kittypet, who is immediately apologetic for trespassing. The kittypet is carryign some priority_herb and explains that they're looking for a friend of theirs to attempt to treat their infection.",
         "decline_text": "",
         "chance_of_success": 50,
         "success_outcomes": [
@@ -282,7 +270,14 @@
                     ["meeting", "kittypet"],
                     ["rogue"]
                 ],
-                "herbs": ["priority_herb"]
+                "herbs": ["priority_herb"],
+                "injury": [
+                    {
+                        "cats": ["n_c:1"],
+                        "injuries": ["stage two"],
+                        "no_results": false
+                    }
+                ] 
             }
         ],
         "fail_outcomes": [
@@ -294,42 +289,19 @@
         ],
         "antag_fail_outcomes": [
             {
-                "text": "",
+                "text": "p_l hisses at the kittypet, lashing a paw forward in an attempt to snatch the herb bundle away. The kittypet, unamused, just snorts, tells the patrol not to be so rude, and turns around to continue searching elsewhere.",
                 "exp": 0,
                 "weight": 20,
-                "outsider_rep": -1,
-                "relationships": [
-                    {
-                        "cats_from": ["n_c:0"],
-                        "cats_to": ["clan"],
-                        "mutual": true,
-                        "values": ["dislike"],
-                        "amount": 15
-                    }
-                ],
-                "new_cat": [
-                    ["meeting", "kittypet"]
-                ]
+                "outsider_rep": -1
             }
         ],
         "antag_success_outcomes": [
             {
-                "text": "",
+                "text": "With lashing tails, the patrol kicks the kittypet off of c_n territory, but not before stealing their herb bundle.",
                 "exp": 10,
                 "weight": 20,
                 "outsider_rep": -2,
-                "relationships": [
-                    {
-                        "cats_from": ["n_c:0"],
-                        "cats_to": ["patrol"],
-                        "mutual": false,
-                        "values": ["dislike"],
-                        "amount": 10
-                    }
-                ],
-                "new_cat": [
-                    ["meeting", "kittypet"]
-                ]
+                "herbs": ["priority_herb"]
             }
         ]
     },
@@ -350,7 +322,7 @@
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "As they track the scent, the patrol comes across a far-gone infected cat lurking in the underbrush. This undead cat is not aggressive, just wandering aimlessly. The cat's pelt is completely obscure and unrecognisable, so the patrol rushes back to camp to ensure that it's not any of their Clanmates.",
+                "text": "As they track the scent, the patrol comes across a far-gone infected cat lurking in the underbrush. This undead cat is not aggressive, just wandering aimlessly. The cat's pelt is completely obscured and unrecognisable, so the patrol rushes back to camp to ensure that it's not any of their Clanmates.",
                 "exp": 10,
                 "weight": 10,
                 "outsider_rep": 0,
@@ -361,7 +333,7 @@
                     {
                         "cats": ["n_c:0"],
                         "injuries": ["undead"],
-                        "no_results": true
+                        "no_results": false
                     }
                 ]
             },
@@ -371,6 +343,16 @@
                 "weight": 10,
                 "new_cat": [
                     ["dead", "kittypet"]
+                ],
+                "accessory": [
+                    {
+                        "cats": [
+                            "n_c:0"
+                        ],
+                        "accessory": [
+                            "COLLAR"
+                        ]
+                    }
                 ]
             },
             {
@@ -391,7 +373,7 @@
                 "weight": 20
             },
             {
-                "text": "It's not long before the patrol stumbles across a fox kit. Typically small and unthreatening, this kit is infected, and leaps at r_c before they can fight back. The rest of the patrol kills the fox before it can sink its teeth into r_c's throat, and they're rushed to the medicine den.",
+                "text": "It's not long before the patrol stumbles across a fox kit. Typically small and unthreatening, this kit is infected, and leaps at r_c before {PRONOUN/r_c/subject} can fight back. The rest of the patrol kills the fox before it can sink its teeth into r_c's throat, and {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} rushed to the medicine den.",
                 "exp": 0,
                 "weight": 10,
                 "injury": [
@@ -415,7 +397,7 @@
         "min_max_status": {
         },
         "weight": 20,
-        "intro_text": "The patrol comes across a small kit near their border. It seems healthy at first glance but shows small signs of infection: clouded eyes, stiff movements.. The kit pleads for help, claiming that its Twolegs abandoned it.",
+        "intro_text": "The patrol comes across a small kit near their border. It seems healthy at first glance but shows small signs of infection: clouded eyes, stiff movements... The kit pleads for help, claiming that its Twolegs abandoned it.",
         "decline_text": "The patrol decides to turn down the kit, despite all their pleading.",
         "chance_of_success": 30,
         "success_outcomes": [
@@ -431,7 +413,7 @@
                     {
                         "cats": ["n_c:0"],
                         "injuries": ["stage one"],
-                        "no_results": true
+                        "no_results": false
                     }
                 ]
             },
@@ -447,14 +429,14 @@
                     {
                         "cats": ["n_c:0"],
                         "injuries": ["stage one"],
-                        "no_results": true
+                        "no_results": false
                     }
                 ]
             }
         ],
         "fail_outcomes": [
             {
-                "text": "The patrol takes the weak, sick kitten back to camp, but despite the medicine cat's best efforts, {PRONOUN/n_c:0/subject} {VERB/n_c:0/succumb/succumbs} to the infection overnight.",
+                "text": "The patrol takes the weak, sick kitten back to camp, but despite the medicine cat's best efforts, they succumb to the infection overnight.",
                 "exp": 0,
                 "weight": 20
             }

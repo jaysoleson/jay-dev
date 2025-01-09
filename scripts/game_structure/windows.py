@@ -477,7 +477,7 @@ class GameOver(UIWindow):
 
 class InfectionGameOver(UIWindow):
     def __init__(self, last_screen):
-        super().__init__(scale(pygame.Rect((500, 400), (600, 360))),
+        super().__init__(ui_scale(pygame.Rect((250, 200), (300, 180))),
                          window_display_title='Game Over',
                          object_id='#game_over_window',
                          resizable=False)
@@ -488,7 +488,7 @@ class InfectionGameOver(UIWindow):
         self.game_over_message = UITextBoxTweaked(
             f"{self.clan_name} is completely infected. There is no hope of recovery.<br>"
             f"What will you do?",
-            scale(pygame.Rect((40, 40), (520, -1))),
+            ui_scale(pygame.Rect((20, 40), (260, -1))),
             line_spacing=1,
             object_id="",
             container=self
@@ -496,20 +496,20 @@ class InfectionGameOver(UIWindow):
 
         self.game_over_message = UITextBoxTweaked(
             f"(leaving will not erase the save file)",
-            scale(pygame.Rect((40, 310), (520, -1))),
+            ui_scale(pygame.Rect((20, 155), (260, -1))),
             line_spacing=.8,
             object_id="#text_box_22_horizcenter",
             container=self
         )
 
         self.begin_anew_button = UIImageButton(
-            scale(pygame.Rect((50, 230), (222, 60))),
+            ui_scale(pygame.Rect((20, 115), (111, 30))),
             "",
             object_id="#begin_anew_button",
             container=self
         )
         self.not_yet_button = UIImageButton(
-            scale(pygame.Rect((318, 230), (222, 60))),
+            ui_scale(pygame.Rect((159, 115), (111, 30))),
             "",
             object_id="#not_yet_button",
             container=self

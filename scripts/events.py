@@ -141,29 +141,32 @@ class Events:
 
         # age up the clan, set current season
         game.clan.age += 1
-        if game.clan.infection["clan_infected"] is True:
 
+        chance = 2
+        if game.clan.infection["clan_infected"] is True:
             # checking if the clan is actually no longer infected
             infected_cats = get_infected_clan_cat_count(Cat)
             if infected_cats == 0:
                 game.clan.infection["clan_infected"] = False
                 if "cure_found" in game.clan.infection["logs"]:
                     event_text = "The infection has been cured, and no infected cats remain in camp! Now, the infection that ravaged the Clans will be nothing but a tale told to future generations of kits."
-                    game.clan.infection["time_to_next_infection"] = random.randint(80,110)
+                    game.clan.infection["next_infection_allowed"] = False
+                    game.clan.infection["between_infections"] = True
                 else:
                     event_text = "No infection remains in the camp. You've staved it off... for now."
-                    game.clan.infection["time_to_next_infection"] = random.randint(5,10)
+                    game.clan.infection["next_infection_allowed"] = False
 
                 game.cur_events_list.insert(0, Single_Event(event_text, ["alert", "infection"]))
-                print(game.clan.infection["time_to_next_infection"])
             else:
                 game.clan.infection["infection_moons"] += 1
-        else:
-            if game.clan.infection["time_to_next_infection"] == 1 and game.clan.infection["infection_moons"] != 0:
-                # this sucks
+        elif (
+            not int(random.random() * chance) and
+            game.clan.infection["between_infections"] is True and
+            game.clan.infection["cure_found"] is True # only a new infection if u cured the first one
+            ):
+            if game.clan.infection["next_infection_allowed"] is True:
                 current_type = game.clan.infection["infection_type"]
-
-                print("Time to next infection = 0. Infection reset!")
+                print("Triggered next infection. Infection reset!")
 
                 # RESETTING SHIT
                 if "cure_found" in game.clan.infection["logs"]:
@@ -182,9 +185,6 @@ class Events:
                             kitty.infected_for = 0
 
                 game.clan.infection["infection_moons"] = 0
-
-            elif game.clan.infection["time_to_next_infection"] > 1:
-                game.clan.infection["time_to_next_infection"] -= 1
 
         get_current_season()
         Pregnancy_Events.handle_pregnancy_age(game.clan)

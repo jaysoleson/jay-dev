@@ -169,7 +169,8 @@ class Clan:
         self.infection_moons = 0
         self.cure_logs = []
         self.priority_herb = None
-        self.time_to_next_infection = 0
+        self.next_infection_allowed = False
+        self.between_infections = False
 
         self.exiled_infected = ""
         self.killed_infected = ""
@@ -300,7 +301,8 @@ class Clan:
             "logs": [],
             "fallen_clans": [],
             "priority_herb": None,
-            "time_to_next_infection": 0,
+            "next_infection_allowed": False,
+            "between_infections": False,
             "exiled_infected": "",
             "killed_infected": ""
         }
@@ -892,7 +894,8 @@ class Clan:
             "logs": self.infection["logs"],
             "fallen_clans": self.infection["fallen_clans"],
             "priority_herb": self.infection["priority_herb"],
-            "time_to_next_infection": self.infection["time_to_next_infection"],
+            "next_infection_allowed": self.infection["next_infection_allowed"],
+            "between_infections": self.infection["between_infections"],
             "exiled_infected": self.infection["exiled_infected"],
             "killed_infected": self.infection["killed_infected"]
         }

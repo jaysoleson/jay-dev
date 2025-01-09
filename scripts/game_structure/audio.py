@@ -119,9 +119,12 @@ class MusicManager:
         if self.current_track and self.number_of_tracks > 1:
             playlist_copy = self.current_playlist.copy()
             # print(f"playlist: {playlist_copy}, removing track: {self.current_track}")
-            playlist_copy.remove(
-                self.current_track
-            )  # don't want to repeat current track, so we take it out
+            # INF
+            if self.current_track in playlist_copy:
+            # ---
+                playlist_copy.remove(
+                    self.current_track
+                )  # don't want to repeat current track, so we take it out
             options = playlist_copy
             # print(f"final list: {options}")
         else:

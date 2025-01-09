@@ -6,7 +6,19 @@
   "beach_playlist": [],
   "mountainous_playlist": [],
 
-  "fungal_playlist": ["resources/audio/music/infection/infection_start_fungal_3.mp3"],
-  "parasitic_playlist": ["resources/audio/music/infection/infection_start_parasitic_3.mp3"],
-  "void_playlist": ["resources/audio/music/infection/infection_start_void_3.mp3"]
+  "fungal_playlist": [
+    "resources/audio/music/infection/infection_start_fungal_3.mp3",
+    "resources/audio/music/infection/infection_1.mp3",
+    "resources/audio/music/infection/pixabay_mystical_forest.mp3"
+  ],
+  "parasitic_playlist": [
+    "resources/audio/music/infection/infection_start_parasitic_3.mp3",
+    "resources/audio/music/infection/infection_1.mp3",
+    "resources/audio/music/infection/pixabay_mystical_forest.mp3"
+  ],
+  "void_playlist": [
+    "resources/audio/music/infection/infection_start_void_3.mp3",
+    "resources/audio/music/infection/infection_1.mp3",
+    "resources/audio/music/infection/pixabay_mystical_forest.mp3"
+  ]
 }
