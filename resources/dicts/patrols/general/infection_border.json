@@ -90,7 +90,132 @@
         "chance_of_success": 20,
         "success_outcomes": [
             {
-                "text": "Unsure of whether {PRONOUN/p_l/subject}{VERB/p_l/'re/'s} imagining it or not, p_l continues on. Once {PRONOUN/p_l/subject}{VERB/p_l/'re/'s} done their walk, the eyes are nowhere to be found.",
+                "text": "Unsure of whether {PRONOUN/p_l/subject}{VERB/p_l/'re/'s} imagining it or not, p_l continues on. Once {PRONOUN/p_l/subject}{VERB/p_l/'re/'s} done {PRONOUN/p_l/poss} walk, the eyes are nowhere to be found.",
+                "exp": 40,
+                "weight": 20
+            },
+            {
+                "text": "p_l unsheathes {PRONOUN/p_l/poss} claws and puffs up, encouraging the intruder to come and face {PRONOUN/p_l/object}. What stumbles out of the bush is an infected cat, beyond saving, and p_l is able to swiftly take {PRONOUN/p_l/object} down.",
+                "exp": 40,
+                "weight": 20
+            },
+            {
+                "text": "s_c yowls at the intruder to come out and fight. Within a few heartbeats, a violent, infected cat launches out of the bush to tackle {PRONOUN/p_l/object}. s_c manages to fend the sick cat off until they stumble across the border, where they become unreachable.",
+                "exp": 40,
+                "weight": 20,
+                "stat_trait": [
+                    "ambitious",
+                    "confident",
+                    "fierce",
+                    "righteous",
+                    "bloodthirsty",
+                    "vengeful",
+                    "bold"
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "p_l is sure {PRONOUN/p_l/subject} must be imagining it. {PRONOUN/p_l/subject/CAP} {VERB/p_l/finish/finishes} {PRONOUN/p_l/poss} walk and {VERB/p_l/turn/turns} to head back, but when {PRONOUN/p_l/subject} {VERB/p_l/do/does}, an infected cat is waiting for {PRONOUN/p_l/object}, sick beyond saving. The infected cat tears into p_l without hesitation, not even giving {PRONOUN/p_l/object} time to scream.",
+                "exp": 0,
+                "weight": 10,
+                "dead_cats": ["p_l"],
+                "history_text": {
+                    "reg_death": "This cat was killed by an infected cat on the border.",
+                    "lead_death": "was killed by an infected cat on the border"
+                }
+            },
+            {
+                "text": "p_l tosses a stone into the bush and the intruder stumbles out, a heavily infected o_c_n cat. Not wanting to cause any problems between Clans, p_l runs, hoping the poor cat will find their way back into their own territory.",
+                "exp": 0,
+                "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "border_infection_beginning_J1",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "border"
+        ],
+        "tags": [
+            "infection_beginning"
+        ],
+        "patrol_art": "bord_general_intro",
+        "min_cats": 2,
+        "max_cats": 6,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "The patrol notices the still body of an outsider laying just beyond the border. Even from across the border, the patrol can smell the strange sickness emanating from their pelt.",
+        "decline_text": "The patrol decides not to investigate. Not their territory, not their problem.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "p_l decides to cross the border to investigate the cat. {PRONOUN/p_l/subject/CAP} {VERB/p_l/discover/discovers} that the cat has passed, and their body is still cooling. The patrol sends a quick prayer to StarClan for the cat's safe passage to the afterlife.",
+                "exp": 20,
+                "weight": 20,
+                "cure_log": [
+                    {
+                        "entry": "discovered"
+                    }
+                ]
+            },
+            {
+                "text": "p_l steps forward to approach the cat, but {PRONOUN/p_l/subject} {VERB/p_l/hear/hears} a yowl from afar before {PRONOUN/p_l/subject} can get too close. A cat charges out from the trees, yelling what must be the sick cat's name. p_l braces for a fight, but instead, the cat collapses at {PRONOUN/n_c:0/subject} friend's side, trying to shake {PRONOUN/n_c:1/subject} awake. The patrol offers to take them both back to camp for treatment, and the conscious cat reluctantly agrees.",
+                "exp": 0,
+                "weight": 10,
+                "new_cat": [
+                    ["loner"],
+                    ["loner"]
+                ],
+                "injury": [
+                    {
+                        "cats": ["n_c:0"],
+                        "injuries": ["stage three"]
+                    }
+                ],
+                "relationships": [
+                    {
+                        "cats_from": ["n_c:0"],
+                        "cats_to": ["n_c:1"],
+                        "values": ["platonic", "trust", "comfort"],
+                        "amount": 25
+                    }
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "r_c steps forward to check on the cat, but p_l stops {PRONOUN/r_c/object}. Whatever that illness is, it smells dangerous, and the Clan might not have the resources to deal with an outbreak. Reluctantly, the patrol heads home to report the incident.",
+                "exp": 0,
+                "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "infection_border_J1",
+        "biome": ["any"],
+        "season": ["any"],
+        "types": ["border"],
+        "tags": [
+            "infection"
+        ],
+        "patrol_art": "bord_general_intro",
+        "min_cats": 1,
+        "max_cats": 1,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "p_l heads out to the border alone, wanting to clear {PRONOUN/p_l/poss} head. As {PRONOUN/p_l/subject} {VERB/p_l/get/gets} close to the edge of the territory, {PRONOUN/p_l/subject} {VERB/p_l/notice/notices} a pair of malicious eyes following {PRONOUN/p_l/object} from the shadows.",
+        "decline_text": "p_l turns and races back to camp!",
+        "chance_of_success": 20,
+        "success_outcomes": [
+            {
+                "text": "Unsure of whether {PRONOUN/p_l/subject}{VERB/p_l/'re/'s} imagining it or not, p_l continues on. Once {PRONOUN/p_l/subject}{VERB/p_l/'re/'s} done {PRONOUN/p_l/poss} walk, the eyes are nowhere to be found.",
                 "exp": 40,
                 "weight": 20
             },

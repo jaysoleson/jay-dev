@@ -237,7 +237,37 @@ class CureLogScreen(Screens):
                 a_txt = ujson.load(f)
                 
             journal = pygame.transform.scale(image_cache.load_image("resources/images/journal_dark.png").convert_alpha(), (800, 700))
-                
+            
+            # notes
+            self.scroll_container = pygame_gui.elements.UIScrollingContainer(ui_scale(pygame.Rect(
+            (385, 160), (270, 370))),
+            allow_scroll_x=False,
+            manager=MANAGER)
+
+            self.set_disabled_menu_buttons(["stats"])
+            self.show_menu_buttons()
+            self.update_heading_text(f'{game.clan.name}Clan')
+
+            stats_text = "<b>Journal:</b>"
+            self.load_user_notes()
+            if self.user_notes is None:
+                self.user_notes = 'Take your notes here.'
+
+            self.notes_entry = pygame_gui.elements.UITextEntryBox(
+                ui_scale(pygame.Rect((22, 25), (240, 375))),
+                initial_text=self.user_notes,
+                container=self.scroll_container,
+                object_id='#text_box_26_horizleft_pad_10_14',
+                manager=MANAGER
+            )
+            self.display_notes = UITextBoxTweaked(
+                self.user_notes,
+                ui_scale(pygame.Rect((22, 25), (60, 375))),
+                object_id="#text_box_26_horizleft_pad_10_14",
+                container=self.scroll_container,
+                line_spacing=1, manager=MANAGER
+                )
+
             self.journalart = pygame_gui.elements.UIImage(
                 ui_scale(pygame.Rect((0, 0), (582, 416))),
                 journal,
@@ -262,18 +292,12 @@ class CureLogScreen(Screens):
             )
             # logs !
 
-            infologs = [i for i in game.clan.infection["logs"] if not i.startswith("lore_")]
-            lorelogs = [i for i in game.clan.infection["logs"] if i.startswith("lore_")]
+            infologs = [i for i in game.clan.infection["logs"]]
             stats_text = ""
-            stats_text2 = ""
             for i in infologs:
                 log = a_txt[i].replace("herb1", str(game.clan.infection["cure"][0])).replace("herb2", str(game.clan.infection["cure"][1])).replace("herb3", str(game.clan.infection["cure"][2])).replace("herb4", str(game.clan.infection["cure"][3]))
                 
                 stats_text += "-" + log + "\n" + "<br>"
-            for i in lorelogs:
-                log = a_txt[i].replace("herb1", str(game.clan.infection["cure"][0])).replace("herb2", str(game.clan.infection["cure"][1])).replace("herb3", str(game.clan.infection["cure"][2])).replace("herb4", str(game.clan.infection["cure"][3]))
-                
-                stats_text2 += "-" + log + "\n" + "<br>"
 
             self.heading1 = pygame_gui.elements.UITextBox(
                 "<b>Events:</b>",
@@ -293,16 +317,12 @@ class CureLogScreen(Screens):
                 manager=MANAGER,
                 object_id=get_text_box_theme("#text_box_30_horizcenter"))
             
-            self.stats_box2 = pygame_gui.elements.UITextBox(
-                f"<font color='#120905'>{stats_text2}</font>",
-                ui_scale(pygame.Rect((400, 170), (265, 360))),
-                manager=MANAGER,
-                object_id=get_text_box_theme("#text_box_30_horizcenter"))
-            
             if len(game.clan.infection["treatments"]) > 0:
                 self.next_page_button.enable()
             else:
                 self.next_page_button.disable()
+
+            self.update_notes_buttons()
             
         elif self.stage == "treatments":
             logs = 0
@@ -419,12 +439,14 @@ class CureLogScreen(Screens):
                 ui_scale(pygame.Rect((135, 125), (350, 50))),
                 manager=MANAGER,
                 object_id=get_text_box_theme("#text_box_30_horizcenter"))
-            
-            self.stats_box2 = None
            
             self.scroll_container.set_scrollable_area_dimensions((100, y_offset + 25))
 
-        if self.stage == "notes":
+        elif self.stage == "stamps":
+            self.set_disabled_menu_buttons(["stats"])
+            self.show_menu_buttons()
+            self.update_heading_text(f'{game.clan.name}Clan')
+            self.notes_entry = None
             self.moon_text = None
             self.moon_text_box = None
             self.treatment_text = None
@@ -434,39 +456,15 @@ class CureLogScreen(Screens):
             self.save_text = None
             self.edit_text = None
             self.screen_art = None
+            self.scroll_container = None
+            self.display_notes = None
+            self.journalart = None
 
             self.x_buttons = {}
             self.x_treatment = None
 
             self.heading1 = None
             self.heading2 = None
-
-            self.scroll_container = pygame_gui.elements.UIScrollingContainer(ui_scale(pygame.Rect(
-            (385, 160), (270, 370))),
-            allow_scroll_x=False,
-            manager=MANAGER)
-
-            self.set_disabled_menu_buttons(["stats"])
-            self.show_menu_buttons()
-            self.update_heading_text(f'{game.clan.name}Clan')
-
-            stats_text = "<b>Journal:</b>"
-            self.load_user_notes()
-            if self.user_notes is None:
-                self.user_notes = 'Take your notes here.'
-
-            self.notes_entry = pygame_gui.elements.UITextEntryBox(
-                ui_scale(pygame.Rect((22, 25), (240, 375))),
-                initial_text=self.user_notes,
-                container=self.scroll_container,
-                object_id='#text_box_26_horizleft_pad_10_14',
-                manager=MANAGER
-            )
-            self.display_notes = UITextBoxTweaked(self.user_notes,
-                                              ui_scale(pygame.Rect((22, 25), (60, 375))),
-                                              object_id="#text_box_26_horizleft_pad_10_14",
-                                              container=self.scroll_container,
-                                              line_spacing=1, manager=MANAGER)
             
             self.previous_page_button = UISurfaceImageButton(
                 ui_scale(pygame.Rect((315, 595), (34, 34))),
@@ -482,109 +480,96 @@ class CureLogScreen(Screens):
                 object_id="@buttonstyles_icon",
                 starting_height=0,
             )
-            
+
             self.stats_box = pygame_gui.elements.UITextBox(
-                stats_text,
-                ui_scale(pygame.Rect((100, 110), (600, 50))),
+                "<b>Journal Stamps</b>",
+                ui_scale(pygame.Rect((0, 125), (350, 50))),
                 manager=MANAGER,
-                object_id=get_text_box_theme("#text_box_30_horizcenter"))
-            
-            self.stats_box2 = None
-            
-            journal = pygame.transform.scale(image_cache.load_image("resources/images/journal_dark.png").convert_alpha(), (800, 700))
-                
-            self.journalart = pygame_gui.elements.UIImage(
-                ui_scale(pygame.Rect((0, 0), (582, 416))),
-                journal,
-                manager=MANAGER,
-                anchors={"centerx": "centerx",
-                         "centery": "centery"},
-            )
+                object_id=get_text_box_theme("#text_box_30_horizcenter"),
+                anchors={"centerx": "centerx"})
 
             if len(game.clan.infection["treatments"]) > 0:
                 self.previous_page_button.enable()
             else:
                 self.previous_page_button.disable()
 
-            self.scroll_container.set_scrollable_area_dimensions((600, 500))
-
             # JOURNAL STAMPS
             # wwhoooaaaaoo
-            self.check_achivements()
-            # chibi misspelled the function and im keeping it that way bc its funny
+            self.show_journal_stamps()
+    
+    def show_journal_stamps(self):
+        self.check_achivements()
+        # chibi misspelled the function and im keeping it that way bc its funny
 
-            # MURDER
-            murderer = False
-            # doing this so stamps can change if u switch mc to a non murderer
-            if not game.clan.your_cat.history:
-                game.clan.your_cat.load_history()
-            if game.clan.your_cat.history:
-                if game.clan.your_cat.history.murder:
-                    if "is_murderer" in game.clan.your_cat.history.murder:
-                        murderer = True
+        # MURDER
+        murderer = False
+        # doing this so stamps can change if u switch mc to a non murderer
+        if not game.clan.your_cat.history:
+            game.clan.your_cat.load_history()
+        if game.clan.your_cat.history:
+            if game.clan.your_cat.history.murder:
+                if "is_murderer" in game.clan.your_cat.history.murder:
+                    murderer = True
 
-            if "1" in game.clan.achievements and murderer:
+        if "1" in game.clan.achievements and murderer:
+            murder = "murder1"
+            hover = "Killed one cat"
+            self.stamps["murder"] = UIImageButton(ui_scale(pygame.Rect((155, 190), (19, 36))), "",
+                                            object_id=f"#stamp_{murder}", tool_tip_text=f"{hover}", manager=MANAGER)
+        
+            # redefining these all bc the dimensions are different
+            if "2" in game.clan.achievements:
                 murder = "murder1"
-                hover = "Killed one cat"
+                hover = "Killed five cats"
                 self.stamps["murder"] = UIImageButton(ui_scale(pygame.Rect((155, 190), (19, 36))), "",
                                                 object_id=f"#stamp_{murder}", tool_tip_text=f"{hover}", manager=MANAGER)
+            if "3" in game.clan.achievements:
+                murder = "murder2"
+                hover = "Killed twenty cats"
+                self.stamps["murder"] = UIImageButton(ui_scale(pygame.Rect((155, 190), (35, 43))), "",
+                                                object_id=f"#stamp_{murder}", tool_tip_text=f"{hover}", manager=MANAGER)
+            if "4" in game.clan.achievements:
+                murder = "murder3"
+                hover = "Killed fifty cats"
+                self.stamps["murder"] = UIImageButton(ui_scale(pygame.Rect((140, 185), (58, 49))), "",
+                                                object_id=f"#stamp_{murder}", tool_tip_text=f"{hover}", manager=MANAGER)
+        elif "25" in game.clan.achievements:
+            self.stamps["pacifist"] = UIImageButton(
+                ui_scale(pygame.Rect((140, 175), (78, 38))),
+                "",
+                object_id="#stamp_pacifist",
+                tool_tip_text="Lived to be 120 moons without committing a murder",
+                manager=MANAGER
+                )
+        
+        if "start" in game.clan.infection["logs"]:
+            self.stamps["start"] = UIImageButton(
+                ui_scale(pygame.Rect((0, 0), (74, 118))),
+                "",
+                object_id=f"#{game.clan.infection['infection_type']}_stamp_start",
+                tool_tip_text="You've discovered the infection.",
+                manager=MANAGER,
+                anchors={"centerx": "centerx", "centery": "centery"}
+                )
             
-                # redefining these all bc the dimensions are different
-                if "2" in game.clan.achievements:
-                    murder = "murder1"
-                    hover = "Killed five cats"
-                    self.stamps["murder"] = UIImageButton(ui_scale(pygame.Rect((155, 190), (19, 36))), "",
-                                                    object_id=f"#stamp_{murder}", tool_tip_text=f"{hover}", manager=MANAGER)
-                if "3" in game.clan.achievements:
-                    murder = "murder2"
-                    hover = "Killed twenty cats"
-                    self.stamps["murder"] = UIImageButton(ui_scale(pygame.Rect((155, 190), (35, 43))), "",
-                                                    object_id=f"#stamp_{murder}", tool_tip_text=f"{hover}", manager=MANAGER)
-                if "4" in game.clan.achievements:
-                    murder = "murder3"
-                    hover = "Killed fifty cats"
-                    self.stamps["murder"] = UIImageButton(ui_scale(pygame.Rect((140, 185), (58, 49))), "",
-                                                    object_id=f"#stamp_{murder}", tool_tip_text=f"{hover}", manager=MANAGER)
-            elif "25" in game.clan.achievements:
-                self.stamps["pacifist"] = UIImageButton(
-                    ui_scale(pygame.Rect((140, 175), (78, 38))),
-                    "",
-                    object_id="#stamp_pacifist",
-                    tool_tip_text="Lived to be 120 moons without committing a murder",
-                    manager=MANAGER
-                    )
+        if "cure_found" in game.clan.infection["logs"]:
+            self.stamps["cure_discovered"] = UIImageButton(
+                ui_scale(pygame.Rect((0, 178), (74, 74))),
+                "",
+                object_id="#stamp_cure",
+                tool_tip_text="You've discovered the cure!",
+                manager=MANAGER,
+                anchors={"centerx": "centerx"}
+                )
             
-            if "start" in game.clan.infection["logs"]:
-                self.stamps["start"] = UIImageButton(
-                    ui_scale(pygame.Rect((225, 270), (74, 118))),
-                    "",
-                    object_id=f"#{game.clan.infection['infection_type']}_stamp_start",
-                    tool_tip_text="You've discovered the infection.",
-                    manager=MANAGER
-                    )
-                
-            if "cure_found" in game.clan.infection["logs"]:
-                self.stamps["cure_discovered"] = UIImageButton(
-                    ui_scale(pygame.Rect((225, 178), (74, 74))),
-                    "",
-                    object_id="#stamp_cure",
-                    tool_tip_text="You've discovered the cure!",
-                    manager=MANAGER
-                    )
-                
-            if len(game.clan.infection["fallen_clans"]) > 0:
-                self.stamps["fallen_clans"] = UIImageButton(
-                    ui_scale(pygame.Rect((305, 182), (63, 55))),
-                    "",
-                    object_id=f"#stamp_fallen_clans_{str(len(game.clan.infection['fallen_clans']))}",
-                    tool_tip_text=f"Fallen Clans: {str(len(game.clan.infection['fallen_clans']))}",
-                    manager=MANAGER
-                    )
-                
-            
-
-            
-            self.update_notes_buttons()
+        if len(game.clan.infection["fallen_clans"]) > 0:
+            self.stamps["fallen_clans"] = UIImageButton(
+                ui_scale(pygame.Rect((505, 182), (63, 55))),
+                "",
+                object_id=f"#stamp_fallen_clans_{str(len(game.clan.infection['fallen_clans']))}",
+                tool_tip_text=f"Fallen Clans: {str(len(game.clan.infection['fallen_clans']))}",
+                manager=MANAGER
+                )
     
     def on_use(self):
         super().on_use()
@@ -678,11 +663,7 @@ class CureLogScreen(Screens):
         if self.stats_box:
             self.stats_box.kill()
             del self.stats_box
-        
-        if self.stats_box2:
-            self.stats_box2.kill()
-            del self.stats_box2
-        
+
         if self.heading1:
             self.heading1.kill()
             del self.heading1
@@ -770,22 +751,22 @@ class CureLogScreen(Screens):
                     self.screen_switches()
                 elif self.stage == "treatments":
                     self.exit_screen()
-                    self.stage = "notes"
+                    self.stage = "stamps"
                     self.screen_switches()
-                elif self.stage == "notes":
+                elif self.stage == "stamps":
                     self.exit_screen()
                     self.stage = "logs"
                     self.screen_switches()
             elif event.ui_element == self.previous_page_button:
                 if self.stage == "logs":
                     self.exit_screen()
-                    self.stage = "notes"
+                    self.stage = "stamps"
                     self.screen_switches()
                 elif self.stage == "treatments":
                     self.exit_screen()
                     self.stage = "logs"
                     self.screen_switches()
-                elif self.stage == "notes":
+                elif self.stage == "stamps":
                     self.exit_screen()
                     self.stage = "treatments"
                     self.screen_switches()
