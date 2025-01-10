@@ -162,29 +162,28 @@ class Events:
         elif (
             not int(random.random() * chance) and
             game.clan.infection["between_infections"] is True and
-            game.clan.infection["cure_found"] is True # only a new infection if u cured the first one
+            game.clan.infection["next_infection_allowed"] is True and
+            "cure_found" in game.clan.infection["logs"] # only a new infection if u cured the first one
             ):
-            if game.clan.infection["next_infection_allowed"] is True:
-                current_type = game.clan.infection["infection_type"]
-                print("Triggered next infection. Infection reset!")
+            current_type = game.clan.infection["infection_type"]
+            print("Triggered next infection. Infection reset!")
 
-                # RESETTING SHIT
-                if "cure_found" in game.clan.infection["logs"]:
-                    # u only get new shit if u cured the first one
-                    inftypes = ["fungal", "void", "parasitic"]
-                    inftypes.remove(current_type)
-                    game.clan.infection["infection_type"] = random.choice(inftypes)
-                    herb1, herb2, herb3, herb4 = random.sample(HERBS, 4)
-                    game.clan.infection["cure"] = [herb1, herb2, herb3, herb4]
-                    game.clan.infection["cure_discovered"] = []
-                    game.clan.infection["logs"] = []
+            # RESETTING SHIT
+            inftypes = ["fungal", "void", "parasitic"]
+            inftypes.remove(current_type)
+            game.clan.infection["infection_type"] = random.choice(inftypes)
+            herb1, herb2, herb3, herb4 = random.sample(HERBS, 4)
+            game.clan.infection["cure"] = [herb1, herb2, herb3, herb4]
+            game.clan.infection["cure_discovered"] = []
+            game.clan.infection["between_infections"] = False
+            game.clan.infection["logs"] = []
 
-                    for kitty in Cat.all_cats_list:
-                        if kitty.infected_for == -1:
-                            # no immunity for the new infection!!!!
-                            kitty.infected_for = 0
+            for kitty in Cat.all_cats_list:
+                if kitty.infected_for == -1:
+                    # no immunity for the new infection!!!!
+                    kitty.infected_for = 0
 
-                game.clan.infection["infection_moons"] = 0
+            game.clan.infection["infection_moons"] = 0
 
         get_current_season()
         Pregnancy_Events.handle_pregnancy_age(game.clan)
@@ -2827,7 +2826,8 @@ class Events:
             f"{inftype} stage one",
             f"{inftype} stage two",
             f"{inftype} stage three",
-            f"{inftype} stage four"
+            f"{inftype} stage four",
+            "undead"
             ])
             ):
             if cat.infected_for > 0:
@@ -2839,7 +2839,8 @@ class Events:
             f"{inftype} stage one",
             f"{inftype} stage two",
             f"{inftype} stage three",
-            f"{inftype} stage four"
+            f"{inftype} stage four",
+            "undead"
             ])
             ):
             if cat.infected_for == 0:

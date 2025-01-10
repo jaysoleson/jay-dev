@@ -685,8 +685,11 @@ class Cat:
                 if self.history.died_infected:
                     if self.history.died_infected is True:
                         self.history.died_infected = False
-
-            self.zombie()
+            
+            if (
+                self.status != "leader" or
+                (self.ID == game.clan.leader.ID and game.clan.leader_lives <= 1)):
+                self.zombie()
             return
 
         if (

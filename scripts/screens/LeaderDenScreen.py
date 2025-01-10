@@ -41,6 +41,9 @@ class LeaderDenScreen(Screens):
         self.help_button = None
         self.back_button = None
 
+        # INF
+        self.open_borders_button = None
+
         self.focus_clan = None
         self.focus_cat = None
         self.helper_cat = None
@@ -78,6 +81,11 @@ class LeaderDenScreen(Screens):
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
             if event.ui_element == self.back_button:
                 self.change_screen(game.last_screen_forupdate)
+            # INF
+            elif event.ui_element == self.open_borders_button:
+                self.open_borders_button.disable()
+                game.clan.infection["next_infection_allowed"] = True
+            # ---
             elif event.ui_element == self.outsider_selection_elements["page_right"]:
                 self.current_page += 1
                 self.update_outsider_cats()
@@ -128,6 +136,23 @@ class LeaderDenScreen(Screens):
 
         # no menu header allowed
         self.hide_menu_buttons()
+
+        # INF --- open borders button
+        self.open_borders_button = UISurfaceImageButton(
+            ui_scale(pygame.Rect((0, 25), (140, 30))),
+            "open the borders",
+            get_button_dict(ButtonStyles.ROUNDED_RECT, (140, 30)),
+            object_id="@buttonstyles_rounded_rect",
+            manager=MANAGER,
+            tool_tip_text="Opening your borders will open your Clan up to the possibility of another infection. This will wipe all of your logs. Immune cats will not be immune to the new infection.",
+            anchors={"centerx": "centerx"}
+        )
+
+        if "cure_found" in game.clan.infection["logs"] and game.clan.infection["clan_infected"] is False:
+            if game.clan.infection["next_infection_allowed"] is False:
+                self.open_borders_button.enable()
+            else:
+                self.open_borders_button.disable()
 
         # BACK AND HELP
         self.back_button = UISurfaceImageButton(
@@ -352,6 +377,10 @@ class LeaderDenScreen(Screens):
         self.back_button.kill()
         self.help_button.kill()
 
+        # INF
+        if self.open_borders_button:
+            self.open_borders_button.kill()
+
         for ele in self.screen_elements:
             self.screen_elements[ele].kill()
 
@@ -500,12 +529,16 @@ class LeaderDenScreen(Screens):
                     "top_target": self.other_clan_selection_elements[f"clan_temper{i}"],
                 },
             )
+            if game.settings["dark mode"]:
+                addon = "_dark"
+            else:
+                addon = ""
             if other_clan.name in game.clan.infection["fallen_clans"]:
                 text = "FALLEN"
-                theme="#text_box_22_horizcenter_green"
+                theme=f"#text_box_22_horizcenter_green{addon}"
             elif other_clan.infection_level > 0:
                 text = "infected"
-                theme="#text_box_22_horizcenter_green"
+                theme=f"#text_box_22_horizcenter_green{addon}"
             else:
                 text = "uninfected"
                 theme=get_text_box_theme("#text_box_22_horizcenter")

@@ -922,10 +922,6 @@ class ProfileScreen(Screens):
         self.the_cat = Cat.all_cats.get(game.switches['cat'])
         self.page = 0
 
-        if self.the_cat.history:
-            if self.the_cat.history.died_infected is True:
-                print("This cat died while infected.")
-
         # Set up the menu buttons, which appear on all cat profile images.
         self.next_cat_button = UISurfaceImageButton(
             ui_scale(pygame.Rect((622, 25), (153, 30))),
@@ -1833,7 +1829,6 @@ class ProfileScreen(Screens):
                 output += "\n"
                 break
 
-        inftype = game.clan.infection["infection_type"]
         if the_cat.is_injured():
             if "recovering from birth" in the_cat.injuries:
                 output += "recovering from birth!"
@@ -1850,16 +1845,20 @@ class ProfileScreen(Screens):
         if the_cat.infected_for > 0:
             if "undead" not in the_cat.illnesses:
                 output += "<font color='#FF0000'>infected</font>"
+            else:
+                if game.settings["dark mode"]:
+                    output += "<font color='#A6D000'>undead</font>"
+                else:
+                    output += "<font color='#416101'>undead</font>"
+
         elif the_cat.infected_for == -1 and "lore_no_reinfection" in game.clan.infection["logs"]:
             if game.settings["dark mode"]:
-                output += "<font color='#A2D86C'>immune </font>"
+                output += "<font color='#A6D000'>immune </font>"
             else:
-                output += "<font color='#136D05'>immune </font>"
+                output += "<font color='#416101'>immune </font>"
         
         elif the_cat.is_ill():
-            if "undead" in the_cat.illnesses:
-                output += "<font color='#FF0000'>undead</font>"
-            elif "grief stricken" in the_cat.illnesses:
+            if "grief stricken" in the_cat.illnesses:
                 output += "grieving!"
             elif "fleas" in the_cat.illnesses:
                 output += "flea-ridden!"
@@ -2758,7 +2757,7 @@ class ProfileScreen(Screens):
             # ---
 
             self.condition_data[f"name_{con}"] = UITextBoxTweaked(
-                con[0],
+                condition_name,
                 ui_scale(pygame.Rect((0, 0), (120, -1))),
                 line_spacing=0.90,
                 object_id="#text_box_30_horizcenter",
