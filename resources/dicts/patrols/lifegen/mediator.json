@@ -21,8 +21,8 @@
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "You gather everyone's input and propose a plan that takes into account the various perspectives. The Clan agrees on your plan, commending your mediation skills.",
-                "exp": 15,
+                "text": "You gather everycat's input and propose a plan that takes into account the various perspectives. The Clan agrees on your plan, commending your mediation skills.",
+                "exp": 10,
                 "weight": 20
             }
         ],
@@ -91,8 +91,8 @@
         "chance_of_success": 55,
         "success_outcomes": [
             {
-                "text": "You hear both sides and suggest a compromise that satisfies everyone. Your skills as a mediator are commended by the Clan.",
-                "exp": 15,
+                "text": "You hear both sides and suggest a compromise that satisfies everycat. Your skills as a mediator are commended by the Clan.",
+                "exp": 10,
                 "weight": 20
             }
         ],
@@ -126,7 +126,7 @@
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "You suggest a friendly race to determine the fastest runner. The apprentices agree, the argument is settled, and everyone enjoys the race.",
+                "text": "You suggest a friendly race to determine the fastest runner. The apprentices agree, the argument is settled, and everycat enjoys the race.",
                 "exp": 10,
                 "weight": 20
             }
@@ -199,7 +199,7 @@
         "success_outcomes": [
             {
                 "text": "You decide to listen to your Clanmates' problem, and once they've begun to see each other's point of view, you ask why they chose to come to you, given your situation. They say that they still respect your opinion as a mediator, despite everything, and you can't help but feel some fondness for the both of them.",
-                "exp": 15,
+                "exp": 10,
                 "weight": 20
             }
         ],
@@ -229,12 +229,12 @@
         "min_max_status": {},
         "weight": 20,
         "intro_text": "You watch a hunting patrol return, anticipating a good hunt. At the end of the patrol an apprentice is trudging behind with their head low.",
-        "decline_text": "Everyone has a hard day, but they can rest now. It's time for you to tuck into a well deserved meal!",
+        "decline_text": "Everycat has a hard day, but they can rest now. It's time for you to tuck into a well deserved meal!",
         "chance_of_success": 55,
         "success_outcomes": [
             {
                 "text": "As the apprentice stays on the side lines as the Clan shares tongues and freshkill, you pick up a juicy bit of prey to bring over to them. It doesn't take much for them to open up about how worried they are about their training progress. Nor does it take much to soothe their fears and reassure them that they are still learning. By the time the prey is gone the apprentice's spirits are high again as they head to their nest.",
-                "exp": 15,
+                "exp": 10,
                 "weight": 20
             }
         ],
@@ -279,7 +279,7 @@
             },
             {
                 "text": "You sit to speak with the pair. It is no simple matter to parse through with misunderstandings on both sides. With some effort and careful words, however, you bridge the gap and the two have reached understanding. Over the next few days you watch them work together better than ever with a smile on your face.",
-                "exp": 15,
+                "exp": 10,
                 "weight": 20
             }
         ],

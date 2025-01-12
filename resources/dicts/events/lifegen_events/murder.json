@@ -14,7 +14,7 @@
             "You've had enough of v_c, and one day you reach your boiling point. v_c's life is no more.",
             "It all happened so quickly. One moment you were arguing with v_c, the next, {PRONOUN/v_c/subject} {VERB/v_c/lay/lays} motionless, {PRONOUN/v_c/poss} eyes staring blankly at the sky.",
             "The anger that courses through you is uncontrollable. Without thinking, you lash out, and when your vision clears, v_c lies lifeless.",
-            "You promise v_c a view of the most beautiful sunset. {PRONOUN/v_c/subject} {VERB/v_c/don't/doesn't} live to see the sunrise.",
+            "You promise v_c a view of the most beautiful sunset. {PRONOUN/v_c/subject/CAP} {VERB/v_c/don't/doesn't} live to see the sunrise.",
             "Jealousy gnaws at you, watching v_c take all the praise and attention. In the shadows, you make sure {PRONOUN/v_c/subject}'ll never steal your spotlight again.",
             "{PRONOUN/v_c/subject/CAP} always said curiosity killed the cat. v_c should've never followed you to that treacherous cliff.",
             "Your heart races, a mix of fear and exhilaration, as v_c's surprised gaze meets yours one last time.",
@@ -276,7 +276,7 @@
         "biome": [],
         "tags": [],
         "texts": [
-            "You hand v_c a mouse filled with deathberries as {PRONOUN/v_c/subject} {VERB/v_c/stroll/strolls} up to the fresh-kill pile for lunch. {PRONOUN/v_c/object} never {VERB/v_c/finish/finishes} {PRONOUN/v_c/poss} meal."
+            "You hand v_c a mouse filled with deathberries as {PRONOUN/v_c/subject} {VERB/v_c/stroll/strolls} up to the fresh-kill pile for lunch. {PRONOUN/v_c/subject/CAP} never {VERB/v_c/finish/finishes} {PRONOUN/v_c/poss} meal."
         ]
     },
     "murder_event15": {
@@ -502,7 +502,7 @@
             "poisoned"
         ],
         "texts": [
-            "During the night, you sneak some deathberries from the far back corner of the medicine den. Staying as silent as possible, you find v_c where {PRONOUN/v_c/subject} {VERB/v_c/sleep/sleeps} and squeeze some of the juice into {PRONOUN/v_c/poss} mouth. Just as {PRONOUN/v_c/subject} begin to twitch, you flee the den, as silent as a shadow. However, despite how thoroughly you thought you'd washed your paws, your proximity to the deadly berries has left you mysteriously ill."
+            "During the night, you sneak some deathberries from the far back corner of the medicine den. Staying as silent as possible, you find v_c where {PRONOUN/v_c/subject} {VERB/v_c/sleep/sleeps} and squeeze some of the juice into {PRONOUN/v_c/poss} mouth. Just as {PRONOUN/v_c/subject} {VERB/v_c/begin/begins} to twitch, you flee the den, as silent as a shadow. However, despite how thoroughly you thought you'd washed your paws, your proximity to the deadly berries has left you mysteriously ill."
         ]
     },
     "murder_event27": {
@@ -561,7 +561,7 @@
             "death"
         ],
         "texts": [
-            "You attack and kill v_c, but {PRONOUN/v_c/subject} {VERB/v_c/leave/leaves} you with such heavy injuries that you succumb to {PRONOUN/v_c/object} the next morning."
+            "You attack and kill v_c, but {PRONOUN/v_c/subject} {VERB/v_c/leave/leaves} you with such heavy injuries that you succumb to them the next morning."
         ]
     },
     "murder_event30": {
@@ -706,7 +706,7 @@
         ],
         "tags": [],
         "texts": [
-            "While meandering through your Clan's territory, you stumble upon a growing colony of hornets. The hive itself seems pretty top-heavy, which fuels a devious spark in your mind. You spend the following day pestering v_c, claiming that you found something {PRONOUN/v_c/subject} {VERB/v_c/have/has} to see. Begrudgingly, {PRONOUN/v_c/subject} {VERB/v_c/trot/trots} behind you and into the forest. The moment the hornets come into view, you strike v_c with a lumbering paw, catching {PRONOUN/v_c/object} off guard. {PRONOUN/v_c/subject} {VERB/v_c/stumble/stumbles} backwards and {VERB/v_c/land/lands} a hard hit on the tree trunk behind {PRONOUN/v_c/object}. The hive above collapses into the dust, creating a great plume of enraged bugs. You flee the scene as v_c's cries carry upon the air, though they eventually quiet and disappear into the hornet's symphony."
+            "While meandering through your Clan's territory, you stumble upon a growing colony of hornets. The hive itself seems pretty top-heavy, which fuels a devious spark in your mind. You spend the following day pestering v_c, claiming that you found something {PRONOUN/v_c/subject} {VERB/v_c/have/has} to see. Begrudgingly, {PRONOUN/v_c/subject} {VERB/v_c/trot/trots} behind you and into the forest. The moment the hornets come into view, you strike v_c with a lumbering paw, catching {PRONOUN/v_c/object} off guard. {PRONOUN/v_c/subject/CAP} {VERB/v_c/stumble/stumbles} backwards and {VERB/v_c/land/lands} a hard hit on the tree trunk behind {PRONOUN/v_c/object}. The hive above collapses into the dust, creating a great plume of enraged bugs. You flee the scene as v_c's cries carry upon the air, though they eventually quiet and disappear into the hornet's symphony."
         ]
     },
     "murder_event37": {
@@ -879,7 +879,7 @@
         ],
         "tags": [],
         "texts": [
-            "v_c has to be one of the most annoying kits in camp. {PRONOUN/v_c/poss/CAP} relentless demands and cries ring out of the nursery even long after sundown. After a particularly bad night, you decide to do everyone a favour and get rid of {PRONOUN/v_c/object} altogether. The next night you convince {PRONOUN/v_c/object} out of the nursery with a promising tale about getting to see shooting stars. As {PRONOUN/v_c/subject} eagerly {VERB/v_c/scan/scans} the sky, you catch sight of a shadow perched on a nearby cactus--just as you planned. Before long the shadow leaps into the air, and you dive behind the nearest boulder to watch as the feathery outline of an owl snatches v_c. By the time {PRONOUN/v_c/subject} {VERB/v_c/realise/realises} what's happening, {PRONOUN/v_c/subject}{VERB/v_c/'re/'s} already too far away for {PRONOUN/v_c/poss} screams to be heard."
+            "v_c has to be one of the most annoying kits in camp. {PRONOUN/v_c/poss/CAP} relentless demands and cries ring out of the nursery even long after sundown. After a particularly bad night, you decide to do everycat a favour and get rid of {PRONOUN/v_c/object} altogether. The next night you convince {PRONOUN/v_c/object} out of the nursery with a promising tale about getting to see shooting stars. As {PRONOUN/v_c/subject} eagerly {VERB/v_c/scan/scans} the sky, you catch sight of a shadow perched on a nearby cactus--just as you planned. Before long the shadow leaps into the air, and you dive behind the nearest boulder to watch as the feathery outline of an owl snatches v_c. By the time {PRONOUN/v_c/subject} {VERB/v_c/realise/realises} what's happening, {PRONOUN/v_c/subject}{VERB/v_c/'re/'s} already too far away for {PRONOUN/v_c/poss} screams to be heard."
         ]
     },
     "murder_event_ant7": {
@@ -1276,7 +1276,7 @@
         "biome": [],
         "tags": [],
         "texts": [
-            "Elders are respected... right? Just how much could you get away with? The answer is a lot. You're still reeling from shock at v_c's vigil, but the feeling of {PRONOUN/v_c/poss} blood on your paws is still so fresh. Thankfully, others think your reaction is normal for any death. A thought haunts your old brain; you're shocked by what you've done, but not.. disgusted. Perhaps seniorhood isn't too late to realize a hidden bloodlust."
+            "Elders are respected... right? Just how much could you get away with? The answer is a lot. You're still reeling from shock at v_c's vigil, but the feeling of {PRONOUN/v_c/poss} blood on your paws is still so fresh. Thankfully, others think your reaction is normal for any death. A thought haunts your old brain; you're shocked by what you've done, but not... disgusted. Perhaps seniorhood isn't too late to realize a hidden bloodlust."
         ]
     },
     "murder_event71": {
@@ -1311,7 +1311,7 @@
         "tags": [],
         "texts": [
             "You successfully poisoned your denmate, v_c.",
-            "You encourage v_c to eat some shiny red berries you've found, and after eating {PRONOUN/v_c/object}, v_c is later found having traveled early to meet Silverpelt."
+            "You encourage v_c to eat some shiny red berries you've found, and after eating them, v_c is later found having traveled early to meet Silverpelt."
         ]
     },
     "murder_event73": {
@@ -1477,7 +1477,7 @@
         "biome": [],
         "tags": [],
         "texts": [
-            "You find a dangerously weak branch hanging over the nursery. You convince v_c to play a game of 'leaping leaf' with you beneath it. During the game, you make sure to vigorously shake the branch, causing it to snap and fall, crushing v_c beneath it.",
+            "You find a dangerously weak branch hanging over the nursery. You convince v_c to play a game of 'leaping leaf' with {PRONOUN/v_c/object} beneath it. During the game, you make sure to vigorously shake the branch, causing it to snap and fall, crushing v_c.",
             "Something bothers you about v_c. Perhaps it's {PRONOUN/v_c/poss} ability to somehow always be right in {PRONOUN/v_c/poss} mediation, or maybe it's envy. You tell v_c that you had a fight with your friend, who ran out of camp in anger and won't come back, despite the stormy weather. v_c rushes out of camp in a hurry to make sure that no kit would drown or freeze in the rain, and {PRONOUN/v_c/subject} never {VERB/v_c/return/returns}."
         ]
     },
@@ -1496,7 +1496,7 @@
         "biome": [],
         "tags": [],
         "texts": [
-            "You race up to v_c, squealing that a group of bloodthirsty o_cClan warriors just kidnapped one of your denmates, and since {PRONOUN/v_c/subject}{VERB/v_c/'re/'s} the only one that knows the other Clan territories, {PRONOUN/v_c/subject} {VERB/v_c/need/needs} to save {PRONOUN/v_c/object} right now! Needless to say, the rival warriors of o_cClan aren't too keen on v_c's accusations ... though when the apprentice's cold body appears on the border the next day, no one knows where {PRONOUN/v_c/subject} could've gotten that ridiculous idea.",
+            "You race up to v_c, squealing that a group of bloodthirsty o_cClan warriors just kidnapped one of your denmates, and since {PRONOUN/v_c/subject}{VERB/v_c/'re/'s} the only one that knows the other Clan territories, {PRONOUN/v_c/subject} {VERB/v_c/need/needs} to save {PRONOUN/v_c/object} right now! Needless to say, the rival warriors of o_cClan aren't too keen on v_c's accusations ... Though when the apprentice's cold body appears on the border the next day, no one knows where {PRONOUN/v_c/subject} could've gotten that ridiculous idea.",
             "You insist to v_c that {PRONOUN/v_c/poss} mentor is waiting for {PRONOUN/v_c/object} in o_cClan's camp for a routine check-in. Knowing o_cClan isn't keen on trespassers, v_c is reluctant to believe you ... until you bring up that {PRONOUN/v_c/subject}{VERB/v_c/'re/'s} already running late, and {PRONOUN/v_c/subject} {VERB/v_c/don't/doesn't} want to keep a whole Clan waiting. You don't know exactly what the warriors of o_cClan did to the apprentice, but regardless, you never see {PRONOUN/v_c/object} again."
         ]
     },
@@ -1536,11 +1536,11 @@
         "your_status": [
             "kitten"
         ],
-        "victim_status": [],
-        "relationship": [
+        "victim_status": [
             "mediator",
             "mediator apprentice"
         ],
+        "relationship": [],
         "strategy": [
             "accident",
             "border"
@@ -1548,7 +1548,7 @@
         "biome": [],
         "tags": [],
         "texts": [
-            "You race up to v_c, squealing that a group of bloodthirsty o_cClan warriors just kidnapped a kit, and since {PRONOUN/v_c/subject}{VERB/v_c/'re/'s} the only one that knows the other Clan territories, {PRONOUN/v_c/subject} {VERB/v_c/need/needs} to save {PRONOUN/v_c/object} right now! Needless to say, the rival warriors of o_cClan aren't too keen on v_c's accusations ... though when the mediator's cold body appears on the border the next day, no one knows where {PRONOUN/v_c/subject} could've gotten that ridiculous idea."
+            "You race up to v_c, squealing that a group of bloodthirsty o_cClan warriors just kidnapped a kit, and since {PRONOUN/v_c/subject}{VERB/v_c/'re/'s} the only one that knows the other Clan territories, {PRONOUN/v_c/subject} {VERB/v_c/need/needs} to save {PRONOUN/v_c/object} right now! Needless to say, the rival warriors of o_cClan aren't too keen on v_c's accusations ... Though when the mediator's cold body appears on the border the next day, no one knows where {PRONOUN/v_c/subject} could've gotten that ridiculous idea."
         ]
     },
     "murder_event88": {
@@ -1664,7 +1664,7 @@
             "accomplice_refused"
         ],
         "texts": [
-            "You sniffle quietly, watching as v_c hurries towards you, eyes wide with concern. When a_n refused to help you, you had to get a bit more creative with your plans, but hopefully... v_c looks down at you, belly-fur brushing the soft dirt below. Still whimpering quietly, you stretch out a paw, thickly coated in tree sap. v_c leans down with a sympathetic smile, and begins to lap at the sap, removing it easily from your paw. After a few moments, {PRONOUN/v_c/subject} begins to gasp and choke as you run for the nursery, the sap now clogging their throat making it too difficult for {PRONOUN/v_c/subject} to cry out."
+            "You sniffle quietly, watching as v_c hurries towards you, eyes wide with concern. When a_n refused to help you, you had to get a bit more creative with your plans, but hopefully... v_c looks down at you, belly-fur brushing the soft dirt below. Still whimpering quietly, you stretch out a paw, thickly coated in tree sap. v_c leans down with a sympathetic smile, and begins to lap at the sap, removing it easily from your paw. After a few moments, {PRONOUN/v_c/subject} {VERB/v_c/begin/begins} to gasp and choke as you run for the nursery, the sap now clogging {PRONOUN/v_c/poss} throat and making it too difficult for {PRONOUN/v_c/subject} to cry out."
         ]
     },
     "murder_event_ant17": {
@@ -1759,7 +1759,7 @@
         "biome": [],
         "tags": [],
         "texts": [
-            "You ask v_c if {PRONOUN/v_c/subject} {VERB/v_c/want/wants} to go on a secret mission with you, and {PRONOUN/v_c/subject} {VERB/v_c/jump/jumpd} excitedly at the opportunity. You lead {PRONOUN/v_c/object} out of camp and head towards the Thunderpath together, but v_c never comes back.",
+            "You ask v_c if {PRONOUN/v_c/subject} {VERB/v_c/want/wants} to go on a secret mission with you, and {PRONOUN/v_c/subject} {VERB/v_c/jump/jumped} excitedly at the opportunity. You lead {PRONOUN/v_c/object} out of camp and head towards the Thunderpath together, but v_c never comes back.",
             "You invite v_c to play a game of hide and seek out of camp with you-in the middle of a snowstorm. You generously let {PRONOUN/v_c/object} hide first, and when you're done counting you don't even bother trying to find {PRONOUN/v_c/object}. You head straight back to camp and crawl back into your nest, snug and cozy. Later, you hear the warriors calling out for v_c worriedly, but it's no use. By the time the snowstorm is over, it's much too late for v_c."
         ]
     },
@@ -1856,7 +1856,7 @@
         ],
         "tags": [],
         "texts": [
-            "You notice how v_c garners the favour of your Clanmates. Cats always send triumphant mews {PRONOUN/v_c/poss} way, and your leader's chest puffs with pride whenever {PRONOUN/l_n/subject}{VERB/l_n/'re/'s} in v_c's vicinity. Before you've contemplated your options, jealousy spurs you to ask v_c for a walk. As the pair of you start your journey, you aren't really paying {PRONOUN/v_c/object} any mind. You finally speak, but only to point out a rocky crevice nearby. Despite {PRONOUN/v_c/poss} rambling about snakes, you near the den, dragging a hesitant v_c by your side. You begin to peek inside, but v_c appears before you to dissuade your curiosity. {PRONOUN/v_c/poss} sentiments are cut short, however, by a rattling sound and {PRONOUN/v_c/poss} yowls. v_c's wound needs dire attention. You could get {PRONOUN/v_c/object} help, but you won't. Instead, you begin your retreat to camp, {PRONOUN/v_c/poss} pleas echoing behind you."
+            "You notice how v_c garners the favour of your Clanmates. Cats always send triumphant mews {PRONOUN/v_c/poss} way, and your leader's chest puffs with pride whenever {PRONOUN/l_n/subject}{VERB/l_n/'re/'s} in v_c's vicinity. Before you've contemplated your options, jealousy spurs you to ask v_c for a walk. As the pair of you start your journey, you aren't really paying {PRONOUN/v_c/object} any mind. You finally speak, but only to point out a rocky crevice nearby. Despite {PRONOUN/v_c/poss} rambling about snakes, you near the den, dragging a hesitant v_c by your side. You begin to peek inside, but v_c appears before you to dissuade your curiosity. {PRONOUN/v_c/poss/CAP} sentiments are cut short, however, by a rattling sound and {PRONOUN/v_c/poss} yowls. v_c's wound needs dire attention. You could get {PRONOUN/v_c/object} help, but you won't. Instead, you begin your retreat to camp, {PRONOUN/v_c/poss} pleas echoing behind you."
         ]
     },
     "murder_event_ant5": {
@@ -1974,7 +1974,7 @@
         "biome": [],
         "tags": [],
         "texts": [
-            "v_c has never respected you, always making snide remarks about the state of your training. During a practice session, while practicing your killing bite, you go at {PRONOUN/v_c/object} with claws unsheathed. Maybe v_c wasn't expecting your bite to be quite so lethal ... but that will teach {PRONOUN/v_c/object} to think twice before underestimating you again."
+            "v_c has never respected you, always making snide remarks about the state of your training. During a practice session, while practicing your killing bite, you go at {PRONOUN/v_c/object} with claws unsheathed. Maybe v_c wasn't expecting your bite to be quite so lethal ... But that will teach {PRONOUN/v_c/object} to think twice before underestimating you again."
         ]
     },
     "murder_event114": {
@@ -2136,7 +2136,7 @@
         "biome": [],
         "tags": [],
         "texts": [
-            "v_c has never respected you, always assigning you to the worst patrols and making snide remarks about the state of your training. During a practice session, while practicing your killing bite, you go at {PRONOUN/v_c/object} with claws unsheathed. Maybe v_c wasn't expecting your bite to be quite so lethal ... but that will teach {PRONOUN/v_c/object} to think twice before underestimating you again."
+            "v_c has never respected you, always assigning you to the worst patrols and making snide remarks about the state of your training. During a practice session, while practicing your killing bite, you go at {PRONOUN/v_c/object} with claws unsheathed. Maybe v_c wasn't expecting your bite to be quite so lethal ... But that will teach {PRONOUN/v_c/object} to think twice before underestimating you again."
         ]
     },
     "murder_event124": {
@@ -2153,7 +2153,7 @@
         "biome": [],
         "tags": [],
         "texts": [
-            "You have big dreams of becoming leader one day ... but for that to happen, you need v_c out of the way first. A routine trip to the medicine cat, and a few foxglove seeds up the paw take care of just that. v_c is slain."
+            "You have big dreams of becoming leader one day ... But for that to happen, you need v_c out of the way first. A routine trip to the medicine cat, and a few foxglove seeds up the paw take care of just that. v_c is slain."
         ]
     },
     "murder_event125": {
@@ -2170,7 +2170,7 @@
         "biome": [],
         "tags": [],
         "texts": [
-            "v_c has never respected you, always assigning you to the worst patrols and making snide remarks about the state of your training. During a practice session, while practicing your killing bite, you go at {PRONOUN/v_c/object} with claws unsheathed. Maybe v_c wasn't expecting your bite to be quite so lethal ... but that will teach {PRONOUN/v_c/object} to think twice before underestimating you again once {PRONOUN/v_c/subject} {VERB/v_c/return/return} to the Clan with one less life."
+            "v_c has never respected you, always assigning you to the worst patrols and making snide remarks about the state of your training. During a practice session, while practicing your killing bite, you go at {PRONOUN/v_c/object} with claws unsheathed. Maybe v_c wasn't expecting your bite to be quite so lethal ... But that will teach {PRONOUN/v_c/object} to think twice before underestimating you again once {PRONOUN/v_c/subject} {VERB/v_c/return/return} to the Clan with one less life."
         ]
     },
     "murder_event126": {
@@ -2223,7 +2223,7 @@
         "biome": [],
         "tags": [],
         "texts": [
-            "You encourage v_c to eat some shiny red berries you've found, saying that {PRONOUN/v_c/subject}{VERB/v_c/'re/'s} super tasty - better than freshkill even! Happily, {PRONOUN/v_c/subject} {VERB/v_c/thank/doesn't} you for the snack, but {VERB/v_c/don't/doesn't} wake up afterwords.",
+            "You encourage v_c to eat some shiny red berries you've found, saying that {PRONOUN/v_c/subject}{VERB/v_c/'re/'s} super tasty - better than freshkill even! Happily, {PRONOUN/v_c/subject} {VERB/v_c/thank/doesn't} you for the snack, but {VERB/v_c/don't/doesn't} wake up afterwards.",
             "When v_c stumbles into the medicine den, you leap at the opportunity to test out the more dangerous herbs you have stashed. You convince v_c that, although {PRONOUN/v_c/subject}{VERB/v_c/'re/'s} bitter, the herbs will help {PRONOUN/v_c/object} grow big and strong, a warrior that will make {PRONOUN/v_c/poss} Clan proud! v_c is later found having gone to StarClan prematurely.",
             "v_c's birth was a mistake on StarClan's part, a mistake which you intend to remedy. When the kit's tiny body spasms and eventually falls still from the deathberries you fed {PRONOUN/v_c/object}, you rest easily knowing you will one day be rewarded by StarClan for your devotion."
         ]
@@ -2265,7 +2265,7 @@
         "tags": [],
         "texts": [
             "v_c approaches you to see if you recognize an herb {PRONOUN/v_c/subject} found. You tell {PRONOUN/v_c/object} it's completely safe to eat and watch {PRONOUN/v_c/object} have it as a snack. It's yew berries and v_c is later found dead from the poison.",
-            "Everyone always seemed to favor v_c over you, even StarClan  ... {PRONOUN/v_c/subject/CAP} {VERB/v_c/get/gets} all the important omens, the most interesting dreams, the best prophecies. When you slip poison into v_c's prey, you're almost glad you have yet to hear word from any StarClan cats. You don't need the dead medicine cat apprentice appearing in your dreams to guilt you later.",
+            "Everycat always seemed to favor v_c over you, even StarClan  ... {PRONOUN/v_c/subject/CAP} {VERB/v_c/get/gets} all the important omens, the most interesting dreams, the best prophecies. When you slip poison into v_c's prey, you're almost glad you have yet to hear word from any StarClan cats. You don't need the dead medicine cat apprentice appearing in your dreams to guilt you later.",
             "v_c is nothing like a proper medicine cat apprentice should be. {PRONOUN/v_c/subject/CAP}{VERB/v_c/'re/'s} always late, always lazy, always disrespecting {PRONOUN/v_c/poss} patients. When you sprinkle foxglove seeds over {PRONOUN/v_c/poss} food, you tell yourself you're doing the Clan a favor. One who so flagrantly disrespects {PRONOUN/v_c/poss} duties doesn't deserve to live."
         ]
     },
@@ -2598,7 +2598,7 @@
         ],
         "tags": [],
         "texts": [
-            "No matter what you do, v_c always refuses your mediation. {PRONOUN/v_c/subject/CAP} {VERB/v_c/cause/causes} about a million problems with other cats in the nursery and {VERB/v_c/show/shows} absolutely no remorse for it at all. On a sunny day, you offer to give {PRONOUN/v_c/object} a private session where you can't be bothered, and the queens happily oblige. You lead a scowling v_c up the mountain's crest to a small plateau near the top. {PRONOUN/v_c/subject/CAP} {VERB/v_c/sit/sits} across from you and {VERB/v_c/stick/sticks} {PRONOUN/v_c/poss} tongue out. Now it's your turn to scowl. You pick {PRONOUN/v_c/object} up by the scruff of {PRONOUN/v_c/poss} neck and hold {PRONOUN/v_c/object} over the ledge.You gave {PRONOUN/v_c/object} so many chances... but this is unfortunately what it's come to. Thankfully, the wind drowns out {PRONOUN/v_c/poss} terrified mews as you let go."
+            "No matter what you do, v_c always refuses your mediation. {PRONOUN/v_c/subject/CAP} {VERB/v_c/cause/causes} about a million problems with other cats in the nursery and {VERB/v_c/show/shows} absolutely no remorse for it at all. On a sunny day, you offer to give {PRONOUN/v_c/object} a private session where you can't be bothered, and the queens happily oblige. You lead a scowling v_c up the mountain's crest to a small plateau near the top. {PRONOUN/v_c/subject/CAP} {VERB/v_c/sit/sits} across from you and {VERB/v_c/stick/sticks} {PRONOUN/v_c/poss} tongue out. Now it's your turn to scowl. You pick {PRONOUN/v_c/object} up by the scruff of {PRONOUN/v_c/poss} neck and hold {PRONOUN/v_c/object} over the ledge.You gave {PRONOUN/v_c/object} so many chances... But this is unfortunately what it's come to. Thankfully, the wind drowns out {PRONOUN/v_c/poss} terrified mews as you let go."
         ]
     },
     "murder_event150": {
@@ -2988,7 +2988,10 @@
             "territory",
             "day"
         ],
-        "biome": ["plains", "camp5"],
+        "biome": [
+            "plains",
+            "camp5"
+        ],
         "tags": [],
         "texts": [
             "You've had it up to your ears with v_c's complaining. Always sniffling about how hot it is and how {PRONOUN/v_c/subject} {VERB/v_c/wish/wishes} {PRONOUN/v_c/subject} could live somewhere cooler. One day you approach {PRONOUN/v_c/object} and tell {PRONOUN/v_c/object} you know a secret cave with a cool breeze that {PRONOUN/v_c/subject} simply <i>{VERB/v_c/have/has}</i> to see. Despite it being day out, most of your Clanmates have already retreated into their dens for the afternoon, meaning you can lead v_c out of camp without a problem. You don't get far before you tell {PRONOUN/v_c/object} you forgot where the cave was and {PRONOUN/v_c/subject} should wait here while you go look. You stifle a smile as {PRONOUN/v_c/subject} {VERB/v_c/agree/agrees}  to sit near a rock and wait for you to return. However, you have no such intent. You race away from v_c, knowing that if the heat doesn't get to {PRONOUN/v_c/object} by the end of the day, the coyotes will."
@@ -3007,7 +3010,7 @@
         "biome": [],
         "tags": [],
         "texts": [
-            "You take v_c out on a training session and show {PRONOUN/v_c/object} a few fighting stance. Then you bring {PRONOUN/v_c/object} to a place where you know rogues often roam and order {PRONOUN/v_c/object} to put {PRONOUN/v_c/poss} newly acquired skills into practice. {PRONOUN/v_c/subject/CAP} {VERB/v_c/hesitate/hesitates} fearfully, but you tell {PRONOUN/v_c/object} that the two of you won't be going back to camp until {PRONOUN/v_c/subject} {VERB/v_c/comply/complies}. You watch as v_c tries to overpower a rogue and gets outnumbered three to one. Flicking your tail, you turn to head back to camp, ignoring the blood being spilled behind you."
+            "You take v_c out on a training session and show {PRONOUN/v_c/object} a few fighting stances. Then you bring {PRONOUN/v_c/object} to a place where you know rogues often roam and order {PRONOUN/v_c/object} to put {PRONOUN/v_c/poss} newly acquired skills into practice. {PRONOUN/v_c/subject/CAP} {VERB/v_c/hesitate/hesitates} fearfully, but you tell {PRONOUN/v_c/object} that the two of you won't be going back to camp until {PRONOUN/v_c/subject} {VERB/v_c/comply/complies}. You watch as v_c tries to overpower a rogue and gets outnumbered three to one. Flicking your tail, you turn to head back to camp, ignoring the blood being spilled behind you."
         ]
     },
     "murder_event177": {
@@ -3221,7 +3224,7 @@
             "claw-wound"
         ],
         "texts": [
-            "You challenged v_c to a fight to the death, and now {PRONOUN/v_c/subject} {VERB/v_c/stand/stands} in front of you, with no one around to argue. {PRONOUN/v_c/subject} {VERB/v_c/fight/fights} well, but you are better. {PRONOUN/v_c/subject} still {VERB/v_c/leave/leaves} a mark on you, though it's easy to lie to r_m and say a rogue did it... that is what v_c was, isn't it?"
+            "You challenged v_c to a fight to the death, and now {PRONOUN/v_c/subject} {VERB/v_c/stand/stands} in front of you, with no one around to argue. {PRONOUN/v_c/subject/CAP} {VERB/v_c/fight/fights} well, but you are better. {PRONOUN/v_c/subject/CAP} still {VERB/v_c/leave/leaves} a mark on you, though it's easy to lie to r_m and say a rogue did it... That is what v_c was, isn't it?"
         ]
     },
     "murder_event194": {
@@ -3346,7 +3349,7 @@
         "biome": [],
         "tags": [],
         "texts": [
-            "v_c is always getting on your nerves, always acting like {PRONOUN/v_c/subject}{VERB/v_c/'re/'s} better than you by scolding you for your behavior. {PRONOUN/v_c/subject/CAP} {VERB/v_c/confront/confronts} you once more about your actions, and you decide enough is enough. You storm off and out of camp, knowing full well that v_c will follow you in the hopes of trying to make you a better cat. You then find a venomous snake and shove v_c onto it. You bring {PRONOUN/v_c/poss} corpse back to camp, and show some Clanmates the snake bite. You can feel {PRONOUN/v_c/poss} judgemental eyes on you, but you hope that everyone will view it as a tragic accident."
+            "v_c is always getting on your nerves, always acting like {PRONOUN/v_c/subject}{VERB/v_c/'re/'s} better than you by scolding you for your behavior. {PRONOUN/v_c/subject/CAP} {VERB/v_c/confront/confronts} you once more about your actions, and you decide enough is enough. You storm off and out of camp, knowing full well that v_c will follow you in the hopes of trying to make you a better cat. You then find a venomous snake and shove v_c onto it. You bring {PRONOUN/v_c/poss} corpse back to camp, and show some Clanmates the snake bite. You can feel {PRONOUN/v_c/poss} judgemental eyes on you, but you hope that everycat will view it as a tragic accident."
         ]
     },
     "murder_event201": {
@@ -3434,7 +3437,7 @@
         ],
         "tags": [],
         "texts": [
-            "Day after day, moon after moon, you've watched v_c dazzle the whole of c_nClan with {PRONOUN/v_c/poss} abilities. Everyone seems to look up to {PRONOUN/v_c/object} everyone but you. You approach {PRONOUN/v_c/object} one afternoon, slyly mentioning that you saw something that could potentially put the Clan at risk. Truly concerned, {PRONOUN/v_c/subject} {VERB/v_c/agree/agrees} to go on dawn patrol with you tomorrow to investigate. The next morning you carefully lead {PRONOUN/v_c/object} to the tar pit you found the other day and ask {PRONOUN/v_c/object} to take a look. As v_c peers in, you swiftly swipe {PRONOUN/v_c/poss} paws out from under {PRONOUN/v_c/object} and send {PRONOUN/v_c/object} tumbling into the sticky, oozing tar. {PRONOUN/v_c/subject/CAP} {VERB/v_c/curse/curses} your name as {PRONOUN/v_c/subject} slowly {VERB/v_c/sink/sinks} down. Once the tar swallows {PRONOUN/v_c/object}, {PRONOUN/v_c/subject}'ll never be seen again."
+            "Day after day, moon after moon, you've watched v_c dazzle the whole of c_nClan with {PRONOUN/v_c/poss} abilities. Everycat seems to look up to {PRONOUN/v_c/object} everycat but you. You approach {PRONOUN/v_c/object} one afternoon, slyly mentioning that you saw something that could potentially put the Clan at risk. Truly concerned, {PRONOUN/v_c/subject} {VERB/v_c/agree/agrees} to go on dawn patrol with you tomorrow to investigate. The next morning you carefully lead {PRONOUN/v_c/object} to the tar pit you found the other day and ask {PRONOUN/v_c/object} to take a look. As v_c peers in, you swiftly swipe {PRONOUN/v_c/poss} paws out from under {PRONOUN/v_c/object} and send {PRONOUN/v_c/object} tumbling into the sticky, oozing tar. {PRONOUN/v_c/subject/CAP} {VERB/v_c/curse/curses} your name as {PRONOUN/v_c/subject} slowly {VERB/v_c/sink/sinks} down. Once the tar swallows {PRONOUN/v_c/object}, {PRONOUN/v_c/subject}'ll never be seen again."
         ]
     },
     "murder_event207": {
@@ -3738,7 +3741,7 @@
         "biome": [],
         "tags": [],
         "texts": [
-            "v_c has always been the most beloved medicine cat, the one that everyone comes in to see. There's only one way to end this in your mind. You take v_c on a routine herb-gathering expedition. Medicine cats aren't known for {PRONOUN/v_c/poss} fighting, but there's something satisfying about personally taking the life of v_c. You return alone, ducking into the medicine den as if on an urgent errand so that you can clean up."
+            "v_c has always been the most beloved medicine cat, the one that everycat comes in to see. There's only one way to end this in your mind. You take v_c on a routine herb-gathering expedition. Medicine cats aren't known for {PRONOUN/v_c/poss} fighting, but there's something satisfying about personally taking the life of v_c. You return alone, ducking into the medicine den as if on an urgent errand so that you can clean up."
         ]
     },
     "murder_event226": {
@@ -3756,7 +3759,7 @@
         "biome": [],
         "tags": [],
         "texts": [
-            "v_c has always been the most beloved medicine cat, the one that everyone comes in to see. There's only one way to end this in your mind. You take v_c on a routine herb-gathering expedition. Medicine cats aren't known for {PRONOUN/v_c/poss} fighting, but there's something satisfying about personally taking the life of v_c. You return alone, ducking into the medicine den as if on an urgent errand so that you can clean up."
+            "v_c has always been the most beloved medicine cat, the one that everycat comes in to see. There's only one way to end this in your mind. You take v_c on a routine herb-gathering expedition. Medicine cats aren't known for {PRONOUN/v_c/poss} fighting, but there's something satisfying about personally taking the life of v_c. You return alone, ducking into the medicine den as if on an urgent errand so that you can clean up."
         ]
     },
     "murder_event227": {
@@ -3881,7 +3884,7 @@
         "biome": [],
         "tags": [],
         "texts": [
-            "You snatch v_c and race out of camp before anyone can see you. Confused, {PRONOUN/v_c/subject} {VERB/v_c/stay/stays} silent through your entire journey, up until you've climbed a tree and sat {PRONOUN/v_c/object} in a hawk's nest. When {PRONOUN/v_c/subject} ask what you're doing, you tell {PRONOUN/v_c/object} to be right back. When a patrol later finds scraps of v_c's fur beneath the tree, they slowly put the pieces together."
+            "You snatch v_c and race out of camp before anyone can see you. Confused, {PRONOUN/v_c/subject} {VERB/v_c/stay/stays} silent through your entire journey, up until you've climbed a tree and sat {PRONOUN/v_c/object} in a hawk's nest. When {PRONOUN/v_c/subject} {VERB/v_c/ask/asks} what you're doing, you tell {PRONOUN/v_c/object} to be right back. When a patrol later finds scraps of v_c's fur beneath the tree, they slowly put the pieces together."
         ]
     },
     "murder_event234": {
@@ -4148,7 +4151,7 @@
         "biome": [],
         "tags": [],
         "texts": [
-            "You have been silently heaving another breath hearing another v_c's rambling against someone for the past few moons. You've tried everything to mend between the two, but v_c, just being v_c, was too stubborn to admit {PRONOUN/v_c/subject} {VERB/v_c/were/was} in the wrong in the petty arguments. A cat can only take as much from the nagging and screaming, and elders are part of the core of a complete Clan, but your headaches have been worse than ever and it becomes worse when v_c threaten to report your 'incompetencies' to the leader. Having enough, you told v_c to take a load off by having a breath of fresh air outside camp with you to ease the tension. With v_c's aging body, taking care of {PRONOUN/v_c/object}w as east, and it was a pleasant walk back into camp without {PRONOUN/v_c/object}."
+            "You have been silently heaving another breath hearing another v_c's rambling against someone for the past few moons. You've tried everything to mend between the two, but v_c, just being v_c, was too stubborn to admit {PRONOUN/v_c/subject} {VERB/v_c/were/was} in the wrong in the petty arguments. A cat can only take as much from the nagging and screaming, and elders are part of the core of a complete Clan, but your headaches have been worse than ever and it becomes worse when v_c threaten to report your 'incompetencies' to the leader. Having enough, you told v_c to take a load off by having a breath of fresh air outside camp with you to ease the tension. With v_c's aging body, taking care of {PRONOUN/v_c/object} was easy, and it was a pleasant walk back into camp without {PRONOUN/v_c/object}."
         ]
     },
     "murder_event252": {
@@ -4803,7 +4806,7 @@
         "biome": [],
         "tags": [],
         "texts": [
-            "While v_c is young and naive to the cruelty of the wild, you, as {PRONOUN/v_c/poss} leader, still listen to {PRONOUN/v_c/poss} input of certain topics and rely on {PRONOUN/v_c/poss} thoughts about your choices. Tiny as {PRONOUN/v_c/subject} may be, {PRONOUN/v_c/subject}{VERB/v_c/'re/'s} a mediator apprentice; skills may be weak and sometimes voice tumble a bit as {PRONOUN/v_c/subject} {VERB/v_c/face/faces} everything, but once {PRONOUN/v_c/subject} build {PRONOUN/v_c/object}selves as {PRONOUN/v_c/subject} age, {PRONOUN/v_c/subject} will gain {PRONOUN/v_c/poss} new name and become an important and valuable member to the Clan. Or, so you thought. As a mediator apprentice, you often told v_c to gain confidence at any way, even try to listen how the older cat speak to each other with grace and chest puff out. At first, at least, v_c copy your advise and could be seen stepping out of {PRONOUN/v_c/poss} thin shell and build {PRONOUN/v_c/poss} voice higher, especially in important meetings, and you couldn't be more happy. However, you've noticed {PRONOUN/v_c/object} snooping in conversations not relation to {PRONOUN/v_c/poss} job. In fact, {PRONOUN/v_c/subject} {VERB/v_c/tend/tends} to eavesdrop with twitching ears and spill those secrets to you. No, you need a humble and honest mediator, not a spy. Upon being told this, scorn fills {PRONOUN/v_c/poss} face. That's when it begins; patrols being ambushed, arguments flare up between Clanmates, and hidden secrets unfolding itself amidst Gatherings. You know the perpetrator, and find {PRONOUN/v_c/object} spilling secrets to a rival Clan. You can't take a chance with {PRONOUN/v_c/object}; {PRONOUN/v_c/subject} {VERB/v_c/know/knows} too much about everyone. You immediately declare the apprentice a traitor. It's hard targeting {PRONOUN/v_c/object} with the rival cats nearby, but v_c's blood now soaks between your claws and you leave {PRONOUN/v_c/poss} body behind."
+            "While v_c is young and naive to the cruelty of the wild, you, as {PRONOUN/v_c/poss} leader, still listen to {PRONOUN/v_c/poss} input of certain topics and rely on {PRONOUN/v_c/poss} thoughts about your choices. Tiny as {PRONOUN/v_c/subject} may be, {PRONOUN/v_c/subject}{VERB/v_c/'re/'s} a mediator apprentice; skills may be weak and sometimes voice tumble a bit as {PRONOUN/v_c/subject} {VERB/v_c/face/faces} everything, but once {PRONOUN/v_c/subject} build {PRONOUN/v_c/object}selves as {PRONOUN/v_c/subject} age, {PRONOUN/v_c/subject} will gain {PRONOUN/v_c/poss} new name and become an important and valuable member to the Clan. Or, so you thought. As a mediator apprentice, you often told v_c to gain confidence at any way, even try to listen how the older cat speak to each other with grace and chest puff out. At first, at least, v_c copy your advise and could be seen stepping out of {PRONOUN/v_c/poss} thin shell and build {PRONOUN/v_c/poss} voice higher, especially in important meetings, and you couldn't be more happy. However, you've noticed {PRONOUN/v_c/object} snooping in conversations not relation to {PRONOUN/v_c/poss} job. In fact, {PRONOUN/v_c/subject} {VERB/v_c/tend/tends} to eavesdrop with twitching ears and spill those secrets to you. No, you need a humble and honest mediator, not a spy. Upon being told this, scorn fills {PRONOUN/v_c/poss} face. That's when it begins; patrols being ambushed, arguments flare up between Clanmates, and hidden secrets unfolding itself amidst Gatherings. You know the perpetrator, and find {PRONOUN/v_c/object} spilling secrets to a rival Clan. You can't take a chance with {PRONOUN/v_c/object}; {PRONOUN/v_c/subject} {VERB/v_c/know/knows} too much about everycat. You immediately declare the apprentice a traitor. It's hard targeting {PRONOUN/v_c/object} with the rival cats nearby, but v_c's blood now soaks between your claws and you leave {PRONOUN/v_c/poss} body behind."
         ]
     },
     "murder_event294": {
@@ -5027,7 +5030,7 @@
         "biome": [],
         "tags": [],
         "texts": [
-            "v_c has been questioning your ability to lead the Clan for a long while now. You decide to invite {PRONOUN/v_c/object} to a nice walk outside the camp, without {PRONOUN/v_c/object} knowing you are about to end {PRONOUN/v_c/poss} existence. As expected, your 'beloved' deputy is already there, waiting for you. Silently, you leap out of the bushes you were hiding, murdering v_c. The next day, {PRONOUN/v_c/poss} body is found outside the camp, everyone questioning who could have done such a thing, knowing that v_c was such a loyal cat to the Clan.",
+            "v_c has been questioning your ability to lead the Clan for a long while now. You decide to invite {PRONOUN/v_c/object} to a nice walk outside the camp, without {PRONOUN/v_c/object} knowing you are about to end {PRONOUN/v_c/poss} existence. As expected, your 'beloved' deputy is already there, waiting for you. Silently, you leap out of the bushes you were hiding, murdering v_c. The next day, {PRONOUN/v_c/poss} body is found outside the camp, everycat questioning who could have done such a thing, knowing that v_c was such a loyal cat to the Clan.",
             "v_c may have once been your beloved deputy, but times have changed. You have no reason to demote {PRONOUN/v_c/object}, but there's no way you'd feel confident naming {PRONOUN/v_c/object} your successor, so there was only one option left. You come back to camp yowling about the rogue attacks that killed v_c. Nobody notices the blood still on your muzzle.",
             "v_c challenges your authority once too often. In a secluded part of the territory, you show {PRONOUN/v_c/object} why that was {PRONOUN/v_c/poss} gravest mistake."
         ]
@@ -5080,7 +5083,7 @@
         "biome": [],
         "tags": [],
         "texts": [
-            "No one is even a bit suspiscious when you announce that v_c left to meet Silverpelt and the rest of your ancestors in {PRONOUN/v_c/poss} sleep, although v_c was fine and quite healthy the day before.",
+            "No one is even a bit suspicious when you announce that v_c left to meet Silverpelt and the rest of your ancestors in {PRONOUN/v_c/poss} sleep, although v_c was fine and quite healthy the day before.",
             "Your Clanmates worry when it seems v_c has gone missing from the elders den, but you are quick to soothe {PRONOUN/v_c/object} that v_c will come back, even though you know {PRONOUN/v_c/subject} never will."
         ]
     },
@@ -5661,7 +5664,7 @@
         ],
         "tags": [],
         "texts": [
-            "You watch v_c interact with the kits from across the camp. There's something <i>off</i> about the way {PRONOUN/v_c/subject} {VERB/v_c/give/gives}, r_k a badger ride... like {PRONOUN/v_c/subject}{VERB/v_c/'re/'s} almost intentionally trying to be too rough. You walk over to v_c and ask to have a moment alone with {PRONOUN/v_c/object}. {PRONOUN/v_c/subject/CAP} {VERB/v_c/follow/follows} you into c_nClan's territory without a second thought. You tell {PRONOUN/v_c/object} to sit at the bottom of a sand dune and that you'll be back in a moment. While {PRONOUN/v_c/subject} {VERB/v_c/wait/waits}, you walk around the back of the sand dune and scramble to the top. Once you're in position, you kick up as much sand as you can and send it cascading towards v_c, effectively burying {PRONOUN/v_c/object}. When you get back to camp, you tell everyone {PRONOUN/v_c/subject} ran off."
+            "You watch v_c interact with the kits from across the camp. There's something <i>off</i> about the way {PRONOUN/v_c/subject} {VERB/v_c/give/gives}, r_k a badger ride... like {PRONOUN/v_c/subject}{VERB/v_c/'re/'s} almost intentionally trying to be too rough. You walk over to v_c and ask to have a moment alone with {PRONOUN/v_c/object}. {PRONOUN/v_c/subject/CAP} {VERB/v_c/follow/follows} you into c_nClan's territory without a second thought. You tell {PRONOUN/v_c/object} to sit at the bottom of a sand dune and that you'll be back in a moment. While {PRONOUN/v_c/subject} {VERB/v_c/wait/waits}, you walk around the back of the sand dune and scramble to the top. Once you're in position, you kick up as much sand as you can and send it cascading towards v_c, effectively burying {PRONOUN/v_c/object}. When you get back to camp, you tell everycat {PRONOUN/v_c/subject} ran off."
         ]
     },
     "murder_event_ant14": {
@@ -5682,9 +5685,9 @@
         ],
         "tags": [],
         "texts": [
-            "You watch desperately as one of the other queens gets up and leaves, mumbling something about having a headache. It's really no mystery why, because for the past week v_c has been leading 'attacks' on the nursery by pretending to be a cat from o_cClan. You decide to spare everyone's ears by taking {PRONOUN/v_c/object} on a 'mission' across the territory. When you both arrive at c_nClan's border-- which conveniently happens to be near the ocean --you dive into the water holding v_c and paddle to a rocky outcrop. You inform {PRONOUN/v_c/object} that {PRONOUN/v_c/subject} {VERB/v_c/need/needs} to keep lookout and should stay here. You swim back to shore, knowing that even if {PRONOUN/v_c/subject} {VERB/v_c/try/tries} to make the journey back, {PRONOUN/v_c/subject} won't be able to."
+            "You watch desperately as one of the other queens gets up and leaves, mumbling something about having a headache. It's really no mystery why, because for the past week v_c has been leading 'attacks' on the nursery by pretending to be a cat from o_cClan. You decide to spare everycat's ears by taking {PRONOUN/v_c/object} on a 'mission' across the territory. When you both arrive at c_nClan's border-- which conveniently happens to be near the ocean --you dive into the water holding v_c and paddle to a rocky outcrop. You inform {PRONOUN/v_c/object} that {PRONOUN/v_c/subject} {VERB/v_c/need/needs} to keep lookout and should stay here. You swim back to shore, knowing that even if {PRONOUN/v_c/subject} {VERB/v_c/try/tries} to make the journey back, {PRONOUN/v_c/subject} won't be able to."
         ]
-        },
+    },
     "murder_event_R1": {
         "your_status": [
             "apprentice"
@@ -5708,7 +5711,7 @@
         "texts": [
             "You told v_c that your mentors want you to check a coyote den near the border tonight with a_n. When the time comes, the three of you set out at moonhigh, and a_n quickly slips away without v_c noticing to lead the beast home. You sniff around the den before daring v_n closer to the den's dark maw. {PRONOUN/v_c/subject/CAP} {VERB/v_c/hesitate/hesitates} before agreeing, but not without goading you into going with {PRONOUN/v_c/object}. Before you can realize your mistake, however, the coyote is upon both of you, and a_n watches in horror as the plan is shredded before {PRONOUN/a_n/object}. {PRONOUN/a_n/subject/CAP} {VERB/a_n/pelt/pelts} back to camp as the coyote feasts."
         ]
-        },
+    },
     "murder_event_R2": {
         "your_status": [
             "apprentice"
@@ -5732,7 +5735,7 @@
         "texts": [
             "a_n seemed to think it was a cruel joke to ask {PRONOUN/a_n/object} to kill v_c with you. {PRONOUN/a_n/subject/CAP}'ll see. You claim your mentors want you both to check out a stale coyote den that night as an assessment. v_c agrees too eagerly and sets out with you, all too trusting. You knew that den wasn't stale - but you didn't expect there to be more than one coyote living there either! Yowls and howls fill the air but when a patrol finally approaches to chase off the beasts there's nothing they can do to help y_c... Or you."
         ]
-        },
+    },
     "murder_event_R3": {
         "your_status": [
             "apprentice"
@@ -5756,7 +5759,7 @@
         "texts": [
             "With a_n's agreement, the two of you put your plan in action at moonhigh. It's an assessment, you claim to v_c, luring {PRONOUN/v_c/object} to a supposedly abandoned coyote den. v_c frowns at the fresh scent wafting from the den. {PRONOUN/v_c/subject/CAP} {VERB/v_c/turn/turns} to you - just in time to see you tossed by the coyote a_n led back. Thankfully, the wretched beast goes after v_c next. Their yowls pierce the night as a_n manages to get you back to camp despite your injuries."
         ]
-        },
+    },
     "murder_event_R4": {
         "your_status": [
             "apprentice"
@@ -5802,7 +5805,7 @@
             "alone"
         ],
         "texts": [
-            "v_c's been on your nerves lately. Every cat used to praise you about your knowledge in herbs and remedies, but now, the only thing they're talking about is v_c and how quick {PRONOUN/v_c/subject}{VERB/v_c/'re/'s} learning. One day, you decide to take action. {PRONOUN/v_c/subject}{VERB/v_c/'re/'s} in the medicine den for a running nose, and you sneak a little bit of deathberry in {PRONOUN/v_c/poss} juniper. Later, {PRONOUN/v_c/subject}{VERB/v_c/'re/'s} dragged into the medicine den barely breathing. You announce that it's too late, and that {PRONOUN/v_c/subject} {VERB/v_c/deserve/deserves} a death with dignity, even though you know {PRONOUN/v_c/subject} {VERB/v_c/don't/doesn't} deserve it. You swear you washed your paws after putting the deathberries in, but it seems you were also poisoned by them."
+            "v_c's been on your nerves lately. Everycat used to praise you about your knowledge in herbs and remedies, but now, the only thing they're talking about is v_c and how quick {PRONOUN/v_c/subject}{VERB/v_c/'re/'s} learning. One day, you decide to take action. {PRONOUN/v_c/subject/CAP}{VERB/v_c/'re/'s} in the medicine den for a running nose, and you sneak a little bit of deathberry in {PRONOUN/v_c/poss} juniper. Later, {PRONOUN/v_c/subject}{VERB/v_c/'re/'s} dragged into the medicine den barely breathing. You announce that it's too late, and that {PRONOUN/v_c/subject} {VERB/v_c/deserve/deserves} a death with dignity, even though you know {PRONOUN/v_c/subject} {VERB/v_c/don't/doesn't} deserve it. You swear you washed your paws after putting the deathberries in, but it seems you were also poisoned by them."
         ]
     },
     "murder_sam2": {
@@ -5837,7 +5840,8 @@
             "camp5"
         ],
         "biome": [
-            "mountainous", "camp5"
+            "mountainous",
+            "camp5"
         ],
         "tags": [],
         "texts": [
@@ -5884,9 +5888,9 @@
         ],
         "tag": [],
         "texts": [
-            "During an early dawn walk, you stumble across a meshed Twoleg item washed up on the shore. With some prodding, you realize this would be a great way to eliminate your ever-growing problem: v_c. You spend the rest of the morning dropping vague hits and boasting about your 'interesting find' around v_c, and it doesn't take long for them to become curious. You happily guide them to the mesh, and once v_c's close enough, you quickly throw the broken net over v_c's body and place all your body weight on the Twoleg item. Once the gurgling screams quiet and the body goes still, you head back to the Clan as v_c floats out to the rising sun."
-            ]
-        },
+            "During an early dawn walk, you stumble across a meshed Twoleg item washed up on the shore. With some prodding, you realize this would be a great way to eliminate your ever-growing problem: v_c. You spend the rest of the morning dropping vague hits and boasting about your 'interesting find' around v_c, and it doesn't take long for {PRONOUN/v_c/object} to become curious. You happily guide {PRONOUN/v_c/object} to the mesh, and once v_c's close enough, you quickly throw the broken net over v_c's body and place all your body weight on the Twoleg item. Once the gurgling screams quiet and the body goes still, you head back to the Clan as v_c floats out to the rising sun."
+        ]
+    },
     "murder_TBS1": {
         "your_status": [
             "elder"
@@ -5899,8 +5903,12 @@
             "territory",
             "dawn"
         ],
-        "biome": ["plains"],
-        "tags": ["accomplice_agreed"],
+        "biome": [
+            "plains"
+        ],
+        "tags": [
+            "accomplice_agreed"
+        ],
         "texts": [
             "You have many more seasons of experience than v_c, despite what {PRONOUN/v_c/poss} bragging might suggest. It's difficult to slip out of camp, and you have to keep a careful eye out for the dawn patrol, but you and a_n manage it, leading v_c further out onto the territory than {PRONOUN/v_c/subject}{VERB/v_c/'ve/'s} ever been before. It's easy to let a_n do most of the talking as you walk further and further, luring v_c around some scattered rocks... and right into a coyote's jaws."
         ]
@@ -5956,7 +5964,9 @@
             "camp",
             "day"
         ],
-        "biome": ["plains"],
+        "biome": [
+            "plains"
+        ],
         "tags": [],
         "texts": [
             "v_c is so easy to prank. You laugh, racing away from {PRONOUN/v_c/poss} annoyed stare as {PRONOUN/v_c/subject} {VERB/v_c/push/pushes} aside yet another shed snakeskin, so easy for you to find on the plains. v_c has gotten so used to it by now that {PRONOUN/v_c/subject} {VERB/v_c/don't/doesn't} even blink when {PRONOUN/v_c/subject} {VERB/v_c/stumble/stumbles} across what looks like a tail, poking out of the tall grass. {PRONOUN/v_c/subject/CAP} {VERB/v_c/hook/hooks} it with a claw, intending to report the constant pranks, but instead of revenge, {PRONOUN/v_c/subject} {VERB/v_c/find/finds} long, deadly fangs buried into {PRONOUN/v_c/poss} paws. It seems like it was a live one, this time."
@@ -5975,8 +5985,12 @@
             "territory",
             "day"
         ],
-        "biome": ["beach"],
-        "tags": ["all_lives"],
+        "biome": [
+            "beach"
+        ],
+        "tags": [
+            "all_lives"
+        ],
         "texts": [
             "v_c has been acting oddly lately, slowly shifting from the powerful leader of c_nClan to something that you can't quite put a paw on, but you know it doesn't bode well for the future of c_nClan. It takes some work to get {PRONOUN/v_c/object} out on the beaches, which are always crawling with Twolegs at this time of year, but you convince {PRONOUN/v_c/object} to follow. It's easy to wait until v_c is leaning over to inspect a piece of Twoleg trash, and pin {PRONOUN/v_c/object} down, wrapping the bit of trash firmly around v_c's neck. You make sure to wait until v_c's last life has drained away before you slink back to camp."
         ]
@@ -5994,7 +6008,9 @@
             "territory",
             "night"
         ],
-        "biome": ["plains"],
+        "biome": [
+            "plains"
+        ],
         "tags": [],
         "texts": [
             "You settle into the nursery, making sure v_c is listening, before you begin a story. You speak of a great, wise beast, that sweeps over the plains on silent wings, only speaking to the smartest and bravest of kittens, telling {PRONOUN/v_c/object} exactly how to become the best warrior there ever was. You notice v_c's eyes gleam with excitement, and smile to yourself. When the rest of the nursery has gone to sleep, you agree to bring v_c out looking for the beast. You slink back to camp much later, the distant calls of an owl the only reminder of what you've done, v_c's fate sealed by sharp talons and silent wings."
@@ -6014,7 +6030,10 @@
             "camp",
             "day"
         ],
-        "biome": ["plains", "camp5"],
+        "biome": [
+            "plains",
+            "camp5"
+        ],
         "tags": [],
         "texts": [
             "Your pelt bristles as you listen to v_c spin tall tales, filling the heads of your Clanmates with nothing more than thistledown. v_c is a bad influence on the Clan, but even more so on the kits. One afternoon, finally fed up with the kit's constant questions about one of v_c's stories, you slip out of the nursery. v_c is resting in the dappled shade, clearly tired from the heat. Your claws curl into the sandy earth as an idea begins to form. A little later, you approach v_c, a bit of moss dripping with water, and a little something extra, gingerly held in your teeth. Finding the snake's venom was tricky, but the sound of v_c's strangled gasps makes it worth the effort."
@@ -6032,7 +6051,10 @@
             "camp",
             "day"
         ],
-        "biome": ["beach", "camp3"],
+        "biome": [
+            "beach",
+            "camp3"
+        ],
         "tags": [],
         "texts": [
             "v_c is probably one of the most infuriating medicine cats around. Always tailing the warriors with unneeded words of caution, but somehow managing to always be out of camp at the exact moment v_c is actually needed. Feigning interest in one of {PRONOUN/v_c/poss} lectures, you draw {PRONOUN/v_c/object} closer to a secluded corner of camp. There isn't much to worry about, with most of the Clan out patrolling during the day, but it doesn't hurt to be cautious. With a quick lunge, you slam into one of the looser bits of the ship's hull, bringing the piece of wood down onto v_c's head with a sharp crack."
@@ -6051,7 +6073,9 @@
             "territory",
             "night"
         ],
-        "biome": ["beach"],
+        "biome": [
+            "beach"
+        ],
         "tags": [],
         "texts": [
             "By this point in v_c's training, it's pretty clear that {PRONOUN/v_c/subject} are a pitiful excuse for a c_nClan cat. c_nClan can't afford to have weak Clanmates, so you resolve to lead v_c to a particularly dangerous spot on the territory, give {PRONOUN/v_c/object} one last chance to try and prove {PRONOUN/v_c/self}... v_c plummets from the cliffs, plunging into the frothing waters even as sleek, dark fins begin to move towards {PRONOUN/v_c/object}. You leave {PRONOUN/v_c/object} to the sharks, claws slick with blood."
@@ -6069,7 +6093,9 @@
             "territory",
             "day"
         ],
-        "biome": ["beach"],
+        "biome": [
+            "beach"
+        ],
         "tags": [],
         "texts": [
             "v_c seems a little confused, at first, when you suggest a swimming trip out along the shore, but {PRONOUN/v_c/subject} eventually {VERB/v_c/agree/agrees}. When the time arrives, you bring {PRONOUN/v_c/object} out to a carefully picked spot, a deceptively calm patch of sea. v_c leaps in without hesitation, but you hang back, watching {PRONOUN/v_c/poss} features cloud with fear as a hidden undertow drags {PRONOUN/v_c/object} further and further from shore. Rolling in a shallow tide pool so you won't have to explain away dry fur, you race back to camp, wailing that v_c was swept out to sea."
@@ -6086,10 +6112,13 @@
             "accident",
             "day"
         ],
-        "biome": ["beach", "camp4"],
+        "biome": [
+            "beach",
+            "camp4"
+        ],
         "tags": [],
         "texts": [
-            "It's such a perfect day, the sun gleaming off of towering waves, a slight breeze ruffling your fur... until v_c appears. {PRONOUN/v_c/subject} always {VERB/v_c/find/finds} a way to make your day worse. Even trying to sleep outside of the elder's den, you can't get away from {PRONOUN/v_c/object}. You might be an elder, but you can still climb a tree, and you dislodge the large, heavy coconuts, sending them falling like a hailstorm down onto v_c. One well-placed blow to the head is enough to finish {PRONOUN/v_c/object} off. "
+            "It's such a perfect day, the sun gleaming off of towering waves, a slight breeze ruffling your fur... until v_c appears. {PRONOUN/v_c/subject/CAP} always {VERB/v_c/find/finds} a way to make your day worse. Even trying to sleep outside of the elder's den, you can't get away from {PRONOUN/v_c/object}. You might be an elder, but you can still climb a tree, and you dislodge the large, heavy coconuts, sending them falling like a hailstorm down onto v_c. One well-placed blow to the head is enough to finish {PRONOUN/v_c/object} off. "
         ]
     },
     "murder_TBS12": {
@@ -6104,7 +6133,9 @@
             "border",
             "day"
         ],
-        "biome": ["beach"],
+        "biome": [
+            "beach"
+        ],
         "tags": [],
         "texts": [
             "v_c is one of the most foolhardy cats you've ever encountered, and that comes with a carelessness that too often lands {PRONOUN/v_c/subject} under your care. One day, after a particularly infuriating night spent treating the dozens of small cuts and bruises v_c somehow managed to collect, you take {PRONOUN/v_c/object} out onto the dunes. You'd taken the time to hide several sharpened sticks in the sand, which will do the job your untrained claws cannot. Taking v_c by surprise, you shove {PRONOUN/v_c/object} into the trap, muffling {PRONOUN/v_c/poss} cries with a paw until {PRONOUN/v_c/subject} finally {VERB/v_c/give/gives} up."
@@ -6145,7 +6176,10 @@
             "camp",
             "night"
         ],
-        "biome": ["beach","camp1"],
+        "biome": [
+            "beach",
+            "camp1"
+        ],
         "tags": [],
         "texts": [
             "It's so frustrating, the way that v_c is always bossing you around. {PRONOUN/v_c/subject/CAP} {VERB/v_c/aren't/isn't} even a proper queen yet, just an apprentice! One night, you ask a_n to help, by bringing the most dangerous animal {PRONOUN/a_n/subject} can find, and hiding it in the tidepools in the center of camp. It doesn't take a_n long, as {PRONOUN/a_n/subject} {VERB/a_n/drop/drops} something into the pools with a splash that echoes through the silent camp. Taking your chance, you run towards the pool, making sure that v_c is startled awake enough to chase after you. Slipping to the side, you skid across the wet sand, ending up right under v_c's paws. {PRONOUN/v_c/subject/CAP} {VERB/v_c/stumble/stumbles} over you, falling into the pool with a tremendous splash. v_c manages to haul {PRONOUN/v_c/self} out of the water, making it close to the nursery before collapsing, foaming at the mouth as you and a_n look on."
@@ -6166,7 +6200,9 @@
             "day",
             "dawn"
         ],
-        "biome": ["forest"],
+        "biome": [
+            "forest"
+        ],
         "tags": [],
         "texts": [
             "v_c is constantly pestering you, distracting you from your duties with {PRONOUN/v_c/poss} constant requests to go gather herbs with {PRONOUN/v_c/object}, or watch a patient while {PRONOUN/v_c/subject} {VERB/v_c/grab/grabs} a quick bite to eat. It's tiring, especially when you have your own warrior duties to contend with. When {PRONOUN/v_c/subject} {VERB/v_c/ask/asks} you to go gathering herbs with {PRONOUN/v_c/object}, you keep a careful eye out for something special. A warrior shouldn't be bothered to know the difference between the harmless marigold and more dangerous lilies, so you happily pass v_c the tansy, watching as {PRONOUN/v_c/subject} {VERB/v_c/chew/chews} it to a pulp. It takes a bit, but you eventually hear the panicked yowls. Someone must've found v_c. "
@@ -6241,7 +6277,9 @@
             "camp",
             "day"
         ],
-        "biome": ["beach"],
+        "biome": [
+            "beach"
+        ],
         "tags": [],
         "texts": [
             "You tug the moss-ball back from v_c, pelt fluffed with anger. {PRONOUN/v_c/subject/CAP} keeps trying to play, but you don't want {PRONOUN/v_c/object} messing everything up! With a mewl of anger, you shove v_c towards the tide pools, holding {PRONOUN/v_c/object} down with your tiny paws until {PRONOUN/v_c/subject} stop struggling. That'll teach {PRONOUN/v_c/object} not to mess with your game again! Cleaning the water from your fur, you return to playing, pleased with what you've done. "
@@ -6260,7 +6298,9 @@
             "territory",
             "night"
         ],
-        "biome": ["forest"],
+        "biome": [
+            "forest"
+        ],
         "tags": [],
         "texts": [
             "The Clan has been abuzz with rumors lately, which, by itself, would be nothing out of the ordinary, but these... It seems that v_c is trying to take your position. Concealing your anger, you order {PRONOUN/v_c/object} to join you on a midnight patrol. Once you're away from camp, you attack, fighting so savagely that it'll be easy to blame the attack on a fox, or badger. You wash the blood off in a small stream, satisfied that you'll stay deputy for a long, long, time."
@@ -6278,10 +6318,12 @@
             "territory",
             "night"
         ],
-        "biome": ["mountainous"],
+        "biome": [
+            "mountainous"
+        ],
         "tags": [],
         "texts": [
-            "You watch from the edge of the clearing as v_c boasts to l_n about {PRONOUN/v_c/poss} oh so brilliant hunting skills, waving a paw at a mouse, which looks perfectly normal sized, if not a little scrawny. v_c is always bragging, always making sure to outshine you during training. Approaching {PRONOUN/v_c/object}, you offer a chance to test {PRONOUN/v_c/poss} hunting skills for real, away from your mentors. Under the cover of darkness, you and v_c follow a winding path up the cliff, just above an eagle's nest. With a forceful shove, you push v_c into the nest. {PRONOUN/v_c/subject} finally {VERB/v_c/have/has} a proper chance to show off, not that the eagles will appreciate it. "
+            "You watch from the edge of the clearing as v_c boasts to l_n about {PRONOUN/v_c/poss} oh so brilliant hunting skills, waving a paw at a mouse, which looks perfectly normal sized, if not a little scrawny. v_c is always bragging, always making sure to outshine you during training. Approaching {PRONOUN/v_c/object}, you offer a chance to test {PRONOUN/v_c/poss} hunting skills for real, away from your mentors. Under the cover of darkness, you and v_c follow a winding path up the cliff, just above an eagle's nest. With a forceful shove, you push v_c into the nest. {PRONOUN/v_c/subject/CAP} finally {VERB/v_c/have/has} a proper chance to show off, not that the eagles will appreciate it. "
         ]
     },
     "murder_TBS22": {
@@ -6296,7 +6338,9 @@
             "territory",
             "night"
         ],
-        "biome": ["mountainous"],
+        "biome": [
+            "mountainous"
+        ],
         "tags": [],
         "texts": [
             "You've had enough of v_c. {PRONOUN/v_c/subject/CAP} {VERB/v_c/feel/feels} light in your jaws as you race through the rocky terrain, looking around frantically for somewhere {PRONOUN/v_c/subject}'ll never be discovered... There! Glancing around one final time, you shove the faintly protesting v_c into a small crevice between the rocks, making sure {PRONOUN/v_c/subject} won't be able to escape. As an added touch, you plug the hole with some strong smelling plants, masking v_c's scent, before you slink back to camp."
@@ -6314,7 +6358,9 @@
             "territory",
             "day"
         ],
-        "biome": ["forest"],
+        "biome": [
+            "forest"
+        ],
         "tags": [],
         "texts": [
             "v_c has been pestering you to play with {PRONOUN/v_c/object} for the better part of the day, never leaving you a moment to yourself. Finally, you agree to a game of hide and seek, and offer to show {PRONOUN/v_c/object} one of the best hiding spots, on the condition that {PRONOUN/v_c/subject} {VERB/v_c/stay/stays} very quiet, and {VERB/v_c/don't/doesn't} leave the spot until you come to get {PRONOUN/v_c/object}, no matter what. When v_c agrees, you carry {PRONOUN/v_c/object} deep into the forest, directing {PRONOUN/v_c/object} to a small hollow under a fallen tree. A smile twists across your muzzle as {PRONOUN/v_c/subject} eagerly {VERB/v_c/bolt/bolts} into the hiding spot, promising to stay quiet. The sun sinks lower and lower, but v_c is never found."
@@ -6352,16 +6398,18 @@
             "apprentice"
         ],
         "relationship": [
-        "your_apprentice"
-    ],
+            "your_apprentice"
+        ],
         "strategy": [
             "accident",
             "territory"
         ],
-        "biome": ["forest"],
+        "biome": [
+            "forest"
+        ],
         "tags": [],
         "texts": [
-        "Such a shame that v_c was never quite able to live up to expectations. You move away from the fallen branch, trying to ignore v_c's body trapped beneath it. You had brought {PRONOUN/v_c/object} out onto the territory, late at night, vaguely referencing some kind of extra training. v_c had eagerly agreed, following you out onto some of the most unstable trees in the territory. Persuading {PRONOUN/v_c/object} out onto a particularly weak branch, it was all too easy for {PRONOUN/v_c/object} to slip and fall. You drag {PRONOUN/v_c/object} back to camp just as the sun begins to rise, shouting for a medicine cat even though you know it's already too late."
+            "Such a shame that v_c was never quite able to live up to expectations. You move away from the fallen branch, trying to ignore v_c's body trapped beneath it. You had brought {PRONOUN/v_c/object} out onto the territory, late at night, vaguely referencing some kind of extra training. v_c had eagerly agreed, following you out onto some of the most unstable trees in the territory. Persuading {PRONOUN/v_c/object} out onto a particularly weak branch, it was all too easy for {PRONOUN/v_c/object} to slip and fall. You drag {PRONOUN/v_c/object} back to camp just as the sun begins to rise, shouting for a medicine cat even though you know it's already too late."
         ]
     },
     "murder_event_ant18": {
@@ -6380,7 +6428,7 @@
         "biome": [],
         "tags": [],
         "texts": [
-            "v_c doesn't deserve the title of medicine cat apprentice--{PRONOUN/v_c/subject} barely {VERB/v_c/do/does}{PRONOUN/v_c/poss} job! Honestly, you'd be surprised if {PRONOUN/v_c/subject} even knew what deathberries did. But then... that gives you an idea. You decide to teach {PRONOUN/v_c/object}a lesson {PRONOUN/v_c/subject}'ll never forget as you eagerly push a pile of deathberries toward {PRONOUN/v_c/object}. You insist {PRONOUN/v_c/subject} {VERB/v_c/need/needs} to know the effects of holly berries and how they can give some cats stomach aches. v_c begins to eat the deathberries--wholly believing that they're holly berries--before {PRONOUN/v_c/subject} {VERB/v_c/start/starts} seizing up. Within a minute, {PRONOUN/v_c/subject}{VERB/v_c/'re/'s} dead, and you have to keep yourself from prancing out of the medicine den to tell your clan all about how v_c mistook deathberries for holly berries."
+            "v_c doesn't deserve the title of medicine cat apprentice--{PRONOUN/v_c/subject} barely {VERB/v_c/do/does}{PRONOUN/v_c/poss} job! Honestly, you'd be surprised if {PRONOUN/v_c/subject} even knew what deathberries did. But then... That gives you an idea. You decide to teach {PRONOUN/v_c/object}a lesson {PRONOUN/v_c/subject}'ll never forget as you eagerly push a pile of deathberries toward {PRONOUN/v_c/object}. You insist {PRONOUN/v_c/subject} {VERB/v_c/need/needs} to know the effects of holly berries and how they can give some cats stomach aches. v_c begins to eat the deathberries--wholly believing that they're holly berries--before {PRONOUN/v_c/subject} {VERB/v_c/start/starts} seizing up. Within a minute, {PRONOUN/v_c/subject}{VERB/v_c/'re/'s} dead, and you have to keep yourself from prancing out of the medicine den to tell your clan all about how v_c mistook deathberries for holly berries."
         ]
     },
     "murder_event_ant19": {
@@ -6396,7 +6444,9 @@
             "border",
             "day"
         ],
-        "biome": ["mountainous"],
+        "biome": [
+            "mountainous"
+        ],
         "tags": [],
         "texts": [
             "You narrow your eyes as you watch v_c subtly toy with your leader's mind. {PRONOUN/v_c/poss/CAP} snide-- and untrue-- remarks about o_cClan is causing l_n to question your Clan's relationship with them. You interrupt their discussion to tell v_c about a border fight going on that needs urgent attention. The two of you rush out of camp and head to the edge of the territory. When v_c realizes there's no patrol, {PRONOUN/v_c/subject}  {VERB/v_c/snap/snaps} at you for wasting {PRONOUN/v_c/poss} time. You smile and inform them it wasn't a waste of time before jumping behind a log as an eagle's talons dig into v_c's pelt. On the long walk back to camp, you decide on the perfect lie to tell about what happened to v_c."
@@ -6415,7 +6465,9 @@
             "territory",
             "night"
         ],
-        "biome": ["plains"],
+        "biome": [
+            "plains"
+        ],
         "tags": [],
         "texts": [
             "Every second that {PRONOUN/v_c/subject}{VERB/v_c/'re/'s} awake, v_c is begging you to tell {PRONOUN/v_c/object} stories. Seriously--you worked less hard as a warrior! One fateful evening, you decide to lure v_c out into the territory. You both pad along, v_c chatting happily beside you as you lead them to a very special place. Arriving in the clearing, you encourage v_c to look up at all the little lights dancing in the clearing--fireflies. Before {PRONOUN/v_c/subject} can run off, you call {PRONOUN/v_c/object} over and show {PRONOUN/v_c/object} a firefly perched upon a leaf. You tell {PRONOUN/v_c/object} one last story about a kit who gained abilities after eating one, and {PRONOUN/v_c/poss}eyes widen. v_c eats the firefly without hesitation, and you know that the toxicity of the bug will kill {PRONOUN/v_c/object} by morning."
@@ -6434,8 +6486,13 @@
             "territory",
             "day"
         ],
-        "biome": ["plains", "camp4"],
-        "tags": ["death"],
+        "biome": [
+            "plains",
+            "camp4"
+        ],
+        "tags": [
+            "death"
+        ],
         "texts": [
             "v_c has been getting on your nerves since the dawn of time. {PRONOUN/v_c/subject/CAP} {VERB/v_c/think/thinks} {PRONOUN/v_c/subject}{VERB/v_c/'re/'s} so much better than you because {PRONOUN/v_c/subject}{VERB/v_c/'re/'s} a medicine cat apprentice and you're not. One day you lead {PRONOUN/v_c/object} out of camp with the alluring promise of having seen borage growing near the river. When you get to the rapids, you inform v_c that you've arrived. v_c turns and starts sniffing around for the borage--a mistake. You lunge forward, shoving {PRONOUN/v_c/object} onto the slippery, moss covered rocks near the rapids. v_c scrambles for a moment, {PRONOUN/v_c/poss} paws flying out from under {PRONOUN/v_c/object}, before {PRONOUN/v_c/poss} gaze darkens. {PRONOUN/v_c/subject/CAP} {VERB/v_c/latch/latches} {PRONOUN/v_c/poss} claws onto your pelt and {VERB/v_c/drag/drags} you into the river with {PRONOUN/v_c/object}. You thrash, desperately fighting v_c for air, but it's already too late for both of you."
         ]
@@ -6447,14 +6504,21 @@
         "victim_status": [
             "no_kit"
         ],
-        "relationship": ["siblings"],
+        "relationship": [
+            "siblings"
+        ],
         "strategy": [
             "accident",
             "territory",
             "night"
         ],
-        "biome": ["mountainous", "camp1"],
-        "tags": ["death"],
+        "biome": [
+            "mountainous",
+            "camp1"
+        ],
+        "tags": [
+            "death"
+        ],
         "texts": [
             "For the longest time, it's felt like v_c is always trying to prove how much better {PRONOUN/v_c/subject} {VERB/v_c/are/is} than you. Whatever, you only have to tolerate it a little longer. You put on your best faux smile as you and v_c arrive at one of c_nClan's many frozen lakes. You eagerly push {PRONOUN/v_c/object} forward towards the ice, insisting that it's frozen solid and there's no possible way {PRONOUN/v_c/subject} could get hurt. You cautiously follow {PRONOUN/v_c/subject} onto the ice, watching as {PRONOUN/v_c/subject} {VERB/v_c/arrive/arrives} at the weakest point. There's a tiny crack, then v_c plunges into the icy depths. Just as you turn to leave, you feel the ice break under your own paws. You try to scramble for the shore, but all too soon you're too numb to fight anymore."
         ]
@@ -6466,16 +6530,20 @@
         "victim_status": [
             "no_kit"
         ],
-        "relationship": ["your_parent"],
+        "relationship": [
+            "your_parent"
+        ],
         "strategy": [
             "predator",
             "territory",
             "dawn"
         ],
-        "biome": ["mountainous"],
+        "biome": [
+            "mountainous"
+        ],
         "tags": [],
         "texts": [
-            "You scowl as v_c ruffles your fur like {PRONOUN/v_c/subject} used to do when you were a kit. You're not in the nursery anymore and you <i>don't</i> want {PRONOUN/v_c/object} to do that anymore. Putting on a fake smile, you ask {PRONOUN/v_c/object} if {PRONOUN/v_c/subject}'d like to go on a patrol with you. When {PRONOUN/v_c/subject} VERB/v_c/agree/agrees}, you lead {PRONOUN/v_c/object} out of camp. You wind in a long circle around c_nClan territory, finally stopping when you reach your destination--and v_c's final destination. After convincing v_c to enter the yawning cave in the cliffside, you scramble away from the area as fast as you can. For a moment, you're sure v_c turned around, but the only thing that comes out of the cave are the snarls of the lynx that lives there."
+            "You scowl as v_c ruffles your fur like {PRONOUN/v_c/subject} used to do when you were a kit. You're not in the nursery anymore and you <i>don't</i> want {PRONOUN/v_c/object} to do that anymore. Putting on a fake smile, you ask {PRONOUN/v_c/object} if {PRONOUN/v_c/subject}'d like to go on a patrol with you. When {PRONOUN/v_c/subject} {VERB/v_c/agree/agrees}, you lead {PRONOUN/v_c/object} out of camp. You wind in a long circle around c_nClan territory, finally stopping when you reach your destination--and v_c's final destination. After convincing v_c to enter the yawning cave in the cliffside, you scramble away from the area as fast as you can. For a moment, you're sure v_c turned around, but the only thing that comes out of the cave are the snarls of the lynx that lives there."
         ]
     },
     "murder_event_ant24": {
@@ -6488,16 +6556,21 @@
             "medicine cat",
             "mediator"
         ],
-        "relationship": ["your_mentor"],
+        "relationship": [
+            "your_mentor"
+        ],
         "strategy": [
             "accident",
             "border",
             "night"
         ],
-        "biome": ["plains", "camp3"],
+        "biome": [
+            "plains",
+            "camp3"
+        ],
         "tags": [],
         "texts": [
-            "After publicly ridiculing you in front of the other apprentices for the fourth time today, you're sure that your mentor is picking on you. You grit your teeth as you ask {PRONOUN/v_c/object} for a meeting that night to improve your skills. {PRONOUN/v_c/subject} {VERB/v_c/agree/agrees} lazily, waving you away. That night, you lead them to the Thunderpath that lines the border of c_nClan. All it takes is a well-timed dodge to send them bowling onto the Thunderpath and right into a monster."
+            "After publicly ridiculing you in front of the other apprentices for the fourth time today, you're sure that your mentor is picking on you. You grit your teeth as you ask {PRONOUN/v_c/object} for a meeting that night to improve your skills. {PRONOUN/v_c/subject/CAP} {VERB/v_c/agree/agrees} lazily, waving you away. That night, you lead them to the Thunderpath that lines the border of c_nClan. All it takes is a well-timed dodge to send them bowling onto the Thunderpath and right into a monster."
         ]
     },
     "murder_event_ant25": {
@@ -6513,16 +6586,20 @@
             "medicine cat apprentice",
             "mediator apprentice"
         ],
-        "relationship": ["your_apprentice"],
+        "relationship": [
+            "your_apprentice"
+        ],
         "strategy": [
             "accident",
             "territory",
             "day"
         ],
-        "biome": ["forest"],
+        "biome": [
+            "forest"
+        ],
         "tags": [],
         "texts": [
-            "l_n called you in again today for v_c's behavior. {PRONOUN/v_c/subject} {VERB/v_c/don't/doesn't}, know it, but v_c gets you into more trouble than {PRONOUN/v_c/subject}{VERB/v_c/'re/'s} worth. You inform {PRONOUN/v_c/object} of a late-notice training session, and sigh when {PRONOUN/v_c/subject} {VERB/v_c/grumble/grumbles}. After finally convincing {PRONOUN/v_c/object} to go, you bring {PRONOUN/v_c/object} to a giant redwood tree and point to a bird perched up in it. The tree is old, and not all of the branches are as stable as they look. It only takes a few minutes before v_c slips."
+            "l_n called you in again today for v_c's behavior. {PRONOUN/v_c/subject/CAP} {VERB/v_c/don't/doesn't}, know it, but v_c gets you into more trouble than {PRONOUN/v_c/subject}{VERB/v_c/'re/'s} worth. You inform {PRONOUN/v_c/object} of a late-notice training session, and sigh when {PRONOUN/v_c/subject} {VERB/v_c/grumble/grumbles}. After finally convincing {PRONOUN/v_c/object} to go, you bring {PRONOUN/v_c/object} to a giant redwood tree and point to a bird perched up in it. The tree is old, and not all of the branches are as stable as they look. It only takes a few minutes before v_c slips."
         ]
     },
     "murder_event_ant26": {
@@ -6538,16 +6615,20 @@
             "medicine cat apprentice",
             "mediator apprentice"
         ],
-        "relationship": ["your_apprentice"],
+        "relationship": [
+            "your_apprentice"
+        ],
         "strategy": [
             "accident",
             "territory",
             "night"
         ],
-        "biome": ["mountainous"],
+        "biome": [
+            "mountainous"
+        ],
         "tags": [],
         "texts": [
-            "You approach v_c at dusk, telling {PRONOUN/v_c/object} about a surprise test. {PRONOUN/v_c/subject} {VERB/v_c/drag/drags} {PRONOUN/v_c/poss} paws as {PRONOUN/v_c/subject} {VERB/v_c/follow/follows} you out of camp and into the territory. When the both of you come to a pile of boulders, you tell {PRONOUN/v_c/object} that {PRONOUN/v_c/poss} {VERB/v_c/need/needs} to try to make it to the top. The lighting is dim, and when v_c eventually makes the mistake of not checking {PRONOUN/v_c/poss} footing, you're not around to break {PRONOUN/v_c/poss} fall."
+            "You approach v_c at dusk, telling {PRONOUN/v_c/object} about a surprise test. {PRONOUN/v_c/subject/CAP} {VERB/v_c/drag/drags} {PRONOUN/v_c/poss} paws as {PRONOUN/v_c/subject} {VERB/v_c/follow/follows} you out of camp and into the territory. When the both of you come to a pile of boulders, you tell {PRONOUN/v_c/object} that {PRONOUN/v_c/poss} {VERB/v_c/need/needs} to try to make it to the top. The lighting is dim, and when v_c eventually makes the mistake of not checking {PRONOUN/v_c/poss} footing, you're not around to break {PRONOUN/v_c/poss} fall."
         ]
     }
 }
