@@ -274,9 +274,9 @@
 		"ceremony_modifier": -20
 	},
 	"transition_related": {
-		"base_trans_chance": 256,
-		"adolescent_modifier": -128,
-		"older_modifier": 256
+		"base_trans_chance": 180,
+		"adolescent_modifier": -80,
+		"older_modifier": 90
 	},
 	"fading": {
 		"age_to_fade": 202,

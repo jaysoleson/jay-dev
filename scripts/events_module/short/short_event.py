@@ -26,7 +26,8 @@ class ShortEvent:
             outsider: dict = None,
             other_clan: dict = None,
             supplies: list = None,
-            new_gender: List[str] = None
+            new_gender: List[str] = None,
+            new_orientation: List[str] = None
     ):
         if not event_id:
             print("WARNING: moon event has no event_id")
@@ -62,6 +63,10 @@ class ShortEvent:
                 self.m_c["dies"] = False
             if "gender" not in self.m_c:
                 self.m_c["gender"] = []
+            if "current_orientation" not in self.m_c:
+                self.m_c["current_orientation"] = []
+            if "not_current_orientation" not in self.m_c:
+                self.m_c["not_current_orientation"] = []
 
         self.r_c = r_c if r_c else {}
         if self.r_c:
@@ -104,3 +109,4 @@ class ShortEvent:
                 self.other_clan["changed"] = 0
         self.supplies = supplies if supplies else []
         self.new_gender = new_gender
+        self.new_orientation = new_orientation

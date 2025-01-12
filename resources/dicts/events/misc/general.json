@@ -8474,5 +8474,373 @@
       "gender": ["male"]
     },
     "new_gender": ["trans female", "nonbinary"]
+  },
+  {
+    "event_id": "pridegen_genderfluid_1",
+    "location": ["any"],
+    "season": ["any"],
+    "sub_type": ["transition"],
+    "weight": 10,
+    "event_text": "m_c feels like a tom one day, a she-cat the next, and sometimes neither!",
+    "m_c": {
+      "gender": ["any"]
+    },
+    "new_gender": ["genderfluid"]
+  },
+  {
+    "event_id": "pridegen_bigender_1",
+    "location": ["any"],
+    "season": ["any"],
+    "sub_type": ["transition"],
+    "weight": 10,
+    "event_text": "m_c feels like two genders at once.",
+    "m_c": {
+      "gender": ["male"]
+    },
+    "new_gender": ["bigender"]
+  },
+  {
+    "event_id": "pridegen_questioning_1",
+    "location": ["any"],
+    "season": ["any"],
+    "sub_type": ["transition"],
+    "weight": 10,
+    "event_text": "m_c doesn't know how every other cat is so sure of their gender.",
+    "m_c": {
+      "gender": ["any"]
+    },
+    "new_gender": ["questioning"]
+  },
+  {
+    "event_id": "pridegen_unlabelled_1",
+    "location": ["any"],
+    "season": ["any"],
+    "sub_type": ["transition"],
+    "weight": 10,
+    "event_text": "m_c can't find the right words for {PRONOUN/m_c/poss} identity, so {PRONOUN/m_c/subject}{VERB/m_c/'ve/'s} opted to use none.",
+    "m_c": {
+      "gender": ["any"]
+    },
+    "new_gender": ["unlabelled"]
+  },
+  {
+    "event_id": "pridegen_transition_1",
+    "location": ["any"],
+    "season": ["any"],
+    "sub_type": ["transition"],
+    "weight": 10,
+    "event_text": "m_c's entire life has been spent silently admiring tomhood, wishing to be a part of it. {PRONOUN/m_c/subject/CAP}{VERB/m_c/'ve/'s} finally come to terms with what that means-- m_c tells {PRONOUN/m_c/poss} Clanmates that {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} no longer a she-cat.",
+    "m_c": {
+      "gender": ["female"],
+      "age": ["young adult", "adult", "senior adult", "senior"],
+      "current_orientation": ["cis"]
+    },
+    "new_gender": ["trans male"]
+  },
+  {
+    "event_id": "pridegen_transition_1",
+    "location": ["any"],
+    "season": ["any"],
+    "sub_type": ["transition"],
+    "weight": 10,
+    "event_text": "m_c's entire life has been spent silently admiring she-cats, wishing to be like them. {PRONOUN/m_c/subject/CAP}{VERB/m_c/'ve/'s} finally come to terms with what that means-- m_c tells {PRONOUN/m_c/poss} Clanmates that {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} no longer a tom.",
+    "m_c": {
+      "gender": ["male"],
+      "age": ["young adult", "adult", "senior adult", "senior"],
+      "current_orientation": ["cis"]
+    },
+    "new_gender": ["trans female"]
+  },
+  {
+    "event_id": "pridegen_transition_2",
+    "location": ["any"],
+    "season": ["any"],
+    "sub_type": ["transition"],
+    "weight": 10,
+    "event_text": "m_c has decided to stop choosing between genders and just take them all!",
+    "m_c": {
+      "gender": ["any"],
+      "age": ["young adult", "adult", "senior adult", "senior"],
+      "current_orientation": ["any"]
+    },
+    "new_gender": ["genderfluid"]
+  },
+  {
+    "event_id": "pridegen_transition_3",
+    "location": ["any"],
+    "season": ["any"],
+    "sub_type": ["transition"],
+    "weight": 10,
+    "event_text": "m_c has realised that {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} not truly a tom. {PRONOUN/m_c/subject/CAP}{VERB/m_c/'re/'s} scared to take this step with {PRONOUN/m_c/poss} identity, but {PRONOUN/m_c/subject} {VERB/m_c/know/knows} {PRONOUN/m_c/subject} {VERB/m_c/have/has} a loving group of Clanmates to support {PRONOUN/m_c/object}.",
+    "m_c": {
+      "gender": ["male"],
+      "age": ["young adult", "adult", "senior adult", "senior"],
+      "current_orientation": ["cis"]
+    },
+    "new_gender": ["trans female", "nonbinary", "demigirl", "genderfluid", "bigender"]
+  },
+  {
+    "event_id": "pridegen_transition_4",
+    "location": ["any"],
+    "season": ["any"],
+    "sub_type": ["transition"],
+    "weight": 10,
+    "event_text": "m_c has realised that {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} not truly a she-cat. {PRONOUN/m_c/subject/CAP}{VERB/m_c/'re/'s} scared to take this step with {PRONOUN/m_c/poss} identity, but {PRONOUN/m_c/subject} {VERB/m_c/know/knows} {PRONOUN/m_c/subject} {VERB/m_c/have/has} a loving group of Clanmates to support {PRONOUN/m_c/object}.",
+    "m_c": {
+      "gender": ["female"],
+      "age": ["young adult", "adult", "senior adult", "senior"],
+      "current_orientation": ["cis"]
+    },
+    "new_gender": ["trans male", "nonbinary", "demigirl", "genderfluid", "bigender"]
+  },
+  {
+    "event_id": "pridegen_transition_5",
+    "location": ["any"],
+    "season": ["any"],
+    "sub_type": ["transition"],
+    "weight": 10,
+    "event_text": "m_c has decided late in life that gender isn't something {PRONOUN/m_c/subject} {VERB/m_c/have/has} the patience to deal with anymore.",
+    "m_c": {
+      "gender": ["any"],
+      "age": ["senior"],
+      "current_orientation": ["binary"]
+    },
+    "new_gender": ["nonbinary"]
+  },
+  {
+    "event_id": "pridegen_sexuality_J1",
+    "location": ["any"],
+    "season": ["any"],
+    "sub_type": ["sexuality"],
+    "weight": 10,
+    "event_text": "m_c only seems to crush on other toms.",
+    "m_c": {
+      "gender": ["any"],
+      "current_orientation": ["male", "trans male", "demiboy"]
+    },
+    "new_orientation": ["gay"]
+  },
+  {
+    "event_id": "pridegen_sexuality_J2",
+    "location": ["any"],
+    "season": ["any"],
+    "sub_type": ["sexuality"],
+    "weight": 10,
+    "event_text": "m_c only seems to crush on other she-cats.",
+    "m_c": {
+      "gender": ["female"],
+      "current_orientation": ["female", "trans female", "demigirl"]
+    },
+    "new_orientation": ["lesbian"]
+  },
+  {
+    "event_id": "pridegen_sexuality_J3",
+    "location": ["any"],
+    "season": ["any"],
+    "sub_type": ["sexuality"],
+    "weight": 10,
+    "event_text": "m_c only seems to crush on toms.",
+    "m_c": {
+      "gender": ["any"],
+      "current_orientation": ["not_cis", "nonbinary"]
+    },
+    "new_orientation": ["andro"]
+  },
+  {
+    "event_id": "pridegen_sexuality_J4",
+    "location": ["any"],
+    "season": ["any"],
+    "sub_type": ["sexuality"],
+    "weight": 10,
+    "event_text": "m_c only seems to crush on she-cats.",
+    "m_c": {
+      "gender": ["any"],
+      "current_orientation": ["not_cis", "nonbinary"]
+    },
+    "new_orientation": ["gyno"]
+  },
+  {
+    "event_id": "pridegen_sexuality_J5",
+    "location": ["any"],
+    "season": ["any"],
+    "sub_type": ["sexuality"],
+    "weight": 10,
+    "event_text": "m_c doesn't seem very interested in romance or mates.",
+    "m_c": {
+      "gender": ["any"],
+      "current_orientation": ["any"]
+    },
+    "new_orientation": ["aroace"]
+  },
+  {
+    "event_id": "pridegen_sexuality_J6",
+    "location": ["any"],
+    "season": ["any"],
+    "sub_type": ["sexuality"],
+    "weight": 10,
+    "event_text": "m_c has no idea how {PRONOUN/m_c/subject} {VERB/m_c/feel/feels}!",
+    "m_c": {
+      "gender": ["any"],
+      "current_orientation": ["any"]
+    },
+    "new_orientation": ["questioning"]
+  },
+  {
+    "event_id": "pridegen_sexuality_J7",
+    "location": ["any"],
+    "season": ["any"],
+    "sub_type": ["sexuality"],
+    "weight": 10,
+    "event_text": "m_c can't find the right words for {PRONOUN/m_c/poss} identity, so {PRONOUN/m_c/subject}{VERB/m_c/'ve/'s} opted to use none.",
+    "m_c": {
+      "gender": ["any"],
+      "current_orientation": ["any"]
+    },
+    "new_orientation": ["unlabelled"]
+  },
+  {
+    "event_id": "pridegen_sexuality_J8",
+    "location": ["any"],
+    "season": ["any"],
+    "sub_type": ["sexuality"],
+    "weight": 10,
+    "event_text": "m_c can't choose between liking toms and she-cats!",
+    "m_c": {
+      "gender": ["any"],
+      "current_orientation": ["any"]
+    },
+    "new_orientation": ["bi", "pan"]
+  },
+  {
+    "event_id": "pridegen_sexuality_J9",
+    "location": ["any"],
+    "season": ["any"],
+    "sub_type": ["sexuality"],
+    "weight": 10,
+    "event_text": "m_c will always be a fan of she-cats, but {PRONOUN/m_c/subject} only ever falls for other toms.",
+    "m_c": {
+      "gender": ["any"],
+      "current_orientation": ["male", "demiboy", "trans male"]
+    },
+    "new_orientation": ["gay"]
+  },
+  {
+    "event_id": "pridegen_sexuality_J9",
+    "location": ["any"],
+    "season": ["any"],
+    "sub_type": ["sexuality"],
+    "weight": 10,
+    "event_text": "m_c has realised why {PRONOUN/m_c/subject}{VERB/m_c/'ve/'s} always so annoyed by toms. {PRONOUN/m_c/poss/CAP} heart belongs to she-cats!",
+    "m_c": {
+      "gender": ["any"],
+      "not_current_orientation": ["aroace"],
+      "current_orientation": ["female", "demigirl", "trans female"]
+    },
+    "new_orientation": ["lesbian"]
+  },
+  {
+    "event_id": "pridegen_sexuality_J9",
+    "location": ["any"],
+    "season": ["any"],
+    "sub_type": ["sexuality"],
+    "weight": 10,
+    "event_text": "m_c loves romance, but {PRONOUN/m_c/subject}{VERB/m_c/'ve/'s} realised {PRONOUN/m_c/subject} {VERB/m_c/don't/doesn't} need as much physical connection as {PRONOUN/m_c/poss} peers.",
+    "m_c": {
+      "gender": ["any"],
+      "not_current_orientation": ["aromantic"],
+      "current_orientation": ["allosexual"]
+    },
+    "new_orientation": ["asexual"]
+  },
+  {
+    "event_id": "pridegen_sexuality_J10",
+    "location": ["any"],
+    "season": ["any"],
+    "sub_type": ["sexuality"],
+    "weight": 10,
+    "event_text": "m_c has realised {PRONOUN/m_c/subject} may actually be one for romance, much to {PRONOUN/m_c/poss} own surprise.",
+    "m_c": {
+      "gender": ["any"],
+      "current_orientation": ["any"]
+    },
+    "new_orientation": ["alloromantic"]
+  },
+  {
+    "event_id": "pridegen_sexuality_J11",
+    "location": ["any"],
+    "season": ["any"],
+    "sub_type": ["sexuality"],
+    "weight": 10,
+    "event_text": "m_c doesn't understand how other cats can become mates without being best friends first.",
+    "m_c": {
+      "gender": ["any"],
+      "current_orientation": ["any"]
+    },
+    "new_orientation": ["demiromantic", "demisexual"]
+  },
+  {
+    "event_id": "pridegen_sexuality_J12",
+    "location": ["any"],
+    "season": ["any"],
+    "sub_type": ["sexuality"],
+    "weight": 10,
+    "event_text": "m_c finds {PRONOUN/m_c/poss} attraction to other cats much rarer than it seems to be for {PRONOUN/m_c/poss} friends.",
+    "m_c": {
+      "gender": ["any"],
+      "current_orientation": ["any"]
+    },
+    "new_orientation": ["grey aromantic", "grey asexual"]
+  },
+  {
+    "event_id": "pridegen_sexuality_J13",
+    "location": ["any"],
+    "season": ["any"],
+    "sub_type": ["sexuality"],
+    "weight": 10,
+    "event_text": "m_c can't tell who {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} attracted to!",
+    "m_c": {
+      "gender": ["any"],
+      "current_orientation": ["any"]
+    },
+    "new_orientation": ["questioning"]
+  },
+  {
+    "event_id": "pridegen_sexuality_J14",
+    "location": ["any"],
+    "season": ["any"],
+    "sub_type": ["sexuality"],
+    "weight": 10,
+    "event_text": "m_c is attracted to all types of cats! {PRONOUN/m_c/subject/CAP} {VERB/m_c/love/loves} having such freedom.",
+    "m_c": {
+      "gender": ["any"],
+      "current_orientation": ["any"]
+    },
+    "new_orientation": ["bi", "pan"]
+  },
+  {
+    "event_id": "pridegen_sexuality_J15",
+    "location": ["any"],
+    "season": ["any"],
+    "sub_type": ["sexuality"],
+    "weight": 10,
+    "event_text": "m_c has realised that {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} only attracted to the opposite gender after all.",
+    "m_c": {
+      "gender": ["any"],
+      "current_orientation": ["any"]
+    },
+    "new_orientation": ["straight"]
+  },
+  {
+    "event_id": "pridegen_sexuality_any",
+    "location": ["any"],
+    "season": ["any"],
+    "sub_type": ["sexuality"],
+    "weight": 10,
+    "event_text": "m_c has been doing a lot of thinking, and has a new label for {PRONOUN/m_c/poss} identity!",
+    "m_c": {
+      "gender": ["any"],
+      "current_orientation": ["any"]
+    },
+    "new_orientation": ["any"]
   }
 ]

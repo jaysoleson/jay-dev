@@ -1,18 +1,35 @@
+from typing import Dict
+
 import pygame.transform
 import pygame_gui.elements
 
-from .Screens import Screens
-
-from scripts.utility import get_personality_compatibility, get_text_box_theme, scale, scale_dimentions
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
-from scripts.game_structure.ui_elements import UIImageButton, UISpriteButton
-from scripts.game_structure.game_essentials import game, screen, screen_x, screen_y, MANAGER
+from scripts.game_structure.game_essentials import (
+    game,
+)
+from scripts.game_structure.ui_elements import (
+    UIImageButton,
+    UISpriteButton,
+    UISurfaceImageButton,
+)
+from scripts.utility import (
+    get_personality_compatibility,
+    get_text_box_theme,
+    ui_scale,
+    ui_scale_dimensions,
+    ui_scale_offset,
+    shorten_text_to_fit,
+)
+from .Screens import Screens
+from ..game_structure.screen_settings import MANAGER
+from ..ui.generate_box import BoxStyles, get_box
+from ..ui.generate_button import get_button_dict, ButtonStyles
+from ..ui.get_arrow import get_arrow
+from ..ui.icon import Icon
 
 
 class ChooseQPPScreen(Screens):
-    list_frame = pygame.transform.scale(image_cache.load_image("resources/images/choosing_frame.png").convert_alpha(),
-                                        (1300 / 1600 * screen_x, 388 / 1400 * screen_y))
 
     def __init__(self, name=None):
         super().__init__(name)
@@ -23,6 +40,8 @@ class ChooseQPPScreen(Screens):
         self.the_cat = None
         self.selected_cat = None
         self.back_button = None
+
+        self.list_frame_image = None
         
         self.toggle_qpp = None
         self.page_number = None
@@ -180,81 +199,161 @@ class ChooseQPPScreen(Screens):
            "Cat's with queer-platonic partners will still be able to take other platonic partners"
             " and mates (unless those interactions are toggled off in their profile). "
             "Cats in QPRs will not naturally have kits with each other as if they were mates.",
-            scale(pygame.Rect((360, 120), (880, 200))),
+            ui_scale(pygame.Rect((0, 5), (375, 100))),
             object_id=get_text_box_theme("#text_box_22_horizcenter_spacing_95")
         )
 
-        self.the_cat_frame = pygame_gui.elements.UIImage(scale(pygame.Rect((80, 226), (532, 394))),
-                                                         pygame.transform.scale(
-                                                             image_cache.load_image(
-                                                                 "resources/images/choosing_cat1_frame_mate.png").convert_alpha(),
-                                                             (532, 394)))
-        self.qpp_frame = pygame_gui.elements.UIImage(scale(pygame.Rect((988, 226), (532, 394))),
-                                                      pygame.transform.scale(
-                                                          image_cache.load_image(
-                                                              "resources/images/choosing_cat2_frame_mate.png").convert_alpha(),
-                                                          (532, 394)))
-
-        self.previous_cat_button = UIImageButton(scale(pygame.Rect((50, 50), (306, 60))), "",
-                                                 object_id="#previous_cat_button")
-        self.next_cat_button = UIImageButton(scale(pygame.Rect((1244, 50), (306, 60))), "",
-                                             object_id="#next_cat_button")
-        self.back_button = UIImageButton(scale(pygame.Rect((50, 1290), (210, 60))), "", object_id="#back_button")
-
-        self.qppscreen_button = UIImageButton(scale(pygame.Rect((685, 285), (230, 60))), "", object_id="#mate_screen")
-                                                         
-        # Tab containers:
-        contain_rect = scale(pygame.Rect((170, 800),(1260, 438)))
+        self.the_cat_frame = pygame_gui.elements.UIImage(
+            ui_scale(pygame.Rect((40, 113), (266, 197))),
+            pygame.transform.scale(
+                image_cache.load_image(
+                    "resources/images/choosing_cat1_frame_mate.png"
+                ).convert_alpha(),
+                ui_scale_dimensions((266, 197)),
+            ),
+        )
+        self.qpp_frame = pygame_gui.elements.UIImage(
+            ui_scale(pygame.Rect((494, 113), (266, 197))),
+            pygame.transform.scale(
+                image_cache.load_image(
+                    "resources/images/choosing_cat2_frame_mate.png"
+                ).convert_alpha(),
+                ui_scale_dimensions((266, 197)),
+            ),
+        )
         
+        self.list_frame_image = pygame_gui.elements.UIImage(
+            ui_scale(pygame.Rect((0, 391), (650, 194))),
+            get_box(BoxStyles.ROUNDED_BOX, (650, 194)),
+            manager=MANAGER,
+            anchors={"centerx": "centerx"},
+        )
+
+        self.next_cat_button = UISurfaceImageButton(
+            ui_scale(pygame.Rect((622, 25), (153, 30))),
+            "Next Cat " + get_arrow(3, arrow_left=False),
+            get_button_dict(ButtonStyles.SQUOVAL, (153, 30)),
+            object_id="@buttonstyles_squoval",
+            sound_id="page_flip",
+            manager=MANAGER,
+        )
+        self.previous_cat_button = UISurfaceImageButton(
+            ui_scale(pygame.Rect((25, 25), (153, 30))),
+            get_arrow(2, arrow_left=True) + " Previous Cat",
+            get_button_dict(ButtonStyles.SQUOVAL, (153, 30)),
+            object_id="@buttonstyles_squoval",
+            sound_id="page_flip",
+            manager=MANAGER,
+        )
+        self.back_button = UISurfaceImageButton(
+            ui_scale(pygame.Rect((25, 60), (105, 30))),
+            get_arrow(2) + " Back",
+            get_button_dict(ButtonStyles.SQUOVAL, (105, 30)),
+            object_id="@buttonstyles_squoval",
+            manager=MANAGER,
+        )
+    
+        self.qppscreen_button = UISurfaceImageButton(
+            ui_scale(pygame.Rect((342, 142), (115, 30))),
+            "mate screen",
+            get_button_dict(ButtonStyles.SQUOVAL, (105, 30)),
+            object_id="@buttonstyles_squoval",
+            manager=MANAGER,
+        )
+                                              
+        # Tab containers:
+        contain_rect = ui_scale(pygame.Rect((85, 400), (630, 219)))
+
         self.qpps_container = pygame_gui.core.UIContainer(contain_rect, MANAGER)
         
         # All the perm elements the exist inside self.qpps_container
-        self.qpps_next_page = UIImageButton(scale(pygame.Rect((732, 358), (68, 68))), "",
-                                              object_id="#relation_list_next", container=self.qpps_container)
-        self.qpps_last_page = UIImageButton(scale(pygame.Rect((460, 358), (68, 68))), "",
-                                              object_id="#relation_list_previous", container=self.qpps_container)
-        
-        
+        self.qpps_next_page = UISurfaceImageButton(
+            ui_scale(pygame.Rect((366, 179), (34, 34))),
+            Icon.ARROW_RIGHT,
+            get_button_dict(ButtonStyles.ICON, (34, 34)),
+            object_id="@buttonstyles_icon",
+            container=self.qpps_container,
+        )
+        self.qpps_last_page = UISurfaceImageButton(
+            ui_scale(pygame.Rect((230, 179), (34, 34))),
+            Icon.ARROW_LEFT,
+            get_button_dict(ButtonStyles.ICON, (34, 34)),
+            object_id="@buttonstyles_icon",
+            container=self.qpps_container,
+        )
+
         self.offspring_container = pygame_gui.core.UIContainer(contain_rect, MANAGER)
         
-        # All the perm elements the exist inside self.offspring_container
-        self.offspring_next_page = UIImageButton(scale(pygame.Rect((732, 358), (68, 68))), "",
-                                              object_id="#relation_list_next", container=self.offspring_container)
-        self.offspring_last_page = UIImageButton(scale(pygame.Rect((460, 358), (68, 68))), "",
-                                              object_id="#relation_list_previous", container=self.offspring_container)
-        self.offspring_seperator = pygame_gui.elements.UIImage(scale(pygame.Rect((995, 0), (20, 352))), 
-                                                               pygame.transform.scale(image_cache.load_image(
-                                                                  "resources/images/vertical_bar.png"),
-                                                                   scale_dimentions((20, 352))), 
-                                                               container=self.offspring_container)
-        
-        self.with_selected_cat_text = pygame_gui.elements.UITextBox("Offspring with selected cat", scale(pygame.Rect((1035, 25), (209, -1))),
-                                                                   object_id="#text_box_26_horizcenter",
-                                                                   container=self.offspring_container)
-        
-        
+        self.offspring_next_page = UISurfaceImageButton(
+            ui_scale(pygame.Rect((366, 179), (34, 34))),
+            Icon.ARROW_RIGHT,
+            get_button_dict(ButtonStyles.ICON, (34, 34)),
+            object_id="@buttonstyles_icon",
+            container=self.offspring_container,
+        )
+        self.offspring_last_page = UISurfaceImageButton(
+            ui_scale(pygame.Rect((230, 179), (34, 34))),
+            Icon.ARROW_LEFT,
+            get_button_dict(ButtonStyles.ICON, (34, 34)),
+            object_id="@buttonstyles_icon",
+            container=self.offspring_container,
+        )
+        self.offspring_separator = pygame_gui.elements.UIImage(
+            ui_scale(pygame.Rect((497, 0), (10, 176))),
+            pygame.transform.scale(
+                image_cache.load_image("resources/images/vertical_bar.png"),
+                ui_scale_dimensions((10, 176)),
+            ),
+            container=self.offspring_container,
+        )
+
+        self.with_selected_cat_text = pygame_gui.elements.UITextBox(
+            "Offspring with selected cat",
+            ui_scale(pygame.Rect((510, 12), (120, -1))),
+            object_id="#text_box_26_horizcenter",
+            container=self.offspring_container,
+        )
+
         self.potential_container = pygame_gui.core.UIContainer(contain_rect, MANAGER)
-        
+
         # All the perm elements the exist inside self.potential_container
-        self.potential_next_page = UIImageButton(scale(pygame.Rect((732, 358), (68, 68))), "",
-                                              object_id="#relation_list_next", container=self.potential_container)
-        self.potential_last_page = UIImageButton(scale(pygame.Rect((460, 358), (68, 68))), "",
-                                              object_id="#relation_list_previous", container=self.potential_container)
-        self.potential_seperator = pygame_gui.elements.UIImage(scale(pygame.Rect((995, 0), (20, 352))), 
-                                                               pygame.transform.scale(image_cache.load_image(
-                                                                  "resources/images/vertical_bar.png"),
-                                                                   scale_dimentions((20, 352))), 
-                                                               container=self.potential_container)
-        
-        #Checkboxes and text
-        self.single_only_text = pygame_gui.elements.UITextBox("No QPPs", scale(pygame.Rect((1035, 22), (209, -1))),
-                                                              object_id="#text_box_26_horizcenter",
-                                                              container=self.potential_container)
-        
-        self.have_kits_text = pygame_gui.elements.UITextBox("Can have biological kits", scale(pygame.Rect((1035, 150), (209, -1))),
-                                                              object_id="#text_box_26_horizcenter",
-                                                              container=self.potential_container)
-        
+        self.potential_next_page = UISurfaceImageButton(
+            ui_scale(pygame.Rect((366, 179), (34, 34))),
+            Icon.ARROW_RIGHT,
+            get_button_dict(ButtonStyles.ICON, (34, 34)),
+            object_id="@buttonstyles_icon",
+            container=self.potential_container,
+        )
+        self.potential_last_page = UISurfaceImageButton(
+            ui_scale(pygame.Rect((230, 179), (34, 34))),
+            Icon.ARROW_LEFT,
+            get_button_dict(ButtonStyles.ICON, (34, 34)),
+            object_id="@buttonstyles_icon",
+            container=self.potential_container,
+        )
+        self.potential_seperator = pygame_gui.elements.UIImage(
+            ui_scale(pygame.Rect((497, 0), (10, 176))),
+            pygame.transform.scale(
+                image_cache.load_image("resources/images/vertical_bar.png"),
+                ui_scale_dimensions((10, 176)),
+            ),
+            container=self.potential_container,
+        )
+
+        # Checkboxes and text
+        self.single_only_text = pygame_gui.elements.UITextBox(
+            "No mates",
+            ui_scale(pygame.Rect((517, 11), (104, -1))),
+            object_id="#text_box_26_horizcenter",
+            container=self.potential_container,
+        )
+
+        self.have_kits_text = pygame_gui.elements.UITextBox(
+            "Can have biological kits",
+            ui_scale(pygame.Rect((517, 75), (104, -1))),
+            object_id="#text_box_26_horizcenter",
+            container=self.potential_container,
+        )
         
         # Page numbers
         self.qpps_page = 0
@@ -263,8 +362,11 @@ class ChooseQPPScreen(Screens):
         
 
         # This may be deleted and changed later.
-        self.toggle_qpp = UIImageButton(scale(pygame.Rect((646, 620), (306, 60))), "",
-                                         object_id="#confirm_mate_button")
+        self.toggle_qpp = UIImageButton(
+            ui_scale(pygame.Rect((323, 310), (153, 30))),
+            "",
+            object_id="#confirm_mate_button",
+        )
 
         self.open_tab = "potential"
         
@@ -313,11 +415,13 @@ class ChooseQPPScreen(Screens):
             self.qpps_last_page.disable()
             self.qpps_next_page.disable()
             _qpp = self.all_qpps[0][0]
-            self.qpps_cat_buttons["cat"] = UISpriteButton(
-                scale(pygame.Rect((480, 26), (300, 300))),
-                pygame.transform.scale(_qpp.sprite, (300, 300)), 
-                cat_object=_qpp, manager=MANAGER, 
-                container=self.qpps_container)
+            self.mates_cat_buttons["cat"] = UISpriteButton(
+                ui_scale(pygame.Rect((240, 13), (150, 150))),
+                pygame.transform.scale(_qpp.sprite, ui_scale_dimensions((150, 150))),
+                cat_object=_qpp,
+                manager=MANAGER,
+                container=self.qpps_container,
+            )
             return
         
         
@@ -342,10 +446,14 @@ class ChooseQPPScreen(Screens):
         
         text = f"{self.qpps_page + 1} / {max(1, total_pages)}"
         if not self.qpp_page_display:
-            self.qpp_page_display = pygame_gui.elements.UILabel(scale(pygame.Rect((528, 370),(204, 48))), 
-                                                                      text,
-                                                                      container=self.qpps_container,
-                                                                      object_id=get_text_box_theme("#text_box_26_horizcenter_vertcenter_spacing_95"))
+            self.qpp_page_display = pygame_gui.elements.UILabel(
+                ui_scale(pygame.Rect((264, 185), (102, 24))),
+                text,
+                container=self.qpps_container,
+                object_id=get_text_box_theme(
+                    "#text_box_26_horizcenter_vertcenter_spacing_95"
+                ),
+            )
         else:
             self.qpp_page_display.set_text(text)
         
@@ -358,14 +466,26 @@ class ChooseQPPScreen(Screens):
         pos_y = 0
         i = 0
         for _qpp in display_cats:
-            self.qpps_cat_buttons["cat" + str(i)] = UISpriteButton(
-                scale(pygame.Rect((pos_x, pos_y), (100, 100))),
-                _qpp.sprite, cat_object=_qpp, manager=MANAGER, 
-                container=self.qpps_container)
-            pos_x += 120
-            if pos_x >= 1200:
-                pos_x = 30
-                pos_y += 120
+            if game.clan.clan_settings["show fav"] and _qpp.favourite != 0:
+                self.fav[str(i)] = pygame_gui.elements.UIImage(
+                    ui_scale(pygame.Rect((pos_x, pos_y), (100, 100))),
+                    pygame.transform.scale(
+                        pygame.image.load(
+                            f"resources/images/fav_marker_{_qpp.favourite}.png").convert_alpha(),
+                        (100, 100))
+                )
+                self.fav[str(i)].disable()
+            self.mates_cat_buttons["cat" + str(i)] = UISpriteButton(
+                ui_scale(pygame.Rect((pos_x, pos_y), (50, 50))),
+                _qpp.sprite,
+                cat_object=_qpp,
+                manager=MANAGER,
+                container=self.mates_container,
+            )
+            pos_x += 60
+            if pos_x >= 600:
+                pos_x = 15
+                pos_y += 60
             i += 1
         
     def update_offspring_container(self):
@@ -385,128 +505,118 @@ class ChooseQPPScreen(Screens):
         else:
             theme = "#unchecked_checkbox"
             
-        self.checkboxes["kits_selected_pair"] = UIImageButton(scale(pygame.Rect((1106, 124),(68, 68))), "",
-                                                       object_id=theme, container=self.offspring_container)
+        self.checkboxes["kits_selected_pair"] = UIImageButton(
+            ui_scale(pygame.Rect((553, 62), (34, 34))),
+            "",
+            object_id=theme,
+            container=self.offspring_container,
+        )
         
         self.update_offspring_container_page()
     
-    def update_offspring_container_page(self):
-        """Updates just the current page for the qpps container, does
-        not refresh the list. It will also update the disable status of the  
+    def update_potential_mates_container_page(self):
+        """Updates just the current page for the mates container, does
+        not refresh the list. It will also update the disable status of the
         next and last page buttons"""
-        for ele in self.offspring_cat_buttons:
-            self.offspring_cat_buttons[ele].kill()
-        self.offspring_cat_buttons = {}
-        
-        total_pages = len(self.all_offspring)
-        if max(1, total_pages) - 1 < self.offspring_page:
-            self.offspring_page = total_pages - 1
-        elif self.offspring_page < 0:
-            self.offspring_page = 0
-            
+
+        for ele in self.potential_qpps_buttons:
+            self.potential_qpps_buttons[ele].kill()
+        self.potential_qpps_buttons = {}
+
+        total_pages = len(self.all_potential_mates)
+        if max(1, total_pages) - 1 < self.potential_qpps_page:
+            self.potential_qpps_page = total_pages - 1
+        elif self.potential_qpps_page < 0:
+            self.potential_qpps_page = 0
+
         if total_pages <= 1:
-            self.offspring_last_page.disable()
-            self.offspring_next_page.disable()
-        elif self.offspring_page >= total_pages - 1:
-            self.offspring_last_page.enable()
-            self.offspring_next_page.disable()
-        elif self.offspring_page <= 0:
-            self.offspring_last_page.disable()
-            self.offspring_next_page.enable()
+            self.potential_last_page.disable()
+            self.potential_next_page.disable()
+        elif self.potential_qpps_page >= total_pages - 1:
+            self.potential_last_page.enable()
+            self.potential_next_page.disable()
+        elif self.potential_qpps_page <= 0:
+            self.potential_last_page.disable()
+            self.potential_next_page.enable()
         else:
-            self.offspring_last_page.enable()
-            self.offspring_next_page.enable()
-        
-        text = f"{self.offspring_page + 1} / {max(1, total_pages)}"
-        if not self.offspring_page_display:
-            self.offspring_page_display = pygame_gui.elements.UILabel(scale(pygame.Rect((528, 370),(204, 48))), 
-                                                                      text,
-                                                                      container=self.offspring_container,
-                                                                      object_id=get_text_box_theme("#text_box_26_horizcenter_vertcenter_spacing_95"))
+            self.potential_last_page.enable()
+            self.potential_next_page.enable()
+
+        text = f"{self.potential_qpps_page + 1} / {max(1, total_pages)}"
+        if not self.potential_page_display:
+            self.potential_page_display = pygame_gui.elements.UILabel(
+                ui_scale(pygame.Rect((264, 185), (102, 24))),
+                text,
+                container=self.potential_container,
+                object_id=get_text_box_theme(
+                    "#text_box_26_horizcenter_vertcenter_spacing_95"
+                ),
+            )
         else:
-            self.offspring_page_display.set_text(text)
-        
-        if self.all_offspring:
-            display_cats = self.all_offspring[self.offspring_page]
+            self.potential_page_display.set_text(text)
+
+        if self.all_potential_qpps:
+            display_cats = self.all_potential_qpps[self.potential_qpps_page]
         else:
             display_cats = []
-        
-        pos_x = 30
+
+        pos_x = 15
         pos_y = 0
         i = 0
+
         for _off in display_cats:
-            info_text = f"{str(_off.name)}"
-            additional_info = self.the_cat.inheritance.get_cat_info(_off.ID)
-            if len(additional_info["type"]) > 0: # types is always real
-                rel_types = [str(rel_type.value) for rel_type in additional_info["type"]]
-                rel_types = set(rel_types) # remove duplicates
-                if "" in rel_types: 
-                    rel_types.remove("")       # removes empty
-                if len(rel_types) > 0:
-                    info_text += "\n"
-                    info_text += ', '.join(rel_types)
-                if len(additional_info["additional"]) > 0:
-                    add_info = set(additional_info["additional"]) # remove duplicates
-                    info_text += "\n"
-                    info_text += ', '.join(add_info)
-                        
-            self.offspring_cat_buttons["cat" + str(i)] = UISpriteButton(
-                scale(pygame.Rect((pos_x, pos_y), (100, 100))),
-                _off.sprite, cat_object=_off, manager=MANAGER, 
-                container=self.offspring_container,
-                tool_tip_text=info_text,
-                starting_height=2)
-            pos_x += 120
-            if pos_x >= 990:
-                pos_x = 30
-                pos_y += 120
+            self.potential_qpps_buttons["cat" + str(i)] = UISpriteButton(
+                ui_scale(pygame.Rect((pos_x, pos_y), (50, 50))),
+                _off.sprite,
+                cat_object=_off,
+                container=self.potential_container,
+            )
+            pos_x += 60
+            if pos_x >= 495:
+                pos_x = 15
+                pos_y += 60
             i += 1
-        
-        if self.no_kits_message:
-                self.no_kits_message.kill()
-        if not display_cats:
-            if self.kits_selected_pair and self.selected_cat:
-                text = f"{self.the_cat.name} has no offspring with {self.selected_cat.name}."
-            else:
-                text = f"{self.the_cat.name} has no offspring."
-            
-            self.no_kits_message = pygame_gui.elements.UITextBox(text, scale(pygame.Rect((0, 0), (994, 352))),
-                                                                 container=self.offspring_container, 
-                                                                 object_id="#text_box_30_horizcenter_vertcenter")
-    
+
     def update_potential_qpps_container(self):
         """Updates everything in the potential qpps container, including the list of current qpps, checkboxes
         and the page"""
         
-         # Update checkboxes
+        # Update checkboxes
         if "single_only" in self.checkboxes:
             self.checkboxes["single_only"].kill()
-        
+
         if self.single_only:
-            theme = "#checked_checkbox"
+            theme = "@checked_checkbox"
         else:
-            theme = "#unchecked_checkbox"
-            
-        self.checkboxes["single_only"] = UIImageButton(scale(pygame.Rect((1106, 85),(68, 68))), "",
-                                                       object_id=theme, container=self.potential_container)
-        
+            theme = "@unchecked_checkbox"
+
+        self.checkboxes["single_only"] = UIImageButton(
+            ui_scale(pygame.Rect((553, 42), (34, 34))),
+            "",
+            object_id=theme,
+            container=self.potential_container,
+        )
+
         if "have_kits_only" in self.checkboxes:
             self.checkboxes["have_kits_only"].kill()
-        
+
         if self.have_kits_only:
-            theme = "#checked_checkbox"
+            theme = "@checked_checkbox"
         else:
-            theme = "#unchecked_checkbox"
-            
-        self.checkboxes["have_kits_only"] = UIImageButton(scale(pygame.Rect((1106, 254),(68, 68))), "",
-                                                          object_id=theme, container=self.potential_container)
-        
-        self.all_potential_qpps = self.chunks(self.get_valid_qpps(),
-                                               24)
-        
-        # Update checkboxes        
+            theme = "@unchecked_checkbox"
+
+        self.checkboxes["have_kits_only"] = UIImageButton(
+            ui_scale(pygame.Rect((553, 127), (34, 34))),
+            "",
+            object_id=theme,
+            container=self.potential_container,
+        )
+
+        self.all_potential_mates = self.chunks(self.get_valid_qpps(), 24)
+
+        # Update checkboxes
         # TODO
-        
+
         self.update_potential_qpps_container_page()
     
     def update_potential_qpps_container_page(self):
@@ -539,10 +649,14 @@ class ChooseQPPScreen(Screens):
         
         text = f"{self.potential_qpps_page + 1} / {max(1, total_pages)}"
         if not self.potential_page_display:
-            self.potential_page_display = pygame_gui.elements.UILabel(scale(pygame.Rect((528, 370),(204, 48))), 
-                                                                      text,
-                                                                      container=self.potential_container,
-                                                                      object_id=get_text_box_theme("#text_box_26_horizcenter_vertcenter_spacing_95"))
+            self.potential_page_display = pygame_gui.elements.UILabel(
+                ui_scale(pygame.Rect((264, 185), (102, 24))),
+                text,
+                container=self.potential_container,
+                object_id=get_text_box_theme(
+                    "#text_box_26_horizcenter_vertcenter_spacing_95"
+                ),
+            )
         else:
             self.potential_page_display.set_text(text)
         
@@ -557,8 +671,11 @@ class ChooseQPPScreen(Screens):
         
         for _off in display_cats:
             self.potential_qpps_buttons["cat" + str(i)] = UISpriteButton(
-                scale(pygame.Rect((pos_x, pos_y), (100, 100))),
-                _off.sprite, cat_object=_off, container=self.potential_container)
+                ui_scale(pygame.Rect((pos_x, pos_y), (50, 50))),
+                _off.sprite,
+                cat_object=_off,
+                container=self.potential_container,
+            )
             pos_x += 120
             if pos_x >= 990:
                 pos_x = 30
@@ -632,11 +749,17 @@ class ChooseQPPScreen(Screens):
         
     def update_current_cat_info(self, reset_selected_cat=True):
         """Updates all elements with the current cat, as well as the selected cat.
-            Called when the screen switched, and whenever the focused cat is switched"""
-        self.the_cat = Cat.all_cats[game.switches['cat']]
+        Called when the screen switched, and whenever the focused cat is switched"""
+        self.the_cat = Cat.all_cats[game.switches["cat"]]
         if not self.the_cat.inheritance:
             self.the_cat.create_inheritance_new_cat()
-        self.get_previous_next_cat()
+
+        (
+            self.next_cat,
+            self.previous_cat,
+        ) = self.the_cat.determine_next_and_previous_cats(exclude_status=["kitten", "medicine cat apprentice", "mediator apprentice", "apprentice"])
+        self.next_cat_button.disable() if self.next_cat == 0 else self.next_cat_button.enable()
+        self.previous_cat_button.disable() if self.previous_cat == 0 else self.previous_cat_button.enable()
 
         for ele in self.current_cat_elements:
             self.current_cat_elements[ele].kill()
@@ -646,49 +769,80 @@ class ChooseQPPScreen(Screens):
             self.selected_cat_elements[ele].kill()
         self.selected_cat_elements = {}
 
-        
         # Page numbers
         self.qpps_page = 0
         self.offspring_page = 0
         self.potential_qpps_page = 0
 
+        heading_rect = ui_scale(pygame.Rect((0, 25), (400, -1)))
+        text = "Choose a QPP for " + shorten_text_to_fit(
+            str(self.the_cat.name), 500, 18
+        )
         self.current_cat_elements["heading"] = pygame_gui.elements.UITextBox(
-            "Choose a platonic partner for " + str(self.the_cat.name),
-            scale(pygame.Rect((300, 50), (1000, 80))),
-            object_id=get_text_box_theme("#text_box_34_horizcenter"))
+            text,
+            heading_rect,
+            object_id=get_text_box_theme("#text_box_34_horizcenter"),
+            anchors={
+                "centerx": "centerx",
+            },
+        )
 
-        self.current_cat_elements["image"] = pygame_gui.elements.UIImage(scale(pygame.Rect((100, 300), (300, 300))),
-                                                                         pygame.transform.scale(
-                                                                             self.the_cat.sprite, (300, 300)))
+        self.info.set_anchors(
+            {"centerx": "centerx", "top_target": self.current_cat_elements["heading"]}
+        )
+        self.info.set_relative_position((0, 10))
+
+        self.current_cat_elements["heading"].line_spacing = 0.95
+        self.current_cat_elements["heading"].redraw_from_chunks()
+
+        del heading_rect, text
+
+        self.current_cat_elements["image"] = pygame_gui.elements.UIImage(
+            ui_scale(pygame.Rect((50, 150), (150, 150))),
+            pygame.transform.scale(
+                self.the_cat.sprite, ui_scale_dimensions((150, 150))
+            ),
+        )
         name = str(self.the_cat.name)  # get name
         if 11 <= len(name):  # check name length
             short_name = str(name)[0:9]
-            name = short_name + '...'
+            name = short_name + "..."
         self.current_cat_elements["name"] = pygame_gui.elements.ui_label.UILabel(
-            scale(pygame.Rect((130, 230), (240, 60))),
+            ui_scale(pygame.Rect((65, 115), (120, 30))),
             name,
-            object_id="#text_box_34_horizcenter")
+            object_id="#text_box_34_horizcenter",
+        )
 
-        info = str(self.the_cat.moons) + " moons\n" + self.the_cat.status + "\n" + self.the_cat.genderalign + "\n" + \
-               self.the_cat.personality.trait + "\n" + self.the_cat.sexuality
+        info = (
+            str(self.the_cat.moons)
+            + " moons\n"
+            + self.the_cat.status
+            + "\n"
+            + self.the_cat.genderalign
+            + "\n"
+            + self.the_cat.personality.trait
+            + "\n"
+            + self.the_cat.sexuality
+        )
         if self.the_cat.qpp:
             info += f"\n{len(self.the_cat.qpp)} "
             if len(self.the_cat.qpp) > 1:
-                info += "QPPs"
+                info += "qpps"
             else:
-                info += "QPP"
-        self.current_cat_elements["info"] = pygame_gui.elements.UITextBox(info,
-                                                                          scale(pygame.Rect((412, 350), (188, 200))),
-                                                                          object_id="#text_box_22_horizcenter_vertcenter_spacing_95",
-                                                                          manager=MANAGER
-                                                                          )
+                info += "qpp"
+        self.current_cat_elements["info"] = pygame_gui.elements.UITextBox(
+            info,
+            ui_scale(pygame.Rect((206, 175), (94, 100))),
+            object_id="#text_box_22_horizcenter_vertcenter_spacing_95",
+            manager=MANAGER,
+        )
 
         if reset_selected_cat:
             self.selected_cat = None
             if self.the_cat.qpp:
                 self.selected_cat = Cat.fetch_cat(self.the_cat.qpp[0])
             self.update_selected_cat()
-        
+
         self.draw_tab_button()
         self.update_qpps_container()
         self.update_potential_qpps_container()
@@ -696,37 +850,58 @@ class ChooseQPPScreen(Screens):
         
     def draw_tab_button(self):
         """Draw the tab buttons, and will switch the currently open tab if the button is
-        not supposed to show up. """
-        
-        
+        not supposed to show up."""
+
         for x in self.tab_buttons:
             self.tab_buttons[x].kill()
         self.tab_buttons = {}
-        
-        button_x = 200
-        self.tab_buttons["potential"] = UIImageButton(scale(pygame.Rect((button_x, 722), (306, 78))), "",
-                                                      object_id="#potential_qpps_tab_button",
-                                                      starting_height=2)
-        button_x += 320
-        
-        
+
+        button_rect = ui_scale(pygame.Rect((0, 0), (153, 39)))
+        button_rect.bottomleft = ui_scale_offset((100, 8))
+        self.tab_buttons["potential"] = UISurfaceImageButton(
+            button_rect,
+            "Potential Partners",
+            get_button_dict(ButtonStyles.HORIZONTAL_TAB, (153, 39)),
+            object_id="@buttonstyles_horizontal_tab",
+            starting_height=2,
+            anchors={"bottom": "bottom", "bottom_target": self.list_frame_image},
+        )
+
         qpps_tab_shown = False
+        button_rect.bottomleft = ui_scale_offset((7, 8))
         if self.the_cat.qpp:
-            self.tab_buttons["qpps"] = UIImageButton(scale(pygame.Rect((button_x, 722), (306, 78))), "", 
-                                                      object_id="#qpps_tab_button",
-                                                      starting_height=2)
+            self.tab_buttons["qpps"] = UISurfaceImageButton(
+                button_rect,
+                "QPPs",
+                get_button_dict(ButtonStyles.HORIZONTAL_TAB, (153, 39)),
+                object_id="@buttonstyles_horizontal_tab",
+                starting_height=2,
+                anchors={
+                    "bottom": "bottom",
+                    "bottom_target": self.list_frame_image,
+                    "left_target": self.tab_buttons["potential"],
+                },
+            )
             qpps_tab_shown = True
-            button_x += 320
-        
-        
-        self.tab_buttons["offspring"] = UIImageButton(scale(pygame.Rect((button_x, 722), (306, 78))), "",
-                                                      object_id="#offspring_tab_button",
-                                                      starting_height=2)
-        
-            
+
+        self.tab_buttons["offspring"] = UISurfaceImageButton(
+            button_rect,
+            "Offspring",
+            get_button_dict(ButtonStyles.HORIZONTAL_TAB, (153, 39)),
+            object_id="@buttonstyles_horizontal_tab",
+            starting_height=2,
+            anchors={
+                "bottom": "bottom",
+                "bottom_target": self.list_frame_image,
+                "left_target": self.tab_buttons["qpps"]
+                if qpps_tab_shown
+                else self.tab_buttons["potential"],
+            },
+        )
+
         if self.open_tab == "qpps" and not qpps_tab_shown:
             self.open_tab = "potential"
-        
+
         self.switch_tab()
         
     def switch_tab(self):
@@ -761,105 +936,153 @@ class ChooseQPPScreen(Screens):
         
     def update_selected_cat(self):
         """Updates all elements of the selected cat"""
-        
+
         for ele in self.selected_cat_elements:
             self.selected_cat_elements[ele].kill()
         self.selected_cat_elements = {}
-
 
         if not isinstance(self.selected_cat, Cat):
             self.selected_cat = None
             self.toggle_qpp.disable()
             return
-        
+
         self.draw_compatible_line_affection()
-        if self.selected_cat.ID in self.the_cat.qpp:
-            self.selected_cat_elements["center_heart"] = pygame_gui.elements.UIImage(
-                scale(pygame.Rect((600, 376), (400, 156))),
-                pygame.transform.scale(
-                    image_cache.load_image("resources/images/heart_mates.png").convert_alpha(),
-                    (400, 156)))
-        elif self.selected_cat.ID in self.the_cat.previous_mates:
-            self.selected_cat_elements["center_heart"] = pygame_gui.elements.UIImage(
-                    scale(pygame.Rect((600, 376), (400, 156))),
-                    pygame.transform.scale(
-                        image_cache.load_image("resources/images/heart_breakup.png").convert_alpha(), 
-                        (400, 156)))  
-        else:
-            self.selected_cat_elements["center_heart"] = pygame_gui.elements.UIImage(
-                    scale(pygame.Rect((600, 376), (400, 156))),
-                    pygame.transform.scale(
-                        image_cache.load_image("resources/images/heart_maybe.png").convert_alpha(), 
-                        (400, 156)))
+
+        self.selected_cat_elements["center_heart"] = pygame_gui.elements.UIImage(
+            ui_scale(pygame.Rect((0, 188), (200, 78))),
+            pygame.transform.scale(
+                image_cache.load_image(
+                    "resources/images/heart_mates.png"
+                    if self.selected_cat.ID in self.the_cat.qpp
+                    else "resources/images/heart_breakup.png"
+                    if self.selected_cat.ID in self.the_cat.previous_qpps
+                    else "resources/images/heart_maybe.png"
+                ).convert_alpha(),
+                ui_scale_dimensions((200, 78)),
+            ),
+            anchors={"centerx": "centerx"},
+        )
+
+        # PrideGen
+        if self.the_cat.t4t:
+            self.selected_cat_elements["t4t"] = pygame_gui.elements.UITextBox(
+                    f"{self.the_cat.name} is t4t!",
+                    ui_scale(pygame.Rect((78, 307), (290, 30))),
+                    object_id=get_text_box_theme("#text_box_22_horizleft"))
             
-        
-        self.selected_cat_elements["image"] = pygame_gui.elements.UIImage(scale(pygame.Rect((1200, 300), (300, 300))),
-                                                                  pygame.transform.scale(
-                                                                      self.selected_cat.sprite, (300, 300)))
-        
+        if self.selected_cat.t4t:
+            self.selected_cat_elements["t4t"] = pygame_gui.elements.UITextBox(
+                    f"{self.selected_cat.name} is t4t!",
+                    ui_scale(pygame.Rect((620, 307), (265, 32))),
+                    object_id=get_text_box_theme("#text_box_22_horizleft"))
+        # ---
+
+        self.selected_cat_elements["image"] = pygame_gui.elements.UIImage(
+            ui_scale(pygame.Rect((600, 150), (150, 150))),
+            pygame.transform.scale(
+                self.selected_cat.sprite, ui_scale_dimensions((150, 150))
+            ),
+        )
+
         name = str(self.selected_cat.name)
         if 11 <= len(name):  # check name length
             short_name = str(name)[0:9]
-            name = short_name + '...'
+            name = short_name + "..."
         self.selected_cat_elements["name"] = pygame_gui.elements.ui_label.UILabel(
-            scale(pygame.Rect((1240, 230), (220, 60))),
+            ui_scale(pygame.Rect((620, 115), (110, 30))),
             name,
-            object_id="#text_box_34_horizcenter")
+            object_id="#text_box_34_horizcenter",
+        )
 
-        info = str(self.selected_cat.moons) + " moons\n" + self.selected_cat.status + "\n" + \
-               self.selected_cat.genderalign + "\n" + self.selected_cat.personality.trait + "\n" + self.selected_cat.sexuality
+        info = (
+            str(self.selected_cat.moons)
+            + " moons\n"
+            + self.selected_cat.status
+            + "\n"
+            + self.selected_cat.genderalign
+            + "\n"
+            + self.selected_cat.personality.trait
+            + "\n"
+            + self.selected_cat.sexuality
+        )
         if self.selected_cat.qpp:
             info += f"\n{len(self.selected_cat.qpp)} "
             if len(self.selected_cat.qpp) > 1:
                 info += "QPPs"
             else:
                 info += "QPP"
-        
-        self.selected_cat_elements["info"] = pygame_gui.elements.UITextBox(info,
-                                                                   scale(pygame.Rect((1000, 350), (188, 200))),
-                                                                   object_id="#text_box_22_horizcenter_vertcenter_spacing_95",
-                                                                   manager=MANAGER
-                                                                   )
-        
-        
-        # if not game.clan.clan_settings["same sex birth"] and self.the_cat.gender == self.selected_cat.gender:
-        #     self.selected_cat_elements["no kit warning"] = pygame_gui.elements.UITextBox(
-        #         f"<font pixel_size={int(22 / 1400 * screen_y)}> This pair can't have biological kittens </font>",
-        #         scale(pygame.Rect((550, 250), (498, 50))),
-        #         object_id=get_text_box_theme("#text_box_22_horizcenter_vertcenter_spacing_95"))
-        
-        
+
+        self.selected_cat_elements["info"] = pygame_gui.elements.UITextBox(
+            info,
+            ui_scale(pygame.Rect((500, 175), (94, 100))),
+            object_id="#text_box_22_horizcenter_vertcenter_spacing_95",
+            manager=MANAGER,
+        )
+
         if self.kits_selected_pair:
             self.update_offspring_container()
-            
+
         self.toggle_qpp.kill()
-        
+
         if self.selected_cat.ID in self.the_cat.qpp:
-            self.toggle_qpp = UIImageButton(scale(pygame.Rect((646, 620), (306, 60))), "", object_id="#break_up_button")
+            self.toggle_qpp = UISurfaceImageButton(
+                ui_scale(pygame.Rect((323, 310), (153, 30))),
+                "Break It Up",
+                get_button_dict(ButtonStyles.SQUOVAL, (153, 30)),
+                object_id="@buttonstyles_squoval",
+            )
         else:
-            self.toggle_qpp = UIImageButton(scale(pygame.Rect((646, 620), (306, 60))), "", object_id="#confirm_mate_button")
+            self.toggle_qpp = UISurfaceImageButton(
+                ui_scale(pygame.Rect((323, 310), (153, 30))),
+                "It's Official!",
+                get_button_dict(ButtonStyles.SQUOVAL, (153, 30)),
+                object_id="@buttonstyles_squoval",
+            )
+
+        if (
+            not game.clan.clan_settings["same sex birth"]
+            and self.the_cat.gender == self.selected_cat.gender
+        ):
+            warning_rect = ui_scale(pygame.Rect((0, 0), (160, 45)))
+            warning_rect.bottomleft = ui_scale_offset((0, -5))
+            self.selected_cat_elements[
+                "no kit warning"
+            ] = pygame_gui.elements.UITextBox(
+                "This pair can't have biological kittens.",
+                warning_rect,
+                object_id=get_text_box_theme(
+                    "#text_box_22_horizcenter_vertcenter_spacing_95"
+                ),
+                anchors={
+                    "centerx": "centerx",
+                    "bottom": "bottom",
+                    "bottom_target": self.toggle_qpp,
+                },
+            )
+            del warning_rect
   
     def draw_compatible_line_affection(self):
-        """Draws the heart-line based on capability, and draws the hearts based on romantic love. """
+        """Draws the heart-line based on capability, and draws the hearts based on romantic love."""
 
         # Set the lines
-        self.selected_cat_elements["compat_line"] = pygame_gui.elements.UIImage(scale(pygame.Rect((600, 380), (400, 156))),
-                                                                        pygame.transform.scale(
-                                                                            image_cache.load_image(
-                                                                                "resources/images/line_neutral.png").convert_alpha(),
-                                                                            (400, 156)))
-        if get_personality_compatibility(self.the_cat, self.selected_cat) is True:
-            self.selected_cat_elements["compat_line"].set_image(
-                pygame.transform.scale(
-                    image_cache.load_image("resources/images/line_compatible.png").convert_alpha(),
-                    (400, 156)))
-        elif get_personality_compatibility(self.the_cat, self.selected_cat) is False:
-            self.selected_cat_elements["compat_line"].set_image(
-                pygame.transform.scale(
-                    image_cache.load_image("resources/images/line_incompatible.png").convert_alpha(),
-                    (400, 156)))
+        self.selected_cat_elements["compat_line"] = pygame_gui.elements.UIImage(
+            ui_scale(pygame.Rect((0, 190), (200, 78))),
+            pygame.transform.scale(
+                image_cache.load_image(
+                    "resources/images/line_compatible.png"
+                    if get_personality_compatibility(self.the_cat, self.selected_cat)
+                    else "resources/images/line_incompatible.png"
+                    if not get_personality_compatibility(
+                        self.the_cat, self.selected_cat
+                    )
+                    else "resources/images/line_neutral.png"
+                ).convert_alpha(),
+                ui_scale_dimensions((200, 78)),
+            ),
+            anchors={"centerx": "centerx"},
+        )
 
-        # Set romantic hearts of current cat towards qpp or selected cat.
+        # Set romantic hearts of current cat towards mate or selected cat.
         if self.the_cat.dead:
             platonic_like = 0
         else:
@@ -878,17 +1101,20 @@ class ChooseQPPScreen(Screens):
         else:
             heart_number = 0
 
-        x_pos = 420
+        x_pos = 210
         for i in range(0, heart_number):
             self.selected_cat_elements["heart1" + str(i)] = pygame_gui.elements.UIImage(
-                scale(pygame.Rect((x_pos, 570), (44, 40))),
+                ui_scale(pygame.Rect((x_pos, 285), (22, 20))),
                 pygame.transform.scale(
                     image_cache.load_image(
-                        "resources/images/heart_big.png").convert_alpha(),
-                    (44, 40)))
-            x_pos += 54
+                        "resources/images/heart_big.png"
+                    ).convert_alpha(),
+                    ui_scale_dimensions((22, 20)),
+                ),
+            )
+            x_pos += 27
 
-        # Set romantic hearts of qpp/selected cat towards current_cat.
+        # Set romantic hearts of mate/selected cat towards current_cat.
         if self.selected_cat.dead:
             platonic_like = 0
         else:
@@ -907,80 +1133,42 @@ class ChooseQPPScreen(Screens):
         else:
             heart_number = 0
 
-        x_pos = 1136
+        x_pos = 568
         for i in range(0, heart_number):
             self.selected_cat_elements["heart2" + str(i)] = pygame_gui.elements.UIImage(
-                scale(pygame.Rect((x_pos, 570), (44, 40))),
+                ui_scale(pygame.Rect((x_pos, 285), (22, 20))),
                 pygame.transform.scale(
                     image_cache.load_image(
-                        "resources/images/heart_big.png").convert_alpha(),
-                    (44, 40)))
-            x_pos -= 54
-
-    def get_previous_next_cat(self):
-        is_instructor = False
-        if self.the_cat.dead and game.clan.instructor.ID == self.the_cat.ID:
-            is_instructor = True
-
-        self.previous_cat = 0
-        self.next_cat = 0
-        if self.the_cat.dead and not is_instructor and not self.the_cat.df:
-            self.previous_cat = game.clan.instructor.ID
-
-        if is_instructor:
-            self.next_cat = 1
-
-        for check_cat in Cat.all_cats_list:
-            if check_cat.ID == self.the_cat.ID:
-                self.next_cat = 1
-            if self.next_cat == 0 and check_cat.ID != self.the_cat.ID and check_cat.dead == self.the_cat.dead and \
-                    check_cat.ID != game.clan.instructor.ID and not check_cat.exiled and not check_cat.outside and \
-                    check_cat.age not in ["adolescent", "kitten", "newborn"] and check_cat.df == self.the_cat.df:
-                self.previous_cat = check_cat.ID
-
-            elif self.next_cat == 1 and check_cat.ID != self.the_cat.ID and check_cat.dead == self.the_cat.dead and \
-                    check_cat.ID != game.clan.instructor.ID and not check_cat.exiled and not check_cat.outside and \
-                    check_cat.age not in ["adolescent", "kitten", "newborn"] and check_cat.df == self.the_cat.df:
-                self.next_cat = check_cat.ID
-
-            elif int(self.next_cat) > 1:
-                break
-
-        if self.next_cat == 1:
-            self.next_cat = 0
-            
-        if self.next_cat == 0:
-            self.next_cat_button.disable()
-        else:
-            self.next_cat_button.enable()
-
-        if self.previous_cat == 0:
-            self.previous_cat_button.disable()
-        else:
-            self.previous_cat_button.enable()
-
+                        "resources/images/heart_big.png"
+                    ).convert_alpha(),
+                    ui_scale_dimensions((22, 20)),
+                ),
+            )
+            x_pos -= 27
+    
     def on_use(self):
-        # Due to a bug in pygame, any image with buttons over it must be blited
-        screen.blit(self.list_frame, (150 / 1600 * screen_x, 782 / 1400 * screen_y))
-        
-        self.loading_screen_on_use(self.work_thread, self.update_both, (700, 600))
+        super().on_use()
+
+        self.loading_screen_on_use(self.work_thread, self.update_both)
 
     def get_valid_qpps(self):
         """Get a list of valid qpps for the current cat"""
         
         # Behold! The uglest list comprehension ever created! 
-        valid_qpps = [i for i in Cat.all_cats_list if
-                       not i.faded
-                       and self.the_cat.is_potential_qpp(
-                           i, for_love_interest=False,
-                           age_restriction=False, ignore_no_qpps=True)
-                       and i.ID not in self.the_cat.qpp
-                       and (not self.single_only or not i.qpp)
-                       and (not self.have_kits_only 
-                            or game.clan.clan_settings["same sex birth"]
-                            or i.gender != self.the_cat.gender) and 
-                            (i.moons < self.the_cat.moons + (game.config["QPR"]["age_range"] + 1)) and
-                            (i.moons > self.the_cat.moons - (game.config["QPR"]["age_range"] + 1)) ]
+        valid_qpps = [
+            i for i in Cat.all_cats_list if
+            not i.faded
+            and self.the_cat.is_potential_qpp(
+                i, for_love_interest=False,
+                age_restriction=False, ignore_no_qpps=True
+                )
+            and i.ID not in self.the_cat.qpp
+            and (not self.single_only or not i.qpp)
+            and (not self.have_kits_only 
+                or game.clan.clan_settings["same sex birth"]
+                or i.gender != self.the_cat.gender) and 
+                (i.moons < self.the_cat.moons + (game.config["QPR"]["age_range"] + 1)) and
+                (i.moons > self.the_cat.moons - (game.config["QPR"]["age_range"] + 1)) ]
         
         return valid_qpps
 

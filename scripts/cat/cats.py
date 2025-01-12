@@ -163,6 +163,7 @@ class Cat:
         prefix=None,
         gender=None,
         sexuality=None,
+        sexuality_changes=0,
         # male_attracted=True,
         # female_attracted=True,
         # enby_attracted=True,
@@ -229,6 +230,7 @@ class Cat:
         # self.female_attracted = female_attracted
         # self.enby_attracted = enby_attracted
         self.sexualitylabel = None
+        self.sexuality_changes = None
         self.t4t = False
         self.acespec = acespec
         self.arospec = arospec
@@ -4213,6 +4215,7 @@ class Cat:
                 "gender_align": self.genderalign,
                 "sexuality": self.sexuality,
                 "sexuality_label": self.sexualitylabel,
+                "sexuality_changes": self.sexuality_changes,
                 "t4t": self.t4t,
                 "acespec": self.acespec,
                 "arospec": self.arospec,

@@ -5043,141 +5043,141 @@
             }
         }
     },
-    "#change_ace_button": 
+    "#change_asexual_button": 
     {
         "prototype": "#image_button",
 		"images":
         {
             "normal_image":
             {
-                "path": "resources/images/buttons/change_ace_button.png"
+                "path": "resources/images/buttons/change_asexual_button.png"
             },
             "hovered_image":
             {
-                "path": "resources/images/buttons/change_ace_button_hover.png"
+                "path": "resources/images/buttons/change_asexual_button_hover.png"
             },
 			"selected_image":
             {
-                "path": "resources/images/buttons/change_ace_button_hover.png"
+                "path": "resources/images/buttons/change_asexual_button_hover.png"
             },
             "disabled_image":
             {
-                "path":"resources/images/buttons/change_ace_button_hover.png"
+                "path":"resources/images/buttons/change_asexual_button_hover.png"
             }
         }
     },
-    "#change_demi_button": 
+    "#change_demisexual_button": 
     {
         "prototype": "#image_button",
 		"images":
         {
             "normal_image":
             {
-                "path": "resources/images/buttons/change_demi_button.png"
+                "path": "resources/images/buttons/change_demisexual_button.png"
             },
             "hovered_image":
             {
-                "path": "resources/images/buttons/change_demi_button_hover.png"
+                "path": "resources/images/buttons/change_demisexual_button_hover.png"
             },
 			"selected_image":
             {
-                "path": "resources/images/buttons/change_demi_button_hover.png"
+                "path": "resources/images/buttons/change_demisexual_button_hover.png"
             },
             "disabled_image":
             {
-                "path":"resources/images/buttons/change_demi_button_hover.png"
+                "path":"resources/images/buttons/change_demisexual_button_hover.png"
             }
         }
     },
-    "#change_greyace_button": 
+    "#change_grey_asexual_button": 
     {
         "prototype": "#image_button",
 		"images":
         {
             "normal_image":
             {
-                "path": "resources/images/buttons/change_greyace_button.png"
+                "path": "resources/images/buttons/change_grey_asexual_button.png"
             },
             "hovered_image":
             {
-                "path": "resources/images/buttons/change_greyace_button_hover.png"
+                "path": "resources/images/buttons/change_grey_asexual_button_hover.png"
             },
 			"selected_image":
             {
-                "path": "resources/images/buttons/change_greyace_button_hover.png"
+                "path": "resources/images/buttons/change_grey_asexual_button_hover.png"
             },
             "disabled_image":
             {
-                "path":"resources/images/buttons/change_greyace_button_hover.png"
+                "path":"resources/images/buttons/change_grey_asexual_button_hover.png"
             }
         }
     },
-    "#change_aro_button": 
+    "#change_aromantic_button": 
     {
         "prototype": "#image_button",
 		"images":
         {
             "normal_image":
             {
-                "path": "resources/images/buttons/change_aro_button.png"
+                "path": "resources/images/buttons/change_aromantic_button.png"
             },
             "hovered_image":
             {
-                "path": "resources/images/buttons/change_aro_button_hover.png"
+                "path": "resources/images/buttons/change_aromantic_button_hover.png"
             },
 			"selected_image":
             {
-                "path": "resources/images/buttons/change_aro_button_hover.png"
+                "path": "resources/images/buttons/change_aromantic_button_hover.png"
             },
             "disabled_image":
             {
-                "path":"resources/images/buttons/change_aro_button_hover.png"
+                "path":"resources/images/buttons/change_aromantic_button_hover.png"
             }
         }
     },
-    "#change_demirom_button": 
+    "#change_demiromantic_button": 
     {
         "prototype": "#image_button",
 		"images":
         {
             "normal_image":
             {
-                "path": "resources/images/buttons/change_demirom_button.png"
+                "path": "resources/images/buttons/change_demiromantic_button.png"
             },
             "hovered_image":
             {
-                "path": "resources/images/buttons/change_demirom_button_hover.png"
+                "path": "resources/images/buttons/change_demiromantic_button_hover.png"
             },
 			"selected_image":
             {
-                "path": "resources/images/buttons/change_demirom_button_hover.png"
+                "path": "resources/images/buttons/change_demiromantic_button_hover.png"
             },
             "disabled_image":
             {
-                "path":"resources/images/buttons/change_demirom_button_hover.png"
+                "path":"resources/images/buttons/change_demiromantic_button_hover.png"
             }
         }
     },
-    "#change_greyaro_button": 
+    "#change_grey_aromantic_button": 
     {
         "prototype": "#image_button",
 		"images":
         {
             "normal_image":
             {
-                "path": "resources/images/buttons/change_greyaro_button.png"
+                "path": "resources/images/buttons/change_grey_aromantic_button.png"
             },
             "hovered_image":
             {
-                "path": "resources/images/buttons/change_greyaro_button_hover.png"
+                "path": "resources/images/buttons/change_grey_aromantic_button_hover.png"
             },
 			"selected_image":
             {
-                "path": "resources/images/buttons/change_greyaro_button_hover.png"
+                "path": "resources/images/buttons/change_grey_aromantic_button_hover.png"
             },
             "disabled_image":
             {
-                "path":"resources/images/buttons/change_greyaro_button_hover.png"
+                "path":"resources/images/buttons/change_grey_aromantic_button_hover.png"
             }
         }
     },

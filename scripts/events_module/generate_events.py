@@ -142,7 +142,8 @@ class GenerateEvents:
                         outsider=event["outsider"] if "outsider" in event else {},
                         other_clan=event["other_clan"] if "other_clan" in event else {},
                         supplies=event["supplies"] if "supplies" in event else [],
-                        new_gender=event["new_gender"] if "new_gender" in event else []
+                        new_gender=event["new_gender"] if "new_gender" in event else [],
+                        new_orientation=event["new_orientation"] if "new_orientation" in event else []
                     )
                     event_list.append(event)
 
@@ -407,6 +408,20 @@ class GenerateEvents:
             ):
                 continue
 
+            # PrideGen
+            # chances for sexuality change events
+            if (
+                "sexuality" in event.sub_type
+            ):
+                # the more a cats label has changed, the less likely it is for it to keep happening
+                chance = 1
+                chance += cat.sexuality_changes * 10
+                if chance > 100:
+                    chance = 100
+                
+                if not int(random.random() * chance):
+                    continue
+
             if event.m_c:
                 if cat.age not in event.m_c["age"] and "any" not in event.m_c["age"]:
                     continue
@@ -492,6 +507,45 @@ class GenerateEvents:
                         cat.gender not in event.m_c["gender"]
                         and "any" not in event.m_c["gender"]
                     ):
+                        continue
+
+                # check sexuality for pridegen stuff
+                if event.m_c["not_current_orientation"]:
+                    if (
+                        cat.sexuality in event.m_c["not_current_orientation"]
+                        and cat.acespec in event.m_c["not_current_orientation"]
+                        and cat.arospec in event.m_c["not_current_orientation"]
+                        and cat.genderalign in event.m_c["not_current_orientation"]
+                    ):
+                        continue
+
+                if "current_orientation" in event.m_c and event.m_c["current_orientation"]:
+                    if "cis" in event.m_c["current_orientation"] and cat.gender != cat.genderalign:
+                        continue
+                    if "not_cis" in event.m_c["current_orientation"] and cat.gender == cat.genderalign:
+                        continue
+                    if "nonbinary" in event.m_c["current_orientation"] and cat.genderalign in [
+                        "male", "female", "trans female", "trans male", "demiboy", "demigirl"
+                    ]:
+                        continue
+                    if "binary" in event.m_c["current_orientation"] and cat.genderalign not in [
+                        "male", "female", "trans female", "trans male", "demiboy", "demigirl"
+                    ]:
+                        continue
+                    if (
+                        cat.sexuality not in event.m_c["current_orientation"]
+                        and cat.acespec not in event.m_c["current_orientation"]
+                        and cat.arospec not in event.m_c["current_orientation"]
+                        and cat.genderalign not in event.m_c["current_orientation"]
+                        and "any" not in event.m_c["current_orientation"]
+                    ):
+                        continue
+                if "new_orientation" in event.m_c and event.m_c["new_orientation"]:
+                    if cat.sexuality in event.m_c["new_orientation"]:
+                        continue
+                    if cat.acespec in event.m_c["new_orientation"]:
+                        continue
+                    if cat.arospec in event.m_c["new_orientation"]:
                         continue
 
 

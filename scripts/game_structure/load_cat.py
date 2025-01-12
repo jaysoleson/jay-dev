@@ -62,6 +62,9 @@ def json_load():
                     cat["sexuality"] = choice(['bi', 'bi', 'andro', 'aroace', 'gyno'])
                 else:
                     cat["sexuality"] = choice(['bi', 'bi', 'bi', 'aroace'])
+            
+            if "sexuality_changes" not in cat:
+                cat["sexuality_changes"] = 0
 
             if "qpp" not in cat:
                 cat['qpp'] = []
@@ -119,6 +122,8 @@ def json_load():
                 sexuality=cat["sexuality"],
                 acespec =cat["acespec"],
                 arospec=cat["arospec"],
+
+                sexuality_changes=cat["sexuality_changes"],
 
                 status=cat["status"],
                 parent1=cat["parent1"],
@@ -211,6 +216,7 @@ def json_load():
             new_cat.sexualitylabal = cat["sexualitylabel"]
             new_cat.acespec = cat['acespec']
             new_cat.arospec = cat["arospec"]
+            new_cat.sexuality_changes = cat["sexuality_changes"]
             # new_cat.pronouns = cat["pronouns"]
             new_cat.pronouns = (
                 cat["pronouns"]

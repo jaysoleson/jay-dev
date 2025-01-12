@@ -13,7 +13,6 @@ import traceback
 from random import choice, randint
 
 from scripts.cat.history import History
-from scripts.patrol.patrol import Patrol
 from collections import Counter
 
 import ujson
@@ -2680,21 +2679,14 @@ class Events:
         else:
             comeout_chance = 1
 
-        if not cat.prevent_sexualitychange:
-            if not int(random.random()) * comeout_chance:
-                self.make_acespec(cat)
-
         if not cat.prevent_genderchange:
             self.coming_out(cat)
         
+        if not cat.prevent_sexualitychange:
+            self.sexuality_change(cat)
+        
         if randint(1,4) == 1:
             self.makeupurmind(cat)
-
-        if not cat.prevent_sexualitychange:
-            if not int(random.random()) * comeout_chance:
-                self.make_questioning(cat)
-                self.change_sexuality(cat)
-                self.make_aroace(cat)
 
         Pregnancy_Events.handle_having_kits(cat, clan=game.clan)
         # Stop the timeskip if the cat died in childbirth
@@ -4606,6 +4598,7 @@ class Events:
         else:
             print("No pride flags for", cat.name, "?")
             print(cat.name, cat.pelt.inventory)
+
     def coming_out(self, cat):
         """turnin' the kitties trans..."""
 
@@ -4623,6 +4616,33 @@ class Events:
 
         if not int(random.random() * chance):
             sub_type = ["transition"]
+            handle_short_events.handle_event(event_type="misc",
+                                             main_cat=cat,
+                                             random_cat=random_cat,
+                                             sub_type=sub_type,
+                                             freshkill_pile=game.clan.freshkill_pile)
+
+        return
+
+    def sexuality_change(self, cat):
+        """turnin' the kitties GAY..."""
+
+        if cat.age in ["kitten", "newborn"]:
+            return
+
+        random_cat = get_random_moon_cat(Cat, main_cat=cat)
+
+        sexuality_change_chance = game.config["transition_related"]
+        chance = sexuality_change_chance["base_trans_chance"]
+        if cat.age in ["adolescent"]:
+            chance += sexuality_change_chance["adolescent_modifier"]
+        elif cat.age in ["adult", "senior adult", "senior"]:
+            chance += sexuality_change_chance["older_modifier"]
+
+        
+
+        if not int(random.random() * chance):
+            sub_type = ["sexuality"]
             handle_short_events.handle_event(event_type="misc",
                                              main_cat=cat,
                                              random_cat=random_cat,

@@ -229,6 +229,12 @@ class HandleShortEvents:
         if self.chosen_event.new_gender:
             self.handle_transition()
 
+        # PrideGen
+        # update sexuality
+        if self.chosen_event.new_orientation:
+            self.handle_sexuality_change()
+            self.main_cat.sexuality_changes += 1
+
         # kill cats
         self.handle_death()
 
@@ -449,8 +455,86 @@ class HandleShortEvents:
                 self.main_cat.pronouns = [self.main_cat.default_pronouns[1].copy()]
             elif new_gender == "trans male":
                 self.main_cat.pronouns = [self.main_cat.default_pronouns[2].copy()]
+            elif new_gender == "genderfluid":
+                self.main_cat.pronouns = [
+                    self.main_cat.default_pronouns[0].copy(),
+                    self.main_cat.default_pronouns[1].copy(),
+                    self.main_cat.default_pronouns[2].copy()
+                    ]
+            elif new_gender == "bigender":
+                self.main_cat.pronouns = [
+                    self.main_cat.default_pronouns[1].copy(),
+                    self.main_cat.default_pronouns[2].copy()
+                    ]
+            elif new_gender == "demigirl":
+                self.main_cat.pronouns = [
+                    self.main_cat.default_pronouns[0].copy(),
+                    self.main_cat.default_pronouns[1].copy()
+                    ]
+            elif new_gender == "demiboy":
+                self.main_cat.pronouns = [
+                    self.main_cat.default_pronouns[0].copy(),
+                    self.main_cat.default_pronouns[2].copy()
+                    ]
+            elif new_gender == "questioning":
+                self.main_cat.pronouns = [
+                    self.main_cat.default_pronouns[0].copy()
+                    ]
+            elif new_gender == "unlabelled":
+                self.main_cat.pronouns = [
+                    self.main_cat.default_pronouns[0].copy()
+                    ]
             else:
                 print("No pronouns found for new_gender, keeping original pronouns.", new_gender)
+
+    def handle_sexuality_change(self):
+        """
+        handles updating sexaulity, arospec, acespec
+        """
+        possible_orientations = getattr(self.chosen_event, "new_orientation", [])
+
+        if possible_orientations:
+            new_orientation = random.choice(possible_orientations)
+            if new_orientation in [
+                "aromantic",
+                "alloromantic",
+                "demiromantic",
+                "grey aromantic"
+            ]:
+                self.main_cat.arospec = new_orientation
+            elif new_orientation in [
+                "asexual",
+                "allosexual",
+                "demisexual",
+                "grey asexual"
+            ]:
+                self.main_cat.acespec = new_orientation
+            else:
+                self.main_cat.sexuality = new_orientation
+
+            if len(self.main_cat.mate) > 0:
+                    involved_cats = [self.main_cat.ID]
+                    
+                    for mate_id in self.main_cat.mate:
+                        if Cat.all_cats.get(mate_id):
+
+                            if (self.main_cat.sexuality in ["lesbian", "gyno"] and Cat.all_cats.get(mate_id).genderalign in ["male", "trans male", "demiboy"]) or (self.main_cat.genderalign in ['male', 'trans male', 'demiboy'] and Cat.all_cats.get(mate_id).genderalign \
+                                in ['male', 'trans male', 'demiboy'] and self.main_cat.sexuality == "straight" ):
+                                pref = "toms"
+                            elif (self.main_cat.sexuality in ["gay", "andro"] and Cat.all_cats.get(mate_id).genderalign in ["female", "trans female", "demigirl"]) or (self.main_cat.genderalign in ['female', 'trans female', 'demigirl'] and \
+                            Cat.all_cats.get(mate_id).genderalign in ['female', 'trans female', 'demigirl'] and cat.sexuality == "straight" ):
+                                pref = "she-cats"
+                            else:
+                                return
+                            
+                            if Cat.all_cats.get(mate_id).outside or Cat.all_cats.get(mate_id).exiled and not Cat.all_cats.get(mate_id).dead:
+                                text = f"In {Cat.all_cats.get(mate_id).name}'s absence, {self.main_cat.name} has realised that they don't truly care for {pref}. They still love and miss {Cat.all_cats.get(mate_id).name}, but have stopped considering them their mate."
+                            elif Cat.all_cats.get(mate_id).dead:
+                                text = f"Since {Cat.all_cats.get(mate_id).name}'s death, {self.main_cat.name} has realised that they don't truly care fir {pref}. They still love and miss {Cat.all_cats.get(mate_id).name}, but have stopped considering them their mate."
+                            else:
+                                text = f"Since {self.main_cat.name} has realised that they don't care for {pref}, {self.main_cat.name} and {Cat.all_cats.get(mate_id).name} have broken up, but they are still great friends."
+                            self.main_cat.unset_mate(Cat.all_cats.get(mate_id))
+                            game.cur_events_list.append(Single_Event(text, "misc", involved_cats))
 
     def handle_death(self):
         """

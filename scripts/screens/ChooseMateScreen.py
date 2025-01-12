@@ -258,8 +258,12 @@ class ChooseMateScreen(Screens):
             manager=MANAGER,
         )
 
-        self.qppscreen_button = UIImageButton(
-            ui_scale(pygame.Rect((342, 142), (115, 30))), "", object_id="#qpp_screen"
+        self.qppscreen_button = UISurfaceImageButton(
+            ui_scale(pygame.Rect((342, 142), (115, 30))),
+            "QPP screen",
+            get_button_dict(ButtonStyles.SQUOVAL, (105, 30)),
+            object_id="@buttonstyles_squoval",
+            manager=MANAGER,
         )
 
         # Tab containers:
