@@ -1416,94 +1416,93 @@ class Clan:
         }
     
     def load_accessories(self):
-        if game.clan.clan_settings['all accessories'] or game.clan.clan_settings['all pride accessories']:
-            for c in Cat.all_cats_list:
-                cat = c
-                age = cat.age
-                cat_sprite = str(cat.pelt.cat_sprites[cat.age])
-                # setting the cat_sprite (bc this makes things much easier)
-                if cat.not_working() and age != 'newborn' and game.config['cat_sprites']['sick_sprites']:
-                    if age in ['kitten', 'adolescent']:
-                        cat_sprite = str(19)
-                    else:
-                        cat_sprite = str(18)
-                elif cat.pelt.paralyzed and age != 'newborn':
-                    if age in ['kitten', 'adolescent']:
-                        cat_sprite = str(17)
-                    else:
-                        if cat.pelt.length == 'long':
-                            cat_sprite = str(16)
-                        else:
-                            cat_sprite = str(15)
+        for c in Cat.all_cats_list:
+            cat = c
+            age = cat.age
+            cat_sprite = str(cat.pelt.cat_sprites[cat.age])
+            # setting the cat_sprite (bc this makes things much easier)
+            if cat.not_working() and age != 'newborn' and game.config['cat_sprites']['sick_sprites']:
+                if age in ['kitten', 'adolescent']:
+                    cat_sprite = str(19)
                 else:
-                    if age == 'elder' and not game.config['fun']['all_cats_are_newborn']:
-                        age = 'senior'
-
-                    if game.config['fun']['all_cats_are_newborn']:
-                        cat_sprite = str(cat.pelt.cat_sprites['newborn'])
+                    cat_sprite = str(18)
+            elif cat.pelt.paralyzed and age != 'newborn':
+                if age in ['kitten', 'adolescent']:
+                    cat_sprite = str(17)
+                else:
+                    if cat.pelt.length == 'long':
+                        cat_sprite = str(16)
                     else:
-                        cat_sprite = str(cat.pelt.cat_sprites[age])
+                        cat_sprite = str(15)
+            else:
+                if age == 'elder' and not game.config['fun']['all_cats_are_newborn']:
+                    age = 'senior'
 
-                if game.clan.clan_settings['all accessories']:
-                    possible_accs = ["WILD", "PLANT", "COLLAR", "FLOWER", "PLANT2", "SNAKE", "SMALLANIMAL", "DEADINSECT", "ALIVEINSECT", "FRUIT", "CRAFTED", "PRIDE", "PRIDE2", "PRIDE3", "TAIL2", "BANDANAS"]
-                elif game.clan.clan_settings['all pride accessories']:
-                    if game.clan.clan_settings['custom flags']:
-                        possible_accs = ["PRIDE", "PRIDE2", "PRIDE3", "PRIDE4", "CUSTOM"]
-                    else:
-                        possible_accs = ["PRIDE", "PRIDE2", "PRIDE3", "PRIDE4"]
-                elif game.clan.clan_settings['custom flags'] and not game.clan.clan_settings['all pride accessories']:
-                    possible_accs = ['CUSTOM']
-                    
-                acc_list = []
-                if cat.moons > 6:
-                    if "PRIDE" in possible_accs:
-                        acc_list.extend(Pelt.pridebandanas)
-                    if "PRIDE2" in possible_accs:
-                        acc_list.extend(Pelt.pridebandanas2)
-                    if "PRIDE3" in possible_accs:
-                        acc_list.extend(Pelt.pridebandanas3)
-                    if "PRIDE4" in possible_accs:
-                        acc_list.extend(Pelt.pridebandanas4)
-                    if "CUSTOM" in possible_accs:
-                        acc_list.extend(Pelt.customflags)
-                if "WILD" in possible_accs:
-                    acc_list.extend(Pelt.wild_accessories)
-                if "PLANT" in possible_accs:
-                    acc_list.extend(Pelt.plant_accessories)
-                if "COLLAR" in possible_accs:
-                    acc_list.extend(Pelt.collars)
-                if "FLOWER" in possible_accs:
-                    acc_list.extend(Pelt.flower_accessories)
-                if "PLANT2" in possible_accs:
-                    acc_list.extend(Pelt.plant2_accessories)
-                if "SNAKE" in possible_accs:
-                    acc_list.extend(Pelt.snake_accessories)
-                if "SMALLANIMAL" in possible_accs:
-                    acc_list.extend(Pelt.smallAnimal_accessories)
-                if "DEADINSECT" in possible_accs:
-                    acc_list.extend(Pelt.deadInsect_accessories)
-                if "ALIVEINSECT" in possible_accs:
-                    acc_list.extend(Pelt.aliveInsect_accessories)
-                if "FRUIT" in possible_accs:
-                    acc_list.extend(Pelt.fruit_accessories)
-                if "CRAFTED" in possible_accs:
-                    acc_list.extend(Pelt.crafted_accessories)
-                if "TAIL2" in possible_accs:
-                    acc_list.extend(Pelt.tail2_accessories)
-                if "NOTAIL" in c.pelt.scars or "HALFTAIL" in c.pelt.scars:
-                    for acc in Pelt.tail_accessories + Pelt.tail2_accessories:
-                        if acc in acc_list:
-                            try:
-                                acc_list.remove(acc)
-                            except ValueError:
-                                print(f'attempted to remove {acc} from possible acc list, but it was not in the list!')
+                if game.config['fun']['all_cats_are_newborn']:
+                    cat_sprite = str(cat.pelt.cat_sprites['newborn'])
+                else:
+                    cat_sprite = str(cat.pelt.cat_sprites[age])
+            possible_accs = []
+            if game.clan.clan_settings['all accessories']:
+                possible_accs = ["WILD", "PLANT", "COLLAR", "FLOWER", "PLANT2", "SNAKE", "SMALLANIMAL", "DEADINSECT", "ALIVEINSECT", "FRUIT", "CRAFTED", "PRIDE", "PRIDE2", "PRIDE3", "TAIL2", "BANDANAS"]
+            elif game.clan.clan_settings['all pride accessories']:
+                if game.clan.clan_settings['custom flags']:
+                    possible_accs = ["PRIDE", "PRIDE2", "PRIDE3", "PRIDE4", "CUSTOM"]
+                else:
+                    possible_accs = ["PRIDE", "PRIDE2", "PRIDE3", "PRIDE4"]
+            elif game.clan.clan_settings['custom flags'] and not game.clan.clan_settings['all pride accessories']:
+                possible_accs = ['CUSTOM']
+                
+            acc_list = []
+            if cat.moons > 6:
+                if "PRIDE" in possible_accs:
+                    acc_list.extend(Pelt.pridebandanas)
+                if "PRIDE2" in possible_accs:
+                    acc_list.extend(Pelt.pridebandanas2)
+                if "PRIDE3" in possible_accs:
+                    acc_list.extend(Pelt.pridebandanas3)
+                if "PRIDE4" in possible_accs:
+                    acc_list.extend(Pelt.pridebandanas4)
+                if "CUSTOM" in possible_accs:
+                    acc_list.extend(Pelt.customflags)
+            if "WILD" in possible_accs:
+                acc_list.extend(Pelt.wild_accessories)
+            if "PLANT" in possible_accs:
+                acc_list.extend(Pelt.plant_accessories)
+            if "COLLAR" in possible_accs:
+                acc_list.extend(Pelt.collars)
+            if "FLOWER" in possible_accs:
+                acc_list.extend(Pelt.flower_accessories)
+            if "PLANT2" in possible_accs:
+                acc_list.extend(Pelt.plant2_accessories)
+            if "SNAKE" in possible_accs:
+                acc_list.extend(Pelt.snake_accessories)
+            if "SMALLANIMAL" in possible_accs:
+                acc_list.extend(Pelt.smallAnimal_accessories)
+            if "DEADINSECT" in possible_accs:
+                acc_list.extend(Pelt.deadInsect_accessories)
+            if "ALIVEINSECT" in possible_accs:
+                acc_list.extend(Pelt.aliveInsect_accessories)
+            if "FRUIT" in possible_accs:
+                acc_list.extend(Pelt.fruit_accessories)
+            if "CRAFTED" in possible_accs:
+                acc_list.extend(Pelt.crafted_accessories)
+            if "TAIL2" in possible_accs:
+                acc_list.extend(Pelt.tail2_accessories)
+            if "NOTAIL" in c.pelt.scars or "HALFTAIL" in c.pelt.scars:
+                for acc in Pelt.tail_accessories + Pelt.tail2_accessories:
+                    if acc in acc_list:
+                        try:
+                            acc_list.remove(acc)
+                        except ValueError:
+                            print(f'attempted to remove {acc} from possible acc list, but it was not in the list!')
 
-                # if not c.pelt.inventory:
-                #     c.pelt.inventory = []
-                # for acc in acc_list:
-                #     if acc not in c.pelt.inventory:
-                #         c.pelt.inventory.append(acc)
-                return acc_list
+            # if not c.pelt.inventory:
+            #     c.pelt.inventory = []
+            # for acc in acc_list:
+            #     if acc not in c.pelt.inventory:
+            #         c.pelt.inventory.append(acc)
+            return acc_list
 
     def load_clan_settings(self):
         if os.path.exists(

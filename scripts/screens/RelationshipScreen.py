@@ -831,8 +831,8 @@ class RelationshipScreen(Screens):
         if len(self.the_cat.qpp) > 0 and the_relationship.cat_to.ID in self.the_cat.qpp:
 
             self.relation_list_elements['qpr_icon' + str(i)] = pygame_gui.elements.UIImage(
-                scale(pygame.Rect((pos_x + 10, pos_y + 10),
-                                  (22, 20))),
+                ui_scale(pygame.Rect((pos_x + 5, pos_y + 5),
+                                  (10, 10))),
                 image_cache.load_image(
                     "resources/images/qprheart.png").convert_alpha())
         # MATE

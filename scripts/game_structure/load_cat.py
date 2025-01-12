@@ -70,10 +70,35 @@ def json_load():
                 cat['qpp'] = []
 
             if "acespec" not in cat:
-                cat["acespec"] = choice(['allosexual', 'allosexual', 'allosexual', 'allosexual', 'demisexual', 'grey asexual', 'asexual', 'asexual'])
+                cat["acespec"] = choice([
+                    'allosexual',
+                    'allosexual',
+                    'allosexual',
+                    'allosexual',
+                    'allosexual',
+                    'allosexual',
+                    'allosexual',
+                    'demisexual',
+                    'grey asexual',
+                    'asexual',
+                    'asexual'])
 
             if "arospec" not in cat:
-                cat["arospec"] = choice(['alloromantic', 'alloromantic', 'alloromantic', 'alloromantic', 'demiromantic', 'grey aromantic', 'aromantic', 'aromantic'])
+                cat["arospec"] = choice([
+                    'alloromantic',
+                    'alloromantic',
+                    'alloromantic',
+                    'alloromantic',
+                    'alloromantic',
+                    'alloromantic',
+                    'alloromantic',
+                    'demiromantic',
+                    'grey aromantic',
+                    'aromantic',
+                    'aromantic'])
+
+            if cat["arospec"] == "aromantic" and cat["acespec"] == "asexual":
+                cat["sexuality"] = "aroace"
             
             if "keep_sexuality" not in cat:
                 cat["keep_sexuality"] = False

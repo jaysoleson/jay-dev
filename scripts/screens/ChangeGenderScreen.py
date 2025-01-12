@@ -22,7 +22,8 @@ from scripts.utility import (
     ui_scale_value,
     ui_scale_offset,
 )
-from scripts.utility import ui_scale
+from scripts.event_class import Single_Event
+from scripts.utility import ui_scale, xenogender_event
 from .Screens import Screens
 from ..game_structure.screen_settings import MANAGER
 from ..game_structure.windows import PronounCreation

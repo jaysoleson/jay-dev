@@ -4348,5 +4348,51 @@
                 "path":"resources/images/buttons/non_t4t_unavailable.png"
             }
         }
+    },
+    "#change_allosexual_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_straight_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_straight_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_straight_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_straight_button_unavailable.png"
+            }
+        }
+    },
+    "#change_alloromantic_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_straight_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_straight_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_straight_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_straight_button_unavailable.png"
+            }
+        }
     }
 }
