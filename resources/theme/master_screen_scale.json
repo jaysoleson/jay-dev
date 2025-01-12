@@ -3794,5 +3794,559 @@
                 "path": "resources/images/buttons/tint_button_cooldilute_unavailable.png"
             }
         }
+    },
+    "#change_bi_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_bi_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_bi_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_bi_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_bi_button_unavailable.png"
+            }
+        }
+    },
+    "#change_gay_button": 
+    
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_gay_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_gay_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_gay_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_bi_button_unavailable.png"
+            }
+        }
+    },
+    "#change_lesbian_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_lesbian_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_lesbian_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_lesbian_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_lesbian_button_unavailable.png"
+            }
+        }
+    },
+    "#change_aroace_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_aroace_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_aroace_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_aroace_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_aroace_button_unavailable.png"
+            }
+        }
+    },
+    "#change_straight_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_straight_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_straight_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_straight_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_straight_button_unavailable.png"
+            }
+        }
+    },
+    "#change_gyno_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_gyno_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_gyno_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_gyno_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_gyno_button.png"
+            }
+        }
+    },
+    "#change_andro_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_andro_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_andro_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_andro_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_andro_button.png"
+            }
+        }
+    },
+    "#change_pan_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_pan_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_pan_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_pan_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_pan_button_unavailable.png"
+            }
+        }
+    },
+    "#change_ace_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_ace_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_ace_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_ace_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_ace_button_hover.png"
+            }
+        }
+    },
+    "#change_demi_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_demi_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_demi_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_demi_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_demi_button_hover.png"
+            }
+        }
+    },
+    "#change_greyace_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_greyace_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_greyace_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_greyace_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_greyace_button_hover.png"
+            }
+        }
+    },
+    "#change_aro_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_aro_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_aro_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_aro_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_aro_button_hover.png"
+            }
+        }
+    },
+    "#change_demirom_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_demirom_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_demirom_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_demirom_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_demirom_button_hover.png"
+            }
+        }
+    },
+    "#change_greyaro_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_greyaro_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_greyaro_button_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_greyaro_button_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_greyaro_button_hover.png"
+            }
+        }
+    },
+    "#potential_qpps_tab_button":
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/potential_partners.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/potential_partners_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/potential_partners_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/potential_partners_unavailable.png"
+            }
+        }
+    },
+    "#mate_screen":
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/mate_screen.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/mate_screen_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/mate_screen_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/mate_screen_unavailable.png"
+            }
+        }
+    },
+    "#qpp_screen":
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/qpp_screen.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/qpp_screen_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/qpp_screen_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/qpp_screen_unavailable.png"
+            }
+        }
+    },
+    "#qpps_tab_button":
+    {
+        "prototype": "#image_button",
+        "images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/qpps_tab.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/qpps_tab_hover.png"
+            },
+            "selected_image":
+            {
+                "path": "resources/images/buttons/qpps_tab_hover.png"
+            },
+            "disabled_image":
+            {
+                "path": "resources/images/buttons/qpps_tab_unavailable.png"
+            }
+        }
+    },
+    "#remove_permainventory_button":
+    {
+        "prototype": "#image_button",
+        "images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/exit_window_button.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/exit_window_button_hover.png"
+            },
+            "selected_image":
+            {
+                "path": "resources/images/buttons/exit_button_active.png"
+            },
+            "disabled_image":
+            {
+                "path": "resources/images/buttons/exit_button_unavailable.png"
+            }
+        }
+    },
+    "#add_permainventory_button":
+    {
+        "prototype": "#image_button",
+        "images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/add_permainventory.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/add_permainventory_hover.png"
+            },
+            "selected_image":
+            {
+                "path": "resources/images/buttons/add_permainventory_active.png"
+            },
+            "disabled_image":
+            {
+                "path": "resources/images/buttons/add_permainventory_unavailable.png"
+            }
+            
+        }
+    },
+    "#change_unlabelled_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/change_unlabelled.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/change_unlabelled_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/change_unlabelled_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/change_unlabelled_hover.png"
+            }
+        }
+    },
+    "#specify_sexuality_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/specify_sexuality.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/specify_sexuality_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/specify_sexuality_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/specify_sexuality_unavailable.png"
+            }
+        }
+    },
+    "#change_t4t_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/t4t.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/t4t_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/t4t_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/t4t_unavailable.png"
+            }
+        }
+    },
+    "#change_non_t4t_button": 
+    {
+        "prototype": "#image_button",
+		"images":
+        {
+            "normal_image":
+            {
+                "path": "resources/images/buttons/non_t4t.png"
+            },
+            "hovered_image":
+            {
+                "path": "resources/images/buttons/non_t4t_hover.png"
+            },
+			"selected_image":
+            {
+                "path": "resources/images/buttons/non_t4t_hover.png"
+            },
+            "disabled_image":
+            {
+                "path":"resources/images/buttons/non_t4t_unavailable.png"
+            }
+        }
     }
 }
