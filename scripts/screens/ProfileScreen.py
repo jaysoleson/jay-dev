@@ -804,47 +804,15 @@ class ProfileScreen(Screens):
             elif event.ui_element == self.change_sexuality_button:
                 if isinstance(self.sexuality_change_dict[self.the_cat.sexuality], list):
                     if self.the_cat.genderalign in ["male", "trans male", "demiboy"]:
-                        new_sexuality == self.sexuality_change_dict[self.the_cat.sexuality][0]
+                        new_sexuality = self.sexuality_change_dict[self.the_cat.sexuality][0]
                     elif self.the_cat.genderalign in ["female", "trans female", "demigirl"]:
-                        new_sexuality == self.sexuality_change_dict[self.the_cat.sexuality][1]
+                        new_sexuality = self.sexuality_change_dict[self.the_cat.sexuality][1]
                     else:
-                        new_sexuality == self.sexuality_change_dict[self.the_cat.sexuality][2]
+                        new_sexuality = self.sexuality_change_dict[self.the_cat.sexuality][2]
                 else:
                     new_sexuality = self.sexuality_change_dict[self.the_cat.sexuality]
                 
                 self.the_cat.sexuality = new_sexuality
-                if new_sexuality == "aroace":
-                    self.the_cat.acespec = "asexual"
-                    self.the_cat.arospec = "aromantic"
-                
-                if self.the_cat.sexuality == "straight":
-                    self.the_cat.sexuality = "bi"
-                elif self.the_cat.sexuality == "bi":
-                    self.the_cat.sexuality = "pan"
-                elif self.the_cat.sexuality == "pan":
-                    if self.the_cat.genderalign in ["female", "trans female", "demigirl"]:
-                        self.the_cat.sexuality = "lesbian"
-                    elif self.the_cat.genderalign in ["male", "trans male", "demiboy"]:
-                        self.the_cat.sexuality = "gay"
-                    # elif self.the_cat.genderalign == "nonbinary":
-                    elif self.the_cat.genderalign not in ["male", "trans male", "demiboy", "female", "trans female", "demigirl"]:
-                        # ^^ doing this instead of "if cat.sexuality == "nonbinary" allows for specified genders
-                        self.the_cat.sexuality = "gyno"
-                elif self.the_cat.sexuality == "gyno":
-                        self.the_cat.sexuality = "andro"
-                elif self.the_cat.sexuality in ["lesbian", "gay", "andro"]:
-                    self.the_cat.sexuality = "aroace"
-                    self.the_cat.acespec = 'asexual'
-                    self.the_cat.arospec = 'aromantic'
-                elif self.the_cat.sexuality == "aroace":
-                    self.the_cat.sexuality = "unlabelled"
-                    self.the_cat.arospec = 'alloromantic'
-                    self.the_cat.acespec = 'allosexual'
-                elif self.the_cat.sexuality == "unlabelled":
-                    if self.the_cat.genderalign not in ["male", "trans male", "demiboy", "female", "trans female", "demigirl"]:
-                        self.the_cat.sexuality = "bi"
-                    else:
-                        self.the_cat.sexuality = "straight"
 
                 if self.the_cat.sexualitylabel != self.the_cat.sexuality and self.the_cat.sexualitylabel is not None:
                     self.the_cat.sexualitylabel = self.the_cat.sexuality
@@ -862,7 +830,7 @@ class ProfileScreen(Screens):
             
             elif event.ui_element == self.change_arospec_button:
                 new_arospec = self.arospec_change_dict[self.the_cat.arospec]
-                self.the_cat.new_arospec = new_arospec
+                self.the_cat.arospec = new_arospec
                 if self.the_cat.arospec == "aromantic" and self.the_cat.acespec == "asexual":
                     self.the_cat.sexuality = "aroace"
                 self.clear_profile()
@@ -3779,7 +3747,7 @@ class ProfileScreen(Screens):
                 if self.the_cat.gender != self.the_cat.genderalign:
                     if self.the_cat.t4t:
                         self.t4t_button = UIImageButton(
-                            ui_scale(pygame.Rect((674, 492), (176, 45))),
+                            ui_scale(pygame.Rect((574, 492), (176, 45))),
                             "",
                             starting_height=2,
                             object_id="#change_non_t4t_button",
@@ -3787,7 +3755,7 @@ class ProfileScreen(Screens):
                             )
                     else:
                         self.t4t_button = UIImageButton(
-                            ui_scale(pygame.Rect((674, 492), (176, 45))),
+                            ui_scale(pygame.Rect((574, 492), (176, 45))),
                             "",
                             starting_height=2,
                             object_id="#change_t4t_button",
@@ -3797,13 +3765,13 @@ class ProfileScreen(Screens):
 
                 # SEXUALITY
                 next_sexuality = self.sexuality_change_dict[self.the_cat.sexuality]
-                if isinstance(new_sexuality, list):
+                if isinstance(next_sexuality, list):
                     if self.the_cat.genderalign in ["male", "trans male", "demiboy"]:
-                        new_sexuality == next_sexuality[0]
+                        new_sexuality = next_sexuality[0]
                     elif self.the_cat.genderalign in ["female", "trans female", "demigirl"]:
-                        new_sexuality == next_sexuality[1]
+                        new_sexuality = next_sexuality[1]
                     else:
-                        new_sexuality == next_sexuality[2]
+                        new_sexuality = next_sexuality[2]
                 else:
                     new_sexuality = next_sexuality
 
@@ -3817,10 +3785,8 @@ class ProfileScreen(Screens):
                 # ACESPEC
                 next_acespec = self.acespec_change_dict[self.the_cat.acespec]
 
-                if self.change_acespec_button:
-                    self.change_acespec_button.kill()
                 self.change_acespec_button = UIImageButton(
-                    ui_scale(pygame.Rect((290, 470), (97, 37))),
+                    ui_scale(pygame.Rect((290, 515), (97, 37))),
                     "",
                     starting_height=2, object_id=f"#change_{next_acespec}_button",
                     manager=MANAGER
@@ -3829,10 +3795,8 @@ class ProfileScreen(Screens):
                 # AROSPEC
                 next_arospec = self.arospec_change_dict[self.the_cat.arospec]
 
-                if self.change_arospec_button:
-                    self.change_arospec_button.kill()
                 self.change_arospec_button = UIImageButton(
-                    ui_scale(pygame.Rect((290, 470), (97, 37))),
+                    ui_scale(pygame.Rect((290, 560), (97, 37))),
                     "",
                     starting_height=2, object_id=f"#change_{next_arospec}_button",
                     manager=MANAGER
@@ -3863,6 +3827,14 @@ class ProfileScreen(Screens):
             else:
                 self.cis_trans_button.set_text("change to \ncisgender")
                 self.cis_trans_button.disable()
+
+            if self.the_cat.sexuality == "aroace":
+                self.change_arospec_button.disable()
+                self.change_acespec_button.disable()
+            else:
+                self.change_arospec_button.enable()
+                self.change_acespec_button.enable()
+
 
         elif self.open_tab == 'your tab':
             if 'have kits' not in game.switches:
