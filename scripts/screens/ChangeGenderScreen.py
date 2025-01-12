@@ -168,7 +168,7 @@ class ChangeGenderScreen(Screens):
             "",
             object_id="#help_button",
             manager=MANAGER,
-            tool_tip_text = "<b> Unique genders that <br> currently have bandanas: </b> <br> genderdoe <br> genderfaun <br> mothgender <br> buggender <br> catgender <br> snowleopardgender <br> tigergender <br> xenogender <br> mossgender <br> moongender <br> sungender <br> stargender <br> apagender <br> genderflux"
+            tool_tip_text = "<b><u>Unique genders that <br> currently have bandanas:</u></b> <br> genderdoe <br> genderfaun <br> mothgender <br> buggender <br> catgender <br> snowleopardgender <br> tigergender <br> xenogender <br> mossgender <br> moongender <br> sungender <br> stargender <br> apagender <br> genderflux <br> demifluid <br> arkhaigender <br> archaeogender"
             )
         
         self.current_container = UIContainer(

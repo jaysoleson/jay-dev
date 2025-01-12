@@ -451,8 +451,12 @@ class Sprites:
             self.make_group('pridebandanas4', (a, 0), f'acc_bandanas{i}')
 
         for a, i in enumerate([
-            'UNLABELLED', 'QUESTIONING']):
+            'UNLABELLED', 'QUESTIONING', 'POLYSEXUAL', 'OMNISEXUAL', 'ARKHAIGENDER']):
             self.make_group('pridebandanas4', (a, 1), f'acc_bandanas{i}')
+
+        for a, i in enumerate([
+            'ARCHAEOGENDER', 'DEMIFLUID', 'GREYAROACE']):
+            self.make_group('pridebandanas4', (a, 2), f'acc_bandanas{i}')
 
         for a, i in enumerate([
             "CUSTOMFLAG0", "CUSTOMFLAG1", "CUSTOMFLAG2", "CUSTOMFLAG3", "CUSTOMFLAG4", "CUSTOMFLAG5"]):

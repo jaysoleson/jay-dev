@@ -100,6 +100,10 @@ def json_load():
             if cat["arospec"] == "aromantic" and cat["acespec"] == "asexual":
                 cat["sexuality"] = "aroace"
             
+            if cat["sexuality"] == "aroace":
+                cat["arospec"] = "aromantic"
+                cat["acespec"] = "acespec"
+            
             if "keep_sexuality" not in cat:
                 cat["keep_sexuality"] = False
 

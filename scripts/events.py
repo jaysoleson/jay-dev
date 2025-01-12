@@ -151,6 +151,12 @@ class Events:
         self.apagender = Pelt.pridebandanas4[5]
         self.unlabelled = Pelt.pridebandanas4[6]
         self.questioning = Pelt.pridebandanas4[7]
+        self.polysexual = Pelt.pridebandanas4[8]
+        self.omnisexual = Pelt.pridebandanas4[9]
+        self.arkhaigender = Pelt.pridebandanas4[10]
+        self.archaeogender = Pelt.pridebandanas4[11]
+        self.demifluid = Pelt.pridebandanas4[12]
+        self.greyaroace = Pelt.pridebandanas4[12]
 
         self.all_bandanas = [
             self.trans, self.enby, self.greyaro, self.demiboy, self.demigirl, self.butch,
@@ -162,7 +168,8 @@ class Events:
             self.mossgender, self.moongender, self.sungender, self.stargender, self.apagender, self.unlabelled,
             self.questioning, self.uranic, self.nebularomantic, self.catgender, self.genderdoe, self.omnisapphic, self.mothgender,
             self.snowleopardgender, self.tigergender, self.genderfaun, self.demiaroace,
-            self.sapphic, self.achillean, self.xenogender, self.genderflux
+            self.sapphic, self.achillean, self.xenogender, self.genderflux, self.polysexual, self.omnisexual,
+            self.arkhaigender, self.archaeogender, self.demifluid, self.greyaroace
         ]
 
 
@@ -885,6 +892,7 @@ class Events:
                 cat = Cat.all_cats[candidate_id]
                 is_age_compatible = (other_parent_age is None) or (cat.age == other_parent_age)
                 is_gender_compatible = True
+                is_sexuality_compatible = True
                 is_relation_compatible = cat.is_potential_mate(Cat.all_cats.get(other_parent_id)) if other_parent_id else True
                 if not game.clan.clan_settings["same sex birth"]:
                     is_gender_compatible = (other_parent_gender is None) or (cat.gender != other_parent_gender)
@@ -1061,7 +1069,7 @@ class Events:
                 backstory = "clanborn"
             elif birth_type == BirthType.ONE_OUTSIDER_PARENT:
                 backstory = "outsider1"
-            elif birth_type == BirthType.TWO_OUTSIDER_PARENTS:
+            else:
                 backstory = "outsider1"
             
             game.clan.your_cat.backstory = backstory
@@ -4481,6 +4489,10 @@ class Events:
             if self.demiaroace not in cat.pelt.permanent_inventory:
                 cat.pelt.inventory.append(self.demiaroace)
 
+        if cat.arospec == "grey aromantic" and cat.acespec == "grey asexual":
+            if self.greyaroace not in cat.pelt.permanent_inventory:
+                cat.pelt.inventory.append(self.greyaroace)
+
         # gender
         if cat.genderalign in ['trans male', 'trans female']:
             if self.trans not in cat.pelt.permanent_inventory:
@@ -4570,6 +4582,18 @@ class Events:
         elif cat.genderalign == 'apagender':
             if self.apagender not in cat.pelt.permanent_inventory:
                 cat.pelt.inventory.append(self.apagender)
+
+        elif cat.genderalign == 'demifluid':
+            if self.demifluid not in cat.pelt.permanent_inventory:
+                cat.pelt.inventory.append(self.demifluid)
+
+        elif cat.genderalign == 'arkhaigender':
+            if self.arkhaigender not in cat.pelt.permanent_inventory:
+                cat.pelt.inventory.append(self.arkhaigender)
+
+        elif cat.genderalign == 'archaeogender':
+            if self.archaeogender not in cat.pelt.permanent_inventory:
+                cat.pelt.inventory.append(self.archaeogender)
 
         # removing wrong pride flags theyre still wearing
         for i in cat.pelt.accessories:

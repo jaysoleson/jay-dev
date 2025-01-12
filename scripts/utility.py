@@ -3202,6 +3202,9 @@ def xenogender_event(cat):
     sungender = Pelt.pridebandanas4[3]
     stargender = Pelt.pridebandanas4[4]
     apagender = Pelt.pridebandanas4[5]
+    arkhaigender = Pelt.pridebandanas4[10]
+    archaeogender = Pelt.pridebandanas4[11]
+    demifluid = Pelt.pridebandanas4[12]
 
     text = ""
      
@@ -3274,6 +3277,21 @@ def xenogender_event(cat):
         if apagender not in cat.pelt.permanent_inventory:
             cat.pelt.inventory.append(apagender)
         text = f"{cat.name} doesn't really care much about gender at all."
+
+    elif cat.genderalign == 'demifluid':
+        if demifluid not in cat.pelt.permanent_inventory:
+            cat.pelt.inventory.append(demifluid)
+        text = f"{cat.name}'s gender feels partially fluid."
+
+    elif cat.genderalign == 'arkhaigender':
+        if arkhaigender not in cat.pelt.permanent_inventory:
+            cat.pelt.inventory.append(arkhaigender)
+        text = f"{cat.name}'s gender feels like a grand adventure!"
+
+    elif cat.genderalign == 'archaeogender':
+        if archaeogender not in cat.pelt.permanent_inventory:
+            cat.pelt.inventory.append(archaeogender)
+        text = f"{cat.name}'d gender feels like something constantly being discovered."
 
     return text
 

@@ -1337,6 +1337,9 @@ class ProfileScreen(Screens):
         else:
             self.cat_inventory = self.the_cat.pelt.inventory + self.the_cat.pelt.permanent_inventory
 
+        for acc in self.the_cat.pelt.accessories:
+            if acc not in self.the_cat.pelt.inventory:
+                self.the_cat.pelt.inventory.append(acc)
         # TODO: figure out getting these in the inventory in the first place. i shouldnt need this correction
         # but im a hack
         for acc in self.the_cat.pelt.inventory:
