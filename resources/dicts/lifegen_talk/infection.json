@@ -174,7 +174,8 @@
             "cool",
             "infection",
             "they_blind",
-            "you_blind"
+            "you_blind",
+            "no_kit"
         ],
         [
             "I don't know why everyone's panicking. I feel totally fine.",
@@ -504,7 +505,8 @@
             "cool",
             "stable",
             "upstanding",
-            "unlawful"
+            "unlawful",
+            "no_kit"
         ],
         [
             "Now is not the time for small talk."
@@ -536,7 +538,8 @@
             "spread_by_bite",
             "they_blind",
             "you_blind",
-            "infection"
+            "infection",
+            "no_kit"
         ],
         [
             "y_c. y_c, please don't walk away from me.",
@@ -595,7 +598,7 @@
         ],
         [
             "[t_c looks so sad and tired.]",
-            "{PRONOUN/t_c/poss} condition just keeps getting worse, in every way..."
+            "[{PRONOUN/t_c/poss} condition just keeps getting worse, in every way...]"
         ]
     ],
     "undead_J1": [
