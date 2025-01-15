@@ -501,6 +501,8 @@ class CureLogScreen(Screens):
         self.check_achivements()
         # chibi misspelled the function and im keeping it that way bc its funny
 
+        debug_all_stamps = True
+
         # MURDER
         murderer = False
         # doing this so stamps can change if u switch mc to a non murderer
@@ -511,13 +513,14 @@ class CureLogScreen(Screens):
                 if "is_murderer" in game.clan.your_cat.history.murder:
                     murderer = True
 
-        if "1" in game.clan.achievements and murderer:
+        if "1" in game.clan.achievements and murderer or debug_all_stamps:
             murder = "murder1"
             hover = "Killed one cat"
             self.stamps["murder"] = UIImageButton(ui_scale(pygame.Rect((155, 190), (19, 36))), "",
                                             object_id=f"#stamp_{murder}", tool_tip_text=f"{hover}", manager=MANAGER)
         
             # redefining these all bc the dimensions are different
+            # do not release this shit without making a better one
             if "2" in game.clan.achievements:
                 murder = "murder1"
                 hover = "Killed five cats"
@@ -533,7 +536,7 @@ class CureLogScreen(Screens):
                 hover = "Killed fifty cats"
                 self.stamps["murder"] = UIImageButton(ui_scale(pygame.Rect((140, 185), (58, 49))), "",
                                                 object_id=f"#stamp_{murder}", tool_tip_text=f"{hover}", manager=MANAGER)
-        elif "25" in game.clan.achievements:
+        elif "25" in game.clan.achievements or debug_all_stamps:
             self.stamps["pacifist"] = UIImageButton(
                 ui_scale(pygame.Rect((140, 175), (78, 38))),
                 "",
@@ -542,7 +545,7 @@ class CureLogScreen(Screens):
                 manager=MANAGER
                 )
         
-        if "start" in game.clan.infection["logs"]:
+        if "start" in game.clan.infection["logs"] or debug_all_stamps:
             self.stamps["start"] = UIImageButton(
                 ui_scale(pygame.Rect((0, 0), (74, 118))),
                 "",
@@ -552,7 +555,7 @@ class CureLogScreen(Screens):
                 anchors={"centerx": "centerx", "centery": "centery"}
                 )
             
-        if "cure_found" in game.clan.infection["logs"]:
+        if "cure_found" in game.clan.infection["logs"] or debug_all_stamps:
             self.stamps["cure_discovered"] = UIImageButton(
                 ui_scale(pygame.Rect((0, 178), (74, 74))),
                 "",
@@ -562,12 +565,17 @@ class CureLogScreen(Screens):
                 anchors={"centerx": "centerx"}
                 )
             
-        if len(game.clan.infection["fallen_clans"]) > 0:
+        if len(game.clan.infection["fallen_clans"]) > 0 or debug_all_stamps:
+            if debug_all_stamps:
+                fallenclans = 5
+            else:
+                fallenclans = str(len(game.clan.infection['fallen_clans']))
+
             self.stamps["fallen_clans"] = UIImageButton(
                 ui_scale(pygame.Rect((505, 182), (63, 55))),
                 "",
-                object_id=f"#stamp_fallen_clans_{str(len(game.clan.infection['fallen_clans']))}",
-                tool_tip_text=f"Fallen Clans: {str(len(game.clan.infection['fallen_clans']))}",
+                object_id=f"#stamp_fallen_clans_{fallenclans}",
+                tool_tip_text=f"Fallen Clans: {fallenclans}",
                 manager=MANAGER
                 )
     
