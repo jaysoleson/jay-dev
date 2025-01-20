@@ -54,10 +54,19 @@ class MusicManager:
         if (
             screen in menu_screens
             and self.current_playlist != self.playlists["menu_playlist"]
+            and self.current_playlist != self.playlists[f"{game.clan.infection['infection_type']}_playlist"]
         ):
             # print("menu screen")
             self.fade_out_music()
-            self.play_playlist(self.playlists["menu_playlist"])
+            try:
+                if game.clan.infection["clan_infected"] is True:
+                    self.play_playlist(self.playlists[f"{game.clan.infection['infection_type']}_playlist"])
+                else:
+                    self.play_playlist(self.playlists["menu_playlist"])
+            except KeyError as e:
+                print("Cannot play infection playlist.")
+                print(e)
+                self.play_playlist(self.playlists["menu_playlist"])
 
         # clan creation screen
         elif (
@@ -205,8 +214,8 @@ class MusicManager:
         elif biome == "Beach":
             new_playlist = self.playlists["mountainous_playlist"]
         
-        if game.clan.infection["clan_infected"] is True:
-            new_playlist = self.playlists[f"{game.clan.infection['infection_type']}_playlist"]
+        # if game.clan.infection["clan_infected"] is True:
+        #     new_playlist = self.playlists[f"{game.clan.infection['infection_type']}_playlist"]
 
         return new_playlist
 

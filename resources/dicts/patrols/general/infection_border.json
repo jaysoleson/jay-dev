@@ -256,5 +256,130 @@
                 "weight": 20
             }
         ]
+    },
+    {
+        "patrol_id": "border_infection_wootus1",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "border"
+        ],
+        "tags": [
+            "infection"
+        ],
+        "log_prereq": [
+            "zombie"
+        ],
+        "patrol_art": "bord_general_intro",
+        "min_cats": 1,
+        "max_cats": 1,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "p_l slips out of camp upon getting the idea to check some Twoleg traps that had been discovered in the territory. After checking a few empty ones, {PRONOUN/p_l/subject/CAP} {VERB/p_l/decide/decides} to give up if the next one is empty.",
+        "decline_text": "On second thought, p_l decides not to risk spending any more time alone in the territory and heads back to camp.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "p_l is pleased to find a freshly killed rabbit caught in the last trap, and retrieves it to bring the easy meal back to camp. The Clan is grateful for {PRONOUN/p_l/poss} clever thought.",
+                "exp": 20,
+                "weight": 20
+            },
+            {
+                "text": "p_l finds an undead cat caught in the last trap. Unable to move, it is easily dispatched by p_l, who returns to camp glad that there is now one less infected endangering {PRONOUN/p_l/poss} Clanmates.",
+                "exp": 10,
+                "weight": 10
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "p_l's fur bristles, and {PRONOUN/p_l/subject} {VERB/p_l/freeze/freezes} as {PRONOUN/p_l/poss} eyes land on an infected cat chewing on a long-dead rabbit which had been caught in the trap. As {PRONOUN/p_l/subject} {VERB/p_l/return/returns} to camp, careful to not be followed, {PRONOUN/p_l/subject} {VERB/p_l/curse/curses} the infected cat under {PRONOUN/p_l/poss} breath for finding the kill before {PRONOUN/p_l/subject} did.",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "p_l wanders, unable to remember where the final trap is located. As the sun begins to set, {PRONOUN/p_l/subject} {VERB/p_l/head/heads} home, not wanting to be caught alone after dark.",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "As p_l steps forward, {PRONOUN/p_l/subject} {VERB/p_l/feel/feels} a sharp snap and {PRONOUN/p_l/subject} {VERB/p_l/collapse/collapses} to the ground. {PRONOUN/p_l/subject/CAP} had misjudged where the final trap was hidden. {PRONOUN/p_l/subject/CAP} {VERB/p_l/cry/cries} out for help, but to {PRONOUN/p_l/poss} horror, the only cat that ends up hearing {PRONOUN/p_l/object} is an undead one. The creature emerges from the bush and leisurely stumbles forward as p_l tries to wriggle free, but it's no use. The long-gone cat sinks its fangs into p_l's neck, leaving a gorey sight for the dusk patrol to discover.",
+                "exp": 0,
+                "weight": 5,
+                "dead_cats": [
+                    "p_l",
+                    "all_lives"
+                ],
+                "history_text": {
+                    "scar": "m_c was attacked by an infected cat while caught in a Twoleg trap",
+                    "reg_death": "m_c was killed by an undead loner while caught in a Twoleg trap.",
+                    "lead_death": "was killed by an undead loner while caught in a Twoleg trap"
+                }
+            }
+        ]
+    },
+    {
+        "patrol_id": "border_infection_wootus2",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "border"
+        ],
+        "tags": [
+            "infection",
+            "parasitic"
+        ],
+        "log_prereq": [
+            "zombie"
+        ],
+        "patrol_art": "gen_bord_shortswim",
+        "min_cats": 2,
+        "max_cats": 6,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "The patrol receives a scare when they pass by a stream located close to camp. Trapped in the water is an undead cat, its eyes glazed over, pawing helplessly at the bank. It's lost control of its back legs, but still poses a big threat to the Clan if it were to contaminate the drinking water.",
+        "decline_text": "The patrol decides not to approach the cat. Instead, they race back to camp to report the incident, hoping that the cat will find its way out of the water on its own.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "Under p_l's careful instruction, the cats drag the infected cat out of the stream by its back legs, careful to avoid its claws. They mercifully kill it it upon dragging it a safe distance from the stream, preserving the Clan's dearest water source.",
+                "exp": 20,
+                "weight": 20
+            },
+            {
+                "text": "p_l hurries the patrol back to camp to report the stream as contaminated.",
+                "exp": 10,
+                "weight": 10
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "Under p_l's careful instruction, the cats try to drag the infected cat out of the stream by its back legs. However, p_l yanks a bit too hard, reopening a large wound that was present on the cat's stomach. Though p_l isn't injured, their effort ends up being for nothing as the river is now contaminated by the blood spilling from the cat's fragile body. The patrol drops the limp, infected body into the water and heads downstream to assess the damage.",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "Eager to impress p_l, r_c offers to take the lead on a bold idea. But they misjudged the infected cat's reach, and while attempting to drag it from the stream by its back legs, are bitten on the shoulder by the angry creature. The cats give up their attempt to preserve the Clan's dearest water source, and rush r_c back home to the medicine cat. ",
+                "exp": 0,
+                "weight": 20,
+                "injury": [
+                    {
+                        "cats": [
+                            "r_c"
+                        ],
+                        "injuries": [
+                            "stage one", "bite-wound"
+                        ]
+                    }
+                ]
+            }
+        ]
     }
 ]

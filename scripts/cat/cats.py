@@ -671,6 +671,9 @@ class Cat:
         event = f"{self.name} has died, but the infection seems to have enough power over their mind to keep them standing..."
         game.cur_events_list.append(Single_Event(event, ["birth_death", "health", "infection"], self.ID))
 
+        if "zombie" not in game.clan.infection["logs"]:
+            game.clan.infection["logs"].append("zombie")
+
     def die(self, body: bool = True):
         """Kills cat.
 

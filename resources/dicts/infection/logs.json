@@ -26,5 +26,7 @@
     "lore_parasitic_1": "The infection seems to be caused by some sort of parasite.",
     "lore_parasitic_2": "While the body slowly dies, the brain stays active.",
     "lore_parasitic_3": "Twolegs are also being infected.",
-    "lore_parasitic_4": "Twolegs have been seen killing their infected."
+    "lore_parasitic_4": "Twolegs have been seen killing their infected.",
+
+    "zombie": "When a very infected cat dies, the disease takes over their body."
 }
