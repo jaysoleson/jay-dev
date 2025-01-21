@@ -4904,41 +4904,5 @@
         "random_living_status": [
             "living"
         ]
-    },
-    {
-        "id": "gen_infected",
-        "thoughts": [
-            "Hisses at r_c to stay away, concerned {PRONOUN/m_c/subject}'ll infect {PRONOUN/r_c/object}",
-            "Is feeling awful",
-            "Wonders if Twolegs would know the cure",
-            "Can't stand this",
-            "Wishes {PRONOUN/m_c/poss} appearance didn't scare the kits so much",
-            "Doesn't recognise {PRONOUN/m_c/poss} reflection anymore"
-        ],
-        "main_infected_constraint": [
-            "infected"
-        ]
-    },
-    {
-        "id": "neurotic_infected",
-        "thoughts": [
-            "Coughs and then panics, thinking {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} infected"
-        ],
-        "main_cluster_constraint": [
-            "neurotic"
-        ],
-        "main_infected_constraint": [
-            "not_infected"
-        ]
-    },
-    {
-        "id": "gen_infected_rc",
-        "thoughts": "Saw r_c getting dragged out of the medicine den",
-        "main_infected_constraint": [
-            "not_infected"
-        ],
-        "random_infected_constraint": [
-            "infected"
-        ]
     }
 ]

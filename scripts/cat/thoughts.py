@@ -107,9 +107,15 @@ class Thoughts:
         if 'main_age_constraint' in thought:
             if main_cat.age not in thought['main_age_constraint']:
                 return False
+            # INF
+            if "no_kit" in thought["main_age_constraint"] and main_cat.status in ["newborn", "kitten"]:
+                return False
 
         if 'random_age_constraint' in thought and random_cat:
             if random_cat.age not in thought['random_age_constraint']:
+                return False
+            # INF
+            if "no_kit" in thought["random_age_constraint"] and random_cat.status in ["newborn", "kitten"]:
                 return False
 
         if 'main_trait_constraint' in thought:
@@ -137,20 +143,53 @@ class Thoughts:
                 return False
 
         if "main_infected_constraint" in thought:
-            # if game.clan.infection["clan_infected"] is False:
-            #     return False
             if "infected" in thought["main_infected_constraint"] and main_cat.infected_for < 1:
                 return False
             if "not_infected" in thought["main_infected_constraint"] and main_cat.infected_for > 0:
                 return False
+            if "immune" in thought["main_infected_constraint"] and main_cat.infected_for != -1:
+                return False
+            if "not_immune" in thought["main_infected_constraint"] and main_cat.infected_for == -1:
+                return False
+            if "undead" in thought["main_infected_constraint"] and "undead" not in main_cat.illnesses:
+                return False
+            if "not_undead" in thought["main_infected_constraint"] and "undead" in main_cat.illnesses:
+                return False
             
         if "random_infected_constraint" in thought and random_cat:
-            # if game.clan.infection["clan_infected"] is False:
-            #     return False
             if "infected" in thought["random_infected_constraint"] and random_cat.infected_for < 1:
                 return False
-            if "not_infected" in thought["random_infected_constraint"] and main_cat.infected_for > 0:
+            if "not_infected" in thought["random_infected_constraint"] and random_cat.infected_for > 0:
                 return False
+            if "immune" in thought["random_infected_constraint"] and random_cat.infected_for != -1:
+                return False
+            if "not_immune" in thought["random_infected_constraint"] and random_cat.infected_for == -1:
+                return False
+            if "undead" in thought["random_infected_constraint"] and "undead" not in random_cat.illnesses:
+                return False
+            if "not_undead" in thought["random_infected_constraint"] and "undead" in random_cat.illnesses:
+                return False
+        
+        if "infection" in thought and game.clan.infection["clan_infected"] is True:
+            if "void" in thought["infection"] and game.clan.infection["infection_type"] != "void":
+                return False
+            if "fungal" in thought["infection"] and game.clan.infection["infection_type"] != "fungal":
+                return False
+            if "parasitic" in thought["infection"] and game.clan.infection["infection_type"] != "parasitic":
+                return False
+            if "spread_by_bite" in thought["infection"] and game.clan.infection["spread_by"] != "bite":
+                return False
+            if "spread_by_air" in thought["infection"] and game.clan.infection["spread_by"] != "air":
+                return False
+            if "cured" in thought["infection"] and "cure_found" not in game.clan.infection["logs"]:
+                return False
+            if "not_cured" in thought["infection"] and "cure_found" in game.clan.infection["logs"]:
+                return False
+            
+        if "log_prereq" in thought and game.clan.infection["clan_infected"] is True:
+            for tag in thought["prereq"]:
+                if tag not in game.clan.infection["logs"]:
+                    return False
 
         if 'main_skill_constraint' in thought:
             _flag = False
@@ -393,6 +432,8 @@ class Thoughts:
 
         # newborns only pull from their status thoughts. this is done for convenience
         try:
+            genthoughts = []
+            infthoughts = []
             if main_cat.age == 'newborn':
                 with open(f"{base_path}{life_dir}{spec_dir}/newborn.json", 'r') as read_file:
                     thoughts = ujson.loads(read_file.read())
@@ -405,7 +446,12 @@ class Thoughts:
                     thoughts = ujson.loads(read_file.read())
                 with open(f"{base_path}{life_dir}{spec_dir}/general.json", 'r') as read_file:
                     genthoughts = ujson.loads(read_file.read())
-                loaded_thoughts = thoughts + genthoughts
+
+                # with open(f"{base_path}{life_dir}/infection/general.json", 'r') as read_file:
+                #     infthoughts = ujson.loads(read_file.read())
+
+
+            loaded_thoughts = thoughts + genthoughts + infthoughts
 
             final_thoughts = Thoughts.create_thoughts(loaded_thoughts, main_cat, other_cat, game_mode, biome,
                                                       season, camp)

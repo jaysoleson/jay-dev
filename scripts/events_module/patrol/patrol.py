@@ -1314,6 +1314,10 @@ class Patrol:
         else:
             file_name = self.patrol_event.patrol_art
 
+        # INF
+        file_name = file_name.replace("INFTYPE", game.clan.infection["infection_type"])
+        # ---
+
         if not isinstance(file_name, str) or not path_exists(
             f"{root_dir}{file_name}.png"
         ):

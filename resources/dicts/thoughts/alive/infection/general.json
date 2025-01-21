@@ -1,0 +1,221 @@
+[
+    {
+        "id": "gen_infected",
+        "thoughts": [
+            "Hisses at r_c to stay away, concerned {PRONOUN/m_c/subject}'ll infect {PRONOUN/r_c/object}",
+            "Is feeling awful",
+            "Can't stand this",
+            "Wishes {PRONOUN/m_c/poss} appearance didn't scare the kits so much",
+            "Doesn't recognise {PRONOUN/m_c/poss} reflection anymore",
+            "Is in pain",
+            "Feels very alone",
+            "Misses being healthy"
+        ],
+        "main_infected_constraint": [
+            "infected"
+        ],
+        "main_age_constraint": [
+            "no_kit"
+        ]
+    },
+    {
+        "id": "gen_not_infected",
+        "thoughts": [
+            "Is wondering when {PRONOUN/m_c/subject}'ll be able to sleep soundly again."
+        ],
+        "main_infected_constraint": [
+            "not_infected"
+        ],
+        "main_age_constraint": [
+            "no_kit"
+        ],
+        "log_prereq": [
+            "zombie"
+        ]
+    },
+    {
+        "id": "gen_infected_nocure",
+        "thoughts": [
+            "Is starting to doubt a cure exists",
+            "Wonders if Twolegs would know the cure",
+            "Prays to StarClan for a cure",
+            "Is clinging to the hope that there's still a solution out there somewhere"
+        ],
+        "infection": [
+            "not_cured"
+        ]
+    },
+    {
+        "id": "gen_infected_cure",
+        "thoughts": [
+            "Thanks StarClan for the cure"
+        ],
+        "infection": [
+            "cured"
+        ]
+    },
+    {
+        "id": "gen_infected_cure_med",
+        "thoughts": [
+            "Is planting ingredients for the cure in a new garden",
+            "Can't wait for everyone to be cured for {PRONOUN/m_c/subject} can rest"
+        ],
+        "infection": [
+            "cured"
+        ],
+        "main_status_constraint": [
+            "medicine cat",
+            "medicine cat apprentice"
+        ]
+    },
+    {
+        "id": "gen_infection_queen",
+        "thoughts": [
+            "Tries to comfort the kits to no avail",
+            "Keeps a close eye on the kits to ensure they don't get sick",
+            "Considers completely isolating the kits from the Clan to protect them",
+            "Dodges r_c's questions about {PRONOUN/r_c/poss} infected Clanmates"
+        ],
+        "main_infected_constraint": [
+            "not_infected"
+        ],
+        "main_status_constraint": [
+            "queen",
+            "queen's apprentice"
+        ],
+        "random_status_constraint": [
+            "kitten"
+        ],
+        "random_infected_constraint": [
+            "not_infected"
+        ]
+    },
+    {
+        "id": "gen_med_to_infected",
+        "thoughts": [
+            "Thinks {PRONOUN/m_c/subject} could've done more to prevent r_c's infection",
+            "Promises r_c that the cure is just around the corner",
+            "Can't help blaming {PRONOUN/m_c/self} for not having a cure yet"
+        ],
+        "main_infected_constraint": [
+            "not_infected"
+        ],
+        "random_infected_constraint": [
+            "infected"
+        ],
+        "main_status_constraint": [
+            "medicine cat",
+            "medicine cat apprentice"
+        ],
+        "infection": [
+            "not_cured"
+        ]
+    },
+    {
+        "id": "neurotic_infected",
+        "thoughts": [
+            "Coughs and then panics, thinking {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} infected",
+            "Double-checks the fresh-kill pile for infected prey",
+            "Has checked {PRONOUN/m_c/poss} loved ones' pelts for signs of infection at least a dozen times today"
+        ],
+        "main_cluster_constraint": [
+            "neurotic"
+        ],
+        "main_infected_constraint": [
+            "not_infected"
+        ],
+        "main_age_constraint": [
+            "no_kit"
+        ]
+    },
+    {
+        "id": "deputy_infection",
+        "thoughts": [
+            "Patrols the camp perimeter, sniffing the air for infection"
+        ],
+        "main_infected_constraint": [
+            "not_infected"
+        ],
+        "main_status_constraint": [
+            "deputy",
+            "leader",
+            "warrior"
+        ]
+    },
+    {
+        "id": "leader_infection",
+        "thoughts": [
+            "Had a nightmare that the Clan had fallen",
+            "Is thinking of stepping down due to stress"
+        ],
+        "main_status_constraint": [
+            "deputy",
+            "leader"
+        ]
+    },
+    {
+        "id": "medcat_infection_nocure",
+        "thoughts": [
+            "Brainstorms potential new ingredients for the cure",
+            "Is having dreams about herbs",
+            "Sees herbs when {PRONOUN/m_c/subject} {VERB/m_c/close/closes} {PRONOUN/m_c/poss} eyes"
+        ],
+        "main_status_constraint": [
+            "medicine cat",
+            "medicine cat apprentice"
+        ],
+        "infection": [
+            "not_cured"
+        ]
+    },
+    {
+        "id": "medcat_infection_notinfected",
+        "thoughts": [
+            "Is surprised {PRONOUN/m_c/subject} {VERB/m_c/haven't/hasn't} caught the infection yet"
+        ],
+        "main_status_constraint": [
+            "medicine cat",
+            "medicine cat apprentice"
+        ],
+        "main_infected_constraint": [
+            "not_infected"
+        ]
+    },
+    {
+        "id": "gen_infected_rc",
+        "thoughts": [
+            "Saw r_c getting dragged out of the medicine den",
+            "Jumps when r_c walks by"
+        ],
+        "main_infected_constraint": [
+            "not_infected"
+        ],
+        "random_infected_constraint": [
+            "infected"
+        ],
+        "main_age_constraint": [
+            "no_kit"
+        ]
+    },
+    {
+        "id": "gen_undead",
+        "thoughts": [
+            "Stumbles into trees",
+            "Doesn't seem to be feeling pain anymore",
+            "... ... ...",
+            "... ... ...",
+            "... ... ...",
+            "... ... ...",
+            "Sways back and forth with the wind",
+            "Never goes to sleep",
+            "Never blinks",
+            "Idly chews on {PRONOUN/m_c/poss} own paw"
+        ],
+        "main_infected_constraint": [
+            "undead"
+        ],
+        "main_age_constraint": [
+            "no_kit"
+        ]
+    }
+]

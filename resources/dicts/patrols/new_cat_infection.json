@@ -5,14 +5,14 @@
         "season": ["any"],
         "types": ["border"],
         "tags": ["new_cat", "infection"],
-        "patrol_art": "gen_bord_newcat",
+        "patrol_art": "newcat_infected_INFTYPE",
         "min_cats": 2,
         "max_cats": 6,
         "min_max_status": {
             "healer cats": [-1, 0]
         },
         "weight": 30,
-        "intro_text": "The patrol stumbles across a loner who smells of infection.",
+        "intro_text": "The patrol stumbles across an infected loner.",
         "decline_text": "The patrol dismisses them quickly and heads back to camp.",
         "chance_of_success": 40,
         "success_outcomes": [
@@ -255,7 +255,7 @@
             "healer cats": [1, 6]
         },
         "weight": 15,
-        "intro_text": "The patrol comes across a kittypet, who is immediately apologetic for trespassing. The kittypet is carryign some priority_herb and explains that they're looking for a friend of theirs to attempt to treat their infection.",
+        "intro_text": "The patrol comes across a kittypet, who is immediately apologetic for trespassing. The kittypet is carrying some priority_herb and explains that they're looking for a friend of theirs to attempt to treat their infection.",
         "decline_text": "",
         "chance_of_success": 50,
         "success_outcomes": [
