@@ -210,11 +210,12 @@ class TreatmentScreen(Screens):
             self.herb_displays[ele].kill()
         self.herb_displays = {}
         
-        self.scroll_container = pygame_gui.elements.UIScrollingContainer(ui_scale(pygame.Rect(
-            (0, 455), (650, 145))),
+        self.scroll_container = pygame_gui.elements.UIScrollingContainer(
+            ui_scale(pygame.Rect((0, 455), (650, 145))),
             allow_scroll_x=False,
             manager=MANAGER,
-            anchors={"centerx": "centerx"})
+            anchors={"centerx": "centerx"}
+            )
 
         # cure logs
         logs = 0
@@ -226,7 +227,7 @@ class TreatmentScreen(Screens):
             moon_text = f"<b>Moon {treatment['moon']}</b>"
             self.herb_displays["moon_text_box" + str(logs)] = pygame_gui.elements.UITextBox(
                 moon_text,
-                pygame.Rect((80, y_offset), (log_width, 25)),
+                pygame.Rect((80, y_offset), (log_width, 30)),
                 container=self.scroll_container,
                 manager=MANAGER,
                 object_id="#text_box_30_horizcenter")

@@ -13,6 +13,7 @@
         "max_cats": 6,
         "min_max_status": {},
         "weight": 20,
+        "log_prereq": ["lore_spread_by_bite"],
         "intro_text": "With the infection being spread by infected bites, p_l has decided to try and teach some Clanmates how to effectively avoid a bite from a rogue when in a fight.",
         "decline_text": "The concept scares the rest of the patrol and p_l decides to save it for another day.",
         "chance_of_success": 20,
@@ -32,7 +33,7 @@
                 ]
             },
             {
-                "text": "p_l and r_c demonstrate a technique that involves holding the opponents head away from you with your hind paws and using your forelegs to scratch up their muzzle. The practice session goes great, and p_l feels confident that their Clanmates will be able to defend themselves.",
+                "text": "p_l and r_c demonstrate a technique that involves holding the opponents head away from you with your hind paws and using your forelegs to scratch up their muzzle. The practice session goes great, and p_l feels confident that {PRONOUN/p_l/poss} Clanmates will be able to defend themselves.",
                 "exp": 40,
                 "weight": 20,
                 "relationships": [

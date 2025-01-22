@@ -287,8 +287,6 @@ class Clan:
         # INF
         herb1, herb2, herb3, herb4 = random.sample(HERBS, 4)
 
-        print("clan.py 1", self.infection["infection_type"])
-
         self.infection = {
             "clan_infected": False,
             "infection_type": self.infection["infection_type"] if self.infection["infection_type"] else choice(["fungal", "parasitic", "void"]),
@@ -307,8 +305,6 @@ class Clan:
             "killed_infected": ""
         }
         # ---
-
-        print("clan.py 2", self.infection["infection_type"])
 
 
         key_copy = tuple(Cat.all_cats.keys())

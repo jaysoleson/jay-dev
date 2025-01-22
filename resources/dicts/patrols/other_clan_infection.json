@@ -31,7 +31,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "The patrol finds a couple of o_c_n cats burying some infected prey at the border. p_l warns them to bury their dangerous prey away from c_n territory next time, and the o_c_n cats leave, tails twitching.",
+                "text": "The patrol finds a couple of o_c_n cats burying some infected prey at the border. s_c warns them to bury their dangerous prey away from c_n territory next time, and the o_c_n cats leave, tails twitching.",
                 "exp": 0,
                 "weight": 20,
                 "stat_trait": ["vengeful", "troublesome", "cold", "strict"],
@@ -89,7 +89,7 @@
                 "other_clan_rep": -1
             },
             {
-                "text": "Before the o_c_n patrol can even get to the border, p_l announces that they smell an infected cat. Is o_c_n sending infected cats to their truce meeting? The patrol turns around right away, making sure to muddy up the border marker as a sign of their disdain.",
+                "text": "Before the o_c_n patrol can even get to the border, p_l announces that {PRONOUN/p_l/subject} {VERB/p_l/smell/smells} an infected cat. Is o_c_n sending infected cats to their truce meeting? The patrol turns around right away, making sure to muddy up the border marker as a sign of their disdain.",
                 "exp": 0,
                 "weight": 20,
                 "other_clan_rep": -1
@@ -97,7 +97,7 @@
             {
                 "text": "The o_c_n patrol is already at the border when the patrol arrives. When they get close, p_l and r_c exchange uncertain glances about one of the other patrol members-- it seems o_c_n has brought an infected cat to the border meeting. Just before p_l can propose parting ways early, the infected cat lunges over the border, reaching for r_c with unsheathed claws. p_l manages to pull {PRONOUN/r_c/object} out of the way, and the rest of o_c_n's patrol is apologetic, but the damage has been done.",
                 "exp": 0,
-                "weight": 20,
+                "weight": 10,
                 "other_clan_rep": -2
             },
             {

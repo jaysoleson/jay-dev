@@ -149,10 +149,13 @@ class LeaderDenScreen(Screens):
         )
 
         if "cure_found" in game.clan.infection["logs"] and game.clan.infection["clan_infected"] is False:
+            self.open_borders_button.show()
             if game.clan.infection["next_infection_allowed"] is False:
                 self.open_borders_button.enable()
             else:
                 self.open_borders_button.disable()
+        else:
+            self.open_borders_button.hide()
 
         # BACK AND HELP
         self.back_button = UISurfaceImageButton(

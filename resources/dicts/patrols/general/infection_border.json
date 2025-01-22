@@ -95,7 +95,7 @@
                 "weight": 20
             },
             {
-                "text": "p_l unsheathes {PRONOUN/p_l/poss} claws and puffs up, encouraging the intruder to come and face {PRONOUN/p_l/object}. What stumbles out of the bush is an infected cat, beyond saving, and p_l is able to swiftly take {PRONOUN/p_l/object} down.",
+                "text": "p_l unsheathes {PRONOUN/p_l/poss} claws and puffs up, encouraging the intruder to come and face {PRONOUN/p_l/object}. What stumbles out of the bush is an infected cat, beyond saving, and p_l is able to swiftly take it down.",
                 "exp": 40,
                 "weight": 20
             },
@@ -192,66 +192,6 @@
         "fail_outcomes": [
             {
                 "text": "r_c steps forward to check on the cat, but p_l stops {PRONOUN/r_c/object}. Whatever that illness is, it smells dangerous, and the Clan might not have the resources to deal with an outbreak. Reluctantly, the patrol heads home to report the incident.",
-                "exp": 0,
-                "weight": 20
-            }
-        ]
-    },
-    {
-        "patrol_id": "infection_border_J1",
-        "biome": ["any"],
-        "season": ["any"],
-        "types": ["border"],
-        "tags": [
-            "infection"
-        ],
-        "patrol_art": "bord_general_intro",
-        "min_cats": 1,
-        "max_cats": 1,
-        "min_max_status": {},
-        "weight": 20,
-        "intro_text": "p_l heads out to the border alone, wanting to clear {PRONOUN/p_l/poss} head. As {PRONOUN/p_l/subject} {VERB/p_l/get/gets} close to the edge of the territory, {PRONOUN/p_l/subject} {VERB/p_l/notice/notices} a pair of malicious eyes following {PRONOUN/p_l/object} from the shadows.",
-        "decline_text": "p_l turns and races back to camp!",
-        "chance_of_success": 20,
-        "success_outcomes": [
-            {
-                "text": "Unsure of whether {PRONOUN/p_l/subject}{VERB/p_l/'re/'s} imagining it or not, p_l continues on. Once {PRONOUN/p_l/subject}{VERB/p_l/'re/'s} done {PRONOUN/p_l/poss} walk, the eyes are nowhere to be found.",
-                "exp": 40,
-                "weight": 20
-            },
-            {
-                "text": "p_l unsheathes {PRONOUN/p_l/poss} claws and puffs up, encouraging the intruder to come and face {PRONOUN/p_l/object}. What stumbles out of the bush is an infected cat, beyond saving, and p_l is able to swiftly take {PRONOUN/p_l/object} down.",
-                "exp": 40,
-                "weight": 20
-            },
-            {
-                "text": "s_c yowls at the intruder to come out and fight. Within a few heartbeats, a violent, infected cat launches out of the bush to tackle {PRONOUN/p_l/object}. s_c manages to fend the sick cat off until they stumble across the border, where they become unreachable.",
-                "exp": 40,
-                "weight": 20,
-                "stat_trait": [
-                    "ambitious",
-                    "confident",
-                    "fierce",
-                    "righteous",
-                    "bloodthirsty",
-                    "vengeful",
-                    "bold"
-                ]
-            }
-        ],
-        "fail_outcomes": [
-            {
-                "text": "p_l is sure {PRONOUN/p_l/subject} must be imagining it. {PRONOUN/p_l/subject/CAP} {VERB/p_l/finish/finishes} {PRONOUN/p_l/poss} walk and {VERB/p_l/turn/turns} to head back, but when {PRONOUN/p_l/subject} {VERB/p_l/do/does}, an infected cat is waiting for {PRONOUN/p_l/object}, sick beyond saving. The infected cat tears into p_l without hesitation, not even giving {PRONOUN/p_l/object} time to scream.",
-                "exp": 0,
-                "weight": 10,
-                "dead_cats": ["p_l"],
-                "history_text": {
-                    "reg_death": "This cat was killed by an infected cat on the border.",
-                    "lead_death": "was killed by an infected cat on the border"
-                }
-            },
-            {
-                "text": "p_l tosses a stone into the bush and the intruder stumbles out, a heavily infected o_c_n cat. Not wanting to cause any problems between Clans, p_l runs, hoping the poor cat will find their way back into their own territory.",
                 "exp": 0,
                 "weight": 20
             }

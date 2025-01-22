@@ -12,12 +12,12 @@
             "healer cats": [-1, 0]
         },
         "weight": 30,
-        "intro_text": "The patrol stumbles across an infected loner.",
+        "intro_text": "The patrol comes across an infected loner. Despite their illness, there's still a bit of light behind their eyes.",
         "decline_text": "The patrol dismisses them quickly and heads back to camp.",
         "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "The patrol invites the loner into the Clan for treatment, and {PRONOUN/n_c:0/subject} warily {VERB/n_c:0/accept/accepts}.",
+                "text": "After careful consideration, the patrol invites the loner into the Clan for treatment, and {PRONOUN/n_c:0/subject} warily {VERB/n_c:0/accept/accepts}.",
                 "exp": 10,
                 "weight": 20,
                 "new_cat": [
@@ -40,7 +40,7 @@
                 ]
             },
             {
-                "text": "The patrol offers the loner a place to stay in the Clan for treatment, and {PRONOUN/n_c:0/subject} {VERB/n_c:0/accept/accepts} with a quick nod, unable to speak very clearly.",
+                "text": "After deciding that the loner is likely not infected enough to be too dangerous, the patrol offers the loner a place to stay in the Clan for treatment, and {PRONOUN/n_c:0/subject} {VERB/n_c:0/accept/accepts} with a quick nod, unable to speak very clearly.",
                 "exp": 10,
                 "weight": 5,
                 "new_cat": [
@@ -78,31 +78,59 @@
                         "injuries": ["stage two"]
                     }
                 ]
-            }
-        ],
-        "antag_fail_outcomes": [
+            },
             {
-                "text": "The patrol threatens the infected cat, but the loner doesn't seem to be listening. In a daze, {PRONOUN/n_c:0/subject} {VERB/n_c:0/stumble/stumble} off.",
+                "text": "p_l walks towards the cat, tail up to appear friendly. However, when {PRONOUN/p_l/subject} {VERB/p_l/open/opens} {PRONOUN/p_l/poss} mouth to offer the sick cat a place to stay, the loner lunges forward, claws unsheathed. p_l is able to wriggle free from the attack with the help of the patrol and they hurry back to camp to ensure that p_l hasn't gotten sick, leaving the infected loner on Clan territory.",
                 "exp": 0,
-                "weight": 20,
+                "weight": 10,
                 "outsider_rep": -1,
                 "new_cat": [
                     ["meeting", "loner"]
                 ],
+                "injury": [
+                    {
+                        "cats": ["p_l"],
+                        "injuries": ["battle_injury"]
+                    },
+                    {
+                        "cats": ["n_c:0"],
+                        "injuries": ["stage three"]
+                    }
+                ],
                 "relationships": [
                     {
-                        "cats_from": ["n_c:0"],
-                        "cats_to": ["patrol"],
+                        "cats_from": [
+                            "n_c:0"
+                        ],
+                        "cats_to": [
+                            "patrol"
+                        ],
                         "mutual": true,
-                        "values": ["dislike"],
-                        "amount": 40
+                        "values": [
+                            "dislike"
+                        ],
+                        "amount": 35
                     }
                 ]
             }
         ],
+        "antag_fail_outcomes": [
+            {
+                "text": "The patrol threatens the infected cat, but the loner doesn't seem to be listening. In a daze, they stumble off.",
+                "exp": 0,
+                "weight": 20,
+                "outsider_rep": -1
+            },
+            {
+                "text": "The patrol stands up to the cat, tails lashing and hurling threats at the sick cat to get away from their territory. In response to their shouting, the cat takes a step forward and falls onto their face. When p_l approaches, the infected body has stopped breathing. Poor thing.",
+                "exp": 0,
+                "weight": 20,
+                "outsider_rep": 0
+            }
+        ],
         "antag_success_outcomes": [
             {
-                "text": "The patrol drives the loner off of the territory.",
+                "text": "The patrol puffs up, hissing at the cat to get away from their territory. Though the sick cat looks to be in a daze, they're still conscious enough to hear this and make the wise decision to turn around, stumbling away from Clan territory.",
                 "exp": 10,
                 "weight": 20,
                 "outsider_rep": -2
@@ -248,7 +276,7 @@
             "infection",
             "fungal"
         ],
-        "patrol_art": "gen_bord_newcatkittypet1",
+        "patrol_art": "gen_gen_newmed",
         "min_cats": 2,
         "max_cats": 6,
         "min_max_status": {
@@ -256,7 +284,7 @@
         },
         "weight": 15,
         "intro_text": "The patrol comes across a kittypet, who is immediately apologetic for trespassing. The kittypet is carrying some priority_herb and explains that they're looking for a friend of theirs to attempt to treat their infection.",
-        "decline_text": "",
+        "decline_text": "The patrol turns down the kittypet. Not their problem!",
         "chance_of_success": 50,
         "success_outcomes": [
             {
@@ -387,7 +415,7 @@
         "season": ["any"],
         "types": ["border"],
         "tags": ["new_cat", "infection"],
-        "patrol_art": "gen_bord_newkit",
+        "patrol_art": "gen_one_kit",
         "min_cats": 1,
         "max_cats": 6,
         "min_max_status": {

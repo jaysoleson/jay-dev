@@ -176,12 +176,12 @@
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "Startled, you alert the nearby r_w_brooding, who agrees that the squabbling is annoying. {PRONOUN/r_w_brooding/subject/CAP} quickly {VERB/r_w_brooding/scale/scales} the tree and {VERB/r_w_brooding/manage/manages} to snatch the second bird from the branch with one paw while it's distracted. You feel bad for the poor thing, but when r_w_brooding offers to share the prey with you, your sadness quickly dissipates into hunger!",
+                "text": "Startled, you alert the nearby r_w, who agrees that the squabbling is annoying. {PRONOUN/r_w/subject/CAP} quickly {VERB/r_w/scale/scales} the tree and {VERB/r_w/manage/manages} to snatch the second bird from the branch with one paw while it's distracted. You feel bad for the poor thing, but when r_w offers to share the prey with you, your sadness quickly dissipates into hunger!",
                 "exp": 10,
                 "weight": 20,
                 "relationships": [
                     {
-                        "cats_to": ["r_w_brooding"],
+                        "cats_to": ["r_w"],
                         "cats_from": ["y_c"],
                         "mutual": true,
                         "values": ["platonic"],
@@ -254,7 +254,7 @@
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "You cautiously bat a moss ball across the nursery towards where they sit in the darkest corner. It takes a moment, but after a shake of the head, r_k_infected hits it back, and you play a nice long-distance game of moss ball. Almost as if everything were normal.",
+                "text": "You cautiously bat a moss ball across the nursery towards where {PRONOUN/r_k_infected/subject} {VERB/r_k_infected/sit/sits} in the darkest corner. It takes a moment, but after a shake of the head, r_k_infected hits it back, and you play a nice long-distance game of moss ball. Almost as if everything were normal.",
                 "exp": 10,
                 "weight": 20,
                 "relationships": [
@@ -306,17 +306,17 @@
             "kitten": [1, 1]
         },
         "weight": 60,
-        "intro_text": "r_m_unabashed seems very stressed about this strange illness. You ask {PRONOUN/r_m_unabashed/object} what makes this illness so upsetting, and {PRONOUN/r_m_unabashed/subject} {VERB/r_m_unabashed/ask/asks} if you really, <i>really</i> want to know.",
+        "intro_text": "r_m seems very stressed about this strange illness. You ask {PRONOUN/r_m/object} what makes this illness so upsetting, and {PRONOUN/r_m/subject} {VERB/r_m/ask/asks} if you really, <i>really</i> want to know.",
         "decline_text": "On second thought, maybe some things are better left to the grown ups.",
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "You nod fervently. r_m_unabashed tells you that this disease has no known cure. No cat knows how to stop it, and it could kill anycat at any time. Even r_w, even l_n. Even y_p. After thoroughly scaring you, r_m_unabashed tells you that the Clan has to work hard to gather the right herbs to stop this, and {PRONOUN/r_m_unabashed/subject} {VERB/r_m_unabashed/teach/teaches} you about a couple of herbs to take your mind off of the horror.",
+                "text": "You nod fervently. r_m tells you that this disease has no known cure. No cat knows how to stop it, and it could kill anycat at any time. Even r_w, even l_n. Even y_p. After thoroughly scaring you, r_m tells you that the Clan has to work hard to gather the right herbs to stop this, and {PRONOUN/r_m/subject} {VERB/r_m/teach/teaches} you about a couple of herbs to take your mind off of the horror.",
                 "exp": 10,
                 "weight": 20,
                 "relationships": [
                     {
-                        "cats_to": ["r_m_unabashed"],
+                        "cats_to": ["r_m"],
                         "cats_from": ["y_c"],
                         "mutual": true,
                         "values": ["platonic"],
@@ -327,7 +327,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "r_m_unabashed launches into a spooky story about deadly diseases and sick Clanmates turning evil and killing misbehaving kittens. You're not sure if you believe {PRONOUN/r_m_unabashed/object}... but you're still a shaken when you leave the den.",
+                "text": "r_m launches into a spooky story about deadly diseases and sick Clanmates turning evil and killing misbehaving kittens. You're not sure if you believe {PRONOUN/r_m/object}... but you're still a shaken when you leave the den.",
                 "exp": 10,
                 "weight": 20
             }
@@ -365,17 +365,21 @@
                 "weight": 20
             },
             {
-                "text": "You grab r_w_assertive, who decides with you to destroy the thing. You both know that spores can be dangerous, so the warrior rolls a large rock on top of it. Hopefully this will stop its fungus from spreading and destroying any herbs."
+                "text": "You grab r_w, who decides with you to destroy the thing. You both know that spores can be dangerous, so the warrior rolls a large rock on top of it. Hopefully this will stop its fungus from spreading and destroying any herbs.",
+                "exp": 10,
+                "weight": 20
             }
         ],
         "fail_outcomes": [
             {
                 "text": "You approach the mushroom and sniff is hesitantly. When you do, it starts to lean towards you, as if it has a mind of its own. Slightly unsettled, you stand up and walk away, hoping it wont follow you, somehow.",
-                "exp": 10,
+                "exp": 0,
                 "weight": 20
             },
             {
-                "text": "You approach the mushroom. Sniffing it hurts your nose, and you decide to back off before it makes you sick."
+                "text": "You approach the mushroom. Sniffing it hurts your nose, and you decide to back off before it makes you sick.",
+                "exp": 0,
+                "weight": 20
             }
         ]
     },
@@ -405,7 +409,7 @@
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "You wander towards it, but r_w_neurotic calls out to you, warning you not to get your nose too close. {PRONOUN/r_w_neurotic/subject} finds a large stick and uses it to nudge the weird thing out of camp until it' picked up again by the wind and carried away.",
+                "text": "You wander towards it, but r_w calls out to you, warning you not to get your nose too close. {PRONOUN/r_w/subject} finds a large stick and uses it to nudge the weird thing out of camp until it' picked up again by the wind and carried away.",
                 "exp": 10,
                 "weight": 20
             }
@@ -1281,6 +1285,89 @@
             {
                 "text": "You decide to risk it and begin trotting towards the camp entrance, but you stop in your tracks when you hear a cough behind you. Nope, you're too important to leave! You turn around to find the source, hoping that a Clanmate just has something in their throat.",
                 "exp": 10,
+                "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "gen_kit_inf_1",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection"
+        ],
+        "patrol_art": "lg_kit_default",
+        "min_cats": 1,
+        "max_cats": 3,
+        "min_max_status": {
+            "kitten": [1, 1]
+        },
+        "weight": 20,
+        "intro_text": "All of the grownups around camp have been so worried about getting sick lately. You want to help out somehow.",
+        "decline_text": "You decide to stay put in the nursery. You might just get in the way, anyway.",
+        "chance_of_success": 70,
+        "success_outcomes": [
+            {
+                "text": "You decide to organise the fresh-kill pile! You dig through the prey, separating different types of prey into different, smaller piles so that it'll be easier for the warriors to grab their favourites later. A warrior comes up next to you, giving you a thankful nudge as they pick a crow from the top of the bird pile. Job well done!",
+                "exp": 10,
+                "weight": 20
+            },
+            {
+                "text": "You know how sicknesses are passed-- gross things, like bugs! You patrol the entire camp all day, squishing every bug that you find. Now the camp is squeaky clean!",
+                "exp": 5,
+                "weight": 20
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You stand up to leave the nursery, hoping to go help out in the medicine den for the day, but a warrior runs by and nearly knocks you over almost immediately. Maybe you're too small to be wandering around a busy camp.",
+                "exp": 10,
+                "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "gen_kit_inf_2",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection"
+        ],
+        "patrol_art": "lg_kit_default",
+        "min_cats": 1,
+        "max_cats": 3,
+        "min_max_status": {
+            "kitten": [1, 1]
+        },
+        "weight": 20,
+        "intro_text": "Everycat in camp has been so stressed about that strange sickness. So stressed, in fact, that you feel guilty for continuing to play and have fun around them. Today, tensions are particularly high in the nursery... but that puddle outside looks <i>so</i> inviting.",
+        "decline_text": "You resist the urge to splash around and stay still, lending your solemn ear to the anxious queens.",
+        "chance_of_success": 70,
+        "success_outcomes": [
+            {
+                "text": "A good puddle is impossible to resist! You race outside and launch yourself into the puddle, gigglign as the droplets spray the nursery walls. To your delight, the grownups in the clearing stop their anxious conversations to laugh along with you.",
+                "exp": 10,
+                "weight": 20
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You can't resist a good puddle! You race outside and leap into the puddle, but as soon as the droplets hit the nursery walls, you're scolded for causing such a distraction in the clearing. A warrior nudges you back inside to dry off and you hang your head, remainign silent for the rest of the day.",
+                "exp": 0,
                 "weight": 20
             }
         ]

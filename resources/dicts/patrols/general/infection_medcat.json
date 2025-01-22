@@ -149,7 +149,7 @@
             {
                 "text": "As p_l approaches the tree, visibly agitated, the loner gets started and disappears into the trees. r_c tries to shout a goodbye, but the cat must be quick. Now, back to work!",
                 "exp": 0,
-                "weight": 10,
+                "weight": 20,
                 "herbs": ["random_herbs"]
             }
         ]

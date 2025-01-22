@@ -48,5 +48,84 @@
                 ]
             }
         ]
+    },
+    {
+        "patrol_id": "lore_void_4",
+        "biome": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "types": [
+            "hunting"
+        ],
+        "tags": [
+            "lore_void_4",
+            "infection",
+            "void"
+        ],
+        "log_prereq": ["prey_death"],
+        "patrol_art": "fst_hunt_mice_ohnotheyrehot",
+        "min_cats": 2,
+        "max_cats": 6,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "With so much sick prey around camp, the patrol decides to venture somewhere dangerous-- the Twolegplace. When they get to the Twolegplace's entrance, however, it smells equally sick, if not worse. But without a Twoleg in sight, the patrol can't be certain if it's a good idea to go in.",
+        "decline_text": "The patrol can't risk it-- they head back into Clan territory to try for some healthy prey.",
+        "chance_of_success": 60,
+        "success_outcomes": [
+            {
+                "text": "Cautiously, p_l leads the patrol into the Twolegplace. While these stone paths would usually be swarming with Twolegs and monsters, today, the entire place is completely quiet, save for the occasional distant bark of a dog. The entire place smells strongly of infection, and several Twoleg objects are seen speckled with the black sickness consuming infected cats' pelts. However, the patrol never catches the scents of any Twolegs-- or, more importantly, the scents of any prey. They head home empty-pawed and full of questions.",
+                "exp": 10,
+                "weight": 10,
+                "prey": [
+                    "small"
+                ],
+                "cure_log": [
+                    {
+                        "entry": "lore_void_4"
+                    }
+                ]
+            },
+            {
+                "text": "The patrol enters the Twolegplace, wandering the stone paths in confusion. None of the monsters seem to be awake, and no matter how hard they search, no cat can catch the scent of a single Twoleg. What happened to them?",
+                "exp": 10,
+                "weight": 15,
+                "prey": [
+                    "small"
+                ],
+                "cure_log": [
+                    {
+                        "entry": "lore_void_4"
+                    }
+                ]
+            },
+            {
+                "text": "The patrol enters the Twolegplace. With no Twolegs in sight, a small new population of prey have made their homes in the territory. The patrol is able to find a decent amount of uninfected prey to bring home.",
+                "exp": 10,
+                "weight": 5,
+                "prey": [
+                    "medium"
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "The patrol steps into the Twolegplace. While, at first, it seems completely abandoned, wiped out by infection, the patrol is given a scare when an infected Twoleg tumbles out of a monster in front of them, its scent masked by sickness. The Twoleg lunges towards them on all fours with a weak, infected paw, but it's much too far away and slow to be any real danger. The patrol leaves, full of questions and empty-pawed.",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "The patrol steps into the Twolegplace, but is immediately greeted with the horrifying sight of a camp full of Twolegs. With the entire population infected, their scent had been masked by the sickness. r_c lets out a yelp, causing some of the half-awake Twolegs to turn their heads, and the patrol runs away as fast as their legs can carry them, hoping they're not followed.",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "p_l steps into the Twolegplace, but, almost immediately, is stopped. An infected Twoleg paw shoots out from under a sleeping monster, tripping p_l and trying to grab {PRONOUN/p_l/object}. p_l gives it a smack before sprinting back to camp with the rest of the patrol.",
+                "exp": 0,
+                "weight": 20
+            }
+        ]
     }
 ]
