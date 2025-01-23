@@ -153,5 +153,196 @@
                 "herbs": ["random_herbs"]
             }
         ]
+    },
+    {
+        "patrol_id": "gen_infection_med_J3",
+        "biome": [
+            "Any"
+        ],
+        "season": [],
+        "types": [
+            "herb_gathering"
+        ],
+        "tags": [
+            "infection"
+        ],
+        "patrol_art": "gen_med_gatheringcatmint_newleaf3",
+        "min_cats": 3,
+        "max_cats": 6,
+        "min_max_status": {
+            "healer cats": [1, 1],
+            "warrior": [1, 5]
+        },
+        "weight": 20,
+        "intro_text": "A bit anxious to be out herb gathering alone with all of this chaos going on, p_l brings a group of warriors with them. However, {PRONOUN/p_l/subject}{VERB/p_l/'re/'s} on the hunt for ragwort, and {PRONOUN/p_l/subject}{VERB/p_l/'re/'s} a bit concerned that the warriors have no idea what it looks like.",
+        "decline_text": "p_l decides not to deal with the uneducated warriors and heads back to camp.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "s_c runs up to p_l from behind, mumbling through a mouthful of herbs that {PRONOUN/s_c/subject} {VERB/s_c/think/thinks} {PRONOUN/s_c/subject}{VERB/s_c/'ve/'s} found some. To p_l's surprise, when {PRONOUN/p_l/subject} {VERB/p_l/turn/turns} around, {PRONOUN/p_l/subject} {VERB/p_l/find/finds} that s_c has indeed collected a large bundle of ragwort! p_l praises s_c and makes sure the rest of the patrol gets a good look at the herbs.",
+                "exp": 0,
+                "weight": 20,
+                "herbs": ["ragwort"],
+                "can_have_stat": ["r_c"],
+                "stat_skill": ["HEALER,1"]
+            },
+            {
+                "text": "p_l is able to come across a fresh patch of ragwort and calls the rest of the patrol over to take a good look. After memorising the shape of the leaves, each warrior splits off from the group and comes back with a stem or two to add to the pile that they bring back to camp.",
+                "exp": 0,
+                "weight": 20,
+                "herbs": ["ragwort"]
+            },
+            {
+                "text": "p_l asks the patrol to split up to cover more ground. When the group reconvenes, it becomes apparent to p_l that the only thing the warriors remembered about the herbs were their colour. The patrol returns to camp with a pile of assorted yellow herbs to add to the medicine den.",
+                "exp": 0,
+                "weight": 20,
+                "herbs": ["ragwort", "goldenrod", "tansy", "daisy"]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "p_l asks the group to split up to cover more ground. However, when the warriors all return to the meeting spot, no cat has managed to find any ragwort. Perhaps warriors should get some more comprehensive herb training...",
+                "exp": 0,
+                "weight": 10
+            },
+            {
+                "text": "As the patrol searches the territory, p_l catches the distant scent of infection from across the border and stops in {PRONOUN/p_l/poss} tracks. It's better to be safe than sorry; infected herbs are no good. The patrol heads home.",
+                "exp": 0,
+                "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "gen_infection_med_J4",
+        "biome": [
+            "Any"
+        ],
+        "season": [],
+        "types": [
+            "herb_gathering"
+        ],
+        "tags": [
+            "infection",
+            "not_cure_found"
+        ],
+        "patrol_art": "med_cat_looking_up",
+        "min_cats": 1,
+        "max_cats": 1,
+        "min_max_status": {
+            "medicine cat apprentice": [1, 1]
+        },
+        "weight": 20,
+        "intro_text": "p_l, feeling a bit overwhelmed with the medicine den these days, heads out into the territory alone. {PRONOUN/p_l/subject/CAP} {VERB/p_l/know/knows} {PRONOUN/p_l/subject} should gather some herbs, but with the cure still a mystery, {PRONOUN/p_l/subject} {VERB/p_l/feel/feels} unsure about what to do.",
+        "decline_text": "p_l sits alone in the territory for a bit, not bothering to find any herbs. Sometimes, it's good to just relax.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "Though {PRONOUN/p_l/subject} {VERB/p_l/don't/doesn't} know what herbs might be helpful, it's not only medicine that the medicine den needs! p_l spends the day searching for the best nesting materials in the territory-- moss, feathers, grass, and fur. {PRONOUN/p_l/poss/CAP} patients may be infected and sick, but hopefully this can help them get a little bit more comfortable.",
+                "exp": 0,
+                "weight": 10,
+                "herbs": ["moss"],
+                "accessory": [
+                    {
+                        "cats": ["p_l"],
+                        "accessory": [
+                            "RED FEATHERS",
+                            "BLUE FEATHERS",
+                            "JAY FEATHERS",
+                            "GULL FEATHERS",
+                            "SPARROW FEATHERS"
+                        ]
+                    }
+                ]
+            },
+            {
+                "text": "p_l spends the day collecting moss for nests. {PRONOUN/p_l/subject/CAP}{VERB/p_l/'re/'s} unable to provide {PRONOUN/p_l/poss} patients for a cure just yet, but a nice, comfortable nest is the next best thing.",
+                "exp": 0,
+                "weight": 20,
+                "herbs": ["moss"]
+            },
+            {
+                "text": "p_l decides to take a walk to clear {PRONOUN/p_l/poss} head. On {PRONOUN/p_l/poss} stroll, {PRONOUN/p_l/subject} {VERB/p_l/happen/happens} across a patch of daisies and {VERB/p_l/bring/brings} a bundle back to camp.",
+                "exp": 0,
+                "weight": 20,
+                "herbs": ["daisy"],
+                "accessory": [
+                    {
+                        "cats": [
+                            "p_l"
+                        ],
+                        "accessory": [
+                            "DAISY"
+                        ]
+                    }
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "p_l decides to take a walk, hoping to come across some herbs to bring home. However, {PRONOUN/p_l/subject} can't catch a clean scent or see a fresh patch anywhere and {VERB/p_l/return/returns} home empty-pawed.",
+                "exp": 0,
+                "weight": 10
+            },
+            {
+                "text": "p_l decides to head to an herb patch that {PRONOUN/p_l/subject}{VERB/p_l/'re/'s} familiar with. However, when {PRONOUN/p_l/subject} {VERB/p_l/reach/reaches} it, {PRONOUN/p_l/subject}{VERB/p_l/'re/'s} hit with the strong scent of infection and the sight that every herb in the patch has been chewed off. {PRONOUN/p_l/subject/CAP} {VERB/p_l/don't/doesn't} want to meet whatever did this and {VERB/p_l/return/returns} home empty-pawed.",
+                "exp": 0,
+                "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "gen_infection_med_J5",
+        "biome": [
+            "Any"
+        ],
+        "season": [],
+        "types": [
+            "herb_gathering"
+        ],
+        "tags": [
+            "infection",
+            "not_cure_found"
+        ],
+        "patrol_art": "gen_showing_herbs_med_two_war",
+        "min_cats": 3,
+        "max_cats": 6,
+        "min_max_status": {
+            "healer cats": [1, 1]
+        },
+        "weight": 20,
+        "intro_text": "p_l takes a group of warriors out into the territory to show them where to find some herbs. With such an unpredictable infection going around, p_l tells them that they can never be sure that a medicine cat will always be around to help them, and it's time they learned a bit.",
+        "decline_text": "The lesson makes the warriors a bit sad, not to mention bored. p_l shelves it for another day.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "After a thorough lesson on telling the difference between goldenrod, mullein and tansy, p_l sends the warriors out on their own. The group reconvenes with mouths full of herbs and all pass p_l's pop quiz and what they've collected!",
+                "exp": 0,
+                "weight": 10,
+                "herbs": ["goldenrod", "mullein", "tansy"]
+            },
+            {
+                "text": "p_l tries to teach the warriors how to remember the shapes of mallow leaves, but they can't seem to get the information to stick. The patrol still returns home with some herbs, however, as not even a warrior can forget what cobwebs look like.",
+                "exp": 0,
+                "weight": 20,
+                "herbs": ["cobwebs"]
+            },
+            {
+                "text": ".",
+                "exp": 0,
+                "weight": 20
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "No matter how hard {PRONOUN/p_l/subject} {VERB/p_l/try/tries}, it seems that this group of warriors just doesn't feel like learning today. p_l leads the group back home, muttering to {PRONOUN/p_l/self} that these ungrateful warriors are going to wish they'd learned the difference between oak leaves and elder leaves one day.",
+                "exp": 0,
+                "weight": 10
+            },
+            {
+                "text": "p_l spends the day giving the warriors a thorough lesson. However, when the evening pop quiz comes, the pass rate is abysmal. p_l never would have thought remembering the difference between oak leaves and elder leaves could be so difficult. Oh, well. {PRONOUN/p_l/subject/CAP}'ll try again some other day.",
+                "exp": 0,
+                "weight": 20
+            }
+        ]
     }
 ]

@@ -682,6 +682,13 @@ class Cat:
         - if it is None, a lost cat died and therefore not trigger grief, since the clan does not know
         """
 
+        if (
+            self.infected_for > 0 and
+            f"{game.clan.infection['infection_type']} stage four" not in self.illnesses and
+            "lore_undead" in game.clan.infection["logs"]
+            ):
+            game.clan.infection["logs"].append("lore_premature_death")
+
         if f"{game.clan.infection['infection_type']} stage four" in self.illnesses:
             
             if self.history:
@@ -693,6 +700,8 @@ class Cat:
                 self.status != "leader" or
                 (self.ID == game.clan.leader.ID and game.clan.leader_lives <= 1)):
                 self.zombie()
+                if "lore_undead" not in game.clan.infection["logs"]:
+                    game.clan.infection["logs"].append("lore_undead")
             return
 
         if (
