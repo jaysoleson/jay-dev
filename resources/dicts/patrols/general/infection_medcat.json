@@ -174,7 +174,7 @@
             "warrior": [1, 5]
         },
         "weight": 20,
-        "intro_text": "A bit anxious to be out herb gathering alone with all of this chaos going on, p_l brings a group of warriors with them. However, {PRONOUN/p_l/subject}{VERB/p_l/'re/'s} on the hunt for ragwort, and {PRONOUN/p_l/subject}{VERB/p_l/'re/'s} a bit concerned that the warriors have no idea what it looks like.",
+        "intro_text": "A bit anxious to be out herb gathering alone with all of this chaos going on, p_l brings a group of warriors with {PRONOUN/p_l/object}. However, {PRONOUN/p_l/subject}{VERB/p_l/'re/'s} on the hunt for ragwort, and {PRONOUN/p_l/subject}{VERB/p_l/'re/'s} a bit concerned that the warriors have no idea what it looks like.",
         "decline_text": "p_l decides not to deal with the uneducated warriors and heads back to camp.",
         "chance_of_success": 50,
         "success_outcomes": [
@@ -187,7 +187,7 @@
                 "stat_skill": ["HEALER,1"]
             },
             {
-                "text": "p_l is able to come across a fresh patch of ragwort and calls the rest of the patrol over to take a good look. After memorising the shape of the leaves, each warrior splits off from the group and comes back with a stem or two to add to the pile that they bring back to camp.",
+                "text": "p_l is able to come across a fresh patch of ragwort and calls the rest of the patrol over to take a good look. After memorising the shape of the petals, each warrior splits off from the group and comes back with a stem or two to add to the pile that they bring back to camp.",
                 "exp": 0,
                 "weight": 20,
                 "herbs": ["ragwort"]
@@ -196,12 +196,12 @@
                 "text": "p_l asks the patrol to split up to cover more ground. When the group reconvenes, it becomes apparent to p_l that the only thing the warriors remembered about the herbs were their colour. The patrol returns to camp with a pile of assorted yellow herbs to add to the medicine den.",
                 "exp": 0,
                 "weight": 20,
-                "herbs": ["ragwort", "goldenrod", "tansy", "daisy"]
+                "herbs": ["ragwort", "goldenrod", "tansy"]
             }
         ],
         "fail_outcomes": [
             {
-                "text": "p_l asks the group to split up to cover more ground. However, when the warriors all return to the meeting spot, no cat has managed to find any ragwort. Perhaps warriors should get some more comprehensive herb training...",
+                "text": "p_l asks the group to split up to cover more ground. However, when the warriors all return to the meeting spot, no cat has managed to find any ragwort. Perhaps the warriors should get some more comprehensive herb training...",
                 "exp": 0,
                 "weight": 10
             },
@@ -232,7 +232,7 @@
             "medicine cat apprentice": [1, 1]
         },
         "weight": 20,
-        "intro_text": "p_l, feeling a bit overwhelmed with the medicine den these days, heads out into the territory alone. {PRONOUN/p_l/subject/CAP} {VERB/p_l/know/knows} {PRONOUN/p_l/subject} should gather some herbs, but with the cure still a mystery, {PRONOUN/p_l/subject} {VERB/p_l/feel/feels} unsure about what to do.",
+        "intro_text": "p_l, feeling a bit overwhelmed with the medicine den these days, heads out into the territory alone. {PRONOUN/p_l/subject/CAP} {VERB/p_l/know/knows} {PRONOUN/p_l/subject} should gather some herbs, but with the cure to the infection still a mystery, {PRONOUN/p_l/subject} {VERB/p_l/feel/feels} unsure about what would be helpful.",
         "decline_text": "p_l sits alone in the territory for a bit, not bothering to find any herbs. Sometimes, it's good to just relax.",
         "chance_of_success": 50,
         "success_outcomes": [
@@ -325,11 +325,6 @@
                 "exp": 0,
                 "weight": 20,
                 "herbs": ["cobwebs"]
-            },
-            {
-                "text": ".",
-                "exp": 0,
-                "weight": 20
             }
         ],
         "fail_outcomes": [
