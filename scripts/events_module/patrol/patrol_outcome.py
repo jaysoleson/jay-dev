@@ -886,7 +886,8 @@ class PatrolOutcome:
                         f"{game.clan.infection['infection_type']} stage one",
                         f"{game.clan.infection['infection_type']} stage two",
                         f"{game.clan.infection['infection_type']} stage three",
-                        f"{game.clan.infection['infection_type']} stage four"
+                        f"{game.clan.infection['infection_type']} stage four",
+                        "undead"
                     ]:
                         results.append(f"\n<font color='#A6D000'>{_cat.name} is infected.</font")
                     else:  
@@ -897,6 +898,11 @@ class PatrolOutcome:
                     self.__handle_condition_history(
                         _cat, give_injury, patrol, default_overide=True
                     )
+
+                if give_injury == "undead":
+                    if "zombie" not in game.clan.infection["logs"]:
+                        game.clan.infection["logs"].append("zombie")
+                        results.append("\nYour log has been updated.")
 
         return " ".join(results)
     

@@ -327,7 +327,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "r_m launches into a spooky story about deadly diseases and sick Clanmates turning evil and killing misbehaving kittens. You're not sure if you believe {PRONOUN/r_m/object}... but you're still a shaken when you leave the den.",
+                "text": "r_m launches into a spooky story about deadly diseases and sick Clanmates turning evil and killing misbehaving kittens. You're not sure if you believe {PRONOUN/r_m/object}... but you're still a bit shaken when you leave the den.",
                 "exp": 10,
                 "weight": 20
             }

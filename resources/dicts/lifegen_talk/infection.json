@@ -1454,5 +1454,22 @@
         "intro_log_entry": [
             "fungal_lore_3"
         ]
-    }
+    },
+    "from_parent_inf_J1": [
+        [
+            "from_parent",
+            "from_adopted_parent",
+            "you_kitten",
+            "any",
+            "they_infected",
+            "you_not_infected",
+            "they_stage_one",
+            "max_dislike_10"
+        ],
+        [
+            "No, no, don't worry about me, sweetheart. I'll be just fine.",
+            "I'm sorry you can't get too close. I don't want to get you sick.",
+            "I'll be okay soon, and then we can cuddle again, okay? I promise. I'm not going anywhere."
+        ]
+    ]
 }

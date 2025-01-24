@@ -539,7 +539,7 @@ class LeaderDenScreen(Screens):
             if other_clan.name in game.clan.infection["fallen_clans"]:
                 text = "FALLEN"
                 theme=f"#text_box_22_horizcenter_green{addon}"
-            elif other_clan.infection_level > 0:
+            elif int(other_clan.infection_level) > 0:
                 text = "infected"
                 theme=f"#text_box_22_horizcenter_green{addon}"
             else:

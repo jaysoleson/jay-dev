@@ -1537,7 +1537,6 @@ def gather_cat_objects(
     # LIFEGEN ABBREVS ------------------------
     try:
         for kitty in event.patrol_cat_dict.items():
-            print(abbr_list)
             if kitty[0] in abbr_list:
                 out_set.add(kitty[1])
     except AttributeError:

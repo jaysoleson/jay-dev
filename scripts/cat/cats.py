@@ -2388,7 +2388,8 @@ class Cat:
             f"{game.clan.infection['infection_type']} stage one",
             f"{game.clan.infection['infection_type']} stage two",
             f"{game.clan.infection['infection_type']} stage three",
-            f"{game.clan.infection['infection_type']} stage four"
+            f"{game.clan.infection['infection_type']} stage four",
+            "undead"
         ] and self.infected_for == 0:
             self.infected_for = 1
             if self.outside is False:
