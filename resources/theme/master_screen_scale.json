@@ -4858,5 +4858,141 @@
                 "path": "resources/images/buttons/change_priority_herb_hover.png"
             }
         }
+    },
+    "#stamp_zombie": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/journal_stamps/undead.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/journal_stamps/undead_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/journal_stamps/undead_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/journal_stamps/undead_hover.png"
+            }
+        }
+    },
+    "#stamp_leader": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/journal_stamps/leader.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/journal_stamps/leader_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/journal_stamps/leader_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/journal_stamps/leader_hover.png"
+            }
+        }
+    },
+    "#stamp_deputy": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/journal_stamps/deputy.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/journal_stamps/deputy_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/journal_stamps/deputy_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/journal_stamps/deputy_hover.png"
+            }
+        }
+    },
+    "#stamp_mediator": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/journal_stamps/mediator.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/journal_stamps/mediator_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/journal_stamps/mediator_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/journal_stamps/mediator_hover.png"
+            }
+        }
+    },
+    "#stamp_medicine_cat": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/journal_stamps/medicine_cat.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/journal_stamps/medicine_cat_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/journal_stamps/medicine_cat_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/journal_stamps/medicine_cat_hover.png"
+            }
+        }
+    },
+    "#stamp_warrior": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/journal_stamps/warrior.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/journal_stamps/warrior_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/journal_stamps/warrior_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/journal_stamps/warrior_hover.png"
+            }
+        }
+    },
+    "#stamp_queen": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/journal_stamps/queen.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/journal_stamps/queen_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/journal_stamps/queen_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/journal_stamps/queen_hover.png"
+            }
+        }
+    },
+    "#stamp_partial_cure": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/journal_stamps/partial_cure.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/journal_stamps/partial_cure_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/journal_stamps/partial_cure_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/journal_stamps/partial_cure_hover.png"
+            }
+        }
     }
 }
