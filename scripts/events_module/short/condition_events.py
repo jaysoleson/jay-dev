@@ -302,19 +302,19 @@ class Condition_Events:
                 infected = False
                 if "parasitic stage one" in cat.illnesses:
                     # witherchance = 3
-                    witherchance = 120
+                    witherchance = 80
                     infected = True
                 elif "parasitic stage two" in cat.illnesses:
                     # witherchance = 3
-                    witherchance = 80
+                    witherchance = 50
                     infected = True
                 elif "parasitic stage three" in cat.illnesses:
                     # witherchance = 3
-                    witherchance = 50
+                    witherchance = 30
                     infected = True
                 elif "parasitic stage four" in cat.illnesses:
                     # witherchance = 3
-                    witherchance = 15
+                    witherchance = 10
                     infected = True
                 
                 if infected:
@@ -325,16 +325,16 @@ class Condition_Events:
             elif inftype == "void":
                 infected = False
                 if "void stage one" in cat.illnesses:
-                    witherchance = 185
-                    infected = True
-                elif "void stage two" in cat.illnesses:
-                    witherchance = 120
-                    infected = True
-                elif "void stage three" in cat.illnesses:
                     witherchance = 80
                     infected = True
-                elif "void stage four" in cat.illnesses:
+                elif "void stage two" in cat.illnesses:
                     witherchance = 50
+                    infected = True
+                elif "void stage three" in cat.illnesses:
+                    witherchance = 30
+                    infected = True
+                elif "void stage four" in cat.illnesses:
+                    witherchance = 20
                     infected = True
                 
                 if infected:
@@ -345,16 +345,16 @@ class Condition_Events:
             elif inftype == "fungal":
                 infected = False
                 if "fungal stage one" in cat.illnesses:
-                    witherchance = 185
-                    infected = True
-                elif "fungal stage two" in cat.illnesses:
-                    witherchance = 120
-                    infected = True
-                elif "fungal stage three" in cat.illnesses:
                     witherchance = 80
                     infected = True
-                elif "fungal stage four" in cat.illnesses:
+                elif "fungal stage two" in cat.illnesses:
                     witherchance = 50
+                    infected = True
+                elif "fungal stage three" in cat.illnesses:
+                    witherchance = 30
+                    infected = True
+                elif "fungal stage four" in cat.illnesses:
+                    witherchance = 10
                     infected = True
                 
                 if infected:
@@ -1304,6 +1304,7 @@ class Condition_Events:
                     return
                 infection_event = True
                 chance /= 2
+                chance = round(chance)
 
             # if we hit the chance, then give the risk if the cat does not already have the risk
             if (

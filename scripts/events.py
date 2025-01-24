@@ -1692,7 +1692,7 @@ class Events:
 
             increase_chance = max(1, min(increase_chance, 10))
 
-            increase_chance = 1
+            print(clan.name, "current infection level:", clan.infection_level)
 
             if random.random() < 1 / increase_chance:
                 increase = random.randint(1, 8)
@@ -1701,103 +1701,102 @@ class Events:
                 clan.infection_level = str(level)
                 # this sucks
 
-                addon = ""
-                if clan.relations > 17:
-                    addon = "_allies"
-                elif clan.relations < 7:
-                    addon = "_hostile"
+            addon = ""
+            if clan.relations > 17:
+                addon = "_allies"
+            elif clan.relations < 7:
+                addon = "_hostile"
                     
-                # clan infection events
-                if int(clan.infection_level) == 0:
-                    if random.randint(1,30) == 1:
-                        events = other_clan_events["none"]
-                        events.extend(other_clan_events[f"none{addon}"])
-                    else:
-                        return
-                        
-                elif int(clan.infection_level) <= 30:
-                    if random.randint(1,30) == 1:
-                        events = other_clan_events["low"]
-                        events.extend(other_clan_events[f"low{addon}"])
-                    else:
-                        return
+            # clan infection events
+            if int(clan.infection_level) == 0:
+                if random.randint(1,10) == 1:
+                    events = other_clan_events["none"]
+                    events.extend(other_clan_events[f"none{addon}"])
+                else:
+                    continue
+                    
+            elif int(clan.infection_level) <= 30:
+                if random.randint(1,10) == 1:
+                    events = other_clan_events["low"]
+                    events.extend(other_clan_events[f"low{addon}"])
+                else:
+                    continue
 
-                elif int(clan.infection_level) <= 70:
-                    if random.randint(1,20) == 1:
-                        events = other_clan_events["mid"]
-                        events.extend(other_clan_events[f"mid{addon}"])
-                    else:
-                        return
+            elif int(clan.infection_level) <= 70:
+                if random.randint(1,10) == 1:
+                    events = other_clan_events["mid"]
+                    events.extend(other_clan_events[f"mid{addon}"])
+                else:
+                    continue
 
-                elif int(clan.infection_level) <= 99:
-                    if random.randint(1,10) == 1:
-                        events = other_clan_events["high"]
-                        events.extend(other_clan_events[f"high{addon}"])
-                    else:
-                        return
+            elif int(clan.infection_level) <= 99:
+                if random.randint(1,5) == 1:
+                    events = other_clan_events["high"]
+                    events.extend(other_clan_events[f"high{addon}"])
+                else:
+                    continue
 
-                elif int(clan.infection_level) >= 100 and clan.name not in game.clan.infection["fallen_clans"]:
+            elif int(clan.infection_level) >= 100 and clan.name not in game.clan.infection["fallen_clans"]:
 
-                    game.clan.infection["fallen_clans"].append(clan.name)
+                game.clan.infection["fallen_clans"].append(clan.name)
 
-                    # now, create some new cats to be former clancats to be discovered by the clan
-                    new_cats_num = random.randint(1,6)
+                # now, create some new cats to be former clancats to be discovered by the clan
+                new_cats_num = random.randint(1,6)
 
-                    if new_cats_num > 0:
-                        event = f"Some {clan.name}Clan cats have fled to live just beyond their old territory."
-                        game.cur_events_list.insert(0, Single_Event(event, ["other_clans", "infection"]))
+                if new_cats_num > 0:
+                    event = f"Some {clan.name}Clan cats have fled to live just beyond their old territory."
+                    game.cur_events_list.insert(0, Single_Event(event, ["other_clans", "infection"]))
 
-                    new_cats = {}
-                    new_kits = {}
-                    for i in range(new_cats_num):
-                        new_cats[i] = create_new_cat(Cat,
-                                                new_name=True,
+                new_cats = {}
+                new_kits = {}
+                for i in range(new_cats_num):
+                    new_cats[i] = create_new_cat(Cat,
+                                            new_name=True,
+                                            backstory = "infection_refugee",
+                                            thought=f"Wishes to return to {clan.name}Clan",
+                                            age=random.randint(6,120),
+                                            outside=True)[0]
+                for x in new_cats.items():
+                    new_cat = x[1]
+                    new_cat.status = "former Clancat"
+                    # changing the status after so they properly get clan names
+
+                    if new_cat.moons > 20 and new_cat.moons < 90:
+                        if random.randint(1,100) == 1:
+                            print("giving kits to", new_cat.name)
+                            kit_age = random.randint(0,5)
+                            kit_count = random.randint(1,5)
+
+                            for i in range(kit_count):
+                                new_kits[i] = create_new_cat(Cat,
                                                 backstory = "infection_refugee",
-                                                thought=f"Wishes to return to {clan.name}Clan",
-                                                age=random.randint(6,120),
-                                                outside=True)[0]
-                    for x in new_cats.items():
-                        new_cat = x[1]
-                        new_cat.status = "former Clancat"
-                        # changing the status after so they properly get clan names
+                                                status="kitten",
+                                                thought="Is scared",
+                                                age=kit_age,
+                                                outside=True,
+                                                parent1=new_cat.ID)[0]
+                            for new_kit in new_kits.items():
+                                new_kit[1].status = "former Clancat"
 
-                        if new_cat.moons > 20 and new_cat.moons < 90:
-                            if random.randint(1,100) == 1:
-                                print("giving kits to", new_cat.name)
-                                kit_age = random.randint(0,5)
-                                kit_count = random.randint(1,5)
+                events = other_clan_events["fallen"]
+                events.extend(other_clan_events[f"fallen{addon}"])
 
-                                for i in range(kit_count):
-                                    new_kits[i] = create_new_cat(Cat,
-                                                    backstory = "infection_refugee",
-                                                    status="kitten",
-                                                    thought="Is scared",
-                                                    age=kit_age,
-                                                    outside=True,
-                                                    parent1=new_cat.ID)[0]
-                                for new_kit in new_kits.items():
-                                    new_kit[1].status = "former Clancat"
+                if game.clan.war["enemy"] == clan.name:
+                    events.extend(other_clan_events["fallen_war"])
 
-                    events = other_clan_events["fallen"]
-                    events.extend(other_clan_events[f"fallen{addon}"])
-
-                    if game.clan.war["enemy"] == clan.name:
-                        events.extend(other_clan_events["fallen_war"])
-
-                # remove the ineligible ones
-                for event in events:
-                    if "med_name" in events and get_alive_status_cats(Cat, ["medicine cat"]) == 0:
-                        events.remove(event)
-                    if "lead_name" in events and not game.clan.leader:
-                        events.remove(event)
-                try:
-                    text = random.choice(events)
-                    text = event_text_adjust(Cat, text, other_clan=clan)
-                except IndexError:
-                    print(f"No possible other clans infection events for {clan.name}Clan.")
+            # remove the ineligible ones
+            for event in events:
+                if "med_name" in events and get_alive_status_cats(Cat, ["medicine cat"]) == 0:
+                    events.remove(event)
+                if "lead_name" in events and not game.clan.leader:
+                    events.remove(event)
+            try:
+                text = random.choice(events)
+                text = event_text_adjust(Cat, text, other_clan=clan)
                 game.cur_events_list.insert(0, Single_Event(text, ["other_clans", "infection"]))
-            else:
-                return
+            except IndexError:
+                print(f"No possible other Clans infection events for {clan.name}Clan.")
+                print(events)
                 
     def generate_df_events(self):
         if random.randint(1,3) == 1:
