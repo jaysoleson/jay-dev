@@ -605,11 +605,16 @@ class ProfileScreen(Screens):
                                 pos_y += 120
                             i += 1
                 self.profile_elements["cat_image"].kill()
-                self.profile_elements["cat_image"] = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((100, 200), (150, 150))),
-                                                                        pygame.transform.scale(
-                                                                            self.the_cat.sprite,
-                                                                            (150, 150)), manager=MANAGER)
+                
+                self.profile_elements["cat_image"] = pygame_gui.elements.UIImage(
+                    ui_scale(pygame.Rect((100, 200), (150, 150))),
+                    pygame.transform.scale(
+                        self.the_cat.sprite, ui_scale_dimensions((150, 150))
+                    ),
+                    manager=MANAGER,
+                )
                 self.profile_elements["cat_image"].disable()
+
                 self.profile_elements["cat_info_column1"].kill()
                 self.profile_elements["cat_info_column1"] = UITextBoxTweaked(
                     self.generate_column1(self.the_cat),
@@ -1160,11 +1165,16 @@ class ProfileScreen(Screens):
                         except:
                             continue
                 self.profile_elements["cat_image"].kill()
-                self.profile_elements["cat_image"] = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((100, 200), (150, 150))),
-                                                                        pygame.transform.scale(
-                                                                            self.the_cat.sprite,
-                                                                            (150, 150)), manager=MANAGER)
+
+                self.profile_elements["cat_image"] = pygame_gui.elements.UIImage(
+                    ui_scale(pygame.Rect((100, 200), (150, 150))),
+                    pygame.transform.scale(
+                        self.the_cat.sprite, ui_scale_dimensions((150, 150))
+                    ),
+                    manager=MANAGER,
+                )
                 self.profile_elements["cat_image"].disable()
+
                 self.profile_elements["cat_info_column1"].kill()
                 self.profile_elements["cat_info_column1"] = UITextBoxTweaked(
                     self.generate_column1(self.the_cat),
@@ -3677,7 +3687,10 @@ class ProfileScreen(Screens):
                 tool_tip_text='Choose to murder one of your clanmates',
                 starting_height=2, manager=MANAGER
             )
-            if game.clan.murdered or game.clan.your_cat.moons == 0:
+            if game.clan.your_cat.moons == 0:
+                self.murder_cat_button.disable()
+            
+            if "moon" in game.clan.murdered and game.clan.murdered["moon"] == game.clan.age:
                 self.murder_cat_button.disable()
                 
             if game.clan.your_cat.joined_df:
@@ -4033,6 +4046,12 @@ class ProfileScreen(Screens):
                 self.cat_list_buttons[i].kill()
             for i in self.accessory_buttons:
                 self.accessory_buttons[i].kill()
+
+            if game.clan.clan_settings['all accessories']:
+                self.delete_accessory.disable()
+            else:
+                self.delete_accessory.enable()
+            
             self.open_accessories()
         elif self.open_tab == "faith":
             self.open_faith_tab()

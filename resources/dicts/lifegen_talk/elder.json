@@ -194,7 +194,7 @@
             "you_blind"
         ],
         [
-            "Somehow, even as a kit, I've always felt like the elders' denis where I most belonged.",
+            "Somehow, even as a kit, I've always felt like the elders' den is where I most belonged.",
             "Dispensing wisdom ... admiring nature ... Taking in the day-to-day scenery around camp ... There's something so beautiful in the mundanity of it all, don't you think?",
             "Though, I suppose I always have been labeled an 'old soul' ..."
         ]
@@ -203,7 +203,6 @@
         [
             "Any",
             "assertive",
-            "silly",
             "unlawful",
             "brooding",
             "dislike",
@@ -276,6 +275,7 @@
     "sweet_elder1": [
         [
             "Any",
+            "no_kit",
             "sweet",
             "upstanding",
             "silly",
@@ -332,7 +332,6 @@
             "Any",
             "assertive",
             "unlawful",
-            "silly",
             "stable",
             "introspective",
             "brooding",
@@ -707,6 +706,7 @@
     "assertive_elder_5": [
         [
             "Any",
+            "they_elder",
             "assertive",
             "silly"
         ],
@@ -1788,6 +1788,224 @@
             "plike_r_w_stable has been stopping by a lot recently.",
             "{PRONOUN/plike_r_w_stable/subject/CAP} always {VERB/plike_r_w_stable/ask/asks} if I need anything, and then {VERB/plike_r_w_stable/stay/stays} to chat for at least an hour. {PRONOUN/plike_r_w_stable/subject/CAP} {VERB/plike_r_w_stable/say/says} {PRONOUN/plike_r_w_stable/subject} {VERB/plike_r_w_stable/want/wants} to make sure I stay informed of Clan business.",
             "It's nice to still feel included. I hope {PRONOUN/plike_r_w_stable/subject}{VERB/plike_r_w_stable/'re/'s} visiting because {PRONOUN/plike_r_w_stable/subject} {VERB/plike_r_w_stable/want/wants} to, and not because {PRONOUN/plike_r_w_stable/subject} {VERB/plike_r_w_stable/feel/feels} obligated."
+        ]
+    ],
+    "elder_H1": [
+        [
+            "they_elder",
+            "they_older",
+            "you_blind",
+            "they_blind",
+            "introspective",
+            "stable",
+            "upstanding",
+            "any"
+        ],
+        [
+            "Legends are lessons that ring with truth. They're not just stories.",
+            "I know the younger generations of this Clan may think I'm making things up in my old memory, but it's true!",
+            "Although I suppose I repeat myself often.",
+            "[t_c lets out a quiet chuckle that turns into a cough. You rub your paw along {PRONOUN/t_c/poss} back to help soothe it.]",
+            "I am growing old and won't be around here much longer, but I hope a cat or two remembers these legends and passes them on, just like I did."
+        ]
+    ],
+    "livekit_sc_Guy5": [
+        [
+            "you_kitten",
+            "they_sc",
+            "they_elder"
+        ],
+        [
+            "You want a story? Hm... have you ever heard of one of the fiercest warriors the Clans ever had?",
+            "They were born small, not expected to survive at all.",
+            "There was a terrible war between two Clans. Leafbares were even more hungry than they are now...",
+            "They stood between the two Clans, on the border. They invented a plan that would provide enough food for all of them.",
+            "And that was how the Clans came to have mediators. They've long since faded, but their legacy will last as long as there are cats who wish for peace."
+        ]
+    ],
+    "elder_neg_youshunned_H1": [
+        [
+            "they_elder",
+            "you_shunned",
+            "you_kitten",
+            "they_introspective",
+            "max_platonic_30",
+            "max_trust_30",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "Ahh, this generation is so quick to violence these days...",
+            "What are the queens teaching you younglings? Maybe I should ask l_n to do an investigation."
+        ]
+    ],
+    "elder_neg_youshunned_H2": [
+        [
+            "they_elder",
+            "you_shunned",
+            "they_introspective",
+            "max_platonic_30",
+            "max_trust_30",
+            "min_dislike_30",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "I doubt you had much reason to murder somecat, but yah, you couldn't have waited until I died?",
+            "Now I have to deal with this drama before my passing."
+        ]
+    ],
+    "elder_neg_youshunned_H3": [
+        [
+            "they_elder",
+            "you_shunned",
+            "they_introspective",
+            "max_platonic_30",
+            "max_trust_30",
+            "they_grandparent",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "You have put disgrace on the family's name. How is my precious y_p suppose to succeed now?",
+            "A murderer as {PRONOUN/y_p_poss} heir... tsk tsk tsk."
+        ]
+    ],
+    "elder_neg_youshunned_H4": [
+        [
+            "they_elder",
+            "you_shunned",
+            "they_cool",
+            "they_brooding",
+            "min_dislike_30",
+            "max_platonic_30",
+            "they_grandparent",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "You have disappointed me, young one.",
+            "... Well, more than normal."
+        ]
+    ],
+    "elder_neg_youshunned_H5": [
+        [
+            "they_elder",
+            "you_shunned",
+            "they_introspective",
+            "max_platonic_30",
+            "max_trust_30",
+            "they_grandparent",
+            "sc_faith",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "I trust StarClan will punish you enough to realize your mistake."
+        ]
+    ],
+    "elder_gen_theyshunned_rad2": [
+        [
+            "they_elder",
+            "they_shunned",
+            "they_unabashed",
+            "they_unlawful",
+            "you_blind"
+        ],
+        [
+            "What are all of you so afraid of? Doesn't everycat say that elders are the wisest members of the Clan?",
+            "Don't shun me just because my wisdom is a little less conventional than any other cat's."
+        ]
+    ],
+    "elder_gen_theyshunned_rad3": [
+        [
+            "they_elder",
+            "they_shunned",
+            "they_unabashed",
+            "they_unlawful",
+            "you_unabashed",
+            "you_unlawful",
+            "you_blind",
+            "min_platonic_10"
+        ],
+        [
+            "How hypocritical. Everycat will tell you that elders are the wise members of the Clan. Why shun me just because my wisdom is a little less conventional?",
+            "[You remind t_c that a wise cat would know how to avoid getting caught.]",
+            "...",
+            "I don't recall asking for your opinion, y_c!"
+        ]
+    ],
+    "accomplice_J5": [
+        [
+            "they_elder",
+            "accomplice",
+            "you_shunned",
+            "they_shunned",
+            "no_kit",
+            "cool",
+            "stable"
+        ],
+        [
+            "Eh. I should've known I was too old to get away with something like that, anyway.",
+            "Ask someone younger next time. Maybe a cat with a clearer head will be able to hide evidence better, hehe."
+        ]
+    ],
+    "retired_theyshunned_gen_rad1": [
+        [
+            "they_young_elder",
+            "they_shunned",
+            "they_assertive",
+            "they_unabashed",
+            "they_unlawful",
+            "you_blind",
+            "they_blind"
+        ],
+        [
+            "You know, in a way, being shunned is almost a compliment.",
+            "Retiring early clearly hasn't stopped me from striking fear into the hearts of other cats.",
+            "I certainly won't complain about that."
+        ]
+    ],
+    "retired_youshunned_rad1": [
+        [
+            "they_young_elder",
+            "you_shunned",
+            "you_younger",
+            "they_brooding",
+            "they_blind",
+            "you_blind",
+            "max_platonic_15"
+        ],
+        [
+            "Are <i>all</i> cats your age this impulsive and thoughtless?",
+            "[t_c might be younger than most elders, but {PRONOUN/t_c/subject} already {VERB/t_c/have/has} the attitude down perfectly.]"
+        ]
+    ],
+    "neurotic_elder_SQ5": [
+        [
+            "they_neurotic",
+            "they_elder",
+            "no_kit",
+            "min_platonic_25"
+        ],
+        [
+            "r_k said I'd make a good mentor, and I had to explain to {PRONOUN/r_k/object} that when you're an elder, you don't take on apprentices anymore. {PRONOUN/r_k/subject/CAP} seemed disappointed.",
+            "[t_c sighs. {PRONOUN/t_c/subject/CAP} {VERB/t_c/watch/watches} r_k play across camp.]",
+            "I hope no one thinks I became an elder too early. I can still teach what I know, but I know it's different from being someone's mentor."
+        ]
+    ],
+    "neurotic_elder_SQ6": [
+        [
+            "they_neurotic",
+            "they_elder",
+            "you_deputy",
+            "you_leader",
+            "neutral"
+        ],
+        [
+            "[t_c paces in front of the elders' den. When {PRONOUN/t_c/subject} {VERB/t_c/see/sees} you, {PRONOUN/t_c/subject} {VERB/t_c/straighten/straightens}.]",
+            "Ah, y_c? Let me know if there's anything I can help with. I could patch a den, or organize the fresh-kill pile, or... maybe even join a patrol?",
+            "Sorry, I don't mean to sound demanding! I just... want to help. I might be an elder, but I'm still a member of c_nClan. I don't want to be a burden."
         ]
     ]
 }
