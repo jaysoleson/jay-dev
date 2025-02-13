@@ -443,7 +443,6 @@
     "Grief_gen_H1": [
         [
             "they_grieving",
-            "dead_close",
             "platonic_like",
             "no_kit"
         ],
@@ -459,7 +458,6 @@
         [
             "no_kit",
             "they_grieving",
-            "dead_close",
             "mediator",
             "they_blind",
             "platonic_like"
@@ -474,7 +472,6 @@
     "Grief_gen_H2": [
         [
             "they_grieving",
-            "dead_close",
             "no_kit",
             "you_blind",
             "they_older",
@@ -489,7 +486,6 @@
     "Grief_gen_H3": [
         [
             "they_grieving",
-            "dead_close",
             "no_kit",
             "they_blind",
             "assertive",
@@ -783,7 +779,7 @@
         ],
         [
             "Tch, gatherings. Always so awkward, having to run into all my past flings.",
-            "There's the giant tabby from o_cClan, and their amber-eyed friend, not to mention that one from across the river with the funny spots ...",
+            "There's the giant tabby from o_c_n, and their amber-eyed friend, not to mention that one from across the river with the funny spots ...",
             "Do I remember their names? Psh, you gotta be joking.",
             "Why bother wasting my memory when I know I can get them back at any time with just a flick of my tail? Hehehe.",
             "[t_c is such a player!]"
@@ -882,8 +878,7 @@
             "no_kit",
             "cool",
             "silly",
-            "they_grieving",
-            "dead_close"
+            "they_grieving"
         ],
         [
             "Hey, I got a good one: why can't tg_c make anyone laugh anymore? Because {PRONOUN/tg_c/subject}{VERB/tg_c/'re/'s} dead serious.",
@@ -1682,13 +1677,13 @@
     ],
     "silly_comfort_1": [
         [
-            "Any",
+            "no_kit",
             "silly",
             "comfort"
         ],
         [
             "[t_c snuggles up next to you with a piece of prey in {PRONOUN/t_c/poss} mouth, dropping it between you two. It's fairly large, just enough to feed two cats.]",
-            "Here, I brought enough to share, y_c! Can't get enough good ol' bonding time these days. Heh, but it can't be worse than whatever's going on with o_cClan's leader, right?",
+            "Here, I brought enough to share, y_c! Can't get enough good ol' bonding time these days. Heh, but it can't be worse than whatever's going on with o_c_n's leader, right?",
             "...Man.",
             "[t_c sighs, taking a bite of the prey. {PRONOUN/t_c/subject/CAP} {VERB/t_c/let/lets} it sit in {PRONOUN/t_c/poss} mouth for a moment as {PRONOUN/t_c/subject} {VERB/t_c/chew/chews} it, seeming to have trouble with the giant piece {PRONOUN/t_c/subject} took.",
             "[Then, {PRONOUN/t_c/poss} eyes widen massively, and for a moment you're worried {PRONOUN/t_c/subject} might be choking...]",
@@ -3142,39 +3137,11 @@
             "[t_c makes it obvious that {PRONOUN/t_c/subject} {VERB/t_c/do/does} not want to talk. {PRONOUN/t_c/subject/CAP} {VERB/t_c/huff/huffs} heavily and {VERB/t_c/turn/turns} {PRONOUN/t_c/poss} head away.]"
         ]
     ],
-    "pos_shunned_H2": [
-        [
-            "they_shunned",
-            "any",
-            "they_introspective",
-            "min_platonic_30",
-            "min_comfort_15",
-            "they_blind",
-            "you_blind"
-        ],
-        [
-            "I can still judge you for what you did, but that doesn't mean I'll stop being friends with you.",
-            "I can list a pawful of cats who have done worse than murder, I assure you.",
-            "What?",
-            "Hey, someone had to pay attention to the elders' stories!"
-        ]
-    ],
-    "medapp_theyshunned_pos_rad1": [
-        [
-            "you_medicine_cat",
-            "you_medicine_cat_apprentice",
-            "they_shunned",
-            "min_platonic_40"
-        ],
-        [
-            "y_c, I don't want to get you in trouble, but... Can you help me?",
-            "I slipped earlier and hurt my paw, and the other medicine cats won't even look at it..."
-        ]
-    ],
     "they_failingeyesight_SQ3": [
         [
             "they_failingeyesight",
-            "they_any",
+            "they_adult",
+            "you_any",
             "they_neurotic",
             "min_platonic_20",
             "sc_faith"

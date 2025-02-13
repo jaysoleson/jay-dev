@@ -987,6 +987,7 @@ def create_new_cat(
             # give em a collar if they got one
             if accessory:
                 new_cat.pelt.accessories.append(accessory)
+                new_cat.pelt.inventory.append(accessory)
         # give apprentice aged cat a mentor
         if new_cat.age == "adolescent":
             new_cat.update_mentor()
@@ -4730,15 +4731,15 @@ def adjust_txt(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
                 text = add_to_cat_dict("r_c", cluster, x, rel, r, random_cat, text, cat_dict)
     # Other Clan
     if o_c_allowed is True:
-        if "o_c" in text:
-            if "o_c" in other_dict:
-                text = re.sub(r'(?<!\/)o_c(?!\/)', str(other_dict["o_c"].name), text)
+        if "o_c_n" in text:
+            if "o_c_n" in other_dict:
+                text = re.sub(r'(?<!\/)o_c_n(?!\/)', str(other_dict["o_c_n"].name) + "Clan", text)
             else:
                 other_clan = choice(game.clan.all_clans)
                 if not other_clan:
                     return ""
-                other_dict["o_c"] = other_clan
-                text = re.sub(r'(?<!\/)o_c(?!\/)', str(other_clan.name), text)
+                other_dict["o_c_n"] = other_clan
+                text = re.sub(r'(?<!\/)o_c_n(?!\/)', str(other_clan.name) + "Clan", text)
 
     # Your DF Mentor
     if "df_m_n" in text:

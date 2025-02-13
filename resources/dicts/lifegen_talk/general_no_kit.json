@@ -688,7 +688,7 @@
             "[t_c drops a SNAKE at your paws! You shriek and leap backwards.]",
             "Haha, it's okay, it's okay! It's dead!",
             "I caught this little dummy trying to sneak into camp. One good stomp to the head and WHAM! No more snake.",
-            "Say, do you think we could eat it? I heard o_cClan eats snakes ..."
+            "Say, do you think we could eat it? I heard o_c_n eats snakes ..."
         ]
     ],
     "assertive_love_3": [
@@ -825,7 +825,7 @@
     "introspective_kit_4": [
         [
             "any",
-            "Introspective",
+            "introspective",
             "dislike",
             "they_blind",
             "you_blind"
@@ -1442,7 +1442,6 @@
             "platonic_love",
             "assertive",
             "they_grieving",
-            "dead_close",
             "they_blind",
             "you_blind"
         ],
@@ -1464,8 +1463,7 @@
             "silly",
             "unlawful",
             "introspective",
-            "they_grieving",
-            "dead_close"
+            "they_grieving"
         ],
         [
             "It's clear out tonight ... lotta stars up there, huh?",
@@ -1482,7 +1480,6 @@
             "assertive",
             "cool",
             "they_grieving",
-            "dead_close",
             "they_blind",
             "you_blind"
         ],
@@ -1516,7 +1513,6 @@
             "Any",
             "assertive",
             "they_grieving",
-            "dead_close",
             "they_blind",
             "you_blind",
             "neutral",
@@ -1536,7 +1532,6 @@
             "Any",
             "assertive",
             "they_grieving",
-            "dead_close",
             "cool",
             "they_blind",
             "you_blind",
@@ -1556,7 +1551,6 @@
             "upstanding",
             "neutral",
             "you_grieving",
-            "dead_close",
             "they_blind",
             "you_blind"
         ],
@@ -1573,7 +1567,6 @@
             "unabashed",
             "stable",
             "you_grieving",
-            "dead_close",
             "they_blind",
             "you_blind"
         ],
@@ -1589,7 +1582,6 @@
             "upstanding",
             "neutral",
             "you_grieving",
-            "dead_close",
             "they_blind",
             "you_blind"
         ],
@@ -1604,7 +1596,6 @@
             "assertive",
             "you_grieving",
             "platonic_like",
-            "dead_close",
             "they_blind",
             "you_blind"
         ],
@@ -1682,7 +1673,7 @@
     "Introspective_to_app": [
         [
             "you_apprentice",
-            "Introspective",
+            "introspective",
             "platonic_like"
         ],
         [
@@ -1696,7 +1687,7 @@
         [
             "Mediator",
             "you_mediator_apprentice",
-            "Introspective",
+            "introspective",
             "Dislike",
             "Jealousy",
             "they_blind",
@@ -1713,7 +1704,7 @@
         [
             "you_medicine_cat",
             "you_medicine_cat_apprentice",
-            "Introspective",
+            "introspective",
             "you_blind",
             "platonic_like"
         ],
@@ -1862,7 +1853,7 @@
     "introspective_to_MedApp": [
         [
             "you_medicine_cat_apprentice",
-            "Introspective",
+            "introspective",
             "they_blind",
             "you_blind"
         ],
@@ -1950,7 +1941,7 @@
     "introspective_like": [
         [
             "Any",
-            "Introspective",
+            "introspective",
             "platonic_like",
             "they_blind",
             "you_blind",
@@ -1979,7 +1970,7 @@
     "introspective_like_2": [
         [
             "Any",
-            "Introspective",
+            "introspective",
             "platonic_like"
         ],
         [
@@ -2038,7 +2029,7 @@
     "introspective_dislike": [
         [
             "Any",
-            "Introspective",
+            "introspective",
             "dislike"
         ],
         [
@@ -2051,7 +2042,7 @@
     "introspective_dislike_1": [
         [
             "Any",
-            "Introspective",
+            "introspective",
             "Dislike",
             "jealousy",
             "they_blind",
@@ -2067,7 +2058,7 @@
     "introspective_dislike_2": [
         [
             "Any",
-            "Introspective",
+            "introspective",
             "dislike",
             "they_blind",
             "you_blind"
@@ -2117,7 +2108,7 @@
     "introspective_rom": [
         [
             "Any",
-            "Introspective",
+            "introspective",
             "romantic_like",
             "they_blind",
             "you_blind"
@@ -2132,7 +2123,7 @@
     "introspective_rom_1": [
         [
             "Any",
-            "Introspective",
+            "introspective",
             "romantic_like"
         ],
         [
@@ -2146,7 +2137,7 @@
     "introspective_rom_2": [
         [
             "Any",
-            "Introspective",
+            "introspective",
             "romantic_like"
         ],
         [
@@ -2159,7 +2150,7 @@
     "introspective_rom_3": [
         [
             "Any",
-            "Introspective",
+            "introspective",
             "romantic_like"
         ],
         [
@@ -2174,7 +2165,7 @@
     "introspective_rom_4": [
         [
             "Any",
-            "Introspective",
+            "introspective",
             "platonic_love",
             "they_blind",
             "you_blind"
@@ -2322,7 +2313,7 @@
     "introspective_mate12": [
         [
             "you_warrior",
-            "Introspective",
+            "introspective",
             "from_mate",
             "you_blind"
         ],
@@ -2336,7 +2327,7 @@
     "introspective_mate1": [
         [
             "mediator",
-            "Introspective",
+            "introspective",
             "from_mate",
             "you_blind"
         ],
@@ -2350,7 +2341,7 @@
     "introspective_mate2": [
         [
             "you_medicine_cat",
-            "Introspective",
+            "introspective",
             "from_mate",
             "you_blind"
         ],
@@ -2364,7 +2355,7 @@
     "introspective_mate_3": [
         [
             "Any",
-            "Introspective",
+            "introspective",
             "from_mate",
             "they_blind",
             "you_blind"
@@ -2378,7 +2369,7 @@
     "introspective_mate_4": [
         [
             "Any",
-            "Introspective",
+            "introspective",
             "from_mate"
         ],
         [
@@ -2396,7 +2387,7 @@
     "introspective_mate_6": [
         [
             "Any",
-            "Introspective",
+            "introspective",
             "from_mate",
             "they_blind",
             "you_blind"
@@ -2986,8 +2977,7 @@
             "any",
             "brooding",
             "platonic_love",
-            "you_grieving",
-            "dead_close"
+            "you_grieving"
         ],
         [
             "[t_c stands guard over yg_c's grave whenever you're not around to watch it.]",
@@ -3000,7 +2990,6 @@
             "any",
             "brooding",
             "they_grieving",
-            "dead_close",
             "neutral"
         ],
         [
@@ -3894,7 +3883,6 @@
     ],
     "grief_brooding": [
         [
-            "dead_close",
             "they_grieving",
             "brooding",
             "unlawful",
@@ -3912,7 +3900,6 @@
         [
             "any",
             "introspective",
-            "dead_close",
             "you_grieving",
             "they_blind",
             "they_deaf"
@@ -3925,7 +3912,6 @@
     ],
     "grief_brooding1": [
         [
-            "dead_close",
             "they_grieving",
             "brooding",
             "dislike",
@@ -3940,7 +3926,6 @@
     ],
     "theygrief_1": [
         [
-            "dead_close",
             "they_grieving",
             "no_kit",
             "assertive",
@@ -3955,7 +3940,6 @@
     ],
     "theygrief_1_1": [
         [
-            "dead_close",
             "they_grieving",
             "any",
             "they_blind"
@@ -3967,7 +3951,6 @@
     ],
     "theygrief_2": [
         [
-            "dead_close",
             "they_grieving",
             "any"
         ],
@@ -4009,8 +3992,7 @@
             "no_kit",
             "cool",
             "they_grieving",
-            "neutral",
-            "dead_close"
+            "neutral"
         ],
         [
             "[t_c shuffles into camp with {PRONOUN/t_c/poss} face hidden beneath a paw. It seems like {PRONOUN/t_c/subject}{VERB/t_c/'ve/'s} been crying.]",
@@ -4027,7 +4009,6 @@
             "cool",
             "they_grieving",
             "trust",
-            "dead_close",
             "they_blind",
             "you_blind"
         ],
@@ -4040,7 +4021,6 @@
     ],
     "sweetgrieving_1": [
         [
-            "dead_close",
             "they_grieving",
             "sweet",
             "any",
@@ -4056,7 +4036,6 @@
     ],
     "sweetgrieving_2": [
         [
-            "dead_close",
             "they_grieving",
             "trust",
             "comfort",
@@ -4072,7 +4051,6 @@
     ],
     "sweetgrieving_3": [
         [
-            "dead_close",
             "they_grieving",
             "trust",
             "comfort",
@@ -4088,7 +4066,6 @@
     ],
     "sweetgrieving_4": [
         [
-            "dead_close",
             "they_grieving",
             "dislike",
             "sweet",
@@ -4102,7 +4079,6 @@
     ],
     "sweetgrieving_6": [
         [
-            "dead_close",
             "they_grieving",
             "any",
             "they_blind",
@@ -4115,7 +4091,6 @@
     ],
     "cool_grieving": [
         [
-            "dead_close",
             "they_grieving",
             "cool",
             "unabashed",
@@ -4132,7 +4107,6 @@
     ],
     "cool_grieving2": [
         [
-            "dead_close",
             "they_grieving",
             "cool",
             "silly",
@@ -4146,7 +4120,6 @@
     ],
     "cool_grieving3": [
         [
-            "dead_close",
             "they_grieving",
             "cool",
             "stable",
@@ -4159,7 +4132,6 @@
     ],
     "cool_grieving4": [
         [
-            "dead_close",
             "they_grieving",
             "cool",
             "any"
@@ -4188,7 +4160,6 @@
             "sweet",
             "stable",
             "you_grieving",
-            "dead_close",
             "they_blind"
         ],
         [
@@ -4240,7 +4211,6 @@
             "sweet",
             "stable",
             "assertive",
-            "dead_close",
             "you_grieving",
             "they_blind"
         ],
@@ -4250,10 +4220,7 @@
     ],
     "sweetgrief_yougrief7": [
         [
-            "you_apprentice",
-            "you_medicine_cat_apprentice",
-            "you_mediator_apprentice",
-            "you_queen's_apprentice",
+            "you_app",
             "sweet",
             "from_parent",
             "you_grieving",
@@ -4329,7 +4296,6 @@
             "no_kit",
             "platonic_like",
             "silly",
-            "dead_close",
             "you_grieving",
             "they_blind"
         ],
@@ -4343,7 +4309,6 @@
         [
             "any",
             "introspective",
-            "dead_close",
             "they_grieving",
             "they_deaf"
         ],
@@ -4356,7 +4321,6 @@
         [
             "any",
             "introspective",
-            "dead_close",
             "they_grieving",
             "they_blind"
         ],
@@ -4368,7 +4332,6 @@
         [
             "any",
             "introspective",
-            "dead_close",
             "they_grieving",
             "they_blind",
             "they_deaf"
@@ -4385,7 +4348,6 @@
     "theygrief_6": [
         [
             "any",
-            "dead_close",
             "they_grieving",
             "they_blind"
         ],
@@ -4396,7 +4358,6 @@
     "theygrief_7": [
         [
             "any",
-            "dead_close",
             "they_grieving",
             "they_blind"
         ],
@@ -4409,7 +4370,6 @@
     "theygrief_8": [
         [
             "any",
-            "dead_close",
             "they_grieving",
             "they_blind",
             "they_deaf"
@@ -4422,7 +4382,6 @@
     "theygrief_9": [
         [
             "any",
-            "dead_close",
             "they_grieving",
             "they_blind"
         ],
@@ -4435,7 +4394,6 @@
     "theygrief_10": [
         [
             "any",
-            "dead_close",
             "they_grieving",
             "they_blind"
         ],
@@ -4450,7 +4408,6 @@
     "theygrief_11": [
         [
             "any",
-            "dead_close",
             "they_grieving"
         ],
         [
@@ -4463,7 +4420,6 @@
     "theygrief_12": [
         [
             "any",
-            "dead_close",
             "they_grieving",
             "they_blind",
             "they_deaf"
@@ -4476,7 +4432,6 @@
     "theygrief_13": [
         [
             "any",
-            "dead_close",
             "they_grieving",
             "they_blind",
             "they_deaf"
@@ -4490,12 +4445,11 @@
     "theygrief_14_1": [
         [
             "any",
-            "dead_close",
             "they_grieving"
         ],
         [
             "[In the middle of the night, t_c wakes all of c_nClan with a fur-raising screech.]",
-            "d_c!!!",
+            "tg_c!!!",
             "Where ... What ...",
             "Uh ...",
             "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/look/looks} around at {PRONOUN/t_c/poss} Clanmates guiltily. There's no need to explain. Everycat knows what happened.]",
@@ -4505,7 +4459,6 @@
     "theygrief_14": [
         [
             "any",
-            "dead_close",
             "they_grieving",
             "they_blind"
         ],
@@ -4519,7 +4472,6 @@
         [
             "any",
             "brooding",
-            "dead_close",
             "they_grieving",
             "they_blind",
             "they_deaf"
@@ -4533,7 +4485,6 @@
         [
             "any",
             "brooding",
-            "dead_close",
             "they_grieving"
         ],
         [
@@ -4547,7 +4498,6 @@
             "any",
             "upstanding",
             "assertive",
-            "dead_close",
             "they_grieving",
             "they_blind"
         ],
@@ -4562,7 +4512,6 @@
         [
             "any",
             "upstanding",
-            "dead_close",
             "they_grieving",
             "they_blind"
         ],
@@ -4579,7 +4528,6 @@
             "assertive",
             "silly",
             "cool",
-            "dead_close",
             "they_grieving",
             "they_blind"
         ],
@@ -5060,7 +5008,7 @@
     "introspective_mate": [
         [
             "you_warrior",
-            "Introspective",
+            "introspective",
             "from_mate"
         ],
         [
@@ -5073,7 +5021,7 @@
     "introspective_mate_1": [
         [
             "mediator",
-            "Introspective",
+            "introspective",
             "from_mate"
         ],
         [
@@ -5086,7 +5034,7 @@
     "introspective_mate_2": [
         [
             "you_medicine_cat",
-            "Introspective",
+            "introspective",
             "from_mate"
         ],
         [
@@ -5099,7 +5047,7 @@
     "introspective_mate_31": [
         [
             "queen",
-            "Introspective",
+            "introspective",
             "from_mate"
         ],
         [
@@ -5112,7 +5060,7 @@
     "introspective_mate_41": [
         [
             "Any",
-            "Introspective",
+            "introspective",
             "from_mate",
             "they_blind"
         ],
@@ -5125,7 +5073,7 @@
     "introspective_mate_51": [
         [
             "Any",
-            "Introspective",
+            "introspective",
             "from_mate"
         ],
         [
@@ -5143,7 +5091,7 @@
     "introspective_mate_61": [
         [
             "Any",
-            "Introspective",
+            "introspective",
             "from_mate"
         ],
         [
@@ -5156,7 +5104,7 @@
     "introspective_mate_71": [
         [
             "Any",
-            "Introspective",
+            "introspective",
             "from_mate",
             "they_blind"
         ],
@@ -5739,9 +5687,9 @@
             "they_blind"
         ],
         [
-            "[l_n is addressing the Clan, sharing reports of a hideous, foul-smelling, grotesque unknown creature found in o_cClan territory.]",
+            "[l_n is addressing the Clan, sharing reports of a hideous, foul-smelling, grotesque unknown creature found in o_c_n territory.]",
             "[t_c taps you on the shoulder and leans in to mutter in your ear: ]",
-            "I didn't know you liked to spend time in o_cClan.",
+            "I didn't know you liked to spend time in o_c_n.",
             "[You shove {PRONOUN/t_c/object} off, fighting desperately to hold in your laughter as l_n shoots both of you a strange look.]"
         ]
     ],
@@ -6429,7 +6377,7 @@
         [
             "[A soft purring sound can be heard from t_c as {PRONOUN/t_c/subject} {VERB/t_c/make/makes} your nest for you, despite you saying you could do it yourself.]",
             "[Honestly, {PRONOUN/t_c/subject} {VERB/t_c/seem/seems} perfectly at ease with the world, just helping you settle into the nursery.]",
-            "There you go, love. Let me know if you need anything at all, alright? I'd fight all of o_cClan if I have to...",
+            "There you go, love. Let me know if you need anything at all, alright? I'd fight all of o_c_n if I have to...",
             "Though, I really hope I don't. That would be pretty mean, hehe~."
         ]
     ],
@@ -6526,7 +6474,6 @@
             "you_medicine_cat",
             "brooding",
             "they_grieving",
-            "dead_close",
             "they_blind"
         ],
         [
@@ -7549,7 +7496,7 @@
             "Get this, r_m just asked me to go get some more moss for the medicine den.",
             "There's this real nice place I like to go out near the edge of the territory, near this beautiful babbling brook ...",
             "I was just about to leave, but then I figured, 'Hey, you know who deserves a little break today? y_c. {PRONOUN/y_c/subject/CAP} just {VERB/y_c/work/works} so hard.'",
-            "So, how 'bout it, friend? It's right on the o_cClan border, these huge swaths of moss, you can't miss it.",
+            "So, how 'bout it, friend? It's right on the o_c_n border, these huge swaths of moss, you can't miss it.",
             "... You'll go? Perfect! Have fun on your walk, and try to enjoy yourself! You deserve it!",
             "[t_c leaves you to go take a nap across camp. Did ... Did {PRONOUN/t_c/subject} just talk you into doing {PRONOUN/t_c/poss} chores for {PRONOUN/t_c/object}?]"
         ]
@@ -7817,8 +7764,7 @@
         [
             "from_mate",
             "Any",
-            "you_grieving",
-            "dead_close"
+            "you_grieving"
         ],
         [
             "[You've hidden yourself away in your den, the loss of yg_c has torn you apart. Your claws cling to the moss of your nest, you want to scream and shout- but yet your voice wavers...]",
@@ -7835,7 +7781,6 @@
             "from_mate",
             "Any",
             "they_grieving",
-            "dead_close",
             "stable",
             "unabashed",
             "they_blind"
@@ -7940,7 +7885,7 @@
     "introspective_mate_8": [
         [
             "Any",
-            "Introspective",
+            "introspective",
             "from_mate"
         ],
         [
@@ -7976,7 +7921,7 @@
     "Introspective_murder": [
         [
             "Any",
-            "Introspective",
+            "introspective",
             "cold",
             "righteous",
             "you_shunned"
@@ -7990,7 +7935,7 @@
     "Introspective_murder1": [
         [
             "Any",
-            "Introspective",
+            "introspective",
             "lonesome",
             "they_deaf",
             "you_shunned"
@@ -8002,7 +7947,7 @@
     "Introspective_murder2": [
         [
             "Any",
-            "Introspective",
+            "introspective",
             "calm",
             "gloomy",
             "they_shunned"
@@ -8016,7 +7961,7 @@
     "Introspective_murder3": [
         [
             "Any",
-            "Introspective",
+            "introspective",
             "wise",
             "you_shunned"
         ],
@@ -8933,8 +8878,8 @@
             "they_deaf"
         ],
         [
-            "[As r_m shares news from o_cClan, you realize with a jolt that your kit, t_c, is now old enough to face the enemy Clan in battle.]",
-            "[You imagine your baby torn to shreds at the claws of o_cClan warriors ... Or worse, your baby's maw dripping with blood, forced to take another cat's life in the name of the Clan.]",
+            "[As r_m shares news from o_c_n, you realize with a jolt that your kit, t_c, is now old enough to face the enemy Clan in battle.]",
+            "[You imagine your baby torn to shreds at the claws of o_c_n warriors ... Or worse, your baby's maw dripping with blood, forced to take another cat's life in the name of the Clan.]",
             "[You draw closer to t_c and wrap a protective tail around {PRONOUN/t_c/object}, much to {PRONOUN/t_c/poss} confusion.]",
             "[You silently vow not to let anything bad happen to {PRONOUN/t_c/object} ... Not ever.]"
         ]
@@ -9338,7 +9283,6 @@
         [
             "upstanding",
             "any",
-            "dead_close",
             "they_grieving",
             "they_blind"
         ],
@@ -9352,7 +9296,6 @@
         [
             "upstanding",
             "they_grieving",
-            "dead_close",
             "Any",
             "they_blind",
             "they_deaf"
@@ -9366,7 +9309,6 @@
         [
             "upstanding",
             "they_grieving",
-            "dead_close",
             "Any",
             "they_blind",
             "they_deaf"
@@ -9392,7 +9334,6 @@
         [
             "upstanding",
             "they_grieving",
-            "dead_close",
             "no_kit"
         ],
         [
@@ -9406,7 +9347,6 @@
         [
             "upstanding",
             "they_grieving",
-            "dead_close",
             "Any"
         ],
         [
@@ -9529,8 +9469,7 @@
         [
             "upstanding",
             "you_grieving",
-            "no_kit",
-            "dead_close"
+            "no_kit"
         ],
         [
             "Hey, what are you doing? I know you're still upset about tg_c...",
@@ -9544,7 +9483,6 @@
             "upstanding",
             "you_grieving",
             "platonic_like",
-            "dead_close",
             "they_blind"
         ],
         [
@@ -9571,8 +9509,7 @@
         [
             "any",
             "they_ill",
-            "they_injured",
-            "dead_close"
+            "they_injured"
         ],
         [
             "[In {PRONOUN/t_c/poss} weakened state, it seems like t_c is hallucinating.]",
@@ -11405,7 +11342,7 @@
     "general_sh_J3": [
         [
             "both_shunned",
-            "No_kit",
+            "no_kit",
             "leafbare"
         ],
         [
@@ -11421,7 +11358,7 @@
     "general_sh_J4": [
         [
             "they_shunned",
-            "No_kit"
+            "no_kit"
         ],
         [
             "[t_c makes brief, sad eye contact with you across camp before turning away to look back at {PRONOUN/t_c/poss} paws.]"
@@ -11430,7 +11367,7 @@
     "general_sh_J5": [
         [
             "they_shunned",
-            "No_kit",
+            "no_kit",
             "you_warrior",
             "you_apprentice",
             "you_medicine_cat",
@@ -11450,7 +11387,7 @@
     "general_sh_J6": [
         [
             "both_shunned",
-            "No_kit"
+            "no_kit"
         ],
         [
             "Anything new, y_c?",
@@ -11629,8 +11566,7 @@
         [
             "no_kit",
             "brooding",
-            "you_grieving",
-            "dead_close"
+            "you_grieving"
         ],
         [
             "[t_c quietly drops a flower at your paws.]",
@@ -14701,7 +14637,7 @@
             "Anything interesting happening in c_nClan?",
             "Mhm. I know that. Know that, too.",
             "StarClan, all I do is sit in camp and listen to everycat talk. Nothing surprises me!",
-            "Maybe I should go eavesdrop on o_cClan instead for a little while..."
+            "Maybe I should go eavesdrop on o_c_n instead for a little while..."
         ]
     ],
     "they_ur_J20": [
@@ -15507,7 +15443,7 @@
             "you_warrior"
         ],
         [
-            "[It was a Leafbare border patrol, you'd encountered an o_cClan patrol that refused to leave.]",
+            "[It was a Leafbare border patrol, you'd encountered an o_c_n patrol that refused to leave.]",
             "[You and your patrol start to chase them when they run across the ice, you run after them.]",
             "[Suddenly, the world blurs and a loud splash is heard, your world growing dark, the cold like claws in your stomach.]",
             "['Is this it...?']",
@@ -15834,7 +15770,7 @@
             "sweet"
         ],
         [
-            "[You sigh. A trainee from o_cClan seems to be starting fights with the others. They've been a ton of trouble.]",
+            "[You sigh. A trainee from o_c_n seems to be starting fights with the others. They've been a ton of trouble.]",
             "[Today, it seems, they're picking on a queen's apprentice from a different Clan. You think it's just gonna be the same as usual.]",
             "[That is, until you hear your apprentice leap for the trainee with a loud yowl.]",
             "Leave them alone, can't you see you're pushing them way too hard?!",
@@ -17083,7 +17019,7 @@
             "unlawful"
         ],
         [
-            "You could have at least killed a cat from o_cClan instead of your own blood.",
+            "You could have at least killed a cat from o_c_n instead of your own blood.",
             "What's stopping you from murdering the rest of us?"
         ]
     ],
@@ -17410,7 +17346,7 @@
         ],
         [
             "[It's near midnight. The camp is silent, save for a few snores coming from the warriors' den. Still, you notice t_c sitting at the edge of camp, gazing at the star-speckled sky. Your ears prick as {PRONOUN/t_c/subject} shakily {VERB/t_c/whisper/whispers} upwards.]",
-            "d_c? Are... are you there? Can you hear me?",
+            "tg_c? Are... are you there? Can you hear me?",
             "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/take/takes} a quivering breath.]",
             "Could you give me some kind of sign, so I can at least pretend you're with me?",
             "You know I can't do this without you. I... I'm not brave enough alone."
@@ -17641,7 +17577,7 @@
         [
             "You know what I miss, y_c?",
             "Swimming! It's just not as fun when the water's iced over.",
-            "Ooh! Now that I think about it, that one river close to o_cClan territory might still be fine. Or at least, the ice is thin enough to break with my paws!",
+            "Ooh! Now that I think about it, that one river close to o_c_n territory might still be fine. Or at least, the ice is thin enough to break with my paws!",
             "Wanna go check?"
         ]
     ],
@@ -17759,7 +17695,6 @@
             "Any",
             "silly",
             "platonic_like",
-            "dead_close",
             "you_blind",
             "they_blind"
         ],
@@ -17773,7 +17708,6 @@
         [
             "Any",
             "silly",
-            "dead_close",
             "you_blind",
             "they_blind"
         ],
@@ -17787,7 +17721,6 @@
         [
             "Any",
             "hate",
-            "dead_close",
             "you_blind",
             "they_blind"
         ],
@@ -19022,7 +18955,7 @@
         [
             "Stay away from the river when you're hunting today, please?",
             "I'm sure the rain last night means it's flowing faster than usual, and the water level's probably higher...",
-            "I heard about a warrior from o_cClan being swept away last greenleaf! So just... Be careful, okay?"
+            "I heard about a warrior from o_c_n being swept away last greenleaf! So just... Be careful, okay?"
         ]
     ],
     "neurotic_fromparent_SQ1~2~a": [
@@ -19432,7 +19365,7 @@
             "mountainous"
         ],
         [
-            "Have you seen that shiny rock sticking out of the cliff face by the o_cClan border?",
+            "Have you seen that shiny rock sticking out of the cliff face by the o_c_n border?",
             "The sun was hitting it just right today. It was beautiful... I really wish I could have it for my collection.",
             "It's just so far up, and the cliff's so steep! I'd either fall to my death, or barely make it a tail-length before slipping and looking really stupid.",
             "Oh well. It'd probably be impossible to pry out of the cliff, anyways."
@@ -19670,7 +19603,7 @@
             "they_blind"
         ],
         [
-            "r_a accidentally wandered into o_cClan territory today. Luckily, no cats spotted {PRONOUN/r_a/object} before {PRONOUN/r_a/subject} found {PRONOUN/r_a/poss} way back.",
+            "r_a accidentally wandered into o_c_n territory today. Luckily, no cats spotted {PRONOUN/r_a/object} before {PRONOUN/r_a/subject} found {PRONOUN/r_a/poss} way back.",
             "I was so nervous watching {PRONOUN/r_a/object}, though! I tried my best to make {PRONOUN/r_a/object} realize something was wrong, but rustling leaves can only do so much..."
         ]
     ],
@@ -20147,7 +20080,7 @@
             "they_blind"
         ],
         [
-            "Do we know for sure how many cats are in o_cClan? Like, we know how many come to Gatherings, but every Clan leaves some cats behind.",
+            "Do we know for sure how many cats are in o_c_n? Like, we know how many come to Gatherings, but every Clan leaves some cats behind.",
             "If they decided to rush in with their whole Clan and take over our camp, do you think it'd be easy for them?",
             "Maybe they haven't done that because they don't know how many cats <i>we</i> have...",
             "I didn't realize how valuable that piece of information was until now!"
@@ -20554,7 +20487,7 @@
         [
             "When you think about it, plove_l_n_stable really is the ideal leader.",
             "{PRONOUN/plove_l_n_stable/subject/CAP}{VERB/plove_l_n_stable/'re/'s} reliable, smart, levelheaded...",
-            "When that o_cClan warrior made those comments at the last Gathering, {PRONOUN/plove_l_n_stable/subject} responded so cordially! I would've been ready to fight!"
+            "When that o_c_n warrior made those comments at the last Gathering, {PRONOUN/plove_l_n_stable/subject} responded so cordially! I would've been ready to fight!"
         ]
     ],
     "neurotic_theygrieving_SQ2": [
@@ -20981,7 +20914,7 @@
             "you_blind"
         ],
         [
-            "You're not going to train tonight, right? df_m_n wouldn't make you... not while you're like this?",
+            "You're not going to train tonight, right? m_n wouldn't make you... not while you're like this?",
             "Please be careful, y_c. Everycat's already worried enough about you as it is."
         ]
     ],
@@ -21100,7 +21033,7 @@
         [
             "How 'bout a story, y_c?",
             "C'mon. There has to be at least a couple I haven't told you...",
-            "Have I told you about the catmint garden? The bear attack? The time d_c fell into the river?",
+            "Have I told you about the catmint garden? The bear attack? The time tg_c fell into the river?",
             "Huh. You've really heard all of my stories?",
             "Maybe I should find someone new to pester."
         ]
@@ -21260,7 +21193,7 @@
             "they_blind"
         ],
         [
-            "y_c! You walked through a catmint patch on your way home from o_cClan. I can smell it.",
+            "y_c! You walked through a catmint patch on your way home from o_c_n. I can smell it.",
             "Yes, my nose is that good. Now, tell me where it is!"
         ]
     ],
@@ -21665,7 +21598,7 @@
         ],
         [
             "At the Gathering, I got to try talking about some of the topics we practiced!",
-            "I sat by an apprentice from o_cClan, and we talked for a while. They actually seemed interested in what I was saying? And they were pretty nice...",
+            "I sat by an apprentice from o_c_n, and we talked for a while. They actually seemed interested in what I was saying? And they were pretty nice...",
             "Their name was... um... oh no. I forget what it was exactly, but it had something to do with water.",
             "And as we were leaving, they said it was fun to talk to me. They were probably just being polite, but it was nice in the moment.",
             "Thanks again for the help. You're really cool, you know?"
@@ -23798,7 +23731,7 @@
         ],
         [
             "[t_c sits in a sunbeam, contemplating a bundle of blue flowers between {PRONOUN/t_c/poss} paws. {PRONOUN/t_c/subject/CAP} {VERB/t_c/seem/seems} worried, so you ask what's on {PRONOUN/t_c/poss} mind.]",
-            "Ah... well, t_m_unlawful brought me these flowers, but I'm pretty sure they're from o_cClan territory.",
+            "Ah... well, t_m_unlawful brought me these flowers, but I'm pretty sure they're from o_c_n territory.",
             "I noticed them across the border while we were on a walk yesterday, and t_m_unlawful could tell that I liked them, so I think {PRONOUN/t_m_unlawful/subject} went back and picked them this morning...",
             "And then when I asked where the flowers were from, {PRONOUN/t_m_unlawful/subject} just winked, said {PRONOUN/t_m_unlawful/subject} loved me, and trotted off!",
             "t_m_unlawful's always been braver than me. I know I shouldn't, but I kind of admire how {PRONOUN/t_m_unlawful/subject} {VERB/t_m_unlawful/don't/doesn't} really care about borders and rules?",
@@ -24666,7 +24599,7 @@
         },
         "tell_truth": [
             "You... killed somecat?",
-            "[t_c seems shocked at the news. {PRONOUN/t_c/they/CAP} {VERB/t_c/stumble/stumbles} backwards with uncertainty in {PRONOUN/t_c/poss} eyes.]",
+            "[t_c seems shocked at the news. {PRONOUN/t_c/subject/CAP} {VERB/t_c/stumble/stumbles} backwards with uncertainty in {PRONOUN/t_c/poss} eyes.]",
             "[Before you could say anything else, t_c bolts out of your sight.]"
         ],
         "deny_claims": [
@@ -25380,7 +25313,7 @@
             "they_apprentice"
         ],
         [
-            "Did you see how neutral_r_w_artistan's decorating the camp entrance with flowers? {PRONOUN/neutral_r_w_artistan/subject/CAP} asked me to get some of the pink ones that grow by the o_cClan border, since I'm hunting there today.",
+            "Did you see how neutral_r_w_artistan's decorating the camp entrance with flowers? {PRONOUN/neutral_r_w_artistan/subject/CAP} asked me to get some of the pink ones that grow by the o_c_n border, since I'm hunting there today.",
             "Those flowers are so fragile, though! I doubt I can carry too many without crumpling them, or even ripping some...",
             "Are you free this afternoon? Could you come with me if I need to make a second trip?"
         ]
@@ -26548,7 +26481,7 @@
             "any"
         ],
         [
-            "[t_c sits at the edge of camp, staring daggers at r_c_dislike, who is obliviously cleaning {PRONOUN/r_c_dislike/poss} paws in the clearing.]"
+            "[t_c sits at the edge of camp, staring daggers at dislike_r_c, who is obliviously cleaning {PRONOUN/dislike_r_c/poss} paws in the clearing.]"
         ]
     ],
     "dislike_brooding_J2": [
@@ -26957,7 +26890,4 @@
 	"I'm not going to be perfect, but I can probably get better... right?"
         ]
     ]
-
-
-
 }
