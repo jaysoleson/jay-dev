@@ -522,7 +522,7 @@ class HandleShortEvents:
                                 in ['male', 'trans male', 'demiboy'] and self.main_cat.sexuality == "straight" ):
                                 pref = "toms"
                             elif (self.main_cat.sexuality in ["gay", "andro"] and Cat.all_cats.get(mate_id).genderalign in ["female", "trans female", "demigirl"]) or (self.main_cat.genderalign in ['female', 'trans female', 'demigirl'] and \
-                            Cat.all_cats.get(mate_id).genderalign in ['female', 'trans female', 'demigirl'] and cat.sexuality == "straight" ):
+                            Cat.all_cats.get(mate_id).genderalign in ['female', 'trans female', 'demigirl'] and self.main_cat.sexuality == "straight" ):
                                 pref = "she-cats"
                             else:
                                 return
