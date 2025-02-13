@@ -89,6 +89,7 @@ def test():
         "their_crush": _r,
         "your_crush": _r,
         "mate1": _r,
+        "qpp1": _r,
         "r_w": _r,
         "r_w1": _r,
         "r_w2": _r,
