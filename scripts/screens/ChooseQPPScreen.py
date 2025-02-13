@@ -114,7 +114,7 @@ class ChooseQPPScreen(Screens):
                 self.selected_qpp_index = 0
                 self.change_screen('profile screen')
             elif event.ui_element == self.qppscreen_button:
-                self.change_screen('choose mate screen')
+                self.change_screen('choose qpp screen')
             elif event.ui_element == self.toggle_qpp:
                 
                 self.work_thread = self.loading_screen_start_work(self.change_qpp)
@@ -197,8 +197,8 @@ class ChooseQPPScreen(Screens):
         """Sets up the elements that are always on the page"""
         self.info = pygame_gui.elements.UITextBox(
            "Cat's with queer-platonic partners will still be able to take other platonic partners"
-            " and mates (unless those interactions are toggled off in their profile). "
-            "Cats in QPRs will not naturally have kits with each other as if they were mates.",
+            " and qpps (unless those interactions are toggled off in their profile). "
+            "Cats in QPRs will not naturally have kits with each other as if they were qpps.",
             ui_scale(pygame.Rect((0, 5), (375, 100))),
             object_id=get_text_box_theme("#text_box_22_horizcenter_spacing_95")
         )
@@ -207,7 +207,7 @@ class ChooseQPPScreen(Screens):
             ui_scale(pygame.Rect((40, 113), (266, 197))),
             pygame.transform.scale(
                 image_cache.load_image(
-                    "resources/images/choosing_cat1_frame_mate.png"
+                    "resources/images/choosing_cat1_frame_qpp.png"
                 ).convert_alpha(),
                 ui_scale_dimensions((266, 197)),
             ),
@@ -216,7 +216,7 @@ class ChooseQPPScreen(Screens):
             ui_scale(pygame.Rect((494, 113), (266, 197))),
             pygame.transform.scale(
                 image_cache.load_image(
-                    "resources/images/choosing_cat2_frame_mate.png"
+                    "resources/images/choosing_cat2_frame_qpp.png"
                 ).convert_alpha(),
                 ui_scale_dimensions((266, 197)),
             ),
@@ -255,7 +255,7 @@ class ChooseQPPScreen(Screens):
     
         self.qppscreen_button = UISurfaceImageButton(
             ui_scale(pygame.Rect((342, 142), (115, 30))),
-            "mate screen",
+            "qpp screen",
             get_button_dict(ButtonStyles.SQUOVAL, (105, 30)),
             object_id="@buttonstyles_squoval",
             manager=MANAGER,
@@ -342,7 +342,7 @@ class ChooseQPPScreen(Screens):
 
         # Checkboxes and text
         self.single_only_text = pygame_gui.elements.UITextBox(
-            "No mates",
+            "No qpps",
             ui_scale(pygame.Rect((517, 11), (104, -1))),
             object_id="#text_box_26_horizcenter",
             container=self.potential_container,
@@ -365,7 +365,7 @@ class ChooseQPPScreen(Screens):
         self.toggle_qpp = UIImageButton(
             ui_scale(pygame.Rect((323, 310), (153, 30))),
             "",
-            object_id="#confirm_mate_button",
+            object_id="#confirm_qpp_button",
         )
 
         self.open_tab = "potential"
@@ -415,7 +415,7 @@ class ChooseQPPScreen(Screens):
             self.qpps_last_page.disable()
             self.qpps_next_page.disable()
             _qpp = self.all_qpps[0][0]
-            self.mates_cat_buttons["cat"] = UISpriteButton(
+            self.qpps_cat_buttons["cat"] = UISpriteButton(
                 ui_scale(pygame.Rect((240, 13), (150, 150))),
                 pygame.transform.scale(_qpp.sprite, ui_scale_dimensions((150, 150))),
                 cat_object=_qpp,
@@ -466,21 +466,21 @@ class ChooseQPPScreen(Screens):
         pos_y = 0
         i = 0
         for _qpp in display_cats:
-            if game.clan.clan_settings["show fav"] and _qpp.favourite != 0:
-                self.fav[str(i)] = pygame_gui.elements.UIImage(
-                    ui_scale(pygame.Rect((pos_x, pos_y), (100, 100))),
-                    pygame.transform.scale(
-                        pygame.image.load(
-                            f"resources/images/fav_marker_{_qpp.favourite}.png").convert_alpha(),
-                        (100, 100))
-                )
-                self.fav[str(i)].disable()
-            self.mates_cat_buttons["cat" + str(i)] = UISpriteButton(
+            # if game.clan.clan_settings["show fav"] and _qpp.favourite != 0:
+            #     self.fav[str(i)] = pygame_gui.elements.UIImage(
+            #         ui_scale(pygame.Rect((pos_x, pos_y), (100, 100))),
+            #         pygame.transform.scale(
+            #             pygame.image.load(
+            #                 f"resources/images/fav_marker_{_qpp.favourite}.png").convert_alpha(),
+            #             (100, 100))
+            #     )
+            #     self.fav[str(i)].disable()
+            self.qpps_cat_buttons["cat" + str(i)] = UISpriteButton(
                 ui_scale(pygame.Rect((pos_x, pos_y), (50, 50))),
                 _qpp.sprite,
                 cat_object=_qpp,
                 manager=MANAGER,
-                container=self.mates_container,
+                container=self.qpps_container,
             )
             pos_x += 60
             if pos_x >= 600:
@@ -514,8 +514,8 @@ class ChooseQPPScreen(Screens):
         
         self.update_offspring_container_page()
     
-    def update_potential_mates_container_page(self):
-        """Updates just the current page for the mates container, does
+    def update_offspring_container_page(self):
+        """Updates just the current page for the qpps container, does
         not refresh the list. It will also update the disable status of the
         next and last page buttons"""
 
@@ -523,7 +523,7 @@ class ChooseQPPScreen(Screens):
             self.potential_qpps_buttons[ele].kill()
         self.potential_qpps_buttons = {}
 
-        total_pages = len(self.all_potential_mates)
+        total_pages = len(self.all_potential_qpps)
         if max(1, total_pages) - 1 < self.potential_qpps_page:
             self.potential_qpps_page = total_pages - 1
         elif self.potential_qpps_page < 0:
@@ -612,7 +612,7 @@ class ChooseQPPScreen(Screens):
             container=self.potential_container,
         )
 
-        self.all_potential_mates = self.chunks(self.get_valid_qpps(), 24)
+        self.all_potential_qpps = self.chunks(self.get_valid_qpps(), 24)
 
         # Update checkboxes
         # TODO
@@ -952,7 +952,7 @@ class ChooseQPPScreen(Screens):
             ui_scale(pygame.Rect((0, 188), (200, 78))),
             pygame.transform.scale(
                 image_cache.load_image(
-                    "resources/images/heart_mates.png"
+                    "resources/images/heart_qpps.png"
                     if self.selected_cat.ID in self.the_cat.qpp
                     else "resources/images/heart_breakup.png"
                     if self.selected_cat.ID in self.the_cat.previous_qpps
@@ -1082,7 +1082,7 @@ class ChooseQPPScreen(Screens):
             anchors={"centerx": "centerx"},
         )
 
-        # Set romantic hearts of current cat towards mate or selected cat.
+        # Set romantic hearts of current cat towards qpp or selected cat.
         if self.the_cat.dead:
             platonic_like = 0
         else:
@@ -1114,7 +1114,7 @@ class ChooseQPPScreen(Screens):
             )
             x_pos += 27
 
-        # Set romantic hearts of mate/selected cat towards current_cat.
+        # Set romantic hearts of qpp/selected cat towards current_cat.
         if self.selected_cat.dead:
             platonic_like = 0
         else:
