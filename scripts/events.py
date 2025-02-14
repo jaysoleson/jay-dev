@@ -4621,13 +4621,13 @@ class Events:
 
         # removing wrong pride flags theyre still wearing
         for i in cat.pelt.accessories:
-            if i not in cat.pelt.inventory:
+            if i not in cat.pelt.inventory and i not in cat.pelt.permanent_inventory:
                 if i in self.all_bandanas:
                     cat.pelt.accessories.remove(i)
 
         # creating a new list to choose from for autoequip
         prideflags = []
-        for i in cat.pelt.inventory:
+        for i in cat.pelt.inventory + cat.pelt.permanent_inventory:
             if i in self.all_bandanas:
                 prideflags.append(i)
 

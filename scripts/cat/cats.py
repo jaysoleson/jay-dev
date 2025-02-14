@@ -381,7 +381,7 @@ class Cat:
         # SEX???!?!?!?!?!?!?
 
         if self.sexuality is None:
-           self.sexuality = 'bi'
+           self.sexuality = 'pan'
 
         # for i in [self.male_attracted, self.female_attracted, self.enby_attracted]:
         #     if not isinstance(i, bool):
@@ -404,6 +404,8 @@ class Cat:
             # trans cat chances
             trans_chance = randint(0, 50)
             nb_chance = randint(0, 75)
+
+            fancy_gender_chance = 100
             if self.gender == "female" and not self.status in ['newborn', 'kitten']:
                 if trans_chance == 1:
                     self.genderalign = "trans male"
@@ -420,43 +422,22 @@ class Cat:
                     self.genderalign = self.gender
             else:
                 self.genderalign = self.gender
+            
+            if fancy_gender_chance == 1:
+                self.genderalign = choice(["bigender", "genderfluid"])
 
             # sexuality chances
             # straight chance bc bi is default
-            gay_chance = randint(0,10)
-            pan_chance = randint(1,3)
-            aroace_chance = randint (0,30)
-            straight_chance = randint(0,1)
-            questioning_chance = randint(0,15)
             
-            # self.male_attracted = choice([True, False])
-            # self.female_attracted = choice([True, False])
-            # self.enby_attracted = True # no only not liking enbies thats weird
-
-            # self.make_sexuality_label()
-            # if self.sexualitylabel == "aroace":
-            #     self.arospec = "aromantic"
-            #     self.acespec = "asexual"
-            # very not finished this yet
-            
-            if self.moons > 3:
-                if questioning_chance == 1:
-                    if randint(1,2) == 1:
-                        self.sexuality = 'questioning'
-                    else:
-                        if self.genderalign in ['trans female', 'female', 'demigirl']:
-                            if self.sexuality == 'lesbian':
-                                self.sexuality = 'gyno'
-                            elif self.sexuality == 'straight':
-                                self.sexuality = 'andro'
-                        elif self.genderalign in ['trans male', 'male', 'demiboy']:
-                            if self.sexuality == 'straight':
-                                self.sexuality = 'gyno'
-                            elif self.sexuality == 'gay':
-                                self.sexuality = 'andro'
-                        self.genderalign = 'questioning'
+            if self.genderalign in ["male", "female", "trans female", "trans male"]:
+                if self.genderalign == "male":
+                    gay = "gay"
+                else:
+                    gay = "lesbian"
+                self.sexuality = choice(["straight", "straight", "straight", "straight", "straight", "bi", "bi", "aroace", gay, gay, "pan", "pan"])
             else:
-                self.sexuality = self.sexuality
+                self.sexuality = choice(["gyno", "gyno", "gyno", "andro", "andro", "andro", "bi", "bi", "bi", "aroace"])
+            
 
             # aro or ace chances
             ace_chance = randint(1,20)
