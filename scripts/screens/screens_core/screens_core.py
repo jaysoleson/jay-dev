@@ -278,7 +278,7 @@ def rebuild_core(*, should_rebuild_bgs=True):
     if get_version_info().is_source_build or get_version_info().is_dev():
         dev_watermark = pygame_gui.elements.UILabel(
             ui_scale(pygame.Rect((525, 660), (300, 50))),
-            "Dev Build: " + version_number.text,
+            "Pridegen: " + version_number.text,
             object_id="#dev_watermark",
         )
         version_number.kill()
