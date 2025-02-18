@@ -63,7 +63,7 @@ def json_load():
                 else:
                     cat["sexuality"] = choice(['bi', 'bi', 'bi', 'aroace'])
             
-            if "sexuality_changes" not in cat:
+            if "sexuality_changes" not in cat or cat["sexuality_changes"] is None:
                 cat["sexuality_changes"] = 0
 
             if "qpp" not in cat:

@@ -3869,12 +3869,13 @@ class ProfileScreen(Screens):
                 self.cis_trans_button.set_text("change to \ncisgender")
                 self.cis_trans_button.disable()
 
-            if self.the_cat.sexuality == "aroace":
-                self.change_arospec_button.disable()
-                self.change_acespec_button.disable()
-            else:
-                self.change_arospec_button.enable()
-                self.change_acespec_button.enable()
+            if self.the_cat.moons > 5:
+                if self.the_cat.sexuality == "aroace":
+                    self.change_arospec_button.disable()
+                    self.change_acespec_button.disable()
+                else:
+                    self.change_arospec_button.enable()
+                    self.change_acespec_button.enable()
 
 
         elif self.open_tab == 'your tab':
