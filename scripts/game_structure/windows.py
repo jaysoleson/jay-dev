@@ -1120,14 +1120,13 @@ class SpecifyCatSexuality(UIWindow):
             container=self
             )
 
-        self.done_button = UIImageButton(
+        self.done_button = UISurfaceImageButton(
             ui_scale(pygame.Rect((161, 165), (77, 30))),
-            "",
-            object_id="#done_button",
-            manager=MANAGER,
-            container=self
-            )
-
+            "done",
+            get_button_dict(ButtonStyles.SQUOVAL, (77, 30)),
+            object_id="@buttonstyles_squoval",
+            container=self,
+        )
         label = cat.sexualitylabel if cat.sexualitylabel is not None else cat.sexuality
         self.label_entry_box = pygame_gui.elements.UITextEntryLine(
             ui_scale(pygame.Rect((125, 100), (175, 40))),
@@ -1139,9 +1138,10 @@ class SpecifyCatSexuality(UIWindow):
         self.none_unchecked = UIImageButton(
             ui_scale(pygame.Rect((75, 75), (34, 34))),
             "",
-            object_id="#unchecked_checkbox",
+            object_id="@unchecked_checkbox",
             tool_tip_text=('No romantic attraction'),
-            container=self
+            container=self,
+            manager=MANAGER
             )
 
         self.nonetext = pygame_gui.elements.UITextBox(
@@ -1155,16 +1155,18 @@ class SpecifyCatSexuality(UIWindow):
         self.none_checked = UIImageButton(
             ui_scale(pygame.Rect((75, 75), (34, 34))),
             "",
-            object_id="#checked_checkbox",
-            container=self
+            object_id="@checked_checkbox",
+            container=self,
+            manager=MANAGER
             )
 
         self.toms_unchecked = UIImageButton(
             ui_scale(pygame.Rect((75, 105), (34, 34))),
             "",
-            object_id="#unchecked_checkbox",
+            object_id="@unchecked_checkbox",
             tool_tip_text=('Attracted to toms. Includes enbies'),
-            container=self
+            container=self,
+            manager=MANAGER
             )
         self.tomtext = pygame_gui.elements.UITextBox(
             "Toms",
@@ -1176,16 +1178,18 @@ class SpecifyCatSexuality(UIWindow):
         self.toms_checked = UIImageButton(
             ui_scale(pygame.Rect((75, 105), (34, 34))),
             "",
-            object_id="#checked_checkbox",
-            container=self
+            object_id="@checked_checkbox",
+            container=self,
+            manager=MANAGER
             )
 
         self.shecats_unchecked = UIImageButton(
             ui_scale(pygame.Rect((75, 135), (34, 34))),
             "",
-            object_id="#unchecked_checkbox",
+            object_id="@unchecked_checkbox",
             tool_tip_text=('Attracted to she-cats. Includes enbies'),
-            container=self
+            container=self,
+            manager=MANAGER
             )
         
         self.shecattext = pygame_gui.elements.UITextBox(
@@ -1199,16 +1203,18 @@ class SpecifyCatSexuality(UIWindow):
         self.shecats_checked = UIImageButton(
             ui_scale(pygame.Rect((75, 135), (34, 34))),
             "",
-            object_id="#checked_checkbox",
-            container=self
+            object_id="@checked_checkbox",
+            container=self,
+            manager=MANAGER
             )
 
         self.remove_unchecked = UIImageButton(
             ui_scale(pygame.Rect((75, 175), (34, 34))),
             "",
-            object_id="#unchecked_checkbox",
+            object_id="@unchecked_checkbox",
             tool_tip_text=('Remove custom label'),
-            container=self
+            container=self,
+            manager=MANAGER
             )
         
         self.removetext = pygame_gui.elements.UITextBox(
@@ -1222,8 +1228,9 @@ class SpecifyCatSexuality(UIWindow):
         self.remove_checked = UIImageButton(
             ui_scale(pygame.Rect((75, 175), (34, 34))),
             "",
-            object_id="#checked_checkbox",
-            container=self
+            object_id="@checked_checkbox",
+            container=self,
+            manager=MANAGER
             )
         
         self.none_attracted = False
@@ -2854,8 +2861,8 @@ class ChangeCatToggles(UIWindow):
 
     def __init__(self, cat):
         super().__init__(
-            ui_scale(pygame.Rect((300, 215), (400, 185))),
-            window_display_title="Change Cat Name",
+            ui_scale(pygame.Rect((300, 135), (400, 265))),
+            window_display_title="Change Cat Toggles",
             object_id="#change_cat_name_window",
             resizable=False,
         )
@@ -2987,10 +2994,10 @@ class ChangeCatToggles(UIWindow):
             )
         
         if self.the_cat.no_qpps:
-            box_type = "#checked_checkbox"
+            box_type = "@checked_checkbox"
             tool_tip = "Prevent cat from automatically taking platonic partners or breaking up with existing ones."
         else:
-            box_type = "#unchecked_checkbox"
+            box_type = "@unchecked_checkbox"
             tool_tip = "Prevent cat from automatically taking platonic partners or breaking up with existing ones."
         
         self.checkboxes["prevent_qpps"] = UIImageButton(
@@ -3003,14 +3010,14 @@ class ChangeCatToggles(UIWindow):
         
 
         if self.the_cat.prevent_sexualitychange:
-            box_type = "#checked_checkbox"
+            box_type = "@checked_checkbox"
             tool_tip = "Prevent this cat's sexuality from changing in random events."
         else:
-            box_type = "#unchecked_checkbox"
+            box_type = "@unchecked_checkbox"
             tool_tip = "Prevent this cat's sexuality from changing in random events."
         
         self.checkboxes["prevent_sexuality"] = UIImageButton(
-            ui_scale(pygame.Rect(22, 125, 34, 34)),
+            ui_scale(pygame.Rect(22, 150, 34, 34)),
             "",
             container=self,
             object_id=box_type,
@@ -3018,14 +3025,14 @@ class ChangeCatToggles(UIWindow):
             )
         
         if self.the_cat.prevent_genderchange:
-            box_type = "#checked_checkbox"
+            box_type = "@checked_checkbox"
             tool_tip = "Prevent this cat's gender from changing in random events."
         else:
-            box_type = "#unchecked_checkbox"
+            box_type = "@unchecked_checkbox"
             tool_tip = "Prevent this cat's gender from changing in random events."
 
         self.checkboxes["prevent_gender"] = UIImageButton(
-            ui_scale(pygame.Rect(22, 150, 34, 34)),
+            ui_scale(pygame.Rect(22, 175, 34, 34)),
             "",
             container=self,
             object_id=box_type,
@@ -3040,7 +3047,7 @@ class ChangeCatToggles(UIWindow):
             box_type = "@unchecked_checkbox"
             tool_tip = "Lock this cat's faith to 0."
         
-        self.checkboxes["no_faith"] = UIImageButton(ui_scale(pygame.Rect(22, 125, 34, 34)), "",
+        self.checkboxes["no_faith"] = UIImageButton(ui_scale(pygame.Rect(22, 200, 34, 34)), "",
                                                          container=self,
                                                          object_id=box_type,
                                                          tool_tip_text=tool_tip)

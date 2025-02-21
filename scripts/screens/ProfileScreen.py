@@ -3842,6 +3842,9 @@ class ProfileScreen(Screens):
                     starting_height=2, object_id=f"#change_{next_arospec}_button",
                     manager=MANAGER
                     )
+                self.specify_sexuality_button.enable()
+            else:
+                self.specify_sexuality_button.disable()
 
             # Button to trans or cis the cats.
             if self.the_cat.gender == "male" and self.the_cat.genderalign == "male":
