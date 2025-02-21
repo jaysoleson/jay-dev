@@ -228,7 +228,7 @@ class Cat:
         # self.female_attracted = female_attracted
         # self.enby_attracted = enby_attracted
         self.sexualitylabel = None
-        self.sexuality_changes = None
+        self.sexuality_changes = 0
         self.t4t = False
         self.acespec = acespec
         self.arospec = arospec
