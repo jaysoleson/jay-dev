@@ -1789,6 +1789,7 @@ class UpdateAvailablePopup(UIWindow):
             object_id="@buttonstyles_squoval",
             container=self,
         )
+        self.continue_button.disable()
 
         self.cancel_button = UISurfaceImageButton(
             ui_scale(pygame.Rect((187, 185), (78, 30))),
@@ -2522,7 +2523,7 @@ class DeathScreen(UIWindow):
 
 class DeputyScreen(UIWindow):
     def __init__(self, last_screen):
-        super().__init__(ui_scale(pygame.Rect((250, 200), (300, 250))),
+        super().__init__(ui_scale(pygame.Rect((250, 200), (300, 180))),
                         window_display_title='Choose your deputy',
                         object_id='#game_over_window',
                         resizable=False)
