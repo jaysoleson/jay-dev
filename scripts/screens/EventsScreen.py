@@ -382,9 +382,9 @@ class EventsScreen(Screens):
         )
 
         self.clan_info["symbol"] = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((145, 105), (100, 100))),
+            ui_scale(pygame.Rect((140, 105), (80, 80))),
             pygame.transform.scale(
-                clan_symbol_sprite(game.clan), ui_scale_dimensions((100, 100))
+                clan_symbol_sprite(game.clan), ui_scale_dimensions((80, 80))
             ),
             object_id=f"clan_symbol",
             starting_height=1,
@@ -436,17 +436,21 @@ class EventsScreen(Screens):
         )
 
         # INF
+        self.priority_herb_button = UISurfaceImageButton(
+            ui_scale(pygame.Rect((110, 200), (140, 30))),
+            Icon.HERB + " Priority Herb",
+            get_button_dict(ButtonStyles.ROUNDED_RECT, (140, 30)),
+            object_id="@buttonstyles_rounded_rect",
+            starting_height=1,
+            container=self.event_screen_container,
+            manager=MANAGER
+        )
+
         self.log_button = UIImageButton(
             ui_scale(pygame.Rect((640, 125), (82, 74))),
             "",
             object_id="#log_button",
-            manager=MANAGER
-            )
-        
-        self.priority_herb_button = UIImageButton(
-            ui_scale(pygame.Rect((60, 134), (60, 60))),
-            "",
-            object_id="#change_priority_herb_button",
+            container=self.event_screen_container,
             manager=MANAGER
             )
         ####

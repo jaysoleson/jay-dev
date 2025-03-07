@@ -1695,7 +1695,13 @@ class Events:
             other_clan_events = ujson.loads(read_file.read())
 
         if game.clan.infection["clan_infected"] is False:
-            return
+            for clan in game.clan.all_clans:
+                if clan.infection_level > 0:
+                    clan.infection_level = 0
+                    event = f"o_c is in recovery from the infection after recieving news of the cure."
+                    text = event_text_adjust(Cat, event, other_clan=clan)
+                    game.cur_events_list.insert(0, Single_Event(text, ["other_clans", "infection"]))
+                    return
          
         temperament_list = [
             'cunning', 'wary', 'logical', 'proud', 'stoic', 'mellow',
@@ -2169,6 +2175,18 @@ class Events:
         event_list = []
         meds_available = get_alive_status_cats(Cat, ["medicine cat", "medicine cat apprentice"], working=True,
                                                 sort=True)
+        # INF
+        # adding more herbs for priority + cure herbs when the cure is discovered
+        possible_herbs = HERBS.copy()
+        if game.clan.infection["priority_herb"] is not None:
+            weight = 25
+            possible_herbs.extend([game.clan.infection["priority_herb"]] * weight)
+        if len(game.clan.infection["cure_discovered"]) == 4:
+            for herb in game.clan.infection["cure_discovered"]:
+                weight = 15
+                possible_herbs.extend(herb * weight)
+        # ---
+
         for med in meds_available:
             if game.clan.current_season in ["Newleaf", "Greenleaf"]:
                 amount = random.choices([1, 2, 3, 4], weights=[1, 2, 2, 2], k=1)
@@ -2199,10 +2217,7 @@ class Events:
                 else:
                     amount = random.choices([0, 1], [3, 1], k=1)
                 if amount[0] != 0:
-                    herblist = HERBS.copy()
-                    if game.clan.infection["priority_herb"] is not None:
-                        weight = 25
-                        herblist.extend([game.clan.infection["priority_herb"]] * weight)
+                    herblist = possible_herbs.copy()
                     herbs_found = random.sample(herblist, k=amount[0])
                     herb_display = []
                     for herb in herbs_found:

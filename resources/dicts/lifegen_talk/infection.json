@@ -1439,7 +1439,8 @@
             "any",
             "you_not_kit",
             "they_medicine_cat",
-            "fungal_lore_3"
+            "fungal_lore_3",
+            "infection"
         ],
         "log_prereq": [
             "fungal_lore_2"
@@ -1464,12 +1465,148 @@
             "they_infected",
             "you_not_infected",
             "they_stage_one",
-            "max_dislike_10"
+            "max_dislike_10",
+            "infection"
         ],
         [
             "No, no, don't worry about me, sweetheart. I'll be just fine.",
             "I'm sorry you can't get too close. I don't want to get you sick.",
             "I'll be okay soon, and then we can cuddle again, okay? I promise. I'm not going anywhere."
+        ]
+    ],
+    "inf_to_med_J1": [
+        [
+            "they_infected",
+            "they_stage_four",
+            "no_kit",
+            "you_medicine_cat",
+            "you_medicine_cat_apprentice",
+            "stable",
+            "upstanding",
+            "cool",
+            "they_blind",
+            "you_blind",
+            "infection"
+        ],
+        [
+            "It... It's okay, y_c. Go help someone else.",
+            "I'm too far gone."
+        ]
+    ],
+    "inf_to_med_J2": [
+        [
+            "they_infected",
+            "they_stage_one",
+            "they_stage_two",
+            "no_kit",
+            "unlawful",
+            "you_not_infected",
+            "max_platonic_5",
+            "you_blind",
+            "they_blind",
+            "infection"
+        ],
+        [
+            "[t_c coughs at you as you walk past, making you jump.]",
+            "Haha. I've finally found a way to keep you away from me."
+        ]
+    ],
+    "inf_to_med_J3": [
+        [
+            "they_infected",
+            "you_medicine_cat",
+            "you_medicine_cat_apprentice",
+            "they_elder",
+            "cure_not_found",
+            "assertive",
+            "stable",
+            "you_blind",
+            "infection"
+        ],
+        [
+            "Back with soem more herbs, eh, meddy?",
+            "Well, c'mon. Bring 'em here. I can take it. You got a cure this time?",
+            "No? Ah. Well, at least maybe it'll bring my headache down a little bit.",
+            "Seeya tomorrow."
+        ]
+    ],
+    "inf_to_med_J4": [
+        [
+            "they_infected",
+            "you_medicine_cat",
+            "you_medicine_cat_apprentice",
+            "from_parent",
+            "from_adopted_parent",
+            "min_platonic_50",
+            "infection"
+        ],
+        [
+            "Don't worry about me, y_c. You should focus on your other patients. I shouldn't get any special treatment.",
+            "Though... could I get an extra poppy seed or two? For being such a good {PRONOUN/t_c/parent}?",
+            "Hehe. Thank you, sweetheart. I love you."
+        ]
+    ],
+    "immune_J1": [
+        [
+            "you_immune",
+            "they_infected",
+            "from_mate",
+            "min_romantic_20",
+            "no_kit",
+            "they_blind",
+            "you_blind",
+            "infection"
+        ],
+        [
+            "Oh, love, don't get too close, please.",
+            "No, I know you're immune, just... I don't trust it. I really don't want you to get sick.",
+            "... Okay. We can cuddle for a little bit. Just... be careful. Come here."
+        ]
+    ],
+    "immune_J2": [
+        [
+            "you_immune",
+            "they_not_infected",
+            "no_kit",
+            "infection"
+        ],
+        [
+            "Hey. y_c. I have a favour to ask.",
+            "Could you go talk to plove_r_c_infected for me? Just... tell {PRONOUN/plove_r_c_infected/object} I miss {PRONOUN/plove_r_c_infected/object}, and I'll be able to see {PRONOUN/plove_r_c_infected/object} soon.",
+            "I'm really worried about {PRONOUN/plove_r_c_infected/object}."
+        ]
+    ],
+    "immune_J3": [
+        [
+            "you_immune",
+            "they_infected",
+            "no_kit",
+            "min_dislike_10",
+            "infection"
+        ],
+        [
+            "You enjoying your infection immunity, huh?",
+            "I bet you're having tons of fun parading around, watching the rest of us suffer with no risk.",
+            "Go find something else to do."
+        ]
+    ],
+    "immune_J4": [
+        [
+            "they_immune",
+            "you_medicine_cat",
+            "you_medicine_cat_apprentice",
+            "no_kit",
+            "they_not_medicine_cat",
+            "they_not_medicine_cat_apprentice",
+            "cure_not_found",
+            "infection"
+        ],
+        [
+            "Should I become a medicine cat?",
+            "I mean, I don't think I'd be that good at it, but, you can teach me, right?",
+            "I just feel bad that I'm immune but I'm not really... taking advantage of it.",
+            "[You tell t_c just to do what {PRONOUN/t_c/subject} {VERB/t_c/think/thinks} is right.]",
+            "Hm... Okay. I'll think about it."
         ]
     ]
 }

@@ -878,9 +878,9 @@ class TalkScreen(Screens):
             elif "newborn" in tags and "kitten" not in tags and you.moons != 0:
                 continue
 
-            if f"they_not_{cat.status.replace(' ', '')}" in tags:
+            if f"they_not_{cat.status.replace(' ', '_')}" in tags:
                 continue
-            if f"you_not_{game.clan.your_cat.status.replace(' ', '')}" in tags:
+            if f"you_not_{game.clan.your_cat.status.replace(' ', '_')}" in tags:
                 continue
 
             if "they_adult" in tags and cat.status in [

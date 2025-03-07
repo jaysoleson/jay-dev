@@ -391,8 +391,7 @@ class StartScreen(Screens):
             object_id=ObjectID("#text_box_30_horizcenter", "#dark"),
             manager=MANAGER,
             anchors={
-                "left": "left",
-                "right": "right",
+                "centerx": "centerx"
             },
         )
         self.warning_label.text_horiz_alignment = "center"

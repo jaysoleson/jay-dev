@@ -1371,5 +1371,44 @@
                 "weight": 20
             }
         ]
+    },
+    {
+        "patrol_id": "apprentice_infection_J1",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection"
+        ],
+        "patrol_art": "app_default",
+        "min_cats": 1,
+        "max_cats": 3,
+        "min_max_status": {
+            "all apprentices": [1, 1]
+        },
+        "weight": 60,
+        "intro_text": "You've been ordered to clean out the nests in the medicine den today. That would be typical in an uninfected camp, but now, you have to be a bit more cautious.",
+        "decline_text": "You decide to dodge the chore. You can't risk spreading more infection around the camp.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "You go find some fresh moss yourself, making sure there's no sick plants in sight where you gather it. You switch out the empty nests as quickly as you can, and the medicine cats thank you for giving them a paw while they're so busy.",
+                "exp": 5,
+                "weight": 20
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You try to slip into the medicine den to switch out the moss, but the den is so full of medicine cats and patients that you can't fit a paw in. You tell yourself you'll try later so you don't get trampled.",
+                "exp": 0,
+                "weight": 20
+            }
+        ]
     }
 ]
