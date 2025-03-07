@@ -378,7 +378,7 @@
         ],
         [
             "Mew. Mew. Mew. Mew. Mew. Mew. Meeeew.",
-            "[Is that... T_c? {VERB/t_c/Aren't/Isn't} {PRONOUN/t_c/subject} a kittypet? You heard one of the queens say that before.]",
+            "[Is that... t_c? {VERB/t_c/Aren't/Isn't} {PRONOUN/t_c/subject} a kittypet? You heard one of the queens say that before.]",
             "[{PRONOUN/t_c/subject/CAP}{VERB/t_c/'re/'s} mewing with each step as {PRONOUN/t_c/subject} {VERB/t_c/go/goes} past. Maybe {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} counting...?]",
             "[... Can newborns count?]",
             "[t_c toddles off, unaware of the existential thoughts going through your head because of {PRONOUN/t_c/object}.]"
@@ -595,6 +595,34 @@
         ],
         [
             "[t_c raises {PRONOUN/t_c/poss} sparkling tail in welcome.]"
+        ]
+    ],
+    "they_ur_sam1": [
+        [
+            "they_ur",
+            "you_sc",
+            "you_deaf",
+            "only_you_blind",
+            "they_deaf",
+            "they_blind",
+            "Any"
+        ],
+        [
+            "[You feel a cold ghostly presence nearby. It must be one of those 'lost cats' you've heard about, since it doesn't feel like another StarClan cat.]"
+        ]
+    ],
+    "they_ur_sam2": [
+        [
+            "they_ur",
+            "you_df",
+            "you_deaf",
+            "only_you_blind",
+            "they_deaf",
+            "they_blind",
+            "Any"
+        ],
+        [
+            "[You feel a cold ghostly presence nearby. It must be one of those 'lost cats' you've heard about, since it doesn't feel like another Dark Forest cat.]"
         ]
     ]
 }

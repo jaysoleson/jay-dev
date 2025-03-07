@@ -126,7 +126,9 @@ def test():
         "dep_name": _r,
         "med_name": _r,
         "cat_tag": _r,
-        "inf_c": _r
+        "inf_c": _r,
+        "tg_c": _r,
+        "yg_c": _r
     }
 
     file_names = [
@@ -362,7 +364,7 @@ def test_replacement_failure(path: str, repl_dict: dict) -> bool:
             ):
                 # LG: again. skipping if theres a lg abbrev after a period
                 skip = False
-                for i in addon_json:
+                for i in addon_json + ["o_c1", "insert_siblings"]: # im lazy sorry
                     if i in _str:
                         skip = True
                         break

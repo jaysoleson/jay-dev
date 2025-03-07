@@ -507,7 +507,7 @@ class PatrolScreen(Screens):
 
             self.elements["info"] = pygame_gui.elements.UITextBox(
                 text,
-                ui_scale(pygame.Rect((250, 525), (300, 400))),
+                ui_scale(pygame.Rect((250, 525), (300, 35))),
                 object_id=get_text_box_theme("#text_box_30_horizcenter"),
                 manager=MANAGER,
             )
@@ -860,7 +860,7 @@ class PatrolScreen(Screens):
         self.update_button()
 
     def run_patrol_start(self):
-        """Runs patrol start. To be run in a seperate thread."""
+        """Runs patrol start. To be run in a separate thread."""
         try:
             self.display_text = self.patrol_obj.setup_patrol(
                 self.current_patrol, self.patrol_type
@@ -997,7 +997,7 @@ class PatrolScreen(Screens):
             self.elements["antagonize"].hide()
 
     def run_patrol_proceed(self, user_input):
-        """Proceeds the patrol - to be run in the seperate thread."""
+        """Proceeds the patrol - to be run in the separate thread."""
         if user_input in ["nopro", "notproceed"]:
             (
                 self.display_text,
@@ -1101,7 +1101,7 @@ class PatrolScreen(Screens):
                 if you not in self.current_patrol and not you.not_working():
                     self.current_patrol.insert(0, you)
                 for the_cat in Cat.all_cats_list:
-                    if the_cat.in_camp and the_cat.ID not in game.patrolled and the_cat not in self.current_patrol and not the_cat.not_working() and the_cat.is_dateable(game.clan.your_cat):
+                    if the_cat.in_camp and the_cat.ID not in game.dated_cats and the_cat not in self.current_patrol and not the_cat.not_working() and the_cat.is_dateable(game.clan.your_cat):
                         self.able_cats.append(the_cat)
         else:
             the_cat = game.clan.your_cat

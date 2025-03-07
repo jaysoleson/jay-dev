@@ -635,6 +635,11 @@ class ListScreen(Screens):
                 self.full_cat_list.remove(game.clan.instructor)
             self.full_cat_list.insert(0, game.clan.instructor)
 
+        elif self.current_group == "df":
+            if game.clan.demon in self.full_cat_list:
+                self.full_cat_list.remove(game.clan.demon)
+            self.full_cat_list.insert(0, game.clan.demon)
+
         search_text = search_text.strip()
         if search_text not in ["", "name search"]:
             self.current_listed_cats = [
@@ -771,7 +776,7 @@ class ListScreen(Screens):
         self.current_group = "clan"
         self.death_status = "living"
         self.full_cat_list = [
-            cat for cat in Cat.all_cats_list if not cat.dead and not cat.outside
+            cat for cat in Cat.all_cats_list if not cat.dead and not cat.outside and cat.moons >= 0
         ]
 
     def get_cotc_cats(self):
@@ -782,7 +787,7 @@ class ListScreen(Screens):
         self.death_status = "living"
         self.full_cat_list = []
         for the_cat in Cat.all_cats_list:
-            if not the_cat.dead and the_cat.outside and not the_cat.driven_out:
+            if not the_cat.dead and the_cat.outside and not the_cat.driven_out and the_cat.moons >= 0:
                 self.full_cat_list.append(the_cat)
 
     def get_sc_cats(self):
@@ -796,9 +801,11 @@ class ListScreen(Screens):
             if (
                 the_cat.dead
                 and the_cat.ID != game.clan.instructor.ID
+                and the_cat.ID != game.clan.demon.ID
                 and not the_cat.outside
                 and not the_cat.df
                 and not the_cat.faded
+                and the_cat.moons >= 0
             ):
                 self.full_cat_list.append(the_cat)
 
@@ -814,8 +821,10 @@ class ListScreen(Screens):
             if (
                 the_cat.dead
                 and the_cat.ID != game.clan.instructor.ID
+                and the_cat.ID != game.clan.demon.ID
                 and the_cat.df
                 and not the_cat.faded
+                and the_cat.moons >= 0
             ):
                 self.full_cat_list.append(the_cat)
 
@@ -831,5 +840,6 @@ class ListScreen(Screens):
                 the_cat.ID in game.clan.unknown_cats
                 and not the_cat.faded
                 and not the_cat.driven_out
+                and the_cat.moons >= 0
             ):
                 self.full_cat_list.append(the_cat)

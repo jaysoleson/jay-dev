@@ -40,7 +40,7 @@
                 ]
             },
             {
-                "text": "You're y_c - you never give less than your absolute best! m_n is found again and again and again... Until {PRONOUN/m_n/subject}{VERB/m_n/'re/'s} more worn out than you. Your held is held high on the way back to camp. You can't wait to tell your denmates all about your skills again!",
+                "text": "You're y_c - you never give less than your absolute best! m_n is found again and again and again... Until {PRONOUN/m_n/subject}{VERB/m_n/'re/'s} more worn out than you. Your head is held high on the way back to camp. You can't wait to tell your denmates all about your skills again!",
                 "exp": 10,
                 "weight": 20,
                 "stat_trait": [
@@ -131,7 +131,7 @@
                 "weight": 20
             },
             {
-                "text": "Your sleepiness swiftly disolves in favor of being out in the territory with your paws itching. r_w1 and m_n have to herd you back into formation once or twice as r_w2 sleepily lags behind. {PRONOUN/r_w2/subject/CAP}{VERB/r_w2/'re/'s} sooooo slow though!!! You're bouncing behind {PRONOUN/r_w2/object} the whole way.",
+                "text": "Your sleepiness swiftly dissolves in favor of being out in the territory with your paws itching. r_w1 and m_n have to herd you back into formation once or twice as r_w2 sleepily lags behind. {PRONOUN/r_w2/subject/CAP}{VERB/r_w2/'re/'s} sooooo slow though!!! You're bouncing behind {PRONOUN/r_w2/object} the whole way.",
                 "exp": 10,
                 "weight": 20,
                 "stat_trait": [
@@ -148,7 +148,7 @@
                 ]
             },
             {
-                "text": "Early bird gets the worm! You chatter at every bird you see, and trill a song. You energy is infectious this early, and even the sleepy r_w seems to perk up a bit by the end of the patrol. Once back, m_n says you did well, but reminds you to be a bit quieter next time.",
+                "text": "Early bird gets the worm! You chatter at every bird you see, and trill a song. Your energy is infectious this early, and even the sleepy r_w seems to perk up a bit by the end of the patrol. Once back, m_n says you did well, but reminds you to be a bit quieter next time.",
                 "exp": 10,
                 "weight": 20,
                 "stat_trait": [
@@ -1214,7 +1214,7 @@
                 ]
             },
             {
-                "text": "You reassure r_a that it's alright. It's a good learning opportunity for you both, and you politely explain that much to {PRONOUN/r_a/object}. Before your mentors can even try to get back on track, you're walking r_a through the mistake. It's easy for you to teach {PRONOUN/r_a/object} where {PRONOUN/r_a/subject} went wrong. In no time at all {PRONOUN/r_a/subject} {VERB/r_a/are/is} fluidly preforming the move again - without any accidents.",
+                "text": "You reassure r_a that it's alright. It's a good learning opportunity for you both, and you politely explain that much to {PRONOUN/r_a/object}. Before your mentors can even try to get back on track, you're walking r_a through the mistake. It's easy for you to teach {PRONOUN/r_a/object} where {PRONOUN/r_a/subject} went wrong. In no time at all {PRONOUN/r_a/subject} {VERB/r_a/are/is} fluidly performing the move again - without any accidents.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": [
@@ -1672,7 +1672,7 @@
         "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "This is a stealth lesson, and you are the stealthiest cat today, you bring brack more prey than r_w1 and r_w2! When you see m_n, you're praised for your abilities. r_w2 says {PRONOUN/m_n/subject} taught you well, making {PRONOUN/m_n/object} lick {PRONOUN/m_n/poss} chest self-consciously before smiling.",
+                "text": "This is a stealth lesson, and you are the stealthiest cat today, you bring back more prey than r_w1 and r_w2! When you see m_n, you're praised for your abilities. r_w2 says {PRONOUN/m_n/subject} taught you well, making {PRONOUN/m_n/object} lick {PRONOUN/m_n/poss} chest self-consciously before smiling.",
                 "exp": 10,
                 "weight": 20
             }
@@ -1812,14 +1812,14 @@
         "chance_of_success": 60,
         "success_outcomes": [
             {
-                "text": "After finding a quiet place not too far from camp you work hard at practicing ambushes, defensive and offensive attacks. You even coming up with a brand new move to show m_n! You return to camp feeling pleased with your progress.",
+                "text": "After finding a quiet place not too far from camp you work hard at practicing ambushes, defensive and offensive attacks. You even came up with a brand new move to show m_n! You return to camp feeling pleased with your progress.",
                 "exp": 10,
                 "weight": 20
             }
         ],
         "fail_outcomes": [
             {
-                "text": "There's no space that you feel is good enough that isn't already occupied. r_w shooes you back to camp after spotting you alone. Your plans for the day are foiled, and you return with a heavy heart.",
+                "text": "There's no space that you feel is good enough that isn't already occupied. r_w shoos you back to camp after spotting you alone. Your plans for the day are foiled, and you return with a heavy heart.",
                 "exp": 0,
                 "weight": 20
             }
@@ -1847,7 +1847,7 @@
         "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "You agree, and although moss collecting is one of the more boring duties, it is still an important task. You work hard to bring home a healthly collection of fresh moss, familiarizing yourself with the territory as you go. r_m is incredibly grateful for the assistance.",
+                "text": "You agree, and although moss collecting is one of the more boring duties, it is still an important task. You work hard to bring home a healthy collection of fresh moss, familiarizing yourself with the territory as you go. r_m is incredibly grateful for the assistance.",
                 "exp": 10,
                 "weight": 20
             }
@@ -1889,7 +1889,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "Although grumbling and complaining you agree to do the task. Your bad mood makes the elders cranky and you begin a heated debate about were the softest moss should be placed. Eventually r_e send you out stating they can do it themselves. That evening you realize your pelt is full of fleas!",
+                "text": "Although grumbling and complaining you agree to do the task. Your bad mood makes the elders cranky and you begin a heated debate about where the softest moss should be placed. Eventually r_e send you out stating they can do it themselves. That evening you realize your pelt is full of fleas!",
                 "exp": 0,
                 "weight": 20,
                 "injury": [
@@ -2031,6 +2031,219 @@
                 "text": "When you call out to the group and ask to join them, they look at you with disgust. One Clanmate snarkily remarks that they couldn't trust you to remember to kill the prey and not the cats. You drop your head onto your paws as they leave. Maybe next time.",
                 "exp": 0,
                 "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "normalpatrol_app_H1",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [],
+        "patrol_art": "app_default",
+        "min_cats": 1,
+        "max_cats": 2,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "You find yourself alone one moon without clear direction or duties. It's a bit awkward as you try to think of ways to pass the time.",
+        "decline_text": "The only fulfilling way to pass the time is to have a nice, cozy nap. So you do!",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "You look back to the apprentices' den and scrunch up your nose. Well, you guess it was due for a cleaning anyway... You spend your day cleaning and rearranging the nests, fixing the occasional broken object as you go. By the time you're done, the sun is setting and you fall into your nest in a heap of exhaustion.",
+                "exp": 10,
+                "weight": 20,
+                "stat_skill": [
+                    "ARTISTAN,1",
+                    "CAMP,1",
+                    "CLEAN,1",
+                    "TIME,1"
+                ],
+                "can_have_stat": [
+                    "p_l"
+                ]
+            },
+            {
+                "text": "Well, if no cat is going to give you instructions for the day, may as well train! You find the nearest tree and practice climbing on and off the bark, energized by the wind in your fur. You only stop when you see the sun go down and feel too sore to continue.",
+                "exp": 10,
+                "weight": 20,
+                "stat_skill": [
+                    "CLIMBER,1",
+                    "RUNNER,1"
+                ],
+                "can_have_stat": [
+                    "p_l"
+                ]
+            },
+            {
+                "text": "No one will complain if you took a short trip out of camp! You follow a path around the territory you know is relatively safe, searching for a quick meal. Soon enough, you find a rabbit's nest with a few rabbit kits hidden away. With little difficulty, you're successful in your short hunt!",
+                "exp": 10,
+                "weight": 20,
+                "stat_skill": [
+                    "HUNTER,1",
+                    "FIGHTER,1",
+                    "NAVIGATOR,1",
+                    "TRACKER,1"
+                ],
+                "prey": [
+                    "small"
+                ],
+                "can_have_stat": [
+                    "p_l"
+                ]
+            },
+            {
+                "text": "With nothing else to do, this is the perfect opportunity to fish. You travel out into the territory to the nearest body of water, and with a moment to look into the water, you take a dive as soon as a decently sized fish is spotted. It is a bit difficult swimming up to the surface with the wiggling fish, but you succeeded in fishing!",
+                "exp": 10,
+                "weight": 20,
+                "stat_skill": [
+                    "FISHER,1",
+                    "SWIMMER,1",
+                    "CLEVER,1",
+                    "HUNTER,1"
+                ],
+                "prey": [
+                    "medium"
+                ],
+                "can_have_stat": [
+                    "p_l"
+                ]
+            },
+            {
+                "text": "With the lack of eyes on you, you grin mischievously. No one is going to stop you from finding more pretty things now! With little hesitance, you walk out near the borders in hopes of finding more 'treasures' and lo-and-behold, there is... something! You're not too sure what it is, but it's yours now. Finders keepers!",
+                "exp": 5,
+                "weight": 20,
+                "stat_skill": [
+                    "TREASURE,1"
+                ],
+                "can_have_stat": [
+                    "p_l"
+                ],
+                "accessory": [
+                    {
+                        "cats": [
+                            "y_c"
+                        ],
+                        "accessory": [
+                            "POP TABS",
+                            "WILLOWBARK BAG",
+                            "CLAY DAISY POT",
+                            "CLAY AMANITA POT",
+                            "CLAY BROWNCAP POT",
+                            "ROESKULL",
+                            "RADIO",
+                            "CELESTIALCHIMES",
+                            "LUNARCHIMES",
+                            "STARCHIMES",
+                            "SILVERLUNARCHIMES",
+                            "LANTERNS",
+                            "HEARTCHARMS"
+                        ]
+                    }
+                ]
+            },
+            {
+                "text": "You may as well do something useful. The rain has been pouring heavily for the past moon and it's on the verge of flooding the elders' den. With some contemplating, you decide digging a trench around that area of the camp would be beneficial to keep it from flooding. It takes you hours, but it's a proud accomplishment.",
+                "exp": 10,
+                "weight": 20,
+                "stat_skill": [
+                    "TUNNELER,1",
+                    "THINKER,1",
+                    "INNOVATOR,1",
+                    "SCHOLAR,1",
+                    "CAMP,1"
+                ],
+                "accessory": [
+                    {
+                        "cats": [
+                            "y_c"
+                        ],
+                        "accessory": [
+                            "MUD",
+                            "MUD PAWS"
+                        ]
+                    }
+                ],
+                "can_have_stat": [
+                    "p_l"
+                ]
+            },
+            {
+                "text": "If you can't do anything as a warrior, may as well fill in for another role! You wander to the mediators' den and spend your day talking cats through their issues, even though you have no proper experience in mediating. You leave the den with a new found skill and a few praises lifting your spirits.",
+                "exp": 10,
+                "weight": 20,
+                "stat_skill": [
+                    "MATCHMAKER,1",
+                    "MEDIATOR,1",
+                    "COMFORTER,1",
+                    "INSIGHTFUL,1"
+                ],
+                "can_have_stat": [
+                    "p_l"
+                ]
+            },
+            {
+                "text": "If you can't do anything as a warrior, may as well fill in for another role! You wander over to the nursery and spend your day entertaining the kits while the queen's take a well-needed break. You spin tales of a world underneath the ground filled with monsters that were sealed away by Twolegs. When you leave, the kits are a little terrified of holes of the ground, but you argue that's a necessary fear.",
+                "exp": 10,
+                "weight": 20,
+                "stat_skill": [
+                    "KIT,1",
+                    "COMFORTER,1",
+                    "SPEAKER,1",
+                    "STORY,1"
+                ],
+                "can_have_stat": [
+                    "p_l"
+                ]
+            },
+            {
+                "text": "If you can't do anything as a warrior, may as well fill in for another role! You wander over to the medicine den and start sorting through the herb pile. It's a mediating task that helps you relax your nerves, and by the time you're done, you think you are deserving of a nice, well deserving nap.",
+                "exp": 10,
+                "weight": 20,
+                "stat_skill": [
+                    "HEALER,1",
+                    "CLEVER,1"
+                ],
+                "can_have_stat": [
+                    "p_l"
+                ]
+            },
+            {
+                "text": "Suddenly having nothing to do makes you restless, and the lack of direction gets you in the mood to do <i>everything</i>. Cleaning out dens, checking on the elders' den, conversing with random cats, watching the clouds... but nothing you do seems to pass the time! At least you were able to accomplish some things...",
+                "exp": 10,
+                "weight": 20
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You think long and hard about what you should do, but nothing comes to mind.",
+                "exp": 0,
+                "weight": 10
+            },
+            {
+                "text": "To your credit, you try to do something to pass the time. Cleaning dens, making up games, attempting to catch the occasional bird on the border of camp, but boredom prevails. You lay down underneath a shaded area, and before you know it, slowly your eyes shut and you're gone from the waking world.",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "If you're not given instructions or duties for the day, that means you're allowed to do anything, right? With that logic in mind, you happily stroll into your nest and fall asleep. While deep asleep, you dream of rivers, flowers, and joyful laughter underneath the sun. It's a welcome peace, but inevitably you get nothing done today.",
+                "exp": 0,
+                "weight": 20,
+                "stat_skill": [
+                    "DREAM,1",
+                    "SLEEPER,1",
+                    "OMEN,1",
+                    "PROPHET,1"
+                ],
+                "can_have_stat": [
+                    "p_l"
+                ]
             }
         ]
     }

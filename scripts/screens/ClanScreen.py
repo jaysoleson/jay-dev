@@ -135,6 +135,7 @@ class ClanScreen(Screens):
             if (
                 not Cat.all_cats[x].dead
                 and Cat.all_cats[x].in_camp
+                and not Cat.all_cats[x].moons < 0
                 and not (Cat.all_cats[x].exiled or Cat.all_cats[x].outside)
                 and (
                     Cat.all_cats[x].status != "newborn"
@@ -182,10 +183,12 @@ class ClanScreen(Screens):
                             starting_height=i,
                         )
                     )
-                except:
+                except Exception as e:
                     print(
                         f"ERROR: placing {Cat.all_cats[x].name}'s sprite on Clan page"
                     )
+                    print(e)
+
         # Den Labels
         # Redo the locations, so that it uses layout on the Clan page
         self.warrior_den_label = UISurfaceImageButton(
@@ -436,7 +439,7 @@ class ClanScreen(Screens):
             first_choices[x].extend(first_choices[x])
 
         for x in game.clan.clan_cats:
-            if Cat.all_cats[x].dead or Cat.all_cats[x].outside:
+            if Cat.all_cats[x].dead or Cat.all_cats[x].outside or Cat.all_cats[x].moons < 0:
                 continue
 
             # Newborns are not meant to be placed. They are hiding.

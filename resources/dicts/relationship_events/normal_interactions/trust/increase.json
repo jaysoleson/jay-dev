@@ -180,13 +180,15 @@
 			"mediator",
 			"medicine cat",
 			"deputy",
-			"leader"
+			"leader",
+			"queen"
 		],
 		"random_status_constraint": [
 			"kitten",
 			"apprentice",
 			"mediator apprentice",
-			"medicine cat apprentice"
+			"medicine cat apprentice",
+			"queen's apprentice"
 		],
 		"reaction_random_cat": {
 			"trust": "increase"
@@ -206,6 +208,7 @@
 			"warrior",
 			"mediator apprentice",
 			"mediator",
+			"queen's apprentice",
 			"medicine cat apprentice",
 			"medicine cat",
 			"deputy",
@@ -215,7 +218,8 @@
 			"elder",
 			"mediator",
 			"medicine cat",
-			"leader"
+			"leader",
+			"queen"
 		],
 		"reaction_random_cat": {
 			"trust": "increase"
@@ -424,5 +428,20 @@
 			"medicine cat apprentice",
 			"medicine cat"
 		]
+	},
+	{
+		"id": "guy_trust_queen_inc_high1",
+		"interactions": [
+			"m_c asks r_c about the best way to raise a kit.",
+			"m_c listens to r_c advice about what to do if {PRONOUN/m_c/subject} {VERB/m_c/find/finds} an orphaned kit.",
+			"m_c hopes r_c is still there if {PRONOUN/m_c/subject} {VERB/m_c/have/has} kits."
+		],
+		"random_status_constraint": [
+			"queen's apprentice",
+			"queen"
+		],
+		"reaction_random_cat": {
+			"trust": "increase"
+		}
 	}
 ]

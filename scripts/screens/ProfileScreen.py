@@ -55,6 +55,7 @@ from scripts.utility import (
     shorten_text_to_fit,
     ui_scale_offset,
     adjust_list_text,
+    pronoun_repl,
 )
 from .Screens import Screens
 from ..cat.history import History
@@ -216,6 +217,7 @@ class ProfileScreen(Screens):
         self.page = 0
         self.max_pages = 1
         self.clear_accessories = None
+        self.delete_accessory = None
         self.search_bar_image = None
         self.search_bar = None
         self.previous_page_button = None
@@ -225,6 +227,9 @@ class ProfileScreen(Screens):
         self.cat_list_buttons = None
         self.search_inventory = []
         self.faith_text = None
+
+        # LG: all accs
+        self.cat_inventory = []
 
     def handle_event(self, event):
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
@@ -241,7 +246,7 @@ class ProfileScreen(Screens):
                 self.close_current_tab()
                 self.change_screen(game.last_screen_forProfile)
             elif event.ui_element == self.previous_cat_button:
-                if isinstance(Cat.fetch_cat(self.previous_cat), Cat):
+                if isinstance(Cat.fetch_cat(self.previous_cat), Cat) and Cat.fetch_cat(self.previous_cat).moons >= 0:
                     self.clear_profile()
                     game.switches["cat"] = self.previous_cat
                     self.build_profile()
@@ -250,9 +255,9 @@ class ProfileScreen(Screens):
 
                         inventory_len = 0
                         if self.search_bar.get_text() in ["", "search"]:
-                            inventory_len = len(self.the_cat.pelt.inventory)
+                            inventory_len = len(self.cat_inventory)
                         else:
-                            for ac in self.the_cat.pelt.inventory:
+                            for ac in self.cat_inventory:
                                 if self.search_bar.get_text().lower() in ac.lower():
                                     inventory_len+=1
                         self.max_pages = math.ceil(inventory_len/18)
@@ -272,7 +277,7 @@ class ProfileScreen(Screens):
                 else:
                     print("invalid previous cat", self.previous_cat)
             elif event.ui_element == self.next_cat_button:
-                if isinstance(Cat.fetch_cat(self.next_cat), Cat):
+                if isinstance(Cat.fetch_cat(self.next_cat), Cat) and Cat.fetch_cat(self.next_cat).moons >= 0:
                     self.clear_profile()
                     game.switches["cat"] = self.next_cat
                     self.build_profile()
@@ -282,9 +287,9 @@ class ProfileScreen(Screens):
                         self.next_page_button.enable()
                         inventory_len = 0
                         if self.search_bar.get_text() in ["", "search"]:
-                            inventory_len = len(self.the_cat.pelt.inventory)
+                            inventory_len = len(self.cat_inventory)
                         else:
-                            for ac in self.the_cat.pelt.inventory:
+                            for ac in self.cat_inventory:
                                 if self.search_bar.get_text().lower() in ac.lower():
                                     inventory_len+=1
                         self.max_pages = math.ceil(inventory_len/18)
@@ -363,6 +368,14 @@ class ProfileScreen(Screens):
                     self.previous_page_button.enable()
                     self.next_page_button.enable()
                 self.update_disabled_buttons_and_text()
+            elif event.ui_element == self.delete_accessory:
+                for acc in self.the_cat.pelt.accessories:
+                    self.the_cat.pelt.inventory.remove(acc)
+                    self.the_cat.pelt.accessories.remove(acc)
+                self.close_current_tab()
+                self.clear_profile()
+                self.build_profile()
+                self.toggle_accessories_tab()
             elif event.ui_element == self.clear_accessories:
                 self.the_cat.pelt.accessories.clear()
                 b_data = event.ui_element.blit_data[1]
@@ -418,10 +431,10 @@ class ProfileScreen(Screens):
                     inventory_len = 0
                     new_inv = []
                     if self.search_bar.get_text() in ["", "search"]:
-                        inventory_len = len(cat.pelt.inventory)
-                        new_inv = cat.pelt.inventory
+                        inventory_len = len(self.cat_inventory)
+                        new_inv = self.cat_inventory
                     else:
-                        for ac in cat.pelt.inventory:
+                        for ac in self.cat_inventory:
                             if self.search_bar.get_text().lower() in ac.lower():
                                 inventory_len+=1
                                 new_inv.append(ac)
@@ -432,7 +445,7 @@ class ProfileScreen(Screens):
                     if self.page == 0:
                         self.previous_page_button.disable()
                     
-                    if cat.pelt.inventory:
+                    if self.cat_inventory:
                         for a, accessory in enumerate(new_inv[start_index:min(end_index, inventory_len + start_index)], start = start_index):
                             if accessory in cat.pelt.accessories:
                                 self.accessory_buttons[str(i)] = UIImageButton(ui_scale(pygame.Rect((100 + pos_x, 365 + pos_y), (50, 50))), "", tool_tip_text=accessory, object_id="#fav_marker")
@@ -468,17 +481,24 @@ class ProfileScreen(Screens):
                                 pos_y += 120
                             i += 1
                 self.profile_elements["cat_image"].kill()
-                self.profile_elements["cat_image"] = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((100, 200), (150, 150))),
-                                                                        pygame.transform.scale(
-                                                                            self.the_cat.sprite,
-                                                                            (150, 150)), manager=MANAGER)
+                
+                self.profile_elements["cat_image"] = pygame_gui.elements.UIImage(
+                    ui_scale(pygame.Rect((100, 200), (150, 150))),
+                    pygame.transform.scale(
+                        self.the_cat.sprite, ui_scale_dimensions((150, 150))
+                    ),
+                    manager=MANAGER,
+                )
                 self.profile_elements["cat_image"].disable()
+
                 self.profile_elements["cat_info_column1"].kill()
-                self.profile_elements["cat_info_column1"] = UITextBoxTweaked(self.generate_column1(self.the_cat),
-                                                                    ui_scale(pygame.Rect((300, 230), (180, 190))),
-                                                                    object_id=get_text_box_theme(
-                                                                        "#text_box_22_horizleft"),
-                                                                    line_spacing=0.95, manager=MANAGER)
+                self.profile_elements["cat_info_column1"] = UITextBoxTweaked(
+                    self.generate_column1(self.the_cat),
+                    ui_scale(pygame.Rect((300, 220), (180, 200))),
+                    object_id=get_text_box_theme("#text_box_22_horizleft"),
+                    line_spacing=1,
+                    manager=MANAGER,
+                )
                 self.update_disabled_buttons_and_text()
             elif "leader_ceremony" in self.profile_elements and \
                     event.ui_element == self.profile_elements["leader_ceremony"]:
@@ -532,7 +552,7 @@ class ProfileScreen(Screens):
 
         elif event.type == pygame.KEYDOWN and game.settings["keybinds"]:
             if event.key == pygame.K_LEFT:
-                if isinstance(Cat.fetch_cat(self.previous_cat), Cat):
+                if isinstance(Cat.fetch_cat(self.previous_cat), Cat) and Cat.fetch_cat(self.previous_cat).moons >= 0:
                     self.clear_profile()
                     game.switches["cat"] = self.previous_cat
                     self.build_profile()
@@ -540,7 +560,7 @@ class ProfileScreen(Screens):
                 else:
                     print("invalid previous cat", self.previous_cat)
             elif event.key == pygame.K_RIGHT:
-                if isinstance(Cat.fetch_cat(self.next_cat), Cat):
+                if isinstance(Cat.fetch_cat(self.next_cat), Cat) and Cat.fetch_cat(self.next_cat).moons >= 0:
                     self.clear_profile()
                     game.switches["cat"] = self.next_cat
                     self.build_profile()
@@ -851,10 +871,10 @@ class ProfileScreen(Screens):
                 inventory_len = 0
                 new_inv = []
                 if self.search_bar.get_text() in ["", "search"]:
-                    inventory_len = len(cat.pelt.inventory)
-                    new_inv = cat.pelt.inventory
+                    inventory_len = len(self.cat_inventory)
+                    new_inv = self.cat_inventory
                 else:
-                    for ac in cat.pelt.inventory:
+                    for ac in self.cat_inventory:
                         if self.search_bar.get_text().lower() in ac.lower():
                             inventory_len+=1
                             new_inv.append(ac)
@@ -864,7 +884,7 @@ class ProfileScreen(Screens):
                     self.next_page_button.disable()
                 if self.page == 0:
                     self.previous_page_button.disable()
-                if cat.pelt.inventory:
+                if self.cat_inventory:
                     for a, accessory in enumerate(new_inv[start_index:min(end_index, inventory_len + start_index)], start = start_index):
                         try:
                             if self.search_bar.get_text() in ["", "search"] or self.search_bar.get_text().lower() in accessory.lower():
@@ -904,17 +924,24 @@ class ProfileScreen(Screens):
                         except:
                             continue
                 self.profile_elements["cat_image"].kill()
-                self.profile_elements["cat_image"] = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((100, 200), (150, 150))),
-                                                                        pygame.transform.scale(
-                                                                            self.the_cat.sprite,
-                                                                            (150, 150)), manager=MANAGER)
+
+                self.profile_elements["cat_image"] = pygame_gui.elements.UIImage(
+                    ui_scale(pygame.Rect((100, 200), (150, 150))),
+                    pygame.transform.scale(
+                        self.the_cat.sprite, ui_scale_dimensions((150, 150))
+                    ),
+                    manager=MANAGER,
+                )
                 self.profile_elements["cat_image"].disable()
+
                 self.profile_elements["cat_info_column1"].kill()
-                self.profile_elements["cat_info_column1"] = UITextBoxTweaked(self.generate_column1(self.the_cat),
-                                                                    ui_scale(pygame.Rect((300, 230), (180, 190))),
-                                                                    object_id=get_text_box_theme(
-                                                                        "#text_box_22_horizleft"),
-                                                                    line_spacing=0.95, manager=MANAGER)
+                self.profile_elements["cat_info_column1"] = UITextBoxTweaked(
+                    self.generate_column1(self.the_cat),
+                    ui_scale(pygame.Rect((300, 220), (180, 200))),
+                    object_id=get_text_box_theme("#text_box_22_horizleft"),
+                    line_spacing=1,
+                    manager=MANAGER,
+                )
 
 
     def screen_switches(self):
@@ -1027,7 +1054,7 @@ class ProfileScreen(Screens):
         self.hide_menu_buttons()  # Menu buttons don't appear on the profile screen
         if game.last_screen_forProfile == "med den screen":
             self.toggle_conditions_tab()
-        game.clan.load_accessories()
+        # game.clan.load_accessories()
 
         self.set_cat_location_bg(self.the_cat)
 
@@ -1071,6 +1098,21 @@ class ProfileScreen(Screens):
         """Rebuild builds the cat profile. Run when you switch cats
         or for changes in the profile."""
         self.the_cat = Cat.all_cats.get(game.switches["cat"])
+
+        # LG: accessory bull shit
+        if game.clan.clan_settings['all accessories']:
+            self.cat_inventory = game.clan.load_accessories()
+        else:
+            self.cat_inventory = self.the_cat.pelt.inventory
+        
+        if self.the_cat.pelt.accessory:
+            if self.the_cat.pelt.accessory not in self.the_cat.pelt.inventory:
+                self.the_cat.pelt.inventory.append(self.the_cat.pelt.accessory)
+
+        for acc in self.the_cat.pelt.accessories:
+            if acc not in self.the_cat.pelt.inventory:
+                self.the_cat.pelt.inventory.append(acc)
+        # ---
 
         if self.the_cat.dead and game.clan.demon.ID == self.the_cat.ID:
             self.the_cat.df = True
@@ -2131,15 +2173,15 @@ class ProfileScreen(Screens):
                 text += f"<br>{self.the_cat.name} was wrongly placed in StarClan."
 
         text = process_text(text, cat_dict)
-        if "o_c" in text:
+        if "o_c_n" in text:
             if self.the_cat.backstory_str:
-                text = text.replace("o_c", self.the_cat.backstory_str)
+                text = text.replace("o_c_n", self.the_cat.backstory_str)
             else:
                 other_clan = "a different Clan"
                 if game.clan.all_clans:
-                    other_clan = str(choice(game.clan.all_clans).name)
+                    other_clan = str(choice(game.clan.all_clans).name) + "Clan"
                 self.the_cat.backstory_str = other_clan
-                text = text.replace("o_c", other_clan)
+                text = text.replace("o_c_n", other_clan)
         if "c_n" in text:
             text = text.replace("c_n", str(game.clan.name))
         if "r_c" in text:
@@ -2926,7 +2968,7 @@ class ProfileScreen(Screens):
                                                                 image_cache.load_image(f"resources/images/faith{cat_faith}.png").convert_alpha())
         self.faith_bar.disable()
         self.faith_text = UITextBoxTweaked(self.get_faith_text(cat_faith),
-                                                        ui_scale(pygame.Rect((175, 535), (425, 149))),
+                                                        ui_scale(pygame.Rect((175, 535), (425,75))),
                                                         object_id="#text_box_26_horizleft_pad_10_14",
                                                         line_spacing=1, manager=MANAGER)
         
@@ -2935,9 +2977,21 @@ class ProfileScreen(Screens):
         with open("resources/dicts/faith_display.json", "r") as read_file:
             faith_dict = ujson.loads(read_file.read())
             cluster1, cluster2 = get_cluster(self.the_cat.personality.trait)
+
+        faith_text = ""
         if faith == 0:
-            return faith_dict[str(faith)]["All"]
-        return faith_dict[str(faith)][str(cluster1)]
+            faith_text = faith_dict[str(faith)]["All"]
+        else:
+            faith_text = faith_dict[str(faith)][str(cluster1)]
+
+        process_text_dict = {}
+        process_text_dict["m_c"] = self.the_cat
+        for abbrev in process_text_dict.keys():
+            abbrev_cat = process_text_dict[abbrev]
+            process_text_dict[abbrev] = (abbrev_cat, choice(abbrev_cat.pronouns))
+        faith_text = sub(r"\{(.*?)\}", lambda x: pronoun_repl(x, process_text_dict, False), faith_text)
+        
+        return faith_text
     
     def toggle_accessories_tab(self):
         """Opens accessories tab"""
@@ -2966,19 +3020,42 @@ class ProfileScreen(Screens):
             )
             self.backstory_background.disable()
 
-            self.previous_page_button = UIImageButton(ui_scale(pygame.Rect((110, 1000), (34, 34))), "",
-                                              object_id="#arrow_left_button"
-                                              , manager=MANAGER)
-            self.next_page_button = UIImageButton(ui_scale(pygame.Rect((1418, 1000), (34, 34))), "",
-                                                  object_id="#arrow_right_button", manager=MANAGER)
-            self.clear_accessories = UIImageButton(ui_scale(pygame.Rect((1418, 1160), (34, 34))), "",
-                                                  object_id="#exit_window_button", tool_tip_text="Remove all worn accessories", manager=MANAGER)
+            self.clear_accessories = UIImageButton(
+                ui_scale(pygame.Rect((709, 580), (34, 34))),
+                "",
+                object_id="#exit_window_button",
+                tool_tip_text="Take off all worn accessories",
+                manager=MANAGER
+                )
 
-            self.search_bar_image = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((239, 910), (236, 68))),
+            self.delete_accessory = UIImageButton(
+                ui_scale(pygame.Rect((709, 542), (34, 34))),
+                "",
+                object_id="#exit_window_button",
+                tool_tip_text="Remove worn accessories from inventory",
+                manager=MANAGER
+                )
+            
+            self.next_page_button = UISurfaceImageButton(
+                ui_scale(pygame.Rect((709, 500), (34, 34))),
+                Icon.ARROW_RIGHT,
+                get_button_dict(ButtonStyles.ICON, (34, 34)),
+                object_id="@buttonstyles_icon",
+                manager=MANAGER,
+            )
+            self.previous_page_button = UISurfaceImageButton(
+                ui_scale(pygame.Rect((55, 500), (34, 34))),
+                Icon.ARROW_LEFT,
+                get_button_dict(ButtonStyles.ICON, (34, 34)),
+                object_id="@buttonstyles_icon",
+                manager=MANAGER,
+            )
+
+            self.search_bar_image = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((119, 455), (118, 34))),
                                                             pygame.image.load(
                                                                 "resources/images/search_bar.png").convert_alpha(),
                                                             manager=MANAGER)
-            self.search_bar = pygame_gui.elements.UITextEntryLine(ui_scale(pygame.Rect((259, 915), (205, 55))),
+            self.search_bar = pygame_gui.elements.UITextEntryLine(ui_scale(pygame.Rect((129, 457), (102, 27))),
                                                               object_id="#search_entry_box",
                                                               initial_text="search",
                                                               manager=MANAGER)
@@ -3027,21 +3104,13 @@ class ProfileScreen(Screens):
         start_index = self.page * 18
         end_index = start_index + 18
 
-        if cat.pelt.accessory:
-            if cat.pelt.accessory not in cat.pelt.inventory:
-                cat.pelt.inventory.append(cat.pelt.accessory)
-
-        for acc in cat.pelt.accessories:
-            if acc not in cat.pelt.inventory:
-                cat.pelt.inventory.append(acc)
-
         inventory_len = 0
         new_inv = []
         if self.search_bar.get_text() in ["", "search"]:
-            inventory_len = len(cat.pelt.inventory)
-            new_inv = cat.pelt.inventory
+            inventory_len = len(self.cat_inventory)
+            new_inv = self.cat_inventory
         else:
-            for ac in cat.pelt.inventory:
+            for ac in self.cat_inventory:
                 if ac and self.search_bar.get_text() and self.search_bar.get_text().lower() in ac.lower():
                     inventory_len+=1
                     new_inv.append(ac)
@@ -3052,7 +3121,7 @@ class ProfileScreen(Screens):
             self.next_page_button.disable()
         if self.page == 0:
             self.previous_page_button.disable()
-        if cat.pelt.inventory:
+        if self.cat_inventory:
             for a, accessory in enumerate(new_inv[start_index:min(end_index, inventory_len)], start = start_index):
                 try:
                     if self.search_bar.get_text() in ["", "search"] or self.search_bar.get_text().lower() in accessory.lower():
@@ -3314,7 +3383,10 @@ class ProfileScreen(Screens):
                 tool_tip_text='Choose to murder one of your clanmates',
                 starting_height=2, manager=MANAGER
             )
-            if game.clan.murdered or game.clan.your_cat.moons == 0:
+            if game.clan.your_cat.moons == 0:
+                self.murder_cat_button.disable()
+            
+            if "moon" in game.clan.murdered and game.clan.murdered["moon"] == game.clan.age:
                 self.murder_cat_button.disable()
                 
             if game.clan.your_cat.joined_df:
@@ -3447,7 +3519,7 @@ class ProfileScreen(Screens):
                     get_button_dict(ButtonStyles.LADDER_MIDDLE, (172, 36)),
                     object_id="@buttonstyles_ladder_middle",
                     starting_height=2,
-                    tool_tip_text='You will be more likely to recieve an apprentice.', 
+                    tool_tip_text='You will be more likely to receive an apprentice.', 
                     manager=MANAGER,
                     anchors={
                         "bottom_target": self.have_kits_button},
@@ -3472,7 +3544,7 @@ class ProfileScreen(Screens):
                 self.the_cat.moons > 0
                 and not self.the_cat.dead
                 and not self.the_cat.outside
-                and len(self.the_cat.pelt.inventory) > 0
+                and len(self.cat_inventory) > 0
                 ):
                
                 self.gift_accessory_button.enable()
@@ -3661,6 +3733,12 @@ class ProfileScreen(Screens):
                 self.cat_list_buttons[i].kill()
             for i in self.accessory_buttons:
                 self.accessory_buttons[i].kill()
+
+            if game.clan.clan_settings['all accessories']:
+                self.delete_accessory.disable()
+            else:
+                self.delete_accessory.enable()
+            
             self.open_accessories()
         elif self.open_tab == "faith":
             self.open_faith_tab()
@@ -3839,6 +3917,7 @@ class ProfileScreen(Screens):
             self.next_page_button.kill()
             self.previous_page_button.kill()
             self.clear_accessories.kill()
+            self.delete_accessory.kill()
             self.search_bar_image.kill()
             self.search_bar.kill()
         elif self.open_tab == "faith":

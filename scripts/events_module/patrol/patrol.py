@@ -25,7 +25,8 @@ from scripts.utility import (
     find_special_list_types,
     filter_relationship_type,
     get_special_snippet_list,
-    adjust_txt
+    adjust_txt,
+    get_alive_status_cats
 )
 from scripts.game_structure.game_essentials import game
 from itertools import combinations
@@ -68,7 +69,7 @@ class Patrol:
 
         print("PATROL START ---------------------------------------------------")
 
-        self.add_patrol_cats(patrol_cats, game.clan)
+        self.add_patrol_cats(patrol_cats, game.clan, patrol_type)
 
         final_patrols, final_romance_patrols = self.get_possible_patrols(
             str(game.clan.current_season).casefold(),
@@ -144,7 +145,7 @@ class Patrol:
 
         return self.determine_outcome(antagonize=(path == "antag"))
 
-    def add_patrol_cats(self, patrol_cats: List[Cat], clan: Clan) -> None:
+    def add_patrol_cats(self, patrol_cats: List[Cat], clan: Clan, patrol_type: str = None) -> None:
         """Add the list of cats to the patrol class and handles to set all needed values.
 
         Parameters
@@ -190,7 +191,10 @@ class Patrol:
                 else:
                     self.patrol_statuses["normal adult"] = 1
 
-            game.patrolled.append(cat.ID)
+            if "patrol_category" in game.switches and game.switches["patrol_category"] != "date":
+                game.patrolled.append(cat.ID)
+            else:
+                game.dated_cats.append(cat.ID)
 
         #PATROL LEADER AND RANDOM CAT CAN NOT CHANGE AFTER SET-UP
 
@@ -772,6 +776,10 @@ class Patrol:
                         else:
                             if "fellowtrainee" not in patrol.tags:
                                 continue
+                            
+                    if "shunned" in patrol.tags:
+                        if game.clan.your_cat.shunned == 0:
+                            continue
                 else:
                     if "shunned" in patrol.tags:
                         if game.clan.your_cat.shunned == 0:
@@ -790,6 +798,13 @@ class Patrol:
 
                 if "bloodthirsty_only" in patrol.tags:
                     if Cat.all_cats.get(game.clan.your_cat.mentor).personality.trait != "bloodthirsty":
+                        continue
+
+                if "clan_has_kits" in patrol.tags:
+                    if len(get_alive_status_cats(Cat, ["kitten", "newborn"])) == 0:
+                        continue
+                if "clan_no_kits" in patrol.tags:
+                    if len(get_alive_status_cats(Cat, ["kitten", "newborn"])) > 0:
                         continue
 
                 # this is testing every piece of text in the patrol
