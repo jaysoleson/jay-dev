@@ -1568,11 +1568,13 @@
             "you_immune",
             "they_not_infected",
             "no_kit",
-            "infection"
+            "infection",
+            "you_blind",
+            "they_blind"
         ],
         [
             "Hey. y_c. I have a favour to ask.",
-            "Could you go talk to plove_r_c_infected for me? Just... tell {PRONOUN/plove_r_c_infected/object} I miss {PRONOUN/plove_r_c_infected/object}, and I'll be able to see {PRONOUN/plove_r_c_infected/object} soon.",
+            "Could you go talk to plove_r_c_infected for me? Just... tell {PRONOUN/plove_r_c_infected/object} I miss {PRONOUN/plove_r_c_infected/object}, and I'll be able to visit {PRONOUN/plove_r_c_infected/object} soon.",
             "I'm really worried about {PRONOUN/plove_r_c_infected/object}."
         ]
     ],
@@ -1582,12 +1584,14 @@
             "they_infected",
             "no_kit",
             "min_dislike_10",
-            "infection"
+            "infection",
+            "you_blind",
+            "they_blind"
         ],
         [
             "You enjoying your infection immunity, huh?",
             "I bet you're having tons of fun parading around, watching the rest of us suffer with no risk.",
-            "Go find something else to do."
+            "Ugh. Go find something else to do."
         ]
     ],
     "immune_J4": [
@@ -1599,7 +1603,9 @@
             "they_not_medicine_cat",
             "they_not_medicine_cat_apprentice",
             "cure_not_found",
-            "infection"
+            "infection",
+            "you_blind",
+            "they_blind"
         ],
         [
             "Should I become a medicine cat?",
@@ -1607,6 +1613,128 @@
             "I just feel bad that I'm immune but I'm not really... taking advantage of it.",
             "[You tell t_c just to do what {PRONOUN/t_c/subject} {VERB/t_c/think/thinks} is right.]",
             "Hm... Okay. I'll think about it."
+        ]
+    ],
+    "infection_beginning_J1": [
+        [
+            "they_medicine_cat",
+            "they_not_infected",
+            "you_not_infected",
+            "maxinfectedpercent_10",
+            "infection",
+            "brooding",
+            "cool",
+            "you_not_medicine_cat",
+            "no_kit",
+            "you_blind",
+            "they_blind"
+        ],
+        [
+            "Hm? No, I'm not stressed. Why would I be?",
+            "Oh, that weird new disease? I'm not worried. You know, there was a time where whitecough was brand new, but they figured it out. We'll figure this one out, too."
+        ]
+    ],
+    "infection_beginning_J2": [
+        [
+            "they_infected",
+            "you_not_infected",
+            "maxinfectedpercent_5",
+            "infection",
+            "you_medicine_cat",
+            "you_medicine_cat_apprentice",
+            "no_kit",
+            "sweet",
+            "neurotic",
+            "stable",
+            "you_blind",
+            "they_blind"
+        ],
+        [
+            "Hey, you can figure this out, right? You'll figure out how to cure me?",
+            "It just really hurts... But I know you're busy.",
+            "[You tell t_c that you'll try your best.]",
+            "Thanks, y_c. I know you will!"
+        ]
+    ],
+    "infection_beginning_J3": [
+        [
+            "you_not_infected",
+            "they_not_infected",
+            "maxinfectedpercent_5",
+            "infection",
+            "they_medicine_cat",
+            "you_medicine_cat_apprentice",
+            "from_mentor",
+            "no_kit",
+            "assertive",
+            "cool",
+            "stable",
+            "upstanding",
+            "you_blind",
+            "they_blind"
+        ],
+        [
+            "I know this new sickness is a bit scary, but it'll actually be pretty good for your training, you know!",
+            "I mean, how often do you get to cure a whole new illness! When you have an apprentice one day, you'll get to tell them all about it, and they'll think it's super cool. Trust me.",
+            "It's just gonna be a bit stressful at first."
+        ]
+    ],
+    "infection_beginning_J4": [
+        [
+            "you_not_infected",
+            "they_infected",
+            "maxinfectedpercent_10",
+            "infection",
+            "you_kitten",
+            "any",
+            "they_adult"
+        ],
+        [
+            "[t_c's pelt looks scary. You ask what's wrong.]",
+            "Hehe. Don't worry about it, kit, I'm just a bit unwell. Where's your {PRONOUN/y_p/parent}?",
+            "Ah, I see {PRONOUN/y_p/object} over by the nursery. You should go join {PRONOUN/y_p/object}. We can chat later, okay?",
+            "[Reluctantly, you waddle away tow go join y_p. Why doesn't t_c want to talk with you?]"
+        ]
+    ],
+    "infection_beginning_J5": [
+        [
+            "you_not_infected",
+            "they_not_infected",
+            "maxinfectedpercent_10",
+            "infection",
+            "you_kitten",
+            "any",
+            "from_parent",
+            "from_adopted_parent",
+            "they_not_medicine_cat",
+            "they_not_medicine_cat_apprentice"
+        ],
+        [
+            "[You ask t_c why the medicine cats seem so scared about r_c_infected.]",
+            "Oh, um... r_c_infected is very sick. The medicine cats don't know how to fix it yet.",
+            "But they will, don't worry! And as long as we stick together, we won't get sick like {PRONOUN/r_c_infected/object}."
+        ]
+    ],
+    "infection_beginning_J6": [
+        [
+            "you_not_infected",
+            "they_not_infected",
+            "maxinfectedpercent_10",
+            "infection",
+            "you_kitten",
+            "any",
+            "from_parent",
+            "from_adopted_parent",
+            "they_medicine_cat",
+            "they_medicine_cat_apprentice",
+            "they_blind",
+            "you_blind",
+            "they_deaf",
+            "you_deaf"
+        ],
+        [
+            "[The sun is setting, and t_c finally crawls back into your nest with you after being in the medicine den all day. You give a small yowl as greeting, immediately nuzzling into {PRONOUN/t_c/poss} fur. {PRONOUN/t_c/subject/CAP} {VERB/t_c/smell/smells} like herbs.]",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/give/gives} your head a quick lick and {VERB/t_c/fall/falls} asleep almost immediately. {PRONOUN/t_c/subject/CAP} must have had a busy day. You wish {PRONOUN/t_c/subject} {VERB/t_c/weren't/wasn't} so busy.]"
         ]
     ]
 }

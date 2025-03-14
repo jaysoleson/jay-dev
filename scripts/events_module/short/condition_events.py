@@ -398,7 +398,7 @@ class Condition_Events:
                         else:
                             possible_illnesses += [illness_name] * (season_dict[illness_name])
                     else:
-                        possible_illnesses += [illness_name] * (season_dict[illness_name] * 3)
+                        possible_illnesses += [illness_name] * (season_dict[illness_name] * 2)
                         # multiply by three because i cant divide stage one by three, and i want it to be less likely
 
                 for i in types:
@@ -415,6 +415,7 @@ class Condition_Events:
                 # pick a random illness from those possible
                 random_index = int(random.random() * len(possible_illnesses))
                 chosen_illness = possible_illnesses[random_index]
+                
                 # if a non-kitten got kittencough, switch it to whitecough instead
                 if chosen_illness == 'kittencough' and cat.status != 'kitten':
                     chosen_illness = 'whitecough'

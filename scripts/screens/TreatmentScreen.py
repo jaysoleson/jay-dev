@@ -13,7 +13,7 @@ from scripts.events import events_class
 from scripts.clan import HERBS
 
 from .Screens import Screens
-from scripts.utility import get_personality_compatibility, get_text_box_theme, ui_scale, shorten_text_to_fit, pronoun_repl
+from scripts.utility import get_personality_compatibility, get_text_box_theme, ui_scale, shorten_text_to_fit, pronoun_repl, get_infection_herb
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
 from scripts.cat.pelts import Pelt
@@ -161,10 +161,10 @@ class TreatmentScreen(Screens):
                 self.current_page -= 1
                 self.update_cat_list()
             elif "cure_button" in self.herb_displays and event.ui_element == self.herb_displays["cure_button"]:
-                self.herb1 = game.clan.infection["cure"][0]
-                self.herb2 = game.clan.infection["cure"][1]
-                self.herb3 = game.clan.infection["cure"][2]
-                self.herb4 = game.clan.infection["cure"][3]
+                self.herb1 = get_infection_herb(game.clan.infection["cure"][0])
+                self.herb2 = get_infection_herb(game.clan.infection["cure"][1])
+                self.herb3 = get_infection_herb(game.clan.infection["cure"][2])
+                self.herb4 = get_infection_herb(game.clan.infection["cure"][3])
                 self.update_herb_buttons()
                 self.update_treatment_display()
 
@@ -295,7 +295,7 @@ class TreatmentScreen(Screens):
         if "cure_button" in self.herb_displays:
             cure_unstocked = False
             for herb in game.clan.infection["cure"]:
-                if herb not in game.clan.herbs.keys():
+                if get_infection_herb(herb) not in game.clan.herbs.keys():
                     cure_unstocked = True
                     break
             if cure_unstocked is True:
@@ -868,19 +868,23 @@ class TreatmentScreen(Screens):
         if not success:
             successkey = " failure"
         
-        if self.herb1 in game.clan.infection["cure"]:
+        curelist = []
+        for num in game.clan.infection["cure"]:
+            curelist.append(get_infection_herb(num))
+        
+        if self.herb1 in curelist:
             herb_1 = True
         else:
             herb_1 = False
-        if self.herb2 in game.clan.infection["cure"]:
+        if self.herb2 in curelist:
             herb_2 = True
         else:
             herb_2 = False
-        if self.herb3 in game.clan.infection["cure"]:
+        if self.herb3 in curelist:
             herb_3 = True
         else:
             herb_3 = False
-        if self.herb4 in game.clan.infection["cure"]:
+        if self.herb4 in curelist:
             herb_4 = True
         else:
             herb_4 = False
@@ -913,7 +917,7 @@ class TreatmentScreen(Screens):
 
         infection_stage = [i for i in self.selected_cat.illnesses if i in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]]
         infection_stage_stripped = str(infection_stage).replace('[', '').replace(']', '').replace("'", '')
-        if len(game.clan.infection["cure_discovered"]) < 4 or (len(game.clan.infection["cure_discovered"]) == 4 and correct < 4):
+        if not game.clan.infection["cure_discovered"] or (game.clan.infection["cure_discovered"] and correct < 4):
             if self.selected_cat.status == "newborn":
                 ceremony_txt = self.m_txt[who_key + "newborn" + successkey]
             try:
@@ -953,8 +957,12 @@ class TreatmentScreen(Screens):
         """ Adds the treatment information to the json for logging. """
         inftype = game.clan.infection["infection_type"]
 
+        curelist = []
+        for num in game.clan.infection["cure"]:
+            curelist.append(get_infection_herb(num))
+
         herblist = [self.herb1, self.herb2, self.herb3, self.herb4]
-        correctherbs = [herb for herb in herblist if herb in game.clan.infection["cure"]]
+        correctherbs = [herb for herb in herblist if herb in curelist]
 
         cure_one = False
         if len(correctherbs) == 1:
@@ -1010,17 +1018,16 @@ class TreatmentScreen(Screens):
 
         if cure:
             patient.cure_progress += 1
-            for herb in correctherbs:
-                if herb not in game.clan.infection["cure_discovered"]:
-                    game.clan.infection["cure_discovered"].append(herb)
+            if not game.clan.infection["cure_discovered"]:
+                game.clan.infection["cure_discovered"] = True
 
-        if len(game.clan.infection["cure_discovered"]) < 4:
-            treatment = {
-                "moon": game.clan.age,
-                "herbs": [herb for herb in herblist if herb is not None],
-                "correct_herbs": len(correctherbs)
-            }
+        treatment = {
+            "moon": game.clan.age,
+            "herbs": [herb for herb in herblist if herb is not None],
+            "correct_herbs": len(correctherbs)
+        }
 
+        if not (game.clan.infection["cure_discovered"] is True and len(correctherbs) == 4):
             game.clan.infection["treatments"].append(treatment)
         
         herbs = game.clan.herbs.copy()
@@ -1032,7 +1039,7 @@ class TreatmentScreen(Screens):
 
         used_herbs = []
         for herb in herblist:
-            if herb != None:
+            if herb is not None:
                 used_herbs.append(herb)
 
         if self.the_cat.ID == game.clan.your_cat.ID:

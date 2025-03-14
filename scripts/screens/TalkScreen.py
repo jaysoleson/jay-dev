@@ -21,7 +21,12 @@ from scripts.housekeeping.version import VERSION_NAME
 from scripts.special_dates import get_special_date, contains_special_date_tag
 # pylint: disable=consider-using-dict-items
 # pylint: disable=consider-using-enumerate
-from scripts.utility import get_text_box_theme, ui_scale, ui_scale_blit, ui_scale_offset, get_current_season, ui_scale_dimensions
+from scripts.utility import (
+    ui_scale,
+    get_current_season,
+    ui_scale_dimensions,
+    get_infected_clan_cat_count,
+    get_living_clan_cat_count)
 from scripts.game_structure.screen_settings import MANAGER
 from ..ui.generate_box import get_box, BoxStyles
 from ..ui.generate_button import ButtonStyles, get_button_dict
@@ -727,6 +732,11 @@ class TalkScreen(Screens):
             elif "they_not_infected" in tags and cat.infected_for > 1:
                 continue
 
+            if "they_immune" in tags and cat.infected_for != -1:
+                continue
+            if "you_immune" in tags and you.infected_for != -1:
+                continue
+
             if "undead" in cat.illnesses and "they_undead" not in tags:
                 continue
             if "undead" in you.illnesses and "you_undead" not in tags:
@@ -795,16 +805,27 @@ class TalkScreen(Screens):
                 if log in tags:
                     continue
 
-            infected_cats = [cat for cat in Cat.all_cats_list if not cat.dead and not cat.outside and cat.infected_for > 0 and cat.ID != you.ID]
-            all_cats = [cat for cat in Cat.all_cats_list if not cat.dead and not cat.outside and cat.ID != you.ID]
+            percentage = (get_infected_clan_cat_count(Cat) / get_living_clan_cat_count(Cat)) * 100
+            # print("INFECTED CATS PERCENTAGE:", percentage)
 
-            percentage = len(infected_cats) / len(all_cats)
-            percentage *= 100
-
-            numbers = [10, 25, 50, 75]
-            for num in numbers:
-                if f"{str(num)}_percent_infected" in tags and percentage < num:
+            skip = False
+            # lazy
+            for tag in tags:
+                if tag.startswith("maxinfectedpercent_"):
+                    tag_percent = int(tag.split("_")[1]) 
+                    if tag_percent < percentage:
+                        skip = True
+                        break
+                elif tag.startswith("mininfectedpercent_"):
+                    tag_percent = int(tag.split("_")[1]) 
+                    if tag_percent > percentage:
+                        skip = True
+                        break
+                else:
                     continue
+            if skip:
+                continue
+
             if game.switches["talk_category"] == "insult" and ("insult" not in tags or cat.status == "newborn" and "they_newborn" not in tags):
                 continue
 

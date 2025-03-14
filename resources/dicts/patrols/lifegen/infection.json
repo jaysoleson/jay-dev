@@ -651,7 +651,7 @@
             "healer cats": [-1, 0],
             "kitten": [-1, 0]
         },
-        "weight": 60,
+        "weight": 20,
         "intro_text": "Today, you've decided to head out into the territory and find some herbs. The medicine cats are always looking for more, and you can tell how stressed they are about this whole situation.",
         "decline_text": "You end up turning around and heading back to camp empty-pawed. You're not a medicine cat-- what will you know about the right herbs to gather?",
         "chance_of_success": 60,
@@ -666,6 +666,139 @@
         "fail_outcomes": [
             {
                 "text": "You search the territory for a while, but you're unable to find any herbs that you recognise.",
+                "exp": 10,
+                "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "warrior_infection_J2",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection"
+        ],
+        "patrol_art": "lg_warrior_default",
+        "min_cats": 1,
+        "max_cats": 1,
+        "min_max_status": {
+            "kitten": [-1, 0]
+        },
+        "weight": 20,
+        "intro_text": "You head out towards a small stream in the territory with a mouthful of moss to gather some water for the medicine den. However, the scent of infection around the stream is unmistakable... is it safe to drink?",
+        "decline_text": "You decide not to take the risk. Your Clanmates are thirsty, but at least you haven't spread any more infection.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "The smell of infection is everywhere-- it doesn't mean that nothing is safe. You soak some fresh water up with the moss and hurry back to camp, where a some thirsty Clanmates thank you are quickly lap it up. When you tentatively ask if it tasted alright, there are no complaints. Seems like the stream is safe!",
+                "exp": 10,
+                "weight": 20
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You can't let the scent of sickness on the wind stop you from providing for your Clanmates. You soak the water up with the moss, but as you hurry back to camp, you can't deny that it tastes funny. You drop the moss halfway and explain the issue to some annoyed, but ultimately understanding, medicine cats.",
+                "exp": 10,
+                "weight": 20
+            },
+            {
+                "text": "You soak some water up with the moss anyway, unwilling to let this infection intimidate you. However, as soon as the water hits for mouth, the foul taste makes you immediately spit it, along with the moss, back into the stream. Something has infected this water... You'll just have to wait for some rain.",
+                "exp": 10,
+                "weight": 10
+            }
+        ]
+    },
+    {
+        "patrol_id": "warrior_infection_J3",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection",
+            "fungal"
+        ],
+        "patrol_art": "lg_warrior_default",
+        "min_cats": 1,
+        "max_cats": 1,
+        "min_max_status": {
+            "normal adult": [1, 1]
+        },
+        "weight": 20,
+        "intro_text": "A strong wind blows into the camp, causing debris to swirl around the clearing. This normally wouldn't be a concern, but with infected plants popping up everywhere, you're concerned about the rapid spreading of spores.",
+        "decline_text": "You monitor the situation without taking action. The wind dies down quickly without any damage or new illness.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "You rush your Clanmates into their dens, telling them to face away from the entrance to avoid breathing in any spores that may be flying around. The den air is stuffy, but at least it's clean. After the wind dies down, you resume your day as usual and no new cases of the infection seem to pop up.",
+                "exp": 10,
+                "weight": 20
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You try to rush the elders and kits into their dens to avoid breathing in any spores that may be flying around, but no one seems to take your concern very seriously. It's only when somecat accidentally breathes in a piece of flying dirt that they decide to head inside.",
+                "exp": 10,
+                "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "infection_queen_J2",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection",
+            "mininfectedpercent_50"
+        ],
+        "patrol_art": "lg_queen_default",
+        "min_cats": 1,
+        "max_cats": 1,
+        "min_max_status": {
+            "kitten": [-1, 0],
+            "normal adult": [-1, 0],
+            "healer cats": [-1, 0],
+            "mediator": [-1, 0],
+            "mediator apprentice": [-1, 0]
+        },
+        "weight": 20,
+        "intro_text": "r_k has climbed up into a tree and gotten stuck!",
+        "decline_text": "You don't interfere. r_k can find their way back down!",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "You haul yourself up the trunk of the tree until you're on r_k's level, and ask why {PRONOUN/r_k/subject}{VERB/r_k/'re/'s} up here. {PRONOUN/r_k/subject/CAP} {VERB/r_k/tell/tells} you {PRONOUN/r_k/subject}{VERB/r_k/'re/'s} afraid of getting sick if {PRONOUN/r_k/subject}{VERB/r_k/'re/'s} down on the ground like {PRONOUN/r_k/poss} Clanmates. You tell {PRONOUN/r_k/object} {PRONOUN/r_k/subject} {VERB/r_k/have/has} to come down, as cats don't live in trees, but you'll protect {PRONOUN/r_k/object} from the infection while {PRONOUN/r_k/subject}{VERB/r_k/'re/'s} in the nursery. {PRONOUN/r_k/subject/CAP} reluctantly {VERB/r_k/agree/agrees} and {VERB/r_k/let/lets} you carry {PRONOUN/r_k/object} back down.",
+                "exp": 10,
+                "weight": 20
+            },
+            {
+                "text": "You climb up the tree and make your way onto the branch next to {PRONOUN/r_k/object}, gently asking what {PRONOUN/r_k/subject}{VERB/r_k/'re/'s} doing up here. r_k tells you {PRONOUN/r_k/subject}{VERB/r_k/'re/'s} afraid of getting sick while down on the ground. You agree that some of your Clanmates have gotten very scary lately and you sit with {PRONOUN/r_k/object} for a bit until {PRONOUN/r_k/subject}{VERB/r_k/'ve/'s} calmed down enough to return to the ground.",
+                "exp": 10,
+                "weight": 20
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You climb up the tree and try to reach for the little kit, but {PRONOUN/r_k/subject} {VERB/r_k/scoot/scoots} out of reach, yowling that {PRONOUN/r_k/subject}{VERB/r_k/'re/'s} too scared of getting sick to come down. You don't want to scare {PRONOUN/r_k/object} more by forcing it, so you sit at the base of the tree until {PRONOUN/r_k/subject}{VERB/r_k/'re/'s} ready to come down.",
                 "exp": 10,
                 "weight": 20
             }
@@ -1359,14 +1492,14 @@
         "chance_of_success": 70,
         "success_outcomes": [
             {
-                "text": "A good puddle is impossible to resist! You race outside and launch yourself into the puddle, gigglign as the droplets spray the nursery walls. To your delight, the grownups in the clearing stop their anxious conversations to laugh along with you.",
+                "text": "A good puddle is impossible to resist! You race outside and launch yourself into the puddle, giggling as the droplets spray the nursery walls. To your delight, the grownups in the clearing stop their anxious conversations to laugh along with you.",
                 "exp": 10,
                 "weight": 20
             }
         ],
         "fail_outcomes": [
             {
-                "text": "You can't resist a good puddle! You race outside and leap into the puddle, but as soon as the droplets hit the nursery walls, you're scolded for causing such a distraction in the clearing. A warrior nudges you back inside to dry off and you hang your head, remainign silent for the rest of the day.",
+                "text": "You can't resist a good puddle! You race outside and leap into the puddle, but as soon as the droplets hit the nursery walls, you're scolded for causing such a distraction in the clearing. A warrior nudges you back inside to dry off and you hang your head, remaining silent for the rest of the day.",
                 "exp": 0,
                 "weight": 20
             }
@@ -1406,6 +1539,296 @@
         "fail_outcomes": [
             {
                 "text": "You try to slip into the medicine den to switch out the moss, but the den is so full of medicine cats and patients that you can't fit a paw in. You tell yourself you'll try later so you don't get trampled.",
+                "exp": 0,
+                "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "infection_queen_J1",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection",
+            "clan_has_kits"
+        ],
+        "log_prereq": [
+            "zombie"
+        ],
+        "patrol_art": "lg_queen_default",
+        "min_cats": 1,
+        "max_cats": 1,
+        "min_max_status": {
+            "queen": [1, 1]
+        },
+        "weight": 20,
+        "intro_text": "This infection business is getting extremely dangerous, especially for the little ones you're meant to take care of. The kits are scared and need comforting, but you'd rather spend some time fortifying the nursery to protect them from infected rouges.",
+        "decline_text": "You decide to focus your time on the kits, telling them some stories to keep them distracted. You can ask some warriors to strengthen the den.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "The kits can entertain themselves-- your job is to protect them, so that's what you'll do. You collect some materials and get to work, weaving sturdy twigs and bramble vines into the den walls to fill up gaps and keep the place secure. Now, if an infected rogue stumbles into camp in the middle of the night, they'll have a much harder time getting in.",
+                "exp": 5,
+                "weight": 20
+            },
+            {
+                "text": "You decide to take the kits on an adventure across camp to gather some den building materials. When you return to the nursery, they all have a fun time helping you patch up the walls, and they make sure to let you know that they'll fight off any bad guy who might come to get them.",
+                "exp": 5,
+                "weight": 20
+            },
+            {
+                "text": "You decide to spend the day on the den walls-- the kits can entertain themselves for a little bit. You manage to make some good progress patching up the little gaps in the den walls, and the kits marvel at your hard work.",
+                "exp": 5,
+                "weight": 20
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You decide to patch up the walls, but as you're closing up the gaps, you hesitate. If this is for safety, wouldn't you want a gap or two, to watch for danger..? Uncertain, you decide to let the warriors deal with den-building and turn your focus to the moss-ball tournament happening in the clearing.",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "You try to get some work done on the walls, but a pair of playfighting kittens keeps bumping into you, repeatedly breaking your focus. You decide to continue once they're napping and return to supervising the battle.",
+                "exp": 0,
+                "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "inf_normaladult_J1",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection"
+        ],
+        "patrol_art": "lg_warrior_default",
+        "min_cats": 1,
+        "max_cats": 1,
+        "min_max_status": {
+            "normal adult": [1, 1]
+        },
+        "weight": 20,
+        "intro_text": "You're on guard duty tonight. As you sit in the camp entrance, a pair of unfamiliar eyes flashes towards you in the undergrowth before disappearing... should you investigate?",
+        "decline_text": "You decide to stay in your place, but you feel uneasy for the rest of the night...",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "You decide to leave your post to pursue the intruder. You carefully creep forward, following the infected scent until you find a sick rogue obliviously snacking on a patch of clovers. You let out a hiss and the cat jumps before stumbling away, towards the border. Good thing they're still well enough to run.",
+                "exp": 5,
+                "weight": 20
+            },
+            {
+                "text": "You shouldn't leave your post, so you pick up a pebble and toss it in the direction of the infected scent. You hear a thump, a small yelp, and the sounds of clumsy pawsteps fading into the distance.",
+                "exp": 5,
+                "weight": 20
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You creep forward to investigate the intruder, but following the sick scent leads you in circles. Wherever they are, they're not here anymore. You return to your post, uneasy.",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "You stalk forwards, following the path you saw the pair of eyes take before they disappeared. Despite being prepared for a fight, you don't get one, as you discover the intruder collapsed at the base of a tree, perfectly still. It seems the infection was too much for their small body to handle.",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "You take a step forwards to confront the trespasser, but just as you do, you're shoved to the ground. The infected intruder snaps their jaws towards your throat a couple of times before you're able to shove them off, give their head a good <i>smack</i> and send them racing back towards the border. You're alive, but shaken, when you return to your post.",
+                "exp": 0,
+                "weight": 20,
+                "injury": [
+                    {
+                    "cats": ["p_l"],
+                    "injuries": ["bruises"]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "patrol_id": "inf_normaladult_J2",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection",
+            "you_immune",
+            "mininfectedpercent_40"
+        ],
+        "patrol_art": "lg_warrior_default",
+        "min_cats": 1,
+        "max_cats": 1,
+        "min_max_status": {
+            "kitten": [-1, 0],
+            "leader": [-1, 0]
+        },
+        "weight": 10,
+        "intro_text": "Infected rogues have been wandering into the territory more and more frequently, then dropping dead while still on c_n land. As one of very few immune cats, you've been asked by l_n to patrol the territory and bury any infected outsiders you find so their bodies stop being such a major obstacle for patrols.",
+        "decline_text": "Such a grim idea makes you shudder. You venture out into the territory, hide in a bush for a while, then return to camp and tell l_n it's been taken care of.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "You pick your way through the undergrowth, coming across a couple of still, infected bodies. You make a quick prayer before burying them, hoping that their afterlife is kind.",
+                "exp": 5,
+                "weight": 20
+            },
+            {
+                "text": "You come across a couple of still, infected bodies on the territory. Burying each one breaks your heart, but at least they aren't suffering anymore. As you scoop the last pawful of dirt over the cold body of an apprentice-aged kittypet, you hope that you won't be the one needing to do this next time.",
+                "exp": 5,
+                "weight": 10
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You do a couple of laps around the entire territory, but are unable to find any bodies. Good for you, but a bit unsettling, as r_w reported one just the other day... where could it have gone?",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "It's not too long into your patrol that you find the body of a kittypet by the base of a tree. As you reach a paw out to shake it, it jolts awake, snapping its jaws in your direction as it struggles to stand up. You turn and race back to camp for reinforcements!",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "The sun begins to set as you make your way through the territory. Just as you're about to turn back, having found nothing, a massive weight drops from above, pinning you to the ground. A sick loner has dropped out of a tree, sending down a shower of leaves! You're able to fight the weak cat off and run back to camp, hoping that the poor thing passes away before it can follow you all the way home.",
+                "exp": 0,
+                "weight": 10,
+                "injury": [
+                    {
+                    "cats": ["p_l"],
+                    "injuries": ["scrapes"]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "patrol_id": "inf_normaladult_J3",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection",
+            "mininfectedpercent_80"
+        ],
+        "patrol_art": "lg_warrior_default",
+        "min_cats": 1,
+        "max_cats": 1,
+        "min_max_status": {
+            "kitten": [-1, 0]
+        },
+        "weight": 10,
+        "intro_text": "With so many infected cats stumbling about, the camp always smells sick. You'd like to do something about it; maybe a fresher camp would cheer some of your Clanmates up.",
+        "decline_text": "You can't bring yourself to leave camp to look for any flowers-- not now. Maybe once things are better.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "You slip out of camp to search for some flowers. While the territory still smells sick, you're able to pick out a sweet scent and follow it to a flowering berry bush. You pick a branch and bring it back to your den, happy for the refreshment it brings.",
+                "exp": 5,
+                "weight": 10,
+                "accessory": [
+                    {
+                        "cats": [
+                            "y_c"
+                        ],
+                        "accessory": [
+                            "RASPBERRY", "GOLDEN RASPBERRY", "RASPBERRY2", "BLACKBERRY"
+                        ]
+                    }
+                ]
+            },
+            {
+                "text": "You head out into the territory and make your way to a Twoleg nest with a large patch of flowers outside of it. You dig up a few of the best-smelling ones and bring them back to camp, placing them by the mouth of the medicine den.",
+                "exp": 5,
+                "weight": 10
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You slip out of camp to try and find some flowers or berries, but the rest of the territory smells just as sick. This place must be picked clean of all herbs and flowers at this point.",
+                "exp": 0,
+                "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "inf_normaladult_J4",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection"
+        ],
+        "patrol_art": "lg_warrior_default",
+        "min_cats": 1,
+        "max_cats": 1,
+        "min_max_status": {
+            "kitten": [-1, 0]
+        },
+        "weight": 10,
+        "intro_text": "With so many infected cats stumbling about, the camp always smells sick. You'd like to do something about it; maybe a fresher camp would cheer some of your Clanmates up.",
+        "decline_text": "You can't bring yourself to leave camp to look for any flowers-- not now. Maybe once things are better.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "You slip out of camp to search for some flowers. While the territory still smells sick, you're able to pick out a sweet scent and follow it to a flowering berry bush. You pick a branch and bring it back to your den, happy for the refreshment it brings.",
+                "exp": 5,
+                "weight": 10,
+                "accessory": [
+                    {
+                        "cats": [
+                            "y_c"
+                        ],
+                        "accessory": [
+                            "RASPBERRY", "GOLDEN RASPBERRY", "RASPBERRY2", "BLACKBERRY"
+                        ]
+                    }
+                ]
+            },
+            {
+                "text": "You head out into the territory and make your way to a Twoleg nest with a large patch of flowers outside of it. You dig up a few of the best-smelling ones and bring them back to camp, placing them by the mouth of the medicine den.",
+                "exp": 5,
+                "weight": 10
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You slip out of camp to try and find some flowers or berries, but the rest of the territory smells just as sick. This place must be picked clean of all herbs and flowers at this point.",
                 "exp": 0,
                 "weight": 20
             }

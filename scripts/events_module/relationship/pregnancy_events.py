@@ -484,7 +484,7 @@ class Pregnancy_Events:
         ):
             involved_cats.append(other_cat.ID)
             if infectedkit:
-                event_list.append(choice(events["birth"]["infected_kits_affair"]))
+                event_list.append(choice(events["birth"]["infected_kits"]["affair"]))
                 infected_kit_affair = True
             else:
                 event_list.append(choice(events["birth"]["affair"]))
@@ -494,7 +494,23 @@ class Pregnancy_Events:
         if infectedkit and not infected_kit_affair:
             # this sucks
             event_list = []
-            event_list.append(choice(events["birth"]["infected_kits"]))
+            addon = ""
+            if not other_cat:
+                event_list.append(choice(events["birth"]["infected_kits"]["one_parent"]))
+            else:
+                if other_cat.infected_for > 0 and cat.infected_for < 1:
+                    addon = "infected_sire"
+                elif other_cat.infected_for < 1 and cat.infected_for > 0:
+                    addon = "infected_carrier"
+                elif other_cat.infected_for > 0 and cat.infected_for > 0:
+                    addon = "infected_both"
+                else:
+                    print("Infected kits but", cat.name, "and", other_cat.name, "are both uninfected?")
+                    addon = "error"
+                if other_cat.ID not in cat.mate:
+                    addon += "_unmated"
+
+                event_list.append(choice(events["birth"]["infected_kits"][addon]))
 
         if clan.game_mode != 'classic':
             try:
@@ -807,6 +823,9 @@ class Pregnancy_Events:
                     chance *= 0.5
                 
             chance = math.ceil(chance)
+
+            # debug
+            chance = 1
 
             if game.clan and not int(random.random() * int(chance)):
                 kit.get_ill(f"{inftype} stage one")

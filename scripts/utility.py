@@ -5472,6 +5472,41 @@ def adjust_txt(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
     return text
 
 
+def get_infection_herb(code):
+    """
+    returns the herb from the code in the json
+    so people cant cheat by looking at the save file mwahaha
+    """
+    code_dict = {
+        1: "moss",
+        2: "mullein",
+        3: "daisy",
+        4: "betony",
+        5: "mallow",
+        6: "lungwort",
+        7: "juniper",
+        8: "marigold",
+        9: "elder_leaves",
+        10: "wild_garlic",
+        11: "catmint",
+        12: "raspberry",
+        13: "tansy",
+        14: "poppy",
+        15: "oak_leaves",
+        16: "plantain",
+        17: "cobwebs",
+        18: "rosemary",
+        19: "burdock",
+        20: "blackberry",
+        21: "horsetail",
+        22: "goldenrod",
+        23: "thyme",
+        24: "dandelion",
+        25: "ragwort"
+        }
+    return code_dict[code]
+
+
 def quit(savesettings=False, clearevents=False):
     """
     Quits the game, avoids a bunch of repeated lines

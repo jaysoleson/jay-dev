@@ -569,21 +569,15 @@ class Game:
             print("Welcome to INFECTION! You have no infection file. Creating one...")
             # old saves get to suffer too <3
             if not os.path.exists(f"saves/{self.clan.name}/infection.json"):
-                herblist = [
-                        "elder_leaves", "cobwebs", "daisy", "horsetail", "juniper", "lungwort", "mallow", "marigold", "moss",
-                        "oak_leaves", "ragwort", "raspberry", "tansy", "thyme", "wild_garlic", "dandelion", "mullein", "rosemary",
-                        "burdock", "blackberry", "betony", "goldenrod", "poppy", "plantain", "catmint"
-                        ]
-                # cant import HERBS bc of circular import. peapaw despair
 
-                herb1, herb2, herb3, herb4 = random.sample(herblist, 4)
+                herb1, herb2, herb3, herb4 = random.sample(range(1,26), 4)
 
                 self.clan.infection = {
                     "clan_infected": False,
                     "infection_type": random.choice(["fungal", "parasitic", "void"]),
                     "cure": [herb1, herb2, herb3, herb4],
                     "cure_attempt": False,
-                    "cure_discovered": [],
+                    "cure_discovered": False,
                     "spread_by": random.choice(["air", "bite"]),
                     "treatments": [],
                     "infection_moons": 0,

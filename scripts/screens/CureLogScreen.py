@@ -12,7 +12,7 @@ import ujson
 
 from scripts.game_structure.game_essentials import game
 from scripts.game_structure.ui_elements import UIImageButton
-from scripts.utility import get_text_box_theme, ui_scale  # pylint: disable=redefined-builtin
+from scripts.utility import get_text_box_theme, ui_scale, get_infection_herb  # pylint: disable=redefined-builtin
 from .Screens import Screens
 from ..housekeeping.datadir import get_save_dir
 
@@ -294,8 +294,11 @@ class CureLogScreen(Screens):
 
             infologs = [i for i in game.clan.infection["logs"]]
             stats_text = ""
+            cure_herbs = []
+            for num in game.clan.infection["cure"]:
+                cure_herbs.append(get_infection_herb(num))
             for i in infologs:
-                log = a_txt[i].replace("herb1", str(game.clan.infection["cure"][0])).replace("herb2", str(game.clan.infection["cure"][1])).replace("herb3", str(game.clan.infection["cure"][2])).replace("herb4", str(game.clan.infection["cure"][3]))
+                log = a_txt[i].replace("herb1", str(cure_herbs[0])).replace("herb2", str(cure_herbs[1])).replace("herb3", str(cure_herbs[2])).replace("herb4", str(cure_herbs[3]))
                 
                 stats_text += "-" + log + "\n" + "<br>"
 

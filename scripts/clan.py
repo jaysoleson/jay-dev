@@ -18,7 +18,7 @@ import ujson
 from scripts.cat_relations.inheritance import Inheritance
 from scripts.game_structure.game_essentials import game
 from scripts.housekeeping.version import get_version_info, SAVE_VERSION_NUMBER
-from scripts.utility import get_current_season, quit, get_free_possible_mates, get_alive_status_cats, create_new_cat  # pylint: disable=redefined-builtin
+from scripts.utility import get_current_season, quit, get_free_possible_mates, get_alive_status_cats, create_new_cat, get_infection_herb  # pylint: disable=redefined-builtin
 from scripts.cat.cats import Cat, cat_class, BACKSTORIES
 from scripts.cat.pelts import Pelt
 from scripts.cat.history import History
@@ -161,7 +161,7 @@ class Clan:
         self.cure_attempt = False
         self.infection_type = 'fungal'
         self.treatments = []
-        self.cure_discovered = []
+        self.cure_discovered = False
         self.fallen_clans = []
         self.story_break_moons = 0
         self.spread_by = "air"
@@ -284,14 +284,15 @@ class Clan:
             self.leader.status_change('leader')
 
         # INF
-        herb1, herb2, herb3, herb4 = random.sample(HERBS, 4)
+        # herb1, herb2, herb3, herb4 = random.sample(HERBS, 4)
+        herb1, herb2, herb3, herb4 = random.sample(range(1,26), 4)
 
         self.infection = {
             "clan_infected": False,
             "infection_type": self.infection["infection_type"] if self.infection["infection_type"] else choice(["fungal", "parasitic", "void"]),
             "cure": [herb1, herb2, herb3, herb4],
             "cure_attempt": False,
-            "cure_discovered": [],
+            "cure_discovered": False,
             "spread_by": choice(["air", "bite"]),
             "treatments": [],
             "infection_moons": 0,

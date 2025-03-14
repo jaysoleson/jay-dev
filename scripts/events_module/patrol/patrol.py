@@ -26,7 +26,9 @@ from scripts.utility import (
     filter_relationship_type,
     get_special_snippet_list,
     adjust_txt,
-    get_alive_status_cats
+    get_alive_status_cats,
+    get_infected_clan_cat_count,
+    get_living_clan_cat_count
 )
 from scripts.game_structure.game_essentials import game
 from itertools import combinations
@@ -683,10 +685,33 @@ class Patrol:
 
             if "infection" in patrol.tags and game.clan.infection["clan_infected"] is False:
                 continue
-
             if "infection" in patrol.tags and "cure_found" in patrol.tags and "cure_found" not in game.clan.infection["logs"]:
                 continue
             if "infection" in patrol.tags and "not_cure_found" in patrol.tags and "cure_found" in game.clan.infection["logs"]:
+                continue
+
+            if "you_immune" in patrol.tags and game.clan.your_cat.infected_for != -1:
+                continue
+
+            percentage = (get_infected_clan_cat_count(Cat) / get_living_clan_cat_count(Cat)) * 100
+            # print("INFECTED CATS PERCENTAGE:", percentage)
+
+            skip = False
+            # lazy
+            for tag in patrol.tags:
+                if tag.startswith("maxinfectedpercent_"):
+                    patrol_percent = int(tag.split("_")[1]) 
+                    if patrol_percent < percentage:
+                        skip = True
+                        break
+                elif tag.startswith("mininfectedpercent_"):
+                    patrol_percent = int(tag.split("_")[1]) 
+                    if patrol_percent > percentage:
+                        skip = True
+                        break
+                else:
+                    continue
+            if skip:
                 continue
 
             if game.clan.infection["infection_type"] == "fungal":

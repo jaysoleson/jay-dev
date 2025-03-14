@@ -62,7 +62,8 @@ from scripts.utility import (
     create_new_cat,
     adjust_txt,
     get_cluster,
-    get_infected_clan_cat_count
+    get_infected_clan_cat_count,
+    get_infection_herb
 )
 class BirthType(Enum):
     NO_PARENTS = "birth_no_parents"
@@ -174,8 +175,9 @@ class Events:
             inftypes.remove(current_type)
             game.clan.infection["infection_type"] = random.choice(inftypes)
             herb1, herb2, herb3, herb4 = random.sample(HERBS, 4)
+            herb1, herb2, herb3, herb4 = random.sample(range(1, 26), 4)
             game.clan.infection["cure"] = [herb1, herb2, herb3, herb4]
-            game.clan.infection["cure_discovered"] = []
+            game.clan.infection["cure_discovered"] = False
             game.clan.infection["between_infections"] = False
             game.clan.infection["logs"] = []
 
@@ -1698,10 +1700,10 @@ class Events:
             for clan in game.clan.all_clans:
                 if clan.infection_level > 0:
                     clan.infection_level = 0
-                    event = f"o_c is in recovery from the infection after recieving news of the cure."
+                    event = "o_c_n is in recovery from the infection after recieving news of the cure."
                     text = event_text_adjust(Cat, event, other_clan=clan)
                     game.cur_events_list.insert(0, Single_Event(text, ["other_clans", "infection"]))
-                    return
+            return
          
         temperament_list = [
             'cunning', 'wary', 'logical', 'proud', 'stoic', 'mellow',
@@ -1723,14 +1725,21 @@ class Events:
 
             increase_chance = max(1, min(increase_chance, 10))
 
-            print(clan.name, "current infection level:", clan.infection_level)
-
             if random.random() < 1 / increase_chance:
+                previous_amount = clan.infection_level
                 increase = random.randint(1, 8)
                 level = int(clan.infection_level)
                 level += increase
                 clan.infection_level = str(level)
+                if previous_amount == 0:
+                    event = random.choice(other_clan_events["beginning"])
+                    text = event_text_adjust(Cat, event, other_clan=clan)
+                    game.cur_events_list.insert(0, Single_Event(text, ["other_clans", "infection"]))
+                    print(clan.name, "current infection level:", clan.infection_level)
+                    continue
                 # this sucks
+            
+            print(clan.name, "current infection level:", clan.infection_level)
 
             addon = ""
             if clan.relations > 17:
@@ -2181,8 +2190,9 @@ class Events:
         if game.clan.infection["priority_herb"] is not None:
             weight = 25
             possible_herbs.extend([game.clan.infection["priority_herb"]] * weight)
-        if len(game.clan.infection["cure_discovered"]) == 4:
-            for herb in game.clan.infection["cure_discovered"]:
+        if game.clan.infection["cure_discovered"] is True:
+            for num in game.clan.infection["cure"]:
+                herb = get_infection_herb(num)
                 weight = 15
                 possible_herbs.extend(herb * weight)
         # ---
@@ -2831,8 +2841,8 @@ class Events:
 
             if cat.infected_for > 0:
                 risk = int(random.random() * 40) - cat.infected_for / 2
-            if cat.infected_for > 0 and not risk:
-                Condition_Events.handle_infection_risks(cat)
+                if not risk:
+                    Condition_Events.handle_infection_risks(cat)
             game.switches['skip_conditions'].clear()
             if cat.dead:
                 return
@@ -3108,6 +3118,7 @@ class Events:
                 game.clan.new_leader(game.clan.deputy)
                 game.clan.leader_lives = 9
                 text = ''
+                types = "ceremony"
 
                 if game.clan.deputy.personality.trait == 'bloodthirsty':
                     text = f'{game.clan.deputy.name} has become the new leader. ' \
@@ -3131,7 +3142,6 @@ class Events:
                                'nine lives and are hailed by their new name, ' + \
                                str(game.clan.deputy.name) + '.'
                     else:
-                        types = "ceremony"
                         if c == 1:
                             text = str(game.clan.deputy.name.prefix) + str(
                                 game.clan.deputy.name.suffix) + \
@@ -4583,6 +4593,10 @@ class Events:
                 or game.clan.deputy.outside or game.clan.deputy.status == "elder" or game.clan.deputy.infected_for > 0):
             if game.clan.clan_settings['deputy']:
                 text = ""
+                
+                # INF
+                event_types = []
+                # ---
 
                 # This determines all the cats who are eligible to be deputy.
                 possible_deputies = list(
@@ -4599,9 +4613,6 @@ class Events:
 
                 # If there are possible deputies, choose from that list.
                 if possible_deputies:
-                    # INF
-                    event_types = []
-                    # ---
 
                     random_cat = random.choice(possible_deputies)
                     involved_cats = [random_cat.ID]

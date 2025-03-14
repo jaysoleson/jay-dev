@@ -8159,5 +8159,25 @@
                 "amount": 15
             }
         ]
+    },
+    {
+        "event_id": "infection_multideath_J1",
+        "sub_type": [
+            "mass_death"
+        ],
+        "tags": [
+            "infection"
+        ],
+        "weight": 10,
+        "event_text": "multi_cat are killed when large group of infected cats stumbles into camp and attacks.",
+        "history": [
+            {
+                "cats": [
+                    "multi_cat"
+                ],
+                "reg_death": "m_c was killed when a group of infected cats found the camp.",
+                "lead_death": "was killed by a group of infected cats in camp"
+            }
+        ]
     }
 ]

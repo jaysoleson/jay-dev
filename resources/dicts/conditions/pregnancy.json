@@ -173,15 +173,38 @@
       "m_c lost one of {PRONOUN/m_c/poss} nine lives, but gave birth to a {insert}.",
       "Although m_c gave birth to a {insert}, it came at the cost of one of {PRONOUN/m_c/poss} nine lives."
     ],
-    "infected_kits": [
-      "m_c is overjoyed after giving birth, but upon further inspection of the {insert}, {PRONOUN/m_c/subject} {VERB/m_c/make/makes} a chilling discovery. The infection has been passed down from parent to kit.",
-      "m_c is relieved to have finally given birth, but even more anxiety lies ahead. The infection is inheritable, and it's been passed down to {PRONOUN/m_c/poss} {insert}.",
-      "To m_c's horror, {PRONOUN/m_c/poss} {insert} hasn't been born free from the infection.",
-      "m_c supresses a mournful wail as {PRONOUN/m_c/subject} frantically {VERB/m_c/look/looks} over {PRONOUN/m_c/poss} {insert}. {PRONOUN/m_c/subject/CAP} {VERB/m_c/were/was} warned of this possibility, and yet {PRONOUN/m_c/subject} adamantly refused to accept it. There's nothing {PRONOUN/m_c/subject} can do now, though, and the unnatural, almost pained growls coming from {PRONOUN/m_c/subject} offspring confirms what {PRONOUN/m_c/subject} dreaded-- {PRONOUN/m_c/poss} {insert} has not been spared by the infection.",
-      "Kits are often seen as a blessing - a miracle, even. But the {insert} that m_c has given birth to only causes {PRONOUN/m_c/poss} Clanmates to stare in abject horror and disbelief. The infection appears to be hereditary, and it's been passed down to the Clan's newest addition. m_c gives everyone a hostile glare and a hisses as {PRONOUN/m_c/subject} protectively {VERB/m_c/pull/pulls} {PRONOUN/m_c/poss} {insert} closer, swearing to take care of them no matter what, regardless of what the Clan thinks."
-    ],
-    "infected_kits_affair": [
-     "m_c sobs when {PRONOUN/m_c/subject} {VERB/m_c/see/sees} {PRONOUN/m_c/poss} {insert}, clearly showing signs of infection. The situation doesn't get any better when r_c - a reminder of where this offspring truly comes from - not-so subtly walks into the nursery to see them. The horrified looks the forbidden couple give each other say it all - how are they supposed to explain this to the Clan?"
-    ]
+    "infected_kits": {
+      "one_parent":[
+        "m_c is overjoyed after giving birth, but upon further inspection of the {insert}, {PRONOUN/m_c/subject} {VERB/m_c/make/makes} a chilling discovery. The infection has been passed down from parent to kit.",
+        "m_c is relieved to have finally given birth, but even more anxiety lies ahead. The infection is inheritable, and it's been passed down to {PRONOUN/m_c/poss} {insert}.",
+        "To m_c's horror, {PRONOUN/m_c/poss} {insert} hasn't been born free from the infection.",
+        "m_c supresses a mournful wail as {PRONOUN/m_c/subject} frantically {VERB/m_c/look/looks} over {PRONOUN/m_c/poss} {insert}. {PRONOUN/m_c/subject/CAP} {VERB/m_c/were/was} warned of this possibility, and yet {PRONOUN/m_c/subject} adamantly refused to accept it. There's nothing {PRONOUN/m_c/subject} can do now, though, and the unnatural, almost pained growls coming from {PRONOUN/m_c/subject} offspring confirms what {PRONOUN/m_c/subject} dreaded-- {PRONOUN/m_c/poss} {insert} has not been spared by the infection.",
+        "Kits are often seen as a blessing - a miracle, even. But the {insert} that m_c has given birth to only causes {PRONOUN/m_c/poss} Clanmates to stare in abject horror and disbelief. The infection appears to be hereditary, and it's been passed down to the Clan's newest addition. m_c gives everyone a hostile glare and a hisses as {PRONOUN/m_c/subject} protectively {VERB/m_c/pull/pulls} {PRONOUN/m_c/poss} {insert} closer, swearing to take care of them no matter what, regardless of what the Clan thinks."
+      ],
+      "affair": [
+        "m_c sobs when {PRONOUN/m_c/subject} {VERB/m_c/see/sees} {PRONOUN/m_c/poss} {insert}, clearly showing signs of infection. The situation doesn't get any better when r_c - a reminder of where this offspring truly comes from - not-so subtly walks into the nursery to see them. The horrified looks the forbidden couple give each other say it all - how are they supposed to explain this to the Clan?"
+      ],
+      "infected_sire_unmated": [
+        "m_c is relieved to have finally given birth, but {PRONOUN/m_c/subject} soon {VERB/m_c/make/makes} the shocking discovery that the {insert} has not been born free of the infection. m_c refuses to admit to the Clan that they got it from their secret {PRONOUN/r_c/parent}, r_c, instead insisting it must have been {PRONOUN/m_c/object} somehow.",
+        "m_c's {insert} has been born infected. m_c refuses to let r_c visit {PRONOUN/m_c/object} in the nursery, tearfully shouting that it's all {PRONOUN/r_c/poss} fault that this has happened."
+      ],
+      "infected_carrier_unmated": [
+        "m_c's {insert} has been born infected. m_c's guilt is immense, and no one, not even the litter's secret {PRONOUN/r_c/parent}, r_c, is able to offer any support."
+      ],
+      "infected_both_unmated": [
+        "m_c gives birth to a {insert} with r_c, but the infection taking over the body of both cats has managed to pass down."
+      ],
+      "infected_sire": [
+        "When m_c gives birth to {PRONOUN/m_c/poss} {insert}, it is immediately apparent that the infection has managed to pass down from r_c. Though their {insert} is beautiful, perfect and pure, m_c and r_c can't help but feel some regret."
+      ],
+      "infected_carrier": [
+        "m_c's {insert} has been born infected. m_c's guilt is immense, and no one, not even r_c, is able to offer any support."
+      ],
+      "infected_both": [
+        "m_c gives birth to a {insert} with r_c, but the infection taking over the body of both cats has managed to pass down."
+      ],
+      "error": ["INFECTION bug: Report to Jay! error"],
+      "error_unmated": ["INFECTION bug: Report to Jay! error_unmated"]
+    }
   }
 }

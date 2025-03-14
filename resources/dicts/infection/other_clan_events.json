@@ -1,4 +1,9 @@
 {
+    "beginning": [
+        "The o_c_n leader reports that a new illness has made its way into their camp, but they have it under control.",
+        "o_c_n sends a patrol to the c_n camp to notify lead_name about the dangerous illness that they've come across.",
+        "o_c_n's head medicine cat asks med_name for some advice regarding a new illness they've come across."
+    ],
     "none": [
         "o_c_n looked well at the last Gathering. Perhaps the infection hasn't reached them yet.",
         "o_c_n's border markers smell clean and uninfected. Have they somehow not come across the disease yet?",
@@ -13,7 +18,8 @@
     "low": [
         "A patrol returns home and reports seeing an infected rogue across the border in o_c_n territory.",
         "o_c_n's border markers have started to occasionally smell of infection.",
-        "One of o_c_n's medicine cats is seen on the border. They ask for herbs, and though they refuse to say why they need them, the unmistakable scent of the infection clings to their pelt."
+        "One of o_c_n's medicine cats is seen on the border. They ask for herbs, and though they refuse to say why they need them, the unmistakable scent of the infection clings to their pelt.",
+        "o_c_n's leader appeared to be sick at the most recent Gathering, but strongly denied it."
     ],
     "low_allies": [
         "med_name offers the o_c_n medicine cats some herbs to hopefully deal with the infection, but o_c_n politely declines, trying to insist that they're fine."

@@ -575,7 +575,7 @@ class Cat:
         for stage in stages:
             if stage in self.illnesses:
                 old_stage = stage
-                if len(game.clan.infection["cure"]) == len(game.clan.infection["cure_discovered"]):
+                if game.clan.infection["cure_discovered"] is True:
                     self.illnesses.pop(stage)
                     infection_scars = ["EXPOSEDRIBS", "EYESOCKET", "ARMBONE", "VOIDBACK", "VOIDEYE", "VOIDTAIL", "SHELFMUSHROOMS", "EYEMOSS", "PAWMOSS"]
                     for scar in infection_scars:
@@ -597,6 +597,7 @@ class Cat:
                     game.cur_events_list.insert(0, Single_Event(event, ["health", "infection"], self.ID))
                 else:
                     cured = False
+                    new_stage = "stage one"
                     if stage == f"{inftype} stage two":
                         self.illnesses.pop(stage)
                         self.get_ill(f"{inftype} stage one")
@@ -2960,7 +2961,13 @@ class Cat:
         if "apprentice" not in self.status:
             return False
         # Dead cats don't need mentors
-        if self.dead or self.outside or self.exiled or self.quarantined or self.infected_for > 0 or self.shunned > 0:
+        if self.dead or self.outside or self.exiled or self.shunned > 0:
+            return False
+        
+        # only infected apps can have infected mentors
+        if self.infected_for > 0 and potential_mentor.infected_for == 0:
+            return False
+        if potential_mentor.infected_for > 0 and self.infected_for == 0:
             return False
         return True
 
