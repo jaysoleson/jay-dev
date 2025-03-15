@@ -2908,8 +2908,8 @@ class Events:
             # spreads the infection if the clan is infected! 
             cat.infection_go()
 
-        # if "undead" in cat.illnesses:
-        #     self.undead_cats(cat)
+        if "undead" in cat.illnesses:
+            self.undead_cats(cat)
 
         # newborns don't do much
         if cat.status == "newborn":
