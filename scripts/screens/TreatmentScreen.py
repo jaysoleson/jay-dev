@@ -169,10 +169,6 @@ class TreatmentScreen(Screens):
                 self.update_treatment_display()
 
             for herb, button in self.herb_buttons.items():
-                if self.herb1 is None and self.herb2 is None and self.herb3 is None and self.herb4 is None:
-                    self.next_stage_button.disable()
-                else:
-                    self.next_stage_button.enable()
 
                 if event.ui_element == button:
                     if herb == self.herb1:
@@ -209,6 +205,11 @@ class TreatmentScreen(Screens):
         for ele in self.herb_displays:
             self.herb_displays[ele].kill()
         self.herb_displays = {}
+
+        if self.herb1 is None and self.herb2 is None and self.herb3 is None and self.herb4 is None:
+            self.next_stage_button.disable()
+        else:
+            self.next_stage_button.enable()
         
         self.scroll_container = pygame_gui.elements.UIScrollingContainer(
             ui_scale(pygame.Rect((0, 455), (650, 145))),
@@ -346,9 +347,7 @@ class TreatmentScreen(Screens):
             if picked == 4:
                 if herb not in selected_herbs:
                     self.herb_buttons[herb].disable()
-            
-                
-            
+
             if count == 5:
                 count = 0
                 x_pos = x_start

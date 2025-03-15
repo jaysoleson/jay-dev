@@ -701,6 +701,10 @@ class TalkScreen(Screens):
                 continue
 
             # INF
+            # any tag
+            if "any_cat_override" in tags:
+                texts_list[talk_key] = talk
+
             log_prereq = talk["log_prereq"] if "log_prereq" in talk else None
 
             skip = False

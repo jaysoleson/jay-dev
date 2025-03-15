@@ -5538,5 +5538,37 @@
         [
             "[t_c presses {PRONOUN/t_c/poss} pelt into yours so that you can feel {PRONOUN/t_c/poss} purrs.]"
         ]
+    ],
+    "undead_J1": [
+        [
+            "they_undead",
+            "they_infected",
+            "any",
+            "accept",
+            "you_blind",
+            "they_blind",
+            "you_deaf",
+            "they_deaf",
+            "any_cat_override"
+        ],
+        [
+            "... ... ..."
+        ]
+    ],
+    "undead_J2": [
+        [
+            "they_undead",
+            "they_infected",
+            "any",
+            "reject",
+            "you_blind",
+            "they_blind",
+            "you_deaf",
+            "they_deaf",
+            "any_cat_override"
+        ],
+        [
+            "... ... ..."
+        ]
     ]
 }
