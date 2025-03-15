@@ -2955,6 +2955,11 @@ class Cat:
         if potential_mentor.moons <= 0:
             return False
         
+        if "undead" in potential_mentor.illnesses:
+            return False
+        if "undead" in self.illnesses:
+            return False
+        
         if game.clan and game.clan.your_cat and game.clan.age == 0 and potential_mentor.ID == game.clan.your_cat.ID:
             return False
 
