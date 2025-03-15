@@ -1698,8 +1698,8 @@ class Events:
 
         if game.clan.infection["clan_infected"] is False:
             for clan in game.clan.all_clans:
-                if clan.infection_level > 0:
-                    clan.infection_level = 0
+                if int(clan.infection_level) > 0:
+                    clan.infection_level = "0"
                     event = "o_c_n is in recovery from the infection after recieving news of the cure."
                     text = event_text_adjust(Cat, event, other_clan=clan)
                     game.cur_events_list.insert(0, Single_Event(text, ["other_clans", "infection"]))
