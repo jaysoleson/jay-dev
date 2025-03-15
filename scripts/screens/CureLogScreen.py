@@ -668,7 +668,6 @@ class CureLogScreen(Screens):
         notes = self.user_notes
 
         notes_directory = get_save_dir() + '/' + clanname + '/notes'
-        notes_file_path = 'infection_notes.json'
 
         if not os.path.exists(notes_directory):
             os.makedirs(notes_directory)

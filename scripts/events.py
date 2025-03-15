@@ -157,6 +157,7 @@ class Events:
                 else:
                     event_text = "No infection remains in the camp. You've staved it off... for now."
                     game.clan.infection["next_infection_allowed"] = False
+                    game.clan.infection["logs"] = []
 
                 game.cur_events_list.insert(0, Single_Event(event_text, ["alert", "infection"]))
             else:
