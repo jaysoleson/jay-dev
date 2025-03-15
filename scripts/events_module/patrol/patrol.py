@@ -693,6 +693,9 @@ class Patrol:
             if "you_immune" in patrol.tags and game.clan.your_cat.infected_for != -1:
                 continue
 
+            if "priority_herb" in patrol.tags and game.clan.infection["priority_herb"] is None:
+                continue
+
             percentage = (get_infected_clan_cat_count(Cat) / get_living_clan_cat_count(Cat)) * 100
             # print("INFECTED CATS PERCENTAGE:", percentage)
 

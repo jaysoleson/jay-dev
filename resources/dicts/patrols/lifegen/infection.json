@@ -1157,7 +1157,8 @@
             "lifegen"
         ],
         "tags": [
-            "infection"
+            "infection",
+            "priority_herb"
         ],
         "patrol_art": "lg_medcat_default",
         "min_cats": 1,
@@ -1250,7 +1251,8 @@
             "lifegen"
         ],
         "tags": [
-            "infection"
+            "infection",
+            "priority_herb"
         ],
         "patrol_art": "lg_medcat_default",
         "min_cats": 1,
