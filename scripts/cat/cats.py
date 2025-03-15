@@ -2010,7 +2010,8 @@ class Cat:
     def one_moon(self):
         """Handles a moon skip for an alive cat."""
         old_age = self.age
-        self.moons += 1
+        if "undead" not in self.illnesses:
+            self.moons += 1
         if self.moons == 0 and self.status != "newborn":
             self.status = "newborn"
         if self.moons == 1 and self.status == "newborn":
