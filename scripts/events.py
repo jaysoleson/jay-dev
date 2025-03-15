@@ -1696,7 +1696,7 @@ class Events:
         with open(f"{resource_dir}other_clan_events.json", encoding="ascii") as read_file:
             other_clan_events = ujson.loads(read_file.read())
 
-        if game.clan.infection["clan_infected"] is False:
+        if game.clan.infection["clan_infected"] is False and "cure_found" in game.clan.infection["logs"]:
             for clan in game.clan.all_clans:
                 if int(clan.infection_level) > 0:
                     clan.infection_level = "0"
