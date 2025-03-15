@@ -144,6 +144,8 @@ class Events:
         # age up the clan, set current season
         game.clan.age += 1
 
+        game.clan.infection["logs"] = list(set(game.clan.infection["logs"]))
+
         chance = 2
         if game.clan.infection["clan_infected"] is True:
             # checking if the clan is actually no longer infected
