@@ -731,7 +731,7 @@ def create_new_cat_block(
 
             print(n_c.name, "infection chance: 1/"+ str(chance))
 
-            if not int(random() * chance) and not n_c.dead:
+            if not int(random() * chance) and not n_c.dead and infected is False:
                 print("random infected cat chance hit for", n_c.name)
                 n_c.get_ill(f"{game.clan.infection['infection_type']} stage one")
 

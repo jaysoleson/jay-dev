@@ -1027,7 +1027,7 @@ class PatrolOutcome:
         
         else:
             if priority_herb is not None:
-                chance = 10
+                chance = 8
                 medcats = [cat for cat in patrol.patrol_cats if cat.status in ["medicine cat", "medicine cat apprentice"]]
                 for meddie in medcats:
                     print(meddie.name, meddie.experience)
@@ -1079,7 +1079,7 @@ class PatrolOutcome:
                 game.clan.infection["logs"].append("start")
                 game.clan.infection["clan_infected"] = True
 
-        plural_herbs_list = ["cobwebs", "oak leaves"]
+        plural_herbs_list = ["cobwebs", "oak leaves", "elder leaves"]
 
         if len(specific_herbs) == 1 and specific_herbs[0] not in plural_herbs_list:
             insert = f"{specific_herbs[0]} was"

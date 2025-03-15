@@ -340,6 +340,14 @@ class CureLogScreen(Screens):
             self.heading1 = None
             self.heading2 = None
 
+            # fixes asters crash
+            self.moon_text = None
+            self.moon_text_box = None
+            self.treatment_text = None
+            self.treatment_text_box = None
+            self.correct_text_box = None
+            self.x_buttons = {}
+
             self.scroll_container = pygame_gui.elements.UIScrollingContainer(ui_scale(pygame.Rect(
             (50, 175), (365, 395))),
             allow_scroll_x=False,

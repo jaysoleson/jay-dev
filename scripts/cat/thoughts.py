@@ -467,6 +467,10 @@ class Thoughts:
             if (main_cat.name.prefix+main_cat.name.suffix).replace(" ", "").lower() == "rickastley":
                 return "Never going to give r_c up, never going to let {PRONOUN/r_c/object} down, never going to run around and desert {PRONOUN/r_c/object}."
             else:
+                # INF
+                if "undead" in main_cat.illnesses:
+                    return "... ... ... ..."
+                #  ---
                 chosen_thought_group = choice(Thoughts.load_thoughts(main_cat, other_cat, game_mode, biome, season, camp))
                 chosen_thought = choice(chosen_thought_group["thoughts"])
         except Exception:
