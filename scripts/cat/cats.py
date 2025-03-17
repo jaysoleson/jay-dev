@@ -2391,18 +2391,19 @@ class Cat:
         if name == "kittencough" and self.status != "kitten":
             return
         
-        if name in [
-            f"{game.clan.infection['infection_type']} stage one",
-            f"{game.clan.infection['infection_type']} stage two",
-            f"{game.clan.infection['infection_type']} stage three",
-            f"{game.clan.infection['infection_type']} stage four",
-            "undead"
-        ] and self.infected_for == 0:
-            self.infected_for = 1
-            if self.outside is False:
-                if game.clan.infection["clan_infected"] is False:
-                    game.clan.infection["clan_infected"] = True
-                    game.clan.infection["logs"].append('start')
+        if game.clan:
+            if name in [
+                f"{game.clan.infection['infection_type']} stage one",
+                f"{game.clan.infection['infection_type']} stage two",
+                f"{game.clan.infection['infection_type']} stage three",
+                f"{game.clan.infection['infection_type']} stage four",
+                "undead"
+            ] and self.infected_for == 0:
+                self.infected_for = 1
+                if self.outside is False:
+                    if game.clan.infection["clan_infected"] is False:
+                        game.clan.infection["clan_infected"] = True
+                        game.clan.infection["logs"].append('start')
 
         illness = ILLNESSES[name]
         mortality = illness["mortality"][self.age]

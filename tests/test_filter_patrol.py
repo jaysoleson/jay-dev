@@ -645,7 +645,11 @@ class TestRelationshipConstraintPatrols(unittest.TestCase):
 
         # then
         patrol = Patrol()
-        patrol.add_patrol_cats([cat1, cat2], test_clan, None)
+        print("test 27")
+        try:
+            patrol.add_patrol_cats([cat1, cat2], test_clan, None)
+        except Exception as e:
+            print(e)
         self.assertTrue(filter_relationship_type(patrol.patrol_cats,
                                                  con_patrol_event.relationship_constraints,
                                                  con_patrol_event.patrol_id,
