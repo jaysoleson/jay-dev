@@ -2946,6 +2946,7 @@ def generate_sprite(
             )
             new_sprite.blit(sprites.sprites["lighting" + cat_sprite], (0, 0))
 
+        # INF TODO: i guess type specific undead conditions. cry
         if game.clan:
             inftype = game.clan.infection["infection_type"]
             if not dead and infected:

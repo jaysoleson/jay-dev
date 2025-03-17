@@ -86,14 +86,6 @@ class Patrol:
         # for i in final_patrols:
         #     print(i.patrol_id)
 
-        # INF: moved here from add_patrol_cats
-        all_clans = []
-        for i in final_patrols:
-            if "other_clan" in i.tags and "infection" in i.tags:
-                for clan in game.clan.all_clans:
-                    if int(clan.infection_level) > 0:
-                        all_clans.append(clan)
-
         print(
             f"Total Number of Possible Patrols | normal: {len(final_patrols)}, romantic: {len(final_romance_patrols)} "
         )
@@ -243,15 +235,11 @@ class Patrol:
                 self.patrol_leader = choice(self.patrol_cats)
 
         # INF edited
-        all_clans = [
-            i for i in clan.all_clans if (
-                i.name not in game.clan.infection["fallen_clans"] and
-                int(i.infection_level) < 70
-                )]
+        all_clans = [i for i in clan.all_clans if i.name not in game.clan.infection["fallen_clans"]]
         if all_clans and len(all_clans) > 0:
             self.other_clan = choice(all_clans)
         else:
-            self.other_clan = choice(clan.all_clans)
+            self.other_clan = None
 
         if "patrol_category" in game.switches and game.switches["patrol_category"] in ["df", "date", "lifegen"]:
             self.patrol_leader = game.clan.your_cat
