@@ -1096,9 +1096,9 @@ class TreatmentScreen(Screens):
             infection_stage = [i for i in self.selected_cat.illnesses if i in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]]
 
             infection_stage_stripped = str(infection_stage).replace('[', '').replace(']', '').replace("'", '').replace(f"{inftype} ", "")
-
+            quar = "quarantined" if self.selected_cat.quarantined else ""
             info = self.selected_cat.status + "\n" + \
-                   self.selected_cat.genderalign + "\n <b>" + infection_stage_stripped + "</b> \n"
+                   self.selected_cat.genderalign + "\n <b>" + infection_stage_stripped + "</b> \n" + quar
             
             self.selected_details["selected_info"] = pygame_gui.elements.UITextBox(info,
                                                                                    ui_scale(pygame.Rect((270, 162),

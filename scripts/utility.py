@@ -722,19 +722,23 @@ def create_new_cat_block(
             if infected is True:
                 n_c.get_ill(f"{game.clan.infection['infection_type']} stage one")
             
-            # random infection
-            percentage = (get_infected_clan_cat_count(Cat) / get_living_clan_cat_count(Cat)) * 100
-            chance = round((100 - percentage) / 3)
+            chance = None
 
-            if game.clan.infection["clan_infected"] is False:
+            if game.clan.infection["between_infections"] is True and game.clan.infection["next_infection_allowed"] is True:
+                chance = 15
+            elif game.clan.infection["clan_infected"] is False and game.clan.infection["next_infection_allowed"] is True:
                 chance = 10
+            elif game.clan.infection["clan_infected"] is True:
+                percentage = (get_infected_clan_cat_count(Cat) / get_living_clan_cat_count(Cat)) * 100
+                chance = round((100 - percentage) / 3)
 
-            print(n_c.name, "infection chance: 1/"+ str(chance))
+            if chance:
+                print(n_c.name, "infection chance: 1/"+ str(chance))
 
-            if not int(random() * chance) and not n_c.dead and infected is False and "preinfected" not in attribute_list:
-                # this sucks
-                print("random infected cat chance hit for", n_c.name)
-                n_c.get_ill(f"{game.clan.infection['infection_type']} stage one")
+                if not int(random() * chance) and not n_c.dead and infected is False and "preinfected" not in attribute_list:
+                    # this sucks
+                    print("random infected cat chance hit for", n_c.name)
+                    n_c.get_ill(f"{game.clan.infection['infection_type']} stage one")
 
             # LIFEGEN: encountered dead cat stuff -----------------------------
             beginning = History.get_beginning(n_c)
@@ -2945,16 +2949,17 @@ def generate_sprite(
         if game.clan:
             inftype = game.clan.infection["infection_type"]
             if not dead and infected:
-                if f"{inftype} stage one" in cat.illnesses:
-                    new_sprite.blit(sprites.sprites[f'{inftype}lineartstageone' + cat_sprite], (0, 0))
-                elif f"{inftype} stage two" in cat.illnesses:
-                    new_sprite.blit(sprites.sprites[f'{inftype}lineartstagetwo' + cat_sprite], (0, 0))
-                elif f"{inftype} stage three" in cat.illnesses:
-                    new_sprite.blit(sprites.sprites[f'{inftype}lineartstagethree' + cat_sprite], (0, 0))
-                elif f"{inftype} stage four" in cat.illnesses or "undead" in cat.illnesses:
-                    new_sprite.blit(sprites.sprites[f'{inftype}lineartstagefour' + cat_sprite], (0, 0))
-                else:
-                    new_sprite.blit(sprites.sprites['lines' + cat_sprite], (0, 0))
+                for inftype in ["void", "fungal", "parasitic"]:
+                    if f"{inftype} stage one" in cat.illnesses:
+                        new_sprite.blit(sprites.sprites[f'{inftype}lineartstageone' + cat_sprite], (0, 0))
+                    elif f"{inftype} stage two" in cat.illnesses:
+                        new_sprite.blit(sprites.sprites[f'{inftype}lineartstagetwo' + cat_sprite], (0, 0))
+                    elif f"{inftype} stage three" in cat.illnesses:
+                        new_sprite.blit(sprites.sprites[f'{inftype}lineartstagethree' + cat_sprite], (0, 0))
+                    elif f"{inftype} stage four" in cat.illnesses or "undead" in cat.illnesses:
+                        new_sprite.blit(sprites.sprites[f'{inftype}lineartstagefour' + cat_sprite], (0, 0))
+                    else:
+                        new_sprite.blit(sprites.sprites['lines' + cat_sprite], (0, 0))
             elif cat.df:
                 new_sprite.blit(sprites.sprites["lineartdf" + cat_sprite], (0, 0))
             elif cat.dead and cat.outside:

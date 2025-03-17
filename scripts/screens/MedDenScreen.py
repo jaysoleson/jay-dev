@@ -412,13 +412,15 @@ class MedDenScreen(Screens):
 
         if (
             (game.clan.infection["cure_attempt"] is True or
-            get_infected_clan_cat_count(Cat) == 0 or
             len(medcats) <= 0) and
-            "cure_found" not in game.clan.infection["logs"]
+            get_infected_clan_cat_count(Cat) == 0
             ):
             self.treatment_button.disable()
         else:
             self.treatment_button.enable()
+        
+        if "cure_found" in game.clan.infection["logs"] and get_infected_clan_cat_count(Cat) == 0:
+            self.treatment_button.disable()
 
         self.meds_messages = UITextBoxTweaked(
             "",

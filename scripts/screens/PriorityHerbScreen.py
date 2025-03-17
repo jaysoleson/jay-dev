@@ -121,11 +121,15 @@ class PriorityHerbScreen(Screens):
         count = 0
         for index, herb in enumerate(HERBS):
             count += 1
+            if herb in game.clan.herbs:
+                stock = game.clan.herbs[herb]
+            else:
+                stock = 0
             if herb != self.priorityherb:
                 self.herb_buttons[herb] = UIImageButton(
                     ui_scale(pygame.Rect((x_pos, y_pos), (55, 55))), 
                     "",
-                    tool_tip_text=f"{herb.replace('_', ' ')}",
+                    tool_tip_text=f"<b>{herb.replace('_', ' ')}</b><br>In stock: {stock}",
                     object_id=f"#{herb}",
                     manager=MANAGER
                 )
@@ -133,7 +137,7 @@ class PriorityHerbScreen(Screens):
                 self.herb_buttons[herb] = UIImageButton(
                     ui_scale(pygame.Rect((x_pos, y_pos), (55, 55))), 
                     "",
-                    tool_tip_text=f"{herb.replace('_', ' ')}",
+                    tool_tip_text=f"<b>{herb.replace('_', ' ')}</b><br>In stock: {stock}",
                     object_id=f"#{herb}_selected",
                     manager=MANAGER
                 )
