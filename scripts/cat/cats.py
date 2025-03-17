@@ -576,10 +576,13 @@ class Cat:
                 old_stage = stage
                 if game.clan.infection["cure_discovered"] is True:
                     self.illnesses.pop(stage)
-                    infection_scars = ["EXPOSEDRIBS", "EYESOCKET", "ARMBONE", "VOIDBACK", "VOIDEYE", "VOIDTAIL", "SHELFMUSHROOMS", "EYEMOSS", "PAWMOSS"]
+                    infection_scars = ["EXPOSEDRIBS", "ARMBONE", "VOIDBACK", "VOIDEYE", "VOIDTAIL", "SHELFMUSHROOMS", "EYEMOSS", "PAWMOSS"]
                     for scar in infection_scars:
                         if scar in self.pelt.scars:
                             self.pelt.scars.remove(scar)
+                    if "EYESOCKET" in self.pelt.scars:
+                        self.pelt.scars.remove("EYESOCKET")
+                        self.pelt.scars.append("BRIGHTHEART")
                     
                     if "cure_found" not in game.clan.infection["logs"]:
                         event = choice([
@@ -591,7 +594,11 @@ class Cat:
                     self.infected_for = -1
                     self.quarantined = False
 
-                    cured_cats = game.clan.infection["cured_infected"].split(",")
+                    cured_cats = game.clan.infection["cured_infected"]
+                    if cured_cats:
+                        cured_cats = cured_cats.split(",")
+                    else:
+                        cured_cats = []
                     cured_cats.append(str(self.ID))
                     game.clan.infection["cured_infected"] = ",".join([str(i) for i in cured_cats])
 
@@ -804,6 +811,8 @@ class Cat:
 
         if self.infected_for != 0:
             self.infected_for = 0
+        
+        self.quarantined = False
 
         return text
 
@@ -812,6 +821,7 @@ class Cat:
         status."""
         self.exiled = True
         self.outside = True
+        self.quarantined = False
         self.faith -= 0.5
         self.status = 'exiled'
         if self.personality.trait == 'vengeful':
@@ -2877,7 +2887,7 @@ class Cat:
         condition_directory = get_save_dir() + "/" + clanname + "/conditions"
         condition_file_path = condition_directory + "/" + self.ID + "_conditions.json"
 
-       # in INFECTION, outsiders can keep conditions.
+        # in INFECTION, outsiders can keep conditions.
 
         if (
             (not self.is_ill() and not self.is_injured() and not self.is_disabled())

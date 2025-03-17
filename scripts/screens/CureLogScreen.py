@@ -549,7 +549,7 @@ class CureLogScreen(Screens):
                                                 object_id=f"#stamp_{murder}", tool_tip_text=f"{hover}", manager=MANAGER)
         elif "25" in game.clan.achievements:
             self.stamps["pacifist"] = UIImageButton(
-                ui_scale(pygame.Rect((160, 225), (78, 38))),
+                ui_scale(pygame.Rect((190, 225), (78, 38))),
                 "",
                 object_id="#stamp_pacifist",
                 tool_tip_text="Lived to be 120 moons without committing a murder",
@@ -612,11 +612,11 @@ class CureLogScreen(Screens):
         largest = max(cured_cats, killed_cats, exiled_cats)
 
         if largest == cured_cats:
-            text = "cured"
+            text = f"You've chosen to deal with the infection by curing your Clanmates ({cured_cats} cats cured)."
         elif largest == killed_cats:
-            text = "killed"
+            text = f"You've chosen to deal with the infection by killing the infected ({killed_cats} infected cats killed)."
         else:
-            text = "exiled"
+            text = f"You've chosen to deal with the infection by exiling the infected ({exiled_cats} infected cats exiled)."
 
         if largest == 0:
             self.stamps["playstyle"] = pygame_gui.elements.UIImage(
@@ -658,7 +658,7 @@ class CureLogScreen(Screens):
 
         if "zombie" in game.clan.infection["logs"]:
             self.stamps["zombie"] = UIImageButton(
-                ui_scale(pygame.Rect((500, 340), (134, 94))),
+                ui_scale(pygame.Rect((500, 360), (134, 94))),
                 "",
                 object_id="#stamp_zombie",
                 tool_tip_text="Cats have begun dying and coming back to life.",
@@ -667,7 +667,7 @@ class CureLogScreen(Screens):
         else:
             empty_stamps += 1
             self.stamps[str(empty_stamps)] = pygame_gui.elements.UIImage(
-                ui_scale(pygame.Rect((500, 340), (134, 94))),
+                ui_scale(pygame.Rect((500, 360), (134, 94))),
                 empty_stamp,
                 manager=MANAGER
             )
@@ -678,6 +678,14 @@ class CureLogScreen(Screens):
                 "",
                 object_id=f"#stamp_{(game.clan.your_cat.status).replace(' ', '_')}",
                 tool_tip_text=f"You've chosen the path of a {game.clan.your_cat.status}!",
+                manager=MANAGER
+                )
+        elif game.clan.your_cat.status == "elder":
+            self.stamps["status"] = UIImageButton(
+                ui_scale(pygame.Rect((160, 340), (134, 94))),
+                "",
+                object_id="#stamp_warrior",
+                tool_tip_text="You've lived to be an elder.",
                 manager=MANAGER
                 )
         else:

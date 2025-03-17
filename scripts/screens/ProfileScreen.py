@@ -706,8 +706,12 @@ class ProfileScreen(Screens):
             elif event.ui_element == self.exile_cat_button:
                 if not self.the_cat.dead and not self.the_cat.exiled:
                     # INF
-                    if self.the_cat.infected_for > 0:
-                        exiled_cats = game.clan.infection["exiled_infected"].split(",")
+                    if self.the_cat.infected_for > 0 and "undead" not in self.the_cat.illnesses:
+                        exiled_cats = game.clan.infection["exiled_infected"]
+                        if exiled_cats:
+                            exiled_cats = exiled_cats.split(",")
+                        else:
+                            exiled_cats = []
                         exiled_cats.append(str(self.the_cat.ID))
                         game.clan.infection["exiled_infected"] = ",".join([str(i) for i in exiled_cats])
                     # ---
@@ -3625,7 +3629,7 @@ class ProfileScreen(Screens):
                     infected = True
                     break
 
-            quar_cats = [cat for cat in Cat.all_cats_list if cat.quarantined]
+            quar_cats = [cat for cat in Cat.all_cats_list if cat.quarantined and not cat.dead and not cat.outside]
             if infected:
                 if self.the_cat.quarantined:
                     self.remove_quarantine_button.show()

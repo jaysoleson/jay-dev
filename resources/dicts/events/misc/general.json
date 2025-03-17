@@ -9091,5 +9091,46 @@
       "infection_level": [60, 99],
       "changed": -2
     }
+  },
+  {
+    "event_id": "infection_otherclan_J2",
+    "location": [
+      "any"
+    ],
+    "season": [
+      "any"
+    ],
+    "infection": {
+      "infected": true,
+      "type": ["any"],
+      "level": ["10", "100"],
+      "spread_by": ["any"],
+      "cured": true
+    },
+    "tags": [],
+    "weight": 30,
+    "event_text": "A patrol from o_c_n visits the camp and gifts m_c a large bundle of herbs to cure the infection. m_c thanks them profusely, but the patrol insists it's the least they could do.",
+    "m_c": {
+      "status": [
+        "medicine cat",
+        "medicine cat apprentice"
+      ]
+    },
+    "supplies": [
+      {
+        "type": "cure_herbs",
+        "trigger": [
+          "low"
+        ],
+        "adjust": "increase_10"
+      }
+    ],
+    "other_clan": {
+      "current_rep": [
+        "any"
+      ],
+      "infection_level": [0, 0],
+      "changed": 1
+    }
   }
 ]

@@ -27,6 +27,7 @@ from scripts.utility import (
     get_alive_status_cats,
     get_living_clan_cat_count,
     adjust_list_text,
+    get_infection_herb
 )
 
 
@@ -180,10 +181,11 @@ class HandleShortEvents:
             # print(f"CHOSEN: {self.chosen_event.event_id}")
         except IndexError:
             # this doesn't necessarily mean there's a problem, but can be helpful for narrowing down possibilities
-            print(
-                f"WARNING: no {event_type}: {self.sub_types} events found for {self.main_cat.name} "
-                f"and {self.random_cat.name if self.random_cat else 'no random cat'}"
-            )
+            # print(
+            #     f"WARNING: no {event_type}: {self.sub_types} events found for {self.main_cat.name} "
+            #     f"and {self.random_cat.name if self.random_cat else 'no random cat'}"
+            # )
+            # this was rlly annoying me Oops
             return
 
         self.text = self.chosen_event.text
@@ -930,8 +932,14 @@ class HandleShortEvents:
                     if "excess" in trigger and needed_amount * 2 < herbs[herb]:
                         possible_herbs.append(herb)
                 self.chosen_herb = random.choice(possible_herbs)
+            # INF
+            elif supply_type == "cure_herbs":
+                for herb in game.clan.infection["cure"]:
+                    herb_list.append(get_infection_herb(herb))
+            elif supply_type == "priority_herb":
+                self.chosen_herb = game.clan.infection["priority_herb"]
+            # ---
 
-            # if it wasn't a random herb or all herbs, then it's one specific herb
             else:
                 self.chosen_herb = supply_type
 

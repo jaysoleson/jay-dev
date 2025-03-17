@@ -110,9 +110,7 @@ class LeaderDenScreen(Screens):
                 self.update_clan_interaction_choice(text)
             # INF
             elif event.ui_element == self.focus_frame_elements["share_cure"]:
-                print(self.focus_clan.infection_level)
                 self.focus_clan.infection_level = "-1"
-                print(self.focus_clan.infection_level)
                 self.update_other_clan_focus()
             # ---
             elif event.ui_element == self.focus_frame_elements["clans_tab"]:
@@ -742,7 +740,8 @@ class LeaderDenScreen(Screens):
             visible=False,
             tool_tip_text=(
                 "Do you want to share the cure with this Clan? They won't be able to heal without your help!<br>" +
-                "If you do not, the Clan may disappear forever. If you do, they can rebuild, even if they've fallen."
+                "If you do not, the Clan may disappear forever. If you do, they can rebuild, even if they've fallen.<br>" +
+                "Sharing the cure will not affect your herb stores."
             ),
             anchors={"centerx": "centerx"},
         )

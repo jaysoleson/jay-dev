@@ -211,12 +211,12 @@ class TreatmentScreen(Screens):
         else:
             self.next_stage_button.enable()
         
-        self.scroll_container = pygame_gui.elements.UIScrollingContainer(
-            ui_scale(pygame.Rect((0, 455), (650, 145))),
-            allow_scroll_x=False,
-            manager=MANAGER,
-            anchors={"centerx": "centerx"}
-            )
+        # self.scroll_container = pygame_gui.elements.UIScrollingContainer(
+        #     ui_scale(pygame.Rect((0, 455), (650, 145))),
+        #     allow_scroll_x=False,
+        #     manager=MANAGER,
+        #     anchors={"centerx": "centerx"}
+        #     )
 
         # cure logs
         logs = 0
@@ -373,6 +373,7 @@ class TreatmentScreen(Screens):
             self.textbox_graphic = None
             self.subtitle = None
             self.screenart = None
+            self.scroll_container = None
 
             self.list_frame = pygame_gui.elements.UIImage(
                 ui_scale(pygame.Rect((0, 390), (650, 226))),
@@ -448,6 +449,13 @@ class TreatmentScreen(Screens):
             self.subtitle = None
             self.screenart = None
 
+            self.scroll_container = pygame_gui.elements.UIScrollingContainer(
+                ui_scale(pygame.Rect((0, 455), (650, 145))),
+                allow_scroll_x=False,
+                manager=MANAGER,
+                anchors={"centerx": "centerx"}
+                )
+
             self.list_frame = pygame_gui.elements.UIImage(
                 ui_scale(pygame.Rect((0, 390), (650, 226))),
                 get_box(BoxStyles.ROUNDED_BOX, (650, 226)),
@@ -518,6 +526,7 @@ class TreatmentScreen(Screens):
             self.text_index = 0
             self.mentor_frame = None
             self.list_frame = None
+            self.scroll_container = None
 
             for ele in self.selected_details:
                 self.selected_details[ele].kill()
@@ -715,6 +724,10 @@ class TreatmentScreen(Screens):
         for ele in self.selected_details:
             self.selected_details[ele].kill()
         self.selected_details = {}
+
+        if self.scroll_container:
+            self.scroll_container.kill()
+            del self.scroll_container
         
         if self.heading:
             self.heading.kill()
@@ -945,15 +958,17 @@ class TreatmentScreen(Screens):
         else:
            ceremony_txt = (self.m_txt[who_key + "cure_found"])
 
-        if success:
-            self.add_to_treatments(patient)
+        self.add_to_treatments(patient, success)
         game.clan.infection["cure_attempt"] = True
 
         chosenkey = choice(ceremony_txt)
         return self.get_adjusted_txt(chosenkey, self.selected_cat, self.the_cat)
 
-    def add_to_treatments(self, patient):
+    def add_to_treatments(self, patient, success):
         """ Adds the treatment information to the json for logging. """
+        if not success:
+            return
+        
         inftype = game.clan.infection["infection_type"]
 
         curelist = []
@@ -1029,6 +1044,9 @@ class TreatmentScreen(Screens):
             print("curing", patient.name, patient.ID, game.clan.infection["treated"])
             if not game.clan.infection["cure_discovered"]:
                 game.clan.infection["cure_discovered"] = True
+        else:
+            print("cure is", cure, "?")
+            print(correctherbs, len(correctherbs), "???")
         
         herbs = game.clan.herbs.copy()
         for herb in herbs:

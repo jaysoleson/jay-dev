@@ -1328,8 +1328,12 @@ class KillCat(UIWindow):
                         game.clan.leader_lives -= 1
 
                 # INF
-                if self.the_cat.infected_for > 0:
-                    killed_cats = game.clan.infection["killed_infected"].split(",")
+                if self.the_cat.infected_for > 0 and "undead" not in self.the_cat.illnesses:
+                    killed_cats = game.clan.infection["killed_infected"]
+                    if killed_cats:
+                        killed_cats = killed_cats.split(",")
+                    else:
+                        killed_cats = []
                     killed_cats.append(str(self.the_cat.ID))
                     game.clan.infection["killed_infected"] = ",".join([str(i) for i in killed_cats])
                 # ---

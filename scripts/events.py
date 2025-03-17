@@ -1676,6 +1676,8 @@ class Events:
         """ undead kitties being crazy """
         if "undead" not in cat.illnesses:
             return
+        if cat.quarantined:
+            return
         
         chance = 4
         cats = [i for i in Cat.all_cats_list if i.infected_for == 0 and not i.outside and not i.dead]

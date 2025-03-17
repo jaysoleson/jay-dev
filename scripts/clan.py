@@ -159,6 +159,7 @@ class Clan:
         self.clan_infected = False
         self.cure = []
         self.cure_attempt = False
+        self.cure_discovered = False
         self.infection_type = 'fungal'
         self.treatments = []
         self.fallen_clans = []
@@ -891,6 +892,7 @@ class Clan:
             "infection_type": self.infection["infection_type"],
             "cure": self.infection["cure"],
             "cure_attempt": self.infection["cure_attempt"],
+            "cure_discovered": self.infection["cure_discovered"],
             "spread_by": self.infection["spread_by"],
             "treatments": self.infection["treatments"],
             "infection_moons": self.infection["infection_moons"],
