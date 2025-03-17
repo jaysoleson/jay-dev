@@ -595,9 +595,9 @@
         [
             "y_c, come here. I want to show you something.",
             "[t_c waves you over with a flick of {PRONOUN/t_c/poss} tail, and looks to the sky where the stars shine the brightest.]",
-            "Do you see that star, to the left? No, no. How can you miss {PRONOUN/tg_c/object}? {PRONOUN/t_c/subject/CAP}{VERB/tg_c/'re/'s} shimmering right up there.",
+            "Do you see that star, to the left? No, no. How can you miss {PRONOUN/tg_c/object}? {PRONOUN/tg_c/subject/CAP}{VERB/tg_c/'re/'s} shimmering right up there.",
             "[A look of reminiscent longing falls upon t_c's expression as {PRONOUN/t_c/subject} {VERB/t_c/look/looks} up that one star.]",
-            "See, y_c, that's my tg_c. Up in StarClan, watching over me... Do you see how {PRONOUN/tg_c/subject} light up the sky?",
+            "See, y_c, that's my tg_c. Up in StarClan, watching over me... Do you see how {PRONOUN/tg_c/subject} {VERB/tg_c/light/lights} up the sky?",
             "I do miss {PRONOUN/tg_c/object}. But... tg_c looks just as beautiful up there as {PRONOUN/tg_c/subject} did by my side."
         ]
     ],
