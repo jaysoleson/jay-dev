@@ -234,7 +234,7 @@
         ],
         "antag_fail_outcomes": [
             {
-                "text": "With lashing tails, the patrol threatens the kittypet for being on their territory. The kittypet doesn't seem amused, but when r_c lunges for the base of the tree {PRONOUN/n_c:0/subject}{VERB/n_c:0/'re/'s} up in, {PRONOUN/n_c:0/subject} quickly {VERB/n_c:0/hop/hops} onto a neighbouring branch and {VERB/n_c:0/disappears}.",
+                "text": "With lashing tails, the patrol threatens the kittypet for being on their territory. The kittypet doesn't seem amused, but when r_c lunges for the base of the tree {PRONOUN/n_c:0/subject}{VERB/n_c:0/'re/'s} up in, {PRONOUN/n_c:0/subject} quickly {VERB/n_c:0/hop/hops} onto a neighbouring branch and {VERB/n_c:0/disappear/disappears}.",
                 "exp": 0,
                 "weight": 20,
                 "outsider_rep": -1,

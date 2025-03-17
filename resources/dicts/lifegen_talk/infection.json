@@ -442,7 +442,7 @@
         ],
         [
             "y_c? What am I supposed to do? Will they take my kits away from me as soon as they're born?",
-            "What if.. my kits are born infected? Will they die before they get to live?",
+            "What if my kits are born infected? Will they die before they get to live?",
             "[You see an indescribable look wash over t_c's face, a mix of anger, fear, and sadness. But this doesn't seem like regular anger, not even a parental anger. This seems entirely new.]",
             "[You could swear t_c's eyes turn red for a moment.]",
             "[You watch as the look disappears, and t_c looks... confused?]",
@@ -1059,7 +1059,7 @@
             "O- okay! I'll visit again later."
         ],
         "explain": [
-            "Oh.. so you could die? Not definitely, though, right? You might survive?",
+            "Oh... so you could die? Not definitely, though, right? You might survive?",
             "[You reassure your kit that there's definitely a chance you'll survive, and you tell {PRONOUN/t_c/object} to go back to playing with {PRONOUN/t_c/poss} friends.]",
             "Okay! I'll visit you again soon! I love you!"
 

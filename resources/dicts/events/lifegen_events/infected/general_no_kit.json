@@ -22,7 +22,7 @@
     "general introspective": [],
     "general neurotic": [
         "You fear this will never end.",
-        "You shoo y_m away from you. terrified you'll get {PRONOUN/y_m/object} sick.",
+        "You shoo y_m away from you, terrified you'll get {PRONOUN/y_m/object} sick.",
         "You ask r_w if you've recently attacked anyone without remembering, and breathe a sigh of relief when {PRONOUN/r_w/subject} {VERB/r_w/say/says} no."
     ],
     "general silly": [

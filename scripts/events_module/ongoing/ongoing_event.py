@@ -8,6 +8,7 @@ class OngoingEvent:
             event=None,
             camp=None,
             season=None,
+            infection=None,
             tags=None,
             priority: str = "secondary",
             duration=None,
@@ -22,6 +23,7 @@ class OngoingEvent:
         self.event = event
         self.camp = camp
         self.season = season
+        self.infection = infection
         self.tags = tags
         self.priority = priority
         self.duration = duration
