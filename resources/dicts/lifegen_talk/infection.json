@@ -873,7 +873,7 @@
             "infection"
         ],
         [
-            "[t_c sighs, searching through the herb stores half-heartedly. {PRONOUN/t_c/subject} {VERB/t_c/don't/doesn't} seem to notice when you walk in.]",
+            "[t_c sighs, searching through the herb stores half-heartedly. {PRONOUN/t_c/subject/CAP} {VERB/t_c/don't/doesn't} seem to notice when you walk in.]",
             "Oh! y_c! You aren't infected right?",
             "[t_c starts pacing, muttering about StarClan knows what.]",
             "[You quickly assure t_c that you aren't infected, and just came into the medicine den because of a small cut.]",

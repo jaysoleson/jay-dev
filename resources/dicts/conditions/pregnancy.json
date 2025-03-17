@@ -203,8 +203,8 @@
       "infected_both": [
         "m_c gives birth to a {insert} with r_c, but the infection taking over the body of both cats has managed to pass down."
       ],
-      "error": ["INFECTION bug: Report to Jay! error"],
-      "error_unmated": ["INFECTION bug: Report to Jay! error_unmated"]
+      "error": ["INFECTION bug 1: Report to Jay!"],
+      "error_unmated": ["INFECTION bug 2: Report to Jay!"]
     }
   }
 }
