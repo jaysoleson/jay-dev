@@ -1013,12 +1013,7 @@ class TreatmentScreen(Screens):
             # if int(random.random() * remission_chance):
             # ^ debug
             if not int(random.random() * remission_chance):
-                patient.cure_progress += 1
-
-        if cure:
-            patient.cure_progress += 1
-            if not game.clan.infection["cure_discovered"]:
-                game.clan.infection["cure_discovered"] = True
+                game.clan.infection["treated"].append(patient.ID)
 
         treatment = {
             "moon": game.clan.age,
@@ -1026,8 +1021,14 @@ class TreatmentScreen(Screens):
             "correct_herbs": len(correctherbs)
         }
 
-        if not (game.clan.infection["cure_discovered"] is True and len(correctherbs) == 4):
+        if (len(correctherbs) != 4) or (len(correctherbs) == 4 and game.clan.infection["cure_discovered"] is False):
             game.clan.infection["treatments"].append(treatment)
+        
+        if cure:
+            game.clan.infection["treated"].append(patient.ID)
+            print("curing", patient.name, patient.ID, game.clan.infection["treated"])
+            if not game.clan.infection["cure_discovered"]:
+                game.clan.infection["cure_discovered"] = True
         
         herbs = game.clan.herbs.copy()
         for herb in herbs:
@@ -1146,7 +1147,14 @@ class TreatmentScreen(Screens):
         infected_cats = []
 
         for cat in Cat.all_cats_list:
-            if not cat.dead and not cat.outside and (f"{inftype} stage one" in cat.illnesses or f"{inftype} stage two" in cat.illnesses or f"{inftype} stage three" in cat.illnesses or f"{inftype} stage four" in cat.illnesses):
+            if (
+                not cat.dead and
+                not cat.outside and
+                (f"{inftype} stage one" in cat.illnesses or
+                 f"{inftype} stage two" in cat.illnesses or
+                 f"{inftype} stage three" in cat.illnesses or
+                 f"{inftype} stage four" in cat.illnesses) and
+                 cat.ID not in game.clan.infection["treated"]):
                 infected_cats.append(cat)
         
         return infected_cats

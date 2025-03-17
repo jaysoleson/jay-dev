@@ -306,7 +306,7 @@
                 "weight": 20
             },
             {
-                "text": "Eager to impress p_l, r_c offers to take the lead on a bold idea. But they misjudged the infected cat's reach, and while attempting to drag it from the stream by its back legs, are bitten on the shoulder by the angry creature. The cats give up their attempt to preserve the Clan's dearest water source, and rush r_c back home to the medicine cat. ",
+                "text": "Eager to impress p_l, r_c offers to take the lead on a bold idea. But {PRONOUN/r_c/subject} {VERB/r_c/misjudge/misjudges} the infected cat's reach, and while attempting to drag it from the stream by its back legs, {VERB/r_c/are/is} bitten on the shoulder by the angry creature. The cats give up their attempt to preserve the Clan's dearest water source and rush r_c back home to the medicine cat. ",
                 "exp": 0,
                 "weight": 20,
                 "injury": [

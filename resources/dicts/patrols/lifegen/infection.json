@@ -1117,7 +1117,8 @@
             "lifegen"
         ],
         "tags": [
-            "infection"
+            "infection",
+            "cure_not_found"
         ],
         "patrol_art": "lg_medcat_default",
         "min_cats": 1,

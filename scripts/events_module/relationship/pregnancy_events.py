@@ -825,7 +825,7 @@ class Pregnancy_Events:
             chance = math.ceil(chance)
 
             # debug
-            chance = 1
+            # chance = 1
 
             if game.clan and not int(random.random() * int(chance)):
                 kit.get_ill(f"{inftype} stage one")

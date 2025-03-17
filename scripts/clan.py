@@ -161,8 +161,8 @@ class Clan:
         self.cure_attempt = False
         self.infection_type = 'fungal'
         self.treatments = []
-        self.cure_discovered = False
         self.fallen_clans = []
+        self.cured_clans = []
         self.story_break_moons = 0
         self.spread_by = "air"
         self.infection_moons = 0
@@ -173,6 +173,9 @@ class Clan:
 
         self.exiled_infected = ""
         self.killed_infected = ""
+        self.cured_infected = ""
+
+        self.treated = []
 
 
         self.focus_cat = focus_cat
@@ -298,11 +301,14 @@ class Clan:
             "infection_moons": 0,
             "logs": [],
             "fallen_clans": [],
+            "cured_clans": [],
             "priority_herb": None,
             "next_infection_allowed": False,
             "between_infections": False,
             "exiled_infected": "",
-            "killed_infected": ""
+            "killed_infected": "",
+            "cured_infected": "",
+            "treated": []
         }
         # ---
 
@@ -885,17 +891,19 @@ class Clan:
             "infection_type": self.infection["infection_type"],
             "cure": self.infection["cure"],
             "cure_attempt": self.infection["cure_attempt"],
-            "cure_discovered": self.infection["cure_discovered"],
             "spread_by": self.infection["spread_by"],
             "treatments": self.infection["treatments"],
             "infection_moons": self.infection["infection_moons"],
             "logs": self.infection["logs"],
             "fallen_clans": self.infection["fallen_clans"],
+            "cured_clans": self.infection["cured_clans"],
             "priority_herb": self.infection["priority_herb"],
             "next_infection_allowed": self.infection["next_infection_allowed"],
             "between_infections": self.infection["between_infections"],
             "exiled_infected": self.infection["exiled_infected"],
-            "killed_infected": self.infection["killed_infected"]
+            "killed_infected": self.infection["killed_infected"],
+            "cured_infected": self.infection["cured_infected"],
+            "treated": self.infection["treated"]
         }
 
         # LEADER DATA
@@ -931,19 +939,6 @@ class Clan:
         # Patrolled cats
         clan_data["patrolled_cats"] = [str(i) for i in game.patrolled]
 
-        # OTHER CLANS
-        # # Clan Names
-        # clan_data["other_clans_names"] = ",".join([str(i.name) for i in self.all_clans])
-        # clan_data["other_clans_relations"] = ",".join(
-        #     [str(i.relations) for i in self.all_clans]
-        # )
-        # clan_data["other_clan_temperament"] = ",".join(
-        #     [str(i.temperament) for i in self.all_clans])
-        # clan_data["other_clan_infected"] = ",".join(
-        #     [str(i.infection_level) for i in self.all_clans])
-        # clan_data["other_clan_chosen_symbol"] = ",".join(
-        #     [str(i.chosen_symbol) for i in self.all_clans]
-        # )
         clan_data["other_clans"] = [vars(i) for i in self.all_clans]
         
         clan_data["war"] = self.war

@@ -3623,6 +3623,7 @@ class ProfileScreen(Screens):
             for stage in stages:
                 if stage in self.the_cat.illnesses:
                     infected = True
+                    break
 
             quar_cats = [cat for cat in Cat.all_cats_list if cat.quarantined]
             if infected:
@@ -3641,6 +3642,7 @@ class ProfileScreen(Screens):
                     self.quarantine_button.hide()
 
             if len(quar_cats) >= 10:
+                print("disabling quarantine button")
                 self.quarantine_button.disable()
             else:
                 self.quarantine_button.enable()

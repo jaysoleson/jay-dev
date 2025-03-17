@@ -108,6 +108,13 @@ class LeaderDenScreen(Screens):
             elif event.ui_element == self.focus_frame_elements["positive_interaction"]:
                 text = self.focus_frame_elements["positive_interaction"].text
                 self.update_clan_interaction_choice(text)
+            # INF
+            elif event.ui_element == self.focus_frame_elements["share_cure"]:
+                print(self.focus_clan.infection_level)
+                self.focus_clan.infection_level = "-1"
+                print(self.focus_clan.infection_level)
+                self.update_other_clan_focus()
+            # ---
             elif event.ui_element == self.focus_frame_elements["clans_tab"]:
                 self.open_clans_tab()
             elif event.ui_element == self.focus_frame_elements["outsiders_tab"]:
@@ -702,7 +709,7 @@ class LeaderDenScreen(Screens):
         )
 
         self.focus_frame_elements["negative_interaction"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((0, 265), (121, 30))),
+            ui_scale(pygame.Rect((0, 245), (121, 30))),
             "provoke",
             get_button_dict(ButtonStyles.SQUOVAL, (121, 30)),
             object_id="@buttonstyles_squoval",
@@ -713,7 +720,7 @@ class LeaderDenScreen(Screens):
             anchors={"centerx": "centerx"},
         )
         self.focus_frame_elements["positive_interaction"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((0, 305), (121, 30))),
+            ui_scale(pygame.Rect((0, 280), (121, 30))),
             "befriend",
             get_button_dict(ButtonStyles.SQUOVAL, (121, 30)),
             container=self.focus_clan_container,
@@ -723,6 +730,26 @@ class LeaderDenScreen(Screens):
             visible=False,
             anchors={"centerx": "centerx"},
         )
+        # INF
+        self.focus_frame_elements["share_cure"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((0, 315), (121, 30))),
+            "share cure",
+            get_button_dict(ButtonStyles.SQUOVAL, (121, 30)),
+            container=self.focus_clan_container,
+            object_id="@buttonstyles_squoval",
+            starting_height=3,
+            manager=MANAGER,
+            visible=False,
+            tool_tip_text=(
+                "Do you want to share the cure with this Clan? They won't be able to heal without your help!<br>" +
+                "If you do not, the Clan may disappear forever. If you do, they can rebuild, even if they've fallen."
+            ),
+            anchors={"centerx": "centerx"},
+        )
+        if int(self.focus_clan.infection_level) < 1:
+            self.focus_frame_elements["share_cure"].disable()
+        else:
+            self.focus_frame_elements["share_cure"].enable()
 
         if self.focus_clan.name in game.clan.infection["fallen_clans"]:
             self.focus_clan_elements["clan_fallen_text"] = pygame_gui.elements.UILabel(
@@ -748,6 +775,9 @@ class LeaderDenScreen(Screens):
         self.focus_frame_elements["positive_interaction"].show()
 
         # INF
+        if "cure_found" in game.clan.infection["logs"]:
+            self.focus_frame_elements["share_cure"].show()
+
         if self.focus_clan.name in game.clan.infection["fallen_clans"]:
             self.focus_frame_elements["negative_interaction"].hide()
             self.focus_frame_elements["positive_interaction"].hide()

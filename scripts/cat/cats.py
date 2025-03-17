@@ -234,7 +234,6 @@ class Cat:
         self.dead_for = 0  # moons
         self.shunned = 0 # moons
         self.infected_for = 0 # moons!
-        self.cure_progress = 0
         self.thought = ''
         self.genderalign = None
         self.birth_cooldown = 0
@@ -590,6 +589,12 @@ class Cat:
                     else:
                         event = f"{self.name} has been cured of the infection!"
                     self.infected_for = -1
+                    self.quarantined = False
+
+                    cured_cats = game.clan.infection["cured_infected"].split(",")
+                    cured_cats.append(str(self.ID))
+                    game.clan.infection["cured_infected"] = ",".join([str(i) for i in cured_cats])
+
                     for scar in self.pelt.scars:
                         # remove infection scars!
                         if scar in [Pelt.scars4, Pelt.scars5, Pelt.scars6]:
@@ -624,11 +629,11 @@ class Cat:
                     else:
                         if "partial_cure" not in game.clan.infection["logs"]:
                             addon = "\n Your log has been updated."
+                            game.clan.infection["logs"].append("partial_cure")
                         else:
                             addon = ""
-                        event = f"Thanks to recieving treatment, {self.name}'s infection has remissed from {old_stage.replace(f'{inftype}', '')} to {new_stage.replace(f'{inftype}', '')}!{addon}"
+                        event = f"Thanks to recieving treatment, {self.name}'s infection has remissed from{old_stage.replace(f'{inftype}', '')} to{new_stage.replace(f'{inftype}', '')}!{addon}"
                     game.cur_events_list.insert(0, Single_Event(event, ["health", "infection"], self.ID))
-        self.cure_progress = 0
     
     def zombie(self):
         """
@@ -664,6 +669,8 @@ class Cat:
 
         if "zombie" not in game.clan.infection["logs"]:
             game.clan.infection["logs"].append("zombie")
+        
+        self.relationships = {}
 
     def die(self, body: bool = True):
         """Kills cat.
@@ -797,9 +804,6 @@ class Cat:
 
         if self.infected_for != 0:
             self.infected_for = 0
-
-        if self.cure_progress > 0:
-            self.cure_progress = 0
 
         return text
 
@@ -2878,7 +2882,7 @@ class Cat:
         if (
             (not self.is_ill() and not self.is_injured() and not self.is_disabled())
             or (self.dead and not self.is_disabled())
-            or self.outside
+            or (self.outside and self.infected_for < 1)
         ):
             if os.path.exists(condition_file_path):
                 os.remove(condition_file_path)
@@ -4173,7 +4177,6 @@ class Cat:
                 "birth_cooldown": self.birth_cooldown,
                 "status": self.status,
                 "infected_moons": self.infected_for,
-                "cure_progress": self.cure_progress,
                 "backstory": self.backstory or None,
                 "moons": self.moons,
                 "trait": self.personality.trait,

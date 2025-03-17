@@ -69,9 +69,6 @@ def json_load():
             if "infected_moons" not in cat:
                 cat["infected_moons"] = 0
 
-            if "cure_progress" not in cat:
-                cat["cure_progress"] = 0
-
             if "inventory" not in cat:
                 cat["inventory"] = []
 

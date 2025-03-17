@@ -833,6 +833,16 @@ class GenerateEvents:
                         and int(other_clan.relations) > 7
                     ):
                         continue
+                # INF
+                if "any" not in event.other_clan["infection_level"]:
+                    inf_minimum = event.other_clan["infection_level"][0]
+                    inf_maximum = event.other_clan["infection_level"][1]
+                    if int(other_clan.infection_level) < inf_minimum:
+                        continue
+                    if int(other_clan.infection_level) > inf_maximum:
+                        continue
+                # ---
+
 
             # clans below a certain age can't have their supplies messed with
             if game.clan.age < 5 and event.supplies:

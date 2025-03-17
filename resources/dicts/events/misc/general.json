@@ -9049,5 +9049,47 @@
         "senior"
       ]
     }
+  },
+  {
+    "event_id": "infection_otherclan_J1",
+    "location": [
+      "any"
+    ],
+    "season": [
+      "any"
+    ],
+    "infection": {
+      "infected": true,
+      "type": ["any"],
+      "level": ["1", "100"],
+      "spread_by": ["any"],
+      "cured": true
+    },
+    "tags": [],
+    "weight": 30,
+    "event_text": "c_n's newfound health has not gone unnoticed by o_c_n. The infected Clan attacks the c_n medicine den in the middle of the night, escaping with mouths full of random herbs before m_c can stop them.",
+    "m_c": {
+      "status": [
+        "medicine cat",
+        "medicine cat apprentice"
+      ]
+    },
+    "supplies": [
+      {
+        "type": "any_herb",
+        "trigger": [
+          "adequate"
+        ],
+        "adjust": "reduce_quarter"
+      }
+    ],
+    "other_clan": {
+      "current_rep": [
+        "neutral",
+        "hostile"
+      ],
+      "infection_level": [60, 99],
+      "changed": -2
+    }
   }
 ]

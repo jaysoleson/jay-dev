@@ -63,9 +63,9 @@
         "min_max_status": {
             "healer cats": [-1, 0]
         },
-        "weight": 30,
+        "weight": 20,
         "intro_text": "The patrol goes to negotiate a formal truce with o_c_n to support them in the spread of the infection, as both Clans are suffering heavy losses.",
-        "decline_text": "The patrol decides to turn around. They don't need o_c_n's support!",
+        "decline_text": "At the last minute, the patrol decides to turn around. They don't need o_c_n's support!",
         "chance_of_success": 50,
         "success_outcomes": [
             {

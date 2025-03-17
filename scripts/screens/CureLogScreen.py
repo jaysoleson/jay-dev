@@ -604,6 +604,36 @@ class CureLogScreen(Screens):
                 manager=MANAGER,
                 anchors={"centerx": "centerx"}
             )
+
+        cured_cats = len(game.clan.infection["cured_infected"].split(",")) if game.clan.infection["cured_infected"] else 0
+        killed_cats = len(game.clan.infection["killed_infected"].split(",")) if game.clan.infection["killed_infected"] else 0
+        exiled_cats = len(game.clan.infection["exiled_infected"].split(",")) if game.clan.infection["exiled_infected"] else 0
+
+        largest = max(cured_cats, killed_cats, exiled_cats)
+
+        if largest == cured_cats:
+            text = "cured"
+        elif largest == killed_cats:
+            text = "killed"
+        else:
+            text = "exiled"
+
+        if largest == 0:
+            self.stamps["playstyle"] = pygame_gui.elements.UIImage(
+                ui_scale(pygame.Rect((0, 460), (134, 94))),
+                empty_stamp,
+                manager=MANAGER,
+                anchors={"centerx": "centerx"}
+            )
+        else:
+            self.stamps["playstyle"] = UIImageButton(
+                ui_scale(pygame.Rect((0, 460), (74, 74))),
+                "",
+                object_id="#stamp_cure",
+                tool_tip_text=text,
+                manager=MANAGER,
+                anchors={"centerx": "centerx"}
+                )
             
         if len(game.clan.infection["fallen_clans"]) > 0:
             if debug_all_stamps:

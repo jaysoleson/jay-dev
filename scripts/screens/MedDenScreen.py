@@ -410,7 +410,12 @@ class MedDenScreen(Screens):
             if cat.status in ["medicine cat", "medicine cat apprentice"] and not cat.not_working() and cat.infected_for < 1 and not cat.outside and not cat.dead:
                 medcats.append(cat)
 
-        if game.clan.infection["cure_attempt"] is True or get_infected_clan_cat_count(Cat) == 0 or len(medcats) <= 0:
+        if (
+            (game.clan.infection["cure_attempt"] is True or
+            get_infected_clan_cat_count(Cat) == 0 or
+            len(medcats) <= 0) and
+            "cure_found" not in game.clan.infection["logs"]
+            ):
             self.treatment_button.disable()
         else:
             self.treatment_button.enable()

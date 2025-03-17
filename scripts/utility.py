@@ -164,7 +164,7 @@ def get_cats_same_age(Cat, cat, age_range=10):
     """
     cats = []
     for inter_cat in Cat.all_cats.values():
-        if inter_cat.dead or inter_cat.outside or inter_cat.exiled:
+        if inter_cat.dead or inter_cat.outside or inter_cat.exiled or "undead" in inter_cat.illnesses:
             continue
         if inter_cat.ID == cat.ID:
             continue
@@ -188,7 +188,7 @@ def get_free_possible_mates(cat):
     """Returns a list of available cats, which are possible mates for the given cat."""
     cats = []
     for inter_cat in cat.all_cats.values():
-        if inter_cat.dead or inter_cat.outside or inter_cat.exiled:
+        if inter_cat.dead or inter_cat.outside or inter_cat.exiled or "undead" in inter_cat.illnesses:
             continue
         if inter_cat.ID == cat.ID:
             continue
@@ -1227,7 +1227,7 @@ def get_cats_of_romantic_interest(cat):
     """Returns a list of cats, those cats are love interest of the given cat"""
     cats = []
     for inter_cat in cat.all_cats.values():
-        if inter_cat.dead or inter_cat.outside or inter_cat.exiled:
+        if inter_cat.dead or inter_cat.outside or inter_cat.exiled or "undead" in inter_cat.illnesses:
             continue
         if inter_cat.ID == cat.ID:
             continue
@@ -1755,6 +1755,11 @@ def change_relationship_values(
         for single_cat_to in cats_to:
             # make sure we aren't trying to change a cat's relationship with themself
             if single_cat_from == single_cat_to:
+                continue
+
+            if "undead" in single_cat_from.illnesses:
+                continue
+            if "undead" in single_cat_to.illnesses:
                 continue
 
             # if the cats don't know each other, start a new relationship

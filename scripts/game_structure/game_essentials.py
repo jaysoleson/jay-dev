@@ -583,11 +583,14 @@ class Game:
                     "infection_moons": 0,
                     "logs": [],
                     "fallen_clans": [],
+                    "cured_clans": [],
                     "priority_herb": None,
                     "next_infection_allowed": False,
                     "between_infections": False,
+                    "exiled_infected": "",
                     "killed_infected": "",
-                    "exiled_infected": ""
+                    "cured_infected": "",
+                    "treated": []
                 }
                 
                 with open(f"saves/{self.clan.name}/infection.json", 'w') as create_file:

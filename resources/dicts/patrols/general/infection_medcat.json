@@ -223,7 +223,7 @@
         ],
         "tags": [
             "infection",
-            "not_cure_found"
+            "cure_not_found"
         ],
         "patrol_art": "med_cat_looking_up",
         "min_cats": 1,
@@ -301,7 +301,7 @@
         ],
         "tags": [
             "infection",
-            "not_cure_found"
+            "cure_not_found"
         ],
         "patrol_art": "gen_showing_herbs_med_two_war",
         "min_cats": 3,

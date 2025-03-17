@@ -1301,7 +1301,9 @@ class Condition_Events:
             
             infection_event = False
             if risk["name"] in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]:
-                if cat.cure_progress > 0:
+                if cat.infected_for > 0:
+                    return
+                if cat.infected_for == -1:
                     return
                 infection_event = True
                 chance /= 2
