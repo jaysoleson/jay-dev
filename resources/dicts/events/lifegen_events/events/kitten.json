@@ -18,12 +18,12 @@
         "You and y_s take a nap together after a long day of playing. You cuddle together into a warm pile of fluff.",
         "y_p chides you unfairly for breaking the rules, but y_s steps in to defend you!",
         "r_c trips over you on the way to the freshkill pile.",
-        "r_a shows you a cool game called 'keep it up' which involves batting at a leaf to keep in in the air so it doesn't hit the ground.",
+        "r_a shows you a cool game called 'keep it up' which involves batting at a leaf to keep it in the air so it doesn't hit the ground.",
         "A sudden downpour drenches the camp. You splash in the puddles it leaves behind. The queens aren't happy when you track mud back into the nursery.",
         "A warrior brings you some honey to taste. It's absolutely delicious and you beg the warrior for more.",
         "You attempt to climb a tree. Your small claws scrape against the bark, but you don't get very far before a warrior urges you back to the nursery.",
         "You spend the day in the nursery, terrified of your newest discovery. You stare at the ground, eyes wide. Why does this happen? Why does your body do this? Where did your legs go? Why do they disappear whenever you sit down?",
-        "You pull and tug on y_p's ear, {PRONOUN/y_p/subject} {VERB/y_p/don't/doesn't} stir from {PRONOUN/y_p/poss} slumber. It isn't until you yowl in {PRONOUN/y_p/poss} ear {PRONOUN/y_p/subject} {VERB/y_p/snap/snaps} back to reality. You both spend the morning chasing each other around camp.",
+        "You pull and tug on y_p's ear, but {PRONOUN/y_p/subject} {VERB/y_p/don't/doesn't} stir from {PRONOUN/y_p/poss} slumber. It isn't until you yowl in {PRONOUN/y_p/poss} ear that {PRONOUN/y_p/subject} {VERB/y_p/snap/snaps} back to reality. You both spend the morning chasing each other around camp.",
         "y_p stares at you sternly, {PRONOUN/y_p/poss} paw firmly holding your tail keeping you in place. You don't want a lecture! Not now! It was an accident you swear, you would never, ever, ever pour honey into the warriors den as a prank! Not you!",
         "You and y_p debate the weather for the next week. You both hope rain doesn't come soon, you shiver at the thought of the droplets clinging to your pelt.",
         "While you're outside playing, an unexpected downpour begins. You let out a small growl of annoyance as your fur becomes drenched. Sensing your discomfort, l_n moves to stand over you, sheltering you from the worst of the rain until the skies clear.",
@@ -58,7 +58,7 @@
         "r_w tells you to smile more. It only deepens your scowl.",
         "You bury your face into y_p's fur, wishing the nursery weren't so bright all the time.",
         "You pick on r_k for being smaller and weaker than you are.",
-        "You daydream about being a cat in o_cClan. Maybe they would understand you better there.",
+        "You daydream about being a cat in o_c_n. Maybe they would understand you better there.",
         "You roll your eyes when r_k cries over a small cut. You're so much stronger than {PRONOUN/r_k/subject} {VERB/r_k/are/is}.",
         "You help y_s devise a plan to get back at a cat who was bullying {PRONOUN/y_s/object}."
     ],
@@ -69,15 +69,15 @@
         "You perform a choreographed song and dance for the leader, much to their delight.",
         "You overhear r_w remark that you must be the most charming little kit c_nClan has ever seen.",
         "You convince r_q to let you go out and play, without much effort. It seems you're especially good at using your words to get what you want.",
-        "The o_cClan mediator visits you in the nursery, and you delight them with your jokes, successfully diffusing tensions between the two Clans.",
-        "An argument breaks out between two of your denmates, but you lighten the mood by cracking a joke that makes everyone laugh.",
+        "The o_c_n mediator visits you in the nursery, and you delight them with your jokes, successfully diffusing some of the tensions between the two Clans.",
+        "An argument breaks out between two of your denmates, but you lighten the mood by cracking a joke that makes everycat laugh.",
         "Your denmates watch enviously as r_w brings you a special gift.",
         "A lot of the kits in the nursery get picked on, but never you ... Must be your natural charm."
     ],
     "kitten upstanding": [
         "r_q lectures about the basics of the Warrior Code. You make it a point to memorize each rule, hoping to get a head start on your apprenticeship.",
         "The deputy visits the nursery to teach the kits about border safety, and you're thrilled to answer all their questions correctly. Maybe you'll be their deputy someday!",
-        "You peek into the leader's den, eyes wide with awe. You wish you were as big as important as l_n is.",
+        "You peek into the leader's den, eyes wide with awe. You wish you were as big and important as l_n is.",
         "You beg r_a to help you get a head start on your apprenticeship, much to {PRONOUN/r_a/poss} annoyance.",
         "You spend an afternoon carefully planning out the rest of your life. r_w will be your mentor, then you'll usurp d_n as deputy, and finally, you'll be leader of all of c_nClan. It's flawless.",
         "You throw a tantrum when r_k doesn't follow the rules of the game you're playing.",
@@ -112,7 +112,7 @@
     "kitten silly": [
         "You and r_k imitate l_n and d_n, pretending to order around some warriors.",
         "You and y_s hatch a plan to sneak out of camp, only for r_q to catch you and stop your plan before it even starts!",
-        "You ask r_d if you can come along the next time {PRONOUN/r_d/subject} {VERB/r_d/travel/travels} to o_cClan.",
+        "You ask r_d if you can come along the next time {PRONOUN/r_d/subject} {VERB/r_d/travel/travels} to o_c_n.",
         "You try to stay up all night just to see what happens. You end up falling asleep a little past moonhigh.",
         "You ask r_d what the point of {PRONOUN/r_d/poss} role is.",
         "You imitate r_q, ordering the other kits to go to bed and stop talking."
@@ -163,7 +163,7 @@
         "One night, as you sneak out of the nursery, you look up to see brilliant streaks of white light traveling across the sky. You watch the meteor shower, your eyes wide with amazement and wonder.",
         "One night, starry cats visit you in a dream, stating that you are destined for greatness.",
         "One night, some unknown cats visit you in a dream, their pelts dripping with an unknown substance. They tell you that you are destined for something great.",
-        "The leader of o_cClan visits camp, but no one will tell you why.",
+        "The leader of o_c_n visits camp, but no one will tell you why.",
         "You often feel as if something's watching you."
     ],
     "moon_2_one_parent": [
@@ -203,12 +203,12 @@
         "You tried to sneak out of camp after parent1 and parent2 were called elsewhere. Sadly, your denmate snitched on you, and you were brought back to the nursery."
     ],
     "moon_5_one_parent": [
-        "parent1 encourages you to speak with the elders about the different paths you can take when you become an apprentice. Your head starts to feel like its going to explode after you learn about what each role -- warrior, medicine cat, and mediator -- entails.",
+        "parent1 encourages you to speak with the elders about the different paths you can take when you become an apprentice. Your head starts to feel like it's going to explode after you learn about what each role -- warrior, medicine cat, and mediator -- entails.",
         "You're so excited for your upcoming apprentice ceremony that you jump up and down with excitement. parent1 watches you with amusement.",
         "As your sixth moon approaches, parent1 tells you about the approaching ceremony where you'll be assigned a mentor and begin your training."
     ],
     "moon_5_two_parents": [
-        "parent1 and parent2 encourage you to speak with the elders about the different paths you can take when you become an apprentice. Your head starts to feel like its going to explode after you learn about what each role -- warrior, medicine cat, queen, and mediator -- entails.",
+        "parent1 and parent2 encourage you to speak with the elders about the different paths you can take when you become an apprentice. Your head starts to feel like it's going to explode after you learn about what each role -- warrior, medicine cat, queen, and mediator -- entails.",
         "You're so excited for your upcoming apprentice ceremony that you jump up and down with excitement. parent1 and parent2 watch you with amusement.",
         "As your sixth moon approaches, parent1 and parent2 tell you about the approaching ceremony where you'll be assigned a mentor and begin your training."
     ]

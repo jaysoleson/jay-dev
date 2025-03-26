@@ -2,18 +2,26 @@ from random import choice, choices, randint
 import pygame
 import ujson
 import re
-from scripts.utility import scale
-
 from .Screens import Screens
 
 from scripts.utility import generate_sprite, get_cluster, get_alive_status_cats, get_alive_cats, pronoun_repl
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
 import pygame_gui
-from scripts.game_structure.game_essentials import game, screen_x, screen_y, MANAGER, screen
+from scripts.game_structure.game_essentials import game
 from enum import Enum  # pylint: disable=no-name-in-module
 from scripts.cat.names import names, Name
 from scripts.game_structure.ui_elements import UIImageButton, UITextBoxTweaked
+from scripts.utility import get_text_box_theme, ui_scale, ui_scale_blit, ui_scale_offset, get_current_season, ui_scale_dimensions
+from scripts.game_structure.screen_settings import MANAGER
+from scripts.game_structure.ui_elements import (
+    UIImageButton,
+    UISurfaceImageButton,
+)
+from ..ui.generate_box import get_box, BoxStyles
+from ..ui.generate_button import ButtonStyles, get_button_dict
+from ..ui.get_arrow import get_arrow
+from ..ui.icon import Icon
 
 
 class RelationType(Enum):
@@ -61,6 +69,7 @@ class MoonplaceScreen(Screens):
 
 
     def screen_switches(self):
+        super().screen_switches()
         self.the_cat = Cat.all_cats.get(choice(game.clan.starclan_cats))
         game.switches["attended half-moon"] = True
         self.update_camp_bg()
@@ -72,16 +81,16 @@ class MoonplaceScreen(Screens):
         self.created_choice_buttons = False
         self.profile_elements = {}
         self.clan_name_bg = pygame_gui.elements.UIImage(
-            scale(pygame.Rect((230, 875), (380, 70))),
+            ui_scale(pygame.Rect((115, 438), (190, 35))),
             pygame.transform.scale(
                 image_cache.load_image(
                     "resources/images/clan_name_bg.png").convert_alpha(),
                 (500, 870)),
             manager=MANAGER)
         self.profile_elements["cat_name"] = pygame_gui.elements.UITextBox(str(self.the_cat.name),
-                                                                    scale(pygame.Rect((300, 870), (-1, 80))),
-                                                                          object_id="#text_box_34_horizcenter_light",
-                                                                          manager=MANAGER)
+                                                                    ui_scale(pygame.Rect((150, 437), (-1, 40))),
+                                                                        object_id="#text_box_34_horizcenter_light",
+                                                                        manager=MANAGER)
 
         self.text_type = ""
         self.texts = self.load_texts(self.the_cat)
@@ -89,31 +98,36 @@ class MoonplaceScreen(Screens):
         self.talk_box_img = image_cache.load_image("resources/images/talk_box.png").convert_alpha()
 
         self.talk_box = pygame_gui.elements.UIImage(
-                scale(pygame.Rect((178, 942), (1248, 302))),
+                ui_scale(pygame.Rect((90, 470), (624, 151))),
                 self.talk_box_img
             )
 
-        self.back_button = UIImageButton(scale(pygame.Rect((50, 50), (210, 60))), "",
-                                        object_id="#back_button", manager=MANAGER)
-        self.scroll_container = pygame_gui.elements.UIScrollingContainer(scale(pygame.Rect((500, 970), (900, 300))))
+        self.back_button = UISurfaceImageButton(
+            ui_scale(pygame.Rect((25, 25), (153, 30))),
+            get_arrow(5, arrow_left=True) + " Back",
+            get_button_dict(ButtonStyles.SQUOVAL, (153, 30)),
+            object_id="@buttonstyles_squoval",
+            manager=MANAGER,
+        )
+        self.scroll_container = pygame_gui.elements.UIScrollingContainer(ui_scale(pygame.Rect((250, 475), (450, 150))))
         self.text = pygame_gui.elements.UITextBox("",
-                                                scale(pygame.Rect((0, 0), (900, -100))),
+                                                ui_scale(pygame.Rect((0, 10), (450, -100))),
                                                 object_id="#text_box_30_horizleft",
                                                 container=self.scroll_container,
                                                 manager=MANAGER)
 
         self.textbox_graphic = pygame_gui.elements.UIImage(
-                scale(pygame.Rect((170, 942), (346, 302))),
+                ui_scale(pygame.Rect((90, 471), (163, 150))),
                 image_cache.load_image("resources/images/textbox_graphic.png").convert_alpha()
             )
         # self.textbox_graphic.hide()
 
-        self.profile_elements["cat_image"] = pygame_gui.elements.UIImage(scale(pygame.Rect((70, 900), (400, 400))),
+        self.profile_elements["cat_image"] = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((35, 450), (200, 200))),
                                                                         pygame.transform.scale(
                                                                             generate_sprite(self.the_cat),
-                                                                            (400, 400)), manager=MANAGER)
+                                                                            (200, 200)), manager=MANAGER)
         self.paw = pygame_gui.elements.UIImage(
-                scale(pygame.Rect((1370, 1180), (30, 30))),
+                ui_scale(pygame.Rect((685, 590), (15, 15))),
                 image_cache.load_image("resources/images/cursor.png").convert_alpha()
             )
         self.paw.visible = False
@@ -148,59 +162,49 @@ class MoonplaceScreen(Screens):
         self.option_bgs = {}
 
     def update_camp_bg(self):
-        light_dark = "light"
-        if game.settings["dark mode"]:
-            light_dark = "dark"
+        light_dark = "dark" if game.settings["dark mode"] else "light"
 
-        camp_bg_base_dir = 'resources/images/camp_bg/'
+        camp_bg_base_dir = "resources/images/moonplace/"
         leaves = ["newleaf", "greenleaf", "leafbare", "leaffall"]
-        camp_nr = game.clan.camp_bg
 
-        if camp_nr is None:
-            camp_nr = 'camp1'
-            game.clan.camp_bg = camp_nr
+        img_dict = {
+            "mountainous": "moonstone.png",
+            "forest": "moonhollow.png",
+            "plains": "moonplace1.png",
+            "beach": "moonstone.png"
+        }
+        platform_dir = camp_bg_base_dir + img_dict[game.clan.biome.lower()]
 
-        available_biome = ['Forest', 'Mountainous', 'Plains', 'Beach']
-        biome = game.clan.biome
-        if biome not in available_biome:
-            biome = available_biome[0]
-            game.clan.biome = biome
-        biome = biome.lower()
+        self.add_bgs(
+            {
+                "Newleaf": pygame.transform.scale(
+                    pygame.image.load(platform_dir).convert(),
+                    ui_scale_dimensions((800, 700)),
+                ),
+                "Greenleaf": pygame.transform.scale(
+                    pygame.image.load(platform_dir).convert(),
+                    ui_scale_dimensions((800, 700)),
+                ),
+                "Leaf-bare": pygame.transform.scale(
+                    pygame.image.load(platform_dir).convert(),
+                    ui_scale_dimensions((800, 700)),
+                ),
+                "Leaf-fall": pygame.transform.scale(
+                    pygame.image.load(platform_dir).convert(),
+                    ui_scale_dimensions((800, 700)),
+                ),
+            },
+            {
+                "Newleaf": None,
+                "Greenleaf": None,
+                "Leaf-bare": None,
+                "Leaf-fall": None,
+            },
+        )
 
-        all_backgrounds = []
-        for leaf in leaves:
-            if game.clan.biome == "Forest":
-                platform_dir = "resources/images/moonplace/moonhollow.png"
-            # elif game.clan.biome == "Plains":
-            #     platform_dir = "resources/images/moonplace/moongrove.png"
-            elif game.clan.biome == "Beach":
-                platform_dir = "resources/images/moonplace/moonstone.png"
-            # elif game.clan.biome == "Mountainous":
-            #     platform_dir = "resources/images/moonplace/moonplace1.png"
-            else:
-                platform_dir = "resources/images/moonplace/moonplace1.png"
-            
-            all_backgrounds.append(platform_dir)
-
-        self.newleaf_bg = pygame.transform.scale(
-            pygame.image.load(all_backgrounds[0]).convert(), (screen_x, screen_y))
-        self.greenleaf_bg = pygame.transform.scale(
-            pygame.image.load(all_backgrounds[1]).convert(), (screen_x, screen_y))
-        self.leafbare_bg = pygame.transform.scale(
-            pygame.image.load(all_backgrounds[2]).convert(), (screen_x, screen_y))
-        self.leaffall_bg = pygame.transform.scale(
-            pygame.image.load(all_backgrounds[3]).convert(), (screen_x, screen_y))
-
+        self.set_bg(get_current_season())
     def on_use(self):
-        if game.clan.clan_settings['backgrounds']:
-            if game.clan.current_season == 'Newleaf':
-                screen.blit(self.newleaf_bg, (0, 0))
-            elif game.clan.current_season == 'Greenleaf':
-                screen.blit(self.greenleaf_bg, (0, 0))
-            elif game.clan.current_season == 'Leaf-bare':
-                screen.blit(self.leafbare_bg, (0, 0))
-            elif game.clan.current_season == 'Leaf-fall':
-                screen.blit(self.leaffall_bg, (0, 0))
+        super().on_use()
         now = pygame.time.get_ticks()
         try:
             if self.texts[self.text_index][0] == "[" and self.texts[self.text_index][-1] == "]":
@@ -214,7 +218,7 @@ class MoonplaceScreen(Screens):
                 self.profile_elements["cat_name"].show()
                 # self.textbox_graphic.hide()
         except:
-            pass
+            print("Moonplace screen error")
         if self.text_index < len(self.text_frames):
             if now >= self.next_frame_time and self.frame_index < len(self.text_frames[self.text_index]) - 1:
                 self.frame_index += 1
@@ -757,11 +761,11 @@ class MoonplaceScreen(Screens):
                 if game.clan.your_cat.mentor is None:
                     return ""
                 text = text.replace("m_n", str(Cat.fetch_cat(game.clan.your_cat.mentor).name))
-            if "o_c" in text:
+            if "o_c_n" in text:
                 other_clan = choice(game.clan.all_clans)
                 if not other_clan:
                     return ""
-                text = text.replace("o_c", str(other_clan.name))
+                text = text.replace("o_c_n", str(other_clan.name) + "Clan")
 
             #their mate
             if "t_m" in text:
@@ -861,9 +865,9 @@ class MoonplaceScreen(Screens):
                 other_clan_meds = []
                 for i in range(randint(1,3)):
                     if randint(1,4) != 1:
-                        other_clan_meds.append(Name(status = "medicine cat"))
+                        other_clan_meds.append(Name())
                     else:
-                        other_clan_meds.append(Name(status = "medicine cat apprentice"))
+                        other_clan_meds.append(Name(suffix="paw"))
                 game.switches["other_med"].append(other_clan_meds)
                 game.switches["other_med_clan"].append(clan_name)
         else:
@@ -874,17 +878,17 @@ class MoonplaceScreen(Screens):
 
             for i in range(len(game.switches["other_med_clan"])):
                 for cat_name in game.switches["other_med"][i]:
-                    if cat_name.status == "medicine cat apprentice":
+                    if cat_name.suffix == "paw":
                         if randint(1,2) == 1:
-                            cat_name.status = "medicine cat"
+                            cat_name.give_suffix(None, None, None)
 
             game.switches["other_med"] = self.randomly_remove_string(game.switches["other_med"])
             for clan_meds in game.switches["other_med"]:
                 if len(clan_meds) == 0:
-                    clan_meds.append(Name(status = "medicine cat apprentice"))
+                    clan_meds.append(Name(suffix="paw"))
                 if len(clan_meds) < 3:
                     if randint(1, 5) == 1:
-                        clan_meds.append(Name(status = "medicine cat apprentice"))
+                        clan_meds.append(Name(suffix="paw"))
 
     def randomly_remove_string(self, lists_of_strings):
         for sublist in lists_of_strings:

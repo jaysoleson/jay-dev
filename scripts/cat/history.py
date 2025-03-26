@@ -203,21 +203,21 @@ class History:
         facet_influence_text = {
             "lawfulness_raise": [
                 "follow rules", "follow the status quo",
-                "heed their inner compass", "have strong inner morals"
+                "heed {PRONOUN/m_c/poss} inner compass", "have strong inner morals"
             ],
             "lawfulness_lower": [
                 "bend the rules", "break away from the status quo",
-                "break rules that don't suit them", "make their own rules"
+                "break rules that don't suit {PRONOUN/m_c/object}", "make {PRONOUN/m_c/poss} own rules"
             ],
             "sociability_raise": [
-                "be friendly towards others", "step out of their comfort zone",
+                "be friendly towards others", "step out of {PRONOUN/m_c/poss} comfort zone",
                 "interact with others", "put others at ease"
             ],
             "sociability_lower": [
                 "be cold towards others", "refrain from socializing", "bicker with others"
             ],
             "aggression_raise": [
-                "be ready for a fight", "start a fight", "defend their beliefs", "use teeth and claws over words",
+                "be ready for a fight", "start a fight", "defend {PRONOUN/m_c/poss} beliefs", "use teeth and claws over words",
                 "resort to violence"
             ],
             "aggression_lower": [
@@ -719,6 +719,12 @@ class History:
                 murder_history["revealed"] = True
                 murder_history["revealed_by"] = other_cat.ID if other_cat else None
                 murder_history["revelation_moon"] = game.clan.age
+
+                if cat.status not in ["apprentice", "kitten", "elder", "warrior"]:
+                    murder_history["demoted_from"] = cat.status
+                if cat.status == "leader":
+                    murder_history["remaining_lives"] = game.clan.leader_lives
+
                 if not other_cat:
                     murder_history["revelation_text"] = \
                         "The truth of {PRONOUN/m_c/poss} crime against [victim] is known to the Clan."

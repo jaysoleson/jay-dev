@@ -17,7 +17,7 @@
         "A thought strikes you one day while you overlook a lake. Could you... walk on water? With a thrill of amusement you find that you can. If only someone could see you now!",
         "A magnificent sunrise is best experienced up close. From the tallest tree you can find, you watch colors melt together for hours as the sky changes. Some things make you feel truly small even in death.",
         "The night sky is a sight to behold in a new place. It never would have been possible to see it like this in life. Perhaps this is the best way you could have spent your time after death after all.",
-        "Death has taught you quite a lot. What it hasn't taught you, however, is how to... be a ghost exactly. Where have your paws gone? You swore they were right there a second ago...",
+        "Death has taught you quite a lot. What it hasn't taught you, however, is how to... Be a ghost exactly. Where have your paws gone? You swore they were right there a second ago...",
         "As you learn more about the world around you, you wonder if you ever would have been able to learn all of this without being a ghost. Perhaps there's a reason you never passed on? Perhaps you can accept this.",
         "There's just something about being a ghost that truly makes you happy. Lonely as it is... There's so much to do and experience still. Death was never the end. It was only a new beginning. ",
         "You've noticed that some young kits tend to be able to see you. Not for long, but it's enough. You try to remain friendly with them when they do notice you. Today, you even managed to push a moss ball for one kit! They were so happy to play with a new friend... even if their caretaker didn't believe them.",
@@ -28,7 +28,8 @@
         "Foxes, you find, aren't as bad as you used to think. They're quite cute actually. After spending some time around a family of them you have a renewed outlook on the animal you once feared. ",
         "You lose your footing in a tree - literally. Panic strikes you as you fall through the branch you'd been on. At least, it does until you remember you're a ghost, and it can't hurt you to fall. You could even just... gracefully float the rest of the way down. Small perks?",
         "One day you learn to just... float. It's a very strange feeling. Higher and higher you go... Wow! You can see for ages up here!",
-        "The longer you spend watching living cats, the more you realize just how much you didn't know. It feels so foolish now to think back on all of the miscommunications and mistakes you made."
+        "The longer you spend watching living cats, the more you realize just how much you didn't know. It feels so foolish now to think back on all of the miscommunications and mistakes you made.",
+        "As you're wandering around, you encounter another lost spirit. You two watch c_nClan for a while together, laughing at the current argument between r_c1 and r_c2. Eventually, the argument gets resolved and you part ways, both of you happier than before."
     ],
     "general assertive": [],
     "general brooding": [],
@@ -41,5 +42,7 @@
     "general sweet": [],
     "general unabashed": [],
     "general unlawful": [],
-    "general rare": []
+    "general rare": [
+        "You're wandering around c_nClan, when r_k_ghost stares right into your eyes, almost as if {PRONOUN/r_k_ghost/subject} could see you. As you're about to approach {PRONOUN/r_k_ghost/object}, {PRONOUN/r_k_ghost/subject} {VERB/r_k_ghost/get/gets} pulled away by r_q. You wonder if there are other cats in c_nClan that can see you."
+    ]
 }

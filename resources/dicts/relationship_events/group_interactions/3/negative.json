@@ -53,7 +53,7 @@
 		"id": "group_3_leader_neg1",
 		"cat_amount": 3,
 		"interactions": [
-			"After having r_c2 challenge {PRONOUN/m_c/object}, m_c commands r_c1 to help {PRONOUN/m_c/object} punish r_c2. Everyone ends up hurt, though m_c feels {PRONOUN/m_c/subject} can trust r_c1 more."
+			"After having r_c2 challenge {PRONOUN/m_c/object}, m_c commands r_c1 to help {PRONOUN/m_c/object} punish r_c2. Everycat ends up hurt, though m_c feels {PRONOUN/m_c/subject} can trust r_c1 more."
 		],
 		"get_injuries": {
 			"m_c": {
@@ -62,7 +62,7 @@
 				],
 				"scar_text": "m_c got a scar after r_c2 challenged {PRONOUN/m_c/object}.",
 				"death_text": "Died after r_c2 challenged {PRONOUN/m_c/object}.",
-				"death_leader_text": "were challenged by r_c2"
+				"death_leader_text": "{VERB/m_c/were/was} challenged by r_c2"
 			},
 			"r_c1": {
 				"injury_names": [
@@ -70,7 +70,7 @@
 				],
 				"scar_text": "Got a scar while punishing r_c2 in the name of m_c.",
 				"death_text": "Died after punishing r_c2 in the name of m_c.",
-				"death_leader_text": "while punishing r_c2"
+				"death_leader_text": "{VERB/r_c1/were/was} punishing r_c2"
 			},
 			"r_c2": {
 				"injury_names": [
@@ -79,7 +79,7 @@
 				],
 				"scar_text": "r_c2 challenged m_c, was punished by r_c1 for this, and got a scar as a reminder of {PRONOUN/r_c2/poss} actions.",
 				"death_text": "{PRONOUN/r_c2/subject/CAP} challenged m_c, {VERB/r_c2/were/was} punished by r_c1, and died as a result.",
-				"death_leader_text": "after {PRONOUN/r_c2/subject} challenged m_c and got punished by r_c1"
+				"death_leader_text": "challenged m_c and got punished by r_c1 as a result"
 			}
 		},
 		"status_constraint": {
@@ -136,9 +136,7 @@
 		"id": "group_3_leader_neg2",
 		"cat_amount": 3,
 		"interactions": [
-			"m_c and r_c1 discuss where they should be marking the border. r_c2 overhears, and disagrees with their decision, causing m_c and r_c1 to sneer at them in distaste.",
-			"Ensuring that {PRONOUN/m_c/poss} warriors meet {PRONOUN/m_c/poss} high standards, m_c directs r_c1 and r_c2 to combat a rival Clan cat. As r_c1 savagely tears the suffering cat apart, r_c2 is struck by a sudden surge of conscience. Ignoring the potential consequences-or perhaps despite them-r_c2 throws {PRONOUN/r_c2/self} against the stunned warrior, yowling for the victim to escape. After prying r_c2 from {PRONOUN/m_c/poss} loyal cat, m_c scowls silently at the trembling traitor.",
-			"m_c sets a despicable ambush for a loner found lounging uninvited in the territories. With a vicious grin etched on {PRONOUN/m_c/poss} muzzle, m_c commands r_c1 and r_c2 to 'teach a lesson' to the quivering loner. r_c1, with a cruel pleasure, treats the weeping loner like prey, mercilessly using {PRONOUN/r_c1/poss} claws to dissect them. However, r_c2, who hangs back, watches the horrifying scene unfold with growing dismay. Without fully realizing what {PRONOUN/r_c2/subject} is doing, r_c2 slams into {PRONOUN/r_c2/poss} Clanmate, knocking the startled cat away from the loner and yowling for the loner to flee. Pinned under the seething claws of a furious m_c, r_c2 knows {PRONOUN/r_c2/subject} will be the next target..."
+			"m_c and r_c1 discuss where they should be marking the border. r_c2 overhears, and disagrees with their decision, causing m_c and r_c1 to sneer at {PRONOUN/r_c2/object} in distaste."
 		],
 		"status_constraint": {
 			"m_c": [
@@ -188,6 +186,29 @@
 				"dislike": "increase",
 				"comfortable": "decrease",
 				"trust": "decrease"
+			}
+		}
+	},
+	{
+		"id": "group_3_lifegen_queen_H1",
+		"cat_amount": 3,
+		"intensity": "low",
+		"interactions": [
+			"m_c and r_c1's conversation is cut short as m_c notices r_c2 is trying to eat an unknown plant.",
+			"r_c2 tries to eavesdrop on m_c and r_c1's conversation."
+		],
+		"status_constraint": {
+			"m_c": [
+				"queen"
+			],
+			"r_c2": [
+				"kitten"
+			]
+		},
+		"specific_reaction": {
+			"m_c_to_r_c2": {
+				"trust": "decrease",
+				"dislike": "increase"
 			}
 		}
 	}

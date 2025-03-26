@@ -15,7 +15,8 @@
     "unabashed_apprentice1": [
         [
             "unabashed",
-            "apprentice",
+            "they_apprentice",
+            "you_apprentice",
             "they_blind",
             "you_blind"
         ],
@@ -30,8 +31,10 @@
     ],
     "silly_gen_prey": [
         [
-            "Any",
-            "silly"
+            "you_any",
+            "they_silly",
+            "they_apprentice",
+            "they_warrior"
         ],
         [
             "I went on a hunting patrol with plike_r_w the other day and found THE cutest mouse I think I've ever seen. It had big, innocent eyes and it was snacking on a blackberry!",
@@ -41,9 +44,11 @@
     ],
     "introspective_comf_2": [
         [
-            "any",
-            "introspective",
+            "you_any",
+            "they_introspective",
+            "they_apprentice",
             "comfort",
+            "platonic_like",
             "they_blind",
             "you_blind"
         ],
@@ -56,7 +61,8 @@
     ],
     "app_9": [
         [
-            "Any",
+            "you_any",
+            "they_apprentice",
             "hate",
             "they_blind",
             "you_blind"
@@ -67,7 +73,8 @@
     ],
     "app_10": [
         [
-            "Any",
+            "you_any",
+            "they_apprentice",
             "hate",
             "assertive",
             "brooding",
@@ -81,7 +88,8 @@
     ],
     "app_11": [
         [
-            "Any",
+            "you_any",
+            "they_apprentice",
             "hate",
             "they_blind",
             "you_blind"
@@ -92,7 +100,8 @@
     ],
     "app_12": [
         [
-            "Any",
+            "you_any",
+            "they_apprentice",
             "hate",
             "they_blind",
             "you_blind"
@@ -103,7 +112,8 @@
     ],
     "app_13": [
         [
-            "Any",
+            "you_any",
+            "they_apprentice",
             "hate",
             "they_blind",
             "you_blind"
@@ -114,8 +124,9 @@
     ],
     "introspective_app_to_MedApp": [
         [
-            "medicine_cat_apprentice",
-            "Introspective",
+            "you_medicine_cat_apprentice",
+            "they_apprentice",
+            "they_introspective",
             "they_blind",
             "you_blind"
         ],
@@ -128,12 +139,13 @@
     ],
     "Introspective_app": [
         [
-            "Any",
-            "Introspective",
+            "you_any",
+            "they_apprentice",
+            "they_introspective",
             "they_blind"
         ],
         [
-            "[You notice that t_c is poking at a bird next to the fresh kill pile]",
+            "[You notice that t_c is poking at a bird next to the fresh kill pile.]",
             "Afternoon, y_c. You want this bird I caught this morning?",
             "[You agree to share the bird with {PRONOUN/t_c/object}.]",
             "... What's up? Oh, uh. I caught this during an assessment. Yeah, I'm just worried about whether I did well. My mentor seemed impressed, but... well. I'm unsure.",
@@ -142,22 +154,24 @@
     ],
     "introspective_app_2": [
         [
-            "Any",
-            "Introspective"
+            "you_any",
+            "they_apprentice",
+            "they_introspective"
         ],
         [
             "Hi y_c.",
             "[You notice that t_c is sitting, muscles bunched up and tail flicking irritably.]",
-            "What's wrong? Oh I got into a fight with r_w_assertive. {PRONOUN/r_w_assertive/object}{VERB/r_w_assertive/'re/'s} an utter mousebrain. {PRONOUN/r_w_assertive/subject/CAP} tried to get me to cross the Clan border after a rabbit! It's utterly ridiculous.",
+            "What's wrong? Oh, I got into a fight with r_w_assertive. {PRONOUN/r_w_assertive/subject/CAP}{VERB/r_w_assertive/'re/'s} an utter mousebrain. {PRONOUN/r_w_assertive/subject/CAP} tried to get me to cross the Clan border after a rabbit! It's utterly ridiculous.",
             "We can't be running across the border, there'd be no point in it being there otherwise! We need to be respectful of our borders, and I can't believe {PRONOUN/r_w_assertive/subject} {VERB/r_w_assertive/don't/doesn't} see that.",
             "... Sorry for yelling at you like that, y_c. I appreciate you listening to me. Thank you."
         ]
     ],
     "introspective_app_3": [
         [
-            "Queen",
-            "queen's_apprentice",
-            "Introspective"
+            "you_queen",
+            "you_queen's_apprentice",
+            "they_apprentice",
+            "they_introspective"
         ],
         [
             "[You look up at where you're playing with the kits to see t_c bringing a rabbit into the nursery.]",
@@ -168,8 +182,9 @@
     ],
     "introspective_app_3_2": [
         [
-            "Any",
-            "introspective"
+            "you_any",
+            "they_introspective",
+            "they_apprentice"
         ],
         [
             "[t_c is batting a rock between {PRONOUN/t_c/poss} paws while sitting in {PRONOUN/t_c/poss} nest.]",
@@ -181,9 +196,10 @@
     ],
     "Introspective_app_4": [
         [
-            "medicine_cat",
-            "medicine_cat_apprentice",
-            "introspective"
+            "you_medicine_cat",
+            "you_medicine_cat_apprentice",
+            "they_apprentice",
+            "they_introspective"
         ],
         [
             "Uh, y_c? Help.",
@@ -195,23 +211,24 @@
     ],
     "Introspective_app_5": [
         [
-            "Mediator",
-            "mediator_apprentice",
-            "introspective",
+            "you_mediator",
+            "you_mediator_apprentice",
+            "they_introspective",
             "you_blind",
             "they_blind"
         ],
         [
             "... y_c? Are you busy?",
-            "I just had a conversation with a warrior from o_cClan near our territory. I assumed you'd want to know.",
+            "I just had a conversation with a warrior from o_c_n near our territory. I assumed you'd want to know.",
             "Wasn't extreme, they were mostly asking about the kits, but they seem a little more civil than usual, have you been there recently?",
             "What's their camp like? Is it different from ours? Or similar. I know they're not that far from us, but their lives are so different that I can't begin to imagine what it's like."
         ]
     ],
     "app_26": [
         [
-            "elder",
-            "neurotic",
+            "you_elder",
+            "they_neurotic",
+            "they_apprentice",
             "you_blind",
             "they_blind"
         ],
@@ -223,9 +240,11 @@
     ],
     "app_28": [
         [
-            "Any",
+            "you_any",
+            "they_apprentice",
             "assertive",
             "you_shunned",
+            "dislike",
             "you_blind",
             "they_blind"
         ],
@@ -235,8 +254,10 @@
     ],
     "app_293": [
         [
-            "Any",
+            "you_any",
+            "they_apprentice",
             "you_shunned",
+            "max_trust_15",
             "you_blind",
             "they_blind"
         ],
@@ -246,9 +267,12 @@
     ],
     "app_29c": [
         [
-            "Any",
-            "neurotic",
+            "you_any",
+            "they_apprentice",
+            "they_neurotic",
             "you_shunned",
+            "max_trust_15",
+            "max_comfort_20",
             "you_blind",
             "they_blind"
         ],
@@ -258,11 +282,13 @@
     ],
     "app_29": [
         [
-            "Any",
-            "stable",
-            "assertive",
-            "brooding",
+            "you_any",
+            "they_apprentice",
+            "they_stable",
+            "they_assertive",
+            "they_brooding",
             "you_shunned",
+            "dislike",
             "you_blind",
             "they_blind"
         ],
@@ -272,9 +298,10 @@
     ],
     "app_2592": [
         [
-            "Any",
-            "neurotic",
-            "introspective",
+            "you_any",
+            "they_apprentice",
+            "they_neurotic",
+            "they_introspective",
             "platonic_like",
             "you_blind",
             "they_blind",
@@ -289,8 +316,9 @@
     ],
     "app_fdsa": [
         [
-            "medicine_cat_apprentice",
+            "you_medicine_cat_apprentice",
             "you_neurotic",
+            "they_apprentice",
             "you_blind",
             "they_blind"
         ],
@@ -304,9 +332,10 @@
     ],
     "app31232": [
         [
-            "kitten",
-            "stable",
-            "introspective",
+            "you_kitten",
+            "they_apprentice",
+            "they_stable",
+            "they_introspective",
             "you_blind",
             "they_blind",
             "they_hearing"
@@ -318,9 +347,10 @@
             "It's also an honor to even be a warrior, let alone deputy or leader... Oh, my mentor's calling me! Bye, have a good day!"
         ]
     ],
-    "app3123": [
+    "app3123_Rr": [
         [
-            "apprentice",
+            "you_apprentice",
+            "they_apprentice",
             "you_bloodthirsty",
             "you_vengeful",
             "you_fierce",
@@ -329,17 +359,18 @@
         ],
         [
             "Uh, hey, y_c. When we were out training the other day, you were really intense. I could barely keep up with you.",
-            "It was... aha... kind of scary. I'm definitely glad we're Clanmates, or else I might have to fight you for real one day. You're supposed to protect your Clan with your life! That's what we've always been told.",
-            "So that means you won't... ever really hurt me, right?"
+            "It was... aha... kind of scary. I'm definitely glad we're Clanmates, or else I might have to fight you for real one day!",
+            "I know you'd never hurt one of your Clanmates, but sheesh, o_c_n better watch out!"
         ]
     ],
     "assertive_medapp1": [
         [
-            "medicine_cat_apprentice",
-            "medicine_cat",
-            "assertive",
-            "unlawful",
-            "silly",
+            "you_medicine_cat_apprentice",
+            "you_medicine_cat",
+            "they_apprentice",
+            "they_assertive",
+            "they_unlawful",
+            "they_silly",
             "you_blind"
         ],
         [
@@ -349,12 +380,13 @@
     ],
     "assertive_medapp2": [
         [
-            "medicine_cat_apprentice",
+            "you_medicine_cat_apprentice",
+            "they_apprentice",
             "platonic_like",
             "romantic_like",
-            "assertive",
-            "sweet",
-            "unabashed",
+            "they_assertive",
+            "they_sweet",
+            "they_unabashed",
             "you_blind",
             "they_blind"
         ],
@@ -365,8 +397,9 @@
     ],
     "assertive_app": [
         [
-            "Any",
-            "assertive",
+            "you_any",
+            "they_apprentice",
+            "they_assertive",
             "platonic_like",
             "you_blind",
             "they_blind"
@@ -379,9 +412,9 @@
     ],
     "assertive_app01": [
         [
-            "warrior",
-            "assertive",
-            "silly",
+            "you_warrior",
+            "they_assertive",
+            "they_apprentice",
             "you_blind",
             "they_blind",
             "they_hearing"
@@ -393,9 +426,10 @@
     ],
     "assertive_app5": [
         [
-            "medicine_cat_apprentice",
-            "medicine_cat",
-            "assertive",
+            "you_medicine_cat_apprentice",
+            "you_medicine_cat",
+            "they_apprentice",
+            "they_assertive",
             "non-related",
             "you_blind",
             "they_went_blind"
@@ -412,10 +446,11 @@
     ],
     "assertiveapp_6": [
         [
-            "Any",
-            "assertive",
-            "silly",
-            "unlawful",
+            "you_any",
+            "they_apprentice",
+            "they_assertive",
+            "they_silly",
+            "they_unlawful",
             "from_adopted_kit",
             "from_your_kit",
             "they_blind"
@@ -428,19 +463,22 @@
     ],
     "assertiveapp_leader": [
         [
-            "leader",
+            "you_leader",
+            "they_apprentice",
             "assertive",
             "you_blind",
             "they_blind"
         ],
         [
             "Oh, what I'd give for nine lives!",
-            "I already try to throw myself into whatever challenge I'm given, but you're on a whole other level! With nine lives, you could be really ... truly ... FEARLESS!"
+            "I already try to throw myself into whatever challenge I'm given, but you're on a whole other level! With nine lives, you could be really ... Truly ... FEARLESS!"
         ]
     ],
     "assertiveapp_leader01": [
         [
-            "leader",
+            "you_leader",
+            "they_apprentice",
+            "platonic_like",
             "assertive",
             "upstanding",
             "you_blind",
@@ -453,8 +491,9 @@
     ],
     "assertiveapp_leader1": [
         [
-            "deputy",
-            "leader",
+            "you_deputy",
+            "you_leader",
+            "they_apprentice",
             "assertive",
             "unlawful",
             "brooding",
@@ -465,14 +504,15 @@
         ],
         [
             "Yeah, right. Like I have to take orders from you!",
-            "You may think you're a warrior, but all you do is sit on your haunches and boss everyone around all day. That's no warrior. That's a coward.",
+            "You may think you're a warrior, but all you do is sit on your haunches and boss everycat around all day. That's no warrior. That's a coward.",
             "Go find some other cat to impose on."
         ]
     ],
     "assertive_queensapp": [
         [
-            "queen's_apprentice",
-            "queen",
+            "you_queen's_apprentice",
+            "you_queen",
+            "they_apprentice",
             "assertive",
             "upstanding",
             "you_blind"
@@ -488,7 +528,8 @@
     ],
     "assertive_queensapp1": [
         [
-            "queen's_apprentice",
+            "you_queen's_apprentice",
+            "they_apprentice",
             "assertive",
             "cool",
             "brooding",
@@ -507,8 +548,9 @@
     ],
     "assertive_mediator1": [
         [
-            "mediator",
-            "mediator_apprentice",
+            "you_mediator",
+            "you_mediator_apprentice",
+            "they_apprentice",
             "assertive",
             "dislike",
             "unabashed",
@@ -524,21 +566,23 @@
     ],
     "assertive_mediatorapp": [
         [
-            "mediator_apprentice",
-            "mediator",
+            "you_mediator_apprentice",
+            "you_mediator",
+            "they_apprentice",
             "assertive",
             "upstanding"
         ],
         [
-            "Is it really true that you're allowed to just ... travel between the Clans as you please?",
+            "Is it really true that you're allowed to just ... Travel between the Clans as you please?",
             "Whoa! That's so cool!!! I've always wanted to explore the other territories, but I've never been allowed.",
-            "Is it true that o_cClan cats can swim like fish? Or that their territory is full of snakes?",
+            "Is it true that o_c_n cats can swim like fish? Or that their territory is full of snakes?",
             "[You and t_c have a long conversation about the other Clans. With each detail you share, {PRONOUN/t_c/poss} eyes grow bigger and bigger.]"
         ]
     ],
     "assertiveapp_mediatorapp1": [
         [
-            "mediator_apprentice",
+            "you_mediator_apprentice",
+            "they_apprentice",
             "dislike",
             "assertive",
             "cool",
@@ -554,8 +598,9 @@
     ],
     "assertivewarrior_mediatorapp2": [
         [
-            "mediator_apprentice",
-            "mediator",
+            "you_mediator_apprentice",
+            "you_mediator",
+            "they_apprentice",
             "assertive",
             "unlawful",
             "unabashed",
@@ -571,8 +616,9 @@
     ],
     "assertiveapp_med": [
         [
-            "medicine_cat",
-            "medicine_cat_apprentice",
+            "you_medicine_cat",
+            "you_medicine_cat_apprentice",
+            "they_apprentice",
             "platonic_like",
             "assertive",
             "cool",
@@ -591,8 +637,10 @@
     ],
     "assertiveapp_med1": [
         [
-            "medicine_cat",
-            "medicine_cat_apprentice",
+            "you_medicine_cat",
+            "you_medicine_cat_apprentice",
+            "they_apprentice",
+            "platonic_like",
             "assertive"
         ],
         [
@@ -607,13 +655,14 @@
     ],
     "assertiveapp_med2": [
         [
-            "medicine_cat",
-            "medicine_cat_apprentice",
-            "mediator_apprentice",
-            "mediator",
-            "queen's_apprentice",
-            "queen",
-            "elder",
+            "you_medicine_cat",
+            "you_medicine_cat_apprentice",
+            "you_mediator_apprentice",
+            "you_meditator",
+            "you_queen's_apprentice",
+            "you_queen",
+            "they_apprentice",
+            "you_elder",
             "assertive",
             "you_blind",
             "they_blind"
@@ -626,8 +675,9 @@
     ],
     "assertiveapp_med3": [
         [
-            "medicine_cat_apprentice",
-            "medicine_cat",
+            "you_medicine_cat_apprentice",
+            "you_medicine_cat",
+            "they_apprentice",
             "platonic_like",
             "assertive",
             "unabashed",
@@ -642,8 +692,9 @@
     ],
     "assertiveapp_medapp5": [
         [
-            "medicine_cat_apprentice",
+            "you_medicine_cat_apprentice",
             "platonic_like",
+            "they_apprentice",
             "assertive",
             "silly",
             "unabashed",
@@ -659,7 +710,8 @@
     ],
     "assertive_tokit": [
         [
-            "kitten",
+            "you_kitten",
+            "they_apprentice",
             "platonic_like",
             "assertive"
         ],
@@ -674,9 +726,10 @@
     ],
     "assertive_apprentice": [
         [
-            "apprentice",
+            "you_apprentice",
             "assertive",
             "unlawful",
+            "they_apprentice",
             "neutral",
             "platonic_like",
             "you_blind",
@@ -689,8 +742,8 @@
     ],
     "assertive_apprentice1": [
         [
-            "apprentice",
-            "warrior",
+            "they_apprentice",
+            "you_warrior",
             "from_your_apprentice",
             "assertive",
             "upstanding",
@@ -703,7 +756,8 @@
     ],
     "assertive_apprentice2": [
         [
-            "apprentice",
+            "they_apprentice",
+            "you_any",
             "assertive",
             "unlawful",
             "you_blind",
@@ -717,7 +771,8 @@
     ],
     "assertive_apprentice5": [
         [
-            "apprentice",
+            "they_apprentice",
+            "you_apprentice",
             "respect",
             "assertive",
             "upstanding",
@@ -733,7 +788,7 @@
     ],
     "assertive_apprentice7": [
         [
-            "apprentice",
+            "they_apprentice",
             "platonic_like",
             "assertive",
             "cool",
@@ -751,10 +806,9 @@
     ],
     "assertive_apprentice8": [
         [
-            "apprentice",
-            "medicine_cat_apprentice",
-            "mediator_apprentice",
-            "kitten",
+            "they_apprentice",
+            "they_sameage",
+            "you_younger",
             "dislike",
             "assertive",
             "cool",
@@ -764,15 +818,13 @@
             "Hey, y_c, I dare you to stick your paw into that snakehole!",
             "What, are you scared?",
             "Oh StarClan, you're totally scared, aren't you? Hahahaha!",
-            "Hey, everyone! y_c is a total scaredy-cat! Ahahaa!"
+            "Hey, everycat! y_c is a total scaredy-cat! Ahahaa!"
         ]
     ],
     "assertive_apprentice8_2": [
         [
-            "apprentice",
-            "medicine_cat_apprentice",
-            "mediator_apprentice",
-            "queen's_apprentice",
+            "they_app",
+            "you_app",
             "platonic_like",
             "assertive",
             "silly",
@@ -791,11 +843,11 @@
     ],
     "assertive_apprentice9": [
         [
-            "Any",
+            "they_apprentice",
+            "you_any",
             "platonic_like",
             "assertive",
             "unlawful",
-            "silly",
             "unabashed",
             "adopted_sibling",
             "half sibling",
@@ -815,7 +867,8 @@
     ],
     "assertive_apprentice10": [
         [
-            "medicine_cat_apprentice",
+            "you_medicine_cat_apprentice",
+            "they_apprentice",
             "platonic_like",
             "assertive",
             "sibling",
@@ -833,7 +886,8 @@
     ],
     "assertive_apprentice11": [
         [
-            "mediator_apprentice",
+            "you_mediator_apprentice",
+            "they_apprentice",
             "platonic_like",
             "assertive",
             "unlawful",
@@ -852,7 +906,8 @@
     ],
     "assertive_apprentice12": [
         [
-            "queen's_apprentice",
+            "you_queen's_apprentice",
+            "they_apprentice",
             "platonic_like",
             "assertive",
             "unlawful",
@@ -871,9 +926,10 @@
     ],
     "assertive_apprentice13": [
         [
-            "queen's_apprentice",
-            "medicine_cat_apprentice",
-            "mediator_apprentice",
+            "you_queen's_apprentice",
+            "you_medicine_cat_apprentice",
+            "you_mediator_apprentice",
+            "they_apprentice",
             "platonic_like",
             "assertive",
             "unabashed",
@@ -890,14 +946,13 @@
     ],
     "assertive_apprentice14": [
         [
-            "Any",
+            "they_apprentice",
+            "you_younger",
             "neutral",
             "dislike",
-            "neutral",
             "assertive",
             "cool",
             "brooding",
-            "silly",
             "unlawful",
             "you_blind",
             "they_blind"
@@ -909,7 +964,8 @@
     ],
     "assertive_apprentice16": [
         [
-            "apprentice",
+            "they_apprentice",
+            "you_apprentice",
             "platonic_like",
             "assertive",
             "you_blind",
@@ -923,7 +979,8 @@
     ],
     "assertive_apprentice17": [
         [
-            "Any",
+            "they_apprentice",
+            "you_any",
             "dislike",
             "neutral",
             "assertive",
@@ -943,7 +1000,8 @@
     ],
     "assertive_apprentice18": [
         [
-            "Any",
+            "they_apprentice",
+            "you_younger",
             "dislike",
             "neutral",
             "assertive",
@@ -961,7 +1019,8 @@
     ],
     "assertive_apprentice18_2": [
         [
-            "Any",
+            "you_any",
+            "they_apprentice",
             "dislike",
             "assertive",
             "cool",
@@ -979,9 +1038,8 @@
     ],
     "assertive_apprentice19": [
         [
-            "Any",
-            "dislike",
-            "neutral",
+            "you_any",
+            "they_apprentice",
             "assertive",
             "platonic_like",
             "they_hearing"
@@ -993,7 +1051,8 @@
     ],
     "assertive_apprentice20": [
         [
-            "Any",
+            "you_any",
+            "they_apprentice",
             "assertive",
             "platonic_like"
         ],
@@ -1005,10 +1064,10 @@
     ],
     "assertive_apprentice22": [
         [
-            "Any",
+            "you_any",
+            "they_apprentice",
             "assertive",
             "unlawful",
-            "kitten",
             "from_adopted_kit",
             "from_your_kit",
             "you_blind",
@@ -1075,6 +1134,7 @@
             "assertive",
             "unlawful",
             "cool",
+            "silly",
             "from_your_apprentice",
             "you_blind"
         ],
@@ -1117,24 +1177,10 @@
             "I don't know how the leader thought it was smart to put us together. At least once I get my warrior name, we never have to speak to each other again."
         ]
     ],
-    "assertive_dislike": [
-        [
-            "Any",
-            "assertive",
-            "cool",
-            "silly",
-            "hate"
-        ],
-        [
-            "Hey y_c. Why don't you jump off a cliff? It's a new thing every cat in the Clan is trying.",
-            "[t_c is staring at you resentfully.]"
-        ]
-    ],
     "assertive_dislike1": [
         [
             "Any",
             "assertive",
-            "silly",
             "unlawful",
             "dislike",
             "you_blind",
@@ -1186,7 +1232,7 @@
             "they_blind"
         ],
         [
-            "Get up, y_c! We gotta go on a special patrol to check the o_cClan border!",
+            "Get up, y_c! We gotta go on a special patrol to check the o_c_n border!",
             "Of course I'm serious, mouse-brain! Are you really gonna make me break it down for you?",
             "The leader gave me this assignment, and told me to pick the cat in the Clan I trust the most to accompany me on it. Lo and behold, that's you!",
             "Now, c'mon, lazybones! We've got a long walk ahead of us!"
@@ -1197,10 +1243,10 @@
             "assertive",
             "silly",
             "platonic_love",
-            "warrior",
-            "apprentice",
-            "deputy",
-            "leader",
+            "you_warrior",
+            "you_apprentice",
+            "you_deputy",
+            "you_leader",
             "you_blind",
             "they_blind"
         ],
@@ -1226,10 +1272,10 @@
     ],
     "assertive_jealous": [
         [
-            "warrior",
-            "apprentice",
-            "deputy",
-            "leader",
+            "you_warrior",
+            "you_apprentice",
+            "you_deputy",
+            "you_leader",
             "assertive",
             "unlawful",
             "upstanding",
@@ -1300,11 +1346,8 @@
     ],
     "cool_apprentice_1": [
         [
-            "apprentice",
-            "medicine_cat_apprentice",
-            "queen's_apprentice",
-            "mediator_apprentice",
-            "kitten",
+            "you_app",
+            "you_kitten",
             "cool"
         ],
         [
@@ -1315,11 +1358,8 @@
     ],
     "cool_apprentice_2": [
         [
-            "apprentice",
-            "medicine_cat_apprentice",
-            "queen's_apprentice",
-            "mediator_apprentice",
-            "kitten",
+            "you_app",
+            "you_kitten",
             "cool",
             "you_blind",
             "they_blind",
@@ -1332,7 +1372,7 @@
     ],
     "cool_apprentice_3": [
         [
-            "warrior",
+            "you_warrior",
             "cool",
             "stable",
             "upstanding",
@@ -1355,7 +1395,7 @@
         ],
         [
             "Heya y_c! Can I ask for a little bit of advice?",
-            "I've been trying my best to continue training the best I can... but I'm really tired after staying up all night trying to help gather herbs for the medicine cat...",
+            "I've been trying my best to continue training the best I can... But I'm really tired after staying up all night trying to help gather herbs for the medicine cat...",
             "I wanna be a warrior, I really do, but do you think I'm... not cut out for it?",
             "... Thanks, it means a lot."
         ]
@@ -1371,12 +1411,12 @@
             "Howdy y_c! Are you ready to go out and do super cool warrior stuff?",
             "Hehehe- me neither, and I'm not even a warrior!. But we've gotta, I noticed my mentor was super excited so hopefully it's something neat today!",
             "I've been thinking of surprising them with something, do you have any ideas?",
-            "Mm.. that's a great idea! Thanks a bunch, I'll bring you something back as a thanks!"
+            "Mm... that's a great idea! Thanks a bunch, I'll bring you something back as a thanks!"
         ]
     ],
     "sweet_apprentice_4": [
         [
-            "newborn",
+            "you_newborn",
             "sweet",
             "you_blind",
             "they_blind"
@@ -1389,7 +1429,7 @@
     ],
     "sweet_apprentice_5": [
         [
-            "kitten",
+            "you_kitten",
             "sweet",
             "you_blind"
         ],
@@ -1401,7 +1441,7 @@
     ],
     "sweet_apprentice_6": [
         [
-            "kitten",
+            "you_kitten",
             "sweet",
             "you_blind",
             "they_blind"
@@ -1414,40 +1454,34 @@
     ],
     "sweet_apprentice_7": [
         [
-            "kitten",
+            "you_kitten",
             "sweet",
             "you_blind",
             "they_blind"
         ],
         [
-            "Oh, y_c! What's it like having a mentor? Mm.. well..",
+            "Oh, y_c! What's it like having a mentor? Mm... well...",
             "It's nice having someone caring for me instead of the other way around! I tend to be a bit of a worry wart, hehe. It's nice having someone I can ask for advice n' all that.",
             "But that's nothing for you to worry about just yet. Let's getcha back to bed, alrighty little fella?"
         ]
     ],
     "sweet_apprentice_8": [
         [
-            "apprentice",
-            "queen's_apprentice",
-            "medicine_cat_apprentice",
-            "mediator_apprentice",
+            "you_app",
             "sweet",
             "you_blind",
             "they_blind"
         ],
         [
-            "Ah- y_c! Um- I wasn't crying- I was.. mmn...",
-            "Okay... you caught me. I saw a kittypet when out on patrol earlier, and they seemed hurt and scared! So, of course, I helped them out there... but then an o_cClan cat started making fun of me.",
+            "Ah- y_c! Um, I wasn't crying, I was... mmn...",
+            "Okay... you caught me. I saw a kittypet when out on patrol earlier, and they seemed hurt and scared! So, of course, I helped them out there... But then an o_c_n cat started making fun of me.",
             "They said I was soft-hearted, and that I should be a medicine cat or a queen instead... Do you think so too..?",
             "Thank you for listening to the ramblings of silly ol' me... It really means a lot, you know?"
         ]
     ],
     "sweet_apprentice_9": [
         [
-            "apprentice",
-            "queen's_apprentice",
-            "medicine_cat_apprentice",
-            "mediator_apprentice",
+            "you_app",
             "sweet",
             "you_blind",
             "they_blind"
@@ -1455,12 +1489,12 @@
         [
             "Hey, y_c! Have you been to the gathering, yet?",
             "It's so intense... How many cats are there... It could be its own Clan, if it wanted to be! Imagine for caring for so many cats...",
-            "I think I'd just be driven in circles trying to make sure everyone's okay, haha!"
+            "I think I'd just be driven in circles trying to make sure everycat's okay, haha!"
         ]
     ],
     "sweet_apprentice_10": [
         [
-            "apprentice",
+            "you_apprentice",
             "sweet",
             "they_hearing",
             "you_blind",
@@ -1468,13 +1502,13 @@
         ],
         [
             "y_c! Did you hear?",
-            "Some of the others were talking about how cold it's gonna be tonight. Your nest seems to be further from everyone else's.",
+            "Some of the others were talking about how cold it's gonna be tonight. Your nest seems to be further from everycat else's.",
             "If you'd like, I can move my nest by yours tonight, just to make sure you stay warm! I couldn't forgive myself if you caught a chill and I could've done something to prevent it."
         ]
     ],
     "sweet_apprentice_11": [
         [
-            "queen's_apprentice",
+            "you_queen's_apprentice",
             "sweet",
             "you_blind"
         ],
@@ -1486,35 +1520,32 @@
     ],
     "sweet_apprentice_12": [
         [
-            "medicine_cat_apprentice",
+            "you_medicine_cat_apprentice",
             "sweet",
             "you_blind",
             "they_blind"
         ],
         [
-            "Hey there y_c! How's everything today, is everyone doing okay?",
+            "Hey there y_c! How's everything today, is everycat doing okay?",
             "Do you need any help gathering herbs today? I'm open right now, so I can lend a paw! Come on, let's go! Don't wanna leave cats without their medicine! Hehe."
         ]
     ],
     "sweet_apprentice_13": [
         [
-            "mediator_apprentice",
+            "you_mediator_apprentice",
             "sweet",
             "you_blind",
             "they_blind"
         ],
         [
             "Hey y_c!! I've got a couple questions, if you don't mind I ask? If you're busy, I can leave!",
-            "Ah- I'm super curious. How do you convince cats to stop fighting? I try and it just... tends to blow up in my face.",
+            "Ah- I'm super curious. How do you convince cats to stop fighting? I try and it just... Tends to blow up in my face.",
             "I see, I see! I understand, thank you so much for sharing! Ah- I'll leave you to your job now, hehe. Let me know if you wanna share some prey later!"
         ]
     ],
     "sweet_apprentice_14": [
         [
-            "warrior",
-            "medicine_cat",
-            "mediator",
-            "queen",
+            "you_adult",
             "sweet",
             "you_blind",
             "they_blind"
@@ -1522,16 +1553,13 @@
         [
             "Oh hey y_c! ... What am I doing in the bushes? Hehe- funny story.",
             "So, r_c was supposed to be kitsitting, but I offered to help out since I'm done with my chores!",
-            "And now I've got pretty much every cat younger than a warrior trying to find me in a game of hide and seek... despite me trying to get everyone to settle down.",
+            "And now I've got pretty much everycat younger than a warrior trying to find me in a game of hide and seek... despite me trying to get everycat to settle down.",
             "Would you like to hang out with us, too? I wouldn't mind giving up this game so you can join in. We could even take a break and have some lunch, if you'd like to do that first!"
         ]
     ],
     "sweet_apprentice_15": [
         [
-            "warrior",
-            "medicine_cat",
-            "mediator",
-            "queen",
+            "you_adult",
             "sweet",
             "you_blind",
             "they_hearing"
@@ -1544,7 +1572,7 @@
     ],
     "sweet_apprentice_16": [
         [
-            "warrior",
+            "you_warrior",
             "sweet",
             "you_blind",
             "they_blind"
@@ -1558,20 +1586,20 @@
     ],
     "sweet_apprentice_17": [
         [
-            "medicine_cat",
+            "you_medicine_cat",
             "sweet"
         ],
         [
             "y_c!! y_c!! You've gotta help me!",
             "Please don't laugh.. But I found this little bug a- and it's wing was crushed! Is there anything you can do to help it?",
-            "I know you're only supposed to heal cats but... this bug is my friend. I feed it sometimes... Please help me...",
-            "[Despite having teary eyes, {PRONOUN/t_c/subject} {VERB/t_c/hold/holds} out the bug on {PRONOUN/t_c/poss} paw, watching as you do your best to very tenderly care for it. Ultimately, you know there's nothing you can do, but denying {PRONOUN/t_c/object} would just crush {PRONOUN/t_c/poss} spirit]",
+            "I know you're only supposed to heal cats but... This bug is my friend. I feed it sometimes... Please help me...",
+            "[Despite having teary eyes, {PRONOUN/t_c/subject} {VERB/t_c/hold/holds} out the bug on {PRONOUN/t_c/poss} paw, watching as you do your best to very tenderly care for it. Ultimately, you know there's nothing you can do, but denying {PRONOUN/t_c/object} would just crush {PRONOUN/t_c/poss} spirit.]",
             "I'll take very good care of it while it heals, thank you! Thank you so much!!!"
         ]
     ],
     "sweet_apprentice_18": [
         [
-            "mediator",
+            "you_meditator",
             "sweet",
             "you_blind",
             "they_blind"
@@ -1580,12 +1608,12 @@
             "y_c!! Ah- erm- uh- I'm not- I'm not upset-",
             "Mmmnmnnnn- Fine, you caught me... I just... I didn't wanna worry you...",
             "See... r_c said something that I really... really don't agree with, you know? And I don't know how to tell them... every time I go to, it feels like the words die in my throat, and I wonder if I'm the one in the wrong.",
-            "... Can you help me, please? It um.. It really hurt my feelings, and I don't wanna be rude at all... but I need to tell {PRONOUN/r_c/object}."
+            "... Can you help me, please? It um.. It really hurt my feelings, and I don't wanna be rude at all... But I need to tell {PRONOUN/r_c/object}."
         ]
     ],
     "sweet_apprentice_19": [
         [
-            "queen",
+            "you_queen",
             "sweet",
             "you_blind",
             "they_blind"
@@ -1597,31 +1625,31 @@
     ],
     "sweet_apprentice_20": [
         [
-            "deputy",
+            "you_deputy",
             "sweet",
             "you_blind"
         ],
         [
-            "y_c!! You looked so cool at the gathering!! The way you stopped the fight between the o_cClan warrior and r_w was so amazing! I wish it never had happened in the first place though...",
-            "I know everyone was pretty spooked after what happened though... Are you feeling okay after it? I'd be happy to hunt for you if not!",
+            "y_c!! You looked so cool at the gathering!! The way you stopped the fight between the o_c_n warrior and r_w was so amazing! I wish it never had happened in the first place though...",
+            "I know everycat was pretty spooked after what happened though... Are you feeling okay after it? I'd be happy to hunt for you if not!",
             "Oh right- I have training today- uhmmm- I'll do it for you after training!! Hehe, oops."
         ]
     ],
     "sweet_apprentice_21": [
         [
-            "deputy",
+            "you_deputy",
             "sweet",
             "you_blind",
             "they_blind"
         ],
         [
             "Hey y_c! I've got a test coming up, do you have any advice...?",
-            "I know I'm not particularly competitive or anything but... I just really wanna make everyone proud, you know? And I gotta do my best to do that!"
+            "I know I'm not particularly competitive or anything but... I just really wanna make everycat proud, you know? And I gotta do my best to do that!"
         ]
     ],
     "sweet_apprentice_22": [
         [
-            "deputy",
+            "you_deputy",
             "sweet",
             "you_blind",
             "they_blind"
@@ -1633,9 +1661,10 @@
     ],
     "sweet_apprentice_23": [
         [
-            "leader",
+            "you_leader",
             "sweet",
-            "they_blind"
+            "they_blind",
+            "they_apprentice"
         ],
         [
             "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/seem/seems} distracted, weaving flowers and sticks in your den whilst humming.]",
@@ -1646,43 +1675,44 @@
     ],
     "sweet_apprentice_24": [
         [
-            "leader",
+            "you_leader",
             "sweet",
             "you_blind",
             "they_blind"
         ],
         [
             "Oh, you're back from the gathering, hi y_c! How was it, there wasn't anything serious, right?",
-            "Do you know how o_cClan's doing? Me and some of the other apprentices saw one of their apprentices and they seemed to be really struggling, I hope they're doing okay."
+            "Do you know how o_c_n's doing? Me and some of the other apprentices saw one of their apprentices and they seemed to be really struggling, I hope they're doing okay."
         ]
     ],
     "sweet_apprentice_25": [
         [
-            "leader",
+            "you_leader",
             "sweet",
             "you_blind",
             "they_blind"
         ],
         [
             "Hey, y_c... I know it's a sudden question, but do you think I'd ever be a good deputy or a good leader?",
-            "I know I'm just an apprentice... and I've never been particularly ambitious... but...",
+            "I know I'm just an apprentice... and I've never been particularly ambitious... But...",
             "I keep being told that I'm soft-hearted, and shouldn't even be a warrior. Would anyone even respect me? You're a leader, you know what it takes, do you think I could ever... maybe...?"
         ]
     ],
     "sweet_apprentice_26": [
         [
-            "elder",
-            "sweet"
+            "you_elder",
+            "sweet",
+            "they_apprentice"
         ],
         [
-            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/bound/bounds} into the elder's den, {PRONOUN/t_c/poss} eyes bright with excitement]",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/bound/bounds} into the elder's den, {PRONOUN/t_c/poss} eyes bright with excitement.]",
             "y_c!! y_c!! I got tick duty today! I'm so happy. Do you need your nest changed, or should I do that after this?",
             "Ticks and storytime is always the best... Ah- would you like anything to eat? You can think of a story whilst I go and get it!"
         ]
     ],
     "sweet_apprentice_27": [
         [
-            "elder",
+            "you_elder",
             "sweet",
             "you_blind",
             "they_blind"
@@ -1690,19 +1720,19 @@
         [
             "Hey y_c? What was it like when you were my age?",
             "Were you... also scared of not being good enough? ... Did you ever... find out... how to get rid of those worries?",
-            "I wish I could be as wise as you are, maybe then I'd know what to do... thank you for listening to me, though. I just wanna be the best for the Clan, but I don't think I'm quite there yet."
+            "I wish I could be as wise as you are, maybe then I'd know what to do... Thank you for listening to me, though. I just wanna be the best for the Clan, but I don't think I'm quite there yet."
         ]
     ],
     "sweet_apprentice_28": [
         [
-            "elder",
+            "you_elder",
             "sweet",
             "you_blind",
             "they_blind"
         ],
         [
             "y_c, come outside and look! There are so many stars out! Didn't you mention something like this in one of your stories?",
-            "I wonder if it's StarClan, smiling down at us? If it is... then I'm glad I'm someone that they're proud of! And I'm sure they're proud of you too!"
+            "I wonder if it's StarClan, smiling down at us? If it is... Then I'm glad I'm someone that they're proud of! And I'm sure they're proud of you too!"
         ]
     ],
     "silly_app_mean": [
@@ -1717,7 +1747,7 @@
             "Like, they stuck their tongue out at me when my mentor had to pick them up for training yesterday because theirs was sick.",
             "And they told me my choice of favorite prey was stupid! And I know I can't tell anycat I know because they'll call me a tattle-tail. Seriously, do they WANT to see my villain arc?",
             "Huuuuurgh. Deep breaths, t_c. Maybe it's because, uh, no... I don't know why they're taunting me, what could I have possibly done to them?",
-            "Well... can you PLEASE confront them about it? Tell them... uh... they have to close their eyes during my warrior ceremony."
+            "Well... can you PLEASE confront them about it? Tell them... uh... They have to close their eyes during my warrior ceremony."
         ]
     ],
     "silly_app_philosopher": [
@@ -1734,7 +1764,7 @@
             "I wanted to put a frog pet in {PRONOUN/plike_r_c/poss} den, since I love looking for cool frogs, but couldn't find one {PRONOUN/plike_r_c/subject} would like.",
             "Then, I tried looking for flowers to give {PRONOUN/plike_r_c/object}, but apparently the ones I found were called foxgloves, and they're really dangerous.",
             "PLEASE tell me if you think of something! I think I've thought so hard about this I could probably consider myself a, uh... what are the thinky cats called again? I know there's a name, come on...",
-            "...Like the ones who come up with really big ideas that fundamentally change how their Clan operates? Like that one cat from o_cClan? Please? It's a real thing, it's on the tip of my jaw, I swear!"
+            "...Like the ones who come up with really big ideas that fundamentally change how their Clan operates? Like that one cat from o_c_n? Please? It's a real thing, it's on the tip of my jaw, I swear!"
         ]
     ],
     "silly_app_hysterical": [
@@ -1784,7 +1814,7 @@
     ],
     "broodingapp_toqueenapp": [
         [
-            "queen's_apprentice",
+            "you_queen's_apprentice",
             "brooding",
             "platonic_love",
             "you_blind",
@@ -1793,7 +1823,7 @@
         [
             "Hmph. Hi, y_c ...",
             "... What's that? You think I've been acting cold towards you lately?",
-            "Heh. I'm that way to everyone. If you haven't noticed ...",
+            "Heh. I'm that way to everycat. If you haven't noticed ...",
             "... But, no. I'm totally proud of you for choosing to become a queen.",
             "Totally not resentful, or anything. Totally don't feel betrayed because I thought we'd be training together. Totally not jealous of all your new friends. Nope, none of that here ...",
             "*Sigh* ... I guess I just ... miss waking up in the same den as you, is all.",
@@ -1803,7 +1833,7 @@
     ],
     "broodingapp_toqueenapp14": [
         [
-            "mediator_apprentice",
+            "you_mediator_apprentice",
             "brooding",
             "platonic_love",
             "you_blind",
@@ -1812,7 +1842,7 @@
         [
             "Hmph. Hi, y_c ...",
             "... What's that? You think I've been acting cold towards you lately?",
-            "Heh. I'm that way to everyone. If you haven't noticed ...",
+            "Heh. I'm that way to everycat. If you haven't noticed ...",
             "... But, no. I'm totally proud of you for choosing to become a mediator.",
             "Totally not resentful, or anything. Totally don't feel betrayed because I thought we'd be training together. Totally not jealous of all your new friends. Nope, none of that here ...",
             "*Sigh* ... I guess I just ... miss waking up in the same den as you, is all.",
@@ -1822,7 +1852,7 @@
     ],
     "broodingapp_tomedapp": [
         [
-            "medicine_cat_apprentice",
+            "you_medicine_cat_apprentice",
             "brooding",
             "you_blind",
             "they_blind"
@@ -1830,7 +1860,7 @@
         [
             "Hmph. Hi, y_c ...",
             "... What's that? You think I've been acting cold towards you lately?",
-            "Heh. I'm that way to everyone. If you haven't noticed ...",
+            "Heh. I'm that way to everycat. If you haven't noticed ...",
             "... But, no. I'm totally proud of you for choosing to become a medicine cat.",
             "Totally not resentful, or anything. Totally don't feel betrayed because I thought we'd be training together. Totally not jealous of all your new friends. Nope, none of that here ...",
             "*Sigh*... I guess I just ... miss waking up in the same den as you, is all.",
@@ -1855,7 +1885,7 @@
     ],
     "broodingapp_toapp1": [
         [
-            "apprentice",
+            "you_apprentice",
             "brooding",
             "you_blind",
             "they_blind"
@@ -1864,12 +1894,12 @@
             "Hm? What's that?",
             "You want to know if we can train together?",
             "... I work best alone.",
-            "But ... thank you for asking."
+            "But ... Thank you for asking."
         ]
     ],
     "broodingapp_toapp": [
         [
-            "apprentice",
+            "you_apprentice",
             "brooding",
             "platonic_like",
             "romantic_like",
@@ -1896,13 +1926,13 @@
         [
             "My mouse-brained mentor ... always trying to get me to 'participate more' in training and 'work together' with my Clanmates ...",
             "Working together is for the weak! If you want something done right, you have to get it done yourself. Clearly, tm_n is too stupid to see it, though!",
-            "I'll show them I can do everything myself ... that I don't need anybody ...",
+            "I'll show them I can do everything myself ... That I don't need anybody ...",
             "... Have you been standing there this whole time?"
         ]
     ],
     "broodingapp_toapp3": [
         [
-            "apprentice",
+            "you_apprentice",
             "brooding",
             "you_loving",
             "you_cool",
@@ -1924,7 +1954,7 @@
     ],
     "broodingapp_toapp41": [
         [
-            "apprentice",
+            "you_apprentice",
             "brooding",
             "you_blind",
             "they_blind",
@@ -1967,10 +1997,10 @@
     ],
     "broodingapp_toapp5": [
         [
-            "apprentice",
-            "medicine_cat_apprentice",
-            "mediator_apprentice",
-            "queen's_apprentice",
+            "you_apprentice",
+            "you_medicine_cat_apprentice",
+            "you_mediator_apprentice",
+            "you_queen's_apprentice",
             "brooding",
             "platonic_like",
             "romantic_like",
@@ -2072,7 +2102,7 @@
     ],
     "upstanding_apprentice1": [
         [
-            "apprentice",
+            "you_apprentice",
             "upstanding",
             "platonic_like",
             "trust",
@@ -2080,7 +2110,7 @@
             "they_blind"
         ],
         [
-            "Hey! Where are you off to in such a hurry? There's tons of stuff that we gotta get done in camp you know. We can't afford to have every cat running off just 'cause they don't feel like helping out.",
+            "Hey! Where are you off to in such a hurry? There's tons of stuff that we gotta get done in camp you know. We can't afford to have everycat running off just 'cause they don't feel like helping out.",
             "Oh please, you can go hunting later. Right now, we need all the paws we can get. Does d_n even know about this?",
             "Well... I guess a few extra pieces of prey wouldn't be all that bad, and technically extra prey could help spare a few cats from patrols...",
             "... fine, but keep it short. If I feel like you're taking your sweet time to get out of a little bit of work, don't expect me to keep my mouth shut."
@@ -2089,10 +2119,10 @@
     "upstanding_apprentice2": [
         [
             "upstanding",
-            "apprentice",
-            "medicine_cat_apprentice",
-            "mediator_apprentice",
-            "queen's_apprentice",
+            "you_apprentice",
+            "you_medicine_cat_apprentice",
+            "you_mediator_apprentice",
+            "you_queen's_apprentice",
             "they_hearing",
             "you_blind",
             "they_blind"
@@ -2107,26 +2137,26 @@
     "upstanding_apprentice3": [
         [
             "upstanding",
-            "apprentice",
+            "you_apprentice",
             "you_blind"
         ],
         [
             "Hey, why the grumpy face? It looks like someone just stole your prey right from right under your nose with that frown.",
             "Seriously? You're moping around camp like the world is about to end because you were chosen for dawn patrol?",
-            "Cmon, at least act like you're happy to help out the Clan! You're doing everyone a big favor you know. And trust me, I think you and me both have a lot more dawn patrols coming if we want to make it to warriors!"
+            "Cmon, at least act like you're happy to help out the Clan! You're doing everycat a big favor you know. And trust me, I think you and me both have a lot more dawn patrols coming if we want to make it to warriors!"
         ]
     ],
     "upstanding_apprentice4": [
         [
             "upstanding",
-            "medicine_cat_apprentice",
+            "you_medicine_cat_apprentice",
             "platonic_like",
             "you_blind",
             "they_blind"
         ],
         [
             "Hey there! I just had the BEST idea, and I need a teeny tiny favor from you.",
-            "So, you know how you're always helping out everyone? Healing them and all that?",
+            "So, you know how you're always helping out everycat? Healing them and all that?",
             "Well, I thought that you could maybe teach me a few things! Just basic remedies and stuff like that, nothing too advanced.",
             "Look, I know we're both busy with training, but just think about it. I'd be able to help around camp so much more, and you would be way less busy! It's a win-win situation."
         ]
@@ -2134,7 +2164,7 @@
     "upstanding_apprentice5": [
         [
             "upstanding",
-            "apprentice",
+            "you_apprentice",
             "no_kit",
             "you_blind",
             "they_blind"
@@ -2166,7 +2196,7 @@
     "upstanding_apprentice7": [
         [
             "upstanding",
-            "apprentice",
+            "you_apprentice",
             "dislike",
             "you_blind",
             "they_blind"
@@ -2184,7 +2214,7 @@
             "upstanding",
             "platonic_like",
             "romantic_like",
-            "apprentice",
+            "you_apprentice",
             "they_hearing",
             "you_blind",
             "they_blind"
@@ -2206,7 +2236,7 @@
         [
             "[t_c is standing next to a pile of large stones, glaring up at the sky.]",
             "Stupid sea birds, thinking they can steal all of our... oh, y_c. Quick, do you see those seagulls over there? The ones sitting up in that tree?",
-            "Well, for the last few days, those seagulls have been stealing prey right out from under our noses! Fish? Gone! Land prey? Snatched! I'm getting sick and tired of it, and I'm sure everyone else in the Clan is as well.",
+            "Well, for the last few days, those seagulls have been stealing prey right out from under our noses! Fish? Gone! Land prey? Snatched! I'm getting sick and tired of it, and I'm sure everycat else in the Clan is as well.",
             "So, naturally, I came up with the super great idea of building a little ledge that we can sit the fresh-kill pile under! That way, the seagulls won't be able to get any!",
             "It is taking a while though, getting all of these stones up from the beach took me from dawn to sunhigh... do you think you would be able to help out? Two sets of paws are much faster than one after all!"
         ]
@@ -2282,7 +2312,7 @@
     ],
     "stable_apprentice_5": [
         [
-            "newborn",
+            "you_newborn",
             "stable"
         ],
         [
@@ -2295,7 +2325,7 @@
     ],
     "stable_apprentice_6": [
         [
-            "newborn",
+            "you_newborn",
             "stable",
             "sibling",
             "half sibling",
@@ -2303,13 +2333,13 @@
         ],
         [
             "Hello little one.",
-            "[{PRONOUN/t_c/subject} {VERB/t_c/pad/pads} into the nursery and {VERB/t_c/sit/sits} {PRONOUN/t_c/self} next to you, eyes glittering with love.]",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/pad/pads} into the nursery and {VERB/t_c/sit/sits} {PRONOUN/t_c/self} next to you, eyes glittering with love.]",
             "You're so cute, welcome to the world! Allow me to be the first to introduce myself. Hello, I'm your older {PRONOUN/t_c/sibling}, t_c! Remember, you can always count on me, y_c."
         ]
     ],
     "stable_apprentice_7": [
         [
-            "newborn",
+            "you_newborn",
             "stable",
             "sibling",
             "half sibling",
@@ -2326,7 +2356,7 @@
     ],
     "stable_apprentice_8": [
         [
-            "kitten",
+            "you_kitten",
             "stable",
             "you_blind",
             "they_blind"
@@ -2338,7 +2368,7 @@
     ],
     "stable_apprentice_9": [
         [
-            "kitten",
+            "you_kitten",
             "stable"
         ],
         [
@@ -2350,19 +2380,19 @@
     ],
     "stable_apprentice_10": [
         [
-            "apprentice",
+            "you_apprentice",
             "stable"
         ],
         [
-            "Sorry, I have to make this quick, but I wanted to drop by and say the way you and m_n handled that dispute at the o_cClan border was well done, I was very impressed.",
+            "Sorry, I have to make this quick, but I wanted to drop by and say the way you and m_n handled that dispute at the o_c_n border was well done, I was very impressed.",
             "Just watching the way you spoke and controlled the situation, at this rate, you'll be a warrior in no time! Oh-",
-            "[t_c looks back to see {PRONOUN/t_c/poss} mentor near the entrance gesturing for {PRONOUN/t_c/object} to go and train. t_c looks back at you and smiles]",
+            "[t_c looks back to see {PRONOUN/t_c/poss} mentor near the entrance gesturing for {PRONOUN/t_c/object} to go and train. t_c looks back at you and smiles.]",
             "See you later, y_c. Keep up the good work."
         ]
     ],
     "stable_apprentice_11": [
         [
-            "apprentice",
+            "you_apprentice",
             "stable",
             "you_blind"
         ],
@@ -2374,19 +2404,19 @@
     ],
     "stable_apprentice_12": [
         [
-            "mediator_apprentice",
+            "you_mediator_apprentice",
             "stable"
         ],
         [
-            "Sorry I have to make this quick, but I wanted to drop by and say the way you and m_n handled that dispute at the o_cClan border was well done, I was very impressed.",
+            "Sorry I have to make this quick, but I wanted to drop by and say the way you and m_n handled that dispute at the o_c_n border was well done, I was very impressed.",
             "Just watching the way you spoke and controlled the situation, at this rate, you'll be a mediator in no time! Oh-",
-            "[t_c looks back to see {PRONOUN/t_c/poss} mentor tm_n near the entrance gesturing for {PRONOUN/t_c/object} to go and train, t_c looks back at you and smiles]",
+            "[t_c looks back to see {PRONOUN/t_c/poss} mentor tm_n near the entrance gesturing for {PRONOUN/t_c/object} to go and train, t_c looks back at you and smiles.]",
             "See you later, y_c. Keep up the good work."
         ]
     ],
     "stable_apprentice_13": [
         [
-            "apprentice",
+            "you_apprentice",
             "stable",
             "you_blind",
             "they_blind"
@@ -2397,7 +2427,7 @@
     ],
     "stable_apprentice_14": [
         [
-            "medicine_cat_apprentice",
+            "you_medicine_cat_apprentice",
             "stable"
         ],
         [
@@ -2408,7 +2438,7 @@
     ],
     "stable_apprentice_15": [
         [
-            "medicine_cat_apprentice",
+            "you_medicine_cat_apprentice",
             "stable",
             "you_blind",
             "they_blind"
@@ -2417,14 +2447,14 @@
             "y_c, I hope you understand just how important you are to the Clan. A medicine cat apprentice, that's even more work then all us warrior apprentices combined.",
             "Not only do you need to learn all of these herbs, learn to communicate with our ancestors, stick strong to your morals and have a clear mind even in the worst situations.",
             "You also need to be accepting of the hardships it brings...",
-            "I don't know how you do it. I don't know how you avoid panicking. How you're able to stay calm when everyone else around you isn't. I wish I were as strong as you.",
+            "I don't know how you do it. I don't know how you avoid panicking. How you're able to stay calm when everycat else around you isn't. I wish I were as strong as you.",
             "[You rest your paw on {PRONOUN/t_c/poss} shoulder and give {PRONOUN/t_c/object} words of encouragement, reminding {PRONOUN/t_c/object} that {PRONOUN/t_c/poss} future as a warrior is just as important.]",
             "[That without {PRONOUN/t_c/poss} skills of hunting, fighting and speaking, the Clan wouldn't be a place of safety and security. {PRONOUN/t_c/poss/CAP} ears lift at the sound of your words, a small smile on {PRONOUN/t_c/poss} face.]"
         ]
     ],
     "stable_apprentice_16": [
         [
-            "medicine_cat_apprentice",
+            "you_medicine_cat_apprentice",
             "stable",
             "you_blind",
             "they_blind"
@@ -2450,7 +2480,7 @@
     ],
     "stable_apprentice_18": [
         [
-            "medicine_cat_apprentice",
+            "you_medicine_cat_apprentice",
             "stable",
             "they_blind"
         ],
@@ -2465,7 +2495,7 @@
     ],
     "stable_apprentice_19": [
         [
-            "medicine_cat_apprentice",
+            "you_medicine_cat_apprentice",
             "stable",
             "you_blind",
             "they_blind"
@@ -2476,7 +2506,7 @@
     ],
     "stable_apprentice_20": [
         [
-            "mediator_apprentice",
+            "you_mediator_apprentice",
             "stable",
             "you_blind",
             "they_blind"
@@ -2490,7 +2520,7 @@
     ],
     "stable_apprentice_21": [
         [
-            "mediator_apprentice",
+            "you_mediator_apprentice",
             "stable",
             "you_blind"
         ],
@@ -2501,7 +2531,7 @@
     ],
     "stable_apprentice_22": [
         [
-            "mediator_apprentice",
+            "you_mediator_apprentice",
             "stable",
             "you_blind",
             "they_blind"
@@ -2518,7 +2548,7 @@
     ],
     "stable_apprentice_23": [
         [
-            "queen's_apprentice",
+            "you_queen's_apprentice",
             "stable",
             "you_blind",
             "they_blind"
@@ -2529,7 +2559,7 @@
     ],
     "stable_apprentice_24": [
         [
-            "queen's_apprentice",
+            "you_queen's_apprentice",
             "stable"
         ],
         [
@@ -2543,7 +2573,7 @@
     ],
     "stable_apprentice_25": [
         [
-            "queen's_apprentice",
+            "you_queen's_apprentice",
             "stable",
             "you_blind",
             "they_blind"
@@ -2556,7 +2586,7 @@
     ],
     "stable_apprentice_26": [
         [
-            "medicine_cat",
+            "you_medicine_cat",
             "stable"
         ],
         [
@@ -2571,7 +2601,7 @@
     ],
     "stable_apprentice_27": [
         [
-            "medicine_cat",
+            "you_medicine_cat",
             "stable"
         ],
         [
@@ -2584,7 +2614,7 @@
     ],
     "stable_apprentice_28": [
         [
-            "medicine_cat",
+            "you_medicine_cat",
             "stable"
         ],
         [
@@ -2597,7 +2627,7 @@
     ],
     "stable_apprentice_29": [
         [
-            "queen",
+            "you_queen",
             "stable",
             "they_blind"
         ],
@@ -2610,7 +2640,7 @@
     ],
     "stable_apprentice_30": [
         [
-            "queen",
+            "you_queen",
             "stable"
         ],
         [
@@ -2623,20 +2653,20 @@
             "Enjoy yourself, now!",
             "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/turn/turns} to face the kittens who watch {PRONOUN/t_c/object} with beady black eyes.]",
             "Who wants to play hide and seek within the camp? I'll seek!",
-            "[{PRONOUN/t_c/subject}{VERB/t_c/toss/tosses} {PRONOUN/t_c/poss} paws over {PRONOUN/t_c/poss} eyes.]",
+            "[{PRONOUN/t_c/subject/CAP}{VERB/t_c/toss/tosses} {PRONOUN/t_c/poss} paws over {PRONOUN/t_c/poss} eyes.]",
             "1, 2, 3- ",
             "[The kits squeal and run off to hide.]"
         ]
     ],
     "stable_apprentice_31": [
         [
-            "mediator",
+            "you_meditator",
             "stable",
             "you_blind",
             "they_blind"
         ],
         [
-            "Gah! You have no idea how much I- dislike o_cClan, I mean, just who do they think they are? The hunting ground in the west belongs to c_nClan, not their stinky hides.",
+            "Gah! You have no idea how much I- dislike o_c_n, I mean, just who do they think they are? The hunting ground in the west belongs to c_nClan, not their stinky hides.",
             "[You frown. Yes, you're aware that the discussion with the opposing Clan led to this... Unfortunately, when you approached the Clan and their mediator, it didn't go too smoothly...]",
             "[You agree with t_c, the land rightfully belongs to c_nClan, not them.]",
             "I'm sorry, y_c, I didn't mean to make you mad or upset, it just gets on my nerves. But I trust that my Clanmates will be able to stand up for what we believe in.",
@@ -2645,7 +2675,7 @@
     ],
     "stable_apprentice_32": [
         [
-            "mediator",
+            "you_meditator",
             "stable"
         ],
         [
@@ -2653,7 +2683,7 @@
             "[You may be a mediator, but you know the territory well, probably better than most. Yet this was a good chance for t_c to test {PRONOUN/t_c/poss} knowledge. As of so far, {PRONOUN/t_c/subject} {VERB/t_c/were/was} doing well.]",
             "[The territory is vast and beautiful, a sense of pride swells deep in your chest. t_c trots forwards, {PRONOUN/t_c/poss} head held high with twitching whiskers. {PRONOUN/t_c/subject/CAP} {VERB/t_c/turn/turns} to you.]",
             "y_c thanks for coming with me, I was worried I wouldn't be able to go out today.",
-            "It's good practice, navigating the land and its structure. I'm pretty sure we're close to o_cClan territory. Yeah, we definitely are, there's the border.",
+            "It's good practice, navigating the land and its structure. I'm pretty sure we're close to o_c_n territory. Yeah, we definitely are, there's the border.",
             "[You both press forward, only to stop part way- a stench is in the air, there's a cat not from your Clan... Here, and they're close...]",
             "y_c wait, someone's here. [You freeze and watch as two opposing warriors stalk along the edge of the border, just nearly crossing over the territory, t_c begins to hiss. You study them, you blink a couple of times before you begin to smile.]",
             "[You know these cats! You meow a greeting, they immediately begin to relax as they recognise you.]",
@@ -2664,20 +2694,20 @@
     ],
     "stable_apprentice_33": [
         [
-            "deputy",
+            "you_deputy",
             "stable",
             "they_blind"
         ],
         [
             "Good morning, y_c, how are you today? Oh- you wanted to speak with me? What about?",
-            "[You ask t_c about the recent Gathering, how you saw {PRONOUN/t_c/object} talking with a random o_cClan apprentice. You describe the two seemed close, and you ask {PRONOUN/t_c/object} what's going on between them.]",
+            "[You ask t_c about the recent Gathering, how you saw {PRONOUN/t_c/object} talking with a random o_c_n apprentice. You describe the two seemed close, and you ask {PRONOUN/t_c/object} what's going on between them.]",
             "We're friends, pretty good friends. I like to see how they're doing every once and a while. Not to worry, they're not a threat to c_nClan.",
             "Even as an apprentice, I know where my loyalties lie and I will never put this Clan and my Clanmates at risk."
         ]
     ],
     "stable_apprentice_34": [
         [
-            "deputy",
+            "you_deputy",
             "stable",
             "you_blind",
             "they_blind"
@@ -2692,7 +2722,7 @@
     ],
     "stable_apprentice_35": [
         [
-            "leader",
+            "you_leader",
             "stable",
             "you_blind",
             "they_blind"
@@ -2705,7 +2735,7 @@
             "Ok! I'll see you soon, just call me when you're ready."
         ]
     ],
-    "bloodthirsty_pos": [
+    "bloodthirsty_pos_Rr": [
         [
             "Any",
             "platonic_love",
@@ -2716,42 +2746,42 @@
         ],
         [
             "Hey, y_c. You want to see this scar I got? It's new.",
-            "It happened during a training session. I was practicing my battle moves, and I guess I got carried away ...",
-            "Everyone tells me I take things too far. In reality, I don't think I take things far enough.",
-            "I'm going to be the strongest warrior this Clan has ever seen. Stronger than the strongest. I just have to figure out what I'm really capable of ..."
+            "It happened during a training session. I was practicing my battle moves, and I guess I got carried away...",
+            "Sometimes everycat assumes I'm vicious and I might hurt them, but I would never! Ever!",
+            "It's just that I'm going to be the strongest warrior this Clan has ever seen. Stronger than the strongest. I just have to figure out what I'm really capable of ..."
         ]
     ],
-    "bloodthirsty_pos1": [
+    "assertive_pos1_Rr": [
         [
-            "apprentice",
-            "warrior",
+            "you_apprentice",
+            "you_warrior",
             "platonic_like",
             "brooding",
-            "competitive",
+            "assertive",
             "you_blind",
             "they_blind"
         ],
         [
             "Hey, y_c. Wanna spar?",
             "What's that? You're exhausted from yesterday's training?",
-            "... Hmph. Fine. Have it your way."
+            "Hmph. Better get some rest then."
         ]
     ],
-    "bloodthirsty_rom": [
+    "bloodthirsty_rom_Rr": [
         [
-            "apprentice",
-            "warrior",
+            "you_apprentice",
+            "you_warrior",
             "romantic_like",
-            "brooding"
+            "bloodthirsty"
         ],
         [
             "Hey. I saw you practicing your fighting techniques earlier.",
             "They looked pretty good, but they could be better.",
-            "Your form is sloppy, unpracticed. It needs work. If you wanted, maybe I could ... show you sometime?",
+            "Your form is sloppy, unpracticed. It needs work. If you wanted, I could definitely show you how to fix it sometime.If you want.",
             "[If you didn't know any better, you'd think that t_c was blushing.]"
         ]
     ],
-    "bloodthirsty_love": [
+    "bloodthirsty_love_Rr": [
         [
             "Any",
             "platonic_like",
@@ -2761,10 +2791,11 @@
         ],
         [
             "Hey. I know this is your favorite prey, so I caught it for you. I hope you like it.",
-            "Don't mind the gore. I might've gotten a little carried away when bringing it down, but at least the good bits are mostly intact."
+            "[You notice that it's a remarkably clean kill, which t_c isn't known for.]",
+            "I wanted it to be perfect for you."
         ]
     ],
-    "bloodthirsty_kit": [
+    "bloodthirsty_kit_Rr": [
         [
             "Any",
             "from_your_kit",
@@ -2780,7 +2811,7 @@
             "Don't tell me you're afraid of your own kit!"
         ]
     ],
-    "bloodthirsty_kit1": [
+    "bloodthirsty_kit1_Rr": [
         [
             "Any",
             "from_your_kit",
@@ -2795,7 +2826,7 @@
     ],
     "neurotic_app1": [
         [
-            "apprentice",
+            "you_apprentice",
             "neurotic",
             "you_blind",
             "they_blind"
@@ -2819,7 +2850,7 @@
             "Why was I talking to myself ...?",
             "*Sigh* It's, like, the dumbest thing ever. tm_n gave me this surprise assessment today, and I totally flunked it!",
             "How could I have answered that the best way to catch a fish is by swimming up to it? It doesn't even make any sense!",
-            "I just know that tm_n is still laughing at me ... the whole Clan probably is.",
+            "I just know that tm_n is still laughing at me ... The whole Clan probably is.",
             "[You tell t_c not to be so hard on {PRONOUN/t_c/self}.]",
             "But, if I'm not hard on myself, then how will I ever become stronger?",
             "I refuse to be an embarrassment to my Clan and mentor. I'll pass that assessment next time ... Whatever it takes!"
@@ -2827,10 +2858,10 @@
     ],
     "neurotic_app3": [
         [
-            "apprentice",
-            "warrior",
-            "deputy",
-            "leader",
+            "you_apprentice",
+            "you_warrior",
+            "you_deputy",
+            "you_leader",
             "neurotic",
             "trust",
             "you_blind",
@@ -2847,7 +2878,7 @@
     "upstanding_apprentice11": [
         [
             "upstanding",
-            "apprentice",
+            "you_apprentice",
             "you_blind",
             "they_blind"
         ],
@@ -2859,8 +2890,8 @@
     "upstanding_apprentice12": [
         [
             "upstanding",
-            "mediator",
-            "mediator_apprentice",
+            "you_meditator",
+            "you_mediator_apprentice",
             "they_blind"
         ],
         [
@@ -2873,7 +2904,7 @@
         [
             "upstanding",
             "from_your_apprentice",
-            "warrior",
+            "you_warrior",
             "they_hearing",
             "you_blind",
             "they_blind"
@@ -2887,7 +2918,7 @@
     "upstanding_apprentice14": [
         [
             "upstanding",
-            "deputy",
+            "you_deputy",
             "platonic_like",
             "you_blind",
             "they_blind"
@@ -2901,7 +2932,7 @@
     "upstanding_apprentice15": [
         [
             "upstanding",
-            "leader",
+            "you_leader",
             "platonic_like",
             "you_blind",
             "they_blind"
@@ -2915,8 +2946,8 @@
     "upstanding_apprentice16": [
         [
             "upstanding",
-            "medicine_cat",
-            "medicine_cat_apprentice",
+            "you_medicine_cat",
+            "you_medicine_cat_apprentice",
             "leafbare",
             "they_blind"
         ],
@@ -2931,7 +2962,7 @@
     "cool_newborn": [
         [
             "cool",
-            "newborn",
+            "you_newborn",
             "you_blind",
             "they_blind"
         ],
@@ -2947,7 +2978,7 @@
         [
             "[In the middle of a sparring session, t_c instinctively hides {PRONOUN/t_c/poss} face behind {PRONOUN/t_c/poss} paws.]",
             "Gah! Not my beautiful face!",
-            "[In the end, t_c's face comes out untouched ... though, the maneuver did leave many of {PRONOUN/t_c/poss} vital organs unprotected.]",
+            "[In the end, t_c's face comes out untouched ... Though, the maneuver did leave many of {PRONOUN/t_c/poss} vital organs unprotected.]",
             "[Seems {PRONOUN/t_c/subject} {VERB/t_c/don't/doesn't} exactly have {PRONOUN/t_c/poss} priorities in order.]"
         ]
     ],
@@ -2956,7 +2987,7 @@
             "strange",
             "you_df",
             "they_df",
-            "apprentice"
+            "you_apprentice"
         ],
         [
             "Hey, y_c, do you wanna sneak out? You know, to the border.",
@@ -2974,9 +3005,9 @@
             "you_dftrainee",
             "any",
             "they_app",
-            "apprentice",
-            "mediator_apprentice",
-            "queen's_apprentice",
+            "you_apprentice",
+            "you_mediator_apprentice",
+            "you_queen's_apprentice",
             "you_blind",
             "they_blind"
         ],
@@ -3032,7 +3063,7 @@
     ],
     "trainee_living_6c": [
         [
-            "apprentice",
+            "you_apprentice",
             "they_app",
             "you_dftrainee",
             "you_blind",
@@ -3175,9 +3206,9 @@
         [
             "[Under m_n's oversight, you and t_c are practicing a simple battle technique where you dodge out of the way of an attack, and then lunge forward while your opponent is following through with their failed blow.]",
             "[t_c springs out of the way of your swipes, but when it comes time for a counterattack, {PRONOUN/t_c/subject} {VERB/t_c/remain/remains} at least a tail-length away, batting at empty air.]",
-            "[You remind t_c that the goal is to hit {PRONOUN/t_c/poss} opponent. m_n points out that everyone's claws are sheathed, so no one is going to get hurt.]",
+            "[You remind t_c that the goal is to hit {PRONOUN/t_c/poss} opponent. m_n points out that everycat's claws are sheathed, so no one is going to get hurt.]",
             "R-right! I've got it!",
-            "[t_c nods, {PRONOUN/t_c/poss} fur fluffing at the attention, but when you resume the drill, {PRONOUN/t_c/poss}attacks haven't gotten any closer.]",
+            "[t_c nods, {PRONOUN/t_c/poss} fur fluffing at the attention, but when you resume the drill, {PRONOUN/t_c/poss} attacks haven't gotten any closer.]",
             "[{PRONOUN/t_c/subject/CAP}'ll get it eventually, right?]"
         ]
     ],
@@ -3244,22 +3275,6 @@
             "[t_c shakily stands from {PRONOUN/t_c/poss} nest, having some difficulty. Yet, t_c keeps a big smile on {PRONOUN/t_c/poss} face to avoid worrying you.]",
             "Yeah! What do you wanna play? Moss ball? Or maybe splash in the river nearby? I'm sure r_m wouldn't mind if I go out for a little bit.",
             "What? No, no I'm fine! I swear! Don't worry about me- I want to play too."
-        ]
-    ],
-    "Introspective_trust_H2": [
-        [
-            "they_introspective",
-            "they_kitten",
-            "they_app",
-            "trust",
-            "non-related",
-            "platonic_like",
-            "you_mediator"
-        ],
-        [
-            "[t_c pads up to you with hesitance in {PRONOUN/t_c/poss} step but determination on {PRONOUN/t_c/poss} face.]",
-            "I need you to fix my relationship with t_p_negative, please.",
-            "And- and only you! I don't want r_d to do it. I trust you more."
         ]
     ],
     "youdeaf_R18": [
@@ -3362,7 +3377,7 @@
             "tm_n took me to that place on the mountainside with a lot of loose stones, to practice hunting? {PRONOUN/tm_n/subject/CAP} said prey likes to live in the spaces between the rocks.",
             "It went okay at first, but then a bird of some kind gave an alarm call, and I got startled.",
             "I slipped on some of the loose rock and slid a bit, and that scared me too, and I yowled kind of loud, and I think I scared all the prey away since we couldn't catch anything afterwards...",
-            "I just... don't know why I'm so easily spooked. I want to be useful, not a problem! Just like everyone else."
+            "I just... don't know why I'm so easily spooked. I want to be useful, not a problem! Just like everycat else."
         ]
     ],
     "neurotic_warriorapprentice_SQ8": [
@@ -3447,7 +3462,7 @@
             "they_raspylungs",
             "from_your_apprentice",
             "you_warrior",
-	        "they_blind"
+            "they_blind"
         ],
         [
             "[During some battle training, you knock an unfocussed t_c off {PRONOUN/t_c/poss} paws. {PRONOUN/t_c/subject/CAP} quickly {VERB/t_c/lift/lifts} {PRONOUN/t_c/self} back up, gasping for air. You didn't figure {PRONOUN/t_c/subject}'d fallen far enough to get so badly winded.]",
@@ -3455,6 +3470,1117 @@
             "[You briefly consider that {PRONOUN/t_c/subject} could be making up some excuse, but then recall what r_m has told you about t_c's health. {PRONOUN/t_c/subject/CAP}{VERB/t_c/'re/'s} standing still, gulping for air-- {PRONOUN/t_c/subject} should take it easy. You agree, and apologise for the hit.]",
             "No problem, y_c, and thank you. I'll be better tomorrow, I promise.",
             "[You tell {PRONOUN/t_c/object} it's fine if {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} not, and as {PRONOUN/t_c/subject} slowly {VERB/t_c/walk/walks} back to camp to avoid further strain, you walk with {PRONOUN/t_c/object} and discuss some battle techniques.]"
+        ]
+    ],
+    "they_formerkittypet_sam1~2": [
+        [
+            "they_formerlyakittypet",
+            "no_kit",
+            "they_silly",
+            "they_apprentice",
+            "they_medicine_cat_apprentice",
+            "they_warrior",
+            "they_medicine_cat",
+            "min_platonic_20",
+            "connected"
+        ],
+        [
+            "[t_c has disappeared after going on a solo patrol, and most of the clan is out looking for {PRONOUN/t_c/object}.]",
+            "[Just as d_n was about to send you out on a patrol to go look for {PRONOUN/t_c/object}, {PRONOUN/t_c/subject} {VERB/t_c/burst/bursts} into camp, grinning.]",
+            "Sorry! I probably worried everycat. I'm okay though!",
+            "y_c! y_c! I saw my family!",
+            "Yeah, the cats I were telling you about the other day!",
+            "I'm so glad they're okay. I wonder if d_n would let me go out on patrols to see them sometimes. I could even bring you with me!"
+        ]
+    ],
+    "unabashed_apprentice_SV1": [
+        [
+            "they_apprentice",
+            "they_unabashed",
+            "you_adult",
+            "you_blind",
+            "they_blind"
+        ],
+        [
+            "I can't wait for my assessment!",
+            "I'll show everycat what real skill is, unlike some cats who will just rely on luck...*Cough* r_a."
+        ]
+    ],
+    "unabashed_leaffall_SV1": [
+        [
+            "leaffall",
+            "they_unabashed",
+            "you_apprentice",
+            "you_warrior",
+            "they_warrior",
+            "they_apprentice",
+            "you_blind",
+            "they_blind"
+        ],
+        [
+            "Leaf-bare is coming, and you know what that means...Endless hunting patrols and snow up to our whiskers.",
+            "But, hey, at least it gives us an excuse to cozy up inside and listen to r_e's boring stories all day."
+        ]
+    ],
+    "neurotic_choice_dfpuddle_SQ45~1": [
+        [
+            "no_kit",
+            "they_neurotic",
+            "max_dislike_10",
+            "they_warrior",
+            "they_deputy",
+            "they_apprentice",
+            "they_leader",
+            "you_warrior",
+            "you_apprentice",
+            "you_deputy",
+            "you_leader",
+            "they_dftrainee",
+            "you_dftrainee",
+            "leaffall"
+        ],
+        [
+            "[It hasn't rained in a while, but while on patrol with r_w and t_c, you discover a large patch of mud in the middle of the territory.]",
+            "[It's darker than most mud you're familiar with, and looks stickier, too. It clings to the sticks and grasses around it, leaving black strands that remind you of heavy spiderwebs. It looks almost like...]",
+            "[You meet t_c's eyes across the mud puddle, and {PRONOUN/t_c/poss} expression confirms what you're already thinking: this mud looks like the mud from the Dark Forest.]",
+            "We.... we should go. I really don't like the look of this.",
+            "[t_c darts away without waiting for the rest of the patrol to respond.]"
+        ]
+    ],
+    "neurotic_choice_dfpuddle_SQ45~2": {
+        "tags": [
+            "no_kit",
+            "they_neurotic",
+            "max_dislike_10",
+            "they_warrior",
+            "they_deputy",
+            "they_apprentice",
+            "they_leader",
+            "you_warrior",
+            "you_apprentice",
+            "you_deputy",
+            "you_leader",
+            "they_dftrainee",
+            "you_dftrainee",
+            "connected"
+        ],
+        "intro": [
+            "[Recently, you and t_c encountered a mud puddle that looked suspiciously like Dark Forest mud. t_c has avoided that area since then, but today, {PRONOUN/t_c/subject} {VERB/t_c/ask/asks} you to visit it with {PRONOUN/t_c/object}.]",
+            "I just... I can't stop thinking about it. Do you think it means the Dark Forest is growing in influence? Do you think it's... like... Becoming more real?",
+            "[t_c starts off at a quick trot, but as you approach the middle of the territory, {PRONOUN/t_c/subject} {VERB/t_c/slow/slows} down. By the time you reach the mud puddle {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} dragging {PRONOUN/t_c/poss} paws.]",
+            "I... I thought we might've imagined it, or something. But that's it, right? And it's as big as it was before..."
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "[Quickly leave.]",
+                "next_scene": "leave"
+            },
+            "choice2": {
+                "text": "[Touch the puddle.]",
+                "next_scene": "touch"
+            },
+            "choice3": {
+                "text": "[Call to the Dark Forest.]",
+                "next_scene": "call"
+            }
+        },
+        "leave": [
+            "[If anything, the puddle seems bigger, and it's a bit unnerving. You quickly turn away, and t_c follows.]",
+            "[Neither of you say much for the rest of the day.]"
+        ],
+        "touch": [
+            "[t_c squeaks as you dip one paw into the mud. It clings to your fur, sticky and thick, even as you pull back. It smells like decay.]",
+            "Y-you should clean that off before we go back to camp. Here, there's a tuft of grass you can wipe your paw on...",
+            "[When you're done cleaning off, t_c silently leads the way home. {PRONOUN/t_c/subject/CAP} {VERB/t_c/seem/seems} even less at ease than before.]"
+        ],
+        "call": [
+            "[You call out. t_c hesitantly joins in.]",
+            "rdf_c? Um... can you hear us?",
+            "[You listen for a moment. The scent of rot wafts off of the mud.]",
+            "I... I guess we can ask tonight. But what if they use that information to... I don't know... invade our territory or something?",
+            "Let's get back to camp. I'm sorry... I think this was a bad idea."
+        ]
+    },
+    "neurotic_choice_dfpuddle_SQ45~3": [
+        [
+            "no_kit",
+            "they_neurotic",
+            "max_dislike_10",
+            "they_warrior",
+            "they_deputy",
+            "they_apprentice",
+            "they_leader",
+            "you_warrior",
+            "you_apprentice",
+            "you_deputy",
+            "you_leader",
+            "they_dftrainee",
+            "you_dftrainee",
+            "newleaf",
+            "connected"
+        ],
+        [
+            "[It's taken until newleaf for t_c to check out the potential Dark Forest mud puddle again.]",
+            "[While you're on a hunting patrol with r_w1 and r_w2, t_c nervously, subtly leads the group to where the mud used to be.]",
+            "[t_c comments on the weather as you walk, but {PRONOUN/t_c/poss} voice quivers. Suddenly, {PRONOUN/t_c/subject} {VERB/t_c/stop/stops}.]",
+            "y_c... it was here, right?",
+            "[The ground is grass-covered and dappled with flowers. There's no sign that the puddle was ever here: no traces of muck, and no dead plants. t_c stares for a moment.]",
+            "I... I don't get it. It was so big before. How can it just be gone?",
+            "[t_c looks at the clearing in disbelief before a call from r_w1 snaps {PRONOUN/t_c/object} out of {PRONOUN/t_c/poss} thoughts. {PRONOUN/t_c/subject/CAP} {VERB/t_c/force/forces} a smile and {VERB/t_c/continue/continues} with the patrol.]"
+        ]
+    ],
+    "neurotic_choice_nightapprentice_SQ38": {
+        "tags": [
+            "they_neurotic",
+            "they_apprentice",
+            "from_your_apprentice",
+            "you_adult"
+        ],
+        "intro": [
+            "[You take t_c out for some night hunting. Predictably, you've barely left camp before {PRONOUN/t_c/subject} {VERB/t_c/start/starts} jumping at shadows.]",
+            "[You try to keep going, but t_c keeps stopping, staring into the dark with {PRONOUN/t_c/poss} fur standing on end. When {PRONOUN/t_c/subject} {VERB/t_c/fall/falls} behind for the third time, you ask what {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} thinking.]",
+            "[t_c closes {PRONOUN/t_c/poss} eyes, shaking.]",
+            "I'm sorry. I'm really, really sorry. I know I shouldn't be afraid, but I am, and I don't know how to stop.",
+            "Like... in the dark, everything looks like it moves differently! And the shadows seem deeper, somehow, and they just feel like they're watching us.",
+            "[t_c seems close to tears. {PRONOUN/t_c/subject/CAP} {VERB/t_c/keep/keeps} {PRONOUN/t_c/poss} eyes shut and {VERB/t_c/tip/tips} {PRONOUN/t_c/poss} head away from you, as if terrified to see your expression.]",
+            "*sniff* I'm sorry. I'm sorry I'm not brave."
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "[Silently return to camp.]",
+                "next_scene": "camp"
+            },
+            "choice2": {
+                "text": "[Comfort {PRONOUN/t_c/object}.]",
+                "next_scene": "comfort"
+            },
+            "choice3": {
+                "text": "How can I help?",
+                "next_scene": "help"
+            }
+        },
+        "camp": [
+            "[You wordlessly turn and start back towards camp. It takes a moment for t_c to realize you're leaving, but when {PRONOUN/t_c/subject} {VERB/t_c/do/does}, {PRONOUN/t_c/subject} {VERB/t_c/gasp/gasps} and {VERB/t_c/race/races} to catch up.]",
+            "y_c... um...",
+            "[t_c falls silent. {PRONOUN/t_c/subject/CAP} {VERB/t_c/don't/doesn't} say anything for the rest of the walk, and can't look you in the eyes when {PRONOUN/t_c/subject} {VERB/t_c/mumble/mumbles} goodnight.]"
+        ],
+        "comfort": [
+            "[You step closer and tell t_c to take a few deep breaths. {PRONOUN/t_c/subject/CAP} {VERB/t_c/oblige/obliges}, but still {VERB/t_c/don't/doesn't} meet your eyes.]",
+            "[You remind {PRONOUN/t_c/object} that it's okay to be nervous at night, and that in fact, being careful has kept many cats alive. {PRONOUN/t_c/subject/CAP}{VERB/t_c/'re/'s} still an apprentice, and {VERB/t_c/have/has} time to become more confident.]",
+            "[t_c nods, slowly and then quickly. {PRONOUN/t_c/subject/CAP} {VERB/t_c/give/gives} you a small smile. You gently bump against your apprentice, hoping to provide some comfort, and then turn back towards camp.]"
+        ],
+        "help": [
+            "[You tell t_c that it's understandable to be afraid of going out at night, and ask if there's anything you could do that might help. t_c goes quiet, and for a moment you're not sure if {PRONOUN/t_c/subject} heard you.]",
+            "Um... I'm sorry. I don't really know if anything would for sure help. I'm just... I'm just bad at this.",
+            "[You reassure t_c, and once again ask if there's anything {PRONOUN/t_c/subject} could think of for you to try. You're {PRONOUN/t_c/poss} mentor, after all. It's your job to try to help {PRONOUN/t_c/object}. t_c peeks up at you.]",
+            "Maybe... maybe next time we could just go out for a little bit? And stay close to camp?",
+            "And if it's okay, maybe during the day you could show me where we'll go at night?",
+            "[You tell t_c that those are great ideas, and agree to try them! For now, you remind {PRONOUN/t_c/object} that {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} doing well, and then turn back towards camp.]"
+        ]
+    },
+    "neurotic_skillhealer_SQ2": [
+        [
+            "they_neurotic",
+            "they_healer",
+            "they_warrior",
+            "they_deputy",
+            "they_apprentice",
+            "they_mediator",
+            "they_mediator_apprentice",
+            "they_queen",
+            "they_queen's_apprentice",
+            "you_medicine_cat",
+            "you_medicine_cat_apprentice",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "Um... sorry, y_c? I don't mean to bother you, but plove_r_c has a bit of a sore throat. Could I have some honey from your stores to give them?",
+            "O-of course, you could give it to them, too! I don't mean to overstep.",
+            "[There's not much that can go terribly wrong with honey. Since t_c seems to know {PRONOUN/t_c/poss} way around medicine despite not being a medicine cat, you give {PRONOUN/t_c/object} a dollop of honey on a stick and send {PRONOUN/t_c/object} on {PRONOUN/t_c/poss} way.]"
+        ]
+    ],
+    "neurotic_skillsleeper_SQ7": [
+        [
+            "they_neurotic",
+            "they_sleeper",
+            "they_warrior",
+            "they_deputy",
+            "they_apprentice",
+            "you_leader",
+            "you_deputy",
+            "you_warrior",
+            "they_younger",
+            "neutral"
+        ],
+        [
+            "[t_c rushes up to your patrol, bleary-eyed and with {PRONOUN/t_c/poss} fur sticking out every which way. {PRONOUN/t_c/subject/CAP}{VERB/t_c/'ve/'s} clearly just woken up, even though it's sunhigh.]",
+            "I'm so, so sorry, y_c. I was taking a nap, and I usually ask someone to wake me up, but this time I was so tired that I forgot to do that...",
+            "Anyways, I'm sorry for being late! I'm ready to go.",
+            "[t_c... does not look ready to go, but you've been delayed enough already. You lead the patrol out of camp, hoping t_c will wake up on the way to the border.]"
+        ]
+    ],
+    "neurotic_fromyourkit_SQ1": [
+        [
+            "they_neurotic",
+            "they_apprentice",
+            "you_adult",
+            "from_your_kit",
+            "from_adopted_kit",
+            "min_platonic_20",
+            "you_deaf",
+            "they_deaf"
+        ],
+        [
+            "[r_m finds you while you're cleaning out your nest. Apparently t_c got some scratches during training today, and {PRONOUN/t_c/subject} {VERB/t_c/want/wants} you with {PRONOUN/t_c/object} in the medicine den.]",
+            "[t_c tries to smile when {PRONOUN/t_c/subject} {VERB/t_c/see/sees} you, but {PRONOUN/t_c/poss} mouth quavers. {PRONOUN/t_c/subject/CAP} {VERB/t_c/bury/buries} {PRONOUN/t_c/poss} face in your fur, and you gently lick {PRONOUN/t_c/poss} forehead while r_m treats {PRONOUN/t_c/poss} injuries.]"
+        ]
+    ],
+    "neurotic_fromyourkit_SQ2": [
+        [
+            "they_neurotic",
+            "they_apprentice",
+            "they_mediator_apprentice",
+            "they_medicine_cat_apprentice",
+            "you_adult",
+            "from_your_kit",
+            "from_adopted_kit",
+            "min_platonic_20",
+            "you_deaf",
+            "they_deaf"
+        ],
+        [
+            "[As t_c follows tm_n_neutral out of camp, {PRONOUN/t_c/subject} {VERB/t_c/look/looks} back at you with a nervous smile.]",
+            "[You wave in farewell, wishing {PRONOUN/t_c/subject} could feel your pride. t_c waves back.]"
+        ]
+    ],
+    "neurotic_leafbare_SQ9": [
+        [
+            "they_neurotic",
+            "they_warrior",
+            "they_apprentice",
+            "they_deputy",
+            "they_leader",
+            "you_warrior",
+            "you_queen",
+            "you_mediator",
+            "you_elder",
+            "min_platonic_30",
+            "min_trust_15",
+            "leafbare",
+            "beach"
+        ],
+        [
+            "[t_c bursts into camp, wind-blown and shaking.]",
+            "y_c! Um... plove_r_w and I were hunting by the shore, and {PRONOUN/plove_r_w/subject} fell in the water. {PRONOUN/plove_r_w/subject/CAP} climbed back out, but {PRONOUN/plove_r_w/subject}{VERB/plove_r_w/'re/'s} really cold and {VERB/plove_r_w/say/says} {PRONOUN/plove_r_w/subject} can't feel {PRONOUN/plove_r_w/poss} paws... Please, help!",
+            "[plove_r_w stumbles after t_c, violently shivering. You quickly call r_m over, and {PRONOUN/r_m/subject} {VERB/r_m/get/gets} plove_r_w into the medicine den while t_c paces anxiously outside.]",
+            "I'm sorry. I should've gotten {PRONOUN/plove_r_w/object} out of the water quicker... I should've been keeping a better eye on {PRONOUN/plove_r_w/object}! I didn't realize the rocks were so slippery!",
+            "[You tell t_c that {PRONOUN/t_c/subject} did everything {PRONOUN/t_c/subject} could, and that plove_r_w will be okay. t_c doesn't seem to hear you.]",
+            "plove_r_w's so important to me, y_c. What if... what if...",
+            "[r_m comes outside shortly after, and assures you both that plove_r_w will be fine. t_c practically collapses in relief before thanking you for your company and rushing into the den.]"
+        ]
+    ],
+    "neurotic_warriorapprentice_SQ12": [
+        [
+            "they_neurotic",
+            "they_apprentice",
+            "you_app",
+            "min_platonic_20"
+        ],
+        [
+            "neutral_tm_n's just... so good at everything! Did you see how much prey {PRONOUN/neutral_tm_n/subject} brought back today? And have you seen how easily {PRONOUN/neutral_tm_n/subject} {VERB/neutral_tm_n/navigate/navigates} the territory?",
+            "[t_c gazes at neutral_tm_n, who's discussing something with r_w by the camp entrance.]",
+            "I don't know if I deserve to have someone that capable and cool as my mentor..."
+        ]
+    ],
+    "neurotic_warriorapprentice_SQ13": [
+        [
+            "they_neurotic",
+            "they_apprentice",
+            "you_apprentice",
+            "min_platonic_20"
+        ],
+        [
+            "[Your mentor, m_n, is observing you and t_c while you demonstrate your hunting crouches. t_c keeps glancing at m_n and jolting when {PRONOUN/t_c/subject} {VERB/t_c/see/sees} {PRONOUN/m_n/object} looking back.]",
+            "[When m_n steps away to talk with a passing patrol, t_c lets out a long breath.]",
+            "Do you think m_n thinks I'm doing a bad job? {PRONOUN/m_n/subject/CAP} {VERB/m_n/keep/keeps} watching me... do you think I learned something wrong?",
+            "[You assure t_c that m_n is watching both of you equally, because it's {PRONOUN/m_n/poss} job to observe you and help you improve!]",
+            "[t_c seems uncertain, but whatever {PRONOUN/t_c/subject} {VERB/t_c/want/wants} to say is interrupted by m_n's return.]"
+        ]
+    ],
+    "neurotic_warriorapprentice_SQ14": [
+        [
+            "they_neurotic",
+            "they_apprentice",
+            "you_app",
+            "you_assertive",
+            "you_cool",
+            "you_silly",
+            "you_unabashed",
+            "min_platonic_10"
+        ],
+        [
+            "[You bat at t_c, trying to get {PRONOUN/t_c/object} to chase you, as you wait for m_n to finish eating {PRONOUN/m_n/poss} meal and start the day's training. t_c doesn't take the bait.]",
+            "Sorry, y_c. I... I don't want to be boring, but I don't want to burn all my energy before training's even begun. Yesterday I was kind of tired, so I had trouble getting stuff right, and I've gotta do better today.",
+            "So... maybe later?"
+        ]
+    ],
+    "assertivewarrior_mediatorapp3": [
+        [
+            "you_mediator_apprentice",
+            "you_mediator",
+            "they_apprentice",
+            "they_warrior",
+            "assertive",
+            "silly",
+            "unlawful",
+            "cool"
+        ],
+        [
+            "Look, I know I can be reckless and headstrong and foolish and stubborn ...",
+            "But I didn't mean to steal r_w's catch! Seriously! And now {PRONOUN/r_w/subject}{VERB/r_w/'re/'s} acting all huffy about it ...",
+            "Any chance you could help me talk it out with {PRONOUN/r_w/object}?"
+        ]
+    ],
+    "upstanding_AJ": [
+        [
+            "Any",
+            "upstanding",
+            "they_blind",
+            "you_blind",
+            "neutral",
+            "you_warrior",
+            "you_apprentice"
+        ],
+        [
+            "y_c, what in StarClan's name are you doing just lazing around camp? You should be out training! Or taking extra patrols! Or - Or ...",
+            "*Sigh*. I'm sorry. I guess I'm just more stressed than usual lately. I shouldn't take it out on you. Maybe a walk to clear my head is what I need.",
+            "And on my walk, maybe I can check the Twolegplace border, and harvest from the herb gardens for r_m, and help restock the prey pile ...",
+            "... What? Nothing wrong with multitasking!"
+        ]
+    ],
+    "neurotic_parent": [
+        [
+            "no_kit",
+            "neurotic",
+            "from_parent",
+            "adopted_parent",
+            "you_apprentice"
+        ],
+        [
+            "What do you mean you've been assigned to a solo patrol near the border?!",
+            "Nope, no way. That is way too dangerous. There are big dogs out there on the territory! And flash floods! And what if you encounter a gang of bloodthirsty rogues?",
+            "I'm telling l_n to switch you to a training patrol right now! It will be much safer that way."
+        ]
+    ],
+    "upstanding_you_injured": [
+        [
+            "upstanding",
+            "you_ill",
+            "you_injured",
+            "you_warrior",
+            "you_apprentice",
+            "they_warrior",
+            "they_apprentice",
+            "platonic_like",
+            "they_blind"
+        ],
+        [
+            "Hey! Just got back from a hunting patrol and thought I'd stop by real quick! How are you feeling?",
+            "It does suck that you're stuck laying around in here, but hey! It could be worse, right?",
+            "Oh, and don't worry about your duties for now, I can take them on for the time being!",
+            "It's fine, I promise! Just focus on resting and getting better, ok? You'll be able to help out again once you're up and ready."
+        ]
+    ],
+    "brooding_gen5_4": [
+        [
+            "you_deputy",
+            "you_leader",
+            "brooding",
+            "neurotic",
+            "they_blind",
+            "they_warrior",
+            "they_apprentice"
+        ],
+        [
+            "Hi. Um.",
+            "I'd like to patrol with plike_r_w today, if that's alright.",
+            "Thanks."
+        ]
+    ],
+    "romantic_upstanding1": [
+        [
+            "upstanding",
+            "no_kit",
+            "romantic_like",
+            "non-mates",
+            "they_warrior",
+            "they_apprentice",
+            "you_warrior",
+            "you_apprentice"
+        ],
+        [
+            "Oh, y_c!! I've been meaning to ask you- would you like to go on a patrol with me?",
+            "We can walk down by the border- you know, the one with the huge river in it? Maybe we could toss a couple stones- you know, to make sure it's safe?",
+            "Ahahaha- yeah- it sounds like a date, but uh- it's a patrol! Yup. Just- just a patrol."
+        ]
+    ],
+    "romantic_upstanding5": [
+        [
+            "upstanding",
+            "no_kit",
+            "romantic_like",
+            "they_warrior",
+            "they_apprentice"
+        ],
+        [
+            "[t_c blinks at you in the den, looking away for a moment before settling down beside you.]",
+            "I hope you don't mind...",
+            "[Seems {PRONOUN/t_c/subject}'d rather be with you than go out for patrolling which, knowing t_c, means a thousand unsaid words.]"
+        ]
+    ],
+    "assertive_gen4": [
+        [
+            "Any",
+            "assertive",
+            "platonic_like",
+            "they_warrior",
+            "they_apprentice"
+        ],
+        [
+            "I met some kittypets on patrol today ... StarClan, I sure gave them a scare!",
+            "One look at my 'mean' face and they went mewling back home to their Twolegs like little kits running into the nursery! Bahahahahaha!"
+        ]
+    ],
+    "unlawful_gen2": [
+        [
+            "Any",
+            "unlawful",
+            "they_blind",
+            "you_blind",
+            "they_warrior",
+            "they_apprentice"
+        ],
+        [
+            "[t_c snoozes in {PRONOUN/t_c/poss} nest well past the time {PRONOUN/t_c/subject} should be on patrol.]",
+            "[You ask t_c why {PRONOUN/t_c/subject} {VERB/t_c/aren't/isn't} out with the rest of the Clan?]",
+            "Hm? Oh, that's easy. I told d_n that, if {PRONOUN/d_n/subject} didn't let me catch up on some much-needed beauty rest, I'd release {PRONOUN/d_n/poss} worst secret to the entire Clan.",
+            "What's the secret? Heh, well I'd love to tell you, but unfortunately, once secrets stop being secrets, they lose their value.",
+            "Then, I might actually have to ... contribute to the Clan! *Shudder*"
+        ]
+    ],
+    "general_sh_J19": [
+        [
+            "Any",
+            "you_shunned",
+            "they_warrior",
+            "they_deputy",
+            "they_leader",
+            "they_apprentice"
+        ],
+        [
+            "[You say hello to t_c as {PRONOUN/t_c/subject} {VERB/t_c/come/comes} back from a hunting patrol with a shrew in {PRONOUN/t_c/poss} mouth.]",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/roll/rolls} {PRONOUN/t_c/poss} eyes, and {VERB/t_c/speak/speaks} around the prey.]",
+            "Never mind, y_c. It's not for you."
+        ]
+    ],
+    "youforgiven_J2": [
+        [
+            "you_forgiven",
+            "any",
+            "sweet",
+            "they_warrior",
+            "they_apprentice",
+            "you_warrior",
+            "you_apprentice",
+            "min_platonic_15"
+        ],
+        [
+            "Oh, I'm so glad I get to talk to you again, y_c!",
+            "Have you been on a hunting patrol yet? Wanna go right now?",
+            "Yes! Let's go! I'm glad to have you back in the Clan."
+        ]
+    ],
+    "unlawful_todepGuy1": [
+        [
+            "you_deputy",
+            "unlawful",
+            "they_warrior",
+            "they_apprentice"
+        ],
+        [
+            "I was totally about to join the patrol, I just-",
+            "[You cut off the cat and say that {PRONOUN/t_c/subject} are not needed on patrol today.]",
+            "Oh! Perfect, I have things to do...",
+            "[You continue, and tell t_c that r_m wanted {PRONOUN/t_c/object} to fix the mess {PRONOUN/t_c/subject} made in the medicine den.]",
+            "... are you <i>sure</i> I can't join the patrol?"
+        ]
+    ],
+    "silly_romantic_questing": [
+        [
+            "Any",
+            "silly",
+            "romantic_like",
+            "you_blind",
+            "they_blind",
+            "they_warrior",
+            "they_apprentice"
+        ],
+        [
+            "I love border patrols. Well, I don't love them, but I love pretending I'm on a quest to save c_nClan from badgers and threatening cats!",
+            "Maybe we could go questing sometime. I mean, if you wanted... just the two of us."
+        ]
+    ],
+    "silly_dc_whimsical": [
+        [
+            "Any",
+            "silly",
+            "you_blind",
+            "they_warrior",
+            "they_apprentice",
+            "they_deputy",
+            "they_leader",
+            "they_medicine_cat",
+            "they_medicine_cat_apprentice"
+        ],
+        [
+            "I miss plike_d_c. Every time I go out on patrol, I find myself looking at all the flowers and rocks and plump prey and wishing plike_d_c were still here to see it all.",
+            "...Do you think {PRONOUN/plike_d_c/subject} made it to Silverpelt? Maybe {PRONOUN/plike_d_c/subject} found some other ghost cat and now {PRONOUN/plike_d_c/subject}{VERB/plike_d_c/'re/'s} going on a whimsical adventure to save the world together...",
+            "Haha, yeah. I like that. That sounds like something plike_d_c would do. I hope {PRONOUN/plike_d_c/subject} {VERB/plike_d_c/get/gets} to tell me all about it when we meet again."
+        ]
+    ],
+    "youdeaf_R58": [
+        [
+            "only_you_deaf",
+            "you_medicine_cat",
+            "they_deaf",
+            "they_warrior",
+            "they_apprentice",
+            "upstanding",
+            "brooding",
+            "assertive"
+        ],
+        [
+            "[You're sorting herbs when a shadow comes over you. You don't panic - instead turning calmly to see t_c. {PRONOUN/t_c/subject/CAP}{VERB/t_c/'re/'s} holding up a paw looking displeased.]",
+            "[Gesturing {PRONOUN/t_c/object} closer, the reason why is quickly obvious. There's thorns embedded in {PRONOUN/t_c/poss} foot.]",
+            "[From the way t_c refuses to look at you {PRONOUN/t_c/subject} must have done something silly.]",
+            "[Thorns are easy though, and you tease each one out carefully. Once they're all removed and washed well, you apply a poultice before ensuring {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} looking.]",
+            "[t_c looks annoyed when you sign to stay off it for two days. {PRONOUN/t_c/subject/CAP} {VERB/t_c/retort/retorts} with only one day but you shake your head.]",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/limp/limps} off crossly. Yeah, you'll need to tell d_n about this too. {PRONOUN/d_n/subject/CAP} will keep t_c from patrolling against your orders.]"
+        ]
+    ],
+    "neurotic_leafbare_SQ3": [
+        [
+            "they_apprentice",
+            "they_warrior",
+            "they_deputy",
+            "they_leader",
+            "you_apprentice",
+            "you_warrior",
+            "you_deputy",
+            "you_leader",
+            "min_platonic_30",
+            "they_neurotic",
+            "leafbare"
+        ],
+        [
+            "[t_c stumbles back into camp shivering, covered with snow, and supported by plove_r_w. {PRONOUN/t_c/subject/CAP} {VERB/t_c/start/starts} towards the medicine den, but {VERB/t_c/pause/pauses} when {PRONOUN/t_c/subject} {VERB/t_c/see/sees} you about to leave on a hunting patrol.]",
+            "C-careful in the territory today. Some of the snowdrifts are really deep, and I fell right into one. I really, really thought that was it...",
+            "[t_c stares into the distance for a moment before a particularly violent shiver snaps {PRONOUN/t_c/object} out of {PRONOUN/t_c/poss} thoughts.]",
+            "I'm lucky plove_r_w was there to dig me out. Don't go anywhere alone out there!"
+        ]
+    ],
+    "neurotic_leafbare_SQ4": [
+        [
+            "they_apprentice",
+            "they_warrior",
+            "they_deputy",
+            "they_leader",
+            "you_apprentice",
+            "you_warrior",
+            "you_deputy",
+            "you_leader",
+            "they_neurotic",
+            "leafbare",
+            "mountainous"
+        ],
+        [
+            "[At any miniscule noise, t_c freezes. {PRONOUN/t_c/subject/CAP} {VERB/t_c/prick/pricks} {PRONOUN/t_c/poss} ears, scanning the snow-covered mountainside.]",
+            "[The fifth time this happens, {PRONOUN/t_c/subject} sheepishly {VERB/t_c/apologize/apologizes} to you and the impatient patrol.]",
+            "S-sorry. I just know the snow hasn't fully settled yet... every little sound makes me think there's about to be an avalanche.",
+            "Leave me behind if I'm holding you back! I'll catch up."
+        ]
+    ],
+    "neurotic_greenleaf_SQ1": [
+        [
+            "they_neurotic",
+            "they_warrior",
+            "they_apprentice",
+            "neutral",
+            "you_warrior",
+            "you_apprentice",
+            "you_deputy",
+            "you_leader",
+            "greenleaf"
+        ],
+        [
+            "[t_c slept in, so {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} the last one to join the morning patrol. When {PRONOUN/t_c/subject} {VERB/t_c/see/sees} you, r_w1, and r_w2 waiting at the camp entrance, {PRONOUN/t_c/subject} {VERB/t_c/wince/winces} and {VERB/t_c/dash/dashes} to join you.]",
+            "[Unfortunately, last night's downpour means the camp is a mess of muddy puddles. t_c slips in one, falling right into it! You jerk away as some of the splatter hits your pelt.]",
+            "O-oh no. StarClan, I'm so sorry!",
+            "[t_c, covered in mud, looks like {PRONOUN/t_c/subject} {VERB/t_c/want/wants} to shrink into the ground. {PRONOUN/t_c/subject/CAP} {VERB/t_c/try/tries} to clean some of the splotches off of you, but only {VERB/t_c/succeed/succeeds} in smearing them around with {PRONOUN/t_c/poss} dirty paws.]"
+        ]
+    ],
+    "about_silly_SQ8": [
+        [
+            "no_kit",
+            "they_warrior",
+            "they_apprentice",
+            "they_deputy",
+            "they_leader",
+            "min_platonic_25"
+        ],
+        [
+            "Did you see neutral_r_w_silly all covered in grass?",
+            "We were on patrol and they saw a field that was 'begging {PRONOUN/neutral_r_w_silly/object} to roll around in it', or something like that.",
+            "{PRONOUN/neutral_r_w_silly/subject/CAP} looked absolutely ridiculous, but {PRONOUN/neutral_r_w_silly/subject} seemed to enjoy it, so... good for {PRONOUN/neutral_r_w_silly/object}, I guess?"
+        ]
+    ],
+    "introspective_newleaf_1": [
+        [
+            "any",
+            "they_warrior",
+            "they_deputy",
+            "they_leader",
+            "they_apprentice",
+            "introspective",
+            "newleaf",
+            "you_blind",
+            "platonic_like"
+        ],
+        [
+            "y_c, hello. The weather's lovely today.",
+            "I saw some dandelions had sprouted this morning, and I've been wandering about looking at all the new flowers.",
+            "They're beautiful, all different shades and shapes and smells, like c_nClan, I suppose.",
+            "... huh? Yeah, I know, I should be hunting. I can hunt and look at flowers at the same time, y_c, don't you worry about me."
+        ]
+    ],
+    "brooding_tomedapp1_AJ": [
+        [
+            "you_medicine_cat_apprentice",
+            "brooding",
+            "they_warrior",
+            "they_apprentice",
+            "max_respect_10",
+            "max_platonic_10",
+            "you_blind",
+            "they_blind"
+        ],
+        [
+            "Hmph. Looks like they're just letting any cat become a medicine cat, now.",
+            "Aren't you supposed to have some kind of special connection to StarClan?",
+            "Even I could probably sit around sorting herbs all day ..."
+        ]
+    ],
+    "brooding_toqueen_AJ": [
+        [
+            "you_queen",
+            "you_queen's_aprentice",
+            "brooding",
+            "they_apprentice",
+            "they_warrior",
+            "they_medicine_cat",
+            "they_medicine_cat_apprentice",
+            "they_deputy",
+            "they_blind"
+        ],
+        [
+            "[The nursery entrance shudders open, revealing little r_k dangling from t_c's mouth, mewling and squirming in protest.]",
+            "[t_c sets {PRONOUN/r_k/object} on the ground, and the kit bounds towards you, cowering behind your leg at t_c's cold glare.]",
+            "I found {PRONOUN/r_k/object} trying to sneak into the warrior's den. You really need to keep better track of the kits in here.",
+            "Next time, the one to discover them might not be as nice as I am."
+        ]
+    ],
+    "brooding_toqueen_AJ1": [
+        [
+            "you_queen",
+            "you_queen's_aprentice",
+            "brooding",
+            "they_apprentice",
+            "they_warrior",
+            "they_medicine_cat",
+            "they_medicine_cat_apprentice",
+            "they_deputy",
+            "clan_has_kits"
+        ],
+        [
+            "[t_c steps inside the nursery on an uncharacteristic visit, wincing at the squeals of the kits.]",
+            "Hey, r_w asked me to come and tell you that -- Augh!",
+            "[A stray mossball pelts t_c on the side of the head. {PRONOUN/t_c/subject/CAP} {VERB/t_c/swipe/swipes} at {PRONOUN/t_c/poss} face, hissing in outrage, then {VERB/t_c/glare/glares} at the offending kit, who has already moved on to a different game.]",
+            "Ugh, forget it. You can go talk to r_w yourself."
+        ]
+    ],
+    "sweet_trainee_PS3": [
+        [
+            "no_kit",
+            "you_df",
+            "they_dftrainee",
+            "from_df_apprentice",
+            "you_warrior",
+            "they_apprentice",
+            "sweet",
+            "you_deaf",
+            "they_deaf",
+            "they_blind"
+        ],
+        [
+            "[You're observing your apprentice from afar. {PRONOUN/t_c/subject/CAP}{VERB/t_c/'re/'s} in the living world and {VERB/t_c/appear/appears} to be on a patrol.]",
+            "[Something happens, and {PRONOUN/t_c/subject} {VERB/t_c/react/reacts} with more aggression than {PRONOUN/t_c/subject} used to.]",
+            "[At first, you're proud. A little bit of guilt worms it's way in your heart when you see t_s with a shocked and concerned expression.]",
+            "[After everything you've done, who would've thought that you'd feel so guilty now?]"
+        ]
+    ],
+    "both_dftrainee_SQ8": [
+        [
+            "you_dftrainee",
+            "they_dftrainee",
+            "they_apprentice",
+            "they_warrior",
+            "they_neurotic",
+            "you_medicine_cat",
+            "you_medicine_cat_apprentice",
+            "platonic_like",
+            "trust",
+            "they_blind"
+        ],
+        [
+            "[t_c awkwardly pads into the medicine den, poorly hiding a long scratch with one paw.]",
+            "Can I stay here for a bit? And could you tell the rest of the Clan that I'm not feeling well?",
+            "[t_c moves {PRONOUN/t_c/poss} paw, revealing {PRONOUN/t_c/poss} injury. It's minor, but bound to raise questions.]",
+            "I... I'm really not up for trying to explain this."
+        ]
+    ],
+    "upstanding_both_scE5": [
+        [
+            "upstanding",
+            "you_sc",
+            "they_sc",
+            "they_apprentice",
+            "they_warrior",
+            "they_deputy",
+            "they_leader",
+            "no_kit"
+        ],
+        [
+            "[t_c is hosting a training session for a few StarClan kits! You sit on the sidelines, whiskers twitching with amusement as you watch the kits scramble to follow t_c's instructions.]",
+            "Roll! Jump! Strike! Harder, there you go! Duck! And... pounce!",
+            "[t_c frowns, prompting the group to stop with a flick of {PRONOUN/t_c/poss} tail as a squeal pierces the air.]",
+            "What did I tell you all about using our claws? No- I don't care that we're in StarClan. While training, we keep our claws <i>sheathed</i>, understand?",
+            "[t_c watches through narrowed eyes as the kits sheepishly nod.]",
+            "Alright then, let's take it from the top."
+        ]
+    ],
+    "neurotic_skilltreasure_SQ3": [
+        [
+            "they_neurotic",
+            "they_treasure",
+            "they_apprentice",
+            "you_adult",
+            "min_platonic_10"
+        ],
+        [
+            "Um, y_c? I saw something in a tree north of camp while I was training.",
+            "It was silver and shiny! I'm not sure what it was, but it looked like a Twoleg trinket.",
+            "If you happen to see it, and you're not busy, could you take a look and maybe get it for me?",
+            "I was super interested, but I didn't think I'd be able to climb that high."
+        ]
+    ],
+    "about_assertive_SQ6": [
+        [
+            "they_neurotic",
+            "they_apprentice",
+            "no_kit",
+            "min_platonic_25",
+            "min_trust_15",
+            "you_blind",
+            "they_blind"
+        ],
+        [
+            "I really don't think neutral_t_mn_assertive and I are a good match.",
+            "{PRONOUN/neutral_t_mn_assertive/subject/CAP}{VERB/neutral_t_mn_assertive/'re/'s} just so energetic, always trying to push me to do new things...",
+            "And I try my best, I swear, but I keep freezing up! And then I can't tell if that makes {PRONOUN/neutral_t_mn_assertive/object} more irritated or disappointed..."
+        ]
+    ],
+    "about_silly_SQ3": [
+        [
+            "they_upstanding",
+            "they_apprentice",
+            "no_kit"
+        ],
+        [
+            "dislike_r_a_silly is always goofing off during training... I can't stand it!",
+            "How am I supposed to learn when {PRONOUN/dislike_r_a_silly/subject} {VERB/dislike_r_a_silly/keep/keeps} chasing {PRONOUN/dislike_r_a_silly/poss} tail or making jokes instead of listening?!"
+        ]
+    ],
+    "about_unlawful_SQ2": [
+        [
+            "no_kit",
+            "they_neurotic",
+            "they_warrior",
+            "they_apprentice",
+            "min_trust_25",
+            "platonic_like"
+        ],
+        [
+            "neutral_r_w_unlawful asked if I wanted to go hunt in o_c_n territory tomorrow...",
+            "I wasn't sure if {PRONOUN/neutral_r_w_unlawful/subject} {VERB/neutral_r_w_unlawful/were/was} joking, and I was kind of nervous to ask.",
+            "Why {VERB/neutral_r_w_unlawful/do/does} {PRONOUN/neutral_r_w_unlawful/subject} think I'd want to do that? The... The Clan doesn't think I'm a troublemaker, right?"
+        ]
+    ],
+    "wisps_H1": [
+        [
+            "strange",
+            "they_warrior",
+            "they_apprentice",
+            "you_any"
+        ],
+        [
+            "Hey, y_c! Guess what I saw on patrol today!",
+            "I think I saw a blue mist. I think they call it a will-o'-the-wisp.",
+            "You see, I got a tiny bit lost while I was patrolling. No fault of mine, of course! I was just observing a rabbit and forgot where I was.",
+            "[You ask teasingly if that is a daily occurrence and t_c only smiles wide.]",
+            "Anyway-- As I was starting to get worried, poof! A blue mist appeared right before my very eyes, whispering words I couldn't understand. Behind it was a line of them, leading me somewhere.",
+            "I don't know why I did it, but I followed the wisps. They disappeared when I got close to them, floating into the clouds above me. It was so cool to see!",
+            "Before I knew it, I was led into the clearing where the rest of the patrol was.",
+            "None of them believed me when I said I was guided by the wisps, though. But I hope you believe me!"
+        ]
+    ],
+    "about_neurotic_SQ4": [
+        [
+            "they_apprentice",
+            "they_warrior",
+            "they_deputy",
+            "they_leader",
+            "no_kit",
+            "min_platonic_25",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "StarClan, dislike_r_w_neurotic spent a full half-hour this morning reminding me to be careful. Stay away from the Thunderpath, don't investigate strange scents alone...'",
+            "I know what I'm doing, thank you very much! <i>I'm</i> not the one who got spooked last week and jumped straight into a thorn bush!"
+        ]
+    ],
+    "about_upstanding_AJ": [
+        [
+            "no_kit",
+            "they_warrior",
+            "they_deputy",
+            "they_apprentice",
+            "assertive",
+            "upstanding",
+            "unabashed",
+            "cool",
+            "min_trust_15"
+        ],
+        [
+            "Grrah! If r_w_upstanding corrects my hunting stance <i>one</i> more time on patrol, I am going to lose it!!!",
+            "Who {VERB/r_w_upstanding/do/does} {PRONOUN/r_w_upstanding/subject} think {PRONOUN/r_w_upstanding/subject} {VERB/r_w_upstanding/are/is}, the deputy or something? When did l_n suddenly declare {PRONOUN/r_w_upstanding/object} StarClan's special chosen warrior, superior to all?",
+            "Next time, I'll tell {PRONOUN/r_w_upstanding/object} directly to {PRONOUN/r_w_upstanding/poss} face to shove off. {PRONOUN/r_w_upstanding/subject/CAP} {VERB/r_w_upstanding/need/needs} to be humbled -- In fact, it's probably long overdue!"
+        ]
+    ],
+    "about_upstanding_AJ1": [
+        [
+            "no_kit",
+            "they_warrior",
+            "they_apprentice",
+            "neurotic",
+            "min_platonic_25"
+        ],
+        [
+            "r_w_upstanding's been helping me with my training these past few days, but I can't tell if {PRONOUN/r_w_upstanding/subject}{VERB/r_w_upstanding/'re/'s} doing it to be nice, or just to get l_n to notice {PRONOUN/r_w_upstanding/object}.",
+            "I hope I don't sound ungrateful, or anything. {PRONOUN/r_w_upstanding/subject/CAP}{VERB/r_w_upstanding/'re/'s} really skilled, and {PRONOUN/r_w_upstanding/subject}{VERB/r_w_upstanding/'ve/'s} helped me improve a lot, but ...",
+            "I don't necessarily want to just be a stepping stone on {PRONOUN/r_w_upstanding/poss} way to leader, either. If that makes any sense."
+        ]
+    ],
+    "about_neurotic_SQ1": [
+        [
+            "they_neurotic",
+            "they_apprentice",
+            "they_warrior",
+            "they_deputy",
+            "no_kit",
+            "platonic_like"
+        ],
+        [
+            "I don't really think plike_r_w1_neurotic and I work well together.",
+            "I like {PRONOUN/plike_r_w1_neurotic/object} well enough! It's just... well, yesterday we were on a hunting patrol together, just the two of us. I thought I saw a shadow in a bush, and I pointed it out.",
+            "Someone like r_w2_stable would tell me it's nothing, or go take a look, right? But plike_r_w1_neurotic kind of freaked out, and that made me even <i>more</i> nervous, and that made <i>{PRONOUN/plike_r_w1_neurotic/object}</i> more nervous, and...",
+            "[t_c chuckles, then sighs.]",
+            "So of course, we were both super spooked for the rest of the patrol. We came back early because neither of us was catching anything.",
+            "A-anyways. I hope plike_r_w1_neurotic doesn't hold that against me. We haven't had a chance to talk since then."
+        ]
+    ],
+    "general_shunned_you_Apprentice_CM1": [
+        [
+            "both_shunned",
+            "you_apprentice",
+            "they_apprentice"
+        ],
+        [
+            "y_c?",
+            "[You look over to t_c, sitting only a bit away from you.]",
+            "Do... you think we'll ever get to be warriors?",
+            "I know what I did was terrible, what <i>we</i> did was terrible. But, surely, they.... c_nClan wouldn't...",
+            "[t_c breaks down sobbing before you even manage to get a word in.]"
+        ]
+    ],
+    "about_neurotic_SQ3~1": [
+        [
+            "they_apprentice",
+            "no_kit",
+            "they_assertive",
+            "they_brooding",
+            "they_upstanding",
+            "they_stable",
+            "they_unabashed",
+            "they_unlawful",
+            "min_platonic_25",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "dislike_r_a_neurotic is so... jumpy. We're not kits anymore, for StarClan's sake!",
+            "The next time {PRONOUN/dislike_r_a_neurotic/subject} {VERB/dislike_r_a_neurotic/wake/wakes} me up by squeaking at some odd-shaped shadow, I'm going to <i>snap.</i>"
+        ]
+    ],
+    "about_neurotic_SQ3~2": [
+        [
+            "they_apprentice",
+            "no_kit",
+            "they_assertive",
+            "they_brooding",
+            "they_upstanding",
+            "they_stable",
+            "they_unabashed",
+            "they_unlawful",
+            "min_platonic_25",
+            "they_blind",
+            "you_blind",
+            "connected"
+        ],
+        [
+            "Just as expected, dislike_r_a_neurotic woke me up last night. Something about a shadow looking like a snake?",
+            "I told {PRONOUN/dislike_r_a_neurotic/object} {PRONOUN/dislike_r_a_neurotic/subject} had to stop yelping at every little thing, and {PRONOUN/dislike_r_a_neurotic/object} started crying. And it was impossible to not feel a little bad at that, but also {PRONOUN/dislike_r_a_neurotic/subject} {VERB/dislike_r_a_neurotic/wake/wakes} me up almost every other night?",
+            "I can't believe I have to share a den with {PRONOUN/dislike_r_a_neurotic/object}."
+        ]
+    ],
+    "fromkit_pos_shunned_H5": [
+        [
+            "they_apprentice",
+            "they_introspective",
+            "min_trust_20",
+            "min_plike_20",
+            "from_your_kit",
+            "from_adopted_kit",
+            "you_shunned",
+            "any"
+        ],
+        [
+            "[t_c runs up to you with a big mouse in {PRONOUN/t_c/poss} mouth, prancing proudly with {PRONOUN/t_c/poss} catch.]",
+            "y_c! y_c! Look what I caught on patrol today!",
+            "[After a long moment of explaining what happened and how t_c caught the mouse, {PRONOUN/t_c/subject} sneakily {VERB/t_c/shove/shoves} it underneath your pitiful nest.]",
+            "I know tm_n will be mad, but I don't care. My {PRONOUN/y_c/parent} needs to eat too."
+        ]
+    ],
+    "new_shunned_J6": [
+        [
+            "they_apprentice",
+            "you_shunned",
+            "min_platonic_40",
+            "you_apprentice",
+            "silly",
+            "unabashed"
+        ],
+        [
+            "Hey! Hey! Look what tm_n showed me today!",
+            "[t_c leaps in the air, kicking behind {PRONOUN/t_c/object} quickly before rolling forward onto {PRONOUN/t_c/poss} back and leaping back up onto {PRONOUN/t_c/poss} feet.]",
+            "Now imagine some warrior from o_c_n was standing there! They wouldn't stand a chance.",
+            "Or, imagine it was l_n! Who {VERB/l_n/does/do} {PRONOUN/l_n/subject} think {PRONOUN/l_n/subject} {VERB/l_n/is/are}, banning you from training sessions? I had to work twice as hard today!",
+            "[You chuckle along with t_c's ramblings until tm_n notices and calls {PRONOUN/l_n/object} away. Oh, well. It was nice to be spoken to normally for a little bit.]"
+        ]
+    ],
+    "app_wary_youshunned_rad1": [
+        [
+            "they_apprentice",
+            "you_shunned",
+            "max_platonic_10",
+            "max_trust_5",
+            "you_deaf",
+            "they_deaf"
+        ],
+        [
+            "[Whenever t_c catches sight of you, {PRONOUN/t_c/poss} stare lingers a little too long for comfort.]",
+            "[It's like {PRONOUN/t_c/subject} {VERB/t_c/feel/feels} compelled to watch you, uncertain of your next move.]"
+        ]
+    ],
+    "app_theyshunned_gen_rad1": [
+        [
+            "no_kit",
+            "from_your_apprentice",
+            "max_trust_10",
+            "they_shunned",
+            "you_upstanding",
+            "you_stable"
+        ],
+        [
+            "[When you accidentally catch t_c's gaze from the other side of camp, you quickly look away.]",
+            "[You <i>know</i> you aren't responsible for t_c's actions...]",
+            "[But as {PRONOUN/t_c/poss} mentor, you can't help but wonder if you could've done something to change things.]"
+        ]
+    ],
+    "apprentice_denprank_rad1~1": [
+        [
+            "they_app",
+            "they_silly",
+            "you_app"
+        ],
+        [
+            "Pssst, y_c! I had a great idea for a prank.",
+            "What if I were to dig a small pit just under the center of somecat's nest, but left the ground under the sides of the nest intact?",
+            "They wouldn't suspect a thing until they step into their nest, and <i>boom!</i> Their nest caves in underneath them.",
+            "Now to pick a cat to test it out on..."
+        ]
+    ],
+    "apprentice_denprank_rad1~2": [
+        [
+            "they_app",
+            "they_silly",
+            "you_app"
+        ],
+        [
+            "[t_c slinks away from l_n's den, ears flattened in embarrassment.]",
+            "... Word of advice: if you're going to prank a cat, pick somecat <i>other</i> than r_a_upstanding.",
+            "I have to go fix {PRONOUN/r_a_upstanding/poss} nest now. l_n's orders."
+        ]
+    ],
+    "assertive_tokit_2": [
+        [
+            "you_kitten",
+            "platonic_like",
+            "assertive",
+            "they_warrior",
+            "they_leader",
+            "they_deputy",
+            "they_apprentice",
+            "they_blind"
+        ],
+        [
+            "Hey, y_c! I brought you back something from my last patrol. Take a look!",
+            "[t_c drops a colorful feather at your paws.]",
+            "You wanna know how I found it? Oh, it's a crazy story. I was on a hunting patrol, when I found this huge bird, and ...",
+            "[t_c regales you with a daring story full of thrills, twists, and turns.]",
+            "... And then I got the feather! Quite the adventure, no?",
+            "Just wait until you're old enough. You'll be having plenty of adventures of your own before you know it!"
         ]
     ]
 }

@@ -39,7 +39,7 @@
             "*Sigh* y_c, have you ever felt like you're not enough for anyone?",
             "Usually, when it comes to making a decision, I never hesitate. Whatever the obstacle, I'll run headfirst into it, no questions asked.",
             "But, today, in the nursery, I was playing with one of the kits, and they accidentally got hurt ...",
-            "I just feel like such a failure. A liability. I can't help the way I am, but what if everyone's better off without me?",
+            "I just feel like such a failure. A liability. I can't help the way I am, but what if everycat's better off without me?",
             "[You offer t_c words of reassurance, but {PRONOUN/t_c/subject} {VERB/t_c/seem/seems} troubled beyond comforting.]",
             "[Still, you sit with t_c through the night, hoping to stabilize {PRONOUN/t_c/object} through whatever storm {PRONOUN/t_c/subject} might be weathering right now.]"
         ]
@@ -93,7 +93,7 @@
         ],
         [
             "[You notice t_c playing with some kits, a rare smile on {PRONOUN/t_c/poss} face.]",
-            "[{PRONOUN/t_c/subject} {VERB/t_c/seem/seems} to notice your gaze, pausing and accidentally stumbling over a kit.]",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/seem/seems} to notice your gaze, pausing and accidentally stumbling over a kit.]",
             "[Nodding, you look away. It's good to see {PRONOUN/t_c/object} having fun every once in a while.]"
         ]
     ],
@@ -109,7 +109,7 @@
         [
             "*Sigh*",
             "y_c ... Do you think I'm not ... 'nice' enough to be a queen?",
-            "Everyone tells me that queens are supposed to be all soft and loving ...",
+            "Everycat tells me that queens are supposed to be all soft and loving ...",
             "I just like keeping kits safe."
         ]
     ],
@@ -372,9 +372,9 @@
             "upstanding"
         ],
         [
-            "Is it really true that you're allowed to just ... travel between the Clans as you please?",
+            "Is it really true that you're allowed to just ... Travel between the Clans as you please?",
             "Whoa! That's so cool!!! I've always wanted to explore the other territories, but I've never been allowed.",
-            "Is it true that o_cClan cats can swim like fish? Or that their territory is full of snakes?",
+            "Is it true that o_c_n cats can swim like fish? Or that their territory is full of snakes?",
             "[You and t_c have a long conversation about the other Clans. With each detail you share, {PRONOUN/t_c/poss} eyes grow bigger and bigger.]"
         ]
     ],
@@ -609,7 +609,7 @@
             "Oh hey there y_c, didn't think I'd find you in here all by yourself. How about you go out into the clearing and play? There's plenty of space out there!",
             "Just don't feel like it huh? Well, How about I tell you a story instead?",
             "[t_c begins a long and detailed story about how the Warrior Code was created, and why it applies to all Clans across the territories.]",
-            "[{PRONOUN/t_c/subject/CAP} trail off about halfway through and watch as you roll around on the nursery floor with a ball of moss clutched between your paws]",
+            "[{PRONOUN/t_c/subject/CAP} trail off about halfway through and watch as you roll around on the nursery floor with a ball of moss clutched between your paws.]",
             "... are you even listening to me right now?"
         ]
     ],
@@ -836,7 +836,7 @@
             "[The apprentice sits down beside you, sighing as {PRONOUN/t_c/subject} {VERB/t_c/close/closes} {PRONOUN/t_c/poss} eyes. {PRONOUN/t_c/subject/CAP} {VERB/t_c/seem/seems} stressed.]",
             "Do you really think I'm cut out for this? ... I'm really struggling to tell the kits no.",
             "[You reassure t_c that {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} doing fine, and that it's not a bad thing to not be perfect all the time.]",
-            "Heh... thanks. I've been told I'm... too nice, hehe."
+            "Heh... Thanks. I've been told I'm... Too nice, hehe."
         ]
     ],
     "sweet_queenapp_17": [
@@ -914,7 +914,7 @@
             "[You spot t_c with r_k, their paws are covered in colors and smashed berries are off to the side.]",
             "[You approach, asking what {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} doing.]",
             "Oh! You see, r_k was playing a bit too rough, so I tried to find a different outlet for {PRONOUN/r_k/poss} energy.",
-            "{PRONOUN/r_k/subject} {VERB/r_k/seem/seems} to be enjoying making colorful rocks and I can't blame {PRONOUN/r_k/object}, I'm having fun too!"
+            "{PRONOUN/r_k/subject/CAP} {VERB/r_k/seem/seems} to be enjoying making colorful rocks and I can't blame {PRONOUN/r_k/object}, I'm having fun too!"
         ]
     ],
     "sweet_queenapp_22": [
@@ -933,7 +933,7 @@
             "[It is, you as a leader have seen plenty of grief in your lifetime. However, the kits aren't in any pain up there.]",
             "[When you got your lives, you saw kits playing with stardust and running around happily.]",
             "[They're were happy up there, they were away from harm and heartbreak.]",
-            "... Thank you... that makes me feel a bit better.",
+            "... Thank you... That makes me feel a bit better.",
             "[You stay there to comfort t_c for a while before sending {PRONOUN/t_c/object} back to camp to go to bed, t_c exhausted after all of that crying.]"
         ]
     ],
@@ -997,7 +997,7 @@
             "Why was I talking to myself ...?",
             "*Sigh* It's, like, the dumbest thing ever. tm_n gave me this surprise assessment today, and I totally flunked it!",
             "How could I have answered that the best way to protect kits from hawks is by grabbing them out of the sky? It just doesn't make sense!",
-            "I just know that tm_n is still laughing at me ... the whole Clan probably is.",
+            "I just know that tm_n is still laughing at me ... The whole Clan probably is.",
             "[You tell t_c not to be so hard on {PRONOUN/t_c/self}.]",
             "But, if I'm not hard on myself, then how will I ever become stronger?",
             "I refuse to be an embarrassment to my Clan and mentor. I'll pass that assessment next time ... Whatever it takes!"
@@ -1077,7 +1077,7 @@
         ],
         [
             "[As soon as you see t_c, you run up to {PRONOUN/t_c/object} on your tiny little paws, asking {PRONOUN/t_c/object} about your new biggest, greatest, and possibly stupidest idea you've ever had.]",
-            "Woah... that sounds like a really cool idea. You should lemme help you with it!",
+            "Woah... That sounds like a really cool idea. You should lemme help you with it!",
             "Once I'm finished fixing this nest, I'll help you gather the stuff."
         ]
     ],
@@ -1121,7 +1121,7 @@
         ],
         [
             "It feels really weird to become an apprentice, but still spend all my time in the same places I did when I was a kit.",
-            "Like, the warrior apprentices go explore the territory, and the medicine cat apprentices move to the medicine den and visit the herb patches... but I'm still in the nursery.",
+            "Like, the warrior apprentices go explore the territory, and the medicine cat apprentices move to the medicine den and visit the herb patches... But I'm still in the nursery.",
             "Sometimes, I'm scared I just decided to be a queen's apprentice 'cause I'm scared of things changing.",
             "I... I don't think that's true, but maybe it is and I just don't realize it?"
         ]
@@ -1138,8 +1138,267 @@
         ],
         [
             "r_k_unlawful said {PRONOUN/r_k_unlawful/subject} didn't have to listen to me, because I'm basically still a kit too...",
-            "I didn't know what to say. {PRONOUN/r_k_unlawful/subject}{VERB/r_k_unlawful/'re/'s} kind of right. I'm not that much older than {PRONOUN/r_k_unlawful/object}, and I have no idea what I'm doing.",
+            "I didn't know what to say. {PRONOUN/r_k_unlawful/subject/CAP}{VERB/r_k_unlawful/'re/'s} kind of right. I'm not that much older than {PRONOUN/r_k_unlawful/object}, and I have no idea what I'm doing.",
             "I guess I just... hoped {PRONOUN/r_k_unlawful/subject}'d still respect me? That sounds stupid when I say it out loud."
+        ]
+    ],
+    "neurotic_skillhealer_SQ2": [
+        [
+            "they_neurotic",
+            "they_healer",
+            "they_warrior",
+            "they_deputy",
+            "they_apprentice",
+            "they_mediator",
+            "they_mediator_apprentice",
+            "they_queen",
+            "they_queen's_apprentice",
+            "you_medicine_cat",
+            "you_medicine_cat_apprentice",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "Um... sorry, y_c? I don't mean to bother you, but plove_r_c has a bit of a sore throat. Could I have some honey from your stores to give them?",
+            "O-of course, you could give it to them, too! I don't mean to overstep.",
+            "[There's not much that can go terribly wrong with honey. Since t_c seems to know {PRONOUN/t_c/poss} way around medicine despite not being a medicine cat, you give {PRONOUN/t_c/object} a dollop of honey on a stick and send {PRONOUN/t_c/object} on {PRONOUN/t_c/poss} way.]"
+        ]
+    ],
+    "assertive_elder2": [
+        [
+            "you_warrior",
+            "you_apprentice",
+            "they_medicine_cat",
+            "they_mediator",
+            "they_mediator_apprentice",
+            "they_medicine_cat_apprentice",
+            "they_queen",
+            "they_queen's_apprentice",
+            "assertive",
+            "upstanding",
+            "stable",
+            "neutral",
+            "no_kit"
+        ],
+        [
+            "*Sigh* Can't you see I have important things to do, y_c?",
+            "Go back to catching mice, or whatever it is you warriors do."
+        ]
+    ],
+    "brooding_queen_AJ": [
+        [
+            "no_kit",
+            "brooding",
+            "they_queen",
+            "they_queen's_apprentice"
+        ],
+        [
+            "[t_c is huddled in the darkest, most secluded corner of camp, seemingly trying to make {PRONOUN/t_c/self} as small as possible.]",
+            "[You go to check on {PRONOUN/t_c/object}, hoping {PRONOUN/t_c/subject} {VERB/t_c/'re/'s} not in the middle of another brooding session, when, out of nowhere, r_k rushes up to {PRONOUN/t_c/object} and prods them with a paw.]",
+            "[t_c rises to {PRONOUN/t_c/poss} paws and smiles softly at r_k, then covers {PRONOUN/t_c/poss} eyes as r_k rushes to hide.]",
+            "[Seems they were just in the middle of a game of hide and seek!]"
+        ]
+    ],
+    "upstanding_both_scE4": [
+        [
+            "upstanding",
+            "you_sc",
+            "you_kitten",
+            "you_blind",
+            "min_you_deadfor_1",
+            "they_sc",
+            "they_queen",
+            "they_queen's_apprentice",
+            "max_they_deadfor_15"
+        ],
+        [
+            "y_c! How many times have I told you not to leave the hollow unless you're with another-",
+            "[t_c pauses and tilts {PRONOUN/t_c/poss} head as {PRONOUN/t_c/subject} {VERB/t_c/notice/notices} the stars shimmering in your fur.]",
+            "... Ahem. Sorry, force of habit."
+        ]
+    ],
+    "about_unlawful_SQ3": [
+        [
+            "no_kit",
+            "they_queen",
+            "they_queen's_apprentice"
+        ],
+        [
+            "r_k_unlawful is such a troublemaker. I swear to StarClan, I look away for one moment, and {PRONOUN/r_k_unlawful/subject}{VERB/r_k_unlawful/'ve/'s} already shredded my nest or snuck into the medicine den.",
+            "Whoever becomes {PRONOUN/r_k_unlawful/poss} mentor will have {PRONOUN/r_k_unlawful/poss} paws full!"
+        ]
+    ],
+    "about_brooding_AJ2": [
+        [
+            "no_kit",
+            "they_queen",
+            "they_queen's_apprentice",
+            "min_trust_15"
+        ],
+        [
+            "Oh, StarClan, did r_q_brooding chase you out of the nursery again? *Sigh* {PRONOUN/r_q_brooding/subject/CAP} sure {VERB/r_q_brooding/tend/tends} to do that a lot ...",
+            "Try not to take it too personally, y_c. I know {PRONOUN/r_q_brooding/poss} methods may seem ... unorthodox, but r_q_brooding really isn't a bad Queen. {PRONOUN/r_q_brooding/subject/CAP} just {VERB/r_q_brooding/want/wants} to keep everycat safe.",
+            "And if scaring cats stiff into leaving the kits alone is what it takes ... Well, then that's just what {PRONOUN/r_q_brooding/subject}'ll do."
+        ]
+    ],
+    "Introspective_queenapp_to_NB": [
+        [
+            "you_newborn",
+            "they_queen's_apprentice",
+            "introspective",
+            "you_blind",
+            "you_blind"
+        ],
+        [
+            "Oh, that's y_c! {PRONOUN/y_c/subject/CAP}{VERB/y_c/'ve/'s} grown so quickly.",
+            "I remember you being born, you know, even if it wasn't that long ago. It'll be amazing watching you grow to provide for the Clan. I wonder what you'll grow up to do.",
+            "A big strong warrior, a gentle medicine cat, a wise mediator... or you could become a queen like I'm learning to right now.",
+            "But that doesn't matter right now. Just focus on enjoying your life. That's what I think."
+        ]
+    ],
+    "youkit_deaf_J6": [
+        [
+            "only_you_deaf",
+            "you_kitten",
+            "they_queen",
+            "they_queen'sapprentice"
+        ],
+        [
+            "[t_c is teaching some signs to the warriors so they can communicate with you better.]",
+            "[But {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} signing so fast, you can't even keep up!]"
+        ]
+    ],
+    "youdeaf_R71": [
+        [
+            "only_you_deaf",
+            "you_kitten",
+            "they_queen",
+            "they_queen'sapprentice",
+            "they_deaf"
+        ],
+        [
+            "[t_c works with you on learning a few new signs. Today is prey!]",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/quiz/quizzes} you with a smile on each type from the freshkill pile.]",
+            "[When {PRONOUN/t_c/subject} {VERB/t_c/wiggle/wiggles} {PRONOUN/t_c/poss} ears up and down, you swiftly point to the first bird you see before mimicking the sign.]",
+            "[Then, t_c taps {PRONOUN/t_c/poss} forepaws together before moving one paw back while shaking it. This one stumps you a moment before you think about what it resembles.]",
+            "[Squirrel! You quickly point to the prey on the pile and once again sign for it yourself.]",
+            "[t_c seems pleased before wiggling a forepaw side to side. This one isn't familiar.]",
+            "[It doesn't seem to bother {PRONOUN/t_c/object} that you don't know as you shrug your shoulders in defeat. {PRONOUN/t_c/subject/CAP} {VERB/t_c/point/points} to a fish, and you feel a bit silly for not catching on.]",
+            "[That ends the lesson for the day, though, as t_c signs that {PRONOUN/t_c/subject} {VERB/t_c/need/needs} to go.]"
+        ]
+    ],
+    "queen_yourapp_theyshunned_gen_rad1": [
+        [
+            "you_queen",
+            "they_queen_apprentice",
+            "from_your_apprentice",
+            "min_platonic_15",
+            "max_trust_10",
+            "they_shunned",
+            "they_deaf",
+            "you_deaf",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "[You shoo t_c away from the nursery with a pang of guilt in your heart.]",
+            "[{PRONOUN/t_c/subject/CAP}{VERB/t_c/'re/'s} always so good with the kits, and you can't imagine {PRONOUN/t_c/object} doing anything to them.]",
+            "[But you clearly didn't know your apprentice as well as you thought, and you're not going to take any chances.]"
+        ]
+    ],
+    "neg_from_appqueen_youshunned_H1": [
+        [
+            "you_shunned",
+            "they_queen's_apprentice",
+            "from_your_apprentice",
+            "max_platonic_30",
+            "max_trust_30",
+            "they_introspective",
+            "they_deaf",
+            "you_deaf"
+        ],
+        [
+            "[You almost bump into t_c at the entrance of the nursery.]",
+            "[{PRONOUN/t_c/poss/CAP} eyes widen when {PRONOUN/t_c/subject} {VERB/t_c/realize/realizes} who you are, and hastily {VERB/t_c/backtrack/backtracks} into the nursery.]",
+            "[Before t_c leaves your sight, {PRONOUN/t_c/subject} {VERB/t_c/give/gives} you an unsure yet stern glare. Seems like even t_c is ordered to keep you out.]"
+        ]
+    ],
+    "pos_from_appqueen_youshunned_H1": {
+        "tags": [
+            "you_shunned",
+            "you_healer",
+            "they_queen's_apprentice",
+            "from_your_apprentice",
+            "max_dislike_30",
+            "max_trust_30",
+            "min_platonic_40",
+            "they_introspective",
+            "they_neurotic",
+            "clan_has_kits"
+        ],
+        "intro_text": [
+            "... y_c?",
+            "[t_c's unsure voice is heard from behind you. {PRONOUN/t_c/subject/CAP} awkwardly {VERB/t_c/shift/shifts} {PRONOUN/t_c/poss} paws as {PRONOUN/t_c/subject} {VERB/t_c/work/works} up the courage to speak to you.]"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "You're not supposed to talk to me.",
+                "next_scene": "not_supposed_H"
+            },
+            "choice2": {
+                "text": "[Ignore {PRONOUN/t_c/object}.]",
+                "next_scene": "ignore_H"
+            }
+        },
+        "not_supposed_H": [
+            "I know I'm not supposed to talk to you. Everycat knows that.",
+            "It's just-- Uh... Well, r_k has been having really bad ear pain and r_m has been too busy to check on {PRONOUN/r_k/object}.",
+            "You always had the knack of finding out what's going on, even if you're not a medicine cat and, well, I was hoping you'd agree to help?"
+        ],
+        "ignore_H": [
+            "[You choose to ignore the apprentice, unwilling to strike up any conversation with {PRONOUN/t_c/object}.]",
+            "[After a few seconds of awkward silence, you can hear t_c walk away without another word.]"
+        ],
+        "not_supposed_H_choices": {
+            "choice1": {
+                "text": "Lazy medicine cats...",
+                "next_scene": "lazy_meds_H"
+            },
+            "choice2": {
+                "text": "[Refuse to help.]",
+                "next_scene": "refuse_help_H"
+            },
+            "choice3": {
+                "text": "[Accept.]",
+                "next_scene": "accept_H"
+            }
+        },
+        "lazy_meds_H": [
+            "Uh... Is that a yes? I am going to assume that is a really reluctant yes."
+        ],
+        "refuse_help_H": [
+            "Oh, okay. That's fine.",
+            "We'll wait for r_m, then. Have a good day, y_c."
+        ],
+        "accept_H": [
+            "Awesome!!",
+            "I mean, uh... You don't need to if you don't want to, but I am relieved you're willing to help.",
+            "I'll get back to you with r_k soon!"
+        ]
+    },
+    "neg_from_appqueen_youshunned_H2": [
+        [
+            "you_shunned",
+            "they_queen's_apprentice",
+            "from_your_apprentice",
+            "max_platonic_30",
+            "min_dislike_25",
+            "max_trust_30",
+            "they_introspective"
+        ],
+        [
+            "Uhh... I have duties at the nursery.",
+            "[t_c hastily runs away toward the nursery. {PRONOUN/t_c/subject/CAP}{VERB/t_c/'re/'s} avoiding you, it seems.]"
         ]
     ]
 }

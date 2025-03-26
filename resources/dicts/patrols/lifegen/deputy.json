@@ -1,6 +1,6 @@
 [
     {
-        "patrol_id": "gen_your_cat65",
+        "patrol_id": "lg_dep_og1",
         "biome": [
             "Any"
         ],
@@ -22,7 +22,7 @@
         "success_outcomes": [
             {
                 "text": "Despite the shortage, you manage to assemble a strong and motivated patrol. Your leadership qualities shine through.",
-                "exp": 50,
+                "exp": 10,
                 "weight": 20
             }
         ],
@@ -35,7 +35,7 @@
         ]
     },
     {
-        "patrol_id": "gen_your_cat66",
+        "patrol_id": "lg_dep_og2",
         "biome": [
             "Any"
         ],
@@ -57,7 +57,7 @@
         "success_outcomes": [
             {
                 "text": "You mediate effectively, resolving the feud and restoring peace. Your fairness and authority are respected by the Clan.",
-                "exp": 45,
+                "exp": 10,
                 "weight": 20
             }
         ],
@@ -70,7 +70,7 @@
         ]
     },
     {
-        "patrol_id": "gen_your_cat67",
+        "patrol_id": "lg_dep_og3",
         "biome": [
             "Any"
         ],
@@ -92,7 +92,7 @@
         "success_outcomes": [
             {
                 "text": "You manage to encourage and help the apprentice, who shows great improvement. Your mentorship skills are admired by the Clan.",
-                "exp": 50,
+                "exp": 10,
                 "weight": 20
             }
         ],
@@ -105,7 +105,7 @@
         ]
     },
     {
-        "patrol_id": "gen_your_cat68",
+        "patrol_id": "lg_dep_og4",
         "biome": [
             "Any"
         ],
@@ -127,7 +127,7 @@
         "success_outcomes": [
             {
                 "text": "Your strategy of rationing and sharing heat proves effective, ensuring the Clan's survival through the leaf-bare. Your foresight is commended by the Clan.",
-                "exp": 55,
+                "exp": 10,
                 "weight": 20
             }
         ],
@@ -140,7 +140,7 @@
         ]
     },
     {
-        "patrol_id": "gen_your_cat69",
+        "patrol_id": "lg_dep_og5",
         "biome": [
             "Any"
         ],
@@ -162,7 +162,7 @@
         "success_outcomes": [
             {
                 "text": "Your training methods prove effective, and the new warriors are well-prepared. Your dedication to the Clan is recognized by all.",
-                "exp": 55,
+                "exp": 10,
                 "weight": 20
             }
         ],
@@ -175,7 +175,7 @@
         ]
     },
     {
-        "patrol_id": "lifegen_X",
+        "patrol_id": "lg_dep_og6",
         "biome": [
             "Any"
         ],
@@ -210,7 +210,7 @@
         ]
     },
     {
-        "patrol_id": "lifegen_1",
+        "patrol_id": "lg_dep_og7",
         "biome": [
             "Any"
         ],
@@ -232,7 +232,7 @@
         "success_outcomes": [
             {
                 "text": "You speak with the mentor, explaining the apprentice's concerns. The mentor understands and promises to be more patient and understanding. The apprentice thanks you.",
-                "exp": 15,
+                "exp": 10,
                 "weight": 20
             }
         ],
@@ -245,7 +245,7 @@
         ]
     },
     {
-        "patrol_id": "lifegen_2",
+        "patrol_id": "lg_dep_og8",
         "biome": [
             "Any"
         ],
@@ -267,7 +267,7 @@
         "success_outcomes": [
             {
                 "text": "You spend some time with the Clan member, gradually easing their fear of water. Eventually, they regain their confidence and thank you.",
-                "exp": 20,
+                "exp": 10,
                 "weight": 20
             }
         ],
@@ -280,7 +280,7 @@
         ]
     },
     {
-        "patrol_id": "lifegen_3",
+        "patrol_id": "lg_dep_og9",
         "biome": [
             "Any"
         ],
@@ -302,7 +302,7 @@
         "success_outcomes": [
             {
                 "text": "You decide to send a patrol. The cats manage to chase the fox away without any casualties.",
-                "exp": 15,
+                "exp": 10,
                 "weight": 20
             }
         ],
@@ -315,7 +315,7 @@
         ]
     },
     {
-        "patrol_id": "lifegen_4",
+        "patrol_id": "lg_dep_og10",
         "biome": [
             "Any"
         ],
@@ -337,7 +337,7 @@
         "success_outcomes": [
             {
                 "text": "You successfully find the needed plants and the apprentice recovers quickly with you and the medicine cat's help.",
-                "exp": 20,
+                "exp": 10,
                 "weight": 20
             }
         ],
@@ -350,7 +350,7 @@
         ]
     },
     {
-        "patrol_id": "lifegen_5",
+        "patrol_id": "lg_dep_og11",
         "biome": [
             "Any"
         ],
@@ -372,7 +372,7 @@
         "success_outcomes": [
             {
                 "text": "You decide to personally monitor the rogues, ensuring they leave the territory without causing trouble.",
-                "exp": 15,
+                "exp": 10,
                 "weight": 20
             }
         ],
@@ -385,7 +385,7 @@
         ]
     },
     {
-        "patrol_id": "lifegen_6",
+        "patrol_id": "lg_dep_og12",
         "biome": [
             "Any"
         ],
@@ -407,7 +407,7 @@
         "success_outcomes": [
             {
                 "text": "Your training sessions prove fruitful and the apprentice's fighting skills improve significantly.",
-                "exp": 20,
+                "exp": 10,
                 "weight": 20
             }
         ],
@@ -420,7 +420,7 @@
         ]
     },
     {
-        "patrol_id": "lifegen_8",
+        "patrol_id": "lg_dep_og13",
         "biome": [
             "Forest"
         ],
@@ -442,7 +442,7 @@
         "success_outcomes": [
             {
                 "text": "You lead a patrol to investigate and find it's just a group of kittypets. You manage to chase them away.",
-                "exp": 20,
+                "exp": 10,
                 "weight": 20
             }
         ],
@@ -479,7 +479,7 @@
         "success_outcomes": [
             {
                 "text": "When you voice your opinion, surprisingly, the deputy listens to you. Heeding your advice, they split up the pair and send them off into different groups.",
-                "exp": 20,
+                "exp": 10,
                 "weight": 20
             }
         ],
@@ -515,8 +515,8 @@
         "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "Excited for a chance to redeem yourself, you agree, and you recieve no objections from your leader as you pass to leave camp. You catch a good amount of prey with your Clanmates and feel pride for the first time in a while as you drop it on the fresh-kill pile.",
-                "exp": 20,
+                "text": "Excited for a chance to redeem yourself, you agree, and you receive no objections from your leader as you pass to leave camp. You catch a good amount of prey with your Clanmates and feel pride for the first time in a while as you drop it on the fresh-kill pile.",
+                "exp": 10,
                 "weight": 20
             }
         ],
@@ -525,6 +525,205 @@
                 "text": "You instantly stand up and agree, excited at the chance to redeem yourself, but when your leader hears this, they turn their head to glare at the two warriors. Your Clanmates sheepishly apologise for asking, and turn to join their leader, who looks ready to give them a scolding for ignoring your shun.",
                 "exp": 0,
                 "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "life_dep_J1",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [],
+        "patrol_art": "DefaultDeputy",
+        "min_cats": 1,
+        "max_cats": 1,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "As you're leaving your den in the morning to assemble dawn patrols, r_w1_neurotic stops you, apologises for bothering you, and asks not to be put on patrol with r_w2_brooding this morning.",
+        "decline_text": "You wave r_w1_neurotic off. All Clanmates must learn to work together, and if they end up on patrol together, {PRONOUN/r_w1_neurotic/subject}'ll have to deal with it!",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "You ask why, and r_w1_neurotic explains that r_w2_brooding is a bit intimidating, and tends to throw off {PRONOUN/r_w1_neurotic/poss} focus. You tell r_w1_neurotic you'll assign {PRONOUN/r_w1_neurotic/object} and r_w2_brooding to separate duties, but let {PRONOUN/r_w1_neurotic/object} know that r_w2_brooding isn't as scary as {PRONOUN/r_w2_brooding/subject} {VERB/r_w2_brooding/seem/seems}.",
+                "exp": 15,
+                "weight": 20
+            },
+            {
+                "text": "You tell r_w1_neurotic that {PRONOUN/r_w1_neurotic/subject} can't avoid {PRONOUN/r_w1_neurotic/poss} Clanmates, and in fact, you'll make sure {PRONOUN/r_w1_neurotic/subject}{VERB/r_w1_neurotic/'re/'s} put on a patrol with r_w2_brooding today. r_w1_neurotic looks upset, but when {PRONOUN/r_w1_neurotic/subject} {VERB/r_w1_neurotic/return/returns} from {PRONOUN/r_w1_neurotic/poss} dawn patrol later, you see {PRONOUN/r_w1_neurotic/object} laughing and joking around with r_w2_brooding. Looks like {PRONOUN/r_w2_brooding/subject} {VERB/r_w2_brooding/weren't/wasn't} so scary after all.",
+                "exp": 15,
+                "weight": 20,
+                "can_have_stat": ["p_l"],
+                "stat_trait": [
+                    "righteous",
+                    "ambitious",
+                    "strict",
+                    "responsible",
+                    "smug",
+                    "loyal",
+                    "justified",
+                    "methodical"
+                ],
+                "relationships": [
+                    {
+                        "cats_to": ["r_w1_neurotic"],
+                        "cats_from": ["r_w2_brooding"],
+                        "mutual": true,
+                        "values": ["platonic"],
+                        "amount": 10
+                    }
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You're about to ask why, but just as you do, you notice r_w2_brooding emerging from {PRONOUN/r_w2_brooding/poss} den, blinking sleep from {PRONOUN/r_w2_brooding/poss} eyes. You give r_w1_neurotic a quick nod, approving of {PRONOUN/r_w1_neurotic/subject} request, and continue on your way to the front of camp.",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "You dismiss r_w1_neurotic-- surely {PRONOUN/r_w1_neurotic/subject} can't be that intimidated by r_w2_brooding. You put the two on the dawn patrol together, but r_w1_neurotic returns home early, muttering that {PRONOUN/r_w1_neurotic/subject} {VERB/r_w1_neurotic/don't/doesn't} feel well as {PRONOUN/r_w1_neurotic/subject} {VERB/r_w1_neurotic/run/runs} past you to go back to sleep.",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "You sympathise with r_w1_neurotic but deny {PRONOUN/r_w1_neurotic/poss} request. r_w2_brooding isn't a bad cat - surely there is no harm in patrolling with {PRONOUN/r_w2_brooding/object} once in a while. Though, you start to regret your decision as r_w1_neurotic falls further into {PRONOUN/r_w1_neurotic/poss} nerves when the patrol heads off.",
+                "exp": 0,
+                "weight": 20,
+                "stat_trait": [
+                    "thoughtful",
+                    "calm",
+                    "flexible",
+                    "wise",
+                    "righteous",
+                    "lonesome",
+                    "gloomy",
+                    "mellow"
+                ],
+                "can_have_stat": ["p_l"],
+                "relationship": [
+                    {
+                        "cats_to": ["p_l"],
+                        "cats_from": ["r_w1_neurotic"],
+                        "mutual": false,
+                        "values": ["comfort"],
+                        "amount": -5
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "patrol_id": "lifegen_deputy_SQ1",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "leafbare"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [],
+        "patrol_art": "patrol_art_png_name",
+        "min_cats": 1,
+        "max_cats": 1,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "It's frigid this morning. Your Clanmates wake with numb paws and drops of their breath frozen to their whiskers. You've organized a morning border patrol, but you're not sure whether to tell its members to stay home for their safety.",
+        "decline_text": "You decide to let l_n figure out this one. You have a lot of other things to do today.",
+        "chance_of_success": 60,
+        "success_outcomes": [
+            {
+                "text": "You remember r_m warning you that at these temperatures, frostbite is a real risk. Leafbare is difficult enough without cats getting hurt, so you call off the patrol. You doubt any threats will be out in this weather anyways, and sure enough, nothing unusual happens in the following days.",
+                "exp": 15,
+                "weight": 20
+            },
+            {
+                "text": "You ask r_w, the patrol's leader, for {PRONOUN/r_w/poss} opinion on whether {PRONOUN/r_w/subject} {VERB/r_w/want/wants} to patrol today. r_w seems to appreciate you asking, and after a brief discussion, decides to take a shorter route. You help {PRONOUN/r_w/object} plan the specific path, and remind {PRONOUN/r_w/object} to come back early if any cats are having trouble. ",
+                "exp": 15,
+                "weight": 20
+            },
+            {
+                "text": "Cats have noticed signs of rogues along one of the borders, so you think it's important to keep up your patrols regardless of the weather. However, you decide to join the group instead, so one of your Clanmates can stay out of the cold. The patrol passes without incident, and while your paws are numb for a while afterwards, no one suffers any long-term effects.",
+                "exp": 15,
+                "weight": 20
+            },
+            {
+                "text": "It's important to keep patrols going, even in bad weather, but you don't want your Clanmates to get frostbitten. After a bit of thought, you suggest the patrol members wrap moss around their paws to keep them warm, and volunteer some of your bedding for the task. While the moss wrappings are falling apart by the time your Clanmates return, it seems they were successful in protecting their paws from the cold!",
+                "exp": 15,
+                "weight": 20,
+                "stat_skill": [
+                    "INNOVATOR,1",
+                    "THINKER,1",
+                    "CLEVER,1"
+                ],
+                "can_have_stat": [
+                    "p_l"
+                ]
+            },
+            {
+                "text": "You decide that it would be a good idea to send a patrol out anyways, but as you start to let r_w, the patrol's leader, know, a chill shoots up your spine. You have the sudden feeling that sending cats out in this weather is a terrible decision. Though you're unsure of the cause for your unease, you tell r_w to stay in camp instead. Shortly afterwards, a blizzard hits the territory, turning the world white and dropping the temperatures even further. You're thankful that you kept the patrol in camp, not wanting to think about what could have happened to any cats caught in the storm.",
+                "exp": 15,
+                "weight": 20,
+                "stat_skill": [
+                    "CLAIRVOYANT,1"
+                ],
+                "can_have_stat": [
+                    "p_l"
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You decide to send the patrol out anyways, but regret it when a blizzard sweeps through the territory shortly afterwards. Just after the storm settles, though, your disoriented Clanmates stumble back into camp, chilled but otherwise unharmed. r_w explains that they were lost in the snow, but a starry cat led them to shelter, and then back home...",
+                "exp": 0,
+                "weight": 20,
+                "faith_effects": [
+                    {
+                        "faith_cat": [
+                            "r_w"
+                        ],
+                        "amount": 1
+                    }
+                ]
+            },
+            {
+                "text": "You decide to send the patrol out anyways, but regret it when a blizzard sweeps through the territory shortly afterwards. Your Clanmates don't return to camp on time, so l_n and you go looking for them as soon as the storm clears. You find them huddled together beneath a bush, shivering violently. r_w is particularly cold and wind-battered.",
+                "exp": 0,
+                "weight": 10,
+                "injury": [
+                    {
+                        "cats": [
+                            "r_w"
+                        ],
+                        "injuries": [
+                            "shivering"
+                        ]
+                    }
+                ]
+            },
+            {
+                "text": "You can think of so many things that could go wrong if you send the patrol out, and so many things that could go wrong if you instead tell them to stay in camp. Paralyzed by the potential consequences, you're unable to make a decision. l_n steps in and decides to run the patrols like usual despite the weather, and then tells you to take a break for the rest of the day.",
+                "exp": 0,
+                "weight": 20,
+                "stat_trait": [
+                    "careful",
+                    "nervous",
+                    "insecure",
+                    "meek",
+                    "cowardly",
+                    "reserved",
+                    "emotional"
+                ],
+                "can_have_stat": [
+                    "p_l"
+                ]
             }
         ]
     }
