@@ -108,8 +108,11 @@ class AllegiancesScreen(Screens):
         self.scroll_container.kill()
         del self.scroll_container
 
+        self.heading.kill()
+        del self.heading
+
     @staticmethod
-    def generate_one_entry(self, cat, extra_details=""):
+    def generate_one_entry(cat, extra_details=""):
         """Extra Details will be placed after the cat description, but before the apprentice (if they have one. )"""
         if cat.dead:
             if game.settings["dark mode"]:

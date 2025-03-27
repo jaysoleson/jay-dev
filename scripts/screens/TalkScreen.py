@@ -896,6 +896,8 @@ class TalkScreen(Screens):
 
             if (game.clan.timeskips == 1 and game.clan.days == 0) and "pre_bloodbath" not in tags:
                 continue
+            if "pre_bloodbath" in tags and not (game.clan.timeskips == 1 and game.clan.days == 0):
+                continue
 
             if "same_clan" in tags and cat.cat_clan != game.clan.your_cat.cat_clan:
                 continue
@@ -2149,6 +2151,8 @@ class TalkScreen(Screens):
         text = [t1.replace("c_n", game.clan.name) for t1 in text]
         text = [t1.replace("y_c", str(you.name)) for t1 in text]
         text = [t1.replace("t_c", str(cat.name)) for t1 in text]
+
+        text = [t1.replace("(clan)", str(cat.cat_clan) + "Clan") for t1 in text]
 
         return text
 

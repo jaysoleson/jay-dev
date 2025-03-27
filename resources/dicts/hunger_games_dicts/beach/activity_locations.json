@@ -1,43 +1,43 @@
 {
     "3_2": {
-        "gather tansy": [150, 250]
+        "gather tansy": [75, 125]
     },
     "3_1": {
-        "gather goldenrod": [700, 850]
+        "gather goldenrod": [350, 425]
     },
     "3_0": {
-        "gather daisy": [900, 350]
+        "gather daisy": [450, 175]
     },
     "3_-1": {
-        "gather tansy": [470, 550]
+        "gather tansy": [235, 275]
     },
     "2_2": {
-        "gather mullein": [700, 500],
-        "gather tansy": [900, 200]
+        "gather mullein": [350, 250],
+        "gather tansy": [450, 100]
     },
     "2_1": {
-        "gather wild_garlic": [650, 800]
+        "gather wild_garlic": [325, 400]
     },
     "2_0": {
-        "investigate": [950, 950],
-        "gather dandelion": [700, 500],
-        "gather mallow": [600, 1200]
+        "investigate": [475, 475],
+        "gather dandelion": [350, 250],
+        "gather mallow": [300, 600]
     },
     "2_-1": {
-        "gather juniper": [200, 250]
+        "gather juniper": [200, 125]
     },
     "2_-2": {
-        "gather marigold": [600, 500]
+        "gather marigold": [300, 250]
     },
     "1_2": {
-        "gather poppy": [960, 280]
+        "gather poppy": [480, 140]
     },
     "1_1": {
-        "gather lungwort": [400, 680],
-        "gather ragwort": [1250, 250]
+        "gather lungwort": [200, 340],
+        "gather ragwort": [625, 125]
     },
     "1_0": {
-        "hunt": [1000, 900]
+        "hunt": [500, 450]
     },
     "1_-1": {
     },
@@ -50,25 +50,25 @@
     "0_1": {
     },
     "0_0": {
-        "investigate": [750, 750]
+        "investigate": [375, 375]
     },
     "0_-1": {
     },
     "0_-2": {
     },
     "0_-3": {
-        "investigate": [700, 390]
+        "investigate": [350, 195]
     },
     "-1_2": {
-        "gather tansy": [450, 400],
-        "gather goldenrod": [800, 500]
+        "gather tansy": [225, 200],
+        "gather goldenrod": [400, 250]
     },
     "-1_1": {
     },
     "-1_0": {
     },
     "-1_-1": {
-        "gather rosemary": [1200, 550]
+        "gather rosemary": [600, 275]
     },
     "-1_-2": {
     },
@@ -83,13 +83,13 @@
     "-2_-1": {
     },
     "-2_-3": {
-        "fish": [960, 1100]
+        "fish": [480, 1155000]
     },
     "-3_1": {
     },
     "-3_0": {
     },
     "-3_-1": {
-        "fish": [900, 900]
+        "fish": [450, 450]
     }
 }

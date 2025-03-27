@@ -239,7 +239,6 @@ class Cat:
         self.mate = []
         self.previous_mates = []
         self.pronouns = [self.default_pronouns[0].copy()]
-        self.placement = None
         self.example = example
         self.dead = False
         self.exiled = False
@@ -2054,22 +2053,29 @@ class Cat:
             self.die()
             return False
         if "moon_start" in self.illnesses[illness]:
-            moons_with = game.clan.age - self.illnesses[illness]["moon_start"]
-            
+            # moons_with = game.clan.age - self.illnesses[illness]["moon_start"]
+            moons_with = game.clan.timeskips - self.illnesses[illness]["moon_start"]
         else:
             moons_with = 0
 
         # focus buff
         moons_prior = game.config["focus"]["rest and recover"]["moons_earlier_healed"]
 
-        if self.illnesses[illness]["duration"] - moons_with <= 0:
+        # multiply by two since duration is going from moons to timeskips
+        # not an accurate ratio ofc but yk. being sick too long is no fun
+        duration = self.illnesses[illness]["duration"] * 4
+
+        # print(self.name, "has", illness)
+        # print(self.name, "Duration", duration, "|", "Skips with:", moons_with)
+        if duration - moons_with <= 0:
             self.healed_condition = True
+            print("Healing", str(self.name) + "'s", illness)
             return False
 
         # CLAN FOCUS! - if the focus 'rest and recover' is selected
         elif (
             game.clan.clan_settings.get("rest and recover")
-            and self.illnesses[illness]["duration"] + moons_prior - moons_with <= 0
+            and duration + moons_prior - moons_with <= 0
         ):
             self.healed_condition = True
             return False
@@ -2098,16 +2104,19 @@ class Cat:
             return False
         moons_with = 0
         if "moon_start" in self.injuries[injury]:
-            moons_with = game.clan.age - self.injuries[injury]["moon_start"]
+            # moons_with = game.clan.age - self.injuries[injury]["moon_start"]
+            moons_with = game.clan.timeskips - self.injuries[injury]["moon_start"]
 
 
         # focus buff
         moons_prior = game.config["focus"]["rest and recover"]["moons_earlier_healed"]
 
+        duration = self.injuries[injury]["duration"] * 4
+
         # if the cat has an infected wound, the wound shouldn't heal till the illness is cured
         if (
             not self.injuries[injury]["complication"]
-            and self.injuries[injury]["duration"] - moons_with <= 0
+            and duration - moons_with <= 0
         ):
             self.healed_condition = True
             return False
@@ -2116,7 +2125,7 @@ class Cat:
         elif (
             not self.injuries[injury]["complication"]
             and game.clan.clan_settings.get("rest and recover")
-            and self.injuries[injury]["duration"] + moons_prior - moons_with <= 0
+            and duration + moons_prior - moons_with <= 0
         ):
             self.healed_condition = True
             return False
@@ -2301,7 +2310,8 @@ class Cat:
                 "mortality": new_illness.current_mortality,
                 "infectiousness": new_illness.infectiousness,
                 "duration": new_illness.duration,
-                "moon_start": game.clan.age if game.clan else 0,
+                # "moon_start": game.clan.age if game.clan else 0,
+                "moon_start": game.clan.timeskips if game.clan else 0,
                 "risks": new_illness.risks,
                 "event_triggered": new_illness.new,
             }
@@ -2370,7 +2380,8 @@ class Cat:
                 "severity": new_injury.severity,
                 "mortality": new_injury.current_mortality,
                 "duration": new_injury.duration,
-                "moon_start": game.clan.age if game.clan else 0,
+                # "moon_start": game.clan.age if game.clan else 0,
+                "moon_start": game.clan.timeskips if game.clan else 0,
                 "illness_infectiousness": new_injury.illness_infectiousness,
                 "risks": new_injury.risks,
                 "complication": None,
@@ -2505,7 +2516,8 @@ class Cat:
                 "severity": new_perm_condition.severity,
                 "born_with": born_with,
                 "moons_until": new_perm_condition.moons_until,
-                "moon_start": game.clan.age if game.clan else 0,
+                # "moon_start": game.clan.age if game.clan else 0,
+                "moon_start": game.clan.timeskips if game.clan else 0,
                 "mortality": new_perm_condition.current_mortality,
                 "illness_infectiousness": new_perm_condition.illness_infectiousness,
                 "risks": new_perm_condition.risks,
@@ -4062,6 +4074,7 @@ class Cat:
                 "experience": self.experience,
                 "dead_moons": self.dead_for,
                 "shunned": self.shunned,
+                "exiled": self.exiled,
                 "current_apprentice": list(self.apprentice),
                 "former_apprentices": list(self.former_apprentices),
                 "df": self.df,

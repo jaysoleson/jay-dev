@@ -431,7 +431,6 @@ class Events:
 
         self.current_events.clear()
         self.check_achievements()
-        self.generate_dialogue_focus()
         self.checks = [
             len(game.clan.your_cat.apprentice),
             len(game.clan.your_cat.mate),
@@ -465,54 +464,6 @@ class Events:
 
         game.clan.freshkill_pile.add_freshkill(game.clan.freshkill_pile.amount_food_needed())
 
-    def generate_dialogue_focus(self):
-        """Handles dialogue focus for each moon, generating conditional focuses for specific events (war, starving) or random chance focuses (valentines, quality of leadership)"""
-        resource_dir = "resources/dicts/"
-        with open(f"{resource_dir}dialogue_focuses.json",
-                encoding="ascii") as read_file:
-            dialogue_focuses = ujson.loads(read_file.read())
-        
-        # Handle lost focus for conditional focuses that have no set duration
-        if game.clan.focus == "war" and not game.clan.war.get("at_war"):
-            game.clan.focus = ""
-            game.clan.focus_moons = 0
-        if game.clan.focus == "starving" and game.clan.freshkill_pile.total_amount > game.clan.freshkill_pile.amount_food_needed()*0.5:
-            game.clan.focus = ""
-            game.clan.focus_moons = 0
-            for clan_cat in game.clan.clan_cats:
-                clan_cat_cat = Cat.fetch_cat(clan_cat)
-                if clan_cat_cat:
-                    clan_cat_cat.faith -= round(random.uniform(-1,0), 2)
-
-        # Handle lost focus for focuses that have set duration
-        if game.clan.focus and dialogue_focuses[game.clan.focus]["duration"] != -1 and game.clan.focus_moons >= dialogue_focuses[game.clan.focus]["duration"]:
-            if "focus_loss" in dialogue_focuses[game.clan.focus]:
-                game.cur_events_list.append(Single_Event(self.process_text(random.choice(dialogue_focuses[game.clan.focus]["focus_loss"])), "misc"))
-            game.clan.focus = ""
-            game.clan.focus_moons = 0
-            game.clan.focus_cat = None
-            
-        if not game.clan.focus:
-            if "debug_ensure_focus" in game.config and game.config["debug_ensure_focus"] and game.config["debug_ensure_focus"] in dialogue_focuses:
-                game.clan.focus = game.config["debug_ensure_focus"]
-            elif game.clan.war.get("at_war"):
-                game.clan.focus = "war"
-            elif game.clan.freshkill_pile.total_amount < game.clan.freshkill_pile.amount_food_needed()*0.5:
-                game.clan.focus = "starving"
-            elif random.randint(1,30) == 1:
-                possible_focuses = ["valentines", "hailstorm"]
-                if game.clan.leader and not game.clan.leader.dead and not game.clan.leader.outside and game.clan.leader.ID != game.clan.your_cat.ID:
-                    possible_focuses.append("leader")
-                focus_chosen = random.choice(possible_focuses)
-                if dialogue_focuses[focus_chosen]["season"] == "Any" or dialogue_focuses[focus_chosen]["season"] == game.clan.current_season:
-                    game.clan.focus = focus_chosen
-
-        if game.clan.focus:
-            game.clan.focus_moons += 1
-            if game.clan.focus_moons == 1 and dialogue_focuses[game.clan.focus]["moon_event"]:
-                game.cur_events_list.insert(0, Single_Event(self.process_text(random.choice(dialogue_focuses[game.clan.focus]["moon_event"])), "misc"))
-
-                
     def gain_acc(self):
         if game.clan.clan_settings["all accessories"]:
             return
@@ -2343,31 +2294,6 @@ class Events:
             self.handle_fading(cat)  # Deal with fading.
             cat.talked_to = False
             return
-        
-        # if cat.forgiven > 0:
-        #     cat.forgiven += 1
-        #     # reset forgiven back to zero when it hits max to it doesnt just count up forever lol
-        #     # that + 1 is because it technically starts at one
-        #     if cat.forgiven >= game.config["shunned_cat"]["max_forgiven_moons"] + 1:
-        #         cat.forgiven = 0
-        
-        # if cat.shunned > 0 and cat.status != "former Clancat":
-        #     cat.shunned += 1
-        #     if cat.shunned >3:
-        #         exilechance = random.randint(1,15)
-        #         # Chance for a cat to be exiled, forgiven, or leave before the ten moon limit
-        #         if exilechance == 1:
-        #             self.exile_or_forgive(cat)
-        #         else:
-        #         # Max number of moons a cat can be shunned before the clan makes up their damn mind
-        #         # Currently ten, but it was also roll if its set to more than that in a cat's save
-        #             if cat.shunned >= game.config["shunned_cat"]["max_shunned_moons"]:
-        #                 self.exile_or_forgive(cat)
-        
-        # if cat.status == 'leader' and cat.shunned > 0 and cat.name.specsuffix_hidden is False:
-        #     cat.name.specsuffix_hidden = True
-
-        # corrects the name if the leader is shunned but their special suffix isnt hidden
 
         # all actions, which do not trigger an event display and
         # are connected to cats are located in there
@@ -2667,23 +2593,49 @@ class Events:
                 game.cur_events_list.insert(0, Single_Event(event, "alert", game.clan.your_cat.ID))
 
         bloodbath_cats = []
+        bloodbath_cat_objects = []
         involved_cats = []
         for i in Cat.all_cats_list:
             if not i.dead and not i.outside:
                 if i.map_position == "0_0":
                     bloodbath_cats.append(str(i.name))
+                    bloodbath_cat_objects.append(i)
                     involved_cats.append(i.ID)
+
+        random_num = random.gauss(2, 2)
+        dead_cats = round(max(min(random_num, (len(bloodbath_cat_objects) - 1)), 1))
+
+        dead_bloodbath_cats = []
+        
+        print("DEAD CATS:", dead_cats)
+
+        for i in range(dead_cats):
+            bloodbath_cat_objects[i].die()
+            dead_bloodbath_cats.append(str(bloodbath_cat_objects[i].name))
 
         if len(bloodbath_cats) > 2:
             string = f"{', '.join(bloodbath_cats[:-1])}, and {bloodbath_cats[-1]} partake in the bloodbath."
-        elif len(prey_list) > 1:
+        elif len(bloodbath_cats) > 1:
             string = f"{''.join(bloodbath_cats[:-1])} and {bloodbath_cats[-1]} partake in the bloodbath."
         elif len(bloodbath_cats) == 1:
             string = f"{bloodbath_cats[-1]} was the only cat to gather supplies from the Cornucopia."
         else:
-            string = f"None of the tributes attempt to gather supplies from the Cornucopia."
+            string = "None of the tributes attempt to gather supplies from the Cornucopia."
+        
+        if len(dead_bloodbath_cats) > 2:
+            string2 = f" {', '.join(dead_bloodbath_cats[:-1])}, and {dead_bloodbath_cats[-1]} are killed."
+        elif len(dead_bloodbath_cats) > 1:
+            string2 = f" {''.join(dead_bloodbath_cats[:-1])} and {dead_bloodbath_cats[-1]} are killed."
+        elif len(dead_bloodbath_cats) == 1:
+            string2 = f" {dead_bloodbath_cats[-1]} is killed."
+        else:
+            if len(bloodbath_cats) > 1:
+                string2 = " Every cat survives."
+            else:
+                string2 = ""
 
-        game.cur_events_list.insert(0, Single_Event(string, "alert", involved_cats))
+        game.cur_events_list.insert(0, Single_Event(string + string2, "alert", involved_cats))
+
 
         # print(prey)
 
@@ -4157,7 +4109,6 @@ class Events:
 
         # if we have some, then we need to decide if this cat will kill
         if targets:
-            print("die die die")
             chosen_target = random.choice(targets)
 
             kill_chance = game.config["death_related"]["base_murder_kill_chance"]
@@ -4173,6 +4124,14 @@ class Events:
                 )
             )
             kill_chance -= relation_modifier
+
+            # HG
+            location_modifier = int(
+                self.MAP_POSITION_INFO[cat.map_position]["safety"]
+            )
+
+            kill_chance *= location_modifier
+            # ---
 
             if Cat.fetch_cat(chosen_target.cat_to).ID in cat.allies:
                 kill_chance *= 2
@@ -4201,7 +4160,8 @@ class Events:
             #     kill_chance -= 10
 
             kill_chance = max(1, int(kill_chance))
-            kill_chance = 1
+
+            print(cat.name, "murder chance:", kill_chance)
 
             if not int(random.random() * kill_chance):
                 print(

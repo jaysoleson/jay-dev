@@ -857,5 +857,61 @@
                 "comfort": 10
             }
         }
+    },
+    "pre_bloodbath_J2": {
+        "tags": [
+            "any",
+            "pre_bloodbath",
+            "you_deaf",
+            "they_deaf",
+            "brooding",
+            "assertive",
+            "unlawful"
+        ],
+        "intro": [
+            "[t_c flexes {PRONOUN/t_c/poss} claws when {PRONOUN/t_c/subject} {VERB/t_c/catch/catches} your eye.]"
+        ]
+    },
+    "pre_bloodbath_J3": {
+        "tags": [
+            "any",
+            "pre_bloodbath",
+            "you_deaf",
+            "they_deaf",
+            "sweet",
+            "neurotic",
+            "stable"
+        ],
+        "intro": [
+            "[t_c avoids looking at you, looking terrified.]"
+        ]
+    },
+    "pre_bloodbath_J4": {
+        "tags": [
+            "any",
+            "pre_bloodbath",
+            "you_deaf",
+            "they_deaf",
+            "sweet",
+            "neurotic",
+            "stable"
+        ],
+        "intro": [
+            "[t_c flashes you an anxious, but friendly, smile.]"
+        ]
+    },
+    "pre_bloodbath_J5": {
+        "tags": [
+            "any",
+            "pre_bloodbath",
+            "you_deaf",
+            "they_deaf",
+            "sweet",
+            "neurotic",
+            "stable"
+        ],
+        "intro": [
+            "[t_c has {PRONOUN/t_c/poss} head in {PRONOUN/t_c/poss} paws, shoulders shaking.]"
+        ]
     }
 }

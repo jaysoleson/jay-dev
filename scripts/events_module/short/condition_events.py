@@ -170,7 +170,7 @@ class Condition_Events:
             return
 
         # get all events for a certain status of a cat
-        # cat_nutrition = nutrition_info[cat.ID]
+        cat_nutrition = nutrition_info[cat.ID]
 
         event = None
         illness = None

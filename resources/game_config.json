@@ -292,9 +292,9 @@
 		]
 	},
 	"condition_related": {
-		"expanded_illness_chance": 250,
-		"cruel season_illness_chance": 200,
-		"classic_illness_chance": 500,
+		"expanded_illness_chance": 500,
+		"cruel season_illness_chance": 100,
+		"classic_illness_chance": 250,
 		"classic_injury_chance": 450,
 		"expanded_injury_chance": 250,
 		"cruel season_injury_chance": 150,

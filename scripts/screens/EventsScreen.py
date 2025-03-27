@@ -962,8 +962,8 @@ class EventsScreen(Screens):
         self.timeskip_display = pygame_gui.elements.UIImage(
             ui_scale(pygame.Rect((305, 97), (188, 107))),
             pygame.transform.scale(
-            image_cache.load_image(f"resources/images/timeskip_display/timeskips_{game.clan.timeskips}.png").convert_alpha(),
-            (500, 870)),
+            image_cache.load_image(f"resources/images/timeskip_display/timeskips_{str(game.clan.timeskips)}.png").convert_alpha(),
+            (188, 107)),
             manager=MANAGER
         )
         
