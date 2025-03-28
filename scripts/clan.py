@@ -292,7 +292,7 @@ class Clan:
                 Cat.all_cats.get(cat_id).status_change('medicine cat apprentice')
             Cat.all_cats.get(cat_id).thoughts()
 
-            # giving everyone their hunger, exposure and energy stats
+            # giving everyone their hunger, health and energy stats
             Cat.init_stats(Cat.all_cats.get(cat_id))
             Cat.load_stats_of_cat(Cat.all_cats.get(cat_id))
 
@@ -384,7 +384,14 @@ class Clan:
             same_age_cats = []
             random_cat = get_adult_mateless_cat()
             if random_cat:
-                same_age_cats = get_free_possible_mates(random_cat)
+                # same_age_cats = get_free_possible_mates(random_cat)
+
+                same_age_cats = [
+                    cat for cat in Cat.all_cats_list if (
+                        cat.is_potential_mate(random_cat) and
+                        cat.cat_clan == random_cat.cat_clan
+                    )
+                ]
 
             if same_age_cats:
                 random_mate_cat = random.choice(same_age_cats)
@@ -393,21 +400,14 @@ class Clan:
 
     def generate_families(self):
 
-        def get_kit_parent():
-            alive_cats = [i for i in Cat.all_cats.values() if i.moons >= 20 and i.moons <= 100 and not i.dead and not i.outside]
-
-            for cat in alive_cats:
-                if not cat.inheritance:
-                    cat.inheritance = Inheritance(cat)
-
-            alive_cats = [i for i in alive_cats if not i.inheritance.get_blood_kits()]
-
-            if alive_cats:
-                return random.choice(alive_cats)
-            return None
-
-        def get_app_parent():
-            alive_cats = [i for i in Cat.all_cats.values() if i.moons >= 40 and i.moons <= 100 and not i.dead and not i.outside]
+        def get_app_parent(app):
+            alive_cats = [i for i in Cat.all_cats.values() if (
+                i.moons >= 40 and
+                i.moons <= 100 and
+                not i.dead and
+                not i.outside and
+                i.cat_clan == app.cat_clan
+                )]
 
             for cat in alive_cats:
                 if not cat.inheritance:
@@ -419,57 +419,21 @@ class Clan:
                 return random.choice(alive_cats)
             return None
         
-        clan_kits = get_alive_status_cats(Cat, ["newborn", "kitten"])
         clan_apps = get_alive_status_cats(Cat, ["apprentice", "medicine cat apprentice", "mediator apprentice", "queen's apprentice"])
 
-        if not clan_kits and not clan_apps:
+        if not clan_apps:
             return
-        
-        if clan_kits:
-            for kit in clan_kits:
-                if not kit.inheritance:
-                    kit.inheritance = Inheritance(kit)
-                if kit.ID != game.clan.your_cat.ID and kit.backstory == "clanborn" and not kit.parent1:
-                    parent = get_kit_parent()
-                    if parent:
-                        kit.parent1 = parent.ID
-                        parent.inheritance.update_inheritance()
-
-                        if parent.mate:
-                            kit.parent2 = choice(parent.mate)
-                            if not Cat.all_cats.get(kit.parent2).inheritance:
-                                Cat.all_cats.get(kit.parent2).inheritance = Inheritance(Cat.all_cats.get(kit.parent2))
-                            Cat.all_cats.get(kit.parent2).inheritance.update_inheritance()
-
-                        for other_kit in clan_kits:
-                            if other_kit.ID != kit.ID and other_kit.ID != game.clan.your_cat.ID and kit.moons == other_kit.moons and not other_kit.parent1 and other_kit.backstory == "clanborn":
-                                other_kit.parent1 = parent.ID
-                                parent.inheritance.update_inheritance()
-                                if kit.parent2:
-                                    other_kit.parent2 = kit.parent2
-                                    Cat.all_cats.get(kit.parent2).inheritance.update_inheritance()
-                                    if not other_kit.inheritance:
-                                        other_kit.inheritance = Inheritance(other_kit)
-                kit.inheritance.update_inheritance()
-
-
 
         if clan_apps:
             for app in clan_apps:
                 if app.backstory == "clanborn":
-                    parent = get_app_parent()
+                    parent = get_app_parent(app)
                     if parent:
                         app.parent1 = parent.ID
                         if not app.inheritance:
                             app.inheritance = Inheritance(app)
                         app.inheritance.update_inheritance()
                         parent.inheritance.update_inheritance()
-                        if parent.mate:
-                            app.parent2 = choice(parent.mate)
-                            if not Cat.all_cats.get(app.parent2).inheritance:
-                                Cat.all_cats.get(app.parent2).inheritance = Inheritance(Cat.all_cats.get(app.parent2))
-                            app.inheritance.update_inheritance()
-                            Cat.all_cats.get(app.parent2).inheritance.update_inheritance()
 
     def populate_sc(self):
         for i in range(randint(0,5)):

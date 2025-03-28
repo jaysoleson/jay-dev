@@ -445,126 +445,104 @@ class TalkScreen(Screens):
     
     def inventory_update(self, cat, texts_list, texts_chosen_key):
         inventory_block = texts_list[texts_chosen_key][f"{self.current_scene}_inventory_update"]
+        if inventory_block["cat"] == "t_c":
+            cat_to_update = cat
+        else:
+            cat_to_update = game.clan.your_cat
+
         if "remove" in inventory_block:
             for item in inventory_block["remove"].items():
                 if item[0] in ["random_herbs", "random_food", "random_accessory"]:
                     if item[0] == "random_herbs":
                         # picking one random herb from your inventory to Snatch
                         herbs_to_take = []
-                        for i in game.clan.your_cat.pelt.inventory.keys():
+                        for i in cat_to_update.pelt.inventory.keys():
                             if i in HERBS:
                                 herbs_to_take.append(i)
                         amount = item[1]
                         taken_herb = choice(herbs_to_take)
                         print('taking', taken_herb)
-                        game.clan.your_cat.pelt.inventory[taken_herb] -= amount
-                        if game.clan.your_cat.pelt.inventory[taken_herb] <= 0:
-                            game.clan.your_cat.pelt.inventory.pop(taken_herb)
+                        cat_to_update.pelt.inventory[taken_herb] -= amount
+                        if cat_to_update.pelt.inventory[taken_herb] <= 0:
+                            cat_to_update.pelt.inventory.pop(taken_herb)
 
                     if item[0] == "random_food":
                         # now some random food
                         food_to_take = []
-                        for i in game.clan.your_cat.pelt.inventory.keys():
+                        for i in cat_to_update.pelt.inventory.keys():
                             if i in ITEM_VALUES["food"].keys():
                                 food_to_take.append(i)
                         amount = item[1]
                         taken_food = choice(food_to_take)
                         print('taking', taken_food)
-                        game.clan.your_cat.pelt.inventory[taken_food] -= amount
-                        if game.clan.your_cat.pelt.inventory[taken_food] <= 0:
-                            game.clan.your_cat.pelt.inventory.pop(taken_food)
+                        cat_to_update.pelt.inventory[taken_food] -= amount
+                        if cat_to_update.pelt.inventory[taken_food] <= 0:
+                            cat_to_update.pelt.inventory.pop(taken_food)
 
                     if item[0] == "random_accessory":
                         # now some random food
                         accs_to_take = []
-                        for i in game.clan.your_cat.pelt.inventory.keys():
+                        for i in cat_to_update.pelt.inventory.keys():
                             if i not in ITEM_VALUES["food"].keys() and i not in HERBS and i not in ["BACKPACK1", "BACKPACK2"]:
                                 accs_to_take.append(i)
                         amount = item[1]
                         taken_acc = choice(accs_to_take)
                         print('taking', taken_acc)
-                        game.clan.your_cat.pelt.inventory[taken_acc] -= amount
-                        if game.clan.your_cat.pelt.inventory[taken_acc] <= 0:
-                            game.clan.your_cat.pelt.inventory.pop(taken_acc)
+                        cat_to_update.pelt.inventory[taken_acc] -= amount
+                        if cat_to_update.pelt.inventory[taken_acc] <= 0:
+                            cat_to_update.pelt.inventory.pop(taken_acc)
                 else:
                     for item in inventory_block["remove"].items():
                         taken_item = item[0]
                         amount = item[1]
-                        game.clan.your_cat.pelt.inventory[taken_item] -= amount
-                        if game.clan.your_cat.pelt.inventory[taken_item] <= 0:
-                            game.clan.your_cat.pelt.inventory.pop(taken_item)
+                        cat_to_update.pelt.inventory[taken_item] -= amount
+                        if cat_to_update.pelt.inventory[taken_item] <= 0:
+                            cat_to_update.pelt.inventory.pop(taken_item)
         if "add" in inventory_block:
-            size = get_inventory_size(game.clan.your_cat)
-            if len(game.clan.your_cat.pelt.inventory.keys()) >= size:
+            size = get_inventory_size(cat_to_update)
+            if len(cat_to_update.pelt.inventory.keys()) >= size:
                 print("CANT GIVE ITEM: INVENTORY FULL")
                 return
             for item in inventory_block["add"].items():
                 if item[0] in ["random_herbs", "random_food", "random_accessory"]:
                     if item[0] == "random_herbs":
                         # picking one random herb from their inventory to give
-                        herbs_to_give = []
-                        for i in cat.pelt.inventory.keys():
-                            if i in HERBS:
-                                herbs_to_give.append(i)
+                        herbs_to_give = HERBS
                         amount = item[1]
                         given_herb = choice(herbs_to_give)
                         print('giving', given_herb)
-                        game.clan.your_cat.pelt.inventory.update({given_herb: amount})
-
-                        cat.pelt.inventory[given_herb] -= amount
-                        if cat.pelt.inventory[given_herb] <= 0:
-                            cat.pelt.inventory.pop(given_herb)
+                        cat_to_update.pelt.inventory.update({given_herb: amount})
 
                     if item[0] == "random_food":
-                        # now some random food
-                        food_to_give = []
-                        for i in cat.pelt.inventory.keys():
-                            if i in ITEM_VALUES["food"].keys():
-                                food_to_give.append(i)
+                        food_to_give = ITEM_VALUES["food"].keys()
                         amount = item[1]
                         given_food = choice(food_to_give)
                         print('giving', given_food)
                         
-                        if given_food in game.clan.your_cat.pelt.inventory.keys():
-                            game.clan.your_cat.pelt.inventory[given_food] += 1
+                        if given_food in cat_to_update.pelt.inventory.keys():
+                            cat_to_update.pelt.inventory[given_food] += 1
                         else:
-                            game.clan.your_cat.pelt.inventory.update({given_food: amount})
-                        
-                        cat.pelt.inventory[given_food] -= amount
-                        if cat.pelt.inventory[given_food] <= 0:
-                            cat.pelt.inventory.pop(given_food)
+                            cat_to_update.inventory.update({given_food: amount})
 
                     if item[0] == "random_accessory":
-                        # now some random food
-                        accs_to_give = []
-                        for i in cat.pelt.inventory.keys():
-                            if i not in ITEM_VALUES["food"].keys() and i not in HERBS and i not in ["BACKPACK1", "BACKPACK2"]:
-                                accs_to_give.append(i)
+                        accs_to_give = Pelt.wild_accessories
                         amount = item[1]
                         given_acc = choice(accs_to_give)
                         print('taking', given_acc)
 
                         if given_acc in game.clan.your_cat.pelt.inventory.keys():
-                            game.clan.your_cat.pelt.inventory[given_acc] += 1
+                            cat_to_update.pelt.inventory[given_acc] += 1
                         else:
-                            game.clan.your_cat.pelt.inventory.update({given_acc: amount})
-
-                        cat.pelt.inventory[given_acc] -= amount
-                        if cat.pelt.inventory[given_acc] <= 0:
-                            cat.pelt.inventory.pop(given_acc)
+                            cat_to_update.pelt.inventory.update({given_acc: amount})
                 else:
                     for item in inventory_block["add"].items():
                         given_item = item[0]
                         amount = item[1]
 
-                        if given_item in game.clan.your_cat.pelt.inventory.keys():
-                            game.clan.your_cat.pelt.inventory[given_item] += 1
+                        if given_item in cat_to_update.pelt.inventory.keys():
+                            cat_to_update.pelt.inventory[given_item] += 1
                         else:
-                            game.clan.your_cat.pelt.inventory.update({given_item: amount})
-
-                        cat.pelt.inventory[given_item] -= amount
-                        if cat.pelt.inventory[given_item] <= 0:
-                            cat.pelt.inventory.pop(given_item)
+                            cat_to_update.pelt.inventory.update({given_item: amount})
 
 
     def display_intro(self, cat, texts_list, texts_chosen_key):

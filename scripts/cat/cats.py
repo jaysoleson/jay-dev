@@ -1169,11 +1169,11 @@ class Cat:
         self.status = new_status
         self.name.status = new_status
 
-        self.update_mentor()
-        for app in self.apprentice.copy():
-            fetched_cat = Cat.fetch_cat(app)
-            if isinstance(fetched_cat, Cat):
-                fetched_cat.update_mentor()
+        # self.update_mentor()
+        # for app in self.apprentice.copy():
+        #     fetched_cat = Cat.fetch_cat(app)
+        #     if isinstance(fetched_cat, Cat):
+        #         fetched_cat.update_mentor()
         
         if "request apprentice" in game.switches and game.switches['request apprentice'] and self.mentor == game.clan.your_cat.ID:
             if game.clan.your_cat.status == "queen":
@@ -1988,17 +1988,20 @@ class Cat:
         """ changes cats HG stats passively every moonskip """
         if self.dead or self.outside:
             return
-        self.stats.exposure -= randint(1,6)
-        # i dont think i need fucking exposure for anything actually
-        # idk
 
         if self.sleeping is False:
             if self.not_working():
                 self.stats.hunger -= randint(2,5)
                 self.stats.energy -= randint(9,15)
+                self.stats.health -= randint(1,6)
             else:
                 self.stats.hunger -= randint(1,4)
                 self.stats.energy -= randint(6,12)
+                self.stats.health -= randint(0,4)
+        else:
+            self.stats.hunger -= randint(2,5)
+            # no energy bc thats handled in sleep()
+            self.stats.health += randint(1,6)
 
     def relationship_interaction(self):
         """Randomly choose a cat of the Clan and have an interaction with them."""
@@ -3301,16 +3304,16 @@ class Cat:
         # set the different stats
         try:
             hunger = self.stats.hunger
-            exposure = self.stats.exposure
+            health = self.stats.health
             energy = self.stats.energy
         except:
             hunger = 100
-            exposure = 30
+            health = 30
             energy = 100
 
         info = Stats(
             hunger=hunger if hunger else 100,
-            exposure=exposure if exposure else 30,
+            health=health if health else 30,
             energy=energy if energy else 100
         )
         self.stats = info
@@ -3387,13 +3390,13 @@ class Cat:
         try:
             r_data = {
                 "hunger": self.stats.hunger,
-                "exposure": self.stats.exposure,
+                "health": self.stats.health,
                 "energy": self.stats.energy
             }
         except:
             r_data = {
                 "hunger": 100,
-                "exposure": 30,
+                "health": 100,
                 "energy": 100
             }
 
@@ -3425,7 +3428,7 @@ class Cat:
                     new_stats = Stats(
                         hunger=(rel_data["hunger"] if rel_data["hunger"] else 100
                         ),
-                        exposure=rel_data["exposure"] if rel_data["exposure"] else 30,
+                        health=rel_data["health"] if rel_data["health"] else 100,
                         energy=rel_data["energy"] if rel_data["energy"] else 100,
                     )
                     self.stats = new_stats
@@ -4236,8 +4239,8 @@ def create_example_cats():
         
         if a in e:
             game.choose_cats[a] = Cat(status=game.choose_cats[a].status, biome=None, inventory={})
-        
-        backstories = ['halfclan1', 'halfclan2', 'outsider_roots1', 'outsider_roots2', 'loner1', 'loner2', 'kittypet1', 'kittypet2', 'kittypet3', 'kittypet4', 'rogue1', 'rogue2', 'rogue3', 'rogue4', 'rogue5', 'rogue6', 'rogue7', 'rogue8', 'abandoned1', 'abandoned2', 'abandoned3', 'abandoned4', 'otherclan1', 'otherclan2', 'otherclan3', 'otherclan4', 'otherclan5', 'otherclan6', 'otherclan7', 'otherclan8', 'otherclan9', 'otherclan10', 'disgraced1', 'disgraced2', 'disgraced3', 'refugee1', 'refugee2', 'refugee3', 'refugee4', 'refugee5', 'tragedy_survivor1', 'tragedy_survivor2', 'tragedy_survivor3', 'tragedy_survivor4', 'tragedy_survivor5', 'tragedy_survivor6', 'guided1', 'guided2', 'guided3', 'guided4', 'orphaned1', 'orphaned2', 'orphaned3', 'orphaned4', 'orphaned5', 'orphaned6', 'outsider1', 'outsider2', 'outsider3', 'kittypet5', 'kittypet6', 'kittypet7', 'guided5', 'guided6', 'outsider4', 'outsider5', 'outsider6', 'orphaned7', 'halfclan4', 'halfclan5', 'halfclan6', 'halfclan7', 'halfclan8', 'halfclan9', 'halfclan10', 'outsider_roots3', 'outsider_roots4', 'outsider_roots5', 'outsider_roots6', 'outsider_roots7', 'outsider_roots8']
+
+        backstories = BACKSTORIES["backstory_categories"]["hg_backstories"]
 
         if game.choose_cats[a].moons >= 160:
             game.choose_cats[a].moons = choice(range(120, 155))
@@ -4247,7 +4250,7 @@ def create_example_cats():
         if randint(1,5) == 1 and game.choose_cats[a].status not in ['newborn', 'kitten']:
             game.choose_cats[a].backstory = choice(backstories)
         else:
-            game.choose_cats[a].backstory = 'clanborn'
+            game.choose_cats[a].backstory = 'hg_backstory1'
     
 
 # CAT CLASS ITEMS

@@ -1308,7 +1308,8 @@ class MakeClanScreen(Screens):
             object_id="@buttonstyles_icon",
             manager=MANAGER,
             sound_id="dice_roll",
-            anchors={"centerx": "centerx"}
+            anchors={"centerx": "centerx"},
+            tool_tip_text="Randomise all cats"
         )
 
         if self.rolls_left == 0:
@@ -1506,7 +1507,7 @@ class MakeClanScreen(Screens):
             senior_sprite=self.elder_pose if self.elder_pose else 12,
             reverse=self.reverse,
             accessories=self.accessories,
-            inventory={self.accessories[0]: 1}
+            inventory={self.accessories[0]: 1} if self.accessories else {}
         )
 
         if self.pname in ["Tortie", "Calico"]:
@@ -3145,9 +3146,10 @@ class MakeClanScreen(Screens):
                     self.your_cat.permanent_condition['born without a leg']["moons_until"] = 1
                     self.your_cat.permanent_condition['born without a leg']["moons_with"] = -1
                     self.your_cat.permanent_condition['born without a leg']['born_with'] = True
-                self.your_cat.accessories = [self.accessory]
-                self.your_cat.inventory = {}
-                self.your_cat.inventory.update({self.accessory: 1})
+                self.your_cat.pelt.accessories = self.accessories
+                self.your_cat.pelt.inventory = {}
+                if self.accessories:
+                    self.your_cat.inventory.update({self.accessories[0]: 1})
                 self.your_cat.personality = Personality(trait=self.personality, kit_trait=True)
                 if self.skill == "Random":
                     self.skill = random.choice(self.skills)
@@ -3477,7 +3479,7 @@ class MakeClanScreen(Screens):
             senior_sprite=self.elder_pose if self.elder_pose > 2 else self.elder_pose + 12,
             reverse=self.reverse,
             accessories=self.accessories,
-            inventory={self.accessories[0]: 1}
+            inventory={self.accessories[0]: 1} if self.accessories else {}
         )
 
         if self.length == 'long' and self.adult_pose < 9:

@@ -35,6 +35,8 @@ from .SwitchClanScreen import SwitchClanScreen
 from .WarriorDenScreen import WarriorDenScreen
 from .GiftScreen import GiftScreen
 
+from .AttackScreen import AttackScreen
+
 # ---------------------------------------------------------------------------- #
 #                                  UI RULES                                    #
 # ---------------------------------------------------------------------------- #
@@ -104,6 +106,10 @@ class AllScreens:
     queen_screen = QueenScreen("queen screen")
     moonplace_screen = MoonplaceScreen("moonplace screen")
     gift_screen = GiftScreen("gift screen")
+
+    # hunger games
+
+    attack_screen = AttackScreen("attack screen")
     
 
     @classmethod
@@ -154,3 +160,6 @@ class AllScreens:
         cls.queen_screen = QueenScreen("queen screen")
         cls.moonplace_screen = MoonplaceScreen("moonplace screen")
         cls.gift_screen = GiftScreen("gift screen")
+
+        # HUNGER GAMES
+        cls.attack_screen = AttackScreen("attack screen")

@@ -310,6 +310,18 @@
         "prototype": "#text_box_26",
         "misc": {"text_horiz_alignment": "left", "padding": "5,7"}
     },
+    "#text_box_26_horizleft": {
+        "prototype": "#text_box_26",
+        "misc": {
+            "text_horiz_alignment": "left"
+        }
+    },
+    "#text_box_26_horizright": {
+        "prototype": "#text_box_26",
+        "misc": {
+            "text_horiz_alignment": "right"
+        }
+    },
     "#text_box_30": {"prototype": "text_box", "font": {"size": "15", "name": "notosans"}},
     "text_box.#current_version": {
         "prototype": "text_box",
@@ -393,6 +405,10 @@
     "#text_box_34_horizleft": {
         "prototype": "#text_box_34",
         "misc": {"text_horiz_alignment": "left"}
+    },
+    "#text_box_34_horizright": {
+        "prototype": "#text_box_34",
+        "misc": {"text_horiz_alignment": "right"}
     },
     "#text_box_40": {"prototype": "text_box", "font": {"size": "20", "name": "notosans"}},
     "#text_box_40_horizcenter": {

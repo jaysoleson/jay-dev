@@ -24,7 +24,7 @@ class Stats:
     def __init__(
         self,
         hunger=100,
-        exposure=30,
+        health=100,
         energy=100,
     ):
         self.chosen_interaction = None
@@ -32,7 +32,7 @@ class Stats:
        
         # each stat can go from 0 to 100
         self.hunger = hunger
-        self.exposure = exposure
+        self.health = health
         self.energy = energy
 
     # ---------------------------------------------------------------------------- #
@@ -52,16 +52,16 @@ class Stats:
         self._hunger = value
 
     @property
-    def exposure(self):
-        return self._exposure
+    def health(self):
+        return self._health
 
-    @exposure.setter
-    def exposure(self, value):
+    @health.setter
+    def health(self, value):
         if value > 100:
             value = 100
         if value < 0:
             value = 0
-        self._exposure = value
+        self._health = value
 
     @property
     def energy(self):

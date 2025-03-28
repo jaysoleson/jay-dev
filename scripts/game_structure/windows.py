@@ -2812,3 +2812,76 @@ class ConfirmDisplayChanges(UIMessageWindow):
             self.revert_changes()
             self.kill()
         return super().process_event(event)
+    
+# HG
+class AmbushWindow(UIWindow):
+    def __init__(self, last_screen, attacker):
+        super().__init__(ui_scale(pygame.Rect((250, 200), (300, 180))),
+                        window_display_title='Ambush!',
+                        object_id='#game_over_window',
+                        resizable=False)
+        self.set_blocking(True)
+        self.attacker = attacker
+        game.switches['window_open'] = True
+        self.clan_name = str(game.clan.name + 'Clan')
+        self.last_screen = last_screen
+        self.pick_path_message = UITextBoxTweaked(
+            f"<b>{self.attacker.name} is attacking you!</b>",
+            ui_scale(pygame.Rect((0, 20), (250, -1))),
+            line_spacing=1,
+            object_id="#text_box_30_horizcenter",
+            container=self,
+            anchors={"centerx": "centerx"}
+        )
+
+        self.fight_button = UISurfaceImageButton(
+            ui_scale(pygame.Rect((0, 70), (120, 30))),
+            "fight!",
+            get_button_dict(ButtonStyles.SQUOVAL, (120, 30)),
+            object_id="@buttonstyles_squoval",
+            container=self,
+            anchors={"centerx": "centerx"}
+        )
+        self.run_button = UISurfaceImageButton(
+            ui_scale(pygame.Rect((0, 115), (120, 30))),
+            "run!",
+            get_button_dict(ButtonStyles.SQUOVAL, (120, 30)),
+            object_id="@buttonstyles_squoval",
+            container=self,
+            anchors={"centerx": "centerx"},
+            tool_tip_text="Running will cost 10 energy."
+        )
+        
+        self.fight_button.enable()
+
+        if game.clan.your_cat.stats.energy >= 10:
+            self.run_button.enable()
+        else:
+            self.run_button.disable()
+
+    def process_event(self, event):
+        super().process_event(event)
+        if event.type == pygame_gui.UI_BUTTON_START_PRESS:
+            if event.ui_element == self.fight_button:
+                game.last_screen_forupdate = None
+                game.switches["ambush"] = True
+                game.switches["cat"] = self.attacker.ID
+                game.switches['window_open'] = False
+                game.switches['cur_screen'] = "attack screen"
+                self.run_button.kill()
+                self.fight_button.kill()
+                self.pick_path_message.kill()
+                self.kill()
+                game.all_screens['events screen'].exit_screen()
+            if event.ui_element == self.run_button:
+                game.clan.your_cat.stats.energy -= 10
+                if game.clan.your_cat.stats.energy <= 0:
+                    game.clan.your_cat.sleeping = True
+                game.last_screen_forupdate = None
+                game.switches['window_open'] = False
+                game.switches['cur_screen'] = "events screen"
+                self.run_button.kill()
+                self.fight_button.kill()
+                self.pick_path_message.kill()
+                self.kill()
+

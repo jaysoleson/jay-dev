@@ -66,6 +66,7 @@
             "... Sorry. I know I'm gonna need them."
         ],
         "inventory_update": {
+            "cat": "y_c",
             "remove": {
                 "random_herbs": 2
             }
@@ -101,6 +102,7 @@
             "[You have gained a LINGCOD!]"
         ],
         "inventory_update": {
+            "cat": "y_c",
             "add": {
                 "LINGCOD": 1
             }
@@ -141,6 +143,7 @@
             "[You have gained some food!]"
         ],
         "leave_okay_inventory_update": {
+            "cat": "y_c",
             "add" : {
                 "random_food": 2
             }
@@ -167,6 +170,7 @@
             "[You have gained a BLUEBERRY!]"
         ],
         "intro_inventory_update": {
+            "cat": "y_c",
             "add" : {
                 "BLUEBERRY": 1
             }
@@ -191,6 +195,7 @@
             "[You have gained a SALMON!]"
         ],
         "intro_inventory_update": {
+            "cat": "y_c",
             "add" : {
                 "SALMON": 1
             }
@@ -238,6 +243,7 @@
             "[You have gained some FOOD and HERBS!]"
         ],
         "intro_inventory_update": {
+            "cat": "y_c",
             "add" : {
                 "random_herbs": 4,
                 "random_food": 3
@@ -372,6 +378,7 @@
             "[You have gained an accessory.]"
         ],
         "intro_inventory_update": {
+            "cat": "y_c",
             "add" : {
                 "random_accessory": 1
             }
@@ -417,6 +424,7 @@
             "[t_c resumes fishing, though {PRONOUN/t_c/poss} ears remain swivelled towards you defensively.]"
         ],
         "fish_yes_inventory_update": {
+            "cat": "y_c",
             "add" : {
                 "SALMON": 1
             }
@@ -751,6 +759,7 @@
             }
         },
         "handover_inventory_update": {
+            "cat": "y_c",
             "remove" : {
                 "random_food": 3
             }
@@ -775,7 +784,7 @@
     "meeting_hg_7": {
         "tags": [
             "any",
-            "sameclan",
+            "same_clan",
             "bloodbath",
             "fighter",
             "they_app",
@@ -913,5 +922,129 @@
         "intro": [
             "[t_c has {PRONOUN/t_c/poss} head in {PRONOUN/t_c/poss} paws, shoulders shaking.]"
         ]
+    },
+    "bloodbath_J1": {
+        "tags": [
+            "bloodbath",
+            "any",
+            "not_same_clan",
+            "you_blind",
+            "they_blind",
+            "not_allies",
+            "neurotic"
+        ],
+        "intro": [
+            "Please don't kill me!",
+            "I just want one piece of prey. You can take the rest!"
+        ],
+        "intro_rel_changes": {
+            "you_to_them": {
+                "comfort": 5,
+                "trust": 5,
+                "platonic_like": 5
+            }
+        }
+    },
+    "bloodbath_J2": {
+        "tags": [
+            "bloodbath",
+            "any",
+            "not_same_clan",
+            "you_blind",
+            "they_blind",
+            "not_allies",
+            "cool",
+            "brooding",
+            "unlawful"
+        ],
+        "intro": [
+            "You gonna kill me?",
+            "No? Then what are you doing bothering me?"
+        ]
+    },
+    "bloodbath_J3": {
+        "tags": [
+            "bloodbath",
+            "any",
+            "not_same_clan",
+            "you_blind",
+            "they_blind",
+            "not_allies",
+            "sweet",
+            "stable",
+            "neurotic",
+            "max_disable_5"
+        ],
+        "intro": [
+            "Hey. There's a ton of stuff here. Wanna share?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "No",
+                "next_scene": "share_no"
+            },
+            "choice2": {
+                "text": "Yes",
+                "next_scene": "share_yes"
+            }
+        },
+        "share_no": [
+            "N-no? Okay. I'll move out of your way then.",
+            "[t_c scampers away from the Cornucopia.]"
+        ],
+        "share_yes": [
+            "Okay! Here you go.",
+            "[t_c nudges a fish in your direction.]",
+            "Enjoy! I'll, uh... see you around."
+        ],
+        "share_yes_rel_changes": {
+            "they_to_you": {
+                "comfort": 10,
+                "trust": 10,
+                "platonic_like": 10
+            },
+            "you_to_them": {
+                "comfort": 10,
+                "trust": 10,
+                "platonic_like": 10
+            }
+        }
+    },
+    "bloodbath_J4": {
+        "tags": [
+            "bloodbath",
+            "they_app",
+            "not_allies",
+            "they_deaf",
+            "you_deaf",
+            "they_blind"
+        ],
+        "intro": [
+            "[t_c scampers away from the Cornucopia with a fish so large that it can barely fit in {PRONOUN/t_c/poss} mouth.]"
+        ],
+        "intro_inventory_update": {
+            "cat": "t_c",
+            "add": {
+                "SALMON": 1
+            }
+        }
+    },
+    "bloodbath_J5": {
+        "tags": [
+            "bloodbath",
+            "they_deaf",
+            "you_deaf",
+            "they_blind",
+            "any"
+        ],
+        "intro": [
+            "[t_c runs from the Corncupia with a bundle of suspicious red berries in {PRONOUN/t_c/poss} mouth.]"
+        ],
+        "intro_inventory_update": {
+            "cat": "t_c",
+            "add": {
+                "DEATHBERRY": 3
+            }
+        }
     }
 }

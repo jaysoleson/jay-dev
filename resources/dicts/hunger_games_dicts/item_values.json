@@ -1,19 +1,20 @@
 {
     "food": {
-        "SALMON": 10,
-        "ROCKFISH": 10,
-        "LINGCOD": 10,
-        "STRAWBERRY": 3,
-        "BLUEBERRY": 2,
-        "COCONUT": 10,
-        "MOUSE": 8,
-        "RABBIT": 10,
-        "BLACKBIRD": 8,
-        "CROW": 10,
-        "SARDINE": 6,
-        "SQUIRREL": 8,
-        "CRAB": 10,
-        "BABY SEA TURTLE": 7
+        "SALMON": [10, 8],
+        "ROCKFISH": [10, 8],
+        "LINGCOD": [10, 8],
+        "STRAWBERRY": [3, 2],
+        "BLUEBERRY": [2, 2],
+        "COCONUT": [10, 8],
+        "MOUSE": [8, 7],
+        "RABBIT": [10, 9],
+        "BLACKBIRD": [8, 7],
+        "CROW": [10, 7],
+        "SARDINE": [6, 4],
+        "SQUIRREL": [8, 7],
+        "CRAB": [10, 6],
+        "BABY SEA TURTLE": [7, 4],
+        "DEATHBERRY": [0, -20]
     },
     "weapons": {
 

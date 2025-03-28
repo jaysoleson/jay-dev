@@ -491,6 +491,18 @@ class History:
             "moon": game.clan.age
         })
 
+        # HG: inventories!
+        victim_inventory = cat.pelt.inventory
+        killer_inventory = other_cat.pelt.inventory
+
+        for name, amount in victim_inventory.items():
+            if name in killer_inventory:
+                killer_inventory[name] += amount
+            else:
+                if len(killer_inventory) < 18:
+                    killer_inventory[name] = amount
+        victim_inventory = {}
+
     @staticmethod
     def add_lead_ceremony(cat):
         """

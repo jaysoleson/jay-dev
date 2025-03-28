@@ -146,7 +146,13 @@
     "newscguide1": "m_c was originally from an ancient group of cats but decided to watch and protect the newly formed c_nClan.",
     "newscguide2": "Known for {PRONOUN/m_c/poss} unwavering fairness in life, m_c now guides others to StarClan, ensuring each spirit finds its rightful place.",
     "newscguide3": "Having sacrificed {PRONOUN/m_c/poss} life to save {PRONOUN/m_c/poss} family, m_c now guides worthy cats to StarClan.",
-    "newscguide4": "A peacemaker in life, m_c now unites spirits from the new Clans in StarClan."
+    "newscguide4": "A peacemaker in life, m_c now unites spirits from the new Clans in StarClan.",
+
+    "hg_backstory1": "m_c hopes to win the games to provide for {PRONOUN/m_c/poss} family.",
+    "hg_backstory2": "m_c has no family back home, and has accepted {PRONOUN/m_c/poss} inevitable death.",
+    "hg_backstory3": "m_c volunteered for the games to take the place of a loved one.",
+    "hg_backstory4": "m_c tried to run and hide when picked for the games, but {PRONOUN/m_c/subject} {VERB/m_c/were/was} found and brought to the arena.",
+    "hg_backstory5": "m_c hopes to prove {PRONOUN/m_c/self} to {PRONOUN/m_c/poss} Clan during the games."
   },
   "backstory_display": {
     "clan_founder_backstories": "Clan founder",
@@ -166,9 +172,17 @@
     "dark_forest_kits": "from the Dark Forest",
     "oldstarclan_backstories": "ancient spirit",
     "new_sc_guide_backstories": "ancient spirit",
-    "new_df_guide_backstories": "ancient spirit"
+    "new_df_guide_backstories": "ancient spirit",
+    "hg_backstories": "tribute"
   },
   "backstory_categories": {
+    "hg_backstories": [
+      "hg_backstory1",
+      "hg_backstory2",
+      "hg_backstory3",
+      "hg_backstory4",
+      "hg_backstory5"
+    ],
     "dark_forest_kits": [
       "dfkit1",
       "dfkit2"

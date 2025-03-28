@@ -163,10 +163,11 @@ class ClanScreen(Screens):
                     game.clan.timeskips == 1 and
                     game.clan.days == 0 and
                     game.clan.your_cat.map_position == "0_0"
-                    ):
+                    ) and not game.clan.your_cat.dead:
                     self.place_activity_buttons()
             except:
                 print("No activity placements for", game.clan.your_cat.map_position)
+                self.activity_list = {}
 
         game.switches['cat'] = None
         if game.clan.biome + game.clan.camp_bg in game.clan.layouts:

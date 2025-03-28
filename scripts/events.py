@@ -21,6 +21,7 @@ from scripts.events_module.outsider_events import OutsiderEvents
 from scripts.event_class import Single_Event
 from scripts.game_structure.game_essentials import game
 from scripts.cat_relations.relationship import Relationship
+from scripts.game_structure.windows import AmbushWindow
 from scripts.utility import (
     change_clan_relations,
     change_clan_reputation,
@@ -456,6 +457,8 @@ class Events:
                 game.save_events()
             except:
                 SaveError(traceback.format_exc())
+        
+        self.ambush()
 
     def add_freshkill(self):
         """Adds amount of freshkill needed for the Clan"""
@@ -2563,7 +2566,7 @@ class Events:
             random_prey = random.sample(prey, k=amount[0])
 
             for i in random_prey:
-                if i in ["STRAWBERRY", "BLUEBERRY"]:
+                if i in ["STRAWBERRY", "BLUEBERRY", "DEATHBERRY"]:
                     a = random.randint(1,5) 
                 else:
                     a = 1
@@ -2571,6 +2574,7 @@ class Events:
                 size = get_inventory_size(kitty)
                 if len(kitty.pelt.inventory.keys()) < size:
                     kitty.pelt.inventory.update({i: a})
+                    # print("Giving", i, "to", kitty.name)
                 # else:
                 #     print(cat.name, "'s inventory is full!")
 
@@ -2603,14 +2607,14 @@ class Events:
                     involved_cats.append(i.ID)
 
         random_num = random.gauss(2, 2)
-        dead_cats = round(max(min(random_num, (len(bloodbath_cat_objects) - 1)), 1))
+        dead_cats = round(max(min(random_num, (len(bloodbath_cat_objects) - 2)), 1))
 
+        dead_bloodbath_cat_objects = []
         dead_bloodbath_cats = []
-        
-        print("DEAD CATS:", dead_cats)
 
         for i in range(dead_cats):
             bloodbath_cat_objects[i].die()
+            dead_bloodbath_cat_objects.append(bloodbath_cat_objects[i])
             dead_bloodbath_cats.append(str(bloodbath_cat_objects[i].name))
 
         if len(bloodbath_cats) > 2:
@@ -2636,54 +2640,60 @@ class Events:
 
         game.cur_events_list.insert(0, Single_Event(string + string2, "alert", involved_cats))
 
+        # find all the cats that lived
+        alive_cats = [
+            i for i in bloodbath_cat_objects if (
+                i not in dead_bloodbath_cat_objects and
+                i.ID != game.clan.your_cat.ID # mc cant kill without player input
+                )]
+        if alive_cats:
+            for cat in dead_bloodbath_cat_objects:
+                killer = random.choice(alive_cats)
+                History.add_murders(cat, killer, True, "m_c killed this cat during the bloodbath.")
+
 
         # print(prey)
 
     def one_moon_inventory(self, cat):
         """ Handles an NPC's inventory on timeskip. """
-        # if cat.ID == game.clan.your_cat.ID:
-        #     # mc random inventory gains will be Different
-        #     return
-        chance = 3
-        if "malnourished" in cat.illnesses:
-            chance = 1
-        elif "starving" in cat.illnesses:
-            chance = 1
-        if not int(random.random() * chance):
-            if cat.pelt.inventory == {}:
-                return
-            foodlist = []
-            for i in cat.pelt.inventory.keys():
+        if cat.pelt.inventory == {}:
+            return
+        foodlist = []
+        for i in cat.pelt.inventory.keys():
+            if i in ITEM_VALUES["food"]:
                 foodlist.append(i)
+        if foodlist:
             food = random.choice(foodlist)
-
+            # print("Chose", food, "for", cat.name, "to eat. |", cat.stats.hunger, cat.stats.health)
             try:
                 oldhunger = cat.stats.hunger
+                oldhealth = cat.stats.health
             except:
                 print("STATS ERROR FOR", cat.name)
                 print(cat.stats)
                 return
-            if food in ITEM_VALUES["food"]:
-                satiation_value = ITEM_VALUES["food"].get(food, 0)
 
-            else:
-                return
+            satiation_value = ITEM_VALUES["food"][food][0]
+            health_value = ITEM_VALUES["food"][food][1]
             
-            # if eating the food would put them over 100,
+            # if eating the food would put them over 100 in both values,
             # they don't eat it. would be a waste!
-            if cat.stats.hunger + satiation_value > 100:
+            if cat.stats.hunger + satiation_value > 100 and cat.stats.health + health_value > 100:
                 return
             
             # now they eat!!
             cat.stats.hunger += satiation_value
+            cat.stats.health += health_value
 
             cat.pelt.inventory[food] -= 1
 
             if cat.pelt.inventory[food] <= 0:
                 cat.pelt.inventory.pop(food)
-            
+
             # print(f"{cat.name} ate one {food}. Their hunger has gone from {oldhunger} to {cat.stats.hunger}.")
-        
+            # print(f"Their health has gone from {oldhealth} to {cat.stats.health}.")
+
+        # now collecting new stuff
         with open(f"resources/dicts/hunger_games_dicts/{(game.clan.biome).lower()}/item_dict.json", "r", encoding="utf-8") as read_file:
             self.MAP_POSITION_INFO = ujson.loads(read_file.read())
 
@@ -2752,7 +2762,7 @@ class Events:
 
             items, item_weights = zip(*items_with_weights)
 
-            amount = random.choices([1, 2], [2, 1], k=1)[0]
+            amount = random.choices([1, 2, 3], [2, 2, 1], k=1)[0]
 
             random_prey = random.choices(items, weights=item_weights, k=amount)
 
@@ -2770,36 +2780,20 @@ class Events:
             return
         if cat.sleeping is True:
             cat.stats.energy += random.randint(15, 22)
+            if cat.ID != game.clan.your_cat.ID:
+                percent = 100 - cat.stats.energy
 
-            percent = 100 - cat.stats.energy
+                num = math.ceil(percent)
 
-            num = math.ceil(percent)
+                if game.clan.timeskips in [6, 7, 8, 9, 10]:
+                    num -= (num / 4)
 
-            # if cat.ID == game.clan.your_cat.ID:
-            #     print(f'{cat.name} wakeuy percentage {num}')
-            #     print(f'{cat.name} energy {cat.stats.energy}')
-
-            if game.clan.timeskips in [6, 7, 8, 9, 10]:
-                num -= (num / 4)
-
-            if not int(random.random() * num):
-                cat.sleeping = False
-                # print(f"{cat.name} woke up!")
-                game.cur_events_list.append(
-                    Single_Event(
-                    "You have awoken, well-rested!",
-                    "alert",
-                    game.clan.your_cat.ID
-                    )
-                )
+                if not int(random.random() * num):
+                    cat.sleeping = False
 
         else:
             if cat.stats.energy > 50:
                 return
-            
-            if cat.ID == game.clan.your_cat.ID:
-                if cat.stats.energy > 10:
-                    return
 
             percent = cat.stats.energy
 
@@ -4137,27 +4131,7 @@ class Events:
                 kill_chance *= 2
             
             if len(Cat.fetch_cat(chosen_target.cat_to).allies) > 0:
-                kill_chance -= (kill_chance / 4)
-
-            # if (
-            #     len(chosen_target.log) > 0
-            #     and "(high negative effect)" in chosen_target.log[-1]
-            # ):
-            #     kill_chance -= 50
-
-            # if (
-            #     len(chosen_target.log) > 0
-            #     and "(medium negative effect)" in chosen_target.log[-1]
-            # ):
-            #     kill_chance -= 20
-
-            # little easter egg just for fun
-            # no need for HG
-            # if (
-            #     cat.personality.trait == "ambitious"
-            #     and Cat.fetch_cat(chosen_target.cat_to).status == "leader"
-            # ):
-            #     kill_chance -= 10
+                kill_chance -= (kill_chance / 3)
 
             kill_chance = max(1, int(kill_chance))
 
@@ -4706,6 +4680,27 @@ class Events:
                 game.cur_events_list.insert(
                     0, Single_Event(f"{game.clan.name}Clan has no deputy!", "alert")
                 )
+    def ambush(self):
+        with open(f"resources/dicts/hunger_games_dicts/{(game.clan.biome).lower()}/item_dict.json", "r", encoding="utf-8") as read_file:
+            MAP_POSITION_INFO = ujson.loads(read_file.read())
+        chance = 15
+        chance *= int(
+            MAP_POSITION_INFO[game.clan.your_cat.map_position]["safety"]
+        )
+
+        attackers = [
+            i for i in Cat.all_cats_list if (
+                not i.dead and
+                not i.outside and
+                i.map_position == game.clan.your_cat.map_position and
+                i.ID != game.clan.your_cat.ID
+                )]
+        if not attackers:
+            return
+        if not game.clan.your_cat.dead and not int(random.random() * chance):
+            attacker = random.choice(attackers)
+            game.clan.your_cat.sleeping = False
+            AmbushWindow('event screen', attacker)
 
 
 events_class = Events()

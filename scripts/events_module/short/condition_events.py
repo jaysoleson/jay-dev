@@ -1096,27 +1096,7 @@ class Condition_Events:
                         removed_condition = True
                         dictionary.pop(condition)
 
-                    # choose event string and ensure Clan's med cat number aligns with event text
-                    random_index = int(random.random() * len(possible_string_list))
-                    med_list = get_alive_status_cats(
-                        Cat,
-                        ["medicine cat", "medicine cat apprentice"],
-                        working=True,
-                        sort=True,
-                    )
-                    if len(med_list) == 0:
-                        if random_index == 0:
-                            random_index = 1
-                        else:
-                            med_cat = None
-                    else:
-                        med_cat = random.choice(med_list)
-                        if med_cat == cat:
-                            random_index = 1
-                    try:
-                        event = possible_string_list[random_index]
-                    except:
-                        print("conditions list issue again")
+                    event = random.choice(possible_string_list)
                 except KeyError:
                     print(
                         f"WARNING: {condition} couldn't be found in the risk strings! placeholder string was used"

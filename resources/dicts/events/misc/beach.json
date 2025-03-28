@@ -9,5 +9,27 @@
     "m_c": {
         "age": ["any"]
     }
+  },
+  {
+    "event_id": "gen_beach_hg_1",
+    "location": ["any"],
+    "season": ["any"],
+    "tags": ["HG_beachbiome_beach"],
+    "weight": 5,
+    "event_text":  "m_c plays with a crab by the shore.",
+    "m_c": {
+        "age": ["any"]
+    }
+  },
+  {
+    "event_id": "gen_beach_hg_1",
+    "location": ["any"],
+    "season": ["any"],
+    "tags": ["HG_beachbiome_beach"],
+    "weight": 5,
+    "event_text":  "m_c spends a few fleeting moments of safety searching for the prettiest seashells.",
+    "m_c": {
+        "age": ["any"]
+    }
   }
 ]

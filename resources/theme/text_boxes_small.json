@@ -178,6 +178,12 @@
             "text_horiz_alignment": "center"
         }
     },
+    "#text_box_26_horizleft": {
+        "prototype": "#text_box_26",
+        "misc": {
+            "text_horiz_alignment": "left"
+        }
+    },
     "#text_box_26_horizcenter_vertcenter_spacing_95": {
         "prototype": "#text_box_26_horizcenter",
         "misc": {
@@ -355,6 +361,12 @@
         "prototype": "#text_box_34",
         "misc": {
             "text_horiz_alignment": "left"
+        }
+    },
+    "#text_box_34_horizright": {
+        "prototype": "#text_box_34",
+        "misc": {
+            "text_horiz_alignment": "right"
         }
     },
     "#text_box_40": {

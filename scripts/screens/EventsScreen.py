@@ -2,6 +2,7 @@ from typing import Dict
 
 import pygame
 import pygame_gui
+import ujson
 
 from scripts.cat.cats import Cat
 from scripts.event_class import Single_Event
@@ -176,6 +177,8 @@ class EventsScreen(Screens):
             elif self.death_button and event.ui_element == self.death_button:
                 DeathScreen('events screen')
                 return
+            # HG
+                # ---
             elif element == self.you:
                 game.switches['cat'] = game.clan.your_cat.ID
                 self.change_screen("profile screen")

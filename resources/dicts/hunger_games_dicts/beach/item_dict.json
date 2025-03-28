@@ -112,7 +112,8 @@
             "ROCKFISH": 1,
             "CRAB": 2,
             "STRAWBERRY": 2,
-            "BLUEBERRY": 2
+            "BLUEBERRY": 2,
+            "DEATHBERRY": 2
         },
         "herbs": {
             "oak_leaves": 1,
@@ -459,7 +460,8 @@
             "COCONUT": 3,
             "STRAWBERRY": 2,
             "BLUEBERRY": 3,
-            "BLACKBIRD": 1
+            "BLACKBIRD": 1,
+            "DEATHBERRY": 1
         },
         "herbs": {
             "moss": 1,
@@ -749,7 +751,8 @@
             "COCONUT": 2,
             "CROW": 1,
             "BLACKBIRD": 1,
-            "MOUSE": 1
+            "MOUSE": 1,
+            "DEATHBERRY": 1
         },
         "herbs": {
             "plantain": 1,
@@ -1586,7 +1589,8 @@
         "food": {
             "STRAWBERRY": 1,
             "MOUSE": 1,
-            "RABBIT": 1
+            "RABBIT": 1,
+            "DEATHBERRY": 1
         },
         "herbs": {
             "elder_leaves": 1,
@@ -1728,7 +1732,8 @@
             "MOUSE": 1,
             "RABBIT": 1,
             "CROW": 1,
-            "BLACKBIRD": 1
+            "BLACKBIRD": 1,
+            "DEATHBERRY": 1
         },
         "herbs": {
             "elder_leaves": 1,
