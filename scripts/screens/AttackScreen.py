@@ -192,9 +192,9 @@ class AttackScreen(Screens):
                 anchors={"centerx": "centerx"}
             )
             y_val += 50
-            self.buttons["pounce"] = UISurfaceImageButton(
+            self.buttons["pin"] = UISurfaceImageButton(
                 ui_scale(pygame.Rect((0, y_val), (width, 30))),
-                "pounce",
+                "pin",
                 get_button_dict(ButtonStyles.ROUNDED_RECT, (width, 30)),
                 object_id="@buttonstyles_rounded_rect",
                 manager=MANAGER,
@@ -242,7 +242,8 @@ class AttackScreen(Screens):
                 object_id="#help_button",
                 manager=MANAGER,
                 tool_tip_text="This is the fight screen! You have several different options.\n\n" +
-                "<b>Swipe</b> and <b>pounce</b> will inflict damage on the opponent.\n" +
+                "<b>Swipe</b> will inflict damage on the opponent.\n" +
+                "<b>Pin</b> will attempt to pin the opponent down, skipping their turn.\n" +
                 "<b>Rest</b> will use your turn to recover some health. Three rests are allowed per fight.\n" + 
                 "<b>Hiss</b> will startle your opponent, skipping their turn, if it succeeds. If it fails, your turn will be missed.\n" +
                 "<b>Run</b> will let you escape the battle, at the cost of 10 energy and an item from your inventory.\n" +
@@ -440,14 +441,14 @@ class AttackScreen(Screens):
                     self.exit_screen()
                     self.screen_switches()
             elif self.stage == "fight":
-                for action in ["swipe", "pounce", "hiss", "rest", "run"]:
+                for action in ["swipe", "pin", "hiss", "rest", "run"]:
                     if event.ui_element == self.buttons[action]:
-                        self.get_action_result(action)
+                        skip_success = self.get_action_result(action)
 
                         self.exit_screen()
                         self.screen_switches()
 
-                        if not self.the_cat.dead and action not in ["hiss", "run", "rest"]:
+                        if not self.the_cat.dead and not skip_success:
                             self.npc_turn()
                             self.exit_screen()
                             self.screen_switches()
@@ -477,9 +478,9 @@ class AttackScreen(Screens):
             self.result = "loss"
             self.stage = "post_fight"
     
-    def swipe_pounce_damage(self, action):
+    def swipe(self):
         """
-        Determines damage and text for direct attacks (swipe + pounce)
+        Determines damage and text for direct attacks (swipe + pin)
         """
         damage = 10
         text = ""
@@ -495,8 +496,22 @@ class AttackScreen(Screens):
 
         damage += modifier
 
-        text += f"You {action.upper()} for {damage} damage."
+        text += f"You SWIPE for {damage} damage."
+        
         return damage, text
+
+    def pin(self):
+        damage = 6
+
+        if random.randint(1,2) == 1:
+            success = False
+            text = "You attempt to PIN your opponent, but they're too strong."
+        else:
+            success = True
+            text = "You pin your opponent to the ground."
+        
+        return damage, text, success
+
 
     def get_action_result(self, action):
         """
@@ -504,17 +519,22 @@ class AttackScreen(Screens):
         """
         damage = 0
         text = ""
-        if action in ["swipe", "pounce"]:
-            damage, text = self.swipe_pounce_damage(action)
+        skip_success = False
+        if action == "swipe":
+            damage, text = self.swipe_damage(action)
+        elif action == "pin":
+            damage, text, skip_success = self.pin()
         elif action == "hiss":
             damage = 0
             text = "You hiss and startle your opponent."
+            skip_success = True
         elif action == "rest":
             damage = 0
             recovered_health = random.randint(8,25)
             text = f"You REST and recover {recovered_health} health."
             self.rests += 1
             self.you.stats.health += recovered_health
+            skip_success = True
         elif action == "run":
             damage = 0
             self.stage = "post_fight"
@@ -555,7 +575,7 @@ class AttackScreen(Screens):
                 self.result = "win"
                 self.stage = "post_fight"
         
-        return text
+        return skip_success
     
     def reset_variables(self):
         self.stage = "pre_fight"

@@ -3188,12 +3188,12 @@ class ProfileScreen(Screens):
                 )
             except:
                 self.item_window_elements["item"] = pygame_gui.elements.UIImage(
-                    ui_scale(pygame.Rect((item_pos), (88, 99))),
+                    ui_scale(pygame.Rect((item_pos), ui_scale_dimensions((88, 99)))),
                     image_cache.load_image(f"resources/images/inventory_items/placeholder_herb.png").convert_alpha()
                 )
         else:
             self.item_window_elements["item"] = pygame_gui.elements.UIImage(
-                ui_scale(pygame.Rect((item_pos), (88, 99))),
+                ui_scale(pygame.Rect((item_pos), ui_scale_dimensions((88, 99)))),
                 image_cache.load_image(f"resources/images/inventory_items/{item}.png").convert_alpha()
             )
 
@@ -3216,7 +3216,7 @@ class ProfileScreen(Screens):
                 object_id="@buttonstyles_rounded_rect",
                 manager=MANAGER,
             )
-            self.item_window_elements["eat_button"].disable()
+            # self.item_window_elements["eat_button"].disable()
 
             treatable_conditions = []
 
@@ -3225,24 +3225,24 @@ class ProfileScreen(Screens):
                     if item in INJURIES[injury[0]]["herbs"]:
                         print(injury[0])
                         treatable_conditions.append(injury[0])
-                        self.item_window_elements["eat_button"].enable()
+                        # self.item_window_elements["eat_button"].enable()
 
             if self.the_cat.is_ill():
                 for condition in self.the_cat.illnesses.items():
                     if item in ILLNESSES[condition[0]]["herbs"]:
                         print(condition[0])
                         treatable_conditions.append(condition[0])
-                        self.item_window_elements["eat_button"].enable()
+                        # self.item_window_elements["eat_button"].enable()
             
             if treatable_conditions:
                 # displayed_condition = choice(treatable_conditions)
-                displayed_condition = "Treats " + ", ".join(treatable_conditions)
+                displayed_condition = "Treats " + ", ".join(treatable_conditions) + "."
             else:
-                displayed_condition = "Not currently needed"
+                displayed_condition = "Treats no current conditions."
             
             self.item_window_elements["item_info"] = pygame_gui.elements.UITextBox(
                 displayed_condition,
-                ui_scale(pygame.Rect((460, 280), (180, 50))),
+                ui_scale(pygame.Rect((460, 280), (180, 70))),
                 object_id="#text_box_26_horizcenter",
             )
 
@@ -3299,26 +3299,32 @@ class ProfileScreen(Screens):
                 if self.selected_item in ILLNESSES[condition]["herbs"]:
                     cured_condition = condition
 
+        game.clan.your_cat.pelt.inventory[self.selected_item] -= 1
+        if game.clan.your_cat.pelt.inventory[self.selected_item] <= 0:
+            game.clan.your_cat.pelt.inventory.pop(self.selected_item)
         if cured_condition is not None:
-            game.clan.your_cat.pelt.inventory[self.selected_item] -= 1
-            if game.clan.your_cat.pelt.inventory[self.selected_item] <= 0:
-                game.clan.your_cat.pelt.inventory.pop(self.selected_item)
-            
             if cured_condition in self.the_cat.illnesses:
                 self.the_cat.illnesses.pop(cured_condition)
 
             elif cured_condition in self.the_cat.injuries:
                 self.the_cat.injuries.pop(cured_condition)
 
-            self.close_current_tab()
+            game.clan.your_cat.stats.health += randint(10, 30)
+        else:
+            game.clan.your_cat.stats.health += randint(3, 15)
+            # less health is restored if the herb isnt curing a current condition
+        if game.clan.your_cat.stats.health > 100:
+            game.clan.your_cat.stats.health = 100
 
-            self.clear_profile()
-            self.build_profile()
-        
-            self.selected_item = None
-            self.inventory_item_options()
-            self.update_disabled_buttons_and_text()
-            self.toggle_accessories_tab()
+        self.close_current_tab()
+
+        self.clear_profile()
+        self.build_profile()
+    
+        self.selected_item = None
+        self.inventory_item_options()
+        self.update_disabled_buttons_and_text()
+        self.toggle_accessories_tab()
 
     def eat(self):
         """ eata da food """
@@ -3389,7 +3395,7 @@ class ProfileScreen(Screens):
                 item = str(accessory[0]).lower().replace(" ", "_")
                 try:
                     self.inventory_items[item + str(i)] = pygame_gui.elements.UIImage(
-                        ui_scale(pygame.Rect((94 + pos_x, 372 + pos_y), (50, 56))),
+                        ui_scale(pygame.Rect((94 + pos_x, 372 + pos_y), ui_scale_dimensions((50, 56)))),
                         image_cache.load_image(f"resources/images/inventory_items/{item}.png").convert_alpha())
                 except:
                     self.inventory_items[item + str(i)] = pygame_gui.elements.UIImage(
