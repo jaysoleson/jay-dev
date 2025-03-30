@@ -560,7 +560,8 @@
             "sweet",
             "stable",
             "introspective",
-            "upstanding"
+            "upstanding",
+            "no_allies"
         ],
         "intro": [
             "Hi. y_c, right?",
@@ -1058,15 +1059,109 @@
             }
         }
     },
+    "bloodbath_J6": {
+        "tags": [
+            "bloodbath",
+            "they_deaf",
+            "you_deaf",
+            "they_blind",
+            "any",
+            "neurotic",
+            "sweet",
+            "stable",
+            "silly",
+            "upstanding",
+            "unabashed",
+            "no_allies"
+        ],
+        "intro": [
+            "Whoa! Hi! You scared me.",
+            "You don't look too scary, though. Hi, I'm t_c. You wanna help me carry some of this stuff and find a place to stash it?",
+            "Y-you don't have to, of course. I know not everyone comes here looking for allies."
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "No",
+                "next_scene": "ally_no"
+            },
+            "choice2": {
+                "text": "Yes",
+                "next_scene": "ally_yes"
+            }
+        },
+        "ally_no": [
+            "No? O-okay, I get it.",
+            "You can still have some of my stuff, though. Here, take a fish.",
+            "[t_c pushes a small fish in your direction before racing off.]"
+        ],
+        "ally_yes": [
+            "Awesome! Here, you look strong. Take the fish, they're heavy. I'll hold the smaller stuff.",
+            "[You've become allies with t_c!]"
+        ],
+        "ally_no_rel_changes": {
+            "they_to_you": {
+                "trust": 5,
+                "platonic_like": 10
+            },
+            "you_to_them": {
+                "trust": 10,
+                "platonic_like": 10
+            }
+        },
+        "ally_yes_rel_changes": {
+            "they_to_you": {
+                "dislike": -10,
+                "trust": 10,
+                "platonic_like": 10
+            },
+            "you_to_them": {
+                "dislike": -10,
+                "trust": 10,
+                "platonic_like": 10
+            },
+            "allies": true
+        },
+        "ally_yes_inventory_update": {
+            "cat": "y_c",
+            "add": {
+                "SALMON": 2,
+                "LINGCOD": 1
+            }
+        }
+    },
+    "bloodbath_J7": {
+        "tags": [
+            "bloodbath",
+            "they_deaf",
+            "you_deaf",
+            "they_blind",
+            "any",
+            "brooding",
+            "cool",
+            "assertive",
+            "unlawful",
+            "not_allies"
+        ],
+        "intro": [
+            "[t_c shoves you out of the way while you're sniffing at a bundle of red berries.]",
+            "Haha. No way I'm letting you take those! Deathberries are dangerous. I'll be taking those."
+        ],
+        "intro_inventory_update": {
+            "cat": "t_c",
+            "add": {
+                "DEATHBERRY": 3
+            }
+        }
+    },
     "hg_25": {
         "tags": [
             "any",
-            "they_deaf",
             "not_allies",
             "silly",
             "unlawful",
             "max_dislike_10",
-            "they_have_blueberry"
+            "they_have_blueberry",
+            "not_allies"
         ],
         "intro": [
             "[As you travel through the arena, you suddenly feel something small hit the side of your head. You jump, fur puffing up, and turn in the direction of the projectile.]",
@@ -1092,6 +1187,244 @@
             "cat": "y_c",
             "add": {
                 "BLUEBERRY": 1
+            }
+        }
+    },
+    "hg_26": {
+        "tags": [
+            "any",
+            "not_allies",
+            "they_ill",
+            "they_injured",
+            "stable",
+            "upstanding",
+            "neurotic",
+            "they_app",
+            "not_allies"
+        ],
+        "intro": [
+            "[t_c startles as you approach, eyes wide with fear, until {PRONOUN/t_c/subject} {VERB/t_c/realise/realises} you're not here to hurt {PRONOUN/t_c/object}.]",
+            "Oh. H-hi. y_c, right? Can I help you?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "I need supplies",
+                "next_scene": "need_supplies"
+            },
+            "choice2": {
+                "text": "Just some company",
+                "next_scene": "just_company"
+            }
+        },
+        "need_supplies": [
+            "O-oh. Um, well, I don't have much...",
+            "[t_c turns and grabs a single fruit from where it was hidden behind {PRONOUN/t_c/object}.]",
+            "Here. I hope this is okay.",
+            "[You have gained a MANGO.]"
+        ],
+        "need_supplies_inventory_update": {
+            "cat": "y_c",
+            "add": {
+                "MANGO": 1
+            }
+        },
+        "need_supplies_rel_changes": {
+            "they_to_you": {
+                "comfort": 5,
+                "trust": 5,
+                "platonic_like": 5,
+                "dislike": -5
+            },
+            "you_to_them": {
+                "comfort": 10,
+                "trust": 10,
+                "platonic_like": 10,
+                "dislike": -5
+            }
+        },
+        "just_company": [
+            "Really?",
+            "[t_c seems on edge, but lets you sit next to them.]",
+            "... Are you sure you don't need anything? I don't have much, but I can find something for you...",
+            "No? Sorry. I wasn't expecting anyone to be, you know... nice to me in here.",
+            "I appreciate your company."
+        ],
+        "just_company_rel_changes": {
+            "they_to_you": {
+                "comfort": 15,
+                "trust": 15,
+                "platonic_like": 15,
+                "dislike": -15
+            },
+            "you_to_them": {
+                "comfort": 10,
+                "trust": 10,
+                "platonic_like": 10,
+                "dislike": -5
+            }
+        }
+    },
+    "hg_27": {
+        "tags": [
+            "they_deaf",
+            "they_blind",
+            "you_blind",
+            "any"
+        ],
+        "intro": [
+            "[When you walk close to t_c, you can hear that {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} crying.]",
+            "[You decide to leave {PRONOUN/t_c/object} be... it's none of your business.]"
+        ],
+        "just_company_rel_changes": {
+            "you_to_them": {
+                "comfort": 5,
+                "trust": 5,
+                "platonic_like": 5,
+                "dislike": -5
+            }
+        }
+    },
+    "hg_28": {
+        "tags": [
+            "they_deaf",
+            "they_blind",
+            "you_blind",
+            "any",
+            "beach",
+            "neurotic",
+            "sweet",
+            "upstanding",
+            "stable"
+        ],
+        "intro": [
+            "[t_c is vigorously shaking a coconut tree for some food. As you try to sneak past, a coconut falls from the tree, smacking your haunches as you try to run under.]",
+            "Aah! Oh, my StarClan, I'm so sorry. I didn't mean to do that, really! You can keep it!"
+        ],
+        "intro_rel_changes": {
+            "you_to_them": {
+                "comfort": 5,
+                "trust": 5,
+                "platonic_like": 5,
+                "dislike": -5
+            }
+        },
+        "intro_inventory_update": {
+            "cat": "y_c",
+            "add": {
+                "COCONUT": 1
+            }
+        }
+    },
+    "hg_29": {
+        "tags": [
+            "they_blind",
+            "you_blind",
+            "any",
+            "beach"
+        ],
+        "intro": [
+            "You enjoying the beach?",
+            "I like the sunshine, personally. I'd love to enjoy it under less stressful circumstance, of course, but...",
+            "I wouldn't mind dying in a place like this.",
+            "Later, I mean. That's not an invitation."
+        ],
+        "intro_rel_changes": {
+            "you_to_them": {
+                "comfort": 5,
+                "trust": 5,
+                "platonic_like": 5,
+                "dislike": -5
+            },
+            "they_to_you": {
+                "comfort": 5,
+                "trust": 5,
+                "platonic_like": 5,
+                "dislike": -5
+            }
+        }
+    },
+    "hg_30": {
+        "tags": [
+            "they_blind",
+            "you_blind",
+            "any",
+            "beach",
+            "allies"
+        ],
+        "intro": [
+            "Hey, y_c! I swear I just saw, like, the biggest fish ever in the ocean over there.",
+            "You should go check it out. Seriously, it's scary!"
+        ],
+        "intro_rel_changes": {
+            "you_to_them": {
+                "comfort": 5,
+                "trust": 5,
+                "platonic_like": 5
+            },
+            "they_to_you": {
+                "comfort": 5,
+                "trust": 5,
+                "platonic_like": 5
+            }
+        }
+    },
+    "hg_gen_friendly_1": {
+        "tags": [
+            "min_platonic_15",
+            "any",
+            "brooding",
+            "cool"
+        ],
+        "intro": [
+            "You have a burr in your fur.",
+            "Yeah. Over there. Right on your shoulder. There you go.",
+            "Would be embrassing to get murdered looking so silly, wouldn't it? Hehe."
+        ]
+    },
+    "hg_gen_friendly_2": {
+        "tags": [
+            "min_platonic_15",
+            "any",
+            "brooding",
+            "cool",
+            "you_medicine_cat",
+            "you_medicine_cat_apprentice",
+            "they_not_medicine_cat",
+            "they_not_medicine_cat_apprentice"
+        ],
+        "intro": [
+            "Hey, you're a medicine cat, right? What's this?",
+            "[t_c shows you a pawful of betony.]"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Lie",
+                "next_scene": "herb_lie"
+            },
+            "choice2": {
+                "text": "Answer",
+                "next_scene": "herb_answer"
+            }
+        },
+        "herb_lie": [
+            "[You tell t_c that the herb is the very poisonous hemlock, and they immediately snatch it back.]",
+            "Really? Wow. And I was about to try taking it for my sore head.",
+            "Thanks for letting me know."
+        ],
+        "herb_answer": [
+            "[You tell t_c that they've acquired some betony, an herb that tends to be helpful for stomach and lung problems.]",
+            "Oh, interesting. Thanks!"
+        ],
+        "intro_rel_changes": {
+            "you_to_them": {
+                "comfort": 5,
+                "trust": 5,
+                "platonic_like": 5
+            },
+            "they_to_you": {
+                "comfort": 5,
+                "trust": 5,
+                "platonic_like": 5
             }
         }
     }

@@ -1212,60 +1212,22 @@ class MakeClanScreen(Screens):
         self.elements["reset_name"] = UIImageButton(ui_scale(pygame.Rect((910, 1190), (268, 60))), "",
                                                     object_id="#reset_name_button", manager=MANAGER)
         
-        if game.settings['dark mode']:
-            self.elements["clan_size"] = pygame_gui.elements.UITextBox("This Clan will be... ",
-                                                              ui_scale(pygame.Rect((200, 100), (405, 25))),
-                                                              object_id="#text_box_30_horizcenter_light",
-                                                              manager=MANAGER)
-        else:
-            self.elements["clan_size"] = pygame_gui.elements.UITextBox("This Clan will be... ",
-                                                              ui_scale(pygame.Rect((200, 100), (405, 25))),
-                                                              object_id="#text_box_30_horizcenter",
-                                                              manager=MANAGER)
-
-        self.elements["small"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((220, 160), (100, 30))),
-            "Small",
-            get_button_dict(ButtonStyles.SQUOVAL, (100, 30)),
-            object_id="@buttonstyles_squoval",
-            manager=MANAGER
-        )
-
-        self.elements["medium"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((350, 160), (100, 30))),
-            "Medium",
-            get_button_dict(ButtonStyles.SQUOVAL, (100, 30)),
-            object_id="@buttonstyles_squoval",
-            manager=MANAGER
-        )
-
-        self.elements["large"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((480, 160), (100, 30))),
-            "Large",
-            get_button_dict(ButtonStyles.SQUOVAL, (100, 30)),
-            object_id="@buttonstyles_squoval",
-            manager=MANAGER
-        )
-
-        self.elements["medium"].disable()
-
-        self.elements["established"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((295, 200), (80, 30))),
-            "Old",
-            get_button_dict(ButtonStyles.SQUOVAL, (80, 30)),
-            object_id="@buttonstyles_squoval",
-            tool_tip_text="The Clan has existed for many moons and cats' backstories will reflect this.",
-            manager=MANAGER
-        )
-        self.elements["new"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((425, 200), (80, 30))),
-            "New",
-            get_button_dict(ButtonStyles.SQUOVAL, (80, 30)),
-            object_id="@buttonstyles_squoval",
-            tool_tip_text="The Clan is newly established and cats' backstories will reflect this.",
-            manager=MANAGER
-        )
-        self.elements["established"].disable()
+        self.elements["welcome"] = pygame_gui.elements.UITextBox(
+            "<b>Welcome to the LifeGen: Hunger Games Challenge!</b>",
+            ui_scale(pygame.Rect((0, 100), (405, 25))),
+            object_id=get_text_box_theme("#text_box_30_horizcenter"),
+            manager=MANAGER,
+            anchors={"centerx": "centerx"})
+        
+        self.elements["desc"] = pygame_gui.elements.UITextBox(
+            ("In this challenge, your cat will be thrown into an arena with 23 other "
+            "tributes from 12 different Clans. You will need to explore the arena, "
+            "find food, fight opponents, and make allies to try and be the last cat standing. "
+            "Are you up for the challenge? <br><br>Name the Clan your main character comes from below."),
+            ui_scale(pygame.Rect((0, 140), (440, 300))),
+            object_id=get_text_box_theme("#text_box_26_horizcenter"),
+            manager=MANAGER,
+            anchors={"centerx": "centerx"})
 
     def clan_name_header(self):
         self.elements["name_backdrop"] = pygame_gui.elements.UIImage(

@@ -371,6 +371,9 @@ class GenerateEvents:
                     continue
 
             # HG stuff
+            if get_living_clan_cat_count(Cat_class) < 2:
+                if event.r_c:
+                    continue
 
             # Cluster tags for murders
             if "cluster" in event.m_c and event.m_c["cluster"]:

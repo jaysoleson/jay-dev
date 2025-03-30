@@ -2001,11 +2001,16 @@ class Cat:
             else:
                 self.stats.hunger -= randint(1,4)
                 self.stats.energy -= randint(6,12)
-                self.stats.health -= randint(0,4)
+                self.stats.health -= randint(1,4)
         else:
-            self.stats.hunger -= randint(2,5)
-            # no energy bc thats handled in sleep()
-            self.stats.health += randint(1,6)
+            self.stats.hunger -= randint(4,8)
+            # no energy gain bc thats handled in sleep()
+            self.stats.health -= randint(2,9)
+
+        if self.ID == game.clan.your_cat.ID:
+            print("Your satiation:", self.stats.hunger)
+            print("Your health:", self.stats.health)
+            print("Your energy:", self.stats.energy)
 
     def relationship_interaction(self):
         """Randomly choose a cat of the Clan and have an interaction with them."""
@@ -3095,6 +3100,11 @@ class Cat:
             self.mate.append(other_cat.ID)
         if self.ID not in other_cat.mate:
             other_cat.mate.append(self.ID)
+        # HG
+        if other_cat.ID not in self.allies:
+            self.allies.append(other_cat.ID)
+        if self.ID not in other_cat.allies:
+            other_cat.allies.append(self.ID)
 
         # If the current mate was in the previous mate list, remove them.
         if other_cat.ID in self.previous_mates:
@@ -3360,7 +3370,7 @@ class Cat:
             energy = self.stats.energy
         except:
             hunger = 100
-            health = 30
+            health = 100
             energy = 100
 
         info = Stats(

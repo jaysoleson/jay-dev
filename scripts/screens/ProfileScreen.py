@@ -228,7 +228,6 @@ class ProfileScreen(Screens):
         self.accessories_tab_button = None
         self.page = 0
         self.max_pages = 1
-        self.clear_accessories = None
         self.delete_accessory = None
         self.search_bar_image = None
         self.search_bar = None
@@ -406,130 +405,6 @@ class ProfileScreen(Screens):
                 self.clear_profile()
                 self.build_profile()
                 self.toggle_accessories_tab()
-            elif event.ui_element == self.clear_accessories:
-                self.the_cat.pelt.accessories.clear()
-                b_data = event.ui_element.blit_data[1]
-                b_2data = []
-                b_3data = []
-                pos_x = 10
-                pos_y = 125
-                i = 0
-                cat = self.the_cat
-                age = cat.age
-                cat_sprite = str(cat.pelt.cat_sprites[cat.age])
-
-
-                # setting the cat_sprite (bc this makes things much easier)
-                if cat.not_working() and age != 'newborn' and game.config['cat_sprites']['sick_sprites']:
-                    if age in ['kitten', 'adolescent']:
-                        cat_sprite = str(19)
-                    else:
-                        cat_sprite = str(18)
-                elif cat.pelt.paralyzed and age != 'newborn':
-                    if age in ['kitten', 'adolescent']:
-                        cat_sprite = str(17)
-                    else:
-                        if cat.pelt.length == 'long':
-                            cat_sprite = str(16)
-                        else:
-                            cat_sprite = str(15)
-                else:
-                    if age == 'elder':
-                        age = 'senior'
-
-                    cat_sprite = str(cat.pelt.cat_sprites[age])
-
-                for b in self.accessory_buttons.values():
-                    b_2data.append(b.blit_data[1])
-                for b in self.inventory_buttons.values():
-                    b_3data.append(b.blit_data[1])
-
-                if b_data in b_2data or b_data in b_3data:
-                    if b_data in b_2data:
-                        value = b_2data.index(b_data)
-                    elif b_data in b_3data:
-                        value = b_3data.index(b_data)
-                    n = value
-                    if b_data in b_2data:
-                        self.selected_item = None
-                        if self.accessories_list[n] == self.the_cat.pelt.accessory:
-                            self.the_cat.pelt.accessory = None
-                        if self.accessories_list[n] in self.the_cat.pelt.accessories:
-                            self.the_cat.pelt.accessories.remove(self.accessories_list[n])
-                        else:
-                            self.the_cat.pelt.accessories.append(self.accessories_list[n])
-                        self.inventory_item_options()
-                    elif b_data in b_3data:
-                        if self.the_cat.ID == game.clan.your_cat.ID:
-                            if self.inventory_items_list[n] != self.selected_item:
-                                self.selected_item = self.inventory_items_list[n]
-                            elif self.inventory_items_list[n] == self.selected_item:
-                                self.selected_item = None
-                        self.inventory_item_options()
-
-                    for acc in self.accessory_buttons:
-                        self.accessory_buttons[acc].kill()
-                    for acc in self.inventory_items:
-                        self.inventory_items[acc].kill()
-                    for acc in self.inventory_buttons:
-                        self.inventory_buttons[acc].kill()
-                    for acc in self.cat_list_buttons:
-                        self.cat_list_buttons[acc].kill()
-                    start_index = self.page * 18
-                    end_index = start_index + 18
-                    inventory_len = 0
-                    new_inv = []
-                    if self.search_bar.get_text() in ["", "search"]:
-                        inventory_len = len(cat.pelt.inventory.keys())
-                        new_inv = cat.pelt.inventory
-                    else:
-                        for ac in cat.pelt.inventory.keys():
-                            if self.search_bar.get_text().lower() in ac.lower():
-                                inventory_len+=1
-                                new_inv.append(ac)
-                    self.max_pages = math.ceil(inventory_len/18)
-                    if (self.max_pages == 1 or self.max_pages == 0):
-                        self.previous_page_button.disable()
-                        self.next_page_button.disable()
-                    if self.page == 0:
-                        self.previous_page_button.disable()
-                    if cat.pelt.inventory:
-                        new_inv = list(new_inv.items())
-                        pos_x = 10
-                        pos_y = 115
-                        i = 0
-                        for a, accessory in enumerate(new_inv[start_index:min(end_index, inventory_len + start_index)], start = start_index):
-                            try:
-                                self.item_list(accessory, cat)
-                                pos_x += 67
-                                if pos_x >= 585:
-                                    pos_x = 10
-                                    pos_y += 77
-                                i += 1
-                            except:
-                                continue
-                        self.open_accessories()
-                self.profile_elements["cat_image"].kill()
-                
-                self.profile_elements["cat_image"] = pygame_gui.elements.UIImage(
-                    ui_scale(pygame.Rect((100, 200), (150, 150))),
-                    pygame.transform.scale(
-                        self.the_cat.sprite, ui_scale_dimensions((150, 150))
-                    ),
-                    manager=MANAGER,
-                )
-                self.profile_elements["cat_image"].disable()
-
-                self.profile_elements["cat_info_column1"].kill()
-                self.profile_elements["cat_info_column1"] = UITextBoxTweaked(
-                    self.generate_column1(self.the_cat),
-                    ui_scale(pygame.Rect((300, 220), (180, 200))),
-                    object_id=get_text_box_theme("#text_box_22_horizleft"),
-                    line_spacing=1,
-                    manager=MANAGER,
-                )
-                self.update_disabled_buttons_and_text()
-                self.column_adjust()
             elif "leader_ceremony" in self.profile_elements and \
                     event.ui_element == self.profile_elements["leader_ceremony"]:
                 self.change_screen('ceremony screen')
@@ -548,7 +423,6 @@ class ProfileScreen(Screens):
                 ):
                 if game.clan.your_cat.dead:
                     game.clan.spectating = self.the_cat
-                    print("spectating", game.clan.spectating, game.clan.spectating.name)
                     game.clan.your_cat.map_position = game.clan.spectating.map_position
                     self.clear_profile()
                     self.build_profile()
@@ -564,10 +438,24 @@ class ProfileScreen(Screens):
             elif self.selected_item and event.ui_element == self.item_window_elements["eat_button"]:
                 if self.selected_item in HERBS:
                     self.use_herb()
-                else:
+                elif self.selected_item in ITEM_VALUES["food"]:
                     self.eat()
+                else:
+                    if self.selected_item in self.the_cat.pelt.accessories:
+                        self.the_cat.pelt.accessories.remove(self.selected_item)
+                    else:
+                        self.the_cat.pelt.accessories.append(self.selected_item)
                 self.clear_profile()
                 self.build_profile()
+            elif self.selected_item and event.ui_element == self.item_window_elements["discard"]:
+                self.the_cat.pelt.inventory.pop(self.selected_item)
+                if self.selected_item in self.the_cat.pelt.accessories:
+                    self.the_cat.pelt.accessories.remove(self.selected_item)
+                self.selected_item = None
+                self.clear_profile()
+                self.build_profile()
+                self.close_current_tab()
+                self.toggle_accessories_tab()
             else:
                 self.handle_tab_events(event)
 
@@ -796,66 +684,28 @@ class ProfileScreen(Screens):
 
         elif self.open_tab == 'accessories':
             b_data = event.ui_element.blit_data[1]
-            b_2data = []
-            b_3data = []
+            inventory_blit_data = []
             pos_x = 10
             pos_y = 125
             i = 0
             cat = self.the_cat
             age = cat.age
-            cat_sprite = str(cat.pelt.cat_sprites[cat.age])
 
-
-            # setting the cat_sprite (bc this makes things much easier)
-            if cat.not_working() and age != 'newborn' and game.config['cat_sprites']['sick_sprites']:
-                if age in ['kitten', 'adolescent']:
-                    cat_sprite = str(19)
-                else:
-                    cat_sprite = str(18)
-            elif cat.pelt.paralyzed and age != 'newborn':
-                if age in ['kitten', 'adolescent']:
-                    cat_sprite = str(17)
-                else:
-                    if cat.pelt.length == 'long':
-                        cat_sprite = str(16)
-                    else:
-                        cat_sprite = str(15)
-            else:
-                if age == 'elder':
-                    age = 'senior'
-
-                cat_sprite = str(cat.pelt.cat_sprites[age])
-
-            for b in self.accessory_buttons.values():
-                b_2data.append(b.blit_data[1])
             for b in self.inventory_buttons.values():
-                b_3data.append(b.blit_data[1])
+                inventory_blit_data.append(b.blit_data[1])
             
-            if b_data in b_2data or b_data in b_3data:
-                if b_data in b_2data:
-                    value = b_2data.index(b_data)
-                elif b_data in b_3data:
-                    value = b_3data.index(b_data)
+            if b_data in inventory_blit_data:
+                if b_data in inventory_blit_data:
+                    value = inventory_blit_data.index(b_data)
                 n = value
-                if b_data in b_2data:
-                    self.selected_item = None
-                    if self.accessories_list[n] == self.the_cat.pelt.accessory:
-                        self.the_cat.pelt.accessory = None
-                    if self.accessories_list[n] in self.the_cat.pelt.accessories:
-                        self.the_cat.pelt.accessories.remove(self.accessories_list[n])
-                    else:
-                        self.the_cat.pelt.accessories.append(self.accessories_list[n])
-                    self.inventory_item_options()
-                elif b_data in b_3data:
+                if b_data in inventory_blit_data:
                     if self.the_cat.ID == game.clan.your_cat.ID:
                         if self.inventory_items_list[n] != self.selected_item:
                             self.selected_item = self.inventory_items_list[n]
                         elif self.inventory_items_list[n] == self.selected_item:
                             self.selected_item = None
                     self.inventory_item_options()
-                
-                for acc in self.accessory_buttons:
-                    self.accessory_buttons[acc].kill()
+
                 for acc in self.inventory_buttons:
                     self.inventory_buttons[acc].kill()
                 for acc in self.inventory_items:
@@ -865,16 +715,16 @@ class ProfileScreen(Screens):
 
                 start_index = self.page * 18
                 end_index = start_index + 18
-                inventory_len = 0
-                new_inv = []
+
                 if self.search_bar.get_text() in ["", "search"]:
                     inventory_len = len(cat.pelt.inventory.keys())
                     new_inv = cat.pelt.inventory
                 else:
                     for ac in cat.pelt.inventory.keys():
-                        if self.search_bar.get_text().lower() in ac.lower():
+                        if ac and self.search_bar.get_text() and self.search_bar.get_text().lower() in ac.lower():
                             inventory_len+=1
                             new_inv.append(ac)
+               
                 self.max_pages = math.ceil(inventory_len/18)
                 if (self.max_pages == 1 or self.max_pages == 0):
                     self.previous_page_button.disable()
@@ -882,20 +732,21 @@ class ProfileScreen(Screens):
                 if self.page == 0:
                     self.previous_page_button.disable()
                 if cat.pelt.inventory:
-                    new_inv = list(new_inv.items())
-                    pos_x = 10
-                    pos_y = 115
-                    i = 0
-                    for a, accessory in enumerate(new_inv[start_index:min(end_index, inventory_len + start_index)], start = start_index):
-                        try:
-                            self.item_list(accessory, cat)
-                            pos_x += 67
-                            if pos_x >= 585:
-                                pos_x = 10
-                                pos_y += 77
-                            i += 1
-                        except:
-                            continue
+                    # new_inv = list(new_inv.items())
+                    # pos_x = 10
+                    # pos_y = 115
+                    # i = 0
+                    # for a, accessory in enumerate(new_inv[start_index:min(end_index, inventory_len + start_index)], start = start_index):
+                    # # for accessory in cat.pelt.inventory.items():
+                    #     try:
+                    #         self.item_list(accessory, cat, pos_x, pos_y, i)
+                    #         pos_x += 67
+                    #         if pos_x >= 585:
+                    #             pos_x = 10
+                    #             pos_y += 77
+                    #         i += 1
+                    #     except:
+                    #         continue
                     self.open_accessories()
 
                 self.profile_elements["cat_image"].kill()
@@ -3036,14 +2887,6 @@ class ProfileScreen(Screens):
 
             self.backstory_background.disable()
 
-            self.clear_accessories = UIImageButton(
-                ui_scale(pygame.Rect((709, 580), (34, 34))),
-                "",
-                object_id="#exit_window_button",
-                tool_tip_text="Take off all worn accessories",
-                manager=MANAGER
-                )
-
             self.delete_accessory = UIImageButton(
                 ui_scale(pygame.Rect((709, 542), (34, 34))),
                 "",
@@ -3111,7 +2954,6 @@ class ProfileScreen(Screens):
 
 
         self.cat_list_buttons = {}
-        self.accessory_buttons = {}
         self.inventory_buttons = {}
         self.inventory_items = {}
         self.accessories_list = []
@@ -3163,7 +3005,13 @@ class ProfileScreen(Screens):
                     continue
 
     def inventory_item_options(self):
-        """ prey eating popup window """        
+        """ 
+        UI popup for when an inventory item is selected
+        For food, shows hunger, health and energy values
+        For herbs, shows conditions needed for
+        For accessories, just equips and unequips
+        """
+    
         if self.the_cat.ID != game.clan.your_cat.ID:
             return
 
@@ -3202,17 +3050,45 @@ class ProfileScreen(Screens):
         )
         item = self.selected_item.lower().replace(" ", "_")
         item_pos = [310, 240]
-        try:
-            itemimage = image_cache.load_image(f"resources/images/inventory_items/{item}.png").convert_alpha()
-        except:
-            itemimage = image_cache.load_image("resources/images/inventory_items/placeholder_herb.png").convert_alpha()
-            
-        self.item_window_elements["item"] = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((item_pos), (128, 128))),
-            pygame.transform.scale(
-            itemimage, ui_scale_dimensions((128, 128))
-        ),
-        )
+
+        if item in HERBS or item.upper().replace("_", " ") in ITEM_VALUES["food"].keys():
+            try:
+                itemimage = image_cache.load_image(f"resources/images/inventory_items/{item}.png").convert_alpha()
+            except:
+                itemimage = image_cache.load_image("resources/images/inventory_items/placeholder_herb.png").convert_alpha()
+                
+            self.item_window_elements["item"] = pygame_gui.elements.UIImage(
+                ui_scale(pygame.Rect((item_pos), (128, 128))),
+                pygame.transform.scale(
+                itemimage, ui_scale_dimensions((128, 128))
+            ),
+            )
+        else:
+            item = self.selected_item
+            cat_sprite = str(self.the_cat.pelt.cat_sprites[self.the_cat.age])
+            acc_dict = {
+                "acc_herbs": Pelt.plant_accessories,
+                "acc_wild": Pelt.wild_accessories,
+                "collars": Pelt.collars,
+                "acc_flower": Pelt.flower_accessories,
+                "acc_plant2": Pelt.plant2_accessories,
+                "acc_smallAnimal": Pelt.smallAnimal_accessories,
+                "acc_deadInsect": Pelt.deadInsect_accessories,
+                "acc_aliveInsect": Pelt.aliveInsect_accessories,
+                "acc_fruit": Pelt.fruit_accessories,
+                "acc_crafted": Pelt.crafted_accessories,
+                "acc_tail": Pelt.tail_accessories,
+                "acc_tail2": Pelt.tail2_accessories
+            }
+            for x in acc_dict.items():
+                if item.upper() in x[1]:
+                    itemimage = sprites.sprites[x[0] + item.upper() + cat_sprite]
+                    self.item_window_elements["item"] = pygame_gui.elements.UIImage(
+                        ui_scale(pygame.Rect((item_pos), (100, 100))),
+                        pygame.transform.scale(
+                        itemimage, ui_scale_dimensions((100, 100))
+                    ))
+                    break
 
         itemname = str(self.selected_item).lower()
         name = itemname.capitalize()
@@ -3227,12 +3103,21 @@ class ProfileScreen(Screens):
         )
         if item in HERBS:
             self.item_window_elements["eat_button"] = UISurfaceImageButton(
-                ui_scale(pygame.Rect((460, 345), (180, 34))),
+                ui_scale(pygame.Rect((460, 345), (140, 34))),
                 "use",
-                get_button_dict(ButtonStyles.ROUNDED_RECT, (180, 34)),
+                get_button_dict(ButtonStyles.ROUNDED_RECT, (140, 34)),
                 object_id="@buttonstyles_rounded_rect",
                 manager=MANAGER,
-                sound_id="hg_attack_win"
+                sound_id="item_eaten"
+            )
+            self.item_window_elements["discard"] = UISurfaceImageButton(
+                ui_scale(pygame.Rect((6, 345), (34, 34))),
+                Icon.NOTEPAD,
+                get_button_dict(ButtonStyles.ICON, (34, 34)),
+                object_id="@buttonstyles_icon",
+                manager=MANAGER,
+                anchors={"left_target": self.item_window_elements["eat_button"]},
+                tool_tip_text="Discard stack"
             )
 
             treatable_conditions = []
@@ -3240,13 +3125,11 @@ class ProfileScreen(Screens):
             if self.the_cat.is_injured():
                 for injury in self.the_cat.injuries.items():
                     if item in INJURIES[injury[0]]["herbs"]:
-                        print(injury[0])
                         treatable_conditions.append(injury[0])
 
             if self.the_cat.is_ill():
                 for condition in self.the_cat.illnesses.items():
                     if item in ILLNESSES[condition[0]]["herbs"]:
-                        print(condition[0])
                         treatable_conditions.append(condition[0])
             
             if treatable_conditions:
@@ -3261,25 +3144,25 @@ class ProfileScreen(Screens):
                 object_id="#text_box_26_horizcenter",
             )
 
-        else:
+        elif item.upper() in ITEM_VALUES["food"]:
             self.item_window_elements["eat_button"] = UISurfaceImageButton(
-                ui_scale(pygame.Rect((460, 345), (180, 34))),
+                ui_scale(pygame.Rect((460, 345), (140, 34))),
                 "eat",
-                get_button_dict(ButtonStyles.ROUNDED_RECT, (180, 34)),
+                get_button_dict(ButtonStyles.ROUNDED_RECT, (140, 34)),
                 object_id="@buttonstyles_rounded_rect",
                 manager=MANAGER,
-                sound_id="hg_attack_win"
+                sound_id="item_eaten"
+            )
+            self.item_window_elements["discard"] = UISurfaceImageButton(
+                ui_scale(pygame.Rect((6, 345), (34, 34))),
+                Icon.NOTEPAD,
+                get_button_dict(ButtonStyles.ICON, (34, 34)),
+                object_id="@buttonstyles_icon",
+                manager=MANAGER,
+                anchors={"left_target": self.item_window_elements["eat_button"]},
+                tool_tip_text="Discard stack"
             )
             self.item_window_elements["eat_button"].disable()
-
-            hunger_simplified = round(self.the_cat.stats.hunger / 10)
-            health_simplified = round(self.the_cat.stats.health / 10)
-            if hunger_simplified < 4:
-                image = "relation_bar_red"
-            elif hunger_simplified > 8:
-                image = "relation_bar_green"
-            else:
-                image = "relation_bar"
 
             self.item_window_elements["hunger_value"] = pygame_gui.elements.UITextBox(
                 (
@@ -3305,6 +3188,30 @@ class ProfileScreen(Screens):
                 self.item_window_elements["eat_button"].disable()
             else:
                 self.item_window_elements["eat_button"].enable()
+        else:
+            # accessories
+            if item in self.the_cat.pelt.accessories:
+                text = "unequip"
+            else:
+                text = "equip"
+            self.item_window_elements["eat_button"] = UISurfaceImageButton(
+                ui_scale(pygame.Rect((460, 345), (140, 34))),
+                text,
+                get_button_dict(ButtonStyles.ROUNDED_RECT, (140, 34)),
+                object_id="@buttonstyles_rounded_rect",
+                manager=MANAGER
+            )
+            self.item_window_elements["discard"] = UISurfaceImageButton(
+                ui_scale(pygame.Rect((6, 345), (34, 34))),
+                Icon.NOTEPAD,
+                get_button_dict(ButtonStyles.ICON, (34, 34)),
+                object_id="@buttonstyles_icon",
+                manager=MANAGER,
+                anchors={"left_target": self.item_window_elements["eat_button"]},
+                tool_tip_text="Discard stack"
+            )
+            self.item_window_elements["eat_button"].disable()
+
         if self.the_cat.sleeping:
             self.item_window_elements["eat_button"].disable()
         else:
@@ -3387,86 +3294,78 @@ class ProfileScreen(Screens):
 
         if accessory[0].lower() in HERBS:
             item_type = "herb"
-        
-        if self.search_bar.get_text() in ["", "search"] or self.search_bar.get_text().lower() in accessory[0].lower():
+
+        if item_type == "accessory":
+            item = str(accessory[0])
+            try:
+                acc_dict = {
+                    "acc_herbs": Pelt.plant_accessories,
+                    "acc_wild": Pelt.wild_accessories,
+                    "collars": Pelt.collars,
+                    "acc_flower": Pelt.flower_accessories,
+                    "acc_plant2": Pelt.plant2_accessories,
+                    "acc_smallAnimal": Pelt.smallAnimal_accessories,
+                    "acc_deadInsect": Pelt.deadInsect_accessories,
+                    "acc_aliveInsect": Pelt.aliveInsect_accessories,
+                    "acc_fruit": Pelt.fruit_accessories,
+                    "acc_crafted": Pelt.crafted_accessories,
+                    "acc_tail": Pelt.tail_accessories,
+                    "acc_tail2": Pelt.tail2_accessories
+                }
+                for x in acc_dict.items():
+                    if item.upper() in x[1]:
+                        itemimage = sprites.sprites[x[0] + item.upper() + cat_sprite]
+                        self.inventory_items["item" + item] = pygame_gui.elements.UIImage(
+                            ui_scale(pygame.Rect((88 + pos_x, 365 + pos_y), ui_scale_dimensions((50, 50)))),
+                            itemimage
+                        )
+                        break
+            except Exception as e:
+                print("Accessory Error with", item, ":", e)
+        else:
             item = str(accessory[0]).lower().replace(" ", "_")
-            if item_type in ["item", "herb"]:
-                try:
-                    itemimage = image_cache.load_image(f"resources/images/inventory_items/{item}.png").convert_alpha()
-                except:
-                    itemimage = image_cache.load_image(f"resources/images/inventory_items/placeholder_herb.png").convert_alpha()
-                
-                # Item image
-                self.inventory_items["item" + item] = pygame_gui.elements.UIImage(
-                    ui_scale(pygame.Rect((88 + pos_x, 365 + pos_y), (64, 64))),
-                    itemimage
-                )
+            try:
+                itemimage = image_cache.load_image(f"resources/images/inventory_items/{item}.png").convert_alpha()
+            except:
+                itemimage = image_cache.load_image(f"resources/images/inventory_items/placeholder_herb.png").convert_alpha()
+        
+            # Item image
+            self.inventory_items["item" + item] = pygame_gui.elements.UIImage(
+                ui_scale(pygame.Rect((88 + pos_x, 365 + pos_y), (64, 64))),
+                itemimage
+            )
 
-                # Item count elements-- only for items and herbs
-                self.inventory_items[item + "_number_bg" + str(i)] = pygame_gui.elements.UIImage(
-                    ui_scale(pygame.Rect((132 + pos_x, 401 + pos_y), (25, 25))),
-                    image_cache.load_image(f"resources/images/fav_marker_1.png").convert_alpha())
-                
-                self.inventory_items[item + "_number_" + str(i)] = pygame_gui.elements.UITextBox(
-                        f"<b>{str(accessory[1])}</b>",
-                        ui_scale(pygame.Rect((135 + pos_x, 400 + pos_y), (25, 25))),
-                        object_id="#text_box_22_horizleft",
-                    )
-                
-                # Clickable button
-                self.inventory_buttons[item + str(i)] = UIImageButton(
-                    ui_scale(pygame.Rect((88 + pos_x, 365 + pos_y), (64, 64))),
-                    "",
-                    tool_tip_text=accessory[0],
-                    object_id="#blank_button")
-                    
-                # Herb name
-                if item_type == "herb":
-                    name = str(accessory[0]).lower().replace("_", " ")
-                    if 8 <= len(name):
-                        short_name = str(name)[0:5]
-                        name = short_name + '...'
-                    self.inventory_items[item + "_placeholdername" + str(i)] = pygame_gui.elements.UITextBox(
-                        f"{name}",
-                        ui_scale(pygame.Rect((87 + pos_x, 352 + pos_y), (60, 25))),
-                        object_id="#text_box_22_horizcenter",
-                    )
-                
-                self.inventory_items_list.append(accessory[0])
-                
-            elif item_type == "accessory":
-                acc = accessory[0]
-                if acc in cat.pelt.accessories:
-                    self.accessory_buttons[str(i) + str(acc) + "equip"] = UIImageButton(ui_scale(pygame.Rect((94 + pos_x, 372 + pos_y), (50, 50))), "", tool_tip_text=acc, object_id="#fav_marker")
-                else:
-                    self.accessory_buttons[str(i) + str(acc) + "equip"] = UIImageButton(ui_scale(pygame.Rect((94 + pos_x, 372 + pos_y), (50, 50))), "", tool_tip_text=acc, object_id="#blank_button")
-                
-                try:
-                    acc_dict = {
-                        "acc_herbs": Pelt.plant_accessories,
-                        "acc_wild": Pelt.wild_accessories,
-                        "collars": Pelt.collars,
-                        "acc_flower": Pelt.flower_accessories,
-                        "acc_plant2": Pelt.plant2_accessories,
-                        "acc_smallAnimal": Pelt.smallAnimal_accessories,
-                        "acc_deadInsect": Pelt.deadInsect_accessories,
-                        "acc_aliveInsect": Pelt.aliveInsect_accessories,
-                        "acc_fruit": Pelt.fruit_accessories,
-                        "acc_crafted": Pelt.crafted_accessories,
-                        "acc_tail": Pelt.tail_accessories,
-                        "acc_tail2": Pelt.tail2_accessories
-                    }
-                    for x in acc_dict.items():
-                        if acc in x[1]:
-                            self.cat_list_buttons[str(i) + acc + "sprite"] = pygame_gui.elements.UIImage(
-                                ui_scale(pygame.Rect((88 + pos_x, 365 + pos_y), (50, 50))),
-                                sprites.sprites[x[0] + acc + cat_sprite],
-                                manager=MANAGER
-                                )
+        # Item count elements-- only for items and herbs
+        self.inventory_items[item + "_number_bg" + str(i)] = pygame_gui.elements.UIImage(
+            ui_scale(pygame.Rect((132 + pos_x, 401 + pos_y), (25, 25))),
+            image_cache.load_image(f"resources/images/fav_marker_1.png").convert_alpha())
+        
+        self.inventory_items[item + "_number_" + str(i)] = pygame_gui.elements.UITextBox(
+                f"<b>{str(accessory[1])}</b>",
+                ui_scale(pygame.Rect((135 + pos_x, 400 + pos_y), (25, 25))),
+                object_id="#text_box_22_horizleft",
+            )
+        
+        # Clickable button
+        self.inventory_buttons[item + str(i)] = UIImageButton(
+            ui_scale(pygame.Rect((88 + pos_x, 365 + pos_y), (64, 64))),
+            "",
+            tool_tip_text=accessory[0],
+            object_id="#blank_button")
+            
+        # Herb name
+        if item_type == "herb":
+            name = str(accessory[0]).lower().replace("_", " ")
+            if 8 <= len(name):
+                short_name = str(name)[0:5]
+                name = short_name + '...'
+            self.inventory_items[item + "_placeholdername" + str(i)] = pygame_gui.elements.UITextBox(
+                f"{name}",
+                ui_scale(pygame.Rect((87 + pos_x, 353 + pos_y), (60, 25))),
+                object_id="#text_box_22_horizcenter",
+            )
 
-                    self.accessories_list.append(acc)
-                except Exception as e:
-                    print("ACC error:", e)
+        self.inventory_items_list.append(accessory[0])
 
     def toggle_relations_tab(self):
         """Opens relations tab"""
@@ -3816,8 +3715,6 @@ class ProfileScreen(Screens):
         elif self.open_tab == "accessories":
             for i in self.cat_list_buttons:
                 self.cat_list_buttons[i].kill()
-            for i in self.accessory_buttons:
-                self.accessory_buttons[i].kill()
             for i in self.inventory_buttons:
                 self.inventory_buttons[i].kill()
             for i in self.inventory_items:
@@ -3986,15 +3883,12 @@ class ProfileScreen(Screens):
             self.backstory_background.kill()
             for i in self.cat_list_buttons:
                 self.cat_list_buttons[i].kill()
-            for i in self.accessory_buttons:
-                self.accessory_buttons[i].kill()
             for i in self.inventory_buttons:
                 self.inventory_buttons[i].kill()
             for i in self.inventory_items:
                 self.inventory_items[i].kill()
             self.next_page_button.kill()
             self.previous_page_button.kill()
-            self.clear_accessories.kill()
             self.delete_accessory.kill()
             self.search_bar_image.kill()
             self.search_bar.kill()

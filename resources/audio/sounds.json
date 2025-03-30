@@ -9,5 +9,6 @@
 
   "hg_attack": ["hg_attack_1.mp3", "hg_attack_2.mp3"],
   "hg_attack_win": ["hg_attack_win.mp3"],
-  "hg_attack_lose": ["hg_attack_lose.mp3"]
+  "hg_attack_lose": ["hg_attack_lose.mp3"],
+  "item_eaten": ["item_eaten.mp3"]
 }

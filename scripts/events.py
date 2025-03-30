@@ -2564,9 +2564,6 @@ class Events:
             amount = random.choices([1, 2, 3, 4], [1, 2, 3, 2], k=1)
             random_prey = random.sample(prey, k=amount[0])
 
-            # debug
-            random_prey.append("DEATHBERRY")
-
             for i in random_prey:
                 if i in ["STRAWBERRY", "BLUEBERRY", "DEATHBERRY"]:
                     a = random.randint(1,5) 
@@ -2657,48 +2654,52 @@ class Events:
 
     def one_moon_inventory(self, cat):
         """ Handles an NPC's inventory on timeskip. """
-        if cat.pelt.inventory == {}:
-            return
-        foodlist = []
-        for i in cat.pelt.inventory.keys():
-            if i in ITEM_VALUES["food"]:
-                foodlist.append(i)
-        if foodlist:
-            food = random.choice(foodlist)
-            # print("Chose", food, "for", cat.name, "to eat. |", cat.stats.hunger, cat.stats.health)
-            try:
-                oldhunger = cat.stats.hunger
-                oldhealth = cat.stats.health
-                oldenergy = cat.stats.energy
-            except:
-                print("STATS ERROR FOR", cat.name)
-                print(cat.stats)
-                return
+        # Consuming food or herbs
+        if cat.ID != game.clan.your_cat.ID:
+            foodlist = []
+            herblist = []
+            for i in cat.pelt.inventory.keys():
+                if i in ITEM_VALUES["food"]:
+                    foodlist.append(i)
+                if i in HERBS:
+                    herblist.append(i)
+            all_list = foodlist + herblist
+            if all_list:
+                if (
+                    (cat.stats.health < 50 or
+                    cat.is_ill() or
+                    cat.is_injured) and
+                    herblist
+                    ):
+                    food = random.choice(herblist)
+                    satiation_value = 0
+                    health_value = random.randint(3, 15)
+                    energy_value = random.randint(0, 5)
+                else:
+                    food = random.choice(foodlist)
 
-            satiation_value = ITEM_VALUES["food"][food][0]
-            health_value = ITEM_VALUES["food"][food][1]
-            energy_value = ITEM_VALUES["food"][food][2]
-            
-            # if eating the food would put them over 100 in both values,
-            # they don't eat it. would be a waste!
-            if (
-                cat.stats.hunger + satiation_value > 100 and
-                cat.stats.health + health_value > 100 and
-                cat.stats.energy + energy_value > 100):
-                return
-            
-            # now they eat!!
-            cat.stats.hunger += satiation_value
-            cat.stats.health += health_value
-            cat.stats.energy += energy_value
+                    satiation_value = ITEM_VALUES["food"][food][0]
+                    health_value = ITEM_VALUES["food"][food][1]
+                    energy_value = ITEM_VALUES["food"][food][2]
 
-            cat.pelt.inventory[food] -= 1
+                if (
+                    cat.stats.hunger + satiation_value > 100 and
+                    cat.stats.health + health_value > 100 and
+                    cat.stats.energy + energy_value > 100):
+                    return
+                
+                # now they eat!!
+                cat.stats.hunger += satiation_value
+                cat.stats.health += health_value
+                cat.stats.energy += energy_value
 
-            if cat.pelt.inventory[food] <= 0:
-                cat.pelt.inventory.pop(food)
+                cat.pelt.inventory[food] -= 1
 
-            # print(f"{cat.name} ate one {food}. Their hunger has gone from {oldhunger} to {cat.stats.hunger}.")
-            # print(f"Their health has gone from {oldhealth} to {cat.stats.health}.")
+                if cat.pelt.inventory[food] <= 0:
+                    cat.pelt.inventory.pop(food)
+
+        # print(f"{cat.name} ate one {food}. Their hunger has gone from {oldhunger} to {cat.stats.hunger}.")
+        # print(f"Their health has gone from {oldhealth} to {cat.stats.health}.")
 
         # now collecting new stuff
         with open(f"resources/dicts/hunger_games_dicts/{(game.clan.biome).lower()}/item_dict.json", "r", encoding="utf-8") as read_file:
@@ -2708,7 +2709,7 @@ class Events:
             try:
                 herbs = self.MAP_POSITION_INFO[cat.map_position]["herbs"]
             except:
-                herbs = HERBS
+                print("No herbs available for", cat.map_position)
                 return
             weights = {}
             for i in herbs:
@@ -3026,7 +3027,6 @@ class Events:
         game.clan.next_activity = None
 
     def travel_map(self):
-        print("travel map fn")
         row, column = game.clan.your_cat.map_position.split("_")
         next_direction = game.clan.next_direction
         # grabbing the current position from the clan_cats string

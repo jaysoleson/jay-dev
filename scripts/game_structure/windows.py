@@ -52,6 +52,7 @@ from scripts.utility import (
     event_text_adjust
 )
 from scripts.cat.cats import Cat
+from scripts.cat.history import History
 
 if TYPE_CHECKING:
     from scripts.screens.Screens import Screens
@@ -411,7 +412,13 @@ class GameOverWinner(UIWindow):
         )
         self.set_blocking(True)
 
-        print("gameover")
+        self.stats = {}
+        self.scroll_container = pygame_gui.elements.UIScrollingContainer(
+            ui_scale(pygame.Rect((0, 20), (590, 480))),
+            allow_scroll_x=False,
+            manager=MANAGER,
+            container=self
+        )
 
         self.clan_name = str(game.clan.name + "Clan")
         self.last_screen = last_screen
@@ -429,57 +436,142 @@ class GameOverWinner(UIWindow):
         window_message = f"<b>{winning_cat.name}</b> of <b>{winning_cat.cat_clan}Clan</b> has won the Games!"
         self.game_over_message = UITextBoxTweaked(
             window_message,
-            ui_scale(pygame.Rect((0, 35), (360, -1))),
+            ui_scale(pygame.Rect((0, 80), (360, -1))),
             line_spacing=1,
             object_id="#text_box_30_horizcenter",
-            container=self,
+            container=self.scroll_container,
             anchors={"centerx": "centerx"}
         )
         life_text = "{PRONOUN/m_c/subject/CAP} returns home to {PRONOUN/m_c/poss} family and friends, haunted by the experience but grateful to be alive."
         text  = event_text_adjust(Cat, text=life_text, main_cat=winning_cat)
         self.life_message = UITextBoxTweaked(
             text,
-            ui_scale(pygame.Rect((0, 80), (500, -1))),
+            ui_scale(pygame.Rect((0, 115), (500, -1))),
             line_spacing=1,
             object_id="#text_box_26_horizcenter",
-            container=self,
+            container=self.scroll_container,
             anchors={"centerx": "centerx"}
         )
         self.winner_sprite = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((0, 160), (120, 120))),
+            ui_scale(pygame.Rect((0, 165), (120, 120))),
             pygame.transform.scale(
                 winning_cat.sprite, ui_scale_dimensions((120, 120))
             ),
             manager=MANAGER,
-            container=self,
+            container=self.scroll_container,
             anchors={"centerx": "centerx"}
         )
 
         self.begin_anew_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((175, 300), (111, 30))),
+            ui_scale(pygame.Rect((175, 320), (111, 30))),
             "begin anew",
             get_button_dict(ButtonStyles.SQUOVAL, (111, 30)),
             object_id="@buttonstyles_squoval",
-            container=self,
+            container=self.scroll_container,
         )
         self.not_yet_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((300, 300), (111, 30))),
+            ui_scale(pygame.Rect((300, 320), (111, 30))),
             "not yet",
             get_button_dict(ButtonStyles.SQUOVAL, (111, 30)),
             object_id="@buttonstyles_squoval",
-            container=self,
+            container=self.scroll_container,
         )
         self.game_over_message = UITextBoxTweaked(
             "(leaving will not erase the save file)",
             ui_scale(pygame.Rect((0, 350), (260, -1))),
             line_spacing=0.8,
             object_id="#text_box_22_horizcenter",
-            container=self,
+            container=self.scroll_container,
+            anchors={"centerx": "centerx"}
+        )
+
+        self.stats["title"] = UITextBoxTweaked(
+            "<b><u>GAME STATS</u></b>",
+            ui_scale(pygame.Rect((0, 420), (500, -1))),
+            line_spacing=1,
+            object_id="#text_box_40_horizcenter",
+            container=self.scroll_container,
+            anchors={"centerx": "centerx"}
+        )
+
+        info_string = ""
+
+        cat_list = [
+            cat for cat in Cat.all_cats_list if
+            "hg" in cat.backstory and cat != winning_cat
+            # so pre-dead cats dont show up
+        ]
+
+        info_string += (
+            f"<b>{winning_cat.name}</b> | <i>{winning_cat.cat_clan}Clan</i>" +
+            "<br>" +
+            f"Kills: {len(self.get_kills(winning_cat))}")
+        for i in self.get_kills(winning_cat):
+            info_string += f"<br><i>{i}</i>"
+        info_string += "<br><br>"
+
+        for cat in cat_list:
+            info_string += (
+            f"<b>{cat.name}</b> | <i>{cat.cat_clan}Clan</i>" +
+            "<br>" +
+            self.get_death_string(cat) +
+            "<br>" +
+            f"Kills: {len(self.get_kills(cat))}")
+            for i in self.get_kills(cat):
+                info_string += f"<br><i>{i}</i>"
+            info_string += "<br><br>"
+        
+        info_string += "Thank you so much for playing! :D<br> -<i>jay seb (illadvisedart)<br><br>"
+
+        self.stats["info"] = UITextBoxTweaked(
+            info_string,
+            ui_scale(pygame.Rect((0, 450), (500, -1))),
+            line_spacing=1,
+            object_id="#text_box_30_horizcenter",
+            container=self.scroll_container,
             anchors={"centerx": "centerx"}
         )
 
         self.not_yet_button.enable()
         self.begin_anew_button.enable()
+    
+    def get_death_string(self, cat):
+        try:
+            death_dict = History.get_death_or_scars(cat, death=True)
+            string = event_text_adjust(Cat, death_dict[0]['text'], main_cat=cat)
+        except:
+            try:
+                murder_history = History.get_murders(cat)
+                if "is_victim" in murder_history:
+                    string = event_text_adjust(
+                        Cat,
+                        murder_history["is_victim"][0]["text"],
+                        main_cat=Cat.fetch_cat(murder_history["is_victim"][0]["murderer"])
+                        )
+            except Exception as e:
+                print("Can't find death string for", cat.name)
+                string = "died in the Arena"
+        return string
+    
+    def get_kills(self, cat):
+        murder_history = History.get_murders(cat)
+        vic_names = []
+        if "is_murderer" in murder_history:
+            for kill in murder_history["is_murderer"]:
+                victim = Cat.fetch_cat(kill["victim"])
+                vic_names.append(victim.name)
+        return vic_names
+
+    def process_event(self, event):
+        if event.type == pygame_gui.UI_BUTTON_START_PRESS:
+            if event.ui_element == self.begin_anew_button:
+                game.last_screen_forupdate = game.switches["cur_screen"]
+                game.switches["cur_screen"] = "start screen"
+                game.switch_screens = True
+                self.kill()
+            elif event.ui_element == self.not_yet_button:
+                self.kill()
+        return super().process_event(event)
 
 class GameOverLoser(UIWindow):
     def __init__(self, last_screen):

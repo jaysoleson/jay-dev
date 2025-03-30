@@ -440,59 +440,58 @@ def rebuild_bgs():
 
 
 def get_camp_bgs():
-    camp_bg_base_dir = "resources/images/camp_bg/"
-    leaves = ["newleaf", "greenleaf", "leafbare", "leaffall"]
-    available_biome = ["forest", "mountainous", "plains", "beach"]
+    camp_bg_base_dir = 'resources/images/hg_maps/'
+    time = ""
+    if game.clan:
+        position = game.clan.your_cat.map_position
+        if game.clan.timeskips in [2, 3, 4]:
+            time = "day"
+        elif game.clan.timeskips in [1, 5, 6, 10]:
+            time = "sunset"
+        else:
+            time = "night"
+        biome = (game.clan.biome).lower()
+    else:
+        position = "0_0"
+        time = "night"
+        biome = "beach"
 
-    try:
-        camp_nr = game.clan.camp_bg
-        biome = game.clan.biome.lower()
-    except AttributeError:
-        camp_nr = "camp1"
-        biome = available_biome[0]
-
-    all_backgrounds = []
-    for light_dark in ["light", "dark"]:
-        for leaf in leaves:
-            platform_dir = (
-                f"{camp_bg_base_dir}/{biome}/{leaf}_{camp_nr}_{light_dark}.png"
-            )
-            all_backgrounds.append(platform_dir)
+    platform_dir = f'{camp_bg_base_dir}/{biome}/{time}/{position}.png'
 
     return {
         "light": {
             "Newleaf": pygame.transform.scale(
-                pygame.image.load(all_backgrounds[0]).convert(),
+                pygame.image.load(platform_dir).convert(),
                 scripts.game_structure.screen_settings.screen.get_size(),
             ),
             "Greenleaf": pygame.transform.scale(
-                pygame.image.load(all_backgrounds[1]).convert(),
+                pygame.image.load(platform_dir).convert(),
                 scripts.game_structure.screen_settings.screen.get_size(),
             ),
             "Leaf-bare": pygame.transform.scale(
-                pygame.image.load(all_backgrounds[2]).convert(),
+                pygame.image.load(platform_dir).convert(),
                 scripts.game_structure.screen_settings.screen.get_size(),
             ),
             "Leaf-fall": pygame.transform.scale(
-                pygame.image.load(all_backgrounds[3]).convert(),
+                pygame.image.load(platform_dir).convert(),
                 scripts.game_structure.screen_settings.screen.get_size(),
             ),
         },
         "dark": {
             "Newleaf": pygame.transform.scale(
-                pygame.image.load(all_backgrounds[4]).convert(),
+                pygame.image.load(platform_dir).convert(),
                 scripts.game_structure.screen_settings.screen.get_size(),
             ),
             "Greenleaf": pygame.transform.scale(
-                pygame.image.load(all_backgrounds[5]).convert(),
+                pygame.image.load(platform_dir).convert(),
                 scripts.game_structure.screen_settings.screen.get_size(),
             ),
             "Leaf-bare": pygame.transform.scale(
-                pygame.image.load(all_backgrounds[6]).convert(),
+                pygame.image.load(platform_dir).convert(),
                 scripts.game_structure.screen_settings.screen.get_size(),
             ),
             "Leaf-fall": pygame.transform.scale(
-                pygame.image.load(all_backgrounds[7]).convert(),
+                pygame.image.load(platform_dir).convert(),
                 scripts.game_structure.screen_settings.screen.get_size(),
             ),
         },

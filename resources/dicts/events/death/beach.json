@@ -376,7 +376,7 @@
                 "cats": [
                     "m_c"
                 ],
-                "reg_death": "m_c died when {PRONOUN/m_c/subject} {VERB/m_c/were/was} fell off a cliff during an argument with r_c",
+                "reg_death": "m_c died when {PRONOUN/m_c/subject} fell off a cliff during an argument with r_c.",
                 "lead_death": "fell off of a cliff during a fight with r_c"
             }
         ],

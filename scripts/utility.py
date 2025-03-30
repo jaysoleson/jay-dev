@@ -1356,16 +1356,12 @@ def filter_relationship_type(
 
     # Check if all cats are not mates
     if "not_mates" in filter_types:
-        if len(group) == 1:
-            return False
         # opposite of mate check
         for x in combinations(group, 2):
             if x[0].ID in x[1].mate:
                 return False
 
     if "not_allies" in filter_types:
-        if len(group) == 1:
-            return False
         for x in combinations(group, 2):
             if x[0].ID in x[1].allies:
                 return False

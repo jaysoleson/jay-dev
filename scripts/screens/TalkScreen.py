@@ -889,6 +889,9 @@ class TalkScreen(Screens):
             if "not_allies" in tags and game.clan.your_cat.ID in cat.allies:
                 continue
 
+            if "no_allies" in tags and game.clan.your_cat.allies:
+                continue
+
             if "night" in tags and game.clan.timeskips not in [ 7, 8, 9]:
                 continue
 

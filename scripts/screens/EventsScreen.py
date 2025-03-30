@@ -409,14 +409,14 @@ class EventsScreen(Screens):
 
         # Set text for Clan age
         if game.clan.timeskips in [1, 2, 3, 4, 5]:
-            self.clan_info["age"].set_text(f'Day: {(game.clan.days) + 1}')
+            self.clan_info["age"].set_text(f'Day {(game.clan.days) + 1}')
         else:
-            self.clan_info["age"].set_text(f'Night: {(game.clan.days) + 1}')
+            self.clan_info["age"].set_text(f'Night {(game.clan.days) + 1}')
 
         self.timeskip_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((310, 218), (180, 30))),
-            "Timeskip One Moon",
-            get_button_dict(ButtonStyles.SQUOVAL, (180, 30)),
+            ui_scale(pygame.Rect((320, 218), (160, 30))),
+            "Timeskip",
+            get_button_dict(ButtonStyles.SQUOVAL, (160, 30)),
             object_id="@buttonstyles_squoval",
             starting_height=1,
             container=self.event_screen_container,
@@ -1119,7 +1119,6 @@ class EventsScreen(Screens):
 
         game.switches["saved_scroll_positions"] = {}
 
-        print("Living tributes:", get_living_clan_cat_count(Cat))
         if get_living_clan_cat_count(Cat) == 1:
             GameOverWinner("events screen")
         elif get_living_clan_cat_count(Cat) == 0:
@@ -1136,7 +1135,7 @@ class EventsScreen(Screens):
 
         if not self.all_events:
             self.all_events.append(
-                Single_Event("Nothing interesting happened this moon.")
+                Single_Event("The Arena is quiet.")
             )
 
         self.display_events = self.all_events

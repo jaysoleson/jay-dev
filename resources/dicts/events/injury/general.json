@@ -2002,11 +2002,7 @@
         "event_text": "m_c and r_c get attacked by a horde of rats while arguing over a piece of prey. The two manage to fight the rats off, both getting injured, and decide to just share the prey and go their seperate ways.",
         "m_c": {
             "age": [
-                "adolescent",
-                "young adult",
-                "adult",
-                "senior adult",
-                "senior"
+                "any"
             ],
             "relationship_status": [
                 "not_allies"
@@ -2014,10 +2010,7 @@
         },
         "r_c": {
             "age": [
-                "young adult",
-                "adult",
-                "senior adult",
-                "senior"
+                "any"
             ]
         },
         "injury": [
