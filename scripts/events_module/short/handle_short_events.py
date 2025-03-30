@@ -10,6 +10,7 @@ from scripts.clan_resources.freshkill import (
     FRESHKILL_EVENT_ACTIVE,
     FRESHKILL_EVENT_TRIGGER_FACTOR,
 )
+from scripts.clan import HERBS, ITEM_VALUES
 from scripts.event_class import Single_Event
 from scripts.events_module.generate_events import GenerateEvents
 from scripts.events_module.relationship.relation_events import Relation_Events
@@ -196,6 +197,10 @@ class HandleShortEvents:
         # give accessory
         if self.chosen_event.new_accessory:
             self.handle_accessories()
+
+        # inventory changes
+        if self.chosen_event.inventory:
+            self.handle_inventory()
 
         # change relationships before killing anyone
         if self.chosen_event.relationships:
@@ -398,6 +403,25 @@ class HandleShortEvents:
 
         if extra_text and extra_text not in self.chosen_event.text:
             self.chosen_event.text = self.chosen_event.text + " " + extra_text
+
+    def handle_inventory(self):
+        """
+        HG Function: updates inventory based on new inventory block in ShortEvents
+        """
+        cat_list = []
+        if "m_c" in self.chosen_event.inventory["cats"]:
+            cat_list.append(self.main_cat)
+        if self.random_cat and "r_c" in self.chosen_event.inventory["cats"]:
+            cat_list.append(self.random_cat)
+
+        for item, amount in self.chosen_event.inventory.items():
+            if "random_herb" in item:
+                item = random.choice(HERBS)
+            if "random_food" in item:
+                item = random.choice(ITEM_VALUES)
+            for cat in cat_list:
+                cat.pelt.inventory.update({item: amount})
+                print("ShortEvent: Giving", cat.name, amount, item)
 
     def handle_accessories(self, pelts=Pelt):
         """
@@ -703,6 +727,14 @@ class HandleShortEvents:
         for block in self.chosen_event.injury:
             cats_affected = block["cats"]
 
+            # HG
+            inflicting_cat = block["inflicted_by"] if "inflicted_by" in block else None
+            if inflicting_cat == "m_c":
+                inflicting_cat = self.main_cat.ID
+            elif inflicting_cat == "r_c":
+                inflicting_cat = self.random_cat.ID
+            # ---
+
             # find all possible injuries
             possible_injuries = []
             for injury in block["injuries"]:
@@ -716,20 +748,20 @@ class HandleShortEvents:
                 # MAIN CAT
                 if abbr == "m_c":
                     injury = random.choice(possible_injuries)
-                    self.main_cat.get_injured(injury)
+                    self.main_cat.get_injured(injury, inflicted_by=inflicting_cat)
                     self.handle_injury_history(self.main_cat, "m_c", injury)
 
                 # RANDOM CAT
                 elif abbr == "r_c":
                     injury = random.choice(possible_injuries)
-                    self.random_cat.get_injured(injury)
+                    self.random_cat.get_injured(injury, inflicted_by=inflicting_cat)
                     self.handle_injury_history(self.random_cat, "r_c", injury)
 
                 # NEW CATS
                 elif "n_c" in abbr:
                     for i, new_cats in enumerate(self.new_cats):
                         injury = random.choice(possible_injuries)
-                        new_cats[i].get_injured(injury)
+                        new_cats[i].get_injured(injury, inflicted_by=inflicting_cat)
                         self.handle_injury_history(new_cats[i], abbr, injury)
 
     def handle_injury_history(self, cat, cat_abbr, injury=None):

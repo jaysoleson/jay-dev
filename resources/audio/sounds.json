@@ -5,5 +5,9 @@
   "dice_roll": ["Dice_roll_1.mp3","Dice_roll_2.mp3","Dice_roll_3.mp3","Dice_roll_4.mp3","Dice_roll_5.mp3","Dice_roll_6.mp3","Dice_roll_7.mp3"],
   "save": ["Save_Button.mp3"],
   "timeskip": ["Timeskip_Button.mp3"],
-  "antagonize": ["Antagonize_Button.mp3"]
+  "antagonize": ["Antagonize_Button.mp3"],
+
+  "hg_attack": ["hg_attack_1.mp3", "hg_attack_2.mp3"],
+  "hg_attack_win": ["hg_attack_win.mp3"],
+  "hg_attack_lose": ["hg_attack_lose.mp3"]
 }

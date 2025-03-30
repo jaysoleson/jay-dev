@@ -49,7 +49,9 @@ from scripts.utility import (
     process_text,
     ui_scale_dimensions,
     ui_scale_offset,
+    event_text_adjust
 )
+from scripts.cat.cats import Cat
 
 if TYPE_CHECKING:
     from scripts.screens.Screens import Screens
@@ -399,7 +401,87 @@ class DeleteCheck(UIWindow):
         return super().process_event(event)
 
 
-class GameOver(UIWindow):
+class GameOverWinner(UIWindow):
+    def __init__(self, last_screen):
+        super().__init__(
+            ui_scale(pygame.Rect((100, 100), (600, 480))),
+            window_display_title="Game Over",
+            object_id="#game_over_window",
+            resizable=False,
+        )
+        self.set_blocking(True)
+
+        print("gameover")
+
+        self.clan_name = str(game.clan.name + "Clan")
+        self.last_screen = last_screen
+        winning_cat = [
+            cat for cat in Cat.all_cats_list if (
+                not cat.outside and
+                not cat.dead
+            )
+        ][-1]
+
+        winning_cat.sleeping = False
+        winning_cat.illnesses.clear()
+        winning_cat.injuries.clear()
+        
+        window_message = f"<b>{winning_cat.name}</b> of <b>{winning_cat.cat_clan}Clan</b> has won the Games!"
+        self.game_over_message = UITextBoxTweaked(
+            window_message,
+            ui_scale(pygame.Rect((0, 35), (360, -1))),
+            line_spacing=1,
+            object_id="#text_box_30_horizcenter",
+            container=self,
+            anchors={"centerx": "centerx"}
+        )
+        life_text = "{PRONOUN/m_c/subject/CAP} returns home to {PRONOUN/m_c/poss} family and friends, haunted by the experience but grateful to be alive."
+        text  = event_text_adjust(Cat, text=life_text, main_cat=winning_cat)
+        self.life_message = UITextBoxTweaked(
+            text,
+            ui_scale(pygame.Rect((0, 80), (500, -1))),
+            line_spacing=1,
+            object_id="#text_box_26_horizcenter",
+            container=self,
+            anchors={"centerx": "centerx"}
+        )
+        self.winner_sprite = pygame_gui.elements.UIImage(
+            ui_scale(pygame.Rect((0, 160), (120, 120))),
+            pygame.transform.scale(
+                winning_cat.sprite, ui_scale_dimensions((120, 120))
+            ),
+            manager=MANAGER,
+            container=self,
+            anchors={"centerx": "centerx"}
+        )
+
+        self.begin_anew_button = UISurfaceImageButton(
+            ui_scale(pygame.Rect((175, 300), (111, 30))),
+            "begin anew",
+            get_button_dict(ButtonStyles.SQUOVAL, (111, 30)),
+            object_id="@buttonstyles_squoval",
+            container=self,
+        )
+        self.not_yet_button = UISurfaceImageButton(
+            ui_scale(pygame.Rect((300, 300), (111, 30))),
+            "not yet",
+            get_button_dict(ButtonStyles.SQUOVAL, (111, 30)),
+            object_id="@buttonstyles_squoval",
+            container=self,
+        )
+        self.game_over_message = UITextBoxTweaked(
+            "(leaving will not erase the save file)",
+            ui_scale(pygame.Rect((0, 350), (260, -1))),
+            line_spacing=0.8,
+            object_id="#text_box_22_horizcenter",
+            container=self,
+            anchors={"centerx": "centerx"}
+        )
+
+        self.not_yet_button.enable()
+        self.begin_anew_button.enable()
+
+class GameOverLoser(UIWindow):
     def __init__(self, last_screen):
         super().__init__(
             ui_scale(pygame.Rect((250, 200), (300, 180))),
@@ -408,34 +490,35 @@ class GameOver(UIWindow):
             resizable=False,
         )
         self.set_blocking(True)
+
         self.clan_name = str(game.clan.name + "Clan")
         self.last_screen = last_screen
+        window_message = "The games have ended and no cats have survived."
         self.game_over_message = UITextBoxTweaked(
-            f"{self.clan_name} has died out. For now, this is where their story ends. Perhaps it's time to tell a new "
-            f"tale?",
+            window_message,
             ui_scale(pygame.Rect((20, 20), (260, -1))),
             line_spacing=1,
-            object_id="",
+            object_id="#text_box_30_horizcenter",
             container=self,
         )
 
         self.game_over_message = UITextBoxTweaked(
-            f"(leaving will not erase the save file)",
-            ui_scale(pygame.Rect((20, 155), (260, -1))),
+            "(leaving will not erase the save file)",
+            ui_scale(pygame.Rect((20, 140), (260, -1))),
             line_spacing=0.8,
             object_id="#text_box_22_horizcenter",
             container=self,
         )
 
         self.begin_anew_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((25, 115), (111, 30))),
+            ui_scale(pygame.Rect((25, 100), (111, 30))),
             "begin anew",
             get_button_dict(ButtonStyles.SQUOVAL, (111, 30)),
             object_id="@buttonstyles_squoval",
             container=self,
         )
         self.not_yet_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((159, 115), (111, 30))),
+            ui_scale(pygame.Rect((159, 100), (111, 30))),
             "not yet",
             get_button_dict(ButtonStyles.SQUOVAL, (111, 30)),
             object_id="@buttonstyles_squoval",
@@ -2060,6 +2143,8 @@ class DeathScreen(UIWindow):
             container=self,
             object_id="@buttonstyles_squoval",
         )
+        self.mediator_button2.disable()
+        self.mediator_button4.disable()
 
         self.mediator_button3 = UIImageButton(
             ui_scale(pygame.Rect((115, 165), (249, 48))),
@@ -2068,16 +2153,13 @@ class DeathScreen(UIWindow):
             container=self,
         )
 
-        
-
         self.begin_anew_button.enable()
         self.mediator_button.enable()
-        if game.clan.your_cat.revives < 5:
-            self.mediator_button2.enable()
-        if (game.clan.your_cat.dead_for >= game.config["fading"]["age_to_fade"]) and game.clan.your_cat.prevent_fading == False:
-            self.mediator_button2.disable()
+        # if game.clan.your_cat.revives < 5:
+        #     self.mediator_button2.enable()
+        # if (game.clan.your_cat.dead_for >= game.config["fading"]["age_to_fade"]) and game.clan.your_cat.prevent_fading == False:
+        #     self.mediator_button2.disable()
         self.mediator_button3.enable()
-        self.mediator_button4.enable()
 
     def process_event(self, event):
         super().process_event(event)
@@ -2087,7 +2169,6 @@ class DeathScreen(UIWindow):
                 game.last_screen_forupdate = None
                 game.switches['window_open'] = False
                 game.switches['cur_screen'] = 'start screen'
-                game.switches['continue_after_death'] = False
                 self.begin_anew_button.kill()
                 self.pick_path_message.kill()
                 self.mediator_button.kill()
@@ -2100,7 +2181,6 @@ class DeathScreen(UIWindow):
                 game.last_screen_forupdate = None
                 game.switches['window_open'] = False
                 game.switches['cur_screen'] = "choose reborn screen"
-                game.switches['continue_after_death'] = False
                 self.begin_anew_button.kill()
                 self.pick_path_message.kill()
                 self.mediator_button.kill()
@@ -2121,7 +2201,6 @@ class DeathScreen(UIWindow):
                 game.clan.your_cat.dead_for = 0
                 game.clan.your_cat.moons+=1
                 game.clan.your_cat.update_mentor()
-                game.switches['continue_after_death'] = False
                 if game.clan.your_cat.outside:
                     game.clan.add_to_clan(game.clan.your_cat)
                 if game.clan.your_cat.ID in game.clan.starclan_cats:
@@ -2159,7 +2238,6 @@ class DeathScreen(UIWindow):
                 game.last_screen_forupdate = None
                 game.switches['window_open'] = False
                 game.switches['cur_screen'] = "events screen"
-                game.switches['continue_after_death'] = True
                 self.begin_anew_button.kill()
                 self.pick_path_message.kill()
                 self.mediator_button.kill()
@@ -2172,7 +2250,6 @@ class DeathScreen(UIWindow):
                 game.switches['window_open'] = False
                 game.switches['customise_new_life'] = True
                 game.switches['cur_screen'] = "make clan screen"
-                game.switches['continue_after_death'] = False
                 self.begin_anew_button.kill()
                 self.pick_path_message.kill()
                 self.mediator_button.kill()
@@ -2816,10 +2893,12 @@ class ConfirmDisplayChanges(UIMessageWindow):
 # HG
 class AmbushWindow(UIWindow):
     def __init__(self, last_screen, attacker):
-        super().__init__(ui_scale(pygame.Rect((250, 200), (300, 180))),
-                        window_display_title='Ambush!',
-                        object_id='#game_over_window',
-                        resizable=False)
+        super().__init__(
+            ui_scale(pygame.Rect((250, 200), (300, 180))),
+            window_display_title='Ambush!',
+            object_id='#game_over_window',
+            resizable=False
+            )
         self.set_blocking(True)
         self.attacker = attacker
         game.switches['window_open'] = True
@@ -2884,4 +2963,5 @@ class AmbushWindow(UIWindow):
                 self.fight_button.kill()
                 self.pick_path_message.kill()
                 self.kill()
+        return super().process_event(event)
 

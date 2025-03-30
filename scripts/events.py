@@ -150,13 +150,13 @@ class Events:
             game.clan.age += 1
             get_current_season()
             Pregnancy_Events.handle_pregnancy_age(game.clan)
-        print("TIME")
-        print("Moon:", game.clan.age)
-        print("Day:", game.clan.days)
-        print("Skip:", game.clan.timeskips)
+        # print("TIME")
+        # print("Moon:", game.clan.age)
+        # print("Day:", game.clan.days)
+        # print("Skip:", game.clan.timeskips)
         # game.clan.age += 1
 
-        self.travel_map(game.clan.next_direction)
+        self.travel_map()
 
         self.check_war()
         if 'freshkill' in game.clan.clan_settings:
@@ -209,14 +209,14 @@ class Events:
             while not current_disaster or not disaster_text[game.clan.disaster]["trigger_events"] or (get_current_season() not in current_disaster["season"]):
                 game.clan.disaster = random.choice(list(disaster_text.keys()))
                 current_disaster = disaster_text.get(game.clan.disaster)
-        if game.clan.disaster and game.clan.disaster != "":
-            if "next_possible_disaster" in game.switches and game.clan.disaster == game.switches["next_possible_disaster"]:
-                game.switches["next_possible_disaster"] = None
-            for clan_cat in game.clan.clan_cats:
-                clan_cat_cat = Cat.fetch_cat(clan_cat)
-                if clan_cat_cat:
-                    clan_cat_cat.faith -= round(random.uniform(-0.1,0), 2)
-            self.handle_disaster()
+        # if game.clan.disaster and game.clan.disaster != "":
+        #     if "next_possible_disaster" in game.switches and game.clan.disaster == game.switches["next_possible_disaster"]:
+        #         game.switches["next_possible_disaster"] = None
+        #     for clan_cat in game.clan.clan_cats:
+        #         clan_cat_cat = Cat.fetch_cat(clan_cat)
+        #         if clan_cat_cat:
+        #             clan_cat_cat.faith -= round(random.uniform(-0.1,0), 2)
+        #     self.handle_disaster()
         
         taken_placements = []
         for cat in Cat.all_cats.copy().values():
@@ -414,8 +414,8 @@ class Events:
             if random.randint(1,15) == 1 and game.clan.your_cat.status != "newborn":
                 self.gain_acc()
 
-        elif game.clan.your_cat.dead and game.clan.your_cat.dead_for == 0:
-            self.generate_death_event()
+        # elif game.clan.your_cat.dead and game.clan.your_cat.dead_for == 0:
+        #     self.generate_death_event()
         # elif game.clan.your_cat.dead:
         #     self.generate_events()
         # elif game.clan.your_cat.status == 'exiled':
@@ -458,7 +458,7 @@ class Events:
             except:
                 SaveError(traceback.format_exc())
         
-        self.ambush()
+        # self.ambush()
 
     def add_freshkill(self):
         """Adds amount of freshkill needed for the Clan"""
@@ -959,7 +959,6 @@ class Events:
                     s.relationships[c.ID] = start_relation
         game.clan.your_cat.w_done = False
         game.clan.your_cat.age = "newborn"
-        game.switches['continue_after_death'] = False
         self.cat_dict.clear()
         
     def get_living_cats(self):
@@ -2565,6 +2564,9 @@ class Events:
             amount = random.choices([1, 2, 3, 4], [1, 2, 3, 2], k=1)
             random_prey = random.sample(prey, k=amount[0])
 
+            # debug
+            random_prey.append("DEATHBERRY")
+
             for i in random_prey:
                 if i in ["STRAWBERRY", "BLUEBERRY", "DEATHBERRY"]:
                     a = random.randint(1,5) 
@@ -2643,8 +2645,7 @@ class Events:
         # find all the cats that lived
         alive_cats = [
             i for i in bloodbath_cat_objects if (
-                i not in dead_bloodbath_cat_objects and
-                i.ID != game.clan.your_cat.ID # mc cant kill without player input
+                i not in dead_bloodbath_cat_objects
                 )]
         if alive_cats:
             for cat in dead_bloodbath_cat_objects:
@@ -2668,6 +2669,7 @@ class Events:
             try:
                 oldhunger = cat.stats.hunger
                 oldhealth = cat.stats.health
+                oldenergy = cat.stats.energy
             except:
                 print("STATS ERROR FOR", cat.name)
                 print(cat.stats)
@@ -2675,15 +2677,20 @@ class Events:
 
             satiation_value = ITEM_VALUES["food"][food][0]
             health_value = ITEM_VALUES["food"][food][1]
+            energy_value = ITEM_VALUES["food"][food][2]
             
             # if eating the food would put them over 100 in both values,
             # they don't eat it. would be a waste!
-            if cat.stats.hunger + satiation_value > 100 and cat.stats.health + health_value > 100:
+            if (
+                cat.stats.hunger + satiation_value > 100 and
+                cat.stats.health + health_value > 100 and
+                cat.stats.energy + energy_value > 100):
                 return
             
             # now they eat!!
             cat.stats.hunger += satiation_value
             cat.stats.health += health_value
+            cat.stats.energy += energy_value
 
             cat.pelt.inventory[food] -= 1
 
@@ -2835,7 +2842,7 @@ class Events:
                 activities[game.clan.next_activity]["intro_text"]
             )
 
-        outcome = random.choice(["positive", "neutral", "negative"])
+        outcome = random.choice(["positive", "positive", "positive", "positive", "neutral", "neutral", "neutral", "negative"])
 
         options = []
         if game.clan.next_activity == "investigate":
@@ -2942,12 +2949,17 @@ class Events:
 
         # INVENTORY BLOCK
         inventory = None
+        stats = None
         if game.clan.next_activity == "investigate":
             if "inventory" in activities[game.clan.next_activity]["outcomes"][game.clan.your_cat.map_position][outcome][outcome_choice]:
                 inventory = activities[game.clan.next_activity]["outcomes"][game.clan.your_cat.map_position][outcome][outcome_choice]["inventory"]
+            if "stats" in activities[game.clan.next_activity]["outcomes"][game.clan.your_cat.map_position][outcome][outcome_choice]:
+                stats = activities[game.clan.next_activity]["outcomes"][game.clan.your_cat.map_position][outcome][outcome_choice]["stats"]
         else:
             if "inventory" in activities[game.clan.next_activity]["outcomes"][outcome][outcome_choice]:
                 inventory = activities[game.clan.next_activity]["outcomes"][outcome][outcome_choice]["inventory"]
+            if "stats" in activities[game.clan.next_activity]["outcomes"][outcome][outcome_choice]:
+                stats = activities[game.clan.next_activity]["outcomes"][outcome][outcome_choice]["stats"]
 
         if inventory is not None:
             given_items = []
@@ -2962,10 +2974,27 @@ class Events:
                 gain_cat = game.clan.your_cat
             else:
                 print("Incorrectly formatted inventory['cat'] block in activities.")
-
+                return
+            
             for i in given_items:
-                gain_cat.pelt.inventory.update({i: random.randint(1,3)})
+                amount = random.randint(1,3)
+                if "amount" in inventory:
+                    amount *= inventory["amount"]
+                    amount = round(amount)
+                gain_cat.pelt.inventory.update({i: amount})
                 print(gain_cat.name, "has gained:", i, "from the", (game.clan.next_activity).upper(), "activity!")
+        if stats is not None:
+            if stats["cat"] == "r_t":
+                gain_cat = random_tribute
+            elif stats["cat"] == "you":
+                gain_cat = game.clan.your_cat
+            energy = stats["energy"] if "energy" in stats else 0
+            health = stats["health"] if "health" in stats else 0
+            hunger = stats["hunger"] if "hunger" in stats else 0
+
+            gain_cat.stats.hunger += hunger
+            gain_cat.stats.health += health
+            gain_cat.stats.energy += energy
 
 
         # INJURY BLOCK
@@ -2978,6 +3007,7 @@ class Events:
             if "injury" in activities[game.clan.next_activity]["outcomes"][outcome][outcome_choice]:
                 injury = activities[game.clan.next_activity]["outcomes"][outcome][outcome_choice]["injury"]
 
+
         if injury is not None:
             for item in injury.items():
                 if item[0] == "you":
@@ -2986,6 +3016,7 @@ class Events:
                     injured_cat = random_tribute
                 else:
                     print("Incorrectly formatted injury block in activities.")
+                    return
 
                 try:
                     injured_cat.get_injured(item[1])
@@ -2994,8 +3025,10 @@ class Events:
 
         game.clan.next_activity = None
 
-    def travel_map(self, next_direction):
+    def travel_map(self):
+        print("travel map fn")
         row, column = game.clan.your_cat.map_position.split("_")
+        next_direction = game.clan.next_direction
         # grabbing the current position from the clan_cats string
 
         row = int(row)
@@ -3011,7 +3044,8 @@ class Events:
         elif next_direction == "west":
             row -= 1
 
-        game.clan.your_cat.map_position = f"{int(row)}_{int(column)}"
+        if not game.clan.your_cat.dead:
+            game.clan.your_cat.map_position = f"{int(row)}_{int(column)}"
         # turn back into a string and update the cat's position!
 
         game.clan.next_direction = None
@@ -3021,7 +3055,7 @@ class Events:
             if npc.ID == game.clan.your_cat.ID:
                 continue
             if npc.sleeping is True:
-                return
+                continue
             cat_row, cat_column = npc.map_position.split("_")
             cat_row = int(cat_row)
             cat_column = int(cat_column)
@@ -3070,6 +3104,10 @@ class Events:
                     ally = Cat.all_cats.get(i)
                     if ally.map_position != npc.map_position:
                         npc.map_position = ally.map_position
+        
+        if game.clan.spectating:
+            print(game.clan.spectating)
+            game.clan.your_cat.map_position = game.clan.spectating.map_position
 
     def perform_ceremonies(self, cat):
         """
@@ -4683,22 +4721,47 @@ class Events:
     def ambush(self):
         with open(f"resources/dicts/hunger_games_dicts/{(game.clan.biome).lower()}/item_dict.json", "r", encoding="utf-8") as read_file:
             MAP_POSITION_INFO = ujson.loads(read_file.read())
-        chance = 15
-        chance *= int(
-            MAP_POSITION_INFO[game.clan.your_cat.map_position]["safety"]
-        )
-
+        # pick an attacker first, then determine the liklihood of them attacking you
         attackers = [
             i for i in Cat.all_cats_list if (
                 not i.dead and
                 not i.outside and
                 i.map_position == game.clan.your_cat.map_position and
-                i.ID != game.clan.your_cat.ID
+                i.ID != game.clan.your_cat.ID and 
+                i.ID not in game.clan.your_cat.allies
                 )]
         if not attackers:
             return
+        attacker = random.choice(attackers)
+
+        print("CHOSEN ATTACKER:", attacker.name)
+        chance = 10
+        chance *= int(
+            MAP_POSITION_INFO[game.clan.your_cat.map_position]["safety"]
+        )
+        if game.clan.your_cat.sleeping is False:
+            chance *= 2
+        
+        if game.clan.your_cat.ID in attacker.relationships:
+            if attacker.relationships[game.clan.your_cat.ID].dislike >= 10:
+                chance *= 0.75
+            elif attacker.relationships[game.clan.your_cat.ID].platonic_like >= 20:
+                chance *= 1.5
+
+        chance = round(chance)
+        print(attacker.name, "attack chance:", chance)
+
         if not game.clan.your_cat.dead and not int(random.random() * chance):
-            attacker = random.choice(attackers)
+            if attacker not in game.clan.your_cat.relationships:
+                attacker.create_one_relationship(game.clan.your_cat)
+            if game.clan.your_cat.ID not in attacker.relationships:
+                attacker.create_one_relationship(game.clan.your_cat)
+            
+            game.clan.your_cat.relationships[attacker.ID].dislike += 10
+            game.clan.your_cat.relationships[attacker.ID].trust -= 10
+            game.clan.your_cat.relationships[attacker.ID].comfortable -= 10
+            game.clan.your_cat.relationships[attacker.ID].platonic_like -= 10
+
             game.clan.your_cat.sleeping = False
             AmbushWindow('event screen', attacker)
 

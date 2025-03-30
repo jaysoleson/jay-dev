@@ -1758,7 +1758,7 @@
   "CORKHAT": {
     "default": "cork hat",
     "plural": "cork hats",
-    "singluar": "cork hat"
+    "singular": "cork hat"
   },
   "RAINBOWLORIKEET": {
     "default": "rainbow lorikeet",
@@ -1768,7 +1768,7 @@
   "BILBY": {
     "default": "bilby",
     "plural": "bilbies",
-    "singluar": "bilby"
+    "singular": "bilby"
   },
   "ZOOKEEPER": {
     "default": "zookeeper outfit",

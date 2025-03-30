@@ -678,6 +678,10 @@ class Cat:
         if self.exiled:
             self.status = 'former Clancat'
 
+        self.sleeping = False
+        if self == game.clan.spectating:
+            game.clan.spectating = None
+
         return
 
     def exile(self):
@@ -2053,7 +2057,13 @@ class Cat:
                 self.leader_death_heal = True
                 game.clan.leader_lives -= 1
 
-            self.die()
+            if "inflicted_by" in self.illnesses[illness] and self.illnesses[illness]["inflicted_by"]:
+                print("ILLNESS:", illness, "| INFLICTED BY:", self.illnesses[illness]["inflicted_by"])
+                killer = Cat.fetch_cat(self.illnesses[illness]["inflicted_by"])
+                self.die()
+                History.add_murders(self, killer, True, f"m_c died to {illness}, inflicted by r_c")
+            else:
+                self.die()
             return False
         if "moon_start" in self.illnesses[illness]:
             # moons_with = game.clan.age - self.illnesses[illness]["moon_start"]
@@ -2070,9 +2080,19 @@ class Cat:
 
         # print(self.name, "has", illness)
         # print(self.name, "Duration", duration, "|", "Skips with:", moons_with)
+
+        # HG: curing with inventory herbs
+        if self.ID != game.clan.your_cat.ID:
+            for item in self.pelt.inventory.keys():
+                if item in ILLNESSES[illness]["herbs"]:
+                    self.pelt.inventory[item] -= 1
+                    if self.pelt.inventory[item] == 0:
+                        self.pelt.inventory.pop(item)
+                    self.healed_condition = True
+                    return False
         if duration - moons_with <= 0:
+        #  ---
             self.healed_condition = True
-            print("Healing", str(self.name) + "'s", illness)
             return False
 
         # CLAN FOCUS! - if the focus 'rest and recover' is selected
@@ -2103,7 +2123,14 @@ class Cat:
         if mortality and not int(random() * mortality):
             if self.status == "leader":
                 game.clan.leader_lives -= 1
-            self.die()
+            
+            if "inflicted_by" in self.injuries[injury] and self.injuries[injury]["inflicted_by"]:
+                print("INJURY:", injury, "| INFLICTED BY:", self.injuries[injury]["inflicted_by"])
+                killer = Cat.fetch_cat(self.injuries[injury]["inflicted_by"])
+                self.die()
+                History.add_murders(self, killer, True, f"m_c died due to a {injury} caused by r_c")
+            else:
+                self.die()
             return False
         moons_with = 0
         if "moon_start" in self.injuries[injury]:
@@ -2116,6 +2143,18 @@ class Cat:
 
         duration = self.injuries[injury]["duration"] * 4
 
+        # HG: curing with inventory herbs
+        # only NPCs
+        if self.ID != game.clan.your_cat.ID:
+            for item in self.pelt.inventory.keys():
+                if item in INJURIES[injury]["herbs"]:
+                    self.pelt.inventory[item] -= 1
+                    if self.pelt.inventory[item] == 0:
+                        self.pelt.inventory.pop(item)
+                    self.healed_condition = True
+                    return False
+        #  ---
+
         # if the cat has an infected wound, the wound shouldn't heal till the illness is cured
         if (
             not self.injuries[injury]["complication"]
@@ -2123,6 +2162,7 @@ class Cat:
         ):
             self.healed_condition = True
             return False
+            
 
         # CLAN FOCUS! - if the focus 'rest and recover' is selected
         elif (
@@ -2253,7 +2293,7 @@ class Cat:
     #                                  conditions                                  #
     # ---------------------------------------------------------------------------- #
 
-    def get_ill(self, name, event_triggered=False, lethal=True, severity="default", grief_cat=None):
+    def get_ill(self, name, event_triggered=False, lethal=True, severity="default", grief_cat=None, inflicted_by=None):
         """Add an illness to this cat.
 
         :param name: name of the illness (str)
@@ -2304,6 +2344,7 @@ class Cat:
             medicine_mortality=med_mortality,
             risks=illness["risks"],
             event_triggered=event_triggered,
+            inflicted_by=inflicted_by,
             grief_cat = grief_cat
         )
 
@@ -2317,11 +2358,12 @@ class Cat:
                 "moon_start": game.clan.timeskips if game.clan else 0,
                 "risks": new_illness.risks,
                 "event_triggered": new_illness.new,
+                "inflicted_by": new_illness.inflicted_by
             }
             if grief_cat:
                 self.illnesses[new_illness.name]['grief_cat'] = grief_cat.ID
 
-    def get_injured(self, name, event_triggered=False, lethal=True, severity="default"):
+    def get_injured(self, name, event_triggered=False, lethal=True, severity="default", inflicted_by=None):
         """Add an injury to this cat.
 
         :param name: The injury to add
@@ -2332,6 +2374,8 @@ class Cat:
         :type lethal: bool, optional
         :param severity: _description_, defaults to 'default'
         :type severity: str, optional
+        :param inflicted_by: ID of the cat that cuased the injury, to be recorded as a kill
+        :type inflicted_by: str, optional
         """
         if name not in INJURIES:
             print(f"WARNING: {name} is not in the injuries collection.")
@@ -2376,6 +2420,7 @@ class Cat:
             also_got=injury["also_got"],
             cause_permanent=injury["cause_permanent"],
             event_triggered=event_triggered,
+            inflicted_by=inflicted_by
         )
 
         if new_injury.name not in self.injuries:
@@ -2390,6 +2435,7 @@ class Cat:
                 "complication": None,
                 "cause_permanent": new_injury.cause_permanent,
                 "event_triggered": new_injury.new,
+                "inflicted_by": new_injury.inflicted_by
             }
 
         if len(new_injury.also_got) > 0 and not int(random() * 5):
@@ -2424,6 +2470,12 @@ class Cat:
                     self.get_ill(additional_injury, event_triggered=True)
         else:
             self.also_got = False
+        
+        # HG TODO: add health values to each injury to deplete health
+        self.stats.health -= 10
+        if self.stats.health <= 0:
+            self.stats.health = 0
+            self.die()
 
     def additional_injury(self, injury):
         self.get_injured(injury, event_triggered=True)

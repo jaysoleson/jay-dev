@@ -1,10 +1,12 @@
 {
     "-2_-3": {
         "food": {
+            "STARFRUIT": 1,
             "LINGCOD": 3,
             "SALMON": 3,
             "ROCKFISH": 3,
-            "CRAB": 1
+            "CRAB": 1,
+            "MANGO": 2
         },
         "herbs": {
             "moss": 1
@@ -49,11 +51,14 @@
     },
     "-1_-3": {
         "food": {
-            "LINGCOD": 1,
-            "SALMON": 1,
-            "ROCKFISH": 2,
+            "STARFRUIT": 1,
+            "LINGCOD": 2,
+            "SALMON": 2,
+            "ROCKFISH": 3,
             "CRAB": 3,
-            "COCONUT": 2
+            "COCONUT": 2,
+            "MANGO": 2,
+            "BANANA": 1
         },
         "herbs": {
             "plantain": 1,
@@ -107,13 +112,15 @@
     },
     "0_-3": {
         "food": {
-            "LINGCOD": 1,
-            "SALMON": 1,
-            "ROCKFISH": 1,
-            "CRAB": 2,
-            "STRAWBERRY": 2,
-            "BLUEBERRY": 2,
-            "DEATHBERRY": 2
+            "STARFRUIT": 1,
+            "LINGCOD": 2,
+            "SALMON": 2,
+            "ROCKFISH": 2,
+            "CRAB": 3,
+            "STRAWBERRY": 3,
+            "BLUEBERRY": 3,
+            "DEATHBERRY": 2,
+            "BANANA": 2
         },
         "herbs": {
             "oak_leaves": 1,
@@ -182,9 +189,10 @@
     },
     "1_-3": {
         "food": {
-            "ROCKFISH": 2,
-            "CRAB": 2,
-            "COCONUT": 1
+            "STARFRUIT": 1,
+            "ROCKFISH": 3,
+            "CRAB": 3,
+            "COCONUT": 2
         },
         "herbs": {
             "cobwebs": 10,
@@ -223,10 +231,11 @@
     },
     "-2_-2": {
         "food": {
-            "CRAB": 1,
-            "LINGCOD": 1,
-            "ROCKFISH": 1,
-            "SALMON": 1
+            "STARFRUIT": 1,
+            "CRAB": 2,
+            "LINGCOD": 2,
+            "ROCKFISH": 3,
+            "SALMON": 2
         },
         "herbs": {
             "moss": 1
@@ -271,7 +280,9 @@
     },
     "-1_-2": {
         "food": {
-            "CRAB": 1
+            "STARFRUIT": 1,
+            "CRAB": 3,
+            "BANANA": 2
         },
         "herbs": {
             "moss": 1,
@@ -331,8 +342,9 @@
     },
     "0_-2": {
         "food": {
-            "COCONUT": 3,
-            "CRAB": 1
+            "STARFRUIT": 1,
+            "COCONUT": 4,
+            "CRAB": 2
         },
         "herbs": {
             "moss": 1,
@@ -392,8 +404,9 @@
     },
     "1_-2": {
         "food": {
-            "COCONUT": 3,
-            "CRAB": 1
+            "STARFRUIT": 1,
+            "COCONUT": 4,
+            "CRAB": 3
         },
         "herbs": {
             "moss": 1,
@@ -457,11 +470,13 @@
     },
     "2_-2": {
         "food": {
+            "STARFRUIT": 1,
             "COCONUT": 3,
-            "STRAWBERRY": 2,
-            "BLUEBERRY": 3,
-            "BLACKBIRD": 1,
-            "DEATHBERRY": 1
+            "STRAWBERRY": 3,
+            "BLUEBERRY": 4,
+            "BLACKBIRD": 2,
+            "DEATHBERRY": 2,
+            "MANGO": 3
         },
         "herbs": {
             "moss": 1,
@@ -532,10 +547,11 @@
     },
     "-3_-1": {
         "food": {
-            "LINGCOD": 1,
-            "SALMON": 1,
-            "SARDINE": 1,
-            "ROCKFISH": 1
+            "STARFRUIT": 1,
+            "LINGCOD": 3,
+            "SALMON": 3,
+            "SARDINE": 2,
+            "ROCKFISH": 2
         },
         "herbs": {
             "moss": 1
@@ -576,12 +592,13 @@
     },
     "-2_-1": {
         "food": {
-            "LINGCOD": 1,
-            "SALMON": 1,
-            "SARDINE": 1,
-            "ROCKFISH": 1,
-            "COCONUT": 1,
-            "CRAB": 1
+            "STARFRUIT": 1,
+            "LINGCOD": 2,
+            "SALMON": 2,
+            "SARDINE": 2,
+            "ROCKFISH": 2,
+            "COCONUT": 2,
+            "CRAB": 2
         },
         "herbs": {
             "moss": 1,
@@ -623,8 +640,9 @@
     },
     "-1_-1": {
         "food": {
+            "STARFRUIT": 1,
             "COCONUT": 3,
-            "CRAB": 1
+            "CRAB": 2
         },
         "herbs": {
             "plantain": 1
@@ -665,7 +683,8 @@
     },
     "0_-1": {
         "food": {
-            "COCONUT": 1
+            "STARFRUIT": 1,
+            "COCONUT": 3
         },
         "herbs": {
             "plantain": 1
@@ -706,8 +725,9 @@
     },
     "1_-1": {
         "food": {
+            "STARFRUIT": 1,
             "COCONUT": 4,
-            "CROW": 1
+            "CROW": 2
         },
         "herbs": {
             "plantain": 1
@@ -748,11 +768,13 @@
     },
     "2_-1": {
         "food": {
-            "COCONUT": 2,
-            "CROW": 1,
-            "BLACKBIRD": 1,
+            "STARFRUIT": 1,
+            "COCONUT": 3,
+            "CROW": 2,
+            "BLACKBIRD": 3,
             "MOUSE": 1,
-            "DEATHBERRY": 1
+            "DEATHBERRY": 2,
+            "MANGO": 2
         },
         "herbs": {
             "plantain": 1,
@@ -796,11 +818,12 @@
     },
     "3_-1": {
         "food": {
-            "CROW": 1,
-            "BLACKBIRD": 1,
-            "MOUSE": 1,
-            "SQUIRREL": 1,
-            "RABBIT": 1
+            "STARFRUIT": 1,
+            "CROW": 2,
+            "BLACKBIRD": 2,
+            "MOUSE": 2,
+            "SQUIRREL": 2,
+            "RABBIT": 2
         },
         "herbs": {
             "plantain": 1,
@@ -844,9 +867,10 @@
     },
     "-1_0": {
         "food": {
-            "BLUEBERRY": 2,
-            "STRAWBERRY": 1,
-            "COCONUT": 1
+            "STARFRUIT": 1,
+            "BLUEBERRY": 3,
+            "STRAWBERRY": 2,
+            "COCONUT": 2
         },
         "herbs": {
             "elder_leaves": 1,
@@ -915,8 +939,9 @@
     },
     "-2_0": {
         "food": {
-            "COCONUT": 2,
-            "CRAB": 1
+            "STARFRUIT": 1,
+            "COCONUT": 4,
+            "CRAB": 3
         },
         "herbs": {
             "moss": 1,
@@ -975,8 +1000,9 @@
     },
     "-3_0": {
         "food": {
+            "STARFRUIT": 1,
             "COCONUT": 2,
-            "CRAB": 1
+            "CRAB": 3
         },
         "herbs": {
             "moss": 1,
@@ -1019,10 +1045,12 @@
     },
     "0_0": {
         "food": {
+            "STARFRUIT": 1,
             "BLUEBERRY": 2,
-            "STRAWBERRY": 1,
+            "STRAWBERRY": 3,
             "COCONUT": 4,
-            "CRAB": 1
+            "CRAB": 2,
+            "MANGO": 2
         },
         "herbs": {
             "elder_leaves": 1,
@@ -1159,9 +1187,10 @@
     },
     "1_0": {
         "food": {
-            "BLUEBERRY": 2,
-            "STRAWBERRY": 1,
-            "COCONUT": 1
+            "STARFRUIT": 1,
+            "BLUEBERRY": 3,
+            "STRAWBERRY": 2,
+            "COCONUT": 2
         },
         "herbs": {
             "elder_leaves": 1,
@@ -1242,13 +1271,14 @@
     },
     "2_0": {
         "food": {
+            "STARFRUIT": 1,
             "BLUEBERRY": 2,
-            "STRAWBERRY": 1,
-            "COCONUT": 1,
-            "MOUSE": 2,
-            "RABBIT": 2,
-            "CROW": 1,
-            "BLACKBIRD": 1
+            "STRAWBERRY": 2,
+            "COCONUT": 2,
+            "MOUSE": 3,
+            "RABBIT": 3,
+            "CROW": 2,
+            "BLACKBIRD": 2
         },
         "herbs": {
             "tansy": 1,
@@ -1304,12 +1334,14 @@
     },
     "3_0": {
         "food": {
-            "BLUEBERRY": 2,
-            "STRAWBERRY": 1,
-            "MOUSE": 2,
-            "RABBIT": 2,
-            "CROW": 1,
-            "BLACKBIRD": 1
+            "STARFRUIT": 1,
+            "BLUEBERRY": 3,
+            "STRAWBERRY": 2,
+            "MOUSE": 3,
+            "RABBIT": 3,
+            "CROW": 2,
+            "BLACKBIRD": 2,
+            "MANGO": 2
         },
         "herbs": {
             "tansy": 1,
@@ -1362,7 +1394,10 @@
     },
     "-3_1": {
         "food": {
-            "COCONUT": 1
+            "STARFRUIT": 1,
+            "COCONUT": 3,
+            "MANGO": 4,
+            "BANANA": 4
         },
         "herbs": {
             "tansy": 1,
@@ -1405,7 +1440,10 @@
     },
     "-2_1": {
         "food": {
-            "COCONUT": 1
+            "STARFRUIT": 1,
+            "COCONUT": 3,
+            "MANGO": 4,
+            "BANANA": 4
         },
         "herbs": {
             "tansy": 1,
@@ -1448,8 +1486,11 @@
     },
     "-1_1": {
         "food": {
-            "COCONUT": 2,
-            "STRAWBERRY": 1
+            "STARFRUIT": 1,
+            "COCONUT": 4,
+            "STRAWBERRY": 3,
+            "MANGO": 2,
+            "BANANA": 2
         },
         "herbs": {
             "tansy": 1,
@@ -1494,8 +1535,11 @@
     },
     "0_1": {
         "food": {
-            "COCONUT": 2,
-            "STRAWBERRY": 1
+            "STARFRUIT": 1,
+            "COCONUT": 3,
+            "STRAWBERRY": 2,
+            "MANGO": 3,
+            "BANANA": 3
         },
         "herbs": {
             "tansy": 1,
@@ -1541,8 +1585,11 @@
     },
     "1_1": {
         "food": {
-            "COCONUT": 2,
-            "STRAWBERRY": 1
+            "STARFRUIT": 1,
+            "COCONUT": 3,
+            "STRAWBERRY": 2,
+            "MANGO": 2,
+            "BANANA": 2
         },
         "herbs": {
             "elder_leaves": 1,
@@ -1587,9 +1634,10 @@
     },
     "2_1": {
         "food": {
-            "STRAWBERRY": 1,
-            "MOUSE": 1,
-            "RABBIT": 1,
+            "STARFRUIT": 1,
+            "STRAWBERRY": 2,
+            "MOUSE": 2,
+            "RABBIT": 3,
             "DEATHBERRY": 1
         },
         "herbs": {
@@ -1635,10 +1683,11 @@
     },
     "3_1": {
         "food": {
-            "MOUSE": 1,
-            "RABBIT": 1,
-            "CROW": 1,
-            "BLACKBIRD": 1
+            "STARFRUIT": 1,
+            "MOUSE": 2,
+            "RABBIT": 2,
+            "CROW": 2,
+            "BLACKBIRD": 2
         },
         "herbs": {
             "elder_leaves": 1,
@@ -1684,11 +1733,40 @@
             380
         ]
     },
+    "3_2": {
+        "food": {
+            "STARFRUIT": 1,
+            "MOUSE": 2,
+            "RABBIT": 2,
+            "CROW": 2,
+            "BLACKBIRD": 2
+        },
+        "herbs": {
+            "tansy": 1,
+            "goldenrod": 1
+        },
+        "safety": 0.75,
+        "camp_safety": 1,
+        "prey_abundance": 4,
+        "placements": [
+            [200, 200],
+            [120, 270]
+        ],
+        "mc_placement": [
+            100,
+            150
+        ],
+        "camp_placement": [
+            300,
+            190
+        ]
+    },
     "-2_2": {
         "food": {
-            "CRAB": 2,
-            "SALMON": 1,
-            "SARDINE": 2
+            "STARFRUIT": 1,
+            "CRAB": 3,
+            "SALMON": 2,
+            "SARDINE": 3
         },
         "herbs": {
             "plantain": 1
@@ -1729,10 +1807,11 @@
     },
     "-1_2": {
         "food": {
-            "MOUSE": 1,
-            "RABBIT": 1,
-            "CROW": 1,
-            "BLACKBIRD": 1,
+            "STARFRUIT": 1,
+            "MOUSE": 2,
+            "RABBIT": 2,
+            "CROW": 2,
+            "BLACKBIRD": 2,
             "DEATHBERRY": 1
         },
         "herbs": {
@@ -1779,10 +1858,11 @@
     },
     "0_2": {
         "food": {
-            "MOUSE": 1,
-            "RABBIT": 1,
-            "CROW": 1,
-            "BLACKBIRD": 1
+            "STARFRUIT": 1,
+            "MOUSE": 2,
+            "RABBIT": 2,
+            "CROW": 2,
+            "BLACKBIRD": 2
         },
         "herbs": {
             "elder_leaves": 1,
@@ -1828,11 +1908,13 @@
     },
     "1_2": {
         "food": {
-            "MOUSE": 1,
-            "RABBIT": 1,
-            "CROW": 1,
-            "BLACKBIRD": 1,
-            "COCONUT": 1
+            "STARFRUIT": 1,
+            "MOUSE": 2,
+            "RABBIT": 2,
+            "CROW": 2,
+            "BLACKBIRD": 2,
+            "COCONUT": 2,
+            "BANANA": 3
         },
         "herbs": {
             "elder_leaves": 1,
@@ -1878,11 +1960,12 @@
     },
     "2_2": {
         "food": {
-            "MOUSE": 1,
-            "RABBIT": 1,
-            "CROW": 1,
-            "BLACKBIRD": 1,
-            "COCONUT": 1
+            "STARFRUIT": 1,
+            "MOUSE": 2,
+            "RABBIT": 2,
+            "CROW": 2,
+            "BLACKBIRD": 2,
+            "COCONUT": 2
         },
         "herbs": {
             "elder_leaves": 1,

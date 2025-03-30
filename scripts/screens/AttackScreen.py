@@ -4,6 +4,7 @@ import random
 
 from scripts.cat.cats import Cat
 from scripts.game_structure.game_essentials import game
+from scripts.game_structure.audio import sound_manager
 from scripts.game_structure.ui_elements import (
     UIImageButton,
     UITextBoxTweaked,
@@ -36,6 +37,7 @@ class AttackScreen(Screens):
         self.result = None
         self.taken_item = []
         self.rests = 0
+        self.strategy = "attack"
 
     def screen_switches(self):
         """
@@ -189,7 +191,8 @@ class AttackScreen(Screens):
                 object_id="@buttonstyles_rounded_rect",
                 manager=MANAGER,
                 container=self.containers["buttons"],
-                anchors={"centerx": "centerx"}
+                anchors={"centerx": "centerx"},
+                sound_id="hg_attack"
             )
             y_val += 50
             self.buttons["pin"] = UISurfaceImageButton(
@@ -199,7 +202,8 @@ class AttackScreen(Screens):
                 object_id="@buttonstyles_rounded_rect",
                 manager=MANAGER,
                 container=self.containers["buttons"],
-                anchors={"centerx": "centerx"}
+                anchors={"centerx": "centerx"},
+                sound_id="hg_attack"
             )
             y_val += 50
             self.buttons["rest"] = UISurfaceImageButton(
@@ -254,6 +258,7 @@ class AttackScreen(Screens):
         else:
             if self.result == "flee":
                 text = "You flee the fight."
+                sound_manager.play("hg_attack_lose")
                 if self.taken_item:
                     if self.taken_item[0] > 1:
                         item_name = self.taken_item[1].lower()
@@ -269,13 +274,27 @@ class AttackScreen(Screens):
                     text += f" {self.the_cat.name} takes {self.taken_item[0]} {item_name.replace('_', ' ')} from your stash."
                     self.taken_item = []
             elif self.result == "win":
-                text = "You won the fight!"
-                if self.the_cat.pelt.inventory:
-                    text += "\nYou have gained: "
-                    text += ", ".join([(str(i[1]) + " " + i[0].lower()) for i in self.the_cat.pelt.inventory.items()])
-                History.add_murders(self.the_cat, self.you, True, "m_c killed this cat in a fight.")
+                sound_manager.play("hg_attack_win")
+                if self.strategy == "attack":
+                    text = "<b>You won the fight!</b>"
+                    if self.the_cat.pelt.inventory:
+                        text += "\n\nYou have gained: "
+                        text += ", ".join([(str(i[1]) + " " + i[0].lower()) for i in self.the_cat.pelt.inventory.items()])
+                    History.add_murders(self.the_cat, self.you, True, "m_c killed this cat in a fight.")
+                else:
+                    text = f"<b>You successfully poison {self.the_cat.name}.</b>\n\n{self.the_cat.name} is alive, but very sick."
+                    deathberry_num = random.randint(1, round(self.you.pelt.inventory["DEATHBERRY"]/2) + 1)
+                    if deathberry_num == 1:
+                        plural = "deathberry"
+                    else:
+                        plural = "deathberries"
+                    text += f"\n\nYou have lost {deathberry_num} {plural}."
+                    self.the_cat.get_injured("poisoned", inflicted_by=self.you.ID)
+                    self.you.pelt.inventory["DEATHBERRY"] -= deathberry_num
+                
             elif self.result == "loss":
-                text = f"{self.the_cat.name} wins the fight. You have died."
+                text = f"{self.the_cat.name} wins the fight.\n\n<b>You have died.</b>"
+                sound_manager.play("hg_attack_lose")
                 History.add_murders(self.you, self.the_cat, True, "m_c killed this cat in a fight.")
             else:
                 text = "Mrow! What is this doing here?!"
@@ -430,6 +449,7 @@ class AttackScreen(Screens):
                     self.reset_variables()
                     self.change_screen("profile screen")
                 elif event.ui_element == self.buttons["attack"]:
+                    self.strategy = "attack"
                     self.stage = "fight"
                     attack = {
                             "action": "",
@@ -438,6 +458,19 @@ class AttackScreen(Screens):
                             "text": f"You prepare to attack {self.the_cat.name}."
                         }
                     self.actions.append(attack)
+                    self.exit_screen()
+                    self.screen_switches()
+                elif event.ui_element == self.buttons["poison"]:
+                    self.strategy = "poison"
+                    self.stage = "fight"
+                    attack = {
+                            "action": "",
+                            "turn": self.turns_taken,
+                            "success": True,
+                            "text": f"You slip some deathberries into {self.the_cat.name}'s food stash."
+                        }
+                    self.actions.append(attack)
+                    self.npc_turn()
                     self.exit_screen()
                     self.screen_switches()
             elif self.stage == "fight":
@@ -463,13 +496,26 @@ class AttackScreen(Screens):
         npcs turn in the battle
         """
 
-        damage = random.randint(6, 17)
+        if self.strategy == "poison":
+            if random.randint(1,2) == 1:
+                damage = 0
+                self.stage = "post_fight"
+                self.result = "win"
+                return
+            else:
+                damage = random.randint(3, 13)
+                self.stage = "fight"
+                self.strategy = "attack"
+                text = f"{self.the_cat.name} notices and attacks for {damage} damage!"
+        else:
+            damage = random.randint(3, 13)
+            text = f"{self.the_cat.name} attacks for {damage} damage."
         self.you.stats.health -= damage
         attack = {
             "action": "",
             "turn": self.turns_taken,
             "success": True,
-            "text": f"{self.the_cat.name} attacks for {damage} damage."
+            "text": text
         }
         self.actions.append(attack)
         if self.you.stats.health <= 0:
@@ -521,7 +567,7 @@ class AttackScreen(Screens):
         text = ""
         skip_success = False
         if action == "swipe":
-            damage, text = self.swipe_damage(action)
+            damage, text = self.swipe()
         elif action == "pin":
             damage, text, skip_success = self.pin()
         elif action == "hiss":
@@ -583,6 +629,7 @@ class AttackScreen(Screens):
         self.turns_taken = 0
         self.result = None
         self.rests = 0
+        self.strategy = "attack"
 
     def exit_screen(self):
         """

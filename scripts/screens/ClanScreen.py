@@ -144,14 +144,15 @@ class ClanScreen(Screens):
         super().screen_switches()
         self.update_current_map()
         self.show_mute_buttons()
-        game.switches["cat"] = None 
+        game.switches["cat"] = None
+
+        # print(game.clan.your_cat.map_position)
 
         # # this has to be opened before placements
         with open(f"resources/dicts/hunger_games_dicts/{(game.clan.biome).lower()}/item_dict.json", "r", encoding="utf-8") as read_file:
             self.MAP_POSITION_INFO = ujson.loads(read_file.read())
 
-        if not (game.clan.timeskips == 2 and game.clan.days == 0):
-            # noooo activities durig the bloodbath
+        if not (game.clan.timeskips == 1 and game.clan.days == 0):
             try:
                 ACTIVITIES = None
                 base_dir = 'resources/dicts/hunger_games_dicts'
@@ -159,15 +160,14 @@ class ClanScreen(Screens):
                     ACTIVITIES = ujson.loads(read_file.read())
                 self.activity_list = ACTIVITIES[game.clan.your_cat.map_position]
 
-                if not (
-                    game.clan.timeskips == 1 and
-                    game.clan.days == 0 and
-                    game.clan.your_cat.map_position == "0_0"
-                    ) and not game.clan.your_cat.dead:
+                # print("ACTIVITIES FOR", game.clan.your_cat.map_position, ":", self.activity_list)
+                if not game.clan.your_cat.dead:
                     self.place_activity_buttons()
             except:
                 print("No activity placements for", game.clan.your_cat.map_position)
                 self.activity_list = {}
+        else:
+            self.activity_list = {}
 
         game.switches['cat'] = None
         if game.clan.biome + game.clan.camp_bg in game.clan.layouts:
@@ -436,7 +436,7 @@ class ClanScreen(Screens):
                         insert,
                         ui_scale(pygame.Rect((activity[1][0] - 20, activity[1][1] - 35), (75, 30))),
                         object_id=get_text_box_theme(
-                        "#text_box_22_horizcenter")
+                        "#text_box_22_horizcenter"),
                     )
 
                     self.popup_buttons[f"{activity[0]}"] = UISurfaceImageButton(
@@ -444,6 +444,7 @@ class ClanScreen(Screens):
                         Icon.PAW,
                         get_button_dict(ButtonStyles.ICON, (30, 30)),
                         object_id="@buttonstyles_icon",
+                        tool_tip_text=insert2
                     )
         if game.clan.your_cat.sleeping is True:
             self.direction_buttons["north"].disable()

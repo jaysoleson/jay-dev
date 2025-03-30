@@ -16,8 +16,10 @@ from ..ui.generate_box import BoxStyles, get_box
 from scripts.utility import get_text_box_theme, ui_scale
 from scripts.game_structure.screen_settings import MANAGER
 from ..ui.generate_button import get_button_dict, ButtonStyles
+from scripts.clan import HERBS, ITEM_VALUES
 from ..ui.get_arrow import get_arrow
 from ..ui.icon import Icon
+from scripts.cat.pelts import Pelt
 
 
 with open("resources/dicts/acc_display.json", "r") as read_file:
@@ -75,13 +77,14 @@ class GiftScreen(Screens):
 
     def handle_event(self, event):
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
+            for btn in self.accessory_buttons:
+                if event.ui_element == self.accessory_buttons[btn]:
+                    self.selected_accessory = btn.split(":")[1]
+                    self.update_selected_accessory()
+            
             if event.ui_element in self.cat_list_buttons.values():
                 self.selected_cat = event.ui_element.return_cat_object()
                 self.update_selected_cat()
-
-            elif event.ui_element in self.accessory_buttons.values():
-                self.selected_accessory = event.ui_element
-                self.update_selected_accessory()
 
             elif event.ui_element == self.select_button and self.selected_cat and self.stage == 'choose gift cat':
                 if not self.selected_cat.dead:
@@ -213,15 +216,19 @@ class GiftScreen(Screens):
                 manager=MANAGER
                 )
 
-            self.select_button = UIImageButton(
-                ui_scale(pygame.Rect((125, 305), (104, 26))),
-                "",
-                object_id="#gift_select_button"
+            self.select_button = UISurfaceImageButton(
+                ui_scale(pygame.Rect((102, 305), (140, 30))),
+                "share supplies",
+                get_button_dict(ButtonStyles.SQUOVAL, (140, 30)),
+                object_id="@buttonstyles_squoval",
+                manager=MANAGER,
             )
-            self.gift_again_button = UIImageButton(
-                ui_scale(pygame.Rect((580, 305), (104, 26))),
-                "",
-                object_id="#gift_again_button"
+            self.gift_again_button = UISurfaceImageButton(
+                ui_scale(pygame.Rect((560, 305), (140, 30))),
+                "share again",
+                get_button_dict(ButtonStyles.SQUOVAL, (140, 30)),
+                object_id="@buttonstyles_squoval",
+                manager=MANAGER,
             )
             
             self.previous_page_button = UISurfaceImageButton(
@@ -281,15 +288,19 @@ class GiftScreen(Screens):
                 (569, 399)),
                 manager=MANAGER
             )
-            self.select_button = UIImageButton(
-                ui_scale(pygame.Rect((125, 305), (104, 26))),
-                "",
-                object_id="#give_gift_button"
+            self.select_button = UISurfaceImageButton(
+                ui_scale(pygame.Rect((102, 305), (140, 30))),
+                "share supplies",
+                get_button_dict(ButtonStyles.SQUOVAL, (140, 30)),
+                object_id="@buttonstyles_squoval",
+                manager=MANAGER,
             )
-            self.gift_again_button = UIImageButton(
-                ui_scale(pygame.Rect((580, 305), (104, 26))),
-                "",
-                object_id="#gift_again_button"
+            self.gift_again_button = UISurfaceImageButton(
+                ui_scale(pygame.Rect((560, 305), (140, 30))),
+                "share again",
+                get_button_dict(ButtonStyles.SQUOVAL, (140, 30)),
+                object_id="@buttonstyles_squoval",
+                manager=MANAGER,
             )
             self.previous_page_button = UIImageButton(
                 ui_scale(pygame.Rect((315, 576), (34, 34))),
@@ -346,7 +357,7 @@ class GiftScreen(Screens):
                 manager=MANAGER
             )
 
-            reaction_txt, reaction, acc = self.gift_acc()
+            reaction_txt, reaction = self.gift_acc()
 
             self.reaction_text = pygame_gui.elements.UITextBox(
                 self.adjust_txt(reaction_txt),
@@ -367,6 +378,11 @@ class GiftScreen(Screens):
                 icon_png = "giftreaction_neutral"
                 neutral = True
             elif reaction in ["accept_dislike"]:
+                icon_png = "giftreaction_neg"
+                neg = True
+            
+            # HG
+            else:
                 icon_png = "giftreaction_neg"
                 neg = True
 
@@ -394,15 +410,19 @@ class GiftScreen(Screens):
                 (569, 399)), manager=MANAGER
             )
 
-            self.select_button = UIImageButton(
-                ui_scale(pygame.Rect((125, 305), (104, 26))),
-                "",
-                object_id="#give_gift_button"
+            self.select_button = UISurfaceImageButton(
+                ui_scale(pygame.Rect((102, 305), (140, 30))),
+                "share supplies",
+                get_button_dict(ButtonStyles.SQUOVAL, (140, 30)),
+                object_id="@buttonstyles_squoval",
+                manager=MANAGER,
             )
-            self.gift_again_button = UIImageButton(
-                ui_scale(pygame.Rect((580, 305), (104, 26))),
-                "",
-                object_id="#gift_again_button"
+            self.gift_again_button = UISurfaceImageButton(
+                ui_scale(pygame.Rect((560, 305), (140, 30))),
+                "share again",
+                get_button_dict(ButtonStyles.SQUOVAL, (140, 30)),
+                object_id="@buttonstyles_squoval",
+                manager=MANAGER,
             )
             self.previous_page_button = UIImageButton(
                 ui_scale(pygame.Rect((315, 572), (34, 34))),
@@ -561,22 +581,26 @@ class GiftScreen(Screens):
         pos = False
         neg = False
 
+        print("rel change", reaction)
+
         if game.clan.your_cat.ID not in self.selected_cat.relationships:
             cat.ID.create_one_relationship(you.ID)
-            if reaction == "already_have":
-                cat.relationships(you.ID).platonic_like += randint(0,5)
-                neutral = True
-            elif reaction == "accept_like":
-                cat.relationships(you.ID).platonic_like += randint(3,10)
-                pos = True
-            elif reaction == "accept_dislike":
-                cat.relationships(you.ID).dislike += randint(3,8)
-                neg = True
-            elif reaction == "accept_neutral":
-                neutral = True
-            elif reaction == "accept_favourite":
-                pos = True
-                cat.relationships(you.ID).platonic_like += randint(10,30)
+        if reaction == "already_have":
+            cat.relationships[you.ID].platonic_like += randint(0,5)
+            neutral = True
+        elif reaction == "accept_like":
+            cat.relationships[you.ID].platonic_like += randint(5,10)
+            cat.relationships[you.ID].trust += randint(5,10)
+            cat.relationships[you.ID].comfortable += randint(5,10)
+            pos = True
+        elif reaction == "accept_dislike":
+            cat.relationships[you.ID].dislike += randint(3,8)
+            neg = True
+        elif reaction == "accept_neutral":
+            neutral = True
+        elif reaction == "accept_favourite":
+            pos = True
+            cat.relationships[you.ID].platonic_like += randint(10,30)
 
     def get_reaction_display(self, pos, neutral, neg):
         """ Display text for relationship changes """
@@ -593,7 +617,7 @@ class GiftScreen(Screens):
 
     def gift_acc(self):
         """ Gives the accessory! """
-        acc = self.selected_accessory.tool_tip_text
+        acc = self.selected_accessory
         cluster1, cluster2 = get_cluster(self.selected_cat.personality.trait)
         reaction_txt = ""
         if cluster1 and cluster2:
@@ -601,36 +625,53 @@ class GiftScreen(Screens):
         else:
             cluster = cluster1
 
-        reaction = "accept_neutral"
-        if acc in self.selected_cat.pelt.inventory:
-            reaction = "already_have"
-        elif acc in ACC_REACTION[cluster1]["like"] or (cluster2 and acc in ACC_REACTION[cluster2]["like"]):
-            reaction = "accept_like"
-        elif acc in ACC_REACTION[cluster1]["dislike"] or (cluster2 and acc in ACC_REACTION[cluster2]["dislike"]):
-            reaction = "accept_dislike"
-
-        if self.selected_cat.personality.trait in ACC_REACTION["favourites"]:
-            if acc in ACC_REACTION["favourites"][self.selected_cat.personality.trait]:
-                reaction = "accept_favourite"
-
-        if reaction != "already_have":
-            game.clan.your_cat.pelt.inventory.remove(acc)
-            if acc in game.clan.your_cat.pelt.accessories:
-                game.clan.your_cat.pelt.accessories.remove(acc)
-            if acc == game.clan.your_cat.pelt.accessory:
-                game.clan.your_cat.pelt.accessory = None
-            self.selected_cat.pelt.inventory.update({acc: 1})
-            if (acc in ACC_REACTION[cluster1]["like"] or (cluster2 and acc in ACC_REACTION[cluster2]["like"])) or reaction == "accept_favourite":
-                if len(self.selected_cat.pelt.accessories) <= 4:
-                    self.selected_cat.pelt.accessories.append(acc)
-                    self.update_selected_cat()
-
-        if acc in ACC_REACTION_TXT["unique_gifts"].keys() and reaction in ACC_REACTION_TXT["unique_gifts"][acc].keys():
-            reaction_txt = ACC_REACTION_TXT["unique_gifts"][acc][reaction]
+        reaction = "accept_like"
+        if acc in ITEM_VALUES["food"].keys():
+            reaction_txt = "t_c gratefully takes the food."
+            if acc in self.selected_cat.pelt.inventory.keys():
+                self.selected_cat.pelt.inventory[acc] += 1
+            else:
+                self.selected_cat.pelt.inventory[acc] = 1
+        elif acc in HERBS:
+            reaction_txt = "t_c gratefully takes the herbs."
+            if acc in self.selected_cat.pelt.inventory.keys():
+                self.selected_cat.pelt.inventory[acc] += 1
+            else:
+                self.selected_cat.pelt.inventory[acc] = 1
         else:
-            reaction_txt = choice(ACC_REACTION_TXT["general"][reaction] + ACC_REACTION_TXT[cluster][reaction])
+            reaction = "accept_neutral"
+            if acc in self.selected_cat.pelt.inventory.keys():
+                reaction = "already_have"
+            elif acc in ACC_REACTION[cluster1]["like"] or (cluster2 and acc in ACC_REACTION[cluster2]["like"]):
+                reaction = "accept_like"
+            elif acc in ACC_REACTION[cluster1]["dislike"] or (cluster2 and acc in ACC_REACTION[cluster2]["dislike"]):
+                reaction = "accept_dislike"
 
-        return reaction_txt, reaction, acc
+            if self.selected_cat.personality.trait in ACC_REACTION["favourites"]:
+                if acc in ACC_REACTION["favourites"][self.selected_cat.personality.trait]:
+                    reaction = "accept_favourite"
+
+            if reaction != "already_have":
+                game.clan.your_cat.pelt.inventory[acc] -= 1
+                if game.clan.your_cat.pelt.inventory[acc] == 0:
+                    game.clan.your_cat.pelt.inventory.pop(acc)
+                if acc in game.clan.your_cat.pelt.accessories:
+                    game.clan.your_cat.pelt.accessories.remove(acc)
+                if acc == game.clan.your_cat.pelt.accessory:
+                    game.clan.your_cat.pelt.accessory = None
+                self.selected_cat.pelt.inventory.update({acc: 1})
+                if (acc in ACC_REACTION[cluster1]["like"] or (cluster2 and acc in ACC_REACTION[cluster2]["like"])) or reaction == "accept_favourite":
+                    if len(self.selected_cat.pelt.accessories) <= 4:
+                        self.selected_cat.pelt.accessories.append(acc)
+                        self.update_selected_cat()
+
+            if acc in ACC_REACTION_TXT["unique_gifts"].keys() and reaction in ACC_REACTION_TXT["unique_gifts"][acc].keys():
+                reaction_txt = ACC_REACTION_TXT["unique_gifts"][acc][reaction]
+            else:
+                reaction_txt = choice(ACC_REACTION_TXT["general"][reaction] + ACC_REACTION_TXT[cluster][reaction])
+
+        self.relationship_changes(reaction)
+        return reaction_txt, reaction
 
     def adjust_txt(self, txt):
         process_text_dict = {}
@@ -642,7 +683,7 @@ class GiftScreen(Screens):
 
         txt = txt.replace("y_c", str(game.clan.your_cat.name))
         txt = txt.replace("t_c", str(self.selected_cat.name))
-        txt = txt.replace("y_g", str(ACC_DISPLAY[self.selected_accessory.tool_tip_text]["default"]))
+        # txt = txt.replace("y_g", str(ACC_DISPLAY[self.selected_accessory.tool_tip_text]["default"]))
         return txt
 
     def update_selected_cat(self):
@@ -693,36 +734,33 @@ class GiftScreen(Screens):
 
         self.selected_acc_details = {}
         if self.selected_accessory:
-            cat = game.clan.your_cat
-            accessory = self.selected_accessory.tool_tip_text
-
             dimensions = [150,150]
 
             x_pos = 101
             y_pos = 129
 
-            accessory_lists = {
-                "acc_herbs": cat.pelt.plant_accessories,
-                "acc_wild": cat.pelt.wild_accessories,
-                "collars": cat.pelt.collars,
-                "acc_flower": cat.pelt.flower_accessories,
-                "acc_plant2": cat.pelt.plant2_accessories,
-                "acc_snake": cat.pelt.snake_accessories,
-                "acc_smallAnimal": cat.pelt.smallAnimal_accessories,
-                "acc_deadInsect": cat.pelt.deadInsect_accessories,
-                "acc_aliveInsect": cat.pelt.aliveInsect_accessories,
-                "acc_fruit": cat.pelt.fruit_accessories,
-                "acc_crafted": cat.pelt.crafted_accessories,
-                "acc_tail2": cat.pelt.tail2_accessories 
-            }
+            if self.selected_accessory in ITEM_VALUES["food"].keys():
+                image = image_cache.load_image(f"resources/images/inventory_items/{self.selected_accessory.lower()}.png").convert_alpha()
+            elif self.selected_accessory in HERBS:
+                try:
+                    image = image_cache.load_image(f"resources/images/inventory_items/{self.selected_accessory.lower()}.png").convert_alpha()
+                except:
+                    image = image_cache.load_image("resources/images/inventory_items/placeholder_herb.png").convert_alpha()
+            else:
+                print(self.selected_accessory, "not in ITEM_VALUES or HERBS")
+                return
 
-            for acclist in accessory_lists.items():
-                if accessory in acclist[1]:
-                    self.selected_acc_details["selected_image"] = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((x_pos, y_pos), (dimensions))), pygame.transform.scale(sprites.sprites[acclist[0] + accessory + self.cat_sprite], (dimensions)), manager=MANAGER)
+            self.selected_acc_details["selected_image"] = pygame_gui.elements.UIImage(
+                ui_scale(pygame.Rect((x_pos, y_pos), (dimensions))),
+                pygame.transform.scale(image, (dimensions)),
+                manager=MANAGER
+                )
 
             info = ""
-            if self.selected_accessory.tool_tip_text in game.clan.your_cat.pelt.accessories:
+            if self.selected_accessory in game.clan.your_cat.pelt.accessories:
                 info = "\ncurrently worn"
+            else:
+                info = str(game.clan.your_cat.pelt.inventory[self.selected_accessory]) + " in inventory"
 
             self.selected_acc_details["selected_info"] = pygame_gui.elements.UITextBox(
                 info,
@@ -731,13 +769,13 @@ class GiftScreen(Screens):
                 manager=MANAGER
             )
 
-            accname = ACC_DISPLAY[self.selected_accessory.tool_tip_text]["default"]
-            if 13 <= len(accname):  # check name length
-                short_name = str(accname)[0:9]
-                accname = short_name + '...'
+            # accname = ACC_DISPLAY[self.selected_accessory]["default"]
+            # if 13 <= len(accname):  # check name length
+            #     short_name = str(accname)[0:9]
+            #     accname = short_name + '...'
 
             self.selected_acc_details["acc name"] = pygame_gui.elements.UITextBox(
-                accname,
+                self.selected_accessory.capitalize(),
                 ui_scale(pygame.Rect((110, 88), (145, 40))),
                 object_id="#text_box_34_horizcenter", manager=MANAGER)
 
@@ -853,48 +891,71 @@ class GiftScreen(Screens):
         if self.page == 0:
             self.previous_page_button.disable()
         if cat.pelt.inventory:
-            for a, accessory in enumerate(new_inv[start_index:min(end_index, inventory_len)], start = start_index):
+            # for a, accessory in enumerate(new_inv[start_index:min(end_index, inventory_len)], start = start_index):
+            for item in game.clan.your_cat.pelt.inventory.keys():
                 try:
-                    if self.search_bar.get_text() in ["", "search"] or self.search_bar.get_text().lower() in accessory.lower():
-                        self.accessory_buttons[str(i)] = UIImageButton(ui_scale(pygame.Rect((100 + pos_x, 250 + pos_y), (50, 50))), "", tool_tip_text=accessory, object_id="#blank_button")
-                        if accessory in cat.pelt.plant_accessories:
-                            self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((100 + pos_x, 250 + pos_y), (50, 50))), sprites.sprites['acc_herbs' + accessory + self.cat_sprite], manager=MANAGER)
-                        elif accessory in cat.pelt.wild_accessories:
-                            self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((100 + pos_x, 250 + pos_y), (50, 50))), sprites.sprites['acc_wild' + accessory + self.cat_sprite], manager=MANAGER)
-                        elif accessory in cat.pelt.collars:
-                            self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((100 + pos_x, 250 + pos_y), (50, 50))), sprites.sprites['collars' + accessory + self.cat_sprite], manager=MANAGER)
-                        elif accessory in cat.pelt.flower_accessories:
-                            self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((100 + pos_x, 250 + pos_y), (50, 50))), sprites.sprites['acc_flower' + accessory + self.cat_sprite], manager=MANAGER)
-                        elif accessory in cat.pelt.plant2_accessories:
-                            self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((100 + pos_x, 250 + pos_y), (50, 50))), sprites.sprites['acc_plant2' + accessory + self.cat_sprite], manager=MANAGER)
-                        elif accessory in cat.pelt.snake_accessories:
-                            self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((100 + pos_x, 250 + pos_y), (50, 50))), sprites.sprites['acc_snake' + accessory + self.cat_sprite], manager=MANAGER)
-                        elif accessory in cat.pelt.smallAnimal_accessories:
-                            self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((100 + pos_x, 250 + pos_y), (50, 50))), sprites.sprites['acc_smallAnimal' + accessory + self.cat_sprite], manager=MANAGER)
-                        elif accessory in cat.pelt.deadInsect_accessories:
-                            self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((100 + pos_x, 250 + pos_y), (50, 50))), sprites.sprites['acc_deadInsect' + accessory + self.cat_sprite], manager=MANAGER)
-                        elif accessory in cat.pelt.aliveInsect_accessories:
-                            self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((100 + pos_x, 250 + pos_y), (50, 50))), sprites.sprites['acc_aliveInsect' + accessory + self.cat_sprite], manager=MANAGER)
-                        elif accessory in cat.pelt.fruit_accessories:
-                            self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((100 + pos_x, 250 + pos_y), (50, 50))), sprites.sprites['acc_fruit' + accessory + self.cat_sprite], manager=MANAGER)
-                        elif accessory in cat.pelt.crafted_accessories:
-                            self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((100 + pos_x, 250 + pos_y), (50, 50))), sprites.sprites['acc_crafted' + accessory + self.cat_sprite], manager=MANAGER)
-                        elif accessory in cat.pelt.tail2_accessories:
-                            self.cat_list_buttons["cat" + str(i)] = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((100 + pos_x, 250 + pos_y), (50, 50))), sprites.sprites['acc_tail2' + accessory + self.cat_sprite], manager=MANAGER)
-                        self.accessories_list.append(accessory)
-                        pos_x += 60
-                        if pos_x >= 600:
-                            pos_x = 0
-                            pos_y += 60
-                        i += 1
-                except:
-                    continue
+                    if self.search_bar.get_text() in ["", "search"] or self.search_bar.get_text().lower() in item.lower():
+                        self.accessory_buttons["blank:" + item] = UIImageButton(ui_scale(pygame.Rect((100 + pos_x, 250 + pos_y), (50, 50))), "", tool_tip_text=item, object_id="#blank_button")
+                        acc_dict = {
+                            "acc_herbs": Pelt.plant_accessories,
+                            "acc_wild": Pelt.wild_accessories,
+                            "collars": Pelt.collars,
+                            "acc_flower": Pelt.flower_accessories,
+                            "acc_plant2": Pelt.plant2_accessories,
+                            "acc_smallAnimal": Pelt.smallAnimal_accessories,
+                            "acc_deadInsect": Pelt.deadInsect_accessories,
+                            "acc_aliveInsect": Pelt.aliveInsect_accessories,
+                            "acc_fruit": Pelt.fruit_accessories,
+                            "acc_crafted": Pelt.crafted_accessories,
+                            "acc_tail": Pelt.tail_accessories,
+                            "acc_tail2": Pelt.tail2_accessories
+                        }
+                        item_type = ""
+                        if item in ITEM_VALUES["food"].keys():
+                            item_type = "food"
+                            image = image_cache.load_image(f"resources/images/inventory_items/{item.lower()}.png").convert_alpha()
+                        elif item in HERBS:
+                            print(item, "in HERBS")
+                            item_type = "herb"
+                            try:
+                                image = image_cache.load_image(f"resources/images/inventory_items/{item.lower()}.png").convert_alpha()
+                            except:
+                                image = image_cache.load_image("resources/images/inventory_items/placeholder_herb.png").convert_alpha()
+                        else:
+                            print(item, "not in ITEM_VALUES or HERBS")
+                            continue
+                            # for item in acc_dict.items():
+                            #     if accessory in item[1]:
+                            #         item_type = "accessory"
+                            #         acc_string = item[0]
+                            #         image = sprites.sprites[acc_string + accessory + self.cat_sprite]
+                            #         break
+
+                        self.cat_list_buttons[item_type + item + "sprite"] = pygame_gui.elements.UIImage(
+                            ui_scale(pygame.Rect((100 + pos_x, 250 + pos_y), (50, 50))),
+                            image,
+                            manager=MANAGER
+                            )
+                    pos_x += 60
+                    if pos_x > 500:
+                        pos_x = 10
+                        pos_y += 60
+
+                except Exception as e:
+                    print("Item Sprite Error:", e)
+                    print(item_type, item)
 
     def get_valid_cats(self):
         valid_cats = []
 
         for cat in Cat.all_cats_list:
-            if not cat.dead and not cat.outside and not cat.ID == game.clan.your_cat.ID and not cat.moons == 0:
+            if (
+                not cat.dead and
+                not cat.outside and
+                not cat.ID == game.clan.your_cat.ID and
+                not cat.moons == 0 and
+                cat.map_position == game.clan.your_cat.map_position
+                ):
                 valid_cats.append(cat)
 
         return valid_cats

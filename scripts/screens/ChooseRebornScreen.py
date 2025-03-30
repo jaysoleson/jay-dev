@@ -62,15 +62,10 @@ class ChooseRebornScreen(Screens):
             elif event.ui_element == self.confirm_cat and self.selected_cat:
                 self.update_selected_cat()
                 self.change_cat(self.selected_cat)
-                if not self.selected_cat.dead:
-                    game.switches['continue_after_death'] = False
-                else:
-                    game.switches['continue_after_death'] = True
 
                 # self.update_buttons()
             elif event.ui_element == self.back_button:
                 self.change_screen('events screen')
-                game.switches['continue_after_death'] = False
             elif event.ui_element == self.next_cat_button:
                 if isinstance(Cat.fetch_cat(self.next_cat), Cat):
                     game.switches['cat'] = self.next_cat
@@ -183,6 +178,7 @@ class ChooseRebornScreen(Screens):
             "Select Cat",
             get_button_dict(ButtonStyles.SQUOVAL, (148, 30)),
             object_id="@buttonstyles_squoval",
+            tool_tip_text="You will switch to this cat. You will not be able to switch cats again until this cat dies."
         )
         self.confirm_cat.disable()
        
@@ -359,6 +355,10 @@ class ChooseRebornScreen(Screens):
         self.exit_screen()
         game.cur_events_list.clear()
         game.clan.your_cat = new_mentor
+
+        # HG
+        game.clan.spectating = None
+        # ---
 
         # resetting talked_to so the new MC can talk to a cat
         # the old one previously talked to in the same moon

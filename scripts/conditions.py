@@ -95,6 +95,7 @@ class Illness:
                  risks,
                  herbs=None,
                  event_triggered=False,
+                 inflicted_by=None,
                  grief_cat=None):
         self.name = name
         self.severity = severity
@@ -106,6 +107,7 @@ class Illness:
         self.risks = risks
         self.herbs = herbs if herbs else []
         self.new = event_triggered
+        self.inflicted_by = inflicted_by
 
         self.current_duration = duration
         self.current_mortality = mortality
@@ -179,7 +181,10 @@ class Injury:
                  also_got=None,
                  cause_permanent=None,
                  herbs=None,
-                 event_triggered=False):
+                 event_triggered=False,
+                 # HG
+                 inflicted_by=None
+                 ):
         self.name = name
         self.severity = severity
         self.duration = duration
@@ -191,6 +196,8 @@ class Injury:
         self.cause_permanent = cause_permanent
         self.herbs = herbs if herbs else []
         self.new = event_triggered
+
+        self.inflicted_by = inflicted_by
 
         self.current_duration = duration
         self.current_mortality = mortality

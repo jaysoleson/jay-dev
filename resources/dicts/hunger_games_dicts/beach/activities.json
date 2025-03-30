@@ -19,12 +19,30 @@
                             "MOUSE",
                             "CRAB",
                             "CROW",
-                            "BLACKBIRD"
+                            "BLACKBIRD",
+                            "CRAB"
                         ],
-                        "cat": "you"
+                        "cat": "you",
+                        "amount": 1.5
                     }
                 },
                 "2": {
+                    "text": [
+                        "Though you're unable to locate any prey, you manage to find some fresh fruit."
+                    ],
+                    "inventory": {
+                        "items": [
+                            "BLUEBERRY",
+                            "MANGO",
+                            "STRAWBERRY",
+                            "BANANA",
+                            "STARFRUIT"
+                        ],
+                        "cat": "you",
+                        "amount": 1
+                    }
+                },
+                "3": {
                     "text": [
                         "Though another tribute, r_t, tries to snatch it from you, you leave {PRONOUN/r_t/object} with a scratch and win the prey for yourself.",
                         "You spot another tribute, r_t, tracking the same prey as you. You're able to fight {PRONOUN/r_t/object} off and leave {PRONOUN/r_t/object} lightly injured, winning the prey for yourself.",
@@ -39,7 +57,8 @@
                             "CROW",
                             "BLACKBIRD"
                         ],
-                        "cat": "you"
+                        "cat": "you",
+                        "amount": 1
                     },
                     "injury": {
                         "r_t": "scrapes"
@@ -70,7 +89,8 @@
                             "CROW",
                             "BLACKBIRD"
                         ],
-                        "cat": "r_t"
+                        "cat": "r_t",
+                        "amount": 1
                     },
                     "injury": {
                         "you": "scrapes"
@@ -102,9 +122,23 @@
                             "LINGCOD",
                             "SALMON",
                             "ROCKFISH",
-                            "SARDINE"
+                            "SARDINE",
+                            "SEAHORSE"
                         ],
-                        "cat": "you"
+                        "cat": "you",
+                        "amount": 2
+                    }
+                },
+                "2": {
+                    "text": [
+                        "You don't catch any fish, but you're able to catch some crabs on the shore."
+                    ],
+                    "inventory": {
+                        "items": [
+                            "CRAB"
+                        ],
+                        "cat": "you",
+                        "amount": 1.5
                     }
                 }
             },
@@ -112,7 +146,11 @@
                 "1": {
                     "text": [
                         "You don't end up catching anything, but you're able to relax a bit while sitting by the water."
-                    ]
+                    ],
+                    "stats": {
+                        "cat": "you",
+                        "energy": 15
+                    }
                 }
             },
             "negative": {
@@ -135,10 +173,14 @@
                 "Curious, you take a look into the large cave."
             ],
             "0_-3": [
-                "You spend some time investigating the large shipwreck."
+                "You spend some time investigating the large shipwreck.",
+                "Though intimidated by the large Twoleg structure, you step into the interior of the shipwreck to investigate."
             ],
             "0_0": [
                 "You spend some time searching the Cornucopia."
+            ],
+            "-2_2": [
+                "You decide to investigate the coastal cave."
             ]
         },
         "outcomes": {
@@ -170,7 +212,22 @@
                                 "CROW",
                                 "BLACKBIRD"
                             ],
-                            "cat": "you"
+                            "cat": "you",
+                            "amount": 1
+                        }
+                    },
+                    "3": {
+                        "text": [
+                            "You find a large, untouched bundle of fruit!"
+                        ],
+                        "inventory": {
+                            "items": [
+                                "STARFRUIT",
+                                "BANANA",
+                                "MANGO"
+                            ],
+                            "cat": "you",
+                            "amount": 3
                         }
                     }
                 },
@@ -195,7 +252,8 @@
                                 "CROW",
                                 "BLACKBIRD"
                             ],
-                            "cat": "r_t"
+                            "cat": "r_t",
+                            "amount": 1
                         }
                     },
                     "2": {
@@ -217,7 +275,8 @@
                                 "elder_leaves",
                                 "tansy"
                             ],
-                            "cat": "you"
+                            "cat": "you",
+                            "amount": 2
                         }
                     },
                     "2": {
@@ -270,7 +329,8 @@
                                 "blackberry",
                                 "catmint"
                             ],
-                            "cat": "you"
+                            "cat": "you",
+                            "amount": 3
                         }
                     },
                     "2": {
@@ -301,6 +361,40 @@
                         ]
                     }
                 }
+            },
+            "-2_2": {
+                "positive": {
+                    "1": {
+                        "text": [
+                            "You're able to find a good amount of food hiding away."
+                        ],
+                        "inventory": {
+                            "items": [
+                                "CRAB",
+                                "COCONUT",
+                                "ROCKFISH",
+                                "SEAHORSE",
+                                "STARFRUIT"
+                            ],
+                            "cat": "you",
+                            "amount": 3
+                        }
+                    }
+                },
+                "neutral": {
+                    "1": {
+                        "text": [
+                            "Unfortunately, you're not able to find anything useful."
+                        ]
+                    }
+                },
+                "negative": {
+                    "1": {
+                        "text": [
+                            "However, when you step into a shallow pool, you recieve a snip from an angry crab. You decide to return to land."
+                        ]
+                    }
+                }
             }
         }
     },
@@ -320,7 +414,8 @@
                             "tansy",
                             "tansy"
                         ],
-                        "cat": "you"
+                        "cat": "you",
+                        "amount": 4
                     }
                 }
             },
@@ -356,7 +451,8 @@
                             "mallow",
                             "mallow"
                         ],
-                        "cat": "you"
+                        "cat": "you",
+                        "amount": 4
                     }
                 }
             },
@@ -392,7 +488,8 @@
                             "goldenrod",
                             "goldenrod"
                         ],
-                        "cat": "you"
+                        "cat": "you",
+                        "amount": 4
                     }
                 }
             },
@@ -428,7 +525,8 @@
                             "daisy",
                             "daisy"
                         ],
-                        "cat": "you"
+                        "cat": "you",
+                        "amount": 4
                     }
                 }
             },
@@ -464,7 +562,8 @@
                             "lungwort",
                             "lungwort"
                         ],
-                        "cat": "you"
+                        "cat": "you",
+                        "amount": 4
                     }
                 }
             },
@@ -500,7 +599,8 @@
                             "ragwort",
                             "ragwort"
                         ],
-                        "cat": "you"
+                        "cat": "you",
+                        "amount": 4
                     }
                 }
             },
@@ -536,7 +636,8 @@
                             "poppy",
                             "poppy"
                         ],
-                        "cat": "you"
+                        "cat": "you",
+                        "amount": 4
                     }
                 }
             },
@@ -572,7 +673,8 @@
                             "poppy",
                             "poppy"
                         ],
-                        "cat": "you"
+                        "cat": "you",
+                        "amount": 4
                     }
                 }
             },
@@ -608,7 +710,8 @@
                             "mullein",
                             "mullein"
                         ],
-                        "cat": "you"
+                        "cat": "you",
+                        "amount": 4
                     }
                 }
             },
@@ -644,7 +747,8 @@
                             "rosemary",
                             "rosemary"
                         ],
-                        "cat": "you"
+                        "cat": "you",
+                        "amount": 4
                     }
                 }
             },
@@ -680,7 +784,8 @@
                             "juniper",
                             "juniper"
                         ],
-                        "cat": "you"
+                        "cat": "you",
+                        "amount": 4
                     }
                 }
             },
@@ -716,7 +821,8 @@
                             "dandelion",
                             "dandelion"
                         ],
-                        "cat": "you"
+                        "cat": "you",
+                        "amount": 4
                     }
                 }
             },
@@ -752,7 +858,8 @@
                             "wild_garlic",
                             "wild_garlic"
                         ],
-                        "cat": "you"
+                        "cat": "you",
+                        "amount": 4
                     }
                 }
             },

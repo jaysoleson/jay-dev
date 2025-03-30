@@ -112,6 +112,7 @@ class Clan:
                 your_cat=None,
                 focus_cat=None,
                 clan_age=None,
+                spectating=None,
                 self_run_init_functions = False):
         self.history = History()
         self.your_cat = your_cat
@@ -140,6 +141,7 @@ class Clan:
         self.demon = None
         # ^^ dark forest guide
         self.followingsc = followingsc
+        self.spectating = spectating
         self.biome = biome
         self.camp_bg = camp_bg
         self.chosen_symbol = symbol
@@ -816,6 +818,7 @@ class Clan:
             "demon": self.demon.ID,
             "reputation": self.reputation,
             "following_starclan": self.followingsc, 
+            "spectating": self.spectating, 
             "mediated": game.mediated,
             "starting_season": self.starting_season,
             "temperament": self.temperament,
@@ -848,6 +851,12 @@ class Clan:
             clan_data["deputy"] = self.deputy.ID
         else:
             clan_data["deputy"] = None
+
+        # SPECTATING CAT DATA
+        if self.spectating:
+            clan_data["spectating"] = self.spectating.ID
+        else:
+            clan_data["spectating"] = None
 
         clan_data["deputy_predecessors"] = self.deputy_predecessors
 
@@ -1205,6 +1214,12 @@ class Clan:
             game.clan.followingsc = clan_data['following_starclan']
         else:
             game.clan.followingsc = True
+
+        # HG
+        if "spectating" in clan_data and clan_data["spectating"]:
+            game.clan.spectating = Cat.all_cats[clan_data["spectating"]]
+        else:
+            game.clan.spectating = None
         game.clan.reputation = max(0, min(100, int(clan_data["reputation"])))
 
         game.switches["error_message"] = "Error loading ---clan.json. Check clan age"

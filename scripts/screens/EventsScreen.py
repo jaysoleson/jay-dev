@@ -16,7 +16,7 @@ from scripts.game_structure.ui_elements import (
     UISurfaceImageButton,
     CatButton,
 )
-from scripts.game_structure.windows import GameOver
+from scripts.game_structure.windows import GameOverWinner, GameOverLoser
 from scripts.screens.Screens import Screens
 from scripts.ui.generate_box import BoxStyles, get_box
 from scripts.ui.generate_button import get_button_dict, ButtonStyles
@@ -35,7 +35,7 @@ from scripts.utility import (
 # LG
 from scripts.game_structure.ui_elements import UIImageButton, UIModifiedScrollingContainer, IDImageButton, UISpriteButton
 import random
-from scripts.game_structure.windows import GameOver, DeathScreen, PickPath
+from scripts.game_structure.windows import DeathScreen, PickPath
 
 
 class EventsScreen(Screens):
@@ -160,9 +160,6 @@ class EventsScreen(Screens):
             if element == self.timeskip_button:
                 # ensure we can't run the same timeskip multiple times
                 if self.events_thread is not None and self.events_thread.is_alive():
-                    return
-                if game.clan.your_cat.dead_for >= 2 and not game.switches['continue_after_death']:
-                    DeathScreen('events screen')
                     return
                 elif (game.clan.your_cat.moons == 5
                         and not game.clan.your_cat.outside
@@ -496,16 +493,17 @@ class EventsScreen(Screens):
         
 
         # lifegen continue after death button
-        self.death_button = UIImageButton(
-            ui_scale(pygame.Rect((500, 218), (34, 34))),
-            "",
-            object_id="#warrior",
-            tool_tip_text="Revive",
-            manager=MANAGER
+        self.death_button = UISurfaceImageButton(
+            ui_scale(pygame.Rect((500, 218), (30, 30))),
+            Icon.SCRATCHES,
+            get_button_dict(ButtonStyles.ICON, (30, 30)),
+            object_id="@buttonstyles_icon",
+            manager=MANAGER,
+            container=self.event_screen_container
         )
         self.death_button.hide()
 
-        if game.switches['continue_after_death']:
+        if game.clan.your_cat.dead:
             self.death_button.show()
 
         self.full_event_display_container = pygame_gui.core.UIContainer(
@@ -559,7 +557,7 @@ class EventsScreen(Screens):
 
         # Draw and disable the correct menu buttons.
         self.set_disabled_menu_buttons(["events_screen"])
-        self.update_heading_text(f"{game.clan.name}Clan")
+        self.update_heading_text("The Arena")
         self.show_menu_buttons()
 
     def display_change_save(self) -> Dict:
@@ -1098,10 +1096,10 @@ class EventsScreen(Screens):
                 cat_id=game.clan.your_cat.ID,
                 manager=MANAGER
                 )
-        if game.switches['continue_after_death'] and game.clan.your_cat.moons >= 0:
-            self.death_button.show()
-        else:
-            self.death_button.hide()
+        # if game.switches['continue_after_death'] and game.clan.your_cat.moons >= 0:
+        #     self.death_button.show()
+        # else:
+        #     self.death_button.hide()
 
     def update_list_buttons(self):
         """
@@ -1121,8 +1119,11 @@ class EventsScreen(Screens):
 
         game.switches["saved_scroll_positions"] = {}
 
-        if get_living_clan_cat_count(Cat) == 0:
-            GameOver("events screen")
+        print("Living tributes:", get_living_clan_cat_count(Cat))
+        if get_living_clan_cat_count(Cat) == 1:
+            GameOverWinner("events screen")
+        elif get_living_clan_cat_count(Cat) == 0:
+            GameOverLoser("events screen")
 
         self.update_display_events_lists()
 

@@ -18,6 +18,9 @@ class ShortEvent:
             weight: int = 0,
             text: str = "",
             new_accessory: List[str] = None,
+            # HG
+            inventory: dict = None,
+            # ---
             m_c=None,
             r_c=None,
             new_cat: List[list] = None,
@@ -40,6 +43,9 @@ class ShortEvent:
         self.weight = weight
         self.text = text
         self.new_accessory = new_accessory
+        # HG
+        self.inventory = inventory
+        # ---
         self.m_c = m_c if m_c else {"age": ["any"]}
         if self.m_c:
             if "age" not in self.m_c:

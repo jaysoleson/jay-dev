@@ -147,7 +147,8 @@
             "any"
         ],
         "tags": [
-            "no_body"
+            "no_body",
+            "HG_beachbiome_beach"
         ],
         "weight": 20,
         "event_text": "m_c found {PRONOUN/m_c/self} staring at an odd shadow in the sea. One distracted paw slipped and {PRONOUN/m_c/subject} fell into the waves, where something large and unseen tangled around {PRONOUN/m_c/object}, dragging {PRONOUN/m_c/object} into the abyss.",
@@ -206,7 +207,7 @@
         ],
         "tags": [],
         "weight": 20,
-        "event_text": "m_c knew {PRONOUN/m_c/subject} made a mistake, as {PRONOUN/m_c/subject} felt {PRONOUN/m_c/poss} last bits of strength slip away from {PRONOUN/m_c/object} and {PRONOUN/m_c/poss} heart stopped beating. r_c stumbled across the body moments later and sends a quick prayer to StarClan..",
+        "event_text": "m_c knows {PRONOUN/m_c/subject} made a mistake, as {PRONOUN/m_c/subject} feels {PRONOUN/m_c/poss} last bits of strength slip away from {PRONOUN/m_c/object} and {PRONOUN/m_c/poss} heart stops beating. r_c stumbles across the body moments later and sends a quick prayer to StarClan.",
         "m_c": {
             "age": [
                 "any"

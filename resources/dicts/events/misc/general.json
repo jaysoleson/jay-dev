@@ -412,5 +412,82 @@
     "r_c": {
       "age": ["any"]
     }
+  },
+  {
+    "event_id": "hg_event_1",
+    "location": ["any"],
+    "season": ["any"],
+    "weight": 0,
+    "event_text": "m_c finds a supply crate full of herbs!",
+    "m_c": {
+      "age": ["any"],
+      "status": ["any"]
+    },
+    "inventory": {
+      "random_herb_1": 5,
+      "random_herb_2": 6,
+      "random_herb_3": 2,
+      "random_herb_4": 3
+    }
+  },
+  {
+    "event_id": "hg_event_2",
+    "location": ["any"],
+    "season": ["any"],
+    "weight": 0,
+    "event_text": "m_c finds a bundle of herbs hanging from a tree branch. {PRONOUN/m_c/subject/CAP}{VERB/m_c/'re/'s} certain it's a gift meant for another tribute, but {PRONOUN/m_c/subject} {VERB/m_c/take/takes} it anyway.",
+    "m_c": {
+      "age": ["any"],
+      "status": ["any"]
+    },
+    "inventory": {
+      "random_herb_1": 4,
+      "random_herb_2": 4,
+      "random_herb_3": 1,
+      "random_herb_4": 3
+    }
+  },
+  {
+    "event_id": "hg_event_3",
+    "location": ["any"],
+    "season": ["any"],
+    "time": ["night"],
+    "weight": 0,
+    "event_text": "m_c stays up at night for better hunting and catches a rabbit!",
+    "m_c": {
+      "age": ["any"],
+      "status": ["any"]
+    },
+    "inventory": {
+      "RABBIT": 1
+    }
+  },
+  {
+    "event_id": "hg_event_4",
+    "location": ["any"],
+    "season": ["any"],
+    "weight": 0,
+    "event_text": "m_c uses {PRONOUN/m_c/poss} herb knowledge to find some herbs in the arena that haven't yet been found by any other tributes.",
+    "m_c": {
+      "age": ["any"],
+      "status": ["medicine cat", "medicine cat apprentice"]
+    },
+    "inventory": {
+      "random_herb": 7
+    }
+  },
+  {
+    "event_id": "hg_event_5",
+    "location": ["any"],
+    "season": ["any"],
+    "weight": 0,
+    "event_text": "m_c tries to imagine what {PRONOUN/m_c/poss} mentor back home would say about {PRONOUN/m_c/poss} hunting crouch.",
+    "m_c": {
+      "age": ["any"],
+      "status": ["apprentice"]
+    },
+    "inventory": {
+      "MOUSE": 1
+    }
   }
 ]

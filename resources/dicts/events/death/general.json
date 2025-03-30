@@ -1448,7 +1448,7 @@
         ],
         "tags": [],
         "weight": 20,
-        "event_text": "m_c was bitten by a venomous spider.",
+        "event_text": "m_c was bitten and killed by a venomous spider.",
         "m_c": {
             "dies": true
         },

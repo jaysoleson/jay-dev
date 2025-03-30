@@ -68,7 +68,8 @@
                 "injuries": [
                     "bruises",
                     "sore"
-                ]
+                ],
+                "inflicted_by": ["r_c"]
             }
         ],
         "relationships": [
@@ -441,6 +442,9 @@
                 ],
                 "injuries": [
                     "claw-wound"
+                ],
+                "inflicted_by": [
+                    "r_c"
                 ]
             }
         ],
@@ -1230,7 +1234,8 @@
                 "scars": [
                     "BRIDGE",
                     "CATBITE"
-                ]
+                ],
+                "inflicted_by": ["r_c"]
             }
         ],
         "history": [
@@ -1746,6 +1751,9 @@
                 ],
                 "scars": [
                     "MANTAIL"
+                ],
+                "inflicted_by": [
+                    "r_c"
                 ]
             }
         ],
@@ -2084,6 +2092,116 @@
                 "scar": "m_c {VERB/m_c/were/was} hurt in a rat attack with r_c.",
                 "reg_death": "m_c died from {PRONOUN/m_c/poss} wounds after a rat attack.",
                 "lead_death": "{VERB/m_c/were/was} killed by rats "
+            }
+        ]
+    },
+    {
+        "event_id": "HG_fight_1",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "weight": 20,
+        "event_text": "m_c and r_c get into a fight and both walk away injured but alive.",
+        "m_c": {
+            "age": [
+                "any"
+            ],
+            "relationship_status": [
+                "not_allies"
+            ]
+        },
+        "r_c": {
+            "age": ["any"]
+        },
+        "injury": [
+            {
+                "cats": [
+                    "m_c"
+                ],
+                "injuries": [
+                    "claw-wound"
+                ],
+                "inflicted_by": [
+                    "r_c"
+                ]
+            },
+            {
+                "cats": [
+                    "r_c"
+                ],
+                "injuries": [
+                    "claw-wound"
+                ],
+                "inflicted_by": [
+                    "m_c"
+                ]
+            }
+        ],
+        "history": [
+            {
+                "cats": [
+                    "m_c"
+                ],
+                "scar": "m_c {VERB/m_c/were/was} hurt in a fight with r_c.",
+                "reg_death": "m_c died from {PRONOUN/m_c/poss} wounds after a fight with r_c.",
+                "lead_death": "{VERB/m_c/were/was} badly injured in a fight with r_c "
+            },
+            {
+                "cats": [
+                    "r_c"
+                ],
+                "scar": "r_c {VERB/r_c/were/was} hurt in a fight with m_c.",
+                "reg_death": "r_c died from {PRONOUN/r_c/poss} wounds after a fight with m_c.",
+                "lead_death": "{VERB/r_c/were/was} badly injured in a fight with m_c "
+            }
+        ]
+    },
+    {
+        "event_id": "HG_fight_1",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "time": ["night"],
+        "weight": 20,
+        "event_text": "r_c attacks m_c in the middle of the night. m_c manages to fight {PRONOUN/m_c/object} off, but is very injured by the ordeal.",
+        "m_c": {
+            "age": [
+                "any"
+            ],
+            "relationship_status": [
+                "not_allies"
+            ]
+        },
+        "r_c": {
+            "age": ["any"]
+        },
+        "injury": [
+            {
+                "cats": [
+                    "m_c"
+                ],
+                "injuries": [
+                    "claw-wound"
+                ],
+                "inflicted_by": [
+                    "r_c"
+                ]
+            }
+        ],
+        "history": [
+            {
+                "cats": [
+                    "m_c"
+                ],
+                "scar": "m_c {VERB/m_c/were/was} hurt after r_c attacked {PRONOUN/m_c/object}.",
+                "reg_death": "m_c died from {PRONOUN/m_c/poss} wounds after r_c attacked {PRONOUN/m_c/object}.",
+                "lead_death": "{VERB/m_c/were/was} badly injured when r_c attacked {PRONOUN/m_c/object}."
             }
         ]
     }

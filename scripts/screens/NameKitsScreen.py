@@ -13,7 +13,6 @@ from scripts.utility import get_personality_compatibility, get_text_box_theme, s
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
 from scripts.cat.pelts import Pelt
-from scripts.game_structure.windows import GameOver, PickPath, DeathScreen
 from scripts.game_structure.game_essentials import game
 from scripts.game_structure.windows import RelationshipLog
 from scripts.game_structure.propagating_thread import PropagatingThread

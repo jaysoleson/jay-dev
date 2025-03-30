@@ -157,7 +157,6 @@ class Game:
         "moon&season_open": False,
         'window_open': False,
         'windows_dict': [],
-        'continue_after_death': False,
         "customise_new_life": False,
 
         # HG

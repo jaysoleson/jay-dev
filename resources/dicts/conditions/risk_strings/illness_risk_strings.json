@@ -1,7 +1,7 @@
 {
     "greencough": {
         "yellowcough": [
-            "m_c sits miserably in the medicine cat den, coughing so hard it feels like {PRONOUN/m_c/subject} can barely get a breath in. The outlook looks grim as {PRONOUN/m_c/poss} greencough has progressed to yellowcough."
+            "It takes great effort for m_c to breathe through the boughts of coughing. The outlook looks grim as {PRONOUN/m_c/poss} greencough has progressed to yellowcough."
         ]
     },
     "kittencough": {
@@ -16,7 +16,7 @@
     },
     "running nose": {
         "whitecough": [
-            "m_c brings {PRONOUN/m_c/self} to the medicine cat den, concerned {PRONOUN/m_c/poss} running nose only seems to be getting worse."
+            "m_c's running nose has not only persisted, but has transformed into a cough."
         ]
     },
     "whitecough": {
@@ -56,8 +56,7 @@
         ],
         "constant nightmares": [
             "m_c wakes from yet another nightmare, feeling as though {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} being haunted by the ghost of the one {PRONOUN/m_c/subject} {VERB/m_c/grieve/grieves}.",
-            "m_c wakes and wails, {PRONOUN/m_c/poss} dreams haunted by visions of {PRONOUN/m_c/poss} dead loved one.",
-            "m_c jolts awake and immediately leaves the den to clear {PRONOUN/m_c/poss} head, hoping some fresh night air will help {PRONOUN/m_c/object} cope with the sadness and memories."
+            "m_c wakes and wails, {PRONOUN/m_c/poss} dreams haunted by visions of {PRONOUN/m_c/poss} dead loved one."
         ]
     }
 }

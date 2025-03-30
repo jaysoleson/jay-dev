@@ -65,7 +65,7 @@
             "Hand some over. Now.",
             "... Sorry. I know I'm gonna need them."
         ],
-        "inventory_update": {
+        "intro_inventory_update": {
             "cat": "y_c",
             "remove": {
                 "random_herbs": 2
@@ -101,7 +101,7 @@
             "[t_c tosses a lingcod at your paws and sprints away.]",
             "[You have gained a LINGCOD!]"
         ],
-        "inventory_update": {
+        "intro_inventory_update": {
             "cat": "y_c",
             "add": {
                 "LINGCOD": 1
@@ -770,14 +770,12 @@
             "any",
             "same_clan",
             "bloodbath",
-            "you_sweet",
-            "you_neurotic",
             "you_deaf",
             "they_deaf",
             "they_blind"
         ],
         "intro": [
-            "[You lock eyes with t_C from across the arena. You didn't really know each other back in c_nClan, but you still feel some comraderie towards your Clanmate.]",
+            "[You lock eyes with t_c from across the arena. You didn't really know each other back in c_nClan, but you still feel some comraderie towards your Clanmate.]",
             "[You watch {PRONOUN/t_c/object} snatch something from the loot pile, duck under a flying paw, and sprint out of sight. You hope {PRONOUN/t_c/subject}'ll be okay, at least for a little bit.]"
         ]
     },
@@ -786,7 +784,8 @@
             "any",
             "same_clan",
             "bloodbath",
-            "fighter",
+            "assertive",
+            "unlawful",
             "they_app",
             "they_have_food"
         ],
@@ -794,7 +793,13 @@
             "[You're concerned for your Clanmate, t_c. You spot {PRONOUN/t_c/object} in the crowd of the bloodbath, expecting to see a stranger attacking {PRONOUN/t_c/object}.]",
             "[However, the first thing you see is blood flying as {PRONOUN/t_c/subject} {VERB/t_c/slash/slashes} an opponent in the cheek, protecting the small stash of food {PRONOUN/t_c/subject}{VERB/t_c/'ve/'s} garnered.]",
             "[You look away. Maybe you should be more scared than concerned...]"
-        ]
+        ],
+        "intro_inventory_update": {
+            "cat": "t_c",
+            "add": {
+                "MOUSE": 2
+            }
+        }
     },
     "meeting_hg_8": {
         "tags": [
@@ -997,6 +1002,12 @@
             "[t_c nudges a fish in your direction.]",
             "Enjoy! I'll, uh... see you around."
         ],
+        "share_yes_inventory_update": {
+            "cat": "y_c",
+            "add": {
+                "SALMON": 1
+            }
+        },
         "share_yes_rel_changes": {
             "they_to_you": {
                 "comfort": 10,
@@ -1044,6 +1055,43 @@
             "cat": "t_c",
             "add": {
                 "DEATHBERRY": 3
+            }
+        }
+    },
+    "hg_25": {
+        "tags": [
+            "any",
+            "they_deaf",
+            "not_allies",
+            "silly",
+            "unlawful",
+            "max_dislike_10",
+            "they_have_blueberry"
+        ],
+        "intro": [
+            "[As you travel through the arena, you suddenly feel something small hit the side of your head. You jump, fur puffing up, and turn in the direction of the projectile.]",
+            "[There stands t_c, snickering with a paw over {PRONOUN/t_c/poss} mouth.]",
+            "What's so scary? I'm just being neighbourly and sharing some food! Go on, you can have it. You can return the favour by not killing me, okay?",
+            "[You slowly nod, and t_c wanders away. You have gained a BLUEBERRY!]"
+        ],
+        "intro_rel_changes": {
+            "they_to_you": {
+                "comfort": 10,
+                "trust": 10,
+                "platonic_like": 10,
+                "dislike": -5
+            },
+            "you_to_them": {
+                "comfort": 10,
+                "trust": 10,
+                "platonic_like": 10,
+                "dislike": -5
+            }
+        },
+        "intro_inventory_update": {
+            "cat": "y_c",
+            "add": {
+                "BLUEBERRY": 1
             }
         }
     }
