@@ -1652,8 +1652,6 @@ class Clan:
         if os.path.exists(file_path):
             with open(file_path, 'r', encoding='utf-8') as read_file:  # pylint: disable=redefined-outer-name
                 clan.infection = ujson.load(read_file)
-            if "treated" not in clan.infection:
-                clan.infection["treated"] = []
         else:
             clan.infection = {}
 

@@ -563,6 +563,16 @@ class Game:
         try:
             with open(f"saves/{self.clan.name}/infection.json", 'r') as read_file:
                 self.clan.infection = ujson.loads(read_file.read())
+            if "treated" not in self.clan.infection:
+                self.clan.infection["treated"] = []
+            if "cured_clans" not in self.clan.infection:
+                self.clan.infection["cured_clans"] = []
+            if "exiled_infected" not in self.clan.infection:
+                self.clan.infection["exiled_infected"] = ""
+            if "killed_infected" not in self.clan.infection:
+                self.clan.infection["killed_infected"] = ""
+            if "cured_infected" not in self.clan.infection:
+                self.clan.infection["cured_infected"] = ""
         except AttributeError:
             print("Clan is None?")
         except FileNotFoundError:
