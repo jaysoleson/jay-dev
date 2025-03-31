@@ -1123,11 +1123,9 @@ class Condition_Events:
                 game.switches["skip_conditions"].append(new_condition_name)
                 # here we give the new condition
                 if new_condition_name in Condition_Events.INJURIES:
-                    print(cat.name, condition, "progressing to", new_condition_name, "inflicted by", inflicted_by_cat_id)
                     cat.get_injured(new_condition_name, event_triggered=event_triggered, inflicted_by=inflicted_by_cat_id)
                     break
                 elif new_condition_name in Condition_Events.ILLNESSES:
-                    print(cat.name, condition, "progressing to", new_condition_name, "inflicted by", inflicted_by_cat_id)
                     cat.get_ill(new_condition_name, event_triggered=event_triggered, inflicted_by=inflicted_by_cat_id)
                     if dictionary == cat.illnesses or removed_condition:
                         break

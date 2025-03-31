@@ -14,6 +14,7 @@ from scripts.utility import (
     get_cats_of_romantic_interest,
     get_free_possible_mates,
 )
+from scripts.event_class import Single_Event
 
 
 class Relation_Events:
@@ -55,6 +56,7 @@ class Relation_Events:
         # 1/16 for an additional event
         if not random.getrandbits(4):
             Relation_Events.romantic_events(cat)
+        Relation_Events.ally_events(cat)
 
         Romantic_Events.handle_mating_and_breakup(cat)
 
@@ -138,6 +140,78 @@ class Relation_Events:
         if Romantic_Events.start_interaction(cat, other_cat):
             Relation_Events.trigger_event(cat)
             Relation_Events.trigger_event(other_cat)
+    
+    # HG
+    @staticmethod
+    def ally_events(cat):
+        """
+        HG NPCs becoming allies
+        """
+        if not Relation_Events.can_trigger_events(cat):
+            return
+
+        other_cat = None
+        unset = False
+
+        if cat.ID == game.clan.your_cat.ID:
+            return
+
+        possible_cats = [
+            kitty for kitty in Cat.all_cats_list if (
+                not kitty.outside and
+                not kitty.dead and
+                not kitty.allies and
+                kitty.ID != cat.ID and
+                kitty.ID != game.clan.your_cat.ID
+            )
+        ]
+
+        if cat.allies != []:
+            other_cat = Cat.fetch_cat(cat.allies[0])
+            if other_cat.ID == game.clan.your_cat.ID:
+                return
+            if not random.getrandbits(6):
+                string = f"{cat.name} and {other_cat.name} have broken their allyship."
+                unset = True
+            else:
+                return
+        else:
+            cat_to_choose_from = []
+            for inter_cat in possible_cats:
+                if inter_cat.outside:
+                    continue
+
+                if inter_cat.ID not in cat.relationships:
+                    cat.create_one_relationship(inter_cat)
+                if cat.ID not in inter_cat.relationships:
+                    inter_cat.create_one_relationship(cat)
+
+                cat_to_inter = (
+                    cat.relationships[inter_cat.ID].platonic_like > 20
+                    or cat.relationships[inter_cat.ID].comfortable > 20
+                    or cat.relationships[inter_cat.ID].trust > 20
+                )
+                inter_to_cat = (
+                    inter_cat.relationships[cat.ID].platonic_like > 20
+                    or inter_cat.relationships[cat.ID].comfortable > 20
+                    or inter_cat.relationships[cat.ID].trust > 20
+                )
+                if cat_to_inter and inter_to_cat:
+                    cat_to_choose_from.append(inter_cat)
+
+            if not cat_to_choose_from:
+                return
+
+            other_cat = choice(cat_to_choose_from)
+            string = f"{cat.name} and {other_cat.name} have decided to stick together."
+        
+        if not random.getrandbits(4):
+            print("ally event for", cat.name, "and", other_cat.name)
+            game.cur_events_list.append(Single_Event(string, ["misc"], [cat.ID, other_cat.ID]))
+            if unset:
+                cat.unset_ally(other_cat, breakup=True)
+            else:
+                cat.set_ally(other_cat)
 
     @staticmethod
     def same_age_events(cat):

@@ -63,8 +63,6 @@
     {
         "id": "dark_forest_founder_dead_to_dead_other",
         "thoughts": [
-            "Is speaking with r_c how c_n came to be",
-            "Is telling the other Dark Forest cats stories of c_n's beginning",
             "Is telling {PRONOUN/m_c/self} that {PRONOUN/m_c/poss} era was the most powerful and pure",
             "Is trying to take control over r_c with promises of protection",
             "Is hosting another battle to the death to boost {PRONOUN/m_c/poss} power over the forgotten souls",
@@ -204,8 +202,7 @@
             "Wants to see something shiny again",
             "Thinks the black goop is anything but a statement",
             "Thinks the camp could use a splash of color but can't find anything colorful",
-            "Is bored without something to do",
-            "Judges c_n's decorating choices"
+            "Is bored without something to do"
         ],
         "main_skill_constraint": [
             "ARTISTAN,1"
@@ -254,7 +251,6 @@
             "Is curious on if the Dark Forest is anything more than a forest",
             "Peeks around the dark trees with wonder",
             "Tries to explore through the goop",
-            "Realizes {PRONOUN/m_c/subject} never appreciated the beauty of c_n's biome until it was stripped away",
             "Misses the seasons",
             "Thinks everything looks the same",
             "Wonders if {PRONOUN/m_c/subject}{VERB/m_c/'ve/'s} been going in circles while exploring and never realized it"
@@ -279,8 +275,7 @@
         "thoughts": [
             "Finds it impossible to dig in the goop",
             "Regrets trying to dig a hole as {PRONOUN/m_c/poss} paws blacken with goop",
-            "Dreams of digging a tunnel to StarClan",
-            "Wonders if c_n would find any of {PRONOUN/m_c/poss} hidden passages underneath the camp"
+            "Dreams of digging a tunnel to StarClan"
         ],
         "main_skill_constraint": [
             "TUNNELER,1"
@@ -377,7 +372,6 @@
             "Groans as r_c approaches {PRONOUN/m_c/object} with wounds",
             "Feels defeated as herbs die off before {PRONOUN/m_c/poss} eyes",
             "Observes the plant life - or the lack thereof",
-            "Wonders if {PRONOUN/m_c/subject} should give c_n some advice on a recent obscure illness",
             "Is always busy with injuries",
             "Wonders why cats are able to be hurt while dead",
             "Feels like {PRONOUN/m_c/subject} never {VERB/m_c/get/gets} a break"
@@ -412,8 +406,6 @@
             "Wonders how r_c is fairing",
             "Whispers lies into r_c's ear to cause chaos",
             "Misguides r_c from success",
-            "Decides to direct a disaster c_n's way",
-            "Prays on c_n's downfall",
             "Makes silly faces at r_c",
             "Watches r_c live {PRONOUN/r_c/poss} life to starve off {PRONOUN/m_c/poss} boredom"
         ],
@@ -424,17 +416,9 @@
     {
         "id": "leader_df",
         "thoughts": [
-            "Is glad to not have to rule c_n anymore",
-            "Frowns upon c_n",
-            "Thinks c_n is making all the wrong decisions",
             "Can at least have a decent rest, even if it's in goop",
             "Wonders about StarClans reasoning for putting {PRONOUN/m_c/object} in the Dark Forest",
-            "Judges c_n's leader",
-            "Judges c_n's deputy",
-            "Convinced c_n is not doing well without {PRONOUN/m_c/object}",
-            "Contemplates causing chaos",
-            "Feels pleased with c_n's choices so far",
-            "Feels like {PRONOUN/m_c/subject} can finally retire without having to worry about c_n or duties"
+            "Contemplates causing chaos"
         ],
         "main_status_constraint": [
             "leader",

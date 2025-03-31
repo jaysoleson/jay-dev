@@ -681,6 +681,10 @@ class Cat:
         self.sleeping = False
         if self == game.clan.spectating:
             game.clan.spectating = None
+        
+        if self.allies:
+            ally = Cat.fetch_cat(self.allies[0])
+            ally.unset_ally(self)
 
         return
 
@@ -2005,12 +2009,7 @@ class Cat:
         else:
             self.stats.hunger -= randint(4,8)
             # no energy gain bc thats handled in sleep()
-            self.stats.health -= randint(2,9)
-
-        if self.ID == game.clan.your_cat.ID:
-            print("Your satiation:", self.stats.hunger)
-            print("Your health:", self.stats.health)
-            print("Your energy:", self.stats.energy)
+            self.stats.health += randint(5,12)
 
     def relationship_interaction(self):
         """Randomly choose a cat of the Clan and have an interaction with them."""

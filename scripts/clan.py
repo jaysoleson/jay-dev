@@ -298,9 +298,9 @@ class Clan:
             Cat.init_stats(Cat.all_cats.get(cat_id))
             Cat.load_stats_of_cat(Cat.all_cats.get(cat_id))
 
-        if self.clan_age == "established":
-            self.generate_mates()
-            self.generate_families()
+        # if self.clan_age == "established":
+        #     self.generate_mates()
+        #     self.generate_families()
 
         game.save_cats()
         number_other_clans = 11
@@ -333,6 +333,11 @@ class Clan:
                 if cats_in_clan == 2:
                     clan_count += 1
                     cats_in_clan = 0
+        
+        if self.clan_age == "established":
+            self.generate_mates()
+            self.generate_families()
+
         game.save_cats()
         # have to save cats here again rather than just up there so the tributes clans can save correctly!
 
@@ -380,25 +385,21 @@ class Clan:
                 return random.choice(alive_cats)
             return None
 
-        num_mates = random.randint(0,3)
-
-        for i in range(num_mates):
-            same_age_cats = []
+        if not random.getrandbits(3):
             random_cat = get_adult_mateless_cat()
             if random_cat:
-                # same_age_cats = get_free_possible_mates(random_cat)
+                potential_mate = None
+                for cat in Cat.all_cats_list:
+                    if (
+                        cat.cat_clan == random_cat.cat_clan and
+                        cat.is_potential_mate(random_cat)
+                        ):
+                        potential_mate = cat
+                        break
 
-                same_age_cats = [
-                    cat for cat in Cat.all_cats_list if (
-                        cat.is_potential_mate(random_cat) and
-                        cat.cat_clan == random_cat.cat_clan
-                    )
-                ]
-
-            if same_age_cats:
-                random_mate_cat = random.choice(same_age_cats)
-                if random_cat.is_potential_mate(random_mate_cat):
-                    random_cat.set_mate(random_mate_cat)
+                if potential_mate:
+                    if random_cat.is_potential_mate(potential_mate):
+                        random_cat.set_mate(potential_mate)
 
     def generate_families(self):
 

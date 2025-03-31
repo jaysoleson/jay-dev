@@ -291,6 +291,8 @@ class AttackScreen(Screens):
                     text += f"\n\nYou have lost {deathberry_num} {plural}."
                     self.the_cat.get_injured("poisoned", inflicted_by=self.you.ID)
                     self.you.pelt.inventory["DEATHBERRY"] -= deathberry_num
+                    if self.you.pelt.inventory["DEATHBERRY"] == 0:
+                        self.you.pelt.inventory.pop("DEATHBERRY")
                 
             elif self.result == "loss":
                 text = f"{self.the_cat.name} wins the fight.\n\n<b>You have died.</b>"
@@ -481,7 +483,10 @@ class AttackScreen(Screens):
                         self.exit_screen()
                         self.screen_switches()
 
-                        if not self.the_cat.dead and not skip_success:
+                        if (
+                            not self.the_cat.dead and
+                            not skip_success and
+                            action != "run"):
                             self.npc_turn()
                             self.exit_screen()
                             self.screen_switches()
@@ -508,7 +513,9 @@ class AttackScreen(Screens):
                 self.strategy = "attack"
                 text = f"{self.the_cat.name} notices and attacks for {damage} damage!"
         else:
-            damage = random.randint(3, 13)
+            if self.the_cat.ID in self.you.allies:
+                self.the_cat.unset_ally(self.you)
+            damage = self.get_swipe_damage(self.the_cat, self.you)
             text = f"{self.the_cat.name} attacks for {damage} damage."
         self.you.stats.health -= damage
         attack = {
@@ -528,14 +535,11 @@ class AttackScreen(Screens):
         """
         Determines damage and text for direct attacks (swipe + pin)
         """
-        damage = 10
+        damage = self.get_swipe_damage(self.you, self.the_cat)
         text = ""
         if self.the_cat.sleeping:
-            damage *= 2
             self.the_cat.sleeping = False
             text += f"You catch {self.the_cat.name} by surprise during a nap. "
-        elif (self.the_cat.is_injured() or self.the_cat.is_ill()):
-            damage *= 2
 
         divide = round(damage / 2)
         modifier = random.randint(-divide, divide)
@@ -546,17 +550,67 @@ class AttackScreen(Screens):
         
         return damage, text
 
-    def pin(self):
-        damage = 6
+    def pin(self, cat, opponent):
+        """
+        calculates success of a pin
+        """
+        damage = 5
+        chance = 4
 
-        if random.randint(1,2) == 1:
-            success = False
-            text = "You attempt to PIN your opponent, but they're too strong."
-        else:
+        if cat.skills.meets_skill_requirement(SkillPath.FIGHTER, 4):
+            chance /= 2
+        elif cat.skills.meets_skill_requirement(SkillPath.FIGHTER, 3):
+            chance /= 1.5
+        
+        if opponent.age == "adolescent" and cat.age != "adolescent":
+            chance /= 2
+        elif cat.age == "adolescent" and opponent.age != "adolescent":
+            chance *= 2
+
+        if not int(random.random() * chance):
             success = True
             text = "You pin your opponent to the ground."
-        
+        else:
+            success = False
+            text = "You attempt to pin your opponent, but they're too strong."
+
+        chance = round(random.gauss(chance, 2))
+        if chance <= 0:
+            chance = 1
+        damage = round(random.gauss(damage, 2))
+        if damage <= 0:
+            damage = 1
+
         return damage, text, success
+
+    def get_swipe_damage(self, cat, opponent):
+        """
+        calculates damage caused by a swipe
+        """
+        
+        if cat.status in ["queen's apprentice", "mediator apprentice", "medicine cat apprentice"]:
+            damage = 8
+        elif cat.status == "apprentice":
+            damage = 11
+        else:
+            damage = 15
+
+        if cat.skills.meets_skill_requirement(SkillPath.FIGHTER, 4):
+            damage *=1.8
+        elif cat.skills.meets_skill_requirement(SkillPath.FIGHTER, 3):
+            damage *=1.5
+        elif cat.skills.meets_skill_requirement(SkillPath.FIGHTER, 2):
+            damage *=1.3
+        elif cat.skills.meets_skill_requirement(SkillPath.FIGHTER, 1):
+            damage *=1.1
+
+        if cat.is_ill() or cat.is_injured():
+            damage /= 1.5
+
+        damage = random.gauss(damage, 3)
+        if damage <= 0:
+            damage = 1
+        return round(damage)
 
 
     def get_action_result(self, action):
@@ -569,7 +623,7 @@ class AttackScreen(Screens):
         if action == "swipe":
             damage, text = self.swipe()
         elif action == "pin":
-            damage, text, skip_success = self.pin()
+            damage, text, skip_success = self.pin(self.you, self.the_cat)
         elif action == "hiss":
             damage = 0
             text = "You hiss and startle your opponent."

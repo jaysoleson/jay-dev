@@ -1491,5 +1491,58 @@
       "lead_death": "died during a fire"
       }
     ]
-  }
+  },
+  {
+        "event_id": "hg_ally_murder_1",
+        "location": ["any"],
+        "season": [
+            "any"
+        ],
+        "sub_type": ["murder"],
+        "tags": [],
+        "weight": 30,
+        "event_text": "r_c agrees to watch over {PRONOUN/r_c/poss} ally, m_c, while {PRONOUN/m_c/subject} {VERB/m_c/sleep/sleeps}. However, as soon as m_c dozes off, r_c ends {PRONOUN/m_c/poss} life as swiftly as possible. m_c is gone before {PRONOUN/m_c/subject} {VERB/m_c/have/has} a chance to wake up.",
+        "m_c": {
+            "status": ["any"],
+            "dies": true,
+            "relationship_status": [
+                "allies"
+            ]
+        },
+        "r_c": {
+            "age": ["any"],
+            "cluster": ["brooding", "unlawful", "assertive", "unabashed"]
+        },
+        "history": [{
+            "cats": ["m_c"],
+            "reg_death": "m_c was murdered by {PRONOUN/m_c/poss} ally, r_c, in {PRONOUN/m_c/poss} sleep."
+        }],
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c"
+                ],
+                "cats_to": [
+                    "m_c"
+                ],
+                "values": [
+                    "dislike"
+                ],
+                "amount": 15
+            },
+            {
+                "cats_from": [
+                    "r_c"
+                ],
+                "cats_to": [
+                    "m_c"
+                ],
+                "values": [
+                    "platonic",
+                    "comfort"
+                ],
+                "amount": -15
+            }
+        ]
+    }
 ]

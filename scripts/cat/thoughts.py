@@ -50,6 +50,10 @@ class Thoughts:
         if "strangers" in constraint and relationship and (
                 relationship.platonic_like < 1 or relationship.romantic_love < 1):
             return False
+        
+        # HG
+        if "allies" in constraint and relationship and random_cat.ID not in main_cat.allies:
+            return False
 
         return True
 
@@ -75,6 +79,13 @@ class Thoughts:
         # This is for checking the 'not_working' status
         if "not_working" in thought:
             if thought["not_working"] != main_cat.not_working():
+                return False
+        
+        # HG
+        if "same_position" in thought:
+            if not random_cat:
+                return False
+            if thought["same_position"] is True and main_cat.map_position != random_cat.map_position:
                 return False
 
         # This is for checking if another cat is needed and there is another cat
@@ -363,12 +374,12 @@ class Thoughts:
 
         # newborns only pull from their status thoughts. this is done for convenience
         try:
-            if main_cat.age == 'newborn':
-                with open(f"{base_path}{life_dir}{spec_dir}/newborn.json", 'r') as read_file:
-                    thoughts = ujson.loads(read_file.read())
-                loaded_thoughts = thoughts
-            elif main_cat.shunned > 0 and not main_cat.dead and not main_cat.outside:
-                with open(f"{base_path}{life_dir}{spec_dir}/shunned.json", 'r') as read_file:
+            # if main_cat.age == 'newborn':
+            #     with open(f"{base_path}{life_dir}{spec_dir}/newborn.json", 'r') as read_file:
+            #         thoughts = ujson.loads(read_file.read())
+            #     loaded_thoughts = thoughts
+            if not main_cat.dead:
+                with open(f"{base_path}{life_dir}/hg_general.json", 'r') as read_file:
                     loaded_thoughts = ujson.loads(read_file.read())
             else:
                 with open(f"{base_path}{life_dir}{spec_dir}/{status}.json", 'r') as read_file:
@@ -390,11 +401,14 @@ class Thoughts:
             # checks if the cat is Rick Astley to give the rickroll thought, otherwise proceed as usual
             if (main_cat.name.prefix+main_cat.name.suffix).replace(" ", "").lower() == "rickastley":
                 return "Never going to give r_c up, never going to let {PRONOUN/r_c/object} down, never going to run around and desert {PRONOUN/r_c/object}."
+            elif main_cat.sleeping:
+                chosen_thought = "Zzz..."
             else:
                 chosen_thought_group = choice(Thoughts.load_thoughts(main_cat, other_cat, game_mode, biome, season, camp))
                 chosen_thought = choice(chosen_thought_group["thoughts"])
-        except Exception:
+        except Exception as e:
             chosen_thought = "Prrrp! You shouldn't see this! Report as a bug."
+            print(e)
 
         return chosen_thought
     

@@ -1,0 +1,122 @@
+[
+    {
+        "id": "hg_gen_living",
+        "thoughts": [
+            "Is feeling anxious",
+            "Misses {PRONOUN/m_c/poss} Clan",
+            "Is bored!",
+            "Sleeps with one eye open",
+            "Is searching the area for hiding spots",
+            "Is enjoying the sunshine",
+            "Is feeling quite lazy",
+            "Is spending a considerable amount of time grooming",
+            "Is feeling down...",
+            "Is feeling excited",
+            "Is feeling nervous",
+            "Is feeling content",
+            "Is feeling silly",
+            "Is feeling a bit ill",
+            "Is feeling motivated",
+            "Is feeling perplexed",
+            "Is daydreaming",
+            "Is napping",
+            "Is feeling gloomy",
+            "Is feeling happy!",
+            "Is curious about the other Clans",
+            "Is feeling sassy today",
+            "Is searching for supply crates",
+            "Misses {PRONOUN/m_c/poss} family",
+            "Wonders about the other tributes",
+            "Watches another tribute from afar",
+            "Is practicing a hunting technique {PRONOUN/m_c/subject} saw another tribute do",
+            "Is considering stealing supplies from another tribute's stash",
+            "Is having a good day",
+            "Is having a hard day",
+            "Is talking to {PRONOUN/m_c/self}",
+            "Is basking in the sun",
+            "Feels a sense of dread",
+            "Is staring off into space",
+            "Is worried others are judging {PRONOUN/m_c/object}",
+            "Almost choked on {PRONOUN/m_c/poss} prey",
+            "Is chattering at the birds in the trees above",
+            "Was recently caught humming to {PRONOUN/m_c/self}",
+            "Wishes {PRONOUN/m_c/subject} {VERB/m_c/were/was} still in {PRONOUN/m_c/poss} nest sleeping",
+            "Is craving the taste of mouse",
+            "Is craving the taste of rabbit",
+            "Is craving the taste of vole",
+            "Is craving the taste of frog",
+            "Is craving the taste of shrew",
+            "Is craving the taste of bird",
+            "Is craving the taste of fish",
+            "Is wondering just how good at swimming {PRONOUN/m_c/subject} really {VERB/m_c/are/is}",
+            "Is feeling underappreciated...",
+            "Woke up on the wrong side of the nest",
+            "Is staring off into space",
+            "Is picking the burrs from {PRONOUN/m_c/poss} pelt",
+            "Is batting at {PRONOUN/m_c/poss} tail",
+            "Is batting at a beam of sunlight",
+            "Didn't get enough sleep",
+            "Is stretching out",
+            "Is watching cats come and go from camp",
+            "Thinks about StarClan",
+            "Is watching the sky for hawks",
+            "Is watching the sky for rain",
+            "Is cloudwatching",
+            "Lets out a big yawn!",
+            "Is wondering if clouds are as soft as they look",
+            "Is enjoying the sounds of nature",
+            "Is feeling anxious",
+            "Is feeling restless",
+            "Is dozing off",
+            "Is a bit annoyed"
+        ]
+    },
+    {
+        "id": "hg_gen_notworking",
+        "not_working": true,
+        "thoughts": [
+            "Just wants to sleep",
+            "Wonders why recovering is so exhausting",
+            "Feeling frustrated at {PRONOUN/m_c/poss} own exhaustion",
+            "Stands up for a second and feels lightheaded",
+            "Isn't having a fun time",
+            "Needs to rest, but feels too anxious to close {PRONOUN/m_c/poss} eyes",
+            "Is scared to die"
+        ]
+    },
+    {
+        "id": "hg_gen_to_other",
+        "thoughts": [
+            "Is asking r_c an important question",
+            "Is finding r_c annoying",
+            "Is eavesdropping on r_c",
+            "Wants to get to know r_c better",
+            "Is sharing tongues with r_c",
+            "Wonders how r_c is doing",
+            "Is giving some advice to r_c",
+            "Considers attacking r_c"
+        ],
+        "random_living_status": [
+            "living"
+        ],
+        "same_position": true
+    },
+    {
+        "id": "hg_gen_allies",
+        "thoughts": [
+            "Watches r_c's back",
+            "Laughs at a funny bird with r_c",
+            "Is glad to have r_c by {PRONOUN/m_c/poss} side",
+            "Wishes both {PRONOUN/m_c/subject} and r_c could survive",
+            "Searches for a gift for r_c",
+            "Catches some prey for r_c"
+        ],
+        "random_living_status": [
+            "living"
+        ],
+        "same_position": true,
+        "relationship_constraint": [
+            "allies"
+        ]
+    }
+]

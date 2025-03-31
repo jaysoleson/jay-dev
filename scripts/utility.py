@@ -2720,7 +2720,10 @@ def clan_symbol_sprite(clan, return_string=False, force_light=False):
     if return_string:
         return clan.chosen_symbol
     else:
-        return sprites.get_symbol(clan.chosen_symbol, force_light=force_light)
+        # this commented out stuff is clangen
+        # recomment when a fix for the square clan symbols is fixed
+        # return sprites.get_symbol(clan.chosen_symbol, force_light=force_light)
+        return sprites.sprites[clan.chosen_symbol]
 
 
 def generate_sprite(

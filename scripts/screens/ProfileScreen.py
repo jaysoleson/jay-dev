@@ -412,9 +412,6 @@ class ProfileScreen(Screens):
                     event.ui_element == self.profile_elements["talk"]:
                 self.close_current_tab()
                 self.the_cat.talked_to = True
-                # if not self.the_cat.dead and not game.clan.your_cat.dead and game.clan.your_cat.ID in self.the_cat.relationships and self.the_cat.ID in game.clan.your_cat.relationships and game.clan.your_cat.shunned == 0:
-                #     self.the_cat.relationships[game.clan.your_cat.ID].platonic_like += randint(0,5)
-                #     game.clan.your_cat.relationships[self.the_cat.ID].platonic_like += randint(0,5)
                 game.switches["talk_category"] = "talk"
                 self.change_screen('talk screen')
             elif (
@@ -699,11 +696,11 @@ class ProfileScreen(Screens):
                     value = inventory_blit_data.index(b_data)
                 n = value
                 if b_data in inventory_blit_data:
-                    if self.the_cat.ID == game.clan.your_cat.ID:
-                        if self.inventory_items_list[n] != self.selected_item:
-                            self.selected_item = self.inventory_items_list[n]
-                        elif self.inventory_items_list[n] == self.selected_item:
-                            self.selected_item = None
+                    # if self.the_cat.ID == game.clan.your_cat.ID:
+                    if self.inventory_items_list[n] != self.selected_item:
+                        self.selected_item = self.inventory_items_list[n]
+                    elif self.inventory_items_list[n] == self.selected_item:
+                        self.selected_item = None
                     self.inventory_item_options()
 
                 for acc in self.inventory_buttons:
@@ -830,6 +827,7 @@ class ProfileScreen(Screens):
             object_id="@buttonstyles_profile_right",
             manager=MANAGER,
         )
+        self.dangerous_tab_button.disable()
 
         self.backstory_tab_button = UISurfaceImageButton(
             ui_scale(pygame.Rect((48, 622), (176, 30))),
@@ -929,8 +927,8 @@ class ProfileScreen(Screens):
 
     def column_adjust(self):
         """ need to shorten columns when the eat button comes up so nothing gets covered"""
-        if self.the_cat.ID != game.clan.your_cat.ID:
-            return
+        # if self.the_cat.ID != game.clan.your_cat.ID:
+        #     return
         if self.profile_elements["cat_info_column1"]:
             self.profile_elements["cat_info_column1"].kill()
         if self.profile_elements["cat_info_column2"]:
@@ -1011,16 +1009,16 @@ class ProfileScreen(Screens):
         if is_sc_instructor:
 
             if game.clan.followingsc == True:
-                self.the_cat.thought = "Hello. I will be guiding the cats of " + game.clan.name + "Clan into StarClan."
+                self.the_cat.thought = "Hello. I will be guiding the tributes of the Games into StarClan"
             else:
-                self.the_cat.thought = "Misses watching over " + game.clan.name + "Clan"
+                self.the_cat.thought = "Misses watching over the tributes"
 
         if is_df_instructor:
             if game.clan.followingsc == True:
-                self.the_cat.thought = "Hello. I am here to drag the cats of " + game.clan.name + "Clan into the Dark Forest"
+                self.the_cat.thought = "Hello. I am here to drag the tributes of the Games into the Dark Forest"
                 self.the_cat.df
             else:
-                self.the_cat.thought = "Is picking more " + game.clan.name + "Clan cats to join them"
+                self.the_cat.thought = "Is picking more cats to join them"
 
         self.profile_elements["cat_name"] = pygame_gui.elements.UITextBox(cat_name,
                                                                         ui_scale(pygame.Rect((50, 280), (-1, 105))),
@@ -1142,9 +1140,15 @@ class ProfileScreen(Screens):
 
         # Write cat thought
         # moved down here for hunger games so the symbol doesnt cover it
+
+        if self.the_cat.dead:
+            thought_width = 600
+        else:
+            thought_width = 400
+
         self.profile_elements["cat_thought"] = pygame_gui.elements.UITextBox(
             self.the_cat.thought,
-            ui_scale(pygame.Rect((0, 170), (400, -1))),
+            ui_scale(pygame.Rect((0, 170), (thought_width, -1))),
             wrap_to_height=True,
             object_id=get_text_box_theme("#text_box_30_horizcenter"),
             manager=MANAGER,
@@ -3012,8 +3016,8 @@ class ProfileScreen(Screens):
         For accessories, just equips and unequips
         """
     
-        if self.the_cat.ID != game.clan.your_cat.ID:
-            return
+        # if self.the_cat.ID != game.clan.your_cat.ID:
+        #     return
 
         for ele in self.item_window_elements:
             self.item_window_elements[ele].kill()
@@ -3048,10 +3052,10 @@ class ProfileScreen(Screens):
                 BoxStyles.ROUNDED_BOX, (180, 80), sides=(True, True, True, True)
             ),
         )
-        item = self.selected_item.lower().replace(" ", "_")
+        item = self.selected_item
         item_pos = [310, 240]
 
-        if item in HERBS or item.upper().replace("_", " ") in ITEM_VALUES["food"].keys():
+        if item in HERBS or item in ITEM_VALUES["food"].keys():
             try:
                 itemimage = image_cache.load_image(f"resources/images/inventory_items/{item}.png").convert_alpha()
             except:
@@ -3101,6 +3105,7 @@ class ProfileScreen(Screens):
             ui_scale(pygame.Rect((460, 218), (180, 50))),
             object_id="#text_box_34_horizcenter",
         )
+        accessory = False
         if item in HERBS:
             self.item_window_elements["eat_button"] = UISurfaceImageButton(
                 ui_scale(pygame.Rect((460, 345), (140, 34))),
@@ -3190,6 +3195,7 @@ class ProfileScreen(Screens):
                 self.item_window_elements["eat_button"].enable()
         else:
             # accessories
+            accessory = True
             if item in self.the_cat.pelt.accessories:
                 text = "unequip"
             else:
@@ -3212,10 +3218,18 @@ class ProfileScreen(Screens):
             )
             self.item_window_elements["eat_button"].disable()
 
-        if self.the_cat.sleeping:
+        if (
+            (game.clan.your_cat.ID != self.the_cat.ID and not accessory) or
+            (self.the_cat.sleeping and not accessory)
+            ):
             self.item_window_elements["eat_button"].disable()
         else:
             self.item_window_elements["eat_button"].enable()
+        
+        if game.clan.your_cat.ID != self.the_cat.ID:
+            self.item_window_elements["discard"].disable()
+        else:
+            self.item_window_elements["discard"].enable()
 
     def use_herb(self):
         cured_condition = None
@@ -3342,8 +3356,8 @@ class ProfileScreen(Screens):
         
         self.inventory_items[item + "_number_" + str(i)] = pygame_gui.elements.UITextBox(
                 f"<b>{str(accessory[1])}</b>",
-                ui_scale(pygame.Rect((135 + pos_x, 400 + pos_y), (25, 25))),
-                object_id="#text_box_22_horizleft",
+                ui_scale(pygame.Rect((132 + pos_x, 400 + pos_y), (25, 25))),
+                object_id="#text_box_22_horizcenter",
             )
         
         # Clickable button

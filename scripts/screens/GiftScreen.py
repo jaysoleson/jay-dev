@@ -163,9 +163,14 @@ class GiftScreen(Screens):
     def screen_switches(self):
         super().screen_switches()
 
-        list_frame = get_box(BoxStyles.ROUNDED_BOX, (650, 226))
+        if self.stage == "choose gift cat":
+            y_val = 226
+        else:
+            y_val = 240
+        
+        list_frame = get_box(BoxStyles.ROUNDED_BOX, (650, y_val))
         self.list_frame = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((75, 360), (650, 226))), list_frame, starting_height=1
+            ui_scale(pygame.Rect((75, 360), (650, y_val))), list_frame, starting_height=1
         )
         self.back_button = UISurfaceImageButton(
             ui_scale(pygame.Rect((25, 25), (105, 30))),
@@ -632,12 +637,22 @@ class GiftScreen(Screens):
                 self.selected_cat.pelt.inventory[acc] += 1
             else:
                 self.selected_cat.pelt.inventory[acc] = 1
+            game.clan.your_cat.pelt.inventory[acc] -= 1
+            if game.clan.your_cat.pelt.inventory[acc] == 0:
+                game.clan.your_cat.pelt.inventory.pop(acc)
+            if acc in game.clan.your_cat.pelt.accessories:
+                game.clan.your_cat.pelt.accessories.remove(acc)
         elif acc in HERBS:
             reaction_txt = "t_c gratefully takes the herbs."
             if acc in self.selected_cat.pelt.inventory.keys():
                 self.selected_cat.pelt.inventory[acc] += 1
             else:
                 self.selected_cat.pelt.inventory[acc] = 1
+            game.clan.your_cat.pelt.inventory[acc] -= 1
+            if game.clan.your_cat.pelt.inventory[acc] == 0:
+                game.clan.your_cat.pelt.inventory.pop(acc)
+            if acc in game.clan.your_cat.pelt.accessories:
+                game.clan.your_cat.pelt.accessories.remove(acc)
         else:
             reaction = "accept_neutral"
             if acc in self.selected_cat.pelt.inventory.keys():
@@ -739,44 +754,72 @@ class GiftScreen(Screens):
             x_pos = 101
             y_pos = 129
 
+            accname = self.selected_accessory.capitalize().replace("_", " ")
             if self.selected_accessory in ITEM_VALUES["food"].keys():
                 image = image_cache.load_image(f"resources/images/inventory_items/{self.selected_accessory.lower()}.png").convert_alpha()
+                self.selected_acc_details["selected_image"] = pygame_gui.elements.UIImage(
+                    ui_scale(pygame.Rect((x_pos, y_pos), (dimensions))),
+                    pygame.transform.scale(image, (dimensions)),
+                    manager=MANAGER
+                    )
             elif self.selected_accessory in HERBS:
                 try:
                     image = image_cache.load_image(f"resources/images/inventory_items/{self.selected_accessory.lower()}.png").convert_alpha()
                 except:
                     image = image_cache.load_image("resources/images/inventory_items/placeholder_herb.png").convert_alpha()
-            else:
-                print(self.selected_accessory, "not in ITEM_VALUES or HERBS")
-                return
-
-            self.selected_acc_details["selected_image"] = pygame_gui.elements.UIImage(
-                ui_scale(pygame.Rect((x_pos, y_pos), (dimensions))),
-                pygame.transform.scale(image, (dimensions)),
-                manager=MANAGER
-                )
+                self.selected_acc_details["selected_image"] = pygame_gui.elements.UIImage(
+                    ui_scale(pygame.Rect((x_pos, y_pos), (dimensions))),
+                    pygame.transform.scale(image, (dimensions)),
+                    manager=MANAGER
+                    )
+            elif self.selected_accessory:
+                accname = ACC_DISPLAY[self.selected_accessory]["default"]
+                item = self.selected_accessory
+                cat_sprite = str(game.clan.your_cat.pelt.cat_sprites[game.clan.your_cat.age])
+                acc_dict = {
+                    "acc_herbs": Pelt.plant_accessories,
+                    "acc_wild": Pelt.wild_accessories,
+                    "collars": Pelt.collars,
+                    "acc_flower": Pelt.flower_accessories,
+                    "acc_plant2": Pelt.plant2_accessories,
+                    "acc_smallAnimal": Pelt.smallAnimal_accessories,
+                    "acc_deadInsect": Pelt.deadInsect_accessories,
+                    "acc_aliveInsect": Pelt.aliveInsect_accessories,
+                    "acc_fruit": Pelt.fruit_accessories,
+                    "acc_crafted": Pelt.crafted_accessories,
+                    "acc_tail": Pelt.tail_accessories,
+                    "acc_tail2": Pelt.tail2_accessories
+                }
+                for x in acc_dict.items():
+                    if item.upper() in x[1]:
+                        itemimage = sprites.sprites[x[0] + item.upper() + cat_sprite]
+                        self.selected_acc_details["selected_image"] = pygame_gui.elements.UIImage(
+                            ui_scale(pygame.Rect((x_pos, y_pos), (dimensions))),
+                            pygame.transform.scale(itemimage, (dimensions)),
+                            manager=MANAGER
+                            )
 
             info = ""
-            if self.selected_accessory in game.clan.your_cat.pelt.accessories:
-                info = "\ncurrently worn"
-            else:
-                info = str(game.clan.your_cat.pelt.inventory[self.selected_accessory]) + " in inventory"
+            if self.selected_accessory in game.clan.your_cat.pelt.inventory.keys():
+                if self.selected_accessory in game.clan.your_cat.pelt.accessories:
+                    info = "\ncurrently worn"
+                else:
+                    info = str(game.clan.your_cat.pelt.inventory[self.selected_accessory]) + " in inventory"
 
-            self.selected_acc_details["selected_info"] = pygame_gui.elements.UITextBox(
-                info,
-                ui_scale(pygame.Rect((97, 52),(150, 40))),
-                object_id=get_text_box_theme("#text_box_22_horizcenter_vertcenter_spacing_95"),
-                manager=MANAGER
-            )
+                self.selected_acc_details["selected_info"] = pygame_gui.elements.UITextBox(
+                    info,
+                    ui_scale(pygame.Rect((97, 52),(150, 40))),
+                    object_id=get_text_box_theme("#text_box_22_horizcenter_vertcenter_spacing_95"),
+                    manager=MANAGER
+                )
 
-            # accname = ACC_DISPLAY[self.selected_accessory]["default"]
-            # if 13 <= len(accname):  # check name length
-            #     short_name = str(accname)[0:9]
-            #     accname = short_name + '...'
+            if 13 <= len(accname):  # check name length
+                short_name = str(accname)[0:9]
+                accname = short_name + '...'
 
             self.selected_acc_details["acc name"] = pygame_gui.elements.UITextBox(
-                self.selected_accessory.capitalize(),
-                ui_scale(pygame.Rect((110, 88), (145, 40))),
+                accname,
+                ui_scale(pygame.Rect((100, 88), (145, 40))),
                 object_id="#text_box_34_horizcenter", manager=MANAGER)
 
 
@@ -853,7 +896,7 @@ class GiftScreen(Screens):
 
             self.cat_sprite = str(cat.pelt.cat_sprites[age])
 
-        pos_x = 10
+        pos_x = 5
         pos_y = 125
         i = 0
 
@@ -895,51 +938,57 @@ class GiftScreen(Screens):
             for item in game.clan.your_cat.pelt.inventory.keys():
                 try:
                     if self.search_bar.get_text() in ["", "search"] or self.search_bar.get_text().lower() in item.lower():
-                        self.accessory_buttons["blank:" + item] = UIImageButton(ui_scale(pygame.Rect((100 + pos_x, 250 + pos_y), (50, 50))), "", tool_tip_text=item, object_id="#blank_button")
-                        acc_dict = {
-                            "acc_herbs": Pelt.plant_accessories,
-                            "acc_wild": Pelt.wild_accessories,
-                            "collars": Pelt.collars,
-                            "acc_flower": Pelt.flower_accessories,
-                            "acc_plant2": Pelt.plant2_accessories,
-                            "acc_smallAnimal": Pelt.smallAnimal_accessories,
-                            "acc_deadInsect": Pelt.deadInsect_accessories,
-                            "acc_aliveInsect": Pelt.aliveInsect_accessories,
-                            "acc_fruit": Pelt.fruit_accessories,
-                            "acc_crafted": Pelt.crafted_accessories,
-                            "acc_tail": Pelt.tail_accessories,
-                            "acc_tail2": Pelt.tail2_accessories
-                        }
+                        self.accessory_buttons["blank:" + item] = UIImageButton(ui_scale(pygame.Rect((100 + pos_x, 250 + pos_y), (64, 64))), "", tool_tip_text=item, object_id="#blank_button")
+                        
                         item_type = ""
                         if item in ITEM_VALUES["food"].keys():
                             item_type = "food"
-                            image = image_cache.load_image(f"resources/images/inventory_items/{item.lower()}.png").convert_alpha()
+                            image = image_cache.load_image(f"resources/images/inventory_items/{item.lower().replace(' ', '_')}.png").convert_alpha()
+                            self.cat_list_buttons[item_type + item + "sprite"] = pygame_gui.elements.UIImage(
+                                ui_scale(pygame.Rect((100 + pos_x, 250 + pos_y), (64, 64))),
+                                image,
+                                manager=MANAGER
+                                )
                         elif item in HERBS:
-                            print(item, "in HERBS")
                             item_type = "herb"
                             try:
                                 image = image_cache.load_image(f"resources/images/inventory_items/{item.lower()}.png").convert_alpha()
                             except:
                                 image = image_cache.load_image("resources/images/inventory_items/placeholder_herb.png").convert_alpha()
-                        else:
-                            print(item, "not in ITEM_VALUES or HERBS")
-                            continue
-                            # for item in acc_dict.items():
-                            #     if accessory in item[1]:
-                            #         item_type = "accessory"
-                            #         acc_string = item[0]
-                            #         image = sprites.sprites[acc_string + accessory + self.cat_sprite]
-                            #         break
-
-                        self.cat_list_buttons[item_type + item + "sprite"] = pygame_gui.elements.UIImage(
-                            ui_scale(pygame.Rect((100 + pos_x, 250 + pos_y), (50, 50))),
-                            image,
-                            manager=MANAGER
-                            )
-                    pos_x += 60
-                    if pos_x > 500:
-                        pos_x = 10
-                        pos_y += 60
+                            self.cat_list_buttons[item_type + item + "sprite"] = pygame_gui.elements.UIImage(
+                                ui_scale(pygame.Rect((100 + pos_x, 250 + pos_y), (64, 64))),
+                                image,
+                                manager=MANAGER
+                                )
+                        elif item:
+                            item_type = "accessory"
+                            cat_sprite = str(game.clan.your_cat.pelt.cat_sprites[game.clan.your_cat.age])
+                            acc_dict = {
+                                "acc_herbs": Pelt.plant_accessories,
+                                "acc_wild": Pelt.wild_accessories,
+                                "collars": Pelt.collars,
+                                "acc_flower": Pelt.flower_accessories,
+                                "acc_plant2": Pelt.plant2_accessories,
+                                "acc_smallAnimal": Pelt.smallAnimal_accessories,
+                                "acc_deadInsect": Pelt.deadInsect_accessories,
+                                "acc_aliveInsect": Pelt.aliveInsect_accessories,
+                                "acc_fruit": Pelt.fruit_accessories,
+                                "acc_crafted": Pelt.crafted_accessories,
+                                "acc_tail": Pelt.tail_accessories,
+                                "acc_tail2": Pelt.tail2_accessories
+                            }
+                            for x in acc_dict.items():
+                                if item.upper() in x[1]:
+                                    itemimage = sprites.sprites[x[0] + item.upper() + cat_sprite]
+                                    self.cat_list_buttons[item_type + item + "sprite"] = pygame_gui.elements.UIImage(
+                                        ui_scale(pygame.Rect((107 + pos_x, 257 + pos_y), (50, 50))),
+                                        itemimage,
+                                        manager=MANAGER
+                                        )
+                    pos_x += 72
+                    if pos_x > 550:
+                        pos_x = 5
+                        pos_y += 72
 
                 except Exception as e:
                     print("Item Sprite Error:", e)

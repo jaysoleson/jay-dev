@@ -464,29 +464,6 @@ class MakeClanScreen(Screens):
             self.preview_age = None
             # ---
             self.change_screen('start screen')
-        elif event.ui_element == self.elements['small']:
-            self.elements['small'].disable()
-            self.elements['medium'].enable()
-            self.elements['large'].enable()
-            self.clan_size = "small"
-        elif event.ui_element == self.elements['medium']:
-            self.elements['small'].enable()
-            self.elements['medium'].disable()
-            self.elements['large'].enable()
-            self.clan_size = "medium"
-        elif event.ui_element == self.elements['large']:
-            self.elements['small'].enable()
-            self.elements['large'].disable()
-            self.elements['medium'].enable()
-            self.clan_size = "large"
-        elif event.ui_element == self.elements["established"]:
-            self.elements['established'].disable()
-            self.elements['new'].enable()
-            self.clan_age = "established"
-        elif event.ui_element == self.elements["new"]:
-            self.elements['established'].enable()
-            self.elements['new'].disable()
-            self.clan_age = "new"
     
     def random_clan_name(self):
         clan_names = names.names_dict["normal_prefixes"] + names.names_dict["clan_prefixes"]
@@ -1214,7 +1191,7 @@ class MakeClanScreen(Screens):
         
         self.elements["welcome"] = pygame_gui.elements.UITextBox(
             "<b>Welcome to the LifeGen: Hunger Games Challenge!</b>",
-            ui_scale(pygame.Rect((0, 100), (405, 25))),
+            ui_scale(pygame.Rect((0, 100), (405, 50))),
             object_id=get_text_box_theme("#text_box_30_horizcenter"),
             manager=MANAGER,
             anchors={"centerx": "centerx"})

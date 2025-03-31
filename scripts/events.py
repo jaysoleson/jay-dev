@@ -42,7 +42,8 @@ from scripts.utility import (
     history_text_adjust,
     adjust_txt,
     unpack_rel_block,
-    get_random_moon_cat
+    get_random_moon_cat,
+    get_living_clan_cat_count
     )
 from scripts.cat.cats import Cat, cat_class, BACKSTORIES
 from scripts.cat.history import History
@@ -458,7 +459,7 @@ class Events:
             except:
                 SaveError(traceback.format_exc())
         
-        # self.ambush()
+        self.ambush()
 
     def add_freshkill(self):
         """Adds amount of freshkill needed for the Clan"""
@@ -2709,7 +2710,7 @@ class Events:
             try:
                 herbs = self.MAP_POSITION_INFO[cat.map_position]["herbs"]
             except:
-                print("No herbs available for", cat.map_position)
+                print("No herbs available for", cat.name, cat.map_position)
                 return
             weights = {}
             for i in herbs:
@@ -2891,14 +2892,9 @@ class Events:
                 while random_tribute.sleeping or random_tribute.ID in game.clan.your_cat.allies:
                     counter += 1
                     random_tribute = random.choice(random_tributes)
-                    print("counter going")
                     if counter >= 23:
-                        print("No possible random tribute! Picking a non r_t option.")
                         skip = True
                         break
-            if not skip:
-                print("R_T:", random_tribute.name, random_tribute.map_position)
-                print("YOU:", game.clan.your_cat.map_position)
 
             if skip is True:
                 # finding an outcome text without r_t in it
@@ -2926,7 +2922,6 @@ class Events:
                                         outcome_choice = o[0]
 
                     outcome_text = random.choice(non_rt_options)
-                    print("NON R_T TEXT")
                 except:
                     print(f"No non-r_t outcome text for", game.clan.next_activity, "+", outcome)
                     intro_text = "Mrow?"
@@ -2983,7 +2978,7 @@ class Events:
                     amount *= inventory["amount"]
                     amount = round(amount)
                 gain_cat.pelt.inventory.update({i: amount})
-                print(gain_cat.name, "has gained:", i, "from the", (game.clan.next_activity).upper(), "activity!")
+                print(gain_cat.name, "has gained:", amount, i, "from the", (game.clan.next_activity).upper(), "activity!")
         if stats is not None:
             if stats["cat"] == "r_t":
                 gain_cat = random_tribute
@@ -3106,7 +3101,6 @@ class Events:
                         npc.map_position = ally.map_position
         
         if game.clan.spectating:
-            print(game.clan.spectating)
             game.clan.your_cat.map_position = game.clan.spectating.map_position
 
     def perform_ceremonies(self, cat):
@@ -4728,19 +4722,20 @@ class Events:
                 not i.outside and
                 i.map_position == game.clan.your_cat.map_position and
                 i.ID != game.clan.your_cat.ID and 
-                i.ID not in game.clan.your_cat.allies
+                (i.ID not in game.clan.your_cat.allies and get_living_clan_cat_count(Cat) > 4) and
+                not i.sleeping
                 )]
         if not attackers:
             return
         attacker = random.choice(attackers)
-
-        print("CHOSEN ATTACKER:", attacker.name)
-        chance = 10
+        chance = 15
         chance *= int(
             MAP_POSITION_INFO[game.clan.your_cat.map_position]["safety"]
         )
         if game.clan.your_cat.sleeping is False:
             chance *= 2
+        if attacker.ID in game.clan.your_cat.allies:
+            chance *= 1.5
         
         if game.clan.your_cat.ID in attacker.relationships:
             if attacker.relationships[game.clan.your_cat.ID].dislike >= 10:
@@ -4748,7 +4743,16 @@ class Events:
             elif attacker.relationships[game.clan.your_cat.ID].platonic_like >= 20:
                 chance *= 1.5
 
+        if game.clan.your_cat.allies and not Cat.fetch_cat(game.clan.your_cat.allies[0]).sleeping:
+            chance += 2
+
+        murder_history = History.get_murders(attacker)
+        if "is_murderer" in murder_history:
+            chance -= len(murder_history["is_murderer"]) * 2
+
         chance = round(chance)
+        if chance < 2:
+            chance = 2
         print(attacker.name, "attack chance:", chance)
 
         if not game.clan.your_cat.dead and not int(random.random() * chance):
