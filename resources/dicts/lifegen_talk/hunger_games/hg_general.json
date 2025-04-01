@@ -1681,5 +1681,308 @@
         "intro": [
             "[t_c's ghostly form fades away when you get close.]"
         ]
+    },
+    "hg_allychoice_1": {
+        "tags": [
+            "any",
+            "not_allies",
+            "no_allies",
+            "brooding",
+            "cool",
+            "max_platonic_10",
+            "unlawful",
+            "assertive",
+            "they_adult"
+        ],
+        "intro": [
+            "What do you want?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "To be allies",
+                "next_scene": "be_allies"
+            },
+            "choice2": {
+                "text": "Your supplies",
+                "next_scene": "your_supplies"
+            }
+        },
+        "your_supplies": [
+            "*Snrk* Not gonna happen. Good for you for asking politely, though."
+        ],
+        "be_allies": [
+            "What? No. I'm staying alone. That's what my Clan told me I should do.",
+            "Can't trust anyone in here. No offense, of course."
+        ]
+    },
+    "hg_allychoice_2": {
+        "tags": [
+            "any",
+            "not_allies",
+            "no_allies",
+            "brooding",
+            "cool",
+            "max_platonic_10",
+            "assertive",
+            "they_have_mouse",
+            "they_blind",
+            "you_blind"
+        ],
+        "intro": [
+            "What do you want?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "To be allies",
+                "next_scene": "be_allies"
+            },
+            "choice2": {
+                "text": "Your supplies",
+                "next_scene": "your_supplies"
+            }
+        },
+        "your_supplies": [
+            "Are you threatening me?",
+            "Here. Take a mouse, I don't care.",
+            "[You have gained a MOUSE.]"
+        ],
+        "be_allies": [
+            "Uh... Really?",
+            "I kind of find that hard to believe. You know only one cat can survive, right? Why would I make friends?",
+            "I'll pass. See you around."
+        ]
+    },
+    "hg_allychoice_3": {
+        "tags": [
+            "any",
+            "not_allies",
+            "brooding",
+            "cool",
+            "max_platonic_10",
+            "assertive",
+            "they_blind",
+            "you_blind"
+        ],
+        "intro": [
+            "What do you want?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "To be allies",
+                "next_scene": "be_allies"
+            },
+            "choice2": {
+                "text": "Your supplies",
+                "next_scene": "your_supplies"
+            }
+        },
+        "your_supplies": [
+            "Are you threatening me? You're gonna have to be a bit more forceful than that if you want to steal food from people. You might as well have said 'please'.",
+            "No, you're not getting any of my supplies. Go bother someone else for theirs."
+        ],
+        "be_allies": [
+            "Do you really? Why?",
+            "... Eh. You've never really scared me. I suppose we can stick together for a bit.",
+            "Just don't try to betray me. It won't work, I promise you.",
+            "[You are now allies with t_c!]"
+        ],
+        "be_allies_rel_changes": {
+            "allies": true
+        }
+    },
+    "hg_allychoice_4": {
+        "tags": [
+            "any",
+            "not_allies",
+            "stable",
+            "upstanding",
+            "sweet",
+            "neurotic",
+            "they_blind",
+            "you_blind"
+        ],
+        "intro": [
+            "... Can I help you"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "I want to be allies",
+                "next_scene": "be_allies"
+            },
+            "choice2": {
+                "text": "I want your supplies",
+                "next_scene": "your_supplies"
+            }
+        },
+        "your_supplies": [
+            "U- um... Are you threatening me?",
+            "I don't have anything with me. J- just let me run back to my camp really quick.",
+            "[t_c turns and races away. You doubt {PRONOUN/t_c/subject} {VERB/t_c/plan/plans} on returning.]"
+        ],
+        "be_allies": [
+            "Wh- what? Really? Why?",
+            "I mean, I guess so... You seem nice enough. I can stay with you for a night or two.",
+            "[You are now allies with t_c!]"
+        ],
+        "be_allies_rel_changes": {
+            "allies": true
+        }
+    },
+    "hg_allychoice_5": {
+        "tags": [
+            "any",
+            "not_allies",
+            "stable",
+            "upstanding",
+            "unabashed",
+            "silly",
+            "max_dislike_10",
+            "they_blind",
+            "you_blind"
+        ],
+        "intro": [
+            "Hey, hey! You're y_c, right? Don't worry, my claws are sheathed, I'm not here to attack you.",
+            "You seem to know your way around this place. I was wondering if you'd let me stick around for a bit, as your ally?",
+            "I can do all the normal ally things. Hunt, fight, keep watch at night. That stuff."
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "No",
+                "next_scene": "no"
+            },
+            "choice2": {
+                "text": "Yes",
+                "next_scene": "yes"
+            }
+        },
+        "no": [
+            "... Okay. No worries. I know it's tough to trust people in here.",
+            "I'll see you around then. Good luck."
+        ],
+        "yes": [
+            "Really? Awesome!",
+            "Let's go do some hunting, then! It's a lot easier with two cats!",
+            "[You are now allies with t_c!]"
+        ],
+        "yes_rel_changes": {
+            "allies": true
+        },
+        "no_rel_changes": {
+            "they_to_you": {
+                "dislike": 10,
+                "platonic_like": -10,
+                "trust": -10,
+                "comfort": -10
+            }
+        }
+    },
+    "hg_unset_ally_1": {
+        "tags": [
+            "any",
+            "allies",
+            "they_have_deathberry"
+        ],
+        "intro": [
+            "[You return back to your stash with t_c after a short hutnign session to see them messing around with a mouse and some bright red berries. It looks almost as if they're stuffing a deathberry into its mouth.]",
+            "[When you get close, t_c jumps, stepping in front of the mouth. Are they trying to hide something?]"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Ignore",
+                "next_scene": "ignore"
+            },
+            "choice2": {
+                "text": "Confront",
+                "next_scene": "confront"
+            }
+        },
+        "ignore": [
+            "[You decide not to mention it... you're sure it's meant for another tribute and not you.]",
+            "Hi, y_c! You startled me. Did you catch anything? I just got this mouse.",
+            "[t_c picks up the mouse and gently sets it on your combined prey pile.]",
+            "Didn't catch anything? Ah. Maybe next time. We have enough to eat a meal right now, though. The mouse is still warm!",
+            "[... You tell t_c you're not hungry.]"
+        ],
+        "confront": [
+            "What? What do you mean?",
+            "Yes, I was poisoning the mouse... what's the problem? I was gonna sneak it into the Cornucopia for someone else to take!",
+            "Don't you trust me?"
+        ],
+        "confront_choices": {
+            "choice1": {
+                "text": "No",
+                "next_scene": "trust_no"
+            },
+            "choice2": {
+                "text": "Yes",
+                "next_scene": "trust_yes"
+            }
+        },
+        "trust_no": [
+            "What?! y_c, we're allies! How am I supposed to trust you if you don't trust me?",
+            "Maybe we should split up, then. I don't think we should stick together if you really think I would try to poison you.",
+            "I'll take my stuff and go. Don't take any mice from the Cornucopia.",
+            "[t_c picks up {PRONOUN/t_c/poss} mouse and walks away. You are no longer allies with t_c.]"
+        ],
+        "trust_yes": [
+            "... Good. Good.",
+            "It's okay. I know it's just paranoia. I'd be a bit wary, too.",
+            "But I'd never do that to you, y_c! We're in this together. I'm gonna go sneak this into the Cornucopia.",
+            "[t_c picks up the mouse and trots away. You still feel a bit uneasy.]"
+        ],
+        "ignore_rel_changes": {
+            "you_to_them": {
+                "trust": -20,
+                "platonic_like": -5,
+                "comfort": -10
+            }
+        },
+        "trust_no_rel_changes": {
+            "you_to_them": {
+                "trust": -20,
+                "platonic_like": -10,
+                "comfort": -10,
+                "dislike": 15
+            },
+            "they_to_you": {
+                "trust": -20,
+                "platonic_like": -10,
+                "comfort": -10,
+                "dislike": 15
+            },
+            "allies": false
+        }
+    },
+    "hg_unset_ally_2": {
+        "tags": [
+            "allies",
+            "any",
+            "max_platonic_40",
+            "brooding",
+            "cool",
+            "stable",
+            "unabashed",
+            "upstanding",
+            "introspective"
+        ],
+        "intro": [
+            "y_c. Hey... I need to tell you something.",
+            "You've been a really great ally. I've really appreciated your company...",
+            "But I think I'm going to go my own way now. You know only one cat can survive. I don't want to end up having to hurt you.",
+            "Goodbye. I wish you luck.",
+            "[You are no longer allies with t_c.]"
+        ],
+        "trust_no_rel_changes": {
+            "you_to_them": {
+                "trust": -20,
+                "platonic_like": -10,
+                "comfort": -10
+            },
+            "they_to_you": {
+                "trust": -20,
+                "comfort": -10
+            },
+            "allies": false
+        }
     }
 }

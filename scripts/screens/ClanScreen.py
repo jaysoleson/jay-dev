@@ -145,7 +145,7 @@ class ClanScreen(Screens):
         self.show_mute_buttons()
         game.switches["cat"] = None
 
-        # print(game.clan.your_cat.map_position)
+        print(game.clan.your_cat.map_position)
 
         # # this has to be opened before placements
         with open(f"resources/dicts/hunger_games_dicts/{(game.clan.biome).lower()}/item_dict.json", "r", encoding="utf-8") as read_file:

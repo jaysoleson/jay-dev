@@ -172,7 +172,7 @@ class Game:
     setting_lists = {}
 
     debug_settings = {
-        "showcoords": False,
+        "showcoords": True,
         "showbounds": False,
         "visualdebugmode": False,
         "showfps": False,

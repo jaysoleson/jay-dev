@@ -2390,14 +2390,17 @@ class Events:
             else:
                 try:
                     # Attempt to find a valid placement
-                    for _ in range(30):  # Limit attempts to avoid infinite loop
-                        moon_placement = random.choice(self.MAP_POSITION_INFO[cat.map_position]["placements"])
-                        if moon_placement not in taken_placements:
-                            taken_placements.append(moon_placement)  # Record the placement
-                            cat.moon_placement = moon_placement
-                            break
-                        # If we exit the loop without breaking, no valid placement was found
-                        cat.moon_placement = random.choice(self.MAP_POSITION_INFO[cat.map_position]["placements"])
+                    if cat.ID != game.clan.your_cat.ID:
+                        for _ in range(30):  # Limit attempts to avoid infinite loop
+                            moon_placement = random.choice(self.MAP_POSITION_INFO[cat.map_position]["placements"])
+                            if moon_placement not in taken_placements:
+                                taken_placements.append(moon_placement)  # Record the placement
+                                cat.moon_placement = moon_placement
+                                break
+                            # If we exit the loop without breaking, no valid placement was found
+                            cat.moon_placement = random.choice(self.MAP_POSITION_INFO[cat.map_position]["placements"])
+                    else:
+                            cat.moon_placement = random.choice(self.MAP_POSITION_INFO[cat.map_position]["mc_placement"])
                 except:
                     cat.moon_placement = [750, 750]
 

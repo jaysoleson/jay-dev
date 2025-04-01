@@ -171,7 +171,10 @@ class AttackScreen(Screens):
                 tool_tip_text="This is the fight screen! You have several different options.\n\n" +
                 "<b>Attack</b> will initiate a fight with the opponent.\n" +
                 "<b>Poison</b> will allow you to attempt to poison the opponent's prey, but only if you have some poison on hand.\n" +
-                "<b>Leave</b> is your last chance to leave the battle with no cost.",
+                "<b>Leave</b> is your last chance to leave the battle with no cost." +
+                "<br>" +
+                "In a fight, you will be able to cycle between your allies for each turn." +
+                "Attacking an ally will unset them as your ally.",
                 container=self.containers["buttons"],
                 anchors={"centerx": "centerx"}
             )

@@ -1,51 +1,65 @@
 {
     "3_2": {
-        "gather tansy": [75, 125]
+        "gather tansy": [75, 125],
+        "hunt": [200, 150]
     },
     "3_1": {
-        "gather goldenrod": [350, 425]
+        "gather goldenrod": [350, 425],
+        "hunt": [150, 250]
     },
     "3_0": {
-        "gather daisy": [450, 175]
+        "gather daisy": [450, 175],
+        "hunt": [400, 350]
     },
     "3_-1": {
-        "gather tansy": [235, 275]
+        "gather tansy": [235, 275],
+        "hunt": [200, 500]
     },
     "2_2": {
-        "gather mullein": [350, 250],
-        "gather tansy": [450, 100]
+        "gather mullein": [400, 270],
+        "gather tansy": [600, 250],
+        "hunt": [170, 150]
     },
     "2_1": {
-        "gather wild_garlic": [325, 400]
+        "gather wild_garlic": [325, 400],
+        "hunt": [400, 350]
     },
     "2_0": {
         "investigate": [475, 475],
         "gather dandelion": [350, 250],
-        "gather mallow": [300, 600]
+        "gather mallow": [300, 600],
+        "hunt": [400, 350]
     },
     "2_-1": {
-        "gather juniper": [200, 125]
+        "gather juniper": [200, 125],
+        "hunt": [400, 280]
     },
     "2_-2": {
-        "gather marigold": [300, 250]
+        "gather marigold": [300, 250],
+        "hunt": [500, 500]
     },
     "1_2": {
-        "gather poppy": [480, 140]
+        "gather poppy": [480, 140],
+        "hunt": [220, 200]
     },
     "1_1": {
         "gather lungwort": [200, 340],
-        "gather ragwort": [625, 125]
+        "gather ragwort": [625, 125],
+        "hunt": [300, 450]
     },
     "1_0": {
         "hunt": [500, 450]
     },
     "1_-1": {
+        "hunt": [500, 250]
     },
     "1_-2": {
+        "hunt": [120, 560]
     },
     "1_-3": {
     },
     "0_2": {
+        "hunt": [500, 430]
     },
     "0_1": {
         "hunt": [400, 300]
@@ -54,43 +68,60 @@
         "investigate": [375, 375]
     },
     "0_-1": {
+        "hunt": [560, 280]
     },
     "0_-2": {
+        "hunt": [320, 300]
     },
     "0_-3": {
-        "investigate": [350, 195]
+        "investigate": [350, 195],
+        "hunt": [100, 600]
     },
     "-1_2": {
         "gather tansy": [225, 200],
-        "gather goldenrod": [400, 250]
+        "gather goldenrod": [400, 250],
+        "hunt": [650, 500]
     },
     "-1_1": {
-        "gather rosemary": [600, 275]
+        "gather rosemary": [600, 275],
+        "hunt": [330, 330]
     },
     "-1_0": {
+        "hunt": [430, 360]
     },
     "-1_-1": {
+        "hunt": [280, 480]
     },
     "-1_-2": {
+        "hunt": [520, 490]
     },
     "-1_-3": {
+        "hunt": [150, 630]
     },
     "-2_2": {
         "fish": [120, 550],
         "investigate": [520, 420]
     },
     "-2_1": {
+        "hunt": [200, 200]
     },
     "-2_0": {
+        "hunt": [400, 300]
     },
     "-2_-1": {
+        "hunt": [400, 300]
+    },
+    "-2_-2": {
+        "fish": [530, 330]
     },
     "-2_-3": {
         "fish": [480, 550]
     },
     "-3_1": {
+        "hunt": [700, 440]
     },
     "-3_0": {
+        "hunt": [700, 200]
     },
     "-3_-1": {
         "fish": [450, 450]
