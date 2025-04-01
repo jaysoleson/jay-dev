@@ -1078,7 +1078,8 @@ class Condition_Events:
                     if condition in cat.injuries:
                         inflicted_by_cat_id = (
                             cat.injuries[condition]["inflicted_by"]
-                            if "inflicted_by" in cat.injuries[condition]
+                            if "inflicted_by" in cat.injuries[condition] and
+                            cat.injuries[condition]["inflicted_by"]
                             else None
                             )
                 try:

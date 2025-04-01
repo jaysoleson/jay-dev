@@ -2668,6 +2668,7 @@ class Events:
             if all_list:
                 if (
                     (cat.stats.health < 50 or
+                    cat.stats.hunger < 65 or
                     cat.is_ill() or
                     cat.is_injured) and
                     herblist
@@ -4728,12 +4729,13 @@ class Events:
         if not attackers:
             return
         attacker = random.choice(attackers)
-        chance = 15
-        chance *= int(
+        chance = 10
+        chance *= (
             MAP_POSITION_INFO[game.clan.your_cat.map_position]["safety"]
         )
-        if game.clan.your_cat.sleeping is False:
-            chance *= 2
+
+        if game.clan.your_cat.sleeping:
+            chance /= 2
         if attacker.ID in game.clan.your_cat.allies:
             chance *= 1.5
         
@@ -4753,7 +4755,6 @@ class Events:
         chance = round(chance)
         if chance < 2:
             chance = 2
-        print(attacker.name, "attack chance:", chance)
 
         if not game.clan.your_cat.dead and not int(random.random() * chance):
             if attacker not in game.clan.your_cat.relationships:

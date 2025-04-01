@@ -729,10 +729,11 @@ class HandleShortEvents:
 
             # HG
             inflicting_cat = block["inflicted_by"] if "inflicted_by" in block else None
+            inflicting_cat_id = None
             if inflicting_cat == "m_c":
-                inflicting_cat = self.main_cat.ID
+                inflicting_cat_id = self.main_cat.ID
             elif inflicting_cat == "r_c":
-                inflicting_cat = self.random_cat.ID
+                inflicting_cat_id = self.random_cat.ID
             # ---
 
             # find all possible injuries
@@ -748,20 +749,20 @@ class HandleShortEvents:
                 # MAIN CAT
                 if abbr == "m_c":
                     injury = random.choice(possible_injuries)
-                    self.main_cat.get_injured(injury, inflicted_by=inflicting_cat)
+                    self.main_cat.get_injured(injury, inflicted_by=inflicting_cat_id)
                     self.handle_injury_history(self.main_cat, "m_c", injury)
 
                 # RANDOM CAT
                 elif abbr == "r_c":
                     injury = random.choice(possible_injuries)
-                    self.random_cat.get_injured(injury, inflicted_by=inflicting_cat)
+                    self.random_cat.get_injured(injury, inflicted_by=inflicting_cat_id)
                     self.handle_injury_history(self.random_cat, "r_c", injury)
 
                 # NEW CATS
                 elif "n_c" in abbr:
                     for i, new_cats in enumerate(self.new_cats):
                         injury = random.choice(possible_injuries)
-                        new_cats[i].get_injured(injury, inflicted_by=inflicting_cat)
+                        new_cats[i].get_injured(injury)
                         self.handle_injury_history(new_cats[i], abbr, injury)
 
     def handle_injury_history(self, cat, cat_abbr, injury=None):

@@ -349,7 +349,8 @@
         ],
         "tags": [
             "all_lives",
-            "no_body"
+            "no_body",
+            "HG_beachbiome_cliff"
         ],
         "weight": 40,
         "event_text": "m_c and r_c get into a scrap near the cliff. When m_c slips over the edge, r_c tries to save {PRONOUN/m_c/object}, but {PRONOUN/r_c/subject} {VERB/r_c/aren't/isn't} quick enough.",

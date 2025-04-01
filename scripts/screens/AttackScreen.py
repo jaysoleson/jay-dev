@@ -20,6 +20,7 @@ from ..ui.generate_button import ButtonStyles, get_button_dict
 from ..ui.get_arrow import get_arrow
 from scripts.game_structure import image_cache
 from ..ui.generate_box import get_box, BoxStyles
+from ..ui.icon import Icon
 
 
 class AttackScreen(Screens):
@@ -38,6 +39,7 @@ class AttackScreen(Screens):
         self.taken_item = []
         self.rests = 0
         self.strategy = "attack"
+        self.you = None
 
     def screen_switches(self):
         """
@@ -45,7 +47,8 @@ class AttackScreen(Screens):
         """
         super().screen_switches()
         self.the_cat = Cat.all_cats.get(game.switches['cat'])
-        self.you = game.clan.your_cat
+        if not self.you:
+            self.you = game.clan.your_cat
 
         if game.switches["ambush"]:
             self.stage = "fight"
@@ -326,13 +329,13 @@ class AttackScreen(Screens):
             anchors={"centerx": "centerx"}
         )
         # frame
-        self.elements["stats_frame"] = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((0, 0), (732, 190))),
-            get_box(BoxStyles.FRAME, (732, 190)),
-            manager=MANAGER,
-            container=self.containers["stats"],
-            anchors={"centerx": "centerx", "centery": "centery"}
-        )
+        # self.elements["stats_frame"] = pygame_gui.elements.UIImage(
+        #     ui_scale(pygame.Rect((0, 0), (732, 190))),
+        #     get_box(BoxStyles.FRAME, (732, 190)),
+        #     manager=MANAGER,
+        #     container=self.containers["stats"],
+        #     anchors={"centerx": "centerx", "centery": "centery"}
+        # )
         # stats
         # VICTIM STATS ---
         self.elements["victim_sprite"] = pygame_gui.elements.UIImage(
@@ -422,6 +425,29 @@ class AttackScreen(Screens):
             anchors={
                 "top_target": self.elements["you_info"]
                 })
+        
+        # SWITCH TO ALLY BUTTONS
+        if self.you.ID == game.clan.your_cat.ID:
+            text = "Switch to ally"
+        else:
+            text = "Switch to you"
+        self.buttons["cycle_ally"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((420, 145), (34, 34))),
+            Icon.CAT_HEAD,
+            get_button_dict(ButtonStyles.ICON, (34, 34)),
+            object_id="@buttonstyles_icon",
+            tool_tip_text=text,
+            manager=MANAGER,
+            container=self.containers["stats"]
+        )
+        if (
+            len(game.clan.your_cat.allies) == 0
+            or Cat.fetch_cat(game.clan.your_cat.allies[0]).ID == self.the_cat.ID
+            or Cat.fetch_cat(game.clan.your_cat.allies[0]).sleeping
+            ):
+            self.buttons["cycle_ally"].hide()
+        else:
+            self.buttons["cycle_ally"].show()
 
         x_val = 669
         for value in range(round(self.you.stats.health / 5)):
@@ -446,6 +472,13 @@ class AttackScreen(Screens):
         input events
         """
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
+            if event.ui_element == self.buttons["cycle_ally"]:
+                if self.you.ID == game.clan.your_cat.ID:
+                    self.you = Cat.fetch_cat(game.clan.your_cat.allies[0])
+                else:
+                    self.you = game.clan.your_cat
+                self.exit_screen()
+                self.screen_switches()
             if self.stage == "pre_fight":
                 if event.ui_element == self.buttons["leave"]:
                     self.reset_variables()

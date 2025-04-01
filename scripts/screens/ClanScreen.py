@@ -33,7 +33,6 @@ from scripts.utility import (
 from .Screens import Screens
 from ..ui.generate_button import ButtonStyles, get_button_dict
 from ..ui.generate_box import get_box, BoxStyles
-from ..ui.generate_button import ButtonStyles, get_button_dict
 from ..ui.get_arrow import get_arrow
 from ..ui.icon import Icon
 

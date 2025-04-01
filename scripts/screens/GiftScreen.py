@@ -756,7 +756,7 @@ class GiftScreen(Screens):
 
             accname = self.selected_accessory.capitalize().replace("_", " ")
             if self.selected_accessory in ITEM_VALUES["food"].keys():
-                image = image_cache.load_image(f"resources/images/inventory_items/{self.selected_accessory.lower()}.png").convert_alpha()
+                image = image_cache.load_image(f"resources/images/inventory_items/{self.selected_accessory.lower().replace(' ', '_')}.png").convert_alpha()
                 self.selected_acc_details["selected_image"] = pygame_gui.elements.UIImage(
                     ui_scale(pygame.Rect((x_pos, y_pos), (dimensions))),
                     pygame.transform.scale(image, (dimensions)),
