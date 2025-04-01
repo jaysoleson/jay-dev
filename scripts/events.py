@@ -37,7 +37,6 @@ from scripts.utility import (
     get_alive_cats,
     get_cats_same_age,
     check_possible_directions,
-    get_inventory_size,
     get_other_clan,
     history_text_adjust,
     adjust_txt,
@@ -515,9 +514,7 @@ class Events:
                 break
             acc = random.choice(acc_list)
 
-        size = get_inventory_size(game.clan.your_cat)
-        if len(game.clan.your_cat.pelt.inventory.keys()) < size:
-            game.clan.your_cat.pelt.inventory.update({acc: 1})
+        game.clan.your_cat.pelt.inventory.update({acc: 1})
 
         ACC_DISPLAY = None
         with open(f"resources/dicts/acc_display.json", 'r') as read_file:
@@ -2571,13 +2568,7 @@ class Events:
                 else:
                     a = 1
                 
-                size = get_inventory_size(kitty)
-                if len(kitty.pelt.inventory.keys()) < size:
-                    kitty.pelt.inventory.update({i: a})
-                    # print("Giving", i, "to", kitty.name)
-                # else:
-                #     print(cat.name, "'s inventory is full!")
-
+                kitty.pelt.inventory.update({i: a})
             prey_list = []
             for i in random_prey:
                 i = i.lower()
@@ -2734,12 +2725,7 @@ class Events:
                 return
 
             for i in herb:
-                size = get_inventory_size(cat)
-                if len(cat.pelt.inventory.keys()) < size:
-                    cat.pelt.inventory.update({i: 1})
-                    # print(cat.name, "got", i)
-                # else:
-                #     print(cat.name, "'s inventory is full!")
+                cat.pelt.inventory.update({i: 1})
             
         try:
             chance = self.MAP_POSITION_INFO[cat.map_position]["prey_abundance"]
@@ -2778,9 +2764,7 @@ class Events:
 
             a = random.randint(1,3)
             for i in random_prey:
-                size = get_inventory_size(cat)
-                if len(cat.pelt.inventory.keys()) < size:
-                    cat.pelt.inventory.update({i: a})
+                cat.pelt.inventory.update({i: a})
                 # else:
                 #     print(cat.name, "'s inventory is full!")
     
@@ -3041,8 +3025,11 @@ class Events:
             row -= 1
 
         if not game.clan.your_cat.dead:
-            game.clan.your_cat.map_position = f"{int(row)}_{int(column)}"
         # turn back into a string and update the cat's position!
+            game.clan.your_cat.map_position = f"{int(row)}_{int(column)}"
+            for ally in game.clan.your_cat.allies:
+                if not Cat.fetch_cat(ally).sleeping:
+                    Cat.fetch_cat(ally).map_position = game.clan.your_cat.map_position
 
         game.clan.next_direction = None
 
@@ -3051,6 +3038,9 @@ class Events:
             if npc.ID == game.clan.your_cat.ID:
                 continue
             if npc.sleeping is True:
+                continue
+            if npc.ID in game.clan.your_cat.allies:
+            # ur allies get no agency. this will blindly follow u
                 continue
             cat_row, cat_column = npc.map_position.split("_")
             cat_row = int(cat_row)
@@ -3097,9 +3087,13 @@ class Events:
             # ill do a better version of this later lol
             if npc.allies:
                 for i in npc.allies:
-                    ally = Cat.all_cats.get(i)
-                    if ally.map_position != npc.map_position:
-                        npc.map_position = ally.map_position
+                    ally = Cat.fetch_cat(i)
+                    try:
+                        if ally.map_position != npc.map_position:
+                            npc.map_position = ally.map_position
+                    except Exception as e:
+                        print("NPC ally travel map error. Ally:", ally, "NPC:", npc)
+                        print(e)
         
         if game.clan.spectating:
             game.clan.your_cat.map_position = game.clan.spectating.map_position
@@ -4737,7 +4731,7 @@ class Events:
         if game.clan.your_cat.sleeping:
             chance /= 2
         if attacker.ID in game.clan.your_cat.allies:
-            chance *= 1.5
+            chance *= 2
         
         if game.clan.your_cat.ID in attacker.relationships:
             if attacker.relationships[game.clan.your_cat.ID].dislike >= 10:
@@ -4745,7 +4739,12 @@ class Events:
             elif attacker.relationships[game.clan.your_cat.ID].platonic_like >= 20:
                 chance *= 1.5
 
-        if game.clan.your_cat.allies and not Cat.fetch_cat(game.clan.your_cat.allies[0]).sleeping:
+        sleeping_allies = []
+        for ally in game.clan.your_cat.allies:
+            if Cat.fetch_cat(ally).sleeping:
+                sleeping_allies.append(ally)
+        
+        if len(sleeping_allies) < len(game.clan.your_cat.allies):
             chance += 2
 
         murder_history = History.get_murders(attacker)

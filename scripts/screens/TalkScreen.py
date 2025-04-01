@@ -8,7 +8,7 @@ from scripts.clan import HERBS, ITEM_VALUES
 
 from .Screens import Screens
 
-from scripts.utility import generate_sprite, get_cluster, pronoun_repl, adjust_txt, get_inventory_size
+from scripts.utility import generate_sprite, get_cluster, pronoun_repl, adjust_txt
 from scripts.cat.cats import Cat
 from scripts.cat.pelts import Pelt
 from ..cat.history import History
@@ -499,10 +499,6 @@ class TalkScreen(Screens):
                         if cat_to_update.pelt.inventory[taken_item] <= 0:
                             cat_to_update.pelt.inventory.pop(taken_item)
         if "add" in inventory_block:
-            size = get_inventory_size(cat_to_update)
-            if len(cat_to_update.pelt.inventory.keys()) >= size:
-                print("CANT GIVE ITEM: INVENTORY FULL")
-                return
             for item in inventory_block["add"].items():
                 if item[0] in ["random_herbs", "random_food", "random_accessory"]:
                     if item[0] == "random_herbs":
@@ -746,9 +742,6 @@ class TalkScreen(Screens):
                     item_skip = True
             for item in items:
                 if f"they_have_{item.lower()}" in tags:
-                    size = get_inventory_size(game.clan.your_cat)
-                    if len(game.clan.your_cat.pelt.inventory.keys()) >= size:
-                        item_skip = True
                     if item not in cat.pelt.inventory.keys():
                         item_skip = True
 
@@ -767,10 +760,6 @@ class TalkScreen(Screens):
                     they_have_food = True
                     break
 
-            size = get_inventory_size(game.clan.your_cat)
-            if len(game.clan.your_cat.pelt.inventory.keys()) >= size:
-                they_have_food = False
-
             if "you_have_food" in tags and have_food is False:
                 continue
             if "they_have_food" in tags and they_have_food is False:
@@ -788,10 +777,6 @@ class TalkScreen(Screens):
                     they_have_herbs = True
                     break
 
-            size = get_inventory_size(game.clan.your_cat)
-            if len(game.clan.your_cat.pelt.inventory.keys()) >= size:
-                they_have_herbs = False
-
             if "you_have_herbs" in tags and have_herbs is False:
                 continue
             if "they_have_herbs" in tags and they_have_herbs is False:
@@ -807,10 +792,6 @@ class TalkScreen(Screens):
                 if i not in HERBS and i not in ITEM_VALUES["food"].keys():
                     they_have_acc = True
                     break
-
-            size = get_inventory_size(game.clan.your_cat)
-            if len(game.clan.your_cat.pelt.inventory.keys()) >= size:
-                they_have_acc = False
 
             if "you_have_acc" in tags and have_acc is False:
                 continue

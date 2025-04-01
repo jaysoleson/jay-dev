@@ -16,7 +16,7 @@ from scripts.utility import event_text_adjust, ACC_DISPLAY, process_text, chunks
 
 from .Screens import Screens
 
-from scripts.utility import get_text_box_theme, shorten_text_to_fit, clan_symbol_sprite, get_inventory_size
+from scripts.utility import get_text_box_theme, shorten_text_to_fit, clan_symbol_sprite
 from scripts.cat.cats import Cat, BACKSTORIES
 from scripts.cat.pelts import Pelt
 from scripts.game_structure import image_cache

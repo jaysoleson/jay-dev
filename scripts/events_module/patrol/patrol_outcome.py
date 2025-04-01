@@ -23,7 +23,6 @@ from scripts.utility import (
     unpack_rel_block,
     event_text_adjust,
     gather_cat_objects,
-    get_inventory_size,
     adjust_txt,
     create_new_cat_block
 )
@@ -1361,9 +1360,7 @@ class PatrolOutcome:
 
         chosen_acc = choice(acc_list)
         if chosen_acc not in cat.pelt.inventory:
-            size = get_inventory_size(cat)
-            if len(cat.pelt.inventory.keys()) < size:
-                cat.pelt.inventory.update({chosen_acc: 1})
-                cat.pelt.accessories.append(chosen_acc)
+            cat.pelt.inventory.update({chosen_acc: 1})
+            cat.pelt.accessories.append(chosen_acc)
 
         return chosen_acc

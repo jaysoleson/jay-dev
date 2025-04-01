@@ -160,14 +160,14 @@ class Relation_Events:
             kitty for kitty in Cat.all_cats_list if (
                 not kitty.outside and
                 not kitty.dead and
-                not kitty.allies and
                 kitty.ID != cat.ID and
-                kitty.ID != game.clan.your_cat.ID
+                kitty.ID != game.clan.your_cat.ID and
+                kitty.ID not in game.clan.your_cat.allies
             )
         ]
 
         if cat.allies != []:
-            other_cat = Cat.fetch_cat(cat.allies[0])
+            other_cat = Cat.fetch_cat(choice(cat.allies))
             if other_cat.ID == game.clan.your_cat.ID:
                 return
             if not random.getrandbits(6):

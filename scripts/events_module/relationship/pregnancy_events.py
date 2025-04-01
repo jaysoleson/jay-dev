@@ -1170,4 +1170,6 @@ class Pregnancy_Events:
         if settings_allow and Pregnancy_Events.biggest_family_is_big():
             inverse_chance = int(inverse_chance * 0.9)
 
+        # HG: just make it way rarer lol
+        inverse_chance *= 3
         return inverse_chance

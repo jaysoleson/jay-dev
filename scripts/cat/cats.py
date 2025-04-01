@@ -682,9 +682,8 @@ class Cat:
         if self == game.clan.spectating:
             game.clan.spectating = None
         
-        if self.allies:
-            ally = Cat.fetch_cat(self.allies[0])
-            ally.unset_ally(self)
+        for ally in self.allies:
+            self.unset_ally(Cat.fetch_cat(ally))
 
         return
 
@@ -3150,43 +3149,53 @@ class Cat:
                 f"Unsetting allies: These {self.name} and {other_cat.name} are not allies!"
             )
             return
+        
+        cats_left = [self]
+        for ally in other_cat.allies:
+            # in this scenario, other_cat is leaving the relationship
+            # so if they share any other allies with self, self keeps them in the divorce
+            if ally in self.allies:
+                if ally in other_cat.allies:
+                    cats_left.append(Cat.fetch_cat(ally))
 
         # If only deal with relationships if this is a breakup.
         if breakup:
-            self_relationship = None
-            if not self.dead:
-                if other_cat.ID not in self.relationships:
-                    self.create_one_relationship(other_cat)
-                    self.relationships[other_cat.ID].allies = True
-                self_relationship = self.relationships[other_cat.ID]
-                self_relationship.platonic_like -= 40
-                self_relationship.comfortable = 10
-                self_relationship.trust = 5
-                self_relationship.allies = False
-                if fight:
-                    self_relationship.trust = 0
-                    self_relationship.comfortable = 0
-            if not other_cat.dead:
-                if self.ID not in other_cat.relationships:
-                    other_cat.create_one_relationship(self)
-                    other_cat.relationships[self.ID].allies = True
-                other_relationship = other_cat.relationships[self.ID]
-                self_relationship.platonic_like -= 40
-                self_relationship.comfortable = 10
-                self_relationship.trust = 5
-                other_relationship.allies = False
-                if fight:
-                    other_relationship.platonic_like -= 30
-
-        self.allies.remove(other_cat.ID)
-        other_cat.allies.remove(self.ID)
+            for cat in cats_left:
+                self_relationship = None
+                if not cat.dead:
+                    if other_cat.ID not in cat.relationships:
+                        cat.create_one_relationship(other_cat)
+                        cat.relationships[other_cat.ID].allies = True
+                    self_relationship = cat.relationships[other_cat.ID]
+                    self_relationship.platonic_like -= 40
+                    self_relationship.comfortable = 10
+                    self_relationship.trust = 5
+                    self_relationship.allies = False
+                    if fight:
+                        self_relationship.trust = 0
+                        self_relationship.comfortable = 0
+                if not other_cat.dead:
+                    if cat.ID not in other_cat.relationships:
+                        other_cat.create_one_relationship(cat)
+                        other_cat.relationships[cat.ID].allies = True
+                    other_relationship = other_cat.relationships[cat.ID]
+                    self_relationship.platonic_like -= 40
+                    self_relationship.comfortable = 10
+                    self_relationship.trust = 5
+                    other_relationship.allies = False
+                    if fight:
+                        other_relationship.platonic_like -= 30
+        
+        for cat in cats_left:
+            cat.allies.remove(other_cat.ID)
+            other_cat.allies.remove(cat.ID)
 
     def set_ally(self, other_cat: Cat):
         """HUNGER GAMES: sets two cats to be allies"""
-        if other_cat.ID not in self.mate:
-            self.allies.append(other_cat.ID)
-        if self.ID not in other_cat.mate:
-            other_cat.allies.append(self.ID)
+        # if other_cat.ID not in self.allies:
+        #     self.allies.append(other_cat.ID)
+        # if self.ID not in other_cat.allies:
+        #     other_cat.allies.append(self.ID)
 
         # If the current mate was in the previous mate list, remove them.
         # if other_cat.ID in self.previous_mates:
@@ -3195,26 +3204,46 @@ class Cat:
         #     other_cat.previous_mates.remove(self.ID)
         # if i want prev allies
 
-        # Set starting relationship values
-        if not self.dead:
-            if other_cat.ID not in self.relationships:
-                self.create_one_relationship(other_cat)
-                self.relationships[other_cat.ID].allies = True
-            self_relationship = self.relationships[other_cat.ID]
-            self_relationship.platonic_like += 20
-            self_relationship.comfortable += 30
-            self_relationship.trust += 20
-            self_relationship.allies = True
+        new_allies = [self, other_cat]
+        for ally in other_cat.allies:
+            # join all allies so they become one big group
+            if Cat.fetch_cat(ally) not in new_allies:
+                new_allies.append(Cat.fetch_cat(ally))
+        for ally in self.allies:
+            if Cat.fetch_cat(ally) not in new_allies:
+                new_allies.append(Cat.fetch_cat(ally))
 
-        if not other_cat.dead:
-            if self.ID not in other_cat.relationships:
-                other_cat.create_one_relationship(self)
-                other_cat.relationships[self.ID].allies = True
-            other_relationship = other_cat.relationships[self.ID]
-            other_relationship.platonic_like += 20
-            other_relationship.comfortable += 30
-            other_relationship.trust += 20
-            other_relationship.allies = True
+        # Set starting relationship values
+        for cat1 in new_allies:
+            for cat2 in new_allies:
+                if (
+                    cat2.ID not in cat1.allies and
+                    cat1 != cat2
+                    ):
+                    if cat2 not in cat1.allies:
+                        cat1.allies.append(cat2.ID)
+                    if cat1 not in cat2.allies:
+                        cat2.allies.append(cat1.ID)
+                    print("Allying", cat1.name, "and", cat2.name)
+                    if not cat2.dead:
+                        if cat1.ID not in cat2.relationships:
+                            cat2.create_one_relationship(cat1)
+                            cat2.relationships[cat1.ID].allies = True
+                        self_relationship = cat2.relationships[cat1.ID]
+                        self_relationship.platonic_like += 15
+                        self_relationship.comfortable += 20
+                        self_relationship.trust += 20
+                        self_relationship.allies = True
+
+                    if not cat1.dead:
+                        if cat2.ID not in cat1.relationships:
+                            cat1.create_one_relationship(cat2)
+                            cat1.relationships[cat2.ID].allies = True
+                        other_relationship = cat1.relationships[cat2.ID]
+                        other_relationship.platonic_like += 15
+                        other_relationship.comfortable += 20
+                        other_relationship.trust += 20
+                        other_relationship.allies = True
     
     def unset_adoptive_parent(self, other_cat: Cat):
         """Unset the adoptive parent from self"""

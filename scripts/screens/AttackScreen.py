@@ -41,6 +41,8 @@ class AttackScreen(Screens):
         self.strategy = "attack"
         self.you = None
 
+        self.ally_list = []
+
     def screen_switches(self):
         """
         switches screens
@@ -49,6 +51,14 @@ class AttackScreen(Screens):
         self.the_cat = Cat.all_cats.get(game.switches['cat'])
         if not self.you:
             self.you = game.clan.your_cat
+        if not self.ally_list:
+            self.ally_list.append(game.clan.your_cat.ID)
+            for ally in game.clan.your_cat.allies:
+                if (
+                    ally != self.the_cat.ID and
+                    not Cat.fetch_cat(ally).sleeping
+                    ):
+                    self.ally_list.append(ally)
 
         if game.switches["ambush"]:
             self.stage = "fight"
@@ -427,10 +437,7 @@ class AttackScreen(Screens):
                 })
         
         # SWITCH TO ALLY BUTTONS
-        if self.you.ID == game.clan.your_cat.ID:
-            text = "Switch to ally"
-        else:
-            text = "Switch to you"
+        text = "Switch ally"
         self.buttons["cycle_ally"] = UISurfaceImageButton(
             ui_scale(pygame.Rect((420, 145), (34, 34))),
             Icon.CAT_HEAD,
@@ -440,10 +447,19 @@ class AttackScreen(Screens):
             manager=MANAGER,
             container=self.containers["stats"]
         )
+        awake_ally = False
+        for ally in game.clan.your_cat.allies:
+            if Cat.fetch_cat(ally).sleeping is False:
+                awake_ally = True
+                break
+
         if (
             len(game.clan.your_cat.allies) == 0
-            or Cat.fetch_cat(game.clan.your_cat.allies[0]).ID == self.the_cat.ID
-            or Cat.fetch_cat(game.clan.your_cat.allies[0]).sleeping
+            or (
+                len(game.clan.your_cat.allies) == 1 and
+                Cat.fetch_cat(game.clan.your_cat.allies[0]).ID == self.the_cat.ID
+                )
+            or not awake_ally
             ):
             self.buttons["cycle_ally"].hide()
         else:
@@ -473,10 +489,11 @@ class AttackScreen(Screens):
         """
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
             if event.ui_element == self.buttons["cycle_ally"]:
-                if self.you.ID == game.clan.your_cat.ID:
-                    self.you = Cat.fetch_cat(game.clan.your_cat.allies[0])
-                else:
-                    self.you = game.clan.your_cat
+                current_index = self.ally_list.index(self.you.ID)
+                current_index += 1
+                if current_index >= len(self.ally_list):
+                    current_index = 0
+                self.you = Cat.fetch_cat(self.ally_list[current_index])
                 self.exit_screen()
                 self.screen_switches()
             if self.stage == "pre_fight":

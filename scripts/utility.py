@@ -3142,12 +3142,6 @@ def is_iterable(y):
         0 in y
     except TypeError:
         return False
-    
-#  HG
-def get_inventory_size(cat):
-    size = 18
-
-    return size
 
 def get_text_box_theme(theme_name=None):
     """Updates the name of the theme based on dark or light mode"""
