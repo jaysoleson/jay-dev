@@ -90,20 +90,20 @@ class ClanScreen(Screens):
                 self.change_screen('profile screen')
             
             if event.ui_element == self.direction_buttons["north"]:
-                game.clan.next_direction = "north"
-                self.update_buttons_and_text()
+                game.clan.next_activity = "north"
+                self.update_activity_buttons()
             elif event.ui_element == self.direction_buttons["east"]:
-                game.clan.next_direction = "east"
-                self.update_buttons_and_text()
+                game.clan.next_activity = "east"
+                self.update_activity_buttons()
             elif event.ui_element == self.direction_buttons["south"]:
-                game.clan.next_direction = "south"
-                self.update_buttons_and_text()
+                game.clan.next_activity = "south"
+                self.update_activity_buttons()
             elif event.ui_element == self.direction_buttons["west"]:
-                game.clan.next_direction = "west"
-                self.update_buttons_and_text()
+                game.clan.next_activity = "west"
+                self.update_activity_buttons()
             elif event.ui_element == self.direction_buttons["bloodbath"]:
-                game.clan.next_direction = None
-                self.update_buttons_and_text()
+                game.clan.next_activity = None
+                self.update_activity_buttons()
 
             for item in self.activity_buttons:
                 if event.ui_element == self.activity_buttons[item]:
@@ -112,14 +112,14 @@ class ClanScreen(Screens):
                     else:
                         self.open_popup = None
 
-            if self.popup_buttons != {}:
+            if self.popup_buttons:
                 for item in self.popup_buttons:
                     if event.ui_element == self.popup_buttons[item]:
                         if game.clan.next_activity != item:
                             game.clan.next_activity = item
-                            game.clan.next_direction = None
                         else:
                             game.clan.next_activity = None
+                            print("wtf here")
                     
             self.update_activity_buttons()
 
@@ -233,8 +233,6 @@ class ClanScreen(Screens):
             manager=MANAGER,
             anchors={"centery": "centery", "centerx": "centerx"}
         )
-        
-        self.update_activity_buttons()
 
         # We have to convert the positions to something pygame_gui buttons will understand
         # This should be a temp solution. We should change the code that determines positions.
@@ -322,6 +320,7 @@ class ClanScreen(Screens):
         )
         self.save_button_saving_state.hide()
 
+        self.update_activity_buttons()
         self.update_buttons_and_text()
 
     def exit_screen(self):
@@ -386,9 +385,19 @@ class ClanScreen(Screens):
         self.popup_buttons = {}
 
         for activity in self.activity_list.items():
-            self.activity_buttons[f"{activity[0]}"] = UISurfaceImageButton(
+            # get the right icon
+            name = activity[0]
+            if name in ["hunt", "fish"]:
+                icon = Icon.MOUSE
+            elif name == "train":
+                icon = Icon.SCRATCHES
+            elif "gather" in name:
+                icon = Icon.HERB
+            else:
+                icon = Icon.CLAN_UNKNOWN
+            self.activity_buttons[f"{name}"] = UISurfaceImageButton(
                 ui_scale(pygame.Rect((activity[1][0], activity[1][1]), (25, 25))),
-                Icon.PAW,
+                icon,
                 get_button_dict(ButtonStyles.ICON, (25, 25)),
                 object_id="@buttonstyles_icon",
             )
@@ -429,7 +438,10 @@ class ClanScreen(Screens):
                         insert2 = "Cancel activity"
                     else:
                         insert = f"<font color='#000000'>{textdisplay}</font>"
-                        insert2 = (activity[0]).capitalize()
+                        if "gather" in activity[0]:
+                            insert2 = (activity[0]).capitalize().replace('_', ' ')
+                        else:
+                            insert2 = None
                     
                     self.activity_labels[f"{activity[0]}"] = pygame_gui.elements.UITextBox(
                         insert,
@@ -438,13 +450,43 @@ class ClanScreen(Screens):
                         "#text_box_22_horizcenter"),
                     )
 
-                    self.popup_buttons[f"{activity[0]}"] = UISurfaceImageButton(
-                        ui_scale(pygame.Rect((activity[1][0] - 49, activity[1][1] - 35), (30, 30))),
-                        Icon.PAW,
-                        get_button_dict(ButtonStyles.ICON, (30, 30)),
-                        object_id="@buttonstyles_icon",
-                        tool_tip_text=insert2
-                    )
+                    if insert2:
+                        self.popup_buttons[f"{activity[0]}"] = UISurfaceImageButton(
+                            ui_scale(pygame.Rect((activity[1][0] - 49, activity[1][1] - 35), (30, 30))),
+                            Icon.PAW,
+                            get_button_dict(ButtonStyles.ICON, (30, 30)),
+                            object_id="@buttonstyles_icon",
+                            tool_tip_text=insert2
+                        )
+                    else:
+                        self.popup_buttons[f"{activity[0]}"] = UISurfaceImageButton(
+                            ui_scale(pygame.Rect((activity[1][0] - 49, activity[1][1] - 35), (30, 30))),
+                            Icon.PAW,
+                            get_button_dict(ButtonStyles.ICON, (30, 30)),
+                            object_id="@buttonstyles_icon"
+                        )
+
+        directions = ["north", "east", "south", "west"]
+        if game.clan.next_activity is not None:
+            if game.clan.next_activity in directions:
+                for i in directions:
+                    self.direction_buttons[i].enable()
+                self.direction_buttons[game.clan.next_activity].disable()
+                for i in self.activity_buttons:
+                    self.activity_buttons[i].enable()
+            else:
+                for i in self.direction_buttons:
+                    self.direction_buttons[i].disable()
+                for i in self.activity_buttons:
+                    self.activity_buttons[i].disable()
+                self.activity_buttons[game.clan.next_activity].enable()
+        else:
+            for i in self.activity_buttons:
+                self.activity_buttons[i].enable()
+            for i in self.direction_buttons:
+                self.direction_buttons[i].enable()
+
+
         if game.clan.your_cat.sleeping is True:
             self.direction_buttons["north"].disable()
             self.direction_buttons["east"].disable()
@@ -452,27 +494,6 @@ class ClanScreen(Screens):
             self.direction_buttons["west"].disable()
             for ele in self.activity_buttons:
                 self.activity_buttons[ele].disable()
-        else:
-
-            directions = ["north", "east", "south", "west"]
-            if game.clan.next_activity is not None:
-                for x in directions:
-                    self.direction_buttons[x].disable()
-                for ele in self.activity_buttons:
-                    if ele != game.clan.next_activity:
-                        self.activity_buttons[ele].disable()
-            else:
-                for x in directions:
-                    self.direction_buttons[x].enable()
-
-                for x in directions:
-                    if game.clan.next_direction == x:
-                        self.direction_buttons[x].disable()
-                    else:
-                        self.direction_buttons[x].enable()
-                for ele in self.activity_buttons:
-                    self.activity_buttons[ele].enable()
-
 
     def update_current_map(self):
         camp_bg_base_dir = 'resources/images/hg_maps/'
@@ -642,17 +663,8 @@ class ClanScreen(Screens):
         else:
             self.direction_buttons["west"].show()
 
-        if not game.clan.your_cat.sleeping:
-            directions = ["north", "east", "south", "west"]
-            for x in directions:
-                if game.clan.next_direction == x:
-                    self.direction_buttons[x].disable()
-                else:
-                    self.direction_buttons[x].enable()
-            
-        
         if game.clan.timeskips == 1 and game.clan.days == 0:
-            if game.clan.next_direction is None:
+            if game.clan.next_activity is None:
                 self.direction_buttons["bloodbath"].disable()
             else:
                 self.direction_buttons["bloodbath"].enable()

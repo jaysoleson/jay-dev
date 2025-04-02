@@ -299,9 +299,9 @@ class QueenScreen(Screens):
         elif stat_change == "intelligence down":
             self.selected_cat.intelligence -= 1
         
-        if success:
-            exp_gain = randint(5, 20)
-            self.the_cat.experience += exp_gain
+        # if success:
+        #     exp_gain = randint(5, 20)
+        #     self.the_cat.experience += exp_gain
         self.update_selected_cat()
         self.the_cat.did_activity = True
         self.confirm_mentor.disable()

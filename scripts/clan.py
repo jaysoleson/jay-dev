@@ -159,7 +159,6 @@ class Clan:
         self.clan_age = clan_age if clan_age else "established"
         self.days = 0
         self.timeskips = 1
-        self.next_direction = None
         self.next_activity = None
         self.custom_pronouns = []
 
@@ -726,8 +725,8 @@ class Clan:
     def __repr__(self):
         if self.name is not None:
             _ = (
-                f"{self.name}: led by {self.leader.name}"
-                f"with {self.medicine_cat.name} as med. cat"
+                f"{self.name}: led by {self.leader.name if self.leader else None} "
+                f"with {self.medicine_cat.name if self.medicine_cat else None} as med. cat"
             )
             return _
 
@@ -834,7 +833,6 @@ class Clan:
             "clan_age": self.clan_age,
             "days": self.days,
             "timeskips": self.timeskips,
-            "next_direction": self.next_direction,
             "next_activity": self.next_activity
         }
 
@@ -901,11 +899,6 @@ class Clan:
                     cats.append(c.prefix + "," + c.suffix + ",medicine cat")
                 other_med.append(cats)
             clan_data["other_med"] = other_med
-
-        if self.next_direction:
-            clan_data["next_direction"] = self.next_direction
-        else:
-            clan_data["next_direction"] = None
 
         if self.next_activity:
             clan_data["next_activity"] = self.next_activity

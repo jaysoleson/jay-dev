@@ -54,11 +54,17 @@ class AttackScreen(Screens):
         if not self.ally_list:
             self.ally_list.append(game.clan.your_cat.ID)
             for ally in game.clan.your_cat.allies:
+                # print("checking for", Cat.fetch_cat(ally).name, ally)
                 if (
-                    ally != self.the_cat.ID and
-                    not Cat.fetch_cat(ally).sleeping
+                    ally == self.the_cat.ID or
+                    Cat.fetch_cat(ally).sleeping or
+                    Cat.fetch_cat(ally).not_working() or
+                    Cat.fetch_cat(ally).map_position != self.you.map_position or
+                    not Cat.fetch_cat(ally).dead
                     ):
-                    self.ally_list.append(ally)
+                    # print("not appending", Cat.fetch_cat(ally).name, "to ally list")
+                    continue
+                self.ally_list.append(ally)
 
         if game.switches["ambush"]:
             self.stage = "fight"
@@ -174,7 +180,9 @@ class AttackScreen(Screens):
                 "<b>Leave</b> is your last chance to leave the battle with no cost." +
                 "<br>" +
                 "In a fight, you will be able to cycle between your allies for each turn." +
-                "Attacking an ally will unset them as your ally.",
+                " Attacking an ally will unset them as your ally." +
+                "<br><br>" +
+                "Not satisfied with your fighting skills? Doing the 'train' activity can up your exp!",
                 container=self.containers["buttons"],
                 anchors={"centerx": "centerx"}
             )
@@ -236,16 +244,6 @@ class AttackScreen(Screens):
             else:
                 self.buttons["rest"].enable()
             y_val += 50
-            self.buttons["hiss"] = UISurfaceImageButton(
-                ui_scale(pygame.Rect((0, y_val), (width, 30))),
-                "hiss",
-                get_button_dict(ButtonStyles.ROUNDED_RECT, (width, 30)),
-                object_id="@buttonstyles_rounded_rect",
-                manager=MANAGER,
-                container=self.containers["buttons"],
-                anchors={"centerx": "centerx"}
-            )
-            y_val += 50
             self.buttons["run"] = UISurfaceImageButton(
                 ui_scale(pygame.Rect((0, y_val), (width, 30))),
                 "run",
@@ -262,10 +260,9 @@ class AttackScreen(Screens):
                 object_id="#help_button",
                 manager=MANAGER,
                 tool_tip_text="This is the fight screen! You have several different options.\n\n" +
-                "<b>Swipe</b> will inflict damage on the opponent.\n" +
+                "<b>Swipe</b> will inflict damage on the opponent. Damage is determined by your strength, skills, and energy.\n" +
                 "<b>Pin</b> will attempt to pin the opponent down, skipping their turn.\n" +
                 "<b>Rest</b> will use your turn to recover some health. Three rests are allowed per fight.\n" + 
-                "<b>Hiss</b> will startle your opponent, skipping their turn, if it succeeds. If it fails, your turn will be missed.\n" +
                 "<b>Run</b> will let you escape the battle, at the cost of 10 energy and an item from your inventory.\n" +
                 "Good luck!",
                 container=self.containers["buttons"],
@@ -273,7 +270,10 @@ class AttackScreen(Screens):
             )
         else:
             if self.result == "flee":
-                text = "You flee the fight."
+                if len(self.ally_list) > 1:
+                    text = "Your party flees the fight."
+                else:
+                    text = "You flee the fight."
                 sound_manager.play("hg_attack_lose")
                 if self.taken_item:
                     if self.taken_item[0] > 1:
@@ -295,7 +295,7 @@ class AttackScreen(Screens):
                     text = "<b>You won the fight!</b>"
                     if self.the_cat.pelt.inventory:
                         text += "\n\nYou have gained: "
-                        text += ", ".join([(str(i[1]) + " " + i[0].lower()) for i in self.the_cat.pelt.inventory.items()])
+                        text += ", ".join([(str(i[1]) + " " + i[0].lower().replace('_', ' ')) for i in self.the_cat.pelt.inventory.items()])
                     History.add_murders(self.the_cat, self.you, True, "m_c killed this cat in a fight.")
                 else:
                     text = f"<b>You successfully poison {self.the_cat.name}.</b>\n\n{self.the_cat.name} is alive, but very sick."
@@ -367,10 +367,13 @@ class AttackScreen(Screens):
             anchors={"left_target": self.elements["victim_sprite"]}
         )
         info = (
-            self.the_cat.personality.trait +
+            self.the_cat.skills.skill_string() +
             "\n" +
-            self.the_cat.skills.skill_string()
+            "strength: " + str(self.the_cat.experience_level)
         )
+        if game.clan.clan_settings["showxp"]:
+            info += " (" + str(self.the_cat.experience) + ")"
+
         self.elements["victim_info"] = pygame_gui.elements.UITextBox(
             info,
             ui_scale(pygame.Rect((20, 0), (180, 80))),
@@ -409,10 +412,13 @@ class AttackScreen(Screens):
             container=self.containers["stats"]
         )
         info = (
-            self.you.personality.trait +
+            self.you.skills.skill_string() +
             "\n" +
-            self.you.skills.skill_string()
+            "strength: " + str(self.you.experience_level)
         )
+        if game.clan.clan_settings["showxp"]:
+            info += " (" + str(self.you.experience) + ")"
+
         self.elements["you_info"] = pygame_gui.elements.UITextBox(
             info,
             ui_scale(pygame.Rect((392, 0), (180, 80))),
@@ -457,16 +463,11 @@ class AttackScreen(Screens):
                 break
 
         if (
-            len(game.clan.your_cat.allies) == 0
-            or (
-                len(game.clan.your_cat.allies) == 1 and
-                Cat.fetch_cat(game.clan.your_cat.allies[0]).ID == self.the_cat.ID
-                )
-            or not awake_ally
+            len(self.ally_list) > 1
             ):
-            self.buttons["cycle_ally"].hide()
-        else:
             self.buttons["cycle_ally"].show()
+        else:
+            self.buttons["cycle_ally"].hide()
 
         x_val = 669
         for value in range(round(self.you.stats.health / 5)):
@@ -510,7 +511,7 @@ class AttackScreen(Screens):
                             "action": "",
                             "turn": self.turns_taken,
                             "success": True,
-                            "text": f"You prepare to attack {self.the_cat.name}."
+                            "text": f"{self.you.name} prepares to attack {self.the_cat.name}."
                         }
                     self.actions.append(attack)
                     self.exit_screen()
@@ -522,14 +523,14 @@ class AttackScreen(Screens):
                             "action": "",
                             "turn": self.turns_taken,
                             "success": True,
-                            "text": f"You slip some deathberries into {self.the_cat.name}'s food stash."
+                            "text": f"{self.you.name} slips some deathberries into {self.the_cat.name}'s food stash."
                         }
                     self.actions.append(attack)
                     self.npc_turn()
                     self.exit_screen()
                     self.screen_switches()
             elif self.stage == "fight":
-                for action in ["swipe", "pin", "hiss", "rest", "run"]:
+                for action in ["swipe", "pin", "rest", "run"]:
                     if event.ui_element == self.buttons[action]:
                         skip_success = self.get_action_result(action)
 
@@ -553,6 +554,24 @@ class AttackScreen(Screens):
         """
         npcs turn in the battle
         """
+        if self.the_cat.allies:
+            available_allies = [
+                cat for cat in self.the_cat.allies if
+                not Cat.fetch_cat(cat).not_working() and
+                not Cat.fetch_cat(cat).sleeping and
+                Cat.fetch_cat(cat).map_position == self.you.map_position and
+                not Cat.fetch_cat(cat).dead and
+                cat != game.clan.your_cat.ID and
+                cat not in game.clan.your_cat.allies
+            ]
+            available_allies.append(self.the_cat.ID)
+            fighting_cat = Cat.fetch_cat(random.choice(available_allies))
+
+            # print(self.the_cat.name, "available allies:")
+            # for i in available_allies:
+            #     print(Cat.fetch_cat(i).name)
+        else:
+            fighting_cat = self.the_cat
 
         if self.strategy == "poison":
             if random.randint(1,2) == 1:
@@ -568,8 +587,12 @@ class AttackScreen(Screens):
         else:
             if self.the_cat.ID in self.you.allies:
                 self.the_cat.unset_ally(self.you)
-            damage = self.get_swipe_damage(self.the_cat, self.you)
-            text = f"{self.the_cat.name} attacks for {damage} damage."
+                for ally in self.the_cat.allies:
+                    if ally in self.you.allies:
+                        Cat.fetch_cat(ally).unset_ally(self.you)
+            
+            damage = self.get_swipe_damage(fighting_cat, self.you)
+            text = f"{fighting_cat.name} attacks for {damage} damage."
         self.you.stats.health -= damage
         attack = {
             "action": "",
@@ -592,14 +615,14 @@ class AttackScreen(Screens):
         text = ""
         if self.the_cat.sleeping:
             self.the_cat.sleeping = False
-            text += f"You catch {self.the_cat.name} by surprise during a nap. "
+            text += f"{self.you.name} catches {self.the_cat.name} by surprise during a nap. "
 
         divide = round(damage / 2)
         modifier = random.randint(-divide, divide)
 
         damage += modifier
 
-        text += f"You SWIPE for {damage} damage."
+        text += f"{self.you.name} swipes for {damage} damage."
         
         return damage, text
 
@@ -608,7 +631,11 @@ class AttackScreen(Screens):
         calculates success of a pin
         """
         damage = 5
-        chance = 4
+        chance = 2
+
+        diff = opponent.experience/10 - cat.experience/10
+        diff = round(diff)
+        chance += diff
 
         if cat.skills.meets_skill_requirement(SkillPath.FIGHTER, 4):
             chance /= 2
@@ -620,12 +647,15 @@ class AttackScreen(Screens):
         elif cat.age == "adolescent" and opponent.age != "adolescent":
             chance *= 2
 
+        if chance < 1:
+            chance = 1
+
         if not int(random.random() * chance):
             success = True
-            text = "You pin your opponent to the ground."
+            text = f"{cat.name} pins {opponent.name} to the ground."
         else:
             success = False
-            text = "You attempt to pin your opponent, but they're too strong."
+            text = f"{cat.name} attempts to pin {opponent.name}, but they're too strong."
 
         chance = round(random.gauss(chance, 2))
         if chance <= 0:
@@ -640,13 +670,15 @@ class AttackScreen(Screens):
         """
         calculates damage caused by a swipe
         """
-        
-        if cat.status in ["queen's apprentice", "mediator apprentice", "medicine cat apprentice"]:
-            damage = 8
-        elif cat.status == "apprentice":
-            damage = 11
-        else:
-            damage = 15
+
+        damage = (cat.experience / 10) * 2
+
+        # print(cat.name, cat.stats.energy, "---")
+        # print("pre energy:", damage)
+        energy = round(cat.stats.energy/10)
+        damage -= (10 - energy)
+        # print("post energy:", damage)
+        # print("--------")
 
         if cat.skills.meets_skill_requirement(SkillPath.FIGHTER, 4):
             damage *=1.8
@@ -657,10 +689,13 @@ class AttackScreen(Screens):
         elif cat.skills.meets_skill_requirement(SkillPath.FIGHTER, 1):
             damage *=1.1
 
+
         if cat.is_ill() or cat.is_injured():
             damage /= 1.5
+        
+        # print(cat.name, "damage pre-gauss:", damage)
 
-        damage = random.gauss(damage, 3)
+        damage = random.gauss(damage, 2)
         if damage <= 0:
             damage = 1
         return round(damage)
@@ -677,21 +712,20 @@ class AttackScreen(Screens):
             damage, text = self.swipe()
         elif action == "pin":
             damage, text, skip_success = self.pin(self.you, self.the_cat)
-        elif action == "hiss":
-            damage = 0
-            text = "You hiss and startle your opponent."
-            skip_success = True
         elif action == "rest":
             damage = 0
-            recovered_health = random.randint(8,25)
-            text = f"You REST and recover {recovered_health} health."
+            recovered_health = random.randint(8,20)
+            text = f"{self.you.name} rests and recovers {recovered_health} health."
             self.rests += 1
             self.you.stats.health += recovered_health
             skip_success = True
         elif action == "run":
             damage = 0
             self.stage = "post_fight"
-            text = "You flee the fight."
+            if len(self.ally_list) > 1:
+                text = "Your party flees the fight."
+            else:
+                text = "You flee the fight."
             self.result = "flee"
             self.you.stats.energy -= 10
             if self.you.stats.energy <= 0:
@@ -737,6 +771,8 @@ class AttackScreen(Screens):
         self.result = None
         self.rests = 0
         self.strategy = "attack"
+        self.you = game.clan.your_cat
+        self.ally_list = []
 
     def exit_screen(self):
         """

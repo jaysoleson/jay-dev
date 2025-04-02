@@ -459,6 +459,7 @@ class Events:
                 SaveError(traceback.format_exc())
         
         self.ambush()
+        game.clan.next_activity = None
 
     def add_freshkill(self):
         """Adds amount of freshkill needed for the Clan"""
@@ -2337,8 +2338,8 @@ class Events:
             if cat.dead:
                 return
             self.handle_outbreaks(cat)
-        elif cat.ID != game.clan.your_cat.ID and cat.status not in ['kitten', 'elder', 'newborn'] and not cat.outside and not cat.dead:
-            cat.experience += random.randint(0,5)
+        # elif cat.ID != game.clan.your_cat.ID and cat.status not in ['kitten', 'elder', 'newborn'] and not cat.outside and not cat.dead:
+        #     cat.experience += random.randint(0,5)
 
         # newborns don't do much
         if cat.status == "newborn":
@@ -2346,9 +2347,10 @@ class Events:
             cat.thoughts()
             return
         
-        if not cat.outside and not cat.exiled:
-            if cat.shunned == 0:
-                self.handle_apprentice_EX(cat)  # This must be before perform_ceremonies!
+        # if not cat.outside and not cat.exiled:
+        #     if cat.shunned == 0:
+        #         self.handle_apprentice_EX(cat)
+                # This must be before perform_ceremonies!
             # this HAS TO be before the cat.is_disabled() so that disabled kits can choose a med cat or mediator position
             # self.perform_ceremonies(cat)
         cat.skills.progress_skill(cat) # This must be done after ceremonies. 
@@ -2380,29 +2382,28 @@ class Events:
         # cant be done in clanscreen anymore bc i want them to stay in place every moon
         with open(f"resources/dicts/hunger_games_dicts/{(game.clan.biome).lower()}/item_dict.json", "r", encoding="utf-8") as read_file:
             self.MAP_POSITION_INFO = ujson.loads(read_file.read())
-        
-        if not cat.sleeping:
-            if cat.ID == game.clan.your_cat.ID:
-                try:
-                    cat.moon_placement = self.MAP_POSITION_INFO[game.clan.your_cat.map_position]["mc_placement"]
-                except:
-                    cat.moon_placement = [750, 800]
-            else:
-                try:
-                    # Attempt to find a valid placement
-                    if cat.ID != game.clan.your_cat.ID:
-                        for _ in range(30):  # Limit attempts to avoid infinite loop
-                            moon_placement = random.choice(self.MAP_POSITION_INFO[cat.map_position]["placements"])
-                            if moon_placement not in taken_placements:
-                                taken_placements.append(moon_placement)  # Record the placement
-                                cat.moon_placement = moon_placement
-                                break
-                            # If we exit the loop without breaking, no valid placement was found
-                            cat.moon_placement = random.choice(self.MAP_POSITION_INFO[cat.map_position]["placements"])
-                    else:
-                            cat.moon_placement = random.choice(self.MAP_POSITION_INFO[cat.map_position]["mc_placement"])
-                except:
-                    cat.moon_placement = [750, 750]
+
+        if cat.ID == game.clan.your_cat.ID:
+            try:
+                cat.moon_placement = self.MAP_POSITION_INFO[game.clan.your_cat.map_position]["mc_placement"]
+            except:
+                cat.moon_placement = [350, 400]
+        else:
+            try:
+                # Attempt to find a valid placement
+                if cat.ID != game.clan.your_cat.ID:
+                    for _ in range(30):  # Limit attempts to avoid infinite loop
+                        moon_placement = random.choice(self.MAP_POSITION_INFO[cat.map_position]["placements"])
+                        if moon_placement not in taken_placements:
+                            taken_placements.append(moon_placement)  # Record the placement
+                            cat.moon_placement = moon_placement
+                            break
+                        # If we exit the loop without breaking, no valid placement was found
+                        cat.moon_placement = random.choice(self.MAP_POSITION_INFO[cat.map_position]["placements"])
+                else:
+                        cat.moon_placement = random.choice(self.MAP_POSITION_INFO[cat.map_position]["mc_placement"])
+            except:
+                cat.moon_placement = [350, 400]
 
         # relationships have to be handled separately, because of the ceremony name change
         if not cat.dead and not cat.outside:
@@ -2445,6 +2446,9 @@ class Events:
                 game.clan.deputy = game.clan.your_cat
 
         game.switches["skip_conditions"].clear()
+
+        # if cat.ID == game.clan.your_cat.ID:
+        #     print("EXP:", game.clan.your_cat.experience)
 
     def load_war_resources(self):
         resource_dir = "resources/dicts/events/"
@@ -2552,11 +2556,10 @@ class Events:
             return
         
         for kitty in Cat.all_cats_list:
-        
             if kitty.map_position != "0_0":
                 continue
             
-            gen_prey = ITEM_VALUES["food"]
+            gen_prey = ITEM_VALUES[game.clan.biome]
 
             prey = []
             for i in gen_prey.keys():
@@ -2654,7 +2657,7 @@ class Events:
             foodlist = []
             herblist = []
             for i in cat.pelt.inventory.keys():
-                if i in ITEM_VALUES["food"]:
+                if i in ITEM_VALUES[game.clan.biome]:
                     foodlist.append(i)
                 if i in HERBS:
                     herblist.append(i)
@@ -2674,9 +2677,9 @@ class Events:
                 else:
                     food = random.choice(foodlist)
 
-                    satiation_value = ITEM_VALUES["food"][food][0]
-                    health_value = ITEM_VALUES["food"][food][1]
-                    energy_value = ITEM_VALUES["food"][food][2]
+                    satiation_value = ITEM_VALUES[game.clan.biome][food][0]
+                    health_value = ITEM_VALUES[game.clan.biome][food][1]
+                    energy_value = ITEM_VALUES[game.clan.biome][food][2]
 
                 if (
                     cat.stats.hunger + satiation_value > 100 and
@@ -2739,6 +2742,7 @@ class Events:
             try:
                 gen_prey = self.MAP_POSITION_INFO[cat.map_position]["food"]
             except:
+                print("Can't find food options for", cat.map_position)
                 gen_prey = {
                     "MOUSE": 1,
                     "RABBIT": 2
@@ -2811,7 +2815,7 @@ class Events:
     def hg_activity(self):
         """ activities from the clan screen!"""
 
-        if game.clan.next_activity is None:
+        if game.clan.next_activity in ["north", "east", "west", "south", None]:
             return
 
         with open(f"resources/dicts/hunger_games_dicts/{(game.clan.biome).lower()}/activities.json",encoding="ascii") as read_file:
@@ -2832,7 +2836,7 @@ class Events:
                 activities[game.clan.next_activity]["intro_text"]
             )
 
-        outcome = random.choice(["positive", "positive", "positive", "positive", "neutral", "neutral", "neutral", "negative"])
+        outcome = random.choice(["positive", "positive", "positive", "positive", "neutral", "neutral", "negative"])
 
         options = []
         if game.clan.next_activity == "investigate":
@@ -2853,26 +2857,48 @@ class Events:
             outcome_choice = random.choice(options)
 
         if game.clan.next_activity == "investigate":
-            outcome_options = (
-                activities[game.clan.next_activity]["outcomes"][game.clan.your_cat.map_position][outcome][outcome_choice]["text"]
+            outcome_block = (
+                activities[game.clan.next_activity]["outcomes"][game.clan.your_cat.map_position][outcome][outcome_choice]
             )
 
         else:
-            outcome_options = (
-                activities[game.clan.next_activity]["outcomes"][outcome][outcome_choice]["text"]
+            outcome_block = (
+                activities[game.clan.next_activity]["outcomes"][outcome][outcome_choice]
             )
 
-        outcome_text = random.choice(outcome_options)
+        outcome_text = random.choice(outcome_block["text"])
         skip = False
         if "r_t" in outcome_text:
-            random_tributes = [i for i in Cat.all_cats_list if not i.dead and not i.outside and i.ID != game.clan.your_cat.ID and i.map_position == game.clan.your_cat.map_position]
+            if "r_t" in outcome_block:
+                if outcome_block["r_t"]["allies"] == True:
+                    random_tributes = [
+                        i for i in Cat.all_cats_list if
+                        not i.dead and not i.outside and
+                        i.ID != game.clan.your_cat.ID and
+                        i.map_position == game.clan.your_cat.map_position and
+                        i.ID in game.clan.your_cat.allies
+                        ]
+                else:
+                    random_tributes = [
+                        i for i in Cat.all_cats_list if
+                        not i.dead and not i.outside and
+                        i.ID != game.clan.your_cat.ID and
+                        i.map_position == game.clan.your_cat.map_position and
+                        i.ID not in game.clan.your_cat.allies
+                        ]
+            else:
+                random_tributes = [
+                    i for i in Cat.all_cats_list if
+                    not i.dead and not i.outside and
+                    i.ID != game.clan.your_cat.ID and
+                    i.map_position == game.clan.your_cat.map_position and
+                    i.ID not in game.clan.your_cat.allies
+                    ]
 
             if random_tributes:
-                print("POSSIBLE RANDOM TRIBUTES:", [i.name for i in random_tributes])
                 random_tribute = random.choice(random_tributes)
             else:
                 random_tribute = None
-                print("No possible random tributes.")
                 skip = True
 
             if not skip:
@@ -2934,16 +2960,21 @@ class Events:
         # INVENTORY BLOCK
         inventory = None
         stats = None
+        experience = None
         if game.clan.next_activity == "investigate":
             if "inventory" in activities[game.clan.next_activity]["outcomes"][game.clan.your_cat.map_position][outcome][outcome_choice]:
                 inventory = activities[game.clan.next_activity]["outcomes"][game.clan.your_cat.map_position][outcome][outcome_choice]["inventory"]
             if "stats" in activities[game.clan.next_activity]["outcomes"][game.clan.your_cat.map_position][outcome][outcome_choice]:
                 stats = activities[game.clan.next_activity]["outcomes"][game.clan.your_cat.map_position][outcome][outcome_choice]["stats"]
+            if "experience" in activities[game.clan.next_activity]["outcomes"][game.clan.your_cat.map_position][outcome][outcome_choice]:
+                experience = activities[game.clan.next_activity]["outcomes"][game.clan.your_cat.map_position][outcome][outcome_choice]["experience"]
         else:
             if "inventory" in activities[game.clan.next_activity]["outcomes"][outcome][outcome_choice]:
                 inventory = activities[game.clan.next_activity]["outcomes"][outcome][outcome_choice]["inventory"]
             if "stats" in activities[game.clan.next_activity]["outcomes"][outcome][outcome_choice]:
                 stats = activities[game.clan.next_activity]["outcomes"][outcome][outcome_choice]["stats"]
+            if "experience" in activities[game.clan.next_activity]["outcomes"][outcome][outcome_choice]:
+                experience = activities[game.clan.next_activity]["outcomes"][outcome][outcome_choice]["experience"]
 
         if inventory is not None:
             given_items = []
@@ -2980,6 +3011,8 @@ class Events:
             gain_cat.stats.health += health
             gain_cat.stats.energy += energy
 
+        if experience is not None:
+            game.clan.your_cat.experience += experience
 
         # INJURY BLOCK
         injury = None
@@ -3007,12 +3040,12 @@ class Events:
                 except:
                     print("Incorrect injury in activity: ", item[1])
 
-        game.clan.next_activity = None
-
     def travel_map(self):
         row, column = game.clan.your_cat.map_position.split("_")
-        next_direction = game.clan.next_direction
+        next_direction = game.clan.next_activity if game.clan.next_activity in ["north", "east", "west", "south"] else None
         # grabbing the current position from the clan_cats string
+        if next_direction is None:
+            return
 
         row = int(row)
         column = int(column)
@@ -3034,8 +3067,6 @@ class Events:
                 if not Cat.fetch_cat(ally).sleeping:
                     Cat.fetch_cat(ally).map_position = game.clan.your_cat.map_position
 
-        game.clan.next_direction = None
-
         # now for the npcs
         for npc in Cat.all_cats_list:
             if npc.ID == game.clan.your_cat.ID:
@@ -3043,7 +3074,7 @@ class Events:
             if npc.sleeping is True:
                 continue
             if npc.ID in game.clan.your_cat.allies:
-            # ur allies get no agency. this will blindly follow u
+            # ur allies get no agency. they will blindly follow u
                 continue
             cat_row, cat_column = npc.map_position.split("_")
             cat_row = int(cat_row)
@@ -3850,7 +3881,7 @@ class Events:
             if game.clan.game_mode == "classic":
                 exp += random.randint(0, 3)
 
-            cat.experience += max(exp * role_modifier, 1)
+            # cat.experience += max(exp * role_modifier, 1)
 
     def handle_apprentice_EX(self, cat):
         """
@@ -3866,7 +3897,7 @@ class Events:
             if cat.not_working() and int(random.random() * 3):
                 return
 
-            if cat.experience > cat.experience_levels_range["trainee"][1]:
+            if cat.experience > cat.experience_levels_range["adequate"][1]:
                 return
 
             if cat.status == "medicine cat apprentice":
@@ -3885,7 +3916,7 @@ class Events:
                 + list(range(ran[1][0], ran[1][1] + 1))
             )
 
-            cat.experience += max(exp * mentor_modifier, 1)
+            # cat.experience += max(exp * mentor_modifier, 1)
 
     def invite_new_cats(self, cat):
         """

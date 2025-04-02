@@ -418,7 +418,7 @@ class HandleShortEvents:
             if "random_herb" in item:
                 item = random.choice(HERBS)
             if "random_food" in item:
-                item = random.choice(ITEM_VALUES)
+                item = random.choice(ITEM_VALUES[game.clan.biome])
             for cat in cat_list:
                 cat.pelt.inventory.update({item: amount})
                 print("ShortEvent: Giving", cat.name, amount, item)

@@ -879,5 +879,50 @@
                 }
             }
         }
+    },
+    "train": {
+        "intro_text": [
+            "You decide to practice fighting.",
+            "You do some training."
+        ],
+        "outcomes": {
+            "positive": {
+                "1": {
+                    "text": [
+                        "The training session goes well, and you're satisfied with your skills. Your strength has increased!",
+                        "You're able to refine some important skills. Your strength has increased!"
+                    ],
+                    "experience": 5
+                },
+                "2": {
+                    "text": [
+                        "r_t decides to join in, and the two of you have a nice time practicing your skills together. Your strength has increased!"
+                    ],
+                    "r_t": {
+                        "allies": true
+                    },
+                    "experience": 6
+                }
+            },
+            "neutral": {
+                "1": {
+                    "text": [
+                        "However, you can't get into the hang of it, and you cut your training session short, dissatisfied with the outcome."
+                    ],
+                    "experience": 0
+                }
+            },
+            "negative": {
+                "2": {
+                    "text": [
+                        "You're able to do some training, but you end up hurting yourself not long into the session."
+                    ],
+                    "injury": {
+                        "you": "sore"
+                    },
+                    "experience": 1
+                }
+            }
+        }
     }
 }

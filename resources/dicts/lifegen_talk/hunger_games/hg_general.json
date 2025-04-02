@@ -1984,5 +1984,59 @@
             },
             "allies": false
         }
+    },
+    "hg_grieving_1": {
+        "tags": [
+            "any",
+            "not_allies",
+            "they_grieving",
+            "they_deaf",
+            "you_deaf",
+            "they_blind"
+        ],
+        "intro": [
+            "[t_c has {PRONOUN/t_c/poss} head in {PRONOUN/t_c/poss} paws, shoulders shaking.]",
+            "[You know {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} your enemy, but it still makes you feel bad... You hope {PRONOUN/t_c/subject} {VERB/t_c/feel/feels} better soon.]"
+        ]
+    },
+    "hg_grieving_2": {
+        "tags": [
+            "any",
+            "they_grieving",
+            "they_blind",
+            "you_blind",
+            "min_platonic_10"
+        ],
+        "intro": [
+            "I knew me and tg_c couldn't both survive, but... I still kind of hoped, you know?",
+            "Maybe we could've escaped, or we could've both won together, somehow... I don't know.",
+            "I don't even want to win by myself anymore."
+        ]
+    },
+    "hg_grieving_3": {
+        "tags": [
+            "any",
+            "they_grieving",
+            "they_blind",
+            "you_blind",
+            "min_platonic_10"
+        ],
+        "intro": [
+            "I didn't think I'd make any friends in the Arena. My whole Clan told me not to, and I really thought I wouldn't.",
+            "But tg_c... I don't know. I just couldn't help it.",
+            "I don't know how to keep trying to win without {PRONOUN/t_c/object}."
+        ]
+    },
+    "hg_grieving_4": {
+        "tags": [
+            "any",
+            "they_grieving",
+            "they_blind",
+            "you_blind"
+        ],
+        "intro": [
+            "tg_c didn't deserve to die here.",
+            "These games are cruel."
+        ]
     }
 }

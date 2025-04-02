@@ -461,7 +461,6 @@ class TalkScreen(Screens):
                                 herbs_to_take.append(i)
                         amount = item[1]
                         taken_herb = choice(herbs_to_take)
-                        print('taking', taken_herb)
                         cat_to_update.pelt.inventory[taken_herb] -= amount
                         if cat_to_update.pelt.inventory[taken_herb] <= 0:
                             cat_to_update.pelt.inventory.pop(taken_herb)
@@ -470,7 +469,7 @@ class TalkScreen(Screens):
                         # now some random food
                         food_to_take = []
                         for i in cat_to_update.pelt.inventory.keys():
-                            if i in ITEM_VALUES["food"].keys():
+                            if i in ITEM_VALUES[game.clan.biome].keys():
                                 food_to_take.append(i)
                         amount = item[1]
                         taken_food = choice(food_to_take)
@@ -483,7 +482,7 @@ class TalkScreen(Screens):
                         # now some random food
                         accs_to_take = []
                         for i in cat_to_update.pelt.inventory.keys():
-                            if i not in ITEM_VALUES["food"].keys() and i not in HERBS and i not in ["BACKPACK1", "BACKPACK2"]:
+                            if i not in ITEM_VALUES[game.clan.biome].keys() and i not in HERBS and i not in ["BACKPACK1", "BACKPACK2"]:
                                 accs_to_take.append(i)
                         amount = item[1]
                         taken_acc = choice(accs_to_take)
@@ -510,7 +509,7 @@ class TalkScreen(Screens):
                         cat_to_update.pelt.inventory.update({given_herb: amount})
 
                     if item[0] == "random_food":
-                        food_to_give = ITEM_VALUES["food"].keys()
+                        food_to_give = ITEM_VALUES[game.clan.biome].keys()
                         amount = item[1]
                         given_food = choice(food_to_give)
                         print('giving', given_food)
@@ -726,9 +725,7 @@ class TalkScreen(Screens):
 
             items = []
 
-            for i in list(ITEM_VALUES["food"].keys()):
-                items.append(i)
-            for i in list(ITEM_VALUES["weapons"].keys()):
+            for i in list(ITEM_VALUES[game.clan.biome].keys()):
                 items.append(i)
             for i in HERBS:
                 items.append(i)
@@ -752,11 +749,11 @@ class TalkScreen(Screens):
             have_food = False
             they_have_food = False
             for i in game.clan.your_cat.pelt.inventory.keys():
-                if i in ITEM_VALUES["food"].keys():
+                if i in ITEM_VALUES[game.clan.biome].keys():
                     have_food = True
                     break
             for i in cat.pelt.inventory.keys():
-                if i in ITEM_VALUES["food"].keys():
+                if i in ITEM_VALUES[game.clan.biome].keys():
                     they_have_food = True
                     break
 
@@ -785,11 +782,11 @@ class TalkScreen(Screens):
             have_acc = False
             they_have_acc = False
             for i in game.clan.your_cat.pelt.inventory.keys():
-                if i not in HERBS and i not in ITEM_VALUES["food"].keys():
+                if i not in HERBS and i not in ITEM_VALUES[game.clan.biome].keys():
                     have_acc = True
                     break
             for i in cat.pelt.inventory.keys():
-                if i not in HERBS and i not in ITEM_VALUES["food"].keys():
+                if i not in HERBS and i not in ITEM_VALUES[game.clan.biome].keys():
                     they_have_acc = True
                     break
 

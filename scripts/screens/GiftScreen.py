@@ -631,7 +631,7 @@ class GiftScreen(Screens):
             cluster = cluster1
 
         reaction = "accept_like"
-        if acc in ITEM_VALUES["food"].keys():
+        if acc in ITEM_VALUES[game.clan.biome].keys():
             reaction_txt = "t_c gratefully takes the food."
             if acc in self.selected_cat.pelt.inventory.keys():
                 self.selected_cat.pelt.inventory[acc] += 1
@@ -755,7 +755,7 @@ class GiftScreen(Screens):
             y_pos = 129
 
             accname = self.selected_accessory.capitalize().replace("_", " ")
-            if self.selected_accessory in ITEM_VALUES["food"].keys():
+            if self.selected_accessory in ITEM_VALUES[game.clan.biome].keys():
                 image = image_cache.load_image(f"resources/images/inventory_items/{self.selected_accessory.lower().replace(' ', '_')}.png").convert_alpha()
                 self.selected_acc_details["selected_image"] = pygame_gui.elements.UIImage(
                     ui_scale(pygame.Rect((x_pos, y_pos), (dimensions))),
@@ -941,7 +941,7 @@ class GiftScreen(Screens):
                         self.accessory_buttons["blank:" + item] = UIImageButton(ui_scale(pygame.Rect((100 + pos_x, 250 + pos_y), (64, 64))), "", tool_tip_text=item, object_id="#blank_button")
                         
                         item_type = ""
-                        if item in ITEM_VALUES["food"].keys():
+                        if item in ITEM_VALUES[game.clan.biome].keys():
                             item_type = "food"
                             image = image_cache.load_image(f"resources/images/inventory_items/{item.lower().replace(' ', '_')}.png").convert_alpha()
                             self.cat_list_buttons[item_type + item + "sprite"] = pygame_gui.elements.UIImage(

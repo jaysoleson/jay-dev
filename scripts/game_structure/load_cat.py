@@ -77,8 +77,12 @@ def json_load():
                 cat["sleeping"] = False
 
             if "inventory" in cat:
-                if type(cat["inventory"]) == list:
+                if isinstance(cat["inventory"], list):
                     cat["inventory"] = {}
+            
+            if "experience" in cat and cat["experience"] > 100:
+                print("Correcting", cat['name_prefix'] + cat['name_suffix'], "exp from", cat["experience"], "to", round(cat["experience"] / 3))
+                cat["experience"] = round(cat["experience"] / 3)
 
             new_cat = Cat(
                 ID=cat["ID"],

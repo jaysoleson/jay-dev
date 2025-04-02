@@ -345,14 +345,19 @@ class ProfileScreen(Screens):
                 self.build_profile()
             elif event.ui_element == self.relations_tab_button:
                 self.toggle_relations_tab()
+                self.selected_item = None
             elif event.ui_element == self.roles_tab_button:
                 self.toggle_roles_tab()
+                self.selected_item = None
             elif event.ui_element == self.personal_tab_button:
                 self.toggle_personal_tab()
+                self.selected_item = None
             elif event.ui_element == self.your_tab:
                 self.toggle_your_tab()
+                self.selected_item = None
             elif event.ui_element == self.dangerous_tab_button:
                 self.toggle_dangerous_tab()
+                self.selected_item = None
             elif event.ui_element == self.backstory_tab_button:
                 if self.open_sub_tab is None:
                     if game.switches["favorite_sub_tab"] is None:
@@ -435,7 +440,7 @@ class ProfileScreen(Screens):
             elif self.selected_item and event.ui_element == self.item_window_elements["eat_button"]:
                 if self.selected_item in HERBS:
                     self.use_herb()
-                elif self.selected_item in ITEM_VALUES["food"]:
+                elif self.selected_item in ITEM_VALUES[game.clan.biome]:
                     self.eat()
                 else:
                     if self.selected_item in self.the_cat.pelt.accessories:
@@ -885,7 +890,7 @@ class ProfileScreen(Screens):
             self.stat_elements[ele].kill()
         self.stat_elements = {}
 
-        self.selected_item = None
+        # self.selected_item = None
         if self.your_tab:
             self.your_tab.kill()
 
@@ -1697,7 +1702,7 @@ class ProfileScreen(Screens):
         output += "\n"
 
         # EXPERIENCE
-        output += "experience: " + str(the_cat.experience_level)
+        output += "strength: " + str(the_cat.experience_level)
 
         if game.clan.clan_settings["showxp"]:
             output += " (" + str(the_cat.experience) + ")"
@@ -3028,10 +3033,10 @@ class ProfileScreen(Screens):
         if self.selected_item is None:
             return
 
-        if self.selected_item in ITEM_VALUES["food"]:
-            s_value = ITEM_VALUES["food"][self.selected_item][0]
-            h_value = ITEM_VALUES["food"][self.selected_item][1]
-            e_value = ITEM_VALUES["food"][self.selected_item][2]
+        if self.selected_item in ITEM_VALUES[game.clan.biome]:
+            s_value = ITEM_VALUES[game.clan.biome][self.selected_item][0]
+            h_value = ITEM_VALUES[game.clan.biome][self.selected_item][1]
+            e_value = ITEM_VALUES[game.clan.biome][self.selected_item][2]
 
 
         self.item_window_elements["back"] = pygame_gui.elements.UIImage(
@@ -3055,7 +3060,7 @@ class ProfileScreen(Screens):
         item = self.selected_item
         item_pos = [310, 240]
 
-        if item in HERBS or item in ITEM_VALUES["food"].keys():
+        if item in HERBS or item in ITEM_VALUES[game.clan.biome].keys():
             try:
                 itemimage = image_cache.load_image(f"resources/images/inventory_items/{item}.png").convert_alpha()
             except:
@@ -3149,7 +3154,7 @@ class ProfileScreen(Screens):
                 object_id="#text_box_26_horizcenter",
             )
 
-        elif item.upper() in ITEM_VALUES["food"]:
+        elif item.upper() in ITEM_VALUES[game.clan.biome]:
             self.item_window_elements["eat_button"] = UISurfaceImageButton(
                 ui_scale(pygame.Rect((460, 345), (140, 34))),
                 "eat",
@@ -3265,7 +3270,9 @@ class ProfileScreen(Screens):
         self.clear_profile()
         self.build_profile()
     
-        self.selected_item = None
+        if self.selected_item not in self.the_cat.pelt.inventory.keys():
+            self.selected_item = None
+
         self.inventory_item_options()
         self.update_disabled_buttons_and_text()
         self.toggle_accessories_tab()
@@ -3273,10 +3280,10 @@ class ProfileScreen(Screens):
     def eat(self):
         """ eata da food """
 
-        if self.selected_item in ITEM_VALUES["food"]:
-            game.clan.your_cat.stats.hunger += ITEM_VALUES["food"][self.selected_item][0]
-            game.clan.your_cat.stats.health += ITEM_VALUES["food"][self.selected_item][1]
-            game.clan.your_cat.stats.energy += ITEM_VALUES["food"][self.selected_item][2]
+        if self.selected_item in ITEM_VALUES[game.clan.biome]:
+            game.clan.your_cat.stats.hunger += ITEM_VALUES[game.clan.biome][self.selected_item][0]
+            game.clan.your_cat.stats.health += ITEM_VALUES[game.clan.biome][self.selected_item][1]
+            game.clan.your_cat.stats.energy += ITEM_VALUES[game.clan.biome][self.selected_item][2]
         
         if self.selected_item.lower() == "deathberry":
             game.clan.your_cat.get_injured("poisoned")
@@ -3288,7 +3295,8 @@ class ProfileScreen(Screens):
 
         self.close_current_tab()
         
-        self.selected_item = None
+        if self.selected_item not in self.the_cat.pelt.inventory.keys():
+            self.selected_item = None
         self.inventory_item_options()
         self.update_disabled_buttons_and_text()
         self.toggle_accessories_tab()
@@ -3301,10 +3309,8 @@ class ProfileScreen(Screens):
 
         item_type = "accessory"
 
-        item_options = ["food", "weapons", "misc"]
-        for item in item_options:
-            if accessory[0] in ITEM_VALUES[item]:
-                item_type = "item"
+        if accessory[0] in ITEM_VALUES[game.clan.biome]:
+            item_type = "item"
 
         if accessory[0].lower() in HERBS:
             item_type = "herb"
@@ -3906,7 +3912,6 @@ class ProfileScreen(Screens):
             self.delete_accessory.kill()
             self.search_bar_image.kill()
             self.search_bar.kill()
-            self.selected_item = None
             self.inventory_item_options()
         elif self.open_tab == "faith":
             self.backstory_background.kill()

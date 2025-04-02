@@ -724,15 +724,15 @@ class CatSkills:
 
             elif "apprentice" in the_cat.status:
                 # Check to see if the cat gains a secondary
-                if not self.secondary and not int(random.random() * 22):
+                if not self.secondary and not int(random.random() * 44):
                     # if there's no secondary skill, try to give one!
                     self.secondary = Skill.get_random_skill(
                         points=0, interest_only=True, exclude=self.primary.path
                     )
 
                 # Check if they get any points this moon
-                if not int(random.random() * 4):
-                    amount_effect = random.randint(2, 5)
+                if not int(random.random() * 8):
+                    amount_effect = random.randint(1, 4)
                     if self.primary and self.secondary:
                         if random.randint(1, 2) == 1:
                             self.primary.points += amount_effect

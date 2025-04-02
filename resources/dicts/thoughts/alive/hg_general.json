@@ -68,7 +68,8 @@
             "Is feeling anxious",
             "Is feeling restless",
             "Is dozing off",
-            "Is a bit annoyed"
+            "Is a bit annoyed",
+            "Is sore from travelling"
         ]
     },
     {
@@ -81,7 +82,19 @@
             "Stands up for a second and feels lightheaded",
             "Isn't having a fun time",
             "Needs to rest, but feels too anxious to close {PRONOUN/m_c/poss} eyes",
-            "Is scared to die"
+            "Is scared to die",
+            "Inspects {PRONOUN/t_c/poss} prey for poison"
+        ]
+    },
+    {
+        "id": "hg_gen_beach",
+        "biome": ["beach"],
+        "thoughts": [
+            "Wonders if it would be possible to swim back to {PRONOUN/m_c/poss} Clan",
+            "Is enjoying the tropical fruit",
+            "Hates eating so many fish",
+            "Likes the sunny weather",
+            "Is searching for seashells"
         ]
     },
     {

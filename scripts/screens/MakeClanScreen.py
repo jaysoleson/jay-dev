@@ -1468,6 +1468,7 @@ class MakeClanScreen(Screens):
                 display_age = self.selected_cat.age
 
             self.preview_age = display_age if self.selected_cat is not None else "adult"
+            print("heY", self.preview_age)
 
         self.elements["left"] = UIImageButton(ui_scale(pygame.Rect((17, 310), (51, 67))), "", object_id="#arrow_right_fancy",
                                                  starting_height=2)
@@ -2667,51 +2668,51 @@ class MakeClanScreen(Screens):
             elif event.ui_element == self.elements["randomise_selection"]:
                 if self.page == 0:
                     if self.preview_age == "kitten":
-                        self.kitten_sprite=random.randint(0,2)
+                        self.selected_cat.pelt.cat_sprites["kitten"]=random.randint(0,2)
                     elif self.preview_age == "adolescent":
-                        self.adolescent_pose = random.randint(3,5)
+                        self.selected_cat.pelt.cat_sprites["adolescent"] = random.randint(3,5)
                     elif self.preview_age == "adult":
-                        if self.length in ["short", "medium"]:
-                            self.adult_pose = random.randint(6,8)
+                        if self.selected_cat.pelt.length in ["short", "medium"]:
+                            self.selected_cat.pelt.cat_sprites["adult"] = random.randint(6,8)
                         else:
-                            self.adult_pose = random.randint(9,11)
+                            self.selected_cat.pelt.cat_sprites["adult"] = random.randint(9,11)
                     else:
-                        self.elder_pose = random.randint(12,14)
+                        self.selected_cat.pelt.cat_sprites["senior"] = random.randint(12,14)
                 if self.page == 1:
                     if self.current_selection == "pelt_pattern":
-                        if self.pname in ["Tortie", "Calico"]:
+                        if self.selected_cat.pelt.name in ["Tortie", "Calico"]:
                             new_pattern = random.choice(pelts)
                             if new_pattern == "SingleColour":
                                 new_pattern = "single"
-                            self.tortiebase = new_pattern.lower()
+                            self.selected_cat.pelt.tortiebase = new_pattern.lower()
                         else:
-                            self.pname = random.choice(pelts)
+                            self.selected_cat.pelt.name = random.choice(pelts)
                     elif self.current_selection == "pelt_colour":
-                        self.colour = random.choice(Pelt.pelt_colours)
+                        self.selected_cat.pelt.colour = random.choice(Pelt.pelt_colours)
                     elif self.current_selection == "white_patches":
-                        self.white_patches = random.choice(["FULLWHITE"] + Pelt.little_white + Pelt.mid_white + Pelt.high_white + Pelt.mostly_white + [None])
+                        self.selected_cat.pelt.white_patches = random.choice(["FULLWHITE"] + Pelt.little_white + Pelt.mid_white + Pelt.high_white + Pelt.mostly_white + [None])
                     elif self.current_selection == "points":
-                        self.points = random.choice(Pelt.point_markings + [None])
+                        self.selected_cat.pelt.points = random.choice(Pelt.point_markings + [None])
                     elif self.current_selection == "vitiligo":
-                        self.vitiligo = random.choice(Pelt.vit + [None])
+                        self.selected_cat.pelt.vitiligo = random.choice(Pelt.vit + [None])
                     elif self.current_selection == "tortie_pattern":
                         new_pattern = random.choice(pelts)
                         if new_pattern == "SingleColour":
                             new_pattern = "single"
-                        self.tortiepattern = new_pattern.lower()
+                        self.selected_cat.pelt.tortiepattern = new_pattern.lower()
                     elif self.current_selection == "tortie_colour":
-                        self.tortiecolour = random.choice(Pelt.pelt_colours)
+                        self.selected_cat.pelt.tortiecolour = random.choice(Pelt.pelt_colours)
                     elif self.current_selection == "tortie_patches":
-                        self.pattern = random.choice(Pelt.tortiepatterns)
+                        self.selected_cat.pelt.pattern = random.choice(Pelt.tortiepatterns)
                 elif self.page == 2:
                     if self.current_selection == "eye_colour":
-                        self.eye_colour = random.choice(Pelt.eye_colours)
+                        self.selected_cat.pelt.eye_colour = random.choice(Pelt.eye_colours)
                     elif self.current_selection == "heterochromia":
-                        self.eye_colour2 = random.choice(Pelt.eye_colours)
+                        self.selected_cat.pelt.eye_colour2 = random.choice(Pelt.eye_colours)
                     elif self.current_selection == "skin":
-                        self.skin = random.choice(Pelt.skin_sprites)
+                        self.selected_cat.pelt.skin = random.choice(Pelt.skin_sprites)
                     elif self.current_selection == "scar":
-                        self.scars = [random.choice(Pelt.scars1 + Pelt.scars2 + Pelt.scars3)]
+                        self.selected_cat.pelt.scars = [random.choice(Pelt.scars1 + Pelt.scars2 + Pelt.scars3)]
                     elif self.current_selection == "accessory":
 
                         acc_list = (
@@ -2738,8 +2739,8 @@ class MakeClanScreen(Screens):
                         
                         acc = choice(new_acc_list)
 
-                        self.accessories = [acc]
-                        self.inventory = {acc: 1}
+                        self.selected_cat.pelt.accessories = [acc]
+                        self.selected_cat.pelt.inventory = {acc: 1}
 
                 elif self.page == 3:
                     if self.current_selection == "condition":
@@ -2747,19 +2748,19 @@ class MakeClanScreen(Screens):
 
                         self.permanent_condition = random.choice(permanent_conditions)
                         if self.permanent_condition == "born without a leg":
-                            self.scars = ["NOPAW"]
+                            self.selected_cat.pelt.scars = ["NOPAW"]
                         else:
-                            if "NOPAW" in self.scars:
-                                self.scars.remove("NOPAW")
+                            if "NOPAW" in self.selected_cat.pelt.scars:
+                                self.selected_cat.pelt.scars.remove("NOPAW")
                         if self.permanent_condition == "born without a tail":
-                            self.scars = ["NOTAIL"]
+                            self.selected_cat.pelt.scars = ["NOTAIL"]
                         else:
-                            if "NOTAIL" in self.scars:
-                                self.scars.remove("NOTAIL")
+                            if "NOTAIL" in self.selected_cat.pelt.scars:
+                                self.selected_cat.pelt.scars.remove("NOTAIL")
                         if self.permanent_condition == "paralyzed":
-                            self.paralyzed = True
+                            self.selected_cat.pelt.paralyzed = True
                         else:
-                            self.paralyzed = False
+                            self.selected_cat.pelt.paralyzed = False
                     elif self.current_selection == "trait":
                         self.personality = random.choice(['troublesome', 'lonesome', 'impulsive', 'bullying', 'attention-seeker', 'charming', 'daring', 'noisy', 'nervous', 'quiet', 'insecure', 'daydreamer', 'sweet', 'polite', 'know-it-all', 'bossy', 'disciplined', 'patient', 'manipulative', 'secretive', 'rebellious', 'grumpy', 'passionate', 'honest', 'leader-like', 'smug'])
                     elif self.current_selection == "skill":
@@ -2796,148 +2797,148 @@ class MakeClanScreen(Screens):
                         self.open_customize_cat()
                 for i in self.kitten_pose_buttons.items():
                     if event.ui_element == self.kitten_pose_buttons[i[0]]:
-                        self.kitten_sprite = int(i[0])
+                        self.selected_cat.pelt.cat_sprites["kitten"] = int(i[0])
                         self.open_customize_cat()
                 for i in self.adolescent_pose_buttons.items():
                     if event.ui_element == self.adolescent_pose_buttons[i[0]]:
-                        self.adolescent_pose = int(i[0])
+                        self.selected_cat.pelt.cat_sprites["adolescent"] = int(i[0])
                         self.open_customize_cat()
                 for i in self.adult_pose_buttons.items():
                     if event.ui_element == self.adult_pose_buttons[i[0]]:
-                        self.adult_pose = int(i[0])
+                        self.selected_cat.pelt.cat_sprites["adult"] = int(i[0])
                         self.open_customize_cat()
                 for i in self.elder_pose_buttons.items():
                     if event.ui_element == self.elder_pose_buttons[i[0]]:
-                        self.elder_pose = int(i[0])
+                        self.selected_cat.pelt.cat_sprites["senior"] = int(i[0])
                         self.open_customize_cat()
                 for i in self.fur_length_buttons.items():
                     if event.ui_element == self.fur_length_buttons[i[0]]:
-                        self.length = i[0]
+                        self.selected_cat.pelt.length = i[0]
                         # correct long/shorthaired poses
-                        if self.adult_pose in range(9,12) and self.length in ["short", "medium"]:
-                            self.adult_pose -= 3
-                        elif self.adult_pose in range(6,9) and self.length == "long":
-                            self.adult_pose += 3
+                        if self.selected_cat.pelt.cat_sprites["adult"] in range(9,12) and self.selected_cat.pelt.length in ["short", "medium"]:
+                            self.selected_cat.pelt.cat_sprites["adult"] -= 3
+                        elif self.selected_cat.pelt.cat_sprites["adult"] in range(6,9) and self.selected_cat.pelt.length == "long":
+                            self.selected_cat.pelt.cat_sprites["adult"] += 3
                         self.open_customize_cat()
                 for i in self.reverse_buttons.items():
                     if event.ui_element == self.reverse_buttons[i[0]]:
                         if i[0] == "False":
-                            self.reverse = False
+                            self.selected_cat.pelt.reverse = False
                         else:
-                            self.reverse = True
+                            self.selected_cat.pelt.reverse = True
                         self.open_customize_cat()
             elif self.page == 1:
                 if event.ui_element == self.elements["tortie_checkbox"]:
                     print("tortie checkbox")
                     if self.tortie_enabled is True:
                         self.tortie_enabled = False
-                        self.pname = self.tortiebase.capitalize()
-                        if self.pname == "Single":
-                            self.pname = "SingleColour"
-                        self.tortiebase = None
-                        self.tortiecolour = None
-                        self.tortiepattern = None
-                        self.pattern = None
+                        self.selected_cat.pelt.name = self.tortiebase.capitalize()
+                        if self.selected_cat.pelt.name == "Single":
+                            self.selected_cat.pelt.name = "SingleColour"
+                        self.selected_cat.pelt.tortiebase = None
+                        self.selected_cat.pelt.tortiecolour = None
+                        self.selected_cat.pelt.tortiepattern = None
+                        self.selected_cat.pelt.pattern = None
                     else:
                         self.tortie_enabled = True
-                        self.tortiebase = self.pname.lower()
-                        if self.tortiebase == "singlecolour":
-                            self.tortiebase = "single"
-                        self.pname = "Tortie"
-                        self.tortiecolour = "GINGER"
-                        self.tortiepattern = "classic"
-                        self.pattern = "ONE"
+                        self.selected_cat.pelt.tortiebase = self.pname.lower()
+                        if self.selected_cat.pelt.tortiebase == "singlecolour":
+                            self.selected_cat.pelt.tortiebase = "single"
+                        self.selected_cat.pelt.name = "Tortie"
+                        self.selected_cat.pelt.tortiecolour = "GINGER"
+                        self.selected_cat.pelt.tortiepattern = "classic"
+                        self.selected_cat.pelt.pattern = "ONE"
                     self.update_sprite()
                     self.open_customize_cat()
                     self.update_disabled_buttons()
                 for i in self.pelt_pattern_buttons.items():
                     if event.ui_element == self.pelt_pattern_buttons[i[0]]:
-                        if self.pname == "Tortie":
-                            self.tortiebase = i[0].lower()
+                        if self.selected_cat.pelt.name == "Tortie":
+                            self.selected_cat.pelt.tortiebase = i[0].lower()
                         else:
-                            self.pname = i[0]
+                            self.selected_cat.pelt.name = i[0]
                         self.update_sprite()
                         self.update_disabled_buttons()
                 for i in self.pelt_colour_buttons.items():
                     if event.ui_element == self.pelt_colour_buttons[i[0]]:
-                        self.colour = i[0]
+                        self.selected_cat.pelt.colour = i[0]
                         self.update_sprite()
                         self.update_disabled_buttons()
                 for i in self.tint_buttons.items():
                     if event.ui_element == self.tint_buttons[i[0]]:
-                        self.tint = i[0]
+                        self.selected_cat.pelt.tint = i[0]
                         self.update_sprite()
                         self.update_disabled_buttons()
                 for i in self.white_patches_tint_buttons.items():
                     if event.ui_element == self.white_patches_tint_buttons[i[0]]:
-                        self.white_patches_tint = i[0]
+                        self.selected_cat.pelt.white_patches_tint = i[0]
                         self.update_sprite()
                         self.update_disabled_buttons()
                 for i in self.white_patches_buttons.items():
                     if event.ui_element == self.white_patches_buttons[i[0]]:
                         if i[0] == "None":
-                            self.white_patches = None
+                            self.selected_cat.pelt.white_patches = None
                         else:
-                            self.white_patches = i[0]
+                            self.selected_cat.pelt.white_patches = i[0]
                         self.update_sprite()
                         self.update_disabled_buttons()
                 for i in self.points_buttons.items():
                     if event.ui_element == self.points_buttons[i[0]]:
                         if i[0] == "None":
-                            self.points = None
+                            self.selected_cat.pelt.points = None
                         else:
-                            self.points = i[0]
+                            self.selected_cat.pelt.points = i[0]
                         self.open_customize_cat()
                 for i in self.vitiligo_buttons.items():
                     if event.ui_element == self.vitiligo_buttons[i[0]]:
                         if i[0] == "None":
-                            self.vitiligo = None
+                            self.selected_cat.pelt.vitiligo = None
                         else:
-                            self.vitiligo = i[0]
+                            self.selected_cat.pelt.vitiligo = i[0]
                         self.open_customize_cat()
                 # TORTIE
                 for i in self.tortie_pattern_buttons.items():
                     if event.ui_element == self.tortie_pattern_buttons[i[0]]:
-                        self.tortiepattern = i[0].lower()
-                        if self.tortiepattern == "singlecolour":
-                            self.tortiepattern = "single"
+                        self.selected_cat.pelt.tortiepattern = i[0].lower()
+                        if self.selected_cat.pelt.tortiepattern == "singlecolour":
+                            self.selected_cat.pelt.tortiepattern = "single"
                         self.update_sprite()
                         self.update_disabled_buttons()
                 for i in self.tortie_colour_buttons.items():
                     if event.ui_element == self.tortie_colour_buttons[i[0]]:
-                        self.tortiecolour = i[0].upper()
+                        self.selected_cat.pelt.tortiecolour = i[0].upper()
                         self.update_sprite()
                         self.update_disabled_buttons()
                 for i in self.tortie_patches_buttons.items():
                     if event.ui_element == self.tortie_patches_buttons[i[0]]:
-                        self.pattern = i[0].upper()
+                        self.selected_cat.pelt.pattern = i[0].upper()
                         self.update_sprite()
                         self.update_disabled_buttons()
             elif self.page == 2:
                 for i in self.eye_colour_buttons.items():
                     if event.ui_element == self.eye_colour_buttons[i[0]]:
-                        self.eye_colour = i[0].upper()
+                        self.selected_cat.pelt.eye_colour = i[0].upper()
                         self.update_sprite()
                         self.update_disabled_buttons()
                 for i in self.heterochromia_buttons.items():
                     if event.ui_element == self.heterochromia_buttons[i[0]]:
-                        self.eye_colour2 = i[0].upper() if i[0] != "None" else None
+                        self.selected_cat.pelt.eye_colour2 = i[0].upper() if i[0] != "None" else None
                         self.update_sprite()
                         self.update_disabled_buttons()
                 for i in self.skin_buttons.items():
                     if event.ui_element == self.skin_buttons[i[0]]:
-                        self.skin = i[0].upper()
+                        self.selected_cat.pelt.skin = i[0].upper()
                         self.update_sprite()
                         self.update_disabled_buttons()
                 for i in self.scar_buttons.items():
                     if event.ui_element == self.scar_buttons[i[0]]:
                         if i[0] == "None":
-                            self.scars = []
+                            self.selected_cat.pelt.scars = []
                         else:
-                            self.scars = [i[0].upper()]
+                            self.selected_cat.pelt.scars = [i[0].upper()]
                             if i[0] == "NOPAW":
                                 self.permanent_condition = "born without a leg"
-                                self.paralyzed = False
+                                self.selected_cat.pelt.paralyzed = False
                             else:
                                 if self.permanent_condition == "born without a leg":
                                     self.permanent_condition = None
@@ -2948,20 +2949,20 @@ class MakeClanScreen(Screens):
                                     self.permanent_condition = None
                             if i[0] == "BOTHBLIND":
                                 self.permanent_condition = "blind"
-                                self.paralyzed = False
+                                self.selected_cat.pelt.paralyzed = False
                             if i[0] in ["RIGHTBLIND", "LEFTBLIND", "BRIGHTHEART"]:
                                 self.permanent_condition = "one bad eye"
-                                self.paralyzed = False
+                                self.selected_cat.pelt.paralyzed = False
                         self.update_sprite()
                         self.update_disabled_buttons()
                 for i in self.accessory_buttons.items():
                     if event.ui_element == self.accessory_buttons[i[0]]:
                         if i[0] == "None":
-                            self.accessories = []
-                            self.inventory = {}
+                            self.selected_cat.pelt.accessories = []
+                            self.selected_cat.pelt.inventory = {}
                         else:
-                            self.accessories = [i[0].upper()]
-                            self.inventory = {i[0].upper(): 1}
+                            self.selected_cat.pelt.accessories = [i[0].upper()]
+                            self.selected_cat.pelt.inventory = {i[0].upper(): 1}
                         self.update_sprite()
                         self.update_disabled_buttons()
             elif self.page == 3:
@@ -2969,43 +2970,43 @@ class MakeClanScreen(Screens):
                     if event.ui_element == self.condition_buttons[i[0]]:
                         if i[0] == "None":
                             self.permanent_condition = None
-                            if "NOTAIL" in self.scars:
-                                self.scars.remove("NOTAIL")
-                            if "NOPAW" in self.scars:
-                                self.scars.remove("NOPAW")
-                            if "BRIGHTHEART" in self.scars:
-                                self.scars.remove("BRIGHTHEART")
-                            if "BOTHBLIND" in self.scars:
-                                self.scars.remove("BOTHBLIND")
-                            if "LEFTBLIND" in self.scars:
-                                self.scars.remove("LEFTBLIND")
-                            if "RIGHTBLIND" in self.scars:
-                                self.scars.remove("RIGHTBLIND")
-                            self.paralyzed = False
+                            if "NOTAIL" in self.selected_cat.pelt.scars:
+                                self.selected_cat.pelt.scars.remove("NOTAIL")
+                            if "NOPAW" in self.selected_cat.pelt.scars:
+                                self.selected_cat.pelt.scars.remove("NOPAW")
+                            if "BRIGHTHEART" in self.selected_cat.pelt.scars:
+                                self.selected_cat.pelt.scars.remove("BRIGHTHEART")
+                            if "BOTHBLIND" in self.selected_cat.pelt.scars:
+                                self.selected_cat.pelt.scars.remove("BOTHBLIND")
+                            if "LEFTBLIND" in self.selected_cat.pelt.scars:
+                                self.selected_cat.pelt.scars.remove("LEFTBLIND")
+                            if "RIGHTBLIND" in self.selected_cat.pelt.scars:
+                                self.selected_cat.pelt.scars.remove("RIGHTBLIND")
+                            self.selected_cat.pelt.paralyzed = False
                         else:
                             if i[0] != "paralyzed":
-                                self.paralyzed = False
+                                self.selected_cat.pelt.paralyzed = False
                             else:
-                                self.paralyzed = True
+                                self.selected_cat.pelt.paralyzed = True
 
                             if i[0] == "born without a leg":
-                                self.scars = ["NOPAW"]
+                                self.selected_cat.pelt.scars = ["NOPAW"]
                             else:
-                                if "NOPAW" in self.scars:
-                                    self.scars.remove("NOPAW")
+                                if "NOPAW" in self.selected_cat.pelt.scars:
+                                    self.selected_cat.pelt.scars.remove("NOPAW")
 
                             if i[0] == "born without a tail":
-                                self.scars = ["NOTAIL"]
+                                self.selected_cat.pelt.scars = ["NOTAIL"]
                             else:
                                 if "NOTAIL" in self.scars:
-                                    self.scars.remove("NOTAIL")
+                                    self.selected_cat.pelt.scars.remove("NOTAIL")
                             
                             if i[0] != "blind":
-                                if "BOTHBLIND" in self.scars:
-                                    self.scars.remove("BOTHBLIND")
+                                if "BOTHBLIND" in self.selected_cat.pelt.scars:
+                                    self.selected_cat.pelt.scars.remove("BOTHBLIND")
                             if i[0] != "one bad eye":
-                                if any(scar in ["LEFTBLIND", "RIGHTBLIND", "BRIGHTHEART"] for scar in self.scars):
-                                    self.scars = []
+                                if any(scar in ["LEFTBLIND", "RIGHTBLIND", "BRIGHTHEART"] for scar in self.selected_cat.pelt.scars):
+                                    self.selected_cat.pelt.scars = []
 
                             self.permanent_condition = i[0]
                         self.update_sprite()
@@ -3024,7 +3025,7 @@ class MakeClanScreen(Screens):
                         self.update_disabled_buttons()
                 for i in self.sex_buttons.items():
                     if event.ui_element == self.sex_buttons[i[0]]:
-                        self.sex = i[0]
+                        self.selected_cat.pelt.gender = i[0]
                         self.update_disabled_buttons()
 
             for i in self.current_selection_buttons.items():

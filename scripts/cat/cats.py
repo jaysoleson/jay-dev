@@ -106,12 +106,12 @@ class Cat:
     # Ranges are inclusive to both bounds
     experience_levels_range = {
         "untrained": (0, 0),
-        "trainee": (1, 50),
-        "prepared": (51, 110),
-        "competent": (110, 170),
-        "proficient": (171, 240),
-        "expert": (241, 320),
-        "master": (321, 321),
+        "weak": (1, 20),
+        "adequate": (21, 40),
+        "fit": (41, 60),
+        "sturdy": (61, 80),
+        "powerful": (81, 99),
+        "brute": (100, 100)
     }
 
     default_pronouns = [
@@ -513,30 +513,14 @@ class Cat:
         if self.age in ["young", "newborn"]:
             self.experience = 0
         elif self.age in ["adolescent"]:
-            m = self.moons
-            self.experience = 0
-            while m > Cat.age_moons["adolescent"][0]:
-                ran = game.config["graduation"]["base_app_timeskip_ex"]
-                exp = choice(
-                    list(range(ran[0][0], ran[0][1] + 1))
-                    + list(range(ran[1][0], ran[1][1] + 1))
-                )
-                self.experience += exp + 3
-                m -= 1
-        elif self.age in ["young adult", "adult"]:
             self.experience = randint(
-                Cat.experience_levels_range["prepared"][0],
-                Cat.experience_levels_range["proficient"][1],
+                Cat.experience_levels_range["weak"][0],
+                Cat.experience_levels_range["fit"][1],
             )
-        elif self.age in ["senior adult"]:
+        elif self.age in ["young adult", "adult", "senior adult", "senior"]:
             self.experience = randint(
-                Cat.experience_levels_range["competent"][0],
-                Cat.experience_levels_range["expert"][1],
-            )
-        elif self.age in ["senior"]:
-            self.experience = randint(
-                Cat.experience_levels_range["competent"][0],
-                Cat.experience_levels_range["master"][1],
+                Cat.experience_levels_range["weak"][0],
+                Cat.experience_levels_range["powerful"][1],
             )
         else:
             self.experience = 0
@@ -945,29 +929,29 @@ class Cat:
             very_high_values = []
             high_values = []
 
-            if to_self.romantic_love > 55:
+            if to_self.romantic_love > 70:
                 very_high_values.append("romantic")
-            if to_self.romantic_love > 40:
+            if to_self.romantic_love > 60:
                 high_values.append("romantic")
 
-            if to_self.platonic_like > 50:
+            if to_self.platonic_like > 80:
                 very_high_values.append("platonic")
-            if to_self.platonic_like > 30:
+            if to_self.platonic_like > 55:
                 high_values.append("platonic")
 
-            if to_self.admiration > 70:
+            if to_self.admiration > 80:
                 very_high_values.append("admiration")
-            if to_self.admiration > 50:
+            if to_self.admiration > 60:
                 high_values.append("admiration")
 
-            if to_self.comfortable > 60:
+            if to_self.comfortable > 70:
                 very_high_values.append("comfort")
-            if to_self.comfortable > 40:
+            if to_self.comfortable > 55:
                 high_values.append("comfort")
 
             if to_self.trust > 70:
                 very_high_values.append("trust")
-            if to_self.trust > 50:
+            if to_self.trust > 55:
                 high_values.append("trust")
 
             major_chance = 0
@@ -1025,49 +1009,18 @@ class Cat:
 
                 # These minor grief message will be applied as thoughts.
                 minor_grief_messages = (
-                    "Told a fond story at r_c's vigil",
                     "Bargains with StarClan, begging them to send r_c back",
-                    "Sat all night at r_c's vigil",
                     "Will never forget r_c",
                     "Prays that r_c is safe in StarClan",
-                    "Misses the warmth that r_c brought to {PRONOUN/m_c/poss} life",
                     "Is mourning r_c",
                     "Can't stop coming to tears each time r_c is mentioned",
-                    "Stayed the longest at r_c's vigil",
-                    "Left r_c's vigil early due to grief",
-                    "Lashes out at any cat who checks on {PRONOUN/m_c/object} after r_c's death",
                     "Took a long walk on {PRONOUN/m_c/poss} own to mourn r_c in private",
-                    "Is busying {PRONOUN/m_c/self} with too much work to forget about r_c's death",
-                    "Does {PRONOUN/m_c/poss} best to console {PRONOUN/m_c/poss} clanmates about r_c's death",
-                    "Takes a part of r_c's nest to put with {PRONOUN/m_c/poss} own, clinging to the fading scent",
-                    "Sleeps in r_c's nest tonight",
-                    "Defensively states that {PRONOUN/m_c/subject} {VERB/m_c/don't/doesn't} need any comfort about r_c's death",
-                    "Wonders why StarClan had to take r_c so soon",
-                    "Still needs r_c even though they're gone",
-                    "Doesn't think {PRONOUN/m_c/subject} will ever be the same without r_c",
-                    "Was seen crying in {PRONOUN/m_c/poss} nest after r_c's vigil",
-                    "Is hiding {PRONOUN/m_c/poss} tears as {PRONOUN/m_c/subject} {VERB/m_c/comfort/comforts} the others about r_c's passing",
+                    "Vows to win this, for r_c's sake"
                 )
 
                 if body:
                     minor_grief_messages += (
-                        "Helped bury r_c, leaving {PRONOUN/r_c/poss} favorite prey at the grave",
-                        "Slips out of camp to visit r_c's grave",
-                        "Clung so desperately to r_c's body that {PRONOUN/m_c/subject} had to be dragged away",
-                        "Hides a scrap of r_c's fur under {PRONOUN/m_c/poss} nest to cling to",
-                        "Can't stand the sight of r_c's body in camp",
-                        "Hissed at anyone who got too close to r_c's body, refusing to let go",
-                        "Spent a long time grooming r_c's fur for their vigil",
-                        "Arranged the flowers for r_c's vigil",
-                        "Picked the best spot in the burial grounds for r_c",
-                        "Keeps thinking that r_c is only sleeping",
-                        "Is in denial of r_c's death, despite the ongoing vigil",
-                        "Insists that r_c isn't gone",
-                        "Begs r_c not to leave them all",
-                        "Sleeps next to r_c for the entire vigil one last time",
-                        "Ran out of camp the moment {PRONOUN/m_c/subject} saw r_c's body",
-                        "Sang a song in memory of r_c at the vigil",
-                        "Stares at r_c's vigil longingly, but doesn't feel the right to join in",
+                        "Can't stop recalling the sight of r_c's body...",
                     )
 
                 text = choice(minor_grief_messages)
@@ -3207,10 +3160,10 @@ class Cat:
         new_allies = [self, other_cat]
         for ally in other_cat.allies:
             # join all allies so they become one big group
-            if Cat.fetch_cat(ally) not in new_allies:
+            if Cat.fetch_cat(ally) not in new_allies and not Cat.fetch_cat(ally).dead:
                 new_allies.append(Cat.fetch_cat(ally))
         for ally in self.allies:
-            if Cat.fetch_cat(ally) not in new_allies:
+            if Cat.fetch_cat(ally) not in new_allies and not Cat.fetch_cat(ally).dead:
                 new_allies.append(Cat.fetch_cat(ally))
 
         # Set starting relationship values
@@ -3604,10 +3557,10 @@ class Cat:
                     lvl_modifier = 2
                 else:
                     lvl_modifier = 1
-                mediator.experience += exp_gain / lvl_modifier / gm_modifier
+                # mediator.experience += exp_gain / lvl_modifier / gm_modifier
 
-        if mediator.status == "mediator apprentice":
-            mediator.experience += max(randint(1, 6), 1)
+        # if mediator.status == "mediator apprentice":
+        #     mediator.experience += max(randint(1, 6), 1)
 
         # determine the traits to effect
         # Are they mates?
@@ -4036,7 +3989,7 @@ class Cat:
 
     @experience.setter
     def experience(self, exp: int):
-        exp = min(exp, self.experience_levels_range["master"][1])
+        exp = min(exp, self.experience_levels_range["brute"][1])
         self._experience = int(exp)
 
         for x in self.experience_levels_range:
