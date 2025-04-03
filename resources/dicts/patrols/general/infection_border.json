@@ -166,7 +166,7 @@
                 ]
             },
             {
-                "text": "p_l steps forward to approach the cat, but {PRONOUN/p_l/subject} {VERB/p_l/hear/hears} a yowl from afar before {PRONOUN/p_l/subject} can get too close. A cat charges out from the trees, yelling what must be the sick cat's name. p_l braces for a fight, but instead, the cat collapses at {PRONOUN/n_c:0/poss} friend's side, trying to shake {PRONOUN/n_c:1/subject} awake. The patrol offers to take them both back to camp for treatment, and the conscious cat reluctantly agrees.",
+                "text": "p_l steps forward to approach the cat, but {PRONOUN/p_l/subject} {VERB/p_l/hear/hears} a yowl from afar before {PRONOUN/p_l/subject} can get too close. A cat charges out from the trees, yelling what must be the sick cat's name. p_l braces for a fight, but instead, the cat collapses at {PRONOUN/n_c:0/poss} friend's side, trying to shake {PRONOUN/n_c:1/object} awake. The patrol offers to take them both back to camp for treatment, and the conscious cat reluctantly agrees.",
                 "exp": 0,
                 "weight": 10,
                 "new_cat": [
