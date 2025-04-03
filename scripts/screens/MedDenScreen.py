@@ -405,14 +405,20 @@ class MedDenScreen(Screens):
         self.draw_med_den()
         self.update_med_cat()
 
-        medcats = []
-        for cat in Cat.all_cats_list:
-            if cat.status in ["medicine cat", "medicine cat apprentice"] and not cat.not_working() and cat.infected_for < 1 and not cat.outside and not cat.dead:
-                medcats.append(cat)
+        medcats = [
+            i for i in Cat.all_cats_list if
+            i.status in ["medicine cat", "medicine cat apprentice"] and
+            not i.not_working() and
+            not i.outside and
+            not i.dead
+        ]
+
+        for cat in medcats:
+            print(cat.name)
 
         if (
-            (game.clan.infection["cure_attempt"] is True or
-            len(medcats) <= 0) and
+            game.clan.infection["cure_attempt"] is True or
+            not medcats or
             get_infected_clan_cat_count(Cat) == 0
             ):
             self.treatment_button.disable()

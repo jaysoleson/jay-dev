@@ -13,7 +13,7 @@ from scripts.events import events_class
 from scripts.clan import HERBS
 
 from .Screens import Screens
-from scripts.utility import get_personality_compatibility, get_text_box_theme, ui_scale, shorten_text_to_fit, pronoun_repl, get_infection_herb
+from scripts.utility import get_personality_compatibility, get_text_box_theme, ui_scale, shorten_text_to_fit, pronoun_repl, get_infection_herb, get_alive_status_cats
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
 from scripts.cat.pelts import Pelt
@@ -115,7 +115,15 @@ class TreatmentScreen(Screens):
                     self.stage = 'choose treatment'
                     self.screen_switches()
             
-            elif event.ui_element == self.next_stage_button and self.stage == 'choose treatment' and not (self.herb1 is None and self.herb2 is None and self.herb3 is None and self.herb4 is None):
+            elif (
+                event.ui_element == self.next_stage_button and
+                self.stage == 'choose treatment' and
+                not (self.herb1 is None and
+                     self.herb2 is None and
+                     self.herb3 is None and
+                     self.herb4 is None)
+                     ):
+                game.clan.infection["cure_attempt"] = True
                 self.exit_screen()
                 self.update_selected_cat()
                 self.stage = 'treatment results'
@@ -837,9 +845,13 @@ class TreatmentScreen(Screens):
             failchance = failchance * 0.8
             # more likely to work if theyre not an app
         
-        medcats = [i for i in Cat.all_cats.values() if
-                  (i.status == 'medicine cat' or i.status == 'medicine cat apprentice') and not i.dead and not i.outside and not i.not_working() and i.infected_for < 1]
-        
+        medcats = [
+            i for i in Cat.all_cats_list if
+            i.status in ["medicine cat", "medicine cat apprentice"] and
+            not i.not_working() and
+            not i.outside and
+            not i.dead
+        ]
 
         if len(medcats) == 2:
             failchance -= 10
@@ -959,7 +971,6 @@ class TreatmentScreen(Screens):
            ceremony_txt = (self.m_txt[who_key + "cure_found"])
 
         self.add_to_treatments(patient, success)
-        game.clan.infection["cure_attempt"] = True
 
         chosenkey = choice(ceremony_txt)
         return self.get_adjusted_txt(chosenkey, self.selected_cat, self.the_cat)
