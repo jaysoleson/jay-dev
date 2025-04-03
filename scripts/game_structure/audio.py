@@ -50,11 +50,14 @@ class MusicManager:
         # print(f"screen is {screen}")
         # print(f"menu playlist is {self.playlists['menu_playlist']}")
 
+        unavailable_playlists = [self.playlists["menu_playlist"]]
+        if game.clan:
+            unavailable_playlists.append(self.playlists[f"{game.clan.infection['infection_type']}_playlist"])
+
         # menu screen
         if (
             screen in menu_screens
-            and self.current_playlist != self.playlists["menu_playlist"]
-            and self.current_playlist != self.playlists[f"{game.clan.infection['infection_type']}_playlist"]
+            and self.current_playlist not in unavailable_playlists
         ):
             # print("menu screen")
             self.fade_out_music()
