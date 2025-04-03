@@ -62,7 +62,7 @@ class MusicManager:
             # print("menu screen")
             self.fade_out_music()
             try:
-                if game.clan.infection["clan_infected"] is True:
+                if game.clan and game.clan.infection["clan_infected"] is True:
                     self.play_playlist(self.playlists[f"{game.clan.infection['infection_type']}_playlist"])
                 else:
                     self.play_playlist(self.playlists["menu_playlist"])
