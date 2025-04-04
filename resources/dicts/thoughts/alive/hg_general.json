@@ -69,7 +69,11 @@
             "Is feeling restless",
             "Is dozing off",
             "Is a bit annoyed",
-            "Is sore from travelling"
+            "Is sore from travelling",
+            "Feels guilty",
+            "Digs a hole for fun",
+            "Is feeling horrible",
+            "Misses {PRONOUN/m_c/poss} nest"
         ]
     },
     {
@@ -78,7 +82,7 @@
         "thoughts": [
             "Just wants to sleep",
             "Wonders why recovering is so exhausting",
-            "Feeling frustrated at {PRONOUN/m_c/poss} own exhaustion",
+            "Is feeling frustrated at {PRONOUN/m_c/poss} own exhaustion",
             "Stands up for a second and feels lightheaded",
             "Isn't having a fun time",
             "Needs to rest, but feels too anxious to close {PRONOUN/m_c/poss} eyes",
