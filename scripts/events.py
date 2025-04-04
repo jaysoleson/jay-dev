@@ -222,13 +222,13 @@ class Events:
             infected_cats = get_infected_clan_cat_count(Cat)
             if infected_cats == 0:
                 game.clan.infection["clan_infected"] = False
+                game.clan.infection["next_infection_allowed"] = True
                 if "cure_found" in game.clan.infection["logs"]:
                     event_text = f"The infection has been cured, and no infected cats remain in camp! Now, the infection that ravaged {game.clan.name}Clan will be nothing but a tale told to future generations of kits."
                     game.clan.infection["next_infection_allowed"] = False
                     game.clan.infection["between_infections"] = True
                 else:
                     event_text = "No infection remains in the camp. You've staved it off... for now."
-                    game.clan.infection["next_infection_allowed"] = False
                     game.clan.infection["logs"].clear()
 
                 game.cur_events_list.insert(0, Single_Event(event_text, ["alert", "infection"]))

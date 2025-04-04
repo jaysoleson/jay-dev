@@ -304,6 +304,7 @@ class Condition_Events:
             infection_condition = inf_dict[infection_type]
 
             infected = False
+            sickness_chance = 0
             if f"{infection_type} stage one" in cat.illnesses:
                 sickness_chance = 80
                 infected = True

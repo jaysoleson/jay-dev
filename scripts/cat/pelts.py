@@ -77,7 +77,8 @@ class Pelt:
             "FROSTSOCK", "TOE", "SNAKETWO"]
     
     # INFECTION scars
-    # these are in seperate groups to make it easier to not give scars from the wrong infection type
+    # these are in seperate groups to make it easier to
+    # not give scars from the wrong infection type
     scars4 = ["EXPOSEDRIBS", "EYESOCKET", "ARMBONE"]
     scars5 = ["VOIDBACK", "VOIDEYE", "VOIDTAIL"]
     scars6 = ["SHELFMUSHROOMS", "EYEMOSS", "PAWMOSS"]

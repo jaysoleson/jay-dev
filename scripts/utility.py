@@ -724,10 +724,8 @@ def create_new_cat_block(
             
             chance = None
 
-            if game.clan.infection["between_infections"] is True and game.clan.infection["next_infection_allowed"] is True:
+            if game.clan.infection["clan_infected"] is False and game.clan.infection["next_infection_allowed"] is True:
                 chance = 15
-            elif game.clan.infection["clan_infected"] is False and game.clan.infection["next_infection_allowed"] is True:
-                chance = 10
             elif game.clan.infection["clan_infected"] is True:
                 percentage = (get_infected_clan_cat_count(Cat) / get_living_clan_cat_count(Cat)) * 100
                 chance = round((100 - percentage) / 3)
@@ -735,7 +733,12 @@ def create_new_cat_block(
             if chance:
                 print(n_c.name, "infection chance: 1/"+ str(chance))
 
-                if not int(random() * chance) and not n_c.dead and infected is False and "preinfected" not in attribute_list:
+                if (
+                    not int(random() * chance) and
+                    not n_c.dead and
+                    infected is False and
+                    "preinfected" not in attribute_list
+                    ):
                     # this sucks
                     print("random infected cat chance hit for", n_c.name)
                     n_c.get_ill(f"{game.clan.infection['infection_type']} stage one")
