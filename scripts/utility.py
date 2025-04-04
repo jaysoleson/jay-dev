@@ -724,7 +724,12 @@ def create_new_cat_block(
             
             chance = None
 
-            if game.clan.infection["clan_infected"] is False and game.clan.infection["next_infection_allowed"] is True:
+            if (
+                game.clan.infection["clan_infected"] is False and
+                game.clan.infection["next_infection_allowed"] is True
+                ):
+                # either you've cured the infection then opened the borders,
+                # or youve gotten rid of the infection temporarily
                 chance = 15
             elif game.clan.infection["clan_infected"] is True:
                 percentage = (get_infected_clan_cat_count(Cat) / get_living_clan_cat_count(Cat)) * 100
