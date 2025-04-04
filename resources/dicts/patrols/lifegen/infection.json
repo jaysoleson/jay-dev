@@ -26,7 +26,7 @@
         "success_outcomes": [
             {
                 "text": "You crouch and make your way towards the stumbling squirrel. Though you're not exactly quiet, the critter doesn't seem to notice you coming, and catching it is easy. You triumphantly grab your catch and drag it over to the fresh-kill pile, proud of your achievement, but when r_w eats it, {PRONOUN/r_w/subject} {VERB/r_w/get/gets} mysteriously ill.",
-                "exp": 10,
+                "exp": 0,
                 "weight": 20,
                 "cure_log": [
                     {
@@ -44,7 +44,7 @@
         "fail_outcomes": [
             {
                 "text": "You creep towards the prey, but before you can get to it, a senior warrior scoops you up and tosses you away from it, warning you that the sick prey could be dangerous. They send you back to the nursery while they assemble a crowd to inspect the squirrel.",
-                "exp": 10,
+                "exp": 0,
                 "weight": 20,
                 "cure_log": [
                     {
@@ -54,7 +54,7 @@
             },
             {
                 "text": "When you get close to the squirrel, it turns and hisses, which you didn't even know squirrels could do, and swipes your nose before stumbling off beyond the camp walls. Are squirrels really that mean?",
-                "exp": 10,
+                "exp": 0,
                 "weight": 20
             }
         ]
@@ -86,7 +86,7 @@
         "success_outcomes": [
             {
                 "text": "When you make eye contact, the furious pair of eyes lunges towards you, but the cat can't seem to get themselves free of the branches of the bush. You yelp and race back to camp, your need for adventure thoroughly satisfied.",
-                "exp": 10,
+                "exp": 0,
                 "weight": 20,
                 "injury": [
                     {
@@ -103,7 +103,7 @@
         "fail_outcomes": [
             {
                 "text": "Upon meeting your gaze, the creature turns its head and walks away from you. Maybe it's a good thing you have no idea who-- or what-- that was...",
-                "exp": 10,
+                "exp": 0,
                 "weight": 20
             }
         ]
@@ -135,14 +135,14 @@
         "success_outcomes": [
             {
                 "text": "r_m sees you peering at {PRONOUN/r_m/object} from around the corner and invites you in. When you ask why there's so many different herbs, {PRONOUN/r_m/subject} {VERB/r_m/tell/tells} you that you're never sure what you could need them for, and that it's better to be safe than sorry. Fair enough!",
-                "exp": 10,
+                "exp": 0,
                 "weight": 20
             }
         ],
         "fail_outcomes": [
             {
                 "text": "When {PRONOUN/r_m/subject} {VERB/r_m/see/sees} you, r_m shoos you out of the den, saying {PRONOUN/r_m/subject}{VERB/r_m/'re/'s} too busy to show you around today.",
-                "exp": 10,
+                "exp": 0,
                 "weight": 20
             }
         ]
@@ -176,7 +176,7 @@
         "success_outcomes": [
             {
                 "text": "Startled, you alert the nearby r_w, who agrees that the squabbling is annoying. {PRONOUN/r_w/subject/CAP} quickly {VERB/r_w/scale/scales} the tree and {VERB/r_w/manage/manages} to snatch the second bird from the branch with one paw while it's distracted. You feel bad for the poor thing, but when r_w offers to share the prey with you, your sadness quickly dissipates into hunger!",
-                "exp": 10,
+                "exp": 0,
                 "weight": 20,
                 "relationships": [
                     {
@@ -190,12 +190,12 @@
             },
             {
                 "text": "You run up to the base of the tree and start yowling at the birds to knock it off. When they notice you, the fight stops, and the second bird manages to scramble out of the first bird's grip and fly away. The first bird, however, just stares down at you. Its gaze is unsettling, so you decide to leave it be.",
-                "exp": 10,
+                "exp": 0,
                 "weight": 20
             },
             {
                 "text": "A couple of feathers fly out of the angry bird-ball, and you race forward to collect them. Those birds might not be having a very great day, but you sure are!",
-                "exp": 10,
+                "exp": 0,
                 "weight": 20,
                 "accessory": [
                     {
@@ -212,12 +212,12 @@
         "fail_outcomes": [
             {
                 "text": "In their impassioned fight, the two birds slip off of the tree branch and land in a furious ball at the edge of camp! You race up to the birds, hoping to catch them for the fresh-kill pile to impress your denmates, but you're caught off-guard by a concerning smell before you can get too close. The bird with the strange eyes looks sick with something... Maybe your Clanmates shouldn't eat it.",
-                "exp": 10,
+                "exp": 0,
                 "weight": 20
             },
             {
                 "text": "The angry bird-ball stumbles off of the branch and hits the ground of the camp with a thud, the sickly, yellow-eyed bird still intent on attacking the other one. r_w quickly runs up to the birds and quickly ends the both of them, but r_m advises against keeping the first one. When they leave to bury it outside of camp, you can't help but feel bad for the little bird.",
-                "exp": 10,
+                "exp": 0,
                 "weight": 20,
                 "cure_log": [
                     {
@@ -254,7 +254,7 @@
         "success_outcomes": [
             {
                 "text": "You cautiously bat a moss ball across the nursery towards where {PRONOUN/r_k_infected/subject} {VERB/r_k_infected/sit/sits} in the darkest corner. It takes a moment, but after a shake of the head, r_k_infected hits it back, and you play a nice long-distance game of moss ball. Almost as if everything were normal.",
-                "exp": 10,
+                "exp": 0,
                 "weight": 20,
                 "relationships": [
                     {
@@ -270,7 +270,7 @@
         "fail_outcomes": [
             {
                 "text": "You puff your fur up, trying to scare {PRONOUN/r_k_infected/object} away, but {PRONOUN/r_k_infected/subject} {VERB/r_k_infected/lunge/lunges} towards you with cloudy eyes. You yelp and race out of the nursery before {PRONOUN/r_k_infected/subject} can get you. You wish running from {PRONOUN/r_k_infected/object} was just a game.",
-                "exp": 10,
+                "exp": 0,
                 "weight": 20,
                 "relationships": [
                     {
@@ -311,7 +311,7 @@
         "success_outcomes": [
             {
                 "text": "You nod fervently. r_m tells you that this disease has no known cure. No cat knows how to stop it, and it could kill anycat at any time. Even r_w, even l_n. Even y_p. After thoroughly scaring you, r_m tells you that the Clan has to work hard to gather the right herbs to stop this, and {PRONOUN/r_m/subject} {VERB/r_m/teach/teaches} you about a couple of herbs to take your mind off of the horror.",
-                "exp": 10,
+                "exp": 0,
                 "weight": 20,
                 "relationships": [
                     {
@@ -327,7 +327,7 @@
         "fail_outcomes": [
             {
                 "text": "r_m launches into a spooky story about deadly diseases and sick Clanmates turning evil and killing misbehaving kittens. You're not sure if you believe {PRONOUN/r_m/object}... but you're still a bit shaken when you leave the den.",
-                "exp": 10,
+                "exp": 0,
                 "weight": 20
             }
         ]
@@ -449,7 +449,7 @@
         "success_outcomes": [
             {
                 "text": "You follow the smell to a shadowy corner and discover a sickly, infected cat huddled among the leaves and debris. The infected cat is a gaunt, scruffy creature with fur matted and clumped together. Their pelt is mishmash of dirt and grime, streaked through by tangled clumps of fur. Their eyes are dull and cloudy, half-closed, and seem to show but a flicker of life behind them. The sight alone makes you tremble with fear, and you hastily retreat back to the safety of the camp.",
-                "exp": 10,
+                "exp": 0,
                 "weight": 10,
                 "new_cat": [
                     ["rogue", "meeting", "preinfected"]
@@ -464,7 +464,7 @@
             },
             {
                 "text": "You follow the scent all the way to a shallow hole, inside of which you discover the skeleton of an infected cat. Feeling queasy, you stumble back to camp.",
-                "exp": 5,
+                "exp": 0,
                 "weight": 30
             }
         ],
@@ -1451,12 +1451,12 @@
         "success_outcomes": [
             {
                 "text": "You decide to organise the fresh-kill pile! You dig through the prey, separating different types of prey into different, smaller piles so that it'll be easier for the warriors to grab their favourites later. A warrior comes up next to you, giving you a thankful nudge as they pick a crow from the top of the bird pile. Job well done!",
-                "exp": 10,
+                "exp": 0,
                 "weight": 20
             },
             {
                 "text": "You know how sicknesses are passed-- gross things, like bugs! You patrol the entire camp all day, squishing every bug that you find. Now the camp is squeaky clean!",
-                "exp": 5,
+                "exp": 0,
                 "weight": 20
             }
         ],
@@ -1495,7 +1495,7 @@
         "success_outcomes": [
             {
                 "text": "A good puddle is impossible to resist! You race outside and launch yourself into the puddle, giggling as the droplets spray the nursery walls. To your delight, the grownups in the clearing stop their anxious conversations to laugh along with you.",
-                "exp": 10,
+                "exp": 0,
                 "weight": 20
             }
         ],

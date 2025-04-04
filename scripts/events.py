@@ -222,10 +222,10 @@ class Events:
             infected_cats = get_infected_clan_cat_count(Cat)
             if infected_cats == 0:
                 game.clan.infection["clan_infected"] = False
-                game.clan.infection["next_infection_allowed"] = True
+                game.clan.infection["allow_infection"] = True
                 if "cure_found" in game.clan.infection["logs"]:
                     event_text = f"The infection has been cured, and no infected cats remain in camp! Now, the infection that ravaged {game.clan.name}Clan will be nothing but a tale told to future generations of kits."
-                    game.clan.infection["next_infection_allowed"] = False
+                    game.clan.infection["allow_infection"] = False
                     game.clan.infection["between_infections"] = True
                 else:
                     event_text = "No infection remains in the camp. You've staved it off... for now."
@@ -236,7 +236,7 @@ class Events:
                 game.clan.infection["infection_moons"] += 1
         elif ( 
             game.clan.infection["between_infections"] is True and
-            game.clan.infection["next_infection_allowed"] is True and
+            game.clan.infection["allow_infection"] is True and
             "cure_found" in game.clan.infection["logs"] # only a new infection if u cured the first one
             ):
             # this is if the infection is cured, if it's completely gone, and if youve opened the borders

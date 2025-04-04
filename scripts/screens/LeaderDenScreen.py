@@ -84,7 +84,7 @@ class LeaderDenScreen(Screens):
             # INF
             elif event.ui_element == self.open_borders_button:
                 self.open_borders_button.disable()
-                game.clan.infection["next_infection_allowed"] = True
+                game.clan.infection["allow_infection"] = True
             # ---
             elif event.ui_element == self.outsider_selection_elements["page_right"]:
                 self.current_page += 1
@@ -155,7 +155,7 @@ class LeaderDenScreen(Screens):
 
         if "cure_found" in game.clan.infection["logs"] and game.clan.infection["clan_infected"] is False:
             self.open_borders_button.show()
-            if game.clan.infection["next_infection_allowed"] is False:
+            if game.clan.infection["allow_infection"] is False:
                 self.open_borders_button.enable()
             else:
                 self.open_borders_button.disable()

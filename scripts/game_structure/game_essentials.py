@@ -573,6 +573,10 @@ class Game:
                 self.clan.infection["killed_infected"] = ""
             if "cured_infected" not in self.clan.infection:
                 self.clan.infection["cured_infected"] = ""
+            
+            if "next_infection_allowed" in self.clan.infection:
+                self.clan.infection["allow_infection"] = self.clan.infection["next_infection_allowed"]
+                self.clan.infection.pop("next_infection_allowed")
         except AttributeError:
             print("Clan is None?")
         except FileNotFoundError:
@@ -595,7 +599,7 @@ class Game:
                     "fallen_clans": [],
                     "cured_clans": [],
                     "priority_herb": None,
-                    "next_infection_allowed": False,
+                    "allow_infection": False,
                     "between_infections": False,
                     "exiled_infected": "",
                     "killed_infected": "",

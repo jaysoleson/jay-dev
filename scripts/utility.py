@@ -726,7 +726,7 @@ def create_new_cat_block(
 
             if (
                 game.clan.infection["clan_infected"] is False and
-                game.clan.infection["next_infection_allowed"] is True
+                game.clan.infection["allow_infection"] is True
                 ):
                 # either you've cured the infection then opened the borders,
                 # or youve gotten rid of the infection temporarily
@@ -1563,8 +1563,9 @@ def gather_cat_objects(
             index = int(index)
             if index < len(event.new_cats):
                 out_set.update(event.new_cats[index])
-        else:
-            print(f"WARNING: Unsupported abbreviation {abbr}")
+        # else:
+        #     print(f"WARNING: Unsupported abbreviation {abbr}")
+        # not needed bc this would print for every lifegen abbrev
 
     # LIFEGEN ABBREVS ------------------------
     try:
