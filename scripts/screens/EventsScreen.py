@@ -533,12 +533,6 @@ class EventsScreen(Screens):
             manager=MANAGER
         )
         self.death_button.hide()
-        if len(game.clan.infection["logs"]) > 0:
-            self.log_button.show()
-            self.priority_herb_button.show()
-        else:
-            self.log_button.hide()
-            self.priority_herb_button.hide()
 
         if game.switches['continue_after_death']:
             self.death_button.show()
