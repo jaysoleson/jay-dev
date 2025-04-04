@@ -1050,9 +1050,6 @@ class TreatmentScreen(Screens):
             print("curing", patient.name, patient.ID, game.clan.infection["treated"])
             if not game.clan.infection["cure_discovered"]:
                 game.clan.infection["cure_discovered"] = True
-        else:
-            print("cure is", cure, "?")
-            print(correctherbs, len(correctherbs), "???")
         
         herbs = game.clan.herbs.copy()
         for herb in herbs:

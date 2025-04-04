@@ -153,7 +153,7 @@
     ],
     "you stageone oneright 4herb": [
         [
-            "Text needed for key!"
+            "m_c thanks you for the herbs. {PRONOUN/m_c/subject/CAP} even {VERB/m_c/say/says} it makes {PRONOUN/m_c/object} feel a little bit better!"
         ]
     ],
     "you stageone tworight 2herb": [
