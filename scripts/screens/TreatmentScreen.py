@@ -62,6 +62,7 @@ class TreatmentScreen(Screens):
         self.mentor = None
         self.the_cat = None
         self.patient = None
+        self.medcats = []
 
         self.previous_stage_button = None
         self.next_stage_button = None
@@ -382,6 +383,15 @@ class TreatmentScreen(Screens):
             self.subtitle = None
             self.screenart = None
             self.scroll_container = None
+
+            self.medcats = [
+                i for i in Cat.all_cats_list if
+                i.status in ["medicine cat", "medicine cat apprentice"] and
+                not i.not_working() and
+                not i.outside and
+                not i.dead and
+                i.infected_for < 1
+            ]
 
             self.list_frame = pygame_gui.elements.UIImage(
                 ui_scale(pygame.Rect((0, 390), (650, 226))),
@@ -844,19 +854,11 @@ class TreatmentScreen(Screens):
         if self.the_cat.status == "medicine cat":
             failchance = failchance * 0.8
             # more likely to work if theyre not an app
-        
-        medcats = [
-            i for i in Cat.all_cats_list if
-            i.status in ["medicine cat", "medicine cat apprentice"] and
-            not i.not_working() and
-            not i.outside and
-            not i.dead
-        ]
 
-        if len(medcats) == 2:
+        if len(self.medcats) == 2:
             failchance -= 10
-        elif len(medcats) > 2:
-            failchance -= 10 + 2 * (len(medcats) - 2)
+        elif len(self.medcats) > 2:
+            failchance -= 10 + 2 * (len(self.medcats) - 2)
 
         chance = randint(1,100)
         if chance < failchance:
@@ -873,11 +875,7 @@ class TreatmentScreen(Screens):
                 encoding="ascii") as read_file:
             self.m_txt = ujson.loads(read_file.read())
 
-        medcats = []
-        for cat in Cat.all_cats_list:
-            if cat.status in ["medicine cat", "medicine cat apprentice"] and not cat.not_working() and cat.infected_for < 1 and not cat.outside and not cat.dead:
-                medcats.append(cat)
-        self.the_cat = choice(medcats)
+        self.the_cat = choice(self.medcats)
 
         who_key = ""
         if self.the_cat == game.clan.your_cat:
@@ -1023,15 +1021,12 @@ class TreatmentScreen(Screens):
             elif cure_three:
                 remission_chance -= remission_chance / 2
             
-            medcats = [i for i in Cat.all_cats.values() if
-                (i.status == 'medicine cat' or i.status == 'medicine cat apprentice') and not i.dead and not i.outside and not i.not_working() and i.infected_for < 1]
-            
-            if len(medcats) < 2:
-                remission_chance += len(medcats) / 5
-            elif len(medcats) < 4:
-                remission_chance += len(medcats) / 3
+            if len(self.medcats) < 2:
+                remission_chance += len(self.medcats) / 5
+            elif len(self.medcats) < 4:
+                remission_chance += len(self.medcats) / 3
             else:
-                remission_chance += len(medcats) / 2
+                remission_chance += len(self.medcats) / 2
 
             if remission_chance <= 1:
                 remission_chance = 1

@@ -410,11 +410,9 @@ class MedDenScreen(Screens):
             i.status in ["medicine cat", "medicine cat apprentice"] and
             not i.not_working() and
             not i.outside and
-            not i.dead
+            not i.dead and
+            i.infected_for < 1
         ]
-
-        for cat in medcats:
-            print(cat.name)
 
         if (
             game.clan.infection["cure_attempt"] is True or
