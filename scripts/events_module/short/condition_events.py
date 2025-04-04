@@ -295,73 +295,39 @@ class Condition_Events:
 
             # INFECTION
             # withering, void sickness, rot
-            # so i can change the chances between them if i wanna
-            witherchance = 10
+            inf_dict = {
+                "parasitic": "withering",
+                "void": "void sickness",
+                "fungal": "rot"
+            }
+            infection_type = game.clan.infection["infection_type"]
+            infection_condition = inf_dict[infection_type]
 
-            if inftype == "parasitic":
-                infected = False
-                if "parasitic stage one" in cat.illnesses:
-                    # witherchance = 3
-                    witherchance = 80
-                    infected = True
-                elif "parasitic stage two" in cat.illnesses:
-                    # witherchance = 3
-                    witherchance = 50
-                    infected = True
-                elif "parasitic stage three" in cat.illnesses:
-                    # witherchance = 3
-                    witherchance = 30
-                    infected = True
-                elif "parasitic stage four" in cat.illnesses:
-                    # witherchance = 3
-                    witherchance = 10
-                    infected = True
-                
-                if infected:
-                    if random.random() < 1 / witherchance and "withering" not in cat.injuries:
-                        cat.get_injured("withering")
-                        event = f"The infection is beginning to destroy {cat.name}'s body."
-                        game.cur_events_list.append(Single_Event(event, ["health", "infection"], cat.ID))
-            elif inftype == "void":
-                infected = False
-                if "void stage one" in cat.illnesses:
-                    witherchance = 80
-                    infected = True
-                elif "void stage two" in cat.illnesses:
-                    witherchance = 50
-                    infected = True
-                elif "void stage three" in cat.illnesses:
-                    witherchance = 30
-                    infected = True
-                elif "void stage four" in cat.illnesses:
-                    witherchance = 20
-                    infected = True
-                
-                if infected:
-                    if random.random() < 1 / witherchance and "void sickness" not in cat.injuries:
-                        cat.get_injured("void sickness")
-                        event = f"{cat.name}'s body is slowly being consumed by the infection."
-                        game.cur_events_list.append(Single_Event(event, ["health", "infection"], cat.ID))
-            elif inftype == "fungal":
-                infected = False
-                if "fungal stage one" in cat.illnesses:
-                    witherchance = 80
-                    infected = True
-                elif "fungal stage two" in cat.illnesses:
-                    witherchance = 50
-                    infected = True
-                elif "fungal stage three" in cat.illnesses:
-                    witherchance = 30
-                    infected = True
-                elif "fungal stage four" in cat.illnesses:
-                    witherchance = 10
-                    infected = True
-                
-                if infected:
-                    if random.random() < 1 / witherchance and "rot" not in cat.injuries:
-                        cat.get_injured("rot")
-                        event = f"{cat.name}'s body is becoming very overgrown."
-                        game.cur_events_list.append(Single_Event(event, ["health", "infection"], cat.ID))
+            infected = False
+            if f"{infection_type} stage one" in cat.illnesses:
+                sickness_chance = 80
+                infected = True
+            elif f"{infection_type} stage two" in cat.illnesses:
+                sickness_chance = 50
+                infected = True
+            elif f"{infection_type} stage three" in cat.illnesses:
+                sickness_chance = 30
+                infected = True
+            elif f"{infection_type} stage four" in cat.illnesses:
+                sickness_chance = 10
+                infected = True
+            
+            string_dict = {
+                "parasitic": f"The infection is beginning to destroy {cat.name}'s body.",
+                "void": f"The infection has left {cat.name} feeling especially hollow today...",
+                "fungal": f"{cat.name}'s body is becoming very overgrown."
+            }
+
+            if infected:
+                if random.random() < 1 / sickness_chance and infection_condition not in cat.injuries:
+                    cat.get_injured(infection_condition)
+                    event = string_dict[infection_type]
+                    game.cur_events_list.append(Single_Event(event, ["health", "infection"], cat.ID))
         else:
             # ---------------------------------------------------------------------------- #
             #                              make cats sick                                  #

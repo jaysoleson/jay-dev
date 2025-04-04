@@ -574,6 +574,9 @@ class Cat:
         for stage in stages:
             if stage in self.illnesses:
                 old_stage = stage
+                for condition in ["withering", "rot", "void sickness"]:
+                    if condition in self.injuries:
+                        self.injuries.pop(condition)
                 if game.clan.infection["cure_discovered"] is True:
                     self.illnesses.pop(stage)
                     infection_scars = ["EXPOSEDRIBS", "ARMBONE", "VOIDBACK", "VOIDEYE", "VOIDTAIL", "SHELFMUSHROOMS", "EYEMOSS", "PAWMOSS"]
