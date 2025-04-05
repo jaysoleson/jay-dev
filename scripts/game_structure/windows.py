@@ -2884,3 +2884,72 @@ class ConfirmDisplayChanges(UIMessageWindow):
             self.revert_changes()
             self.kill()
         return super().process_event(event)
+    
+    # INF: password window
+class InputPassword(UIWindow):
+    """password protection for my mods in closed betas"""
+
+    def __init__(self, cat):
+        super().__init__(
+            ui_scale(pygame.Rect((300, 215), (400, 185))),
+            window_display_title="Input Password",
+            object_id="#change_cat_name_window",
+            resizable=False,
+        )
+        self.the_cat = cat
+        self.back_button = UIImageButton(
+            ui_scale(pygame.Rect((370, 5), (22, 22))),
+            "",
+            object_id="#exit_window_button",
+            container=self,
+        )
+
+        self.specsuffic_hidden = self.the_cat.name.specsuffix_hidden
+
+        self.heading = pygame_gui.elements.UITextBox(
+            f"-Input the beta testing password for LifeGen: INFECTION",
+            ui_scale(pygame.Rect((50, 10), (300, 40))),
+            object_id="#text_box_30_horizcenter",
+            manager=MANAGER,
+            container=self,
+        )
+        self.password_box = pygame_gui.elements.UITextEntryLine(
+            ui_scale(pygame.Rect((0, 60), (200, 30))),
+            initial_text=self.the_cat.name.prefix,
+            manager=MANAGER,
+            container=self,
+            anchors={"centerx": "centerx"}
+        )
+        self.password = "MollyLouisMonty"
+        count = 0
+        self.wrong_pw = pygame_gui.elements.UITextBox(
+            f"Incorrect password! + {count}",
+            ui_scale(pygame.Rect((50, 10), (300, 40))),
+            object_id="#text_box_26_horizcenter",
+            manager=MANAGER,
+            container=self,
+        )
+        self.wrong_pw.hide()
+
+        self.done_button = UISurfaceImageButton(
+            ui_scale(pygame.Rect((161, 145), (100, 30))),
+            "continue",
+            get_button_dict(ButtonStyles.SQUOVAL, (100, 30)),
+            object_id="@buttonstyles_squoval",
+            manager=MANAGER,
+            container=self,
+        )
+
+
+        self.set_blocking(True)
+
+    def process_event(self, event):
+        if event.type == pygame_gui.UI_BUTTON_START_PRESS:
+            if event.ui_element == self.done_button:
+                pw_input = self.password_box.get_text()
+                if pw_input == self.password:
+                    self.kill()
+                else:
+                    count += 1
+                    self.wrong_pw.show()
+        return super().process_event(event)
