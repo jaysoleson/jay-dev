@@ -4783,12 +4783,16 @@ class Events:
                         )
                         return
 
-                random_cat.status_change("deputy")
-                game.clan.deputy = random_cat
 
                 game.cur_events_list.append(
                     Single_Event(text, event_types, involved_cats)
                 )
+                # INF: ?
+                game.clan.deputy.status_change("warrior")
+                # ---
+
+                random_cat.status_change("deputy")
+                game.clan.deputy = random_cat
 
             else:
                 # INF

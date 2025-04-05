@@ -889,7 +889,10 @@ class PatrolOutcome:
                         f"{game.clan.infection['infection_type']} stage four",
                         "undead"
                     ]:
-                        results.append(f"\n<font color='#A6D000'>{_cat.name} is infected.</font")
+                        if game.settings["dark mode"]:
+                            results.append(f"\n<font color='#A6D000'>{_cat.name} is infected.</font")
+                        else:
+                            results.append(f"\n<font color='#416101'>{_cat.name} is infected.</font")
                     else:  
                         combined_conditions = ", ".join(given_conditions)
                         results.append(f"{_cat.name} got: {combined_conditions}.")
