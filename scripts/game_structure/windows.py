@@ -2898,15 +2898,23 @@ class InputPassword(UIWindow):
         )
 
         self.heading = pygame_gui.elements.UITextBox(
-            f"Input the beta testing password for LifeGen: INFECTION",
-            ui_scale(pygame.Rect((0, 10), (460, 80))),
+            f"<b>Input the beta testing password for LifeGen: INFECTION</b>",
+            ui_scale(pygame.Rect((0, 10), (460, 40))),
             object_id="#text_box_30_horizcenter",
             manager=MANAGER,
             container=self,
             anchors={"centerx": "centerx"}
         )
+        self.info = pygame_gui.elements.UITextBox(
+            "LifeGen: INFECTION is currently in a closed beta, meaning only authorised testers are permitted to play the game as of right now. If you're a tester and you do not have the password, or it doesn't seem to be working, please let me know through discord @illadvisedart!",
+            ui_scale(pygame.Rect((0, 50), (460, 130))),
+            object_id="#text_box_26_horizcenter",
+            manager=MANAGER,
+            container=self,
+            anchors={"centerx": "centerx"}
+        )
         self.password_box = pygame_gui.elements.UITextEntryLine(
-            ui_scale(pygame.Rect((0, 120), (300, 30))),
+            ui_scale(pygame.Rect((0, 190), (300, 30))),
             initial_text="",
             manager=MANAGER,
             container=self,
@@ -2916,7 +2924,7 @@ class InputPassword(UIWindow):
         self.count = 0
         self.wrong_pw = pygame_gui.elements.UITextBox(
             "",
-            ui_scale(pygame.Rect((0, 165), (300, 40))),
+            ui_scale(pygame.Rect((0, 235), (300, 40))),
             object_id="#text_box_26_horizcenter",
             manager=MANAGER,
             container=self,
@@ -2925,7 +2933,7 @@ class InputPassword(UIWindow):
         self.wrong_pw.hide()
 
         self.done_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((0, 300), (100, 30))),
+            ui_scale(pygame.Rect((0, 260), (100, 30))),
             "continue",
             get_button_dict(ButtonStyles.SQUOVAL, (100, 30)),
             object_id="@buttonstyles_squoval",

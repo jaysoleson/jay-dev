@@ -362,12 +362,14 @@ class StartScreen(Screens):
             has_checked_for_update = True
 
         show_changelog = True
+        input_password = True
         lastCommit = "0000000000000000000000000000000000000000"
         if os.path.exists(f"{get_cache_dir()}/changelog_popup_shown"):
             with open(f"{get_cache_dir()}/changelog_popup_shown") as read_file:
                 lastCommit = read_file.readline()
                 if lastCommit == get_version_info().version_number:
                     show_changelog = False
+                    input_password = False
 
         if game.settings["show_changelog"]:
             if show_changelog:
@@ -376,7 +378,7 @@ class StartScreen(Screens):
                     f"{get_cache_dir()}/changelog_popup_shown", "w"
                 ) as write_file:
                     write_file.write(get_version_info().version_number)
-        if show_changelog:
+        if input_password:
             InputPassword()
 
         self.warning_label_background = UISurfaceImageButton(
