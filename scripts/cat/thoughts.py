@@ -159,10 +159,11 @@ class Thoughts:
                 stage in thought["main_infected_constraint"]
                 for stage in ["stage one", "stage two", "stage three", "stage four"]
                 ):
-                for stage in ["stage one", "stage two", "stage three", "stage four"]:
-                    if stage in thought["main_infected_constraint"]:
-                        if game.clan.infection['infection_type'] + ' ' + stage not in main_cat.illnesses:
-                            continue
+                if game.clan:
+                    for stage in ["stage one", "stage two", "stage three", "stage four"]:
+                        if stage in thought["main_infected_constraint"]:
+                            if game.clan.infection['infection_type'] + ' ' + stage not in main_cat.illnesses:
+                                continue
             
         if "random_infected_constraint" in thought and random_cat:
             if "infected" in thought["random_infected_constraint"] and random_cat.infected_for < 1:
@@ -182,10 +183,11 @@ class Thoughts:
                 stage in thought["random_infected_constraint"]
                 for stage in ["stage one", "stage two", "stage three", "stage four"]
                 ):
-                for stage in ["stage one", "stage two", "stage three", "stage four"]:
-                    if stage in thought["random_infected_constraint"]:
-                        if game.clan.infection['infection_type'] + ' ' + stage not in main_cat.illnesses:
-                            continue
+                if game.clan:
+                    for stage in ["stage one", "stage two", "stage three", "stage four"]:
+                        if stage in thought["random_infected_constraint"]:
+                            if game.clan.infection['infection_type'] + ' ' + stage not in main_cat.illnesses:
+                                continue
         
         if "infection" in thought:
             if game.clan:
@@ -208,11 +210,12 @@ class Thoughts:
                     return False
             else:
                 return False
-            
-        if "log_prereq" in thought and game.clan.infection["clan_infected"] is True:
-            for tag in thought["prereq"]:
-                if tag not in game.clan.infection["logs"]:
-                    return False
+        
+        if game.clan:
+            if "log_prereq" in thought and game.clan.infection["clan_infected"] is True:
+                for tag in thought["prereq"]:
+                    if tag not in game.clan.infection["logs"]:
+                        return False
 
         if 'main_skill_constraint' in thought:
             _flag = False
@@ -459,16 +462,14 @@ class Thoughts:
             if main_cat.age == 'newborn':
                 with open(f"{base_path}{life_dir}{spec_dir}/newborn.json", 'r') as read_file:
                     thoughts = ujson.loads(read_file.read())
-                loaded_thoughts = thoughts
             elif main_cat.shunned > 0 and not main_cat.dead and not main_cat.outside:
                 with open(f"{base_path}{life_dir}{spec_dir}/shunned.json", 'r') as read_file:
-                    loaded_thoughts = ujson.loads(read_file.read())
+                    thoughts = ujson.loads(read_file.read())
             else:
                 with open(f"{base_path}{life_dir}{spec_dir}/{status}.json", 'r') as read_file:
                     thoughts = ujson.loads(read_file.read())
                 with open(f"{base_path}{life_dir}{spec_dir}/general.json", 'r') as read_file:
                     genthoughts = ujson.loads(read_file.read())
-
 
             loaded_thoughts = thoughts + genthoughts
 
@@ -486,13 +487,10 @@ class Thoughts:
             if (main_cat.name.prefix+main_cat.name.suffix).replace(" ", "").lower() == "rickastley":
                 return "Never going to give r_c up, never going to let {PRONOUN/r_c/object} down, never going to run around and desert {PRONOUN/r_c/object}."
             else:
-                # INF
-                if "undead" in main_cat.illnesses:
-                    return "... ... ... ..."
-                #  ---
                 chosen_thought_group = choice(Thoughts.load_thoughts(main_cat, other_cat, game_mode, biome, season, camp))
                 chosen_thought = choice(chosen_thought_group["thoughts"])
-        except Exception:
+        except Exception as e:
+            print("Thought Error:", e)
             chosen_thought = "Prrrp! You shouldn't see this! Report as a bug."
 
         return chosen_thought
