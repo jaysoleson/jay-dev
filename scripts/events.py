@@ -1766,7 +1766,7 @@ class Events:
             increase_amount = temper_chance[clan.temperament]
             
             increase_chance = 0
-            increase_chance += (increase_amount + random.randint(-2,5))
+            increase_chance += (increase_amount + random.randint(-4,4))
 
             increase_chance = max(1, min(increase_chance, 10))
             beginning = False
