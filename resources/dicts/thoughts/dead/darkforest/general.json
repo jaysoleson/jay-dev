@@ -493,5 +493,18 @@
 		"random_living_constraint": [
 			"living"
 		]
-	}
+	},
+    {
+        "id": "gen_df_infection",
+        "thoughts": [
+            "Thinks the infection is a good way to get more cats in the Dark Forest",
+            "Hopes more cats will follow the Dark Forest because of the infection"
+        ],
+        "main_age_constraint": [
+            "no_kit"
+        ],
+        "infection": [
+            "not_cured"
+        ]
+    }
 ]

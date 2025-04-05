@@ -44,7 +44,8 @@
             "Is eyeing down the roaming souls trapped in the Dark Forest",
             "Peers down at the roaming souls trapped in the Dark Forest with pity",
             "Is judging a codebreaker",
-            "Finds {PRONOUN/m_c/subject} can't use {PRONOUN/m_c/poss} skills for anything valuable in StarClan"
+            "Finds {PRONOUN/m_c/subject} can't use {PRONOUN/m_c/poss} skills for anything valuable in StarClan",
+            "Wants to warn the medicine cats about who will be infected next"
         ],
         "random_living_status": [
             "living",
@@ -613,6 +614,18 @@
         ],
         "main_skill_constraint": [
             "CLEAN,1"
+        ]
+    },
+    {
+        "id": "sc_med_inf",
+        "thoughts": [
+            "Wishes {PRONOUN/m_c/poss} knowledge of herbs could help the Clan during this time"
+        ],
+        "main_status_constraint": [
+            "medicine cat"
+        ],
+        "infection": [
+            "not_cured"
         ]
     }
 ]
