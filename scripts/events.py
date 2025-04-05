@@ -1827,12 +1827,14 @@ class Events:
                     events.remove(event)
                 if "lead_name" in events and not game.clan.leader:
                     events.remove(event)
-            try:
-                text = random.choice(events)
-                text = event_text_adjust(Cat, text, other_clan=clan)
-                game.cur_events_list.insert(0, Single_Event(text, ["other_clans", "infection"]))
-            except IndexError:
-                print(f"No possible other Clans infection events for {clan.name}Clan.")
+
+            if game.clan.infection["clan_infected"]:
+                try:
+                    text = random.choice(events)
+                    text = event_text_adjust(Cat, text, other_clan=clan)
+                    game.cur_events_list.insert(0, Single_Event(text, ["other_clans", "infection"]))
+                except IndexError:
+                    print(f"No possible other Clans infection events for {clan.name}Clan.")
     
     def clan_fall(self, clan):
         """
