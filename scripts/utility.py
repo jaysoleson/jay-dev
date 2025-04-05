@@ -2959,17 +2959,16 @@ def generate_sprite(
         if game.clan:
             inftype = game.clan.infection["infection_type"]
             if not dead and infected:
-                for inftype in ["void", "fungal", "parasitic"]:
-                    if f"{inftype} stage one" in cat.illnesses:
-                        new_sprite.blit(sprites.sprites[f'{inftype}lineartstageone' + cat_sprite], (0, 0))
-                    elif f"{inftype} stage two" in cat.illnesses:
-                        new_sprite.blit(sprites.sprites[f'{inftype}lineartstagetwo' + cat_sprite], (0, 0))
-                    elif f"{inftype} stage three" in cat.illnesses:
-                        new_sprite.blit(sprites.sprites[f'{inftype}lineartstagethree' + cat_sprite], (0, 0))
-                    elif f"{inftype} stage four" in cat.illnesses or "undead" in cat.illnesses:
-                        new_sprite.blit(sprites.sprites[f'{inftype}lineartstagefour' + cat_sprite], (0, 0))
-                    else:
-                        new_sprite.blit(sprites.sprites['lines' + cat_sprite], (0, 0))
+                if f"{inftype} stage one" in cat.illnesses:
+                    new_sprite.blit(sprites.sprites[f'{inftype}lineartstageone' + cat_sprite], (0, 0))
+                elif f"{inftype} stage two" in cat.illnesses:
+                    new_sprite.blit(sprites.sprites[f'{inftype}lineartstagetwo' + cat_sprite], (0, 0))
+                elif f"{inftype} stage three" in cat.illnesses:
+                    new_sprite.blit(sprites.sprites[f'{inftype}lineartstagethree' + cat_sprite], (0, 0))
+                elif f"{inftype} stage four" in cat.illnesses or "undead" in cat.illnesses:
+                    new_sprite.blit(sprites.sprites[f'{inftype}lineartstagefour' + cat_sprite], (0, 0))
+                else:
+                    new_sprite.blit(sprites.sprites['lines' + cat_sprite], (0, 0))
             elif cat.df:
                 new_sprite.blit(sprites.sprites["lineartdf" + cat_sprite], (0, 0))
             elif cat.dead and cat.outside:
