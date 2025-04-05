@@ -5938,7 +5938,8 @@
     {
         "id": "medcat_infection_notinfected",
         "thoughts": [
-            "Is surprised {PRONOUN/m_c/subject} {VERB/m_c/haven't/hasn't} caught the infection yet"
+            "Is surprised {PRONOUN/m_c/subject} {VERB/m_c/haven't/hasn't} caught the infection yet",
+            ""
         ],
         "main_status_constraint": [
             "medicine cat",

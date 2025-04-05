@@ -187,20 +187,26 @@ class Thoughts:
                         if game.clan.infection['infection_type'] + ' ' + stage not in main_cat.illnesses:
                             continue
         
-        if "infection" in thought and game.clan.infection["clan_infected"] is True:
-            if "void" in thought["infection"] and game.clan.infection["infection_type"] != "void":
-                return False
-            if "fungal" in thought["infection"] and game.clan.infection["infection_type"] != "fungal":
-                return False
-            if "parasitic" in thought["infection"] and game.clan.infection["infection_type"] != "parasitic":
-                return False
-            if "spread_by_bite" in thought["infection"] and game.clan.infection["spread_by"] != "bite":
-                return False
-            if "spread_by_air" in thought["infection"] and game.clan.infection["spread_by"] != "air":
-                return False
-            if "cured" in thought["infection"] and "cure_found" not in game.clan.infection["logs"]:
-                return False
-            if "not_cured" in thought["infection"] and "cure_found" in game.clan.infection["logs"]:
+        if "infection" in thought:
+            if game.clan:
+                if game.clan.infection["clan_infected"] is True:
+                    if "void" in thought["infection"] and game.clan.infection["infection_type"] != "void":
+                        return False
+                    if "fungal" in thought["infection"] and game.clan.infection["infection_type"] != "fungal":
+                        return False
+                    if "parasitic" in thought["infection"] and game.clan.infection["infection_type"] != "parasitic":
+                        return False
+                    if "spread_by_bite" in thought["infection"] and game.clan.infection["spread_by"] != "bite":
+                        return False
+                    if "spread_by_air" in thought["infection"] and game.clan.infection["spread_by"] != "air":
+                        return False
+                    if "cured" in thought["infection"] and "cure_found" not in game.clan.infection["logs"]:
+                        return False
+                    if "not_cured" in thought["infection"] and "cure_found" in game.clan.infection["logs"]:
+                        return False
+                else:
+                    return False
+            else:
                 return False
             
         if "log_prereq" in thought and game.clan.infection["clan_infected"] is True:
