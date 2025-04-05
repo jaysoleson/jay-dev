@@ -1278,6 +1278,8 @@ class Condition_Events:
                 if cat.infected_for == -1:
                     return
                 infection_event = True
+                if "cure_found" in game.clan.infection["logs"]:
+                    chance = round(chance / 3)
 
                 # print(cat.name, cat_stage, "infection progression chance: 1/" + str(chance))
             # inf
