@@ -1725,8 +1725,8 @@ class Events:
         # event for newly cured clans
         if "cure_found" in game.clan.infection["logs"]:
             for clan in game.clan.all_clans:
-                if int(clan.infection_level) == -1:
-                    clan.infection_level = "0"
+                if clan.infection_level == -1:
+                    clan.infection_level = 0
                     if clan.name in game.clan.infection["fallen_clans"]:
                         event = "o_c_n is beginning to rebuild after recieving news of the cure."
                     else:
@@ -1776,9 +1776,7 @@ class Events:
             if random.random() < 1 / increase_chance:
                 previous_amount = clan.infection_level
                 increase = random.randint(1, 8)
-                level = int(clan.infection_level)
-                level += increase
-                clan.infection_level = str(level)
+                clan.infection_level += increase
                 if previous_amount == 0:
                     if game.clan.infection["clan_infected"] is False and game.clan.infection["between_infections"] is False:
                         continue
@@ -1792,7 +1790,7 @@ class Events:
             elif clan.relations < 7:
                 addon = "_hostile"
 
-            level = int(clan.infection_level)
+            level = clan.infection_level
             level_string = ""
             
             if beginning:

@@ -110,7 +110,7 @@ class LeaderDenScreen(Screens):
                 self.update_clan_interaction_choice(text)
             # INF
             elif event.ui_element == self.focus_frame_elements["share_cure"]:
-                self.focus_clan.infection_level = "-1"
+                self.focus_clan.infection_level = -1
                 self.update_other_clan_focus()
             # ---
             elif event.ui_element == self.focus_frame_elements["clans_tab"]:
@@ -544,7 +544,7 @@ class LeaderDenScreen(Screens):
             if other_clan.name in game.clan.infection["fallen_clans"]:
                 text = "FALLEN"
                 theme=f"#text_box_22_horizcenter_green{addon}"
-            elif int(other_clan.infection_level) > 0:
+            elif other_clan.infection_level > 0:
                 text = "infected"
                 theme=f"#text_box_22_horizcenter_green{addon}"
             else:
@@ -745,7 +745,7 @@ class LeaderDenScreen(Screens):
             ),
             anchors={"centerx": "centerx"},
         )
-        if int(self.focus_clan.infection_level) < 1:
+        if self.focus_clan.infection_level < 1:
             self.focus_frame_elements["share_cure"].disable()
         else:
             self.focus_frame_elements["share_cure"].enable()

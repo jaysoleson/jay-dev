@@ -837,9 +837,9 @@ class GenerateEvents:
                 if "any" not in event.other_clan["infection_level"]:
                     inf_minimum = event.other_clan["infection_level"][0]
                     inf_maximum = event.other_clan["infection_level"][1]
-                    if int(other_clan.infection_level) < inf_minimum:
+                    if other_clan.infection_level < inf_minimum:
                         continue
-                    if int(other_clan.infection_level) > inf_maximum:
+                    if other_clan.infection_level > inf_maximum:
                         continue
                 # ---
 
