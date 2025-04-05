@@ -1252,13 +1252,20 @@ class Condition_Events:
                 and "a festering wound" in cat.illnesses
             ):
                 continue
+
+            infection_progression = False
+            cat_stage = None
+            if risk["name"] in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]:
+                cat_stage = risk["name"]
+                infection_progression = True
             
             # adjust chance of risk gain if Clan has enough meds
             chance = risk["chance"]
-            if medical_cats_condition_fulfilled(
-                Cat.all_cats.values(), get_amount_cat_for_one_medic(game.clan)
-            ):
-                chance += 10  # lower risk if enough meds
+            if not infection_progression:
+                if medical_cats_condition_fulfilled(
+                    Cat.all_cats.values(), get_amount_cat_for_one_medic(game.clan)
+                ):
+                    chance += 10  # lower risk if enough meds
             if game.clan.medicine_cat is None and chance != 0:
                 chance = int(
                     chance * 0.75
@@ -1267,15 +1274,16 @@ class Condition_Events:
                     chance = 1
             
             infection_event = False
-            if risk["name"] in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]:
-                if cat.infected_for > 0:
-                    return
+            if infection_progression:
                 if cat.infected_for == -1:
                     return
                 infection_event = True
-                chance /= 2
-                chance = round(chance)
 
+                # print(cat.name, cat_stage, "infection progression chance: 1/" + str(chance))
+            # inf
+            if chance < 2:
+                chance = 2
+            # ---
             # if we hit the chance, then give the risk if the cat does not already have the risk
             if (
                 chance != 0
@@ -1378,6 +1386,7 @@ class Condition_Events:
                     break
                 elif new_condition_name in Condition_Events.ILLNESSES:
                     cat.get_ill(new_condition_name, event_triggered=event_triggered)
+                    print(cat.name, "getting", new_condition_name)
                     if dictionary == cat.illnesses or removed_condition:
                         break
                     keys = dictionary[condition].keys()
