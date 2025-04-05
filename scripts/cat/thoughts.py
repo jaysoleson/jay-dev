@@ -131,7 +131,6 @@ class Thoughts:
                 return False
 
         # INFECTION
-
         if "main_cluster_constraint" in thought:
             cluster, cluster2 = get_cluster(main_cat.personality.trait)
             if cluster not in thought["main_cluster_constraint"] and (cluster2 and cluster2 not in thought["main_cluster_constraint"]):
@@ -156,6 +155,15 @@ class Thoughts:
             if "not_undead" in thought["main_infected_constraint"] and "undead" in main_cat.illnesses:
                 return False
             
+            if any(
+                stage in thought["main_infected_constraint"]
+                for stage in ["stage one", "stage two", "stage three", "stage four"]
+                ):
+                for stage in ["stage one", "stage two", "stage three", "stage four"]:
+                    if stage in thought["main_infected_constraint"]:
+                        if game.clan.infection['infection_type'] + ' ' + stage not in main_cat.illnesses:
+                            continue
+            
         if "random_infected_constraint" in thought and random_cat:
             if "infected" in thought["random_infected_constraint"] and random_cat.infected_for < 1:
                 return False
@@ -169,6 +177,15 @@ class Thoughts:
                 return False
             if "not_undead" in thought["random_infected_constraint"] and "undead" in random_cat.illnesses:
                 return False
+            
+            if any(
+                stage in thought["random_infected_constraint"]
+                for stage in ["stage one", "stage two", "stage three", "stage four"]
+                ):
+                for stage in ["stage one", "stage two", "stage three", "stage four"]:
+                    if stage in thought["random_infected_constraint"]:
+                        if game.clan.infection['infection_type'] + ' ' + stage not in main_cat.illnesses:
+                            continue
         
         if "infection" in thought and game.clan.infection["clan_infected"] is True:
             if "void" in thought["infection"] and game.clan.infection["infection_type"] != "void":
@@ -433,7 +450,6 @@ class Thoughts:
         # newborns only pull from their status thoughts. this is done for convenience
         try:
             genthoughts = []
-            infthoughts = []
             if main_cat.age == 'newborn':
                 with open(f"{base_path}{life_dir}{spec_dir}/newborn.json", 'r') as read_file:
                     thoughts = ujson.loads(read_file.read())
@@ -447,11 +463,8 @@ class Thoughts:
                 with open(f"{base_path}{life_dir}{spec_dir}/general.json", 'r') as read_file:
                     genthoughts = ujson.loads(read_file.read())
 
-                # with open(f"{base_path}{life_dir}/infection/general.json", 'r') as read_file:
-                #     infthoughts = ujson.loads(read_file.read())
 
-
-            loaded_thoughts = thoughts + genthoughts + infthoughts
+            loaded_thoughts = thoughts + genthoughts
 
             final_thoughts = Thoughts.create_thoughts(loaded_thoughts, main_cat, other_cat, game_mode, biome,
                                                       season, camp)
