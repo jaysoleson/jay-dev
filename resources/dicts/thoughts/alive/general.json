@@ -5783,12 +5783,16 @@
         ],
         "main_age_constraint": [
             "no_kit"
+        ],
+        "random_living_status": [
+            "living"
         ]
     },
     {
         "id": "gen_not_infected",
         "thoughts": [
-            "Is wondering when {PRONOUN/m_c/subject}'ll be able to sleep soundly again."
+            "Is wondering when {PRONOUN/m_c/subject}'ll be able to sleep soundly again.",
+            "Wonders if undead cats can make it to StarClan"
         ],
         "main_infected_constraint": [
             "not_infected"
@@ -5825,7 +5829,8 @@
         "id": "gen_infected_cure_med",
         "thoughts": [
             "Is planting ingredients for the cure in a new garden",
-            "Can't wait for everyone to be cured for {PRONOUN/m_c/subject} can rest"
+            "Can't wait for everyone to be cured for {PRONOUN/m_c/subject} can rest",
+            "Goes on extra herb gathering trips for cure ingredients"
         ],
         "infection": [
             "cured"
@@ -5841,7 +5846,8 @@
             "Tries to comfort the kits to no avail",
             "Keeps a close eye on the kits to ensure they don't get sick",
             "Considers completely isolating the kits from the Clan to protect them",
-            "Dodges r_c's questions about {PRONOUN/r_c/poss} infected Clanmates"
+            "Dodges r_c's questions about {PRONOUN/r_c/poss} infected Clanmates",
+            "Comforts r_c when {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} scared"
         ],
         "main_infected_constraint": [
             "not_infected"
@@ -5958,7 +5964,9 @@
         "id": "gen_infected_rc",
         "thoughts": [
             "Saw r_c getting dragged out of the medicine den",
-            "Jumps when r_c walks by"
+            "Jumps when r_c walks by",
+            "Talks to r_c from a distance",
+            "Tosses r_c some prey from a safe distance"
         ],
         "main_infected_constraint": [
             "not_infected"
@@ -5982,7 +5990,8 @@
             "Sways back and forth with the wind",
             "Never goes to sleep",
             "Never blinks",
-            "Idly chews on {PRONOUN/m_c/poss} own paw"
+            "Idly chews on {PRONOUN/m_c/poss} own paw",
+            "Trips when {PRONOUN/m_c/subject} {VERB/m_c/walk/walks}"
         ],
         "main_infected_constraint": [
             "undead"
