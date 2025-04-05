@@ -2936,7 +2936,6 @@ class Events:
                 print(cat.name, "has no infected moons, but is infected?")
                 cat.infected_for = 1
             if cat.ID in game.clan.infection["treated"]:
-                print(f"{cat.ID} ({cat.name}) in treated ({game.clan.infection['treated']})")
                 cat.cure()
                 game.clan.infection["treated"].remove(cat.ID)
         

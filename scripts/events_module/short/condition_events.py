@@ -1388,7 +1388,6 @@ class Condition_Events:
                     break
                 elif new_condition_name in Condition_Events.ILLNESSES:
                     cat.get_ill(new_condition_name, event_triggered=event_triggered)
-                    print(cat.name, "getting", new_condition_name)
                     if dictionary == cat.illnesses or removed_condition:
                         break
                     keys = dictionary[condition].keys()

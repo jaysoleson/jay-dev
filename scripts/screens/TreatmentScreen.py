@@ -1047,7 +1047,6 @@ class TreatmentScreen(Screens):
         
         if cure:
             game.clan.infection["treated"].append(patient.ID)
-            print("curing", patient.name, patient.ID, game.clan.infection["treated"])
             if not game.clan.infection["cure_discovered"]:
                 game.clan.infection["cure_discovered"] = True
         

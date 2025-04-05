@@ -355,15 +355,28 @@ class CureLogScreen(Screens):
 
             stats_text = "<b>Treatments:</b>"
 
-            log_width = 260
-            y_offset = 0
-            x_button_y_offset = 12
+            if game.settings["fullscreen"]:
+                fullscreen = True
+            else:
+                fullscreen = False
+
+            if fullscreen:
+                log_width = 300
+                y_offset = 0
+                info_x = 125
+            else:
+                log_width = 230
+                y_offset = 0
+                info_x = 105
+            
+            x_button_y_offset = 5
+            button_x = 70
             
             
             for treatment in game.clan.infection['treatments']:
                 logs += 1
 
-                self.x_buttons[str(treatment['moon'])] = UIImageButton(ui_scale(pygame.Rect((60, x_button_y_offset), (25, 25))),
+                self.x_buttons[str(treatment['moon'])] = UIImageButton(ui_scale(pygame.Rect((button_x, x_button_y_offset), (25, 25))),
                                 "",
                                 object_id="#exit_window_button",
                                 tool_tip_text=f"Delete moon {str(treatment['moon'])}'s entry (cannot be undone!)",
@@ -375,27 +388,20 @@ class CureLogScreen(Screens):
 
                 self.moon_text = f"<b>Moon {treatment['moon']}</b>"
                 self.moon_text_box = pygame_gui.elements.UITextBox(self.moon_text,
-                                    pygame.Rect((80, y_offset), (log_width, 25)),
+                                    pygame.Rect((info_x, y_offset), (log_width, 35)),
                                     container=self.scroll_container,
                                     manager=MANAGER,
-                                    object_id=get_text_box_theme("#text_box_30_horizcenter"))
+                                    object_id=get_text_box_theme("#text_box_30_horizleft"))
                 
-                offset2 = 20
-
-                
+                offset2 = 25
                 self.treatment_text = f"{', '.join([herb.replace('_', ' ') for herb in treatment['herbs']])}"
-                self.treatment_text_box = pygame_gui.elements.UITextBox(self.treatment_text,
-                                    pygame.Rect((80, (y_offset + offset2)), (log_width, 100)),
-                                    container=self.scroll_container,
-                                    manager=MANAGER,
-                                    object_id=get_text_box_theme("#text_box_30_horizcenter"))
                 
                 # correct_text = f"Effective Herbs: {treatment['correct_herbs']}"
                 if int(treatment['correct_herbs']) > 0 and int(treatment['correct_herbs']) < 4:
                     if game.settings["dark mode"]:
-                        self.correct_text = "<font color = '#DBD076'> At least one effective herb </font>"
+                        self.correct_text = "<font color='#DBD076'>At least one effective herb</font>"
                     else:
-                        self.correct_text = "<font color = '#473B0A'> At least one effective herb </font>"
+                        self.correct_text = "<font color='#473B0A'>At least one effective herb</font>"
                 elif int(treatment['correct_herbs']) == 4:
                     if game.settings["dark mode"]:
                         self.correct_text = "<font color='#A2D86C'>Cure Found!</font>"
@@ -407,15 +413,18 @@ class CureLogScreen(Screens):
                     else:
                         self.correct_text = "<font color='#550D0D'>Zero Effective Herbs</font>"
 
-                offset3 = 67
-                self.correct_text_box = pygame_gui.elements.UITextBox(self.correct_text,
-                                    pygame.Rect((80, (y_offset + offset3)), (log_width, 50)),
-                                    container=self.scroll_container,
-                                    manager=MANAGER,
-                                    object_id=get_text_box_theme("#text_box_30_horizcenter"))
+                self.treatment_text_box = pygame_gui.elements.UITextBox(
+                    self.treatment_text + "\n" + self.correct_text,
+                    pygame.Rect((info_x, (y_offset + offset2)), (log_width, 90)),
+                    container=self.scroll_container,
+                    manager=MANAGER,
+                    object_id=get_text_box_theme("#text_box_26_horizleft"))
                 
-                y_offset += 140
-                x_button_y_offset += 139
+                y_offset += 120
+                if fullscreen:
+                    x_button_y_offset += 96
+                else:
+                    x_button_y_offset += 120
 
             self.previous_page_button = UISurfaceImageButton(
                 ui_scale(pygame.Rect((315, 595), (34, 34))),
