@@ -310,7 +310,7 @@ class LeaderDenScreen(Screens):
                 continue
             if clan.name == game.clan.name:
                 continue
-            living_clans.append(clan.name)
+            living_clans.append(clan)
 
         # if no one is alive, give a special notice
         if not get_living_clan_cat_count(Cat):
