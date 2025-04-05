@@ -436,7 +436,7 @@
                 "injury": [
                     {
                         "cats": ["n_c:0"],
-                        "injuries": ["stage one"]
+                        "injuries": ["stage two"]
                     }
                 ]
             },
@@ -451,7 +451,7 @@
                 "injury": [
                     {
                         "cats": ["n_c:0"],
-                        "injuries": ["stage one"]
+                        "injuries": ["stage two"]
                     }
                 ]
             }

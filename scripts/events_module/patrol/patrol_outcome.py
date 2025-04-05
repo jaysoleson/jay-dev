@@ -699,11 +699,6 @@ class PatrolOutcome:
         results = []
         for block in self.cure_log:
             entry = block.get("entry")
-            story = block.get("story")
-          
-        if story:
-            if game.clan.infection["story"] is None:
-                game.clan.infection["story"] = story
         
         if entry == "start":
             results.append("Your Clan is now infected.")
@@ -716,9 +711,6 @@ class PatrolOutcome:
                 results.append("Your log has been updated.")
             else:
                 results.append("")
-            if entry.endswith("step_4"):
-                print("story finished!")
-                game.clan.infection["story_finished"] = True
 
         # now add it to the log!
         cure_logs = set()
@@ -846,6 +838,14 @@ class PatrolOutcome:
                     continue
 
                 give_injury = choice(possible_injuries)
+                
+                already_infected = False
+                if game.clan.infection["infection_type"] in give_injury:
+                    for stage in ["one", "two", "three", "four"]:
+                        if f"{game.clan.infection['infection_type']} stage {stage}" in _cat.illnesses:
+                            _cat.illnesses.pop(f"{game.clan.infection['infection_type']} stage {stage}")
+                            already_infected = True
+
                 # If the cat already has this injury, reroll it to get something new
                 while (
                     give_injury in old_injuries
@@ -888,7 +888,7 @@ class PatrolOutcome:
                         f"{game.clan.infection['infection_type']} stage three",
                         f"{game.clan.infection['infection_type']} stage four",
                         "undead"
-                    ]:
+                    ] and not already_infected:
                         if game.settings["dark mode"]:
                             results.append(f"\n<font color='#A6D000'>{_cat.name} is infected.</font")
                         else:
@@ -1033,7 +1033,6 @@ class PatrolOutcome:
                 chance = 8
                 medcats = [cat for cat in patrol.patrol_cats if cat.status in ["medicine cat", "medicine cat apprentice"]]
                 for meddie in medcats:
-                    print(meddie.name, meddie.experience)
                     if meddie.experience >= 300:
                         chance -= 5
                     elif meddie.experience >= 200:

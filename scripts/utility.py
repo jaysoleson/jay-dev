@@ -735,17 +735,17 @@ def create_new_cat_block(
                 percentage = (get_infected_clan_cat_count(Cat) / get_living_clan_cat_count(Cat)) * 100
                 chance = round((100 - percentage) / 3)
 
+            # debug
+            # chance = 1
             if chance:
-                print(n_c.name, "infection chance: 1/"+ str(chance))
+                # print(n_c.name, "infection chance: 1/"+ str(chance))
 
                 if (
                     not int(random() * chance) and
                     not n_c.dead and
-                    infected is False and
-                    "preinfected" not in attribute_list
+                    infected is False
                     ):
-                    # this sucks
-                    print("random infected cat chance hit for", n_c.name)
+                    # print("random infected cat chance hit for", n_c.name)
                     n_c.get_ill(f"{game.clan.infection['infection_type']} stage one")
 
             # LIFEGEN: encountered dead cat stuff -----------------------------

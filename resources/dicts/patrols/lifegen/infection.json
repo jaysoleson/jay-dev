@@ -96,7 +96,7 @@
                     }
                 ],
                 "new_cat": [
-                    ["rogue", "meeting", "preinfected"]
+                    ["rogue", "meeting"]
                 ]
             }
         ],
@@ -452,7 +452,7 @@
                 "exp": 0,
                 "weight": 10,
                 "new_cat": [
-                    ["rogue", "meeting", "preinfected"]
+                    ["rogue", "meeting"]
                 ],
                 "injury": [
                     {
@@ -846,7 +846,7 @@
                     }
                 ],
                 "new_cat": [
-                    ["loner", "preinfected"]
+                    ["loner"]
                 ]
             }
         ],
@@ -868,7 +868,7 @@
                     }
                 ],
                 "new_cat": [
-                    ["loner", "meeting", "preinfected"]
+                    ["loner", "meeting"]
                 ]
             }
         ]
@@ -916,7 +916,7 @@
                     }
                 ],
                 "new_cat": [
-                    ["loner", "preinfected"]
+                    ["loner"]
                 ]
             }
         ],
@@ -938,7 +938,7 @@
                     }
                 ],
                 "new_cat": [
-                    ["loner", "meeting", "preinfected"]
+                    ["loner", "meeting"]
                 ]
             }
         ]
@@ -986,7 +986,7 @@
                     }
                 ],
                 "new_cat": [
-                    ["loner", "preinfected"]
+                    ["loner"]
                 ]
             }
         ],
@@ -1008,7 +1008,7 @@
                     }
                 ],
                 "new_cat": [
-                    ["loner", "meeting", "preinfected"]
+                    ["loner", "meeting"]
                 ]
             }
         ]
