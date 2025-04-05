@@ -337,13 +337,15 @@ class TreatmentScreen(Screens):
         for index, herb in enumerate(HERBS):
             count += 1
             if herb not in selected_herbs:
+                if herb in game.clan.herbs:
+                    stock_text = "\n In stock: " + str(game.clan.herbs[herb])
+                else:
+                    stock_text = ""
                 self.herb_buttons[herb] = UIImageButton(
                     ui_scale(pygame.Rect((x_pos, y_pos), (55, 55))), 
                     "",
                     tool_tip_text=(
-                        f"{herb.replace('_', ' ')}" + 
-                        "\n" +
-                        "In stock: " + str(game.clan.herbs[herb])
+                        f"{herb.replace('_', ' ')}" + stock_text
                         ),
                     object_id=f"#{herb}",
                     manager=MANAGER
