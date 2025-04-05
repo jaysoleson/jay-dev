@@ -2889,57 +2889,50 @@ class ConfirmDisplayChanges(UIMessageWindow):
 class InputPassword(UIWindow):
     """password protection for my mods in closed betas"""
 
-    def __init__(self, cat):
+    def __init__(self):
         super().__init__(
-            ui_scale(pygame.Rect((300, 215), (400, 185))),
+            ui_scale(pygame.Rect((150, 100), (500, 500))),
             window_display_title="Input Password",
             object_id="#change_cat_name_window",
-            resizable=False,
+            resizable=False
         )
-        self.the_cat = cat
-        self.back_button = UIImageButton(
-            ui_scale(pygame.Rect((370, 5), (22, 22))),
-            "",
-            object_id="#exit_window_button",
-            container=self,
-        )
-
-        self.specsuffic_hidden = self.the_cat.name.specsuffix_hidden
 
         self.heading = pygame_gui.elements.UITextBox(
-            f"-Input the beta testing password for LifeGen: INFECTION",
-            ui_scale(pygame.Rect((50, 10), (300, 40))),
+            f"Input the beta testing password for LifeGen: INFECTION",
+            ui_scale(pygame.Rect((0, 10), (460, 80))),
             object_id="#text_box_30_horizcenter",
             manager=MANAGER,
             container=self,
+            anchors={"centerx": "centerx"}
         )
         self.password_box = pygame_gui.elements.UITextEntryLine(
-            ui_scale(pygame.Rect((0, 60), (200, 30))),
-            initial_text=self.the_cat.name.prefix,
+            ui_scale(pygame.Rect((0, 120), (300, 30))),
+            initial_text="",
             manager=MANAGER,
             container=self,
             anchors={"centerx": "centerx"}
         )
         self.password = "MollyLouisMonty"
-        count = 0
+        self.count = 0
         self.wrong_pw = pygame_gui.elements.UITextBox(
-            f"Incorrect password! + {count}",
-            ui_scale(pygame.Rect((50, 10), (300, 40))),
+            "",
+            ui_scale(pygame.Rect((0, 165), (300, 40))),
             object_id="#text_box_26_horizcenter",
             manager=MANAGER,
             container=self,
+            anchors={"centerx": "centerx"}
         )
         self.wrong_pw.hide()
 
         self.done_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((161, 145), (100, 30))),
+            ui_scale(pygame.Rect((0, 300), (100, 30))),
             "continue",
             get_button_dict(ButtonStyles.SQUOVAL, (100, 30)),
             object_id="@buttonstyles_squoval",
             manager=MANAGER,
             container=self,
+            anchors={"centerx": "centerx"}
         )
-
 
         self.set_blocking(True)
 
@@ -2950,6 +2943,7 @@ class InputPassword(UIWindow):
                 if pw_input == self.password:
                     self.kill()
                 else:
-                    count += 1
+                    self.count += 1
+                    self.wrong_pw.set_text(f"Incorrect password! (Attempts: {self.count})")
                     self.wrong_pw.show()
         return super().process_event(event)
