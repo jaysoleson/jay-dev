@@ -174,7 +174,10 @@
             "Saw a kittypet with the fluffiest fur imaginable today",
             "Saw a big scary dog today",
             "Is drinking water from a nearby stream",
-            "Thought {PRONOUN/m_c/subject} saw a cat, but turns out it's a Twoleg object that just looks like one"
+            "Thought {PRONOUN/m_c/subject} saw a cat, but turns out it's a Twoleg object that just looks like one",
+            "Is wondering if the other Clans are dealing with the infection as well",
+            "Wonders if StarClan enjoys watching the Clan suffer with the infection",
+            "Is saying that the Dark Forest caused the infection"
         ],
         "main_status_constraint": [
             "apprentice",
@@ -5776,7 +5779,10 @@
             "Doesn't recognise {PRONOUN/m_c/poss} reflection anymore",
             "Is in pain",
             "Feels very alone",
-            "Misses being healthy"
+            "Misses being healthy",
+            "Opts to stay in {PRONOUN/m_c/poss} nest, since it's too hard to get up",
+            "Wishes {PRONOUN/m_c/subject} could see r_c more often",
+            "Misses r_c"
         ],
         "main_infected_constraint": [
             "infected"
@@ -5806,7 +5812,8 @@
             "Is starting to doubt a cure exists",
             "Wonders if Twolegs would know the cure",
             "Prays to StarClan for a cure",
-            "Is clinging to the hope that there's still a solution out there somewhere"
+            "Is clinging to the hope that there's still a solution out there somewhere",
+            "Is wondering if {PRONOUN/m_c/subject}'ll ever be cured"
         ],
         "infection": [
             "not_cured"
@@ -5914,6 +5921,7 @@
         "thoughts": [
             "Had a nightmare that the Clan had fallen",
             "Is thinking of stepping down due to stress",
+            "Needs to organize a meeting with the other Clans' leaders about the infection"
             "Wasn't prepared for this",
             "Needs a break"
         ],
@@ -5928,6 +5936,8 @@
             "Brainstorms potential new ingredients for the cure",
             "Is having dreams about herbs",
             "Sees herbs when {PRONOUN/m_c/subject} {VERB/m_c/close/closes} {PRONOUN/m_c/poss} eyes",
+            "Stayed up all night trying to find a cure for the infection... again",
+            "Is hoping for a sign from StarClan on how to help the infected cats"
             "Is thankful for this learning experience",
             "Is trying to look at the bright side"
         ],
@@ -5982,13 +5992,138 @@
             "Sways back and forth with the wind",
             "Never goes to sleep",
             "Never blinks",
-            "Idly chews on {PRONOUN/m_c/poss} own paw"
+            "Idly chews on {PRONOUN/m_c/poss} own paw",
+            "Is wandering around mindlessly",
+            "Attempted to bite r_c"
         ],
         "main_infected_constraint": [
             "undead"
         ],
         "main_age_constraint": [
             "no_kit"
+        ]
+    },
+    {
+        "id": "undead_to_kit",
+        "thoughts": [
+            "Stumbles around, following r_c ominously"
+        ],
+        "main_infected_constraint": [
+            "undead"
+        ],
+        "main_age_constraint": [
+            "no_kit"
+        ],
+        "random_status_constraint": [
+            "kitten"
+        ]
+    },
+    {
+        "id": "kit_to_infected",
+        "thoughts": [
+            "Is looking for r_c, not sure where {PRONOUN/r_c/subject} {VERB/r_c/are/is}"
+        ],
+        "main_status_constraint": [
+            "kitten"
+        ],
+        "random_infected_constraint": [
+            "infected"
+        ]
+    },
+    {
+        "id": "infected_3or4",
+        "thoughts": [
+            "Is losing {PRONOUN/m_c/poss} sense of reality",
+            "Almost attacks r_c in a moment of the infection taking over"
+        ],
+        "main_age_constraint": [
+            "no_kit"
+        ],
+        "main_infected_constraint": [
+            "stage three",
+            "stage four"
+        ]
+    },
+    {
+        "id": "infected_kit_to_kit",
+        "thoughts": [
+            "Is wishing {PRONOUN/m_c/subject} could go out and play",
+            "Misses r_c"
+        ],
+        "main_status_constraint": [
+            "kitten"
+        ],
+        "main_infected_constraint": [
+            "infected"
+        ],
+        "random_status_constraint": [
+            "kitten"
+        ],
+        "random_infected_constraint": [
+            "not_infected"
+        ]
+    },
+    {
+        "id": "infected_to_sibling",
+        "thoughts": [
+            "Misses r_c"
+        ],
+        "main_infected_constraint": [
+            "infected"
+        ],
+        "random_infected_constraint": [
+            "not_infected"
+        ],
+        "relationship_constraint": [
+            "siblings"
+        ]
+    },
+    {
+        "id": "infected_to_parent",
+        "thoughts": [
+            "Misses r_c"
+        ],
+        "main_infected_constraint": [
+            "infected"
+        ],
+        "random_infected_constraint": [
+            "not_infected"
+        ],
+        "relationship_constraint": [
+            "child/parent"
+        ]
+    },
+    {
+        "id": "infected_to_kit",
+        "thoughts": [
+            "Misses r_c"
+        ],
+        "main_infected_constraint": [
+            "infected"
+        ],
+        "random_infected_constraint": [
+            "not_infected"
+        ],
+        "relationship_constraint": [
+            "parent/child"
+        ]
+    },
+    {
+        "id": "infected_app",
+        "not_working": true,
+        "thoughts": [
+            "Can't believe {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} saying this... but {PRONOUN/m_c/subject} {VERB/m_c/miss/misses} training!"
+        ],
+        "main_infected_constraint": [
+            "stage two",
+            "stage three",
+            "stage four"
+        ],
+        "main_status_constraint": [
+            "apprentice",
+            "medicine cat apprentice",
+            "mediator apprentice",
+            "queen's apprentice"
         ]
     }
 ]

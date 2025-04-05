@@ -143,5 +143,17 @@
             "leader",
             "elder"
         ]
+    },
+    {
+        "id": "gen_outsider_infection",
+        "thoughts": [
+            "Is wondering about the 'infection' Clan cats have been talking about",
+            "Is running away from an infected cat {PRONOUN/m_c/subject} saw"
+        ],
+        "main_status_constraint": [
+            "rogue",
+            "loner",
+            "kittypet"
+        ]
     }
 ]
