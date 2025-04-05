@@ -1761,6 +1761,8 @@ class Events:
                 continue
             if clan.name in game.clan.infection["cured_clans"]:
                 continue
+            if clan.infection_level >= 50 and not game.clan.infection["clan_infected"]:
+                continue
             events = []
             
             increase_amount = temper_chance[clan.temperament]
