@@ -931,6 +931,9 @@ class TalkScreen(Screens):
                 'mediator apprentice', "queen's apprentice"
                 ]:
                 continue
+
+            if cat.status == "newborn" and "they_newborn" not in tags and "newborn" not in tags:
+                continue
             
             if not any(t in tags for t in ["they_dead", "they_sc", "they_df", "they_ur"]) and cat.dead:
                 continue

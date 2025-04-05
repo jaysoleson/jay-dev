@@ -5922,6 +5922,8 @@
             "Had a nightmare that the Clan had fallen",
             "Is thinking of stepping down due to stress",
             "Needs to organize a meeting with the other Clans' leaders about the infection"
+            "Wasn't prepared for this",
+            "Needs a break"
         ],
         "main_status_constraint": [
             "deputy",
@@ -5936,6 +5938,8 @@
             "Sees herbs when {PRONOUN/m_c/subject} {VERB/m_c/close/closes} {PRONOUN/m_c/poss} eyes",
             "Stayed up all night trying to find a cure for the infection... again",
             "Is hoping for a sign from StarClan on how to help the infected cats"
+            "Is thankful for this learning experience",
+            "Is trying to look at the bright side"
         ],
         "main_status_constraint": [
             "medicine cat",
@@ -5949,7 +5953,8 @@
         "id": "medcat_infection_notinfected",
         "thoughts": [
             "Is surprised {PRONOUN/m_c/subject} {VERB/m_c/haven't/hasn't} caught the infection yet",
-            ""
+            "Wonders how long {PRONOUN/m_c/subject} can stay healthy",
+            "Washes {PRONOUN/m_c/poss} paws carefully after each patient visit"
         ],
         "main_status_constraint": [
             "medicine cat",
