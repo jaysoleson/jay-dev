@@ -378,8 +378,9 @@ class StartScreen(Screens):
                     f"{get_cache_dir()}/changelog_popup_shown", "w"
                 ) as write_file:
                     write_file.write(get_version_info().version_number)
-        if input_password:
-            InputPassword()
+
+        # if input_password:
+        #     InputPassword()
 
         self.warning_label_background = UISurfaceImageButton(
             ui_scale(pygame.Rect((50, 601), (700, 32))),

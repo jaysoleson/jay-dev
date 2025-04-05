@@ -340,7 +340,11 @@ class TreatmentScreen(Screens):
                 self.herb_buttons[herb] = UIImageButton(
                     ui_scale(pygame.Rect((x_pos, y_pos), (55, 55))), 
                     "",
-                    tool_tip_text=f"{herb.replace('_', ' ')}",
+                    tool_tip_text=(
+                        f"{herb.replace('_', ' ')}" + 
+                        "\n" +
+                        "In stock: " + str(game.clan.herbs[herb])
+                        ),
                     object_id=f"#{herb}",
                     manager=MANAGER
                 )
