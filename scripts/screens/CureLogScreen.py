@@ -734,6 +734,7 @@ class CureLogScreen(Screens):
         notes_file_path = notes_directory + '/infection_notes.json'
 
         if not os.path.exists(notes_file_path):
+            self.user_notes = None
             return
 
         try:
