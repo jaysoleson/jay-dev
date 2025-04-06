@@ -366,7 +366,7 @@
                 "exp": 10,
                 "weight": 10,
                 "new_cat": [
-                    ["dead", "kittypet"]
+                    ["dead", "kittypet", "meeting"]
                 ],
                 "accessory": [
                     {
@@ -375,7 +375,8 @@
                         ],
                         "accessory": [
                             "COLLAR"
-                        ]
+                        ],
+                        "no_results": true
                     }
                 ]
             },

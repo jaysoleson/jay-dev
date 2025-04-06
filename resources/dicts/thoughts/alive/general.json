@@ -5811,13 +5811,12 @@
         ]
     },
     {
-        "id": "gen_infected_nocure",
+        "id": "gen_infection_nocure",
         "thoughts": [
             "Is starting to doubt a cure exists",
             "Wonders if Twolegs would know the cure",
             "Prays to StarClan for a cure",
-            "Is clinging to the hope that there's still a solution out there somewhere",
-            "Is wondering if {PRONOUN/m_c/subject}'ll ever be cured"
+            "Is clinging to the hope that there's still a solution out there somewhere"
         ],
         "infection": [
             "not_cured"
@@ -5830,6 +5829,20 @@
         ],
         "infection": [
             "cured"
+        ]
+    },
+    {
+        "id": "gen_infected_nocure",
+        "thoughts": [
+            "Is wondering if {PRONOUN/m_c/subject}'ll ever be cured",
+            "Is quickly losing hope",
+            "Eats some random herbs growing in camp, hoping they'll help"
+        ],
+        "infection": [
+            "not_cured"
+        ],
+        "main_infected_constraint": [
+            "infected"
         ]
     },
     {
