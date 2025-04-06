@@ -1737,5 +1737,213 @@
             "[The sun is setting, and t_c finally crawls back into your nest with you after being in the medicine den all day. You give a small yowl as greeting, immediately nuzzling into {PRONOUN/t_c/poss} fur. {PRONOUN/t_c/subject/CAP} {VERB/t_c/smell/smells} like herbs.]",
             "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/give/gives} your head a quick lick and {VERB/t_c/fall/falls} asleep almost immediately. {PRONOUN/t_c/subject/CAP} must have had a busy day. You wish {PRONOUN/t_c/subject} {VERB/t_c/weren't/wasn't} so busy.]"
         ]
+    ],
+    "you_undead_J1": [
+        [
+            "you_undead",
+            "any",
+            "they_blind",
+            "you_blind",
+            "they_deaf",
+            "you_deaf"
+        ],
+        [
+            "[t_c runs past you too quickly for you to lunge.]"
+        ]
+    ],
+    "you_undead_J2": [
+        [
+            "you_undead",
+            "any",
+            "they_blind",
+            "you_blind",
+            "they_deaf",
+            "you_deaf"
+        ],
+        [
+            "[t_c almost trips and falls while scrambling to run away from you.]"
+        ]
+    ],
+    "you_undead_J3": [
+        [
+            "you_undead",
+            "any",
+            "they_blind",
+            "you_blind",
+            "they_deaf",
+            "you_deaf",
+            "they_shunned"
+        ],
+        [
+            "[t_c isn't as scared of you as everyone else.]"
+        ]
+    ],
+    "you_undead_J4": [
+        [
+            "you_undead",
+            "any",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "[t_c seems to be saying something, but it sounds muffled and distant...]"
+        ]
+    ],
+    "you_undead_J5": [
+        [
+            "you_undead",
+            "any",
+            "they_blind",
+            "you_blind",
+            "you_shunned"
+        ],
+        [
+            "[t_c almost trips and falls while scrambling to run away from you.]"
+        ]
+    ],
+    "you_undead_J6": [
+        [
+            "you_undead",
+            "any",
+            "they_blind",
+            "you_blind",
+            "they_sc"
+        ],
+        [
+            "We failed you. I'm sorry. I hope you'll find your way to us soon."
+        ]
+    ],
+    "you_undead_J7": [
+        [
+            "you_undead",
+            "any",
+            "they_blind",
+            "you_blind",
+            "they_ur"
+        ],
+        [
+            "You're a lot like me, you know. Not really alive, not really dead... I don't feel dead, at least.",
+            "I hope you... find peace soon."
+        ]
+    ],
+    "you_undead_J8": [
+        [
+            "you_undead",
+            "any",
+            "they_blind",
+            "you_blind",
+            "they_df"
+        ],
+        [
+            "I wonder which one of us is having a worse time right now."
+        ]
+    ],
+    "you_undead_J9": [
+        [
+            "you_undead",
+            "any",
+            "they_blind",
+            "you_blind",
+            "they_dead",
+            "you_deaf",
+            "they_deaf"
+        ],
+        [
+            "[For some reason, a part of you feels drawn to t_c and the afterlife.]",
+            "[Like you belong there.]"
+        ]
+    ],
+    "you_undead_J10": [
+        [
+            "you_undead",
+            "any",
+            "they_blind",
+            "you_blind",
+            "they_dead",
+            "you_deaf",
+            "they_deaf",
+            "you_shunned"
+        ],
+        [
+            "[For some reason, a part of you feels drawn to t_c and the afterlife.]",
+            "[Like you belong there.]"
+        ]
+    ],
+    "you_undead_J11": [
+        [
+            "you_undead",
+            "any",
+            "they_blind",
+            "you_blind",
+            "they_dead",
+            "you_deaf",
+            "they_deaf",
+            "you_shunned",
+            "you_grieving"
+        ],
+        [
+            "[For some reason, a part of you feels drawn to t_c and the afterlife.]",
+            "[Like you belong there.]"
+        ]
+    ],
+    "you_undead_J12": [
+        [
+            "you_undead",
+            "any",
+            "they_blind",
+            "you_blind",
+            "they_dead",
+            "you_deaf",
+            "they_deaf",
+            "you_grieving"
+        ],
+        [
+            "[For some reason, a part of you feels drawn to t_c and the afterlife.]",
+            "[Like you belong there.]"
+        ]
+    ],
+    "you_undead_J13": {
+        "tags": [
+            "you_undead",
+            "any",
+            "they_blind",
+            "you_blind",
+            "they_immune",
+            "no_kit"
+        ],
+        "intro": [
+            "[t_c gets a bit closer to you than most cats dare to.]",
+            "Can you still hear me, y_c? Are you still in there?",
+            "We don't know if cats like you are still... you know. Themselves. Can you lift a paw if you understand me?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Don't",
+                "next_scene": "dont"
+            },
+            "choice2": {
+                "text": "Lift a paw",
+                "next_scene": "liftapaw"
+            }
+        },
+        "dont": [
+            "[t_c waits a moment before eventually sighing.]",
+            "Maybe you'll come back one day. We miss you."
+        ],
+        "liftapaw": [
+            "[You're still here, and you want t_c to know it! You try your best to lift a paw, but you're not able to. The effort is exhausting.]",
+            "[t_c looks disappointed when your paw doesn't move.]",
+            "That's what I expected. Oh, well. I'll keep asking.",
+            "Maybe there's still some time for you to get better."
+        ]
+    },
+    "you_undead_J14": [
+        [
+            "you_undead",
+            "any"
+        ],
+        [
+            "[t_c keeps {PRONOUN/t_c/poss} wide eyes fixed on you as {PRONOUN/t_c/subject} {VERB/t_c/cross/crosses} the clearing. You turn your head to watch {PRONOUN/t_c/object} until {PRONOUN/t_c/subject} {VERB/t_c/disappear/disappears} into a den.]"
+        ]
     ]
 }
