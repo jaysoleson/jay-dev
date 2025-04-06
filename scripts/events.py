@@ -4790,7 +4790,8 @@ class Events:
                     Single_Event(text, event_types, involved_cats)
                 )
                 # INF: ?
-                game.clan.deputy.status_change("warrior")
+                if game.clan.deputy:
+                    game.clan.deputy.status_change("warrior")
                 # ---
 
                 random_cat.status_change("deputy")
