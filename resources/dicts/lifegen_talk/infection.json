@@ -1940,10 +1940,26 @@
     "you_undead_J14": [
         [
             "you_undead",
-            "any"
+            "any",
+            "they_deaf",
+            "you_deaf"
         ],
         [
             "[t_c keeps {PRONOUN/t_c/poss} wide eyes fixed on you as {PRONOUN/t_c/subject} {VERB/t_c/cross/crosses} the clearing. You turn your head to watch {PRONOUN/t_c/object} until {PRONOUN/t_c/subject} {VERB/t_c/disappear/disappears} into a den.]"
+        ]
+    ],
+    "undead_to_ur_J3": [
+        [
+            "you_undead",
+            "any",
+            "they_dead",
+            "they_deaf",
+            "you_deaf",
+            "you_blind",
+            "they_blind"
+        ],
+        [
+            "[t_c's ghostly form passes through you, but you feel just as cold as before.]"
         ]
     ]
 }

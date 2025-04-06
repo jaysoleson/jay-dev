@@ -276,5 +276,65 @@
         [
             "[t_c raises {PRONOUN/t_c/poss} sparkling tail in welcome.]"
         ]
+    ],
+    "undead_to_ur_J5": [
+        [
+            "you_undead",
+            "any",
+            "they_dead",
+            "they_deaf",
+            "you_deaf",
+            "you_blind",
+            "they_blind"
+        ],
+        [
+            "[t_c's ghostly form passes through you, but you feel just as cold as before.]"
+        ]
+    ],
+    "undead_to_ur_J6": [
+        [
+            "you_undead",
+            "any",
+            "they_dead",
+            "they_deaf",
+            "you_deaf",
+            "you_blind",
+            "they_blind",
+            "you_grieving"
+        ],
+        [
+            "[t_c's ghostly form passes through you, but you feel just as cold as before.]"
+        ]
+    ],
+    "undead_to_ur_J7": [
+        [
+            "you_undead",
+            "any",
+            "they_dead",
+            "they_deaf",
+            "you_deaf",
+            "you_blind",
+            "they_blind",
+            "you_shunned"
+        ],
+        [
+            "[t_c's ghostly form passes through you, but you feel just as cold as before.]"
+        ]
+    ],
+    "undead_to_ur_J8": [
+        [
+            "you_undead",
+            "any",
+            "they_dead",
+            "they_deaf",
+            "you_deaf",
+            "you_blind",
+            "they_blind",
+            "you_shunned",
+            "you_grieving"
+        ],
+        [
+            "[t_c's ghostly form passes through you, but you feel just as cold as before.]"
+        ]
     ]
 }

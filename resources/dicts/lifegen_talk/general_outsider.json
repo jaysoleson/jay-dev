@@ -624,5 +624,65 @@
         [
             "[You feel a cold ghostly presence nearby. It must be one of those 'lost cats' you've heard about, since it doesn't feel like another Dark Forest cat.]"
         ]
+    ],
+    "undead_to_ur_J1": [
+        [
+            "you_undead",
+            "any",
+            "they_dead",
+            "they_deaf",
+            "you_deaf",
+            "you_blind",
+            "they_blind"
+        ],
+        [
+            "[t_c's ghostly form passes through you, but you feel just as cold as before.]"
+        ]
+    ],
+    "undead_to_ur_J2": [
+        [
+            "you_undead",
+            "any",
+            "they_dead",
+            "they_deaf",
+            "you_deaf",
+            "you_blind",
+            "they_blind",
+            "you_grieving"
+        ],
+        [
+            "[t_c's ghostly form passes through you, but you feel just as cold as before.]"
+        ]
+    ],
+    "undead_to_ur_J3": [
+        [
+            "you_undead",
+            "any",
+            "they_dead",
+            "they_deaf",
+            "you_deaf",
+            "you_blind",
+            "they_blind",
+            "you_shunned"
+        ],
+        [
+            "[t_c's ghostly form passes through you, but you feel just as cold as before.]"
+        ]
+    ],
+    "undead_to_ur_J4": [
+        [
+            "you_undead",
+            "any",
+            "they_dead",
+            "they_deaf",
+            "you_deaf",
+            "you_blind",
+            "they_blind",
+            "you_shunned",
+            "you_grieving"
+        ],
+        [
+            "[t_c's ghostly form passes through you, but you feel just as cold as before.]"
+        ]
     ]
 }
