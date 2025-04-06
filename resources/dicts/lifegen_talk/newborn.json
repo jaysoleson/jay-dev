@@ -2455,5 +2455,141 @@
             "Mrow?",
             "[... You probably shouldn't be this close.]"
         ]
+    ],
+    "undead_to_newborn_J1": [
+        [
+            "they_newborn",
+            "you_undead",
+            "you_blind",
+            "they_blind",
+            "any"
+        ],
+        [
+            "Waaahh!!"
+        ]
+    ],
+    "undead_to_newborn_J2": [
+        [
+            "they_newborn",
+            "you_undead",
+            "you_deaf",
+            "they_deaf",
+            "any"
+        ],
+        [
+            "[t_c looks perfectly bite-sized right now...]",
+            "[Someone runs by, scooping up the kitten and racing into the nursery before you're able to expand on that thought.]"
+        ]
+    ],
+    "undead_to_newborn_J4": [
+        [
+            "they_newborn",
+            "you_undead",
+            "you_deaf",
+            "they_deaf",
+            "any"
+        ],
+        [
+            "[You'd love to meet the new kittens, but a group of Clanmates is guarding the nursery, hissing anytime you stumble too close.]",
+            "[You wonder what they're so scared of.]"
+        ]
+    ],
+    "undead_to_newborn_J5": [
+        [
+            "they_newborn",
+            "you_undead",
+            "you_deaf",
+            "they_deaf",
+            "you_grieving",
+            "any"
+        ],
+        [
+            "[You'd love to meet the new kittens, but a group of Clanmates is guarding the nursery, hissing anytime you stumble too close.]",
+            "[You wonder what they're so scared of.]"
+        ]
+    ],
+    "undead_to_newborn_J6": [
+        [
+            "they_newborn",
+            "you_undead",
+            "you_deaf",
+            "they_deaf",
+            "you_shunned",
+            "any"
+        ],
+        [
+            "[You'd love to meet the new kittens, but a group of Clanmates is guarding the nursery, hissing anytime you stumble too close.]",
+            "[You wonder what they're so scared of.]"
+        ]
+    ],
+    "undead_to_newborn_J7": [
+        [
+            "they_newborn",
+            "you_undead",
+            "you_deaf",
+            "they_deaf",
+            "you_grieving",
+            "you_shunned",
+            "any"
+        ],
+        [
+            "[You'd love to meet the new kittens, but a group of Clanmates is guarding the nursery, hissing anytime you stumble too close.]",
+            "[You wonder what they're so scared of.]"
+        ]
+    ],
+    "undead_to_newborn_J8": [
+        [
+            "they_newborn",
+            "you_undead",
+            "you_deaf",
+            "they_deaf",
+            "any"
+        ],
+        [
+            "[t_c doesn't seem to be scared of you at all. Perhaps because {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} too small to understand the problem, but you appreciate it anyway.]"
+        ]
+    ],
+    "undead_to_newborn_J9": [
+        [
+            "they_newborn",
+            "you_undead",
+            "you_deaf",
+            "they_deaf",
+            "you_shunned",
+            "they_dead",
+            "any"
+        ],
+        [
+            "[t_c doesn't seem to be scared of you at all. Perhaps because {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} too small to understand the problem, but you appreciate it anyway.]"
+        ]
+    ],
+    "undead_to_newborn_J10": [
+        [
+            "they_newborn",
+            "you_undead",
+            "you_deaf",
+            "they_deaf",
+            "you_grieving",
+            "they_dead",
+            "any"
+        ],
+        [
+            "[t_c doesn't seem to be scared of you at all. Perhaps because {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} too small to understand the problem, but you appreciate it anyway.]"
+        ]
+    ],
+    "undead_to_newborn_J11": [
+        [
+            "they_newborn",
+            "you_undead",
+            "you_deaf",
+            "they_deaf",
+            "you_grieving",
+            "you_shunned",
+            "they_dead",
+            "any"
+        ],
+        [
+            "[t_c doesn't seem to be scared of you at all. Perhaps because {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} too small to understand the problem, but you appreciate it anyway.]"
+        ]
     ]
 }
