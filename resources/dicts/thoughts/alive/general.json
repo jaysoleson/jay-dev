@@ -6002,14 +6002,10 @@
             "Never blinks",
             "Idly chews on {PRONOUN/m_c/poss} own paw",
             "Trips when {PRONOUN/m_c/subject} {VERB/m_c/walk/walks}",
-            "Is wandering around mindlessly",
-            "Attempted to bite r_c"
+            "Is wandering around mindlessly"
         ],
         "main_infected_constraint": [
             "undead"
-        ],
-        "main_age_constraint": [
-            "no_kit"
         ]
     },
     {

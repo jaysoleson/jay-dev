@@ -188,6 +188,26 @@ class Thoughts:
                         if stage in thought["random_infected_constraint"]:
                             if game.clan.infection['infection_type'] + ' ' + stage not in main_cat.illnesses:
                                 continue
+        # if random_cat:
+        #     if (
+        #         "undead" in random_cat.illnesses and
+        #         ("random_infected_constraint" not in thought or
+        #         "undead" not in thought["random_infected_constraint"])
+        #         ):
+        #         return False
+        # if (
+        #     "undead" in main_cat.illnesses and
+        #     ("main_infected_constraint" not in thought or
+        #     "undead" not in thought["main_infected_constraint"])
+        #     ):
+        #     return False
+        
+        if "undead" in main_cat.illnesses:
+            if "main_infected_constraint" in thought:
+                if "undead" not in thought["main_infected_constraint"]:
+                    return False
+            else:
+                return False
         
         if "infection" in thought:
             if game.clan:
@@ -490,7 +510,7 @@ class Thoughts:
                 chosen_thought_group = choice(Thoughts.load_thoughts(main_cat, other_cat, game_mode, biome, season, camp))
                 chosen_thought = choice(chosen_thought_group["thoughts"])
         except Exception as e:
-            print("Thought Error:", e)
+            print("Thought Error:", main_cat.name, e)
             chosen_thought = "Prrrp! You shouldn't see this! Report as a bug."
 
         return chosen_thought

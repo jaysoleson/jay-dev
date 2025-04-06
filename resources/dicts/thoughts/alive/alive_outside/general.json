@@ -155,5 +155,26 @@
             "loner",
             "kittypet"
         ]
+    },
+    {
+        "id": "gen_undead",
+        "thoughts": [
+            "Stumbles into trees",
+            "Doesn't seem to be feeling pain anymore",
+            "... ... ...",
+            "... ... ...",
+            "... ... ...",
+            "... ... ...",
+            "Sways back and forth with the wind",
+            "Never goes to sleep",
+            "Never blinks",
+            "Idly chews on {PRONOUN/m_c/poss} own paw",
+            "Trips when {PRONOUN/m_c/subject} {VERB/m_c/walk/walks}",
+            "Is wandering around mindlessly",
+            "Startles a group of nearby Twolegs"
+        ],
+        "main_infected_constraint": [
+            "undead"
+        ]
     }
 ]
