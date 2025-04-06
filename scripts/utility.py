@@ -2778,10 +2778,10 @@ def generate_sprite(
     else:
         dead = cat.dead
     
-    if uninfected:
-        infected = False
-    else:
-        infected = True
+    # if uninfected:
+    #     infected = False
+    # else:
+    #     infected = True
 
     notworkin = False
     for illness in cat.illnesses:
@@ -2955,20 +2955,20 @@ def generate_sprite(
             )
             new_sprite.blit(sprites.sprites["lighting" + cat_sprite], (0, 0))
 
-        # INF TODO: i guess type specific undead conditions. cry
         if game.clan:
             inftype = game.clan.infection["infection_type"]
-            if not dead and infected:
-                if f"{inftype} stage one" in cat.illnesses:
-                    new_sprite.blit(sprites.sprites[f'{inftype}lineartstageone' + cat_sprite], (0, 0))
-                elif f"{inftype} stage two" in cat.illnesses:
-                    new_sprite.blit(sprites.sprites[f'{inftype}lineartstagetwo' + cat_sprite], (0, 0))
-                elif f"{inftype} stage three" in cat.illnesses:
-                    new_sprite.blit(sprites.sprites[f'{inftype}lineartstagethree' + cat_sprite], (0, 0))
-                elif f"{inftype} stage four" in cat.illnesses or "undead" in cat.illnesses:
-                    new_sprite.blit(sprites.sprites[f'{inftype}lineartstagefour' + cat_sprite], (0, 0))
-                else:
+            if not dead:
+                lineart_string = 'lines'
+                if uninfected:
                     new_sprite.blit(sprites.sprites['lines' + cat_sprite], (0, 0))
+                else:
+                    for inf_type in ["void", "fungal", "parasitic"]:
+                        for stage in ["one", "two", "three", "four"]:
+                            if f"{inf_type} stage {stage}" in cat.illnesses:
+                                lineart_string = f'{inf_type}lineartstage{stage}'
+                    if "undead" in cat.illnesses:
+                        lineart_string = f'{inftype}lineartstagefour'
+                new_sprite.blit(sprites.sprites[lineart_string + cat_sprite], (0, 0))
             elif cat.df:
                 new_sprite.blit(sprites.sprites["lineartdf" + cat_sprite], (0, 0))
             elif cat.dead and cat.outside:
@@ -2985,8 +2985,6 @@ def generate_sprite(
             elif dead:
                 new_sprite.blit(sprites.sprites['lineartdead' + cat_sprite], (0, 0))
 
-        if not infected:
-            new_sprite.blit(sprites.sprites['lines' + cat_sprite], (0, 0))
         # draw skin and scars2
         blendmode = pygame.BLEND_RGBA_MIN
         new_sprite.blit(sprites.sprites["skin" + cat.pelt.skin + cat_sprite], (0, 0))
