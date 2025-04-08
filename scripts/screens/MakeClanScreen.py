@@ -862,25 +862,25 @@ class MakeClanScreen(Screens):
 
         elif self.sub_screen == "choose camp":
             # Enable/disable biome buttons
-            if self.biome_selected == "Forest":
-                self.elements["forest_biome"].disable()
-                self.elements["mountain_biome"].enable()
-                self.elements["plains_biome"].enable()
-                self.elements["beach_biome"].enable()
-            elif self.biome_selected == "Mountainous":
-                self.elements["forest_biome"].enable()
-                self.elements["mountain_biome"].disable()
-                self.elements["plains_biome"].enable()
-                self.elements["beach_biome"].enable()
-            elif self.biome_selected == "Plains":
-                self.elements["forest_biome"].enable()
-                self.elements["mountain_biome"].enable()
-                self.elements["plains_biome"].disable()
-                self.elements["beach_biome"].enable()
-            elif self.biome_selected == "Beach":
-                self.elements["forest_biome"].enable()
-                self.elements["mountain_biome"].enable()
-                self.elements["plains_biome"].enable()
+            # if self.biome_selected == "Forest":
+            #     self.elements["forest_biome"].disable()
+            #     self.elements["mountain_biome"].enable()
+            #     self.elements["plains_biome"].enable()
+            #     self.elements["beach_biome"].enable()
+            # elif self.biome_selected == "Mountainous":
+            #     self.elements["forest_biome"].enable()
+            #     self.elements["mountain_biome"].disable()
+            #     self.elements["plains_biome"].enable()
+            #     self.elements["beach_biome"].enable()
+            # elif self.biome_selected == "Plains":
+            #     self.elements["forest_biome"].enable()
+            #     self.elements["mountain_biome"].enable()
+            #     self.elements["plains_biome"].disable()
+            #     self.elements["beach_biome"].enable()
+            if self.biome_selected == "Beach":
+                # self.elements["forest_biome"].enable()
+                # self.elements["mountain_biome"].enable()
+                # self.elements["plains_biome"].enable()
                 self.elements["beach_biome"].disable()
 
             if self.biome_selected:
@@ -3529,6 +3529,11 @@ class MakeClanScreen(Screens):
             object_id="#plains_biome_button",
             manager=MANAGER,
         )
+        # HG-- disable the biomes i dont have
+        self.elements["forest_biome"].disable()
+        self.elements["mountain_biome"].disable()
+        self.elements["plains_biome"].disable()
+        # ---
         self.elements["beach_biome"] = UIImageButton(
             ui_scale(pygame.Rect((520, 100), (82, 46))),
             "",
@@ -3544,6 +3549,8 @@ class MakeClanScreen(Screens):
             object_id="@buttonstyles_squoval",
             manager=MANAGER,
         )
+        # HG
+        self.elements["random_background"].disable()
 
         # art frame
         self.draw_art_frame()
