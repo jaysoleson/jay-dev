@@ -181,6 +181,9 @@ class Relation_Events:
                 if inter_cat.outside:
                     continue
 
+                if inter_cat.map_position != cat.map_position:
+                    continue
+
                 if inter_cat.ID not in cat.relationships:
                     cat.create_one_relationship(inter_cat)
                 if cat.ID not in inter_cat.relationships:

@@ -2779,6 +2779,9 @@ class Events:
         if cat.stats.energy >= 90:
             cat.sleeping = False
             return
+        if cat.dead:
+            print(game.clan.timeskips, "returning")
+            return
         if cat.sleeping is True:
             cat.stats.energy += random.randint(15, 22)
             if cat.ID != game.clan.your_cat.ID:
@@ -3044,28 +3047,27 @@ class Events:
         row, column = game.clan.your_cat.map_position.split("_")
         next_direction = game.clan.next_activity if game.clan.next_activity in ["north", "east", "west", "south"] else None
         # grabbing the current position from the clan_cats string
-        if next_direction is None:
-            return
 
-        row = int(row)
-        column = int(column)
-        # convert to integers so we can add or subtract
+        if next_direction:
+            row = int(row)
+            column = int(column)
+            # convert to integers so we can add or subtract
 
-        if next_direction == "north":
-            column -= 1
-        elif next_direction == "east":
-            row += 1
-        elif next_direction == "south":
-            column += 1
-        elif next_direction == "west":
-            row -= 1
+            if next_direction == "north":
+                column -= 1
+            elif next_direction == "east":
+                row += 1
+            elif next_direction == "south":
+                column += 1
+            elif next_direction == "west":
+                row -= 1
 
-        if not game.clan.your_cat.dead:
-        # turn back into a string and update the cat's position!
-            game.clan.your_cat.map_position = f"{int(row)}_{int(column)}"
-            for ally in game.clan.your_cat.allies:
-                if not Cat.fetch_cat(ally).sleeping:
-                    Cat.fetch_cat(ally).map_position = game.clan.your_cat.map_position
+            if not game.clan.your_cat.dead:
+            # turn back into a string and update the cat's position!
+                game.clan.your_cat.map_position = f"{int(row)}_{int(column)}"
+                for ally in game.clan.your_cat.allies:
+                    if not Cat.fetch_cat(ally).sleeping:
+                        Cat.fetch_cat(ally).map_position = game.clan.your_cat.map_position
 
         # now for the npcs
         for npc in Cat.all_cats_list:
@@ -3075,6 +3077,8 @@ class Events:
                 continue
             if npc.ID in game.clan.your_cat.allies:
             # ur allies get no agency. they will blindly follow u
+                continue
+            if npc.dead or npc.outside:
                 continue
             cat_row, cat_column = npc.map_position.split("_")
             cat_row = int(cat_row)
@@ -3087,36 +3091,40 @@ class Events:
                 movement = random.randint(1,12)
             else:
                 if game.clan.timeskips in [6, 7, 8, 9, 10]:
-                    movement = random.randint(1,15)
+                    movement = random.randint(1,4)
                 else:
-                    movement = random.randint(1,8)
-            if movement == 1:
-                if cat_east:
-                    cat_row += 1
-            elif movement == 2:
-                if cat_south:
-                    cat_column += 1
-            elif movement == 3:
-                if cat_east:
-                    cat_row += 1
-                if cat_south:
-                    cat_column += 1
-            elif movement == 4:
-                if cat_west:
-                    cat_row -= 1
-            elif movement == 5:
-                if cat_north:
-                    cat_column -= 1
-            elif movement == 6:
-                if cat_west:
-                    cat_row -= 1
-                if cat_north:
-                    cat_column -= 1
-            else:
-                # these guys dont move
-                pass
+                    movement = random.randint(1,3)
 
-            npc.map_position = f"{int(cat_row)}_{int(cat_column)}"
+            directions = []
+
+            if cat_north:
+                directions.append("north")
+            if cat_east:
+                directions.append("east")
+            if cat_south:
+                directions.append("south")
+            if cat_west:
+                directions.append("west")
+            
+            final_direction = random.choice(directions)
+
+            if movement == 1:
+                if final_direction == "north":
+                    cat_column -= 1
+                elif final_direction == "east":
+                    cat_row += 1
+                elif final_direction == "south":
+                    cat_column += 1
+                elif final_direction == "west":
+                    cat_row -= 1
+            else:
+                continue
+
+            # print(npc.name, "is moving ---")
+            # print(npc.map_position)
+            npc.map_position = f"{cat_row}_{cat_column}"
+            # print(npc.map_position)
+            # print("--------")
 
             # ill do a better version of this later lol
             if npc.allies:
@@ -3124,9 +3132,10 @@ class Events:
                     ally = Cat.fetch_cat(i)
                     try:
                         if ally.map_position != npc.map_position:
-                            npc.map_position = ally.map_position
+                            ally.map_position = npc.map_position
+                            # print("Setting allies", ally.name, "and", npc.name, "to the same position")
                     except Exception as e:
-                        print("NPC ally travel map error. Ally:", ally, "NPC:", npc)
+                        print("NPC ally travel map error. Ally:", ally.name, "NPC:", npc.name)
                         print(e)
         
         if game.clan.spectating:
@@ -4196,13 +4205,11 @@ class Events:
 
             kill_chance = max(1, int(kill_chance))
 
-            print(cat.name, "murder chance:", kill_chance)
-
             if not int(random.random() * kill_chance):
                 print(
                     cat.name, "TARGET CHOSEN", Cat.fetch_cat(chosen_target.cat_to).name
                 )
-                print("KILL KILL KILL")
+                # print("KILL KILL KILL")
 
                 handle_short_events.handle_event(event_type="birth_death",
                                                  main_cat=Cat.fetch_cat(chosen_target.cat_to),

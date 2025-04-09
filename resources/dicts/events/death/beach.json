@@ -409,7 +409,6 @@
             "murder"
         ],
         "tags": [
-            "all_lives",
             "no_body"
         ],
         "weight": 40,
@@ -440,6 +439,7 @@
                 "cats": [
                     "m_c"
                 ],
+                "reg_death": "m_c was swept into the ocean when {PRONOUN/m_c/subject} had nowhere to run from r_c",
                 "lead_death": "{VERB/m_c/were/was} trapped in the tides by r_c"
             }
         ],

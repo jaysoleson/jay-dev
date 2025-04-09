@@ -45,7 +45,8 @@ from scripts.utility import (
     event_text_adjust,
     update_sprite,
     leader_ceremony_text_adjust,
-    get_cluster
+    get_cluster,
+    history_text_adjust
 )
 
 
@@ -567,6 +568,11 @@ class Cat:
         that grief messages will align with body status
         - if it is None, a lost cat died and therefore not trigger grief, since the clan does not know
         """
+
+        self.sleeping = False
+        if self.ID == game.clan.your_cat.ID:
+            print(game.clan.timeskips, "ur dead")
+
         if (
             self.status == "leader"
             and "pregnant" in self.injuries
@@ -662,7 +668,6 @@ class Cat:
         if self.exiled:
             self.status = 'former Clancat'
 
-        self.sleeping = False
         if self == game.clan.spectating:
             game.clan.spectating = None
         
@@ -1962,6 +1967,26 @@ class Cat:
             self.stats.hunger -= randint(4,8)
             # no energy gain bc thats handled in sleep()
             self.stats.health += randint(5,12)
+        
+        if self.stats.health <= 0:
+            self.stats.health = 0
+            event_text = event_text_adjust(
+                    Cat,
+                    "m_c didn't have the strength to go on and died in the Arena.",
+                    main_cat=self
+                    )
+            History.add_death(
+                self,
+                death_text=history_text_adjust(
+                    "m_c didn't have the strength to go on and died in the Arena.",
+                    other_clan_name=None,
+                    clan=game.clan,
+                    )
+                )
+            game.cur_events_list.append(
+                Single_Event(event_text, "birth_death", self.ID)
+            )
+            self.die()
 
     def relationship_interaction(self):
         """Randomly choose a cat of the Clan and have an interaction with them."""
@@ -2431,6 +2456,23 @@ class Cat:
         self.stats.health -= 10
         if self.stats.health <= 0:
             self.stats.health = 0
+            self.stats.health = 0
+            event_text = event_text_adjust(
+                    Cat,
+                    "m_c succumbed to {PRONOUN/m_c/poss} injuries.",
+                    main_cat=self
+                    )
+            History.add_death(
+                self,
+                death_text=history_text_adjust(
+                    "m_c succumbed to {PRONOUN/m_c/poss} injuries.",
+                    other_clan_name=None,
+                    clan=game.clan,
+                    )
+                )
+            game.cur_events_list.append(
+                Single_Event(event_text, ["birth_death", "health"], self.ID)
+            )
             self.die()
 
     def additional_injury(self, injury):

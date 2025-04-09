@@ -980,7 +980,8 @@ class ProfileScreen(Screens):
         
         if self.the_cat.pelt.accessory:
             if self.the_cat.pelt.accessory not in self.the_cat.pelt.inventory:
-                self.the_cat.pelt.inventory.append(self.the_cat.pelt.accessory)
+                self.the_cat.pelt.inventory.update({self.the_cat.pelt.accessory: 1})
+                self.the_cat.pelt.accessory = None
 
         for acc in self.the_cat.pelt.accessories:
             if acc not in self.the_cat.pelt.inventory:
@@ -1274,7 +1275,7 @@ class ProfileScreen(Screens):
                 game.clan.your_cat.moons < 0 or
                 self.the_cat.ID == game.clan.your_cat.ID or
                 ((game.clan.your_cat.dead or self.the_cat.dead) and dead_talk is False) or
-                game.clan.your_cat.map_position != self.the_cat.map_position or
+                (not game.clan.your_cat.dead and game.clan.your_cat.map_position != self.the_cat.map_position) or
                 game.clan.your_cat.sleeping or self.the_cat.sleeping
             ):
                 cant_talk = True

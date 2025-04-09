@@ -182,6 +182,7 @@ class TalkScreen(Screens):
     def update_current_map(self):
 
         camp_bg_base_dir = 'resources/images/hg_maps/'
+        dead_bg_base_dir = 'resources/images'
         position = game.clan.your_cat.map_position
 
         time = ""
@@ -192,7 +193,16 @@ class TalkScreen(Screens):
         else:
             time = "night"
 
-        platform_dir = f'{camp_bg_base_dir}/{(game.clan.biome).lower()}/{time}/{position}.png'
+        if not self.the_cat.dead:
+            platform_dir = f'{camp_bg_base_dir}/{(game.clan.biome).lower()}/{time}/{position}.png'
+        else:
+            if self.the_cat.outside:
+                bg_image = "urbg"
+            elif self.the_cat.df:
+                bg_image = "dead_camps/dfbackground_eclipse"
+            else:
+                bg_image = "dead_camps/scbackground_sunsetclouds"
+            platform_dir = f'{dead_bg_base_dir}/{bg_image}.png'
         
         self.add_bgs(
             {
