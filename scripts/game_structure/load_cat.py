@@ -82,6 +82,8 @@ def json_load():
                     'grey asexual',
                     'asexual',
                     'asexual'])
+            elif cat["acespec"] == "acespec":
+                cat["acespec"] = "asexual"
 
             if "arospec" not in cat:
                 cat["arospec"] = choice([
@@ -102,7 +104,7 @@ def json_load():
             
             if cat["sexuality"] == "aroace":
                 cat["arospec"] = "aromantic"
-                cat["acespec"] = "acespec"
+                cat["acespec"] = "asexual"
             
             if "keep_sexuality" not in cat:
                 cat["keep_sexuality"] = False

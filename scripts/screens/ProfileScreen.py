@@ -3530,7 +3530,7 @@ class ProfileScreen(Screens):
             )
             self.choose_mate_button = UISurfaceImageButton(
                 ui_scale(pygame.Rect((50, 558), (172, 36))),
-                "choose mate",
+                "choose partner",
                 get_button_dict(ButtonStyles.LADDER_BOTTOM, (172, 36)),
                 object_id="@buttonstyles_ladder_bottom",
                 starting_height=2,
@@ -3824,7 +3824,10 @@ class ProfileScreen(Screens):
                     )
                 
                 # ACESPEC
-                next_acespec = self.acespec_change_dict[self.the_cat.acespec].replace(' ', '_')
+                try:
+                    next_acespec = self.acespec_change_dict[self.the_cat.acespec].replace(' ', '_')
+                except KeyError as e:
+                    print("Acespec button error:", e)
 
                 self.change_acespec_button = UIImageButton(
                     ui_scale(pygame.Rect((290, 515), (97, 37))),

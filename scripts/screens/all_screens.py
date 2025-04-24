@@ -16,7 +16,6 @@ from .AffairScreen import AffairScreen
 from .ClearingScreen import ClearingScreen
 from .QueenScreen import QueenScreen
 from .MoonplaceScreen import MoonplaceScreen
-from .ChooseQPPScreen import ChooseQPPScreen
 from .EventsScreen import EventsScreen
 from .FamilyTreeScreen import FamilyTreeScreen
 from .LeaderDenScreen import LeaderDenScreen
@@ -105,9 +104,6 @@ class AllScreens:
     queen_screen = QueenScreen("queen screen")
     moonplace_screen = MoonplaceScreen("moonplace screen")
     gift_screen = GiftScreen("gift screen")
-
-    # PrideGen
-    choose_qpp_screen = ChooseQPPScreen('choose qpp screen')
     
 
     @classmethod
@@ -158,6 +154,3 @@ class AllScreens:
         cls.queen_screen = QueenScreen("queen screen")
         cls.moonplace_screen = MoonplaceScreen("moonplace screen")
         cls.gift_screen = GiftScreen("gift screen")
-
-        #PrideGen
-        cls.choose_qpp_screen = ChooseQPPScreen("choose qpp screen")
