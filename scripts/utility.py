@@ -3475,8 +3475,16 @@ def adjust_txt(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
                 if in_dict_2 is True:
                     skip = True
 
-                if c.ID == you.ID or c.ID == cat.ID or c.ID in cat.mate or c.ID in you.mate or c.age != you.age or\
-                addon_check is False or skip is True:
+                if (
+                    c.ID == you.ID or
+                    c.ID == cat.ID or
+                    c.ID in cat.mate or
+                    c.ID in you.mate or
+                    c.age != you.age or
+                    addon_check is False or
+                    not c.is_potential_mate(you) or
+                    skip is True
+                    ):
                     continue
                 relations = you.relationships.get(c.ID)
                 if not relations:
@@ -3506,7 +3514,6 @@ def adjust_txt(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
             r = ""
 
         text, in_dict = cat_dict_check("their_crush", cluster, x, rel, r, text, cat_dict)
-        
 
         if in_dict is False:
             if len(cat.mate) > 0 or cat.no_mates:
@@ -3520,8 +3527,16 @@ def adjust_txt(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
                 if in_dict_2 is True:
                     skip = True
 
-                if c.ID == you.ID or c.ID == cat.ID or c.ID in cat.mate or c.ID in you.mate or c.age != cat.age or\
-                addon_check is False or skip is True:
+                if(
+                    c.ID == you.ID or
+                    c.ID == cat.ID or
+                    c.ID in cat.mate or
+                    c.ID in you.mate or
+                    c.age != cat.age or
+                    addon_check is False or
+                    not c.is_potential_mate(cat) or
+                    skip is True
+                    ):
                     continue
                 relations = cat.relationships.get(c.ID)
                 if not relations:
@@ -4506,6 +4521,41 @@ def adjust_txt(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
                 return ""
             
             text = add_to_cat_dict("y_m", cluster, x, rel, r, mate0, text, cat_dict)
+    # Your qpp
+    if "your_qpp" in text:
+        cluster = False
+        rel = False
+        match = re.search(r'your_qpp(\w+)', text)
+        if match:
+            x = match.group(1).strip("_")
+            cluster = True
+        else:
+            x = ""
+        match2 = re.search(r'(\w+)your_qpp', text)
+        if match2:
+            r = match2.group(1).strip("_")
+            rel = True
+        else:
+            r = ""
+        text, in_dict = cat_dict_check("your_qpp", cluster, x, rel, r, text, cat_dict)
+        
+
+        if in_dict is False:
+            if you.qpp:
+                possible_choices = [
+                    i for i in you.qpp if i not in you.mate
+                ]
+                qpp0 = Cat.fetch_cat(possible_choices)
+            else:
+                return ""
+            addon_check = abbrev_addons(cat, qpp0, cluster, x, rel, r)
+
+            if you.qpp is None or len(you.qpp) == 0 or you.ID in cat.qpp or addon_check is False:
+                return ""
+            if qpp0.outside or qpp0.dead:
+                return ""
+            
+            text = add_to_cat_dict("your_qpp", cluster, x, rel, r, qpp0, text, cat_dict)
 
     # Their mate
     if "t_m" in text:
@@ -4539,6 +4589,41 @@ def adjust_txt(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
                 return ""
             
             text = add_to_cat_dict("t_m", cluster, x, rel, r, mate1, text, cat_dict)
+    # Their QPP
+    if "their_qpp" in text:
+        cluster = False
+        rel = False
+        match = re.search(r'their_qpp(\w+)', text)
+        if match:
+            x = match.group(1).strip("_")
+            cluster = True
+        else:
+            x = ""
+        match2 = re.search(r'(\w+)their_qpp', text)
+        if match2:
+            r = match2.group(1).strip("_")
+            rel = True
+        else:
+            r = ""
+        text, in_dict = cat_dict_check("their_qpp", cluster, x, rel, r, text, cat_dict)
+        
+
+        if in_dict is False:
+            if cat.qpp:
+                possible_choices = [
+                    i for i in cat.qpp if i not in cat.mate
+                ]
+                qpp1 = Cat.fetch_cat(choice(possible_choices))
+            else:
+                return ""
+            addon_check = abbrev_addons(cat, qpp1, cluster, x, rel, r)
+
+            if cat.qpp is None or len(cat.qpp) == 0 or cat.ID in you.qpp or addon_check is False:
+                return ""
+            if qpp1.outside or qpp1.dead:
+                return ""
+            
+            text = add_to_cat_dict("their_qpp", cluster, x, rel, r, qpp1, text, cat_dict)
 
     # Their adult kit
     if "t_ka" in text:

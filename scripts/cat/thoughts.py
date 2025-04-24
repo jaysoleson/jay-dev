@@ -95,23 +95,28 @@ class Thoughts:
             
         # constraints for main cat sexuality
         if 'main_sexuality_constraint' in thought:
-            likes_shecats = (main_cat.genderalign in ['male', 'trans male', 'demiboy'] and main_cat.sexuality == "straight") or \
-            (main_cat.sexuality in ['lesbian', 'gyno', 'bi'])
-
-            if ("likes_shecats" in thought['main_sexuality_constraint'] and not likes_shecats and 'any' not in thought['main_sexuality_constraint']) or main_cat.moons < 6:
-                return False
-            
-            likes_toms = (main_cat.genderalign in ['female', 'trans female', 'demigirl'] and main_cat.sexuality == "straight") or \
-            (main_cat.sexuality in ['gay', 'andro', 'bi'])
-
-            if ("likes_toms" in thought['main_sexuality_constraint'] and not likes_toms and 'any' not in thought['main_sexuality_constraint']) or main_cat.moons < 6:
-                return False
-            
-            if (main_cat.sexuality == "aroace" and "aroace" not in thought['main_sexuality_constraint'] and 'any' not in thought['main_sexuality_constraint'] and len(main_cat.mate) > 0) or main_cat.moons < 6:
-                return False
-            
-            if "aroace" in thought['main_sexuality_constraint'] and main_cat.sexuality != 'aroace':
-                return False
+            for tag in thought["main_sexuality_constraint"]:
+                if tag.startswith("likes"):
+                    tag_list = tag.split(":")
+                    exclusive_attr = False
+                    if len(tag_list) == 3:
+                        if tag_list[2] == "exclusive":
+                            exclusive_attr = True
+                    if tag_list[1] == "men":
+                        if not main_cat.attracted_to_men(exclusive=exclusive_attr):
+                            return False
+                    elif tag_list[1] == "women":
+                        if not main_cat.attracted_to_women(exclusive=exclusive_attr):
+                            return False
+                    elif tag_list[1] == "all":
+                        if not main_cat.attracted_to_all():
+                            return False
+                    elif tag_list[1] == "none":
+                        if not main_cat.attracted_to_none():
+                            return False
+                    elif tag_list[1] == "any":
+                        if main_cat.attracted_to_none():
+                            return False
         
         # cis/trans thoughts
             

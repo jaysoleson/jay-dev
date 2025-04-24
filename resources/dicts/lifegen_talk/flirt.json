@@ -1786,7 +1786,8 @@
             "unabashed",
             "they_blind",
             "you_blind",
-            "flirt"
+            "flirt",
+            "they_like:any"
         ],
         [
             "..That was an awful attempt at flirting, but you are cute, so I'll let it slide."
@@ -2687,8 +2688,8 @@
         [
             "Any",
             "you_tom",
-            "you_boyliker",
-            "they_boyliker",
+            "you_like:men:non",
+            "they_like:men:non",
             "cool",
             "introspective",
             "brooding",
@@ -2705,13 +2706,13 @@
             "Any",
             "you_shecat",
             "they_shecat",
-            "you_girlliker",
-            "they_girlliker"
+            "you_like:women:exclusive",
+            "they_like:women:exclusive"
 
         ],
         [
             "No, no, <i>you're</i> the prettiest!",
-            "Are they just being friendly..?"
+            "{VERB/t_c/Are/Is} {PRONOUN/t_c/subject} just being friendly..?"
         ]
     ],
     "flirt_sh_J30": [
@@ -5242,9 +5243,9 @@
         [
             "Any",
             "reject",
-            "they_girlliker",
+            "they_like:women:exclusive",
             "you_tom",
-            "pg_reject"
+            "neutral"
         ],
         [
             "Oh, um, sorry, I'm not really into toms."
@@ -5254,9 +5255,8 @@
         [
             "Any",
             "reject",
-            "they_boyliker",
-            "you_shecat",
-            "pg_reject"
+            "they_like:men:exclusive",
+            "you_shecat"
         ],
         [
             "Oh, um, sorry, I'm not really into she-cats."
@@ -5265,10 +5265,9 @@
     "sh_pridegen_reject_3": [
         [
             "Any",
-            "they_boyliker",
+            "they_like:men:exclusive",
             "reject",
             "you_shecat",
-            "pg_reject",
             "min_platonic_40",
             "silly",
             "sweet"
@@ -5281,10 +5280,9 @@
     "t_pridegen_reject_4": [
         [
             "Any",
-            "they_girlliker",
+            "they_like:women:exclusive",
             "reject",
             "you_tom",
-            "pg_reject",
             "min_platonic_40",
             "silly",
             "sweet"
@@ -5296,10 +5294,9 @@
     "sh_pridegen_reject_5": [
         [
             "Any",
-            "they_boyliker",
+            "they_like:men_exclusive",
             "you_shecat",
             "reject",
-            "pg_reject",
             "min_platonic_20"
         ],
         [
@@ -5310,10 +5307,9 @@
     "t_pridegen_reject_6": [
         [
             "Any",
-            "they_girlliker",
+            "they_like:women:exclusive",
             "you_tom",
             "reject",
-            "pg_reject",
             "min_platonic_20"
         ],
         [
@@ -5324,9 +5320,8 @@
     "a_pridegen_reject_7": [
         [
             "Any",
-            "aroace_reject",
+            "they_like:none:non",
             "reject",
-            "pg_reject",
             "neurotic",
             "introspective"
         ],
@@ -5339,7 +5334,7 @@
     "a_pridegen_reject_8": [
         [
             "Any",
-            "aroace_reject",
+            "they_like:none:non",
             "reject",
             "assertive",
             "stable",
@@ -5349,8 +5344,7 @@
             "troublesome",
             "neurotic",
             "cool",
-            "upstanding",
-            "pg_reject"
+            "upstanding"
         ],
         [
             "Flirting with me is a waste of your time, you know."
@@ -5360,9 +5354,7 @@
         [
             "any",
             "you_tom",
-            "tom_reject",
-            "they_girlliker",
-            "pg_reject"
+            "they_like:women:exclusive"
         ],
         [
             "Oh, um..."
@@ -5371,12 +5363,11 @@
     "a_pridegen_reject_10": [
         [
             "any",
-            "aroace_reject",
+            "they_like:none:non",
             "reject",
             "brooding",
             "cool",
-            "assertive",
-            "pg_reject"
+            "assertive"
         ],
         [
             "What? Are you serious?",
@@ -5714,6 +5705,50 @@
         ],
         [
             "[t_c presses {PRONOUN/t_c/poss} pelt into yours so that you can feel {PRONOUN/t_c/poss} purrs.]"
+        ]
+    ],
+    "pridegen_new_1": [
+        [
+            "any",
+            "you_tom",
+            "they_like:women:exclusive",
+            "brooding",
+            "assertive",
+            "unlawful",
+            "unabashed",
+            "reject"
+        ],
+        [
+            "Ew. No, I'm not into toms. At all. Do I not make it obvious enough?"
+        ]
+    ],
+    "pridegen_new_2": [
+        [
+            "any",
+            "you_tom",
+            "they_not_tom",
+            "they_like:men:non",
+            "brooding",
+            "assertive",
+            "unlawful",
+            "unabashed",
+            "accept"
+        ],
+        [
+            "... I know better than to let a tom fluster me.",
+            "[t_c turns and hides {PRONOUN/t_c/poss} face with a paw.]"
+        ]
+    ],
+    "pridegen_new_3": [
+        [
+            "any",
+            "you_like:none",
+            "accept"
+        ],
+        [
+            "... What?",
+            "No, no, I'm flattered. I just... didn't think you liked anyone like that.",
+            "I'm honoured!"
         ]
     ]
 }

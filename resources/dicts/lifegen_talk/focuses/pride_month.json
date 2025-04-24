@@ -1,0 +1,93 @@
+{
+    "pridemonth_1": [
+        [
+            "pride_month",
+            "no_kit",
+            "they_trans",
+            "warrior",
+            "deputy",
+            "leader",
+            "unabashed",
+            "silly",
+            "stable",
+            "sweet"
+        ],
+        [
+            "Hey, y_c! Look what I took from that big Twoleg party by the Twolegplace!",
+            "[In t_c's mouth is a small, round object, coloured pink, blue, and white.]",
+            "I'm not sure what it is, but it spoke to me!"
+        ]
+    ],
+    "pridemonth_2": [
+        [
+            "pride_month",
+            "no_kit"
+        ],
+        [
+            "All the colourful Twoleg parties going on lately make me think we should be celebrating more often, too.",
+            "No everyone is strong enough to be a Clan cat. We should be proud of ourselves!"
+        ]
+    ],
+    "pridemonth_3": [
+        [
+            "from_parent",
+            "any",
+            "no_kit",
+            "min_platonic_40"
+        ],
+        [
+            "I'm very proud of you, y_c. You're a good cat.",
+            "Not sure why I felt so suddenly compelled to tell you that, but I did. I should say it more often."
+        ]
+    ],
+    "pridemonth_4": [
+        [
+            "any",
+            "no_kit",
+            "warrior",
+            "apprentice",
+            "deputy"
+        ],
+        [
+            "Oh, my StarClan. I just accidentally wandered into that big, colourful Twoleg party at the edge of the Twolegplace while hunting.",
+            "You know, Twolegs are usually scary, but these ones looked nice! They were all having fun, and they stared at me, but they didn't chase me down.",
+            "Don't worry, I'm not gonna run away to become a kitypet... I'm just glad to know that not all Twolegs are mean."
+        ]
+    ],
+    "pridemonth_5": [
+        [
+            "pride_month",
+            "they_dead",
+            "kittypet",
+            "no_kit"
+        ],
+        [
+            "Hey, y_c! Happy pride!",
+            "I've been watching my Twolegs celebrating... I wish I could be there with them this year."
+        ]
+    ],
+    "pridemonth_6": [
+        [
+            "elder",
+            "senior",
+            "no_kit"
+        ],
+        [
+            "Even with my declining hearing, I can hear those Twoleg parties while I'm trying to relax in camp!",
+            "Good for them for having fun... but I'd like a bit of peace and quiet in my afternoon."
+        ]
+    ],
+    "pridemonth_7": [
+        [
+            "sweet",
+            "stable",
+            "silly",
+            "neurotic",
+            "introspective",
+            "no_kit"
+        ],
+        [
+            "Hi, y_c! You're doing great. I hope you're feeling proud of yourself today."
+        ]
+    ]
+}

@@ -678,7 +678,7 @@ class TalkScreen(Screens):
                 continue
 
             if game.switches["talk_category"] == "flirt":
-                success = self.is_flirt_success(cat)
+                success = self.is_flirt_success(cat, tags=tags)
                 if "heartbroken" not in cat.illnesses.keys() and "heartbroken" in tags:
                     continue
                 elif not success and "reject" not in tags:
@@ -1052,6 +1052,55 @@ class TalkScreen(Screens):
             if skip2 is True:
                 continue
 
+            pg_skip = self.pridegen_attraction_tags(tags, cat, you)
+            if pg_skip:
+                continue
+
+            # general gender tags
+            if "you_tom" in tags and you.genderalign not in ["male", "trans male", "demiboy"]:
+                continue
+            if "you_not_tom" in tags and you.genderalign in ["male", "trans male", "demiboy"]:
+                continue
+            if "you_shecat" in tags and you.genderalign not in ["female", "trans female", "demigirl"]:
+                continue
+            if "you_not_shecat" in tags and you.genderalign in ["female", "trans female", "demigirl"]:
+                continue
+
+            if "they_cis" in tags and cat.genderalign != cat.gender:
+                continue
+            if "they_trans" in tags and cat.genderalign == cat.gender:
+                continue
+
+            if "you_cis" in tags and you.genderalign != you.gender:
+                continue
+            if "you_trans" in tags and you.genderalign == you.gender:
+                continue
+
+            if "they_tom" in tags and cat.genderalign not in ["male", "trans male", "demiboy"]:
+                continue
+            if "they_not_tom" in tags and cat.genderalign in ["male", "trans male", "demiboy"]:
+                continue
+            if "they_shecat" in tags and cat.genderalign not in ["female", "trans female", "demigirl"]:
+                continue
+            if "they_not_shecat" in tags and cat.genderalign in ["female", "trans female", "demigirl"]:
+                continue
+
+            if "they_cis" in tags and you.genderalign != you.gender:
+                continue
+            if "they_trans" in tags and you.genderalign == you.gender:
+                continue
+
+            # specific gender tags
+            wrong_gender = False
+            for i in tags:
+                if i.startswith("they_gender"):
+                    if cat.genderalign not in i.split(":")[1].split(","):
+                        wrong_gender = True
+                if i.startswith("you_gender"):
+                    if you.genderalign not in i.split(":")[1].split(","):
+                        wrong_gender = True
+            if wrong_gender:
+                continue
             # Season tags
             # if ('leafbare' in tags and game.clan.current_season != 'Leaf-bare') or ('newleaf' in tags and game.clan.current_season != 'Newleaf') or ('leaffall' in tags and game.clan.current_season != 'Leaf-fall') or ('greenleaf' in tags and game.clan.current_season != 'Greenleaf'):
             #     continue
@@ -1131,7 +1180,7 @@ class TalkScreen(Screens):
                 "littermate", "siblings_mate", "cousin", "adopted_sibling", "parents_siblings",
                 "from_mentor", "from_df_mentor", "from_your_kit", "from_your_apprentice",
                 "from_df_apprentice", "from_mate", "from_parent", "adopted_parent", "from_kit",
-                "sibling", "from_adopted_kit"
+                "sibling", "from_adopted_kit", "from_qpp"
                 ] for i in tags):
 
                 fam = False
@@ -1149,6 +1198,9 @@ class TalkScreen(Screens):
                         fam = True
                 if "from_mate" in tags:
                     if cat.ID in you.mate:
+                        fam = True
+                if "from_qpp" in tags:
+                    if cat.ID in you.qpp:
                         fam = True
                 if "from_parent" in tags or "from_your_parent" in tags:
                     if you.parent1:
@@ -1286,6 +1338,14 @@ class TalkScreen(Screens):
                         clan_has_kits = True
                 if not clan_has_kits:
                     continue
+            # PG
+            if "you_have_kits" in tags:
+                if len(you.inheritance.get_not_blood_kits()) + len(you.inheritance.get_blood_kits()) == 0:
+                    continue
+            if "you_no_kits" in tags:
+                if len(you.inheritance.get_not_blood_kits()) + len(you.inheritance.get_blood_kits()) > 0:
+                    continue
+            # ---
 
             if "they_older" in tags:
                 if you.age == cat.age or cat.moons < you.moons:
@@ -1708,7 +1768,70 @@ class TalkScreen(Screens):
             texts_list[talk_key] = talk
 
         return self.choose_text(cat, texts_list)
+    
+    def pridegen_attraction_tags(self, tags, cat, you):
+        pg_skip = False
+        for i in tags:
+            if i.startswith("they_like"):
+                tag_list = i.split(":")
+                exclusive_attr = False
+                if len(tag_list) == 3:
+                    if tag_list[2] == "exclusive":
+                        exclusive_attr = True
+                if tag_list[1] == "men":
+                    if not cat.attracted_to_men(exclusive=exclusive_attr):
+                        pg_skip = True
+                elif tag_list[1] == "women":
+                    if not cat.attracted_to_women(exclusive=exclusive_attr):
+                        pg_skip = True
+                elif tag_list[1] == "all":
+                    if not cat.attracted_to_all():
+                        pg_skip = True
+                elif tag_list[1] == "none":
+                    if not cat.attracted_to_none():
+                        pg_skip = True
+                elif tag_list[1] == "any":
+                    if cat.attracted_to_none():
+                        pg_skip = True
+            if i.startswith("you_like"):
+                tag_list = i.split(":")
+                exclusive_attr = False
+                if len(tag_list) == 3:
+                    if tag_list[2] == "exclusive":
+                        exclusive_attr = True
+                if tag_list[1] == "men":
+                    if not you.attracted_to_men(exclusive=exclusive_attr):
+                        pg_skip = True
+                elif tag_list[1] == "women":
+                    if not you.attracted_to_women(exclusive=exclusive_attr):
+                        pg_skip = True
+                elif tag_list[1] == "all":
+                    if not you.attracted_to_all():
+                        pg_skip = True
+                elif tag_list[1] == "none":
+                    if not you.attracted_to_none():
+                        pg_skip = True
+                elif tag_list[1] == "any":
+                    if you.attracted_to_none():
+                        pg_skip = True
+            if i.startswith("they_acespec"):
+                tag_list = i.split(":")
+                if cat.acespec not in tag_list[1].split(","):
+                    pg_skip = True
+            if i.startswith("you_acespec"):
+                tag_list = i.split(":")
+                if you.acespec not in tag_list[1].split(","):
+                    pg_skip = True
+            if i.startswith("they_arospec"):
+                tag_list = i.split(":")
+                if cat.arospec not in tag_list[1].split(","):
+                    pg_skip = True
+            if i.startswith("you_arospec"):
+                tag_list = i.split(":")
+                if you.arospec not in tag_list[1].split(","):
+                    pg_skip = True
 
+        return pg_skip
 
     def load_and_replace_placeholders(self, file_path, cat, you):
         with open(file_path, 'r') as read_file:
@@ -1922,8 +2045,13 @@ class TalkScreen(Screens):
             return "clanfounder"
         return bs_display
 
-    def is_flirt_success(self, cat):
+    def is_flirt_success(self, cat, tags=[]):
         cat_relationships = cat.relationships.get(game.clan.your_cat.ID)
+
+        attracted = self.pridegen_attraction_tags(tags, cat, game.clan.your_cat)
+        if not attracted:
+            return False
+
         chance = 40
         if cat_relationships:
             if cat_relationships.romantic_love > 10:

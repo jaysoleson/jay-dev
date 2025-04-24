@@ -2,9 +2,9 @@
     {
         "id": "anytrans",
         "thoughts": [
-            "Politely corrects a Clanmate on their pronouns",
-            "Wonders if they got their gender right",
-            "Is proud of who they are"
+            "Politely corrects a Clanmate on {PRONOUN/m_c/poss} pronouns",
+            "Wonders if they got {PRONOUN/m_c/poss} gender right",
+            "Is proud of who {PRONOUN/m_c/subject} {VERB/m_c/are/is}"
           
         ],
         "main_status_constraint": [
@@ -20,9 +20,7 @@
     {
         "id": "transwoman",
         "thoughts": [
-            "Asks their closest friend if they look like a tom, and tells them to be honest",
             "Doesn't miss tom life"
-          
         ],
         "main_status_constraint": [
             "any"
@@ -35,9 +33,7 @@
     {
         "id": "transman",
         "thoughts": [
-            "Asks their closest friend if they look like a she-cat, and tells them to be honest",
             "Doesn't miss she-cat life"
-          
         ],
         "main_status_constraint": [
             "any"
@@ -52,39 +48,37 @@
         "thoughts": [
             "Thinks she-cats are so, so pretty",
             "Winks at a pretty she-cat",
-            "Is proud of who they are"
+            "Is proud of who {PRONOUN/m_c/subject} {VERB/m_c/are/is}"
           
         ],
         "main_status_constraint": [
          "any"
         ],
         "main_sexuality_constraint": [
-            "likes_shecats"
-
+            "likes:women"
         ]
     },
     {
         "id": "likes_toms",
         "thoughts": [
             "Smiles at a handsome tom",
-            "Is proud of who they are"
+            "Is proud of who {PRONOUN/m_c/subject} {VERB/m_c/are/is}"
           
         ],
         "main_status_constraint": [
             "any"
         ],
         "main_sexuality_constraint": [
-            "likes_toms"
-
+            "likes:men"
         ]
     },
     {
         "id": "aroace_thoughts",
         "thoughts": [
             "Got flirted with earlier and didn't know how to respond",
-            "Can't help but feel left out as they pass a lovey pair of mates",
-            "Just rolls their eyes when somecat asked if they would ever want a mate",
-            "Is proud of who they are",
+            "Can't help but feel left out as {PRONOUN/m_c/subject} {VERB/m_c/pass/passes} a lovey pair of mates",
+            "Just rolls {PRONOUN/m_c/poss} eyes when somecat asks if {PRONOUN/m_c/subject} would ever want a mate",
+            "Is proud of who {PRONOUN/m_c/subject} {VERB/m_c/are/is}",
             "Kind of wants a mate, just to see what the fuss is about"
           
         ],
@@ -92,7 +86,7 @@
             "any"
         ],
         "main_sexuality_constraint": [
-            "aroace"
+            "likes:none"
 
         ]
     },

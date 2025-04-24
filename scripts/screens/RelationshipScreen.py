@@ -881,34 +881,24 @@ class RelationshipScreen(Screens):
 
         # ROMANTIC LOVE
 
-        #CHECK SEXUALITY COMPATIBILITY
-
-        sexuality_incompatible= (self.the_cat.sexuality in ("gay", "andro") and \
-                                 the_relationship.cat_to.genderalign in ("female", "trans female", "demigirl")) or \
-                                (self.the_cat.sexuality in ("lesbian", "gyno") and \
-                                the_relationship.cat_to.genderalign in ("male", "trans male", "demiboy")) or \
-                                (self.the_cat.sexuality == "straight" and \
-                                self.the_cat.genderalign in ["male", "trans male", "demiboy"] and \
-                                the_relationship.cat_to.genderalign in ("male", "trans male", "demiboy")) or \
-                                (self.the_cat.sexuality == "straight" and \
-                                self.the_cat.genderalign in ["female", "trans female", "demigirl"] and \
-                                the_relationship.cat_to.genderalign in ("female", "trans female", "demigirl")) or \
-                                (self.the_cat.sexuality == "aroace")
-                               
-        incompatible_crush =    (self.the_cat.genderalign in ["male", "trans male", "demiboy"] and \
-                                the_relationship.cat_to.genderalign in ["male", "trans male", "demiboy"] and \
-                                the_relationship.cat_to.sexuality == "straight") or \
-                                (self.the_cat.genderalign in ["female", "trans female", "demigirl"] and \
-                                the_relationship.cat_to.genderalign in ["female", "trans female", "demigirl"] and \
-                                the_relationship.cat_to.sexuality == "straight") or \
-                                (self.the_cat.genderalign in ["male", "trans male", "demiboy"] and \
-                                the_relationship.cat_to.genderalign in ["female", "trans female", "demigirl"] and \
-                                the_relationship.cat_to.sexuality == "lesbian") or \
-                                (self.the_cat.genderalign in ["female", "trans female", "demigirl"] and \
-                                the_relationship.cat_to.genderalign in ["male", "trans male", "demiboy"] and \
-                                the_relationship.cat_to.sexuality == "gay")
+        # CHECK SEXUALITY COMPATIBILITY
+        # the cat in focus is unable to have a crush on the rel cat
+        sexuality_incompatible = (
+            (the_relationship.cat_to.genderalign in ["male", "trans male", "demiboy"] and
+            not self.the_cat.attracted_to_men()) or
+            (the_relationship.cat_to.genderalign in ["female", "trans female", "demigirl"] and
+            not self.the_cat.attracted_to_women()) or
+            self.the_cat.attracted_to_none()
+        )
+        # the rel cat is unable to have a crush on the cat in focus
+        incompatible_crush = (
+            (self.the_cat.genderalign in ["male", "trans male", "demiboy"] and
+            not the_relationship.cat_to.attracted_to_men()) or
+            (self.the_cat.genderalign in ["female", "trans female", "demigirl"] and
+            not the_relationship.cat_to.attracted_to_women()) or
+            the_relationship.cat_to.attracted_to_none()
+        )
                                 
-
         # CHECK AGE DIFFERENCE
         same_age = the_relationship.cat_to.age == self.the_cat.age
         adult_ages = ["young adult", "adult", "senior adult", "senior"]
@@ -929,8 +919,6 @@ class RelationshipScreen(Screens):
             max_romantic_love = 45
             the_relationship.romantic_love = min(the_relationship.romantic_love, max_romantic_love)
             display_romantic = the_relationship.romantic_love
-                
-            
 
             # Print, just for bug checking. Again, they should not be able to get love towards their relative.
             if the_relationship.romantic_love and related:

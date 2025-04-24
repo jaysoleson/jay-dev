@@ -2992,21 +2992,22 @@ class Cat:
         # check dead cats
         if self.dead != other_cat.dead:
             return False
-
-        cat1_boy = self.genderalign in ['male', 'trans male', 'demiboy']
-        cat1_girl = self.genderalign in ['female', 'trans female', 'demigirl']
-
-        cat1_girlliker = self.sexuality in ['lesbian', 'gyno'] or (self.sexuality == 'straight' and cat1_boy)
-        cat1_boyliker = self.sexuality in ['gay', 'andro'] or (self.sexuality == 'straight' and cat1_girl)
-
-        cat2_boy = other_cat.genderalign in ['male', 'trans male', 'demiboy']
-        cat2_girl = other_cat.genderalign in ['female', 'trans female', 'demigirl']
-
-        cat2_girlliker = other_cat.sexuality in ['lesbian', 'gyno'] or (other_cat.sexuality == 'straight' and cat2_boy)
-        cat2_boyliker = other_cat.sexuality in ['gay', 'andro'] or (other_cat.sexuality == 'straight' and cat2_girl)
-
-        if (self.sexuality == "aroace" or other_cat.sexuality == "aroace") or \
-        (cat1_boy and cat2_girlliker) or (cat1_girl and cat2_boyliker) or (cat1_girlliker and cat2_boy) or (cat1_boyliker and cat2_girl):
+        
+        if (
+            (other_cat.genderalign in ["male", "trans male", "demiboy"] and
+            not self.attracted_to_men()) or
+            (other_cat.genderalign in ["female", "trans female", "demigirl"] and
+            not self.attracted_to_women()) or
+            self.attracted_to_none()
+        ):
+            return False
+        if (
+            (self.genderalign in ["male", "trans male", "demiboy"] and
+            not other_cat.attracted_to_men()) or
+            (self.genderalign in ["female", "trans female", "demigirl"] and
+            not other_cat.attracted_to_women()) or
+            other_cat.attracted_to_none()
+        ):
             return False
 
         # check for age
@@ -4166,6 +4167,38 @@ class Cat:
     # ---------------------------------------------------------------------------- #
     #                                  other                                       #
     # ---------------------------------------------------------------------------- #
+    # Pridegen
+    def attracted_to_men(self, exclusive=False):
+        if exclusive:
+            if self.sexuality in ["gay", "andro"]:
+                return True
+            if self.sexuality == "straight" and self.genderalign in ["female", "trans female", "demigirl"]:
+                return True
+        else:
+            if self.sexuality in ["bi", "pan"]:
+                return True
+        return False
+
+    def attracted_to_women(self, exclusive=False):
+        if exclusive:
+            if self.sexuality in ["lesbian", "gyno"]:
+                return True
+            if self.sexuality == "straight" and self.genderalign in ["male", "trans male", "demiboy"]:
+                return True
+        else:
+            if self.sexuality in ["bi", "pan"]:
+                return True
+        return False
+    
+    def attracted_to_all(self):
+        if self.sexuality in ["bi", "pan"]:
+            return True
+        return False
+
+    def attracted_to_none(self):
+        if self.sexuality == "aroace":
+            return True
+        return False
 
     def is_baby(self):
         return self.age in ["kitten", "newborn"]
