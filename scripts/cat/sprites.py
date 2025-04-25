@@ -182,7 +182,7 @@ class Sprites:
         eye_colors = [
             ['YELLOW', 'AMBER', 'HAZEL', 'PALEGREEN', 'GREEN', 'BLUE', 'DARKBLUE', 'GREY', 'CYAN', 'EMERALD',
              'HEATHERBLUE', 'SUNLITICE'],
-            ['COPPER', 'SAGE', 'COBALT', 'PALEBLUE', 'BRONZE', 'SILVER', 'PALEYELLOW', 'GOLD', 'GREENYELLOW']
+            ['COPPER', 'SAGE', 'COBALT', 'PALEBLUE', 'BRONZE', 'SILVER', 'PALEYELLOW', 'GOLD', 'GREENYELLOW', 'PRISM', 'COTTONCANDY']
         ]
 
         for row, colors in enumerate(eye_colors):
@@ -210,7 +210,7 @@ class Sprites:
              'BLOSSOMSTEP', 'PEBBLE', 'TAILTWO', 'BUDDY', 'BACKSPOT', 'EYEBAGS'],
             ['BULLSEYE', 'FINN', 'DIGIT', 'KROPKA', 'FCTWO', 'FCONE', 'MIA', 'SCAR', 'BUSTER', 'SMOKEY', 'HAWKBLAZE',
              'CAKE', 'ROSINA', 'PRINCESS'],
-            ['LOCKET', 'BLAZEMASK', 'TEARS', 'DOUGIE']
+            ['LOCKET', 'BLAZEMASK', 'TEARS', 'DOUGIE', 'APPLECLAW']
         ]
 
         for row, patches in enumerate(white_patches):
