@@ -1145,9 +1145,9 @@ class Pelt:
             color_name = color_name.replace("white and white", "white")
 
         # Now it's time for gender
-        if cat.genderalign in ["female", "trans female"]:
+        if cat.genderalign in ["female", "trans female", "demigirl"]:
             color_name = f"{color_name} she-cat"
-        elif cat.genderalign in ["male", "trans male"]:
+        elif cat.genderalign in ["male", "trans male", "demiboy"]:
             color_name = f"{color_name} tom"
         else:
             color_name = f"{color_name} cat"

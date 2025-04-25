@@ -1471,6 +1471,10 @@ class Cat:
             colour = "sunlit ice"
         elif colour == "greenyellow":
             colour = "green-yellow"
+        elif colour == "prism":
+            colour = "prism"
+        elif colour == "cottoncandy":
+            colour = "cotton candy"
         if self.pelt.eye_colour2:
             if colour2 == "palegreen":
                 colour2 = "pale green"
@@ -1486,6 +1490,10 @@ class Cat:
                 colour2 = "sunlit ice"
             if colour2 == "greenyellow":
                 colour2 = "green-yellow"
+            elif colour2 == "prism":
+                colour2 = "prism"
+            elif colour2 == "cottoncandy":
+                colour2 = "cotton candy"
             colour = f"{colour} and {colour2}"
         return colour
 
