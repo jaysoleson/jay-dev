@@ -253,6 +253,10 @@ class Events:
             game.clan.infection["logs"].clear()
             game.clan.infection["treatments"].clear()
 
+            game.clan.infection["exiled_cats"] = ""
+            game.clan.infection["killed_cats"] = ""
+            game.clan.infection["cured_cats"] = ""
+
             for kitty in Cat.all_cats_list:
                 if kitty.infected_for == -1:
                     # no immunity for the new infection!!!!
@@ -1808,7 +1812,7 @@ class Events:
                     level_string = "fallen"
                     self.clan_fall(clan)
 
-            if random.randint(1,10) == 1:
+            if (random.randint(1,10) == 1) or level_string == "fallen":
                 events = other_clan_events[level_string]["general"]
                 events.extend(other_clan_events[level_string][inftype])
                 if addon:

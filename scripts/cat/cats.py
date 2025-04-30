@@ -816,6 +816,8 @@ class Cat:
             self.infected_for = 0
         
         self.quarantined = False
+        if self.history:
+            self.history.died_infected = True
 
         return text
 

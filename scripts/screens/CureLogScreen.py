@@ -531,37 +531,32 @@ class CureLogScreen(Screens):
         if game.clan.your_cat.history:
             if game.clan.your_cat.history.murder:
                 if "is_murderer" in game.clan.your_cat.history.murder:
-                    murderer = True
+                    for murder in game.clan.your_cat.history.murder["is_murderer"]:
+                        victim = Cat.fetch_cat(murder["victim"])
+                        if not victim.history:
+                            victim.load_history()
+                        if victim.history:
+                            if victim.history.died_infected:
+                                if victim.history.died_infected is True:
+                                    murderer = True
+                                    break
 
-        if "1" in game.clan.achievements and murderer:
-            murder = "murder1"
-            hover = "Killed one cat"
-            self.stamps["murder"] = UIImageButton(ui_scale(pygame.Rect((175, 190), (19, 36))), "",
-                                            object_id=f"#stamp_{murder}", tool_tip_text=f"{hover}", manager=MANAGER)
-        
-            # redefining these all bc the dimensions are different
-            # do not release this shit without making a better one
-            if "2" in game.clan.achievements:
-                murder = "murder1"
-                hover = "Killed five cats"
-                self.stamps["murder"] = UIImageButton(ui_scale(pygame.Rect((175, 190), (19, 36))), "",
-                                                object_id=f"#stamp_{murder}", tool_tip_text=f"{hover}", manager=MANAGER)
-            if "3" in game.clan.achievements:
-                murder = "murder2"
-                hover = "Killed twenty cats"
-                self.stamps["murder"] = UIImageButton(ui_scale(pygame.Rect((175, 190), (35, 43))), "",
-                                                object_id=f"#stamp_{murder}", tool_tip_text=f"{hover}", manager=MANAGER)
-            if "4" in game.clan.achievements:
-                murder = "murder3"
-                hover = "Killed fifty cats"
-                self.stamps["murder"] = UIImageButton(ui_scale(pygame.Rect((160, 185), (58, 49))), "",
-                                                object_id=f"#stamp_{murder}", tool_tip_text=f"{hover}", manager=MANAGER)
+        if ("1" in game.clan.achievements and murderer) or debug_all_stamps:
+            hover = "<b>The Greater Good</b>\nTake matters into your own hands and kill an infected Clanmate."
+            self.stamps["murder"] = UIImageButton(
+                ui_scale(pygame.Rect((200, 205), (94, 94))),
+                "",
+                object_id="#stamp_infection_murder",
+                tool_tip_text=f"{hover}",
+                manager=MANAGER
+                )
+
         elif "25" in game.clan.achievements:
             self.stamps["pacifist"] = UIImageButton(
                 ui_scale(pygame.Rect((190, 225), (78, 38))),
                 "",
                 object_id="#stamp_pacifist",
-                tool_tip_text="Lived to be 120 moons without committing a murder",
+                tool_tip_text="<b>Pacifist</b>\nLived to be 120 moons without committing a murder",
                 manager=MANAGER
                 )
         
@@ -569,10 +564,10 @@ class CureLogScreen(Screens):
             image_cache.load_image("resources/images/journal_stamps/empty_stamp.png").convert_alpha(), (134, 94))
         empty_stamps = 0
     
-        if "pacifist" not in self.stamps and "murder" not in self.stamps or debug_all_stamps:
+        if "pacifist" not in self.stamps and "murder" not in self.stamps:
             empty_stamps += 1
             self.stamps[str(empty_stamps)] = pygame_gui.elements.UIImage(
-                ui_scale(pygame.Rect((160, 205), (134, 94))),
+                ui_scale(pygame.Rect((200, 205), (94, 94))),
                 empty_stamp,
                 manager=MANAGER
             )
@@ -582,33 +577,33 @@ class CureLogScreen(Screens):
                 ui_scale(pygame.Rect((0, 0), (74, 118))),
                 "",
                 object_id=f"#{game.clan.infection['infection_type']}_stamp_start",
-                tool_tip_text="You've discovered the infection.",
+                tool_tip_text=f"<b>LifeGen: INFECTION</b>\nYou've discovered the infection ({game.clan.infection['infection_type']}).",
                 manager=MANAGER,
                 anchors={"centerx": "centerx", "centery": "centery"}
                 )
             
-        if "cure_found" in game.clan.infection["logs"]:
+        if "cure_found" in game.clan.infection["logs"] or debug_all_stamps:
             self.stamps["cure_discovered"] = UIImageButton(
-                ui_scale(pygame.Rect((0, 178), (74, 74))),
+                ui_scale(pygame.Rect((0, 160), (94, 94))),
                 "",
                 object_id="#stamp_cure",
-                tool_tip_text="You've discovered the cure!",
+                tool_tip_text="<b>Cured!</b>\nYou've discovered the cure!",
                 manager=MANAGER,
                 anchors={"centerx": "centerx"}
                 )
         elif "partial_cure" in game.clan.infection["logs"]:
             self.stamps["partial_cure"] = UIImageButton(
-                ui_scale(pygame.Rect((0, 178), (34, 66))),
+                ui_scale(pygame.Rect((0, 160), (94, 94))),
                 "",
                 object_id="#stamp_partial_cure",
-                tool_tip_text="Part of the cure has been discovered!",
+                tool_tip_text="<b>Partial Cure</b>\nPart of the cure has been discovered!",
                 manager=MANAGER,
                 anchors={"centerx": "centerx"}
                 )
         else:
             empty_stamps += 1
             self.stamps[str(empty_stamps)] = pygame_gui.elements.UIImage(
-                ui_scale(pygame.Rect((0, 160), (134, 94))),
+                ui_scale(pygame.Rect((0, 160), (94, 94))),
                 empty_stamp,
                 manager=MANAGER,
                 anchors={"centerx": "centerx"}
@@ -620,78 +615,90 @@ class CureLogScreen(Screens):
 
         largest = max(cured_cats, killed_cats, exiled_cats)
 
+        if debug_all_stamps:
+            killed_cats = 5
+            largest = killed_cats
+
         if largest == cured_cats:
-            text = f"You've chosen to deal with the infection by curing your Clanmates ({cured_cats} cats cured)."
+            text = f"You've chosen to deal with the infection by curing your Clanmates ({cured_cats} cats cured)!"
+            stamp_id = "#stamp_cured_infected"
         elif largest == killed_cats:
             text = f"You've chosen to deal with the infection by killing the infected ({killed_cats} infected cats killed)."
+            stamp_id = "#stamp_killed_infected"
         else:
             text = f"You've chosen to deal with the infection by exiling the infected ({exiled_cats} infected cats exiled)."
+            stamp_id = "#stamp_exiled_infected"
 
         if largest == 0:
             self.stamps["playstyle"] = pygame_gui.elements.UIImage(
-                ui_scale(pygame.Rect((0, 460), (134, 94))),
+                ui_scale(pygame.Rect((0, 460), (94, 94))),
                 empty_stamp,
                 manager=MANAGER,
                 anchors={"centerx": "centerx"}
             )
         else:
             self.stamps["playstyle"] = UIImageButton(
-                ui_scale(pygame.Rect((0, 460), (74, 74))),
+                ui_scale(pygame.Rect((0, 460), (94, 94))),
                 "",
-                object_id="#stamp_cure",
-                tool_tip_text=text,
+                object_id=stamp_id,
+                tool_tip_text="<b>Damage Control</b>\n" + text,
                 manager=MANAGER,
                 anchors={"centerx": "centerx"}
                 )
             
-        if len(game.clan.infection["fallen_clans"]) > 0:
+        if len(game.clan.infection["fallen_clans"]) > 0 or debug_all_stamps:
             if debug_all_stamps:
                 fallenclans = 5
             else:
-                fallenclans = str(len(game.clan.infection['fallen_clans']))
+                fallenclans = len(game.clan.infection['fallen_clans'])
+            
+            if fallenclans == 1:
+                hovertext = f"<b>Fallen Clans</b>\n{fallenclans} Clan has fallen to the infection."
+            else:
+                hovertext = f"<b>Fallen Clans</b>\n{fallenclans} Clans have fallen to the infection."
 
             self.stamps["fallen_clans"] = UIImageButton(
-                ui_scale(pygame.Rect((525, 205), (63, 55))),
+                ui_scale(pygame.Rect((500, 205), (94, 94))),
                 "",
                 object_id=f"#stamp_fallen_clans_{fallenclans}",
-                tool_tip_text=f"Fallen Clans: {fallenclans}",
+                tool_tip_text=hovertext,
                 manager=MANAGER
                 )
         else:
             empty_stamps += 1
             self.stamps[str(empty_stamps)] = pygame_gui.elements.UIImage(
-                ui_scale(pygame.Rect((500, 205), (134, 94))),
+                ui_scale(pygame.Rect((500, 205), (94, 94))),
                 empty_stamp,
                 manager=MANAGER
             )
 
-        if "zombie" in game.clan.infection["logs"]:
+        if "zombie" in game.clan.infection["logs"] or debug_all_stamps:
             self.stamps["zombie"] = UIImageButton(
-                ui_scale(pygame.Rect((500, 360), (134, 94))),
+                ui_scale(pygame.Rect((500, 360), (94, 94))),
                 "",
                 object_id="#stamp_zombie",
-                tool_tip_text="Cats have begun dying and coming back to life.",
+                tool_tip_text="<b>Zombie</b>\nCats have begun dying and coming back to life.",
                 manager=MANAGER
                 )
         else:
             empty_stamps += 1
             self.stamps[str(empty_stamps)] = pygame_gui.elements.UIImage(
-                ui_scale(pygame.Rect((500, 360), (134, 94))),
+                ui_scale(pygame.Rect((500, 360), (94, 94))),
                 empty_stamp,
                 manager=MANAGER
             )
 
         if game.clan.your_cat.status in ["warrior", "leader", "deputy", "medicine cat", "mediator", "queen"]:
             self.stamps["status"] = UIImageButton(
-                ui_scale(pygame.Rect((160, 340), (134, 94))),
+                ui_scale(pygame.Rect((200, 360), (94, 94))),
                 "",
                 object_id=f"#stamp_{(game.clan.your_cat.status).replace(' ', '_')}",
-                tool_tip_text=f"You've chosen the path of a {game.clan.your_cat.status}!",
+                tool_tip_text=f"<b>Your Calling</b>\nYou've chosen the path of a {game.clan.your_cat.status}!",
                 manager=MANAGER
                 )
         elif game.clan.your_cat.status == "elder":
             self.stamps["status"] = UIImageButton(
-                ui_scale(pygame.Rect((160, 340), (134, 94))),
+                ui_scale(pygame.Rect((200, 360), (94, 94))),
                 "",
                 object_id="#stamp_warrior",
                 tool_tip_text="You've lived to be an elder.",
@@ -700,7 +707,7 @@ class CureLogScreen(Screens):
         else:
             empty_stamps += 1
             self.stamps[str(empty_stamps)] = pygame_gui.elements.UIImage(
-                ui_scale(pygame.Rect((160, 400), (134, 94))),
+                ui_scale(pygame.Rect((200, 400), (94, 94))),
                 empty_stamp,
                 manager=MANAGER
             )

@@ -839,8 +839,9 @@ class TreatmentScreen(Screens):
         return text
 
     def get_failure_chance(self, patient):
-        """ determine if the medcat will even be effective in attempting treatment. if a treatment is failed, no information on the herbs is given to the player. """
-        
+        """ determine if the medcat will even be effective in attempting treatment.
+        if a treatment is failed, no information on the herbs is given to the player. """
+
         stageone = True if f"{game.clan.infection['infection_type']} stage one" in patient.illnesses else False
         stagetwo = True if "{game.clan.infection['infection_type']} stage two" in patient.illnesses else False
         stagethree = True if f"{game.clan.infection['infection_type']} stage three" in patient.illnesses else False
@@ -886,15 +887,6 @@ class TreatmentScreen(Screens):
         who_key = ""
         if self.the_cat == game.clan.your_cat:
             who_key = "you "
-
-        successkey = ""
-        success = self.get_failure_chance(patient)
-
-        # success = False
-        # ^ debug
-
-        if not success:
-            successkey = " failure"
         
         curelist = []
         for num in game.clan.infection["cure"]:
@@ -940,6 +932,18 @@ class TreatmentScreen(Screens):
         for herb in self_herblist:
             if herb is not None:
                 herbcount += 1
+
+        successkey = ""
+        success = self.get_failure_chance(patient)
+
+        if correct == 4:
+            success = True
+
+        # success = False
+        # ^ debug
+
+        if not success:
+            successkey = " failure"
         
         herbinsert = f" {str(herbcount)}herb"
 

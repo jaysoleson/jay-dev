@@ -192,7 +192,7 @@
         "m_c's {insert} has been born infected. m_c's guilt is immense, and no one, not even the litter's secret {PRONOUN/r_c/parent}, r_c, is able to offer any support."
       ],
       "infected_both_unmated": [
-        "m_c gives birth to a {insert} with r_c, but the infection taking over the body of both cats has managed to pass down."
+        "m_c gives birth to a {insert} with r_c, but the infection taking over the bodies of both cats has managed to pass down."
       ],
       "infected_sire": [
         "When m_c gives birth to {PRONOUN/m_c/poss} {insert}, it is immediately apparent that the infection has managed to pass down from r_c. Though their {insert} is beautiful, perfect and pure, m_c and r_c can't help but feel some regret."
@@ -201,7 +201,7 @@
         "m_c's {insert} has been born infected. m_c's guilt is immense, and no one, not even r_c, is able to offer any support."
       ],
       "infected_both": [
-        "m_c gives birth to a {insert} with r_c, but the infection taking over the body of both cats has managed to pass down."
+        "m_c gives birth to a {insert} with r_c, but the infection taking over the bodies of both cats has managed to pass down."
       ],
       "error": ["INFECTION bug 1: Report to Jay!"],
       "error_unmated": ["INFECTION bug 2: Report to Jay!"]
