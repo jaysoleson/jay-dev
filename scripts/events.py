@@ -229,7 +229,7 @@ class Events:
                     game.clan.infection["between_infections"] = True
                 else:
                     event_text = "No infection remains in the camp. You've staved it off... for now."
-                    game.clan.infection["logs"].clear()
+                    # game.clan.infection["logs"].clear()
 
                 game.cur_events_list.insert(0, Single_Event(event_text, ["alert", "infection"]))
             else:

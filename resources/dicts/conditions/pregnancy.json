@@ -186,7 +186,8 @@
       ],
       "infected_sire_unmated": [
         "m_c is relieved to have finally given birth, but {PRONOUN/m_c/subject} soon {VERB/m_c/make/makes} the shocking discovery that the {insert} has not been born free of the infection. m_c refuses to admit to the Clan that they got it from their secret {PRONOUN/r_c/parent}, r_c, instead insisting it must have been {PRONOUN/m_c/object} somehow.",
-        "m_c's {insert} has been born infected. m_c refuses to let r_c visit {PRONOUN/m_c/object} in the nursery, tearfully shouting that it's all {PRONOUN/r_c/poss} fault that this has happened."
+        "m_c's {insert} has been born infected. m_c refuses to let r_c visit {PRONOUN/m_c/object} in the nursery, tearfully shouting that it's all {PRONOUN/r_c/poss} fault that this has happened.",
+        "m_c knew that having kits with r_c has a mistake. {PRONOUN/m_c/poss/CAP} {insert} has inherited the infection from their {PRONOUN/r_c/parent}."
       ],
       "infected_carrier_unmated": [
         "m_c's {insert} has been born infected. m_c's guilt is immense, and no one, not even the litter's secret {PRONOUN/r_c/parent}, r_c, is able to offer any support."
