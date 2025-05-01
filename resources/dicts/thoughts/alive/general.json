@@ -5771,6 +5771,7 @@
     },
     {
         "id": "gen_infected",
+        "infected": true,
         "thoughts": [
             "Hisses at r_c to stay away, concerned {PRONOUN/m_c/subject}'ll infect {PRONOUN/r_c/object}",
             "Is feeling awful",
@@ -5796,6 +5797,7 @@
     },
     {
         "id": "gen_not_infected",
+        "infected": true,
         "thoughts": [
             "Is wondering when {PRONOUN/m_c/subject}'ll be able to sleep soundly again.",
             "Wonders if undead cats can make it to StarClan"
@@ -5812,6 +5814,7 @@
     },
     {
         "id": "gen_infection_nocure",
+        "infected": true,
         "thoughts": [
             "Is starting to doubt a cure exists",
             "Wonders if Twolegs would know the cure",
@@ -5824,6 +5827,7 @@
     },
     {
         "id": "gen_infected_cure",
+        "infected": true,
         "thoughts": [
             "Thanks StarClan for the cure"
         ],
@@ -5833,6 +5837,7 @@
     },
     {
         "id": "gen_infected_nocure",
+        "infected": true,
         "thoughts": [
             "Is wondering if {PRONOUN/m_c/subject}'ll ever be cured",
             "Is quickly losing hope",
@@ -5847,6 +5852,7 @@
     },
     {
         "id": "gen_infected_cure_med",
+        "infected": true,
         "thoughts": [
             "Is planting ingredients for the cure in a new garden",
             "Can't wait for everyone to be cured for {PRONOUN/m_c/subject} can rest",
@@ -5862,6 +5868,7 @@
     },
     {
         "id": "gen_infection_queen",
+        "infected": true,
         "thoughts": [
             "Tries to comfort the kits to no avail",
             "Keeps a close eye on the kits to ensure they don't get sick",
@@ -5885,6 +5892,7 @@
     },
     {
         "id": "gen_med_to_infected",
+        "infected": true,
         "thoughts": [
             "Thinks {PRONOUN/m_c/subject} could've done more to prevent r_c's infection",
             "Promises r_c that the cure is just around the corner",
@@ -5906,6 +5914,7 @@
     },
     {
         "id": "neurotic_infected",
+        "infected": true,
         "thoughts": [
             "Coughs and then panics, thinking {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} infected",
             "Double-checks the fresh-kill pile for infected prey",
@@ -5923,6 +5932,7 @@
     },
     {
         "id": "deputy_infection",
+        "infected": true,
         "thoughts": [
             "Patrols the camp perimeter, sniffing the air for infection"
         ],
@@ -5937,6 +5947,7 @@
     },
     {
         "id": "leader_infection",
+        "infected": true,
         "thoughts": [
             "Had a nightmare that the Clan had fallen",
             "Is thinking of stepping down due to stress",
@@ -5951,6 +5962,7 @@
     },
     {
         "id": "medcat_infection_nocure",
+        "infected": true,
         "thoughts": [
             "Brainstorms potential new ingredients for the cure",
             "Is having dreams about herbs",
@@ -5970,6 +5982,7 @@
     },
     {
         "id": "medcat_infection_notinfected",
+        "infected": true,
         "thoughts": [
             "Is surprised {PRONOUN/m_c/subject} {VERB/m_c/haven't/hasn't} caught the infection yet",
             "Wonders how long {PRONOUN/m_c/subject} can stay healthy",
@@ -5985,6 +5998,7 @@
     },
     {
         "id": "gen_infected_rc",
+        "infected": true,
         "thoughts": [
             "Saw r_c getting dragged out of the medicine den",
             "Jumps when r_c walks by",
@@ -6023,6 +6037,7 @@
     },
     {
         "id": "undead_to_kit",
+        "infected": true,
         "thoughts": [
             "Stumbles around, following r_c ominously"
         ],
@@ -6038,6 +6053,7 @@
     },
     {
         "id": "kit_to_infected",
+        "infected": true,
         "thoughts": [
             "Is looking for r_c, not sure where {PRONOUN/r_c/subject} {VERB/r_c/are/is}"
         ],
@@ -6050,6 +6066,7 @@
     },
     {
         "id": "infected_3or4",
+        "infected": true,
         "thoughts": [
             "Is losing {PRONOUN/m_c/poss} sense of reality",
             "Almost attacks r_c in a moment of the infection taking over"
@@ -6064,6 +6081,7 @@
     },
     {
         "id": "infected_kit_to_kit",
+        "infected": true,
         "thoughts": [
             "Is wishing {PRONOUN/m_c/subject} could go out and play",
             "Misses r_c"
@@ -6083,6 +6101,7 @@
     },
     {
         "id": "infected_to_sibling",
+        "infected": true,
         "thoughts": [
             "Misses r_c"
         ],
@@ -6098,6 +6117,7 @@
     },
     {
         "id": "infected_to_parent",
+        "infected": true,
         "thoughts": [
             "Misses r_c"
         ],
@@ -6113,6 +6133,7 @@
     },
     {
         "id": "infected_to_kit",
+        "infected": true,
         "thoughts": [
             "Misses r_c"
         ],
@@ -6128,6 +6149,7 @@
     },
     {
         "id": "infected_app",
+        "infected": true,
         "not_working": true,
         "thoughts": [
             "Can't believe {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} saying this... but {PRONOUN/m_c/subject} {VERB/m_c/miss/misses} training!"

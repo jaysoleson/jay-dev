@@ -78,6 +78,13 @@ class Thoughts:
         if "not_working" in thought:
             if thought["not_working"] != main_cat.not_working():
                 return False
+        
+        # clan infection
+        if "infected" in thought:
+            if thought["infected"] is True and game.clan and game.clan.infection["clan_infected"] is False:
+                return False
+            if thought["infected"] is False and game.clan and game.clan.infection["clan_infected"] is True:
+                return False
 
         # This is for checking if another cat is needed and there is another cat
         r_c_in = [thought_str for thought_str in thought["thoughts"] if "r_c" in thought_str]
