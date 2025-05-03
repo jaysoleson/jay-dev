@@ -27090,5 +27090,43 @@
             "[t_c catches {PRONOUN/t_c/poss} reflection in a puddle and stares at it for a moment, a smile slowly creeping onto {PRONOUN/t_c/poss} face.]",
             "Oh, sorry. Was that weird? I just... like how I look today."
         ]
+    ],
+    "pridegen_talk_8": [
+        [
+            "they_arospec:demiromantic,grey aromantic",
+            "any",
+            "from_mate",
+            "min_romantic_60",
+            "min_platonic_50",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "You know, I never thought I'd find a mate as perfect as you.",
+            "I never got crushes as often as other kits when I was younger. I thought that, maybe, it just wasn't for me.",
+            "Turns out I just had to wait for my soulmate to show up!"
+        ]
+    ],
+    "pridegen_talk_9": [
+        [
+            "any",
+            "from_qpp",
+            "they_warrior",
+            "they_deputy",
+            "they_leader",
+            "you_medicine_cat",
+            "unabashed",
+            "unlawful",
+            "silly"
+        ],
+        [
+            "[t_c pokes {PRONOUN/t_c/poss} head into the medicine den.]",
+            "y_c. You're the cat I trust most in this world. My beloved partner. Don't be mad.",
+            "[Your mind starts to race. What happened?! Is someone hurt? You promise not to be mad, and...]",
+            "[t_c hobbles into the den, a bramble vine firmly tangled around {PRONOUN/t_c/poss} haunches. Right after you told {PRONOUN/t_c/object} to be careful on {PRONOUN/t_c/poss} patrol.]",
+            "Hey! Don't be mad! You promised!",
+            "There was a chickadee under the bush! I was trying to get it for you. I know you like them.",
+            "N- no... it got away. But it's the thought that counts, right? Love you!"
+        ]
     ]
 }
