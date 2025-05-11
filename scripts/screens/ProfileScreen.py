@@ -3615,7 +3615,7 @@ class ProfileScreen(Screens):
                 )
             else:
                 self.remove_quarantine_button = UIImageButton(
-                    ui_scale(pygame.Rect((407, 492), (172, 36))),
+                    ui_scale(pygame.Rect((407, 492), (172, 30))),
                     "",
                     object_id="#yourcat_unquarantine_button",
                     starting_height=2, manager=MANAGER

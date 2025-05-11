@@ -1074,7 +1074,7 @@ class Cat:
 
         # apply grief to cats with high positive relationships to dead cat
         for cat in Cat.all_cats.values():
-            if cat.dead or cat.outside or cat.moons < 1 or "undead" in cat.illnesses():
+            if cat.dead or cat.outside or cat.moons < 1 or "undead" in cat.illnesses:
                 continue
 
             to_self = cat.relationships.get(self.ID)

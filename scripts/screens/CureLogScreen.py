@@ -541,7 +541,7 @@ class CureLogScreen(Screens):
                                     murderer = True
                                     break
 
-        if ("1" in game.clan.achievements and murderer) or debug_all_stamps:
+        if murderer or debug_all_stamps:
             hover = "<b>The Greater Good</b>\nTake matters into your own hands and kill an infected Clanmate."
             self.stamps["murder"] = UIImageButton(
                 ui_scale(pygame.Rect((200, 205), (94, 94))),

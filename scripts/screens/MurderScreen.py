@@ -1969,7 +1969,7 @@ class MurderScreen(Screens):
             if not kitty.dead:
                 murder_history = History.get_murders(kitty)
 
-                if "undead" in kitty.illnesses():
+                if "undead" in kitty.illnesses:
                     shunned = False
                 else:
                     shunned = True
