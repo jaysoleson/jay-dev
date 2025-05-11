@@ -679,6 +679,9 @@ class Cat:
 
         if "zombie" not in game.clan.infection["logs"]:
             game.clan.infection["logs"].append("zombie")
+
+        if game.clan and not self.outside and not self.exiled:
+            self.grief(body=False, undead=True)
         
         self.relationships = {}
 
@@ -812,12 +815,12 @@ class Cat:
         if self.exiled:
             self.status = 'former Clancat'
 
+        if self.history and self.infected_for > 0:
+            self.history.died_infected = True
         if self.infected_for != 0:
             self.infected_for = 0
         
         self.quarantined = False
-        if self.history:
-            self.history.died_infected = True
 
         return text
 
@@ -1056,7 +1059,7 @@ class Cat:
         game.cur_events_list.insert(0, Single_Event(event_text))
 
     
-    def grief(self, body: bool):
+    def grief(self, body: bool, undead=False):
         """
         compiles grief moon event text
         """
@@ -1071,7 +1074,7 @@ class Cat:
 
         # apply grief to cats with high positive relationships to dead cat
         for cat in Cat.all_cats.values():
-            if cat.dead or cat.outside or cat.moons < 1:
+            if cat.dead or cat.outside or cat.moons < 1 or "undead" in cat.illnesses():
                 continue
 
             to_self = cat.relationships.get(self.ID)
@@ -1205,6 +1208,20 @@ class Cat:
                         "Ran out of camp the moment {PRONOUN/m_c/subject} saw r_c's body",
                         "Sang a song in memory of r_c at the vigil",
                         "Stares at r_c's vigil longingly, but doesn't feel the right to join in",
+                    )
+
+                # INF
+                if undead:
+                    minor_grief_messages = (
+                        "Can't quite accept that r_c is gone",
+                        "Swears {PRONOUN/m_c} {VERB/m_c/see/sees} recognition in r_c's eyes",
+                        "Prays that r_c is safe in StarClan",
+                        "Misses the warmth that r_c brought to {PRONOUN/m_c/poss} life",
+                        "Is mourning r_c",
+                        "Can't stop coming to tears each time r_c is mentioned",
+                        "Hopes that, somehow, r_c can be brought back to {PRONOUN/r_c/poss} old self",
+                        "Still needs r_c even though they're gone",
+                        "Doesn't think {PRONOUN/m_c/subject} will ever be the same without r_c"
                     )
 
                 text = choice(minor_grief_messages)

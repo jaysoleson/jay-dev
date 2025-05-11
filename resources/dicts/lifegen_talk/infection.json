@@ -1961,5 +1961,148 @@
         [
             "[t_c's ghostly form passes through you, but you feel just as cold as before.]"
         ]
+    ],
+    "both_undead_J1": [
+        [
+            "you_undead",
+            "they_undead",
+            "any",
+            "you_blind",
+            "they_blind",
+            "you_deaf",
+            "they_deaf"
+        ],
+        [
+            "[You and t_c absently bump into each other.]"
+        ]
+    ],
+    "both_undead_J2": [
+        [
+            "you_undead",
+            "they_undead",
+            "any",
+            "you_blind",
+            "they_blind",
+            "you_deaf",
+            "they_deaf",
+            "you_shunned"
+        ],
+        [
+            "[You and t_c absently bump into each other.]"
+        ]
+    ],
+    "both_undead_J3": [
+        [
+            "you_undead",
+            "they_undead",
+            "any",
+            "you_blind",
+            "they_blind",
+            "you_deaf",
+            "they_deaf",
+            "they_shunned"
+        ],
+        [
+            "[You and t_c absently bump into each other.]"
+        ]
+    ],
+    "both_undead_J4": [
+        [
+            "you_undead",
+            "they_undead",
+            "any",
+            "you_blind",
+            "they_blind",
+            "you_deaf",
+            "they_deaf",
+            "they_shunned",
+            "you_shunned"
+        ],
+        [
+            "[You and t_c absently bump into each other.]"
+        ]
+    ],
+    "both_undead_J5": [
+        [
+            "you_undead",
+            "they_undead",
+            "any",
+            "you_blind",
+            "they_blind",
+            "you_deaf",
+            "they_deaf",
+            "they_shunned",
+            "you_shunned"
+        ],
+        [
+            "... ... ..."
+        ]
+    ],
+    "both_undead_J6": [
+        [
+            "you_undead",
+            "they_undead",
+            "any",
+            "you_blind",
+            "they_blind",
+            "you_deaf",
+            "they_deaf",
+            "you_shunned"
+        ],
+        [
+            "... ... ..."
+        ]
+    ],
+    "both_undead_J7": [
+        [
+            "you_undead",
+            "they_undead",
+            "any",
+            "you_blind",
+            "they_blind",
+            "you_deaf",
+            "they_deaf",
+            "they_shunned"
+        ],
+        [
+            "... ... ..."
+        ]
+    ],
+    "both_undead_J8": [
+        [
+            "you_undead",
+            "they_undead",
+            "any",
+            "you_blind",
+            "they_blind",
+            "you_deaf",
+            "they_deaf"
+        ],
+        [
+            "... ... ..."
+        ]
+    ],
+    "both_undead_J9": [
+        [
+            "you_undead",
+            "they_undead",
+            "any",
+            "you_blind",
+            "they_blind"
+        ],
+        [
+            "[t_c growls at you as you pass, not lifting {PRONOUN/t_c/poss} head. You growl back.]"
+        ]
+    ],
+    "shunned_undead_J1": [
+        [
+            "you_undead",
+            "they_grieving",
+            "grievingyou",
+            "any"
+        ],
+        [
+            "[t_c bursts into tears when you stumble by.]"
+        ]
     ]
 }

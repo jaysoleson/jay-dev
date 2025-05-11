@@ -1968,13 +1968,18 @@ class MurderScreen(Screens):
                 continue
             if not kitty.dead:
                 murder_history = History.get_murders(kitty)
+
+                if "undead" in kitty.illnesses():
+                    shunned = False
+                else:
+                    shunned = True
                 History.reveal_murder(
                     cat=kitty,
                     other_cat=None,
                     cat_class=Cat,
                     victim=cat_to_murder,
                     murder_index=-1,
-                    shunned=True
+                    shunned=shunned
                 )
                 if kitty.status not in ["apprentice", "kitten", "elder", "warrior"]:
                     event_text = kitty.shunned_demotion()

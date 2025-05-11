@@ -274,6 +274,10 @@ class HandleShortEvents:
                         self.additional_event_text = f"{other_cat.name} has told the Clan about {self.main_cat.name}'s crime."
                     else:
                         self.additional_event_text = f"{other_cat.name} has decided to keep {self.main_cat.name}'s secret."
+            if shunned:
+                if "undead" in self.main_cat.illnesses():
+                    shunned = False
+                    self.additional_event_text = f"{other_cat.name} tries to keep calm, knowing that the infection's affects must have caused {self.main_cat} to commit such a crime."
 
             History.reveal_murder(
                 cat=self.main_cat,

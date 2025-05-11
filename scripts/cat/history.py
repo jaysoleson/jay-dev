@@ -706,6 +706,9 @@ class History:
         victim_history = History.get_murders(victim)
 
         if cat.shunned == 0 and shunned:
+            if "undead" in cat.illnesses:
+                print("Attempted to shun undead cat:", cat.name)
+                return
             cat.shunned = 1
             cat.thought = "Is upset that they have been shunned"
             cat.faith -= 0.5

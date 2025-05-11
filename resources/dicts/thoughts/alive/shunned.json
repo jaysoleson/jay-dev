@@ -243,7 +243,7 @@
         ]
     },
     {
-        "id": "shunned_undead",
+        "id": "gen_shunned_undead",
         "thoughts": [
             "Stumbles into trees",
             "Doesn't seem to be feeling pain anymore",
@@ -257,6 +257,9 @@
             "Idly chews on {PRONOUN/m_c/poss} own paw",
             "Trips when {PRONOUN/m_c/subject} {VERB/m_c/walk/walks}",
             "Is wandering around mindlessly"
+        ],
+        "main_infected_constraint": [
+            "undead"
         ]
     }
 ]
