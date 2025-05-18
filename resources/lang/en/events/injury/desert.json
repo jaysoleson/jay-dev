@@ -687,7 +687,7 @@
                 "senior"
             ],
             "status": [
-                "warrior", 
+                "clipper", 
                 "apprentice"
             ]
         },
@@ -1149,7 +1149,7 @@
                 "senior"
             ],
             "status": [
-                "warrior"
+                "clipper"
             ],
             "trait": [
                 "calm",
@@ -1172,7 +1172,7 @@
                 "senior"
             ],
             "status": [
-                "warrior"
+                "clipper"
             ]
         },
         "injury": [
@@ -1251,9 +1251,9 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ],
             "trait": [
                 "adventurous",
@@ -1270,9 +1270,9 @@
         "r_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ],
             "trait": [
                 "adventurous",
@@ -1354,9 +1354,9 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ]
         },
         "injury": [
@@ -1405,9 +1405,9 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ]
         },
         "injury": [
@@ -1460,9 +1460,9 @@
             ],
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ],
             "trait": [
                 "troublesome",
@@ -2152,9 +2152,9 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ],
             "skill": [
                 "SENSE,4",
@@ -2197,9 +2197,9 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ],
             "skill": [
                 "FIGHTER,2",
@@ -2271,9 +2271,9 @@
         "event_text": "A coyote tries to eat r_c, but m_c is there to score the canine's nose bloody and drive it off. The direction it chooses to run in isn't ideal though, as it bowls m_c over in its haste to escape, slamming {PRONOUN/m_c/object} bodily into a nearby rock.",
         "m_c": {
             "status": [
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ],
             "skill": [
                 "FIGHTER,2"
@@ -2355,9 +2355,9 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ],
             "trait": [
                 "adventurous",
@@ -2392,9 +2392,9 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ],
             "trait": [
                 "adventurous",
@@ -2429,9 +2429,9 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ],
             "skill": [
                 "HEALER,2"
@@ -2523,9 +2523,9 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ],
             "not_skill": [
                 "CLEVER,2",
@@ -2615,9 +2615,9 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ],
             "not_skill": [
                 "FIGHTER,3"
@@ -2644,9 +2644,9 @@
             ],
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ]
         },
         "injury": [
@@ -2755,9 +2755,9 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ],
             "not_skill": [
                 "FIGHTER,2"
@@ -2809,9 +2809,9 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ],
             "not_skill": [
                 "FIGHTER,2"
@@ -2893,7 +2893,7 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior"
+                "clipper"
             ],
             "not_skill": [
                 "FIGHTER,2"
@@ -2901,8 +2901,8 @@
         },
         "r_c": {
             "status": [
-                "deputy",
-                "leader"
+                "regent",
+                "baron"
             ],
             "trait": [
                 "bloodthirsty",
@@ -2977,7 +2977,7 @@
             "war"
         ],
         "weight": 20,
-        "event_text": "The border patrols are intensified as the war with o_c_n rages. m_c does {PRONOUN/m_c/poss} part, but gets dehydrated after going out on a patrol with more experienced warriors.",
+        "event_text": "The border patrols are intensified as the war with o_c_n rages. m_c does {PRONOUN/m_c/poss} part, but gets dehydrated after going out on a patrol with more experienced clippers.",
         "m_c": {
             "status": [
                 "apprentice"
@@ -3042,15 +3042,15 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy"
+                "clipper",
+                "regent"
             ]
         },
         "r_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy"
+                "clipper",
+                "regent"
             ]
         },
         "injury": [
@@ -3377,7 +3377,7 @@
             "any"
         ],
         "weight": 20,
-        "event_text": "Determined to prove {PRONOUN/m_c/poss} resilience, m_c pushes too hard trying to keep up with the warriors and comes down with a touch of sunstroke.",
+        "event_text": "Determined to prove {PRONOUN/m_c/poss} resilience, m_c pushes too hard trying to keep up with the clippers and comes down with a touch of sunstroke.",
         "m_c": {
             "status": [
                 "apprentice"
@@ -4026,9 +4026,9 @@
                 "senior adult"
             ],
             "status": [
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ]
         },
         "new_cat": [
@@ -4407,16 +4407,16 @@
             "any"
         ],
         "weight": 20,
-        "event_text": "m_c delivers a message to o_c_n's leader, but o_c_n doesn't let {PRONOUN/m_c/object} drink before {PRONOUN/m_c/poss} return journey. {PRONOUN/m_c/subject/CAP} {VERB/m_c/arrive/arrives} home with sunstroke.",
+        "event_text": "m_c delivers a message to o_c_n's baron, but o_c_n doesn't let {PRONOUN/m_c/object} drink before {PRONOUN/m_c/poss} return journey. {PRONOUN/m_c/subject/CAP} {VERB/m_c/arrive/arrives} home with sunstroke.",
         "m_c": {
             "age": [
                 "any"
             ],
             "status": [
                 "apprentice",
-                "deputy",
-                "leader",
-                "warrior",
+                "regent",
+                "baron",
+                "clipper",
                 "medicine cat",
                 "medicine cat apprentice"
             ]
@@ -4464,9 +4464,9 @@
             ],
             "status": [
                 "apprentice",
-                "warrior",
-                "leader",
-                "deputy",
+                "clipper",
+                "baron",
+                "regent",
                 "medicine cat",
                 "medicine cat apprentice"
             ]
@@ -4515,7 +4515,7 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
+                "clipper",
                 "mediator",
                 "mediator apprentice",
                 "medicine cat",
@@ -4817,11 +4817,11 @@
             ],
             "status": [
                 "apprentice",
-                "warrior",
+                "clipper",
                 "medicine cat",
                 "medicine cat apprentice",
-                "leader",
-                "deputy"
+                "baron",
+                "regent"
             ],
             "not_trait": [
                 "careful",
@@ -4919,13 +4919,13 @@
             "war"
         ],
         "weight": 20,
-        "event_text": "m_c and r_c make a raid into o_c_n territory - with such huge borders, no desert Clan can watch everything. But on unfamiliar ground and in the heat of the day, the two ambitious c_n warriors find only sunstroke.",
+        "event_text": "m_c and r_c make a raid into o_c_n territory - with such huge borders, no desert Clan can watch everything. But on unfamiliar ground and in the heat of the day, the two ambitious c_n clippers find only sunstroke.",
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "leader",
-                "deputy"
+                "clipper",
+                "baron",
+                "regent"
             ],
             "trait": [
                 "fierce",
@@ -4945,9 +4945,9 @@
         "r_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "leader",
-                "deputy"
+                "clipper",
+                "baron",
+                "regent"
             ],
             "trait": [
                 "fierce",
@@ -5084,7 +5084,7 @@
             "any"
         ],
         "weight": 20,
-        "event_text": "A gang of meerkats war-dances into camp, attracted by the fresh-kill pile. m_c is the warrior on guard duty and yowls loudly for help, bearing the brunt of the violence of the raid.",
+        "event_text": "A gang of meerkats war-dances into camp, attracted by the fresh-kill pile. m_c is the clipper on guard duty and yowls loudly for help, bearing the brunt of the violence of the raid.",
         "m_c": {
             "age": [
                 "adolescent",
@@ -5094,7 +5094,7 @@
                 "senior"
             ],
             "status": [
-                "warrior"
+                "clipper"
             ]
         },
         "injury": [

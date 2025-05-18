@@ -9,8 +9,8 @@ from scripts.cat.thoughts import Thoughts
 
 class TestNotWorkingThoughts(unittest.TestCase):
     def setUp(self):
-        self.main = Cat(status="warrior")
-        self.other = Cat(status="warrior")
+        self.main = Cat(status="clipper")
+        self.other = Cat(status="clipper")
         self.biome = "Forest"
         self.season = "Newleaf"
         self.camp = "camp2"
@@ -72,16 +72,16 @@ class TestsGetStatusThought(unittest.TestCase):
     def test_medicine_thought(self):
         # given
         medicine = Cat()
-        warrior = Cat()
+        clipper = Cat()
         medicine.status = "medicine cat"
-        warrior.status = "warrior"
+        clipper.status = "clipper"
         medicine.trait = "bold"
         biome = "Forest"
         season = "Newleaf"
         camp = "camp2"
 
         # load thoughts
-        thoughts = Thoughts.load_thoughts(medicine, warrior, "expanded", biome, season, camp)
+        thoughts = Thoughts.load_thoughts(medicine, clipper, "expanded", biome, season, camp)
 
         # when
         function_thoughts = thoughts
@@ -100,7 +100,7 @@ class TestsGetStatusThought(unittest.TestCase):
 
     def test_lost_thoughts(self):
         # given
-        cat = Cat(status="warrior", moons=40)
+        cat = Cat(status="clipper", moons=40)
         cat.outside = True
         biome = "Forest"
         season = "Newleaf"

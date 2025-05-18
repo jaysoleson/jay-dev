@@ -21,13 +21,13 @@
                 "text": "{PRONOUN/r_c/subject/CAP} {VERB/r_c/stop/stops} to swim for a few moments and {VERB/r_c/feel/feels} rejuvenated, cooled, and ready to continue.",
                 "exp": 5,
                 "weight": 20,
-                "art": "gen_train_soggykitty_happy_warrior"
+                "art": "gen_train_soggykitty_happy_clipper"
             },
             {
                 "text": "{PRONOUN/r_c/subject/CAP} {VERB/r_c/stick/sticks} to {PRONOUN/r_c/poss} task, although r_c wades through the watering hole as {PRONOUN/r_c/subject} {VERB/r_c/do/does}. The water cools {PRONOUN/r_c/poss} paws pleasantly.",
                 "exp": 5,
                 "weight": 20,
-                "art": "gen_train_soggykitty_happy_warrior",
+                "art": "gen_train_soggykitty_happy_clipper",
                 "stat_trait": [
                     "responsible",
                     "thoughtful",
@@ -41,7 +41,7 @@
                 "text": "p_l swims right through the watering hole and out the other side, stopping to shake {PRONOUN/p_l/poss} coat dry(ish). A pleasant way of getting from A to B, and a nice chance to feel the weightlessness of swimming.",
                 "exp": 5,
                 "weight": 20,
-                "art": "gen_train_soggykitty_happy_warrior",
+                "art": "gen_train_soggykitty_happy_clipper",
                 "can_have_stat": ["any"],
                 "stat_skill": [
                     "SWIMMER,1"
@@ -53,7 +53,7 @@
                 "text": "{PRONOUN/r_c/subject/CAP} get distracted while splashing in the water. r_c swears {PRONOUN/r_c/subject} saw a fish, but it derails {PRONOUN/r_c/poss} border patrol completely, and {PRONOUN/r_c/subject} {VERB/r_c/get/gets} nothing done.",
                 "exp": 0,
                 "weight": 20,
-                "art": "gen_train_soggykitty_mad_warrior"
+                "art": "gen_train_soggykitty_mad_clipper"
             }
         ]
     },
@@ -622,7 +622,7 @@
                 "text": "The patrol shadows the coyote, sending a message back to warn camp. It's an exhausting and stressful day, but by the time night falls they've confirmed that the coyote is leaving the local area, and the patrol has assured c_n's safety.",
                 "exp": 30,
                 "weight": 5,
-                "art": "running_two_warriors",
+                "art": "running_two_clippers",
                 "relationships": [
                     {
                         "cats_to": ["patrol"],
@@ -659,7 +659,7 @@
                 "text": "The patrol gathers their courage and valiantly tries to lead away the coyote. With such a small group of cats, they can only lead it a short distance, but it's better than nothing.",
                 "exp": 30,
                 "weight": 5,
-                "art": "running_two_warriors",
+                "art": "running_two_clippers",
                 "relationships": [
                     {
                         "cats_to": ["patrol"],
@@ -722,7 +722,7 @@
                 "text": "That isn't just the sound of a coyote, that's the sound of a <i>frightened</i> coyote, s_c hisses. It's not good, it means there's something even worse out that direction, and the cats return home quickly and silently. c_n needs to know about the danger in the borderlands.",
                 "exp": 50,
                 "weight": 20,
-                "art": "running_two_warriors",
+                "art": "running_two_clippers",
                 "can_have_stat": ["any"],
                 "stat_skill": ["CLEVER,2"],
                 "relationships": [
@@ -746,7 +746,7 @@
                 "text": "s_c selflessly takes the lion's share of the run as the patrol leads the coyote on, exhausting {PRONOUN/s_c/self} almost to the point of danger, but leading the coyote far away from c_n borders. {PRONOUN/s_c/poss/CAP} Clanmates support {PRONOUN/s_c/object} on the long walk home once it's all over, their purrs mixing with s_c's exhausted pants.",
                 "exp": 30,
                 "weight": 10,
-                "art": "running_warrior",
+                "art": "running_clipper",
                 "stat_trait": [
                     "compassionate",
                     "confident",
@@ -842,7 +842,7 @@
                 "text": "The patrol tries to keep watch on the coyote from a distance, but it spots the cats and they have to scatter. Everyone escapes just fine, but they lose track of the coyote. It could be anywhere still out there, lurking, waiting to attack.",
                 "exp": 0,
                 "weight": 5,
-                "art": "gen_patrol_dog_warrior",
+                "art": "gen_patrol_dog_clipper",
                 "relationships": [
                     {
                         "cats_to": ["patrol"],
@@ -857,7 +857,7 @@
                 "text": "s_c tries to take the lion's share of the effort to lead the coyote away, but {PRONOUN/s_c/poss} strength fails {PRONOUN/s_c/object} and the rest of the patrol needs to rescue {PRONOUN/s_c/object}, cutting short the results of the patrol. Instead, everyone knows the coyote could still be lurking on their borders.",
                 "exp": 0,
                 "weight": 5,
-                "art": "gen_patrol_dog_warrior",
+                "art": "gen_patrol_dog_clipper",
                 "stat_trait": ["ambitious", "bloodthirsty", "troublesome", "vengeful"],
                 "relationships": [
                     {
@@ -874,7 +874,7 @@
                 "exp": 0,
                 "weight": 10,
                 "art": "gen_dead_cat_EXPLICIT",
-                "art_clean": "running_two_warriors",
+                "art_clean": "running_two_clippers",
                 "dead_cats": ["r_c"],
                 "history_text": {
                     "scar": "This cat is scarred from bravely defending the Clan against a coyote.",
@@ -936,7 +936,7 @@
         "chance_of_success": 10,
         "success_outcomes": [
             {
-                "text": "The warriors share a glance and a nod. They have enough cats to try and tackle this problem. Spreading out, they use a search pattern they've all been trained in to isolate the adult coyote's location, and the cover of the grass to approach stealthily. r_c starts the battle strong, sinking {PRONOUN/r_c/poss} teeth into the coyote's hamstring, and the rest of the patrol break cover with screeches, driving the coyote away from c_n.",
+                "text": "The clippers share a glance and a nod. They have enough cats to try and tackle this problem. Spreading out, they use a search pattern they've all been trained in to isolate the adult coyote's location, and the cover of the grass to approach stealthily. r_c starts the battle strong, sinking {PRONOUN/r_c/poss} teeth into the coyote's hamstring, and the rest of the patrol break cover with screeches, driving the coyote away from c_n.",
                 "exp": 60,
                 "weight": 15,
                 "art": "gen_coyote1",
@@ -1085,7 +1085,7 @@
                 "text": "That yip seemed a little high pitched. Ears pricked, the patrol stalks closer, crossing the border. On the other side, a juvenile hunts. Dangerous, but... manageable. What's less manageable are the parents, who come running as the patrol attacks the pup. s_c hauls r_c out of the fight and applies pressure on {PRONOUN/r_c/poss} wound, saving {PRONOUN/r_c/poss} life.",
                 "exp": 80,
                 "weight": 10,
-                "art": "gen_angry_cat_warrior",
+                "art": "gen_angry_cat_clipper",
                 "can_have_stat": ["not_pl_rc"],
                 "stat_skill": ["HEALER,0"],
                 "injury": [
@@ -1224,7 +1224,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "The warriors share a glance and a nod. They have enough cats to try and tackle this problem. Spreading out, they use a search pattern they've all been trained in to isolate the adult coyote's location, and the cover of the grass to approach stealthily. But r_c misjudges the first attack, and instead the patrol has to focus on defence and getting out of there mostly unscathed.",
+                "text": "The clippers share a glance and a nod. They have enough cats to try and tackle this problem. Spreading out, they use a search pattern they've all been trained in to isolate the adult coyote's location, and the cover of the grass to approach stealthily. But r_c misjudges the first attack, and instead the patrol has to focus on defence and getting out of there mostly unscathed.",
                 "exp": 0,
                 "weight": 15,
                 "art": "gen_coyote_danger2_w3",
@@ -1384,7 +1384,7 @@
         ]
     },
     {
-        "patrol_id": "pln_bord_greenleaf_warriortunnel1",
+        "patrol_id": "pln_bord_greenleaf_clippertunnel1",
         "biome": ["plains"],
         "season": ["greenleaf"],
         "types": ["border"],
@@ -1516,7 +1516,7 @@
                 "text": "Careful consideration is right up s_c's alley. They investigate the tunnel slowly and thoroughly before {PRONOUN/s_c/subject} {VERB/s_c/give/gives} the okay for the patrol to mark the new discovery as a useful and safe feature for c_n to use.",
                 "exp": 50,
                 "weight": 20,
-                "art": "gen_warrior_crouching",
+                "art": "gen_clipper_crouching",
                 "can_have_stat": ["any"],
                 "stat_trait":[
                     "careful",
@@ -1603,7 +1603,7 @@
                 "text": "s_c boldly clambers in the tight entrance, only to be greeted by an explosion of ruffled feathers. The burrowing owls hoot their outrage and engage in some outright chemical warfare, and the rest of the patrol stiffles laughter as s_c scrambles backwards arse first, covered in bird poop.",
                 "exp": 0,
                 "weight": 20,
-                "art": "gen_train_soggykitty_mad_warrior",
+                "art": "gen_train_soggykitty_mad_clipper",
                 "can_have_stat": ["any"],
                 "stat_trait":[
                     "adventurous",
@@ -1627,7 +1627,7 @@
                 "text": "s_c boldly clambers in the tight entrance, only to be greeted by an explosion of ruffled feathers. The burrowing owls hoot their outrage and engage in some outright chemical warfare, and the rest of the patrol stiffles laughter as s_c scrambles backwards arse first, covered in bird poop.",
                 "exp": 0,
                 "weight": 20,
-                "art": "gen_train_soggykitty_mad_warrior",
+                "art": "gen_train_soggykitty_mad_clipper",
                 "can_have_stat": ["any"],
                 "stat_trait":[
                     "adventurous",
@@ -1663,7 +1663,7 @@
                 "text": "Whoops! It seems a fox was calling this home. The patrol backs out of the tunnels and thankfully the fox doesn't follow, just as surprised as they were.",
                 "exp": 0,
                 "weight": 20,
-                "art": "gen_angry_cat_warrior",
+                "art": "gen_angry_cat_clipper",
                 "relationships": [
                     {
                         "cats_to": ["patrol"],
@@ -1774,7 +1774,7 @@
         "season": ["greenleaf"],
         "types": ["border"],
         "tags": [],
-        "patrol_art": "running_warrior",
+        "patrol_art": "running_clipper",
         "min_cats": 3,
         "max_cats": 6,
         "min_max_status": {
@@ -2105,7 +2105,7 @@
         ]
     },
     {
-        "patrol_id": "pln_bord_greenleaf_warriorpairtunnel1",
+        "patrol_id": "pln_bord_greenleaf_clipperpairtunnel1",
         "biome": ["plains"],
         "season": ["greenleaf"],
         "types": ["border"],
@@ -2141,7 +2141,7 @@
                 "text": "This is worth diverting the patrol for. c_n can always send out another border patrol, but if they lose this discovery (easy to do in towering grass without a marked path), the border region doesn't get any safer. The more known, checked, secure refuges near the border, the better.",
                 "exp": 25,
                 "weight": 20,
-                "art": "gen_warrior_crouching",
+                "art": "gen_clipper_crouching",
                 "relationships": [
                     {
                         "cats_to": ["patrol"],
@@ -2200,7 +2200,7 @@
                 "text": "No, these aren't new... but the smell of them is. Something's weird here, possibly a badger? Not a big one, both cats agree, but one of the smaller variety, though what it's doing so far from its cete is a mystery, that kind should move in packs. Two cats aren't enough drive it out, but no one tell r_c and p_l that, because somehow they manage to do it anyway.",
                 "exp": 40,
                 "weight": 5,
-                "art": "gen_bord_twocat_hostile_warrior_warrior",
+                "art": "gen_bord_twocat_hostile_clipper_clipper",
                 "relationships": [
                     {
                         "cats_to": ["patrol"],
@@ -2229,7 +2229,7 @@
                 "text": "No, these aren't new... but the smell of them is. Something's weird here, possibly a badger? Not a big one, both cats agree, but one of the smaller variety, though what it's doing so far from its cete is a mystery, that kind should move in packs. With s_c willing to take the bulk of the risk, the two cats persuade the young boar it should look for a new home elsewhere.",
                 "exp": 30,
                 "weight": 20,
-                "art": "gen_bord_twocat_hostile_warrior_warrior",
+                "art": "gen_bord_twocat_hostile_clipper_clipper",
                 "can_have_stat": ["any"],
                 "stat_skill": [
                     "FIGHTER,1"
@@ -2262,7 +2262,7 @@
                 "text": "No, these aren't new... but the smell of them is. Something's weird here, possibly a badger? Not a big one, both cats agree, but one of the smaller variety, though what it's doing so far from its cete is a mystery, that kind should move in packs. s_c devises a plan to block the entrance with dirt, to mark the place for another, bigger border patrol to deal with.",
                 "exp": 30,
                 "weight": 20,
-                "art": "gen_bord_twocat_hostile_warrior_warrior",
+                "art": "gen_bord_twocat_hostile_clipper_clipper",
                 "can_have_stat": ["any"],
                 "stat_skill": [
                     "CLEVER,1"
@@ -2329,7 +2329,7 @@
                 "text": "Whoops! It seems a fox was calling this home. The patrol backs out of the tunnels and thankfully the fox doesn't follow, just as surprised as they are.",
                 "exp": 0,
                 "weight": 5,
-                "art": "gen_patrol_dog_warrior",
+                "art": "gen_patrol_dog_clipper",
                 "injury": [
                     {
                         "cats": ["patrol"],
@@ -2411,7 +2411,7 @@
                 "text": "s_c rushes into the tunnels with a gleeful meow! A new place to explore and discover! {PRONOUN/s_c/subject/CAP}{VERB/s_c/'re/'s} brought up short when the tunnel abruptly ends. It seems this tunnel leads to nothing but a dead end only a few fox-lengths from the entrance.",
                 "exp": 0,
                 "weight": 10,
-                "art": "gen_warrior_perplexed",
+                "art": "gen_clipper_perplexed",
                 "stat_trait": ["childish", "playful", "adventurous"],
                 "relationships": [
                     {
@@ -2457,7 +2457,7 @@
         ]
     },
     {
-        "patrol_id": "pln_bord_greenleaf_warriorappenticepairtunnel1",
+        "patrol_id": "pln_bord_greenleaf_clipperappenticepairtunnel1",
         "biome": ["plains"],
         "season": ["greenleaf"],
         "types": ["border"],
@@ -2630,7 +2630,7 @@
                 ]
             },
             {
-                "text": "Careful, p_l warns, ready to yank app1 back by the tail. But app1, while frighteningly keen on attacking a thankfully imaginary badger hiding in the hole, is easily redirected into a good teaching conversation about how a good warrior does that without getting mauled in return.",
+                "text": "Careful, p_l warns, ready to yank app1 back by the tail. But app1, while frighteningly keen on attacking a thankfully imaginary badger hiding in the hole, is easily redirected into a good teaching conversation about how a good clipper does that without getting mauled in return.",
                 "exp": 30,
                 "weight": 20,
                 "art": "gen_train_talkingWA",
@@ -2952,7 +2952,7 @@
                 "dead_cats": ["app1"],
                 "history_text": {
                     "scar": "m_c was injured after disturbing a badger in its sett.",
-                    "reg_death": "This cat was killed saving an older warrior from a badger as an apprentice.",
+                    "reg_death": "This cat was killed saving an older clipper from a badger as an apprentice.",
                     "lead_death": "{VERB/m_c/were/was} killed by a predator hiding in its burrow"
                 }
             },
@@ -2977,7 +2977,7 @@
         ]
     },
     {
-        "patrol_id": "pln_bord_greenleaf_warriorsolotunnel1",
+        "patrol_id": "pln_bord_greenleaf_clippersolotunnel1",
         "biome": ["plains"],
         "season": ["greenleaf"],
         "types": ["border"],
@@ -2997,7 +2997,7 @@
                 "text": "This shallow cave smells of badger, and claw marks show recent construction efforts. p_l is fortunate that the owner isn't home, and {PRONOUN/p_l/poss} pelt bristles with unease as {PRONOUN/p_l/subject} {VERB/p_l/trot/trots} home.",
                 "exp": 20,
                 "weight": 20,
-                "art": "running_warrior2"
+                "art": "running_clipper2"
             },
             {
                 "text": "There's something odd about this burrow, a tang of scent that hits the roof of p_l's mouth and reminds {PRONOUN/p_l/object} of Twoleg trash. Tail swishing, p_l stays outside, and resolves to go back to camp to report this not-burrow.",
@@ -3034,26 +3034,26 @@
                 "text": "The tunnels are an abandoned badger sett! No one has been here in a while, this could be a good location to return to.",
                 "exp": 20,
                 "weight": 2,
-                "art": "gen_warrior_crouching"
+                "art": "gen_clipper_crouching"
             },
             {
                 "text": "The tunnels prove to be a new entrance to a set of tunnels c_n already uses. This could be helpful in the future.",
                 "exp": 20,
                 "weight": 5,
-                "art": "gen_warrior_crouching"
+                "art": "gen_clipper_crouching"
             },
             {
                 "text": "s_c pauses before entering the tunnels. After a careful inspection of the entrance, s_c concludes that a wolverine has claimed this as its home. The predator seems to be away for the moment, but could return soon. s_c quickly moves on.",
                 "exp": 20,
                 "weight": 20,
-                "art": "running_warrior2",
+                "art": "running_clipper2",
                 "stat_skill": ["HUNTER,3", "CLEVER,1", "TEACHER,3"]
             },
             {
                 "text": "s_c pauses before entering the tunnels. After a careful inspection of the entrance, s_c concludes that a wolverine has claimed this as its home. The predator seems to be away for the moment, but could return soon. s_c quickly moves on.",
                 "exp": 20,
                 "weight": 20,
-                "art": "running_warrior2",
+                "art": "running_clipper2",
                 "stat_trait": ["careful", "wise", "responsible"]
             }
         ],
@@ -3086,7 +3086,7 @@
                 "text": "The shallow cave is home to a young badger, inexperienced, far from its natal family, and dangerous. p_l escapes, battered, bruised, and bleeding, but the subadult predator won't follow p_l back to camp, not in territory that's unfamiliar and new to it.",
                 "exp": 20,
                 "weight": 20,
-                "art": "gen_angry_cat_warrior",
+                "art": "gen_angry_cat_clipper",
                 "injury": [
                     {
                         "cats": ["p_l"],
@@ -3481,8 +3481,8 @@
             "normal adult":[-1, -1]
         },
         "weight": 20,
-        "intro_text": "The apprentices are at the border - not exactly a patrol they were sent on. Not exactly a patrol they're supposed to do without a warrior, actually. Anyway, is that a tunnel entrance over there?",
-        "decline_text": "Eventually the apprentices get tired. Whatever, they're not supposed to be out here without a warrior anyway.",
+        "intro_text": "The apprentices are at the border - not exactly a patrol they were sent on. Not exactly a patrol they're supposed to do without a clipper, actually. Anyway, is that a tunnel entrance over there?",
+        "decline_text": "Eventually the apprentices get tired. Whatever, they're not supposed to be out here without a clipper anyway.",
         "chance_of_success": 30,
         "success_outcomes": [
             {
@@ -3838,8 +3838,8 @@
             "normal adult":[-1, -1]
         },
         "weight": 20,
-        "intro_text": "First app1 takes the lead, then app2, then app3 and app4 battle for it, all of them charging through the grass. The sun shines down merrily above them as they run, energetic and determined. They don't need to be warriors to do a good job patrolling the border!",
-        "decline_text": "Eventually the apprentices get tired. Whatever, they're not supposed to be out here without a warrior anyway.",
+        "intro_text": "First app1 takes the lead, then app2, then app3 and app4 battle for it, all of them charging through the grass. The sun shines down merrily above them as they run, energetic and determined. They don't need to be clippers to do a good job patrolling the border!",
+        "decline_text": "Eventually the apprentices get tired. Whatever, they're not supposed to be out here without a clipper anyway.",
         "chance_of_success": 30,
         "success_outcomes": [
             {
@@ -4011,7 +4011,7 @@
                 ]
             },
             {
-                "text": "The apprentices find some footprints. Are they from a rogue? A loner? An <i>intruder</i>?! s_c rolls {PRONOUN/s_c/poss} eyes. Clearly those prints smell of c_n, they're just from one of the warriors.",
+                "text": "The apprentices find some footprints. Are they from a rogue? A loner? An <i>intruder</i>?! s_c rolls {PRONOUN/s_c/poss} eyes. Clearly those prints smell of c_n, they're just from one of the clippers.",
                 "exp": 20,
                 "weight": 20,
                 "art": "bch_bord_trackrogue",
@@ -4512,7 +4512,7 @@
                 "text": "Nothing much, s_c grins. And you, lost little pretty thing? What{VERB/n_c:0/'re/'s} {PRONOUN/n_c:0/subject} doing here? s_c scents the prey n_c:0 has half hidden under the grass stalks. But {PRONOUN/s_c/subject} {VERB/s_c/don't/doesn't} care, this stranger is <i>much</i> more interesting than one poached scrap of food.",
                 "exp": 0,
                 "weight": 20,
-                "art": "gen_flower_date_warrior_loner",
+                "art": "gen_flower_date_clipper_loner",
                 "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "rebellious",
@@ -4546,7 +4546,7 @@
                 "text": "{PRONOUN/n_c:0/subject/CAP} {VERB/n_c:0/need/needs} some help, {PRONOUN/n_c:0/subject} {VERB/n_c:0/continue/continues}. {PRONOUN/n_c:0/subject/CAP} {VERB/n_c:0/have/has} some kittens {PRONOUN/n_c:0/subject}{VERB/n_c:0/'re/'s} looking after, and they're SO hungry. Can s_c help? What? Where? s_c comes forward, wondering what the outsider is talking about - and flinches backwards as the loner attacks. This is no innocent flirtation!",
                 "exp": 0,
                 "weight": 20,
-                "art": "gen_battle_warrior_loner",
+                "art": "gen_battle_clipper_loner",
                 "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "compassionate",
@@ -4595,7 +4595,7 @@
         ],
         "antag_fail_outcomes": [
             {
-                "text": "p_l puffs out {PRONOUN/p_l/poss} fur. This loner - n_c:0, n_c:0 interrupts. Okay, <i>n_c:0</i> is on c_n territory, and - what's c_n? They're a warrior Clan! What's a warrior? Well, uh... While p_l tries to explain the warrior code, n_c:0 takes {PRONOUN/n_c:0/poss} chance and runs off.",
+                "text": "p_l puffs out {PRONOUN/p_l/poss} fur. This loner - n_c:0, n_c:0 interrupts. Okay, <i>n_c:0</i> is on c_n territory, and - what's c_n? They're a clipper Clan! What's a clipper? Well, uh... While p_l tries to explain the clipper code, n_c:0 takes {PRONOUN/n_c:0/poss} chance and runs off.",
                 "exp": 0,
                 "weight": 5,
                 "art": "gen_bord_newcat",
@@ -4631,7 +4631,7 @@
                 "text": "s_c is patrolling c_n's border, and n_c:0 is <i>not</i> supposed to be here. Leave. Now. Offended, the loner sets back {PRONOUN/n_c:0/poss} ears. And who's going to make {PRONOUN/n_c:0/object}? s_c will! s_c leaps on {PRONOUN/n_c:0/object}, claws extended. No one is coming away from this meeting unscathed.",
                 "exp": 0,
                 "weight": 20,
-                "art": "gen_battle_warrior_loner",
+                "art": "gen_battle_clipper_loner",
                 "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "grumpy",
@@ -4725,7 +4725,7 @@
                 "text": "n_c:0 is on c_n's territory, and p_l will see {PRONOUN/n_c:0/object} removed. n_c0 suggests that p_l only wants to watch them leave, tail lashing flirtatiously, and p_l's temper snaps. GET OUT!",
                 "exp": 15,
                 "weight": 20,
-                "art": "gen_angry_cat_warrior",
+                "art": "gen_angry_cat_clipper",
                 "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "fierce",

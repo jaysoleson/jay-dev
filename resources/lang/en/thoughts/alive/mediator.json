@@ -16,7 +16,7 @@
             "Is feeling exhausted from resolving petty arguments",
             "Wants to solve a dispute with another Clan",
             "Wonders if mediating is meant to be so draining",
-            "Wonders if being a warrior would have been more fun",
+            "Wonders if being a clipper would have been more fun",
             "Is proud of how well {PRONOUN/m_c/subject} {VERB/m_c/are/is} doing as a mediator",
             "Accidentally made an argument worse",
             "Is proud of getting through a difficult mediation session",
@@ -56,14 +56,14 @@
         ]
     },
     {
-        "id": "mediator_to_alive_leader",
+        "id": "mediator_to_alive_baron",
         "thoughts": [
-            "Is upset with the leader over a border dispute gone wrong",
-            "Mediated a meeting between senior warriors and the leader over recent Clan decisions",
+            "Is upset with the baron over a border dispute gone wrong",
+            "Mediated a meeting between senior clippers and the baron over recent Clan decisions",
             "Thinks r_c should be more prudent regarding Clan relations"
         ],
         "random_status_constraint": [
-            "leader"
+            "baron"
         ],
         "random_living_status": [
             "living"

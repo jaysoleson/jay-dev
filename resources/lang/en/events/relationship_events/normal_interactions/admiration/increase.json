@@ -61,9 +61,9 @@
 		],
 		"random_status_constraint": [
 			"elder",
-			"leader",
+			"baron",
 			"mediator",
-			"deputy",
+			"regent",
 			"medicine cat"
 		]
 	},
@@ -106,7 +106,7 @@
 		"id": "admire_med_inc_medium1",
 		"interactions": [
 			"m_c watched r_c show kindness and compassion towards {PRONOUN/r_c/poss} patients.",
-			"m_c caught a glimpse of r_c caring for a wounded warrior with confidence and grace.",
+			"m_c caught a glimpse of r_c caring for a wounded clipper with confidence and grace.",
 			"m_c spent some time hanging out with r_c in the medicine den.",
 			"m_c hopes r_c knows how grateful {PRONOUN/m_c/subject} {VERB/m_c/are/is} to have {PRONOUN/r_c/object} as a medicine cat.",
 			"m_c listens to r_c talk about herbs and healing methods with awe.",
@@ -143,9 +143,9 @@
 		],
 		"main_status_constraint": [
 			"apprentice",
-			"warrior",
-			"deputy",
-			"leader"
+			"clipper",
+			"regent",
+			"baron"
 		],
 		"random_status_constraint": [
 			"medicine cat apprentice",
@@ -178,13 +178,13 @@
 		"random_status_constraint": [
 			"elder",
 			"apprentice",
-			"warrior",
+			"clipper",
 			"mediator apprentice",
 			"mediator",
 			"medicine cat apprentice",
 			"medicine cat",
-			"deputy",
-			"leader"
+			"regent",
+			"baron"
 		]
 	},
 	{
@@ -205,13 +205,13 @@
 		"random_status_constraint": [
 			"elder",
 			"apprentice",
-			"warrior",
+			"clipper",
 			"mediator apprentice",
 			"mediator",
 			"medicine cat apprentice",
 			"medicine cat",
-			"deputy",
-			"leader"
+			"regent",
+			"baron"
 		],
 		"reaction_random_cat": {
 			"platonic": "increase"
@@ -236,11 +236,11 @@
 		],
 		"main_status_constraint": [
 			"elder",
-			"warrior",
+			"clipper",
 			"mediator",
 			"medicine cat",
-			"deputy",
-			"leader"
+			"regent",
+			"baron"
 		],
 		"random_status_constraint": [
 			"kitten",
@@ -264,11 +264,11 @@
 			"admiration_30"
 		],
 		"main_status_constraint": [
-			"warrior",
+			"clipper",
 			"mediator",
 			"medicine cat",
-			"deputy",
-			"leader"
+			"regent",
+			"baron"
 		],
 		"random_status_constraint": [
 			"elder"
@@ -295,19 +295,19 @@
 			"admiration_60"
 		],
 		"main_status_constraint": [
-			"warrior",
+			"clipper",
 			"mediator",
 			"medicine cat",
-			"deputy",
-			"leader"
+			"regent",
+			"baron"
 		],
 		"random_status_constraint": [
 			"elder",
-			"warrior",
+			"clipper",
 			"mediator",
 			"medicine cat",
-			"deputy",
-			"leader"
+			"regent",
+			"baron"
 		],
 		"also_influences": {
 			"jealousy": "increase"
@@ -327,13 +327,13 @@
 			"m_c can't believe how talented r_c is!"
 		],
 		"random_status_constraint": [
-			"warrior",
+			"clipper",
 			"apprentice",
 			"mediator apprentice",
 			"medicine cat apprentice",
 			"medicine cat",
-			"deputy",
-			"leader"
+			"regent",
+			"baron"
 		]
 	},
 	{
@@ -379,13 +379,13 @@
 		"id": "admire_kit_inc_high1",
 		"intensity": "high",
 		"interactions": [
-			"m_c asks r_c if {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} really going to be the leader someday."
+			"m_c asks r_c if {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} really going to be the baron someday."
 		],
 		"main_status_constraint": [
 			"kitten"
 		],
 		"random_status_constraint": [
-			"deputy"
+			"regent"
 		],
 		"reaction_random_cat": {
 			"platonic": "increase"

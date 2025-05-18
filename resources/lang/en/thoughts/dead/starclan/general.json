@@ -17,7 +17,7 @@
             "Is hoping to meet with a medicine cat soon",
             "Is admiring the stars in {PRONOUN/m_c/poss} fur",
             "Is watching over a Clan ceremony",
-            "Is hoping to give a life to a new leader",
+            "Is hoping to give a life to a new baron",
             "Is hoping {PRONOUN/m_c/subject} will be remembered",
             "Is watching over the Clan",
             "Is worried about the Clan",
@@ -500,7 +500,7 @@
     {
     "id": "dead_refugee_thoughts",
     "thoughts": [
-        "Is happy to hear {PRONOUN/m_c/poss} old leader is in the Dark Forest",
+        "Is happy to hear {PRONOUN/m_c/poss} old baron is in the Dark Forest",
         "Is so happy to reconnect with the cats from {PRONOUN/m_c/poss} old Clan"
     ],
         "main_backstory_constraint": [

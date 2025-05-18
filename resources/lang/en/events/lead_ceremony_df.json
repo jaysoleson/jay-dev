@@ -2,7 +2,7 @@
   "virtues": {
     "comment": "THIS DICT DOES NOTHING - it's purely here for quick reference of some possible virtues, you are not constrained to using these nor should you use these lists",
     "queen_virtues": ["affection", "compassion", "empathy", "duty", "protection", "pride"],
-    "warrior_virtues": ["acceptance", "bravery", "certainty", "clear judgment", "confidence", "courage",
+    "clipper_virtues": ["acceptance", "bravery", "certainty", "clear judgment", "confidence", "courage",
       "determination", "endurance", "sympathy", "farsightedness", "friendship", "instincts", "mercy", "strength",
       "unity"],
     "kit_virtues": ["adventure", "curiosity", "forgiveness", "hope", "perspective", "protection"],
@@ -10,7 +10,7 @@
     "elder_virtues": ["empathy", "grace", "humility", "integrity", "persistence", "resilience"],
     "med_cat_virtues": ["clear sight", "devotion", "faith", "healing", "patience", "selflessness", "wisdom"],
     "prev_lead_virtues": ["endurance in the face of hardship", "knowing when to fight and when to choose peace",
-      "leadership through the darkest times", "loyalty to their Clan", "the strength to overcome their fears",
+      "baronship through the darkest times", "loyalty to their Clan", "the strength to overcome their fears",
       "tireless energy"]
   },
 
@@ -20,7 +20,7 @@
       "tags": [],
       "lead_trait": [],
       "text": [
-        "m_c leaves to speak with the Dark Forest. {PRONOUN/m_c/subject/CAP} {VERB/m_c/shut/shuts} {PRONOUN/m_c/poss} eyes and {VERB/m_c/are/is} immediately surrounded by {PRONOUN/m_c/poss} loved ones, friends, and Clanmates who have passed on. Murk and shadows cling to their pelts like frost, and their eyes gleam dangerously as they greet the new leader."
+        "m_c leaves to speak with the Dark Forest. {PRONOUN/m_c/subject/CAP} {VERB/m_c/shut/shuts} {PRONOUN/m_c/poss} eyes and {VERB/m_c/are/is} immediately surrounded by {PRONOUN/m_c/poss} loved ones, friends, and Clanmates who have passed on. Murk and shadows cling to their pelts like frost, and their eyes gleam dangerously as they greet the new baron."
 
       ]
     },
@@ -77,10 +77,10 @@
       "tags": [],
       "lead_trait": [],
       "star_trait": ["faithful", "loving", "responsible", "thoughtful", "wise", "charismatic"],
-      "rank": ["warrior", "elder", "medicine cat", "mediator", "apprentice", "deputy", "medicine cat apprentice", "mediator apprentice"],
+      "rank": ["clipper", "elder", "medicine cat", "mediator", "apprentice", "regent", "medicine cat apprentice", "mediator apprentice"],
       "life_giving": [
         {
-          "text": "Despite looking quite out of place among the battle-hardened shadows, r_c still places {PRONOUN/r_c/poss} muzzle harshly against the new leader's head. {PRONOUN/r_c/subject/CAP} {VERB/r_c/give/gives} a life for [virtue], hoping that {PRONOUN/m_c/subject} will remember {PRONOUN/m_c/poss} own kindness.",
+          "text": "Despite looking quite out of place among the battle-hardened shadows, r_c still places {PRONOUN/r_c/poss} muzzle harshly against the new baron's head. {PRONOUN/r_c/subject/CAP} {VERB/r_c/give/gives} a life for [virtue], hoping that {PRONOUN/m_c/subject} will remember {PRONOUN/m_c/poss} own kindness.",
           "virtue": ["affection", "compassion", "empathy", "duty", "protection", "pride", "hope", "regret", "inspiration", "shaping their own future", "wisdom to know what's right"]
 
         }
@@ -91,10 +91,10 @@
       "tags": [],
       "lead_trait": [],
       "star_trait": ["ambitious", "bloodthirsty", "cold", "fierce", "shameless", "strict", "troublesome", "vengeful"],
-      "rank": ["warrior", "elder", "medicine cat", "mediator", "apprentice", "deputy", "medicine cat apprentice", "mediator apprentice"],
+      "rank": ["clipper", "elder", "medicine cat", "mediator", "apprentice", "regent", "medicine cat apprentice", "mediator apprentice"],
       "life_giving": [
         {
-          "text": "r_c stalks up to the new leader, eyes burning with the increasingly familiar Dark Forest ferocity. {PRONOUN/r_c/subject/CAP} {VERB/r_c/touch/touches} {PRONOUN/r_c/poss} nose to m_c's head, giving {PRONOUN/m_c/object} a life for [virtue]. m_c reels back with the emotion of the life that courses through {PRONOUN/m_c/object}.",
+          "text": "r_c stalks up to the new baron, eyes burning with the increasingly familiar Dark Forest ferocity. {PRONOUN/r_c/subject/CAP} {VERB/r_c/touch/touches} {PRONOUN/r_c/poss} nose to m_c's head, giving {PRONOUN/m_c/object} a life for [virtue]. m_c reels back with the emotion of the life that courses through {PRONOUN/m_c/object}.",
           "virtue": ["resilience", "harsh judgement", "brutality", "duty", "protection", "pride", "hunger for battle", "greed", "authority", "disdain for the weak-willed"]
 
         }
@@ -105,10 +105,10 @@
       "tags": [],
       "lead_trait": [],
       "star_trait": ["adventurous", "bold", "charismatic", "childish", "confident", "daring", "playful", "righteous"],
-      "rank": ["warrior", "elder", "medicine cat", "mediator", "apprentice", "deputy", "medicine cat apprentice", "mediator apprentice"],
+      "rank": ["clipper", "elder", "medicine cat", "mediator", "apprentice", "regent", "medicine cat apprentice", "mediator apprentice"],
       "life_giving": [
         {
-          "text": "r_c jovially jaunts up to the new leader. The dark murk on {PRONOUN/r_c/poss} fur or the red eyes did not seem to dampen {PRONOUN/r_c/poss} spirit one bit. {PRONOUN/r_c/subject/CAP} {VERB/r_c/touch/touches} {PRONOUN/r_c/poss} nose to m_c's head, giving {PRONOUN/m_c/object} a life for [virtue]. When m_c looks up, r_c is walking away from the scene in high spirits.",
+          "text": "r_c jovially jaunts up to the new baron. The dark murk on {PRONOUN/r_c/poss} fur or the red eyes did not seem to dampen {PRONOUN/r_c/poss} spirit one bit. {PRONOUN/r_c/subject/CAP} {VERB/r_c/touch/touches} {PRONOUN/r_c/poss} nose to m_c's head, giving {PRONOUN/m_c/object} a life for [virtue]. When m_c looks up, r_c is walking away from the scene in high spirits.",
           "virtue": ["humor", "seeing the brighter side of a dark situation", "adventure", "confidence", "daring to do what must be done", "humor", "inspiring obedience", "authority"]
 
         }
@@ -119,7 +119,7 @@
       "tags": [],
       "lead_trait": [],
       "star_trait": ["calm", "careful", "insecure", "lonesome", "loyal", "nervous", "sneaky", "strange"],
-      "rank": ["warrior", "elder", "medicine cat", "mediator", "apprentice", "deputy", "medicine cat apprentice", "mediator apprentice"],
+      "rank": ["clipper", "elder", "medicine cat", "mediator", "apprentice", "regent", "medicine cat apprentice", "mediator apprentice"],
       "life_giving": [
         {
           "text": "r_c seemed to appear to m_c out of nowhere in the shadowy gloom of the Dark Forest, and quietly gives {PRONOUN/m_c/object} a life for [virtue]. As quickly as {PRONOUN/r_c/subject} appeared, r_c vanished when the life was given.",
@@ -129,11 +129,11 @@
       ]
     },
 
-    "default_warrior": {
+    "default_clipper": {
       "tags": [],
       "lead_trait": [],
       "star_trait": [],
-      "rank": ["warrior", "elder", "medicine cat", "mediator", "apprentice", "deputy", "medicine cat apprentice", "mediator apprentice"],
+      "rank": ["clipper", "elder", "medicine cat", "mediator", "apprentice", "regent", "medicine cat apprentice", "mediator apprentice"],
       "life_giving": [
         {
           "text": "r_c walks up to m_c next, offering a life for [virtue]. {PRONOUN/r_c/subject/CAP} {VERB/r_c/give/gives} a wicked grin, telling m_c that {PRONOUN/m_c/poss} Clan will survive any threat.",
@@ -153,11 +153,11 @@
       ]
     },
 
-    "bloodthirsty_warrior": {
+    "bloodthirsty_clipper": {
       "tags": [],
       "lead_trait": ["bloodthirsty"],
       "star_trait": [],
-      "rank": ["warrior", "elder", "medicine cat", "mediator", "apprentice", "deputy", "medicine cat apprentice", "mediator apprentice"],
+      "rank": ["clipper", "elder", "medicine cat", "mediator", "apprentice", "regent", "medicine cat apprentice", "mediator apprentice"],
       "life_giving": [
         {
           "text": "r_c walks up to m_c next, giving {PRONOUN/m_c/object} a life for [virtue]. {PRONOUN/r_c/subject/CAP} {VERB/r_c/growl/growls} a word of encouragement over the destruction of c_n's enemies before returning to the line of shadows.",
@@ -180,11 +180,11 @@
       ]
     },
 
-    "adventurous_warrior": {
+    "adventurous_clipper": {
       "tags": [],
       "lead_trait": ["adventurous"],
       "star_trait": [],
-      "rank": ["warrior", "elder", "medicine cat", "mediator", "apprentice", "deputy", "medicine cat apprentice", "mediator apprentice"],
+      "rank": ["clipper", "elder", "medicine cat", "mediator", "apprentice", "regent", "medicine cat apprentice", "mediator apprentice"],
       "life_giving": [
         {
           "text": "r_c narrows {PRONOUN/r_c/poss} eyes as {PRONOUN/r_c/subject} {VERB/r_c/stalk/stalks} up to m_c. After a cryptic warning to keep {PRONOUN/m_c/poss} eyes on {PRONOUN/m_c/poss} <i>own</i> Clan, rather than the horizons, {PRONOUN/m_c/subject} {VERB/m_c/receive/receives} a life for [virtue].",
@@ -207,11 +207,11 @@
       ]
     },
 
-    "ambitious_warrior": {
+    "ambitious_clipper": {
       "tags": [],
       "lead_trait": ["ambitious"],
       "star_trait": [],
-      "rank": ["warrior", "elder", "medicine cat", "mediator", "apprentice", "deputy", "medicine cat apprentice", "mediator apprentice"],
+      "rank": ["clipper", "elder", "medicine cat", "mediator", "apprentice", "regent", "medicine cat apprentice", "mediator apprentice"],
       "life_giving": [
         {
           "text": "With a taunting laugh, r_c approaches and gives m_c a life for [virtue]. r_c asks if {PRONOUN/m_c/poss} ambition to lead the Clan was worth the pain, but leaves before m_c could answer.",
@@ -220,7 +220,7 @@
       "stubbornness", "authority"]
         },
         {
-          "text": "There is a proud gleam in r_c's eyes as {PRONOUN/r_c/subject} {VERB/r_c/approach/approaches} the new leader. {PRONOUN/r_c/subject/CAP} {VERB/r_c/give/gives} a life for [virtue], and encouragement to raise m_c's ambitions even higher than the stars themselves.",
+          "text": "There is a proud gleam in r_c's eyes as {PRONOUN/r_c/subject} {VERB/r_c/approach/approaches} the new baron. {PRONOUN/r_c/subject/CAP} {VERB/r_c/give/gives} a life for [virtue], and encouragement to raise m_c's ambitions even higher than the stars themselves.",
           "virtue": ["ambition", "bravery", "certainty", "clear judgment", "confidence", "courage",
       "determination", "endurance", "farsightedness", "instincts", "strength", "ferocity", "cunning", "shamelessness", "zealotry", "bloodlust", "restless energy", 
       "stubbornness", "authority"]
@@ -228,14 +228,14 @@
       ]
     },
   
-  	"bold_warrior": {
+  	"bold_clipper": {
       "tags": [],
       "lead_trait": ["bold"],
       "star_trait": [],
-      "rank": ["warrior", "elder", "medicine cat", "mediator", "apprentice", "deputy", "medicine cat apprentice", "mediator apprentice"],
+      "rank": ["clipper", "elder", "medicine cat", "mediator", "apprentice", "regent", "medicine cat apprentice", "mediator apprentice"],
       "life_giving": [
         {
-          "text": "r_c steps up to the new leader with a chilling grin stretching {PRONOUN/r_c/poss} maw apart. {PRONOUN/r_c/subject/CAP} {VERB/r_c/give/gives} m_c a life for [virtue], encouraging m_c to boldly do what no Stars-loving cat could never dare to try.",
+          "text": "r_c steps up to the new baron with a chilling grin stretching {PRONOUN/r_c/poss} maw apart. {PRONOUN/r_c/subject/CAP} {VERB/r_c/give/gives} m_c a life for [virtue], encouraging m_c to boldly do what no Stars-loving cat could never dare to try.",
           "virtue": ["ambition", "bravery", "certainty", "clear judgment", "confidence", "courage",
       "determination", "endurance", "farsightedness", "instincts", "strength", "ferocity", "cunning", "shamelessness", "zealotry", "bloodlust", "restless energy", 
       "stubbornness", "authority"]
@@ -255,11 +255,11 @@
       ]
     },
   
-    "calm_warrior": {
+    "calm_clipper": {
       "tags": [],
       "lead_trait": ["calm"],
       "star_trait": [],
-      "rank": ["warrior", "elder", "medicine cat", "mediator", "apprentice", "deputy", "medicine cat apprentice", "mediator apprentice"],
+      "rank": ["clipper", "elder", "medicine cat", "mediator", "apprentice", "regent", "medicine cat apprentice", "mediator apprentice"],
       "life_giving": [
         {
           "text": "The air falls into an unsettling stillness as r_c, a feline with nefarious reputation, draws near, exuding an aura of deceptive calmness. With measured steps, {PRONOUN/r_c/subject} {VERB/r_c/approach/approaches} m_c, extending an offer of a life infused with the virtue of [virtue], to then vanish into the veils of darkness from which {PRONOUN/r_c/subject} emerged.",
@@ -272,11 +272,11 @@
       ]
     },
   
-    "careful_warrior": {
+    "careful_clipper": {
       "tags": [],
       "lead_trait": ["careful"],
       "star_trait": [],
-      "rank": ["warrior", "elder", "medicine cat", "mediator", "apprentice", "deputy", "medicine cat apprentice", "mediator apprentice"],
+      "rank": ["clipper", "elder", "medicine cat", "mediator", "apprentice", "regent", "medicine cat apprentice", "mediator apprentice"],
       "life_giving": [
         {
           "text": "r_c steps forth with hypnotic grace, {PRONOUN/r_c/poss} presence pulling the very air into a hushed stillness. With calculated movement, {PRONOUN/r_c/subject} {VERB/r_c/exude/exudes} an unsettling tranquility, {PRONOUN/r_c/poss} eyes shining with ravening intelligence. {PRONOUN/r_c/subject/CAP} slowly {VERB/r_c/draw/draws} nearer, giving m_c a life for [virtue].",
@@ -291,14 +291,14 @@
       ]
     },
   
-    "charismatic_warrior": {
+    "charismatic_clipper": {
       "tags": [],
       "lead_trait": ["charismatic"],
       "star_trait": [],
-      "rank": ["warrior", "elder", "medicine cat", "mediator", "apprentice", "deputy", "medicine cat apprentice", "mediator apprentice"],
+      "rank": ["clipper", "elder", "medicine cat", "mediator", "apprentice", "regent", "medicine cat apprentice", "mediator apprentice"],
       "life_giving": [
         {
-          "text": "r_c chokes out a bitter laugh, taunting the new leader about if {PRONOUN/m_c/poss} honeyed words can help {PRONOUN/m_c/object} in a real fight. r_c presses {PRONOUN/r_c/poss} nose against m_c's head and sneers out a life for [virtue].",
+          "text": "r_c chokes out a bitter laugh, taunting the new baron about if {PRONOUN/m_c/poss} honeyed words can help {PRONOUN/m_c/object} in a real fight. r_c presses {PRONOUN/r_c/poss} nose against m_c's head and sneers out a life for [virtue].",
           "virtue": ["ambition", "bravery", "certainty", "clear judgment", "confidence", "courage",
       "determination", "endurance", "farsightedness", "instincts", "strength", "ferocity", "cunning", "shamelessness", "zealotry", "bloodlust", "restless energy", 
       "stubbornness", "authority"]
@@ -318,11 +318,11 @@
       ]
     },
   
-    "childish_warrior": {
+    "childish_clipper": {
       "tags": [],
       "lead_trait": ["childish"],
       "star_trait": [],
-      "rank": ["warrior", "elder", "medicine cat", "mediator", "apprentice", "deputy", "medicine cat apprentice", "mediator apprentice"],
+      "rank": ["clipper", "elder", "medicine cat", "mediator", "apprentice", "regent", "medicine cat apprentice", "mediator apprentice"],
       "life_giving": [
         {
           "text": "r_c wants to claw the silly smile right off of m_c's face. Instead, {PRONOUN/r_c/subject} {VERB/r_c/make/makes} sure that {PRONOUN/r_c/poss} life for [virtue] is as painful as possible.",
@@ -337,7 +337,7 @@
       "stubbornness", "authority"]
         },
         {
-          "text": "r_c bounds up to the new leader with a wicked grin. {PRONOUN/r_c/subject/CAP} {VERB/r_c/place/places} {PRONOUN/r_c/poss} nose against m_c's head, jabbering quickly on about a life for [virtue] before asking what m_c's favorite game is. Another shadowy spirit shoves r_c aside for the next life giver before {PRONOUN/m_c/subject} can answer.",
+          "text": "r_c bounds up to the new baron with a wicked grin. {PRONOUN/r_c/subject/CAP} {VERB/r_c/place/places} {PRONOUN/r_c/poss} nose against m_c's head, jabbering quickly on about a life for [virtue] before asking what m_c's favorite game is. Another shadowy spirit shoves r_c aside for the next life giver before {PRONOUN/m_c/subject} can answer.",
           "virtue": ["ambition", "bravery", "certainty", "clear judgment", "confidence", "courage",
       "determination", "endurance", "farsightedness", "instincts", "strength", "ferocity", "cunning", "shamelessness", "zealotry", "bloodlust", "restless energy", 
       "stubbornness", "authority"]
@@ -345,11 +345,11 @@
       ]
     },
 
-    "cold_warrior": {
+    "cold_clipper": {
       "tags": [],
       "lead_trait": ["cold"],
       "star_trait": [],
-      "rank": ["warrior", "elder", "medicine cat", "mediator", "apprentice", "deputy", "medicine cat apprentice", "mediator apprentice"],
+      "rank": ["clipper", "elder", "medicine cat", "mediator", "apprentice", "regent", "medicine cat apprentice", "mediator apprentice"],
       "life_giving": [
         {
           "text": "Draped in an aura of chilling indifference, r_c slinks forward with stoic grace, {PRONOUN/r_c/poss} measured steps reverberating with an unsettling stillness that sent shivers down m_c's spine. Closing the haunting distance between them, r_c inches closer, extending an offer of a life in name of [virtue].",
@@ -366,11 +366,11 @@
       ]
     },
 
-    "compassionate_warrior": {
+    "compassionate_clipper": {
       "tags": [],
       "lead_trait": ["compassionate"],
       "star_trait": [],
-      "rank": ["warrior", "elder", "medicine cat", "mediator", "apprentice", "deputy", "medicine cat apprentice", "mediator apprentice"],
+      "rank": ["clipper", "elder", "medicine cat", "mediator", "apprentice", "regent", "medicine cat apprentice", "mediator apprentice"],
       "life_giving": [
         {
           "text": "One of the core philosophies of the Dark Forest is that compassion is a weakness. And as pain arches through m_c's body from r_c's life for [virtue], that harsh lesson burns through {PRONOUN/m_c/poss} body like a raging inferno.",
@@ -379,13 +379,13 @@
       "stubbornness", "authority"]
         },
         {
-          "text": "A sneer crosses r_c's face as {PRONOUN/r_c/subject} {VERB/r_c/approach/approaches} m_c. Cruelly pressing {PRONOUN/r_c/poss} nose against the new leader's head, {PRONOUN/r_c/subject} {VERB/r_c/snarl/snarls} out a life for [virtue]. Perhaps that would keep m_c from being too friendly with the other Clans.",
+          "text": "A sneer crosses r_c's face as {PRONOUN/r_c/subject} {VERB/r_c/approach/approaches} m_c. Cruelly pressing {PRONOUN/r_c/poss} nose against the new baron's head, {PRONOUN/r_c/subject} {VERB/r_c/snarl/snarls} out a life for [virtue]. Perhaps that would keep m_c from being too friendly with the other Clans.",
           "virtue": ["ambition", "bravery", "certainty", "clear judgment", "confidence", "courage",
       "determination", "endurance", "farsightedness", "instincts", "strength", "ferocity", "cunning", "shamelessness", "zealotry", "bloodlust", "restless energy", 
       "stubbornness", "authority"]
         },
         {
-          "text": "r_c's tired gaze watches m_c. Whispering how m_c's compassionate nature will only hurt c_n in the end, r_c presses {PRONOUN/r_c/poss} nose against the new leader and sighs out a life for [virtue].",
+          "text": "r_c's tired gaze watches m_c. Whispering how m_c's compassionate nature will only hurt c_n in the end, r_c presses {PRONOUN/r_c/poss} nose against the new baron and sighs out a life for [virtue].",
           "virtue": ["ambition", "bravery", "certainty", "clear judgment", "confidence", "courage",
       "determination", "endurance", "farsightedness", "instincts", "strength", "ferocity", "cunning", "shamelessness", "zealotry", "bloodlust", "restless energy", 
       "stubbornness", "authority"]
@@ -393,11 +393,11 @@
       ]
     },
 
-    "confident_warrior": {
+    "confident_clipper": {
       "tags": [],
       "lead_trait": ["confident"],
       "star_trait": [],
-      "rank": ["warrior", "elder", "medicine cat", "mediator", "apprentice", "deputy", "medicine cat apprentice", "mediator apprentice"],
+      "rank": ["clipper", "elder", "medicine cat", "mediator", "apprentice", "regent", "medicine cat apprentice", "mediator apprentice"],
       "life_giving": [
         {
           "text": "Overconfidence can blind even the most loyal of StarClan-loving cats. And that is just what r_c is counting on as the cruel life of [virtue] burns through m_c's mind.",
@@ -414,14 +414,14 @@
       ]
     },
   
-    "daring_warrior": {
+    "daring_clipper": {
       "tags": [],
       "lead_trait": ["daring"],
       "star_trait": [],
-      "rank": ["warrior", "elder", "medicine cat", "mediator", "apprentice", "deputy", "medicine cat apprentice", "mediator apprentice"],
+      "rank": ["clipper", "elder", "medicine cat", "mediator", "apprentice", "regent", "medicine cat apprentice", "mediator apprentice"],
       "life_giving": [
         {
-          "text": "r_c meets m_c's eyes with a smirk, sliding through the murk like a claw through fresh-kill to give a life for [virtue]. {PRONOUN/r_c/subject/CAP} {VERB/r_c/hiss/hisses} a quiet praise to m_c's more reckless tendencies, encouraging the new leader to think with {PRONOUN/m_c/poss} claws, not {PRONOUN/m_c/poss} head.",
+          "text": "r_c meets m_c's eyes with a smirk, sliding through the murk like a claw through fresh-kill to give a life for [virtue]. {PRONOUN/r_c/subject/CAP} {VERB/r_c/hiss/hisses} a quiet praise to m_c's more reckless tendencies, encouraging the new baron to think with {PRONOUN/m_c/poss} claws, not {PRONOUN/m_c/poss} head.",
           "virtue": ["ambition", "confidence", "courage", "determination", "endurance", "instincts", "strength", "ferocity", "cunning", "shamelessness", "zealotry", "bloodlust", "restless energy", "stubbornness", "authority", "unpredictability"]
         },
         {
@@ -435,11 +435,11 @@
       ]
     },
   
-    "faithful_warrior": {
+    "faithful_clipper": {
       "tags": [],
       "lead_trait": ["faithful"],
       "star_trait": [],
-      "rank": ["warrior", "elder", "medicine cat", "mediator", "apprentice", "deputy", "medicine cat apprentice", "mediator apprentice"],
+      "rank": ["clipper", "elder", "medicine cat", "mediator", "apprentice", "regent", "medicine cat apprentice", "mediator apprentice"],
       "life_giving": [
         {
           "text": "r_c laughs at poor, pious m_c, so out of place in the gloom of the forest, and gives a life for [virtue]. As m_c staggers in pain, r_c mockingly asks if {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} still faithful to StarClan, even in this twisted wood, but {PRONOUN/r_c/subject} {VERB/r_c/bound/bounds} away before any answer can be given.",
@@ -450,20 +450,20 @@
           "virtue": ["strength", "ferocity", "cunning", "shamelessness", "zealotry", "bloodlust", "restless energy", "stubbornness", "authority", "cruelty"]
         },
         {
-          "text": "r_c wastes no time in bestowing {PRONOUN/r_c/poss} life of [virtue]. m_c opens {PRONOUN/m_c/poss} mouth, perhaps to argue that {PRONOUN/m_c/subject} {VERB/m_c/don't/doesn't} belong here, that {PRONOUN/m_c/poss} faith still lies with Silverpelt, but a single look from the shadowy warrior quickly wrenches {PRONOUN/m_c/poss} mouth shut once more.",
+          "text": "r_c wastes no time in bestowing {PRONOUN/r_c/poss} life of [virtue]. m_c opens {PRONOUN/m_c/poss} mouth, perhaps to argue that {PRONOUN/m_c/subject} {VERB/m_c/don't/doesn't} belong here, that {PRONOUN/m_c/poss} faith still lies with Silverpelt, but a single look from the shadowy clipper quickly wrenches {PRONOUN/m_c/poss} mouth shut once more.",
           "virtue": ["strength", "ferocity", "cunning", "shamelessness", "zealotry", "bloodlust", "restless energy", "stubbornness", "authority", "cruelty"]
         }
       ]
     },
   
-    "fierce_warrior": {
+    "fierce_clipper": {
       "tags": [],
       "lead_trait": ["fierce"],
       "star_trait": [],
-      "rank": ["warrior", "elder", "medicine cat", "mediator", "apprentice", "deputy", "medicine cat apprentice", "mediator apprentice"],
+      "rank": ["clipper", "elder", "medicine cat", "mediator", "apprentice", "regent", "medicine cat apprentice", "mediator apprentice"],
       "life_giving": [
         {
-          "text": "Only the strongest could survive being leader according to r_c's ferocious growl. {PRONOUN/r_c/subject/CAP} {VERB/r_c/press/presses} {PRONOUN/r_c/poss} claws against m_c's neck while giving a life for [virtue], encouraging the new leader to become a story to haunt the minds of the other Clan's kits.",
+          "text": "Only the strongest could survive being baron according to r_c's ferocious growl. {PRONOUN/r_c/subject/CAP} {VERB/r_c/press/presses} {PRONOUN/r_c/poss} claws against m_c's neck while giving a life for [virtue], encouraging the new baron to become a story to haunt the minds of the other Clan's kits.",
           "virtue": ["ambition", "bravery", "certainty", "clear judgment", "confidence", "courage",
       "determination", "endurance", "farsightedness", "instincts", "strength", "ferocity", "cunning", "shamelessness", "zealotry", "bloodlust", "restless energy", 
       "stubbornness", "authority"]
@@ -475,7 +475,7 @@
       "stubbornness", "authority"]
         },
         {
-          "text": "The next dark spirit could not even meet m_c's ferocious gaze. The trembling shadow of r_c hastily gives a life for [virtue] before scrambling away from the might of c_n's newest leader.",
+          "text": "The next dark spirit could not even meet m_c's ferocious gaze. The trembling shadow of r_c hastily gives a life for [virtue] before scrambling away from the might of c_n's newest baron.",
           "virtue": ["ambition", "bravery", "certainty", "clear judgment", "confidence", "courage",
       "determination", "endurance", "farsightedness", "instincts", "strength", "ferocity", "cunning", "shamelessness", "zealotry", "bloodlust", "restless energy", 
       "stubbornness", "authority"]
@@ -483,11 +483,11 @@
       ]
     },
   
-    "insecure_warrior": {
+    "insecure_clipper": {
       "tags": [],
       "lead_trait": ["insecure"],
       "star_trait": [],
-      "rank": ["warrior", "elder", "medicine cat", "mediator", "apprentice", "deputy", "medicine cat apprentice", "mediator apprentice"],
+      "rank": ["clipper", "elder", "medicine cat", "mediator", "apprentice", "regent", "medicine cat apprentice", "mediator apprentice"],
       "life_giving": [
         {
           "text": "r_c croons into m_c's ear, whispering about how now {PRONOUN/m_c/subject}'ll be able to prove everyone in the Clan wrong about {PRONOUN/m_c/poss} weak-willed mentality. A dark chuckle escapes r_c's throat as {PRONOUN/r_c/subject} {VERB/r_c/give/gives} {PRONOUN/m_c/subject} a life for [virtue].",
@@ -496,7 +496,7 @@
       "stubbornness", "authority"]
         },
         {
-          "text": "An almost demented laugh escapes from r_c's maw as {PRONOUN/r_c/subject} {VERB/r_c/press/presses} {PRONOUN/r_c/poss} muzzle against m_c's head. This cat? A leader? Don't make {PRONOUN/r_c/object} laugh! r_c's howling cackle echoes in m_c's ears as the dark spirit leaves {PRONOUN/m_c/object} behind.",
+          "text": "An almost demented laugh escapes from r_c's maw as {PRONOUN/r_c/subject} {VERB/r_c/press/presses} {PRONOUN/r_c/poss} muzzle against m_c's head. This cat? A baron? Don't make {PRONOUN/r_c/object} laugh! r_c's howling cackle echoes in m_c's ears as the dark spirit leaves {PRONOUN/m_c/object} behind.",
           "virtue": ["ambition", "bravery", "certainty", "clear judgment", "confidence", "courage",
       "determination", "endurance", "farsightedness", "instincts", "strength", "ferocity", "cunning", "shamelessness", "zealotry", "bloodlust", "restless energy", 
       "stubbornness", "authority"]
@@ -510,11 +510,11 @@
       ]
     },
   
-    "lonesome_warrior": {
+    "lonesome_clipper": {
       "tags": [],
       "lead_trait": ["lonesome"],
       "star_trait": [],
-      "rank": ["warrior", "elder", "medicine cat", "mediator", "apprentice", "deputy", "medicine cat apprentice", "mediator apprentice"],
+      "rank": ["clipper", "elder", "medicine cat", "mediator", "apprentice", "regent", "medicine cat apprentice", "mediator apprentice"],
       "life_giving": [
         {
           "text": "r_c slinks forward with an air of unsettling detachment. Rarely does a sound escape {PRONOUN/r_c/poss} lips, as this feline only speaks to hand m_c a life for [virtue], then fades into the shadows once more. {PRONOUN/r_c/poss/CAP} haunting presence lingers, leaving behind a trail of curiosity and unspoken whispers.",
@@ -537,14 +537,14 @@
       ]
     },
   
-    "loving_warrior_EXAMPLE": {
+    "loving_clipper_EXAMPLE": {
       "tags": [],
       "lead_trait": ["loving"],
       "star_trait": [],
-      "rank": ["warrior", "elder", "medicine cat", "mediator", "apprentice", "deputy", "medicine cat apprentice", "mediator apprentice"],
+      "rank": ["clipper", "elder", "medicine cat", "mediator", "apprentice", "regent", "medicine cat apprentice", "mediator apprentice"],
       "life_giving": [
         {
-          "text": "r_c walks up to m_c, offering a life for [virtue]. {PRONOUN/r_c/subject/CAP} {VERB/r_c/smile/smiles} , and {VERB/r_c/state/states} that the Clan will do well under m_c's leadership.",
+          "text": "r_c walks up to m_c, offering a life for [virtue]. {PRONOUN/r_c/subject/CAP} {VERB/r_c/smile/smiles} , and {VERB/r_c/state/states} that the Clan will do well under m_c's baronship.",
           "virtue": ["ambition", "bravery", "certainty", "clear judgement", "confidence", "courage", "determination", "endurance", "farsightedness", "instincts", "strength", "ferocity", "cunning", "shamelessness", "zealotry", "bloodlust", "restless energy", 
       "stubbornness", "authority"]
         },
@@ -561,14 +561,14 @@
       ]
     },
   
-  	"loyal_warrior": {
+  	"loyal_clipper": {
       "tags": [],
       "lead_trait": ["loyal"],
       "star_trait": [],
-      "rank": ["warrior", "elder", "medicine cat", "mediator", "apprentice", "deputy", "medicine cat apprentice", "mediator apprentice"],
+      "rank": ["clipper", "elder", "medicine cat", "mediator", "apprentice", "regent", "medicine cat apprentice", "mediator apprentice"],
       "life_giving": [
         {
-          "text": "r_c presses {PRONOUN/r_c/poss} nose against m_c's forehead, the virtue of [virtue] burning away the leader's previous life. Loyalty to {PRONOUN/m_c/poss} Clan must be absolute, and no weakness can be tolerated.",
+          "text": "r_c presses {PRONOUN/r_c/poss} nose against m_c's forehead, the virtue of [virtue] burning away the baron's previous life. Loyalty to {PRONOUN/m_c/poss} Clan must be absolute, and no weakness can be tolerated.",
           "virtue": ["ambition", "bravery", "certainty", "clear judgment", "confidence", "courage",
       "determination", "endurance", "farsightedness", "instincts", "strength", "ferocity", "cunning", "shamelessness", "zealotry", "bloodlust", "restless energy", 
       "stubbornness", "authority"]
@@ -582,14 +582,14 @@
       ]
     },
 
-    "nervous_warrior": {
+    "nervous_clipper": {
       "tags": [],
       "lead_trait": ["nervous"],
       "star_trait": [],
-      "rank": ["warrior", "elder", "medicine cat", "mediator", "apprentice", "deputy", "medicine cat apprentice", "mediator apprentice"],
+      "rank": ["clipper", "elder", "medicine cat", "mediator", "apprentice", "regent", "medicine cat apprentice", "mediator apprentice"],
       "life_giving": [
         {
-          "text": "A disdainful look crosses r_c's face when it is {PRONOUN/r_c/poss} turn to give a life for [virtue]. The lack of a preamble and the violent press of r_c's maw into {PRONOUN/m_c/poss} fur only makes m_c more anxious about {PRONOUN/m_c/poss} new role as leader.",
+          "text": "A disdainful look crosses r_c's face when it is {PRONOUN/r_c/poss} turn to give a life for [virtue]. The lack of a preamble and the violent press of r_c's maw into {PRONOUN/m_c/poss} fur only makes m_c more anxious about {PRONOUN/m_c/poss} new role as baron.",
           "virtue": ["ambition", "bravery", "certainty", "clear judgment", "confidence", "courage",
       "determination", "endurance", "farsightedness", "instincts", "strength", "ferocity", "cunning", "shamelessness", "zealotry", "bloodlust", "restless energy", 
       "stubbornness", "authority"]
@@ -601,7 +601,7 @@
       "stubbornness", "authority"]
         },
         {
-          "text": "r_c only watches the new leader with a rather forlorn look before giving {PRONOUN/m_c/object} a life for [virtue]. m_c doesn't even have a chance to talk to the Dark Forest cat before {PRONOUN/r_c/subject} {VERB/r_c/vanish/vanishes} into smoke.",
+          "text": "r_c only watches the new baron with a rather forlorn look before giving {PRONOUN/m_c/object} a life for [virtue]. m_c doesn't even have a chance to talk to the Dark Forest cat before {PRONOUN/r_c/subject} {VERB/r_c/vanish/vanishes} into smoke.",
           "virtue": ["ambition", "bravery", "certainty", "clear judgment", "confidence", "courage",
       "determination", "endurance", "farsightedness", "instincts", "strength", "ferocity", "cunning", "shamelessness", "zealotry", "bloodlust", "restless energy", 
       "stubbornness", "authority"]
@@ -609,11 +609,11 @@
       ]
     },
   
-    "playful_warrior": {
+    "playful_clipper": {
       "tags": [],
       "lead_trait": ["playful"],
       "star_trait": [],
-      "rank": ["warrior", "elder", "medicine cat", "mediator", "apprentice", "deputy", "medicine cat apprentice", "mediator apprentice"],
+      "rank": ["clipper", "elder", "medicine cat", "mediator", "apprentice", "regent", "medicine cat apprentice", "mediator apprentice"],
       "life_giving": [
         {
           "text": "Appearing behind m_c from the murk, a dark tail passes in front of m_c's eyes. The shadows distort the life giver's voice, but {PRONOUN/m_c/subject} swears {PRONOUN/m_c/subject} can hear r_c teasing {PRONOUN/m_c/object}. The life of [virtue] ebbed away before m_c can see if it was really {PRONOUN/r_c/object}.",
@@ -622,7 +622,7 @@
       "stubbornness", "authority"]
         },
         {
-          "text": "A cruel smirk crosses r_c's face as {PRONOUN/r_c/subject} {VERB/r_c/approach/approaches} m_c. {PRONOUN/r_c/subject/CAP} {VERB/r_c/press/presses} {PRONOUN/r_c/poss} nose against the new leader, taunting how c_n has always found m_c's playful games so bothersome. Perhaps the life of [virtue] r_c bestows will set {PRONOUN/m_c/object} right.",
+          "text": "A cruel smirk crosses r_c's face as {PRONOUN/r_c/subject} {VERB/r_c/approach/approaches} m_c. {PRONOUN/r_c/subject/CAP} {VERB/r_c/press/presses} {PRONOUN/r_c/poss} nose against the new baron, taunting how c_n has always found m_c's playful games so bothersome. Perhaps the life of [virtue] r_c bestows will set {PRONOUN/m_c/object} right.",
           "virtue": ["ambition", "bravery", "certainty", "clear judgment", "confidence", "courage",
       "determination", "endurance", "farsightedness", "instincts", "strength", "ferocity", "cunning", "shamelessness", "zealotry", "bloodlust", "restless energy", 
       "stubbornness", "authority"]
@@ -630,11 +630,11 @@
       ]
     },
   
-  	"responsible_warrior": {
+  	"responsible_clipper": {
       "tags": [],
       "lead_trait": ["responsible"],
       "star_trait": [],
-      "rank": ["warrior", "elder", "medicine cat", "mediator", "deputy", "mediator apprentice"],
+      "rank": ["clipper", "elder", "medicine cat", "mediator", "regent", "mediator apprentice"],
       "life_giving": [
         {
           "text": "m_c's eyes glide to where r_c pads out of the gloom. The shadowy cat's eyes light up in surprise before darkening once more. {PRONOUN/r_c/subject/CAP} {VERB/r_c/scoff/scoffs}, remarking that {PRONOUN/r_c/subject} never thought {PRONOUN/r_c/subject}'d see m_c in these dark woods before giving a life for [virtue].",
@@ -654,11 +654,11 @@
       ]
     },
 
-    "righteous_warrior": {
+    "righteous_clipper": {
       "tags": [],
       "lead_trait": ["righteous"],
       "star_trait": [],
-      "rank": ["warrior", "elder", "medicine cat", "mediator", "apprentice", "deputy", "medicine cat apprentice", "mediator apprentice"],
+      "rank": ["clipper", "elder", "medicine cat", "mediator", "apprentice", "regent", "medicine cat apprentice", "mediator apprentice"],
       "life_giving": [
         {
           "text": "m_c pins {PRONOUN/m_c/poss} ears back as the shadowy figure of r_c appears from the gloom. r_c's flint-sharp eyes reveal nothing as {PRONOUN/r_c/subject} {VERB/r_c/lift/lifts} a paw with unsheathed claws up to m_c's head. The touch is light, gifting a life for [virtue], but the pain that rips through m_c makes {PRONOUN/m_c/object} want to scream.",
@@ -675,14 +675,14 @@
       ]
     },
   
-    "shameless_warrior": {
+    "shameless_clipper": {
       "tags": [],
       "lead_trait": ["shameless"],
       "star_trait": [],
-      "rank": ["warrior", "elder", "medicine cat", "mediator", "apprentice", "deputy", "medicine cat apprentice", "mediator apprentice"],
+      "rank": ["clipper", "elder", "medicine cat", "mediator", "apprentice", "regent", "medicine cat apprentice", "mediator apprentice"],
       "life_giving": [
         {
-          "text": "r_c circles m_c, eyes glittering with amusement. Of course m_c would become leader, {PRONOUN/r_c/subject} {VERB/r_c/purr/purrs}, {PRONOUN/m_c/subject} {VERB/m_c/have/has} nothing to lose! r_c presses against m_c, a life given for [virtue] coursing through {PRONOUN/m_c/poss} limbs.",
+          "text": "r_c circles m_c, eyes glittering with amusement. Of course m_c would become baron, {PRONOUN/r_c/subject} {VERB/r_c/purr/purrs}, {PRONOUN/m_c/subject} {VERB/m_c/have/has} nothing to lose! r_c presses against m_c, a life given for [virtue] coursing through {PRONOUN/m_c/poss} limbs.",
           "virtue": ["ambition", "bravery", "certainty", "clear judgment", "confidence", "courage",
       "determination", "endurance", "farsightedness", "instincts", "strength", "ferocity", "cunning", "shamelessness", "zealotry", "bloodlust", "restless energy", 
       "stubbornness", "authority"]
@@ -702,11 +702,11 @@
       ]
     },
   
-    "sneaky_warrior": {
+    "sneaky_clipper": {
       "tags": [],
       "lead_trait": ["sneaky"],
       "star_trait": [],
-      "rank": ["warrior", "elder", "medicine cat", "mediator", "apprentice", "deputy", "medicine cat apprentice", "mediator apprentice"],
+      "rank": ["clipper", "elder", "medicine cat", "mediator", "apprentice", "regent", "medicine cat apprentice", "mediator apprentice"],
       "life_giving": [
         {
           "text": "A pair of piercing eyes gleams from the darkness, hinting at the wickedness that lay within. With calculated stealth, r_c approaches m_c as if stalking prey, each paw touching the ground with an unsettling grace. {PRONOUN/r_c/subject/CAP} {VERB/r_c/give/gives} a life for [virtue], {PRONOUN/r_c/poss} malevolent presence then disappearing as quickly as it approached.",
@@ -723,11 +723,11 @@
       ]
     },
   
-    "strange_warrior": {
+    "strange_clipper": {
       "tags": [],
       "lead_trait": ["strange"],
       "star_trait": [],
-      "rank": ["warrior", "elder", "medicine cat", "mediator", "apprentice", "deputy", "medicine cat apprentice", "mediator apprentice"],
+      "rank": ["clipper", "elder", "medicine cat", "mediator", "apprentice", "regent", "medicine cat apprentice", "mediator apprentice"],
       "life_giving": [
         {
           "text": "m_c does not seem startled at the shadowy spirit that approaches {PRONOUN/m_c/object}. r_c narrows {PRONOUN/r_c/poss} crimson eyes at the bravado, but gives a life for [virtue] regardless.",
@@ -736,7 +736,7 @@
       "stubbornness", "authority"]
         },
         {
-          "text": "In the middle of r_c's monologue about the Forest's strength and cunning, m_c interrupts {PRONOUN/r_c/object} to ask about the oozing shadows across {PRONOUN/r_c/poss} pelt and if it tastes like anything. r_c is stunned into silence and simply gives the new leader a life for [virtue].",
+          "text": "In the middle of r_c's monologue about the Forest's strength and cunning, m_c interrupts {PRONOUN/r_c/object} to ask about the oozing shadows across {PRONOUN/r_c/poss} pelt and if it tastes like anything. r_c is stunned into silence and simply gives the new baron a life for [virtue].",
           "virtue": ["ambition", "bravery", "certainty", "clear judgment", "confidence", "courage",
       "determination", "endurance", "farsightedness", "instincts", "strength", "ferocity", "cunning", "shamelessness", "zealotry", "bloodlust", "restless energy", 
       "stubbornness", "authority"]
@@ -744,14 +744,14 @@
       ]
     },
   
-    "strict_warrior": {
+    "strict_clipper": {
       "tags": [],
       "lead_trait": ["strict"],
       "star_trait": [],
-      "rank": ["warrior", "elder", "medicine cat", "mediator", "apprentice", "deputy", "medicine cat apprentice", "mediator apprentice"],
+      "rank": ["clipper", "elder", "medicine cat", "mediator", "apprentice", "regent", "medicine cat apprentice", "mediator apprentice"],
       "life_giving": [
         {
-          "text": "m_c has followed the Warrior Code with all of {PRONOUN/m_c/poss} being. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} not meant to be here, {PRONOUN/m_c/subject} {VERB/m_c/cry/cries} out! r_c only gives a wicked grin as the life of [virtue] is bestowed upon the unwilling leader.",
+          "text": "m_c has followed the clipper Code with all of {PRONOUN/m_c/poss} being. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} not meant to be here, {PRONOUN/m_c/subject} {VERB/m_c/cry/cries} out! r_c only gives a wicked grin as the life of [virtue] is bestowed upon the unwilling baron.",
           "virtue": ["ambition", "bravery", "certainty", "clear judgment", "confidence", "courage",
       "determination", "endurance", "farsightedness", "instincts", "strength", "ferocity", "cunning", "shamelessness", "zealotry", "bloodlust", "restless energy", 
       "stubbornness", "authority"]
@@ -765,11 +765,11 @@
       ]
     },
   
-    "thoughtful_warrior": {
+    "thoughtful_clipper": {
       "tags": [],
       "lead_trait": ["thoughtful"],
       "star_trait": [],
-      "rank": ["warrior", "elder", "medicine cat", "mediator", "apprentice", "deputy", "medicine cat apprentice", "mediator apprentice"],
+      "rank": ["clipper", "elder", "medicine cat", "mediator", "apprentice", "regent", "medicine cat apprentice", "mediator apprentice"],
       "life_giving": [
         {
           "text": "r_c watches m_c with piercing eyes, as though the dark spirit can see right through all of m_c's thoughts! {PRONOUN/r_c/subject/CAP} {VERB/r_c/are/is} silent as {PRONOUN/r_c/subject} {VERB/r_c/give/gives} a life for [virtue].",
@@ -786,11 +786,11 @@
       ]
     },
 
-  	"troublesome_warrior": {
+  	"troublesome_clipper": {
       "tags": [],
       "lead_trait": ["troublesome"],
       "star_trait": [],
-      "rank": ["warrior", "elder", "medicine cat", "mediator", "apprentice", "deputy", "medicine cat apprentice", "mediator apprentice"],
+      "rank": ["clipper", "elder", "medicine cat", "mediator", "apprentice", "regent", "medicine cat apprentice", "mediator apprentice"],
       "life_giving": [
         {
           "text": "While such antics would be frowned upon by StarClan, r_c and the Dark Forest welcome the newest troublemaker with open arms. r_c gives a life for [virtue], encouraging m_c to take {PRONOUN/m_c/poss} plots to new heights.",
@@ -807,14 +807,14 @@
       ]
     },
   
-    "vengeful_warrior_EXAMPLE": {
+    "vengeful_clipper_EXAMPLE": {
       "tags": [],
       "lead_trait": ["vengeful"],
       "star_trait": [],
-      "rank": ["warrior", "elder", "medicine cat", "mediator", "apprentice", "deputy", "medicine cat apprentice", "mediator apprentice"],
+      "rank": ["clipper", "elder", "medicine cat", "mediator", "apprentice", "regent", "medicine cat apprentice", "mediator apprentice"],
       "life_giving": [
         {
-          "text": "r_c walks up to m_c, offering a life for [virtue]. {PRONOUN/r_c/subject/CAP} {VERB/r_c/smile/smiles}, and {VERB/r_c/state/states} that the Clan will do well under m_c's leadership.",
+          "text": "r_c walks up to m_c, offering a life for [virtue]. {PRONOUN/r_c/subject/CAP} {VERB/r_c/smile/smiles}, and {VERB/r_c/state/states} that the Clan will do well under m_c's baronship.",
           "virtue": ["ambition", "bravery", "certainty", "clear judgement", "confidence", "courage", "determination", "endurance", "farsightedness", "instincts", "strength", "ferocity", "cunning", "shamelessness", "zealotry", "bloodlust", "restless energy", 
       "stubbornness", "authority"]
         },
@@ -831,11 +831,11 @@
       ]
     },
   
-    "wise_warrior": {
+    "wise_clipper": {
       "tags": [],
       "lead_trait": ["wise"],
       "star_trait": [],
-      "rank": ["warrior", "elder", "medicine cat", "mediator", "apprentice", "deputy", "medicine cat apprentice", "mediator apprentice"],
+      "rank": ["clipper", "elder", "medicine cat", "mediator", "apprentice", "regent", "medicine cat apprentice", "mediator apprentice"],
       "life_giving": [
         {
           "text": "What does wisdom have in the face of raw power? r_c sneers this in m_c's face as the life for [virtue] is given like a claw through the throat.",
@@ -844,46 +844,46 @@
       "stubbornness", "authority"]
         },
         {
-          "text": "r_c snarls as the life of [virtue] is given, winding around m_c's body like a snake. All of the new leader's plans and thoughts will crumble to dust unless {PRONOUN/m_c/subject} {VERB/m_c/act/acts} quickly, rashly!",
+          "text": "r_c snarls as the life of [virtue] is given, winding around m_c's body like a snake. All of the new baron's plans and thoughts will crumble to dust unless {PRONOUN/m_c/subject} {VERB/m_c/act/acts} quickly, rashly!",
           "virtue": ["ambition", "bravery", "certainty", "clear judgment", "confidence", "courage",
       "determination", "endurance", "farsightedness", "instincts", "strength", "ferocity", "cunning", "shamelessness", "zealotry", "bloodlust", "restless energy", 
       "stubbornness", "authority"]
         }
       ]
     },
-    "arrogant_warrior": {
+    "arrogant_clipper": {
       "tags": [],
       "lead_trait": ["arrogant"],
       "star_trait": [],
-      "rank": ["warrior", "elder", "medicine cat", "mediator", "apprentice", "deputy"],
+      "rank": ["clipper", "elder", "medicine cat", "mediator", "apprentice", "regent"],
       "life_giving": [
         {
-          "text": "m_c is the best of the warriors in c_n. The best in the whole Clan entirely. Maybe even the best warrior of all of history! That is what r_c croons into the new leader's ears as the life for [virtue] is given freely.",
+          "text": "m_c is the best of the clippers in c_n. The best in the whole Clan entirely. Maybe even the best clipper of all of history! That is what r_c croons into the new baron's ears as the life for [virtue] is given freely.",
           "virtue": ["ambition", "bravery", "certainty", "clear judgment", "confidence", "courage",
           "determination", "endurance", "farsightedness", "instincts", "strength", "ferocity", "cunning", "shamelessness", "zealotry", "bloodlust", "restless energy", 
           "stubbornness", "authority"]
         }
       ]
     },
-    "competitive_warrior": {
+    "competitive_clipper": {
       "tags": [],
       "lead_trait": ["competitive"],
       "star_trait": [],
-      "rank": ["warrior", "deputy"],
+      "rank": ["clipper", "regent"],
       "life_giving": [
         {
-          "text": "r_c knows that m_c will never be able to outdo {PRONOUN/r_c/object}, even with the Dark Forest on the leader's side. Even as the life for [virtue] fades into a dull, painful ache, r_c whispers how {PRONOUN/r_c/subject} will be here and watching m_c fail again and again compared to dark spirit.",
+          "text": "r_c knows that m_c will never be able to outdo {PRONOUN/r_c/object}, even with the Dark Forest on the baron's side. Even as the life for [virtue] fades into a dull, painful ache, r_c whispers how {PRONOUN/r_c/subject} will be here and watching m_c fail again and again compared to dark spirit.",
           "virtue": ["ambition", "bravery", "certainty", "clear judgment", "confidence", "courage",
           "determination", "endurance", "farsightedness", "instincts", "strength", "ferocity", "cunning", "shamelessness", "zealotry", "bloodlust", "restless energy", 
           "stubbornness", "authority"]
         }
       ]
     },
-        "flamboyant_warrior": {
+        "flamboyant_clipper": {
       "tags": [],
       "lead_trait": ["flamboyant"],
       "star_trait": [],
-      "rank": ["warrior", "deputy"],
+      "rank": ["clipper", "regent"],
       "life_giving": [
         {
           "text": "Such a theatrical attitude has no place in the Dark Forest. But the gloom-covered spirit of r_c gives m_c a life for [virtue] with silent contempt in {PRONOUN/r_c/poss} eyes regardless of {PRONOUN/r_c/poss} feelings on the matter.",
@@ -893,42 +893,42 @@
         }
       ]
     },
-    "grumpy_warrior": {
+    "grumpy_clipper": {
       "tags": [],
       "lead_trait": ["grumpy"],
       "star_trait": [],
-      "rank": ["warrior", "deputy"],
+      "rank": ["clipper", "regent"],
       "life_giving": [
         {
-          "text": "r_c wonders if m_c's grumpy attitude is from anger and bloodlust, or a general spite towards the world. The shadowy spirit gives the new leader a life for [virtue].",
+          "text": "r_c wonders if m_c's grumpy attitude is from anger and bloodlust, or a general spite towards the world. The shadowy spirit gives the new baron a life for [virtue].",
           "virtue": ["ambition", "bravery", "certainty", "clear judgment", "confidence", "courage",
           "determination", "endurance", "farsightedness", "instincts", "strength", "ferocity", "cunning", "shamelessness", "zealotry", "bloodlust", "restless energy", 
           "stubbornness", "authority"]
         }
       ]
     },
-    "rebellious_warrior": {
+    "rebellious_clipper": {
       "tags": [],
       "lead_trait": ["Rebellious"],
       "star_trait": [],
-      "rank": ["warrior", "deputy"],
+      "rank": ["clipper", "regent"],
       "life_giving": [
         {
-          "text": "So long as m_c uses {PRONOUN/m_c/poss} rebellious ways to destroy the hold StarClan has on the world, r_c can't give a rat's tail what the new leader does with the life for [virtue].",
+          "text": "So long as m_c uses {PRONOUN/m_c/poss} rebellious ways to destroy the hold StarClan has on the world, r_c can't give a rat's tail what the new baron does with the life for [virtue].",
           "virtue": ["ambition", "bravery", "certainty", "clear judgment", "confidence", "courage",
           "determination", "endurance", "farsightedness", "instincts", "strength", "ferocity", "cunning", "shamelessness", "zealotry", "bloodlust", "restless energy", 
           "stubbornness", "authority"]
         }
       ]
     },
-    "sincere_warrior": {
+    "sincere_clipper": {
       "tags": [],
       "lead_trait": ["sincere"],
       "star_trait": [],
-      "rank": ["warrior", "deputy"],
+      "rank": ["clipper", "regent"],
       "life_giving": [
         {
-          "text": "Is this a joke? The murk-covered form of r_c can't believe that m_c has been chosen to be leader. r_c rolls {PRONOUN/r_c/poss} eyes and gives a life for [virtue] with an incredulous sigh.",
+          "text": "Is this a joke? The murk-covered form of r_c can't believe that m_c has been chosen to be baron. r_c rolls {PRONOUN/r_c/poss} eyes and gives a life for [virtue] with an incredulous sigh.",
           "virtue": ["ambition", "bravery", "certainty", "clear judgment", "confidence", "courage",
           "determination", "endurance", "farsightedness", "instincts", "strength", "ferocity", "cunning", "shamelessness", "zealotry", "bloodlust", "restless energy", 
           "stubbornness", "authority"]
@@ -942,7 +942,7 @@
       "rank": ["kitten"],
       "life_giving": [
         {
-          "text": "r_c bounds up to the new leader, reaching up on {PRONOUN/r_c/poss} hind legs to give {PRONOUN/m_c/object} a new life for [virtue]. {PRONOUN/r_c/subject/CAP} {VERB/r_c/flick/flicks} {PRONOUN/r_c/poss} muck-covered tail and {VERB/r_c/run/runs} back to the line of shadows.",
+          "text": "r_c bounds up to the new baron, reaching up on {PRONOUN/r_c/poss} hind legs to give {PRONOUN/m_c/object} a new life for [virtue]. {PRONOUN/r_c/subject/CAP} {VERB/r_c/flick/flicks} {PRONOUN/r_c/poss} muck-covered tail and {VERB/r_c/run/runs} back to the line of shadows.",
           "virtue": ["adventure", "curiosity", "perspective", "protection"]
         }
       ]
@@ -955,7 +955,7 @@
       "rank": ["kitten"],
       "life_giving": [
         {
-          "text": "r_c giddily approaches the new leader, reaching up on {PRONOUN/r_c/poss} hind legs to give {PRONOUN/m_c/object} a new life for [virtue]. {PRONOUN/r_c/subject/CAP} {VERB/r_c/lash/lashes} {PRONOUN/r_c/poss} tail and {VERB/r_c/head/heads} back to make room for the next cat.",
+          "text": "r_c giddily approaches the new baron, reaching up on {PRONOUN/r_c/poss} hind legs to give {PRONOUN/m_c/object} a new life for [virtue]. {PRONOUN/r_c/subject/CAP} {VERB/r_c/lash/lashes} {PRONOUN/r_c/poss} tail and {VERB/r_c/head/heads} back to make room for the next cat.",
           "virtue": ["adventure", "curiosity", "perspective", "protection"]
         }
       ]
@@ -1039,52 +1039,52 @@
       ]
     },
 
-    "default_leader": {
+    "default_baron": {
       "tags": [],
       "lead_trait": [],
       "star_trait": [],
-      "rank": ["leader"],
+      "rank": ["baron"],
       "life_giving": [
         {
           "text": "Finally, r_c steps forward. The gloom and murk across {PRONOUN/r_c/poss} pelt shows the future that m_c will endure one day. {PRONOUN/r_c/subject/CAP} {VERB/r_c/give/gives} a life for [virtue].",
-          "virtue": ["endurance in the face of hardship", "knowing when to fight and when to choose to lay in wait", "leadership through the darkest times", "loyalty to their Clan", "the strength to overcome their fears", "tireless energy"]
+          "virtue": ["endurance in the face of hardship", "knowing when to fight and when to choose to lay in wait", "baronship through the darkest times", "loyalty to their Clan", "the strength to overcome their fears", "tireless energy"]
         }
       ]
     },
-    "default_leader_ancient": {
-      "tags": ["old_leader"],
+    "default_baron_ancient": {
+      "tags": ["old_baron"],
       "lead_trait": [],
       "star_trait": [],
-      "rank": ["leader"],
+      "rank": ["baron"],
       "life_giving": [
         {
           "text": "Finally, r_c steps forward. The dark shadows across the clearing could not hide the corrupted satisfaction in {PRONOUN/r_c/poss} eyes. {PRONOUN/r_c/subject/CAP} {VERB/r_c/give/gives} a life for [virtue].",
-          "virtue": ["endurance in the face of hardship", "knowing when to fight and when to choose to lay in wait", "leadership through the darkest times", "loyalty to their Clan", "the strength to overcome their fears", "tireless energy"]
+          "virtue": ["endurance in the face of hardship", "knowing when to fight and when to choose to lay in wait", "baronship through the darkest times", "loyalty to their Clan", "the strength to overcome their fears", "tireless energy"]
         }
       ]
     },
 
-    "bloodthirsty_leader": {
+    "bloodthirsty_baron": {
       "tags": [],
       "lead_trait": ["bloodthirsty"],
       "star_trait": [],
-      "rank": ["leader"],
+      "rank": ["baron"],
       "life_giving": [
         {
           "text": "Finally, r_c steps forward. The dark shadows across the clearing could not hide the corrupted satisfaction in {PRONOUN/r_c/poss} eyes. {PRONOUN/r_c/subject/CAP} {VERB/r_c/give/gives} a life for [virtue].",
-          "virtue": ["endurance in the face of hardship", "knowing when to fight and when to choose to lay in wait", "leadership through the darkest times", "loyalty to their Clan", "the strength to overcome their fears", "tireless energy"]
+          "virtue": ["endurance in the face of hardship", "knowing when to fight and when to choose to lay in wait", "baronship through the darkest times", "loyalty to their Clan", "the strength to overcome their fears", "tireless energy"]
         }
       ]
     },
-    "bloodthirsty_leader_ancient": {
-      "tags": ["old_leader"],
+    "bloodthirsty_baron_ancient": {
+      "tags": ["old_baron"],
       "lead_trait": ["bloodthirsty"],
       "star_trait": [],
-      "rank": ["leader"],
+      "rank": ["baron"],
       "life_giving": [
         {
-          "text": "r_c, one of the Dark Forest's oldest leaders, looks at the new leader with a triumphant expression. {PRONOUN/r_c/subject/CAP} {VERB/r_c/give/gives} a last life, the gift of [virtue].",
-          "virtue": ["endurance in the face of hardship", "knowing when to fight and when to choose to lay in wait", "leadership through the darkest times", "loyalty to their Clan", "the strength to overcome their fears", "tireless energy"]
+          "text": "r_c, one of the Dark Forest's oldest barons, looks at the new baron with a triumphant expression. {PRONOUN/r_c/subject/CAP} {VERB/r_c/give/gives} a last life, the gift of [virtue].",
+          "virtue": ["endurance in the face of hardship", "knowing when to fight and when to choose to lay in wait", "baronship through the darkest times", "loyalty to their Clan", "the strength to overcome their fears", "tireless energy"]
         }
       ]
     }
@@ -1111,7 +1111,7 @@
       "tags": [],
       "lead_trait": ["bloodthirsty"],
       "text": [
-        "r_c hails m_c by {PRONOUN/m_c/poss} new name, m_c_star, telling {PRONOUN/m_c/object} that {PRONOUN/m_c/poss} old pathetic life is no more. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} granted guardianship of c_n, and {VERB/m_c/are/is} told to use {PRONOUN/m_c/poss} new power however {PRONOUN/m_c/subject} {VERB/m_c/wish/wishes}. The Dark Forest's hissing and yowls echo in the dusky clearing as the new leader begins to wake up. m_c_star stands, feeling a new strength within {PRONOUN/m_c/poss} body, and grins."
+        "r_c hails m_c by {PRONOUN/m_c/poss} new name, m_c_star, telling {PRONOUN/m_c/object} that {PRONOUN/m_c/poss} old pathetic life is no more. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} granted guardianship of c_n, and {VERB/m_c/are/is} told to use {PRONOUN/m_c/poss} new power however {PRONOUN/m_c/subject} {VERB/m_c/wish/wishes}. The Dark Forest's hissing and yowls echo in the dusky clearing as the new baron begins to wake up. m_c_star stands, feeling a new strength within {PRONOUN/m_c/poss} body, and grins."
       ]
     }
   }

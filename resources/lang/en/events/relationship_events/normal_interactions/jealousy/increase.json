@@ -43,22 +43,22 @@
 		"main_status_constraint": [
 			"mediator apprentice",
 			"apprentice",
-			"warrior"
+			"clipper"
 		],
 		"random_status_constraint": [
 			"mediator apprentice",
 			"apprentice",
 			"medicine cat apprentice",
 			"medicine cat",
-			"warrior",
+			"clipper",
 			"mediator",
-			"deputy"
+			"regent"
 		]
 	},
 	{
 		"id": "jealousy_inc_med3",
 		"interactions": [
-			"m_c is jealous that r_c was praised by the leader.",
+			"m_c is jealous that r_c was praised by the baron.",
 			"m_c is jealous that r_c got to fight in a border skirmish when {PRONOUN/m_c/subject} didn't.",
 			"m_c is jealous that r_c got to go on border patrol this morning.",
 			"r_c caught a giant piece of prey that m_c wishes {PRONOUN/m_c/subject} did.",
@@ -66,19 +66,19 @@
 			"m_c wishes {PRONOUN/m_c/subject} could be as good a fighter as r_c.",
 			"m_c tries not to get envious hearing one of r_c's crazy patrol stories.",
 			"m_c had a plan during a patrol, but r_c's was a lot better.",
-			"The leader was more impressed by what r_c brought back from a hunting patrol than what m_c did.",
+			"The baron was more impressed by what r_c brought back from a hunting patrol than what m_c did.",
 			"m_c is jealous that r_c went on patrol without {PRONOUN/m_c/object}.",
 			"m_c doesn't understand how r_c got so good at hunting."
 		],
 		"main_status_constraint": [
 			"apprentice",
 			"mediator apprentice",
-			"warrior"
+			"clipper"
 		],
 		"random_status_constraint": [
 			"apprentice",
-			"warrior",
-			"deputy"
+			"clipper",
+			"regent"
 		]
 	},
 	{
@@ -187,9 +187,9 @@
 			"apprentice",
 			"medicine cat apprentice",
 			"medicine cat",
-			"warrior",
+			"clipper",
 			"mediator",
-			"deputy"
+			"regent"
 		],
 		"random_status_constraint": [
 			"elder"

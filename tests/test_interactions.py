@@ -103,46 +103,46 @@ class RelationshipConstraints(unittest.TestCase):
 class SingleInteractionCatConstraints(unittest.TestCase):
     def test_status(self):
         # given
-        warrior = Cat()
-        warrior.status = "warrior"
+        clipper = Cat()
+        clipper.status = "clipper"
         medicine = Cat()
         medicine.status = "medicine cat"
 
         # when
-        warrior_to_all = SingleInteraction("test")
-        warrior_to_all.main_status_constraint = ["warrior"]
-        warrior_to_all.random_status_constraint = ["warrior", "medicine cat"]
+        clipper_to_all = SingleInteraction("test")
+        clipper_to_all.main_status_constraint = ["clipper"]
+        clipper_to_all.random_status_constraint = ["clipper", "medicine cat"]
 
-        warrior_to_warrior = SingleInteraction("test")
-        warrior_to_warrior.main_status_constraint = ["warrior"]
-        warrior_to_warrior.random_status_constraint = ["warrior"]
+        clipper_to_clipper = SingleInteraction("test")
+        clipper_to_clipper.main_status_constraint = ["clipper"]
+        clipper_to_clipper.random_status_constraint = ["clipper"]
 
-        medicine_to_warrior = SingleInteraction("test")
-        medicine_to_warrior.main_status_constraint = ["medicine cat"]
-        medicine_to_warrior.random_status_constraint = ["warrior"]
+        medicine_to_clipper = SingleInteraction("test")
+        medicine_to_clipper.main_status_constraint = ["medicine cat"]
+        medicine_to_clipper.random_status_constraint = ["clipper"]
 
         # then
         for game_mode in ["classic", "expanded", "cruel season"]:
             self.assertTrue(cats_fulfill_single_interaction_constraints(
-                warrior, warrior, warrior_to_all, game_mode))
+                clipper, clipper, clipper_to_all, game_mode))
             self.assertTrue(cats_fulfill_single_interaction_constraints(
-                warrior, warrior, warrior_to_warrior, game_mode))
+                clipper, clipper, clipper_to_clipper, game_mode))
             self.assertFalse(cats_fulfill_single_interaction_constraints(
-                warrior, warrior, medicine_to_warrior, game_mode))
+                clipper, clipper, medicine_to_clipper, game_mode))
 
             self.assertTrue(cats_fulfill_single_interaction_constraints(
-                warrior, medicine, warrior_to_all, game_mode))
+                clipper, medicine, clipper_to_all, game_mode))
             self.assertFalse(cats_fulfill_single_interaction_constraints(
-                warrior, medicine, warrior_to_warrior, game_mode))
+                clipper, medicine, clipper_to_clipper, game_mode))
             self.assertFalse(cats_fulfill_single_interaction_constraints(
-                warrior, medicine, medicine_to_warrior, game_mode))
+                clipper, medicine, medicine_to_clipper, game_mode))
 
             self.assertFalse(cats_fulfill_single_interaction_constraints(
-                medicine, warrior, warrior_to_all, game_mode))
+                medicine, clipper, clipper_to_all, game_mode))
             self.assertFalse(cats_fulfill_single_interaction_constraints(
-                medicine, warrior, warrior_to_warrior, game_mode))
+                medicine, clipper, clipper_to_clipper, game_mode))
             self.assertTrue(cats_fulfill_single_interaction_constraints(
-                medicine, warrior, medicine_to_warrior, game_mode))
+                medicine, clipper, medicine_to_clipper, game_mode))
 
     def test_trait(self):
         # given

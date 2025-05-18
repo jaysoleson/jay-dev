@@ -41,10 +41,10 @@ class MakeClanScreen(Screens):
         "name_clan": pygame.image.load(
             "resources/images/pick_clan_screen/name_clan_light.png"
         ).convert_alpha(),
-        "leader": pygame.image.load(
+        "baron": pygame.image.load(
             "resources/images/pick_clan_screen/leader_light.png"
         ).convert_alpha(),
-        "deputy": pygame.image.load(
+        "regent": pygame.image.load(
             "resources/images/pick_clan_screen/deputy_light.png"
         ).convert_alpha(),
         "medic": pygame.image.load(
@@ -64,8 +64,8 @@ class MakeClanScreen(Screens):
     # This section holds all the information needed
     game_mode = "classic"  # To save the users selection before conformation.
     clan_name = ""  # To store the Clan name before conformation
-    leader = None  # To store the Clan leader before conformation
-    deputy = None
+    baron = None  # To store the Clan baron before conformation
+    regent = None
     med_cat = None
     members = []
     elected_camp = None
@@ -113,12 +113,12 @@ class MakeClanScreen(Screens):
             self.ui_images["name_clan"],
             ui_scale_dimensions((800, 700)),
         )
-        self.leader_img = pygame.transform.scale(
-            self.ui_images["leader"],
+        self.baron_img = pygame.transform.scale(
+            self.ui_images["baron"],
             ui_scale_dimensions((800, 700)),
         )
-        self.deputy_img = pygame.transform.scale(
-            self.ui_images["deputy"],
+        self.regent_img = pygame.transform.scale(
+            self.ui_images["regent"],
             ui_scale_dimensions((800, 700)),
         )
         self.medic_img = pygame.transform.scale(
@@ -137,8 +137,8 @@ class MakeClanScreen(Screens):
         self.biome_selected: Optional[str] = None
         self.selected_season: str = "Newleaf"
         self.symbol_selected = None
-        self.leader = None  # To store the Clan leader before confirmation
-        self.deputy = None
+        self.baron = None  # To store the Clan baron before confirmation
+        self.regent = None
         self.med_cat = None
         self.members = []
 
@@ -172,10 +172,10 @@ class MakeClanScreen(Screens):
                 self.handle_game_mode_event(event)
             elif self.sub_screen == "name clan":
                 self.handle_name_clan_event(event)
-            elif self.sub_screen == "choose leader":
-                self.handle_choose_leader_event(event)
-            elif self.sub_screen == "choose deputy":
-                self.handle_choose_deputy_event(event)
+            elif self.sub_screen == "choose baron":
+                self.handle_choose_baron_event(event)
+            elif self.sub_screen == "choose regent":
+                self.handle_choose_regent_event(event)
             elif self.sub_screen == "choose med cat":
                 self.handle_choose_med_event(event)
             elif self.sub_screen == "choose members":
@@ -272,7 +272,7 @@ class MakeClanScreen(Screens):
                 self.elements["error"].show()
                 return
             self.clan_name = new_name
-            self.open_choose_leader()
+            self.open_choose_baron()
         elif event.ui_element == self.elements["previous_step"]:
             self.clan_name = ""
             self.open_game_mode()
@@ -302,7 +302,7 @@ class MakeClanScreen(Screens):
                     self.elements["error"].show()
                     return
                 self.clan_name = new_name
-                self.open_choose_leader()
+                self.open_choose_baron()
         elif event.key == pygame.K_RETURN:
             new_name = sub(
                 r"[^A-Za-z0-9 ]+", "", self.elements["name_entry"].get_text()
@@ -318,9 +318,9 @@ class MakeClanScreen(Screens):
                 self.elements["error"].show()
                 return
             self.clan_name = new_name
-            self.open_choose_leader()
+            self.open_choose_baron()
 
-    def handle_choose_leader_event(self, event):
+    def handle_choose_baron_event(self, event):
         if event.ui_element in [
             self.elements["roll1"],
             self.elements["roll2"],
@@ -347,47 +347,47 @@ class MakeClanScreen(Screens):
             if pygame.key.get_mods() & pygame.KMOD_SHIFT:
                 clicked_cat = event.ui_element.return_cat_object()
                 if clicked_cat.age not in ["newborn", "kitten", "adolescent"]:
-                    self.leader = clicked_cat
+                    self.baron = clicked_cat
                     self.selected_cat = None
-                    self.open_choose_deputy()
+                    self.open_choose_regent()
             else:
                 self.selected_cat = event.ui_element.return_cat_object()
                 self.refresh_cat_images_and_info(self.selected_cat)
                 self.refresh_text_and_buttons()
         elif event.ui_element == self.elements["select_cat"]:
-            self.leader = self.selected_cat
+            self.baron = self.selected_cat
             self.selected_cat = None
-            self.open_choose_deputy()
+            self.open_choose_regent()
         elif event.ui_element == self.elements["previous_step"]:
             self.clan_name = ""
             self.open_name_clan()
 
-    def handle_choose_deputy_event(self, event):
+    def handle_choose_regent_event(self, event):
         if event.ui_element == self.elements["previous_step"]:
-            self.leader = None
+            self.baron = None
             self.selected_cat = None
-            self.open_choose_leader()
+            self.open_choose_baron()
         elif event.ui_element in [self.elements["cat" + str(u)] for u in range(0, 12)]:
             if pygame.key.get_mods() & pygame.KMOD_SHIFT:
                 clicked_cat = event.ui_element.return_cat_object()
                 if clicked_cat.age not in ["newborn", "kitten", "adolescent"]:
-                    self.deputy = clicked_cat
+                    self.regent = clicked_cat
                     self.selected_cat = None
                     self.open_choose_med_cat()
-            elif event.ui_element.return_cat_object() != self.leader:
+            elif event.ui_element.return_cat_object() != self.baron:
                 self.selected_cat = event.ui_element.return_cat_object()
                 self.refresh_cat_images_and_info(self.selected_cat)
                 self.refresh_text_and_buttons()
         elif event.ui_element == self.elements["select_cat"]:
-            self.deputy = self.selected_cat
+            self.regent = self.selected_cat
             self.selected_cat = None
             self.open_choose_med_cat()
 
     def handle_choose_med_event(self, event):
         if event.ui_element == self.elements["previous_step"]:
-            self.deputy = None
+            self.regent = None
             self.selected_cat = None
-            self.open_choose_deputy()
+            self.open_choose_regent()
         elif event.ui_element in [self.elements["cat" + str(u)] for u in range(0, 12)]:
             if pygame.key.get_mods() & pygame.KMOD_SHIFT:
                 clicked_cat = event.ui_element.return_cat_object()
@@ -659,8 +659,8 @@ class MakeClanScreen(Screens):
                 self.elements["next_step"].disable()
             else:
                 self.elements["next_step"].enable()
-        # Show the error message if you try to choose a child for leader, deputy, or med cat.
-        elif self.sub_screen in ["choose leader", "choose deputy", "choose med cat"]:
+        # Show the error message if you try to choose a child for baron, regent, or med cat.
+        elif self.sub_screen in ["choose baron", "choose regent", "choose med cat"]:
             if self.selected_cat.age in ["newborn", "kitten", "adolescent"]:
                 self.elements["select_cat"].hide()
                 self.elements["error_message"].set_text(
@@ -1089,7 +1089,7 @@ class MakeClanScreen(Screens):
             self.elements["cat_name"].hide()
             return
 
-        if self.sub_screen == "choose leader":
+        if self.sub_screen == "choose baron":
             self.elements["cat_name"].set_text(
                 str(selected.name) + " --> " + selected.name.prefix + "star"
             )
@@ -1129,7 +1129,7 @@ class MakeClanScreen(Screens):
                 )
             elif (
                 game.choose_cats[u]
-                in [self.leader, self.deputy, self.med_cat] + self.members
+                in [self.baron, self.regent, self.med_cat] + self.members
             ):
                 self.elements["cat" + str(u)] = UISpriteButton(
                     ui_scale(pygame.Rect((650, 130 + 50 * u), (50, 50))),
@@ -1162,7 +1162,7 @@ class MakeClanScreen(Screens):
                 )
             elif (
                 game.choose_cats[u]
-                in [self.leader, self.deputy, self.med_cat] + self.members
+                in [self.baron, self.regent, self.med_cat] + self.members
             ):
                 self.elements["cat" + str(u)] = UISpriteButton(
                     ui_scale(pygame.Rect((700, 130 + 50 * (u - 6)), (50, 50))),
@@ -1265,12 +1265,12 @@ class MakeClanScreen(Screens):
             self.symbol_selected = f"symbol{self.clan_name.upper()}0"
         else:
             self.symbol_selected = choice(sprites.clan_symbols)
-        self.leader = create_cat(status="warrior")
-        self.deputy = create_cat(status="warrior")
-        self.med_cat = create_cat(status="warrior")
+        self.baron = create_cat(status="clipper")
+        self.regent = create_cat(status="clipper")
+        self.med_cat = create_cat(status="clipper")
         for _ in range(randrange(4, 8)):
             random_status = choice(
-                ["kitten", "apprentice", "warrior", "warrior", "elder"]
+                ["kitten", "apprentice", "clipper", "clipper", "elder"]
             )
             self.members.append(create_cat(status=random_status))
 
@@ -1485,14 +1485,14 @@ class MakeClanScreen(Screens):
             manager=MANAGER,
         )
 
-    def open_choose_leader(self):
-        """Set up the screen for the choose leader phase."""
+    def open_choose_baron(self):
+        """Set up the screen for the choose baron phase."""
         self.clear_all_page()
-        self.sub_screen = "choose leader"
+        self.sub_screen = "choose baron"
 
         self.elements["background"] = pygame_gui.elements.UIImage(
             ui_scale(pygame.Rect((0, 414), (800, 286))),
-            self.leader_img,
+            self.baron_img,
             manager=MANAGER,
         )
 
@@ -1500,7 +1500,7 @@ class MakeClanScreen(Screens):
         self.clan_name_header()
 
         self.elements["title"] = pygame_gui.elements.UITextBox(
-            "screens.make_clan.leader_title",
+            "screens.make_clan.baron_title",
             ui_scale(pygame.Rect((0, 610), (800, 90))),
             object_id="@clangen_32",
             anchors={"centerx": "centerx"},
@@ -1577,7 +1577,7 @@ class MakeClanScreen(Screens):
 
         self.elements["select_cat"] = UIImageButton(
             ui_scale(pygame.Rect((234, 348), (332, 52))),
-            "screens.make_clan.choose_leader",
+            "screens.make_clan.choose_baron",
             object_id="#nine_lives_button",
             starting_height=2,
             visible=False,
@@ -1586,7 +1586,7 @@ class MakeClanScreen(Screens):
         )
         # Error message, to appear if you can't choose that cat.
         self.elements["error_message"] = pygame_gui.elements.UITextBox(
-            "screens.make_clan.error_too_young_leader",
+            "screens.make_clan.error_too_young_baron",
             ui_scale(pygame.Rect((150, 353), (500, 55))),
             object_id=get_text_box_theme("#text_box_30_horizcenter_red"),
             visible=False,
@@ -1616,20 +1616,20 @@ class MakeClanScreen(Screens):
         # draw cats to choose from
         self.refresh_cat_images_and_info()
 
-    def open_choose_deputy(self):
-        """Open sub-page to select deputy."""
+    def open_choose_regent(self):
+        """Open sub-page to select regent."""
         self.clear_all_page()
-        self.sub_screen = "choose deputy"
+        self.sub_screen = "choose regent"
 
         self.elements["background"] = pygame_gui.elements.UIImage(
             ui_scale(pygame.Rect((0, 414), (800, 286))),
-            self.deputy_img,
+            self.regent_img,
             manager=MANAGER,
         )
         self.elements["background"].disable()
         self.clan_name_header()
         self.elements["title"] = pygame_gui.elements.UITextBox(
-            "screens.make_clan.deputy_title",
+            "screens.make_clan.regent_title",
             ui_scale(pygame.Rect((0, 610), (800, 90))),
             object_id="@clangen_32",
             anchors={"centerx": "centerx"},
@@ -1639,15 +1639,15 @@ class MakeClanScreen(Screens):
 
         self.elements["select_cat"] = UIImageButton(
             ui_scale(pygame.Rect((209, 348), (384, 52))),
-            "screens.make_clan.choose_deputy",
-            object_id="#support_leader_button",
+            "screens.make_clan.choose_regent",
+            object_id="#support_baron_button",
             starting_height=2,
             visible=False,
             manager=MANAGER,
         )
         # Error message, to appear if you can't choose that cat.
         self.elements["error_message"] = pygame_gui.elements.UITextBox(
-            "screens.make_clan.error_too_young_deputy",
+            "screens.make_clan.error_too_young_regent",
             ui_scale(pygame.Rect((150, 353), (500, 55))),
             object_id=get_text_box_theme("#text_box_30_horizcenter_red"),
             visible=False,
@@ -1966,13 +1966,13 @@ class MakeClanScreen(Screens):
                 "top_target": self.text["clan_name"],
             },
         )
-        self.text["leader"] = pygame_gui.elements.UILabel(
+        self.text["baron"] = pygame_gui.elements.UILabel(
             ui_scale(pygame.Rect((0, 5), (-1, -1))),
-            text="screens.make_clan.symbol_leader",
+            text="screens.make_clan.symbol_baron",
             container=self.elements["text_container"],
             object_id=get_text_box_theme("#text_box_30_horizleft"),
             manager=MANAGER,
-            text_kwargs={"prefix": self.leader.name.prefix},
+            text_kwargs={"prefix": self.baron.name.prefix},
             anchors={
                 "top_target": self.text["biome"],
             },
@@ -1989,7 +1989,7 @@ class MakeClanScreen(Screens):
                 else i18n.t("screens.make_clan.not_applicable")
             },
             anchors={
-                "top_target": self.text["leader"],
+                "top_target": self.text["baron"],
             },
         )
         self.text["selected"] = pygame_gui.elements.UILabel(
@@ -2110,10 +2110,10 @@ class MakeClanScreen(Screens):
             manager=MANAGER,
         )
 
-        self.elements["leader_image"] = pygame_gui.elements.UIImage(
+        self.elements["baron_image"] = pygame_gui.elements.UIImage(
             ui_scale(pygame.Rect((350, 125), (100, 100))),
             pygame.transform.scale(
-                game.clan.leader.sprite, ui_scale_dimensions((100, 100))
+                game.clan.baron.sprite, ui_scale_dimensions((100, 100))
             ),
             starting_height=1,
             manager=MANAGER,
@@ -2145,8 +2145,8 @@ class MakeClanScreen(Screens):
         convert_camp = {1: "camp1", 2: "camp2", 3: "camp3", 4: "camp4"}
         game.clan = Clan(
             name=self.clan_name,
-            leader=self.leader,
-            deputy=self.deputy,
+            baron=self.baron,
+            regent=self.regent,
             medicine_cat=self.med_cat,
             biome=self.biome_selected,
             camp_bg=convert_camp[self.selected_camp_tab],

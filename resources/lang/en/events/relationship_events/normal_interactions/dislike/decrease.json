@@ -121,24 +121,24 @@
 		"main_status_constraint": [
 			"elder",
 			"apprentice",
-			"warrior",
+			"clipper",
 			"mediator apprentice",
 			"mediator",
 			"medicine cat apprentice",
 			"medicine cat",
-			"deputy",
-			"leader"
+			"regent",
+			"baron"
 		],
 		"random_status_constraint": [
 			"elder",
 			"apprentice",
-			"warrior",
+			"clipper",
 			"mediator apprentice",
 			"mediator",
 			"medicine cat apprentice",
 			"medicine cat",
-			"deputy",
-			"leader"
+			"regent",
+			"baron"
 		]
 	}
 ]

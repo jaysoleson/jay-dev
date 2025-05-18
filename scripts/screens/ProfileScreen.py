@@ -180,8 +180,8 @@ class ProfileScreen(Screens):
             elif event.ui_element == self.conditions_tab_button:
                 self.toggle_conditions_tab()
             elif (
-                    "leader_ceremony" in self.profile_elements
-                    and event.ui_element == self.profile_elements["leader_ceremony"]
+                    "baron_ceremony" in self.profile_elements
+                    and event.ui_element == self.profile_elements["baron_ceremony"]
             ):
                 self.change_screen("ceremony screen")
             elif event.ui_element == self.profile_elements["med_den"]:
@@ -656,12 +656,12 @@ class ProfileScreen(Screens):
         if self.open_tab == "history" and self.open_sub_tab == "user notes":
             self.load_user_notes()
 
-        if self.the_cat.status == "leader" and not self.the_cat.dead:
-            self.profile_elements["leader_ceremony"] = UIImageButton(
+        if self.the_cat.status == "baron" and not self.the_cat.dead:
+            self.profile_elements["baron_ceremony"] = UIImageButton(
                 ui_scale(pygame.Rect((383, 110), (34, 34))),
                 "",
-                object_id="#leader_ceremony_button",
-                tool_tip_text="screens.profile.leader_ceremony",
+                object_id="#baron_ceremony_button",
+                tool_tip_text="screens.profile.baron_ceremony",
                 manager=MANAGER,
             )
         elif self.the_cat.status in ["mediator", "mediator apprentice"]:
@@ -810,11 +810,11 @@ class ProfileScreen(Screens):
         # NEWLINE ----------
         output += "\n"
 
-        # LEADER LIVES:
-        # Optional - Only shows up for leaders
-        if not the_cat.dead and "leader" in the_cat.status:
+        # baron LIVES:
+        # Optional - Only shows up for barons
+        if not the_cat.dead and "baron" in the_cat.status:
             output += i18n.t(
-                "screens.profile.lives_remaining_label", count=game.clan.leader_lives
+                "screens.profile.lives_remaining_label", count=game.clan.baron_lives
             )
             # NEWLINE ----------
             output += "\n"
@@ -1511,7 +1511,7 @@ class ProfileScreen(Screens):
                         random_cat=Cat.fetch_cat(death["involved"]),
                     )
 
-                if self.the_cat.status == "leader":
+                if self.the_cat.status == "baron":
                     if text == "multi_lives":
                         multi_life_count += 1
                         continue
@@ -1545,21 +1545,21 @@ class ProfileScreen(Screens):
                         else:
                             lives = [i18n.t(f"utility.{life_names[index]}")]
                         life_text = i18n.t(
-                            "cat.history.leader_death_cardinal",
+                            "cat.history.baron_death_cardinal",
                             cardinal=adjust_list_text(lives),
                             count=len(lives),
                         )
                 elif death_number > 1:
-                    # for retired leaders
+                    # for retired barons
                     if index == death_number - 1 and self.the_cat.dead:
-                        life_text = i18n.t("cat.history.leader_death_retired")
+                        life_text = i18n.t("cat.history.baron_death_retired")
                         # added code
                         if "This cat was" in text:
                             text = text.replace("This cat was", "{VERB/m_c/were/was}")
                         else:
                             text = text[0].lower() + text[1:]
                     else:
-                        life_text = i18n.t("cat.history.leader_death_default")
+                        life_text = i18n.t("cat.history.baron_death_default")
                 else:
                     life_text = ""
 
@@ -1575,7 +1575,7 @@ class ProfileScreen(Screens):
                         text += f" ({i18n.t('general.moons_date', moon=death['moon'])})"
                     all_deaths.append(text)
 
-            if self.the_cat.status == "leader" or death_number > 1:
+            if self.the_cat.status == "baron" or death_number > 1:
                 if death_number > 1:
                     deaths = str("\n" + str(self.the_cat.name) + " ").join(all_deaths)
                 else:

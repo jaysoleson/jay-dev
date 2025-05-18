@@ -383,8 +383,8 @@ class ClanSettingsScreen(Screens):
         faded_cats = len(game.clan.faded_ids)
         living_cats = 0
         med_cats = 0
-        warriors = 0
-        warrior_apprentices = 0
+        clippers = 0
+        clipper_apprentices = 0
         med_cat_apprentices = 0
         mediator_apprentices = 0
         mediators = 0
@@ -417,10 +417,10 @@ class ClanSettingsScreen(Screens):
                 med_cats += 1
             elif cat.status == "medicine cat apprentice":
                 med_cat_apprentices += 1
-            elif cat.status == "warrior":
-                warriors += 1
+            elif cat.status == "clipper":
+                clippers += 1
             elif cat.status == "apprentice":
-                warrior_apprentices += 1
+                clipper_apprentices += 1
             elif cat.status == "mediator apprentice":
                 mediator_apprentices += 1
             elif cat.status == "mediator":
@@ -441,8 +441,8 @@ class ClanSettingsScreen(Screens):
                 "unknownresidence": str(ur),
                 "medcats": str(med_cats),
                 "medcatapps": str(med_cat_apprentices),
-                "warriors": str(warriors),
-                "apps": str(warrior_apprentices),
+                "clippers": str(clippers),
+                "apps": str(clipper_apprentices),
                 "mediators": str(mediators),
                 "mediatorapps": str(mediator_apprentices),
                 "elders": str(elders),

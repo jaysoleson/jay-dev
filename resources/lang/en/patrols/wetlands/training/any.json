@@ -501,7 +501,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "deputy": [1, 6]
+            "regent": [1, 6]
         },
         "weight": 20,
         "intro_text": "r_c heads out into the swamps alone, wanting to explore and have some time to {PRONOUN/r_c/self}.",
@@ -564,7 +564,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "leader": [1, 6]
+            "baron": [1, 6]
         },
         "weight": 20,
         "intro_text": "r_c heads out into the swamps alone, wanting to explore and have some time to {PRONOUN/r_c/self}.",
@@ -769,7 +769,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "Both warriors are stiffly polite with each other, and it's a boring and completely unproductive afternoon, though maybe r_c isn't quite the thorn in {PRONOUN/p_l/poss} paw p_l thought {PRONOUN/r_c/subject} {VERB/r_c/were/was}.",
+                "text": "Both clippers are stiffly polite with each other, and it's a boring and completely unproductive afternoon, though maybe r_c isn't quite the thorn in {PRONOUN/p_l/poss} paw p_l thought {PRONOUN/r_c/subject} {VERB/r_c/were/was}.",
                 "exp": 0,
                 "weight": 20,
                 "relationships": [
@@ -1178,7 +1178,7 @@
         "decline_text": "Instead, p_l detangles a stubborn knot of fur for r_c.",
         "success_outcomes": [
                 {
-                    "text": "Long ago, a leader's son pursued his father's approval and attention by murdering his deputies. But his last victim's mate, a queen nursing the kits of the dead deputy, rose from her nest and struck back with the fury of a mother viper. If the leader's son had been willing to wait for power to come to him, he would've been a great leader. Instead, his ghost lurks in the Dark Forest.",
+                    "text": "Long ago, a baron's son pursued his father's approval and attention by murdering his deputies. But his last victim's mate, a queen nursing the kits of the dead regent, rose from her nest and struck back with the fury of a mother viper. If the baron's son had been willing to wait for power to come to him, he would've been a great baron. Instead, his ghost lurks in the Dark Forest.",
                     "exp": 30,
                     "weight": 20,
                     "art": "gen_bord_story",

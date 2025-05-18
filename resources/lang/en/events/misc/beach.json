@@ -34,14 +34,14 @@
     }
   },
   {
-    "event_id": "bch_misc_war_anymultitraitleader1",
+    "event_id": "bch_misc_war_anymultitraitbaron1",
     "location": ["beach"],
     "season": ["any"],
     "sub_type": ["war"],
     "weight": 15,
     "event_text": "m_c sits by the water, contemplating the calm waves that brush {PRONOUN/m_c/poss} paws and wondering why times are not as peaceful as the tides.",
     "m_c": {
-      "status": ["leader"],
+      "status": ["baron"],
       "skill": ["MEDIATOR,1"],
       "trait": ["thoughtful", "wise", "righteous"],
       "not_trait": ["bloodthirsty", "ambitious"]

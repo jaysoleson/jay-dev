@@ -154,8 +154,8 @@ def reformat(path):
         ):
             new_format["m_c"]["age"].append("adolescent")
         if (
-            "warrior" in path
-            or "deputy" in path
+            "clipper" in path
+            or "regent" in path
             or "leader" in path
             or "mediator" in path
         ):
@@ -188,12 +188,12 @@ def reformat(path):
         if "medicine_cat_app" in event["tags"]:
             new_format["m_c"]["status"].append("medicine cat apprentice")
             event["tags"].remove("medicine_cat_app")
-        if "warrior" in path:
-            new_format["m_c"]["status"].append("warrior")
-            new_format["m_c"]["status"].append("deputy")
+        if "clipper" in path:
+            new_format["m_c"]["status"].append("clipper")
+            new_format["m_c"]["status"].append("regent")
             new_format["m_c"]["status"].append("leader")
-        if "deputy" in path and "deputy" not in new_format["m_c"]["status"]:
-            new_format["m_c"]["status"].append("deputy")
+        if "regent" in path and "regent" not in new_format["m_c"]["status"]:
+            new_format["m_c"]["status"].append("regent")
         if "leader" in path and "leader" not in new_format["m_c"]["status"]:
             new_format["m_c"]["status"].append("leader")
         if "medicine" in path and "medicine_cat_app" not in event["tags"]:
@@ -250,7 +250,7 @@ def reformat(path):
                     "other_cat",
                     "other_cat_kit",
                     "other_cat_med",
-                    "other_cat_warrior",
+                    "other_cat_clipper",
                     "other_cat_dep",
                     "other_cat_leader",
                     "other_cat_app",
@@ -272,7 +272,7 @@ def reformat(path):
                         event["tags"].remove("other_cat_med_app")
                         new_format["r_c"]["age"].append("adolescent")
                     if (
-                        "other_cat_warrior" in event["tags"]
+                        "other_cat_clipper" in event["tags"]
                         or "other_cat_leader" in event["tags"]
                         or "other_cat_dep" in event["tags"]
                         or "other_cat_med" in event["tags"]
@@ -301,8 +301,8 @@ def reformat(path):
                         new_format["r_c"]["age"].append("adult")
                         new_format["r_c"]["age"].append("senior adult")
 
-                    if "other_cat_warrior" in event["tags"]:
-                        event["tags"].remove("other_cat_warrior")
+                    if "other_cat_clipper" in event["tags"]:
+                        event["tags"].remove("other_cat_clipper")
                     if "other_cat_leader" in event["tags"]:
                         event["tags"].remove("other_cat_leader")
                     if "other_cat_dep" in event["tags"]:
@@ -325,12 +325,12 @@ def reformat(path):
                     if "other_cat_med_app" in event["tags"]:
                         event["tags"].remove("other_cat_med_app")
                         new_format["r_c"]["status"].append("medicine cat apprentice")
-                    if "other_cat_warrior" in event["tags"]:
-                        event["tags"].remove("other_cat_warrior")
-                        new_format["r_c"]["status"].append("warrior")
+                    if "other_cat_clipper" in event["tags"]:
+                        event["tags"].remove("other_cat_clipper")
+                        new_format["r_c"]["status"].append("clipper")
                     if "other_cat_dep" in event["tags"]:
                         event["tags"].remove("other_cat_dep")
-                        new_format["r_c"]["status"].append("deputy")
+                        new_format["r_c"]["status"].append("regent")
                     if "other_cat_leader" in event["tags"]:
                         event["tags"].remove("other_cat_leader")
                         new_format["r_c"]["status"].append("leader")
@@ -387,9 +387,9 @@ def reformat(path):
                 if event["litter"]:
                     info.append("litter")
 
-            if "new_warrior" in event["tags"]:
-                event["tags"].remove("new_warrior")
-                info.append("status:{warrior}")
+            if "new_clipper" in event["tags"]:
+                event["tags"].remove("new_clipper")
+                info.append("status:{clipper}")
             if "new_app" in event["tags"]:
                 event["tags"].remove("new_app")
                 info.append("status:{apprentice}")
@@ -624,7 +624,7 @@ def reformat(path):
                 "other_cat",
                 "other_cat_kit",
                 "other_cat_med",
-                "other_cat_warrior",
+                "other_cat_clipper",
                 "other_cat_dep",
                 "other_cat_leader",
                 "other_cat_app",

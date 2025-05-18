@@ -199,7 +199,7 @@ def rebuild_core(*, should_rebuild_bgs=True):
     )
     menu_buttons["lead_den"] = UISurfaceImageButton(
         ui_scale(pygame.Rect((25, 100), (112, 28))),
-        "screens.core.leader_den",
+        "screens.core.baron_den",
         get_button_dict(ButtonStyles.ROUNDED_RECT, (112, 28)),
         visible=False,
         manager=MANAGER,
@@ -215,9 +215,9 @@ def rebuild_core(*, should_rebuild_bgs=True):
         manager=MANAGER,
         starting_height=6,
     )
-    menu_buttons["warrior_den"] = UISurfaceImageButton(
+    menu_buttons["clipper_den"] = UISurfaceImageButton(
         ui_scale(pygame.Rect((25, 180), (121, 28))),
-        "screens.core.warriors_den",
+        "screens.core.clippers_den",
         get_button_dict(ButtonStyles.ROUNDED_RECT, (121, 28)),
         object_id="@buttonstyles_rounded_rect",
         visible=False,

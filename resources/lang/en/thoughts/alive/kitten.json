@@ -26,14 +26,14 @@
             "Is busy mastering a battle move {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} performing incorrectly",
             "Is hatching a plan to sneak out of camp and play",
             "Is running like a whirlwind around the camp",
-            "Is pretending to be the Clan leader",
+            "Is pretending to be the Clan baron",
             "Doesn't want to grow up yet...",
             "Got in trouble for bringing thorns into the nest",
             "Is hunting bugs",
             "Is hiding in the nursery",
             "Has tiny little paws",
             "Is extra fluffy today",
-            "Dreams about being a warrior",
+            "Dreams about being a clipper",
             "Is frightened after hearing a scary story",
             "Wants to be big someday",
             "Wants to have fun",
@@ -43,13 +43,13 @@
             "Knocked {PRONOUN/m_c/self} over with a sneeze",
             "Wants a badger ride",
             "Falls asleep in the elders' den while listening to a story",
-            "Wonders what {PRONOUN/m_c/poss} warrior name will be",
+            "Wonders what {PRONOUN/m_c/poss} clipper name will be",
             "Wants to join the hunting patrol but can't",
             "Is learning how to use {PRONOUN/m_c/poss} claws",
             "Tried climbing r_c",
             "Is eating grass, pretending to be prey",
             "Starts whining when r_c ignores {PRONOUN/m_c/object}",
-            "Can't wait to be a warrior",
+            "Can't wait to be a clipper",
             "Pricked {PRONOUN/m_c/self} on the brambles protecting camp",
             "Pounces on a shred of moss",
             "Is wondering if {PRONOUN/m_c/subject} would be a good swimmer"
@@ -217,20 +217,20 @@
             "apprentice",
             "medicine cat apprentice",
             "mediator apprentice",
-            "warrior",
+            "clipper",
             "medicine cat",
             "mediator",
-            "deputy",
-            "leader",
+            "regent",
+            "baron",
             "elder"
         ]
     },
     {
         "id": "bossy_kit",
         "thoughts": [
-            "Can't wait to be deputy so {PRONOUN/m_c/subject} can assign patrols",
+            "Can't wait to be regent so {PRONOUN/m_c/subject} can assign patrols",
             "Tells r_c to catch {PRONOUN/m_c/object} some fresh prey",
-            "Wants to be leader so everycat will have to listen to {PRONOUN/m_c/object} all the time",
+            "Wants to be baron so everycat will have to listen to {PRONOUN/m_c/object} all the time",
             "Tells r_c to change the bedding in the nursery",
             "Tells r_c to play with {PRONOUN/m_c/object}",
             "Is mad no one will listen to {PRONOUN/m_c/object}",
@@ -288,7 +288,7 @@
             "Nips r_c",
             "Is thinking about taking r_c's fresh-kill",
             "Is trying to look tough",
-            "Says kittypets can't be real warriors",
+            "Says kittypets can't be real clippers",
             "Says r_c's 'real' parents were rogues",
             "Is starting rumors about r_c",
             "Tells r_c that nobody likes {PRONOUN/r_c/object}",
@@ -324,8 +324,8 @@
     {
         "id": "charming_kit",
         "thoughts": [
-            "Is rolling around cutely while warriors look upon {PRONOUN/m_c/object}",
-            "Is rubbing up against the warriors' legs",
+            "Is rolling around cutely while clippers look upon {PRONOUN/m_c/object}",
+            "Is rubbing up against the clippers' legs",
             "Is hoping the patrol will come back with a special gift for {PRONOUN/m_c/object} like usual",
             "Is trying to purr {PRONOUN/m_c/poss} way out of trouble with the medicine cat",
             "Is absolutely adorable",
@@ -349,9 +349,9 @@
         "thoughts": [
             "Thinks {PRONOUN/m_c/subject} saw a StarClan cat in {PRONOUN/m_c/poss} dreams",
             "Is mesmerized by the night sky",
-            "Thinks {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} the leader of {PRONOUN/m_c/poss} own Clan",
-            "Bosses around imaginary cats as deputy",
-            "Wonders what it would be like to be leader",
+            "Thinks {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} the baron of {PRONOUN/m_c/poss} own Clan",
+            "Bosses around imaginary cats as regent",
+            "Wonders what it would be like to be baron",
             "Sorts blades of grass like a medicine cat would",
             "Stares into nothing in particular",
             "Makes up a tale on the spot for the other kits",
@@ -386,7 +386,7 @@
             "Demands to be on the next border patrol",
             "Isn't scared of anything",
             "Is climbing way too high",
-            "Is telling other cats that {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} the deputy now",
+            "Is telling other cats that {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} the regent now",
             "Wants to taste a toad",
             "Thinks {PRONOUN/m_c/subject} can outsmart a fox",
             "Is sure {PRONOUN/m_c/subject} could fight a badger",
@@ -417,16 +417,16 @@
         ]
     },
     {
-        "id": "fearless_kit_to_leader",
+        "id": "fearless_kit_to_baron",
         "thoughts": [
-            "Is trying to challenge the leader but isn't being taken very seriously",
-            "Is sneaking into the leader's nest"
+            "Is trying to challenge the baron but isn't being taken very seriously",
+            "Is sneaking into the baron's nest"
         ],
         "main_trait_constraint": [
             "fearless"
         ],
         "random_status_constraint": [
-            "leader"
+            "baron"
         ],
         "random_living_status": [
             "living"
@@ -473,7 +473,7 @@
             "Doesn't need r_c to tell {PRONOUN/m_c/object} anything",
             "Tells r_c a fact about snails, and another, and another...",
             "Is able to name 20 kinds of bird",
-            "Memorized the Warrior Code ages ago",
+            "Memorized the clipper Code ages ago",
             "Corrects r_c on something trivial",
             "Swears {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} never, EVER, wrong about ANYTHING",
             "Is reciting facts about different kinds of beetles in the middle of camp",
@@ -594,7 +594,7 @@
             "Hates making mistakes",
             "Is afraid of being in the way",
             "Stays at the edges of camp to avoid getting taken by a hawk",
-            "Is intimidated by the warriors",
+            "Is intimidated by the clippers",
             "Is trying to be brave",
             "Is worried about making mistakes"
         ],
@@ -660,7 +660,7 @@
             "Hopes there is enough fresh-kill for every cat",
             "Has a lot on {PRONOUN/m_c/poss} mind",
             "Waits by the camp entrance for r_c to come back safe",
-            "Is intimidated by the warriors",
+            "Is intimidated by the clippers",
             "Is scrambling to hide from a loud noise",
             "Doesn't want to play",
             "Stays at the edges of camp to avoid getting taken by a hawk",
@@ -749,7 +749,7 @@
         "id": "kit_med_parent",
         "thoughts": [
             "Is visiting the medicine cat den to see {PRONOUN/m_c/poss} parent, r_c",
-            "Is wondering why r_c became a medicine cat and not a warrior",
+            "Is wondering why r_c became a medicine cat and not a clipper",
             "Wonders if {PRONOUN/m_c/subject}'ll receive prophecies like r_c",
             "Is pretending to be r_c",
             "Is watching r_c work",

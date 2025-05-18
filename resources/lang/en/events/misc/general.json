@@ -602,7 +602,7 @@
     "location": ["any"],
     "season": ["any"],
     "weight": 5,
-    "event_text": "m_c is caught breaking the Warrior Code.",
+    "event_text": "m_c is caught breaking the clipper Code.",
     "m_c": {
       "age": ["adolescent", "young adult", "adult", "senior adult", "senior"],
       "status": ["any"]
@@ -700,11 +700,11 @@
     "weight": 20,
     "event_text": "m_c and r_c begin a small camp snowball fight while on guard duty, eventually getting the whole Clan to join in.",
     "m_c": {
-        "status": ["warrior"],
+        "status": ["clipper"],
       "trait": ["playful"]
     },
     "r_c": {
-        "status": ["warrior"]
+        "status": ["clipper"]
     },
     "relationships": [
         {
@@ -736,17 +736,17 @@
     "m_c": {
         "status":[
           "apprentice",
-          "warrior",
-          "deputy",
-          "leader"],
+          "clipper",
+          "regent",
+          "baron"],
         "trait": ["playful"]
     },
     "r_c":{
         "status":[
           "apprentice",
-          "warrior",
-          "deputy",
-          "leader"]
+          "clipper",
+          "regent",
+          "baron"]
     },
     "relationships": [
         {
@@ -1244,7 +1244,7 @@
     "event_text": "m_c thinks about the possibility of retiring.",
     "m_c": {
         "age": ["senior adult", "senior"],
-        "status": ["warrior", "mediator", "medicine cat", "leader"]
+        "status": ["clipper", "mediator", "medicine cat", "baron"]
     }
   },
   {
@@ -1267,9 +1267,9 @@
     "event_id": "gen_misc_greenleaf_kit1",
     "location": ["any"],
     "season": ["greenleaf"],
-    "tags": ["clan:warrior"],
+    "tags": ["clan:clipper"],
     "weight": 15,
-    "event_text": "m_c chases fireflies around the camp while the warriors sleep.",
+    "event_text": "m_c chases fireflies around the camp while the clippers sleep.",
     "m_c": {
       "status": ["kitten"]
     }
@@ -1327,9 +1327,9 @@
         "event_id": "gen_misc_greenleaf_kitkit1",
         "location": ["any"],
         "season": ["greenleaf"],
-      "tags": ["clan:warrior"],
+      "tags": ["clan:clipper"],
         "weight": 20,
-        "event_text": "m_c and r_c chase fireflies around the camp while the warriors try to sleep.",
+        "event_text": "m_c and r_c chase fireflies around the camp while the clippers try to sleep.",
         "m_c": {
             "status": ["kitten"]
         },
@@ -1354,7 +1354,7 @@
           "wetlands"
         ],
         "season": ["leaf-fall"],
-      "tags": ["clan:warrior"],
+      "tags": ["clan:clipper"],
         "weight": 20,
         "event_text": "m_c and r_c lead a small leaf-gathering hunt, which the adult cats watch with amused purrs.",
         "m_c": {
@@ -1432,9 +1432,9 @@
           "mountainous"
         ],
         "season": ["leaf-bare"],
-      "tags": ["clan:warrior"],
+      "tags": ["clan:clipper"],
         "weight": 20,
-        "event_text": "m_c and r_c flick snow at the warriors, giggling as they hide behind the nursery.",
+        "event_text": "m_c and r_c flick snow at the clippers, giggling as they hide behind the nursery.",
         "m_c": {
             "status": ["kitten"]
         },
@@ -2688,7 +2688,7 @@
     "event_text": "m_c was seen chasing a rogue off of the territory.",
     "m_c": {
         "age": ["adolescent", "young adult", "adult", "senior adult", "senior"],
-        "status": ["apprentice", "warrior", "deputy", "leader", "medicine cat"]
+        "status": ["apprentice", "clipper", "regent", "baron", "medicine cat"]
     },
     "outsider": {
       "current_rep": ["any"],
@@ -2821,7 +2821,7 @@
     ]
   },
   {
-    "event_id": "gen_misc_any_war_mediatorleader1",
+    "event_id": "gen_misc_any_war_mediatorbaron1",
     "location": ["any"],
     "season": ["any"],
     "sub_type": ["war"],
@@ -2833,7 +2833,7 @@
       "trait": ["cunning"]
     },
     "r_c": {
-      "status": ["leader"],
+      "status": ["baron"],
       "trait": ["bold", "charismatic","confident", "daring","righteous","ambitious","bloodthirsty","cold","fierce","shameless","strict", "troublesome", "vengeful", "sneaky", "strange"]
     },
     "relationships": [
@@ -2854,7 +2854,7 @@
     ]
   },
   {
-    "event_id": "gen_misc_any_war_mediatorleader2",
+    "event_id": "gen_misc_any_war_mediatorbaron2",
     "location": ["any"],
     "season": ["any"],
     "sub_type": ["war"],
@@ -2864,7 +2864,7 @@
       "status": ["mediator", "mediator apprentice"]
     },
     "r_c": {
-      "status": ["leader"],
+      "status": ["baron"],
       "trait": ["calm","careful","insecure","lonesome","loyal","nervous","compassionate","faithful","loving","responsible","thoughtful","wise","childish","playful"]
     },
     "relationships": [
@@ -2878,7 +2878,7 @@
     ]
   },
   {
-    "event_id": "gen_misc_any_war_mediatorleader3",
+    "event_id": "gen_misc_any_war_mediatorbaron3",
     "location": ["any"],
     "season": ["any"],
     "sub_type": ["war"],
@@ -2888,7 +2888,7 @@
       "status": ["mediator", "mediator apprentice"]
     },
     "r_c": {
-      "status": ["leader"],
+      "status": ["baron"],
       "trait": ["bold", "charismatic","confident", "daring","righteous","ambitious","bloodthirsty","cold","fierce","shameless","strict", "troublesome", "vengeful", "sneaky", "strange"]
     },
     "relationships": [
@@ -2977,7 +2977,7 @@
     ]
   },
   {
-    "event_id": "gen_misc_any_medicinecatleaderomen1",
+    "event_id": "gen_misc_any_medicinecatbaronomen1",
     "location": ["any"],
     "season": ["any"],
     "weight": 10,
@@ -2988,7 +2988,7 @@
       "skill": ["OMEN,1"]
       },
     "r_c": {
-      "status": ["leader"]
+      "status": ["baron"]
     }
   },
   {
@@ -3036,7 +3036,7 @@
     "season": ["any"],
     "tags": ["skill_trait_required"],
     "weight": 10,
-    "event_text": "m_c correctly warns the leader of an ambush, thanks to {PRONOUN/m_c/poss} clairvoyant nature.",
+    "event_text": "m_c correctly warns the baron of an ambush, thanks to {PRONOUN/m_c/poss} clairvoyant nature.",
     "m_c": {
       "status": ["medicine cat"],
       "skill": ["CLAIRVOYANT,2"]
@@ -3223,7 +3223,7 @@
     }
   },
   {
-    "event_id": "gen_misc_any_insightfulelderleader1",
+    "event_id": "gen_misc_any_insightfulelderbaron1",
     "location": ["any"],
     "season": ["any"],
     "weight": 20,
@@ -3235,7 +3235,7 @@
     },
     "r_c": {
       "age":["any"],
-      "status": ["leader"]
+      "status": ["baron"]
     }
   },
   {
@@ -3267,7 +3267,7 @@
     "location": ["any"],
     "season": ["any"],
     "weight": 20,
-    "event_text": "m_c keeps an eye on the camp while the warriors are on patrol.",
+    "event_text": "m_c keeps an eye on the camp while the clippers are on patrol.",
     "m_c": {
       "age":["any"],
       "status":["elder"],
@@ -3309,18 +3309,18 @@
     ]
   },
   {
-    "event_id": "gen_misc_any_retiredeputy1",
+    "event_id": "gen_misc_any_retireregent1",
     "location": ["any"],
     "season": ["any"],
     "weight": 15,
-    "event_text": "m_c thinks about retiring from being deputy.",
+    "event_text": "m_c thinks about retiring from being regent.",
     "m_c": {
       "age": ["senior adult", "senior"],
-      "status": ["deputy"]
+      "status": ["regent"]
     }
   },
   {
-    "event_id": "gen_misc_any_otherclandeputy1",
+    "event_id": "gen_misc_any_otherclanregent1",
     "location": ["any"],
     "season": ["any"],
     "weight": 10,
@@ -3328,7 +3328,7 @@
     "m_c":{
       "status": [
         "medicine cat",
-        "deputy",
+        "regent",
         "mediator",
         "mediator apprentice"
       ]
@@ -3339,7 +3339,7 @@
     }
   },
   {
-    "event_id": "gen_misc_any_otherclandeputy2",
+    "event_id": "gen_misc_any_otherclanregent2",
     "location": ["any"],
     "season": ["any"],
     "weight": 10,
@@ -3347,7 +3347,7 @@
     "m_c":{
       "status": [
         "medicine cat",
-        "deputy",
+        "regent",
         "mediator",
         "mediator apprentice"
       ]
@@ -3358,48 +3358,48 @@
     }
   },
   {
-    "event_id": "gen_misc_any_wardeputy1",
+    "event_id": "gen_misc_any_warregent1",
     "location": ["any"],
     "season": ["any"],
     "sub_type": ["war"],
     "weight": 10,
-    "event_text": "As the deputy, m_c is doing {PRONOUN/m_c/poss} best to prepare for leadership in the case the worst happens.",
+    "event_text": "As the regent, m_c is doing {PRONOUN/m_c/poss} best to prepare for baronship in the case the worst happens.",
     "m_c":{
-      "status": ["deputy"]
+      "status": ["regent"]
     }
   },
   {
-    "event_id": "gen_misc_any_warmultitraitdeputyleader1",
+    "event_id": "gen_misc_any_warmultitraitregentbaron1",
     "location": ["any"],
     "season": ["any"],
     "sub_type": ["war"],
     "tags": ["low_lives"],
     "weight": 5,
-    "event_text": "m_c is struggling to accept the fact that {PRONOUN/m_c/subject} may have to step up as leader if r_c loses {PRONOUN/r_c/poss} last life.",
+    "event_text": "m_c is struggling to accept the fact that {PRONOUN/m_c/subject} may have to step up as baron if r_c loses {PRONOUN/r_c/poss} last life.",
     "m_c": {
       "age":["any"],
-      "status": ["deputy"],
+      "status": ["regent"],
       "trait": ["insecure","lonesome", "nervous"]
       },
       "r_c": {
         "age":["any"],
-        "status": ["leader"]
+        "status": ["baron"]
       }
   },
   {
-    "event_id": "gen_misc_any_warmultitraitdeputyleader2",
+    "event_id": "gen_misc_any_warmultitraitregentbaron2",
     "location": ["any"],
     "season": ["any"],
      "sub_type": ["war"],
     "tags": ["low_lives"],
     "weight": 10,
-    "event_text": "m_c is struggling to accept the fact that {PRONOUN/m_c/subject} may have to step up as leader if r_c loses {PRONOUN/r_c/poss} last life. How could {PRONOUN/m_c/subject} {VERB/m_c/go/goes} on without {PRONOUN/m_c/poss} beloved leader? How difficult will it to be to lead in {PRONOUN/r_c/poss} stead?",
+    "event_text": "m_c is struggling to accept the fact that {PRONOUN/m_c/subject} may have to step up as baron if r_c loses {PRONOUN/r_c/poss} last life. How could {PRONOUN/m_c/subject} {VERB/m_c/go/goes} on without {PRONOUN/m_c/poss} beloved baron? How difficult will it to be to lead in {PRONOUN/r_c/poss} stead?",
     "m_c": {
-      "status": ["deputy"],
+      "status": ["regent"],
       "trait": ["insecure","lonesome", "nervous"]
       },
       "r_c": {
-        "status": ["leader"]
+        "status": ["baron"]
       },
     "relationships": [
       {
@@ -3412,14 +3412,14 @@
     ]
   },
   {
-    "event_id": "gen_misc_any_wardeputyelder1",
+    "event_id": "gen_misc_any_warregentelder1",
     "location": ["any"],
     "season": ["any"],
      "sub_type": ["war"],
     "weight": 10,
     "event_text": "m_c is heavily relying on the tactical advice and experience of the elders, namely r_c.",
     "m_c": {
-      "status": ["deputy", "leader"],
+      "status": ["regent", "baron"],
       "trait": ["insecure","lonesome", "nervous"]
       },
       "r_c": {
@@ -3437,89 +3437,89 @@
     ]
   },
   {
-    "event_id": "gen_misc_any_lowlivesleader1",
+    "event_id": "gen_misc_any_lowlivesbaron1",
     "location": ["any"],
     "season": ["any"],
     "tags": ["low_lives"],
     "weight": 10,
     "event_text": "m_c thinks about retiring.",
     "m_c":{
-      "status": ["leader"]
+      "status": ["baron"]
     }
   },
   {
-    "event_id": "gen_misc_any_lowlivesleader2",
+    "event_id": "gen_misc_any_lowlivesbaron2",
     "location": ["any"],
     "season": ["any"],
     "tags": ["low_lives"],
     "weight": 10,
     "event_text": "m_c confesses {PRONOUN/m_c/subject} {VERB/m_c/don't/doesn't} have many lives left.",
     "m_c":{
-      "status":["leader"]
+      "status":["baron"]
     }
   },
   {
-    "event_id": "gen_misc_any_leader1",
+    "event_id": "gen_misc_any_baron1",
     "location": ["any"],
     "season": ["any"],
     "weight": 10,
-    "event_text": "m_c feels as though the responsibility of leadership is crushing {PRONOUN/m_c/object}.",
+    "event_text": "m_c feels as though the responsibility of baronship is crushing {PRONOUN/m_c/object}.",
     "m_c":{
-      "status": ["leader"]
+      "status": ["baron"]
     }
   },
   {
-    "event_id": "gen_misc_any_leader2",
+    "event_id": "gen_misc_any_baron2",
     "location": ["any"],
     "season": ["any"],
     "weight": 30,
     "event_text": "m_c calls a Clan meeting to give an important announcement.",
     "m_c":{
-      "status":["leader"]
+      "status":["baron"]
     }
   },
   {
-    "event_id": "gen_misc_any_warleader1",
+    "event_id": "gen_misc_any_warbaron1",
     "location": ["any"],
     "season": ["any"],
      "sub_type": ["war"],
     "weight": 20,
     "event_text": "m_c feels burdened with the weight of {PRONOUN/m_c/poss} decisions, knowing that every choice {PRONOUN/m_c/subject} {VERB/m_c/make/makes} could mean the difference between victory and defeat.",
     "m_c":{
-      "status":["leader"]
+      "status":["baron"]
     }
   },
   {
-    "event_id": "gen_misc_any_warleader2",
+    "event_id": "gen_misc_any_warbaron2",
     "location": ["any"],
     "season": ["any"],
      "sub_type": ["war"],
     "weight": 20,
     "event_text": "m_c's relationships with {PRONOUN/m_c/poss} Clanmates are strained, with some questioning {PRONOUN/m_c/poss} decisions and others relying on {PRONOUN/m_c/object} more heavily than ever.",
     "m_c":{
-      "status":["leader"]
+      "status":["baron"]
     }
   },
   {
-    "event_id": "gen_misc_any_warleader3",
+    "event_id": "gen_misc_any_warbaron3",
     "location": ["any"],
     "season": ["any"],
      "sub_type": ["war"],
     "weight": 20,
     "event_text": "m_c is forced to be a symbol of strength and unity for {PRONOUN/m_c/poss} Clan, even in the face of {PRONOUN/m_c/poss} own doubts and fears.",
     "m_c":{
-      "status": ["leader"]
+      "status": ["baron"]
     }
   },
   {
-    "event_id": "gen_misc_any_leaderapprentice1",
+    "event_id": "gen_misc_any_baronapprentice1",
     "location": ["any"],
     "season": ["any"],
     "weight": 20,
     "event_text": "m_c assesses r_c's progress.",
     "m_c":{
       "age":["any"],
-      "status":["leader"]
+      "status":["baron"]
     },
     "r_c": {"age":["any"],
       "status": ["apprentice", "mediator apprentice", "medicine cat apprentice"]
@@ -3771,7 +3771,7 @@
     "event_id": "gen_misc_herb_anyallyaid2",
     "location": ["any"],
     "season": ["any"],
-    "tags": ["clan:leader", "clan:medicine cat"],
+    "tags": ["clan:baron", "clan:medicine cat"],
     "weight": 20,
     "event_text": "lead_name hears from med_name that the Clan is low on herbs. m_c is sent to bargain with o_c_n for whatever herbs they can spare.",
     "m_c": {
@@ -3793,11 +3793,11 @@
     "event_id": "gen_misc_herb_anyallyaid3",
     "location": ["any"],
     "season": ["any"],
-    "tags": ["clan:leader", "clan:medicine cat"],
+    "tags": ["clan:baron", "clan:medicine cat"],
     "weight": 20,
     "event_text": "lead_name hears from med_name that the Clan is low on herbs. m_c is sent to bargain with o_c_n for whatever herbs they can spare.",
     "m_c": {
-      "status": ["warrior", "deputy"],
+      "status": ["clipper", "regent"],
       "skill": ["SPEAKER,2", "MEDIATOR,2"]
     },
     "supplies": [
@@ -3818,9 +3818,9 @@
     "season": ["any"],
     "tags": [],
     "weight": 20,
-    "event_text": "While at the Gathering, m_c pulls the o_c_n leader aside and requests herbs from their Clan. The other leader is happy to help.",
+    "event_text": "While at the Gathering, m_c pulls the o_c_n baron aside and requests herbs from their Clan. The other baron is happy to help.",
     "m_c": {
-      "status": ["leader"]
+      "status": ["baron"]
     },
     "supplies": [
       {
@@ -3905,7 +3905,7 @@
     "weight": 5,
     "event_text": "c_n breaks into the o_c_n camp and steals precious herbs from their medicine cat den.",
     "m_c": {
-      "status": ["leader"],
+      "status": ["baron"],
       "trait": ["arrogant", "bloodthirsty", "vengeful", "competitive", "bold", "troublesome", "fierce", "cold", "righteous", "daring", "shameless", "sneaky", "cunning", "rebellious"]
     },
     "supplies": [
@@ -4111,10 +4111,10 @@
     "season": ["any"],
     "sub_type": ["ceremony", "accessory"],
     "weight": 20,
-    "event_text": "r_c is so proud of how far {PRONOUN/r_c/poss} child has grown. With a look of pride, r_c presents m_c with acc_plural as a congratulations for becoming a warrior. r_c knew that m_c would do great things for c_n.",
+    "event_text": "r_c is so proud of how far {PRONOUN/r_c/poss} child has grown. With a look of pride, r_c presents m_c with acc_plural as a congratulations for becoming a clipper. r_c knew that m_c would do great things for c_n.",
     "new_accessory": ["WILD", "PLANT"],
     "m_c": {
-      "status": ["warrior"],
+      "status": ["clipper"],
       "relationship_status":["child/parent"]
     },
     "r_c": {
@@ -4193,10 +4193,10 @@
     "season": ["any"],
     "sub_type": ["ceremony", "accessory"],
     "weight": 20,
-    "event_text": "r_c hands over acc_singular to m_c, telling m_c that {PRONOUN/m_c/subject} better not forget about {PRONOUN/r_c/object} now that m_c is a warrior.",
+    "event_text": "r_c hands over acc_singular to m_c, telling m_c that {PRONOUN/m_c/subject} better not forget about {PRONOUN/r_c/object} now that m_c is a clipper.",
     "new_accessory": ["FORGET ME NOTS"],
     "m_c": {
-      "status": ["warrior"],
+      "status": ["clipper"],
       "relationship_status":["siblings"]
     },
     "r_c": {
@@ -4258,7 +4258,7 @@
       "relationship_status":["siblings"]
     },
     "r_c": {
-      "status": ["apprentice", "warrior", "mediator", "mediator apprentice"]
+      "status": ["apprentice", "clipper", "mediator", "mediator apprentice"]
     },
     "relationships": [
       {
@@ -4283,14 +4283,14 @@
     "season": ["any"],
     "sub_type": ["ceremony", "accessory"],
     "weight": 20,
-    "event_text": "m_c can't help but feel hurt when {PRONOUN/m_c/poss} sibling isn't there to congratulate {PRONOUN/m_c/object} for becoming a warrior. However, when {PRONOUN/m_c/subject} later {VERB/m_c/go/goes} to {PRONOUN/m_c/poss} new nest {PRONOUN/m_c/subject} {VERB/m_c/find/finds} r_c there waiting for {PRONOUN/m_c/object}, with a gift of acc_plural. Together the siblings work on making m_c's new nest feel more comfortable.",
+    "event_text": "m_c can't help but feel hurt when {PRONOUN/m_c/poss} sibling isn't there to congratulate {PRONOUN/m_c/object} for becoming a clipper. However, when {PRONOUN/m_c/subject} later {VERB/m_c/go/goes} to {PRONOUN/m_c/poss} new nest {PRONOUN/m_c/subject} {VERB/m_c/find/finds} r_c there waiting for {PRONOUN/m_c/object}, with a gift of acc_plural. Together the siblings work on making m_c's new nest feel more comfortable.",
     "new_accessory": ["WILD"],
     "m_c": {
-      "status": ["warrior"],
+      "status": ["clipper"],
       "relationship_status":["siblings", "platonic_50"]
     },
     "r_c": {
-      "status": ["warrior"],
+      "status": ["clipper"],
       "relationship_status":["platonic_50"]
     },
     "relationships": [

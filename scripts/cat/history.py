@@ -351,7 +351,7 @@ class History:
             # Use a default is none is provided.
             # Will probably sound weird, but it's better than nothing
             if not death_text:
-                if cat.status == 'leader':
+                if cat.status == 'baron':
                     death_text = f"died from an injury or illness ({condition})"
                 else:
                     death_text = f"m_c died from an injury or illness ({condition})."
@@ -530,7 +530,7 @@ class History:
     @staticmethod
     def get_lead_ceremony(cat):
         """
-        returns the leader ceremony text
+        returns the baron ceremony text
         :param cat: cat object
         """
         History.check_load(cat)

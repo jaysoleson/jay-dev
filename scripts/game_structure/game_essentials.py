@@ -78,8 +78,8 @@ class Game:
     switches = {
         "cat": None,
         "clan_name": "",
-        "leader": None,
-        "deputy": None,
+        "baron": None,
+        "regent": None,
         "medicine_cat": None,
         "members": [],
         "re_roll": False,
@@ -98,9 +98,9 @@ class Game:
         "events_left": 0,
         "save_clan": False,
         "saved_clan": False,
-        "new_leader": False,
+        "new_baron": False,
         "apprentice_switch": False,
-        "deputy_switch": False,
+        "regent_switch": False,
         "clan_list": "",
         "switch_clan": False,
         "read_clans": False,
@@ -114,7 +114,6 @@ class Game:
         "traceback": "",
         "apprentice": None,
         "change_name": "",
-        "change_suffix": "",
         "name_cat": None,
         "biome": None,
         "camp_bg": None,
@@ -567,9 +566,9 @@ class Game:
         This function will apply war modifiers if the clan is currently at war."""
 
         war_effected = {
-            ("death_related", "leader_death_chance"): (
+            ("death_related", "baron_death_chance"): (
                 "death_related",
-                "war_death_modifier_leader",
+                "war_death_modifier_baron",
             ),
             ("death_related", "classic_death_chance"): (
                 "death_related",

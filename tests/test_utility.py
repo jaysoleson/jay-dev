@@ -185,17 +185,17 @@ class TestGetQueens(unittest.TestCase):
 
     def setUp(self) -> None:
         self.test_cat1 = Cat()
-        self.test_cat1.status = "warrior"
+        self.test_cat1.status = "clipper"
         self.test_cat2 = Cat()
-        self.test_cat2.status = "warrior"
+        self.test_cat2.status = "clipper"
         self.test_cat3 = Cat()
-        self.test_cat3.status = "warrior"
+        self.test_cat3.status = "clipper"
         self.test_cat4 = Cat()
-        self.test_cat4.status = "warrior"
+        self.test_cat4.status = "clipper"
         self.test_cat5 = Cat()
-        self.test_cat5.status = "warrior"
+        self.test_cat5.status = "clipper"
         self.test_cat6 = Cat()
-        self.test_cat6.status = "warrior"
+        self.test_cat6.status = "clipper"
 
     def tearDown(self) -> None:
         del self.test_cat1

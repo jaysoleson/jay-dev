@@ -606,7 +606,7 @@
         "season": ["newleaf"],
         "types": ["training"],
         "tags": [],
-        "patrol_art": "gen_warrior_crouching_perplexed",
+        "patrol_art": "gen_clipper_crouching_perplexed",
         "min_cats": 4,
         "max_cats": 6,
         "min_max_status": {

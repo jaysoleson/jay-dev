@@ -219,7 +219,7 @@
     "event_text": "m_c stands guard over camp, miserably enduring the endless wet heartbeat of the rain.",
     "m_c": {
       "age": ["adolescent", "young adult", "adult", "senior adult", "senior"],
-      "status": ["warrior"]
+      "status": ["clipper"]
     },
     "relationships": [
       {
@@ -250,7 +250,7 @@
     "event_text": "m_c watches carefully over camp, trying to avoid the worst of the sun's rays while on guard duty.",
     "m_c": {
       "age": ["adolescent", "young adult", "adult", "senior adult", "senior"],
-      "status": ["warrior"]
+      "status": ["clipper"]
     },
     "relationships": [
       {
@@ -304,7 +304,7 @@
     "event_text": "m_c tracks the scent of a dingo until it safely crosses out of c_n territory.",
     "m_c": {
       "age": ["adolescent", "young adult", "adult", "senior adult", "senior"],
-      "status": ["warrior"]
+      "status": ["clipper"]
     },
     "relationships": [
       {
@@ -331,7 +331,7 @@
     "event_text": "m_c notices a red-bellied black snake while on guard duty and intimidates it away from c_n's camp.",
     "m_c": {
       "age": ["adolescent", "young adult", "adult", "senior adult", "senior"],
-      "status": ["warrior"]
+      "status": ["clipper"]
     },
     "relationships": [
       {
@@ -358,7 +358,7 @@
     "event_text": "m_c watches the kangaroo mob leap across the landscape from {PRONOUN/m_c/poss} guarding perch near camp.",
     "m_c": {
       "age": ["adolescent", "young adult", "adult", "senior adult", "senior"],
-      "status": ["warrior"]
+      "status": ["clipper"]
     }
   },
   {
@@ -371,7 +371,7 @@
     "event_text": "From the guard post above camp, m_c lets out a warning chitter as a hawk passes overhead.",
     "m_c": {
       "age": ["adolescent", "young adult", "adult", "senior adult", "senior"],
-      "status": ["warrior"]
+      "status": ["clipper"]
     },
     "relationships": [
       {
@@ -398,7 +398,7 @@
     "event_text": "m_c bristles on guard duty, but the brown hyena takes no notice of c_n.",
     "m_c": {
       "age": ["adolescent", "young adult", "adult", "senior adult", "senior"],
-      "status": ["warrior"]
+      "status": ["clipper"]
     },
     "relationships": [
       {
@@ -586,7 +586,7 @@
     "event_id": "dst_misc_greenleaf_kit1",
     "location": ["desert"],
     "season": ["greenleaf"],
-    "tags": ["clan:warrior"],
+    "tags": ["clan:clipper"],
     "weight": 15,
     "event_text": "As the adults catch the evening breeze on their hot pelts, m_c emerges from the nursery, finally allowed to play once the sun's rays slip from the sky.",
     "m_c": {
@@ -598,7 +598,7 @@
         "location": ["desert"],
         "season": ["any"],
         "weight": 20,
-        "event_text": "m_c and r_c play predator-and-warrior, wearing a shed snake skin.",
+        "event_text": "m_c and r_c play predator-and-clipper, wearing a shed snake skin.",
         "m_c": {
           "status": ["kitten"]
         },
@@ -643,9 +643,9 @@
         "event_id": "dst_misc_greenleaf_kitkit1",
         "location": ["desert"],
         "season": ["greenleaf"],
-        "tags": ["clan:warrior"],
+        "tags": ["clan:clipper"],
         "weight": 20,
-        "event_text": "m_c and r_c emerge from the nursury as the cool of the night takes over, their bouncy energy contrasting the tired warriors napping on the sun-warmed rocks.",
+        "event_text": "m_c and r_c emerge from the nursury as the cool of the night takes over, their bouncy energy contrasting the tired clippers napping on the sun-warmed rocks.",
         "m_c": {
             "status": ["kitten"]
         },
@@ -668,9 +668,9 @@
           "desert"
         ],
         "season": ["leaf-fall"],
-      "tags": ["clan:warrior"],
+      "tags": ["clan:clipper"],
         "weight": 20,
-        "event_text": "m_c doesn't care what the warriors say, thunder is definitely dangerous and horrible. r_c agrees, the kittens finding comfort in each other.",
+        "event_text": "m_c doesn't care what the clippers say, thunder is definitely dangerous and horrible. r_c agrees, the kittens finding comfort in each other.",
         "m_c": {
             "status": ["kitten"]
         },

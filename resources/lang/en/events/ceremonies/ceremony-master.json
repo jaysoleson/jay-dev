@@ -4,7 +4,7 @@
       "apprentice",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -14,9 +14,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -26,9 +26,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -38,9 +38,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "careful",
       "insecure",
@@ -53,9 +53,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "adventurous",
       "ambitious",
@@ -76,9 +76,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "ambitious",
       "confident",
@@ -94,9 +94,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "bold",
       "daring",
@@ -115,9 +115,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "insecure",
       "nervous",
@@ -130,9 +130,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "cold",
       "insecure",
@@ -150,9 +150,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "calm",
       "cold",
@@ -167,9 +167,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "adventurous",
       "bold",
@@ -183,15 +183,15 @@
       "sincere",
       "flamboyant"
     ],
-    "m_c can't seem to sit still as {PRONOUN/m_c/subject} {VERB/m_c/bounce/bounces} up to touch noses with (mentor), swearing {PRONOUN/m_c/subject}'ll be the best warrior the Clan has ever seen."
+    "m_c can't seem to sit still as {PRONOUN/m_c/subject} {VERB/m_c/bounce/bounces} up to touch noses with (mentor), swearing {PRONOUN/m_c/subject}'ll be the best clipper the Clan has ever seen."
   ],
   "app_11": [
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "calm",
       "careful",
@@ -209,9 +209,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "adventurous",
       "ambitious",
@@ -230,9 +230,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "adventurous",
       "bold",
@@ -254,7 +254,7 @@
       "apprentice",
       "no_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -265,7 +265,7 @@
       "apprentice",
       "no_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -276,7 +276,7 @@
       "apprentice",
       "no_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -287,7 +287,7 @@
       "apprentice",
       "no_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -298,7 +298,7 @@
       "apprentice",
       "no_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -308,9 +308,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "abandoned",
       "all_traits"
     ],
@@ -320,9 +320,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "adventurous",
       "bloodthirsty",
@@ -346,9 +346,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "adventurous",
       "bold",
@@ -363,9 +363,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "compassionate",
       "loving",
@@ -386,9 +386,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "compassionate",
       "loving",
@@ -408,9 +408,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "compassionate",
       "loving",
@@ -430,9 +430,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "compassionate",
       "loving",
@@ -449,9 +449,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "compassionate",
       "loving",
@@ -472,9 +472,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "ambitious",
       "bloodthirsty",
@@ -498,9 +498,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "ambitious",
       "bloodthirsty",
@@ -519,9 +519,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "ambitious",
       "calm",
@@ -540,9 +540,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "ambitious",
       "shameless",
@@ -552,15 +552,15 @@
       "grumpy",
       "rebellious"
     ],
-    "m_c has been pestering everyone for moons on when {PRONOUN/m_c/subject} finally {VERB/m_c/get/gets} to be an apprentice, and everyone is relieved that they're finally free of the young cat's nagging... Until {PRONOUN/m_c/subject} {VERB/m_c/start/starts} asking about when {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} going to be a warrior as soon as the meeting ends."
+    "m_c has been pestering everyone for moons on when {PRONOUN/m_c/subject} finally {VERB/m_c/get/gets} to be an apprentice, and everyone is relieved that they're finally free of the young cat's nagging... Until {PRONOUN/m_c/subject} {VERB/m_c/start/starts} asking about when {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} going to be a clipper as soon as the meeting ends."
   ],
   "app_31": [
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "bold",
       "daring",
@@ -575,9 +575,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "bold",
       "daring",
@@ -593,9 +593,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "insecure",
       "nervous"
@@ -607,18 +607,18 @@
       "apprentice",
       "yes_mentor",
       "general_parents",
-      "no_leader",
+      "no_baron",
       "general_backstory",
       "all_traits"
     ],
-    "The Clan gathers around and urges (old_name) to go to the front of the crowd. Not having a leader isn't an excuse to force a cat to stay in the nursery when they're six moons old. (old_name) is renamed m_c, and the Clan votes to make (mentor) {PRONOUN/m_c/poss} mentor."
+    "The Clan gathers around and urges (old_name) to go to the front of the crowd. Not having a baron isn't an excuse to force a cat to stay in the nursery when they're six moons old. (old_name) is renamed m_c, and the Clan votes to make (mentor) {PRONOUN/m_c/poss} mentor."
   ],
   "app_35": [
     [
       "apprentice",
       "yes_mentor",
       "general_parents",
-      "no_leader",
+      "no_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -629,7 +629,7 @@
       "apprentice",
       "yes_mentor",
       "general_parents",
-      "no_leader",
+      "no_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -640,7 +640,7 @@
       "apprentice",
       "yes_mentor",
       "alive1_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -650,9 +650,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "alive1_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -662,9 +662,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "alive1_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -674,9 +674,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "dead1_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -686,9 +686,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "dead1_parents",
-      "general_leader",
+      "general_baron",
       "clanborn",
       "all_traits"
     ],
@@ -698,9 +698,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "dead1_parents",
-      "general_leader",
+      "general_baron",
       "clanborn",
       "all_traits"
     ],
@@ -710,9 +710,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "dead1_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -722,9 +722,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "dead1_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -734,9 +734,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "dead2_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -747,7 +747,7 @@
       "apprentice",
       "general_mentor",
       "alive2_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -757,9 +757,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "dead2_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -769,9 +769,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "dead2_parents",
-      "general_leader",
+      "general_baron",
       "clanborn",
       "all_traits"
     ],
@@ -781,9 +781,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "dead2_parents",
-      "general_leader",
+      "general_baron",
       "clanborn",
       "all_traits"
     ],
@@ -793,9 +793,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "dead2_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -805,9 +805,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "dead2_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -817,9 +817,9 @@
     [
       "apprentice",
       "yes_mentor",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "dead2_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -828,9 +828,9 @@
   "app_53": [
     [
       "apprentice",
-      "yes_leader_mentor",
+      "yes_baron_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -841,31 +841,31 @@
       "apprentice",
       "yes_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "ambitious",
       "daring",
       "arrogant"
     ],
-    "(old_name) has always wished to be the hero of {PRONOUN/m_c/poss} Clan, a warrior admired by all. Touching noses with m_c, (mentor) hopes that {PRONOUN/m_c/subject} {VERB/m_c/are/is} going to stay wary of the dangers of their territory and not endanger {PRONOUN/m_c/self}."
+    "(old_name) has always wished to be the hero of {PRONOUN/m_c/poss} Clan, a clipper admired by all. Touching noses with m_c, (mentor) hopes that {PRONOUN/m_c/subject} {VERB/m_c/are/is} going to stay wary of the dangers of their territory and not endanger {PRONOUN/m_c/self}."
   ],
   "med_app_0": [
     [
       "medicine cat apprentice",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
-    "(old_name), like every young kit, had dreams of becoming a warrior from a young age. However, as {PRONOUN/m_c/subject} grew older, {PRONOUN/m_c/subject} knew that {PRONOUN/m_c/poss} destiny lay in the medicine cat den. {PRONOUN/m_c/subject/CAP} happily {VERB/m_c/take/takes} up {PRONOUN/m_c/poss} new place as a medicine cat apprentice - looking forward to healing {PRONOUN/m_c/poss} Clanmates for many moons to come."
+    "(old_name), like every young kit, had dreams of becoming a clipper from a young age. However, as {PRONOUN/m_c/subject} grew older, {PRONOUN/m_c/subject} knew that {PRONOUN/m_c/poss} destiny lay in the medicine cat den. {PRONOUN/m_c/subject/CAP} happily {VERB/m_c/take/takes} up {PRONOUN/m_c/poss} new place as a medicine cat apprentice - looking forward to healing {PRONOUN/m_c/poss} Clanmates for many moons to come."
   ],
   "med_app_1": [
     [
       "medicine cat apprentice",
       "yes_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -876,7 +876,7 @@
       "medicine cat apprentice",
       "yes_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -887,7 +887,7 @@
       "medicine cat apprentice",
       "yes_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -898,7 +898,7 @@
       "medicine cat apprentice",
       "yes_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -909,7 +909,7 @@
       "medicine cat apprentice",
       "yes_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "ambitious",
       "arrogant"
@@ -921,7 +921,7 @@
       "medicine cat apprentice",
       "yes_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "bloodthirsty"
     ],
@@ -932,7 +932,7 @@
       "medicine cat apprentice",
       "yes_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "nervous",
       "insecure",
@@ -945,7 +945,7 @@
       "medicine cat apprentice",
       "yes_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -956,7 +956,7 @@
       "medicine cat apprentice",
       "yes_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -967,7 +967,7 @@
       "medicine cat apprentice",
       "no_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -978,7 +978,7 @@
       "medicine cat apprentice",
       "no_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -989,7 +989,7 @@
       "medicine cat apprentice",
       "no_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -1000,7 +1000,7 @@
       "medicine cat apprentice",
       "no_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -1011,7 +1011,7 @@
       "medicine cat apprentice",
       "no_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -1022,7 +1022,7 @@
       "medicine cat apprentice",
       "no_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -1033,7 +1033,7 @@
       "medicine cat apprentice",
       "no_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -1044,7 +1044,7 @@
       "medicine cat apprentice",
       "general_mentor",
       "dead1_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -1055,7 +1055,7 @@
       "medicine cat apprentice",
       "general_mentor",
       "dead1_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -1066,7 +1066,7 @@
       "medicine cat apprentice",
       "general_mentor",
       "dead2_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -1077,7 +1077,7 @@
       "medicine cat apprentice",
       "general_mentor",
       "dead2_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -1087,7 +1087,7 @@
     [
       "medicine cat apprentice",
       "general_mentor",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "faithful"
     ],
@@ -1097,7 +1097,7 @@
     [
       "medicine cat apprentice",
       "general_mentor",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "wise"
     ],
@@ -1107,7 +1107,7 @@
     [
       "medicine cat apprentice",
       "general_mentor",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "thoughtful"
     ],
@@ -1117,7 +1117,7 @@
     [
       "medicine cat apprentice",
       "general_mentor",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "loving"
     ],
@@ -1127,7 +1127,7 @@
     [
       "medicine cat apprentice",
       "general_mentor",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "confident",
       "arrogant",
@@ -1141,7 +1141,7 @@
     [
       "medicine cat apprentice",
       "general_mentor",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "bold",
       "arrogant",
@@ -1153,7 +1153,7 @@
     [
       "medicine cat apprentice",
       "general_mentor",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "vengeful"
     ],
@@ -1163,7 +1163,7 @@
     [
       "medicine cat apprentice",
       "general_mentor",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "adventurous"
     ],
@@ -1174,7 +1174,7 @@
       "mediator apprentice",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -1185,7 +1185,7 @@
       "mediator apprentice",
       "yes_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -1196,7 +1196,7 @@
       "mediator apprentice",
       "yes_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -1207,7 +1207,7 @@
       "mediator apprentice",
       "no_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -1218,7 +1218,7 @@
       "mediator apprentice",
       "yes_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "thoughtful",
       "compassionate"
@@ -1230,7 +1230,7 @@
       "mediator apprentice",
       "yes_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "thoughtful",
       "compassionate"
@@ -1242,7 +1242,7 @@
       "mediator apprentice",
       "yes_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -1253,7 +1253,7 @@
       "mediator apprentice",
       "yes_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -1264,7 +1264,7 @@
       "mediator apprentice",
       "yes_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -1275,7 +1275,7 @@
       "mediator apprentice",
       "yes_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -1286,7 +1286,7 @@
       "mediator apprentice",
       "yes_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -1297,7 +1297,7 @@
       "mediator apprentice",
       "yes_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -1308,7 +1308,7 @@
       "mediator apprentice",
       "yes_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -1319,7 +1319,7 @@
       "mediator apprentice",
       "yes_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -1330,7 +1330,7 @@
       "mediator apprentice",
       "yes_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -1341,7 +1341,7 @@
       "mediator apprentice",
       "yes_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -1353,7 +1353,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -1365,11 +1365,11 @@
     "unprepared",
     "general_mentor",
     "general_parents",
-    "general_leader",
+    "general_baron",
     "general_backstory",
     "all_traits"
   ],
-  "(old_name) has struggled to learn the skills of a medicine cat, but {PRONOUN/m_c/subject} {VERB/m_c/refuse/refuses} to train as a warrior. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} too old to remain an apprentice and, as the other medicine cats look with pity, {PRONOUN/m_c/subject} {VERB/m_c/are/is} hesitantly given the name m_c."
+  "(old_name) has struggled to learn the skills of a medicine cat, but {PRONOUN/m_c/subject} {VERB/m_c/refuse/refuses} to train as a clipper. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} too old to remain an apprentice and, as the other medicine cats look with pity, {PRONOUN/m_c/subject} {VERB/m_c/are/is} hesitantly given the name m_c."
 ],
   "med_0_b": [
   [
@@ -1377,7 +1377,7 @@
     "early",
     "general_mentor",
     "general_parents",
-    "general_leader",
+    "general_baron",
     "general_backstory",
     "all_traits"
   ],
@@ -1389,7 +1389,7 @@
       "prepared",
       "dead_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -1401,7 +1401,7 @@
       "prepared",
       "dead_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -1413,7 +1413,7 @@
       "prepared",
       "alive_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -1425,7 +1425,7 @@
       "prepared",
       "alive_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -1437,7 +1437,7 @@
       "prepared",
       "alive_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -1449,7 +1449,7 @@
       "prepared",
       "alive_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -1461,7 +1461,7 @@
       "prepared",
       "alive_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "clanborn",
       "all_traits"
     ],
@@ -1473,7 +1473,7 @@
       "prepared",
       "alive_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "abandoned",
       "all_traits"
     ],
@@ -1485,7 +1485,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -1497,7 +1497,7 @@
       "prepared",
       "no_valid_previous_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -1509,7 +1509,7 @@
       "prepared",
       "no_valid_previous_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -1521,11 +1521,11 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "adventurous"
     ],
-    "As much as the warrior apprentices teased, (old_name) knew the truth. There is so much to see and do as a full medicine cat and m_c could hardly wait to get started, almost charging off before {PRONOUN/m_c/poss} ceremony ended."
+    "As much as the clipper apprentices teased, (old_name) knew the truth. There is so much to see and do as a full medicine cat and m_c could hardly wait to get started, almost charging off before {PRONOUN/m_c/poss} ceremony ended."
   ],
   "med_12": [
     [
@@ -1533,7 +1533,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "compassionate"
     ],
@@ -1545,7 +1545,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "ambitious"
     ],
@@ -1557,11 +1557,11 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "bloodthirsty"
     ],
-    "StarClan gives {PRONOUN/m_c/object} wisdom, {PRONOUN/m_c/poss} Clan gives {PRONOUN/m_c/object} strength. (old_name) will use this power to heal {PRONOUN/m_c/poss} warriors well after battle. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} now m_c, and {VERB/m_c/swear/swears} to never turn away from what needs doing."
+    "StarClan gives {PRONOUN/m_c/object} wisdom, {PRONOUN/m_c/poss} Clan gives {PRONOUN/m_c/object} strength. (old_name) will use this power to heal {PRONOUN/m_c/poss} clippers well after battle. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} now m_c, and {VERB/m_c/swear/swears} to never turn away from what needs doing."
   ],
   "med_15": [
     [
@@ -1569,7 +1569,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "bold",
       "arrogant",
@@ -1583,7 +1583,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "calm"
     ],
@@ -1595,7 +1595,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "careful"
     ],
@@ -1607,7 +1607,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "charismatic",
       "flamboyant"
@@ -1620,7 +1620,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "childish",
       "flamboyant"
@@ -1633,7 +1633,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "cold",
       "gloomy"
@@ -1646,7 +1646,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "compassionate"
     ],
@@ -1658,7 +1658,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "confident",
       "arrogant",
@@ -1673,7 +1673,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "daring",
       "rebellious"
@@ -1686,7 +1686,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "compassionate"
     ],
@@ -1698,7 +1698,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "faithful"
     ],
@@ -1710,7 +1710,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "fierce"
     ],
@@ -1722,7 +1722,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "insecure",
       "gloomy"
@@ -1735,7 +1735,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "insecure",
       "gloomy"
@@ -1748,7 +1748,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "insecure"
     ],
@@ -1760,7 +1760,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "loyal"
     ],
@@ -1772,7 +1772,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "nervous"
     ],
@@ -1784,7 +1784,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "compassionate"
     ],
@@ -1796,7 +1796,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "playful"
     ],
@@ -1808,7 +1808,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "responsible"
     ],
@@ -1820,7 +1820,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "righteous"
     ],
@@ -1832,7 +1832,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "shameless",
       "arrogant",
@@ -1847,7 +1847,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "sneaky"
     ],
@@ -1859,7 +1859,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "strange",
       "oblivious"
@@ -1872,7 +1872,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "strict"
     ],
@@ -1884,7 +1884,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "thoughtful"
     ],
@@ -1896,7 +1896,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "thoughtful"
     ],
@@ -1908,7 +1908,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "troublesome"
     ],
@@ -1920,7 +1920,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "vengeful"
     ],
@@ -1932,7 +1932,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "vengeful"
     ],
@@ -1944,7 +1944,7 @@
       "prepared",
       "general_mentor",
       "dead1_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -1956,7 +1956,7 @@
       "prepared",
       "general_mentor",
       "dead1_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -1968,7 +1968,7 @@
       "prepared",
       "general_mentor",
       "dead2_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -1980,7 +1980,7 @@
       "prepared",
       "general_mentor",
       "dead2_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -1992,7 +1992,7 @@
       "prepared",
       "general_mentor",
       "dead2_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -2004,7 +2004,7 @@
       "prepared",
       "alive_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -2016,266 +2016,266 @@
       "prepared",
       "alive_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
     "Inspired by (old_name)'s r_h, (previous_mentor) names {PRONOUN/m_c/object} m_c and welcomes {PRONOUN/m_c/object} as a full medicine cat."
   ],
-  "warrior_0": [
+  "clipper_0": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
-    "c_n welcomes m_c as a new warrior, honoring {PRONOUN/m_c/poss} r_h."
+    "c_n welcomes m_c as a new clipper, honoring {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_0_a": [
+  "clipper_0_a": [
     [
-      "warrior",
+      "clipper",
       "unprepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
-    "Although {PRONOUN/m_c/poss} training has been long, (old_name) has failed to master the skills needed of a warrior. However, {PRONOUN/m_c/subject} {VERB/m_c/are/is} getting too old to stay in the apprentices' den. The mood is tense and awkward as {PRONOUN/m_c/subject} {VERB/m_c/are/is} named m_c and honored for {PRONOUN/m_c/poss} r_h. "
+    "Although {PRONOUN/m_c/poss} training has been long, (old_name) has failed to master the skills needed of a clipper. However, {PRONOUN/m_c/subject} {VERB/m_c/are/is} getting too old to stay in the apprentices' den. The mood is tense and awkward as {PRONOUN/m_c/subject} {VERB/m_c/are/is} named m_c and honored for {PRONOUN/m_c/poss} r_h. "
   ],
-  "warrior_0_b": [
+  "clipper_0_b": [
     [
-      "warrior",
+      "clipper",
       "early",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
-    "(old_name) has excelled at every task placed before {PRONOUN/m_c/object}. Despite {PRONOUN/m_c/poss} young age, {PRONOUN/m_c/subject} {VERB/m_c/are/is} more than ready to be a warrior. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} given the name m_c, honoring {PRONOUN/m_c/poss} r_h. "
+    "(old_name) has excelled at every task placed before {PRONOUN/m_c/object}. Despite {PRONOUN/m_c/poss} young age, {PRONOUN/m_c/subject} {VERB/m_c/are/is} more than ready to be a clipper. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} given the name m_c, honoring {PRONOUN/m_c/poss} r_h. "
   ],
-  "warrior_1": [
+  "clipper_1": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "all_traits"
     ],
-    "l_n calls the Clan to a meeting and declares (old_name) to be a warrior. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} now called m_c and {VERB/m_c/are/is} celebrated for {PRONOUN/m_c/poss} r_h."
+    "l_n calls the Clan to a meeting and declares (old_name) to be a clipper. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} now called m_c and {VERB/m_c/are/is} celebrated for {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_2": [
+  "clipper_2": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "all_traits"
     ],
     "l_n stands above the Clan and proclaims that (old_name) shall now be known as m_c, honoring {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_3": [
+  "clipper_3": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "all_traits"
     ],
-    "l_n rests {PRONOUN/l_n/poss} muzzle on m_c's head and declares {PRONOUN/m_c/object} to be a full warrior of c_n, honoring {PRONOUN/m_c/poss} r_h."
+    "l_n rests {PRONOUN/l_n/poss} muzzle on m_c's head and declares {PRONOUN/m_c/object} to be a full clipper of c_n, honoring {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_4": [
+  "clipper_4": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "all_traits"
     ],
-    "l_n has been following the progress of (old_name) for moons and feels that it is finally time for {PRONOUN/m_c/object} to get {PRONOUN/m_c/poss} warrior name. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} granted the name m_c in honor of {PRONOUN/m_c/poss} r_h."
+    "l_n has been following the progress of (old_name) for moons and feels that it is finally time for {PRONOUN/m_c/object} to get {PRONOUN/m_c/poss} clipper name. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} granted the name m_c in honor of {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_5": [
+  "clipper_5": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "dead_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "all_traits"
     ],
-    "(old_name) stands before the leader. {PRONOUN/m_c/subject/CAP} should be happier, but as {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} given {PRONOUN/m_c/poss} warrior name, m_c in honor of {PRONOUN/m_c/poss} r_h, {PRONOUN/m_c/subject} {VERB/m_c/cast/casts} a look to the crowd. {PRONOUN/m_c/subject/CAP} {VERB/m_c/wish/wishes} that (deadmentor) could be there to see {PRONOUN/m_c/object} now."
+    "(old_name) stands before the baron. {PRONOUN/m_c/subject/CAP} should be happier, but as {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} given {PRONOUN/m_c/poss} clipper name, m_c in honor of {PRONOUN/m_c/poss} r_h, {PRONOUN/m_c/subject} {VERB/m_c/cast/casts} a look to the crowd. {PRONOUN/m_c/subject/CAP} {VERB/m_c/wish/wishes} that (deadmentor) could be there to see {PRONOUN/m_c/object} now."
   ],
-  "warrior_6": [
+  "clipper_6": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "alive_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
-    "(previous_mentor) sits in the crowd, chest puffed out in pride as {PRONOUN/(previous_mentor)/subject} {VERB/(previous_mentor)/watch/watches} (old_name) be named m_c, and honored for {PRONOUN/m_c/poss} r_h. {PRONOUN/(previous_mentor)/subject/CAP} {VERB/(previous_mentor)/consider/considers} {PRONOUN/(previous_mentor)/self} lucky to have been able to train such an amazing young cat, and looks forward to seeing the warrior {PRONOUN/m_c/subject} {VERB/m_c/become/becomes}."
+    "(previous_mentor) sits in the crowd, chest puffed out in pride as {PRONOUN/(previous_mentor)/subject} {VERB/(previous_mentor)/watch/watches} (old_name) be named m_c, and honored for {PRONOUN/m_c/poss} r_h. {PRONOUN/(previous_mentor)/subject/CAP} {VERB/(previous_mentor)/consider/considers} {PRONOUN/(previous_mentor)/self} lucky to have been able to train such an amazing young cat, and looks forward to seeing the clipper {PRONOUN/m_c/subject} {VERB/m_c/become/becomes}."
   ],
-  "warrior_7": [
+  "clipper_7": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "alive_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "all_traits"
     ],
-    "(previous_mentor) gives (old_name) a friendly nudge when the leader calls the young cat's name. {PRONOUN/(previous_mentor)/subject/CAP} {VERB/(previous_mentor)/watch/watches} with pride as (old_name) steps forward to receive {PRONOUN/m_c/poss} new name, m_c, and {VERB/m_c/are/is} honored for {PRONOUN/m_c/poss} r_h."
+    "(previous_mentor) gives (old_name) a friendly nudge when the baron calls the young cat's name. {PRONOUN/(previous_mentor)/subject/CAP} {VERB/(previous_mentor)/watch/watches} with pride as (old_name) steps forward to receive {PRONOUN/m_c/poss} new name, m_c, and {VERB/m_c/are/is} honored for {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_8": [
+  "clipper_8": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "adventurous",
       "oblivious"
     ],
     "(old_name) sits in front of the Clan, eager to receive {PRONOUN/m_c/poss} name, but {PRONOUN/m_c/poss} focus seems somewhere else, somewhere beyond the horizon. {PRONOUN/m_c/subject/CAP} barely {VERB/m_c/seem/seems} to be paying attention as {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} named m_c after {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_9": [
+  "clipper_9": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "compassionate"
     ],
     "l_n gazes down proudly upon (old_name). {PRONOUN/m_c/subject/CAP} {VERB/m_c/had/has} spent {PRONOUN/m_c/poss} whole apprenticeship helping the Clan, and so {PRONOUN/m_c/subject} {VERB/m_c/are/is} named m_c after {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_10": [
+  "clipper_10": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "ambitious"
     ],
     "(old_name)'s eyes gleam as {PRONOUN/m_c/subject} {VERB/m_c/stare/stares} up at l_n, vowing silently to {PRONOUN/m_c/self} to one day be up there. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} named m_c after {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_11": [
+  "clipper_11": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "bloodthirsty"
     ],
     "Although (old_name)'s eagerness to fight has left l_n a little worried before, {PRONOUN/l_n/subject} {VERB/l_n/know/knows} that the Clan can count on (old_name)'s bravery and sharp claws when they need them the most. In honor of {PRONOUN/m_c/poss} r_h, (old_name) is given the name m_c."
   ],
-  "warrior_12": [
+  "clipper_12": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "bold",
       "arrogant",
       "cunning"
     ],
-    "(old_name) stands tall and puffs out {PRONOUN/m_c/poss} chest as l_n announces {PRONOUN/m_c/subject} {VERB/m_c/are/is} ready for {PRONOUN/m_c/poss} warrior name. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} given the name m_c after {PRONOUN/m_c/poss} r_h."
+    "(old_name) stands tall and puffs out {PRONOUN/m_c/poss} chest as l_n announces {PRONOUN/m_c/subject} {VERB/m_c/are/is} ready for {PRONOUN/m_c/poss} clipper name. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} given the name m_c after {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_13": [
+  "clipper_13": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "calm",
       "cunning"
     ],
     "(old_name) sits before the Clan, ears pricked forward and gaze calm as l_n addresses the Clan. {PRONOUN/m_c/subject/CAP} {VERB/m_c/bow/bows} {PRONOUN/m_c/poss} head as {PRONOUN/m_c/subject} {VERB/m_c/are/is} named m_c after {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_14": [
+  "clipper_14": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "careful"
     ],
     "(old_name) sits neatly in front of l_n as {PRONOUN/l_n/subject} {VERB/l_n/talk/talks} about how well (old_name) did in {PRONOUN/m_c/poss} assessment. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} named m_c after {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_15": [
+  "clipper_15": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "charismatic",
       "flamboyant",
       "rebellious"
     ],
-    "(old_name) holds {PRONOUN/m_c/poss} head high as l_n announces it is time for {PRONOUN/m_c/object} to be given {PRONOUN/m_c/poss} warrior name. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} named m_c in honor of {PRONOUN/m_c/poss} r_h, and the Clan explodes into loud cheers."
+    "(old_name) holds {PRONOUN/m_c/poss} head high as l_n announces it is time for {PRONOUN/m_c/object} to be given {PRONOUN/m_c/poss} clipper name. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} named m_c in honor of {PRONOUN/m_c/poss} r_h, and the Clan explodes into loud cheers."
   ],
-  "warrior_16": [
+  "clipper_16": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "childish",
       "oblivious"
     ],
-    "(old_name) barely seems to be paying attention, focused instead on a fluttering leaf. l_n has to repeat {PRONOUN/m_c/poss} name a few times before {PRONOUN/m_c/subject} finally {VERB/m_c/pay/pays} attention long enough to give {PRONOUN/m_c/poss} vow. Sighing, the leader names {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
+    "(old_name) barely seems to be paying attention, focused instead on a fluttering leaf. l_n has to repeat {PRONOUN/m_c/poss} name a few times before {PRONOUN/m_c/subject} finally {VERB/m_c/pay/pays} attention long enough to give {PRONOUN/m_c/poss} vow. Sighing, the baron names {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_17": [
+  "clipper_17": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "childish"
     ],
-    "While l_n is not quite sure that (old_name) has outgrown {PRONOUN/m_c/poss} childish quirks or {PRONOUN/m_c/poss} love of pranks, {PRONOUN/l_n/subject} {VERB/l_n/welcome/welcomes} {PRONOUN/m_c/object} as a full warrior to the Clan, naming {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} lightheartedness and r_h."
+    "While l_n is not quite sure that (old_name) has outgrown {PRONOUN/m_c/poss} childish quirks or {PRONOUN/m_c/poss} love of pranks, {PRONOUN/l_n/subject} {VERB/l_n/welcome/welcomes} {PRONOUN/m_c/object} as a full clipper to the Clan, naming {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} lightheartedness and r_h."
   ],
-  "warrior_18": [
+  "clipper_18": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "cold",
       "grumpy",
@@ -2283,13 +2283,13 @@
     ],
     "(old_name) remains completely quiet as l_n names {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h. Before anyone can congratulate {PRONOUN/m_c/object}, however, {PRONOUN/m_c/subject} {VERB/m_c/turn/turns} and {VERB/m_c/walk/walks} away without a word to do {PRONOUN/m_c/poss} silent vigil."
   ],
-  "warrior_19": [
+  "clipper_19": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "cold",
       "cunning",
@@ -2297,309 +2297,309 @@
     ],
     "(old_name) stares at l_n as {PRONOUN/l_n/subject} {VERB/l_n/speak/speaks}. l_n is sure it doesn't mean anything, but (old_name)'s lack of enthusiasm worries {PRONOUN/l_n/object}. Brushing past it, l_n gives {PRONOUN/m_c/object} the name m_c after {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_20": [
+  "clipper_20": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "compassionate"
     ],
-    "(old_name) was so busy helping another cat {PRONOUN/m_c/subject} {VERB/m_c/were/was} nearly late for {PRONOUN/m_c/poss} own warrior ceremony. {PRONOUN/m_c/subject/CAP} {VERB/m_c/rush/rushes} to sit down, making it just in time. l_n gazes proudly down at {PRONOUN/m_c/object} as {PRONOUN/l_n/subject} {VERB/l_n/name/names} {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
+    "(old_name) was so busy helping another cat {PRONOUN/m_c/subject} {VERB/m_c/were/was} nearly late for {PRONOUN/m_c/poss} own clipper ceremony. {PRONOUN/m_c/subject/CAP} {VERB/m_c/rush/rushes} to sit down, making it just in time. l_n gazes proudly down at {PRONOUN/m_c/object} as {PRONOUN/l_n/subject} {VERB/l_n/name/names} {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_21": [
+  "clipper_21": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "compassionate",
       "loving"
     ],
     "l_n has always thought (old_name) had a kind heart, knowing that {PRONOUN/m_c/subject} {VERB/m_c/are/is} ready for times of peace, but doesn't know how that heart will serve in war. Nevertheless, {PRONOUN/l_n/subject} {VERB/l_n/name/names} {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_22": [
+  "clipper_22": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "confident",
       "arrogant"
     ],
     "(old_name) soaks up all of the attention as {PRONOUN/m_c/subject} {VERB/m_c/stand/stands} before {PRONOUN/m_c/poss} Clan, eager for {PRONOUN/m_c/poss} new name. l_n gives {PRONOUN/m_c/object} the name m_c after {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_23": [
+  "clipper_23": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "daring",
       "grumpy"
     ],
-    "(old_name) looks up at the leader with pride. {PRONOUN/m_c/subject/CAP} knew all that hard work - proving {PRONOUN/m_c/subject} {VERB/m_c/were/was} the best apprentice in the Clan - was worth it, even if it caused {PRONOUN/m_c/object} a lot of trouble. {PRONOUN/m_c/subject/CAP} {VERB/m_c/hold/holds} {PRONOUN/m_c/poss} head high as {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} named m_c after {PRONOUN/m_c/poss} r_h."
+    "(old_name) looks up at the baron with pride. {PRONOUN/m_c/subject/CAP} knew all that hard work - proving {PRONOUN/m_c/subject} {VERB/m_c/were/was} the best apprentice in the Clan - was worth it, even if it caused {PRONOUN/m_c/object} a lot of trouble. {PRONOUN/m_c/subject/CAP} {VERB/m_c/hold/holds} {PRONOUN/m_c/poss} head high as {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} named m_c after {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_24": [
+  "clipper_24": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "daring"
     ],
     "(old_name) sits before the Clan with a determined look on {PRONOUN/m_c/poss} face. l_n is worried that {PRONOUN/m_c/poss} refusal to back down and tendency to jump headfirst into danger will end poorly for {PRONOUN/m_c/object}, and hopes that sitting vigil overnight will change that. (old_name) is named m_c after {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_25": [
+  "clipper_25": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "compassionate"
     ],
     "(old_name) purrs as {PRONOUN/m_c/subject} {VERB/m_c/feel/feels} the joy and pride of {PRONOUN/m_c/poss} Clanmates wash over {PRONOUN/m_c/object}. l_n looks down upon {PRONOUN/m_c/object}, eyes glowing with pride as {PRONOUN/l_n/subject} {VERB/l_n/name/names} {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_26": [
+  "clipper_26": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "faithful"
     ],
-    "(old_name)'s eyes glimmer while l_n talks about {PRONOUN/m_c/poss} accomplishments. {PRONOUN/m_c/poss/CAP} gaze isn't focused on the leader, however, but the stars shining behind {PRONOUN/l_n/object}. As {PRONOUN/m_c/subject} {VERB/m_c/are/is} given the name m_c, {PRONOUN/m_c/subject} {VERB/m_c/wonder/wonders} if StarClan honors {PRONOUN/m_c/poss} r_h, too."
+    "(old_name)'s eyes glimmer while l_n talks about {PRONOUN/m_c/poss} accomplishments. {PRONOUN/m_c/poss/CAP} gaze isn't focused on the baron, however, but the stars shining behind {PRONOUN/l_n/object}. As {PRONOUN/m_c/subject} {VERB/m_c/are/is} given the name m_c, {PRONOUN/m_c/subject} {VERB/m_c/wonder/wonders} if StarClan honors {PRONOUN/m_c/poss} r_h, too."
   ],
-  "warrior_27": [
+  "clipper_27": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "faithful"
     ],
     "As l_n gives (old_name) the name m_c, {PRONOUN/l_n/subject} {VERB/l_n/swear/swears} that {PRONOUN/l_n/subject} {VERB/l_n/see/sees} some starry cats yowling their support amongst {PRONOUN/l_n/poss} other Clanmates."
   ],
-  "warrior_28": [
+  "clipper_28": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "fierce",
       "grumpy"
     ],
-    "(old_name) sits in front of the leader, tail twitching back and forth as {PRONOUN/m_c/subject} {VERB/m_c/await/awaits} {PRONOUN/m_c/poss} warrior name. {PRONOUN/m_c/subject/CAP}{VERB/m_c/'re/'s} eager for this ceremony to be done so {PRONOUN/m_c/subject} can go back to work and make sure the Clan is safe. Finally, l_n looks down upon {PRONOUN/m_c/object} and names {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
+    "(old_name) sits in front of the baron, tail twitching back and forth as {PRONOUN/m_c/subject} {VERB/m_c/await/awaits} {PRONOUN/m_c/poss} clipper name. {PRONOUN/m_c/subject/CAP}{VERB/m_c/'re/'s} eager for this ceremony to be done so {PRONOUN/m_c/subject} can go back to work and make sure the Clan is safe. Finally, l_n looks down upon {PRONOUN/m_c/object} and names {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_29": [
+  "clipper_29": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "insecure"
     ],
-    "{PRONOUN/m_c/poss/CAP} training is done already? (old_name) isn't entirely sure if {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} quite as ready to be a warrior as the leader claims {PRONOUN/m_c/object} to be. {PRONOUN/m_c/poss/CAP} voice trembles when {PRONOUN/m_c/subject} {VERB/m_c/take/takes} {PRONOUN/m_c/poss} vow. As {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} renamed to m_c, in honor of {PRONOUN/m_c/poss} r_h, {PRONOUN/m_c/subject} can't help but wonder if that is truly something that describes {PRONOUN/m_c/object}."
+    "{PRONOUN/m_c/poss/CAP} training is done already? (old_name) isn't entirely sure if {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} quite as ready to be a clipper as the baron claims {PRONOUN/m_c/object} to be. {PRONOUN/m_c/poss/CAP} voice trembles when {PRONOUN/m_c/subject} {VERB/m_c/take/takes} {PRONOUN/m_c/poss} vow. As {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} renamed to m_c, in honor of {PRONOUN/m_c/poss} r_h, {PRONOUN/m_c/subject} can't help but wonder if that is truly something that describes {PRONOUN/m_c/object}."
   ],
-  "warrior_30": [
+  "clipper_30": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "lonesome",
       "gloomy"
     ],
     "(old_name), now named m_c for {PRONOUN/m_c/poss} r_h, can only awkwardly thank {PRONOUN/m_c/poss} Clanmates as {PRONOUN/m_c/subject} {VERB/m_c/weave/weaves} through the crowd of purring cats. Once the meeting comes to a close, {PRONOUN/m_c/subject} {VERB/m_c/slink/slinks} out of camp to be alone for a while."
   ],
-  "warrior_31": [
+  "clipper_31": [
     [
-      "warrior",
+      "clipper",
 	    "prepared",
       "alive_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "loving",
       "sincere"
     ],
-    "(old_name) is overjoyed to finally be a warrior. After l_n renames {PRONOUN/m_c/object} and honors {PRONOUN/m_c/poss} r_h, m_c nuzzles (previous_mentor), thanking {PRONOUN/(previous_mentor)/object} for {PRONOUN/(previous_mentor)/poss} guidance."
+    "(old_name) is overjoyed to finally be a clipper. After l_n renames {PRONOUN/m_c/object} and honors {PRONOUN/m_c/poss} r_h, m_c nuzzles (previous_mentor), thanking {PRONOUN/(previous_mentor)/object} for {PRONOUN/(previous_mentor)/poss} guidance."
   ],
-  "warrior_32": [
+  "clipper_32": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "loyal"
     ],
-    "(old_name) looks around at {PRONOUN/m_c/poss} Clanmates with adoration while l_n announces that {PRONOUN/m_c/poss} new name will be m_c, after {PRONOUN/m_c/poss} r_h. m_c is happy to be a warrior now, but mostly {PRONOUN/m_c/subject} just {VERB/m_c/want/wants} to celebrate with {PRONOUN/m_c/poss} Clan, whether it's for {PRONOUN/m_c/object} or not."
+    "(old_name) looks around at {PRONOUN/m_c/poss} Clanmates with adoration while l_n announces that {PRONOUN/m_c/poss} new name will be m_c, after {PRONOUN/m_c/poss} r_h. m_c is happy to be a clipper now, but mostly {PRONOUN/m_c/subject} just {VERB/m_c/want/wants} to celebrate with {PRONOUN/m_c/poss} Clan, whether it's for {PRONOUN/m_c/object} or not."
   ],
-  "warrior_33": [
+  "clipper_33": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "nervous"
     ],
     "(old_name) fidgets nervously as {PRONOUN/m_c/subject} {VERB/m_c/step/steps} forward in front of the Clan. This is an important moment, so {PRONOUN/m_c/subject} {VERB/m_c/try/tries} not to hide {PRONOUN/m_c/poss} face from the crowd as l_n gives {PRONOUN/m_c/object} the name m_c in honor of {PRONOUN/m_c/poss} r_h. {PRONOUN/m_c/subject/CAP} quickly {VERB/m_c/scurry/scurries} back into the crowd once the ceremony is done, silently hoping that this will be the last ceremony {PRONOUN/m_c/subject} ever {VERB/m_c/have/has}."
   ],
-  "warrior_34": [
+  "clipper_34": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "nervous"
     ],
-    "As (old_name) nervously approaches {PRONOUN/m_c/poss} leader, l_n can't help but feel {PRONOUN/m_c/poss} hesitance might cost {PRONOUN/m_c/object} {PRONOUN/m_c/poss} life in battle. Steeling {PRONOUN/l_n/self} against {PRONOUN/l_n/poss} doubts, l_n gives (old_name) the name m_c to honor {PRONOUN/m_c/poss} r_h."
+    "As (old_name) nervously approaches {PRONOUN/m_c/poss} baron, l_n can't help but feel {PRONOUN/m_c/poss} hesitance might cost {PRONOUN/m_c/object} {PRONOUN/m_c/poss} life in battle. Steeling {PRONOUN/l_n/self} against {PRONOUN/l_n/poss} doubts, l_n gives (old_name) the name m_c to honor {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_35": [
+  "clipper_35": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "compassionate"
     ],
-    "(old_name) sits unbothered as l_n rattles on through the long, formal words of the warrior ceremony. {PRONOUN/l_n/subject/CAP} {VERB/l_n/give/gives} (old_name) the name m_c, honoring {PRONOUN/m_c/poss} r_h. m_c has no complaints about the long vigil {PRONOUN/m_c/subject} must sit that night."
+    "(old_name) sits unbothered as l_n rattles on through the long, formal words of the clipper ceremony. {PRONOUN/l_n/subject/CAP} {VERB/l_n/give/gives} (old_name) the name m_c, honoring {PRONOUN/m_c/poss} r_h. m_c has no complaints about the long vigil {PRONOUN/m_c/subject} must sit that night."
   ],
-  "warrior_36": [
+  "clipper_36": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "playful"
     ],
-    "(old_name) bounces up to the front of the Clan, full of excitement. {PRONOUN/m_c/subject/CAP} {VERB/m_c/try/tries} to take this somewhat seriously, but {PRONOUN/m_c/subject} still {VERB/m_c/crack/cracks} a joke over something the leader says. l_n gently scolds {PRONOUN/m_c/object} for it, but can't help purring along as {PRONOUN/l_n/subject} {VERB/l_n/name/names} {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
+    "(old_name) bounces up to the front of the Clan, full of excitement. {PRONOUN/m_c/subject/CAP} {VERB/m_c/try/tries} to take this somewhat seriously, but {PRONOUN/m_c/subject} still {VERB/m_c/crack/cracks} a joke over something the baron says. l_n gently scolds {PRONOUN/m_c/object} for it, but can't help purring along as {PRONOUN/l_n/subject} {VERB/l_n/name/names} {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_37": [
+  "clipper_37": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "responsible"
     ],
-    "(old_name) has shown more maturity than most cats {PRONOUN/m_c/poss} age, always offering to take on the worst apprentice jobs first and counting the prey in the pile to know just how much to catch on patrol. l_n was tempted to make {PRONOUN/m_c/object} a warrior sooner, but now will have to do. {PRONOUN/l_n/subject/CAP} {VERB/l_n/name/names} {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
+    "(old_name) has shown more maturity than most cats {PRONOUN/m_c/poss} age, always offering to take on the worst apprentice jobs first and counting the prey in the pile to know just how much to catch on patrol. l_n was tempted to make {PRONOUN/m_c/object} a clipper sooner, but now will have to do. {PRONOUN/l_n/subject/CAP} {VERB/l_n/name/names} {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_38": [
+  "clipper_38": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "righteous",
       "sincere"
     ],
-    "(old_name) stands tall before the Clan, gaze determined as l_n says {PRONOUN/m_c/subject} {VERB/m_c/are/is} ready for {PRONOUN/m_c/poss} warrior name. (old_name) takes the vow seriously, and promises to always do what is best for everyone. Gaze proud, l_n names {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
+    "(old_name) stands tall before the Clan, gaze determined as l_n says {PRONOUN/m_c/subject} {VERB/m_c/are/is} ready for {PRONOUN/m_c/poss} clipper name. (old_name) takes the vow seriously, and promises to always do what is best for everyone. Gaze proud, l_n names {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_39": [
+  "clipper_39": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "shameless",
       "sincere"
     ],
     "(old_name) is still messy after tussling with someone else and doesn't even bother to groom {PRONOUN/m_c/self} before trotting up to the front of the crowd. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} named m_c, and honored for {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_40": [
+  "clipper_40": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "sneaky"
     ],
-    "(old_name) pads forward silently before sitting in front of {PRONOUN/m_c/poss} leader. {PRONOUN/m_c/subject/CAP} {VERB/m_c/remain/remains} just as quiet as {PRONOUN/m_c/poss} steps forward for l_n to name {PRONOUN/m_c/object} m_c and honor {PRONOUN/m_c/poss} r_h."
+    "(old_name) pads forward silently before sitting in front of {PRONOUN/m_c/poss} baron. {PRONOUN/m_c/subject/CAP} {VERB/m_c/remain/remains} just as quiet as {PRONOUN/m_c/poss} steps forward for l_n to name {PRONOUN/m_c/object} m_c and honor {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_41": [
+  "clipper_41": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "strange"
     ],
     "(old_name) is nearly late for {PRONOUN/m_c/poss} ceremony, having been double checking something for reasons no one knows. l_n remains patient as (old_name) sits down in front of {PRONOUN/l_n/object}. l_n names {PRONOUN/m_c/object} m_c, honoring {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_42": [
+  "clipper_42": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "strict"
     ],
     "(old_name) grumbles to {PRONOUN/m_c/self} as l_n changes just a single word in the ceremony. {PRONOUN/m_c/subject/CAP} {VERB/m_c/know/knows} better than to correct {PRONOUN/l_n/object} during such an important ceremony though, and {PRONOUN/m_c/subject} can speak to l_n about it later. For now, {PRONOUN/m_c/subject} {VERB/m_c/listen/listens} as {PRONOUN/m_c/subject} {VERB/m_c/are/is} given the name m_c, and {VERB/m_c/are/is} honored for {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_43": [
+  "clipper_43": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "thoughtful"
     ],
     "l_n hops up onto the meeting spot to find that (old_name) has set moss along it in preparation for the meeting so that l_n can be more comfortable through the long ceremony. Purring, l_n gives {PRONOUN/m_c/object} the name m_c for {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_44": [
+  "clipper_44": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "thoughtful",
       "wise",
@@ -2607,195 +2607,195 @@
     ],
     "l_n almost feels intimidated by the knowledge (old_name) has gathered in {PRONOUN/m_c/poss} moons of training and feels confident when {PRONOUN/l_n/subject} {VERB/l_n/name/names} {PRONOUN/m_c/object} m_c in honor of {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_45": [
+  "clipper_45": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "troublesome",
       "rebellious"
     ],
-    "(old_name)'s penchant for getting into, and even starting, trouble has almost made l_n hold back on making {PRONOUN/m_c/object} a warrior. However, l_n can tell that (old_name) has been trying really hard lately to make up for it, and it would feel cruel to make {PRONOUN/m_c/object} wait any longer. So, l_n names {PRONOUN/m_c/object} m_c in honor of {PRONOUN/m_c/poss} r_h."
+    "(old_name)'s penchant for getting into, and even starting, trouble has almost made l_n hold back on making {PRONOUN/m_c/object} a clipper. However, l_n can tell that (old_name) has been trying really hard lately to make up for it, and it would feel cruel to make {PRONOUN/m_c/object} wait any longer. So, l_n names {PRONOUN/m_c/object} m_c in honor of {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_46": [
+  "clipper_46": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "vengeful"
     ],
     "As (old_name) takes {PRONOUN/m_c/poss} vow and is named m_c after {PRONOUN/m_c/poss} r_h, {PRONOUN/m_c/poss} thoughts are less on protecting the Clan, and more so on ensuring that anyone who harms it will pay in kind."
   ],
-  "warrior_47": [
+  "clipper_47": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "wise",
       "cunning"
     ],
-    "(old_name)'s advice has helped many cats throughout {PRONOUN/m_c/poss} days as an apprentice. Even l_n has sought {PRONOUN/m_c/object} out at times. l_n has no doubts in {PRONOUN/l_n/poss} mind that (old_name) is ready to be a warrior, and names {PRONOUN/m_c/object} m_c, honoring {PRONOUN/m_c/poss} r_h."
+    "(old_name)'s advice has helped many cats throughout {PRONOUN/m_c/poss} days as an apprentice. Even l_n has sought {PRONOUN/m_c/object} out at times. l_n has no doubts in {PRONOUN/l_n/poss} mind that (old_name) is ready to be a clipper, and names {PRONOUN/m_c/object} m_c, honoring {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_48": [
+  "clipper_48": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "no_leader",
+      "no_baron",
       "general_backstory",
       "all_traits"
     ],
-    "c_n rallies around (old_name) in celebration. Even without a leader, life must go on, and (old_name) has proven {PRONOUN/m_c/subject} {VERB/m_c/are/is} ready for {PRONOUN/m_c/poss} warrior name. (old_name) is allowed to choose {PRONOUN/m_c/poss} own suffix, and {PRONOUN/m_c/subject} {VERB/m_c/name/names} {PRONOUN/m_c/self} m_c. The Clan cheers for the new warrior, honoring {PRONOUN/m_c/poss} r_h."
+    "c_n rallies around (old_name) in celebration. Even without a baron, life must go on, and (old_name) has proven {PRONOUN/m_c/subject} {VERB/m_c/are/is} ready for {PRONOUN/m_c/poss} clipper name. (old_name) is allowed to choose {PRONOUN/m_c/poss} own suffix, and {PRONOUN/m_c/subject} {VERB/m_c/name/names} {PRONOUN/m_c/self} m_c. The Clan cheers for the new clipper, honoring {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_49": [
+  "clipper_49": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "no_leader",
+      "no_baron",
       "general_backstory",
       "all_traits"
     ],
     "(old_name) sits with {PRONOUN/m_c/poss} Clan, purring as {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} congratulated on finishing {PRONOUN/m_c/poss} training. When given the option to choose {PRONOUN/m_c/poss} name, however, (old_name) can't really think of a suffix, and asks {PRONOUN/m_c/poss} Clanmates for some suggestions. After hearing a few ideas, (old_name) decides to be named m_c. The Clan cheers {PRONOUN/m_c/poss} new name, and honors {PRONOUN/m_c/object} for {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_50": [
+  "clipper_50": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "dead_mentor",
       "general_parents",
-      "no_leader",
+      "no_baron",
       "general_backstory",
       "all_traits"
     ],
-    "Leader or no leader, c_n needs more warriors, and (old_name) has been working incredibly hard lately. The Clan agrees that {PRONOUN/m_c/subject} should be made a warrior. As {PRONOUN/m_c/subject} {VERB/m_c/are/is} named m_c, honoring {PRONOUN/m_c/poss} r_h, m_c wishes that (deadmentor) could be there to cheer for {PRONOUN/m_c/object}."
+    "baron or no baron, c_n needs more clippers, and (old_name) has been working incredibly hard lately. The Clan agrees that {PRONOUN/m_c/subject} should be made a clipper. As {PRONOUN/m_c/subject} {VERB/m_c/are/is} named m_c, honoring {PRONOUN/m_c/poss} r_h, m_c wishes that (deadmentor) could be there to cheer for {PRONOUN/m_c/object}."
   ],
-  "warrior_51": [
+  "clipper_51": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "dead_mentor",
       "general_parents",
-      "no_leader",
+      "no_baron",
       "general_backstory",
       "all_traits"
     ],
-    "They don't care if there's no leader; the Clan knows that (old_name) is deserving of {PRONOUN/m_c/poss} full name. They gather to hold a ceremony for (old_name), and name {PRONOUN/m_c/object} m_c, honoring {PRONOUN/m_c/poss} r_h. m_c is proud of {PRONOUN/m_c/self}, though a part of {PRONOUN/m_c/object} still wishes that (deadmentor) was still there to see {PRONOUN/m_c/object}."
+    "They don't care if there's no baron; the Clan knows that (old_name) is deserving of {PRONOUN/m_c/poss} full name. They gather to hold a ceremony for (old_name), and name {PRONOUN/m_c/object} m_c, honoring {PRONOUN/m_c/poss} r_h. m_c is proud of {PRONOUN/m_c/self}, though a part of {PRONOUN/m_c/object} still wishes that (deadmentor) was still there to see {PRONOUN/m_c/object}."
   ],
-  "warrior_52": [
+  "clipper_52": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "alive_mentor",
       "general_parents",
-      "no_leader",
+      "no_baron",
       "general_backstory",
       "all_traits"
     ],
-    "Leader or no leader, c_n needs more warriors, and (old_name) has been working incredibly hard lately. The Clan agrees that {PRONOUN/m_c/subject} should be made a warrior. They gather around the apprentice, and (previous_mentor) is nudged forward to do the honor of giving {PRONOUN/m_c/object} {PRONOUN/m_c/poss} name. Purring in pride for {PRONOUN/(previous_mentor)/poss} apprentice, (previous_mentor) rests {PRONOUN/(previous_mentor)/poss} muzzle on (old_name)'s head, and names {PRONOUN/m_c/object} m_c, honoring {PRONOUN/m_c/poss} r_h."
+    "baron or no baron, c_n needs more clippers, and (old_name) has been working incredibly hard lately. The Clan agrees that {PRONOUN/m_c/subject} should be made a clipper. They gather around the apprentice, and (previous_mentor) is nudged forward to do the honor of giving {PRONOUN/m_c/object} {PRONOUN/m_c/poss} name. Purring in pride for {PRONOUN/(previous_mentor)/poss} apprentice, (previous_mentor) rests {PRONOUN/(previous_mentor)/poss} muzzle on (old_name)'s head, and names {PRONOUN/m_c/object} m_c, honoring {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_53": [
+  "clipper_53": [
     [
-      "warrior",
+      "clipper",
 	    "prepared",
       "alive_mentor",
       "general_parents",
-      "no_leader",
+      "no_baron",
       "general_backstory",
       "all_traits"
     ],
-    "{PRONOUN/(previous_mentor)/subject/CAP} {VERB/(previous_mentor)/don't/doesn't} care if there's no leader; (previous_mentor) knows that (old_name) is deserving of {PRONOUN/m_c/poss} full name. {PRONOUN/(previous_mentor)/subject/CAP} {VERB/(previous_mentor)/gather/gathers} the Clan to hold a ceremony for (old_name), naming {PRONOUN/m_c/object} m_c and honoring {PRONOUN/m_c/poss} r_h."
+    "{PRONOUN/(previous_mentor)/subject/CAP} {VERB/(previous_mentor)/don't/doesn't} care if there's no baron; (previous_mentor) knows that (old_name) is deserving of {PRONOUN/m_c/poss} full name. {PRONOUN/(previous_mentor)/subject/CAP} {VERB/(previous_mentor)/gather/gathers} the Clan to hold a ceremony for (old_name), naming {PRONOUN/m_c/object} m_c and honoring {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_54": [
+  "clipper_54": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "alive1_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
     "p1 can hardly believe how quickly time has passed since (old_name) was a kit. It still feels like just yesterday that {PRONOUN/m_c/subject} {VERB/m_c/were/was} tumbling around the nursery, chasing after a moss ball or some other cat's tail. Misty-eyed with pride and joy, p1 throws {PRONOUN/p1/poss} head back and tries to cheer the loudest as (old_name) is named m_c and honored for {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_55": [
+  "clipper_55": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "alive1_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
-    "As the Clan cheers for the new warrior, m_c, p1 purrs loudly. {PRONOUN/p1/poss/CAP} kit is finally a warrior! A new journey has begun for m_c, and p1 knows that m_c's r_h will lead {PRONOUN/m_c/object} through anything."
+    "As the Clan cheers for the new clipper, m_c, p1 purrs loudly. {PRONOUN/p1/poss/CAP} kit is finally a clipper! A new journey has begun for m_c, and p1 knows that m_c's r_h will lead {PRONOUN/m_c/object} through anything."
   ],
-  "warrior_56": [
+  "clipper_56": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "alive2_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
     "p1 and p2's eyes meet and they purr with pride as (old_name) steps forward to receive {PRONOUN/m_c/poss} new name, m_c, and {VERB/m_c/are/is} honored for {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_57": [
+  "clipper_57": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "dead2_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
     "Are dead_par1 and dead_par2 watching from StarClan? (old_name) wonders this as {PRONOUN/m_c/subject} {VERB/m_c/step/steps} in front of the Clan. {PRONOUN/m_c/subject/CAP} {VERB/m_c/hope/hopes} so. {PRONOUN/m_c/subject/CAP} truly {VERB/m_c/do/does}. As {PRONOUN/m_c/subject} {VERB/m_c/are/is} given the name m_c in honor of {PRONOUN/m_c/poss} r_h, m_c hopes that {PRONOUN/m_c/poss} parents are there, cheering with their Clanmates in the stars for their kit."
   ],
-  "warrior_58": [
+  "clipper_58": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "dead2_parents",
-      "general_leader",
+      "general_baron",
       "clanborn",
       "all_traits"
     ],
     "(old_name) tries to keep {PRONOUN/m_c/poss} head high as {PRONOUN/m_c/subject} {VERB/m_c/step/steps} forward, and {VERB/m_c/are/is} given the name m_c in honor of {PRONOUN/m_c/poss} r_h. It doesn't seem fair. dead_par1 and dead_par2 should be here with {PRONOUN/m_c/object}! They promised they would! m_c looks to the stars, {PRONOUN/m_c/poss} anger and frustration vanishing. It feels as though the stars are brighter, and {PRONOUN/m_c/subject} {VERB/m_c/know/knows} that, even if they cannot be there in body, {PRONOUN/m_c/poss} parents are there in spirit."
   ],
-  "warrior_59": [
+  "clipper_59": [
     [
-      "warrior",
+      "clipper",
       "prepared",
-      "alive_leader_mentor",
+      "alive_baron_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "all_traits"
     ],
-    "(previous_mentor) gathers the Clan for a meeting. {PRONOUN/(previous_mentor)/subject/CAP} {VERB/(previous_mentor)/have/has} spent many moons training (old_name), and it's time for {PRONOUN/m_c/object} to be granted {PRONOUN/m_c/poss} warrior name. (previous_mentor) gives {PRONOUN/m_c/object} the name m_c and honors {PRONOUN/m_c/poss} r_h."
+    "(previous_mentor) gathers the Clan for a meeting. {PRONOUN/(previous_mentor)/subject/CAP} {VERB/(previous_mentor)/have/has} spent many moons training (old_name), and it's time for {PRONOUN/m_c/object} to be granted {PRONOUN/m_c/poss} clipper name. (previous_mentor) gives {PRONOUN/m_c/object} the name m_c and honors {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_60": [
+  "clipper_60": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "dead2_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "righteous",
       "faithful",
@@ -2804,13 +2804,13 @@
     ],
     "As c_n yowls m_c's new name, l_n murmurs that dead_par1 and dead_par2 would be proud of {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_61": [
+  "clipper_61": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "dead2_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "righteous",
       "faithful",
@@ -2824,13 +2824,13 @@
     ],
     "dead_par1 and dead_par2 watch over (old_name) still. As {PRONOUN/m_c/subject} {VERB/m_c/step/steps} forward, the name m_c settling upon {PRONOUN/m_c/object} like sunlight on {PRONOUN/m_c/poss} pelt, {PRONOUN/m_c/subject} {VERB/m_c/carry/carries} {PRONOUN/m_c/poss} parents' legacy with {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_62": [
+  "clipper_62": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "dead1_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "righteous",
       "faithful",
@@ -2844,13 +2844,13 @@
     ],
     "dead_par1 watches over (old_name) still. As {PRONOUN/m_c/subject} {VERB/m_c/step/steps} forward, the name m_c settling upon {PRONOUN/m_c/object} like sunlight on {PRONOUN/m_c/poss} pelt, {PRONOUN/m_c/subject} {VERB/m_c/carry/carries} {PRONOUN/m_c/poss} parent's legacy with {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_63": [
+  "clipper_63": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "dead1_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "faithful",
       "loving",
@@ -2863,13 +2863,13 @@
     ],
     "As (old_name) steps forward to take up the mantle of m_c, {PRONOUN/m_c/subject} {VERB/m_c/feel/feels} the wind ruffle through {PRONOUN/m_c/poss} fur, like a touch of approval. {PRONOUN/m_c/subject/CAP} {VERB/m_c/wonder/wonders} if dead_par1 would approve of the r_h m_c is honored for."
   ],
-  "warrior_64": [
+  "clipper_64": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "alive2_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "childish",
       "lonesome",
@@ -2877,15 +2877,15 @@
       "nervous",
       "grumpy"
     ],
-    "(old_name) meets p1 and p2's eyes as {PRONOUN/m_c/subject} {VERB/m_c/swell/swells} with pride, taking {PRONOUN/m_c/poss} hard-earned place in the spotlight in front of all of c_n. Given the name m_c in honor of {PRONOUN/m_c/poss} r_h, {PRONOUN/m_c/subject} {VERB/m_c/bask/basks} in the celebration of {PRONOUN/m_c/poss} warrior name, {PRONOUN/m_c/poss} family by {PRONOUN/m_c/poss} side."
+    "(old_name) meets p1 and p2's eyes as {PRONOUN/m_c/subject} {VERB/m_c/swell/swells} with pride, taking {PRONOUN/m_c/poss} hard-earned place in the spotlight in front of all of c_n. Given the name m_c in honor of {PRONOUN/m_c/poss} r_h, {PRONOUN/m_c/subject} {VERB/m_c/bask/basks} in the celebration of {PRONOUN/m_c/poss} clipper name, {PRONOUN/m_c/poss} family by {PRONOUN/m_c/poss} side."
   ],
-  "warrior_65": [
+  "clipper_65": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "alive2_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "ambitious",
       "bold",
@@ -2898,14 +2898,14 @@
       "competitive",
       "flamboyant"
     ],
-    "Named m_c for {PRONOUN/m_c/poss} r_h, the new warrior squares {PRONOUN/m_c/poss} shoulders before c_n, heart full of the hard-won joy of {PRONOUN/m_c/poss} Clanmates yowling {PRONOUN/m_c/poss} name, of p1's happy slitted eyes of pride and p2's voice leading the call. All {PRONOUN/m_c/poss} efforts to get here have been worth it. This is just the beginning."
+    "Named m_c for {PRONOUN/m_c/poss} r_h, the new clipper squares {PRONOUN/m_c/poss} shoulders before c_n, heart full of the hard-won joy of {PRONOUN/m_c/poss} Clanmates yowling {PRONOUN/m_c/poss} name, of p1's happy slitted eyes of pride and p2's voice leading the call. All {PRONOUN/m_c/poss} efforts to get here have been worth it. This is just the beginning."
   ],
-  "warrior_66": [
+  "clipper_66": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "troublesome",
       "lonesome",
@@ -2916,15 +2916,15 @@
       "strict",
       "arrogant"
     ],
-    "Maybe there's those among c_n who get on (old_name)'s nerves, but {PRONOUN/m_c/subject}'d give {PRONOUN/m_c/poss} blood, sweat, and tears to keep those fuzzballs safe, and l_n knows it. (old_name) is named m_c for {PRONOUN/m_c/poss} r_h, and steps forward to take the mantle of a warrior."
+    "Maybe there's those among c_n who get on (old_name)'s nerves, but {PRONOUN/m_c/subject}'d give {PRONOUN/m_c/poss} blood, sweat, and tears to keep those fuzzballs safe, and l_n knows it. (old_name) is named m_c for {PRONOUN/m_c/poss} r_h, and steps forward to take the mantle of a clipper."
   ],
-  "warrior_67": [
+  "clipper_67": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "alive2_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "insecure",
       "nervous",
@@ -2934,13 +2934,13 @@
     ],
     "As l_n calls c_n together, (old_name) desperately suppresses {PRONOUN/m_c/poss} shivers. What if {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} not ready? What if this is a mistake? But hearing p1 yowl frantically to p2 to hurry up helps (old_name) find reserves of calm. {PRONOUN/m_c/subject/CAP} {VERB/m_c/belong/belongs} here, and stepping up to be honored for {PRONOUN/m_c/poss} r_h with the name m_c fills {PRONOUN/m_c/object} with confidence."
   ],
-  "warrior_68": [
+  "clipper_68": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "alive2_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "loving",
       "compassionate",
@@ -2949,15 +2949,15 @@
       "thoughtful",
       "sincere"
     ],
-    "As p1 and p2 fuss, erasing each others' efforts at licking (old_name)'s fur flat, (old_name) purrs. Surrounded by {PRONOUN/m_c/poss} parents, l_n names {PRONOUN/m_c/object} m_c for the r_h {PRONOUN/m_c/subject} {VERB/m_c/have/has} shown in {PRONOUN/m_c/poss} training, welcoming {PRONOUN/m_c/object} to take {PRONOUN/m_c/poss} place as a full warrior of c_n."
+    "As p1 and p2 fuss, erasing each others' efforts at licking (old_name)'s fur flat, (old_name) purrs. Surrounded by {PRONOUN/m_c/poss} parents, l_n names {PRONOUN/m_c/object} m_c for the r_h {PRONOUN/m_c/subject} {VERB/m_c/have/has} shown in {PRONOUN/m_c/poss} training, welcoming {PRONOUN/m_c/object} to take {PRONOUN/m_c/poss} place as a full clipper of c_n."
   ],
-  "warrior_69": [
+  "clipper_69": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "alive2_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "charismatic",
       "ambitious",
@@ -2968,15 +2968,15 @@
       "competitive",
       "flamboyant"
     ],
-    "(old_name) practically glows with delight, basking in the glory of {PRONOUN/m_c/poss} naming ceremony, in the attention and praise of {PRONOUN/m_c/poss} parents. l_n names {PRONOUN/m_c/object} m_c for {PRONOUN/m_c/poss} r_h as the new warrior preens with accomplishment."
+    "(old_name) practically glows with delight, basking in the glory of {PRONOUN/m_c/poss} naming ceremony, in the attention and praise of {PRONOUN/m_c/poss} parents. l_n names {PRONOUN/m_c/object} m_c for {PRONOUN/m_c/poss} r_h as the new clipper preens with accomplishment."
   ],
-  "warrior_70": [
+  "clipper_70": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "alive2_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "charismatic",
       "ambitious",
@@ -2989,68 +2989,68 @@
     ],
     "(old_name) has thrown {PRONOUN/m_c/self} at every challenge in {PRONOUN/m_c/poss} path, and l_n notes {PRONOUN/m_c/subject} {VERB/m_c/have/has} the r_h of a tiger, may it serve {PRONOUN/m_c/object} well. It's time for (old_name) to take both {PRONOUN/m_c/poss} place as an adult of c_n, and {PRONOUN/m_c/poss} full name of m_c."
   ],
-  "warrior_71": [
+  "clipper_71": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "oblivious",
       "calm",
       "wise"
     ],
-    "As the Clan yowls m_c's new warrior name {PRONOUN/m_c/subject} {VERB/m_c/smile/smiles} and {VERB/m_c/nod/nods}, pleased but not overcome. l_n jumps down to congratulate {PRONOUN/m_c/object}. As their heads press together, l_n whispers that a balanced sense of self and r_h will serve m_c well."
+    "As the Clan yowls m_c's new clipper name {PRONOUN/m_c/subject} {VERB/m_c/smile/smiles} and {VERB/m_c/nod/nods}, pleased but not overcome. l_n jumps down to congratulate {PRONOUN/m_c/object}. As their heads press together, l_n whispers that a balanced sense of self and r_h will serve m_c well."
   ],
-  "warrior_72": [
+  "clipper_72": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "strict",
       "responsible"
     ],
-    "With c_n gathered for celebration, l_n highlights (old_name)'s r_h, {PRONOUN/m_c/poss} dedication to truth, and the Warrior Code. It is for this that l_n names {PRONOUN/m_c/object} m_c, welcoming {PRONOUN/m_c/object} as a full warrior of c_n."
+    "With c_n gathered for celebration, l_n highlights (old_name)'s r_h, {PRONOUN/m_c/poss} dedication to truth, and the clipper Code. It is for this that l_n names {PRONOUN/m_c/object} m_c, welcoming {PRONOUN/m_c/object} as a full clipper of c_n."
   ],
-  "warrior_73": [
+  "clipper_73": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "alive_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "charismatic",
       "responsible",
       "careful"
     ],
-    "The poise, decorum, and r_h (old_name) acts with are a credit to c_n, l_n meows. (old_name) tries to live up to such pretty words, but all {PRONOUN/m_c/subject} can focus on are the ringing yowls of m_c as {PRONOUN/m_c/poss} new warrior name echos around camp."
+    "The poise, decorum, and r_h (old_name) acts with are a credit to c_n, l_n meows. (old_name) tries to live up to such pretty words, but all {PRONOUN/m_c/subject} can focus on are the ringing yowls of m_c as {PRONOUN/m_c/poss} new clipper name echos around camp."
   ],
-  "warrior_74": [
+  "clipper_74": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "alive_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "childish",
       "oblivious",
       "insecure"
     ],
-    "l_n calls c_n to attention. They are gathered here to celebrate the hard work, persistence, and r_h of c_n's newest warrior. (old_name)'s jaw drops as {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} summoned forward, and {PRONOUN/m_c/subject} {VERB/m_c/sit/sits}, disbelieving but thrilled, as l_n grants {PRONOUN/m_c/object} the name m_c and cheers break out."
+    "l_n calls c_n to attention. They are gathered here to celebrate the hard work, persistence, and r_h of c_n's newest clipper. (old_name)'s jaw drops as {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} summoned forward, and {PRONOUN/m_c/subject} {VERB/m_c/sit/sits}, disbelieving but thrilled, as l_n grants {PRONOUN/m_c/object} the name m_c and cheers break out."
   ],
-  "warrior_75": [
+  "clipper_75": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "responsible",
       "sincere",
@@ -3058,26 +3058,26 @@
     ],
     "All {PRONOUN/m_c/poss} hard work has come to this. m_c stands straight and proud, adorned with {PRONOUN/m_c/poss} new name and the congratulations of {PRONOUN/m_c/poss} Clan. Tomorrow, tomorrow {PRONOUN/m_c/subject} will return to responsibility and service and r_h. Tonight is {PRONOUN/m_c/poss} night to celebrate."
   ],
-  "warrior_76": [
+  "clipper_76": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "ambitious",
       "confident"
     ],
-    "l_n calls (old_name) forward, honoring {PRONOUN/m_c/poss} r_h with the name m_c. One day, it'll be m_c's power to grant names to the warriors of c_n. This marks the first completed goal on that quest."
+    "l_n calls (old_name) forward, honoring {PRONOUN/m_c/poss} r_h with the name m_c. One day, it'll be m_c's power to grant names to the clippers of c_n. This marks the first completed goal on that quest."
   ],
-  "warrior_77": [
+  "clipper_77": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "troublesome",
       "rebellious",
@@ -3086,28 +3086,28 @@
     ],
     "(old_name) can't help the way {PRONOUN/m_c/poss} tail lashes, excitement bubbling over into bouncy energy as the Clan gathers. l_n mentions {PRONOUN/m_c/poss} r_h, but what (old_name) cares about is the <i>name</i>. m_c means liberty, means control over {PRONOUN/m_c/poss} own life, means the freedom to wander and hunt on {PRONOUN/m_c/poss} own, nothing holding {PRONOUN/m_c/object} back. {PRONOUN/m_c/subject/CAP} can't wait!"
   ],
-  "warrior_78": [
+  "clipper_78": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "alive_mentor",
       "alive2_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "competitive",
       "flamboyant",
       "charismatic",
       "righteous"
     ],
-    "Hearing l_n speak about {PRONOUN/m_c/poss} r_h in front of all the Clan, seeing (previous_mentor)'s approving nod, p1's eyes shining with pride, p2 purring loud enough to choke on the sound, it all comes together into a moment of brilliant recognition and celebration as m_c takes on {PRONOUN/m_c/poss} warrior name."
+    "Hearing l_n speak about {PRONOUN/m_c/poss} r_h in front of all the Clan, seeing (previous_mentor)'s approving nod, p1's eyes shining with pride, p2 purring loud enough to choke on the sound, it all comes together into a moment of brilliant recognition and celebration as m_c takes on {PRONOUN/m_c/poss} clipper name."
   ],
-  "warrior_79": [
+  "clipper_79": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "alive_mentor",
       "alive2_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "grumpy",
       "gloomy",
@@ -3116,25 +3116,25 @@
     ],
     "Even at {PRONOUN/m_c/poss} own naming ceremony, m_c doesn't love being the center of attention, the tip of {PRONOUN/m_c/poss} tail twitching with unease. But {PRONOUN/m_c/subject} still {VERB/m_c/accept/accepts} (previous_mentor)'s congratulations and {PRONOUN/m_c/poss} parents' proud purrs, smiling slightly when l_n praises {PRONOUN/m_c/poss} r_h."
   ],
-  "warrior_80": [
+  "clipper_80": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "alive_mentor",
       "alive1_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "all_traits"
     ],
-    "(previous_mentor) backs up, giving p1 room to tuck (old_name) underneath {PRONOUN/p1/poss} chin one last time, as p1 murmurs how proud {PRONOUN/p1/subject} {VERB/p1/are/is}. l_n calls (old_name) forward with words honoring {PRONOUN/m_c/poss} r_h, as {PRONOUN/m_c/subject} {VERB/m_c/take/takes} up the name m_c and {VERB/m_c/step/steps} into full warrior duties."
+    "(previous_mentor) backs up, giving p1 room to tuck (old_name) underneath {PRONOUN/p1/poss} chin one last time, as p1 murmurs how proud {PRONOUN/p1/subject} {VERB/p1/are/is}. l_n calls (old_name) forward with words honoring {PRONOUN/m_c/poss} r_h, as {PRONOUN/m_c/subject} {VERB/m_c/take/takes} up the name m_c and {VERB/m_c/step/steps} into full clipper duties."
   ],
-  "warrior_81": [
+  "clipper_81": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "alive_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "loyal",
       "faithful",
@@ -3143,13 +3143,13 @@
     ],
     "As l_n exults (old_name)'s r_h, (old_name) quietly tucks {PRONOUN/m_c/poss} head against (previous_mentor)'s shoulder, deeply respectful. It feels unreal to receive {PRONOUN/m_c/poss} full name, and m_c will still be coming to (previous_mentor) for advice for many moons in the future."
   ],
-  "warrior_82": [
+  "clipper_82": [
     [
-      "warrior",
+      "clipper",
       "prepared",
       "alive_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "fierce",
       "bloodthirsty",
@@ -3164,7 +3164,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -3176,7 +3176,7 @@
       "unprepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -3188,7 +3188,7 @@
       "early",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -3200,7 +3200,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -3212,7 +3212,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -3224,7 +3224,7 @@
       "prepared",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -3235,7 +3235,7 @@
       "mediator",
       "alive_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -3246,7 +3246,7 @@
       "elder",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -3257,7 +3257,7 @@
       "elder",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -3268,7 +3268,7 @@
       "elder",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -3279,7 +3279,7 @@
       "elder",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -3290,7 +3290,7 @@
       "elder",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -3301,7 +3301,7 @@
       "elder",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -3312,7 +3312,7 @@
       "elder",
       "general_mentor",
       "general_parents",
-      "yes_leader",
+      "yes_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -3323,7 +3323,7 @@
       "elder",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "all_traits"
     ],
@@ -3334,7 +3334,7 @@
       "elder",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "flamboyant",
       "rebellious",
@@ -3349,7 +3349,7 @@
       "elder",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "responsible",
       "ambitious",
@@ -3363,7 +3363,7 @@
       "elder",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "gloomy",
       "nervous",
@@ -3377,7 +3377,7 @@
       "elder",
       "general_mentor",
       "general_parents",
-      "general_leader",
+      "general_baron",
       "general_backstory",
       "loyal",
       "righteous",

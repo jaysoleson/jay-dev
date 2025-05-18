@@ -59,7 +59,7 @@
         "season": ["leaf-bare"],
         "types": ["training"],
         "tags": [],
-        "patrol_art": "fst_hunt_random_greenleafsolowarrior1",
+        "patrol_art": "fst_hunt_random_greenleafsoloclipper1",
         "min_cats": 3,
         "max_cats": 6,
         "min_max_status": {
@@ -178,7 +178,7 @@
         "decline_text": "Storytime is interrupted by a rain shower, not that anyone minds more water in c_n's territory.",
         "success_outcomes": [
                 {
-                    "text": "The Goorialla rainbow serpent cut great gouges into the land, searching for life to not be alone. He called forth frogs who spat up the rivers, and animals to populate the land, and laid down the first rules, rules not of the Warrior Code, but of ecosystems and biospheres.",
+                    "text": "The Goorialla rainbow serpent cut great gouges into the land, searching for life to not be alone. He called forth frogs who spat up the rivers, and animals to populate the land, and laid down the first rules, rules not of the clipper Code, but of ecosystems and biospheres.",
                     "exp": 30,
                     "weight": 20,
                     "art": "gen_bord_story",

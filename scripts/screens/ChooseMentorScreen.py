@@ -627,14 +627,14 @@ class ChooseMentorScreen(Screens):
             )
 
     def get_valid_mentors(self):
-        potential_warrior_mentors = [
+        potential_clipper_mentors = [
             cat
             for cat in Cat.all_cats_list
             if not (cat.dead or cat.outside)
-            and cat.status in ["warrior", "deputy", "leader"]
+            and cat.status in ["clipper", "regent", "baron"]
         ]
-        valid_warrior_mentors = []
-        invalid_warrior_mentors = []
+        valid_clipper_mentors = []
+        invalid_clipper_mentors = []
         potential_medcat_mentors = [
             cat
             for cat in Cat.all_cats_list
@@ -651,7 +651,7 @@ class ChooseMentorScreen(Screens):
         invalid_mediator_mentors = []
 
         if self.the_cat.status == "apprentice":
-            for cat in potential_warrior_mentors:
+            for cat in potential_clipper_mentors:
                 # Assume cat is valid initially
                 is_valid = True
 
@@ -668,9 +668,9 @@ class ChooseMentorScreen(Screens):
 
                 # Add to valid or invalid list based on checks
                 if is_valid:
-                    valid_warrior_mentors.append(cat)
+                    valid_clipper_mentors.append(cat)
 
-            return valid_warrior_mentors
+            return valid_clipper_mentors
 
         elif self.the_cat.status == "medicine cat apprentice":
             for cat in potential_medcat_mentors:

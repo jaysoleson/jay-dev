@@ -94,15 +94,15 @@
 		],
 		"main_status_constraint": [
 			"apprentice",
-			"warrior",
-			"deputy",
-			"leader"
+			"clipper",
+			"regent",
+			"baron"
 		],
 		"random_status_constraint": [
 			"apprentice",
-			"warrior",
-			"deputy",
-			"leader"
+			"clipper",
+			"regent",
+			"baron"
 		],
 		"reaction_random_cat": {
 			"trust": "increase"
@@ -171,16 +171,16 @@
 			"m_c is giving advice to r_c.",
 			"m_c asks r_c to show off {PRONOUN/r_c/poss} skills.",
 			"m_c compliments r_c on a skill {PRONOUN/r_c/subject} trained hard on.",
-			"m_c talks with r_c about {PRONOUN/r_c/poss} potential warrior name.",
+			"m_c talks with r_c about {PRONOUN/r_c/poss} potential clipper name.",
 			"m_c is looking out for r_c's well-being."
 		],
 		"main_status_constraint": [
 			"elder",
-			"warrior",
+			"clipper",
 			"mediator",
 			"medicine cat",
-			"deputy",
-			"leader"
+			"regent",
+			"baron"
 		],
 		"random_status_constraint": [
 			"kitten",
@@ -203,19 +203,19 @@
 		"main_status_constraint": [
 			"kitten",
 			"apprentice",
-			"warrior",
+			"clipper",
 			"mediator apprentice",
 			"mediator",
 			"medicine cat apprentice",
 			"medicine cat",
-			"deputy",
-			"leader"
+			"regent",
+			"baron"
 		],
 		"random_status_constraint": [
 			"elder",
 			"mediator",
 			"medicine cat",
-			"leader"
+			"baron"
 		],
 		"reaction_random_cat": {
 			"trust": "increase"
@@ -267,20 +267,20 @@
 		],
 		"main_status_constraint": [
 			"apprentice",
-			"warrior",
+			"clipper",
 			"mediator",
 			"medicine cat",
-			"deputy",
+			"regent",
 			"medicine cat apprentice",
-			"leader"
+			"baron"
 		],
 		"random_status_constraint": [
 			"apprentice",
-			"warrior",
+			"clipper",
 			"mediator",
 			"medicine cat",
-			"deputy",
-			"leader",
+			"regent",
+			"baron",
 			"medicine cat apprentice"
 		],
 		"reaction_random_cat": {
@@ -331,19 +331,19 @@
 		"main_status_constraint": [
 			"medicine cat apprentice",
 			"medicine cat",
-			"leader"
+			"baron"
 		],
 		"relationship_constraint": [
 			"trust_30"
 		],
 		"random_status_constraint": [
 			"elder",
-			"warrior",
+			"clipper",
 			"mediator",
 			"medicine cat apprentice",
 			"medicine cat",
-			"deputy",
-			"leader"
+			"regent",
+			"baron"
 		],
 		"reaction_random_cat": {
 			"trust": "increase"
@@ -358,10 +358,10 @@
 			"trust_50"
 		],
 		"main_status_constraint": [
-			"leader"
+			"baron"
 		],
 		"random_status_constraint": [
-			"deputy",
+			"regent",
 			"elder",
 			"medicine cat"
 		],
@@ -381,10 +381,10 @@
 			"trust_50"
 		],
 		"main_status_constraint": [
-			"leader"
+			"baron"
 		],
 		"random_status_constraint": [
-			"deputy",
+			"regent",
 			"medicine cat"
 		],
 		"reaction_random_cat": {

@@ -478,7 +478,7 @@
         "min_cats": 4,
         "max_cats": 6,
         "min_max_status": {
-            "leader": [-1, -1]
+            "baron": [-1, -1]
         },
         "weight": 20,
         "intro_text": "The patrol hears distant howling and wonders whether to investigate the noise.",
@@ -486,7 +486,7 @@
         "chance_of_success": 10,
         "success_outcomes": [
             {
-                "text": "The patrol tracks the noise and discovers a coyote scavenging off a carcass. This is a predator they cannot fight. The patrol decides to return to camp and report the intruder to the leader instead. Perhaps they can return later to take what the coyote leaves behind.",
+                "text": "The patrol tracks the noise and discovers a coyote scavenging off a carcass. This is a predator they cannot fight. The patrol decides to return to camp and report the intruder to the baron instead. Perhaps they can return later to take what the coyote leaves behind.",
                 "exp": 30,
                 "weight": 20
             },
@@ -577,7 +577,7 @@
         "min_cats": 2,
         "max_cats": 4,
         "min_max_status": {
-            "leader": [-1, -1]
+            "baron": [-1, -1]
         },
         "weight": 20,
         "intro_text": "The patrol hears distant howling and wonders whether to investigate the noise.",
@@ -585,7 +585,7 @@
         "chance_of_success": 30,
         "success_outcomes": [
             {
-                "text": "The patrol tracks the noise and discovers a coyote scavenging off a carcass. This is a predator they cannot fight. The patrol decides to return to camp and report the intruder to the leader instead. Perhaps they can return later to take what the coyote leaves behind.",
+                "text": "The patrol tracks the noise and discovers a coyote scavenging off a carcass. This is a predator they cannot fight. The patrol decides to return to camp and report the intruder to the baron instead. Perhaps they can return later to take what the coyote leaves behind.",
                 "exp": 30,
                 "weight": 20
             },
@@ -669,7 +669,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "leader": [-1, -1]
+            "baron": [-1, -1]
         },
         "weight": 20,
         "intro_text": "r_c hears distant howling and wonders whether to investigate the noise.",
@@ -677,7 +677,7 @@
         "chance_of_success": 10,
         "success_outcomes": [
             {
-                "text": "r_c tracks the noise and discovers a coyote scavenging off a carcass. This is a predator {PRONOUN/r_c/poss} cannot fight. {PRONOUN/r_c/subject/CAP} {VERB/r_c/decide/decides} to return to camp and report the intruder to the leader. Perhaps a patrol can return later to take what the coyote leaves behind.",
+                "text": "r_c tracks the noise and discovers a coyote scavenging off a carcass. This is a predator {PRONOUN/r_c/poss} cannot fight. {PRONOUN/r_c/subject/CAP} {VERB/r_c/decide/decides} to return to camp and report the intruder to the baron. Perhaps a patrol can return later to take what the coyote leaves behind.",
                 "exp": 30,
                 "weight": 20
             },
@@ -743,7 +743,7 @@
         "min_cats": 5,
         "max_cats": 6,
         "min_max_status": {
-            "leader": [-1, -1]
+            "baron": [-1, -1]
         },
         "weight": 20,
         "intro_text": "The patrol hears distant howling and wonders whether to investigate the noise.",
@@ -751,7 +751,7 @@
         "chance_of_success": 10,
         "success_outcomes": [
             {
-                "text": "The patrol tracks the noise and discovers a wolf eating from its kill. This is a predator they cannot fight and there may be more wolves nearby, so the patrol decides to return to camp and report the intruder to the leader. Perhaps they can return later to take what fresh-kill is left behind.",
+                "text": "The patrol tracks the noise and discovers a wolf eating from its kill. This is a predator they cannot fight and there may be more wolves nearby, so the patrol decides to return to camp and report the intruder to the baron. Perhaps they can return later to take what fresh-kill is left behind.",
                 "exp": 30,
                 "weight": 20
             },
@@ -835,7 +835,7 @@
         "min_cats": 2,
         "max_cats": 4,
         "min_max_status": {
-            "leader": [-1, -1]
+            "baron": [-1, -1]
         },
         "weight": 20,
         "intro_text": "The patrol hears distant howling and wonders whether to investigate the noise.",
@@ -843,7 +843,7 @@
         "chance_of_success": 20,
         "success_outcomes": [
             {
-                "text": "The patrol tracks the noise and discovers a wolf eating from its kill. This is a predator they cannot fight and there may be more wolves nearby. The patrol decides to return to camp and report the intruder to the leader. Perhaps they can return later to take what little fresh-kill is left behind.",
+                "text": "The patrol tracks the noise and discovers a wolf eating from its kill. This is a predator they cannot fight and there may be more wolves nearby. The patrol decides to return to camp and report the intruder to the baron. Perhaps they can return later to take what little fresh-kill is left behind.",
                 "exp": 30,
                 "weight": 20
             },
@@ -909,7 +909,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "leader": [-1, -1]
+            "baron": [-1, -1]
         },
         "weight": 20,
         "intro_text": "r_c hears distant howling and wonders whether to investigate the noise.",
@@ -917,7 +917,7 @@
         "chance_of_success": 10,
         "success_outcomes": [
             {
-                "text": "r_c tracks the noise and discovers a wolf eating from its kill. This is a predator {PRONOUN/r_c/subject} cannot fight. {PRONOUN/r_c/subject/CAP} {VERB/r_c/decide/decides} to return to camp and report the intruder to the leader instead. Perhaps a patrol can return later to take what the wolf leaves behind.",
+                "text": "r_c tracks the noise and discovers a wolf eating from its kill. This is a predator {PRONOUN/r_c/subject} cannot fight. {PRONOUN/r_c/subject/CAP} {VERB/r_c/decide/decides} to return to camp and report the intruder to the baron instead. Perhaps a patrol can return later to take what the wolf leaves behind.",
                 "exp": 40,
                 "weight": 20
             },
@@ -1235,7 +1235,7 @@
         ]
     },
     {
-        "patrol_id": "fst_hunt_solo_deputy",
+        "patrol_id": "fst_hunt_solo_regent",
         "biome": ["forest"],
         "season": ["any"],
         "types": ["hunting"],
@@ -1244,7 +1244,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "deputy": [1, 6]
+            "regent": [1, 6]
         },
         "weight": 20,
         "intro_text": "r_c heads out into the forest alone, wanting to sink {PRONOUN/r_c/poss} teeth into some prey and have some time to {PRONOUN/r_c/self}.",
@@ -1304,7 +1304,7 @@
         ]
     },
     {
-        "patrol_id": "fst_hunt_solo_leader",
+        "patrol_id": "fst_hunt_solo_baron",
         "biome": ["forest"],
         "season": ["any"],
         "types": ["hunting"],
@@ -1313,7 +1313,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "leader": [1, 6]
+            "baron": [1, 6]
         },
         "weight": 20,
         "intro_text": "r_c heads out into the forest alone, wanting to sink {PRONOUN/r_c/poss} teeth into some prey and have some time to {PRONOUN/r_c/self}.",
@@ -2096,7 +2096,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "deputy": [-1, -1]
+            "regent": [-1, -1]
         },
         "weight": 20,
         "intro_text": "The smell of food lures r_c into what looks like a tunnel between some bushes.",
@@ -2120,7 +2120,7 @@
                 "stat_skill": ["CLEVER,1"]
             },
             {
-                "text": "Something isn't right. Nervously pawing at the bushes, s_c thinks that the smell is too good to be true. {PRONOUN/r_c/subject/CAP} {VERB/r_c/leave/leaves} it, deciding to return to camp and report it to the deputy instead.",
+                "text": "Something isn't right. Nervously pawing at the bushes, s_c thinks that the smell is too good to be true. {PRONOUN/r_c/subject/CAP} {VERB/r_c/leave/leaves} it, deciding to return to camp and report it to the regent instead.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": [
@@ -2154,7 +2154,7 @@
         "min_cats": 2,
         "max_cats": 6,
         "min_max_status": {
-            "deputy": [-1, -1]
+            "regent": [-1, -1]
         },
         "weight": 20,
         "intro_text": "The smell of food lures r_c into what looks like a tunnel between some bushes.",
@@ -2178,7 +2178,7 @@
                 "stat_skill": ["CLEVER,1"]
             },
             {
-                "text": "Something isn't right. Nervously pawing at the bushes, s_c thinks that the smell is too good to be true. {PRONOUN/r_c/subject/CAP} {VERB/r_c/leave/leaves} it, convincing the patrol to return to camp and report it to the deputy instead.",
+                "text": "Something isn't right. Nervously pawing at the bushes, s_c thinks that the smell is too good to be true. {PRONOUN/r_c/subject/CAP} {VERB/r_c/leave/leaves} it, convincing the patrol to return to camp and report it to the regent instead.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": [
@@ -3013,7 +3013,7 @@
         "relationship_constraint": [],
         "pl_skill_constraint": [],
         "intro_text": "Padding through the forest at night on a dare, the apprentices gasp as light streaks across the sky. A StarClan cat has fallen!",
-        "decline_text": "Before the apprentices can pursue the fallen StarClan cat, the worst of all possibilities happens - a warrior discovers them, sending them back to camp with a loud scolding.",
+        "decline_text": "Before the apprentices can pursue the fallen StarClan cat, the worst of all possibilities happens - a clipper discovers them, sending them back to camp with a loud scolding.",
         "success_outcomes": [
             {
                 "text": "Scrambling up the hill, app1 shoves app2 up a slightly too big step, both of them panting eagerly as they run. The mist swirls around them, stinking strangely as they search for the StarClan cat, until app2 bumps into a huge, tall pillar - one that blinks down with slow, glowing red eyes.",
@@ -3108,7 +3108,7 @@
         ]
     },
     {
-        "patrol_id": "fst_hunt_mouse_warriorapp1",
+        "patrol_id": "fst_hunt_mouse_clipperapp1",
         "biome": ["forest"],
         "season": ["any"],
         "types": ["hunting"],
@@ -3696,7 +3696,7 @@
             ],
             "fail_outcomes": [
                 {
-                    "text": "p_l has to pull app1 out by the tail, and loudly scolds {PRONOUN/app1/object} all the way back to camp. Twoleg traps aren't cool, and app1 has just proven {PRONOUN/app1/self} an idiot, not a brave warrior.",
+                    "text": "p_l has to pull app1 out by the tail, and loudly scolds {PRONOUN/app1/object} all the way back to camp. Twoleg traps aren't cool, and app1 has just proven {PRONOUN/app1/self} an idiot, not a brave clipper.",
                     "exp": 0,
                     "weight": 20,
                     "relationships": [

@@ -81,15 +81,15 @@
 		],
 		"main_status_constraint": [
 			"apprentice",
-			"deputy",
-			"leader",
-			"warrior"
+			"regent",
+			"baron",
+			"clipper"
 		],
 		"random_status_constraint": [
 			"apprentice",
-			"deputy",
-			"leader",
-			"warrior"
+			"regent",
+			"baron",
+			"clipper"
 		],
 		"reaction_random_cat": {
 			"platonic": "increase"
@@ -205,24 +205,24 @@
 		"main_status_constraint": [
 			"elder",
 			"apprentice",
-			"warrior",
+			"clipper",
 			"mediator apprentice",
 			"mediator",
 			"medicine cat apprentice",
 			"medicine cat",
-			"deputy",
-			"leader"
+			"regent",
+			"baron"
 		],
 		"random_status_constraint": [
 			"elder",
 			"apprentice",
-			"warrior",
+			"clipper",
 			"mediator apprentice",
 			"mediator",
 			"medicine cat apprentice",
 			"medicine cat",
-			"deputy",
-			"leader"
+			"regent",
+			"baron"
 		]
 	},
 	{
@@ -232,9 +232,9 @@
 		],
 		"main_status_constraint": [
 			"apprentice",
-			"deputy",
-			"leader",
-			"warrior"
+			"regent",
+			"baron",
+			"clipper"
 		],
 		"random_status_constraint": [
 			"apprentice"
@@ -259,7 +259,7 @@
 		"id": "platonic_kit_inc_med3",
 		"interactions": [
 			"m_c lets r_c play with {PRONOUN/m_c/poss} favorite toy.",
-			"m_c pretends to be a warrior with r_c.",
+			"m_c pretends to be a clipper with r_c.",
 			"m_c is pretending to ward off foxes with r_c.",
 			"m_c is pretending to fight off badgers with r_c.",
 			"m_c is racing r_c back and forth across the camp clearing.",
@@ -289,13 +289,13 @@
 		"random_status_constraint": [
 			"elder",
 			"apprentice",
-			"warrior",
+			"clipper",
 			"mediator apprentice",
 			"mediator",
 			"medicine cat apprentice",
 			"medicine cat",
-			"deputy",
-			"leader"
+			"regent",
+			"baron"
 		],
 		"reaction_random_cat": {
 			"platonic": "increase"
@@ -333,18 +333,18 @@
 			"m_c purrs as r_c asks {PRONOUN/m_c/object} to show {PRONOUN/r_c/object} how to do a hunter's crouch. {PRONOUN/m_c/subject/CAP} {VERB/m_c/oblige/obliges}, happy to show {PRONOUN/m_c/poss} skills.",
 			"m_c whiskers twitch in amusement as r_c tells {PRONOUN/m_c/object} that {PRONOUN/r_c/subject} {VERB/r_c/hope/hopes} {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} {PRONOUN/r_c/poss} mentor when {PRONOUN/r_c/subject} {VERB/r_c/become/becomes} an apprentice.",
 			"m_c tells r_c that {PRONOUN/m_c/subject} caught this prey just for {PRONOUN/r_c/object} as {PRONOUN/m_c/subject} {VERB/m_c/deliver/delivers} it to {PRONOUN/r_c/object}.",
-			"m_c joins a game as r_c runs up to {PRONOUN/m_c/object} yowling that {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} the greatest warrior ever and could never be defeated. The kit squeals in delight as m_c rolls over in surrender."
+			"m_c joins a game as r_c runs up to {PRONOUN/m_c/object} yowling that {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} the greatest clipper ever and could never be defeated. The kit squeals in delight as m_c rolls over in surrender."
 		],
 		"main_status_constraint": [
 			"elder",
 			"apprentice",
-			"warrior",
+			"clipper",
 			"mediator apprentice",
 			"mediator",
 			"medicine cat apprentice",
 			"medicine cat",
-			"deputy",
-			"leader"
+			"regent",
+			"baron"
 		],
 		"random_status_constraint": [
 			"kitten"
@@ -367,13 +367,13 @@
 		"random_status_constraint": [
 			"elder",
 			"apprentice",
-			"warrior",
+			"clipper",
 			"mediator apprentice",
 			"mediator",
 			"medicine cat apprentice",
 			"medicine cat",
-			"deputy",
-			"leader"
+			"regent",
+			"baron"
 		],
 		"reaction_random_cat": {
 			"comfortable": "decrease",
@@ -395,9 +395,9 @@
 		],
 		"main_status_constraint": [
 			"elder",
-			"deputy",
-			"leader",
-			"warrior"
+			"regent",
+			"baron",
+			"clipper"
 		],
 		"random_status_constraint": [
 			"apprentice"
@@ -412,7 +412,7 @@
 			"m_c brings r_c a piece of prey to share after a long day of training.",
 			"m_c offers to help r_c clean out the elder's bedding.",
 			"m_c was playing with r_c and learned a fun new battle move from {PRONOUN/r_c/object}!",
-			"m_c is trying to guess what {PRONOUN/m_c/poss} and r_c's warrior names will be."
+			"m_c is trying to guess what {PRONOUN/m_c/poss} and r_c's clipper names will be."
 		],
 		"main_status_constraint": [
 			"apprentice"
@@ -427,7 +427,7 @@
 	{
 		"id": "platonic_app_med3",
 		"interactions": [
-			"m_c daydreams with r_c about their future warrior ceremonies.",
+			"m_c daydreams with r_c about their future clipper ceremonies.",
 			"m_c feels like training goes by much faster when {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} with r_c.",
 			"m_c is playfully making fun of their mentors with r_c.",
 			"m_c stays awake all night whispering secrets to r_c.",
@@ -477,17 +477,17 @@
 		]
 	},
 	{
-		"id": "platonic_warrior_inc_med1",
+		"id": "platonic_clipper_inc_med1",
 		"interactions": [
-			"m_c greets r_c as {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} exiting the warriors' den.",
+			"m_c greets r_c as {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} exiting the clippers' den.",
 			"m_c chats quietly with r_c while they're both on camp guard duty.",
 			"m_c thanks r_c for covering for {PRONOUN/m_c/object} during a patrol earlier."
 		],
 		"main_status_constraint": [
-			"warrior"
+			"clipper"
 		],
 		"random_status_constraint": [
-			"warrior"
+			"clipper"
 		],
 		"reaction_random_cat": {
 			"platonic": "increase"

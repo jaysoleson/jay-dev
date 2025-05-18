@@ -9,23 +9,23 @@
 		],
 		"status_constraint": {
 			"m_c": [
-				"leader",
-				"deputy",
-				"warrior",
+				"baron",
+				"regent",
+				"clipper",
 				"medicine cat",
 				"mediator"
 			],
 			"r_c1": [
-				"leader",
-				"deputy",
-				"warrior",
+				"baron",
+				"regent",
+				"clipper",
 				"medicine cat",
 				"mediator"
 			],
 			"r_c2": [
-				"leader",
-				"deputy",
-				"warrior",
+				"baron",
+				"regent",
+				"clipper",
 				"medicine cat",
 				"mediator"
 			]

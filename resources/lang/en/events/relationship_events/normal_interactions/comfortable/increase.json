@@ -111,15 +111,15 @@
 		],
 		"main_status_constraint": [
 			"apprentice",
-			"warrior",
-			"deputy",
-			"leader"
+			"clipper",
+			"regent",
+			"baron"
 		],
 		"random_status_constraint": [
 			"apprentice",
-			"warrior",
-			"deputy",
-			"leader"
+			"clipper",
+			"regent",
+			"baron"
 		],
 		"reaction_random_cat": {
 			"comfortable": "increase"
@@ -217,7 +217,7 @@
 		"interactions": [
 			"m_c spent the whole day playing {PRONOUN/m_c/poss} favorite games with r_c.",
 			"m_c had a friendly argument with r_c about which prey tastes the best.",
-			"m_c makes r_c {PRONOUN/m_c/poss} deputy in a game of KittenClan.",
+			"m_c makes r_c {PRONOUN/m_c/poss} regent in a game of KittenClan.",
 			"m_c and r_c play a prank on an older cat together.",
 			"The Clan looks all over for m_c and r_c and find out they have a secret hiding place.",
 			"m_c and r_c are playing KittenClan. r_c's dying of a hundred diseases, but m_c is the best medicine cat ever.",

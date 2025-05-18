@@ -21,7 +21,7 @@
                     "text": "The patrol staggers towards the nearest pond and flops into it - not to hunt, solely for the cool water. r_c swipes water towards p_l and {PRONOUN/p_l/subject} {VERB/p_l/laugh/laughs}, welcoming it and returning the favour. There's nothing like swimming in greenleaf, and the patrol devolves into a splash-fight.",
                     "exp": 20,
                     "weight": 10,
-                    "art": "gen_train_soggykitty_happy_warrior",
+                    "art": "gen_train_soggykitty_happy_clipper",
                     "relationships": [
                         {
                             "cats_to": ["patrol"],

@@ -77,7 +77,7 @@
     {
         "id": "ambitious_elder",
         "thoughts": [
-            "Wonders if elders can still become leader",
+            "Wonders if elders can still become baron",
             "Thinks elders should be allowed to patrol",
             "Feels content with having reached such a highly-respected role"
         ],
@@ -90,9 +90,9 @@
         ]
     },
     {
-        "id": "ambitious_elder_to_leader",
+        "id": "ambitious_elder_to_baron",
         "thoughts": [
-            "Is eager to give advice to the leader"
+            "Is eager to give advice to the baron"
         ],
         "main_age_constraint": [
             "senior adult",
@@ -102,7 +102,7 @@
             "ambitious"
         ],
         "random_status_constraint": [
-            "leader"
+            "baron"
         ]
     },
     {
@@ -138,9 +138,9 @@
         ]
     },
     {
-        "id": "arrogant_elder_to_leader",
+        "id": "arrogant_elder_to_baron",
         "thoughts": [
-            "Gives unsolicited advice to the leader"
+            "Gives unsolicited advice to the baron"
         ],
         "main_age_constraint": [
             "senior adult",
@@ -150,7 +150,7 @@
             "arrogant"
         ],
         "random_status_constraint": [
-            "leader"
+            "baron"
         ]
     },
     {
@@ -191,7 +191,7 @@
         "thoughts": [
             "Boldly gives {PRONOUN/m_c/poss} advice at a Clan meeting",
             "Insists on going to the next Gathering",
-            "Declares that {PRONOUN/m_c/subject} will fight alongside the warriors in battle"
+            "Declares that {PRONOUN/m_c/subject} will fight alongside the clippers in battle"
         ],
         "main_age_constraint": [
             "senior adult",
@@ -292,7 +292,7 @@
     {
         "id": "compassionate_elder",
         "thoughts": [
-            "Insists the warriors eat before {PRONOUN/m_c/object}",
+            "Insists the clippers eat before {PRONOUN/m_c/object}",
             "Offers advice to cats who need it"
         ],
         "main_age_constraint": [
@@ -367,7 +367,7 @@
     {
         "id": "cunning_elder_to_apprentices",
         "thoughts": [
-            "Convinces an apprentice that they get given an easier warrior assessment if they help the elders",
+            "Convinces an apprentice that they get given an easier clipper assessment if they help the elders",
             "Persuades an apprentice to clean out the elder's den"
         ],
         "main_age_constraint": [
@@ -386,7 +386,7 @@
         "thoughts": [
             "Is stubbornly refusing the medicine cat's herbs, claiming {PRONOUN/m_c/subject} {VERB/m_c/do/does}n't need them",
             "Is telling exciting tales from {PRONOUN/m_c/poss} youth",
-            "Insists {PRONOUN/m_c/subject} can race just as well as the warriors"
+            "Insists {PRONOUN/m_c/subject} can race just as well as the clippers"
         ],
         "main_age_constraint": [
             "senior adult",
@@ -446,7 +446,7 @@
         "id": "rebellious_elder",
         "thoughts": [
             "Thinks that the Clan used to be run better, and isn't afraid to say it!",
-            "Is telling stories that portray leadership in a... less than flattering light",
+            "Is telling stories that portray baronship in a... less than flattering light",
             "Takes full advantage of {PRONOUN/m_c/poss} status as elder"
         ],
         "main_age_constraint": [
@@ -460,7 +460,7 @@
     {
         "id": "rebellious_elder_to_apprentice",
         "thoughts": [
-            "Reminds r_c that leaders aren't always right",
+            "Reminds r_c that barons aren't always right",
             "Advises r_c to always do what <i>{PRONOUN/r_c/subject}</i> {VERB/r_c/think/thinks} is right"
         ],
         "main_age_constraint": [
@@ -475,9 +475,9 @@
         ]
     },
     {
-        "id": "rebellious_elder_to_leader",
+        "id": "rebellious_elder_to_baron",
         "thoughts": [
-            "Is giving even more unsolicited advice to the leader",
+            "Is giving even more unsolicited advice to the baron",
             "Is <i>always</i> around to offer some advice to r_c"
         ],
         "main_age_constraint": [
@@ -488,7 +488,7 @@
             "rebellious"
         ],
         "random_status_constraint": [
-            "leader"
+            "baron"
         ]
     },
     {
@@ -617,7 +617,7 @@
     {
         "id": "loyal_elder_to_younger_cats",
         "thoughts": [
-            "Is lecturing younger cats on the warrior code",
+            "Is lecturing younger cats on the clipper code",
             "Is lecturing younger cats on the importance of loyalty to the Clan"
         ],
         "main_age_constraint": [
@@ -845,9 +845,9 @@
         ]
     },
     {
-        "id": "thoughtful_elder_to_leader",
+        "id": "thoughtful_elder_to_baron",
         "thoughts": [
-            "Is planning how best to present an issue to the leader"
+            "Is planning how best to present an issue to the baron"
         ],
         "main_age_constraint": [
             "senior adult",
@@ -857,13 +857,13 @@
             "thoughtful"
         ],
         "random_status_constraint": [
-            "leader"
+            "baron"
         ]
     },
     {
         "id": "troublesome_elder",
         "thoughts": [
-            "Keeps moving the nests in the warriors den while they're out patrolling... just to annoy everyone",
+            "Keeps moving the nests in the clippers den while they're out patrolling... just to annoy everyone",
             "Is finding elder life <i>sooooo</i> boring"
         ],
         "main_age_constraint": [
@@ -950,7 +950,7 @@
         "thoughts": [
             "Still enjoys helping out around camp",
             "Is teaching {PRONOUN/m_c/poss} Clanmates the art of building a waterproof den!",
-            "Helps the warriors to reinforce the camp walls"
+            "Helps the clippers to reinforce the camp walls"
         ],
         "main_age_constraint": [
             "senior adult",
@@ -1010,7 +1010,7 @@
         ]
     },
     {
-        "id": "scared_elder_mean_leader",
+        "id": "scared_elder_mean_baron",
         "thoughts": [
             "Is scared that r_c might exile all the elders",
             "Panics after hearing r_c suggest exiling all the elders"
@@ -1024,7 +1024,7 @@
             "insecure"
         ],
         "random_status_constraint": [
-            "leader"
+            "baron"
         ],
         "random_trait_constraint": [
             "bloodthirsty",
@@ -1032,7 +1032,7 @@
         ]
     },
     {
-        "id": "brave_elder_mean_leader",
+        "id": "brave_elder_mean_baron",
         "thoughts": [
             "Confronts r_c after {PRONOUN/r_c/subject} {VERB/r_c/suggest/suggests} exiling all the elders",
             "Is furious after hearing r_c suggest exiling all the elders"
@@ -1049,7 +1049,7 @@
             "righteous"
         ],
         "random_status_constraint": [
-            "leader"
+            "baron"
         ],
         "random_trait_constraint": [
             "bloodthirsty",
@@ -1089,15 +1089,15 @@
         ]
     },
     {
-        "id": "elder_alive_leader",
+        "id": "elder_alive_baron",
         "thoughts": [
-            "Is giving the Clan leader attitude"
+            "Is giving the Clan baron attitude"
         ],
         "main_age_constraint": [
             "senior"
         ],
         "random_status_constraint": [
-            "leader"
+            "baron"
         ]
     },
     {
@@ -1404,7 +1404,7 @@
     {
         "id": "one_bad_eye_adolescent_retired_to_alive_gen",
         "thoughts": [
-            "Brags to the Clan that {PRONOUN/m_c/subject} would've been the best leader"
+            "Brags to the Clan that {PRONOUN/m_c/subject} would've been the best baron"
         ],
         "perm_conditions": {
             "m_c": [

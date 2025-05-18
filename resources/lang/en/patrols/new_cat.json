@@ -19,7 +19,7 @@
                 "exp": 10,
                 "weight": 20,
                 "new_cat": [
-                    ["loner", "status:warrior"]
+                    ["loner", "status:clipper"]
                 ],
                 "relationships": [
                     {
@@ -110,7 +110,7 @@
                 "exp": 10,
                 "weight": 20,
                 "new_cat": [
-                    ["loner", "status:warrior"]
+                    ["loner", "status:clipper"]
                 ],
                 "relationships": [
                     {
@@ -201,7 +201,7 @@
                 "exp": 10,
                 "weight": 20,
                 "new_cat": [
-                    ["status:warrior", "kittypet"]
+                    ["status:clipper", "kittypet"]
                 ],
                 "relationships": [
                     {
@@ -283,7 +283,7 @@
                 "exp": 10,
                 "weight": 20,
                 "new_cat": [
-                    ["status:warrior", "kittypet"]
+                    ["status:clipper", "kittypet"]
                 ],
                 "relationships": [
                     {
@@ -365,7 +365,7 @@
                 "exp": 10,
                 "weight": 20,
                 "new_cat": [
-                    ["status:warrior"]
+                    ["status:clipper"]
                 ],
                 "relationships": [
                     {
@@ -445,7 +445,7 @@
                 "exp": 10,
                 "weight": 20,
                 "new_cat": [
-                    ["status:warrior"]
+                    ["status:clipper"]
                 ],
                 "relationships": [
                     {
@@ -620,7 +620,7 @@
         ],
         "antag_fail_outcomes": [
             {
-                "text": "The patrol immediately stops their border marking and switches to tracking the scent of the intruder instead. At the end of the trail they find an old kittypet, wheezing {PRONOUN/n_c:0/poss} Twoleg's name. They try to drive the kittypet off - but {PRONOUN/n_c:0/subject}{VERB/n_c:0/'re/'s} too weak and the warriors too practiced at unnecessarily strong battle moves.",
+                "text": "The patrol immediately stops their border marking and switches to tracking the scent of the intruder instead. At the end of the trail they find an old kittypet, wheezing {PRONOUN/n_c:0/poss} Twoleg's name. They try to drive the kittypet off - but {PRONOUN/n_c:0/subject}{VERB/n_c:0/'re/'s} too weak and the clippers too practiced at unnecessarily strong battle moves.",
                 "exp": 0,
                 "weight": 20,
                 "outsider_rep": -4,
@@ -2566,7 +2566,7 @@
                 "outsider_rep": 1
             },
             {
-                "text": "Near the Twoleg den, p_l suddenly hears furious growls. Tiny, adorable, furious growls. A kitten tries to pounce on p_l, barely coming up to {PRONOUN/p_l/poss} elbows. Before little teeth can do any damage, p_l gently flips the tiny cat over and places a gentle paw on their back, completely pinning them as they struggle with all their might. r_c, called over by the mighty fight, asks the little warrior what on earth they're doing. Why, they're defending their territory of course!",
+                "text": "Near the Twoleg den, p_l suddenly hears furious growls. Tiny, adorable, furious growls. A kitten tries to pounce on p_l, barely coming up to {PRONOUN/p_l/poss} elbows. Before little teeth can do any damage, p_l gently flips the tiny cat over and places a gentle paw on their back, completely pinning them as they struggle with all their might. r_c, called over by the mighty fight, asks the little clipper what on earth they're doing. Why, they're defending their territory of course!",
                 "exp": 30,
                 "weight": 5,
                 "new_cat": [
@@ -2589,7 +2589,7 @@
                 "outsider_rep": 1
             },
             {
-                "text": "Furious, high-pitched yowls greet the patrol as a tiny kittypet kitten comes roaring out of the Twoleg nest to try and fight them. Terrifying. s_c tips the little fighter over and carefully scruffs the tiny warrior - they can't leave them here. The kitten insists that they're a big cat and they're <b>fine</b>, but after a couple minutes, does reveal their mother is dead. Twolegs have kept them alive somehow, but c_n will do better.",
+                "text": "Furious, high-pitched yowls greet the patrol as a tiny kittypet kitten comes roaring out of the Twoleg nest to try and fight them. Terrifying. s_c tips the little fighter over and carefully scruffs the tiny clipper - they can't leave them here. The kitten insists that they're a big cat and they're <b>fine</b>, but after a couple minutes, does reveal their mother is dead. Twolegs have kept them alive somehow, but c_n will do better.",
                 "exp": 30,
                 "weight": 20,
                 "stat_trait": ["careful", "thoughtful"],
@@ -2626,7 +2626,7 @@
         ],
         "antag_success_outcomes": [
             {
-                "text": "A kittypet kitten approaches the patrol, yowling furiously. p_l bats it aside as the warrior continue hunting, unruffled.",
+                "text": "A kittypet kitten approaches the patrol, yowling furiously. p_l bats it aside as the clipper continue hunting, unruffled.",
                 "exp": 30,
                 "weight": 20,
                 "outsider_rep": -2
@@ -2648,7 +2648,7 @@
         "decline_text": "Frankly, p_l has better things to do than talk to weird dog-defenders. {PRONOUN/p_l/subject/CAP} {VERB/p_l/head/heads} home early, without a second glance at whoever called out.",
         "success_outcomes": [
             {
-                "text": "Confused, p_l turns towards the source of the voice. A plump kittypet bounds forwards, saying that {PRONOUN/n_c:0/poss} name is n_c:0, and asking p_l not to hurt {PRONOUN/n_c:0/poss} friend. It takes p_l a while to realise {PRONOUN/n_c:0/subject}{VERB/n_c:0/'re/'s} talking about the dog. Too stunned to argue, p_l watches n_c:0 walk away, {PRONOUN/n_c:0/poss} canine companion excitedly following. The other warriors were not going to believe this!",
+                "text": "Confused, p_l turns towards the source of the voice. A plump kittypet bounds forwards, saying that {PRONOUN/n_c:0/poss} name is n_c:0, and asking p_l not to hurt {PRONOUN/n_c:0/poss} friend. It takes p_l a while to realise {PRONOUN/n_c:0/subject}{VERB/n_c:0/'re/'s} talking about the dog. Too stunned to argue, p_l watches n_c:0 walk away, {PRONOUN/n_c:0/poss} canine companion excitedly following. The other clippers were not going to believe this!",
                 "exp": 5,
                 "new_cat": [
             ["kittypet", "meeting", "exists"]
@@ -2688,7 +2688,7 @@
                 "text": "p_l lashes out to swipe at the dog but is interrupted by a kittypet rushing to stand in {PRONOUN/p_l/poss} way. p_l's fur bristles for a moment, but the kittypet tells {PRONOUN/p_l/object} to calm down, that this is {PRONOUN/n_c:0/poss} friend. As p_l recovers from. <i>Whatever this is</i>, {PRONOUN/p_l/subject} offers the kittypet a place to stay in c_n- this kittypet's skill in communicating with dogs may come in handy later.",
                 "exp": 10,
                 "new_cat": [
-            ["status:warrior", "backstory:kittypet1", "kittypet", "exists"]
+            ["status:clipper", "backstory:kittypet1", "kittypet", "exists"]
             ],
                 "relationships": [
                     {
@@ -2741,7 +2741,7 @@
             "text": "p_l spins around just in time to see an impressively vicious kittypet lunging at {PRONOUN/p_l/object}. Once {PRONOUN/p_l/subject}{VERB/p_l/'ve/'s} recovered from {PRONOUN/p_l/poss} momentary shock, p_l easily overpowers the kittypet, who's snarling something about the dog being {PRONOUN/n_c:0/poss} 'friend'. The odd pair quickly run off, leaving behind a slightly dazed - and very confused - p_l.",
             "exp": 2,
             "weight": 15,
-            "art": "gen_battle_warrior_danger",
+            "art": "gen_battle_clipper_danger",
              "new_cat": [
             ["kittypet", "meeting", "exists"]
             ],
@@ -2822,7 +2822,7 @@
         ],
                 "antag_fail_outcomes": [
             {
-                "text": "p_l ignores the voice, and is about to swipe {PRONOUN/p_l/poss} claws across the dog's face when a kittypet barrels into {PRONOUN/p_l/object}. Having caught p_l by surprise, the kittypet is able to get a lucky blow, and the warrior is forced to retreat.",
+                "text": "p_l ignores the voice, and is about to swipe {PRONOUN/p_l/poss} claws across the dog's face when a kittypet barrels into {PRONOUN/p_l/object}. Having caught p_l by surprise, the kittypet is able to get a lucky blow, and the clipper is forced to retreat.",
                 "exp": 0,
                 "new_cat": [
             ["kittypet", "meeting", "exists"]
@@ -2837,7 +2837,7 @@
                         }
             ],
                 "weight": 10,
-                "art": "gen_battle_warrior_danger",
+                "art": "gen_battle_clipper_danger",
                 "injury": [
                         {
                             "cats": ["p_l"],
@@ -2871,10 +2871,10 @@
         "chance_of_success": 30,
         "success_outcomes": [
             {
-                "text": "p_l slowly makes {PRONOUN/p_l/poss} way forward, caution in {PRONOUN/p_l/poss} step. To {PRONOUN/p_l/poss} surprise, p_l finds two young cats shaking, curled around each other. The warrior is saddened to hear the two detail how they had been looking for a place to live when a sudden snowstorm hit. p_l nods, helping them back to camp so they may heal and finally experience a safe space.",
+                "text": "p_l slowly makes {PRONOUN/p_l/poss} way forward, caution in {PRONOUN/p_l/poss} step. To {PRONOUN/p_l/poss} surprise, p_l finds two young cats shaking, curled around each other. The clipper is saddened to hear the two detail how they had been looking for a place to live when a sudden snowstorm hit. p_l nods, helping them back to camp so they may heal and finally experience a safe space.",
                 "exp": 15,
                 "weight": 20,
-                "art": "gen_warrior_two_outsiders",
+                "art": "gen_clipper_two_outsiders",
                 "relationships": [
                     {
                         "cats_to": ["n_c:0"],
@@ -2892,8 +2892,8 @@
                     }
                 ],
                 "new_cat": [
-                    ["status:warrior", "age:young adult", "backstory:rogue1"],
-                    ["status:warrior", "age:young adult", "backstory:rogue1"]
+                    ["status:clipper", "age:young adult", "backstory:rogue1"],
+                    ["status:clipper", "age:young adult", "backstory:rogue1"]
                 ],
                 "outsider_rep": 1,
                 "injury": [
@@ -2924,7 +2924,7 @@
                 "outsider_rep": 0
             },
             {
-                "text": "The warrior swallows {PRONOUN/p_l/poss} unease and pads toward the sound, only to be horrified at what {PRONOUN/p_l/subject}{VERB/p_l/'re/'s} seeing. Two elderly cats lay dead, frostbite scorching their legs. p_l lets out a saddened whimper before shooting a glare up towards the cloudy sky. StarClan, how could you do this to these innocent cats?",
+                "text": "The clipper swallows {PRONOUN/p_l/poss} unease and pads toward the sound, only to be horrified at what {PRONOUN/p_l/subject}{VERB/p_l/'re/'s} seeing. Two elderly cats lay dead, frostbite scorching their legs. p_l lets out a saddened whimper before shooting a glare up towards the cloudy sky. StarClan, how could you do this to these innocent cats?",
                 "exp": 0,
                 "weight": 20,
                 "art": "gen_cat_looking_up1",
@@ -2941,7 +2941,7 @@
                 "text": "p_l bounds through a thorny bush, a sneer across {PRONOUN/p_l/poss} face. A pair of kittypets meets {PRONOUN/p_l/poss} gaze, startled. As p_l lets out a warning yowl to signify {PRONOUN/p_l/poss} intention to fight, the two kittypets quickly dart away.",
                 "exp": 0,
                 "weight": 20,
-                "art": "gen_angry_cat_warrior",
+                "art": "gen_angry_cat_clipper",
                 "relationships": [
                     {
                         "cats_to": ["n_c:0"],
@@ -3007,10 +3007,10 @@
                 "outsider_rep": -1
             },
             {
-                "text": "The warrior bounds through a bush, a snarl across {PRONOUN/p_l/poss} face. Before p_l can demand the rogues leave, a fight ensues. p_l is outnumbered two to one, and it is a miracle that {PRONOUN/p_l/subject} {VERB/p_l/make/makes} it out alive, barely escaping claw wounds. {PRONOUN/p_l/poss/CAP} luck doesn't last, though, and an oncoming snowstorm bites into {PRONOUN/p_l/poss} pelt on {PRONOUN/p_l/poss} way home.",
+                "text": "The clipper bounds through a bush, a snarl across {PRONOUN/p_l/poss} face. Before p_l can demand the rogues leave, a fight ensues. p_l is outnumbered two to one, and it is a miracle that {PRONOUN/p_l/subject} {VERB/p_l/make/makes} it out alive, barely escaping claw wounds. {PRONOUN/p_l/poss/CAP} luck doesn't last, though, and an oncoming snowstorm bites into {PRONOUN/p_l/poss} pelt on {PRONOUN/p_l/poss} way home.",
                 "exp": 5,
                 "weight": 20,
-                "art": "gen_battle_warrior_danger",
+                "art": "gen_battle_clipper_danger",
                 "injury": [
                     {
                         "cats": ["p_l"],
@@ -3314,7 +3314,7 @@
         ["meeting", "kittypet", "age:young adult", "exists"],
         ["meeting", "kittypet", "age:young adult", "exists"]
         ],
-        "art": "gen_bord_twocat_hostile_warrior_warrior"
+        "art": "gen_bord_twocat_hostile_clipper_clipper"
             }
         ],
         "antag_success_outcomes": [
@@ -3343,7 +3343,7 @@
             ["meeting", "kittypet", "age:young adult", "exists"],
             ["meeting", "kittypet", "age:young adult", "exists"]
             ],
-            "art": "gen_bord_twocat_hostile_warrior_warrior"
+            "art": "gen_bord_twocat_hostile_clipper_clipper"
                 },
     {
         "text": "p_l interrupts the kittypets' argument to tell them both to scram. One kittypet takes a swipe at p_l, but p_l easily knocks the soft-pawed kittypet to the ground and tells {PRONOUN/n_c:0/object} to leave c_n territory before {PRONOUN/n_c:0/subject} {VERB/n_c:0/make/makes} more of a fool out of {PRONOUN/n_c:0/self}.",
@@ -3370,7 +3370,7 @@
     ["meeting", "kittypet", "age:young adult", "exists" ],
     ["meeting", "kittypet", "age:young adult", "exists"]
     ],
-    "art": "gen_battle_warrior_loner"
+    "art": "gen_battle_clipper_loner"
             },
             {
                 "text": "Through eavesdropping, p_l and r_c learn that one kittypet - n_c:0 - is in love with the other - n_c:1 - who is having none of it. p_l interrupts to tell n_c:1 that an ugly mangepelt like {PRONOUN/n_c:1/self} should be pleased that any cat at all has shown an interest.",
@@ -3491,7 +3491,7 @@
             ["meeting", "kittypet", "age:young adult", "exists"],
             ["meeting", "kittypet", "age:young adult", "exists"]
             ],
-            "art": "gen_battle_warrior_loner"
+            "art": "gen_battle_clipper_loner"
     },        
     {
         "text": "Through eavesdropping, p_l and r_c learn that one kittypet - n_c:0 - is in love with the other - n_c:1 - who is having none of it. p_l interrupts to tell n_c:1 that {PRONOUN/n_c:1/subject}{VERB/n_c:1/'re/'s} one of the ugliest badger-faced fleapelts p_l's ever had the displeasure of looking on. Inexplicably, n_c:1 bats {PRONOUN/n_c:1/poss} eyelashes at p_l and giggles. n_c:0 looks on jealously.",
@@ -3768,7 +3768,7 @@
         ],
         "antag_fail_outcomes": [
             {
-                "text": "The patrol approaches the loner cautiously, intending to attack. Instead, they find a StarClan warrior who scolds them all for being willing to attack a hurt loner. With shame in their hearts, the patrol goes back home and tells no-one of what they saw.",
+                "text": "The patrol approaches the loner cautiously, intending to attack. Instead, they find a StarClan clipper who scolds them all for being willing to attack a hurt loner. With shame in their hearts, the patrol goes back home and tells no-one of what they saw.",
                 "exp": 0,
                 "weight": 20,
                 "outsider_rep": -1
@@ -3888,7 +3888,7 @@
         ],
         "antag_fail_outcomes": [
             {
-                "text": "p_l approaches the loner cautiously, intending to attack. Instead, {PRONOUN/p_l/subject} {VERB/p_l/find/finds} a StarClan warrior who scolds {PRONOUN/p_l/object} for being willing to attack a hurt loner. With shame in {PRONOUN/p_l/poss} heart, p_l goes back home, and tells no one of what {PRONOUN/p_l/subject} saw.",
+                "text": "p_l approaches the loner cautiously, intending to attack. Instead, {PRONOUN/p_l/subject} {VERB/p_l/find/finds} a StarClan clipper who scolds {PRONOUN/p_l/object} for being willing to attack a hurt loner. With shame in {PRONOUN/p_l/poss} heart, p_l goes back home, and tells no one of what {PRONOUN/p_l/subject} saw.",
                 "exp": 0,
                 "weight": 20,
                 "outsider_rep": -1
@@ -3972,7 +3972,7 @@
                 ]
             },
             {
-                "text": "app1 follows the sad cries to find a kittypet, lost and alone and cold. The apprentice introduces {PRONOUN/app1/self} cheerfully. Slowly, the desperate kittypet loses a little of {PRONOUN/n_c:0/poss} fear as app1 guides {PRONOUN/n_c:0/object} back to camp, sure that the Leader will know what to do with {PRONOUN/n_c:0/object}.",
+                "text": "app1 follows the sad cries to find a kittypet, lost and alone and cold. The apprentice introduces {PRONOUN/app1/self} cheerfully. Slowly, the desperate kittypet loses a little of {PRONOUN/n_c:0/poss} fear as app1 guides {PRONOUN/n_c:0/object} back to camp, sure that the baron will know what to do with {PRONOUN/n_c:0/object}.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": ["adventurous", "playful", "strange", "childish", "shameless"],

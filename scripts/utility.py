@@ -431,7 +431,7 @@ def create_new_cat_block(
             "kitten",
             "elder",
             "apprentice",
-            "warrior",
+            "clipper",
             "mediator apprentice",
             "mediator",
             "medicine cat apprentice",
@@ -468,7 +468,7 @@ def create_new_cat_block(
                 Cat.age_moons[CatAgeEnum.ADOLESCENT][0],
                 Cat.age_moons[CatAgeEnum.ADOLESCENT][1],
             )
-        elif status in ["warrior", "mediator", "medicine cat"]:
+        elif status in ["clipper", "mediator", "medicine cat"]:
             age = randint(
                 Cat.age_moons["young adult"][0], Cat.age_moons["senior adult"][1]
             )
@@ -586,30 +586,19 @@ def create_new_cat_block(
             if new_name:
                 name = f"{chosen_cat.name.prefix}"
                 spaces = name.count(" ")
-                if bool(getrandbits(1)) and spaces > 0:  # adding suffix to OG name
+                if bool(getrandbits(1)) and spaces > 0:
                     # make a list of the words within the name, then add the OG name back in the list
                     words = name.split(" ")
                     words.append(name)
                     new_prefix = choice(words)  # pick new prefix from that list
                     name = new_prefix
                     chosen_cat.name.prefix = name
-                    chosen_cat.name.give_suffix(
-                        pelt=chosen_cat.pelt,
-                        biome=game.clan.biome,
-                        tortiepattern=chosen_cat.pelt.tortiepattern,
-                    )
                 else:  # completely new name
                     chosen_cat.name.give_prefix(
                         eyes=chosen_cat.pelt.eye_colour,
                         colour=chosen_cat.pelt.colour,
                         biome=game.clan.biome,
                     )
-                    chosen_cat.name.give_suffix(
-                        pelt=chosen_cat.pelt.colour,
-                        biome=game.clan.biome,
-                        tortiepattern=chosen_cat.pelt.tortiepattern,
-                    )
-
             new_cats = [chosen_cat]
 
     # Now we generate the new cat
@@ -792,7 +781,7 @@ def create_new_cat(
             age = randint(1, 5)
         elif status in ("apprentice", "medicine cat apprentice", "mediator apprentice"):
             age = randint(6, 11)
-        elif status == "warrior":
+        elif status == "clipper":
             age = randint(23, 120)
         elif status == "medicine cat":
             age = randint(23, 140)
@@ -810,7 +799,7 @@ def create_new_cat(
         elif 6 <= age <= 11:
             status = "apprentice"
         elif age >= 12:
-            status = "warrior"
+            status = "clipper"
         elif age >= 120:
             status = "elder"
 
@@ -853,7 +842,7 @@ def create_new_cat(
 
             # now we make the cats
             if new_name:  # these cats get new names
-                if bool(getrandbits(1)):  # adding suffix to OG name
+                if bool(getrandbits(1)):
                     spaces = name.count(" ")
                     if spaces > 0:
                         # make a list of the words within the name, then add the OG name back in the list
@@ -886,7 +875,6 @@ def create_new_cat(
                 new_cat = Cat(
                     moons=age,
                     prefix=name,
-                    suffix="",
                     status=status,
                     gender=_gender,
                     backstory=backstory,
@@ -1159,7 +1147,7 @@ def get_amount_of_cats_with_relation_value_towards(cat, value, all_cats):
 
 
 def filter_relationship_type(
-        group: list, filter_types: List[str], event_id: str = None, patrol_leader=None
+        group: list, filter_types: List[str], event_id: str = None, patrol_baron=None
 ):
     """
     filters for specific types of relationships between groups of cat objects, returns bool
@@ -1170,7 +1158,7 @@ def filter_relationship_type(
     (following tags check if value is over given int) "romantic_int", "platonic_int", "dislike_int", "comfortable_int",
     "jealousy_int", "trust_int"
     :param str event_id: if the event has an ID, include it here
-    :param Cat patrol_leader: if you are testing a patrol, ensure you include the self.patrol_leader here
+    :param Cat patrol_baron: if you are testing a patrol, ensure you include the self.patrol_baron here
     """
     if not filter_types:
         return True
@@ -1226,11 +1214,11 @@ def filter_relationship_type(
         if len(group) == 1:
             return False
 
-        # Check each cat to see if it is mates with the patrol leader
+        # Check each cat to see if it is mates with the patrol baron
         for cat in group:
-            if cat.ID == patrol_leader.ID:
+            if cat.ID == patrol_baron.ID:
                 continue
-            if cat.ID not in patrol_leader.mate:
+            if cat.ID not in patrol_baron.mate:
                 return False
 
     # Check if all cats are not mates
@@ -1242,10 +1230,10 @@ def filter_relationship_type(
 
     # Check if the cats are in a parent/child relationship
     if "parent/child" in filter_types:
-        if patrol_leader:
-            if patrol_leader in group:
-                group.remove(patrol_leader)
-            group.insert(0, patrol_leader)
+        if patrol_baron:
+            if patrol_baron in group:
+                group.remove(patrol_baron)
+            group.insert(0, patrol_baron)
         # It should be exactly two cats for a "parent/child" event
         if len(group) != 2:
             return False
@@ -1254,10 +1242,10 @@ def filter_relationship_type(
             return False
 
     if "child/parent" in filter_types:
-        if patrol_leader:
-            if patrol_leader in group:
-                group.remove(patrol_leader)
-            group.insert(0, patrol_leader)
+        if patrol_baron:
+            if patrol_baron in group:
+                group.remove(patrol_baron)
+            group.insert(0, patrol_baron)
         # It should be exactly two cats for a "parent/child" event
         if len(group) != 2:
             return False
@@ -1266,10 +1254,10 @@ def filter_relationship_type(
             return False
 
     if "mentor/app" in filter_types:
-        if patrol_leader:
-            if patrol_leader in group:
-                group.remove(patrol_leader)
-            group.insert(0, patrol_leader)
+        if patrol_baron:
+            if patrol_baron in group:
+                group.remove(patrol_baron)
+            group.insert(0, patrol_baron)
         # It should be exactly two cats for a "parent/child" event
         if len(group) != 2:
             return False
@@ -1278,10 +1266,10 @@ def filter_relationship_type(
             return False
 
     if "app/mentor" in filter_types:
-        if patrol_leader:
-            if patrol_leader in group:
-                group.remove(patrol_leader)
-            group.insert(0, patrol_leader)
+        if patrol_baron:
+            if patrol_baron in group:
+                group.remove(patrol_baron)
+            group.insert(0, patrol_baron)
         # It should be exactly two cats for a "parent/child" event
         if len(group) != 2:
             return False
@@ -1418,7 +1406,7 @@ def gather_cat_objects(
         elif abbr == "r_c":
             out_set.add(event.random_cat)
         elif abbr == "p_l":
-            out_set.add(event.patrol_leader)
+            out_set.add(event.patrol_baron)
         elif abbr == "s_c":
             out_set.add(stat_cat)
         elif abbr == "app1" and len(event.patrol_apprentices) >= 1:
@@ -1713,13 +1701,13 @@ def change_relationship_values(
 # ---------------------------------------------------------------------------- #
 
 
-def get_leader_life_notice() -> str:
+def get_baron_life_notice() -> str:
     """
-    Returns a string specifying how many lives the leader has left or notifying of the leader's full death
+    Returns a string specifying how many lives the baron has left or notifying of the baron's full death
     """
     if game.clan.instructor.df:
-        return i18n.t("cat.history.leader_lives_left_df", count=game.clan.leader_lives)
-    return i18n.t("cat.history.leader_lives_left_sc", count=game.clan.leader_lives)
+        return i18n.t("cat.history.baron_lives_left_df", count=game.clan.baron_lives)
+    return i18n.t("cat.history.baron_lives_left_sc", count=game.clan.baron_lives)
 
 
 def get_other_clan_relation(relation):
@@ -2065,10 +2053,10 @@ def ongoing_event_text_adjust(Cat, text, clan=None, other_clan_name=None):
     """
     cat_dict = {}
     if "lead_name" in text:
-        kitty = Cat.fetch_cat(game.clan.leader)
+        kitty = Cat.fetch_cat(game.clan.baron)
         cat_dict["lead_name"] = (str(kitty.name), choice(kitty.pronouns))
     if "dep_name" in text:
-        kitty = Cat.fetch_cat(game.clan.deputy)
+        kitty = Cat.fetch_cat(game.clan.regent)
         cat_dict["dep_name"] = (str(kitty.name), choice(kitty.pronouns))
     if "med_name" in text:
         kitty = choice(get_alive_status_cats(Cat, ["medicine cat"], working=True))
@@ -2096,7 +2084,7 @@ def event_text_adjust(
         Cat: Type["Cat"],
         text,
         *,
-        patrol_leader=None,
+        patrol_baron=None,
         main_cat=None,
         random_cat=None,
         stat_cat=None,
@@ -2113,7 +2101,7 @@ def event_text_adjust(
     handles finding abbreviations in the text and replacing them appropriately, returns the adjusted text
     :param Cat Cat: always pass the Cat class
     :param str text: the text being adjusted
-    :param Cat patrol_leader: Cat object for patrol_leader (p_l), if present
+    :param Cat patrol_baron: Cat object for patrol_baron (p_l), if present
     :param Cat main_cat: Cat object for main_cat (m_c), if present
     :param Cat random_cat: Cat object for random_cat (r_c), if present
     :param Cat stat_cat: Cat object for stat_cat (s_c), if present
@@ -2156,10 +2144,10 @@ def event_text_adjust(
 
     # patrol_lead
     if "p_l" in text:
-        if patrol_leader:
+        if patrol_baron:
             replace_dict["p_l"] = (
-                str(patrol_leader.name),
-                choice(patrol_leader.pronouns),
+                str(patrol_baron.name),
+                choice(patrol_baron.pronouns),
             )
 
     # random_cat
@@ -2177,7 +2165,7 @@ def event_text_adjust(
         other_cats = [
             i
             for i in patrol_cats
-            if i not in [patrol_leader, random_cat, patrol_apprentices]
+            if i not in [patrol_baron, random_cat, patrol_apprentices]
         ]
         other_cat_abbr = ["o_c1", "o_c2", "o_c3", "o_c4"]
         for i, abbr in enumerate(other_cat_abbr):
@@ -2217,13 +2205,13 @@ def event_text_adjust(
 
     # lead_name
     if "lead_name" in text:
-        leader = Cat.fetch_cat(game.clan.leader)
-        replace_dict["lead_name"] = (str(leader.name), choice(leader.pronouns))
+        baron = Cat.fetch_cat(game.clan.baron)
+        replace_dict["lead_name"] = (str(baron.name), choice(baron.pronouns))
 
     # dep_name
     if "dep_name" in text:
-        deputy = Cat.fetch_cat(game.clan.deputy)
-        replace_dict["dep_name"] = (str(deputy.name), choice(deputy.pronouns))
+        regent = Cat.fetch_cat(game.clan.regent)
+        replace_dict["dep_name"] = (str(regent.name), choice(regent.pronouns))
 
     # med_name
     if "med_name" in text:
@@ -2316,20 +2304,20 @@ def event_text_adjust(
     return text
 
 
-def leader_ceremony_text_adjust(
+def baron_ceremony_text_adjust(
         Cat,
         text,
-        leader,
+        baron,
         life_giver=None,
         virtue=None,
         extra_lives=None,
 ):
     """
-    used to adjust the text for leader ceremonies
+    used to adjust the text for baron ceremonies
     """
     replace_dict = {
-        "m_c_star": (str(leader.name.prefix + "star"), choice(leader.pronouns)),
-        "m_c": (str(leader.name.prefix + leader.name.suffix), choice(leader.pronouns)),
+        "m_c_star": (str(baron.name.prefix + "star"), choice(baron.pronouns)),
+        "m_c": (str(baron.name), choice(baron.pronouns)),
     }
 
     if life_giver:
@@ -2392,9 +2380,9 @@ def ceremony_text_adjust(
             else ("previous_mentor_name", None)
         ),
         "l_n": (
-            (str(game.clan.leader.name), choice(game.clan.leader.pronouns))
-            if game.clan.leader
-            else ("leader_name", None)
+            (str(game.clan.baron.name), choice(game.clan.baron.pronouns))
+            if game.clan.baron
+            else ("baron_name", None)
         ),
         "c_n": (clanname, None),
     }

@@ -537,7 +537,7 @@
                     "text": "They all stagger towards the nearest rockpool and flop into it, not hunting, purely there for the water and damp coats. r_c swipes water towards p_l and {PRONOUN/p_l/subject} {VERB/p_l/laugh/laughs}, welcoming it and returning the favor. There's nothing like swimming in greenleaf, and the patrol devolves into a waterfight.",
                     "exp": 20,
                     "weight": 10,
-                    "art": "gen_train_soggykitty_happy_warrior",
+                    "art": "gen_train_soggykitty_happy_clipper",
                     "relationships": [
                         {
                             "cats_to": ["patrol"],

@@ -1,9 +1,9 @@
 [
     {
-        "id": "lost_leader_thoughts",
+        "id": "lost_baron_thoughts",
         "thoughts": [
             "Feels lost without the support of {PRONOUN/m_c/poss} Clan behind {PRONOUN/m_c/object}",
-            "Wonders if {PRONOUN/m_c/poss} deputy has already become leader",
+            "Wonders if {PRONOUN/m_c/poss} regent has already become baron",
             "Hopes that the Clan is doing okay without {PRONOUN/m_c/object}",
             "Feels like {PRONOUN/m_c/subject} {VERB/m_c/have/has} failed {PRONOUN/m_c/poss} Clan",
             "Is wondering if StarClan is still able to contact {PRONOUN/m_c/object}"

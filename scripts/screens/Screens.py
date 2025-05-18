@@ -248,7 +248,7 @@ class Screens:
                 "med_cat_den",
                 "lead_den",
                 "clearing",
-                "warrior_den",
+                "clipper_den",
                 "dens_bar",
                 "mute_button",
                 "unmute_button",
@@ -329,17 +329,17 @@ class Screens:
             self.update_dens()
 
         elif event.ui_element == Screens.menu_buttons["lead_den"]:
-            self.change_screen("leader den screen")
+            self.change_screen("baron den screen")
         elif event.ui_element == Screens.menu_buttons["clearing"]:
             self.change_screen("clearing screen")
         elif event.ui_element == Screens.menu_buttons["med_cat_den"]:
             self.change_screen("med den screen")
-        elif event.ui_element == Screens.menu_buttons["warrior_den"]:
-            self.change_screen("warrior den screen")
+        elif event.ui_element == Screens.menu_buttons["clipper_den"]:
+            self.change_screen("clipper den screen")
 
     @classmethod
     def update_dens(cls):
-        dens = ["dens_bar", "lead_den", "med_cat_den", "warrior_den", "clearing"]
+        dens = ["dens_bar", "lead_den", "med_cat_den", "clipper_den", "clearing"]
         for den in dens:
             # if dropdown is visible, hide
             if cls.menu_buttons[den].visible:
@@ -398,9 +398,9 @@ class Screens:
             if cls.menu_buttons["med_cat_den"]:
                 cls.menu_buttons["med_cat_den"].kill()
                 del cls.menu_buttons["med_cat_den"]
-            if cls.menu_buttons["warrior_den"]:
-                cls.menu_buttons["warrior_den"].kill()
-                del cls.menu_buttons["warrior_den"]
+            if cls.menu_buttons["clipper_den"]:
+                cls.menu_buttons["clipper_den"].kill()
+                del cls.menu_buttons["clipper_den"]
             if cls.menu_buttons["clearing"]:
                 cls.menu_buttons["clearing"].kill()
                 del cls.menu_buttons["clearing"]
@@ -455,14 +455,14 @@ class Screens:
             )
             cls.menu_buttons.update(
                 {
-                    "warrior_den": UIImageButton(
+                    "clipper_den": UIImageButton(
                         ui_scale(
                             pygame.Rect((-30 + x_shift, 360 + y_shift), (242, 56))
                         ),
                         "",
                         visible=False,
                         manager=MANAGER,
-                        object_id="#warrior_den_button",
+                        object_id="#clipper_den_button",
                         starting_height=6,
                     )
                 }
@@ -522,12 +522,12 @@ class Screens:
             )
             cls.menu_buttons.update(
                 {
-                    "warrior_den": UIImageButton(
+                    "clipper_den": UIImageButton(
                         ui_scale(pygame.Rect((50 + x_shift, 360 + y_shift), (242, 56))),
                         "",
                         visible=False,
                         manager=MANAGER,
-                        object_id="#warrior_den_button",
+                        object_id="#clipper_den_button",
                         starting_height=6,
                     )
                 }

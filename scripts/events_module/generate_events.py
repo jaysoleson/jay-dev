@@ -91,7 +91,7 @@ class GenerateEvents:
     @staticmethod
     def get_lead_den_event_dicts(event_type: str, success: bool):
         try:
-            file_path = f"{get_resource_directory()}leader_den/{'success' if success else 'fail'}/{event_type}.json"
+            file_path = f"{get_resource_directory()}baron_den/{'success' if success else 'fail'}/{event_type}.json"
             with open(file_path, "r", encoding="utf-8") as read_file:
                 events = ujson.loads(read_file.read())
         except:
@@ -294,8 +294,8 @@ class GenerateEvents:
             # TODO: just remove this tag man its not a useful feature
             prevent_bypass = "skill_trait_required" in event.tags
 
-            # make complete leader death less likely until the leader is over 150 moons (or unless it's a murder)
-            if cat.status == "leader":
+            # make complete baron death less likely until the baron is over 150 moons (or unless it's a murder)
+            if cat.status == "baron":
                 if "all_lives" in event.tags and "murder" not in event.sub_type:
                     if int(cat.moons) < 150 and int(random.random() * 5):
                         continue
@@ -518,7 +518,7 @@ class GenerateEvents:
         player_clan_temper=None,
     ) -> list:
         """
-        finds and generates a list of possible leader den events
+        finds and generates a list of possible baron den events
         :param cat: the cat object of the cat attending the Gathering
         :param other_clan_temper: the temperament of the other clan
         :param player_clan_temper: the temperament of the player clan

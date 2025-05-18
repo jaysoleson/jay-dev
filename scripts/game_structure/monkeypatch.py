@@ -36,7 +36,7 @@ def translate(text: str, **kwargs):
         return event_text_adjust(
             Cat,
             output,
-            patrol_leader=dict.get("p_l"),
+            patrol_baron=dict.get("p_l"),
             main_cat=dict.get("m_c"),
             random_cat=dict.get("r_c"),
             stat_cat=dict.get("s_c"),

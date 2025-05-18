@@ -67,7 +67,7 @@
         },
         "weight": 60,
         "intro_text": "p_l sees {PRONOUN/p_l/poss} mates exchanging curious glances as they all pad through the grass towards p_l's promised surprise. {PRONOUN/p_l/poss/CAP} own tail waves like a jaunty reed, twitching a little in {PRONOUN/p_l/poss} excitement and scattering dewdrops whenever it hits the grass.",
-        "decline_text": "The warriors get intercepted by a hunting patrol who need extra paws, and the possibility of a romantic afternoon evaporates.",
+        "decline_text": "The clippers get intercepted by a hunting patrol who need extra paws, and the possibility of a romantic afternoon evaporates.",
         "chance_of_success": 60,
         "relationship_constraint": ["mates_with_pl"],
         "success_outcomes": [
@@ -193,7 +193,7 @@
                     ]
                 },
                 {
-                    "text": "Everything the patrol sees exists together in a delicate balance, s_c explains. A warrior must respect all life, from the crawling ant to the leaping rabbit. Yes, even though warriors hunt and eat them. One day, as each member of c_n dies, their bodies will become the dirt, and the dirt will feed the grass, and the rabbits eat the grass. Every creature is connected in the great cycle.",
+                    "text": "Everything the patrol sees exists together in a delicate balance, s_c explains. A clipper must respect all life, from the crawling ant to the leaping rabbit. Yes, even though clippers hunt and eat them. One day, as each member of c_n dies, their bodies will become the dirt, and the dirt will feed the grass, and the rabbits eat the grass. Every creature is connected in the great cycle.",
                     "exp": 30,
                     "weight": 20,
                     "art": "gen_bord_story",
@@ -222,7 +222,7 @@
                     "text": "p_l spends too long admiring the scenery and gets left behind by the rest of the patrol. {PRONOUN/p_l/subject/CAP} {VERB/p_l/catch/catches} up, huffing and puffing, and no cat is too pleased with {PRONOUN/p_l/poss} lack of attention.",
                     "exp": 0,
                     "weight": 20,
-                    "art": "running_warrior2",
+                    "art": "running_clipper2",
                     "relationships": [
                         {
                             "cats_to": ["p_l"],

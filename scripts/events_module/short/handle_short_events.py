@@ -27,7 +27,7 @@ from scripts.utility import (
     unpack_rel_block,
     change_clan_reputation,
     create_new_cat_block,
-    get_leader_life_notice,
+    get_baron_life_notice,
     get_alive_status_cats,
     adjust_list_text,
 )
@@ -456,7 +456,7 @@ class HandleShortEvents:
         handles killing/murdering cats
         """
         dead_list = self.dead_cats if self.dead_cats else []
-        self.current_lives = int(game.clan.leader_lives)
+        self.current_lives = int(game.clan.baron_lives)
 
         # check if the bodies are retrievable
         if "no_body" in self.chosen_event.tags:
@@ -479,18 +479,18 @@ class HandleShortEvents:
             if "birth_death" not in self.types:
                 self.types.append("birth_death")
 
-            if cat.status == "leader":
+            if cat.status == "baron":
                 if "all_lives" in self.chosen_event.tags:
-                    game.clan.leader_lives -= 10
+                    game.clan.baron_lives -= 10
                 elif "some_lives" in self.chosen_event.tags:
-                    game.clan.leader_lives -= random.randrange(
+                    game.clan.baron_lives -= random.randrange(
                         2, self.current_lives - 1
                     )
                 else:
-                    game.clan.leader_lives -= 1
+                    game.clan.baron_lives -= 1
 
                 cat.die(body)
-                self.additional_event_text = get_leader_life_notice()
+                self.additional_event_text = get_baron_life_notice()
 
             else:
                 cat.die(body)
@@ -500,7 +500,7 @@ class HandleShortEvents:
         finds cats eligible for the death, if not enough cats are eligible then event is tossed.
         cats that will die are added to self.dead_cats
         """
-        # gather living clan cats except leader bc leader lives would be frustrating to handle in these
+        # gather living clan cats except baron bc baron lives would be frustrating to handle in these
         alive_cats = [
             i
             for i in Cat.all_cats.values()
@@ -568,7 +568,7 @@ class HandleShortEvents:
                 # death history
                 if self.chosen_event.m_c["dies"]:
                     # find history
-                    if self.main_cat.status == "leader":
+                    if self.main_cat.status == "baron":
                         death_history = history_text_adjust(
                             block.get("lead_death"),
                             self.other_clan_name,
@@ -590,10 +590,10 @@ class HandleShortEvents:
                             self.main_cat, self.random_cat, revealed, death_history
                         )
 
-                    if self.main_cat.status == "leader":
+                    if self.main_cat.status == "baron":
                         self.current_lives -= 1
-                        if self.current_lives != game.clan.leader_lives:
-                            while self.current_lives > game.clan.leader_lives:
+                        if self.current_lives != game.clan.baron_lives:
+                            while self.current_lives > game.clan.baron_lives:
                                 History.add_death(
                                     self.main_cat,
                                     "multi_lives",
@@ -608,7 +608,7 @@ class HandleShortEvents:
             if "r_c" in block["cats"]:
                 # death history
                 if self.chosen_event.r_c["dies"]:
-                    if self.random_cat.status == "leader":
+                    if self.random_cat.status == "baron":
                         death_history = history_text_adjust(
                             block.get("lead_death"),
                             self.other_clan_name,
@@ -623,10 +623,10 @@ class HandleShortEvents:
                             self.random_cat,
                         )
 
-                    if self.random_cat.status == "leader":
+                    if self.random_cat.status == "baron":
                         self.current_lives -= 1
-                        if self.current_lives != game.clan.leader_lives:
-                            while self.current_lives > game.clan.leader_lives:
+                        if self.current_lives != game.clan.baron_lives:
+                            while self.current_lives > game.clan.baron_lives:
                                 History.add_death(
                                     self.random_cat,
                                     "multi_lives",
@@ -640,7 +640,7 @@ class HandleShortEvents:
             # multi_cat history
             if "multi_cat" in block["cats"]:
                 for cat in self.multi_cat:
-                    if cat.status == "leader":
+                    if cat.status == "baron":
                         death_history = history_text_adjust(
                             block.get("lead_death"),
                             self.other_clan_name,
@@ -655,10 +655,10 @@ class HandleShortEvents:
                             self.random_cat,
                         )
 
-                    if cat.status == "leader":
+                    if cat.status == "baron":
                         self.current_lives -= 1
-                        if self.current_lives != game.clan.leader_lives:
-                            while self.current_lives > game.clan.leader_lives:
+                        if self.current_lives != game.clan.baron_lives:
+                            while self.current_lives > game.clan.baron_lives:
                                 History.add_death(cat, "multi_lives")
                                 self.current_lives -= 1
                     History.add_death(cat, death_history)
@@ -753,7 +753,7 @@ class HandleShortEvents:
                     possible_scar = history_text_adjust(
                         block["scar"], self.other_clan_name, game.clan, self.random_cat
                     )
-                    if cat.status == "leader":
+                    if cat.status == "baron":
                         possible_death = history_text_adjust(
                             block["lead_death"],
                             self.other_clan_name,

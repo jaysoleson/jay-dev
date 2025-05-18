@@ -13,11 +13,11 @@ class MainCatFiltering(unittest.TestCase):
         # given
         group_events = GroupEvents()
         main_cat = Cat()
-        main_cat.status = "warrior"
+        main_cat.status = "clipper"
         group_events.abbreviations_cat_id = {"m_c": main_cat.ID}
 
         interaction1 = GroupInteraction("1")
-        interaction1.status_constraint = {"m_c": ["warrior"]}
+        interaction1.status_constraint = {"m_c": ["clipper"]}
 
         interaction2 = GroupInteraction("2")
         interaction2.status_constraint = {"m_c": ["healer"]}
@@ -35,14 +35,14 @@ class MainCatFiltering(unittest.TestCase):
         # given
         group_events = GroupEvents()
         main_cat = Cat()
-        main_cat.status = "warrior"
+        main_cat.status = "clipper"
         group_events.abbreviations_cat_id = {"m_c": main_cat.ID}
 
         interaction1 = GroupInteraction("1")
-        interaction1.status_constraint = {"m_c": ["warrior"]}
+        interaction1.status_constraint = {"m_c": ["clipper"]}
 
         interaction2 = GroupInteraction("2")
-        interaction2.status_constraint = {"m_c": ["healer", "warrior"]}
+        interaction2.status_constraint = {"m_c": ["healer", "clipper"]}
         
         # when
         all_interactions = [interaction1, interaction2]
@@ -320,20 +320,20 @@ class Abbreviations(unittest.TestCase):
     def test_get_abbreviation_possibilities_all(self):
         # given
         main_cat = Cat()
-        main_cat.status = "warrior"
+        main_cat.status = "clipper"
 
         random1 = Cat()
-        random1.status = "warrior"
+        random1.status = "clipper"
         random2 = Cat()
-        random2.status = "warrior"
+        random2.status = "clipper"
         random3 = Cat()
-        random3.status = "warrior"
+        random3.status = "clipper"
 
         interaction1 = GroupInteraction("1")
-        interaction1.status_constraint = {"r_c1": ["warrior"]}
+        interaction1.status_constraint = {"r_c1": ["clipper"]}
 
         interaction2 = GroupInteraction("2")
-        interaction2.status_constraint = {"r_c1": ["healer", "warrior"]}
+        interaction2.status_constraint = {"r_c1": ["healer", "clipper"]}
         
         # when
         all_interactions = [interaction1, interaction2]
@@ -351,17 +351,17 @@ class Abbreviations(unittest.TestCase):
     def test_get_abbreviation_possibilities_not_all(self):
         # given
         main_cat = Cat()
-        main_cat.status = "warrior"
+        main_cat.status = "clipper"
 
         random1 = Cat()
-        random1.status = "warrior"
+        random1.status = "clipper"
         random2 = Cat()
-        random2.status = "warrior"
+        random2.status = "clipper"
         random3 = Cat()
         random3.status = "medicine cat"
 
         interaction1 = GroupInteraction("1")
-        interaction1.status_constraint = {"r_c1": ["warrior"]}
+        interaction1.status_constraint = {"r_c1": ["clipper"]}
 
         interaction2 = GroupInteraction("2")
         interaction2.status_constraint = {"r_c1": ["medicine cat"]}
@@ -405,7 +405,7 @@ class Abbreviations(unittest.TestCase):
     def test_set_abbreviations_cats(self):
         # given
         main_cat = Cat()
-        main_cat.status = "warrior"
+        main_cat.status = "clipper"
         abbreviations_cat_id = {
             "m_c": main_cat.ID,
             "r_c1": None,
@@ -413,9 +413,9 @@ class Abbreviations(unittest.TestCase):
         }
 
         random1 = Cat()
-        random1.status = "warrior"
+        random1.status = "clipper"
         random2 = Cat()
-        random2.status = "warrior"
+        random2.status = "clipper"
         random3 = Cat()
         random3.status = "medicine cat"
 
@@ -450,11 +450,11 @@ class OtherCatsFiltering(unittest.TestCase):
         # given
         parent = Cat()
         main_cat = Cat(parent1=parent.ID)
-        main_cat.status = "warrior"
+        main_cat.status = "clipper"
         random1 = Cat(parent1=parent.ID)
-        random1.status = "warrior"
+        random1.status = "clipper"
         random2 = Cat()
-        random2.status = "warrior"
+        random2.status = "clipper"
         abbreviations_cat_id = {
             "m_c": main_cat.ID,
             "r_c1": random1.ID,
@@ -557,11 +557,11 @@ class OtherCatsFiltering(unittest.TestCase):
         # given
         parent = Cat()
         main_cat = Cat(parent1=parent.ID)
-        main_cat.status = "warrior"
+        main_cat.status = "clipper"
         random1 = Cat(parent1=parent.ID)
-        random1.status = "warrior"
+        random1.status = "clipper"
         random2 = Cat()
-        random2.status = "warrior"
+        random2.status = "clipper"
         abbreviations_cat_id = {
             "m_c": main_cat.ID,
             "r_c1": random1.ID,

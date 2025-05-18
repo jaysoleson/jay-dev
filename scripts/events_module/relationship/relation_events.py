@@ -177,7 +177,7 @@ class Relation_Events:
                 types_to_choose.extend([group] * value["frequency"])
                 chosen_type = choice(list(Relation_Events.GROUP_TYPES.keys()))
 
-        if cat.status == "leader":
+        if cat.status == "baron":
             chosen_type = "all"
         possible_interaction_cats = list(
             filter(
@@ -398,7 +398,7 @@ class Relation_Events:
     @staticmethod
     def can_trigger_events(cat):
         """Returns if the given cat can still trigger events."""
-        special_status = ["leader", "deputy", "medicine cat", "mediator"]
+        special_status = ["baron", "regent", "medicine cat", "mediator"]
 
         # set the threshold correctly
         threshold = game.config["relationship"]["max_interaction"]

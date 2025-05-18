@@ -1451,7 +1451,7 @@
         },
         "weight": 40,
         "intro_text": "The two siblings head out together, declaring a friendly competition to stock the fresh-kill pile. Leaf-fall makes the rockpools seem far less inviting than in the blistering heat of greenleaf, but the stories all say that the prey doesn't care about the temperature; it's supposed to be one of the benefits of being coastal cats.",
-        "decline_text": "Their mentors hold them back with a gentle word - the warriors have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -1543,7 +1543,7 @@
         },
         "weight": 40,
         "intro_text": "It's nice to get the chance to go out hunting with app2. app1 knows they're still in the apprentices' den together, but with different mentors and focuses and skills - it's not the same as it was back in the nursery as siblings. And outrunning the leaf-fall fueled dark waves that chase up and down the beach is endlessly entertaining!",
-        "decline_text": "Their mentors hold them back with a gentle word - the warriors have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -1603,7 +1603,7 @@
         },
         "weight": 40,
         "intro_text": "The clouds are out, foretelling more rain, but they aren't here yet! And just like the clouds, app1 and {PRONOUN/app1/poss} sibling are everywhere today, sticking their heads into every unexplored corner of the territory. All in the name of hunting, of course!",
-        "decline_text": "Their mentors hold them back with a gentle word - the warriors have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -1663,7 +1663,7 @@
         },
         "weight": 40,
         "intro_text": "The three siblings head out together, declaring a friendly competition to stock the fresh-kill pile. Leaf-fall makes the rockpools seem far less inviting than in the blistering heat of greenleaf, but the stories all say that the prey doesn't care about the temperature; it's supposed to be one of the benefits of being coastal cats.",
-        "decline_text": "Their mentors hold them back with a gentle word - the warriors have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -1754,7 +1754,7 @@
         },
         "weight": 40,
         "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the apprentices' den, but with different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} littermates. And outrunning the leaf-fall fueled dark waves that chase up and down the beach is endlessly entertaining!",
-        "decline_text": "Their mentors hold them back with a gentle word - the warriors have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -1814,7 +1814,7 @@
         },
         "weight": 40,
         "intro_text": "The clouds are out, foretelling more rain, but they aren't here yet! And just like the clouds, app1 and {PRONOUN/app1/poss} siblings are everywhere today, sticking their heads into every unexplored corner of the territory. All in the name of hunting, of course!",
-        "decline_text": "Their mentors hold them back with a gentle word - the warriors have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -1874,7 +1874,7 @@
         },
         "weight": 40,
         "intro_text": "The four siblings head out together, declaring a friendly competition to stock the fresh-kill pile. Leaf-fall makes the rockpools seem far less inviting than in the blistering heat of greenleaf, but the stories all say that the prey doesn't care about the temperature; it's supposed to be one of the benefits of being coastal cats.",
-        "decline_text": "Their mentors hold them back with a gentle word - the warriors have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -1965,7 +1965,7 @@
         },
         "weight": 40,
         "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the apprentices' den, but with different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} siblings. And outrunning the leaf-fall fueled dark waves that chase up and down the beach is endlessly entertaining!",
-        "decline_text": "Their mentors hold them back with a gentle word - the warriors have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -2025,7 +2025,7 @@
         },
         "weight": 40,
         "intro_text": "The clouds are out, foretelling more rain, but they aren't here yet! And just like the clouds, app1 and {PRONOUN/app1/poss} siblings are everywhere today, sticking their heads into every unexplored corner of the territory. All in the name of hunting, of course!",
-        "decline_text": "Their mentors hold them back with a gentle word - the warriors have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -2085,7 +2085,7 @@
         },
         "weight": 40,
         "intro_text": "The five siblings head out together, declaring a friendly competition to stock the fresh-kill pile. Leaf-fall makes the rockpools seem far less inviting than in the blistering heat of greenleaf, but the stories all say that the prey doesn't care about the temperature; it's supposed to be one of the benefits of being coastal cats.",
-        "decline_text": "Their mentors hold them back with a gentle word - the warriors have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -2176,7 +2176,7 @@
         },
         "weight": 40,
         "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the apprentices' den, but with different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} siblings. And outrunning the leaf-fall fueled dark waves that chase up and down the beach is endlessly entertaining!",
-        "decline_text": "Their mentors hold them back with a gentle word - the warriors have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -2236,7 +2236,7 @@
         },
         "weight": 40,
         "intro_text": "The clouds are out, foretelling more rain, but they aren't here yet! And just like the clouds, app1 and {PRONOUN/app1/poss} siblings are everywhere today, sticking their heads into every unexplored corner of the territory. All in the name of hunting, of course!",
-        "decline_text": "Their mentors hold them back with a gentle word - the warriors have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -2295,7 +2295,7 @@
         },
         "weight": 40,
         "intro_text": "The six siblings head out together, declaring a friendly competition to stock the fresh-kill pile. Leaf-fall makes the rockpools seem far less inviting than in the blistering heat of greenleaf, but the stories all say that the prey doesn't care about the temperature; it's supposed to be one of the benefits of being coastal cats.",
-        "decline_text": "Their mentors hold them back with a gentle word - the warriors have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -2385,7 +2385,7 @@
         },
         "weight": 40,
         "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the apprentices' den, but with different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} siblings. And outrunning the leaf-fall fueled dark waves that chase up and down the beach is endlessly entertaining!",
-        "decline_text": "Their mentors hold them back with a gentle word - the warriors have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -2444,7 +2444,7 @@
         },
         "weight": 40,
         "intro_text": "The clouds are out, foretelling more rain, but they aren't here yet! And just like the clouds, app1 and {PRONOUN/app1/poss} littermates are everywhere today, sticking their heads into every unexplored corner of the territory. All in the name of hunting, of course!",
-        "decline_text": "Their mentors hold them back with a gentle word - the warriors have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -2490,7 +2490,7 @@
         ]
     },
     {
-        "patrol_id": "bch_hunt_random_leaffall_siblings1warrior1applocked1",
+        "patrol_id": "bch_hunt_random_leaffall_siblings1clipper1applocked1",
         "biome": ["beach"],
         "season": ["leaf-fall"],
         "types": ["hunting"],
@@ -2552,7 +2552,7 @@
         ]
     },
     {
-        "patrol_id": "bch_hunt_random_leaffall_siblings1warrior1applocked2",
+        "patrol_id": "bch_hunt_random_leaffall_siblings1clipper1applocked2",
         "biome": ["beach"],
         "season": ["leaf-fall"],
         "types": ["hunting"],
@@ -2623,7 +2623,7 @@
         ]
     },
     {
-        "patrol_id": "bch_hunt_random_leaffall_siblings1warrior1applocked3",
+        "patrol_id": "bch_hunt_random_leaffall_siblings1clipper1applocked3",
         "biome": ["beach"],
         "season": ["leaf-fall"],
         "types": ["hunting"],
@@ -2694,7 +2694,7 @@
         ]
     },
     {
-        "patrol_id": "bch_hunt_random_leaffall_siblings2to5warrior1applocked1",
+        "patrol_id": "bch_hunt_random_leaffall_siblings2to5clipper1applocked1",
         "biome": ["beach"],
         "season": ["leaf-fall"],
         "types": ["hunting"],
@@ -2756,7 +2756,7 @@
         ]
     },
     {
-        "patrol_id": "bch_hunt_random_leaffall_siblings2to5warrior1applocked2",
+        "patrol_id": "bch_hunt_random_leaffall_siblings2to5clipper1applocked2",
         "biome": ["beach"],
         "season": ["leaf-fall"],
         "types": ["hunting"],
@@ -2776,7 +2776,7 @@
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
             {
-                "text": "Taking down a b_mp_dl_s all by {PRONOUN/app1/self}, app1 feels twice {PRONOUN/app1/poss} actual size showing it to {PRONOUN/app1/poss} older, fully-named warrior siblings.",
+                "text": "Taking down a b_mp_dl_s all by {PRONOUN/app1/self}, app1 feels twice {PRONOUN/app1/poss} actual size showing it to {PRONOUN/app1/poss} older, fully-named clipper siblings.",
                 "exp": 30,
                 "weight": 20,
                 "prey": ["medium"],
@@ -2827,7 +2827,7 @@
         ]
     },
     {
-        "patrol_id": "bch_hunt_random_leaffall_siblings2warriorslocked1",
+        "patrol_id": "bch_hunt_random_leaffall_siblings2clipperslocked1",
         "biome": ["beach"],
         "season": ["leaf-fall"],
         "types": ["hunting"],
@@ -2860,7 +2860,7 @@
                 ]
             },
             {
-                "text": "The hunting patrol is perfectly successful and it matters not a whit to either of the warriors, because p_l makes a joke that {PRONOUN/p_l/subject} {VERB/p_l/think/thinks} is funny but that's always gotten on r_c's nerves, and suddenly they're both acting like apprentices again - snippy, immature, and irritable.",
+                "text": "The hunting patrol is perfectly successful and it matters not a whit to either of the clippers, because p_l makes a joke that {PRONOUN/p_l/subject} {VERB/p_l/think/thinks} is funny but that's always gotten on r_c's nerves, and suddenly they're both acting like apprentices again - snippy, immature, and irritable.",
                 "exp": 20,
                 "weight": 5,
                 "prey": ["medium"],
@@ -2901,7 +2901,7 @@
         ]
     },
     {
-        "patrol_id": "bch_hunt_random_leaffall_siblings2warriorslocked2",
+        "patrol_id": "bch_hunt_random_leaffall_siblings2clipperslocked2",
         "biome": ["beach"],
         "season": ["leaf-fall"],
         "types": ["hunting"],
@@ -2941,7 +2941,7 @@
                 ]
             },
             {
-                "text": "There's just something nice about hanging out with another warrior who'll always be there for {PRONOUN/r_c/object}, regardless of their similarities and differences. And they also bring back a good-sized b_mp_a_s with some b_tp_dl_p on the side for the fresh-kill pile.",
+                "text": "There's just something nice about hanging out with another clipper who'll always be there for {PRONOUN/r_c/object}, regardless of their similarities and differences. And they also bring back a good-sized b_mp_a_s with some b_tp_dl_p on the side for the fresh-kill pile.",
                 "exp": 20,
                 "weight": 5,
                 "prey": ["medium"],
@@ -2996,7 +2996,7 @@
         ]
     },
     {
-        "patrol_id": "bch_hunt_random_leaffall_siblings2warriorslocked3",
+        "patrol_id": "bch_hunt_random_leaffall_siblings2clipperslocked3",
         "biome": ["beach"],
         "season": ["leaf-fall"],
         "types": ["hunting"],
@@ -3083,7 +3083,7 @@
         ]
     },
     {
-        "patrol_id": "bch_hunt_random_leaffall_siblings2warriorslocked4",
+        "patrol_id": "bch_hunt_random_leaffall_siblings2clipperslocked4",
         "biome": ["beach"],
         "season": ["leaf-fall"],
         "types": ["hunting"],
@@ -3172,7 +3172,7 @@
         ]
     },
     {
-        "patrol_id": "bch_hunt_random_leaffall_siblings2warriorslocked5",
+        "patrol_id": "bch_hunt_random_leaffall_siblings2clipperslocked5",
         "biome": ["beach"],
         "season": ["leaf-fall"],
         "types": ["hunting"],
@@ -3243,7 +3243,7 @@
         ]
     },
     {
-        "patrol_id": "bch_hunt_random_leaffall_siblings3to6warriorslocked1",
+        "patrol_id": "bch_hunt_random_leaffall_siblings3to6clipperslocked1",
         "biome": ["beach"],
         "season": ["leaf-fall"],
         "types": ["hunting"],
@@ -3276,7 +3276,7 @@
                 ]
             },
             {
-                "text": "The hunting patrol is perfectly successful and it matters not a whit to any of the warriors, because p_l makes a joke that {PRONOUN/p_l/subject} {VERB/p_l/think/thinks} is funny but that's always gotten on r_c's nerves, and suddenly everyone's acting like apprentices again - snippy, immature, and irritable.",
+                "text": "The hunting patrol is perfectly successful and it matters not a whit to any of the clippers, because p_l makes a joke that {PRONOUN/p_l/subject} {VERB/p_l/think/thinks} is funny but that's always gotten on r_c's nerves, and suddenly everyone's acting like apprentices again - snippy, immature, and irritable.",
                 "exp": 20,
                 "weight": 5,
                 "prey": ["medium"],
@@ -3317,7 +3317,7 @@
         ]
     },
     {
-        "patrol_id": "bch_hunt_random_leaffall_siblings3to6warriorslocked2",
+        "patrol_id": "bch_hunt_random_leaffall_siblings3to6clipperslocked2",
         "biome": ["beach"],
         "season": ["leaf-fall"],
         "types": ["hunting"],
@@ -3357,7 +3357,7 @@
                 ]
             },
             {
-                "text": "There's just something nice about hanging out with other warriors who'll always be there for {PRONOUN/r_c/object}, regardless of their similarities and differences. And they also bring back a good-sized b_mp_a_s with some b_tp_dl_p on the side for the fresh-kill pile.",
+                "text": "There's just something nice about hanging out with other clippers who'll always be there for {PRONOUN/r_c/object}, regardless of their similarities and differences. And they also bring back a good-sized b_mp_a_s with some b_tp_dl_p on the side for the fresh-kill pile.",
                 "exp": 20,
                 "weight": 5,
                 "prey": ["medium"],
@@ -3412,7 +3412,7 @@
         ]
     },
     {
-        "patrol_id": "bch_hunt_random_leaffall_siblings3to6warriorslocked3",
+        "patrol_id": "bch_hunt_random_leaffall_siblings3to6clipperslocked3",
         "biome": ["beach"],
         "season": ["leaf-fall"],
         "types": ["hunting"],
@@ -3499,7 +3499,7 @@
         ]
     },
     {
-        "patrol_id": "bch_hunt_random_leaffall_siblings3to6warriorslocked4",
+        "patrol_id": "bch_hunt_random_leaffall_siblings3to6clipperslocked4",
         "biome": ["beach"],
         "season": ["leaf-fall"],
         "types": ["hunting"],
@@ -3588,7 +3588,7 @@
         ]
     },
     {
-        "patrol_id": "bch_hunt_random_leaffall_siblings3to6warriorslocked5",
+        "patrol_id": "bch_hunt_random_leaffall_siblings3to6clipperslocked5",
         "biome": ["beach"],
         "season": ["leaf-fall"],
         "types": ["hunting"],
@@ -3659,7 +3659,7 @@
         ]
     },
     {
-        "patrol_id": "bch_hunt_herb_warriorleaffall1",
+        "patrol_id": "bch_hunt_herb_clipperleaffall1",
         "biome": ["beach"],
         "season": ["leaf-fall"],
         "types": ["hunting"],

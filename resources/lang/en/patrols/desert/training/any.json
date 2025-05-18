@@ -654,7 +654,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "deputy": [1, 6]
+            "regent": [1, 6]
         },
         "weight": 20,
         "intro_text": "r_c heads out into the desert alone, wanting to explore and have some time to {PRONOUN/r_c/self}.",
@@ -717,7 +717,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "leader": [1, 6]
+            "baron": [1, 6]
         },
         "weight": 20,
         "intro_text": "r_c heads out into the desert alone, wanting to explore and have some time to {PRONOUN/r_c/self}.",
@@ -1125,7 +1125,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "Both warriors are stiffly polite with each other, and it's a boring and completely unproductive afternoon, though maybe r_c isn't quite the thorn in {PRONOUN/p_l/poss} paw p_l thought {PRONOUN/r_c/subject} {VERB/r_c/were/was}.",
+                "text": "Both clippers are stiffly polite with each other, and it's a boring and completely unproductive afternoon, though maybe r_c isn't quite the thorn in {PRONOUN/p_l/poss} paw p_l thought {PRONOUN/r_c/subject} {VERB/r_c/were/was}.",
                 "exp": 0,
                 "weight": 20,
                 "relationships": [
@@ -1814,7 +1814,7 @@
                     "text": "They're not <i>bone-bone</i>, p_l explains, tracing a claw across the protruding skull. And they don't look like anything that currently walks the badlands. They're rock, but... bone shaped? p_l thinks these were a monster, one cursed by StarClan to be entombed by the rock until they became it.",
                     "exp": 30,
                     "weight": 20,
-                    "art": "gen_warrior_crouching_perplexed",
+                    "art": "gen_clipper_crouching_perplexed",
                     "stat_skill": ["STORY,1"],
                     "can_have_stat": ["p_l"],
                     "relationships": [
@@ -1845,7 +1845,7 @@
                     "text": "Look at all the layers of rock above these, p_l whispers. How much time have these bones spent buried, only to be weathered out by water? What was this animal, nothing like a cat, what world did it live in, what wonders did it see? They place a paw on the skull's snout, staring into long dead eyes.",
                     "exp": 30,
                     "weight": 20,
-                    "art": "gen_warrior_crouching_perplexed",
+                    "art": "gen_clipper_crouching_perplexed",
                     "stat_skill": ["LORE,1"],
                     "can_have_stat": ["p_l"],
                     "relationships": [

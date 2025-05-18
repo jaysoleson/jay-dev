@@ -36,7 +36,7 @@
                 "triggers_during": "during",
                 "chance": 5,
                 "trigger_events": [
-                    "No cat can smell any prey scent past the snow. There could be mice right under their paws, but no warrior of c_n can track them, and those lucky enough to see one, slip more often than not."
+                    "No cat can smell any prey scent past the snow. There could be mice right under their paws, but no clipper of c_n can track them, and those lucky enough to see one, slip more often than not."
                 ]
             },
             {
@@ -71,7 +71,7 @@
             "moon1": [
                 "Even the trees look dry. The cats of c_n cart moss between camp and their water source, bringing back vital liquid to their youngest and oldest Clanmates. But there are murmurs of discontented gossip - what will they do if their water dries up?",
                 "The prey that cats bring back to the fresh-kill pile is beginning to look weak. Difficult to say what's taking its toll - the heat, or the difficulty of finding water.",
-                "med_name feels the crunch of leaf litter so dry it shatters under their footsteps. They swallow their concern - drought cannot be fought by the Clan's warriors, but med_name can stock the medicine cat den with remedies against heat stroke and exhaustion."
+                "med_name feels the crunch of leaf litter so dry it shatters under their footsteps. They swallow their concern - drought cannot be fought by the Clan's clippers, but med_name can stock the medicine cat den with remedies against heat stroke and exhaustion."
             ],
             "moon2": [
                 "The drought continues. The cats of c_n pant in the shade, too hot to move, their tongues dry and tacky.",
@@ -101,7 +101,7 @@
                 "triggers_during": "during",
                 "chance": 0,
                 "trigger_events": [
-                    "dep_name sighs, organizing another hunting patrol. They can't fix the drought that's driving away and killing c_n's prey, all they can do is send out more warriors, and hope the skill of c_n's hunters can keep famine at bay.",
+                    "dep_name sighs, organizing another hunting patrol. They can't fix the drought that's driving away and killing c_n's prey, all they can do is send out more clippers, and hope the skill of c_n's hunters can keep famine at bay.",
                     "c_n should be growing fat on the fruits of the season, or fat on the prey that's eaten those fruits, at least. But the drought brings only dust and thin pickings.",
                     "The forest is silent - silent like the depths of winter. But this is caused by heat, not cold. How will c_n cope, in what should be a season of plenty?"
                 ]
@@ -113,7 +113,7 @@
                 "trigger_events": [
                     "Deep in the forest, in a dried, dusty bed of leaves, a piece of glass catches the hot sunlight, and the leaf litter begins to smolder. A wildfire is born, hissing and crackling, racing through woods bone dry with the drought to become a towering, unstoppable inferno.",
                     "As drought stalks c_n, fire follows on its heels. No cat knows how it was born, but the Clan scatters before it, gathering their vulnerable and running, running for their lives as red glowing death hunts them, the woods of their home falling as prey to wildfire's jaws.",
-                    "The smoke reaches c_n first - but fire is hot on its heels. Their forest tinder-dry and dusty, c_n are forced to run before the flames, fleeing to the safety of the last scant water sources within the woods, warriors grabbing and hauling anyone who starts to fall behind."
+                    "The smoke reaches c_n first - but fire is hot on its heels. Their forest tinder-dry and dusty, c_n are forced to run before the flames, fleeing to the safety of the last scant water sources within the woods, clippers grabbing and hauling anyone who starts to fall behind."
                 ]
             }
         ],
@@ -146,7 +146,7 @@
             "moon2": [
                 "The terror of fire lingers in the hearts and minds of c_n. While some wake during the night, reliving their escape in their dreams, others cannot sleep at all.",
                 "Though the world seems permanently blackened, on the charred branches of a pine, new needles are unfurling.",
-                "Everything is soot. It seeps into every lap of blessed water, every mouthful of fresh-kill, every breath of air as the warriors try to hunt in this new exposed, raw world."
+                "Everything is soot. It seeps into every lap of blessed water, every mouthful of fresh-kill, every breath of air as the clippers try to hunt in this new exposed, raw world."
             ],
             "moon3": [
                 "No cat ever thought they'd be so grateful for weeds, but seeing life springing back to c_n's territory is a special kind of joy.",
@@ -212,7 +212,7 @@
         "duration": 2,
         "rarity": "uncommon",
         "trigger_events": [
-            "The air has sharper claws than any enemy warrior. Even the rising sun cannot make it gentler, only causing the new frozen land to glitter in grim beauty. A terrible cold has come, and sickness will soon follow.",
+            "The air has sharper claws than any enemy clipper. Even the rising sun cannot make it gentler, only causing the new frozen land to glitter in grim beauty. A terrible cold has come, and sickness will soon follow.",
             "It hurts to breathe, the cold air like daggers in their lungs. The Clan hunkers down in their dens, curling tightly around each other in shivering piles. This terrible cold will pass, they tell each other, it won't be for forever.",
             "The forest is crying. lead_name's fur spikes with alarm, trying to keep calm and prevent panic as the terrible cold makes the trees creak and crack."
         ],
@@ -345,7 +345,7 @@
         ],
         "progress_events": {
             "moon1": [
-                "There's something wrong with the prey in the forest. No matter how hard the warriors try to catch healthy prey, the fresh-kill still causes bellyaches or worse, and anything that smells even a little wrong is taken away and buried, far, far away from hungry mouths."
+                "There's something wrong with the prey in the forest. No matter how hard the clippers try to catch healthy prey, the fresh-kill still causes bellyaches or worse, and anything that smells even a little wrong is taken away and buried, far, far away from hungry mouths."
             ]
         },
         "conclusion_events": [
@@ -437,7 +437,7 @@
         },
         "conclusion_events": [
             "Prey has returned to the forest, the famine finally over.",
-            "Though the prey has started to run well again, some of the warriors still seem to be taking every missed pounce as a claw-wound. It's a hard mindset to recover from.",
+            "Though the prey has started to run well again, some of the clippers still seem to be taking every missed pounce as a claw-wound. It's a hard mindset to recover from.",
             "The forest is once again humming with life, and slowly the Clan starts too as well, making up for the hard times with jokes and sharing tongues and basking together in the bright sun."
         ],
         "secondary_disasters": [],
@@ -506,7 +506,7 @@
             ],
             "moon2": [
                 "Stiff from sleeping in a messy pile of disorganized Clanmates, c_n nevertheless attacks the task ahead with purpose, as one bringing in new brambles, weaving new walls, and plucking fur from fresh-kill to line their new nests.",
-                "The camp is beginning to take shape again, and dep_name is reassured by the spirited discussions that they're having to mediate between the warriors claiming nest spots.",
+                "The camp is beginning to take shape again, and dep_name is reassured by the spirited discussions that they're having to mediate between the clippers claiming nest spots.",
                 "They can do this. c_n will rise from this stronger, better prepared, they will take what happened and ensure it can never take their home from them again. As the brambles are brought in for the rising camp walls, there's hope on the horizon."
             ]
         },

@@ -194,13 +194,13 @@
         ],
         "tags": [],
         "weight": 20,
-        "event_text": "m_c drowned after being pushed out to sea by o_c_n warriors.",
+        "event_text": "m_c drowned after being pushed out to sea by o_c_n clippers.",
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "leader",
-                "deputy",
+                "clipper",
+                "baron",
+                "regent",
                 "mediator",
                 "mediator apprentice",
                 "medicine cat",
@@ -213,8 +213,8 @@
                 "cats": [
                     "m_c"
                 ],
-                "reg_death": "m_c was pushed out to sea by enemy warriors.",
-                "lead_death": "{VERB/m_c/were/was} pushed out to sea by enemy warriors"
+                "reg_death": "m_c was pushed out to sea by enemy clippers.",
+                "lead_death": "{VERB/m_c/were/was} pushed out to sea by enemy clippers"
             }
         ],
         "other_clan": {
@@ -574,7 +574,7 @@
         ]
     },
     {
-        "event_id": "bch_death_murder_anyleader1",
+        "event_id": "bch_death_murder_anybaron1",
         "location": [
             "beach"
         ],
@@ -592,7 +592,7 @@
         "event_text": "Distracted by other matters, m_c forgot the tide. {PRONOUN/m_c/subject/CAP} died trapped between the waves and the cliffs as r_c watched.",
         "m_c": {
             "status": [
-                "leader"
+                "baron"
             ],
             "dies": true
         },

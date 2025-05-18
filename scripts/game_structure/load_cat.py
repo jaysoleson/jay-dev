@@ -59,10 +59,6 @@ def json_load():
             new_cat = Cat(
                 ID=cat["ID"],
                 prefix=cat["name_prefix"],
-                suffix=cat["name_suffix"],
-                specsuffix_hidden=(
-                    cat["specsuffix_hidden"] if "specsuffix_hidden" in cat else False
-                ),
                 gender=cat["gender"],
                 status=cat["status"],
                 parent1=cat["parent1"],
@@ -320,7 +316,7 @@ def csv_load(all_cats):
         for i in cat_data.split("\n"):
             # CAT: ID(0) - prefix:suffix(1) - gender(2) - status(3) - age(4) - trait(5) - parent1(6) - parent2(7) - mentor(8)
             # PELT: pelt(9) - colour(10) - white(11) - length(12)
-            # SPRITE: kitten(13) - apprentice(14) - warrior(15) - elder(16) - eye colour(17) - reverse(18)
+            # SPRITE: kitten(13) - apprentice(14) - clipper(15) - elder(16) - eye colour(17) - reverse(18)
             # - white patches(19) - pattern(20) - tortiebase(21) - tortiepattern(22) - tortiecolour(23) - skin(24) - skill(25) - NONE(26) - spec(27) - accessory(28) -
             # spec2(29) - moons(30) - mate(31)
             # dead(32) - SPRITE:dead(33) - exp(34) - dead for _ moons(35) - current apprentice(36)
@@ -348,7 +344,6 @@ def csv_load(all_cats):
                 the_cat = Cat(
                     ID=attr[0],
                     prefix=attr[1].split(":")[0],
-                    suffix=attr[1].split(":")[1],
                     gender=attr[2],
                     status=attr[3],
                     pelt=the_pelt,

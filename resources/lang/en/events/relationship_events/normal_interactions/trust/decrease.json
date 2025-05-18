@@ -128,7 +128,7 @@
 		"interactions": [
 			"m_c tries to scare r_c.",
 			"m_c accuses r_c of being in cahoots with a cat from another Clan.",
-			"m_c publicly accuses r_c of breaking the Warrior Code.",
+			"m_c publicly accuses r_c of breaking the clipper Code.",
 			"m_c is blindsided by r_c completely betraying {PRONOUN/m_c/object}.",
 			"m_c threatens to blackmail r_c.",
 			"m_c and r_c refuse to trust one another, which nearly leads to one of them getting hurt.",
@@ -215,7 +215,7 @@
 		]
 	},
 	{
-		"id": "trust_for_leader_de_high1",
+		"id": "trust_for_baron_de_high1",
 		"intensity": "high",
 		"interactions": [
 			"m_c cowers away from r_c after r_c barks an order at {PRONOUN/m_c/object}.",
@@ -225,7 +225,7 @@
 			"When it comes down to it, m_c doesn't think {PRONOUN/m_c/subject} could follow r_c's every order."
 		],
 		"random_status_constraint": [
-			"leader"
+			"baron"
 		],
 		"random_trait_constraint": [
 			"cold",

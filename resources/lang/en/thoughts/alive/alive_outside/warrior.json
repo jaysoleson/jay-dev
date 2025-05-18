@@ -1,17 +1,17 @@
 [
     {
-        "id": "lost_warrior_thoughts",
+        "id": "lost_clipper_thoughts",
         "thoughts": [
             "Hopes that the Clan's kits are doing well",
-            "Misses the warmth of the warriors' den",
+            "Misses the warmth of the clippers' den",
             "Hopes {PRONOUN/m_c/poss} friends from c_n are doing okay",
             "Dreams about hunting for {PRONOUN/m_c/poss} Clan"
         ]
     },
     {
-        "id": "lost_warrior_to_apprentices",
+        "id": "lost_clipper_to_apprentices",
         "thoughts": [
-            "Wonders if the apprentices of the Clan are now warriors"
+            "Wonders if the apprentices of the Clan are now clippers"
         ],
         "random_status_constraint": [
             "apprentice"

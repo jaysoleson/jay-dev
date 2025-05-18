@@ -402,7 +402,7 @@ class Pregnancy_Events:
                 if cat.exiled:
                     kit.status = "loner"
                     name = choice(names.names_dict["normal_prefixes"])
-                    kit.name = Name(prefix=name, suffix="", cat=kit)
+                    kit.name = Name(prefix=name, cat=kit)
                 if other_cat and not other_cat.outside:
                     kit.backstory = "outsider2"
                 if cat.outside and not cat.exiled:
@@ -480,14 +480,14 @@ class Pregnancy_Events:
 
             if cat.outside:
                 possible_events = events["birth"]["outside_death"]
-            if game.clan.leader_lives > 1 and cat.status == "leader":
+            if game.clan.baron_lives > 1 and cat.status == "baron":
                 possible_events = events["birth"]["lead_death"]
             event_list.append(choice(possible_events))
 
-            if cat.status == "leader":
-                clan.leader_lives -= 1
+            if cat.status == "baron":
+                clan.baron_lives -= 1
                 cat.die()
-                death_event = i18n.t("conditions.pregnancy.leader_kitting_death")
+                death_event = i18n.t("conditions.pregnancy.baron_kitting_death")
             else:
                 cat.die()
                 death_event = i18n.t(
@@ -497,9 +497,9 @@ class Pregnancy_Events:
         elif not cat.outside:  # if cat doesn't die, give recovering from birth
             cat.get_injured("recovering from birth", event_triggered=True)
             if "blood loss" in cat.injuries:
-                if cat.status == "leader":
+                if cat.status == "baron":
                     death_event = i18n.t(
-                        "conditions.pregnancy.leader_kitting_death_severe"
+                        "conditions.pregnancy.baron_kitting_death_severe"
                     )
                 else:
                     death_event = i18n.t(

@@ -145,11 +145,11 @@
             "apprentice",
             "medicine cat apprentice",
             "mediator apprentice",
-            "warrior",
+            "clipper",
             "medicine cat",
             "mediator",
-            "deputy",
-            "leader",
+            "regent",
+            "baron",
             "elder"
         ]
     },
@@ -176,11 +176,11 @@
             "apprentice",
             "medicine cat apprentice",
             "mediator apprentice",
-            "warrior",
+            "clipper",
             "medicine cat",
             "mediator",
-            "deputy",
-            "leader",
+            "regent",
+            "baron",
             "elder"
         ],
         "random_status_constraint": [
@@ -191,28 +191,28 @@
         ]
     },
     {
-        "id": "gen_to_deputy",
+        "id": "gen_to_regent",
         "thoughts": [
-            "Thinks r_c is doing a great job as deputy",
-            "Respects r_c's effort as deputy",
-            "Wonders if being deputy is really so hard",
-            "Knows r_c would make a great leader",
-            "Thinks r_c is doing an alright job as deputy",
-            "Thinks r_c is doing poorly as deputy"
+            "Thinks r_c is doing a great job as regent",
+            "Respects r_c's effort as regent",
+            "Wonders if being regent is really so hard",
+            "Knows r_c would make a great baron",
+            "Thinks r_c is doing an alright job as regent",
+            "Thinks r_c is doing poorly as regent"
         ],
         "main_status_constraint": [
             "apprentice",
             "medicine cat apprentice",
             "mediator apprentice",
-            "warrior",
+            "clipper",
             "medicine cat",
             "mediator",
-            "deputy",
-            "leader",
+            "regent",
+            "baron",
             "elder"
         ],
         "random_status_constraint": [
-            "deputy"
+            "regent"
         ],
         "random_living_status": [
             "living"
@@ -250,11 +250,11 @@
         ]
     },
     {
-        "id": "gen_to_alive_leader",
+        "id": "gen_to_alive_baron",
         "thoughts": [
             "Is wondering what r_c is thinking",
             "Is hoping r_c notices {PRONOUN/m_c/poss} improvement",
-            "Is in awe of r_c's leadership",
+            "Is in awe of r_c's baronship",
             "Thinks r_c could be leading the Clan better",
             "Has a list of complaints for r_c"
         ],
@@ -262,15 +262,15 @@
             "apprentice",
             "medicine cat apprentice",
             "mediator apprentice",
-            "warrior",
+            "clipper",
             "medicine cat",
             "mediator",
-            "deputy",
-            "leader",
+            "regent",
+            "baron",
             "elder"
         ],
         "random_status_constraint": [
-            "leader"
+            "baron"
         ],
         "random_living_status": [
             "living"
@@ -283,7 +283,7 @@
             "Wonders at all that r_c has seen and done",
             "Is telling r_c a story",
             "Is spending time with r_c", 
-            "Wonders if r_c misses {PRONOUN/r_c/poss} warrior days",
+            "Wonders if r_c misses {PRONOUN/r_c/poss} clipper days",
             "Wants to visit the elders to hear a story"
         ],
         "main_status_constraint": [
@@ -291,7 +291,7 @@
             "apprentice",
             "medicine cat apprentice",
             "mediator apprentice",
-            "warrior",
+            "clipper",
             "medicine cat",
             "mediator"
         ],
@@ -315,11 +315,11 @@
             "apprentice",
             "medicine cat apprentice",
             "mediator apprentice",
-            "warrior",
+            "clipper",
             "medicine cat",
             "mediator",
-            "deputy",
-            "leader",
+            "regent",
+            "baron",
             "elder"
         ],
         "random_status_constraint": [
@@ -342,11 +342,11 @@
             "apprentice",
             "medicine cat apprentice",
             "mediator apprentice",
-            "warrior",
+            "clipper",
             "medicine cat",
             "mediator",
-            "deputy",
-            "leader",
+            "regent",
+            "baron",
             "elder"
         ],
         "random_status_constraint": [
@@ -456,12 +456,12 @@
         ]
     },
     {
-        "id": "adventurous_gen_to_alive_leader",
+        "id": "adventurous_gen_to_alive_baron",
         "thoughts": [
-            "Wishes {PRONOUN/m_c/poss} leader would choose {PRONOUN/m_c/object} to go on a quest"
+            "Wishes {PRONOUN/m_c/poss} baron would choose {PRONOUN/m_c/object} to go on a quest"
         ],
         "random_status_constraint": [
-            "leader"
+            "baron"
         ],
         "main_trait_constraint": [
             "adventurous"
@@ -487,11 +487,11 @@
             "apprentice",
             "medicine cat apprentice",
             "mediator apprentice",
-            "warrior",
+            "clipper",
             "medicine cat",
             "mediator",
-            "deputy",
-            "leader",
+            "regent",
+            "baron",
             "elder"
         ],
         "random_status_constraint": [
@@ -514,7 +514,7 @@
             "Is daydreaming about a Clan celebration in {PRONOUN/m_c/poss} honor",
             "Offers to help {PRONOUN/m_c/poss} Clanmates with their duties",
             "Wonders how {PRONOUN/m_c/subject} would run the Clan better",
-            "Considers what {PRONOUN/m_c/poss} first actions as leader would be",
+            "Considers what {PRONOUN/m_c/poss} first actions as baron would be",
             "Wants to drive off a fox all by {PRONOUN/m_c/self}",
             "Imagines taking on a badger single-pawed",
             "Considers spending the whole day hunting on {PRONOUN/m_c/poss} own",
@@ -526,9 +526,9 @@
         ]
     },
     {
-        "id": "ambitious_to_deputy",
+        "id": "ambitious_to_regent",
         "thoughts": [
-            "Envies the deputy's position"
+            "Envies the regent's position"
         ],
         "main_trait_constraint": [
             "ambitious"
@@ -537,26 +537,26 @@
             "apprentice",
             "medicine cat apprentice",
             "mediator apprentice",
-            "warrior",
+            "clipper",
             "medicine cat",
             "mediator",
             "elder"
         ]
     },
     {
-        "id": "ambitious_to_leader",
+        "id": "ambitious_to_baron",
         "thoughts": [
-            "Is asking the Clan leader what {PRONOUN/m_c/subject} can do to help out around camp",
-            "Has been imitating the Clan leader's behaviour recently",
-            "Knows {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} a shoo-in for deputy",
-            "Wonders if the Clan leader talks about {PRONOUN/m_c/object} when {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} not around",
+            "Is asking the Clan baron what {PRONOUN/m_c/subject} can do to help out around camp",
+            "Has been imitating the Clan baron's behaviour recently",
+            "Knows {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} a shoo-in for regent",
+            "Wonders if the Clan baron talks about {PRONOUN/m_c/object} when {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} not around",
             "Tells r_c {PRONOUN/r_c/subject}{VERB/r_c/'ve/'s} been doing a wonderful job leading"
         ],
         "main_trait_constraint": [
             "ambitious"
         ],
         "random_status_constraint": [
-            "leader"
+            "baron"
         ],
         "random_living_status": [
             "living"
@@ -590,7 +590,7 @@
             "Growls to {PRONOUN/m_c/self}",
             "Has been disappearing often recently",
             "Is practicing forbidden battle moves",
-            "Tells the warriors to get ready for a battle",
+            "Tells the clippers to get ready for a battle",
             "Yearns to fight",
             "Is letting a wound go untreated in hopes it gives {PRONOUN/m_c/object} a scar",
             "Tried to fight a loner",
@@ -623,23 +623,23 @@
         ],
         "main_status_constraint": [
             "apprentice",
-            "warrior",
-            "deputy",
-            "leader"
+            "clipper",
+            "regent",
+            "baron"
         ]
     },
     {
-        "id": "bloodthirsty_to_leader",
+        "id": "bloodthirsty_to_baron",
         "thoughts": [
-            "Wonders how easy it'd be to attack the leader from where {PRONOUN/r_c/subject} {VERB/r_c/lay/lies}",
-            "Is watching the leader closely while imagining the Clan under {PRONOUN/m_c/poss} rule",
-            "Thinks the Clan leader should punish traitors more harshly"
+            "Wonders how easy it'd be to attack the baron from where {PRONOUN/r_c/subject} {VERB/r_c/lay/lies}",
+            "Is watching the baron closely while imagining the Clan under {PRONOUN/m_c/poss} rule",
+            "Thinks the Clan baron should punish traitors more harshly"
         ],
         "main_trait_constraint": [
             "bloodthirsty"
         ],
         "random_status_constraint": [
-            "leader"
+            "baron"
         ],
         "random_living_status": [
             "living"
@@ -656,7 +656,7 @@
             "Is always first to volunteer when a dangerous mission is announced",
             "Tells a Clanmate to their face that their pelt has been looking dull lately",
             "Takes over a patrol that {PRONOUN/m_c/subject} {VERB/m_c/were/was}n't assigned to lead",
-            "Pokes {PRONOUN/m_c/poss} head into the leader's den",
+            "Pokes {PRONOUN/m_c/poss} head into the baron's den",
             "Snatches up a piece of prey right out from under {PRONOUN/m_c/poss} Clanmate's nose"
         ],
         "main_trait_constraint": [
@@ -673,9 +673,9 @@
         ],
         "main_status_constraint": [
             "apprentice",
-            "warrior",
-            "deputy",
-            "leader"
+            "clipper",
+            "regent",
+            "baron"
         ]
     },
     {
@@ -788,11 +788,11 @@
             "careful"
         ],
         "main_status_constraint": [
-            "warrior",
+            "clipper",
             "medicine cat",
             "mediator",
-            "deputy",
-            "leader",
+            "regent",
+            "baron",
             "elder"
         ],
         "random_status_constraint": [
@@ -876,11 +876,11 @@
         ],
         "main_status_constraint": [
             "apprentice",
-            "warrior",
+            "clipper",
             "medicine cat",
             "mediator",
-            "deputy",
-            "leader",
+            "regent",
+            "baron",
             "elder"
         ],
         "random_status_constraint": [
@@ -937,9 +937,9 @@
         ],
         "main_status_constraint": [
             "apprentice",
-            "warrior",
-            "deputy",
-            "leader"
+            "clipper",
+            "regent",
+            "baron"
         ]
     },
     {
@@ -987,15 +987,15 @@
         ]
     },
     {
-        "id": "cold_gen_to_leader",
+        "id": "cold_gen_to_baron",
         "thoughts": [
-            "Thinks the leader should be harsher on codebreakers"
+            "Thinks the baron should be harsher on codebreakers"
         ],
         "main_trait_constraint": [
             "cold"
         ],
         "random_status_constraint": [
-            "leader"
+            "baron"
         ],
         "random_living_status": [
             "living"
@@ -1011,11 +1011,11 @@
             "Has no patience for r_c's complaints about training"
         ],
         "main_status_constraint": [
-            "warrior",
+            "clipper",
             "medicine cat",
             "mediator",
-            "deputy",
-            "leader",
+            "regent",
+            "baron",
             "elder"],
         "random_status_constraint": [
             "apprentice",
@@ -1083,11 +1083,11 @@
             "apprentice",
             "medicine cat apprentice",
             "mediator apprentice",
-            "warrior",
+            "clipper",
             "medicine cat",
             "mediator",
-            "deputy",
-            "leader"
+            "regent",
+            "baron"
         ],
         "random_status_constraint": [
             "elder"
@@ -1123,11 +1123,11 @@
             "compassionate"
         ],
         "main_status_constraint": [
-            "warrior",
+            "clipper",
             "medicine cat",
             "mediator",
-            "deputy",
-            "leader",
+            "regent",
+            "baron",
             "elder"
         ],
         "random_status_constraint": [
@@ -1154,10 +1154,10 @@
         "main_status_constraint": [
             "apprentice",
             "mediator apprentice",
-            "warrior",
+            "clipper",
             "mediator",
-            "deputy",
-            "leader"
+            "regent",
+            "baron"
         ],
         "random_living_status": [
             "living"
@@ -1225,9 +1225,9 @@
         ],
         "main_status_constraint": [
             "apprentice",
-            "warrior",
-            "deputy",
-            "leader" ],
+            "clipper",
+            "regent",
+            "baron" ],
             "main_trait_constraint": [
                 "confident"
             ]
@@ -1451,9 +1451,9 @@
         ],
         "main_status_constraint": [
             "apprentice",
-            "warrior",
-            "deputy",
-            "leader"
+            "clipper",
+            "regent",
+            "baron"
         ],
         "main_trait_constraint": [
             "insecure"
@@ -1521,13 +1521,13 @@
         ],
         "main_status_constraint": [
             "apprentice",
-            "warrior",
+            "clipper",
             "mediator apprentice",
             "mediator",
             "medicine cat",
             "medicine cat apprentice",
-            "deputy",
-            "leader"
+            "regent",
+            "baron"
         ],
         "main_trait_constraint": [
             "lonesome"
@@ -1553,7 +1553,7 @@
             "Quizzes {PRONOUN/m_c/poss} Clanmates on their favorite flowers... just 'cause",
             "Plans a fun surprise for r_c",
             "Helps a struggling Clanmate",
-            "Compares r_c to a legendary StarClan warrior",
+            "Compares r_c to a legendary StarClan clipper",
             "Bumps heads with r_c affectionately",
             "Brings r_c {PRONOUN/r_c/poss} favorite prey"
         ],
@@ -1571,11 +1571,11 @@
             "Makes sure mentors are giving their apprentices regular breaks"
         ],
         "main_status_constraint": [
-            "warrior",
+            "clipper",
             "medicine cat",
             "mediator",
-            "deputy",
-            "leader",
+            "regent",
+            "baron",
             "elder"
         ],
         "random_status_constraint": [
@@ -1633,11 +1633,11 @@
             "apprentice",
             "medicine cat apprentice",
             "mediator apprentice",
-            "warrior",
+            "clipper",
             "medicine cat",
             "mediator",
-            "deputy",
-            "leader"
+            "regent",
+            "baron"
         ],
         "main_trait_constraint": [
             "loyal"
@@ -1656,11 +1656,11 @@
         ],
         "main_status_constraint": [
             "apprentice",
-            "warrior",
+            "clipper",
             "medicine cat",
             "medicine cat apprentice",
-            "deputy",
-            "leader"
+            "regent",
+            "baron"
         ],
         "random_status_constraint": [
             "elder"
@@ -1708,9 +1708,9 @@
         ],
         "main_status_constraint": [
             "apprentice",
-            "warrior",
-            "deputy",
-            "leader"
+            "clipper",
+            "regent",
+            "baron"
         ],
         "main_trait_constraint": [
             "nervous"
@@ -1758,9 +1758,9 @@
         ],
         "main_status_constraint": [
             "apprentice",
-            "warrior",
-            "deputy",
-            "leader"
+            "clipper",
+            "regent",
+            "baron"
         ],
         "main_trait_constraint": [
             "playful"
@@ -1775,11 +1775,11 @@
             "Is spreading doubt through {PRONOUN/m_c/poss} Clanmates over the way things are done",
             "Has simply decided not to do what {PRONOUN/m_c/subject} {VERB/m_c/were/was} told",
             "Thinks rules are made to be broken",
-            "Imagines overthrowing a tyrannical leader one day",
+            "Imagines overthrowing a tyrannical baron one day",
             "Remembers breaking the code and getting away with it",
             "Doesn't understand why other cats make rules that {PRONOUN/m_c/subject} {VERB/m_c/have/has} to follow",
             "Thinks every cat should be in charge of themselves",
-            "Argues with r_c about the leader's authority",
+            "Argues with r_c about the baron's authority",
             "Wonders if {PRONOUN/m_c/poss} Clanmates would back {PRONOUN/m_c/object} up"
         ],
         "main_trait_constraint": [
@@ -1787,24 +1787,24 @@
         ]
     },
     {
-        "id": "rebellious_to_leader",
+        "id": "rebellious_to_baron",
         "thoughts": [
-            "Started an argument with the leader during a Clan meeting",
-            "Demands to know whether a Clanmate agrees more with the leader or with {PRONOUN/m_c/object}",
+            "Started an argument with the baron during a Clan meeting",
+            "Demands to know whether a Clanmate agrees more with the baron or with {PRONOUN/m_c/object}",
             "Murmurs in a Clanmate's ear during a Clan meeting"
         ],
         "main_trait_constraint": [
             "rebellious"
         ],
         "random_status_constraint": [
-            "leader"
+            "baron"
         ],
         "random_living_status": [
             "living"
         ]
     },
     {
-        "id": "rebellious_to_leadership",
+        "id": "rebellious_to_baronship",
         "thoughts": [
             "Had a lengthy debate with r_c",
             "Rolled {PRONOUN/m_c/poss} eyes at a job r_c assigned {PRONOUN/m_c/object} to",
@@ -1818,15 +1818,15 @@
             "apprentice",
             "medicine cat apprentice",
             "mediator apprentice",
-            "warrior",
+            "clipper",
             "medicine cat",
             "mediator",
-            "deputy",
+            "regent",
             "elder"
         ],
         "random_status_constraint": [
-            "deputy",
-            "leader"
+            "regent",
+            "baron"
         ],
         "random_living_status": [
             "living"
@@ -1845,7 +1845,7 @@
             "Offers to help Clanmates with their duties",
             "Deeply apologizes for a mistake {PRONOUN/m_c/subject}{VERB/m_c/'ve/'s} made and tries to fix it",
             "Goes to bed early so {PRONOUN/m_c/subject} can work more tomorrow",
-            "Keeps the warrior code in mind",
+            "Keeps the clipper code in mind",
             "Remembers to eat breakfast to keep {PRONOUN/m_c/poss} strength up",
             "Rests for exactly as long as {PRONOUN/m_c/subject} {VERB/m_c/need/needs} to before resuming work",
             "Always makes a plan before launching into action",
@@ -1866,11 +1866,11 @@
             "responsible"
         ],
         "main_status_constraint": [
-            "warrior",
+            "clipper",
             "medicine cat",
             "mediator",
-            "deputy",
-            "leader",
+            "regent",
+            "baron",
             "elder"
         ],
         "random_status_constraint": [
@@ -1899,7 +1899,7 @@
     {
         "id": "righteous_gen",
         "thoughts": [
-            "Wants nothing more than to live by the Warrior Code",
+            "Wants nothing more than to live by the clipper Code",
             "Is reevaluating {PRONOUN/m_c/poss} morals",
             "Hopes to help guide {PRONOUN/m_c/poss} Clanmates down the right path",
             "Always cheers the loudest of any cat at naming ceremonies",
@@ -1967,9 +1967,9 @@
         ],
         "main_status_constraint": [
             "apprentice",
-            "warrior",
-            "deputy",
-            "leader"
+            "clipper",
+            "regent",
+            "baron"
         ],
         "main_trait_constraint": [
             "shameless"
@@ -2083,10 +2083,10 @@
             "Is surveying the camp scornfully from a higher vantage point",
             "Is grooming {PRONOUN/m_c/self}, making sure every whisker is in place",
             "Is busy chastising Clanmates... but no cat is sure what for",
-            "Feels that a new rule should be added to the Warrior Code",
+            "Feels that a new rule should be added to the clipper Code",
             "Goes around camp, policing everyone's posture",
             "Makes sure everyone only takes one piece of fresh-kill and no more",
-            "Quizzes {PRONOUN/m_c/poss} Clanmates on the warrior code",
+            "Quizzes {PRONOUN/m_c/poss} Clanmates on the clipper code",
             "Frowns at r_c for spending the whole morning grooming",
             "Thinks every cat should practice their hunting crouch more",
             "Has no time for hare-brained new hunting techniques",
@@ -2107,11 +2107,11 @@
             "Wakes r_c up at dawn"
         ],
         "main_status_constraint": [
-            "warrior",
+            "clipper",
             "medicine cat",
             "mediator",
-            "deputy",
-            "leader",
+            "regent",
+            "baron",
             "elder"
         ],
         "random_status_constraint": [
@@ -2127,13 +2127,13 @@
         ]
     },
     {
-        "id": "strict_grown_up_to_deputy",
+        "id": "strict_grown_up_to_regent",
         "thoughts": [
-            "Is encouraging the deputy to be more harsh",
+            "Is encouraging the regent to be more harsh",
             "Confers with r_c about troublesome Clanmates"
         ],
         "random_status_constraint": [
-            "deputy"
+            "regent"
         ],
         "main_trait_constraint": [
             "strict"
@@ -2158,11 +2158,11 @@
             "Brings r_c {PRONOUN/r_c/poss} favorite flower"
         ],
         "main_status_constraint": [
-            "warrior",
+            "clipper",
             "medicine cat",
             "mediator",
-            "deputy",
-            "leader",
+            "regent",
+            "baron",
             "elder"
         ],
         "main_trait_constraint": [
@@ -2173,17 +2173,17 @@
         ]
     },
     {
-        "id": "thoughtful_to_warrior_apprentice",
+        "id": "thoughtful_to_clipper_apprentice",
         "thoughts": [
             "Reassures an apprentice who's nervous to go on patrol",
             "Notices r_c seems more tired from training than usual"
         ],
         "main_status_constraint": [
-            "warrior",
+            "clipper",
             "medicine cat",
             "mediator",
-            "deputy",
-            "leader",
+            "regent",
+            "baron",
             "elder"
         ],
         "main_trait_constraint": [
@@ -2205,9 +2205,9 @@
             "Tidies the area in front of the medicine cat den"
         ],
         "main_status_constraint": [
-            "warrior",
-            "deputy",
-            "leader"
+            "clipper",
+            "regent",
+            "baron"
         ],
         "main_trait_constraint": [
             "thoughtful"
@@ -2271,11 +2271,11 @@
             "Pulls pranks and blames it on the apprentices"
         ],
         "main_status_constraint": [
-            "warrior",
+            "clipper",
             "medicine cat",
             "mediator",
-            "deputy",
-            "leader",
+            "regent",
+            "baron",
             "elder"
         ],
         "random_status_constraint": [
@@ -2317,7 +2317,7 @@
     {
         "id": "wise_gen",
         "thoughts": [
-            "Has a suggestion for the Clan leader",
+            "Has a suggestion for the Clan baron",
             "Is grooming {PRONOUN/m_c/self} thoughtfully",
             "Is explaining the truth to a Clanmate that said something incorrect",
             "Solves a problem by thinking back to another time the exact same thing happened",
@@ -2382,11 +2382,11 @@
             "apprentice",
             "medicine cat apprentice",
             "mediator apprentice",
-            "warrior",
+            "clipper",
             "medicine cat",
             "mediator",
-            "deputy",
-            "leader"
+            "regent",
+            "baron"
         ],
         "random_status_constraint": [
             "elder"
@@ -2410,7 +2410,7 @@
             "Is repairing one of the camp walls",
             "Weaves a few spare nests",
             "Considers how to expand the nursery",
-            "Patches a draft in the warriors' den",
+            "Patches a draft in the clippers' den",
             "Adds thorns and thistles to the camp wall",
             "Molds a bird out of moss for fun",
             "Decorates the camp wall with twigs and berries"
@@ -2436,10 +2436,10 @@
         "main_status_constraint": [
             "apprentice",
             "medicine cat apprentice",
-            "warrior",
+            "clipper",
             "medicine cat",
-            "deputy",
-            "leader",
+            "regent",
+            "baron",
             "elder"
         ]
     },
@@ -2450,7 +2450,7 @@
             "Thinks {PRONOUN/m_c/subject} saw a glimmer of stardust out of the corner of {PRONOUN/m_c/poss} eye",
             "Prays to StarClan for guidance",
             "Assures some worried Clanmates that StarClan will guide them",
-            "Ponders {PRONOUN/m_c/poss} warrior ancestors, and the protections they grant the Clan",
+            "Ponders {PRONOUN/m_c/poss} clipper ancestors, and the protections they grant the Clan",
             "Promises to always serve StarClan",
             "Wonders if StarClan can hear {PRONOUN/m_c/object}",
             "Prays to StarClan for the day to go well",
@@ -2590,22 +2590,22 @@
             "apprentice",
             "medicine cat apprentice",
             "mediator apprentice",
-            "warrior",
+            "clipper",
             "medicine cat",
             "mediator",
-            "deputy",
-            "leader",
+            "regent",
+            "baron",
             "elder"
         ],
         "random_status_constraint": [
             "apprentice",
             "medicine cat apprentice",
             "mediator apprentice",
-            "warrior",
+            "clipper",
             "medicine cat",
             "mediator",
-            "deputy",
-            "leader",
+            "regent",
+            "baron",
             "elder"
         ],
         "random_living_status": [
@@ -2644,11 +2644,11 @@
             "apprentice",
             "medicine cat apprentice",
             "mediator apprentice",
-            "warrior",
+            "clipper",
             "medicine cat",
             "mediator",
-            "deputy",
-            "leader",
+            "regent",
+            "baron",
             "elder"
         ],
         "main_backstory_constraint": [
@@ -2674,9 +2674,9 @@
             "disgraced1",
             "disgraced2",
             "disgraced3",
-            "retired_leader",
+            "retired_baron",
             "medicine_cat",
-            "ostracized_warrior",
+            "ostracized_clipper",
             "refugee1",
             "refugee2",
             "refugee4",
@@ -2715,11 +2715,11 @@
             "apprentice",
             "medicine cat apprentice",
             "mediator apprentice",
-            "warrior",
+            "clipper",
             "medicine cat",
             "mediator",
-            "deputy",
-            "leader",
+            "regent",
+            "baron",
             "elder"
         ],
         "main_backstory_constraint": [
@@ -2742,11 +2742,11 @@
             "apprentice",
             "medicine cat apprentice",
             "mediator apprentice",
-            "warrior",
+            "clipper",
             "medicine cat",
             "mediator",
-            "deputy",
-            "leader",
+            "regent",
+            "baron",
             "elder"
         ],
         "main_backstory_constraint": [
@@ -2755,7 +2755,7 @@
         ]
     },
     {
-        "id": "gen_refugee_to_alive_leader",
+        "id": "gen_refugee_to_alive_baron",
         "thoughts": [
             "Is observing r_c's actions closely",
             "Appreciates r_c for taking {PRONOUN/m_c/object} in",
@@ -2767,10 +2767,10 @@
             "apprentice",
             "medicine cat apprentice",
             "mediator apprentice",
-            "warrior",
+            "clipper",
             "medicine cat",
             "mediator",
-            "deputy",
+            "regent",
             "elder"
         ],
         "main_backstory_constraint": [
@@ -2778,7 +2778,7 @@
             "refugee4"
         ],
         "random_status_constraint": [
-            "leader"
+            "baron"
         ],
         "random_living_status": [
             "living"
@@ -2800,11 +2800,11 @@
             "apprentice",
             "medicine cat apprentice",
             "mediator apprentice",
-            "warrior",
+            "clipper",
             "medicine cat",
             "mediator",
-            "deputy",
-            "leader",
+            "regent",
+            "baron",
             "elder"
         ],
         "main_backstory_constraint": [
@@ -2832,11 +2832,11 @@
             "apprentice",
             "medicine cat apprentice",
             "mediator apprentice",
-            "warrior",
+            "clipper",
             "medicine cat",
             "mediator",
-            "deputy",
-            "leader",
+            "regent",
+            "baron",
             "elder"
         ],
         "main_backstory_constraint": [
@@ -2851,19 +2851,19 @@
         ]
     },
     {
-        "id": "gen_tragedy_survivor_to_alive_leader",
+        "id": "gen_tragedy_survivor_to_alive_baron",
         "thoughts": [
-            "Is wondering how well the Clan would fare in a disaster under r_c's leadership",
+            "Is wondering how well the Clan would fare in a disaster under r_c's baronship",
             "Warns r_c about something m_c barely survived the first time"
         ],
         "main_status_constraint": [
             "apprentice",
             "medicine cat apprentice",
             "mediator apprentice",
-            "warrior",
+            "clipper",
             "medicine cat",
             "mediator",
-            "deputy",
+            "regent",
             "elder"
         ],
         "main_backstory_constraint": [
@@ -2874,7 +2874,7 @@
             "tragedy_survivor4"
         ],
         "random_status_constraint": [
-            "leader"
+            "baron"
         ],
         "random_living_status": [
             "living"
@@ -2923,7 +2923,7 @@
     {
         "id": "gen_former_kittypet_apprentice",
         "thoughts": [
-            "Hopes to become a warrior soon so others will stop teasing {PRONOUN/m_c/object} about being a kittypet",
+            "Hopes to become a clipper soon so others will stop teasing {PRONOUN/m_c/object} about being a kittypet",
             "Trains all day long to prove {PRONOUN/m_c/self} to be as good as any other apprentice",
             "Is worried {PRONOUN/m_c/subject} will never fit in",
             "Refuses to let {PRONOUN/m_c/poss} kittypet roots hold {PRONOUN/m_c/object} back",
@@ -3012,12 +3012,12 @@
         ]
     },
     {
-        "id": "gen_former_kittypet_deputy",
+        "id": "gen_former_kittypet_regent",
         "thoughts": [
             "Is proud of how far {PRONOUN/m_c/subject} {verb/m_c/have/has} come from {PRONOUN/m_c/poss} kittypet life",
             "Is annoyed to still hear gossip about {PRONOUN/m_c/poss} past",
             "Would never wish to return to {PRONOUN/m_c/poss} old kittypet life",
-            "Wishes other cats would trust in the leader's choice of making {PRONOUN/m_c/object} deputy",
+            "Wishes other cats would trust in the baron's choice of making {PRONOUN/m_c/object} regent",
             "Wouldn't mind bragging about {PRONOUN/m_c/poss} position in the Clan to some old kittypet friends",
             "Treats Clanmates fairly regardless of their pasts"
         ],
@@ -3031,15 +3031,15 @@
             "guided1"
         ],
         "main_status_constraint": [
-            "deputy"
+            "regent"
         ]
     },
     {
-        "id": "gen_former_kittypet_leader",
+        "id": "gen_former_kittypet_baron",
         "thoughts": [
             "Is proud of how far {PRONOUN/m_c/subject} {verb/m_c/have/has} come from {PRONOUN/m_c/poss} kittypet life",
             "Would never wish to return to {PRONOUN/m_c/poss} old kittypet life",
-            "Is happy to prove StarClan's trust in {PRONOUN/m_c/poss} leadership",
+            "Is happy to prove StarClan's trust in {PRONOUN/m_c/poss} baronship",
             "Carefully practices the words to every ceremony in {PRONOUN/m_c/poss} den",
             "Looks back on {PRONOUN/m_c/poss} life as a kittypet, amazed at how different things are now",
             "Thinks about taking in some kittypets as apprentices",
@@ -3056,7 +3056,7 @@
             "guided1"
         ],
         "main_status_constraint": [
-            "leader"
+            "baron"
         ]
     },
     {
@@ -3084,10 +3084,10 @@
         ]
     },
     {
-        "id": "med_cats_to_alive_warrior",
+        "id": "med_cats_to_alive_clipper",
         "thoughts": [
-            "Is checking up on the warriors",
-            "Reminds the warriors to stretch after training",
+            "Is checking up on the clippers",
+            "Reminds the clippers to stretch after training",
             "Sniffs the prey r_c just brought back to camp",
             "Wonders if r_c is favoring {PRONOUN/r_c/poss} left leg or if {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} imagining it"
         ],
@@ -3096,7 +3096,7 @@
             "medicine cat apprentice"
         ],
         "random_status_constraint": [
-            "warrior"
+            "clipper"
         ],
         "random_living_status": [
             "living"
@@ -3123,9 +3123,9 @@
             "Wishes {PRONOUN/m_c/subject} had wings so {PRONOUN/m_c/subject} could catch birds easier",
             "Stretches after a long bout of combat training",
             "Naps in the sun after patrolling",
-            "Daydreams about being a warrior in LionClan",
-            "Daydreams about being a warrior in TigerClan",
-            "Daydreams about being a warrior in LeopardClan",
+            "Daydreams about being a clipper in LionClan",
+            "Daydreams about being a clipper in TigerClan",
+            "Daydreams about being a clipper in LeopardClan",
             "Takes first watch over the camp",
             "Spars with a couple Clanmates",
             "Wants to challenge {PRONOUN/m_c/self} on patrol today",
@@ -3134,13 +3134,13 @@
         ],
         "main_status_constraint": [
             "apprentice",
-            "warrior",
-            "deputy",
-            "leader"
+            "clipper",
+            "regent",
+            "baron"
         ]
     },
     {
-        "id": "working_cat_to_leadership",
+        "id": "working_cat_to_baronship",
         "thoughts": [
             "Wonders if {PRONOUN/m_c/subject} could handle r_c's position",
             "Complains about being sent on dawn patrol",
@@ -3154,47 +3154,47 @@
         ],
         "main_status_constraint": [
             "apprentice",
-            "warrior"
+            "clipper"
         ],
         "random_status_constraint": [
-            "deputy",
-            "leader"
+            "regent",
+            "baron"
         ],
         "random_living_status": [
             "living"
         ]
     },
     {
-        "id": "working_warrior_to_leadership",
+        "id": "working_clipper_to_baronship",
         "thoughts": [
             "Volunteers to lead a hunt, licking {PRONOUN/m_c/poss} chops",
             "Offers to lead a patrol in r_c's stead",
             "Gulps when r_c assigns {PRONOUN/m_c/object} to lead a patrol"
         ],
         "main_status_constraint": [
-            "warrior"
+            "clipper"
         ],
         "random_status_constraint": [
-            "deputy",
-            "leader"
+            "regent",
+            "baron"
         ],
         "random_living_status": [
             "living"
         ]
     },
     {
-        "id": "working_cat_to_deputy",
+        "id": "working_cat_to_regent",
         "thoughts": [
-            "Hopes the deputy won't assign {PRONOUN/m_c/object} to the dawn patrol tomorrow",
-            "Hopes the deputy assigns {PRONOUN/m_c/object} to the next patrol",
-            "Hopes the deputy won't assign {PRONOUN/m_c/object} to the next patrol"
+            "Hopes the regent won't assign {PRONOUN/m_c/object} to the dawn patrol tomorrow",
+            "Hopes the regent assigns {PRONOUN/m_c/object} to the next patrol",
+            "Hopes the regent won't assign {PRONOUN/m_c/object} to the next patrol"
         ],
         "main_status_constraint": [
             "apprentice",
-            "warrior"
+            "clipper"
         ],
         "random_status_constraint": [
-            "deputy"
+            "regent"
         ],
         "random_living_status": [
             "living"
@@ -3210,9 +3210,9 @@
             "\"Organizes\" r_c's herbs, much to r_c's annoyance"
         ],
         "main_status_constraint": [
-            "warrior",
-            "deputy",
-            "leader"
+            "clipper",
+            "regent",
+            "baron"
         ],
         "random_status_constraint": [
             "medicine cat"
@@ -3224,7 +3224,7 @@
     {
         "id": "working_adult_to_alive_apprentice",
         "thoughts": [
-            "Lectures r_c on the Warrior Code",
+            "Lectures r_c on the clipper Code",
             "Is on a walk in the territory with r_c",
             "Makes note of r_c's journey as an apprentice",
             "Is wondering if r_c will be chosen for the next Gathering",
@@ -3234,13 +3234,13 @@
             "Doesn't want to go on patrol with r_c",
             "Thinks r_c needs to work on {PRONOUN/r_c/poss} stalking technique",
             "Saw r_c sneaking a bite of fresh-kill",
-            "Thinks r_c will make a fine warrior",
+            "Thinks r_c will make a fine clipper",
             "Is proud of r_c's progress"
         ],
         "main_status_constraint": [
-            "warrior",
-            "deputy",
-            "leader"
+            "clipper",
+            "regent",
+            "baron"
         ],
         "random_status_constraint": [
             "apprentice"
@@ -3264,9 +3264,9 @@
         ],
         "main_status_constraint": [
             "apprentice",
-            "warrior",
-            "deputy",
-            "leader"
+            "clipper",
+            "regent",
+            "baron"
         ]
     },
     {
@@ -3284,9 +3284,9 @@
         ],
         "main_status_constraint": [
             "apprentice",
-            "warrior",
-            "deputy",
-            "leader"
+            "clipper",
+            "regent",
+            "baron"
         ]
     },
     {
@@ -3315,7 +3315,7 @@
             "Hopes {PRONOUN/m_c/subject}'ll learn something new today",
             "Feels proud of the progress {PRONOUN/m_c/subject}{VERB/m_c/'ve/'s} made",
             "Feels nervous about an upcoming assessment",
-            "Tries to recite the Warrior Code from memory",
+            "Tries to recite the clipper Code from memory",
             "Wants to earn {PRONOUN/m_c/poss} full name",
             "Had a very strange dream",
             "Promises to do {PRONOUN/m_c/poss} best today",
@@ -3446,7 +3446,7 @@
         ]
     },
     {
-        "id": "apprentices_to_alive_leader",
+        "id": "apprentices_to_alive_baron",
         "thoughts": [
             "Wants to make r_c proud",
             "Wants r_c to notice {PRONOUN/m_c/object}",
@@ -3462,15 +3462,15 @@
             "Puts on a brave face whenever r_c passes by",
             "Dreams of being like r_c",
             "Admires r_c's commanding presence",
-            "Asks r_c what it means to be leader",
-            "Asks r_c if {PRONOUN/r_c/subject} ever {VERB/r_c/feel/feels} burdened by leadership",
+            "Asks r_c what it means to be baron",
+            "Asks r_c if {PRONOUN/r_c/subject} ever {VERB/r_c/feel/feels} burdened by baronship",
             "Hasn't been seen in camp after being scolded by r_c",
             "Wants to be buried after flubbing up in front of r_c",
             "Admires r_c's standing",
             "Begs r_c to let {PRONOUN/m_c/object} take a peek into {PRONOUN/r_c/poss} den",
             "Wonders what it's like to have the Clan on your shoulders",
-            "Asks r_c what being leader is like",
-            "Chats with r_c about {PRONOUN/r_c/poss} duties as Clan leader",
+            "Asks r_c what being baron is like",
+            "Chats with r_c about {PRONOUN/r_c/poss} duties as Clan baron",
             "Offers to fetch r_c more bedding in hopes of gaining {PRONOUN/r_c/poss} respect",
             "Feels a prick of envy at the respect r_c commands",
             "Puts in more effort upon noticing r_c watching",
@@ -3484,7 +3484,7 @@
             "mediator apprentice"
         ],
         "random_status_constraint": [
-            "leader"
+            "baron"
         ],
         "random_living_status": [
             "living"
@@ -3496,7 +3496,7 @@
             "Is in the medicine cat den after getting a small injury",
             "Is scolded by r_c for letting an injury go untreated",
             "Asks r_c what it's like being a medicine cat",
-            "Asks r_c if {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} jealous of the warriors"
+            "Asks r_c if {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} jealous of the clippers"
         ],
         "main_status_constraint": [
             "apprentice",
@@ -3516,7 +3516,7 @@
             "Talks to r_c about what being a medicine cat apprentice is like",
             "Can't understand why r_c doesn't want to learn to fight",
             "Shows r_c some defensive moves",
-            "Promises r_c that once {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} a warrior, {PRONOUN/m_c/subject}'ll take care of {PRONOUN/r_c/object}"
+            "Promises r_c that once {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} a clipper, {PRONOUN/m_c/subject}'ll take care of {PRONOUN/r_c/object}"
         ],
         "main_status_constraint": [
             "apprentice",
@@ -3540,7 +3540,7 @@
             "Makes fun of r_c for not being an apprentice yet",
             "Playfights with r_c",
             "Teaches r_c a cool new trick that {PRONOUN/m_c/subject} learned",
-            "Is scolded by a warrior for wrestling with r_c",
+            "Is scolded by a clipper for wrestling with r_c",
             "Lords {PRONOUN/m_c/poss} rank over r_c",
             "Offers to be r_c's mentor when the time comes",
             "Tells r_c {PRONOUN/r_c/subject}'ll make a great denmate",
@@ -3583,7 +3583,7 @@
             "Is feeling proud of {PRONOUN/m_c/self}",
             "Makes sure to wake up early to train",
             "Daydreams about a Clan celebration in {PRONOUN/m_c/poss} honor",
-            "Asks the Clan leader how {PRONOUN/m_c/subject} can help out around camp",
+            "Asks the Clan baron how {PRONOUN/m_c/subject} can help out around camp",
             "Has been asking {PRONOUN/m_c/poss} mentor for more training",
             "Tries to put on a brave face for {PRONOUN/m_c/poss} fellow apprentices",
             "Seems to be ordering {PRONOUN/m_c/poss} fellow apprentices around",
@@ -3637,9 +3637,9 @@
         ]
     },
     {
-        "id": "bold_apprentices_to_leader",
+        "id": "bold_apprentices_to_baron",
         "thoughts": [
-            "Tells the leader {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} doing something wrong",
+            "Tells the baron {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} doing something wrong",
             "Informs r_c of {PRONOUN/m_c/poss} preferred full name",
             "Corrects r_c's hunting posture",
             "Asks r_c if {PRONOUN/r_c/subject}{VERB/r_c/'ve/'s} ever seen an apprentice like {PRONOUN/m_c/object}"
@@ -3653,7 +3653,7 @@
             "bold"
         ],
         "random_status_constraint": [
-            "leader"
+            "baron"
         ],
         "random_living_status": [
             "living"
@@ -3859,7 +3859,7 @@
     {
         "id": "insecure_mediator_medicine_apprentices",
         "thoughts": [
-            "Wonders if the warrior life would have better suited {PRONOUN/m_c/object}",
+            "Wonders if the clipper life would have better suited {PRONOUN/m_c/object}",
             "Questions if {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} cut out for this responsibility",
             "Feels the weight of expectations crushing {PRONOUN/m_c/object}"
         ],
@@ -4009,8 +4009,8 @@
         "id": "righteous_apprentices",
         "thoughts": [
             "Refused to follow {PRONOUN/m_c/poss} mentor's recent orders due to {PRONOUN/m_c/poss} own morals",
-            "Dutifully follows the Warrior Code",
-            "Recites the Warrior Code to {PRONOUN/m_c/self} before bed"
+            "Dutifully follows the clipper Code",
+            "Recites the clipper Code to {PRONOUN/m_c/self} before bed"
         ],
         "main_status_constraint": [
             "apprentice",
@@ -4024,7 +4024,7 @@
     {
         "id": "shameless_apprentices",
         "thoughts": [
-            "Was found napping in the warriors' den!",
+            "Was found napping in the clippers' den!",
             "Ignores {PRONOUN/m_c/poss} mentor",
             "Sleeps in 'til sun-high",
             "Contradicts {PRONOUN/m_c/poss} mentor",
@@ -4200,7 +4200,7 @@
         "thoughts": [
             "Is sending thanks to the stars for a good training session",
             "Prays to StarClan that the training session goes well",
-            "Has faith that {PRONOUN/m_c/poss} warrior ancestors are leading {PRONOUN/m_c/object} on the right path",
+            "Has faith that {PRONOUN/m_c/poss} clipper ancestors are leading {PRONOUN/m_c/object} on the right path",
             "Asks StarClan for help with an assessment"
         ],
         "main_status_constraint": [
@@ -4233,7 +4233,7 @@
         ]
     },
     {
-        "id": "apprentices_to_dead_leadership",
+        "id": "apprentices_to_dead_baronship",
         "thoughts": [
             "Is wondering if r_c approves of {PRONOUN/m_c/object} from StarClan",
             "Is wishing r_c were still here to guide {PRONOUN/m_c/object}",
@@ -4245,8 +4245,8 @@
             "mediator apprentice"
         ],
         "random_status_constraint": [
-            "leader",
-            "deputy"
+            "baron",
+            "regent"
         ],
         "random_living_status": [
             "starclan"
@@ -4328,8 +4328,8 @@
             "Discovers that {PRONOUN/m_c/poss} self-taught method is less effective",
             "Wonders what {PRONOUN/m_c/subject} even {VERB/m_c/need/needs} this training method for",
             "Brags about all the prey {PRONOUN/m_c/subject} caught when {PRONOUN/m_c/subject} {VERB/m_c/were/was} a rogue",
-            "Can't help but be intrigued by the Warrior Code",
-            "Is trying to memorize the Warrior Code",
+            "Can't help but be intrigued by the clipper Code",
+            "Is trying to memorize the clipper Code",
             "Figures something out on {PRONOUN/m_c/poss} own, just like old times"
         ],
         "main_status_constraint": [
@@ -4458,11 +4458,11 @@
             "Wonders why {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} alive and r_c isn't"
         ],
         "main_status_constraint": [
-            "warrior",
+            "clipper",
             "medicine cat",
             "mediator",
-            "deputy",
-            "leader",
+            "regent",
+            "baron",
             "elder"
         ],
         "random_status_constraint": [
@@ -4531,7 +4531,7 @@
         ]
     },
     {
-        "id": "gen_to_dead_warrior",
+        "id": "gen_to_dead_clipper",
         "thoughts": [
             "Is thinking about r_c",
             "Is wishing to be more like r_c",
@@ -4541,7 +4541,7 @@
             "Thinks about how times have changed since r_c was part of c_n"
         ],
         "random_status_constraint": [
-            "warrior"
+            "clipper"
         ],
         "random_living_status": [
             "starclan"
@@ -4563,9 +4563,9 @@
         ]
     },
     {
-        "id": "gen_to_dead_leader",
+        "id": "gen_to_dead_baron",
         "thoughts": [
-            "Is missing {PRONOUN/m_c/poss} late leader r_c",
+            "Is missing {PRONOUN/m_c/poss} late baron r_c",
             "Is wondering if r_c is proud of {PRONOUN/m_c/object}",
             "Is wondering if r_c approves from StarClan",
             "Is hoping r_c is watching over {PRONOUN/m_c/object}",
@@ -4574,24 +4574,24 @@
             "Recalls how times have changed since r_c led c_n"
         ],
         "random_status_constraint": [
-            "leader"
+            "baron"
         ],
         "random_living_status": [
             "starclan"
         ]
     },
     {
-        "id": "gen_to_dead_deputy",
+        "id": "gen_to_dead_regent",
         "thoughts": [
             "Is thinking about r_c",
             "Is trying to learn from r_c's legacy",
             "Is sad {PRONOUN/m_c/subject} couldn't spend more time with r_c",
-            "Thinks r_c would have made a wonderful leader",
+            "Thinks r_c would have made a wonderful baron",
             "Wonders if r_c approved of {PRONOUN/r_c/poss} replacement",
-            "Wonders if r_c is bitter about never becoming leader"
+            "Wonders if r_c is bitter about never becoming baron"
         ],
         "random_status_constraint": [
-            "deputy"
+            "regent"
         ],
         "random_living_status": [
             "starclan"
@@ -5151,9 +5151,9 @@
             "Is frustrated by everyone's concern for {PRONOUN/m_c/poss} health",
             "Hopes to live to see {PRONOUN/m_c/poss} naming ceremony",
             "Daydreams of having a mate and kits, even knowing it's unlikely...",
-            "Daydreams about someday being leader",
+            "Daydreams about someday being baron",
             "Tries to keep up with {PRONOUN/m_c/poss} mentor",
-            "Feels bitter watching the warriors around {PRONOUN/m_c/object}",
+            "Feels bitter watching the clippers around {PRONOUN/m_c/object}",
             "Enjoys being out in the territory instead of cooped up in the medicine cat den"
         ],
         "perm_conditions": {

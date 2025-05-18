@@ -78,7 +78,7 @@
                 "text": "There is no way r_c is staying around here. {PRONOUN/r_c/subject/CAP} {VERB/r_c/tear/tears} off back to camp at the sight of a broken ginger cat statue.",
                 "exp": 0,
                 "weight": 20,
-                "art": "running_warrior",
+                "art": "running_clipper",
                 "relationships": [
                     {
                         "cats_to": ["patrol"],
@@ -125,7 +125,7 @@
                 "text": "p_l is shocked to find green and black lizards scattered around the beach. {PRONOUN/p_l/subject/CAP} {VERB/p_l/freeze/freezes}, trying not to get bit. When nothing moves, {PRONOUN/p_l/subject} {VERB/p_l/head/heads} back to camp unscathed.",
                 "exp": 5,
                 "weight": 20,
-                "art": "running_warrior"
+                "art": "running_clipper"
             },
             {
                 "text": "Green and black lizards are everywhere! p_l freezes up, only to notice that they're not moving and some of them stick straight up. They're not real! {PRONOUN/p_l/subject/CAP} {VERB/p_l/take/takes} a fake lizard home to show the others.",
@@ -147,7 +147,7 @@
                 "weight": 40
             },
             {
-                "text": "s_c remembers seeing these green and black lizards being shown to {PRONOUN/s_c/object} by a kittypet before, who called them 'lego dragons'. s_c wonders if Legodragon would be a proper name for a warrior.",
+                "text": "s_c remembers seeing these green and black lizards being shown to {PRONOUN/s_c/object} by a kittypet before, who called them 'lego dragons'. s_c wonders if Legodragon would be a proper name for a clipper.",
                 "exp": 5,
                 "weight": 40,
                 "stat_skill": ["LORE,1"]
@@ -158,7 +158,7 @@
                 "text": "It's a beach full of lizards! p_l tears back to camp before {PRONOUN/p_l/subject} can get bitten.",
                 "exp": 0,
                 "weight": 20,
-                "art": "running_warrior"
+                "art": "running_clipper"
             }
         ]
     },
@@ -539,7 +539,7 @@
                     ]
                 },
                 {
-                    "text": "s_c nods. Lifeguarding isn't easy, even in practice. But {PRONOUN/s_c/subject} {VERB/s_c/offer/offers} up the story of a kitten saved by a c_n warrior who had the strength and will to keep the little ball of fur above the waves under nearly impossible circumstances. It makes app1 sit up straight, proud to be carrying on that tradition.",
+                    "text": "s_c nods. Lifeguarding isn't easy, even in practice. But {PRONOUN/s_c/subject} {VERB/s_c/offer/offers} up the story of a kitten saved by a c_n clipper who had the strength and will to keep the little ball of fur above the waves under nearly impossible circumstances. It makes app1 sit up straight, proud to be carrying on that tradition.",
                     "exp": 30,
                     "weight": 20,
                     "art": "gen_train_soggykitty_happy_app",

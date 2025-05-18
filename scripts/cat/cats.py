@@ -43,7 +43,7 @@ from scripts.utility import (
     get_personality_compatibility,
     event_text_adjust,
     update_sprite,
-    leader_ceremony_text_adjust,
+    baron_ceremony_text_adjust,
 )
 from scripts.game_structure.localization import load_lang_resource
 
@@ -73,13 +73,13 @@ class Cat:
         "kitten",
         "elder",
         "apprentice",
-        "warrior",
+        "clipper",
         "mediator apprentice",
         "mediator",
         "medicine cat apprentice",
         "medicine cat",
-        "deputy",
-        "leader",
+        "regent",
+        "baron",
     ]
 
     gender_tags = {"female": "F", "male": "M"}
@@ -114,8 +114,6 @@ class Cat:
         parent1=None,
         parent2=None,
         adoptive_parents=None,
-        suffix=None,
-        specsuffix_hidden=False,
         ID=None,
         moons=None,
         example=False,
@@ -133,8 +131,6 @@ class Cat:
         :param backstory: Cat's origin, default "clanborn"
         :param parent1: ID of parent 1, default None
         :param parent2: ID of parent 2, default None
-        :param suffix: Cat's suffix (e.g. -heart for Fireheart)
-        :param specsuffix_hidden: Whether cat has a special suffix (-kit, -paw, etc.), default False
         :param ID: Cat's unique ID, default None
         :param moons: Cat's age, default None
         :param example: If cat is an example cat, default False
@@ -150,7 +146,7 @@ class Cat:
         if (
             faded
         ):  # This must be at the top. It's a smaller list of things to init, which is only for faded cats
-            self.init_faded(ID, status, prefix, suffix, moons, **kwargs)
+            self.init_faded(ID, status, prefix, moons, **kwargs)
             return
 
         self.generate_events = GenerateEvents()
@@ -194,7 +190,7 @@ class Cat:
         self.illnesses = {}
         self.injuries = {}
         self.healed_condition = None
-        self.leader_death_heal = None
+        self.baron_death_heal = None
         self.also_got = False
         self.permanent_condition = {}
         self.df = False
@@ -216,7 +212,6 @@ class Cat:
 
         self.favourite = False
 
-        self.specsuffix_hidden = specsuffix_hidden
         self.inheritance = None
 
         self.history = None
@@ -309,9 +304,7 @@ class Cat:
         if self.pelt is not None:
             self.name = Name(
                 prefix,
-                suffix,
                 biome=biome,
-                specsuffix_hidden=self.specsuffix_hidden,
                 load_existing_name=loading_cat,
                 cat=self,
             )
@@ -319,8 +312,6 @@ class Cat:
             self.name = Name(
                 status,
                 prefix,
-                suffix,
-                specsuffix_hidden=self.specsuffix_hidden,
                 load_existing_name=loading_cat,
                 cat=self,
             )
@@ -334,13 +325,12 @@ class Cat:
         if self.ID not in ["0", None]:
             Cat.insert_cat(self)
 
-    def init_faded(self, ID, status, prefix, suffix, moons, **kwargs):
+    def init_faded(self, ID, status, prefix, moons, **kwargs):
         """Perform faded-specific initialization
 
         :param ID: Cat ID
         :param status: Cat status
         :param prefix: Cat's prefix
-        :param suffix: Cat's suffix
         :param moons: Age in moons
         :param kwargs:
 
@@ -359,7 +349,7 @@ class Cat:
         self.outside = False
         self.exiled = False
         self.inheritance = None  # This should never be used, but just for safety
-        self.name = Name(prefix=prefix, suffix=suffix, cat=self)
+        self.name = Name(prefix=prefix, cat=self)
         if "df" in kwargs:
             self.df = kwargs["df"]
         else:
@@ -554,9 +544,9 @@ class Cat:
         - if it is None, a lost cat died and therefore not trigger grief, since the clan does not know
         """
         if (
-            self.status == "leader"
+            self.status == "baron"
             and "pregnant" in self.injuries
-            and game.clan.leader_lives > 0
+            and game.clan.baron_lives > 0
         ):
             self.illnesses.clear()
 
@@ -569,24 +559,24 @@ class Cat:
             self.injuries.clear()
             self.illnesses.clear()
 
-        # Deal with leader death
+        # Deal with baron death
         text = ""
         darkforest = game.clan.instructor.df
         isoutside = self.outside
-        if self.status == "leader":
-            if game.clan.leader_lives > 0:
-                lives_left = game.clan.leader_lives
-                death_thought = Thoughts.leader_death_thought(
+        if self.status == "baron":
+            if game.clan.baron_lives > 0:
+                lives_left = game.clan.baron_lives
+                death_thought = Thoughts.baron_death_thought(
                     self, lives_left, darkforest
                 )
                 final_thought = event_text_adjust(self, death_thought, main_cat=self)
                 self.thought = final_thought
                 return ""
-            elif game.clan.leader_lives <= 0:
+            elif game.clan.baron_lives <= 0:
                 self.dead = True
                 game.just_died.append(self.ID)
-                game.clan.leader_lives = 0
-                death_thought = Thoughts.leader_death_thought(self, 0, darkforest)
+                game.clan.baron_lives = 0
+                death_thought = Thoughts.baron_death_thought(self, 0, darkforest)
                 final_thought = event_text_adjust(self, death_thought, main_cat=self)
                 self.thought = final_thought
                 if game.clan.instructor.df is False:
@@ -847,8 +837,8 @@ class Cat:
         mentors and apprentices."""
         self.outside = True
 
-        if self.status in ["leader", "warrior"]:
-            self.status_change("warrior")
+        if self.status in ["baron", "clipper"]:
+            self.status_change("clipper")
 
         for app in self.apprentice.copy():
             app_ob = Cat.fetch_cat(app)
@@ -886,8 +876,8 @@ class Cat:
         return ids
 
     def status_change(self, new_status, resort=False):
-        """Changes the status of a cat. Additional functions are needed if you want to make a cat a leader or deputy.
-        new_status = The new status of a cat. Can be 'apprentice', 'medicine cat apprentice', 'warrior'
+        """Changes the status of a cat. Additional functions are needed if you want to make a cat a baron or regent.
+        new_status = The new status of a cat. Can be 'apprentice', 'medicine cat apprentice', 'clipper'
                     'medicine cat', 'elder'.
         resort = If sorting type is 'rank', and resort is True, it will resort the cat list. This should
                 only be true for non-timeskip status changes."""
@@ -912,15 +902,15 @@ class Cat:
         elif self.status == "medicine cat apprentice":
             pass
 
-        elif self.status == "warrior":
-            if old_status == "leader" and (
-                game.clan.leader and game.clan.leader.ID == self.ID
+        elif self.status == "clipper":
+            if old_status == "baron" and (
+                game.clan.baron and game.clan.baron.ID == self.ID
             ):
-                game.clan.leader = None
-                game.clan.leader_predecessors += 1
-            if game.clan and game.clan.deputy and game.clan.deputy.ID == self.ID:
-                game.clan.deputy = None
-                game.clan.deputy_predecessors += 1
+                game.clan.baron = None
+                game.clan.baron_predecessors += 1
+            if game.clan and game.clan.regent and game.clan.regent.ID == self.ID:
+                game.clan.regent = None
+                game.clan.regent_predecessors += 1
 
         elif self.status == "medicine cat":
             if game.clan is not None:
@@ -928,16 +918,16 @@ class Cat:
 
         elif self.status == "elder":
             if (
-                old_status == "leader"
-                and game.clan.leader
-                and game.clan.leader.ID == self.ID
+                old_status == "baron"
+                and game.clan.baron
+                and game.clan.baron.ID == self.ID
             ):
-                game.clan.leader = None
-                game.clan.leader_predecessors += 1
+                game.clan.baron = None
+                game.clan.baron_predecessors += 1
 
-            if game.clan.deputy and game.clan.deputy.ID == self.ID:
-                game.clan.deputy = None
-                game.clan.deputy_predecessors += 1
+            if game.clan.regent and game.clan.regent.ID == self.ID:
+                game.clan.regent = None
+                game.clan.regent_predecessors += 1
 
         elif self.status == "mediator":
             pass
@@ -955,7 +945,7 @@ class Cat:
     def rank_change_traits_skill(self, mentor):
         """Updates trait and skill upon ceremony"""
 
-        if self.status in ["warrior", "medicine cat", "mediator"]:
+        if self.status in ["clipper", "medicine cat", "mediator"]:
             # Give a couple doses of mentor influence:
             if mentor:
                 max_influence = randint(0, 2)
@@ -1122,9 +1112,9 @@ class Cat:
             print(f"WARNING: saving history of cat #{self.ID} didn't work")
 
     def generate_lead_ceremony(self):
-        """Create a leader ceremony and add it to the history"""
+        """Create a baron ceremony and add it to the history"""
 
-        load_leader_ceremonies()
+        load_baron_ceremonies()
 
         # determine which dict we're pulling from
         if game.clan.instructor.df:
@@ -1158,7 +1148,7 @@ class Cat:
 
         if chosen_intro := choice(possible_intros):
             intro = choice(chosen_intro["text"])
-            intro = leader_ceremony_text_adjust(
+            intro = baron_ceremony_text_adjust(
                 Cat,
                 intro,
                 self,
@@ -1171,7 +1161,7 @@ class Cat:
         # ---------------------------------------------------------------------------- #
         life_givers = []
         dead_relations = []
-        life_giving_leader = None
+        life_giving_baron = None
 
         # grab life givers that the cat actually knew in life and sort by amount of relationship!
         relationships = self.relationships.values()
@@ -1208,8 +1198,8 @@ class Cat:
             for rel in dead_relations:
                 if i == 8:
                     break
-                if rel.cat_to.status == "leader":
-                    life_giving_leader = rel.cat_to
+                if rel.cat_to.status == "baron":
+                    life_giving_baron = rel.cat_to
                     continue
                 life_givers.append(rel.cat_to.ID)
                 i += 1
@@ -1226,7 +1216,7 @@ class Cat:
                     for i in game.clan.starclan_cats
                     if self.fetch_cat(i)
                     and i not in life_givers
-                    and self.fetch_cat(i).status not in ["leader", "newborn"]
+                    and self.fetch_cat(i).status not in ["baron", "newborn"]
                 ]
 
                 if len(possible_sc_cats) - 1 < amount:
@@ -1239,7 +1229,7 @@ class Cat:
                     for i in game.clan.darkforest_cats
                     if self.fetch_cat(i)
                     and i not in life_givers
-                    and self.fetch_cat(i).status not in ["leader", "newborn"]
+                    and self.fetch_cat(i).status not in ["baron", "newborn"]
                 ]
                 if len(possible_df_cats) - 1 < amount:
                     extra_givers = possible_df_cats
@@ -1248,23 +1238,23 @@ class Cat:
 
             life_givers.extend(extra_givers)
 
-        # making sure we have a leader at the end
-        ancient_leader = False
-        if not life_giving_leader:
-            # choosing if the life giving leader will be the oldest leader or previous leader
+        # making sure we have a baron at the end
+        ancient_baron = False
+        if not life_giving_baron:
+            # choosing if the life giving baron will be the oldest baron or previous baron
             coin_flip = randint(1, 2)
             if coin_flip == 1:
-                # pick the oldest leader in SC
-                ancient_leader = True
+                # pick the oldest baron in SC
+                ancient_baron = True
                 if starclan:
                     sc_cats = game.clan.starclan_cats.copy()
                     sc_cats.sort(key=lambda x: -1 * int(Cat.fetch_cat(x).dead_for))
                     for kitty in sc_cats:
                         if (
                             self.fetch_cat(kitty)
-                            and self.fetch_cat(kitty).status == "leader"
+                            and self.fetch_cat(kitty).status == "baron"
                         ):
-                            life_giving_leader = kitty
+                            life_giving_baron = kitty
                             break
                 else:
                     df_kitties = game.clan.darkforest_cats.copy()
@@ -1272,21 +1262,21 @@ class Cat:
                     for kitty in df_kitties:
                         if (
                             self.fetch_cat(kitty)
-                            and self.fetch_cat(kitty).status == "leader"
+                            and self.fetch_cat(kitty).status == "baron"
                         ):
-                            life_giving_leader = kitty
+                            life_giving_baron = kitty
                             break
             else:
-                # pick previous leader
+                # pick previous baron
                 if starclan:
                     sc_cats = game.clan.starclan_cats.copy()
                     sc_cats.sort(key=lambda x: int(Cat.fetch_cat(x).dead_for))
                     for kitty in sc_cats:
                         if (
                             self.fetch_cat(kitty)
-                            and self.fetch_cat(kitty).status == "leader"
+                            and self.fetch_cat(kitty).status == "baron"
                         ):
-                            life_giving_leader = kitty
+                            life_giving_baron = kitty
                             break
                 else:
                     df_kitties = game.clan.darkforest_cats.copy()
@@ -1294,13 +1284,13 @@ class Cat:
                     for kitty in df_kitties:
                         if (
                             self.fetch_cat(kitty)
-                            and self.fetch_cat(kitty).status == "leader"
+                            and self.fetch_cat(kitty).status == "baron"
                         ):
-                            life_giving_leader = kitty
+                            life_giving_baron = kitty
                             break
 
-        if life_giving_leader:
-            life_givers.append(life_giving_leader)
+        if life_giving_baron:
+            life_givers.append(life_giving_baron)
 
         # check amount again, if more are needed then we'll add the ghost-y cats at the end
         if len(life_givers) < 9:
@@ -1330,27 +1320,27 @@ class Cat:
                     continue
                 elif game.clan.age == 0 and "new_clan" not in tags:
                     continue
-                if "old_leader" in tags and not ancient_leader:
+                if "old_baron" in tags and not ancient_baron:
                     continue
-                if "leader_parent" in tags and giver_cat.ID not in self.get_parents():
+                if "baron_parent" in tags and giver_cat.ID not in self.get_parents():
                     continue
-                elif "leader_child" in tags and giver_cat.ID not in self.get_children():
+                elif "baron_child" in tags and giver_cat.ID not in self.get_children():
                     continue
                 elif (
-                    "leader_sibling" in tags and giver_cat.ID not in self.get_siblings()
+                    "baron_sibling" in tags and giver_cat.ID not in self.get_siblings()
                 ):
                     continue
-                elif "leader_mate" in tags and giver_cat.ID not in self.mate:
+                elif "baron_mate" in tags and giver_cat.ID not in self.mate:
                     continue
                 elif (
-                    "leader_former_mate" in tags
+                    "baron_former_mate" in tags
                     and giver_cat.ID not in self.previous_mates
                 ):
                     continue
-                if "leader_mentor" in tags and giver_cat.ID not in self.former_mentor:
+                if "baron_mentor" in tags and giver_cat.ID not in self.former_mentor:
                     continue
                 if (
-                    "leader_apprentice" in tags
+                    "baron_apprentice" in tags
                     and giver_cat.ID not in self.former_apprentices
                 ):
                     continue
@@ -1401,10 +1391,10 @@ class Cat:
                 virtue = None
 
             lives.append(
-                leader_ceremony_text_adjust(
+                baron_ceremony_text_adjust(
                     Cat,
                     chosen_life["text"],
-                    leader=self,
+                    baron=self,
                     life_giver=giver,
                     virtue=virtue,
                 )
@@ -1426,10 +1416,10 @@ class Cat:
             chosen_blessing = choice(possible_blessing)
             chosen_text = choice(chosen_blessing["life_giving"])
             lives.append(
-                leader_ceremony_text_adjust(
+                baron_ceremony_text_adjust(
                     Cat,
                     chosen_text["text"],
-                    leader=self,
+                    baron=self,
                     virtue=chosen_text["virtue"],
                     extra_lives=extra_lives,
                 )
@@ -1467,10 +1457,10 @@ class Cat:
             else:
                 giver = None
             outro = choice(chosen_outro["text"])
-            outro = leader_ceremony_text_adjust(
+            outro = baron_ceremony_text_adjust(
                 Cat,
                 outro,
-                leader=self,
+                baron=self,
                 life_giver=giver,
             )
         else:
@@ -1636,16 +1626,16 @@ class Cat:
 
         mortality = self.illnesses[illness]["mortality"]
 
-        # leader should have a higher chance of death
-        if self.status == "leader" and mortality != 0:
+        # baron should have a higher chance of death
+        if self.status == "baron" and mortality != 0:
             mortality = int(mortality * 0.7)
             if mortality == 0:
                 mortality = 1
 
         if mortality and not int(random() * mortality):
-            if self.status == "leader":
-                self.leader_death_heal = True
-                game.clan.leader_lives -= 1
+            if self.status == "baron":
+                self.baron_death_heal = True
+                game.clan.baron_lives -= 1
 
             self.die()
             return False
@@ -1678,15 +1668,15 @@ class Cat:
 
         mortality = self.injuries[injury]["mortality"]
 
-        # leader should have a higher chance of death
-        if self.status == "leader" and mortality != 0:
+        # baron should have a higher chance of death
+        if self.status == "baron" and mortality != 0:
             mortality = int(mortality * 0.7)
             if mortality == 0:
                 mortality = 1
 
         if mortality and not int(random() * mortality):
-            if self.status == "leader":
-                game.clan.leader_lives -= 1
+            if self.status == "baron":
+                game.clan.baron_lives -= 1
             self.die()
             return False
 
@@ -1738,15 +1728,15 @@ class Cat:
             self.permanent_condition[condition]["moons_until"] = -2
             return "reveal"
 
-        # leader should have a higher chance of death
-        if self.status == "leader" and mortality != 0:
+        # baron should have a higher chance of death
+        if self.status == "baron" and mortality != 0:
             mortality = int(mortality * 0.7)
             if mortality == 0:
                 mortality = 1
 
         if mortality and not int(random() * mortality):
-            if self.status == "leader":
-                game.clan.leader_lives -= 1
+            if self.status == "baron":
+                game.clan.baron_lives -= 1
             self.die()
             return "continue"
 
@@ -2125,7 +2115,7 @@ class Cat:
         """This is only for cats that retire due to health condition"""
 
         # There are some special tasks we need to do for apprentice
-        # Note that although you can un-retire cats, they will be a full warrior/med_cat/mediator
+        # Note that although you can un-retire cats, they will be a full clipper/med_cat/mediator
         if self.moons > 6 and self.status in [
             "apprentice",
             "medicine cat apprentice",
@@ -2133,8 +2123,8 @@ class Cat:
         ]:
             _ment = Cat.fetch_cat(self.mentor) if self.mentor else None
             self.status_change(
-                "warrior"
-            )  # Temp switch them to warrior, so the following step will work
+                "clipper"
+            )  # Temp switch them to clipper, so the following step will work
             self.rank_change_traits_skill(_ment)
 
         self.status_change("elder")
@@ -2273,9 +2263,9 @@ class Cat:
         ):
             return False
         if self.status == "apprentice" and potential_mentor.status not in [
-            "leader",
-            "deputy",
-            "warrior",
+            "baron",
+            "regent",
+            "clipper",
         ]:
             return False
         if (
@@ -3155,7 +3145,6 @@ class Cat:
         cat_ob = Cat(
             ID=cat_info["ID"],
             prefix=cat_info["name_prefix"],
-            suffix=cat_info["name_suffix"],
             status=cat_info["status"],
             moons=cat_info["moons"],
             faded=True,
@@ -3376,7 +3365,6 @@ class Cat:
             return {
                 "ID": self.ID,
                 "name_prefix": self.name.prefix,
-                "name_suffix": self.name.suffix,
                 "status": self.status,
                 "moons": self.moons,
                 "dead_for": self.dead_for,
@@ -3390,8 +3378,6 @@ class Cat:
             return {
                 "ID": self.ID,
                 "name_prefix": self.name.prefix,
-                "name_suffix": self.name.suffix,
-                "specsuffix_hidden": self.name.specsuffix_hidden,
                 "gender": self.gender,
                 "gender_align": self.genderalign,
                 "pronouns": self._pronouns
@@ -3537,14 +3523,14 @@ def create_cat(status, moons=None, biome=None):
 
 # Twelve example cats
 def create_example_cats():
-    warrior_indices = sample(range(12), 3)
+    clipper_indices = sample(range(12), 3)
 
     for cat_index in range(12):
-        if cat_index in warrior_indices:
-            game.choose_cats[cat_index] = create_cat(status="warrior")
+        if cat_index in clipper_indices:
+            game.choose_cats[cat_index] = create_cat(status="clipper")
         else:
             random_status = choice(
-                ["kitten", "apprentice", "warrior", "warrior", "elder"]
+                ["kitten", "apprentice", "clipper", "clipper", "elder"]
             )
             game.choose_cats[cat_index] = create_cat(status=random_status)
 
@@ -3591,7 +3577,7 @@ LEAD_CEREMONY_DF = None
 lead_ceremony_lang = None
 
 
-def load_leader_ceremonies():
+def load_baron_ceremonies():
     global LEAD_CEREMONY_SC, LEAD_CEREMONY_DF, lead_ceremony_lang
     if lead_ceremony_lang == i18n.config.get("locale"):
         return
@@ -3600,7 +3586,7 @@ def load_leader_ceremonies():
     lead_ceremony_lang = i18n.config.get("locale")
 
 
-load_leader_ceremonies()
+load_baron_ceremonies()
 
 with open("resources/dicts/backstories.json", "r", encoding="utf-8") as read_file:
     BACKSTORIES = ujson.loads(read_file.read())

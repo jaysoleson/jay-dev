@@ -133,15 +133,15 @@ class AllegiancesScreen(Screens):
         living_cats = [i for i in Cat.all_cats.values() if not (i.dead or i.outside)]
         living_meds = []
         living_mediators = []
-        living_warriors = []
+        living_clippers = []
         living_apprentices = []
         living_kits = []
         living_elders = []
         for cat in living_cats:
             if cat.status == "medicine cat":
                 living_meds.append(cat)
-            elif cat.status == "warrior":
-                living_warriors.append(cat)
+            elif cat.status == "clipper":
+                living_clippers.append(cat)
             elif cat.status == "mediator":
                 living_mediators.append(cat)
             elif cat.status in [
@@ -158,33 +158,33 @@ class AllegiancesScreen(Screens):
         # Find Queens:
         queen_dict, living_kits = get_alive_clan_queens(living_cats)
 
-        # Remove queens from warrior or elder lists, if they are there.  Let them stay on any other lists.
+        # Remove queens from clipper or elder lists, if they are there.  Let them stay on any other lists.
         for q in queen_dict:
             queen = Cat.fetch_cat(q)
             if not queen:
                 continue
-            if queen in living_warriors:
-                living_warriors.remove(queen)
+            if queen in living_clippers:
+                living_clippers.remove(queen)
             elif queen in living_elders:
                 living_elders.remove(queen)
 
-        # Clan Leader Box:
-        # Pull the Clan leaders
+        # Clan baron Box:
+        # Pull the Clan barons
         outputs = []
-        if game.clan.leader and not (game.clan.leader.dead or game.clan.leader.outside):
+        if game.clan.baron and not (game.clan.baron.dead or game.clan.baron.outside):
             outputs.append(
                 [
-                    f"<b><u>{i18n.t('general.leader', count=1).upper()}</u></b>",
-                    self.generate_one_entry(game.clan.leader),
+                    f"<b><u>{i18n.t('general.baron', count=1).upper()}</u></b>",
+                    self.generate_one_entry(game.clan.baron),
                 ]
             )
 
-        # Deputy Box:
-        if game.clan.deputy and not (game.clan.deputy.dead or game.clan.deputy.outside):
+        # regent Box:
+        if game.clan.regent and not (game.clan.regent.dead or game.clan.regent.outside):
             outputs.append(
                 [
-                    f"<b><u>{i18n.t('general.deputy', count=1).upper()}</u></b>",
-                    self.generate_one_entry(game.clan.deputy),
+                    f"<b><u>{i18n.t('general.regent', count=1).upper()}</u></b>",
+                    self.generate_one_entry(game.clan.regent),
                 ]
             )
 
@@ -208,14 +208,14 @@ class AllegiancesScreen(Screens):
             _box[1] = "\n".join([self.generate_one_entry(i) for i in living_mediators])
             outputs.append(_box)
 
-        # Warrior Box:
-        if living_warriors:
+        # clipper Box:
+        if living_clippers:
             _box = ["", ""]
             _box[
                 0
-            ] = f"<b><u>{i18n.t('general.warrior', count=len(living_warriors)).upper()}</u></b>"
+            ] = f"<b><u>{i18n.t('general.clipper', count=len(living_clippers)).upper()}</u></b>"
 
-            _box[1] = "\n".join([self.generate_one_entry(i) for i in living_warriors])
+            _box[1] = "\n".join([self.generate_one_entry(i) for i in living_clippers])
             outputs.append(_box)
 
         # Apprentice Box:

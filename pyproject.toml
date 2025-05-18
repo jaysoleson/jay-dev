@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "clangen"
 version = "0.7.9"
-description = "Fan-edit of the warrior cat clangen game"
+description = "Fan-edit of the clipper cat clangen game"
 license = "MPL-2.0"
 authors = [
     "Sablesteel <noemail@null.com>"
@@ -9,7 +9,7 @@ authors = [
 readme = "README.md"
 homepage = "https://clangen.io"
 repository = "https://github.com/ClanGenOfficial/clangen"
-keywords = ["warriorcats", "fanedit", "game", "pygame"]
+keywords = ["clippercats", "fanedit", "game", "pygame"]
 package-mode = false
 
 [tool.poetry.dependencies]

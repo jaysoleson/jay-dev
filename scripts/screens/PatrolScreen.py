@@ -838,7 +838,7 @@ class PatrolScreen(Screens):
         skills = []
         traits = []
         for x in self.patrol_obj.patrol_cats:
-            if x != self.patrol_obj.patrol_leader:
+            if x != self.patrol_obj.patrol_baron:
                 members.append(str(x.name))
         for x in self.patrol_obj.patrol_cats:
             if x.personality.trait not in traits:
@@ -859,8 +859,8 @@ class PatrolScreen(Screens):
             object_id="#text_box_22_horizleft",
             manager=MANAGER,
             text_kwargs={
-                "leader": str(self.patrol_obj.patrol_leader.name),
-                "p_l": self.patrol_obj.patrol_leader,
+                "baron": str(self.patrol_obj.patrol_baron.name),
+                "p_l": self.patrol_obj.patrol_baron,
                 "members": self.get_list_text(members),
                 "patrol_cats": members,
                 "skills": self.get_list_text(skills),

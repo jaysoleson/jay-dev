@@ -642,7 +642,7 @@
             "any"
         ],
         "tags": [
-            "clan:warrior"
+            "clan:clipper"
         ],
         "weight": 20,
         "event_text": "m_c has been getting more and more frustrated by the number of ticks {PRONOUN/m_c/subject} {VERB/m_c/have/has}, but doesn't want to bother anyone with {PRONOUN/m_c/poss} troubles. Regardless, {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} found out when someone spots {PRONOUN/m_c/object} scratching at the bites.",
@@ -683,7 +683,7 @@
             "any"
         ],
         "tags": [
-            "clan:warrior"
+            "clan:clipper"
         ],
         "weight": 20,
         "event_text": "m_c tried to interject and de-escalate an argument between two Clanmates, but r_c retaliated at the interruption. m_c limps away, fresh clawmarks scored through {PRONOUN/m_c/poss} pelt.",
@@ -1013,9 +1013,9 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ],
             "trait": [
                 "adventurous",
@@ -1053,9 +1053,9 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ]
         },
         "injury": [
@@ -1104,9 +1104,9 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ]
         },
         "injury": [
@@ -1419,11 +1419,11 @@
                 "apprentice",
                 "mediator apprentice",
                 "medicine cat apprentice",
-                "warrior",
+                "clipper",
                 "mediator",
                 "medicine cat",
-                "deputy",
-                "leader",
+                "regent",
+                "baron",
                 "elder"
             ]
         },
@@ -1924,9 +1924,9 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ],
             "skill": [
                 "FIGHTER,2"
@@ -1987,9 +1987,9 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ],
             "skill": [
                 "FIGHTER,2"
@@ -2028,9 +2028,9 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ],
             "skill": [
                 "FIGHTER,2"
@@ -2065,13 +2065,13 @@
             "any"
         ],
         "weight": 20,
-        "event_text": "m_c saved r_c from an enemy warrior, and was barely even hurt! {PRONOUN/m_c/subject/CAP}{VERB/m_c/'re/'s} a bit bruised, but bruises are better than clawmarks.",
+        "event_text": "m_c saved r_c from an enemy clipper, and was barely even hurt! {PRONOUN/m_c/subject/CAP}{VERB/m_c/'re/'s} a bit bruised, but bruises are better than clawmarks.",
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ],
             "skill": [
                 "FIGHTER,2"
@@ -2143,9 +2143,9 @@
         "event_text": "m_c saved r_c from a dog, and was barely even hurt! {PRONOUN/m_c/subject/CAP}{VERB/m_c/'re/'s} a bit bruised, but bruises are better than clawmarks.",
         "m_c": {
             "status": [
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ],
             "skill": [
                 "FIGHTER,2"
@@ -2218,9 +2218,9 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ],
             "trait": [
                 "adventurous",
@@ -2255,9 +2255,9 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ],
             "skill": [
                 "FIGHTER,2"
@@ -2317,9 +2317,9 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ],
             "skill": [
                 "FIGHTER,2"
@@ -2357,9 +2357,9 @@
         "event_text": "m_c saved r_c from a fox, and was barely even hurt! {PRONOUN/m_c/subject/CAP}{VERB/m_c/'re/'s} a bit scraped up, but a few scrapes are better than clawmarks.",
         "m_c": {
             "status": [
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ],
             "skill": [
                 "FIGHTER,2"
@@ -2432,9 +2432,9 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ],
             "trait": [
                 "adventurous",
@@ -2469,9 +2469,9 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ],
             "not_skill": [
                 "FIGHTER,2"
@@ -2523,9 +2523,9 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ],
             "not_skill": [
                 "FIGHTER,2"
@@ -2599,7 +2599,7 @@
         ]
     },
     {
-        "event_id": "gen_injury_bitewound_anymultiagestatustraitnotfighterothercatleader1",
+        "event_id": "gen_injury_bitewound_anymultiagestatustraitnotfighterothercatbaron1",
         "location": [
             "any"
         ],
@@ -2607,13 +2607,13 @@
             "any"
         ],
         "weight": 20,
-        "event_text": "m_c was hurt while protecting r_c, the leader, from a fox.",
+        "event_text": "m_c was hurt while protecting r_c, the baron, from a fox.",
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ],
             "not_skill": [
                 "FIGHTER,2"
@@ -2635,7 +2635,7 @@
         },
         "r_c": {
             "status": [
-                "leader"
+                "baron"
             ]
         },
         "injury": [
@@ -2691,9 +2691,9 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ],
             "not_skill": [
                 "FIGHTER,2"
@@ -2767,9 +2767,9 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ],
             "not_skill": [
                 "FIGHTER,3"
@@ -2821,9 +2821,9 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ],
             "not_skill": [
                 "FIGHTER,3"
@@ -2852,9 +2852,9 @@
             ],
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ]
         },
         "injury": [
@@ -2912,9 +2912,9 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ],
             "not_skill": [
                 "FIGHTER,2"
@@ -2966,9 +2966,9 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ],
             "not_skill": [
                 "FIGHTER,2"
@@ -3038,7 +3038,7 @@
         ]
     },
     {
-        "event_id": "gen_injury_clawwound_anymultiagemultistatusnotfightermultitraitothercatleader1",
+        "event_id": "gen_injury_clawwound_anymultiagemultistatusnotfightermultitraitothercatbaron1",
         "location": [
             "any"
         ],
@@ -3046,11 +3046,11 @@
             "any"
         ],
         "weight": 20,
-        "event_text": "m_c was hurt while protecting the leader, r_c, from a rogue.",
+        "event_text": "m_c was hurt while protecting the baron, r_c, from a rogue.",
         "m_c": {
             "status": [
-                "warrior",
-                "deputy"
+                "clipper",
+                "regent"
             ],
             "not_skill": [
                 "FIGHTER,2"
@@ -3072,7 +3072,7 @@
         },
         "r_c": {
             "status": [
-                "leader"
+                "baron"
             ]
         },
         "injury": [
@@ -3160,7 +3160,7 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior"
+                "clipper"
             ],
             "not_skill": [
                 "FIGHTER,2"
@@ -3168,8 +3168,8 @@
         },
         "r_c": {
             "status": [
-                "deputy",
-                "leader"
+                "regent",
+                "baron"
             ],
             "trait": [
                 "bloodthirsty",
@@ -3241,11 +3241,11 @@
             "any"
         ],
         "weight": 20,
-        "event_text": "m_c was hurt by o_c_n warriors after being ordered by r_c to go over the border.",
+        "event_text": "m_c was hurt by o_c_n clippers after being ordered by r_c to go over the border.",
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior"
+                "clipper"
             ],
             "not_skill": [
                 "FIGHTER,2"
@@ -3253,8 +3253,8 @@
         },
         "r_c": {
             "status": [
-                "leader",
-                "deputy"
+                "baron",
+                "regent"
             ],
             "trait": [
                 "bloodthirsty",
@@ -3288,8 +3288,8 @@
                 "cats": [
                     "m_c"
                 ],
-                "scar": "m_c was scarred by o_c_n warriors, after being ordered to go over the border by r_c.",
-                "reg_death": "m_c died from wounds caused by o_c_n warriors, after being ordered to go over the border by r_c."
+                "scar": "m_c was scarred by o_c_n clippers, after being ordered to go over the border by r_c.",
+                "reg_death": "m_c died from wounds caused by o_c_n clippers, after being ordered to go over the border by r_c."
             }
         ],
         "relationships": [
@@ -3358,9 +3358,9 @@
                 "any"
             ],
             "status": [
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ],
             "trait": [
                 "ambitious",
@@ -3456,8 +3456,8 @@
                 "any"
             ],
             "status": [
-                "deputy",
-                "leader"
+                "regent",
+                "baron"
             ],
             "trait": [
                 "ambitious",
@@ -3535,7 +3535,7 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior"
+                "clipper"
             ],
             "not_skill": [
                 "FIGHTER,3"
@@ -3546,8 +3546,8 @@
                 "any"
             ],
             "status": [
-                "deputy",
-                "leader"
+                "regent",
+                "baron"
             ],
             "trait": [
                 "ambitious",
@@ -3727,8 +3727,8 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "deputy"
+                "clipper",
+                "regent"
             ]
         },
         "injury": [
@@ -3780,9 +3780,9 @@
         },
         "r_c": {
             "status": [
-                "warrior",
-                "deputy",
-                "leader"
+                "clipper",
+                "regent",
+                "baron"
             ],
             "skill": [
                 "FIGHTER,1"
@@ -3884,7 +3884,7 @@
             "any"
         ],
         "weight": 20,
-        "event_text": "m_c was injured recklessly fighting an enemy warrior that {PRONOUN/m_c/poss} mentor, r_c, encouraged {PRONOUN/m_c/object} to attack.",
+        "event_text": "m_c was injured recklessly fighting an enemy clipper that {PRONOUN/m_c/poss} mentor, r_c, encouraged {PRONOUN/m_c/object} to attack.",
         "m_c": {
             "status": [
                 "apprentice"
@@ -3936,8 +3936,8 @@
                 "cats": [
                     "m_c"
                 ],
-                "scar": "m_c was scarred fighting an enemy warrior that {PRONOUN/m_c/poss} mentor, r_c, encouraged {PRONOUN/m_c/object} to attack.",
-                "reg_death": "m_c died from {PRONOUN/m_c/poss} wounds after {PRONOUN/m_c/poss} mentor encouraged {PRONOUN/m_c/object} to fight an enemy warrior."
+                "scar": "m_c was scarred fighting an enemy clipper that {PRONOUN/m_c/poss} mentor, r_c, encouraged {PRONOUN/m_c/object} to attack.",
+                "reg_death": "m_c died from {PRONOUN/m_c/poss} wounds after {PRONOUN/m_c/poss} mentor encouraged {PRONOUN/m_c/object} to fight an enemy clipper."
             }
         ],
         "relationships": [
@@ -6101,7 +6101,7 @@
         ]
     },
     {
-        "event_id": "gen_injury_mangledtail_anyothercatleader1",
+        "event_id": "gen_injury_mangledtail_anyothercatbaron1",
         "location": [
             "any"
         ],
@@ -6109,7 +6109,7 @@
             "any"
         ],
         "weight": 10,
-        "event_text": "m_c was maimed by r_c for questioning {PRONOUN/r_c/poss} leadership.",
+        "event_text": "m_c was maimed by r_c for questioning {PRONOUN/r_c/poss} baronship.",
         "m_c": {
             "age": [
                 "senior",
@@ -6131,7 +6131,7 @@
                 "any"
             ],
             "status": [
-                "leader"
+                "baron"
             ],
             "trait": [
                 "ambitious",
@@ -6163,8 +6163,8 @@
                 "cats": [
                     "m_c"
                 ],
-                "scar": "m_c was maimed by r_c for questioning {PRONOUN/r_c/poss} leadership.",
-                "reg_death": "m_c died from {PRONOUN/m_c/poss} wounds after being maimed by r_c for questioning {PRONOUN/r_c/poss} leadership."
+                "scar": "m_c was maimed by r_c for questioning {PRONOUN/r_c/poss} baronship.",
+                "reg_death": "m_c died from {PRONOUN/m_c/poss} wounds after being maimed by r_c for questioning {PRONOUN/r_c/poss} baronship."
             }
         ],
         "relationships": [
@@ -6305,7 +6305,7 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
+                "clipper",
                 "mediator",
                 "mediator apprentice",
                 "medicine cat",
@@ -6321,8 +6321,8 @@
                 "any"
             ],
             "status": [
-                "leader",
-                "deputy"
+                "baron",
+                "regent"
             ],
             "trait": [
                 "bloodthirsty",
@@ -6399,7 +6399,7 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
+                "clipper",
                 "mediator",
                 "mediator apprentice",
                 "medicine cat",
@@ -6414,8 +6414,8 @@
                 "any"
             ],
             "status": [
-                "leader",
-                "deputy"
+                "baron",
+                "regent"
             ],
             "trait": [
                 "bloodthirsty",
@@ -6480,7 +6480,7 @@
         ]
     },
     {
-        "event_id": "gen_injury_catbite_anyothercatleader1",
+        "event_id": "gen_injury_catbite_anyothercatbaron1",
         "location": [
             "any"
         ],
@@ -6502,7 +6502,7 @@
                 "any"
             ],
             "status": [
-                "leader"
+                "baron"
             ],
             "trait": [
                 "bloodthirsty",
@@ -6682,16 +6682,16 @@
             "any"
         ],
         "weight": 20,
-        "event_text": "m_c accidentally crossed the border on patrol and got {PRONOUN/m_c/poss} ear torn by an enemy warrior.",
+        "event_text": "m_c accidentally crossed the border on patrol and got {PRONOUN/m_c/poss} ear torn by an enemy clipper.",
         "m_c": {
             "age": [
                 "any"
             ],
             "status": [
                 "apprentice",
-                "deputy",
-                "leader",
-                "warrior",
+                "regent",
+                "baron",
+                "clipper",
                 "medicine cat",
                 "medicine cat apprentice"
             ]
@@ -6714,9 +6714,9 @@
                 "cats": [
                     "m_c"
                 ],
-                "scar": "m_c's ear was torn when {PRONOUN/m_c/subject} accidentally crossed the border and was caught by an enemy warrior.",
-                "reg_death": "m_c died to an injury from an enemy warrior.",
-                "lead_death": "succumbed to an injury from an enemy warrior"
+                "scar": "m_c's ear was torn when {PRONOUN/m_c/subject} accidentally crossed the border and was caught by an enemy clipper.",
+                "reg_death": "m_c died to an injury from an enemy clipper.",
+                "lead_death": "succumbed to an injury from an enemy clipper"
             }
         ],
         "other_clan": {
@@ -6743,9 +6743,9 @@
             ],
             "status": [
                 "apprentice",
-                "warrior",
-                "leader",
-                "deputy",
+                "clipper",
+                "baron",
+                "regent",
                 "medicine cat",
                 "medicine cat apprentice"
             ]
@@ -6768,9 +6768,9 @@
                 "cats": [
                     "m_c"
                 ],
-                "scar": "m_c's ear was torn in a scuffle when {PRONOUN/m_c/subject} chased off an enemy warrior.",
-                "reg_death": "m_c died after an enemy warrior injured {PRONOUN/m_c/object}.",
-                "lead_death": "after being injured by an enemy warrior"
+                "scar": "m_c's ear was torn in a scuffle when {PRONOUN/m_c/subject} chased off an enemy clipper.",
+                "reg_death": "m_c died after an enemy clipper injured {PRONOUN/m_c/object}.",
+                "lead_death": "after being injured by an enemy clipper"
             }
         ],
         "other_clan": {
@@ -6794,7 +6794,7 @@
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
+                "clipper",
                 "mediator",
                 "mediator apprentice",
                 "medicine cat",
@@ -6977,18 +6977,18 @@
             "war"
         ],
         "weight": 20,
-        "event_text": "While patrolling the o_c_n borders, m_c stepped on a concealed pit trap set by what seemed to be o_c_n warriors. m_c freezes with shock as {PRONOUN/m_c/subject} {VERB/m_c/plunge/plunges} into the depths of the trap. The other cats on the patrol flank {PRONOUN/m_c/object} as {PRONOUN/m_c/subject} {VERB/m_c/limp/limps} back to the camp.",
+        "event_text": "While patrolling the o_c_n borders, m_c stepped on a concealed pit trap set by what seemed to be o_c_n clippers. m_c freezes with shock as {PRONOUN/m_c/subject} {VERB/m_c/plunge/plunges} into the depths of the trap. The other cats on the patrol flank {PRONOUN/m_c/object} as {PRONOUN/m_c/subject} {VERB/m_c/limp/limps} back to the camp.",
         "m_c": {
             "age": [
                 "any"
             ],
             "status": [
                 "apprentice",
-                "warrior",
+                "clipper",
                 "medicine cat",
                 "medicine cat apprentice",
-                "leader",
-                "deputy"
+                "baron",
+                "regent"
             ],
             "not_trait": [
                 "careful"
@@ -7033,13 +7033,13 @@
             "war"
         ],
         "weight": 20,
-        "event_text": "During a skirmish, m_c bounds into battle against a o_c_n warrior, protecting r_c from a powerful blow. m_c bears the brunt of the strike, and r_c helps {PRONOUN/m_c/object} back to camp.",
+        "event_text": "During a skirmish, m_c bounds into battle against a o_c_n clipper, protecting r_c from a powerful blow. m_c bears the brunt of the strike, and r_c helps {PRONOUN/m_c/object} back to camp.",
         "m_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "leader",
-                "deputy"
+                "clipper",
+                "baron",
+                "regent"
             ],
             "trait": [
                 "fierce",
@@ -7059,9 +7059,9 @@
         "r_c": {
             "status": [
                 "apprentice",
-                "warrior",
-                "leader",
-                "deputy"
+                "clipper",
+                "baron",
+                "regent"
             ]
         },
         "injury": [

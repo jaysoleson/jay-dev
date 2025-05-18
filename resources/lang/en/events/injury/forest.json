@@ -275,7 +275,7 @@
         "weight": 30,
         "event_text": "Chasing a mouse through a dense area, m_c accidentally collides with a low-hanging branch, leaving {PRONOUN/m_c/object} to return to camp empty-pawed and with splitting head pain.",
         "m_c": {
-            "status": ["apprentice", "warrior", "deputy", "leader"],
+            "status": ["apprentice", "clipper", "regent", "baron"],
             "trait": [ "ambitious", "childish", "playful", "bold", "daring", "confident", "adventurous", "competitive", "oblivious" ]
         },
         "injury": [

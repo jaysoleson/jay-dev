@@ -151,9 +151,9 @@
         "event_text": "m_c finds a loner near the border. It seems {PRONOUN/n_c:0/subject} {VERB/n_c:0/were/was} bringing {PRONOUN/n_c:0/poss} kit named n_c:1 to the Clan, as {PRONOUN/n_c:0/subject} could no longer care for {PRONOUN/n_c:1/object}.",
         "m_c": {
             "status": [
-                "leader",
-                "deputy",
-                "warrior",
+                "baron",
+                "regent",
+                "clipper",
                 "medicine cat",
                 "apprentice",
                 "medicine cat apprentice",
@@ -183,9 +183,9 @@
         "event_text": "m_c finds a kittypet near the border. It seems {PRONOUN/n_c:0/subject} {VERB/n_c:0/were/was} bringing {PRONOUN/n_c:0/poss} kit named n_c:1 to the Clan, as {PRONOUN/n_c:0/subject} could no longer care for {PRONOUN/n_c:1/object}.",
         "m_c": {
             "status": [
-                "leader",
-                "deputy",
-                "warrior",
+                "baron",
+                "regent",
+                "clipper",
                 "medicine cat",
                 "apprentice",
                 "medicine cat apprentice",
@@ -215,7 +215,7 @@
         "event_text": "m_c finds a rogue near the border. It seems {PRONOUN/n_c:0/subject} {VERB/n_c:0/were/was} bringing {PRONOUN/n_c:0/poss} kit named n_c:1 to the Clan, as {PRONOUN/n_c:0/subject} could no longer care for {PRONOUN/n_c:1/object}.",
         "m_c": {
             "status": [
-                "leader", "deputy", "warrior", "medicine cat", "apprentice", "medicine cat apprentice", "mediator", "mediator apprentice"
+                "baron", "regent", "clipper", "medicine cat", "apprentice", "medicine cat apprentice", "mediator", "mediator apprentice"
             ]
         },"new_cat": [
             ["age:has_kits", "meeting", "rogue", "can_birth"],
@@ -251,7 +251,7 @@
             [
                 "old_name",
                 "loner",
-                "status:warrior",
+                "status:clipper",
                 "mate:m_c,r_c"
             ]
         ],
@@ -300,7 +300,7 @@
             [
                 "old_name",
                 "loner",
-                "status:warrior",
+                "status:clipper",
                 "exists"
             ]
         ],
@@ -316,13 +316,13 @@
         "weight": 20,
         "event_text": "A loner waits on the border for a patrol and, finding one led by m_c, asks to join the Clan. The loner decides to take on a more Clan-like name and is now called n_c:0.",
         "m_c": {
-            "status": ["warrior", "deputy", "leader", "medicine cat"]
+            "status": ["clipper", "regent", "baron", "medicine cat"]
         },
         "new_cat": [
             [
                 "new_name",
                 "loner",
-                "status:warrior",
+                "status:clipper",
                 "exists"
             ]
         ],
@@ -339,13 +339,13 @@
         "event_text": "A loner waits on the border for a patrol and, finding one led by m_c, asks to join the Clan. The loner decides to keep {PRONOUN/n_c:0/poss} old name, n_c:0.",
         "m_c": {
             "status": [
-                "leader", "deputy", "warrior", "medicine cat"
+                "baron", "regent", "clipper", "medicine cat"
             ]
         },"new_cat": [
             [
                 "old_name",
                 "loner",
-                "status:warrior",
+                "status:clipper",
                 "exists"
             ]
         ],
@@ -368,7 +368,7 @@
             [
                 "new_name",
                 "loner",
-                "status:warrior",
+                "status:clipper",
                 "exists"
             ]
         ],
@@ -384,13 +384,13 @@
         "weight": 15,
         "event_text": "While the Clan has no love for outsiders, sometimes new blood is needed. A patrol led by m_c heads out and finds a wandering cat to bring into the Clan. The new cat takes on a more Clan-like name and is now known as n_c:0.",
         "m_c": {
-            "status": ["leader", "deputy", "warrior"]
+            "status": ["baron", "regent", "clipper"]
         },
         "new_cat": [
             [
                 "new_name",
                 "loner",
-                "status:warrior",
+                "status:clipper",
                 "exists"
             ]
         ],
@@ -413,7 +413,7 @@
             [
                 "old_name",
                 "kittypet",
-                "status:warrior",
+                "status:clipper",
                 "exists"
             ]
         ],
@@ -436,7 +436,7 @@
             [
                 "new_name",
                 "kittypet",
-                "status:warrior",
+                "status:clipper",
                 "exists"
             ]
         ],
@@ -452,13 +452,13 @@
         "weight": 20,
         "event_text": "A kittypet waits on the border for a patrol and, finding one led by m_c, asks to join the Clan. The kittypet decides to keep {PRONOUN/n_c:0/poss} old name, n_c:0.",
         "m_c": {
-            "status": ["leader", "deputy", "warrior", "medicine cat"]
+            "status": ["baron", "regent", "clipper", "medicine cat"]
         },
         "new_cat": [
             [
                 "old_name",
                 "kittypet",
-                "status:warrior",
+                "status:clipper",
                 "exists"
             ]
         ],
@@ -475,14 +475,14 @@
         "event_text": "A kittypet waits on the border for a patrol and, finding one led by m_c, asks to join the Clan. The kittypet decides to take on a more Clan-like name and is now called n_c:0.",
         "m_c": {
             "status": [
-                "leader", "deputy", "warrior", "medicine cat"
+                "baron", "regent", "clipper", "medicine cat"
             ]
         },
         "new_cat": [
             [
                 "new_name",
                 "kittypet",
-                "status:warrior",
+                "status:clipper",
                 "exists"
             ]
         ],
@@ -505,7 +505,7 @@
             [
                 "old_name",
                 "rogue",
-                "status:warrior",
+                "status:clipper",
                 "exists"
             ]
         ],
@@ -528,7 +528,7 @@
             [
                 "new_name",
                 "rogue",
-                "status:warrior",
+                "status:clipper",
                 "exists"
             ]
         ],
@@ -544,13 +544,13 @@
         "weight": 20,
         "event_text": "A rogue waits on the border for a patrol and, finding one led by m_c, asks to join the Clan. The rogue decides to keep {PRONOUN/n_c:0/poss} old name, n_c:0.",
         "m_c": {
-            "status": ["leader", "deputy", "warrior", "medicine cat"]
+            "status": ["baron", "regent", "clipper", "medicine cat"]
         },
         "new_cat": [
             [
                 "old_name",
                 "rogue",
-                "status:warrior",
+                "status:clipper",
                 "exists"
             ]
         ],
@@ -566,13 +566,13 @@
         "weight": 20,
         "event_text": "A rogue waits on the border for a patrol and, finding one led by m_c, asks to join the Clan. The rogue decides to take a new name and is now called n_c:0.",
         "m_c": {
-            "status": ["leader", "deputy", "warrior", "medicine cat"]
+            "status": ["baron", "regent", "clipper", "medicine cat"]
         },
         "new_cat": [
             [
                 "new_name",
                 "rogue",
-                "status:warrior",
+                "status:clipper",
                 "exists"
             ]
         ],
@@ -587,7 +587,7 @@
         "location": ["any"],
         "season": ["any"],
         "weight": 20,
-        "event_text": "m_c finds a warrior from o_c_n named n_c:0, who asks to join the Clan.",
+        "event_text": "m_c finds a clipper from o_c_n named n_c:0, who asks to join the Clan.",
         "m_c": {
             "age": ["adolescent", "young adult", "adult", "senior adult", "senior"],
             "status": ["any"]
@@ -596,8 +596,8 @@
             [
                 "old_name",
                 "clancat",
-                "status:warrior",
-                "backstory:refugee1,guided4,retired_leader,ostracized_warrior,disgraced1,disgraced2,disgraced3,otherclan1,otherclan2,otherclan3,otherclan4"
+                "status:clipper",
+                "backstory:refugee1,guided4,retired_baron,ostracized_clipper,disgraced1,disgraced2,disgraced3,otherclan1,otherclan2,otherclan3,otherclan4"
             ]
         ],
         "other_clan": {
@@ -610,16 +610,16 @@
         "location": ["any"],
         "season": ["any"],
         "weight": 10,
-        "event_text": "m_c meets an injured warrior from o_c_n who asks to join the Clan, in exchange for healing.",
+        "event_text": "m_c meets an injured clipper from o_c_n who asks to join the Clan, in exchange for healing.",
         "m_c": {
-            "status": ["medicine cat", "leader", "warrior", "deputy", "apprentice", "medicine cat apprentice", "mediator", "mediator apprentice"]
+            "status": ["medicine cat", "baron", "clipper", "regent", "apprentice", "medicine cat apprentice", "mediator", "mediator apprentice"]
         },
         "new_cat": [
             [
                 "old_name",
                 "clancat",
-                "status:warrior",
-                "backstory:refugee1,guided4,retired_leader,ostracized_warrior,disgraced1,disgraced2,disgraced3,otherclan1,otherclan2,otherclan3,otherclan4"
+                "status:clipper",
+                "backstory:refugee1,guided4,retired_baron,ostracized_clipper,disgraced1,disgraced2,disgraced3,otherclan1,otherclan2,otherclan3,otherclan4"
             ]
         ],
         "injury": [
@@ -642,14 +642,14 @@
         "event_text": "A member of o_c_n defects in the war and chooses to join c_n, m_c finds {PRONOUN/n_c:0/object} waiting at the border. {PRONOUN/n_c:0/subject/CAP} {VERB/n_c:0/decide/decides} to keep {PRONOUN/n_c:0/poss} name.",
         "m_c": {
             "status": [
-                "leader", "deputy", "warrior", "medicine cat", "apprentice", "medicine cat apprentice", "mediator", "mediator apprentice"
+                "baron", "regent", "clipper", "medicine cat", "apprentice", "medicine cat apprentice", "mediator", "mediator apprentice"
             ]
         },
         "new_cat": [
           [
             "old_name", 
-            "backstory:ostracized_warrior,disgraced1,disgraced2,otherclan", 
-            "status:warrior"
+            "backstory:ostracized_clipper,disgraced1,disgraced2,otherclan", 
+            "status:clipper"
           ]
         ],
         "other_clan": {
@@ -663,17 +663,17 @@
         "season": ["any"],
         "sub_type": ["war"],
         "weight": 10,
-        "event_text": "n_c:0, the deputy of o_c_n, has defected to c_n in the war, m_c finds {PRONOUN/n_c:0/object} at the border. {PRONOUN/n_c:0/subject/CAP} {VERB/n_c:0/decide/decides} to keep {PRONOUN/n_c:0/poss} name.",
+        "event_text": "n_c:0, the regent of o_c_n, has defected to c_n in the war, m_c finds {PRONOUN/n_c:0/object} at the border. {PRONOUN/n_c:0/subject/CAP} {VERB/n_c:0/decide/decides} to keep {PRONOUN/n_c:0/poss} name.",
         "m_c": {
             "status": [
-                "leader", "deputy", "warrior", "medicine cat", "apprentice", "medicine cat apprentice", "mediator", "mediator apprentice"
+                "baron", "regent", "clipper", "medicine cat", "apprentice", "medicine cat apprentice", "mediator", "mediator apprentice"
             ]
         },
         "new_cat": [
           [
             "old_name", 
-            "backstory:ostracized_warrior,disgraced1,disgraced2,disgraced3,otherclan", 
-            "status:warrior"
+            "backstory:ostracized_clipper,disgraced1,disgraced2,disgraced3,otherclan", 
+            "status:clipper"
           ]
         ],
         "other_clan": {
@@ -690,7 +690,7 @@
         "event_text": "n_c:0, the medicine cat of o_c_n, has defected to c_n in the war, {PRONOUN/n_c:0/subject} {VERB/n_c:0/meet/meets} m_c at the border. {PRONOUN/n_c:0/subject/CAP} {VERB/n_c:0/decide/decides} to keep {PRONOUN/n_c:0/poss} name.",
         "m_c": {
             "status": [
-                "leader", "deputy", "warrior", "medicine cat", "apprentice", "medicine cat apprentice", "mediator", "mediator apprentice"
+                "baron", "regent", "clipper", "medicine cat", "apprentice", "medicine cat apprentice", "mediator", "mediator apprentice"
             ]
         },
         "new_cat": [

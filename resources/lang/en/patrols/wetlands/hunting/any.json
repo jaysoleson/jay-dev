@@ -383,7 +383,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "deputy": [1, 6]
+            "regent": [1, 6]
         },
         "weight": 20,
         "intro_text": "r_c heads out into the swamps alone, wanting to sink their teeth into some prey and have some time to themselves.",
@@ -452,7 +452,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "leader": [1, 6]
+            "baron": [1, 6]
         },
         "weight": 20,
         "intro_text": "r_c heads out into the swamps alone, wanting to sink their teeth into some prey and have some time to themselves.",
@@ -1240,7 +1240,7 @@
                 "stat_skill": ["CLEVER,1"]
             },
             {
-                "text": "Something isn't right. Nervously pawing at the swampgrass, s_c thinks that the smell is too good to be true. They leave it, deciding to return to camp and report it to the deputy instead.",
+                "text": "Something isn't right. Nervously pawing at the swampgrass, s_c thinks that the smell is too good to be true. They leave it, deciding to return to camp and report it to the regent instead.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": [
@@ -1302,7 +1302,7 @@
                 "stat_skill": ["CLEVER,1"]
             },
             {
-                "text": "Something isn't right. Nervously pawing at the swampgrass, s_c thinks that the smell is too good to be true. They leave it, convincing the patrol to return to camp and report it to the deputy instead.",
+                "text": "Something isn't right. Nervously pawing at the swampgrass, s_c thinks that the smell is too good to be true. They leave it, convincing the patrol to return to camp and report it to the regent instead.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": [

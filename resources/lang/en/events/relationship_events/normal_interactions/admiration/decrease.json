@@ -104,24 +104,24 @@
 		"main_status_constraint": [
 			"elder",
 			"apprentice",
-			"warrior",
+			"clipper",
 			"mediator apprentice",
 			"mediator",
 			"medicine cat apprentice",
 			"medicine cat",
-			"deputy",
-			"leader"
+			"regent",
+			"baron"
 		],
 		"random_status_constraint": [
 			"elder",
 			"apprentice",
-			"warrior",
+			"clipper",
 			"mediator apprentice",
 			"mediator",
 			"medicine cat apprentice",
 			"medicine cat",
-			"deputy",
-			"leader"
+			"regent",
+			"baron"
 		]
 	},
 	{
@@ -149,15 +149,15 @@
 		],
 		"main_status_constraint": [
 			"apprentice",
-			"warrior",
-			"deputy",
-			"leader"
+			"clipper",
+			"regent",
+			"baron"
 		],
 		"random_status_constraint": [
 			"apprentice",
-			"warrior",
-			"deputy",
-			"leader"
+			"clipper",
+			"regent",
+			"baron"
 		]
 	},
 	{
@@ -169,21 +169,21 @@
 		"main_status_constraint": [
 			"elder",
 			"apprentice",
-			"warrior",
-			"deputy",
-			"leader",
+			"clipper",
+			"regent",
+			"baron",
 			"medicine cat",
 			"mediator"
 		],
 		"random_status_constraint": [
 			"apprentice",
-			"warrior",
+			"clipper",
 			"mediator apprentice",
 			"mediator",
 			"medicine cat apprentice",
 			"medicine cat",
-			"deputy",
-			"leader"
+			"regent",
+			"baron"
 		]
 	},
 	{

@@ -355,7 +355,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "deputy": [1, 6]
+            "regent": [1, 6]
         },
         "weight": 20,
         "intro_text": "r_c heads out into the desert alone, wanting to sink their teeth into some prey and have some time to themselves.",
@@ -424,7 +424,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "leader": [1, 6]
+            "baron": [1, 6]
         },
         "weight": 20,
         "intro_text": "r_c heads out into the desert alone, wanting to sink their teeth into some prey and have some time to themselves.",
@@ -499,7 +499,7 @@
         "chance_of_success": 60,
         "success_outcomes": [
             {
-                "text": "r_c immediately turns and heads for home to report this to their leader, alarmed by the sudden presence of Twolegs in their territory.",
+                "text": "r_c immediately turns and heads for home to report this to their baron, alarmed by the sudden presence of Twolegs in their territory.",
                 "exp": 20,
                 "weight": 20,
                 "prey": ["small"]
@@ -572,7 +572,7 @@
         "chance_of_success": 60,
         "success_outcomes": [
             {
-                "text": "The patrol immediately turns and heads for home to report this to their leader, alarmed by the sudden presence of Twolegs in their territory.",
+                "text": "The patrol immediately turns and heads for home to report this to their baron, alarmed by the sudden presence of Twolegs in their territory.",
                 "exp": 20,
                 "weight": 20,
                 "prey": ["small"]
@@ -591,7 +591,7 @@
                 "prey": ["small"]
             },
             {
-                "text": "s_c stops anyone from going near the Twolegs, repeating that true warriors have nothing to do with Twolegs and their monsters, and the patrol leaves back into the desert.",
+                "text": "s_c stops anyone from going near the Twolegs, repeating that true clippers have nothing to do with Twolegs and their monsters, and the patrol leaves back into the desert.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": [
@@ -645,7 +645,7 @@
         "chance_of_success": 10,
         "success_outcomes": [
             {
-                "text": "The patrol immediately turns and heads for home to report this to their leader, alarmed by the sudden presence of Twolegs in their territory.",
+                "text": "The patrol immediately turns and heads for home to report this to their baron, alarmed by the sudden presence of Twolegs in their territory.",
                 "exp": 20,
                 "weight": 20,
                 "prey": ["small"]
@@ -664,7 +664,7 @@
                 "prey": ["small"]
             },
             {
-                "text": "s_c stops anyone from going near the Twolegs, repeating that true warriors have nothing to do with Twolegs and their monsters, and the patrol leaves back into the desert.",
+                "text": "s_c stops anyone from going near the Twolegs, repeating that true clippers have nothing to do with Twolegs and their monsters, and the patrol leaves back into the desert.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": [
@@ -1783,7 +1783,7 @@
         ]
     },
     {
-        "patrol_id": "dst_hunt_mouse_warriorapp1",
+        "patrol_id": "dst_hunt_mouse_clipperapp1",
         "biome": ["desert"],
         "season": ["any"],
         "types": ["hunting"],
@@ -2140,7 +2140,7 @@
         },
         "weight": 20,
         "intro_text": "r_c is tempted to eat the prey they just caught.",
-        "decline_text": "r_c decides against breaking the Warrior Code",
+        "decline_text": "r_c decides against breaking the clipper Code",
         "chance_of_success": 50,
         "success_outcomes": [
             {
@@ -2176,7 +2176,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "r_c gives in to their grumbling belly, reasoning that no one will notice, but when they arrive back at camp empty-pawed and with blood on their lips they feel the stares of the warriors on their pelt. r_c slinks back to the apprentices' den, tail and ears low.",
+                "text": "r_c gives in to their grumbling belly, reasoning that no one will notice, but when they arrive back at camp empty-pawed and with blood on their lips they feel the stares of the clippers on their pelt. r_c slinks back to the apprentices' den, tail and ears low.",
                 "exp": 0,
                 "weight": 20,
                 "relationships": [
@@ -2206,7 +2206,7 @@
         },
         "weight": 20,
         "intro_text": "r_c is tempted to eat the prey they just caught.",
-        "decline_text": "r_c decides against breaking the Warrior Code",
+        "decline_text": "r_c decides against breaking the clipper Code",
         "chance_of_success": 50,
         "success_outcomes": [
             {
@@ -2256,7 +2256,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "r_c gives in to their grumbling belly, reasoning that no one will notice, but when the patrol reforms and r_c arrives back empty-pawed with blood on their lips they feel the suspicious stares of the other warriors on their pelt.",
+                "text": "r_c gives in to their grumbling belly, reasoning that no one will notice, but when the patrol reforms and r_c arrives back empty-pawed with blood on their lips they feel the suspicious stares of the other clippers on their pelt.",
                 "exp": 0,
                 "weight": 20,
                 "relationships": [
@@ -2278,7 +2278,7 @@
                 "prey": ["very_small"]
             },
             {
-                "text": "{PRONOUN/r_c/subject/CAP} {VERB/r_c/think/thinks} {PRONOUN/r_c/subject}{VERB/r_c/'ve/'s} gotten away with {PRONOUN/r_c/poss} clandestine snacking, but when r_c arrives back at camp, another patrol member pulls the deputy aside for a quiet word, glaring back at r_c. The deputy assigns {PRONOUN/r_c/object} to dig a new trench for the Clan's dirtplace, and r_c hears snide remarks when {PRONOUN/r_c/subject} slink in to {PRONOUN/r_c/poss} nest that night.",
+                "text": "{PRONOUN/r_c/subject/CAP} {VERB/r_c/think/thinks} {PRONOUN/r_c/subject}{VERB/r_c/'ve/'s} gotten away with {PRONOUN/r_c/poss} clandestine snacking, but when r_c arrives back at camp, another patrol member pulls the regent aside for a quiet word, glaring back at r_c. The regent assigns {PRONOUN/r_c/object} to dig a new trench for the Clan's dirtplace, and r_c hears snide remarks when {PRONOUN/r_c/subject} slink in to {PRONOUN/r_c/poss} nest that night.",
                 "exp": 0,
                 "weight": 20,
                 "relationships": [
@@ -2315,7 +2315,7 @@
         },
         "weight": 20,
         "intro_text": "r_c is tempted to eat the prey they just caught.",
-        "decline_text": "r_c decides against breaking the Warrior Code",
+        "decline_text": "r_c decides against breaking the clipper Code",
         "chance_of_success": 50,
         "success_outcomes": [
             {
@@ -2365,7 +2365,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "They think they've gotten away with their clandestine snacking, but when r_c arrives back at camp, another patrol member pulls the deputy aside for a quiet word, glaring back at r_c. The deputy assigns them to dig a new trench for the Clan's dirtplace; r_c prickles with humiliation and terrible smells.",
+                "text": "They think they've gotten away with their clandestine snacking, but when r_c arrives back at camp, another patrol member pulls the regent aside for a quiet word, glaring back at r_c. The regent assigns them to dig a new trench for the Clan's dirtplace; r_c prickles with humiliation and terrible smells.",
                 "exp": 0,
                 "weight": 20,
                 "relationships": [

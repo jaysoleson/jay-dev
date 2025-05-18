@@ -312,7 +312,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "deputy": [1, 6]
+            "regent": [1, 6]
         },
         "weight": 20,
         "intro_text": "r_c heads out onto the mountains alone, wanting to sink {PRONOUN/r_c/poss} teeth into some prey and have some time to {PRONOUN/r_c/self}.",
@@ -381,7 +381,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "leader": [1, 6]
+            "baron": [1, 6]
         },
         "weight": 20,
         "intro_text": "r_c heads out onto the mountains alone, wanting to sink {PRONOUN/r_c/poss} teeth into some prey and have some time to {PRONOUN/r_c/self}.",
@@ -651,7 +651,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "leader": [-1, -1]
+            "baron": [-1, -1]
         },
         "weight": 20,
         "intro_text": "r_c encounters a swarm of Twolegs, gathered at the foot of the mountain.",
@@ -659,7 +659,7 @@
         "chance_of_success": 60,
         "success_outcomes": [
             {
-                "text": "r_c immediately turns and heads for home to report this to {PRONOUN/r_c/poss} leader, alarmed by the sudden presence of Twolegs in their territory.",
+                "text": "r_c immediately turns and heads for home to report this to {PRONOUN/r_c/poss} baron, alarmed by the sudden presence of Twolegs in their territory.",
                 "exp": 20,
                 "weight": 20
             },
@@ -725,7 +725,7 @@
         "min_cats": 2,
         "max_cats": 3,
         "min_max_status": {
-            "leader": [-1, -1]
+            "baron": [-1, -1]
         },
         "weight": 20,
         "intro_text": "The patrol encounters a swarm of Twolegs, gathered at the foot of the mountain.",
@@ -733,7 +733,7 @@
         "chance_of_success": 60,
         "success_outcomes": [
             {
-                "text": "The patrol immediately turns and heads for home to report this to their leader, alarmed by the sudden presence of Twolegs in their territory.",
+                "text": "The patrol immediately turns and heads for home to report this to their baron, alarmed by the sudden presence of Twolegs in their territory.",
                 "exp": 20,
                 "weight": 20,
                 "prey": ["medium"]
@@ -752,7 +752,7 @@
                 "prey": ["medium"]
             },
             {
-                "text": "s_c stops anyone from going near the Twolegs, repeating that true warriors have nothing to do with Twolegs and their monsters, and the patrol leaves back up the mountain.",
+                "text": "s_c stops anyone from going near the Twolegs, repeating that true clippers have nothing to do with Twolegs and their monsters, and the patrol leaves back up the mountain.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": [
@@ -801,7 +801,7 @@
         "min_cats": 4,
         "max_cats": 6,
         "min_max_status": {
-            "leader": [-1, -1]
+            "baron": [-1, -1]
         },
         "weight": 20,
         "intro_text": "The patrol encounters a swarm of Twolegs, gathered at the foot of the mountain.",
@@ -809,7 +809,7 @@
         "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "The patrol immediately turns and heads for home to report this to their leader, alarmed by the sudden presence of Twolegs in their territory.",
+                "text": "The patrol immediately turns and heads for home to report this to their baron, alarmed by the sudden presence of Twolegs in their territory.",
                 "exp": 20,
                 "weight": 20,
                 "prey": ["large"]
@@ -828,7 +828,7 @@
                 "prey": ["large"]
             },
             {
-                "text": "s_c stops anyone from going near the Twolegs, repeating that true warriors have nothing to do with Twolegs and their monsters, and the patrol leaves back up the mountain.",
+                "text": "s_c stops anyone from going near the Twolegs, repeating that true clippers have nothing to do with Twolegs and their monsters, and the patrol leaves back up the mountain.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": [
@@ -1053,7 +1053,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "leader": [-1, -1]
+            "baron": [-1, -1]
         },
         "weight": 15,
         "intro_text": "As r_c pads through the shadowy trees, the sun already hidden by the mountain slopes, {PRONOUN/r_c/subject} {VERB/r_c/freeze/freezes}. Up ahead, a Twoleg peers down from above, its black wings a huge backdrop to hypnotic, glowing red eyes...",
@@ -1215,7 +1215,7 @@
         ]
     },
     {
-        "patrol_id": "mtn_hunt_mouse_warriorapp1",
+        "patrol_id": "mtn_hunt_mouse_clipperapp1",
         "biome": ["mountainous"],
         "season": ["any"],
         "types": ["hunting"],

@@ -399,7 +399,7 @@
         "decline_text": "A happier story, the cats ask, please. No one wants trouble sleeping tonight.",
         "success_outcomes": [
                 {
-                    "text": "A dead warrior woke in StarClan, business unfinished and hate for the living in their heart. They brought ruin and destruction upon the living Clan - but c_n was not without allies. The other cats of StarClan leapt to battle and tore a hole in Silverpelt, casting out the traitor, condemning them to walk a path of decay and cruelty.",
+                    "text": "A dead clipper woke in StarClan, business unfinished and hate for the living in their heart. They brought ruin and destruction upon the living Clan - but c_n was not without allies. The other cats of StarClan leapt to battle and tore a hole in Silverpelt, casting out the traitor, condemning them to walk a path of decay and cruelty.",
                     "exp": 30,
                     "weight": 20,
                     "relationships": [
@@ -427,7 +427,7 @@
                     ]
                 },
                 {
-                    "text": "s_c can't help but be overly fascinated as p_l speaks about how a warrior was so powerful that they needed to tear a hole in Silverpelt just to be able to stop them. s_c hopes to one day be that powerful.",
+                    "text": "s_c can't help but be overly fascinated as p_l speaks about how a clipper was so powerful that they needed to tear a hole in Silverpelt just to be able to stop them. s_c hopes to one day be that powerful.",
                     "exp": 30,
                     "weight": 20,
                     "can_have_stat": ["not_pl_rc"],
@@ -492,7 +492,7 @@
                     ]
                 },
                 {
-                    "text": "At the end of the tale, s_c is inspired by how strong the outcast warrior is, but going against StarClan, that seems like a fool's errand. While s_c wouldn't mind being free of some of the rules of the Clan, {PRONOUN/s_c/subject} wouldn't dare go against StarClan.",
+                    "text": "At the end of the tale, s_c is inspired by how strong the outcast clipper is, but going against StarClan, that seems like a fool's errand. While s_c wouldn't mind being free of some of the rules of the Clan, {PRONOUN/s_c/subject} wouldn't dare go against StarClan.",
                     "exp": 30,
                     "weight": 20,
                     "can_have_stat": ["not_pl_rc"],
@@ -611,7 +611,7 @@
         "decline_text": "The wind, howling and vast, drowns p_l out. There'll be no stories today.",
         "success_outcomes": [
                 {
-                    "text": "Once, long ago, cats roamed without a Clan, fending for themselves. Leaf-bare picked off the elderly, weak, and unlucky one by one, eating away at them. But one cat opened the warmth of their heart to shelter others in their nest, pelts sharing heat, many paws making light work. They became the first Leader, and those cats the first Clan.",
+                    "text": "Once, long ago, cats roamed without a Clan, fending for themselves. Leaf-bare picked off the elderly, weak, and unlucky one by one, eating away at them. But one cat opened the warmth of their heart to shelter others in their nest, pelts sharing heat, many paws making light work. They became the first baron, and those cats the first Clan.",
                     "exp": 40,
                     "weight": 20,
                     "relationships": [

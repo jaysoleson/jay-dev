@@ -1,34 +1,34 @@
 [
     {
-        "id": "gen_deputy",
+        "id": "gen_regent",
         "thoughts": [
             "Is assigning cats to a border patrol",
             "Is assigning cats to a hunting patrol",
-            "Is wondering what it would be like to be a leader",
+            "Is wondering what it would be like to be a baron",
             "Is stressed about organizing patrols",
             "Wonders who will give {PRONOUN/m_c/object} {PRONOUN/m_c/poss} nine lives",
             "Feels overworked",
             "Is hoping for a break",
             "Is assigning cats to the dawn patrol",
             "Can't believe {PRONOUN/m_c/subject} overslept today",
-            "Is unsure of what the rest of the Clan thinks of {PRONOUN/m_c/object} as deputy"
+            "Is unsure of what the rest of the Clan thinks of {PRONOUN/m_c/object} as regent"
         ]
     },
     {
-        "id": "deputy_alive_leader",
+        "id": "regent_alive_baron",
         "thoughts": [
-            "Is doing {PRONOUN/m_c/poss} best to honor {PRONOUN/m_c/poss} Clan and {PRONOUN/m_c/poss} leader",
-            "Must speak with the leader soon about something {PRONOUN/m_c/subject} found while out on patrol"
+            "Is doing {PRONOUN/m_c/poss} best to honor {PRONOUN/m_c/poss} Clan and {PRONOUN/m_c/poss} baron",
+            "Must speak with the baron soon about something {PRONOUN/m_c/subject} found while out on patrol"
         ],
         "random_status_constraint": [
-            "leader"
+            "baron"
         ],
         "random_living_status": [
             "living"
         ]
     },
     {
-      "id": "deputy_to_alive_apprentice",
+      "id": "regent_to_alive_apprentice",
         "thoughts": [
             "Is assessing the apprentices"
         ],
@@ -40,23 +40,23 @@
         ]
     },
     {
-        "id": "ambitious_deputy",
+        "id": "ambitious_regent",
         "thoughts": [
-            "Is imagining the respect {PRONOUN/m_c/subject}'d command as the leader of the Clan",
+            "Is imagining the respect {PRONOUN/m_c/subject}'d command as the baron of the Clan",
             "Is considering innovative strategies to earn more recognition",
-            "Feels a burning desire to prove {PRONOUN/m_c/self} worthy of leadership"
+            "Feels a burning desire to prove {PRONOUN/m_c/self} worthy of baronship"
         ],
         "main_trait_constraint": [
             "ambitious"
         ]
     },
     {
-      "id": "ambitious_teacher_deputy_to_leader",
+      "id": "ambitious_teacher_regent_to_baron",
         "thoughts": [
-            "Is planning a new training curriculum to impress the leader"
+            "Is planning a new training curriculum to impress the baron"
         ],
         "random_status_constraint": [
-            "leader"
+            "baron"
         ],
         "main_trait_constraint": [
             "ambitious"
@@ -69,7 +69,7 @@
         ]
     },
     {
-        "id": "bloodthirsty_deputy_to_gen",
+        "id": "bloodthirsty_regent_to_gen",
         "thoughts": [
             "Is fantasizing about leading the Clan into a victorious battle",
             "Feels a thrill imagining the chaos of a large-scale battle",
@@ -80,23 +80,23 @@
         ]
     },
     {
-      "id": "bloodthirsty_deputy_to_leader",
+      "id": "bloodthirsty_regent_to_baron",
         "thoughts": [
-            "Thinks about killing the leader and staging it as an accident",
-            "Encourages the leader to start a war"
+            "Thinks about killing the baron and staging it as an accident",
+            "Encourages the baron to start a war"
         ],
         "main_trait_constraint": [
             "bloodthirsty"
         ],
         "random_status_constraint": [
-            "leader"
+            "baron"
         ],
         "random_living_status": [
             "living"
         ]
     },
     {
-        "id": "fierce_deputy",
+        "id": "fierce_regent",
         "thoughts": [
             "Is sternly instructing a patrol about the importance of strength in defending the Clan",
             "Feels a rush of adrenaline at the thought of an upcoming battle",
@@ -107,10 +107,10 @@
         ]
     },
     {  
-        "id":"insecure_deputy",
+        "id":"insecure_regent",
         "thoughts": [
-            "Hopes {PRONOUN/m_c/subject}'ll make a decent leader someday",
-            "Wonders how {PRONOUN/m_c/subject} became deputy in the first place",
+            "Hopes {PRONOUN/m_c/subject}'ll make a decent baron someday",
+            "Wonders how {PRONOUN/m_c/subject} became regent in the first place",
             "Feels a pang of self-doubt when a patrol returns late",
             "Questions whether {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} respected or just tolerated by the Clan",
             "Worries that {PRONOUN/m_c/poss} mistakes will lead to the Clan's downfall"
@@ -120,22 +120,22 @@
         ]
     },
     {
-      "id": "insecure_deputy_to_leader",
+      "id": "insecure_regent_to_baron",
         "thoughts": [
-            "Keeps confirming with the leader that the patrols {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} organizing sound right"
+            "Keeps confirming with the baron that the patrols {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} organizing sound right"
         ],
         "main_trait_constraint":[
             "insecure"
         ],
         "random_status_constraint": [
-            "leader"
+            "baron"
         ],
         "random_living_status": [
             "living"
         ]
     },
     {
-        "id": "nervous_deputy",
+        "id": "nervous_regent",
         "thoughts": [
             "Is fretting over a recent increase in fox sightings near the camp",
             "Feels a twinge of worry about an approaching storm",
@@ -146,17 +146,17 @@
         ]
     },
     {
-        "id": "playful_deputy",
+        "id": "playful_regent",
         "thoughts": [
             "Is inventing a fun game to make patrol assignments more engaging",
-            "Finds joy in the simple tasks of a deputy's duty"
+            "Finds joy in the simple tasks of a regent's duty"
         ],
         "main_trait_constraint": [
             "playful"
         ]
     },
     {
-      "id": "playful_deputy_to_younger",
+      "id": "playful_regent_to_younger",
         "thoughts": [
             "Is amused by the antics of the younger cats"
         ],
@@ -169,7 +169,7 @@
         ]
     },
     {
-        "id": "rebellious_deputy",
+        "id": "rebellious_regent",
         "thoughts": [
             "Is questioning the necessity of an outdated tradition"
         ],
@@ -178,23 +178,23 @@
         ]
     },
     {
-      "id": "rebellious_deputy_to_leader",
+      "id": "rebellious_regent_to_baron",
         "thoughts": [
-            "Feels an urge to challenge the leader's decision for the betterment of the Clan",
-            "Decides to change patrol routes on {PRONOUN/m_c/poss} own, hoping the leader will see the benefits"
+            "Feels an urge to challenge the baron's decision for the betterment of the Clan",
+            "Decides to change patrol routes on {PRONOUN/m_c/poss} own, hoping the baron will see the benefits"
         ],
         "main_trait_constraint": [
             "rebellious"
         ],
         "random_status_constraint": [
-            "leader"
+            "baron"
         ],
         "random_living_status": [
             "living"
         ]
     },
     {
-        "id": "strange_deputy",
+        "id": "strange_regent",
         "thoughts": [
             "Accidentally assigns the same cat to three patrols",
             "Insists a hunting patrol needs to only bring back mice",
@@ -207,7 +207,7 @@
         ]
     },
     {
-        "id": "wise_deputy",
+        "id": "wise_regent",
         "thoughts": [
             "Is reflecting on a past lesson to make a crucial decision",
             "Ponders how {PRONOUN/m_c/poss} decisions will impact the Clan in the long term",
@@ -218,7 +218,7 @@
         ]
     },
     {
-      "id": "wise_deputy_to_apprentice",
+      "id": "wise_regent_to_apprentice",
         "thoughts": [
             "Is sharing words of wisdom with a confused apprentice"
         ],
@@ -233,7 +233,7 @@
         ]
     },
     {
-        "id": "clever_deputy",
+        "id": "clever_regent",
         "thoughts": [
             "Is solving a complex problem that has been troubling the Clan",
             "Feels intrigued by a recent challenge and is strategizing solutions",
@@ -244,9 +244,9 @@
         ]
     },
     {
-        "id": "fighter_deputy",
+        "id": "fighter_regent",
         "thoughts": [
-            "Is instructing a group of warriors in advanced combat techniques",
+            "Is instructing a group of clippers in advanced combat techniques",
             "Feels a sense of protectiveness towards the Clan, ready to defend them at any moment",
             "Is assessing the Clan's physical strength and readiness for potential threats",
             "Organizes a mock battle to keep the Clan's skills sharp"
@@ -256,7 +256,7 @@
         ]
     },
     {
-        "id": "healer_deputy",
+        "id": "healer_regent",
         "thoughts": [
             "Helps a Clanmate get a thorn out of their paw while out on patrol",
             "Feels empathy for a sick Clanmate and is thinking of ways to help",
@@ -267,7 +267,7 @@
         ]
     },
     {
-      "id": "healer_deputy_to_medcat",
+      "id": "healer_regent_to_medcat",
         "thoughts": [
             "Takes a patrol out to gather herbs for the medicine cat den"
         ],
@@ -282,7 +282,7 @@
         ]
     },
     {
-        "id": "hunter_deputy",
+        "id": "hunter_regent",
         "thoughts": [
             "Makes sure no area of the territory is overhunted",
             "Feels a rush of anticipation at the prospect of a successful hunt",
@@ -293,7 +293,7 @@
         ]
     },
     {
-        "id": "story_deputy",
+        "id": "story_regent",
         "thoughts": [
             "Is recalling an old story that might inspire the Clan in tough times",
             "Feels inspired to craft a new legend based on recent events",
@@ -304,7 +304,7 @@
         ]
     },
     {
-      "id": "story_deputy_to_apprentice",
+      "id": "story_regent_to_apprentice",
         "thoughts": [
             "Is sharing tales of the Clan's legacy with wide-eyed apprentices"
         ],
@@ -319,7 +319,7 @@
         ]
     },
     {
-        "id": "teacher_deputy",
+        "id": "teacher_regent",
         "thoughts": [
             "Is devising an effective teaching strategy for new skills",
             "Encourages the older cats to share their skills and techniques with the younger generations"
@@ -329,7 +329,7 @@
         ]
     },
     {
-      "id": "teacher_deputy_to_apprentice",
+      "id": "teacher_regent_to_apprentice",
         "thoughts": [
             "Feels satisfaction watching an apprentice master a lesson",
             "Guides an apprentice through {PRONOUN/m_c/poss} hunting assessment"
@@ -345,12 +345,12 @@
         ]
     },
     {
-        "id": "deputy_dead_deputy",
+        "id": "regent_dead_regent",
         "thoughts": [
             "Wishes {PRONOUN/m_c/subject} could speak to r_c to learn how to assign patrols better"
         ],
         "random_status_constraint": [
-            "deputy"
+            "regent"
         ],
         "random_living_status": [
             "starclan"

@@ -617,10 +617,10 @@ class ClearingScreen(Screens):
 
         current_prey_amount = game.clan.freshkill_pile.total_amount
         needed_amount = game.clan.freshkill_pile.amount_food_needed()
-        warrior_need = game.prey_config["prey_requirement"]["warrior"]
-        warrior_amount = int(current_prey_amount / warrior_need)
+        clipper_need = game.prey_config["prey_requirement"]["clipper"]
+        clipper_amount = int(current_prey_amount / clipper_need)
         general_text = i18n.t(
-            "screens.clearing.prey_amount_info", warrior_amount=warrior_amount
+            "screens.clearing.prey_amount_info", clipper_amount=clipper_amount
         )
 
         concern_text = "This should not appear."
@@ -795,7 +795,7 @@ class ClearingScreen(Screens):
                     "number": str(n),
                     "status": i18n.t(
                         f"general.{status}",
-                        count=2 if status not in ["leader", "deputy"] else 1,
+                        count=2 if status not in ["baron", "regent"] else 1,
                     ),
                     "prey": i18n.t("screens.clearing.prey_count", count=amount),
                 },

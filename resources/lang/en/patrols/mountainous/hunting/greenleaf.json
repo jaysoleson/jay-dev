@@ -1228,8 +1228,8 @@
         "min_cats": 3,
         "max_cats": 6,
         "min_max_status": {
-            "deputy": [1, 6],
-            "leader": [-1, -1]
+            "regent": [1, 6],
+            "baron": [-1, -1]
         },
         "weight": 20,
         "intro_text": "As the patrol walks through the wooded slopes, a loud chittering from above interrupts them. r_c looks up just in time to get a shower of twigs and leaves to the face, while p_l exclaims aloud when {PRONOUN/p_l/subject} {VERB/p_l/spot/spots} squirrels darting through the branches above.",
@@ -1421,7 +1421,7 @@
         },
         "weight": 20,
         "intro_text": "The two siblings head out together, declaring a friendly competition to stock the fresh-kill pile. There's no better time of year to hunt, no easier time to hone their skills, and they're going to take advantage of it!",
-        "decline_text": "Their mentors hold them back with a gentle word - the warriors have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -1513,7 +1513,7 @@
         },
         "weight": 20,
         "intro_text": "It's nice to get the chance to go out hunting with app2. app1 knows they're still in the apprentices' den, but with different mentors and focuses and skills - it's not the same as it was back in the nursery as littermates. And the greenleaf sun is so warm and bright!",
-        "decline_text": "Their mentors hold them back with a gentle word - the warriors have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -1572,7 +1572,7 @@
         },
         "weight": 20,
         "intro_text": "The clouds are out, making the world murky after all the recent sunny days. And just like the clouds, app1 and {PRONOUN/app1/poss} littermate are everywhere today, sticking their heads into every unexplored corner of the territory. All in the name of hunting, of course!",
-        "decline_text": "Their mentors hold them back with a gentle word - the warriors have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -1631,7 +1631,7 @@
         },
         "weight": 20,
         "intro_text": "The three siblings head out together, declaring a friendly competition to stock the fresh-kill pile. There's no better time of year to hunt, no easier time to hone their skills, and they're going to take advantage of it!",
-        "decline_text": "Their mentors hold them back with a gentle word - the warriors have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -1721,7 +1721,7 @@
         },
         "weight": 20,
         "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the apprentices' den, but with different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} littermates. And the greenleaf sun is so warm and bright!",
-        "decline_text": "Their mentors hold them back with a gentle word - the warriors have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -1780,7 +1780,7 @@
         },
         "weight": 20,
         "intro_text": "The clouds are out, making the world murky after all the recent sunny days. And just like the clouds, app1 and {PRONOUN/app1/poss} littermates are everywhere today, sticking their heads into every unexplored corner of the territory. All in the name of hunting, of course!",
-        "decline_text": "Their mentors hold them back with a gentle word - the warriors have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -1839,7 +1839,7 @@
         },
         "weight": 20,
         "intro_text": "The four siblings head out together, declaring a friendly competition to stock the fresh-kill pile. There's no better time of year to hunt, no easier time to hone their skills, and they're going to take advantage of it!",
-        "decline_text": "Their mentors hold them back with a gentle word - the warriors have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -1929,7 +1929,7 @@
         },
         "weight": 20,
         "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the apprentices' den, but with different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} littermates. And the greenleaf sun is so warm and bright!",
-        "decline_text": "Their mentors hold them back with a gentle word - the warriors have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -1988,7 +1988,7 @@
         },
         "weight": 20,
         "intro_text": "The clouds are out, making the world murky after all the recent sunny days. And just like the clouds, app1 and {PRONOUN/app1/poss} littermates are everywhere today, sticking their heads into every unexplored corner of the territory. All in the name of hunting, of course!",
-        "decline_text": "Their mentors hold them back with a gentle word - the warriors have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -2047,7 +2047,7 @@
         },
         "weight": 20,
         "intro_text": "The five siblings head out together, declaring a friendly competition to stock the fresh-kill pile. There's no better time of year to hunt, no easier time to hone their skills, and they're going to take advantage of it!",
-        "decline_text": "Their mentors hold them back with a gentle word - the warriors have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -2137,7 +2137,7 @@
         },
         "weight": 20,
         "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the apprentices' den, but with different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} littermates. And the greenleaf sun is so warm and bright!",
-        "decline_text": "Their mentors hold them back with a gentle word - the warriors have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -2196,7 +2196,7 @@
         },
         "weight": 20,
         "intro_text": "The clouds are out, making the world murky after all the recent sunny days. And just like the clouds, app1 and {PRONOUN/app1/poss} littermates are everywhere today, sticking their heads into every unexplored corner of the territory. All in the name of hunting, of course!",
-        "decline_text": "Their mentors hold them back with a gentle word - the warriors have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -2254,7 +2254,7 @@
         },
         "weight": 20,
         "intro_text": "The six siblings head out together, declaring a friendly competition to stock the fresh-kill pile. There's no better time of year to hunt, no easier time to hone their skills, and they're going to take advantage of it!",
-        "decline_text": "Their mentors hold them back with a gentle word - the warriors have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -2343,7 +2343,7 @@
         },
         "weight": 20,
         "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the apprentices' den, but with different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} littermates. And the greenleaf sun is so warm and bright!",
-        "decline_text": "Their mentors hold them back with a gentle word - the warriors have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -2401,7 +2401,7 @@
         },
         "weight": 20,
         "intro_text": "The clouds are out, making the world murky after all the recent sunny days. And just like the clouds, app1 and {PRONOUN/app1/poss} littermates are everywhere today, sticking their heads into every unexplored corner of the territory. All in the name of hunting, of course!",
-        "decline_text": "Their mentors hold them back with a gentle word - the warriors have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -2446,7 +2446,7 @@
         ]
     },
     {
-        "patrol_id": "mtn_hunt_random_greenleaf_siblings1warrior1applocked1",
+        "patrol_id": "mtn_hunt_random_greenleaf_siblings1clipper1applocked1",
         "biome": ["mountainous"],
         "season": ["greenleaf"],
         "types": ["hunting"],
@@ -2508,7 +2508,7 @@
         ]
     },
     {
-        "patrol_id": "mtn_hunt_random_greenleaf_siblings1warrior1applocked2",
+        "patrol_id": "mtn_hunt_random_greenleaf_siblings1clipper1applocked2",
         "biome": ["mountainous"],
         "season": ["greenleaf"],
         "types": ["hunting"],
@@ -2579,7 +2579,7 @@
         ]
     },
     {
-        "patrol_id": "mtn_hunt_random_greenleaf_siblings1warrior1applocked3",
+        "patrol_id": "mtn_hunt_random_greenleaf_siblings1clipper1applocked3",
         "biome": ["mountainous"],
         "season": ["greenleaf"],
         "types": ["hunting"],
@@ -2650,7 +2650,7 @@
         ]
     },
     {
-        "patrol_id": "mtn_hunt_random_greenleaf_siblings2to5warrior1applocked1",
+        "patrol_id": "mtn_hunt_random_greenleaf_siblings2to5clipper1applocked1",
         "biome": ["mountainous"],
         "season": ["greenleaf"],
         "types": ["hunting"],
@@ -2712,7 +2712,7 @@
         ]
     },
     {
-        "patrol_id": "mtn_hunt_random_greenleaf_siblings2to5warrior1applocked2",
+        "patrol_id": "mtn_hunt_random_greenleaf_siblings2to5clipper1applocked2",
         "biome": ["mountainous"],
         "season": ["greenleaf"],
         "types": ["hunting"],
@@ -2732,7 +2732,7 @@
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
             {
-                "text": "Taking down a m_mp_s all by {PRONOUN/app1/self}, app1 feels twice {PRONOUN/app1/poss} actual size showing it to {PRONOUN/app1/poss} older, fully-named warrior siblings.",
+                "text": "Taking down a m_mp_s all by {PRONOUN/app1/self}, app1 feels twice {PRONOUN/app1/poss} actual size showing it to {PRONOUN/app1/poss} older, fully-named clipper siblings.",
                 "exp": 30,
                 "weight": 20,
                 "prey": ["medium"],
@@ -2783,7 +2783,7 @@
         ]
     },
     {
-        "patrol_id": "mtn_hunt_random_greenleaf_siblings2warriorslocked1",
+        "patrol_id": "mtn_hunt_random_greenleaf_siblings2clipperslocked1",
         "biome": ["mountainous"],
         "season": ["greenleaf"],
         "types": ["hunting"],
@@ -2795,7 +2795,7 @@
             "all apprentices": [-1, -1]
         },
         "weight": 20,
-        "intro_text": "Baking heat is a weather condition cats usually spend all leaf-bare longing for, but warriors forget it's not fun to pad through, and p_l is out on a hunting patrol with r_c.",
+        "intro_text": "Baking heat is a weather condition cats usually spend all leaf-bare longing for, but clippers forget it's not fun to pad through, and p_l is out on a hunting patrol with r_c.",
         "decline_text": "Actually, {PRONOUN/p_l/subject}'d rather try fishing for prey. {PRONOUN/p_l/subject/CAP} {VERB/p_l/wave/waves} {PRONOUN/p_l/poss} sibling off with a flick of {PRONOUN/p_l/poss} tail and {VERB/p_l/settle/settles} down at a mountain stream.",
         "chance_of_success": 50,
         "relationship_constraint": ["siblings"],
@@ -2816,7 +2816,7 @@
                 ]
             },
             {
-                "text": "The hunting patrol is perfectly successful and it matters not a whit to either of the warriors, because p_l makes a joke that {PRONOUN/p_l/subject} {VERB/p_l/think/thinks} is funny but that's always gotten on r_c's nerves and suddenly they're both acting like apprentices again, snippy, immature, and irritable.",
+                "text": "The hunting patrol is perfectly successful and it matters not a whit to either of the clippers, because p_l makes a joke that {PRONOUN/p_l/subject} {VERB/p_l/think/thinks} is funny but that's always gotten on r_c's nerves and suddenly they're both acting like apprentices again, snippy, immature, and irritable.",
                 "exp": 20,
                 "weight": 5,
                 "prey": ["large"],
@@ -2857,7 +2857,7 @@
         ]
     },
     {
-        "patrol_id": "mtn_hunt_random_greenleaf_siblings2warriorslocked2",
+        "patrol_id": "mtn_hunt_random_greenleaf_siblings2clipperslocked2",
         "biome": ["mountainous"],
         "season": ["greenleaf"],
         "types": ["hunting"],
@@ -2897,7 +2897,7 @@
                 ]
             },
             {
-                "text": "There's just something nice about hanging out with another warrior who'll always be there for {PRONOUN/r_c/object}, regardless of their similarities and differences. And they also bring back a good-sized m_mp_s with some m_tp_p on the side for the fresh-kill pile.",
+                "text": "There's just something nice about hanging out with another clipper who'll always be there for {PRONOUN/r_c/object}, regardless of their similarities and differences. And they also bring back a good-sized m_mp_s with some m_tp_p on the side for the fresh-kill pile.",
                 "exp": 20,
                 "weight": 5,
                 "prey": ["large"],
@@ -2952,7 +2952,7 @@
         ]
     },
     {
-        "patrol_id": "mtn_hunt_random_greenleaf_siblings2warriorslocked3",
+        "patrol_id": "mtn_hunt_random_greenleaf_siblings2clipperslocked3",
         "biome": ["mountainous"],
         "season": ["greenleaf"],
         "types": ["hunting"],
@@ -3039,7 +3039,7 @@
         ]
     },
     {
-        "patrol_id": "mtn_hunt_random_greenleaf_siblings2warriorslocked4",
+        "patrol_id": "mtn_hunt_random_greenleaf_siblings2clipperslocked4",
         "biome": ["mountainous"],
         "season": ["greenleaf"],
         "types": ["hunting"],
@@ -3128,7 +3128,7 @@
         ]
     },
     {
-        "patrol_id": "mtn_hunt_random_greenleaf_siblings2warriorslocked5",
+        "patrol_id": "mtn_hunt_random_greenleaf_siblings2clipperslocked5",
         "biome": ["mountainous"],
         "season": ["greenleaf"],
         "types": ["hunting"],
@@ -3199,7 +3199,7 @@
         ]
     },
     {
-        "patrol_id": "mtn_hunt_random_greenleaf_siblings3to6warriorslocked1",
+        "patrol_id": "mtn_hunt_random_greenleaf_siblings3to6clipperslocked1",
         "biome": ["mountainous"],
         "season": ["greenleaf"],
         "types": ["hunting"],
@@ -3211,7 +3211,7 @@
             "all apprentices": [-1, -1]
         },
         "weight": 20,
-        "intro_text": "Baking heat is a weather condition cats usually spend all leaf-bare longing for, but warriors forget it's not fun to suffer through on a patrol. p_l is out on one such hunting patrol with {PRONOUN/p_l/poss} siblings.",
+        "intro_text": "Baking heat is a weather condition cats usually spend all leaf-bare longing for, but clippers forget it's not fun to suffer through on a patrol. p_l is out on one such hunting patrol with {PRONOUN/p_l/poss} siblings.",
         "decline_text": "Actually, {PRONOUN/p_l/subject}'d rather try fishing for prey. {PRONOUN/p_l/subject/CAP} {VERB/p_l/wave/waves} {PRONOUN/p_l/poss} siblings off with a flick of {PRONOUN/p_l/poss} tail and {VERB/p_l/settle/settles} down at a mountain stream.",
         "chance_of_success": 50,
         "relationship_constraint": ["siblings"],
@@ -3232,7 +3232,7 @@
                 ]
             },
             {
-                "text": "The hunting patrol is perfectly successful and it matters not a whit to any of the warriors, because p_l makes a joke that {PRONOUN/p_l/subject} {VERB/p_l/think/thinks} is funny but that's always gotten on r_c's nerves and suddenly everyone's acting like apprentices again, snippy, immature, and irritable.",
+                "text": "The hunting patrol is perfectly successful and it matters not a whit to any of the clippers, because p_l makes a joke that {PRONOUN/p_l/subject} {VERB/p_l/think/thinks} is funny but that's always gotten on r_c's nerves and suddenly everyone's acting like apprentices again, snippy, immature, and irritable.",
                 "exp": 20,
                 "weight": 5,
                 "prey": ["large"],
@@ -3273,7 +3273,7 @@
         ]
     },
     {
-        "patrol_id": "mtn_hunt_random_greenleaf_siblings3to6warriorslocked2",
+        "patrol_id": "mtn_hunt_random_greenleaf_siblings3to6clipperslocked2",
         "biome": ["mountainous"],
         "season": ["greenleaf"],
         "types": ["hunting"],
@@ -3313,7 +3313,7 @@
                 ]
             },
             {
-                "text": "There's just something nice about hanging out with other warriors who'll always be there for {PRONOUN/r_c/object}, regardless of their similarities and differences. And they also bring back a good-sized m_mp_s with some m_tp_p on the side for the fresh-kill pile.",
+                "text": "There's just something nice about hanging out with other clippers who'll always be there for {PRONOUN/r_c/object}, regardless of their similarities and differences. And they also bring back a good-sized m_mp_s with some m_tp_p on the side for the fresh-kill pile.",
                 "exp": 20,
                 "weight": 5,
                 "prey": ["large"],
@@ -3368,7 +3368,7 @@
         ]
     },
     {
-        "patrol_id": "mtn_hunt_random_greenleaf_siblings3to6warriorslocked3",
+        "patrol_id": "mtn_hunt_random_greenleaf_siblings3to6clipperslocked3",
         "biome": ["mountainous"],
         "season": ["greenleaf"],
         "types": ["hunting"],
@@ -3455,7 +3455,7 @@
         ]
     },
     {
-        "patrol_id": "mtn_hunt_random_greenleaf_siblings3to6warriorslocked4",
+        "patrol_id": "mtn_hunt_random_greenleaf_siblings3to6clipperslocked4",
         "biome": ["mountainous"],
         "season": ["greenleaf"],
         "types": ["hunting"],
@@ -3544,7 +3544,7 @@
         ]
     },
     {
-        "patrol_id": "mtn_hunt_random_greenleaf_siblings3to6warriorslocked5",
+        "patrol_id": "mtn_hunt_random_greenleaf_siblings3to6clipperslocked5",
         "biome": ["mountainous"],
         "season": ["greenleaf"],
         "types": ["hunting"],

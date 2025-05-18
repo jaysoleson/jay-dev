@@ -44,7 +44,7 @@ class Patrol:
     def __init__(self):
         self.patrol_event: Optional[PatrolEvent] = None
 
-        self.patrol_leader = None
+        self.patrol_baron = None
         self.random_cat = None
         self.patrol_cats = []
         self.patrol_apprentices = []
@@ -113,7 +113,7 @@ class Patrol:
 
         if romantic_event_choice and Patrol.decide_if_romantic(
             romantic_event_choice,
-            self.patrol_leader,
+            self.patrol_baron,
             self.random_cat,
             self.patrol_apprentices,
         ):
@@ -182,7 +182,7 @@ class Patrol:
                     self.patrol_statuses["all apprentices"] = 1
 
             if (
-                cat.status in ("warrior", "deputy", "leader")
+                cat.status in ("clipper", "regent", "baron")
                 and cat.age != CatAgeEnum.ADOLESCENT
             ):
                 if "normal adult" in self.patrol_statuses:
@@ -192,44 +192,44 @@ class Patrol:
 
             game.patrolled.append(cat.ID)
 
-        # PATROL LEADER AND RANDOM CAT CAN NOT CHANGE AFTER SET-UP
+        # PATROL baron AND RANDOM CAT CAN NOT CHANGE AFTER SET-UP
 
-        # DETERMINE PATROL LEADER
-        # sets medcat as leader if they're in the patrol
+        # DETERMINE PATROL baron
+        # sets medcat as baron if they're in the patrol
         if "medicine cat" in self.patrol_status_list:
             index = self.patrol_status_list.index("medicine cat")
-            self.patrol_leader = self.patrol_cats[index]
-        # If there is no medicine cat, but there is a medicine cat apprentice, set them as the patrol leader.
-        # This prevents warrior from being treated as medicine cats in medicine cat patrols.
+            self.patrol_baron = self.patrol_cats[index]
+        # If there is no medicine cat, but there is a medicine cat apprentice, set them as the patrol baron.
+        # This prevents clipper from being treated as medicine cats in medicine cat patrols.
         elif "medicine cat apprentice" in self.patrol_status_list:
             index = self.patrol_status_list.index("medicine cat apprentice")
-            self.patrol_leader = self.patrol_cats[index]
+            self.patrol_baron = self.patrol_cats[index]
             # then we just make sure that this app will also be app1
-            self.patrol_apprentices.remove(self.patrol_leader)
-            self.patrol_apprentices = [self.patrol_leader] + self.patrol_apprentices
-        # sets leader as patrol leader
-        elif "leader" in self.patrol_status_list:
-            index = self.patrol_status_list.index("leader")
-            self.patrol_leader = self.patrol_cats[index]
-        elif "deputy" in self.patrol_status_list:
-            index = self.patrol_status_list.index("deputy")
-            self.patrol_leader = self.patrol_cats[index]
+            self.patrol_apprentices.remove(self.patrol_baron)
+            self.patrol_apprentices = [self.patrol_baron] + self.patrol_apprentices
+        # sets baron as patrol baron
+        elif "baron" in self.patrol_status_list:
+            index = self.patrol_status_list.index("baron")
+            self.patrol_baron = self.patrol_cats[index]
+        elif "regent" in self.patrol_status_list:
+            index = self.patrol_status_list.index("regent")
+            self.patrol_baron = self.patrol_cats[index]
         else:
             # Get the oldest cat
-            possible_leader = [
+            possible_baron = [
                 i
                 for i in self.patrol_cats
                 if i.status not in ["medicine cat apprentice", "apprentice"]
             ]
-            if possible_leader:
+            if possible_baron:
                 # Flip a coin to pick the most experience, or oldest.
                 if randint(0, 1):
-                    possible_leader.sort(key=lambda x: x.moons)
+                    possible_baron.sort(key=lambda x: x.moons)
                 else:
-                    possible_leader.sort(key=lambda x: x.experience)
-                self.patrol_leader = possible_leader[-1]
+                    possible_baron.sort(key=lambda x: x.experience)
+                self.patrol_baron = possible_baron[-1]
             else:
-                self.patrol_leader = choice(self.patrol_cats)
+                self.patrol_baron = choice(self.patrol_cats)
 
         if clan.all_clans and len(clan.all_clans) > 0:
             self.other_clan = choice(clan.all_clans)
@@ -240,12 +240,12 @@ class Patrol:
         # Find random cat
         if len(patrol_cats) > 1:
             self.random_cat = choice(
-                [i for i in patrol_cats if i != self.patrol_leader]
+                [i for i in patrol_cats if i != self.patrol_baron]
             )
         else:
             self.random_cat = choice(patrol_cats)
 
-        print("Patrol Leader:", str(self.patrol_leader.name))
+        print("Patrol baron:", str(self.patrol_baron.name))
         print("Random Cat:", str(self.random_cat.name))
 
     def get_possible_patrols(
@@ -461,13 +461,13 @@ class Patrol:
             group=self.patrol_cats,
             filter_types=patrol.relationship_constraints,
             event_id=patrol.patrol_id,
-            patrol_leader=self.patrol_leader,
+            patrol_baron=self.patrol_baron,
         ):
             return False
 
         if (
             patrol.pl_skill_constraints
-            and not self.patrol_leader.skills.check_skill_requirement_list(
+            and not self.patrol_baron.skills.check_skill_requirement_list(
                 patrol.pl_skill_constraints
             )
         ):
@@ -475,7 +475,7 @@ class Patrol:
 
         if (
             patrol.pl_trait_constraints
-            and self.patrol_leader.personality.trait not in patrol.pl_trait_constraints
+            and self.patrol_baron.personality.trait not in patrol.pl_trait_constraints
         ):
             return False
 
@@ -483,7 +483,7 @@ class Patrol:
 
     @staticmethod
     def decide_if_romantic(
-        romantic_event, patrol_leader, random_cat, patrol_apprentices: list
+        romantic_event, patrol_baron, random_cat, patrol_apprentices: list
     ) -> bool:
         # if no romance was available or the patrol lead and random cat aren't potential mates then use the normal event
 
@@ -498,7 +498,7 @@ class Patrol:
             love1 = patrol_apprentices[0]
             love2 = patrol_apprentices[1]
         else:
-            love1 = patrol_leader
+            love1 = patrol_baron
             love2 = random_cat
 
         if (
@@ -942,7 +942,7 @@ class Patrol:
             text = "This should not appear, report as a bug please!"
 
         replace_dict = {
-            "p_l": (str(self.patrol_leader.name), choice(self.patrol_leader.pronouns)),
+            "p_l": (str(self.patrol_baron.name), choice(self.patrol_baron.pronouns)),
             "r_c": (
                 str(self.random_cat.name),
                 choice(self.random_cat.pronouns),
@@ -952,7 +952,7 @@ class Patrol:
         other_cats = [
             i
             for i in self.patrol_cats
-            if i not in [self.patrol_leader, self.random_cat]
+            if i not in [self.patrol_baron, self.random_cat]
         ]
         if len(other_cats) >= 1:
             replace_dict["o_c1"] = (
@@ -1110,9 +1110,9 @@ This is a good starting point for writing your own patrols.
         "apprentice": [0, 6],
         "medicine cat apprentice": [0, 6],
         "medicine cat": [0, 6],
-        "deputy": [0, 6]
-        "warrior": [0, 6],
-        "leader": [0, 6],
+        "regent": [0, 6]
+        "clipper": [0, 6],
+        "baron": [0, 6],
         "healer cats": [0, 6],
         "normal_adult": [1, 6],
         "all apprentices": [1, 6]
@@ -1197,7 +1197,7 @@ This is a good starting point for writing your own outcomes.
     ]
     "history_text": {
         "reg_death": "m_c died while on a patrol.",
-        "leader_death": "died on patrol",
+        "baron_death": "died on patrol",
         "scar": "m_c was scarred on patrol",
     }
     "relationships": [

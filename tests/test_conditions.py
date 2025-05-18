@@ -13,7 +13,7 @@ from scripts.conditions import medicine_cats_can_cover_clan
 class TestsMedCondition(unittest.TestCase):
     def test_fulfilled(self):
         cat1 = Cat(moons=20)
-        cat1.status = "warrior"
+        cat1.status = "clipper"
 
         med = Cat(moons=20)
         med.status = "medicine cat"
@@ -23,13 +23,13 @@ class TestsMedCondition(unittest.TestCase):
 
     def test_fulfilled_many_cats(self):
         cat1 = Cat(moons=20)
-        cat1.status = "warrior"
+        cat1.status = "clipper"
         cat2 = Cat(moons=20)
-        cat2.status = "warrior"
+        cat2.status = "clipper"
         cat3 = Cat(moons=20)
-        cat3.status = "warrior"
+        cat3.status = "clipper"
         cat4 = Cat(moons=20)
-        cat4.status = "warrior"
+        cat4.status = "clipper"
 
         med1 = Cat(moons=20)
         med1.status = "medicine cat"
@@ -41,7 +41,7 @@ class TestsMedCondition(unittest.TestCase):
 
     def test_injured_fulfilled(self):
         cat1 = Cat(moons=20)
-        cat1.status = "warrior"
+        cat1.status = "clipper"
 
         med = Cat(moons=20)
         med.status = "medicine cat"
@@ -52,7 +52,7 @@ class TestsMedCondition(unittest.TestCase):
 
     def test_illness_fulfilled(self):
         cat1 = Cat(moons=20)
-        cat1.status = "warrior"
+        cat1.status = "clipper"
 
         med = Cat(moons=20)
         med.status = "medicine cat"

@@ -147,11 +147,11 @@
           "properties": {
             "reg_death": {
               "type": "string",
-              "description": "Death history text for non-leaders. Whole sentence."
+              "description": "Death history text for non-barons. Whole sentence."
             },
             "lead_death": {
               "type": "string",
-              "description": "Death history text for leaders. Sentence fragment."
+              "description": "Death history text for barons. Sentence fragment."
             },
             "scar": {
               "type": "string",
@@ -329,9 +329,9 @@
         "propertyNames": {
           "enum": [
             "medicine cat",
-            "warrior",
-            "leader",
-            "deputy",
+            "clipper",
+            "baron",
+            "regent",
             "apprentice",
             "medicine cat apprentice",
             "healer cats",
@@ -406,7 +406,7 @@
         }
       },
       "pl_skill_constraint": {
-        "description": "Only allow this patrol if the patrol leader (p_l) meets at least one of these skill requirements.",
+        "description": "Only allow this patrol if the patrol baron (p_l) meets at least one of these skill requirements.",
         "type": "array",
         "items": {
           "$ref": "common.schema.json#/definitions/skill"

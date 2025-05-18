@@ -725,7 +725,7 @@
         "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "It definitely distracts {PRONOUN/p_l/object} from the hunt for cobwebs, but p_l uses the time by {PRONOUN/p_l/self} to put {PRONOUN/p_l/poss} thoughts in order. The sign from {PRONOUN/p_l/poss} ancestors will need acting upon, and {PRONOUN/p_l/subject} {VERB/p_l/return/returns} to camp to assemble the leader and deputy.",
+                "text": "It definitely distracts {PRONOUN/p_l/object} from the hunt for cobwebs, but p_l uses the time by {PRONOUN/p_l/self} to put {PRONOUN/p_l/poss} thoughts in order. The sign from {PRONOUN/p_l/poss} ancestors will need acting upon, and {PRONOUN/p_l/subject} {VERB/p_l/return/returns} to camp to assemble the baron and regent.",
                 "exp": 20,
                 "weight": 20
             },
@@ -755,7 +755,7 @@
                 "herbs": ["cobwebs"]
             },
             {
-                "text": "s_c immediately decides to give up on hunting cobwebs to speak to the leader about {PRONOUN/s_c/poss} vision.",
+                "text": "s_c immediately decides to give up on hunting cobwebs to speak to the baron about {PRONOUN/s_c/poss} vision.",
                 "exp": 10,
                 "weight": 20,
                 "stat_trait":[
@@ -835,7 +835,7 @@
         "min_max_status": {
             "medicine cat apprentice": [1, 1],
             "medicine cat": [1, 1],
-            "warrior": [-1, -1],
+            "clipper": [-1, -1],
             "apprentice":[-1, -1]
         },
         "weight": 20,
@@ -1704,7 +1704,7 @@
             "normal adult": [1, 6]
         },
         "weight": 5,
-        "intro_text": "To p_l's concern, {PRONOUN/p_l/poss} warrior escort is unusually quiet. When prompted on {PRONOUN/r_c/poss} troubles, r_c comments that {PRONOUN/r_c/subject} could not help but think of what legacy {PRONOUN/r_c/subject} would leave behind if StarClan called upon {PRONOUN/r_c/object}.",
+        "intro_text": "To p_l's concern, {PRONOUN/p_l/poss} clipper escort is unusually quiet. When prompted on {PRONOUN/r_c/poss} troubles, r_c comments that {PRONOUN/r_c/subject} could not help but think of what legacy {PRONOUN/r_c/subject} would leave behind if StarClan called upon {PRONOUN/r_c/object}.",
         "decline_text": "p_l isn't sure how exactly to address such a statement, and quickly attempts to distract r_c with some herb collecting.",
         "chance_of_success": 60,
         "success_outcomes": [
@@ -1918,12 +1918,12 @@
         ]
     },
     {
-        "patrol_id": "gen_med_appwarrior_bossypants1",
+        "patrol_id": "gen_med_appclipper_bossypants1",
         "biome": ["any"],
         "season": ["any"],
         "types": ["herb_gathering"],
         "tags": [],
-        "patrol_art": "gen_med_appwarrior_bossypants",
+        "patrol_art": "gen_med_appclipper_bossypants",
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
@@ -1932,12 +1932,12 @@
             "normal adult": [1, 6]
         },
         "weight": 5,
-        "intro_text": "p_l eyes the warrior chosen to escort {PRONOUN/p_l/object} to fetch herbs, feeling a little bit giddy. Apprentices getting to boss around warriors is something that almost never happens, and p_l is going to make sure {PRONOUN/p_l/subject} {VERB/p_l/make/makes} the most of it.",
+        "intro_text": "p_l eyes the clipper chosen to escort {PRONOUN/p_l/object} to fetch herbs, feeling a little bit giddy. Apprentices getting to boss around clippers is something that almost never happens, and p_l is going to make sure {PRONOUN/p_l/subject} {VERB/p_l/make/makes} the most of it.",
         "decline_text": "Just as they're about to leave, r_c is called off to help on a hunting patrol instead. p_l lashes {PRONOUN/p_l/poss} tail in frustration but doesn't protest, heading back to the medicine cat den alone.",
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "p_l has a grand time, directing r_c around with {PRONOUN/p_l/poss} tail to various herb patches. If the warrior is annoyed, {PRONOUN/r_c/subject} {VERB/r_c/don't/doesn't} say it, quietly complying and doing as p_l says.",
+                "text": "p_l has a grand time, directing r_c around with {PRONOUN/p_l/poss} tail to various herb patches. If the clipper is annoyed, {PRONOUN/r_c/subject} {VERB/r_c/don't/doesn't} say it, quietly complying and doing as p_l says.",
                 "exp": 20,
                 "weight": 20,
                 "herbs": ["random_herbs"],
@@ -1986,7 +1986,7 @@
         ]
     },
     {
-        "patrol_id": "gen_med_medappwarriorapp_siblings1",
+        "patrol_id": "gen_med_medappclipperapp_siblings1",
         "biome": ["any"],
         "season": ["any"],
         "types": ["herb_gathering"],
@@ -2090,12 +2090,12 @@
         ]
     },
     {
-        "patrol_id": "gen_med_medwarrior_siblings1",
+        "patrol_id": "gen_med_medclipper_siblings1",
         "biome": ["any"],
         "season": ["any"],
         "types": ["herb_gathering"],
         "tags": [],
-        "patrol_art": "gen_med_medwarrior_siblings",
+        "patrol_art": "gen_med_medclipper_siblings",
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
@@ -2105,7 +2105,7 @@
         },
         "weight": 20,
         "intro_text": "r_c trots over to p_l, the two cats grinning at each other with raised tails. p_l wants an escort to gather herbs, and as luck would have it, the only cat free at the moment is {PRONOUN/p_l/poss} sibling, r_c!",
-        "decline_text": "... Or so they thought. r_c is called away by the deputy, and {PRONOUN/r_c/subject} {VERB/r_c/rush/rushes} off with an apologetic glance back, leaving p_l by {PRONOUN/p_l/self} with {PRONOUN/p_l/poss} tail sagging to the ground.",
+        "decline_text": "... Or so they thought. r_c is called away by the regent, and {PRONOUN/r_c/subject} {VERB/r_c/rush/rushes} off with an apologetic glance back, leaving p_l by {PRONOUN/p_l/self} with {PRONOUN/p_l/poss} tail sagging to the ground.",
         "chance_of_success": 50,
         "relationship_constraint": ["siblings", "platonic_20"],
         "success_outcomes": [
@@ -2205,12 +2205,12 @@
         ]
     },
     {
-        "patrol_id": "gen_med_medwarriorapp_curiosity",
+        "patrol_id": "gen_med_medclipperapp_curiosity",
         "biome": ["any"],
         "season": ["any"],
         "types": ["herb_gathering"],
         "tags": [],
-        "patrol_art": "gen_med_medwarriorapp_curiosity",
+        "patrol_art": "gen_med_medclipperapp_curiosity",
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
@@ -2225,7 +2225,7 @@
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "p_l sits down and motions for app1 to join {PRONOUN/p_l/object}, looking at {PRONOUN/app1/object} inquisitively. app1 tentatively explains that {PRONOUN/app1/subject}{VERB/app1/'re/'s} curious about herbs, but {VERB/app1/are/is} worried that desire to learn is detrimental to {PRONOUN/app1/poss} progress as a warrior. p_l isn't too sure how to comfort {PRONOUN/app1/object}, but {PRONOUN/p_l/subject} {VERB/p_l/do/does} {PRONOUN/p_l/poss} best. app1 doesn't look fully convinced, but at least {PRONOUN/app1/poss} mood seems a bit lighter.",
+                "text": "p_l sits down and motions for app1 to join {PRONOUN/p_l/object}, looking at {PRONOUN/app1/object} inquisitively. app1 tentatively explains that {PRONOUN/app1/subject}{VERB/app1/'re/'s} curious about herbs, but {VERB/app1/are/is} worried that desire to learn is detrimental to {PRONOUN/app1/poss} progress as a clipper. p_l isn't too sure how to comfort {PRONOUN/app1/object}, but {PRONOUN/p_l/subject} {VERB/p_l/do/does} {PRONOUN/p_l/poss} best. app1 doesn't look fully convinced, but at least {PRONOUN/app1/poss} mood seems a bit lighter.",
                 "exp": 20,
                 "weight": 20,
                 "herbs": ["random_herbs"],
@@ -2285,7 +2285,7 @@
                 ]
             },
             {
-                "text": "s_c sits down and motions for app1 to join {PRONOUN/s_c/object}, looking at {PRONOUN/app1/object} inquisitively. app1 tentatively explains that {PRONOUN/app1/subject}{VERB/app1/'re/'s} curious about herbs but {VERB/app1/are/is} worried that desire to learn is detrimental to {PRONOUN/app1/poss} progress as a warrior. s_c reassures {PRONOUN/app1/object} that nobody would think less of {PRONOUN/app1/object} for that, and it's good to know the basics. s_c promises to teach {PRONOUN/app1/object} when they get back to camp.",
+                "text": "s_c sits down and motions for app1 to join {PRONOUN/s_c/object}, looking at {PRONOUN/app1/object} inquisitively. app1 tentatively explains that {PRONOUN/app1/subject}{VERB/app1/'re/'s} curious about herbs but {VERB/app1/are/is} worried that desire to learn is detrimental to {PRONOUN/app1/poss} progress as a clipper. s_c reassures {PRONOUN/app1/object} that nobody would think less of {PRONOUN/app1/object} for that, and it's good to know the basics. s_c promises to teach {PRONOUN/app1/object} when they get back to camp.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": ["compassionate", "wise"],
@@ -2600,7 +2600,7 @@
                 ]
             },
             {
-                "text": "They have a good discussion while foraging for herbs and manage to come up with several ideas regarding the latest news to discuss with the leader and deputy.",
+                "text": "They have a good discussion while foraging for herbs and manage to come up with several ideas regarding the latest news to discuss with the baron and regent.",
                 "exp": 10,
                 "weight": 20,
                 "herbs": ["random_herbs"],
@@ -2615,7 +2615,7 @@
                 ]
             },
             {
-                "text": "Carefully plucking some herbs, they discuss the latest signs from StarClan and ponder what to do about them. They manage to think up some tentative plans, returning to camp to discuss them with the leader and deputy.",
+                "text": "Carefully plucking some herbs, they discuss the latest signs from StarClan and ponder what to do about them. They manage to think up some tentative plans, returning to camp to discuss them with the baron and regent.",
                 "exp": 10,
                 "weight": 5,
                 "herbs": ["random_herbs"],
@@ -3306,7 +3306,7 @@
         "season": ["any"],
         "types": ["herb_gathering"],
         "tags": ["romantic"],
-        "patrol_art": "running_warrior_med",
+        "patrol_art": "running_clipper_med",
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
@@ -3518,7 +3518,7 @@
         "season": ["any"],
         "types": ["herb_gathering"],
         "tags": ["romantic"],
-        "patrol_art": "running_med_warrior",
+        "patrol_art": "running_med_clipper",
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {

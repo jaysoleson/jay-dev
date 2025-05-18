@@ -53,14 +53,14 @@
     {
         "id": "adventurous_medicine_cat_to_lead",
         "thoughts": [
-            "Helps the leader with {PRONOUN/r_c/poss} duties",
-            "Begs the leader to give {PRONOUN/m_c/object} the bounciest kit as {PRONOUN/m_c/poss} apprentice"
+            "Helps the baron with {PRONOUN/r_c/poss} duties",
+            "Begs the baron to give {PRONOUN/m_c/object} the bounciest kit as {PRONOUN/m_c/poss} apprentice"
         ],
         "main_trait_constraint": [
             "adventurous"
         ],
         "random_status_constraint": [
-            "leader"
+            "baron"
         ]
     },
     {
@@ -77,15 +77,15 @@
         ]
     },
     {
-        "id": "adventurous_medicine_cat_to_deputy",
+        "id": "adventurous_medicine_cat_to_regent",
         "thoughts": [
-            "Asks the deputy to go on patrol"
+            "Asks the regent to go on patrol"
         ],
         "main_trait_constraint": [
             "adventurous"
         ],
         "random_status_constraint": [
-            "deputy"
+            "regent"
         ]
     },
     {
@@ -107,8 +107,8 @@
             "Has been disappearing a lot lately",
             "Insists only on treating cats who need it",
             "Is ripping some leaves to shreds",
-            "Debates becoming a warrior",
-            "Gives the wrong herbs to a warrior on purpose",
+            "Debates becoming a clipper",
+            "Gives the wrong herbs to a clipper on purpose",
             "Wishes {PRONOUN/m_c/subject} {VERB/m_c/weren't/wasn't} confined to this life",
             "Is stocking up on deathberries",
             "Is stocking up on yew berries",
@@ -116,9 +116,9 @@
             "Is stocking up on watermint",
             "Put herbs in prey to give cats stomachaches",
             "Refused to treat anyone today",
-            "Is upset that {PRONOUN/m_c/subject} can't fight alongside the warriors",
-            "Wishes to fight alongside the warriors",
-            "Thinks {PRONOUN/m_c/subject}'d be an amazing leader",
+            "Is upset that {PRONOUN/m_c/subject} can't fight alongside the clippers",
+            "Wishes to fight alongside the clippers",
+            "Thinks {PRONOUN/m_c/subject}'d be an amazing baron",
             "Ignores the low herb stocks and practices battle moves instead"
         ],
         "main_trait_constraint": [
@@ -128,13 +128,13 @@
     {
         "id": "bloodthirsty_medicine_cat_to_lead",
         "thoughts": [
-            "Talks to the leader about war"
+            "Talks to the baron about war"
         ],
         "main_trait_constraint": [
             "bloodthirsty"
         ],
         "random_status_constraint": [
-            "leader"
+            "baron"
         ]
     },
     {
@@ -200,7 +200,7 @@
     {
         "id": "cold_medicine_cat",
         "thoughts": [
-            "Grumbles when a warrior asks for herbs for a simple bellyache",
+            "Grumbles when a clipper asks for herbs for a simple bellyache",
             "Has better things to do than pull splinters out of paws"
         ],
         "main_trait_constraint": [
@@ -211,7 +211,7 @@
         "id": "compassionate_medicine_cat",
         "thoughts": [
             "Works long into the night taking care of the Clan",
-            "Helps a warrior regain their strength",
+            "Helps a clipper regain their strength",
             "Declines to eat when prey is low"
         ],
         "main_trait_constraint": [
@@ -284,11 +284,11 @@
         "thoughts": [
             "Wishes {PRONOUN/m_c/poss} Clanmates could understand {PRONOUN/m_c/poss} struggles",
             "Wishes there were more medicine cats in the Clan",
-            "Wonders why the warriors won't share prey with {PRONOUN/m_c/object}",
+            "Wonders why the clippers won't share prey with {PRONOUN/m_c/object}",
             "Wishes {PRONOUN/m_c/subject} could make friends with someone",
-            "Wishes the warriors shared an interest in herbs",
+            "Wishes the clippers shared an interest in herbs",
             "Wishes for an apprentice, as {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} a bit lonely",
-            "Hasn't talked to any warriors for a few days"
+            "Hasn't talked to any clippers for a few days"
         ],
         "main_trait_constraint": [
             "lonesome"
@@ -297,13 +297,13 @@
     {
         "id": "lonesome_medicine_cat_to_lead",
         "thoughts": [
-            "Wants to talk to the leader about having a new apprentice"
+            "Wants to talk to the baron about having a new apprentice"
         ],
         "main_trait_constraint": [
             "lonesome"
         ],
 	"random_status_constraint": [
-            "leader"
+            "baron"
         ]
     },
     {
@@ -390,7 +390,7 @@
     {
         "id": "sneaky_medicine_cat",
         "thoughts": [
-            "Seems to be hiding something in the medicine {PRONOUN/m_c/subject} {VERB/m_c/give/gives} to the leader"
+            "Seems to be hiding something in the medicine {PRONOUN/m_c/subject} {VERB/m_c/give/gives} to the baron"
         ],
         "main_trait_constraint": [
             "sneaky"

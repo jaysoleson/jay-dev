@@ -31,7 +31,7 @@
         ]
     },
     {
-        "patrol_id": "pln_hunt_prairiedog_allwarriors1",
+        "patrol_id": "pln_hunt_prairiedog_allclippers1",
         "biome": ["plains"],
         "season": ["any"],
         "types": ["hunting"],
@@ -52,7 +52,7 @@
                 "text": "r_c performs a flawless approach, using a muddy dip to creep closer below the sentry's view. {PRONOUN/r_c/subject/CAP} {VERB/r_c/bunch/bunches} up {PRONOUN/r_c/poss} hindquarters, building up power, and {VERB/r_c/leap/leaps} from cover, grabbing the outermost, most isolated prairie dog. p_l runs in to help finish it off, tail lashing excitedly as {PRONOUN/p_l/subject} {VERB/p_l/congratulate/congratulates} the muddy victor.",
                 "exp": 15,
                 "weight": 20,
-                "art": "gen_train_soggykitty_happy_warrior",
+                "art": "gen_train_soggykitty_happy_clipper",
                 "prey": ["medium"],
                 "relationships": [
                     {
@@ -75,7 +75,7 @@
                 "text": "What they need is speed. s_c finds a good, semi-sheltered path to build up momentum and uses it to burst out towards the prairie dogs at full sprint, {PRONOUN/s_c/poss} velocity flattening {PRONOUN/s_c/poss} fur against {PRONOUN/s_c/poss} skin. The sentry barks an alarm, but s_c is too fast, taking out a prairie dog in a spinning collision of fur, teeth, and claws.",
                 "exp": 15,
                 "weight": 20,
-                "art": "running_warrior2",
+                "art": "running_clipper2",
                 "prey": ["medium"],
                 "can_have_stat": ["any"],
                 "stat_skill": ["RUNNER,0"],
@@ -152,7 +152,7 @@
                 "text": "r_c performs a flawless approach, using a muddy dip to creep closer below the sentry's view. {PRONOUN/r_c/subject/CAP} {VERB/r_c/bunch/bunches} up {PRONOUN/r_c/poss} hindquarters, building up power, and {VERB/r_c/leap/leaps} from cover, but the sentry alarm barks, and the prairie dogs evaporate into their waiting burrows, leaving r_c muddy and preyless.",
                 "exp": 0,
                 "weight": 20,
-                "art": "gen_train_soggykitty_mad_warrior",
+                "art": "gen_train_soggykitty_mad_clipper",
                 "prey": ["very_small"]
             },
             {
@@ -190,7 +190,7 @@
         ]
     },
     {
-        "patrol_id": "pln_hunt_prairiedog_warriorsappmix1",
+        "patrol_id": "pln_hunt_prairiedog_clippersappmix1",
         "biome": ["plains"],
         "season": ["any"],
         "types": ["hunting"],
@@ -1096,7 +1096,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "deputy": [1, 6]
+            "regent": [1, 6]
         },
         "weight": 20,
         "intro_text": "r_c heads out onto the plains alone, wanting to sink {PRONOUN/r_c/poss} teeth into some prey and have some time to {PRONOUN/r_c/self}.",
@@ -1165,7 +1165,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "leader": [1, 6]
+            "baron": [1, 6]
         },
         "weight": 20,
         "intro_text": "r_c heads out onto the plains alone, wanting to sink {PRONOUN/r_c/poss} teeth into some prey and have some time to {PRONOUN/r_c/self}.",
@@ -2103,7 +2103,7 @@
                 "stat_skill": ["CLEVER,1"]
             },
             {
-                "text": "Something isn't right. Nervously pawing at the earth, s_c thinks that the smell is too good to be true. {PRONOUN/s_c/subject/CAP} {VERB/s_c/leave/leaves} it, deciding to return to camp and report it to the deputy instead.",
+                "text": "Something isn't right. Nervously pawing at the earth, s_c thinks that the smell is too good to be true. {PRONOUN/s_c/subject/CAP} {VERB/s_c/leave/leaves} it, deciding to return to camp and report it to the regent instead.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": [
@@ -2165,7 +2165,7 @@
                 "stat_skill": ["CLEVER,1"]
             },
             {
-                "text": "Something isn't right. Nervously pawing at the earth, s_c thinks that the smell is too good to be true. {PRONOUN/s_c/subject/CAP} {VERB/s_c/leave/leaves} it, convincing the patrol to return to camp and report it to the deputy instead.",
+                "text": "Something isn't right. Nervously pawing at the earth, s_c thinks that the smell is too good to be true. {PRONOUN/s_c/subject/CAP} {VERB/s_c/leave/leaves} it, convincing the patrol to return to camp and report it to the regent instead.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": [
@@ -3426,7 +3426,7 @@
         ]
     },
     {
-        "patrol_id": "pln_hunt_mouse_warriorapp1",
+        "patrol_id": "pln_hunt_mouse_clipperapp1",
         "biome": ["plains"],
         "season": ["any"],
         "types": ["hunting"],

@@ -99,7 +99,7 @@ class TestCondition(unittest.TestCase):
         # GIVEN
         clan = Clan()
         patrol_cat = Cat(moons=20)
-        patrol_cat.status = "warrior"
+        patrol_cat.status = "clipper"
         patrol_cat.history = History()
         patrol = Patrol()
         patrol.add_patrol_cats([patrol_cat], clan)

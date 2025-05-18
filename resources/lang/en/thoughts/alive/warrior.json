@@ -1,6 +1,6 @@
 [
     {
-        "id": "warrior_gen_alive_kits",
+        "id": "clipper_gen_alive_kits",
         "thoughts": [
             "Is watching over the kits",
             "Begrudgingly allows kits to play with {PRONOUN/m_c/poss} tail",
@@ -8,8 +8,8 @@
             "Is being begged by r_c to teach {PRONOUN/r_c/object} a few moves, despite r_c being a kit",
             "Somehow got roped up in watching r_c for the day",
             "Theatrically dies after r_c slays {PRONOUN/m_c/object}",
-            "Has to pretend to be a captured warrior for r_c's games",
-            "Is pretending to be a big, evil warrior for r_c",
+            "Has to pretend to be a captured clipper for r_c's games",
+            "Is pretending to be a big, evil clipper for r_c",
             "Gave a badger ride to r_c, and is now being begged by more kittens to do the same"
         ],
         "random_status_constraint": [
@@ -20,7 +20,7 @@
         ]
     },
     {
-        "id": "warrior_gen_alive_apprentice",
+        "id": "clipper_gen_alive_apprentice",
         "thoughts": [
             "Has the apprentices very engaged in a very, very tall tale"
         ],
@@ -32,16 +32,16 @@
         ]
     },
     {
-        "id": "warrior_gen_deputy",
+        "id": "clipper_gen_regent",
         "thoughts": [
-            "Wants to be chosen as the new deputy"
+            "Wants to be chosen as the new regent"
         ],
         "random_status_constraint": [
-            "deputy"
+            "regent"
         ]
     },
     {
-        "id": "gen_older_warrior",
+        "id": "gen_older_clipper",
         "thoughts": [
             "Tries to set a good example for younger cats"
         ],
@@ -55,7 +55,7 @@
         ]
     },
     {
-        "id": "warrior_gen_medicine_cat",
+        "id": "clipper_gen_medicine_cat",
         "thoughts": [
             "Plans to visit the medicine cat",
             "Is helping to escort the medicine cat to gather herbs"
@@ -68,21 +68,21 @@
         ]
     },
     {
-        "id": "warrior_gen_warrior",
+        "id": "clipper_gen_clipper",
         "thoughts": [
             "Is sparring with some Clanmates",
             "Wants to critique r_c's fighting techniques",
             "Wants to compliment r_c's fighting techniques"
         ],
         "random_status_constraint": [
-            "warrior"
+            "clipper"
         ],
         "random_living_status": [
             "living"
         ]
     },
     {
-        "id": "ambitious_forest_warrior",
+        "id": "ambitious_forest_clipper",
         "biome": [
             "forest"
         ],
@@ -94,51 +94,51 @@
         ]
     },
     {
-        "id": "ambitious_warrior",
+        "id": "ambitious_clipper",
         "thoughts": [
-            "Is boasting loudly about having defeated an enemy warrior on patrol the other day",
+            "Is boasting loudly about having defeated an enemy clipper on patrol the other day",
             "Made sure to wake up early to volunteer for the dawn patrol",
             "Has been catching the most prey on the latest hunting patrols",
             "Has been taking on extra patrols lately",
-            "Sucks up to the leader and deputy by offering to lead every patrol",
+            "Sucks up to the baron and regent by offering to lead every patrol",
             "Sets out to catch five pieces of fresh-kill today",
             "Evaluates how {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} going to sharpen up {PRONOUN/m_c/poss} battle skills",
-            "Tries to emulate the leader's body language when talking to younger cats",
-            "Feels inadequate about being nothing more than an ordinary warrior",
-            "Knows {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} a shoo-in for deputy"
+            "Tries to emulate the baron's body language when talking to younger cats",
+            "Feels inadequate about being nothing more than an ordinary clipper",
+            "Knows {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} a shoo-in for regent"
         ],
         "main_trait_constraint": [
             "ambitious"
         ]
     },
     {
-        "id": "careful_warrior",
+        "id": "careful_clipper",
         "thoughts": [
             "Is dutifully standing guard outside of camp",
             "Is going back to check on an old fox burrow {PRONOUN/m_c/subject} discovered yesterday, just to be safe",
-            "Coaches other warriors to take a more guarded stance for their technique"
+            "Coaches other clippers to take a more guarded stance for their technique"
         ],
         "main_trait_constraint": [
             "careful"
         ]
     },
     {
-        "id": "careful_warrior_to_deputy",
+        "id": "careful_clipper_to_regent",
         "thoughts": [
-            "Asks the deputy about sending out some more hunting patrols - just to be sure"
+            "Asks the regent about sending out some more hunting patrols - just to be sure"
         ],
         "main_trait_constraint": [
             "careful"
         ],
         "random_status_constraint": [
-            "deputy"
+            "regent"
         ],
         "random_living_status": [
             "living"
         ]
     },
     {
-        "id": "childish_warrior",
+        "id": "childish_clipper",
         "thoughts": [
             "Is whining about Clan duties",
             "Splashes in a puddle of water during a patrol",
@@ -150,7 +150,7 @@
         ]
     },
     {
-        "id": "compassionate_warrior",
+        "id": "compassionate_clipper",
         "thoughts": [
             "Patiently waits for a rabbit to come out of its burrow, eventually catching it",
             "Offered to walk at the front of the patrol",
@@ -159,7 +159,7 @@
             "Volunteered for extra patrols",
             "Volunteered for extra duties",
             "Volunteered to stand guard of the camp",
-            "Shares the best hunting spots with the other warriors",
+            "Shares the best hunting spots with the other clippers",
             "Does {PRONOUN/m_c/poss} Clanmates' chores with a smile on {PRONOUN/m_c/poss} face"
         ],
         "main_trait_constraint": [
@@ -167,7 +167,7 @@
         ]
     },
     {
-        "id": "compassionate_warrior_to_living_apprentices",
+        "id": "compassionate_clipper_to_living_apprentices",
         "thoughts": [
             "Takes r_c's place in the dawn patrol so {PRONOUN/r_c/subject} can sleep in a little"
         ],
@@ -182,7 +182,7 @@
         ]
     },
     {
-        "id": "daring_warrior",
+        "id": "daring_clipper",
         "thoughts": [
             "Is challenging any Clanmate {PRONOUN/m_c/subject} can to a sparring match... with minimal recruiting success",
             "Is challenging some Clanmates to a sparring match, two-on-one!",
@@ -196,24 +196,24 @@
         ]
     },
     {
-        "id": "fierce_warrior",
+        "id": "fierce_clipper",
         "thoughts": [
             "Is showing off {PRONOUN/m_c/poss} battle moves",
             "Offered to lead a border patrol today",
             "Has been waiting for a war to be declared",
-            "Doesn't understand why the other warriors are hesitant to train with {PRONOUN/m_c/object}"
+            "Doesn't understand why the other clippers are hesitant to train with {PRONOUN/m_c/object}"
         ],
         "main_trait_constraint": [
             "fierce"
         ]
     },
     {
-        "id": "fierce_warrior_to_living_deputy",
+        "id": "fierce_clipper_to_living_regent",
         "thoughts": [
-            "Was recently chastised by the deputy for reckless behavior out on patrol"
+            "Was recently chastised by the regent for reckless behavior out on patrol"
         ],
         "random_status_constraint": [
-            "deputy"
+            "regent"
         ],
         "main_trait_constraint": [
             "fierce"
@@ -223,7 +223,7 @@
         ]
     },
     {
-        "id": "fierce_warrior_to_living_medcat",
+        "id": "fierce_clipper_to_living_medcat",
         "thoughts": [
             "Is asking the medicine cat for herbs that may help {PRONOUN/m_c/object} in battle"
         ],
@@ -239,7 +239,7 @@
         ]
     },
     {
-        "id": "fierce_warrior_to_living_apprentices",
+        "id": "fierce_clipper_to_living_apprentices",
         "thoughts": [
             "Is arguing for more battle training for the apprentices"
         ],
@@ -254,43 +254,43 @@
         ]
     },
     {
-        "id": "loyal_warrior_to_leader",
+        "id": "loyal_clipper_to_baron",
         "thoughts": [
-            "Is listening to the leader intently",
-            "Is telling the leader details about {PRONOUN/m_c/poss} recent patrol",
-            "Listened to the leader's orders recently, despite {PRONOUN/m_c/poss} own doubts",
-            "Proclaimed {PRONOUN/m_c/poss} unwavering loyalty to the leader",
-            "Is suspicious of a Clanmate who questions their leader"
+            "Is listening to the baron intently",
+            "Is telling the baron details about {PRONOUN/m_c/poss} recent patrol",
+            "Listened to the baron's orders recently, despite {PRONOUN/m_c/poss} own doubts",
+            "Proclaimed {PRONOUN/m_c/poss} unwavering loyalty to the baron",
+            "Is suspicious of a Clanmate who questions their baron"
         ],
         "main_trait_constraint": [
             "loyal"
         ],
         "random_status_constraint": [
-            "leader"
+            "baron"
         ],
         "random_living_status": [
             "living"
         ]
     },
     {
-        "id": "loyal_warrior_to_deputy",
+        "id": "loyal_clipper_to_regent",
         "thoughts": [
-            "Is listening to the deputy intently",
-            "Is telling the deputy details about {PRONOUN/m_c/poss} recent patrol",
-            "Is offering constructive criticism to the deputy"
+            "Is listening to the regent intently",
+            "Is telling the regent details about {PRONOUN/m_c/poss} recent patrol",
+            "Is offering constructive criticism to the regent"
         ],
         "main_trait_constraint": [
             "loyal"
         ],
         "random_status_constraint": [
-            "deputy"
+            "regent"
         ],
         "random_living_status": [
             "living"
         ]
     },
     {
-        "id": "responsible_warrior",
+        "id": "responsible_clipper",
         "thoughts": [
             "Is making sure {PRONOUN/m_c/subject}{VERB/m_c/'ve/'s} done all of {PRONOUN/m_c/poss} daily duties",
             "Is offering to lead the next patrol out",
@@ -301,24 +301,24 @@
         ]
     },
     {
-        "id": "righteous_warrior",
+        "id": "righteous_clipper",
         "thoughts": [
-            "Is refusing to follow the deputy's recent orders due to {PRONOUN/m_c/poss} own morals"
+            "Is refusing to follow the regent's recent orders due to {PRONOUN/m_c/poss} own morals"
         ],
         "main_trait_constraint": [
             "righteous"
         ],
         "random_status_constraint": [
-            "deputy"
+            "regent"
         ],
         "random_living_status": [
             "living"
         ]
     },
     {
-        "id": "strict_warrior",
+        "id": "strict_clipper",
         "thoughts": [
-            "Is conducting a rather rigorous training session for the younger warriors",
+            "Is conducting a rather rigorous training session for the younger clippers",
             "Takes pride in how well-run {PRONOUN/m_c/poss} patrols always are"
         ],
         "main_trait_constraint": [
@@ -326,7 +326,7 @@
         ]
     },
     {
-        "id": "troublesome_warrior",
+        "id": "troublesome_clipper",
         "thoughts": [
             "Ate a mouse while out on patrol"
         ],
@@ -335,22 +335,22 @@
         ]
     },
     {
-        "id": "troublesome_warrior_to_deputy",
+        "id": "troublesome_clipper_to_regent",
         "thoughts": [
-            "Is being lectured yet again by the deputy"
+            "Is being lectured yet again by the regent"
         ],
         "main_trait_constraint": [
             "troublesome"
         ],
         "random_status_constraint": [
-            "deputy"
+            "regent"
         ],
         "random_living_status": [
             "living"
         ]
     },
     {
-        "id": "warrior_parent_alive_kits",
+        "id": "clipper_parent_alive_kits",
         "thoughts": [
             "Excitedly plays games with r_c, letting {PRONOUN/r_c/object} win every time",
             "Is woken up by r_c jumping on {PRONOUN/m_c/object}, begging for something",
@@ -371,7 +371,7 @@
         ]
     },
     {
-        "id": "warrior_formerly_a_loner_alive_kits",
+        "id": "clipper_formerly_a_loner_alive_kits",
         "thoughts": [
             "Is telling the kits about {PRONOUN/m_c/poss} days as a loner",
             "Is being begged by r_c to tell {PRONOUN/r_c/object} about what being a loner was like"
@@ -392,7 +392,7 @@
         ]
     },
     {
-        "id": "warrior_formerly_a_rogue_alive_kits",
+        "id": "clipper_formerly_a_rogue_alive_kits",
         "thoughts": [
             "Is telling the kits about {PRONOUN/m_c/poss} days as a rogue",
             "Is being begged by r_c to tell {PRONOUN/r_c/object} more what being a rogue was like"

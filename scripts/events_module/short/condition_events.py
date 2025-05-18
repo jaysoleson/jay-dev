@@ -24,7 +24,7 @@ from scripts.game_structure.game_essentials import game
 from scripts.utility import (
     event_text_adjust,
     get_alive_status_cats,
-    get_leader_life_notice,
+    get_baron_life_notice,
 )
 from scripts.game_structure.localization import load_lang_resource
 
@@ -163,10 +163,10 @@ class Condition_Events:
         # handle death first, if percentage is 0 or lower, the cat will die
         if cat_nutrition.percentage <= 0:
             text = ""
-            if cat.status == "leader":
-                game.clan.leader_lives -= 1
-                # kill and retrieve leader life text
-                text = get_leader_life_notice()
+            if cat.status == "baron":
+                game.clan.baron_lives -= 1
+                # kill and retrieve baron life text
+                text = get_baron_life_notice()
 
             possible_string_list = Condition_Events.ILLNESS_DEATH_STRINGS["starving"]
             event = random.choice(possible_string_list) + " " + text
@@ -175,7 +175,7 @@ class Condition_Events:
 
             event = event_text_adjust(Cat, event.strip(), main_cat=cat)
 
-            if cat.status == "leader":
+            if cat.status == "baron":
                 history_event = history_event.replace("m_c ", "").replace(".", "")
                 History.add_death(
                     cat, condition="starving", death_text=history_event.strip()
@@ -185,9 +185,9 @@ class Condition_Events:
 
             cat.die()
 
-            # if the cat is the leader and isn't full dead
+            # if the cat is the baron and isn't full dead
             # make them malnourished and refill nutrition slightly
-            if cat.status == "leader" and game.clan.leader_lives > 0:
+            if cat.status == "baron" and game.clan.baron_lives > 0:
                 mal_score = (
                     nutrition_info[cat.ID].max_score / 100 * (MAL_PERCENTAGE + 1)
                 )
@@ -420,8 +420,8 @@ class Condition_Events:
                 )
 
         # just double-checking that trigger is only returned True if the cat is dead
-        if cat.status != "leader":
-            # only checks for non-leaders, as leaders will not be dead if they are just losing a life
+        if cat.status != "baron":
+            # only checks for non-barons, as barons will not be dead if they are just losing a life
             if cat.dead:
                 triggered = True
             else:
@@ -531,7 +531,7 @@ class Condition_Events:
 
     @staticmethod
     def handle_already_ill(cat):
-        starting_life_count = game.clan.leader_lives
+        starting_life_count = game.clan.baron_lives
         cat.healed_condition = False
         event_list = []
         illness_progression = {
@@ -565,7 +565,7 @@ class Condition_Events:
 
             # death event text and break bc any other illnesses no longer matter
             if cat.dead or (
-                cat.status == "leader" and starting_life_count != game.clan.leader_lives
+                cat.status == "baron" and starting_life_count != game.clan.baron_lives
             ):
                 try:
                     possible_string_list = Condition_Events.ILLNESS_DEATH_STRINGS[
@@ -581,14 +581,14 @@ class Condition_Events:
                     event = i18n.t("defaults.illness_death_event")
                     history_event = (
                         i18n.t("defaults.illness_death_history")
-                        if cat.status != "leader"
-                        else i18n.t("defaults.illness_death_history_leader")
+                        if cat.status != "baron"
+                        else i18n.t("defaults.illness_death_history_baron")
                     )
 
                 event = event_text_adjust(Cat, event, main_cat=cat)
 
-                if cat.status == "leader":
-                    event = event + " " + get_leader_life_notice()
+                if cat.status == "baron":
+                    event = event + " " + get_baron_life_notice()
                     history_event = history_event.replace("m_c ", "").replace(".", "")
                     History.add_death(
                         cat, condition=illness, death_text=history_event.strip()
@@ -602,8 +602,8 @@ class Condition_Events:
                 game.herb_events_list.append(event)
                 break
 
-            # if the leader died, then break before handling other illnesses cus they'll be fully healed or dead-dead
-            if cat.status == "leader" and starting_life_count != game.clan.leader_lives:
+            # if the baron died, then break before handling other illnesses cus they'll be fully healed or dead-dead
+            if cat.status == "baron" and starting_life_count != game.clan.baron_lives:
                 break
 
             # heal the cat
@@ -659,8 +659,8 @@ class Condition_Events:
 
         injury_progression = {"poisoned": "redcough", "shock": "lingering shock"}
 
-        # need to hold this number so that we can check if the leader has died
-        starting_life_count = game.clan.leader_lives
+        # need to hold this number so that we can check if the baron has died
+        starting_life_count = game.clan.baron_lives
 
         injuries = deepcopy(cat.injuries)
         for injury in injuries:
@@ -672,7 +672,7 @@ class Condition_Events:
                 continue
 
             if cat.dead or (
-                cat.status == "leader" and starting_life_count != game.clan.leader_lives
+                cat.status == "baron" and starting_life_count != game.clan.baron_lives
             ):
                 triggered = True
 
@@ -690,14 +690,14 @@ class Condition_Events:
                     event = i18n.t("defaults.injury_death_event")
                     history_text = (
                         i18n.t("defaults.injury_death_history")
-                        if cat.status != "leader"
-                        else i18n.t("injury_death_history_leader")
+                        if cat.status != "baron"
+                        else i18n.t("injury_death_history_baron")
                     )
 
                 event = event_text_adjust(Cat, event, main_cat=cat)
 
-                if cat.status == "leader":
-                    event = event + " " + get_leader_life_notice()
+                if cat.status == "baron":
+                    event = event + " " + get_baron_life_notice()
                     history_text = history_text.replace("m_c", " ").replace(".", "")
                     History.add_death(
                         cat, condition=injury, death_text=history_text.strip()
@@ -858,11 +858,11 @@ class Condition_Events:
         conditions = deepcopy(cat.permanent_condition)
         for condition in conditions:
             # checking if the cat has a congenital condition to reveal and handling duration and death
-            prev_lives = game.clan.leader_lives
+            prev_lives = game.clan.baron_lives
             status = cat.moon_skip_permanent_condition(condition)
 
             # if cat is dead, break
-            if cat.dead or game.clan.leader_lives < prev_lives:
+            if cat.dead or game.clan.baron_lives < prev_lives:
                 triggered = True
                 event_types.append("birth_death")
                 translated_condition = i18n.t(
@@ -871,14 +871,14 @@ class Condition_Events:
                 event = i18n.t(
                     "defaults.complications_death_event", condition=translated_condition
                 )
-                if cat.status == "leader" and game.clan.leader_lives >= 1:
+                if cat.status == "baron" and game.clan.baron_lives >= 1:
                     event = i18n.t(
-                        "defaults.complications_death_event_leader",
+                        "defaults.complications_death_event_baron",
                         condition=translated_condition,
                     )
                 event_list.append(event)
 
-                if cat.status != "leader":
+                if cat.status != "baron":
                     History.add_death(
                         cat,
                         death_text=i18n.t("defaults.complications_death_history"),
@@ -888,7 +888,7 @@ class Condition_Events:
                     History.add_death(
                         cat,
                         death_text=i18n.t(
-                            "defaults.complications_death_history_leader"
+                            "defaults.complications_death_history_baron"
                         ),
                         condition=translated_condition,
                     )
@@ -987,7 +987,7 @@ class Condition_Events:
             and not cat.dead
             and cat.status
             not in [
-                "leader",
+                "baron",
                 "medicine cat",
                 "kitten",
                 "newborn",
@@ -1035,25 +1035,25 @@ class Condition_Events:
                         event = i18n.t(
                             "hardcoded.condition_retire_adolescent", name=cat.name
                         )
-                    elif game.clan.leader is not None:
+                    elif game.clan.baron is not None:
                         if (
-                            not game.clan.leader.dead
-                            and not game.clan.leader.exiled
-                            and not game.clan.leader.outside
+                            not game.clan.baron.dead
+                            and not game.clan.baron.exiled
+                            and not game.clan.baron.outside
                             and cat.moons < 120
                         ):
-                            retire_involved.append(game.clan.leader.ID)
+                            retire_involved.append(game.clan.baron.ID)
                             event = i18n.t("hardcoded.condition_retire_normal")
                         else:
-                            event = i18n.t("hardcoded.condition_retire_no_leader")
+                            event = i18n.t("hardcoded.condition_retire_no_baron")
                     else:
-                        event = i18n.t("hardcoded.condition_retire_no_leader")
+                        event = i18n.t("hardcoded.condition_retire_no_baron")
 
                     if cat.age == CatAgeEnum.ADOLESCENT:
                         event += i18n.t(
                             "hardcoded.condition_retire_adolescent_ceremony",
                             clan=game.clan.name,
-                            newname=cat.name.prefix + cat.name.suffix,
+                            newname=cat.name.prefix,
                         )
 
                     cat.retire_cat()

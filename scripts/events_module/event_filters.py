@@ -55,10 +55,10 @@ def event_for_tags(tags: list, cat, other_cat=None) -> bool:
         if _poss in tags and mode != _poss:
             return False
 
-    # check leader life tags
+    # check baron life tags
     if hasattr(cat, "ID"):
-        if cat.status == "leader":
-            leader_lives = game.clan.leader_lives
+        if cat.status == "baron":
+            baron_lives = game.clan.baron_lives
 
             life_lookup = {
                 "some_lives": 4,
@@ -69,7 +69,7 @@ def event_for_tags(tags: list, cat, other_cat=None) -> bool:
             }
 
             for _con, _val in life_lookup.items():
-                if _con in tags and leader_lives < _val:
+                if _con in tags and baron_lives < _val:
                     return False
                 
         # check if main cat will allow for adoption
@@ -100,10 +100,10 @@ def event_for_tags(tags: list, cat, other_cat=None) -> bool:
                 else:
                     continue
 
-            if rank in ["leader", "deputy"] and not get_alive_status_cats(cat, [rank]):
+            if rank in ["baron", "regent"] and not get_alive_status_cats(cat, [rank]):
                 return False
             
-            if rank not in ["leader", "deputy"] and not len(get_alive_status_cats(cat, [rank])) >= 2:
+            if rank not in ["baron", "regent"] and not len(get_alive_status_cats(cat, [rank])) >= 2:
                 return False
     
     special_date = get_special_date()
@@ -232,7 +232,7 @@ def event_for_cat(cat_info: dict, cat, cat_group: list = None, event_id: str = N
         :param cat: the cat object of the cat being checked
         :param cat_group: the group of cats being included within the event
         :param event_id: if event comes with an id, include it here
-        :param p_l: if event is a patrol, include patrol leader object here
+        :param p_l: if event is a patrol, include patrol baron object here
         """
 
     func_lookup = {
@@ -253,7 +253,7 @@ def event_for_cat(cat_info: dict, cat, cat_group: list = None, event_id: str = N
                 group=cat_group,
                 filter_types=cat_info["relationship_status"],
                 event_id=event_id,
-                patrol_leader=p_l
+                patrol_baron=p_l
         ):
             return False
 

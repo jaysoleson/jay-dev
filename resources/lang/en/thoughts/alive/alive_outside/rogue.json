@@ -43,7 +43,7 @@
         ]
     },
     {
-        "id": "rogue_to_playerclan_warriors",
+        "id": "rogue_to_playerclan_clippers",
         "thoughts": [
             "Wants to show r_c in c_n a whole new world as a rogue",
             "Is waiting to ambush r_c in c_n",
@@ -113,13 +113,13 @@
         ]
     },
     {
-        "id": "bloodthirsty_rogue_to_alive_playerclan_leadership",
+        "id": "bloodthirsty_rogue_to_alive_playerclan_baronship",
         "thoughts": [
             "Tells {PRONOUN/m_c/self} {PRONOUN/m_c/subject} {VERB/m_c/are/is} going to kill r_c and take their position in c_n"
         ],
         "random_status_constraint": [
-            "leader",
-            "deputy"
+            "baron",
+            "regent"
         ],
         "main_trait_constraint": [
             "bloodthirsty"

@@ -688,12 +688,12 @@ class GroupEvents:
                 if "death_text" in injury_dict
                 else None
             )
-            if injured_cat.status == "leader":
+            if injured_cat.status == "baron":
                 possible_death = (
                     GroupEvents.prepare_text(
-                        injury_dict["death_leader_text"], abbreviations_cat_id
+                        injury_dict["death_baron_text"], abbreviations_cat_id
                     )
-                    if "death_leader_text" in injury_dict
+                    if "death_baron_text" in injury_dict
                     else None
                 )
 

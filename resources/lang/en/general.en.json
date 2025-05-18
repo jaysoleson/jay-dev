@@ -13,17 +13,17 @@
             "many": "%{count} moons (in life)"
         },
         "moon_date": "moon %{moon}",
-        "leader": {
-            "one": "leader",
-            "many": "leaders"
+        "baron": {
+            "one": "baron",
+            "many": "barons"
         },
-        "deputy": {
-            "one": "deputy",
+        "regent": {
+            "one": "regent",
             "many": "deputies"
         },
-        "warrior": {
-            "one": "warrior",
-            "many": "warriors"
+        "clipper": {
+            "one": "clipper",
+            "many": "clippers"
         },
         "medicine cat": {
             "one": "medicine cat",

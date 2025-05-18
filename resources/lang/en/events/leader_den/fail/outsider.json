@@ -884,7 +884,7 @@
     "rep_change": 0,
     "m_c": {
       "status": ["kittypet", "loner", "rogue"],
-      "new_thought": "Shudders at the thought of running into a c_n warrior",
+      "new_thought": "Shudders at the thought of running into a c_n clipper",
       "relationships": [
         {
           "cats_from": ["m_c"],
@@ -903,7 +903,7 @@
     "rep_change": 0,
     "m_c": {
       "status": ["kittypet", "loner", "rogue"],
-      "new_thought": "Shudders at the thought of running into a c_n warrior"
+      "new_thought": "Shudders at the thought of running into a c_n clipper"
     }
   },
   {

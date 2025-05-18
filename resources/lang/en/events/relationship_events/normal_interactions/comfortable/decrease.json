@@ -226,8 +226,8 @@
 			"vengeful"
 		],
 		"random_status_constraint": [
-			"leader",
-			"deputy"
+			"baron",
+			"regent"
 		]
 	},
 	{

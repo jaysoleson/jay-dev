@@ -43,8 +43,8 @@ class ClanScreen(Screens):
         self.nursery_label = None
         self.elder_den_label = None
         self.med_den_label = None
-        self.leader_den_label = None
-        self.warrior_den_label = None
+        self.baron_den_label = None
+        self.clipper_den_label = None
         self.layout = None
 
     def on_use(self):
@@ -86,10 +86,10 @@ class ClanScreen(Screens):
                 self.change_screen("clearing screen")
             else:
                 self.menu_button_pressed(event)
-            if event.ui_element == self.warrior_den_label:
-                self.change_screen("warrior den screen")
-            if event.ui_element == self.leader_den_label:
-                self.change_screen("leader den screen")
+            if event.ui_element == self.clipper_den_label:
+                self.change_screen("clipper den screen")
+            if event.ui_element == self.baron_den_label:
+                self.change_screen("baron den screen")
 
         elif event.type == pygame.KEYDOWN and game.settings["keybinds"]:
             if event.key == pygame.K_RIGHT:
@@ -190,16 +190,16 @@ class ClanScreen(Screens):
 
         # Den Labels
         # Redo the locations, so that it uses layout on the Clan page
-        self.warrior_den_label = UISurfaceImageButton(
-            ui_scale(pygame.Rect(self.layout["warrior den"], (121, 28))),
-            "screens.core.warriors_den",
+        self.clipper_den_label = UISurfaceImageButton(
+            ui_scale(pygame.Rect(self.layout["clipper den"], (121, 28))),
+            "screens.core.clippers_den",
             get_button_dict(ButtonStyles.ROUNDED_RECT, (121, 28)),
             object_id=ObjectID(class_id="@buttonstyles_rounded_rect", object_id=None),
             starting_height=2,
         )
-        self.leader_den_label = UISurfaceImageButton(
-            ui_scale(pygame.Rect(self.layout["leader den"], (112, 28))),
-            "screens.core.leader_den",
+        self.baron_den_label = UISurfaceImageButton(
+            ui_scale(pygame.Rect(self.layout["baron den"], (112, 28))),
+            "screens.core.baron_den",
             get_button_dict(ButtonStyles.ROUNDED_RECT, (112, 28)),
             object_id=ObjectID(class_id="@buttonstyles_rounded_rect", object_id=None),
             starting_height=2,
@@ -313,10 +313,10 @@ class ClanScreen(Screens):
         del self.save_button_saved_state
         self.save_button_saving_state.kill()
         del self.save_button_saving_state
-        self.warrior_den_label.kill()
-        del self.warrior_den_label
-        self.leader_den_label.kill()
-        del self.leader_den_label
+        self.clipper_den_label.kill()
+        del self.clipper_den_label
+        self.baron_den_label.kill()
+        del self.baron_den_label
         self.med_den_label.kill()
         del self.med_den_label
         self.elder_den_label.kill()
@@ -442,12 +442,12 @@ class ClanScreen(Screens):
 
         all_dens = [
             "nursery place",
-            "leader place",
+            "baron place",
             "elder place",
             "medicine place",
             "apprentice place",
             "clearing place",
-            "warrior place",
+            "clipper place",
         ]
 
         # Allow two cat in the same position.
@@ -478,7 +478,7 @@ class ClanScreen(Screens):
                 Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(
                     first_choices, all_dens, [1, 50, 1, 1, 100, 100, 1]
                 )
-            elif Cat.all_cats[x].status == "deputy":
+            elif Cat.all_cats[x].status == "regent":
                 Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(
                     first_choices, all_dens, [1, 50, 1, 1, 1, 50, 1]
                 )
@@ -495,12 +495,12 @@ class ClanScreen(Screens):
                 Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(
                     first_choices, all_dens, [20, 20, 20, 400, 1, 1, 1]
                 )
-            elif Cat.all_cats[x].status in ["warrior", "mediator"]:
+            elif Cat.all_cats[x].status in ["clipper", "mediator"]:
                 Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(
                     first_choices, all_dens, [1, 1, 1, 1, 1, 60, 60]
                 )
-            elif Cat.all_cats[x].status == "leader":
-                game.clan.leader.placement = self.choose_nonoverlapping_positions(
+            elif Cat.all_cats[x].status == "baron":
+                game.clan.baron.placement = self.choose_nonoverlapping_positions(
                     first_choices, all_dens, [1, 200, 1, 1, 1, 1, 1]
                 )
 
@@ -520,11 +520,11 @@ class ClanScreen(Screens):
                 starting_height=2,
                 object_id="@checked_checkbox",
             )
-            self.warrior_den_label.show()
+            self.clipper_den_label.show()
             self.clearing_label.show()
             self.nursery_label.show()
             self.app_den_label.show()
-            self.leader_den_label.show()
+            self.baron_den_label.show()
             self.med_den_label.show()
             self.elder_den_label.show()
         else:
@@ -534,10 +534,10 @@ class ClanScreen(Screens):
                 starting_height=2,
                 object_id="@unchecked_checkbox",
             )
-            self.warrior_den_label.hide()
+            self.clipper_den_label.hide()
             self.clearing_label.hide()
             self.nursery_label.hide()
             self.app_den_label.hide()
-            self.leader_den_label.hide()
+            self.baron_den_label.hide()
             self.med_den_label.hide()
             self.elder_den_label.hide()

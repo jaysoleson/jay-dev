@@ -156,18 +156,18 @@ class DisasterEvents():
 
     def disaster_text(self, text_list):
 
-        leader_exists = False
+        baron_exists = False
         dep_exists = False
         med_exists = False
 
-        leader = Cat.fetch_cat(game.clan.leader)
-        deputy = Cat.fetch_cat(game.clan.deputy)
+        baron = Cat.fetch_cat(game.clan.baron)
+        regent = Cat.fetch_cat(game.clan.regent)
         med_cats = get_alive_status_cats(Cat, ["medicine cat", "medicine cat apprentice"], sort=True)
 
         # checking if there are cats of the specified rank
-        if not leader.dead and not leader.outside:
-            leader_exists = True
-        if not deputy.dead and not deputy.outside:
+        if not baron.dead and not baron.outside:
+            baron_exists = True
+        if not regent.dead and not regent.outside:
             dep_exists = True
         if med_cats:
             med_exists = True
@@ -176,15 +176,15 @@ class DisasterEvents():
         for event in text_list:
             if (event.find('med_name') == -1 or event.find('medicine cat') == -1) and not med_exists:
                 text_list.remove(event)
-            if (event.find('dep_name') == -1 or event.find('deputy') == -1) and not dep_exists:
+            if (event.find('dep_name') == -1 or event.find('regent') == -1) and not dep_exists:
                 text_list.remove(event)
-            if (event.find('lead_name') == -1 or event.find('leader') == -1) and not leader_exists:
+            if (event.find('lead_name') == -1 or event.find('baron') == -1) and not baron_exists:
                 text_list.remove(event)
 
         text = random.choice(text_list)
 
-        text = text.replace("lead_name", str(leader.name))
-        text = text.replace("dep_name", str(deputy.name))
+        text = text.replace("lead_name", str(baron.name))
+        text = text.replace("dep_name", str(regent.name))
         text = text.replace("med_name", str(random.choice(med_cats).name))
         text = text.replace("c_n", f"{game.clan.name}Clan")
 

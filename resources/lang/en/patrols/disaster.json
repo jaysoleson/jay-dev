@@ -2113,7 +2113,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "The rogues greatly outnumber the patrol and have no trouble defeating them. The fallen warriors' bodies are recovered the next day, covered in battle wounds and cold.",
+                "text": "The rogues greatly outnumber the patrol and have no trouble defeating them. The fallen clippers' bodies are recovered the next day, covered in battle wounds and cold.",
                 "exp": 0,
                 "weight": 10,
                 "dead_cats": ["patrol"],
@@ -2233,7 +2233,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "The rogues greatly outnumber the patrol and have no trouble defeating them. The fallen warriors' bodies are recovered the next day, covered in battle wounds and cold.",
+                "text": "The rogues greatly outnumber the patrol and have no trouble defeating them. The fallen clippers' bodies are recovered the next day, covered in battle wounds and cold.",
                 "exp": 0,
                 "weight": 10,
                 "dead_cats": ["patrol"],
@@ -2353,7 +2353,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "The rogues greatly outnumber the patrol and have no trouble defeating them. The fallen warriors' bodies are recovered the next day, covered in battle wounds and cold.",
+                "text": "The rogues greatly outnumber the patrol and have no trouble defeating them. The fallen clippers' bodies are recovered the next day, covered in battle wounds and cold.",
                 "exp": 0,
                 "weight": 10,
                 "dead_cats": ["patrol"],
@@ -2473,7 +2473,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "The rogues greatly outnumber the patrol and have no trouble defeating them. The fallen warriors' bodies are found the next day, covered in battle wounds and cold.",
+                "text": "The rogues greatly outnumber the patrol and have no trouble defeating them. The fallen clippers' bodies are found the next day, covered in battle wounds and cold.",
                 "exp": 0,
                 "weight": 10,
                 "dead_cats": ["patrol"],

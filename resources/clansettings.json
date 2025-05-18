@@ -62,9 +62,9 @@
         ]
     },
     "role": {
-        "deputy": [
-            "Allow leaders to automatically choose a new deputy",
-            "The Warrior Code rules will be taken into account when choosing a deputy.",
+        "regent": [
+            "Allow barons to automatically choose a new regent",
+            "The clipper Code rules will be taken into account when choosing a regent.",
             false
         ],
         "12_moon_graduation": [
@@ -78,8 +78,8 @@
             false
         ],
         "become_mediator": [
-            "Allow warriors and elders to choose to become mediators",
-            "Warriors and elders will have a chance to become mediators upon timeskip.",
+            "Allow clippers and elders to choose to become mediators",
+            "clippers and elders will have a chance to become mediators upon timeskip.",
             false
         ]
     },
@@ -110,7 +110,7 @@
         ],
         "romantic with former mentor": [
             "Allow romantic interactions with former mentors",
-            "Allows mentors and the cats they trained to be romantic after they become warriors.",
+            "Allows mentors and the cats they trained to be romantic after they become clippers.",
             true
         ],
         "first cousin mates": [
@@ -152,7 +152,7 @@
         ],
         "ration prey":[
             "ration prey",
-            "Healthy warriors will only eat half of the food they need, even if there is enough for the Clan.",
+            "Healthy clippers will only eat half of the food they need, even if there is enough for the Clan.",
             false
         ]
     },
@@ -166,28 +166,28 @@
         ],
         "hunting":[
             "Feeding the Clan",
-            "The Clan will focus on hunting, each working warrior (including deputy and leader) and each working apprentice will gather additional prey on each moonskip.",
+            "The Clan will focus on hunting, each working clipper (including regent and baron) and each working apprentice will gather additional prey on each moonskip.",
             false,
             "hunting_focus",
             "#hunting_focus_button"
         ],
         "herb gathering":[
             "Assisting with Herb Gathering",
-            "The Clan will focus on herb gathering, each medicine cat and medicine cat apprentice will gather additional herbs on each moonskip due to extra help from the warriors.",
+            "The Clan will focus on herb gathering, each medicine cat and medicine cat apprentice will gather additional herbs on each moonskip due to extra help from the clippers.",
             false,
             "herb_focus",
             "#herb_focus_button"
         ],
         "threaten outsiders": [
             "Threatening Outsiders",
-            "The relationship with cats outside of the Clan decreases due to intentionally threatening behavior from your warriors.",
+            "The relationship with cats outside of the Clan decreases due to intentionally threatening behavior from your clippers.",
             false,
             "threaten_focus",
             "#threaten_focus_button"
         ],
         "seek outsiders": [
             "Entreating with Outsiders",
-            "The relationship with cats outside of the Clan increases as your warriors make efforts to sow seeds of friendship.",
+            "The relationship with cats outside of the Clan increases as your clippers make efforts to sow seeds of friendship.",
             false,
             "entreat_focus",
             "#entreat_focus_button"
@@ -201,28 +201,28 @@
         ],
         "sabotage other clans": [
             "Sabotaging Other Clans",
-            "Your mediators and warriors work together to undermine the other Clans. Only available if you have a working mediator. Selecting this will also allow you to choose which Clans you target.",
+            "Your mediators and clippers work together to undermine the other Clans. Only available if you have a working mediator. Selecting this will also allow you to choose which Clans you target.",
             false,
             "sabotage_focus",
             "#sabotage_focus_button"
         ],
         "aid other clans": [
             "Helping Other Clans",
-            "Your mediator and warriors work together to help the other Clans with whatever they need. Only available if you have a working mediator. Selecting this will also allow you to choose which Clans you target.",
+            "Your mediator and clippers work together to help the other Clans with whatever they need. Only available if you have a working mediator. Selecting this will also allow you to choose which Clans you target.",
             false,
             "help_focus",
             "#help_focus_button"
         ],
         "raid other clans": [
             "Raiding Other Clans",
-            "Your warriors begin crossing borders for resources. Prey and herbs will greatly increase each moonskip, but injuries and illnesses will increase and the relationship with other Clans decrease. You will be able to choose which Clans you target.",
+            "Your clippers begin crossing borders for resources. Prey and herbs will greatly increase each moonskip, but injuries and illnesses will increase and the relationship with other Clans decrease. You will be able to choose which Clans you target.",
             false,
             "raid_focus",
             "#raid_focus_button"
         ],
         "hoarding":[
             "Hoarding Resources",
-            "Your warriors begin stockpiling as many resources as they can get their paws on, regardless of their own safety. Prey and herbs will increase each moonskip, but injuries and illnesses will also increase.",
+            "Your clippers begin stockpiling as many resources as they can get their paws on, regardless of their own safety. Prey and herbs will increase each moonskip, but injuries and illnesses will also increase.",
             false,
             "hoard_focus",
             "#hoard_focus_button"

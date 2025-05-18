@@ -223,7 +223,7 @@
 		"mediator_app_chance": 50,
 		"base_medicine_app_chance": 41,
 		"become_mediator_chances": {
-			"warrior": 5000,
+			"clipper": 5000,
 			"elder": 400
 		}
 	},
@@ -268,11 +268,11 @@
 		"debug_ensure_event_id": null
 	},
 	"death_related": {
-		"leader_death_chance": 50,
+		"baron_death_chance": 50,
 		"classic_death_chance": 500,
 		"expanded_death_chance": 350,
 		"cruel season_death_chance": 300,
-		"war_death_modifier_leader": 95,
+		"war_death_modifier_baron": 95,
 		"war_death_modifier": 250,
 		"base_random_murder_chance": 25,
 		"base_murder_kill_chance": 80,
@@ -316,9 +316,9 @@
     "focus":{
         "duration": 3,
         "hunting":{
-            "warrior": 2,
+            "clipper": 2,
             "apprentice": 1,
-            "comment": "Defines how much a working warrior(leader/deputy) or apprentice gathers additionally."
+            "comment": "Defines how much a working clipper(baron/regent) or apprentice gathers additionally."
         },
         "outsiders" : {
             "reputation": 5,
@@ -329,9 +329,9 @@
             "comment": "Defines how much increase or decrease the relation with other clans is."
         },
         "raid other clans" : {
-            "prey_warrior": 3,
+            "prey_clipper": 3,
             "herb_medicine": 4,
-            "injury_chance_warrior": 18,
+            "injury_chance_clipper": 18,
             "injury_chance_medicine cat": 33,
             "chance_increase_per_clan": 3,
             "injuries": {
@@ -348,9 +348,9 @@
             },
             "relation": 3,
             "comments": [
-                "prey_warrior - how much prey each working warrior(leader/deputy) will gather",
+                "prey_clipper - how much prey each working clipper(baron/regent) will gather",
                 "herb_medicine - how much herb each working medicine cat will gather",
-                "injury chance of each warrior(leader/deputy) or medicine cat to get injured",
+                "injury chance of each clipper(baron/regent) or medicine cat to get injured",
                 "chance_increase_per_clan - the more clan which are raided the more likely it is to get injured",
                 "injuries - list of injuries which can occur and to which distribution",
                 "relation - amount of decrease; Clan relation is between 0 and 30, therefore a smaller number is chosen",
@@ -358,9 +358,9 @@
             ]
         },
         "hoarding" : {
-            "prey_warrior": 1,
+            "prey_clipper": 1,
             "herb_medicine": 2,
-            "injury_chance_warrior": 25,
+            "injury_chance_clipper": 25,
             "injury_chance_medicine cat": 35,
             "injuries": {
                 "cracked pads": 15,
@@ -380,11 +380,11 @@
                 "whitecough": 1
             },
             "comments": [
-                "prey_warrior - how much prey each working warrior(leader/deputy) will gather",
+                "prey_clipper - how much prey each working clipper(baron/regent) will gather",
                 "herb_medicine - how much herb each working medicine cat will gather",
-                "injury chance of each warrior(leader/deputy) or medicine cat to get injured",
+                "injury chance of each clipper(baron/regent) or medicine cat to get injured",
                 "injuries - list of injuries which can occur and to which distribution",
-                "illness chance of each warrior(leader/deputy) and medicine cat to get sick",
+                "illness chance of each clipper(baron/regent) and medicine cat to get sick",
                 "illnesses - list of illnesses which can occur and to which distribution",
                 "INFO: a cat can get EITHER injured OR sick, not both - for simpler distribution (50/50 chance decide which condition will be used)",
                 "INFO: current sum of injuries is 100 - for easier understanding it should stay the same"

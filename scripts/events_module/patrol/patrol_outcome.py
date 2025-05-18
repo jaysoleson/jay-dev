@@ -56,7 +56,7 @@ class PatrolOutcome:
         lost_cats: List[str] = None,
         injury: List[Dict] = None,
         history_reg_death: str = None,
-        history_leader_death: str = None,
+        history_baron_death: str = None,
         history_scar: str = None,
         new_cat: List[List[str]] = None,
         herbs: List[str] = None,
@@ -85,9 +85,9 @@ class PatrolOutcome:
             if history_reg_death is not None
             else "m_c died on patrol."
         )
-        self.history_leader_death = (
-            history_leader_death
-            if history_leader_death is not None
+        self.history_baron_death = (
+            history_baron_death
+            if history_baron_death is not None
             else "died on patrol."
         )
         self.history_scar = (
@@ -179,7 +179,7 @@ class PatrolOutcome:
                     dead_cats=_d.get("dead_cats"),
                     lost_cats=_d.get("lost_cats"),
                     injury=_d.get("injury"),
-                    history_leader_death=(
+                    history_baron_death=(
                         _d["history_text"].get("lead_death")
                         if isinstance(_d.get("history_text"), dict)
                         else None
@@ -216,11 +216,11 @@ class PatrolOutcome:
         # This must be done before text processing so that the new cat's pronouns are generated first
         results = [self._handle_new_cats(patrol)]
 
-        # the text has to be processed before - otherwise leader might be referenced with their warrior name
+        # the text has to be processed before - otherwise baron might be referenced with their clipper name
         processed_text = event_text_adjust(
             Cat,
             self.text,
-            patrol_leader=patrol.patrol_leader,
+            patrol_baron=patrol.patrol_baron,
             random_cat=patrol.random_cat,
             stat_cat=self.stat_cat,
             patrol_cats=patrol.patrol_cats,
@@ -243,7 +243,7 @@ class PatrolOutcome:
                     block["log"] = event_text_adjust(
                         Cat,
                         log,
-                        patrol_leader=patrol.patrol_leader,
+                        patrol_baron=patrol.patrol_baron,
                         random_cat=patrol.random_cat,
                         stat_cat=self.stat_cat,
                         patrol_cats=patrol.patrol_cats,
@@ -257,7 +257,7 @@ class PatrolOutcome:
                         block["log"][i] = event_text_adjust(
                             Cat,
                             block["log"][i] + " ",
-                            patrol_leader=patrol.patrol_leader,
+                            patrol_baron=patrol.patrol_baron,
                             random_cat=patrol.random_cat,
                             stat_cat=self.stat_cat,
                             patrol_cats=patrol.patrol_cats,
@@ -295,21 +295,21 @@ class PatrolOutcome:
             # Special allowed_specific that allows all.
             return True
 
-        # With allowed_specific empty, that means the stat can can be anyone that's not patrol leader
+        # With allowed_specific empty, that means the stat can can be anyone that's not patrol baron
         # or stat cat. This can
         if not allowed_specific or "not_pl_rc" in allowed_specific:
-            if kitty in (patrol.patrol_leader, patrol.random_cat):
+            if kitty in (patrol.patrol_baron, patrol.random_cat):
                 return False
             return True
 
         # Code to allow anyone but p_l to be selected as stat cat
         if not allowed_specific or "not_pl" in allowed_specific:
-            if kitty is patrol.patrol_leader:
+            if kitty is patrol.patrol_baron:
                 return False
             return True
 
         # Otherwise, check to see if the cat matched any of the specfic cats
-        if "p_l" in allowed_specific and kitty == patrol.patrol_leader:
+        if "p_l" in allowed_specific and kitty == patrol.patrol_baron:
             return True
         if "r_c" in allowed_specific and kitty == patrol.random_cat:
             return True
@@ -345,7 +345,7 @@ class PatrolOutcome:
         ]
 
         # Special default behavior for patrols less than two cats.
-        # Patrol leader is the only one allowed to be stat_cat in patrols equal to or less than than two cats
+        # Patrol baron is the only one allowed to be stat_cat in patrols equal to or less than than two cats
         if not allowed_specific and len(patrol.patrol_cats) <= 2:
             allowed_specific = ["p_l"]
 
@@ -461,7 +461,7 @@ class PatrolOutcome:
             return ""
 
         # body_tags = ("body", "no_body")
-        # leader_lives = ("all_lives", "some_lives")
+        # baron_lives = ("all_lives", "some_lives")
 
         cats_to_kill = gather_cat_objects(
             Cat, self.dead_cats, patrol, stat_cat=self.stat_cat
@@ -480,30 +480,30 @@ class PatrolOutcome:
         results = []
         catnames = []
         for _cat in cats_to_kill:
-            if _cat.status == "leader":
+            if _cat.status == "baron":
                 if "all_lives" in self.dead_cats:
-                    game.clan.leader_lives = 0
+                    game.clan.baron_lives = 0
                     results.append(
                         event_text_adjust(
-                            Cat, i18n.t("cat.history.leader_death_all"), main_cat=_cat
+                            Cat, i18n.t("cat.history.baron_death_all"), main_cat=_cat
                         )
                     )
                 elif "some_lives" in self.dead_cats:
-                    lives_lost = random.randint(1, max(1, game.clan.leader_lives - 1))
-                    game.clan.leader_lives -= lives_lost
+                    lives_lost = random.randint(1, max(1, game.clan.baron_lives - 1))
+                    game.clan.baron_lives -= lives_lost
                     results.append(
                         event_text_adjust(
                             Cat,
-                            i18n.t("cat.history.leader_death_all", count=lives_lost),
+                            i18n.t("cat.history.baron_death_all", count=lives_lost),
                             main_cat=_cat,
                         )
                     )
                 else:
-                    game.clan.leader_lives -= 1
+                    game.clan.baron_lives -= 1
                     results.append(
                         event_text_adjust(
                             Cat,
-                            i18n.t("cat.history.leader_death_all", count=1),
+                            i18n.t("cat.history.baron_death_all", count=1),
                             main_cat=_cat,
                         )
                     )
@@ -690,7 +690,7 @@ class PatrolOutcome:
         if "random_herbs" in self.herbs:
             # get random herbs, add to storage, and get patrol outcome msg
             list_of_herb_strs, found_herbs = game.clan.herb_supply.get_found_herbs(
-                med_cat=patrol.patrol_leader,
+                med_cat=patrol.patrol_baron,
                 general_amount_bonus=large_bonus,
                 specific_quantity_bonus=patrol_size_modifier,
             )
@@ -733,7 +733,7 @@ class PatrolOutcome:
         if not self.prey or game.clan.game_mode == "classic":
             return ""
 
-        basic_amount = PREY_REQUIREMENT["warrior"]
+        basic_amount = PREY_REQUIREMENT["clipper"]
         if game.clan.game_mode == "expanded":
             basic_amount += ADDITIONAL_PREY
         prey_types = {
@@ -808,7 +808,7 @@ class PatrolOutcome:
 
         results = []
         in_event_cats = {
-            "p_l": patrol.patrol_leader,
+            "p_l": patrol.patrol_baron,
             "r_c": patrol.random_cat,
         }
         if self.stat_cat:
@@ -949,14 +949,14 @@ class PatrolOutcome:
         """Handles adding potentional history to a cat. default_overide will use the default text for the condition."""
 
         if not (
-            self.history_leader_death and self.history_reg_death and self.history_scar
+            self.history_baron_death and self.history_reg_death and self.history_scar
         ):
             print("WARNING: Injury occured, but some death or scar history is missing.")
 
         final_death_history = None
-        if cat.status == "leader":
-            if self.history_leader_death:
-                final_death_history = self.history_leader_death
+        if cat.status == "baron":
+            if self.history_baron_death:
+                final_death_history = self.history_baron_death
         else:
             final_death_history = self.history_reg_death
 
@@ -992,13 +992,13 @@ class PatrolOutcome:
     def __handle_death_history(self, cat: Cat, patrol: "Patrol") -> None:
         """Handles adding death history, for dead cats."""
 
-        if not (self.history_leader_death and self.history_reg_death):
+        if not (self.history_baron_death and self.history_reg_death):
             print("WARNING: Death occured, but some death history is missing.")
 
         final_death_history = None
-        if cat.status == "leader":
-            if self.history_leader_death:
-                final_death_history = self.history_leader_death
+        if cat.status == "baron":
+            if self.history_baron_death:
+                final_death_history = self.history_baron_death
         else:
             final_death_history = self.history_reg_death
 

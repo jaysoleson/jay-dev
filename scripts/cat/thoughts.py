@@ -382,7 +382,7 @@ class Thoughts:
         # get possible thoughts
         try:
             # checks if the cat is Rick Astley to give the rickroll thought, otherwise proceed as usual
-            if (main_cat.name.prefix + main_cat.name.suffix).replace(
+            if (main_cat.name.prefix).replace(
                 " ", ""
             ).lower() == "rickastley":
                 return i18n.t("defaults.rickroll")
@@ -406,10 +406,10 @@ class Thoughts:
             created_list.append(inter)
         return created_list
 
-    def leader_death_thought(self, lives_left, darkforest):
+    def baron_death_thought(self, lives_left, darkforest):
         """
-        Load the special leader death thoughts, since they function differently than regular ones
-        :param lives_left: How many lives the leader has left - used to determine if they actually die or not
+        Load the special baron death thoughts, since they function differently than regular ones
+        :param lives_left: How many lives the baron has left - used to determine if they actually die or not
         :param darkforest: Whether or not dead cats go to StarClan (false) or the DF (true)
         """
         base_path = f"resources/lang/{i18n.config.get('locale')}/thoughts/ondeath"
@@ -422,11 +422,11 @@ class Thoughts:
         try:
             if lives_left > 0:
                 loaded_thoughts = load_lang_resource(
-                    f"thoughts/ondeath{spec_dir}/leader_life.json"
+                    f"thoughts/ondeath{spec_dir}/baron_life.json"
                 )
             else:
                 loaded_thoughts = load_lang_resource(
-                    f"thoughts/ondeath{spec_dir}/leader_death.json"
+                    f"thoughts/ondeath{spec_dir}/baron_death.json"
                 )
             thought_group = choice(
                 Thoughts.create_death_thoughts(self, loaded_thoughts)

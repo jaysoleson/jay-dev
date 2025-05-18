@@ -162,7 +162,7 @@ class FreshkillPile:
             needed_prey += len(sick_cats) * CONDITION_INCREASE
         # increase the number of prey which are missing for relevant queens and pregnant cats
         needed_prey += (len(relevant_queens) + len(pregnant_cats)) * (
-            PREY_REQUIREMENT["queen/pregnant"] - PREY_REQUIREMENT["warrior"]
+            PREY_REQUIREMENT["queen/pregnant"] - PREY_REQUIREMENT["clipper"]
         )
         # increase the number of prey for kits, which are not taken care by a queen
         needed_prey += sum(
@@ -394,7 +394,7 @@ class FreshkillPile:
                     feeding_amount += CONDITION_INCREASE
                 needed_amount = feeding_amount
             else:
-                if ration_prey and status == "warrior":
+                if ration_prey and status == "clipper":
                     feeding_amount = feeding_amount / 2
 
             if (
@@ -515,7 +515,7 @@ class FreshkillPile:
                     feeding_amount += CONDITION_INCREASE
                 needed_amount = feeding_amount
             else:
-                if ration_prey and status == "warrior":
+                if ration_prey and status == "clipper":
                     feeding_amount = feeding_amount / 2
 
             if (
@@ -571,7 +571,7 @@ class FreshkillPile:
                 self.nutrition_info[cat.ID].current_score += amount
             elif amount > actual_needed:
                 self.nutrition_info[cat.ID].current_score += amount - actual_needed
-        elif ration and cat.status == "warrior" and actual_needed != 0:
+        elif ration and cat.status == "clipper" and actual_needed != 0:
             feeding_amount = PREY_REQUIREMENT[cat.status]
             feeding_amount = feeding_amount / 2
             self.nutrition_info[cat.ID].current_score -= feeding_amount

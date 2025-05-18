@@ -1,6 +1,6 @@
 {
     "en": {
-        "help_tooltip": "This screen allows you to check on the other cats who live nearby, both Outsiders and other Clan cats.  You can control how the leader of your Clan will treat other leaders at Gatherings, but keep in mind that you can only determine one interaction each moon! Likewise, you can consider whether to drive out or invite in Outsider cats.  If you drive out a cat, they will no longer appear in the Cats Outside the Clans list.  If you invite a cat in, they might join your Clan!",
+        "help_tooltip": "This screen allows you to check on the other cats who live nearby, both Outsiders and other Clan cats.  You can control how the baron of your Clan will treat other barons at Gatherings, but keep in mind that you can only determine one interaction each moon! Likewise, you can consider whether to drive out or invite in Outsider cats.  If you drive out a cat, they will no longer appear in the Cats Outside the Clans list.  If you invite a cat in, they might join your Clan!",
         "clans": "Clans",
         "outsiders": "Outsiders",
         "clan_notice_text": {
@@ -13,10 +13,10 @@
         },
         "no_cats_clan": "No one is left to attend a Gathering.",
         "no_cats_outsider": "Outsiders do not concern themselves with a dead Clan.",
-        "no_leader_clan": "With no one to lead, the Clan can't focus on what to say at the Gathering.",
-        "no_leader_outsider": "With no one to lead, the Clan can't concern themselves with Outsiders.",
-        "leader_sick_clan": "There is no one to attend the next Gathering. m_c must hope to recover in time for the next one.",
-        "leader_sick_outsider": "m_c is considering what to do about nearby Outsiders.",
+        "no_baron_clan": "With no one to lead, the Clan can't focus on what to say at the Gathering.",
+        "no_baron_outsider": "With no one to lead, the Clan can't concern themselves with Outsiders.",
+        "baron_sick_clan": "There is no one to attend the next Gathering. m_c must hope to recover in time for the next one.",
+        "baron_sick_outsider": "m_c is considering what to do about nearby Outsiders.",
         "action_clan_provoke": "m_c has decided to provoke o_c_n.",
         "action_clan_befriend": "m_c has decided to befriend o_c_n.",
         "action_clan_offend": "m_c has decided to offend o_c_n.",

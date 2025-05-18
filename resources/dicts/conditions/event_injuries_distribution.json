@@ -14,7 +14,7 @@
         "major": 2,
         "severe": 1
     },
-    "warrior": {
+    "clipper": {
         "minor": 2,
         "major": 3,
         "severe": 2
@@ -29,12 +29,12 @@
         "major": 2,
         "severe": 1
     },
-    "deputy": {
+    "regent": {
         "minor": 1,
         "major": 2,
         "severe": 4
     },
-    "leader": {
+    "baron": {
         "minor": 1,
         "major": 2,
         "severe": 5

@@ -30,9 +30,9 @@ class CeremonyScreen(Screens):
         self.show_mute_buttons()
 
         self.the_cat = Cat.all_cats.get(game.switches["cat"])
-        if self.the_cat.status == "leader":
+        if self.the_cat.status == "baron":
             self.header = pygame_gui.elements.UITextBox(
-                "screens.ceremony.heading_leader",
+                "screens.ceremony.heading_baron",
                 ui_scale(pygame.Rect((100, 90), (600, -1))),
                 object_id=get_text_box_theme(),
                 manager=MANAGER,
@@ -46,7 +46,7 @@ class CeremonyScreen(Screens):
                 manager=MANAGER,
                 text_kwargs={"m_c": self.the_cat},
             )
-        if self.the_cat.status == "leader" and not self.the_cat.dead:
+        if self.the_cat.status == "baron" and not self.the_cat.dead:
             self.life_text = History.get_lead_ceremony(self.the_cat)
 
         else:

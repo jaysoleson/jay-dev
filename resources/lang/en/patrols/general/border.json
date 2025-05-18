@@ -493,7 +493,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "warrior": [2, 2]
+            "clipper": [2, 2]
         },
         "weight": 20,
         "chance_of_success": 50,
@@ -525,7 +525,7 @@
                 "text": "p_l and r_c have been bickering the entire morning. But when {PRONOUN/p_l/subject} {VERB/p_l/spot/spots} the shadow of a rogue falling on r_c, {PRONOUN/p_l/subject} {VERB/p_l/react/reacts} without thought, leaping forward, claws ripping into the enemy's back and flipping them off r_c with a ferocious snarl. r_c is badly injured, but will live thanks to p_l dragging {PRONOUN/r_c/object} back to camp.",
                 "exp": 10,
                 "weight": 5,
-                "art": "gen_battle_rogue_warrior",
+                "art": "gen_battle_rogue_clipper",
                 "injury": [
                     {
                         "cats": ["r_c"],

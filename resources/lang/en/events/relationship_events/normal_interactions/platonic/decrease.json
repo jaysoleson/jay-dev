@@ -70,7 +70,7 @@
 	{
 		"id": "platonic_de_med3",
 		"interactions": [
-			"r_c makes sure m_c is following the Warrior Code.",
+			"r_c makes sure m_c is following the clipper Code.",
 			"r_c snaps at m_c for making a joke about the Clan.",
 			"r_c has a fight with m_c about what's right."
 		],
@@ -118,7 +118,7 @@
 		"id": "platonic_de_high2",
 		"intensity": "high",
 		"interactions": [
-			"m_c mocks r_c for becoming a medicine cat apprentice instead of a warrior apprentice.",
+			"m_c mocks r_c for becoming a medicine cat apprentice instead of a clipper apprentice.",
 			"m_c mocks r_c for smelling like gross herbs.",
 			"m_c mocks r_c for smelling like mouse bile.",
 			"m_c keeps trying to quiz r_c on herbs that r_c doesn't know yet.",

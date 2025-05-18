@@ -44,7 +44,7 @@
 		"interactions": [
 			"m_c is giving r_c a task.",
 			"m_c asks r_c to remind {PRONOUN/m_c/object} of who's already gone on patrol today.",
-			"m_c asks r_c about a certain rule of the Warrior Code that {PRONOUN/m_c/subject} forgot.",
+			"m_c asks r_c about a certain rule of the clipper Code that {PRONOUN/m_c/subject} forgot.",
 			"m_c watches r_c training for something and nods approvingly at {PRONOUN/r_c/poss} progress.",
 			"r_c asks m_c about {PRONOUN/m_c/poss} duties.",
 			"After completing a chore, r_c reports to m_c.",
@@ -52,15 +52,15 @@
 		],
 		"main_status_constraint": [
 			"medicine cat",
-			"deputy",
-			"leader"
+			"regent",
+			"baron"
 		],
 		"random_status_constraint": [
 			"kitten",
 			"apprentice",
 			"mediator apprentice",
 			"medicine cat apprentice",
-			"warrior",
+			"clipper",
 			"mediator"
 		]
 	},
@@ -133,7 +133,7 @@
 			"r_c told a really funny joke, but m_c just looked confused.",
 			"m_c accidentally brings r_c fresh-kill twice.",
 			"r_c has to tell m_c to stop staring at the sun.",
-			"m_c asks r_c what the Warrior Code is again.",
+			"m_c asks r_c what the clipper Code is again.",
 			"m_c forgets r_c's name.",
 			"m_c can't tell r_c is upset with {PRONOUN/m_c/object}.",
 			"m_c guesses r_c's age, but is wayyyy off.",

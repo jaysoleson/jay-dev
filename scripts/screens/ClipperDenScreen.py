@@ -22,7 +22,7 @@ with open("resources/clansettings.json", "r", encoding="utf-8") as f:
     settings_dict = ujson.load(f)
 
 
-class WarriorDenScreen(Screens):
+class ClipperDenScreen(Screens):
     """
     The screen to change the focus of the Clan, which gives bonuses.
     """
@@ -140,12 +140,12 @@ class WarriorDenScreen(Screens):
             "",
             object_id=ObjectID("#help_button", "@image_button"),
             manager=MANAGER,
-            tool_tip_text="screens.warrior_den.help_tooltip",
+            tool_tip_text="screens.clipper_den.help_tooltip",
         )
 
         self.focus_frame = pygame_gui.elements.UIImage(
             ui_scale(pygame.Rect((50, 190), (700, 460))),
-            pygame.image.load("resources/images/warrior_den_frame.png").convert_alpha(),
+            pygame.image.load("resources/images/clipper_den_frame.png").convert_alpha(),
             object_id="#focus_frame",
             starting_height=1,
             manager=MANAGER,
@@ -153,7 +153,7 @@ class WarriorDenScreen(Screens):
 
         self.save_button = UISurfaceImageButton(
             ui_scale(pygame.Rect((150, 592), (139, 30))),
-            "screens.warrior_den.change_focus",
+            "screens.clipper_den.change_focus",
             get_button_dict(ButtonStyles.SQUOVAL, (139, 30)),
             object_id="@buttonstyles_squoval",
             manager=MANAGER,
@@ -180,7 +180,7 @@ class WarriorDenScreen(Screens):
         self.base_image = pygame_gui.elements.UIImage(
             ui_scale(pygame.Rect((442, 84), (264, 348))),
             pygame.image.load(
-                f"resources/images/warrior_den/{image}.png"
+                f"resources/images/clipper_den/{image}.png"
             ).convert_alpha(),
             manager=MANAGER,
         )
@@ -194,7 +194,7 @@ class WarriorDenScreen(Screens):
             self.focus_information["focus_visual"] = pygame_gui.elements.UIImage(
                 ui_scale(pygame.Rect((442, 84), (264, 348))),
                 pygame.image.load(
-                    f"resources/images/warrior_den/{path}.png"
+                    f"resources/images/clipper_den/{path}.png"
                 ).convert_alpha(),
                 manager=MANAGER,
             )
@@ -204,7 +204,7 @@ class WarriorDenScreen(Screens):
             self.focus_information["focus_visual"] = pygame_gui.elements.UIImage(
                 ui_scale(pygame.Rect((442, 84), (264, 348))),
                 pygame.image.load(
-                    f"resources/images/warrior_den/{path}.png"
+                    f"resources/images/clipper_den/{path}.png"
                 ).convert_alpha(),
                 manager=MANAGER,
             )
@@ -308,7 +308,7 @@ class WarriorDenScreen(Screens):
         name = i18n.t(f"settings.{self.original_focus_code}")
         if self.original_focus_code in self.other_clan_settings:
             desc = i18n.t(
-                "screens.warrior_den.involved_clans",
+                "screens.clipper_den.involved_clans",
                 clans=adjust_list_text(
                     [f"{clan}clan" for clan in game.clan.clans_in_focus]
                 ),
@@ -326,15 +326,15 @@ class WarriorDenScreen(Screens):
             )
             moons = moons if moons > 0 else 0
             next_change = i18n.t(
-                "screens.warrior_den.next_change",
+                "screens.clipper_den.next_change",
                 moons=i18n.t("general.moons_age", count=moons),
                 count=moons,
             )
 
         focus = [
-            i18n.t("screens.warrior_den.current_focus", name=name, desc=desc),
+            i18n.t("screens.clipper_den.current_focus", name=name, desc=desc),
             i18n.t(
-                "screens.warrior_den.focus_last_changed",
+                "screens.clipper_den.focus_last_changed",
                 last_changed=last_change_text,
                 next_change=next_change,
             ),
@@ -350,7 +350,7 @@ class WarriorDenScreen(Screens):
         )
         del focus
         self.focus_text = pygame_gui.elements.UITextBox(
-            "screens.warrior_den.what_to_focus",
+            "screens.clipper_den.what_to_focus",
             ui_scale(pygame.Rect((92, 214), (272, 15))),
             wrap_to_height=True,
             object_id="#text_box_30_horizcenter_vertcenter_spacing_95",
@@ -367,7 +367,7 @@ class WarriorDenScreen(Screens):
 
         # create the new info text
         self.focus_information["side_text"] = pygame_gui.elements.UITextBox(
-            "screens.warrior_den.selected_info",
+            "screens.clipper_den.selected_info",
             ui_scale(pygame.Rect((415, 466), (318, 130))),
             wrap_to_height=True,
             object_id="#text_box_30_horizcenter_vertcenter_spacing_95",

@@ -47,16 +47,16 @@ class Clan:
         "newborn",
         "kitten",
         "apprentice",
-        "warrior",
+        "clipper",
         "medicine",
-        "deputy",
-        "leader",
+        "regent",
+        "baron",
         "elder",
         "mediator",
         "general",
     ]
 
-    leader_lives = 0
+    baron_lives = 0
     clan_cats = []
     starclan_cats = []
     darkforest_cats = []
@@ -92,8 +92,8 @@ class Clan:
     def __init__(
         self,
         name="",
-        leader=None,
-        deputy=None,
+        baron=None,
+        regent=None,
         medicine_cat=None,
         biome="Forest",
         camp_bg=None,
@@ -111,11 +111,11 @@ class Clan:
             starting_members = []
 
         self.name = name
-        self.leader = leader
-        self.leader_lives = 9
-        self.leader_predecessors = 0
-        self.deputy = deputy
-        self.deputy_predecessors = 0
+        self.baron = baron
+        self.baron_lives = 9
+        self.baron_predecessors = 0
+        self.regent = regent
+        self.regent_predecessors = 0
         self.medicine_cat = medicine_cat
         self.med_cat_list = []
         self.med_cat_predecessors = 0
@@ -185,15 +185,15 @@ class Clan:
         if self_run_init_functions:
             self.post_initialization_functions()
 
-    # The clan couldn't save itself in time due to issues arising, for example, from this function: "if deputy is not None: self.deputy.status_change('deputy') -> game.clan.remove_med_cat(self)"
+    # The clan couldn't save itself in time due to issues arising, for example, from this function: "if regent is not None: self.regent.status_change('regent') -> game.clan.remove_med_cat(self)"
     def post_initialization_functions(self):
-        if self.deputy is not None:
-            self.deputy.status_change("deputy")
-            self.clan_cats.append(self.deputy.ID)
+        if self.regent is not None:
+            self.regent.status_change("regent")
+            self.clan_cats.append(self.regent.ID)
 
-        if self.leader:
-            self.leader.status_change("leader")
-            self.clan_cats.append(self.leader.ID)
+        if self.baron:
+            self.baron.status_change("baron")
+            self.clan_cats.append(self.baron.ID)
 
         if self.medicine_cat is not None:
             self.clan_cats.append(self.medicine_cat.ID)
@@ -213,11 +213,11 @@ class Clan:
                     "apprentice",
                     "mediator apprentice",
                     "medicine cat apprentice",
-                    "warrior",
+                    "clipper",
                     "medicine cat",
-                    "leader",
+                    "baron",
                     "mediator",
-                    "deputy",
+                    "regent",
                     "elder",
                 ]
             ),
@@ -237,9 +237,9 @@ class Clan:
                     self.add_cat(Cat.all_cats[i])
                     not_found = False
             if (
-                Cat.all_cats[i] != self.leader
+                Cat.all_cats[i] != self.baron
                 and Cat.all_cats[i] != self.medicine_cat
-                and Cat.all_cats[i] != self.deputy
+                and Cat.all_cats[i] != self.regent
                 and Cat.all_cats[i] != self.instructor
                 and not_found
             ):
@@ -257,15 +257,10 @@ class Clan:
         game.save_cats()
         number_other_clans = randint(3, 5)
         for _ in range(number_other_clans):
-            other_clan_names = [str(i.name) for i in self.all_clans] + [game.clan.name]
+            other_clan_names = [str(i.name) for i in self.all_clans] + [game.clan.leader.name]
             other_clan_name = choice(
-                names.names_dict["normal_prefixes"] + names.names_dict["clan_prefixes"]
+                names.names_dict["normal_prefixes"] + names.names_dict["loner_names"]
             )
-            while other_clan_name in other_clan_names:
-                other_clan_name = choice(
-                    names.names_dict["normal_prefixes"]
-                    + names.names_dict["clan_prefixes"]
-                )
             other_clan = OtherClan(name=other_clan_name)
             self.all_clans.append(other_clan)
         self.save_clan()
@@ -397,7 +392,7 @@ class Clan:
     def __repr__(self):
         if self.name is not None:
             _ = (
-                f"{self.name}: led by {self.leader.name}"
+                f"{self.name}: led by {self.baron.name}"
                 f"with {self.medicine_cat.name} as med. cat"
             )
             return _
@@ -405,26 +400,26 @@ class Clan:
         else:
             return "No Clan"
 
-    def new_leader(self, leader):
+    def new_baron(self, baron):
         """
         TODO: DOCS
         """
-        if leader:
-            self.history.add_lead_ceremony(leader)
-            self.leader = leader
-            Cat.all_cats[leader.ID].status_change("leader")
-            self.leader_predecessors += 1
-            self.leader_lives = 9
-        game.switches["new_leader"] = None
+        if baron:
+            self.history.add_lead_ceremony(baron)
+            self.baron = baron
+            Cat.all_cats[baron.ID].status_change("baron")
+            self.baron_predecessors += 1
+            self.baron_lives = 9
+        game.switches["new_baron"] = None
 
-    def new_deputy(self, deputy):
+    def new_regent(self, regent):
         """
         TODO: DOCS
         """
-        if deputy:
-            self.deputy = deputy
-            Cat.all_cats[deputy.ID].status_change("deputy")
-            self.deputy_predecessors += 1
+        if regent:
+            self.regent = regent
+            Cat.all_cats[regent.ID].status_change("regent")
+            self.regent_predecessors += 1
 
     def new_medicine_cat(self, medicine_cat):
         """
@@ -441,7 +436,7 @@ class Clan:
 
     def remove_med_cat(self, medicine_cat):
         """
-        Removes a med cat. Use when retiring, or switching to warrior
+        Removes a med cat. Use when retiring, or switching to clipper
         """
         if medicine_cat:
             if medicine_cat.ID in game.clan.med_cat_list:
@@ -490,22 +485,22 @@ class Clan:
             "custom_pronouns": self.custom_pronouns,
         }
 
-        # LEADER DATA
-        if self.leader:
-            clan_data["leader"] = self.leader.ID
-            clan_data["leader_lives"] = self.leader_lives
+        # baron DATA
+        if self.baron:
+            clan_data["baron"] = self.baron.ID
+            clan_data["baron_lives"] = self.baron_lives
         else:
-            clan_data["leader"] = None
+            clan_data["baron"] = None
 
-        clan_data["leader_predecessors"] = self.leader_predecessors
+        clan_data["baron_predecessors"] = self.baron_predecessors
 
-        # DEPUTY DATA
-        if self.deputy:
-            clan_data["deputy"] = self.deputy.ID
+        # regent DATA
+        if self.regent:
+            clan_data["regent"] = self.regent.ID
         else:
-            clan_data["deputy"] = None
+            clan_data["regent"] = None
 
-        clan_data["deputy_predecessors"] = self.deputy_predecessors
+        clan_data["regent_predecessors"] = self.regent_predecessors
 
         # MED CAT DATA
         if self.medicine_cat:
@@ -614,24 +609,24 @@ class Clan:
         sections = clan_data.split("\n")
         if len(sections) == 7:
             general = sections[0].split(",")
-            leader_info = sections[1].split(",")
-            deputy_info = sections[2].split(",")
+            baron_info = sections[1].split(",")
+            regent_info = sections[2].split(",")
             med_cat_info = sections[3].split(",")
             instructor_info = sections[4]
             members = sections[5].split(",")
             other_clans = sections[6].split(",")
         elif len(sections) == 6:
             general = sections[0].split(",")
-            leader_info = sections[1].split(",")
-            deputy_info = sections[2].split(",")
+            baron_info = sections[1].split(",")
+            regent_info = sections[2].split(",")
             med_cat_info = sections[3].split(",")
             instructor_info = sections[4]
             members = sections[5].split(",")
             other_clans = []
         else:
             general = sections[0].split(",")
-            leader_info = sections[1].split(",")
-            deputy_info = 0, 0
+            baron_info = sections[1].split(",")
+            regent_info = 0, 0
             med_cat_info = sections[2].split(",")
             instructor_info = sections[3]
             members = sections[4].split(",")
@@ -647,8 +642,8 @@ class Clan:
                 general[8] = 50
             game.clan = Clan(
                 name=general[0],
-                leader=Cat.all_cats[leader_info[0]],
-                deputy=Cat.all_cats.get(deputy_info[0], None),
+                baron=Cat.all_cats[baron_info[0]],
+                regent=Cat.all_cats.get(regent_info[0], None),
                 medicine_cat=Cat.all_cats.get(med_cat_info[0], None),
                 biome=general[2],
                 camp_bg=general[3],
@@ -666,8 +661,8 @@ class Clan:
                 general[7] = "classic"
             game.clan = Clan(
                 name=general[0],
-                leader=Cat.all_cats[leader_info[0]],
-                deputy=Cat.all_cats.get(deputy_info[0], None),
+                baron=Cat.all_cats[baron_info[0]],
+                regent=Cat.all_cats.get(regent_info[0], None),
                 medicine_cat=Cat.all_cats.get(med_cat_info[0], None),
                 biome=general[2],
                 camp_bg=general[3],
@@ -682,8 +677,8 @@ class Clan:
                 general[3] = "camp1"
             game.clan = Clan(
                 name=general[0],
-                leader=Cat.all_cats[leader_info[0]],
-                deputy=Cat.all_cats.get(deputy_info[0], None),
+                baron=Cat.all_cats[baron_info[0]],
+                regent=Cat.all_cats.get(regent_info[0], None),
                 medicine_cat=Cat.all_cats.get(med_cat_info[0], None),
                 biome=general[2],
                 camp_bg=general[3],
@@ -693,8 +688,8 @@ class Clan:
         elif len(general) == 3:
             game.clan = Clan(
                 name=general[0],
-                leader=Cat.all_cats[leader_info[0]],
-                deputy=Cat.all_cats.get(deputy_info[0], None),
+                baron=Cat.all_cats[baron_info[0]],
+                regent=Cat.all_cats.get(regent_info[0], None),
                 medicine_cat=Cat.all_cats.get(med_cat_info[0], None),
                 biome=general[2],
                 self_run_init_functions=False,
@@ -703,8 +698,8 @@ class Clan:
         else:
             game.clan = Clan(
                 general[0],
-                Cat.all_cats[leader_info[0]],
-                Cat.all_cats.get(deputy_info[0], None),
+                Cat.all_cats[baron_info[0]],
+                Cat.all_cats.get(regent_info[0], None),
                 Cat.all_cats.get(med_cat_info[0], None),
                 self_run_init_functions=False,
             )
@@ -714,12 +709,12 @@ class Clan:
             game.clan.current_season = game.clan.seasons[game.clan.age % 12]
         else:
             game.clan.current_season = game.clan.starting_season
-        game.clan.leader_lives, game.clan.leader_predecessors = int(
-            leader_info[1]
-        ), int(leader_info[2])
+        game.clan.baron_lives, game.clan.baron_predecessors = int(
+            baron_info[1]
+        ), int(baron_info[2])
 
-        if len(deputy_info) > 1:
-            game.clan.deputy_predecessors = int(deputy_info[1])
+        if len(regent_info) > 1:
+            game.clan.regent_predecessors = int(regent_info[1])
         if len(med_cat_info) > 1:
             game.clan.med_cat_predecessors = int(med_cat_info[1])
         if len(med_cat_info) > 2:
@@ -729,7 +724,7 @@ class Clan:
                 game.clan.instructor = Cat.all_cats[instructor_info]
                 game.clan.add_cat(game.clan.instructor)
         else:
-            game.clan.instructor = Cat(status=choice(["warrior", "warrior", "elder"]))
+            game.clan.instructor = Cat(status=choice(["clipper", "clipper", "elder"]))
             # update_sprite(game.clan.instructor)
             game.clan.instructor.dead = True
             game.clan.add_cat(game.clan.instructor)
@@ -784,17 +779,17 @@ class Clan:
         ) as read_file:  # pylint: disable=redefined-outer-name
             clan_data = ujson.loads(read_file.read())
 
-        if clan_data["leader"]:
-            leader = Cat.all_cats[clan_data["leader"]]
-            leader_lives = clan_data["leader_lives"]
+        if clan_data["baron"]:
+            baron = Cat.all_cats[clan_data["baron"]]
+            baron_lives = clan_data["baron_lives"]
         else:
-            leader = None
-            leader_lives = 0
+            baron = None
+            baron_lives = 0
 
-        if clan_data["deputy"]:
-            deputy = Cat.all_cats[clan_data["deputy"]]
+        if clan_data["regent"]:
+            regent = Cat.all_cats[clan_data["regent"]]
         else:
-            deputy = None
+            regent = None
 
         if clan_data["med_cat"]:
             med_cat = Cat.all_cats[clan_data["med_cat"]]
@@ -803,8 +798,8 @@ class Clan:
 
         game.clan = Clan(
             name=clan_data["clanname"],
-            leader=leader,
-            deputy=deputy,
+            baron=baron,
+            regent=regent,
             medicine_cat=med_cat,
             biome=clan_data["biome"],
             camp_bg=clan_data["camp_bg"],
@@ -823,10 +818,10 @@ class Clan:
         )
         get_current_season()
 
-        game.clan.leader_lives = leader_lives
-        game.clan.leader_predecessors = clan_data["leader_predecessors"]
+        game.clan.baron_lives = baron_lives
+        game.clan.baron_predecessors = clan_data["baron_predecessors"]
 
-        game.clan.deputy_predecessors = clan_data["deputy_predecessors"]
+        game.clan.regent_predecessors = clan_data["regent_predecessors"]
         game.clan.med_cat_predecessors = clan_data["med_cat_predecessors"]
         game.clan.med_cat_number = clan_data["med_cat_number"]
         # Allows for the custom pronouns to show up in the add pronoun list after the game has closed and reopened.
@@ -843,7 +838,7 @@ class Clan:
             game.clan.instructor = Cat.all_cats[clan_data["instructor"]]
             game.clan.add_cat(game.clan.instructor)
         else:
-            game.clan.instructor = Cat(status=choice(["warrior", "warrior", "elder"]))
+            game.clan.instructor = Cat(status=choice(["clipper", "clipper", "elder"]))
             # update_sprite(game.clan.instructor)
             game.clan.instructor.dead = True
             game.clan.add_cat(game.clan.instructor)
@@ -1221,26 +1216,26 @@ class Clan:
         all_cats = [
             i
             for i in Cat.all_cats_list
-            if i.status not in ["leader", "deputy"] and not i.dead and not i.outside
+            if i.status not in ["baron", "regent"] and not i.dead and not i.outside
         ]
-        leader = (
-            Cat.fetch_cat(self.leader)
-            if isinstance(Cat.fetch_cat(self.leader), Cat)
+        baron = (
+            Cat.fetch_cat(self.baron)
+            if isinstance(Cat.fetch_cat(self.baron), Cat)
             else None
         )
-        deputy = (
-            Cat.fetch_cat(self.deputy)
-            if isinstance(Cat.fetch_cat(self.deputy), Cat)
+        regent = (
+            Cat.fetch_cat(self.regent)
+            if isinstance(Cat.fetch_cat(self.regent), Cat)
             else None
         )
 
         weight = 0.3
 
-        if (leader or deputy) and all_cats:
+        if (baron or regent) and all_cats:
             clan_sociability = round(
                 weight
                 * statistics.mean(
-                    [i.personality.sociability for i in [leader, deputy] if i]
+                    [i.personality.sociability for i in [baron, regent] if i]
                 )
                 + (1 - weight)
                 * statistics.median([i.personality.sociability for i in all_cats])
@@ -1248,20 +1243,20 @@ class Clan:
             clan_aggression = round(
                 weight
                 * statistics.mean(
-                    [i.personality.aggression for i in [leader, deputy] if i]
+                    [i.personality.aggression for i in [baron, regent] if i]
                 )
                 + (1 - weight)
                 * statistics.median([i.personality.aggression for i in all_cats])
             )
-        elif leader or deputy:
+        elif baron or regent:
             clan_sociability = round(
                 statistics.mean(
-                    [i.personality.sociability for i in [leader, deputy] if i]
+                    [i.personality.sociability for i in [baron, regent] if i]
                 )
             )
             clan_aggression = round(
                 statistics.mean(
-                    [i.personality.aggression for i in [leader, deputy] if i]
+                    [i.personality.aggression for i in [baron, regent] if i]
                 )
             )
         elif all_cats:

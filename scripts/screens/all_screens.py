@@ -23,7 +23,7 @@ from .SettingsScreen import SettingsScreen
 from .SpriteInspectScreen import SpriteInspectScreen
 from .StartScreen import StartScreen
 from .SwitchClanScreen import SwitchClanScreen
-from .WarriorDenScreen import WarriorDenScreen
+from .ClipperDenScreen import ClipperDenScreen
 
 # ---------------------------------------------------------------------------- #
 #                                  UI RULES                                    #
@@ -60,7 +60,7 @@ class AllScreens:
     list_screen = ListScreen("list screen")
     med_den_screen = MedDenScreen("med den screen")
     clearing_screen = ClearingScreen("clearing screen")
-    warrior_den_screen = WarriorDenScreen("warrior den screen")
+    clipper_den_screen = ClipperDenScreen("clipper den screen")
     leader_den_screen = LeaderDenScreen("leader den screen")
 
     events_screen = EventsScreen("events screen")
@@ -97,7 +97,7 @@ class AllScreens:
         cls.list_screen = ListScreen("list screen")
         cls.med_den_screen = MedDenScreen("med den screen")
         cls.clearing_screen = ClearingScreen("clearing screen")
-        cls.warrior_den_screen = WarriorDenScreen("warrior den screen")
+        cls.clipper_den_screen = ClipperDenScreen("clipper den screen")
         cls.leader_den_screen = LeaderDenScreen("leader den screen")
 
         cls.events_screen = EventsScreen("events screen")

@@ -67,7 +67,7 @@
         },
         "weight": 60,
         "intro_text": "p_l sees {PRONOUN/p_l/poss} mates exchanging curious glances as they all pad through the grass towards p_l's promised surprise. {PRONOUN/p_l/poss/CAP} tail waves like a jaunty reed, twitching a little in {PRONOUN/p_l/poss} excitement and scattering dewdrops whenever it hits the grass.",
-        "decline_text": "The warriors get intercepted by a hunting patrol who need extra paws, and the possibility of a romantic afternoon evaporates.",
+        "decline_text": "The clippers get intercepted by a hunting patrol who need extra paws, and the possibility of a romantic afternoon evaporates.",
         "chance_of_success": 60,
         "relationship_constraint": ["mates_with_pl"],
         "success_outcomes": [
@@ -342,7 +342,7 @@
                     "text": "The bug r_c batted flies up to {PRONOUN/r_c/poss} face and buzzes, and p_l completely loses track of the story {PRONOUN/p_l/subject} {VERB/p_l/were/was} about to tell as {PRONOUN/p_l/subject} {VERB/p_l/help/helps} r_c out with the irritated insect.",
                     "exp": 0,
                     "weight": 20,
-                    "art": "gen_warrior_crouching_perplexed",
+                    "art": "gen_clipper_crouching_perplexed",
                     "relationships": [
                         {
                             "cats_to": ["p_l"],
