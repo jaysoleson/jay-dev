@@ -207,7 +207,7 @@ class LeaderDenScreen(Screens):
                         and not i.exiled
                         and not i.outside
                         and not i.not_working()
-                        and i.status in ["mediator", "mediator apprentice"]
+                        and i.status in ("mediator", "mediator apprentice")
                     ]
                     if mediators:
                         self.helper_cat = mediators[0]
@@ -933,7 +933,7 @@ class LeaderDenScreen(Screens):
             self.focus_cat.outside
             and not self.focus_cat.exiled
             and self.focus_cat.status
-            not in ["kittypet", "loner", "rogue", "former Clancat"]
+            not in ("kittypet", "loner", "rogue", "former Clancat")
         ):
             self.focus_button["invite"].set_text("screens.baron_den.search")
         else:

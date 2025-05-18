@@ -255,11 +255,11 @@ class Cat:
                 self.age = CatAgeEnum.KITTEN
             elif status == "elder":
                 self.age = CatAgeEnum.SENIOR
-            elif status in [
+            elif status in (
                 "apprentice",
                 "mediator apprentice",
                 "medicine cat apprentice",
-            ]:
+            ):
                 self.age = CatAgeEnum.ADOLESCENT
             else:
                 self.age = choice(
@@ -322,7 +322,7 @@ class Cat:
         # SAVE CAT INTO ALL_CATS DICTIONARY IN CATS-CLASS
         self.all_cats[self.ID] = self
 
-        if self.ID not in ["0", None]:
+        if self.ID is not None and self.ID != "0":
             Cat.insert_cat(self)
 
     def init_faded(self, ID, status, prefix, moons, **kwargs):
@@ -430,7 +430,7 @@ class Cat:
                 )
                 self.experience += exp + 3
                 m -= 1
-        elif self.age in [CatAgeEnum.YOUNG_ADULT, CatAgeEnum.ADULT]:
+        elif self.age in (CatAgeEnum.YOUNG_ADULT, CatAgeEnum.ADULT):
             self.experience = randint(
                 Cat.experience_levels_range["prepared"][0],
                 Cat.experience_levels_range["proficient"][1],
@@ -515,13 +515,13 @@ class Cat:
 
     def get_genderalign_string(self):
         # translate it if it's default
-        if self.genderalign in [
+        if self.genderalign in (
             "female",
             "male",
             "trans female",
             "trans male",
             "nonbinary",
-        ]:
+        ):
             return i18n.t(f"general.{self.genderalign}")
         # otherwise, it's custom - just return it directly
         return self.genderalign
@@ -837,7 +837,7 @@ class Cat:
         mentors and apprentices."""
         self.outside = True
 
-        if self.status in ["baron", "clipper"]:
+        if self.status in ("baron", "clipper"):
             self.status_change("clipper")
 
         for app in self.apprentice.copy():
@@ -945,7 +945,7 @@ class Cat:
     def rank_change_traits_skill(self, mentor):
         """Updates trait and skill upon ceremony"""
 
-        if self.status in ["clipper", "medicine cat", "mediator"]:
+        if self.status in ("clipper", "medicine cat", "mediator"):
             # Give a couple doses of mentor influence:
             if mentor:
                 max_influence = randint(0, 2)
@@ -1216,7 +1216,7 @@ class Cat:
                     for i in game.clan.starclan_cats
                     if self.fetch_cat(i)
                     and i not in life_givers
-                    and self.fetch_cat(i).status not in ["baron", "newborn"]
+                    and self.fetch_cat(i).status not in ("baron", "newborn")
                 ]
 
                 if len(possible_sc_cats) - 1 < amount:
@@ -1229,7 +1229,7 @@ class Cat:
                     for i in game.clan.darkforest_cats
                     if self.fetch_cat(i)
                     and i not in life_givers
-                    and self.fetch_cat(i).status not in ["baron", "newborn"]
+                    and self.fetch_cat(i).status not in ("baron", "newborn")
                 ]
                 if len(possible_df_cats) - 1 < amount:
                     extra_givers = possible_df_cats
@@ -1499,11 +1499,11 @@ class Cat:
         self.personality.set_kit(self.age.is_baby())
         # Upon age-change
 
-        if self.status in [
+        if self.status in (
             "apprentice",
             "mediator apprentice",
             "medicine cat apprentice",
-        ]:
+        ):
             self.update_mentor()
 
     def thoughts(self):
@@ -1549,7 +1549,7 @@ class Cat:
                     other_cat = None
                     break
         # for dead cats
-        elif where_kitty in ["starclan", "hell", "UR"]:
+        elif where_kitty in ("starclan", "hell", "UR"):
             while other_cat == self.ID and len(all_cats) > 1:
                 other_cat = choice(list(all_cats.keys()))
                 i += 1
@@ -1564,7 +1564,7 @@ class Cat:
                 and len(all_cats) > 1
                 or (other_cat not in self.relationships)
             ):
-                # or (self.status in ['kittypet', 'loner'] and not all_cats.get(other_cat).outside):
+                # or (self.status in ('kittypet', 'loner') and not all_cats.get(other_cat).outside):
                 other_cat = choice(list(all_cats.keys()))
                 i += 1
                 if i > 100:
@@ -1995,7 +1995,7 @@ class Cat:
 
         for condition in PERMANENT:
             possible = PERMANENT[condition]
-            if possible["congenital"] in ["always", "sometimes"]:
+            if possible["congenital"] in ("always", "sometimes"):
                 possible_conditions.append(condition)
 
         new_condition = choice(possible_conditions)
@@ -2052,7 +2052,7 @@ class Cat:
             )  # creating a range in which a condition can present
             moons_until = max(moons_until, 0)
 
-        if born_with and self.status not in ["kitten", "newborn"]:
+        if born_with and self.status not in ("kitten", "newborn"):
             moons_until = -2
         elif born_with is False:
             moons_until = 0
@@ -2115,12 +2115,12 @@ class Cat:
         """This is only for cats that retire due to health condition"""
 
         # There are some special tasks we need to do for apprentice
-        # Note that although you can un-retire cats, they will be a full clipper/med_cat/mediator
-        if self.moons > 6 and self.status in [
+        # Note that although you can un-retire cats, they will be a full warrior/med_cat/mediator
+        if self.moons > 6 and self.status in (
             "apprentice",
             "medicine cat apprentice",
             "mediator apprentice",
-        ]:
+        ):
             _ment = Cat.fetch_cat(self.mentor) if self.mentor else None
             self.status_change(
                 "clipper"
@@ -2141,6 +2141,14 @@ class Cat:
     def is_disabled(self):
         """Returns true if the cat have permanent condition"""
         return len(self.permanent_condition) > 0
+
+    def available_to_work(self):
+        return (
+            not self.dead
+            and not self.outside
+            and not self.exiled
+            and not self.not_working()
+        )
 
     def contact_with_ill_cat(self, cat: Cat):
         """handles if one cat had contact with an ill cat"""
@@ -2262,11 +2270,11 @@ class Cat:
             and potential_mentor.status != "medicine cat"
         ):
             return False
-        if self.status == "apprentice" and potential_mentor.status not in [
+        if self.status == "apprentice" and potential_mentor.status not in (
             "baron",
             "regent",
             "clipper",
-        ]:
+        ):
             return False
         if (
             self.status == "mediator apprentice"
@@ -2321,7 +2329,7 @@ class Cat:
             or self.outside
             or self.exiled
             or self.status
-            not in ["apprentice", "mediator apprentice", "medicine cat apprentice"]
+            not in ("apprentice", "mediator apprentice", "medicine cat apprentice")
         )
         if illegible_for_mentor:
             self.__remove_mentor()
@@ -2631,15 +2639,15 @@ class Cat:
                     and the_cat.parent1 is not None
                     and the_cat.parent2 is not None
                 ):
-                    are_parents = the_cat.ID in [self.parent1, self.parent2]
-                    parents = are_parents or self.ID in [
+                    are_parents = the_cat.ID in (self.parent1, self.parent2)
+                    parents = are_parents or self.ID in (
                         the_cat.parent1,
                         the_cat.parent2,
-                    ]
-                    siblings = self.parent1 in [
+                    )
+                    siblings = self.parent1 in (
                         the_cat.parent1,
                         the_cat.parent2,
-                    ] or self.parent2 in [the_cat.parent1, the_cat.parent2]
+                    ) or self.parent2 in (the_cat.parent1, the_cat.parent2)
 
                 related = parents or siblings
 
@@ -2806,7 +2814,7 @@ class Cat:
             chance -= 5
 
         # Cat's compatibility with mediator also has an effect on success chance.
-        for cat in [cat1, cat2]:
+        for cat in (cat1, cat2):
             if get_personality_compatibility(cat, mediator) is True:
                 chance += 5
             elif get_personality_compatibility(cat, mediator) is False:
