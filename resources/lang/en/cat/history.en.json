@@ -30,16 +30,6 @@
         "regular_death": "%{cats} died.",
         "death_cause": "%{death} when {PRONOUN/m_c/subject} %{text}.",
         "murdered": "%{name} murdered %{victims}.",
-        "baron_lives_left_df": {
-            "zero": "The baron has no lives left and has travelled to the Dark Forest.",
-            "one": "The baron has one life left.",
-            "many": "The baron has %{count} lives left."
-        },
-        "baron_lives_left_sc": {
-            "zero": "The baron has no lives left and has travelled to StarClan.",
-            "one": "The baron has one life left.",
-            "many": "The baron has %{count} lives left."
-        },
         "scar_from_injury": "m_c was scarred from an injury (%{injury_name})."
     }
 }

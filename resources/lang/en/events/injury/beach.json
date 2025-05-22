@@ -6,7 +6,7 @@
         "weight": 30,
         "event_text": "m_c went out of camp alone to practice swimming in the ocean; unfortunately, {PRONOUN/m_c/poss} inexperience led to {PRONOUN/m_c/object} being swept up by a riptide. r_c heard {PRONOUN/m_c/poss} cries and saved {PRONOUN/m_c/object}, but m_c almost drowned.",
         "m_c": {
-            "status": ["apprentice"],
+            "status": ["colt"],
             "trait": ["adventurous", "ambitious", "bold", "childish", "confident", "daring", "playful", "troublesome"]
         },
         "r_c": {
@@ -49,7 +49,7 @@
         "weight": 30,
         "event_text": "m_c's paw pads aren't used to all the salt water {PRONOUN/m_c/subject}{VERB/m_c/'ve/'s} been traipsing around in since becoming an apprentice, they've become cracked and sore.",
         "m_c": {
-            "status": ["apprentice"]
+            "status": ["colt"]
         },
         "injury": [
             {
@@ -65,7 +65,7 @@
         "weight": 30,
         "event_text": "m_c was dashing around the apprentice rock, when {PRONOUN/m_c/subject} slipped and fell into the high tide waters of the cave. {PRONOUN/m_c/subject/CAP}{VERB/m_c/'re/'s} alright, though a bit bruised and embarrassed.",
         "m_c": {
-            "status": ["apprentice"],
+            "status": ["colt"],
             "trait": ["adventurous", "bold", "childish", "daring", "playful", "troublesome"]
         },
         "injury": [
@@ -83,7 +83,7 @@
         "event_text": "m_c was messing around in the tide pools of the camp clearing, when {PRONOUN/m_c/poss} paw slipped and {PRONOUN/m_c/subject} fell in face first. {PRONOUN/m_c/poss/CAP} pride is wounded, but otherwise {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} only bruised.",
         "m_c": {
             "age": ["adolescent"],
-            "status": ["apprentice"],
+            "status": ["colt"],
             "trait": ["adventurous", "bold", "childish", "daring", "playful", "troublesome"]
         },
         "injury": [
@@ -100,7 +100,7 @@
         "weight": 30,
         "event_text": "m_c unwisely decided to go out swimming alone after r_c dared {PRONOUN/m_c/object} to. {PRONOUN/m_c/subject/CAP} made it back, but ended up drenched and shivering violently in the cold air.",
         "m_c": {
-            "status": ["apprentice"]
+            "status": ["colt"]
         },
         "r_c": {
             "age": ["any"],
@@ -136,7 +136,7 @@
         "weight": 30,
         "event_text": "m_c rarely pays attention when r_c talks about proper ocean safety, and it shows when m_c gets thirsty on patrol and drinks salt water. {PRONOUN/m_c/subject/CAP} {VERB/m_c/come/comes} back to camp severely dehydrated.",
         "m_c": {
-            "status": ["apprentice"],
+            "status": ["colt"],
             "relationship_status": ["app/mentor"],
             "trait": ["troublesome", "strange"]
         },

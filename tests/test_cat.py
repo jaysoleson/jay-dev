@@ -436,7 +436,7 @@ class TestUpdateMentor(unittest.TestCase):
     # test that an exiled cat apprentice becomes a former apprentice
     def test_exile_apprentice(self):
         # given
-        app = Cat(moons=7, status="apprentice")
+        app = Cat(moons=7, status="colt")
         mentor = Cat(moons=20, status="clipper")
         app.update_mentor(mentor.ID)
 
@@ -468,11 +468,11 @@ class TestUpdateMentor(unittest.TestCase):
 #             [["newborn"], 0, "kit"],
 #             [["kitten"], 1, "kit"],
 #             [
-#                 ["apprentice", "medicine cat apprentice", "mediator apprentice"],
+#                 ["colt", "apprentice doctor"],
 #                 6,
 #                 "paw",
 #             ],
-#             [["clipper", "medicine cat", "mediator", "elder", "regent"], 14, "test"],
+#             [["clipper", "doctor", "mediator", "elder", "regent"], 14, "test"],
 #             [["baron"], 14, "star"],
 #         ]
 #         for testset, moons, suffix in statuses:
@@ -490,11 +490,11 @@ class TestUpdateMentor(unittest.TestCase):
 #             [["newborn"], 0, "test"],
 #             [["kitten"], 1, "test"],
 #             [
-#                 ["apprentice", "medicine cat apprentice", "mediator apprentice"],
+#                 ["colt", "apprentice doctor"],
 #                 6,
 #                 "test",
 #             ],
-#             [["clipper", "medicine cat", "mediator", "elder", "regent"], 14, "test"],
+#             [["clipper", "doctor", "mediator", "elder", "regent"], 14, "test"],
 #             [["baron"], 14, "test"],
 #         ]
 #         for testset, moons, suffix in statuses:
@@ -561,7 +561,7 @@ class TestUpdateMentor(unittest.TestCase):
 #         statuses = [
 #             ["newborn", 0, "kit"],
 #             ["kitten", 1, "kit"],
-#             ["apprentice", 6, "paw"],
+#             ["colt", 6, "paw"],
 #             ["clipper", 14, "test"],
 #         ]
 #         for status, moons, suffix in statuses:
@@ -578,7 +578,7 @@ class TestUpdateMentor(unittest.TestCase):
 #         statuses = [
 #             ["newborn", 0, "kit"],
 #             ["kitten", 1, "kit"],
-#             ["apprentice", 6, "paw"],
+#             ["colt", 6, "paw"],
 #             ["clipper", 14, "test"],
 #         ]
 #         for status, moons, suffix in statuses:

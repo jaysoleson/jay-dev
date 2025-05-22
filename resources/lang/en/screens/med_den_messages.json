@@ -59,8 +59,8 @@
     "no_meds_warning": [
         "With no cat assigned to the medicine den, the Clan is at risk of injuries progressing to infection and fever.",
         "The cats eye the empty medicine den uneasily. They're missing a crucial component of the Clan.",
-        "Death and sickness haunt the Clan more often without medicine cats to keep them at bay.",
-        "The absence of a medicine cats in the den sticks out like a thorn in a paw.",
+        "Death and sickness haunt the Clan more often without doctors to keep them at bay.",
+        "The absence of a doctors in the den sticks out like a thorn in a paw.",
         "This isn't right - there should be a source of comfort and guidance in this den, not an uneasy absence and unsettling silence."
     ],
     "single_not_working": [
@@ -71,9 +71,9 @@
         "Hopefully c_n won't miss m_c's efforts this moon, because {PRONOUN/m_c/subject} aren't in any condition to work."
     ],
     "many_not_working": [
-        "The medicine cats aren't seeing patients this moon, they <i>are</i> the patients.",
-        "Hopefully nothing goes wrong this moon, given that the medicine cats are all unable to work.",
-        "Medicine cats make terrible patients, it turns out. Add that to the pile of reasons that c_n hopes they'll be back on their paws soon.",
-        "With no working medicine cats, c_n is vulnerable."
+        "The doctors aren't seeing patients this moon, they <i>are</i> the patients.",
+        "Hopefully nothing goes wrong this moon, given that the doctors are all unable to work.",
+        "doctors make terrible patients, it turns out. Add that to the pile of reasons that c_n hopes they'll be back on their paws soon.",
+        "With no working doctors, c_n is vulnerable."
     ]
 }

@@ -52,15 +52,15 @@
 		],
 		"main_status_constraint": [
 			"kitten",
-			"apprentice",
-			"mediator apprentice",
-			"medicine cat apprentice"
+			"colt",
+			"apprentice doctor"
 		],
 		"random_status_constraint": [
 			"clipper",
 			"elder",
-			"medicine cat",
-			"mediator",
+			"doctor",
+			"cog",
+			"heir",
 			"regent",
 			"baron"
 		]
@@ -76,14 +76,12 @@
 			"m_c and r_c have a long conversation about what they want their clipper names to be."
 		],
 		"main_status_constraint": [
-			"apprentice",
-			"mediator apprentice",
-			"medicine cat apprentice"
+			"colt",
+			"apprentice doctor"
 		],
 		"random_status_constraint": [
-			"medicine cat apprentice",
-			"apprentice",
-			"mediator apprentice"
+			"apprentice doctor",
+			"colt"
 		],
 		"reaction_random_cat": {
 			"comfortable": "increase",
@@ -104,12 +102,11 @@
 			"m_c quizzes r_c on herb knowledge in preparation for a test."
 		],
 		"main_status_constraint": [
-			"apprentice",
-			"mediator apprentice",
-			"medicine cat apprentice"
+			"colt",
+			"apprentice doctor"
 		],
 		"random_status_constraint": [
-			"medicine cat apprentice"
+			"apprentice doctor"
 		],
 		"reaction_random_cat": {
 			"comfortable": "increase"

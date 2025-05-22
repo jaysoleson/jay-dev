@@ -6,7 +6,7 @@ os.environ["SDL_VIDEODRIVER"] = "dummy"
 os.environ["SDL_AUDIODRIVER"] = "dummy"
 
 from scripts.cat.cats import Cat
-from scripts.conditions import medicine_cats_can_cover_clan
+from scripts.conditions import doctors_can_cover_clan
 
 
 
@@ -16,10 +16,10 @@ class TestsMedCondition(unittest.TestCase):
         cat1.status = "clipper"
 
         med = Cat(moons=20)
-        med.status = "medicine cat"
+        med.status = "doctor"
 
         all_cats = [cat1, med]
-        self.assertTrue(medicine_cats_can_cover_clan(all_cats, 15))
+        self.assertTrue(doctors_can_cover_clan(all_cats, 15))
 
     def test_fulfilled_many_cats(self):
         cat1 = Cat(moons=20)
@@ -32,34 +32,34 @@ class TestsMedCondition(unittest.TestCase):
         cat4.status = "clipper"
 
         med1 = Cat(moons=20)
-        med1.status = "medicine cat"
+        med1.status = "doctor"
         med2 = Cat(moons=20)
-        med2.status = "medicine cat"
+        med2.status = "doctor"
 
         all_cats = [cat1, cat2, cat3, cat4, med1, med2]
-        self.assertTrue(medicine_cats_can_cover_clan(all_cats, 2))
+        self.assertTrue(doctors_can_cover_clan(all_cats, 2))
 
     def test_injured_fulfilled(self):
         cat1 = Cat(moons=20)
         cat1.status = "clipper"
 
         med = Cat(moons=20)
-        med.status = "medicine cat"
+        med.status = "doctor"
         med.injuries["small cut"] = {"severity": "minor"}
 
         all_cats = [cat1, med]
-        self.assertTrue(medicine_cats_can_cover_clan(all_cats, 15))
+        self.assertTrue(doctors_can_cover_clan(all_cats, 15))
 
     def test_illness_fulfilled(self):
         cat1 = Cat(moons=20)
         cat1.status = "clipper"
 
         med = Cat(moons=20)
-        med.status = "medicine cat"
+        med.status = "doctor"
         med.illnesses["running nose"] = {"severity": "minor"}
 
         all_cats = [cat1, med]
-        self.assertTrue(medicine_cats_can_cover_clan(all_cats, 15))
+        self.assertTrue(doctors_can_cover_clan(all_cats, 15))
 
 
 class TestsIllnesses(unittest.TestCase):

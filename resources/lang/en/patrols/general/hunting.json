@@ -379,7 +379,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [1, 6]
+            "colt": [1, 6]
         },
         "weight": 5,
         "intro_text": "r_c is tempted to eat the prey {PRONOUN/r_c/subject} just caught.",
@@ -419,7 +419,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "r_c gives in to {PRONOUN/r_c/poss} grumbling belly, reasoning that no one will notice, but when {PRONOUN/r_c/subject} {VERB/r_c/arrive/arrives} back at camp empty-pawed and with blood on {PRONOUN/r_c/poss} lips, {PRONOUN/r_c/subject} {VERB/r_c/feel/feels} the stares of the clippers on {PRONOUN/r_c/poss} pelt. r_c slinks back to the apprentices' den, tail and ears low.",
+                "text": "r_c gives in to {PRONOUN/r_c/poss} grumbling belly, reasoning that no one will notice, but when {PRONOUN/r_c/subject} {VERB/r_c/arrive/arrives} back at camp empty-pawed and with blood on {PRONOUN/r_c/poss} lips, {PRONOUN/r_c/subject} {VERB/r_c/feel/feels} the stares of the clippers on {PRONOUN/r_c/poss} pelt. r_c slinks back to the colts' den, tail and ears low.",
                 "exp": 0,
                 "weight": 20,
                 "relationships": [
@@ -555,7 +555,7 @@
         "min_cats": 2,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "regent": [-1, -1]
         },
         "weight": 5,
@@ -1162,7 +1162,7 @@
     "min_cats": 1,
     "max_cats": 1,
     "min_max_status": {
-        "apprentice": [1, 1]
+        "colt": [1, 1]
     },
     "weight": 1,
     "intro_text": "app1 has snuck out late, timed with the last flares of the sunset, to try to hunt alone.",
@@ -1232,7 +1232,7 @@
     "min_cats": 1,
     "max_cats": 1,
     "min_max_status": {
-        "apprentice": [1, 1]
+        "colt": [1, 1]
     },
     "weight": 1,
     "intro_text": "Look, {PRONOUN/app1/subject}{VERB/app1/'re/'s} so close to perfecting {PRONOUN/app1/poss} pounce, app1 can <i>feel</i> it. {PRONOUN/app1/subject/CAP} head out to prove so.",
@@ -1302,7 +1302,7 @@
     "min_cats": 1,
     "max_cats": 1,
     "min_max_status": {
-        "apprentice": [1, 1]
+        "colt": [1, 1]
     },
     "weight": 1,
     "intro_text": "app1 is tired of being treated like {PRONOUN/app1/subject} {VERB/app1/do/does}n't know anything - {PRONOUN/app1/subject} {VERB/app1/stalk/stalks} off to hunt alone.",
@@ -1372,10 +1372,10 @@
     "min_cats": 1,
     "max_cats": 1,
     "min_max_status": {
-        "apprentice": [1, 1]
+        "colt": [1, 1]
     },
     "weight": 1,
-    "intro_text": "app1 doesn't want to be in the apprentices' den until {PRONOUN/app1/poss} muzzle grays - {PRONOUN/app1/subject} {VERB/app1/need/needs} to prove lead_name should pay attention to {PRONOUN/app1/object}.",
+    "intro_text": "app1 doesn't want to be in the colts' den until {PRONOUN/app1/poss} muzzle grays - {PRONOUN/app1/subject} {VERB/app1/need/needs} to prove lead_name should pay attention to {PRONOUN/app1/object}.",
     "decline_text": "Just as {PRONOUN/app1/subject}{VERB/app1/'re/'s} about to leave camp, someone calls out and offers to share something from the fresh-kill pile with {PRONOUN/app1/object}. app1 can't refuse, even if {PRONOUN/app1/subject}'d like to, and {PRONOUN/app1/poss} clandestine hunt is cancelled.",
     "chance_of_success": 50,
     "success_outcomes": [
@@ -1442,7 +1442,7 @@
     "min_cats": 1,
     "max_cats": 1,
     "min_max_status": {
-        "apprentice": [1, 1]
+        "colt": [1, 1]
     },
     "weight": 1,
     "intro_text": "app1 nervously creeps out towards c_n's dirtplace, profile low to the ground as {PRONOUN/app1/subject} {VERB/app1/sneak/sneaks} out of camp. Let's see what a night hunt feels like.",
@@ -2571,7 +2571,7 @@
     "min_cats": 2,
     "max_cats": 6,
     "min_max_status": {
-        "apprentice": [2, 6],
+        "colt": [2, 6],
         "normal adult": [-1, -1]
     },
     "weight": 1,
@@ -2678,7 +2678,7 @@
     "min_cats": 2,
     "max_cats": 6,
     "min_max_status": {
-        "apprentice": [2, 6],
+        "colt": [2, 6],
         "normal adult": [-1, -1]
     },
     "weight": 1,
@@ -2794,7 +2794,7 @@
     "min_cats": 2,
     "max_cats": 6,
     "min_max_status": {
-        "apprentice": [2, 6],
+        "colt": [2, 6],
         "normal adult": [-1, -1]
     },
     "weight": 1,
@@ -2917,7 +2917,7 @@
     "min_cats": 2,
     "max_cats": 6,
     "min_max_status": {
-        "apprentice": [2, 6],
+        "colt": [2, 6],
         "normal adult": [-1, -1]
     },
     "weight": 1,
@@ -3031,7 +3031,7 @@
     "min_cats": 2,
     "max_cats": 6,
     "min_max_status": {
-        "apprentice": [2, 6],
+        "colt": [2, 6],
         "normal adult": [-1, -1]
     },
     "weight": 1,
@@ -3145,7 +3145,7 @@
     "min_cats": 1,
     "max_cats": 1,
     "min_max_status": {
-      "apprentice": [1,1]
+      "colt": [1,1]
     },
     "weight": 20,
     "intro_text": "app1 huffs in frustration when all scents of prey are drowned out by kittypet scent. {PRONOUN/app1/subject/CAP} {VERB/app1/follow/follows} the scent to discover a... lion? But are lions this small? And why does it smell like a kittypet?",
@@ -3235,7 +3235,7 @@
     "min_cats": 2,
     "max_cats": 6,
     "min_max_status": {
-        "apprentice": [0, 6],
+        "colt": [0, 6],
         "healer cats": [-1, -1],
         "normal adult": [0, 6]
     },

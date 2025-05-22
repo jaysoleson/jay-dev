@@ -193,9 +193,9 @@ class Screens:
         Screens.menu_buttons = scripts.screens.screens_core.screens_core.menu_buttons
         Screens.game_frame = scripts.screens.screens_core.screens_core.game_frame
         try:
-            Screens.update_heading_text(game.clan.name + "Clan")
+            Screens.update_heading_text(str(game.clan.baron.name) + "'s Territory")
         except AttributeError:
-            Screens.update_heading_text("DebugClan")
+            Screens.update_heading_text("Territory")
         if self.active_bg is None or "default" in self.active_bg:
             self.set_bg(None)
         self.bg_transition = True

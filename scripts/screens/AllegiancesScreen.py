@@ -50,7 +50,7 @@ class AllegiancesScreen(Screens):
         self.show_menu_buttons()
         self.show_mute_buttons()
         self.set_disabled_menu_buttons(["allegiances"])
-        self.update_heading_text(f"{game.clan.name}Clan")
+        self.update_heading_text(str(game.clan.baron.name) + "'s Territory")
         allegiance_list = self.get_allegiances_text()
 
         self.scroll_container = pygame_gui.elements.UIScrollingContainer(
@@ -141,16 +141,15 @@ class AllegiancesScreen(Screens):
         living_kits = []
         living_elders = []
         for cat in living_cats:
-            if cat.status == "medicine cat":
+            if cat.status == "doctor":
                 living_meds.append(cat)
             elif cat.status == "clipper":
                 living_clippers.append(cat)
             elif cat.status == "mediator":
                 living_mediators.append(cat)
             elif cat.status in (
-                "apprentice",
-                "medicine cat apprentice",
-                "mediator apprentice",
+                "colt",
+                "apprentice doctor"
             ):
                 living_apprentices.append(cat)
             elif cat.status in ("kitten", "newborn"):
@@ -191,12 +190,12 @@ class AllegiancesScreen(Screens):
                 ]
             )
 
-        # Medicine Cat Box:
+        # doctor Box:
         if living_meds:
             _box = ["", ""]
             _box[
                 0
-            ] = f"<b><u>{i18n.t('general.medicine cat', count=len(living_meds)).upper()}</u></b>"
+            ] = f"<b><u>{i18n.t('general.doctor', count=len(living_meds)).upper()}</u></b>"
 
             _box[1] = "\n".join([self.generate_one_entry(i) for i in living_meds])
             outputs.append(_box)

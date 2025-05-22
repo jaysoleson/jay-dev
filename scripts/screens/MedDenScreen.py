@@ -435,7 +435,7 @@ class MedDenScreen(Screens):
 
         # get the med cats
         self.meds = get_alive_status_cats(
-            Cat, ["medicine cat", "medicine cat apprentice"], sort=True
+            Cat, ["doctor", "apprentice doctor"], sort=True
         )
 
         if not self.meds:

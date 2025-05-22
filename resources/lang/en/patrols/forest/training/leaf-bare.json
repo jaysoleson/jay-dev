@@ -116,7 +116,7 @@
         "min_cats": 3,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [2, 6],
+            "colt": [2, 6],
             "normal adult": [1, 6]
             },
         "weight": 40,
@@ -220,7 +220,7 @@
         "min_cats": 2,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "normal adult": [1, 6]
             },
         "weight": 40,

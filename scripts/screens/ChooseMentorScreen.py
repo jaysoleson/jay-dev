@@ -439,7 +439,7 @@ class ChooseMentorScreen(Screens):
             self.next_cat,
             self.previous_cat,
         ) = self.the_cat.determine_next_and_previous_cats(
-            filter_func = (lambda cat: cat.status in ("apprentice", "medicine cat apprentice", "mediator apprentice"))
+            filter_func = (lambda cat: cat.status in ("colt", "apprentice doctor"))
         )
 
         self.next_cat_button.disable() if self.next_cat == 0 else self.next_cat_button.enable()
@@ -638,7 +638,7 @@ class ChooseMentorScreen(Screens):
         potential_medcat_mentors = [
             cat
             for cat in Cat.all_cats_list
-            if not (cat.dead or cat.outside) and cat.status == "medicine cat"
+            if not (cat.dead or cat.outside) and cat.status == "doctor"
         ]
         valid_medcat_mentors = []
         invalid_medcat_mentors = []
@@ -650,7 +650,7 @@ class ChooseMentorScreen(Screens):
         valid_mediator_mentors = []
         invalid_mediator_mentors = []
 
-        if self.the_cat.status == "apprentice":
+        if self.the_cat.status == "colt":
             for cat in potential_clipper_mentors:
                 # Assume cat is valid initially
                 is_valid = True
@@ -672,7 +672,7 @@ class ChooseMentorScreen(Screens):
 
             return valid_clipper_mentors
 
-        elif self.the_cat.status == "medicine cat apprentice":
+        elif self.the_cat.status == "apprentice doctor":
             for cat in potential_medcat_mentors:
                 is_valid = True
 
@@ -690,24 +690,6 @@ class ChooseMentorScreen(Screens):
 
             return valid_medcat_mentors
 
-        elif self.the_cat.status == "mediator apprentice":
-            for cat in potential_mediator_mentors:
-                # Assume cat is valid initially
-                is_valid = True
-
-                # Check for no former apprentices filter
-                if self.show_only_no_former_app_mentors and cat.former_apprentices:
-                    is_valid = False
-
-                # Check for no current apprentices filter
-                if self.show_only_no_current_app_mentors and cat.apprentice:
-                    is_valid = False
-
-                # Add to valid or invalid list based on checks
-                if is_valid:
-                    valid_mediator_mentors.append(cat)
-
-            return potential_mediator_mentors
         return []
 
     def on_use(self):

@@ -80,7 +80,7 @@ class Game:
         "clan_name": "",
         "baron": None,
         "regent": None,
-        "medicine_cat": None,
+        "doctor": None,
         "members": [],
         "re_roll": False,
         "roll_count": 0,
@@ -112,7 +112,7 @@ class Game:
         "patrol_done": False,
         "error_message": "",
         "traceback": "",
-        "apprentice": None,
+        "colt": None,
         "change_name": "",
         "name_cat": None,
         "biome": None,
@@ -602,13 +602,13 @@ class Game:
             config_value = config_value[key]
 
         # Apply war if needed
-        if self.clan and self.clan.war.get("at_war", False) and args in war_effected:
-            # Grabs the modifer
-            mod = self.config
-            for key in war_effected[args]:
-                mod = mod[key]
+        # if self.clan and self.clan.war.get("at_war", False) and args in war_effected:
+        #     # Grabs the modifer
+        #     mod = self.config
+        #     for key in war_effected[args]:
+        #         mod = mod[key]
 
-            config_value -= mod
+        #     config_value -= mod
 
         return config_value
 

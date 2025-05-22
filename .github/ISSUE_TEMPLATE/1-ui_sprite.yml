@@ -17,7 +17,7 @@ body:
     attributes:
       label: Description
       description: Describe the bug
-      placeholder: "e.g. My 12 moon mediator apprentice doesn't have their accessory on the mediation screen."
+      placeholder: "e.g. My 12 moon apprentice doesn't have their accessory on the mediation screen."
     validations:
       required: true
   - type: dropdown

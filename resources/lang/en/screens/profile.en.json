@@ -26,7 +26,7 @@
         "user_notes": "Click the check mark to enter notes about your cat!",
         "guide_thought_sc": "Hello. I am here to guide the dead cats of %{clan}Clan into StarClan.",
         "guide_thought_df": "Hello. I am here to drag the dead cats of %{clan}Clan into the Dark Forest.",
-        "baron_ceremony": "baron Ceremony",
+        "baron_ceremony": "Baron Ceremony",
         "eyes_label": "eyes: %{eyes}",
         "pelt_label": "pelt: %{pelt}",
         "fur_label": "fur length: %{length}",

@@ -87,7 +87,7 @@ class FreshkillPileTest(unittest.TestCase):
         test_clan = Clan(name="Test",
                          baron=None,
                          regent=None,
-                         medicine_cat=None,
+                         doctor=None,
                          biome='Forest',
                          camp_bg=None,
                          game_mode='expanded',

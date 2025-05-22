@@ -185,7 +185,7 @@ class HerbSupply:
             # if there are no working med cats, then only allow med cats to be treated. the idea being that a med cat
             # could conceivably attempt to care for themselves, but would not be well enough to care for the Clan as
             # a whole. also helps prevent death spiral when med cats aren't able to work.
-            if not med_cats and kitty.status not in ["medicine cat", "medicine cat apprentice"]:
+            if not med_cats and kitty.status not in ["doctor", "apprentice doctor"]:
                 break
             severities = []
             conditions = kitty.permanent_condition.copy()
@@ -347,7 +347,7 @@ class HerbSupply:
     def handle_focus(self, med_cats: list, assistants: list = None):
         """
         Handles sending med cats to gather extra herbs in accordance to Clan focus
-        :param med_cats: a list of medicine cat objects,
+        :param med_cats: a list of doctor objects,
         :param assistants: a list of any non-meddies who are assisting the search for herbs
         """
 

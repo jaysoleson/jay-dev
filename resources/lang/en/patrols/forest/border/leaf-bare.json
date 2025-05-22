@@ -1421,7 +1421,7 @@
         "min_cats": 3,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 5],
+            "colt": [1, 5],
             "normal adult": [1, 6]
         },
         "weight": 20,
@@ -1875,7 +1875,7 @@
         "max_cats": 2,
         "min_max_status": {
             "normal adult":[2, 6],
-            "apprentice":[-1, -1]
+            "colt":[-1, -1]
         },
         "weight": 20,
         "intro_text": "While on a dawn border patrol, with the sun still hugging the distant horizon, p_l finds an opening to what seems to be a new set of tunnels.",
@@ -2086,7 +2086,7 @@
         "max_cats": 2,
         "min_max_status": {
             "normal adult":[1, 6],
-            "apprentice":[1, 6]
+            "colt":[1, 6]
         },
         "weight": 20,
         "intro_text": "Trotting along the track that marks the border with app1, p_l spots the entrance to an unfamiliar hole in the ground.",
@@ -2837,7 +2837,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice":[1, 1]
+            "colt":[1, 1]
         },
         "weight": 20,
         "intro_text": "app1's ears swivel back and forth, pressing flat against {PRONOUN/app1/poss} head every so often as {PRONOUN/app1/poss} emotions slip through. With fur bristled out to full puff against cold and danger {PRONOUN/app1/subject} nevertheless {VERB/app1/pad/pads} the border alone. A strange mismash of shadows catches {PRONOUN/app1/poss} eye. Is that a tunnel entrance?",
@@ -3151,7 +3151,7 @@
         "min_cats": 2,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice":[1, 6],
+            "colt":[1, 6],
             "normal adult":[-1, -1]
         },
         "weight": 20,

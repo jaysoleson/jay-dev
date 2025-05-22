@@ -211,8 +211,8 @@ You can use either the backstory pool name, or an individual backstory name.  Wh
 | `loner_backstories`          | `loner1`, `loner2`, `loner3`, `loner4`, `refugee2`, `tragedy_survivor4`, `guided3`, `refugee5`, `wandering_healer2`                                                                                |
 | `rogue_backstories`          | `rogue1`, `rogue2`, `rogue3`, `refugee4`, `tragedy_survivor2`, `guided2`, `refugee5`, `wandering_healer1`                                                                                          |
 | `kittypet_backstories`       | `kittypet1`, `kittypet2`, `kittypet3`, `kittypet4`, `refugee3`, `tragedy_survivor3`, `guided1`, `refugee6`                                                                                         |
-| `former_clancat_backstories` | `otherclan1`, `otherclan2`, `otherclan3`, `ostracized_warrior`, `disgraced1`, `disgraced2`, `disgraced3`, `retired_leader`, `refugee1`, `tragedy_survivor1`, `medicine_cat`, `guided4`, `refugee5` |
-| `healer_backstories`         | `medicine_cat`, `wandering_healer1`, `wandering_healer2`                                                                                                                                           |
+| `former_clancat_backstories` | `otherclan1`, `otherclan2`, `otherclan3`, `ostracized_warrior`, `disgraced1`, `disgraced2`, `disgraced3`, `retired_leader`, `refugee1`, `tragedy_survivor1`, `doctor`, `guided4`, `refugee5` |
+| `healer_backstories`         | `doctor`, `wandering_healer1`, `wandering_healer2`                                                                                                                                           |
 | `orphaned_backstories`       | `orphaned1`, `orphaned2`, `orphaned3`, `orphaned4`, `orphaned5`, `orphaned6`                                                                                                                       |
 | `abandoned_backstories`      | `abandoned1`, `abandoned2`, `abandoned3`, `abandoned4`                                                                                                                                             |
 | `outsider_backstories`       | `outsider1`, `outsider2`, `outsider3`                                                                                                                                                              |
@@ -234,11 +234,10 @@ You can use either the backstory pool name, or an individual backstory name.  Wh
     > * `newborn`
     * `kitten`
     * `apprentice`
-    * `mediator apprentice`
-    * `medicine cat apprentice`
+    * `apprentice doctor`
     * `warrior`
     * `mediator`
-    * `medicine cat`
+    * `doctor`
     * `deputy`
     * `leader`
     * `elder`

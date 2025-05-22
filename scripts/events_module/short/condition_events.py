@@ -14,7 +14,7 @@ from scripts.clan_resources.freshkill import (
     STARV_PERCENTAGE,
 )
 from scripts.conditions import (
-    medicine_cats_can_cover_clan,
+    doctors_can_cover_clan,
     get_amount_cat_for_one_medic,
 )
 from scripts.event_class import Single_Event
@@ -23,8 +23,7 @@ from scripts.events_module.short.scar_events import Scar_Events
 from scripts.game_structure.game_essentials import game
 from scripts.utility import (
     event_text_adjust,
-    get_alive_status_cats,
-    get_baron_life_notice,
+    get_alive_status_cats
 )
 from scripts.game_structure.localization import load_lang_resource
 
@@ -163,10 +162,6 @@ class Condition_Events:
         # handle death first, if percentage is 0 or lower, the cat will die
         if cat_nutrition.percentage <= 0:
             text = ""
-            if cat.status == "baron":
-                game.clan.baron_lives -= 1
-                # kill and retrieve baron life text
-                text = get_baron_life_notice()
 
             possible_string_list = Condition_Events.ILLNESS_DEATH_STRINGS["starving"]
             event = random.choice(possible_string_list) + " " + text
@@ -187,12 +182,6 @@ class Condition_Events:
 
             # if the cat is the baron and isn't full dead
             # make them malnourished and refill nutrition slightly
-            if cat.status == "baron" and game.clan.baron_lives > 0:
-                mal_score = (
-                    nutrition_info[cat.ID].max_score / 100 * (MAL_PERCENTAGE + 1)
-                )
-                nutrition_info[cat.ID].current_score = round(mal_score, 2)
-                cat.get_ill("malnourished")
 
             types = ["birth_death"]
             game.cur_events_list.append(
@@ -531,7 +520,6 @@ class Condition_Events:
 
     @staticmethod
     def handle_already_ill(cat):
-        starting_life_count = game.clan.baron_lives
         cat.healed_condition = False
         event_list = []
         illness_progression = {
@@ -564,9 +552,7 @@ class Condition_Events:
                 continue
 
             # death event text and break bc any other illnesses no longer matter
-            if cat.dead or (
-                cat.status == "baron" and starting_life_count != game.clan.baron_lives
-            ):
+            if cat.dead:
                 try:
                     possible_string_list = Condition_Events.ILLNESS_DEATH_STRINGS[
                         illness
@@ -587,23 +573,12 @@ class Condition_Events:
 
                 event = event_text_adjust(Cat, event, main_cat=cat)
 
-                if cat.status == "baron":
-                    event = event + " " + get_baron_life_notice()
-                    history_event = history_event.replace("m_c ", "").replace(".", "")
-                    History.add_death(
-                        cat, condition=illness, death_text=history_event.strip()
-                    )
-                else:
-                    History.add_death(cat, condition=illness, death_text=history_event)
+                History.add_death(cat, condition=illness, death_text=history_event)
 
                 # clear event list to get rid of any healed or risk event texts from other illnesses
                 event_list.clear()
                 event_list.append(event)
                 game.herb_events_list.append(event)
-                break
-
-            # if the baron died, then break before handling other illnesses cus they'll be fully healed or dead-dead
-            if cat.status == "baron" and starting_life_count != game.clan.baron_lives:
                 break
 
             # heal the cat
@@ -659,9 +634,6 @@ class Condition_Events:
 
         injury_progression = {"poisoned": "redcough", "shock": "lingering shock"}
 
-        # need to hold this number so that we can check if the baron has died
-        starting_life_count = game.clan.baron_lives
-
         injuries = deepcopy(cat.injuries)
         for injury in injuries:
             if injury in game.switches["skip_conditions"]:
@@ -671,9 +643,7 @@ class Condition_Events:
             if skipped:
                 continue
 
-            if cat.dead or (
-                cat.status == "baron" and starting_life_count != game.clan.baron_lives
-            ):
+            if cat.dead:
                 triggered = True
 
                 try:
@@ -696,15 +666,7 @@ class Condition_Events:
 
                 event = event_text_adjust(Cat, event, main_cat=cat)
 
-                if cat.status == "baron":
-                    event = event + " " + get_baron_life_notice()
-                    history_text = history_text.replace("m_c", " ").replace(".", "")
-                    History.add_death(
-                        cat, condition=injury, death_text=history_text.strip()
-                    )
-
-                else:
-                    History.add_death(cat, condition=injury, death_text=history_text)
+                History.add_death(cat, condition=injury, death_text=history_text)
 
                 # clear event list first to make sure any heal or risk events from other injuries are not shown
                 event_list.clear()
@@ -788,7 +750,7 @@ class Condition_Events:
                     random_index = random.randrange(0, len(possible_string_list))
 
                     med_list = get_alive_status_cats(
-                        Cat, ["medicine cat", "medicine cat apprentice"], working=True
+                        Cat, ["doctor", "apprentice doctor"], working=True
                     )
                     # If the cat is a med cat, don't consider them as one for the event.
 
@@ -858,11 +820,10 @@ class Condition_Events:
         conditions = deepcopy(cat.permanent_condition)
         for condition in conditions:
             # checking if the cat has a congenital condition to reveal and handling duration and death
-            prev_lives = game.clan.baron_lives
             status = cat.moon_skip_permanent_condition(condition)
 
             # if cat is dead, break
-            if cat.dead or game.clan.baron_lives < prev_lives:
+            if cat.dead:
                 triggered = True
                 event_types.append("birth_death")
                 translated_condition = i18n.t(
@@ -871,27 +832,13 @@ class Condition_Events:
                 event = i18n.t(
                     "defaults.complications_death_event", condition=translated_condition
                 )
-                if cat.status == "baron" and game.clan.baron_lives >= 1:
-                    event = i18n.t(
-                        "defaults.complications_death_event_baron",
-                        condition=translated_condition,
-                    )
                 event_list.append(event)
 
-                if cat.status != "baron":
-                    History.add_death(
-                        cat,
-                        death_text=i18n.t("defaults.complications_death_history"),
-                        condition=translated_condition,
-                    )
-                else:
-                    History.add_death(
-                        cat,
-                        death_text=i18n.t(
-                            "defaults.complications_death_history_baron"
-                        ),
-                        condition=translated_condition,
-                    )
+                History.add_death(
+                    cat,
+                    death_text=i18n.t("defaults.complications_death_history"),
+                    condition=translated_condition,
+                )
 
                 game.herb_events_list.append(event)
                 break
@@ -911,7 +858,7 @@ class Condition_Events:
                 random_index = int(random.random() * len(possible_string_list))
                 med_list = get_alive_status_cats(
                     Cat,
-                    ["medicine cat", "medicine cat apprentice"],
+                    ["doctor", "apprentice doctor"],
                     working=True,
                     sort=True,
                 )
@@ -924,14 +871,14 @@ class Condition_Events:
                     med_parent = False
                     if cat.parent1 in Cat.all_cats:
                         parent1_dead = Cat.all_cats[cat.parent1].dead
-                        if Cat.all_cats[cat.parent1].status == "medicine cat":
+                        if Cat.all_cats[cat.parent1].status == "doctor":
                             med_parent = True
                     else:
                         parent1_dead = True
 
                     if cat.parent2 in Cat.all_cats:
                         parent2_dead = Cat.all_cats[cat.parent2].dead
-                        if Cat.all_cats[cat.parent2].status == "medicine cat":
+                        if Cat.all_cats[cat.parent2].status == "doctor":
                             med_parent = True
                     else:
                         parent2_dead = True
@@ -988,12 +935,11 @@ class Condition_Events:
             and cat.status
             not in [
                 "baron",
-                "medicine cat",
+                "doctor",
                 "kitten",
                 "newborn",
-                "medicine cat apprentice",
-                "mediator",
-                "mediator apprentice",
+                "apprentice doctor",
+                "cog",
                 "elder",
             ]
         ):
@@ -1085,11 +1031,11 @@ class Condition_Events:
 
             # adjust chance of risk gain if Clan has enough meds
             chance = risk["chance"]
-            if medicine_cats_can_cover_clan(
+            if doctors_can_cover_clan(
                 Cat.all_cats.values(), get_amount_cat_for_one_medic(game.clan)
             ):
                 chance += 10  # lower risk if enough meds
-            if game.clan.medicine_cat is None and chance != 0:
+            if game.clan.doctor is None and chance != 0:
                 chance = int(
                     chance * 0.75
                 )  # higher risk if no meds and risk chance wasn't 0
@@ -1160,7 +1106,7 @@ class Condition_Events:
                     random_index = int(random.random() * len(possible_string_list))
                     med_list = get_alive_status_cats(
                         Cat,
-                        ["medicine cat", "medicine cat apprentice"],
+                        ["doctor", "apprentice doctor"],
                         working=True,
                         sort=True,
                     )

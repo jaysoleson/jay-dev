@@ -34,7 +34,7 @@
             "Claims prey tastes better under moonlight",
             "Complains about having to hunt at night",
             "Hesitates to go out hunting at night",
-            "Stretches out in the apprentices' den carelessly",
+            "Stretches out in the colts' den carelessly",
             "Huffs about needing to soak in every ray of sunlight before training",
             "Insists on sharpening {PRONOUN/m_c/poss} claws on a specific surface",
             "Is jumpy after battle practice",
@@ -74,7 +74,7 @@
     {
         "id": "clipper_apprentice_to_alive_baron_or_regent",
         "thoughts": [
-            "Is panicking as r_c approaches the disheveled apprentices' den",
+            "Is panicking as r_c approaches the disheveled colts' den",
             "Is attempting to be composed whenever r_c says {PRONOUN/r_c/subject} will oversee training today",
             "Longs to taste the power r_c has",
             "Gives it {PRONOUN/m_c/poss} all during battle training with r_c",
@@ -189,7 +189,7 @@
             "Glances at r_c tending to herbs and feels thankful to have chosen the path of a clipper",
             "Hates the strong stench of herbs",
             "Is swallowing a remark after being told to take something nasty",
-            "Gasps for air after leaving the medicine cat den",
+            "Gasps for air after leaving the doctor den",
             "Is listening to r_c discuss the intricacies of StarClan",
             "Feels puzzled after asking r_c about StarClan",
             "Is tuning out during r_c's lecture about dangerous herbs",
@@ -207,8 +207,8 @@
             "living"
         ],
         "random_status_constraint": [
-            "medicine cat",
-            "medicine cat apprentice"
+            "doctor",
+            "apprentice doctor"
         ]
     },
     {
@@ -216,9 +216,9 @@
         "thoughts": [
             "Wonders if r_c was a good apprentice",
             "Asks r_c what the Clan was like when {PRONOUN/r_c/subject} {VERB/r_c/were/was} {PRONOUN/m_c/poss} age",
-            "Asks r_c if the apprentices' den has changed since {PRONOUN/r_c/subject} {VERB/r_c/were/was} an apprentice",
-            "Heard a scary story about the apprentices' den from r_c",
-            "Is jumpy about a particular spot in the apprentices' den r_c claimed was haunted",
+            "Asks r_c if the colts' den has changed since {PRONOUN/r_c/subject} {VERB/r_c/were/was} an apprentice",
+            "Heard a scary story about the colts' den from r_c",
+            "Is jumpy about a particular spot in the colts' den r_c claimed was haunted",
             "Is listening to a story r_c heard when {PRONOUN/r_c/subject} {VERB/r_c/were/was} a kit"
         ],
         "backstory_constraint": {
@@ -258,7 +258,7 @@
             "Is in a squabble about the best time to hunt"
         ],
         "random_status_constraint": [
-            "apprentice"
+            "colt"
         ],
         "random_living_status": [
             "living"
@@ -303,7 +303,7 @@
             "Wonders if r_c can be {PRONOUN/m_c/poss} apprentice someday",
             "Wants to be a clipper before r_c is an apprentice",
             "Hopes r_c will be an apprentice with {PRONOUN/m_c/object}",
-            "Is letting r_c see the apprentices' den",
+            "Is letting r_c see the colts' den",
             "Takes time to play with r_c in between training sessions",
             "Tries to teach r_c something new... but {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} not listening",
             "Wonders if all kits are gross or if it's just r_c"
@@ -345,7 +345,7 @@
             "Wants to be made a clipper before r_c"
         ],
         "random_status_constraint": [
-            "apprentice"
+            "colt"
         ],
         "main_trait_constraint": [
             "ambitious"
@@ -367,7 +367,7 @@
             "Tells {PRONOUN/m_c/poss} mentor {PRONOUN/m_c/subject} {VERB/m_c/are/is} going on patrol without {PRONOUN/r_c/object}"
         ],
         "main_status_constraint": [
-            "apprentice"
+            "colt"
         ],
         "main_trait_constraint": [
             "bold"
@@ -384,7 +384,7 @@
             "Doesn't listen to r_c's advice"
         ],
         "main_status_constraint": [
-            "apprentice"
+            "colt"
         ],
         "random_status_constraint": [
             "clipper"

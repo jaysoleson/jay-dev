@@ -128,7 +128,7 @@ class PatrolScreen(Screens):
                     able_no_med = [
                         cat
                         for cat in self.able_cats
-                        if cat.status not in ("medicine cat", "medicine cat apprentice")
+                        if cat.status not in ("doctor", "apprentice doctor")
                     ]
                     if len(able_no_med) == 0:
                         able_no_med = self.able_cats
@@ -150,7 +150,7 @@ class PatrolScreen(Screens):
                     able_no_med = [
                         cat
                         for cat in self.able_cats
-                        if cat.status not in ("medicine cat", "medicine cat apprentice")
+                        if cat.status not in ("doctor", "apprentice doctor")
                     ]
                     if len(able_no_med) < 3:
                         able_no_med = self.able_cats
@@ -165,7 +165,7 @@ class PatrolScreen(Screens):
                     able_no_med = [
                         cat
                         for cat in self.able_cats
-                        if cat.status not in ("medicine cat", "medicine cat apprentice")
+                        if cat.status not in ("doctor", "apprentice doctor")
                     ]
                     if len(able_no_med) < 6:
                         able_no_med = self.able_cats
@@ -294,7 +294,7 @@ class PatrolScreen(Screens):
     def screen_switches(self):
         super().screen_switches()
         self.set_disabled_menu_buttons(["patrol_screen"])
-        self.update_heading_text(f"{game.clan.name}Clan")
+        self.update_heading_text(str(game.clan.baron.name) + "'s Territory")
         self.show_mute_buttons()
         self.show_menu_buttons()
 
@@ -414,7 +414,7 @@ class PatrolScreen(Screens):
             # making sure meds don't get the option for other patrols
             if any(
                 (
-                    cat.status in ("medicine cat", "medicine cat apprentice")
+                    cat.status in ("doctor", "apprentice doctor")
                     for cat in self.current_patrol
                 )
             ):
@@ -462,7 +462,7 @@ class PatrolScreen(Screens):
             able_no_med = [
                 cat
                 for cat in self.able_cats
-                if cat.status not in ("medicine cat", "medicine cat apprentice")
+                if cat.status not in ("doctor", "apprentice doctor")
             ]
             if game.clan.clan_settings["random med cat"]:
                 able_no_med = self.able_cats
@@ -988,7 +988,7 @@ class PatrolScreen(Screens):
                 and the_cat.in_camp
                 and the_cat.ID not in game.patrolled
                 and the_cat.status
-                not in ("elder", "kitten", "mediator", "mediator apprentice")
+                not in ("elder", "kitten", "cog")
                 and not the_cat.outside
                 and the_cat not in self.current_patrol
                 and not the_cat.not_working()
@@ -1279,7 +1279,7 @@ class PatrolScreen(Screens):
             # Draw mentor or apprentice
             relation = "should not display"
             if (
-                self.selected_cat.status in ("medicine cat apprentice", "apprentice")
+                self.selected_cat.status in ("apprentice doctor", "colt")
                 or self.selected_cat.apprentice != []
             ):
                 self.elements["app_mentor_frame"] = pygame_gui.elements.UIImage(
@@ -1290,7 +1290,7 @@ class PatrolScreen(Screens):
 
                 if (
                     self.selected_cat.status
-                    in ("medicine cat apprentice", "apprentice")
+                    in ("apprentice doctor", "colt")
                     and self.selected_cat.mentor is not None
                 ):
                     self.app_mentor = Cat.fetch_cat(self.selected_cat.mentor)

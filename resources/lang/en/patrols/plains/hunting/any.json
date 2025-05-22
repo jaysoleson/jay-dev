@@ -41,7 +41,7 @@
         "max_cats": 3,
         "min_max_status": {
             "normal adult":[2, 3],
-            "apprentice":[-1, -1]
+            "colt":[-1, -1]
         },
         "weight": 20,
         "intro_text": "A prairie dog is on watch, plopped back on its hindlegs as others forage nearby. It won't be easy getting past its guard.",
@@ -200,7 +200,7 @@
         "max_cats": 3,
         "min_max_status": {
             "normal adult":[1, 2],
-            "apprentice":[1, 2]
+            "colt":[1, 2]
         },
         "weight": 20,
         "intro_text": "A prairie dog is on watch, plopped back on its hindlegs as others forage nearby. It won't be easy getting past its guard.",
@@ -941,7 +941,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [1, 6]
+            "colt": [1, 6]
         },
         "weight": 20,
         "intro_text": "r_c's mentor assesses {PRONOUN/r_c/object} by sending {PRONOUN/r_c/object} on a solo hunt.",
@@ -1003,7 +1003,7 @@
                 "can_have_stat": ["app"]
             },
             {
-                "text": "While on the hunt, r_c tumbles right down an empty badger sett while {PRONOUN/r_c/poss} attention is elsewhere. Bruised and sore, r_c has to report to the medicine cat den when {PRONOUN/r_c/subject} {VERB/r_c/return/returns} to camp.",
+                "text": "While on the hunt, r_c tumbles right down an empty badger sett while {PRONOUN/r_c/poss} attention is elsewhere. Bruised and sore, r_c has to report to the doctor den when {PRONOUN/r_c/subject} {VERB/r_c/return/returns} to camp.",
                 "exp": 0,
                 "weight": 10,
                 "injury": [
@@ -1741,7 +1741,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [1, 6]
+            "colt": [1, 6]
         },
         "weight": 20,
         "intro_text": "app1 decides to hunt out near the Twoleg dens.",
@@ -1953,7 +1953,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [2, 2]
         },
         "weight": 20,
@@ -2854,7 +2854,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [1, 6]
+            "colt": [1, 6]
         },
         "weight": 20,
         "intro_text": "As app1 jumps up onto a rock to survey the plains, {PRONOUN/app1/subject} {VERB/app1/spot/spots} the blood red pelt of a truly massive red fox.",
@@ -3284,7 +3284,7 @@
         "min_cats": 1,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "healer cats": [-1, -1],
             "normal adult": [-1, -1]
         },
@@ -3396,7 +3396,7 @@
         "min_cats": 1,
         "max_cats": 3,
         "min_max_status": {
-            "apprentice": [-1, -1]
+            "colt": [-1, -1]
         },
         "weight": 5,
         "intro_text": "The patrol catches scent of a mouse nearby.",
@@ -3435,7 +3435,7 @@
         "min_cats": 1,
         "max_cats": 3,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "normal adult": [1, 6]
         },
         "weight": 5,
@@ -3780,7 +3780,7 @@
         "max_cats": 6,
         "min_max_status": {
            "normal adult": [1, 5],
-           "apprentice":[1, 5]
+           "colt":[1, 5]
             },
         "weight": 40,
         "chance_of_success": 50,

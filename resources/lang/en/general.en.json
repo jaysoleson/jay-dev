@@ -19,31 +19,27 @@
         },
         "regent": {
             "one": "regent",
-            "many": "deputies"
+            "many": "regents"
         },
         "clipper": {
             "one": "clipper",
             "many": "clippers"
         },
-        "medicine cat": {
-            "one": "medicine cat",
-            "many": "medicine cats"
+        "doctor": {
+            "one": "doctor",
+            "many": "doctors"
         },
-        "mediator": {
-            "one": "mediator",
-            "many": "mediators"
+        "cog": {
+            "one": "cog",
+            "many": "cogs"
         },
-        "apprentice": {
-            "one": "apprentice",
-            "many": "apprentices"
+        "colt": {
+            "one": "colt",
+            "many": "colts"
         },
-        "medicine cat apprentice": {
-            "one": "medicine cat apprentice",
-            "many": "medicine cat apprentices"
-        },
-        "mediator apprentice": {
-            "one": "mediator apprentice",
-            "many": "mediator apprentices"
+        "apprentice doctor": {
+            "one": "apprentice doctor",
+            "many": "apprentice doctors"
         },
         "queen": {
             "one": "queen",
@@ -61,6 +57,10 @@
             "one": "kitten",
             "many": "kittens"
         },
+        "heir": {
+            "one": "heir",
+            "many": "heirs"
+        },
         "kitten_profile": "young",
         "adolescent": "adolescent",
         "young adult": "young adult",
@@ -76,12 +76,12 @@
             "many": "elders"
         },
         "loner": {
-            "one": "loner",
-            "many": "loners"
+            "one": "nomad",
+            "many": "nomads"
         },
         "rogue": {
-            "one": "rogue",
-            "many": "rogues"
+            "one": "nomad",
+            "many": "nomads"
         },
         "kittypet": {
             "one": "kittypet",
@@ -166,10 +166,15 @@
             "many": "mentors"
         },
         "mentor_label": "mentor: %{mentor}",
-        "apprentice_label": {
+        "apprentice_doctor_label": {
             "zero": "",
             "one": "apprentice: %{apprentices}",
             "many": "apprentices: %{apprentices}"
+        },
+        "colt_label": {
+            "zero": "",
+            "one": "colt: %{apprentices}",
+            "many": "colts: %{apprentices}"
         },
         "former_apprentice_label": {
             "one": "former apprentice: %{apprentices}",

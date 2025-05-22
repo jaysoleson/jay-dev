@@ -25,7 +25,7 @@
             "Has the apprentices very engaged in a very, very tall tale"
         ],
         "random_status_constraint": [
-            "apprentice"
+            "colt"
         ],
         "random_living_status": [
             "living"
@@ -55,13 +55,13 @@
         ]
     },
     {
-        "id": "clipper_gen_medicine_cat",
+        "id": "clipper_gen_doctor",
         "thoughts": [
-            "Plans to visit the medicine cat",
-            "Is helping to escort the medicine cat to gather herbs"
+            "Plans to visit the doctor",
+            "Is helping to escort the doctor to gather herbs"
         ],
         "random_status_constraint": [
-            "medicine cat"
+            "doctor"
         ],
         "random_living_status": [
             "living"
@@ -172,7 +172,7 @@
             "Takes r_c's place in the dawn patrol so {PRONOUN/r_c/subject} can sleep in a little"
         ],
         "random_status_constraint": [
-            "apprentice"
+            "colt"
         ],
         "main_trait_constraint": [
             "compassionate"
@@ -225,11 +225,11 @@
     {
         "id": "fierce_clipper_to_living_medcat",
         "thoughts": [
-            "Is asking the medicine cat for herbs that may help {PRONOUN/m_c/object} in battle"
+            "Is asking the doctor for herbs that may help {PRONOUN/m_c/object} in battle"
         ],
         "random_status_constraint": [
-            "medicine cat",
-            "medicine cat apprentice"
+            "doctor",
+            "apprentice doctor"
         ],
         "main_trait_constraint": [
             "fierce"
@@ -244,7 +244,7 @@
             "Is arguing for more battle training for the apprentices"
         ],
         "random_status_constraint": [
-            "apprentice"
+            "colt"
         ],
         "main_trait_constraint": [
             "fierce"

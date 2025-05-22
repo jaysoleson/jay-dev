@@ -208,7 +208,7 @@ def rebuild_core(*, should_rebuild_bgs=True):
     )
     menu_buttons["med_cat_den"] = UISurfaceImageButton(
         ui_scale(pygame.Rect((25, 140), (151, 28))),
-        "screens.core.medicine_cat_den",
+        "screens.core.doctor_den",
         get_button_dict(ButtonStyles.ROUNDED_RECT, (151, 28)),
         object_id="@buttonstyles_rounded_rect",
         visible=False,

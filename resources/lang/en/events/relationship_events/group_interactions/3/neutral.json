@@ -12,22 +12,25 @@
 				"baron",
 				"regent",
 				"clipper",
-				"medicine cat",
-				"mediator"
+				"doctor",
+				"cog",
+				"heir"
 			],
 			"r_c1": [
 				"baron",
 				"regent",
 				"clipper",
-				"medicine cat",
-				"mediator"
+				"doctor",
+				"cog",
+				"heir"
 			],
 			"r_c2": [
 				"baron",
 				"regent",
 				"clipper",
-				"medicine cat",
-				"mediator"
+				"doctor",
+				"cog",
+				"heir"
 			]
 		},
 		"relationship_constraint": {

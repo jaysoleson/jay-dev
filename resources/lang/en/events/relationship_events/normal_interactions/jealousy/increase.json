@@ -41,17 +41,16 @@
 			"r_c was complimented by another Clan during the recent Gathering, but m_c wasn't."
 		],
 		"main_status_constraint": [
-			"mediator apprentice",
-			"apprentice",
+			"colt",
 			"clipper"
 		],
 		"random_status_constraint": [
-			"mediator apprentice",
-			"apprentice",
-			"medicine cat apprentice",
-			"medicine cat",
+			"colt",
+			"apprentice doctor",
+			"doctor",
 			"clipper",
-			"mediator",
+			"cog",
+			"heir",
 			"regent"
 		]
 	},
@@ -71,12 +70,11 @@
 			"m_c doesn't understand how r_c got so good at hunting."
 		],
 		"main_status_constraint": [
-			"apprentice",
-			"mediator apprentice",
+			"colt",
 			"clipper"
 		],
 		"random_status_constraint": [
-			"apprentice",
+			"colt",
 			"clipper",
 			"regent"
 		]
@@ -127,9 +125,8 @@
 			"m_c is resentful that so much is expected of {PRONOUN/m_c/object}, yet no one expects anything of r_c."
 		],
 		"main_status_constraint": [
-			"apprentice",
-			"mediator apprentice",
-			"medicine cat apprentice"
+			"colt",
+			"apprentice doctor"
 		],
 		"random_status_constraint": [
 			"kitten"
@@ -142,20 +139,19 @@
 		"id": "jel_inc_high1",
 		"intensity": "high",
 		"interactions": [
-			"m_c is jealous that r_c gets to do cool super secret medicine cat things.",
+			"m_c is jealous that r_c gets to do cool super secret doctor things.",
 			"m_c wants to commune with StarClan like r_c does.",
-			"r_c refuses to tell m_c too much about {PRONOUN/r_c/poss} medicine cat training.",
-			"m_c feels like r_c's life is easier as a medicine cat apprentice.",
+			"r_c refuses to tell m_c too much about {PRONOUN/r_c/poss} doctor training.",
+			"m_c feels like r_c's life is easier as a apprentice doctor.",
 			"m_c tries to get free catmint from r_c, but gets snitched on instead.",
 			"m_c thinks r_c's training sounds way easier than what m_c does now.",
 			"m_c thinks it's unfair that r_c always gets to go to Gatherings."
 		],
 		"main_status_constraint": [
-			"apprentice",
-			"mediator apprentice"
+			"colt"
 		],
 		"random_status_constraint": [
-			"medicine cat apprentice"
+			"apprentice doctor"
 		]
 	},
 	{
@@ -183,12 +179,12 @@
 			"m_c doesn't like that Clanmates trust r_c more just because {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} older."
 		],
 		"main_status_constraint": [
-			"mediator apprentice",
-			"apprentice",
-			"medicine cat apprentice",
-			"medicine cat",
+			"colt",
+			"apprentice doctor",
+			"doctor",
 			"clipper",
-			"mediator",
+			"cog",
+			"heir",
 			"regent"
 		],
 		"random_status_constraint": [

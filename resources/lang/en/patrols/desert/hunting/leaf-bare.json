@@ -9,7 +9,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [2, 2]
         },
         "weight": 40,
@@ -101,11 +101,11 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [2, 2]
         },
         "weight": 40,
-        "intro_text": "It's nice to get the chance to go out hunting with app2. app1 knows they're still in the apprentices' den together, but their different mentors and focuses and skills - it's not the same as it was back in the nursery as littermates. And the leaf-bare drizzle makes {PRONOUN/app1/object} want to get out and run!",
+        "intro_text": "It's nice to get the chance to go out hunting with app2. app1 knows they're still in the colts' den together, but their different mentors and focuses and skills - it's not the same as it was back in the nursery as littermates. And the leaf-bare drizzle makes {PRONOUN/app1/object} want to get out and run!",
         "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
@@ -161,7 +161,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [2, 2]
         },
         "weight": 40,
@@ -221,7 +221,7 @@
         "min_cats": 3,
         "max_cats": 3,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [3, 3]
         },
         "weight": 40,
@@ -312,11 +312,11 @@
         "min_cats": 3,
         "max_cats": 3,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [3, 3]
         },
         "weight": 40,
-        "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the apprentices' den together, but their different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} littermates. And the leaf-bare drizzle makes {PRONOUN/app1/object} want to get out and run!",
+        "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the colts' den together, but their different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} littermates. And the leaf-bare drizzle makes {PRONOUN/app1/object} want to get out and run!",
         "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
@@ -372,7 +372,7 @@
         "min_cats": 3,
         "max_cats": 3,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [3, 3]
         },
         "weight": 40,
@@ -432,7 +432,7 @@
         "min_cats": 4,
         "max_cats": 4,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [4, 4]
         },
         "weight": 40,
@@ -523,11 +523,11 @@
         "min_cats": 4,
         "max_cats": 4,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [4, 4]
         },
         "weight": 40,
-        "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the apprentices' den together, but their different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} littermates. And the leaf-bare drizzle makes {PRONOUN/app1/object} want to get out and run!",
+        "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the colts' den together, but their different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} littermates. And the leaf-bare drizzle makes {PRONOUN/app1/object} want to get out and run!",
         "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
@@ -583,7 +583,7 @@
         "min_cats": 4,
         "max_cats": 4,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [4, 4]
         },
         "weight": 40,
@@ -643,7 +643,7 @@
         "min_cats": 5,
         "max_cats": 5,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [5, 5]
         },
         "weight": 40,
@@ -734,11 +734,11 @@
         "min_cats": 5,
         "max_cats": 5,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [5, 5]
         },
         "weight": 40,
-        "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the apprentices' den together, but their different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} littermates. And the leaf-bare drizzle makes {PRONOUN/app1/object} want to get out and run!",
+        "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the colts' den together, but their different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} littermates. And the leaf-bare drizzle makes {PRONOUN/app1/object} want to get out and run!",
         "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
@@ -794,7 +794,7 @@
         "min_cats": 5,
         "max_cats": 5,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [5, 5]
         },
         "weight": 40,
@@ -854,7 +854,7 @@
         "min_cats": 6,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [6, 6]
         },
         "weight": 40,
@@ -945,11 +945,11 @@
         "min_cats": 6,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [6, 6]
         },
         "weight": 40,
-        "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the apprentices' den together, but their different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} littermates. And the leaf-bare drizzle makes {PRONOUN/app1/object} want to get out and run!",
+        "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the colts' den together, but their different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} littermates. And the leaf-bare drizzle makes {PRONOUN/app1/object} want to get out and run!",
         "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
@@ -1005,7 +1005,7 @@
         "min_cats": 6,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [6, 6]
         },
         "weight": 40,
@@ -1065,7 +1065,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [1, 1],
             "normal adult": [1, 6]
         },
@@ -1127,7 +1127,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [1, 1],
             "normal adult": [1, 6]
         },
@@ -1198,7 +1198,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [1, 1],
             "normal adult": [1, 6]
         },
@@ -1269,7 +1269,7 @@
         "min_cats": 3,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [1, 1],
             "normal adult": [1, 6]
         },
@@ -1331,7 +1331,7 @@
         "min_cats": 3,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [1, 1],
             "normal adult": [1, 6]
         },
@@ -2235,12 +2235,12 @@
         "max_cats": 6,
         "min_max_status": {},
         "weight": 20,
-        "intro_text": "p_l finds a patch of herbs that {PRONOUN/p_l/subject} {VERB/p_l/believe/believes} c_n might need for their stores. {PRONOUN/p_l/subject/CAP} freely {VERB/p_l/admit/admits} to {PRONOUN/p_l/poss} patrol {PRONOUN/p_l/subject} {VERB/p_l/are/is}n't a medicine cat, and {VERB/p_l/ask/asks} {PRONOUN/p_l/poss} companions' advice. What do they know about this part of the desert's herbal properties, what grows in the brief bloom of leaf-bare?",
-        "decline_text": "They decide to focus on hunting and leave the herb collecting to the medicine cats.",
+        "intro_text": "p_l finds a patch of herbs that {PRONOUN/p_l/subject} {VERB/p_l/believe/believes} c_n might need for their stores. {PRONOUN/p_l/subject/CAP} freely {VERB/p_l/admit/admits} to {PRONOUN/p_l/poss} patrol {PRONOUN/p_l/subject} {VERB/p_l/are/is}n't a doctor, and {VERB/p_l/ask/asks} {PRONOUN/p_l/poss} companions' advice. What do they know about this part of the desert's herbal properties, what grows in the brief bloom of leaf-bare?",
+        "decline_text": "They decide to focus on hunting and leave the herb collecting to the doctors.",
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "It's not their normal task, but they're all smart enough to value supporting the Clan's medicine cat den. The patrol brings the herbs back to camp and they are put to good use.",
+                "text": "It's not their normal task, but they're all smart enough to value supporting the Clan's doctor den. The patrol brings the herbs back to camp and they are put to good use.",
                 "exp": 10,
                 "weight": 20,
                 "herbs": ["random_herbs"],

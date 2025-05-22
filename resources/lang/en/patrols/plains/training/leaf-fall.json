@@ -9,7 +9,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [1, 6]
+            "colt": [1, 6]
         },
         "weight": 20,
         "intro_text": "app1 crouches low behind some grass, searching for the ideal prey to fall to {PRONOUN/app1/poss} deadly claws. In front of the mighty hunter, a brightly colored beetle alights on a rock.",
@@ -40,7 +40,7 @@
                 "weight": 20
             },
             {
-                "text": "Slimy, yet satisfying! Curiosity completed, app1 wanders off - but has to report to the medicine cat den later, when {PRONOUN/app1/poss} stomach reminds {PRONOUN/app1/object} why cats don't eat random bugs.",
+                "text": "Slimy, yet satisfying! Curiosity completed, app1 wanders off - but has to report to the doctor den later, when {PRONOUN/app1/poss} stomach reminds {PRONOUN/app1/object} why cats don't eat random bugs.",
                 "exp": 0,
                 "weight": 10,
                 "injury": [
@@ -171,7 +171,7 @@
                 "weight": 20
             },
             {
-                "text": "After careful consideration, r_c recognizes them as raspberries and brings the rare berries back to the medicine cat's den.",
+                "text": "After careful consideration, r_c recognizes them as raspberries and brings the rare berries back to the doctor's den.",
                 "exp": 20,
                 "weight": 5,
                 "herbs": ["raspberry"]
@@ -190,7 +190,7 @@
                 "weight": 20
             },
             {
-                "text": "While plucking them from the bush, r_c finds them tasty, and eats a few, only for p_l to notice what {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} eating. {PRONOUN/r_c/subject/CAP}{VERB/r_c/'re/'s} rushed back to camp, where the medicine cat might have a chance at saving {PRONOUN/r_c/object} from deathberry poisoning.",
+                "text": "While plucking them from the bush, r_c finds them tasty, and eats a few, only for p_l to notice what {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} eating. {PRONOUN/r_c/subject/CAP}{VERB/r_c/'re/'s} rushed back to camp, where the doctor might have a chance at saving {PRONOUN/r_c/object} from deathberry poisoning.",
                 "exp": 0,
                 "weight": 10,
                 "injury": [
@@ -217,7 +217,7 @@
         "min_cats": 3,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 6]
+            "colt": [1, 6]
         },
         "weight": 10,
         "intro_text": "While helping gathering herbs, app1 stumbles upon a bush of red berries.",
@@ -230,7 +230,7 @@
                 "weight": 20
             },
             {
-                "text": "Whatever. Identifying them is a medicine cat problem. app1 plucks the berries and brings them back to camp, where it turns out they're called raspberries.",
+                "text": "Whatever. Identifying them is a doctor problem. app1 plucks the berries and brings them back to camp, where it turns out they're called raspberries.",
                 "exp": 20,
                 "weight": 5,
                 "herbs": ["raspberry"]
@@ -243,7 +243,7 @@
                 "weight": 20
             },
             {
-                "text": "Whatever. Identifying them is a medicine cat problem. app1 plucks the berries, surprised at the pleasant taste, and swallows a few. {PRONOUN/app1/subject/CAP} {VERB/app1/collapse/collapses} on the way back to camp, and there's nothing any cat can do for {PRONOUN/r_c/object}, having not identified deathberries before eating them.",
+                "text": "Whatever. Identifying them is a doctor problem. app1 plucks the berries, surprised at the pleasant taste, and swallows a few. {PRONOUN/app1/subject/CAP} {VERB/app1/collapse/collapses} on the way back to camp, and there's nothing any cat can do for {PRONOUN/r_c/object}, having not identified deathberries before eating them.",
                 "exp": 0,
                 "weight": 10,
                 "dead_cats": ["app1"],
@@ -253,7 +253,7 @@
                 }
             },
             {
-                "text": "Whatever. Identifying them is a medicine cat problem. app1 plucks the tasty berries, swallowing a few, and takes the rest back to camp where the medicine cat immediately starts work trying to save {PRONOUN/app1/object} from deathberry poisoning.",
+                "text": "Whatever. Identifying them is a doctor problem. app1 plucks the tasty berries, swallowing a few, and takes the rest back to camp where the doctor immediately starts work trying to save {PRONOUN/app1/object} from deathberry poisoning.",
                 "exp": 0,
                 "weight": 10,
                 "injury": [

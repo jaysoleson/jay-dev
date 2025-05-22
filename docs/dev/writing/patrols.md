@@ -49,9 +49,9 @@ This is a good starting point for writing your own patrols.
 	"min_cats": 1,
 	"max_cats": 6,
 	"min_max_status": {
-		"apprentice": [0, 6],
-		"medicine cat apprentice": [0, 6],
-		"medicine cat": [0, 6],
+		"colt": [0, 6],
+		"apprentice doctor": [0, 6],
+		"doctor": [0, 6],
 		"deputy": [0, 6],
 		"warrior": [0, 6],
 		"leader": [0, 6],
@@ -166,7 +166,7 @@ Please have a look at the [full biome differences list](index.md#clangen-biomes)
 | string           |                                          |
 |------------------|------------------------------------------|
 | "hunting"        | hunting patrol                           |
-| "herb_gathering" | herb_gathering (ie, medicine cat) patrol |
+| "herb_gathering" | herb_gathering (ie, doctor) patrol |
 | "border"         | border patrol                            |
 | "training"       | training patrol                          |
 
@@ -179,7 +179,7 @@ Please have a look at the [full biome differences list](index.md#clangen-biomes)
 
 > Herb gathering patrols are of moderate difficulty for [success chance](https://github.com/ClanGenOfficial/clangen/wiki/%5BWriting%5D-%E2%80%90-Patrols#chance-of-success-int) (like hunting patrols). Herb gathering patrols are focused on gathering herbs and thus need to have a [herb reward](https://github.com/ClanGenOfficial/clangen/wiki/%5BWriting%5D-%E2%80%90-Patrols#herbs-liststr) under most circumstances. Herb gathering patrols are of medium danger, and the [injuries](https://github.com/ClanGenOfficial/clangen/wiki/%5BWriting%5D-%E2%80%90-Patrols#injury-listdictstr-various) cats can obtain on them should either be minor and common (high weighed outcome), moderate and of a normal weight, or severe and of a low weight. The same guidelines apply to [killing cats](https://github.com/ClanGenOfficial/clangen/wiki/%5BWriting%5D-%E2%80%90-Patrols#dead_cats-liststr) on this patrol type. Herb gathering patrols should be highly seasonal, as not all herbs are available in all seasons, or in the same seasons in different [biomes](https://github.com/ClanGenOfficial/clangen/wiki/%5BWriting%5D-%E2%80%90-Basic#clangen-biomes). 
 
-> The subtypes of [new_cat](https://github.com/ClanGenOfficial/clangen/wiki/%5BWriting%5D-%E2%80%90-Patrols#outsider_rep) and [other_clan](https://github.com/ClanGenOfficial/clangen/wiki/%5BWriting%5D-%E2%80%90-Patrols#other_clan_rep) patrols should primarily use the type specific success, danger, injuries, death, and rewards of whatever the primary patrol type is. For example, use the success chance for herd gathering patrols if your medicine cat finds an injured kitten. However, a subtype is more likely to move away from the 'normal' setting for that type of patrol as they are by definition unusual examples of that patrol type. Brainstorm with other developers!
+> The subtypes of [new_cat](https://github.com/ClanGenOfficial/clangen/wiki/%5BWriting%5D-%E2%80%90-Patrols#outsider_rep) and [other_clan](https://github.com/ClanGenOfficial/clangen/wiki/%5BWriting%5D-%E2%80%90-Patrols#other_clan_rep) patrols should primarily use the type specific success, danger, injuries, death, and rewards of whatever the primary patrol type is. For example, use the success chance for herd gathering patrols if your doctor finds an injured kitten. However, a subtype is more likely to move away from the 'normal' setting for that type of patrol as they are by definition unusual examples of that patrol type. Brainstorm with other developers!
 
 
 !!! tip
@@ -241,15 +241,15 @@ Please have a look at the [full biome differences list](index.md#clangen-biomes)
 
 | status types              |                                                                     |
 |---------------------------|---------------------------------------------------------------------|
-| "medicine cat"            | Total medicine cats (not including apprentices)                     |
+| "doctor"            | Total doctors (not including apprentices)                     |
 | "warrior"                 | Total number of warriors (not including leader or deputy)           |
 | "leader"                  | Total number of leaders                                             |
 | "deputy"                  | Total number of deputies                                            |
-| "apprentice"              | Total number of warrior apprentices                                 |
-| "medicine cat apprentice" | Total number of medicine cat apprentices                            |
-| "healer cats"             | Total number of medicine cats and medicine cat apprentices combined |
+| "colt"              | Total number of warrior apprentices                                 |
+| "apprentice doctor" | Total number of apprentice doctors                            |
+| "healer cats"             | Total number of doctors and apprentice doctors combined |
 | "normal adult"            | Total number of warriors, leaders and deputies                      |
-| "all apprentices"         | Total number of warrior apprentices and medicine cat apprentices.   |
+| "all apprentices"         | Total number of warrior apprentices and apprentice doctors.   |
 
 
 ***
@@ -276,7 +276,7 @@ Please have a look at the [full biome differences list](index.md#clangen-biomes)
 
 > The rarer the patrol, the more you should feel comfortable differing from these guidelines. Factors that make patrols rarer are [weight](https://github.com/ClanGenOfficial/clangen/wiki/%5BWriting%5D-%E2%80%90-Patrols#weight-int), constraints ([relationship](https://github.com/ClanGenOfficial/clangen/wiki/%5BWriting%5D-%E2%80%90-Patrols#relationship_constraint-liststr) or [p_l skill](https://github.com/ClanGenOfficial/clangen/wiki/%5BWriting%5D-%E2%80%90-Patrols#pl_skill_constraint-liststr)), [min_max_status](https://github.com/ClanGenOfficial/clangen/wiki/%5BWriting%5D-%E2%80%90-Patrols#min_max_status-dictstr-listint) for example requiring the patrol to have both the leader and deputy on it to unlock, [patrol size](https://github.com/ClanGenOfficial/clangen/wiki/%5BWriting%5D-%E2%80%90-Patrols#min_cats-int), and the subtypes of [new_cat](https://github.com/ClanGenOfficial/clangen/wiki/%5BWriting%5D-%E2%80%90-Patrols#outsider_rep) and [other_clan](https://github.com/ClanGenOfficial/clangen/wiki/%5BWriting%5D-%E2%80%90-Patrols#other_clan_rep) 
 
-> For medicine cat patrols that involve 'magic', such as ghosts, StarClan, the Dark Forest, or anything else unnatural, you should not automatically use the default medicine success values. Instead, consult an experienced writer for adjusting your chance of success.
+> For doctor patrols that involve 'magic', such as ghosts, StarClan, the Dark Forest, or anything else unnatural, you should not automatically use the default medicine success values. Instead, consult an experienced writer for adjusting your chance of success.
 
 > Border patrols gain most of their danger not necessarily from an increased chance of failing, but from worse consequences being associated with their failure (death, massive injury). However, border patrols also tend to be more varied in their chance of success than most patrol types, with both extremely safe and extremely risky patrols present in the patrol pool. You are both welcome and encouraged to adjust the chance of success away from the default values.
 
@@ -640,7 +640,7 @@ What each parameter does, and what the options are for outcomes.
 |----------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 | "adult"  | Stat cat can't be an apprentice. Note that this doesn't override default behavior, only adds an additional requirement.                            |
 | "app"    | Stat cat must be an apprentice. Note that this doesn't override default behavior, only adds an additional requirement.                             |
-| "healer" | Stat cat must be a medicine cat or medicine cat apprentice. Note that this doesn't override default behavior, only adds an additional requirement. |
+| "healer" | Stat cat must be a doctor or apprentice doctor. Note that this doesn't override default behavior, only adds an additional requirement. |
 
 >
 
@@ -856,7 +856,7 @@ What each parameter does, and what the options are for outcomes.
 | "clancat"                                   | Gives the cat a former-clancat type backstory. If "meeting" is also included, this tag will make the cat a former Clancat outsider.                                                                                                                                                                                                                                  |
 | "meeting"                                   | Make the cat an outsider (the patrol just met them, but they didn't join). That cat will never take a new clan-like name.                                                                                                                                                                                                                                            |
 | "litter"                                    | Turns a single cat generation into a litter of kittens or newborns. Make sure to have a parent for them!                                                                                                                                                                                                                                                             |
-| "status:{some_status}"                      | Cats will join with this status. Include "medicine cat", "apprentice", "mediator", "kitten", "newborn", "medicine cat apprentice", etc, but not leader or deputy. Default for not-litters is warrior. Be very careful specifying both age and status-  there is no extra check to ensure they make sense together.                                                   |
+| "status:{some_status}"                      | Cats will join with this status. Include "doctor", "colt", "cog", "kitten", "newborn", "apprentice doctor", etc, but not leader or deputy. Default for not-litters is warrior. Be very careful specifying both age and status-  there is no extra check to ensure they make sense together.                                                   |
 | "age:{some_age}"                            | Cats are "newborn", "kitten", "adolescent", "young adult", "adult", "senior adult", "senior". You can also specify "mate" to put them in the same age-category as the first specified mate, or "has_kits" to generate an age between 14 and 120 moons. Be very careful specifying both age and status-  there is no extra check to ensure they make sense together.  |
 | "backstory:{some}, {backstories},{another}" | Comma-separated exact backstories to pick from. Overrides "kittypet", "loner", "clancat"                                                                                                                                                                                                                                                                             |
 | "parent:{index},{index}"                    | You can include one or two biological parents. Parents must be created BEFORE children, so the parent details must be listed before the children. If you mark parents, and the child(ren) are young enough, one will be given the "recovering from birth" condition.   
@@ -987,7 +987,7 @@ This uses almost all features somewhere. Yes, it is long. Most patrols are not t
 		"warrior": [1, 6],
 		"leader": [1, 6],
 		"normal adult": [1, 6],
-		"apprentice": [-1, -1]
+		"colt": [-1, -1]
 	},
 	"weight": 20,
 	"chance_of_success": 50,

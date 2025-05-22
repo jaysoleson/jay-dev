@@ -93,13 +93,13 @@
 			"m_c and r_c work well on a patrol together."
 		],
 		"main_status_constraint": [
-			"apprentice",
+			"colt",
 			"clipper",
 			"regent",
 			"baron"
 		],
 		"random_status_constraint": [
-			"apprentice",
+			"colt",
 			"clipper",
 			"regent",
 			"baron"
@@ -177,16 +177,16 @@
 		"main_status_constraint": [
 			"elder",
 			"clipper",
-			"mediator",
-			"medicine cat",
+			"cog",
+			"heir",
+			"doctor",
 			"regent",
 			"baron"
 		],
 		"random_status_constraint": [
 			"kitten",
-			"apprentice",
-			"mediator apprentice",
-			"medicine cat apprentice"
+			"colt",
+			"apprentice doctor"
 		],
 		"reaction_random_cat": {
 			"trust": "increase"
@@ -202,19 +202,20 @@
 		],
 		"main_status_constraint": [
 			"kitten",
-			"apprentice",
+			"colt",
 			"clipper",
-			"mediator apprentice",
-			"mediator",
-			"medicine cat apprentice",
-			"medicine cat",
+			"cog",
+			"heir",
+			"apprentice doctor",
+			"doctor",
 			"regent",
 			"baron"
 		],
 		"random_status_constraint": [
 			"elder",
-			"mediator",
-			"medicine cat",
+			"cog",
+			"heir",
+			"doctor",
 			"baron"
 		],
 		"reaction_random_cat": {
@@ -266,22 +267,24 @@
 			"During the last gathering, m_c and r_c defended their Clan against another Clan's heckling."
 		],
 		"main_status_constraint": [
-			"apprentice",
+			"colt",
 			"clipper",
-			"mediator",
-			"medicine cat",
+			"cog",
+			"heir",
+			"doctor",
 			"regent",
-			"medicine cat apprentice",
+			"apprentice doctor",
 			"baron"
 		],
 		"random_status_constraint": [
-			"apprentice",
+			"colt",
 			"clipper",
-			"mediator",
-			"medicine cat",
+			"cog",
+			"heir",
+			"doctor",
 			"regent",
 			"baron",
-			"medicine cat apprentice"
+			"apprentice doctor"
 		],
 		"reaction_random_cat": {
 			"trust": "increase"
@@ -316,8 +319,8 @@
 		],
 		"random_status_constraint": [
 			"elder",
-			"mediator",
-			"mediator apprentice"
+			"heir",
+			"cog"
 		]
 	},
 	{
@@ -329,8 +332,8 @@
 			"r_c has a lot of faith in m_c's skill."
 		],
 		"main_status_constraint": [
-			"medicine cat apprentice",
-			"medicine cat",
+			"apprentice doctor",
+			"doctor",
 			"baron"
 		],
 		"relationship_constraint": [
@@ -339,9 +342,10 @@
 		"random_status_constraint": [
 			"elder",
 			"clipper",
-			"mediator",
-			"medicine cat apprentice",
-			"medicine cat",
+			"cog",
+			"heir",
+			"apprentice doctor",
+			"doctor",
 			"regent",
 			"baron"
 		],
@@ -363,7 +367,7 @@
 		"random_status_constraint": [
 			"regent",
 			"elder",
-			"medicine cat"
+			"doctor"
 		],
 		"reaction_random_cat": {
 			"trust": "increase"
@@ -385,7 +389,7 @@
 		],
 		"random_status_constraint": [
 			"regent",
-			"medicine cat"
+			"doctor"
 		],
 		"reaction_random_cat": {
 			"trust": "increase"
@@ -403,12 +407,12 @@
 			"m_c asks r_c about a specific treatment method."
 		],
 		"main_status_constraint": [
-			"medicine cat apprentice",
-			"medicine cat"
+			"apprentice doctor",
+			"doctor"
 		],
 		"random_status_constraint": [
-			"medicine cat apprentice",
-			"medicine cat"
+			"apprentice doctor",
+			"doctor"
 		],
 		"reaction_random_cat": {
 			"trust": "increase"
@@ -421,8 +425,8 @@
 			"m_c feels like {PRONOUN/m_c/subject} can count on r_c to give {PRONOUN/m_c/object} the best treatment possible."
 		],
 		"random_status_constraint": [
-			"medicine cat apprentice",
-			"medicine cat"
+			"apprentice doctor",
+			"doctor"
 		]
 	}
 ]

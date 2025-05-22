@@ -967,7 +967,7 @@
                 "prey": ["very_small"]
             },
             {
-                "text": "The patrol launches into battle, but r_c is caught with a nasty bite, and the cats give up on challenging for the food in favor of quickly helping {PRONOUN/r_c/object} back to the medicine cat den.",
+                "text": "The patrol launches into battle, but r_c is caught with a nasty bite, and the cats give up on challenging for the food in favor of quickly helping {PRONOUN/r_c/object} back to the doctor den.",
                 "exp": 0,
                 "weight": 10,
                 "injury": [
@@ -1103,7 +1103,7 @@
                 "prey": ["very_small"]
             },
             {
-                "text": "The patrol launches into battle, but r_c is caught with a nasty bite, and the cats give up on challenging for the food in favor of quickly helping {PRONOUN/r_c/object} back to the medicine cat den.",
+                "text": "The patrol launches into battle, but r_c is caught with a nasty bite, and the cats give up on challenging for the food in favor of quickly helping {PRONOUN/r_c/object} back to the doctor den.",
                 "exp": 0,
                 "weight": 10,
                 "injury": [
@@ -1368,7 +1368,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [1, 6]
+            "colt": [1, 6]
         },
         "weight": 20,
         "intro_text": "app1 scents a squirrel on the air! Leaf-bare will make this a difficult hunt, and apprehension prickles down {PRONOUN/app1/poss} spine as {PRONOUN/app1/subject} {VERB/app1/weigh/weighs} {PRONOUN/app1/poss} options.",
@@ -1407,7 +1407,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "normal adult": [1, 6]
         },
         "weight": 20,
@@ -1546,7 +1546,7 @@
                 "prey": ["very_small"]
             },
             {
-                "text": "The patrol fans out, some cats climbing, some staying on the ground. The hunt comes to an abrupt end, however, when r_c yowls in fear as {PRONOUN/r_c/subject} {VERB/r_c/plummet/plummets} from the branches and lands heavily on the ground. {PRONOUN/r_c/poss/CAP} Clanmates help {PRONOUN/r_c/object} home and settle {PRONOUN/r_c/object} into the medicine cat den, guilt and regret prickling at them for pursuing such a foolhardy hunt.",
+                "text": "The patrol fans out, some cats climbing, some staying on the ground. The hunt comes to an abrupt end, however, when r_c yowls in fear as {PRONOUN/r_c/subject} {VERB/r_c/plummet/plummets} from the branches and lands heavily on the ground. {PRONOUN/r_c/poss/CAP} Clanmates help {PRONOUN/r_c/object} home and settle {PRONOUN/r_c/object} into the doctor den, guilt and regret prickling at them for pursuing such a foolhardy hunt.",
                 "exp": 0,
                 "weight": 10,
                 "injury": [
@@ -1991,7 +1991,7 @@
                 }
             },
             {
-                "text": "Who cares about vultures or buzzards? The Clan needs fresh-kill! The buzzard does, and gives s_c a nasty bite to remember it by, and the medicine cat gets to tell {PRONOUN/s_c/object} the difference between common buzzards and vultures.",
+                "text": "Who cares about vultures or buzzards? The Clan needs fresh-kill! The buzzard does, and gives s_c a nasty bite to remember it by, and the doctor gets to tell {PRONOUN/s_c/object} the difference between common buzzards and vultures.",
                 "exp": 0,
                 "weight": 10,
                 "stat_trait": ["childish", "playful", "nervous", "troublesome", "insecure"],
@@ -2021,7 +2021,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [1, 6]
+            "colt": [1, 6]
         },
         "weight": 20,
         "intro_text": "It's a cold day in c_n's territory, and p_l is the only cat stepping out. {PRONOUN/p_l/subject/CAP}{VERB/p_l/'re/'s} by {PRONOUN/p_l/self} when {PRONOUN/p_l/subject} {VERB/p_l/hear/hears} a cat screaming for help.",
@@ -2102,7 +2102,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [2, 2]
         },
         "weight": 20,
@@ -2194,11 +2194,11 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [2, 2]
         },
         "weight": 20,
-        "intro_text": "It's nice to get the chance to go out hunting with app2. app1 knows they're still in the apprentices' den, but with different mentors and focuses and skills - it's not the same as it was back in the nursery as littermates. The heavy snow will be a challenge, but one they'll get to face together.",
+        "intro_text": "It's nice to get the chance to go out hunting with app2. app1 knows they're still in the colts' den, but with different mentors and focuses and skills - it's not the same as it was back in the nursery as littermates. The heavy snow will be a challenge, but one they'll get to face together.",
         "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 30,
         "relationship_constraint": ["siblings"],
@@ -2243,7 +2243,7 @@
                 "prey": ["very_small"]
             },
             {
-                "text": "While stalking a bird, r_c takes a tumble, falling down a snow drift that provides nowhere to sink {PRONOUN/r_c/poss} claws into. Fortunately {PRONOUN/r_c/subject} don't seem seriously injured, but {PRONOUN/r_c/subject} need to get back to the medicine cat den and warmed up immediately.",
+                "text": "While stalking a bird, r_c takes a tumble, falling down a snow drift that provides nowhere to sink {PRONOUN/r_c/poss} claws into. Fortunately {PRONOUN/r_c/subject} don't seem seriously injured, but {PRONOUN/r_c/subject} need to get back to the doctor den and warmed up immediately.",
                 "exp": 0,
                 "weight": 10,
                 "injury": [
@@ -2267,7 +2267,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [2, 2]
         },
         "weight": 20,
@@ -2345,7 +2345,7 @@
         "min_cats": 3,
         "max_cats": 3,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [3, 3]
         },
         "weight": 20,
@@ -2436,11 +2436,11 @@
         "min_cats": 3,
         "max_cats": 3,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [3, 3]
         },
         "weight": 20,
-        "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the apprentices' den, but with different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} littermates. The heavy snow will be a challenge, but one they'll get to face together.",
+        "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the colts' den, but with different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} littermates. The heavy snow will be a challenge, but one they'll get to face together.",
         "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 30,
         "relationship_constraint": ["siblings"],
@@ -2485,7 +2485,7 @@
                 "prey": ["very_small"]
             },
             {
-                "text": "While stalking a bird, r_c takes a tumble, falling down a snow drift that provides nowhere to sink {PRONOUN/r_c/poss} claws into. Fortunately {PRONOUN/r_c/subject} don't seem seriously injured, but {PRONOUN/r_c/subject} need to get back to the medicine cat den and warmed up immediately.",
+                "text": "While stalking a bird, r_c takes a tumble, falling down a snow drift that provides nowhere to sink {PRONOUN/r_c/poss} claws into. Fortunately {PRONOUN/r_c/subject} don't seem seriously injured, but {PRONOUN/r_c/subject} need to get back to the doctor den and warmed up immediately.",
                 "exp": 0,
                 "weight": 10,
                 "injury": [
@@ -2509,7 +2509,7 @@
         "min_cats": 3,
         "max_cats": 3,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [3, 3]
         },
         "weight": 20,
@@ -2587,7 +2587,7 @@
         "min_cats": 4,
         "max_cats": 4,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [4, 4]
         },
         "weight": 20,
@@ -2678,11 +2678,11 @@
         "min_cats": 4,
         "max_cats": 4,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [4, 4]
         },
         "weight": 20,
-        "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the apprentices' den, but with different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} littermates. The heavy snow will be a challenge, but one they'll get to face together.",
+        "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the colts' den, but with different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} littermates. The heavy snow will be a challenge, but one they'll get to face together.",
         "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 30,
         "relationship_constraint": ["siblings"],
@@ -2727,7 +2727,7 @@
                 "prey": ["very_small"]
             },
             {
-                "text": "While stalking a bird, r_c takes a tumble, falling down a snow drift that provides nowhere to sink {PRONOUN/r_c/poss} claws into. Fortunately {PRONOUN/r_c/subject} don't seem seriously injured, but {PRONOUN/r_c/subject} need to get back to the medicine cat den and warmed up immediately.",
+                "text": "While stalking a bird, r_c takes a tumble, falling down a snow drift that provides nowhere to sink {PRONOUN/r_c/poss} claws into. Fortunately {PRONOUN/r_c/subject} don't seem seriously injured, but {PRONOUN/r_c/subject} need to get back to the doctor den and warmed up immediately.",
                 "exp": 0,
                 "weight": 10,
                 "injury": [
@@ -2751,7 +2751,7 @@
         "min_cats": 4,
         "max_cats": 4,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [4, 4]
         },
         "weight": 20,
@@ -2829,7 +2829,7 @@
         "min_cats": 5,
         "max_cats": 5,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [5, 5]
         },
         "weight": 20,
@@ -2920,11 +2920,11 @@
         "min_cats": 5,
         "max_cats": 5,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [5, 5]
         },
         "weight": 20,
-        "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the apprentices' den, but with different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} littermates. The heavy snow will be a challenge, but one they'll get to face together.",
+        "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the colts' den, but with different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} littermates. The heavy snow will be a challenge, but one they'll get to face together.",
         "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 30,
         "relationship_constraint": ["siblings"],
@@ -2969,7 +2969,7 @@
                 "prey": ["very_small"]
             },
             {
-                "text": "While stalking a bird, r_c takes a tumble, falling down a snow drift that provides nowhere to sink {PRONOUN/r_c/poss} claws into. Fortunately {PRONOUN/r_c/subject} don't seem seriously injured, but {PRONOUN/r_c/subject} need to get back to the medicine cat den and warmed up immediately.",
+                "text": "While stalking a bird, r_c takes a tumble, falling down a snow drift that provides nowhere to sink {PRONOUN/r_c/poss} claws into. Fortunately {PRONOUN/r_c/subject} don't seem seriously injured, but {PRONOUN/r_c/subject} need to get back to the doctor den and warmed up immediately.",
                 "exp": 0,
                 "weight": 10,
                 "injury": [
@@ -2993,7 +2993,7 @@
         "min_cats": 5,
         "max_cats": 5,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [5, 5]
         },
         "weight": 20,
@@ -3071,7 +3071,7 @@
         "min_cats": 6,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 6]
+            "colt": [1, 6]
         },
         "weight": 20,
         "intro_text": "The six siblings head out together, declaring a friendly competition to stock the fresh-kill pile. There's no more important season to come home with fresh-kill - c_n can use every bit of prey any cat can find in the harsh cold.",
@@ -3161,10 +3161,10 @@
         "min_cats": 6,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 6]
+            "colt": [1, 6]
         },
         "weight": 20,
-        "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the apprentices' den, but with different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} littermates. The heavy snow will be a challenge, but one they'll get to face together.",
+        "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the colts' den, but with different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} littermates. The heavy snow will be a challenge, but one they'll get to face together.",
         "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 30,
         "relationship_constraint": ["siblings"],
@@ -3209,7 +3209,7 @@
                 "prey": ["very_small"]
             },
             {
-                "text": "While stalking a bird, r_c takes a tumble, falling down a snow drift that provides nowhere to sink {PRONOUN/r_c/poss} claws into. Fortunately {PRONOUN/r_c/subject} don't seem seriously injured, but {PRONOUN/r_c/subject} need to get back to the medicine cat den and warmed up immediately.",
+                "text": "While stalking a bird, r_c takes a tumble, falling down a snow drift that provides nowhere to sink {PRONOUN/r_c/poss} claws into. Fortunately {PRONOUN/r_c/subject} don't seem seriously injured, but {PRONOUN/r_c/subject} need to get back to the doctor den and warmed up immediately.",
                 "exp": 0,
                 "weight": 10,
                 "injury": [
@@ -3233,7 +3233,7 @@
         "min_cats": 6,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 6]
+            "colt": [1, 6]
         },
         "weight": 20,
         "intro_text": "The clouds hog the sky, weakly trying to threaten snow the way they've done constantly the last few days. And just like the clouds, app1 and {PRONOUN/app1/poss} littermates are everywhere today, sticking their heads into every unexplored corner of the territory. All in the name of hunting, of course!",
@@ -3310,7 +3310,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [1, 1],
             "normal adult": [1, 6]
         },
@@ -3372,7 +3372,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [1, 1],
             "normal adult": [1, 6]
         },
@@ -3443,7 +3443,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [1, 1],
             "normal adult": [1, 6]
         },
@@ -3514,7 +3514,7 @@
         "min_cats": 3,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [1, 1],
             "normal adult": [1, 6]
         },
@@ -3576,7 +3576,7 @@
         "min_cats": 3,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [1, 1],
             "normal adult": [1, 6]
         },
@@ -4541,12 +4541,12 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "normal adult": [1, 6]
         },
         "weight": 20,
         "intro_text": "app1 has been acting weird all day, full of too-quick answers and furtive glances. A parent usually knows; p_l has seen that look too often in app1's nursery days. So, when {PRONOUN/app1/subject} {VERB/app1/creep/creeps} out of camp and into the frosty chilled shadows of the forest at night, p_l is there waiting for {PRONOUN/app1/object}. app1 freezes, staring up with wide eyes.",
-        "decline_text": "A stern glance and wide swish of {PRONOUN/p_l/poss} tail is all that's needed to turn app1's nighttime wanderings around and send {PRONOUN/app1/object} back to the apprentices' den. p_l will have a talk with {PRONOUN/app1/object} in the morning - leaf-bare isn't the season to take risks like this.",
+        "decline_text": "A stern glance and wide swish of {PRONOUN/p_l/poss} tail is all that's needed to turn app1's nighttime wanderings around and send {PRONOUN/app1/object} back to the colts' den. p_l will have a talk with {PRONOUN/app1/object} in the morning - leaf-bare isn't the season to take risks like this.",
         "chance_of_success": 40,
         "relationship_constraint": ["parent/child"],
         "success_outcomes": [

@@ -329,12 +329,10 @@ class Thoughts:
         status = main_cat.status
         status = status.replace(" ", "_")
         # match status:
-        #     case "medicine cat apprentice":
-        #         status = "medicine_cat_apprentice"
-        #     case "mediator apprentice":
-        #         status = "mediator_apprentice"
-        #     case "medicine cat":
-        #         status = "medicine_cat"
+        #     case "apprentice doctor":
+        #         status = "doctor_apprentice"
+        #     case "doctor":
+        #         status = "doctor"
         #     case 'former Clancat':
         #         status = 'former_Clancat'
 

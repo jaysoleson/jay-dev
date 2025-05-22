@@ -4,12 +4,12 @@
         "major": 3,
         "severe": 1
     },
-    "apprentice": {
+    "colt": {
         "minor":5,
         "major": 2,
         "severe": 1
     },
-    "medicine cat apprentice": {
+    "apprentice doctor": {
         "minor": 5,
         "major": 2,
         "severe": 1
@@ -24,7 +24,7 @@
         "major": 3,
         "severe": 1
     },
-    "medicine cat": {
+    "doctor": {
         "minor": 4,
         "major": 2,
         "severe": 1

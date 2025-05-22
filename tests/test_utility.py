@@ -216,7 +216,7 @@ class TestGetQueens(unittest.TestCase):
         # too old kid
         self.test_cat3.gender = "female"
 
-        self.test_cat4.status = "apprentice"
+        self.test_cat4.status = "colt"
         self.test_cat4.parent1 = self.test_cat3.ID
 
         # then
@@ -234,7 +234,7 @@ class TestGetQueens(unittest.TestCase):
         # too old kid
         self.test_cat3.gender = "male"
 
-        self.test_cat4.status = "apprentice"
+        self.test_cat4.status = "colt"
         self.test_cat4.parent1 = self.test_cat3.ID
 
         # then
@@ -257,7 +257,7 @@ class TestGetQueens(unittest.TestCase):
 
         self.test_cat5.gender = "male"
 
-        self.test_cat6.status = "apprentice"
+        self.test_cat6.status = "colt"
         self.test_cat6.parent1 = self.test_cat5.ID
         self.test_cat6.parent2 = self.test_cat4.ID
 
@@ -281,7 +281,7 @@ class TestGetQueens(unittest.TestCase):
 
         self.test_cat5.gender = "male"
 
-        self.test_cat6.status = "apprentice"
+        self.test_cat6.status = "colt"
         self.test_cat6.parent1 = self.test_cat5.ID
         self.test_cat6.parent2 = self.test_cat4.ID
 
@@ -308,7 +308,7 @@ class TestGetQueens(unittest.TestCase):
 
         self.test_cat5.gender = "female"
 
-        self.test_cat6.status = "apprentice"
+        self.test_cat6.status = "colt"
         self.test_cat6.parent1 = self.test_cat5.ID
         self.test_cat6.parent2 = self.test_cat4.ID
 

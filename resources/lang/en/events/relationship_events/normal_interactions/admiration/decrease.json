@@ -103,23 +103,23 @@
 		},
 		"main_status_constraint": [
 			"elder",
-			"apprentice",
+			"colt",
 			"clipper",
-			"mediator apprentice",
-			"mediator",
-			"medicine cat apprentice",
-			"medicine cat",
+			"cog",
+			"heir",
+			"apprentice doctor",
+			"doctor",
 			"regent",
 			"baron"
 		],
 		"random_status_constraint": [
 			"elder",
-			"apprentice",
+			"colt",
 			"clipper",
-			"mediator apprentice",
-			"mediator",
-			"medicine cat apprentice",
-			"medicine cat",
+			"cog",
+			"heir",
+			"apprentice doctor",
+			"doctor",
 			"regent",
 			"baron"
 		]
@@ -148,13 +148,13 @@
 			"m_c and r_c have very different approaches to hunting and argue about which is better."
 		],
 		"main_status_constraint": [
-			"apprentice",
+			"colt",
 			"clipper",
 			"regent",
 			"baron"
 		],
 		"random_status_constraint": [
-			"apprentice",
+			"colt",
 			"clipper",
 			"regent",
 			"baron"
@@ -168,20 +168,21 @@
 		],
 		"main_status_constraint": [
 			"elder",
-			"apprentice",
+			"colt",
 			"clipper",
 			"regent",
 			"baron",
-			"medicine cat",
-			"mediator"
+			"doctor",
+			"heir",
+			"cog"
 		],
 		"random_status_constraint": [
-			"apprentice",
+			"colt",
 			"clipper",
-			"mediator apprentice",
-			"mediator",
-			"medicine cat apprentice",
-			"medicine cat",
+			"cog",
+			"heir",
+			"apprentice doctor",
+			"doctor",
 			"regent",
 			"baron"
 		]

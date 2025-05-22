@@ -194,17 +194,17 @@
         ],
         "tags": [],
         "weight": 20,
-        "event_text": "m_c drowned after being pushed out to sea by o_c_n clippers.",
+        "event_text": "m_c drowned after being pushed out to sea by o_c_n Clippers.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "baron",
                 "regent",
-                "mediator",
-                "mediator apprentice",
-                "medicine cat",
-                "medicine cat apprentice"
+                "cog",
+                "heir",
+                "doctor",
+                "apprentice doctor"
             ],
             "dies": true
         },
@@ -213,8 +213,8 @@
                 "cats": [
                     "m_c"
                 ],
-                "reg_death": "m_c was pushed out to sea by enemy clippers.",
-                "lead_death": "{VERB/m_c/were/was} pushed out to sea by enemy clippers"
+                "reg_death": "m_c was pushed out to sea by enemy Clippers.",
+                "lead_death": "{VERB/m_c/were/was} pushed out to sea by enemy Clippers"
             }
         ],
         "other_clan": {
@@ -242,7 +242,7 @@
                 "adolescent"
             ],
             "status": [
-                "apprentice"
+                "colt"
             ],
             "dies": true
         },
@@ -271,7 +271,7 @@
                 "adolescent"
             ],
             "status": [
-                "apprentice"
+                "colt"
             ],
             "relationship_status": [],
             "dies": true
@@ -311,7 +311,7 @@
                 "adolescent"
             ],
             "status": [
-                "apprentice"
+                "colt"
             ],
             "dies": true
         },
@@ -340,7 +340,7 @@
                 "adolescent"
             ],
             "status": [
-                "apprentice"
+                "colt"
             ],
             "relationship_status": [],
             "dies": true

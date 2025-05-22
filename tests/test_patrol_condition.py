@@ -34,7 +34,7 @@ class TestCondition(unittest.TestCase):
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [-1, -1],
+            "colt": [-1, -1],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },

@@ -232,7 +232,7 @@ def get_random_moon_cat(
         if mentor_app_modifier:
             if (
                     main_cat.status
-                    in ("apprentice", "mediator apprentice", "medicine cat apprentice")
+                    in ("colt", "apprentice doctor")
                     and main_cat.mentor
                     and not int(random() * 3)
             ):
@@ -246,17 +246,25 @@ def get_random_moon_cat(
     return random_cat
 
 
-def get_warring_clan():
+def get_warring_clans(war):
     """
     returns enemy clan if a war is currently ongoing
     """
-    enemy_clan = None
-    if game.clan.war.get("at_war", False):
-        for other_clan in game.clan.all_clans:
-            if other_clan.name == game.clan.war["enemy"]:
-                enemy_clan = other_clan
+    offense = None
+    defense = None
+    
+    offense_name = war["offense"]["name"]
+    defense_name = war["defense"]["name"]
 
-    return enemy_clan
+    for clan in game.clan.all_clans + [game.clan]:
+        if offense_name == clan.name:
+            offense = clan
+            break
+        elif defense_name == clan.name:
+            defense = clan
+            break
+
+    return offense, defense
 
 
 # ---------------------------------------------------------------------------- #
@@ -295,24 +303,31 @@ def change_clan_reputation(difference):
     elif game.clan.reputation > 100:
         game.clan.reputation = 100 # clamp to 100
 
-def change_clan_relations(other_clan, difference):
+def change_clan_relations(clan1, clan2, difference):
     """
-    will change the Clan's relation with other clans according to the difference parameter.
+    will change the relationship between two clans. amount will always be the same as of rn.
     """
-    # grab the clan that has been indicated
-    other_clan = other_clan
-    # grab the relation value for that clan
-    y = game.clan.all_clans.index(other_clan)
-    clan_relations = int(game.clan.all_clans[y].relations)
-    # change the value
-    clan_relations += difference
-    # making sure it doesn't exceed the bounds
-    if clan_relations > 30:
-        clan_relations = 30
-    elif clan_relations < 0:
-        clan_relations = 0
-    # setting it in the Clan save
-    game.clan.all_clans[y].relations = clan_relations
+
+    # grab the relation value for the clans
+    clan1_rel = int(clan1.relations[clan2.name]) if clan1 != game.clan else None
+    clan2_rel = int(clan2.relations[clan1.name]) if clan2 != game.clan else None
+
+    if clan1_rel:
+        clan1_rel += difference
+        # making sure it doesn't exceed the bounds
+        if clan1_rel > 30:
+            clan1_rel = 30
+        elif clan1_rel < 0:
+            clan1_rel = 0
+        clan1.relations[clan2.name] = clan1_rel
+    if clan2_rel:
+        clan2_rel += difference
+        # making sure it doesn't exceed the bounds
+        if clan2_rel > 30:
+            clan2_rel = 30
+        elif clan2_rel < 0:
+            clan2_rel = 0
+        clan2.relations[clan1.name] = clan2_rel
 
 
 def create_new_cat_block(
@@ -377,9 +392,8 @@ def create_new_cat_block(
         for index in mate_indexes:
             if index in in_event_cats:
                 if in_event_cats[index] in (
-                    "apprentice",
-                    "medicine cat apprentice",
-                    "mediator apprentice",
+                    "colt",
+                    "apprentice doctor"
                 ):
                     print("Can't give apprentices mates")
                     continue
@@ -428,12 +442,11 @@ def create_new_cat_block(
             "newborn",
             "kitten",
             "elder",
-            "apprentice",
+            "colt",
             "clipper",
-            "mediator apprentice",
-            "mediator",
-            "medicine cat apprentice",
-            "medicine cat",
+            "cog",
+            "apprentice doctor",
+            "doctor",
         ):
             status = match.group(1)
             break
@@ -461,12 +474,12 @@ def create_new_cat_block(
             break
 
     if status and not age:
-        if status in ("apprentice", "mediator apprentice", "medicine cat apprentice"):
+        if status in ("colt", "apprentice doctor"):
             age = randint(
                 Cat.age_moons[CatAgeEnum.ADOLESCENT][0],
                 Cat.age_moons[CatAgeEnum.ADOLESCENT][1],
             )
-        elif status in ["clipper", "mediator", "medicine cat"]:
+        elif status in ["clipper", "mediator", "doctor"]:
             age = randint(
                 Cat.age_moons["young adult"][0], Cat.age_moons["senior adult"][1]
             )
@@ -496,9 +509,9 @@ def create_new_cat_block(
         chosen_backstory = choice(
             BACKSTORIES["backstory_categories"]["abandoned_backstories"]
         )
-    elif status == "medicine cat" and cat_type == "former Clancat":
-        chosen_backstory = choice(["medicine_cat", "disgraced1"])
-    elif status == "medicine cat":
+    elif status == "doctor" and cat_type == "former Clancat":
+        chosen_backstory = choice(["doctor", "disgraced1"])
+    elif status == "doctor":
         chosen_backstory = choice(["wandering_healer1", "wandering_healer2"])
     else:
         if cat_type == "former Clancat":
@@ -777,11 +790,11 @@ def create_new_cat(
             age = 0
         elif litter or kit:
             age = randint(1, 5)
-        elif status in ("apprentice", "medicine cat apprentice", "mediator apprentice"):
+        elif status in ("colt", "apprentice doctor"):
             age = randint(6, 11)
         elif status == "clipper":
             age = randint(23, 120)
-        elif status == "medicine cat":
+        elif status == "doctor":
             age = randint(23, 140)
         elif status == "elder":
             age = randint(120, 130)
@@ -795,7 +808,7 @@ def create_new_cat(
         elif age < 6:
             status = "kitten"
         elif 6 <= age <= 11:
-            status = "apprentice"
+            status = "colt"
         elif age >= 12:
             status = "clipper"
         elif age >= 120:
@@ -1699,15 +1712,6 @@ def change_relationship_values(
 # ---------------------------------------------------------------------------- #
 
 
-def get_baron_life_notice() -> str:
-    """
-    Returns a string specifying how many lives the baron has left or notifying of the baron's full death
-    """
-    if game.clan.instructor.df:
-        return i18n.t("cat.history.baron_lives_left_df", count=game.clan.baron_lives)
-    return i18n.t("cat.history.baron_lives_left_sc", count=game.clan.baron_lives)
-
-
 def get_other_clan_relation(relation):
     """
     converts int value into string relation and returns string: "hostile", "neutral", or "ally"
@@ -1989,12 +1993,15 @@ def find_special_list_types(text):
     return text, senses, list_type, cat_tag
 
 
-def history_text_adjust(text, other_clan_name, clan, other_cat_rc=None):
+def history_text_adjust(text, other_clan_name, clan, other_cat_rc=None, event_id=None):
     """
     we want to handle history text on its own because it needs to preserve the pronoun tags and cat abbreviations.
     this is so that future pronoun changes or name changes will continue to be reflected in history
     """
     vowels = ["A", "E", "I", "O", "U"]
+    if not text:
+        print("text is None in history_text_adjust.", event_id)
+        return
 
     if "o_c_n" in text:
         pos = 0
@@ -2015,7 +2022,7 @@ def history_text_adjust(text, other_clan_name, clan, other_cat_rc=None):
                         text = " ".join(modify)
                         break
 
-        text = text.replace("o_c_n", str(other_clan_name))
+        text = text.replace("o_c_n", str(other_clan_name) + "Clan")
 
     if "c_n" in text:
         text = text.replace("c_n", clan.name)
@@ -2041,7 +2048,7 @@ def selective_replace(text, pattern, replacement):
     return text
 
 
-def ongoing_event_text_adjust(Cat, text, clan=None, other_clan_name=None):
+def ongoing_event_text_adjust(Cat, text, war_offense=None, war_defense=None, clan=None, other_clan_name=None):
     """
     This function is for adjusting the text of ongoing events
     :param Cat: the cat class
@@ -2057,11 +2064,21 @@ def ongoing_event_text_adjust(Cat, text, clan=None, other_clan_name=None):
         kitty = Cat.fetch_cat(game.clan.regent)
         cat_dict["dep_name"] = (str(kitty.name), choice(kitty.pronouns))
     if "med_name" in text:
-        kitty = choice(get_alive_status_cats(Cat, ["medicine cat"], working=True))
+        kitty = choice(get_alive_status_cats(Cat, ["doctor"], working=True))
         cat_dict["med_name"] = (str(kitty.name), choice(kitty.pronouns))
 
     if cat_dict:
         text = process_text(text, cat_dict)
+
+    # BL
+    if war_offense:
+        text = text.replace("offense_baron", str(Cat.fetch_cat(war_offense.baron).name))
+        text = text.replace("o_b_n", war_offense.name + "Clan")
+        text = text.replace("o_b_t", war_offense.territory_type.capitalize())
+    if war_defense:
+        text = text.replace("defense_baron", str(Cat.fetch_cat(war_defense.baron).name))
+        text = text.replace("d_b_n", war_defense.name + "Clan")
+        text = text.replace("d_b_t", war_defense.territory_type.capitalize())
 
     if other_clan_name:
         text = text.replace("o_c_n", other_clan_name)
@@ -2093,6 +2110,8 @@ def event_text_adjust(
         multi_cats: list = None,
         clan=None,
         other_clan=None,
+        war_offense=None,
+        war_defense=None,
         chosen_herb: str = None,
 ):
     """
@@ -2213,7 +2232,7 @@ def event_text_adjust(
 
     # med_name
     if "med_name" in text:
-        med = choice(get_alive_status_cats(Cat, ["medicine cat"], working=True))
+        med = choice(get_alive_status_cats(Cat, ["doctor"], working=True))
         replace_dict["med_name"] = (str(med.name), choice(med.pronouns))
 
     # assign all names and pronouns
@@ -2231,6 +2250,7 @@ def event_text_adjust(
     # other_clan_name
     if "o_c_n" in text:
         other_clan_name = other_clan.name
+        # other_clan_name = Cat.fetch_cat(other_clan.baron).name
         pos = 0
         for x in range(text.count("o_c_n")):
             if "o_c_n" in text:
@@ -2250,13 +2270,28 @@ def event_text_adjust(
                         break
 
         text = text.replace("o_c_n", str(other_clan_name) + "Clan")
+    
+    if war_offense:
+        if "o_b_n" in text:
+            text = text.replace("o_bClan", war_offense.name)
+        if "offense_baron" in text:
+            text = text.replace("offense_baron", str(Cat.fetch_cat(war_offense["baron"]).name))
+        if "o_b_t" in text:
+            text = text.replace("o_b_t", war_offense.territory_type.capitalize())
+    if war_defense:
+        if "d_b_n" in text:
+            text = text.replace("d_bClan", war_defense.name)
+        if "defense_baron" in text:
+            text = text.replace("defense_baron", str(Cat.fetch_cat(war_defense["baron"]).name))
+        if "d_b_t" in text:
+            text = text.replace("d_b_t", war_defense.territory_type.capitalize())
 
     # clan_name
     if "c_n" in text:
         try:
-            clan_name = clan.name
+            clan_name = clan.name + "Clan"
         except AttributeError:
-            clan_name = game.switches["clan_list"][0]
+            clan_name = game.switches["clan_list"][0] + "Clan"
 
         pos = 0
         for x in range(text.count("c_n")):
@@ -2276,7 +2311,7 @@ def event_text_adjust(
                         text = " ".join(modify)
                         break
 
-        text = text.replace("c_n", str(clan_name) + "Clan")
+        text = text.replace("c_n", str(clan_name))
 
     # prey lists
     text = adjust_prey_abbr(text)

@@ -369,7 +369,7 @@ class CatSkills:
             pass
         elif status == "kitten" or moons < 6:
             new_skill.primary = Skill.get_random_skill(points=0, interest_only=True)
-        elif status == "apprentice":
+        elif status == "colt":
             new_skill.primary = Skill.get_random_skill(point_tier=1, interest_only=True)
             if random.randint(1, 3) == 1:
                 new_skill.secondary = Skill.get_random_skill(
@@ -495,14 +495,14 @@ class CatSkills:
                     random.choice(parental_paths),
                     points=0,
                     interest_only=(
-                        the_cat.status in ("apprentice", "kitten")
+                        the_cat.status in ("colt", "kitten")
                     )
                 )
             else:
                 self.primary = Skill.get_random_skill(
                     points=0,
                     interest_only=(
-                        the_cat.status in ("apprentice", "kitten")
+                        the_cat.status in ("colt", "kitten")
                     )
                 )
 
@@ -526,7 +526,7 @@ class CatSkills:
                     elif self.primary:
                         self.primary.points += amount_effect
 
-            elif "apprentice" in the_cat.status:
+            elif "colt" in the_cat.status:
                 # Check to see if the cat gains a secondary
                 if not self.secondary and not int(random.random() * 22):
                     # if there's no secondary skill, try to give one!

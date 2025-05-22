@@ -345,7 +345,7 @@
                 "prey": ["very_small"]
             },
             {
-                "text": "The patrol launches into battle, but r_c is caught with a nasty bite, and the cats give up on challenging for the food in favor of quickly helping {PRONOUN/r_c/object} back to the medicine cat den.",
+                "text": "The patrol launches into battle, but r_c is caught with a nasty bite, and the cats give up on challenging for the food in favor of quickly helping {PRONOUN/r_c/object} back to the doctor den.",
                 "exp": 0,
                 "weight": 10,
                 "injury": [
@@ -481,7 +481,7 @@
                 "prey": ["very_small"]
             },
             {
-                "text": "The patrol launches into battle, but r_c is caught with a nasty bite, and the cats give up on challenging for the food in favor of quickly helping {PRONOUN/r_c/object} back to the medicine cat den.",
+                "text": "The patrol launches into battle, but r_c is caught with a nasty bite, and the cats give up on challenging for the food in favor of quickly helping {PRONOUN/r_c/object} back to the doctor den.",
                 "exp": 0,
                 "weight": 10,
                 "injury": [
@@ -982,7 +982,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [1, 6]
+            "colt": [1, 6]
         },
         "weight": 20,
         "intro_text": "app1 has snuck out of camp alone, hoping to bring something home for the Clan. Running through everything {PRONOUN/app1/subject}{VERB/app1/'ve/'s} been taught in {PRONOUN/app1/poss} head, {PRONOUN/app1/subject} carefully {VERB/app1/scent/scents} the air and {VERB/app1/strain/strains} {PRONOUN/app1/poss} ears, hoping for any hint of prey.",
@@ -1020,7 +1020,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "normal adult": [1, 6]
         },
         "weight": 20,
@@ -1087,7 +1087,7 @@
         "min_cats": 3,
         "max_cats": 3,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [3, 3]
         },
         "weight": 20,
@@ -1305,7 +1305,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [1, 6]
+            "colt": [1, 6]
         },
         "weight": 20,
         "intro_text": "app1 catches scent of a mouse nearby. But {PRONOUN/app1/subject} {VERB/app1/lash/lashes} {PRONOUN/app1/poss} tail, confused - everything is covered in snow, where could the prey be?",
@@ -1359,7 +1359,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "normal adult": [1, 6]
         },
         "weight": 20,
@@ -1426,7 +1426,7 @@
         "min_cats": 3,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [2, 2],
             "normal adult": [1, 6]
         },
@@ -1599,7 +1599,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [2, 2]
         },
         "weight": 20,
@@ -1691,11 +1691,11 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [2, 2]
         },
         "weight": 20,
-        "intro_text": "It's nice to get the chance to go out hunting with app2. app1 knows they're still in the apprentices' den together, but their different mentors and focuses and skills - it's not the same as it was back in the nursery as littermates. Even the cold crunch of frost on the grass beneath {PRONOUN/app1/poss} paws can't dampen {PRONOUN/app1/poss} enthusiasm.",
+        "intro_text": "It's nice to get the chance to go out hunting with app2. app1 knows they're still in the colts' den together, but their different mentors and focuses and skills - it's not the same as it was back in the nursery as littermates. Even the cold crunch of frost on the grass beneath {PRONOUN/app1/poss} paws can't dampen {PRONOUN/app1/poss} enthusiasm.",
         "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 30,
         "relationship_constraint": ["siblings"],
@@ -1750,7 +1750,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [2, 2]
         },
         "weight": 20,
@@ -1809,7 +1809,7 @@
         "min_cats": 3,
         "max_cats": 3,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [3, 3]
         },
         "weight": 20,
@@ -1899,11 +1899,11 @@
         "min_cats": 3,
         "max_cats": 3,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [3, 3]
         },
         "weight": 20,
-        "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the apprentices' den together, but their different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} littermates. Even the cold crunch of frost on the grass beneath {PRONOUN/app1/poss} paws can't dampen {PRONOUN/app1/poss} enthusiasm.",
+        "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the colts' den together, but their different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} littermates. Even the cold crunch of frost on the grass beneath {PRONOUN/app1/poss} paws can't dampen {PRONOUN/app1/poss} enthusiasm.",
         "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 30,
         "relationship_constraint": ["siblings"],
@@ -1958,7 +1958,7 @@
         "min_cats": 3,
         "max_cats": 3,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [3, 3]
         },
         "weight": 20,
@@ -2017,7 +2017,7 @@
         "min_cats": 4,
         "max_cats": 4,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [4, 4]
         },
         "weight": 20,
@@ -2107,11 +2107,11 @@
         "min_cats": 4,
         "max_cats": 4,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [4, 4]
         },
         "weight": 20,
-        "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the apprentices' den together, but their different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} littermates. Even the cold crunch of frost on the grass beneath {PRONOUN/app1/poss} paws can't dampen {PRONOUN/app1/poss} enthusiasm.",
+        "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the colts' den together, but their different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} littermates. Even the cold crunch of frost on the grass beneath {PRONOUN/app1/poss} paws can't dampen {PRONOUN/app1/poss} enthusiasm.",
         "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 30,
         "relationship_constraint": ["siblings"],
@@ -2166,7 +2166,7 @@
         "min_cats": 4,
         "max_cats": 4,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [4, 4]
         },
         "weight": 20,
@@ -2225,7 +2225,7 @@
         "min_cats": 5,
         "max_cats": 5,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [5, 5]
         },
         "weight": 20,
@@ -2315,11 +2315,11 @@
         "min_cats": 5,
         "max_cats": 5,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [5, 5]
         },
         "weight": 20,
-        "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the apprentices' den together, but their different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} littermates. Even the cold crunch of frost on the grass beneath {PRONOUN/app1/poss} paws can't dampen {PRONOUN/app1/poss} enthusiasm.",
+        "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the colts' den together, but their different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} littermates. Even the cold crunch of frost on the grass beneath {PRONOUN/app1/poss} paws can't dampen {PRONOUN/app1/poss} enthusiasm.",
         "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 30,
         "relationship_constraint": ["siblings"],
@@ -2374,7 +2374,7 @@
         "min_cats": 5,
         "max_cats": 5,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [5, 5]
         },
         "weight": 20,
@@ -2433,7 +2433,7 @@
         "min_cats": 6,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 6]
+            "colt": [1, 6]
         },
         "weight": 20,
         "intro_text": "The six siblings head out together, declaring a friendly competition to stock the fresh-kill pile. With what grass not covered by snow either wilted by frost or halfway down an herbivore's gullet, it's more important than ever that c_n gets fed.",
@@ -2522,10 +2522,10 @@
         "min_cats": 6,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 6]
+            "colt": [1, 6]
         },
         "weight": 20,
-        "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the apprentices' den together, but their different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} littermates. Even the cold crunch of frost on the grass beneath {PRONOUN/app1/poss} paws can't dampen {PRONOUN/app1/poss} enthusiasm.",
+        "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the colts' den together, but their different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} littermates. Even the cold crunch of frost on the grass beneath {PRONOUN/app1/poss} paws can't dampen {PRONOUN/app1/poss} enthusiasm.",
         "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
         "chance_of_success": 30,
         "relationship_constraint": ["siblings"],
@@ -2580,7 +2580,7 @@
         "min_cats": 6,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 6]
+            "colt": [1, 6]
         },
         "weight": 20,
         "intro_text": "The clouds hog the sky, weakly trying to threaten snow the way they've done constantly the last few days. And just like the clouds, app1 and {PRONOUN/app1/poss} littermates are everywhere today, sticking their heads into every unexplored corner of the territory. All in the name of hunting, of course!",
@@ -2638,7 +2638,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [1, 1],
             "normal adult": [1, 6]
         },
@@ -2700,7 +2700,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [1, 1],
             "normal adult": [1, 6]
         },
@@ -2771,7 +2771,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [1, 1],
             "normal adult": [1, 6]
         },
@@ -2842,7 +2842,7 @@
         "min_cats": 3,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [1, 1],
             "normal adult": [1, 6]
         },
@@ -2904,7 +2904,7 @@
         "min_cats": 3,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [1, 1],
             "normal adult": [1, 6]
         },

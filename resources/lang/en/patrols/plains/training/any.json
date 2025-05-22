@@ -9,7 +9,7 @@
         "min_cats": 2,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "normal adult": [1, 6]
         },
         "weight": 20,
@@ -1051,7 +1051,7 @@
                 }
             },
             {
-                "text": "r_c eventually manages to pull {PRONOUN/r_c/self} free, but {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} wheezing and injured. It's all {PRONOUN/r_c/subject} can do to find some tall grass to shelter in through the night out on the plains until a patrol finds {PRONOUN/r_c/object} the next morning and helps {PRONOUN/r_c/object} to the medicine cat den.",
+                "text": "r_c eventually manages to pull {PRONOUN/r_c/self} free, but {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} wheezing and injured. It's all {PRONOUN/r_c/subject} can do to find some tall grass to shelter in through the night out on the plains until a patrol finds {PRONOUN/r_c/object} the next morning and helps {PRONOUN/r_c/object} to the doctor den.",
                 "exp": 0,
                 "weight": 10,
                 "injury": [
@@ -1079,7 +1079,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [1, 6]
+            "colt": [1, 6]
         },
         "weight": 20,
         "intro_text": "app1 heads out into the grasslands alone, but maybe an apprentice shouldn't try to do a solo patrol.",
@@ -1132,7 +1132,7 @@
                 "can_have_stat": ["app"]
             },
             {
-                "text": "The apprentice wanders along obliviously and slips, and tumbling right down into a well-hidden gully. Bruised and sore, app1 has to report to the medicine cat den when {PRONOUN/app1/subject} {VERB/app1/return/returns} to camp.",
+                "text": "The apprentice wanders along obliviously and slips, and tumbling right down into a well-hidden gully. Bruised and sore, app1 has to report to the doctor den when {PRONOUN/app1/subject} {VERB/app1/return/returns} to camp.",
                 "exp": 0,
                 "weight": 10,
                 "art": "gen_train_soggykitty_mad_app",
@@ -1363,7 +1363,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "normal adult": [1, 6]
         },
         "weight": 20,
@@ -1518,7 +1518,7 @@
         "min_cats": 3,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [2, 2],
             "normal adult": [1, 6]
         },
@@ -1677,7 +1677,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "normal adult": [1, 6]
         },
         "weight": 20,
@@ -1833,7 +1833,7 @@
         "min_cats": 3,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [2, 6],
+            "colt": [2, 6],
             "normal adult": [1, 6]
         },
         "weight": 20,
@@ -2005,7 +2005,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [2, 2]
         },
         "weight": 20,
@@ -2305,7 +2305,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [2, 2]
         },
         "weight": 20,
@@ -2416,7 +2416,7 @@
         "min_cats": 1,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "healer cats": [-1, -1],
             "normal adult": [-1, -1]
         },
@@ -2499,7 +2499,7 @@
         "min_cats": 3,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [2, 6],
+            "colt": [2, 6],
             "normal adult":[1, 6]
         },
         "weight": 30,
@@ -2899,7 +2899,7 @@
         "max_cats": 6,
         "min_max_status": {
            "normal adult": [1, 5],
-           "apprentice":[1, 5]
+           "colt":[1, 5]
             },
         "weight": 40,
         "chance_of_success": 60,
@@ -2949,7 +2949,7 @@
         "max_cats": 6,
         "min_max_status": {
            "normal adult": [1, 5],
-           "apprentice":[2, 5]
+           "colt":[2, 5]
             },
         "weight": 40,
         "chance_of_success": 60,
@@ -3022,7 +3022,7 @@
         "max_cats": 6,
         "min_max_status": {
            "normal adult": [1, 5],
-           "apprentice":[2, 5]
+           "colt":[2, 5]
             },
         "weight": 40,
         "chance_of_success": 60,

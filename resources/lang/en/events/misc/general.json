@@ -598,17 +598,6 @@
     }
   },
   {
-    "event_id": "gen_misc_any_misc13",
-    "location": ["any"],
-    "season": ["any"],
-    "weight": 5,
-    "event_text": "m_c is caught breaking the clipper Code.",
-    "m_c": {
-      "age": ["adolescent", "young adult", "adult", "senior adult", "senior"],
-      "status": ["any"]
-    }
-  },
-  {
     "event_id": "gen_misc_any_misc14",
     "location": ["any"],
     "season": ["any"],
@@ -735,7 +724,7 @@
     "event_text": "m_c encourages r_c to play in the snow with {PRONOUN/m_c/object} during a patrol.",
     "m_c": {
         "status":[
-          "apprentice",
+          "colt",
           "clipper",
           "regent",
           "baron"],
@@ -743,7 +732,7 @@
     },
     "r_c":{
         "status":[
-          "apprentice",
+          "colt",
           "clipper",
           "regent",
           "baron"]
@@ -1244,7 +1233,7 @@
     "event_text": "m_c thinks about the possibility of retiring.",
     "m_c": {
         "age": ["senior adult", "senior"],
-        "status": ["clipper", "mediator", "medicine cat", "baron"]
+        "status": ["clipper", "cog", "doctor", "baron"]
     }
   },
   {
@@ -1258,7 +1247,7 @@
     ],
     "season": ["greenleaf", "newleaf"],
     "weight": 15,
-    "event_text": "m_c picks some flowers around the camp to bring back to the medicine cat den.",
+    "event_text": "m_c picks some flowers around the camp to bring back to the doctor den.",
     "m_c": {
       "status": ["kitten"]
     }
@@ -1269,7 +1258,7 @@
     "season": ["greenleaf"],
     "tags": ["clan:clipper"],
     "weight": 15,
-    "event_text": "m_c chases fireflies around the camp while the clippers sleep.",
+    "event_text": "m_c chases fireflies around the camp while everyone sleeps.",
     "m_c": {
       "status": ["kitten"]
     }
@@ -1434,7 +1423,7 @@
         "season": ["leaf-bare"],
       "tags": ["clan:clipper"],
         "weight": 20,
-        "event_text": "m_c and r_c flick snow at the clippers, giggling as they hide behind the nursery.",
+        "event_text": "m_c and r_c flick snow at the cogs, giggling as they hide behind the nursery.",
         "m_c": {
             "status": ["kitten"]
         },
@@ -1785,11 +1774,11 @@
     "event_text": "m_c and r_c try to sneak out of camp, but are caught by their mentors.",
     "m_c": {
       "age": ["adolescent"],
-      "status": ["apprentice"]
+      "status": ["colt"]
     },
     "r_c": {
       "age": ["adolescent"],
-      "status": ["apprentice"]
+      "status": ["colt"]
     },
     "relationships": [
         {
@@ -1928,11 +1917,11 @@
     "new_accessory": ["BLUE BERRIES", "HOLLY", "RASPBERRY"],
     "m_c": {
       "age": ["adolescent"],
-      "status": ["apprentice"]
+      "status": ["colt"]
     },
     "r_c": {
       "age": ["adolescent"],
-      "status": ["apprentice"]
+      "status": ["colt"]
     },
     "relationships": [
         {
@@ -1959,10 +1948,10 @@
     "event_text": "m_c hears r_c complaining about the dry rye stalks underneath {PRONOUN/r_c/poss} paws when {PRONOUN/r_c/subject} {VERB/r_c/finish/finishes} cleaning the elders' den for the umpteenth time. The next day, m_c adorns {PRONOUN/m_c/poss} pelt with acc_plural.",
     "new_accessory": ["RYE STALK"],
     "m_c": {
-      "status": ["apprentice"]
+      "status": ["colt"]
     },
     "r_c": {
-      "status": ["apprentice"]
+      "status": ["colt"]
     }
   },
   {
@@ -1978,7 +1967,7 @@
     "event_text": "m_c gets dared to hunt outside in the snow alone, and returns with acc_singular in {PRONOUN/m_c/poss} pelt.",
     "new_accessory": ["WILD", "PLANT"],
     "m_c": {
-      "status": ["apprentice"]
+      "status": ["colt"]
     }
   },
   {
@@ -2013,7 +2002,7 @@
     "weight": 10,
     "event_text": "m_c is struggling to cope with the violence and chaos of war surrounding {PRONOUN/m_c/object}, finding it difficult to wake up in the morning due to the stress and strain of constant battle training.",
     "m_c": {
-        "status": ["apprentice"],
+        "status": ["colt"],
         "trait": ["nervous", "lonesome", "playful", "careful", "compassionate", "loving", "insecure"]
     }
   },
@@ -2688,7 +2677,7 @@
     "event_text": "m_c was seen chasing a rogue off of the territory.",
     "m_c": {
         "age": ["adolescent", "young adult", "adult", "senior adult", "senior"],
-        "status": ["apprentice", "clipper", "regent", "baron", "medicine cat"]
+        "status": ["colt", "clipper", "regent", "baron", "doctor"]
     },
     "outsider": {
       "current_rep": ["any"],
@@ -2709,206 +2698,13 @@
     ]
   },
   {
-    "event_id": "gen_misc_any_wartraitmediator1",
-    "location": ["any"],
-    "season": ["any"],
-    "sub_type": ["war"],
-    "weight": 40,
-    "event_text": "m_c goes to o_c_n in an attempt to ease the tension of war between the Clans: it goes well, and o_c_n begins to draw back from c_n's territory!",
-    "m_c": {
-      "age":["any"],
-      "status":["mediator", "mediator apprentice"],
-      "skill": ["MEDIATOR,2"]
-    },
-    "other_clan": {
-      "changed": 4
-    }
-  },
-  {
-    "event_id": "gen_misc_any_wartraitmediator2",
-    "location": ["any"],
-    "season": ["any"],
-    "sub_type": ["war"],
-    "weight": 20,
-    "event_text": "m_c is checking in on every cat in the camp to make sure everyone is staying healthy in the midst of war.",
-    "m_c": {
-      "age":["any"],  
-      "status": ["mediator", "mediator apprentice"],
-      "trait": ["calm", "careful", "insecure", "lonesome", "loyal", "nervous", "compassionate", "faithful", "loving", "responsible", "thoughtful", "wise",  "childish", "playful"]
-    },
-    "relationships": [
-        {
-            "cats_from": ["clan"],
-            "cats_to": ["m_c"],
-            "mutual": false,
-            "values": ["trust", "trust"],
-            "amount": 5
-          }
-        ]
-  },
-  {
-    "event_id": "gen_misc_any_warmediator1",
-    "location": ["any"],
-    "season": ["any"],
-    "sub_type": ["war"],
-    "weight": 15,
-    "event_text": "m_c goes to o_c_n in an attempt to ease the tension of war between the Clans: it doesn't go well, and o_c_n further advances in c_n's territory.",
-    "m_c":{
-      "age":["any"],
-      "status":["mediator", "mediator apprentice"]
-    },
-    "other_clan": {
-      "changed": -2
-    }
-  },
-  {
-    "event_id": "gen_misc_any_mediatortoadult",
-    "location": ["any"],
-    "season": ["any"],
-    "weight": 10,
-    "event_text": "m_c pulls r_c to the side, quietly asking {PRONOUN/r_c/object} about {PRONOUN/r_c/poss} crush on a fellow Clanmate.",
-    "m_c":{
-      "status":["mediator", "mediator apprentice"]
-    },
-    "r_c": {
-      "age": ["adolescent", "young adult", "adult", "senior adult", "senior"],
-      "trait": ["nervous","insecure","grumpy"]
-    },
-    "relationships": [
-      {
-        "cats_from": ["r_c"],
-        "cats_to": ["m_c"],
-        "mutual": false,
-        "values": ["comfort", "trust"],
-        "amount": 5
-      },
-      {
-        "cats_from": ["r_c"],
-        "cats_to": ["m_c"],
-        "mutual": false,
-        "values": ["dislike"],
-        "amount": -5
-      }
-    ]
-  },
-  {
-    "event_id": "gen_misc_any_mediatorkit",
-    "location": ["any"],
-    "season": ["any"],
-    "weight": 20,
-    "event_text": "m_c spots r_c looking a little bit lonely, and invites {PRONOUN/r_c/object} to watch as {PRONOUN/m_c/subject} {VERB/m_c/perform/performs} {PRONOUN/m_c/poss} duties.",
-    "m_c":{
-      "status": ["mediator", "mediator apprentice"]
-    },
-    "r_c": {
-      "status": ["kitten"]
-    },
-    "relationships": [
-    {
-        "cats_from": ["r_c"],
-        "cats_to": ["m_c"],
-        "mutual": false,
-        "values": ["platonic", "trust"],
-        "amount": 10
-      },
-      {
-        "cats_from": ["r_c"],
-        "cats_to": ["m_c"],
-        "mutual": false,
-        "values": ["dislike"],
-        "amount": -5
-      }
-    ]
-  },
-  {
-    "event_id": "gen_misc_any_war_mediatorbaron1",
-    "location": ["any"],
-    "season": ["any"],
-    "sub_type": ["war"],
-    "weight": 30,
-    "event_text": "m_c is giving r_c bad war advice on purpose.",
-    "m_c": {
-      "status": ["mediator", "mediator apprentice"],
-      "relationship_status": ["dislike_20"],
-      "trait": ["cunning"]
-    },
-    "r_c": {
-      "status": ["baron"],
-      "trait": ["bold", "charismatic","confident", "daring","righteous","ambitious","bloodthirsty","cold","fierce","shameless","strict", "troublesome", "vengeful", "sneaky", "strange"]
-    },
-    "relationships": [
-      {
-        "cats_to": ["m_c"],
-            "cats_from": ["r_c"],
-            "mutual": true,
-            "values": ["dislike"],
-        "amount": 10
-      },
-      {
-        "cats_to": ["m_c"],
-            "cats_from": ["r_c"],
-            "mutual": true,
-            "values": ["trust", "comfort"],
-        "amount": -10
-      }
-    ]
-  },
-  {
-    "event_id": "gen_misc_any_war_mediatorbaron2",
-    "location": ["any"],
-    "season": ["any"],
-    "sub_type": ["war"],
-    "weight": 10,
-    "event_text": "m_c is conversing with r_c about ways to potentially end this war without bloodshed.",
-    "m_c":{
-      "status": ["mediator", "mediator apprentice"]
-    },
-    "r_c": {
-      "status": ["baron"],
-      "trait": ["calm","careful","insecure","lonesome","loyal","nervous","compassionate","faithful","loving","responsible","thoughtful","wise","childish","playful"]
-    },
-    "relationships": [
-      {
-        "cats_from": ["m_c"],
-        "cats_to": ["r_c"],
-        "mutual": true,
-        "values": ["trust"],
-        "amount": 5
-      }
-    ]
-  },
-  {
-    "event_id": "gen_misc_any_war_mediatorbaron3",
-    "location": ["any"],
-    "season": ["any"],
-    "sub_type": ["war"],
-    "weight": 10,
-    "event_text": "m_c is conversing with r_c about ways to potentially end this war- but not without bloodshed.",
-    "m_c":{
-      "status": ["mediator", "mediator apprentice"]
-    },
-    "r_c": {
-      "status": ["baron"],
-      "trait": ["bold", "charismatic","confident", "daring","righteous","ambitious","bloodthirsty","cold","fierce","shameless","strict", "troublesome", "vengeful", "sneaky", "strange"]
-    },
-    "relationships": [
-      {
-        "cats_from": ["m_c"],
-        "cats_to": ["r_c"],
-        "mutual": true,
-        "values": ["trust"],
-        "amount": -5
-      }
-    ]
-  },
-  {
     "event_id": "gen_misc_any_medicinecatotherclan1",
     "location": ["any"],
     "season": ["any"],
     "weight": 15,
-    "event_text": "m_c visits the other medicine cats.",
+    "event_text": "m_c visits the other doctors.",
     "m_c": {
-        "status": ["medicine cat"]
+        "status": ["doctor"]
     },
     "other_clan": {
       "current_rep": ["any"],
@@ -2920,9 +2716,9 @@
     "location": ["any"],
     "season": ["any"],
     "weight": 15,
-    "event_text": "m_c visits o_c_n to converse with their medicine cats about an omen StarClan sent.",
+    "event_text": "m_c visits o_c_n to converse with their doctors about an omen StarClan sent.",
     "m_c": {
-        "status": ["medicine cat"],
+        "status": ["doctor"],
         "skill": ["OMEN,1"]
       },
     "other_clan": {
@@ -2935,9 +2731,9 @@
     "location": ["any"],
     "season": ["any"],
     "weight": 15,
-    "event_text": "m_c visits o_c_n to congratulate them on their new medicine cat.",
+    "event_text": "m_c visits o_c_n to congratulate them on their new doctor.",
     "m_c": {
-        "status": ["medicine cat"],
+        "status": ["doctor"],
         "skill": ["MEDIATOR,1"]
       },
     "other_clan": {
@@ -2954,10 +2750,10 @@
     "event_text": "r_c presents m_c with acc_plural as a congratulations.",
     "new_accessory": ["WILD", "PLANT"],
     "m_c": {
-      "status": ["medicine cat"]
+      "status": ["doctor"]
     },
     "r_c": {
-      "status": ["medicine cat"]
+      "status": ["doctor"]
     },
     "relationships": [
       {
@@ -2984,7 +2780,7 @@
     "event_text": "m_c speaks to r_c about an omen {PRONOUN/m_c/subject} saw while on patrol recently.",
     "m_c": {
       "age":["any"],
-      "status": ["medicine cat"],
+      "status": ["doctor"],
       "skill": ["OMEN,1"]
       },
     "r_c": {
@@ -2999,11 +2795,11 @@
     "event_text": "m_c speaks to r_c about a potential omen and what it means.",
     "m_c": {
       "age":["any"],
-      "status": ["medicine cat"],
+      "status": ["doctor"],
       "skill": ["OMEN,1"]
       },
     "r_c": {
-      "status": ["medicine cat"]
+      "status": ["doctor"]
     }
   },
   {
@@ -3014,7 +2810,7 @@
     "weight": 10,
     "event_text": "m_c walks into the dreams of {PRONOUN/m_c/poss} Clanmates while everyone sleeps.",
     "m_c": {
-      "status": ["medicine cat"],
+      "status": ["doctor"],
       "skill": ["DREAM,2"]
     }
   },
@@ -3026,7 +2822,7 @@
     "weight": 10,
     "event_text": "m_c tosses in {PRONOUN/m_c/poss} sleep as {PRONOUN/m_c/poss} dreamself pads through the thoughts of {PRONOUN/m_c/poss} Clanmates, picking up snippets of dream_list/m_c. {PRONOUN/m_c/subject/CAP} slowly {VERB/m_c/blink/blinks} awake, wondering whose dreams {PRONOUN/m_c/subject} walked in.",
     "m_c": {
-      "status": ["medicine cat apprentice", "medicine cat"],
+      "status": ["apprentice doctor", "doctor"],
       "skill": ["DREAM,2"]
     }
   },
@@ -3036,9 +2832,9 @@
     "season": ["any"],
     "tags": ["skill_trait_required"],
     "weight": 10,
-    "event_text": "m_c correctly warns the baron of an ambush, thanks to {PRONOUN/m_c/poss} clairvoyant nature.",
+    "event_text": "m_c correctly warns the Baron of an ambush, thanks to {PRONOUN/m_c/poss} clairvoyant nature.",
     "m_c": {
-      "status": ["medicine cat"],
+      "status": ["doctor"],
       "skill": ["CLAIRVOYANT,2"]
     }
   },
@@ -3049,7 +2845,7 @@
     "weight": 15,
     "event_text": "m_c spends {PRONOUN/m_c/poss} day communing with StarClan, attempting to figure out a recent prophecy.",
     "m_c": {
-      "status":["medicine cat", "medicine cat apprentice"],
+      "status":["doctor", "apprentice doctor"],
       "skill": ["PROPHET,2"]
     }
   },
@@ -3060,7 +2856,7 @@
     "weight": 20,
     "event_text": "m_c has been worried that c_n will lose the knowledge r_c has gained through {PRONOUN/r_c/poss} long life, but by sitting with r_c and discussing {PRONOUN/r_c/poss} experiences, m_c will ensure the lessons learned in the past are never forgotten.",
     "m_c": {
-      "status":["medicine cat"],
+      "status":["doctor"],
       "skill": ["LORE,1"]
     },
     "r_c": {
@@ -3073,9 +2869,9 @@
     "location": ["any"],
     "season": ["any"],
     "weight": 15,
-    "event_text": "m_c was seen loudly bickering with the medicine cat of o_c_n.",
+    "event_text": "m_c was seen loudly bickering with the doctor of o_c_n.",
     "m_c":{
-      "status": ["medicine cat"]
+      "status": ["doctor"]
     },
     "other_clan": {
       "current_rep": ["any"],
@@ -3089,7 +2885,7 @@
     "weight": 10,
     "event_text": "m_c was seen talking with a traveling loner healer on the border.",
     "m_c":{
-      "status": ["medicine cat"]
+      "status": ["doctor"]
     },
     "new_cat": [
       ["loner", "meeting", "backstory:wandering_healer2", "exists"]
@@ -3112,7 +2908,7 @@
     "weight": 10,
     "event_text": "m_c's knowledge of herbs and healing is being put to the test, with injuries becoming more severe in the midst of war.",
     "m_c": {
-      "status": ["medicine cat", "medicine cat apprentice"]
+      "status": ["doctor", "apprentice doctor"]
     }
   },
   {
@@ -3123,7 +2919,7 @@
     "weight": 20,
     "event_text": "m_c watches every little thing around {PRONOUN/m_c/object} for any omen that indicates what the Clan should do in the war. The losses weigh heavy on the hearts of every cat.",
     "m_c": {
-      "status": ["medicine cat apprentice", "medicine cat"],
+      "status": ["apprentice doctor", "doctor"],
       "skill": ["OMEN,1"]
     }
   },
@@ -3136,7 +2932,7 @@
     "event_text": "m_c preps battle herbs into small bundles to rush to the battlefield in case of severe injuries.",
     "m_c":{
       "age":["any"],
-      "status": ["medicine cat apprentice", "medicine cat"]
+      "status": ["apprentice doctor", "doctor"]
     }
   },
   {
@@ -3147,7 +2943,7 @@
     "weight": 10,
     "event_text": "c_n is in a badly need of herbs, and m_c knows it, but can't bring {PRONOUN/m_c/self} to leave {PRONOUN/m_c/poss} patients' side.",
     "m_c": {
-      "status": ["medicine cat", "medicine cat apprentice"]
+      "status": ["doctor", "apprentice doctor"]
     }
   },
   {
@@ -3165,7 +2961,7 @@
     "event_text": "m_c hopes to find the herbs that c_n needs in the war, and goes to look for them even in this leaf-bare's harsh weather.",
     "m_c": {
       "age":["any"],
-      "status": ["medicine cat apprentice", "medicine cat"]
+      "status": ["apprentice doctor", "doctor"]
     },
     "supplies": [
       {
@@ -3185,11 +2981,11 @@
     "event_text": "m_c is getting increasingly annoyed with r_c because {PRONOUN/r_c/subject} {VERB/r_c/keep/keeps} bothering {PRONOUN/m_c/object} about the most trivial of wounds and aches.",
     "m_c":{
       "age":["any"],
-      "status":["medicine cat"]
+      "status":["doctor"]
     },
     "r_c": {
       "age":["any"],
-      "status": ["medicine cat apprentice"]
+      "status": ["apprentice doctor"]
     },
     "relationships": [
       {
@@ -3267,7 +3063,7 @@
     "location": ["any"],
     "season": ["any"],
     "weight": 20,
-    "event_text": "m_c keeps an eye on the camp while the clippers are on patrol.",
+    "event_text": "m_c keeps an eye on the camp while the Clippers are on patrol.",
     "m_c": {
       "age":["any"],
       "status":["elder"],
@@ -3327,10 +3123,8 @@
     "event_text": "m_c travels to o_c_n to bring them an important message.",
     "m_c":{
       "status": [
-        "medicine cat",
-        "regent",
-        "mediator",
-        "mediator apprentice"
+        "doctor",
+        "regent"
       ]
     },
     "other_clan": {
@@ -3343,13 +3137,11 @@
     "location": ["any"],
     "season": ["any"],
     "weight": 10,
-    "event_text": "m_c travels to the other Clans to bring them an important message.",
+    "event_text": "m_c travels to the other Barons to bring them an important message.",
     "m_c":{
       "status": [
-        "medicine cat",
-        "regent",
-        "mediator",
-        "mediator apprentice"
+        "doctor",
+        "regent"
       ]
     },
     "other_clan": {
@@ -3367,24 +3159,6 @@
     "m_c":{
       "status": ["regent"]
     }
-  },
-  {
-    "event_id": "gen_misc_any_warmultitraitregentbaron1",
-    "location": ["any"],
-    "season": ["any"],
-    "sub_type": ["war"],
-    "tags": ["low_lives"],
-    "weight": 5,
-    "event_text": "m_c is struggling to accept the fact that {PRONOUN/m_c/subject} may have to step up as baron if r_c loses {PRONOUN/r_c/poss} last life.",
-    "m_c": {
-      "age":["any"],
-      "status": ["regent"],
-      "trait": ["insecure","lonesome", "nervous"]
-      },
-      "r_c": {
-        "age":["any"],
-        "status": ["baron"]
-      }
   },
   {
     "event_id": "gen_misc_any_warmultitraitregentbaron2",
@@ -3522,7 +3296,7 @@
       "status":["baron"]
     },
     "r_c": {"age":["any"],
-      "status": ["apprentice", "mediator apprentice", "medicine cat apprentice"]
+      "status": ["colt", "apprentice doctor"]
     }
   },
   {
@@ -3561,7 +3335,7 @@
     "season": ["any"],
     "tags": ["clan_wide"],
     "weight": 5,
-    "event_text": "The o_c_n medicine cat comes asking if c_n has any herbs to spare. Unfortunately, the c_n herb stocks are far too low and c_n is unable to provide any help.",
+    "event_text": "The o_c_n doctor comes asking if c_n has any herbs to spare. Unfortunately, the c_n herb stocks are far too low and c_n is unable to provide any help.",
     "supplies": [
       {
           "type": "all_herb",
@@ -3580,7 +3354,7 @@
     "season": ["any"],
     "tags": ["clan_wide"],
     "weight": 2,
-    "event_text": "A medicine cat from o_c_n comes to c_n, asking for herbs to heal their sick Clanmates. c_n quickly shoos them away, not willing to admit that they already don't have enough to support themselves.",
+    "event_text": "A doctor from o_c_n comes to c_n, asking for herbs to heal their sick Clanmates. c_n quickly shoos them away, not willing to admit that they already don't have enough to support themselves.",
     "supplies": [
       {
           "type": "all_herb",
@@ -3599,7 +3373,7 @@
     "season": ["any"],
     "tags": ["clan_wide"],
     "weight": 10,
-    "event_text": "The o_c_n medicine cat comes asking if c_n have any given_herb to spare. Graciously, your Clan decides to aid their allies and share the herbs.",
+    "event_text": "The o_c_n doctor comes asking if c_n have any given_herb to spare. Graciously, your Clan decides to aid their allies and share the herbs.",
     "supplies": [
       {
           "type": "any_herb",
@@ -3618,7 +3392,7 @@
     "season": ["any"],
     "tags": ["clan_wide"],
     "weight": 2,
-    "event_text": "The medicine cat apprentice from o_c_n comes asking for given_herb. They refuse to say why their Clan needs them but c_n still provides them with what they need.",
+    "event_text": "The apprentice doctor from o_c_n comes asking for given_herb. They refuse to say why their Clan needs them but c_n still provides them with what they need.",
     "supplies": [
       {
           "type": "any_herb",
@@ -3637,7 +3411,7 @@
     "season": ["any"],
     "tags": ["clan_wide"],
     "weight": 5,
-    "event_text": "The o_c_n medicine cat comes asking if c_n have any given_herb to spare. However, c_n only has enough for themselves and they refuse to share.",
+    "event_text": "The o_c_n doctor comes asking if c_n have any given_herb to spare. However, c_n only has enough for themselves and they refuse to share.",
     "supplies": [
       {
           "type": "any_herb",
@@ -3656,7 +3430,7 @@
     "season": ["any"],
     "tags": ["clan_wide"],
     "weight": 2,
-    "event_text": "The medicine cat apprentice from o_c_n comes asking for herbs. They refuse to say why their Clan needs them and c_n decides not to share their precious few given_herb.",
+    "event_text": "The apprentice doctor from o_c_n comes asking for herbs. They refuse to say why their Clan needs them and c_n decides not to share their precious few given_herb.",
     "supplies": [
       {
           "type": "any_herb",
@@ -3675,7 +3449,7 @@
     "season": ["any"],
     "tags": ["clan_wide"],
     "weight": 2,
-    "event_text": "The o_c_n medicine cat apprentice comes to c_n's camp, pleading for help with a yellowcough epidemic. c_n provides the cat with some of their extra lungwort.",
+    "event_text": "The o_c_n apprentice doctor comes to c_n's camp, pleading for help with a yellowcough epidemic. c_n provides the cat with some of their extra lungwort.",
     "supplies": [
       {
           "type": "lungwort",
@@ -3694,7 +3468,7 @@
     "season": ["any"],
     "tags": ["clan_wide"],
     "weight": 2,
-    "event_text": "A medicine cat from o_c_n comes to c_n, asking for lungwort to heal a case of yellowcough. c_n has some extra, and so decides to share with their allies.",
+    "event_text": "A doctor from o_c_n comes to c_n, asking for lungwort to heal a case of yellowcough. c_n has some extra, and so decides to share with their allies.",
     "supplies": [
       {
           "type": "lungwort",
@@ -3713,7 +3487,7 @@
     "season": ["any"],
     "tags": ["clan_wide"],
     "weight": 2,
-    "event_text": "The o_c_n medicine cat apprentice comes to c_n's camp, pleading for help with a yellowcough epidemic. However, c_n has nothing that they are willing to share.",
+    "event_text": "The o_c_n apprentice doctor comes to c_n's camp, pleading for help with a yellowcough epidemic. However, c_n has nothing that they are willing to share.",
     "supplies": [
       {
           "type": "lungwort",
@@ -3732,7 +3506,7 @@
     "season": ["any"],
     "tags": ["clan_wide"],
     "weight": 2,
-    "event_text": "A medicine cat from o_c_n comes to c_n, asking for lungwort to heal a case of yellowcough. However, c_n hardly has enough for their own Clan and so refuses.",
+    "event_text": "A doctor from o_c_n comes to c_n, asking for lungwort to heal a case of yellowcough. However, c_n hardly has enough for their own Clan and so refuses.",
     "supplies": [
       {
           "type": "lungwort",
@@ -3753,7 +3527,7 @@
     "weight": 20,
     "event_text": "The herb stores are low, m_c decides to ask o_c_n for aid in these hard times. Thankfully, the allied Clan is happy to share their excess herbs.",
     "m_c": {
-      "status": ["medicine cat", "medicine cat apprentice"]
+      "status": ["doctor", "apprentice doctor"]
     },
     "supplies": [
       {
@@ -3771,11 +3545,11 @@
     "event_id": "gen_misc_herb_anyallyaid2",
     "location": ["any"],
     "season": ["any"],
-    "tags": ["clan:baron", "clan:medicine cat"],
+    "tags": ["clan:baron", "clan:doctor"],
     "weight": 20,
     "event_text": "lead_name hears from med_name that the Clan is low on herbs. m_c is sent to bargain with o_c_n for whatever herbs they can spare.",
     "m_c": {
-      "status": ["mediator", "mediator apprentice"]
+      "status": ["cog"]
     },
     "supplies": [
       {
@@ -3793,7 +3567,7 @@
     "event_id": "gen_misc_herb_anyallyaid3",
     "location": ["any"],
     "season": ["any"],
-    "tags": ["clan:baron", "clan:medicine cat"],
+    "tags": ["clan:baron", "clan:doctor"],
     "weight": 20,
     "event_text": "lead_name hears from med_name that the Clan is low on herbs. m_c is sent to bargain with o_c_n for whatever herbs they can spare.",
     "m_c": {
@@ -3840,9 +3614,9 @@
     "season": ["any"],
     "tags": [],
     "weight": 20,
-    "event_text": "While at the Gathering, m_c speaks to the other medicine cats and expresses worry over {PRONOUN/m_c/poss} herb stores. The medicine cats offer to bring some extra herbs to c_n later, to help bolster {PRONOUN/m_c/poss} supply.",
+    "event_text": "While at the Gathering, m_c speaks to the other doctors and expresses worry over {PRONOUN/m_c/poss} herb stores. The doctors offer to bring some extra herbs to c_n later, to help bolster {PRONOUN/m_c/poss} supply.",
     "m_c": {
-      "status": ["medicine cat", "medicine cat apprentice"]
+      "status": ["doctor", "apprentice doctor"]
     },
     "supplies": [
       {
@@ -3903,7 +3677,7 @@
     "subtype": ["war"],
     "tags": ["clan_wide"],
     "weight": 5,
-    "event_text": "c_n breaks into the o_c_n camp and steals precious herbs from their medicine cat den.",
+    "event_text": "c_n breaks into the o_c_n camp and steals precious herbs from their doctor den.",
     "m_c": {
       "status": ["baron"],
       "trait": ["arrogant", "bloodthirsty", "vengeful", "competitive", "bold", "troublesome", "fierce", "cold", "righteous", "daring", "shameless", "sneaky", "cunning", "rebellious"]
@@ -4089,7 +3863,7 @@
     "event_text": "r_c is so proud of how far {PRONOUN/r_c/poss} kit has grown. With a look of pride, r_c presents m_c with acc_plural as a congratulations for becoming an apprentice.",
     "new_accessory": ["WILD", "PLANT"],
     "m_c": {
-      "status": ["apprentice"],
+      "status": ["colt"],
       "relationship_status":["child/parent"]
     },
     "r_c": {
@@ -4111,7 +3885,7 @@
     "season": ["any"],
     "sub_type": ["ceremony", "accessory"],
     "weight": 20,
-    "event_text": "r_c is so proud of how far {PRONOUN/r_c/poss} child has grown. With a look of pride, r_c presents m_c with acc_plural as a congratulations for becoming a clipper. r_c knew that m_c would do great things for c_n.",
+    "event_text": "r_c is so proud of how far {PRONOUN/r_c/poss} child has grown. With a look of pride, r_c presents m_c with acc_plural as a congratulations for becoming a Clipper. r_c knew that m_c would do great things for c_n.",
     "new_accessory": ["WILD", "PLANT"],
     "m_c": {
       "status": ["clipper"],
@@ -4171,7 +3945,7 @@
     "event_text": "r_c hands over acc_singular to m_c, telling m_c that {PRONOUN/m_c/subject} better not forget about {PRONOUN/r_c/object} now that m_c is an apprentice.",
     "new_accessory": ["FORGET ME NOTS"],
     "m_c": {
-      "status": ["apprentice"],
+      "status": ["colt"],
       "relationship_status":["siblings"]
     },
     "r_c": {
@@ -4193,7 +3967,7 @@
     "season": ["any"],
     "sub_type": ["ceremony", "accessory"],
     "weight": 20,
-    "event_text": "r_c hands over acc_singular to m_c, telling m_c that {PRONOUN/m_c/subject} better not forget about {PRONOUN/r_c/object} now that m_c is a clipper.",
+    "event_text": "r_c hands over acc_singular to m_c, telling m_c that {PRONOUN/m_c/subject} better not forget about {PRONOUN/r_c/object} now that m_c is a Clipper.",
     "new_accessory": ["FORGET ME NOTS"],
     "m_c": {
       "status": ["clipper"],
@@ -4221,7 +3995,7 @@
     "event_text": "m_c is feeling a bit overwhelmed, now that {PRONOUN/m_c/subject} {VERB/m_c/are/is} an apprentice. Luckily, r_c is there with a gift of acc_plural and some comforting words to cheer m_c up.",
     "new_accessory": ["WILD","PLANT"],
     "m_c": {
-      "status": ["apprentice"],
+      "status": ["colt"],
       "trait": ["nervous", "insecure"],
       "relationship_status":["siblings"]
     },
@@ -4251,14 +4025,14 @@
     "season": ["any"],
     "sub_type": ["ceremony", "accessory"],
     "weight": 20,
-    "event_text": "r_c feels so lucky to have {PRONOUN/r_c/poss} own sibling become a medicine cat apprentice. Knowing how time consuming it is to gather herbs, r_c spends a long time gathering up acc_plural to help out m_c. While m_c appreciates the efforts, none of these are particularly useful. Instead m_c uses the acc_plural to decorate {PRONOUN/m_c/poss} pelt.",
+    "event_text": "r_c feels so lucky to have {PRONOUN/r_c/poss} own sibling become an apprentice doctor. Knowing how time consuming it is to gather herbs, r_c spends a long time gathering up acc_plural to help out m_c. While m_c appreciates the efforts, none of these are particularly useful. Instead m_c uses the acc_plural to decorate {PRONOUN/m_c/poss} pelt.",
     "new_accessory": ["HERBS", "DRY HERBS", "DRY CATMINT", "DRY NETTLES", "DRY LAURELS"],
     "m_c": {
-      "status": ["medicine cat apprentice"],
+      "status": ["apprentice doctor"],
       "relationship_status":["siblings"]
     },
     "r_c": {
-      "status": ["apprentice", "clipper", "mediator", "mediator apprentice"]
+      "status": ["colt", "clipper", "cog"]
     },
     "relationships": [
       {
@@ -4283,7 +4057,7 @@
     "season": ["any"],
     "sub_type": ["ceremony", "accessory"],
     "weight": 20,
-    "event_text": "m_c can't help but feel hurt when {PRONOUN/m_c/poss} sibling isn't there to congratulate {PRONOUN/m_c/object} for becoming a clipper. However, when {PRONOUN/m_c/subject} later {VERB/m_c/go/goes} to {PRONOUN/m_c/poss} new nest {PRONOUN/m_c/subject} {VERB/m_c/find/finds} r_c there waiting for {PRONOUN/m_c/object}, with a gift of acc_plural. Together the siblings work on making m_c's new nest feel more comfortable.",
+    "event_text": "m_c can't help but feel hurt when {PRONOUN/m_c/poss} sibling isn't there to congratulate {PRONOUN/m_c/object} for becoming a Clipper. However, when {PRONOUN/m_c/subject} later {VERB/m_c/go/goes} to {PRONOUN/m_c/poss} new nest {PRONOUN/m_c/subject} {VERB/m_c/find/finds} r_c there waiting for {PRONOUN/m_c/object}, with a gift of acc_plural. Together the siblings work on making m_c's new nest feel more comfortable.",
     "new_accessory": ["WILD"],
     "m_c": {
       "status": ["clipper"],
@@ -4312,7 +4086,7 @@
     "event_text": "m_c has been so excited for {PRONOUN/m_c/poss} first lesson with r_c. However, instead of something like hunting or moss gathering, r_c takes {PRONOUN/m_c/object} on a tour of the territory. At the end of the lesson, r_c gives m_c acc_plural, saying {PRONOUN/r_c/subject} {VERB/r_c/are/is} glad to be m_c's mentor.",
     "new_accessory": ["WILD", "PLANT"],
     "m_c": {
-      "status": ["apprentice", "medicine cat apprentice", "mediator apprentice"],
+      "status": ["colt", "apprentice doctor"],
       "relationship_status":["app/mentor"]
     },
     "r_c": {
@@ -4345,7 +4119,7 @@
     "event_text": "As a new mentor, r_c wants to make a good initial impression on {PRONOUN/r_c/poss} apprentice, and after some careful consideration {PRONOUN/r_c/subject} {VERB/r_c/decide/decides} the best way is a gift. Taking m_c to the side, r_c gives {PRONOUN/m_c/object} acc_plural, telling {PRONOUN/m_c/object} with a soft voice that if m_c has any sort of issue then {PRONOUN/m_c/subject} can come to {PRONOUN/r_c/object} for help.",
     "new_accessory": ["WILD", "PLANT"],
     "m_c": {
-      "status": ["apprentice", "medicine cat apprentice", "mediator apprentice"],
+      "status": ["colt", "apprentice doctor"],
       "relationship_status":["app/mentor"]
     },
     "r_c": {
@@ -4378,7 +4152,7 @@
     "event_text": "m_c yowls in shock, claws unsheathing from an unexpected weight pinning {PRONOUN/m_c/object}. When {PRONOUN/m_c/subject} {VERB/m_c/are/is} able to get up, m_c's surprised and a bit upset to see that it had been {PRONOUN/m_c/poss} mentor who attacked {PRONOUN/m_c/object}. r_c doesn't seem to notice m_c's discomfort as {PRONOUN/r_c/subject} excitedly {VERB/r_c/tell/tells} m_c about the acc_plural that now adorns {PRONOUN/m_c/poss} pelt.",
     "new_accessory": ["WILD", "PLANT"],
     "m_c": {
-      "status": ["apprentice", "medicine cat apprentice", "mediator apprentice"],
+      "status": ["colt", "apprentice doctor"],
       "relationship_status":["app/mentor"]
     },
     "r_c": {
@@ -4470,7 +4244,7 @@
     "event_text": "m_c thinks StarClan is trying to warn {PRONOUN/m_c/object} about r_c.",
     "m_c": {
       "age": ["adolescent", "young adult", "adult", "senior adult", "senior"],
-      "status": ["medicine cat"],
+      "status": ["doctor"],
       "skill": ["OMEN,1", "STAR,1"]
     },
     "r_c": {
@@ -4496,263 +4270,7 @@
     "new_accessory": ["BLACK CICADA", "CICADA WINGS", "ROSY MOTH WINGS", "MORPHO BUTTERFLY", "MONARCH BUTTERFLY"],
     "m_c": {
       "age": ["adolescent", "young adult", "adult", "senior adult", "senior"],
-      "status": ["medicine cat"]
-    }
-  },
-  {
-    "event_id": "gen_misc_mediator_parley_bord1",
-    "location": ["any"],
-    "season": ["any"],
-    "sub_type": ["mediator"],
-    "weight": 40,
-    "event_text": "m_c travels to o_c_n to resolve some recent border disputes.",
-    "m_c": {
-      "age": ["any"],
-      "status": ["mediator", "mediator apprentice"]
-    },
-    "other_clan": {
-      "current_rep": ["any"],
-      "changed": 2
-    }
-  },
-  {
-    "event_id": "gen_misc_mediator_parley_bord2",
-    "location": ["any"],
-    "season": ["any"],
-    "sub_type": ["mediator"],
-    "weight": 20,
-    "event_text": "m_c travels to o_c_n to resolve some recent border disputes. The meeting goes better than expected, and m_c returns with a plan to solve the issue for good.",
-    "m_c": {
-      "age": ["any"],
-      "status": ["mediator", "mediator apprentice"]
-    },
-    "other_clan": {
-      "current_rep": ["any"],
-      "changed": 5
-    }
-  },
-  {
-    "event_id": "gen_misc_mediator_parley_bord3",
-    "location": ["any"],
-    "season": ["any"],
-    "sub_type": ["mediator"],
-    "weight": 10,
-    "event_text": "m_c travels to o_c_n to resolve some recent border disputes. However, no progress was made.",
-    "m_c": {
-      "age": ["any"],
-      "status": ["mediator", "mediator apprentice"]
-    },
-    "other_clan": {
-      "current_rep": ["any"],
-      "changed": 0
-    }
-  },
-  {
-    "event_id": "gen_misc_mediator_parley_bord4",
-    "location": ["any"],
-    "season": ["any"],
-    "sub_type": ["mediator"],
-    "weight": 20,
-    "event_text": "m_c travels to o_c_n to resolve some recent border disputes. However, it seems m_c only made o_c_n more upset.",
-    "m_c": {
-      "age": ["any"],
-      "status": ["mediator", "mediator apprentice"]
-    },
-    "other_clan": {
-      "current_rep": ["any"],
-      "changed": -2
-    }
-  },
-  {
-    "event_id": "gen_misc_mediator_parley_hunt1",
-    "location": ["any"],
-    "season": ["any"],
-    "sub_type": ["mediator"],
-    "weight": 40,
-    "event_text": "m_c travels to o_c_n to resolve some recent hunting disputes.",
-    "m_c": {
-      "age": ["any"],
-      "status": ["mediator", "mediator apprentice"]
-    },
-    "other_clan": {
-      "current_rep": ["any"],
-      "changed": 2
-    }
-  },
-  {
-    "event_id": "gen_misc_mediator_parley_hunt2",
-    "location": ["any"],
-    "season": ["any"],
-    "sub_type": ["mediator"],
-    "weight": 20,
-    "event_text": "m_c travels to o_c_n to resolve some recent hunting disputes. The meeting goes better than expected, and m_c returns with a plan to solve the issue for good.",
-    "m_c": {
-      "age": ["any"],
-      "status": ["mediator", "mediator apprentice"]
-    },
-    "other_clan": {
-      "current_rep": ["any"],
-      "changed": 5
-    }
-  },
-  {
-    "event_id": "gen_misc_mediator_parley_hunt3",
-    "location": ["any"],
-    "season": ["any"],
-    "sub_type": ["mediator"],
-    "weight": 10,
-    "event_text": "m_c travels to o_c_n to resolve some recent hunting disputes. However, no progress was made.",
-    "m_c": {
-      "age": ["any"],
-      "status": ["mediator", "mediator apprentice"]
-    },
-    "other_clan": {
-      "current_rep": ["any"],
-      "changed": 0
-    }
-  },
-  {
-    "event_id": "gen_misc_mediator_parley_hunt4",
-    "location": ["any"],
-    "season": ["any"],
-    "sub_type": ["mediator"],
-    "weight": 20,
-    "event_text": "m_c travels to o_c_n to resolve some recent hunting disputes. However, it seems m_c only made o_c_n more upset.",
-    "m_c": {
-      "age": ["any"],
-      "status": ["mediator", "mediator apprentice"]
-    },
-    "other_clan": {
-      "current_rep": ["any"],
-      "changed": -2
-    }
-  },
-  {
-    "event_id": "gen_misc_mediator_parley_herb1",
-    "location": ["any"],
-    "season": ["any"],
-    "sub_type": ["mediator"],
-    "weight": 40,
-    "event_text": "m_c travels to o_c_n to resolve some recent herb-gathering disputes.",
-    "m_c": {
-      "age": ["any"],
-      "status": ["mediator", "mediator apprentice"]
-    },
-    "other_clan": {
-      "current_rep": ["any"],
-      "changed": 2
-    }
-  },
-  {
-    "event_id": "gen_misc_mediator_parley_herb2",
-    "location": ["any"],
-    "season": ["any"],
-    "sub_type": ["mediator"],
-    "weight": 20,
-    "event_text": "m_c travels to o_c_n to resolve some recent herb-gathering disputes. The meeting goes better than expected, and m_c returns with a plan to solve the issue for good.",
-    "m_c": {
-      "age": ["any"],
-      "status": ["mediator", "mediator apprentice"]
-    },
-    "other_clan": {
-      "current_rep": ["any"],
-      "changed": 5
-    }
-  },
-  {
-    "event_id": "gen_misc_mediator_parley_herb3",
-    "location": ["any"],
-    "season": ["any"],
-    "sub_type": ["mediator"],
-    "weight": 10,
-    "event_text": "m_c travels to o_c_n to resolve some recent herb-gathering disputes. However, no progress was made.",
-    "m_c": {
-      "age": ["any"],
-      "status": ["mediator", "mediator apprentice"]
-    },
-    "other_clan": {
-      "current_rep": ["any"],
-      "changed": 0
-    }
-  },
-  {
-    "event_id": "gen_misc_mediator_parley_herb4",
-    "location": ["any"],
-    "season": ["any"],
-    "sub_type": ["mediator"],
-    "weight": 20,
-    "event_text": "m_c travels to o_c_n to resolve some recent herb-gathering disputes. However, it seems m_c only made o_c_n more upset.",
-    "m_c": {
-      "age": ["any"],
-      "status": ["mediator", "mediator apprentice"]
-    },
-    "other_clan": {
-      "current_rep": ["any"],
-      "changed": -2
-    }
-  },
-  {
-    "event_id": "gen_misc_mediator_parley_person1",
-    "location": ["any"],
-    "season": ["any"],
-    "sub_type": ["mediator"],
-    "weight": 40,
-    "event_text": "m_c travels to o_c_n to resolve some recent personal disputes.",
-    "m_c": {
-      "age": ["any"],
-      "status": ["mediator", "mediator apprentice"]
-    },
-    "other_clan": {
-      "current_rep": ["any"],
-      "changed": 2
-    }
-  },
-  {
-    "event_id": "gen_misc_mediator_parley_person2",
-    "location": ["any"],
-    "season": ["any"],
-    "sub_type": ["mediator"],
-    "weight": 20,
-    "event_text": "m_c travels to o_c_n to resolve some recent personal disputes. The meeting goes better than expected, and m_c returns with a plan to solve the issue for good.",
-    "m_c": {
-      "age": ["any"],
-      "status": ["mediator", "mediator apprentice"]
-    },
-    "other_clan": {
-      "current_rep": ["any"],
-      "changed": 5
-    }
-  },
-  {
-    "event_id": "gen_misc_mediator_parley_person3",
-    "location": ["any"],
-    "season": ["any"],
-    "sub_type": ["mediator"],
-    "weight": 10,
-    "event_text": "m_c travels to o_c_n to resolve some recent personal disputes. However, no progress was made.",
-    "m_c": {
-      "age": ["any"],
-      "status": ["mediator", "mediator apprentice"]
-    },
-    "other_clan": {
-      "current_rep": ["any"],
-      "changed": 0
-    }
-  },
-  {
-    "event_id": "gen_misc_mediator_parley_person4",
-    "location": ["any"],
-    "season": ["any"],
-    "sub_type": ["mediator"],
-    "weight": 20,
-    "event_text": "m_c travels to o_c_n to resolve some recent personal disputes. However, it seems m_c only made o_c_n more upset.",
-    "m_c": {
-      "age": ["any"],
-      "status": ["mediator", "mediator apprentice"]
-    },
-    "other_clan": {
-      "current_rep": ["any"],
-      "changed": -2
+      "status": ["doctor"]
     }
   },
   {

@@ -9,7 +9,7 @@
         "min_cats": 2,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "normal adult": [1, 6]
         },
         "weight": 20,
@@ -964,7 +964,7 @@
                 }
             },
             {
-                "text": "r_c eventually manages to pull {PRONOUN/r_c/self} free, but {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} battered and injured. It's all {PRONOUN/r_c/subject} can do to find a small cave to shelter in through the night on the cold mountain until a patrol finds {PRONOUN/r_c/object} the next morning and helps {PRONOUN/r_c/object} to the medicine cat den.",
+                "text": "r_c eventually manages to pull {PRONOUN/r_c/self} free, but {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} battered and injured. It's all {PRONOUN/r_c/subject} can do to find a small cave to shelter in through the night on the cold mountain until a patrol finds {PRONOUN/r_c/object} the next morning and helps {PRONOUN/r_c/object} to the doctor den.",
                 "exp": 0,
                 "weight": 10,
                 "injury": [
@@ -992,7 +992,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [1, 6]
+            "colt": [1, 6]
         },
         "weight": 20,
         "intro_text": "r_c heads out into the mountains alone, but maybe an apprentice shouldn't try to do a solo patrol.",
@@ -1040,7 +1040,7 @@
                 "can_have_stat": ["app"]
             },
             {
-                "text": "The apprentice wanders along obliviously and slips, tumbling right down through a gap in the path. Bruised and sore, r_c has to report to the medicine cat den when {PRONOUN/r_c/subject} {VERB/r_c/return/returns} to camp.",
+                "text": "The apprentice wanders along obliviously and slips, tumbling right down through a gap in the path. Bruised and sore, r_c has to report to the doctor den when {PRONOUN/r_c/subject} {VERB/r_c/return/returns} to camp.",
                 "exp": 0,
                 "weight": 10,
                 "injury": [
@@ -1253,7 +1253,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [2, 2]
         },
         "weight": 20,
@@ -1356,7 +1356,7 @@
         "min_cats": 2,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 5],
+            "colt": [1, 5],
             "normal adult": [1, 5]
         },
         "weight": 30,
@@ -1618,7 +1618,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "normal adult": [1, 6]
         },
         "weight": 20,
@@ -1726,7 +1726,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "normal adult": [1, 6]
         },
         "weight": 20,
@@ -1834,7 +1834,7 @@
         "min_cats": 3,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [2, 2],
             "normal adult": [1, 6]
         },
@@ -1943,7 +1943,7 @@
         "min_cats": 3,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [2, 2],
             "normal adult": [1, 6]
         },
@@ -2116,7 +2116,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "normal adult": [1, 6]
         },
         "weight": 20,
@@ -2187,7 +2187,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [1, 1]
+            "colt": [1, 1]
         },
         "weight": 20,
         "chance_of_success": 50,
@@ -2221,7 +2221,7 @@
         "max_cats": 6,
         "min_max_status": {
             "normal adult":[1,6],
-            "apprentice":[2,6]
+            "colt":[2,6]
             },
         "weight": 40,
         "chance_of_success": 60,

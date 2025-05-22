@@ -104,18 +104,18 @@
     {
         "id": "kit_alive_med_cat",
         "thoughts": [
-            "Refuses to eat the herbs the medicine cat has given {PRONOUN/m_c/object} for {PRONOUN/m_c/poss} tummy",
-            "Hides in the medicine cat's herb stores",
-            "Is asking the medicine cat about StarClan",
-            "Is asking the medicine cat why all the herbs have to be stinky and gross",
-            "Wants to follow the medicine cat everywhere",
+            "Refuses to eat the herbs the doctor has given {PRONOUN/m_c/object} for {PRONOUN/m_c/poss} tummy",
+            "Hides in the doctor's herb stores",
+            "Is asking the doctor about StarClan",
+            "Is asking the doctor why all the herbs have to be stinky and gross",
+            "Wants to follow the doctor everywhere",
             "Is asking r_c what every herb does but isn't retaining a word of it",
-            "Wants to follow the medicine cat everywhere",
+            "Wants to follow the doctor everywhere",
             "Won't stay still while r_c tries to treat {PRONOUN/m_c/object}"
         ],
         "random_status_constraint": [
-            "medicine cat",
-            "medicine cat apprentice"
+            "doctor",
+            "apprentice doctor"
         ],
         "random_living_status": [
             "living"
@@ -214,12 +214,12 @@
             "troublesome"
         ],
         "random_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice",
+            "colt",
+            "apprentice doctor",
             "clipper",
-            "medicine cat",
-            "mediator",
+            "doctor",
+            "cog",
+            "heir",
             "regent",
             "baron",
             "elder"
@@ -327,7 +327,7 @@
             "Is rolling around cutely while clippers look upon {PRONOUN/m_c/object}",
             "Is rubbing up against the clippers' legs",
             "Is hoping the patrol will come back with a special gift for {PRONOUN/m_c/object} like usual",
-            "Is trying to purr {PRONOUN/m_c/poss} way out of trouble with the medicine cat",
+            "Is trying to purr {PRONOUN/m_c/poss} way out of trouble with the doctor",
             "Is absolutely adorable",
             "Is purring softly",
             "Is waiting patiently for {PRONOUN/m_c/poss} turn",
@@ -352,7 +352,7 @@
             "Thinks {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} the baron of {PRONOUN/m_c/poss} own Clan",
             "Bosses around imaginary cats as regent",
             "Wonders what it would be like to be baron",
-            "Sorts blades of grass like a medicine cat would",
+            "Sorts blades of grass like a doctor would",
             "Stares into nothing in particular",
             "Makes up a tale on the spot for the other kits",
             "Is annoying the elders for more tales",
@@ -410,7 +410,7 @@
             "fearless"
         ],
         "random_status_constraint": [
-            "apprentice"
+            "colt"
         ],
         "random_living_status": [
             "living"
@@ -453,7 +453,7 @@
             "Is zooming around",
             "Pounced on r_c",
             "Is practicing {PRONOUN/m_c/poss} pounce on r_c's tail",
-            "Is complaining of a tummyache after sneaking into the medicine cat den's herb storage and eating something {PRONOUN/m_c/subject} shouldn't have",
+            "Is complaining of a tummyache after sneaking into the doctor den's herb storage and eating something {PRONOUN/m_c/subject} shouldn't have",
             "Picked up something nobody else got a good look at and is now running from several cats",
             "Is pretending to be a mouse and trying to get others to chase {PRONOUN/m_c/object}",
             "Nips at r_c and runs away giggling",
@@ -676,7 +676,7 @@
     {
         "id": "sweet_kit",
         "thoughts": [
-            "Is pretending to be the medicine cat",
+            "Is pretending to be the doctor",
             "Plucks feathers from a fresh-kill bird to add to nests",
             "Offers to leave camp to collect moss, but can't because {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} a kit",
             "Compliments an older cat on how their fur looks today",
@@ -718,13 +718,13 @@
             "Is planning to be naughty",
             "Is thinking about being in trouble",
             "Is trying to get out of trouble",
-            "Is scrambling the medicine cat's herbs",
+            "Is scrambling the doctor's herbs",
             "Is thinking of how to cause trouble",
             "Plans to annoy an elder",
             "Is trying very hard to look innocent",
             "Is thinking about play-fighting with {PRONOUN/m_c/poss} littermates",
             "Is putting thorns in r_c's bedding",
-            "Is thinking about stealing herbs from the medicine cat den",
+            "Is thinking about stealing herbs from the doctor den",
             "Is sneaking out of camp",
             "Is saying bad words",
             "Is tripping other cats",
@@ -748,16 +748,16 @@
     {
         "id": "kit_med_parent",
         "thoughts": [
-            "Is visiting the medicine cat den to see {PRONOUN/m_c/poss} parent, r_c",
-            "Is wondering why r_c became a medicine cat and not a clipper",
+            "Is visiting the doctor den to see {PRONOUN/m_c/poss} parent, r_c",
+            "Is wondering why r_c became a doctor and not a clipper",
             "Wonders if {PRONOUN/m_c/subject}'ll receive prophecies like r_c",
             "Is pretending to be r_c",
             "Is watching r_c work",
             "Is teaching the other kits about herbs",
-            "Wonders if {PRONOUN/m_c/subject} should be a medicine cat like r_c"
+            "Wonders if {PRONOUN/m_c/subject} should be a doctor like r_c"
         ],
         "random_status_constraint": [
-            "medicine cat"
+            "doctor"
         ],
         "relationship_constraint": [
             "child/parent"

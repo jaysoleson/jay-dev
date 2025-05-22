@@ -481,7 +481,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [1, 6]
+            "colt": [1, 6]
         },
         "weight": 20,
         "intro_text": "While on patrol, app1 notices some suspicious pawprints in the mud by the short grass.",
@@ -871,7 +871,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6]
+            "colt": [1, 6]
         },
         "weight": 20,
         "intro_text": "While on patrol, app1 notices some suspicious pawprints in the mud by the short grass.",
@@ -1194,7 +1194,7 @@
         "min_cats": 3,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 6]
+            "colt": [1, 6]
         },
         "weight": 20,
         "intro_text": "While on patrol, app1 notices some suspicious pawprints in the mud by the short grass.",
@@ -1394,7 +1394,7 @@
         "min_cats": 1,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "healer cats": [-1, -1],
             "normal adult": [-1, -1]
         },

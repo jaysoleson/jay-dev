@@ -328,12 +328,12 @@
         "type": "object",
         "propertyNames": {
           "enum": [
-            "medicine cat",
+            "doctor",
             "clipper",
             "baron",
             "regent",
-            "apprentice",
-            "medicine cat apprentice",
+            "colt",
+            "apprentice doctor",
             "healer cats",
             "normal adult",
             "all apprentices"

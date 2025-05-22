@@ -14,7 +14,7 @@
             "Is admiring StarClan territory",
             "Is thinking about {PRONOUN/m_c/poss} life",
             "Is missing a loved one",
-            "Is hoping to meet with a medicine cat soon",
+            "Is hoping to meet with a doctor soon",
             "Is admiring the stars in {PRONOUN/m_c/poss} fur",
             "Is watching over a Clan ceremony",
             "Is hoping to give a life to a new baron",
@@ -25,7 +25,7 @@
             "Is wondering about Twolegs",
             "Is thinking about {PRONOUN/m_c/poss} ancient ancestors",
             "Is worried about the cats in the Dark Forest",
-            "Is thinking of advice to give to a medicine cat",
+            "Is thinking of advice to give to a doctor",
             "Is exploring StarClan",
             "Is sad seeing how the Clan has changed",
             "Wishes {PRONOUN/m_c/subject} could speak to old friends",
@@ -170,14 +170,14 @@
     {
         "id": "gen_dead_med_cat",
         "thoughts": [
-            "Regrets leaving the Clan one medicine cat short",
+            "Regrets leaving the Clan one doctor short",
             "Is worried about the Clan's ability to survive the latest illness",
             "Looks after the newborns in StarClan",
             "Is watching c_n, ready to send an omen"
         ],
         "main_status_constraint": [
-            "medicine cat",
-            "medicine cat apprentice"
+            "doctor",
+            "apprentice doctor"
         ]
     },
     {
@@ -193,12 +193,12 @@
             "Led r_c to a hidden patch of herbs the Clan is running low on"
         ],
         "main_status_constraint": [
-            "medicine cat",
-            "medicine cat apprentice"
+            "doctor",
+            "apprentice doctor"
         ],
         "random_status_constraint": [
-            "medicine cat",
-            "medicine cat apprentice"
+            "doctor",
+            "apprentice doctor"
         ],
         "random_living_status": [
             "living"
@@ -210,8 +210,8 @@
             "Sends an omen of things to come to r_c"
         ],
         "main_status_constraint": [
-            "medicine cat",
-            "medicine cat apprentice"
+            "doctor",
+            "apprentice doctor"
         ],
         "random_living_status": [
             "living"
@@ -224,8 +224,8 @@
             "Is discussing Clan matters with r_c"
         ],
         "main_status_constraint": [
-            "medicine cat",
-            "medicine cat apprentice"
+            "doctor",
+            "apprentice doctor"
         ],
         "random_living_status": [
             "starclan"
@@ -238,8 +238,8 @@
             "Hums calming melodies to soothe r_c"
         ],
         "main_status_constraint": [
-            "medicine cat",
-            "medicine cat apprentice"
+            "doctor",
+            "apprentice doctor"
         ],
         "random_living_status": [
             "starclan"
@@ -371,9 +371,8 @@
             "Is listening intently to other StarClan cats' stories"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ]
     },
     {
@@ -384,9 +383,8 @@
             "Wants to show r_c a new skill {PRONOUN/m_c/subject} learned"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "random_living_status": [
             "starclan"
@@ -399,9 +397,8 @@
             "Wishes {PRONOUN/m_c/subject} could train with r_c"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "relationship_constraint": [
             "siblings"
@@ -410,9 +407,8 @@
             "living"
         ],
         "random_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ]
     },
     {
@@ -421,9 +417,8 @@
             "Hopes {PRONOUN/m_c/subject} made r_c proud"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "relationship_constraint": [
             "app/mentor"
@@ -443,9 +438,8 @@
             "mentor/app"
         ],
         "random_status_constraint": [
-            "apprentice",
-            "mediator apprentice",
-            "medicine cat apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "random_living_status": [
             "living"
@@ -493,8 +487,7 @@
             "Is watching the Clans for any signs of discord"
         ],
         "main_status_constraint": [
-            "mediator",
-            "mediator apprentice"
+            "mediator"
         ]
     },
     {

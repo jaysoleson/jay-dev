@@ -1,7 +1,7 @@
 [
   {
     "interaction_type": "offend",
-    "event_text": "During the Gathering, m_c makes a joke at o_c_n's expense, hoping to hurt their feelings. The plan backfires, though, when o_c_n's baron finds more humor than offense in it.",
+    "event_text": "During the Gathering, m_c makes a joke at o_c_n's expense, hoping to hurt their feelings. The plan backfires, though, when o_c_n's Baron finds more humor than offense in it.",
     "rel_change": 1,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -9,7 +9,7 @@
   },
   {
     "interaction_type": "offend",
-    "event_text": "During the Gathering, m_c makes jokes at the expense of one of o_c_n's clippers. o_c_n's baron, horrified, informs m_c that this particular clipper passed away in the last moon. No way... m_c had no idea and totally can't see them hanging around in a white wisp at the edge of the meeting place.",
+    "event_text": "During the Gathering, m_c makes jokes at the expense of one of o_c_n's Clippers. o_c_n's Baron, horrified, informs m_c that this particular Clipper passed away in the last moon. No way... m_c had no idea and totally can't see them hanging around in a white wisp at the edge of the meeting place.",
     "rel_change": -4,
     "m_c": {
         "skill": ["GHOST, 2"],
@@ -20,7 +20,7 @@
   },
   {
     "interaction_type": "offend",
-    "event_text": "At the Gathering, m_c pointedly ignores o_c_n's baron as they reach the baron's perch. o_c_n's baron thanks {PRONOUN/m_c/object} for graciously allowing them to speak first.",
+    "event_text": "At the Gathering, m_c pointedly ignores o_c_n's Baron as they reach the Baron's perch. o_c_n's Baron thanks {PRONOUN/m_c/object} for graciously allowing them to speak first.",
     "rel_change": 0,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -28,7 +28,7 @@
   },
   {
     "interaction_type": "offend",
-    "event_text": "At the Gathering, m_c insists on going first, shouldering in front of o_c_n's baron. o_c_n's baron doesn't mind whatsoever, since they have no real news to share this moon.",
+    "event_text": "At the Gathering, m_c insists on going first, shouldering in front of o_c_n's Baron. o_c_n's Baron doesn't mind whatsoever, since they have no real news to share this moon.",
     "rel_change": 0,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -36,7 +36,7 @@
   },
   {
     "interaction_type": "offend",
-    "event_text": "m_c takes {PRONOUN/m_c/poss} chance at the Gathering to tell o_c_n's baron that c_n stands alone. o_c_n's baron approves of {PRONOUN/m_c/poss} strength and independence, and tells {PRONOUN/m_c/object} that their alliance is stronger than ever.",
+    "event_text": "m_c takes {PRONOUN/m_c/poss} chance at the Gathering to tell o_c_n's Baron that c_n stands alone. o_c_n's Baron approves of {PRONOUN/m_c/poss} strength and independence, and tells {PRONOUN/m_c/object} that their alliance is stronger than ever.",
     "rel_change": 1,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -44,7 +44,7 @@
   },
   {
     "interaction_type": "offend",
-    "event_text": "During the Gathering, m_c invents a story about o_c_n clippers crossing c_n's border. Instead of arguing, o_c_n's baron is horrified and promises they'll conduct a thorough investigation and punish the perpetrators.",
+    "event_text": "During the Gathering, m_c invents a story about o_c_n Clippers crossing c_n's border. Instead of arguing, o_c_n's Baron is horrified and promises they'll conduct a thorough investigation and punish the perpetrators.",
     "rel_change": 0,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -52,7 +52,7 @@
   },
   {
     "interaction_type": "offend",
-    "event_text": "At the Gathering, m_c threatens a skirmish with o_c_n if their clippers are found too close to the border. o_c_n's baron grins at the idea, agreeing that allies should help keep each other's claws sharp.",
+    "event_text": "At the Gathering, m_c threatens a skirmish with o_c_n if their Clippers are found too close to the border. o_c_n's Baron grins at the idea, agreeing that allies should help keep each other's claws sharp.",
     "rel_change": 1,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -70,7 +70,7 @@
   },
   {
     "interaction_type": "offend",
-    "event_text": "When o_c_n's baron joins m_c and the other barons atop the baron's perch at the Gathering, m_c makes a loud fart noise with {PRONOUN/m_c/poss} mouth. o_c_n's baron unfortunately shares {PRONOUN/m_c/poss} childish sense of humor and nearly falls off the perch laughing.",
+    "event_text": "When o_c_n's Baron joins m_c and the other Barons atop the Baron's perch at the Gathering, m_c makes a loud fart noise with {PRONOUN/m_c/poss} mouth. o_c_n's Baron unfortunately shares {PRONOUN/m_c/poss} childish sense of humor and nearly falls off the perch laughing.",
     "rel_change": 0,
     "m_c": {
       "trait": ["childish"]
@@ -80,7 +80,7 @@
   },
   {
     "interaction_type": "offend",
-    "event_text": "m_c casts aspersions about o_c_n's border strength during the Gathering and is chagrined when o_c_n's baron agrees that o_c_n should patrol more regularly, thanking m_c for the suggestion.",
+    "event_text": "m_c casts aspersions about o_c_n's border strength during the Gathering and is chagrined when o_c_n's Baron agrees that o_c_n should patrol more regularly, thanking m_c for the suggestion.",
     "rel_change": 1,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -88,7 +88,7 @@
   },
   {
     "interaction_type": "offend",
-    "event_text": "At the Gathering, m_c tries to engage o_c_n's baron in hostile banter, but o_c_n's baron smiles so brightly at {PRONOUN/m_c/object} that m_c doesn't have the heart for it.",
+    "event_text": "At the Gathering, m_c tries to engage o_c_n's Baron in hostile banter, but o_c_n's Baron smiles so brightly at {PRONOUN/m_c/object} that m_c doesn't have the heart for it.",
     "rel_change": 0,
     "m_c": {
       "trait": ["careful", "insecure", "nervous", "loving", "compassionate", "thoughtful", "gloomy"]
@@ -98,7 +98,7 @@
   },
   {
     "interaction_type": "offend",
-    "event_text": "At the Gathering, m_c finally unveils the insults {PRONOUN/m_c/subject}{VERB/m_c/'ve/'s} concocted. o_c_n's baron asks {PRONOUN/m_c/object} to speak up, having gone a little deaf in their old age. m_c is too humiliated to try again.",
+    "event_text": "At the Gathering, m_c finally unveils the insults {PRONOUN/m_c/subject}{VERB/m_c/'ve/'s} concocted. o_c_n's Baron asks {PRONOUN/m_c/object} to speak up, having gone a little deaf in their old age. m_c is too humiliated to try again.",
     "rel_change": 0,
     "m_c": {
       "trait": ["insecure", "nervous"]
@@ -108,7 +108,7 @@
   },
   {
     "interaction_type": "offend",
-    "event_text": "m_c openly threatens o_c_n's clippers during the Gathering, but o_c_n's baron takes it as a compliment. m_c is renowned for {PRONOUN/m_c/poss} ferocity in battle - o_c_n's baron is proud {PRONOUN/m_c/subject} {VERB/m_c/consider/considers} them a match for c_n!",
+    "event_text": "m_c openly threatens o_c_n's Clippers during the Gathering, but o_c_n's Baron takes it as a compliment. m_c is renowned for {PRONOUN/m_c/poss} ferocity in battle - o_c_n's Baron is proud {PRONOUN/m_c/subject} {VERB/m_c/consider/considers} them a match for c_n!",
     "rel_change": 0,
     "m_c": { 
       "trait": ["bloodthirsty", "fierce", "competitive"] },
@@ -117,7 +117,7 @@
   },
   {
     "interaction_type": "offend",
-    "event_text": "m_c openly threatens o_c_n's clippers during the Gathering, but o_c_n's baron takes it as a compliment. m_c is renowned for {PRONOUN/m_c/poss} ferocity in battle - o_c_n's baron is proud {PRONOUN/m_c/subject} {VERB/m_c/consider/considers} them a match for c_n!",
+    "event_text": "m_c openly threatens o_c_n's Clippers during the Gathering, but o_c_n's Baron takes it as a compliment. m_c is renowned for {PRONOUN/m_c/poss} ferocity in battle - o_c_n's Baron is proud {PRONOUN/m_c/subject} {VERB/m_c/consider/considers} them a match for c_n!",
     "rel_change": 0,
     "m_c": { 
       "skill": ["FIGHTER,1"] },
@@ -126,7 +126,7 @@
   },
   {
     "interaction_type": "offend",
-    "event_text": "During the Gathering, m_c sternly informs o_c_n's baron that their prey is squibblous, their clippers are buggly-wuggly, and their borders are chombering at an extraordinary rate. o_c_n's baron stares back and then offers a bemused 'thank you?'",
+    "event_text": "During the Gathering, m_c sternly informs o_c_n's Baron that their prey is squibblous, their Clippers are buggly-wuggly, and their borders are chombering at an extraordinary rate. o_c_n's Baron stares back and then offers a bemused 'thank you?'",
     "rel_change": 0,
     "m_c": { "trait": ["strange"] },
     "player_clan_temper": ["any"],
@@ -158,7 +158,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "During the Gathering, m_c flatters o_c_n to no end. By the end of the night, o_c_n's baron seems more annoyed by the attention than grateful.",
+    "event_text": "During the Gathering, m_c flatters o_c_n to no end. By the end of the night, o_c_n's Baron seems more annoyed by the attention than grateful.",
     "rel_change": -1,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -166,7 +166,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "During the Gathering, m_c assures o_c_n's baron that their Clans would be well-matched in battle. o_c_n's baron stares at m_c warily, unsure if {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} threatening them.",
+    "event_text": "During the Gathering, m_c assures o_c_n's Baron that their Clans would be well-matched in battle. o_c_n's Baron stares at m_c warily, unsure if {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} threatening them.",
     "rel_change": 0,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -174,7 +174,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "At the Gathering, o_c_n's baron grouses about disobedient apprentices. m_c urges them to lay down the code and keep them in line. o_c_n's baron looks uncomfortable and admits that's not really the o_c_n way.",
+    "event_text": "At the Gathering, o_c_n's Baron grouses about disobedient apprentices. m_c urges them to lay down the code and keep them in line. o_c_n's Baron looks uncomfortable and admits that's not really the o_c_n way.",
     "rel_change": -5,
     "m_c": {
       "skill": ["TEACHER,1"],
@@ -185,7 +185,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "While trying to scramble up onto the baron's perch at the Gathering, o_c_n's new young baron slips and scrabbles with their hindlegs for purchase. Thinking fast, m_c grabs their scruff and lifts them onto the perch easily. o_c_n's baron screeches that they're not a kit and need <i>no</i> help!",
+    "event_text": "While trying to scramble up onto the Baron's perch at the Gathering, o_c_n's new young Baron slips and scrabbles with their hindlegs for purchase. Thinking fast, m_c grabs their scruff and lifts them onto the perch easily. o_c_n's Baron screeches that they're not a kit and need <i>no</i> help!",
     "rel_change": -5,
     "m_c": {
       "skill": ["CLIMBER,3", "KIT,3"],
@@ -196,7 +196,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "At the Gathering, m_c brings up a piece of o_c_n history, trying to tie it back to the blossoming alliance between o_c_n and c_n. o_c_n's baron doesn't seem to be quite sure of what m_c is getting at.",
+    "event_text": "At the Gathering, m_c brings up a piece of o_c_n history, trying to tie it back to the blossoming alliance between o_c_n and c_n. o_c_n's Baron doesn't seem to be quite sure of what m_c is getting at.",
     "rel_change": 0,
     "m_c": {
       "skill": ["LORE,1"],
@@ -207,7 +207,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "At the Gathering, m_c challenges o_c_n's baron to a contest of who can balance the longest on the edge of the baron's perch, just for fun! o_c_n's baron politely declines, looking irritated.",
+    "event_text": "At the Gathering, m_c challenges o_c_n's Baron to a contest of who can balance the longest on the edge of the Baron's perch, just for fun! o_c_n's Baron politely declines, looking irritated.",
     "rel_change": 0,
     "m_c": {
       "skill": ["CLIMBER,1"],
@@ -218,7 +218,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "At the Gathering, o_c_n's baron somberly announces one of their clippers is battling life-threatening infection. m_c suggests they should lighten up! Sometimes laughter is the best medicine. o_c_n's baron certainly doesn't look like laughing.",
+    "event_text": "At the Gathering, o_c_n's Baron somberly announces one of their Clippers is battling life-threatening infection. m_c suggests they should lighten up! Sometimes laughter is the best medicine. o_c_n's Baron certainly doesn't look like laughing.",
     "rel_change": -2,
     "m_c": {
       "skill": ["HEALER,1"],
@@ -229,7 +229,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "At the Gathering, o_c_n's baron announces that their medicine cats received an omen. m_c proposes an extremely literal interpretation, at which the medicine cats sigh and assure m_c they had already considered it.",
+    "event_text": "At the Gathering, o_c_n's Baron announces that their doctors received an omen. m_c proposes an extremely literal interpretation, at which the doctors sigh and assure m_c they had already considered it.",
     "rel_change": -3,
     "m_c": {
       "trait": ["childish", "oblivious"],
@@ -240,7 +240,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "At the Gathering, o_c_n's baron announces that their medicine cats received a prophecy. m_c proposes an extremely literal interpretation, at which the medicine cats sigh and assure m_c they had already considered it.",
+    "event_text": "At the Gathering, o_c_n's Baron announces that their doctors received a prophecy. m_c proposes an extremely literal interpretation, at which the doctors sigh and assure m_c they had already considered it.",
     "rel_change": -3,
     "m_c": {
       "trait": ["childish", "oblivious"],
@@ -251,7 +251,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "At the Gathering, o_c_n's baron sorrowfully announces the death of a Clanmate. m_c reminds them to chin up, they'll see the Clanmate again in StarClan someday! o_c_n's baron doesn't take this well.",
+    "event_text": "At the Gathering, o_c_n's Baron sorrowfully announces the death of a Clanmate. m_c reminds them to chin up, they'll see the Clanmate again in StarClan someday! o_c_n's Baron doesn't take this well.",
     "rel_change": -2,
     "m_c": {
       "skill": ["STAR,1"],
@@ -262,7 +262,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "m_c praises the beauty of o_c_n's territory at length during the Gathering. o_c_n's baron questions whether m_c is hinting that {PRONOUN/m_c/subject}'d like to steal some of it for c_n.",
+    "event_text": "m_c praises the beauty of o_c_n's territory at length during the Gathering. o_c_n's Baron questions whether m_c is hinting that {PRONOUN/m_c/subject}'d like to steal some of it for c_n.",
     "rel_change": -1,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -270,7 +270,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "At the Gathering, m_c compliments o_c_n's baron on how wibblish-wobblish and crungly their Clan seems these days. o_c_n's baron's eyes narrow in suspicion. Is m_c making fun of them?",
+    "event_text": "At the Gathering, m_c compliments o_c_n's Baron on how wibblish-wobblish and crungly their Clan seems these days. o_c_n's Baron's eyes narrow in suspicion. Is m_c making fun of them?",
     "rel_change": -1,
     "m_c": {
       "trait": ["strange"]
@@ -280,7 +280,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "Before the Gathering, m_c takes o_c_n's baron aside and warns them that their mate will be caught in a flood in the next moon. o_c_n's baron cuts {PRONOUN/m_c/object} off in disbelief, finding it too terrible to imagine. m_c watches o_c_n's baron leave after the Gathering, {PRONOUN/m_c/poss} heart sinking.",
+    "event_text": "Before the Gathering, m_c takes o_c_n's Baron aside and warns them that their mate will be caught in a flood in the next moon. o_c_n's Baron cuts {PRONOUN/m_c/object} off in disbelief, finding it too terrible to imagine. m_c watches o_c_n's Baron leave after the Gathering, {PRONOUN/m_c/poss} heart sinking.",
     "rel_change": -3,
     "m_c": {
       "trait": ["sincere"],
@@ -291,7 +291,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "At the Gathering, m_c silkily describes a future where o_c_n and c_n rule all the territories together, using all {PRONOUN/m_c/poss} skill in advising. o_c_n's baron is not receptive whatsoever to these ideas.",
+    "event_text": "At the Gathering, m_c silkily describes a future where o_c_n and c_n rule all the territories together, using all {PRONOUN/m_c/poss} skill in advising. o_c_n's Baron is not receptive whatsoever to these ideas.",
     "rel_change": 7,
     "m_c": {
       "skill": ["SPEAKER,2", "INSIGHTFUL,2"],
@@ -302,7 +302,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "m_c attempts to use {PRONOUN/m_c/poss} honeyed words to get onto o_c_n's good side, only for the other baron to give {PRONOUN/m_c/object} a pointed and <i>very</i> knowing look.",
+    "event_text": "m_c attempts to use {PRONOUN/m_c/poss} honeyed words to get onto o_c_n's good side, only for the other Baron to give {PRONOUN/m_c/object} a pointed and <i>very</i> knowing look.",
     "rel_change": -3,
     "m_c": {
       "trait": ["cunning", "sneaky"]
@@ -312,7 +312,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "m_c spends most of the Gathering cheerfully chatting with an o_c_n clipper who is surprisingly easy to talk to. During their speech, o_c_n's baron announces that same clipper died in the previous moon. m_c glances at {PRONOUN/m_c/poss} new friend, who winks and vanishes in a sparkle of stardust.",
+    "event_text": "m_c spends most of the Gathering cheerfully chatting with an o_c_n Clipper who is surprisingly easy to talk to. During their speech, o_c_n's Baron announces that same Clipper died in the previous moon. m_c glances at {PRONOUN/m_c/poss} new friend, who winks and vanishes in a sparkle of stardust.",
     "rel_change": 0,
     "m_c": {
       "trait": ["lonesome"],
@@ -323,7 +323,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "At the Gathering, m_c showers o_c_n's baron in praise for how well o_c_n apprentices are shaping up. o_c_n's baron stares at {PRONOUN/m_c/object}. Apparently o_c_n doesn't have any 'paws at the moment... Whoops.",
+    "event_text": "At the Gathering, m_c showers o_c_n's Baron in praise for how well o_c_n apprentices are shaping up. o_c_n's Baron stares at {PRONOUN/m_c/object}. Apparently o_c_n doesn't have any 'paws at the moment... Whoops.",
     "rel_change": -1,
     "m_c": {
       "trait": [ "oblivious" ]
@@ -333,7 +333,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "m_c compliments o_c_n's clippers on how strong they look; o_c_n's baron interprets this as sarcasm.",
+    "event_text": "m_c compliments o_c_n's Clippers on how strong they look; o_c_n's Baron interprets this as sarcasm.",
     "rel_change": -3,
     "m_c": {
       "trait": ["compassionate", "thoughtful", "loving"]
@@ -367,7 +367,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "At the Gathering, m_c stiffly compliments o_c_n's baron on their strength and prosperity. o_c_n's baron narrows their eyes, unconvinced of {PRONOUN/m_c/poss} sincerity.",
+    "event_text": "At the Gathering, m_c stiffly compliments o_c_n's Baron on their strength and prosperity. o_c_n's Baron narrows their eyes, unconvinced of {PRONOUN/m_c/poss} sincerity.",
     "rel_change": -1,
     "m_c": { 
       "trait": [ "insecure", "lonesome", "gloomy", "grumpy", "nervous", "bloodthirsty", "cunning", "sneaky" ]
@@ -377,7 +377,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "At the Gathering, m_c comments on what delicious prey must be found on o_c_n territory. o_c_n's baron looks uneasy - they may be allies, but they know m_c to be a troublesome cat, and that sure sounded like {PRONOUN/m_c/subject}{VERB/m_c/'d/'s} like to take some for {PRONOUN/m_c/self}.",
+    "event_text": "At the Gathering, m_c comments on what delicious prey must be found on o_c_n territory. o_c_n's Baron looks uneasy - they may be allies, but they know m_c to be a troublesome cat, and that sure sounded like {PRONOUN/m_c/subject}{VERB/m_c/'d/'s} like to take some for {PRONOUN/m_c/self}.",
     "rel_change": -1,
     "m_c": { 
       "trait": [ "troublesome" ],
@@ -388,7 +388,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "At the Gathering, m_c senses a bitter, hateful spirit hovering around o_c_n's baron. m_c congratulates o_c_n's baron on dealing with traitors, but o_c_n's baron's eyes flash darkly. Sore subject, apparently.",
+    "event_text": "At the Gathering, m_c senses a bitter, hateful spirit hovering around o_c_n's Baron. m_c congratulates o_c_n's Baron on dealing with traitors, but o_c_n's Baron's eyes flash darkly. Sore subject, apparently.",
     "rel_change": -3,
     "m_c": { 
       "trait": [ "bloodthirsty" ],
@@ -399,7 +399,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "At the Gathering, m_c notes that o_c_n's baron has very pronounced, long toes and tells them they'd be a great runner with those grippy helpers. m_c winces the moment the words are out of {PRONOUN/m_c/poss} mouth, and sure enough, o_c_n's baron doesn't seem to find this a great compliment.",
+    "event_text": "At the Gathering, m_c notes that o_c_n's Baron has very pronounced, long toes and tells them they'd be a great runner with those grippy helpers. m_c winces the moment the words are out of {PRONOUN/m_c/poss} mouth, and sure enough, o_c_n's Baron doesn't seem to find this a great compliment.",
     "rel_change": -1,
     "m_c": { 
       "trait": [ "lonesome", "strange" ],
@@ -410,7 +410,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "m_c fawns over o_c_n's baron all Gathering. As the moon sets, o_c_n's baron coolly reminds {PRONOUN/m_c/object} that actions speak louder than meows.",
+    "event_text": "m_c fawns over o_c_n's Baron all Gathering. As the moon sets, o_c_n's Baron coolly reminds {PRONOUN/m_c/object} that actions speak louder than meows.",
     "rel_change": -1,
     "m_c": { 
       "trait": [ "charismatic", "flamboyant", "ambitious", "bold", "daring", "shameless" ]
@@ -420,7 +420,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "m_c fawns over o_c_n's baron all Gathering. As the moon sets, o_c_n's baron coolly reminds {PRONOUN/m_c/object} that actions speak louder than meows.",
+    "event_text": "m_c fawns over o_c_n's Baron all Gathering. As the moon sets, o_c_n's Baron coolly reminds {PRONOUN/m_c/object} that actions speak louder than meows.",
     "rel_change": -1,
     "m_c": { 
       "skill": [ "SPEAKER,1" ]
@@ -430,7 +430,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "o_c_n's cats keep their distance from c_n during the Gathering. No matter what tack m_c tries, o_c_n's baron doesn't seem receptive. Perhaps this alliance is weakening for reasons {PRONOUN/m_c/subject} {VERB/m_c/are/is}n't aware of.",
+    "event_text": "o_c_n's cats keep their distance from c_n during the Gathering. No matter what tack m_c tries, o_c_n's Baron doesn't seem receptive. Perhaps this alliance is weakening for reasons {PRONOUN/m_c/subject} {VERB/m_c/are/is}n't aware of.",
     "rel_change": -2,
     "m_c": { },
     "player_clan_temper": ["any"],
@@ -438,7 +438,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "At the Gathering, m_c suggests a friendly competition of hunting and sparring between o_c_n and c_n to take place during the next half-moon. o_c_n's baron declines, saying some Clans prioritize border safety and feeding the Clan over silly apprentice games.",
+    "event_text": "At the Gathering, m_c suggests a friendly competition of hunting and sparring between o_c_n and c_n to take place during the next half-moon. o_c_n's Baron declines, saying some Clans prioritize border safety and feeding the Clan over silly apprentice games.",
     "rel_change": -2,
     "m_c": {
       "trait": [ "competitive", "ambitious", "arrogant", "bold", "charismatic", "playful", "childish" ]
@@ -448,7 +448,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "At the Gathering, o_c_n's baron seems much more interested in chatting with the other barons than m_c. {PRONOUN/m_c/subject/CAP} {VERB/m_c/sulk/sulks} like a kit and {VERB/m_c/decide/decides} that c_n doesn't need o_c_n's friendship anyway.",
+    "event_text": "At the Gathering, o_c_n's Baron seems much more interested in chatting with the other Barons than m_c. {PRONOUN/m_c/subject/CAP} {VERB/m_c/sulk/sulks} like a kit and {VERB/m_c/decide/decides} that c_n doesn't need o_c_n's friendship anyway.",
     "rel_change": -2,
     "m_c": {
       "trait": [ "childish" ]
@@ -458,7 +458,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "At the Gathering, o_c_n's baron seems much more interested in chatting with the other barons than m_c. When {PRONOUN/m_c/subject} {VERB/m_c/try/tries} to include {PRONOUN/m_c/self}, {PRONOUN/m_c/subject} just {VERB/m_c/draw/draws} awkward looks from the other barons.",
+    "event_text": "At the Gathering, o_c_n's Baron seems much more interested in chatting with the other Barons than m_c. When {PRONOUN/m_c/subject} {VERB/m_c/try/tries} to include {PRONOUN/m_c/self}, {PRONOUN/m_c/subject} just {VERB/m_c/draw/draws} awkward looks from the other Barons.",
     "rel_change": -2,
     "m_c": {
       "trait": [ "lonesome", "nervous", "insecure", "gloomy", "grumpy" ]
@@ -468,7 +468,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "m_c goes on and on about what a great alliance c_n and o_c_n have during {PRONOUN/m_c/poss} speech at the Gathering. o_c_n's baron coughs meaningfully; during their speech, they announce o_c_n will be focusing on its own priorities in the coming moons and suggest c_n does the same.",
+    "event_text": "m_c goes on and on about what a great alliance c_n and o_c_n have during {PRONOUN/m_c/poss} speech at the Gathering. o_c_n's Baron coughs meaningfully; during their speech, they announce o_c_n will be focusing on its own priorities in the coming moons and suggest c_n does the same.",
     "rel_change": -2,
     "m_c": { },
     "player_clan_temper": ["any"],
@@ -476,10 +476,10 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "o_c_n's baron distances themselves from m_c during the Gathering, ignoring all attempts at conversation. An ally will only go so far in hard times.",
+    "event_text": "o_c_n's Baron distances themselves from m_c during the Gathering, ignoring all attempts at conversation. An ally will only go so far in hard times.",
     "rel_change": -2,
     "m_c": {
-      "status": ["apprentice", "mediator apprentice", "medicine cat apprentice"],
+      "status": ["colt", "apprentice doctor"],
       "trait": ["nervous", "insecure", "gloomy", "playful", "childish", "charismatic", "bold", "daring", "righteous", "strict", "compassionate", "thoughtful", "careful", "calm", "faithful", "loving", "responsible", "shameless", "wise", "cunning", "sincere"]
     },
     "player_clan_temper": ["any"],
@@ -487,7 +487,7 @@
   },
   {
     "interaction_type": "provoke",
-    "event_text": "During the Gathering, m_c attempts to make double-pawed comments about o_c_n's baron. Their baron, however, either doesn't care or is too oblivious to notice.",
+    "event_text": "During the Gathering, m_c attempts to make double-pawed comments about o_c_n's Baron. Their Baron, however, either doesn't care or is too oblivious to notice.",
     "rel_change": 0,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -495,7 +495,7 @@
   },
   {
     "interaction_type": "provoke",
-    "event_text": "At the Gathering, m_c insinuates o_c_n is getting lazy and complacent. o_c_n's baron thanks {PRONOUN/m_c/object}, agreeing that o_c_n has been blessed with prosperity and safety.",
+    "event_text": "At the Gathering, m_c insinuates o_c_n is getting lazy and complacent. o_c_n's Baron thanks {PRONOUN/m_c/object}, agreeing that o_c_n has been blessed with prosperity and safety.",
     "rel_change": 1,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -503,7 +503,7 @@
   },
   {
     "interaction_type": "provoke",
-    "event_text": "At the Gathering, m_c implies o_c_n is full of warmongering fox-hearts. o_c_n's baron puffs up with pride, agreeing that their Clan is one of the strongest in the forest.",
+    "event_text": "At the Gathering, m_c implies o_c_n is full of warmongering fox-hearts. o_c_n's Baron puffs up with pride, agreeing that their Clan is one of the strongest in the forest.",
     "rel_change": 1,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -511,7 +511,7 @@
   },
   {
     "interaction_type": "provoke",
-    "event_text": "While o_c_n's baron gives their speech at the Gathering, m_c pulls faces and rolls {PRONOUN/m_c/poss} eyes. o_c_n's baron never notices the childish behavior.",
+    "event_text": "While o_c_n's Baron gives their speech at the Gathering, m_c pulls faces and rolls {PRONOUN/m_c/poss} eyes. o_c_n's Baron never notices the childish behavior.",
     "rel_change": 0,
     "m_c": {
       "trait": ["childish"]
@@ -521,7 +521,7 @@
   },
   {
     "interaction_type": "provoke",
-    "event_text": "During the Gathering, m_c points out that o_c_n's baron has separated toes that would be terrible for swimming. o_c_n's baron politely replies that they'd never thought much about their own toes. m_c is too embarrassed at the failed insult to talk much the rest of the night.",
+    "event_text": "During the Gathering, m_c points out that o_c_n's Baron has separated toes that would be terrible for swimming. o_c_n's Baron politely replies that they'd never thought much about their own toes. m_c is too embarrassed at the failed insult to talk much the rest of the night.",
     "rel_change": 0,
     "m_c": {
       "skill": [ "SWIMMER,1" ],
@@ -532,7 +532,7 @@
   },
   {
     "interaction_type": "provoke",
-    "event_text": "At the Gathering, m_c makes jab after jab at o_c_n. o_c_n's baron never takes the bait.",
+    "event_text": "At the Gathering, m_c makes jab after jab at o_c_n. o_c_n's Baron never takes the bait.",
     "rel_change": 0,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -540,7 +540,7 @@
   },
   {
     "interaction_type": "provoke",
-    "event_text": "m_c spends most of {PRONOUN/m_c/poss} speech at the Gathering making jibes at o_c_n for everything from their scent to their nursery tales. o_c_n's baron laughs along. Apparently self-deprecation is part of o_c_n culture as much at their dung-scent and their mouse-brained stories.",
+    "event_text": "m_c spends most of {PRONOUN/m_c/poss} speech at the Gathering making jibes at o_c_n for everything from their scent to their nursery tales. o_c_n's Baron laughs along. Apparently self-deprecation is part of o_c_n culture as much at their dung-scent and their mouse-brained stories.",
     "rel_change": 0,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -548,7 +548,7 @@
   },
   {
     "interaction_type": "provoke",
-    "event_text": "No matter how fox-hearted m_c acts at the Gathering, {PRONOUN/m_c/subject} can't get a rise out of o_c_n's baron.",
+    "event_text": "No matter how fox-hearted m_c acts at the Gathering, {PRONOUN/m_c/subject} can't get a rise out of o_c_n's Baron.",
     "rel_change": 0,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -556,7 +556,7 @@
   },
   {
     "interaction_type": "provoke",
-    "event_text": "m_c spends the whole Gathering remarking on o_c_n's recent shortcomings. o_c_n's baron sheepishly agrees they could be doing more to control their rowdy apprentices and alert fellow Clans to threats on the border.",
+    "event_text": "m_c spends the whole Gathering remarking on o_c_n's recent shortcomings. o_c_n's Baron sheepishly agrees they could be doing more to control their rowdy apprentices and alert fellow Clans to threats on the border.",
     "rel_change": 0,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -588,7 +588,7 @@
   },
   {
     "interaction_type": "provoke",
-    "event_text": "Staring down the hulking, muscular figure of o_c_n's baron at the Gathering, m_c decides it's best not to provoke them just yet. For strategic reasons.",
+    "event_text": "Staring down the hulking, muscular figure of o_c_n's Baron at the Gathering, m_c decides it's best not to provoke them just yet. For strategic reasons.",
     "rel_change": 0,
     "m_c": { 
       "trait": [ "nervous", "insecure", "careful" ]
@@ -598,7 +598,7 @@
   },
   {
     "interaction_type": "provoke",
-    "event_text": "At the Gathering, m_c insults o_c_n den-weaving techniques - they're all simple loops, instead of c_n's loop-and-twist woven nests. o_c_n's baron doesn't seem as devastated as expected. Next time, m_c will have to workshop {PRONOUN/m_c/poss} insults with {PRONOUN/m_c/poss} Clanmates.",
+    "event_text": "At the Gathering, m_c insults o_c_n den-weaving techniques - they're all simple loops, instead of c_n's loop-and-twist woven nests. o_c_n's Baron doesn't seem as devastated as expected. Next time, m_c will have to workshop {PRONOUN/m_c/poss} insults with {PRONOUN/m_c/poss} Clanmates.",
     "rel_change": 0,
     "m_c": { 
       "trait": [ "lonesome" ],
@@ -609,7 +609,7 @@
   },
   {
     "interaction_type": "provoke",
-    "event_text": "m_c sweats at the Gathering, trying to think of the perfect insult before it's {PRONOUN/m_c/poss} turn to speak. o_c_n is a pack of... <i>grass-snifflers,</i> m_c announces to silence. o_c_n's baron seems more confused than insulted.",
+    "event_text": "m_c sweats at the Gathering, trying to think of the perfect insult before it's {PRONOUN/m_c/poss} turn to speak. o_c_n is a pack of... <i>grass-snifflers,</i> m_c announces to silence. o_c_n's Baron seems more confused than insulted.",
     "rel_change": 0,
     "m_c": {
       "trait": [ "nervous", "insecure", "careful", "calm", "gloomy", "strange", "lonesome", "childish", "playful", "strict", "compassionate", "faithful", "loving", "grumpy", "sincere"]
@@ -619,7 +619,7 @@
   },
   {
     "interaction_type": "provoke",
-    "event_text": "m_c is eager to put {PRONOUN/m_c/poss} skills at being a thorn in the paw to use at the Gathering, but apparently, {PRONOUN/m_c/subject}{VERB/m_c/'ve/'s} already got such a reputation for being a shameless troublemaker that o_c_n's baron doesn't take it personally.",
+    "event_text": "m_c is eager to put {PRONOUN/m_c/poss} skills at being a thorn in the paw to use at the Gathering, but apparently, {PRONOUN/m_c/subject}{VERB/m_c/'ve/'s} already got such a reputation for being a shameless troublemaker that o_c_n's Baron doesn't take it personally.",
     "rel_change": 0,
     "m_c": {
       "trait": ["shameless", "troublesome", "childish", "cold", "bold", "grumpy", "flamboyant", "rebellious", "arrogant" ]
@@ -639,7 +639,7 @@
   },
   {
     "interaction_type": "provoke",
-    "event_text": "During the Gathering, m_c repeatedly threatens o_c_n and its baron. o_c_n's baron is unimpressed and cracks jokes during their speech about how m_c is full of hot air and stirs up trouble like a bored kit. The other Clans laugh along at c_n's expense.",
+    "event_text": "During the Gathering, m_c repeatedly threatens o_c_n and its Baron. o_c_n's Baron is unimpressed and cracks jokes during their speech about how m_c is full of hot air and stirs up trouble like a bored kit. The other Clans laugh along at c_n's expense.",
     "rel_change": 0,
     "m_c": {
       "trait": ["shameless", "troublesome", "childish", "cold", "bold", "daring", "bloodthirsty", "rebellious", "fierce", "arrogant" ]
@@ -649,7 +649,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "During the Gathering, m_c cozies up to the o_c_n baron in an attempt to get in o_c_n's good graces. They don't seem very receptive, though.",
+    "event_text": "During the Gathering, m_c cozies up to the o_c_n Baron in an attempt to get in o_c_n's good graces. They don't seem very receptive, though.",
     "rel_change": 0,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -657,7 +657,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "During the Gathering, m_c asks after o_c_n's young cats. o_c_n's baron lets a long silence pass before icily suggesting m_c concern {PRONOUN/m_c/self} with {PRONOUN/m_c/poss} own Clanmates.",
+    "event_text": "During the Gathering, m_c asks after o_c_n's young cats. o_c_n's Baron lets a long silence pass before icily suggesting m_c concern {PRONOUN/m_c/self} with {PRONOUN/m_c/poss} own Clanmates.",
     "rel_change": -1,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -665,7 +665,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "o_c_n's baron ignores m_c's attempts to ingratiate {PRONOUN/m_c/self} with them during the Gathering.",
+    "event_text": "o_c_n's Baron ignores m_c's attempts to ingratiate {PRONOUN/m_c/self} with them during the Gathering.",
     "rel_change": 0,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -673,7 +673,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "As o_c_n's baron announces new apprentices at the Gathering, m_c interrupts to offer plenty of unsolicited advice about how best to train an apprentice. o_c_n's baron seems less than grateful.",
+    "event_text": "As o_c_n's Baron announces new apprentices at the Gathering, m_c interrupts to offer plenty of unsolicited advice about how best to train an apprentice. o_c_n's Baron seems less than grateful.",
     "rel_change": -5,
     "m_c": {
       "skill": ["TEACHER,2"],
@@ -684,7 +684,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "During the Gathering, m_c tells a long, meandering story about inter-Clan friendship and alliances. o_c_n's baron yawns in the middle of it.",
+    "event_text": "During the Gathering, m_c tells a long, meandering story about inter-Clan friendship and alliances. o_c_n's Baron yawns in the middle of it.",
     "rel_change": 0,
     "m_c": {
       "trait": [ "lonesome" ],
@@ -695,7 +695,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "The night before the Gathering, one of m_c's friends visits {PRONOUN/m_c/object} from StarClan and gives {PRONOUN/m_c/object} a pep talk for befriending o_c_n's baron at the Gathering. Despite it, when the time comes, m_c is too shy to say anything.",
+    "event_text": "The night before the Gathering, one of m_c's friends visits {PRONOUN/m_c/object} from StarClan and gives {PRONOUN/m_c/object} a pep talk for befriending o_c_n's Baron at the Gathering. Despite it, when the time comes, m_c is too shy to say anything.",
     "rel_change": 0,
     "m_c": {
       "trait": [ "lonesome", "nervous" ],
@@ -706,7 +706,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "At the Gathering, m_c excitedly tells o_c_n's baron all about this cool new game {PRONOUN/m_c/subject} invented. o_c_n's baron doesn't seem very interested, and m_c sulks about it.",
+    "event_text": "At the Gathering, m_c excitedly tells o_c_n's Baron all about this cool new game {PRONOUN/m_c/subject} invented. o_c_n's Baron doesn't seem very interested, and m_c sulks about it.",
     "rel_change": 0,
     "m_c": {
       "trait": [ "childish" ],
@@ -717,7 +717,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "At the Gathering, o_c_n's baron discusses a complex problem their Clan faces. m_c offers a very simple solution, and o_c_n's baron is insulted m_c assumed they hadn't thought of that already.",
+    "event_text": "At the Gathering, o_c_n's Baron discusses a complex problem their Clan faces. m_c offers a very simple solution, and o_c_n's Baron is insulted m_c assumed they hadn't thought of that already.",
     "rel_change": -3,
     "m_c": {
       "trait": [ "childish" ]
@@ -727,7 +727,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "At the Gathering, m_c shares {PRONOUN/m_c/poss} favorite nursery tales with o_c_n's baron. The other baron seems baffled.",
+    "event_text": "At the Gathering, m_c shares {PRONOUN/m_c/poss} favorite nursery tales with o_c_n's Baron. The other Baron seems baffled.",
     "rel_change": 0,
     "m_c": {
       "trait": [ "childish" ],
@@ -738,7 +738,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "Just as o_c_n arrives at the Gathering, m_c leaps forward and hauls o_c_n's baron backward by the scruff. A heartbeat later, a dead branch plummets to the ground where o_c_n's baron was standing. o_c_n's baron scrambles to their paws, humiliated and irritated.",
+    "event_text": "Just as o_c_n arrives at the Gathering, m_c leaps forward and hauls o_c_n's Baron backward by the scruff. A heartbeat later, a dead branch plummets to the ground where o_c_n's Baron was standing. o_c_n's Baron scrambles to their paws, humiliated and irritated.",
     "rel_change": -2,
     "m_c": {
       "trait": [ "cold", "shameless", "bold", "daring" ],
@@ -749,7 +749,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "At the Gathering, m_c expresses a great deal of interest in o_c_n's baron's dreams. o_c_n's baron finds it unsettling and offputting, considering how aloof m_c normally is.",
+    "event_text": "At the Gathering, m_c expresses a great deal of interest in o_c_n's Baron's dreams. o_c_n's Baron finds it unsettling and offputting, considering how aloof m_c normally is.",
     "rel_change": -2,
     "m_c": {
       "trait": [ "cold" ],
@@ -760,7 +760,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "At the Gathering, m_c warns o_c_n's baron that {PRONOUN/m_c/subject} had a glimpse of the coming moons, and o_c_n may be headed for conflict with another Clan. o_c_n's baron interprets this as a threat, not an offer of allyship.",
+    "event_text": "At the Gathering, m_c warns o_c_n's Baron that {PRONOUN/m_c/subject} had a glimpse of the coming moons, and o_c_n may be headed for conflict with another Clan. o_c_n's Baron interprets this as a threat, not an offer of allyship.",
     "rel_change": -4,
     "m_c": {
       "trait": [ "fierce" ],
@@ -771,7 +771,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "At the Gathering, o_c_n's baron announces a prophecy that the o_c_n medicine cats received. m_c offers {PRONOUN/m_c/poss} interpretation, but o_c_n's baron coolly replies that o_c_n will handle it alone.",
+    "event_text": "At the Gathering, o_c_n's Baron announces a prophecy that the o_c_n doctors received. m_c offers {PRONOUN/m_c/poss} interpretation, but o_c_n's Baron coolly replies that o_c_n will handle it alone.",
     "rel_change": -2,
     "m_c": {
       "skill": [ "PROPHET,1" ]
@@ -781,7 +781,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "At the Gathering, m_c tries to casually mention something {PRONOUN/m_c/subject} witnessed in the dreams of o_c_n's baron. The other baron doesn't seem to appreciate this invasion of privacy at all.",
+    "event_text": "At the Gathering, m_c tries to casually mention something {PRONOUN/m_c/subject} witnessed in the dreams of o_c_n's Baron. The other Baron doesn't seem to appreciate this invasion of privacy at all.",
     "rel_change": -5,
     "m_c": {
       "skill": ["DREAM,2"],
@@ -792,7 +792,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "m_c praises o_c_n during {PRONOUN/m_c/poss} Gathering speech and darts looks at the crowd of o_c_n cats below to gauge their receptiveness to different compliments. o_c_n's baron catches those glances and narrows their eyes at m_c.",
+    "event_text": "m_c praises o_c_n during {PRONOUN/m_c/poss} Gathering speech and darts looks at the crowd of o_c_n cats below to gauge their receptiveness to different compliments. o_c_n's Baron catches those glances and narrows their eyes at m_c.",
     "rel_change": -5,
     "m_c": {
       "skill": ["SENSE,1"],
@@ -803,7 +803,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "At the Gathering, m_c pulls o_c_n's baron aside and suggests they form an alliance; with their combined strength, they can crush all that would oppose them. o_c_n's baron declines this offer.",
+    "event_text": "At the Gathering, m_c pulls o_c_n's Baron aside and suggests they form an alliance; with their combined strength, they can crush all that would oppose them. o_c_n's Baron declines this offer.",
     "rel_change": 0,
     "m_c": {
       "trait": [ "ambitious", "arrogant", "competitive", "confident", "fierce", "bloodthirsty", "cold", "vengeful", "bold", "daring", "shameless" ]
@@ -813,7 +813,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "At the Gathering, m_c pulls o_c_n's baron aside to warn them that fire may be a problem for o_c_n in the coming moons. o_c_n's baron stiffens, staring at m_c with intense mistrust and skepticism.",
+    "event_text": "At the Gathering, m_c pulls o_c_n's Baron aside to warn them that fire may be a problem for o_c_n in the coming moons. o_c_n's Baron stiffens, staring at m_c with intense mistrust and skepticism.",
     "rel_change": -2,
     "m_c": {
       "skill": ["CLAIRVOYANT,2"]
@@ -823,7 +823,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "m_c has never been good at making friends, and in a high-pressure situation like a Gathering? {PRONOUN/m_c/subject/CAP} barely {VERB/m_c/manage/manages} more than two or three words to o_c_n's baron.",
+    "event_text": "m_c has never been good at making friends, and in a high-pressure situation like a Gathering? {PRONOUN/m_c/subject/CAP} barely {VERB/m_c/manage/manages} more than two or three words to o_c_n's Baron.",
     "rel_change": 0,
     "m_c": {
       "trait": [ "insecure", "nervous", "careful", "gloomy", "lonesome", "grumpy" ]
@@ -833,7 +833,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "At the Gathering, o_c_n's baron struggles through a report that an entire litter of o_c_n kits were wiped out by kitten-cough. m_c draws them aside after and reassures them that the kittens are playing moss-ball together in StarClan. o_c_n's baron hisses that this means nothing to the grieving parents.",
+    "event_text": "At the Gathering, o_c_n's Baron struggles through a report that an entire litter of o_c_n kits were wiped out by kitten-cough. m_c draws them aside after and reassures them that the kittens are playing moss-ball together in StarClan. o_c_n's Baron hisses that this means nothing to the grieving parents.",
     "rel_change": -5,
     "m_c": {
       "skill": [ "KIT,3", "STAR,2"],
@@ -844,7 +844,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "m_c promises o_c_n's baron at the Gathering that {PRONOUN/m_c/subject} {VERB/m_c/have/has} an appetite for peace and friendship. o_c_n's baron eyes {PRONOUn/m_c/object} warily. Seems m_c's reputation as a troublemaker has outpaced their reputation as a peacekeeper.",
+    "event_text": "m_c promises o_c_n's Baron at the Gathering that {PRONOUN/m_c/subject} {VERB/m_c/have/has} an appetite for peace and friendship. o_c_n's Baron eyes {PRONOUn/m_c/object} warily. Seems m_c's reputation as a troublemaker has outpaced their reputation as a peacekeeper.",
     "rel_change": -3,
     "m_c": { 
       "skill": [ "MEDIATOR,1" ],
@@ -855,7 +855,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "During the Gathering, m_c tries to impress o_c_n by describing how c_n uncovered a burrow of baby rabbits and killed them all. o_c_n's baron makes a face at m_c's gory descriptions.",
+    "event_text": "During the Gathering, m_c tries to impress o_c_n by describing how c_n uncovered a burrow of baby rabbits and killed them all. o_c_n's Baron makes a face at m_c's gory descriptions.",
     "rel_change": -1,
     "m_c": {
       "skill": ["HUNTER,1"],
@@ -866,7 +866,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "Approaching o_c_n's baron at the Gathering, m_c asks if they're interested in becoming best friends forever. o_c_n's baron rebuffs this once-in-a-lifetime opportunity.",
+    "event_text": "Approaching o_c_n's Baron at the Gathering, m_c asks if they're interested in becoming best friends forever. o_c_n's Baron rebuffs this once-in-a-lifetime opportunity.",
     "rel_change": 0,
     "m_c": {
       "trait": ["childish"]
@@ -876,7 +876,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "As o_c_n's baron gives their speech during the Gathering, m_c bellows with laughter at one of their jokes. Only... it wasn't a joke, apparently. m_c apologizes profusely, but the damage is already done.",
+    "event_text": "As o_c_n's Baron gives their speech during the Gathering, m_c bellows with laughter at one of their jokes. Only... it wasn't a joke, apparently. m_c apologizes profusely, but the damage is already done.",
     "rel_change": -2,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -884,7 +884,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "During the Gathering, m_c catches the eye of the o_c_n baron. The two regard each other carefully, but when m_c fumbles {PRONOUN/m_c/poss} words later on, the other baron scoffs.",
+    "event_text": "During the Gathering, m_c catches the eye of the o_c_n Baron. The two regard each other carefully, but when m_c fumbles {PRONOUN/m_c/poss} words later on, the other Baron scoffs.",
     "rel_change": -3,
     "m_c": {
       "trait": ["nervous", "insecure"]
@@ -894,7 +894,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "o_c_n's baron is loud and threatening at the Gathering. m_c holds {PRONOUN/m_c/poss} ground and shows no fear, but that appears to be a mistake when the other baron only becomes louder.",
+    "event_text": "o_c_n's Baron is loud and threatening at the Gathering. m_c holds {PRONOUN/m_c/poss} ground and shows no fear, but that appears to be a mistake when the other Baron only becomes louder.",
     "rel_change": -3,
     "m_c": {
       "trait": ["fierce", "bloodthirsty", "cold", "bold", "daring", "righteous", "strict", "ambitious", "confident", "calm", "vengeful", "wise", "arrogant", "competitive", "rebellious", "troublesome"]
@@ -928,7 +928,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "At the Gathering, m_c approaches o_c_n's baron right away and informs them that they would benefit greatly from an alliance with c_n. o_c_n's baron eyes {PRONOUN/m_c/object} skeptically.",
+    "event_text": "At the Gathering, m_c approaches o_c_n's Baron right away and informs them that they would benefit greatly from an alliance with c_n. o_c_n's Baron eyes {PRONOUN/m_c/object} skeptically.",
     "rel_change": 0,
     "m_c": {
       "trait": [ "arrogant", "ambitious", "confident", "bold", "daring", "competitive", "flamboyant", "shameless" ]
@@ -938,7 +938,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "At the Gathering, m_c suggests to o_c_n's baron that they send a joint patrol to explore beyond their borders and find new hunting grounds. o_c_n's baron informs {PRONOUN/m_c/object} that not every cat shares {PRONOUN/m_c/poss} taste for adventure.",
+    "event_text": "At the Gathering, m_c suggests to o_c_n's Baron that they send a joint patrol to explore beyond their borders and find new hunting grounds. o_c_n's Baron informs {PRONOUN/m_c/object} that not every cat shares {PRONOUN/m_c/poss} taste for adventure.",
     "rel_change": 0,
     "m_c": {
       "trait": [ "adventurous" ]
@@ -948,7 +948,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "At the Gathering, m_c remarks on how a fighting technique developed by o_c_n clippers is something m_c hopes to teach to c_n's apprentices for moons to come. o_c_n's baron scowls and seems unhappy m_c even knows about this special technique.",
+    "event_text": "At the Gathering, m_c remarks on how a fighting technique developed by o_c_n clippers is something m_c hopes to teach to c_n's apprentices for moons to come. o_c_n's Baron scowls and seems unhappy m_c even knows about this special technique.",
     "rel_change": -5,
     "m_c": {
       "trait": ["thoughtful" ],
@@ -959,7 +959,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "During the Gathering, m_c asks after o_c_n's baron health - have they been eating well? Sleeping enough? o_c_n's baron is unimpressed. Does m_c think {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} their mother?",
+    "event_text": "During the Gathering, m_c asks after o_c_n's Baron health - have they been eating well? Sleeping enough? o_c_n's Baron is unimpressed. Does m_c think {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} their mother?",
     "rel_change": 0,
     "m_c": {
       "trait": [ "loving", "compassionate" ]
@@ -969,7 +969,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "At the Gathering, m_c asks if o_c_n's herb stores are full. o_c_n's baron's hackles raise, and the baron asks if {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} trying to learn about o_c_n's weaknesses.",
+    "event_text": "At the Gathering, m_c asks if o_c_n's herb stores are full. o_c_n's Baron's hackles raise, and the Baron asks if {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} trying to learn about o_c_n's weaknesses.",
     "rel_change": -1,
     "m_c": { },
     "player_clan_temper": ["any"],
@@ -977,7 +977,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "At the Gathering, m_c approaches o_c_n's baron with a friendly tail-flick. Once they're face-to-face, m_c forgets every possible topic of conversation. After a few awkward heartbeats, m_c asks if o_c_n's baron has climbed any good trees lately.",
+    "event_text": "At the Gathering, m_c approaches o_c_n's Baron with a friendly tail-flick. Once they're face-to-face, m_c forgets every possible topic of conversation. After a few awkward heartbeats, m_c asks if o_c_n's Baron has climbed any good trees lately.",
     "rel_change": -1,
     "m_c": {
       "skill": [ "CLIMBER,1" ],
@@ -988,7 +988,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "At the Gathering, o_c_n's baron mentions camp renovations intended to make it safer for their kits. m_c interrupts to recommend weaving brambles and thistles into camp walls to deter predators - o_c_n's baron coughs and remarks they are looking to minimize the sharp edges of camp.",
+    "event_text": "At the Gathering, o_c_n's Baron mentions camp renovations intended to make it safer for their kits. m_c interrupts to recommend weaving brambles and thistles into camp walls to deter predators - o_c_n's Baron coughs and remarks they are looking to minimize the sharp edges of camp.",
     "rel_change": -1,
     "m_c": {
       "skill": [ "CAMP,1" ],
@@ -999,7 +999,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "During the Gathering, m_c proposes a friendship between o_c_n and c_n, describing a beautiful future for their Clans where no cat goes hungry and half-Clan families might thrive. o_c_n's baron replies that though o_c_n may be an easy-going Clan, even they know life isn't all mice and moonlight'",
+    "event_text": "During the Gathering, m_c proposes a friendship between o_c_n and c_n, describing a beautiful future for their Clans where no cat goes hungry and half-Clan families might thrive. o_c_n's Baron replies that though o_c_n may be an easy-going Clan, even they know life isn't all mice and moonlight'",
     "rel_change": -1,
     "m_c": { },
     "player_clan_temper": ["any"],
@@ -1007,10 +1007,10 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "o_c_n's baron looks at m_c with sickly-sweet pity, ignoring the stuttered offers of friendship.",
+    "event_text": "o_c_n's Baron looks at m_c with sickly-sweet pity, ignoring the stuttered offers of friendship.",
     "rel_change": -1,
     "m_c": {
-      "status": ["apprentice", "mediator apprentice", "medicine cat apprentice"],
+      "status": ["colt", "apprentice doctor"],
       "trait": ["nervous", "insecure", "gloomy", "thoughtful", "careful", "sneaky", "cunning"]
     },
     "player_clan_temper": ["any"],
@@ -1018,10 +1018,10 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "o_c_n's baron seems less than impressed when the apprentice approaches them with confident overtures of friendship.",
+    "event_text": "o_c_n's Baron seems less than impressed when the apprentice approaches them with confident overtures of friendship.",
     "rel_change": -2,
     "m_c": {
-      "status": ["apprentice", "mediator apprentice", "medicine cat apprentice"],
+      "status": ["colt", "apprentice doctor"],
       "trait": ["fierce", "troublesome", "bloodthirsty", "cold", "charismatic", "playful", "bold", "daring", "righteous", "strict", "compassionate", "thoughtful", "ambitious", "confident", "adventurous", "calm", "careful", "faithful", "loving", "responsible", "loyal", "shameless", "sneaky", "strange", "vengeful", "wise", "arrogant", "competitive", "cunning", "oblivious", "sincere", "flamboyant", "rebellious"]
     },
     "player_clan_temper": ["any"],
@@ -1029,7 +1029,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "In their Gathering speech, o_c_n's baron announces the birth of new kittens. m_c promises them that c_n will help rip out the throat of anyone that poses a threat to these kits. o_c_n's baron is put off by m_c's zeal.",
+    "event_text": "In their Gathering speech, o_c_n's Baron announces the birth of new kittens. m_c promises them that c_n will help rip out the throat of anyone that poses a threat to these kits. o_c_n's Baron is put off by m_c's zeal.",
     "rel_change": -1,
     "m_c": {
       "trait": [
@@ -1042,7 +1042,7 @@
   },
   {
     "interaction_type": "antagonize",
-    "event_text": "During the Gathering, m_c makes scathing comments about o_c_n. o_c_n's baron blatantly ignores {PRONOUN/m_c/object}.",
+    "event_text": "During the Gathering, m_c makes scathing comments about o_c_n. o_c_n's Baron blatantly ignores {PRONOUN/m_c/object}.",
     "rel_change": 0,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -1050,7 +1050,7 @@
   },
   {
     "interaction_type": "antagonize",
-    "event_text": "m_c tries to get o_c_n's baron's attention during the whole Gathering, biding {PRONOUN/m_c/poss} time until {PRONOUN/m_c/subject} can land the perfect zinger. o_c_n's baron never gives {PRONOUN/m_c/object} an opening.",
+    "event_text": "m_c tries to get o_c_n's Baron's attention during the whole Gathering, biding {PRONOUN/m_c/poss} time until {PRONOUN/m_c/subject} can land the perfect zinger. o_c_n's Baron never gives {PRONOUN/m_c/object} an opening.",
     "rel_change": 0,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -1058,7 +1058,7 @@
   },
   {
     "interaction_type": "antagonize",
-    "event_text": "Neither o_c_n's baron nor m_c gets much of a chance to speak at the Gathering; another Clan's baron just won't shut up. They end up exchanging commiserating looks, and m_c never gets a chance to use all the insults {PRONOUN/m_c/subject} prepared.",
+    "event_text": "Neither o_c_n's Baron nor m_c gets much of a chance to speak at the Gathering; another Clan's Baron just won't shut up. They end up exchanging commiserating looks, and m_c never gets a chance to use all the insults {PRONOUN/m_c/subject} prepared.",
     "rel_change": 0,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -1066,7 +1066,7 @@
   },
   {
     "interaction_type": "antagonize",
-    "event_text": "o_c_n's baron is bored of m_c's taunts. {PRONOUN/m_c/subject/CAP} {VERB/m_c/fail/fails} to make any progress in worsening this already-hostile relationship during the Gathering.",
+    "event_text": "o_c_n's Baron is bored of m_c's taunts. {PRONOUN/m_c/subject/CAP} {VERB/m_c/fail/fails} to make any progress in worsening this already-hostile relationship during the Gathering.",
     "rel_change": 0,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -1074,7 +1074,7 @@
   },
   {
     "interaction_type": "antagonize",
-    "event_text": "During the Gathering, m_c threatens o_c_n's baron with more bloodshed and fury if o_c_n doesn't back down. o_c_n's baron rolls their eyes at the show of bravado.",
+    "event_text": "During the Gathering, m_c threatens o_c_n's Baron with more bloodshed and fury if o_c_n doesn't back down. o_c_n's Baron rolls their eyes at the show of bravado.",
     "rel_change": 0,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -1082,7 +1082,7 @@
   },
   {
     "interaction_type": "antagonize",
-    "event_text": "At the Gathering, m_c fabricates an accusation of o_c_n stealing prey from c_n. o_c_n's baron is more baffled than anything - with all the bad blood between their Clans, why did m_c feel the need to invent slights?",
+    "event_text": "At the Gathering, m_c fabricates an accusation of o_c_n stealing prey from c_n. o_c_n's Baron is more baffled than anything - with all the bad blood between their Clans, why did m_c feel the need to invent slights?",
     "rel_change": 0,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -1090,7 +1090,7 @@
   },
   {
     "interaction_type": "antagonize",
-    "event_text": "During the Gathering, m_c's brilliant, cutting insults are drowned out by o_c_n's baron picking a fight with a whole other Clan. m_c is disappointed. {PRONOUN/m_c/subject/CAP} thought <i>c_n</i> was o_c_n's nemesis.",
+    "event_text": "During the Gathering, m_c's brilliant, cutting insults are drowned out by o_c_n's Baron picking a fight with a whole other Clan. m_c is disappointed. {PRONOUN/m_c/subject/CAP} thought <i>c_n</i> was o_c_n's nemesis.",
     "rel_change": 0,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -1130,7 +1130,7 @@
   },
   {
     "interaction_type": "antagonize",
-    "event_text": "m_c launches insult after insult at o_c_n during the Gathering, but even o_c_n's baron can tell {PRONOUN/m_c/poss} heart isn't really in it.",
+    "event_text": "m_c launches insult after insult at o_c_n during the Gathering, but even o_c_n's Baron can tell {PRONOUN/m_c/poss} heart isn't really in it.",
     "rel_change": 0,
     "m_c": {
       "trait": [ "nervous", "insecure", "careful", "wise", "thoughtful", "loving", "compassionate", "gloomy" ]
@@ -1140,7 +1140,7 @@
   },
   {
     "interaction_type": "antagonize",
-    "event_text": "m_c brainstorms all night before the Gathering with {PRONOUN/m_c/poss} rudest Clanmates to develop the perfect insult. Once at the Gathering, m_c suddenly can't remember a single idea they came up with. Something about... o_c_n needing the bones removed from their fresh-kill, maybe? Even o_c_n's baron seems disappointed in m_c.",
+    "event_text": "m_c brainstorms all night before the Gathering with {PRONOUN/m_c/poss} rudest Clanmates to develop the perfect insult. Once at the Gathering, m_c suddenly can't remember a single idea they came up with. Something about... o_c_n needing the bones removed from their fresh-kill, maybe? Even o_c_n's Baron seems disappointed in m_c.",
     "rel_change": 0,
     "m_c": {
       "trait": [ "careful", "lonesome", "insecure", "nervous", "compassionate", "loving", "gloomy" ]
@@ -1150,7 +1150,7 @@
   },
   {
     "interaction_type": "antagonize",
-    "event_text": "Apparently insults are quite Clan-specific. m_c launches {PRONOUN/m_c/poss} sickest burn at o_c_n's baron during the Gathering, who blinks back in total confusion. {PRONOUN/m_c/subject/CAP} {VERB/m_c/have/has} to explain that o_c_n just got totally burned.",
+    "event_text": "Apparently insults are quite Clan-specific. m_c launches {PRONOUN/m_c/poss} sickest burn at o_c_n's Baron during the Gathering, who blinks back in total confusion. {PRONOUN/m_c/subject/CAP} {VERB/m_c/have/has} to explain that o_c_n just got totally burned.",
     "rel_change": 0,
     "m_c": {
       "trait": [ "childish", "playful" ]
@@ -1160,7 +1160,7 @@
   },
   {
     "interaction_type": "antagonize",
-    "event_text": "At the Gathering, m_c snarls and spits at o_c_n's baron. As {PRONOUN/m_c/subject} {VERB/m_c/do/does}, {PRONOUN/m_c/subject} {VERB/m_c/feel/feels} a chill rush over {PRONOUN/m_c/poss} pelt, like plunging into icy water. Starlight glimmers at the paws of o_c_n's baron, and m_c stutters to a stop, squinting at it. Another presence has joined them on the baron's perch, and it doesn't seem happy with m_c.",
+    "event_text": "At the Gathering, m_c snarls and spits at o_c_n's Baron. As {PRONOUN/m_c/subject} {VERB/m_c/do/does}, {PRONOUN/m_c/subject} {VERB/m_c/feel/feels} a chill rush over {PRONOUN/m_c/poss} pelt, like plunging into icy water. Starlight glimmers at the paws of o_c_n's Baron, and m_c stutters to a stop, squinting at it. Another presence has joined them on the Baron's perch, and it doesn't seem happy with m_c.",
     "rel_change": 0,
     "m_c": {
       "trait": ["fierce"],
@@ -1171,7 +1171,7 @@
   },
   {
     "interaction_type": "antagonize",
-    "event_text": "m_c comes to the Gathering with {PRONOUN/m_c/poss} arsenal of best put-downs at the ready - but o_c_n's baron cuts {PRONOUN/m_c/object} down with one cold look. Every cat knows m_c can <i>talk</i>, but can c_n back up these words?",
+    "event_text": "m_c comes to the Gathering with {PRONOUN/m_c/poss} arsenal of best put-downs at the ready - but o_c_n's Baron cuts {PRONOUN/m_c/object} down with one cold look. Every cat knows m_c can <i>talk</i>, but can c_n back up these words?",
     "rel_change": 0,
     "m_c": {
       "skill": [ "SPEAKER,1" ]
@@ -1205,7 +1205,7 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "During the Gathering, m_c tries to make overtures of peace with o_c_n. o_c_n's baron seems far from interested and, in fact, seems to take further offense.",
+    "event_text": "During the Gathering, m_c tries to make overtures of peace with o_c_n. o_c_n's Baron seems far from interested and, in fact, seems to take further offense.",
     "rel_change": -1,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -1213,7 +1213,7 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "During the Gathering, m_c awkwardly compliments o_c_n's strength in a recent border skirmish between their Clans. o_c_n's baron unsheathes their claws and promises {PRONOUN/m_c/subject} {VERB/m_c/has/have}n't seen anything yet.",
+    "event_text": "During the Gathering, m_c awkwardly compliments o_c_n's strength in a recent border skirmish between their Clans. o_c_n's Baron unsheathes their claws and promises {PRONOUN/m_c/subject} {VERB/m_c/has/have}n't seen anything yet.",
     "rel_change": -1,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -1221,7 +1221,7 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "At the Gathering, m_c offers a few tepid compliments to o_c_n's baron, who snorts. {VERB/m_c/Do/Does} {PRONOUN/m_c/subject} really think these feeble words will close up the wound gaping between their Clans?",
+    "event_text": "At the Gathering, m_c offers a few tepid compliments to o_c_n's Baron, who snorts. {VERB/m_c/Do/Does} {PRONOUN/m_c/subject} really think these feeble words will close up the wound gaping between their Clans?",
     "rel_change": 0,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -1229,7 +1229,7 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "m_c appeals to o_c_n's baron's mercy at the Gathering, telling them that the hostilities have taken their toll on c_n. o_c_n's baron asks why {PRONOUN/m_c/subject} {VERB/m_c/think/thinks} that's o_c_n's problem.",
+    "event_text": "m_c appeals to o_c_n's Baron's mercy at the Gathering, telling them that the hostilities have taken their toll on c_n. o_c_n's Baron asks why {PRONOUN/m_c/subject} {VERB/m_c/think/thinks} that's o_c_n's problem.",
     "rel_change": 0,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -1237,7 +1237,7 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "o_c_n's baron speaks first at the Gathering and uses their whole speech to bait and provoke m_c. m_c decides not to attempt peace this moon; {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} not sure {PRONOUN/m_c/subject}'ll be able to say a word to o_c_n's baron without snarling.",
+    "event_text": "o_c_n's Baron speaks first at the Gathering and uses their whole speech to bait and provoke m_c. m_c decides not to attempt peace this moon; {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} not sure {PRONOUN/m_c/subject}'ll be able to say a word to o_c_n's Baron without snarling.",
     "rel_change": 0,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -1253,7 +1253,7 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "m_c cajoles o_c_n's baron into agreeing that peace would benefit every cat. o_c_n's baron nods, then scowls and shakes their head. They won't be so easily swayed by {PRONOUN/m_c/poss} skill for persuasion.",
+    "event_text": "m_c cajoles o_c_n's Baron into agreeing that peace would benefit every cat. o_c_n's Baron nods, then scowls and shakes their head. They won't be so easily swayed by {PRONOUN/m_c/poss} skill for persuasion.",
     "rel_change": 0,
     "m_c": {
         "trait": [ "confident", "charismatic" ]
@@ -1263,7 +1263,7 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "m_c cajoles o_c_n's baron into agreeing that peace would benefit every cat. o_c_n's baron nods, then scowls and shakes their head. They won't be so easily swayed by {PRONOUN/m_c/poss} skill for persuasion.",
+    "event_text": "m_c cajoles o_c_n's Baron into agreeing that peace would benefit every cat. o_c_n's Baron nods, then scowls and shakes their head. They won't be so easily swayed by {PRONOUN/m_c/poss} skill for persuasion.",
     "rel_change": 0,
     "m_c": {
         "skill": [ "SPEAKER,1" ]
@@ -1273,7 +1273,7 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "Before the Gathering, m_c receives an omen - omen_list_sight/m_c. When {PRONOUN/m_c/subject} {VERB/m_c/bring/brings} it up at the Gathering to try to convince o_c_n's baron of StarClan's desire for peace, o_c_n's baron talks over {PRONOUN/m_c/object}.",
+    "event_text": "Before the Gathering, m_c receives an omen - omen_list_sight/m_c. When {PRONOUN/m_c/subject} {VERB/m_c/bring/brings} it up at the Gathering to try to convince o_c_n's Baron of StarClan's desire for peace, o_c_n's Baron talks over {PRONOUN/m_c/object}.",
     "rel_change": -1,
     "m_c": {
         "skill": [ "OMEN,1" ],
@@ -1284,7 +1284,7 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "o_c_n's baron knows m_c's talent for persuasion well and avoids speaking to {PRONOUN/m_c/object} all Gathering.",
+    "event_text": "o_c_n's Baron knows m_c's talent for persuasion well and avoids speaking to {PRONOUN/m_c/object} all Gathering.",
     "rel_change": 0,
     "m_c": {
         "trait": [ "confident", "charismatic" ]
@@ -1294,7 +1294,7 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "o_c_n's baron knows m_c's talent for persuasion well and avoids speaking to {PRONOUN/m_c/object} all Gathering.",
+    "event_text": "o_c_n's Baron knows m_c's talent for persuasion well and avoids speaking to {PRONOUN/m_c/object} all Gathering.",
     "rel_change": 0,
     "m_c": {
         "skill": [ "SPEAKER,1", "MEDIATOR,1" ]
@@ -1304,7 +1304,7 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "At the Gathering, m_c recommends that o_c_n chooses peace... or else. o_c_n's baron snarls at this naked threat.",
+    "event_text": "At the Gathering, m_c recommends that o_c_n chooses peace... or else. o_c_n's Baron snarls at this naked threat.",
     "rel_change": -3,
     "m_c": {
         "skill": [ "MEDIATOR,1" ],
@@ -1315,7 +1315,7 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "m_c makes an appeal to o_c_n at the Gathering, convincing them that peace would benefit both Clans. o_c_n's baron hisses that they wouldn't trust {PRONOUN/m_c/object} as far as they could throw {PRONOUN/m_c/object}.",
+    "event_text": "m_c makes an appeal to o_c_n at the Gathering, convincing them that peace would benefit both Clans. o_c_n's Baron hisses that they wouldn't trust {PRONOUN/m_c/object} as far as they could throw {PRONOUN/m_c/object}.",
     "rel_change": -1,
     "m_c": {
       "trait": [ "shameless", "ambitious", "arrogant", "confident", "charismatic", "bold", "daring", "competitive", "flamboyant", "cunning", "cold", "bloodthirsty", "vengeful" ]
@@ -1325,7 +1325,7 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "At the Gathering, m_c speaks at length about peace and reducing hostilities between c_n and o_c_n. o_c_n's baron nods along, and then lets their gaze travel down to where m_c's claws have unconsciously slid out.",
+    "event_text": "At the Gathering, m_c speaks at length about peace and reducing hostilities between c_n and o_c_n. o_c_n's Baron nods along, and then lets their gaze travel down to where m_c's claws have unconsciously slid out.",
     "rel_change": -1,
     "m_c": {
       "trait": [ "cold", "bloodthirsty", "vengeful", "fierce" ]
@@ -1345,7 +1345,7 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "During the Gathering, m_c makes a heartfelt appeal to o_c_n's baron - let the bloodshed end and choose peace. o_c_n's baron curls their lip at this display of weakness.",
+    "event_text": "During the Gathering, m_c makes a heartfelt appeal to o_c_n's Baron - let the bloodshed end and choose peace. o_c_n's Baron curls their lip at this display of weakness.",
     "rel_change": 0,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -1353,7 +1353,7 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "No matter what m_c says at the Gathering, o_c_n's baron ignores {PRONOUN/m_c/object}.",
+    "event_text": "No matter what m_c says at the Gathering, o_c_n's Baron ignores {PRONOUN/m_c/object}.",
     "rel_change": 0,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -1361,10 +1361,10 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "o_c_n's baron stares down at m_c and regards {PRONOUN/m_c/poss} stuttered words skeptically, eventually turning away. Their dismissal is harsh, but they at least seem content to just ignore c_n.",
+    "event_text": "o_c_n's Baron stares down at m_c and regards {PRONOUN/m_c/poss} stuttered words skeptically, eventually turning away. Their dismissal is harsh, but they at least seem content to just ignore c_n.",
     "rel_change": 0,
     "m_c": {
-      "status": ["apprentice", "mediator apprentice", "medicine cat apprentice"],
+      "status": ["colt", "apprentice doctor"],
       "trait": ["nervous", "insecure", "gloomy", "cunning"]
     },
     "player_clan_temper": ["any"],
@@ -1372,27 +1372,27 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "o_c_n's baron seems startled at the appearance of m_c leading a Clan. They peer sideways at m_c throughout the Gathering, but otherwise ignore {PRONOUN/m_c/object}.",
+    "event_text": "o_c_n's Baron seems startled at the appearance of m_c leading a Clan. They peer sideways at m_c throughout the Gathering, but otherwise ignore {PRONOUN/m_c/object}.",
     "rel_change": 0,
     "m_c": {
-      "status": ["apprentice", "mediator apprentice", "medicine cat apprentice"]
+      "status": ["colt", "apprentice doctor"]
     },
     "player_clan_temper": ["any"],
     "other_clan_temper": ["gracious", "amiable", "mellow"]
   },
   {
     "interaction_type": "appease",
-    "event_text": "o_c_n's baron regards m_c's appearance at the head of c_n impassively. Later on in the Gathering they scoff at m_c's offered peace.",
+    "event_text": "o_c_n's Baron regards m_c's appearance at the head of c_n impassively. Later on in the Gathering they scoff at m_c's offered peace.",
     "rel_change": 0,
     "m_c": {
-      "status": ["apprentice", "mediator apprentice", "medicine cat apprentice"]
+      "status": ["colt", "apprentice doctor"]
     },
     "player_clan_temper": ["any"],
     "other_clan_temper": ["stoic", "logical"]
   },
   {
     "interaction_type": "appease",
-    "event_text": "At the Gathering, o_c_n's baron and m_c trade threats as usual. Finally, m_c hisses that if o_c_n's baron wants to take {PRONOUN/m_c/object} on, they can name the time and place. o_c_n's baron arches their back, spitting.",
+    "event_text": "At the Gathering, o_c_n's Baron and m_c trade threats as usual. Finally, m_c hisses that if o_c_n's Baron wants to take {PRONOUN/m_c/object} on, they can name the time and place. o_c_n's Baron arches their back, spitting.",
     "rel_change": -3,
     "m_c": {
       "skill": ["FIGHTER,2"],
@@ -1403,7 +1403,7 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "During the Gathering, m_c warns o_c_n's baron that unless they back down, m_c will tell {PRONOUN/m_c/poss} super scary friends from the dark place to come get them. o_c_n's baron is unimpressed by this.",
+    "event_text": "During the Gathering, m_c warns o_c_n's Baron that unless they back down, m_c will tell {PRONOUN/m_c/poss} super scary friends from the dark place to come get them. o_c_n's Baron is unimpressed by this.",
     "rel_change": 0,
     "m_c": {
       "skill": ["DARK,1"],
@@ -1414,7 +1414,7 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "On the way to the Gathering, m_c spots a patch of greenish-yellow mushrooms and assumes this must be a sign of StarClan favoring c_n. {PRONOUN/m_c/subject/CAP} {VERB/m_c/greet/greets} o_c_n's baron by confidently accepting their surrender in the ongoing hostilities; o_c_n's baron snarls in {PRONOUN/m_c/poss} face. Maybe they were just normal mushrooms, then.",
+    "event_text": "On the way to the Gathering, m_c spots a patch of greenish-yellow mushrooms and assumes this must be a sign of StarClan favoring c_n. {PRONOUN/m_c/subject/CAP} {VERB/m_c/greet/greets} o_c_n's Baron by confidently accepting their surrender in the ongoing hostilities; o_c_n's Baron snarls in {PRONOUN/m_c/poss} face. Maybe they were just normal mushrooms, then.",
     "rel_change": -5,
     "m_c": {
       "trait": ["arrogant"],
@@ -1425,37 +1425,37 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "The baron of o_c_n laughs at the sight of c_n being led by m_c. The cat makes a comment on how piteous m_c's clan must be, to have an apprentice leading them, and sneers that they'll soon have succeeded at wiping c_n out.",
+    "event_text": "The Baron of o_c_n laughs at the sight of c_n being led by m_c. The cat makes a comment on how piteous m_c's clan must be, to have an apprentice leading them, and sneers that they'll soon have succeeded at wiping c_n out.",
     "rel_change": -1,
     "m_c": {
-      "status": ["apprentice", "mediator apprentice", "medicine cat apprentice"]
+      "status": ["colt", "apprentice doctor"]
     },
     "player_clan_temper": ["any"],
     "other_clan_temper": ["bloodthirsty", "proud"]
   },
   {
     "interaction_type": "appease",
-    "event_text": "When c_n arrives at the Gathering and m_c takes {PRONOUN/m_c/poss} place with the Clan barons, o_c_n's baron gasps and inquires as to what happened to leave <i>m_c</i> as the only option to lead, the <i>poor dear</i>. Their words are sickly sweet; m_c finds {PRONOUN/m_c/self} unable to control the following narrative o_c_n spins. c_n is no better off at the end of it.",
+    "event_text": "When c_n arrives at the Gathering and m_c takes {PRONOUN/m_c/poss} place with the Clan Barons, o_c_n's Baron gasps and inquires as to what happened to leave <i>m_c</i> as the only option to lead, the <i>poor dear</i>. Their words are sickly sweet; m_c finds {PRONOUN/m_c/self} unable to control the following narrative o_c_n spins. c_n is no better off at the end of it.",
     "rel_change": 0,
     "m_c": {
-      "status": ["apprentice", "mediator apprentice", "medicine cat apprentice"]
+      "status": ["colt", "apprentice doctor"]
     },
     "player_clan_temper": ["any"],
     "other_clan_temper": ["cunning"]
   },
   {
     "interaction_type": "appease",
-    "event_text": "When m_c joins the Clan barons at the Gathering, o_c_n's baron starts throwing nervous glances at the other barons. No one else comments on the apprentice, though, despite the air of awkwardness. o_c_n's baron avoids m_c for the rest of the Gathering.",
+    "event_text": "When m_c joins the Clan Barons at the Gathering, o_c_n's Baron starts throwing nervous glances at the other Barons. No one else comments on the apprentice, though, despite the air of awkwardness. o_c_n's Baron avoids m_c for the rest of the Gathering.",
     "rel_change": 0,
     "m_c": {
-      "status": ["apprentice", "mediator apprentice", "medicine cat apprentice"]
+      "status": ["colt", "apprentice doctor"]
     },
     "player_clan_temper": ["any"],
     "other_clan_temper": ["wary"]
   },
   {
     "interaction_type": "appease",
-    "event_text": "During the Gathering, o_c_n's baron goes on and on about c_n wronging them. {PRONOUN/m_c/poss/CAP} temper slips through {PRONOUN/m_c/poss} claws, and m_c eventually snaps at o_c_n's baron to just shut their trap - every cat knows they're talking a load of fox-dung. Far from shutting their trap, o_c_n's baron only yowls louder.",
+    "event_text": "During the Gathering, o_c_n's Baron goes on and on about c_n wronging them. {PRONOUN/m_c/poss/CAP} temper slips through {PRONOUN/m_c/poss} claws, and m_c eventually snaps at o_c_n's Baron to just shut their trap - every cat knows they're talking a load of fox-dung. Far from shutting their trap, o_c_n's Baron only yowls louder.",
     "rel_change": -3,
     "m_c": {
       "skill": ["MEDIATOR,1"],
@@ -1466,7 +1466,7 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "At the Gathering, m_c reveals to o_c_n's baron that one of the o_c_n clippers who died in a recent conflict came to m_c and spoke to {PRONOUN/m_c/object} about peace. o_c_n's baron is furious m_c would presume to speak for one of their dead Clanmates.",
+    "event_text": "At the Gathering, m_c reveals to o_c_n's Baron that one of the o_c_n Clippers who died in a recent conflict came to m_c and spoke to {PRONOUN/m_c/object} about peace. o_c_n's Baron is furious m_c would presume to speak for one of their dead Clanmates.",
     "rel_change": -5,
     "m_c": {
       "skill": ["GHOST,3"]
@@ -1476,7 +1476,7 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "m_c has heard plenty of StarClan's words and reckons {PRONOUN/m_c/subject} can come up with something similar to hurry along the peace process. Upon delivering {PRONOUN/m_c/poss} \"prophecy\" at the Gathering, o_c_n's baron scoffs; are they really expected to believe <i>that</i> thistledown?",
+    "event_text": "m_c has heard plenty of StarClan's words and reckons {PRONOUN/m_c/subject} can come up with something similar to hurry along the peace process. Upon delivering {PRONOUN/m_c/poss} \"prophecy\" at the Gathering, o_c_n's Baron scoffs; are they really expected to believe <i>that</i> thistledown?",
     "rel_change": -5,
     "m_c": {
       "skill": ["PROPHET,1"],
@@ -1487,7 +1487,7 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "m_c announces at the Gathering that {PRONOUN/m_c/subject} received a vision of prophecy_list_sight_sound/m_c. The barons bustle to decide the meaning and, later on, o_c_n's baron hisses that this does not spell the end of hostilities between c_n and o_c_n.",
+    "event_text": "m_c announces at the Gathering that {PRONOUN/m_c/subject} received a vision of prophecy_list_sight_sound/m_c. The Barons bustle to decide the meaning and, later on, o_c_n's Baron hisses that this does not spell the end of hostilities between c_n and o_c_n.",
     "rel_change": 0,
     "m_c": {
       "skill": ["PROPHET,1"]
@@ -1497,7 +1497,7 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "At the Gathering, m_c pays o_c_n's baron a few wooden compliments, but {PRONOUN/m_c/poss} obvious discomfort socializing and {PRONOUN/m_c/poss} powerful fighter's physique undermines {PRONOUN/m_c/poss} effort.",
+    "event_text": "At the Gathering, m_c pays o_c_n's Baron a few wooden compliments, but {PRONOUN/m_c/poss} obvious discomfort socializing and {PRONOUN/m_c/poss} powerful fighter's physique undermines {PRONOUN/m_c/poss} effort.",
     "rel_change": -1,
     "m_c": {
       "skill": ["FIGHTER,1"],
@@ -1508,7 +1508,7 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "m_c pulls the o_c_n baron aside during the Gathering. The baron seems angry when they later return to the Gathering proper - nearby cats whisper that they heard m_c say something about the other baron's dreams. When m_c later offers peace to o_c_n, their baron only spits accusations of spies and trespasses.",
+    "event_text": "m_c pulls the o_c_n Baron aside during the Gathering. The Baron seems angry when they later return to the Gathering proper - nearby cats whisper that they heard m_c say something about the other Baron's dreams. When m_c later offers peace to o_c_n, their Baron only spits accusations of spies and trespasses.",
     "rel_change": -2,
     "m_c": {
       "skill": ["DREAM,2"]
@@ -1518,7 +1518,7 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "m_c dreams the night before the Gathering, hearing the whispers of {PRONOUN/m_c/poss} ancestors. When {PRONOUN/m_c/subject} {VERB/m_c/speak/speaks} at the Gathering, o_c_n's baron shows open disdain - only for clouds to begin covering the moon. The Gathering ends quickly, though the enemy baron still leaves with their head held high.",
+    "event_text": "m_c dreams the night before the Gathering, hearing the whispers of {PRONOUN/m_c/poss} ancestors. When {PRONOUN/m_c/subject} {VERB/m_c/speak/speaks} at the Gathering, o_c_n's Baron shows open disdain - only for clouds to begin covering the moon. The Gathering ends quickly, though the enemy Baron still leaves with their head held high.",
     "rel_change": 0,
     "m_c": {
       "skill": ["STAR,3"]
@@ -1528,7 +1528,7 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "m_c is confident ending hostilities will be easy-appeasey-greenleaf-breezy. o_c_n's baron has no patience for this attitude.",
+    "event_text": "m_c is confident ending hostilities will be easy-appeasey-greenleaf-breezy. o_c_n's Baron has no patience for this attitude.",
     "rel_change": 0,
     "m_c": {
       "trait": [ "childish", "playful" ]

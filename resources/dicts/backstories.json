@@ -41,12 +41,12 @@
             "retired_baron",
             "refugee1",
             "tragedy_survivor1",
-            "medicine_cat",
+            "doctor",
             "guided4",
             "refugee5"
         ],
         "healer_backstories": [
-            "medicine_cat", "wandering_healer1", "wandering_healer2"
+            "doctor", "wandering_healer1", "wandering_healer2"
         ],
         "orphaned_backstories": [
             "orphaned1", "orphaned2", "orphaned3", "orphaned4", "orphaned5", "orphaned6"

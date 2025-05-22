@@ -107,7 +107,7 @@ class Name:
             prefix_category = random.choice(possible_prefix_categories)
             self.prefix = random.choice(prefix_category)
         else:
-            self.prefix = random.choice(self.names_dict["normal_prefixes"])
+            self.prefix = random.choice(self.names_dict["normal_prefixes"] + self.names_dict["loner_names"])
 
         # This thing prevents any prefix duplications from happening.
         # Try statement stops this form running when initializing.

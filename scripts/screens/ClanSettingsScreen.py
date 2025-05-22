@@ -413,17 +413,15 @@ class ClanSettingsScreen(Screens):
                 continue
 
             living_cats += 1
-            if cat.status == "medicine cat":
+            if cat.status == "doctor":
                 med_cats += 1
-            elif cat.status == "medicine cat apprentice":
+            elif cat.status == "apprentice doctor":
                 med_cat_apprentices += 1
             elif cat.status == "clipper":
                 clippers += 1
-            elif cat.status == "apprentice":
+            elif cat.status == "colt":
                 clipper_apprentices += 1
-            elif cat.status == "mediator apprentice":
-                mediator_apprentices += 1
-            elif cat.status == "mediator":
+            elif cat.status == "cog":
                 mediators += 1
             elif cat.status == "elder":
                 elders += 1

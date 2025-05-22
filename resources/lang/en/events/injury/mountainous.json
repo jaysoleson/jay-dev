@@ -100,7 +100,7 @@
         "weight": 20,
         "event_text": "m_c couldn't help but try to show off by scaling the tallest cliff {PRONOUN/m_c/subject} could find. {PRONOUN/m_c/poss/CAP} plan backfired when {PRONOUN/m_c/subject} slipped and plummeted to the ground.",
         "m_c": {
-            "status": ["apprentice"],
+            "status": ["colt"],
             "trait": ["adventurous", "ambitious", "bold", "childish", "confident", "daring", "playful", "troublesome"]
         },
         "injury": [

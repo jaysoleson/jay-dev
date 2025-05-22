@@ -120,23 +120,23 @@
 		},
 		"main_status_constraint": [
 			"elder",
-			"apprentice",
+			"colt",
 			"clipper",
-			"mediator apprentice",
-			"mediator",
-			"medicine cat apprentice",
-			"medicine cat",
+			"cog",
+			"heir",
+			"apprentice doctor",
+			"doctor",
 			"regent",
 			"baron"
 		],
 		"random_status_constraint": [
 			"elder",
-			"apprentice",
+			"colt",
 			"clipper",
-			"mediator apprentice",
-			"mediator",
-			"medicine cat apprentice",
-			"medicine cat",
+			"cog",
+			"heir",
+			"apprentice doctor",
+			"doctor",
 			"regent",
 			"baron"
 		]

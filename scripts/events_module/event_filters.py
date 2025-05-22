@@ -57,20 +57,6 @@ def event_for_tags(tags: list, cat, other_cat=None) -> bool:
 
     # check baron life tags
     if hasattr(cat, "ID"):
-        if cat.status == "baron":
-            baron_lives = game.clan.baron_lives
-
-            life_lookup = {
-                "some_lives": 4,
-                "lives_remain": 2,
-                "high_lives": 7,
-                "mid_lives": 4,
-                "low_lives": 1
-            }
-
-            for _con, _val in life_lookup.items():
-                if _con in tags and baron_lives < _val:
-                    return False
                 
         # check if main cat will allow for adoption
         if "adoption" in tags:
@@ -95,7 +81,7 @@ def event_for_tags(tags: list, cat, other_cat=None) -> bool:
             if rank == "apps":
                 if not get_alive_status_cats(
                         cat,
-                        ["apprentice", "medicine cat apprentice", "mediator apprentice"]):
+                        ["colt", "apprentice doctor"]):
                     return False
                 else:
                     continue
@@ -141,7 +127,7 @@ def event_for_clan_relations(required_rel: list, other_clan) -> bool:
     if "any" in required_rel:
         return True
 
-    current_rel = other_clan.relations
+    current_rel = other_clan.relations[game.clan.name]
 
     if "hostile" in required_rel and 0 <= current_rel <= 6:
         return True

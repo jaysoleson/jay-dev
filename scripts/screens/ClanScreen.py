@@ -123,7 +123,7 @@ class ClanScreen(Screens):
         self.choose_cat_positions()
 
         self.set_disabled_menu_buttons(["camp_screen"])
-        self.update_heading_text(f"{game.clan.name}Clan")
+        self.update_heading_text(str(game.clan.baron.name) + "'s Territory")
         self.show_menu_buttons()
 
         # Creates and places the cat sprites.
@@ -142,6 +142,8 @@ class ClanScreen(Screens):
                     or game.config["fun"]["all_cats_are_newborn"]
                     or game.config["fun"]["newborns_can_roam"]
                 )
+                # BL
+                and Cat.all_cats[x].allegiance == game.clan.baron.ID
             ):
                 i += 1
                 if i > self.max_sprites_displayed:
@@ -183,10 +185,11 @@ class ClanScreen(Screens):
                             starting_height=i,
                         )
                     )
-                except:
+                except Exception as e:
                     print(
                         f"ERROR: placing {Cat.all_cats[x].name}'s sprite on Clan page"
                     )
+                    print(e)
 
         # Den Labels
         # Redo the locations, so that it uses layout on the Clan page
@@ -206,7 +209,7 @@ class ClanScreen(Screens):
         )
         self.med_den_label = UISurfaceImageButton(
             ui_scale(pygame.Rect(self.layout["medicine den"], (151, 28))),
-            "screens.core.medicine_cat_den",
+            "screens.core.doctor_den",
             get_button_dict(ButtonStyles.ROUNDED_RECT, (151, 28)),
             object_id=ObjectID(class_id="@buttonstyles_rounded_rect", object_id=None),
             starting_height=2,
@@ -474,11 +477,11 @@ class ClanScreen(Screens):
                 else:
                     continue
 
-            if Cat.all_cats[x].status in ("apprentice", "mediator apprentice"):
+            if Cat.all_cats[x].status == "colt":
                 Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(
                     first_choices, all_dens, [1, 50, 1, 1, 100, 100, 1]
                 )
-            elif Cat.all_cats[x].status == "regent":
+            elif Cat.all_cats[x].status in ("regent", "heir"):
                 Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(
                     first_choices, all_dens, [1, 50, 1, 1, 1, 50, 1]
                 )
@@ -491,11 +494,11 @@ class ClanScreen(Screens):
                 Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(
                     first_choices, all_dens, [60, 8, 1, 1, 1, 1, 1]
                 )
-            elif Cat.all_cats[x].status in ("medicine cat apprentice", "medicine cat"):
+            elif Cat.all_cats[x].status in ("apprentice doctor", "doctor"):
                 Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(
                     first_choices, all_dens, [20, 20, 20, 400, 1, 1, 1]
                 )
-            elif Cat.all_cats[x].status in ("clipper", "mediator"):
+            elif Cat.all_cats[x].status in ("clipper", "cog"):
                 Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(
                     first_choices, all_dens, [1, 1, 1, 1, 1, 60, 60]
                 )

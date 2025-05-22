@@ -24,7 +24,7 @@
             "Wants to spend time alone today",
             "Is eating some fresh-kill",
             "Is heading to the dirtplace",
-            "Is in the medicine cat den",
+            "Is in the doctor den",
             "Is having a good day",
             "Is having a hard day",
             "Is talking to {PRONOUN/m_c/self}",
@@ -142,12 +142,12 @@
             "Thought {PRONOUN/m_c/subject} saw a cat, but turns out it's a Twoleg object that just looks like one"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice",
+            "colt",
+            "apprentice doctor",
             "clipper",
-            "medicine cat",
-            "mediator",
+            "doctor",
+            "cog",
+            "heir",
             "regent",
             "baron",
             "elder"
@@ -173,12 +173,12 @@
             "Somehow has a gaggle of kits following {PRONOUN/m_c/object}"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice",
+            "colt",
+            "apprentice doctor",
             "clipper",
-            "medicine cat",
-            "mediator",
+            "doctor",
+            "cog",
+            "heir",
             "regent",
             "baron",
             "elder"
@@ -201,12 +201,12 @@
             "Thinks r_c is doing poorly as regent"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice",
+            "colt",
+            "apprentice doctor",
             "clipper",
-            "medicine cat",
-            "mediator",
+            "doctor",
+            "cog",
+            "heir",
             "regent",
             "baron",
             "elder"
@@ -222,13 +222,13 @@
         "id": "gen_to_alive_med_cat_app",
         "thoughts": [
             "Is grateful for the treatment r_c gave {PRONOUN/m_c/object}",
-            "Is in awe of r_c's growth as a medicine cat apprentice",
-            "Thinks r_c will make a good medicine cat",
+            "Is in awe of r_c's growth as a apprentice doctor",
+            "Thinks r_c will make a good doctor",
             "Has doubts about r_c's abilities",
             "Saw r_c almost use the wrong herbs"
         ],
         "random_status_constraint": [
-            "medicine cat apprentice"
+            "apprentice doctor"
         ],
         "random_living_status": [
             "living"
@@ -239,11 +239,11 @@
         "thoughts": [
             "Is grateful to r_c for {PRONOUN/m_c/poss} treatment",
             "Wonders if StarClan has given r_c any prophecies lately",
-            "Chats with r_c about what it's like to be a medicine cat",
+            "Chats with r_c about what it's like to be a doctor",
             "Is worrying about asking r_c for help for something minor"
         ],
         "random_status_constraint": [
-            "medicine cat"
+            "doctor"
         ],
         "random_living_status": [
             "living"
@@ -259,12 +259,12 @@
             "Has a list of complaints for r_c"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice",
+            "colt",
+            "apprentice doctor",
             "clipper",
-            "medicine cat",
-            "mediator",
+            "doctor",
+            "cog",
+            "heir",
             "regent",
             "baron",
             "elder"
@@ -288,12 +288,11 @@
         ],
         "main_status_constraint": [
             "kitten",
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice",
+            "colt",
+            "apprentice doctor",
             "clipper",
-            "medicine cat",
-            "mediator"
+            "doctor",
+            "cog"
         ],
         "random_status_constraint": [
             "elder"
@@ -312,45 +311,18 @@
             "Is grateful to r_c for {PRONOUN/r_c/poss} mediation"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice",
+            "colt",
+            "apprentice doctor",
             "clipper",
-            "medicine cat",
-            "mediator",
+            "doctor",
+            "cog",
+            "heir",
             "regent",
             "baron",
             "elder"
         ],
         "random_status_constraint": [
-            "mediator"
-        ],
-        "random_living_status": [
-            "living"
-        ]
-    },
-    {
-        "id": "gen_to_alive_mediator_app",
-        "thoughts": [
-            "Wants to speak to r_c about something",
-            "Thinks r_c will make a good mediator",
-            "Is asking r_c a confusing question to test them",
-            "Is asking r_c a hypothetical question to test them",
-            "Is grateful to r_c for {PRONOUN/r_c/poss} mediation"
-        ],
-        "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice",
-            "clipper",
-            "medicine cat",
-            "mediator",
-            "regent",
-            "baron",
-            "elder"
-        ],
-        "random_status_constraint": [
-            "mediator apprentice"
+            "cog"
         ],
         "random_living_status": [
             "living"
@@ -484,21 +456,20 @@
             "playful"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice",
+            "colt",
+            "apprentice doctor",
             "clipper",
-            "medicine cat",
-            "mediator",
+            "doctor",
+            "cog",
+            "heir",
             "regent",
             "baron",
             "elder"
         ],
         "random_status_constraint": [
             "kitten",
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "random_living_status": [
             "living"
@@ -534,12 +505,12 @@
             "ambitious"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice",
+            "colt",
+            "apprentice doctor",
             "clipper",
-            "medicine cat",
-            "mediator",
+            "doctor",
+            "cog",
+            "heir",
             "elder"
         ]
     },
@@ -622,7 +593,7 @@
             "bloodthirsty"
         ],
         "main_status_constraint": [
-            "apprentice",
+            "colt",
             "clipper",
             "regent",
             "baron"
@@ -672,7 +643,7 @@
             "bold"
         ],
         "main_status_constraint": [
-            "apprentice",
+            "colt",
             "clipper",
             "regent",
             "baron"
@@ -703,8 +674,8 @@
             "bold"
         ],
         "random_status_constraint": [
-            "medicine cat",
-            "medicine cat apprentice"
+            "doctor",
+            "apprentice doctor"
         ],
         "random_living_status": [
             "living"
@@ -789,14 +760,15 @@
         ],
         "main_status_constraint": [
             "clipper",
-            "medicine cat",
-            "mediator",
+            "doctor",
+            "cog",
+            "heir",
             "regent",
             "baron",
             "elder"
         ],
         "random_status_constraint": [
-            "apprentice",
+            "colt",
             "kitten"
         ],
         "random_living_status": [
@@ -806,18 +778,18 @@
     {
         "id": "careful_to_med",
         "thoughts": [
-            "Is getting a small scratch checked out by the medicine cat",
+            "Is getting a small scratch checked out by the doctor",
             "Is urging a Clanmate to get a scratch checked out",
-            "Asks the medicine cat if the herb stores need to be refreshed",
-            "Asks if the medicine cat is feeling overworked",
-            "Reminds the medicine cat to take breaks"
+            "Asks the doctor if the herb stores need to be refreshed",
+            "Asks if the doctor is feeling overworked",
+            "Reminds the doctor to take breaks"
         ],
         "main_trait_constraint": [
             "careful"
         ],
         "random_status_constraint": [
-            "medicine cat",
-            "medicine cat apprentice"
+            "doctor",
+            "apprentice doctor"
         ],
         "random_living_status": [
             "living"
@@ -875,19 +847,19 @@
             "sneaky"
         ],
         "main_status_constraint": [
-            "apprentice",
+            "colt",
             "clipper",
-            "medicine cat",
-            "mediator",
+            "doctor",
+            "cog",
+            "heir",
             "regent",
             "baron",
             "elder"
         ],
         "random_status_constraint": [
             "kitten",
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "random_living_status": [
             "living"
@@ -936,7 +908,7 @@
             "playful"
         ],
         "main_status_constraint": [
-            "apprentice",
+            "colt",
             "clipper",
             "regent",
             "baron"
@@ -1012,15 +984,15 @@
         ],
         "main_status_constraint": [
             "clipper",
-            "medicine cat",
-            "mediator",
+            "doctor",
+            "cog",
+            "heir",
             "regent",
             "baron",
             "elder"],
         "random_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_trait_constraint": [
             "cold"
@@ -1080,12 +1052,12 @@
             "compassionate"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice",
+            "colt",
+            "apprentice doctor",
             "clipper",
-            "medicine cat",
-            "mediator",
+            "doctor",
+            "cog",
+            "heir",
             "regent",
             "baron"
         ],
@@ -1124,16 +1096,16 @@
         ],
         "main_status_constraint": [
             "clipper",
-            "medicine cat",
-            "mediator",
+            "doctor",
+            "cog",
+            "heir",
             "regent",
             "baron",
             "elder"
         ],
         "random_status_constraint": [
-            "apprentice",
-            "mediator apprentice",
-            "medicine cat apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "random_living_status": [
             "living"
@@ -1142,20 +1114,20 @@
     {
         "id": "compassionate_to_living_med_cat",
         "thoughts": [
-            "Is helping the medicine cat organize herb stores",
-            "Is told by the medicine cat that {PRONOUN/m_c/subject} {VERB/m_c/have/has} a great nest-side manner"
+            "Is helping the doctor organize herb stores",
+            "Is told by the doctor that {PRONOUN/m_c/subject} {VERB/m_c/have/has} a great nest-side manner"
         ],
         "random_status_constraint": [
-            "medicine cat"
+            "doctor"
         ],
         "main_trait_constraint": [
             "compassionate"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "mediator apprentice",
+            "colt",
             "clipper",
-            "mediator",
+            "cog",
+            "heir",
             "regent",
             "baron"
         ],
@@ -1224,7 +1196,7 @@
             "Knows {PRONOUN/m_c/subject}'ll be picked to go to the Gathering"
         ],
         "main_status_constraint": [
-            "apprentice",
+            "colt",
             "clipper",
             "regent",
             "baron" ],
@@ -1450,7 +1422,7 @@
             "Is busy sharpening {PRONOUN/m_c/poss} claws to look stronger"
         ],
         "main_status_constraint": [
-            "apprentice",
+            "colt",
             "clipper",
             "regent",
             "baron"
@@ -1520,12 +1492,12 @@
             "Is feeling a bit anxious after having been around so many cats at the last Gathering"
         ],
         "main_status_constraint": [
-            "apprentice",
+            "colt",
             "clipper",
-            "mediator apprentice",
-            "mediator",
-            "medicine cat",
-            "medicine cat apprentice",
+            "cog",
+            "heir",
+            "doctor",
+            "apprentice doctor",
             "regent",
             "baron"
         ],
@@ -1572,16 +1544,16 @@
         ],
         "main_status_constraint": [
             "clipper",
-            "medicine cat",
-            "mediator",
+            "doctor",
+            "cog",
+            "heir",
             "regent",
             "baron",
             "elder"
         ],
         "random_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_trait_constraint": [
             "loving"
@@ -1593,11 +1565,11 @@
     {
         "id": "loving_to_living_apprentices",
         "thoughts": [
-            "Is offering any help {PRONOUN/m_c/subject} can to the medicine cat"
+            "Is offering any help {PRONOUN/m_c/subject} can to the doctor"
         ],
         "random_status_constraint": [
-            "medicine cat apprentice",
-            "medicine cat"
+            "apprentice doctor",
+            "doctor"
         ],
         "main_trait_constraint": [
             "loving"
@@ -1630,12 +1602,12 @@
             "Reminds r_c that {PRONOUN/r_c/subject} can tell {PRONOUN/m_c/object} anything"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice",
+            "colt",
+            "apprentice doctor",
             "clipper",
-            "medicine cat",
-            "mediator",
+            "doctor",
+            "cog",
+            "heir",
             "regent",
             "baron"
         ],
@@ -1655,10 +1627,10 @@
             "loyal"
         ],
         "main_status_constraint": [
-            "apprentice",
+            "colt",
             "clipper",
-            "medicine cat",
-            "medicine cat apprentice",
+            "doctor",
+            "apprentice doctor",
             "regent",
             "baron"
         ],
@@ -1707,7 +1679,7 @@
             "Got scared by a mouse while hunting"
         ],
         "main_status_constraint": [
-            "apprentice",
+            "colt",
             "clipper",
             "regent",
             "baron"
@@ -1757,7 +1729,7 @@
             "Doesn't get any work done all morning, too busy climbing trees"
         ],
         "main_status_constraint": [
-            "apprentice",
+            "colt",
             "clipper",
             "regent",
             "baron"
@@ -1815,12 +1787,12 @@
             "rebellious"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice",
+            "colt",
+            "apprentice doctor",
             "clipper",
-            "medicine cat",
-            "mediator",
+            "doctor",
+            "cog",
+            "heir",
             "regent",
             "elder"
         ],
@@ -1867,14 +1839,15 @@
         ],
         "main_status_constraint": [
             "clipper",
-            "medicine cat",
-            "mediator",
+            "doctor",
+            "cog",
+            "heir",
             "regent",
             "baron",
             "elder"
         ],
         "random_status_constraint": [
-            "apprentice"
+            "colt"
         ],
         "random_living_status": [
             "living"
@@ -1966,7 +1939,7 @@
             "Brags about {PRONOUN/m_c/poss} latest exploits to any cat that will listen"
         ],
         "main_status_constraint": [
-            "apprentice",
+            "colt",
             "clipper",
             "regent",
             "baron"
@@ -1981,7 +1954,6 @@
             "Makes the rounds around camp, checking in on every cat",
             "Doesn't understand why other cats lie",
             "Wonders if {PRONOUN/m_c/poss} bluntly correcting a Clanmate was too harsh",
-            "Suggested a Clanmate speak with a mediator",
             "Was brutally honest with a Clanmate and feels bad about it",
             "Is spending a lot of {PRONOUN/m_c/poss} time thinking of ways to support any cat, no matter what they're going through",
             "Pays r_c a personal compliment",
@@ -2108,16 +2080,16 @@
         ],
         "main_status_constraint": [
             "clipper",
-            "medicine cat",
-            "mediator",
+            "doctor",
+            "cog",
+            "heir",
             "regent",
             "baron",
             "elder"
         ],
         "random_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_trait_constraint": [
             "strict"
@@ -2159,8 +2131,9 @@
         ],
         "main_status_constraint": [
             "clipper",
-            "medicine cat",
-            "mediator",
+            "doctor",
+            "cog",
+            "heir",
             "regent",
             "baron",
             "elder"
@@ -2180,8 +2153,9 @@
         ],
         "main_status_constraint": [
             "clipper",
-            "medicine cat",
-            "mediator",
+            "doctor",
+            "cog",
+            "heir",
             "regent",
             "baron",
             "elder"
@@ -2190,7 +2164,7 @@
             "thoughtful"
         ],
         "random_status_constraint": [
-            "apprentice"
+            "colt"
         ],
         "random_living_status": [
             "living"
@@ -2199,10 +2173,10 @@
     {
         "id": "thoughtful_to_med",
         "thoughts": [
-            "Offers to fetch herbs for the medicine cat",
-            "Brought back a much-needed herb to the medicine cat after a hunting patrol",
-            "Spends some time helping out the medicine cat today",
-            "Tidies the area in front of the medicine cat den"
+            "Offers to fetch herbs for the doctor",
+            "Brought back a much-needed herb to the doctor after a hunting patrol",
+            "Spends some time helping out the doctor today",
+            "Tidies the area in front of the doctor den"
         ],
         "main_status_constraint": [
             "clipper",
@@ -2213,7 +2187,7 @@
             "thoughtful"
         ],
         "random_status_constraint": [
-            "medicine cat"
+            "doctor"
         ],
         "random_living_status": [
             "living"
@@ -2251,12 +2225,12 @@
     {
         "id": "troublesome_to_living_medcat",
         "thoughts": [
-            "Is grumbling as {PRONOUN/m_c/subject} {VERB/m_c/carry/carries} out a task for the medicine cat",
+            "Is grumbling as {PRONOUN/m_c/subject} {VERB/m_c/carry/carries} out a task for the doctor",
             "Snacks on catmint when r_c isn't looking"
         ],
         "random_status_constraint": [
-            "medicine cat",
-            "medicine cat apprentice"
+            "doctor",
+            "apprentice doctor"
         ],
         "main_trait_constraint": [
             "troublesome"
@@ -2272,16 +2246,16 @@
         ],
         "main_status_constraint": [
             "clipper",
-            "medicine cat",
-            "mediator",
+            "doctor",
+            "cog",
+            "heir",
             "regent",
             "baron",
             "elder"
         ],
         "random_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_trait_constraint": [
             "troublesome"
@@ -2362,9 +2336,8 @@
             "Reminds r_c that life is long, and {PRONOUN/r_c/subject} {VERB/r_c/do/does}n't need to do everything at once"
         ],
         "random_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_trait_constraint": [
             "wise"
@@ -2379,12 +2352,12 @@
             "Asks r_c for some advice"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice",
+            "colt",
+            "apprentice doctor",
             "clipper",
-            "medicine cat",
-            "mediator",
+            "doctor",
+            "cog",
+            "heir",
             "regent",
             "baron"
         ],
@@ -2422,22 +2395,19 @@
     {
         "id": "mediator_skill_gen",
         "thoughts": [
-            "Wonders if it's too late to become a mediator",
-            "Wonders if {PRONOUN/m_c/subject} would be better as a mediator instead",
             "Intervenes in an argument between Clanmates",
             "Smooths over a spat between Clanmates",
             "Advises r_c on {PRONOUN/r_c/poss} love life",
-            "Wouldn't give up {PRONOUN/m_c/poss} role to be a mediator",
             "Tries to give {PRONOUN/m_c/self} the same advice {PRONOUN/m_c/subject}'d give a friend"
         ],
         "main_skill_constraint": [
             "MEDIATOR,1"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
+            "colt",
+            "apprentice doctor",
             "clipper",
-            "medicine cat",
+            "doctor",
             "regent",
             "baron",
             "elder"
@@ -2467,14 +2437,14 @@
     {
         "id": "starclan_skill_to_medcat",
         "thoughts": [
-            "Goes to the medicine cat to ask for spiritual advice"
+            "Goes to the doctor to ask for spiritual advice"
         ],
         "main_skill_constraint": [
             "STAR,1"
         ],
         "random_status_constraint": [
-            "medicine cat",
-            "medicine cat apprentice"
+            "doctor",
+            "apprentice doctor"
         ],
         "random_living_status": [
             "living"
@@ -2537,7 +2507,7 @@
         ]
     },
     {
-        "id": "gen_medicine_cat_mate",
+        "id": "gen_doctor_mate",
         "thoughts": [
             "Is urging r_c to rest",
             "Brings r_c some prey",
@@ -2545,7 +2515,7 @@
             "Leaves honeysuckle in r_c's nest to combat the scent of herbs"
         ],
         "random_status_constraint": [
-            "medicine cat"
+            "doctor"
         ],
         "random_living_status": [
             "living"
@@ -2587,23 +2557,23 @@
             "Reminds r_c of something embarrassing"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice",
+            "colt",
+            "apprentice doctor",
             "clipper",
-            "medicine cat",
-            "mediator",
+            "doctor",
+            "cog",
+            "heir",
             "regent",
             "baron",
             "elder"
         ],
         "random_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice",
+            "colt",
+            "apprentice doctor",
             "clipper",
-            "medicine cat",
-            "mediator",
+            "doctor",
+            "cog",
+            "heir",
             "regent",
             "baron",
             "elder"
@@ -2641,12 +2611,12 @@
             "Is wondering if kittypet life is really so bad"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice",
+            "colt",
+            "apprentice doctor",
             "clipper",
-            "medicine cat",
-            "mediator",
+            "doctor",
+            "cog",
+            "heir",
             "regent",
             "baron",
             "elder"
@@ -2675,7 +2645,7 @@
             "disgraced2",
             "disgraced3",
             "retired_baron",
-            "medicine_cat",
+            "doctor",
             "ostracized_clipper",
             "refugee1",
             "refugee2",
@@ -2712,12 +2682,12 @@
             "Lingers at the border of {PRONOUN/m_c/poss} old Clan"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice",
+            "colt",
+            "apprentice doctor",
             "clipper",
-            "medicine cat",
-            "mediator",
+            "doctor",
+            "cog",
+            "heir",
             "regent",
             "baron",
             "elder"
@@ -2733,18 +2703,18 @@
         "id": "gen_wandering_healer",
         "thoughts": [
             "Is wondering how the cats {PRONOUN/m_c/subject} helped in the past are doing",
-            "Is helping out in the medicine cat den",
+            "Is helping out in the doctor den",
             "Has the urge to wander again",
             "Left the territory to gather an herb from a spot {PRONOUN/m_c/subject} used to use",
             "Catches up with an old friend on the border"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice",
+            "colt",
+            "apprentice doctor",
             "clipper",
-            "medicine cat",
-            "mediator",
+            "doctor",
+            "cog",
+            "heir",
             "regent",
             "baron",
             "elder"
@@ -2764,12 +2734,12 @@
             "Hopes {PRONOUN/m_c/poss} trust in r_c is well-founded"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice",
+            "colt",
+            "apprentice doctor",
             "clipper",
-            "medicine cat",
-            "mediator",
+            "doctor",
+            "cog",
+            "heir",
             "regent",
             "elder"
         ],
@@ -2797,12 +2767,12 @@
             "Is relieved {PRONOUN/m_c/poss} past is behind {PRONOUN/m_c/object}"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice",
+            "colt",
+            "apprentice doctor",
             "clipper",
-            "medicine cat",
-            "mediator",
+            "doctor",
+            "cog",
+            "heir",
             "regent",
             "baron",
             "elder"
@@ -2829,12 +2799,12 @@
             "Confides in r_c about a difficult memory"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice",
+            "colt",
+            "apprentice doctor",
             "clipper",
-            "medicine cat",
-            "mediator",
+            "doctor",
+            "cog",
+            "heir",
             "regent",
             "baron",
             "elder"
@@ -2857,12 +2827,12 @@
             "Warns r_c about something m_c barely survived the first time"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice",
+            "colt",
+            "apprentice doctor",
             "clipper",
-            "medicine cat",
-            "mediator",
+            "doctor",
+            "cog",
+            "heir",
             "regent",
             "elder"
         ],
@@ -2941,7 +2911,7 @@
             "guided1"
         ],
         "main_status_constraint": [
-            "apprentice"
+            "colt"
         ],
         "random_living_status": [
             "living"
@@ -2972,10 +2942,10 @@
             "guided1"
         ],
         "main_status_constraint": [
-            "apprentice"
+            "colt"
         ],
         "random_status_constraint": [
-            "apprentice"
+            "colt"
         ],
         "random_backstory_constraint": [
             "clan_founder",
@@ -3005,7 +2975,7 @@
             "guided1"
         ],
         "main_status_constraint": [
-            "medicine cat"
+            "doctor"
         ],
         "random_living_status": [
             "living"
@@ -3068,13 +3038,13 @@
             "Keeps the dangerous herbs in the highest nooks in {PRONOUN/m_c/poss} den",
             "Scolds r_c for making a mess of {PRONOUN/m_c/poss} stores",
             "Wonders if r_c would make a good apprentice",
-            "Hopes r_c will ask to be made a medicine cat apprentice",
-            "Hopes r_c won't ask to be made a medicine cat apprentice",
+            "Hopes r_c will ask to be made a apprentice doctor",
+            "Hopes r_c won't ask to be made a apprentice doctor",
             "Wonders if r_c is the kit {PRONOUN/m_c/subject} {VERB/m_c/were/was} warned of"
         ],
         "main_status_constraint": [
-            "medicine cat",
-            "medicine cat apprentice"
+            "doctor",
+            "apprentice doctor"
         ],
         "random_status_constraint": [
             "kitten"
@@ -3092,8 +3062,8 @@
             "Wonders if r_c is favoring {PRONOUN/r_c/poss} left leg or if {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} imagining it"
         ],
         "main_status_constraint": [
-            "medicine cat",
-            "medicine cat apprentice"
+            "doctor",
+            "apprentice doctor"
         ],
         "random_status_constraint": [
             "clipper"
@@ -3133,7 +3103,7 @@
             "Is smug after a spectacular catch on patrol"
         ],
         "main_status_constraint": [
-            "apprentice",
+            "colt",
             "clipper",
             "regent",
             "baron"
@@ -3153,7 +3123,7 @@
             "Volunteers to join r_c's patrol"
         ],
         "main_status_constraint": [
-            "apprentice",
+            "colt",
             "clipper"
         ],
         "random_status_constraint": [
@@ -3190,7 +3160,7 @@
             "Hopes the regent won't assign {PRONOUN/m_c/object} to the next patrol"
         ],
         "main_status_constraint": [
-            "apprentice",
+            "colt",
             "clipper"
         ],
         "random_status_constraint": [
@@ -3206,7 +3176,7 @@
             "Recounts the Gathering for r_c and {PRONOUN/r_c/poss} patients",
             "Brought r_c a berry to identify",
             "Brought r_c an herb to identify",
-            "Chats with r_c about {PRONOUN/r_c/poss} role as a medicine cat",
+            "Chats with r_c about {PRONOUN/r_c/poss} role as a doctor",
             "\"Organizes\" r_c's herbs, much to r_c's annoyance"
         ],
         "main_status_constraint": [
@@ -3215,7 +3185,7 @@
             "baron"
         ],
         "random_status_constraint": [
-            "medicine cat"
+            "doctor"
         ],
         "random_living_status": [
             "living"
@@ -3243,7 +3213,7 @@
             "baron"
         ],
         "random_status_constraint": [
-            "apprentice"
+            "colt"
         ],
         "random_living_status": [
             "living"
@@ -3263,7 +3233,7 @@
             "Newleaf"
         ],
         "main_status_constraint": [
-            "apprentice",
+            "colt",
             "clipper",
             "regent",
             "baron"
@@ -3283,7 +3253,7 @@
             "Leaf-fall"
         ],
         "main_status_constraint": [
-            "apprentice",
+            "colt",
             "clipper",
             "regent",
             "baron"
@@ -3381,9 +3351,8 @@
             "Is barely restraining the urge to roll {PRONOUN/m_c/poss} eyes"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "mediator apprentice",
-            "medicine cat apprentice"
+            "colt",
+            "apprentice doctor"
         ]
     },
     {
@@ -3394,9 +3363,8 @@
             "Pesters r_c to teach {PRONOUN/m_c/object} a new skill"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "random_living_status": [
             "living"
@@ -3418,31 +3386,11 @@
             "Wonders if r_c is proud of {PRONOUN/m_c/object}"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "mediator apprentice",
-            "medicine cat apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "relationship_constraint": [
             "app/mentor"
-        ]
-    },
-    {
-        "id": "apprentices_to_alive_mediator",
-        "thoughts": [
-            "Is in awe of r_c's conflict resolution skills",
-            "Asks for r_c's help solving a problem in the apprentices' den",
-            "Quibbles with {PRONOUN/m_c/poss} denmates and goes to r_c for advice"
-        ],
-        "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
-        ],
-        "random_status_constraint": [
-            "mediator"
-        ],
-        "random_living_status": [
-            "living"
         ]
     },
     {
@@ -3479,9 +3427,8 @@
             "Collects {PRONOUN/m_c/self} when r_c asks {PRONOUN/m_c/object} about {PRONOUN/m_c/poss} dreams"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "random_status_constraint": [
             "baron"
@@ -3493,17 +3440,16 @@
     {
         "id": "apprentices_to_alive_med_cat",
         "thoughts": [
-            "Is in the medicine cat den after getting a small injury",
+            "Is in the doctor den after getting a small injury",
             "Is scolded by r_c for letting an injury go untreated",
-            "Asks r_c what it's like being a medicine cat",
+            "Asks r_c what it's like being a doctor",
             "Asks r_c if {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} jealous of the clippers"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "mediator apprentice"
+            "colt"
         ],
         "random_status_constraint": [
-            "medicine cat"
+            "doctor"
         ],
         "random_living_status": [
             "living"
@@ -3512,18 +3458,17 @@
     {
         "id": "apprentices_to_alive_med_cat_app",
         "thoughts": [
-            "Wants to visit r_c at the medicine cat den",
-            "Talks to r_c about what being a medicine cat apprentice is like",
+            "Wants to visit r_c at the doctor den",
+            "Talks to r_c about what being a apprentice doctor is like",
             "Can't understand why r_c doesn't want to learn to fight",
             "Shows r_c some defensive moves",
             "Promises r_c that once {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} a clipper, {PRONOUN/m_c/subject}'ll take care of {PRONOUN/r_c/object}"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "mediator apprentice"
+            "colt"
         ],
         "random_status_constraint": [
-            "medicine cat apprentice"
+            "apprentice doctor"
         ],
         "random_living_status": [
             "living"
@@ -3547,9 +3492,8 @@
             "Can't believe {PRONOUN/m_c/subject} used to be the size of r_c"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "random_status_constraint": [
             "kitten"
@@ -3568,9 +3512,8 @@
             "Wonders if {PRONOUN/m_c/poss} assessment will involve a quest"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_trait_constraint": [
             "adventurous"
@@ -3591,9 +3534,8 @@
             "Does {PRONOUN/m_c/poss} chores as fast as possible to get back to training"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_trait_constraint": [
             "ambitious"
@@ -3609,9 +3551,8 @@
             "Can't convince the other apprentices to spar with {PRONOUN/m_c/object}"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_trait_constraint": [
             "bloodthirsty"
@@ -3628,9 +3569,8 @@
             "Decides on a full name for {PRONOUN/m_c/self}"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_trait_constraint": [
             "bold"
@@ -3645,9 +3585,8 @@
             "Asks r_c if {PRONOUN/r_c/subject}{VERB/r_c/'ve/'s} ever seen an apprentice like {PRONOUN/m_c/object}"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_trait_constraint": [
             "bold"
@@ -3668,14 +3607,12 @@
             "Tells r_c to listen more to {PRONOUN/r_c/poss} mentor"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "random_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_trait_constraint": [
             "calm"
@@ -3693,9 +3630,8 @@
             "Goes easy on {PRONOUN/m_c/poss} partner when sparring"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_trait_constraint": [
             "careful"
@@ -3712,14 +3648,12 @@
             "Convinces r_c to take {PRONOUN/m_c/poss} chores"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "random_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_trait_constraint": [
             "charismatic"
@@ -3735,14 +3669,12 @@
             "Complains that r_c stole {PRONOUN/m_c/poss} super extra special secret battle move"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "random_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_trait_constraint": [
             "childish"
@@ -3762,9 +3694,8 @@
             "Leaves {PRONOUN/m_c/poss} chores for someone else to do"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_trait_constraint": [
             "cold"
@@ -3779,9 +3710,8 @@
             "Hopes the skills {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} learning will help others"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_trait_constraint": [
             "compassionate"
@@ -3797,14 +3727,12 @@
             "Takes r_c's spot on a dawn patrol to let {PRONOUN/r_c/object} sleep in"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "random_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_trait_constraint": [
             "compassionate"
@@ -3825,9 +3753,8 @@
             "Swears {PRONOUN/m_c/subject}'ll be more responsible on this patrol"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_trait_constraint": [
             "daring"
@@ -3848,9 +3775,8 @@
             "Remembers giving the wrong answer to {PRONOUN/m_c/poss} mentor's question"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_trait_constraint": [
             "insecure"
@@ -3864,8 +3790,7 @@
             "Feels the weight of expectations crushing {PRONOUN/m_c/object}"
         ],
         "main_status_constraint": [
-            "mediator apprentice",
-            "medicine cat apprentice"
+            "apprentice doctor"
         ],
         "main_trait_constraint": [
             "insecure"
@@ -3875,7 +3800,7 @@
         "id": "lonesome_apprentices",
         "thoughts": [
             "Doesn't think that {PRONOUN/m_c/subject} {VERB/m_c/have/has} been performing up to {PRONOUN/m_c/poss} mentor's standards lately",
-            "Is feeling cramped in the apprentices' den",
+            "Is feeling cramped in the colts' den",
             "Managed to perform a difficult task on {PRONOUN/m_c/poss} own",
             "Feels awkward around {PRONOUN/m_c/poss} peers",
             "Winces when {PRONOUN/m_c/poss} voice cracks",
@@ -3884,9 +3809,8 @@
             "Hates big patrols"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_trait_constraint": [
             "lonesome"
@@ -3904,17 +3828,15 @@
             "Tells r_c {PRONOUN/r_c/subject}'ll make a great Clanmate"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_trait_constraint": [
             "loving"
         ],
         "random_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ]
     },
     {
@@ -3928,9 +3850,8 @@
             "Wants to hurry up and graduate to better serve c_n"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_trait_constraint": [
             "loyal"
@@ -3954,9 +3875,8 @@
             "Doesn't ask a question out of fear {PRONOUN/m_c/subject} should already know the answer"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_trait_constraint": [
             "nervous"
@@ -3974,9 +3894,8 @@
             "Gets off easy for a prank by pointing out {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} still an apprentice"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_trait_constraint": [
             "playful"
@@ -3997,9 +3916,8 @@
             "Is awake and bright-eyed when {PRONOUN/m_c/poss} mentor comes looking for {PRONOUN/m_c/object}"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_trait_constraint": [
             "responsible"
@@ -4013,9 +3931,8 @@
             "Recites the clipper Code to {PRONOUN/m_c/self} before bed"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_trait_constraint": [
             "righteous"
@@ -4033,9 +3950,8 @@
             "Suggests {PRONOUN/m_c/poss} mentor do some chores for once"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_trait_constraint": [
             "shameless"
@@ -4054,9 +3970,8 @@
             "Explains that {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} officially exempt from chores for a moon"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_trait_constraint": [
             "sneaky"
@@ -4076,9 +3991,8 @@
             "Asks the crescent moon for hunting tips"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_trait_constraint": [
             "strange"
@@ -4092,9 +4006,8 @@
             "Never takes an extra piece of prey"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_trait_constraint": [
             "strict"
@@ -4111,9 +4024,8 @@
             "Ignores {PRONOUN/m_c/poss} mentor's advice and substitutes {PRONOUN/m_c/poss} own"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_trait_constraint": [
             "troublesome"
@@ -4127,17 +4039,15 @@
             "Tattletales on a fellow apprentice"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_trait_constraint": [
             "troublesome"
         ],
         "random_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "random_living_status": [
             "living"
@@ -4153,17 +4063,15 @@
             "Doesn't rat out r_c, just to have some dirt on {PRONOUN/r_c/object} for later"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_trait_constraint": [
             "vengeful"
         ],
         "random_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "random_living_status": [
             "living"
@@ -4179,17 +4087,15 @@
             "Evaluates how best to spend {PRONOUN/m_c/poss} day of training"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_trait_constraint": [
             "wise"
         ],
         "random_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "random_living_status": [
             "living"
@@ -4204,9 +4110,8 @@
             "Asks StarClan for help with an assessment"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_skill_constraint": [
             "STAR,1"
@@ -4221,9 +4126,8 @@
             "Is wondering who helps r_c with {PRONOUN/r_c/poss} ticks in StarClan"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "random_status_constraint": [
             "elder"
@@ -4240,9 +4144,8 @@
             "Can't imagine serving c_n without r_c leading it"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "random_status_constraint": [
             "baron",
@@ -4259,15 +4162,14 @@
             "Hopes r_c is enjoying looking through StarClan's herb storage",
             "Wishes {PRONOUN/m_c/subject} could be treated by r_c one last time...",
             "Misses the way r_c treated {PRONOUN/m_c/poss} injuries",
-            "Is missing r_c's presence in the medicine cat den"
+            "Is missing r_c's presence in the doctor den"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "mediator apprentice"
+            "colt"
         ],
         "random_status_constraint": [
-            "medicine cat",
-            "medicine cat apprentice"
+            "doctor",
+            "apprentice doctor"
         ],
         "random_living_status": [
             "starclan"
@@ -4281,14 +4183,12 @@
             "Wishes {PRONOUN/m_c/subject} could've trained with r_c"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "mediator apprentice",
-            "medicine cat apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "random_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "random_living_status": [
             "starclan"
@@ -4311,9 +4211,8 @@
             "Catches r_c's stale scent by the nursery"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "mediator apprentice",
-            "medicine cat apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "random_status_constraint": [
             "kitten"
@@ -4333,9 +4232,8 @@
             "Figures something out on {PRONOUN/m_c/poss} own, just like old times"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "mediator apprentice",
-            "medicine cat apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_backstory_constraint": [
             "rogue1",
@@ -4357,9 +4255,8 @@
             "Wonders if {PRONOUN/m_c/poss} mentor would've preferred a Clanborn apprentice"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "mediator apprentice",
-            "medicine cat apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_backstory_constraint": [
             "rogue1",
@@ -4387,9 +4284,8 @@
             "Invents a cooler backstory for {PRONOUN/m_c/self} to tell r_c"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "mediator apprentice",
-            "medicine cat apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "main_backstory_constraint": [
             "rogue1",
@@ -4400,9 +4296,8 @@
             "guided2"
         ],
         "random_status_constraint": [
-            "apprentice",
-            "mediator apprentice",
-            "medicine cat apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "random_living_status": [
             "living"
@@ -4459,8 +4354,9 @@
         ],
         "main_status_constraint": [
             "clipper",
-            "medicine cat",
-            "mediator",
+            "doctor",
+            "cog",
+            "heir",
             "regent",
             "baron",
             "elder"
@@ -4522,9 +4418,8 @@
             "Thinks fondly of r_c's training days"
         ],
         "random_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "random_living_status": [
             "starclan"
@@ -4548,7 +4443,7 @@
         ]
     },
     {
-        "id": "gen_to_dead_medicine_cat",
+        "id": "gen_to_dead_doctor",
         "thoughts": [
             "Is listening to stories about r_c",
             "Is hoping r_c will guide {PRONOUN/m_c/object}",
@@ -4556,7 +4451,7 @@
             "Wonders if r_c gets to send prophecies and omens now"
         ],
         "random_status_constraint": [
-            "medicine cat"
+            "doctor"
         ],
         "random_living_status": [
             "starclan"
@@ -4612,20 +4507,6 @@
         ],
         "random_status_constraint": [
             "elder"
-        ],
-        "random_living_status": [
-            "starclan"
-        ]
-    },
-    {
-        "id": "gen_to_dead_mediator",
-        "thoughts": [
-            "Is wondering what r_c would think of current conflicts in the Clan",
-            "Wishes r_c was alive to solve {PRONOUN/m_c/poss} problems",
-            "Wonders if r_c is ending arguments in StarClan"
-        ],
-        "random_status_constraint": [
-            "mediator"
         ],
         "random_living_status": [
             "starclan"
@@ -4758,9 +4639,8 @@
             "adolescent"
         ],
         "random_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "random_living_status": [
             "living"
@@ -4830,9 +4710,8 @@
             "adolescent"
         ],
         "random_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ]
     },
     {
@@ -4907,9 +4786,8 @@
             ]
         },
         "main_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "random_living_status": [
             "living"
@@ -4929,9 +4807,8 @@
             "adolescent"
         ],
         "random_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "random_living_status": [
             "living"
@@ -5037,8 +4914,8 @@
             "adolescent"
         ],
         "random_status_constraint": [
-            "medicine cat apprentice",
-            "medicine cat"
+            "apprentice doctor",
+            "doctor"
         ],
         "random_living_status": [
             "living"
@@ -5087,7 +4964,7 @@
             "Is losing {PRONOUN/m_c/poss} appetite...",
             "Is spending each day as if it were {PRONOUN/m_c/poss} last",
             "Is losing fur",
-            "Spent all day in the medicine cat den",
+            "Spent all day in the doctor den",
             "Is taking it easy today",
             "Is feeling better today",
             "Laughed at a joke, but it turned into a coughing fit",
@@ -5154,7 +5031,7 @@
             "Daydreams about someday being baron",
             "Tries to keep up with {PRONOUN/m_c/poss} mentor",
             "Feels bitter watching the clippers around {PRONOUN/m_c/object}",
-            "Enjoys being out in the territory instead of cooped up in the medicine cat den"
+            "Enjoys being out in the territory instead of cooped up in the doctor den"
         ],
         "perm_conditions": {
             "m_c": [
@@ -5310,7 +5187,7 @@
     {
         "id": "recurring_shock_gen",
         "thoughts": [
-            "Visits the medicine cat den for thyme",
+            "Visits the doctor den for thyme",
             "Wakes up screaming after a nightmare",
             "Panics after hearing a noise",
             "Is seen trembling and looking around nervously",

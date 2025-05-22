@@ -9,7 +9,7 @@ from .ClanSettingsScreen import ClanSettingsScreen
 from .ClearingScreen import ClearingScreen
 from .EventsScreen import EventsScreen
 from .FamilyTreeScreen import FamilyTreeScreen
-from .LeaderDenScreen import LeaderDenScreen
+from .BaronDenScreen import BaronDenScreen
 from .ListScreen import ListScreen
 from .MakeClanScreen import MakeClanScreen
 from .MedDenScreen import MedDenScreen
@@ -61,7 +61,7 @@ class AllScreens:
     med_den_screen = MedDenScreen("med den screen")
     clearing_screen = ClearingScreen("clearing screen")
     clipper_den_screen = ClipperDenScreen("clipper den screen")
-    leader_den_screen = LeaderDenScreen("leader den screen")
+    baron_den_screen = BaronDenScreen("baron den screen")
 
     events_screen = EventsScreen("events screen")
 
@@ -98,7 +98,7 @@ class AllScreens:
         cls.med_den_screen = MedDenScreen("med den screen")
         cls.clearing_screen = ClearingScreen("clearing screen")
         cls.clipper_den_screen = ClipperDenScreen("clipper den screen")
-        cls.leader_den_screen = LeaderDenScreen("leader den screen")
+        cls.baron_den_screen = BaronDenScreen("baron den screen")
 
         cls.events_screen = EventsScreen("events screen")
 

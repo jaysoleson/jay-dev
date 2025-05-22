@@ -54,7 +54,7 @@
                 "senior adult",
                 "senior"
             ],
-            "status": ["baron", "regent", "medicine cat", "clipper"]
+            "status": ["baron", "regent", "doctor", "clipper"]
           },
         "new_cat": [
           ["loner"]
@@ -83,7 +83,7 @@
                 "senior adult",
                 "senior"
             ],
-            "status": ["baron", "regent", "medicine cat", "clipper"]
+            "status": ["baron", "regent", "doctor", "clipper"]
           },
         "new_cat": [
           ["loner"]
@@ -112,7 +112,7 @@
                 "senior adult",
                 "senior"
             ],
-            "status": ["baron", "regent", "medicine cat", "clipper"]
+            "status": ["baron", "regent", "doctor", "clipper"]
           },
         "new_cat": [
             ["age:has_kits", "meeting", "loner", "can_birth"],

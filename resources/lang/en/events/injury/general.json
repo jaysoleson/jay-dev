@@ -1012,7 +1012,7 @@
         "event_text": "m_c overdid {PRONOUN/m_c/poss} last sparring session, and has been wincing all day. Seems {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} a bit bruised.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent",
                 "baron"
@@ -1052,7 +1052,7 @@
         "event_text": "A brutal battle against o_c_n leaves m_c injured.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent",
                 "baron"
@@ -1100,10 +1100,10 @@
             "war"
         ],
         "weight": 20,
-        "event_text": "m_c came out worse for wear after a border skirmish with o_c_n.",
+        "event_text": "m_c came out worse for wear after a border skirmish with o_c_n Clippers.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent",
                 "baron"
@@ -1416,12 +1416,12 @@
         },
         "r_c": {
             "status": [
-                "apprentice",
-                "mediator apprentice",
-                "medicine cat apprentice",
+                "colt",
+                "apprentice doctor",
                 "clipper",
-                "mediator",
-                "medicine cat",
+                "cog",
+                "heir",
+                "doctor",
                 "regent",
                 "baron",
                 "elder"
@@ -1704,7 +1704,7 @@
                 "adolescent"
             ],
             "status": [
-                "apprentice"
+                "colt"
             ],
             "trait": [
                 "adventurous",
@@ -1830,7 +1830,7 @@
         "m_c": {
             "status": [
                 "kitten",
-                "apprentice"
+                "colt"
             ]
         },
         "injury": [
@@ -1923,7 +1923,7 @@
         "event_text": "m_c fought a rogue, but was barely even hurt! {PRONOUN/m_c/subject/CAP}{VERB/m_c/'re/'s} a bit bruised, but bruises are better than clawmarks.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent",
                 "baron"
@@ -1986,7 +1986,7 @@
         "event_text": "m_c fought a fox, but was barely even hurt! {PRONOUN/m_c/subject/CAP}{VERB/m_c/'re/'s} a bit bruised, but bruises are better than clawmarks.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent",
                 "baron"
@@ -2027,7 +2027,7 @@
         "event_text": "m_c fought a dog, but was barely even hurt! {PRONOUN/m_c/subject/CAP}{VERB/m_c/'re/'s} a bit bruised, but bruises are better than clawmarks.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent",
                 "baron"
@@ -2065,10 +2065,10 @@
             "any"
         ],
         "weight": 20,
-        "event_text": "m_c saved r_c from an enemy clipper, and was barely even hurt! {PRONOUN/m_c/subject/CAP}{VERB/m_c/'re/'s} a bit bruised, but bruises are better than clawmarks.",
+        "event_text": "m_c saved r_c from an enemy Clipper, and was barely even hurt! {PRONOUN/m_c/subject/CAP}{VERB/m_c/'re/'s} a bit bruised, but bruises are better than clawmarks.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent",
                 "baron"
@@ -2217,7 +2217,7 @@
         "event_text": "m_c overdid {PRONOUN/m_c/poss} last sparring session, and has been wincing all day. Seems {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} a bit scraped up.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent",
                 "baron"
@@ -2254,7 +2254,7 @@
         "event_text": "m_c fought a rogue, but was barely even hurt! {PRONOUN/m_c/subject/CAP}{VERB/m_c/'re/'s} a bit scraped up, but a few scrapes are better than clawmarks.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent",
                 "baron"
@@ -2316,7 +2316,7 @@
         "event_text": "m_c fought a fox, but was barely even hurt! {PRONOUN/m_c/subject/CAP}{VERB/m_c/'re/'s} a bit scraped up, but a few scrapes are better than clawmarks.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent",
                 "baron"
@@ -2431,7 +2431,7 @@
         "event_text": "m_c overdid {PRONOUN/m_c/poss} last sparring session and sprained a paw.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent",
                 "baron"
@@ -2468,7 +2468,7 @@
         "event_text": "m_c fought a dog and got hurt.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent",
                 "baron"
@@ -2522,7 +2522,7 @@
         "event_text": "m_c saved r_c from a fox, but was hurt.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent",
                 "baron"
@@ -2607,10 +2607,10 @@
             "any"
         ],
         "weight": 20,
-        "event_text": "m_c was hurt while protecting r_c, the baron, from a fox.",
+        "event_text": "m_c was hurt while protecting r_c, the Baron, from a fox.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent",
                 "baron"
@@ -2690,7 +2690,7 @@
         "event_text": "m_c fought a rogue and got hurt.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent",
                 "baron"
@@ -2766,7 +2766,7 @@
         "event_text": "m_c fought a big dog and was badly injured.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent",
                 "baron"
@@ -2820,7 +2820,7 @@
         "event_text": "m_c saved r_c from a big dog, but was badly injured.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent",
                 "baron"
@@ -2851,7 +2851,7 @@
                 "senior adult"
             ],
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent",
                 "baron"
@@ -2911,7 +2911,7 @@
         "event_text": "m_c fought a hawk and got hurt.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent",
                 "baron"
@@ -2965,7 +2965,7 @@
         "event_text": "m_c saved r_c from a hawk, but was hurt.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent",
                 "baron"
@@ -3046,7 +3046,7 @@
             "any"
         ],
         "weight": 20,
-        "event_text": "m_c was hurt while protecting the baron, r_c, from a rogue.",
+        "event_text": "m_c was hurt while protecting the Baron, r_c, from a rogue.",
         "m_c": {
             "status": [
                 "clipper",
@@ -3159,7 +3159,7 @@
         "event_text": "m_c was wounded during a harsh training exercise lead by r_c.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper"
             ],
             "not_skill": [
@@ -3241,10 +3241,10 @@
             "any"
         ],
         "weight": 20,
-        "event_text": "m_c was hurt by o_c_n clippers after being ordered by r_c to go over the border.",
+        "event_text": "m_c was hurt by o_c_n Clippers after being ordered by r_c to go over the border.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper"
             ],
             "not_skill": [
@@ -3288,8 +3288,8 @@
                 "cats": [
                     "m_c"
                 ],
-                "scar": "m_c was scarred by o_c_n clippers, after being ordered to go over the border by r_c.",
-                "reg_death": "m_c died from wounds caused by o_c_n clippers, after being ordered to go over the border by r_c."
+                "scar": "m_c was scarred by o_c_n Clippers, after being ordered to go over the border by r_c.",
+                "reg_death": "m_c died from wounds caused by o_c_n Clippers, after being ordered to go over the border by r_c."
             }
         ],
         "relationships": [
@@ -3534,7 +3534,7 @@
         "event_text": "m_c's leg was badly injured after r_c forced {PRONOUN/m_c/object} to fight a big dog.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper"
             ],
             "not_skill": [
@@ -3627,7 +3627,7 @@
         "event_text": "m_c mistook a hare for a rabbit while hunting and {PRONOUN/m_c/poss} eyes were scratched, a valuable lesson learnt.",
         "m_c": {
             "status": [
-                "apprentice"
+                "colt"
             ]
         },
         "injury": [
@@ -3668,7 +3668,7 @@
         "event_text": "Heightened battle training has left m_c sore and tired.",
         "m_c": {
             "status": [
-                "apprentice"
+                "colt"
             ]
         },
         "injury": [
@@ -3697,7 +3697,7 @@
         "event_text": "A harsh sparring session has left m_c bruised. {PRONOUN/m_c/subject/CAP} {VERB/m_c/worry/worries} that {PRONOUN/m_c/subject} will do badly in a real fight against o_c_n.",
         "m_c": {
             "status": [
-                "apprentice"
+                "colt"
             ]
         },
         "injury": [
@@ -3726,7 +3726,7 @@
         "event_text": "A horrible battle occurred between c_n and o_c_n patrols after the two patrols traded insults at the border. m_c is left badly injured.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent"
             ]
@@ -3772,7 +3772,7 @@
         "event_text": "m_c was injured recklessly fighting a rogue that {PRONOUN/m_c/poss} mentor, r_c, encouraged {PRONOUN/m_c/object} to attack.",
         "m_c": {
             "status": [
-                "apprentice"
+                "colt"
             ],
             "relationship_status": [
                 "app/mentor"
@@ -3884,10 +3884,10 @@
             "any"
         ],
         "weight": 20,
-        "event_text": "m_c was injured recklessly fighting an enemy clipper that {PRONOUN/m_c/poss} mentor, r_c, encouraged {PRONOUN/m_c/object} to attack.",
+        "event_text": "m_c was injured recklessly fighting an enemy Clipper that {PRONOUN/m_c/poss} mentor, r_c, encouraged {PRONOUN/m_c/object} to attack.",
         "m_c": {
             "status": [
-                "apprentice"
+                "colt"
             ],
             "relationship_status": [
                 "app/mentor"
@@ -3936,8 +3936,8 @@
                 "cats": [
                     "m_c"
                 ],
-                "scar": "m_c was scarred fighting an enemy clipper that {PRONOUN/m_c/poss} mentor, r_c, encouraged {PRONOUN/m_c/object} to attack.",
-                "reg_death": "m_c died from {PRONOUN/m_c/poss} wounds after {PRONOUN/m_c/poss} mentor encouraged {PRONOUN/m_c/object} to fight an enemy clipper."
+                "scar": "m_c was scarred fighting an enemy Clipper that {PRONOUN/m_c/poss} mentor, r_c, encouraged {PRONOUN/m_c/object} to attack.",
+                "reg_death": "m_c died from {PRONOUN/m_c/poss} wounds after {PRONOUN/m_c/poss} mentor encouraged {PRONOUN/m_c/object} to fight an enemy Clipper."
             }
         ],
         "relationships": [
@@ -3988,7 +3988,7 @@
         "event_text": "m_c was injured recklessly fighting a dog that {PRONOUN/m_c/poss} mentor, r_c, encouraged {PRONOUN/m_c/object} to attack.",
         "m_c": {
             "status": [
-                "apprentice"
+                "colt"
             ],
             "relationship_status": [
                 "app/mentor"
@@ -4083,7 +4083,7 @@
         "event_text": "m_c was injured recklessly fighting a fox that {PRONOUN/m_c/poss} mentor, r_c, encouraged {PRONOUN/m_c/object} to attack.",
         "m_c": {
             "status": [
-                "apprentice"
+                "colt"
             ],
             "relationship_status": [
                 "app/mentor"
@@ -4178,7 +4178,7 @@
         "event_text": "m_c could not handle r_c's harsh training, and was injured as a result.",
         "m_c": {
             "status": [
-                "apprentice"
+                "colt"
             ],
             "relationship_status": [
                 "app/mentor"
@@ -4269,7 +4269,7 @@
         "event_text": "m_c trained extra hard to impress {PRONOUN/m_c/poss} mentor, r_c, but was a bit too rough with {PRONOUN/m_c/poss} body, and has the bruises to show it.",
         "m_c": {
             "status": [
-                "apprentice"
+                "colt"
             ],
             "relationship_status": [
                 "app/mentor"
@@ -4315,7 +4315,7 @@
                 "adolescent"
             ],
             "status": [
-                "apprentice"
+                "colt"
             ]
         },
         "injury": [
@@ -4341,7 +4341,7 @@
         "event_text": "m_c was practicing {PRONOUN/m_c/poss} hunting pounce when {PRONOUN/m_c/subject} pounced right into a rock! Ow! {PRONOUN/m_c/subject/CAP} might be sore for a while.",
         "m_c": {
             "status": [
-                "apprentice"
+                "colt"
             ]
         },
         "injury": [
@@ -4367,7 +4367,7 @@
         "event_text": "m_c overdid {PRONOUN/m_c/poss} last battle training session, and has been wincing all day. Seems {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} a bit bruised.",
         "m_c": {
             "status": [
-                "apprentice"
+                "colt"
             ],
             "trait": [
                 "adventurous",
@@ -4401,7 +4401,7 @@
         "event_text": "m_c overdid {PRONOUN/m_c/poss} last battle training session, and has been wincing all day. Seems {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} a bit scraped up.",
         "m_c": {
             "status": [
-                "apprentice"
+                "colt"
             ],
             "trait": [
                 "adventurous",
@@ -4435,7 +4435,7 @@
         "event_text": "m_c trained extra hard to impress {PRONOUN/m_c/poss} mentor, r_c, but twisted {PRONOUN/m_c/poss} paw at an awkward angle.",
         "m_c": {
             "status": [
-                "apprentice"
+                "colt"
             ],
             "relationship_status": [
                 "app/mentor"
@@ -4478,7 +4478,7 @@
         "event_text": "m_c was rushing around the camp in excitement for a patrol when {PRONOUN/m_c/poss} paw landed wrong on a rock! {PRONOUN/m_c/subject/CAP} took a tumble, and can't help limping the rest of the day.",
         "m_c": {
             "status": [
-                "apprentice"
+                "colt"
             ],
             "trait": [
                 "adventurous",
@@ -4511,7 +4511,7 @@
         "event_text": "m_c snuck out at night on a dare, but soon came hobbling back to camp, head lowered in embarrassment. Seems like {PRONOUN/m_c/poss} paw got caught on something in the dark and caused {PRONOUN/m_c/object} to trip!",
         "m_c": {
             "status": [
-                "apprentice"
+                "colt"
             ],
             "trait": [
                 "adventurous",
@@ -4550,7 +4550,7 @@
         "event_text": "m_c overdid {PRONOUN/m_c/poss} last battle training session and sprained a paw.",
         "m_c": {
             "status": [
-                "apprentice"
+                "colt"
             ],
             "trait": [
                 "adventurous",
@@ -4584,7 +4584,7 @@
         "event_text": "m_c trained extra hard to impress {PRONOUN/m_c/poss} mentor, r_c, but now finds {PRONOUN/m_c/poss} paws to be sore and bleeding.",
         "m_c": {
             "status": [
-                "apprentice"
+                "colt"
             ],
             "relationship_status": [
                 "app/mentor"
@@ -4627,7 +4627,7 @@
         "event_text": "m_c trained extra hard to impress {PRONOUN/m_c/poss} mentor, r_c, but is extremely sore when {PRONOUN/m_c/subject} {VERB/m_c/wake/wakes} up the next morning.",
         "m_c": {
             "status": [
-                "apprentice"
+                "colt"
             ],
             "relationship_status": [
                 "app/mentor"
@@ -4670,7 +4670,7 @@
         "event_text": "m_c was hurt by r_c for not defending the territory well enough.",
         "m_c": {
             "status": [
-                "apprentice"
+                "colt"
             ],
             "relationship_status": [
                 "app/mentor"
@@ -4766,7 +4766,7 @@
         "event_text": "m_c was hurt by {PRONOUN/m_c/poss} mentor, r_c, as a punishment for accidentally wandering over the border.",
         "m_c": {
             "status": [
-                "apprentice"
+                "colt"
             ],
             "relationship_status": [
                 "app/mentor"
@@ -4859,7 +4859,7 @@
                 "adolescent"
             ],
             "status": [
-                "apprentice"
+                "colt"
             ],
             "relationship_status": [
                 "app/mentor"
@@ -4958,7 +4958,7 @@
         "event_text": "m_c and r_c were practicing battle moves. r_c insisted they keep their claws out, and m_c got hurt.",
         "m_c": {
             "status": [
-                "apprentice"
+                "colt"
             ],
             "relationship_status": [
                 "app/mentor"
@@ -5049,7 +5049,7 @@
         "event_text": "m_c was hurt by {PRONOUN/m_c/poss} mentor, r_c, as a punishment for disobeying {PRONOUN/r_c/object}.",
         "m_c": {
             "status": [
-                "apprentice"
+                "colt"
             ],
             "relationship_status": [
                 "app/mentor"
@@ -5142,7 +5142,7 @@
         "event_text": "m_c fought with {PRONOUN/m_c/poss} mentor, r_c, and was injured.",
         "m_c": {
             "status": [
-                "apprentice"
+                "colt"
             ],
             "relationship_status": [
                 "app/mentor"
@@ -5237,7 +5237,7 @@
         "event_text": "m_c could not handle {PRONOUN/m_c/poss} mentor's, r_c, harsh training, and was injured as a result.",
         "m_c": {
             "status": [
-                "apprentice"
+                "colt"
             ],
             "relationship_status": [
                 "app/mentor"
@@ -5339,7 +5339,7 @@
         "event_text": "m_c's leg was badly hurt after r_c, {PRONOUN/m_c/poss} mentor, used a Twoleg trap during a training exercise.",
         "m_c": {
             "status": [
-                "apprentice"
+                "colt"
             ],
             "relationship_status": [
                 "app/mentor"
@@ -5995,7 +5995,7 @@
             "any"
         ],
         "weight": 20,
-        "event_text": "m_c fought a rogue and, while {PRONOUN/m_c/subject} drove the trespasser away, {PRONOUN/m_c/subject} needed to be rushed to the medicine cat den afterwards.",
+        "event_text": "m_c fought a rogue and, while {PRONOUN/m_c/subject} drove the trespasser away, {PRONOUN/m_c/subject} needed to be rushed to the doctor den afterwards.",
         "m_c": {
             "age": [
                 "senior",
@@ -6109,7 +6109,7 @@
             "any"
         ],
         "weight": 10,
-        "event_text": "m_c was maimed by r_c for questioning {PRONOUN/r_c/poss} baronship.",
+        "event_text": "m_c was maimed by r_c for questioning {PRONOUN/r_c/poss} authority.",
         "m_c": {
             "age": [
                 "senior",
@@ -6163,8 +6163,8 @@
                 "cats": [
                     "m_c"
                 ],
-                "scar": "m_c was maimed by r_c for questioning {PRONOUN/r_c/poss} baronship.",
-                "reg_death": "m_c died from {PRONOUN/m_c/poss} wounds after being maimed by r_c for questioning {PRONOUN/r_c/poss} baronship."
+                "scar": "m_c was maimed by r_c for questioning {PRONOUN/r_c/poss} authority.",
+                "reg_death": "m_c died from {PRONOUN/m_c/poss} wounds after being maimed by r_c for questioning {PRONOUN/r_c/poss} authority."
             }
         ],
         "relationships": [
@@ -6304,12 +6304,12 @@
         "event_text": "m_c was hurt by r_c for disobeying orders.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
-                "mediator",
-                "mediator apprentice",
-                "medicine cat",
-                "medicine cat apprentice"
+                "cog",
+                "heir",
+                "doctor",
+                "apprentice doctor"
             ],
             "not_trait": [
                 "loyal",
@@ -6398,12 +6398,12 @@
         "event_text": "m_c was hurt by r_c for speaking out against {PRONOUN/r_c/object}.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
-                "mediator",
-                "mediator apprentice",
-                "medicine cat",
-                "medicine cat apprentice"
+                "cog",
+                "heir",
+                "doctor",
+                "apprentice doctor"
             ],
             "not_trait": [
                 "loyal"
@@ -6682,18 +6682,18 @@
             "any"
         ],
         "weight": 20,
-        "event_text": "m_c accidentally crossed the border on patrol and got {PRONOUN/m_c/poss} ear torn by an enemy clipper.",
+        "event_text": "m_c accidentally crossed the border on patrol and got {PRONOUN/m_c/poss} ear torn by an enemy Clipper.",
         "m_c": {
             "age": [
                 "any"
             ],
             "status": [
-                "apprentice",
+                "colt",
                 "regent",
                 "baron",
                 "clipper",
-                "medicine cat",
-                "medicine cat apprentice"
+                "doctor",
+                "apprentice doctor"
             ]
         },
         "injury": [
@@ -6714,9 +6714,9 @@
                 "cats": [
                     "m_c"
                 ],
-                "scar": "m_c's ear was torn when {PRONOUN/m_c/subject} accidentally crossed the border and was caught by an enemy clipper.",
-                "reg_death": "m_c died to an injury from an enemy clipper.",
-                "lead_death": "succumbed to an injury from an enemy clipper"
+                "scar": "m_c's ear was torn when {PRONOUN/m_c/subject} accidentally crossed the border and was caught by an enemy Clipper.",
+                "reg_death": "m_c died to an injury from an enemy Clipper.",
+                "lead_death": "succumbed to an injury from an enemy Clipper"
             }
         ],
         "other_clan": {
@@ -6742,12 +6742,12 @@
                 "any"
             ],
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "baron",
                 "regent",
-                "medicine cat",
-                "medicine cat apprentice"
+                "doctor",
+                "apprentice doctor"
             ]
         },
         "injury": [
@@ -6768,9 +6768,9 @@
                 "cats": [
                     "m_c"
                 ],
-                "scar": "m_c's ear was torn in a scuffle when {PRONOUN/m_c/subject} chased off an enemy clipper.",
-                "reg_death": "m_c died after an enemy clipper injured {PRONOUN/m_c/object}.",
-                "lead_death": "after being injured by an enemy clipper"
+                "scar": "m_c's ear was torn in a scuffle when {PRONOUN/m_c/subject} chased off an enemy Clipper.",
+                "reg_death": "m_c died after an enemy Clipper injured {PRONOUN/m_c/object}.",
+                "lead_death": "after being injured by an enemy Clipper"
             }
         ],
         "other_clan": {
@@ -6793,12 +6793,12 @@
         "event_text": "m_c was attacked by a group of rats! {PRONOUN/m_c/subject/CAP} managed to fight them off, but didn't escape unscathed.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
-                "mediator",
-                "mediator apprentice",
-                "medicine cat",
-                "medicine cat apprentice"
+                "cog",
+                "heir",
+                "doctor",
+                "apprentice doctor"
             ]
         },
         "injury": [
@@ -6977,16 +6977,16 @@
             "war"
         ],
         "weight": 20,
-        "event_text": "While patrolling the o_c_n borders, m_c stepped on a concealed pit trap set by what seemed to be o_c_n clippers. m_c freezes with shock as {PRONOUN/m_c/subject} {VERB/m_c/plunge/plunges} into the depths of the trap. The other cats on the patrol flank {PRONOUN/m_c/object} as {PRONOUN/m_c/subject} {VERB/m_c/limp/limps} back to the camp.",
+        "event_text": "While patrolling the o_c_n borders, m_c stepped on a concealed pit trap set by what seemed to be o_c_n Clippers. m_c freezes with shock as {PRONOUN/m_c/subject} {VERB/m_c/plunge/plunges} into the depths of the trap. The other cats on the patrol flank {PRONOUN/m_c/object} as {PRONOUN/m_c/subject} {VERB/m_c/limp/limps} back to the camp.",
         "m_c": {
             "age": [
                 "any"
             ],
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
-                "medicine cat",
-                "medicine cat apprentice",
+                "doctor",
+                "apprentice doctor",
                 "baron",
                 "regent"
             ],
@@ -7033,10 +7033,10 @@
             "war"
         ],
         "weight": 20,
-        "event_text": "During a skirmish, m_c bounds into battle against a o_c_n clipper, protecting r_c from a powerful blow. m_c bears the brunt of the strike, and r_c helps {PRONOUN/m_c/object} back to camp.",
+        "event_text": "During a skirmish, m_c bounds into battle against a o_c_n Clipper, protecting r_c from a powerful blow. m_c bears the brunt of the strike, and r_c helps {PRONOUN/m_c/object} back to camp.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "baron",
                 "regent"
@@ -7058,7 +7058,7 @@
         },
         "r_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "baron",
                 "regent"

@@ -688,7 +688,7 @@
             ],
             "status": [
                 "clipper", 
-                "apprentice"
+                "colt"
             ]
         },
         "injury": [
@@ -1022,7 +1022,7 @@
         },
         "r_c": {
             "status": [
-                "apprentice"
+                "colt"
             ]
         },
         "injury": [
@@ -1250,7 +1250,7 @@
         "event_text": "m_c and r_c were caught by a duststorm while off adventuring in the far reaches of c_n's territory for a dare. They both inhaled way too much sand for comfort.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent",
                 "baron"
@@ -1269,7 +1269,7 @@
         },
         "r_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent",
                 "baron"
@@ -1353,7 +1353,7 @@
         "event_text": "A skirmish with a o_c_n patrol over a water source hidden deep within a rocky refuge leaves m_c nursing a large slash across {PRONOUN/m_c/poss} side.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent",
                 "baron"
@@ -1404,7 +1404,7 @@
         "event_text": "A border skirmish with o_c_n erupts near a shallow watering hole. m_c is left limping after a vicious bite.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent",
                 "baron"
@@ -1459,7 +1459,7 @@
                 "senior"
             ],
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent",
                 "baron"
@@ -1557,10 +1557,10 @@
             ],
             "status": [
                 "elder",
-                "mediator apprentice",
-                "mediator",
-                "medicine cat apprentice",
-                "medicine cat"
+                "cog",
+                "heir",
+                "apprentice doctor",
+                "doctor"
             ]
         },
         "injury": [
@@ -2027,7 +2027,7 @@
         "event_text": "Climbing the highest rock in the territory was not, in fact, a good idea. m_c doesn't know what's worse - that {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} now confined to the medicine den, or that everyone {PRONOUN/m_c/subject} {VERB/m_c/were/was} trying to show off to <i>saw</i> {PRONOUN/m_c/object} fall.",
         "m_c": {
             "status": [
-                "apprentice"
+                "colt"
             ],
             "trait": [
                 "adventurous",
@@ -2151,7 +2151,7 @@
         "event_text": "At the border, a tiny not-cat-but-cat respects the boundary lines, turning away peacefully. m_c calls a farewell questioningly, and it replies:<br><i> Sand upon sand, the dunes have piled,<br> Bones beneath at peace awhiled,<br>Bones above the heat will bleach,<br>The fragile beating life will leech,<br>Pad at night, deny the day,<br>The water will show the way.</i>",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent",
                 "baron"
@@ -2196,7 +2196,7 @@
         "event_text": "Following the sound of barking, m_c finds r_c pinned in a burrow while a dingo digs at the entrance. m_c charges in, distracting the dog for long enough to give r_c the chance to run home, though the dingo gives m_c enough of a run around that all {PRONOUN/m_c/poss} limbs ache by the time {PRONOUN/m_c/subject} {VERB/m_c/collapse/collapses} into {PRONOUN/m_c/poss} nest at sunset.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent",
                 "baron"
@@ -2354,7 +2354,7 @@
         "event_text": "m_c misjudged the distance of a jump and landed in a patch of thorns. Ouch!",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent",
                 "baron"
@@ -2391,7 +2391,7 @@
         "event_text": "m_c overdid it during {PRONOUN/m_c/poss} last sparring session and got dehydrated.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent",
                 "baron"
@@ -2428,7 +2428,7 @@
         "event_text": "m_c saved r_c from death after a coyote attack, using {PRONOUN/m_c/poss} talents with first aid to keep r_c from bleeding out.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent",
                 "baron"
@@ -2522,7 +2522,7 @@
         "event_text": "m_c tricked a coyote into a cluster of cacti, and though {PRONOUN/m_c/subject} got {PRONOUN/m_c/poss} own pelt torn up something fierce, the coyote was driven off of c_n lands.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent",
                 "baron"
@@ -2614,7 +2614,7 @@
         "event_text": "A dingo tries to take r_c for lunch. m_c rushes in to save {PRONOUN/m_c/poss} Clanmate, and though both cats come out of it injured, they're able to drive off the feral canine.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent",
                 "baron"
@@ -2643,7 +2643,7 @@
                 "senior adult"
             ],
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent",
                 "baron"
@@ -2754,7 +2754,7 @@
         "event_text": "The burrowing owls really got up on the wrong side of the nest this morning, and m_c has the beak bite to show for it.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent",
                 "baron"
@@ -2808,7 +2808,7 @@
         "event_text": "A red-tailed hawk tries to swoop down on r_c, only for m_c to intercept it, taking a claw to the flank.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent",
                 "baron"
@@ -2892,7 +2892,7 @@
         "event_text": "After spotting a coyote in the territory, r_c charges it with m_c at {PRONOUN/r_c/poss} side. m_c pays a blood price for driving off the dog, but r_c maintains it was worth it.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper"
             ],
             "not_skill": [
@@ -2977,10 +2977,10 @@
             "war"
         ],
         "weight": 20,
-        "event_text": "The border patrols are intensified as the war with o_c_n rages. m_c does {PRONOUN/m_c/poss} part, but gets dehydrated after going out on a patrol with more experienced clippers.",
+        "event_text": "The border patrols are intensified as the war with o_c_n rages. m_c does {PRONOUN/m_c/poss} part, but gets dehydrated after going out on a patrol with more experienced Clippers.",
         "m_c": {
             "status": [
-                "apprentice"
+                "colt"
             ]
         },
         "injury": [
@@ -3009,7 +3009,7 @@
         "event_text": "m_c is put through a day long tracking training session that leaves {PRONOUN/m_c/object} collapsed in exhaustion into {PRONOUN/m_c/poss} nest at sunset. It's important to get {PRONOUN/m_c/object} up to speed quickly, as due to the war with o_c_n, tracking incursions along the long border is a priority.",
         "m_c": {
             "status": [
-                "apprentice"
+                "colt"
             ]
         },
         "injury": [
@@ -3035,20 +3035,20 @@
             "war"
         ],
         "tags": [
-            "clan:medicine cat"
+            "clan:doctor"
         ],
         "weight": 20,
         "event_text": "It's hard for border patrols to actually encounter each other in the desert. So o_c_n deliberately waits for a c_n patrol, each trading escalating insults until the situation explodes into violence. med_name patches up m_c and r_c afterwards, as the camp seethes with anger.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent"
             ]
         },
         "r_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "regent"
             ]
@@ -3094,7 +3094,7 @@
         "event_text": "m_c says {PRONOUN/m_c/poss} bruises are from battle training. m_c is lying, they're actually from a misjudged pounce.",
         "m_c": {
             "status": [
-                "apprentice"
+                "colt"
             ],
             "trait": [
                 "ambitious",
@@ -3132,7 +3132,7 @@
         "event_text": "m_c discovers it's <i>possible</i> to climb cacti. It's not a good idea, no, but sure, it's <i>possible</i>.",
         "m_c": {
             "status": [
-                "apprentice"
+                "colt"
             ],
             "trait": [
                 "adventurous",
@@ -3223,7 +3223,7 @@
         "event_text": "Eager for extra tracking experience, m_c spends hours out on the sands studying footprints, long enough to leave {PRONOUN/m_c/poss} pads cracked from all the extra walking. Worth it!",
         "m_c": {
             "status": [
-                "apprentice"
+                "colt"
             ],
             "trait": [
                 "adventurous",
@@ -3260,7 +3260,7 @@
         "event_text": "{PRONOUN/m_c/poss/CAP} nerves kick in and m_c screws up during battle training, resulting in a painful scrape.",
         "m_c": {
             "status": [
-                "apprentice"
+                "colt"
             ],
             "trait": [
                 "childish",
@@ -3295,7 +3295,7 @@
         "event_text": "m_c plays with a kit after training instead of resting. It's kind of {PRONOUN/m_c/object}, but the lack of downtime leaves {PRONOUN/m_c/object} sore and aching.",
         "m_c": {
             "status": [
-                "apprentice"
+                "colt"
             ],
             "trait": [
                 "charismatic",
@@ -3331,7 +3331,7 @@
         "event_text": "m_c snuck out of camp one night for a dare, but familiar paths loom risky in the shadows of the night, and {PRONOUN/m_c/subject} {VERB/m_c/stumble/stumbles} muzzle first into thorns.",
         "m_c": {
             "status": [
-                "apprentice"
+                "colt"
             ],
             "trait": [
                 "adventurous",
@@ -3377,10 +3377,10 @@
             "any"
         ],
         "weight": 20,
-        "event_text": "Determined to prove {PRONOUN/m_c/poss} resilience, m_c pushes too hard trying to keep up with the clippers and comes down with a touch of sunstroke.",
+        "event_text": "Determined to prove {PRONOUN/m_c/poss} resilience, m_c pushes too hard trying to keep up with the Clippers and comes down with a touch of sunstroke.",
         "m_c": {
             "status": [
-                "apprentice"
+                "colt"
             ],
             "trait": [
                 "ambitious",
@@ -4407,18 +4407,18 @@
             "any"
         ],
         "weight": 20,
-        "event_text": "m_c delivers a message to o_c_n's baron, but o_c_n doesn't let {PRONOUN/m_c/object} drink before {PRONOUN/m_c/poss} return journey. {PRONOUN/m_c/subject/CAP} {VERB/m_c/arrive/arrives} home with sunstroke.",
+        "event_text": "m_c delivers a message to o_c_n's Baron, but o_c_n doesn't let {PRONOUN/m_c/object} drink before {PRONOUN/m_c/poss} return journey. {PRONOUN/m_c/subject/CAP} {VERB/m_c/arrive/arrives} home with sunstroke.",
         "m_c": {
             "age": [
                 "any"
             ],
             "status": [
-                "apprentice",
+                "colt",
                 "regent",
                 "baron",
                 "clipper",
-                "medicine cat",
-                "medicine cat apprentice"
+                "doctor",
+                "apprentice doctor"
             ]
         },
         "injury": [
@@ -4463,12 +4463,12 @@
                 "any"
             ],
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "baron",
                 "regent",
-                "medicine cat",
-                "medicine cat apprentice"
+                "doctor",
+                "apprentice doctor"
             ]
         },
         "injury": [
@@ -4514,12 +4514,12 @@
         "event_text": "A group of meerkats mobs m_c, darting in and out of combat with {PRONOUN/m_c/object} in the same way that meerkats mob snakes.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
-                "mediator",
-                "mediator apprentice",
-                "medicine cat",
-                "medicine cat apprentice"
+                "cog",
+                "heir",
+                "doctor",
+                "apprentice doctor"
             ]
         },
         "injury": [
@@ -4816,10 +4816,10 @@
                 "any"
             ],
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
-                "medicine cat",
-                "medicine cat apprentice",
+                "doctor",
+                "apprentice doctor",
                 "baron",
                 "regent"
             ],
@@ -4919,10 +4919,10 @@
             "war"
         ],
         "weight": 20,
-        "event_text": "m_c and r_c make a raid into o_c_n territory - with such huge borders, no desert Clan can watch everything. But on unfamiliar ground and in the heat of the day, the two ambitious c_n clippers find only sunstroke.",
+        "event_text": "m_c and r_c make a raid into o_c_n territory - with such huge borders, no desert Clan can watch everything. But on unfamiliar ground and in the heat of the day, the two ambitious c_n Clippers find only sunstroke.",
         "m_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "baron",
                 "regent"
@@ -4944,7 +4944,7 @@
         },
         "r_c": {
             "status": [
-                "apprentice",
+                "colt",
                 "clipper",
                 "baron",
                 "regent"
@@ -5084,7 +5084,7 @@
             "any"
         ],
         "weight": 20,
-        "event_text": "A gang of meerkats war-dances into camp, attracted by the fresh-kill pile. m_c is the clipper on guard duty and yowls loudly for help, bearing the brunt of the violence of the raid.",
+        "event_text": "A gang of meerkats war-dances into camp, attracted by the fresh-kill pile. m_c is the Clipper on guard duty and yowls loudly for help, bearing the brunt of the violence of the raid.",
         "m_c": {
             "age": [
                 "adolescent",

@@ -9,7 +9,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [2, 2]
         },
         "weight": 20,
@@ -81,7 +81,7 @@
                 "weight": 20
             },
             {
-                "text": "Both apprentices are back at camp in time for a normal day of training, but app1 has to confess {PRONOUN/app1/poss} predawn adventure when {PRONOUN/app1/subject} {VERB/app1/go/goes} to medicine cat den with a running nose.",
+                "text": "Both apprentices are back at camp in time for a normal day of training, but app1 has to confess {PRONOUN/app1/poss} predawn adventure when {PRONOUN/app1/subject} {VERB/app1/go/goes} to doctor den with a running nose.",
                 "exp": 0,
                 "weight": 10,
                 "injury": [
@@ -104,7 +104,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "normal adult": [1, 6]
         },
         "weight": 20,
@@ -175,7 +175,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "normal adult": [1, 6]
         },
         "weight": 20,
@@ -246,7 +246,7 @@
         "min_cats": 3,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [2, 2],
             "normal adult": [1, 6]
         },
@@ -318,7 +318,7 @@
         "min_cats": 3,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [2, 2],
             "normal adult": [1, 6]
         },
@@ -774,7 +774,7 @@
         "min_cats": 4,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice":[2, 6],
+            "colt":[2, 6],
             "normal adult": [1, 6]
             },
         "weight": 40,

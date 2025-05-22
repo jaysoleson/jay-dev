@@ -71,7 +71,7 @@
             "adventurous"
         ],
         "random_status_constraint": [
-            "apprentice"
+            "colt"
         ]
     },
     {
@@ -183,7 +183,7 @@
             "bloodthirsty"
         ],
         "random_status_constraint": [
-            "apprentice"
+            "colt"
         ]
     },
     {
@@ -243,7 +243,7 @@
             "careful"
         ],
         "random_status_constraint": [
-            "apprentice"
+            "colt"
         ]
     },
     {
@@ -316,7 +316,7 @@
             "compassionate"
         ],
         "random_status_constraint": [
-            "apprentice"
+            "colt"
         ]
     },
     {
@@ -378,13 +378,13 @@
             "cunning"
         ],
         "random_status_constraint": [
-            "apprentice"
+            "colt"
         ]
     },
     {
         "id": "daring_elder",
         "thoughts": [
-            "Is stubbornly refusing the medicine cat's herbs, claiming {PRONOUN/m_c/subject} {VERB/m_c/do/does}n't need them",
+            "Is stubbornly refusing the doctor's herbs, claiming {PRONOUN/m_c/subject} {VERB/m_c/do/does}n't need them",
             "Is telling exciting tales from {PRONOUN/m_c/poss} youth",
             "Insists {PRONOUN/m_c/subject} can race just as well as the clippers"
         ],
@@ -471,7 +471,7 @@
             "rebellious"
         ],
         "random_status_constraint": [
-            "apprentice"
+            "colt"
         ]
     },
     {
@@ -550,7 +550,7 @@
             "insecure"
         ],
         "random_status_constraint": [
-            "apprentice"
+            "colt"
         ]
     },
     {
@@ -596,7 +596,7 @@
             "loving"
         ],
         "random_status_constraint": [
-            "apprentice"
+            "colt"
         ]
     },
     {
@@ -770,9 +770,9 @@
         ]
     },
     {
-        "id": "sincere_elder_to_medicine_cat",
+        "id": "sincere_elder_to_doctor",
         "thoughts": [
-            "Is grateful of all the medicine cat does to help {PRONOUN/m_c/object}, and makes sure they know it"
+            "Is grateful of all the doctor does to help {PRONOUN/m_c/object}, and makes sure they know it"
         ],
         "main_age_constraint": [
             "senior adult",
@@ -782,7 +782,7 @@
             "sincere"
         ],
         "random_status_constraint": [
-            "medicine cat"
+            "doctor"
         ]
     },
     {
@@ -974,7 +974,7 @@
             "CAMP,1"
         ],
         "random_status_constraint": [
-            "apprentice"
+            "colt"
         ]
     },
     {
@@ -1085,7 +1085,7 @@
             "senior"
         ],
         "random_status_constraint": [
-            "apprentice"
+            "colt"
         ]
     },
     {
@@ -1156,9 +1156,9 @@
     {
         "id": "gen_retired_disabled_to_med_thoughts",
         "thoughts": [
-            "Wonders if the medicine cat needs any help today",
+            "Wonders if the doctor needs any help today",
             "Offers to help r_c sort herbs",
-            "Wonders if {PRONOUN/m_c/subject} could've been a medicine cat with r_c instead of retiring",
+            "Wonders if {PRONOUN/m_c/subject} could've been a doctor with r_c instead of retiring",
             "Brought r_c some fresh-kill"
         ],
         "perm_conditions": {
@@ -1170,7 +1170,7 @@
             "elder"
         ],
         "random_status_constraint": [
-            "medicine cat"
+            "doctor"
         ],
         "random_living_status": [
             "living"
@@ -1214,8 +1214,8 @@
             "elder"
         ],
         "random_status_constraint": [
-            "medicine cat apprentice",
-            "medicine cat"
+            "apprentice doctor",
+            "doctor"
         ],
         "random_living_status": [
             "living"
@@ -1319,8 +1319,8 @@
             "adolescent"
         ],
         "random_status_constraint": [
-            "medicine cat apprentice",
-            "medicine cat"
+            "apprentice doctor",
+            "doctor"
         ],
         "random_living_status": [
             "living"
@@ -1369,9 +1369,8 @@
             "adolescent"
         ],
         "random_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ],
         "random_living_status": [
             "living"
@@ -1394,8 +1393,8 @@
             "adolescent"
         ],
         "random_status_constraint": [
-            "medicine cat apprentice",
-            "medicine cat"
+            "apprentice doctor",
+            "doctor"
         ],
         "random_living_status": [
             "living"
@@ -1422,7 +1421,7 @@
         "id": "wasting_disease_gen_retired_to_alive_med",
         "thoughts": [
             "Thanks r_c for {PRONOUN/r_c/poss} patience",
-            "Feels confined to the medicine cat den"
+            "Feels confined to the doctor den"
         ],
         "perm_conditions": {
             "m_c": [
@@ -1433,8 +1432,8 @@
             "elder"
         ],
         "random_status_constraint": [
-            "medicine cat apprentice",
-            "medicine cat"
+            "apprentice doctor",
+            "doctor"
         ],
         "random_living_status": [
             "living"
@@ -1480,9 +1479,8 @@
             "adolescent"
         ],
         "random_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ]
     },
     {
@@ -1527,16 +1525,15 @@
             "adolescent"
         ],
         "random_status_constraint": [
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice"
+            "colt",
+            "apprentice doctor"
         ]
     },
     {
         "id": "missing_leg/tail_gen_retired_to_alive_gen",
         "thoughts": [
             "Is training {PRONOUN/m_c/poss} balance with r_c",
-            "Is heading to the medicine cat den because {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} starting to feel phantom pain"
+            "Is heading to the doctor den because {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} starting to feel phantom pain"
         ],
         "perm_conditions": {
             "m_c": [
@@ -1595,7 +1592,7 @@
             "elder"
         ],
         "random_status_constraint": [
-            "apprentice"
+            "colt"
         ]
     },
     {
@@ -1755,7 +1752,7 @@
             "elder"
         ],
         "random_status_constraint": [
-            "apprentice"
+            "colt"
         ],
         "random_living_status": [
             "living"
@@ -1799,7 +1796,7 @@
             "elder"
         ],
         "random_status_constraint": [
-            "apprentice"
+            "colt"
         ]
     },
     {
@@ -1834,8 +1831,8 @@
             "elder"
         ],
         "random_status_constraint": [
-            "medicine cat",
-            "medicine cat apprentice"
+            "doctor",
+            "apprentice doctor"
         ],
         "random_living_status": [
             "living"

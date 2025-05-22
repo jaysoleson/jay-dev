@@ -473,29 +473,22 @@ class Pregnancy_Events:
             possible_events = events["birth"]["death"]
             # just makin sure meds aren't mentioned if they aren't around or if they are a parent
             meds = get_alive_status_cats(
-                Cat, ["medicine cat", "medicine cat apprentice"], sort=True
+                Cat, ["doctor", "apprentice doctor"], sort=True
             )
             mate_is_med = [mate_id for mate_id in cat.mate if mate_id in meds]
             if not meds or cat in meds or len(mate_is_med) > 0:
                 for event in possible_events:
-                    if "medicine cat" in event:
+                    if "doctor" in event:
                         possible_events.remove(event)
 
             if cat.outside:
                 possible_events = events["birth"]["outside_death"]
-            if game.clan.baron_lives > 1 and cat.status == "baron":
-                possible_events = events["birth"]["lead_death"]
             event_list.append(choice(possible_events))
 
-            if cat.status == "baron":
-                clan.baron_lives -= 1
-                cat.die()
-                death_event = i18n.t("conditions.pregnancy.baron_kitting_death")
-            else:
-                cat.die()
-                death_event = i18n.t(
-                    "conditions.pregnancy.kitting_death", name=cat.name
-                )
+            cat.die()
+            death_event = i18n.t(
+                "conditions.pregnancy.kitting_death", name=cat.name
+            )
             History.add_death(cat, death_text=death_event)
         elif not cat.outside:  # if cat doesn't die, give recovering from birth
             cat.get_injured("recovering from birth", event_triggered=True)
@@ -512,12 +505,12 @@ class Pregnancy_Events:
                 possible_events = events["birth"]["difficult_birth"]
                 # just makin sure meds aren't mentioned if they aren't around or if they are a parent
                 meds = get_alive_status_cats(
-                    Cat, ["medicine cat", "medicine cat apprentice"]
+                    Cat, ["doctor", "apprentice doctor"]
                 )
                 mate_is_med = [mate_id for mate_id in cat.mate if mate_id in meds]
                 if not meds or cat in meds or len(mate_is_med) > 0:
                     for event in possible_events:
-                        if "medicine cat" in event:
+                        if "doctor" in event:
                             possible_events.remove(event)
 
                 event_list.append(choice(possible_events))

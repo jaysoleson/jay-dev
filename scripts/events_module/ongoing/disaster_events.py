@@ -162,7 +162,7 @@ class DisasterEvents():
 
         baron = Cat.fetch_cat(game.clan.baron)
         regent = Cat.fetch_cat(game.clan.regent)
-        med_cats = get_alive_status_cats(Cat, ["medicine cat", "medicine cat apprentice"], sort=True)
+        med_cats = get_alive_status_cats(Cat, ["doctor", "apprentice doctor"], sort=True)
 
         # checking if there are cats of the specified rank
         if not baron.dead and not baron.outside:
@@ -174,7 +174,7 @@ class DisasterEvents():
 
         # removing events that mention ranks if those ranks are not currently filled in the clan
         for event in text_list:
-            if (event.find('med_name') == -1 or event.find('medicine cat') == -1) and not med_exists:
+            if (event.find('med_name') == -1 or event.find('doctor') == -1) and not med_exists:
                 text_list.remove(event)
             if (event.find('dep_name') == -1 or event.find('regent') == -1) and not dep_exists:
                 text_list.remove(event)

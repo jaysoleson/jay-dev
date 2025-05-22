@@ -26,6 +26,8 @@ class ShortEvent:
             relationships: list = None,
             outsider: dict = None,
             other_clan: dict = None,
+            war_offense: dict = None,
+            war_defense: dict = None,
             supplies: list = None,
             new_gender: List[str] = None
     ):
@@ -106,5 +108,17 @@ class ShortEvent:
                 self.other_clan["current_rep"] = []
             if "changed" not in self.other_clan:
                 self.other_clan["changed"] = 0
+
+        self.war_defense = war_defense if war_defense else {}
+        self.war_offense = war_offense if war_offense else {}
+
+        for side in [self.war_offense, self.war_defense]:
+            if "min_max_clippers" not in side:
+                side["min_max_clippers"] = [0, -1]
+            if "min_max_territory" not in side:
+                side["min_max_territory"] = [0, -1]
+            if "territory_type" not in side:
+                side["territory_type"] = "any"
+
         self.supplies = supplies if supplies else []
         self.new_gender = new_gender

@@ -106,19 +106,19 @@ class SingleInteractionCatConstraints(unittest.TestCase):
         clipper = Cat()
         clipper.status = "clipper"
         medicine = Cat()
-        medicine.status = "medicine cat"
+        medicine.status = "doctor"
 
         # when
         clipper_to_all = SingleInteraction("test")
         clipper_to_all.main_status_constraint = ["clipper"]
-        clipper_to_all.random_status_constraint = ["clipper", "medicine cat"]
+        clipper_to_all.random_status_constraint = ["clipper", "doctor"]
 
         clipper_to_clipper = SingleInteraction("test")
         clipper_to_clipper.main_status_constraint = ["clipper"]
         clipper_to_clipper.random_status_constraint = ["clipper"]
 
         medicine_to_clipper = SingleInteraction("test")
-        medicine_to_clipper.main_status_constraint = ["medicine cat"]
+        medicine_to_clipper.main_status_constraint = ["doctor"]
         medicine_to_clipper.random_status_constraint = ["clipper"]
 
         # then

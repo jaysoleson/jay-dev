@@ -48,12 +48,11 @@
             "Is sneezing"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "mediator apprentice",
-            "medicine cat apprentice",
+            "colt",
+            "apprentice doctor",
             "clipper", 
             "mediator", 
-            "medicine cat", 
+            "doctor", 
             "regent", 
             "baron", 
             "elder"
@@ -66,12 +65,11 @@
             "Thought {PRONOUN/m_c/subject} spotted r_c while wandering around earlier"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "mediator apprentice",
-            "medicine cat apprentice",
+            "colt",
+            "apprentice doctor",
             "clipper", 
             "mediator", 
-            "medicine cat", 
+            "doctor", 
             "regent", 
             "baron", 
             "elder"
@@ -96,12 +94,11 @@
             "child/parent"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "mediator apprentice",
-            "medicine cat apprentice",
+            "colt",
+            "apprentice doctor",
             "clipper", 
             "mediator", 
-            "medicine cat", 
+            "doctor", 
             "regent", 
             "baron", 
             "elder"
@@ -116,12 +113,11 @@
             "siblings"
         ],
         "main_status_constraint": [
-            "apprentice",
-            "mediator apprentice",
-            "medicine cat apprentice",
+            "colt",
+            "apprentice doctor",
             "clipper", 
             "mediator", 
-            "medicine cat", 
+            "doctor", 
             "regent", 
             "baron", 
             "elder"
@@ -138,7 +134,7 @@
         "main_status_constraint": [
             "clipper", 
             "mediator", 
-            "medicine cat", 
+            "doctor", 
             "regent", 
             "baron", 
             "elder"

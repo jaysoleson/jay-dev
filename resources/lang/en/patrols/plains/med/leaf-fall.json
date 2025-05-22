@@ -9,12 +9,12 @@
         "min_cats": 2,
         "max_cats": 6,
         "min_max_status": {
-            "medicine cat": [1, 6],
+            "doctor": [1, 6],
             "healer cats": [1, 6],
             "normal adult": [1, 6]
         },
         "weight": 20,
-        "intro_text": "p_l goes out with a clipper escort, both for safety as {PRONOUN/p_l/subject} {VERB/p_l/try/tries} to stock up under the clear leaf-fall skies, and for carrying capacity should {PRONOUN/p_l/subject} find anything.",
+        "intro_text": "p_l goes out with a Clipper escort, both for safety as {PRONOUN/p_l/subject} {VERB/p_l/try/tries} to stock up under the clear leaf-fall skies, and for carrying capacity should {PRONOUN/p_l/subject} find anything.",
         "decline_text": "{PRONOUN/p_l/poss/CAP} escort is called away on a different mission, and p_l decides to reorganize the herb store instead.",
         "chance_of_success": 60,
         "success_outcomes": [
@@ -94,13 +94,13 @@
         "min_cats": 2,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [-1, -1],
-            "medicine cat": [1, 6],
+            "colt": [-1, -1],
+            "doctor": [1, 6],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
         "weight": 20,
-        "intro_text": "p_l heads out, leading a patrol of medicine cats to go stock up on the ripening harvest available in leaf-fall.",
+        "intro_text": "p_l heads out, leading a patrol of doctors to go stock up on the ripening harvest available in leaf-fall.",
         "decline_text": "... And they're called back almost immediately, as one of the elders has started hacking something up.",
         "chance_of_success": 60,
         "success_outcomes": [
@@ -180,7 +180,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [-1, -1],
+            "colt": [-1, -1],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -227,9 +227,9 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [-1, -1],
-            "medicine cat": [1, 6],
-            "medicine cat apprentice": [1, 6],
+            "colt": [-1, -1],
+            "doctor": [1, 6],
+            "apprentice doctor": [1, 6],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -345,7 +345,7 @@
         },
         "weight": 20,
         "intro_text": "The betony plants have started to dramatically give up on life as leaf-fall progresses, so p_l takes the opportunity to go harvest from them, bringing along a patrol to help {PRONOUN/p_l/object} carry the leaves back to the herb stores.",
-        "decline_text": "They're stopped before they leave camp - these clippers are needed elsewhere. p_l's expedition will have to wait.",
+        "decline_text": "They're stopped before they leave camp - these Clippers are needed elsewhere. p_l's expedition will have to wait.",
         "chance_of_success": 30,
         "success_outcomes": [
             {
@@ -450,7 +450,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [-1, -1],
+            "colt": [-1, -1],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -460,7 +460,7 @@
         "chance_of_success": 70,
         "success_outcomes": [
             {
-                "text": "Careful now. p_l finds the blackberry bramble, laden with berries. This is the season for blackberry picking, and time to leave the leaves alone in anticipation of the coming leaf-bare. The berries are a poor substitute for the leaves, but a medicine cat has to think of the future.",
+                "text": "Careful now. p_l finds the blackberry bramble, laden with berries. This is the season for blackberry picking, and time to leave the leaves alone in anticipation of the coming leaf-bare. The berries are a poor substitute for the leaves, but a doctor has to think of the future.",
                 "exp": 10,
                 "weight": 20,
                 "herbs": ["blackberry"]
@@ -497,9 +497,9 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [-1, -1],
-            "medicine cat": [1, 6],
-            "medicine cat apprentice": [1, 6],
+            "colt": [-1, -1],
+            "doctor": [1, 6],
+            "apprentice doctor": [1, 6],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -509,7 +509,7 @@
         "chance_of_success": 70,
         "success_outcomes": [
             {
-                "text": "Careful now. p_l finds the blackberry bramble, laden with berries. This is the season for blackberry picking, and time to leave the leaves alone in anticipation of the coming leaf-bare. The berries are a poor substitute for the leaves, but a medicine cat has to think of the future, p_l teaches app1.",
+                "text": "Careful now. p_l finds the blackberry bramble, laden with berries. This is the season for blackberry picking, and time to leave the leaves alone in anticipation of the coming leaf-bare. The berries are a poor substitute for the leaves, but a doctor has to think of the future, p_l teaches app1.",
                 "exp": 20,
                 "weight": 20,
                 "herbs": ["blackberry"],
@@ -615,11 +615,11 @@
         },
         "weight": 20,
         "intro_text": "As leaf-fall arrives, the blackberry plants burst into fruit, and p_l heads out to take advantage, bringing along anyone who isn't busy with other work.",
-        "decline_text": "They're stopped before they leave camp - these clippers are needed elsewhere. p_l's expedition will have to wait.",
+        "decline_text": "They're stopped before they leave camp - these Clippers are needed elsewhere. p_l's expedition will have to wait.",
         "chance_of_success": 30,
         "success_outcomes": [
             {
-                "text": "Careful now. p_l finds the blackberry bramble, laden with berries. This is the season for blackberry picking, and time to leave the leaves alone in anticipation of the coming leaf-bare. The berries are a poor substitute for the leaves, but a medicine cat has to think of the future, p_l explains to the clippers.",
+                "text": "Careful now. p_l finds the blackberry bramble, laden with berries. This is the season for blackberry picking, and time to leave the leaves alone in anticipation of the coming leaf-bare. The berries are a poor substitute for the leaves, but a doctor has to think of the future, p_l explains to the Clippers.",
                 "exp": 10,
                 "weight": 20,
                 "herbs": ["blackberry"],
@@ -720,7 +720,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [-1, -1],
+            "colt": [-1, -1],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -767,9 +767,9 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [-1, -1],
-            "medicine cat": [1, 6],
-            "medicine cat apprentice": [1, 6],
+            "colt": [-1, -1],
+            "doctor": [1, 6],
+            "apprentice doctor": [1, 6],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -885,7 +885,7 @@
         },
         "weight": 20,
         "intro_text": "As leaf-fall starts to hint at the cold soon to come, the burdock plants begin to wilt. p_l heads out to replenish the Clan's stocks, bringing along anyone who isn't busy with other work.",
-        "decline_text": "They're stopped before they leave camp - these clippers are needed elsewhere. p_l's expedition will have to wait.",
+        "decline_text": "They're stopped before they leave camp - these Clippers are needed elsewhere. p_l's expedition will have to wait.",
         "chance_of_success": 30,
         "success_outcomes": [
             {
@@ -911,7 +911,7 @@
                 ]
             },
             {
-                "text": "Luck is on p_l's side today - the burdock is both plentiful and easy to find. As {PRONOUN/p_l/subject} {VERB/p_l/lay/lays} the fat roots out in a towering but neat pile in the herb stores, p_l's entire body thrums with a contented purr, and {PRONOUN/p_l/poss} Clanmates smile, happy to help out their hardworking medicine cat.",
+                "text": "Luck is on p_l's side today - the burdock is both plentiful and easy to find. As {PRONOUN/p_l/subject} {VERB/p_l/lay/lays} the fat roots out in a towering but neat pile in the herb stores, p_l's entire body thrums with a contented purr, and {PRONOUN/p_l/poss} Clanmates smile, happy to help out their hardworking doctor.",
                 "exp": 10,
                 "weight": 5,
                 "herbs": ["many_herbs", "burdock"],
@@ -990,8 +990,8 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [-1, -1],
-            "medicine cat": [1, 6],
+            "colt": [-1, -1],
+            "doctor": [1, 6],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -1001,7 +1001,7 @@
         "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "p_l carefully picks out catmint from its known hiding places, carrying it back to camp where it will be stored away from excitable clippers.",
+                "text": "p_l carefully picks out catmint from its known hiding places, carrying it back to camp where it will be stored away from excitable Clippers.",
                 "exp": 30,
                 "weight": 20,
                 "herbs": ["catmint"]
@@ -1038,9 +1038,9 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [-1, -1],
-            "medicine cat": [1, 6],
-            "medicine cat apprentice": [1, 6],
+            "colt": [-1, -1],
+            "doctor": [1, 6],
+            "apprentice doctor": [1, 6],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -1050,7 +1050,7 @@
         "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "As they walk, p_l teaches app1 about how crucial catmint is for coughs, and how, although its scent can be very alluring, part of the responsibility of being a medicine cat is avoiding becoming caught in its haze. The medicine cats carefully pick out catmint from its known hiding places, carrying it back to camp where it will be stored away from excitable clippers.",
+                "text": "As they walk, p_l teaches app1 about how crucial catmint is for coughs, and how, although its scent can be very alluring, part of the responsibility of being a doctor is avoiding becoming caught in its haze. The doctors carefully pick out catmint from its known hiding places, carrying it back to camp where it will be stored away from excitable Clippers.",
                 "exp": 30,
                 "weight": 20,
                 "herbs": ["catmint"],
@@ -1151,17 +1151,17 @@
         "min_cats": 3,
         "max_cats": 6,
         "min_max_status": {
-            "medicine cat": [1, 6],
+            "doctor": [1, 6],
             "healer cats": [1, 6],
             "normal adult": [1, 6]
         },
         "weight": 20,
-        "intro_text": "As p_l looks at the twitching tails and wide eyes of the patrol set up to 'help' {PRONOUN/p_l/object} gather catmint, {PRONOUN/p_l/poss} heart sinks. These overly excited clippers don't look like they're going to be useful, and p_l only has so much time before the catmint dies off at the end of leaf-fall.",
-        "decline_text": "They're stopped before they leave camp - these clippers are needed elsewhere. p_l's expedition will have to wait.",
+        "intro_text": "As p_l looks at the twitching tails and wide eyes of the patrol set up to 'help' {PRONOUN/p_l/object} gather catmint, {PRONOUN/p_l/poss} heart sinks. These overly excited Clippers don't look like they're going to be useful, and p_l only has so much time before the catmint dies off at the end of leaf-fall.",
+        "decline_text": "They're stopped before they leave camp - these Clippers are needed elsewhere. p_l's expedition will have to wait.",
         "chance_of_success": 20,
         "success_outcomes": [
             {
-                "text": "The clippers keep their heads, with the more experienced of p_l's helpers making themselves useful by keeping those that are young or more impulsive focused on their task. The medicine cat and {PRONOUN/p_l/poss} team carefully pick out catmint from its known hiding places, carrying it back to camp where it will be put to use healing the Clan.",
+                "text": "The Clippers keep their heads, with the more experienced of p_l's helpers making themselves useful by keeping those that are young or more impulsive focused on their task. The doctor and {PRONOUN/p_l/poss} team carefully pick out catmint from its known hiding places, carrying it back to camp where it will be put to use healing the Clan.",
                 "exp": 10,
                 "weight": 20,
                 "herbs": ["catmint"],
@@ -1262,7 +1262,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [-1, -1],
+            "colt": [-1, -1],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -1309,9 +1309,9 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [-1, -1],
-            "medicine cat": [1, 6],
-            "medicine cat apprentice": [1, 6],
+            "colt": [-1, -1],
+            "doctor": [1, 6],
+            "apprentice doctor": [1, 6],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -1426,8 +1426,8 @@
             "normal adult": [1, 6]
         },
         "weight": 20,
-        "intro_text": "There's still time this leaf-fall to store away a good harvest of dried-but-potent daisy leaves, in case c_n's elders need it for their joints or cats need to unexpectedly travel. p_l assembles a little group of clippers to help them carry the herbs.",
-        "decline_text": "They're stopped before they leave camp - these clippers are needed elsewhere. p_l's expedition will have to wait.",
+        "intro_text": "There's still time this leaf-fall to store away a good harvest of dried-but-potent daisy leaves, in case c_n's elders need it for their joints or cats need to unexpectedly travel. p_l assembles a little group of Clippers to help them carry the herbs.",
+        "decline_text": "They're stopped before they leave camp - these Clippers are needed elsewhere. p_l's expedition will have to wait.",
         "chance_of_success": 30,
         "success_outcomes": [
             {
@@ -1500,7 +1500,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "With the clippers more interested in hunting whatever has been snacking on the daisies than helping p_l find any more plants, it's a frustrating and unproductive afternoon.",
+                "text": "With the Clippers more interested in hunting whatever has been snacking on the daisies than helping p_l find any more plants, it's a frustrating and unproductive afternoon.",
                 "exp": 0,
                 "weight": 20,
                 "relationships": [
@@ -1532,7 +1532,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [-1, -1],
+            "colt": [-1, -1],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -1579,9 +1579,9 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [-1, -1],
-            "medicine cat": [1, 6],
-            "medicine cat apprentice": [1, 6],
+            "colt": [-1, -1],
+            "doctor": [1, 6],
+            "apprentice doctor": [1, 6],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -1697,11 +1697,11 @@
         },
         "weight": 20,
         "intro_text": "Yellow flowers poke out from the leaf litter, signaling that the dandelions haven't given up on growing for the season. p_l heads out to look for them, bringing a group of {PRONOUN/p_l/poss} Clanmates along for the gathering patrol.",
-        "decline_text": "They're stopped before they leave camp - these clippers are needed elsewhere. p_l's expedition will have to wait.",
+        "decline_text": "They're stopped before they leave camp - these Clippers are needed elsewhere. p_l's expedition will have to wait.",
         "chance_of_success": 30,
         "success_outcomes": [
             {
-                "text": "Truly, dandelions are an essential herb to keep in stock, crucial for poison and stings. The white milk in their roots and stems keeps for a long time, and it's a potent cure for poison. Their leaves are weaker, but fast-acting, and can be chewed into poultices. Even the fluffy dandelion heads are useful as a c_n kitten's favorite, short-lived toy. The clippers smile at the sight, sharing fond nursery memories about them as they gather.",
+                "text": "Truly, dandelions are an essential herb to keep in stock, crucial for poison and stings. The white milk in their roots and stems keeps for a long time, and it's a potent cure for poison. Their leaves are weaker, but fast-acting, and can be chewed into poultices. Even the fluffy dandelion heads are useful as a c_n kitten's favorite, short-lived toy. The Clippers smile at the sight, sharing fond nursery memories about them as they gather.",
                 "exp": 10,
                 "weight": 20,
                 "herbs": ["dandelion"],
@@ -1723,7 +1723,7 @@
                 ]
             },
             {
-                "text": "It's a successful gathering mission, and p_l strides back to camp with a great haul of whole, intact dandelion plants. Later, {PRONOUN/p_l/subject}'ll sort the leaves and roots to be stored separately - the leaves remain fresh for a far shorter time, but for now {PRONOUN/p_l/subject} {VERB/p_l/make/makes} sure to thank the clippers that have helped {PRONOUN/p_l/poss} bring home so many.",
+                "text": "It's a successful gathering mission, and p_l strides back to camp with a great haul of whole, intact dandelion plants. Later, {PRONOUN/p_l/subject}'ll sort the leaves and roots to be stored separately - the leaves remain fresh for a far shorter time, but for now {PRONOUN/p_l/subject} {VERB/p_l/make/makes} sure to thank the Clippers that have helped {PRONOUN/p_l/poss} bring home so many.",
                 "exp": 10,
                 "weight": 5,
                 "herbs": ["many_herbs", "dandelion"],
@@ -1745,7 +1745,7 @@
                 ]
             },
             {
-                "text": "With the last bits of greenleaf's warmth still lingering in the air, s_c doesn't need to try very hard to find an excellent haul of dandelions to bring back to camp. {PRONOUN/s_c/subject/CAP} {VERB/s_c/help/helps} the clippers carefully pluck fluffy dandelions heads to bring back for the nursery.",
+                "text": "With the last bits of greenleaf's warmth still lingering in the air, s_c doesn't need to try very hard to find an excellent haul of dandelions to bring back to camp. {PRONOUN/s_c/subject/CAP} {VERB/s_c/help/helps} the Clippers carefully pluck fluffy dandelions heads to bring back for the nursery.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["SENSE,2"],
@@ -1770,7 +1770,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "The clippers that are supposed to be helping p_l gather dandelions seem more intent on hunting, and p_l gives up, storming back to camp with {PRONOUN/p_l/poss} temper flaring.",
+                "text": "The Clippers that are supposed to be helping p_l gather dandelions seem more intent on hunting, and p_l gives up, storming back to camp with {PRONOUN/p_l/poss} temper flaring.",
                 "exp": 0,
                 "weight": 20,
                 "relationships": [
@@ -1802,7 +1802,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [-1, -1],
+            "colt": [-1, -1],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -1861,9 +1861,9 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [-1, -1],
-            "medicine cat": [1, 6],
-            "medicine cat apprentice": [1, 6],
+            "colt": [-1, -1],
+            "doctor": [1, 6],
+            "apprentice doctor": [1, 6],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -1917,7 +1917,7 @@
                 ]
             },
             {
-                "text": "s_c has discovered with time and experience that elder-leaf-picking is best handled by chewing off several low-hanging, thin branches and carrying those back to camp instead. {PRONOUN/s_c/subject/CAP} {VERB/s_c/pass/passes} on the trick to app1, and once they're back at camp both medicine cats strip off the leaves and give them a quick wash.",
+                "text": "s_c has discovered with time and experience that elder-leaf-picking is best handled by chewing off several low-hanging, thin branches and carrying those back to camp instead. {PRONOUN/s_c/subject/CAP} {VERB/s_c/pass/passes} on the trick to app1, and once they're back at camp both doctors strip off the leaves and give them a quick wash.",
                 "exp": 20,
                 "weight": 20,
                 "stat_skill": ["SENSE,2"],
@@ -2007,7 +2007,7 @@
         },
         "weight": 20,
         "intro_text": "With leaf-fall washing the world in tones of red and brown, p_l feels the need to gather as many elder leaves as possible, before the season turns and the Clan must survive without new stocks during leaf-bare. There's a particular tree in a sheltered dip along a stream {PRONOUN/p_l/subject} {VERB/p_l/want/wants} to check on today, bringing a group of {PRONOUN/p_l/poss} Clanmates with {PRONOUN/p_l/object}.",
-        "decline_text": "They're stopped before they leave camp - these clippers are needed elsewhere. p_l's expedition will have to wait.",
+        "decline_text": "They're stopped before they leave camp - these Clippers are needed elsewhere. p_l's expedition will have to wait.",
         "chance_of_success": 20,
         "success_outcomes": [
             {
@@ -2033,7 +2033,7 @@
                 ]
             },
             {
-                "text": "Ignoring the leaves piled up at the tree's base, which lack potency, p_l is pickier with {PRONOUN/p_l/poss} gathering. {PRONOUN/p_l/subject/CAP} {VERB/p_l/choose/chooses} leaves as close to green as possible for maximum usefulness, which {PRONOUN/p_l/subject} {VERB/p_l/find/finds} tends to fade the redder their leaves get. The clippers are less selective, but the sheer quantity p_l's able to bring back to camp more than makes up for it.",
+                "text": "Ignoring the leaves piled up at the tree's base, which lack potency, p_l is pickier with {PRONOUN/p_l/poss} gathering. {PRONOUN/p_l/subject/CAP} {VERB/p_l/choose/chooses} leaves as close to green as possible for maximum usefulness, which {PRONOUN/p_l/subject} {VERB/p_l/find/finds} tends to fade the redder their leaves get. The Clippers are less selective, but the sheer quantity p_l's able to bring back to camp more than makes up for it.",
                 "exp": 10,
                 "weight": 5,
                 "herbs": ["many_herbs", "elder_leaves"],
@@ -2140,7 +2140,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [-1, -1],
+            "colt": [-1, -1],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -2187,9 +2187,9 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [-1, -1],
-            "medicine cat": [1, 6],
-            "medicine cat apprentice": [1, 6],
+            "colt": [-1, -1],
+            "doctor": [1, 6],
+            "apprentice doctor": [1, 6],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -2221,7 +2221,7 @@
                 ]
             },
             {
-                "text": "With the leaf-fall goldenrod bushes starting to die back, p_l collects all {PRONOUN/p_l/subject} can. That, as it turns out, is actually quite a lot, and both medicine cat and apprentice are barely visible behind the bushy bundles they carry.",
+                "text": "With the leaf-fall goldenrod bushes starting to die back, p_l collects all {PRONOUN/p_l/subject} can. That, as it turns out, is actually quite a lot, and both doctor and apprentice are barely visible behind the bushy bundles they carry.",
                 "exp": 20,
                 "weight": 5,
                 "herbs": ["many_herbs", "goldenrod"],
@@ -2305,7 +2305,7 @@
         },
         "weight": 20,
         "intro_text": "Leaf-fall holds the last chances to stock up on herbs that will die off in leaf-bare, and p_l heads out to gather fresh goldenrod for the stores with a patrol of {PRONOUN/p_l/poss} Clanmates to assist {PRONOUN/p_l/object}.",
-        "decline_text": "They're stopped before they leave camp - these clippers are needed elsewhere. p_l's expedition will have to wait.",
+        "decline_text": "They're stopped before they leave camp - these Clippers are needed elsewhere. p_l's expedition will have to wait.",
         "chance_of_success": 30,
         "success_outcomes": [
             {
@@ -2410,7 +2410,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [-1, -1],
+            "colt": [-1, -1],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -2457,9 +2457,9 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [-1, -1],
-            "medicine cat": [1, 6],
-            "medicine cat apprentice": [1, 6],
+            "colt": [-1, -1],
+            "doctor": [1, 6],
+            "apprentice doctor": [1, 6],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -2575,7 +2575,7 @@
         },
         "weight": 20,
         "intro_text": "p_l sniffs the clean fresh morning air, wondering if {PRONOUN/p_l/subject} can smell juniper berries on the breeze. {PRONOUN/p_l/subject/CAP} {VERB/p_l/assemble/assembles} a patrol to investigate.",
-        "decline_text": "They're stopped before they leave camp - these clippers are needed elsewhere. p_l's expedition will have to wait.",
+        "decline_text": "They're stopped before they leave camp - these Clippers are needed elsewhere. p_l's expedition will have to wait.",
         "chance_of_success": 30,
         "success_outcomes": [
             {
@@ -2601,7 +2601,7 @@
                 ]
             },
             {
-                "text": "Juniper needles have so many uses. Calming minds, easing breath, soothing bellies, as a traveling herb... Really, p_l will always feel better having a good store of the stuff, and this patrol has been very successful. {PRONOUN/p_l/subject/CAP} {VERB/p_l/make/makes} sure to thank {PRONOUN/p_l/poss} team, though the clippers can't take any of the lovely-scented berries to their dens this time.",
+                "text": "Juniper needles have so many uses. Calming minds, easing breath, soothing bellies, as a traveling herb... Really, p_l will always feel better having a good store of the stuff, and this patrol has been very successful. {PRONOUN/p_l/subject/CAP} {VERB/p_l/make/makes} sure to thank {PRONOUN/p_l/poss} team, though the Clippers can't take any of the lovely-scented berries to their dens this time.",
                 "exp": 10,
                 "weight": 5,
                 "herbs": ["many_herbs", "juniper"],
@@ -2648,7 +2648,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "The clippers are full of complaints about the sharp juniper needles spiking their poor widdle noses, and eventually a mildly disgusted p_l calls off the herb gathering patrol.",
+                "text": "The Clippers are full of complaints about the sharp juniper needles spiking their poor widdle noses, and eventually a mildly disgusted p_l calls off the herb gathering patrol.",
                 "exp": 0,
                 "weight": 20,
                 "relationships": [
@@ -2680,9 +2680,9 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [-1, -1],
-            "medicine cat": [1, 6],
-            "medicine cat apprentice": [1, 6],
+            "colt": [-1, -1],
+            "doctor": [1, 6],
+            "apprentice doctor": [1, 6],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -2736,7 +2736,7 @@
                 ]
             },
             {
-                "text": "It takes all of s_c's considerable talent for such things to hunt down the lungwort within their borders, the medicine cats visiting each likely nook and cranny in a carefully planned search pattern until, finally, those telltale speckled leaves are found.",
+                "text": "It takes all of s_c's considerable talent for such things to hunt down the lungwort within their borders, the doctors visiting each likely nook and cranny in a carefully planned search pattern until, finally, those telltale speckled leaves are found.",
                 "exp": 20,
                 "weight": 20,
                 "stat_skill": ["SENSE,2", "CLEVER,3"],
@@ -2760,7 +2760,7 @@
                 ]
             },
             {
-                "text": "Night falls, and still s_c insists they keep going. Lungwort is the only reliable cure for yellowcough, and they just can't let c_n go without. Exhausted, but determined, the medicine cats persist patiently until they finally find the precious, speckled leaves.",
+                "text": "Night falls, and still s_c insists they keep going. Lungwort is the only reliable cure for yellowcough, and they just can't let c_n go without. Exhausted, but determined, the doctors persist patiently until they finally find the precious, speckled leaves.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": ["thoughtful", "confident", "loyal", "responsible", "arrogant"],
@@ -2857,7 +2857,7 @@
                 ]
             },
             {
-                "text": "It takes all of s_c's considerable talent for such things to hunt down the lungwort within their borders. The medicine cat visits each likely nook and cranny in a carefully planned search pattern until, finally, those telltale speckled leaves are found.",
+                "text": "It takes all of s_c's considerable talent for such things to hunt down the lungwort within their borders. The doctor visits each likely nook and cranny in a carefully planned search pattern until, finally, those telltale speckled leaves are found.",
                 "exp": 20,
                 "weight": 20,
                 "stat_skill": ["SENSE,2", "CLEVER,3"],
@@ -2873,7 +2873,7 @@
                 ]
             },
             {
-                "text": "Night falls, but still s_c keeps going - {PRONOUN/s_c/subject} just can't let c_n go without. Exhausted, but determined, the medicine cat persists until {PRONOUN/s_c/subject} {VERB/s_c/find/finds} the precious, speckled leaves.",
+                "text": "Night falls, but still s_c keeps going - {PRONOUN/s_c/subject} just can't let c_n go without. Exhausted, but determined, the doctor persists until {PRONOUN/s_c/subject} {VERB/s_c/find/finds} the precious, speckled leaves.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": ["thoughtful", "confident", "loyal", "responsible", "arrogant"],
@@ -2927,7 +2927,7 @@
             "normal adult": [1, 6]
         },
         "weight": 20,
-        "intro_text": "p_l is on a mission to find lungwort now that leaf-bare is on the horizon. As the only reliable cure for yellowcough, {PRONOUN/p_l/subject}{VERB/p_l/'re/'s} determined that c_n won't run out of it. {PRONOUN/p_l/subject/CAP} {VERB/p_l/take/takes} along a clipper escort to help.",
+        "intro_text": "p_l is on a mission to find lungwort now that leaf-bare is on the horizon. As the only reliable cure for yellowcough, {PRONOUN/p_l/subject}{VERB/p_l/'re/'s} determined that c_n won't run out of it. {PRONOUN/p_l/subject/CAP} {VERB/p_l/take/takes} along a Clipper escort to help.",
         "decline_text": "A cat grabs p_l's attention before {PRONOUN/p_l/subject} can leave.",
         "chance_of_success": 30,
         "success_outcomes": [
@@ -2962,7 +2962,7 @@
                 ]
             },
             {
-                "text": "It takes all of s_c's considerable talent for such things to hunt down the lungwort within their borders. The medicine cat visits each likely nook and cranny in a carefully planned search pattern until, finally, those telltale speckled leaves are found.",
+                "text": "It takes all of s_c's considerable talent for such things to hunt down the lungwort within their borders. The doctor visits each likely nook and cranny in a carefully planned search pattern until, finally, those telltale speckled leaves are found.",
                 "exp": 20,
                 "weight": 20,
                 "stat_skill": ["SENSE,2", "CLEVER,3"],
@@ -2979,7 +2979,7 @@
                 ]
             },
             {
-                "text": "Night falls, but still s_c keeps going - {PRONOUN/s_c/subject} just can't let c_n go without. Exhausted, but determined, the medicine cat persists until {PRONOUN/s_c/subject} {VERB/s_c/find/finds} the precious, speckled leaves.",
+                "text": "Night falls, but still s_c keeps going - {PRONOUN/s_c/subject} just can't let c_n go without. Exhausted, but determined, the doctor persists until {PRONOUN/s_c/subject} {VERB/s_c/find/finds} the precious, speckled leaves.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": ["thoughtful", "confident", "loyal", "responsible", "arrogant"],
@@ -3046,7 +3046,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [-1, -1],
+            "colt": [-1, -1],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -3093,9 +3093,9 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [-1, -1],
-            "medicine cat": [1, 6],
-            "medicine cat apprentice": [1, 6],
+            "colt": [-1, -1],
+            "doctor": [1, 6],
+            "apprentice doctor": [1, 6],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -3105,7 +3105,7 @@
         "chance_of_success": 70,
         "success_outcomes": [
             {
-                "text": "The soft, rose-like scent of the mallow bushes drifts around p_l and app1 as they work. They snip off clumps of large, fuzzy, three-nubbed leaves, and the occasional pink flower, to be taken back to camp. Bees hum through the air, not trying to bother the medicine cats, and p_l points out where {PRONOUN/p_l/subject} {VERB/p_l/think/thinks} the hive might be to app1.",
+                "text": "The soft, rose-like scent of the mallow bushes drifts around p_l and app1 as they work. They snip off clumps of large, fuzzy, three-nubbed leaves, and the occasional pink flower, to be taken back to camp. Bees hum through the air, not trying to bother the doctors, and p_l points out where {PRONOUN/p_l/subject} {VERB/p_l/think/thinks} the hive might be to app1.",
                 "exp": 20,
                 "weight": 20,
                 "herbs": ["mallow"],
@@ -3127,7 +3127,7 @@
                 ]
             },
             {
-                "text": "With the leaf-fall mallow starting to die back in the next step in its endless perennial cycle, p_l collects all {PRONOUN/p_l/subject} can. That, as it turns out, is actually quite a lot, and both medicine cat and apprentice are barely visible behind the bushy bundles they carry.",
+                "text": "With the leaf-fall mallow starting to die back in the next step in its endless perennial cycle, p_l collects all {PRONOUN/p_l/subject} can. That, as it turns out, is actually quite a lot, and both doctor and apprentice are barely visible behind the bushy bundles they carry.",
                 "exp": 20,
                 "weight": 5,
                 "herbs": ["many_herbs", "mallow"],
@@ -3211,7 +3211,7 @@
         },
         "weight": 20,
         "intro_text": "Leaf-fall holds the last chances to stock up on herbs that will die off in leaf-bare, and p_l heads out to gather fresh mallow for the stores with a patrol of {PRONOUN/p_l/poss} Clanmates to assist {PRONOUN/p_l/object}.",
-        "decline_text": "They're stopped before they leave camp - these clippers are needed elsewhere. p_l's expedition will have to wait.",
+        "decline_text": "They're stopped before they leave camp - these Clippers are needed elsewhere. p_l's expedition will have to wait.",
         "chance_of_success": 30,
         "success_outcomes": [
             {
@@ -3316,7 +3316,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [-1, -1],
+            "colt": [-1, -1],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -3332,7 +3332,7 @@
                 "herbs": ["marigold"]
             },
             {
-                "text": "It stops infection, bleeding, <i>and</i> sore joints - why would any medicine cat ever want to risk running out of it? p_l brings back as much marigold as {PRONOUN/p_l/subject} can stuff into {PRONOUN/p_l/poss} mouth.",
+                "text": "It stops infection, bleeding, <i>and</i> sore joints - why would any doctor ever want to risk running out of it? p_l brings back as much marigold as {PRONOUN/p_l/subject} can stuff into {PRONOUN/p_l/poss} mouth.",
                 "exp": 10,
                 "weight": 5,
                 "herbs": ["many_herbs", "marigold"]
@@ -3363,9 +3363,9 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [-1, -1],
-            "medicine cat": [1, 6],
-            "medicine cat apprentice": [1, 6],
+            "colt": [-1, -1],
+            "doctor": [1, 6],
+            "apprentice doctor": [1, 6],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -3375,7 +3375,7 @@
         "chance_of_success": 70,
         "success_outcomes": [
             {
-                "text": "The low-growing marigold creeps across the ground. Its strange leaves that imitate fern fronds are distinct, but hard to spot from a distance. What's visible even from across a meadow is their explosively sunset-colored flowers. Time to collect these while they're still here, and the medicine cats work with urgency.",
+                "text": "The low-growing marigold creeps across the ground. Its strange leaves that imitate fern fronds are distinct, but hard to spot from a distance. What's visible even from across a meadow is their explosively sunset-colored flowers. Time to collect these while they're still here, and the doctors work with urgency.",
                 "exp": 20,
                 "weight": 20,
                 "herbs": ["marigold"],
@@ -3397,7 +3397,7 @@
                 ]
             },
             {
-                "text": "It stops infection, bleeding, <i>and</i> sore joints - why would any medicine cat ever want to risk running out of it? p_l brings back as much marigold as {PRONOUN/p_l/subject} can stuff into {PRONOUN/p_l/poss} mouth, and app1 actually drops some of the leaves {PRONOUN/app1/subject} {VERB/app1/carry/carries} on the way back to camp, a little over-ambitious with how much {PRONOUN/app1/subject} can carry.",
+                "text": "It stops infection, bleeding, <i>and</i> sore joints - why would any doctor ever want to risk running out of it? p_l brings back as much marigold as {PRONOUN/p_l/subject} can stuff into {PRONOUN/p_l/poss} mouth, and app1 actually drops some of the leaves {PRONOUN/app1/subject} {VERB/app1/carry/carries} on the way back to camp, a little over-ambitious with how much {PRONOUN/app1/subject} can carry.",
                 "exp": 20,
                 "weight": 5,
                 "herbs": ["many_herbs", "marigold"],
@@ -3481,7 +3481,7 @@
         },
         "weight": 20,
         "intro_text": "Leaf-fall holds the last chances to stock up on herbs that will die off in leaf-bare, and p_l heads out to gather fresh marigold for the stores with a patrol of {PRONOUN/p_l/poss} Clanmates to assist {PRONOUN/p_l/object} before the plants wither and die off.",
-        "decline_text": "They're stopped before they leave camp - these clippers are needed elsewhere. p_l's expedition will have to wait.",
+        "decline_text": "They're stopped before they leave camp - these Clippers are needed elsewhere. p_l's expedition will have to wait.",
         "chance_of_success": 30,
         "success_outcomes": [
             {
@@ -3507,7 +3507,7 @@
                 ]
             },
             {
-                "text": "It stops infection, bleeding, <i>and</i> sore joints - why would any medicine cat ever want to risk running out of it? p_l brings back as much marigold as {PRONOUN/p_l/subject} can stuff into {PRONOUN/p_l/poss} mouth. The clippers helping {PRONOUN/p_l/object} don't understand the importance, but obligingly follow p_l's example.",
+                "text": "It stops infection, bleeding, <i>and</i> sore joints - why would any doctor ever want to risk running out of it? p_l brings back as much marigold as {PRONOUN/p_l/subject} can stuff into {PRONOUN/p_l/poss} mouth. The Clippers helping {PRONOUN/p_l/object} don't understand the importance, but obligingly follow p_l's example.",
                 "exp": 10,
                 "weight": 5,
                 "herbs": ["many_herbs", "marigold"],
@@ -3529,7 +3529,7 @@
                 ]
             },
             {
-                "text": "s_c finds a patch of marigold, harvests its best leaves and flowers, and pads home, unaware of how much of {PRONOUN/s_c/poss} success rests on {PRONOUN/s_c/poss} talent for herb gathering. The patrol, too, is unaware, but it certainly bolsters their faith in their medicine cat to see {PRONOUN/s_c/object} succeed so effortlessly.",
+                "text": "s_c finds a patch of marigold, harvests its best leaves and flowers, and pads home, unaware of how much of {PRONOUN/s_c/poss} success rests on {PRONOUN/s_c/poss} talent for herb gathering. The patrol, too, is unaware, but it certainly bolsters their faith in their doctor to see {PRONOUN/s_c/object} succeed so effortlessly.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["SENSE,2"],
@@ -3586,7 +3586,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [-1, -1],
+            "colt": [-1, -1],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -3633,9 +3633,9 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [-1, -1],
-            "medicine cat": [1, 6],
-            "medicine cat apprentice": [1, 6],
+            "colt": [-1, -1],
+            "doctor": [1, 6],
+            "apprentice doctor": [1, 6],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -3751,7 +3751,7 @@
         },
         "weight": 20,
         "intro_text": "As the mullein towers impressively over the other plants, it's a good time to harvest it.",
-        "decline_text": "They're stopped before they leave camp - these clippers are needed elsewhere. p_l's expedition will have to wait.",
+        "decline_text": "They're stopped before they leave camp - these Clippers are needed elsewhere. p_l's expedition will have to wait.",
         "chance_of_success": 30,
         "success_outcomes": [
             {
@@ -3777,7 +3777,7 @@
                 ]
             },
             {
-                "text": "Easing the lungs of those with weaker chest muscles or infections, helping with certain sorts of pain, <i>and</i> being used to treat unhappy guts - mullein is a good herb to keep in stock, even without the glamour of catmint or the rarity of lungwort. The clippers helping p_l don't understand the importance, but obligingly help {PRONOUN/p_l/object} harvest it.",
+                "text": "Easing the lungs of those with weaker chest muscles or infections, helping with certain sorts of pain, <i>and</i> being used to treat unhappy guts - mullein is a good herb to keep in stock, even without the glamour of catmint or the rarity of lungwort. The Clippers helping p_l don't understand the importance, but obligingly help {PRONOUN/p_l/object} harvest it.",
                 "exp": 10,
                 "weight": 5,
                 "herbs": ["many_herbs", "mullein"],
@@ -3856,7 +3856,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [-1, -1],
+            "colt": [-1, -1],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -3872,7 +3872,7 @@
                 "herbs": ["oak_leaves"]
             },
             {
-                "text": "As a basic infection-preventing herb, oak leaves are useful for nearly all of the various scrapes, cuts, and injuries p_l sees in the medicine cat den. {PRONOUN/p_l/subject/CAP}{VERB/p_l/'re/'s} always happy to bring a good crop of them back to the herb stores.",
+                "text": "As a basic infection-preventing herb, oak leaves are useful for nearly all of the various scrapes, cuts, and injuries p_l sees in the doctor den. {PRONOUN/p_l/subject/CAP}{VERB/p_l/'re/'s} always happy to bring a good crop of them back to the herb stores.",
                 "exp": 10,
                 "weight": 5,
                 "herbs": ["many_herbs", "oak_leaves"]
@@ -3903,9 +3903,9 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [-1, -1],
-            "medicine cat": [1, 6],
-            "medicine cat apprentice": [1, 6],
+            "colt": [-1, -1],
+            "doctor": [1, 6],
+            "apprentice doctor": [1, 6],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -3937,7 +3937,7 @@
                 ]
             },
             {
-                "text": "As a basic infection-preventing herb, oak leaves are useful for nearly all of the various scrapes, cuts, and injuries p_l sees in the medicine cat den. {PRONOUN/p_l/subject/CAP}{VERB/p_l/'re/'s} always happy to bring a good crop of them back to the herb stores. {PRONOUN/p_l/subject/CAP} {VERB/p_l/use/uses} the afternoon to give app1 the chance to lead their expedition, which makes the apprentice to puff up with confidence.",
+                "text": "As a basic infection-preventing herb, oak leaves are useful for nearly all of the various scrapes, cuts, and injuries p_l sees in the doctor den. {PRONOUN/p_l/subject/CAP}{VERB/p_l/'re/'s} always happy to bring a good crop of them back to the herb stores. {PRONOUN/p_l/subject/CAP} {VERB/p_l/use/uses} the afternoon to give app1 the chance to lead their expedition, which makes the apprentice to puff up with confidence.",
                 "exp": 20,
                 "weight": 5,
                 "herbs": ["many_herbs", "oak_leaves"],
@@ -4020,12 +4020,12 @@
             "normal adult": [1, 6]
         },
         "weight": 20,
-        "intro_text": "As the oaks are washed with brilliant color, p_l heads out on a gathering patrol with clippers to gather their last green leaves.",
-        "decline_text": "They're stopped before they leave camp - these clippers are needed elsewhere. p_l's expedition will have to wait.",
+        "intro_text": "As the oaks are washed with brilliant color, p_l heads out on a gathering patrol with Clippers to gather their last green leaves.",
+        "decline_text": "They're stopped before they leave camp - these Clippers are needed elsewhere. p_l's expedition will have to wait.",
         "chance_of_success": 30,
         "success_outcomes": [
             {
-                "text": "Picking only the green leaves proves challenging, but not impossible, and with careful effort p_l still manages to bring a decent number home, especially with the clippers there, who turn it into a competition between themselves.",
+                "text": "Picking only the green leaves proves challenging, but not impossible, and with careful effort p_l still manages to bring a decent number home, especially with the Clippers there, who turn it into a competition between themselves.",
                 "exp": 10,
                 "weight": 20,
                 "herbs": ["oak_leaves"],
@@ -4047,7 +4047,7 @@
                 ]
             },
             {
-                "text": "As a basic infection-preventing herb, oak leaves are useful for nearly all of the various scrapes, cuts, and injuries p_l sees in the medicine cat den. {PRONOUN/p_l/subject/CAP}{VERB/p_l/'re/'s} always happy to bring a good crop of them back to the herb stores. {PRONOUN/p_l/poss/CAP} Clanmates are, as expected, a huge help carrying everything back home.",
+                "text": "As a basic infection-preventing herb, oak leaves are useful for nearly all of the various scrapes, cuts, and injuries p_l sees in the doctor den. {PRONOUN/p_l/subject/CAP}{VERB/p_l/'re/'s} always happy to bring a good crop of them back to the herb stores. {PRONOUN/p_l/poss/CAP} Clanmates are, as expected, a huge help carrying everything back home.",
                 "exp": 10,
                 "weight": 5,
                 "herbs": ["many_herbs", "oak_leaves"],
@@ -4069,7 +4069,7 @@
                 ]
             },
             {
-                "text": "s_c spots an oak tree valiantly trying to sprout leaves from a half-fallen branch - one of the casualties of last leaf-bare - and heads to pluck its leaves from the comfort of the ground. It's less entertaining for the clippers helping {PRONOUN/s_c/object}, but the cats still make a nice, easy afternoon of it.",
+                "text": "s_c spots an oak tree valiantly trying to sprout leaves from a half-fallen branch - one of the casualties of last leaf-bare - and heads to pluck its leaves from the comfort of the ground. It's less entertaining for the Clippers helping {PRONOUN/s_c/object}, but the cats still make a nice, easy afternoon of it.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["SENSE,2"],
@@ -4126,7 +4126,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [-1, -1],
+            "colt": [-1, -1],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -4173,9 +4173,9 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [-1, -1],
-            "medicine cat": [1, 6],
-            "medicine cat apprentice": [1, 6],
+            "colt": [-1, -1],
+            "doctor": [1, 6],
+            "apprentice doctor": [1, 6],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -4207,7 +4207,7 @@
                 ]
             },
             {
-                "text": "Suitable for soothing throat and pelt irritation, and with a welcome - albeit weird - habit of consistently sprouting up on well-trodden paths, plantain is a basic but valuable herb to keep stocks of, and always taught early in the herbal lore each medicine cat must memorize.",
+                "text": "Suitable for soothing throat and pelt irritation, and with a welcome - albeit weird - habit of consistently sprouting up on well-trodden paths, plantain is a basic but valuable herb to keep stocks of, and always taught early in the herbal lore each doctor must memorize.",
                 "exp": 20,
                 "weight": 5,
                 "herbs": ["many_herbs", "plantain"],
@@ -4290,12 +4290,12 @@
             "normal adult": [1, 6]
         },
         "weight": 20,
-        "intro_text": "p_l is always amused by the plantain's enduring cheerfulness in the face of being trodden on, and it's nice that the plants grow with such enthusiasm right to the end of leaf-fall. The clippers {PRONOUN/p_l/subject}{VERB/p_l/'re/'s} bringing along seem to regard their task as more path clearing and less herb gathering, but if it gets {PRONOUN/p_l/object} helpers, p_l isn't too fussed about it.",
-        "decline_text": "They're stopped before they leave camp - these clippers are needed elsewhere. p_l's expedition will have to wait.",
+        "intro_text": "p_l is always amused by the plantain's enduring cheerfulness in the face of being trodden on, and it's nice that the plants grow with such enthusiasm right to the end of leaf-fall. The Clippers {PRONOUN/p_l/subject}{VERB/p_l/'re/'s} bringing along seem to regard their task as more path clearing and less herb gathering, but if it gets {PRONOUN/p_l/object} helpers, p_l isn't too fussed about it.",
+        "decline_text": "They're stopped before they leave camp - these Clippers are needed elsewhere. p_l's expedition will have to wait.",
         "chance_of_success": 30,
         "success_outcomes": [
             {
-                "text": "Plantain isn't one of the plants that turns red and dies off in leaf-bare; its leaves are vibrantly green in p_l's mouth as {PRONOUN/p_l/subject} {VERB/p_l/carry/carries} them home through a territory growing less and less green as leaf-fall wears on. Even the clippers seem less irritated at the plantain plants than usual, instead valuing the herb while they can still find it.",
+                "text": "Plantain isn't one of the plants that turns red and dies off in leaf-bare; its leaves are vibrantly green in p_l's mouth as {PRONOUN/p_l/subject} {VERB/p_l/carry/carries} them home through a territory growing less and less green as leaf-fall wears on. Even the Clippers seem less irritated at the plantain plants than usual, instead valuing the herb while they can still find it.",
                 "exp": 10,
                 "weight": 20,
                 "herbs": ["plantain"],
@@ -4339,7 +4339,7 @@
                 ]
             },
             {
-                "text": "Go to the trails of other animals who move through c_n's territory; wander around until you bump nose-first into a plantain plant; harvest. Simple. <i>And</i> the clippers get to tidy their paths through the territory. It's a win-win!",
+                "text": "Go to the trails of other animals who move through c_n's territory; wander around until you bump nose-first into a plantain plant; harvest. Simple. <i>And</i> the Clippers get to tidy their paths through the territory. It's a win-win!",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["SENSE,2"],
@@ -4364,7 +4364,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "p_l finds a plantain plant growing in the middle of a path, but it's trampled and useless until it regrows its leaves. The clippers, however, are pleased to see the plant dying - seems they've been stomping on it every time they've come through here. How helpful of them.",
+                "text": "p_l finds a plantain plant growing in the middle of a path, but it's trampled and useless until it regrows its leaves. The Clippers, however, are pleased to see the plant dying - seems they've been stomping on it every time they've come through here. How helpful of them.",
                 "exp": 0,
                 "weight": 20,
                 "relationships": [
@@ -4396,7 +4396,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [-1, -1],
+            "colt": [-1, -1],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -4443,9 +4443,9 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [-1, -1],
-            "medicine cat": [1, 6],
-            "medicine cat apprentice": [1, 6],
+            "colt": [-1, -1],
+            "doctor": [1, 6],
+            "apprentice doctor": [1, 6],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -4561,7 +4561,7 @@
         },
         "weight": 20,
         "intro_text": "The ragwort plants start to dramatically give up on life as leaf-fall progresses, and p_l takes the opportunity to go harvest from them, bringing along a patrol to help {PRONOUN/p_l/object} carry the leaves back to the herb stores.",
-        "decline_text": "They're stopped before they leave camp - these clippers are needed elsewhere. p_l's expedition will have to wait.",
+        "decline_text": "They're stopped before they leave camp - these Clippers are needed elsewhere. p_l's expedition will have to wait.",
         "chance_of_success": 30,
         "success_outcomes": [
             {
@@ -4609,7 +4609,7 @@
                 ]
             },
             {
-                "text": "s_c has discovered a trick to harvesting the bountiful, but foul, ragwort - using {PRONOUN/s_c/poss} claws to tear leaves from the plant, then carefully carrying them back to camp without chewing or salivating. Some of the clippers are too impatient to follow {PRONOUN/s_c/poss} lead, and end up suffering the taste of ragwort as the patrol brings back loads of the leaves.",
+                "text": "s_c has discovered a trick to harvesting the bountiful, but foul, ragwort - using {PRONOUN/s_c/poss} claws to tear leaves from the plant, then carefully carrying them back to camp without chewing or salivating. Some of the Clippers are too impatient to follow {PRONOUN/s_c/poss} lead, and end up suffering the taste of ragwort as the patrol brings back loads of the leaves.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["CLEVER,1"],
@@ -4680,7 +4680,7 @@
                 "herbs": ["raspberry"]
             },
             {
-                "text": "p_l knows deathberries when {PRONOUN/p_l/subject} {VERB/p_l/see/sees} them, and slips back to camp to report it to the baron - the clippers will need to be told to avoid this bush.",
+                "text": "p_l knows deathberries when {PRONOUN/p_l/subject} {VERB/p_l/see/sees} them, and slips back to camp to report it to the baron - the Clippers will need to be told to avoid this bush.",
                 "exp": 30,
                 "weight": 5
             },
@@ -4721,8 +4721,8 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "medicine cat": [1, 6],
-            "medicine cat apprentice": [1, 6],
+            "doctor": [1, 6],
+            "apprentice doctor": [1, 6],
             "healer cats": [1, 6]
         },
         "weight": 20,
@@ -4754,7 +4754,7 @@
                 "weight": 10,
                 "dead_cats": ["r_c"],
                 "history_text": {
-                    "reg_death": "m_c died before completing their medicine cat training, having accidentally eaten deathberries."
+                    "reg_death": "m_c died before completing their doctor training, having accidentally eaten deathberries."
                 }
             },
             {
@@ -4769,7 +4769,7 @@
                     }
                 ],
                 "history_text": {
-                    "reg_death": "m_c died before completing their medicine cat training, having accidentally eaten deathberries."
+                    "reg_death": "m_c died before completing their doctor training, having accidentally eaten deathberries."
                 }
             }
         ]
@@ -4784,7 +4784,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [-1, -1],
+            "colt": [-1, -1],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -4831,9 +4831,9 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [-1, -1],
-            "medicine cat": [1, 6],
-            "medicine cat apprentice": [1, 6],
+            "colt": [-1, -1],
+            "doctor": [1, 6],
+            "apprentice doctor": [1, 6],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -4949,7 +4949,7 @@
         },
         "weight": 20,
         "intro_text": "As the tansy plants fight on though leaf-fall to fit in as much life as possible before leaf-bare, p_l goes out to harvest them with a gathering patrol.",
-        "decline_text": "They're stopped before they leave camp - these clippers are needed elsewhere. p_l's expedition will have to wait.",
+        "decline_text": "They're stopped before they leave camp - these Clippers are needed elsewhere. p_l's expedition will have to wait.",
         "chance_of_success": 30,
         "success_outcomes": [
             {
@@ -5054,7 +5054,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [-1, -1],
+            "colt": [-1, -1],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -5101,9 +5101,9 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [-1, -1],
-            "medicine cat": [1, 6],
-            "medicine cat apprentice": [1, 6],
+            "colt": [-1, -1],
+            "doctor": [1, 6],
+            "apprentice doctor": [1, 6],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -5113,7 +5113,7 @@
         "chance_of_success": 70,
         "success_outcomes": [
             {
-                "text": "The urgency drains out of the medicine cats as they sit amongst the calming thyme, and it's not just the herb stores that'll feel the benefit of this gathering trip.",
+                "text": "The urgency drains out of the doctors as they sit amongst the calming thyme, and it's not just the herb stores that'll feel the benefit of this gathering trip.",
                 "exp": 20,
                 "weight": 20,
                 "herbs": ["thyme"],
@@ -5219,7 +5219,7 @@
         },
         "weight": 20,
         "intro_text": "The thyme plants are running out of growing time - p_l better go harvest them before leaf-fall is over. {PRONOUN/p_l/subject/CAP} {VERB/p_l/bring/brings} a patrol with {PRONOUN/p_l/object} to help.",
-        "decline_text": "They're stopped before they leave camp - these clippers are needed elsewhere. p_l's expedition will have to wait.",
+        "decline_text": "They're stopped before they leave camp - these Clippers are needed elsewhere. p_l's expedition will have to wait.",
         "chance_of_success": 30,
         "success_outcomes": [
             {
@@ -5245,7 +5245,7 @@
                 ]
             },
             {
-                "text": "It calms racing hearts and minds, bringing cats back from the shock of loss or injury... Thyme is always both helpful and pleasant to have around, and p_l decides that this patrol has brought back so much there's no harm in letting the clippers take a stem each for their nests.",
+                "text": "It calms racing hearts and minds, bringing cats back from the shock of loss or injury... Thyme is always both helpful and pleasant to have around, and p_l decides that this patrol has brought back so much there's no harm in letting the Clippers take a stem each for their nests.",
                 "exp": 10,
                 "weight": 5,
                 "herbs": ["many_herbs", "thyme"],
@@ -5324,7 +5324,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [-1, -1],
+            "colt": [-1, -1],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -5371,9 +5371,9 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [-1, -1],
-            "medicine cat": [1, 6],
-            "medicine cat apprentice": [1, 6],
+            "colt": [-1, -1],
+            "doctor": [1, 6],
+            "apprentice doctor": [1, 6],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -5489,7 +5489,7 @@
         },
         "weight": 20,
         "intro_text": "In the crisp cool air of a leaf-fall morning, it should be easy to find wild garlic by scent. p_l leads a gathering patrol to do just that.",
-        "decline_text": "They're stopped before they leave camp - these clippers are needed elsewhere. p_l's expedition will have to wait.",
+        "decline_text": "They're stopped before they leave camp - these Clippers are needed elsewhere. p_l's expedition will have to wait.",
         "chance_of_success": 30,
         "success_outcomes": [
             {
@@ -5594,7 +5594,7 @@
         "min_cats": 3,
         "max_cats": 6,
         "min_max_status": {
-           "medicine cat": [1, 6]
+           "doctor": [1, 6]
             },
         "weight": 40,
         "chance_of_success": 60,
@@ -5603,7 +5603,7 @@
         "decline_text": "The cats are too busy trying to avoid thorns to listen to stories",
         "success_outcomes": [
             {
-                    "text": "During the time of the first medicine cats, when raspberries grew white, there lived a gentle old tom. He couldn't harvest the berries without tearing his coat on the sharp thorns - but he had sick cats who needed the fruit, so he stepped forward regardless, and since then every raspberry has been stained with the blood from his thorn wounds.",
+                    "text": "During the time of the first doctors, when raspberries grew white, there lived a gentle old tom. He couldn't harvest the berries without tearing his coat on the sharp thorns - but he had sick cats who needed the fruit, so he stepped forward regardless, and since then every raspberry has been stained with the blood from his thorn wounds.",
                     "exp": 40,
                     "weight": 20,
                     "herbs": ["many_herbs", "raspberry"],
@@ -5730,7 +5730,7 @@
         "chance_of_success": 60,
         "success_outcomes": [
             {
-                "text": "It's at least a little funny, how elder leaves are so suited for easing the pains of the Clan's elders. The tree isn't named for that - there's an old myth about a medicine cat asking an ancient tree for advice - but sometimes the coincidence amuses p_l.",
+                "text": "It's at least a little funny, how elder leaves are so suited for easing the pains of the Clan's elders. The tree isn't named for that - there's an old myth about a doctor asking an ancient tree for advice - but sometimes the coincidence amuses p_l.",
                 "exp": 30,
                 "weight": 20,
                 "herbs": ["elder_leaves"],
@@ -6050,7 +6050,7 @@
         "chance_of_success": 30,
         "success_outcomes": [
             {
-                "text": "Once upon a time there was a plant that, unusually, loved not the midday sun's strength, but the sunset's quiet beauty. When it came time to bloom itself, it chose those colors, keeping a hint of the sunset's warmth for itself. When a medicine cat uses marigold to treat stiff joints, that warmth is gifted to their patients.",
+                "text": "Once upon a time there was a plant that, unusually, loved not the midday sun's strength, but the sunset's quiet beauty. When it came time to bloom itself, it chose those colors, keeping a hint of the sunset's warmth for itself. When a doctor uses marigold to treat stiff joints, that warmth is gifted to their patients.",
                 "exp": 30,
                 "weight": 20,
                 "herbs": ["marigold"],
@@ -6169,12 +6169,12 @@
         "season": ["leaf-fall"],
         "types": ["herb_gathering"],
         "tags": [],
-        "patrol_art": "gen_med_medclipperapp_curiosity",
+        "patrol_art": "gen_med_medClipperapp_curiosity",
         "min_cats": 2,
         "max_cats": 6,
         "min_max_status": {
             "healer cats": [1, 6],
-            "apprentice": [1, 6]
+            "colt": [1, 6]
         },
         "weight": 20,
         "pl_skill_constraint": ["LORE,1", "STORY,1", "HEALER,1"],
@@ -6268,7 +6268,7 @@
         "max_cats": 6,
         "min_max_status": {
             "healer cats": [1, 6],
-            "apprentice": [1, 6]
+            "colt": [1, 6]
         },
         "weight": 20,
         "pl_skill_constraint": ["LORE,1", "STORY,1", "HEALER,1"],
@@ -6458,13 +6458,13 @@
         "min_cats": 2,
         "max_cats": 6,
         "min_max_status": {
-            "medicine cat": [1, 6],
-            "medicine cat apprentice": [1, 6],
+            "doctor": [1, 6],
+            "apprentice doctor": [1, 6],
             "normal adult":[-1, -1],
-            "apprentice":[-1, -1]
+            "colt":[-1, -1]
         },
         "weight": 20,
-        "intro_text": "Listen to the wisdom of the sages, p_l meows. app1 doesn't just need to learn to set bones and clean wounds; being a medicine cat is so much more than blood and bodies.",
+        "intro_text": "Listen to the wisdom of the sages, p_l meows. app1 doesn't just need to learn to set bones and clean wounds; being a doctor is so much more than blood and bodies.",
         "decline_text": "They're interrupted by a Clanmate who needs them. It halts the lesson, but also reinforces p_l's point.",
         "chance_of_success": 30,
         "success_outcomes": [

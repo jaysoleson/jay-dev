@@ -130,10 +130,11 @@ class MediationScreen(Screens):
         # Gather the mediators:
         self.mediators = []
         for cat in Cat.all_cats_list:
-            if cat.status in ("mediator", "mediator apprentice") and not (
+            if cat.status in ("mediator") and not (
                 cat.dead or cat.outside
             ):
                 self.mediators.append(cat)
+            # BL TODO: change this to mediator skill
 
         self.page = 1
 

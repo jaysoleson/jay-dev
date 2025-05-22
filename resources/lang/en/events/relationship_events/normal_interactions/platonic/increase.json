@@ -80,13 +80,13 @@
 			"m_c hopes {PRONOUN/m_c/subject} {VERB/m_c/are/is} assigned to patrol with r_c tomorrow."
 		],
 		"main_status_constraint": [
-			"apprentice",
+			"colt",
 			"regent",
 			"baron",
 			"clipper"
 		],
 		"random_status_constraint": [
-			"apprentice",
+			"colt",
 			"regent",
 			"baron",
 			"clipper"
@@ -204,23 +204,23 @@
 		],
 		"main_status_constraint": [
 			"elder",
-			"apprentice",
+			"colt",
 			"clipper",
-			"mediator apprentice",
-			"mediator",
-			"medicine cat apprentice",
-			"medicine cat",
+			"cog",
+			"heir",
+			"apprentice doctor",
+			"doctor",
 			"regent",
 			"baron"
 		],
 		"random_status_constraint": [
 			"elder",
-			"apprentice",
+			"colt",
 			"clipper",
-			"mediator apprentice",
-			"mediator",
-			"medicine cat apprentice",
-			"medicine cat",
+			"cog",
+			"heir",
+			"apprentice doctor",
+			"doctor",
 			"regent",
 			"baron"
 		]
@@ -231,13 +231,13 @@
 			"m_c noticed that r_c is falling behind in training and offered to help {PRONOUN/r_c/object} catch up."
 		],
 		"main_status_constraint": [
-			"apprentice",
+			"colt",
 			"regent",
 			"baron",
 			"clipper"
 		],
 		"random_status_constraint": [
-			"apprentice"
+			"colt"
 		],
 		"reaction_random_cat": {
 			"platonic": "increase"
@@ -288,12 +288,12 @@
 		],
 		"random_status_constraint": [
 			"elder",
-			"apprentice",
+			"colt",
 			"clipper",
-			"mediator apprentice",
-			"mediator",
-			"medicine cat apprentice",
-			"medicine cat",
+			"cog",
+			"heir",
+			"apprentice doctor",
+			"doctor",
 			"regent",
 			"baron"
 		],
@@ -310,9 +310,8 @@
 			"kitten"
 		],
 		"random_status_constraint": [
-			"apprentice",
-			"mediator apprentice",
-			"medicine cat apprentice"
+			"colt",
+			"apprentice doctor"
 		],
 		"reaction_random_cat": {
 			"platonic": "increase"
@@ -337,12 +336,12 @@
 		],
 		"main_status_constraint": [
 			"elder",
-			"apprentice",
+			"colt",
 			"clipper",
-			"mediator apprentice",
-			"mediator",
-			"medicine cat apprentice",
-			"medicine cat",
+			"cog",
+			"heir",
+			"apprentice doctor",
+			"doctor",
 			"regent",
 			"baron"
 		],
@@ -366,12 +365,12 @@
 		],
 		"random_status_constraint": [
 			"elder",
-			"apprentice",
+			"colt",
 			"clipper",
-			"mediator apprentice",
-			"mediator",
-			"medicine cat apprentice",
-			"medicine cat",
+			"cog",
+			"heir",
+			"apprentice doctor",
+			"doctor",
 			"regent",
 			"baron"
 		],
@@ -400,7 +399,7 @@
 			"clipper"
 		],
 		"random_status_constraint": [
-			"apprentice"
+			"colt"
 		],
 		"reaction_random_cat": {
 			"platonic": "increase"
@@ -415,10 +414,10 @@
 			"m_c is trying to guess what {PRONOUN/m_c/poss} and r_c's clipper names will be."
 		],
 		"main_status_constraint": [
-			"apprentice"
+			"colt"
 		],
 		"random_status_constraint": [
-			"apprentice"
+			"colt"
 		],
 		"reaction_random_cat": {
 			"platonic": "increase"
@@ -437,10 +436,10 @@
 			"platonic_40"
 		],
 		"main_status_constraint": [
-			"apprentice"
+			"colt"
 		],
 		"random_status_constraint": [
-			"apprentice"
+			"colt"
 		]
 	},
 	{
@@ -453,27 +452,27 @@
 			"m_c begs {PRONOUN/m_c/poss} mentor to let r_c come with for some hunting practice."
 		],
 		"main_status_constraint": [
-			"apprentice"
+			"colt"
 		],
 		"random_status_constraint": [
-			"medicine cat apprentice"
+			"apprentice doctor"
 		]
 	},
 	{
 		"id": "platonic_app_med5",
 		"interactions": [
 			"m_c gently grooms some cobwebs off r_c's fur.",
-			"m_c tells r_c that {PRONOUN/r_c/subject}'ll be an amazing medicine cat someday.",
-			"m_c believes in r_c, and reassures r_c that {PRONOUN/r_c/subject} made the right choice by becoming a medicine cat apprentice."
+			"m_c tells r_c that {PRONOUN/r_c/subject}'ll be an amazing doctor someday.",
+			"m_c believes in r_c, and reassures r_c that {PRONOUN/r_c/subject} made the right choice by becoming a apprentice doctor."
 		],
 		"relationship_constraint": [
 			"platonic_40"
 		],
 		"main_status_constraint": [
-			"apprentice"
+			"colt"
 		],
 		"random_status_constraint": [
-			"medicine cat apprentice"
+			"apprentice doctor"
 		]
 	},
 	{
@@ -627,8 +626,8 @@
 			"r_c is a little hesitant to ask m_c to check on something minor, but knows that even though m_c can be grumpy sometimes, {PRONOUN/m_c/subject} always takes care of {PRONOUN/r_c/object}."
 		],
 		"main_status_constraint": [
-			"medicine cat",
-			"medicine cat apprentice"
+			"doctor",
+			"apprentice doctor"
 		],
 		"main_trait_constraint": [
 			"cold",

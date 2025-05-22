@@ -32,7 +32,7 @@ This sets the max amount of interactions a cat can have each moon.
 
 `"max_interaction_special": 8`
 
-This sets the max amount of interactions a cat with a special role (leader, deputy, medicine cat, or mediator) can have each moon.
+This sets the max amount of interactions a cat with a special role (Baron, Regent, doctor, or cog) can have each moon.
 
 `"compatibility_effect": 5`
 

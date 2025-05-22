@@ -42,11 +42,8 @@ class Welcoming_Events:
 
         # setup the status as "key" to use it
         status = clan_cat.status
-        if status == "medicine cat" or status == "medicine cat apprentice":
-            status = "medicine"
-
-        if status == "mediator apprentice":
-            status = "mediator"
+        if status == "doctor" or status == "apprentice doctor":
+            status = "doctor"
 
         # collect all events
         possible_events = deepcopy(GENERAL_WELCOMING)

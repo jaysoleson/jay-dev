@@ -240,6 +240,8 @@ class GenerateEvents:
         cat,
         random_cat,
         other_clan,
+        war_offense,
+        war_defense,
         freshkill_active,
         freshkill_trigger_factor,
         sub_types=None,
@@ -422,6 +424,12 @@ class GenerateEvents:
                         and rel_change_type != "rel_down"
                     ):
                         continue
+
+            if event.war_defense:
+                pass
+
+            if event.war_offense:
+                pass
 
             # clans below a certain age can't have their supplies messed with
             if game.clan.age < 5 and event.supplies:

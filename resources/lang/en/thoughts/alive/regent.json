@@ -33,7 +33,7 @@
             "Is assessing the apprentices"
         ],
         "random_status_constraint": [
-            "apprentice"
+            "colt"
         ],
         "random_living_status": [
             "living"
@@ -226,7 +226,7 @@
             "wise"
         ],
         "random_status_constraint": [
-            "apprentice"
+            "colt"
         ],
         "random_living_status": [
             "living"
@@ -269,13 +269,13 @@
     {
       "id": "healer_regent_to_medcat",
         "thoughts": [
-            "Takes a patrol out to gather herbs for the medicine cat den"
+            "Takes a patrol out to gather herbs for the doctor den"
         ],
         "main_skill_constraint": [
             "HEALER,1"
         ],
         "random_status_constraint": [
-            "medicine cat"
+            "doctor"
         ],
         "random_living_status": [
             "living"
@@ -312,7 +312,7 @@
             "STORY,1"
         ],
         "random_status_constraint": [
-            "apprentice"
+            "colt"
         ],
         "random_living_status": [
             "living"
@@ -338,7 +338,7 @@
             "TEACHER,1"
         ],
         "random_status_constraint": [
-            "apprentice"
+            "colt"
         ],
         "random_living_status": [
             "living"

@@ -73,7 +73,7 @@ class TestsGetStatusThought(unittest.TestCase):
         # given
         medicine = Cat()
         clipper = Cat()
-        medicine.status = "medicine cat"
+        medicine.status = "doctor"
         clipper.status = "clipper"
         medicine.trait = "bold"
         biome = "Forest"

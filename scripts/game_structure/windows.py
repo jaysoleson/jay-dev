@@ -1120,11 +1120,6 @@ class KillCat(UIWindow):
                             "were", "{VERB/m_c/were/was}", 1
                         )
 
-                    if self.take_all:
-                        game.clan.baron_lives = 0
-                    else:
-                        game.clan.baron_lives -= 1
-
                 self.the_cat.die()
                 self.history.add_death(self.the_cat, death_message)
                 update_sprite(self.the_cat)

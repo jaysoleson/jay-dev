@@ -88,7 +88,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [2, 2]
         },
         "weight": 20,
@@ -181,7 +181,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [2, 2]
         },
         "weight": 20,
@@ -314,7 +314,7 @@
                 ]
             },
             {
-                "text": "After careful consideration and consulting with the other cats, r_c recognizes them as raspberries and brings the rare berries back to the medicine cat's den.",
+                "text": "After careful consideration and consulting with the other cats, r_c recognizes them as raspberries and brings the rare berries back to the doctor's den.",
                 "exp": 20,
                 "weight": 5,
                 "herbs": ["raspberry"],
@@ -397,7 +397,7 @@
         "min_cats": 3,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 6]
+            "colt": [1, 6]
         },
         "weight": 20,
         "intro_text": "Whilst helping to gather herbs, app1 stumbles upon a bush of red berries.",
@@ -410,7 +410,7 @@
                 "weight": 20
             },
             {
-                "text": "Whatever. Identifying them is medicine cat nonsense and not app1's problem. app1 plucks the berries and brings them back to camp, where it turns out they're called raspberries.",
+                "text": "Whatever. Identifying them is doctor nonsense and not app1's problem. app1 plucks the berries and brings them back to camp, where it turns out they're called raspberries.",
                 "exp": 20,
                 "weight": 5,
                 "herbs": ["raspberry"]
@@ -423,7 +423,7 @@
                 "weight": 20
             },
             {
-                "text": "Whatever. Identifying them is medicine cat nonsense and not app1's problem. app1 plucks the berries, surprised at the pleasant taste, and swallows a few. {PRONOUN/app1/subject/CAP} {VERB/app1/collapse/collapses} on the way back to camp, and there's nothing any cat can do for {PRONOUN/app1/object}, having not identified deathberries before eating them.",
+                "text": "Whatever. Identifying them is doctor nonsense and not app1's problem. app1 plucks the berries, surprised at the pleasant taste, and swallows a few. {PRONOUN/app1/subject/CAP} {VERB/app1/collapse/collapses} on the way back to camp, and there's nothing any cat can do for {PRONOUN/app1/object}, having not identified deathberries before eating them.",
                 "exp": 0,
                 "weight": 10,
                 "dead_cats": ["app1"],
@@ -433,7 +433,7 @@
                 }
             },
             {
-                "text": "Whatever. Identifying them is medicine cat nonsense and not app1's problem. app1 plucks the tasty berries, swallowing a few, and takes the rest back to camp where {PRONOUN/app1/subject} {VERB/app1/collapse/collapses} from deathberry poisoning.",
+                "text": "Whatever. Identifying them is doctor nonsense and not app1's problem. app1 plucks the tasty berries, swallowing a few, and takes the rest back to camp where {PRONOUN/app1/subject} {VERB/app1/collapse/collapses} from deathberry poisoning.",
                 "exp": 0,
                 "weight": 10,
                 "injury": [

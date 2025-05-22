@@ -610,14 +610,14 @@ class ProfileScreen(Screens):
         # if cat is a med or med app, show button for their den
         self.profile_elements["med_den"] = UISurfaceImageButton(
             ui_scale(pygame.Rect((100, 380), (151, 28))),
-            "screens.core.medicine_cat_den",
+            "screens.core.doctor_den",
             get_button_dict(ButtonStyles.ROUNDED_RECT, (151, 28)),
             object_id="@buttonstyles_rounded_rect",
             manager=MANAGER,
             starting_height=2,
         )
         if not (self.the_cat.dead or self.the_cat.outside) and (
-                self.the_cat.status in ("medicine cat", "medicine cat apprentice")
+                self.the_cat.status in ("doctor", "apprentice doctor")
                 or self.the_cat.is_ill()
                 or self.the_cat.is_injured()
         ):
@@ -660,11 +660,11 @@ class ProfileScreen(Screens):
             self.profile_elements["baron_ceremony"] = UIImageButton(
                 ui_scale(pygame.Rect((383, 110), (34, 34))),
                 "",
-                object_id="#baron_ceremony_button",
+                object_id="#leader_ceremony_button",
                 tool_tip_text="screens.profile.baron_ceremony",
                 manager=MANAGER,
             )
-        elif self.the_cat.status in ("mediator", "mediator apprentice"):
+        elif self.the_cat.status in ("mediator"):
             self.profile_elements["mediation"] = UIImageButton(
                 ui_scale(pygame.Rect((383, 110), (34, 34))),
                 "",
@@ -794,13 +794,7 @@ class ProfileScreen(Screens):
         output = ""
 
         # STATUS
-        if (
-                the_cat.outside
-                and not the_cat.exiled
-                and the_cat.status not in ("kittypet", "loner", "rogue", "former Clancat")
-        ):
-            output += f"<font color='#FF0000'>{i18n.t('general.lost', count=1)}</font>"
-        elif the_cat.exiled:
+        if the_cat.exiled:
             output += (
                 f"<font color='#FF0000'>{i18n.t('general.exiled', count=1)}</font>"
             )
@@ -809,15 +803,6 @@ class ProfileScreen(Screens):
 
         # NEWLINE ----------
         output += "\n"
-
-        # baron LIVES:
-        # Optional - Only shows up for barons
-        if not the_cat.dead and "baron" in the_cat.status:
-            output += i18n.t(
-                "screens.profile.lives_remaining_label", count=game.clan.baron_lives
-            )
-            # NEWLINE ----------
-            output += "\n"
 
         # MENTOR
         # Only shows up if the cat has a mentor.
@@ -835,8 +820,12 @@ class ProfileScreen(Screens):
                 if Cat.fetch_cat(i)
             ]
             if len(apps) > 0:
+                if the_cat.status == "clipper":
+                    label = "general.apprentice_doctor_label"
+                else:
+                    label = "general.colt_label"
                 output += i18n.t(
-                    "general.apprentice_label",
+                    label,
                     count=len(apps),
                     apprentices=adjust_list_text(apps),
                 )
@@ -870,6 +859,13 @@ class ProfileScreen(Screens):
 
             # NEWLINE ----------
             output += "\n"
+
+        # ALLEGIANCE
+        if the_cat.allegiance:
+            output += "allegiance: " + str(Cat.fetch_cat(the_cat.allegiance).name)
+            # NEWLINE ----------
+            output += "\n"
+
 
         # CHARACTER TRAIT
         output += i18n.t(f"cat.personality.{the_cat.personality.trait}")
@@ -1299,9 +1295,8 @@ class ProfileScreen(Screens):
         if self.the_cat.status in ("kitten", "newborn"):
             influence_history = i18n.t("cat.history.training_kit")
         elif self.the_cat.status in (
-            "apprentice",
-            "medicine cat apprentice",
-            "mediator apprentice",
+            "colt",
+            "apprentice doctor"
         ):
             influence_history = i18n.t("cat.history.training_app")
         else:
@@ -2117,7 +2112,7 @@ class ProfileScreen(Screens):
                 self.manage_roles.enable()
             if (
                     self.the_cat.status
-                    not in ["apprentice", "medicine cat apprentice", "mediator apprentice"]
+                    not in ["colt", "apprentice doctor"]
                     or self.the_cat.dead
                     or self.the_cat.outside
             ):

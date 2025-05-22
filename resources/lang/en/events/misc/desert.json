@@ -645,7 +645,7 @@
         "season": ["greenleaf"],
         "tags": ["clan:clipper"],
         "weight": 20,
-        "event_text": "m_c and r_c emerge from the nursury as the cool of the night takes over, their bouncy energy contrasting the tired clippers napping on the sun-warmed rocks.",
+        "event_text": "m_c and r_c emerge from the nursury as the cool of the night takes over, their bouncy energy contrasting the tired Clippers napping on the sun-warmed rocks.",
         "m_c": {
             "status": ["kitten"]
         },
@@ -670,7 +670,7 @@
         "season": ["leaf-fall"],
       "tags": ["clan:clipper"],
         "weight": 20,
-        "event_text": "m_c doesn't care what the clippers say, thunder is definitely dangerous and horrible. r_c agrees, the kittens finding comfort in each other.",
+        "event_text": "m_c doesn't care what the Clippers say, thunder is definitely dangerous and horrible. r_c agrees, the kittens finding comfort in each other.",
         "m_c": {
             "status": ["kitten"]
         },
@@ -809,11 +809,11 @@
     "event_text": "m_c and r_c bond over how much they both hate mouse bile.",
     "m_c": {
       "age": ["adolescent"],
-      "status": ["apprentice"]
+      "status": ["colt"]
     },
     "r_c": {
       "age": ["adolescent"],
-      "status": ["apprentice"]
+      "status": ["colt"]
     },
     "relationships": [
         {

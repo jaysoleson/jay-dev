@@ -16,7 +16,7 @@
         "All the old tales about queens fighting to the death to protect their babies suddenly make sense to m_c. {PRONOUN/m_c/subject/CAP} {VERB/m_c/feel/feels} up to fighting the sun itself, powered by the love {PRONOUN/m_c/subject} {VERB/m_c/feel/feels} for {PRONOUN/m_c/poss} yet-to-arrive litter.",
         "m_c feels like {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} eating enough at each meal to feed the whole Clan - {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} predicting a big litter. Or perhaps one very plump kit.",
         "m_c has begun hoarding little trinkets, stashing bits of fluff and feather and shiny smooth rocks into {PRONOUN/m_c/poss} birthing nest to stock it with kitten toys.",
-        "m_c invites {PRONOUN/m_c/poss} friends to feel {PRONOUN/m_c/poss} litter kick - surely these kittens are going to be talented clippers, because, well - <i>ow</i>.",
+        "m_c invites {PRONOUN/m_c/poss} friends to feel {PRONOUN/m_c/poss} litter kick - surely these kittens are going to be talented Clippers, because, well - <i>ow</i>.",
         "m_c thinks {PRONOUN/m_c/subject}'ll have a small litter.",
         "m_c hopes {PRONOUN/m_c/subject}'ll have a small litter. No way could {PRONOUN/m_c/subject} handle too many kits.",
         "m_c thinks {PRONOUN/m_c/subject}'ll have a large litter.",
@@ -112,8 +112,8 @@
             "m_c can see it, m_c's mate can see it, r_c can see it, everyone in c_n can see how the new {insert} looks a bit too much like r_c for it to be coincidence..."
         ],
         "death": [
-            "Later, as the medicine cat wails with m_c's blood streaked through their pelt and a clipper comes to move the body for the vigil, no one knows what to do with the {insert}.",
-            "As the sun tracks across the sky, m_c's bleeding gets worse and worse. It was still worth it, m_c decides, even as the medicine cat fights an impossible battle to keep {PRONOUN/m_c/object} out of StarClan. Still so worth it.",
+            "Later, as the doctor wails with m_c's blood streaked through their pelt and a Clipper comes to move the body for the vigil, no one knows what to do with the {insert}.",
+            "As the sun tracks across the sky, m_c's bleeding gets worse and worse. It was still worth it, m_c decides, even as the doctor fights an impossible battle to keep {PRONOUN/m_c/object} out of StarClan. Still so worth it.",
             "The birth was stressful and m_c is exhausted, still bleeding and really just wants to sleep. So {PRONOUN/m_c/subject} {VERB/m_c/do/does}... but unfortunately {PRONOUN/m_c/subject} never {VERB/m_c/wake/wakes} again.",
             "m_c wasn't expecting {PRONOUN/m_c/poss} birth to be so incredibly painful. As the day wears on, {PRONOUN/m_c/poss} condition deteriorates, leaving {PRONOUN/m_c/poss} {insert} mewling and trying to suckle a cooling body.",
             "It breaks {PRONOUN/m_c/poss} heart that {PRONOUN/m_c/subject} won't get to be with {PRONOUN/m_c/poss} {insert} as they grow. m_c pants out instructions and pleads to {PRONOUN/m_c/poss} friends around {PRONOUN/m_c/object} as the blood loss from birth slowly takes {PRONOUN/m_c/poss} life.",
@@ -146,9 +146,9 @@
         ],
         "outside_death": [
             "Some say m_c didn't make it.",
-            "Some say m_c would have needed a medicine cat to survive.",
+            "Some say m_c would have needed a doctor to survive.",
             "Hopefully those kits have someone to care for them, as m_c apparently didn't make it...",
-        	"If only m_c had a medicine cat with {PRONOUN/m_c/object}..."
+        	"If only m_c had a doctor with {PRONOUN/m_c/object}..."
 	    ],
         "lead_death": [
             "m_c lost one of {PRONOUN/m_c/poss} nine lives, but gave birth to a {insert}.",

@@ -353,20 +353,20 @@ class PatrolOutcome:
         for kitty in patrol.patrol_cats:
             # First, the blanket requirements
             if "app" in self.can_have_stat and kitty.status not in (
-                "apprentice",
-                "medicine cat apprentice",
+                "colt",
+                "apprentice doctor",
             ):
                 continue
 
             if "adult" in self.can_have_stat and kitty.status in (
-                "apprentice",
-                "medicine cat apprentice",
+                "colt",
+                "apprentice doctor",
             ):
                 continue
 
             if "healer" in self.can_have_stat and kitty.status not in (
-                "medicine cat",
-                "medicine cat apprentice",
+                "doctor",
+                "apprentice doctor",
             ):
                 continue
 
@@ -447,7 +447,7 @@ class PatrolOutcome:
 
         if gained_exp or app_exp:
             for cat in patrol.patrol_cats:
-                if cat.status in ("apprentice", "medicine cat apprentice"):
+                if cat.status in ("colt", "apprentice doctor"):
                     cat.experience = cat.experience + app_exp
                 else:
                     cat.experience = cat.experience + gained_exp
@@ -461,7 +461,6 @@ class PatrolOutcome:
             return ""
 
         # body_tags = ("body", "no_body")
-        # baron_lives = ("all_lives", "some_lives")
 
         cats_to_kill = gather_cat_objects(
             Cat, self.dead_cats, patrol, stat_cat=self.stat_cat
@@ -480,35 +479,7 @@ class PatrolOutcome:
         results = []
         catnames = []
         for _cat in cats_to_kill:
-            if _cat.status == "baron":
-                if "all_lives" in self.dead_cats:
-                    game.clan.baron_lives = 0
-                    results.append(
-                        event_text_adjust(
-                            Cat, i18n.t("cat.history.baron_death_all"), main_cat=_cat
-                        )
-                    )
-                elif "some_lives" in self.dead_cats:
-                    lives_lost = random.randint(1, max(1, game.clan.baron_lives - 1))
-                    game.clan.baron_lives -= lives_lost
-                    results.append(
-                        event_text_adjust(
-                            Cat,
-                            i18n.t("cat.history.baron_death_all", count=lives_lost),
-                            main_cat=_cat,
-                        )
-                    )
-                else:
-                    game.clan.baron_lives -= 1
-                    results.append(
-                        event_text_adjust(
-                            Cat,
-                            i18n.t("cat.history.baron_death_all", count=1),
-                            main_cat=_cat,
-                        )
-                    )
-            else:
-                catnames.append(str(_cat.name))
+            catnames.append(str(_cat.name))
             # Kill Cat
             self.__handle_death_history(_cat, patrol)
             _cat.die(body)
@@ -662,7 +633,7 @@ class PatrolOutcome:
         if not isinstance(self.other_clan_rep, int) or patrol.other_clan is None:
             return ""
 
-        change_clan_relations(patrol.other_clan, self.other_clan_rep)
+        change_clan_relations(game.clan, patrol.other_clan, self.other_clan_rep)
         if self.other_clan_rep > 0:
             return i18n.t("screens.patrol.clan_rep_improved", clan=patrol.other_clan)
         elif self.other_clan_rep == 0:

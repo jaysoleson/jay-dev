@@ -620,7 +620,7 @@ class ListScreen(Screens):
         self.cat_display.clear_display()
         self.cat_display = None
         self.list_screen_container.kill()
-        self.update_heading_text(self.clan_name)
+        self.update_heading_text(str(game.clan.baron.name) + "'s Territory")
 
     def on_use(self):
         super().on_use()
@@ -764,7 +764,7 @@ class ListScreen(Screens):
         """
         if self.current_group == "clan":
             self.set_bg(None)
-            self.update_heading_text(self.clan_name)
+            self.update_heading_text(str(game.clan.baron.name) + "'s Territory")
         elif self.current_group == "cotc":
             self.set_bg(None)
             self.update_heading_text("screens.list.cotc")
@@ -804,6 +804,7 @@ class ListScreen(Screens):
         self.death_status = "living"
         self.full_cat_list = [
             cat for cat in Cat.all_cats_list if not cat.dead and not cat.outside
+            and cat.allegiance == game.clan.baron.ID
         ]
 
     def get_cotc_cats(self):
@@ -814,8 +815,11 @@ class ListScreen(Screens):
         self.death_status = "living"
         self.full_cat_list = []
         for the_cat in Cat.all_cats_list:
-            if not the_cat.dead and the_cat.outside and not the_cat.driven_out:
+            # if not the_cat.dead and the_cat.outside and not the_cat.driven_out:
+            #     self.full_cat_list.append(the_cat)
+            if not the_cat.dead and the_cat.allegiance != game.clan.baron.ID and not the_cat.driven_out:
                 self.full_cat_list.append(the_cat)
+
 
     def get_sc_cats(self):
         """

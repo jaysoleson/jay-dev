@@ -23,11 +23,10 @@ from scripts.utility import (
     change_clan_relations,
     change_relationship_values,
     history_text_adjust,
-    get_warring_clan,
+    get_warring_clans,
     unpack_rel_block,
     change_clan_reputation,
     create_new_cat_block,
-    get_baron_life_notice,
     get_alive_status_cats,
     adjust_list_text,
 )
@@ -63,6 +62,9 @@ class HandleShortEvents:
         self.other_clan = None
         self.other_clan_name = None
 
+        self.war_offense_clan = None
+        self.war_defense_clan = None
+
         self.chosen_event = None
         self.additional_event_text = ""
 
@@ -95,10 +97,10 @@ class HandleShortEvents:
         self.involved_cats = [self.main_cat.ID]
 
         # check for war and assign self.other_clan accordingly
-        if game.clan.war.get("at_war", False):
-            enemy_clan = get_warring_clan()
-            self.other_clan = enemy_clan
-            self.other_clan_name = f"{self.other_clan.name}Clan"
+        if game.clan.war:
+            self.other_clan = None
+            war = random.choice(game.clan.war)
+            self.war_offense_clan, self.war_defense_clan = get_warring_clans(war)
             self.sub_types.append("war")
         else:
             self.other_clan = random.choice(
@@ -136,6 +138,8 @@ class HandleShortEvents:
             cat=self.main_cat,
             random_cat=self.random_cat,
             other_clan=self.other_clan,
+            war_defense=self.war_defense_clan,
+            war_offense=self.war_offense_clan,
             freshkill_active=FRESHKILL_EVENT_ACTIVE,
             freshkill_trigger_factor=FRESHKILL_EVENT_TRIGGER_FACTOR,
             sub_types=self.sub_types,
@@ -225,6 +229,8 @@ class HandleShortEvents:
                 new_cats=self.new_cat_objects,
                 clan=game.clan,
                 other_clan=self.other_clan,
+                war_offense=self.war_offense_clan,
+                war_defense=self.war_defense_clan
             )
             unpack_rel_block(Cat, self.chosen_event.relationships, self)
 
@@ -280,7 +286,7 @@ class HandleShortEvents:
         # change other_clan rep
         if self.chosen_event.other_clan:
             change_clan_relations(
-                self.other_clan, self.chosen_event.other_clan["changed"]
+                game.clan, self.other_clan, self.chosen_event.other_clan["changed"]
             )
             if "other_clans" not in self.types:
                 self.types.append("other_clans")
@@ -309,6 +315,8 @@ class HandleShortEvents:
             multi_cats=self.multi_cat,
             clan=game.clan,
             other_clan=self.other_clan,
+            war_offense=self.war_offense_clan,
+            war_defense=self.war_defense_clan,
             chosen_herb=self.chosen_herb,
         )
 
@@ -456,7 +464,6 @@ class HandleShortEvents:
         handles killing/murdering cats
         """
         dead_list = self.dead_cats if self.dead_cats else []
-        self.current_lives = int(game.clan.baron_lives)
 
         # check if the bodies are retrievable
         if "no_body" in self.chosen_event.tags:
@@ -479,21 +486,7 @@ class HandleShortEvents:
             if "birth_death" not in self.types:
                 self.types.append("birth_death")
 
-            if cat.status == "baron":
-                if "all_lives" in self.chosen_event.tags:
-                    game.clan.baron_lives -= 10
-                elif "some_lives" in self.chosen_event.tags:
-                    game.clan.baron_lives -= random.randrange(
-                        2, self.current_lives - 1
-                    )
-                else:
-                    game.clan.baron_lives -= 1
-
-                cat.die(body)
-                self.additional_event_text = get_baron_life_notice()
-
-            else:
-                cat.die(body)
+            cat.die(body)
 
     def handle_mass_death(self):
         """
@@ -574,7 +567,9 @@ class HandleShortEvents:
                             self.other_clan_name,
                             game.clan,
                             self.random_cat,
+                            self.chosen_event.event_id
                         )
+                        # BL TODO: war off/def in htu
                     else:
                         death_history = history_text_adjust(
                             block.get("reg_death"),
@@ -590,16 +585,6 @@ class HandleShortEvents:
                             self.main_cat, self.random_cat, revealed, death_history
                         )
 
-                    if self.main_cat.status == "baron":
-                        self.current_lives -= 1
-                        if self.current_lives != game.clan.baron_lives:
-                            while self.current_lives > game.clan.baron_lives:
-                                History.add_death(
-                                    self.main_cat,
-                                    "multi_lives",
-                                    other_cat=self.random_cat,
-                                )
-                                self.current_lives -= 1
                     History.add_death(
                         self.main_cat, death_history, other_cat=self.random_cat
                     )
@@ -623,16 +608,6 @@ class HandleShortEvents:
                             self.random_cat,
                         )
 
-                    if self.random_cat.status == "baron":
-                        self.current_lives -= 1
-                        if self.current_lives != game.clan.baron_lives:
-                            while self.current_lives > game.clan.baron_lives:
-                                History.add_death(
-                                    self.random_cat,
-                                    "multi_lives",
-                                    other_cat=self.random_cat,
-                                )
-                                self.current_lives -= 1
                     History.add_death(
                         self.random_cat, death_history, other_cat=self.random_cat
                     )
@@ -655,12 +630,6 @@ class HandleShortEvents:
                             self.random_cat,
                         )
 
-                    if cat.status == "baron":
-                        self.current_lives -= 1
-                        if self.current_lives != game.clan.baron_lives:
-                            while self.current_lives > game.clan.baron_lives:
-                                History.add_death(cat, "multi_lives")
-                                self.current_lives -= 1
                     History.add_death(cat, death_history)
 
             # new_cat history
@@ -905,6 +874,9 @@ class HandleShortEvents:
 
         self.other_clan = None
         self.other_clan_name = None
+
+        self.war_offense_clan = None
+        self.war_defense_clan = None
 
         self.chosen_event = None
         self.additional_event_text = ""

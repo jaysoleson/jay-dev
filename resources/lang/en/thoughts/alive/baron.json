@@ -64,7 +64,7 @@
             "Is asking r_c if {PRONOUN/r_c/subject} {VERB/r_c/are/is} ready for an assessment"
         ],
         "random_status_constraint": [
-            "apprentice"
+            "colt"
         ],
         "random_living_status": [
             "living"
@@ -116,7 +116,7 @@
             "Is debating if {PRONOUN/m_c/subject} should declare a war with another Clan",
             "Is wondering if {PRONOUN/m_c/subject} could hold apprentice ceremonies 2 moons earlier",
             "Hopes to postpone the retirement of {PRONOUN/m_c/poss} Clanmates",
-            "Asks the medicine cats to have a stock of deathberries at {PRONOUN/m_c/poss} disposal",
+            "Asks the doctors to have a stock of deathberries at {PRONOUN/m_c/poss} disposal",
             "Doesn't understand StarClan's resentment towards {PRONOUN/m_c/object}",
             "Is thinking about taking kits from another Clan",
             "Encourages clippers to destroy other Clans' herb supplies",
@@ -244,11 +244,11 @@
             "Instructs r_c to let a sick cat die",
             "Is telling r_c to make a poultice with deathberries",
             "Tells r_c to fake a sign from StarClan to prepare the Clan for war",
-            "Is pleased with having a like-minded medicine cat like r_c",
+            "Is pleased with having a like-minded doctor like r_c",
             "Is listening to r_c explain the pointlessness of treating weak or old cats"
         ],
         "random_status_constraint": [
-            "medicine cat"
+            "doctor"
         ],
         "random_living_status": [
             "living"

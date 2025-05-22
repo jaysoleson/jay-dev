@@ -120,7 +120,7 @@
                 ]
             },
             {
-                "text": "s_c snarls at the rogues, outnumbered but not cowed. {PRONOUN/s_c/subject/CAP} {VERB/s_c/throw/throws} {PRONOUN/s_c/self} at the intruders with such ferocity that the rogues are taken aback. Alarmed by the Clan cat's lack of fear and self-preservation, the rogues freeze. s_c sees {PRONOUN/s_c/poss} opportunity to run and takes it, racing back to the camp to gather more clippers and return.",
+                "text": "s_c snarls at the rogues, outnumbered but not cowed. {PRONOUN/s_c/subject/CAP} {VERB/s_c/throw/throws} {PRONOUN/s_c/self} at the intruders with such ferocity that the rogues are taken aback. Alarmed by the Clan cat's lack of fear and self-preservation, the rogues freeze. s_c sees {PRONOUN/s_c/poss} opportunity to run and takes it, racing back to the camp to gather more Clippers and return.",
                 "exp": 30,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,3"],
@@ -137,7 +137,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "s_c snarls at the rogues, outnumbered but not cowed. {PRONOUN/s_c/subject/CAP} {VERB/s_c/throw/throws} {PRONOUN/s_c/self} at the intruders with such ferocity that the rogues are taken aback. The shock only lasts a moment before they descend on the clipper once more. Eventually, s_c has no choice but to escape before {PRONOUN/s_c/subject}{VERB/s_c/'re/'s} killed.",
+                "text": "s_c snarls at the rogues, outnumbered but not cowed. {PRONOUN/s_c/subject/CAP} {VERB/s_c/throw/throws} {PRONOUN/s_c/self} at the intruders with such ferocity that the rogues are taken aback. The shock only lasts a moment before they descend on the Clipper once more. Eventually, s_c has no choice but to escape before {PRONOUN/s_c/subject}{VERB/s_c/'re/'s} killed.",
                 "exp": 0,
                 "weight": 20,
                 "stat_trait": ["bloodthirsty", "fierce", "vengeful"],
@@ -963,7 +963,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [1, 6]
+            "colt": [1, 6]
         },
         "weight": 20,
         "intro_text": "While on patrol, app1 notices some suspicious pawprints in the wet sand on the beach.",
@@ -1349,7 +1349,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6]
+            "colt": [1, 6]
         },
         "weight": 20,
         "intro_text": "While on patrol, app1 notices some suspicious pawprints in the wet sand on the beach.",
@@ -1672,7 +1672,7 @@
         "min_cats": 3,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 6]
+            "colt": [1, 6]
         },
         "weight": 20,
         "intro_text": "While on patrol, app1 notices some suspicious pawprints in the wet sand on the beach.",

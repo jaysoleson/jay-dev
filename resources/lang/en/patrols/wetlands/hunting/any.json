@@ -243,7 +243,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [1, 6]
+            "colt": [1, 6]
         },
         "weight": 20,
         "intro_text": "r_c's mentor assesses them by sending them on a solo hunt.",
@@ -879,7 +879,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [1, 6]
+            "colt": [1, 6]
         },
         "weight": 20,
         "intro_text": "app1 decides to hunt out near the Twoleg dens.",
@@ -1090,7 +1090,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6]
+            "colt": [1, 6]
         },
         "weight": 20,
         "intro_text": "{PRONOUN/app2/poss/CAP} eyes daring app1 to say no, app2 suggests hunting by the Twoleg dens. Where apprentices are definitely not allowed.",
@@ -1714,7 +1714,7 @@
         "min_cats": 2,
         "max_cats": 3,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [2, 2]
         },
         "weight": 20,
@@ -1948,7 +1948,7 @@
                 "prey": ["very_small"]
             },
             {
-                "text": "The patrol launches into battle, but r_c is caught with a nasty bite, and the cats give up on challenging for the food in favor of quickly helping {PRONOUN/r_c/object} back to the medicine cat den.",
+                "text": "The patrol launches into battle, but r_c is caught with a nasty bite, and the cats give up on challenging for the food in favor of quickly helping {PRONOUN/r_c/object} back to the doctor den.",
                 "exp": 0,
                 "weight": 10,
                 "injury": [
@@ -2247,7 +2247,7 @@
                 "prey": ["very_small"]
             },
             {
-                "text": "The patrol launches into battle, but r_c is caught with a nasty bite, and the cats give up on challenging for the food in favor of quickly helping {PRONOUN/r_c/object} back to the medicine cat den.",
+                "text": "The patrol launches into battle, but r_c is caught with a nasty bite, and the cats give up on challenging for the food in favor of quickly helping {PRONOUN/r_c/object} back to the doctor den.",
                 "exp": 0,
                 "weight": 10,
                 "injury": [
@@ -2383,7 +2383,7 @@
                 "prey": ["very_small"]
             },
             {
-                "text": "The patrol launches into battle, but r_c is caught with a nasty bite, and the cats give up on challenging for the food in favor of quickly helping {PRONOUN/r_c/object} back to the medicine cat den.",
+                "text": "The patrol launches into battle, but r_c is caught with a nasty bite, and the cats give up on challenging for the food in favor of quickly helping {PRONOUN/r_c/object} back to the doctor den.",
                 "exp": 0,
                 "weight": 10,
                 "injury": [
@@ -3763,7 +3763,7 @@
                 "prey": ["very_small"]
             },
             {
-                "text": "The patrol tracks down a gray fox trespassing on c_n land. s_c runs at it without thinking, and instead of intimidating the fox into fleeing for the border the hasty attack makes the gray fox skitter up a tree and start yelping. s_c tries to make up for the mistake by following the fox up into the branches, which goes even more poorly and leaves the patrol needing to help them back to the medicine cat den.",
+                "text": "The patrol tracks down a gray fox trespassing on c_n land. s_c runs at it without thinking, and instead of intimidating the fox into fleeing for the border the hasty attack makes the gray fox skitter up a tree and start yelping. s_c tries to make up for the mistake by following the fox up into the branches, which goes even more poorly and leaves the patrol needing to help them back to the doctor den.",
                 "exp": 0,
                 "weight": 10,
                 "stat_trait": [
@@ -3954,7 +3954,7 @@
                 "prey": ["very_small"]
             },
             {
-                "text": "The patrol tracks down a gray fox trespassing on c_n land. s_c runs at it without thinking, and instead of intimidating the fox into fleeing for the border the hasty attack makes the gray fox skitter up a tree and start yelping. s_c tries to make up for the mistake by following the fox up into the branches, which goes even more poorly and leaves the patrol needing to help them back to the medicine cat den.",
+                "text": "The patrol tracks down a gray fox trespassing on c_n land. s_c runs at it without thinking, and instead of intimidating the fox into fleeing for the border the hasty attack makes the gray fox skitter up a tree and start yelping. s_c tries to make up for the mistake by following the fox up into the branches, which goes even more poorly and leaves the patrol needing to help them back to the doctor den.",
                 "exp": 0,
                 "weight": 10,
                 "stat_trait": [
@@ -4191,7 +4191,7 @@
                 "prey": ["very_small"]
             },
             {
-                "text": "The patrol launches into battle, but r_c is caught with a nasty bite, and the cats give up on challenging for the food in favor of quickly helping {PRONOUN/r_c/object} back to the medicine cat den.",
+                "text": "The patrol launches into battle, but r_c is caught with a nasty bite, and the cats give up on challenging for the food in favor of quickly helping {PRONOUN/r_c/object} back to the doctor den.",
                 "exp": 0,
                 "weight": 10,
                 "injury": [
@@ -4327,7 +4327,7 @@
                 "prey": ["very_small"]
             },
             {
-                "text": "The patrol launches into battle, but r_c is caught with a nasty bite, and the cats give up on challenging for the food in favor of quickly helping {PRONOUN/r_c/object} back to the medicine cat den.",
+                "text": "The patrol launches into battle, but r_c is caught with a nasty bite, and the cats give up on challenging for the food in favor of quickly helping {PRONOUN/r_c/object} back to the doctor den.",
                 "exp": 0,
                 "weight": 10,
                 "injury": [
@@ -5703,7 +5703,7 @@
                 "prey": ["very_small"]
             },
             {
-                "text": "The patrol tracks down a gray fox trespassing on c_n land. s_c runs at it without thinking, and instead of intimidating the fox into fleeing for the border the hasty attack makes the gray fox skitter up a tree and start yelping. s_c tries to make up for the mistake by following the fox up into the branches, which goes even more poorly and leaves the patrol needing to help them back to the medicine cat den.",
+                "text": "The patrol tracks down a gray fox trespassing on c_n land. s_c runs at it without thinking, and instead of intimidating the fox into fleeing for the border the hasty attack makes the gray fox skitter up a tree and start yelping. s_c tries to make up for the mistake by following the fox up into the branches, which goes even more poorly and leaves the patrol needing to help them back to the doctor den.",
                 "exp": 0,
                 "weight": 10,
                 "stat_trait": [
@@ -5894,7 +5894,7 @@
                 "prey": ["very_small"]
             },
             {
-                "text": "The patrol tracks down a gray fox trespassing on c_n land. s_c runs at it without thinking, and instead of intimidating the fox into fleeing for the border the hasty attack makes the gray fox skitter up a tree and start yelping. s_c tries to make up for the mistake by following the fox up into the branches, which goes even more poorly and leaves the patrol needing to help them back to the medicine cat den.",
+                "text": "The patrol tracks down a gray fox trespassing on c_n land. s_c runs at it without thinking, and instead of intimidating the fox into fleeing for the border the hasty attack makes the gray fox skitter up a tree and start yelping. s_c tries to make up for the mistake by following the fox up into the branches, which goes even more poorly and leaves the patrol needing to help them back to the doctor den.",
                 "exp": 0,
                 "weight": 10,
                 "stat_trait": [
@@ -6395,7 +6395,7 @@
         "max_cats": 6,
         "min_max_status": {
            "normal adult": [1, 5],
-           "apprentice":[1, 5]
+           "colt":[1, 5]
             },
         "weight": 40,
         "chance_of_success": 50,

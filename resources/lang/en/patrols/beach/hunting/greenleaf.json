@@ -55,7 +55,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [1, 6]
+            "colt": [1, 6]
         },
         "weight": 20,
         "intro_text": "app1 has snuck out of camp alone, hoping {PRONOUN/app1/subject}'ll find a squirrel made lazy by the heat of greenleaf. Running through everything {PRONOUN/app1/subject}{VERB/app1/'ve/'s} been taught in {PRONOUN/app1/poss} head, {PRONOUN/app1/subject} carefully {VERB/app1/scent/scents} the air and {VERB/app1/strain/strains} {PRONOUN/app1/poss} ears, hoping for any hint of the burrowing critters in the stony outcrop they like to nest in.",
@@ -94,7 +94,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "normal adult": [1, 6]
         },
         "weight": 20,
@@ -229,7 +229,7 @@
                 ]
             },
             {
-                "text": "Watching from a careful distance, the patrol observes the squirrel chittering at it, kicking up sand and wildly whipping its tail in the air. r_c moves in once {PRONOUN/r_c/subject} {VERB/r_c/realize/realizes} the snake is intimidated by it, but {PRONOUN/r_c/subject} {VERB/r_c/don't/doesn't} anticipate it turning on {PRONOUN/r_c/object} instead! With no squirrel, no snake, and an envenomed bite, r_c is rushed home to the medicine cat den.",
+                "text": "Watching from a careful distance, the patrol observes the squirrel chittering at it, kicking up sand and wildly whipping its tail in the air. r_c moves in once {PRONOUN/r_c/subject} {VERB/r_c/realize/realizes} the snake is intimidated by it, but {PRONOUN/r_c/subject} {VERB/r_c/don't/doesn't} anticipate it turning on {PRONOUN/r_c/object} instead! With no squirrel, no snake, and an envenomed bite, r_c is rushed home to the doctor den.",
                 "exp": 0,
                 "weight": 10,
                 "injury": [
@@ -1498,12 +1498,12 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [2, 2]
         },
         "weight": 40,
         "intro_text": "The two siblings head out together, declaring a friendly competition to stock the fresh-kill pile. Greenleaf has brought warm waters and long days to the beaches, and they're going to prove themselves!",
-        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the Clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -1590,12 +1590,12 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [2, 2]
         },
         "weight": 40,
-        "intro_text": "It's nice to get the chance to go out hunting with app2. app1 knows they're still in the apprentices' den together, but with their different mentors and focuses and skills - it's not the same as it was back in the nursery as siblings. And the greenleaf sun is so warm and bright!",
-        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
+        "intro_text": "It's nice to get the chance to go out hunting with app2. app1 knows they're still in the colts' den together, but with their different mentors and focuses and skills - it's not the same as it was back in the nursery as siblings. And the greenleaf sun is so warm and bright!",
+        "decline_text": "Their mentors hold them back with a gentle word - the Clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -1650,12 +1650,12 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [2, 2]
         },
         "weight": 40,
         "intro_text": "The clouds are out, making the world murky after all the recent sunny days. And just like the clouds, app1 and {PRONOUN/app1/poss} sibling are everywhere today, sticking their heads into every unexplored corner of the territory. All in the name of hunting, of course!",
-        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the Clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -1710,12 +1710,12 @@
         "min_cats": 3,
         "max_cats": 3,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [3, 3]
         },
         "weight": 40,
         "intro_text": "The three siblings head out together, declaring a friendly competition to stock the fresh-kill pile. Greenleaf has brought warm waters and long days to the beaches, and they're going to prove themselves!",
-        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the Clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -1801,12 +1801,12 @@
         "min_cats": 3,
         "max_cats": 3,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [3, 3]
         },
         "weight": 40,
-        "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the apprentices' den together, but with their different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} siblings. And the greenleaf sun is so warm and bright!",
-        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
+        "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the colts' den together, but with their different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} siblings. And the greenleaf sun is so warm and bright!",
+        "decline_text": "Their mentors hold them back with a gentle word - the Clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -1861,12 +1861,12 @@
         "min_cats": 3,
         "max_cats": 3,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [3, 3]
         },
         "weight": 40,
         "intro_text": "The clouds are out, making the world murky after all the recent sunny days. And just like the clouds, app1 and {PRONOUN/app1/poss} siblings are everywhere today, sticking their heads into every unexplored corner of the territory. All in the name of hunting, of course!",
-        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the Clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -1921,12 +1921,12 @@
         "min_cats": 4,
         "max_cats": 4,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [4, 4]
         },
         "weight": 40,
         "intro_text": "The four siblings head out together, declaring a friendly competition to stock the fresh-kill pile. Greenleaf has brought warm waters and long days to the beaches, and they're going to prove themselves!",
-        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the Clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -2012,12 +2012,12 @@
         "min_cats": 4,
         "max_cats": 4,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [4, 4]
         },
         "weight": 40,
-        "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the apprentices' den together, but with their different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} siblings. And the greenleaf sun is so warm and bright!",
-        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
+        "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the colts' den together, but with their different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} siblings. And the greenleaf sun is so warm and bright!",
+        "decline_text": "Their mentors hold them back with a gentle word - the Clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -2072,12 +2072,12 @@
         "min_cats": 4,
         "max_cats": 4,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [4, 4]
         },
         "weight": 40,
         "intro_text": "The clouds are out, making the world murky after all the recent sunny days. And just like the clouds, app1 and {PRONOUN/app1/poss} siblings are everywhere today, sticking their heads into every unexplored corner of the territory. All in the name of hunting, of course!",
-        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the Clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -2132,12 +2132,12 @@
         "min_cats": 5,
         "max_cats": 5,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [5, 5]
         },
         "weight": 40,
         "intro_text": "The five siblings head out together, declaring a friendly competition to stock the fresh-kill pile. Greenleaf has brought warm waters and long days to the beaches, and they're going to prove themselves!",
-        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the Clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -2223,12 +2223,12 @@
         "min_cats": 5,
         "max_cats": 5,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [5, 5]
         },
         "weight": 40,
-        "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the apprentices' den together, but with their different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} siblings. And the greenleaf sun is so warm and bright!",
-        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
+        "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the colts' den together, but with their different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} siblings. And the greenleaf sun is so warm and bright!",
+        "decline_text": "Their mentors hold them back with a gentle word - the Clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -2283,12 +2283,12 @@
         "min_cats": 5,
         "max_cats": 5,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [5, 5]
         },
         "weight": 40,
         "intro_text": "The clouds are out, making the world murky after all the recent sunny days. And just like the clouds, app1 and {PRONOUN/app1/poss} siblings are everywhere today, sticking their heads into every unexplored corner of the territory. All in the name of hunting, of course!",
-        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the Clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -2343,12 +2343,12 @@
         "min_cats": 6,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [6, 6]
         },
         "weight": 40,
         "intro_text": "The six siblings head out together, declaring a friendly competition to stock the fresh-kill pile. Greenleaf has brought warm waters and long days to the beaches, and they're going to prove themselves!",
-        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the Clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -2434,12 +2434,12 @@
         "min_cats": 6,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [6, 6]
         },
         "weight": 40,
-        "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the apprentices' den together, but their different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} siblings. And the greenleaf sun is so warm and bright!",
-        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
+        "intro_text": "It's nice to get the chance to go out hunting together. app1 knows they're all still in the colts' den together, but their different mentors and focuses and skills - it's not the same as it was back in the nursery with {PRONOUN/app1/poss} siblings. And the greenleaf sun is so warm and bright!",
+        "decline_text": "Their mentors hold them back with a gentle word - the Clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -2494,12 +2494,12 @@
         "min_cats": 6,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [6, 6]
         },
         "weight": 40,
         "intro_text": "The clouds are out, making the world murky after all the recent sunny days. And just like the clouds, app1 and {PRONOUN/app1/poss} siblings are everywhere today, sticking their heads into every unexplored corner of the territory. All in the name of hunting, of course!",
-        "decline_text": "Their mentors hold them back with a gentle word - the clippers have other plans for the apprentices today.",
+        "decline_text": "Their mentors hold them back with a gentle word - the Clippers have other plans for the apprentices today.",
         "chance_of_success": 40,
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
@@ -2554,7 +2554,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [1, 1],
             "normal adult": [1, 6]
         },
@@ -2616,7 +2616,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [1, 1],
             "normal adult": [1, 6]
         },
@@ -2687,7 +2687,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [1, 1],
             "normal adult": [1, 6]
         },
@@ -2758,7 +2758,7 @@
         "min_cats": 3,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [1, 1],
             "normal adult": [1, 6]
         },
@@ -2820,7 +2820,7 @@
         "min_cats": 3,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [1, 6],
+            "colt": [1, 6],
             "all apprentices": [1, 1],
             "normal adult": [1, 6]
         },
@@ -2831,7 +2831,7 @@
         "relationship_constraint": ["siblings"],
         "success_outcomes": [
             {
-                "text": "Taking down a b_mp_a_s all by {PRONOUN/app1/self}, app1 feels twice {PRONOUN/app1/poss} actual size showing it to {PRONOUN/app1/poss} older, fully-named clipper siblings.",
+                "text": "Taking down a b_mp_a_s all by {PRONOUN/app1/self}, app1 feels twice {PRONOUN/app1/poss} actual size showing it to {PRONOUN/app1/poss} older, fully-named Clipper siblings.",
                 "exp": 30,
                 "weight": 20,
                 "prey": ["medium"],
@@ -2915,7 +2915,7 @@
                 ]
             },
             {
-                "text": "The hunting patrol is perfectly successful, and it matters not a whit to either of the clippers, because p_l makes a joke that {PRONOUN/p_l/subject} {VERB/p_l/think/thinks} is funny but that's always gotten on r_c's nerves, and suddenly they're both acting like apprentices again - snippy, immature, and irritable.",
+                "text": "The hunting patrol is perfectly successful, and it matters not a whit to either of the Clippers, because p_l makes a joke that {PRONOUN/p_l/subject} {VERB/p_l/think/thinks} is funny but that's always gotten on r_c's nerves, and suddenly they're both acting like apprentices again - snippy, immature, and irritable.",
                 "exp": 20,
                 "weight": 5,
                 "prey": ["medium"],
@@ -2996,7 +2996,7 @@
                 ]
             },
             {
-                "text": "r_c thinks that there's just something nice about hanging out with another clipper who'll always be there for {PRONOUN/r_c/object}, regardless of their similarities and differences. And they also bring back a good-sized b_mp_a_s with some b_tp_dl_p on the side for the fresh-kill pile.",
+                "text": "r_c thinks that there's just something nice about hanging out with another Clipper who'll always be there for {PRONOUN/r_c/object}, regardless of their similarities and differences. And they also bring back a good-sized b_mp_a_s with some b_tp_dl_p on the side for the fresh-kill pile.",
                 "exp": 20,
                 "weight": 5,
                 "prey": ["medium"],
@@ -3331,7 +3331,7 @@
                 ]
             },
             {
-                "text": "The hunting patrol is perfectly successful and it matters not a whit to any of the clippers, because p_l makes a joke that {PRONOUN/p_l/subject} {VERB/p_l/think/thinks} is funny but that's always gotten on r_c's nerves, and suddenly everyone's acting like apprentices again - snippy, immature, and irritable.",
+                "text": "The hunting patrol is perfectly successful and it matters not a whit to any of the Clippers, because p_l makes a joke that {PRONOUN/p_l/subject} {VERB/p_l/think/thinks} is funny but that's always gotten on r_c's nerves, and suddenly everyone's acting like apprentices again - snippy, immature, and irritable.",
                 "exp": 20,
                 "weight": 5,
                 "prey": ["medium"],
@@ -3412,7 +3412,7 @@
                 ]
             },
             {
-                "text": "There's just something nice about hanging out with other clippers who'll always be there for {PRONOUN/r_c/object}, regardless of their similarities and differences. And they also bring back a good-sized b_mp_a_s with some b_tp_dl_p on the side for the fresh-kill pile.",
+                "text": "There's just something nice about hanging out with other Clippers who'll always be there for {PRONOUN/r_c/object}, regardless of their similarities and differences. And they also bring back a good-sized b_mp_a_s with some b_tp_dl_p on the side for the fresh-kill pile.",
                 "exp": 20,
                 "weight": 5,
                 "prey": ["medium"],
@@ -3724,12 +3724,12 @@
         "max_cats": 6,
         "min_max_status": {},
         "weight": 20,
-        "intro_text": "p_l finds a patch of herbs that {PRONOUN/p_l/subject} {VERB/p_l/believe/believes} c_n might need for their stores. {PRONOUN/p_l/subject/CAP} freely {VERB/p_l/admit/admits} to {PRONOUN/p_l/poss} patrol {PRONOUN/p_l/subject} {VERB/p_l/are/is}n't a medicine cat and {VERB/p_l/ask/asks} {PRONOUN/p_l/poss} companions' advice. What do they know about this part of the coast's herbal properties, especially in the heat of greenleaf?",
-        "decline_text": "They decide to focus on hunting and leave the herb collecting to the medicine cats.",
+        "intro_text": "p_l finds a patch of herbs that {PRONOUN/p_l/subject} {VERB/p_l/believe/believes} c_n might need for their stores. {PRONOUN/p_l/subject/CAP} freely {VERB/p_l/admit/admits} to {PRONOUN/p_l/poss} patrol {PRONOUN/p_l/subject} {VERB/p_l/are/is}n't a doctor and {VERB/p_l/ask/asks} {PRONOUN/p_l/poss} companions' advice. What do they know about this part of the coast's herbal properties, especially in the heat of greenleaf?",
+        "decline_text": "They decide to focus on hunting and leave the herb collecting to the doctors.",
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "It's not their normal task, but they're all smart enough to value supporting the Clan's medicine cat den. The patrol brings the herbs back to camp, and they are put to good use.",
+                "text": "It's not their normal task, but they're all smart enough to value supporting the Clan's doctor den. The patrol brings the herbs back to camp, and they are put to good use.",
                 "exp": 10,
                 "weight": 20,
                 "herbs": ["random_herbs"],

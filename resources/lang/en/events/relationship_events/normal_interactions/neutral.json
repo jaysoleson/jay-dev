@@ -51,17 +51,17 @@
 			"m_c is checking on r_c."
 		],
 		"main_status_constraint": [
-			"medicine cat",
+			"doctor",
 			"regent",
 			"baron"
 		],
 		"random_status_constraint": [
 			"kitten",
-			"apprentice",
-			"mediator apprentice",
-			"medicine cat apprentice",
+			"colt",
+			"apprentice doctor",
 			"clipper",
-			"mediator"
+			"cog",
+			"heir"
 		]
 	},
 	{

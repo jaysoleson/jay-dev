@@ -391,7 +391,7 @@
         "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "The patrol approaches the cat and sees some signs of life. The patrol, after some hesitation, decides to bring the cat back to camp so that they can be treated by the medicine cat. The cat thanks them profusely and promises to repay them by joining the Clan and being the best clipper {PRONOUN/n_c:0/subject} can.",
+                "text": "The patrol approaches the cat and sees some signs of life. The patrol, after some hesitation, decides to bring the cat back to camp so that they can be treated by the doctor. The cat thanks them profusely and promises to repay them by joining the Clan and being the best Clipper {PRONOUN/n_c:0/subject} can.",
                 "exp": 10,
                 "weight": 20,
                 "injury": [
@@ -456,7 +456,7 @@
         "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "p_l approaches the cat and sees some signs of life. After some hesitation, {PRONOUN/p_l/subject} {VERB/p_l/decide/decides} to bring the cat back to camp so that they can be treated by the medicine cat. The cat thanks {PRONOUN/p_l/object} profusely and promises to repay {PRONOUN/p_l/object} by joining the Clan and being the best clipper {PRONOUN/n_c:0/subject} can.",
+                "text": "p_l approaches the cat and sees some signs of life. After some hesitation, {PRONOUN/p_l/subject} {VERB/p_l/decide/decides} to bring the cat back to camp so that they can be treated by the doctor. The cat thanks {PRONOUN/p_l/object} profusely and promises to repay {PRONOUN/p_l/object} by joining the Clan and being the best Clipper {PRONOUN/n_c:0/subject} can.",
                 "exp": 10,
                 "weight": 20,
                 "injury": [
@@ -623,7 +623,7 @@
         ],
         "antag_fail_outcomes": [
             {
-                "text": "The patrol immediately stops their border marking and switches to tracking the scent of the intruder instead. At the end of the trail they find an old kittypet, wheezing {PRONOUN/n_c:0/poss} Twoleg's name. They try to drive the kittypet off - but {PRONOUN/n_c:0/poss} too weak, and the clippers too practiced at strong battle.",
+                "text": "The patrol immediately stops their border marking and switches to tracking the scent of the intruder instead. At the end of the trail they find an old kittypet, wheezing {PRONOUN/n_c:0/poss} Twoleg's name. They try to drive the kittypet off - but {PRONOUN/n_c:0/poss} too weak, and the Clippers too practiced at strong battle.",
                 "exp": 0,
                 "weight": 20,
                 "outsider_rep": -4,
@@ -1014,11 +1014,11 @@
         "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "The new medicine cat is welcomed into the Clan.",
+                "text": "The new doctor is welcomed into the Clan.",
                 "exp": 10,
                 "weight": 20,
                 "new_cat": [
-                    ["status:medicine cat", "loner"]
+                    ["status:doctor", "loner"]
                 ],
                 "relationships": [
                     {
@@ -1031,11 +1031,11 @@
                 "outsider_rep": 1
             },
             {
-                "text": "The new medicine cat is welcomed into the Clan along with {PRONOUN/n_c:0/poss} litter of kits.",
+                "text": "The new doctor is welcomed into the Clan along with {PRONOUN/n_c:0/poss} litter of kits.",
                 "exp": 10,
                 "weight": 5,
                 "new_cat": [
-                    ["status:medicine cat", "age:has_kits", "loner"],
+                    ["status:doctor", "age:has_kits", "loner"],
                     ["litter", "parent:0", "status:kitten", "backstory:outsider_roots2"]
                 ],
                 "relationships": [
@@ -1117,11 +1117,11 @@
         "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "The new medicine cat is welcomed into the Clan.",
+                "text": "The new doctor is welcomed into the Clan.",
                 "exp": 10,
                 "weight": 20,
                 "new_cat": [
-                    ["status:medicine cat", "loner"]
+                    ["status:doctor", "loner"]
                 ],
                 "relationships": [
                     {
@@ -1134,11 +1134,11 @@
                 "outsider_rep": 1
             },
             {
-                "text": "The new medicine cat is welcomed into the Clan along with {PRONOUN/n_c:0/poss} litter of kits.",
+                "text": "The new doctor is welcomed into the Clan along with {PRONOUN/n_c:0/poss} litter of kits.",
                 "exp": 10,
                 "weight": 5,
                 "new_cat": [
-                    ["status:medicine cat", "age:has_kits", "loner"],
+                    ["status:doctor", "age:has_kits", "loner"],
                     ["litter", "parent:0", "status:kitten", "backstory:outsider_roots2"]
                 ],
                 "relationships": [
@@ -1507,7 +1507,7 @@
                 "outsider_rep": 1
             },
             {
-                "text": "Near the Twoleg den, p_l suddenly hears furious growls. Tiny, adorable, furious growls. A kitten tries to pounce on p_l, barely coming up to {PRONOUN/p_l/poss} elbows. Before little teeth can do any damage, p_l gently flips the tiny cat over and places a gentle paw on their back, completely pinning them as they struggle with all their might. r_c, called over by the mighty fight, asks the little clipper what on earth they're doing. Why, they're defending their territory of course! It might not be the done thing in c_n, but p_l is enchanted by the tiny clipper's bravery, and is willing to vouch for them.",
+                "text": "Near the Twoleg den, p_l suddenly hears furious growls. Tiny, adorable, furious growls. A kitten tries to pounce on p_l, barely coming up to {PRONOUN/p_l/poss} elbows. Before little teeth can do any damage, p_l gently flips the tiny cat over and places a gentle paw on their back, completely pinning them as they struggle with all their might. r_c, called over by the mighty fight, asks the little Clipper what on earth they're doing. Why, they're defending their territory of course! It might not be the done thing in c_n, but p_l is enchanted by the tiny Clipper's bravery, and is willing to vouch for them.",
                 "exp": 30,
                 "weight": 5,
                 "new_cat": [
@@ -1530,7 +1530,7 @@
                 "outsider_rep": 1
             },
             {
-                "text": "Furious, high-pitched yowls greet the patrol as a tiny kittypet kitten comes roaring out of the Twoleg nest to try and fight them. Terrifying. s_c tips the little fighter over and carefully scruffs the tiny clipper, wondering what to do with them - s_c doesn't particularly want to hurt them, even if they aren't a Clancat. The kitten insists that they're a big cat and they're <b>fine</b>, but after a couple minutes, does reveal their mother is dead. Twolegs have kept them alive somehow, but c_n will do better, and such a fierce heart shouldn't be left to wither in a soft kittypet life.",
+                "text": "Furious, high-pitched yowls greet the patrol as a tiny kittypet kitten comes roaring out of the Twoleg nest to try and fight them. Terrifying. s_c tips the little fighter over and carefully scruffs the tiny Clipper, wondering what to do with them - s_c doesn't particularly want to hurt them, even if they aren't a Clancat. The kitten insists that they're a big cat and they're <b>fine</b>, but after a couple minutes, does reveal their mother is dead. Twolegs have kept them alive somehow, but c_n will do better, and such a fierce heart shouldn't be left to wither in a soft kittypet life.",
                 "exp": 30,
                 "weight": 20,
                 "stat_trait": ["careful", "thoughtful"],
@@ -1572,7 +1572,7 @@
         ],
         "antag_success_outcomes": [
             {
-                "text": "A kittypet kitten approaches the patrol, yowling furiously. p_l bats it aside as the clippers continue hunting, unruffled.",
+                "text": "A kittypet kitten approaches the patrol, yowling furiously. p_l bats it aside as the Clippers continue hunting, unruffled.",
                 "exp": 30,
                 "weight": 20,
                 "outsider_rep": -2
@@ -1589,7 +1589,7 @@
         "min_cats": 2,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [-1, -1],
+            "colt": [-1, -1],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -1670,7 +1670,7 @@
         "min_cats": 2,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [-1, -1],
+            "colt": [-1, -1],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -1761,8 +1761,8 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [-1, -1],
-            "medicine cat": [1, 6],
+            "colt": [-1, -1],
+            "doctor": [1, 6],
             "healer cats": [1, 6],
             "all apprentices": [-1, -1],
             "normal adult": [-1, -1]
@@ -1844,8 +1844,8 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [-1, -1],
-            "medicine cat": [1, 6],
+            "colt": [-1, -1],
+            "doctor": [1, 6],
             "healer cats": [1, 6],
             "all apprentices": [-1, -1],
             "normal adult": [-1, -1]
@@ -1937,8 +1937,8 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [-1, -1],
-            "medicine cat apprentice": [1, 6],
+            "colt": [-1, -1],
+            "apprentice doctor": [1, 6],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -2019,8 +2019,8 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [-1, -1],
-            "medicine cat apprentice": [1, 6],
+            "colt": [-1, -1],
+            "apprentice doctor": [1, 6],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -2111,7 +2111,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [1, 6]
+            "colt": [1, 6]
         },
         "weight": 20,
         "intro_text": "It's a cold day in c_n's territory, and app1 is the only cat stepping out. {PRONOUN/app1/subject/CAP}{VERB/app1/'re/'s} by {PRONOUN/app1/self} when {PRONOUN/app1/subject} {VERB/app1/hear/hears} a cat screaming for help.",

@@ -55,9 +55,9 @@
                 "weight": 10,
                 "dead_cats": ["r_c"],
                 "history_text": {
-                    "scar": "m_c was scarred by an enemy clipper.",
-                    "reg_death": "m_c was killed by an enemy clipper.",
-                    "lead_death": "{VERB/m_c/were/was} killed by an enemy clipper"
+                    "scar": "m_c was scarred by an enemy Clipper.",
+                    "reg_death": "m_c was killed by an enemy Clipper.",
+                    "lead_death": "{VERB/m_c/were/was} killed by an enemy Clipper"
                 },
                 "other_clan_rep": -1
             },
@@ -73,9 +73,9 @@
                     }
                 ],
                 "history_text": {
-                    "scar": "m_c was scarred by an enemy clipper.",
-                    "reg_death": "m_c was killed by an enemy clipper.",
-                    "lead_death": "{VERB/m_c/were/was} killed by an enemy clipper"
+                    "scar": "m_c was scarred by an enemy Clipper.",
+                    "reg_death": "m_c was killed by an enemy Clipper.",
+                    "lead_death": "{VERB/m_c/were/was} killed by an enemy Clipper"
                 },
                 "other_clan_rep": -1
             }
@@ -341,7 +341,7 @@
     "art": "gen_battle_clipper_other_clan"
     },
     {
-        "text": "As they discuss running away together, p_l and n_c:0 lose track of time together and only realize the sun is rising when a o_c_n dawn patrol catches them together on the border. n_c:0's Clanmates are enraged. Though n_c:0 tries to pull them off p_l, the o_c_n clippers leave p_l cold on the ground. n_c:0 flees, howling in grief for {PRONOUN/n_c:0/poss} lost love.",
+        "text": "As they discuss running away together, p_l and n_c:0 lose track of time together and only realize the sun is rising when a o_c_n dawn patrol catches them together on the border. n_c:0's Clanmates are enraged. Though n_c:0 tries to pull them off p_l, the o_c_n Clippers leave p_l cold on the ground. n_c:0 flees, howling in grief for {PRONOUN/n_c:0/poss} lost love.",
         "exp": 0,
         "weight": 10,
         "dead_cats": [ "p_l" ],
@@ -386,7 +386,7 @@
     "art": "gen_battle_clipper_other_clan"
     },
     {
-        "text": "p_l and n_c:0 spend the night discussing their future. At dawn, a patrol from o_c_n arrives and finds p_l on their territory. Before n_c:0 can explain, one hot-blooded clipper pounces on p_l and goes for {PRONOUN/p_l/poss} throat, but p_l sinks {PRONOUN/p_l/poss} jaws into the clipper's neck first. n_c:0 wails that p_l has killed {PRONOUN/n_c:0/poss} littermate, then flees, leaving p_l and the remaining o_c_n clippers staring at each other.",
+        "text": "p_l and n_c:0 spend the night discussing their future. At dawn, a patrol from o_c_n arrives and finds p_l on their territory. Before n_c:0 can explain, one hot-blooded Clipper pounces on p_l and goes for {PRONOUN/p_l/poss} throat, but p_l sinks {PRONOUN/p_l/poss} jaws into the Clipper's neck first. n_c:0 wails that p_l has killed {PRONOUN/n_c:0/poss} littermate, then flees, leaving p_l and the remaining o_c_n Clippers staring at each other.",
         "exp": 0,
         "weight": 10,
         "injury": [
@@ -917,9 +917,9 @@
                 "weight": 10,
                 "dead_cats": ["r_c"],
                 "history_text": {
-                    "scar": "m_c was scarred by an enemy clipper.",
-                    "reg_death": "m_c was killed by an enemy clipper.",
-                    "lead_death": "{VERB/m_c/were/was} killed by an enemy clipper"
+                    "scar": "m_c was scarred by an enemy Clipper.",
+                    "reg_death": "m_c was killed by an enemy Clipper.",
+                    "lead_death": "{VERB/m_c/were/was} killed by an enemy Clipper"
                 },
                 "other_clan_rep": -1
             },
@@ -935,9 +935,9 @@
                     }
                 ],
                 "history_text": {
-                    "scar": "m_c was scarred by an enemy clipper.",
-                    "reg_death": "m_c was killed by an enemy clipper.",
-                    "lead_death": "{VERB/m_c/were/was} killed by an enemy clipper"
+                    "scar": "m_c was scarred by an enemy Clipper.",
+                    "reg_death": "m_c was killed by an enemy Clipper.",
+                    "lead_death": "{VERB/m_c/were/was} killed by an enemy Clipper"
                 },
                 "other_clan_rep": -1
             }
@@ -1035,9 +1035,9 @@
                 "weight": 10,
                 "dead_cats": ["r_c"],
                 "history_text": {
-                    "scar": "m_c disrespected the border lines and was scarred by an enemy clipper for it.",
-                    "reg_death": "m_c disrespected the border lines and was killed by an enemy clipper for it.",
-                    "lead_death": "{VERB/m_c/were/was} killed by an enemy clipper"
+                    "scar": "m_c disrespected the border lines and was scarred by an enemy Clipper for it.",
+                    "reg_death": "m_c disrespected the border lines and was killed by an enemy Clipper for it.",
+                    "lead_death": "{VERB/m_c/were/was} killed by an enemy Clipper"
                 },
                 "other_clan_rep": -1
             },
@@ -1053,9 +1053,9 @@
                     }
                 ],
                 "history_text": {
-                    "scar": "m_c disrespected the border lines and was scarred by an enemy clipper for it.",
-                    "reg_death": "m_c disrespected the border lines and was killed by an enemy clipper for it.",
-                    "lead_death": "{VERB/m_c/were/was} killed by an enemy clipper"
+                    "scar": "m_c disrespected the border lines and was scarred by an enemy Clipper for it.",
+                    "reg_death": "m_c disrespected the border lines and was killed by an enemy Clipper for it.",
+                    "lead_death": "{VERB/m_c/were/was} killed by an enemy Clipper"
                 },
                 "other_clan_rep": -1
             }
@@ -1087,8 +1087,8 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [-1, -1],
-            "medicine cat": [1, 6],
+            "colt": [-1, -1],
+            "doctor": [1, 6],
             "healer cats": [1, 6],
             "normal adult": [-1, -1]
         },
@@ -1098,21 +1098,21 @@
         "chance_of_success": 30,
         "success_outcomes": [
             {
-                "text": "{PRONOUN/p_l/subject/CAP} {VERB/p_l/pad/pads} over to the border and {VERB/p_l/hesitate/hesitates} only momentarily before crossing. {PRONOUN/p_l/subject/CAP} quickly {VERB/p_l/gather/gathers} some of the berries, making sure to leave plenty for o_c_n's medicine cat if they need some too.",
+                "text": "{PRONOUN/p_l/subject/CAP} {VERB/p_l/pad/pads} over to the border and {VERB/p_l/hesitate/hesitates} only momentarily before crossing. {PRONOUN/p_l/subject/CAP} quickly {VERB/p_l/gather/gathers} some of the berries, making sure to leave plenty for o_c_n's doctor if they need some too.",
                 "exp": 20,
                 "weight": 20,
                 "herbs": ["raspberry"],
                 "other_clan_rep": 2
             },
             {
-                "text": "{PRONOUN/p_l/subject/CAP} {VERB/p_l/pad/pads} to the border and {VERB/p_l/pause/pauses} for a heartbeat to scent the air. o_c_n's scent is very strong, but there's something else... o_c_n's medicine cat appears at that moment. They're walking towards the raspberries when they spot p_l and curl their lip. They snarl that they're not willing to share with an enemy Clan. p_l takes the hint and leaves.",
+                "text": "{PRONOUN/p_l/subject/CAP} {VERB/p_l/pad/pads} to the border and {VERB/p_l/pause/pauses} for a heartbeat to scent the air. o_c_n's scent is very strong, but there's something else... o_c_n's doctor appears at that moment. They're walking towards the raspberries when they spot p_l and curl their lip. They snarl that they're not willing to share with an enemy Clan. p_l takes the hint and leaves.",
                 "exp": 20,
                 "weight": 5,
                 "herbs": ["raspberry"],
                 "other_clan_rep": 2
             },
             {
-                "text": "p_l is about to step over the border when a hiss stops {PRONOUN/p_l/object} in {PRONOUN/p_l/poss} tracks. A o_c_n clipper bounds into view, bristling with rage. {PRONOUN/p_l/subject/CAP} quickly {VERB/p_l/explain/explains} that {PRONOUN/p_l/subject}{VERB/p_l/'re/'s} the medicine cat, that the clipper Code allows {PRONOUN/p_l/object} to cross the border, and {VERB/p_l/assure/assures} the clipper that {PRONOUN/p_l/subject} only {VERB/p_l/need/needs} a few berries for some sick Clanmates. The clipper looks torn, but agrees to this.",
+                "text": "p_l is about to step over the border when a hiss stops {PRONOUN/p_l/object} in {PRONOUN/p_l/poss} tracks. A o_c_n Clipper bounds into view, bristling with rage. {PRONOUN/p_l/subject/CAP} quickly {VERB/p_l/explain/explains} that {PRONOUN/p_l/subject}{VERB/p_l/'re/'s} the doctor, that the Clipper Code allows {PRONOUN/p_l/object} to cross the border, and {VERB/p_l/assure/assures} the Clipper that {PRONOUN/p_l/subject} only {VERB/p_l/need/needs} a few berries for some sick Clanmates. The Clipper looks torn, but agrees to this.",
                 "exp": 20,
                 "weight": 20,
                 "stat_skill": ["MEDIATOR,3"],
@@ -1122,13 +1122,13 @@
         ],
         "fail_outcomes": [
             {
-                "text": "p_l starts to step over the border but a hiss stops {PRONOUN/p_l/object} in {PRONOUN/p_l/poss} tracks. A o_c_n patrol is running {PRONOUN/p_l/poss} way. As the patrol approaches, {PRONOUN/p_l/subject} {VERB/p_l/blurt/blurts} out that {PRONOUN/p_l/subject}{VERB/r_c/'re/'s} a medicine cat. One of the clippers snarls that they won't tolerate c_n cats on their land, medicine cat or not, and p_l needs to leave before they make {PRONOUN/p_l/object}. {PRONOUN/p_l/subject/CAP} {VERB/p_l/oblige/obliges} quickly.",
+                "text": "p_l starts to step over the border but a hiss stops {PRONOUN/p_l/object} in {PRONOUN/p_l/poss} tracks. A o_c_n patrol is running {PRONOUN/p_l/poss} way. As the patrol approaches, {PRONOUN/p_l/subject} {VERB/p_l/blurt/blurts} out that {PRONOUN/p_l/subject}{VERB/r_c/'re/'s} a doctor. One of the Clippers snarls that they won't tolerate c_n cats on their land, doctor or not, and p_l needs to leave before they make {PRONOUN/p_l/object}. {PRONOUN/p_l/subject/CAP} {VERB/p_l/oblige/obliges} quickly.",
                 "exp": 0,
                 "weight": 20,
                 "other_clan_rep": -1
             },
             {
-                "text": "p_l starts to step over the border but a hiss stops {PRONOUN/p_l/object} in {PRONOUN/p_l/poss} tracks. A o_c_n patrol is running {PRONOUN/p_l/poss} way. As the patrol approaches, {PRONOUN/p_l/subject} {VERB/p_l/blurt/blurts} out that {PRONOUN/p_l/subject}{VERB/r_c/'re/'s} a medicine cat. The clippers either don't hear {PRONOUN/p_l/object} or don't care - they take multiple swipes at {PRONOUN/p_l/object} before {PRONOUN/p_l/subject} can get away.",
+                "text": "p_l starts to step over the border but a hiss stops {PRONOUN/p_l/object} in {PRONOUN/p_l/poss} tracks. A o_c_n patrol is running {PRONOUN/p_l/poss} way. As the patrol approaches, {PRONOUN/p_l/subject} {VERB/p_l/blurt/blurts} out that {PRONOUN/p_l/subject}{VERB/r_c/'re/'s} a doctor. The Clippers either don't hear {PRONOUN/p_l/object} or don't care - they take multiple swipes at {PRONOUN/p_l/object} before {PRONOUN/p_l/subject} can get away.",
                 "exp": 0,
                 "weight": 10,
                 "injury": [
@@ -1171,7 +1171,7 @@
                 "other_clan_rep": 2
             },
             {
-                "text": "The patrol follows the scent and finds a wounded o_c_n clipper. It seems the cat had been caught by a dog and chased into c_n territory. The dog is gone now, but the clipper can't make it back across the border on their own. s_c is hesitant, but insists that the patrol at least escort the wounded clipper to the border.",
+                "text": "The patrol follows the scent and finds a wounded o_c_n Clipper. It seems the cat had been caught by a dog and chased into c_n territory. The dog is gone now, but the Clipper can't make it back across the border on their own. s_c is hesitant, but insists that the patrol at least escort the wounded Clipper to the border.",
                 "exp": 10,
                 "weight": 20,
                 "stat_trait": ["compassionate", "calm"],
@@ -1226,7 +1226,7 @@
         ],
         "antag_fail_outcomes": [
             {
-                "text": "How dare they trespass! The patrol bounds after the scent, hoping to find the source of it, eventually discovering a limping o_c_n clipper who hastily explains that a dog had chased them into c_n's territory.  The patrol is still angry, but they rein in their hostility and tensely return the cat to o_c_n territory.",
+                "text": "How dare they trespass! The patrol bounds after the scent, hoping to find the source of it, eventually discovering a limping o_c_n Clipper who hastily explains that a dog had chased them into c_n's territory.  The patrol is still angry, but they rein in their hostility and tensely return the cat to o_c_n territory.",
                 "exp": 0,
                 "weight": 20,
                 "other_clan_rep": -1
@@ -1270,7 +1270,7 @@
                 "other_clan_rep": 2
             },
             {
-                "text": "s_c follows the scent and finds a wounded o_c_n clipper. It seems the cat had been caught by a dog and chased into c_n territory. The dog is gone now, but the clipper can't make it back across the border on their own. s_c is hesitant, but insists that {PRONOUN/s_c/subject} at least escort the wounded clipper to the border.",
+                "text": "s_c follows the scent and finds a wounded o_c_n Clipper. It seems the cat had been caught by a dog and chased into c_n territory. The dog is gone now, but the Clipper can't make it back across the border on their own. s_c is hesitant, but insists that {PRONOUN/s_c/subject} at least escort the wounded Clipper to the border.",
                 "exp": 10,
                 "weight": 20,
                 "stat_trait": ["compassionate", "calm"],
@@ -1324,7 +1324,7 @@
         ],
         "antag_fail_outcomes": [
             {
-                "text": "How dare they trespass! p_l bounds after the scent, hoping to find the source of it, eventually discovering a limping o_c_n clipper who hastily explains that a dog had chased them into c_n's territory. p_l is still angry, but {PRONOUN/p_l/subject} {VERB/p_l/rein/reins} in {PRONOUN/p_l/poss} hostility and tensely {VERB/p_l/return/returns} the cat to o_c_n territory.",
+                "text": "How dare they trespass! p_l bounds after the scent, hoping to find the source of it, eventually discovering a limping o_c_n Clipper who hastily explains that a dog had chased them into c_n's territory. p_l is still angry, but {PRONOUN/p_l/subject} {VERB/p_l/rein/reins} in {PRONOUN/p_l/poss} hostility and tensely {VERB/p_l/return/returns} the cat to o_c_n territory.",
                 "exp": 0,
                 "weight": 20,
                 "other_clan_rep": -1
@@ -1520,7 +1520,7 @@
                 "other_clan_rep": 2
             },
             {
-                "text": "As s_c marks the border, {PRONOUN/s_c/subject} {VERB/s_c/encounter/encounters} a o_c_n border patrol. It even includes a young apprentice, who starts fluffing up and insulting {PRONOUN/s_c/object}. s_c sternly growls back to the apprentice that border fights are no joke, and surprisingly, their mentor joins s_c, both clipper and regent teaching the youngster firmly but peacefully.",
+                "text": "As s_c marks the border, {PRONOUN/s_c/subject} {VERB/s_c/encounter/encounters} a o_c_n border patrol. It even includes a young apprentice, who starts fluffing up and insulting {PRONOUN/s_c/object}. s_c sternly growls back to the apprentice that border fights are no joke, and surprisingly, their mentor joins s_c, both Clipper and regent teaching the youngster firmly but peacefully.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": [
@@ -1536,7 +1536,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "r_c comes across a o_c_n apprentice on the wrong side of the border and holding prey. Furious, {PRONOUN/r_c/subject} {VERB/r_c/snarl/snarls} {PRONOUN/r_c/poss} anger. The apprentice turns tail and flees with r_c hot on their trail, and when the apprentice crosses the border to hide behind their mentor, the o_c_n clipper's face goes slack with horror to see c_n's regent.",
+                "text": "r_c comes across a o_c_n apprentice on the wrong side of the border and holding prey. Furious, {PRONOUN/r_c/subject} {VERB/r_c/snarl/snarls} {PRONOUN/r_c/poss} anger. The apprentice turns tail and flees with r_c hot on their trail, and when the apprentice crosses the border to hide behind their mentor, the o_c_n Clipper's face goes slack with horror to see c_n's regent.",
                 "exp": 0,
                 "weight": 20,
                 "other_clan_rep": -1
@@ -1676,7 +1676,7 @@
                 "other_clan_rep": 2
             },
             {
-                "text": "As s_c marks the border, {PRONOUN/s_c/subject} {VERB/s_c/encounter/encounters} a o_c_n border patrol. It even includes a young apprentice, who starts fluffing up and insulting {PRONOUN/s_c/object}. s_c sternly growls back to the apprentice that border fights are no joke, and surprisingly, their mentor joins s_c, both clipper and baron teaching the youngster firmly but peacefully.",
+                "text": "As s_c marks the border, {PRONOUN/s_c/subject} {VERB/s_c/encounter/encounters} a o_c_n border patrol. It even includes a young apprentice, who starts fluffing up and insulting {PRONOUN/s_c/object}. s_c sternly growls back to the apprentice that border fights are no joke, and surprisingly, their mentor joins s_c, both Clipper and baron teaching the youngster firmly but peacefully.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": [
@@ -1692,7 +1692,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "r_c comes across a o_c_n apprentice on the wrong side of the border and holding prey. Furious, {PRONOUN/r_c/subject} {VERB/r_c/snarl/snarls} {PRONOUN/r_c/poss} anger. The apprentice turns tail and flees with r_c hot on their trail, and when the apprentice crosses the border to hide behind their mentor, the o_c_n clipper's face goes slack with horror to see c_n's baron.",
+                "text": "r_c comes across a o_c_n apprentice on the wrong side of the border and holding prey. Furious, {PRONOUN/r_c/subject} {VERB/r_c/snarl/snarls} {PRONOUN/r_c/poss} anger. The apprentice turns tail and flees with r_c hot on their trail, and when the apprentice crosses the border to hide behind their mentor, the o_c_n Clipper's face goes slack with horror to see c_n's baron.",
                 "exp": 0,
                 "weight": 20,
                 "other_clan_rep": -1
@@ -1831,7 +1831,7 @@
                 "other_clan_rep": 2
             },
             {
-                "text": "s_c comes across a patrol from o_c_n, out on a similar mission to {PRONOUN/s_c/object} and being led by their regent. One of the patrol yowls an insult and s_c squares up, coldly sneering at the clipper that thinks they can take {PRONOUN/s_c/object}. The other regent calls their clipper back, begrudgingly impressed.",
+                "text": "s_c comes across a patrol from o_c_n, out on a similar mission to {PRONOUN/s_c/object} and being led by their regent. One of the patrol yowls an insult and s_c squares up, coldly sneering at the Clipper that thinks they can take {PRONOUN/s_c/object}. The other regent calls their Clipper back, begrudgingly impressed.",
                 "exp": 20,
                 "weight": 20,
                 "stat_skill": ["SPEAKER,1"],
@@ -1959,7 +1959,7 @@
                 "other_clan_rep": 2
             },
             {
-                "text": "s_c comes across a patrol from o_c_n, out on a similar mission to {PRONOUN/s_c/object} and being led by their Clan baron. One of the patrol yowls an insult and s_c squares up, coldly sneering at the clipper that thinks they can take {PRONOUN/s_c/object}. The other baron calls their clipper back, begrudgingly impressed.",
+                "text": "s_c comes across a patrol from o_c_n, out on a similar mission to {PRONOUN/s_c/object} and being led by their Clan baron. One of the patrol yowls an insult and s_c squares up, coldly sneering at the Clipper that thinks they can take {PRONOUN/s_c/object}. The other baron calls their Clipper back, begrudgingly impressed.",
                 "exp": 20,
                 "weight": 20,
                 "stat_skill": ["SPEAKER,1"],
@@ -2101,7 +2101,7 @@
                 "other_clan_rep": 2
             },
             {
-                "text": "As s_c marks the border, {PRONOUN/s_c/subject} {VERB/s_c/encounter/encounters} a o_c_n border patrol. It even includes a young apprentice, who starts fluffing up and insulting {PRONOUN/s_c/object}. s_c sternly growls back to the apprentice that border fights are no joke, and surprisingly, their mentor joins s_c, both clippers teaching the youngster firmly but peacefully.",
+                "text": "As s_c marks the border, {PRONOUN/s_c/subject} {VERB/s_c/encounter/encounters} a o_c_n border patrol. It even includes a young apprentice, who starts fluffing up and insulting {PRONOUN/s_c/object}. s_c sternly growls back to the apprentice that border fights are no joke, and surprisingly, their mentor joins s_c, both Clippers teaching the youngster firmly but peacefully.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": [
@@ -2245,7 +2245,7 @@
                 "other_clan_rep": 2
             },
             {
-                "text": "As s_c marks the border, {PRONOUN/s_c/object} {VERB/s_c/encounter/encounters} a o_c_n border patrol. It even includes a young apprentice, who starts fluffing up and insulting {PRONOUN/s_c/object}. s_c sternly growls back to the apprentice that border fights are no joke, and surprisingly, their mentor joins s_c, both clipper and regent teaching the youngster firmly but peacefully.",
+                "text": "As s_c marks the border, {PRONOUN/s_c/object} {VERB/s_c/encounter/encounters} a o_c_n border patrol. It even includes a young apprentice, who starts fluffing up and insulting {PRONOUN/s_c/object}. s_c sternly growls back to the apprentice that border fights are no joke, and surprisingly, their mentor joins s_c, both Clipper and regent teaching the youngster firmly but peacefully.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": [
@@ -2261,7 +2261,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "r_c comes across a o_c_n apprentice on the wrong side of the border and holding prey. Furious, {PRONOUN/r_c/subject} {VERB/r_c/snarl/snarls} {PRONOUN/r_c/poss} anger. The apprentice turns tail and flees with r_c hot on their trail, and when the apprentice crosses the border to hide behind their mentor, the o_c_n clipper's face goes slack with horror to see c_n's regent.",
+                "text": "r_c comes across a o_c_n apprentice on the wrong side of the border and holding prey. Furious, {PRONOUN/r_c/subject} {VERB/r_c/snarl/snarls} {PRONOUN/r_c/poss} anger. The apprentice turns tail and flees with r_c hot on their trail, and when the apprentice crosses the border to hide behind their mentor, the o_c_n Clipper's face goes slack with horror to see c_n's regent.",
                 "exp": 0,
                 "weight": 20,
                 "other_clan_rep": -1
@@ -2401,7 +2401,7 @@
                 "other_clan_rep": 2
             },
             {
-                "text": "As s_c marks the border, {PRONOUN/s_c/subject} {VERB/s_c/encounter/encounters} a o_c_n border patrol. It even includes a young apprentice, who starts fluffing up and insulting {PRONOUN/s_c/object}. s_c sternly growls back to the apprentice that border fights are no joke, and surprisingly, their mentor joins s_c, both clipper and baron teaching the youngster firmly but peacefully.",
+                "text": "As s_c marks the border, {PRONOUN/s_c/subject} {VERB/s_c/encounter/encounters} a o_c_n border patrol. It even includes a young apprentice, who starts fluffing up and insulting {PRONOUN/s_c/object}. s_c sternly growls back to the apprentice that border fights are no joke, and surprisingly, their mentor joins s_c, both Clipper and baron teaching the youngster firmly but peacefully.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": [
@@ -2417,7 +2417,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "r_c comes across a o_c_n apprentice on the wrong side of the border and holding prey. Furious, {PRONOUN/r_c/subject} {VERB/r_c/snarl/snarls} {PRONOUN/r_c/object} anger. The apprentice turns tail and flees with r_c hot on their trail, and when the apprentice crosses the border to hide behind their mentor, the o_c_n clipper's face goes slack with horror to see c_n's baron.",
+                "text": "r_c comes across a o_c_n apprentice on the wrong side of the border and holding prey. Furious, {PRONOUN/r_c/subject} {VERB/r_c/snarl/snarls} {PRONOUN/r_c/object} anger. The apprentice turns tail and flees with r_c hot on their trail, and when the apprentice crosses the border to hide behind their mentor, the o_c_n Clipper's face goes slack with horror to see c_n's baron.",
                 "exp": 0,
                 "weight": 20,
                 "other_clan_rep": -1
@@ -2557,7 +2557,7 @@
                 "other_clan_rep": 2
             },
             {
-                "text": "s_c comes across a patrol from o_c_n, out on a similar mission to {PRONOUN/s_c/object} and being led by their regent. One of the patrol yowls an insult and s_c squares up, coldly sneering at the clipper that thinks they can take {PRONOUN/s_c/object}. The other regent calls their clipper back, begrudgingly impressed.",
+                "text": "s_c comes across a patrol from o_c_n, out on a similar mission to {PRONOUN/s_c/object} and being led by their regent. One of the patrol yowls an insult and s_c squares up, coldly sneering at the Clipper that thinks they can take {PRONOUN/s_c/object}. The other regent calls their Clipper back, begrudgingly impressed.",
                 "exp": 20,
                 "weight": 20,
                 "stat_skill": ["SPEAKER,1"],
@@ -2684,7 +2684,7 @@
                 "other_clan_rep": 2
             },
             {
-                "text": "s_c comes across a patrol from o_c_n, out on a similar mission to {PRONOUN/s_c/object} and being led by their Clan baron. One of the patrol yowls an insult and s_c squares up, coldly sneering at the clipper that thinks they can take {PRONOUN/s_c/object}. The other baron calls their clipper back, begrudgingly impressed.",
+                "text": "s_c comes across a patrol from o_c_n, out on a similar mission to {PRONOUN/s_c/object} and being led by their Clan baron. One of the patrol yowls an insult and s_c squares up, coldly sneering at the Clipper that thinks they can take {PRONOUN/s_c/object}. The other baron calls their Clipper back, begrudgingly impressed.",
                 "exp": 20,
                 "weight": 20,
                 "stat_skill": ["SPEAKER,1"],
@@ -2826,7 +2826,7 @@
                 "other_clan_rep": 2
             },
             {
-                "text": "As s_c marks the border, {PRONOUN/s_c/subject} {VERB/s_c/encounter/encounters} a o_c_n border patrol. It even includes a young apprentice, who starts fluffing up and insulting {PRONOUN/s_c/object}. s_c sternly growls back to the apprentice that border fights are no joke, and surprisingly, their mentor joins s_c, both clippers teaching the youngster firmly but peacefully.",
+                "text": "As s_c marks the border, {PRONOUN/s_c/subject} {VERB/s_c/encounter/encounters} a o_c_n border patrol. It even includes a young apprentice, who starts fluffing up and insulting {PRONOUN/s_c/object}. s_c sternly growls back to the apprentice that border fights are no joke, and surprisingly, their mentor joins s_c, both Clippers teaching the youngster firmly but peacefully.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": [
@@ -2970,7 +2970,7 @@
                 "other_clan_rep": 2
             },
             {
-                "text": "As s_c marks the border, {PRONOUN/s_c/subject} {VERB/s_c/encounter/encounters} a o_c_n border patrol. It even includes a young apprentice, who starts fluffing up and insulting {PRONOUN/s_c/object}. s_c sternly growls back to the apprentice that border fights are no joke, and surprisingly, their mentor joins s_c, both clipper and regent teaching the youngster firmly but peacefully.",
+                "text": "As s_c marks the border, {PRONOUN/s_c/subject} {VERB/s_c/encounter/encounters} a o_c_n border patrol. It even includes a young apprentice, who starts fluffing up and insulting {PRONOUN/s_c/object}. s_c sternly growls back to the apprentice that border fights are no joke, and surprisingly, their mentor joins s_c, both Clipper and regent teaching the youngster firmly but peacefully.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": [
@@ -2986,7 +2986,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "r_c comes across a o_c_n apprentice on the wrong side of the border and holding prey. Furious, {PRONOUN/r_c/subject} {VERB/r_c/snarl/snarls} {PRONOUN/r_c/poss} anger. The apprentice turns tail and flees with r_c hot on their trail, and when the apprentice crosses the border to hide behind their mentor, the o_c_n clipper's face goes slack with horror to see c_n's regent.",
+                "text": "r_c comes across a o_c_n apprentice on the wrong side of the border and holding prey. Furious, {PRONOUN/r_c/subject} {VERB/r_c/snarl/snarls} {PRONOUN/r_c/poss} anger. The apprentice turns tail and flees with r_c hot on their trail, and when the apprentice crosses the border to hide behind their mentor, the o_c_n Clipper's face goes slack with horror to see c_n's regent.",
                 "exp": 0,
                 "weight": 20,
                 "other_clan_rep": -1
@@ -3126,7 +3126,7 @@
                 "other_clan_rep": 2
             },
             {
-                "text": "As s_c marks the border, {PRONOUN/s_c/subject} {VERB/s_c/encounter/encounters} a o_c_n border patrol. It even includes a young apprentice, who starts fluffing up and insulting {PRONOUN/s_c/object}. s_c sternly growls back to the apprentice that border fights are no joke, and surprisingly, their mentor joins s_c, both clipper and baron teaching the youngster firmly but peacefully.",
+                "text": "As s_c marks the border, {PRONOUN/s_c/subject} {VERB/s_c/encounter/encounters} a o_c_n border patrol. It even includes a young apprentice, who starts fluffing up and insulting {PRONOUN/s_c/object}. s_c sternly growls back to the apprentice that border fights are no joke, and surprisingly, their mentor joins s_c, both Clipper and baron teaching the youngster firmly but peacefully.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": [
@@ -3142,7 +3142,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "r_c comes across a o_c_n apprentice on the wrong side of the border and holding prey. Furious, {PRONOUN/r_c/subject} {VERB/r_c/snarl/snarls} {PRONOUN/r_c/poss} anger. The apprentice turns tail and flees with r_c hot on their trail, and when the apprentice crosses the border to hide behind their mentor, the o_c_n clipper's face goes slack with horror to see c_n's baron.",
+                "text": "r_c comes across a o_c_n apprentice on the wrong side of the border and holding prey. Furious, {PRONOUN/r_c/subject} {VERB/r_c/snarl/snarls} {PRONOUN/r_c/poss} anger. The apprentice turns tail and flees with r_c hot on their trail, and when the apprentice crosses the border to hide behind their mentor, the o_c_n Clipper's face goes slack with horror to see c_n's baron.",
                 "exp": 0,
                 "weight": 20,
                 "other_clan_rep": -1
@@ -3282,7 +3282,7 @@
                 "other_clan_rep": 2
             },
             {
-                "text": "s_c comes across a patrol from o_c_n, out on a similar mission to {PRONOUN/s_c/object} and being led by their regent. One of the patrol yowls an insult and s_c squares up, coldly sneering at the clipper that thinks they can take {PRONOUN/s_c/object}. The other regent calls their clipper back, begrudgingly impressed.",
+                "text": "s_c comes across a patrol from o_c_n, out on a similar mission to {PRONOUN/s_c/object} and being led by their regent. One of the patrol yowls an insult and s_c squares up, coldly sneering at the Clipper that thinks they can take {PRONOUN/s_c/object}. The other regent calls their Clipper back, begrudgingly impressed.",
                 "exp": 20,
                 "weight": 20,
                 "stat_skill": ["SPEAKER,1"],
@@ -3410,7 +3410,7 @@
                 "other_clan_rep": 2
             },
             {
-                "text": "s_c comes across a patrol from o_c_n, out on a similar mission to {PRONOUN/s_c/object} and being led by their Clan baron. One of the patrol yowls an insult and s_c squares up, coldly sneering at the clipper that thinks they can take {PRONOUN/s_c/object}. The other baron calls their clipper back, begrudgingly impressed.",
+                "text": "s_c comes across a patrol from o_c_n, out on a similar mission to {PRONOUN/s_c/object} and being led by their Clan baron. One of the patrol yowls an insult and s_c squares up, coldly sneering at the Clipper that thinks they can take {PRONOUN/s_c/object}. The other baron calls their Clipper back, begrudgingly impressed.",
                 "exp": 20,
                 "weight": 20,
                 "stat_skill": ["SPEAKER,1"],
@@ -3552,7 +3552,7 @@
                 "other_clan_rep": 2
             },
             {
-                "text": "As s_c marks the border, {PRONOUN/s_c/subject} {VERB/s_c/encounter/encounters} a o_c_n border patrol. It even includes a young apprentice, who starts fluffing up and insulting {PRONOUN/s_c/object}. s_c sternly growls back to the apprentice that border fights are no joke, and surprisingly, their mentor joins s_c, both clippers teaching the youngster firmly but peacefully.",
+                "text": "As s_c marks the border, {PRONOUN/s_c/subject} {VERB/s_c/encounter/encounters} a o_c_n border patrol. It even includes a young apprentice, who starts fluffing up and insulting {PRONOUN/s_c/object}. s_c sternly growls back to the apprentice that border fights are no joke, and surprisingly, their mentor joins s_c, both Clippers teaching the youngster firmly but peacefully.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": [
@@ -3696,7 +3696,7 @@
                 "other_clan_rep": 2
             },
             {
-                "text": "As s_c marks the border, {PRONOUN/s_c/subject} {VERB/s_c/encounter/encounters} a o_c_n border patrol. It even includes a young apprentice, who starts fluffing up and insulting {PRONOUN/s_c/object}. s_c sternly growls back to the apprentice that border fights are no joke, and surprisingly, their mentor joins s_c, both clipper and regent teaching the youngster firmly but peacefully.",
+                "text": "As s_c marks the border, {PRONOUN/s_c/subject} {VERB/s_c/encounter/encounters} a o_c_n border patrol. It even includes a young apprentice, who starts fluffing up and insulting {PRONOUN/s_c/object}. s_c sternly growls back to the apprentice that border fights are no joke, and surprisingly, their mentor joins s_c, both Clipper and regent teaching the youngster firmly but peacefully.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": [
@@ -3712,7 +3712,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "r_c comes across a o_c_n apprentice on the wrong side of the border and holding prey. Furious, {PRONOUN/r_c/subject} {VERB/r_c/snarl/snarls} {PRONOUN/r_c/poss} anger. The apprentice turns tail and flees with r_c hot on their trail, and when the apprentice crosses the border to hide behind their mentor, the o_c_n clipper's face goes slack with horror to see c_n's regent.",
+                "text": "r_c comes across a o_c_n apprentice on the wrong side of the border and holding prey. Furious, {PRONOUN/r_c/subject} {VERB/r_c/snarl/snarls} {PRONOUN/r_c/poss} anger. The apprentice turns tail and flees with r_c hot on their trail, and when the apprentice crosses the border to hide behind their mentor, the o_c_n Clipper's face goes slack with horror to see c_n's regent.",
                 "exp": 0,
                 "weight": 20,
                 "other_clan_rep": -1
@@ -3852,7 +3852,7 @@
                 "other_clan_rep": 2
             },
             {
-                "text": "As s_c marks the border, {PRONOUN/s_c/subject} {VERB/s_c/encounter/encounters} a o_c_n border patrol. It even includes a young apprentice, who starts fluffing up and insulting {PRONOUN/s_c/object}. s_c sternly growls back to the apprentice that border fights are no joke, and surprisingly, their mentor joins s_c, both clipper and baron teaching the youngster firmly but peacefully.",
+                "text": "As s_c marks the border, {PRONOUN/s_c/subject} {VERB/s_c/encounter/encounters} a o_c_n border patrol. It even includes a young apprentice, who starts fluffing up and insulting {PRONOUN/s_c/object}. s_c sternly growls back to the apprentice that border fights are no joke, and surprisingly, their mentor joins s_c, both Clipper and baron teaching the youngster firmly but peacefully.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": [
@@ -3868,7 +3868,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "r_c comes across a o_c_n apprentice on the wrong side of the border and holding prey. Furious, {PRONOUN/r_c/subject} {VERB/r_c/snarl/snarls} {PRONOUN/r_c/poss} anger. The apprentice turns tail and flees with r_c hot on their trail, and when the apprentice crosses the border to hide behind their mentor, the o_c_n clipper's face goes slack with horror to see c_n's baron.",
+                "text": "r_c comes across a o_c_n apprentice on the wrong side of the border and holding prey. Furious, {PRONOUN/r_c/subject} {VERB/r_c/snarl/snarls} {PRONOUN/r_c/poss} anger. The apprentice turns tail and flees with r_c hot on their trail, and when the apprentice crosses the border to hide behind their mentor, the o_c_n Clipper's face goes slack with horror to see c_n's baron.",
                 "exp": 0,
                 "weight": 20,
                 "other_clan_rep": -1
@@ -4008,7 +4008,7 @@
                 "other_clan_rep": 2
             },
             {
-                "text": "s_c comes across a patrol from o_c_n, out on a similar mission to {PRONOUN/s_c/object} and being led by their regent. One of the patrol yowls an insult and s_c squares up, coldly sneering at the clipper that thinks they can take {PRONOUN/s_c/object}. The other regent calls their clipper back, begrudgingly impressed.",
+                "text": "s_c comes across a patrol from o_c_n, out on a similar mission to {PRONOUN/s_c/object} and being led by their regent. One of the patrol yowls an insult and s_c squares up, coldly sneering at the Clipper that thinks they can take {PRONOUN/s_c/object}. The other regent calls their Clipper back, begrudgingly impressed.",
                 "exp": 20,
                 "weight": 20,
                 "stat_skill": ["SPEAKER,1"],
@@ -4136,7 +4136,7 @@
                 "other_clan_rep": 2
             },
             {
-                "text": "s_c comes across a patrol from o_c_n, out on a similar mission to {PRONOUN/s_c/object} and being led by their Clan baron. One of the patrol yowls an insult and s_c squares up, coldly sneering at the clipper that thinks they can take {PRONOUN/s_c/object}. The other baron calls their clipper back, begrudgingly impressed.",
+                "text": "s_c comes across a patrol from o_c_n, out on a similar mission to {PRONOUN/s_c/object} and being led by their Clan baron. One of the patrol yowls an insult and s_c squares up, coldly sneering at the Clipper that thinks they can take {PRONOUN/s_c/object}. The other baron calls their Clipper back, begrudgingly impressed.",
                 "exp": 20,
                 "weight": 20,
                 "stat_skill": ["SPEAKER,1"],
@@ -4258,7 +4258,7 @@
         "relationship_constraint": ["dislike_60"],
         "success_outcomes": [
             {
-                "text": "p_l has felt the glares r_c has sent {PRONOUN/p_l/poss} way all morning, and given them back just as vehemently when r_c's own back is turned. But when {PRONOUN/p_l/subject} {VERB/p_l/spot/spots} the shadow of a o_c_n clipper falling on r_c, {PRONOUN/p_l/subject} {VERB/p_l/react/reacts} without thought, leaping forward, claws ripping into the enemy's back and flipping them off r_c with a ferocious snarl.",
+                "text": "p_l has felt the glares r_c has sent {PRONOUN/p_l/poss} way all morning, and given them back just as vehemently when r_c's own back is turned. But when {PRONOUN/p_l/subject} {VERB/p_l/spot/spots} the shadow of a o_c_n Clipper falling on r_c, {PRONOUN/p_l/subject} {VERB/p_l/react/reacts} without thought, leaping forward, claws ripping into the enemy's back and flipping them off r_c with a ferocious snarl.",
                 "exp": 50,
                 "weight": 20,
                 "relationships": [
@@ -4302,7 +4302,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "r_c throws {PRONOUN/r_c/self} into battle, determined to throw o_c_n off {PRONOUN/r_c/poss} territory, but as {PRONOUN/r_c/subject} {VERB/r_c/twist and turn/twists and turns} in combat, two clippers from o_c_n surround {PRONOUN/r_c/object}. r_c calls to {PRONOUN/r_c/poss} Clanmate to back them up, but is instead knocked to the ground, pain spreading through the back of {PRONOUN/r_c/object} neck. {PRONOUN/r_c/subject/CAP} struggle for breath, fading rapidly - where was {PRONOUN/r_c/poss} backup, the rest of {PRONOUN/r_c/poss} patrol?",
+                "text": "r_c throws {PRONOUN/r_c/self} into battle, determined to throw o_c_n off {PRONOUN/r_c/poss} territory, but as {PRONOUN/r_c/subject} {VERB/r_c/twist and turn/twists and turns} in combat, two Clippers from o_c_n surround {PRONOUN/r_c/object}. r_c calls to {PRONOUN/r_c/poss} Clanmate to back them up, but is instead knocked to the ground, pain spreading through the back of {PRONOUN/r_c/object} neck. {PRONOUN/r_c/subject/CAP} struggle for breath, fading rapidly - where was {PRONOUN/r_c/poss} backup, the rest of {PRONOUN/r_c/poss} patrol?",
                 "exp": 0,
                 "weight": 10,
                 "dead_cats": ["r_c"],
@@ -4330,7 +4330,7 @@
                 "other_clan_rep": -1
             },
             {
-                "text": "r_c throws {PRONOUN/r_c/self} into battle, determined to throw o_c_n off {PRONOUN/r_c/poss} territory, but as {PRONOUN/r_c/subject} {VERB/r_c/twist and turn/twists and turns} in combat, two clippers from o_c_n surround {PRONOUN/r_c/object}. r_c calls to {PRONOUN/r_c/poss} Clanmate to back them up. Instead hears a familiar voice snarling that {PRONOUN/r_c/subject} {VERB/r_c/need/needs} to deal with {PRONOUN/r_c/poss} own problems. Beaten and bloodstained, the border patrol reports back to camp as resentful of each other as they've ever been.",
+                "text": "r_c throws {PRONOUN/r_c/self} into battle, determined to throw o_c_n off {PRONOUN/r_c/poss} territory, but as {PRONOUN/r_c/subject} {VERB/r_c/twist and turn/twists and turns} in combat, two Clippers from o_c_n surround {PRONOUN/r_c/object}. r_c calls to {PRONOUN/r_c/poss} Clanmate to back them up. Instead hears a familiar voice snarling that {PRONOUN/r_c/subject} {VERB/r_c/need/needs} to deal with {PRONOUN/r_c/poss} own problems. Beaten and bloodstained, the border patrol reports back to camp as resentful of each other as they've ever been.",
                 "exp": 0,
                 "weight": 10,
                 "injury": [
@@ -4790,13 +4790,13 @@
                 "other_clan_rep": -2
             },
             {
-                "text": "As p_l crosses the border with r_c to grab the kits by their scruff, a o_c_n patrol suddenly appears, looking furious, with their claws out and fangs bared! r_c hurriedly drops the kit and attempts to explain the situation but is immediately and viciously killed. p_l races back over to their side of the border, just barely escaping the wrath of o_c_n clippers.",
+                "text": "As p_l crosses the border with r_c to grab the kits by their scruff, a o_c_n patrol suddenly appears, looking furious, with their claws out and fangs bared! r_c hurriedly drops the kit and attempts to explain the situation but is immediately and viciously killed. p_l races back over to their side of the border, just barely escaping the wrath of o_c_n Clippers.",
                 "exp": 0,
                 "weight": 10,
                 "dead_cats": ["r_c"],
                 "history_text": {
-                    "reg_death": "m_c was slain by o_c_n clippers",
-                    "lead_death": "lost a life by o_c_n clippers"
+                    "reg_death": "m_c was slain by o_c_n Clippers",
+                    "lead_death": "lost a life by o_c_n Clippers"
                 },
                 "relationships": [
                     {
@@ -4818,7 +4818,7 @@
                 "other_clan_rep": -1
             },
             {
-                "text": "p_l and the patrol cross the border to attack the two kits when they are ambushed by o_c_n clippers. Fox-dung! It's a trap! The patrol retreats, r_c limping, but p_l is disgusted that o_c_n would dare use their kits in such a way.",
+                "text": "p_l and the patrol cross the border to attack the two kits when they are ambushed by o_c_n Clippers. Fox-dung! It's a trap! The patrol retreats, r_c limping, but p_l is disgusted that o_c_n would dare use their kits in such a way.",
                 "exp": 0,
                 "weight": 20,
                 "injury":[

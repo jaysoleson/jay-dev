@@ -92,7 +92,7 @@
         "event_text": "m_c was running around excitedly on patrol, when {PRONOUN/m_c/poss} paw landed right in a rabbit hole, twisting uncomfortably. {PRONOUN/m_c/subject/CAP} limped the whole way home.",
         "m_c": {
             "age": ["adolescent"],
-            "status": ["apprentice"],
+            "status": ["colt"],
             "trait": ["adventurous", "bold", "daring", "playful", "childish"]
         },
         "injury": [
