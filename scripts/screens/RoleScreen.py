@@ -52,13 +52,28 @@ class RoleScreen(Screens):
                 else:
                     print("invalid previous cat", self.previous_cat)
             elif event.ui_element == self.promote_baron:
-                if self.the_cat == game.clan.regent:
-                    game.clan.regent = None
-                game.clan.new_baron(self.the_cat)
+                # transfer allegiances
+                for cat in Cat.all_cats_list:
+                    if cat.allegiance == game.clan.baron.ID:
+                        cat.allegiance = self.the_cat.ID
+                
+                # transfer baron accessory
+                print(game.clan.baron.pelt.accessory, game.clan.colour.upper() + "BOW")
+                if game.clan.colour.upper() + "BOW" in game.clan.baron.pelt.accessory:
+                    game.clan.baron.pelt.accessory.remove(game.clan.colour.upper() + "BOW")
+                    self.the_cat.pelt.accessory.append(game.clan.colour.upper() + "BOW")
+                
+                # remove the first baron
+                game.clan.baron.status_change("clipper", resort=True)
+                game.clan.baron = self.the_cat
+                game.clan.heir = None
+                self.the_cat.status_change("baron", resort=True)
+                
                 if game.sort_type == "rank":
                     Cat.sort_cats()
                 self.update_selected_cat()
             elif event.ui_element == self.promote_regent:
+                game.clan.regent.status_change("clipper", resort=True)
                 game.clan.regent = self.the_cat
                 self.the_cat.status_change("regent", resort=True)
                 self.update_selected_cat()
@@ -70,6 +85,8 @@ class RoleScreen(Screens):
                 self.update_selected_cat()
             
             elif event.ui_element == self.promote_heir:
+                game.clan.heir.status_change("clipper", resort=True)
+                game.clan.heir = self.the_cat
                 self.the_cat.status_change("heir", resort=True)
                 self.update_selected_cat()
 

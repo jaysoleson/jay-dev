@@ -1,0 +1,19 @@
+[
+    {
+        "id": "heir_about_baron",
+        "thoughts": [
+            "Discusses the other Territories with r_c",
+            "Attentively watches r_c work"
+        ],
+        "random_status_constraint": [
+            "baron"
+        ]
+    },
+    {
+        "id": "heir_gen",
+        "thoughts": [
+            "Watches {PRONOUN/m_c/poss} cogs work, puffing {PRONOUN/m_c/poss} chest out in pride",
+            "Is planning how to redecorate the Baron's den once its {PRONOUN/m_c/inposs}"
+        ]
+    }
+]

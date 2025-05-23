@@ -973,7 +973,7 @@ class KillCat(UIWindow):
             object_id="#exit_window_button",
             container=self,
         )
-        cat_dict = {"m_c": (str(self.the_cat.name), choice(self.the_cat.pronouns))}
+        cat_dict = {"m_c": ([str(self.the_cat.name), self.the_cat.ID], choice(self.the_cat.pronouns))}
         self.heading = pygame_gui.elements.UITextBox(
             "windows.kill_cat_method",
             ui_scale(pygame.Rect((10, 10), (430, 75))),

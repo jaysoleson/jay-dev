@@ -294,7 +294,7 @@ class PatrolScreen(Screens):
     def screen_switches(self):
         super().screen_switches()
         self.set_disabled_menu_buttons(["patrol_screen"])
-        self.update_heading_text(str(game.clan.baron.name) + "'s Territory")
+        self.update_heading_text(str(game.clan.territory_type).capitalize() + " Territory")
         self.show_mute_buttons()
         self.show_menu_buttons()
 

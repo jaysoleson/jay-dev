@@ -1796,8 +1796,43 @@ def pronoun_repl(m, cat_pronouns_dict, raise_exception=False):
 
 
 def name_repl(m, cat_dict):
-    """Name replacement"""
-    return cat_dict[m.group(0)][0]
+    """Name replacement.
+    colour is from BL-- replaces baron names with their colours for extra fun!!
+    """
+    show_colours = True #repl with setting
+    cat_name = cat_dict[m.group(0)][0][0]
+    cat_id = cat_dict[m.group(0)][0][1]
+
+    baron_colour = None
+    if game.clan:
+        for clan in game.clan.all_clans + [game.clan]:
+            if clan == game.clan:
+                baron = game.clan.baron.ID
+            else:
+                baron = clan.baron
+            if baron == cat_id:
+                baron_colour = clan.colour
+                break
+    
+    colour_dict = {
+        "crimson": "#320805",
+        "blue": "#2C3566",
+        "cyan": "#2C5A66",
+        "yellow": "#D2D063",
+        "lime": "#3B4D19",
+        "green": "#1D3719",
+        "red": "#4C1C18",
+        "pink": "#502430",
+        "purple": "#351841",
+        "indigo": "#180834",
+        None: ""
+    }
+    if baron_colour is None:
+        # print("baron colour name repl none wtf")
+        pass
+
+    font_colour = colour_dict[baron_colour]
+    return f"<font color='{font_colour}'>" + cat_name + "</font>"
 
 
 def process_text(text, cat_dict, raise_exception=False):
@@ -2048,7 +2083,7 @@ def selective_replace(text, pattern, replacement):
     return text
 
 
-def ongoing_event_text_adjust(Cat, text, war_offense=None, war_defense=None, clan=None, other_clan_name=None):
+def ongoing_event_text_adjust(Cat, text, barony=None, other_barony=None, clan=None, other_clan_name=None):
     """
     This function is for adjusting the text of ongoing events
     :param Cat: the cat class
@@ -2059,26 +2094,28 @@ def ongoing_event_text_adjust(Cat, text, war_offense=None, war_defense=None, cla
     cat_dict = {}
     if "lead_name" in text:
         kitty = Cat.fetch_cat(game.clan.baron)
-        cat_dict["lead_name"] = (str(kitty.name), choice(kitty.pronouns))
+        cat_dict["lead_name"] = ([str(kitty.name), kitty.ID], choice(kitty.pronouns))
     if "dep_name" in text:
         kitty = Cat.fetch_cat(game.clan.regent)
-        cat_dict["dep_name"] = (str(kitty.name), choice(kitty.pronouns))
+        cat_dict["dep_name"] = ([str(kitty.name), kitty.ID], choice(kitty.pronouns))
     if "med_name" in text:
         kitty = choice(get_alive_status_cats(Cat, ["doctor"], working=True))
-        cat_dict["med_name"] = (str(kitty.name), choice(kitty.pronouns))
-
-    if cat_dict:
-        text = process_text(text, cat_dict)
+        cat_dict["med_name"] = ([str(kitty.name), kitty.ID], choice(kitty.pronouns))
 
     # BL
-    if war_offense:
-        text = text.replace("offense_baron", str(Cat.fetch_cat(war_offense.baron).name))
-        text = text.replace("o_b_n", war_offense.name + "Clan")
-        text = text.replace("o_b_t", war_offense.territory_type.capitalize())
-    if war_defense:
-        text = text.replace("defense_baron", str(Cat.fetch_cat(war_defense.baron).name))
-        text = text.replace("d_b_n", war_defense.name + "Clan")
-        text = text.replace("d_b_t", war_defense.territory_type.capitalize())
+    if barony:
+        kitty = Cat.fetch_cat(barony.baron)
+        cat_dict["baron1"] = ([str(kitty.name), kitty.ID], choice(kitty.pronouns))
+        if "b1_t" in text:
+            text = text.replace("b1_t", barony.territory_type.capitalize())
+    if other_barony:
+        kitty = Cat.fetch_cat(other_barony.baron)
+        cat_dict["baron2"] = ([str(kitty.name), kitty.ID], choice(kitty.pronouns))
+        if "b2_t" in text:
+            text = text.replace("b2_t", other_barony.territory_type.capitalize())
+    
+    if cat_dict:
+        text = process_text(text, cat_dict)
 
     if other_clan_name:
         text = text.replace("o_c_n", other_clan_name)
@@ -2110,8 +2147,8 @@ def event_text_adjust(
         multi_cats: list = None,
         clan=None,
         other_clan=None,
-        war_offense=None,
-        war_defense=None,
+        barony=None,
+        other_barony=None,
         chosen_herb: str = None,
 ):
     """
@@ -2157,25 +2194,25 @@ def event_text_adjust(
     # main_cat
     if "m_c" in text:
         if main_cat:
-            replace_dict["m_c"] = (str(main_cat.name), choice(main_cat.pronouns))
+            replace_dict["m_c"] = ([str(main_cat.name), main_cat.ID], choice(main_cat.pronouns))
 
     # patrol_lead
     if "p_l" in text:
         if patrol_baron:
             replace_dict["p_l"] = (
-                str(patrol_baron.name),
+                [str(patrol_baron.name), patrol_baron.ID],
                 choice(patrol_baron.pronouns),
             )
 
     # random_cat
     if "r_c" in text:
         if random_cat:
-            replace_dict["r_c"] = (str(random_cat.name), get_pronouns(random_cat))
+            replace_dict["r_c"] = ([str(random_cat.name), random_cat.ID], get_pronouns(random_cat))
 
     # stat cat
     if "s_c" in text:
         if stat_cat:
-            replace_dict["s_c"] = (str(stat_cat.name), get_pronouns(stat_cat))
+            replace_dict["s_c"] = ([str(stat_cat.name), stat_cat.ID], get_pronouns(stat_cat))
 
     # other_cats
     if patrol_cats:
@@ -2190,7 +2227,7 @@ def event_text_adjust(
                 continue
             if len(other_cats) > i:
                 replace_dict[abbr] = (
-                    str(other_cats[i].name),
+                    [str(other_cats[i].name), other_cats[i].ID],
                     choice(other_cats[i].pronouns),
                 )
 
@@ -2201,7 +2238,7 @@ def event_text_adjust(
             continue
         if len(patrol_apprentices) > i:
             replace_dict[abbr] = (
-                str(patrol_apprentices[i].name),
+                [str(patrol_apprentices[i].name), patrol_apprentices[i].ID],
                 choice(patrol_apprentices[i].pronouns),
             )
 
@@ -2213,27 +2250,42 @@ def event_text_adjust(
             else:
                 pronoun = choice(cat_list[0].pronouns)
 
-            replace_dict[f"n_c:{i}"] = (str(cat_list[0].name), pronoun)
-            replace_dict[f"n_c_pre:{i}"] = (str(cat_list[0].name.prefix), pronoun)
+            replace_dict[f"n_c:{i}"] = ([str(cat_list[0].name), cat_list[0].ID], pronoun)
+            replace_dict[f"n_c_pre:{i}"] = ([str(cat_list[0].name.prefix), cat_list[0].ID], pronoun)
 
     # mur_c (murdered cat for reveals)
     if "mur_c" in text:
-        replace_dict["mur_c"] = (str(victim_cat.name), get_pronouns(victim_cat))
+        replace_dict["mur_c"] = ([str(victim_cat.name), victim_cat.ID], get_pronouns(victim_cat))
 
     # lead_name
     if "lead_name" in text:
         baron = Cat.fetch_cat(game.clan.baron)
-        replace_dict["lead_name"] = (str(baron.name), choice(baron.pronouns))
+        replace_dict["lead_name"] = ([str(baron.name), baron.ID], choice(baron.pronouns))
 
     # dep_name
     if "dep_name" in text:
         regent = Cat.fetch_cat(game.clan.regent)
-        replace_dict["dep_name"] = (str(regent.name), choice(regent.pronouns))
+        replace_dict["dep_name"] = ([str(regent.name), regent.ID], choice(regent.pronouns))
 
     # med_name
     if "med_name" in text:
         med = choice(get_alive_status_cats(Cat, ["doctor"], working=True))
-        replace_dict["med_name"] = (str(med.name), choice(med.pronouns))
+        replace_dict["med_name"] = ([str(med.name), med.ID], choice(med.pronouns))
+
+    # BL
+    if barony:
+        if "baron1" in text:
+            baron1 = Cat.fetch_cat(barony.baron)
+            replace_dict["baron1"] = ([str(baron1.name), baron1.ID], choice(baron1.pronouns))
+        if "b1_t" in text:
+            text = text.replace("b1_t", barony.territory_type.capitalize())
+    if other_barony:
+        if "baron2" in text:
+            baron2 = Cat.fetch_cat(other_barony.baron)
+            replace_dict["baron2"] = ([str(baron2.name), baron2.ID], choice(baron2.pronouns))
+        if "b2_t" in text:
+            text = text.replace("b2_t", other_barony.territory_type.capitalize())
+    # ---
 
     # assign all names and pronouns
     if replace_dict:
@@ -2270,21 +2322,6 @@ def event_text_adjust(
                         break
 
         text = text.replace("o_c_n", str(other_clan_name) + "Clan")
-    
-    if war_offense:
-        if "o_b_n" in text:
-            text = text.replace("o_bClan", war_offense.name)
-        if "offense_baron" in text:
-            text = text.replace("offense_baron", str(Cat.fetch_cat(war_offense["baron"]).name))
-        if "o_b_t" in text:
-            text = text.replace("o_b_t", war_offense.territory_type.capitalize())
-    if war_defense:
-        if "d_b_n" in text:
-            text = text.replace("d_bClan", war_defense.name)
-        if "defense_baron" in text:
-            text = text.replace("defense_baron", str(Cat.fetch_cat(war_defense["baron"]).name))
-        if "d_b_t" in text:
-            text = text.replace("d_b_t", war_defense.territory_type.capitalize())
 
     # clan_name
     if "c_n" in text:
@@ -2349,13 +2386,13 @@ def baron_ceremony_text_adjust(
     used to adjust the text for baron ceremonies
     """
     replace_dict = {
-        "m_c_star": (str(baron.name.prefix + "star"), choice(baron.pronouns)),
-        "m_c": (str(baron.name), choice(baron.pronouns)),
+        "m_c_star": ([str(baron.name.prefix + "star"), baron.ID], choice(baron.pronouns)),
+        "m_c": ([str(baron.name), baron.ID], choice(baron.pronouns)),
     }
 
     if life_giver:
         replace_dict["r_c"] = (
-            str(Cat.fetch_cat(life_giver).name),
+            [str(Cat.fetch_cat(life_giver).name), Cat.fetch_cat(life_giver).ID],
             choice(Cat.fetch_cat(life_giver).pronouns),
         )
 
@@ -2395,54 +2432,54 @@ def ceremony_text_adjust(
 
     cat_dict = {
         "m_c": (
-            (str(cat.name), choice(cat.pronouns)) if cat else ("cat_placeholder", None)
+            ([str(cat.name), cat.ID], choice(cat.pronouns)) if cat else ("cat_placeholder", None)
         ),
         "(mentor)": (
-            (str(mentor.name), choice(mentor.pronouns))
+            ([str(mentor.name), mentor.ID], choice(mentor.pronouns))
             if mentor
             else ("mentor_placeholder", None)
         ),
         "(deadmentor)": (
-            (str(dead_mentor.name), get_pronouns(dead_mentor))
+            ([str(dead_mentor.name), dead_mentor.ID], get_pronouns(dead_mentor))
             if dead_mentor
             else ("dead_mentor_name", None)
         ),
         "(previous_mentor)": (
-            (str(previous_alive_mentor.name), choice(previous_alive_mentor.pronouns))
+            ([str(previous_alive_mentor.name), previous_alive_mentor.ID], choice(previous_alive_mentor.pronouns))
             if previous_alive_mentor
             else ("previous_mentor_name", None)
         ),
         "l_n": (
-            (str(game.clan.baron.name), choice(game.clan.baron.pronouns))
+            ([str(game.clan.baron.name), game.clan.baron.ID], choice(game.clan.baron.pronouns))
             if game.clan.baron
             else ("baron_name", None)
         ),
-        "c_n": (clanname, None),
+        "c_n": ([clanname, None], None),
     }
 
     if old_name:
-        cat_dict["(old_name)"] = (old_name, None)
+        cat_dict["(old_name)"] = ([old_name, None], None)
 
     if random_honor:
-        cat_dict["r_h"] = (random_honor, None)
+        cat_dict["r_h"] = ([random_honor, None], None)
 
     if "p1" in adjust_text and "p2" in adjust_text and len(living_parents) >= 2:
         cat_dict["p1"] = (
-            str(living_parents[0].name),
+            [str(living_parents[0].name), living_parents[0].ID],
             choice(living_parents[0].pronouns),
         )
         cat_dict["p2"] = (
-            str(living_parents[1].name),
+            [str(living_parents[1].name), living_parents[1].ID],
             choice(living_parents[1].pronouns),
         )
     elif living_parents:
         random_living_parent = choice(living_parents)
         cat_dict["p1"] = (
-            str(random_living_parent.name),
+            [str(random_living_parent.name), random_living_parent.ID],
             choice(random_living_parent.pronouns),
         )
         cat_dict["p2"] = (
-            str(random_living_parent.name),
+            [str(random_living_parent.name), random_living_parent.ID],
             choice(random_living_parent.pronouns),
         )
 
@@ -2452,21 +2489,21 @@ def ceremony_text_adjust(
             and len(dead_parents) >= 2
     ):
         cat_dict["dead_par1"] = (
-            str(dead_parents[0].name),
+            [str(dead_parents[0].name), dead_parents[0].ID],
             get_pronouns(dead_parents[0]),
         )
         cat_dict["dead_par2"] = (
-            str(dead_parents[1].name),
+            [str(dead_parents[1].name), dead_parents[1].ID],
             get_pronouns(dead_parents[1]),
         )
     elif dead_parents:
         random_dead_parent = choice(dead_parents)
         cat_dict["dead_par1"] = (
-            str(random_dead_parent.name),
+            [str(random_dead_parent.name), random_dead_parent.ID],
             get_pronouns(random_dead_parent),
         )
         cat_dict["dead_par2"] = (
-            str(random_dead_parent.name),
+            [str(random_dead_parent.name), random_dead_parent.ID],
             get_pronouns(random_dead_parent),
         )
 

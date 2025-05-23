@@ -123,7 +123,7 @@ class ClanScreen(Screens):
         self.choose_cat_positions()
 
         self.set_disabled_menu_buttons(["camp_screen"])
-        self.update_heading_text(str(game.clan.baron.name) + "'s Territory")
+        self.update_heading_text(str(game.clan.territory_type).capitalize() + " Territory")
         self.show_menu_buttons()
 
         # Creates and places the cat sprites.
@@ -143,7 +143,7 @@ class ClanScreen(Screens):
                     or game.config["fun"]["newborns_can_roam"]
                 )
                 # BL
-                and Cat.all_cats[x].allegiance == game.clan.baron.ID
+                and (Cat.all_cats[x].allegiance == game.clan.baron.ID)
             ):
                 i += 1
                 if i > self.max_sprites_displayed:

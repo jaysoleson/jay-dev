@@ -713,7 +713,7 @@ class GroupEvents:
         replace_dict = {}
         for abbr, cat_id in abbreviations_cat_id.items():
             replace_dict[abbr] = (
-                str(Cat.all_cats[cat_id].name),
+                [str(Cat.all_cats[cat_id].name), Cat.all_cats[cat_id].ID],
                 choice(Cat.all_cats[cat_id].pronouns),
             )
 

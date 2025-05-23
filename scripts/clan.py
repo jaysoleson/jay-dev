@@ -96,6 +96,7 @@ class Clan:
         baron=None,
         regent=None,
         doctor=None,
+        heir=None,
         biome="Forest",
         camp_bg=None,
         symbol=None,
@@ -122,6 +123,8 @@ class Clan:
         self.doctor = doctor
         self.doctor_list = []
         self.doctor_predecessors = 0
+
+        self.heir = heir
 
         self.doctor_number = len(
             self.doctor_list
@@ -204,6 +207,10 @@ class Clan:
             self.doctor_list.append(self.doctor.ID)
             if self.doctor.status != "doctor":
                 Cat.all_cats[self.doctor.ID].status_change("doctor")
+        
+        if self.heir is not None:
+            self.heir.status_change("heir")
+            self.clan_cats.append(self.heir.ID)
 
     def create_clan(self):
         """
@@ -244,6 +251,7 @@ class Clan:
                 Cat.all_cats[i] != self.baron
                 and Cat.all_cats[i] != self.doctor
                 and Cat.all_cats[i] != self.regent
+                and Cat.all_cats[i] != self.heir
                 and Cat.all_cats[i] != self.instructor
                 and not_found
             ):
@@ -261,7 +269,7 @@ class Clan:
         # BL: this is moved
         number_other_clans = 5
         available_colours = [
-            "crimson", "blue", "cyan", "yellow", "lime", "green", "red", "black", "white", "pink", "purple", "indigo"
+            "crimson", "blue", "cyan", "yellow", "lime", "green", "red", "pink", "purple", "indigo"
         ]
         available_colours.remove(self.colour)
         available_territory_types = [
@@ -283,8 +291,8 @@ class Clan:
             new_baron = Cat(status="baron", moons=randint(20,99))
             new_baron.allegiance = new_baron.ID
             self.add_cat(new_baron)
-            self.add_to_clan(new_baron)
             new_baron.outside = True
+            self.add_to_outside(new_baron)
             new_baron.thoughts()
             
             baron_colour = random.choice(available_colours)
@@ -292,7 +300,6 @@ class Clan:
             new_baron.pelt.accessory = [baron_colour.upper() + "BOW"]
 
             baron_territory = random.choice(available_territory_types)
-            print("choosing", baron_territory)
             available_territory_types.remove(baron_territory)
             # ---
             other_clan = OtherClan(
@@ -420,7 +427,7 @@ class Clan:
         if cat.ID in Cat.all_cats and cat.outside and cat.ID not in Cat.outside_cats:
             # The outside-value must be set to True before the cat can go to cotc
             Cat.outside_cats.update({cat.ID: cat})
-            cat.allegiance = "nomad"
+            # cat.allegiance = "nomad"
 
     def remove_cat(self, ID):  # ID is cat.ID
         """
@@ -474,6 +481,14 @@ class Clan:
             Cat.all_cats[regent.ID].status_change("regent")
             self.regent_predecessors += 1
 
+    def new_heir(self, heir):
+        """
+        TODO: DOCS
+        """
+        if heir:
+            self.heir = heir
+            Cat.all_cats[heir.ID].status_change("regent")
+
     def new_doctor(self, doctor):
         """
         TODO: DOCS
@@ -504,21 +519,6 @@ class Clan:
                         game.clan.doctor_number = len(game.clan.doctor_list)
                     else:
                         game.clan.doctor = None
-    
-    def switch_baron(self, old_baron, new_baron):
-        for cat in Cat.all_cats_list:
-            if cat.allegiance == old_baron.ID:
-                cat.allegiance = new_baron.ID
-        game.clan.baron = new_baron
-        if old_baron.moons > 119:
-            old_baron.status = "elder"
-        elif old_baron.moons > 12:
-            old_baron.status = "clipper"
-        elif old_baron.moons > 5:
-            old_baron.status = "colt"
-            old_baron.update_mentor()
-        else:
-            old_baron.status = "kitten"
 
     @staticmethod
     def switch_clans(clan):
@@ -557,7 +557,7 @@ class Clan:
             "territory_type": self.territory_type
         }
 
-        # baron DATA
+        # BARON DATA
         if self.baron:
             clan_data["baron"] = self.baron.ID
         else:
@@ -565,13 +565,19 @@ class Clan:
 
         clan_data["baron_predecessors"] = self.baron_predecessors
 
-        # regent DATA
+        # REGENT DATA
         if self.regent:
             clan_data["regent"] = self.regent.ID
         else:
             clan_data["regent"] = None
 
         clan_data["regent_predecessors"] = self.regent_predecessors
+        
+        # HEIR DATA
+        if self.heir:
+            clan_data["heir"] = self.heir.ID
+        else:
+            clan_data["heir"] = None
 
         # MED CAT DATA
         if self.doctor:
@@ -857,6 +863,11 @@ class Clan:
         else:
             baron = None
 
+        if clan_data["heir"]:
+            heir = Cat.all_cats[clan_data["heir"]]
+        else:
+            heir = None
+
         if clan_data["regent"]:
             regent = Cat.all_cats[clan_data["regent"]]
         else:
@@ -871,11 +882,15 @@ class Clan:
             name=clan_data["clanname"],
             baron=baron,
             regent=regent,
+            heir=heir,
             doctor=doctor,
             biome=clan_data["biome"],
             camp_bg=clan_data["camp_bg"],
             game_mode=clan_data["gamemode"],
             self_run_init_functions=False,
+            colour=clan_data["colour"],
+            territory=clan_data["territory"],
+            territory_type=clan_data["territory_type"],
         )
         game.clan.post_initialization_functions()
 
@@ -1290,7 +1305,7 @@ class Clan:
         all_cats = [
             i
             for i in Cat.all_cats_list
-            if i.status not in ("baron", "regent") and not i.dead and not i.outside
+            if i.status not in ("baron", "regent", "heir") and not i.dead and not i.outside
         ]
         baron = (
             Cat.fetch_cat(self.baron)
@@ -1302,14 +1317,19 @@ class Clan:
             if isinstance(Cat.fetch_cat(self.regent), Cat)
             else None
         )
+        heir = (
+            Cat.fetch_cat(self.heir)
+            if isinstance(Cat.fetch_cat(self.heir), Cat)
+            else None
+        )
 
         weight = 0.3
 
-        if (baron or regent) and all_cats:
+        if (baron or regent or heir) and all_cats:
             clan_sociability = round(
                 weight
                 * statistics.mean(
-                    [i.personality.sociability for i in [baron, regent] if i]
+                    [i.personality.sociability for i in [baron, regent, heir] if i]
                 )
                 + (1 - weight)
                 * statistics.median([i.personality.sociability for i in all_cats])
@@ -1317,20 +1337,20 @@ class Clan:
             clan_aggression = round(
                 weight
                 * statistics.mean(
-                    [i.personality.aggression for i in [baron, regent] if i]
+                    [i.personality.aggression for i in [baron, regent, heir] if i]
                 )
                 + (1 - weight)
                 * statistics.median([i.personality.aggression for i in all_cats])
             )
-        elif baron or regent:
+        elif baron or regent or heir:
             clan_sociability = round(
                 statistics.mean(
-                    [i.personality.sociability for i in [baron, regent] if i]
+                    [i.personality.sociability for i in [baron, regent, heir] if i]
                 )
             )
             clan_aggression = round(
                 statistics.mean(
-                    [i.personality.aggression for i in [baron, regent] if i]
+                    [i.personality.aggression for i in [baron, regent, heir] if i]
                 )
             )
         elif all_cats:

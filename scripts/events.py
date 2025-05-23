@@ -354,9 +354,12 @@ class Events:
                 event_text += i18n.t("hardcoded.relations_worsened")
 
             # adjust text and add to event list
+
             event_text = event_text_adjust(
                 Cat,
                 event_text,
+                barony=game.clan,
+                other_barony=other_clan,
                 main_cat=gathering_cat,
                 other_clan=other_clan,
                 clan=game.clan,
@@ -486,8 +489,6 @@ class Events:
 
             if "relationships" in cat_dict:
                 unpack_rel_block(Cat, cat_dict["relationships"], extra_cat=outsider_cat)
-
-                pass
 
             # adjust text and add to event list
             event_text = event_text_adjust(
@@ -1030,8 +1031,8 @@ class Events:
                 offense_clan = None
                 defense_clan = None
 
-                offense_name = war["offense"]
-                defense_name = war["defense"]
+                offense_name = war["offense"]["name"]
+                defense_name = war["defense"]["name"]
 
                 for clan in game.clan.all_clans + [game.clan]:
                     if clan.name == offense_name:
@@ -1117,8 +1118,7 @@ class Events:
                 if int(other_clan.relations[clan_to_attack.name]) <= threshold and not int(
                     random.random() * int(other_clan.relations[clan_to_attack.name])
                 ):
-                    print("WAR STARTED BETWEEN", other_clan.name, "and", clan_to_attack)
-                    print("Rel:", other_clan.relations[clan_to_attack.name])
+                    print("WAR STARTED BETWEEN", other_clan.name, "and", clan_to_attack.name)
                     game.clan.war.append(
                         {
                             "offense": {
@@ -1153,7 +1153,7 @@ class Events:
 
         event = random.choice(war_events)
         event = ongoing_event_text_adjust(
-            Cat, event, war_offense=offensive_clan, war_defense=defensive_clan, clan=game.clan
+            Cat, event, barony=offensive_clan, other_barony=defensive_clan, clan=game.clan
         )
         game.cur_events_list.append(Single_Event(event, "other_clans"))
 

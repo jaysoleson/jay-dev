@@ -50,7 +50,7 @@ class AllegiancesScreen(Screens):
         self.show_menu_buttons()
         self.show_mute_buttons()
         self.set_disabled_menu_buttons(["allegiances"])
-        self.update_heading_text(str(game.clan.baron.name) + "'s Territory")
+        self.update_heading_text(str(game.clan.territory_type).capitalize() + " Territory")
         allegiance_list = self.get_allegiances_text()
 
         self.scroll_container = pygame_gui.elements.UIScrollingContainer(

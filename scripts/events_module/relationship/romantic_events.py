@@ -281,8 +281,8 @@ class RomanticEvents:
 
         # prepare string for display
         cat_dict = {
-            "m_c": (str(cat_from.name), choice(cat_from.pronouns)),
-            "r_c": (str(cat_to.name), choice(cat_to.pronouns)),
+            "m_c": ([str(cat_from.name), cat_from.ID], choice(cat_from.pronouns)),
+            "r_c": ([str(cat_to.name), cat_from.ID], choice(cat_to.pronouns)),
         }
         interaction_str = process_text(interaction_str, cat_dict)
 

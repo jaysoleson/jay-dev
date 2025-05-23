@@ -243,8 +243,8 @@ class Relationship:
         """Adjusts the string text for viewing"""
 
         cat_dict = {
-            "m_c": (str(self.cat_from.name), choice(self.cat_from.pronouns)),
-            "r_c": (str(self.cat_to.name), choice(self.cat_to.pronouns)),
+            "m_c": ([str(self.cat_from.name), self.cat_from.ID], choice(self.cat_from.pronouns)),
+            "r_c": ([str(self.cat_to.name), self.cat_to.ID], choice(self.cat_to.pronouns)),
         }
 
         return process_text(string, cat_dict)

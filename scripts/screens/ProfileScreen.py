@@ -1172,7 +1172,7 @@ class ProfileScreen(Screens):
         """
         returns the backstory blurb
         """
-        cat_dict = {"m_c": (str(self.the_cat.name), choice(self.the_cat.pronouns))}
+        cat_dict = {"m_c": ([str(self.the_cat.name), self.the_cat.ID], choice(self.the_cat.pronouns))}
         bs_blurb = None
         if self.the_cat.backstory:
             bs_blurb = i18n.t(f"cat.backstories.{self.the_cat.backstory}")
@@ -1271,7 +1271,7 @@ class ProfileScreen(Screens):
                             f"{self.the_cat.name} was", f"{chosen}", 1
                         )
                 cat_dict = {
-                    "m_c": (str(self.the_cat.name), choice(self.the_cat.pronouns))
+                    "m_c": ([str(self.the_cat.name), self.the_cat.ID], choice(self.the_cat.pronouns))
                 }
                 new_text = process_text(new_text, cat_dict)
                 scar_text.append(new_text)
@@ -1399,7 +1399,7 @@ class ProfileScreen(Screens):
 
             if game.switches["show_history_moons"]:
                 graduation_history += f" (moon {app_ceremony['moon']})"
-        cat_dict = {"m_c": (str(self.the_cat.name), choice(self.the_cat.pronouns))}
+        cat_dict = {"m_c": ([str(self.the_cat.name), self.the_cat.ID], choice(self.the_cat.pronouns))}
         apprenticeship_history = influence_history + " " + graduation_history
         apprenticeship_history = process_text(apprenticeship_history, cat_dict)
         return apprenticeship_history
@@ -1423,7 +1423,7 @@ class ProfileScreen(Screens):
                 "cat.history.mentored",
                 apprentices=adjust_list_text(all_real_apprentices),
             )
-            cat_dict = {"m_c": (str(self.the_cat.name), choice(self.the_cat.pronouns))}
+            cat_dict = {"m_c": ([str(self.the_cat.name), self.the_cat.ID], choice(self.the_cat.pronouns))}
 
             text = process_text(text, cat_dict)
 
@@ -1584,7 +1584,7 @@ class ProfileScreen(Screens):
             else:
                 text = all_deaths[0]
 
-            cat_dict = {"m_c": (str(self.the_cat.name), choice(self.the_cat.pronouns))}
+            cat_dict = {"m_c": ([str(self.the_cat.name), self.the_cat.ID], choice(self.the_cat.pronouns))}
             text = process_text(text, cat_dict)
 
         return text
@@ -1642,7 +1642,7 @@ class ProfileScreen(Screens):
 
             if reveal_text:
                 cat_dict = {
-                    "m_c": (str(self.the_cat.name), choice(self.the_cat.pronouns))
+                    "m_c": ([str(self.the_cat.name), self.the_cat.ID], choice(self.the_cat.pronouns))
                 }
                 victim_text = f"{victim_text} {process_text(reveal_text, cat_dict)}"
 

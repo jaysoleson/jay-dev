@@ -483,7 +483,7 @@ class BaronDenScreen(Screens):
                 f"clan_name{i}"
             ] = pygame_gui.elements.UILabel(
                 ui_scale(pygame.Rect((0, 20), (133, -1))),
-                text=other_clan.name + "Clan",
+                text=other_clan.territory_type.capitalize() + " Territory",
                 object_id=get_text_box_theme("#text_box_30_horizcenter"),
                 container=self.other_clan_selection_elements[f"container{i}"],
                 manager=MANAGER,
@@ -1081,7 +1081,9 @@ class BaronDenScreen(Screens):
         outsiders = [
             i
             for i in Cat.all_cats.values()
-            if i.outside and not i.dead and not i.driven_out
+            if i.outside and not i.dead and not i.driven_out and i.status in [
+                "loner", "rogue", "kittypet", "former Clancat", "exiled", "nomad"
+                ]
         ]
 
         # separate them into chunks for the pages

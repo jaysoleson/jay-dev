@@ -1,0 +1,2461 @@
+[
+  {
+    "interaction_type": "offend",
+    "event_text": "During the Conclave, m_c makes an off-color comment about baron2, much to {PRONOUN/baron2/poss} shock.",
+    "rel_change": -2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "offend",
+    "event_text": "During the Conclave, m_c pointedly excludes baron2 from the discussion amongst the Barons on the Baron's perch.",
+    "rel_change": -1,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "offend",
+    "event_text": "baron2 runs late to the Conclave, and m_c encourages the other Barons to start without {PRONOUN/baron2/object}.",
+    "rel_change": -1,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "offend",
+    "event_text": "During the Conclave, m_c sighs loudly whenever baron2 speaks.",
+    "rel_change": -1,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "offend",
+    "event_text": "At the Conclave, m_c pretends to have forgotten baron2's name, much to {PRONOUN/baron2/poss} disbelief.",
+    "rel_change": -1,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "offend",
+    "event_text": "Before the Conclave, m_c counsels {PRONOUN/m_c/poss} Clippers to begin cutting ties and ending friendships with b2_t cats. The tension hanging over this Conclave makes it clear that baron2's cats have noticed.",
+    "rel_change": -2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "offend",
+    "event_text": "During {PRONOUN/m_c/poss} speech at the Conclave, m_c reveals one of baron2's weaknesses that baron2 told {PRONOUN/m_c/object} in confidence.",
+    "rel_change": -3,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "offend",
+    "event_text": "At the Conclave, m_c flatly ignores baron2 when {PRONOUN/baron2/subject} {VERB/baron2/try/tries} to make small-talk.",
+    "rel_change": -1,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "offend",
+    "event_text": "m_c barges in front of baron2 at the Conclave, cutting {PRONOUN/baron2/object} off and insisting that m_c be the first to deliver news.",
+    "rel_change": -1,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "offend",
+    "event_text": "At the Conclave, m_c questions whether baron2 has been entirely truthful about {PRONOUN/baron2/poss} recent activities on {PRONOUN/baron2/poss} shared border.",
+    "rel_change": -1,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "offend",
+    "event_text": "During the Conclave, m_c keeps talking over baron2.",
+    "rel_change": -2,
+    "m_c": {
+      "trait": ["troublesome", "fierce", "bloodthirsty", "cold", "bold", "daring",  "righteous", "strict", "ambitious", "confident", "adventurous", "loyal", "responsible", "shameless", "sneaky", "strange", "vengeful", "arrogant", "competitive", "grumpy", "cunning", "oblivious", "flamboyant", "rebellious"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "offend",
+    "event_text": "During baron2's Conclave speech, {PRONOUN/baron2/subject} {VERB/baron2/bring/brings} up a recent death in the territory. m_c hurries the other Baron along, reminding them that the others don't care.",
+    "rel_change": -3,
+    "m_c": {
+      "trait": ["ambitious", "arrogant", "confident", "bold", "daring", "cold", "bloodthirsty", "fierce", "grumpy", "shameless", "oblivious" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "offend",
+    "event_text": "When baron2 shares {PRONOUN/baron2/poss} news at the Conclave, m_c repeats bits of it in a singsong voice.",
+    "rel_change": -3,
+    "m_c": {
+      "trait": [ "childish", "flamboyant", "playful", "strange", "troublesome", "shameless" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "offend",
+    "event_text": "At the Conclave, m_c asks after the health and prosperity of each Baron's cats... except baron2's.",
+    "rel_change": -2,
+    "m_c": {
+      "trait": [ "compassionate", "loving", "thoughtful", "responsible", "sincere", "charismatic", "calm", "wise", "shameless", "flamboyant", "careful" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "offend",
+    "event_text": "m_c spends {PRONOUN/m_c/poss} Conclave speech making small barbs at baron2 - not enough to warrant confrontation, just enough that baron2 feels the prick.",
+    "rel_change": -2,
+    "m_c": {
+      "trait": ["arrogant", "calm", "wise", "thoughtful", "charismatic", "sneaky", "cunning", "cold", "troublesome", "rebellious" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "offend",
+    "event_text": "While getting to {PRONOUN/m_c/poss} spot before beginning the Conclave, m_c steps on the tail of baron2. m_c gives no apology for the perhaps-not-quite mistake.",
+    "rel_change": -2,
+    "m_c": {
+      "trait": ["troublesome", "lonesome", "childish", "playful", "charismatic", "bold", "daring", "nervous", "insecure", "compassionate", "thoughtful", "ambitious", "confident", "adventurous", "calm", "careful", "loyal", "shameless", "sneaky", "strange", "vengeful", "arrogant", "competitive", "grumpy", "cunning", "oblivious", "sincere", "flamboyant", "rebellious"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "offend",
+    "event_text": "When the b2_t Baron steps up to sit beside m_c at the Conclave, m_c turns {PRONOUN/m_c/poss} head away pointedly.",
+    "rel_change": -2,
+    "m_c": {
+      "trait": ["cold", "strict", "bold", "daring", "confident", "lonesome"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "offend",
+    "event_text": "Another Baron accuses baron2 at the Conclave of refusing to share herbs in the case of a sick kitten. m_c turns on baron2 immediately, hissing that {PRONOUN/m_c/subject} cannot ally {PRONOUN/m_c/self} with fox-hearts.",
+    "rel_change": -6,
+    "m_c": {
+      "trait": ["strict", "faithful", "righteous"],
+      "skill": ["HEALER,2"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "offend",
+    "event_text": "baron2's doctors present a new prophecy at the Conclave. m_c offends {PRONOUN/baron2/object} by interrupting to offer {PRONOUN/m_c/poss} interpretation before the doctors can say anything else.",
+    "rel_change": -6,
+    "m_c": {
+      "trait": ["fierce", "bold", "daring", "shameless", "arrogant"],
+      "skill": ["PROPHET,1"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "offend",
+    "event_text": "Before the Conclave, m_c has a fleeting vision of gnashing teeth and coarse black-and-white fur, along with the scent of baron2 and blood. At the Conclave, m_c jokes that baron2 is really <i>badgering</i> them about this alliance. baron2's face darkens.",
+    "rel_change": -5,
+    "m_c": {
+      "trait": ["troublesome"],
+      "skill": ["CLAIRVOYANT,2"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "offend",
+    "event_text": "At the Conclave, a spirit from the b2_t murmurs in m_c's ears, requesting that their message be passed on to baron2. m_c ignores the spirit, who disappears with a frustrated hiss.",
+    "rel_change": -3,
+    "m_c": {
+      "trait": ["cold", "oblivious" ],
+      "skill": ["GHOST,1"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "offend",
+    "event_text": "At the Conclave, m_c remarks on how baron2's cogs might need some nest-weaving tips from them, since the b2_t is still making nests from crabgrass and dandelion leaves. To no cat's surprise, baron2 takes offense to that.",
+    "rel_change": -6,
+    "m_c": {
+      "trait": ["troublesome"],
+      "skill": ["CAMP,1"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "offend",
+    "event_text": "At the Conclave, baron2 reports that one of {PRONOUN/baron2/poss} cats' broken bones has finally healed. m_c scoffs and addresses the b2_t doctors, telling them that they should have re-broken the bone and set it better.",
+    "rel_change": -6,
+    "m_c": {
+      "trait": ["fierce", "bloodthirsty", "bold"],
+      "skill": ["HEALER,1"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "offend",
+    "event_text": "At the Conclave, baron2 vents to m_c about how b2_t colts don't help out enough around camp. m_c scoffs, saying {PRONOUN/m_c/subject} would never permit such unruly behavior, because camp-keeping is a fundamental part of b1_t colthood.",
+    "rel_change": -4,
+    "m_c": {
+      "trait": [ "cold", "strict" ],
+      "skill": ["CAMP,2"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "offend",
+    "event_text": "m_c grins as {PRONOUN/m_c/subject} {VERB/m_c/spout/spouts} insults at baron2 during the Conclave.",
+    "rel_change": -5,
+    "m_c": {
+      "trait": ["bloodthirsty", "vengeful", "fierce", "troublesome", "arrogant", "rebellious"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "offend",
+    "event_text": "Cats tend to let their guards down around m_c due to {PRONOUN/m_c/poss} quiet nature, which allows {PRONOUN/m_c/object} to notice the few b2_t Clippers who scowl whenever their Baron speaks at the Conclave. m_c brings this up to baron2 and asks if {PRONOUN/baron2/subject} {VERB/baron2/need/needs} help controlling {PRONOUN/baron2/poss} Clippers.",
+    "rel_change": -5,
+    "m_c": {
+      "trait": ["lonesome"],
+      "skill": [ "INSIGHTFUL,1"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "offend",
+    "event_text": "During {PRONOUN/m_c/poss} Conclave speech, m_c brings up some of the b2_t's unsavory history. baron2 politely asks {PRONOUN/m_c/object} to stop, and m_c asks if baron2 is trying to rewrite history.",
+    "rel_change": -4,
+    "m_c": {
+      "trait": ["cold", "bold", "shameless"],
+      "skill": [ "LORE,1"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "offend",
+    "event_text": "m_c is intentional with {PRONOUN/m_c/poss} comments during the Conclave. {PRONOUN/m_c/subject/CAP} {VERB/m_c/manage/manages} to make it clear to baron2 that the b1_t is no longer {PRONOUN/baron2/poss} ally - without being outright insulting.",
+    "rel_change": -7,
+    "m_c": {
+      "trait": ["wise", "sincere", "cunning", "calm", "careful", "loving", "responsible", "righteous", "strict", "compassionate", "thoughtful"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "offend",
+    "event_text": "At the Conclave, m_c rebukes baron2 for merely driving out the troublemaking nomads on {PRONOUN/baron2/poss} border instead of slaughtering every last one of them.",
+    "rel_change": -5,
+    "m_c": { 
+      "skill": ["SPEAKER,1"],
+      "trait": [ "bloodthirsty" ]
+  },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "During the Conclave, m_c is constantly singing baron2's praises. The other Barons don't seem so impressed, but baron2 is quite pleased.",
+    "rel_change": 2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "Before the Conclave officially starts, baron2 and m_c bend their heads together to gossip like starlings.",
+    "rel_change": 2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "At the Conclave, m_c goes on and on about a small favor that baron did for {PRONOUN/m_c/object}. baron2 beams.",
+    "rel_change": 2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "At the Conclave, baron2 discusses a problem with a dog near {PRONOUN/baron2/poss} border. m_c is quick to volunteer some Clippers as reinforcement, should the need arise.",
+    "rel_change": 1,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "At the Conclave, m_c shares a dream {PRONOUN/m_c/subject} had the previous night about the b2_t and the b1_t thriving and strengthening each other. baron2 amazedly reports {PRONOUN/baron2/subject} had the exact same dream.",
+    "rel_change": 5,
+    "m_c": {
+      "skill": ["DREAM,2"],
+      "trait": ["loyal", "bold", "daring"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "At the Conclave, m_c spots the moonlit gleam of eyes at the edge of the meeting place. The intruder turns tail and flees, but m_c launches {PRONOUN/m_c/self} off the Baron's perch and gives chase, then returns a few heartbeats later with droplets of blood clinging to {PRONOUN/m_c/poss} whiskers and a satisfied look. baron2 grins approvingly.",
+    "rel_change": 5,
+    "m_c": {
+      "skill": ["RUNNER,1"],
+      "trait": ["bloodthirsty"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["logical", "stoic", "logical", "cunning", "wary", "proud"]
+  },
+    {
+      "interaction_type": "praise",
+    "event_text": "At the Conclave, baron2 grouses about disobedient colts. m_c urges {PRONOUN/baron2/object} to lay down the code and keep them in line.",
+    "rel_change": 5,
+    "m_c": {
+      "skill": ["TEACHER,1"],
+      "trait": ["fierce", "righteous", "cold", "strict" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["proud", "wary", "stoic", "mellow", "logical", "bloodthirsty", "cunning" ]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "At the Conclave, baron2 speaks at length about the perseverance of one of {PRONOUN/baron2/poss} doctors in caring for a seriously injured cog. m_c feels it would be too awkward to congratulate them directly, but nevertheless nods to the doctor in question.",
+    "rel_change": 4,
+    "m_c": {
+      "skill": ["HEALER,1"],
+      "trait": ["lonesome"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "At the Conclave, baron2 mentions a battle {PRONOUN/baron2/poss} Clippers won against a local nomad group. m_c makes a glowing comparison between those Clippers and legendary heroes of Badlands myth. baron2 is pleased and impressed by m_c's knowledge.",
+    "rel_change": 4,
+    "m_c": {
+      "skill": ["STORY,1", "LORE,1"],
+      "trait": ["fierce"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "At the Conclave, m_c fills the ears of baron2 with flattering rhetoric about how the b1_t could enable the b2_t to dominate the territories. baron2 listens attentively, never noticing the shadow flickering behind m_c, too dark to be cast by the moon's light.",
+    "rel_change": 7,
+    "m_c": {
+      "skill": ["DARK,3"],
+      "trait": ["bold", "daring", "ambitious", "cunning"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["proud", "logical", "stoic", "wary", "bloodthirsty"]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "At the Conclave, m_c silkily describes a future where the b2_1 and the b1_t rule all the territories together, using all {PRONOUN/m_c/poss} skill in advising. baron2's eyes glaze over, taken by the vision m_c weaves.",
+    "rel_change": 7,
+    "m_c": {
+      "skill": ["SPEAKER,2", "INSIGHTFUL,2"],
+      "trait": ["bloodthirsty", "cunning", "sneaky"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["proud", "logical", "stoic", "wary", "bloodthirsty"]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "At the Conclave, m_c tells baron2 that {PRONOUN/m_c/subject} {VERB/m_c/think/thinks} {PRONOUN/baron2/poss} Clippers look stronger than ever.",
+    "rel_change": 2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "m_c takes {PRONOUN/m_c/poss} chance at the Conclave to fawn over baron2 for everything from {PRONOUN/baron2/poss} colts' manners to {PRONOUN/baron2/poss} doctors' intelligence.",
+    "rel_change": 2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "When the b2_t arrives at the Conclave, m_c notices that {PRONOUN/baron2/poss} Regent is leading the patrol instead of their Baron. m_c is the first to wish baron2 a speedy recovery, and the Regent smiles.",
+    "rel_change": 2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "At the Conclave, baron2 proudly announces that the b2_t has welcomed new kits. m_c congratulates them first and wishes for the health and happiness of both the parents and the litter.",
+    "rel_change": 2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "At the Conclave, m_c informs baron2 that b1_t colts idolize b2_t Clippers.",
+    "rel_change": 2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "During the Conclave, m_c's is the first and loudest laugh whenever baron2 makes anything even approaching a joke.",
+    "rel_change": 2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "During the Conclave, m_c comments that the spirit of one of baron2's Clippers came to {PRONOUN/m_c/object} to tell {PRONOUN/m_c/object} what a great job baron2 is doing. m_c avoids mentioning the shadows gathered like cobwebs on the spirit's pelt.",
+    "rel_change": 2,
+    "m_c": {
+        "skill": [ "DARK,2"],
+        "trait": [ "troublesome" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "m_c spends all moon working on a grass weaving of the b2_t's symbol and proudly presents it to baron2 at the Conclave. baron2 is amazed by the gift.",
+    "rel_change": 5,
+    "m_c": {
+        "skill": [ "CAMP,2"],
+        "trait": [ "childish", "playful", "flamboyant", "thoughtful" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "m_c compliments baron2's newest Clippers at the Conclave.",
+    "rel_change": 1,
+    "m_c": {
+      "trait": ["fierce", "childish", "playful", "charismatic", "bold", "daring", "nervous", "righteous", "insecure", "strict", "compassionate", "thoughtful", "ambitious", "confident", "adventurous", "calm", "careful", "faithful", "loving",  "responsible", "shameless", "sneaky", "strange", "vengeful", "wise", "cunning", "oblivious", "sincere", "flamboyant"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "Before the Conclave, m_c takes baron2 aside and warns {PRONOUN/baron2/object} that {PRONOUN/baron2/poss} mate will be caught in a flood in the next moon, unless baron2 moves {PRONOUN/baron2/poss} camp to high ground. baron2 is shocked and grateful for m_c's clairvoyance.",
+    "rel_change": 10,
+    "m_c": {
+      "trait": ["sincere"],
+      "skill": ["CLAIRVOYANT,3"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "Before the Conclave, m_c murmurs to baron2 that in the next moon, another Barony will suffer a greencough outbreak. This could make a great opportunity for the b2_t and the b1_t to seize some more territory and split it between them.",
+    "rel_change": 10,
+    "m_c": {
+      "trait": ["ambitious"],
+      "skill": ["CLAIRVOYANT,1"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["logical", "proud", "cunning", "bloodthirsty", "stoic"]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "At the Conclave, m_c praises baron2 for how sharp {PRONOUN/baron2/poss} Clippers' claws are, be it for hunting or fighting. baron2 is all the more pleased to hear that from a Baron like m_c.",
+    "rel_change": 3,
+    "m_c": {
+      "skill": ["FIGHTER,1", "HUNTER,1"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "m_c realizes the full moon has risen and {PRONOUN/m_c/subject} {VERB/baron2/have/has} forgotten to go to the Conclave! m_c heads in a wild sprint to the meeting place, where baron2 has convinced the others to wait. m_c thanks {PRONOUN/baron2/object} profusely, {PRONOUN/m_c/poss} fur sticking up in all directions.",
+    "rel_change": 3,
+    "m_c": {
+      "skill": ["RUNNER,1"],
+      "trait": ["childish", "oblivious"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["mellow", "gracious", "stoic", "wary", "logical", "amiable"]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "At the Conclave, m_c remarks that the b2_t is on its way to rivaling the b1_t. baron2 purrs, knowing m_c's reputation for having a bit of an ego; this is as flattering a comparison as {PRONOUN/baron2/subject} could ask for.",
+    "rel_change": 3,
+    "m_c": {
+      "trait": [ "arrogant", "confident", "competitive", "ambitious" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "m_c admits to baron2 at the Conclave that {PRONOUN/baron2/subject}{VERB/baron2/'re/'s} exactly the sort of Baron {PRONOUN/m_c/subject} {VERB/m_c/hope/hopes} to be.",
+    "rel_change": 3,
+    "m_c": {
+      "trait": [ "charismatic", "insecure", "careful", "nervous", "wise", "calm", "thoughtful", "loyal", "sneaky", "loving", "compassionate", "faithful", "righteous" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "Given baron2's reputation of battle-readiness, m_c decides to praise the power and strength of {PRONOUN/baron2/poss} Clippers at the Conclave. The appreciative gleam in baron2's eye suggests this was the right course of action.",
+    "rel_change": 3,
+    "m_c": { },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["bloodthirsty", "proud", "logical" ]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "Given baron2's reputation of warm-hearted sociability, m_c decides to praise the skill of {PRONOUN/baron2/poss} advisors. The appreciative gleam in the Baron's eye suggests this was the right course of action.",
+    "rel_change": 3,
+    "m_c": { },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["amiable", "gracious", "mellow" ]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "Given baron2's reputation of cool pragmatism, m_c decides to praise the intelligence and skill of {PRONOUN/baron2/poss} doctors at the Conclave. The appreciative gleam in baron2's eye suggests this was the right course of action.",
+    "rel_change": 3,
+    "m_c": { },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["stoic", "wary", "cunning" ]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "Another Baron during the Conclave makes scathing comments towards baron2. m_c skillfully redirects their words into praise for baron2; baron2 sends an appreciative, though appraising, glance to m_c.",
+    "rel_change": 4,
+    "m_c": {
+      "trait": ["cunning", "sneaky"]
+    },
+    "player_clan_temper": [],
+    "other_clan_temper": ["cunning"]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "Another Baron during the Conclave makes scathing comments towards baron2. m_c skillfully redirects their words into praise for baron2; baron2 seems appreciative.",
+    "rel_change": 2,
+    "m_c": {
+      "trait": ["confident", "compassionate", "bold", "righteous", "loyal", "sincere"],
+      "skill": ["SPEAKER,3", "MEDIATOR,3"]
+    },
+    "player_clan_temper": [ "any" ],
+    "other_clan_temper": [ "any" ]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "At the Conclave, m_c tells the story of a Baron that supported another through the darkest time in their shared history - even to great personal cost. {PRONOUN/m_c/subject/CAP} {VERB/m_c/announce/announces} that just like the mythical Baron, {PRONOUN/m_c/subject} will never abandon {PRONOUN/m-c/poss} ally, baron2.",
+    "rel_change": 10,
+    "m_c": {
+      "trait": ["loyal"],
+      "skill": ["STORY,1"]
+    },
+    "player_clan_temper": [ "any" ],
+    "other_clan_temper": [ "any" ]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "At the Conclave, baron2 confesses that a problem is plaguing {PRONOUN/baron2/poss} cats. {PRONOUN/baron2/subject/CAP}{VERB/baron2/'re/'s} surprised when m_c offers a very competent solution despite {PRONOUN/m_c/poss} usual childish antics.",
+    "rel_change": 10,
+    "m_c": {
+      "trait": ["childish"],
+      "skill": ["INSIGHTFUL,1"]
+    },
+    "player_clan_temper": [ "any" ],
+    "other_clan_temper": [ "any" ]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "At the Conclave, baron2 announces that {PRONOUN/baron2/poss} doctors received an omen. m_c proposes an extremely literal interpretation, which the doctors admit they hadn't considered.",
+    "rel_change": 5,
+    "m_c": {
+      "trait": ["childish", "oblivious"],
+      "skill": ["OMEN,1"]
+    },
+    "player_clan_temper": [ "any" ],
+    "other_clan_temper": [ "any" ]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "At the Conclave, baron2 announces that {PRONOUN/baron2/poss} doctors received a prophecy. m_c proposes an extremely literal interpretation, which the doctors admit they hadn't considered.",
+    "rel_change": 5,
+    "m_c": {
+      "trait": ["childish", "oblivious"],
+      "skill": ["PROPHET,1"]
+    },
+    "player_clan_temper": [ "any" ],
+    "other_clan_temper": [ "any" ]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "The night before the Conclave, m_c and baron2 share a dream of being kits again, playing mossball and tag. At the Conclave, m_c is pleased to see baron2 looking lighter.",
+    "rel_change": 5,
+    "m_c": {
+      "trait": ["childish", "playful" ],
+      "skill": ["DREAM,1"]
+    },
+    "player_clan_temper": [ "any" ],
+    "other_clan_temper": [ "any" ]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "At the Conclave, m_c approaches baron2 and pays {PRONOUN/baron2/object} a heartfelt compliment. {PRONOUN/m_c/subject/CAP} may not be a cat of many words, but when {PRONOUN/m_c/subject} {VERB/m_c/use/uses} them, {PRONOUN/m_c/subject} {VERB/m_c/make/makes} them count.",
+    "rel_change": 10,
+    "m_c": {
+      "trait": ["lonesome"],
+      "skill": ["SPEAKER,1"]
+    },
+    "player_clan_temper": [ "any" ],
+    "other_clan_temper": [ "any" ]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "At the Conclave, m_c announces that {PRONOUN/m_c/subject} {VERB/m_c/believe/believes} StarClan intends for both of their Clippers to go on a quest together. baron2 is surprised, but agrees to send out a joint patrol to explore this possibility.",
+    "rel_change": 10,
+    "m_c": {
+      "trait": ["adventurous"],
+      "skill": ["STAR,1", "PROPHET,1"]
+    },
+    "player_clan_temper": [ "any" ],
+    "other_clan_temper": [ "any" ]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "At the Conclave, m_c speaks with baron2's doctors about a prophecy they received, offering valuable insight about the threat the b2_t faces. m_c encourages baron2 to take immediate, violent action and snuff out this threat.",
+    "rel_change": 4,
+    "m_c": {
+      "trait": ["bloodthirsty"],
+      "skill": ["PROPHET,1"]
+    },
+    "player_clan_temper": [ "any" ],
+    "other_clan_temper": [ "any" ]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "m_c speaks to {PRONOUN/m_c/poss} advisors before the Conclave, making it clear what tonight's goal is. When they arrive at the Conclave place, they all disperse to find baron2's cats and take advantage of their prideful nature.",
+    "rel_change": 3,
+    "m_c": {},
+    "player_clan_temper": ["cunning"],
+    "other_clan_temper": ["proud"]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "m_c makes a point to praise baron2's strong and mighty Clippers during the Conclave.",
+    "rel_change": 2,
+    "m_c": {},
+    "player_clan_temper": [],
+    "other_clan_temper": ["bloodthirsty", "fierce"]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "At the Conclave, baron2 gets into a spat with another Baron. m_c silently hears out both sides and then proves baron2 is right with cool logic.",
+    "rel_change": 4,
+    "m_c": {
+      "trait": [ "cold" ],
+      "skill": [ "MEDIATOR,1"]
+     },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "At the Conclave, baron2 and m_c put their heads together to discuss the weaknesses of their enemies. baron2 is impressed by m_c's insight.",
+    "rel_change": 4,
+    "m_c": {
+      "trait": [ "cold", "sneaky", "cunning" ],
+      "skill": [ "INSIGHTFUL,1"]
+     },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["proud", "wary", "logical", "bloodthirsty", "stoic", "cunning"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "During the Conclave, m_c has a lot to say about baron2's recent patrols near b1_t borders, and none of it is good.",
+    "rel_change": -2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "During the Conclave, m_c goes on and on about a tiny incident on the border between the b1_t and the b2_t, really making a prophecy out of a pawprint. baron2 seems increasingly irritable.",
+    "rel_change": -2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "At the Conclave, m_c greets baron2 with a sneer and nothing else. baron2 says nothing, but {PRONOUN/baron2/poss} hackles rise.",
+    "rel_change": -2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "baron2 and m_c arrive at the Conclave at the same time. m_c ignores baron2's greeting and enters the meeting place first without a backward glance.",
+    "rel_change": -1,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "Every cat always told m_c {PRONOUN/m_c/subject} would get in trouble for {PRONOUN/m_c/poss} smart mouth... but no cat could've predicted how useful it would be in this situation. By the end of the Conclave, baron2 seems ready to claw {PRONOUN/m_c/poss} face off.",
+    "rel_change": -10,
+    "m_c": {
+      "skill": ["SPEAKER,3"],
+      "trait": [ "troublesome" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "m_c senses a presence from beyond the grave hovering around baron2 at the Conclave, and makes sure to bring up this dead cat every chance {PRONOUN/m_c/subject} {VERB/m_c/get/gets}, just to get under baron2's skin.",
+    "rel_change": -5,
+    "m_c": {
+      "skill": ["GHOST,1"],
+      "trait": [ "troublesome", "bold", "shameless" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "As baron2 announces new colts at the Conclave, m_c interrupts to offer plenty of unsolicited advice about how best to train an colt.",
+    "rel_change": -5,
+    "m_c": {
+      "skill": ["TEACHER,1"],
+      "trait": [ "shameless", "arrogant" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "During the Conclave, m_c sits apart from the other Barons and watches the sky. When {PRONOUN/m_c/subject} {VERB/m_c/notice/notices} a wisp of cloud drift over the full moon, {PRONOUN/m_c/subject} {VERB/m_c/interrupt/interrupts} and {VERB/m_c/warn/warns} that StarClan is displeased - in the middle of baron2's speech.",
+    "rel_change": -5,
+    "m_c": {
+      "skill": [ "SENSE,1" ],
+      "trait": [ "lonesome" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "During baron2's Conclave speech, m_c interrupts frequently, finishing baron2's sentences. By the end of the night, baron2 is looking irritated and uneasy.",
+    "rel_change": -5,
+    "m_c": {
+      "skill": [ "CLAIRVOYANT,1" ],
+      "trait": [ "childish", "daring", "bold", "shameless", "flamboyant" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "During the Conclave, m_c compares baron2's actions to the legacy of a mythological villain. baron2 hisses and asks if m_c is insinuating something. m_c stares at {PRONOUN/baron2/object} and answers that yes, {PRONOUN/m_c/subject} {VERB/m_c/are/is}.",
+    "rel_change": -5,
+    "m_c": {
+      "skill": [ "STORY,1" ],
+      "trait": [ "cold", "shameless", "bold" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "When baron2 explains the treatment of a badly injured Clipper at the Conclave, m_c interrupts to instruct the doctors of the b2_t on a better course of treatment.",
+    "rel_change": -3,
+    "m_c": {
+      "skill": [ "HEALER,1" ],
+      "trait": [ "cold", "bold", "shameless" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "At the Conclave, m_c accuses baron2 of using nomads to spy on {PRONOUN/m_c/object} Clippers.",
+    "rel_change": -2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "During the Conclave, m_c says nothing to the other Barons all night, until the end of the Conclave - at which point {PRONOUN/m_c/subject} {VERB/m_c/gaze/gazes} dreamily into the distance and {VERB/m_c/warn/warns} baron2 that a storm in brewing for their cats in the coming moon.",
+    "rel_change": -5,
+    "m_c": {
+      "skill": ["CLAIRVOYANT,1"],
+      "trait": [ "lonesome" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "At the Conclave, m_c refuses to leave enough space on the Baron's perch for baron2, forcing {PRONOUN/baron2/object} to deliver {PRONOUN/baron2/poss} news from an awkward spot closer to the ground.",
+    "rel_change": -2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "While baron2 discusses serious threats on {PRONOUN/baron2/poss} borders at the Conclave, m_c scoffs and shoots disbelieving looks at other Barons.",
+    "rel_change": -3,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "m_c responds to everything baron2 says at the Conclave with a skeptical look and an undermining comment.",
+    "rel_change": -2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "At the Conclave, m_c gossips on the Baron's perch about baron2 before {PRONOUN/baron2/subject} {VERB/baron2/arrive/arrives}. When baron2 arrives and joins them on the Baron's perch, the other Barons keep their distance.",
+    "rel_change": -1,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "When baron2 announces new Clippers at the Conclave, m_c is pointedly silent while the others cheer and welcome the new Clippers.",
+    "rel_change": -2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "During the Conclave, baron2 delivers {PRONOUN/baron2/poss} news of a border skirmish. m_c grumbles under {PRONOUN/m_c/poss} breath about lazy, undisciplined fighting styles, and how baron2's Clippers can hardly be called Clippers at all.",
+    "rel_change": -5,
+    "m_c": {
+      "skill": ["FIGHTER,1"],
+      "trait": ["grumpy"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "During the Conclave, m_c makes a surprise outburst about how baron2 has had the other Barons under {PRONOUN/baron2/poss} paw for far too long, and it's time for the b1_t and their allies to rise up against the b2_t.",
+    "rel_change": -7,
+    "m_c": {
+      "skill": ["SPEAKER,1"],
+      "trait": ["rebellious"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "During the Conclave, m_c spits accusations at baron2.",
+    "rel_change": -2,
+    "m_c": {
+      "trait": ["troublesome", "lonesome", "fierce", "bloodthirsty", "cold", "childish", "bold", "daring",  "righteous", "strict", "ambitious", "confident", "adventurous",  "loyal", "responsible", "shameless", "sneaky", "strange", "vengeful", "wise", "arrogant", "competitive", "grumpy", "sincere", "flamboyant", "rebellious"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "During the Conclave, m_c comments unprompted that {PRONOUN/m_c/subject} could easily take on two of baron2's Clippers at once in a fight.",
+    "rel_change": -2,
+    "m_c": {
+      "skill": [ "FIGHTER,1" ],
+      "trait": [ "confident", "competitive", "arrogant", "ambitious", "shameless", "flamboyant" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "During the Conclave, m_c 'jokes' that {PRONOUN/m_c/subject} probably caught more prey this moon than all of baron2's cogs combined.",
+    "rel_change": -2,
+    "m_c": {
+      "skill": [ "HUNTER,1" ],
+      "trait": [ "confident", "competitive", "arrogant", "ambitious", "shameless", "flamboyant" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "During the Conclave, m_c comments that it's a pity to see what has become of baron2's territory in recent moons. They used to be such a well-respected Barony...",
+    "rel_change": -3,
+    "m_c": {
+      "trait": [ "shameless", "arrogant", "cold", "troublesome" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "During the Conclave, baron2 announces the birth of new kits. m_c implies that baron2's Clippers and cogs are not fit to be parents.",
+    "rel_change": -3,
+    "m_c": {
+      "skill": [ "KIT,2"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "During the Conclave, m_c asks baron2 earnestly if {PRONOUN/baron2/subject} really {VERB/baron2/think/thinks} {PRONOUN/baron2/subject}{VERB/baron2/'re/'s} living up to the b2_t's legacy. baron2 frowns at the implication.",
+    "rel_change": -5,
+    "m_c": {
+      "skill": [ "LORE,1"],
+      "trait": ["sincere"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "During the Conclave, m_c asks baron2 if {PRONOUN/baron2/subject} {VERB/baron2/teach/teaches} {PRONOUN/baron2/poss} colts killing blows, or whether the Barony is full of mouse-hearts that would rather roll over and show their bellies.",
+    "rel_change": -8,
+    "m_c": {
+      "skill": [ "TEACHER,1"],
+      "trait": ["bloodthirsty"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "During the Conclave, baron2 brags about recent successes in border skirmishes. m_c remarks that {PRONOUN/baron2/subject}{VERB/baron2/'re/'s} obfuscating how badly wounded some Clippers are and how overworked {PRONOUN/baron2/poss} doctors seem.",
+    "rel_change": -3,
+    "m_c": {
+      "skill": [ "INSIGHTFUL,1", "SENSE,1"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "During the Conclave, m_c wrinkles {PRONOUN/m_c/poss} nose and demands to know why baron2 stinks of lavender. baron2 looks wounded and replies that {PRONOUN/baron2/poss} dead mother used to wear lavender on her pelt.",
+    "rel_change": -5,
+    "m_c": {
+      "skill": [ "GHOST,1"],
+      "trait": [ "childish" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "During the Conclave, m_c suggests to baron2 that one of {PRONOUN/baron2/poss} weaker-looking advisors will probably not survive the next leaf-bare.",
+    "rel_change": -3,
+    "m_c": {
+      "skill": [ "SENSE,1"],
+      "trait": [ "bloodthirsty", "cold" ]
+    }
+  },
+    {
+      "interaction_type": "provoke",
+      "event_text": "During the Conclave, m_c brings up a shameful piece of baron2's past at an inopportune moment, much to the annoyance of baron2.",
+    "rel_change": -3,
+    "m_c": {
+      "skill": [ "LORE,1"],
+      "trait": [ "troublesome" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "During the Conclave, baron2 references a b2_t myth. m_c jumps to the end of the story and remarks on what a mouse-brain a cat would have to be to believe it.",
+    "rel_change": -3,
+    "m_c": {
+      "skill": [ "STORY,1"],
+      "trait": [ "troublesome" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "At the Conclave, m_c makes a comparison between the story of a misbehaving b1_t colt and the b2_t's behavior at their shared border. baron2 hisses at the implication",
+    "rel_change": -3,
+    "m_c": {
+      "skill": [ "TEACHER,1"],
+      "trait": [ "troublesome", "bold", "daring", "cunning" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "Knowing how baron2 values strength in battle, m_c weaves some innocent remarks about how mouse-hearted {PRONOUN/baron2/poss} newest colts seem. baron2's claws slide out.",
+    "rel_change": -3,
+    "m_c": {  },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["bloodthirsty", "proud", "logical"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "Knowing how baron2 values good manners and strong inter-Clan relationships, m_c comments on how difficult of a time {PRONOUN/baron2/subject} {VERB/baron2/seem/seems} to be having when it comes to controlling {PRONOUN/baron2/poss} misbehaving colts. baron2's eyes narrow.",
+    "rel_change": -3,
+    "m_c": {  },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["gracious", "amiable", "mellow"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "Knowing how baron2 prides {PRONOUN/baron2/self} on being a clever, discerning leader, m_c brings up recent nomad activity that baron2 has failed to take action on. The fur along baron2's spine rises.",
+    "rel_change": -3,
+    "m_c": {  },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["logical", "stoic", "cunning"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "m_c was told {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} too smart for {PRONOUN/m_c/poss} own good. But when the goal is getting under another cat's fur, m_c is exactly the right cat for the task. This Conclave is very productive; baron2 is spitting by the end.",
+    "rel_change": -5,
+    "m_c": { 
+      "skill": [ "CLEVER,1" ],
+      "trait": ["troublesome" ]
+     },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "Being a quiet observer means m_c notices things other cats don't - such as the tense looks between baron2 and {PRONOUN/baron2/poss} Regent. In the middle of the Conclave, m_c pipes up and asks if something's wrong in the Barony's leadership, blinking innocently at them.",
+    "rel_change": -5,
+    "m_c": { 
+      "skill": [ "CLEVER,1" ],
+      "trait": ["lonesome" ]
+     },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "At the Conclave, dark whispers rush through m_c's voice like a cold wind through dead branches. {PRONOUN/m_c/subject/CAP} {VERB/m_c/warn/warns} baron2 that {PRONOUN/baron2/subject} {VERB/baron2/are/is} making an enemy of the b1_t - and it could be {PRONOUN/baron2/poss} last mistake.",
+    "rel_change": -7,
+    "m_c": { 
+      "skill": [ "DARK,1" ],
+      "trait": ["fierce" ]
+     },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "At the Conclave, baron2 announces {PRONOUN/baron2/poss} interpretation of a prophecy received by {PRONOUN/baron2/poss} doctors. m_c counters this with another interpretation and challenges baron2's doctors to admit which interpretation is more plausible. The doctors hem and haw, avoiding their Baron's gaze.",
+    "rel_change": -5,
+    "m_c": { 
+      "skill": [ "PROPHET,1" ],
+      "trait": ["fierce", "cold", "bold", "shameless" ]
+     },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "At the Conclave, baron2 shares a humorous story about kits sneaking out of camp. m_c coldly replies that baron2's queens should teach their kits to behave better.",
+    "rel_change": -5,
+    "m_c": { 
+      "skill": [ "KIT,1" ],
+      "trait": ["cold" ]
+     },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "At the Conclave, baron2 complains about rowdy kits disturbing {PRONOUN/baron2/poss} sleep. m_c rolls {PRONOUN/m_c/poss} eyes and demands to know if baron2 never feels like singing at moonhigh. The answer is no, apparently.",
+    "rel_change": -3,
+    "m_c": { 
+      "skill": [ "KIT,1" ],
+      "trait": ["childish", "rebellious", "troublesome" ]
+     },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "provoke",
+    "event_text": "At the Conclave, m_c keeps asking <i>why?</i> in response to everything baron2 says. baron2 eventually breaks off with a hiss.",
+    "rel_change": -5,
+    "m_c": {
+      "trait": ["childish" ]
+     },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "During the Conclave, m_c does {PRONOUN/m_c/poss} best to get on baron2's good side.",
+    "rel_change": 2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "m_c and baron2 arrive at the Conclave's meeting place at the same time; m_c halts {PRONOUN/m_c/poss} patrol with a tail-signal and gestures for baron2 to enter first.",
+    "rel_change": 1,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "During the Conclave, m_c nods and agrees when baron2 mentions diplomacy and cross-territory friendship.",
+    "rel_change": 1,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "At the Conclave, m_c nudges {PRONOUN/m_c/poss} advisors to go sit with baron2's party and chat with them.",
+    "rel_change": 1,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "When baron2 arrives at the Conclave, m_c shifts over to make plenty of room for {PRONOUN/baron2/object} on the Baron's perch. baron2 jumps up and dips {PRONOUN/baron2/poss} head to m_c.",
+    "rel_change": 1,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "During the Conclave, baron2 announces new Clippers. m_c leads the others in cheering their names.",
+    "rel_change": 1,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "During the Conclave, baron2 describes driving off some troublesome nomads. m_c nods {PRONOUN/m_c/poss} approval.",
+    "rel_change": 1,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "At the Conclave, m_c asks baron2 a few questions about {PRONOUN/baron2/self}.",
+    "rel_change": 1,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "During the Conclave, m_c remarks that baron2's colts seem to be growing into fine young cats.",
+    "rel_change": 1,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "m_c takes baron2 aside at the Conclave to ask about resolving a particular dispute among {PRONOUN/m_c/poss} cats. baron2, flattered, gives {PRONOUN/m_c/object} plenty of advice.",
+    "rel_change": 1,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "During the Conclave, m_c surprises and impresses baron2 by bringing up an obscure part of the b2_t's history.",
+    "rel_change": 3,
+    "m_c": {
+      "skill": ["LORE,2"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "The night before the Conclave, one of m_c's friends visits {PRONOUN/m_c/object} from StarClan and gives {PRONOUN/m_c/object} a pep talk, reminding {PRONOUN/m_c/object} what a good friend {PRONOUN/m_c/subject} {VERB/m_c/are/is}. m_c arrives at the Conclave with steeled nerves and strikes up conversation with baron2",
+    "rel_change": 6,
+    "m_c": {
+      "trait": [ "lonesome", "nervous" ],
+      "skill": [ "STAR,1" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "m_c brings a piece of willow bark with strange grooves on it to the Conclave. {PRONOUN/m_c/subject/CAP} {VERB/m_c/explain/explains} to the other Barons that this is a sign of future prosperity for the b2_t and the b1_t - and only them.",
+    "rel_change": -5,
+    "m_c": {
+      "skill": ["OMEN,1"],
+      "trait": [ "troublesome" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "During the Conclave, m_c brings up an old legend about two Barons that put aside their differences and formed an alliance, bringing strength to both of them. baron2 listens with interest.",
+    "rel_change": 3,
+    "m_c": {
+      "skill": ["STORY,1"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "At the Conclave, m_c pulls baron2 aside to warn {PRONOUN/baron2/object} that fire may be a problem for {PRONOUN/baron2/poss} territory in the coming moons. baron2 seems skeptical as to how m_c could possibly know that, but nevertheless thanks {PRONOUN/m_c/object} for the heads-up.",
+    "rel_change": 3,
+    "m_c": {
+      "skill": ["CLAIRVOYANT,2"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "At the Conclave, m_c pulls baron2 aside to warn {PRONOUN/baron2/object} that a large dog may be a problem for {PRONOUN/baron2/poss} territory in the coming moons. baron2 agrees to be careful, thanking m_c for the heads-up.",
+    "rel_change": 3,
+    "m_c": {
+      "skill": ["CLAIRVOYANT,2"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "Just as baron2 arrives at the Conclave, m_c shouts a warning for baron2 to move. A heartbeat later, a dead branch plummets toward them, but baron2 leaps out of the way in the nick of time. baron2 is shocked and relieved.",
+    "rel_change": 3,
+    "m_c": {
+      "trait": [ "loving", "compassionate", "thoughtful", "charismatic" ],
+      "skill": [ "SENSE,1", "CLAIRVOYANT,1" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "At the Conclave, baron2 struggles through a report that an entire litter of b2_t kits were wiped out by kitten-cough. m_c draws {PRONOUN/baron2/object} aside after and reassures {PRONOUN/baron2/object} that the kittens are playing moss-ball together in StarClan. baron2 thanks {PRONOUN/m_c/object}, {PRONOUN/baron2/poss} mew thick with emotion.",
+    "rel_change": 5,
+    "m_c": {
+      "skill": [ "KIT,2", "STAR,1"],
+      "trait": [ "playful", "compassionate", "thoughtful", "loving" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "When m_c arrives at the Conclave, {PRONOUN/m_c/subject} {VERB/m_c/launch/launches} {PRONOUN/m_c/self} onto the Baron's perch with a mighty leap. baron2 eyes the deep grooves {PRONOUN/m_c/poss} claws left behind in the earth and makes a mental note to stay on m_c's good side.",
+    "rel_change": 5,
+    "m_c": {
+      "skill": [ "CLIMBER,1"],
+      "trait": [ "bloodthirsty" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "During the Conclave, m_c flatters baron2 with {PRONOUN/m_c/poss} attention. After all, m_c knows exactly how to handle short tempers and immature behavior.",
+    "rel_change": 5,
+    "m_c": {
+      "skill": [ "KIT,1" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["proud"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "m_c may be awkward with cats {PRONOUN/m_c/poss} age, but some things about socializing are true for all ages. At the Conclave, m_c expresses interest in all of baron2's comments and opinions, and by the end of the night, baron2 has puffed up {PRONOUN/baron2/poss} chest.",
+    "rel_change": 3,
+    "m_c": {
+      "skill": [ "TEACHER,1", "KIT,1" ],
+      "trait": [ "lonesome" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "At the Conclave, m_c sympathizes with baron2 about the pressures of being Baron. {PRONOUN/m_c/subject/CAP} {VERB/m_c/suggest/suggests} going out for solo night hunts from time to time - that's always worked for m_c",
+    "rel_change": 3,
+    "m_c": {
+      "skill": [ "HUNTER,1" ],
+      "trait": [ "lonesome" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "At the Conclave, baron2 announces the birth of new kits. m_c assures {PRONOUN/baron2/object} with blazing eyes that the b1_t will always help defend those too young to defend themselves, and baron2 gives {PRONOUN/m_c/object} a grateful nod.",
+    "rel_change": 3,
+    "m_c": {
+      "skill": [ "KIT,1" ],
+      "trait": [ "fierce" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "During the Conclave, baron2 wearily reports how some kits keep sneaking out of camp. m_c pulls {PRONOUN/baron2/object} aside after and suggests that bringing the kits onto the territory in supervised groups might help regulate all that kithood energy. baron2 is impressed and thanks m_c for the suggestion.",
+    "rel_change": 5,
+    "m_c": {
+      "skill": [ "KIT,1" ],
+      "trait": ["adventurous"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "During the Conclave, baron2 comments to the other Barons that {PRONOUN/baron2/poss} colts are struggling to learn to swim. m_c snorts that most mentors forget to teach colts to blow bubbles first. Embarrassed, baron2 admits {PRONOUN/baron2/subject} had forgotten and thanks m_c for the reminder.",
+    "rel_change": 5,
+    "m_c": {
+      "skill": [ "TEACHER,1", "SWIMMER,1" ],
+      "trait": ["grumpy"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "At the Conclave, baron2 reports the tragic death of a kit who was killed by a snake in the nursery. m_c pulls {PRONOUN/baron2/object} aside after to offer condolences, and suggests weaving basil and marigold into the nursery wall as a deterrent.",
+    "rel_change": 3,
+    "m_c": {
+      "skill": ["CAMP,3"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "During the Conclave, baron2 gets into a tense debate with another Baron. m_c waits until they've reached an impasse, then offers a softspoken solution that satisfies both of them. baron2 shoots {PRONOUN/m_c/object} an appreciative look.",
+    "rel_change": 5,
+    "m_c": {
+      "skill": [ "MEDIATOR,1"],
+      "trait": ["lonesome"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "At the Conclave, m_c jokes about what a pain in the tail it can be to be a Baron. baron2 agrees with a purr.",
+    "rel_change": 3,
+    "m_c": {
+      "trait": ["playful", "childish", "charismatic", "compassionate", "loving", "thoughtful", "confident", "flamboyant"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "At the Conclave, m_c takes a chance and confides in baron2 about a problem plaguing {PRONOUN/m_c/object}. baron2 is both sympathetic and flattered to be trusted.",
+    "rel_change": 3,
+    "m_c": {
+      "trait": ["insecure", "nervous", "gloomy"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "At the Conclave, m_c remarks to baron2 that each member of the b2_t Territory is like a tiny chitinous thread and, woven together, they form the wings of a beautiful butterfly. baron2 isn't certain what m_c means by that, but appreciates the sentiment.",
+    "rel_change": 3,
+    "m_c": {
+      "trait": ["strange"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "m_c sidles up to the b2_t Baron, baron2, during the Conclave and navigates the ensuing conversation with ease. The two seem to be good friends by the end of it.",
+    "rel_change": 5,
+    "m_c": {
+      "skill": ["SPEAKER,3", "MEDIATOR,3", "CLEVER,3"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "During the Conclave, m_c mentions StarClan's signs of favor toward baron2, irritating one of the other deeply faithful Barons. In the ensuing tensions, m_c offers {PRONOUN/m_c/poss} support to baron2.",
+    "rel_change": 5,
+    "m_c": {
+      "skill": ["STAR,1"],
+      "trait": [ "troublesome" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "m_c sidles up to the b2_t Baron, baron2, during the Conclave and {PRONOUN/m_c/poss} charming nature makes friendship a simple matter.",
+    "rel_change": 5,
+    "m_c": {
+      "trait": ["charismatic", "compassionate", "playful"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "At the Conclave, m_c goes out on a limb and admits to baron2 that {PRONOUN/baron2/poss} deceased parent is still hovering by {PRONOUN/baron2/object} in spirit. baron2 bows {PRONOUN/baron2/poss} head, too overcome to speak.",
+    "rel_change": 5,
+    "m_c": {
+      "trait": ["daring", "bold" ],
+      "skill": ["GHOST,2"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "At the Conclave, m_c remarks on how a fighting technique developed by o_c_n Clippers is something m_c hopes to teach to c_n's apprentices for moons to come. baron2 is impressed and flattered.",
+    "rel_change": 5,
+    "m_c": {
+      "trait": ["thoughtful" ],
+      "skill": ["FIGHTER,1"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "In {PRONOUN/baron2/poss} Conclave speech, baron2 announces the birth of new kittens. m_c promises them that the b1_t will help rip out the throat of anyone that poses a threat to these kits. baron2 appreciates m_c's zeal.",
+    "rel_change": 3,
+    "m_c": {
+      "trait": [ "fierce", "bloodthirsty" ],
+      "skill": [ "KIT,1" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["proud", "stoic", "logical", "cunning", "bloodthirsty"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "At the Conclave, baron2 vents to the other Barons about disobedient colts. m_c offers a few insights into how the colts might be feeling, impressing baron2.",
+    "rel_change": 3,
+    "m_c": {
+      "trait": ["childish", "thoughtful", "compassionate"],
+      "skill": ["TEACHER,1"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "At the Conclave, m_c thinks about how making friends is a lot like hunting - it's all a matter of approaching at the best angle, timing it right, and then pouncing. By the end of the night, baron2 is on m_c's fresh-kill pile... metaphorically.",
+    "rel_change": 5,
+    "m_c": {
+      "trait": ["charismatic" ],
+      "skill": ["HUNTER,1"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "At the Conclave, m_c offers {PRONOUN/m_c/poss} allyship to baron2 and promises that together, they can crush their enemies as easily as crushing a mouse's spine.",
+    "rel_change": 5,
+    "m_c": {
+      "trait": ["bloodthirsty" ],
+      "skill": ["HUNTER,1"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "During the Conclave, m_c catches baron2's eye. The two regard each other carefully and, later on, the other Baron makes an offer of friendship.",
+    "rel_change": 5,
+    "m_c": {},
+    "player_clan_temper": ["cunning", "stoic", "logical", "wary"],
+    "other_clan_temper": ["cunning", "stoic", "logical", "wary"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "baron2 is loud and threatening at the Conclave. m_c holds {PRONOUN/m_c/poss} ground and shows no fear, earning a grudging look of respect from the other Baron.",
+    "rel_change": 3,
+    "m_c": {
+      "trait": ["fierce", "bloodthirsty", "cold", "bold", "daring", "righteous", "strict", "ambitious", "confident", "calm", "vengeful", "wise", "cunning", "arrogant", "competitive", "rebellious"]
+    },
+    "player_clan_temper": [],
+    "other_clan_temper": ["bloodthirsty", "proud"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "At the Conclave, baron2 discusses an omen received by {PRONOUN/baron2/poss} doctors. m_c expresses great interest and insight, and baron2 is surprised, given how icy and removed m_c usually is.",
+    "rel_change": 5,
+    "m_c": {
+      "trait": ["cold" ],
+      "skill": ["OMEN,1"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "During the Conclave, m_c has nothing but sharp comments and sarcastic quips to add whenever baron2 speaks.",
+    "rel_change": -2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "When baron2 makes an appeal to m_c at the Conclave, m_c shuts {PRONOUN/baron2/object} down with a sneer.",
+    "rel_change": -2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "When baron2 insults m_c at the Conclave, m_c replies that {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} used to handling immature, childish behavior - but this is a lot, even for {PRONOUN/m_c/object}.",
+    "rel_change": -3,
+    "m_c": {
+      "skill": [ "KIT,1"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "At the Conclave, m_c roars that StarClan themselves have ordained m_c's position as the mightiest Barony. No cat - not baron2, nor all of {PRONOUN/baron2/poss} Clippers - can get in the way of the b1_t's destiny.",
+    "rel_change": -10,
+    "m_c": {
+      "skill": ["STAR,1"],
+      "trait": ["fierce"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "At the Conclave, m_c insists on speaking first and makes it clear that peace cannot thrive between the b2_t and the b1_t. Not until baron2 pays for what {PRONOUN/baron2/subject} {VERB/baron2/have/has} done.",
+    "rel_change": -2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "baron2 may be the first to launch a threat at the Conclave, but m_c matches each one with three more.",
+    "rel_change": -2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "At the Conclave, baron2 and m_c sit far apart. Shouting insults and threats is best done from a distance, especially when a truce is meant to be respected.",
+    "rel_change": -2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "m_c makes it {PRONOUN/m_c/poss} personal mission during the Conclave to see how close {PRONOUN/m_c/subject} can come to making baron2 break the truce.",
+    "rel_change": -2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "m_c barely brings up any news during {PRONOUN/m_c/poss} Conclave speech - {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} too busy sniping at baron2.",
+    "rel_change": -2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "During the Conclave, m_c calls out specific b2_t Clippers by name and insults them, all the while ignoring baron2.",
+    "rel_change": -3,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "At the Conclave, m_c invents incidents of border crossings and prey-stealing that never happened, just to further poison the stream between {PRONOUN/m_c/object} and baron2",
+    "rel_change": -3,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "At the Conclave, m_c tells baron2 to {PRONOUN/baron2/poss} face that {PRONOUN/baron2/subject}{VERB/baron2/'re/'s} a good-for-nothing fox-heart. Sometimes the direct approach is best.",
+    "rel_change": -2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "At the Conclave, baron2 takes up all the air in the meeting place snarling insults and threats. m_c waits for {PRONOUN/m_c/poss} moment before coolly delivering a single devastating verbal blow.",
+    "rel_change": -5,
+    "m_c": {
+      "skill": [ "CLEVER,1", "SPEAKER,1"],
+      "trait": [ "cold", "calm", "cunning" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "m_c spends the Conclave making thinly veiled comments about the hunting abilities of baron2's cogs. By the end of it, the proud Baron is visibly annoyed.",
+    "rel_change": -2,
+    "m_c": {
+      "skill": ["HUNTER,2"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["proud"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "m_c flexes {PRONOUN/m_c/poss} claws in front of baron2 at the Conclave and asks if {PRONOUN/baron2/subject} ever {VERB/baron2/wish/wishes} {PRONOUN/baron2/subject} had a fighter as talented as {PRONOUN/m_c/object}. m_c is rewarded for {PRONOUN/m_c/poss} insolence with a hiss of outrage from baron2.",
+    "rel_change": -2,
+    "m_c": {
+      "skill": ["FIGHTER,1"],
+      "trait": [ "arrogant", "confident", "ambitious", "shameless", "fierce", "bloodthirsty", "cold", "competitive", "childish", "flamboyant", "adventurous", "troublesome" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "baron2 reports at the Conclave that some of {PRONOUN/baron2/poss} Clippers led an uprising and had to be put down. m_c scoffs, unsheathes {PRONOUN/m_c/poss} claws, and announces {PRONOUN/m_c/subject}'d rebel against baron2 too, if {PRONOUN/m_c/subject} were one of {PRONOUN/baron2/poss} Clippers.",
+    "rel_change": -8,
+    "m_c": {
+      "skill": ["FIGHTER,1"],
+      "trait": [ "rebellious" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["stoic", "bloodthirsty", "logical", "wary", "cunning", "proud"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "At the Conclave, m_c spreads the rumor that baron2 thinks <i>bracken</i> is good enough to reinforce den walls. Somehow, this cuts deep.",
+    "rel_change": -2,
+    "m_c": {
+      "skill": ["CAMP,2"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "At the Conclave, baron2 finishes {PRONOUN/baron2/poss} speech by thanking StarClan. m_c replies that it is a pity StarClan does not like baron2 as much as {PRONOUN/baron2/subject} {VERB/baron2/like/likes} StarClan.",
+    "rel_change": -3,
+    "m_c": {
+      "skill": ["STAR,2", "PROPHET,2"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "At the Conclave, baron2 insults m_c in the usual manner. m_c sighs and comments that if baron2 got out more, perhaps {PRONOUN/baron2/subject}'d have a more mature understanding of the world.",
+    "rel_change": -3,
+    "m_c": {
+      "trait": [ "adventurous" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "At the Conclave, m_c brings up an old tale of a tyrannical mouse-brain that nearly destroyed their own Clan with warmongering. baron2 is snarling by the end of the story.",
+    "rel_change": -3,
+    "m_c": {
+      "skill": [ "STORY,1", "LORE,2", "SPEAKER,3" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "Before entering the Conclave meeting place, m_c signals for {PRONOUN/m_c/poss} advisors to hang back. m_c eavesdrops on baron2's group, picking up all the Barony secrets that boastful Clippers and indiscreet colts share, then strolls into the Conclave to use this information in {PRONOUN/m_c/poss} speech.",
+    "rel_change": -6,
+    "m_c": {
+      "skill": [ "SENSE,3" ],
+      "trait": ["sneaky", "cunning"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "At the Conclave, m_c discusses with another Baron how baron2 has wronged both of them... right in front of baron2.",
+    "rel_change": -3,
+    "m_c": {
+      "skill": [ "MEDIATOR,2" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "At the Conclave, m_c discusses with another Baron how baron2 has wronged both of them... right in front of baron2.",
+    "rel_change": -3,
+    "m_c": {
+      "trait": [ "bold", "shameless" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "At the Conclave, baron2 mentions trouble hunting after a proliferation of Twoleg traps on {PRONOUN/baron2/poss} territory. m_c examines {PRONOUN/m_c/poss} claws and remarks that {PRONOUN/m_c/subject} may have some prey-bones to spare that baorn2's Clippers can chew on.",
+    "rel_change": -3,
+    "m_c": {
+      "trait": [ "bold", "shameless", "daring", "cold", "vengeful", "fierce", "arrogant", "competitive", "cunning", "troublesome" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "During the Conclave, m_c ignores baron2 and never mentions the b2_t in {PRONOUN/m_c/poss} speech. However, {PRONOUN/m_c/subject} {VERB/m_c/do/does} bring up a particular story of disciplining a kit, whose behavior is strikingly similar to baron2's...",
+    "rel_change": -3,
+    "m_c": {
+      "trait": [ "troublesome" ],
+      "skill": ["KIT,1"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "m_c encourages {PRONOUN/m_c/poss} cats to save their prey bones and then leave them by the b2_t border. At the Conclave, baron2 brings up this behavior, but m_c plays dumb. What prey bones?",
+    "rel_change": -3,
+    "m_c": {
+      "trait": [ "childish" ],
+      "skill": ["HUNTER,1"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "On the way to the Conclave, m_c stops to splash around in a stream. Once m_c arrives, {PRONOUN/m_c/subject} {VERB/baron2/plop/plops} {PRONOUN/m_c/poss} soggy hindquarters right next to baron2, spraying water on {PRONOUN/baron2/poss} fur.",
+    "rel_change": -3,
+    "m_c": {
+      "trait": [ "childish" ],
+      "skill": ["SWIMMER,1"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "At the Conclave, baron2 mentions trouble hunting after a proliferation of Twoleg traps on {PRONOUN/baron2/poss} territory. m_c expresses surprise that any b2_t Clipper would feel hunger when they're so full of themselves already.",
+    "rel_change": -4,
+    "m_c": {
+      "skill": [ "CLEVER,3", "SPEAKER,3" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "At the Conclave, m_c threatens and riles baron2 to the point of actual violence - baron2 lashes m_c across the muzzle with a sheathed paw. m_c leaps on baron2 and tussles with {PRONOUN/baron2/object}, spitting. With the truce broken, the Conclave comes to a hasty end.",
+    "rel_change": -10,
+    "m_c": {
+      "skill": [ "CLEVER,1" ],
+      "trait": [ "bloodthirsty" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "During the Conclave, m_c does {PRONOUN/m_c/poss} best to make peace with baron2.",
+    "rel_change": 2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "During the Conclave, m_c suggests the b2_t and the b1_t put aside their differences for the sake of both territories.",
+    "rel_change": 2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "At the Conclave, when baron2 expresses reluctance at the thought of any escalation in hostilities, m_c is quick to nurture that impulse for peace.",
+    "rel_change": 2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "When baron2 arrives at the Conclave, {PRONOUN/baron2/subject} {VERB/baron2/are/is} surprised to find m_c's advisors on their best behavior. m_c nods at {PRONOUN/m_c/poss} party from the Baron's perch.",
+    "rel_change": 1,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "During the Conclave, m_c suggests the b2_t and the b1_t put aside their differences for the sake of both Clans.",
+    "rel_change": 3,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "No matter how much baron2 tries to provoke m_c during the Conclave, {PRONOUN/m_c/subject} {VERB/m_c/keep/keeps} a cool head.",
+    "rel_change": 1,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "During the Conclave, baron2 makes many jabs at m_c and {PRONOUN/m_c/poss} cats, but {PRONOUN/m_c/subject} never {VERB/m_c/take/takes} the bait.",
+    "rel_change": 1,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "At the Conclave, m_c starts with a sincere appeal to baron2, wishing for an end to hostilities. baron2's speech is brief and muttered - seems {PRONOUN/baron2/subject} {VERB/baron2/were/was} expecting a very different tone.",
+    "rel_change": 2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "m_c uses {PRONOUN/m_c/poss} speech at the Conclave to make it clear to baron2 that m_c is ready to forgive all transgressions and move on.",
+    "rel_change": 2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "At the Conclave, m_c pauses to compliment baron2. {PRONOUN/baron2/subject/CAP}{VERB/baron2/'re/'s} so taken aback that they seem to forget most of their Conclave speech.",
+    "rel_change": 2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "At the Conclave, m_c acknowledges baron2's Regent and doctor with a gracious dip of {PRONOUN/m_c/poss} head. Common courtesy can go a long way.",
+    "rel_change": 2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "At the Conclave, m_c laughs off any of the provocations baron2 sends {PRONOUN/m_c/poss} way.",
+    "rel_change": 1,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "At the end of the Conclave, m_c takes baron2 aside and admits that both their territories would be better off with reduced hostilities. baron2 grudgingly agrees.",
+    "rel_change": 2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "During the Conclave, m_c confesses that while their cats may never be friends, there is no need for them to continue to provoke and attack each other.",
+    "rel_change": 2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "When baron2 accuses m_c of a particular transgression at the Conclave, m_c owns up to it and acknowledges it was wrong. baron2's advisors murmurs amongst themselves in surprise at m_c's honour.",
+    "rel_change": 2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "baron2 opens the Conclave with a provocation. m_c levels a sober look at {PRONOUN/baron2/object} and asks if, one hundred moons from now, baron2 wants this childish insult to be {PRONOUN/baron2/poss} legacy. baron2 wilts.",
+    "rel_change": 3,
+    "m_c": {
+      "skill": [ "SPEAKER,1", "MEDIATOR,1"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "baron2 opens the Conclave with a provocation. m_c levels a sober look at {PRONOUN/baron2/object} and asks if, one hundred moons from now, baron2 wants this childish insult to be {PRONOUN/baron2/poss} legacy. baron2 wilts.",
+    "rel_change": 3,
+    "m_c": {
+      "trait": [ "bold", "daring", "sincere", "confident", "wise", "calm", "thoughtful"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "When baron2 claims at the Conclave that StarClan has ordained the current hostilities between the b1_t and the b2_t, m_c coolly replies that {PRONOUN/m_c/subject} {VERB/m_c/do/does} not think <i>StarClan</i> is guiding baron2's paws. Something in m_c's eyes makes baron2 back down.",
+    "rel_change": 3,
+    "m_c": {
+      "skill": [ "DARK,2" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "At the Conclave, baron2 gets in m_c's face. m_c squares {PRONOUN/m_c/poss} shoulders and lets {PRONOUN/m_c/poss} muscular physique speak for itself; baron2 suddenly acquires an appetite for peace. m_c's advisors giddily report the next morning that the Baron looked like a kit next to {PRONOUN/m_c/object}.",
+    "rel_change": 3,
+    "m_c": {
+      "skill": [ "SWIMMER,2", "CLIMBER,2", "RUNNER,2", "FIGHTER,3" ],
+      "trait": [ "bold", "shameless", "daring", "cold", "vengeful", "fierce", "arrogant", "competitive", "cunning", "troublesome", "confident", "adventurous", "loyal", "responsible" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "During the Conclave, m_c lays out a compelling case for peace between their territories, until even baron2 admits it is probably for the best if they cease hostilities.",
+    "rel_change": 5,
+    "m_c": {
+      "skill": [ "MEDIATOR,3", "SPEAKER,3" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "At the Conclave, m_c remarks on the many different types of herbs that will be useful to baron2's Clippers recovering from recent scraps. baron2 scoffs, but {PRONOUN/baron2/poss} doctors are listening.",
+    "rel_change": 5,
+    "m_c": {
+      "skill": [ "HEALER,1" ],
+      "trait": ["troublesome"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "At the Conclave, m_c speaks passionately of the destruction war wreaks - of young kits growing up fearing their own borders, colts thrown into battles too early, and Clippers dropping like flies in the service of pointless bloodshed. baron2 bows {PRONOUN/baron2/poss} head, vowing to bury the past.",
+    "rel_change": 10,
+    "m_c": {
+      "skill": [ "MEDIATOR,3", "SPEAKER,3" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "m_c spends the Conclave attempting small talk with baron2 and doing {PRONOUN/m_c/poss} best to smooth over the harsh edges of their relationship.",
+    "rel_change": 2,
+    "m_c": {
+      "status": ["Baron"],
+      "skill": ["SPEAKER,1"]
+    },
+    "player_clan_temper": ["gracious", "mellow", "logical", "amiable", "cunning", "stoic"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "Before baron2 says a word at the Conclave, m_c speaks in a low, commanding voice... reciting something that sounds awfully like a prophecy foretelling baron2's doom. m_c isn't the sort of cat to waste {PRONOUN/m_c/poss} breath on empty words; baron2 stiffens, bone-deep fear flashing over {PRONOUN/baron2/poss} face.",
+    "rel_change": -10,
+    "m_c": {
+      "trait": ["lonesome"],
+      "skill": ["PROPHET,3"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "At the Conclave, no matter how much baron2 snaps in {PRONOUN/m_c/poss} face, m_c doesn't react. Being unable to get a rise out of a cat as hot-tempered as m_c only seems to enrage baron2 more - and m_c knows it.",
+    "rel_change": -8,
+    "m_c": {
+      "trait": ["fierce"],
+      "skill": ["CLEVER,1"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "At the Conclave, baron2 repeatedly provokes and challenges m_c. m_c remains composed, not a whisker out of place, and asks baron2 to name a place and time for them to settle the score. {PRONOUN/m_c/poss/CAP} self-discipline riles baron2 even more.",
+    "rel_change": -10,
+    "m_c": {
+      "trait": ["calm"],
+      "skill": ["FIGHTER,1"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["bloodthirsty", "proud"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "At the Conclave, m_c snarls and spits at baron2, then feels a chill like ice water rush over {PRONOUN/m_c/poss} pelt. Starlight glimmers at the paws of baron2, but m_c ignores it. Whatever spirit may be watching over baron2 can take it up with {PRONOUN/m_c/object} another time.",
+    "rel_change": -5,
+    "m_c": {
+      "trait": ["fierce"],
+      "skill": ["GHOST,1"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "At the Conclave, as baron2 faces off with m_c, m_c says nothing at all. Still, baron2 suddenly shrinks away. {PRONOUN/baron2/subject/CAP} can't be sure, but {PRONOUN/baron2/subject} could have sworn {PRONOUN/baron2/subject} saw the face of {PRONOUN/baron2/poss} cruel, dead mentor hovering at m_c's shoulder.",
+    "rel_change": -10,
+    "m_c": {
+      "trait": ["lonesome"],
+      "skill": ["DARK,1"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "At the Conclave, baron2 announces the b2_t has fortified their camp in anticipation of m_c's attacks. m_c replies that b2_t mouse-brains who think weaving crabgrass with bracken counts as <i>fortifying</i> deserve to have their camp attacked.",
+    "rel_change": -3,
+    "m_c": {
+      "trait": ["bloodthirsty"],
+      "skill": ["CAMP,1"],
+      "player_clan_temper": ["any"],
+      "other_clan_temper": ["any"]
+    }
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "At the Conclave, m_c remarks on how {PRONOUN/m_c/subject}{VERB/m_c/'ve/'s} spent so much time swimming, {PRONOUN/m_c/poss} fur doesn't soak up water the same way. m_c muses aloud whether blood will roll so easily off {PRONOUN/m_c/poss} pelt once {PRONOUN/m_c/subject} {VERB/m_c/soak/soaks} in the blood of b2_t Clippers.",
+    "rel_change": -7,
+    "m_c": {
+      "trait": ["bloodthirsty"],
+      "skill": ["SWIMMER,1"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+
+    "interaction_type": "antagonize",
+    "event_text": "At the Conclave, m_c threatens to send baron2 to join {PRONOUN/baron2/poss} recently-deceased Regent in StarClan, before baron2 even announces the cat's death. baron2 is rattled and enraged.",
+    "rel_change": -7,
+    "m_c": {
+      "trait": ["bloodthirsty"],
+      "skill": ["STAR,2"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "At the Conclave, m_c mentions the name of a murderer long ago exiled by baron2. m_c seems to know an awful lot of specific details about them, and baron2 narrows {PRONOUN/baron2/poss} eyes, even as fur spikes up on {PRONOUN/baron2/poss} spine.",
+    "rel_change": -7,
+    "m_c": {
+      "trait": ["bloodthirsty"],
+      "skill": ["DARK,2"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "At the Conclave, m_c asks if baron2 wants to have a fighty-wighty with {PRONOUN/baron2/poss} clawsies. m_c warns {PRONOUN/baron2/object} that any more hostilities will lead to ouchie boo-boos.",
+    "rel_change": -3,
+    "m_c": {
+      "trait": ["childish", "troublesome"],
+      "skill": ["SPEAKER,1", "FIGHTER,1"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "antagonize",
+    "event_text": "At the Conclave, m_c surveys baron2's Clippers and picks out the weakest-looking among them. m_c shares these insights with baron2, explaining how {PRONOUN/m_c/subject} will target them in the next skirmish between them.",
+    "rel_change": -6,
+    "m_c": {
+      "trait": ["bloodthirsty"],
+      "skill": ["SENSE,1"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "baron2 looks at m_c with a soft sympathy, agreeing graciously to the stuttered offers of friendship.",
+    "rel_change": 3,
+    "m_c": {
+      "status": ["colt", "apprentice doctor"],
+      "trait": ["nervous", "insecure", "gloomy", "thoughtful", "careful", "sneaky", "cunning"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["gracious", "amiable", "mellow"]
+  },
+  {
+    "interaction_type": "befriend",
+    "event_text": "baron2 seems impressed when the young cat approaches {PRONOUN/baron2/object} with confident overtures of friendship.",
+    "rel_change": 3,
+    "m_c": {
+      "status": ["colt", "apprentice doctor"],
+      "trait": ["fierce", "troublesome", "bloodthirsty", "cold", "charismatic", "playful", "bold", "daring", "righteous", "strict", "compassionate", "thoughtful", "ambitious", "confident", "adventurous", "calm", "careful", "faithful", "loving", "responsible", "loyal", "shameless", "sneaky", "strange", "vengeful", "wise", "arrogant", "competitive", "cunning", "oblivious", "sincere", "flamboyant", "rebellious"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["gracious", "amiable", "mellow"]
+  },
+  {
+    "interaction_type": "praise",
+    "event_text": "baron2 stands beside m_c during the Conclave, offering silent support to the young cat and, later, accepting m_c's thanks.",
+    "rel_change": 1,
+    "m_c": {
+      "status": ["colt", "apprentice doctor"],
+      "trait": ["nervous", "insecure", "gloomy", "playful", "childish", "charismatic", "bold", "daring", "righteous", "strict", "compassionate", "thoughtful", "careful", "calm", "faithful", "loving", "responsible", "shameless", "wise", "cunning", "sincere"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["gracious", "amiable", "mellow"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "baron2 stares down at m_c and regards {PRONOUN/m_c/poss} stuttered words skeptically, eventually turning away. {PRONOUN/baron2/poss/CAP} dismissal seems harsh, but {PRONOUN/baron2/poss} actions throughout the rest of the Conclave have a distinct softness towards the struggling Barony.",
+    "rel_change": 10,
+    "m_c": {
+      "status": ["colt", "apprentice doctor"],
+      "trait": ["nervous", "insecure", "gloomy", "cunning"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["gracious", "amiable", "mellow"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "baron2 seems startled at the appearance of m_c leading the party. {PRONOUN/baron2/subject/CAP} may not say any words directly to the young cat, but {PRONOUN/baron2/subject} {VERB/baron2/don't/doesn't} aim any unnecessary jabs at {PRONOUN/m_c/object} either.",
+    "rel_change": 10,
+    "m_c": {
+      "status": ["colt", "apprentice doctor"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["gracious", "amiable", "mellow"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "baron2 regards m_c's appearance at the head of the b1_t impassively. Later on in the Conclave, however, the Baron announces {PRONOUN/baron2/poss} intent to end hostilities with m_c, citing that the b2_t isn't so cruel as to continue attacking an obviously beaten Barony.",
+    "rel_change": 10,
+    "m_c": {
+      "status": ["colt", "apprentice doctor"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["stoic"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "The Baron of the b2_t laughs at the sight of the Conclave party being led by m_c. The cat makes a comment on how piteous m_c's Barony must be, to have such a young cat leading them, and eventually announces that it would be dishonorable for {PRONOUN/baron2/object} to continue attacking such dregs.",
+    "rel_change": 10,
+    "m_c": {
+      "status": ["colt", "apprentice doctor"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["bloodthirsty", "proud", "logical"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "When the b1_t arrives at the Conclave and m_c takes {PRONOUN/m_c/poss} place with the Barons, baron2 watches with gleaming eyes. {PRONOUN/baron2/subject/CAP} later {VERB/baron2/announce/announces} {PRONOUN/baron2/poss} *sincere* sympathies for the b1_t's struggles and {VERB/baron2/offer/offers} a paw of friendship. m_c can't help but feel that {PRONOUN/m_c/poss} acceptance has come with some hidden cost.",
+    "rel_change": 10,
+    "m_c": {
+      "status": ["colt", "apprentice doctor"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["cunning"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "When m_c joins the Clan Barons at the Conclave {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} off-put by the distinct looks of disapproval being aimed at baron2. Later on, the Baron stutters out {PRONOUN/baron2/poss} intent to lower hostilities with the b1_t.",
+    "rel_change": 10,
+    "m_c": {
+      "status": ["colt", "apprentice doctor"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["wary"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "baron2 threatens the b1_t throughout the Conclave. m_c remains silent until {PRONOUN/m_c/poss} turn to speak, then remarks that no cat in the b2_t really wants war. baron2's advisors shuffle their paws and avoid their Baron's gaze, not wanting to admit that m_c is right.",
+    "rel_change": 6,
+    "m_c": {
+      "trait": ["strange", "thoughtful", "calm"],
+      "skill": [ "INSIGHTFUL,1", "CLEVER,3" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["stoic", "logical"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "m_c is quick to assert {PRONOUN/m_c/self} at the Conclave, announcing that {PRONOUN/m_c/subject} received an omen: omen_list_smell_emotional/m_c. After a long debate, it's decided that the omen insists that {PRONOUN/m_c/subject} and baron2 cease hostilities.",
+    "rel_change": 8,
+    "m_c": {
+      "skill": ["OMEN,1"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "At the Conclave, m_c speaks passionately of the omen {PRONOUN/m_c/subject} received the previous night - omen_list_sound/m_c. baron2 is cowed by the echo of flames and scent of sulfur in m_c's speech, and quickly agrees to de-escalate tensions.",
+    "rel_change": 10,
+    "m_c": {
+      "skill": ["OMEN,1"],
+      "trait": ["fierce", "bloodthirsty"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "At the Conclave, when baron2 challenges {PRONOUN/m_c/object}, m_c stares at {PRONOUN/baron2/object} silently, eyes cold as starlight. Whatever baron2 sees in {PRONOUN/m_c/poss} gaze makes {PRONOUN/baron2/object} back down.",
+    "rel_change": 5,
+    "m_c": {
+      "skill": ["STAR,1"],
+      "trait": ["cold"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "At the Conclave, when baron2 challenges {PRONOUN/m_c/object}, m_c stares at {PRONOUN/baron2/object} silently, eyes cold and dark as death itself. Whatever baron2 sees in {PRONOUN/m_c/poss} gaze makes {PRONOUN/baron2/object} back down.",
+    "rel_change": 5,
+    "m_c": {
+      "skill": ["DARK,1"],
+      "trait": ["cold"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "At the Conclave, m_c reveals to baron2 that one of {PRONOUN/baron2/poss} Clippers who died in a recent conflict came to m_c and spoke to {PRONOUN/m_c/object} about peace. baron2 admits the same Clipper appeared in {PRONOUN/baron2/poss} dreams.",
+    "rel_change": 10,
+    "m_c": {
+      "skill": ["GHOST,3"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "m_c is quick to assert {PRONOUN/m_c/self} at the Conclave, announcing that {PRONOUN/m_c/subject} received an omen: omen_list_smell_emotional/m_c. After a long debate, it's decided that the omen insists m_c and baron2 hostilities.",
+    "rel_change": 10,
+    "m_c": {
+      "trait": ["cunning", "sneaky"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "At the Conclave, baron2 launches the usual threats, and m_c challenges {PRONOUN/baron2/object} to a meanie-off. A... what? A meanie-off, m_c explains, involves going back and forth with insults until a winner is declared. baron2 purrs despite {PRONOUN/baron2/self} at how ridiculous the suggestion is.",
+    "rel_change": 5,
+    "m_c": {
+      "skill": ["MEDIATOR,1"],
+      "trait": [ "childish", "playful" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["wary"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "At the Conclave, baron2 makes the usual accusations and threats. m_c ignores {PRONOUN/baron2/object} and singles out couple of baron2's cats with the scent of milk on their pelts, and asks in a snarl if they really want their kits to grow up in wartime? baron2 backs down, shame-faced",
+    "rel_change": 5,
+    "m_c": {
+      "skill": ["INSIGHTFUL,1", "SENSE,1", "KIT,1" ],
+      "trait": [ "fierce", "bold", "daring" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "m_c announces at the Conclave that {PRONOUN/m_c/subject} received a vision of prophecy_list_sight_sound/m_c. The Barons bustle to decide the meaning and, later on, baron2 insists that a prophecy leaves no room for cross-territory hostilities.",
+    "rel_change": 10,
+    "m_c": {
+      "skill": ["PROPHET,1"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "m_c pulls the b2_t Baron aside during the Conclave. The Baron seems shaken when {PRONOUN/baron2/subject} later {VERB/baron2/return/returns} to the Conclave proper - nearby cats whisper that they heard m_c say something about the other Baron's dreams. Overtures of peace are hastily accepted when m_c offers them.",
+    "rel_change": 10,
+    "m_c": {
+      "skill": ["DREAM,2"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["wary"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "During the Conclave, m_c warns baron2 that unless {PRONOUN/baron2/subject} {VERB/baron2/back/backs} down, m_c will tell {PRONOUN/m_c/poss} super scary friends from the dark place to come get {PRONOUN/baron2/object}. baron2 senses the threat in the childish words.",
+    "rel_change": 5,
+    "m_c": {
+      "skill": ["DARK,1"],
+      "trait": ["childish"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["wary", "logical", "cunning"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "m_c dreams the night before the Conclave and hears the whispers of {PRONOUN/m_c/poss} ancestors. When {PRONOUN/m_c/subject} {PRONOUN/m_c/speak/speaks} at the Conclave baron2 shows open disdain, only for clouds to begin covering the moon. The Conclave ends quickly as the enemy Baron stutters a worried apology.",
+    "rel_change": 10,
+    "m_c": {
+      "skill": ["STAR,3"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["wary"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "At the Conclave, baron2 insults and hisses at m_c. m_c lists off names of baron2's Clippers who will die if this conflict escalates. The cool certainty in {PRONOUN/m_c/poss} voice chills baron2, who backs down abruptly.",
+    "rel_change": 7,
+    "m_c": {
+      "skill": ["CLAIRVOYANT,2"],
+      "trait": ["bloodthirsty"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["wary"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "m_c dreams the night before the Conclave and hears the whispers of {PRONOUN/m_c/poss} ancestors. When {PRONOUN/m_c/subject} {VERB/m_c/speak/speaks} at the Conclave, baron2 shows open disdain, only for clouds to begin covering the moon. The Conclave ends quickly as the enemy Baron blusters and the other Clans rally behind m_c.",
+    "rel_change": 8,
+    "m_c": {
+      "skill": ["STAR,3"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["bloodthirsty"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "While baron2 spits threats at m_c, {PRONOUN/m_c/subject} {VERB/m_c/react/reacts} exactly as much as will satisfy baron2, without revealing weakness. By the end of the Conclave, baron2 seems to have worn {PRONOUN/baron2/self} out.",
+    "rel_change": 5,
+    "m_c": {
+      "skill": ["CLEVER,2"],
+      "trait": [ "calm", "wise" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "During the Conclave, baron2 goes on and on about m_c wronging {PRONOUN/baron2/object}. {PRONOUN/m_c/poss/CAP} temper slips through {PRONOUN/m_c/poss} claws, and m_c eventually snaps at baron2 to just shut {PRONOUN/baron2/poss} trap - every cat knows {PRONOUN/baron2/subject}{VERB/baron2/'re/'s} talking a load of fox-dung. This stuns the Baron into silence.",
+    "rel_change": 5,
+    "m_c": {
+      "skill": ["MEDIATOR,1"],
+      "trait": [ "fierce" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["mellow", "gracious", "amiable", "stoic", "logical", "wary", "cunning" ]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "The night before the Conclave, m_c dreams vividly of a glorious battle between the b2_t and the b1_t - in which the b1_t comes out victorious. At the Conclave, baron2 keeps a wary distance; it seems these dreams of war did not suit {PRONOUN/baron2/poss} palate.",
+    "rel_change": 5,
+    "m_c": {
+      "skill": ["DREAM,1"],
+      "trait": [ "fierce", "bloodthirsty" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["mellow", "gracious", "amiable", "stoic", "logical", "wary", "cunning" ]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "At the Conclave, baron2 and m_c trade threats as usual. Finally, m_c spits that if baron2 wants to take {PRONOUN/m_c/object} on, {PRONOUN/baron2/subject} can name the time and place. baron2 back downs, eyeing m_c's flexing claws.",
+    "rel_change": 3,
+    "m_c": {
+      "skill": ["FIGHTER,2"],
+      "trait": [ "arrogant", "bloodthirsty", "ambitious", "bold", "daring" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["wary", "cunning", "stoic", "logical", "amiable", "gracious"]
+  },
+  {
+    "interaction_type": "appease",
+    "event_text": "The night before the Conclave, m_c enters the dreams of baron2 and meets {PRONOUN/baron2/object} by rosebushes, lit in golden sunshine, with songbirds perched upon blossoming branches above {PRONOUN/baron2/object}. At the Conclave, baron2 stammers through {PRONOUN/baron2/poss} speech and avoids m_c's gaze.",
+    "rel_change": 10,
+    "m_c": {
+      "age": ["young adult", "adult", "senior adult", "senior"],
+      "skill": [ "DREAM,3"],
+      "trait": [ "troublesome", "flamboyant", "shameless" ]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["wary"]
+  }
+]

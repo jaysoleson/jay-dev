@@ -62,8 +62,8 @@ class HandleShortEvents:
         self.other_clan = None
         self.other_clan_name = None
 
-        self.war_offense_clan = None
-        self.war_defense_clan = None
+        self.barony = None
+        self.other_barony = None
 
         self.chosen_event = None
         self.additional_event_text = ""
@@ -100,7 +100,7 @@ class HandleShortEvents:
         if game.clan.war:
             self.other_clan = None
             war = random.choice(game.clan.war)
-            self.war_offense_clan, self.war_defense_clan = get_warring_clans(war)
+            self.barony, self.other_barony = get_warring_clans(war)
             self.sub_types.append("war")
         else:
             self.other_clan = random.choice(
@@ -138,8 +138,8 @@ class HandleShortEvents:
             cat=self.main_cat,
             random_cat=self.random_cat,
             other_clan=self.other_clan,
-            war_defense=self.war_defense_clan,
-            war_offense=self.war_offense_clan,
+            barony=self.barony,
+            other_barony=self.other_barony,
             freshkill_active=FRESHKILL_EVENT_ACTIVE,
             freshkill_trigger_factor=FRESHKILL_EVENT_TRIGGER_FACTOR,
             sub_types=self.sub_types,
@@ -229,8 +229,8 @@ class HandleShortEvents:
                 new_cats=self.new_cat_objects,
                 clan=game.clan,
                 other_clan=self.other_clan,
-                war_offense=self.war_offense_clan,
-                war_defense=self.war_defense_clan
+                barony=self.barony,
+                other_barony=self.other_barony
             )
             unpack_rel_block(Cat, self.chosen_event.relationships, self)
 
@@ -315,8 +315,8 @@ class HandleShortEvents:
             multi_cats=self.multi_cat,
             clan=game.clan,
             other_clan=self.other_clan,
-            war_offense=self.war_offense_clan,
-            war_defense=self.war_defense_clan,
+            barony=self.barony,
+            other_barony=self.other_barony,
             chosen_herb=self.chosen_herb,
         )
 
@@ -875,8 +875,8 @@ class HandleShortEvents:
         self.other_clan = None
         self.other_clan_name = None
 
-        self.war_offense_clan = None
-        self.war_defense_clan = None
+        self.barony = None
+        self.other_barony = None
 
         self.chosen_event = None
         self.additional_event_text = ""

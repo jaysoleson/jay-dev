@@ -151,6 +151,8 @@ class GenerateEvents:
                         if "relationships" in event
                         else [],
                         outsider=event["outsider"] if "outsider" in event else {},
+                        barony=event["barony"] if "barony" in event else {},
+                        other_barony=event["other_barony"] if "other_barony" in event else {},
                         other_clan=event["other_clan"] if "other_clan" in event else {},
                         supplies=event["supplies"] if "supplies" in event else [],
                         new_gender=event["new_gender"] if "new_gender" in event else [],
@@ -240,8 +242,8 @@ class GenerateEvents:
         cat,
         random_cat,
         other_clan,
-        war_offense,
-        war_defense,
+        barony,
+        other_barony,
         freshkill_active,
         freshkill_trigger_factor,
         sub_types=None,
@@ -425,11 +427,23 @@ class GenerateEvents:
                     ):
                         continue
 
-            if event.war_defense:
-                pass
+            if event.barony:
+                if "you" in event.barony:
+                    if event.barony["you"]["allowed"] is False:
+                        if barony == game.clan:
+                            continue
+                    if event.barony["you"]["exclusive"] is True:
+                        if barony != game.clan:
+                            continue
 
-            if event.war_offense:
-                pass
+            if event.other_barony:
+                if "you" in event.other_barony:
+                    if event.other_barony["you"]["allowed"] is False:
+                        if other_barony == game.clan:
+                            continue
+                    if event.other_barony["you"]["exclusive"] is True:
+                        if other_barony != game.clan:
+                            continue
 
             # clans below a certain age can't have their supplies messed with
             if game.clan.age < 5 and event.supplies:
