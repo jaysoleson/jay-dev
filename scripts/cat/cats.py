@@ -562,7 +562,7 @@ class Cat:
                         break
                 
             else:
-                if game.clan.heir.moons > 11:
+                if game.clan.heir.moons > 8:
                     new_baron = game.clan.heir
                 elif game.clan.regent:
                     new_baron = game.clan.regent

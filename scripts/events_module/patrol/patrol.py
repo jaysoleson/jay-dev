@@ -332,7 +332,7 @@ class Patrol:
         patrol_size = len(self.patrol_cats)
         reputation = game.clan.reputation  # reputation with outsiders
         other_clan = self.other_clan
-        clan_relations = int(other_clan.relations) if other_clan else 0
+        clan_relations = int(other_clan.relations[game.clan.name]) if other_clan else 0
         hostile_rep = False
         neutral_rep = False
         welcoming_rep = False
@@ -942,9 +942,9 @@ class Patrol:
             text = "This should not appear, report as a bug please!"
 
         replace_dict = {
-            "p_l": (str(self.patrol_baron.name), choice(self.patrol_baron.pronouns)),
+            "p_l": ([str(self.patrol_baron.name), self.patrol_baron.ID], choice(self.patrol_baron.pronouns)),
             "r_c": (
-                str(self.random_cat.name),
+                [str(self.random_cat.name), self.random_cat.ID],
                 choice(self.random_cat.pronouns),
             ),
         }
@@ -1020,7 +1020,7 @@ class Patrol:
         if stat_cat:
             replace_dict["s_c"] = (str(stat_cat.name), choice(stat_cat.pronouns))
 
-        text = process_text(text, replace_dict)
+        text = process_text(text, replace_dict, baron_colour_force_dark=True)
         text = adjust_prey_abbr(text)
 
         other_clan_name = self.other_clan.name

@@ -23,6 +23,7 @@ from scripts.utility import (
     create_new_cat_block,
     gather_cat_objects,
     adjust_list_text,
+    get_baron_colour
 )
 from scripts.game_structure.game_essentials import game
 from scripts.cat.skills import SkillPath
@@ -228,6 +229,7 @@ class PatrolOutcome:
             new_cats=patrol.new_cats,
             clan=game.clan,
             other_clan=patrol.other_clan,
+            baron_colour_force_dark=True
         )
 
         # This order is important.
@@ -251,6 +253,7 @@ class PatrolOutcome:
                         new_cats=patrol.new_cats,
                         clan=game.clan,
                         other_clan=patrol.other_clan,
+                        baron_colour_force_dark=True
                     )
                 elif isinstance(log, list):
                     for i in range(1, len(log)):
@@ -265,6 +268,7 @@ class PatrolOutcome:
                             new_cats=patrol.new_cats,
                             clan=game.clan,
                             other_clan=patrol.other_clan,
+                            baron_colour_force_dark=True
                         )
 
         results.append(
@@ -634,12 +638,18 @@ class PatrolOutcome:
             return ""
 
         change_clan_relations(game.clan, patrol.other_clan, self.other_clan_rep)
+
+        baron_name = Cat.fetch_cat(patrol.other_clan.baron).name
+        font_colour = get_baron_colour(Cat.fetch_cat(patrol.other_clan.baron).ID)
+
+        name_string = f"<font color='{font_colour}'>{baron_name}</font>"
+
         if self.other_clan_rep > 0:
-            return i18n.t("screens.patrol.clan_rep_improved", clan=patrol.other_clan)
+            return i18n.t("screens.patrol.clan_rep_improved", clan=name_string)
         elif self.other_clan_rep == 0:
-            return i18n.t("screens.patrol.clan_rep_neutral", clan=patrol.other_clan)
+            return i18n.t("screens.patrol.clan_rep_neutral", clan=name_string)
         else:
-            return i18n.t("screens.patrol.clan_rep_worsened", clan=patrol.other_clan)
+            return i18n.t("screens.patrol.clan_rep_worsened", clan=name_string)
 
     def _handle_herbs(self, patrol: "Patrol") -> str:
         """Handle giving herbs"""

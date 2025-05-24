@@ -589,6 +589,11 @@ def create_new_cat_block(
         if possible_outsiders:
             chosen_cat = choice(possible_outsiders)
             game.clan.add_to_clan(chosen_cat)
+
+            # BL TODO: more options for this but yk
+            chosen_cat.allegiance = game.clan.baron.ID
+            # ---
+
             chosen_cat.status = status
             chosen_cat.outside = outside
             if not alive:
@@ -1834,7 +1839,7 @@ def get_baron_colour(cat_id, force_dark=False):
     return font_colour
 
 
-def name_repl(m, cat_dict):
+def name_repl(m, cat_dict, baron_colour_force_dark):
     """Name replacement.
     colour is from BL-- replaces baron names with their colours for extra fun!!
     """
@@ -1842,11 +1847,11 @@ def name_repl(m, cat_dict):
     cat_name = cat_dict[m.group(0)][0][0]
     cat_id = cat_dict[m.group(0)][0][1]
 
-    font_colour = get_baron_colour(cat_id)
+    font_colour = get_baron_colour(cat_id, baron_colour_force_dark)
     return f"<font color='{font_colour}'>" + cat_name + "</font>"
 
 
-def process_text(text, cat_dict, raise_exception=False):
+def process_text(text, cat_dict, raise_exception=False, baron_colour_force_dark=False):
     """Add the correct name and pronouns into a string."""
     adjust_text = re.sub(
         r"(?<!%)\{(.*?)}", lambda x: pronoun_repl(x, cat_dict, raise_exception), text
@@ -1854,7 +1859,7 @@ def process_text(text, cat_dict, raise_exception=False):
 
     name_patterns = [r"(?<!\{)" + re.escape(l) + r"(?!\})" for l in cat_dict]
     adjust_text = re.sub(
-        "|".join(name_patterns), lambda x: name_repl(x, cat_dict), adjust_text
+        "|".join(name_patterns), lambda x: name_repl(x, cat_dict, baron_colour_force_dark=baron_colour_force_dark), adjust_text
     )
     return adjust_text
 
@@ -2161,6 +2166,7 @@ def event_text_adjust(
         barony=None,
         other_barony=None,
         chosen_herb: str = None,
+        baron_colour_force_dark: bool=False,
 ):
     """
     handles finding abbreviations in the text and replacing them appropriately, returns the adjusted text
@@ -2300,7 +2306,7 @@ def event_text_adjust(
 
     # assign all names and pronouns
     if replace_dict:
-        text = process_text(text, replace_dict)
+        text = process_text(text, replace_dict, baron_colour_force_dark=baron_colour_force_dark)
 
     # multi_cat
     if "multi_cat" in text:
