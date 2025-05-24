@@ -64,7 +64,8 @@ class RoleScreen(Screens):
                     self.the_cat.pelt.accessory.append(game.clan.colour.upper() + "BOW")
                 
                 # remove the first baron
-                game.clan.baron.status_change("clipper", resort=True)
+                if game.clan.baron:
+                    game.clan.baron.status_change("clipper", resort=True)
                 game.clan.baron = self.the_cat
                 game.clan.heir = None
                 self.the_cat.status_change("baron", resort=True)
@@ -73,7 +74,8 @@ class RoleScreen(Screens):
                     Cat.sort_cats()
                 self.update_selected_cat()
             elif event.ui_element == self.promote_regent:
-                game.clan.regent.status_change("clipper", resort=True)
+                if game.clan.regent:
+                    game.clan.regent.status_change("clipper", resort=True)
                 game.clan.regent = self.the_cat
                 self.the_cat.status_change("regent", resort=True)
                 self.update_selected_cat()
@@ -85,7 +87,8 @@ class RoleScreen(Screens):
                 self.update_selected_cat()
             
             elif event.ui_element == self.promote_heir:
-                game.clan.heir.status_change("clipper", resort=True)
+                if game.clan.heir:
+                    game.clan.heir.status_change("clipper", resort=True)
                 game.clan.heir = self.the_cat
                 self.the_cat.status_change("heir", resort=True)
                 self.update_selected_cat()
@@ -214,12 +217,11 @@ class RoleScreen(Screens):
 
         # In-TRAINING ROLES:
         self.switch_colt = UISurfaceImageButton(
-            ui_scale(pygame.Rect((579, 0), (172, 52))),
+            ui_scale(pygame.Rect((579, 0), (172, 36))),
             "screens.role.switch_colt",
-            get_button_dict(ButtonStyles.LADDER_MIDDLE, (172, 52)),
+            get_button_dict(ButtonStyles.LADDER_MIDDLE, (172, 36)),
             object_id="@buttonstyles_ladder_middle",
             anchors={"top_target": self.bar},
-            text_is_multiline=True,
             text_layer_object_id="@buttonstyles_ladder_multiline",
         )
         self.switch_apprentice_doctor = UISurfaceImageButton(
@@ -491,27 +493,29 @@ class RoleScreen(Screens):
             self.switch_colt.disable()
             self.promote_heir.disable()
         elif self.the_cat.status == "heir":
-            self.promote_baron.enable()
             
-            if regent_invalid:
+            if regent_invalid and self.the_cat.moons > 12:
                 self.promote_regent.enable()
             else:
                 self.promote_regent.disable()
 
-            # ADULT CAT ROLES
-            self.switch_clipper.enable()
-            self.switch_doctor.enable()
-            self.switch_cog.enable()
-            self.retire.enable()
-
             # In-TRAINING ROLES:
             if self.the_cat.moons > 12:
+                self.promote_baron.enable()
                 self.switch_apprentice_doctor.disable()
                 self.switch_colt.disable()
+                self.switch_clipper.enable()
+                self.switch_doctor.enable()
+                self.retire.enable()
             else:
+                self.promote_baron.disable()
                 self.switch_apprentice_doctor.enable()
                 self.switch_colt.enable()
+                self.switch_clipper.disable()
+                self.switch_doctor.disable()
+                self.retire.disable()
             self.promote_heir.disable()
+            self.switch_cog.enable()
         else:
             self.promote_baron.disable()
             self.promote_regent.disable()

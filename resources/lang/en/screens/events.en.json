@@ -7,6 +7,7 @@
             "many": "Clan age: %{count} moons"
         },
         "timeskip_button": "Timeskip One Moon",
+        "map_screen_button": "View Map",
         "all events": "all events",
         "ceremonies": "ceremonies",
         "births & deaths": "births & deaths",

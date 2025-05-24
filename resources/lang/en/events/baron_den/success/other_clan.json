@@ -1939,7 +1939,7 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "When baron2 accuses m_c of a particular transgression at the Conclave, m_c owns up to it and acknowledges it was wrong. baron2's advisors murmurs amongst themselves in surprise at m_c's honour.",
+    "event_text": "When baron2 accuses m_c of a particular transgression at the Conclave, m_c owns up to it and acknowledges it was wrong. baron2's advisors murmur amongst themselves in surprise at m_c's honour.",
     "rel_change": 2,
     "m_c": {},
     "player_clan_temper": ["any"],

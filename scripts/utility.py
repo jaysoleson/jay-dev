@@ -1794,15 +1794,9 @@ def pronoun_repl(m, cat_pronouns_dict, raise_exception=False):
         print("Failed to find pronoun:", m.group(1))
         return "error2"
 
-
-def name_repl(m, cat_dict):
-    """Name replacement.
-    colour is from BL-- replaces baron names with their colours for extra fun!!
-    """
-    show_colours = True #repl with setting
-    cat_name = cat_dict[m.group(0)][0][0]
-    cat_id = cat_dict[m.group(0)][0][1]
-
+def get_baron_colour(cat_id, force_dark=False):
+    """ grabbing the barons colour for coloured names
+    force_dark means a background that is LIGHT on both light + dark mode"""
     baron_colour = None
     if game.clan:
         for clan in game.clan.all_clans + [game.clan]:
@@ -1814,24 +1808,41 @@ def name_repl(m, cat_dict):
                 baron_colour = clan.colour
                 break
     
+    # "colour": ["dark colour", "light colour"]
     colour_dict = {
-        "crimson": "#320805",
-        "blue": "#2C3566",
-        "cyan": "#2C5A66",
-        "yellow": "#D2D063",
-        "lime": "#3B4D19",
-        "green": "#1D3719",
-        "red": "#4C1C18",
-        "pink": "#502430",
-        "purple": "#351841",
-        "indigo": "#180834",
-        None: ""
+        "crimson": ["#490000", "#CB6B6B"],
+        "blue": ["#1A175C", "#8397E0"],
+        "cyan": ["#055A62", "#6ED1DB"],
+        "yellow": ["#4E4001", "#F8E17B"],
+        "green": ["#025023", "#8DF5AE"],
+        "pink": ["#590931", "#F8A1CC"],
+        "purple": ["#3E135A", "#D59CFC"],
+        None: ["", ""]
     }
     if baron_colour is None:
         # print("baron colour name repl none wtf")
         pass
 
-    font_colour = colour_dict[baron_colour]
+    if force_dark:
+        font_colour = colour_dict[baron_colour][0]
+    else:
+        if game.settings["dark mode"]:
+            font_colour = colour_dict[baron_colour][1]
+        else:
+            font_colour = colour_dict[baron_colour][0]
+
+    return font_colour
+
+
+def name_repl(m, cat_dict):
+    """Name replacement.
+    colour is from BL-- replaces baron names with their colours for extra fun!!
+    """
+    show_colours = True #repl with setting
+    cat_name = cat_dict[m.group(0)][0][0]
+    cat_id = cat_dict[m.group(0)][0][1]
+
+    font_colour = get_baron_colour(cat_id)
     return f"<font color='{font_colour}'>" + cat_name + "</font>"
 
 

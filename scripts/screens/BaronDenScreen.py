@@ -28,6 +28,7 @@ from scripts.utility import (
     get_alive_status_cats,
     get_living_clan_cat_count,
     ui_scale_dimensions,
+    get_baron_colour
 )
 
 
@@ -644,12 +645,18 @@ class BaronDenScreen(Screens):
         y_pos = 182
         relation = get_other_clan_relation(self.focus_clan.relations[game.clan.name])
 
-        self.focus_clan_elements["clan_name"] = pygame_gui.elements.UILabel(
-            ui_scale(pygame.Rect((0, 15), (150, -1))),
-            text=f"Baron {(Cat.fetch_cat(self.focus_clan.baron).name)} of {self.focus_clan.name}Clan",
+        baron_name = Cat.fetch_cat(self.focus_clan.baron).name
+        baron_colour = get_baron_colour(Cat.fetch_cat(self.focus_clan.baron).ID, force_dark=True)
+
+        text = f"Baron <font color='{baron_colour}'>{baron_name}</font>"
+
+        self.focus_clan_elements["clan_name"] = pygame_gui.elements.UITextBox(
+            relative_rect=ui_scale(pygame.Rect((0, 15), (150, -1))),
+            html_text=text,
             object_id="#text_box_30_horizcenter",
             container=self.focus_clan_container,
             manager=MANAGER,
+            text_kwargs={},
             anchors={
                 "centerx": "centerx",
                 "top_target": self.focus_clan_elements["focus_baron_image"],
@@ -743,7 +750,7 @@ class BaronDenScreen(Screens):
 
         self.focus_clan_elements["territory_num"] = pygame_gui.elements.UILabel(
             ui_scale(pygame.Rect((0, 25), (215, -1))),
-            text=f"Territory: {self.focus_clan.territory}",
+            text=f"Territory: {len(self.focus_clan.territory)}",
             object_id="#text_box_26_horizcenter",
             container=self.focus_info_container,
             manager=MANAGER,
@@ -888,7 +895,7 @@ class BaronDenScreen(Screens):
             self.focus_outsider_container.kill()
 
         self.focus_outsider_container = UIContainer(
-            ui_scale(pygame.Rect((0, 0), (240, 398))),
+            ui_scale(pygame.Rect((0, 0), (205, 398))),
             object_id="#focus_outsider_container",
             container=self.focus_frame_container,
             starting_height=1,

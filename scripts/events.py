@@ -492,7 +492,7 @@ class Events:
 
             # adjust text and add to event list
             event_text = event_text_adjust(
-                Cat, text=event_text, main_cat=outsider_cat, clan=game.clan
+                Cat, text=event_text, barony=game.clan, main_cat=outsider_cat, clan=game.clan
             )
 
             game.cur_events_list.insert(

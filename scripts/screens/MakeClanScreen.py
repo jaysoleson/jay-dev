@@ -105,7 +105,7 @@ class MakeClanScreen(Screens):
 
         # BL
         self.barony_colours = [
-            "crimson", "blue", "cyan", "yellow", "lime", "green", "red", "pink", "purple", "indigo"
+            "crimson", "blue", "cyan", "yellow", "green", "pink", "purple"
         ]
         self.colour = "crimson"
         self.territory_type="forest"
@@ -638,9 +638,25 @@ class MakeClanScreen(Screens):
 
         # Don't allow someone to enter no name for their clan
         if self.sub_screen == "name clan":
-            # this is CHOOSE COLOUR in bl
-            self.elements["error"].hide()
-            self.elements["next_step"].enable()
+            if self.elements["name_entry"].get_text() == "":
+                self.elements["next_step"].disable()
+            elif self.elements["name_entry"].get_text().startswith(" "):
+                self.elements["error"].set_text(
+                    "screens.make_clan.error_clan_name_space"
+                )
+                self.elements["error"].show()
+                self.elements["next_step"].disable()
+            elif self.elements["name_entry"].get_text().casefold() in [
+                clan.casefold() for clan in game.switches["clan_list"]
+            ]:
+                self.elements["error"].set_text(
+                    "screens.make_clan.error_clan_name_duplicate"
+                )
+                self.elements["error"].show()
+                self.elements["next_step"].disable()
+            else:
+                self.elements["error"].hide()
+                self.elements["next_step"].enable()
 
             # Set the background for the name clan page - done here to avoid GUI layering issues
             screen.blit(self.name_clan_img, ui_scale_blit((0, 0)))
@@ -2381,6 +2397,27 @@ class MakeClanScreen(Screens):
         self.regent.allegiance = self.baron.ID
         self.doctor.allegiance = self.baron.ID
 
+        territory_tiles = {
+            "forest": [
+                "1-1", "1-2", "2-1", "2-2", "3-1", "3-2", "3-3", "4-3"
+            ],
+            "field": [
+                "1-3", "1-4", "1-5", "2-3", "2-4", "2-5", "3-4", "3-5"
+            ],
+            "cliffside": [
+                "1-6", "1-7", "2-6", "2-7", "3-6", "3-7", "4-5", "4-6"
+            ],
+            "township": [
+                "4-7", "5-5", "5-6", "5-7", "6-6", "6-7", "7-6", "7-7"
+            ],
+            "river": [
+                "5-4", "6-3", "6-4", "6-5", "7-2", "7-3", "7-4", "7-5"
+            ],
+            "lakeside": [
+                "4-1", "4-2", "5-1", "5-2", "5-3", "6-1", "6-2", "7-1"
+            ]
+        }
+
         game.clan = Clan(
             name=self.clan_name,
             baron=self.baron,
@@ -2394,7 +2431,7 @@ class MakeClanScreen(Screens):
             starting_members=self.members,
             starting_season=self.selected_season,
             colour=self.colour,
-            territory=15,
+            territory=territory_tiles[self.territory_type],
             territory_type=self.territory_type
         )
         # BL

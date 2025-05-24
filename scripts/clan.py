@@ -269,13 +269,33 @@ class Clan:
         # BL: this is moved
         number_other_clans = 5
         available_colours = [
-            "crimson", "blue", "cyan", "yellow", "lime", "green", "red", "pink", "purple", "indigo"
+            "crimson", "blue", "cyan", "yellow", "green", "pink", "purple"
         ]
         available_colours.remove(self.colour)
         available_territory_types = [
             "forest", "cliffside", "lakeside", "river", "township", "field"
         ]
         available_territory_types.remove(self.territory_type)
+        territory_tiles = {
+            "forest": [
+                "1-1", "1-2", "2-1", "2-2", "3-1", "3-2", "3-3", "4-3"
+            ],
+            "field": [
+                "1-3", "1-4", "1-5", "2-3", "2-4", "2-5", "3-4", "3-5"
+            ],
+            "cliffside": [
+                "1-6", "1-7", "2-6", "2-7", "3-6", "3-7", "4-5", "4-6"
+            ],
+            "township": [
+                "4-7", "5-5", "5-6", "5-7", "6-6", "6-7", "7-6", "7-7"
+            ],
+            "river": [
+                "5-4", "6-3", "6-4", "6-5", "7-2", "7-3", "7-4", "7-5"
+            ],
+            "lakeside": [
+                "4-1", "4-2", "5-1", "5-2", "5-3", "6-1", "6-2", "7-1"
+            ]
+        }
 
         for _ in range(number_other_clans):
             other_clan_names = [str(i.name) for i in self.all_clans] + [game.clan.name]
@@ -301,12 +321,16 @@ class Clan:
 
             baron_territory = random.choice(available_territory_types)
             available_territory_types.remove(baron_territory)
+
+            # now territory tiles
+
+            baron_tiles = territory_tiles[baron_territory]
             # ---
             other_clan = OtherClan(
                 name=other_clan_name,
                 baron=new_baron.ID,
                 colour=baron_colour,
-                territory=24,
+                territory=baron_tiles,
                 territory_type=baron_territory
                 )
             self.all_clans.append(other_clan)
@@ -1418,7 +1442,7 @@ class OtherClan:
         # baron_names = names.names_dict["normal_prefixes"] + names.names_dict["loner_names"]
         self.baron = baron
         self.colour = colour or "black"
-        self.territory = territory or 0
+        self.territory = territory or []
         self.territory_type = territory_type or "forest"
 
         self.relations = relations or {}

@@ -25,6 +25,9 @@ from .StartScreen import StartScreen
 from .SwitchClanScreen import SwitchClanScreen
 from .ClipperDenScreen import ClipperDenScreen
 
+# NEW BL
+from .MapScreen import MapScreen
+
 # ---------------------------------------------------------------------------- #
 #                                  UI RULES                                    #
 # ---------------------------------------------------------------------------- #
@@ -82,6 +85,9 @@ class AllScreens:
     mediation_screen = MediationScreen("mediation screen")
     change_gender_screen = ChangeGenderScreen("change gender screen")
 
+    # BL
+    map_screen = MapScreen("map screen")
+
     @classmethod
     def rebuild_all_screens(cls):
         cls.screens = Screens()
@@ -118,3 +124,6 @@ class AllScreens:
         cls.family_tree_screen = FamilyTreeScreen("family tree screen")
         cls.mediation_screen = MediationScreen("mediation screen")
         cls.change_gender_screen = ChangeGenderScreen("change gender screen")
+
+        # NEW BL
+        cls.map_screen = MapScreen("map screen")

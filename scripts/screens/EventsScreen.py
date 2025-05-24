@@ -66,6 +66,9 @@ class EventsScreen(Screens):
         self.clan_info = {}
         self.timeskip_button = None
 
+        # BL
+        self.map_screen_button = None
+
         self.full_event_display_container = None
         self.events_frame = None
         self.event_buttons = {}
@@ -130,6 +133,9 @@ class EventsScreen(Screens):
                 self.events_thread = self.loading_screen_start_work(
                     events_class.one_moon
                 )
+            # BL
+            elif element == self.map_screen_button:
+                self.change_screen("map screen")
             elif element in self.involved_cat_buttons:
                 self.make_cat_buttons(element)
             elif element in self.cat_profile_buttons:
@@ -291,6 +297,18 @@ class EventsScreen(Screens):
             manager=MANAGER,
             sound_id="timeskip",
         )
+
+        # BL
+        self.map_screen_button = UISurfaceImageButton(
+            ui_scale(pygame.Rect((70, 110), (120, 30))),
+            "screens.events.map_screen_button",
+            get_button_dict(ButtonStyles.SQUOVAL, (120, 30)),
+            object_id="@buttonstyles_squoval",
+            starting_height=1,
+            container=self.event_screen_container,
+            manager=MANAGER,
+        )
+        # ---
 
         self.full_event_display_container = pygame_gui.core.UIContainer(
             ui_scale(pygame.Rect((45, 266), (700, 700))),
