@@ -479,7 +479,7 @@ def create_new_cat_block(
                 Cat.age_moons[CatAgeEnum.ADOLESCENT][0],
                 Cat.age_moons[CatAgeEnum.ADOLESCENT][1],
             )
-        elif status in ["clipper", "mediator", "doctor"]:
+        elif status in ["clipper", "mediator", "doctor", "cog"]:
             age = randint(
                 Cat.age_moons["young adult"][0], Cat.age_moons["senior adult"][1]
             )
@@ -1803,15 +1803,17 @@ def get_baron_colour(cat_id, force_dark=False):
     """ grabbing the barons colour for coloured names
     force_dark means a background that is LIGHT on both light + dark mode"""
     baron_colour = None
-    if game.clan:
-        for clan in game.clan.all_clans + [game.clan]:
-            if clan == game.clan:
-                baron = game.clan.baron.ID
-            else:
-                baron = clan.baron
-            if baron == cat_id:
-                baron_colour = clan.colour
-                break
+
+    if game.settings["baron name colours"] is True:
+        if game.clan:
+            for clan in game.clan.all_clans + [game.clan]:
+                if clan == game.clan:
+                    baron = game.clan.baron.ID
+                else:
+                    baron = clan.baron
+                if baron == cat_id:
+                    baron_colour = clan.colour
+                    break
     
     # "colour": ["dark colour", "light colour"]
     colour_dict = {

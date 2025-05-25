@@ -811,6 +811,10 @@ class PatrolOutcome:
                     outside.append(str(cat.name))
                 else:
                     new.append(str(cat.name))
+                    # BL
+                    # im a hack
+                    cat.allegiance = game.clan.baron.ID
+                    # ---
             for type_list, string in [
                 (dead, "screens.patrol.dead_outsider"),
                 (outside, "screens.patrol.met_outsider"),

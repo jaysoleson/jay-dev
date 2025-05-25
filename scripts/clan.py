@@ -107,6 +107,7 @@ class Clan:
         colour="",
         territory=0,
         territory_type="forest",
+        export="",
     ):
         self.history = History()
         if name == "":
@@ -146,6 +147,7 @@ class Clan:
         self.colour = colour
         self.territory = territory
         self.territory_type = territory_type
+        self.export = export
 
         # Init Settings
         self.clan_settings = {}
@@ -296,6 +298,9 @@ class Clan:
                 "4-1", "4-2", "5-1", "5-2", "5-3", "6-1", "6-2", "7-1"
             ]
         }
+        exports = [
+            "prey", "supplies", "cosmetics", "herbs"
+        ]
 
         for _ in range(number_other_clans):
             other_clan_names = [str(i.name) for i in self.all_clans] + [game.clan.name]
@@ -307,7 +312,7 @@ class Clan:
                     names.names_dict["normal_prefixes"]
                     + names.names_dict["clan_prefixes"]
                 )
-            # CREATE BARON
+            # create caron cat
             new_baron = Cat(status="baron", moons=randint(20,99))
             new_baron.allegiance = new_baron.ID
             self.add_cat(new_baron)
@@ -315,23 +320,34 @@ class Clan:
             self.add_to_outside(new_baron)
             new_baron.thoughts()
             
+            # baron colour
             baron_colour = random.choice(available_colours)
             available_colours.remove(baron_colour)
             new_baron.pelt.accessory = [baron_colour.upper() + "BOW"]
 
+            # baron territory_type
             baron_territory = random.choice(available_territory_types)
             available_territory_types.remove(baron_territory)
 
-            # now territory tiles
-
+            # territory tiles
             baron_tiles = territory_tiles[baron_territory]
-            # ---
+
+            # export
+            baron_export = random.choice(exports)
+
+            # clipper num
+            baron_clipper_num = randint(2,10)
+            
+            # create barony!
             other_clan = OtherClan(
                 name=other_clan_name,
                 baron=new_baron.ID,
                 colour=baron_colour,
+                relations={},
                 territory=baron_tiles,
-                territory_type=baron_territory
+                territory_type=baron_territory,
+                export=baron_export,
+                clippers=baron_clipper_num
                 )
             self.all_clans.append(other_clan)
 
@@ -342,8 +358,7 @@ class Clan:
                         continue
                     if baron == game.clan:
                         continue
-                    # giving feelings about baron2 to baron
-                    baron.relations[baron_2.name] = randint(0,15)
+                    baron.relations[baron_2.name] = randint(5,17)
 
         game.save_cats()
         self.save_clan()
@@ -578,7 +593,8 @@ class Clan:
 
             "colour": self.colour,
             "territory": self.territory,
-            "territory_type": self.territory_type
+            "territory_type": self.territory_type,
+            "export": self.export,
         }
 
         # BARON DATA
@@ -628,6 +644,7 @@ class Clan:
         clan_data["colour"] = self.colour
         clan_data["territory"] = self.territory
         clan_data["territory_type"] = self.territory_type
+        clan_data["export"] = self.export
 
         self.save_herb_supply(game.clan)
         self.save_disaster(game.clan)
@@ -915,6 +932,7 @@ class Clan:
             colour=clan_data["colour"],
             territory=clan_data["territory"],
             territory_type=clan_data["territory_type"],
+            export=clan_data["export"],
         )
         game.clan.post_initialization_functions()
 
@@ -969,7 +987,9 @@ class Clan:
                         other_clan["temperament"],
                         other_clan["chosen_symbol"],
                         other_clan["territory"],
-                        other_clan["territory_type"]
+                        other_clan["territory_type"],
+                        other_clan["export"],
+                        other_clan["clippers"],
                     )
                 )
         else:
@@ -1433,7 +1453,19 @@ class OtherClan:
         "gracious",
     ]
 
-    def __init__(self, name="", baron="", colour="", relations={}, temperament="", chosen_symbol="", territory=0, territory_type=""):
+    def __init__(
+            self,
+            name="",
+            baron="",
+            colour="",
+            relations={},
+            temperament="",
+            chosen_symbol="",
+            territory=0,
+            territory_type="",
+            export="",
+            clippers=0
+            ):
         clan_names = names.names_dict["normal_prefixes"]
         clan_names.extend(names.names_dict["clan_prefixes"])
         self.name = name or choice(clan_names)
@@ -1444,6 +1476,8 @@ class OtherClan:
         self.colour = colour or "black"
         self.territory = territory or []
         self.territory_type = territory_type or "forest"
+        self.export = export or ""
+        self.clippers = clippers or 0
 
         self.relations = relations or {}
         self.temperament = temperament or choice(self.temperament_list)

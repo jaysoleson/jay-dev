@@ -109,6 +109,7 @@ class MakeClanScreen(Screens):
         ]
         self.colour = "crimson"
         self.territory_type="forest"
+        self.export = "prey"
         self.colour_buttons_container = None
 
     def screen_switches(self):
@@ -2432,7 +2433,8 @@ class MakeClanScreen(Screens):
             starting_season=self.selected_season,
             colour=self.colour,
             territory=territory_tiles[self.territory_type],
-            territory_type=self.territory_type
+            territory_type=self.territory_type,
+            export=self.export
         )
         # BL
         game.clan.baron.pelt.accessory = [(self.colour.upper() + "BOW")]

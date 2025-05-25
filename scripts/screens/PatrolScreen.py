@@ -992,6 +992,7 @@ class PatrolScreen(Screens):
                 and not the_cat.outside
                 and the_cat not in self.current_patrol
                 and not the_cat.not_working()
+                and the_cat.moons > 5
             ):
                 if (
                     the_cat.status == "newborn"

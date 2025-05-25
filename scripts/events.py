@@ -185,6 +185,9 @@ class Events:
                 event = i18n.t(
                     "hardcoded.event_deaths", count=len(Cat.dead_cats), insert=insert
                 )
+                # BL
+                event = event_text_adjust(Cat, event, barony=game.clan)
+                # ---
 
                 if len(ghost_names) > 2:
                     alive_cats = [
@@ -223,9 +226,15 @@ class Events:
                         count=len(shaken_cat_names),
                         insert=insert,
                     )
+                    # BL
+                    extra_event = event_text_adjust(Cat, extra_event, barony=game.clan)
+                    # ---
 
             else:
                 event = i18n.t("hardcoded.event_deaths", count=1)
+                # BL
+                event = event_text_adjust(Cat, event, barony=game.clan)
+                # ---
 
             game.cur_events_list.append(
                 Single_Event(
@@ -279,6 +288,7 @@ class Events:
 
             if not med_fulfilled:
                 string = i18n.t("defaults.warn_low_medcats")
+                string = event_text_adjust(Cat, string, barony=game.clan)
                 game.cur_events_list.insert(0, Single_Event(string, "health"))
         else:
             has_med = any(
@@ -289,6 +299,7 @@ class Events:
             )
             if not has_med:
                 string = i18n.t("defaults.warn_no_medcats")
+                string = event_text_adjust(Cat, string, barony=game.clan)
                 game.cur_events_list.insert(0, Single_Event(string, "health"))
 
         # Clear the list of cats that died this moon.
@@ -400,7 +411,7 @@ class Events:
                         death_text=history_text_adjust(
                             i18n.t("hardcoded.lead_den_killed"),
                             other_clan_name=None,
-                            clan=game.clan,
+                            clan=game.clan.baron.name,
                         ),
                     )
                     outsider_cat.die()
@@ -745,6 +756,8 @@ class Events:
                     )
                     and not cat.exiled
                     and not cat.dead
+                    # BL
+                    and not (cat.status == "baron" and cat.allegiance == cat.ID)
                 ):
                     eligible_cats.append(cat)
 
@@ -1185,6 +1198,7 @@ class Events:
                 text = ""
                 if game.clan.regent.personality.trait == "bloodthirsty":
                     text = i18n.t("hardcoded.ceremony_baron_bloodthirsty")
+                    text = event_text_adjust(Cat, text, barony=game.clan)
                 else:
                     c = random.randint(1, 3)
                     text = i18n.t(
@@ -1192,6 +1206,7 @@ class Events:
                         oldname=game.clan.regent.name,
                         newname=cat.name,
                     )
+                    text = event_text_adjust(Cat, text, barony=game.clan)
 
                 # game.ceremony_events_list.append(text)
                 text += " " + i18n.t("hardcoded.ceremony_closer")
@@ -2357,6 +2372,8 @@ class Events:
                     text = i18n.t(
                         f"hardcoded.ceremony_regent_lead_retireddep{random.choice(range(0, 5))}"
                     )
+                    # BL
+                    text = event_text_adjust(Cat, text, barony=game.clan)
                 else:
                     # This should never happen. Failsafe.
                     text = i18n.t("defaults.regent_event")

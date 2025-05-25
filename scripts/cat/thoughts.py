@@ -199,6 +199,7 @@ class Thoughts:
             and random_cat.outside
             and random_cat.status
             not in ("kittypet", "loner", "rogue", "former Clancat", "exiled")
+            and not (random_cat.status == "baron" and random_cat.allegiance == random_cat.ID)
         ):
             outside_status = "lost"
         elif random_cat and random_cat.outside:
@@ -348,7 +349,10 @@ class Thoughts:
                 spec_dir = "/darkforest"
             else:
                 spec_dir = "/starclan"
-        elif main_cat.outside:
+        elif (
+            main_cat.outside and
+            not (main_cat.status == "baron" and main_cat.allegiance == main_cat.ID)
+            ):
             spec_dir = "/alive_outside"
         else:
             spec_dir = ""

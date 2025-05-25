@@ -25,7 +25,6 @@ from scripts.utility import (
     get_other_clan_relation,
     get_other_clan,
     clan_symbol_sprite,
-    shorten_text_to_fit,
     get_alive_status_cats,
     get_living_clan_cat_count,
     ui_scale_dimensions,
@@ -39,6 +38,7 @@ class MapScreen(Screens):
         # UI containers
         self.map_container = None
         self.baronies_container = None
+        self.war_info_container = None
         self.focus_barony_info_container = None
 
         # buttons
@@ -48,6 +48,7 @@ class MapScreen(Screens):
 
         self.map_elements = {}
         self.barony_button_elements = {}
+        self.war_elements = {}
         self.info_elements = {}
 
         self.map_tiles = {}
@@ -117,8 +118,14 @@ class MapScreen(Screens):
             manager=MANAGER,
             anchors={"top_target": self.map_container}
         )
+        self.war_info_container = UIContainer(
+            ui_scale(pygame.Rect((20, 75), (280, 45))),
+            starting_height=3,
+            manager=MANAGER,
+            anchors={"left_target": self.map_container}
+        )
         self.focus_barony_info_container = UIContainer(
-            ui_scale(pygame.Rect((20, 75), (280, 510))),
+            ui_scale(pygame.Rect((20, 175), (280, 400))),
             starting_height=3,
             manager=MANAGER,
             anchors={"left_target": self.map_container}
@@ -177,6 +184,20 @@ class MapScreen(Screens):
             anchors={"centerx": "centerx"}
         )
 
+        # war info
+        self.war_elements["heading"] = pygame_gui.elements.UITextBox(
+            relative_rect=ui_scale(pygame.Rect((0, 0), (180, 50))),
+            html_text="<b>CURRENT WARS</b>",
+            object_id=get_text_box_theme("#text_box_30_horizcenter"),
+            container=self.war_info_container,
+            manager=MANAGER,
+            text_kwargs={},
+            anchors={
+                "centerx": "centerx"
+            }
+        )
+
+
         self.update_map()
         self.update_focus_baron_info()
 
@@ -197,6 +218,7 @@ class MapScreen(Screens):
         # killing containers kills all inner elements as well
         self.map_container.kill()
         self.baronies_container.kill()
+        self.war_info_container.kill()
         self.focus_barony_info_container.kill()
         
         for ele in self.map_elements:
@@ -206,6 +228,10 @@ class MapScreen(Screens):
         for ele in self.barony_button_elements:
             self.barony_button_elements[ele].kill()
         self.barony_button_elements = {}
+        
+        for ele in self.war_elements:
+            self.war_elements[ele].kill()
+        self.war_elements = {}
         
         for ele in self.info_elements:
             self.info_elements[ele].kill()
@@ -224,8 +250,8 @@ class MapScreen(Screens):
         self.info_elements = {}
 
         self.info_elements["frame"] = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((0, 0), (280, 510))),
-            get_box(BoxStyles.FRAME, (280, 510)),
+            ui_scale(pygame.Rect((0, 0), (280, 400))),
+            get_box(BoxStyles.FRAME, (280, 400)),
             manager=MANAGER,
             container = self.focus_barony_info_container
         )
@@ -241,10 +267,25 @@ class MapScreen(Screens):
                 "centerx": "centerx"
             }
         )
+
+        clipper_num = 0
+        if self.focus_barony == game.clan:
+            clipper_num = len(get_alive_status_cats(
+                Cat,
+                get_status=["clipper"],
+                working=True
+            ))
+        else:
+            clipper_num = self.focus_barony.clippers
+
         self.info_elements["desc"] = pygame_gui.elements.UITextBox(
             relative_rect=ui_scale(pygame.Rect((0, 60), (260, 300))),
-            html_text="Here is where information about this Baron and their cats will be displayed in the future. For now, it's empty.",
-            object_id=get_text_box_theme("#text_box_26_horizcenter"),
+            html_text=(
+                "<b>Territory</b>: " + str(len(self.focus_barony.territory)) + "<br>" +
+                "<b>Clippers</b>: " + str(clipper_num) + "<br>" +
+                "<b>Export</b>: " + self.focus_barony.export
+                ),
+            object_id=get_text_box_theme("#text_box_26_horizleft"),
             container=self.focus_barony_info_container,
             manager=MANAGER,
             text_kwargs={},
@@ -269,7 +310,7 @@ class MapScreen(Screens):
         # and it has to be done here instead of screen_switches or itll disappear :C
         map_image = pygame.image.load("resources/images/badlands/map_small.png").convert_alpha()
         scaled_image = pygame.transform.scale(map_image, (350, 350))
-        scaled_image.set_alpha(145)
+        scaled_image.set_alpha(220) #255 is full opaque
         screen.blit(scaled_image, (80, 80))
 
         x_pos = 80
@@ -295,9 +336,9 @@ class MapScreen(Screens):
                         if tile_string in clan.territory:
                             # grab the border colour
                             if clan == game.clan:
-                                tile_colour = get_baron_colour(game.clan.baron.ID)
+                                tile_colour = get_baron_colour(game.clan.baron.ID, force_dark=True)
                             else:
-                                tile_colour = get_baron_colour(Cat.fetch_cat(clan.baron).ID)
+                                tile_colour = get_baron_colour(Cat.fetch_cat(clan.baron).ID, force_dark=True)
 
                             # convert the colour to RGB and generate a rect
                             # i stole the rgb function i didnt write that shoutout da internet

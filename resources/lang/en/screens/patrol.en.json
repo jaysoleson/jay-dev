@@ -15,19 +15,19 @@
         "go_on_patrol": "go on patrol",
         "current_prey": "current prey: %{prey}",
         "needed_prey": "needed prey: %{prey}",
-        "label_patrol_info": "patrol leader: %{leader}\npatrol members: %{members}\npatrol skills: %{skills}\npatrol traits: %{traits}",
+        "label_patrol_info": "patrol leader: %{baron}\npatrol members: %{members}\npatrol skills: %{skills}\npatrol traits: %{traits}",
         "current_patrol_info": "current patrol skills: %{skills}\ncurrent patrol traits: %{traits}",
         "proceed": "proceed",
         "dont_proceed": "do not proceed",
         "antagonize": "antagonize",
         "patrol_again": "patrol again",
-        "back_to_clan": "back to clan",
+        "back_to_clan": "back to camp",
         "dead_outsider": {
             "one": "%{cats}'s ghost now wanders.",
             "many": "%{cats} ghosts now wander."
         },
         "met_outsider": "The patrol met %{cats}.",
-        "new_outsider": "%{cats} joined the Clan.",
+        "new_outsider": "%{cats} joined the Barony.",
         "lost_cats": {
             "one": "%{cats} has been lost.",
             "many": "%{cats} have been lost."

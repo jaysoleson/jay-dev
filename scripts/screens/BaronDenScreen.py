@@ -484,7 +484,7 @@ class BaronDenScreen(Screens):
                 f"clan_name{i}"
             ] = pygame_gui.elements.UILabel(
                 ui_scale(pygame.Rect((0, 20), (133, -1))),
-                text=other_clan.territory_type.capitalize() + " Territory",
+                text=other_clan.territory_type.capitalize(),
                 object_id=get_text_box_theme("#text_box_30_horizcenter"),
                 container=self.other_clan_selection_elements[f"container{i}"],
                 manager=MANAGER,
@@ -725,6 +725,17 @@ class BaronDenScreen(Screens):
             manager=MANAGER,
             anchors={"centerx": "centerx"},
         )
+        self.focus_clan_elements["territory_type"] = pygame_gui.elements.UILabel(
+            ui_scale(pygame.Rect((0, 10), (215, -1))),
+            text=self.focus_clan.territory_type.capitalize() + " Territory",
+            object_id="#text_box_30_horizcenter",
+            container=self.focus_info_container,
+            manager=MANAGER,
+            anchors={
+                "centerx": "centerx",
+                "top_target": self.focus_clan_elements["clan_symbol"],
+            },
+        )
         self.focus_clan_elements["clan_temper"] = pygame_gui.elements.UILabel(
             ui_scale(pygame.Rect((0, 5), (215, -1))),
             text=f"screens.baron_den.{self.focus_clan.temperament.strip()}",
@@ -733,7 +744,7 @@ class BaronDenScreen(Screens):
             manager=MANAGER,
             anchors={
                 "centerx": "centerx",
-                "top_target": self.focus_clan_elements["clan_symbol"],
+                "top_target": self.focus_clan_elements["territory_type"],
             },
         )
         self.focus_clan_elements["clan_rel"] = pygame_gui.elements.UILabel(
@@ -760,25 +771,14 @@ class BaronDenScreen(Screens):
             },
         )
         self.focus_clan_elements["clipper_num"] = pygame_gui.elements.UILabel(
-            ui_scale(pygame.Rect((0, 10), (215, -1))),
-            text="Clippers: XX",
+            ui_scale(pygame.Rect((0, 5), (215, -1))),
+            text=f"Clippers: {self.focus_clan.clippers}",
             object_id="#text_box_26_horizcenter",
             container=self.focus_info_container,
             manager=MANAGER,
             anchors={
                 "centerx": "centerx",
                 "top_target": self.focus_clan_elements["territory_num"],
-            },
-        )
-        self.focus_clan_elements["territory_type"] = pygame_gui.elements.UILabel(
-            ui_scale(pygame.Rect((0, 10), (215, -1))),
-            text=self.focus_clan.territory_type.capitalize() + " Territory",
-            object_id="#text_box_26_horizcenter",
-            container=self.focus_info_container,
-            manager=MANAGER,
-            anchors={
-                "centerx": "centerx",
-                "top_target": self.focus_clan_elements["clipper_num"],
             },
         )
 
@@ -790,11 +790,14 @@ class BaronDenScreen(Screens):
 
         interaction = object_id.replace("#clan_", "")
 
+        baron_colour = get_baron_colour(Cat.fetch_cat(self.focus_clan.baron).ID)
+
         self.screen_elements["clan_notice_text"].set_text(
             f"screens.baron_den.action_clan_{interaction}",
             text_kwargs={
                 "m_c": game.clan.baron,
                 "other_clan": self.focus_clan,
+                "baron": f"<font color='{baron_colour}'>{Cat.fetch_cat(self.focus_clan.baron).name}</font>"
             },
         )
 

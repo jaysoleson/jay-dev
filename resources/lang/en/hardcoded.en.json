@@ -2,41 +2,41 @@
     "en": {
         "comment": "at some point, this file should become empty and unnecessary.",
         "event_deaths": {
-            "one": "This past moon, m_c has taken {PRONOUN/m_c/poss} place in StarClan. c_n mourns their loss, and {PRONOUN/m_c/poss} Clanmates will miss where {PRONOUN/m_c/subject} had been in their lives. Moments of {PRONOUN/m_c/poss} life are shared in stories around the circle of mourners as those that were closest to {PRONOUN/m_c/object} take {PRONOUN/m_c/object} to {PRONOUN/m_c/poss} final resting place.",
-            "many": "The past moon, %{insert} have taken their place in StarClan. c_n mourns their loss, and their Clanmates will miss where they had been in their lives. Moments of their lives are shared in stories around the circle of mourners as those that were closest to them take them to their final resting place."
+            "one": "This past moon, m_c has passed on. The b1_t mourns {PRONOUN/m_c/poss} loss, and {PRONOUN/m_c/poss} friends and neighbours will miss where {PRONOUN/m_c/subject} had been in their lives. Moments of {PRONOUN/m_c/poss} life are shared in stories around the circle of mourners as those that were closest to {PRONOUN/m_c/object} take {PRONOUN/m_c/object} to {PRONOUN/m_c/poss} final resting place.",
+            "many": "The past moon, %{insert} have passed on. The b1_t mourns their loss, and their friends and neighbours will miss where they had been in their lives. Moments of their lives are shared in stories around the circle of mourners as those that were closest to them take them to their final resting place."
         },
         "event_shaken_grief": {
-            "one": "So much grief and death has taken its toll on the cats of c_n. %{insert} is particularly shaken by it.",
-            "many": "So much grief and death has taken its toll on the cats of c_n. %{insert} are particularly shaken by it."
+            "one": "So much grief and death has taken its toll on the cats of the b1_t. %{insert} is particularly shaken by it.",
+            "many": "So much grief and death has taken its toll on the cats of the b1_t. %{insert} are particularly shaken by it."
         },
-        "relations_improved": " (o_c_n relations improved.)",
-        "relations_neutral": " (o_c_n relations unchanged.)",
-        "relations_worsened": " (o_c_n relations worsened.)",
+        "relations_improved": " (Relations improved.)",
+        "relations_neutral": " (Relations unchanged.)",
+        "relations_worsened": " (Relations worsened.)",
         "lead_den_killed": "m_c was killed by c_n.",
         "condition_retire_adolescent": "m_c decides {PRONOUN\/m_c\/subject}'d rather spend {PRONOUN\/m_c\/poss} time helping around camp and entertaining the kits; {PRONOUN\/m_c\/subject}{VERB\/m_c\/'re\/'s} warmly welcomed into the elders' den.",
-        "condition_retire_adolescent_ceremony": " {PRONOUN\/m_c\/subject\/CAP} {VERB\/m_c\/are\/is} given the name %{newname} in honor of {PRONOUN\/m_c\/poss} contributions to %{clan}Clan.",
-        "condition_retire_no_baron": "m_c has decided to retire from normal Clan duty.",
-        "condition_retire_normal": "Seeing m_c struggling the last few moons, lead_name approaches {PRONOUN\/m_c\/object} and promises that no one would think less of {PRONOUN\/m_c\/object} for retiring early, and that {PRONOUN\/m_c\/subject} would still be a valuable member of the Clan as an elder. m_c agrees; later that day, {PRONOUN\/m_c\/poss} elder ceremony is held.",
-        "ceremony_baron_bloodthirsty": "%{oldname} has become the new baron. {PRONOUN\/lead_name\/subject\/CAP} {VERB\/lead_name\/stare\/stares} down at {PRONOUN\/lead_name\/poss} Clanmates with unsheathed claws, promising a new era for the Clans.",
-        "ceremony_baron_1": "%{oldname} has been promoted to the new baron of the Clan. {PRONOUN\/lead_name\/subject/CAP} {VERB\/lead_name\/travel\/travels} to the Moonstone immediately to get {PRONOUN\/lead_name\/poss} nine lives and {VERB\/lead_name\/are\/is} hailed by {PRONOUN\/lead_name\/poss} new name, lead_name.",
-        "ceremony_baron_2": "%{oldname} has become the new baron of the Clan. {PRONOUN\/lead_name\/subject\/CAP} {VERB\/lead_name\/vow\/vows} to protect the Clan, even at the cost of {PRONOUN\/lead_name\/poss} nine lives.",
-        "ceremony_baron_3": "%{oldname} has received {PRONOUN\/m_c\/poss} nine lives and has become the new baron of the Clan. {PRONOUN\/lead_name\/subject\/CAP} {VERB\/lead_name\/feel\/feels} like {PRONOUN\/lead_name\/subject} {VERB/m_c/are/is}n't ready for this new responsibility, but will try {PRONOUN\/lead_name\/poss} best to do what is right for the Clan.",
-        "ceremony_closer": "Visit lead_name's profile to see {PRONOUN\/lead_name\/poss} full baron ceremony.",
-        "ceremony_regent_bloodthirsty": "m_c has been chosen as the new regent. {PRONOUN/m_c/subject/CAP} {VERB/m_c/look/looks} at the Clan baron with an odd glint in {PRONOUN/m_c/poss} eyes.",
-        "ceremony_regent": "lead_name chooses m_c to take over as regent. %{previous}",
+        "condition_retire_adolescent_ceremony": " {PRONOUN\/m_c\/subject\/CAP} {VERB\/m_c\/are\/is} celebrated for {PRONOUN/m_c/poss} contributions to the Barony.",
+        "condition_retire_no_baron": "m_c has decided to retire from normal duty.",
+        "condition_retire_normal": "Seeing m_c struggling the last few moons, lead_name approaches {PRONOUN\/m_c\/object} and promises that no one would think less of {PRONOUN\/m_c\/object} for retiring early, and that {PRONOUN\/m_c\/subject} would still be a valuable member of the Barony. m_c agrees; later that day, {PRONOUN\/m_c\/subject} officially {VERB/m_c/retire/retires}.",
+        "ceremony_baron_bloodthirsty": "%{oldname} has become the new Baron of the b1_t Territory. {PRONOUN\/lead_name\/subject\/CAP} {VERB\/lead_name\/stare\/stares} down at {PRONOUN\/lead_name\/poss} cats with unsheathed claws, promising a new era for the Badlands.",
+        "ceremony_baron_1": "%{oldname} has been promoted to the new Baron of the b1_t Territory. {PRONOUN/m_c/subject/CAP} {VERB/m_c/address/addresses} {PRONOUN/m_c/poss} cats with a quick speech before retiring to {PRONOUN/m_c/poss} den to get to work.",
+        "ceremony_baron_2": "%{oldname} has become the new Baron of the b1_t Territory. {PRONOUN\/lead_name\/subject\/CAP} {VERB\/lead_name\/vow\/vows} to protect {PRONOUN/m_c/poss} cats, even at the cost of {PRONOUN\/lead_name\/poss} life.",
+        "ceremony_baron_3": "%{oldname} has become the new Baron of the b1_t Territory. {PRONOUN\/lead_name\/subject\/CAP} {VERB\/lead_name\/feel\/feels} like {PRONOUN\/lead_name\/subject} {VERB/m_c/are/is}n't ready for this new responsibility, but will try {PRONOUN\/lead_name\/poss} best to do what is right for the cats under {PRONOUN/m_c/poss} care.",
+        "ceremony_closer": "Visit lead_name's profile to see {PRONOUN\/lead_name\/poss} full Baron ceremony.",
+        "ceremony_regent_bloodthirsty": "m_c has been chosen as the new Regent. {PRONOUN/m_c/subject/CAP} {VERB/m_c/look/looks} at {PRONOUN/m_c/poss} Clippers with an odd glint in {PRONOUN/m_c/poss} eyes.",
+        "ceremony_regent": "lead_name chooses m_c as {PRONOUN/lead_name/poss} new Regent. %{previous}",
         "ceremony_regent_prev0": "{PRONOUN/lead_name/subject/CAP} {VERB/lead_name/know/knows} dep_name would approve.",
         "ceremony_regent_prev1": "{PRONOUN/lead_name/subject/CAP} {VERB/lead_name/hope/hopes} dep_name would approve.",
         "ceremony_regent_prev2": "{PRONOUN/lead_name/subject/CAP} {VERB/lead_name/don't/doesn't} know if dep_name would approve, but life must go on.",
-        "ceremony_regent_nolead_nodep": "Without a baron or regent, the Clan has been directionless. They all turn to m_c with hope for the future.",
-        "ceremony_regent_nolead_retireddep": "The Clan is without a baron, but a new regent must still be named. m_c is chosen as the new regent. The retired regent nods {PRONOUN/dep_name/poss} approval.",
-        "ceremony_regent_lead_retireddep0": "m_c has been chosen as the new regent. The Clan yowls {PRONOUN/m_c/poss} name in approval.",
-        "ceremony_regent_lead_retireddep1": "m_c has been chosen as the new regent. Some of the older Clan members question the wisdom of this choice.",
-        "ceremony_regent_lead_retireddep2": "m_c has been chosen as the new regent. {PRONOUN/m_c/subject/CAP} {VERB/m_c/hold/holds} {PRONOUN/m_c/poss} head up high and {VERB/m_c/promise/promises} to do {PRONOUN/m_c/poss} best for the Clan.",
-        "ceremony_regent_lead_retireddep3": "lead_name has been thinking deeply all day about who {PRONOUN/lead_name/subject} would trust and respect enough to stand at {PRONOUN/lead_name/poss} side. At sunhigh, {PRONOUN/lead_name/subject} {VERB/lead_name/make/makes} the announcement that m_c will be the Clan's new regent.",
-        "ceremony_regent_lead_retireddep4": "m_c has been chosen as the new regent. {PRONOUN/m_c/subject/CAP} {VERB/m_c/pray/prays} to StarClan that {PRONOUN/m_c/subject} {VERB/m_c/are/is} the right choice for the Clan.",
-        "ceremony_regent_lead_retireddep5": "m_c has been chosen as the new regent. Although {PRONOUN/m_c/subject} {VERB/m_c/are/is} nervous, {PRONOUN/m_c/subject} {VERB/m_c/put/puts} on a brave face and {VERB/m_c/look/looks} forward to serving the Clan.",
-        "ceremony_regent_unsuitable": "No cat is truly fit to be regent, but the position can't remain vacant. m_c is appointed as the new regent.",
-        "ceremony_regent_none": "There are no cats fit to become regent.",
+        "ceremony_regent_nolead_nodep": "Without a Baron or Regent, the b1_t has been directionless. They all turn to m_c with hope for the future.",
+        "ceremony_regent_nolead_retireddep": "The b1_t is without a Baron, but a new Regent must still be named. m_c is chosen as the new Regent. The retired Regent nods {PRONOUN/dep_name/poss} approval.",
+        "ceremony_regent_lead_retireddep0": "m_c has been chosen as the new Regent. The cats yowl {PRONOUN/m_c/poss} name in approval.",
+        "ceremony_regent_lead_retireddep1": "m_c has been chosen as the new Regent. Some of the older cats question the wisdom of this choice.",
+        "ceremony_regent_lead_retireddep2": "m_c has been chosen as the new Regent. {PRONOUN/m_c/subject/CAP} {VERB/m_c/hold/holds} {PRONOUN/m_c/poss} head up high and {VERB/m_c/promise/promises} to do {PRONOUN/m_c/poss} best for the b1_t.",
+        "ceremony_regent_lead_retireddep3": "lead_name has been thinking deeply all day about who {PRONOUN/lead_name/subject} would trust and respect enough to lead {PRONOUN/lead_name/poss} Clippers. At sunhigh, {PRONOUN/lead_name/subject} {VERB/lead_name/make/makes} the announcement that m_c will be the b1_t's new Regent.",
+        "ceremony_regent_lead_retireddep4": "m_c has been chosen as the new Regent. {PRONOUN/m_c/subject/CAP} {VERB/m_c/pray/prays} that {PRONOUN/m_c/subject} {VERB/m_c/are/is} the right choice.",
+        "ceremony_regent_lead_retireddep5": "m_c has been chosen as the new Regent. Although {PRONOUN/m_c/subject} {VERB/m_c/are/is} nervous, {PRONOUN/m_c/subject} {VERB/m_c/put/puts} on a brave face and {VERB/m_c/look/looks} forward to leading the Clippers.",
+        "ceremony_regent_unsuitable": "No cat is truly fit to be Regent, but the position can't remain vacant. m_c is appointed as the new Regent.",
+        "ceremony_regent_none": "There are no cats fit to become Regent.",
         "adoption_kittens_single": {
             "one": "%{names} found a %{insert} and decides to adopt it.",
             "many": "%{names} found a %{insert} and decides to adopt them."
@@ -51,35 +51,35 @@
             "many": "med_name gathered %{insert} this moon."
         },
         "prey_catch_count": {
-            "one": "The Clan managed to catch %{count} piece of prey this moon.",
-            "many": "The Clan managed to catch %{count} pieces of prey this moon."
+            "one": "The Clippers and cogs managed to catch %{count} piece of prey this moon.",
+            "many": "The Clippers and cogs managed to catch %{count} pieces of prey this moon."
         },
         "focus_prey": {
-            "zero": "Despite the focus of the Clan, no additional prey could be gathered.",
-            "one": "With the heightened focus of the Clan, %{count} additional piece of prey was gathered.",
-            "many": "With the heightened focus of the Clan, %{count} additional pieces of prey were gathered."
+            "zero": "Despite the focus of the cats, no additional prey could be gathered.",
+            "one": "With the heightened focus of the cats, %{count} additional piece of prey was gathered.",
+            "many": "With the heightened focus of the cats, %{count} additional pieces of prey were gathered."
         },
         "focus_herbs": {
-            "zero": "Despite the focus of the Clan, no additional herbs could be gathered.",
-            "one": "With the focus of the Clan, %{herbs} was gathered.",
-            "many": "With the focus of the Clan, %{herbs} were gathered."
+            "zero": "Despite the focus of the cats, no additional herbs could be gathered.",
+            "one": "With the focus of the cats, %{herbs} was gathered.",
+            "many": "With the focus of the cats, %{herbs} were gathered."
         },
         "focus_raid_prey": {
-            "one": "With the focus of the Clan, %{amount} piece of prey was... acquired.",
-            "many": "With the focus of the Clan, %{amount} pieces of prey were... acquired."
+            "one": "With the focus of the cats, %{amount} piece of prey was... acquired.",
+            "many": "With the focus of the cats, %{amount} pieces of prey were... acquired."
         },
         "focus_injury_hoarding": {
             "one": "A cat got %{condition} due to hoarding herbs and prey.",
             "many": "Multiple cats got %{condition} due to hoarding herbs and prey."
         },
         "focus_injury_raiding": {
-            "one": "A cat got %{condition} while raiding other Clans for more prey.",
-            "many": "Multiple cats got %{condition} while raiding other Clans for more prey."
+            "one": "A cat got %{condition} while raiding other territories for more prey.",
+            "many": "Multiple cats got %{condition} while raiding other territories for more prey."
         },
-        "event_lost1": "After a long journey, m_c has finally returned home to c_n.",
+        "event_lost1": "After a long journey, m_c has finally returned home.",
         "event_lost2": "m_c was found at the border, tired but happy to be home.",
         "event_lost3": "m_c strides into camp, much to the everyone's surprise. {PRONOUN/m_c/subject/CAP}{VERB/m_c/'re/'s} home!",
-        "event_lost4": "{PRONOUN/m_c/subject/CAP} met so many friends on {PRONOUN/m_c/poss} journey, but c_n is where m_c truly belongs. With a tearful goodbye, {PRONOUN/m_c/subject} {VERB/m_c/return/returns} home.",
+        "event_lost4": "{PRONOUN/m_c/subject/CAP} met so many friends on {PRONOUN/m_c/poss} journey, but the Badlands is where m_c truly belongs. With a tearful goodbye, {PRONOUN/m_c/subject} {VERB/m_c/return/returns} home.",
         "event_lost_kits": {
             "one": " {PRONOUN/m_c/subject/CAP} {VERB/m_c/bring/brings} along {PRONOUN/m_c/poss} kitten.",
             "many": " {PRONOUN/m_c/subject/CAP} {VERB/m_c/bring/brings} along {PRONOUN/m_c/poss} kittens."
