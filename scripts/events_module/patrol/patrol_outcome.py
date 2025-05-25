@@ -217,7 +217,7 @@ class PatrolOutcome:
         # This must be done before text processing so that the new cat's pronouns are generated first
         results = [self._handle_new_cats(patrol)]
 
-        # the text has to be processed before - otherwise baron might be referenced with their clipper name
+        # the text has to be processed before
         processed_text = event_text_adjust(
             Cat,
             self.text,
@@ -229,6 +229,8 @@ class PatrolOutcome:
             new_cats=patrol.new_cats,
             clan=game.clan,
             other_clan=patrol.other_clan,
+            barony=game.clan,
+            other_barony=patrol.other_clan,
             baron_colour_force_dark=True
         )
 

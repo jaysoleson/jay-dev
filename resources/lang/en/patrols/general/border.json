@@ -10,12 +10,12 @@
         "max_cats": 6,
         "min_max_status": {},
         "weight": 5,
-        "intro_text": "p_l heads out to mark c_n's borders.",
+        "intro_text": "p_l heads out to mark the b1_t's borders.",
         "decline_text": "p_l decides to not mark their borders.",
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "p_l successfully marks c_n's borders.",
+                "text": "p_l successfully marks the b1_t's borders.",
                 "exp": 5,
                 "weight": 20,
                 "art": "gen_otherclan_mates_date"
@@ -58,7 +58,7 @@
                 "weight": 20
             },
             {
-                "text": "p_l starts daydreaming, and ends up marking in the wrong place, at least it wasn't in o_c_n's territory.",
+                "text": "p_l starts daydreaming, and ends up marking in the wrong place, at least it wasn't in o_the b1_t's territory.",
                 "exp": 0,
                 "weight": 20
             },
@@ -90,7 +90,7 @@
         "max_cats": 6,
         "min_max_status": {},
         "weight": 5,
-        "intro_text": "p_l heads out to patrol c_n's borders, but scents something along the borders.",
+        "intro_text": "p_l heads out to patrol the b1_t's borders, but scents something along the borders.",
         "decline_text": "p_l decides to not investigate the scent.",
         "chance_of_success": 50,
         "success_outcomes": [
@@ -155,7 +155,7 @@
         "max_cats": 6,
         "min_max_status": {},
         "weight": 5,
-        "intro_text": "p_l heads out to patrol c_n's borders, but spots some tracks.",
+        "intro_text": "p_l heads out to patrol the b1_t's borders, but spots some tracks.",
         "decline_text": "p_l decides to not investigate the tracks.",
         "chance_of_success": 50,
         "success_outcomes": [
@@ -214,7 +214,7 @@
         "max_cats": 6,
         "min_max_status": {},
         "weight": 5,
-        "intro_text": "p_l heads out to patrol c_n's borders, and notices that some of their markings had been disturbed.",
+        "intro_text": "p_l heads out to patrol the b1_t's borders, and notices that some of their markings had been disturbed.",
         "decline_text": "p_l decides to not investigate the markings.",
         "chance_of_success": 50,
         "success_outcomes": [
@@ -259,7 +259,7 @@
         "min_max_status": {},
         "weight": 20,
         "intro_text": "On border patrol, the patrol finds a kittypet's scent. Following the (extremely) obvious sounds of distress, p_l leads the patrol down to a kittypet, haplessly wedged between a couple of rocks. Wailing pathetically, they cry that their wing is stuck!",
-        "decline_text": "It's beyond c_n's border, it's not c_n's problem.",
+        "decline_text": "It's beyond the b1_t's border, it's not the b1_t's problem.",
         "chance_of_success": 50,
         "success_outcomes": [
             {
@@ -285,7 +285,7 @@
         ],
         "antag_fail_outcomes": [
             {
-                "text": "Swaggering up, p_l tries to intimidate the kittypet. But while the cat is easily successfully frightened, that doesn't make them any less stuck in place, and eventually the patrol is forced to help set them free, if only so they can leave c_n's borders.",
+                "text": "Swaggering up, p_l tries to intimidate the kittypet. But while the cat is easily successfully frightened, that doesn't make them any less stuck in place, and eventually the patrol is forced to help set them free, if only so they can leave the b1_t's borders.",
                 "exp": 0,
                 "weight": 20,
                 "outsider_rep": -1

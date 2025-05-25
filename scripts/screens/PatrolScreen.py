@@ -1306,7 +1306,10 @@ class PatrolScreen(Screens):
                     self.app_mentor = Cat.fetch_cat(
                         self.selected_cat.apprentice[self.selected_apprentice_index]
                     )
-                    relation = "general.apprentice"
+                    if self.selected_cat.status == "doctor":
+                        relation = "general.apprentice_doctor"
+                    else:
+                        relation = "general.colt"
                 else:
                     self.app_mentor = None
                     self.elements["app_mentor_frame"].hide()

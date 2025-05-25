@@ -27,6 +27,8 @@ from scripts.utility import (
     filter_relationship_type,
     get_special_snippet_list,
     adjust_list_text,
+
+    event_text_adjust
 )
 from scripts.game_structure.localization import load_lang_resource
 
@@ -956,71 +958,76 @@ class Patrol:
         ]
         if len(other_cats) >= 1:
             replace_dict["o_c1"] = (
-                str(other_cats[0].name),
+                [str(other_cats[0].name), other_cats[0].ID],
                 choice(other_cats[0].pronouns),
             )
         if len(other_cats) >= 2:
             replace_dict["o_c2"] = (
-                str(other_cats[1].name),
+                [str(other_cats[1].name), other_cats[1].ID],
                 choice(other_cats[1].pronouns),
             )
         if len(other_cats) >= 3:
             replace_dict["o_c3"] = (
-                str(other_cats[2].name),
+                [str(other_cats[2].name), other_cats[2].ID],
                 choice(other_cats[2].pronouns),
             )
         if len(other_cats) == 4:
             replace_dict["o_c4"] = (
-                str(other_cats[3].name),
+                [str(other_cats[3].name), other_cats[3].name],
                 choice(other_cats[3].pronouns),
             )
 
         # New Cats
         for i, new_cats in enumerate(self.new_cats):
             if len(new_cats) == 1:
-                names = str(new_cats[0].name)
+                names = [str(new_cats[0].name), new_cats[0].ID]
                 pronoun = choice(new_cats[0].pronouns)
             else:
-                names = adjust_list_text([str(cat.name) for cat in new_cats])
+                names = adjust_list_text([[str(cat.name), cat.ID] for cat in new_cats])
                 pronoun = localization.get_new_pronouns("default plural")
 
             replace_dict[f"n_c:{i}"] = (names, pronoun)
 
         if len(self.patrol_apprentices) > 0:
             replace_dict["app1"] = (
-                str(self.patrol_apprentices[0].name),
+                [str(self.patrol_apprentices[0].name), self.patrol_apprentices[0].ID],
                 choice(self.patrol_apprentices[0].pronouns),
             )
         if len(self.patrol_apprentices) > 1:
             replace_dict["app2"] = (
-                str(self.patrol_apprentices[1].name),
+                [str(self.patrol_apprentices[1].name), self.patrol_apprentices[1].ID],
                 choice(self.patrol_apprentices[1].pronouns),
             )
         if len(self.patrol_apprentices) > 2:
             replace_dict["app3"] = (
-                str(self.patrol_apprentices[2].name),
+                [str(self.patrol_apprentices[2].name), self.patrol_apprentices[2].ID],
                 choice(self.patrol_apprentices[2].pronouns),
             )
         if len(self.patrol_apprentices) > 3:
             replace_dict["app4"] = (
-                str(self.patrol_apprentices[3].name),
+                [str(self.patrol_apprentices[3].name), self.patrol_apprentices[3].ID],
                 choice(self.patrol_apprentices[3].pronouns),
             )
         if len(self.patrol_apprentices) > 4:
             replace_dict["app5"] = (
-                str(self.patrol_apprentices[4].name),
+                [str(self.patrol_apprentices[4].name), self.patrol_apprentices[4].ID],
                 choice(self.patrol_apprentices[4].pronouns),
             )
         if len(self.patrol_apprentices) > 5:
             replace_dict["app6"] = (
-                str(self.patrol_apprentices[5].name),
+                [str(self.patrol_apprentices[5].name), self.patrol_apprentices[5].ID],
                 choice(self.patrol_apprentices[5].pronouns),
             )
 
         if stat_cat:
-            replace_dict["s_c"] = (str(stat_cat.name), choice(stat_cat.pronouns))
+            replace_dict["s_c"] = ([str(stat_cat.name), stat_cat.ID], choice(stat_cat.pronouns))
 
         text = process_text(text, replace_dict, baron_colour_force_dark=True)
+
+        # BL
+        text = event_text_adjust(Cat, text, barony=game.clan, other_barony=self.other_clan, baron_colour_force_dark=True)
+        # ---
+
         text = adjust_prey_abbr(text)
 
         other_clan_name = self.other_clan.name
