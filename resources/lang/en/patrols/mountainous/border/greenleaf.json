@@ -31,7 +31,7 @@
                 "stat_skill": ["CLEVER,1"]
             },
             {
-                "text": "The scent leads to a trespassing rogue. s_c leaps off a rocky outcrop onto the rogue and easily overwhelms the lone cat. {PRONOUN/s_c/subject/CAP} {VERB/s_c/accept/accepts} the rogue's surrender graciously and {VERB/s_c/escort/escorts} them out of c_n territory.",
+                "text": "The scent leads to a trespassing rogue. s_c leaps off a rocky outcrop onto the rogue and easily overwhelms the lone cat. {PRONOUN/s_c/subject/CAP} {VERB/s_c/accept/accepts} the rogue's surrender graciously and {VERB/s_c/escort/escorts} them out of baron1's territory.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,1"]
@@ -98,7 +98,7 @@
                 }
             },
             {
-                "text": "The scent leads to a trespassing rogue. s_c throws {PRONOUN/s_c/self} at the rogue, hissing furiously, but this is one battle-hardened trespasser, and s_c isn't as good of a fighter as {PRONOUN/s_c/subject} would like to think. The rogue escapes {PRONOUN/s_c/poss} grasp and runs off further into c_n territory.",
+                "text": "The scent leads to a trespassing rogue. s_c throws {PRONOUN/s_c/self} at the rogue, hissing furiously, but this is one battle-hardened trespasser, and s_c isn't as good of a fighter as {PRONOUN/s_c/subject} would like to think. The rogue escapes {PRONOUN/s_c/poss} grasp and runs off further into baron1's territory.",
                 "exp": 0,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,1"]
@@ -152,7 +152,7 @@
                 "can_have_stat": ["app"]
             },
             {
-                "text": "app1 soon realizes that underneath the strange scent, there are pawprints that smell of c_n. Someone must have wandered through this section of the border recently. In fact... {PRONOUN/app1/subject}{VERB/app1/'re/'s} pretty sure this is {PRONOUN/app1/poss} mentor's scent. And {PRONOUN/app1/poss} mentor has been hinting {PRONOUN/app1/subject}'ll have an assessment soon.",
+                "text": "app1 soon realizes that underneath the strange scent, there are pawprints that smell of the b1_t. Someone must have wandered through this section of the border recently. In fact... {PRONOUN/app1/subject}{VERB/app1/'re/'s} pretty sure this is {PRONOUN/app1/poss} mentor's scent. And {PRONOUN/app1/poss} mentor has been hinting {PRONOUN/app1/subject}'ll have an assessment soon.",
                 "exp": 10,
                 "weight": 5
             }
@@ -236,7 +236,7 @@
                 ]
             },
             {
-                "text": "The scent leads to a trespassing rogue. s_c leaps off a rocky outcrop onto the rogue and easily overwhelms the lone cat. {PRONOUN/s_c/subject/CAP} {VERB/s_c/accept/accepts} the rogue's surrender graciously and {VERB/s_c/escort/escorts} them out of c_n territory.",
+                "text": "The scent leads to a trespassing rogue. s_c leaps off a rocky outcrop onto the rogue and easily overwhelms the lone cat. {PRONOUN/s_c/subject/CAP} {VERB/s_c/accept/accepts} the rogue's surrender graciously and {VERB/s_c/escort/escorts} them out of baron1's territory.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,1"]
@@ -275,7 +275,7 @@
                 "stat_skill": ["CLEVER,1"]
             },
             {
-                "text": "The scent leads to a trespassing rogue. s_c throws {PRONOUN/s_c/self} at the rogue, hissing furiously, but this is one battle-hardened trespasser, and s_c isn't as good of a fighter as {PRONOUN/s_c/subject} would like to think. The rogue escapes {PRONOUN/s_c/poss} grasp and runs off further into c_n territory.",
+                "text": "The scent leads to a trespassing rogue. s_c throws {PRONOUN/s_c/self} at the rogue, hissing furiously, but this is one battle-hardened trespasser, and s_c isn't as good of a fighter as {PRONOUN/s_c/subject} would like to think. The rogue escapes {PRONOUN/s_c/poss} grasp and runs off further into baron1's territory.",
                 "exp": 0,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,1"],
@@ -336,7 +336,7 @@
                 ]
             },
             {
-                "text": "app1 soon realizes that underneath the strange scent, there are pawprints that smell of c_n. Someone must have wandered through this section of the border recently. In fact... {PRONOUN/app1/subject}{VERB/app1/'re/'s} pretty sure this is {PRONOUN/app1/poss} mentor's scent. And {PRONOUN/app1/poss} mentor has been hinting {PRONOUN/app1/subject}'ll have an assessment soon.",
+                "text": "app1 soon realizes that underneath the strange scent, there are pawprints that smell of the b1_t. Someone must have wandered through this section of the border recently. In fact... {PRONOUN/app1/subject}{VERB/app1/'re/'s} pretty sure this is {PRONOUN/app1/poss} mentor's scent. And {PRONOUN/app1/poss} mentor has been hinting {PRONOUN/app1/subject}'ll have an assessment soon.",
                 "exp": 10,
                 "weight": 5,
                 "relationships": [
@@ -448,7 +448,7 @@
                 "weight": 5
             },
             {
-                "text": "The scent leads to a trespassing rogue. s_c leaps off a rocky outcrop onto the rogue and easily overwhelms the lone cat. {PRONOUN/s_c/subject/CAP} {VERB/s_c/accept/accepts} the rogue's surrender graciously and {VERB/s_c/escort/escorts} them out of c_n territory.",
+                "text": "The scent leads to a trespassing rogue. s_c leaps off a rocky outcrop onto the rogue and easily overwhelms the lone cat. {PRONOUN/s_c/subject/CAP} {VERB/s_c/accept/accepts} the rogue's surrender graciously and {VERB/s_c/escort/escorts} them out of baron1's territory.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,1"]
@@ -496,7 +496,7 @@
                 "weight": 20
             },
             {
-                "text": "The scent leads to a trespassing rogue. s_c throws {PRONOUN/s_c/self} at the rogue before p_l gives the signal, hissing furiously, but this is one battle-hardened trespasser, and s_c isn't as good of a fighter as {PRONOUN/s_c/subject} would like to think. The rogue escapes {PRONOUN/s_c/poss} grasp and runs off further into c_n territory. s_c scrambles to {PRONOUN/s_c/poss} paws, the judgmental stares of the patrol clinging to {PRONOUN/s_c/poss} pelt.",
+                "text": "The scent leads to a trespassing rogue. s_c throws {PRONOUN/s_c/self} at the rogue before p_l gives the signal, hissing furiously, but this is one battle-hardened trespasser, and s_c isn't as good of a fighter as {PRONOUN/s_c/subject} would like to think. The rogue escapes {PRONOUN/s_c/poss} grasp and runs off further into baron1's territory. s_c scrambles to {PRONOUN/s_c/poss} paws, the judgmental stares of the patrol clinging to {PRONOUN/s_c/poss} pelt.",
                 "exp": 0,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,1"],
@@ -550,7 +550,7 @@
                 ]
             },
             {
-                "text": "app1 soon realizes that underneath the strange scent, there are pawprints that smell of c_n. Someone must have wandered through this section of the border recently. In fact... {PRONOUN/app1/subject}{VERB/app1/'re/'s} pretty sure this is {PRONOUN/app1/poss} mentor's scent. And {PRONOUN/app1/poss} mentor has been hinting {PRONOUN/app1/subject}'ll have an assessment soon.",
+                "text": "app1 soon realizes that underneath the strange scent, there are pawprints that smell of the b1_t. Someone must have wandered through this section of the border recently. In fact... {PRONOUN/app1/subject}{VERB/app1/'re/'s} pretty sure this is {PRONOUN/app1/poss} mentor's scent. And {PRONOUN/app1/poss} mentor has been hinting {PRONOUN/app1/subject}'ll have an assessment soon.",
                 "exp": 10,
                 "weight": 5,
                 "relationships": [

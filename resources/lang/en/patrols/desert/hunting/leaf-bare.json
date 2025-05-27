@@ -144,7 +144,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "Together they manage a grand haul of one d_tp_s, and not even a very big d_tp_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for c_n.",
+                "text": "Together they manage a grand haul of one d_tp_s, and not even a very big d_tp_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for the b1_t.",
                 "exp": 0,
                 "weight": 20,
                 "prey": ["very_small"]
@@ -355,7 +355,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "Together they manage a grand haul of one d_tp_s, and not even a very big d_tp_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for c_n.",
+                "text": "Together they manage a grand haul of one d_tp_s, and not even a very big d_tp_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for the b1_t.",
                 "exp": 0,
                 "weight": 20,
                 "prey": ["very_small"]
@@ -566,7 +566,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "Together they manage a grand haul of one d_tp_s, and not even a very big d_tp_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for c_n.",
+                "text": "Together they manage a grand haul of one d_tp_s, and not even a very big d_tp_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for the b1_t.",
                 "exp": 0,
                 "weight": 20,
                 "prey": ["very_small"]
@@ -777,7 +777,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "Together they manage a grand haul of one d_tp_s, and not even a very big d_tp_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for c_n.",
+                "text": "Together they manage a grand haul of one d_tp_s, and not even a very big d_tp_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for the b1_t.",
                 "exp": 0,
                 "weight": 20,
                 "prey": ["very_small"]
@@ -988,7 +988,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "Together they manage a grand haul of one d_tp_s, and not even a very big d_tp_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for c_n.",
+                "text": "Together they manage a grand haul of one d_tp_s, and not even a very big d_tp_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for the b1_t.",
                 "exp": 0,
                 "weight": 20,
                 "prey": ["very_small"]
@@ -1682,7 +1682,7 @@
                 ]
             },
             {
-                "text": "r_c always feels like {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} padding in p_l's footsteps, especially today, watching {PRONOUN/p_l/object} haul back such a good catch of prey for the Clan, a contribution that more than makes up for r_c's meager offerings.",
+                "text": "r_c always feels like {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} padding in p_l's footsteps, especially today, watching {PRONOUN/p_l/object} haul back such a good catch of prey for the b1_t, a contribution that more than makes up for r_c's meager offerings.",
                 "exp": 20,
                 "weight": 5,
                 "prey": ["large"],
@@ -2098,7 +2098,7 @@
                 ]
             },
             {
-                "text": "r_c always feels like {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} padding in p_l's footsteps, especially today, watching {PRONOUN/p_l/object} haul back such a good catch of prey for the Clan, a contribution that more than makes up for r_c's meager offerings.",
+                "text": "r_c always feels like {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} padding in p_l's footsteps, especially today, watching {PRONOUN/p_l/object} haul back such a good catch of prey for the b1_t, a contribution that more than makes up for r_c's meager offerings.",
                 "exp": 20,
                 "weight": 5,
                 "prey": ["large"],
@@ -2235,12 +2235,12 @@
         "max_cats": 6,
         "min_max_status": {},
         "weight": 20,
-        "intro_text": "p_l finds a patch of herbs that {PRONOUN/p_l/subject} {VERB/p_l/believe/believes} c_n might need for their stores. {PRONOUN/p_l/subject/CAP} freely {VERB/p_l/admit/admits} to {PRONOUN/p_l/poss} patrol {PRONOUN/p_l/subject} {VERB/p_l/are/is}n't a doctor, and {VERB/p_l/ask/asks} {PRONOUN/p_l/poss} companions' advice. What do they know about this part of the desert's herbal properties, what grows in the brief bloom of leaf-bare?",
+        "intro_text": "p_l finds a patch of herbs that {PRONOUN/p_l/subject} {VERB/p_l/believe/believes} baron1 might need for their stores. {PRONOUN/p_l/subject/CAP} freely {VERB/p_l/admit/admits} to {PRONOUN/p_l/poss} patrol {PRONOUN/p_l/subject} {VERB/p_l/are/is}n't a doctor, and {VERB/p_l/ask/asks} {PRONOUN/p_l/poss} companions' advice. What do they know about this part of the desert's herbal properties, what grows in the brief bloom of leaf-bare?",
         "decline_text": "They decide to focus on hunting and leave the herb collecting to the doctors.",
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "It's not their normal task, but they're all smart enough to value supporting the Clan's doctor den. The patrol brings the herbs back to camp and they are put to good use.",
+                "text": "It's not their normal task, but they're all smart enough to value supporting the doctor den. The patrol brings the herbs back to camp and they are put to good use.",
                 "exp": 10,
                 "weight": 20,
                 "herbs": ["random_herbs"],
@@ -2280,7 +2280,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "The patrol brings the herbs back to camp, only to find out that while the herbs promote good gut health, they're not a rare resource. Still, c_n will be eating an extra healthy dinner tonight with the herbs sprinkled into their fresh-kill.",
+                "text": "The patrol brings the herbs back to camp, only to find out that while the herbs promote good gut health, they're not a rare resource. Still, the b1_t will be eating an extra healthy dinner tonight with the herbs sprinkled into their fresh-kill.",
                 "exp": 0,
                 "weight": 20,
                 "relationships": [
@@ -2432,7 +2432,7 @@
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "A storm descends, sudden and violent enough to drive the c_n cats to shelter. The life-giving water is still a relief to witness, but they aren't interested in being as pummeled like the dry ground. The cats shelter in a rocky alcove, sharing stories and laughing occasionally as everyone shares tongues, licking their pelts dry.",
+                "text": "A storm descends, sudden and violent enough to drive the b1_t cats to shelter. The life-giving water is still a relief to witness, but they aren't interested in being as pummeled like the dry ground. The cats shelter in a rocky alcove, sharing stories and laughing occasionally as everyone shares tongues, licking their pelts dry.",
                 "exp": 10,
                 "weight": 20,
                 "relationships": [
@@ -2446,7 +2446,7 @@
                 ]
             },
             {
-                "text": "A storm descends, sudden and violent enough to drive the c_n cats to shelter. s_c keeps everyone's spirits up as the patrol hides in an abandoned tortoise den where the wind can't get them, until everyone is talking, a little damp but keeping each other's spirits up.",
+                "text": "A storm descends, sudden and violent enough to drive the b1_t cats to shelter. s_c keeps everyone's spirits up as the patrol hides in an abandoned tortoise den where the wind can't get them, until everyone is talking, a little damp but keeping each other's spirits up.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["SPEAKER,2"],
@@ -2461,7 +2461,7 @@
                 ]
             },
             {
-                "text": "A storm descends, sudden and violent enough to drive the c_n cats to shelter. As the cats hide from the wind, s_c keeps an eye out for everyone. There's a lot of restless energy in the shelter as the cats watch leaf-bare bless c_n, but it's easily redirected to games and friendly debates, perhaps even a little flirting.",
+                "text": "A storm descends, sudden and violent enough to drive the b1_t cats to shelter. As the cats hide from the wind, s_c keeps an eye out for everyone. There's a lot of restless energy in the shelter as the cats watch leaf-bare bless c_n, but it's easily redirected to games and friendly debates, perhaps even a little flirting.",
                 "exp": 10,
                 "weight": 20,
                 "stat_trait": ["compassionate", "faithful", "loving"],
@@ -2509,7 +2509,7 @@
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "The patrol charges the vixen, and she runs, leaving the scent of milk in the air behind her. Though they don't know where her cubs are hidden, without their mother they won't pose a threat to the Clan.",
+                "text": "The patrol charges the vixen, and she runs, leaving the scent of milk in the air behind her. Though they don't know where her cubs are hidden, without their mother they won't pose a threat to the Barony.",
                 "exp": 30,
                 "weight": 20,
                 "relationships": [
@@ -2606,7 +2606,7 @@
         "max_cats": 1,
         "min_max_status": {},
         "weight": 20,
-        "intro_text": "r_c spots a swift fox in the distance, behaving weirdly. It's the biggest of the foxes in c_n's territory, the size of a cat, and r_c is alone. Should they try and take it on?",
+        "intro_text": "r_c spots a swift fox in the distance, behaving weirdly. It's the biggest of the foxes in the b1_t Territory, the size of a cat, and r_c is alone. Should they try and take it on?",
         "decline_text": "Best not to risk a fight. r_c watches it go.",
         "chance_of_success": 20,
         "success_outcomes": [

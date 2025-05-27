@@ -155,6 +155,12 @@ class Game:
         "showfps": False,
     }
 
+    # BL
+    with open(
+        os.path.normpath("resources/dicts/badlands_info.json"), "r", encoding="utf-8"
+        ) as read_file:
+        badlands_info = ujson.loads(read_file.read())
+
     # Init Settings
     with open("resources/gamesettings.json", "r", encoding="utf-8") as read_file:
         _settings = ujson.loads(read_file.read())

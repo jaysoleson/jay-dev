@@ -145,7 +145,7 @@ class ClipperDenScreen(Screens):
 
         self.focus_frame = pygame_gui.elements.UIImage(
             ui_scale(pygame.Rect((50, 190), (700, 460))),
-            pygame.image.load("resources/images/clipper_den_frame.png").convert_alpha(),
+            pygame.image.load("resources/images/warrior_den_frame.png").convert_alpha(),
             object_id="#focus_frame",
             starting_height=1,
             manager=MANAGER,
@@ -307,10 +307,19 @@ class ClipperDenScreen(Screens):
         desc = " "
         name = i18n.t(f"settings.{self.original_focus_code}")
         if self.original_focus_code in self.other_clan_settings:
+
+            # BL
+            clans_in_focus_objects = []
+            for clan in game.clan.clans_in_focus:
+                for allclan in game.clan.all_clans:
+                    if allclan.name == clan:
+                        clans_in_focus_objects.append(allclan)
+            #  ---
+
             desc = i18n.t(
                 "screens.clipper_den.involved_clans",
                 clans=adjust_list_text(
-                    [f"{clan}clan" for clan in game.clan.clans_in_focus]
+                    [Cat.fetch_cat(clan.baron).name for clan in clans_in_focus_objects]
                 ),
             )
         last_change_text = ""

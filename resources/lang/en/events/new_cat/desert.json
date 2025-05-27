@@ -1,6 +1,6 @@
 [
   {
-        "event_id": "dst_new_cat_loner1",
+        "event_id": "dst_new_cat_nomad1",
         "location": [
             "desert"
         ],
@@ -19,7 +19,7 @@
             "status": ["any"]
           },
         "new_cat": [
-          ["loner"]
+          ["nomad"]
         ],
         "relationships": [
             {
@@ -38,7 +38,7 @@
           }
     },
     {
-        "event_id": "dst_new_cat_loner2",
+        "event_id": "dst_new_cat_nomad2",
         "location": [
             "desert"
         ],
@@ -46,7 +46,7 @@
             "any"
         ],
         "weight": 5,
-        "event_text": "m_c finds a wandering loner while on patrol. Though c_n may not be fond of outsiders, no cat can deny new blood is hard to come by and inevitably needed. n_c:0 is allowed to join the Clan.",
+        "event_text": "m_c finds a wandering nomad while on patrol. Though c_n may not be fond of outsiders, no cat can deny new blood is hard to come by and inevitably needed. n_c:0 is allowed to join the Clan.",
         "m_c": {
             "age": [
                 "young adult",
@@ -57,7 +57,7 @@
             "status": ["baron", "regent", "doctor", "clipper"]
           },
         "new_cat": [
-          ["loner"]
+          ["nomad"]
         ],
           "outsider": {
               "current_rep": [
@@ -67,7 +67,7 @@
           }
     },
     {
-        "event_id": "dst_new_cat_loner3",
+        "event_id": "dst_new_cat_nomad3",
         "location": [
             "desert"
         ],
@@ -75,7 +75,7 @@
             "any"
         ],
         "weight": 5,
-        "event_text": "m_c finds a wandering loner while on patrol. New blood is hard to come by in the desert, and n_c:0 is readily accepted into the Clan.",
+        "event_text": "m_c finds a wandering nomad while on patrol. New blood is hard to come by in the desert, and n_c:0 is readily accepted into the Clan.",
         "m_c": {
             "age": [
                 "young adult",
@@ -86,7 +86,7 @@
             "status": ["baron", "regent", "doctor", "clipper"]
           },
         "new_cat": [
-          ["loner"]
+          ["nomad"]
         ],
           "outsider": {
               "current_rep": [
@@ -115,7 +115,7 @@
             "status": ["baron", "regent", "doctor", "clipper"]
           },
         "new_cat": [
-            ["age:has_kits", "meeting", "loner", "can_birth"],
+            ["age:has_kits", "meeting", "nomad", "can_birth"],
             [
                 "new_name",
                 "parent:0",

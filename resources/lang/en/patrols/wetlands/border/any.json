@@ -1201,16 +1201,16 @@
         "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "It's just an odd loner singing to themself. The patrol greets them, and as the loner isn't inside c_n territory, it's a polite interaction without any hostility.",
+                "text": "It's just an odd nomad singing to themself. The patrol greets them, and as the nomad isn't inside c_n territory, it's a polite interaction without any hostility.",
                 "exp": 30,
                 "weight": 20
             },
             {
-                "text": "It's just an odd loner singing to {PRONOUN/n_c:0/self}. When {PRONOUN/n_c:0/subject} {VERB/n_c:0/see/sees} p_l, {PRONOUN/n_c:0/subject} {VERB/n_c:0/invite/invites} {PRONOUN/p_l/object} to sing along. Instead, p_l offers the strange, battered-looking cat an introduction to c_n. It's got to be far less lonely than {PRONOUN/n_c:0/poss} current life.",
+                "text": "It's just an odd nomad singing to {PRONOUN/n_c:0/self}. When {PRONOUN/n_c:0/subject} {VERB/n_c:0/see/sees} p_l, {PRONOUN/n_c:0/subject} {VERB/n_c:0/invite/invites} {PRONOUN/p_l/object} to sing along. Instead, p_l offers the strange, battered-looking cat an introduction to c_n. It's got to be far less lonely than {PRONOUN/n_c:0/poss} current life.",
                 "exp": 30,
                 "weight": 5,
                 "new_cat": [
-                    ["status:elder", "age:senior", "loner"]
+                    ["status:elder", "age:senior", "nomad"]
                 ],
                 "relationships": [
                     {
@@ -1223,7 +1223,7 @@
                 "outsider_rep": 1
             },
             {
-                "text": "The patrol walks into an ambush by a group of rogues. It's only by the grace of StarClan that s_c is there, fighting with the courage of LionClan, the strength of TigerClan, and the dexterity of LeopardClan. Shaken but no more than bruised, the patrol manages to retreat to safety.",
+                "text": "The patrol walks into an ambush by a group of rogues. It's only by the grace of the Gods that s_c is there, fighting with the courage of LionClan, the strength of TigerClan, and the dexterity of LeopardClan. Shaken but no more than bruised, the patrol manages to retreat to safety.",
                 "exp": 30,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,3"]
@@ -1262,17 +1262,17 @@
         "chance_of_success": 10,
         "success_outcomes": [
             {
-                "text": "It's just an odd loner singing to themself. r_c greets them, and as the loner isn't inside c_n territory, it's a polite interaction without any hostility.",
+                "text": "It's just an odd nomad singing to themself. r_c greets them, and as the nomad isn't inside c_n territory, it's a polite interaction without any hostility.",
                 "exp": 30,
                 "weight": 20
             },
             {
-                "text": "It's just an odd loner singing to themself. When they see r_c, they invite {PRONOUN/r_c/object} to sing too. Instead, r_c offers the somewhat battered-looking and strange cat an introduction to c_n. It's got to be far less lonely than their current life.",
+                "text": "It's just an odd nomad singing to themself. When they see r_c, they invite {PRONOUN/r_c/object} to sing too. Instead, r_c offers the somewhat battered-looking and strange cat an introduction to c_n. It's got to be far less lonely than their current life.",
                 "exp": 30,
                 "weight": 5
             },
             {
-                "text": "s_c walks into an ambush by a group of rogues. It's only by the grace of StarClan that s_c has the fighting skill and confidence to escape, running for {PRONOUN/s_c/poss} life.",
+                "text": "s_c walks into an ambush by a group of rogues. It's only by the grace of the Gods that s_c has the fighting skill and confidence to escape, running for {PRONOUN/s_c/poss} life.",
                 "exp": 30,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,3"]
@@ -1593,23 +1593,23 @@
         "chance_of_success": 30,
         "success_outcomes": [
             {
-                "text": "The pawprints lead to a trespassing rogue. r_c slips into the swamp and sets up an ambush, sending the rogue fleeing off c_n territory.",
+                "text": "The pawprints lead to a trespassing rogue. r_c slips into the swamp and sets up an ambush, sending the rogue fleeing from baron1's territory.",
                 "exp": 10,
                 "weight": 20
             },
             {
-                "text": "r_c soon realizes that the pawprints smell of c_n. Someone must have wandered through this section of the border recently, but it's not a threat.",
+                "text": "r_c soon realizes that the pawprints smell of the b1_t. Someone must have wandered through this section of the border recently, but it's not a threat.",
                 "exp": 10,
                 "weight": 5
             },
             {
-                "text": "The pawprints lead to a trespassing rogue. s_c throws themselves at the rogue, hissing furiously, and drives them off c_n territory.",
+                "text": "The pawprints lead to a trespassing rogue. s_c throws themselves at the rogue, hissing furiously, and drives them off b1_t territory.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,1"]
             },
             {
-                "text": "Boldly, s_c follows the pawprints to a trespassing rogue and confronts them. Fur puffed up and scowling, {PRONOUN/s_c/subject} {VERB/s_c/demand/demands} the rogue leave c_n territory. Intimidated by {PRONOUN/s_c/poss} confidence, the rogue gives in and leaves without a fight.",
+                "text": "Boldly, s_c follows the pawprints to a trespassing rogue and confronts them. Fur puffed up and scowling, {PRONOUN/s_c/subject} {VERB/s_c/demand/demands} the rogue leave the b1_t. Intimidated by {PRONOUN/s_c/poss} confidence, the rogue gives in and leaves without a fight.",
                 "exp": 10,
                 "weight": 20,
                 "stat_trait": [
@@ -1672,23 +1672,23 @@
         "chance_of_success": 30,
         "success_outcomes": [
             {
-                "text": "The pawprints lead to a trespassing rogue. r_c slips into the swamp and sets up an ambush, sending the rogue fleeing off c_n territory.",
+                "text": "The pawprints lead to a trespassing rogue. r_c slips into the swamp and sets up an ambush, sending the rogue fleeing from baron1's territory.",
                 "exp": 10,
                 "weight": 20
             },
             {
-                "text": "r_c soon realizes that the pawprints smell of c_n. Someone must have wandered through this section of the border recently, but it's not a threat.",
+                "text": "r_c soon realizes that the pawprints smell of the b1_t. Someone must have wandered through this section of the border recently, but it's not a threat.",
                 "exp": 10,
                 "weight": 5
             },
             {
-                "text": "The pawprints lead to a trespassing rogue. s_c sets up a trap by using the marshy terrain to cut off the rogue's escape path. It makes the startled intruder cower to realize they've been caught and trapped by c_n, and they're escorted to the border with the lesson firmly learned.",
+                "text": "The pawprints lead to a trespassing rogue. s_c sets up a trap by using the marshy terrain to cut off the rogue's escape path. It makes the startled intruder cower to realize they've been caught and trapped by b1_t Clippers, and they're escorted to the border with the lesson firmly learned.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["CLEVER,1"]
             },
             {
-                "text": "Boldly, s_c follows the pawprints to a trespassing rogue and confronts them. Fur puffed up and scowling, {PRONOUN/s_c/subject} {VERB/s_c/demand/demands} the rogue leave c_n territory. Intimidated by {PRONOUN/s_c/poss} confidence, the rogue gives in and leaves without a fight.",
+                "text": "Boldly, s_c follows the pawprints to a trespassing rogue and confronts them. Fur puffed up and scowling, {PRONOUN/s_c/subject} {VERB/s_c/demand/demands} the rogue leave the b1_t. Intimidated by {PRONOUN/s_c/poss} confidence, the rogue gives in and leaves without a fight.",
                 "exp": 10,
                 "weight": 20,
                 "stat_trait": [
@@ -1718,7 +1718,7 @@
                 "weight": 20
             },
             {
-                "text": "The pawprints lead to a trespassing rogue. s_c throws {PRONOUN/s_c/self} at the rogue, hissing furiously, but this is one battle-hardened trespasser, and s_c isn't as good of a fighter as {PRONOUN/s_c/subject}'d like to think. The rogue escapes {PRONOUN/s_c/poss} grasp and runs off further into c_n territory.",
+                "text": "The pawprints lead to a trespassing rogue. s_c throws {PRONOUN/s_c/self} at the rogue, hissing furiously, but this is one battle-hardened trespasser, and s_c isn't as good of a fighter as {PRONOUN/s_c/subject}'d like to think. The rogue escapes {PRONOUN/s_c/poss} grasp and runs off further into baron1's territory.",
                 "exp": 0,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,1"]
@@ -1753,12 +1753,12 @@
         "chance_of_success": 30,
         "success_outcomes": [
             {
-                "text": "The pawprints lead to a trespassing rogue. app1 slips into the swamp and sets up an ambush that lets {PRONOUN/app1/object} pretend to be a far bigger and more impressive fighter. app1 sends the rogue fleeing off c_n territory.",
+                "text": "The pawprints lead to a trespassing rogue. app1 slips into the swamp and sets up an ambush that lets {PRONOUN/app1/object} pretend to be a far bigger and more impressive fighter. app1 sends the rogue fleeing from baron1's territory.",
                 "exp": 10,
                 "weight": 20
             },
             {
-                "text": "app1 soon realizes that the pawprints smell of c_n. Someone must have wandered through this section of the border recently, but it's not a threat. In fact... {PRONOUN/app1/subject}{VERB/app1/'re/'s} pretty sure this is {PRONOUN/app1/poss} mentor's scent. And {PRONOUN/app1/poss} mentor has been hinting {PRONOUN/app1/subject}'ll have an assessment soon.",
+                "text": "app1 soon realizes that the pawprints smell of the b1_t. Someone must have wandered through this section of the border recently, but it's not a threat. In fact... {PRONOUN/app1/subject}{VERB/app1/'re/'s} pretty sure this is {PRONOUN/app1/poss} mentor's scent. And {PRONOUN/app1/poss} mentor has been hinting {PRONOUN/app1/subject}'ll have an assessment soon.",
                 "exp": 10,
                 "weight": 5
             }
@@ -1770,7 +1770,7 @@
                 "weight": 20
             },
             {
-                "text": "Boldly, s_c follows the pawprints to a trespassing rogue and confronts them. Fur puffed up and scowling, {PRONOUN/s_c/subject} {VERB/s_c/demand/demands} the rogue leave c_n territory. The rogue is not impressed by this adolescent and ignores {PRONOUN/s_c/object} completely.",
+                "text": "Boldly, s_c follows the pawprints to a trespassing rogue and confronts them. Fur puffed up and scowling, {PRONOUN/s_c/subject} {VERB/s_c/demand/demands} the rogue leave the b1_t. The rogue is not impressed by this adolescent and ignores {PRONOUN/s_c/object} completely.",
                 "exp": 0,
                 "weight": 20,
                 "stat_trait": [
@@ -1821,23 +1821,23 @@
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "The pawprints lead to a trespassing rogue. The patrol slips into the swamp and sets up an ambush, sending the rogue fleeing off c_n territory.",
+                "text": "The pawprints lead to a trespassing rogue. The patrol slips into the swamp and sets up an ambush, sending the rogue fleeing from baron1's territory.",
                 "exp": 10,
                 "weight": 20
             },
             {
-                "text": "r_c soon realizes that the pawprints smell of c_n. Someone must have wandered through this section of the border recently, but it's not a threat.",
+                "text": "r_c soon realizes that the pawprints smell of the b1_t. Someone must have wandered through this section of the border recently, but it's not a threat.",
                 "exp": 10,
                 "weight": 5
             },
             {
-                "text": "The pawprints lead to a trespassing rogue. With a furious hiss, s_c throws themselves at the rogue and, together with r_c, drives them off c_n territory.",
+                "text": "The pawprints lead to a trespassing rogue. With a furious hiss, s_c throws themselves at the rogue and, together with r_c, drives them off b1_t territory.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,1"]
             },
             {
-                "text": "Boldly, s_c follows the pawprints to a trespassing rogue and confronts them. Fur puffed up and scowling, s_c and r_c demand the rogue leave c_n territory. The rogue is intimidated by their confidence and leaves without a fight.",
+                "text": "Boldly, s_c follows the pawprints to a trespassing rogue and confronts them. Fur puffed up and scowling, s_c and r_c demand the rogue leave the b1_t. The rogue is intimidated by their confidence and leaves without a fight.",
                 "exp": 10,
                 "weight": 20,
                 "stat_trait": [
@@ -1890,23 +1890,23 @@
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "The pawprints lead to a trespassing rogue. The patrol slips into the swamp and sets up an ambush, sending the rogue fleeing off c_n territory.",
+                "text": "The pawprints lead to a trespassing rogue. The patrol slips into the swamp and sets up an ambush, sending the rogue fleeing from baron1's territory.",
                 "exp": 10,
                 "weight": 20
             },
             {
-                "text": "r_c soon realizes that the pawprints smell of c_n. Someone must have wandered through this section of the border recently, but it's not a threat.",
+                "text": "r_c soon realizes that the pawprints smell of the b1_t. Someone must have wandered through this section of the border recently, but it's not a threat.",
                 "exp": 10,
                 "weight": 5
             },
             {
-                "text": "The pawprints lead to a trespassing rogue. s_c sets up a trap by using the marshy terrain to cut off the rogue's escape path. It makes the startled intruder cower to realize they've been caught and trapped by c_n, and they're escorted to the border with the lesson firmly learned.",
+                "text": "The pawprints lead to a trespassing rogue. s_c sets up a trap by using the marshy terrain to cut off the rogue's escape path. It makes the startled intruder cower to realize they've been caught and trapped by b1_t Clippers, and they're escorted to the border with the lesson firmly learned.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["CLEVER,1"]
             },
             {
-                "text": "Boldly, s_c follows the pawprints to a trespassing rogue and confronts them. Fur puffed up and scowling, s_c and r_c demand the rogue leave c_n territory. The rogue is intimidated by their confidence and leaves without a fight.",
+                "text": "Boldly, s_c follows the pawprints to a trespassing rogue and confronts them. Fur puffed up and scowling, s_c and r_c demand the rogue leave the b1_t. The rogue is intimidated by their confidence and leaves without a fight.",
                 "exp": 10,
                 "weight": 20,
                 "stat_trait": [
@@ -1936,7 +1936,7 @@
                 "weight": 20
             },
             {
-                "text": "The pawprints lead to a trespassing rogue. s_c throws {PRONOUN/s_c/self} at the rogue, hissing furiously, but this is one battle-hardened trespasser, and s_c isn't as good of a fighter as {PRONOUN/s_c/subject}'d like to think. The rogue escapes {PRONOUN/s_c/poss} grasp and runs off further into c_n territory.",
+                "text": "The pawprints lead to a trespassing rogue. s_c throws {PRONOUN/s_c/self} at the rogue, hissing furiously, but this is one battle-hardened trespasser, and s_c isn't as good of a fighter as {PRONOUN/s_c/subject}'d like to think. The rogue escapes {PRONOUN/s_c/poss} grasp and runs off further into baron1's territory.",
                 "exp": 0,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,1"]
@@ -1961,12 +1961,12 @@
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "The pawprints lead to a trespassing rogue. The patrol slips into the swamp and sets up an ambush, sending the rogue fleeing off c_n territory.",
+                "text": "The pawprints lead to a trespassing rogue. The patrol slips into the swamp and sets up an ambush, sending the rogue fleeing from baron1's territory.",
                 "exp": 10,
                 "weight": 20
             },
             {
-                "text": "app1 soon realizes that the pawprints smell of c_n. Someone must have wandered through this section of the border recently, but it's not a threat. In fact... {PRONOUN/app1/subject}{VERB/app1/'re/'s} pretty sure this is {PRONOUN/app1/poss} mentor's scent. And {PRONOUN/app1/poss} mentor has been hinting {PRONOUN/app1/subject}'ll have an assessment soon.",
+                "text": "app1 soon realizes that the pawprints smell of the b1_t. Someone must have wandered through this section of the border recently, but it's not a threat. In fact... {PRONOUN/app1/subject}{VERB/app1/'re/'s} pretty sure this is {PRONOUN/app1/poss} mentor's scent. And {PRONOUN/app1/poss} mentor has been hinting {PRONOUN/app1/subject}'ll have an assessment soon.",
                 "exp": 10,
                 "weight": 5
             }
@@ -1978,7 +1978,7 @@
                 "weight": 20
             },
             {
-                "text": "Boldly, s_c follows the pawprints to a trespassing rogue and confronts them. Fur puffed up and scowling, {PRONOUN/s_c/subject} {VERB/s_c/demand/demands} the rogue leave c_n territory. The rogue is not impressed by the adolescent but reluctantly leaves c_n territory.",
+                "text": "Boldly, s_c follows the pawprints to a trespassing rogue and confronts them. Fur puffed up and scowling, {PRONOUN/s_c/subject} {VERB/s_c/demand/demands} the rogue leave the b1_t. The rogue is not impressed by the adolescent but reluctantly leaves the b1_t.",
                 "exp": 0,
                 "weight": 20,
                 "stat_trait": [
@@ -2019,23 +2019,23 @@
         "chance_of_success": 10,
         "success_outcomes": [
             {
-                "text": "The pawprints lead to a trespassing rogue. The patrol slips into the swamp and sets up an ambush, sending the rogue fleeing off c_n territory.",
+                "text": "The pawprints lead to a trespassing rogue. The patrol slips into the swamp and sets up an ambush, sending the rogue fleeing from baron1's territory.",
                 "exp": 10,
                 "weight": 20
             },
             {
-                "text": "r_c soon realizes that the pawprints smell of c_n. Someone must have wandered through this section of the border recently, but it's not a threat.",
+                "text": "r_c soon realizes that the pawprints smell of the b1_t. Someone must have wandered through this section of the border recently, but it's not a threat.",
                 "exp": 10,
                 "weight": 5
             },
             {
-                "text": "The pawprints lead to a trespassing rogue. With a furious hiss, s_c throws themselves at the rogue and, together with r_c, drives them off c_n territory.",
+                "text": "The pawprints lead to a trespassing rogue. With a furious hiss, s_c throws themselves at the rogue and, together with r_c, drives them off b1_t territory.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,1"]
             },
             {
-                "text": "Boldly, s_c follows the pawprints to a trespassing rogue and confronts them. Fur puffed up and scowling, the patrol demands the rogue leave c_n territory. Intimidated by their confidence and the number of cats, the rogue gives in and leaves without a fight.",
+                "text": "Boldly, s_c follows the pawprints to a trespassing rogue and confronts them. Fur puffed up and scowling, the patrol demands the rogue leave the b1_t. Intimidated by their confidence and the number of cats, the rogue gives in and leaves without a fight.",
                 "exp": 10,
                 "weight": 20,
                 "stat_trait": [
@@ -2088,23 +2088,23 @@
         "chance_of_success": 10,
         "success_outcomes": [
             {
-                "text": "The pawprints lead to a trespassing rogue. The patrol slips into the swamp and sets up an ambush, sending the rogue fleeing off c_n territory.",
+                "text": "The pawprints lead to a trespassing rogue. The patrol slips into the swamp and sets up an ambush, sending the rogue fleeing from baron1's territory.",
                 "exp": 10,
                 "weight": 20
             },
             {
-                "text": "r_c soon realizes that the pawprints smell of c_n. Someone must have wandered through this section of the border recently, but it's not a threat.",
+                "text": "r_c soon realizes that the pawprints smell of the b1_t. Someone must have wandered through this section of the border recently, but it's not a threat.",
                 "exp": 10,
                 "weight": 5
             },
             {
-                "text": "The pawprints lead to a trespassing rogue. s_c sets up a trap by using the marshy terrain to cut off the rogue's escape path. It makes the startled intruder cower to realize they've been caught and trapped by c_n, and they're escorted to the border with the lesson firmly learned.",
+                "text": "The pawprints lead to a trespassing rogue. s_c sets up a trap by using the marshy terrain to cut off the rogue's escape path. It makes the startled intruder cower to realize they've been caught and trapped by b1_t Clippers, and they're escorted to the border with the lesson firmly learned.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["CLEVER,1"]
             },
             {
-                "text": "Boldly, s_c follows the pawprints to a trespassing rogue and confronts them. Fur puffed up and scowling, the patrol demands the rogue leave c_n territory. Intimidated by their confidence and the number of cats, the rogue gives in and leaves without a fight.",
+                "text": "Boldly, s_c follows the pawprints to a trespassing rogue and confronts them. Fur puffed up and scowling, the patrol demands the rogue leave the b1_t. Intimidated by their confidence and the number of cats, the rogue gives in and leaves without a fight.",
                 "exp": 10,
                 "weight": 20,
                 "stat_trait": [
@@ -2134,7 +2134,7 @@
                 "weight": 20
             },
             {
-                "text": "The pawprints lead to a trespassing rogue. s_c throws {PRONOUN/s_c/self} at the rogue, hissing furiously, but this is one battle-hardened trespasser, and s_c isn't as good of a fighter as {PRONOUN/s_c/subject}'d like to think. The rogue escapes {PRONOUN/s_c/poss} grasp and runs off further into c_n territory.",
+                "text": "The pawprints lead to a trespassing rogue. s_c throws {PRONOUN/s_c/self} at the rogue, hissing furiously, but this is one battle-hardened trespasser, and s_c isn't as good of a fighter as {PRONOUN/s_c/subject}'d like to think. The rogue escapes {PRONOUN/s_c/poss} grasp and runs off further into baron1's territory.",
                 "exp": 0,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,1"]
@@ -2159,12 +2159,12 @@
         "chance_of_success": 10,
         "success_outcomes": [
             {
-                "text": "The pawprints lead to a trespassing rogue. The patrol slips into the swamp and sets up an ambush, sending the rogue fleeing off c_n territory.",
+                "text": "The pawprints lead to a trespassing rogue. The patrol slips into the swamp and sets up an ambush, sending the rogue fleeing from baron1's territory.",
                 "exp": 10,
                 "weight": 20
             },
             {
-                "text": "app1 soon realizes that the pawprints smell of c_n. Someone must have wandered through this section of the border recently, but it's not a threat. In fact... {PRONOUN/app1/subject}{VERB/app1/'re/'s} pretty sure this is {PRONOUN/app1/poss} mentor's scent. And {PRONOUN/app1/poss} mentor has been hinting {PRONOUN/app1/subject}'ll have an assessment soon.",
+                "text": "app1 soon realizes that the pawprints smell of the b1_t. Someone must have wandered through this section of the border recently, but it's not a threat. In fact... {PRONOUN/app1/subject}{VERB/app1/'re/'s} pretty sure this is {PRONOUN/app1/poss} mentor's scent. And {PRONOUN/app1/poss} mentor has been hinting {PRONOUN/app1/subject}'ll have an assessment soon.",
                 "exp": 10,
                 "weight": 5
             }
@@ -2176,7 +2176,7 @@
                 "weight": 20
             },
             {
-                "text": "Boldly, s_c follows the pawprints to a trespassing rogue and confronts them. Fur puffed up and scowling, {PRONOUN/s_c/subject} {VERB/s_c/demand/demands} the rogue leave c_n territory. The rogue is not impressed by the adolescent, but with the full patrol backing {PRONOUN/s_c/object} up, the rogue leaves c_n territory.",
+                "text": "Boldly, s_c follows the pawprints to a trespassing rogue and confronts them. Fur puffed up and scowling, {PRONOUN/s_c/subject} {VERB/s_c/demand/demands} the rogue leave the b1_t. The rogue is not impressed by the adolescent, but with the full patrol backing {PRONOUN/s_c/object} up, the rogue leaves the b1_t.",
                 "exp": 0,
                 "weight": 20,
                 "stat_trait": [

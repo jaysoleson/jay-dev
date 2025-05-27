@@ -1,17 +1,17 @@
 [
     {
-        "event_id": "gen_new_cat_adoption_anylonerlitter1",
+        "event_id": "gen_new_cat_adoption_anynomadlitter1",
         "location": ["any"],
         "season": ["any"],
         "tags": ["adoption"],
         "weight": 5,
-        "event_text": "A loner named n_c:0 leaves {PRONOUN/n_c:0/poss} litter to the Clan. m_c decides to adopt them as {PRONOUN/m_c/poss} own.",
+        "event_text": "A nomad named n_c:0 leaves {PRONOUN/n_c:0/poss} litter to the Clan. m_c decides to adopt them as {PRONOUN/m_c/poss} own.",
         "m_c": {
             "age": ["young adult", "adult", "senior adult", "senior"],
             "status": ["any"]
         },
         "new_cat": [
-            ["age:has_kits", "meeting", "loner", "can_birth"],
+            ["age:has_kits", "meeting", "nomad", "can_birth"],
             [
                 "new_name",
                 "parent:0",
@@ -144,7 +144,7 @@
         ]
     },
     {
-        "event_id": "gen_new_cat_anylonerkit1",
+        "event_id": "gen_new_cat_anynomadkit1",
         "location": ["any"],
         "season": ["any"],
         "weight": 5,
@@ -162,7 +162,7 @@
             ]
         },
         "new_cat": [
-            ["age:has_kits", "meeting", "loner", "can_birth"],
+            ["age:has_kits", "meeting", "nomad", "can_birth"],
             [
                 "new_name",
                 "parent:0",
@@ -249,7 +249,7 @@
         "new_cat": [
             [
                 "old_name",
-                "loner",
+                "nomad",
                 "status:clipper",
                 "mate:m_c,r_c"
             ]
@@ -286,11 +286,11 @@
         ]
     },
     {
-        "event_id": "gen_new_cat_anyloner1",
+        "event_id": "gen_new_cat_anynomad1",
         "location": ["any"],
         "season": ["any"],
         "weight": 15,
-        "event_text": "m_c finds a loner named n_c:0, who joins the Clan. The loner decides to keep {PRONOUN/n_c:0/poss} old name.",
+        "event_text": "m_c finds a nomad named n_c:0, who joins the Clan. The nomad decides to keep {PRONOUN/n_c:0/poss} old name.",
         "m_c": {
             "age": ["adolescent", "young adult", "adult", "senior adult", "senior"],
             "status": ["any"]
@@ -298,7 +298,7 @@
         "new_cat": [
             [
                 "old_name",
-                "loner",
+                "nomad",
                 "status:clipper",
                 "exists"
             ]
@@ -309,18 +309,18 @@
         }
     },
     {
-        "event_id": "gen_new_cat_anyloner2",
+        "event_id": "gen_new_cat_anynomad2",
         "location": ["any"],
         "season": ["any"],
         "weight": 20,
-        "event_text": "A loner waits on the border for a patrol and, finding one led by m_c, asks to join the Clan. The loner decides to take on a more Clan-like name and is now called n_c:0.",
+        "event_text": "A nomad waits on the border for a patrol and, finding one led by m_c, asks to join the Clan. The nomad decides to take on a more Clan-like name and is now called n_c:0.",
         "m_c": {
             "status": ["clipper", "regent", "baron", "doctor"]
         },
         "new_cat": [
             [
                 "new_name",
-                "loner",
+                "nomad",
                 "status:clipper",
                 "exists"
             ]
@@ -331,11 +331,11 @@
         }
     },
     {
-        "event_id": "gen_new_cat_anyloner3",
+        "event_id": "gen_new_cat_anynomad3",
         "location": ["any"],
         "season": ["any"],
         "weight": 20,
-        "event_text": "A loner waits on the border for a patrol and, finding one led by m_c, asks to join the Clan. The loner decides to keep {PRONOUN/n_c:0/poss} old name, n_c:0.",
+        "event_text": "A nomad waits on the border for a patrol and, finding one led by m_c, asks to join the Clan. The nomad decides to keep {PRONOUN/n_c:0/poss} old name, n_c:0.",
         "m_c": {
             "status": [
                 "baron", "regent", "clipper", "doctor"
@@ -343,7 +343,7 @@
         },"new_cat": [
             [
                 "old_name",
-                "loner",
+                "nomad",
                 "status:clipper",
                 "exists"
             ]
@@ -354,11 +354,11 @@
         }
     },
     {
-        "event_id": "gen_new_cat_anyloner4",
+        "event_id": "gen_new_cat_anynomad4",
         "location": ["any"],
         "season": ["any"],
         "weight": 20,
-        "event_text": "m_c finds a loner who asks to join the Clan. The loner decides to take on a more Clan-like name and is now called n_c:0.",
+        "event_text": "m_c finds a nomad who asks to join the Clan. The nomad decides to take on a more Clan-like name and is now called n_c:0.",
         "m_c": {
             "age": ["adolescent", "young adult", "adult", "senior adult", "senior"],
             "status": ["any"]
@@ -366,7 +366,7 @@
         "new_cat": [
             [
                 "new_name",
-                "loner",
+                "nomad",
                 "status:clipper",
                 "exists"
             ]
@@ -377,7 +377,7 @@
         }
     },
     {
-        "event_id": "gen_new_cat_hostile_anyloner1",
+        "event_id": "gen_new_cat_hostile_anynomad1",
         "location": ["any"],
         "season": ["any"],
         "weight": 15,
@@ -388,7 +388,7 @@
         "new_cat": [
             [
                 "new_name",
-                "loner",
+                "nomad",
                 "status:clipper",
                 "exists"
             ]

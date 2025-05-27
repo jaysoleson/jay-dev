@@ -35,7 +35,7 @@
     "season": ["any"],
     "sub_type": ["murder_reveal"],
     "weight": 10,
-    "event_text": "r_c is stunned when {PRONOUN/r_c/subject} {VERB/r_c/discover/discovers} m_c carelessly bragging about killing mur_c to a wandering loner.",
+    "event_text": "r_c is stunned when {PRONOUN/r_c/subject} {VERB/r_c/discover/discovers} m_c carelessly bragging about killing mur_c to a wandering nomad.",
     "m_c": {
       "age": ["any"],
       "status": ["any"],
@@ -463,7 +463,7 @@
     ],
     "season": ["any"],
     "weight": 10,
-    "event_text": "m_c accidentally trespasses onto o_c_n's territory.",
+    "event_text": "m_c accidentally trespasses onto o_the b1_t Territory.",
     "m_c": {
         "age": ["adolescent", "young adult", "adult", "senior adult"],
         "status": ["any"]
@@ -2211,12 +2211,12 @@
     ],
     "season": ["any"],
     "weight": 20,
-    "event_text": "On a bit of c_n's territory that borders unclaimed land, m_c finds scent that indicates there's a loner wandering somewhere out there.",
+    "event_text": "On a bit of the b1_t Territory that borders unclaimed land, m_c finds scent that indicates there's a nomad wandering somewhere out there.",
     "m_c": {
         "age": ["adolescent", "young adult", "adult", "senior adult", "senior"]
     },
     "new_cat": [
-      ["meeting", "loner", "exists"]
+      ["meeting", "nomad", "exists"]
     ]
   },
   {
@@ -2233,7 +2233,7 @@
         "age": ["adolescent", "young adult", "adult", "senior adult", "senior"]
     },
     "new_cat": [
-      ["meeting", "loner", "exists"]
+      ["meeting", "nomad", "exists"]
     ]
   },
   {
@@ -2250,7 +2250,7 @@
         "age": ["adolescent", "young adult", "adult", "senior adult", "senior"]
     },
     "new_cat": [
-      ["meeting", "loner", "exists"]
+      ["meeting", "nomad", "exists"]
     ]
   },
   {
@@ -2458,7 +2458,7 @@
     ],
     "season": ["any"],
     "weight": 10,
-    "event_text": "Trying to see o_c_n cats in the flesh can be hard when the Clans live so far apart. m_c has to wait hours for a o_c_n patrol to pass on the message about local loner activity.",
+    "event_text": "Trying to see o_c_n cats in the flesh can be hard when the Clans live so far apart. m_c has to wait hours for a o_c_n patrol to pass on the message about local nomad activity.",
     "m_c": {
         "age": ["adolescent", "young adult", "adult", "senior adult", "senior"]
     },
@@ -2504,7 +2504,7 @@
     }
   },
   {
-    "event_id": "multi_misc_any_scandalous_loner1",
+    "event_id": "multi_misc_any_scandalous_nomad1",
     "location": [
       "forest",
       "plains",
@@ -2513,12 +2513,12 @@
     ],
     "season": ["any"],
     "weight": 15,
-    "event_text": "m_c was seen arguing, and borderline-fighting, with a loner.",
+    "event_text": "m_c was seen arguing, and borderline-fighting, with a nomad.",
     "m_c": {
         "age": ["adolescent", "young adult", "adult", "senior adult", "senior"]
     },
     "new_cat": [
-      ["meeting", "loner", "exists"]
+      ["meeting", "nomad", "exists"]
     ],
     "relationships": [
       {
@@ -2535,7 +2535,7 @@
     }
   },
   {
-    "event_id": "multi_misc_any_scandalous_loner2",
+    "event_id": "multi_misc_any_scandalous_nomad2",
     "location": [
       "forest",
       "plains",
@@ -2544,12 +2544,12 @@
     ],
     "season": ["any"],
     "weight": 10,
-    "event_text": "m_c was seen touching noses with a loner. Scandalous!",
+    "event_text": "m_c was seen touching noses with a nomad. Scandalous!",
     "m_c": {
         "age": ["young adult", "adult", "senior adult", "senior"]
     },
     "new_cat": [
-      ["meeting", "loner", "exists"]
+      ["meeting", "nomad", "exists"]
     ],
     "relationships": [
       {
@@ -2566,7 +2566,7 @@
     }
   },
   {
-    "event_id": "multi_misc_any_scandalous_loner3",
+    "event_id": "multi_misc_any_scandalous_nomad3",
     "location": [
       "forest",
       "plains",
@@ -2575,12 +2575,12 @@
     ],
     "season": ["any"],
     "weight": 10,
-    "event_text": "m_c was seen talking calmly to a loner, before both cats went their separate ways.",
+    "event_text": "m_c was seen talking calmly to a nomad, before both cats went their separate ways.",
     "m_c": {
         "age": ["adolescent", "young adult", "adult", "senior adult", "senior"]
     },
     "new_cat": [
-      ["meeting", "loner", "exists"]
+      ["meeting", "nomad", "exists"]
     ],
     "relationships": [
       {
@@ -2883,12 +2883,12 @@
     "location": ["any"],
     "season": ["any"],
     "weight": 10,
-    "event_text": "m_c was seen talking with a traveling loner healer on the border.",
+    "event_text": "m_c was seen talking with a traveling nomad healer on the border.",
     "m_c":{
       "status": ["doctor"]
     },
     "new_cat": [
-      ["loner", "meeting", "backstory:wandering_healer2", "exists"]
+      ["nomad", "meeting", "backstory:wandering_healer2", "exists"]
     ],
     "relationships": [
       {

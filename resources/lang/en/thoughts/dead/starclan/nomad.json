@@ -1,5 +1,5 @@
 [{
-    "id": "general_loner_dead_thoughts",
+    "id": "general_nomad_dead_thoughts",
     "thoughts": [
         "Wonders how {PRONOUN/m_c/subject} ended up here",
         "Admires {PRONOUN/m_c/poss} starry fur",
@@ -7,6 +7,6 @@
         "Enjoys the warm sun against {PRONOUN/m_c/poss} back"
     ],
     "main_status_constraint": [
-        "loner"
+        "nomad"
     ]
 }]

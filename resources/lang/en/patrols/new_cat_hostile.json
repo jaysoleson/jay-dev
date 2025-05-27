@@ -19,7 +19,7 @@
                 "exp": 10,
                 "weight": 20,
                 "new_cat": [
-                    ["status:clipper", "loner"]
+                    ["status:clipper", "nomad"]
                 ],
                 "relationships": [
                     {
@@ -36,7 +36,7 @@
                 "exp": 10,
                 "weight": 5,
                 "new_cat": [
-                    ["age:has_kits", "loner"],
+                    ["age:has_kits", "nomad"],
                     ["litter", "parent:0", "status:kitten", "backstory:outsider_roots2"]
                 ],
                 "relationships": [
@@ -57,7 +57,7 @@
                 "weight": 20,
                 "outsider_rep": -1,
                 "new_cat": [
-                    ["meeting", "loner"]
+                    ["meeting", "nomad"]
                 ],
                 "relationships": [
                     {
@@ -77,7 +77,7 @@
                 "weight": 20,
                 "outsider_rep": -1,
                 "new_cat": [
-                    ["meeting", "loner"]
+                    ["meeting", "nomad"]
                 ],
                 "relationships": [
                     {
@@ -97,7 +97,7 @@
                 "weight": 20,
                 "outsider_rep": -2,
                 "new_cat": [
-                    ["loner", "meeting"]
+                    ["nomad", "meeting"]
                 ],
                 "relationships": [
                     {
@@ -131,7 +131,7 @@
                 "exp": 10,
                 "weight": 20,
                 "new_cat": [
-                    ["status:clipper", "loner"]
+                    ["status:clipper", "nomad"]
                 ],
                 "relationships": [
                     {
@@ -148,7 +148,7 @@
                 "exp": 10,
                 "weight": 5,
                 "new_cat": [
-                    ["age:has_kits", "loner"],
+                    ["age:has_kits", "nomad"],
                     ["litter", "parent:0", "status:kitten", "backstory:outsider_roots2"]
                 ],
                 "relationships": [
@@ -169,7 +169,7 @@
                 "weight": 20,
                 "outsider_rep": -1,
                 "new_cat": [
-                    ["meeting", "loner"]
+                    ["meeting", "nomad"]
                 ]
             }
         ],
@@ -180,7 +180,7 @@
                 "weight": 20,
                 "outsider_rep": -1,
                 "new_cat": [
-                    ["meeting", "loner"]
+                    ["meeting", "nomad"]
                 ],
                 "relationships": [
                     {
@@ -200,7 +200,7 @@
                 "weight": 20,
                 "outsider_rep": -2,
                 "new_cat": [
-                    ["loner", "meeting"]
+                    ["nomad", "meeting"]
                 ],
                 "relationships": [
                     {
@@ -362,7 +362,7 @@
                 "weight": 20,
                 "outsider_rep": -1,
                 "new_cat": [
-                    ["meeting", "loner"]
+                    ["meeting", "nomad"]
                 ]
             }
         ],
@@ -580,9 +580,9 @@
                 "exp": 20,
                 "weight": 5,
                 "new_cat": [
-                    ["female", "loner", "age:has_kits", "meeting"],
+                    ["female", "nomad", "age:has_kits", "meeting"],
                     ["litter", "parent:0", "status:newborn", "backstory:abandoned2"],
-                    ["age:newborn", "loner", "meeting", "parent:0"]
+                    ["age:newborn", "nomad", "meeting", "parent:0"]
                 ],
                 "relationships": [
                     {
@@ -669,7 +669,7 @@
                 "exp": 10,
                 "weight": 20,
                 "new_cat": [
-                    ["age:adult", "meeting", "backstory:loner3"]
+                    ["age:adult", "meeting", "backstory:nomad3"]
                 ],
                 "relationships": [
                     {
@@ -687,7 +687,7 @@
                 "exp": 10,
                 "weight": 20,
                 "new_cat": [
-                    ["age:mate", "meeting", "mate:p_l", "backstory:loner3"]
+                    ["age:mate", "meeting", "mate:p_l", "backstory:nomad3"]
                 ],
                 "relationships": [
                     {
@@ -712,7 +712,7 @@
                 "exp": 10,
                 "weight": 20,
                 "new_cat": [
-                    ["age:mate", "meeting", "mate:p_l", "backstory:loner3"]
+                    ["age:mate", "meeting", "mate:p_l", "backstory:nomad3"]
                 ],
                 "relationships": [
                     {
@@ -737,7 +737,7 @@
                 "exp": 10,
                 "weight": 20,
                 "new_cat": [
-                    ["age:mate", "mate:p_l", "backstory:loner4"]
+                    ["age:mate", "mate:p_l", "backstory:nomad4"]
                 ],
                 "relationships": [
                     {
@@ -771,7 +771,7 @@
                 "exp": 0,
                 "weight": 20,
                 "new_cat": [
-                    ["age:mate", "meeting", "mate:p_l", "backstory:loner3"]
+                    ["age:mate", "meeting", "mate:p_l", "backstory:nomad3"]
                 ],
                 "lost_cats": ["p_l"],
                 "relationships": [
@@ -797,7 +797,7 @@
                 "exp": 0,
                 "weight": 20,
                 "new_cat": [
-                    ["age:mate", "meeting", "mate:p_l", "backstory:loner3"]
+                    ["age:mate", "meeting", "mate:p_l", "backstory:nomad3"]
                 ],
                 "relationships": [
                     {
@@ -824,7 +824,7 @@
                 "exp": 10,
                 "weight": 20,
                 "new_cat": [
-                    ["age:mate", "meeting", "mate:p_l", "backstory:loner3"]
+                    ["age:mate", "meeting", "mate:p_l", "backstory:nomad3"]
                 ],
                 "relationships": [
                     {
@@ -851,7 +851,7 @@
                 "exp": 10,
                 "weight": 20,
                 "new_cat": [
-                    ["age:mate", "meeting", "mate:p_l", "backstory:loner3"]
+                    ["age:mate", "meeting", "mate:p_l", "backstory:nomad3"]
                 ],
                 "relationships": [
                     {
@@ -1021,7 +1021,7 @@
                 "exp": 10,
                 "weight": 20,
                 "new_cat": [
-                    ["status:doctor", "loner"]
+                    ["status:doctor", "nomad"]
                 ],
                 "relationships": [
                     {
@@ -1038,7 +1038,7 @@
                 "exp": 10,
                 "weight": 5,
                 "new_cat": [
-                    ["status:doctor", "age:has_kits", "loner"],
+                    ["status:doctor", "age:has_kits", "nomad"],
                     ["litter", "parent:0", "status:kitten", "backstory:outsider_roots2"]
                 ],
                 "relationships": [
@@ -1059,7 +1059,7 @@
                 "weight": 20,
                 "outsider_rep": 0,
                 "new_cat": [
-                    ["meeting", "loner"]
+                    ["meeting", "nomad"]
                 ]
             }
         ],
@@ -1070,7 +1070,7 @@
                 "weight": 20,
                 "outsider_rep": -1,
                 "new_cat": [
-                    ["meeting", "loner"]
+                    ["meeting", "nomad"]
                 ],
                 "relationships": [
                     {
@@ -1090,7 +1090,7 @@
                 "weight": 20,
                 "outsider_rep": -2,
                 "new_cat": [
-                    ["loner", "meeting"]
+                    ["nomad", "meeting"]
                 ],
                 "relationships": [
                     {
@@ -1124,7 +1124,7 @@
                 "exp": 10,
                 "weight": 20,
                 "new_cat": [
-                    ["status:doctor", "loner"]
+                    ["status:doctor", "nomad"]
                 ],
                 "relationships": [
                     {
@@ -1141,7 +1141,7 @@
                 "exp": 10,
                 "weight": 5,
                 "new_cat": [
-                    ["status:doctor", "age:has_kits", "loner"],
+                    ["status:doctor", "age:has_kits", "nomad"],
                     ["litter", "parent:0", "status:kitten", "backstory:outsider_roots2"]
                 ],
                 "relationships": [
@@ -1162,7 +1162,7 @@
                 "weight": 20,
                 "outsider_rep": 0,
                 "new_cat": [
-                    ["meeting", "loner"]
+                    ["meeting", "nomad"]
                 ]
             }
         ],
@@ -1173,7 +1173,7 @@
                 "weight": 20,
                 "outsider_rep": -1,
                 "new_cat": [
-                    ["meeting", "loner"]
+                    ["meeting", "nomad"]
                 ],
                 "relationships": [
                     {
@@ -1193,7 +1193,7 @@
                 "weight": 20,
                 "outsider_rep": -2,
                 "new_cat": [
-                    ["loner", "meeting"]
+                    ["nomad", "meeting"]
                 ],
                 "relationships": [
                     {
@@ -1208,12 +1208,12 @@
         ]
     },
     {
-        "patrol_id": "gen_bord_lonerchase2",
+        "patrol_id": "gen_bord_nomadchase2",
         "biome": ["any"],
         "season": ["any"],
         "types": ["border"],
         "tags": ["new_cat"],
-        "patrol_art": "gen_bord_lonerchase",
+        "patrol_art": "gen_bord_nomadchase",
         "min_cats": 3,
         "max_cats": 6,
         "min_max_status": {},
@@ -1227,7 +1227,7 @@
                 "exp": 10,
                 "weight": 20,
                 "new_cat": [
-                    ["loner"]
+                    ["nomad"]
                 ],
                 "relationships": [
                     {
@@ -1252,7 +1252,7 @@
                 "weight": 20,
                 "stat_skill": ["FIGHTER,1"],
                 "new_cat": [
-                    ["loner"]
+                    ["nomad"]
                 ],
                 "relationships": [
                     {
@@ -1279,18 +1279,18 @@
                 "weight": 20,
                 "outsider_rep": 0,
                 "new_cat": [
-                    ["meeting", "loner"]
+                    ["meeting", "nomad"]
                 ]
             }
         ],
         "antag_fail_outcomes": [
             {
-                "text": "The nomad escapes the dog by climbing a tree and scowls at the patrol, who stood by watching. The patrol leers back in return. baron1 doesn't owe loners anything.",
+                "text": "The nomad escapes the dog by climbing a tree and scowls at the patrol, who stood by watching. The patrol leers back in return. baron1 doesn't owe nomads anything.",
                 "exp": 0,
                 "weight": 20,
                 "outsider_rep": -1,
                 "new_cat": [
-                    ["loner", "meeting"]
+                    ["nomad", "meeting"]
                 ],
                 "relationships": [
                     {
@@ -1310,7 +1310,7 @@
                 "weight": 20,
                 "outsider_rep": -2,
                 "new_cat": [
-                    ["loner", "meeting"]
+                    ["nomad", "meeting"]
                 ],
                 "relationships": [
                     {
@@ -2146,7 +2146,7 @@
                 ]
             },
             {
-                "text": "StarClan, but the cat {PRONOUN/app1/subject} {VERB/app1/find/finds} is weird, {PRONOUN/n_c:0/poss} fur soft and thin, {PRONOUN/n_c:0/poss} cries desperate as {PRONOUN/n_c:0/subject} call in confusion. app1 watches until {PRONOUN/app1/poss} paws are cold and uncomfortable, crouched behind cover, but the dumb outsider doesn't even try to steal prey. {PRONOUN/n_c:0/subject/CAP} just {VERB/n_c:0/wail/wails} for help, quieter and quieter as {PRONOUN/n_c:0/subject} {VERB/n_c:0/begin/begins} to lose {PRONOUN/n_c:0/poss} voice. Finally, app1 can't take it anyone - striding out, {PRONOUN/app1/subject} {VERB/app1/tell/tells} the cat to follow {PRONOUN/app1/object}, baron1 will know what to do with this.",
+                "text": "Goodness, but the cat {PRONOUN/app1/subject} {VERB/app1/find/finds} is weird, {PRONOUN/n_c:0/poss} fur soft and thin, {PRONOUN/n_c:0/poss} cries desperate as {PRONOUN/n_c:0/subject} call in confusion. app1 watches until {PRONOUN/app1/poss} paws are cold and uncomfortable, crouched behind cover, but the dumb outsider doesn't even try to steal prey. {PRONOUN/n_c:0/subject/CAP} just {VERB/n_c:0/wail/wails} for help, quieter and quieter as {PRONOUN/n_c:0/subject} {VERB/n_c:0/begin/begins} to lose {PRONOUN/n_c:0/poss} voice. Finally, app1 can't take it anyone - striding out, {PRONOUN/app1/subject} {VERB/app1/tell/tells} the cat to follow {PRONOUN/app1/object}, baron1 will know what to do with this.",
                 "exp": 20,
                 "weight": 5,
                 "new_cat": [

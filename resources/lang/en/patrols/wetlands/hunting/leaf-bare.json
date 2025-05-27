@@ -143,7 +143,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "Together they manage a grand haul of one w_tp_dl_s, and not even a very big w_tp_dl_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for c_n.",
+                "text": "Together they manage a grand haul of one w_tp_dl_s, and not even a very big w_tp_dl_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for the b1_t.",
                 "exp": 0,
                 "weight": 20,
                 "prey": ["very_small"]
@@ -351,7 +351,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "Together they manage a grand haul of one w_tp_dl_s, and not even a very big w_tp_dl_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for c_n.",
+                "text": "Together they manage a grand haul of one w_tp_dl_s, and not even a very big w_tp_dl_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for the b1_t.",
                 "exp": 0,
                 "weight": 20,
                 "prey": ["very_small"]
@@ -559,7 +559,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "Together they manage a grand haul of one w_tp_dl_s, and not even a very big w_tp_dl_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for c_n.",
+                "text": "Together they manage a grand haul of one w_tp_dl_s, and not even a very big w_tp_dl_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for the b1_t.",
                 "exp": 0,
                 "weight": 20,
                 "prey": ["very_small"]
@@ -767,7 +767,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "Together they manage a grand haul of one w_tp_dl_s, and not even a very big w_tp_dl_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for c_n.",
+                "text": "Together they manage a grand haul of one w_tp_dl_s, and not even a very big w_tp_dl_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for the b1_t.",
                 "exp": 0,
                 "weight": 20,
                 "prey": ["very_small"]
@@ -973,7 +973,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "Together they manage a grand haul of one w_tp_dl_s, and not even a very big w_tp_dl_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for c_n.",
+                "text": "Together they manage a grand haul of one w_tp_dl_s, and not even a very big w_tp_dl_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for the b1_t.",
                 "exp": 0,
                 "weight": 20,
                 "prey": ["very_small"]
@@ -1688,7 +1688,7 @@
                 ]
             },
             {
-                "text": "r_c always feels like {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} padding in p_l's footsteps, especially today, watching {PRONOUN/p_l/object} haul back a good catch of prey for the Clan, a contribution that just about makes up for r_c's meager offerings.",
+                "text": "r_c always feels like {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} padding in p_l's footsteps, especially today, watching {PRONOUN/p_l/object} haul back a good catch of prey for the b1_t, a contribution that just about makes up for r_c's meager offerings.",
                 "exp": 20,
                 "weight": 5,
                 "prey": ["medium"],
@@ -2127,7 +2127,7 @@
                 ]
             },
             {
-                "text": "r_c always feels like {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} padding in p_l's footsteps, especially today, watching {PRONOUN/p_l/object} haul back a good catch of prey for the Clan, a contribution that just about makes up for r_c's meager offerings.",
+                "text": "r_c always feels like {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} padding in p_l's footsteps, especially today, watching {PRONOUN/p_l/object} haul back a good catch of prey for the b1_t, a contribution that just about makes up for r_c's meager offerings.",
                 "exp": 20,
                 "weight": 5,
                 "prey": ["medium"],
@@ -2269,7 +2269,7 @@
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "Despite the snow, the patrol manages to hunt successfully, finding the swamp still busy with birds oblivious to leaf-bare. With the wetlands to provide there's more than enough to bring a good haul back to c_n, and as p_l leads them home there's a sense of security and competence driving them onwards.",
+                "text": "Despite the snow, the patrol manages to hunt successfully, finding the swamp still busy with birds oblivious to leaf-bare. With the wetlands to provide there's more than enough to bring a good haul back to camp, and as p_l leads them home there's a sense of security and competence driving them onwards.",
                 "exp": 10,
                 "weight": 20,
                 "prey": ["small"],
@@ -2300,7 +2300,7 @@
                 ]
             },
             {
-                "text": "s_c really keeps the patrol on task and motivated through the sharp cold of the leaf-bare morning, not through authority or commands, but with a gentle voice and compassionate understanding that encourages every cat to do their best for c_n.",
+                "text": "s_c really keeps the patrol on task and motivated through the sharp cold of the leaf-bare morning, not through authority or commands, but with a gentle voice and compassionate understanding that encourages every cat to do their best for the b1_t.",
                 "exp": 10,
                 "weight": 20,
                 "stat_trait": ["compassionate", "faithful", "loving"],
@@ -2557,7 +2557,7 @@
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "r_c smaller, alone, and half its weight, but the fox has a prize {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} willing to fight for. With a prayer to StarClan, {PRONOUN/r_c/subject} {VERB/r_c/throw/throws} {PRONOUN/r_c/self} into battle. The fox, already on the lookout for other predators and unwilling to lose blood over it, leaves the kill with a grumble.",
+                "text": "r_c smaller, alone, and half its weight, but the fox has a prize {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} willing to fight for. With a quick prayer, {PRONOUN/r_c/subject} {VERB/r_c/throw/throws} {PRONOUN/r_c/self} into battle. The fox, already on the lookout for other predators and unwilling to lose blood over it, leaves the kill with a grumble.",
                 "exp": 10,
                 "weight": 20,
                 "prey": ["medium"]
@@ -2956,7 +2956,7 @@
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "r_c smaller, alone, and half its weight, but the fox has a prize {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} willing to fight for. With a prayer to StarClan, {PRONOUN/r_c/subject} {VERB/r_c/throw/throws} {PRONOUN/r_c/self} into battle. The fox, already on the lookout for other predators and unwilling to lose blood over it, leaves the kill with a grumble.",
+                "text": "r_c smaller, alone, and half its weight, but the fox has a prize {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} willing to fight for. With a quick prayer, {PRONOUN/r_c/subject} {VERB/r_c/throw/throws} {PRONOUN/r_c/self} into battle. The fox, already on the lookout for other predators and unwilling to lose blood over it, leaves the kill with a grumble.",
                 "exp": 10,
                 "weight": 20,
                 "prey": ["medium"]

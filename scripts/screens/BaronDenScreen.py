@@ -471,7 +471,7 @@ class BaronDenScreen(Screens):
             self.other_clan_selection_elements[
                 f"clan_symbol{i}"
             ] = pygame_gui.elements.UIImage(
-                ui_scale(pygame.Rect((0, -30), (50, 50))),
+                ui_scale(pygame.Rect((0, -50), (50, 50))),
                 clan_symbol_sprite(other_clan),
                 object_id=f"#clan_symbol{i}",
                 starting_height=1,
@@ -481,16 +481,31 @@ class BaronDenScreen(Screens):
             )
 
             self.other_clan_selection_elements[
-                f"clan_name{i}"
-            ] = pygame_gui.elements.UILabel(
-                ui_scale(pygame.Rect((0, 20), (133, -1))),
-                text=other_clan.territory_type.capitalize(),
+                f"baron_name{i}"
+            ] = pygame_gui.elements.UITextBox(
+                relative_rect=ui_scale(pygame.Rect((0, 1), (133, -1))),
+                html_text=(
+                f"<font color='{get_baron_colour(Cat.fetch_cat(other_clan.baron).ID)}'>{str(Cat.fetch_cat(other_clan.baron).name)}</font>"
+                ),
                 object_id=get_text_box_theme("#text_box_30_horizcenter"),
                 container=self.other_clan_selection_elements[f"container{i}"],
                 manager=MANAGER,
                 anchors={
                     "centerx": "centerx",
                     "top_target": self.other_clan_selection_elements[f"clan_symbol{i}"],
+                },
+            )
+            self.other_clan_selection_elements[
+                f"territory_type{i}"
+            ] = pygame_gui.elements.UILabel(
+                ui_scale(pygame.Rect((0, 5), (133, -1))),
+                text=other_clan.territory_type.capitalize() + " Territory",
+                object_id=get_text_box_theme("#text_box_26_horizcenter"),
+                container=self.other_clan_selection_elements[f"container{i}"],
+                manager=MANAGER,
+                anchors={
+                    "centerx": "centerx",
+                    "top_target": self.other_clan_selection_elements[f"baron_name{i}"],
                 },
             )
             self.other_clan_selection_elements[
@@ -503,7 +518,7 @@ class BaronDenScreen(Screens):
                 manager=MANAGER,
                 anchors={
                     "centerx": "centerx",
-                    "top_target": self.other_clan_selection_elements[f"clan_name{i}"],
+                    "top_target": self.other_clan_selection_elements[f"territory_type{i}"],
                 },
             )
             self.other_clan_selection_elements[
@@ -1035,7 +1050,7 @@ class BaronDenScreen(Screens):
             self.focus_cat.outside
             and not self.focus_cat.exiled
             and self.focus_cat.status
-            not in ("kittypet", "loner", "rogue", "former Clancat")
+            not in ("kittypet", "nomad", "rogue", "former Clancat")
         ):
             self.focus_button["invite"].set_text("screens.baron_den.search")
         else:
@@ -1092,7 +1107,7 @@ class BaronDenScreen(Screens):
             i
             for i in Cat.all_cats.values()
             if i.outside and not i.dead and not i.driven_out and i.status in [
-                "loner", "rogue", "kittypet", "former Clancat", "exiled", "nomad"
+                "nomad", "rogue", "kittypet", "former Clancat", "exiled", "nomad"
                 ]
         ]
 

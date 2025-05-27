@@ -32,7 +32,7 @@ All biomes are different from each other and this should be taken into account w
 - **Seasonality** refers to how strongly the seasons affect the biome. 
 - **Hazardous** refers to the overall amount of danger (both in terms of environment and hostile creatures) the biome contains. 
 - **Herb availability** refers to how easy it is to gather herbs. 
-- **Difficulty of interactions** with cats outside the clan refers to both how frequent and how dangerous interactions with rogues and loners are. 
+- **Difficulty of interactions** with cats outside the clan refers to both how frequent and how dangerous interactions with rogues and nomads are. 
 - **Amount of Twolegs interactions** refers to how often Twolegs are seen in that biome and affect the Clan cats. 
 
 #### Beach
@@ -287,7 +287,7 @@ When in doubt, please ask for feedback! We have multiple disabled contributors o
 
 ## Name Guidelines
 !!! todo "TODO"
-    rules regarding what is or isn't allowed in warrior names, approval processes, and loner/kittypet names
+    rules regarding what is or isn't allowed in warrior names, approval processes, and nomad/kittypet names
 
 ## Common Errors
 _by summoner (clownthoughts)_

@@ -156,7 +156,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "During the Conclave, m_c assures baron2 that {PRONOUN/baron2/poss} Clans would be well-matched in battle. baron2 stares at m_c warily, unsure if {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} threatening {PRONOUN/baron2/object}.",
+    "event_text": "During the Conclave, m_c assures baron2 that {PRONOUN/baron2/poss} armies would be well-matched in battle. baron2 stares at m_c warily, unsure if {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} threatening {PRONOUN/baron2/object}.",
     "rel_change": 0,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -230,7 +230,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "At the Conclave, baron2 sorrowfully announces the death of a Clanmate. m_c reminds them to chin up, they'll see the Clanmate again in StarClan someday! baron2 doesn't take this well.",
+    "event_text": "At the Conclave, baron2 sorrowfully announces the death of a close advisor. m_c reminds {PRONOUN/baron/object} to chin up, {PRONOUN/baron/subject}'ll see them again in the afterlife someday! baron2 doesn't take this well.",
     "rel_change": -2,
     "m_c": {
       "skill": ["STAR,1"],
@@ -249,7 +249,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "At the Conclave, m_c compliments baron2 on how wibblish-wobblish and crungly {PRONOUN/baron2/poss} Clan seems these days. baron2's eyes narrow in suspicion. Is m_c making fun of {PRONOUN/baron2/object}?",
+    "event_text": "At the Conclave, m_c compliments baron2 on how wibblish-wobblish and crungly {PRONOUN/baron2/poss} cats seem these days. baron2's eyes narrow in suspicion. Is m_c making fun of {PRONOUN/baron2/object}?",
     "rel_change": -1,
     "m_c": {
       "trait": ["strange"]
@@ -322,7 +322,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "Terrible weather convinces m_c to skip this Conclave. Any praising of baron2 can wait until the sky isn't caving in on c_n.",
+    "event_text": "Terrible weather convinces m_c to skip this Conclave. Any praising of baron2 can wait until the sky isn't caving in.",
     "rel_change": 0,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -338,7 +338,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "When m_c reaches the meeting place with {PRONOUN/m_c/poss} Conclave patrol, {PRONOUN/m_c/subject} {VERB/m_c/discover/discovers} baron2 isn't present. Rumors on the border tell of a greencough outbreak. m_c worries about the Clan's ally, especially when {PRONOUN/m_c/subject}{VERB/m_c/'ve/'s} missed this chance to strengthen the relationship.",
+    "event_text": "When m_c reaches the meeting place with {PRONOUN/m_c/poss} Conclave patrol, {PRONOUN/m_c/subject} {VERB/m_c/discover/discovers} baron2 isn't present. Rumors on the border tell of a greencough outbreak. m_c worries about {PRONOUN/m_c/poss} ally, especially when {PRONOUN/m_c/subject}{VERB/m_c/'ve/'s} missed this chance to strengthen the relationship.",
     "rel_change": 0,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -543,7 +543,7 @@
   },
   {
     "interaction_type": "provoke",
-    "event_text": "Terrible weather convinces m_c to skip this Conclave. Any provocation of baron2 can wait until the sky isn't caving in on c_n.",
+    "event_text": "Terrible weather convinces m_c to skip this Conclave. Any provocation of baron2 can wait until the sky isn't caving in.",
     "rel_change": 0,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -674,7 +674,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "The night before the Conclave, one of m_c's friends visits {PRONOUN/m_c/object} from StarClan and gives {PRONOUN/m_c/object} a pep talk for befriending baron2 at the Conclave. Despite it, when the time comes, m_c is too shy to say anything.",
+    "event_text": "The night before the Conclave, one of m_c's deceased friends visits {PRONOUN/m_c/object} from the afterlife and gives {PRONOUN/m_c/object} a pep talk for befriending baron2 at the Conclave. Despite it, when the time comes, m_c is too shy to say anything.",
     "rel_change": 0,
     "m_c": {
       "trait": [ "lonesome", "nervous" ],
@@ -801,7 +801,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "At the Conclave, baron2 struggles through a report that an entire litter of b2_t kits were wiped out by kitten-cough. m_c draws {PRONOUN/baron2/object} aside after and reassures {PRONOUN/baron2/object} that the kittens are playing moss-ball together in StarClan. baron2 hisses that this means nothing to the grieving parents.",
+    "event_text": "At the Conclave, baron2 struggles through a report that an entire litter of b2_t kits were wiped out by kitten-cough. m_c draws {PRONOUN/baron2/object} aside after and reassures {PRONOUN/baron2/object} that the kittens are playing moss-ball together in the afterlife. baron2 hisses that this means nothing to the grieving parents.",
     "rel_change": -5,
     "m_c": {
       "skill": [ "KIT,3", "STAR,2"],
@@ -872,7 +872,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "Terrible weather convinces m_c to skip this Conclave. Any befriending of baron2 can wait until the sky isn't caving in on c_n.",
+    "event_text": "Terrible weather convinces m_c to skip this Conclave. Any befriending of baron2 can wait until the sky isn't caving in.",
     "rel_change": 0,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -888,7 +888,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "When m_c reaches the meeting place with {PRONOUN/m_c/poss} Conclave patrol, {PRONOUN/m_c/subject} {VERB/m_c/discover/discovers} baron2 isn't present. Rumors on the border tell of a greencough outbreak. There goes c_n's chance to make an ally...",
+    "event_text": "When m_c reaches the meeting place with {PRONOUN/m_c/poss} Conclave patrol, {PRONOUN/m_c/subject} {VERB/m_c/discover/discovers} baron2 isn't present. Rumors on the border tell of a greencough outbreak. There goes m_c's chance to make an ally...",
     "rel_change": 0,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -1050,7 +1050,7 @@
   },
   {
     "interaction_type": "antagonize",
-    "event_text": "At the Conclave, m_c fabricates an accusation of b2_t cogs stealing prey from the b1_t. baron2 is more baffled than anything - with all the bad blood between their Clans, why did m_c feel the need to invent slights?",
+    "event_text": "At the Conclave, m_c fabricates an accusation of b2_t cogs stealing prey from the b1_t. baron2 is more baffled than anything - with all the bad blood between them, why did m_c feel the need to invent slights?",
     "rel_change": 0,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -1066,7 +1066,7 @@
   },
   {
     "interaction_type": "antagonize",
-    "event_text": "Terrible weather convinces m_c to skip this Conclave. Any antagonizing of baron2 can wait until the sky isn't caving in on c_n.",
+    "event_text": "Terrible weather convinces m_c to skip this Conclave. Any antagonizing of baron2 can wait until the sky isn't caving in.",
     "rel_change": 0,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -1090,7 +1090,7 @@
   },
   {
     "interaction_type": "antagonize",
-    "event_text": "No matter how much m_c berates and disrespects baron2, it seems Clan relations just can't get worse at the moment...",
+    "event_text": "No matter how much m_c berates and disrespects baron2, it seems relations just can't get worse at the moment...",
     "rel_change": 0,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -1149,7 +1149,7 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "Terrible weather convinces m_c to skip this Conclave. Any appeasement of baron2 can wait until the sky isn't caving in on c_n.",
+    "event_text": "Terrible weather convinces m_c to skip this Conclave. Any appeasement of baron2 can wait until the sky isn't caving in.",
     "rel_change": 0,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -1241,7 +1241,7 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "Before the Conclave, m_c receives an omen - omen_list_sight/m_c. When {PRONOUN/m_c/subject} {VERB/m_c/bring/brings} it up at the Conclave to try to convince baron2 of StarClan's desire for peace, baron2 just talks over {PRONOUN/m_c/object}.",
+    "event_text": "Before the Conclave, m_c receives an omen - omen_list_sight/m_c. When {PRONOUN/m_c/subject} {VERB/m_c/bring/brings} it up at the Conclave to try to convince baron2 of the Gods' desire for peace, baron2 just talks over {PRONOUN/m_c/object}.",
     "rel_change": -1,
     "m_c": {
         "skill": [ "OMEN,1" ],
@@ -1329,7 +1329,7 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "baron2 stares down at m_c and regards {PRONOUN/m_c/poss} stuttered words skeptically, eventually turning away. {PRONOUN/baron2/poss/CAP} dismissal is harsh, but {PRONOUN/baron2/subject} at least {VERB/baron2/seem/seems} content to just ignore c_n.",
+    "event_text": "baron2 stares down at m_c and regards {PRONOUN/m_c/poss} stuttered words skeptically, eventually turning away. {PRONOUN/baron2/poss/CAP} dismissal is harsh, but {PRONOUN/baron2/subject} at least {VERB/baron2/seem/seems} content to just ignore m_c.",
     "rel_change": 0,
     "m_c": {
       "status": ["colt", "apprentice doctor"],
@@ -1382,7 +1382,7 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "On the way to the Conclave, m_c spots a patch of greenish-yellow mushrooms and assumes this must be a sign of StarClan favoring the b1_t. {PRONOUN/m_c/subject/CAP} {VERB/m_c/greet/greets} baron2 by confidently accepting {PRONOUN/baron2/poss} surrender in the ongoing hostilities; baron2 snarls in {PRONOUN/m_c/poss} face. Maybe they were just normal mushrooms, then.",
+    "event_text": "On the way to the Conclave, m_c spots a patch of greenish-yellow mushrooms and assumes this must be a sign of the Gods favoring the b1_t. {PRONOUN/m_c/subject/CAP} {VERB/m_c/greet/greets} baron2 by confidently accepting {PRONOUN/baron2/poss} surrender in the ongoing hostilities; baron2 snarls in {PRONOUN/m_c/poss} face. Maybe they were just normal mushrooms, then.",
     "rel_change": -5,
     "m_c": {
       "trait": ["arrogant"],
@@ -1434,7 +1434,7 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "At the Conclave, m_c reveals to baron2 that one of the {PRONOUN/baron2/poss} Clippers who died in a recent conflict came to m_c and spoke to {PRONOUN/m_c/object} about peace. baron2 is furious m_c would presume to speak for one of {PRONOUN/baron2/poss} dead Clanmates.",
+    "event_text": "At the Conclave, m_c reveals to baron2 that one of the {PRONOUN/baron2/poss} Clippers who died in a recent conflict came to m_c and spoke to {PRONOUN/m_c/object} about peace. baron2 is furious m_c would presume to speak for one of {PRONOUN/baron2/poss} dead cats.",
     "rel_change": -5,
     "m_c": {
       "skill": ["GHOST,3"]
@@ -1444,7 +1444,7 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "m_c has heard plenty of StarClan's words and reckons {PRONOUN/m_c/subject} can come up with something similar to hurry along the peace process. Upon delivering {PRONOUN/m_c/poss} \"prophecy\" at the Conclave, baron2 scoffs; {VERB/baron2/are/is} {PRONOUN/baron2/subject} really expected to believe <i>that</i> thistledown?",
+    "event_text": "m_c has heard plenty of words from beyond and reckons {PRONOUN/m_c/subject} can come up with something similar to hurry along the peace process. Upon delivering {PRONOUN/m_c/poss} \"prophecy\" at the Conclave, baron2 scoffs; {VERB/baron2/are/is} {PRONOUN/baron2/subject} really expected to believe <i>that</i> thistledown?",
     "rel_change": -5,
     "m_c": {
       "skill": ["PROPHET,1"],

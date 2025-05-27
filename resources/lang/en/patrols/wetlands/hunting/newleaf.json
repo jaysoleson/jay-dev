@@ -143,7 +143,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "Together they manage a grand haul of one w_tp_dl_s, and not even a very big w_tp_dl_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for c_n.",
+                "text": "Together they manage a grand haul of one w_tp_dl_s, and not even a very big w_tp_dl_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for the b1_t.",
                 "exp": 0,
                 "weight": 20,
                 "prey": ["very_small"]
@@ -351,7 +351,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "Together they manage a grand haul of one w_tp_dl_s, and not even a very big w_tp_dl_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for c_n.",
+                "text": "Together they manage a grand haul of one w_tp_dl_s, and not even a very big w_tp_dl_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for the b1_t.",
                 "exp": 0,
                 "weight": 20,
                 "prey": ["very_small"]
@@ -559,7 +559,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "Together they manage a grand haul of one w_tp_dl_s, and not even a very big w_tp_dl_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for c_n.",
+                "text": "Together they manage a grand haul of one w_tp_dl_s, and not even a very big w_tp_dl_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for the b1_t.",
                 "exp": 0,
                 "weight": 20,
                 "prey": ["very_small"]
@@ -767,7 +767,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "Together they manage a grand haul of one w_tp_dl_s, and not even a very big w_tp_dl_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for c_n.",
+                "text": "Together they manage a grand haul of one w_tp_dl_s, and not even a very big w_tp_dl_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for the b1_t.",
                 "exp": 0,
                 "weight": 20,
                 "prey": ["very_small"]
@@ -973,7 +973,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "Together they manage a grand haul of one w_tp_dl_s, and not even a very big w_tp_dl_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for c_n.",
+                "text": "Together they manage a grand haul of one w_tp_dl_s, and not even a very big w_tp_dl_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for the b1_t.",
                 "exp": 0,
                 "weight": 20,
                 "prey": ["very_small"]
@@ -1665,7 +1665,7 @@
                 ]
             },
             {
-                "text": "r_c always feels like {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} padding in p_l's footsteps, especially today, watching {PRONOUN/p_l/object} haul back such a good catch of prey for the Clan, a contribution that more than makes up for r_c's meager offerings.",
+                "text": "r_c always feels like {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} padding in p_l's footsteps, especially today, watching {PRONOUN/p_l/object} haul back such a good catch of prey for the b1_t, a contribution that more than makes up for r_c's meager offerings.",
                 "exp": 20,
                 "weight": 5,
                 "prey": ["medium"],
@@ -2081,7 +2081,7 @@
                 ]
             },
             {
-                "text": "r_c always feels like {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} padding in p_l's footsteps, especially today, watching {PRONOUN/p_l/object} haul back such a good catch of prey for the Clan, a contribution that more than makes up for r_c's meager offerings.",
+                "text": "r_c always feels like {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} padding in p_l's footsteps, especially today, watching {PRONOUN/p_l/object} haul back such a good catch of prey for the b1_t, a contribution that more than makes up for r_c's meager offerings.",
                 "exp": 20,
                 "weight": 5,
                 "prey": ["medium"],
@@ -2223,7 +2223,7 @@
         "chance_of_success": 30,
         "success_outcomes": [
             {
-                "text": "The red vixen smells of milk, and hopefully by driving her out of the territory, her litter this newleaf won't be a threat to the Clan. If they don't starve, c_n will hunt them down - they do not share territory with foxes.",
+                "text": "The red vixen smells of milk, and hopefully by driving her out of the territory, her litter this newleaf won't be a threat to the Barony. If they don't starve, b1_t Clippers will hunt them down - they do not share territory with foxes.",
                 "exp": 30,
                 "weight": 20,
                 "relationships": [
@@ -2251,7 +2251,7 @@
                 ]
             },
             {
-                "text": "s_c displays incredible skill, driving the mother vixen out of the territory almost by {PRONOUN/s_c/self}. Now neither the red fox nor her cubs pose a threat to the Clan. It truly proves s_c's place as one of c_n's most talented and skillful fighters.",
+                "text": "s_c displays incredible skill, driving the mother vixen out of the territory almost by {PRONOUN/s_c/self}. Now neither the red fox nor her cubs pose a threat to the Barony. It truly proves s_c's place as one of baron1's most talented and skillful fighters.",
                 "exp": 30,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,3"],
@@ -2266,7 +2266,7 @@
                 ]
             },
             {
-                "text": "The patrol overcomes the red vixen and drives her off thanks to a brilliant battle move by s_c at a critical moment. {PRONOUN/s_c/poss/CAP} bravery ensures the patrol's success, and the cats arrive back at camp singing {PRONOUN/s_c/poss} praises to make sure the Clan knows it.",
+                "text": "The patrol overcomes the red vixen and drives her off thanks to a brilliant battle move by s_c at a critical moment. {PRONOUN/s_c/poss/CAP} bravery ensures the patrol's success, and the cats arrive back at camp singing {PRONOUN/s_c/poss} praises to make sure every cat knows it.",
                 "exp": 30,
                 "weight": 20,
                 "stat_trait": [
@@ -2295,7 +2295,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "The mother red fox is vicious and determined, and the small patrol is beaten back. But these swampy woodlands are c_n's and they haven't given up. They may have lost this battle, but c_n will win this war.",
+                "text": "The mother red fox is vicious and determined, and the small patrol is beaten back. But these swampy woodlands are c_n's and they haven't given up. They may have lost this battle, but the b1_t will win this war.",
                 "exp": 0,
                 "weight": 20,
                 "relationships": [
@@ -2414,7 +2414,7 @@
         "chance_of_success": 10,
         "success_outcomes": [
             {
-                "text": "Led by p_l, and with a heap of cooperation and teamwork, the patrol drives away the red fox, seeks out her den, and kills her young cubs. The swamps will be safe from both the threat the vixen posed this season, and the threat her cubs would've posed to c_n in the seasons to come.",
+                "text": "Led by p_l, and with a heap of cooperation and teamwork, the patrol drives away the red fox, seeks out her den, and kills her young cubs. The swamps will be safe from both the threat the vixen posed this season, and the threat her cubs would've posed to the b1_t in the seasons to come.",
                 "exp": 30,
                 "weight": 20,
                 "relationships": [
@@ -2428,7 +2428,7 @@
                 ]
             },
             {
-                "text": "With so many cats working together in tight coordination, they manage to accomplish the near-impossible, killing the red mother vixen and ending the threat to the Clan that she and her cubs pose.",
+                "text": "With so many cats working together in tight coordination, they manage to accomplish the near-impossible, killing the red mother vixen and ending the threat to the Barony that she and her cubs pose.",
                 "exp": 30,
                 "weight": 5,
                 "relationships": [
@@ -2442,7 +2442,7 @@
                 ]
             },
             {
-                "text": "s_c displays incredible skill, driving the mother vixen out of the territory almost by {PRONOUN/s_c/self}. Now neither the red fox nor her dependent cubs pose a threat to the Clan. It truly proves s_c's place as one of c_n's most talented and skillful fighters.",
+                "text": "s_c displays incredible skill, driving the mother vixen out of the territory almost by {PRONOUN/s_c/self}. Now neither the red fox nor her dependent cubs pose a threat to the Barony. It truly proves s_c's place as one of baron1's most talented and skillful fighters.",
                 "exp": 30,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,3"],
@@ -2457,7 +2457,7 @@
                 ]
             },
             {
-                "text": "The patrol overcomes the red vixen and drives her off thanks to a brilliant battle move by s_c at a critical moment. {PRONOUN/s_c/poss/CAP} bravery ensures the patrol's success, and the cats arrive back at camp singing {PRONOUN/s_c/poss} praises to make sure the Clan knows it.",
+                "text": "The patrol overcomes the red vixen and drives her off thanks to a brilliant battle move by s_c at a critical moment. {PRONOUN/s_c/poss/CAP} bravery ensures the patrol's success, and the cats arrive back at camp singing {PRONOUN/s_c/poss} praises to make sure every cat knows it.",
                 "exp": 30,
                 "weight": 20,
                 "stat_trait": [
@@ -2577,7 +2577,7 @@
         "chance_of_success": 20,
         "success_outcomes": [
             {
-                "text": "The red vixen smells of milk, and hopefully by driving her out of the territory, her litter this newleaf won't be a threat to the Clan. If they don't starve, c_n will hunt them down - they do not share territory with foxes.",
+                "text": "The red vixen smells of milk, and hopefully by driving her out of the territory, her litter this newleaf won't be a threat to the Barony. If they don't starve, b1_t Clippers will hunt them down - they do not share territory with foxes.",
                 "exp": 50,
                 "weight": 20,
                 "relationships": [
@@ -2591,7 +2591,7 @@
                 ]
             },
             {
-                "text": "s_c displays incredible skill, driving the mother vixen and her brood out of c_n's swamps all by themselves. Now neither the red fox nor her dependent cubs pose a threat to the Clan. {PRONOUN/s_c/subject/CAP} {VERB/s_c/swell/swells} with pride, feeling the confidence of knowing that {PRONOUN/s_c/subject}{VERB/s_c/'re/'s} truly one of the best fighters c_n has ever produced.",
+                "text": "s_c displays incredible skill, driving the mother vixen and her brood out of c_n's swamps all by themselves. Now neither the red fox nor her dependent cubs pose a threat to the Barony. {PRONOUN/s_c/subject/CAP} {VERB/s_c/swell/swells} with pride, feeling the confidence of knowing that {PRONOUN/s_c/subject}{VERB/s_c/'re/'s} truly one of the best fighters baron1 has ever produced.",
                 "exp": 50,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,3"],
@@ -2606,7 +2606,7 @@
                 ]
             },
             {
-                "text": "A brilliant battle move by s_c knocks the red vixen off balance, and s_c manages to drive her out of c_n territory, though it takes every spark of strength in {PRONOUN/s_c/poss} body to do it alone.",
+                "text": "A brilliant battle move by s_c knocks the red vixen off balance, and s_c manages to drive her out of baron1's territory, though it takes every spark of strength in {PRONOUN/s_c/poss} body to do it alone.",
                 "exp": 50,
                 "weight": 20,
                 "stat_trait": [
@@ -2725,7 +2725,7 @@
         "chance_of_success": 60,
         "success_outcomes": [
             {
-                "text": "The stocky gray vixen they track down smells of milk, and though she's nearly double the weight of any of the patrol and all of it muscle, they meet her eyes squarely, and leap to attack. c_n does not tolerate sharing their territory with foxes, and they work together to drive her off.",
+                "text": "The stocky gray vixen they track down smells of milk, and though she's nearly double the weight of any of the patrol and all of it muscle, they meet her eyes squarely, and leap to attack. baron1 does not tolerate sharing their territory with foxes, and the patrol works together to drive her off.",
                 "exp": 30,
                 "weight": 20,
                 "relationships": [
@@ -2753,7 +2753,7 @@
                 ]
             },
             {
-                "text": "s_c displays incredible skill, driving the mother vixen out of the territory almost by {PRONOUN/s_c/self}. Now neither the gray fox nor her cubs pose a threat to the Clan. It places s_c as one of c_n's most talented and skillful fighters - a gray fox is a dangerous competitor.",
+                "text": "s_c displays incredible skill, driving the mother vixen out of the territory almost by {PRONOUN/s_c/self}. Now neither the gray fox nor her cubs pose a threat to the Barony. It places s_c as one of baron1's most talented and skillful fighters - a gray fox is a dangerous competitor.",
                 "exp": 30,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,3"],
@@ -2888,7 +2888,7 @@
         "chance_of_success": 30,
         "success_outcomes": [
             {
-                "text": "The stocky gray vixen they track down smells of milk, and though she's nearly double the weight of any of the patrol and all of it muscle, they meet her eyes squarely, and leap to attack. c_n does not tolerate sharing their territory with foxes, and they work together to drive her off.",
+                "text": "The stocky gray vixen they track down smells of milk, and though she's nearly double the weight of any of the patrol and all of it muscle, they meet her eyes squarely, and leap to attack. baron1 does not tolerate sharing their territory with foxes, and the patrol works together to drive her off.",
                 "exp": 30,
                 "weight": 20,
                 "relationships": [
@@ -2916,7 +2916,7 @@
                 ]
             },
             {
-                "text": "s_c displays incredible skill, driving the mother vixen out of the territory almost by {PRONOUN/s_c/self}. Now neither the gray fox nor her cubs pose a threat to the Clan. It places s_c as one of c_n's most talented and skillful fighters - a gray fox is a dangerous competitor.",
+                "text": "s_c displays incredible skill, driving the mother vixen out of the territory almost by {PRONOUN/s_c/self}. Now neither the gray fox nor her cubs pose a threat to the Barony. It places s_c as one of baron1's most talented and skillful fighters - a gray fox is a dangerous competitor.",
                 "exp": 30,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,3"],
@@ -3051,7 +3051,7 @@
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "The stocky gray vixen they track down smells of milk, and though she's near double r_c's weight and all of it muscle, they meet her eyes squarely, and leap to attack. c_n does not tolerate sharing their territory with foxes.",
+                "text": "The stocky gray vixen they track down smells of milk, and though she's near double r_c's weight and all of it muscle, they meet her eyes squarely, and leap to attack. baron1 does not tolerate sharing their territory with foxes.",
                 "exp": 50,
                 "weight": 20,
                 "relationships": [
@@ -3065,7 +3065,7 @@
                 ]
             },
             {
-                "text": "s_c displays incredible skill, driving the mother vixen and her brood out of c_n's swamps all by themselves. Now neither the gray fox nor her dependent cubs pose a threat to the Clan. {PRONOUN/s_c/subject/CAP} {VERB/s_c/swell/swells} with pride, returning to camp knowing there's one less competitor poaching c_n's prey.",
+                "text": "s_c displays incredible skill, driving the mother vixen and her brood out of c_n's swamps all by themselves. Now neither the gray fox nor her dependent cubs pose a threat to the Barony. {PRONOUN/s_c/subject/CAP} {VERB/s_c/swell/swells} with pride, returning to camp knowing there's one less competitor poaching baron1's prey.",
                 "exp": 50,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,3"],
@@ -3432,7 +3432,7 @@
         "chance_of_success": 30,
         "success_outcomes": [
             {
-                "text": "The red vixen smells of milk, and hopefully by driving her out of the territory, her litter this newleaf won't be a threat to the Clan. If they don't starve, c_n will hunt them down - they do not share territory with foxes.",
+                "text": "The red vixen smells of milk, and hopefully by driving her out of the territory, her litter this newleaf won't be a threat to the Barony. If they don't starve, b1_t Clippers will hunt them down - they do not share territory with foxes.",
                 "exp": 30,
                 "weight": 20,
                 "relationships": [
@@ -3460,7 +3460,7 @@
                 ]
             },
             {
-                "text": "s_c displays incredible skill, driving the mother vixen out of the territory almost by {PRONOUN/s_c/self}. Now neither the red fox nor her cubs pose a threat to the Clan. It truly proves s_c's place as one of c_n's most talented and skillful fighters.",
+                "text": "s_c displays incredible skill, driving the mother vixen out of the territory almost by {PRONOUN/s_c/self}. Now neither the red fox nor her cubs pose a threat to the Barony. It truly proves s_c's place as one of baron1's most talented and skillful fighters.",
                 "exp": 30,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,3"],
@@ -3475,7 +3475,7 @@
                 ]
             },
             {
-                "text": "The patrol overcomes the red vixen and drives her off thanks to a brilliant battle move by s_c at a critical moment. {PRONOUN/s_c/poss/CAP} bravery ensures the patrol's success, and the cats arrive back at camp singing {PRONOUN/s_c/poss} praises to make sure the Clan knows it.",
+                "text": "The patrol overcomes the red vixen and drives her off thanks to a brilliant battle move by s_c at a critical moment. {PRONOUN/s_c/poss/CAP} bravery ensures the patrol's success, and the cats arrive back at camp singing {PRONOUN/s_c/poss} praises to make sure every cat knows it.",
                 "exp": 30,
                 "weight": 20,
                 "stat_trait": [
@@ -3504,7 +3504,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "The mother red fox is vicious and determined, and the small patrol is beaten back. But these swampy woodlands are c_n's and they haven't given up. They may have lost this battle, but c_n will win this war.",
+                "text": "The mother red fox is vicious and determined, and the small patrol is beaten back. But these swampy woodlands are c_n's and they haven't given up. They may have lost this battle, but the b1_t will win this war.",
                 "exp": 0,
                 "weight": 20,
                 "relationships": [
@@ -3623,7 +3623,7 @@
         "chance_of_success": 10,
         "success_outcomes": [
             {
-                "text": "Led by p_l, and with a heap of cooperation and teamwork, the patrol drives away the red fox, seeks out her den, and kills her young cubs. The swamps will be safe from both the threat the vixen posed this season, and the threat her cubs would've posed to c_n in the seasons to come.",
+                "text": "Led by p_l, and with a heap of cooperation and teamwork, the patrol drives away the red fox, seeks out her den, and kills her young cubs. The swamps will be safe from both the threat the vixen posed this season, and the threat her cubs would've posed to the b1_t in the seasons to come.",
                 "exp": 30,
                 "weight": 20,
                 "relationships": [
@@ -3637,7 +3637,7 @@
                 ]
             },
             {
-                "text": "With so many cats working together in tight coordination, they manage to accomplish the near-impossible, killing the red mother vixen and ending the threat to the Clan that she and her cubs pose.",
+                "text": "With so many cats working together in tight coordination, they manage to accomplish the near-impossible, killing the red mother vixen and ending the threat to the Barony that she and her cubs pose.",
                 "exp": 30,
                 "weight": 5,
                 "relationships": [
@@ -3651,7 +3651,7 @@
                 ]
             },
             {
-                "text": "s_c displays incredible skill, driving the mother vixen out of the territory almost by {PRONOUN/s_c/self}. Now neither the red fox nor her dependent cubs pose a threat to the Clan. It truly proves s_c's place as one of c_n's most talented and skillful fighters.",
+                "text": "s_c displays incredible skill, driving the mother vixen out of the territory almost by {PRONOUN/s_c/self}. Now neither the red fox nor her dependent cubs pose a threat to the Barony. It truly proves s_c's place as one of baron1's most talented and skillful fighters.",
                 "exp": 30,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,3"],
@@ -3666,7 +3666,7 @@
                 ]
             },
             {
-                "text": "The patrol overcomes the red vixen and drives her off thanks to a brilliant battle move by s_c at a critical moment. {PRONOUN/s_c/poss/CAP} bravery ensures the patrol's success, and the cats arrive back at camp singing {PRONOUN/s_c/poss} praises to make sure the Clan knows it.",
+                "text": "The patrol overcomes the red vixen and drives her off thanks to a brilliant battle move by s_c at a critical moment. {PRONOUN/s_c/poss/CAP} bravery ensures the patrol's success, and the cats arrive back at camp singing {PRONOUN/s_c/poss} praises to make sure every cat knows it.",
                 "exp": 30,
                 "weight": 20,
                 "stat_trait": [
@@ -3786,7 +3786,7 @@
         "chance_of_success": 20,
         "success_outcomes": [
             {
-                "text": "The red vixen smells of milk, and hopefully by driving her out of the territory, her litter this newleaf won't be a threat to the Clan. If they don't starve, c_n will hunt them down - they do not share territory with foxes.",
+                "text": "The red vixen smells of milk, and hopefully by driving her out of the territory, her litter this newleaf won't be a threat to the Barony. If they don't starve, b1_t Clippers will hunt them down - they do not share territory with foxes.",
                 "exp": 50,
                 "weight": 20,
                 "relationships": [
@@ -3800,7 +3800,7 @@
                 ]
             },
             {
-                "text": "s_c displays incredible skill, driving the mother vixen and her brood out of c_n's swamps all by themselves. Now neither the red fox nor her dependent cubs pose a threat to the Clan. {PRONOUN/s_c/subject/CAP} {VERB/s_c/swell/swells} with pride, feeling the confidence of knowing that {PRONOUN/s_c/subject}{VERB/s_c/'re/'s} truly one of the best fighters c_n has ever produced.",
+                "text": "s_c displays incredible skill, driving the mother vixen and her brood out of c_n's swamps all by themselves. Now neither the red fox nor her dependent cubs pose a threat to the Barony. {PRONOUN/s_c/subject/CAP} {VERB/s_c/swell/swells} with pride, feeling the confidence of knowing that {PRONOUN/s_c/subject}{VERB/s_c/'re/'s} truly one of the best fighters baron1 has ever produced.",
                 "exp": 50,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,3"],
@@ -3815,7 +3815,7 @@
                 ]
             },
             {
-                "text": "A brilliant battle move by s_c knocks the red vixen off balance, and s_c manages to drive her out of c_n territory, though it takes every spark of strength in {PRONOUN/s_c/poss} body to do it alone.",
+                "text": "A brilliant battle move by s_c knocks the red vixen off balance, and s_c manages to drive her out of baron1's territory, though it takes every spark of strength in {PRONOUN/s_c/poss} body to do it alone.",
                 "exp": 50,
                 "weight": 20,
                 "stat_trait": [
@@ -3934,7 +3934,7 @@
         "chance_of_success": 60,
         "success_outcomes": [
             {
-                "text": "The stocky gray vixen they track down smells of milk, and though she's nearly double the weight of any of the patrol and all of it muscle, they meet her eyes squarely, and leap to attack. c_n does not tolerate sharing their territory with foxes, and they work together to drive her off.",
+                "text": "The stocky gray vixen they track down smells of milk, and though she's nearly double the weight of any of the patrol and all of it muscle, they meet her eyes squarely, and leap to attack. baron1 does not tolerate sharing their territory with foxes, and the patrol works together to drive her off.",
                 "exp": 30,
                 "weight": 20,
                 "relationships": [
@@ -3962,7 +3962,7 @@
                 ]
             },
             {
-                "text": "s_c displays incredible skill, driving the mother vixen out of the territory almost by {PRONOUN/s_c/self}. Now neither the gray fox nor her cubs pose a threat to the Clan. It places s_c as one of c_n's most talented and skillful fighters - a gray fox is a dangerous competitor.",
+                "text": "s_c displays incredible skill, driving the mother vixen out of the territory almost by {PRONOUN/s_c/self}. Now neither the gray fox nor her cubs pose a threat to the Barony. It places s_c as one of baron1's most talented and skillful fighters - a gray fox is a dangerous competitor.",
                 "exp": 30,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,3"],
@@ -4097,7 +4097,7 @@
         "chance_of_success": 30,
         "success_outcomes": [
             {
-                "text": "The stocky gray vixen they track down smells of milk, and though she's nearly double the weight of any of the patrol and all of it muscle, they meet her eyes squarely, and leap to attack. c_n does not tolerate sharing their territory with foxes, and they work together to drive her off.",
+                "text": "The stocky gray vixen they track down smells of milk, and though she's nearly double the weight of any of the patrol and all of it muscle, they meet her eyes squarely, and leap to attack. baron1 does not tolerate sharing their territory with foxes, and the patrol works together to drive her off.",
                 "exp": 30,
                 "weight": 20,
                 "relationships": [
@@ -4125,7 +4125,7 @@
                 ]
             },
             {
-                "text": "s_c displays incredible skill, driving the mother vixen out of the territory almost by {PRONOUN/s_c/self}. Now neither the gray fox nor her cubs pose a threat to the Clan. It places s_c as one of c_n's most talented and skillful fighters - a gray fox is a dangerous competitor.",
+                "text": "s_c displays incredible skill, driving the mother vixen out of the territory almost by {PRONOUN/s_c/self}. Now neither the gray fox nor her cubs pose a threat to the Barony. It places s_c as one of baron1's most talented and skillful fighters - a gray fox is a dangerous competitor.",
                 "exp": 30,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,3"],
@@ -4260,7 +4260,7 @@
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "The stocky gray vixen they track down smells of milk, and though she's near double r_c's weight and all of it muscle, they meet her eyes squarely, and leap to attack. c_n does not tolerate sharing their territory with foxes.",
+                "text": "The stocky gray vixen they track down smells of milk, and though she's near double r_c's weight and all of it muscle, they meet her eyes squarely, and leap to attack. baron1 does not tolerate sharing their territory with foxes.",
                 "exp": 50,
                 "weight": 20,
                 "relationships": [
@@ -4274,7 +4274,7 @@
                 ]
             },
             {
-                "text": "s_c displays incredible skill, driving the mother vixen and her brood out of c_n's swamps all by themselves. Now neither the gray fox nor her dependent cubs pose a threat to the Clan. {PRONOUN/s_c/subject/CAP} {VERB/s_c/swell/swells} with pride, returning to camp knowing there's one less competitor poaching c_n's prey.",
+                "text": "s_c displays incredible skill, driving the mother vixen and her brood out of c_n's swamps all by themselves. Now neither the gray fox nor her dependent cubs pose a threat to the Barony. {PRONOUN/s_c/subject/CAP} {VERB/s_c/swell/swells} with pride, returning to camp knowing there's one less competitor poaching baron1's prey.",
                 "exp": 50,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,3"],
@@ -4633,7 +4633,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "patrol_art": "hunt_general_intro",
-        "intro_text": "While out on a solo hunt, p_l notices that the water level within c_n's territory is higher than usual. {PRONOUN/p_l/subject/CAP} {VERB/p_l/know/knows} it's dangerous to continue on alone, but p_l can practically <i>taste</i> the prey already.",
+        "intro_text": "While out on a solo hunt, p_l notices that the water level within the b1_t Territory is higher than usual. {PRONOUN/p_l/subject/CAP} {VERB/p_l/know/knows} it's dangerous to continue on alone, but p_l can practically <i>taste</i> the prey already.",
         "decline_text": "p_l considers it for a bit, but eventually decides that it's just too risky to go any further. Perhaps {PRONOUN/p_l/subject}'ll try again later with an actual patrol.",
         "weight": 20,
         "chance_of_success": 50,

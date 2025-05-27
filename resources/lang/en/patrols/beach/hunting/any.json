@@ -386,7 +386,7 @@
                 "prey": ["large"]
             },
             {
-                "text": "r_c finds a trapped fish flopping in a tidal pool, and {PRONOUN/r_c/subject} can barely drag the thing back to camp, but great StarClan, it's juicy when {PRONOUN/r_c/subject} {VERB/r_c/sit/sits} down to eat it with {PRONOUN/r_c/poss} Clanmates.",
+                "text": "r_c finds a trapped fish flopping in a tidal pool, and {PRONOUN/r_c/subject} can barely drag the thing back to camp, but goodness, it's juicy when {PRONOUN/r_c/subject} {VERB/r_c/sit/sits} down to eat it with {PRONOUN/r_c/poss} friends.",
                 "exp": 20,
                 "weight": 5,
                 "prey": ["large"]
@@ -399,7 +399,7 @@
                 "prey": ["large"]
             },
             {
-                "text": "The prey is running terribly today. But s_c has patience and wisely waits for the perfect opportunity instead of getting frustrated. {PRONOUN/s_c/subject/CAP} {VERB/s_c/come/comes} back to camp with a good contribution to the Clan's stores, having had a relaxing day sitting with {PRONOUN/s_c/poss} thoughts while waiting for the prey to come to {PRONOUN/s_c/object}.",
+                "text": "The prey is running terribly today. But s_c has patience and wisely waits for the perfect opportunity instead of getting frustrated. {PRONOUN/s_c/subject/CAP} {VERB/s_c/come/comes} back to camp with a good contribution to the Barony's food stores, having had a relaxing day sitting with {PRONOUN/s_c/poss} thoughts while waiting for the prey to come to {PRONOUN/s_c/object}.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": [
@@ -462,20 +462,20 @@
                 "prey": ["large"]
             },
             {
-                "text": "r_c finds a trapped fish flopping in a tidal pool, and {PRONOUN/r_c/subject} can barely drag the thing back to camp, but great StarClan, it's juicy when {PRONOUN/r_c/subject} {VERB/r_c/sit/sits} down to eat it with {PRONOUN/r_c/poss} Clanmates. Purring, {PRONOUN/r_c/subject} {VERB/r_c/take/takes} the opportunity for a moment of peace, relaxing with {PRONOUN/r_c/poss} friends.",
+                "text": "r_c finds a trapped fish flopping in a tidal pool, and {PRONOUN/r_c/subject} can barely drag the thing back to camp, but goodness, it's juicy when {PRONOUN/r_c/subject} {VERB/r_c/sit/sits} down to eat it with {PRONOUN/r_c/poss} friends. Purring, {PRONOUN/r_c/subject} {VERB/r_c/take/takes} the opportunity for a moment of peace, relaxing with {PRONOUN/r_c/poss} friends.",
                 "exp": 20,
                 "weight": 5,
                 "prey": ["large"]
             },
             {
-                "text": "s_c gets the chance to try out an idea {PRONOUN/s_c/subject}{VERB/s_c/'ve/'s} been sitting on for a while. There's a poorly built rabbit warren that {PRONOUN/s_c/subject}{VERB/s_c/'ve/'s} spotted in the sand dunes, and {PRONOUN/s_c/subject} {VERB/s_c/manage/manages} to dig down into one of the dens, fishing a couple of baby rabbits out. This is a good spot to remember if c_n hits hard times.",
+                "text": "s_c gets the chance to try out an idea {PRONOUN/s_c/subject}{VERB/s_c/'ve/'s} been sitting on for a while. There's a poorly built rabbit warren that {PRONOUN/s_c/subject}{VERB/s_c/'ve/'s} spotted in the sand dunes, and {PRONOUN/s_c/subject} {VERB/s_c/manage/manages} to dig down into one of the dens, fishing a couple of baby rabbits out. This is a good spot to remember if the b1_t hits hard times.",
                 "exp": 20,
                 "weight": 20,
                 "stat_skill": ["CLEVER,1"],
                 "prey": ["large"]
             },
             {
-                "text": "The prey is running terribly today. But s_c has patience and wisely waits for the perfect opportunity instead of getting frustrated. {PRONOUN/s_c/subject/CAP} {VERB/s_c/come/comes} back to camp with a good contribution to the Clan's stores, having had a relaxing day sitting with {PRONOUN/s_c/poss} thoughts while waiting for the prey to come to {PRONOUN/s_c/object}.",
+                "text": "The prey is running terribly today. But s_c has patience and wisely waits for the perfect opportunity instead of getting frustrated. {PRONOUN/s_c/subject/CAP} {VERB/s_c/come/comes} back to camp with a good contribution to the Barony's food stores, having had a relaxing day sitting with {PRONOUN/s_c/poss} thoughts while waiting for the prey to come to {PRONOUN/s_c/object}.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": [
@@ -538,20 +538,20 @@
                 "prey": ["large"]
             },
             {
-                "text": "r_c finds a trapped fish flopping in a tidal pool, and {PRONOUN/r_c/subject} can barely drag the thing back to camp, but great StarClan, it's juicy when {PRONOUN/r_c/subject} {VERB/r_c/sit/sits} down to eat it with {PRONOUN/r_c/poss} Clanmates. Purring, {PRONOUN/r_c/subject} {VERB/r_c/take/takes} the opportunity for a moment of peace, relaxing with {PRONOUN/r_c/poss} friends.",
+                "text": "r_c finds a trapped fish flopping in a tidal pool, and {PRONOUN/r_c/subject} can barely drag the thing back to camp, but goodness, it's juicy when {PRONOUN/r_c/subject} {VERB/r_c/sit/sits} down to eat it with {PRONOUN/r_c/poss} friends. Purring, {PRONOUN/r_c/subject} {VERB/r_c/take/takes} the opportunity for a moment of peace, relaxing with {PRONOUN/r_c/poss} friends.",
                 "exp": 20,
                 "weight": 5,
                 "prey": ["large"]
             },
             {
-                "text": "s_c gets the chance to try out an idea {PRONOUN/s_c/subject}{VERB/s_c/'ve/'s} been sitting on for a while. There's a poorly built rabbit warren that {PRONOUN/s_c/subject}{VERB/s_c/'ve/'s} spotted in the sand dunes, and {PRONOUN/s_c/subject} {VERB/s_c/manage/manages} to dig down into one of the dens, fishing a couple baby rabbits out. This is a good spot to remember if c_n hits hard times.",
+                "text": "s_c gets the chance to try out an idea {PRONOUN/s_c/subject}{VERB/s_c/'ve/'s} been sitting on for a while. There's a poorly built rabbit warren that {PRONOUN/s_c/subject}{VERB/s_c/'ve/'s} spotted in the sand dunes, and {PRONOUN/s_c/subject} {VERB/s_c/manage/manages} to dig down into one of the dens, fishing a couple baby rabbits out. This is a good spot to remember if the b1_t hits hard times.",
                 "exp": 20,
                 "weight": 20,
                 "stat_skill": ["CLEVER,1"],
                 "prey": ["large"]
             },
             {
-                "text": "The prey is running terribly today. But s_c has patience and wisely waits for the perfect opportunity instead of getting frustrated. {PRONOUN/s_c/subject/CAP} {VERB/s_c/come/comes} back to camp with a good contribution to the Clan's stores, having had a relaxing day sitting with {PRONOUN/s_c/poss} thoughts while waiting for the prey to come to {PRONOUN/s_c/object}.",
+                "text": "The prey is running terribly today. But s_c has patience and wisely waits for the perfect opportunity instead of getting frustrated. {PRONOUN/s_c/subject/CAP} {VERB/s_c/come/comes} back to camp with a good contribution to the Barony's food stores, having had a relaxing day sitting with {PRONOUN/s_c/poss} thoughts while waiting for the prey to come to {PRONOUN/s_c/object}.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": [
@@ -1096,7 +1096,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "The Twolegs here are friendly, and a little carelessly, s_c goes to hunt in their garden. But there's a new thing there: a strange, suspicious box. Wisely, s_c avoids it and returns to c_n territory.",
+                "text": "The Twolegs here are friendly, and a little carelessly, s_c goes to hunt in their garden. But there's a new thing there: a strange, suspicious box. Wisely, s_c avoids it and returns to b1_t territory.",
                 "exp": 0,
                 "weight": 20,
                 "stat_trait": [
@@ -1109,13 +1109,13 @@
                 "prey": ["small"]
             },
             {
-                "text": "Carelessly, r_c is seen by Twolegs and taken from c_n.",
+                "text": "Carelessly, r_c is seen by Twolegs and taken from the Badlands.",
                 "exp": 0,
                 "weight": 10,
                 "lost_cats": ["r_c"]
             },
             {
-                "text": "Carelessly, r_c is seen by Twolegs and locked, hissing and spitting, in a monster's den. Overnight, {PRONOUN/r_c/subject} {VERB/r_c/discover/discovers} that a broken window is just wide enough to push {PRONOUN/r_c/self} out to safety through, but the glass leaves {PRONOUN/r_c/object} bleeding as {PRONOUN/r_c/subject} {VERB/r_c/run/runs} back to c_n.",
+                "text": "Carelessly, r_c is seen by Twolegs and locked, hissing and spitting, in a monster's den. Overnight, {PRONOUN/r_c/subject} {VERB/r_c/discover/discovers} that a broken window is just wide enough to push {PRONOUN/r_c/self} out to safety through, but the glass leaves {PRONOUN/r_c/object} bleeding as {PRONOUN/r_c/subject} {VERB/r_c/run/runs} back to the Badlands.",
                 "exp": 0,
                 "weight": 10,
                 "injury": [
@@ -1177,7 +1177,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "A little carelessly, s_c jumps a fence to hunt in a den's garden. But there's a new thing there: a strange, suspicious box. Wisely, s_c avoids it and returns to c_n territory.",
+                "text": "A little carelessly, s_c jumps a fence to hunt in a den's garden. But there's a new thing there: a strange, suspicious box. Wisely, s_c avoids it and returns to b1_t territory.",
                 "exp": 0,
                 "weight": 20,
                 "stat_trait": [
@@ -1190,13 +1190,13 @@
                 "can_have_stat": ["app"]
             },
             {
-                "text": "Carelessly, app1 is seen by Twolegs and taken from c_n.",
+                "text": "Carelessly, app1 is seen by Twolegs and taken from the Badlands.",
                 "exp": 0,
                 "weight": 10,
                 "lost_cats": ["app1"]
             },
             {
-                "text": "Carelessly, app1 is seen by Twolegs and locked, hissing and spitting, in a monster's den. Overnight, {PRONOUN/app1/subject} {VERB/app1/discover/discovers} that a broken window is just wide enough to push {PRONOUN/app1/self} out to safety through, but the glass leaves {PRONOUN/app1/object} bleeding as {PRONOUN/app1/subject} {VERB/app1/run/runs} back to c_n.",
+                "text": "Carelessly, app1 is seen by Twolegs and locked, hissing and spitting, in a monster's den. Overnight, {PRONOUN/app1/subject} {VERB/app1/discover/discovers} that a broken window is just wide enough to push {PRONOUN/app1/self} out to safety through, but the glass leaves {PRONOUN/app1/object} bleeding as {PRONOUN/app1/subject} {VERB/app1/run/runs} back to the Badlands.",
                 "exp": 0,
                 "weight": 10,
                 "injury": [
@@ -1301,7 +1301,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "Carelessly, r_c is seen by Twolegs and locked, hissing and spitting, in a monster's den. Overnight, {PRONOUN/r_c/subject} {VERB/r_c/hear/hears} p_l yowling from outside, and the two cats manage to craft an escape plan through a broken window. Shivering, r_c presses {PRONOUN/r_c/poss} pelt against p_l on the way back to c_n.",
+                "text": "Carelessly, r_c is seen by Twolegs and locked, hissing and spitting, in a monster's den. Overnight, {PRONOUN/r_c/subject} {VERB/r_c/hear/hears} p_l yowling from outside, and the two cats manage to craft an escape plan through a broken window. Shivering, r_c presses {PRONOUN/r_c/poss} pelt against p_l on the way back to camp.",
                 "exp": 0,
                 "weight": 20,
                 "relationships": [
@@ -1315,7 +1315,7 @@
                 ]
             },
             {
-                "text": "The Twolegs here are friendly, and a little carelessly, s_c takes r_c to hunt in their garden. But there's a new thing there: a strange, suspicious box. Wisely, s_c avoids it and warns r_c, and the two cats return to c_n territory.",
+                "text": "The Twolegs here are friendly, and a little carelessly, s_c takes r_c to hunt in their garden. But there's a new thing there: a strange, suspicious box. Wisely, s_c avoids it and warns r_c, and the two cats return to b1_t territory.",
                 "exp": 0,
                 "weight": 20,
                 "stat_trait": [
@@ -1337,7 +1337,7 @@
                 ]
             },
             {
-                "text": "Carelessly, r_c is seen by Twolegs and taken from c_n.",
+                "text": "Carelessly, r_c is seen by Twolegs and taken from the Badlands.",
                 "exp": 0,
                 "weight": 10,
                 "lost_cats": ["r_c"]
@@ -1432,7 +1432,7 @@
                 ]
             },
             {
-                "text": "A little carelessly, s_c jumps a fence to hunt in a den's garden. But there's a new thing there: a strange, suspicious box. Wisely, s_c avoids it, and the two cats return to c_n territory.",
+                "text": "A little carelessly, s_c jumps a fence to hunt in a den's garden. But there's a new thing there: a strange, suspicious box. Wisely, s_c avoids it, and the two cats return to b1_t territory.",
                 "exp": 0,
                 "weight": 20,
                 "stat_trait": [
@@ -1454,7 +1454,7 @@
                 ]
             },
             {
-                "text": "Carelessly, app1 is seen by Twolegs and taken from c_n.",
+                "text": "Carelessly, app1 is seen by Twolegs and taken from the Badlands.",
                 "exp": 0,
                 "weight": 10,
                 "lost_cats": ["app1"]
@@ -2495,7 +2495,7 @@
                 ]
             },
             {
-                "text": "As the rest of the patrol discusses whether they can steal the catch, s_c fixates on the bird that caught it. The eagle works its way awkwardly towards shore, and just as it's going to climb out, s_c pounces, fighting in the shallows where s_c has the edge over the bird in swimming. {PRONOUN/s_c/subject/CAP} {VERB/s_c/win/wins} both the fish and the predator as prey for c_n.",
+                "text": "As the rest of the patrol discusses whether they can steal the catch, s_c fixates on the bird that caught it. The eagle works its way awkwardly towards shore, and just as it's going to climb out, s_c pounces, fighting in the shallows where s_c has the edge over the bird in swimming. {PRONOUN/s_c/subject/CAP} {VERB/s_c/win/wins} both the fish and the predator as prey for the b1_t.",
                 "exp": 20,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,3"],
@@ -2518,7 +2518,7 @@
                 ]
             },
             {
-                "text": "As the rest of the patrol discusses whether they can steal the catch, s_c fixates on the bird that caught it. The eagle works its way awkwardly towards shore, and just as it's going to climb out, s_c pounces, fighting in the shallows where s_c has the edge over the bird in swimming. {PRONOUN/s_c/subject/CAP} {VERB/s_c/win/wins} both the fish and the predator as prey for c_n.",
+                "text": "As the rest of the patrol discusses whether they can steal the catch, s_c fixates on the bird that caught it. The eagle works its way awkwardly towards shore, and just as it's going to climb out, s_c pounces, fighting in the shallows where s_c has the edge over the bird in swimming. {PRONOUN/s_c/subject/CAP} {VERB/s_c/win/wins} both the fish and the predator as prey for the b1_t.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": [
@@ -2648,7 +2648,7 @@
                 ]
             },
             {
-                "text": "As the rest of the patrol discusses whether they can steal the catch, s_c fixates on the bird that caught it. The eagle works its way awkwardly towards shore, and just as it's going to climb out, s_c pounces, fighting in the shallows where s_c has the edge over the bird in swimming. {PRONOUN/s_c/subject/CAP} {VERB/s_c/win/wins} both the fish and the predator as prey for c_n.",
+                "text": "As the rest of the patrol discusses whether they can steal the catch, s_c fixates on the bird that caught it. The eagle works its way awkwardly towards shore, and just as it's going to climb out, s_c pounces, fighting in the shallows where s_c has the edge over the bird in swimming. {PRONOUN/s_c/subject/CAP} {VERB/s_c/win/wins} both the fish and the predator as prey for the b1_t.",
                 "exp": 20,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,3"],
@@ -2671,7 +2671,7 @@
                 ]
             },
             {
-                "text": "As the rest of the patrol discusses whether they can steal the catch, s_c fixates on the bird that caught it. The eagle works its way awkwardly towards shore, and just as it's going to climb out, s_c pounces, fighting in the shallows where s_c has the edge over the bird in swimming. {PRONOUN/s_c/subject/CAP} {VERB/s_c/win/wins} both the fish and the predator as prey for c_n.",
+                "text": "As the rest of the patrol discusses whether they can steal the catch, s_c fixates on the bird that caught it. The eagle works its way awkwardly towards shore, and just as it's going to climb out, s_c pounces, fighting in the shallows where s_c has the edge over the bird in swimming. {PRONOUN/s_c/subject/CAP} {VERB/s_c/win/wins} both the fish and the predator as prey for the b1_t.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": [
@@ -2771,7 +2771,7 @@
         "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "The cats are smaller, but they outnumber the fox, if only by a little, and it's a prize they're willing to fight for. With a prayer to StarClan, they throw themselves into battle, and the fox, already half full and unwilling to lose blood over it, is driven off from the kill.",
+                "text": "The cats are smaller, but they outnumber the fox, if only by a little, and it's a prize they're willing to fight for. With a quick prayer, they throw themselves into battle, and the fox, already half full and unwilling to lose blood over it, is driven off from the kill.",
                 "exp": 20,
                 "weight": 20,
                 "prey": ["large"],
@@ -2890,7 +2890,7 @@
                 "prey": ["very_small"]
             },
             {
-                "text": "s_c means well, but {PRONOUN/s_c/subject}{VERB/s_c/'re/'s} overconfident in {PRONOUN/s_c/poss} attack, and the fox manages to sink its teeth into {PRONOUN/s_c/object}. The patrol is forced to retreat, hissing and spitting to ward the fox away from their injured Clanmate.",
+                "text": "s_c means well, but {PRONOUN/s_c/subject}{VERB/s_c/'re/'s} overconfident in {PRONOUN/s_c/poss} attack, and the fox manages to sink its teeth into {PRONOUN/s_c/object}. The patrol is forced to retreat, hissing and spitting to ward the fox away from their injured patrolmate.",
                 "exp": 0,
                 "weight": 10,
                 "stat_trait": [
@@ -2944,7 +2944,7 @@
         "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "The cats are smaller but heavily outnumber the fox, and it's a prize they're willing to fight for. With a prayer to StarClan, they throw themselves into battle, and the fox, already half full and unwilling to lose blood over it, is driven off from the kill.",
+                "text": "The cats are smaller but heavily outnumber the fox, and it's a prize they're willing to fight for. With a quick prayer, they throw themselves into battle, and the fox, already half full and unwilling to lose blood over it, is driven off from the kill.",
                 "exp": 20,
                 "weight": 20,
                 "prey": ["large"],
@@ -3063,7 +3063,7 @@
                 "prey": ["very_small"]
             },
             {
-                "text": "s_c means well, but {PRONOUN/s_c/subject}{VERB/s_c/'re/'s} overconfident in {PRONOUN/s_c/poss} attack, and the fox manages to sink its teeth into {PRONOUN/s_c/object}. The patrol is forced to retreat, forming a defensive ring around their injured Clanmate.",
+                "text": "s_c means well, but {PRONOUN/s_c/subject}{VERB/s_c/'re/'s} overconfident in {PRONOUN/s_c/poss} attack, and the fox manages to sink its teeth into {PRONOUN/s_c/object}. The patrol is forced to retreat, forming a defensive ring around their injured patrolmate.",
                 "exp": 0,
                 "weight": 10,
                 "stat_trait": [
@@ -3124,7 +3124,7 @@
         "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "r_c is all alone and half its weight, but the fox has a prize {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} willing to fight for. With a prayer to StarClan, {PRONOUN/r_c/subject} {VERB/r_c/throw/throws} {PRONOUN/r_c/self} into battle. The fox, already stuffed full and unwilling to lose blood over it, leaves the kill with a grumble.",
+                "text": "r_c is all alone and half its weight, but the fox has a prize {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} willing to fight for. With a quick prayer, {PRONOUN/r_c/subject} {VERB/r_c/throw/throws} {PRONOUN/r_c/self} into battle. The fox, already stuffed full and unwilling to lose blood over it, leaves the kill with a grumble.",
                 "exp": 30,
                 "weight": 20,
                 "prey": ["large"],
@@ -3646,7 +3646,7 @@
         "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "While a gray fox is bigger and far stockier than r_c, the delicious stench of whatever-it-is makes {PRONOUN/r_c/poss} eyes go wide, and {PRONOUN/r_c/subject} {VERB/r_c/leap/leaps} to claim some of it for {PRONOUN/r_c/self} and c_n. It's such a big lump that the fox doesn't seem to mind sharing.",
+                "text": "While a gray fox is bigger and far stockier than r_c, the delicious stench of whatever-it-is makes {PRONOUN/r_c/poss} eyes go wide, and {PRONOUN/r_c/subject} {VERB/r_c/leap/leaps} to claim some of it for {PRONOUN/r_c/self} and the b1_t. It's such a big lump that the fox doesn't seem to mind sharing.",
                 "exp": 30,
                 "weight": 20,
                 "prey": ["large"],
@@ -4004,7 +4004,7 @@
                 "prey": ["very_small"]
             },
             {
-                "text": "The patrol tracks down a red fox and spots that it's holding fresh-kill. s_c bursts from cover without warning, trying to intimidate the fox, and the overconfident attack ends in disaster when the fox sinks its fangs into s_c. The rest of the patrol rescues their annoying Clanmate while the fox runs off with what could've been their dinner.",
+                "text": "The patrol tracks down a red fox and spots that it's holding fresh-kill. s_c bursts from cover without warning, trying to intimidate the fox, and the overconfident attack ends in disaster when the fox sinks its fangs into s_c. The rest of the patrol rescues their annoying patrolmate while the fox runs off with what could've been their dinner.",
                 "exp": 0,
                 "weight": 10,
                 "stat_trait": [
@@ -4237,7 +4237,7 @@
                 "prey": ["very_small"]
             },
             {
-                "text": "The patrol tracks down a red fox and spots that it's holding fresh-kill. s_c bursts from cover without warning, trying to intimidate the fox, and the overconfident attack ends in disaster when the fox sinks its fangs into s_c. The rest of the patrol rescues their annoying Clanmate while the fox runs off with what could've been their dinner.",
+                "text": "The patrol tracks down a red fox and spots that it's holding fresh-kill. s_c bursts from cover without warning, trying to intimidate the fox, and the overconfident attack ends in disaster when the fox sinks its fangs into s_c. The rest of the patrol rescues their annoying patrolmate while the fox runs off with what could've been their dinner.",
                 "exp": 0,
                 "weight": 10,
                 "stat_trait": [
@@ -4401,7 +4401,7 @@
                 "prey": ["very_small"]
             },
             {
-                "text": "Finding a red fox holding a fish that would look beautiful on c_n's fresh-kill pile, r_c charges the fox. But the fox is just as keen to keep it as r_c is to win it, and {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} injured in the resulting fight.",
+                "text": "Finding a red fox holding a fish that would fit perfectly in the b1_t's food stash, r_c charges the fox. But the fox is just as keen to keep it as r_c is to win it, and {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} injured in the resulting fight.",
                 "exp": 0,
                 "weight": 10,
                 "injury": [
@@ -4485,7 +4485,7 @@
         "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "It's a gray fox, which as far as the cats are concerned means free food. They leap after it, and after a short chase, the fox drops the mouse it was holding. That's not enough to satisfy the c_n cats, who drive it out of their territory before collecting the mouse and continuing the afternoon's hunt.",
+                "text": "It's a gray fox, which as far as the cats are concerned means free food. They leap after it, and after a short chase, the fox drops the mouse it was holding. That's not enough to satisfy the b1_t cats, who drive it out of their territory before collecting the mouse and continuing the afternoon's hunt.",
                 "exp": 20,
                 "weight": 20,
                 "prey": ["small"],
@@ -4609,7 +4609,7 @@
                 "prey": ["very_small"]
             },
             {
-                "text": "The patrol tracks down a gray fox trespassing on c_n land. s_c runs at it without thinking, and instead of intimidating the fox into fleeing for the border, the hasty attack makes the gray fox skitter up a cliff and start yelping. It takes all afternoon to wait the fox out and then herd it more carefully away from c_n's hunting grounds, and nobody's happy with s_c.",
+                "text": "The patrol tracks down a gray fox trespassing on the b1_t's land. s_c runs at it without thinking, and instead of intimidating the fox into fleeing for the border, the hasty attack makes the gray fox skitter up a cliff and start yelping. It takes all afternoon to wait the fox out and then herd it more carefully away from baron1's hunting grounds, and nobody's happy with s_c.",
                 "exp": 0,
                 "weight": 20,
                 "stat_trait": [
@@ -4678,7 +4678,7 @@
                 "prey": ["very_small"]
             },
             {
-                "text": "The patrol tracks down a gray fox trespassing on c_n land. s_c runs at it without thinking, and instead of intimidating the fox into fleeing for the border, the hasty attack makes the gray fox skitter up a cliff and start yelping. s_c tries to make up for the mistake by following the fox up into the branches, which goes even more poorly and forces the patrol to help {PRONOUN/s_c/object} back to the doctor den.",
+                "text": "The patrol tracks down a gray fox trespassing on the b1_t's land. s_c runs at it without thinking, and instead of intimidating the fox into fleeing for the border, the hasty attack makes the gray fox skitter up a cliff and start yelping. s_c tries to make up for the mistake by following the fox up into the branches, which goes even more poorly and forces the patrol to help {PRONOUN/s_c/object} back to the doctor den.",
                 "exp": 0,
                 "weight": 10,
                 "stat_trait": [
@@ -4742,7 +4742,7 @@
         "chance_of_success": 10,
         "success_outcomes": [
             {
-                "text": "It's a gray fox, which as far as the cats are concerned means free food. They leap after it, and after a short chase the fox drops the mouse it was holding. That's not enough to satisfy the c_n cats, who drive it out of their territory before collecting the mouse and continuing the afternoon's hunt.",
+                "text": "It's a gray fox, which as far as the cats are concerned means free food. They leap after it, and after a short chase the fox drops the mouse it was holding. That's not enough to satisfy the b1_t cats, who drive it out of their territory before collecting the mouse and continuing the afternoon's hunt.",
                 "exp": 20,
                 "weight": 20,
                 "prey": ["small"],
@@ -4866,7 +4866,7 @@
                 "prey": ["very_small"]
             },
             {
-                "text": "The patrol tracks down a gray fox trespassing on c_n land. s_c runs at it without thinking, and instead of intimidating the fox into fleeing for the border, the hasty attack makes the gray fox skitter up a cliff and start yelping. It takes all afternoon to wait the fox out and then herd it more carefully away from c_n's hunting grounds, and nobody's happy with s_c.",
+                "text": "The patrol tracks down a gray fox trespassing on the b1_t's land. s_c runs at it without thinking, and instead of intimidating the fox into fleeing for the border, the hasty attack makes the gray fox skitter up a cliff and start yelping. It takes all afternoon to wait the fox out and then herd it more carefully away from baron1's hunting grounds, and nobody's happy with s_c.",
                 "exp": 0,
                 "weight": 20,
                 "stat_trait": [
@@ -4935,7 +4935,7 @@
                 "prey": ["very_small"]
             },
             {
-                "text": "The patrol tracks down a gray fox trespassing on c_n land. s_c runs at it without thinking, and instead of intimidating the fox into fleeing for the border, the hasty attack makes the gray fox skitter up a cliff and start yelping. s_c tries to make up for the mistake by following the fox up into the branches, which goes even more poorly and forces the patrol to help {PRONOUN/s_c/object} back to the doctor den.",
+                "text": "The patrol tracks down a gray fox trespassing on the b1_t's land. s_c runs at it without thinking, and instead of intimidating the fox into fleeing for the border, the hasty attack makes the gray fox skitter up a cliff and start yelping. s_c tries to make up for the mistake by following the fox up into the branches, which goes even more poorly and forces the patrol to help {PRONOUN/s_c/object} back to the doctor den.",
                 "exp": 0,
                 "weight": 10,
                 "stat_trait": [
@@ -5072,7 +5072,7 @@
                 "prey": ["very_small"]
             },
             {
-                "text": "r_c finds a gray fox holding a mouse that would make a nice addition to c_n's fresh-kill pile and springs out to attack it. But the fox is just as keen to keep it as r_c is to win it, and {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} injured in the resulting fight.",
+                "text": "r_c finds a gray fox holding a mouse that would make a nice addition to the b1_t's food stores and springs out to attack it. But the fox is just as keen to keep it as r_c is to win it, and {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} injured in the resulting fight.",
                 "exp": 0,
                 "weight": 10,
                 

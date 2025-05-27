@@ -1,9 +1,9 @@
 {
     "en": {
         "promote_baron": "promote to Baron",
-        "blurb_baron": "%{name} is the <b>Baron</b> of %{clan}Clan. The Baron makes all decisions for their people and is solely responsible for keeping things running smoothly.",
+        "blurb_baron": "%{name} is the <b>Baron</b> of the b1_t. The Baron makes all decisions for their people and is solely responsible for keeping things running smoothly.",
         "promote_regent": "promote to Regent",
-        "blurb_regent": "%{name} is %{clan}Clan's <b>regent</b>. The Regent is the head of all Clippers, and the Baron's first line of defense.",
+        "blurb_regent": "%{name} is the Barony's <b>Regent</b>. The Regent is the head of all Clippers, and the Baron's first line of defense.",
         "promote_heir": "promote to heir",
         "blurb_heir": "%{name} is the <b>heir</b> to the Barony. The heir is chosen by the Baron to take over the throne upon the Baron's death. Instead of being trained solely in fighting or hunting, the heir is raised and taught the political intricacies of Baronship. Heirs are typically direct descendants of their Baron, but this custom is not always followed.",
         "switch_clipper": "switch to Clipper",

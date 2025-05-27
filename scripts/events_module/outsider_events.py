@@ -28,7 +28,7 @@ class OutsiderEvents:
                 death_history = "m_c died outside of the Clan."
                 if cat.exiled:
                     text = f"Rumors reach your Clan that the exiled {cat.name} has died recently."
-                elif cat.status in ["kittypet", "loner", "rogue", "former Clancat"]:
+                elif cat.status in ["kittypet", "nomad", "rogue", "former Clancat"]:
                     text = (
                         f"Rumors reach your Clan that the {cat.status} "
                         f"{cat.name} has died recently."
@@ -54,7 +54,7 @@ class OutsiderEvents:
     @staticmethod
     def lost_cat_become_outsider(cat: Cat):
         """
-        this will be for lost cats becoming kittypets/loners/etc
+        this will be for lost cats becoming kittypets/nomads/etc
         TODO: need to make a unique backstory for these cats so they still have thoughts related to their clan
         """
         if random.getrandbits(7) == 1 and not cat.dead:
@@ -66,8 +66,8 @@ class OutsiderEvents:
         cat.status = "kittypet"
 
     @staticmethod
-    def become_loner(cat: Cat):
-        cat.status = "loner"
+    def become_nomad(cat: Cat):
+        cat.status = "nomad"
 
     @staticmethod
     def become_rogue(cat: Cat):

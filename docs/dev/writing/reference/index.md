@@ -208,7 +208,7 @@ You can use either the backstory pool name, or an individual backstory name.  Wh
 | `clanborn_backstories`       | `clanborn`                                                                                                                                                                                         |
 | `outsider_roots_backstories` | `outsider_roots1`, `outsider_roots2`                                                                                                                                                               |
 | `half_clan_backstories`      | `halfclan1`, `halfclan2`                                                                                                                                                                           |
-| `loner_backstories`          | `loner1`, `loner2`, `loner3`, `loner4`, `refugee2`, `tragedy_survivor4`, `guided3`, `refugee5`, `wandering_healer2`                                                                                |
+| `nomad_backstories`          | `nomad1`, `nomad2`, `nomad3`, `nomad4`, `refugee2`, `tragedy_survivor4`, `guided3`, `refugee5`, `wandering_healer2`                                                                                |
 | `rogue_backstories`          | `rogue1`, `rogue2`, `rogue3`, `refugee4`, `tragedy_survivor2`, `guided2`, `refugee5`, `wandering_healer1`                                                                                          |
 | `kittypet_backstories`       | `kittypet1`, `kittypet2`, `kittypet3`, `kittypet4`, `refugee3`, `tragedy_survivor3`, `guided1`, `refugee6`                                                                                         |
 | `former_clancat_backstories` | `otherclan1`, `otherclan2`, `otherclan3`, `ostracized_warrior`, `disgraced1`, `disgraced2`, `disgraced3`, `retired_leader`, `refugee1`, `tragedy_survivor1`, `doctor`, `guided4`, `refugee5` |
@@ -253,7 +253,7 @@ You can use either the backstory pool name, or an individual backstory name.  Wh
 === "Affiliation Statuses"
 
     > * `kittypet`
-    * `loner`
+    * `nomad`
     * `rogue`
     * `former Clancat`
     * `exiled`

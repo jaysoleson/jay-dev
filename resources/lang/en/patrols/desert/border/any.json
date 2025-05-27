@@ -29,7 +29,7 @@
                 ]
             },
             {
-                "text": "s_c sets up an ambush for the wandering dog. When the dog nears {PRONOUN/s_c/poss} hiding spot, s_c leaps out with claws unsheathed, bloodies its snout, and leads it on a wild chasing dance across the border and out of c_n territory.",
+                "text": "s_c sets up an ambush for the wandering dog. When the dog nears {PRONOUN/s_c/poss} hiding spot, s_c leaps out with claws unsheathed, bloodies its snout, and leads it on a wild chasing dance across the border and out of baron1's territory.",
                 "exp": 40,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,3"],
@@ -162,7 +162,7 @@
                 ]
             },
             {
-                "text": "s_c sets up a careful ambush ahead of the dog, and {PRONOUN/s_c/poss} surprising, darting attack bloodies the dog's flank, dissuading it from heading further into c_n territory.",
+                "text": "s_c sets up a careful ambush ahead of the dog, and {PRONOUN/s_c/poss} surprising, darting attack bloodies the dog's flank, dissuading it from heading further into baron1's territory.",
                 "exp": 20,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,3"],
@@ -177,7 +177,7 @@
                 ]
             },
             {
-                "text": "s_c selflessly takes the lion's share of the run the patrol leads the dog on, exhausting {PRONOUN/s_c/self} almost to the point of danger but leading the dog far away from c_n borders. {PRONOUN/s_c/poss/CAP} Clanmates support {PRONOUN/s_c/object} on the long walk home once it's all over, their purrs mixing with s_c's exhausted pants.",
+                "text": "s_c selflessly takes the lion's share of the run the patrol leads the dog on, exhausting {PRONOUN/s_c/self} almost to the point of danger but leading the dog far away from baron1's borders. {PRONOUN/s_c/poss/CAP} patrolmates support {PRONOUN/s_c/object} on the long walk home once it's all over, their purrs mixing with s_c's exhausted pants.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": [
@@ -252,7 +252,7 @@
                 ]
             },
             {
-                "text": "The patrol tries bravely to lead the dog away from c_n borders, but with so few cats it's impossible to cover each other's backs. r_c gets caught while running and it's all the rest of the patrol can do to distract the dog long enough to get r_c to safety.",
+                "text": "The patrol tries bravely to lead the dog away from baron1's borders, but with so few cats it's impossible to cover each other's backs. r_c gets caught while running and it's all the rest of the patrol can do to distract the dog long enough to get r_c to safety.",
                 "exp": 0,
                 "weight": 10,
                 "injury": [
@@ -364,7 +364,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "The patrol tries to keep watch on the dog from a distance, but it spots the cats and forces them to scatter. It's not as bad as it could've been, though; r_c manages to keep track of the dog's position, and it doesn't come any further into c_n territory.",
+                "text": "The patrol tries to keep watch on the dog from a distance, but it spots the cats and forces them to scatter. It's not as bad as it could've been, though; r_c manages to keep track of the dog's position, and it doesn't come any further into baron1's territory.",
                 "exp": 0,
                 "weight": 20,
                 "relationships": [

@@ -371,7 +371,7 @@
     {
         "id": "righteous_doctor",
         "thoughts": [
-            "Gives herbs to an injured loner"
+            "Gives herbs to an injured nomad"
         ],
         "main_trait_constraint": [
             "righteous"

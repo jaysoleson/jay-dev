@@ -509,7 +509,7 @@ class TestUpdateMentor(unittest.TestCase):
 #         Test that basic outsiders return the correct name
 #         :return:
 #         """
-#         outsider_statuses = ["loner", "rogue", "kittypet"]
+#         outsider_statuses = ["nomad", "rogue", "kittypet"]
 #         ex_clancat_statuses = ["former Clancat", "exiled"]
 
 #         age_suffix = [[0, "kit"], [1, "kit"], [6, "paw"], [14, "test"]]
@@ -533,7 +533,7 @@ class TestUpdateMentor(unittest.TestCase):
 #         Test that outsiders with hidden special suffixes return the correct name
 #         :return:
 #         """
-#         outsider_statuses = ["loner", "rogue", "kittypet"]
+#         outsider_statuses = ["nomad", "rogue", "kittypet"]
 #         ex_clancat_statuses = ["former Clancat", "exiled"]
 
 #         age_suffix = [[0, "kit"], [1, "kit"], [6, "paw"], [14, "test"]]

@@ -187,7 +187,7 @@ These events are flavored as the Clan going out to deliberately interact with th
       ]
     }
 ```
-> **status: list[str]** - list of statuses allowed: ["loner", "rogue", "kittypet", "exiled", "lost", "former clancat"].  Remember, "exiled" and "lost" cats were previously part of the Clan.
+> **status: list[str]** - list of statuses allowed: ["nomad", "rogue", "kittypet", "exiled", "lost", "former clancat"].  Remember, "exiled" and "lost" cats were previously part of the Clan.
 
 > **age: list[str]** - [age list](reference/index.md#__tabbed_2_1)  (yes, Outsider kittens could be chosen for these interactions)
 

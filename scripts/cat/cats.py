@@ -547,45 +547,6 @@ class Cat:
         """
         self.injuries.clear()
         self.illnesses.clear()
-        
-        if self.status == "baron":
-            print("BARON DYING:", self.name)
-            old_baron = self
-            if self != game.clan.baron:
-                new_baron = create_cat(status="baron", allegiance=None, moons=randint(12,60))
-                new_baron.allegiance = new_baron.ID
-                for clan in game.clan.all_clans:
-                    if clan.baron == old_baron.ID:
-                        baron_clan = clan
-                        clan.baron = new_baron.ID
-                        self.new_baron(clan)
-                        break
-                
-            else:
-                if game.clan.heir.moons > 8:
-                    new_baron = game.clan.heir
-                elif game.clan.regent:
-                    new_baron = game.clan.regent
-                else:
-                    clippers = [cat for cat in Cat.all_cats_list if not cat.outside and cat.status == "clipper"]
-                    if clippers:
-                        new_baron = choice(clippers)
-                    else:
-                        print("No possible new Barons")
-                        return
-                baron_clan = game.clan
-                game.clan.baron = new_baron
-                new_baron.status_change("baron")
-
-            for cat in Cat.all_cats_list:
-                if cat.allegiance == old_baron.ID:
-                    cat.allegiance = new_baron.ID
-                
-            # transfer baron accessory
-            if baron_clan.colour.upper() + "BOW" in old_baron.pelt.accessory:
-                old_baron.pelt.accessory.remove(baron_clan.colour.upper() + "BOW")
-                new_baron.pelt.accessory.append(baron_clan.colour.upper() + "BOW")
-            print("Baron", old_baron.name, "has died:", new_baron.name, "has succeeded them as Baron of the", baron_clan.territory_type.capitalize())
 
         text = ""
         darkforest = game.clan.instructor.df
@@ -957,9 +918,6 @@ class Cat:
         # If we have it sorted by rank, we also need to re-sort
         if game.sort_type == "rank" and resort:
             Cat.sort_cats()
-
-    def new_baron(self, clan):
-        print(clan.territory_type, "getting a new baron")
 
     def rank_change_traits_skill(self, mentor):
         """Updates trait and skill upon ceremony"""
@@ -1575,14 +1533,14 @@ class Cat:
                     other_cat = None
                     break
         # for cats currently outside
-        # it appears as for now, kittypets and loners can only think about outsider cats
+        # it appears as for now, kittypets and nomads can only think about outsider cats
         elif where_kitty == "outside":
             while (
                 other_cat == self.ID
                 and len(all_cats) > 1
                 or (other_cat not in self.relationships)
             ):
-                # or (self.status in ('kittypet', 'loner') and not all_cats.get(other_cat).outside):
+                # or (self.status in ('kittypet', 'nomad') and not all_cats.get(other_cat).outside):
                 other_cat = choice(list(all_cats.keys()))
                 i += 1
                 if i > 100:

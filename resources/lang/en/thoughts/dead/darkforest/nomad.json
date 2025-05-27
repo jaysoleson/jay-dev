@@ -1,6 +1,6 @@
 [
     {
-        "id": "general_loner_dead_thoughts",
+        "id": "general_nomad_dead_thoughts",
         "thoughts": [
             "Feels a sharp pang of hunger",
             "Wonders how {PRONOUN/m_c/subject} ended up here",
@@ -9,7 +9,7 @@
             "Yowls angrily"
         ],
         "main_status_constraint": [
-            "loner"
+            "nomad"
         ]
     }
 ]

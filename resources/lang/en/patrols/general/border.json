@@ -88,7 +88,10 @@
         "patrol_art": "bord_general_intro",
         "min_cats": 1,
         "max_cats": 6,
-        "min_max_status": {},
+        "min_max_status": {
+            "normal adult": [1,6],
+            "cog": [-1, 0]
+        },
         "weight": 5,
         "intro_text": "p_l heads out to patrol the b1_t's borders, but scents something along the borders.",
         "decline_text": "p_l decides to not investigate the scent.",
@@ -105,13 +108,13 @@
                 "weight": 20
             },
             {
-                "text": "The scent leads p_l to a nearby patch of herbs, hopefully the herbs are useful to the clans healer.",
+                "text": "The scent leads p_l to a nearby patch of herbs, hopefully the herbs are useful to the doctor.",
                 "exp": 5,
                 "weight": 15,
                 "herbs": ["tansy"]
             },
             {
-                "text": "p_l detects the scent of a fellow Clanmate, possibly on a solo patrol of their own, but it was nothing to worry about.",
+                "text": "p_l detects the scent of a b1_t Clipper, possibly on a solo patrol of their own, but it was nothing to worry about.",
                 "exp": 5,
                 "weight": 20
             }
@@ -170,19 +173,19 @@
                 "weight": 20
             },
             {
-                "text": "p_l identifies the tracks as belonging to a fellow Clanmate.",
+                "text": "p_l identifies the tracks as belonging to a b1_t Clipper.",
                 "exp": 5,
                 "weight": 20
             },
             {
-                "text": "p_l identifies the tracks as belonging to two-legs, and p_l decides to head back to camp to inform the others.",
+                "text": "p_l identifies the tracks as belonging to a nomad, and p_l decides to head back to camp to inform the others.",
                 "exp": 5,
                 "weight": 20
             }
         ],
         "fail_outcomes": [
             {
-                "text": "p_l can't identify the tracks, and are forced to return to camp to report it.",
+                "text": "p_l can't identify the tracks, and is forced to return to camp to report it.",
                 "exp": 0,
                 "weight": 20
             },
@@ -219,7 +222,7 @@
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "Upon closer inspection, it was just remarking from a Clanmate.",
+                "text": "Upon closer inspection, it was just remarking from a Clipper.",
                 "exp": 0,
                 "weight": 20
             },
@@ -229,7 +232,7 @@
                 "weight": 20
             },
             {
-                "text": "Upon investigation, p_l finds that the disturbed markings were caused by a loner, though the intruder is long gone by now.",
+                "text": "Upon investigation, p_l finds that the disturbed markings were caused by a nomad, though the intruder is long gone by now.",
                 "exp": 0,
                 "weight": 20
             }
@@ -309,14 +312,16 @@
         "patrol_art": "pumpkineyes_INTRO",
         "min_cats": 2,
         "max_cats": 6,
-        "min_max_status": {},
+        "min_max_status": {
+            "baron": [-1, 0]
+        },
         "weight": 20,
         "intro_text": "The patrol is heading out to check the borders, when p_l says {PRONOUN/p_l/subject} {VERB/p_l/see/sees} strange glowing eyes in the distance.",
         "decline_text": "r_c sighs and tells p_l that {PRONOUN/p_l/subject}{VERB/p_l/'re/'s} just seeing things. There's nothing out there... right?",
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "The patrol cautiously heads in the direction of the strange, motionless eyes. The cats see an eerie face with glowing eyes in the distance, baring its fangs and smelling of smoke. p_l creeps up to the face to find that it belongs to a pumpkin! Spooked, r_c suggests heading back to camp to report this bizarre finding to the Clan. p_l agrees, not wanting to be near this... thing... any longer.",
+                "text": "The patrol cautiously heads in the direction of the strange, motionless eyes. The cats see an eerie face with glowing eyes in the distance, baring its fangs and smelling of smoke. p_l creeps up to the face to find that it belongs to a pumpkin! Spooked, r_c suggests heading back to camp to report this bizarre finding to baron1. p_l agrees, not wanting to be near this... thing... any longer.",
                 "exp": 10,
                 "weight": 20
             },
@@ -326,7 +331,7 @@
                 "weight": 5
             },
             {
-                "text": "As the patrol heads in the direction of the sinister glare of strange, motionless eyes, the scent of smoke creeps up on the patrol. s_c darts forward, finding the smoke scent coming from an odd pumpkin with some sort of... face? Thinking quickly {PRONOUN/s_c/subject} {VERB/s_c/scratch/scratches} dirt into the holes on the pumpkin, extinguishing the small flames. The patrol is left wondering what in the name of StarClan they're looking at.",
+                "text": "As the patrol heads in the direction of the sinister glare of strange, motionless eyes, the scent of smoke creeps up on the patrol. s_c darts forward, finding the smoke scent coming from an odd pumpkin with some sort of... face? Thinking quickly {PRONOUN/s_c/subject} {VERB/s_c/scratch/scratches} dirt into the holes on the pumpkin, extinguishing the small flames. The patrol is left wondering what on Earth they're looking at.",
                 "exp": 15,
                 "weight": 10,
                 "stat_trait": [
@@ -348,7 +353,7 @@
                 "weight": 10,
                 "stat_skill": [
                     "KITTYPET,0", 
-                    "LONER,0"],
+                    "NOMAD,0"],
                 "can_have_stat": ["r_c"]
             },
             {
@@ -422,7 +427,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "r_c, being ever so curious, decides to see if {PRONOUN/r_c/subject} can decipher the meaning behind this Twoleg ritual. However, after some time, {PRONOUN/r_c/subject} {VERB/r_c/give/gives} up, concluding that it's just another strange Twoleg custom that Clan cats will never understand.",
+                "text": "r_c, being ever so curious, decides to see if {PRONOUN/r_c/subject} can decipher the meaning behind this Twoleg ritual. However, after some time, {PRONOUN/r_c/subject} {VERB/r_c/give/gives} up, concluding that it's just another strange Twoleg custom that Barony cats will never understand.",
                 "exp": 0,
                 "weight": 10
             },
@@ -460,12 +465,12 @@
                 "stat_skill": ["FIGHTER,0"]
             },
             {
-                "text": "s_c stops the patrol, narrowing {PRONOUN/s_c/poss} eyes. That isn't a Twoleg! {PRONOUN/s_c/subject/CAP} came across one before during {PRONOUN/s_c/object} time outside the Clan. It's a 'scarecrow', {PRONOUN/s_c/subject} {VERB/s_c/explain/explains}, meant to protect the Twoleg fields from harm. The patrol continues on their way, giving the scarecrow a wide berth.",
+                "text": "s_c stops the patrol, narrowing {PRONOUN/s_c/poss} eyes. That isn't a Twoleg! {PRONOUN/s_c/subject/CAP} came across one before during {PRONOUN/s_c/object} time outside the Badlands. It's a 'scarecrow', {PRONOUN/s_c/subject} {VERB/s_c/explain/explains}, meant to protect the Twoleg fields from harm. The patrol continues on their way, giving the scarecrow a wide berth.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": [
                     "ROGUE,0", 
-                    "LONER,0"
+                    "NOMAD,0"
                 ]
             }
         ],

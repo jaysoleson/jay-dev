@@ -85,7 +85,7 @@
             "Is waiting to watch the sunset",
             "Is grooming, grooming, grooming away...",
             "Saw a pair of Twolegs near camp today!",
-            "Saw a Twoleg petting a loner",
+            "Saw a Twoleg petting a nomad",
             "Saw a kittypet with no fur at all!",
             "Saw some kittypets playing with colorful moss balls",
             "Saw a kittypet sitting calmly next to a dog!",
@@ -131,7 +131,7 @@
             "Saw a yappy little dog today",
             "Is hoping {PRONOUN/m_c/subject} {VERB/m_c/find/finds} an opportunity to slip back to {PRONOUN/m_c/poss} nest",
             "Had a nice chat with a cat from another Clan at the border",
-            "Had a nice chat with a loner outside Clan territory",
+            "Had a nice chat with a nomad outside Clan territory",
             "Had a nice chat with a kittypet",
             "Is on a walk out in the territory",
             "Is having a nice conversation with the cats guarding camp",
@@ -564,7 +564,7 @@
             "Tells the clippers to get ready for a battle",
             "Yearns to fight",
             "Is letting a wound go untreated in hopes it gives {PRONOUN/m_c/object} a scar",
-            "Tried to fight a loner",
+            "Tried to fight a nomad",
             "Tried to fight a kittypet",
             "Tried to fight a rogue",
             "Wonders if training in the Dark Forest is really that bad",
@@ -1621,7 +1621,7 @@
     {
         "id": "loyal_to_elder",
         "thoughts": [
-            "Feels a deep respect for the Clan's elders"
+            "Feels a deep respect for the Barony's elders"
         ],
         "main_trait_constraint": [
             "loyal"
@@ -2062,7 +2062,7 @@
             "Frowns at r_c for spending the whole morning grooming",
             "Thinks every cat should practice their hunting crouch more",
             "Has no time for hare-brained new hunting techniques",
-            "Knows rules are the only thing separating them from rogues and loners",
+            "Knows rules are the only thing separating them from rogues and nomads",
             "Reminds a Clanmate to give thanks after every catch",
             "Can't believe r_c thinks moving the border a mouse-length wouldn't matter"
         ],
@@ -2628,8 +2628,8 @@
             "halfclan2",
             "outsider_roots1",
             "outsider_roots2",
-            "loner1",
-            "loner2",
+            "nomad1",
+            "nomad2",
             "rogue1",
             "rogue2",
             "rogue3",
@@ -3156,7 +3156,7 @@
         "id": "working_cat_to_regent",
         "thoughts": [
             "Hopes the regent won't assign {PRONOUN/m_c/object} to the dawn patrol tomorrow",
-            "Hopes the regent assigns {PRONOUN/m_c/object} to the next patrol",
+            "Hopes The Regent assigns {PRONOUN/m_c/object} to the next patrol",
             "Hopes the regent won't assign {PRONOUN/m_c/object} to the next patrol"
         ],
         "main_status_constraint": [
@@ -4431,7 +4431,7 @@
             "Is thinking about r_c",
             "Is wishing to be more like r_c",
             "Is sad {PRONOUN/m_c/subject} couldn't spend more time with r_c",
-            "Sees a loner that reminds {PRONOUN/m_c/object} of r_c",
+            "Sees a nomad that reminds {PRONOUN/m_c/object} of r_c",
             "Sees a kittypet that reminds {PRONOUN/m_c/object} of r_c",
             "Thinks about how times have changed since r_c was part of c_n"
         ],

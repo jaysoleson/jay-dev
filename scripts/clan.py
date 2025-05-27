@@ -171,7 +171,7 @@ class Clan:
                 self.clan_settings[setting_name] = inf[2]
                 self.setting_lists[setting_name] = [inf[2], not inf[2]]
 
-        # Reputation is for loners/kittypets/outsiders in general that wish to join the clan.
+        # Reputation is for nomads/kittypets/outsiders in general that wish to join the clan.
         # it's a range from 1-100, with 30-70 being neutral, 71-100 being "welcoming",
         # and 1-29 being "hostile". if you're hostile to outsiders, they will VERY RARELY show up.
         self._reputation = 80
@@ -278,26 +278,9 @@ class Clan:
             "forest", "cliffside", "lakeside", "river", "township", "field"
         ]
         available_territory_types.remove(self.territory_type)
-        territory_tiles = {
-            "forest": [
-                "1-1", "1-2", "2-1", "2-2", "3-1", "3-2", "3-3", "4-3"
-            ],
-            "field": [
-                "1-3", "1-4", "1-5", "2-3", "2-4", "2-5", "3-4", "3-5"
-            ],
-            "cliffside": [
-                "1-6", "1-7", "2-6", "2-7", "3-6", "3-7", "4-5", "4-6"
-            ],
-            "township": [
-                "4-7", "5-5", "5-6", "5-7", "6-6", "6-7", "7-6", "7-7"
-            ],
-            "river": [
-                "5-4", "6-3", "6-4", "6-5", "7-2", "7-3", "7-4", "7-5"
-            ],
-            "lakeside": [
-                "4-1", "4-2", "5-1", "5-2", "5-3", "6-1", "6-2", "7-1"
-            ]
-        }
+
+        territory_tiles = game.badlands_info["territory_tiles"]["tilemap"]
+
         exports = [
             "prey", "supplies", "cosmetics", "herbs"
         ]
@@ -1471,7 +1454,7 @@ class OtherClan:
         self.name = name or choice(clan_names)
 
         # bl
-        # baron_names = names.names_dict["normal_prefixes"] + names.names_dict["loner_names"]
+        # baron_names = names.names_dict["normal_prefixes"] + names.names_dict["nomad_names"]
         self.baron = baron
         self.colour = colour or "black"
         self.territory = territory or []

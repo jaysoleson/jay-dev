@@ -490,12 +490,12 @@ def create_new_cat_block(
         cat_type = "kittypet"
     elif "rogue" in attribute_list:
         cat_type = "rogue"
-    elif "loner" in attribute_list:
-        cat_type = "loner"
+    elif "nomad" in attribute_list:
+        cat_type = "nomad"
     elif "clancat" in attribute_list:
         cat_type = "former Clancat"
     else:
-        cat_type = choice(["kittypet", "loner", "former Clancat"])
+        cat_type = choice(["kittypet", "nomad", "former Clancat"])
 
     # LITTER
     litter = False
@@ -622,7 +622,7 @@ def create_new_cat_block(
         new_cats = create_new_cat(
             Cat,
             new_name=new_name,
-            loner=cat_type in ("loner", "rogue"),
+            nomad=cat_type in ("nomad", "rogue"),
             kittypet=cat_type == "kittypet",
             other_clan=cat_type == "former Clancat",
             kit=(not litter) and status in ("kitten", "newborn"),
@@ -731,7 +731,7 @@ def get_other_clan(clan_name):
 def create_new_cat(
         Cat: Union["Cat", Type["Cat"]],
         new_name: bool = False,
-        loner: bool = False,
+        nomad: bool = False,
         kittypet: bool = False,
         kit: bool = False,
         litter: bool = False,
@@ -751,8 +751,8 @@ def create_new_cat(
     This function creates new cats and then returns a list of those cats
     :param Cat Cat: pass the Cat class
     :params Relationship Relationship: pass the Relationship class
-    :param bool new_name: set True if cat(s) is a loner/rogue receiving a new Clan name - default: False
-    :param bool loner: set True if cat(s) is a loner or rogue - default: False
+    :param bool new_name: set True if cat(s) is a nomad/rogue receiving a new Clan name - default: False
+    :param bool nomad: set True if cat(s) is a nomad or rogue - default: False
     :param bool kittypet: set True if cat(s) is a kittypet - default: False
     :param bool kit: set True if the cat is a lone kitten - default: False
     :param bool litter: set True if a litter of kittens needs to be generated - default: False
@@ -828,7 +828,7 @@ def create_new_cat(
             _gender = gender
 
         # other Clan cats, apps, and kittens (kittens and apps get indoctrinated lmao no old names for them)
-        if other_clan or kit or litter or age < 12 and not (loner or kittypet):
+        if other_clan or kit or litter or age < 12 and not (nomad or kittypet):
             new_cat = Cat(
                 moons=age,
                 status=status,
@@ -839,18 +839,18 @@ def create_new_cat(
                 adoptive_parents=adoptive_parents if adoptive_parents else [],
             )
         else:
-            # grab starting names and accs for loners/kittypets
+            # grab starting names and accs for nomads/kittypets
             if kittypet:
-                name = choice(names.names_dict["loner_names"])
+                name = choice(names.names_dict["nomad_names"])
                 if bool(getrandbits(1)):
                     # TODO: refactor this entire function to remove this call amongst other things
                     from scripts.cat.pelts import Pelt
 
                     accessory = choice(Pelt.collars)
-            elif loner and bool(
+            elif nomad and bool(
                     getrandbits(1)
-            ):  # try to give name from full loner name list
-                name = choice(names.names_dict["loner_names"])
+            ):  # try to give name from full nomad name list
+                name = choice(names.names_dict["nomad_names"])
             else:
                 name = choice(
                     names.names_dict["normal_prefixes"]

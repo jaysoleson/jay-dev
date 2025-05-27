@@ -68,7 +68,7 @@
         "max_cats": 6,
         "min_max_status": {},
         "weight": 20,
-        "intro_text": "Here on the plains, the reaches of c_n's territory is vast, particularly in the direction p_l and {PRONOUN/p_l/poss} patrol are heading, where there is endless grass but no permanent water sources. The greenleaf sun beats down strongly.",
+        "intro_text": "Here on the plains, the reaches of the b1_t Territory is vast, particularly in the direction p_l and {PRONOUN/p_l/poss} patrol are heading, where there is endless grass but no permanent water sources. The greenleaf sun beats down strongly.",
         "decline_text": "The patrol is interrupted by a hunting patrol that needs help carrying prey back to camp - border marking will wait til later.",
         "chance_of_success": 40,
         "success_outcomes": [
@@ -427,7 +427,7 @@
                 ]
             },
             {
-                "text": "s_c sets up an ambush for the wandering coyote, bloodying its snout and leading it on a wild chasing dance across the border and out of c_n territory.",
+                "text": "s_c sets up an ambush for the wandering coyote, bloodying its snout and leading it on a wild chasing dance across the border and out of baron1's territory.",
                 "exp": 40,
                 "weight": 20,
                 "art": "gen_coyote_danger2_w2",
@@ -671,7 +671,7 @@
                 ]
             },
             {
-                "text": "s_c sets up a careful ambush ahead of the coyote, and the surprising, darting attack bloodies the coyote's flank, dissuading it from heading further into c_n territory.",
+                "text": "s_c sets up a careful ambush ahead of the coyote, and the surprising, darting attack bloodies the coyote's flank, dissuading it from heading further into baron1's territory.",
                 "exp": 30,
                 "weight": 10,
                 "art": "gen_coyote_danger2_w2",
@@ -743,7 +743,7 @@
                 ]
             },
             {
-                "text": "s_c selflessly takes the lion's share of the run as the patrol leads the coyote on, exhausting {PRONOUN/s_c/self} almost to the point of danger, but leading the coyote far away from c_n borders. {PRONOUN/s_c/poss/CAP} Clanmates support {PRONOUN/s_c/object} on the long walk home once it's all over, their purrs mixing with s_c's exhausted pants.",
+                "text": "s_c selflessly takes the lion's share of the run as the patrol leads the coyote on, exhausting {PRONOUN/s_c/self} almost to the point of danger, but leading the coyote far away from baron1's borders. {PRONOUN/s_c/poss/CAP} patrolmates support {PRONOUN/s_c/object} on the long walk home once it's all over, their purrs mixing with s_c's exhausted pants.",
                 "exp": 30,
                 "weight": 10,
                 "art": "running_clipper",
@@ -892,7 +892,7 @@
                 ]
             },
             {
-                "text": "The patrol tries bravely to lead the coyote away from c_n borders, but with so few cats it's impossible to cover each other's backs. r_c gets caught while running, and it's all the rest of the patrol can do to distract the coyote long enough to get {PRONOUN/r_c/object} to safety.",
+                "text": "The patrol tries bravely to lead the coyote away from baron1's borders, but with so few cats it's impossible to cover each other's backs. r_c gets caught while running, and it's all the rest of the patrol can do to distract the coyote long enough to get {PRONOUN/r_c/object} to safety.",
                 "exp": 0,
                 "weight": 10,
                 "art": "gen_coyote_danger2_w2",
@@ -1311,7 +1311,7 @@
                 ]
             },
             {
-                "text": "The patrol tries to keep watch on the coyote from a distance, but it spots the cats and they have to scatter. It's not as bad as it could've been though; r_c manages to keep track of the coyote's position, and it doesn't come any further into c_n territory.",
+                "text": "The patrol tries to keep watch on the coyote from a distance, but it spots the cats and they have to scatter. It's not as bad as it could've been though; r_c manages to keep track of the coyote's position, and it doesn't come any further into baron1's territory.",
                 "exp": 0,
                 "weight": 5,
                 "art": "gen_coyote_danger1"
@@ -4011,7 +4011,7 @@
                 ]
             },
             {
-                "text": "The apprentices find some footprints. Are they from a rogue? A loner? An <i>intruder</i>?! s_c rolls {PRONOUN/s_c/poss} eyes. Clearly those prints smell of c_n, they're just from one of the clippers.",
+                "text": "The apprentices find some footprints. Are they from a rogue? A nomad? An <i>intruder</i>?! s_c rolls {PRONOUN/s_c/poss} eyes. Clearly those prints smell of the b1_t, they're just from one of the clippers.",
                 "exp": 20,
                 "weight": 20,
                 "art": "bch_bord_trackrogue",
@@ -4335,7 +4335,7 @@
         "season": ["greenleaf"],
         "types": ["border"],
         "tags": [],
-        "patrol_art": "gen_med_gatheringgoldenrod_loner_greenleaf1_v3",
+        "patrol_art": "gen_med_gatheringgoldenrod_nomad_greenleaf1_v3",
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
@@ -4347,12 +4347,12 @@
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "Well, aren't you just a long drink of water on a hot day, the loner chirps. Speaking of water... know where to find any? p_l frowns (there's no way this loner didn't smell the border markings), but directs {PRONOUN/n_c:0/object} to a river. A river <i>outside</i> of c_n's territory.",
+                "text": "Well, aren't you just a long drink of water on a hot day, the nomad chirps. Speaking of water... know where to find any? p_l frowns (there's no way this nomad didn't smell the border markings), but directs {PRONOUN/n_c:0/object} to a river. A river <i>outside</i> of the b1_t Territory.",
                 "exp": 15,
                 "weight": 5,
                 "art": "gen_happy_cat3",
                 "new_cat": [
-                    ["age:adult", "loner", "meeting"]
+                    ["age:adult", "nomad", "meeting"]
                 ],
                 "relationships": [
                     {
@@ -4385,7 +4385,7 @@
                     "wise"
                 ],
                 "new_cat": [
-                    ["age:adult", "loner", "meeting"]
+                    ["age:adult", "nomad", "meeting"]
                 ],
                 "prey": ["medium"],
                 "relationships": [
@@ -4419,7 +4419,7 @@
                 ],
                 "prey": ["medium"],
                 "new_cat": [
-                    ["age:adult", "loner", "meeting"]
+                    ["age:adult", "nomad", "meeting"]
                 ],
                 "relationships": [
                     {
@@ -4447,7 +4447,7 @@
                 "weight": 5,
                 "art": "gen_happy_cat3",
                 "new_cat": [
-                    ["age:adult", "loner", "meeting"]
+                    ["age:adult", "nomad", "meeting"]
                 ],
                 "relationships": [
                     {
@@ -4488,7 +4488,7 @@
                     "lonesome"
                 ],
                 "new_cat": [
-                    ["age:adult", "loner", "meeting"]
+                    ["age:adult", "nomad", "meeting"]
                 ],
                 "relationships": [
                     {
@@ -4512,7 +4512,7 @@
                 "text": "Nothing much, s_c grins. And you, lost little pretty thing? What{VERB/n_c:0/'re/'s} {PRONOUN/n_c:0/subject} doing here? s_c scents the prey n_c:0 has half hidden under the grass stalks. But {PRONOUN/s_c/subject} {VERB/s_c/don't/doesn't} care, this stranger is <i>much</i> more interesting than one poached scrap of food.",
                 "exp": 0,
                 "weight": 20,
-                "art": "gen_flower_date_clipper_loner",
+                "art": "gen_flower_date_clipper_nomad",
                 "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "rebellious",
@@ -4522,7 +4522,7 @@
                     "adventurous"
                 ],
                 "new_cat": [
-                    ["age:adult", "loner", "meeting"]
+                    ["age:adult", "nomad", "meeting"]
                 ],
                 "relationships": [
                     {
@@ -4543,10 +4543,10 @@
                 "outsider_rep": 0
             },
             {
-                "text": "{PRONOUN/n_c:0/subject/CAP} {VERB/n_c:0/need/needs} some help, {PRONOUN/n_c:0/subject} {VERB/n_c:0/continue/continues}. {PRONOUN/n_c:0/subject/CAP} {VERB/n_c:0/have/has} some kittens {PRONOUN/n_c:0/subject}{VERB/n_c:0/'re/'s} looking after, and they're SO hungry. Can s_c help? What? Where? s_c comes forward, wondering what the outsider is talking about - and flinches backwards as the loner attacks. This is no innocent flirtation!",
+                "text": "{PRONOUN/n_c:0/subject/CAP} {VERB/n_c:0/need/needs} some help, {PRONOUN/n_c:0/subject} {VERB/n_c:0/continue/continues}. {PRONOUN/n_c:0/subject/CAP} {VERB/n_c:0/have/has} some kittens {PRONOUN/n_c:0/subject}{VERB/n_c:0/'re/'s} looking after, and they're SO hungry. Can s_c help? What? Where? s_c comes forward, wondering what the outsider is talking about - and flinches backwards as the nomad attacks. This is no innocent flirtation!",
                 "exp": 0,
                 "weight": 20,
-                "art": "gen_battle_clipper_loner",
+                "art": "gen_battle_clipper_nomad",
                 "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "compassionate",
@@ -4555,7 +4555,7 @@
                     "sincere"
                 ],
                 "new_cat": [
-                    ["age:adult", "loner", "meeting"]
+                    ["age:adult", "nomad", "meeting"]
                 ],
                 "relationships": [
                     {
@@ -4595,12 +4595,12 @@
         ],
         "antag_fail_outcomes": [
             {
-                "text": "p_l puffs out {PRONOUN/p_l/poss} fur. This loner - n_c:0, n_c:0 interrupts. Okay, <i>n_c:0</i> is on c_n territory, and - what's c_n? They're a clipper Clan! What's a clipper? Well, uh... While p_l tries to explain the clipper code, n_c:0 takes {PRONOUN/n_c:0/poss} chance and runs off.",
+                "text": "p_l puffs out {PRONOUN/p_l/poss} fur. This nomad - n_c:0, n_c:0 interrupts. Okay, <i>n_c:0</i> is on c_n territory, and - what's c_n? They're a clipper Clan! What's a clipper? Well, uh... While p_l tries to explain the clipper code, n_c:0 takes {PRONOUN/n_c:0/poss} chance and runs off.",
                 "exp": 0,
                 "weight": 5,
                 "art": "gen_bord_newcat",
                 "new_cat": [
-                    ["age:adult", "loner", "meeting"]
+                    ["age:adult", "nomad", "meeting"]
                 ],
                 "relationships": [
                     {
@@ -4628,10 +4628,10 @@
                 "outsider_rep": -1
             },
             {
-                "text": "s_c is patrolling c_n's border, and n_c:0 is <i>not</i> supposed to be here. Leave. Now. Offended, the loner sets back {PRONOUN/n_c:0/poss} ears. And who's going to make {PRONOUN/n_c:0/object}? s_c will! s_c leaps on {PRONOUN/n_c:0/object}, claws extended. No one is coming away from this meeting unscathed.",
+                "text": "s_c is patrolling c_n's border, and n_c:0 is <i>not</i> supposed to be here. Leave. Now. Offended, the nomad sets back {PRONOUN/n_c:0/poss} ears. And who's going to make {PRONOUN/n_c:0/object}? s_c will! s_c leaps on {PRONOUN/n_c:0/object}, claws extended. No one is coming away from this meeting unscathed.",
                 "exp": 0,
                 "weight": 20,
-                "art": "gen_battle_clipper_loner",
+                "art": "gen_battle_clipper_nomad",
                 "can_have_stat": ["p_l"],
                 "stat_trait": [
                     "grumpy",
@@ -4641,7 +4641,7 @@
                     "bloodthirsty"
                 ],
                 "new_cat": [
-                    ["age:adult", "loner", "meeting"]
+                    ["age:adult", "nomad", "meeting"]
                 ],
                 "relationships": [
                     {
@@ -4688,12 +4688,12 @@
         ],
         "antag_success_outcomes": [
             {
-                "text": "Oh yeah, p_l's <i>real</i> cute, {PRONOUN/p_l/subject} {VERB/p_l/reply/replies}, stalking round the loner and picking up the prey lying very poorly concealed behind {PRONOUN/n_c:0/object}. And p_l's <i>up to</i> a border patrol. c_n thanks n_c:0 for {PRONOUN/n_c:0/poss} donation to the fresh-kill pile. Now get back on the right side of those border markers. n_c:0 doesn't think p_l's much fun.",
+                "text": "Oh yeah, p_l's <i>real</i> cute, {PRONOUN/p_l/subject} {VERB/p_l/reply/replies}, stalking round the nomad and picking up the prey lying very poorly concealed behind {PRONOUN/n_c:0/object}. And p_l's <i>up to</i> a border patrol. c_n thanks n_c:0 for {PRONOUN/n_c:0/poss} donation to the fresh-kill pile. Now get back on the right side of those border markers. n_c:0 doesn't think p_l's much fun.",
                 "exp": 15,
                 "weight": 5,
                 "art": "mtn_hunt_kea_leafbare_parentchildapprentice1",
                 "new_cat": [
-                    ["age:adult", "loner", "meeting"]
+                    ["age:adult", "nomad", "meeting"]
                 ],
                 "prey": ["medium"],
                 "relationships": [
@@ -4722,7 +4722,7 @@
                 "outsider_rep": -2
             },
             {
-                "text": "n_c:0 is on c_n's territory, and p_l will see {PRONOUN/n_c:0/object} removed. n_c0 suggests that p_l only wants to watch them leave, tail lashing flirtatiously, and p_l's temper snaps. GET OUT!",
+                "text": "n_c:0 is on the b1_t Territory, and p_l will see {PRONOUN/n_c:0/object} removed. n_c0 suggests that p_l only wants to watch them leave, tail lashing flirtatiously, and p_l's temper snaps. GET OUT!",
                 "exp": 15,
                 "weight": 20,
                 "art": "gen_angry_cat_clipper",
@@ -4734,7 +4734,7 @@
                     "loyal"
                 ],
                 "new_cat": [
-                    ["age:adult", "loner", "meeting"]
+                    ["age:adult", "nomad", "meeting"]
                 ],
                 "relationships": [
                     {
@@ -4755,16 +4755,16 @@
                 "outsider_rep": -2
             },
             {
-                "text": "Say, pretty kitty, the loner continues, what say we- No, s_c cuts {PRONOUN/n_c:0/object} off. {PRONOUN/n_c:0/subject/CAP}{VERB/n_c:0/'re/'s} leaving c_n's territory now. The loner bristles, and makes a turn, only to swirl around, claws extended. s_c is ready, and almost disdainfully sidesteps the attack, digging in {PRONOUN/s_c/poss} hindclaws and pouncing from the side to shove n_c:0 over. The outsider hisses furiously, but it's clear who's won.",
+                "text": "Say, pretty kitty, the nomad continues, what say we- No, s_c cuts {PRONOUN/n_c:0/object} off. {PRONOUN/n_c:0/subject/CAP}{VERB/n_c:0/'re/'s} leaving the b1_t Territory now. The nomad bristles, and makes a turn, only to swirl around, claws extended. s_c is ready, and almost disdainfully sidesteps the attack, digging in {PRONOUN/s_c/poss} hindclaws and pouncing from the side to shove n_c:0 over. The outsider hisses furiously, but it's clear who's won.",
                 "exp": 15,
                 "weight": 20,
-                "art": "gen_angry_cat_loner",
+                "art": "gen_angry_cat_nomad",
                 "can_have_stat": ["p_l"],
                 "stat_skill": [
                     "FIGHTER,2"
                 ],
                 "new_cat": [
-                    ["age:adult", "loner", "meeting"]
+                    ["age:adult", "nomad", "meeting"]
                 ],
                 "relationships": [
                     {

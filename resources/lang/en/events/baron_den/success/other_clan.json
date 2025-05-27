@@ -644,7 +644,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "At the Conclave, m_c announces that {PRONOUN/m_c/subject} {VERB/m_c/believe/believes} StarClan intends for both of their Clippers to go on a quest together. baron2 is surprised, but agrees to send out a joint patrol to explore this possibility.",
+    "event_text": "At the Conclave, m_c announces that {PRONOUN/m_c/subject} {VERB/m_c/believe/believes} a higher power intends for both of their Clippers to go on a quest together. baron2 is surprised, but agrees to send out a joint patrol to explore this possibility.",
     "rel_change": 10,
     "m_c": {
       "trait": ["adventurous"],
@@ -769,7 +769,7 @@
   },
   {
     "interaction_type": "provoke",
-    "event_text": "During the Conclave, m_c sits apart from the other Barons and watches the sky. When {PRONOUN/m_c/subject} {VERB/m_c/notice/notices} a wisp of cloud drift over the full moon, {PRONOUN/m_c/subject} {VERB/m_c/interrupt/interrupts} and {VERB/m_c/warn/warns} that StarClan is displeased - in the middle of baron2's speech.",
+    "event_text": "During the Conclave, m_c sits apart from the other Barons and watches the sky. When {PRONOUN/m_c/subject} {VERB/m_c/notice/notices} a wisp of cloud drift over the full moon, {PRONOUN/m_c/subject} {VERB/m_c/interrupt/interrupts} and {VERB/m_c/warn/warns} that the Gods are displeased - in the middle of baron2's speech.",
     "rel_change": -5,
     "m_c": {
       "skill": [ "SENSE,1" ],
@@ -1039,7 +1039,7 @@
   },
   {
     "interaction_type": "provoke",
-    "event_text": "Knowing how baron2 values good manners and strong inter-Clan relationships, m_c comments on how difficult of a time {PRONOUN/baron2/subject} {VERB/baron2/seem/seems} to be having when it comes to controlling {PRONOUN/baron2/poss} misbehaving colts. baron2's eyes narrow.",
+    "event_text": "Knowing how baron2 values good manners and strong cross-territory relationships, m_c comments on how difficult of a time {PRONOUN/baron2/subject} {VERB/baron2/seem/seems} to be having when it comes to controlling {PRONOUN/baron2/poss} misbehaving colts. baron2's eyes narrow.",
     "rel_change": -3,
     "m_c": {  },
     "player_clan_temper": ["any"],
@@ -1221,7 +1221,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "The night before the Conclave, one of m_c's friends visits {PRONOUN/m_c/object} from StarClan and gives {PRONOUN/m_c/object} a pep talk, reminding {PRONOUN/m_c/object} what a good friend {PRONOUN/m_c/subject} {VERB/m_c/are/is}. m_c arrives at the Conclave with steeled nerves and strikes up conversation with baron2",
+    "event_text": "The night before the Conclave, one of m_c's deceased friends visits {PRONOUN/m_c/object} from beyond and gives {PRONOUN/m_c/object} a pep talk, reminding {PRONOUN/m_c/object} what a good friend {PRONOUN/m_c/subject} {VERB/m_c/are/is}. m_c arrives at the Conclave with steeled nerves and strikes up conversation with baron2",
     "rel_change": 6,
     "m_c": {
       "trait": [ "lonesome", "nervous" ],
@@ -1284,7 +1284,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "At the Conclave, baron2 struggles through a report that an entire litter of b2_t kits were wiped out by kitten-cough. m_c draws {PRONOUN/baron2/object} aside after and reassures {PRONOUN/baron2/object} that the kittens are playing moss-ball together in StarClan. baron2 thanks {PRONOUN/m_c/object}, {PRONOUN/baron2/poss} mew thick with emotion.",
+    "event_text": "At the Conclave, baron2 struggles through a report that an entire litter of b2_t kits were wiped out by kitten-cough. m_c draws {PRONOUN/baron2/object} aside after and reassures {PRONOUN/baron2/object} that the kittens are playing moss-ball together in the afterlife. baron2 thanks {PRONOUN/m_c/object}, {PRONOUN/baron2/poss} mew thick with emotion.",
     "rel_change": 5,
     "m_c": {
       "skill": [ "KIT,2", "STAR,1"],
@@ -1432,7 +1432,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "During the Conclave, m_c mentions StarClan's signs of favor toward baron2, irritating one of the other deeply faithful Barons. In the ensuing tensions, m_c offers {PRONOUN/m_c/poss} support to baron2.",
+    "event_text": "During the Conclave, m_c mentions the Gods' signs of favor toward baron2, irritating one of the other deeply faithful Barons. In the ensuing tensions, m_c offers {PRONOUN/m_c/poss} support to baron2.",
     "rel_change": 5,
     "m_c": {
       "skill": ["STAR,1"],
@@ -1574,7 +1574,7 @@
   },
   {
     "interaction_type": "antagonize",
-    "event_text": "At the Conclave, m_c roars that StarClan themselves have ordained m_c's position as the mightiest Barony. No cat - not baron2, nor all of {PRONOUN/baron2/poss} Clippers - can get in the way of the b1_t's destiny.",
+    "event_text": "At the Conclave, m_c roars that the Gods themselves have ordained m_c's position as the mightiest Baron. No cat - not baron2, nor all of {PRONOUN/baron2/poss} Clippers - can get in the way of the b1_t's destiny.",
     "rel_change": -10,
     "m_c": {
       "skill": ["STAR,1"],
@@ -1702,7 +1702,7 @@
   },
   {
     "interaction_type": "antagonize",
-    "event_text": "At the Conclave, baron2 finishes {PRONOUN/baron2/poss} speech by thanking StarClan. m_c replies that it is a pity StarClan does not like baron2 as much as {PRONOUN/baron2/subject} {VERB/baron2/like/likes} StarClan.",
+    "event_text": "At the Conclave, baron2 finishes {PRONOUN/baron2/poss} speech by thanking the Gods. m_c replies that it is a pity the Gods do not like baron2 as much as {PRONOUN/baron2/subject} {VERB/baron2/like/likes} them.",
     "rel_change": -3,
     "m_c": {
       "skill": ["STAR,2", "PROPHET,2"]
@@ -1722,7 +1722,7 @@
   },
   {
     "interaction_type": "antagonize",
-    "event_text": "At the Conclave, m_c brings up an old tale of a tyrannical mouse-brain that nearly destroyed their own Clan with warmongering. baron2 is snarling by the end of the story.",
+    "event_text": "At the Conclave, m_c brings up an old tale of a tyrannical mouse-brain that nearly destroyed their own Barony with warmongering. baron2 is snarling by the end of the story.",
     "rel_change": -3,
     "m_c": {
       "skill": [ "STORY,1", "LORE,2", "SPEAKER,3" ]
@@ -1859,7 +1859,7 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "During the Conclave, m_c suggests the b2_t and the b1_t put aside their differences for the sake of both Clans.",
+    "event_text": "During the Conclave, m_c suggests the b2_t and the b1_t put aside their differences for the sake of both Baronies.",
     "rel_change": 3,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -1967,7 +1967,7 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "When baron2 claims at the Conclave that StarClan has ordained the current hostilities between the b1_t and the b2_t, m_c coolly replies that {PRONOUN/m_c/subject} {VERB/m_c/do/does} not think <i>StarClan</i> is guiding baron2's paws. Something in m_c's eyes makes baron2 back down.",
+    "event_text": "When baron2 claims at the Conclave that a higher power has ordained the current hostilities between the b1_t and the b2_t, m_c coolly replies that {PRONOUN/m_c/subject} {VERB/m_c/do/does} not think a merciful God is guiding baron2's paws. Something in m_c's eyes makes baron2 back down.",
     "rel_change": 3,
     "m_c": {
       "skill": [ "DARK,2" ]
@@ -2108,7 +2108,7 @@
   {
 
     "interaction_type": "antagonize",
-    "event_text": "At the Conclave, m_c threatens to send baron2 to join {PRONOUN/baron2/poss} recently-deceased Regent in StarClan, before baron2 even announces the cat's death. baron2 is rattled and enraged.",
+    "event_text": "At the Conclave, m_c threatens to send baron2 to join {PRONOUN/baron2/poss} recently-deceased Regent in the afterlife, before baron2 even announces the cat's death. baron2 is rattled and enraged.",
     "rel_change": -7,
     "m_c": {
       "trait": ["bloodthirsty"],
@@ -2236,7 +2236,7 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "When m_c joins the Clan Barons at the Conclave {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} off-put by the distinct looks of disapproval being aimed at baron2. Later on, the Baron stutters out {PRONOUN/baron2/poss} intent to lower hostilities with the b1_t.",
+    "event_text": "When m_c joins the Barons at the Conclave {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} off-put by the distinct looks of disapproval being aimed at baron2. Later on, the Baron stutters out {PRONOUN/baron2/poss} intent to lower hostilities with the b1_t.",
     "rel_change": 10,
     "m_c": {
       "status": ["colt", "apprentice doctor"]
@@ -2394,7 +2394,7 @@
   },
   {
     "interaction_type": "appease",
-    "event_text": "m_c dreams the night before the Conclave and hears the whispers of {PRONOUN/m_c/poss} ancestors. When {PRONOUN/m_c/subject} {VERB/m_c/speak/speaks} at the Conclave, baron2 shows open disdain, only for clouds to begin covering the moon. The Conclave ends quickly as the enemy Baron blusters and the other Clans rally behind m_c.",
+    "event_text": "m_c dreams the night before the Conclave and hears the whispers of {PRONOUN/m_c/poss} ancestors. When {PRONOUN/m_c/subject} {VERB/m_c/speak/speaks} at the Conclave, baron2 shows open disdain, only for clouds to begin covering the moon. The Conclave ends quickly as the enemy Baron blusters and the other Barons rally behind m_c.",
     "rel_change": 8,
     "m_c": {
       "skill": ["STAR,3"]

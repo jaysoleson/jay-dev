@@ -202,7 +202,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "Well, the only way to know is to check! s_c scrambles into the den for a look and comes nose to nose with its occupant. It's only by the grace of StarClan that {PRONOUN/s_c/subject}{VERB/s_c/'re/'s} able to redirect that speed and twist around just as fast, shedding fur in clumps as the badger's furious snarling and fizzing follows {PRONOUN/s_c/object} up the burrow tunnel.",
+                "text": "Well, the only way to know is to check! s_c scrambles into the den for a look and comes nose to nose with its occupant. It's only by the grace of the Gods that {PRONOUN/s_c/subject}{VERB/s_c/'re/'s} able to redirect that speed and twist around just as fast, shedding fur in clumps as the badger's furious snarling and fizzing follows {PRONOUN/s_c/object} up the burrow tunnel.",
                 "exp": 0,
                 "weight": 20,
                 "stat_trait": [
@@ -367,7 +367,7 @@
                 "weight": 20
             },
             {
-                "text": "Well, the only way to know is to check! s_c scrambles into the den for a look and comes nose to nose with its occupant. It's only by the grace of StarClan that {PRONOUN/s_c/subject}{VERB/s_c/'re/'s} able to redirect that speed and twist around just as fast, shedding fur in clumps as the badger's furious snarling and fizzing follows {PRONOUN/s_c/object} up the burrow tunnel.",
+                "text": "Well, the only way to know is to check! s_c scrambles into the den for a look and comes nose to nose with its occupant. It's only by the grace of the Gods that {PRONOUN/s_c/subject}{VERB/s_c/'re/'s} able to redirect that speed and twist around just as fast, shedding fur in clumps as the badger's furious snarling and fizzing follows {PRONOUN/s_c/object} up the burrow tunnel.",
                 "exp": 0,
                 "weight": 20,
                 "stat_trait": [
@@ -681,7 +681,7 @@
         "max_cats": 2,
         "min_max_status": {},
         "weight": 1,
-        "intro_text": "As r_c trails behind p_l, the ground trembles beneath {PRONOUN/r_c/poss}'s paws. {PRONOUN/r_c/subject/CAP} {VERB/r_c/look/looks} around wildly for safe footing - just as the earth caves in beneath {PRONOUN/r_c/object} and the world goes dark.",
+        "intro_text": "As r_c trails behind p_l, the ground trembles beneath {PRONOUN/r_c/poss} paws. {PRONOUN/r_c/subject/CAP} {VERB/r_c/look/looks} around wildly for safe footing - just as the earth caves in beneath {PRONOUN/r_c/object} and the world goes dark.",
         "decline_text": "Thankfully, {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} on the edge of the obstruction, and {VERB/r_c/wriggle/wriggles} {PRONOUN/r_c/poss} way clear.",
         "chance_of_success": 50,
         "success_outcomes": [
@@ -850,7 +850,7 @@
         "max_cats": 2,
         "min_max_status": {},
         "weight": 1,
-        "intro_text": "As r_c trails behind p_l, the ground trembles beneath {PRONOUN/r_c/poss}'s paws. {PRONOUN/r_c/subject/CAP} {VERB/r_c/look/looks} around wildly for safe footing - just as the earth caves in beneath {PRONOUN/r_c/object} and the world goes dark.",
+        "intro_text": "As r_c trails behind p_l, the ground trembles beneath {PRONOUN/r_c/poss} paws. {PRONOUN/r_c/subject/CAP} {VERB/r_c/look/looks} around wildly for safe footing - just as the earth caves in beneath {PRONOUN/r_c/object} and the world goes dark.",
         "decline_text": "Thankfully, {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} on the edge of the obstruction, and {VERB/r_c/wriggle/wriggles} {PRONOUN/r_c/poss} way clear.",
         "chance_of_success": 50,
         "success_outcomes": [
@@ -1367,7 +1367,7 @@
             "normal adult": [1, 6]
         },
         "weight": 20,
-        "intro_text": "p_l takes them both out to see a herd of bison that a patrol spotted moving through c_n's territory.",
+        "intro_text": "p_l takes them both out to see a herd of bison that a patrol spotted moving through the b1_t Territory.",
         "decline_text": "When they get there, p_l can't find it, and the lesson fails.",
         "chance_of_success": 60,
         "success_outcomes": [
@@ -1523,7 +1523,7 @@
             "normal adult": [1, 6]
         },
         "weight": 20,
-        "intro_text": "p_l takes them out to see a herd of bison that a patrol spotted moving through c_n's territory.",
+        "intro_text": "p_l takes them out to see a herd of bison that a patrol spotted moving through the b1_t Territory.",
         "decline_text": "When they get there, they can't find it, and the lesson fails.",
         "chance_of_success": 60,
         "success_outcomes": [
@@ -2642,7 +2642,7 @@
                 ]
             },
             {
-                "text": "As p_l shows the apprentices different types of tunnels and explains how valuable they are as refuges for c_n in moments of danger, s_c gives p_l {PRONOUN/s_c/poss} full attention. This sounds just as important as p_l promised, and {PRONOUN/s_c/subject}{VERB/s_c/'re/'s} determined to remember the locations of the safe hideyholes in c_n's territory.",
+                "text": "As p_l shows the apprentices different types of tunnels and explains how valuable they are as refuges for c_n in moments of danger, s_c gives p_l {PRONOUN/s_c/poss} full attention. This sounds just as important as p_l promised, and {PRONOUN/s_c/subject}{VERB/s_c/'re/'s} determined to remember the locations of the safe hideyholes in the b1_t Territory.",
                 "exp": 40,
                 "weight": 30,
                 "can_have_stat": ["any", "app"],
@@ -2750,7 +2750,7 @@
                 ]
             },
             {
-                "text": "As the patrol impacts the importance of knowing where the tunnel refuges are placed in c_n's territory, s_c tells of how, without any shelter or tunnels to find safety in, some cats became stronger, bigger, and their prides began to move constantly. They became lions, mighty and great - but not clippers anymore, not Clancats.",
+                "text": "As the patrol impacts the importance of knowing where the tunnel refuges are placed in the b1_t Territory, s_c tells of how, without any shelter or tunnels to find safety in, some cats became stronger, bigger, and their prides began to move constantly. They became lions, mighty and great - but not clippers anymore, not Clancats.",
                 "exp": 40,
                 "weight": 40,
                 "can_have_stat": ["any", "adult"],

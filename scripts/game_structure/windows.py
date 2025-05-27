@@ -17,6 +17,8 @@ import pygame_gui
 from pygame_gui.elements import UIWindow
 from pygame_gui.windows import UIMessageWindow
 
+from scripts.cat.cats import Cat
+
 from scripts.cat.history import History
 from scripts.cat.names import Name
 from scripts.game_structure import image_cache
@@ -1981,7 +1983,7 @@ class SelectFocusClans(UIWindow):
         n = 0
         for clan in game.clan.all_clans:
             self.texts[clan.name] = pygame_gui.elements.UITextBox(
-                clan.name + "clan",
+                str(Cat.fetch_cat(clan.baron).name),
                 ui_scale(pygame.Rect(107, n * 27 + 38, -1, 25)),
                 object_id="#text_box_30_horizleft_pad_0_8",
                 container=self,

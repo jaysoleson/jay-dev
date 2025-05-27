@@ -132,7 +132,7 @@ class SkillPath(Enum):
 
 class HiddenSkillEnum(Enum):
     ROGUE = "rogue's knowledge"
-    LONER = "loner's knowledge"
+    NOMAD = "nomad's knowledge"
     KITTYPET = "kittypet's knowledge"
 
 

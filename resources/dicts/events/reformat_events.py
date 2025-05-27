@@ -374,9 +374,9 @@ def reformat(path):
                 if event["kittypet"]:
                     info.append("kittypet")
 
-            if "loner" in event:
-                if event["loner"]:
-                    info.append("loner")
+            if "nomad" in event:
+                if event["nomad"]:
+                    info.append("nomad")
 
             if "clancat" in event:
                 if event["clancat"]:

@@ -196,14 +196,14 @@
         ],
         "sabotage other clans": [
             "Sabotaging Other Clans",
-            "Your Clippers work together to undermine the other Clans. Only available if you have a working mediator. Selecting this will also allow you to choose which Clans you target.",
+            "Your Clippers work together to undermine the other Clans. Selecting this will also allow you to choose which Clans you target.",
             false,
             "sabotage_focus",
             "#sabotage_focus_button"
         ],
         "aid other clans": [
             "Helping Other Clans",
-            "Your Clippers work together to help the other Clans with whatever they need. Only available if you have a working mediator. Selecting this will also allow you to choose which Clans you target.",
+            "Your Clippers work together to help the other Clans with whatever they need. Selecting this will also allow you to choose which Clans you target.",
             false,
             "help_focus",
             "#help_focus_button"

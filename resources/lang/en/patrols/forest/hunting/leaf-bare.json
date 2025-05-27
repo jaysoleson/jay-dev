@@ -46,7 +46,7 @@
                 ]
             },
             {
-                "text": "s_c really keeps the patrol on task and motivated through the sharp cold of the leaf-bare morning, not through authority or commands, but with a gentle voice and compassionate understanding that encourages every cat to do their best for c_n.",
+                "text": "s_c really keeps the patrol on task and motivated through the sharp cold of the leaf-bare morning, not through authority or commands, but with a gentle voice and compassionate understanding that encourages every cat to do their best for the b1_t.",
                 "exp": 10,
                 "weight": 20,
                 "stat_trait": ["compassionate", "faithful", "loving"],
@@ -776,7 +776,7 @@
                 ]
             },
             {
-                "text": "A mischievous look in {PRONOUN/p_l/poss} eye, p_l challenges {PRONOUN/p_l/poss} Clanmates - whoever catches one of the squirrels gets to skip dawn patrol for a whole moon. They're all eager to shimmy up the trees at that, and before long r_c calls out in triumph, proudly showing off the squirrel swinging from {PRONOUN/r_c/poss} jaws.",
+                "text": "A mischievous look in {PRONOUN/p_l/poss} eye, p_l challenges {PRONOUN/p_l/poss} friends - whoever catches one of the squirrels gets to skip dawn patrol for a whole moon. They're all eager to shimmy up the trees at that, and before long r_c calls out in triumph, proudly showing off the squirrel swinging from {PRONOUN/r_c/poss} jaws.",
                 "exp": 40,
                 "weight": 5,
                 "prey": ["medium"],
@@ -1515,7 +1515,7 @@
         "chance_of_success": 65,
         "success_outcomes": [
             {
-                "text": "With a flick of {PRONOUN/r_c/poss} tail, p_l directs {PRONOUN/p_l/poss} Clanmates into a silent ring of hunters surrounding the oblivious birds. When the time is right, the cats spring in unison, catching half of the flock.",
+                "text": "With a flick of {PRONOUN/r_c/poss} tail, p_l directs {PRONOUN/p_l/poss} friends into a silent ring of hunters surrounding the oblivious birds. When the time is right, the cats spring in unison, catching half of the flock.",
                 "exp": 15,
                 "weight": 20,
                 "prey": ["small"],
@@ -1530,7 +1530,7 @@
                 ]
             },
             {
-                "text": "p_l drops into a silent hunting crouch, and {PRONOUN/p_l/poss} Clanmates follow suit. They move into position like water around the oblivious songbirds, and when the time is right, a flick of p_l's ears tells the others to pounce. The patrol catches half of the flock!",
+                "text": "p_l drops into a silent hunting crouch, and {PRONOUN/p_l/poss} friends follow suit. They move into position like water around the oblivious songbirds, and when the time is right, a flick of p_l's ears tells the others to pounce. The patrol catches half of the flock!",
                 "exp": 15,
                 "weight": 5,
                 "prey": ["small"],
@@ -1547,7 +1547,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "p_l tries to organize {PRONOUN/p_l/poss} Clanmates into a silent ring of hunters around the unsuspecting birds, but {PRONOUN/p_l/poss} efforts are in vain. The cats are disorganized and confused, and the birds fly away before the patrol can stop bickering with each other about how best to catch the flock.",
+                "text": "p_l tries to organize {PRONOUN/p_l/poss} friends into a silent ring of hunters around the unsuspecting birds, but {PRONOUN/p_l/poss} efforts are in vain. The cats are disorganized and confused, and the birds fly away before the patrol can stop bickering with each other about how best to catch the flock.",
                 "exp": 0,
                 "weight": 20,
                 "relationships": [
@@ -1561,7 +1561,7 @@
                 ]
             },
             {
-                "text": "p_l tries to organize {PRONOUN/p_l/poss} Clanmates into a silent ring of hunters around the unsuspecting birds, and it works... until r_c misses {PRONOUN/r_c/poss} cue to pounce, and the flock flies away before anyone else can catch them.",
+                "text": "p_l tries to organize {PRONOUN/p_l/poss} friends into a silent ring of hunters around the unsuspecting birds, and it works... until r_c misses {PRONOUN/r_c/poss} cue to pounce, and the flock flies away before anyone else can catch them.",
                 "exp": 0,
                 "weight": 20,
                 "relationships": [
@@ -1790,7 +1790,7 @@
                 ]
             },
             {
-                "text": "s_c really keeps the patrol on task and motivated through the sharp cold of the leaf-bare morning, not through authority or commands, but with a gentle voice and compassionate understanding that encourages every cat to do their best for c_n.",
+                "text": "s_c really keeps the patrol on task and motivated through the sharp cold of the leaf-bare morning, not through authority or commands, but with a gentle voice and compassionate understanding that encourages every cat to do their best for the b1_t.",
                 "exp": 10,
                 "weight": 20,
                 "stat_trait": ["compassionate", "faithful", "loving"],
@@ -2070,7 +2070,7 @@
         "chance_of_success": 30,
         "success_outcomes": [
             {
-                "text": "The cats are smaller, but they outnumber the fox, if only by a little, and it's a prize they're willing to fight for. With a prayer to StarClan, they throw themselves into battle, and the fox, already half-full of venison and unwilling to lose blood over it, is driven off from the kill.",
+                "text": "The cats are smaller, but they outnumber the fox, if only by a little, and it's a prize they're willing to fight for. With a quick prayer, they throw themselves into battle, and the fox, already half-full of venison and unwilling to lose blood over it, is driven off from the kill.",
                 "exp": 20,
                 "weight": 20,
                 "prey": ["medium"],
@@ -2214,7 +2214,7 @@
         "chance_of_success": 10,
         "success_outcomes": [
             {
-                "text": "The cats are smaller but heavily outnumber the fox, and it's a prize they're willing to fight for. With a prayer to StarClan, they throw themselves into battle, and the fox, already half-full of venison and unwilling to lose blood over it, is driven off from the kill.",
+                "text": "The cats are smaller but heavily outnumber the fox, and it's a prize they're willing to fight for. With a quick prayer, they throw themselves into battle, and the fox, already half-full of venison and unwilling to lose blood over it, is driven off from the kill.",
                 "exp": 20,
                 "weight": 20,
                 "prey": ["medium"],
@@ -2358,7 +2358,7 @@
         "chance_of_success": 10,
         "success_outcomes": [
             {
-                "text": "r_c may be smaller, alone, and half its weight, but the fox has a prize {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} willing to fight for. With a prayer to StarClan, {PRONOUN/r_c/subject} {VERB/r_c/throw/throws} {PRONOUN/r_c/self} into battle. The fox, already stuffed full of venison and unwilling to lose blood over it, leaves the kill with a grumble.",
+                "text": "r_c may be smaller, alone, and half its weight, but the fox has a prize {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} willing to fight for. With a quick prayer, {PRONOUN/r_c/subject} {VERB/r_c/throw/throws} {PRONOUN/r_c/self} into battle. The fox, already stuffed full of venison and unwilling to lose blood over it, leaves the kill with a grumble.",
                 "exp": 30,
                 "weight": 20,
                 "prey": ["medium"],
@@ -2520,7 +2520,7 @@
         "chance_of_success": 30,
         "success_outcomes": [
             {
-                "text": "The cats are only just smaller and outnumber the fox, if only by a little, and it's a prize they're willing to fight for. With a prayer to StarClan, they throw themselves into battle, and the fox, already half-full of venison and unwilling to lose blood over it, is driven off from the kill.",
+                "text": "The cats are only just smaller and outnumber the fox, if only by a little, and it's a prize they're willing to fight for. With a quick prayer, they throw themselves into battle, and the fox, already half-full of venison and unwilling to lose blood over it, is driven off from the kill.",
                 "exp": 20,
                 "weight": 20,
                 "prey": ["medium"],
@@ -2653,7 +2653,7 @@
         "chance_of_success": 10,
         "success_outcomes": [
             {
-                "text": "The cats are only just smaller and heavily outnumber the fox, and it's a prize they're willing to fight for. With a prayer to StarClan, they throw themselves into battle, and the fox, already half-full of venison and unwilling to lose blood over it, is driven off from the kill.",
+                "text": "The cats are only just smaller and heavily outnumber the fox, and it's a prize they're willing to fight for. With a quick prayer, they throw themselves into battle, and the fox, already half-full of venison and unwilling to lose blood over it, is driven off from the kill.",
                 "exp": 20,
                 "weight": 20,
                 "prey": ["medium"],
@@ -2758,7 +2758,7 @@
         "chance_of_success": 30,
         "success_outcomes": [
             {
-                "text": "r_c may be smaller, alone, and half its weight, but the fox has a prize {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} willing to fight for. With a prayer to StarClan, {PRONOUN/r_c/subject} {VERB/r_c/throw/throws} {PRONOUN/r_c/self} into battle. The fox, already stuffed full of venison and unwilling to lose blood over it, leaves the kill with a grumble.",
+                "text": "r_c may be smaller, alone, and half its weight, but the fox has a prize {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} willing to fight for. With a quick prayer, {PRONOUN/r_c/subject} {VERB/r_c/throw/throws} {PRONOUN/r_c/self} into battle. The fox, already stuffed full of venison and unwilling to lose blood over it, leaves the kill with a grumble.",
                 "exp": 30,
                 "weight": 20,
                 "prey": ["medium"],
@@ -3371,7 +3371,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "Together they manage a grand haul of one f_tp_s, and not even a very big f_tp_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for c_n.",
+                "text": "Together they manage a grand haul of one f_tp_s, and not even a very big f_tp_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for the b1_t.",
                 "exp": 0,
                 "weight": 20,
                 "prey": ["very_small"]
@@ -3582,7 +3582,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "Together they manage a grand haul of one f_tp_s, and not even a very big f_tp_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for c_n.",
+                "text": "Together they manage a grand haul of one f_tp_s, and not even a very big f_tp_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for the b1_t.",
                 "exp": 0,
                 "weight": 20,
                 "prey": ["very_small"]
@@ -3793,7 +3793,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "Together they manage a grand haul of one f_tp_s, and not even a very big f_tp_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for c_n.",
+                "text": "Together they manage a grand haul of one f_tp_s, and not even a very big f_tp_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for the b1_t.",
                 "exp": 0,
                 "weight": 20,
                 "prey": ["very_small"]
@@ -4004,7 +4004,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "Together they manage a grand haul of one f_tp_s, and not even a very big f_tp_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for c_n.",
+                "text": "Together they manage a grand haul of one f_tp_s, and not even a very big f_tp_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for the b1_t.",
                 "exp": 0,
                 "weight": 20,
                 "prey": ["very_small"]
@@ -4216,7 +4216,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "Together they manage a grand haul of one f_tp_s, and not even a very big f_tp_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for c_n.",
+                "text": "Together they manage a grand haul of one f_tp_s, and not even a very big f_tp_s at that. They have a lot more to learn before they'll all be ready to take on the responsibility of providing for the b1_t.",
                 "exp": 0,
                 "weight": 20,
                 "prey": ["very_small"]
@@ -4910,7 +4910,7 @@
                 ]
             },
             {
-                "text": "r_c always feels like {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} padding in p_l's footsteps, especially today, watching {PRONOUN/p_l/object} haul back a good catch of prey for the Clan, a contribution that just about makes up for r_c's meager offerings.",
+                "text": "r_c always feels like {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} padding in p_l's footsteps, especially today, watching {PRONOUN/p_l/object} haul back a good catch of prey for the b1_t, a contribution that just about makes up for r_c's meager offerings.",
                 "exp": 20,
                 "weight": 5,
                 "prey": ["small"],
@@ -5326,7 +5326,7 @@
                 ]
             },
             {
-                "text": "r_c always feels like {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} padding in p_l's footsteps, especially today, watching {PRONOUN/p_l/object} haul back a good catch of prey for the Clan, a contribution that just about makes up for r_c's meager offerings.",
+                "text": "r_c always feels like {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} padding in p_l's footsteps, especially today, watching {PRONOUN/p_l/object} haul back a good catch of prey for the b1_t, a contribution that just about makes up for r_c's meager offerings.",
                 "exp": 20,
                 "weight": 5,
                 "prey": ["small"],
@@ -5608,10 +5608,10 @@
             "stat_skill": ["CLEVER,3", "HUNTER,2", "SENSE,1"]
           },
           {
-            "text": "Before any cat makes a move, s_c stops the patrol. {PRONOUN/s_c/subject/CAP} {VERB/s_c/explain/explains} that rogues and loners are taught at a young age to stay away from rats that touch Twoleg crowfood to avoid the deadly sickness they carry.",
+            "text": "Before any cat makes a move, s_c stops the patrol. {PRONOUN/s_c/subject/CAP} {VERB/s_c/explain/explains} that rogues and nomads are taught at a young age to stay away from rats that touch Twoleg crowfood to avoid the deadly sickness they carry.",
             "exp": 30,
             "weight": 20,
-            "stat_skill": ["ROGUE,0", "LONER,0"]
+            "stat_skill": ["ROGUE,0", "NOMAD,0"]
           },
           {
             "text": "Before any cat makes a move, s_c stops the patrol. {PRONOUN/s_c/subject/CAP} {VERB/s_c/explain/explains} that rats found in Twoleg crowfood often carry a deadly disease found in carrion. It's not worth the risk of catching, no matter how hungry the Clan is this leaf-bare.",

@@ -59,17 +59,76 @@
   "conclusion_events": [
     "The war between baron1 and baron2 has finally ended.",
     "baron1 and baron2 finally agree to peace terms.",
-    "A truce is called and the war between baron1 and baron2 is ended.",
-    "With the many injuries both sides have suffered, baron1 and baron2 found common ground and ended the war.",
     "The dust has finally settled of the war between baron1 and baron2.",
-    "The Barons of both the b2_t and the b1_t decide that for the well-being of both Clans, the war should come to an end now.",
-    "After lots of bloodshed of both baron1 and baron2's cats, the two Clans have come to terms of peace.",
+    "After lots of bloodshed of both baron1 and baron2's cats, the two groups have come to terms of peace.",
     "The battles between baron1 and baron2 have ceased, the war now finally coming to an end.",
     "baron1 and baron2 have had a long and complex past, but it's time for their battles to come to an end.",
-    "Many battles have been fought between baron1 and baron2, but it's time for those to stop now.",
-    "The cats of both the b2_t and the b1_t have come to a realization that war isn't the best solution, deciding to end it now.",
+    "Many battles have been fought between baron1 and baron2, but it's time for those to stop.",
     "The piercing war cries of baron1 and baron2's Clippers have turned into tired, lifeless mewls... And the cats are glad as the war finally comes to a close.",
     "The Barons of the b2_t and the b1_t have come to terms about the war, deciding that it would best for all the cats if it was formally settled here.",
     "Remembering all the blood that was shed in the war, baron1 and baron2 have decided to finally settle it, once and for all."
-  ]
+  ],
+  "gain_events": {
+    "territory_gain": {
+      "winner_offense": [
+        " baron1 triumphantly walks away from the final battle with a new piece of territory in {PRONOUN/baron/poss} possession.",
+        " As baron2 stumbles away from the final battle, bleeding and bruised, a group of b1_t Clippers are quick to claim their newly won piece of territory."
+      ],
+      "winner_defense": [
+        " Though {PRONOUN/baron2/poss} Clippers will need some time to recover, baron2 is thankful that baron1 did not succeed in overtaking any b2_t territory.",
+        " baron1 has not managed to overtake any b2_t territory."
+      ],
+      "none": [
+        " Neither Baron truly feels as if they have won, and no territory is traded."
+      ]
+    },
+    "supplies_gain": {
+      "winner_offense": [
+        " A group of baron1's Clippers leave the b2_t camp with newly won bundles of supplies, and baron1 slyly thanks baron2 for {PRONOUN/baron2/poss} cooperation.",
+        " baron2 begrudgingly allows baron1 and {PRONOUN/baron1/poss} Regent to leave the b2_t camp with their newly won bundles of supplies."
+      ],
+      "winner_defense": [
+        " baron2's success in the war means that baron1 did not succeed in taking any of the b2_t's supplies."
+      ],
+      "none": [
+        " Neither Baron truly feels as if they have won, and no supplies are traded."
+      ]
+    },
+    "prey_gain": {
+      "winner_offense": [
+        " A group of baron1's Clippers leave the b2_t camp with newly won bundles of prey, and baron1 slyly thanks baron2 for {PRONOUN/baron2/poss} cooperation.",
+        " baron2 begrudgingly allows baron1 and {PRONOUN/baron1/poss} Regent to leave the b2_t camp with their newly won bundles of prey."
+      ],
+      "winner_defense": [
+        " baron2's success in the war means that baron1 did not succeed in taking any of the b2_t's prey."
+      ],
+      "none": [
+        " Neither Baron truly feels as if they have won, and no prey is traded."
+      ]
+    },
+    "cosmetics_gain": {
+      "winner_offense": [
+        " A group of baron1's Clippers leave the b2_t camp with newly won bundles of materials, and baron1 slyly thanks baron2 for {PRONOUN/baron2/poss} cooperation.",
+        " baron2 begrudgingly allows baron1 and {PRONOUN/baron1/poss} Regent to leave the b2_t camp with their newly won bundles of materials."
+      ],
+      "winner_defense": [
+        " baron2's success in the war means that baron1 did not succeed in taking any of the b2_t's materials."
+      ],
+      "none": [
+        " Neither Baron truly feels as if they have won, and no materials are traded."    
+      ]
+    },
+    "herbs_gain": {
+      "winner_offense": [
+        " A group of baron1's Clippers leave the b2_t camp with newly won bundles of herbs, and baron1 slyly thanks baron2 for {PRONOUN/baron2/poss} cooperation.",
+        " baron2 begrudgingly allows baron1 and {PRONOUN/baron1/poss} Regent to leave the b2_t camp with their newly won bundles of herbs."
+      ],
+      "winner_defense": [
+        " baron2's success in the war means that baron1 did not succeed in taking any of the b2_t's herbs."
+      ],
+      "none": [
+        " Neither Baron truly feels as if they have won, and no herbs are traded."    
+      ]
+    }
+  }
 }

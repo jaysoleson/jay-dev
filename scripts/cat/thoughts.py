@@ -198,7 +198,7 @@ class Thoughts:
             random_cat
             and random_cat.outside
             and random_cat.status
-            not in ("kittypet", "loner", "rogue", "former Clancat", "exiled")
+            not in ("kittypet", "nomad", "rogue", "former Clancat", "exiled")
             and not (random_cat.status == "baron" and random_cat.allegiance == random_cat.ID)
         ):
             outside_status = "lost"

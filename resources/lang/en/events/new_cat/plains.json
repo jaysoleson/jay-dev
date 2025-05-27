@@ -8,7 +8,7 @@
             "any"
         ],
         "weight": 5,
-        "event_text": "m_c returned to camp carrying a litter of kittens, explaining that {PRONOUN/m_c/subject} found them mewling in a patch of grass, near the cooling body of a loner.",
+        "event_text": "m_c returned to camp carrying a litter of kittens, explaining that {PRONOUN/m_c/subject} found them mewling in a patch of grass, near the cooling body of a nomad.",
         "m_c": {
             "age": [
                 "young adult",
@@ -21,7 +21,7 @@
             ]
         },
         "new_cat": [
-            ["age:has_kits", "meeting", "loner", "dead"],
+            ["age:has_kits", "meeting", "nomad", "dead"],
             [
                 "new_name",
                 "parent:0",

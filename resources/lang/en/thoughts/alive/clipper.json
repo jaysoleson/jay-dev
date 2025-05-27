@@ -371,14 +371,14 @@
         ]
     },
     {
-        "id": "clipper_formerly_a_loner_alive_kits",
+        "id": "clipper_formerly_a_nomad_alive_kits",
         "thoughts": [
-            "Is telling the kits about {PRONOUN/m_c/poss} days as a loner",
-            "Is being begged by r_c to tell {PRONOUN/r_c/object} about what being a loner was like"
+            "Is telling the kits about {PRONOUN/m_c/poss} days as a nomad",
+            "Is being begged by r_c to tell {PRONOUN/r_c/object} about what being a nomad was like"
         ],
         "main_backstory_constraint": [
-            "loner1",
-            "loner2",
+            "nomad1",
+            "nomad2",
             "refugee2",
             "refugee5",
             "tragedy_survivor4",

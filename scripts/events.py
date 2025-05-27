@@ -13,7 +13,7 @@ import traceback
 
 import i18n
 
-from scripts.cat.cats import Cat, cat_class, BACKSTORIES
+from scripts.cat.cats import Cat, cat_class, BACKSTORIES, create_cat
 from scripts.cat.enums import CatAgeEnum
 from scripts.cat.history import History
 from scripts.cat.names import Name
@@ -308,6 +308,8 @@ class Events:
         # Promote baron and regent, if needed.
         self.check_and_promote_baron()
         self.check_and_promote_regent()
+        
+        self.check_outside_barons()
 
         # Resort
         if game.sort_type != "id":
@@ -325,6 +327,54 @@ class Events:
                 game.save_events()
             except:
                 SaveError(traceback.format_exc())
+
+    def check_outside_barons(self):
+        """
+        check and promote baron for outside baronies
+        """
+        baron_clan = None
+        for baron in [
+            i for i in Cat.all_cats_list if i.status == "baron" and i.allegiance == i.ID and i.dead
+        ]:
+            print("BARON DYING:", baron.name)
+            old_baron = baron
+            if baron.ID != game.clan.baron.ID:
+                new_baron = create_cat(status="baron", allegiance=None, moons=random.randint(12,60))
+                new_baron.allegiance = new_baron.ID
+                for clan in game.clan.all_clans:
+                    if clan.baron == old_baron.ID:
+                        baron_clan = clan
+                        clan.baron = new_baron.ID
+                        break
+                
+            else:
+                if game.clan.heir.moons > 8:
+                    new_baron = game.clan.heir
+                elif game.clan.regent:
+                    new_baron = game.clan.regent
+                else:
+                    clippers = [cat for cat in Cat.all_cats_list if not cat.outside and cat.status == "clipper"]
+                    if clippers:
+                        new_baron = random.choice(clippers)
+                    else:
+                        print("No possible new Barons")
+                        return
+                baron_clan = game.clan
+                game.clan.baron = new_baron
+                new_baron.status_change("baron")
+
+            for cat in Cat.all_cats_list:
+                if cat.allegiance == old_baron.ID:
+                    cat.allegiance = new_baron.ID
+                
+            # transfer baron accessory
+            if baron_clan:
+                if baron_clan.colour.upper() + "BOW" in old_baron.pelt.accessory:
+                    old_baron.pelt.accessory.remove(baron_clan.colour.upper() + "BOW")
+                    new_baron.pelt.accessory.append(baron_clan.colour.upper() + "BOW")
+                print("Baron", old_baron.name, "has died:", new_baron.name, "has succeeded them as Baron of the", baron_clan.territory_type.capitalize())
+            else:
+                print("No baron_clan?")
 
     def handle_lead_den_event(self):
         """
@@ -440,7 +490,7 @@ class Events:
                         invited_cat = Cat.fetch_cat(cat_ID)
                         if invited_cat.status.lower() in (
                             "kittypet",
-                            "loner",
+                            "nomad",
                             "rogue",
                             "former clancat",
                             "exiled",
@@ -749,7 +799,7 @@ class Events:
                     and cat.status
                     not in (
                         "kittypet",
-                        "loner",
+                        "nomad",
                         "rogue",
                         "former Clancat",
                         "driven off",
@@ -1034,6 +1084,9 @@ class Events:
         war_events = None
         war_started = False
 
+        # BL
+        gain_events = None
+
         defensive_clan = None
         offensive_clan = None
 
@@ -1093,6 +1146,34 @@ class Events:
 
                     war_events = self.WAR_TXT["conclusion_events"]
 
+                    # Now the BL win/lose events
+                    gain_events_dict = self.WAR_TXT["gain_events"]
+
+                    # choose who wins the war-- probably find a better way to do this sometime 
+                    outcome = random.choice(["winner_offense", "winner_defense", "none"])
+                    gain_events = gain_events_dict[war['reason'] + '_gain'][outcome]
+
+                    # now give territory/supplies/whatever to the winner!
+                    if outcome == "winner_offense":
+                        winner = offense_clan
+                        loser = defense_clan
+                    elif outcome == "winner_defense":
+                        winner = defense_clan
+                        loser = offense_clan
+                    else:
+                        winner = None
+                        loser = None
+
+                    # give supplies
+                    if winner and loser:
+                        if war["reason"] == "territory":
+                            if winner == offense_clan:
+                                # the defending clan doesnt steal territory, they just manage to keep theirs.
+                                territory_tile = random.choice(loser.territory)
+                                loser.territory.remove(territory_tile)
+                                winner.territory.append(territory_tile)
+                        
+
                     defensive_clan = defense_clan
                     offensive_clan = offense_clan
                 else:  # try to influence the relation with warring clan
@@ -1132,6 +1213,7 @@ class Events:
                     random.random() * int(other_clan.relations[clan_to_attack.name])
                 ):
                     print("WAR STARTED BETWEEN", other_clan.name, "and", clan_to_attack.name)
+                    reasons = ["territory", "prey", "cosmetics", "supplies", "herbs"]
                     game.clan.war.append(
                         {
                             "offense": {
@@ -1143,7 +1225,7 @@ class Events:
                                 "casualities": {}
                                 },
                             "duration": 0,
-                            "reason": "territory"
+                            "reason": random.choice(reasons)
                         }
                     )
                     war_events = self.WAR_TXT["trigger_events"]
@@ -1165,6 +1247,12 @@ class Events:
                     war_events.remove(event)
 
         event = random.choice(war_events)
+
+        # and get the additional event text
+        if gain_events:
+            gain_event = random.choice(gain_events)
+            event = event + gain_event
+
         event = ongoing_event_text_adjust(
             Cat, event, barony=offensive_clan, other_barony=defensive_clan, clan=game.clan
         )
@@ -1753,7 +1841,7 @@ class Events:
 
             role_modifier = 1
             if cat.status == "kittypet":
-                # Kittypets will gain exp at 2/3 the rate of loners or exiled cats, as this assumes they are
+                # Kittypets will gain exp at 2/3 the rate of nomads or exiled cats, as this assumes they are
                 # kept indoors at least part of the time and can't hunt/fight as much
                 role_modifier = 0.6
 
@@ -2308,7 +2396,11 @@ class Events:
             or game.clan.regent.status == "elder"
         ):
             if not game.clan.clan_settings.get("regent"):
-                game.cur_events_list.insert(0, Single_Event("defaults.warn_no_regent"))
+                game.cur_events_list.insert(
+                    0, Single_Event(
+                        event_text_adjust(Cat, "defaults.warn_no_regent", barony=game.clan)
+                        )
+                    )
                 return
             # This determines all the cats who are eligible to be regent.
             possible_deputies = list(

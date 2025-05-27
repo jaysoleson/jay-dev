@@ -441,22 +441,23 @@ def rebuild_bgs():
 
 
 def get_camp_bgs():
-    camp_bg_base_dir = "resources/images/camp_bg/"
+    camp_bg_base_dir = "resources/images/badlands/camp_bg"
     leaves = ["newleaf", "greenleaf", "leafbare", "leaffall"]
-    available_biome = ["forest", "mountainous", "plains", "beach"]
+    available_biome = ["forest", "fields", "river", "lakeside", "cliffside", "township"]
 
     try:
-        camp_nr = game.clan.camp_bg
-        biome = game.clan.biome.lower()
+        # camp_nr = game.clan.camp_bg
+        # biome = game.clan.biome.lower()
+        biome = game.clan.territory_type
     except AttributeError:
-        camp_nr = "camp1"
+        # camp_nr = "camp1"
         biome = available_biome[0]
 
     all_backgrounds = []
     for light_dark in ("light", "dark"):
         for leaf in leaves:
             platform_dir = (
-                f"{camp_bg_base_dir}/{biome}/{leaf}_{camp_nr}_{light_dark}.png"
+                f"{camp_bg_base_dir}/{biome}/{leaf}_{light_dark}.png"
             )
             all_backgrounds.append(platform_dir)
 

@@ -97,7 +97,15 @@ class HandleShortEvents:
         self.involved_cats = [self.main_cat.ID]
 
         # check for war and assign self.other_clan accordingly
-        if game.clan.war:
+        you_at_war = False
+        for war in game.clan.war:
+            if war["offense"]["name"] == game.clan.name:
+                you_at_war = True
+                break
+            if war["defense"]["name"] == game.clan.name:
+                you_at_war = True
+                break
+        if you_at_war:
             self.other_clan = None
             war = random.choice(game.clan.war)
             self.barony, self.other_barony = get_warring_clans(war)
@@ -373,6 +381,7 @@ class HandleShortEvents:
                             Cat, i18n.t("defaults.event_met_outsider"), main_cat=cat
                         )
                 else:
+                    cat.allegiance = game.clan.baron.ID
                     Relation_Events.welcome_new_cats([cat])
                 self.involved_cats.append(cat.ID)
                 self.new_cat_objects.append([cat])

@@ -403,7 +403,7 @@ class Pregnancy_Events:
                 game.clan.add_to_outside(kit)
                 kit.backstory = "outsider1"
                 if cat.exiled:
-                    kit.status = "loner"
+                    kit.status = "nomad"
                     name = choice(names.names_dict["normal_prefixes"])
                     kit.name = Name(prefix=name, cat=kit)
                 if other_cat and not other_cat.outside:
@@ -803,7 +803,7 @@ class Pregnancy_Events:
                     )
                     blood_parent = create_new_cat(
                         Cat,
-                        status=random.choice(["loner", "kittypet"]),
+                        status=random.choice(["nomad", "kittypet"]),
                         alive=False,
                         thought=thought,
                         age=randint(15, 120),

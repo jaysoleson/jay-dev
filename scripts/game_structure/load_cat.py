@@ -192,8 +192,8 @@ def json_load():
                 new_cat.skills = CatSkills(cat["skill_dict"])
             elif "skill" in cat:
                 if new_cat.backstory is None:
-                    if "skill" == "formerly a loner":
-                        backstory = choice(["loner1", "loner2", "rogue1", "rogue2"])
+                    if "skill" == "formerly a nomad":
+                        backstory = choice(["nomad1", "nomad2", "rogue1", "rogue2"])
                         new_cat.backstory = backstory
                     elif "skill" == "formerly a kittypet":
                         backstory = choice(["kittypet1", "kittypet2"])

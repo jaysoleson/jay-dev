@@ -352,7 +352,7 @@ class Patrol:
             clan_neutral = True
         # this is just for separating them a bit from the other patrols, it means they can always happen
         other_clan_chance = 1
-        # chance for each kind of loner event to occur
+        # chance for each kind of nomad event to occur
         small_clan = False
         if not other_clan:
             other_clan_chance = 0

@@ -183,7 +183,7 @@ class HerbSupply:
         cats_to_treat = [kitty for kitty in clan_cats if kitty.is_ill() or kitty.is_injured() or kitty.is_disabled()]
         for kitty in cats_to_treat:
             # if there are no working med cats, then only allow med cats to be treated. the idea being that a med cat
-            # could conceivably attempt to care for themselves, but would not be well enough to care for the Clan as
+            # could conceivably attempt to care for themselves, but would not be well enough to care for the Barony as
             # a whole. also helps prevent death spiral when med cats aren't able to work.
             if not med_cats and kitty.status not in ["doctor", "apprentice doctor"]:
                 break

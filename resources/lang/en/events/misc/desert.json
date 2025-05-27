@@ -301,7 +301,7 @@
     ],
     "season": ["any"],
     "weight": 15,
-    "event_text": "m_c tracks the scent of a dingo until it safely crosses out of c_n territory.",
+    "event_text": "m_c tracks the scent of a dingo until it safely crosses out of baron1's territory.",
     "m_c": {
       "age": ["adolescent", "young adult", "adult", "senior adult", "senior"],
       "status": ["clipper"]
@@ -826,18 +826,18 @@
     ]
   },
   {
-    "event_id": "dst_misc_any_loner1",
+    "event_id": "dst_misc_any_nomad1",
     "location": [
       "desert"
     ],
     "season": ["any"],
     "weight": 15,
-    "event_text": "On the border, a loner has sprayed a shrub with {PRONOUN/n_c:0/poss} scent.",
+    "event_text": "On the border, a nomad has sprayed a shrub with {PRONOUN/n_c:0/poss} scent.",
     "m_c": {
         "age": ["adolescent", "young adult", "adult", "senior adult", "senior"]
     },
     "new_cat": [
-      ["meeting", "loner", "exists"]
+      ["meeting", "nomad", "exists"]
     ],
     "relationships": [
       {

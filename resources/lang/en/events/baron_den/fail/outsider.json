@@ -5,7 +5,7 @@
     "reputation": ["any"],
     "rep_change": -2,
     "m_c": {
-      "status": ["loner", "rogue", "kittypet"],
+      "status": ["nomad", "rogue", "kittypet"],
       "new_thought": "Heard rumors that a Clipper patrol from the Badlands was hunting for {PRONOUN/m_c/object}",
       "relationships": [
         {
@@ -23,7 +23,7 @@
     "reputation": ["any"],
     "rep_change": -2,
     "m_c": {
-      "status": ["loner", "rogue", "kittypet", "former Clancat"],
+      "status": ["nomad", "rogue", "kittypet", "former Clancat"],
       "new_thought": "Heard rumors that a Clipper patrol from the Badlands was hunting for {PRONOUN/m_c/object}",
       "relationships": [
         {
@@ -41,7 +41,7 @@
     "reputation": ["any"],
     "rep_change": -2,
     "m_c": {
-      "status": ["loner", "rogue", "kittypet", "former Clancat"],
+      "status": ["nomad", "rogue", "kittypet", "former Clancat"],
       "new_thought": "Heard rumors that a Clipper patrol from the Badlands was hunting for {PRONOUN/m_c/object}",
       "relationships": [
         {
@@ -85,7 +85,7 @@
     "reputation": ["any"],
     "rep_change": -2,
     "m_c": {
-      "status": ["loner", "rogue", "kittypet"],
+      "status": ["nomad", "rogue", "kittypet"],
       "new_thought": "Is slinking through undergrowth, worried that Clipper patrol may find {PRONOUN/m_c/object}",
       "relationships": [
         {
@@ -130,7 +130,7 @@
     "reputation": ["any"],
     "rep_change": 1,
     "m_c": {
-      "status": ["loner", "rogue", "kittypet"],
+      "status": ["nomad", "rogue", "kittypet"],
       "skill": ["SPEAKER,2"],
       "new_thought": "Is confident {PRONOUN/m_c/subject} can talk {PRONOUN/m_c/poss} way out of anything",
       "relationships": [
@@ -157,7 +157,7 @@
     "reputation": ["any"],
     "rep_change": -2,
     "m_c": {
-      "status": ["loner", "rogue", "kittypet"],
+      "status": ["nomad", "rogue", "kittypet"],
       "trait": ["vengeful"],
       "new_thought": "Will never forget this slight",
       "relationships": [
@@ -177,7 +177,7 @@
     "reputation": ["any"],
     "rep_change": -1,
     "m_c": {
-      "status": ["loner", "rogue", "kittypet"],
+      "status": ["nomad", "rogue", "kittypet"],
       "new_thought": "Heard rumors that a Clipper patrol was looking for {PRONOUN/m_c/object}",
       "relationships": [
         {
@@ -196,7 +196,7 @@
     "reputation": ["any"],
     "rep_change": -2,
     "m_c": {
-      "status": ["loner", "rogue", "kittypet", "former Clancat"],
+      "status": ["nomad", "rogue", "kittypet", "former Clancat"],
       "new_thought": "Heard rumors that a Clipper patrol from the Badlands was hunting for {PRONOUN/m_c/object}",
       "relationships": [
         {
@@ -214,7 +214,7 @@
     "reputation": ["any"],
     "rep_change": -2,
     "m_c": {
-      "status": ["loner", "rogue", "kittypet", "former Clancat"],
+      "status": ["nomad", "rogue", "kittypet", "former Clancat"],
       "new_thought": "Heard rumors that a Clipper patrol from the Badlands was hunting for {PRONOUN/m_c/object}",
       "relationships": [
         {
@@ -251,7 +251,7 @@
     "reputation": ["any"],
     "rep_change": 1,
     "m_c": {
-      "status": ["loner", "rogue", "kittypet"],
+      "status": ["nomad", "rogue", "kittypet"],
       "new_thought": "Heard rumors that a Clipper patrol from the Badlands was hunting for {PRONOUN/m_c/object}"
     }
   },
@@ -314,7 +314,7 @@
     "reputation": ["any"],
     "rep_change": -2,
     "m_c": {
-      "status": ["loner", "rogue", "kittypet", "former Clancat"],
+      "status": ["nomad", "rogue", "kittypet", "former Clancat"],
       "new_thought": "Heard rumors that a Clipper patrol from the Badlands was hunting for {PRONOUN/m_c/object}"
       }
   },
@@ -324,7 +324,7 @@
     "reputation": ["any"],
     "rep_change": -2,
     "m_c": {
-      "status": ["loner", "rogue", "kittypet", "former Clancat"],
+      "status": ["nomad", "rogue", "kittypet", "former Clancat"],
       "new_thought": "Heard rumors that a Clipper patrol from the Badlands was hunting for {PRONOUN/m_c/object}"
     }
   },
@@ -432,7 +432,7 @@
     "reputation": ["hostile"],
     "rep_change": -1,
     "m_c": {
-      "status": ["rogue", "kittypet", "loner", "former Clancat"],
+      "status": ["rogue", "kittypet", "nomad", "former Clancat"],
       "skill": [ "GHOST,1" ],
       "new_thought": "Shivers, thanking the spirit that warned {PRONOUN/m_c/object}",
       "relationships": [
@@ -485,7 +485,7 @@
     "reputation": ["any"],
     "rep_change": -1,
     "m_c": {
-      "status": ["loner", "rogue", "kittypet"],
+      "status": ["nomad", "rogue", "kittypet"],
       "age": ["adolescent", "young adult", "adult", "senior adult"],
       "skill": [
         "HUNTER,3"
@@ -515,7 +515,7 @@
     "reputation": ["any"],
     "rep_change": -1,
     "m_c": {
-      "status": ["loner", "rogue", "kittypet", "exiled"],
+      "status": ["nomad", "rogue", "kittypet", "exiled"],
       "age": ["adolescent", "young adult", "adult", "senior adult"],
       "skill": [
         "SENSE,1"
@@ -545,7 +545,7 @@
     "reputation": ["any"],
     "rep_change": -1,
     "m_c": {
-      "status": ["loner", "rogue", "kittypet", "exiled"],
+      "status": ["nomad", "rogue", "kittypet", "exiled"],
       "age": ["adolescent", "young adult", "adult", "senior adult"],
       "skill": [
         "SENSE,1"
@@ -575,7 +575,7 @@
     "reputation": ["any"],
     "rep_change": -1,
     "m_c": {
-      "status": ["loner", "rogue", "kittypet", "former Clancat", "exiled"],
+      "status": ["nomad", "rogue", "kittypet", "former Clancat", "exiled"],
       "age": ["adolescent", "young adult", "adult", "senior adult"],
       "skill": [
         "CLAIRVOYANT,1"
@@ -598,7 +598,7 @@
     "reputation": ["any"],
     "rep_change": -1,
     "m_c": {
-      "status": ["loner", "rogue", "kittypet"],
+      "status": ["nomad", "rogue", "kittypet"],
       "age": ["senior"],
       "skill": [
         "HUNTER,3"
@@ -628,7 +628,7 @@
     "reputation": ["any"],
     "rep_change": -1,
     "m_c": {
-      "status": ["loner", "rogue", "kittypet", "exiled"],
+      "status": ["nomad", "rogue", "kittypet", "exiled"],
       "age": ["senior"],
       "skill": [
         "SENSE,1"
@@ -658,7 +658,7 @@
     "reputation": ["any"],
     "rep_change": -2,
     "m_c": {
-      "status": ["loner", "rogue", "kittypet", "exiled"],
+      "status": ["nomad", "rogue", "kittypet", "exiled"],
       "age": ["senior"],
       "skill": [
         "SENSE,1"
@@ -736,7 +736,7 @@
     "reputation": ["any"],
     "rep_change": 0,
     "m_c": {
-      "status": ["loner"],
+      "status": ["nomad"],
       "new_thought": "Finds a new den with better shelter"
     }
   },
@@ -746,7 +746,7 @@
     "reputation": ["any"],
     "rep_change": 0,
     "m_c": {
-      "status": ["loner"],
+      "status": ["nomad"],
       "new_thought": "Finds a new den with better shelter"
     }
   },
@@ -756,7 +756,7 @@
     "reputation": ["any"],
     "rep_change": 0,
     "m_c": {
-      "status": ["loner"],
+      "status": ["nomad"],
       "new_thought": "Finds a new den with better shelter"
     }
   },
@@ -844,7 +844,7 @@
     "reputation": ["hostile"],
     "rep_change": 0,
     "m_c": {
-      "status": ["loner", "rogue"],
+      "status": ["nomad", "rogue"],
       "new_thought": "Knows better than to trust cats from the Badlands"
     }
   },
@@ -864,7 +864,7 @@
     "reputation": ["welcoming"],
     "rep_change": -1,
     "m_c": {
-      "status": ["kittypet", "loner", "rogue"],
+      "status": ["kittypet", "nomad", "rogue"],
       "new_thought": "Is stunned to discover b1_t cats are much more vicious than their reputation suggested",
       "relationships": [
         {
@@ -883,7 +883,7 @@
     "reputation": ["hostile"],
     "rep_change": 0,
     "m_c": {
-      "status": ["kittypet", "loner", "rogue"],
+      "status": ["kittypet", "nomad", "rogue"],
       "new_thought": "Shudders at the thought of running into a b1_t Clipper",
       "relationships": [
         {
@@ -902,7 +902,7 @@
     "reputation": ["hostile"],
     "rep_change": 0,
     "m_c": {
-      "status": ["kittypet", "loner", "rogue"],
+      "status": ["kittypet", "nomad", "rogue"],
       "new_thought": "Shudders at the thought of running into a b1_t Clipper"
     }
   },

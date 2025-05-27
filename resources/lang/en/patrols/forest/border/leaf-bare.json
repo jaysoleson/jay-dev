@@ -10,7 +10,7 @@
         "max_cats": 6,
         "min_max_status": {},
         "weight": 20,
-        "intro_text": "Here on the plains, the reaches of c_n's territory are vast, particularly in the direction p_l and {PRONOUN/p_l/poss} patrol are heading, where there is endless grass (under the blanket of snow) but no permanent water sources.",
+        "intro_text": "Here on the plains, the reaches of the b1_t Territory are vast, particularly in the direction p_l and {PRONOUN/p_l/poss} patrol are heading, where there is endless grass (under the blanket of snow) but no permanent water sources.",
         "decline_text": "The patrol is interrupted by a hunting patrol that needs help carrying prey back to camp - border marking will wait til later.",
         "chance_of_success": 40,
         "success_outcomes": [
@@ -264,7 +264,7 @@
                 ]
             },
             {
-                "text": "p_l bolts back to camp, feet slipping wildly on the frosty ground, {PRONOUN/p_l/poss} heart pounding. {PRONOUN/p_l/subject/CAP} {VERB/p_l/have/has} to tell {PRONOUN/p_l/poss} Clanmates. {PRONOUN/p_l/subject/CAP} {VERB/p_l/burst/bursts} into camp yowling a warning!",
+                "text": "p_l bolts back to camp, feet slipping wildly on the frosty ground, {PRONOUN/p_l/poss} heart pounding. {PRONOUN/p_l/subject/CAP} {VERB/p_l/have/has} to tell {PRONOUN/p_l/poss} friends. {PRONOUN/p_l/subject/CAP} {VERB/p_l/burst/bursts} into camp yowling a warning!",
                 "exp": 40,
                 "weight": 10,
                 "art": "running_clipper",
@@ -333,7 +333,7 @@
                 ]
             },
             {
-                "text": "s_c sets up an ambush for the wandering coyote, bloodying its snout and leading it on a wild chasing dance through midnight snow across the border and out of c_n territory.",
+                "text": "s_c sets up an ambush for the wandering coyote, bloodying its snout and leading it on a wild chasing dance through midnight snow across the border and out of baron1's territory.",
                 "exp": 40,
                 "weight": 20,
                 "art": "gen_coyote_danger2_w2",
@@ -577,7 +577,7 @@
                 ]
             },
             {
-                "text": "s_c sets up a careful ambush ahead of the coyote, and the surprising, darting attack bloodies the coyote's flank, dissuading it from heading further into c_n territory.",
+                "text": "s_c sets up a careful ambush ahead of the coyote, and the surprising, darting attack bloodies the coyote's flank, dissuading it from heading further into baron1's territory.",
                 "exp": 30,
                 "weight": 10,
                 "art": "gen_coyote_danger2_w2",
@@ -649,7 +649,7 @@
                 ]
             },
             {
-                "text": "s_c selflessly takes the lion's share of the run as the patrol leads the coyote on, exhausting {PRONOUN/s_c/self} almost to the point of danger, but leading the coyote far away from c_n borders. {PRONOUN/s_c/poss/CAP} Clanmates support {PRONOUN/s_c/object} on the long walk home once it's all over, their purrs mixing with s_c's exhausted pants.",
+                "text": "s_c selflessly takes the lion's share of the run as the patrol leads the coyote on, exhausting {PRONOUN/s_c/self} almost to the point of danger, but leading the coyote far away from baron1's borders. {PRONOUN/s_c/poss/CAP} patrolmates support {PRONOUN/s_c/object} on the long walk home once it's all over, their purrs mixing with s_c's exhausted pants.",
                 "exp": 30,
                 "weight": 10,
                 "art": "running_clipper2",
@@ -826,7 +826,7 @@
                 ]
             },
             {
-                "text": "The patrol tries bravely to lead the coyote away from c_n borders, but with so few cats it's impossible to cover each other's backs. r_c gets caught while running, and it's all the rest of the patrol can do to distract the coyote long enough to get {PRONOUN/r_c/object} to safety.",
+                "text": "The patrol tries bravely to lead the coyote away from baron1's borders, but with so few cats it's impossible to cover each other's backs. r_c gets caught while running, and it's all the rest of the patrol can do to distract the coyote long enough to get {PRONOUN/r_c/object} to safety.",
                 "exp": 0,
                 "weight": 10,
                 "art": "running_two_clippers",
@@ -1339,7 +1339,7 @@
                 ]
             },
             {
-                "text": "The patrol tries to keep watch on the coyote from a distance, but it spots the cats and they have to scatter. It's not as bad as it could've been though; r_c manages to keep track of the coyote's position, and it doesn't come any further into c_n territory.",
+                "text": "The patrol tries to keep watch on the coyote from a distance, but it spots the cats and they have to scatter. It's not as bad as it could've been though; r_c manages to keep track of the coyote's position, and it doesn't come any further into baron1's territory.",
                 "exp": 0,
                 "weight": 5,
                 "art": "gen_coyote_danger1"

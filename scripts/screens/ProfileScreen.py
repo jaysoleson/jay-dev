@@ -45,7 +45,7 @@ from ..ui.icon import Icon
 #               assigns backstory blurbs to the backstory                      #
 # ---------------------------------------------------------------------------- #
 def bs_blurb_text(cat):
-    if cat.status in ("kittypet", "loner", "rogue", "former Clancat"):
+    if cat.status in ("kittypet", "nomad", "rogue", "former Clancat"):
         return event_text_adjust(
             Cat,
             i18n.t(
@@ -861,7 +861,7 @@ class ProfileScreen(Screens):
             output += "\n"
 
         # ALLEGIANCE
-        if the_cat.allegiance:
+        if Cat.fetch_cat(the_cat.allegiance):
             output += "allegiance: " + str(Cat.fetch_cat(the_cat.allegiance).name)
             # NEWLINE ----------
             output += "\n"
@@ -889,7 +889,7 @@ class ProfileScreen(Screens):
 
         # BACKSTORY
         bs_text = "this should not appear"
-        if the_cat.status in ("kittypet", "loner", "rogue", "former Clancat"):
+        if the_cat.status in ("kittypet", "nomad", "rogue", "former Clancat"):
             bs_text = the_cat.status
         else:
             if the_cat.backstory:
@@ -908,7 +908,7 @@ class ProfileScreen(Screens):
         ):
             # Check to only show nutrition for clan cats
             if str(the_cat.status) not in (
-                "loner",
+                "nomad",
                 "kittypet",
                 "rogue",
                 "former Clancat",
@@ -1177,14 +1177,14 @@ class ProfileScreen(Screens):
         if self.the_cat.backstory:
             bs_blurb = i18n.t(f"cat.backstories.{self.the_cat.backstory}")
         if (
-                self.the_cat.status in ("kittypet", "loner", "rogue", "former Clancat")
+                self.the_cat.status in ("kittypet", "nomad", "rogue", "former Clancat")
                 and self.the_cat.dead
         ):
             bs_blurb = i18n.t(
                 "cat.backstories.cats_outside_the_clan_dead",
                 status=i18n.t(f"general.{self.the_cat.status}", count=1),
             )
-        elif self.the_cat.status in ("kittypet", "loner", "rogue", "former Clancat"):
+        elif self.the_cat.status in ("kittypet", "nomad", "rogue", "former Clancat"):
             bs_blurb = i18n.t(
                 "cat.backstories.cats_outside_the_clan",
                 status=i18n.t(f"general.{self.the_cat.status}", count=1),
@@ -1198,7 +1198,7 @@ class ProfileScreen(Screens):
 
         if not self.the_cat.dead and self.the_cat.status not in (
             "kittypet",
-            "loner",
+            "nomad",
             "rogue",
             "former Clancat",
         ):
@@ -1285,7 +1285,7 @@ class ProfileScreen(Screens):
         """
         returns adjusted apprenticeship history text (mentor influence and app ceremony)
         """
-        if self.the_cat.status in ("kittypet", "loner", "rogue", "former Clancat"):
+        if self.the_cat.status in ("kittypet", "nomad", "rogue", "former Clancat"):
             return ""
 
         mentor_influence = History.get_mentor_influence(self.the_cat)

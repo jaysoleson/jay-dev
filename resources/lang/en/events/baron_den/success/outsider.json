@@ -5,7 +5,7 @@
     "reputation": ["any"],
     "rep_change": -10,
     "m_c": {
-      "status": ["loner", "rogue", "kittypet", "exiled", "lost"],
+      "status": ["nomad", "rogue", "kittypet", "exiled", "lost"],
       "new_thought": "Is shocked that {PRONOUN/m_c/subject} {VERB/m_c/were/was} killed",
       "kit_thought": "Is unsure why {PRONOUN/m_c/poss} parent hasn't come back."
     }
@@ -16,7 +16,7 @@
     "reputation": ["any"],
     "rep_change": -2,
     "m_c": {
-      "status": ["loner", "rogue", "kittypet", "exiled", "lost"],
+      "status": ["nomad", "rogue", "kittypet", "exiled", "lost"],
       "kit_thought": "Is unsure why {PRONOUN/m_c/poss} parent hasn't come back."
     }
   },
@@ -26,7 +26,7 @@
     "reputation": ["any"],
     "rep_change": -1,
     "m_c": {
-      "status": ["loner", "rogue", "kittypet"],
+      "status": ["nomad", "rogue", "kittypet"],
       "new_thought": "Is curious about the Baron that sought {PRONOUN/m_c/object} out",
       "kit_thought": "Is curious about the new place {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} in",
       "relationships": [
@@ -107,7 +107,7 @@
     "reputation": ["any"],
     "rep_change": 1,
     "m_c": {
-      "status": ["loner", "rogue", "kittypet"],
+      "status": ["nomad", "rogue", "kittypet"],
       "age": ["adolescent", "young adult", "adult", "senior adult"],
       "skill": [
         "HUNTER,3"
@@ -145,7 +145,7 @@
     "reputation": ["any"],
     "rep_change": -2,
     "m_c": {
-      "status": ["loner", "rogue", "kittypet"],
+      "status": ["nomad", "rogue", "kittypet"],
       "age": ["adolescent", "young adult", "adult", "senior adult"],
       "skill": [
         "HUNTER,3"
@@ -173,7 +173,7 @@
     "reputation": ["any"],
     "rep_change": -2,
     "m_c": {
-      "status": ["rogue", "loner", "former Clancat", "exiled"],
+      "status": ["rogue", "nomad", "former Clancat", "exiled"],
       "age": ["adolescent", "young adult", "adult", "senior adult"],
       "trait": [
         "cunning",
@@ -188,12 +188,12 @@
     "reputation": ["any"],
     "rep_change": -7,
     "m_c": {
-      "status": ["rogue", "loner", "kittypet", "former Clancat", "exiled"],
+      "status": ["rogue", "nomad", "kittypet", "former Clancat", "exiled"],
       "age": ["adolescent", "young adult", "adult", "senior adult"],
       "skill": [
         "MEDIATOR,1"
       ],
-      "new_thought": "Wishes the Clan cats had listened to {PRONOUN/m_c/object}",
+      "new_thought": "Wishes the Clippers had listened to {PRONOUN/m_c/object}",
       "kit_thought": "Is unsure why {PRONOUN/m_c/poss} parent hasn't come back."
     }
   },
@@ -203,7 +203,7 @@
     "reputation": ["any"],
     "rep_change": 1,
     "m_c": {
-      "status": ["loner", "rogue", "kittypet"],
+      "status": ["nomad", "rogue", "kittypet"],
       "age": ["adolescent", "young adult", "adult", "senior adult"],
       "skill": [
         "HUNTER,3"
@@ -234,7 +234,7 @@
     "reputation": ["any"],
     "rep_change": -10,
     "m_c": {
-      "status": ["loner", "rogue", "kittypet"],
+      "status": ["nomad", "rogue", "kittypet"],
       "age": ["adolescent", "young adult", "adult", "senior adult"],
       "skill": [
         "HUNTER,3"
@@ -249,7 +249,7 @@
     "reputation": ["any"],
     "rep_change": -10,
     "m_c": {
-      "status": ["loner", "rogue", "kittypet"],
+      "status": ["nomad", "rogue", "kittypet"],
       "age": ["adolescent", "young adult", "adult", "senior adult"],
       "trait": [
         "arrogant",
@@ -304,7 +304,7 @@
     "reputation": ["any"],
     "rep_change": -2,
     "m_c": {
-      "status": ["loner", "rogue", "kittypet"],
+      "status": ["nomad", "rogue", "kittypet"],
       "age": ["adolescent", "young adult", "adult", "senior adult"],
       "skill": [
         "HUNTER,3"
@@ -314,7 +314,7 @@
   },
   {
     "interaction_type": "hunt",
-    "event_text": "m_c may have been exiled from c_n, but that hasn't stopped {PRONOUN/m_c/object} from sneaking back into the territory to hunt. However, m_c's luck runs out when {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} caught by a patrol, {PRONOUN/m_c/poss} former Clanmates not even giving {PRONOUN/m_c/object} a chance to run.",
+    "event_text": "m_c may have been exiled from the b1_t, but that hasn't stopped {PRONOUN/m_c/object} from sneaking back into the territory to hunt. However, m_c's luck runs out when {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} caught by a patrol, {PRONOUN/m_c/poss} former friends not even giving {PRONOUN/m_c/object} a chance to run.",
     "reputation": ["any"],
     "rep_change": -10,
     "m_c": {
@@ -333,7 +333,7 @@
     "reputation": ["any"],
     "rep_change": -10,
     "m_c": {
-      "status": ["loner", "kittypet", "rogue", "exiled", "former Clancat"],
+      "status": ["nomad", "kittypet", "rogue", "exiled", "former Clancat"],
       "age": ["adolescent", "young adult", "adult", "senior adult"],
       "skill": [
         "RUNNER,1"
@@ -448,7 +448,7 @@
     "reputation": ["any"],
     "rep_change": -10,
     "m_c": {
-      "status": ["loner"],
+      "status": ["nomad"],
       "skill": [  ],
       "new_thought": "Wonders how {PRONOUN/m_c/subject} wronged those cats",
       "kit_thought": "Wonders where m_c has gone"
@@ -460,7 +460,7 @@
     "reputation": ["any"],
     "rep_change": -5,
     "m_c": {
-      "status": ["loner"],
+      "status": ["nomad"],
       "skill": [  ],
       "kit_thought": "Wonders where m_c has gone"
     }
@@ -471,7 +471,7 @@
     "reputation": ["any"],
     "rep_change": -5,
     "m_c": {
-      "status": ["loner", "rogue", "kittypet" ],
+      "status": ["nomad", "rogue", "kittypet" ],
       "skill": [ "DARK,3", "STAR,3" ],
       "kit_thought": "Shivers in the rain"
     }
@@ -506,7 +506,7 @@
     "reputation": ["any"],
     "rep_change": -15,
     "m_c": {
-      "status": ["rogue", "loner" ],
+      "status": ["rogue", "nomad" ],
       "age": [ "kitten", "adolescent" ],
       "new_thought": "Bitterly wonders how {PRONOUN/m_c/subject} could have escaped"
     }
@@ -517,7 +517,7 @@
     "reputation": ["any"],
     "rep_change": -10,
     "m_c": {
-      "status": ["rogue", "loner" ],
+      "status": ["rogue", "nomad" ],
       "age": [ "kitten", "adolescent" ]
     }
   },
@@ -528,7 +528,7 @@
     "rep_change": -3,
     "m_c": {
       "status": ["exiled" ],
-      "new_thought": "Curses {PRONOUN/m_c/poss} old Clanmates",
+      "new_thought": "Curses {PRONOUN/m_c/poss} old company",
       "kit_thought": "Wonders what happened to m_c"
     }
   },
@@ -538,7 +538,7 @@
     "reputation": ["any"],
     "rep_change": -3,
     "m_c": {
-      "status": ["rogue", "kittypet", "loner", "former Clancat", "exiled" ],
+      "status": ["rogue", "kittypet", "nomad", "former Clancat", "exiled" ],
       "trait": [ "fierce", "bloodthirsty", "vengeful", "competitive", "arrogant", "ambitious", "bold", "shameless" ],
       "new_thought": "Curses baron1",
       "kit_thought": "Wonders what happened to m_c"
@@ -571,7 +571,7 @@
     "reputation": ["any"],
     "rep_change": 3,
     "m_c": {
-      "status": ["rogue", "kittypet", "loner", "former Clancat" ],
+      "status": ["rogue", "kittypet", "nomad", "former Clancat" ],
       "trait": [ "cunning", "sneaky", "careful" ],
       "new_thought": "Is impressed the Clippers managed to find {PRONOUN/m_c/object}",
       "kit_thought": "Takes in the new surroundings with wide eyes"
@@ -583,7 +583,7 @@
     "reputation": ["hostile"],
     "rep_change": 3,
     "m_c": {
-      "status": ["rogue", "kittypet", "loner", "former Clancat" ],
+      "status": ["rogue", "kittypet", "nomad", "former Clancat" ],
       "trait": [ "oblivious" ],
       "new_thought": "Feels very comfortable with {PRONOUN/m_c/poss} choice to join the Barony",
       "kit_thought": "Takes in the new surroundings with wide eyes"
@@ -595,7 +595,7 @@
     "reputation": ["any"],
     "rep_change": 3,
     "m_c": {
-      "status": ["loner" ],
+      "status": ["nomad" ],
       "new_thought": "Has met more new cats today than {PRONOUN/m_c/subject} ever {VERB/m_c/have/has} before",
       "kit_thought": "Stares at all the new cats"
     }
@@ -656,7 +656,7 @@
   },
   {
     "interaction_type": "search",
-    "event_text": "baron1's Clippers turns the world upside down searching for their lost Clanmate. They cannot rest until m_c is safely home - and they don't. When they come upon {PRONOUN/m_c/object} at last, the patrol is overjoyed to bring {PRONOUN/m_c/object} back to camp where {PRONOUN/m_c/subject} {VERB/m_c/belong/belongs}.",
+    "event_text": "baron1's Clippers turns the world upside down searching for their lost friend. They cannot rest until m_c is safely home - and they don't. When they come upon {PRONOUN/m_c/object} at last, the patrol is overjoyed to bring {PRONOUN/m_c/object} back to camp where {PRONOUN/m_c/subject} {VERB/m_c/belong/belongs}.",
     "reputation": ["any"],
     "rep_change": 1,
     "m_c": {

@@ -1350,7 +1350,7 @@
             "all apprentices": [2, 2]
         },
         "weight": 20,
-        "intro_text": "It's storming in c_n's territory today, and app1 waits for app2 up on one of the cliffs.",
+        "intro_text": "It's storming in the b1_t Territory today, and app1 waits for app2 up on one of the cliffs.",
         "decline_text": "The apprentices are called back to camp to deal with an elder's wet bedding.",
         "chance_of_success": 60,
         "success_outcomes": [
@@ -1439,7 +1439,7 @@
             "all apprentices": [2, 2]
         },
         "weight": 20,
-        "intro_text": "It's storming in c_n's territory today, and app1 waits for app2 up on one of the cliffs.",
+        "intro_text": "It's storming in the b1_t Territory today, and app1 waits for app2 up on one of the cliffs.",
         "decline_text": "The apprentices are called back to camp to deal with an elder's wet bedding.",
         "chance_of_success": 60,
         "success_outcomes": [
@@ -2234,7 +2234,7 @@
         "decline_text": "Taking a break turns into ending the patrol early.",
         "success_outcomes": [
                 {
-                    "text": "The great legend Maowi was once a young apprentice, p_l starts the story, who went out fishing with his older, already grown siblings. They had no faith in him, but speaking a great karakia to give StarClan's blessing to his claws, he won a stingray from the ocean that stretched from horizon to horizon and became c_n's territory.",
+                    "text": "The great legend Maowi was once a young apprentice, p_l starts the story, who went out fishing with his older, already grown siblings. They had no faith in him, but speaking a great karakia to give StarClan's blessing to his claws, he won a stingray from the ocean that stretched from horizon to horizon and became the b1_t Territory.",
                     "exp": 30,
                     "weight": 20,
                     "art": "gen_bord_story",

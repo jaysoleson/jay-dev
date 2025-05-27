@@ -309,8 +309,8 @@
         }
     ],
         "history_text": {
-                        "scar": "m_c was scarred by {PRONOUN/m_c/poss} mate's Clanmates.",
-                        "reg_death": "m_c died from injuries inflicted by {PRONOUN/m_c/poss} mate's Clanmates."
+                        "scar": "m_c was scarred by {PRONOUN/m_c/poss} mate's patrolmates.",
+                        "reg_death": "m_c died from injuries inflicted by {PRONOUN/m_c/poss} mate's patrolmates."
                     },
         "relationships": [
     {
@@ -355,7 +355,7 @@
         "history_text":
                     {
                         "cats": [ "p_l" ],
-                        "reg_death": "m_c was killed by {PRONOUN/m_c/poss} mate's Clanmates."
+                        "reg_death": "m_c was killed by {PRONOUN/m_c/poss} mate's patrolmates."
                     },
         "relationships": [
     {
@@ -874,7 +874,7 @@
                 "other_clan_rep": -1
             },
             {
-                "text":  "s_c won't stand for this insult to {PRONOUN/s_c/poss} Clan. {PRONOUN/s_c/subject/CAP} {VERB/s_c/throw/throws} {PRONOUN/s_c/self} at the b2_t patrol, but the enemy patrol has no trouble rebuffing one cat. The patrol backs off from the border, but s_c is unhappy that the rest of the patrol didn't back {PRONOUN/s_c/object} up.",
+                "text":  "s_c won't stand for this insult to {PRONOUN/s_c/poss} Barony. {PRONOUN/s_c/subject/CAP} {VERB/s_c/throw/throws} {PRONOUN/s_c/self} at the b2_t patrol, but the enemy patrol has no trouble rebuffing one cat. The patrol backs off from the border, but s_c is unhappy that the rest of the patrol didn't back {PRONOUN/s_c/object} up.",
                 "exp": 0,
                 "weight": 20,
                 "stat_trait": ["bloodthirsty", "vengeful", "loyal", "fierce"],
@@ -4285,7 +4285,7 @@
                 ]
             },
             {
-                "text": "The hatred between them is no secret - r_c has said, in the past, that the world would be better off without p_l in it. But when b2_t puts that to the test, battling against the border patrol, r_c puts {PRONOUN/r_c/poss} back to p_l like {PRONOUN/r_c/subject} would any of {PRONOUN/r_c/poss} other Clanmates, fighting just as fiercely to protect {PRONOUN/p_l/poss} flank. Maybe p_l is insufferable, but fox-dung if {PRONOUN/r_c/subject}'ll let b2_t take them!",
+                "text": "The hatred between them is no secret - r_c has said, in the past, that the world would be better off without p_l in it. But when the b2_t puts that to the test, battling against the border patrol, r_c puts {PRONOUN/r_c/poss} back to p_l like {PRONOUN/r_c/subject} would any of the b1_t's other cats, fighting just as fiercely to protect {PRONOUN/p_l/poss} flank. Maybe p_l is insufferable, but fox-dung if {PRONOUN/r_c/subject}'ll let baron2 take them!",
                 "exp": 50,
                 "weight": 5,
                 "relationships": [
@@ -4308,14 +4308,14 @@
         ],
         "fail_outcomes": [
             {
-                "text": "r_c throws {PRONOUN/r_c/self} into battle, determined to throw b2_t off {PRONOUN/r_c/poss} territory, but as {PRONOUN/r_c/subject} {VERB/r_c/twist and turn/twists and turns} in combat, two Clippers from b2_t surround {PRONOUN/r_c/object}. r_c calls to {PRONOUN/r_c/poss} Clanmate to back them up, but is instead knocked to the ground, pain spreading through the back of {PRONOUN/r_c/object} neck. {PRONOUN/r_c/subject/CAP} struggle for breath, fading rapidly - where was {PRONOUN/r_c/poss} backup, the rest of {PRONOUN/r_c/poss} patrol?",
+                "text": "r_c throws {PRONOUN/r_c/self} into battle, determined to throw b2_t off {PRONOUN/r_c/poss} territory, but as {PRONOUN/r_c/subject} {VERB/r_c/twist and turn/twists and turns} in combat, two Clippers from b2_t surround {PRONOUN/r_c/object}. r_c calls to {PRONOUN/r_c/poss} patrolmate to back them up, but is instead knocked to the ground, pain spreading through the back of {PRONOUN/r_c/object} neck. {PRONOUN/r_c/subject/CAP} struggle for breath, fading rapidly - where was {PRONOUN/r_c/poss} backup, the rest of {PRONOUN/r_c/poss} patrol?",
                 "exp": 0,
                 "weight": 10,
                 "dead_cats": ["r_c"],
                 "history_text": {
-                    "scar": "m_c carries a scar, and lingering resentment, from when a Clanmate failed to watch {PRONOUN/m_c/poss} back during a border altercation.",
-                    "reg_death": "m_c was killed in a border altercation when a Clanmate failed to watch {PRONOUN/m_c/poss} back.",
-                    "lead_death": "were killed when a Clanmate failed to support {PRONOUN/m_c/object} during a border altercation"
+                    "scar": "m_c carries a scar, and lingering resentment, from when a patrolmate failed to watch {PRONOUN/m_c/poss} back during a border altercation.",
+                    "reg_death": "m_c was killed in a border altercation when a patrolmate failed to watch {PRONOUN/m_c/poss} back.",
+                    "lead_death": "were killed when a patrolmate failed to support {PRONOUN/m_c/object} during a border altercation"
                 },
                 "relationships": [
                     {
@@ -4336,7 +4336,7 @@
                 "other_clan_rep": -1
             },
             {
-                "text": "r_c throws {PRONOUN/r_c/self} into battle, determined to throw b2_t off {PRONOUN/r_c/poss} territory, but as {PRONOUN/r_c/subject} {VERB/r_c/twist and turn/twists and turns} in combat, two Clippers from b2_t surround {PRONOUN/r_c/object}. r_c calls to {PRONOUN/r_c/poss} Clanmate to back them up. Instead hears a familiar voice snarling that {PRONOUN/r_c/subject} {VERB/r_c/need/needs} to deal with {PRONOUN/r_c/poss} own problems. Beaten and bloodstained, the border patrol reports back to camp as resentful of each other as they've ever been.",
+                "text": "r_c throws {PRONOUN/r_c/self} into battle, determined to throw b2_t off {PRONOUN/r_c/poss} territory, but as {PRONOUN/r_c/subject} {VERB/r_c/twist and turn/twists and turns} in combat, two Clippers from b2_t surround {PRONOUN/r_c/object}. r_c calls to {PRONOUN/r_c/poss} patrolmate to back them up. Instead hears a familiar voice snarling that {PRONOUN/r_c/subject} {VERB/r_c/need/needs} to deal with {PRONOUN/r_c/poss} own problems. Beaten and bloodstained, the border patrol reports back to camp as resentful of each other as they've ever been.",
                 "exp": 0,
                 "weight": 10,
                 "injury": [
@@ -4347,9 +4347,9 @@
                     }
                 ],
                 "history_text": {
-                    "scar": "m_c carries a scar, and lingering resentment, from when a Clanmate failed to watch {PRONOUN/m_c/poss} back during a border altercation.",
-                    "reg_death": "m_c was killed in a border altercation when a Clanmate failed to watch {PRONOUN/m_c/poss} back.",
-                    "lead_death": "were killed when a Clanmate failed to support {PRONOUN/m_c/object} during a border altercation"
+                    "scar": "m_c carries a scar, and lingering resentment, from when a patrolmate failed to watch {PRONOUN/m_c/poss} back during a border altercation.",
+                    "reg_death": "m_c was killed in a border altercation when a patrolmate failed to watch {PRONOUN/m_c/poss} back.",
+                    "lead_death": "were killed when a patrolmate failed to support {PRONOUN/m_c/object} during a border altercation"
                 },
                 "relationships": [
                     {

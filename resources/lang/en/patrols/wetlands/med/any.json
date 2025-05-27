@@ -35,7 +35,7 @@
                 ]
             },
             {
-                "text": "They are greeted with the vision of a cat they had failed to save looking content and happy in StarClan saying that they were not at fault for their death. They feel unburdened and at peace after receiving that vision.",
+                "text": "They are greeted with the vision of a cat they had failed to save looking content and happy in the afterlife saying that they were not at fault for their death. They feel unburdened and at peace after receiving that vision.",
                 "exp": 10,
                 "weight": 5,
                 "relationships": [
@@ -51,7 +51,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "They gaze into the puddle only to see the weird ripples were caused by a feather falling on the puddle. p_l feels disappointed because they really could have used some guidance from StarClan.",
+                "text": "They gaze into the puddle only to see the weird ripples were caused by a feather falling on the puddle. p_l feels disappointed because they really could have used some guidance from a higher power.",
                 "exp": 0,
                 "weight": 20,
                 "relationships": [
@@ -279,7 +279,7 @@
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "They have a good discussion while foraging under branches drooping with lichen and manage to come up with several ideas to discuss with c_n's baronship.",
+                "text": "They have a good discussion while foraging under branches drooping with lichen and manage to come up with several ideas to discuss with baron1.",
                 "exp": 10,
                 "weight": 20,
                 "herbs": ["random_herbs"],

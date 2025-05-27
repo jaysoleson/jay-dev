@@ -23,7 +23,7 @@
         "new_cat": [
             [
                 "old_name",
-                "loner",
+                "nomad",
                 "backstory:refugee2, refugee5, tragedy_survivor4",
                 "status:clipper"
             ]
@@ -74,7 +74,7 @@
         },
         "new_cat": [
             [
-                "loner",
+                "nomad",
                 "backstory:orphaned6",
                 "status:kitten"
             ]
