@@ -1412,7 +1412,7 @@
   },
   {
     "interaction_type": "befriend",
-    "event_text": "At the Conclave, m_c remarks to baron2 that each member of the b2_t Territory is like a tiny chitinous thread and, woven together, they form the wings of a beautiful butterfly. baron2 isn't certain what m_c means by that, but appreciates the sentiment.",
+    "event_text": "At the Conclave, m_c remarks to baron2 that each member of the b2_t is like a tiny chitinous thread and, woven together, they form the wings of a beautiful butterfly. baron2 isn't certain what m_c means by that, but appreciates the sentiment.",
     "rel_change": 3,
     "m_c": {
       "trait": ["strange"]

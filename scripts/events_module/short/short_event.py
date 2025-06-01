@@ -117,8 +117,6 @@ class ShortEvent:
                 side["min_max_clippers"] = [0, -1]
             if "min_max_territory" not in side:
                 side["min_max_territory"] = [0, -1]
-            if "territory_type" not in side:
-                side["territory_type"] = "any"
 
         self.supplies = supplies if supplies else []
         self.new_gender = new_gender

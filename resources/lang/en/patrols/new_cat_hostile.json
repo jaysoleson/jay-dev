@@ -1381,7 +1381,7 @@
                 "stat_trait": ["daring", "bold", "ambitious"]
             },
             {
-                "text": "p_l takes the lead in checking the source of the noise and comes face-to-face with a rogue hiding in the bush! The rogue takes a swipe at p_l but doesn't get much damage in before p_l retaliates and chases the intruder out of b1_t territory.",
+                "text": "p_l takes the lead in checking the source of the noise and comes face-to-face with a rogue hiding in the bush! The rogue takes a swipe at p_l but doesn't get much damage in before p_l retaliates and chases the intruder out of b1_t.",
                 "exp": 0,
                 "weight": 10,
                 "new_cat": [

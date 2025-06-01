@@ -200,7 +200,7 @@
                 ]
             },
             {
-                "text": "s_c points out the towhee sitting on a rock overlooking the bog, and it's only that warning that keeps app1 from startling when the bird opens its beak and calls like a cat. It can be difficult to track intruders around the b1_t Territory, s_c explains, and this is one of the reasons why. But it can also work in c_n's favor too.",
+                "text": "s_c points out the towhee sitting on a rock overlooking the bog, and it's only that warning that keeps app1 from startling when the bird opens its beak and calls like a cat. It can be difficult to track intruders around the b1_t, s_c explains, and this is one of the reasons why. But it can also work in c_n's favor too.",
                 "exp": 15,
                 "weight": 20,
                 "stat_skill": ["TEACHER,1"],
@@ -344,7 +344,7 @@
                 ]
             },
             {
-                "text": "s_c points out the towhee sitting on a rock overlooking the bog, and it's only that warning that keeps the apprentices from startling when the bird opens its beak and calls like a cat. It can be difficult to track intruders around the b1_t Territory, s_c explains, and this is one of the reasons why. But it can also work in c_n's favor too.",
+                "text": "s_c points out the towhee sitting on a rock overlooking the bog, and it's only that warning that keeps the apprentices from startling when the bird opens its beak and calls like a cat. It can be difficult to track intruders around the b1_t, s_c explains, and this is one of the reasons why. But it can also work in c_n's favor too.",
                 "exp": 15,
                 "weight": 20,
                 "stat_skill": ["TEACHER,1"],

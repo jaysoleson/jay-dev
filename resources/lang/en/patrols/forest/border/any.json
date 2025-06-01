@@ -338,7 +338,7 @@
         "max_cats": 1,
         "min_max_status": {},
         "weight": 20,
-        "intro_text": "r_c has heard rumors that a badger is denning in a certain part of c_n territory.",
+        "intro_text": "r_c has heard rumors that a badger is denning in a certain part of b1_t.",
         "decline_text": "{PRONOUN/r_c/subject/CAP} {VERB/r_c/note/notes} the area as a place to avoid and {VERB/r_c/go/goes} on a nice solo hunt instead.",
         "chance_of_success": 30,
         "success_outcomes": [
@@ -433,7 +433,7 @@
         "max_cats": 4,
         "min_max_status": {},
         "weight": 20,
-        "intro_text": "The patrol discusses the rumors they've been hearing that a badger is denning in a certain part of c_n territory.",
+        "intro_text": "The patrol discusses the rumors they've been hearing that a badger is denning in a certain part of b1_t.",
         "decline_text": "Everyone agrees it's concerning, and the patrol is much more alert than usual while collecting moss for bedding.",
         "chance_of_success": 30,
         "success_outcomes": [
@@ -590,7 +590,7 @@
         "max_cats": 6,
         "min_max_status": {},
         "weight": 20,
-        "intro_text": "The patrol discusses the rumors they've been hearing that a badger is denning in a certain part of c_n territory.",
+        "intro_text": "The patrol discusses the rumors they've been hearing that a badger is denning in a certain part of b1_t.",
         "decline_text": "Everyone agrees it's concerning, and the patrol is much more alert than usual while collecting moss for bedding.",
         "chance_of_success": 30,
         "success_outcomes": [
@@ -762,13 +762,13 @@
                 "weight": 5
             },
             {
-                "text": "The pawprints lead to a trespassing rogue. s_c throws {PRONOUN/s_c/self} at the rogue, hissing furiously, and drives them off b1_t territory.",
+                "text": "The pawprints lead to a trespassing rogue. s_c throws {PRONOUN/s_c/self} at the rogue, hissing furiously, and drives them off b1_t.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,1"]
             },
             {
-                "text": "The pawprints lead to a trespassing rogue. s_c climbs into the trees to set up a trap, rigging a branch to fall on the rogue's head - and it works, sending the startled intruder yowling as they flee c_n territory.",
+                "text": "The pawprints lead to a trespassing rogue. s_c climbs into the trees to set up a trap, rigging a branch to fall on the rogue's head - and it works, sending the startled intruder yowling as they flee b1_t.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["CLEVER,1"]
@@ -977,7 +977,7 @@
                 ]
             },
             {
-                "text": "The pawprints lead to a trespassing rogue. s_c throws {PRONOUN/s_c/self} at the rogue with a furious hiss and, together with r_c, drives them off b1_t territory.",
+                "text": "The pawprints lead to a trespassing rogue. s_c throws {PRONOUN/s_c/self} at the rogue with a furious hiss and, together with r_c, drives them off b1_t.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,1"],
@@ -993,7 +993,7 @@
                 ]
             },
             {
-                "text": "The pawprints lead to a trespassing rogue. s_c throws {PRONOUN/s_c/self} at the rogue with a furious hiss and, together with p_l, drives them off b1_t territory.",
+                "text": "The pawprints lead to a trespassing rogue. s_c throws {PRONOUN/s_c/self} at the rogue with a furious hiss and, together with p_l, drives them off b1_t.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,1"],
@@ -1009,7 +1009,7 @@
                 ]
             },
             {
-                "text": "The pawprints lead to a trespassing rogue. s_c climbs into the trees with r_c to set up a trap, rigging a branch to fall on the rogue's head - and it works, sending the startled intruder yowling as they flee c_n territory.",
+                "text": "The pawprints lead to a trespassing rogue. s_c climbs into the trees with r_c to set up a trap, rigging a branch to fall on the rogue's head - and it works, sending the startled intruder yowling as they flee b1_t.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["CLEVER,1"],
@@ -1025,7 +1025,7 @@
                 ]
             },
             {
-                "text": "The pawprints lead to a trespassing rogue. s_c climbs into the trees with p_l to set up a trap, rigging a branch to fall on the rogue's head - and it works, sending the startled intruder yowling as they flee c_n territory.",
+                "text": "The pawprints lead to a trespassing rogue. s_c climbs into the trees with p_l to set up a trap, rigging a branch to fall on the rogue's head - and it works, sending the startled intruder yowling as they flee b1_t.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["CLEVER,1"],
@@ -1379,7 +1379,7 @@
                 ]
             },
             {
-                "text": "The pawprints lead to a trespassing rogue. With a furious hiss, s_c throws {PRONOUN/s_c/self} at the rogue and, together with the rest of the patrol, drives them off b1_t territory.",
+                "text": "The pawprints lead to a trespassing rogue. With a furious hiss, s_c throws {PRONOUN/s_c/self} at the rogue and, together with the rest of the patrol, drives them off b1_t.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,1"],
@@ -1395,7 +1395,7 @@
                 ]
             },
             {
-                "text": "The pawprints lead to a trespassing rogue. s_c climbs into the trees with {PRONOUN/s_c/poss} Clanmates to set up a trap, rigging a branch to fall on the rogue's head - and it works, sending the startled intruder yowling as they flee c_n territory.",
+                "text": "The pawprints lead to a trespassing rogue. s_c climbs into the trees with {PRONOUN/s_c/poss} Clanmates to set up a trap, rigging a branch to fall on the rogue's head - and it works, sending the startled intruder yowling as they flee b1_t.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["CLEVER,1"],
@@ -1855,7 +1855,7 @@
                 ]
             },
             {
-                "text": "{PRONOUN/s_c/subject/CAP} {VERB/s_c/don't/doesn't} feel like {PRONOUN/s_c/subject} {VERB/s_c/have/has} anything like the skill or power, but s_c would give {PRONOUN/s_c/poss} life for c_n, charging in to courageously lead the dog away from c_n territory. Each booming bark has to be the herald of {PRONOUN/s_c/poss} doom, each rancid breath the last thing {PRONOUN/s_c/subject}'ll ever smell, but somehow, eventually, limbs and lungs burning, {PRONOUN/s_c/subject} {VERB/s_c/leap/leaps} to refuge.",
+                "text": "{PRONOUN/s_c/subject/CAP} {VERB/s_c/don't/doesn't} feel like {PRONOUN/s_c/subject} {VERB/s_c/have/has} anything like the skill or power, but s_c would give {PRONOUN/s_c/poss} life for the b1_t, charging in to courageously lead the dog away from b1_t. Each booming bark has to be the herald of {PRONOUN/s_c/poss} doom, each rancid breath the last thing {PRONOUN/s_c/subject}'ll ever smell, but somehow, eventually, limbs and lungs burning, {PRONOUN/s_c/subject} {VERB/s_c/leap/leaps} to refuge.",
                 "exp": 40,
                 "weight": 20,
                 "stat_trait": [
@@ -2227,7 +2227,7 @@
                 ]
             },
             {
-                "text": "The patrol gathers their courage and valiantly drives away the dog. Together, working as one, and with all the strength of StarClan behind them, the patrol presses the dog. By keeping up a series of small skirmishes through the entire day, they drive it all the way off c_n territory.",
+                "text": "The patrol gathers their courage and valiantly drives away the dog. Together, working as one, and with all the strength of StarClan behind them, the patrol presses the dog. By keeping up a series of small skirmishes through the entire day, they drive it all the way off b1_t.",
                 "exp": 20,
                 "weight": 5,
                 "relationships": [
@@ -2511,7 +2511,7 @@
         "max_cats": 3,
         "min_max_status": {},
         "weight": 20,
-        "intro_text": "The patrol comes across a small dog, right on the border of c_n territory.",
+        "intro_text": "The patrol comes across a small dog, right on the border of b1_t.",
         "decline_text": "p_l decides not to pursue the dog, instead cutting the patrol short to head back to camp and report it.",
         "chance_of_success": 60,
         "success_outcomes": [
@@ -2560,7 +2560,7 @@
                 ]
             },
             {
-                "text": "s_c calls out a battle plan, and the cats flow into it, carefully covering each other and driving the dog backwards until its nerve breaks, it tucks tail, and it runs from c_n territory headed deep into the wilderness.",
+                "text": "s_c calls out a battle plan, and the cats flow into it, carefully covering each other and driving the dog backwards until its nerve breaks, it tucks tail, and it runs from b1_t headed deep into the wilderness.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": [
@@ -2624,7 +2624,7 @@
         "max_cats": 6,
         "min_max_status": {},
         "weight": 20,
-        "intro_text": "The patrol comes across a small dog, right on the border of c_n territory.",
+        "intro_text": "The patrol comes across a small dog, right on the border of b1_t.",
         "decline_text": "p_l decides not to pursue the dog, instead cutting the patrol short to head back to camp and report it.",
         "chance_of_success": 60,
         "success_outcomes": [
@@ -2673,7 +2673,7 @@
                 ]
             },
             {
-                "text": "s_c calls out a battle plan, and the cats flow into it, carefully covering each other and driving the dog backwards until its nerve breaks, it tucks tail, and it runs from c_n territory headed deep into the wilderness.",
+                "text": "s_c calls out a battle plan, and the cats flow into it, carefully covering each other and driving the dog backwards until its nerve breaks, it tucks tail, and it runs from b1_t headed deep into the wilderness.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": [

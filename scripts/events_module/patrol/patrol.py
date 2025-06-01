@@ -1022,11 +1022,12 @@ class Patrol:
         if stat_cat:
             replace_dict["s_c"] = ([str(stat_cat.name), stat_cat.ID], choice(stat_cat.pronouns))
 
-        text = process_text(text, replace_dict, baron_colour_force_dark=True)
-
         # BL
         text = event_text_adjust(Cat, text, barony=game.clan, other_barony=self.other_clan, baron_colour_force_dark=True)
         # ---
+
+        text = process_text(text, replace_dict, baron_colour_force_dark=True)
+        # I CANT GET FORCE DARK ON THE INTRO TEXT FR TERRITORIES GRRR
 
         text = adjust_prey_abbr(text)
 

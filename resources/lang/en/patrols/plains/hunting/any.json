@@ -1698,7 +1698,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "The Twolegs here are friendly, and a little carelessly, s_c goes to hunt in their garden. But there's a new thing there: a strange, suspicious box. Wisely, s_c avoids it, and returns to b1_t territory.",
+                "text": "The Twolegs here are friendly, and a little carelessly, s_c goes to hunt in their garden. But there's a new thing there: a strange, suspicious box. Wisely, s_c avoids it, and returns to b1_t.",
                 "exp": 0,
                 "weight": 20,
                 "stat_trait": [
@@ -1780,7 +1780,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "A little carelessly, s_c jumps a fence to hunt in a den's garden. But there's a new thing there: a strange, suspicious box. Wisely, s_c avoids it, and returns to b1_t territory.",
+                "text": "A little carelessly, s_c jumps a fence to hunt in a den's garden. But there's a new thing there: a strange, suspicious box. Wisely, s_c avoids it, and returns to b1_t.",
                 "exp": 0,
                 "weight": 20,
                 "stat_trait": [
@@ -1904,7 +1904,7 @@
                 ]
             },
             {
-                "text": "The Twolegs here are friendly, and a little carelessly, s_c goes to hunt in their garden. But there's a new thing there: a strange, suspicious box. Wisely, s_c avoids it, and returns to b1_t territory.",
+                "text": "The Twolegs here are friendly, and a little carelessly, s_c goes to hunt in their garden. But there's a new thing there: a strange, suspicious box. Wisely, s_c avoids it, and returns to b1_t.",
                 "exp": 0,
                 "weight": 20,
                 "stat_trait": [
@@ -2033,7 +2033,7 @@
                 ]
             },
             {
-                "text": "A little carelessly, s_c jumps a fence to hunt in a den's garden. But there's a new thing there: a strange, suspicious box. Wisely, s_c avoids it, and returns to b1_t territory.",
+                "text": "A little carelessly, s_c jumps a fence to hunt in a den's garden. But there's a new thing there: a strange, suspicious box. Wisely, s_c avoids it, and returns to b1_t.",
                 "exp": 0,
                 "weight": 20,
                 "stat_trait": [
@@ -3159,7 +3159,7 @@
                 ]
             },
             {
-                "text": "While {PRONOUN/s_c/subject}'d hardly expected to need {PRONOUN/s_c/poss} skills on a hunting patrol, s_c sets up an excellent battle plan. It's only halfway through ambushing the beast that the patrol realizes it's a maned wolf, which makes their job infinitely easier. They drive away the timid predator from c_n territory with enough time left over to bring a mouse or two back for the fresh-kill pile before sundown.",
+                "text": "While {PRONOUN/s_c/subject}'d hardly expected to need {PRONOUN/s_c/poss} skills on a hunting patrol, s_c sets up an excellent battle plan. It's only halfway through ambushing the beast that the patrol realizes it's a maned wolf, which makes their job infinitely easier. They drive away the timid predator from b1_t with enough time left over to bring a mouse or two back for the fresh-kill pile before sundown.",
                 "exp": 30,
                 "weight": 20,
                 "stat_skill": ["CLEVER,1", "FIGHTER,1"],

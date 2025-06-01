@@ -106,7 +106,6 @@ class Clan:
         self_run_init_functions=True,
         colour="",
         territory=0,
-        territory_type="forest",
         export="",
     ):
         self.history = History()
@@ -146,7 +145,6 @@ class Clan:
         # BL stuff
         self.colour = colour
         self.territory = territory
-        self.territory_type = territory_type
         self.export = export
 
         # Init Settings
@@ -274,16 +272,12 @@ class Clan:
             "crimson", "blue", "cyan", "yellow", "green", "pink", "purple"
         ]
         available_colours.remove(self.colour)
-        available_territory_types = [
-            "forest", "cliffside", "lakeside", "river", "township", "field"
-        ]
-        available_territory_types.remove(self.territory_type)
-
-        territory_tiles = game.badlands_info["territory_tiles"]["tilemap"]
 
         exports = [
-            "prey", "supplies", "cosmetics", "herbs"
+            "food", "supplies", "cosmetics", "herbs"
         ]
+
+        number_other_clans = game.switches["creation_other_clans"][0]
 
         for _ in range(number_other_clans):
             other_clan_names = [str(i.name) for i in self.all_clans] + [game.clan.name]
@@ -308,12 +302,8 @@ class Clan:
             available_colours.remove(baron_colour)
             new_baron.pelt.accessory = [baron_colour.upper() + "BOW"]
 
-            # baron territory_type
-            baron_territory = random.choice(available_territory_types)
-            available_territory_types.remove(baron_territory)
-
             # territory tiles
-            baron_tiles = territory_tiles[baron_territory]
+            baron_tiles = game.switches["creation_other_clans"][1][_ + 1]
 
             # export
             baron_export = random.choice(exports)
@@ -328,7 +318,6 @@ class Clan:
                 colour=baron_colour,
                 relations={},
                 territory=baron_tiles,
-                territory_type=baron_territory,
                 export=baron_export,
                 clippers=baron_clipper_num
                 )
@@ -487,6 +476,7 @@ class Clan:
         """
         TODO: DOCS
         """
+        print("new_baron")
         if baron:
             self.history.add_lead_ceremony(baron)
             self.baron = baron
@@ -576,7 +566,6 @@ class Clan:
 
             "colour": self.colour,
             "territory": self.territory,
-            "territory_type": self.territory_type,
             "export": self.export,
         }
 
@@ -626,7 +615,6 @@ class Clan:
         # BL
         clan_data["colour"] = self.colour
         clan_data["territory"] = self.territory
-        clan_data["territory_type"] = self.territory_type
         clan_data["export"] = self.export
 
         self.save_herb_supply(game.clan)
@@ -914,7 +902,6 @@ class Clan:
             self_run_init_functions=False,
             colour=clan_data["colour"],
             territory=clan_data["territory"],
-            territory_type=clan_data["territory_type"],
             export=clan_data["export"],
         )
         game.clan.post_initialization_functions()
@@ -970,7 +957,6 @@ class Clan:
                         other_clan["temperament"],
                         other_clan["chosen_symbol"],
                         other_clan["territory"],
-                        other_clan["territory_type"],
                         other_clan["export"],
                         other_clan["clippers"],
                     )
@@ -1445,7 +1431,6 @@ class OtherClan:
             temperament="",
             chosen_symbol="",
             territory=0,
-            territory_type="",
             export="",
             clippers=0
             ):
@@ -1458,7 +1443,6 @@ class OtherClan:
         self.baron = baron
         self.colour = colour or "black"
         self.territory = territory or []
-        self.territory_type = territory_type or "forest"
         self.export = export or ""
         self.clippers = clippers or 0
 

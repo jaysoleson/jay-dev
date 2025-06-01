@@ -548,7 +548,7 @@ class Cat:
         self.injuries.clear()
         self.illnesses.clear()
 
-        text = ""
+        # text = ""
         darkforest = game.clan.instructor.df
         isoutside = self.outside
     

@@ -51,12 +51,13 @@ def bs_blurb_text(cat):
             i18n.t(
                 "cat.backstories.cats_outside_the_clan",
                 status=i18n.t(f"general.{cat.status}"),
+                baron_colour_force_dark=True
             ),
             main_cat=cat,
         )
     else:
         return event_text_adjust(
-            Cat, i18n.t(f"cat.backstories.{cat.backstory}"), main_cat=cat
+            Cat, i18n.t(f"cat.backstories.{cat.backstory}"), main_cat=cat, baron_colour_force_dark=True
         )
 
 
@@ -1220,7 +1221,7 @@ class ProfileScreen(Screens):
                         join_age=i18n.t("general.moons_age", count=beginning["age"]),
                     )
 
-        text = process_text(text, cat_dict)
+        text = process_text(text, cat_dict, baron_colour_force_dark=True)
         return text
 
     def get_scar_text(self):
@@ -1243,6 +1244,7 @@ class ProfileScreen(Screens):
                     scar["text"],
                     main_cat=self.the_cat,
                     random_cat=Cat.fetch_cat(scar["involved"]),
+                    baron_colour_force_dark=True
                 )
 
                 if moons:
@@ -1273,7 +1275,7 @@ class ProfileScreen(Screens):
                 cat_dict = {
                     "m_c": ([str(self.the_cat.name), self.the_cat.ID], choice(self.the_cat.pronouns))
                 }
-                new_text = process_text(new_text, cat_dict)
+                new_text = process_text(new_text, cat_dict, baron_colour_force_dark=True)
                 scar_text.append(new_text)
                 i += 1
 
@@ -1401,7 +1403,7 @@ class ProfileScreen(Screens):
                 graduation_history += f" (moon {app_ceremony['moon']})"
         cat_dict = {"m_c": ([str(self.the_cat.name), self.the_cat.ID], choice(self.the_cat.pronouns))}
         apprenticeship_history = influence_history + " " + graduation_history
-        apprenticeship_history = process_text(apprenticeship_history, cat_dict)
+        apprenticeship_history = process_text(apprenticeship_history, cat_dict, baron_colour_force_dark=True)
         return apprenticeship_history
 
     def get_mentorship_text(self):
@@ -1425,7 +1427,7 @@ class ProfileScreen(Screens):
             )
             cat_dict = {"m_c": ([str(self.the_cat.name), self.the_cat.ID], choice(self.the_cat.pronouns))}
 
-            text = process_text(text, cat_dict)
+            text = process_text(text, cat_dict, baron_colour_force_dark=True)
 
         return text
 
@@ -1444,6 +1446,7 @@ class ProfileScreen(Screens):
                     event["text"],
                     main_cat=self.the_cat,
                     random_cat=Cat.fetch_cat(death["involved"]),
+                    baron_colour_force_dark=True
                 )
 
                 if event.get("revelation_text"):
@@ -1458,6 +1461,7 @@ class ProfileScreen(Screens):
                     event["text"],
                     main_cat=self.the_cat,
                     random_cat=Cat.fetch_cat(death["involved"]),
+                    baron_colour_force_dark=True
                 )
 
         return None
@@ -1497,6 +1501,7 @@ class ProfileScreen(Screens):
                                 event["text"],
                                 main_cat=self.the_cat,
                                 random_cat=Cat.fetch_cat(death["involved"]),
+                                baron_colour_force_dark=True
                             )
                 if not found_murder:
                     text = event_text_adjust(
@@ -1504,6 +1509,7 @@ class ProfileScreen(Screens):
                         death["text"],
                         main_cat=self.the_cat,
                         random_cat=Cat.fetch_cat(death["involved"]),
+                        baron_colour_force_dark=True
                     )
 
                 if self.the_cat.status == "baron":
@@ -1585,7 +1591,7 @@ class ProfileScreen(Screens):
                 text = all_deaths[0]
 
             cat_dict = {"m_c": ([str(self.the_cat.name), self.the_cat.ID], choice(self.the_cat.pronouns))}
-            text = process_text(text, cat_dict)
+            text = process_text(text, cat_dict, baron_colour_force_dark=True)
 
         return text
 
@@ -1644,7 +1650,7 @@ class ProfileScreen(Screens):
                 cat_dict = {
                     "m_c": ([str(self.the_cat.name), self.the_cat.ID], choice(self.the_cat.pronouns))
                 }
-                victim_text = f"{victim_text} {process_text(reveal_text, cat_dict)}"
+                victim_text = f"{victim_text} {process_text(reveal_text, cat_dict, baron_colour_force_dark=True)}"
 
         return victim_text
 

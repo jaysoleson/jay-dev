@@ -1397,7 +1397,7 @@ def filter_relationship_type(
 
 
 def gather_cat_objects(
-        Cat, abbr_list: List[str], event, stat_cat=None, extra_cat=None
+        Cat, abbr_list: List[str], event, stat_cat=None, extra_cat=None, other_barony=None
 ) -> list:
     """
     gathers cat objects from list of abbreviations used within an event format block
@@ -1458,6 +1458,10 @@ def gather_cat_objects(
             index = int(index)
             if index < len(event.new_cats):
                 out_set.update(event.new_cats[index])
+        # BL
+        elif abbr == "baron2":
+            out_set.add(Cat.fetch_cat(other_barony.baron))
+        # ---
         else:
             print(f"WARNING: Unsupported abbreviation {abbr}")
 
@@ -1803,17 +1807,6 @@ def get_baron_colour(cat_id, force_dark=False):
     """ grabbing the barons colour for coloured names
     force_dark means a background that is LIGHT on both light + dark mode"""
     baron_colour = None
-
-    if game.settings["baron name colours"] is True:
-        if game.clan:
-            for clan in game.clan.all_clans + [game.clan]:
-                if clan == game.clan:
-                    baron = game.clan.baron.ID
-                else:
-                    baron = clan.baron
-                if baron == cat_id:
-                    baron_colour = clan.colour
-                    break
     
     # "colour": ["dark colour", "light colour"]
     colour_dict = {
@@ -1826,6 +1819,20 @@ def get_baron_colour(cat_id, force_dark=False):
         "purple": ["#3E135A", "#D59CFC"],
         None: ["", ""]
     }
+    if cat_id:
+        if game.settings["baron name colours"] is True:
+            if game.clan:
+                for clan in game.clan.all_clans + [game.clan]:
+                    if clan == game.clan:
+                        baron = game.clan.baron.ID
+                    else:
+                        baron = clan.baron
+                    if baron == cat_id:
+                        baron_colour = clan.colour
+                        break
+    else:
+        return
+    
     if baron_colour is None:
         # print("baron colour name repl none wtf")
         pass
@@ -1845,7 +1852,9 @@ def name_repl(m, cat_dict, baron_colour_force_dark):
     """Name replacement.
     colour is from BL-- replaces baron names with their colours for extra fun!!
     """
-    show_colours = True #repl with setting
+    if not cat_dict:
+        return
+
     cat_name = cat_dict[m.group(0)][0][0]
     cat_id = cat_dict[m.group(0)][0][1]
 
@@ -2124,13 +2133,9 @@ def ongoing_event_text_adjust(Cat, text, barony=None, other_barony=None, clan=No
     if barony:
         kitty = Cat.fetch_cat(barony.baron)
         cat_dict["baron1"] = ([str(kitty.name), kitty.ID], choice(kitty.pronouns))
-        if "b1_t" in text:
-            text = text.replace("b1_t", barony.territory_type.capitalize())
     if other_barony:
         kitty = Cat.fetch_cat(other_barony.baron)
         cat_dict["baron2"] = ([str(kitty.name), kitty.ID], choice(kitty.pronouns))
-        if "b2_t" in text:
-            text = text.replace("b2_t", other_barony.territory_type.capitalize())
     
     if cat_dict:
         text = process_text(text, cat_dict)
@@ -2297,13 +2302,24 @@ def event_text_adjust(
             baron1 = Cat.fetch_cat(barony.baron)
             replace_dict["baron1"] = ([str(baron1.name), baron1.ID], choice(baron1.pronouns))
         if "b1_t" in text:
-            text = text.replace("b1_t", barony.territory_type.capitalize())
+            if barony == game.clan:
+                b1_t_baron = game.clan.baron
+            else:
+                b1_t_baron = Cat.fetch_cat(barony.baron)
+            # force dark if its a patrol
+            font_colour = get_baron_colour(b1_t_baron.ID, force_dark=baron_colour_force_dark)
+            text = text.replace("b1_t", f"<font color='{font_colour}'>" + str(barony.name.capitalize()) + " Territory</font>")
     if other_barony:
         if "baron2" in text:
             baron2 = Cat.fetch_cat(other_barony.baron)
             replace_dict["baron2"] = ([str(baron2.name), baron2.ID], choice(baron2.pronouns))
         if "b2_t" in text:
-            text = text.replace("b2_t", other_barony.territory_type.capitalize())
+            if other_barony == game.clan:
+                b2_t_baron = game.clan.baron
+            else:
+                b2_t_baron = Cat.fetch_cat(other_barony.baron)
+            font_colour = get_baron_colour(b2_t_baron.ID, force_dark=baron_colour_force_dark)
+            text = text.replace("b2_t", f"<font color='{font_colour}'>" + str(other_barony.name.capitalize()) + " Territory</font>")
     # ---
 
     # assign all names and pronouns
@@ -2988,6 +3004,52 @@ def apply_opacity(surface, opacity):
     return surface
 
 
+def generate_map(Cat, screen, x, y, x_pos, y_pos, clan_territory, clan=None):
+    tile_colour = "#FAFAFA"
+    tile_string = str(y) + "-" + str(x)
+
+    NORTH_TILE_STRING = str(y - 1) + "-" + str(x)
+    EAST_TILE_STRING = str(y) + "-" + str(x + 1)
+    SOUTH_TILE_STRING = str(y + 1) + "-" + str(x)
+    WEST_TILE_STRING = str(y) + "-" + str(x - 1)
+    if tile_string in clan_territory:
+        if clan:
+        # grab the border colour
+            if clan == game.clan:
+                tile_colour = get_baron_colour(game.clan.baron.ID)
+            else:
+                tile_colour = get_baron_colour(Cat.fetch_cat(clan.baron).ID)
+        # else:
+        #     tile_colour = get_baron_colour(None)
+ 
+        # convert the colour to RGB and generate a rect
+        # i stole the rgb function i didnt write that shoutout da internet
+        rgb_tile_colour = hex_to_rgb(tile_colour)
+        rect = ui_scale(pygame.Rect((x_pos+1, y_pos+1), (48, 48)))
+
+        # now, check if the neighbouring territory in each direction belongs to them
+        # if it doesnt, draw the border line
+        border_extra = 1
+        border_width = 2
+        if game.settings["fullscreen"]:
+            border_width = 3
+        if NORTH_TILE_STRING not in clan_territory:
+            point1 = (rect.topleft[0], rect.topleft[1])
+            point2 = (rect.topright[0] + border_extra * 2, rect.topright[1])
+            pygame.draw.line(screen, rgb_tile_colour, point1, point2, border_width)
+        if EAST_TILE_STRING not in clan_territory:
+            point1 = (rect.topright[0], rect.topright[1] - border_extra)
+            point2 = (rect.bottomright[0], rect.bottomright[1] + border_extra * 2)
+            pygame.draw.line(screen, rgb_tile_colour, point1, point2, border_width)
+        if SOUTH_TILE_STRING not in clan_territory:
+            point1 = (rect.bottomleft[0] - border_extra, rect.bottomleft[1])
+            point2 = (rect.bottomright[0] + border_extra * 2, rect.bottomright[1])
+            pygame.draw.line(screen, rgb_tile_colour, point1, point2, border_width)
+        if WEST_TILE_STRING not in clan_territory:
+            point1 = (rect.topleft[0], rect.topleft[1])
+            point2 = (rect.bottomleft[0], rect.bottomleft[1] + border_extra * 2)
+            pygame.draw.line(screen, rgb_tile_colour, point1, point2, border_width)
+
 # ---------------------------------------------------------------------------- #
 #                                     OTHER                                    #
 # ---------------------------------------------------------------------------- #
@@ -3025,6 +3087,14 @@ def get_text_box_theme(theme_name=None):
         return ObjectID("#dark", theme_name)
     else:
         return theme_name
+
+def hex_to_rgb(hex_color):
+    """
+    Converts hex codes to RGB
+    i didnt write this this is completely stolen idk how this works lol
+    """
+    hex_color = hex_color.lstrip('#')
+    return tuple(int(hex_color[i:i+2], 16) for i in (0, 2, 4))
 
 
 def quit(savesettings=False, clearevents=False):

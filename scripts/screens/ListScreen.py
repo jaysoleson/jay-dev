@@ -620,7 +620,7 @@ class ListScreen(Screens):
         self.cat_display.clear_display()
         self.cat_display = None
         self.list_screen_container.kill()
-        self.update_heading_text(str(game.clan.territory_type).capitalize() + " Territory")
+        self.update_heading_text(game.clan.name + " Territory")
 
     def on_use(self):
         super().on_use()
@@ -764,7 +764,7 @@ class ListScreen(Screens):
         """
         if self.current_group == "clan":
             self.set_bg(None)
-            self.update_heading_text(str(game.clan.territory_type).capitalize() + " Territory")
+            self.update_heading_text(game.clan.name + " Territory")
         elif self.current_group == "cotc":
             self.set_bg(None)
             self.update_heading_text("screens.list.cotc")

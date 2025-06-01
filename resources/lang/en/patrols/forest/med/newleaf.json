@@ -461,7 +461,7 @@
         "chance_of_success": 70,
         "success_outcomes": [
             {
-                "text": "Sure enough, all along the trailing branches of the blackberry brambles, new leaves are poking towards the sun. p_l carefully plucks them off, not taking too many - {PRONOUN/p_l/subject} {VERB/p_l/want/wants} this plant to supply the Clan in future moons too.",
+                "text": "Sure enough, all along the trailing branches of the blackberry brambles, new leaves are poking towards the sun. p_l carefully plucks them off, not taking too many - {PRONOUN/p_l/subject} {VERB/p_l/want/wants} this plant to supply the Barony in future moons too.",
                 "exp": 10,
                 "weight": 20,
                 "herbs": ["blackberry"]
@@ -510,7 +510,7 @@
         "chance_of_success": 70,
         "success_outcomes": [
             {
-                "text": "Sure enough, all along the trailing branches of the blackberry brambles, new leaves poke towards the sun. p_l carefully plucks them, not taking too many - {PRONOUN/p_l/subject} {VERB/p_l/want/wants} this plant to supply the Clan in future moons, too. app1 hasn't considered plant pruning as a doctor skill before now, and they have a good conversation about why it's important.",
+                "text": "Sure enough, all along the trailing branches of the blackberry brambles, new leaves poke towards the sun. p_l carefully plucks them, not taking too many - {PRONOUN/p_l/subject} {VERB/p_l/want/wants} this plant to supply the Barony in future moons, too. app1 hasn't considered plant pruning as a doctor skill before now, and they have a good conversation about why it's important.",
                 "exp": 20,
                 "weight": 20,
                 "herbs": ["blackberry"],
@@ -621,7 +621,7 @@
         "chance_of_success": 30,
         "success_outcomes": [
             {
-                "text": "Sure enough, all along the trailing branches of the blackberry brambles, new leaves are poking towards the sun. p_l carefully plucks them, not taking too many - {PRONOUN/p_l/subject} {VERB/p_l/want/wants} this plant to supply the Clan in future moons too. The rest of the patrol listens to {PRONOUN/p_l/object} describe how a doctor must predict the Clan's future need, respect for p_l growing.",
+                "text": "Sure enough, all along the trailing branches of the blackberry brambles, new leaves are poking towards the sun. p_l carefully plucks them, not taking too many - {PRONOUN/p_l/subject} {VERB/p_l/want/wants} this plant to supply the Barony in future moons too. The rest of the patrol listens to {PRONOUN/p_l/object} describe how a doctor must predict the Clan's future need, respect for p_l growing.",
                 "exp": 10,
                 "weight": 20,
                 "herbs": ["blackberry"],
@@ -2152,7 +2152,7 @@
             "normal adult": [-1, -1]
         },
         "weight": 20,
-        "intro_text": "Newleaf has brought new life to the b1_t Territory, and p_l heads out to gather fresh goldenrod for the stores.",
+        "intro_text": "Newleaf has brought new life to the b1_t, and p_l heads out to gather fresh goldenrod for the stores.",
         "decline_text": "{PRONOUN/p_l/subject/CAP} {VERB/p_l/have/has} second thoughts about leaving {PRONOUN/p_l/poss} patients behind, and {VERB/p_l/decide/decides} to go another day.",
         "chance_of_success": 70,
         "success_outcomes": [
@@ -2201,7 +2201,7 @@
             "normal adult": [-1, -1]
         },
         "weight": 20,
-        "intro_text": "Newleaf has brought new life to the b1_t Territory, and p_l heads out to gather fresh goldenrod for the stores with app1.",
+        "intro_text": "Newleaf has brought new life to the b1_t, and p_l heads out to gather fresh goldenrod for the stores with app1.",
         "decline_text": "{PRONOUN/p_l/subject/CAP} {VERB/p_l/have/has} second thoughts about leaving {PRONOUN/p_l/poss} patients behind, especially with {PRONOUN/p_l/object} also bringing their apprentice, and {VERB/p_l/decide/decides} to go another day.",
         "chance_of_success": 70,
         "success_outcomes": [
@@ -2313,7 +2313,7 @@
             "normal adult": [1, 6]
         },
         "weight": 20,
-        "intro_text": "Newleaf has brought new life to the b1_t Territory, and p_l heads out to gather fresh goldenrod for the stores with a patrol of {PRONOUN/p_l/poss} friends to assist them.",
+        "intro_text": "Newleaf has brought new life to the b1_t, and p_l heads out to gather fresh goldenrod for the stores with a patrol of {PRONOUN/p_l/poss} friends to assist them.",
         "decline_text": "They're stopped before they leave camp - these clippers are needed elsewhere. p_l's expedition will have to wait.",
         "chance_of_success": 30,
         "success_outcomes": [
@@ -3061,7 +3061,7 @@
             "normal adult": [-1, -1]
         },
         "weight": 20,
-        "intro_text": "Newleaf has brought new life to the b1_t Territory, and p_l heads out to gather fresh mallow for the stores.",
+        "intro_text": "Newleaf has brought new life to the b1_t, and p_l heads out to gather fresh mallow for the stores.",
         "decline_text": "{PRONOUN/p_l/subject/CAP} {VERB/p_l/have/has} second thoughts about leaving {PRONOUN/p_l/poss} patients behind and {VERB/p_l/decide/decides} to go another day.",
         "chance_of_success": 70,
         "success_outcomes": [
@@ -3110,7 +3110,7 @@
             "normal adult": [-1, -1]
         },
         "weight": 20,
-        "intro_text": "Newleaf has brought new life to the b1_t Territory, and p_l heads out to gather fresh mallow for the stores with app1.",
+        "intro_text": "Newleaf has brought new life to the b1_t, and p_l heads out to gather fresh mallow for the stores with app1.",
         "decline_text": "{PRONOUN/p_l/subject/CAP} {VERB/p_l/have/has} second thoughts leaving {PRONOUN/p_l/poss} patients behind, especially with {PRONOUN/p_l/object} also bringing {PRONOUN/p_l/poss} apprentice, and {VERB/p_l/decide/decides} to go another day.",
         "chance_of_success": 70,
         "success_outcomes": [
@@ -3221,7 +3221,7 @@
             "normal adult": [1, 6]
         },
         "weight": 20,
-        "intro_text": "Newleaf has brought new life to the b1_t Territory, and p_l heads out to gather fresh mallow for the stores with a patrol of {PRONOUN/p_l/poss} friends to assist {PRONOUN/p_l/object}.",
+        "intro_text": "Newleaf has brought new life to the b1_t, and p_l heads out to gather fresh mallow for the stores with a patrol of {PRONOUN/p_l/poss} friends to assist {PRONOUN/p_l/object}.",
         "decline_text": "They're stopped before they leave camp - these clippers are needed elsewhere. p_l's expedition will have to wait.",
         "chance_of_success": 30,
         "success_outcomes": [
@@ -3332,7 +3332,7 @@
             "normal adult": [-1, -1]
         },
         "weight": 20,
-        "intro_text": "With newleaf comes the opportunity to scout out the b1_t Territory, and find where marigold might be growing this year.",
+        "intro_text": "With newleaf comes the opportunity to scout out the b1_t, and find where marigold might be growing this year.",
         "decline_text": "{PRONOUN/p_l/subject/CAP} {VERB/p_l/have/has} second thoughts about leaving {PRONOUN/p_l/poss} patients behind and {VERB/p_l/decide/decides} to go another day.",
         "chance_of_success": 70,
         "success_outcomes": [
@@ -3381,7 +3381,7 @@
             "normal adult": [-1, -1]
         },
         "weight": 20,
-        "intro_text": "With newleaf comes the opportunity to scout out the b1_t Territory, and find where marigold might be growing this year with app1.",
+        "intro_text": "With newleaf comes the opportunity to scout out the b1_t, and find where marigold might be growing this year with app1.",
         "decline_text": "{PRONOUN/p_l/subject/CAP} {VERB/p_l/have/has} second thoughts leaving {PRONOUN/p_l/poss} patients behind, especially with {PRONOUN/p_l/object} also bringing {PRONOUN/p_l/poss} apprentice, and {VERB/p_l/decide/decides} to go another day.",
         "chance_of_success": 70,
         "success_outcomes": [
@@ -3492,7 +3492,7 @@
             "normal adult": [1, 6]
         },
         "weight": 20,
-        "intro_text": "With newleaf comes the opportunity to scout out the b1_t Territory, and find where marigold might be growing this year, with a patrol of {PRONOUN/p_l/poss} friends to assist {PRONOUN/p_l/object}.",
+        "intro_text": "With newleaf comes the opportunity to scout out the b1_t, and find where marigold might be growing this year, with a patrol of {PRONOUN/p_l/poss} friends to assist {PRONOUN/p_l/object}.",
         "decline_text": "They're stopped before they leave camp - these clippers are needed elsewhere. p_l's expedition will have to wait.",
         "chance_of_success": 30,
         "success_outcomes": [
@@ -3603,7 +3603,7 @@
             "normal adult": [-1, -1]
         },
         "weight": 20,
-        "intro_text": "With newleaf comes the opportunity to scout out the b1_t Territory and find where mullein might be growing this year.",
+        "intro_text": "With newleaf comes the opportunity to scout out the b1_t and find where mullein might be growing this year.",
         "decline_text": "{PRONOUN/p_l/subject/CAP} {VERB/p_l/have/has} second thoughts about leaving {PRONOUN/p_l/poss} patients behind and {VERB/p_l/decide/decides} to go another day.",
         "chance_of_success": 70,
         "success_outcomes": [
@@ -3652,7 +3652,7 @@
             "normal adult": [-1, -1]
         },
         "weight": 20,
-        "intro_text": "With newleaf comes the opportunity to scout out the b1_t Territory and find where mullein might be growing this year with app1.",
+        "intro_text": "With newleaf comes the opportunity to scout out the b1_t and find where mullein might be growing this year with app1.",
         "decline_text": "{PRONOUN/p_l/subject/CAP} {VERB/p_l/have/has} second thoughts leaving {PRONOUN/p_l/poss} patients behind, especially with {PRONOUN/p_l/object} also bringing {PRONOUN/p_l/poss} apprentice, and {VERB/p_l/decide/decides} to go another day.",
         "chance_of_success": 70,
         "success_outcomes": [
@@ -3763,7 +3763,7 @@
             "normal adult": [1, 6]
         },
         "weight": 20,
-        "intro_text": "With newleaf comes the opportunity to scout out the b1_t Territory and find where mullein might be growing this year, with a patrol of {PRONOUN/p_l/poss} friends to assist {PRONOUN/p_l/object}.",
+        "intro_text": "With newleaf comes the opportunity to scout out the b1_t and find where mullein might be growing this year, with a patrol of {PRONOUN/p_l/poss} friends to assist {PRONOUN/p_l/object}.",
         "decline_text": "They're stopped before they leave camp - these clippers are needed elsewhere. p_l's expedition will have to wait.",
         "chance_of_success": 30,
         "success_outcomes": [
@@ -4162,7 +4162,7 @@
                 "herbs": ["many_herbs", "plantain"]
             },
             {
-                "text": "Go to the trails of other animals who move through the b1_t Territory; wander around until you bump nose-first into a plantain plant; harvest. Simple.",
+                "text": "Go to the trails of other animals who move through the b1_t; wander around until you bump nose-first into a plantain plant; harvest. Simple.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["SENSE,2"],
@@ -4243,7 +4243,7 @@
                 ]
             },
             {
-                "text": "Go to the trails of other animals who move through the b1_t Territory; wander around until you bump nose-first into a plantain plant; harvest. Simple, p_l teaches app1.",
+                "text": "Go to the trails of other animals who move through the b1_t; wander around until you bump nose-first into a plantain plant; harvest. Simple, p_l teaches app1.",
                 "exp": 20,
                 "weight": 20,
                 "stat_skill": ["SENSE,2"],
@@ -4355,7 +4355,7 @@
                 ]
             },
             {
-                "text": "Go to the trails of other animals who move through the b1_t Territory; wander around until you bump nose-first into a plantain plant; harvest. Simple. <i>And</i> the clippers get to tidy their paths through the territory. It's a win-win!",
+                "text": "Go to the trails of other animals who move through the b1_t; wander around until you bump nose-first into a plantain plant; harvest. Simple. <i>And</i> the clippers get to tidy their paths through the territory. It's a win-win!",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["SENSE,2"],

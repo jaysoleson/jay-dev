@@ -631,7 +631,7 @@
         ],
         "antag_success_outcomes": [
             {
-                "text": "The patrol immediately stops their border marking and switches to tracking the scent of the intruder instead. At the end of the trail they find an old kittypet, wheezing {PRONOUN/n_c:0/poss} Twoleg's name. They drive the struggling kittypet off b1_t territory, protecting the Barony from a source of sickness - no matter the cost.",
+                "text": "The patrol immediately stops their border marking and switches to tracking the scent of the intruder instead. At the end of the trail they find an old kittypet, wheezing {PRONOUN/n_c:0/poss} Twoleg's name. They drive the struggling kittypet off b1_t, protecting the Barony from a source of sickness - no matter the cost.",
                 "exp": 10,
                 "weight": 20,
                 "outsider_rep": -2,
@@ -1844,7 +1844,7 @@
         "chance_of_success": 10,
         "success_outcomes": [
             {
-                "text": "It's just an odd nomad singing to {PRONOUN/n_c:0/self}. p_l greets {PRONOUN/n_c:0/object}, and as the nomad's home isn't on b1_t territory, it's a polite interaction without any hostility. The older cat looks like {PRONOUN/n_c:0/subject} could use a meal, so p_l invites {PRONOUN/n_c:0/object} to b1_t's camp. The nomad agrees.",
+                "text": "It's just an odd nomad singing to {PRONOUN/n_c:0/self}. p_l greets {PRONOUN/n_c:0/object}, and as the nomad's home isn't on b1_t, it's a polite interaction without any hostility. The older cat looks like {PRONOUN/n_c:0/subject} could use a meal, so p_l invites {PRONOUN/n_c:0/object} to b1_t's camp. The nomad agrees.",
                 "exp": 30,
                 "weight": 20,
                 "new_cat": [
@@ -1976,7 +1976,7 @@
         "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "It's just an odd nomad singing to {PRONOUN/n_c:0/self}. The patrol greets {PRONOUN/n_c:0/object}, and as the nomad's home isn't on b1_t territory, it's a polite interaction without any hostility. The older cat looks like {PRONOUN/n_c:0/subject} could use a meal, so p_l invites {PRONOUN/n_c:0/object} to b1_t's camp. The nomad agrees.",
+                "text": "It's just an odd nomad singing to {PRONOUN/n_c:0/self}. The patrol greets {PRONOUN/n_c:0/object}, and as the nomad's home isn't on b1_t, it's a polite interaction without any hostility. The older cat looks like {PRONOUN/n_c:0/subject} could use a meal, so p_l invites {PRONOUN/n_c:0/object} to b1_t's camp. The nomad agrees.",
                 "exp": 30,
                 "weight": 20,
                 "new_cat": [
@@ -2191,7 +2191,7 @@
                 "outsider_rep": -1
             },
             {
-                "text": "p_l takes the lead in checking the source of the noise and comes face-to-face with a rogue hiding in the bush! The rogue takes a swipe at p_l but doesn't get much damage in before p_l retaliates and chases the intruder out of b1_t territory.",
+                "text": "p_l takes the lead in checking the source of the noise and comes face-to-face with a rogue hiding in the bush! The rogue takes a swipe at p_l but doesn't get much damage in before p_l retaliates and chases the intruder out of b1_t.",
                 "exp": 0,
                 "weight": 10,
                 "new_cat": [
@@ -2278,7 +2278,7 @@
         "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "It's just an odd nomad singing to {PRONOUN/n_c:0/self}. The patrol greets {PRONOUN/n_c:0/object}, and as the nomad isn't inside b1_t territory, it's a polite interaction without any hostility. The older cat looks like {PRONOUN/n_c:0/subject} could use a meal, so p_l invites {PRONOUN/n_c:0/object} to b1_t's camp. The nomad agrees.",
+                "text": "It's just an odd nomad singing to {PRONOUN/n_c:0/self}. The patrol greets {PRONOUN/n_c:0/object}, and as the nomad isn't inside b1_t, it's a polite interaction without any hostility. The older cat looks like {PRONOUN/n_c:0/subject} could use a meal, so p_l invites {PRONOUN/n_c:0/object} to b1_t's camp. The nomad agrees.",
                 "exp": 30,
                 "weight": 20,
                 "new_cat": [
@@ -2410,7 +2410,7 @@
         "chance_of_success": 30,
         "success_outcomes": [
             {
-                "text": "It's just an odd nomad singing to {PRONOUN/n_c:0/self}. r_c greets {PRONOUN/n_c:0/object}, and as the nomad isn't inside b1_t territory, it's a polite interaction without any hostility. The older cat looks like {PRONOUN/n_c:0/subject} could use a meal, so r_c invites {PRONOUN/n_c:0/object} to b1_t's camp. The nomad agrees.",
+                "text": "It's just an odd nomad singing to {PRONOUN/n_c:0/self}. r_c greets {PRONOUN/n_c:0/object}, and as the nomad isn't inside b1_t, it's a polite interaction without any hostility. The older cat looks like {PRONOUN/n_c:0/subject} could use a meal, so r_c invites {PRONOUN/n_c:0/object} to b1_t's camp. The nomad agrees.",
                 "exp": 30,
                 "weight": 20,
                 "new_cat": [
@@ -3346,7 +3346,7 @@
             "art": "gen_bord_twocat_hostile_clipper_clipper"
                 },
     {
-        "text": "p_l interrupts the kittypets' argument to tell them both to scram. One kittypet takes a swipe at p_l, but p_l easily knocks the soft-pawed kittypet to the ground and tells {PRONOUN/n_c:0/object} to leave b1_t territory before {PRONOUN/n_c:0/subject} {VERB/n_c:0/make/makes} more of a fool out of {PRONOUN/n_c:0/self}.",
+        "text": "p_l interrupts the kittypets' argument to tell them both to scram. One kittypet takes a swipe at p_l, but p_l easily knocks the soft-pawed kittypet to the ground and tells {PRONOUN/n_c:0/object} to leave b1_t before {PRONOUN/n_c:0/subject} {VERB/n_c:0/make/makes} more of a fool out of {PRONOUN/n_c:0/self}.",
         "exp": 20,
         "weight": 20,
         "outsider_rep": -3,
@@ -3924,7 +3924,7 @@
         "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "It's probably dangerous, but... there's no way app1 could live with leaving some poor soul alone on the mountainside in the cold. Following the piteous cries, app1 rounds a bend and spots a puffed-out bundle of terrified screams sitting by the side of one of the few Thunderpaths that cross b1_t territory. {PRONOUN/app1/subject/CAP} {VERB/app1/sigh/sighs}, climbing down the slope and calling out in reassurance to the kittypet.",
+                "text": "It's probably dangerous, but... there's no way app1 could live with leaving some poor soul alone on the mountainside in the cold. Following the piteous cries, app1 rounds a bend and spots a puffed-out bundle of terrified screams sitting by the side of one of the few Thunderpaths that cross b1_t. {PRONOUN/app1/subject/CAP} {VERB/app1/sigh/sighs}, climbing down the slope and calling out in reassurance to the kittypet.",
                 "exp": 20,
                 "weight": 20,
                 "new_cat": [
@@ -4364,7 +4364,7 @@
                 "outsider_rep": 1
             },
             {
-                "text": "Is that... a kittypet? In b1_t territory? How strange. p_l knows that {PRONOUN/p_l/subject} should chase the kittypet back home to {PRONOUN/n_c:0/poss} Twolegs, but... {PRONOUN/p_l/subject} can't help but be a little curious. Besides, what harm could a <i>kittypet</i> do? p_l approaches the kittypet and strikes up a conversation. Without either cat realizing it, they wind up talking for hours.",
+                "text": "Is that... a kittypet? In b1_t? How strange. p_l knows that {PRONOUN/p_l/subject} should chase the kittypet back home to {PRONOUN/n_c:0/poss} Twolegs, but... {PRONOUN/p_l/subject} can't help but be a little curious. Besides, what harm could a <i>kittypet</i> do? p_l approaches the kittypet and strikes up a conversation. Without either cat realizing it, they wind up talking for hours.",
                 "exp": 10,
                 "weight": 10,
                 "new_cat": [

@@ -6404,7 +6404,7 @@
         "chance_of_success": 70,
         "success_outcomes": [
             {
-                "text": "As p_l and r_c run around the b1_t Territory, theoretically training, r_c feels wild and free and like {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} going to burst with unexpected happiness! {PRONOUN/r_c/subject/CAP} {VERB/r_c/turn/turns} and {VERB/r_c/pounce/pounces} on p_l, starting a little play fight with {PRONOUN/r_c/poss} mock-prey.",
+                "text": "As p_l and r_c run around the b1_t, theoretically training, r_c feels wild and free and like {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} going to burst with unexpected happiness! {PRONOUN/r_c/subject/CAP} {VERB/r_c/turn/turns} and {VERB/r_c/pounce/pounces} on p_l, starting a little play fight with {PRONOUN/r_c/poss} mock-prey.",
                 "exp": 10,
                 "weight": 20,
                 "relationships": [
@@ -10066,7 +10066,7 @@
         	"normal adult": [1, 6]
     	},
     	"weight": 40,
-    	"intro_text": "p_l is out alone in the b1_t Territory when a shiver runs down {PRONOUN/p_l/poss} spine. {PRONOUN/p_l/subject/CAP} {VERB/p_l/stop/stops}. {PRONOUN/p_l/subject/CAP} slowly {VERB/p_l/turn/turns} {PRONOUN/p_l/poss} head. On the rosemary bush next to {PRONOUN/p_l/object}, the moth lazily stretches its wings, the Twoleg skull on its back grinning.",
+    	"intro_text": "p_l is out alone in the b1_t when a shiver runs down {PRONOUN/p_l/poss} spine. {PRONOUN/p_l/subject/CAP} {VERB/p_l/stop/stops}. {PRONOUN/p_l/subject/CAP} slowly {VERB/p_l/turn/turns} {PRONOUN/p_l/poss} head. On the rosemary bush next to {PRONOUN/p_l/object}, the moth lazily stretches its wings, the Twoleg skull on its back grinning.",
         "decline_text": "It's just a moth, p_l tells {PRONOUN/p_l/self}, and continues on {PRONOUN/p_l/poss} way.",
     	"chance_of_success": 70,
     	"pl_skill_constraint": ["OMEN,3"],
@@ -10881,7 +10881,7 @@
         "decline_text": "p_l tells app1 that this was no time to be thinking about such things, and to focus on {PRONOUN/app1/poss} training.",
         "success_outcomes": [
             {
-                "text": "Frowning, s_c sternly asks app1 if {PRONOUN/app1/subject}'d refuse to fight the kittypet if they trespassed, just because {PRONOUN/app1/subject}'d had a conversation with them? app1 quickly replies that {PRONOUN/app1/subject} would fight them, and s_c nods in approval - so long as app1 is willing to challenge the kittypet if they trespass onto the b1_t territory, that was all that mattered.",
+                "text": "Frowning, s_c sternly asks app1 if {PRONOUN/app1/subject}'d refuse to fight the kittypet if they trespassed, just because {PRONOUN/app1/subject}'d had a conversation with them? app1 quickly replies that {PRONOUN/app1/subject} would fight them, and s_c nods in approval - so long as app1 is willing to challenge the kittypet if they trespass onto the b1_t, that was all that mattered.",
                 "exp": 10,
 		"stat_trait": ["bloodthirsty", "bold", "cold", "daring", "fierce", "grumpy", "strict", "vengeful"],
                 "can_have_stat": ["p_l"],

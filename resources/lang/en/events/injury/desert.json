@@ -1247,7 +1247,7 @@
             "greenleaf"
         ],
         "weight": 20,
-        "event_text": "m_c and r_c were caught by a duststorm while off adventuring in the far reaches of the b1_t Territory for a dare. They both inhaled way too much sand for comfort.",
+        "event_text": "m_c and r_c were caught by a duststorm while off adventuring in the far reaches of the b1_t for a dare. They both inhaled way too much sand for comfort.",
         "m_c": {
             "status": [
                 "colt",

@@ -5,6 +5,8 @@ from scripts.cat.history import History
 from scripts.event_class import Single_Event
 from scripts.game_structure.game_essentials import game
 
+from scripts.utility import event_text_adjust
+
 
 # ---------------------------------------------------------------------------- #
 #                               New Cat Event Class                              #
@@ -23,7 +25,9 @@ class OutsiderEvents:
                     return
 
         # killing outside cats
-        if cat.outside:
+        if cat.outside and not (
+            cat.status == "baron" and cat.allegiance == cat.ID
+        ):
             if random.getrandbits(6) == 1 and not cat.dead:
                 death_history = "m_c died outside of the Clan."
                 if cat.exiled:
@@ -42,8 +46,33 @@ class OutsiderEvents:
                         f"familiar starry fur on the other side."
                     )
                     death_history = (
-                        "m_c died while being lost and trying to get back to the Clan."
+                        "m_c died while being lost and trying to get back to the Clan"
                     )
+
+                History.add_death(cat, death_text=death_history)
+                cat.die()
+                game.cur_events_list.append(
+                    Single_Event(text, "birth_death", cat_dict={"m_c": cat})
+                )
+        elif cat.status == "baron" and cat.allegiance == cat.ID:
+            if random.getrandbits(7) == 1 and not cat.dead:
+
+                text = (
+                    "A new cat shows up to the Conclave in baron2's place. " +
+                    "The Baron of the b2_t has passed away."
+                )
+                barony = None
+                for b in game.clan.all_clans:
+                    if b.baron == cat.ID:
+                        barony = b
+                        break
+                if not barony:
+                    print("No Barony found for", cat.name)
+                    return
+                text = event_text_adjust(Cat, text, other_barony=barony)
+                death_history = (
+                    "m_c passed away in their Barony, surrounded by loved ones."
+                )
 
                 History.add_death(cat, death_text=death_history)
                 cat.die()

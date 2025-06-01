@@ -481,7 +481,7 @@
   },
   {
     "interaction_type": "drive",
-    "event_text": "Some of baron1's best hunters challenge m_c to a hunt-off. The stakes are simple: if they win, m_c leaves the territory; if m_c wins, then {PRONOUN/m_c/subject} will be allowed to hunt within the b1_t Territory undisturbed. m_c wins by a landslide and, though they grumble about it, the b1_t cats honor the agreement and leave {PRONOUN/m_c/object} alone.",
+    "event_text": "Some of baron1's best hunters challenge m_c to a hunt-off. The stakes are simple: if they win, m_c leaves the territory; if m_c wins, then {PRONOUN/m_c/subject} will be allowed to hunt within the b1_t undisturbed. m_c wins by a landslide and, though they grumble about it, the b1_t cats honor the agreement and leave {PRONOUN/m_c/object} alone.",
     "reputation": ["any"],
     "rep_change": -1,
     "m_c": {

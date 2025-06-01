@@ -469,7 +469,7 @@ class PatrolOutcome:
         # body_tags = ("body", "no_body")
 
         cats_to_kill = gather_cat_objects(
-            Cat, self.dead_cats, patrol, stat_cat=self.stat_cat
+            Cat, self.dead_cats, patrol, stat_cat=self.stat_cat, other_barony=patrol.other_clan
         )
 
         if not cats_to_kill:
@@ -490,13 +490,14 @@ class PatrolOutcome:
             self.__handle_death_history(_cat, patrol)
             _cat.die(body)
         if catnames is not []:
-            results.append(
+            string = (
                 i18n.t(
                     "cat.history.regular_death",
                     cats=adjust_list_text(catnames),
                     count=len(catnames),
                 )
             )
+            results.append(event_text_adjust(Cat, string))
 
         return " ".join(results)
 
@@ -507,7 +508,7 @@ class PatrolOutcome:
             return ""
 
         cats_to_lose = gather_cat_objects(
-            Cat, self.lost_cats, patrol, stat_cat=self.stat_cat
+            Cat, self.lost_cats, patrol, stat_cat=self.stat_cat, other_barony=patrol.other_clan
         )
 
         if not cats_to_lose:
@@ -534,7 +535,7 @@ class PatrolOutcome:
         condition_lists = INJURY_GROUPS
 
         for block in self.injury:
-            cats = gather_cat_objects(Cat, block.get("cats", ()), patrol, self.stat_cat)
+            cats = gather_cat_objects(Cat, block.get("cats", ()), patrol, self.stat_cat, other_barony=patrol.other_clan)
             injury = block.get("injuries", ())
             scars = block.get("scars", ())
 
@@ -610,7 +611,13 @@ class PatrolOutcome:
                     for given_condition in given_conditions:
                         self.__handle_condition_history(_cat, given_condition, patrol)
                     combined_conditions = ", ".join(given_conditions)
-                    results.append(f"{_cat.name} got: {combined_conditions}.")
+
+                    if _cat.status == "baron" and not _cat.dead and _cat.allegiance == _cat.ID:
+                        colour = get_baron_colour(_cat.ID)
+                        cat_name = f"<font color='{colour}'>{_cat.name}</font>"
+                    else:
+                        cat_name = _cat.name
+                    results.append(f"{cat_name} got: {combined_conditions}.")
                 else:
                     # If no results are shown, assume the cat didn't get the patrol history. Default override.
                     self.__handle_condition_history(

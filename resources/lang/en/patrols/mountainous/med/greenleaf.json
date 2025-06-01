@@ -4128,7 +4128,7 @@
                 "herbs": ["many_herbs", "plantain", "mullein"]
             },
             {
-                "text": "Go to where other animals wander through the b1_t Territory on little beaten paths, wander around until you bump nose-first into a plantain plant, harvest. Simple. Oh, and there's some mullein to pick up on the way home.",
+                "text": "Go to where other animals wander through the b1_t on little beaten paths, wander around until you bump nose-first into a plantain plant, harvest. Simple. Oh, and there's some mullein to pick up on the way home.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["SENSE,2"],
@@ -4207,7 +4207,7 @@
                 ]
             },
             {
-                "text": "Go to where other animals wander through the b1_t Territory on little beaten paths, wander around until you bump nose-first into a plantain plant, harvest. Simple, p_l teaches app1. Oh, and there's some mullein to pick up on the way home.",
+                "text": "Go to where other animals wander through the b1_t on little beaten paths, wander around until you bump nose-first into a plantain plant, harvest. Simple, p_l teaches app1. Oh, and there's some mullein to pick up on the way home.",
                 "exp": 20,
                 "weight": 20,
                 "stat_skill": ["SENSE,2"],
@@ -4318,7 +4318,7 @@
                 ]
             },
             {
-                "text": "Go to where other animals wander through the b1_t Territory on little beaten paths, wander around until you bump nose-first into a plantain plant, harvest. Simple. Oh, and there's some mullein to pick up on the way home, <i>And</i> the clippers get to tidy their paths through the territory. It's a win-win!",
+                "text": "Go to where other animals wander through the b1_t on little beaten paths, wander around until you bump nose-first into a plantain plant, harvest. Simple. Oh, and there's some mullein to pick up on the way home, <i>And</i> the clippers get to tidy their paths through the territory. It's a win-win!",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["SENSE,2"],

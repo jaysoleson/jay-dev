@@ -193,7 +193,7 @@ class Screens:
         Screens.menu_buttons = scripts.screens.screens_core.screens_core.menu_buttons
         Screens.game_frame = scripts.screens.screens_core.screens_core.game_frame
         try:
-            Screens.update_heading_text(str(game.clan.territory_type).capitalize() + " Territory")
+            Screens.update_heading_text(game.clan.name + " Territory")
         except AttributeError:
             Screens.update_heading_text("Territory")
         if self.active_bg is None or "default" in self.active_bg:

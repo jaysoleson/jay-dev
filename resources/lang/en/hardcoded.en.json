@@ -17,11 +17,22 @@
         "condition_retire_adolescent_ceremony": " {PRONOUN\/m_c\/subject\/CAP} {VERB\/m_c\/are\/is} celebrated for {PRONOUN/m_c/poss} contributions to the Barony.",
         "condition_retire_no_baron": "m_c has decided to retire from normal duty.",
         "condition_retire_normal": "Seeing m_c struggling the last few moons, lead_name approaches {PRONOUN\/m_c\/object} and promises that no one would think less of {PRONOUN\/m_c\/object} for retiring early, and that {PRONOUN\/m_c\/subject} would still be a valuable member of the Barony. m_c agrees; later that day, {PRONOUN\/m_c\/subject} officially {VERB/m_c/retire/retires}.",
-        "ceremony_baron_bloodthirsty": "%{oldname} has become the new Baron of the b1_t Territory. {PRONOUN\/lead_name\/subject\/CAP} {VERB\/lead_name\/stare\/stares} down at {PRONOUN\/lead_name\/poss} cats with unsheathed claws, promising a new era for the Badlands.",
-        "ceremony_baron_1": "%{oldname} has been promoted to the new Baron of the b1_t Territory. {PRONOUN/m_c/subject/CAP} {VERB/m_c/address/addresses} {PRONOUN/m_c/poss} cats with a quick speech before retiring to {PRONOUN/m_c/poss} den to get to work.",
-        "ceremony_baron_2": "%{oldname} has become the new Baron of the b1_t Territory. {PRONOUN\/lead_name\/subject\/CAP} {VERB\/lead_name\/vow\/vows} to protect {PRONOUN/m_c/poss} cats, even at the cost of {PRONOUN\/lead_name\/poss} life.",
-        "ceremony_baron_3": "%{oldname} has become the new Baron of the b1_t Territory. {PRONOUN\/lead_name\/subject\/CAP} {VERB\/lead_name\/feel\/feels} like {PRONOUN\/lead_name\/subject} {VERB/m_c/are/is}n't ready for this new responsibility, but will try {PRONOUN\/lead_name\/poss} best to do what is right for the cats under {PRONOUN/m_c/poss} care.",
-        "ceremony_closer": "Visit lead_name's profile to see {PRONOUN\/lead_name\/poss} full Baron ceremony.",
+        "ceremony_baron_bloodthirsty": "%{oldname} has become the new Baron of the b1_t. {PRONOUN\/lead_name\/subject\/CAP} {VERB\/lead_name\/stare\/stares} down at {PRONOUN\/lead_name\/poss} cats with unsheathed claws, promising a new era for the Badlands.",
+        "ceremony_baron_1": "%{oldname} has been promoted to the new Baron of the b1_t. {PRONOUN/m_c/subject/CAP} {VERB/m_c/address/addresses} {PRONOUN/m_c/poss} cats with a quick speech before retiring to {PRONOUN/m_c/poss} den to get to work.",
+        "ceremony_baron_2": "%{oldname} has become the new Baron of the b1_t. {PRONOUN\/lead_name\/subject\/CAP} {VERB\/lead_name\/vow\/vows} to protect {PRONOUN/m_c/poss} cats, even at the cost of {PRONOUN\/lead_name\/poss} life.",
+        "ceremony_baron_3": "%{oldname} has become the new Baron of the b1_t. {PRONOUN\/lead_name\/subject\/CAP} {VERB\/lead_name\/feel\/feels} like {PRONOUN\/lead_name\/subject} {VERB/m_c/are/is}n't ready for this new responsibility, but will try {PRONOUN\/lead_name\/poss} best to do what is right for the cats under {PRONOUN/m_c/poss} care.",
+        
+        "new_baron_from_heir": "m_c has resumed the throne of the b1_t.",
+        "new_baron_from_heir_young": "There's not a single Baron in the Badlands that agrees making a cat so young the b1_t's Baron is a good idea. However, m_c was r_c's heir, and no cat would dare disrespect that decision. m_c steps up as the new Baron of the b1_t.",
+        "new_baron_from_heir_child": "Though somewhat occupied with {PRONOUN/m_c/poss} grief for r_c, m_c steps up to resume the throne of the b1_t.",
+        
+        "new_baron_from_mate": "Not only has m_c's mate just passed on, but r_c hasn't chosen an heir. Though buried deep in grief, m_c steps up as the b1_t's new Baron.",
+        "new_baron_from_mate_young": "Not only has m_c's mate just passed on, but r_c hadn't chosen an heir. Though buried deep in grief, m_c steps up as the b1_t's new Baron, dissuading the murmurs from the Clippers that {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} much too young for the responsibility.",
+        
+        "new_baron_from_regent": "Though {PRONOUN/m_c/subject} {VERB/m_c/don't/doesn't} feel fully qualified, the b1_t cannot be left without a Baron. m_c steps up from {PRONOUN/m_c/poss} role of Regent to resume the throne.",
+        "new_baron_from_regent_young": "m_c can hardly believe this is happening. To be made Regent so young, and now to be the only option left to step up as Baron? It's highly unusual, but {PRONOUN/m_c/subject} {VERB/m_c/have/has} no choice-- {PRONOUN/m_c/subject} {VERB/m_c/step/steps} up as the b1_t's new Baron.",
+        "new_baron_from_regent_child": "m_c will always miss serving as Regent under their parent. Now, with no proper heir to resume the throne, m_c hopes r_c would approve of {PRONOUN/m_c/object} stepping up.",
+        
         "ceremony_regent_bloodthirsty": "m_c has been chosen as the new Regent. {PRONOUN/m_c/subject/CAP} {VERB/m_c/look/looks} at {PRONOUN/m_c/poss} Clippers with an odd glint in {PRONOUN/m_c/poss} eyes.",
         "ceremony_regent": "lead_name chooses m_c as {PRONOUN/lead_name/poss} new Regent. %{previous}",
         "ceremony_regent_prev0": "{PRONOUN/lead_name/subject/CAP} {VERB/lead_name/know/knows} dep_name would approve.",

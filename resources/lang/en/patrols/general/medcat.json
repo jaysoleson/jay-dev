@@ -386,7 +386,7 @@
             "healer cats": [1, 6]
         },
         "weight": 5,
-        "intro_text": "As the doctors' patrol pads out into b1_t territory, r_c tells p_l about the dream {PRONOUN/r_c/subject} had last night, and what the vision could mean for the b1_t.",
+        "intro_text": "As the doctors' patrol pads out into b1_t, r_c tells p_l about the dream {PRONOUN/r_c/subject} had last night, and what the vision could mean for the b1_t.",
         "decline_text": "The cats don't talk about the vision, mouths too full of herbs.",
         "chance_of_success": 40,
         "success_outcomes": [
@@ -1171,7 +1171,7 @@
             "all apprentices": [-1, -1]
         },
         "weight": 5,
-        "intro_text": "As p_l pads through b1_t territory, {PRONOUN/p_l/subject} {VERB/p_l/feel/feels} a presence join {PRONOUN/p_l/object}.",
+        "intro_text": "As p_l pads through b1_t, {PRONOUN/p_l/subject} {VERB/p_l/feel/feels} a presence join {PRONOUN/p_l/object}.",
         "decline_text": "{PRONOUN/p_l/poss/CAP} companion stays with {PRONOUN/p_l/object} as silent support while {PRONOUN/p_l/subject} {VERB/p_l/work/works}.",
         "chance_of_success": 30,
         "success_outcomes": [
@@ -1285,7 +1285,7 @@
             "normal adult": [1, 6]
         },
         "weight": 5,
-        "intro_text": "As p_l pads through b1_t territory with {PRONOUN/p_l/poss} entourage, {PRONOUN/p_l/subject} {VERB/p_l/feel/feels} a presence join {PRONOUN/p_l/object}.",
+        "intro_text": "As p_l pads through b1_t with {PRONOUN/p_l/poss} entourage, {PRONOUN/p_l/subject} {VERB/p_l/feel/feels} a presence join {PRONOUN/p_l/object}.",
         "decline_text": "{PRONOUN/p_l/poss/CAP} companion stays with {PRONOUN/p_l/object} as silent support while {PRONOUN/p_l/subject} {VERB/p_l/continue/continues} on.",
         "chance_of_success": 30,
         "success_outcomes": [
@@ -1426,7 +1426,7 @@
             "apprentice doctor": [1, 6]
         },
         "weight": 5,
-        "intro_text": "As app1 pads through b1_t territory, {PRONOUN/app1/subject} {VERB/app1/feel/feels} a presence join {PRONOUN/app1/object}.",
+        "intro_text": "As app1 pads through b1_t, {PRONOUN/app1/subject} {VERB/app1/feel/feels} a presence join {PRONOUN/app1/object}.",
         "decline_text": "{PRONOUN/app1/poss/CAP} companion stays with {PRONOUN/app1/object} as silent support while {PRONOUN/p_l/subject} {VERB/p_l/work/works}. It's a little unnerving, but app1 thinks they mean well?",
         "chance_of_success": 30,
         "success_outcomes": [
@@ -1496,7 +1496,7 @@
             "normal adult": [-1, -1]
         },
         "weight": 5,
-        "intro_text": "As app1 pads through b1_t territory, {PRONOUN/app1/subject} {VERB/app1/feel/feels} a presence join {PRONOUN/app1/object}.",
+        "intro_text": "As app1 pads through b1_t, {PRONOUN/app1/subject} {VERB/app1/feel/feels} a presence join {PRONOUN/app1/object}.",
         "decline_text": "{PRONOUN/app1/poss/CAP} companion stays with {PRONOUN/app1/object} as silent support while {PRONOUN/app1/subject} {VERB/app1/work/works}.",
         "chance_of_success": 30,
         "success_outcomes": [

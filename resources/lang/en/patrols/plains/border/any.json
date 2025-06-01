@@ -301,7 +301,7 @@
                 "weight": 5
             },
             {
-                "text": "The pawprints lead to a trespassing rogue. s_c throws {PRONOUN/s_c/self} at the rogue, hissing furiously, and drives them off b1_t territory.",
+                "text": "The pawprints lead to a trespassing rogue. s_c throws {PRONOUN/s_c/self} at the rogue, hissing furiously, and drives them off b1_t.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,1"]
@@ -400,7 +400,7 @@
                 "weight": 5
             },
             {
-                "text": "The pawprints lead to a trespassing rogue. s_c sets up a trap by using grass to cover an abandoned rabbit burrow. The startled intruder yowls as they first fall, then flee c_n territory.",
+                "text": "The pawprints lead to a trespassing rogue. s_c sets up a trap by using grass to cover an abandoned rabbit burrow. The startled intruder yowls as they first fall, then flee b1_t.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["CLEVER,1"]
@@ -605,7 +605,7 @@
                 ]
             },
             {
-                "text": "The pawprints lead to a trespassing rogue. With a furious hiss, s_c throws {PRONOUN/s_c/self} at the rogue and, together with r_c, drives them off b1_t territory.",
+                "text": "The pawprints lead to a trespassing rogue. With a furious hiss, s_c throws {PRONOUN/s_c/self} at the rogue and, together with r_c, drives them off b1_t.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,1"],
@@ -756,7 +756,7 @@
                 ]
             },
             {
-                "text": "The pawprints lead to a trespassing rogue. s_c sets up a trap by using grass to cover an abandoned rabbit burrow. The startled intruder yowls as they first fall, then flee c_n territory.",
+                "text": "The pawprints lead to a trespassing rogue. s_c sets up a trap by using grass to cover an abandoned rabbit burrow. The startled intruder yowls as they first fall, then flee b1_t.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["CLEVER,1"],
@@ -982,7 +982,7 @@
                 ]
             },
             {
-                "text": "The pawprints lead to a trespassing rogue. With a furious hiss, s_c throws {PRONOUN/s_c/self} at the rogue and, together with r_c, drives them off b1_t territory.",
+                "text": "The pawprints lead to a trespassing rogue. With a furious hiss, s_c throws {PRONOUN/s_c/self} at the rogue and, together with r_c, drives them off b1_t.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,1"],
@@ -1105,7 +1105,7 @@
                 ]
             },
             {
-                "text": "The pawprints lead to a trespassing rogue. s_c sets up a trap by using grass to cover an abandoned rabbit burrow. The startled intruder yowls as they first fall, then flee c_n territory.",
+                "text": "The pawprints lead to a trespassing rogue. s_c sets up a trap by using grass to cover an abandoned rabbit burrow. The startled intruder yowls as they first fall, then flee b1_t.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["CLEVER,1"],

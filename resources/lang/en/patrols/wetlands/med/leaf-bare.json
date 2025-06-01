@@ -37,7 +37,7 @@
             ]
         },
         "weight": 20,
-        "intro_text": "p_l and app1 head out for lungwort, and p_l starts a lesson on the value of this rare herb for treating yellowcough. It dies back during leaf-bare, but the snow in the b1_t Territory will preserve its juice and freshness until the newleaf thaw.",
+        "intro_text": "p_l and app1 head out for lungwort, and p_l starts a lesson on the value of this rare herb for treating yellowcough. It dies back during leaf-bare, but the snow in the b1_t will preserve its juice and freshness until the newleaf thaw.",
         "decline_text": "A cat grabs p_l's attention before {PRONOUN/p_l/subject} can leave. Sighing, the expedition is delayed for another time.",
         "chance_of_success": 30,
         "success_outcomes": [
@@ -261,7 +261,7 @@
             ]
         },
         "weight": 20,
-        "intro_text": "p_l is on a mission to find lungwort now that leaf-bare is upon the Clan. As the only reliable cure for yellowcough, {PRONOUN/p_l/subject}{VERB/p_l/'re/'s} determined that the b1_t stock up on it. It dies back during leaf-bare, but the snow in the b1_t Territory will preserve its juice and freshness until the newleaf thaw.",
+        "intro_text": "p_l is on a mission to find lungwort now that leaf-bare is upon the Clan. As the only reliable cure for yellowcough, {PRONOUN/p_l/subject}{VERB/p_l/'re/'s} determined that the b1_t stock up on it. It dies back during leaf-bare, but the snow in the b1_t will preserve its juice and freshness until the newleaf thaw.",
         "decline_text": "A cat grabs p_l's attention before {PRONOUN/p_l/subject} can leave camp.",
         "chance_of_success": 30,
         "success_outcomes": [

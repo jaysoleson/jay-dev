@@ -998,7 +998,7 @@
             "normal adult": [-1, -1]
         },
         "weight": 20,
-        "intro_text": "{PRONOUN/p_l/subject/CAP}'d better take the opportunity to harvest while {PRONOUN/p_l/subject} can, p_l doesn't have much time left before many herbs will leave the b1_t Territory with the cold of leaf-bare.",
+        "intro_text": "{PRONOUN/p_l/subject/CAP}'d better take the opportunity to harvest while {PRONOUN/p_l/subject} can, p_l doesn't have much time left before many herbs will leave the b1_t with the cold of leaf-bare.",
         "decline_text": "{PRONOUN/p_l/subject/CAP} {VERB/p_l/have/has} second thoughts about leaving {PRONOUN/p_l/poss} patients behind and {VERB/p_l/decide/decides} to go another day.",
         "chance_of_success": 40,
         "success_outcomes": [
@@ -1015,7 +1015,7 @@
                 "herbs": ["catmint"]
             },
             {
-                "text": "s_c makes a circuit visiting all the known catmint plants in the b1_t Territory. While some are already wilting from frost, there's more than enough to harvest and bring back to the herb stores.",
+                "text": "s_c makes a circuit visiting all the known catmint plants in the b1_t. While some are already wilting from frost, there's more than enough to harvest and bring back to the herb stores.",
                 "exp": 30,
                 "weight": 20,
                 "stat_skill": ["SENSE,2"],
@@ -1096,7 +1096,7 @@
                 ]
             },
             {
-                "text": "s_c makes a circuit visiting all the known catmint plants in the b1_t Territory. While some are already wilting from frost, there's more than enough to harvest and bring back to the herb stores, and showing app1 all the plants will prepare {PRONOUN/s_c/object} for trying to re-find catmint in newleaf.",
+                "text": "s_c makes a circuit visiting all the known catmint plants in the b1_t. While some are already wilting from frost, there's more than enough to harvest and bring back to the herb stores, and showing app1 all the plants will prepare {PRONOUN/s_c/object} for trying to re-find catmint in newleaf.",
                 "exp": 30,
                 "weight": 20,
                 "stat_skill": ["SENSE,2"],
@@ -1208,7 +1208,7 @@
                 ]
             },
             {
-                "text": "s_c makes a circuit visiting all the known catmint plants in the b1_t Territory. While some are already wilting from frost, there's more than enough to harvest and bring back to the herb stores. {PRONOUN/s_c/poss/CAP} helpers get to keep the wilted stuff for {PRONOUN/s_c/poss} nests, which, unsurprisingly, thrills {PRONOUN/s_c/poss} Clanmates.",
+                "text": "s_c makes a circuit visiting all the known catmint plants in the b1_t. While some are already wilting from frost, there's more than enough to harvest and bring back to the herb stores. {PRONOUN/s_c/poss/CAP} helpers get to keep the wilted stuff for {PRONOUN/s_c/poss} nests, which, unsurprisingly, thrills {PRONOUN/s_c/poss} Clanmates.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["SENSE,2"],
@@ -4830,7 +4830,7 @@
                 "herbs": ["many_herbs", "plantain"]
             },
             {
-                "text": "Go to where other animals wander through the b1_t Territory on little, beaten paths; wander around until you bump, nose-first, into a plantain plant; harvest. Simple.",
+                "text": "Go to where other animals wander through the b1_t on little, beaten paths; wander around until you bump, nose-first, into a plantain plant; harvest. Simple.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["SENSE,2"],
@@ -4889,7 +4889,7 @@
                 ]
             },
             {
-                "text": "Go to where other animals wander through the b1_t Territory on little, beaten paths; wander around until you bump, nose-first, into a plantain plant; harvest. Simple, p_l teaches app1.",
+                "text": "Go to where other animals wander through the b1_t on little, beaten paths; wander around until you bump, nose-first, into a plantain plant; harvest. Simple, p_l teaches app1.",
                 "exp": 20,
                 "weight": 5,
                 "herbs": ["many_herbs", "plantain"],
@@ -4911,7 +4911,7 @@
                 ]
             },
             {
-                "text": "Go to where other animals wander through the b1_t Territory on little, beaten paths; wander around until you bump, nose-first, into a plantain plant; harvest. Simple, p_l teaches app1.",
+                "text": "Go to where other animals wander through the b1_t on little, beaten paths; wander around until you bump, nose-first, into a plantain plant; harvest. Simple, p_l teaches app1.",
                 "exp": 20,
                 "weight": 20,
                 "stat_skill": ["SENSE,2"],
@@ -5022,7 +5022,7 @@
                 ]
             },
             {
-                "text": "Go to where other animals wander through the b1_t Territory on little, beaten paths; wander around until you bump, nose-first, into a plantain plant; harvest. Simple. <i>And</i> the clippers get to tidy their paths through the territory. It's a win-win!",
+                "text": "Go to where other animals wander through the b1_t on little, beaten paths; wander around until you bump, nose-first, into a plantain plant; harvest. Simple. <i>And</i> the clippers get to tidy their paths through the territory. It's a win-win!",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["SENSE,2"],

@@ -669,7 +669,7 @@
                 "weight": 5
             },
             {
-                "text": "There's nothing to worry about! s_c pads confidently through c_n territory, assured of {PRONOUN/s_c/poss} safety by the strength of c_n borders.",
+                "text": "There's nothing to worry about! s_c pads confidently through b1_t, assured of {PRONOUN/s_c/poss} safety by the strength of c_n borders.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": [
@@ -747,7 +747,7 @@
                 "stat_skill": ["CLEVER,1"]
             },
             {
-                "text": "s_c pads confidently through c_n territory. There's a particular peace in exploring {PRONOUN/s_c/poss} beloved home, {PRONOUN/s_c/poss} ears pricked up curiously whenever {PRONOUN/s_c/subject} {VERB/s_c/spot/spots} how the seasons and weather have reshaped it since {PRONOUN/s_c/subject} last passed this way.",
+                "text": "s_c pads confidently through b1_t. There's a particular peace in exploring {PRONOUN/s_c/poss} beloved home, {PRONOUN/s_c/poss} ears pricked up curiously whenever {PRONOUN/s_c/subject} {VERB/s_c/spot/spots} how the seasons and weather have reshaped it since {PRONOUN/s_c/subject} last passed this way.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": [
@@ -810,7 +810,7 @@
                 "stat_skill": ["CLEVER,1"]
             },
             {
-                "text": "s_c pads confidently through c_n territory. There's a particular peace in exploring {PRONOUN/s_c/poss} beloved home, {PRONOUN/s_c/poss} ears pricked up curiously whenever {PRONOUN/s_c/subject} {VERB/s_c/spot/spots} how the seasons and weather have reshaped it since {PRONOUN/s_c/subject} last passed this way.",
+                "text": "s_c pads confidently through b1_t. There's a particular peace in exploring {PRONOUN/s_c/poss} beloved home, {PRONOUN/s_c/poss} ears pricked up curiously whenever {PRONOUN/s_c/subject} {VERB/s_c/spot/spots} how the seasons and weather have reshaped it since {PRONOUN/s_c/subject} last passed this way.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": [
@@ -873,7 +873,7 @@
                 "stat_skill": ["CLEVER,1"]
             },
             {
-                "text": "s_c pads confidently through c_n territory. There's a particular peace in exploring {PRONOUN/s_c/poss} beloved home, {PRONOUN/s_c/poss} ears pricked up curiously whenever {PRONOUN/s_c/subject} {VERB/s_c/spot/spots} how the seasons and weather have reshaped it since {PRONOUN/s_c/subject} last passed this way.",
+                "text": "s_c pads confidently through b1_t. There's a particular peace in exploring {PRONOUN/s_c/poss} beloved home, {PRONOUN/s_c/poss} ears pricked up curiously whenever {PRONOUN/s_c/subject} {VERB/s_c/spot/spots} how the seasons and weather have reshaped it since {PRONOUN/s_c/subject} last passed this way.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": [
@@ -1350,7 +1350,7 @@
             "all apprentices": [2, 2]
         },
         "weight": 20,
-        "intro_text": "It's storming in the b1_t Territory today, and app1 waits for app2 up on one of the cliffs.",
+        "intro_text": "It's storming in the b1_t today, and app1 waits for app2 up on one of the cliffs.",
         "decline_text": "The apprentices are called back to camp to deal with an elder's wet bedding.",
         "chance_of_success": 60,
         "success_outcomes": [
@@ -1439,7 +1439,7 @@
             "all apprentices": [2, 2]
         },
         "weight": 20,
-        "intro_text": "It's storming in the b1_t Territory today, and app1 waits for app2 up on one of the cliffs.",
+        "intro_text": "It's storming in the b1_t today, and app1 waits for app2 up on one of the cliffs.",
         "decline_text": "The apprentices are called back to camp to deal with an elder's wet bedding.",
         "chance_of_success": 60,
         "success_outcomes": [
@@ -2234,7 +2234,7 @@
         "decline_text": "Taking a break turns into ending the patrol early.",
         "success_outcomes": [
                 {
-                    "text": "The great legend Maowi was once a young apprentice, p_l starts the story, who went out fishing with his older, already grown siblings. They had no faith in him, but speaking a great karakia to give StarClan's blessing to his claws, he won a stingray from the ocean that stretched from horizon to horizon and became the b1_t Territory.",
+                    "text": "The great legend Maowi was once a young apprentice, p_l starts the story, who went out fishing with his older, already grown siblings. They had no faith in him, but speaking a great karakia to give StarClan's blessing to his claws, he won a stingray from the ocean that stretched from horizon to horizon and became the b1_t.",
                     "exp": 30,
                     "weight": 20,
                     "art": "gen_bord_story",

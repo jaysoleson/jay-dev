@@ -2803,7 +2803,7 @@
     "chance_of_success": 50,
     "success_outcomes": [
         {
-            "text": "The world takes on an almost shadowy hue, brought to life by the night ambience; the once-familiar now made novel and thrilling under the cloak of darkness. The colts tear around the b1_t territory, fishing prey from unexpected places, shivering with pride at their own daring - and not noticing the camp guard silently shadowing them, keeping them safe.",
+            "text": "The world takes on an almost shadowy hue, brought to life by the night ambience; the once-familiar now made novel and thrilling under the cloak of darkness. The colts tear around the b1_t, fishing prey from unexpected places, shivering with pride at their own daring - and not noticing the camp guard silently shadowing them, keeping them safe.",
             "exp": 20,
             "weight": 10,
             "relationships": [
@@ -3245,14 +3245,14 @@
     "chance_of_success": 50,
     "success_outcomes": [
         {
-            "text": "The patrol confronts the strange cat - they are obviously an intruder on the b1_t territory, and they don't look like the friendly type. The dark silhouette seems to flicker in and out of view as the patrol runs toward it, gradually reappearing further and further away. The patrol stops, watching the stranger in the distance. Glowing, haunted eyes gaze back from the shadows. The patrol returns home, mesmerized by the strangeness of what they just witnessed.",
+            "text": "The patrol confronts the strange cat - they are obviously an intruder on the b1_t, and they don't look like the friendly type. The dark silhouette seems to flicker in and out of view as the patrol runs toward it, gradually reappearing further and further away. The patrol stops, watching the stranger in the distance. Glowing, haunted eyes gaze back from the shadows. The patrol returns home, mesmerized by the strangeness of what they just witnessed.",
             "exp": 10,
             "weight": 20
         }
     ],
     "fail_outcomes": [
         {
-            "text": "The patrol confronts the strange cat - they are obviously an intruder on the b1_t territory, and they don't look like the friendly type. The strange cat shrieks, an awful, blood-curdling scream that makes r_c's fur stand on end. Overcome by terror, the patrol flees back to camp.",
+            "text": "The patrol confronts the strange cat - they are obviously an intruder on the b1_t, and they don't look like the friendly type. The strange cat shrieks, an awful, blood-curdling scream that makes r_c's fur stand on end. Overcome by terror, the patrol flees back to camp.",
             "exp": 0,
             "weight": 10,
             "injury": [

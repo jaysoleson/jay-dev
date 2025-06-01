@@ -28,7 +28,8 @@ from scripts.utility import (
     get_alive_status_cats,
     get_living_clan_cat_count,
     ui_scale_dimensions,
-    get_baron_colour
+    get_baron_colour,
+    generate_map
 )
 
 class MapScreen(Screens):
@@ -182,9 +183,9 @@ class MapScreen(Screens):
 
         
         self.view_all_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((0, 80), (130, 35))),
+            ui_scale(pygame.Rect((0, 80), (150, 35))),
             "View all Borders",
-            get_button_dict(ButtonStyles.SQUOVAL, (130, 35)),
+            get_button_dict(ButtonStyles.SQUOVAL, (150, 35)),
             object_id="@buttonstyles_squoval",
             manager=MANAGER,
             container=self.baronies_container,
@@ -326,14 +327,18 @@ class MapScreen(Screens):
             container = self.focus_barony_info_container
         )
 
+        focus_baron_name = (
+            f"<font color='{get_baron_colour(Cat.fetch_cat(self.focus_barony.baron).ID)}'>" +
+            str(Cat.fetch_cat(self.focus_barony.baron).name) +
+            "</font></b>"
+            )
+
         self.info_elements["name"] = pygame_gui.elements.UITextBox(
             relative_rect=ui_scale(pygame.Rect((0, 8), (260, 40))),
             html_text=(
                 "<b>" + 
-                f"<font color='{get_baron_colour(Cat.fetch_cat(self.focus_barony.baron).ID)}'>" +
-                str(Cat.fetch_cat(self.focus_barony.baron).name) +
-                "</font></b> | <i>" +
-                self.focus_barony.territory_type.capitalize() +
+                f"{focus_baron_name} | <i>" +
+                self.focus_barony.name + " Territory" +
                 "</i>"
                 ),
             object_id=get_text_box_theme("#text_box_34_horizcenter"),
@@ -355,12 +360,18 @@ class MapScreen(Screens):
         else:
             clipper_num = self.focus_barony.clippers
 
+        exports_list = game.badlands_info["exports"][game.clan.biome.lower()][self.focus_barony.export]
+        export_string = (
+            f"{focus_baron_name} specialises in exporting <b>{self.focus_barony.export}</b>. " +
+            "This includes: " + ", ".join(exports_list)
+            )
+
         self.info_elements["desc"] = pygame_gui.elements.UITextBox(
             relative_rect=ui_scale(pygame.Rect((0, 60), (260, 270))),
             html_text=(
                 "<b>Territory</b>: " + str(len(self.focus_barony.territory)) + "<br>" +
-                "<b>Clippers</b>: " + str(clipper_num) + "<br>" +
-                "<b>Export</b>: " + self.focus_barony.export
+                "<b>Clippers</b>: " + str(clipper_num) + "<br><br>" +
+                export_string
                 ),
             object_id=get_text_box_theme("#text_box_26_horizleft"),
             container=self.focus_barony_info_container,
@@ -454,6 +465,7 @@ class MapScreen(Screens):
             position = (80, 80)
         
         scaled_image.set_alpha(220) #255 is full opaque
+
         screen.blit(scaled_image, position)
 
         if not self.view_all_borders:
@@ -464,57 +476,12 @@ class MapScreen(Screens):
         if self.borders_hidden is False:
             for y in range(1, 8):
                 for x in range(1, 8):
-                    tile_colour = "#FAFAFA"
-                    tile_string = str(y) + "-" + str(x)
-
-                    NORTH_TILE_STRING = str(y - 1) + "-" + str(x)
-                    EAST_TILE_STRING = str(y) + "-" + str(x + 1)
-                    SOUTH_TILE_STRING = str(y + 1) + "-" + str(x)
-                    WEST_TILE_STRING = str(y) + "-" + str(x - 1)
-
                     for clan in all_clans_list:
-                        if tile_string in clan.territory:
-                            # grab the border colour
-                            if clan == game.clan:
-                                tile_colour = get_baron_colour(game.clan.baron.ID)
-                            else:
-                                tile_colour = get_baron_colour(Cat.fetch_cat(clan.baron).ID)
-
-                            # convert the colour to RGB and generate a rect
-                            # i stole the rgb function i didnt write that shoutout da internet
-                            rgb_tile_colour = self.hex_to_rgb(tile_colour)
-                            rect = ui_scale(pygame.Rect((x_pos+1, y_pos+1), (50, 50)))
-
-                            # now, check if the neighbouring territory in each direction belongs to them
-                            # if it doesnt, draw the border line
-                            if NORTH_TILE_STRING not in clan.territory:
-                                point1 = rect.topleft
-                                point2 = rect.topright
-                                pygame.draw.line(screen, rgb_tile_colour, point1, point2, 2)
-                            if EAST_TILE_STRING not in clan.territory:
-                                point1 = rect.topright
-                                point2 = rect.bottomright
-                                pygame.draw.line(screen, rgb_tile_colour, point1, point2, 2)
-                            if SOUTH_TILE_STRING not in clan.territory:
-                                point1 = rect.bottomleft
-                                point2 = rect.bottomright
-                                pygame.draw.line(screen, rgb_tile_colour, point1, point2, 2)
-                            if WEST_TILE_STRING not in clan.territory:
-                                point1 = rect.topleft
-                                point2 = rect.bottomleft
-                                pygame.draw.line(screen, rgb_tile_colour, point1, point2, 2)
+                        generate_map(Cat, screen, x, y, x_pos, y_pos, clan.territory, clan)
                     x_pos += 50
                 y_pos += 50
                 if game.settings["fullscreen"]:
                     x_pos = 295
                 else:
                     x_pos = 80
-
-    def hex_to_rgb(self, hex_color):
-        """
-        Converts hex codes to RGB
-        i didnt write this this is completely stolen idk how this works lol
-        """
-        hex_color = hex_color.lstrip('#')
-        return tuple(int(hex_color[i:i+2], 16) for i in (0, 2, 4))
 

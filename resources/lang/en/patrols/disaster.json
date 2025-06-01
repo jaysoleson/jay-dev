@@ -520,7 +520,7 @@
         "chance_of_success": 30,
         "success_outcomes": [
             {
-                "text": "It's just an odd nomad singing to {PRONOUN/n_c:0/self}. r_c greets {PRONOUN/n_c:0/object}, and as the nomad isn't inside b1_t territory, it's a polite interaction without any hostility.",
+                "text": "It's just an odd nomad singing to {PRONOUN/n_c:0/self}. r_c greets {PRONOUN/n_c:0/object}, and as the nomad isn't inside b1_t, it's a polite interaction without any hostility.",
                 "exp": 30,
                 "weight": 20,
                 "new_cat": [
@@ -1467,7 +1467,7 @@
         "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "It's just an odd nomad singing to {PRONOUN/n_c:0/self}. The patrol greets {PRONOUN/n_c:0/object}, and as the nomad isn't inside b1_t territory, it's a polite interaction without any hostility.",
+                "text": "It's just an odd nomad singing to {PRONOUN/n_c:0/self}. The patrol greets {PRONOUN/n_c:0/object}, and as the nomad isn't inside b1_t, it's a polite interaction without any hostility.",
                 "exp": 30,
                 "weight": 20,
                 "new_cat": [
@@ -1526,7 +1526,7 @@
         "chance_of_success": 10,
         "success_outcomes": [
             {
-                "text": "It's just an odd nomad singing to {PRONOUN/n_c:0/self}. r_c greets {PRONOUN/n_c:0/object}, and as the nomad isn't inside b1_t territory, it's a polite interaction without any hostility.",
+                "text": "It's just an odd nomad singing to {PRONOUN/n_c:0/self}. r_c greets {PRONOUN/n_c:0/object}, and as the nomad isn't inside b1_t, it's a polite interaction without any hostility.",
                 "exp": 30,
                 "weight": 20,
                 "new_cat": [

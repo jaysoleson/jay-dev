@@ -46,6 +46,8 @@ from scripts.utility import (
     get_other_clan,
     history_text_adjust,
     unpack_rel_block,
+    get_baron_colour,
+    create_new_cat
 )
 from scripts.game_structure.localization import load_lang_resource
 
@@ -307,9 +309,9 @@ class Events:
 
         # Promote baron and regent, if needed.
         self.check_and_promote_baron()
-        self.check_and_promote_regent()
         
         self.check_outside_barons()
+        self.check_and_promote_regent()
 
         # Resort
         if game.sort_type != "id":
@@ -334,47 +336,57 @@ class Events:
         """
         baron_clan = None
         for baron in [
-            i for i in Cat.all_cats_list if i.status == "baron" and i.allegiance == i.ID and i.dead
+            i for i in Cat.all_cats_list if (
+                i.status == "baron" and
+                i.allegiance == i.ID and
+                i.dead and
+                i != game.clan.baron
+                )
         ]:
-            print("BARON DYING:", baron.name)
+            print("OUTSIDE BARON DYING:", baron.name)
             old_baron = baron
             if baron.ID != game.clan.baron.ID:
-                new_baron = create_cat(status="baron", allegiance=None, moons=random.randint(12,60))
+                print("creating new baron for", baron.name)
+                print(game.clan.baron.name)
+                if old_baron.moons - 14 >= 10:
+                    moons = random.randint(10, old_baron.moons - 14)
+                    parent = old_baron.ID
+                else:
+                    moons = random.randint(10, 30)
+                    parent = None
+
+                new_baron = create_new_cat(
+                    Cat,
+                    status="baron",
+                    age=moons,
+                    parent1=parent
+                )[0]
                 new_baron.allegiance = new_baron.ID
+                new_baron.thought = "Is preparing for a whole new world of responsibilities"
                 for clan in game.clan.all_clans:
                     if clan.baron == old_baron.ID:
                         baron_clan = clan
                         clan.baron = new_baron.ID
                         break
-                
-            else:
-                if game.clan.heir.moons > 8:
-                    new_baron = game.clan.heir
-                elif game.clan.regent:
-                    new_baron = game.clan.regent
-                else:
-                    clippers = [cat for cat in Cat.all_cats_list if not cat.outside and cat.status == "clipper"]
-                    if clippers:
-                        new_baron = random.choice(clippers)
-                    else:
-                        print("No possible new Barons")
-                        return
-                baron_clan = game.clan
-                game.clan.baron = new_baron
-                new_baron.status_change("baron")
 
-            for cat in Cat.all_cats_list:
-                if cat.allegiance == old_baron.ID:
-                    cat.allegiance = new_baron.ID
-                
-            # transfer baron accessory
-            if baron_clan:
-                if baron_clan.colour.upper() + "BOW" in old_baron.pelt.accessory:
-                    old_baron.pelt.accessory.remove(baron_clan.colour.upper() + "BOW")
-                    new_baron.pelt.accessory.append(baron_clan.colour.upper() + "BOW")
-                print("Baron", old_baron.name, "has died:", new_baron.name, "has succeeded them as Baron of the", baron_clan.territory_type.capitalize())
-            else:
-                print("No baron_clan?")
+                for cat in Cat.all_cats_list:
+                    if cat.allegiance == old_baron.ID:
+                        cat.allegiance = new_baron.ID
+                    
+                # transfer baron accessory
+                if baron_clan:
+                    if baron_clan.colour.upper() + "BOW" in old_baron.pelt.accessory:
+                        # old_baron.pelt.accessory.remove(baron_clan.colour.upper() + "BOW")
+                        new_baron.pelt.accessory.append(baron_clan.colour.upper() + "BOW")
+
+                    font_colour = get_baron_colour(new_baron.ID)
+                    text = "Baron <font color='" + font_colour + "'>m_c</font> of the b2_t has died. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} succeeded by {PRONOUN/m_c/poss} heir, baron2."
+
+                    text = event_text_adjust(Cat, text, main_cat=old_baron, other_barony=baron_clan)
+
+                    game.cur_events_list.append(
+                        Single_Event(text, "birth_death", [old_baron.ID, new_baron.ID])
+                    )
 
     def handle_lead_den_event(self):
         """
@@ -1273,40 +1285,84 @@ class Events:
             # If baron is None, treat them as dead (since they are dead - and faded away.)
             baron_outside = True
 
-        # If a Clan regent exists, and the baron is dead,
-        #  outside, or doesn't exist, make the regent baron.
-        if game.clan.regent:
+        if baron_dead or baron_outside:
+            new_baron = None
+            prev_role = None
             if (
-                game.clan.regent is not None
-                and not game.clan.regent.dead
-                and not game.clan.regent.outside
-                and (baron_dead or baron_outside)
-            ):
-                game.clan.new_baron(game.clan.regent)
-                text = ""
-                if game.clan.regent.personality.trait == "bloodthirsty":
-                    text = i18n.t("hardcoded.ceremony_baron_bloodthirsty")
-                    text = event_text_adjust(Cat, text, barony=game.clan)
-                else:
-                    c = random.randint(1, 3)
-                    text = i18n.t(
-                        f"hardcoded.ceremony_baron_{c}",
-                        oldname=game.clan.regent.name,
-                        newname=cat.name,
-                    )
-                    text = event_text_adjust(Cat, text, barony=game.clan)
-
-                # game.ceremony_events_list.append(text)
-                text += " " + i18n.t("hardcoded.ceremony_closer")
-
-                text = event_text_adjust(Cat, text, main_cat=cat)
-
+                game.clan.heir and
+                game.clan.heir.moons >= 10 and
+                not game.clan.heir.outside and
+                not game.clan.heir.dead
+                ):
+                new_baron = game.clan.heir
+                prev_role = "heir"
+            elif game.clan.baron.mate:
+                for mate in game.clan.baron.mate:
+                    if not Cat.fetch_cat(mate).dead and not Cat.fetch_cat(mate).outside:
+                        new_baron = Cat.fetch_cat(mate)
+                        prev_role = "mate"
+                        break
+            elif game.clan.regent:
+                new_baron = game.clan.regent
+                prev_role = "regent"
+            else:
+                event = "No cats in the b1_t are fit to be Baron."
                 game.cur_events_list.append(
-                    Single_Event(text, "ceremony", game.clan.regent.ID)
-                )
-                self.ceremony_accessory = True
-                self.gain_accessories(cat)
-                game.clan.regent = None
+                        Single_Event(event_text_adjust(Cat, event), "ceremony")
+                    )
+                return
+            if new_baron:
+                if (
+                    new_baron is not None
+                    and not new_baron.dead
+                    and not new_baron.outside
+                ):
+
+                    for cat in Cat.all_cats_list:
+                        if cat.allegiance == game.clan.baron.ID:
+                            cat.allegiance = new_baron.ID
+
+                    if game.clan.colour.upper() + "BOW" in game.clan.baron.pelt.accessory:
+                        # old_baron.pelt.accessory.remove(baron_clan.colour.upper() + "BOW")
+                        new_baron.pelt.accessory.append(game.clan.colour.upper() + "BOW")
+
+                    old_baron = game.clan.baron
+                    game.clan.new_baron(new_baron)
+                    if prev_role:
+                        add = [""]
+                        if prev_role == "heir":
+                            if new_baron in old_baron.inheritance.get_blood_kits():
+                                add.append("_child")
+                        if new_baron.moons < 15:
+                            add.remove("")
+                            add.append("_young")
+                        
+                        print("Options:", add)
+                        text = i18n.t(f"hardcoded.new_baron_from_{prev_role}{random.choice(add)}")
+                    else:
+                        if new_baron.personality.trait == "bloodthirsty":
+                            text = i18n.t("hardcoded.ceremony_baron_bloodthirsty")
+                            text = event_text_adjust(Cat, text, main_cat=new_baron, random_cat=old_baron, barony=game.clan)
+                        else:
+                            c = random.randint(1, 3)
+                            text = i18n.t(
+                                f"hardcoded.ceremony_baron_{c}",
+                                oldname=new_baron.name,
+                                newname=cat.name,
+                            )
+                            text = event_text_adjust(Cat, text, main_cat=new_baron, random_cat=old_baron, barony=game.clan)
+
+                    text = event_text_adjust(Cat, text, main_cat=new_baron, random_cat=old_baron, barony=game.clan)
+
+                    game.cur_events_list.append(
+                        Single_Event(text, "ceremony", new_baron.ID)
+                    )
+                    self.ceremony_accessory = True
+                    self.gain_accessories(cat)
+                    if new_baron == game.clan.heir:
+                        game.clan.heir = None
+                    elif new_baron == game.clan.regent:
+                        game.clan.regent = None
 
         # OTHER CEREMONIES ---------------------------------------
 

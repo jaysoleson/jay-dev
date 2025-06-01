@@ -767,12 +767,12 @@
   "max_cats": 1,
   "min_max_status": {},
   "weight": 20,
-  "intro_text": "p_l sniffs the border carefully. It could be dog scent, but more likely, without any Twoleg intrusions, this scent is wolf instead. That wouldn't be good news for c_n.",
+  "intro_text": "p_l sniffs the border carefully. It could be dog scent, but more likely, without any Twoleg intrusions, this scent is wolf instead. That wouldn't be good news for the b1_t.",
   "decline_text": "{PRONOUN/p_l/subject/CAP} {VERB/p_l/don't/doesn't} puzzle out the scent, but p_l isn't willing to risk any danger trying to isolate it further.",
   "chance_of_success": 20,
   "success_outcomes": [
     {
-      "text": "c_n's borders are long and vertical, covering steep rocky slopes. An intrusion of wolves would be disastrous, it'd be so easy for them to hide, and the beasts eat cat meat like a delicacy. p_l immediately ends {PRONOUN/p_l/poss} border patrol to bring this news to camp.",
+      "text": "baron1's borders are long and vertical, covering steep rocky slopes. An intrusion of wolves would be disastrous, it'd be so easy for them to hide, and the beasts eat cat meat like a delicacy. p_l immediately ends {PRONOUN/p_l/poss} border patrol to bring this news to camp.",
       "exp": 40,
       "weight": 20,
       "relationships": [
@@ -815,7 +815,7 @@
       ]
     },
     {
-      "text": "All dog-beasts, wolves included, are driven by their noses. p_l locates a safe lookout above, pads back to the border, and leaves a stinky, unburied present. They wait. Their enemy gamboles along the trail, snapping up the cat scat into its jaws, apparently pleased. It's a worthwhile trade, to have won knowledge of what c_n faces.",
+      "text": "All dog-beasts, wolves included, are driven by their noses. p_l locates a safe lookout above, pads back to the border, and leaves a stinky, unburied present. They wait. Their enemy gamboles along the trail, snapping up the cat scat into its jaws, apparently pleased. It's a worthwhile trade, to have won knowledge of what the Barony faces.",
       "exp": 40,
       "weight": 20,
       "stat_skill": ["INSIGHTFUL,3", "CLEVER,2"],
@@ -830,7 +830,7 @@
       ]
     },
     {
-      "text": "s_c bolts back to camp, easily keeping ahead of the beast, {PRONOUN/s_c/subject} burst into camp, yowling a warning with plenty of time for c_n to prepare to drive the wolf away.",
+      "text": "s_c bolts back to camp, easily keeping ahead of the beast, {PRONOUN/s_c/subject} burst into camp, yowling a warning with plenty of time for the Clippers to prepare to drive the wolf away.",
       "exp": 40,
       "weight": 20,
       "stat_skill": ["RUNNER,2"],
@@ -845,7 +845,7 @@
       ]
     },
     {
-      "text": "This wolf might be trying to hunt c_n, but s_c is nobody's prey. {PRONOUN/s_c/subject/CAP} follow the fresh scent trail to its conclusion, throwing {PRONOUN/s_c/self} at the unprepared wolf, claws raking through its gray pelt and leaving bloody tracks in their wake, convincing proof that the lone wolf should go elsewhere for an easy meal.",
+      "text": "This wolf might be trying to hunt the b1_t, but s_c is nobody's prey. {PRONOUN/s_c/subject/CAP} follow the fresh scent trail to its conclusion, throwing {PRONOUN/s_c/self} at the unprepared wolf, claws raking through its gray pelt and leaving bloody tracks in their wake, convincing proof that the lone wolf should go elsewhere for an easy meal.",
       "exp": 40,
       "weight": 20,
       "stat_skill": ["FIGHTER,3"],
@@ -860,7 +860,7 @@
       ]
     },
     {
-      "text": "{PRONOUN/s_c/subject/CAP} {VERB/s_c/don't/doesn't} feel like {PRONOUN/s_c/subject} {VERB/s_c/have/has} anything like the skill or power, but s_c would give {PRONOUN/s_c/poss} life for c_n, charging in to courageously lead the wolf away from c_n territory. Each booming yip heralds {PRONOUN/s_c/poss} doom, each rancid breath the last thing {PRONOUN/s_c/subject}'ll ever smell, but somehow, eventually, limbs and lungs burning, {PRONOUN/s_c/subject} {VERB/s_c/leap/leaps} to refuge.",
+      "text": "{PRONOUN/s_c/subject/CAP} {VERB/s_c/don't/doesn't} feel like {PRONOUN/s_c/subject} {VERB/s_c/have/has} anything like the skill or power, but s_c would give {PRONOUN/s_c/poss} life for the b1_t, charging in to courageously lead the wolf away from b1_t. Each booming yip heralds {PRONOUN/s_c/poss} doom, each rancid breath the last thing {PRONOUN/s_c/subject}'ll ever smell, but somehow, eventually, limbs and lungs burning, {PRONOUN/s_c/subject} {VERB/s_c/leap/leaps} to refuge.",
       "exp": 40,
       "weight": 20,
       "stat_trait": ["ambitious", "compassionate", "confident", "faithful", "fierce", "loving", "loyal", "responsible", "righteous"],
@@ -877,13 +877,13 @@
   ],
   "fail_outcomes": [
     {
-      "text": "r_c would give {PRONOUN/r_c/poss} life to protect c_n, and as {PRONOUN/r_c/subject} {VERB/r_c/lead/leads} the huge wolf away from the Clan, in {PRONOUN/r_c/poss} heart, {PRONOUN/r_c/subject} {VERB/r_c/accept/accepts} that's what {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} doing. As darkness closes in around {PRONOUN/r_c/object} and the wolf's jaws descend again, r_c tries to sink {PRONOUN/r_c/poss} claws into its face, and hopes desperately that {PRONOUN/r_c/subject} led it far enough.",
+      "text": "r_c would give {PRONOUN/r_c/poss} life to protect the b1_t, and as {PRONOUN/r_c/subject} {VERB/r_c/lead/leads} the huge wolf away from the Clan, in {PRONOUN/r_c/poss} heart, {PRONOUN/r_c/subject} {VERB/r_c/accept/accepts} that's what {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} doing. As darkness closes in around {PRONOUN/r_c/object} and the wolf's jaws descend again, r_c tries to sink {PRONOUN/r_c/poss} claws into its face, and hopes desperately that {PRONOUN/r_c/subject} led it far enough.",
       "exp": 0,
       "weight": 10,
       "dead_cats": ["r_c"],
       "history_text": {
-        "reg_death": "This cat died to keep c_n safe from a wolf.",
-        "lead_death": "died to keep c_n safe from a wolf"
+        "reg_death": "This cat died to keep the b1_t safe from a wolf.",
+        "lead_death": "died to keep the b1_t safe from a wolf"
       },
       "relationships": [
         {
@@ -896,7 +896,7 @@
       ]
     },
     {
-      "text": "r_c would give their life to protect c_n, and as {PRONOUN/r_c/subject} {VERB/r_c/charge/charges} past the huge wolf to lead it far, far from c_n, {PRONOUN/r_c/subject} {VERB/r_c/accept/accepts} it. Fear gives {PRONOUN/r_c/object} speed, but it only takes one successful hit. Miraculously {PRONOUN/r_c/subject} {VERB/r_c/fly/flies} out of the dog's jaws while it shakes {PRONOUN/r_c/object}, landing in a refuge. r_c is injured, desperate, and terrified - but {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} alive.",
+      "text": "r_c would give their life to protect the b1_t, and as {PRONOUN/r_c/subject} {VERB/r_c/charge/charges} past the huge wolf to lead it far, far away, {PRONOUN/r_c/subject} {VERB/r_c/accept/accepts} it. Fear gives {PRONOUN/r_c/object} speed, but it only takes one successful hit. Miraculously {PRONOUN/r_c/subject} {VERB/r_c/fly/flies} out of the dog's jaws while it shakes {PRONOUN/r_c/object}, landing in a refuge. r_c is injured, desperate, and terrified - but {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} alive.",
       "exp": 0,
       "weight": 10,
       "injury": [
@@ -907,9 +907,9 @@
         }
       ],
       "history_text": {
-        "scar": "This cat is scarred from bravely defending c_n against a wolf.",
-        "reg_death": "This cat died to keep c_n safe from a large wolf.",
-        "lead_death": "died to keep c_n safe from a large wolf"
+        "scar": "This cat is scarred from bravely defending the b1_t against a wolf.",
+        "reg_death": "This cat died to keep the b1_t safe from a large wolf.",
+        "lead_death": "died to keep the b1_t safe from a large wolf"
       },
       "relationships": [
         {

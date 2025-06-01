@@ -1706,7 +1706,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "The Twolegs here are friendly and, a little carelessly, s_c goes to hunt in their garden. But there's a new thing there: a strange, suspicious box. Wisely, s_c avoids it, and returns to b1_t territory.",
+                "text": "The Twolegs here are friendly and, a little carelessly, s_c goes to hunt in their garden. But there's a new thing there: a strange, suspicious box. Wisely, s_c avoids it, and returns to b1_t.",
                 "exp": 0,
                 "weight": 20,
                 "stat_trait": [
@@ -1789,7 +1789,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "A little carelessly, s_c jumps a fence to hunt in a den's garden. But there's a new thing there: a strange, suspicious box. Wisely, s_c avoids it, and returns to b1_t territory.",
+                "text": "A little carelessly, s_c jumps a fence to hunt in a den's garden. But there's a new thing there: a strange, suspicious box. Wisely, s_c avoids it, and returns to b1_t.",
                 "exp": 0,
                 "weight": 20,
                 "stat_trait": [
@@ -1916,7 +1916,7 @@
                 ]
             },
             {
-                "text": "The Twolegs here are friendly and, a little carelessly, s_c goes to hunt in their garden. But there's a new thing there: a strange, suspicious box. Wisely, s_c avoids it, and returns to b1_t territory.",
+                "text": "The Twolegs here are friendly and, a little carelessly, s_c goes to hunt in their garden. But there's a new thing there: a strange, suspicious box. Wisely, s_c avoids it, and returns to b1_t.",
                 "exp": 0,
                 "weight": 20,
                 "stat_trait": [
@@ -2047,7 +2047,7 @@
                 ]
             },
             {
-                "text": "A little carelessly, s_c jumps a fence to hunt in a den's garden. But there's a new thing there: a strange, suspicious box. Wisely, s_c avoids it, and returns to b1_t territory.",
+                "text": "A little carelessly, s_c jumps a fence to hunt in a den's garden. But there's a new thing there: a strange, suspicious box. Wisely, s_c avoids it, and returns to b1_t.",
                 "exp": 0,
                 "weight": 20,
                 "stat_trait": [

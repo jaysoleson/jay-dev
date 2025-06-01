@@ -567,7 +567,7 @@
   },
   {
     "interaction_type": "invite",
-    "event_text": "A Clipper patrol manages to track down m_c, despite how untraceable m_c attempts to be. Impressed, m_c agrees to join the b1_t Territory and learn from them.",
+    "event_text": "A Clipper patrol manages to track down m_c, despite how untraceable m_c attempts to be. Impressed, m_c agrees to join the b1_t and learn from them.",
     "reputation": ["any"],
     "rep_change": 3,
     "m_c": {
@@ -624,7 +624,7 @@
   },
   {
     "interaction_type": "invite",
-    "event_text": "A Clipper patrol finds m_c and offers {PRONOUN/m_c/object} a position in the b1_t Territory. m_c admits {PRONOUN/m_c/subject} {VERB/m_c/have/has} missed life in the Badlands and agrees to join.",
+    "event_text": "A Clipper patrol finds m_c and offers {PRONOUN/m_c/object} a position in the b1_t. m_c admits {PRONOUN/m_c/subject} {VERB/m_c/have/has} missed life in the Badlands and agrees to join.",
     "reputation": ["any"],
     "rep_change": 1,
     "m_c": {

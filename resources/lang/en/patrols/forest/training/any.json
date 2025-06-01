@@ -1072,7 +1072,7 @@
                 "weight": 5
             },
             {
-                "text": "There's nothing to worry about! s_c pads confidently through c_n territory, assured in {PRONOUN/r_c/poss} safety by the strength of c_n's borders.",
+                "text": "There's nothing to worry about! s_c pads confidently through b1_t, assured in {PRONOUN/r_c/poss} safety by the strength of c_n's borders.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": [
@@ -1150,7 +1150,7 @@
                 "stat_skill": ["CLEVER,1"]
             },
             {
-                "text": "s_c pads confidently through c_n territory. There's a particular peace in exploring {PRONOUN/s_c/poss} beloved home, ears pricked up curiously whenever {PRONOUN/s_c/subject} {VERB/s_c/spot/spots} how the seasons and weather have reshaped it since {PRONOUN/s_c/subject} last passed this way.",
+                "text": "s_c pads confidently through b1_t. There's a particular peace in exploring {PRONOUN/s_c/poss} beloved home, ears pricked up curiously whenever {PRONOUN/s_c/subject} {VERB/s_c/spot/spots} how the seasons and weather have reshaped it since {PRONOUN/s_c/subject} last passed this way.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": [
@@ -1213,7 +1213,7 @@
                 "stat_skill": ["CLEVER,1"]
             },
             {
-                "text": "s_c pads confidently through c_n territory. There's a particular peace in exploring {PRONOUN/s_c/poss} beloved home, ears pricked up curiously whenever {PRONOUN/s_c/subject} {VERB/s_c/spot/spots} how the seasons and weather have reshaped it since {PRONOUN/s_c/subject} last passed this way.",
+                "text": "s_c pads confidently through b1_t. There's a particular peace in exploring {PRONOUN/s_c/poss} beloved home, ears pricked up curiously whenever {PRONOUN/s_c/subject} {VERB/s_c/spot/spots} how the seasons and weather have reshaped it since {PRONOUN/s_c/subject} last passed this way.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": [
@@ -1276,7 +1276,7 @@
                 "stat_skill": ["CLEVER,1"]
             },
             {
-                "text": "s_c pads confidently through c_n territory. There's a particular peace in exploring {PRONOUN/s_c/poss} beloved home, ears pricked up curiously whenever {PRONOUN/s_c/subject} {VERB/s_c/spot/spots} how the seasons and weather have reshaped it since {PRONOUN/s_c/subject} last passed this way.",
+                "text": "s_c pads confidently through b1_t. There's a particular peace in exploring {PRONOUN/s_c/poss} beloved home, ears pricked up curiously whenever {PRONOUN/s_c/subject} {VERB/s_c/spot/spots} how the seasons and weather have reshaped it since {PRONOUN/s_c/subject} last passed this way.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": [

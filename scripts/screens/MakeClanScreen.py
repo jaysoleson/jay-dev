@@ -22,7 +22,7 @@ from scripts.game_structure.ui_elements import (
     UISurfaceImageButton,
 )
 from scripts.events_module.patrol.patrol import Patrol
-from scripts.utility import get_text_box_theme, ui_scale, ui_scale_blit, ui_scale_offset
+from scripts.utility import get_text_box_theme, ui_scale, ui_scale_blit, ui_scale_offset, generate_map
 from scripts.utility import ui_scale_dimensions
 from .Screens import Screens
 from ..cat.sprites import sprites
@@ -79,6 +79,7 @@ class MakeClanScreen(Screens):
     tag_list_len = 0
     # Holds biome we have selected
     biome_selected = None
+    selected_camp_tab = 1
     selected_season = None
     # Camp number selected
     camp_num = "1"
@@ -107,7 +108,6 @@ class MakeClanScreen(Screens):
             "crimson", "blue", "cyan", "yellow", "green", "pink", "purple"
         ]
         self.colour = "crimson"
-        self.territory_type="forest"
         self.export = "prey"
         self.colour_buttons_container = None
 
@@ -149,6 +149,7 @@ class MakeClanScreen(Screens):
         # Reset variables
         self.game_mode: str = "classic"
         self.clan_name: str = ""
+        self.selected_camp_tab: int = 1
         self.biome_selected: Optional[str] = None
         self.selected_season: str = "Newleaf"
         self.symbol_selected = None
@@ -202,6 +203,8 @@ class MakeClanScreen(Screens):
                 self.handle_choose_background_event(event)
             elif self.sub_screen == "choose symbol":
                 self.handle_choose_symbol_event(event)
+            elif self.sub_screen == "choose map":
+                self.handle_choose_map_event(event)
             elif self.sub_screen == "saved screen":
                 self.handle_saved_clan_event(event)
 
@@ -489,27 +492,34 @@ class MakeClanScreen(Screens):
         if event.ui_element == self.elements["previous_step"]:
             self.set_bg(None)
             self.open_choose_members()
-        elif event.ui_element == self.elements["forest_territory"]:
-            self.territory_type = "forest"
+        elif event.ui_element == self.elements["forest_biome"]:
+            self.biome_selected = "Forest"
+            self.selected_camp_tab = 1
             self.refresh_text_and_buttons()
-        elif event.ui_element == self.elements["cliffside_territory"]:
-            self.territory_type = "cliffside"
+        elif event.ui_element == self.elements["mountain_biome"]:
+            self.biome_selected = "Mountainous"
+            self.selected_camp_tab = 1
             self.refresh_text_and_buttons()
-        elif event.ui_element == self.elements["field_territory"]:
-            self.territory_type = "field"
+        elif event.ui_element == self.elements["plains_biome"]:
+            self.biome_selected = "Plains"
+            self.selected_camp_tab = 1
             self.refresh_text_and_buttons()
-        elif event.ui_element == self.elements["lakeside_territory"]:
-            self.territory_type = "lakeside"
+        elif event.ui_element == self.elements["beach_biome"]:
+            self.biome_selected = "Beach"
+            self.selected_camp_tab = 1
             self.refresh_text_and_buttons()
-        elif event.ui_element == self.elements["river_territory"]:
-            self.territory_type = "river"
-            self.refresh_text_and_buttons()
-        elif event.ui_element == self.elements["township_territory"]:
-            self.territory_type = "township"
-            self.refresh_text_and_buttons()
-        elif event.ui_element == self.elements["lakeside_territory"]:
-            self.territory_type = "lakeside"
-            self.refresh_text_and_buttons()
+        elif event.ui_element == self.tabs["tab1"]:
+            self.selected_camp_tab = 1
+            self.refresh_selected_camp()
+        elif event.ui_element == self.tabs["tab2"]:
+            self.selected_camp_tab = 2
+            self.refresh_selected_camp()
+        elif event.ui_element == self.tabs["tab3"]:
+            self.selected_camp_tab = 3
+            self.refresh_selected_camp()
+        elif event.ui_element == self.tabs["tab4"]:
+            self.selected_camp_tab = 4
+            self.refresh_selected_camp()
         elif event.ui_element == self.tabs["newleaf_tab"]:
             self.selected_season = "Newleaf"
             self.refresh_text_and_buttons()
@@ -524,7 +534,11 @@ class MakeClanScreen(Screens):
             self.refresh_text_and_buttons()
         elif event.ui_element == self.elements["random_background"]:
             # Select a random biome and background
-            self.territory_type = self.random_biome_selection()
+            self.biome_selected = self.random_biome_selection()
+            if self.biome_selected in ["Forest", "Mountainous"]:
+                self.selected_camp_tab = randrange(1, 5)
+            else:
+                self.selected_camp_tab = randrange(1, 4)
             self.refresh_selected_camp()
             self.refresh_text_and_buttons()
         elif event.ui_element == self.elements["next_step"]:
@@ -533,39 +547,38 @@ class MakeClanScreen(Screens):
     def handle_choose_background_key(self, event):
         if event.key == pygame.K_RIGHT:
             if self.biome_selected is None:
-                self.biome_selected = "forest"
-            elif self.biome_selected == "forest":
-                self.biome_selected = "cliffside"
-            elif self.biome_selected == "cliffside":
-                self.biome_selected = "field"
-            elif self.biome_selected == "field":
-                self.biome_selected = "lakeside"
-            elif self.biome_selected == "lakeside":
-                self.biome_selected = "river"
-            elif self.biome_selected == "river":
-                self.biome_selected = "township"
-            elif self.biome_selected == "township":
-                self.biome_selected = "forest"
+                self.biome_selected = "Forest"
+            elif self.biome_selected == "Forest":
+                self.biome_selected = "Mountainous"
+            elif self.biome_selected == "Mountainous":
+                self.biome_selected = "Plains"
+            elif self.biome_selected == "Plains":
+                self.biome_selected = "Beach"
+            self.selected_camp_tab = 1
             self.refresh_text_and_buttons()
         elif event.key == pygame.K_LEFT:
             if self.biome_selected is None:
-                self.biome_selected = "township"
-            elif self.biome_selected == "township":
-                self.biome_selected = "river"
-            elif self.biome_selected == "river":
-                self.biome_selected = "lakeside"
-            elif self.biome_selected == "lakeside":
-                self.biome_selected = "field"
-            elif self.biome_selected == "field":
-                self.biome_selected = "cliffside"
-            elif self.biome_selected == "cliffside":
-                self.biome_selected = "forest"
-            elif self.biome_selected == "forest":
-                self.biome_selected = "township"
+                self.biome_selected = "Beach"
+            elif self.biome_selected == "Beach":
+                self.biome_selected = "Plains"
+            elif self.biome_selected == "Plains":
+                self.biome_selected = "Mountainous"
+            elif self.biome_selected == "Mountainous":
+                self.biome_selected = "Forest"
+            self.selected_camp_tab = 1
             self.refresh_text_and_buttons()
+        elif event.key == pygame.K_UP and self.biome_selected is not None:
+            if self.selected_camp_tab > 1:
+                self.selected_camp_tab -= 1
+                self.refresh_selected_camp()
+        elif event.key == pygame.K_DOWN and self.biome_selected is not None:
+            if self.selected_camp_tab < 4:
+                self.selected_camp_tab += 1
+                self.refresh_selected_camp()
         elif event.key == pygame.K_RETURN:
             # self.save_clan()
-            self.open_clan_saved_screen()
+            # self.open_clan_saved_screen()
+            self.open_choose_map()
 
     def handle_choose_symbol_event(self, event):
         if event.ui_element == self.elements["previous_step"]:
@@ -578,7 +591,8 @@ class MakeClanScreen(Screens):
             self.refresh_symbol_list()
         elif event.ui_element == self.elements["done_button"]:
             # self.save_clan()
-            self.open_clan_saved_screen()
+            # self.open_clan_saved_screen()
+            self.open_choose_map()
         elif event.ui_element == self.elements["random_symbol_button"]:
             if self.symbol_selected:
                 if self.symbol_selected in self.symbol_buttons:
@@ -595,6 +609,37 @@ class MakeClanScreen(Screens):
                             self.symbol_buttons[self.symbol_selected].enable()
                     self.symbol_selected = symbol_id
                     self.refresh_text_and_buttons()
+    
+    def handle_choose_map_event(self, event):
+        if event.ui_element == self.elements["continue"]:
+            self.open_clan_saved_screen()
+        elif event.ui_element in [
+            self.elements["cycle_border_left"],
+            self.elements["cycle_border_right"]
+            ]:
+            clan_num = (game.switches["creation_other_clans"][0])
+            possible_presets = game.badlands_info["tilemaps"][str(clan_num)]
+            if game.switches["creation_other_clans"][1] in possible_presets:
+                current_index = possible_presets.index(game.switches["creation_other_clans"][1])
+
+                if event.ui_element == self.elements["cycle_border_left"]:
+                    if current_index == 0:
+                        new_index = len(possible_presets) - 1
+                    else:
+                        new_index = current_index - 1
+                else:
+                    if current_index == len(possible_presets) - 1:
+                        new_index = 0
+                    else:
+                        new_index = current_index + 1
+                try:
+                    game.switches["creation_other_clans"][1] = []
+                    chosen_map = possible_presets[new_index]
+                    for tile_list in chosen_map:
+                        game.switches["creation_other_clans"][1].append(tile_list)
+                except Exception as e:
+                    print("Map Error:", e)
+                    print(current_index, new_index, len(possible_presets))
 
     def handle_saved_clan_event(self, event):
         # BL
@@ -672,6 +717,94 @@ class MakeClanScreen(Screens):
             else:
                 self.elements["error"].hide()
                 self.elements["continue"].enable()
+        if self.sub_screen == "choose map":
+            self.create_map()
+    
+    def random_borders(self):
+        game.switches["creation_other_clans"][1] = []
+        clan_num = (game.switches["creation_other_clans"][0])
+
+        possible_presets = game.badlands_info["tilemaps"][str(clan_num)]
+
+        chosen_map = choice(possible_presets)
+        for tile_list in chosen_map:
+            game.switches["creation_other_clans"][1].append(tile_list)
+
+
+        # procedural generation code
+        # abandoned.... for neow.....
+        # all_tiles = [
+        #     "1-1", "1-2", "2-1", "2-2", "3-1", "3-2", "3-3", "4-3", "1-3", "1-4", "1-5", "2-3", "2-4", "2-5", "3-4", "3-5",
+        #     "1-6", "1-7", "2-6", "2-7", "3-6", "3-7", "4-5", "4-6", "4-7", "5-5", "5-6", "5-7", "6-6", "6-7", "7-6", "7-7",
+        #     "5-4", "6-3", "6-4", "6-5", "7-2", "7-3", "7-4", "7-5", "4-1", "4-2", "5-1", "5-2", "5-3", "6-1", "6-2", "7-1"
+        # ]
+
+        # clan_num = (game.switches["creation_other_clans"][0])
+        # game.switches["creation_other_clans"][1] = []
+
+        # tile_numbers = {}
+
+        # current_barony = 0
+        # for tile in range(len(all_tiles)):
+        #     if current_barony >= clan_num:
+        #         current_barony = 0
+        #     if str(current_barony) not in tile_numbers.keys():
+        #         tile_numbers.update({str(current_barony): 0})
+        #     tile_numbers[str(current_barony)] += 1
+        #     current_barony += 1
+
+        # print(tile_numbers)
+
+        # clan_tiles = {}
+        # for i in range(clan_num):
+        #     first_tile = choice(all_tiles)
+        #     clan_tiles.update({i: [first_tile]})
+        #     print("Updating Clan Tiles:", i, ":", first_tile)
+        #     all_tiles.remove(first_tile)
+        
+        # print(clan_tiles)
+
+        # # for i in range(len(all_tiles)):
+        # for barony in range(clan_num):
+        #     for i in range(round(len(all_tiles)/clan_num)):
+        #         print("Getting new tile from", clan_tiles[barony][-1])
+
+        #         tile_index = 0
+                
+        #         while tile_index < len(clan_tiles[barony]):
+        #             x, y = clan_tiles[barony][tile_index].split("-")
+        #             x = int(x)
+        #             y = int(y)
+
+        #             N = str(y - 1) + "-" + str(x)
+        #             E = str(y) + "-" + str(x + 1)
+        #             S = str(y + 1) + "-" + str(x)
+        #             W = str(y) + "-" + str(x - 1)
+
+        #             possible_tiles = []
+        #             for direction in [N, E, S, W]:
+        #                 if direction in all_tiles:
+        #                     possible_tiles.append(direction)
+
+        #             if possible_tiles:
+        #                 break  # Exit loop if we found possible tiles
+        #             else:
+        #                 tile_index += 1  # Try next tile
+                
+        #         if not possible_tiles or tile_index > len(clan_tiles[barony]):
+        #             print(barony, "No possible tiles.")
+        #             continue
+                
+        #         new_tile = choice(possible_tiles)
+        #         clan_tiles[barony].append(new_tile)
+        #         all_tiles.remove(new_tile)
+
+        # for index, tile_list in clan_tiles.items():
+        #     game.switches["creation_other_clans"][1].append(tile_list)
+
+        # print("FINISHED")
+        # print(game.switches["creation_other_clans"][1])
+
 
     def clear_all_page(self):
         """Clears the entire page, including layout images"""
@@ -834,6 +967,26 @@ class MakeClanScreen(Screens):
 
         elif self.sub_screen == "choose camp":
             # Enable/disable biome buttons
+            if self.biome_selected == "Forest":
+                self.elements["forest_biome"].disable()
+                self.elements["mountain_biome"].enable()
+                self.elements["plains_biome"].enable()
+                self.elements["beach_biome"].enable()
+            elif self.biome_selected == "Mountainous":
+                self.elements["forest_biome"].enable()
+                self.elements["mountain_biome"].disable()
+                self.elements["plains_biome"].enable()
+                self.elements["beach_biome"].enable()
+            elif self.biome_selected == "Plains":
+                self.elements["forest_biome"].enable()
+                self.elements["mountain_biome"].enable()
+                self.elements["plains_biome"].disable()
+                self.elements["beach_biome"].enable()
+            elif self.biome_selected == "Beach":
+                self.elements["forest_biome"].enable()
+                self.elements["mountain_biome"].enable()
+                self.elements["plains_biome"].enable()
+                self.elements["beach_biome"].disable()
 
             if self.selected_season == "Newleaf":
                 self.tabs["newleaf_tab"].disable()
@@ -856,7 +1009,7 @@ class MakeClanScreen(Screens):
                 self.tabs["leaffall_tab"].enable()
                 self.tabs["leafbare_tab"].disable()
 
-            if self.territory_type:
+            if self.biome_selected and self.selected_camp_tab:
                 self.elements["next_step"].enable()
 
             # Deal with tab and shown camp image:
@@ -882,13 +1035,235 @@ class MakeClanScreen(Screens):
 
     def refresh_selected_camp(self):
         """Updates selected camp image and tabs"""
+        self.tabs["tab1"].kill()
+        self.tabs["tab2"].kill()
+        self.tabs["tab3"].kill()
+        self.tabs["tab4"].kill()
+
+        if self.biome_selected == "Forest":
+            tab_rect = ui_scale(pygame.Rect((0, 0), (85, 30)))
+            tab_rect.topright = ui_scale_offset((5, 180))
+            self.tabs["tab1"] = UISurfaceImageButton(
+                tab_rect,
+                "screens.make_clan.camp_classic",
+                get_button_dict(ButtonStyles.VERTICAL_TAB, (85, 30)),
+                object_id="@buttonstyles_vertical_tab",
+                manager=MANAGER,
+                anchors={"right": "right", "right_target": self.elements["art_frame"]},
+            )
+            tab_rect = ui_scale(pygame.Rect((0, 0), (70, 30)))
+            tab_rect.topright = ui_scale_offset((5, 5))
+            self.tabs["tab2"] = UISurfaceImageButton(
+                tab_rect,
+                "screens.make_clan.camp_gully",
+                get_button_dict(ButtonStyles.VERTICAL_TAB, (70, 30)),
+                object_id="@buttonstyles_vertical_tab",
+                manager=MANAGER,
+                anchors={
+                    "right": "right",
+                    "right_target": self.elements["art_frame"],
+                    "top_target": self.tabs["tab1"],
+                },
+            )
+            tab_rect = ui_scale(pygame.Rect((0, 0), (85, 30)))
+            tab_rect.topright = ui_scale_offset((5, 5))
+            self.tabs["tab3"] = UISurfaceImageButton(
+                tab_rect,
+                "screens.make_clan.camp_grotto",
+                get_button_dict(ButtonStyles.VERTICAL_TAB, (85, 30)),
+                object_id="@buttonstyles_vertical_tab",
+                manager=MANAGER,
+                anchors={
+                    "right": "right",
+                    "right_target": self.elements["art_frame"],
+                    "top_target": self.tabs["tab2"],
+                },
+            )
+
+            tab_rect.size = ui_scale_dimensions((100, 30))
+            tab_rect.topright = ui_scale_offset((5, 5))
+            self.tabs["tab4"] = UISurfaceImageButton(
+                tab_rect,
+                "screens.make_clan.camp_lakeside",
+                get_button_dict(ButtonStyles.VERTICAL_TAB, (100, 30)),
+                object_id="@buttonstyles_vertical_tab",
+                manager=MANAGER,
+                anchors={
+                    "right": "right",
+                    "right_target": self.elements["art_frame"],
+                    "top_target": self.tabs["tab3"],
+                },
+            )
+        elif self.biome_selected == "Mountainous":
+            tab_rect = ui_scale(pygame.Rect((0, 0), (70, 30)))
+            tab_rect.topright = ui_scale_offset((5, 180))
+            self.tabs["tab1"] = UISurfaceImageButton(
+                tab_rect,
+                "screens.make_clan.camp_cliff",
+                get_button_dict(ButtonStyles.VERTICAL_TAB, (70, 30)),
+                object_id="@buttonstyles_vertical_tab",
+                manager=MANAGER,
+                anchors={"right": "right", "right_target": self.elements["art_frame"]},
+            )
+
+            tab_rect = ui_scale(pygame.Rect((0, 0), (90, 30)))
+            tab_rect.topright = ui_scale_offset((5, 5))
+            self.tabs["tab2"] = UISurfaceImageButton(
+                tab_rect,
+                "screens.make_clan.camp_cavern",
+                get_button_dict(ButtonStyles.VERTICAL_TAB, (90, 30)),
+                object_id="@buttonstyles_vertical_tab",
+                manager=MANAGER,
+                anchors={
+                    "right": "right",
+                    "right_target": self.elements["art_frame"],
+                    "top_target": self.tabs["tab1"],
+                },
+            )
+            tab_rect = ui_scale(pygame.Rect((0, 0), (130, 30)))
+            tab_rect.topright = ui_scale_offset((5, 5))
+            self.tabs["tab3"] = UISurfaceImageButton(
+                tab_rect,
+                "screens.make_clan.camp_crystal_river",
+                get_button_dict(ButtonStyles.VERTICAL_TAB, (130, 30)),
+                object_id="@buttonstyles_vertical_tab",
+                manager=MANAGER,
+                anchors={
+                    "right": "right",
+                    "right_target": self.elements["art_frame"],
+                    "top_target": self.tabs["tab2"],
+                },
+            )
+            tab_rect = ui_scale(pygame.Rect((0, 0), (80, 30)))
+            tab_rect.topright = ui_scale_offset((5, 5))
+            self.tabs["tab4"] = UISurfaceImageButton(
+                tab_rect,
+                "screens.make_clan.camp_ruins",
+                get_button_dict(ButtonStyles.VERTICAL_TAB, (80, 30)),
+                object_id="@buttonstyles_vertical_tab",
+                manager=MANAGER,
+                anchors={
+                    "right": "right",
+                    "right_target": self.elements["art_frame"],
+                    "top_target": self.tabs["tab3"],
+                },
+            )
+        elif self.biome_selected == "Plains":
+            tab_rect = ui_scale(pygame.Rect((0, 0), (115, 30)))
+            tab_rect.topright = ui_scale_offset((5, 180))
+            self.tabs["tab1"] = UISurfaceImageButton(
+                tab_rect,
+                "screens.make_clan.camp_grasslands",
+                get_button_dict(ButtonStyles.VERTICAL_TAB, (115, 30)),
+                object_id="@buttonstyles_vertical_tab",
+                manager=MANAGER,
+                anchors={"right": "right", "right_target": self.elements["art_frame"]},
+            )
+
+            tab_rect = ui_scale(pygame.Rect((0, 0), (90, 30)))
+            tab_rect.topright = ui_scale_offset((5, 5))
+            self.tabs["tab2"] = UISurfaceImageButton(
+                tab_rect,
+                "screens.make_clan.camp_tunnels",
+                get_button_dict(ButtonStyles.VERTICAL_TAB, (90, 30)),
+                object_id="@buttonstyles_vertical_tab",
+                manager=MANAGER,
+                anchors={
+                    "right": "right",
+                    "right_target": self.elements["art_frame"],
+                    "top_target": self.tabs["tab1"],
+                },
+            )
+            tab_rect = ui_scale(pygame.Rect((0, 0), (115, 30)))
+            tab_rect.topright = ui_scale_offset((5, 5))
+            self.tabs["tab3"] = UISurfaceImageButton(
+                tab_rect,
+                "screens.make_clan.camp_wastelands",
+                get_button_dict(ButtonStyles.VERTICAL_TAB, (115, 30)),
+                object_id="@buttonstyles_vertical_tab",
+                manager=MANAGER,
+                anchors={
+                    "right": "right",
+                    "right_target": self.elements["art_frame"],
+                    "top_target": self.tabs["tab2"],
+                },
+            )
+        elif self.biome_selected == "Beach":
+            tab_rect = ui_scale(pygame.Rect((0, 0), (110, 30)))
+            tab_rect.topright = ui_scale_offset((5, 180))
+            self.tabs["tab1"] = UISurfaceImageButton(
+                tab_rect,
+                "screens.make_clan.camp_tidepools",
+                get_button_dict(ButtonStyles.VERTICAL_TAB, (110, 30)),
+                object_id="@buttonstyles_vertical_tab",
+                manager=MANAGER,
+                anchors={"right": "right", "right_target": self.elements["art_frame"]},
+            )
+
+            tab_rect = ui_scale(pygame.Rect((0, 0), (110, 30)))
+            tab_rect.topright = ui_scale_offset((5, 5))
+            self.tabs["tab2"] = UISurfaceImageButton(
+                tab_rect,
+                "screens.make_clan.camp_tidal_cave",
+                get_button_dict(ButtonStyles.VERTICAL_TAB, (110, 30)),
+                object_id="@buttonstyles_vertical_tab",
+                manager=MANAGER,
+                anchors={
+                    "right": "right",
+                    "right_target": self.elements["art_frame"],
+                    "top_target": self.tabs["tab1"],
+                },
+            )
+
+            tab_rect = ui_scale(pygame.Rect((0, 0), (110, 30)))
+            tab_rect.topright = ui_scale_offset((5, 5))
+            self.tabs["tab3"] = UISurfaceImageButton(
+                tab_rect,
+                "screens.make_clan.camp_shipwreck",
+                get_button_dict(ButtonStyles.VERTICAL_TAB, (110, 30)),
+                object_id="@buttonstyles_vertical_tab",
+                manager=MANAGER,
+                anchors={
+                    "right": "right",
+                    "right_target": self.elements["art_frame"],
+                    "top_target": self.tabs["tab2"],
+                },
+            )
+
+            tab_rect = ui_scale(pygame.Rect((0, 0), (80, 30)))
+            tab_rect.topright = ui_scale_offset((5, 5))
+            self.tabs["tab4"] = UISurfaceImageButton(
+                tab_rect,
+                "screens.make_clan.camp_fjord",
+                get_button_dict(ButtonStyles.VERTICAL_TAB, (80, 30)),
+                object_id="@buttonstyles_vertical_tab",
+                manager=MANAGER,
+                anchors={
+                    "right": "right",
+                    "right_target": self.elements["art_frame"],
+                    "top_target": self.tabs["tab3"],
+                },
+            )
+
+        self.tabs["tab1"].disable() if self.selected_camp_tab == 1 else self.tabs[
+            "tab1"
+        ].enable()
+        self.tabs["tab2"].disable() if self.selected_camp_tab == 2 else self.tabs[
+            "tab2"
+        ].enable()
+        self.tabs["tab3"].disable() if self.selected_camp_tab == 3 else self.tabs[
+            "tab3"
+        ].enable()
+        self.tabs["tab4"].disable() if self.selected_camp_tab == 4 else self.tabs[
+            "tab4"
+        ].enable()
 
         # I have to do this for proper layering.
         if "camp_art" in self.elements:
             self.elements["camp_art"].kill()
-        if self.territory_type:
+        if self.biome_selected:
             src = pygame.image.load(
-                self.get_camp_art_path()
+                self.get_camp_art_path(self.selected_camp_tab)
             ).convert_alpha()
             self.elements["camp_art"] = pygame_gui.elements.UIImage(
                 ui_scale(pygame.Rect((175, 170), (450, 400))),
@@ -905,12 +1280,13 @@ class MakeClanScreen(Screens):
     def get_camp_bg(self, src=None):
         if src is None:
             src = pygame.image.load(
-                self.get_camp_art_path()
+                self.get_camp_art_path(self.selected_camp_tab)
             ).convert_alpha()
 
         name = "_".join(
             [
-                str(self.territory_type),
+                str(self.biome_selected),
+                str(self.selected_camp_tab),
                 self.selected_season,
             ]
         )
@@ -1095,7 +1471,7 @@ class MakeClanScreen(Screens):
 
     def random_quick_start(self):
         self.clan_name = self.random_clan_name()
-        self.territory_type = self.random_biome_selection()
+        self.biome_selected = self.random_biome_selection()
         if f"symbol{self.clan_name.upper()}0" in sprites.clan_symbols:
             # Use recommended symbol if it exists
             self.symbol_selected = f"symbol{self.clan_name.upper()}0"
@@ -1131,7 +1507,7 @@ class MakeClanScreen(Screens):
     def random_biome_selection(self):
         # Select a random biome and background
         old_biome = self.biome_selected
-        possible_biomes = ["forest", "field", "lakeside", "river", "cliffside", "township"]
+        possible_biomes = ["Forest", "Mountainous", "Plains", "Beach"]
         # ensuring that the new random camp will not be the same one
         if old_biome is not None:
             possible_biomes.remove(old_biome)
@@ -1246,7 +1622,7 @@ class MakeClanScreen(Screens):
 
         # Create all the elements.
         self.elements["random"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((224, 595), (34, 34))),
+            ui_scale(pygame.Rect((184, 595), (34, 34))),
             Icon.DICE,
             get_button_dict(ButtonStyles.ICON, (34, 34)),
             object_id="@buttonstyles_icon",
@@ -1282,7 +1658,7 @@ class MakeClanScreen(Screens):
         self.elements["next_step"].disable()
 
         self.elements["name_entry"] = pygame_gui.elements.UITextEntryLine(
-            ui_scale(pygame.Rect((265, 597), (140, 29))),
+            ui_scale(pygame.Rect((225, 597), (140, 29))),
             manager=MANAGER,
         )
         self.elements["name_entry"].set_allowed_characters(
@@ -1290,13 +1666,13 @@ class MakeClanScreen(Screens):
         )
         self.elements["name_entry"].set_text_length_limit(11)
         self.elements["clan"] = pygame_gui.elements.UITextBox(
-            "-Clan",
-            ui_scale(pygame.Rect((375, 600), (100, 25))),
+            "Territory",
+            ui_scale(pygame.Rect((365, 590), (100, 35))),
             object_id="#text_box_30_horizcenter_light",
             manager=MANAGER,
         )
         self.elements["reset_name"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((455, 595), (134, 30))),
+            ui_scale(pygame.Rect((475, 595), (134, 30))),
             "screens.make_clan.reset_name",
             get_button_dict(ButtonStyles.SQUOVAL, (134, 30)),
             object_id="@buttonstyles_squoval",
@@ -1304,15 +1680,9 @@ class MakeClanScreen(Screens):
         )
         self.elements["title"] = pygame_gui.elements.UITextBox(
             "screens.make_clan.name_clan_title",
-            ui_scale(pygame.Rect((0, 525), (300, 40))),
+            ui_scale(pygame.Rect((0, 535), (500, 40))),
             object_id="@clangen_32",
             anchors={"centerx": "centerx"},
-        )
-        self.elements["subtitle"] = pygame_gui.elements.UITextBox(
-            "screens.make_clan.name_clan_subtitle",
-            ui_scale(pygame.Rect((0, -5), (300, 30))),
-            object_id="@buttonstyles_rounded_rect",
-            anchors={"centerx": "centerx", "top_target": self.elements["title"]},
         )
 
         # BL
@@ -1775,41 +2145,43 @@ class MakeClanScreen(Screens):
         self.elements["next_step"].disable()
 
         # Biome buttons
-        self.elements["forest_territory"] = UIImageButton(
-            ui_scale(pygame.Rect((106, 100), (100, 46))),
+        self.elements["forest_biome"] = UIImageButton(
+            ui_scale(pygame.Rect((196, 100), (100, 46))),
             "screens.make_clan.Forest",
             object_id="#forest_biome_button",
             manager=MANAGER,
         )
-        self.elements["cliffside_territory"] = UIImageButton(
-            ui_scale(pygame.Rect((212, 100), (106, 46))),
-            "Cliffside",
+        self.elements["mountain_biome"] = UIImageButton(
+            ui_scale(pygame.Rect((304, 100), (106, 46))),
+            "screens.make_clan.Mountainous",
             object_id="#mountain_biome_button",
             manager=MANAGER,
         )
-        self.elements["field_territory"] = UIImageButton(
-            ui_scale(pygame.Rect((327, 100), (92, 46))),
-            "Field",
+        self.elements["plains_biome"] = UIImageButton(
+            ui_scale(pygame.Rect((424, 100), (88, 46))),
+            "screens.make_clan.Plains",
             object_id="#plains_biome_button",
             manager=MANAGER,
         )
-        self.elements["lakeside_territory"] = UIImageButton(
-            ui_scale(pygame.Rect((427, 100), (90, 46))),
-            "Lakeside",
+        self.elements["beach_biome"] = UIImageButton(
+            ui_scale(pygame.Rect((520, 100), (82, 46))),
+            "screens.make_clan.Beach",
             object_id="#beach_biome_button",
             manager=MANAGER,
         )
-        self.elements["river_territory"] = UIImageButton(
-            ui_scale(pygame.Rect((528, 100), (82, 46))),
-            "River",
-            object_id="#beach_biome_button",
-            manager=MANAGER,
+
+        # Camp Art Choosing Tabs, Dummy buttons, will be overridden.
+        self.tabs["tab1"] = UIImageButton(
+            ui_scale(pygame.Rect((0, 0), (0, 0))), "", visible=False, manager=MANAGER
         )
-        self.elements["township_territory"] = UIImageButton(
-            ui_scale(pygame.Rect((622, 100), (92, 46))),
-            "Township",
-            object_id="#plains_biome_button",
-            manager=MANAGER,
+        self.tabs["tab2"] = UIImageButton(
+            ui_scale(pygame.Rect((0, 0), (0, 0))), "", visible=False, manager=MANAGER
+        )
+        self.tabs["tab3"] = UIImageButton(
+            ui_scale(pygame.Rect((0, 0), (0, 0))), "", visible=False, manager=MANAGER
+        )
+        self.tabs["tab4"] = UIImageButton(
+            ui_scale(pygame.Rect((0, 0), (0, 0))), "", visible=False, manager=MANAGER
         )
 
         self.tabs["newleaf_tab"] = UISurfaceImageButton(
@@ -2043,6 +2415,55 @@ class MakeClanScreen(Screens):
             )
             self.refresh_symbol_list()
 
+    def open_choose_map(self):
+        self.clear_all_page()
+        self.sub_screen = "choose map"
+        self.elements["continue"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((0, 550), (102, 30))),
+            "buttons.continue",
+            get_button_dict(ButtonStyles.SQUOVAL, (102, 30)),
+            object_id="@buttonstyles_squoval",
+            anchors={"centerx": "centerx"}
+        )
+
+        game.switches["creation_other_clans"][0] = randint(3,5)
+
+        self.elements["number_other_clans"] = pygame_gui.elements.UITextBox(
+            html_text="Other Clans: " + str(game.switches["creation_other_clans"][0]),
+            relative_rect=ui_scale(pygame.Rect((0, 40), (350, -1))),
+            manager=MANAGER,
+            object_id=get_text_box_theme("#text_box_30_horizcenter"),
+            anchors={"centerx": "centerx"}
+        )
+
+        territory_string = ""
+        for index, item in enumerate(game.switches["creation_other_clans"]):
+            if index == 0:
+                continue
+            territory_string = territory_string + f"<b>Clan {index}: {item}"
+
+        self.elements["choose_text"] = pygame_gui.elements.UITextBox(
+            html_text="Choose a map",
+            relative_rect=ui_scale(pygame.Rect((0, 470), (170, -1))),
+            manager=MANAGER,
+            object_id=get_text_box_theme("#text_box_34_horizcenter"),
+            anchors={"centerx": "centerx"}
+        )
+        self.elements["cycle_border_right"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((540, 550), (32, 32))),
+            Icon.ARROW_RIGHT,
+            get_button_dict(ButtonStyles.ICON, (32, 32)),
+            object_id="@buttonstyles_icon"
+        )
+        self.elements["cycle_border_left"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((260, 550), (32, 32))),
+            Icon.ARROW_LEFT,
+            get_button_dict(ButtonStyles.ICON, (32, 32)),
+            object_id="@buttonstyles_icon"
+        )
+
+        self.random_borders()
+
     def open_clan_saved_screen(self):
         self.clear_all_page()
         self.sub_screen = "saved screen"
@@ -2138,36 +2559,6 @@ class MakeClanScreen(Screens):
         self.regent.allegiance = self.baron.ID
         self.doctor.allegiance = self.baron.ID
 
-        territory_tiles = {
-            "forest": [
-                "1-1", "1-2", "2-1", "2-2", "3-1", "3-2", "3-3", "4-3"
-            ],
-            "field": [
-                "1-3", "1-4", "1-5", "2-3", "2-4", "2-5", "3-4", "3-5"
-            ],
-            "cliffside": [
-                "1-6", "1-7", "2-6", "2-7", "3-6", "3-7", "4-5", "4-6"
-            ],
-            "township": [
-                "4-7", "5-5", "5-6", "5-7", "6-6", "6-7", "7-6", "7-7"
-            ],
-            "river": [
-                "5-4", "6-3", "6-4", "6-5", "7-2", "7-3", "7-4", "7-5"
-            ],
-            "lakeside": [
-                "4-1", "4-2", "5-1", "5-2", "5-3", "6-1", "6-2", "7-1"
-            ]
-        }
-
-        if self.territory_type in ["forest", "township"]:
-            self.biome_selected = "Forest"
-        elif self.territory_type in ["river", "field"]:
-            self.biome_selected = "Plains"
-        elif self.territory_type == "cliffside":
-            self.biome_selected = "Mountainous"
-        else:
-            self.biome_selected = "Beach"
-
         game.clan = Clan(
             name=self.clan_name,
             baron=self.baron,
@@ -2175,13 +2566,13 @@ class MakeClanScreen(Screens):
             regent=self.regent,
             doctor=self.doctor,
             biome=self.biome_selected,
+            camp_bg=convert_camp[self.selected_camp_tab],
             symbol=self.symbol_selected,
             game_mode=self.game_mode,
             starting_members=self.members,
             starting_season=self.selected_season,
             colour=self.colour,
-            territory=territory_tiles[self.territory_type],
-            territory_type=self.territory_type,
+            territory=game.switches["creation_other_clans"][1][0],
             export=self.export
         )
         # BL
@@ -2196,18 +2587,51 @@ class MakeClanScreen(Screens):
         Cat.grief_strings.clear()
         Cat.sort_cats()
 
-    def get_camp_art_path(self) -> Optional[str]:
+    def create_map(self):
+        map_image = pygame.image.load("resources/images/badlands/map_small.png").convert_alpha()
+
+        if game.settings["fullscreen"]:
+            scaled_image = pygame.transform.scale(map_image, (435, 435))
+
+            x_pos = 295
+            y_pos = 112
+            position = (370, 145)
+        else:
+            scaled_image = pygame.transform.scale(map_image, (350, 350))
+
+            x_pos = 230
+            y_pos = 100
+            position = (230, 100)
+        
+        scaled_image.set_alpha(220) #255 is full opaque
+
+        screen.blit(scaled_image, position)
+
+        for y in range(1, 8):
+            for x in range(1, 8):
+                for clan_territory in game.switches["creation_other_clans"][1]:
+                    generate_map(Cat, screen, x, y, x_pos, y_pos, clan_territory)
+                x_pos += 50
+            y_pos += 50
+            if game.settings["fullscreen"]:
+                x_pos = 295
+            else:
+                x_pos = 230
+
+    def get_camp_art_path(self, campnum) -> Optional[str]:
+        if not campnum:
+            return None
 
         leaf = self.selected_season.replace("-", "")
 
-        camp_bg_base_dir = "resources/images/badlands/camp_bg"
+        camp_bg_base_dir = "resources/images/camp_bg/"
         start_leave = leaf.casefold()
         light_dark = "dark" if game.settings["dark mode"] else "light"
 
-        territorytype = self.territory_type.lower()
+        biome = self.biome_selected.lower()
 
         return (
-            f"{camp_bg_base_dir}/{territorytype}/{start_leave}_{light_dark}.png"
+            f"{camp_bg_base_dir}/{biome}/{start_leave}_camp{campnum}_{light_dark}.png"
         )
 
     def chunks(self, L, n):

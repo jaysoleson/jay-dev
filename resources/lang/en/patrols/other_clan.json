@@ -611,7 +611,7 @@
             "baron": [-1, -1]
         },
         "weight": 20,
-        "intro_text": "As p_l is checking the border lines, {PRONOUN/p_l/subject} {VERB/p_l/notice/notices} that a b2_t scent has strayed into b1_t territory.",
+        "intro_text": "As p_l is checking the border lines, {PRONOUN/p_l/subject} {VERB/p_l/notice/notices} that a b2_t scent has strayed into b1_t.",
         "decline_text": "p_l decides that it isn't important. Maybe a colt simply lost their way.",
         "chance_of_success": 50,
         "success_outcomes": [
@@ -628,7 +628,7 @@
                 "other_clan_rep": 2
             },
             {
-                "text": "s_c follows the scent and finds a wounded b2_t Clipper. It seems the cat had been caught by a dog and chased into b1_t territory. The dog is gone now, but the Clipper can't make it back across the border on their own. s_c insists on helping the Clipper back to the border.",
+                "text": "s_c follows the scent and finds a wounded b2_t Clipper. It seems the cat had been caught by a dog and chased into b1_t. The dog is gone now, but the Clipper can't make it back across the border on their own. s_c insists on helping the Clipper back to the border.",
                 "exp": 10,
                 "weight": 20,
                 "stat_trait": ["compassionate", "calm"],
@@ -2897,7 +2897,7 @@
             ],
             "fail_outcomes": [
             {
-                "text": "In hindsight, maybe it wasn't the best idea to suggest app1 sneak onto b2_t territory. But app1 wasn't going to steal any prey, truly, p_l insists to the b2_t patrol, {PRONOUN/app1/subject} just got overexcited! p_l's rambling excuses and apologies do little to soothe tensions, and the pair eventually return back to camp with heads and tails hung low. This is not going to be fun to explain.",
+                "text": "In hindsight, maybe it wasn't the best idea to suggest app1 sneak onto b2_t. But app1 wasn't going to steal any prey, truly, p_l insists to the b2_t patrol, {PRONOUN/app1/subject} just got overexcited! p_l's rambling excuses and apologies do little to soothe tensions, and the pair eventually return back to camp with heads and tails hung low. This is not going to be fun to explain.",
                 "exp": 0,
                 "weight": 20,
                 "art": "gen_bord_otherclan_hostile",
@@ -3563,6 +3563,108 @@
                 "exp": 0,
                 "weight": 20,
                 "other_clan_rep": -1
+            }
+        ]
+    },
+    {
+        "patrol_id": "badlands_test",
+        "biome": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "types": [
+            "border"
+        ],
+        "tags": [],
+        "patrol_art": "bord_general_intro",
+        "min_cats": 1,
+        "max_cats": 1,
+        "min_max_status": {
+            "baron": [1, 1]
+        },
+        "weight": 20,
+        "intro_text": "p_l comes across the b2_t's Baron, baron2, at their shared border. When p_l asks what they're doing, they snap that p_l should mind their own business.",
+        "decline_text": "p_l, with an annoyed lash of their tail, turns away. Whatever baron2 is doing, they don't care.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "p_l brushes off the sass and gives baron2 a warm greeting. After a few moments of polite conversation, baron2's hackles lower, and they tell p_l while they're here. Apparently, a group of their colts were playing on the border, mucking up the markers, and baron2 came to fix it. p_l tells them theres no need to be embarrassed-- not even the most powerful Baron can control their colts all the time!",
+                "exp": 10,
+                "weight": 20,
+                "other_clan_rep": 2
+            },
+            {
+                "text": "p_l snaps something back at their fellow Baron who, instead of being offended, just nods and compliments p_l's cleverness.",
+                "exp": 10,
+                "weight": 20,
+                "stat_skill": [
+                    "CLEVER,1"
+                ],
+                "other_clan_rep": 1
+            },
+            {
+                "text": "p_l approaches the tense meeting with a warm demeanour, and after a moment, baron2's hackles lower. Apparently. theyw ere embarrassed being caught so clsoe to the border. p_l tells them it's fine, as they hadn't crossed any lines yet, and the two Barons part ways civilly.",
+                "exp": 10,
+                "weight": 20,
+                "other_clan_rep": 2
+            },
+            {
+                "text": "p_l approaches the other Baron with a joke, to which baron2 actually laughs. The tension immediately dissipates as the two laugh and joke about the other Barons at the most recent Conclave.",
+                "exp": 10,
+                "weight": 20,
+                "other_clan_rep": 2
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "p_l tries to approach the other Baron with a joke to lessen the tension, but baron2's twitching tail doesn't still. baron2 is quick to inform the b1_t Baron that they're here on business, not for chatter.",
+                "exp": 0,
+                "weight": 20,
+                "other_clan_rep": -1
+            },
+            {
+                "text": "Annoyed at the other Baron's immediate dismissal, p_l just snorts and continues along the border, pretending not to have noticed the b2_t Baron. p_l hears baron2 stalking away, tail lashing in the grass.",
+                "exp": 0,
+                "weight": 20,
+                "other_clan_rep": -1
+            }
+        ],
+        "antag_fail_outcomes": [
+            {
+                "text": "p_l unsheathes their claws, asking baron2 if there's some sort of problem. baron2 just snorts, saying it's nothing p_l would be smart enough to handle, as they ask for p_l's Regent to come meet them instead.",
+                "exp": 0,
+                "weight": 20,
+                "other_clan_rep": -1
+            }
+        ],
+        "antag_success_outcomes": [
+            {
+                "text": "If baron2 is going to be hostile, p_l is going to be hostile right back! p_l unsheathes their claws and growls at baron2 to take a step back. Startled they do, and p_l continues on their way.",
+                "exp": 10,
+                "weight": 20,
+                "other_clan_rep": -2
+            },
+            {
+                "text": "p_l doesn't hesitate before leaping over the border to attack their fellow Baron. baron2 struggles a bit, but is able to get away. p_l laughs as they retreat.",
+                "exp": 10,
+                "weight": 20,
+                "other_clan_rep": -2,
+                "injury": [
+                    {
+                        "cats": ["baron2"],
+                        "injuries": ["battle_injury"],
+                        "scars": ["SIDE"]
+                    }
+                ]
+            },
+            {
+                "text": "p_l doesn't hesitate before leaping over the border to attack their fellow Baron. baron2, taken off-guard, is no match for the b1_t Baron, and p_l swiftly ends their life. This surely won't be good for relations with the next Baron, but baron2 had it coming.",
+                "exp": 10,
+                "weight": 20,
+                "other_clan_rep": -4,
+                "dead_cats": ["baron2"]
             }
         ]
     }

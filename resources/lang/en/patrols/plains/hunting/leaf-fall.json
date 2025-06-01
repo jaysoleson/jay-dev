@@ -953,7 +953,7 @@
                 ]
             },
             {
-                "text": "The patrol sneaks closer, until p_l realizes that the swift vixen is approaching her den. Her cubs, nearly full grown on prey stolen from the b1_t Territory, poke their heads out, and the cats yowl in outrage. They charge the den, killing two of the cubs before the vixen runs with her third.",
+                "text": "The patrol sneaks closer, until p_l realizes that the swift vixen is approaching her den. Her cubs, nearly full grown on prey stolen from the b1_t, poke their heads out, and the cats yowl in outrage. They charge the den, killing two of the cubs before the vixen runs with her third.",
                 "exp": 30,
                 "weight": 5,
                 "prey": ["large"],

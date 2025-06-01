@@ -44,7 +44,7 @@
                 ]
             },
             {
-                "text": "{PRONOUN/s_c/subject/CAP} {VERB/s_c/do/does}n't feel like {PRONOUN/s_c/subject} {VERB/s_c/have/has} the skill or power to take on a dog single-pawed, but s_c would give {PRONOUN/s_c/poss} life for c_n. {PRONOUN/s_c/subject/CAP} {VERB/s_c/charge/charges} in courageously to lead the dog away from c_n territory. Each booming bark could be the herald of {PRONOUN/s_c/poss} doom, each rancid breath the last thing {PRONOUN/s_c/subject} might ever smell, but somehow, limbs and lungs burning, {PRONOUN/s_c/subject} eventually {VERB/s_c/leap/leaps} to refuge.",
+                "text": "{PRONOUN/s_c/subject/CAP} {VERB/s_c/do/does}n't feel like {PRONOUN/s_c/subject} {VERB/s_c/have/has} the skill or power to take on a dog single-pawed, but s_c would give {PRONOUN/s_c/poss} life for the b1_t. {PRONOUN/s_c/subject/CAP} {VERB/s_c/charge/charges} in courageously to lead the dog away from b1_t. Each booming bark could be the herald of {PRONOUN/s_c/poss} doom, each rancid breath the last thing {PRONOUN/s_c/subject} might ever smell, but somehow, limbs and lungs burning, {PRONOUN/s_c/subject} eventually {VERB/s_c/leap/leaps} to refuge.",
                 "exp": 40,
                 "weight": 20,
                 "stat_trait": [
@@ -309,7 +309,7 @@
                 ]
             },
             {
-                "text": "The patrol gathers their courage and valiantly drives away the dog. Together, working as one, and with all the strength of StarClan behind them, the patrol harries the dog. By keeping up a series of small skirmishes through the entire day, they drive it all the way off c_n territory.",
+                "text": "The patrol gathers their courage and valiantly drives away the dog. Together, working as one, and with all the strength of StarClan behind them, the patrol harries the dog. By keeping up a series of small skirmishes through the entire day, they drive it all the way off b1_t.",
                 "exp": 20,
                 "weight": 5,
                 "relationships": [
@@ -573,7 +573,7 @@
         "max_cats": 3,
         "min_max_status": {},
         "weight": 20,
-        "intro_text": "The patrol comes across a small dog right on the border of c_n territory.",
+        "intro_text": "The patrol comes across a small dog right on the border of b1_t.",
         "decline_text": "p_l decides not to pursue the dog and instead cuts the patrol short to head back to camp and report it.",
         "chance_of_success": 60,
         "success_outcomes": [
@@ -606,7 +606,7 @@
                 ]
             },
             {
-                "text": "s_c calls out a battle plan, and the cats flow into it, carefully covering each other. They drive the dog backwards until it loses its nerve, tucks tail, and runs from c_n territory, fleeing deep into the wilderness.",
+                "text": "s_c calls out a battle plan, and the cats flow into it, carefully covering each other. They drive the dog backwards until it loses its nerve, tucks tail, and runs from b1_t, fleeing deep into the wilderness.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,1"],
@@ -655,7 +655,7 @@
         "max_cats": 6,
         "min_max_status": {},
         "weight": 20,
-        "intro_text": "The patrol comes across a small dog right on the border of c_n territory.",
+        "intro_text": "The patrol comes across a small dog right on the border of b1_t.",
         "decline_text": "p_l decides not to pursue the dog and instead cuts the patrol short to head back to camp and report it.",        
         "chance_of_success": 10,
         "success_outcomes": [
@@ -688,7 +688,7 @@
                 ]
             },
             {
-                "text": "s_c calls out a battle plan, and the cats flow into it, carefully covering each other and driving the dog backwards until it loses its nerve, tucks tail, and runs from c_n territory, deep into the wilderness.",
+                "text": "s_c calls out a battle plan, and the cats flow into it, carefully covering each other and driving the dog backwards until it loses its nerve, tucks tail, and runs from b1_t, deep into the wilderness.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,1"],

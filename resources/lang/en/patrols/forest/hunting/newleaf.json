@@ -3352,7 +3352,7 @@
                 ]
             },
             {
-                "text": "r_c spots a great hole in the trunk of an oak, and together the hunting patrol shimmer up into the branches, teasing app1 for accidentally breaking one of the eight big eggs inside. p_l tells the apprentices that with this many big eggs, the nest they're raiding is probably that of a bird of prey - always good to have fewer of those in the b1_t Territory. They even bring back some oak leaves with them, though it's a real struggle holding them with the eggs!",
+                "text": "r_c spots a great hole in the trunk of an oak, and together the hunting patrol shimmer up into the branches, teasing app1 for accidentally breaking one of the eight big eggs inside. p_l tells the apprentices that with this many big eggs, the nest they're raiding is probably that of a bird of prey - always good to have fewer of those in the b1_t. They even bring back some oak leaves with them, though it's a real struggle holding them with the eggs!",
                 "exp": 60,
                 "weight": 5,
                 "herbs": ["oak_leaves"],
@@ -3451,7 +3451,7 @@
                 ]
             },
             {
-                "text": "r_c spots a great hole in the trunk of an oak, and together the hunting patrol shimmer up into the branches, teasing app1 for accidentally breaking one of the eight big eggs inside. p_l tells the apprentices that with this many big eggs, the nest they're raiding is probably that of a bird of prey - always good to have fewer of those in the b1_t Territory. They even bring back some oak leaves with them, though it's a real struggle holding them with the eggs!",
+                "text": "r_c spots a great hole in the trunk of an oak, and together the hunting patrol shimmer up into the branches, teasing app1 for accidentally breaking one of the eight big eggs inside. p_l tells the apprentices that with this many big eggs, the nest they're raiding is probably that of a bird of prey - always good to have fewer of those in the b1_t. They even bring back some oak leaves with them, though it's a real struggle holding them with the eggs!",
                 "exp": 90,
                 "weight": 5,
                 "herbs": ["oak_leaves"],
@@ -3789,7 +3789,7 @@
                 ]
             },
             {
-                "text": "p_l spots a great hole in the trunk of an oak, and together the hunting patrol shimmy up into the branches. p_l teases app1 for accidentally breaking one of the eight big eggs inside. p_l tells the apprentice that with this many big eggs, the nest they're raiding is probably that of a bird of prey, always good to have less of in the b1_t Territory. They even bring back some oak leaves with them, though it's a real struggle holding them with the eggs!",
+                "text": "p_l spots a great hole in the trunk of an oak, and together the hunting patrol shimmy up into the branches. p_l teases app1 for accidentally breaking one of the eight big eggs inside. p_l tells the apprentice that with this many big eggs, the nest they're raiding is probably that of a bird of prey, always good to have less of in the b1_t. They even bring back some oak leaves with them, though it's a real struggle holding them with the eggs!",
                 "exp": 30,
                 "weight": 5,
                 "herbs": ["oak_leaves"],

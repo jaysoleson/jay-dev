@@ -1201,7 +1201,7 @@
         "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "It's just an odd nomad singing to themself. The patrol greets them, and as the nomad isn't inside c_n territory, it's a polite interaction without any hostility.",
+                "text": "It's just an odd nomad singing to themself. The patrol greets them, and as the nomad isn't inside b1_t, it's a polite interaction without any hostility.",
                 "exp": 30,
                 "weight": 20
             },
@@ -1262,7 +1262,7 @@
         "chance_of_success": 10,
         "success_outcomes": [
             {
-                "text": "It's just an odd nomad singing to themself. r_c greets them, and as the nomad isn't inside c_n territory, it's a polite interaction without any hostility.",
+                "text": "It's just an odd nomad singing to themself. r_c greets them, and as the nomad isn't inside b1_t, it's a polite interaction without any hostility.",
                 "exp": 30,
                 "weight": 20
             },
@@ -1603,7 +1603,7 @@
                 "weight": 5
             },
             {
-                "text": "The pawprints lead to a trespassing rogue. s_c throws themselves at the rogue, hissing furiously, and drives them off b1_t territory.",
+                "text": "The pawprints lead to a trespassing rogue. s_c throws themselves at the rogue, hissing furiously, and drives them off b1_t.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,1"]
@@ -1831,7 +1831,7 @@
                 "weight": 5
             },
             {
-                "text": "The pawprints lead to a trespassing rogue. With a furious hiss, s_c throws themselves at the rogue and, together with r_c, drives them off b1_t territory.",
+                "text": "The pawprints lead to a trespassing rogue. With a furious hiss, s_c throws themselves at the rogue and, together with r_c, drives them off b1_t.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,1"]
@@ -2029,7 +2029,7 @@
                 "weight": 5
             },
             {
-                "text": "The pawprints lead to a trespassing rogue. With a furious hiss, s_c throws themselves at the rogue and, together with r_c, drives them off b1_t territory.",
+                "text": "The pawprints lead to a trespassing rogue. With a furious hiss, s_c throws themselves at the rogue and, together with r_c, drives them off b1_t.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["FIGHTER,1"]

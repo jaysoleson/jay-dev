@@ -496,10 +496,10 @@ class BaronDenScreen(Screens):
                 },
             )
             self.other_clan_selection_elements[
-                f"territory_type{i}"
+                f"clan_name{i}"
             ] = pygame_gui.elements.UILabel(
                 ui_scale(pygame.Rect((0, 5), (133, -1))),
-                text=other_clan.territory_type.capitalize() + " Territory",
+                text=other_clan.name + " Territory",
                 object_id=get_text_box_theme("#text_box_26_horizcenter"),
                 container=self.other_clan_selection_elements[f"container{i}"],
                 manager=MANAGER,
@@ -518,7 +518,7 @@ class BaronDenScreen(Screens):
                 manager=MANAGER,
                 anchors={
                     "centerx": "centerx",
-                    "top_target": self.other_clan_selection_elements[f"territory_type{i}"],
+                    "top_target": self.other_clan_selection_elements[f"clan_name{i}"],
                 },
             )
             self.other_clan_selection_elements[
@@ -740,9 +740,9 @@ class BaronDenScreen(Screens):
             manager=MANAGER,
             anchors={"centerx": "centerx"},
         )
-        self.focus_clan_elements["territory_type"] = pygame_gui.elements.UILabel(
+        self.focus_clan_elements["clan_name"] = pygame_gui.elements.UILabel(
             ui_scale(pygame.Rect((0, 10), (215, -1))),
-            text=self.focus_clan.territory_type.capitalize() + " Territory",
+            text=self.focus_clan.name + " Territory",
             object_id="#text_box_30_horizcenter",
             container=self.focus_info_container,
             manager=MANAGER,
@@ -759,7 +759,7 @@ class BaronDenScreen(Screens):
             manager=MANAGER,
             anchors={
                 "centerx": "centerx",
-                "top_target": self.focus_clan_elements["territory_type"],
+                "top_target": self.focus_clan_elements["clan_name"],
             },
         )
         self.focus_clan_elements["clan_rel"] = pygame_gui.elements.UILabel(

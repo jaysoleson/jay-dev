@@ -2407,7 +2407,7 @@
         "chance_of_success": 70,
         "success_outcomes": [
             {
-                "text": "Anticipating the coming rains, this fox is checking for a suitable burrow for her litter. And that burrow will not be in the b1_t Territory. The patrol makes that clear, screaming and charging at her until the fox flees beyond their borders, away from where her cubs could threaten the Clan.",
+                "text": "Anticipating the coming rains, this fox is checking for a suitable burrow for her litter. And that burrow will not be in the b1_t. The patrol makes that clear, screaming and charging at her until the fox flees beyond their borders, away from where her cubs could threaten the Clan.",
                 "exp": 30,
                 "weight": 20,
                 "relationships": [
@@ -2481,7 +2481,7 @@
         "max_cats": 1,
         "min_max_status": {},
         "weight": 20,
-        "intro_text": "r_c spots a swift fox in the distance, behaving weirdly. It's the biggest of the foxes in the b1_t Territory, the size of a cat, and r_c is alone. Should they try and take it on?",
+        "intro_text": "r_c spots a swift fox in the distance, behaving weirdly. It's the biggest of the foxes in the b1_t, the size of a cat, and r_c is alone. Should they try and take it on?",
         "decline_text": "Best not to risk a fight. r_c watches it go.",
         "chance_of_success": 60,
         "success_outcomes": [

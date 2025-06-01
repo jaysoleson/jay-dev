@@ -15,7 +15,7 @@
         "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "The scent leads to a trespassing rogue. r_c runs down the scree slope to see what's up with them, but the rogue turns and flees c_n territory.",
+                "text": "The scent leads to a trespassing rogue. r_c runs down the scree slope to see what's up with them, but the rogue turns and flees b1_t.",
                 "exp": 10,
                 "weight": 20
             },
@@ -123,12 +123,12 @@
         "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "The scent leads to a trespassing rogue. app1 runs down the scree slope to see what's up with them, but the rogue turns and flees c_n territory. Well, they probably weren't super friendly then, app1 assumes.",
+                "text": "The scent leads to a trespassing rogue. app1 runs down the scree slope to see what's up with them, but the rogue turns and flees b1_t. Well, they probably weren't super friendly then, app1 assumes.",
                 "exp": 10,
                 "weight": 20
             },
             {
-                "text": "Boldly, s_c follows the scent to a trespassing rogue and confronts them. Fur puffed but ears pricked forward curiously, {PRONOUN/s_c/subject} {VERB/s_c/ask/asks} what the rogue is doing in c_n territory. It seems to embarrass the other cat, who walks off in a huff back over the border.",
+                "text": "Boldly, s_c follows the scent to a trespassing rogue and confronts them. Fur puffed but ears pricked forward curiously, {PRONOUN/s_c/subject} {VERB/s_c/ask/asks} what the rogue is doing in b1_t. It seems to embarrass the other cat, who walks off in a huff back over the border.",
                 "exp": 10,
                 "weight": 20,
                 "stat_trait": [
@@ -211,7 +211,7 @@
         "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "The scent leads to a trespassing rogue. The patrol runs down the scree slope to see what's up with them, but the rogue turns and flees c_n territory.",
+                "text": "The scent leads to a trespassing rogue. The patrol runs down the scree slope to see what's up with them, but the rogue turns and flees b1_t.",
                 "exp": 10,
                 "weight": 20
             },
@@ -322,7 +322,7 @@
         "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "The scent leads to a trespassing rogue. The patrol runs down the scree slope to see what's up with them, but the rogue turns and flees c_n territory.",
+                "text": "The scent leads to a trespassing rogue. The patrol runs down the scree slope to see what's up with them, but the rogue turns and flees b1_t.",
                 "exp": 10,
                 "weight": 20,
                 "relationships": [
@@ -366,7 +366,7 @@
                 ]
             },
             {
-                "text": "Boldly, s_c follows the scent to a trespassing rogue and confronts them. Fur puffed but ears pricked forward curiously, {PRONOUN/s_c/subject} {VERB/s_c/ask/asks} what the rogue is doing in c_n territory. It seems to embarrass the other cat, who walks off in a huff back over the border.",
+                "text": "Boldly, s_c follows the scent to a trespassing rogue and confronts them. Fur puffed but ears pricked forward curiously, {PRONOUN/s_c/subject} {VERB/s_c/ask/asks} what the rogue is doing in b1_t. It seems to embarrass the other cat, who walks off in a huff back over the border.",
                 "exp": 10,
                 "weight": 20,
                 "stat_trait": [
@@ -438,7 +438,7 @@
         "chance_of_success": 20,
         "success_outcomes": [
             {
-                "text": "The scent leads to a trespassing rogue. The patrol runs down the scree slope to see what's up with them, but the rogue turns and flees c_n territory.",
+                "text": "The scent leads to a trespassing rogue. The patrol runs down the scree slope to see what's up with them, but the rogue turns and flees b1_t.",
                 "exp": 10,
                 "weight": 20
             },
@@ -536,7 +536,7 @@
         "chance_of_success": 20,
         "success_outcomes": [
             {
-                "text": "The scent leads to a trespassing rogue. The patrol runs down the scree slope to see what's up with them, but the rogue turns and flees c_n territory.",
+                "text": "The scent leads to a trespassing rogue. The patrol runs down the scree slope to see what's up with them, but the rogue turns and flees b1_t.",
                 "exp": 10,
                 "weight": 20,
                 "relationships": [
@@ -580,7 +580,7 @@
                 ]
             },
             {
-                "text": "Boldly, s_c follows the scent to a trespassing rogue and confronts them. Fur puffed but ears pricked forward curiously, {PRONOUN/s_c/subject} {VERB/s_c/ask/asks} what the rogue is doing in c_n territory. It seems to embarrass the other cat, who walks off in a huff back over the border.",
+                "text": "Boldly, s_c follows the scent to a trespassing rogue and confronts them. Fur puffed but ears pricked forward curiously, {PRONOUN/s_c/subject} {VERB/s_c/ask/asks} what the rogue is doing in b1_t. It seems to embarrass the other cat, who walks off in a huff back over the border.",
                 "exp": 10,
                 "weight": 20,
                 "stat_trait": [

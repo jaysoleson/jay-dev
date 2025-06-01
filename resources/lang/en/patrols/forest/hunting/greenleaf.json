@@ -3799,7 +3799,7 @@
                 "prey": ["large"]
             },
             {
-                "text": "With the sky gray and intermittently scattering water through the b1_t Territory, any Twolegs will be huddled in their strange dens. s_c doesn't know why, but the behavior is obvious. It makes it far safer to hunt near Twoleg paths and dens, and s_c brings a nice f_mp_s and a very dumb f_tp_s that wandered in front of {PRONOUN/s_c/poss} nose back for the fresh-kill pile.",
+                "text": "With the sky gray and intermittently scattering water through the b1_t, any Twolegs will be huddled in their strange dens. s_c doesn't know why, but the behavior is obvious. It makes it far safer to hunt near Twoleg paths and dens, and s_c brings a nice f_mp_s and a very dumb f_tp_s that wandered in front of {PRONOUN/s_c/poss} nose back for the fresh-kill pile.",
                 "exp": 15,
                 "weight": 20,
                 "stat_trait": [

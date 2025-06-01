@@ -463,7 +463,7 @@
     ],
     "season": ["any"],
     "weight": 10,
-    "event_text": "m_c accidentally trespasses onto o_the b1_t Territory.",
+    "event_text": "m_c accidentally trespasses onto o_the b1_t.",
     "m_c": {
         "age": ["adolescent", "young adult", "adult", "senior adult"],
         "status": ["any"]
@@ -2211,7 +2211,7 @@
     ],
     "season": ["any"],
     "weight": 20,
-    "event_text": "On a bit of the b1_t Territory that borders unclaimed land, m_c finds scent that indicates there's a nomad wandering somewhere out there.",
+    "event_text": "On a bit of the b1_t that borders unclaimed land, m_c finds scent that indicates there's a nomad wandering somewhere out there.",
     "m_c": {
         "age": ["adolescent", "young adult", "adult", "senior adult", "senior"]
     },
@@ -2262,7 +2262,7 @@
     ],
     "season": ["any"],
     "weight": 20,
-    "event_text": "Someone has been hunting in c_n territory, a stranger without a Clan scent. c_n doesn't know their face, but they memorise their smell.",
+    "event_text": "Someone has been hunting in b1_t, a stranger without a Clan scent. c_n doesn't know their face, but they memorise their smell.",
     "m_c": {
         "age": ["adolescent", "young adult", "adult", "senior adult", "senior"]
     },

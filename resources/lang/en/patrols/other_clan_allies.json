@@ -330,7 +330,7 @@
                 "other_clan_rep": 2
             },
             {
-                "text": "The patrol follows the scent and finds a wounded b2_t Clipper. It seems the cat had been caught by a dog and chased into b1_t territory. The dog is gone now, but the Clipper can't make it back across the border on their own. s_c insists that the patrol escort the Clipper back to the b2_t camp and baron2 is grateful for the service.",
+                "text": "The patrol follows the scent and finds a wounded b2_t Clipper. It seems the cat had been caught by a dog and chased into b1_t. The dog is gone now, but the Clipper can't make it back across the border on their own. s_c insists that the patrol escort the Clipper back to the b2_t camp and baron2 is grateful for the service.",
                 "exp": 10,
                 "weight": 20,
                 "stat_trait": ["compassionate", "calm"],
@@ -427,7 +427,7 @@
                 "other_clan_rep": 2
             },
             {
-                "text": "p_l follows the scent and finds a wounded b2_t Clipper. It seems the cat had been caught by a dog and chased into b1_t territory.  The dog is gone now, but the Clipper can't make it back across the border on their own. s_c insists on escorting the Clipper back to the b2_t camp - baron2 is grateful for the service.",
+                "text": "p_l follows the scent and finds a wounded b2_t Clipper. It seems the cat had been caught by a dog and chased into b1_t.  The dog is gone now, but the Clipper can't make it back across the border on their own. s_c insists on escorting the Clipper back to the b2_t camp - baron2 is grateful for the service.",
                 "exp": 10,
                 "weight": 20,
                 "stat_trait": ["compassionate", "calm"],

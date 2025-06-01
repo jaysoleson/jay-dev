@@ -36,7 +36,7 @@
   },
   {
     "interaction_type": "offend",
-    "event_text": "m_c takes {PRONOUN/m_c/poss} chance at the Conclave to tell the b2_t Baron that the b1_t Territory stands alone. baron2 approves of {PRONOUN/m_c/poss} strength and independence, and tells {PRONOUN/m_c/object} that their alliance is stronger than ever.",
+    "event_text": "m_c takes {PRONOUN/m_c/poss} chance at the Conclave to tell the b2_t Baron that the b1_t stands alone. baron2 approves of {PRONOUN/m_c/poss} strength and independence, and tells {PRONOUN/m_c/object} that their alliance is stronger than ever.",
     "rel_change": 1,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -241,7 +241,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "m_c praises the beauty of the b2_t Territory at length during the Conclave. baron2 questions whether m_c is hinting that {PRONOUN/m_c/subject}'d like to steal some of it.",
+    "event_text": "m_c praises the beauty of the b2_t at length during the Conclave. baron2 questions whether m_c is hinting that {PRONOUN/m_c/subject}'d like to steal some of it.",
     "rel_change": -1,
     "m_c": {},
     "player_clan_temper": ["any"],
@@ -356,7 +356,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "At the Conclave, m_c comments on what delicious prey must be found on b2_t Territory. baron2 looks uneasy - they may be allies, but {PRONOUN/baron2/subject} {VERB/baron2/know/knows} m_c to be a troublesome cat, and that sure sounded like {PRONOUN/m_c/subject}{VERB/m_c/'d/'s} like to take some for {PRONOUN/m_c/self}.",
+    "event_text": "At the Conclave, m_c comments on what delicious prey must be found on b2_t. baron2 looks uneasy - they may be allies, but {PRONOUN/baron2/subject} {VERB/baron2/know/knows} m_c to be a troublesome cat, and that sure sounded like {PRONOUN/m_c/subject}{VERB/m_c/'d/'s} like to take some for {PRONOUN/m_c/self}.",
     "rel_change": -1,
     "m_c": { 
       "trait": [ "troublesome" ],

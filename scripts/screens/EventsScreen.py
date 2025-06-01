@@ -360,7 +360,7 @@ class EventsScreen(Screens):
 
         # Draw and disable the correct menu buttons.
         self.set_disabled_menu_buttons(["events_screen"])
-        self.update_heading_text(str(game.clan.territory_type).capitalize() + " Territory")
+        self.update_heading_text(game.clan.name + " Territory")
         self.show_menu_buttons()
 
     def display_change_save(self) -> Dict:

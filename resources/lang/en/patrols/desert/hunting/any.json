@@ -44,7 +44,7 @@
         ],
         "antag_success_outcomes": [
             {
-                "text": "The cats leap onto a Twoleg metal leaf, sending it over with a mighty crash. This is c_n territory, not Twoleg!",
+                "text": "The cats leap onto a Twoleg metal leaf, sending it over with a mighty crash. This is b1_t, not Twoleg!",
                 "exp": 20,
                 "weight": 20
             }
@@ -95,7 +95,7 @@
         ],
         "antag_success_outcomes": [
             {
-                "text": "The cats leap onto a Twoleg metal leaf, sending it over with a mighty crash. This is c_n territory, not Twoleg!",
+                "text": "The cats leap onto a Twoleg metal leaf, sending it over with a mighty crash. This is b1_t, not Twoleg!",
                 "exp": 20,
                 "weight": 20
             }
@@ -958,7 +958,7 @@
         "max_cats": 1,
         "min_max_status": {},
         "weight": 20,
-        "intro_text": "r_c spots a swift fox in the distance, trotting through the scrubland with a desert hare in its jaws. It's the biggest of the foxes in the b1_t Territory, the size of a cat, and r_c is alone. Should they try and take it on?",
+        "intro_text": "r_c spots a swift fox in the distance, trotting through the scrubland with a desert hare in its jaws. It's the biggest of the foxes in the b1_t, the size of a cat, and r_c is alone. Should they try and take it on?",
         "decline_text": "Best not to risk a fight. r_c watches it go.",
         "chance_of_success": 60,
         "success_outcomes": [

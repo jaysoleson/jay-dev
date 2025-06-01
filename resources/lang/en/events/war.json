@@ -2,10 +2,10 @@
   "comment": "use lead_name, med_name, and dep_name to insert the name of a cat with that rank",
   "event": "War",
   "trigger_events": [
-    "baron1 of the b1_t Territory has officially declared war on baron2 of the b2_t Territory.",
-    "baron1 and baron2 arrange a peaceful meeting to settle their difference. However, when both Barons bring a patrol of Clippers for defense, tensions rise, and a fight breaks out. The b1_t Territory is at war with the b2_t Territory.",
+    "baron1 of the b1_t has officially declared war on baron2 of the b2_t.",
+    "baron1 and baron2 arrange a peaceful meeting to settle their difference. However, when both Barons bring a patrol of Clippers for defense, tensions rise, and a fight breaks out. The b1_t is at war with the b2_t.",
     "The b1_t announces a war against the b2_t.",
-    "baron2 makes a snide remark against baron1 at the Conclave, and baron1 declares it to be the final straw. {PRONOUN/baron1/subject/CAP} officially {VERB/baron1/declare/declares} war against the b2_t Territory."
+    "baron2 makes a snide remark against baron1 at the Conclave, and baron1 declares it to be the final straw. {PRONOUN/baron1/subject/CAP} officially {VERB/baron1/declare/declares} war against the b2_t."
   ],
   "progress_events": {
     "comment": [
@@ -75,8 +75,8 @@
         " As baron2 stumbles away from the final battle, bleeding and bruised, a group of b1_t Clippers are quick to claim their newly won piece of territory."
       ],
       "winner_defense": [
-        " Though {PRONOUN/baron2/poss} Clippers will need some time to recover, baron2 is thankful that baron1 did not succeed in overtaking any b2_t territory.",
-        " baron1 has not managed to overtake any b2_t territory."
+        " Though {PRONOUN/baron2/poss} Clippers will need some time to recover, baron2 is thankful that baron1 did not succeed in overtaking any b2_t.",
+        " baron1 has not managed to overtake any b2_t."
       ],
       "none": [
         " Neither Baron truly feels as if they have won, and no territory is traded."

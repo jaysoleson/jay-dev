@@ -1099,7 +1099,7 @@
                 "art": "gen_happy_cat2"
             },
             {
-                "text": "There's nothing to worry about! s_c pads confidently through c_n territory, assured in {PRONOUN/s_c/poss} safety by the strength of c_n's borders.",
+                "text": "There's nothing to worry about! s_c pads confidently through b1_t, assured in {PRONOUN/s_c/poss} safety by the strength of c_n's borders.",
                 "exp": 20,
                 "weight": 20,
                 "art": "fst_hunt_fun2",
@@ -1184,7 +1184,7 @@
                 "stat_skill": ["CLEVER,1"]
             },
             {
-                "text": "s_c pads confidently through c_n territory. There's a particular peace in exploring {PRONOUN/s_c/poss} beloved home, ears pricked up curiously whenever {PRONOUN/s_c/subject} {VERB/s_c/spot/spots} how the seasons and weather have reshaped it since {PRONOUN/s_c/subject} last passed this way.",
+                "text": "s_c pads confidently through b1_t. There's a particular peace in exploring {PRONOUN/s_c/poss} beloved home, ears pricked up curiously whenever {PRONOUN/s_c/subject} {VERB/s_c/spot/spots} how the seasons and weather have reshaped it since {PRONOUN/s_c/subject} last passed this way.",
                 "exp": 20,
                 "weight": 20,
                 "art": "gen_happy_cat",
@@ -1252,7 +1252,7 @@
                 "stat_skill": ["CLEVER,1", "INSIGHTFUL,1"]
             },
             {
-                "text": "s_c pads confidently through c_n territory. There's a particular peace in exploring {PRONOUN/s_c/poss} beloved home, ears pricked up curiously whenever {PRONOUN/s_c/subject} {VERB/s_c/spot/spots} how the seasons and weather have reshaped it since {PRONOUN/s_c/subject} last passed this way.",
+                "text": "s_c pads confidently through b1_t. There's a particular peace in exploring {PRONOUN/s_c/poss} beloved home, ears pricked up curiously whenever {PRONOUN/s_c/subject} {VERB/s_c/spot/spots} how the seasons and weather have reshaped it since {PRONOUN/s_c/subject} last passed this way.",
                 "exp": 20,
                 "weight": 20,
                 "art": "gen_happy_cat",
@@ -1321,7 +1321,7 @@
                 "stat_skill": ["CLEVER,1", "INSIGHTFUL,1"]
             },
             {
-                "text": "s_c pads confidently through c_n territory. There's a particular peace in exploring {PRONOUN/s_c/poss} beloved home, ears pricked up curiously whenever {PRONOUN/s_c/subject} {VERB/s_c/spot/spots} how the seasons and weather have reshaped it since {PRONOUN/s_c/subject} last passed this way.",
+                "text": "s_c pads confidently through b1_t. There's a particular peace in exploring {PRONOUN/s_c/poss} beloved home, ears pricked up curiously whenever {PRONOUN/s_c/subject} {VERB/s_c/spot/spots} how the seasons and weather have reshaped it since {PRONOUN/s_c/subject} last passed this way.",
                 "exp": 20,
                 "weight": 20,
                 "art": "gen_happy_cat",
@@ -1367,7 +1367,7 @@
             "normal adult": [1, 6]
         },
         "weight": 20,
-        "intro_text": "p_l takes them both out to see a herd of bison that a patrol spotted moving through the b1_t Territory.",
+        "intro_text": "p_l takes them both out to see a herd of bison that a patrol spotted moving through the b1_t.",
         "decline_text": "When they get there, p_l can't find it, and the lesson fails.",
         "chance_of_success": 60,
         "success_outcomes": [
@@ -1523,7 +1523,7 @@
             "normal adult": [1, 6]
         },
         "weight": 20,
-        "intro_text": "p_l takes them out to see a herd of bison that a patrol spotted moving through the b1_t Territory.",
+        "intro_text": "p_l takes them out to see a herd of bison that a patrol spotted moving through the b1_t.",
         "decline_text": "When they get there, they can't find it, and the lesson fails.",
         "chance_of_success": 60,
         "success_outcomes": [
@@ -2314,7 +2314,7 @@
         "chance_of_success": 60,
         "success_outcomes": [
             {
-                "text": "The sun is peeking over the horizon when the apprentices arrive on the rocky outcrop at the edge of c_n territory, venturing a couple steps beyond the border with wide eyes egging each other on. app1 finds a little patch of sunshine and, with great ceremony, offers it to app2 as they both settle down to wait. In the distance, massive, echoing, thunderous barks start to echo over the plain. The apprentices prickle at the excitement of hearing this private wild performance.",
+                "text": "The sun is peeking over the horizon when the apprentices arrive on the rocky outcrop at the edge of b1_t, venturing a couple steps beyond the border with wide eyes egging each other on. app1 finds a little patch of sunshine and, with great ceremony, offers it to app2 as they both settle down to wait. In the distance, massive, echoing, thunderous barks start to echo over the plain. The apprentices prickle at the excitement of hearing this private wild performance.",
                 "exp": 40,
                 "weight": 20,
                 "relationships": [
@@ -2642,7 +2642,7 @@
                 ]
             },
             {
-                "text": "As p_l shows the apprentices different types of tunnels and explains how valuable they are as refuges for c_n in moments of danger, s_c gives p_l {PRONOUN/s_c/poss} full attention. This sounds just as important as p_l promised, and {PRONOUN/s_c/subject}{VERB/s_c/'re/'s} determined to remember the locations of the safe hideyholes in the b1_t Territory.",
+                "text": "As p_l shows the apprentices different types of tunnels and explains how valuable they are as refuges for c_n in moments of danger, s_c gives p_l {PRONOUN/s_c/poss} full attention. This sounds just as important as p_l promised, and {PRONOUN/s_c/subject}{VERB/s_c/'re/'s} determined to remember the locations of the safe hideyholes in the b1_t.",
                 "exp": 40,
                 "weight": 30,
                 "can_have_stat": ["any", "app"],
@@ -2750,7 +2750,7 @@
                 ]
             },
             {
-                "text": "As the patrol impacts the importance of knowing where the tunnel refuges are placed in the b1_t Territory, s_c tells of how, without any shelter or tunnels to find safety in, some cats became stronger, bigger, and their prides began to move constantly. They became lions, mighty and great - but not clippers anymore, not Clancats.",
+                "text": "As the patrol impacts the importance of knowing where the tunnel refuges are placed in the b1_t, s_c tells of how, without any shelter or tunnels to find safety in, some cats became stronger, bigger, and their prides began to move constantly. They became lions, mighty and great - but not clippers anymore, not Clancats.",
                 "exp": 40,
                 "weight": 40,
                 "can_have_stat": ["any", "adult"],

@@ -149,7 +149,7 @@
                 "Everything is soot. It seeps into every lap of blessed water, every mouthful of fresh-kill, every breath of air as the Clippers try to hunt in this new exposed, raw world."
             ],
             "moon3": [
-                "No cat ever thought they'd be so grateful for weeds, but seeing life springing back to the b1_t Territory is a special kind of joy.",
+                "No cat ever thought they'd be so grateful for weeds, but seeing life springing back to the b1_t is a special kind of joy.",
                 "As the forest sends out new buds, it's hard on those cats who lost something. Their territory might be moving on from the wildfire, but they can't.",
                 "Trees send out new branches to mingle with their soot-stained and charred trunks."
             ],
@@ -293,7 +293,7 @@
         "duration": 2,
         "rarity": "common",
         "trigger_events": [
-            "Twolegs have been spotted everywhere around the b1_t Territory, crawling in and out of brightly colored nests that have appeared out of nowhere, scaring off all the prey and trampling all the plants in the area. Some of the Twolegs even have fire! Patrols will have to be organized to keep an eye on them."
+            "Twolegs have been spotted everywhere around the b1_t, crawling in and out of brightly colored nests that have appeared out of nowhere, scaring off all the prey and trampling all the plants in the area. Some of the Twolegs even have fire! Patrols will have to be organized to keep an eye on them."
         ],
         "progress_events": {
             "moon1": [
@@ -401,7 +401,7 @@
                 "triggers_during": "during",
                 "chance": 0,
                 "trigger_events": [
-                    "The world seems to have been washed out by the sky, no prey is to be found in the b1_t Territory, and every burrow they've found is only full of water. Lean days are ahead."
+                    "The world seems to have been washed out by the sky, no prey is to be found in the b1_t, and every burrow they've found is only full of water. Lean days are ahead."
                 ]
             }
         ],
