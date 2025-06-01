@@ -10120,7 +10120,7 @@
         "chance_of_success": 60,
         "success_outcomes": [
             {
-                "text": "Before app1 can say anything, app2 gives up on {PRONOUN/app2/poss} bid for baron and decides that {PRONOUN/app2/subject} would rather hunt on {PRONOUN/app2/poss} own than stick with a group. app2 picks a location aloud and runs off without giving app1 a chance to calm {PRONOUN/app2/object} down. app1 chooses not to dwell on it and is relieved to hunt alone.",
+                "text": "Before app1 can say anything, app2 gives up on {PRONOUN/app2/poss} bid for leader and decides that {PRONOUN/app2/subject} would rather hunt on {PRONOUN/app2/poss} own than stick with a group. app2 picks a location aloud and runs off without giving app1 a chance to calm {PRONOUN/app2/object} down. app1 chooses not to dwell on it and is relieved to hunt alone.",
                 "exp": 15,
                 "weight": 20,
                 "relationships": [
