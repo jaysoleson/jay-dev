@@ -2910,7 +2910,7 @@
             "normal adult": [-1, -1]
         },
         "weight": 20,
-        "intro_text": "The thick growth of greenleaf will serve c_n well today, p_l decides, thinking about gathering elder leaves. There's a particular tree in a sheltered dip along a stream {PRONOUN/p_l/subject} {VERB/p_l/want/wants} to check on today.",
+        "intro_text": "The thick growth of greenleaf will serve the b1_t well today, p_l decides, thinking about gathering elder leaves. There's a particular tree in a sheltered dip along a stream {PRONOUN/p_l/subject} {VERB/p_l/want/wants} to check on today.",
         "decline_text": "{PRONOUN/p_l/subject/CAP} {VERB/p_l/have/has} second thoughts about leaving {PRONOUN/p_l/poss} patients behind and {VERB/p_l/decide/decides} to go another day.",
         "chance_of_success": 60,
         "success_outcomes": [
@@ -2971,7 +2971,7 @@
             "normal adult": [-1, -1]
         },
         "weight": 20,
-        "intro_text": "The thick growth of greenleaf will serve c_n well today, p_l decides, thinking about gathering elder leaves. There's a particular tree in a sheltered dip along a stream {PRONOUN/p_l/subject} {VERB/p_l/want/wants} to check on today, bringing app1 to show {PRONOUN/app1/object} why choosing to harvest from a sheltered plant can be helpful.",
+        "intro_text": "The thick growth of greenleaf will serve the b1_t well today, p_l decides, thinking about gathering elder leaves. There's a particular tree in a sheltered dip along a stream {PRONOUN/p_l/subject} {VERB/p_l/want/wants} to check on today, bringing app1 to show {PRONOUN/app1/object} why choosing to harvest from a sheltered plant can be helpful.",
         "decline_text": "{PRONOUN/p_l/subject/CAP} {VERB/p_l/have/has} second thoughts about leaving {PRONOUN/p_l/poss} patients behind, especially with {PRONOUN/p_l/poss} apprentice along too, and {VERB/p_l/decide/decides} to go another day.",
         "chance_of_success": 60,
         "success_outcomes": [
@@ -3111,7 +3111,7 @@
             "normal adult": [1, 6]
         },
         "weight": 20,
-        "intro_text": "The thick growth of greenleaf will serve c_n well today, p_l decides, thinking about gathering elder leaves. There's a particular tree in a sheltered dip along a stream {PRONOUN/p_l/subject} {VERB/p_l/want/wants} to check on today, bringing a group of {PRONOUN/p_l/poss} friends with {PRONOUN/p_l/object}.",
+        "intro_text": "The thick growth of greenleaf will serve the b1_t well today, p_l decides, thinking about gathering elder leaves. There's a particular tree in a sheltered dip along a stream {PRONOUN/p_l/subject} {VERB/p_l/want/wants} to check on today, bringing a group of {PRONOUN/p_l/poss} friends with {PRONOUN/p_l/object}.",
         "decline_text": "They're stopped before they leave camp - these clippers are needed elsewhere. p_l's expedition will have to wait.",
         "chance_of_success": 20,
         "success_outcomes": [

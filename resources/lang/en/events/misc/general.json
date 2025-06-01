@@ -3549,7 +3549,7 @@
     "weight": 20,
     "event_text": "lead_name hears from med_name that the Clan is low on herbs. m_c is sent to bargain with o_c_n for whatever herbs they can spare.",
     "m_c": {
-      "status": ["cog"]
+      "status": ["regent"]
     },
     "supplies": [
       {

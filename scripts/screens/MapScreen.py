@@ -337,7 +337,7 @@ class MapScreen(Screens):
             relative_rect=ui_scale(pygame.Rect((0, 8), (260, 40))),
             html_text=(
                 "<b>" + 
-                f"{focus_baron_name} | <i>" +
+                f"{focus_baron_name}</b> | <i>" +
                 self.focus_barony.name + " Territory" +
                 "</i>"
                 ),
@@ -367,7 +367,7 @@ class MapScreen(Screens):
             )
 
         self.info_elements["desc"] = pygame_gui.elements.UITextBox(
-            relative_rect=ui_scale(pygame.Rect((0, 60), (260, 270))),
+            relative_rect=ui_scale(pygame.Rect((0, 60), (260, 160))),
             html_text=(
                 "<b>Territory</b>: " + str(len(self.focus_barony.territory)) + "<br>" +
                 "<b>Clippers</b>: " + str(clipper_num) + "<br><br>" +
@@ -379,6 +379,49 @@ class MapScreen(Screens):
             text_kwargs={},
             anchors={
                 "centerx": "centerx"
+            }
+        )
+
+        self.info_elements["relations_heading"] = pygame_gui.elements.UITextBox(
+            relative_rect=ui_scale(pygame.Rect((0, 190), (160, 40))),
+            html_text=(
+                "<b>Relations</b>"
+                ),
+            object_id=get_text_box_theme("#text_box_34_horizcenter"),
+            container=self.focus_barony_info_container,
+            manager=MANAGER,
+            text_kwargs={},
+            anchors={
+                "centerx": "centerx",
+            }
+        )
+        relations = ""
+        if self.focus_barony != game.clan:
+            for barony in [game.clan] + game.clan.all_clans:
+                if barony == self.focus_barony:
+                    continue
+                relation_string = get_other_clan_relation(self.focus_barony.relations[barony.name])
+                font_colour = get_baron_colour(Cat.fetch_cat(barony.baron).ID)
+                relations += f"<font color='{font_colour}'>{Cat.fetch_cat(barony.baron).name}</font>:  {relation_string}<br>"
+        else:
+            for barony in game.clan.all_clans:
+                if barony == self.focus_barony:
+                    continue
+                relation_string = get_other_clan_relation(barony.relations[game.clan.name])
+                font_colour = get_baron_colour(Cat.fetch_cat(barony.baron).ID)
+                relations += f"<font color='{font_colour}'>{Cat.fetch_cat(barony.baron).name}</font>:  {relation_string}<br>"
+        
+        self.info_elements["relations"] = pygame_gui.elements.UITextBox(
+            relative_rect=ui_scale(pygame.Rect((0, 220), (230, 150))),
+            html_text=(
+                relations
+                ),
+            object_id=get_text_box_theme("#text_box_26_horizleft"),
+            container=self.focus_barony_info_container,
+            manager=MANAGER,
+            text_kwargs={},
+            anchors={
+                "centerx": "centerx",
             }
         )
 

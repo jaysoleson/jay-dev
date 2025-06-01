@@ -59,7 +59,7 @@
     },
     "mangled leg": {
         "an infected wound": [
-            "r_c wonders if {PRONOUN/r_c/subject} might need to consult with a doctor from another Clan. m_c's mangled leg has become infected and swollen - and {PRONOUN/r_c/subject} {VERB/r_c/need/needs} more ideas.",
+            "r_c wonders if {PRONOUN/r_c/subject} might need to consult with a doctor from another Barony. m_c's mangled leg has become infected and swollen - and {PRONOUN/r_c/subject} {VERB/r_c/need/needs} more ideas.",
             "As if the injury wasn't bad enough, the skin around m_c's mangled leg has started to swell and feel feverish."
         ]
     },
@@ -145,7 +145,7 @@
         "frostbite": [
             "r_c massages m_c's paw pads, looking for signs that blood flow is returning to them. This has definitely crossed the line into frostbite.",
             "m_c says that {PRONOUN/m_c/poss} extremities feel like they're being pricked by claws. Numbness soon follows, both a sign of frostbite.",
-            "The skin on m_c's extremities is worryingly black and blue. One of {PRONOUN/m_c/poss} Clanmates spends some time licking at the cold bits of skin, but they seem to be frostbitten."
+            "The skin on m_c's extremities is worryingly black and blue. One of {PRONOUN/m_c/poss} friends spends some time licking at the cold bits of skin, but they seem to be frostbitten."
         ]
     },
     "dehydrated": {

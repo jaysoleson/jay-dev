@@ -3,7 +3,7 @@
   "event": "War",
   "trigger_events": [
     "baron1 of the b1_t has officially declared war on baron2 of the b2_t.",
-    "baron1 and baron2 arrange a peaceful meeting to settle their difference. However, when both Barons bring a patrol of Clippers for defense, tensions rise, and a fight breaks out. The b1_t is at war with the b2_t.",
+    "baron1 and baron2 arrange a peaceful meeting to settle their differences. However, when both Barons bring a patrol of Clippers for defense, tensions rise, and a fight breaks out. The b1_t is at war with the b2_t.",
     "The b1_t announces a war against the b2_t.",
     "baron2 makes a snide remark against baron1 at the Conclave, and baron1 declares it to be the final straw. {PRONOUN/baron1/subject/CAP} officially {VERB/baron1/declare/declares} war against the b2_t."
   ],

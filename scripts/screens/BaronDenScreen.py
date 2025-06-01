@@ -191,10 +191,13 @@ class BaronDenScreen(Screens):
 
         self.helper_cat = None
         if self.no_baron or game.clan.baron.not_working():
-            if game.clan.regent:
+            if game.clan.heir:
+                if not game.clan.heir.not_working() and not game.clan.heir.dead:
+                    self.helper_cat = game.clan.heir  # if lead is sick, heir helps
+            elif game.clan.regent:
                 if not game.clan.regent.not_working() and not game.clan.regent.dead:
-                    self.helper_cat = game.clan.regent  # if lead is sick, dep helps
-            if not self.helper_cat:  # if dep is sick, med cat helps
+                    self.helper_cat = game.clan.regent  # if heir is sick, regent helps
+            if not self.helper_cat:  # if regent is sick, med cat helps
                 meds = get_alive_status_cats(
                     Cat,
                     get_status=["doctor", "apprentice doctor"],

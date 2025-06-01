@@ -364,7 +364,7 @@ class DeleteCheck(UIWindow):
             line_spacing=1,
             object_id="#text_box_30_horizcenter",
             container=self,
-            text_kwargs={"clan": str(self.clan_name + "Clan")},
+            text_kwargs={"b1_t": str(self.clan_name + " Territory")},
         )
 
         self.delete_it_button = UISurfaceImageButton(
@@ -425,7 +425,7 @@ class GameOver(UIWindow):
             resizable=False,
         )
         self.set_blocking(True)
-        self.clan_name = str(game.clan.name + "Clan")
+        self.clan_name = str(game.clan.name + " Territory")
         self.last_screen = last_screen
         self.game_over_message = UITextBoxTweaked(
             "windows.game_over_message",
@@ -433,7 +433,7 @@ class GameOver(UIWindow):
             line_spacing=1,
             object_id="",
             container=self,
-            text_kwargs={"clan": self.clan_name},
+            text_kwargs={"b1_t": self.clan_name},
         )
 
         self.game_over_message = UITextBoxTweaked(
@@ -503,11 +503,11 @@ class ChangeCatName(UIWindow):
 
         self.name_changed = pygame_gui.elements.UITextBox(
             "windows.name_changed",
-            ui_scale(pygame.Rect((245, 130), (400, 40))),
+            ui_scale(pygame.Rect((0, 100), (400, 40))),
             visible=False,
-            object_id="#text_box_30_horizleft",
+            object_id="#text_box_30_horizcenter",
             manager=MANAGER,
-            container=self,
+            container=self
         )
 
         self.done_button = UISurfaceImageButton(
@@ -519,43 +519,25 @@ class ChangeCatName(UIWindow):
             container=self,
         )
 
-        x_pos, y_pos = 37, 17
-
         self.prefix_entry_box = pygame_gui.elements.UITextEntryLine(
-            ui_scale(pygame.Rect((0 + x_pos, 50 + y_pos), (120, 30))),
+            ui_scale(pygame.Rect((-20, 70), (120, 30))),
             initial_text=self.the_cat.name.prefix,
             manager=MANAGER,
             container=self,
+            anchors={"centerx": "centerx"}
         )
 
         self.random_prefix = UISurfaceImageButton(
-            ui_scale(pygame.Rect((122 + x_pos, 48 + y_pos), (34, 34))),
+            ui_scale(pygame.Rect((250, 68), (34, 34))),
             Icon.DICE,
             get_button_dict(ButtonStyles.ICON, (34, 34)),
             object_id="@buttonstyles_icon",
             manager=MANAGER,
             container=self,
-            tool_tip_text="Randomize the prefix",
+            tool_tip_text="Randomise name",
             sound_id="dice_roll",
         )
 
-        self.toggle_spec_block_on = UIImageButton(
-            ui_scale(pygame.Rect((202 + x_pos, 80 + y_pos), (34, 34))),
-            "",
-            object_id="@unchecked_checkbox",
-            tool_tip_text="windows.remove_spec_block",
-            manager=MANAGER,
-            container=self,
-        )
-
-        self.toggle_spec_block_off = UIImageButton(
-            ui_scale(pygame.Rect((202 + x_pos, 80 + y_pos), (34, 34))),
-            "",
-            object_id="@checked_checkbox",
-            tool_tip_text="windows.add_spec_block",
-            manager=MANAGER,
-            container=self,
-        )
         self.set_blocking(True)
 
     def process_event(self, event):
@@ -580,18 +562,7 @@ class ChangeCatName(UIWindow):
                     Name(None, cat=self.the_cat).prefix
                 )
            
-            elif event.ui_element == self.toggle_spec_block_on:
-                self.specsuffic_hidden = True
-                self.toggle_spec_block_on.disable()
-                self.toggle_spec_block_on.hide()
-                self.toggle_spec_block_off.enable()
-                self.toggle_spec_block_off.show()
-            elif event.ui_element == self.toggle_spec_block_off:
-                self.specsuffic_hidden = False
-                self.toggle_spec_block_off.disable()
-                self.toggle_spec_block_off.hide()
-                self.toggle_spec_block_on.enable()
-                self.toggle_spec_block_on.show()
+           
             elif event.ui_element == self.back_button:
                 game.all_screens["profile screen"].exit_screen()
                 game.all_screens["profile screen"].screen_switches()

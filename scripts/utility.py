@@ -813,9 +813,9 @@ def create_new_cat(
         elif age < 6:
             status = "kitten"
         elif 6 <= age <= 11:
-            status = "colt"
+            status = choice(["colt", "cog", "cog", "cog"])
         elif age >= 12:
-            status = "clipper"
+            status = choice(["clipper", "cog", "cog", "cog", "cog"])
         elif age >= 120:
             status = "elder"
 
@@ -1835,7 +1835,7 @@ def get_baron_colour(cat_id, force_dark=False):
     
     if baron_colour is None:
         # print("baron colour name repl none wtf")
-        pass
+        return
 
     if force_dark:
         font_colour = colour_dict[baron_colour][0]
@@ -1859,7 +1859,10 @@ def name_repl(m, cat_dict, baron_colour_force_dark):
     cat_id = cat_dict[m.group(0)][0][1]
 
     font_colour = get_baron_colour(cat_id, baron_colour_force_dark)
-    return f"<font color='{font_colour}'>" + cat_name + "</font>"
+    if font_colour:
+        return f"<font color='{font_colour}'>" + cat_name + "</font>"
+    return cat_name
+
 
 
 def process_text(text, cat_dict, raise_exception=False, baron_colour_force_dark=False):
@@ -2055,7 +2058,17 @@ def find_special_list_types(text):
     return text, senses, list_type, cat_tag
 
 
-def history_text_adjust(text, other_clan_name, clan, other_cat_rc=None, event_id=None):
+def history_text_adjust(
+        text,
+        other_clan_name,
+        clan,
+        Cat=None,
+        other_cat_rc=None,
+        event_id=None,
+        barony=None,
+        other_barony=None,
+        baron_colour_force_dark=False
+        ):
     """
     we want to handle history text on its own because it needs to preserve the pronoun tags and cat abbreviations.
     this is so that future pronoun changes or name changes will continue to be reflected in history
@@ -2085,6 +2098,35 @@ def history_text_adjust(text, other_clan_name, clan, other_cat_rc=None, event_id
                         break
 
         text = text.replace("o_c_n", str(other_clan_name) + "Clan")
+    
+    # BL
+    replace_dict = {}
+    if barony:
+        if "baron1" in text:
+            baron1 = Cat.fetch_cat(barony.baron)
+            replace_dict["baron1"] = ([str(baron1.name), baron1.ID], choice(baron1.pronouns))
+        if "b1_t" in text:
+            if barony == game.clan:
+                b1_t_baron = game.clan.baron
+            else:
+                b1_t_baron = Cat.fetch_cat(barony.baron)
+            font_colour = get_baron_colour(b1_t_baron.ID, force_dark=baron_colour_force_dark)
+            text = text.replace("b1_t", f"<font color='{font_colour}'>" + str(barony.name.capitalize()) + " Territory</font>")
+    if other_barony:
+        if "baron2" in text:
+            baron2 = Cat.fetch_cat(other_barony.baron)
+            replace_dict["baron2"] = ([str(baron2.name), baron2.ID], choice(baron2.pronouns))
+        if "b2_t" in text:
+            if other_barony == game.clan:
+                b2_t_baron = game.clan.baron
+            else:
+                b2_t_baron = Cat.fetch_cat(other_barony.baron)
+            font_colour = get_baron_colour(b2_t_baron.ID, force_dark=baron_colour_force_dark)
+            text = text.replace("b2_t", f"<font color='{font_colour}'>" + str(other_barony.name.capitalize()) + " Territory</font>")
+
+    if replace_dict:
+        text = process_text(text, replace_dict, baron_colour_force_dark=baron_colour_force_dark)
+    # ---
 
     if "c_n" in text:
         text = text.replace("c_n", clan.name)
@@ -2110,7 +2152,7 @@ def selective_replace(text, pattern, replacement):
     return text
 
 
-def ongoing_event_text_adjust(Cat, text, barony=None, other_barony=None, clan=None, other_clan_name=None):
+def ongoing_event_text_adjust(Cat, text, barony=None, other_barony=None, clan=None, other_clan_name=None, baron_colour_force_dark=False):
     """
     This function is for adjusting the text of ongoing events
     :param Cat: the cat class
@@ -2133,9 +2175,23 @@ def ongoing_event_text_adjust(Cat, text, barony=None, other_barony=None, clan=No
     if barony:
         kitty = Cat.fetch_cat(barony.baron)
         cat_dict["baron1"] = ([str(kitty.name), kitty.ID], choice(kitty.pronouns))
+        if "b1_t" in text:
+            if barony == game.clan:
+                b1_t_baron = game.clan.baron
+            else:
+                b1_t_baron = Cat.fetch_cat(barony.baron)
+            font_colour = get_baron_colour(b1_t_baron.ID, force_dark=baron_colour_force_dark)
+            text = text.replace("b1_t", f"<font color='{font_colour}'>" + str(barony.name.capitalize()) + " Territory</font>")
     if other_barony:
         kitty = Cat.fetch_cat(other_barony.baron)
         cat_dict["baron2"] = ([str(kitty.name), kitty.ID], choice(kitty.pronouns))
+        if "b2_t" in text:
+            if other_barony == game.clan:
+                b2_t_baron = game.clan.baron
+            else:
+                b2_t_baron = Cat.fetch_cat(other_barony.baron)
+            font_colour = get_baron_colour(b2_t_baron.ID, force_dark=baron_colour_force_dark)
+            text = text.replace("b2_t", f"<font color='{font_colour}'>" + str(other_barony.name.capitalize()) + " Territory</font>")
     
     if cat_dict:
         text = process_text(text, cat_dict)
@@ -2259,6 +2315,8 @@ def event_text_adjust(
     app_abbr = ["app1", "app2", "app3", "app4", "app5", "app6"]
     for i, abbr in enumerate(app_abbr):
         if abbr not in text:
+            continue
+        if not patrol_apprentices:
             continue
         if len(patrol_apprentices) > i:
             replace_dict[abbr] = (
@@ -3049,6 +3107,39 @@ def generate_map(Cat, screen, x, y, x_pos, y_pos, clan_territory, clan=None):
             point1 = (rect.topleft[0], rect.topleft[1])
             point2 = (rect.bottomleft[0], rect.bottomleft[1] + border_extra * 2)
             pygame.draw.line(screen, rgb_tile_colour, point1, point2, border_width)
+    
+def get_bordering_baronies(barony):
+    """
+    Finds bordering Baronies
+    Returns a dict of neighbours names as well as neighbouring tiles
+    """
+    border_tiles = {}
+    possible_baronies = game.clan.all_clans + [game.clan]
+    possible_baronies.remove(barony)
+    for tile in barony.territory:
+        x, y = tile.split("-")
+        x = int(x)
+        y = int(y)
+        NORTH_TILE_STRING = str(x - 1) + "-" + str(y)
+        EAST_TILE_STRING = str(x) + "-" + str(y + 1)
+        SOUTH_TILE_STRING = str(x + 1) + "-" + str(y)
+        WEST_TILE_STRING = str(x) + "-" + str(y - 1)
+        # print("TILE:", tile)
+        # print("BORDERS:", NORTH_TILE_STRING, EAST_TILE_STRING, SOUTH_TILE_STRING, WEST_TILE_STRING)
+        for other_barony in possible_baronies:
+            for other_tile in other_barony.territory:
+                if other_tile in [NORTH_TILE_STRING, EAST_TILE_STRING, SOUTH_TILE_STRING, WEST_TILE_STRING]:
+                    # print("Appending", other_tile, ": Bordering", tile)
+                    if other_barony.name not in border_tiles:
+                        border_tiles.update({other_barony.name: []})
+                    if other_tile not in border_tiles[other_barony.name]:
+                        border_tiles[other_barony.name].append(other_tile)
+
+    # print("Border Tiles for", barony.name, ":", border_tiles)
+
+    return border_tiles
+
+
 
 # ---------------------------------------------------------------------------- #
 #                                     OTHER                                    #

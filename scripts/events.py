@@ -47,7 +47,8 @@ from scripts.utility import (
     history_text_adjust,
     unpack_rel_block,
     get_baron_colour,
-    create_new_cat
+    create_new_cat,
+    get_bordering_baronies
 )
 from scripts.game_structure.localization import load_lang_resource
 
@@ -107,6 +108,8 @@ class Events:
         get_current_season()
         Pregnancy_Events.handle_pregnancy_age(game.clan)
         self.check_war()
+
+        self.other_barony_relations()
 
         if (
             game.clan.game_mode in ("expanded", "cruel season")
@@ -266,7 +269,7 @@ class Events:
                 and not game.clan.freshkill_pile.clan_has_enough_food()
             ):
                 event_string = i18n.t("defaults.warn_low_freshkill")
-                game.cur_events_list.insert(0, Single_Event(event_string))
+                game.cur_events_list.insert(0, Single_Event(event_text_adjust(Cat, event_string, barony=game.clan)))
                 game.freshkill_event_list.append(event_string)
 
         self.handle_focus()
@@ -472,8 +475,9 @@ class Events:
                         outsider_cat,
                         death_text=history_text_adjust(
                             i18n.t("hardcoded.lead_den_killed"),
+                            Cat=Cat,
                             other_clan_name=None,
-                            clan=game.clan.baron.name,
+                            barony=game.clan,
                         ),
                     )
                     outsider_cat.die()
@@ -527,10 +531,10 @@ class Events:
                             elif invited_cat.age == "senior":
                                 invited_cat.status = "elder"
                             elif invited_cat.age == "adolescent":
-                                invited_cat.status = "colt"
+                                invited_cat.status = random.choice(["colt", "cog", "cog"])
                                 invited_cat.update_mentor()
                             else:
-                                invited_cat.status = "clipper"
+                                invited_cat.status = (["cog", "cog", "cog", "cog", "clipper"])
 
                         invited_cat.create_relationships_new_cat()
 
@@ -864,10 +868,8 @@ class Events:
                     and x.moons >= 6
                 ):
                     if random.randint(1,2) == 1:
-                        print(x.name, "becoming a COLT")
                         self.ceremony(x, "colt")
                     else:
-                        print(x.name, "becoming a COG")
                         self.ceremony(x, "cog")
 
             elif x.status != "doctor":
@@ -1163,6 +1165,7 @@ class Events:
 
                     # choose who wins the war-- probably find a better way to do this sometime 
                     outcome = random.choice(["winner_offense", "winner_defense", "none"])
+
                     gain_events = gain_events_dict[war['reason'] + '_gain'][outcome]
 
                     # now give territory/supplies/whatever to the winner!
@@ -1181,7 +1184,7 @@ class Events:
                         if war["reason"] == "territory":
                             if winner == offense_clan:
                                 # the defending clan doesnt steal territory, they just manage to keep theirs.
-                                territory_tile = random.choice(loser.territory)
+                                territory_tile = random.choice(get_bordering_baronies(winner)[loser.name])
                                 loser.territory.remove(territory_tile)
                                 winner.territory.append(territory_tile)
                         
@@ -1225,7 +1228,12 @@ class Events:
                     random.random() * int(other_clan.relations[clan_to_attack.name])
                 ):
                     print("WAR STARTED BETWEEN", other_clan.name, "and", clan_to_attack.name)
-                    reasons = ["territory", "prey", "cosmetics", "supplies", "herbs"]
+                    reasons = ["prey", "cosmetics", "supplies", "herbs"]
+                    if clan_to_attack.name in get_bordering_baronies(other_clan):
+                        print("Adding territory to options;", other_clan.name, "and", clan_to_attack.name, "are neighbours.")
+                        reasons.append("territory")
+                        reasons.append("territory")
+                        reasons.append("territory")
                     game.clan.war.append(
                         {
                             "offense": {
@@ -1269,14 +1277,46 @@ class Events:
             Cat, event, barony=offensive_clan, other_barony=defensive_clan, clan=game.clan
         )
         game.cur_events_list.append(Single_Event(event, "other_clans"))
+    
+    def other_barony_relations(self):
+        for barony in game.clan.all_clans:
+            # choose one random relationship to try and affect
+            possible_barons = game.clan.all_clans + [game.clan]
+            possible_barons.remove(barony)
+            barony_affected = random.choice(possible_barons)
+
+            # add a chance here
+            if not (random.random() * 2):
+                before = barony.relations[barony_affected.name]
+                barony.relations[barony_affected.name] += random.choice([-2, -1, 1, 2])
+                after = barony.relations[barony_affected.name]
+                print(barony.name, "=>", barony_affected.name, ":", before, "=>", after)
+
+                if before > after:
+                    # rel got worse
+                    event = "baron1 and baron2 had an argument at the Conclave."
+                else:
+                    # rel improved
+                    event = "baron1 and baron2 recently ran into each other at the border and shared a laugh."
+                
+                game.cur_events_list.append(
+                    Single_Event(event_text_adjust(Cat, event, barony=barony, other_barony=barony_affected), "other_clans")
+                )
+
+
+            # now correct all baronies relationships to match bc im a hack
+            for other_barony in game.clan.all_clans:
+                if barony == other_barony:
+                    continue
+                if (other_barony.name in barony.relations) and (barony.name in other_barony.relations):
+                    if other_barony.relations[barony.name] != barony.relations[other_barony.name]:
+                        other_barony.relations[barony.name] = barony.relations[other_barony.name]
+                        # print("Correcting", other_barony.name, "=>", barony.name, "to match the inverse.")
 
     def perform_ceremonies(self, cat):
         """
         ceremonies
         """
-        # TODO: hardcoded events, not good, consider how to convert to ShortEvent
-        #  we *do* have a ceremony dict and format, not sure why it isn't being used here
-        # PROMOTE regent TO baron, IF NEEDED -----------------------
         if game.clan.baron:
             baron_dead = game.clan.baron.dead
             baron_outside = game.clan.baron.outside
@@ -1336,8 +1376,7 @@ class Events:
                         if new_baron.moons < 15:
                             add.remove("")
                             add.append("_young")
-                        
-                        print("Options:", add)
+
                         text = i18n.t(f"hardcoded.new_baron_from_{prev_role}{random.choice(add)}")
                     else:
                         if new_baron.personality.trait == "bloodthirsty":
@@ -2034,22 +2073,23 @@ class Events:
         )
 
         # chance to kill baron: 1/50 by default
-        if (
-            not int(
-                random.random()
-                * game.get_config_value("death_related", "baron_death_chance")
-            )
-            and cat.status == "baron"
-            and not cat.not_working()
-        ):
-            handle_short_events.handle_event(
-                event_type="birth_death",
-                main_cat=cat,
-                random_cat=random_cat,
-                freshkill_pile=game.clan.freshkill_pile,
-            )
+        # BL commented out bc they onyl have one life now
+        # if (
+        #     not int(
+        #         random.random()
+        #         * game.get_config_value("death_related", "baron_death_chance")
+        #     )
+        #     and cat.status == "baron"
+        #     and not cat.not_working()
+        # ):
+        #     handle_short_events.handle_event(
+        #         event_type="birth_death",
+        #         main_cat=cat,
+        #         random_cat=random_cat,
+        #         freshkill_pile=game.clan.freshkill_pile,
+        #     )
 
-            return True
+        #     return True
 
         # chance to die of old age
         age_start = game.config["death_related"]["old_age_death_start"]
@@ -2436,7 +2476,7 @@ class Events:
                     0,
                     Single_Event(
                         event_text_adjust(
-                            Cat, i18n.t("defaults.warn_no_baron"), clan=game.clan
+                            Cat, i18n.t("defaults.warn_no_baron"), clan=game.clan, barony=game.clan
                         )
                     ),
                 )

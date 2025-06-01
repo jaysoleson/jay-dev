@@ -88,8 +88,8 @@
             "many": "kittypets"
         },
         "former Clancat": {
-            "one": "former Clancat",
-            "many": "former Clancats"
+            "one": "former Barony member",
+            "many": "former Barony members"
         },
         "exiled": {
             "one": "exiled",

@@ -803,7 +803,7 @@ class Cat:
         mentors and apprentices."""
         self.outside = True
 
-        if self.status in ("baron", "clipper"):
+        if self.status in ("baron", "regent", "clipper"):
             self.status_change("clipper")
 
         for app in self.apprentice.copy():

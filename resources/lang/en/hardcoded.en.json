@@ -12,7 +12,7 @@
         "relations_improved": " (Relations improved.)",
         "relations_neutral": " (Relations unchanged.)",
         "relations_worsened": " (Relations worsened.)",
-        "lead_den_killed": "m_c was killed by c_n.",
+        "lead_den_killed": "m_c was killed by baron1's Clippers.",
         "condition_retire_adolescent": "m_c decides {PRONOUN\/m_c\/subject}'d rather spend {PRONOUN\/m_c\/poss} time helping around camp and entertaining the kits; {PRONOUN\/m_c\/subject}{VERB\/m_c\/'re\/'s} warmly welcomed into the elders' den.",
         "condition_retire_adolescent_ceremony": " {PRONOUN\/m_c\/subject\/CAP} {VERB\/m_c\/are\/is} celebrated for {PRONOUN/m_c/poss} contributions to the Barony.",
         "condition_retire_no_baron": "m_c has decided to retire from normal duty.",
