@@ -563,6 +563,36 @@
             "zero": "indigo nylon collar",
             "many": "indigo nylon collars",
             "one": "indigo nylon collar"
+        },
+        "CYANBARON": {
+            "zero": "cyan charms",
+            "many": "cyan charms",
+            "one": "cyan charms"
+        },
+        "YELLOWBARON": {
+            "zero": "yellow robe",
+            "many": "yellow robes",
+            "one": "yellow robe"
+        },
+        "GREENBARON": {
+            "zero": "green charms",
+            "many": "green charms",
+            "one": "green charms"
+        },
+        "CRIMSONBARON": {
+            "zero": "crimson cloak",
+            "many": "crimson cloak",
+            "one": "crimson cloak"
+        },
+        "PURPLEBARON": {
+            "zero": "purple scarf",
+            "many": "purple scarf",
+            "one": "purple scarf"
+        },
+        "PINKBARON": {
+            "zero": "pink collar",
+            "many": "pink collar",
+            "one": "pink collar"
         }
     }
 }

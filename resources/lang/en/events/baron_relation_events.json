@@ -1,0 +1,53 @@
+{
+    "hostile": {
+        "-2": [
+            "Two Clippers from the b1_t and the b2_t are caught together at the border. This leads to a massive fight between baron1 and baron2."
+        ],
+        "-1": [
+            "baron2 noses baron1 out of the way when they both arrive to the Conclave at the same time."
+        ],
+        "0": [
+            "baron1 stomps into baron2's camp with an insult on {PRONOUN/baron2/poss} tongue, but it seems that baron1 is out of camp at the moment."
+        ],
+        "1": [
+            "Despite their differences, baron1 and baron2 manage to share a laugh at the Conclave."
+        ],
+        "2": [
+            "A party of Clippers from the b1_t show up at baron2's border with a heap of prey, hoping to try to mend the relationship between the two Barons."
+        ]
+    },
+    "neutral": {
+        "-2": [
+            "baron1 has started rolling {PRONOUN/baron2/poss} eyes anytime baron2 speaks at a Conclave."
+        ],
+        "-1": [
+            "A b1_t patrol runs into one from the b2_t on the border. The b1_t Clippers nod a greeting, but the b2_t ignores them."
+        ],
+        "0": [
+            "baron1 and baron2's border patrols nod at each other politely when they cross paths."
+        ],
+        "1": [
+            "baron1 offers baron2 a helpful battle tip."
+        ],
+        "2": [
+            "baron2 agrees with everything baron1 says at the Conclave."
+        ]
+    },
+    "ally": {
+        "-2": [
+            "baron1 disagrees with baron2 about {PRONOUN/baron2/poss} conflict with another Baron. baron2 doesn't take this well."
+        ],
+        "-1": [
+            "When baron1 states an opinion at the Conclave and looks to baron2 for backup, baron2 doesn't agree."
+        ],
+        "0": [
+            "baron1 and baron2 haven't had time to talk to each other much this moon."
+        ],
+        "1": [
+            "A b1_t patrol leaves a small gift on baron2's border."
+        ],
+        "2": [
+            "baron2 makes the journey over to baron1's territory just to spend some time together."
+        ]
+    }
+}

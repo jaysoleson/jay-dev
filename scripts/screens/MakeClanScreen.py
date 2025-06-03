@@ -108,7 +108,7 @@ class MakeClanScreen(Screens):
             "crimson", "blue", "cyan", "yellow", "green", "pink", "purple"
         ]
         self.colour = "crimson"
-        self.export = "prey"
+        self.export = "food"
         self.colour_buttons_container = None
 
     def screen_switches(self):
@@ -2576,7 +2576,7 @@ class MakeClanScreen(Screens):
             export=self.export
         )
         # BL
-        game.clan.baron.pelt.accessory = [(self.colour.upper() + "BOW")]
+        game.clan.baron.pelt.accessory = [(self.colour.upper() + "BARON")]
         # ---
         game.clan.create_clan()
         # game.clan.starclan_cats.clear()

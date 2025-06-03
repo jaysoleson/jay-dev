@@ -205,18 +205,21 @@ class PatrolScreen(Screens):
                 self.patrol_type = "general"
             else:
                 self.patrol_type = "border"
+            self.update_cat_images_buttons()
             self.update_button()
         elif event.ui_element == self.elements["herb"]:
             if self.patrol_type == "med":
                 self.patrol_type = "general"
             else:
                 self.patrol_type = "med"
+            self.update_cat_images_buttons()
             self.update_button()
         elif event.ui_element == self.elements["mouse"]:
             if self.patrol_type == "hunting":
                 self.patrol_type = "general"
             else:
                 self.patrol_type = "hunting"
+            self.update_cat_images_buttons()
             self.update_button()
         elif event.ui_element == self.elements["patrol_start"]:
             self.elements["patrol_start"].disable()
@@ -422,12 +425,23 @@ class PatrolScreen(Screens):
             else:
                 if self.patrol_type == "med":
                     self.patrol_type = "general"
-
+            
             self.elements["paw"].enable()
             self.elements["mouse"].enable()
             self.elements["claws"].enable()
             self.elements["herb"].enable()
             self.elements["info"].kill()  # clearing the text before displaying new text
+            
+            # BL
+            if any(
+                (
+                    cat.status in ("cog")
+                    for cat in self.current_patrol
+                )
+            ):
+                if self.patrol_type == "border":
+                    self.patrol_type = "hunting"
+                self.elements["claws"].disable()
 
             if self.patrol_type != "med" and self.current_patrol:
                 self.elements["herb"].disable()
@@ -718,6 +732,15 @@ class PatrolScreen(Screens):
         )
         del tab_rect
 
+        # BL tooltip
+        self.elements["help_button"] = UIImageButton(
+            ui_scale(pygame.Rect((30, 65), (34, 34))),
+            "",
+            object_id="#help_button",
+            manager=MANAGER,
+            tool_tip_text="screens.patrol.help_tooltip",
+        )
+
         # Remove all button
         self.elements["remove_all"] = UISurfaceImageButton(
             ui_scale(pygame.Rect((560, -4), (124, 35))),
@@ -981,14 +1004,17 @@ class PatrolScreen(Screens):
 
         self.able_cats = []
 
+        # BL
+        allowed_statuses = ["baron", "regent", "clipper", "colt", "cog", "doctor", "apprentice doctor", "heir"]
+
+
         # ASSIGN TO ABLE CATS
         for the_cat in Cat.all_cats_list:
             if (
                 not the_cat.dead
                 and the_cat.in_camp
                 and the_cat.ID not in game.patrolled
-                and the_cat.status
-                not in ("elder", "kitten", "cog")
+                and the_cat.status in allowed_statuses
                 and not the_cat.outside
                 and the_cat not in self.current_patrol
                 and not the_cat.not_working()

@@ -300,7 +300,7 @@ class Clan:
             # baron colour
             baron_colour = random.choice(available_colours)
             available_colours.remove(baron_colour)
-            new_baron.pelt.accessory = [baron_colour.upper() + "BOW"]
+            new_baron.pelt.accessory = [baron_colour.upper() + "BARON"]
 
             # territory tiles
             baron_tiles = game.switches["creation_other_clans"][1][_ + 1]
@@ -1443,7 +1443,7 @@ class OtherClan:
         self.baron = baron
         self.colour = colour or "black"
         self.territory = territory or []
-        self.export = export or ""
+        self.export = export or "food"
         self.clippers = clippers or 0
 
         self.relations = relations or {}

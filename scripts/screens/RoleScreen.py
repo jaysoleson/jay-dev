@@ -58,10 +58,10 @@ class RoleScreen(Screens):
                         cat.allegiance = self.the_cat.ID
                 
                 # transfer baron accessory
-                print(game.clan.baron.pelt.accessory, game.clan.colour.upper() + "BOW")
-                if game.clan.colour.upper() + "BOW" in game.clan.baron.pelt.accessory:
-                    game.clan.baron.pelt.accessory.remove(game.clan.colour.upper() + "BOW")
-                    self.the_cat.pelt.accessory.append(game.clan.colour.upper() + "BOW")
+                print(game.clan.baron.pelt.accessory, game.clan.colour.upper() + "BARON")
+                if game.clan.colour.upper() + "BARON" in game.clan.baron.pelt.accessory:
+                    game.clan.baron.pelt.accessory.remove(game.clan.colour.upper() + "BARON")
+                    self.the_cat.pelt.accessory.append(game.clan.colour.upper() + "BARON")
                 
                 # remove the first baron
                 if game.clan.baron:

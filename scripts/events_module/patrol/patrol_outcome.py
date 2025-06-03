@@ -36,6 +36,7 @@ from scripts.clan_resources.freshkill import (
     PREY_REQUIREMENT,
     HUNTER_EXP_BONUS,
     HUNTER_BONUS,
+    COG_BONUS,
     FRESHKILL_ACTIVE,
 )
 
@@ -777,6 +778,17 @@ class PatrolOutcome:
             total_amount = int(
                 total_amount * (HUNTER_BONUS[str(highest_hunter_tier)] / 20 + 1)
             )
+        # BL cog bonus
+        cog_count = 0
+        for cat in patrol.patrol_cats:
+            if cat.status == "cog":
+                cog_count += 1
+        if cog_count:
+            print(cog_count, "COG BONUS BEFORE:", total_amount)
+            total_amount = int(
+                total_amount * (COG_BONUS[str(cog_count)] / 10 + 1)
+            )
+            print(cog_count, "COG BONUS AFTER:", total_amount)
 
         results = ""
         if total_amount > 0:

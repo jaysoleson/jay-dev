@@ -48,7 +48,8 @@ from scripts.utility import (
     unpack_rel_block,
     get_baron_colour,
     create_new_cat,
-    get_bordering_baronies
+    get_bordering_baronies,
+    get_other_clan_relation
 )
 from scripts.game_structure.localization import load_lang_resource
 
@@ -64,6 +65,7 @@ class Events:
     ceremony_accessory = False
     CEREMONY_TXT = None
     WAR_TXT = None
+    BARONY_REL_EVENTS = None
     ceremony_lang = None
     war_lang = None
 
@@ -107,9 +109,9 @@ class Events:
         game.clan.age += 1
         get_current_season()
         Pregnancy_Events.handle_pregnancy_age(game.clan)
-        self.check_war()
-
+        
         self.other_barony_relations()
+        self.check_war()
 
         if (
             game.clan.game_mode in ("expanded", "cruel season")
@@ -378,9 +380,9 @@ class Events:
                     
                 # transfer baron accessory
                 if baron_clan:
-                    if baron_clan.colour.upper() + "BOW" in old_baron.pelt.accessory:
-                        # old_baron.pelt.accessory.remove(baron_clan.colour.upper() + "BOW")
-                        new_baron.pelt.accessory.append(baron_clan.colour.upper() + "BOW")
+                    if baron_clan.colour.upper() + "BARON" in old_baron.pelt.accessory:
+                        # old_baron.pelt.accessory.remove(baron_clan.colour.upper() + "BARON")
+                        new_baron.pelt.accessory.append(baron_clan.colour.upper() + "BARON")
 
                     font_colour = get_baron_colour(new_baron.ID)
                     text = "Baron <font color='" + font_colour + "'>m_c</font> of the b2_t has died. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} succeeded by {PRONOUN/m_c/poss} heir, baron2."
@@ -404,6 +406,10 @@ class Events:
                 return
 
             other_clan = get_other_clan(info_dict["other_clan"])
+            if not other_clan:
+                print("not other_clan ??? aborting lead den event")
+                print(info_dict["other_clan"])
+                return
 
             # get events
             events = generate_events.possible_lead_den_events(
@@ -1080,6 +1086,8 @@ class Events:
         if Events.war_lang == i18n.config.get("locale"):
             return
         self.WAR_TXT = load_lang_resource("events/war.json")
+        # BL-- barony relations events
+        self.BARONY_REL_EVENTS = load_lang_resource("events/baron_relation_events.json")
         Events.war_lang = i18n.config.get("locale")
 
     def check_war(self):
@@ -1216,6 +1224,8 @@ class Events:
                 possible_clans = game.clan.all_clans.copy()
                 possible_clans.remove(other_clan)
 
+                if not possible_clans:
+                    return
                 clan_to_attack = random.choice(possible_clans)
 
                 threshold = 5
@@ -1227,10 +1237,10 @@ class Events:
                 if int(other_clan.relations[clan_to_attack.name]) <= threshold and not int(
                     random.random() * int(other_clan.relations[clan_to_attack.name])
                 ):
-                    print("WAR STARTED BETWEEN", other_clan.name, "and", clan_to_attack.name)
-                    reasons = ["prey", "cosmetics", "supplies", "herbs"]
+                    # print("WAR STARTED BETWEEN", other_clan.name, "and", clan_to_attack.name)
+                    reasons = ["food", "cosmetics", "supplies", "herbs"]
                     if clan_to_attack.name in get_bordering_baronies(other_clan):
-                        print("Adding territory to options;", other_clan.name, "and", clan_to_attack.name, "are neighbours.")
+                        # print("Adding territory to options;", other_clan.name, "and", clan_to_attack.name, "are neighbours.")
                         reasons.append("territory")
                         reasons.append("territory")
                         reasons.append("territory")
@@ -1281,23 +1291,34 @@ class Events:
     def other_barony_relations(self):
         for barony in game.clan.all_clans:
             # choose one random relationship to try and affect
-            possible_barons = game.clan.all_clans + [game.clan]
+            possible_barons = game.clan.all_clans.copy()
             possible_barons.remove(barony)
             barony_affected = random.choice(possible_barons)
 
             # add a chance here
-            if not (random.random() * 2):
+            if not int(random.random() * 5):
                 before = barony.relations[barony_affected.name]
-                barony.relations[barony_affected.name] += random.choice([-2, -1, 1, 2])
+                change = random.choice([-2, -1, 0, 1, 2])
+                barony.relations[barony_affected.name] += change
                 after = barony.relations[barony_affected.name]
-                print(barony.name, "=>", barony_affected.name, ":", before, "=>", after)
+                # print(barony.name, "=>", barony_affected.name, ":", before, "=>", after)
 
+                possible_events = []
+                current_rel = get_other_clan_relation(barony.relations[barony_affected.name])
                 if before > after:
                     # rel got worse
-                    event = "baron1 and baron2 had an argument at the Conclave."
+                    addon = " (Relations worsened)"
+                elif before == after:
+                    addon = " (Relations unchanged)"
                 else:
                     # rel improved
-                    event = "baron1 and baron2 recently ran into each other at the border and shared a laugh."
+                    addon = " (Relations improved)"
+                
+                possible_events = self.BARONY_REL_EVENTS[current_rel][str(change)]
+                event = random.choice(possible_events)
+                event += addon
+
+                involved_cats = [Cat.fetch_cat(barony.baron).ID, Cat.fetch_cat(barony_affected.baron).ID]
                 
                 game.cur_events_list.append(
                     Single_Event(event_text_adjust(Cat, event, barony=barony, other_barony=barony_affected), "other_clans")
@@ -1362,9 +1383,9 @@ class Events:
                         if cat.allegiance == game.clan.baron.ID:
                             cat.allegiance = new_baron.ID
 
-                    if game.clan.colour.upper() + "BOW" in game.clan.baron.pelt.accessory:
-                        # old_baron.pelt.accessory.remove(baron_clan.colour.upper() + "BOW")
-                        new_baron.pelt.accessory.append(game.clan.colour.upper() + "BOW")
+                    if game.clan.colour.upper() + "BARON" in game.clan.baron.pelt.accessory:
+                        # old_baron.pelt.accessory.remove(baron_clan.colour.upper() + "BARON")
+                        new_baron.pelt.accessory.append(game.clan.colour.upper() + "BARON")
 
                     old_baron = game.clan.baron
                     game.clan.new_baron(new_baron)
@@ -1508,15 +1529,13 @@ class Events:
                     else:
                     # BL TODO: chances for cats being chosen as colts at 6 moons
                         if (
-                            not int(random.random() * 2)
+                            not int(random.random() * 4)
                         ):
                             self.ceremony(cat, "colt")
-                            print(cat.name, "becoming a COLT")
                             self.ceremony_accessory = True
                             self.gain_accessories(cat)
                         else:
                             self.ceremony(cat, "cog")
-                            print(cat.name, "becoming a COG")
                             self.ceremony_accessory = True
                             self.gain_accessories(cat)
                             

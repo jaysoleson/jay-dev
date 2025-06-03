@@ -138,6 +138,7 @@ class Sprites:
             "collars",
             "bellcollars",
             "bowcollars",
+            "baronoutfits",
             "nyloncollars",
             "singlecolours",
             "speckledcolours",
@@ -659,6 +660,11 @@ class Sprites:
             ["PINKNYLON", "PURPLENYLON", "MULTINYLON", "INDIGONYLON"],
         ]
 
+        # BADLANDS
+        baronoutfit_data = [
+            ["CYANBARON", "YELLOWBARON", "GREENBARON", "CRIMSONBARON", "PURPLEBARON", "PINKBARON"]
+        ]
+
         # medcatherbs
         for row, herbs in enumerate(medcatherbs_data):
             for col, herb in enumerate(herbs):
@@ -691,6 +697,11 @@ class Sprites:
         for row, nyloncollars in enumerate(nyloncollars_data):
             for col, nyloncollar in enumerate(nyloncollars):
                 self.make_group("nyloncollars", (col, row), f"collars{nyloncollar}")
+
+        # BL baron outfits
+        for row, baronoutfits in enumerate(baronoutfit_data):
+            for col, baronoutfit in enumerate(baronoutfits):
+                self.make_group("baronoutfits", (col, row), f"baronoutfits{baronoutfit}")
 
     def load_symbols(self):
         """

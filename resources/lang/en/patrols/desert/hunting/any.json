@@ -499,7 +499,7 @@
         "chance_of_success": 60,
         "success_outcomes": [
             {
-                "text": "r_c immediately turns and heads for home to report this to their baron, alarmed by the sudden presence of Twolegs in their territory.",
+                "text": "r_c immediately turns and heads for home to report this to the Barony, alarmed by the sudden presence of Twolegs in their territory.",
                 "exp": 20,
                 "weight": 20,
                 "prey": ["small"]
@@ -572,7 +572,7 @@
         "chance_of_success": 60,
         "success_outcomes": [
             {
-                "text": "The patrol immediately turns and heads for home to report this to their baron, alarmed by the sudden presence of Twolegs in their territory.",
+                "text": "The patrol immediately turns and heads for home to report this to the Barony, alarmed by the sudden presence of Twolegs in their territory.",
                 "exp": 20,
                 "weight": 20,
                 "prey": ["small"]
@@ -645,7 +645,7 @@
         "chance_of_success": 10,
         "success_outcomes": [
             {
-                "text": "The patrol immediately turns and heads for home to report this to their baron, alarmed by the sudden presence of Twolegs in their territory.",
+                "text": "The patrol immediately turns and heads for home to report this to the Barony, alarmed by the sudden presence of Twolegs in their territory.",
                 "exp": 20,
                 "weight": 20,
                 "prey": ["small"]

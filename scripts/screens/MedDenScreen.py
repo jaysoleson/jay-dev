@@ -160,7 +160,7 @@ class MedDenScreen(Screens):
                 "",
                 object_id="#help_button",
                 manager=MANAGER,
-                tool_tip_text="screens.med_den.help_tooltip",
+                tool_tip_text=event_text_adjust(Cat, "screens.med_den.help_tooltip", barony=game.clan),
             )
             self.last_page = UISurfaceImageButton(
                 ui_scale(pygame.Rect((330, 636), (34, 34))),

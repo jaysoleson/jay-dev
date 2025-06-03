@@ -6,7 +6,7 @@
     "sub_type": ["murder_reveal"],
     "tags": ["clan_wide"],
     "weight": 5,
-    "event_text": "m_c can't keep this secret anymore. {PRONOUN/m_c/subject/CAP} {VERB/m_c/request/requests} a Clan meeting, where {PRONOUN/m_c/subject} {VERB/m_c/reveal/reveals} the terrible secret {PRONOUN/m_c/subject}{VERB/m_c/'ve/'s} kept; {PRONOUN/m_c/subject} killed mur_c.",
+    "event_text": "m_c can't keep this secret anymore. {PRONOUN/m_c/subject/CAP} {VERB/m_c/request/requests} a Barony-wide assembly, where {PRONOUN/m_c/subject} {VERB/m_c/reveal/reveals} the terrible secret {PRONOUN/m_c/subject}{VERB/m_c/'ve/'s} kept; {PRONOUN/m_c/subject} killed mur_c.",
     "m_c": {
       "age": ["any"],
       "status": ["any"],
@@ -70,7 +70,7 @@
     "sub_type": ["murder_reveal"],
     "tags": ["clan_wide"],
     "weight": 5,
-    "event_text": "m_c boldly confesses to the entire Clan that {PRONOUN/m_c/subject} killed mur_c. m_c claims that mur_c deserved to pay for what {PRONOUN/mur_c/subject} did.",
+    "event_text": "m_c boldly confesses to the entire Barony that {PRONOUN/m_c/subject} killed mur_c. m_c claims that mur_c deserved to pay for what {PRONOUN/mur_c/subject} did.",
     "m_c": {
       "age": ["any"],
       "status": ["any"],
@@ -100,7 +100,7 @@
     "sub_type": ["murder_reveal"],
     "tags": ["clan_wide"],
     "weight": 10,
-    "event_text": "m_c's cold eyes don't blink when {PRONOUN/m_c/subject} {VERB/m_c/are/is} accused of murdering mur_c, and only simply states that the Clan is better off without mur_c anyways.",
+    "event_text": "m_c's cold eyes don't blink when {PRONOUN/m_c/subject} {VERB/m_c/are/is} accused of murdering mur_c, and only simply states that the Badlands are better off without mur_c anyways.",
     "m_c": {
       "age": ["any"],
       "status": ["any"],
@@ -297,10 +297,10 @@
     "season": ["any"],
     "sub_type": ["murder_reveal"],
     "weight": 15,
-    "event_text": "c_n is surprised when m_c gathers everyone to say something important. {PRONOUN/m_c/subject/CAP} {VERB/m_c/have/has} decided it's time to make something clear: {PRONOUN/m_c/subject} killed mur_c, but not for the reasons they might think. m_c knew mur_c was planning to do something that would've damaged c_n greatly, and {PRONOUN/m_c/subject} needed to act quickly before it was too late.",
+    "event_text": "baron1 is surprised when m_c gathers everyone to say something important. {PRONOUN/m_c/subject/CAP} {VERB/m_c/have/has} decided it's time to make something clear: {PRONOUN/m_c/subject} killed mur_c, but not for the reasons they might think. m_c knew mur_c was planning to do something that would've damaged the b1_t greatly, and {PRONOUN/m_c/subject} needed to act quickly before it was too late.",
     "m_c": {
       "age": ["any"],
-      "status": ["any"],
+      "status": ["regent", "clipper", "cog", "doctor", "apprentice doctor"],
      "trait": ["righteous", "loyal", "sincere", "fierce", "bold", "responsible", "shameless", "wise", "compassionate"]
     },
     "relationships": [
@@ -359,7 +359,7 @@
     "season": ["any"],
     "sub_type": ["murder_reveal"],
     "weight": 10,
-    "event_text": "One day, when m_c and r_c are alone together, r_c gathers the courage to finally tell m_c what {PRONOUN/r_c/subject}{VERB/r_c/'ve/'s} been holding off for so long: {PRONOUN/r_c/subject} {VERB/r_c/know/knows} m_c was the one who killed mur_c, and has been waiting for {PRONOUN/m_c/object} to do the right thing and confess, but if {PRONOUN/m_c/subject} {VERB/m_c/don't/doesn't} do it, then r_c will have to be the one to tell the Clan. m_c is shocked, but also kind of admires r_c's guts to tell {PRONOUN/m_c/object} that when they're all alone together.",
+    "event_text": "One day, when m_c and r_c are alone together, r_c gathers the courage to finally tell m_c what {PRONOUN/r_c/subject}{VERB/r_c/'ve/'s} been holding off for so long: {PRONOUN/r_c/subject} {VERB/r_c/know/knows} m_c was the one who killed mur_c, and has been waiting for {PRONOUN/m_c/object} to do the right thing and confess, but if {PRONOUN/m_c/subject} {VERB/m_c/don't/doesn't} do it, then r_c will have to be the one to tell everyone else. m_c is shocked, but also kind of admires r_c's guts to tell {PRONOUN/m_c/object} that when they're all alone together.",
     "m_c": {
       "age": ["any"],
       "status": ["any"]
@@ -400,7 +400,7 @@
     "sub_type": ["murder_reveal"],
     "tags": ["skill_trait_required"],
     "weight": 20,
-    "event_text": "r_c sighs. {PRONOUN/r_c/subject/CAP} {VERB/r_c/find/finds} {PRONOUN/r_c/self} unintentionally walking into one of {PRONOUN/r_c/poss} Clanmates' dreams again. It could have been just another boring or nonsensical dream, but r_c is horrified to discover this dream is m_c's recollection of murdering mur_c. {PRONOUN/r_c/subject/CAP} {VERB/r_c/wake/wakes} up in shock, wondering what to do with this new knowledge.",
+    "event_text": "r_c sighs. {PRONOUN/r_c/subject/CAP} {VERB/r_c/find/finds} {PRONOUN/r_c/self} unintentionally walking into another cat's dreams again. It could have been just another boring or nonsensical dream, but r_c is horrified to discover this dream is m_c's recollection of murdering mur_c. {PRONOUN/r_c/subject/CAP} {VERB/r_c/wake/wakes} up in shock, wondering what to do with this new knowledge.",
     "m_c": {
       "age": ["any"],
       "status": ["any"]
@@ -463,7 +463,7 @@
     ],
     "season": ["any"],
     "weight": 10,
-    "event_text": "m_c accidentally trespasses onto o_the b1_t.",
+    "event_text": "m_c accidentally trespasses into b2_t.",
     "m_c": {
         "age": ["adolescent", "young adult", "adult", "senior adult"],
         "status": ["any"]
@@ -478,7 +478,7 @@
     "location": ["any"],
     "season": ["any"],
     "weight": 30,
-    "event_text": "m_c spends the evening regaling the Clan with stories of story_list.",
+    "event_text": "m_c spends the evening regaling the cogs with stories of story_list.",
     "m_c": {
       "age": ["any"],
       "status": ["any"],
@@ -513,7 +513,7 @@
     "location": ["any"],
     "season": ["any"],
     "weight": 10,
-    "event_text": "m_c misstepped and slipped from a rock, but landed on {PRONOUN/m_c/poss} feet nimbly, {PRONOUN/m_c/poss} Clanmates commenting on the show of dexterity.",
+    "event_text": "m_c misstepped and slipped from a rock, but landed on {PRONOUN/m_c/poss} feet nimbly, {PRONOUN/m_c/poss} friends commenting on the show of dexterity.",
     "m_c": {
       "age": ["any"],
       "status": ["any"]
@@ -602,7 +602,7 @@
     "location": ["any"],
     "season": ["any"],
     "weight": 20,
-    "event_text": "m_c is caught outside of the Clan's territory.",
+    "event_text": "m_c is caught outside of the Badlands.",
     "m_c": {
         "age": ["adolescent", "young adult","adult","senior","senior adult"],
         "status": ["any"]
@@ -613,7 +613,7 @@
     "location": ["any"],
     "season": ["any"],
     "weight": 20,
-    "event_text": "m_c considers, as {PRONOUN/m_c/subject} {VERB/m_c/look/looks} out over the Clan, if perhaps this isn't where {PRONOUN/m_c/subject} {VERB/m_c/belong/belongs}.",
+    "event_text": "m_c considers, as {PRONOUN/m_c/subject} {VERB/m_c/look/looks} out over the b1_t, if perhaps this isn't where {PRONOUN/m_c/subject} {VERB/m_c/belong/belongs}.",
     "m_c": {
       "age": ["any"],
       "status": ["any"],
@@ -687,13 +687,13 @@
     ],
     "season": ["leaf-bare"],
     "weight": 20,
-    "event_text": "m_c and r_c begin a small camp snowball fight while on guard duty, eventually getting the whole Clan to join in.",
+    "event_text": "m_c and r_c begin a small camp snowball fight while on guard duty, eventually getting everyone else to join in.",
     "m_c": {
-        "status": ["clipper"],
+        "status": ["clipper", "regent", "colt"],
       "trait": ["playful"]
     },
     "r_c": {
-        "status": ["clipper"]
+        "status": ["clipper", "regent", "colt"]
     },
     "relationships": [
         {
@@ -928,7 +928,7 @@
     "season": ["any"],
     "sub_type": ["war"],
     "weight": 10,
-    "event_text": "The war with o_c_n is beginning to disrupt the daily lives of c_n, forcing them to adapt to new routines and living situations in order to better defend themselves.",
+    "event_text": "The war with the b1_t is disrupting the daily lives of baron2's cogs, forcing them to adapt to new routines and living situations in order to better defend themselves.",
     "other_clan": {
         "current_rep": ["hostile"],
         "changed": 0
@@ -939,7 +939,7 @@
     "location": ["any"],
     "season": ["any"],
     "weight": 20,
-    "event_text": "The tension between c_n and o_c_n is palpable, with even the smallest actions potentially leading to violence.",
+    "event_text": "The tension between baron2 and baron1 is palpable, with even the smallest actions potentially leading to violence.",
     "m_c": {},
     "other_clan": {
         "current_rep": ["hostile"],
@@ -954,10 +954,12 @@
     "event_text": "m_c and r_c are so cuddled up and cozy in their nest they almost miss the dawn patrol.",
     "m_c": {
       "age": ["young adult", "adult", "senior adult"],
-      "relationship_status": ["mates"]
+      "relationship_status": ["mates"],
+      "status": ["clipper", "regent"]
     },
     "r_c": {
-      "age": ["young adult", "adult", "senior adult"]
+      "age": ["young adult", "adult", "senior adult"],
+      "status": ["clipper", "regent"]
     },
     "relationships": [
         {
@@ -1027,7 +1029,7 @@
     "season": ["any"],
     "tags": ["clan:kitten"],
     "weight": 15,
-    "event_text": "m_c and r_c watch the Clan's kits play and exchange significant glances.",
+    "event_text": "m_c and r_c watch the kits play and exchange significant glances.",
     "m_c": {
       "age": ["any"],
       "status": ["any"],
@@ -1247,7 +1249,7 @@
     ],
     "season": ["greenleaf", "newleaf"],
     "weight": 15,
-    "event_text": "m_c picks some flowers around the camp to bring back to the doctor den.",
+    "event_text": "m_c picks some flowers around the camp to bring back to the doctor's den.",
     "m_c": {
       "status": ["kitten"]
     }
@@ -1318,7 +1320,7 @@
         "season": ["greenleaf"],
       "tags": ["clan:clipper"],
         "weight": 20,
-        "event_text": "m_c and r_c chase fireflies around the camp while the clippers try to sleep.",
+        "event_text": "m_c and r_c chase fireflies around the camp while the Clippers try to sleep.",
         "m_c": {
             "status": ["kitten"]
         },
@@ -1446,7 +1448,7 @@
         "season": ["any"],
         "sub_type": ["war"],
         "weight": 30,
-        "event_text": "m_c is being comforted by r_c after having nightmares about the big, bad o_c_n cats.",
+        "event_text": "m_c is being comforted by r_c after having nightmares about the big, bad baron2.",
         "m_c": {
             "status": ["kitten"],
             "relationship_status": ["child/parent"]
@@ -1945,7 +1947,7 @@
     "season": ["any"],
     "sub_type": ["accessory"],
     "weight": 20,
-    "event_text": "m_c hears r_c complaining about the dry rye stalks underneath {PRONOUN/r_c/poss} paws when {PRONOUN/r_c/subject} {VERB/r_c/finish/finishes} cleaning the elders' den for the umpteenth time. The next day, m_c adorns {PRONOUN/m_c/poss} pelt with acc_plural.",
+    "event_text": "m_c hears r_c complaining about the dry rye stalks underneath {PRONOUN/r_c/poss} paws when {PRONOUN/r_c/subject} {VERB/r_c/finish/finishes} cleaning the Baron's den for the umpteenth time. The next day, m_c adorns {PRONOUN/m_c/poss} pelt with acc_plural.",
     "new_accessory": ["RYE STALK"],
     "m_c": {
       "status": ["colt"]
@@ -2262,7 +2264,7 @@
     ],
     "season": ["any"],
     "weight": 20,
-    "event_text": "Someone has been hunting in b1_t, a stranger without a Clan scent. c_n doesn't know their face, but they memorise their smell.",
+    "event_text": "Someone has been hunting in the b1_t, a stranger without a Badlands scent. m_c doesn't know their face, but {PRONOUN/m_c/subject} {VERB/m_c/memorise/memorises} their smell.",
     "m_c": {
         "age": ["adolescent", "young adult", "adult", "senior adult", "senior"]
     },
@@ -2279,7 +2281,7 @@
     ],
     "season": ["any"],
     "weight": 20,
-    "event_text": "c_n's vast territory can be difficult to defend due to its size. The tracks of a rogue have now crossed their border repeatedly.",
+    "event_text": "The vast b1_t can be difficult to defend due to its size. The tracks of a nomad have now crossed their border repeatedly.",
     "m_c": {
         "age": ["adolescent", "young adult", "adult", "senior adult", "senior"]
     },
@@ -2331,7 +2333,7 @@
     ],
     "season": ["any"],
     "weight": 10,
-    "event_text": "m_c was seen touching noses with someone from o_c_n. Scandalous!",
+    "event_text": "m_c was seen touching noses with someone from the b2_t. Scandalous!",
     "m_c": {
         "age": ["adolescent", "young adult", "adult", "senior adult", "senior"]
     },
@@ -2350,7 +2352,7 @@
     ],
     "season": ["any"],
     "weight": 10,
-    "event_text": "m_c was loitering around o_c_n's border, looking for a specific cat.",
+    "event_text": "m_c was loitering around the b2_t's border, looking for a specific cat.",
     "m_c": {
         "age": ["adolescent", "young adult", "adult", "senior adult", "senior"]
     }
@@ -2365,7 +2367,7 @@
     ],
     "season": ["any"],
     "weight": 10,
-    "event_text": "m_c was seen racing along the border with {PRONOUN/m_c/poss} rival from o_c_n.",
+    "event_text": "m_c was seen racing along the border with {PRONOUN/m_c/poss} rival from the b2_t.",
     "m_c": {
         "age": ["adolescent", "young adult", "adult", "senior adult", "senior"]
     },
@@ -2385,7 +2387,7 @@
     "season": ["any"],
     "tags": [],
     "weight": 10,
-    "event_text": "m_c was seen arguing, and borderline-fighting, with a cat from o_c_n.",
+    "event_text": "m_c was seen arguing, and borderline-fighting, with a cat from the b2_t.",
     "m_c": {
         "age": ["adolescent", "young adult", "adult", "senior adult", "senior"]
     },
@@ -2404,7 +2406,7 @@
     ],
     "season": ["any"],
     "weight": 10,
-    "event_text": "m_c was seen speaking calmly to a cat from o_c_n.",
+    "event_text": "m_c was seen speaking calmly to a cat from the b2_t.",
     "m_c": {
         "age": ["adolescent", "young adult", "adult", "senior adult", "senior"]
     },
@@ -2422,7 +2424,7 @@
     ],
     "season": ["any"],
     "weight": 10,
-    "event_text": "m_c sees that o_c_n has been cleaning the border trackways, and adds {PRONOUN/m_c/poss} own paws the the effort.",
+    "event_text": "m_c sees that baron2's Clippers have been cleaning the border trackways, and adds {PRONOUN/m_c/poss} own paws the the effort.",
     "m_c": {
         "age": ["adolescent", "young adult", "adult", "senior adult", "senior"]
     },
@@ -2440,7 +2442,7 @@
     ],
     "season": ["any"],
     "weight": 10,
-    "event_text": "The thornbush might be on o_c_n's side of the border, but both Clans benefit from uprooting it before it can block the path further.",
+    "event_text": "The thornbush might be on baron2's side of the border, but both Baronies benefit from uprooting it before it can block the path further.",
     "m_c": {
         "age": ["adolescent", "young adult", "adult", "senior adult", "senior"]
     },
@@ -2458,7 +2460,7 @@
     ],
     "season": ["any"],
     "weight": 10,
-    "event_text": "Trying to see o_c_n cats in the flesh can be hard when the Clans live so far apart. m_c has to wait hours for a o_c_n patrol to pass on the message about local nomad activity.",
+    "event_text": "Trying to see b2_t cats in the flesh can be hard when the territories are so far apart. m_c has to wait hours for a b2_t patrol to pass on the message about local nomad activity.",
     "m_c": {
         "age": ["adolescent", "young adult", "adult", "senior adult", "senior"]
     },
@@ -2476,7 +2478,7 @@
     ],
     "season": ["any"],
     "weight": 10,
-    "event_text": "Tracks don't lie, even if o_c_n may. One of them has been traipsing across the border. It remains to be seen if that cat is a confused apprentice or a deliberate provacation.",
+    "event_text": "Tracks don't lie, even if baron2 may. One of {PRONOUN/baron2/poss} cats has been traipsing across the border. It remains to be seen if that cat is a confused colt or a deliberate provocation.",
     "m_c": {
         "age": ["adolescent", "young adult", "adult", "senior adult", "senior"]
     },
@@ -2494,7 +2496,7 @@
     ],
     "season": ["any"],
     "weight": 10,
-    "event_text": "An area of the border looks a little too pristine. Almost like o_c_n have been covering something up there.",
+    "event_text": "An area of the border looks a little too pristine. Almost like the b2_t cats have been covering something up there.",
     "m_c": {
         "age": ["adolescent", "young adult", "adult", "senior adult", "senior"]
     },
@@ -2716,7 +2718,7 @@
     "location": ["any"],
     "season": ["any"],
     "weight": 15,
-    "event_text": "m_c visits o_c_n to converse with their doctors about an omen StarClan sent.",
+    "event_text": "m_c visits the b2_t to converse with their doctors about an omen sent from above.",
     "m_c": {
         "status": ["doctor"],
         "skill": ["OMEN,1"]
@@ -2731,7 +2733,7 @@
     "location": ["any"],
     "season": ["any"],
     "weight": 15,
-    "event_text": "m_c visits o_c_n to congratulate them on their new doctor.",
+    "event_text": "m_c visits baron2's territory to congratulate {PRONOUN/baron2/object} on {PRONOUN/baron2/poss} new doctor.",
     "m_c": {
         "status": ["doctor"],
         "skill": ["MEDIATOR,1"]
@@ -2808,7 +2810,7 @@
     "season": ["any"],
     "tags": ["skill_trait_required"],
     "weight": 10,
-    "event_text": "m_c walks into the dreams of {PRONOUN/m_c/poss} Clanmates while everyone sleeps.",
+    "event_text": "m_c walks into the dreams of {PRONOUN/m_c/poss} friends while everyone sleeps.",
     "m_c": {
       "status": ["doctor"],
       "skill": ["DREAM,2"]
@@ -2820,7 +2822,7 @@
     "season": ["any"],
     "tags": ["skill_trait_required"],
     "weight": 10,
-    "event_text": "m_c tosses in {PRONOUN/m_c/poss} sleep as {PRONOUN/m_c/poss} dreamself pads through the thoughts of {PRONOUN/m_c/poss} Clanmates, picking up snippets of dream_list/m_c. {PRONOUN/m_c/subject/CAP} slowly {VERB/m_c/blink/blinks} awake, wondering whose dreams {PRONOUN/m_c/subject} walked in.",
+    "event_text": "m_c tosses in {PRONOUN/m_c/poss} sleep as {PRONOUN/m_c/poss} dreamself pads through the thoughts of {PRONOUN/m_c/poss} fellow b1_t cats, picking up snippets of dream_list/m_c. {PRONOUN/m_c/subject/CAP} slowly {VERB/m_c/blink/blinks} awake, wondering whose dreams {PRONOUN/m_c/subject} walked in.",
     "m_c": {
       "status": ["apprentice doctor", "doctor"],
       "skill": ["DREAM,2"]
@@ -2843,7 +2845,7 @@
     "location": ["any"],
     "season": ["any"],
     "weight": 15,
-    "event_text": "m_c spends {PRONOUN/m_c/poss} day communing with StarClan, attempting to figure out a recent prophecy.",
+    "event_text": "m_c spends {PRONOUN/m_c/poss} day communing with the stars, attempting to figure out a recent prophecy.",
     "m_c": {
       "status":["doctor", "apprentice doctor"],
       "skill": ["PROPHET,2"]
@@ -2854,7 +2856,7 @@
     "location": ["any"],
     "season": ["any"],
     "weight": 20,
-    "event_text": "m_c has been worried that c_n will lose the knowledge r_c has gained through {PRONOUN/r_c/poss} long life, but by sitting with r_c and discussing {PRONOUN/r_c/poss} experiences, m_c will ensure the lessons learned in the past are never forgotten.",
+    "event_text": "m_c has been worried that the Barony will lose the knowledge r_c has gained through {PRONOUN/r_c/poss} long life, but by sitting with r_c and discussing {PRONOUN/r_c/poss} experiences, m_c will ensure the lessons learned in the past are never forgotten.",
     "m_c": {
       "status":["doctor"],
       "skill": ["LORE,1"]
@@ -2869,7 +2871,7 @@
     "location": ["any"],
     "season": ["any"],
     "weight": 15,
-    "event_text": "m_c was seen loudly bickering with the doctor of o_c_n.",
+    "event_text": "m_c was seen loudly bickering with the doctor of the b2_t.",
     "m_c":{
       "status": ["doctor"]
     },
@@ -2917,7 +2919,7 @@
     "season": ["any"],
     "sub_type": ["war"],
     "weight": 20,
-    "event_text": "m_c watches every little thing around {PRONOUN/m_c/object} for any omen that indicates what the Clan should do in the war. The losses weigh heavy on the hearts of every cat.",
+    "event_text": "m_c watches every little thing around {PRONOUN/m_c/object} for any omen that indicates what the b1_t should do in the war. The losses weigh heavy on the hearts of every cat.",
     "m_c": {
       "status": ["apprentice doctor", "doctor"],
       "skill": ["OMEN,1"]
@@ -2941,7 +2943,7 @@
     "season": ["any"],
     "sub_type": ["war"],
     "weight": 10,
-    "event_text": "c_n is in a badly need of herbs, and m_c knows it, but can't bring {PRONOUN/m_c/self} to leave {PRONOUN/m_c/poss} patients' side.",
+    "event_text": "The b1_t is in a badly need of herbs, and m_c knows it, but can't bring {PRONOUN/m_c/self} to leave {PRONOUN/m_c/poss} patients' sides.",
     "m_c": {
       "status": ["doctor", "apprentice doctor"]
     }
@@ -2958,7 +2960,7 @@
     "season": ["leaf-bare"],
     "sub_type": ["war"],
     "weight": 10,
-    "event_text": "m_c hopes to find the herbs that c_n needs in the war, and goes to look for them even in this leaf-bare's harsh weather.",
+    "event_text": "m_c hopes to find the herbs that the b1_t needs in the war, and goes to look for them even in this leaf-bare's harsh weather.",
     "m_c": {
       "age":["any"],
       "status": ["apprentice doctor", "doctor"]
@@ -3039,7 +3041,7 @@
     "location": ["any"],
     "season": ["any"],
     "weight": 20,
-    "event_text": "m_c helps reinforce the dens in the camp while the rest of the camp is on patrol.",
+    "event_text": "m_c helps the cogs reinforce the dens in the camp.",
     "m_c": {
       "age":["any"],
       "status":["elder"],
@@ -3051,7 +3053,7 @@
     "location": ["any"],
     "season": ["any"],
     "weight": 20,
-    "event_text": "m_c places small feathers and shining stones near the nest of each Clanmate while they're on patrol.",
+    "event_text": "m_c places small feathers and shining stones near the nest of each Clipper while they're on patrol.",
     "m_c": {
       "age":["any"],
       "status":["elder"],
@@ -3076,7 +3078,7 @@
     "season": ["any"],
     "tags": ["clan:apps"],
     "weight": 20,
-    "event_text": "m_c calls the younger cats to {PRONOUN/m_c/poss} den to tell stories of the Clan's past.",
+    "event_text": "m_c calls the younger cats to {PRONOUN/m_c/poss} den to tell stories of the Badlands' past.",
     "m_c": {
       "age":["any"],
       "status":["elder"],
@@ -3109,7 +3111,7 @@
     "location": ["any"],
     "season": ["any"],
     "weight": 15,
-    "event_text": "m_c thinks about retiring from being regent.",
+    "event_text": "m_c thinks about retiring from being Regent.",
     "m_c": {
       "age": ["senior adult", "senior"],
       "status": ["regent"]
@@ -3120,11 +3122,13 @@
     "location": ["any"],
     "season": ["any"],
     "weight": 10,
-    "event_text": "m_c travels to o_c_n to bring them an important message.",
+    "event_text": "m_c travels to the b2_t to bring them an important message.",
     "m_c":{
       "status": [
         "doctor",
-        "regent"
+        "regent",
+        "heir",
+        "baron"
       ]
     },
     "other_clan": {
@@ -3137,11 +3141,13 @@
     "location": ["any"],
     "season": ["any"],
     "weight": 10,
-    "event_text": "m_c travels to the other Barons to bring them an important message.",
+    "event_text": "m_c travels to the other territories to bring them an important message.",
     "m_c":{
       "status": [
         "doctor",
-        "regent"
+        "regent",
+        "baron",
+        "heir"
       ]
     },
     "other_clan": {
@@ -3150,26 +3156,26 @@
     }
   },
   {
-    "event_id": "gen_misc_any_warregent1",
+    "event_id": "gen_misc_any_warheir1",
     "location": ["any"],
     "season": ["any"],
     "sub_type": ["war"],
     "weight": 10,
-    "event_text": "As the regent, m_c is doing {PRONOUN/m_c/poss} best to prepare for baronship in the case the worst happens.",
+    "event_text": "As the b1_t's heir, m_c is doing {PRONOUN/m_c/poss} best to prepare for leadership in the case the worst happens.",
     "m_c":{
-      "status": ["regent"]
+      "status": ["heir"]
     }
   },
   {
-    "event_id": "gen_misc_any_warmultitraitregentbaron2",
+    "event_id": "gen_misc_any_warmultitraitheirbaron2",
     "location": ["any"],
     "season": ["any"],
      "sub_type": ["war"],
     "tags": ["low_lives"],
     "weight": 10,
-    "event_text": "m_c is struggling to accept the fact that {PRONOUN/m_c/subject} may have to step up as baron if r_c loses {PRONOUN/r_c/poss} last life. How could {PRONOUN/m_c/subject} {VERB/m_c/go/goes} on without {PRONOUN/m_c/poss} beloved baron? How difficult will it to be to lead in {PRONOUN/r_c/poss} stead?",
+    "event_text": "m_c is struggling to accept the fact that {PRONOUN/m_c/subject} may have to step up as Baron if r_c loses {PRONOUN/r_c/poss} life. How could {PRONOUN/m_c/subject} {VERB/m_c/go/goes} on without {PRONOUN/m_c/poss} beloved Baron? How difficult will it to be to lead in {PRONOUN/r_c/poss} stead?",
     "m_c": {
-      "status": ["regent"],
+      "status": ["heir"],
       "trait": ["insecure","lonesome", "nervous"]
       },
       "r_c": {
@@ -3222,22 +3228,11 @@
     }
   },
   {
-    "event_id": "gen_misc_any_lowlivesbaron2",
-    "location": ["any"],
-    "season": ["any"],
-    "tags": ["low_lives"],
-    "weight": 10,
-    "event_text": "m_c confesses {PRONOUN/m_c/subject} {VERB/m_c/don't/doesn't} have many lives left.",
-    "m_c":{
-      "status":["baron"]
-    }
-  },
-  {
     "event_id": "gen_misc_any_baron1",
     "location": ["any"],
     "season": ["any"],
     "weight": 10,
-    "event_text": "m_c feels as though the responsibility of baronship is crushing {PRONOUN/m_c/object}.",
+    "event_text": "m_c feels as though the responsibility of leadership is crushing {PRONOUN/m_c/object}.",
     "m_c":{
       "status": ["baron"]
     }
@@ -3247,7 +3242,7 @@
     "location": ["any"],
     "season": ["any"],
     "weight": 30,
-    "event_text": "m_c calls a Clan meeting to give an important announcement.",
+    "event_text": "m_c calls a meeting to give an important announcement.",
     "m_c":{
       "status":["baron"]
     }
@@ -3269,7 +3264,7 @@
     "season": ["any"],
      "sub_type": ["war"],
     "weight": 20,
-    "event_text": "m_c's relationships with {PRONOUN/m_c/poss} Clanmates are strained, with some questioning {PRONOUN/m_c/poss} decisions and others relying on {PRONOUN/m_c/object} more heavily than ever.",
+    "event_text": "m_c's relationships with {PRONOUN/m_c/poss} Clippers and cogs are strained, with some questioning {PRONOUN/m_c/poss} decisions and others relying on {PRONOUN/m_c/object} more heavily than ever.",
     "m_c":{
       "status":["baron"]
     }
@@ -3280,7 +3275,7 @@
     "season": ["any"],
      "sub_type": ["war"],
     "weight": 20,
-    "event_text": "m_c is forced to be a symbol of strength and unity for {PRONOUN/m_c/poss} Clan, even in the face of {PRONOUN/m_c/poss} own doubts and fears.",
+    "event_text": "m_c is forced to be a symbol of strength and unity for {PRONOUN/m_c/poss} cats, even in the face of {PRONOUN/m_c/poss} own doubts and fears.",
     "m_c":{
       "status": ["baron"]
     }
@@ -3305,7 +3300,7 @@
     "season": ["any"],
     "tags": ["clan_wide"],
     "weight": 10,
-    "event_text": "The Clan worked hard to gather plenty of fresh-kill, but woke up to find pawprints leading away from the fresh-kill pile, and missing prey.",
+    "event_text": "The cogs and Clippers worked hard to gather plenty of fresh-kill, but woke up to find pawprints leading away from the fresh-kill pile, and missing prey.",
     "supplies": [
       {
           "type": "freshkill",
@@ -3320,7 +3315,7 @@
     "season": ["any"],
     "tags": ["clan_wide"],
     "weight": 10,
-    "event_text": "The Clan gathered a stockpile of food to save, the more the better, but one night the fresh-kill pile was drastically reduced and paw prints were found on the ground.",
+    "event_text": "The Clippers and cogs gathered a stockpile of food to save, the more the better, but one night the fresh-kill pile was drastically reduced and paw prints were found on the ground.",
     "supplies": [
       {
           "type": "freshkill",
@@ -3335,7 +3330,7 @@
     "season": ["any"],
     "tags": ["clan_wide"],
     "weight": 5,
-    "event_text": "The o_c_n doctor comes asking if c_n has any herbs to spare. Unfortunately, the c_n herb stocks are far too low and c_n is unable to provide any help.",
+    "event_text": "baron2's doctor comes asking if baron1 has any herbs to spare. Unfortunately, the b1_t herb stocks are far too low and baron1 is unable to provide any help.",
     "supplies": [
       {
           "type": "all_herb",
@@ -3354,7 +3349,7 @@
     "season": ["any"],
     "tags": ["clan_wide"],
     "weight": 2,
-    "event_text": "A doctor from o_c_n comes to c_n, asking for herbs to heal their sick Clanmates. c_n quickly shoos them away, not willing to admit that they already don't have enough to support themselves.",
+    "event_text": "A doctor from the b2_t comes to the b1_t, asking for herbs to heal some sick cogs. baron1 quickly shoos them away, not willing to admit that they already don't have enough to support themselves.",
     "supplies": [
       {
           "type": "all_herb",
@@ -3373,7 +3368,7 @@
     "season": ["any"],
     "tags": ["clan_wide"],
     "weight": 10,
-    "event_text": "The o_c_n doctor comes asking if c_n have any given_herb to spare. Graciously, your Clan decides to aid their allies and share the herbs.",
+    "event_text": "The b2_t doctor comes asking if baron1 has any given_herb to spare. Graciously, baron1 decides to aid {PRONOUN/baron1/poss} allies and share the herbs.",
     "supplies": [
       {
           "type": "any_herb",
@@ -3392,7 +3387,7 @@
     "season": ["any"],
     "tags": ["clan_wide"],
     "weight": 2,
-    "event_text": "The apprentice doctor from o_c_n comes asking for given_herb. They refuse to say why their Clan needs them but c_n still provides them with what they need.",
+    "event_text": "The apprentice doctor from the b2_t comes asking for given_herb. They refuse to say why their Baron needs them but baron1 still provides them with what they need.",
     "supplies": [
       {
           "type": "any_herb",
@@ -3411,7 +3406,7 @@
     "season": ["any"],
     "tags": ["clan_wide"],
     "weight": 5,
-    "event_text": "The o_c_n doctor comes asking if c_n have any given_herb to spare. However, c_n only has enough for themselves and they refuse to share.",
+    "event_text": "The b2_t doctor comes asking if baron1 has any given_herb to spare. However, the b1_t only has enough for themselves and they refuse to share.",
     "supplies": [
       {
           "type": "any_herb",
@@ -3430,7 +3425,7 @@
     "season": ["any"],
     "tags": ["clan_wide"],
     "weight": 2,
-    "event_text": "The apprentice doctor from o_c_n comes asking for herbs. They refuse to say why their Clan needs them and c_n decides not to share their precious few given_herb.",
+    "event_text": "The apprentice doctor from the b2_t comes asking for herbs. They refuse to say why their Baron needs them and baron1 decides not to share their precious few given_herb.",
     "supplies": [
       {
           "type": "any_herb",
@@ -3449,7 +3444,7 @@
     "season": ["any"],
     "tags": ["clan_wide"],
     "weight": 2,
-    "event_text": "The o_c_n apprentice doctor comes to c_n's camp, pleading for help with a yellowcough epidemic. c_n provides the cat with some of their extra lungwort.",
+    "event_text": "The b2_t apprentice doctor comes to the b1_t's camp, pleading for help with a yellowcough epidemic. baron1 provides the cat with some of their extra lungwort.",
     "supplies": [
       {
           "type": "lungwort",
@@ -3468,7 +3463,7 @@
     "season": ["any"],
     "tags": ["clan_wide"],
     "weight": 2,
-    "event_text": "A doctor from o_c_n comes to c_n, asking for lungwort to heal a case of yellowcough. c_n has some extra, and so decides to share with their allies.",
+    "event_text": "A doctor from the b2_t comes to the b1_t, asking for lungwort to heal a case of yellowcough. The b1_t has some extra, and so decides to share with their allies.",
     "supplies": [
       {
           "type": "lungwort",
@@ -3487,7 +3482,7 @@
     "season": ["any"],
     "tags": ["clan_wide"],
     "weight": 2,
-    "event_text": "The o_c_n apprentice doctor comes to c_n's camp, pleading for help with a yellowcough epidemic. However, c_n has nothing that they are willing to share.",
+    "event_text": "The b2_t apprentice doctor comes to the b1_t, pleading for help with a yellowcough epidemic. However, the b1_t has nothing that they are willing to share.",
     "supplies": [
       {
           "type": "lungwort",
@@ -3506,7 +3501,7 @@
     "season": ["any"],
     "tags": ["clan_wide"],
     "weight": 2,
-    "event_text": "A doctor from o_c_n comes to c_n, asking for lungwort to heal a case of yellowcough. However, c_n hardly has enough for their own Clan and so refuses.",
+    "event_text": "A doctor from the b2_t comes to the b1_t, asking for lungwort to heal a case of yellowcough. However, the b1_t hardly has enough for their own cats and so refuses.",
     "supplies": [
       {
           "type": "lungwort",
@@ -3525,7 +3520,7 @@
     "season": ["any"],
     "tags": [],
     "weight": 20,
-    "event_text": "The herb stores are low, m_c decides to ask o_c_n for aid in these hard times. Thankfully, the allied Clan is happy to share their excess herbs.",
+    "event_text": "The herb stores are low, m_c decides to ask baron2 for aid in these hard times. Thankfully, the allied Baron is happy to share {PRONOUN/baron2/poss} excess herbs.",
     "m_c": {
       "status": ["doctor", "apprentice doctor"]
     },
@@ -3547,9 +3542,9 @@
     "season": ["any"],
     "tags": ["clan:baron", "clan:doctor"],
     "weight": 20,
-    "event_text": "lead_name hears from med_name that the Clan is low on herbs. m_c is sent to bargain with o_c_n for whatever herbs they can spare.",
+    "event_text": "lead_name hears from med_name that the b1_t is low on herbs. m_c is sent to bargain with baron2 for whatever herbs they can spare.",
     "m_c": {
-      "status": ["regent"]
+      "status": ["regent", "heir"]
     },
     "supplies": [
       {
@@ -3569,9 +3564,9 @@
     "season": ["any"],
     "tags": ["clan:baron", "clan:doctor"],
     "weight": 20,
-    "event_text": "lead_name hears from med_name that the Clan is low on herbs. m_c is sent to bargain with o_c_n for whatever herbs they can spare.",
+    "event_text": "lead_name hears from med_name that the b1_t is low on herbs. m_c is sent to bargain with baron2 for whatever herbs they can spare.",
     "m_c": {
-      "status": ["clipper", "regent"],
+      "status": ["clipper", "regent", "heir"],
       "skill": ["SPEAKER,2", "MEDIATOR,2"]
     },
     "supplies": [
@@ -3592,7 +3587,7 @@
     "season": ["any"],
     "tags": [],
     "weight": 20,
-    "event_text": "While at the Gathering, m_c pulls the o_c_n baron aside and requests herbs from their Clan. The other baron is happy to help.",
+    "event_text": "While at the Gathering, m_c pulls baron2 aside and requests herbs from {PRONOUN/baron2/poss} doctor. The other Baron is happy to help.",
     "m_c": {
       "status": ["baron"]
     },
@@ -3614,7 +3609,7 @@
     "season": ["any"],
     "tags": [],
     "weight": 20,
-    "event_text": "While at the Gathering, m_c speaks to the other doctors and expresses worry over {PRONOUN/m_c/poss} herb stores. The doctors offer to bring some extra herbs to c_n later, to help bolster {PRONOUN/m_c/poss} supply.",
+    "event_text": "While at the Gathering, m_c speaks to the other doctors and expresses worry over {PRONOUN/m_c/poss} herb stores. The doctors offer to bring some extra herbs to the b1_t later, to help bolster {PRONOUN/m_c/poss} supply.",
     "m_c": {
       "status": ["doctor", "apprentice doctor"]
     },
@@ -3637,7 +3632,7 @@
     "subtype": ["war"],
     "tags": ["clan_wide"],
     "weight": 5,
-    "event_text": "o_c_n breaks into the camp and ravages the herb stores, taking some for themselves and attempting to destroy the rest. The Clan manages to recover some of the herbs, but the store was still badly damaged.",
+    "event_text": "A group of b2_t Clippers break into the camp and ravage the herb stores, taking some for themselves and attempting to destroy the rest. The b1_t manages to recover some of the herbs, but the store was still badly damaged.",
     "supplies": [
       {
           "type": "all_herb",
@@ -3657,7 +3652,7 @@
     "subtype": ["war"],
     "tags": ["clan_wide"],
     "weight": 5,
-    "event_text": "o_c_n breaks into the camp and ravages the herb stores, taking some for themselves and destroying the rest.",
+    "event_text": "The b2_t breaks into the camp and ravages the herb stores, taking some for themselves and destroying the rest.",
     "supplies": [
       {
           "type": "all_herb",
@@ -3677,7 +3672,7 @@
     "subtype": ["war"],
     "tags": ["clan_wide"],
     "weight": 5,
-    "event_text": "c_n breaks into the o_c_n camp and steals precious herbs from their doctor den.",
+    "event_text": "A b1_t patrol breaks into the b2_t camp and steals precious herbs from their doctor's den.",
     "m_c": {
       "status": ["baron"],
       "trait": ["arrogant", "bloodthirsty", "vengeful", "competitive", "bold", "troublesome", "fierce", "cold", "righteous", "daring", "shameless", "sneaky", "cunning", "rebellious"]
@@ -3700,7 +3695,7 @@
     "season": ["any"],
     "tags": ["clan_wide"],
     "weight": 1,
-    "event_text": "Some sort of pest got into the herb stores and ruined much of the supplies. c_n will have to clean it out and start over anew.",
+    "event_text": "Some sort of pest got into the herb stores and ruined much of the supplies. The b1_t will have to clean it out and start over anew.",
     "supplies": [
       {
           "type": "all_herb",
@@ -3715,7 +3710,7 @@
     "season": ["any"],
     "tags": ["clan_wide"],
     "weight": 1,
-    "event_text": "Abnormally strong winds blew through the camp last night and scattered the herb store into a useless state. The Clan manages to recover some of the herbs, but the resulting supply is much smaller than before.",
+    "event_text": "Abnormally strong winds blew through the camp last night and scattered the herb store into a useless state. The b1_t manages to recover some of the herbs, but the resulting supply is much smaller than before.",
     "supplies": [
       {
           "type": "all_herb",
@@ -3730,7 +3725,7 @@
     "season": ["any"],
     "tags": ["clan_wide"],
     "weight": 1,
-    "event_text": "Some kind of blight has infected the herb stores. c_n has no choice but to clear out all the old herbs.",
+    "event_text": "Some kind of blight has infected the herb stores. The b1_t has no choice but to clear out all the old herbs.",
     "supplies": [
       {
           "type": "all_herb",
@@ -3805,7 +3800,7 @@
     "season": ["any"],
     "tags": ["clan_wide"],
     "weight": 20,
-    "event_text": "The Clan has gathered plenty of moss recently, time to refresh the dens!",
+    "event_text": "The doctors and cogs have gathered plenty of moss recently, time to refresh the dens!",
     "supplies": [
       {
           "type": "moss",
@@ -3860,7 +3855,7 @@
     "season": ["any"],
     "sub_type": ["ceremony", "accessory"],
     "weight": 20,
-    "event_text": "r_c is so proud of how far {PRONOUN/r_c/poss} kit has grown. With a look of pride, r_c presents m_c with acc_plural as a congratulations for becoming an apprentice.",
+    "event_text": "r_c is so proud of how far {PRONOUN/r_c/poss} kit has grown. With a look of pride, r_c presents m_c with acc_plural as a congratulations for becoming a colt.",
     "new_accessory": ["WILD", "PLANT"],
     "m_c": {
       "status": ["colt"],
@@ -3885,7 +3880,7 @@
     "season": ["any"],
     "sub_type": ["ceremony", "accessory"],
     "weight": 20,
-    "event_text": "r_c is so proud of how far {PRONOUN/r_c/poss} child has grown. With a look of pride, r_c presents m_c with acc_plural as a congratulations for becoming a Clipper. r_c knew that m_c would do great things for c_n.",
+    "event_text": "r_c is so proud of how far {PRONOUN/r_c/poss} child has grown. With a look of pride, r_c presents m_c with acc_plural as a congratulations for becoming a Clipper. r_c knew that m_c would do great things for the Badlands.",
     "new_accessory": ["WILD", "PLANT"],
     "m_c": {
       "status": ["clipper"],
@@ -3942,7 +3937,7 @@
     "season": ["any"],
     "sub_type": ["ceremony", "accessory"],
     "weight": 20,
-    "event_text": "r_c hands over acc_singular to m_c, telling m_c that {PRONOUN/m_c/subject} better not forget about {PRONOUN/r_c/object} now that m_c is an apprentice.",
+    "event_text": "r_c hands over acc_singular to m_c, telling m_c that {PRONOUN/m_c/subject} better not forget about {PRONOUN/r_c/object} now that m_c is a colt.",
     "new_accessory": ["FORGET ME NOTS"],
     "m_c": {
       "status": ["colt"],
@@ -4116,7 +4111,7 @@
     "season": ["any"],
     "sub_type": ["ceremony", "accessory"],
     "weight": 20,
-    "event_text": "As a new mentor, r_c wants to make a good initial impression on {PRONOUN/r_c/poss} apprentice, and after some careful consideration {PRONOUN/r_c/subject} {VERB/r_c/decide/decides} the best way is a gift. Taking m_c to the side, r_c gives {PRONOUN/m_c/object} acc_plural, telling {PRONOUN/m_c/object} with a soft voice that if m_c has any sort of issue then {PRONOUN/m_c/subject} can come to {PRONOUN/r_c/object} for help.",
+    "event_text": "As a new mentor, r_c wants to make a good initial impression on {PRONOUN/r_c/poss} trainee, and after some careful consideration {PRONOUN/r_c/subject} {VERB/r_c/decide/decides} the best way is a gift. Taking m_c to the side, r_c gives {PRONOUN/m_c/object} acc_plural, telling {PRONOUN/m_c/object} with a soft voice that if m_c has any sort of issue then {PRONOUN/m_c/subject} can come to {PRONOUN/r_c/object} for help.",
     "new_accessory": ["WILD", "PLANT"],
     "m_c": {
       "status": ["colt", "apprentice doctor"],
@@ -4241,7 +4236,7 @@
     "season": ["any"],
     "tags": ["skill_trait_required"],
     "weight": 20,
-    "event_text": "m_c thinks StarClan is trying to warn {PRONOUN/m_c/object} about r_c.",
+    "event_text": "m_c thinks the Gods are trying to warn {PRONOUN/m_c/object} about r_c.",
     "m_c": {
       "age": ["adolescent", "young adult", "adult", "senior adult", "senior"],
       "status": ["doctor"],
@@ -4266,7 +4261,7 @@
     "season": ["leaf-bare"],
     "sub_type": ["accessory"],
     "weight": 10,
-    "event_text": "A stray acc_singular in its last moments of life leads m_c to a new herb gathering spot {PRONOUN/m_c/subject} {VERB/m_c/have/has} never found before. It gives a final flutter before it gently descends to the ground. Is it a sign from StarClan, or a coincidence? m_c doesn't know, but {PRONOUN/m_c/subject} {VERB/m_c/decide/decides} to keep it with {PRONOUN/m_c/object} in its honor.",
+    "event_text": "A stray acc_singular in its last moments of life leads m_c to a new herb gathering spot {PRONOUN/m_c/subject} {VERB/m_c/have/has} never found before. It gives a final flutter before it gently descends to the ground. Is it a sign from above, or a coincidence? m_c doesn't know, but {PRONOUN/m_c/subject} {VERB/m_c/decide/decides} to keep it with {PRONOUN/m_c/object} in its honor.",
     "new_accessory": ["BLACK CICADA", "CICADA WINGS", "ROSY MOTH WINGS", "MORPHO BUTTERFLY", "MONARCH BUTTERFLY"],
     "m_c": {
       "age": ["adolescent", "young adult", "adult", "senior adult", "senior"],

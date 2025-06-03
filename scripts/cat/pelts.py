@@ -400,6 +400,14 @@ class Pelt:
         "MULTINYLON",
         "INDIGONYLON",
     ]
+    baronoutfits = [
+        "CYANBARON",
+        "YELLOWBARON",
+        "GREENBARON",
+        "CRIMSONBARON",
+        "PURPLEBARON",
+        "PINKBARON"
+    ]
 
     head_accessories = [
         "MOTH WINGS",

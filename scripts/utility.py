@@ -2989,7 +2989,7 @@ def generate_sprite(
         from scripts.cat.pelts import Pelt
         if not acc_hidden and cat.pelt.accessory:
             cat_accessories = cat.pelt.accessory
-            categories = ["collars", "tail_accessories", "body_accessories", "head_accessories"]
+            categories = ["collars", "tail_accessories", "body_accessories", "head_accessories", "baronoutfits"]
             for category in categories:
                 for accessory in cat_accessories:
                     if accessory in getattr(Pelt, category):
@@ -3006,6 +3006,10 @@ def generate_sprite(
                         elif accessory in cat.pelt.collars:
                             new_sprite.blit(
                                 sprites.sprites["collars" + accessory + cat_sprite], (0, 0)
+                            )
+                        elif accessory in cat.pelt.baronoutfits:
+                            new_sprite.blit(
+                                sprites.sprites["baronoutfits" + accessory + cat_sprite], (0, 0)
                             )
 
         # Apply fading fog
