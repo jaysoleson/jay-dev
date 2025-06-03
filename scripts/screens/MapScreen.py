@@ -492,7 +492,7 @@ class MapScreen(Screens):
         # the map image has to be blitted onto the screen
         # so the lines can blit on top of it.
         # and it has to be done here instead of screen_switches or itll disappear :C
-        map_image = pygame.image.load("resources/images/badlands/map_small.png").convert_alpha()
+        map_image = pygame.image.load("resources/images/badlands/forestmap.png").convert_alpha()
 
         if game.settings["fullscreen"]:
             scaled_image = pygame.transform.scale(map_image, (435, 435))
