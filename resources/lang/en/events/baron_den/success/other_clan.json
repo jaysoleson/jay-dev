@@ -2457,5 +2457,58 @@
     },
     "player_clan_temper": ["any"],
     "other_clan_temper": ["wary"]
+  },
+
+
+  {
+    "interaction_type": "declare",
+    "event_text": "m_c travels to the Conclave to formally announce the b1_t's war declaration against baron2, then promptly leaves without waiting for a reaction.",
+    "rel_change": -2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "declare",
+    "event_text": "Just because a Baron can't be here does not mean the others can just walk all over the b1_t. m_c arrives to the Barons Conclave alone and greets baron2 with a swipe across the face. This is war.",
+    "rel_change": -2,
+    "m_c": {
+      "status": ["heir"]
+    },
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "declare",
+    "event_text": "What started as a lighthearted discussion about territory turns into a nasty argument between m_c and baron2. In the end, m_c snaps-- baron2 can't possibly need all of that territory, whereas the b1_t does! A formal war for the stretch of land is declared.",
+    "rel_change": -2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"],
+    "war_reason": "territory"
+  },
+  {
+    "interaction_type": "declare",
+    "event_text": "When m_c declares war against baron2 at the Conclave, baron2 just unsheathes {PRONOUN/baron2/poss} claws and meets m_c with an icy stare, ensuring that {PRONOUN/baron2/poss} Clippers are more than prepared.",
+    "rel_change": -2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["bloodthirsty"]
+  },
+  {
+    "interaction_type": "declare",
+    "event_text": "m_c officially declares war against baron2 at the Conclave, much to the shock and horror of every other Baron. baron2 looks hurt. They thought you could be friends.",
+    "rel_change": -2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "declare",
+    "event_text": "m_c and baron2 get into a physical fight at the Conclave. As the other Barons pull them apart, m_c spits a war declaration in baron2's direction and stomps away.",
+    "rel_change": -2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
   }
 ]

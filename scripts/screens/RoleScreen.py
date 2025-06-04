@@ -19,6 +19,7 @@ from scripts.utility import (
     ui_scale_dimensions,
     ui_scale,
     adjust_list_text,
+    event_text_adjust
 )
 from .Screens import Screens
 from ..game_structure.screen_settings import MANAGER
@@ -99,7 +100,7 @@ class RoleScreen(Screens):
                 # here
                 self.update_selected_cat()
             elif event.ui_element == self.switch_cog:
-                self.the_cat.status_change("mediator", resort=True)
+                self.the_cat.status_change("cog", resort=True)
                 self.update_selected_cat()
             elif event.ui_element == self.switch_colt:
                 self.the_cat.status_change("colt", resort=True)
@@ -557,7 +558,8 @@ class RoleScreen(Screens):
         else:
             output = "screens.role.blurb_unknown"
 
-        return i18n.t(output, name=self.the_cat.name, clan=game.clan.name)
+        text = i18n.t(output, name=self.the_cat.name, clan=game.clan.name)
+        return event_text_adjust(Cat, text, barony=game.clan, baron_colour_force_dark=True)
 
     def exit_screen(self):
         self.back_button.kill()

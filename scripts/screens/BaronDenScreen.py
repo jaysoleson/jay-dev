@@ -28,7 +28,8 @@ from scripts.utility import (
     get_alive_status_cats,
     get_living_clan_cat_count,
     ui_scale_dimensions,
-    get_baron_colour
+    get_baron_colour,
+    get_bordering_baronies
 )
 
 
@@ -71,6 +72,9 @@ class BaronDenScreen(Screens):
 
         self.outsider_cat_list_container = None
         self.outsider_cat_buttons = {}
+
+        # BL
+        self.war_reason = None
 
     def handle_event(self, event):
         """
@@ -117,6 +121,63 @@ class BaronDenScreen(Screens):
                     event.ui_element.text.replace("screens.baron_den.", "")
                 )
                 self.update_outsider_cats()
+            
+            # BL
+            elif event.ui_element == self.focus_clan_elements["declare_war"]:
+                self.focus_clan_elements["declare_war"].hide()
+                
+                self.focus_clan_elements["food"].show()
+                self.focus_clan_elements["herbs"].show()
+                self.focus_clan_elements["territory"].show()
+                self.focus_clan_elements["cosmetics"].show()
+
+                self.focus_clan_elements["war_back"].show()
+                self.focus_clan_elements["war_confirm"].show()
+
+                self.focus_clan_elements["clan_rel"].hide()
+                self.focus_clan_elements["clan_temper"].hide()
+
+                self.war_reason = "food"
+                self.focus_clan_elements[self.war_reason].disable()
+                
+            elif event.ui_element == self.focus_clan_elements["war_confirm"]:
+                self.focus_clan_elements["declare_war"].show()
+                
+                self.focus_clan_elements["food"].hide()
+                self.focus_clan_elements["herbs"].hide()
+                self.focus_clan_elements["territory"].hide()
+                self.focus_clan_elements["cosmetics"].hide()
+
+                self.focus_clan_elements["war_back"].hide()
+                self.focus_clan_elements["war_confirm"].hide()
+
+                self.focus_clan_elements["clan_rel"].show()
+                self.focus_clan_elements["clan_temper"].show()
+                
+                self.update_clan_interaction_choice("declare")
+            elif event.ui_element == self.focus_clan_elements["war_back"]:
+                self.focus_clan_elements["declare_war"].show()
+                
+                self.focus_clan_elements["food"].hide()
+                self.focus_clan_elements["herbs"].hide()
+                self.focus_clan_elements["territory"].hide()
+                self.focus_clan_elements["cosmetics"].hide()
+
+                self.focus_clan_elements["war_back"].hide()
+                self.focus_clan_elements["war_confirm"].hide()
+
+                self.focus_clan_elements["clan_rel"].show()
+                self.focus_clan_elements["clan_temper"].show()
+                
+                game.clan.clan_settings["lead_den_clan_event"] = {}
+            for reason in ["food", "herbs", "cosmetics", "territory"]:
+                if event.ui_element == self.focus_clan_elements[reason]:
+                    self.war_reason = reason
+                    self.focus_clan_elements[reason].disable()
+                else:
+                    self.focus_clan_elements[reason].enable()
+                if self.focus_clan.name not in get_bordering_baronies(game.clan):
+                    self.focus_clan_elements["territory"].disable()
 
     def screen_switches(self):
         """
@@ -646,9 +707,9 @@ class BaronDenScreen(Screens):
         )
 
         self.focus_clan_elements["focus_baron_image"] = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((0, 45), (130, 130))),
+            ui_scale(pygame.Rect((0, 45), (120, 120))),
             pygame.transform.scale(
-                Cat.fetch_cat(self.focus_clan.baron).sprite, ui_scale_dimensions((130, 130))
+                Cat.fetch_cat(self.focus_clan.baron).sprite, ui_scale_dimensions((120, 120))
             ),
             object_id="#lead_cat_image",
             container=self.focus_clan_container,
@@ -732,7 +793,7 @@ class BaronDenScreen(Screens):
 
         # BADLANDS info container
         self.focus_clan_elements["clan_symbol"] = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((0, 67), (100, 100))),
+            ui_scale(pygame.Rect((0, 57), (100, 100))),
             pygame.transform.scale(
                 clan_symbol_sprite(self.focus_clan, force_light=True),
                 ui_scale_dimensions((100, 100)),
@@ -776,29 +837,77 @@ class BaronDenScreen(Screens):
                 "top_target": self.focus_clan_elements["clan_temper"],
             },
         )
-
-        self.focus_clan_elements["territory_num"] = pygame_gui.elements.UILabel(
-            ui_scale(pygame.Rect((0, 25), (215, -1))),
-            text=f"Territory: {len(self.focus_clan.territory)}",
-            object_id="#text_box_26_horizcenter",
+        self.focus_clan_elements["declare_war"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((0, 25), (121, 30))),
+            "declare war",
+            get_button_dict(ButtonStyles.SQUOVAL, (121, 30)),
             container=self.focus_info_container,
+            object_id="@buttonstyles_squoval",
+            starting_height=3,
             manager=MANAGER,
             anchors={
                 "centerx": "centerx",
                 "top_target": self.focus_clan_elements["clan_rel"]
-            },
+                },
         )
-        self.focus_clan_elements["clipper_num"] = pygame_gui.elements.UILabel(
-            ui_scale(pygame.Rect((0, 5), (215, -1))),
-            text=f"Clippers: {self.focus_clan.clippers}",
-            object_id="#text_box_26_horizcenter",
+
+        reasons = {
+            "food": "Fight for food. If you win the war, you will gain a large amount of prey.",
+            "herbs": "Fight for herbs. If you win this war, you will gain a large amount of herbs.",
+            "cosmetics": "Fight for cosmetics. If you win this war, you and your cats will gain a large amount of cosmetic and recreational items. This will boost your cats' happiness and give some cats accessories.",
+            "territory": "Fight for territory. If you win the war, you will gain a territory space from this Baron."
+        }
+        y_pos = 200
+        for reason, hover_text in reasons.items():
+            self.focus_clan_elements[reason] = UISurfaceImageButton(
+                ui_scale(pygame.Rect((0, y_pos), (121, 25))),
+                reason,
+                get_button_dict(ButtonStyles.ROUNDED_RECT, (121, 25)),
+                container=self.focus_info_container,
+                object_id="@buttonstyles_rounded_rect",
+                tool_tip_text=hover_text,
+                manager=MANAGER,
+                anchors={
+                    "centerx": "centerx",
+                    },
+            )
+            self.focus_clan_elements[reason].hide()
+            y_pos += 30
+
+        if self.focus_clan.name not in get_bordering_baronies(game.clan):
+            self.focus_clan_elements["territory"].disable()
+
+        self.focus_clan_elements["war_back"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((40, y_pos + 5), (30, 30))),
+            Icon.ARROW_LEFT,
+            get_button_dict(ButtonStyles.ROUNDED_RECT, (30, 30)),
             container=self.focus_info_container,
+            object_id="@buttonstyles_rounded_rect",
             manager=MANAGER,
-            anchors={
-                "centerx": "centerx",
-                "top_target": self.focus_clan_elements["territory_num"],
-            },
         )
+        self.focus_clan_elements["war_confirm"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((80, y_pos + 5), (80, 30))),
+            "done",
+            get_button_dict(ButtonStyles.SQUOVAL, (80, 30)),
+            container=self.focus_info_container,
+            object_id="@buttonstyles_squoval",
+            manager=MANAGER,
+        )
+        self.focus_clan_elements["war_back"].hide()
+        self.focus_clan_elements["war_confirm"].hide()
+
+
+        you_at_war = False
+        for war in game.clan.war:
+            if war["offense"]["name"] == game.clan.name:
+                you_at_war = True
+                break
+            if war["defense"]["name"] == game.clan.name:
+                you_at_war = True
+                break
+        if you_at_war:
+            self.focus_clan_elements["declare_war"].disable()
+            
 
     def update_clan_interaction_choice(self, object_id):
         """
@@ -815,7 +924,8 @@ class BaronDenScreen(Screens):
             text_kwargs={
                 "m_c": game.clan.baron,
                 "other_clan": self.focus_clan,
-                "baron": f"<font color='{baron_colour}'>{Cat.fetch_cat(self.focus_clan.baron).name}</font>"
+                "baron": f"<font color='{baron_colour}'>{Cat.fetch_cat(self.focus_clan.baron).name}</font>",
+                "reason": self.war_reason if self.war_reason else ""
             },
         )
 
@@ -837,14 +947,24 @@ class BaronDenScreen(Screens):
 
         if random.random() >= fail_chance:
             success = True
-
-        game.clan.clan_settings["lead_den_clan_event"] = {
+        
+        if self.war_reason:
+            game.clan.clan_settings["lead_den_clan_event"] = {
             "cat_ID": gathering_cat.ID,
             "other_clan": self.focus_clan.name,
             "player_clan_temper": self.clan_temper,
             "interaction_type": interaction_type,
-            "success": success,
+            "success": True,
+            "war_reason": self.war_reason
         }
+        else:
+            game.clan.clan_settings["lead_den_clan_event"] = {
+                "cat_ID": gathering_cat.ID,
+                "other_clan": self.focus_clan.name,
+                "player_clan_temper": self.clan_temper,
+                "interaction_type": interaction_type,
+                "success": success,
+            }
 
     def _compare_temper(self, player_temper_int, other_temper_int) -> float:
         """
@@ -924,9 +1044,9 @@ class BaronDenScreen(Screens):
         )
 
         self.focus_outsider_elements["cat_sprite"] = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((0, 67), (100, 100))),
+            ui_scale(pygame.Rect((0, 67), (120, 120))),
             pygame.transform.scale(
-                self.focus_cat.sprite, ui_scale_dimensions((100, 100))
+                self.focus_cat.sprite, ui_scale_dimensions((120, 120))
             ),
             object_id="#focus_cat_sprite",
             container=self.focus_outsider_container,

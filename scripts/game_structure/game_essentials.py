@@ -138,7 +138,10 @@ class Game:
         "disallowed_symbol_tags": [],
         "saved_scroll_positions": {},
         "moon&season_open": False,
-        "creation_other_clans": [0, []]
+
+        # BL
+        "creation_other_clans": [0, []],
+        "declare_war": []
     }
     all_screens = {}
     cur_events = {}

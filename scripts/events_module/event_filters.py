@@ -119,6 +119,23 @@ def event_for_reputation(required_rep: list) -> bool:
 
     return False
 
+def event_for_war_reason(war_reason:str):
+    """ 
+    checks if the war just declared has the right reason for the event
+    """
+    you_war = None
+    for war in game.clan.war:
+        if war["offense"]["name"] == game.clan.name:
+            you_war = war
+            break
+    if not you_war:
+        print("WAR ERROR")
+        return
+    
+    if war_reason != you_war["reason"]:
+        return False
+    return True
+
 
 def event_for_clan_relations(required_rel: list, other_clan) -> bool:
     """

@@ -1,6 +1,6 @@
 {
     "en": {
-        "help_tooltip": "This screen allows you to check on the other cats who live nearby, both nomads and the other Barons.  You can control how your Baron will treat the others, but keep in mind that you can only determine one interaction each moon! Likewise, you can consider whether to drive out or invite in nomad cats.  If you drive out a cat, they will no longer appear in the Nomads list.  If you invite a cat in, they might join you!",
+        "help_tooltip": "This screen allows you to check on the other cats who live nearby, both nomads and the other Barons.  You can control how your Baron will treat the others, but keep in mind that you can only determine one interaction each moon! Likewise, you can consider whether to drive out or invite in nomad cats.  If you drive out a cat, they will no longer appear in the Nomads list.  If you invite a cat in, they might join you!<br><br><b>Declaring War</b><br>You can declare war on other Baronies for a few different reasons. Hit the 'declare war' button to select a reason. Keep in mind that you will only be able to declare territory from your direct neighbours.",
         "clans": "Baronies",
         "outsiders": "Nomads",
         "clan_notice_text": {
@@ -23,7 +23,7 @@
         "action_clan_praise": "m_c has decided to praise %{baron}.",
         "action_clan_antagonize": "m_c has decided to antagonize %{baron}.",
         "action_clan_appease": "m_c has decided to appease %{baron}.",
-        "action_clan_declare": "m_c has decided to declare war on %{baron}.",
+        "action_clan_declare": "m_c has decided to declare war on %{baron} for %{reason}.",
         "action_outsider_hunt": "m_c has decided to hunt r_c down.",
         "action_outsider_drive": "m_c has decided to drive r_c off.",
         "action_outsider_invite": "m_c has decided to invite r_c in.",

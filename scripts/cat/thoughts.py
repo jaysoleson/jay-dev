@@ -363,6 +363,12 @@ class Thoughts:
                 loaded_thoughts = load_lang_resource(
                     f"thoughts/{life_dir}{spec_dir}/newborn.json"
                 )
+            elif (
+                main_cat.status == "baron" and main_cat.allegiance == main_cat.ID and main_cat.outside
+                ):
+                loaded_thoughts = load_lang_resource(
+                    f"thoughts/{life_dir}{spec_dir}/outside_baron.json"
+                )
             else:
                 thoughts = load_lang_resource(
                     f"thoughts/{life_dir}{spec_dir}/{status}.json"

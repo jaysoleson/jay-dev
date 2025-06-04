@@ -865,8 +865,13 @@ class Cat:
         if self.status == "colt":
             pass
 
-        elif self.status == "baron":
-            pass
+        if old_status == "baron" and new_status != "baron":
+            if game.clan.colour.upper() + "BARON" in self.pelt.accessory:
+                self.pelt.accessory.remove(game.clan.colour.upper() + "BARON")
+            # game.clan.baron = None
+        elif new_status == "baron":
+            if game.clan.colour.upper() + "BARON" not in self.pelt.accessory:
+                self.pelt.accessory.append(game.clan.colour.upper() + "BARON")
 
         elif self.status == "heir":
             for cat in Cat.all_cats_list:

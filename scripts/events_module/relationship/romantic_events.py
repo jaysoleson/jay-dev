@@ -510,7 +510,12 @@ class RomanticEvents:
             relationship_to.comfortable -= 10
             relationship_from.comfortable -= 10
 
-        text = choice(RomanticEvents.BREAKUP_STRINGS[breakup_type])
+        try:
+            text = choice(RomanticEvents.BREAKUP_STRINGS[breakup_type])
+        except KeyError as e:
+            print(e)
+            print(RomanticEvents.BREAKUP_STRINGS)
+            return
         text = event_text_adjust(Cat, text, main_cat=cat_from, random_cat=cat_to)
         game.cur_events_list.append(
             Single_Event(

@@ -852,8 +852,12 @@ class ProfileScreen(Screens):
                 apps = apprentices
 
             if len(apps) > 0:
+                if the_cat.status == "doctor":
+                    string = "general.former_apprentice_label"
+                else:
+                    string = "general.former_colt_label"
                 output += i18n.t(
-                    "general.former_apprentice_label",
+                    string,
                     count=len(apps),
                     apprentices=adjust_list_text(apps),
                 )

@@ -411,6 +411,24 @@ class Events:
                 print(info_dict["other_clan"])
                 return
 
+            # BL
+            if info_dict["interaction_type"] == "declare":
+                game.clan.war.append(
+                    {
+                        "offense": {
+                            "name": game.clan.name,
+                            "casualities": {}
+                            },
+                        "defense": {
+                            "name": other_clan.name,
+                            "casualities": {}
+                            },
+                        "duration": 0,
+                        "reason": info_dict["war_reason"]
+                    }
+                )
+                other_clan.relations[game.clan.name] = random.randint(4,8)
+
             # get events
             events = generate_events.possible_lead_den_events(
                 cat=gathering_cat,
@@ -419,6 +437,7 @@ class Events:
                 event_type="other_clan",
                 interaction_type=info_dict["interaction_type"],
                 success=info_dict["success"],
+                reason=info_dict["reason"] if "reason" in info_dict else None
             )
             chosen_event = random.choice(events)
 
@@ -1174,6 +1193,9 @@ class Events:
                     # choose who wins the war-- probably find a better way to do this sometime 
                     outcome = random.choice(["winner_offense", "winner_defense", "none"])
 
+                    # debug
+                    outcome="winner_offense"
+
                     gain_events = gain_events_dict[war['reason'] + '_gain'][outcome]
 
                     # now give territory/supplies/whatever to the winner!
@@ -1195,7 +1217,28 @@ class Events:
                                 territory_tile = random.choice(get_bordering_baronies(winner)[loser.name])
                                 loser.territory.remove(territory_tile)
                                 winner.territory.append(territory_tile)
-                        
+                        elif war["reason"] == "prey":
+                            if winner == offense_clan:
+                                total_amount = 40
+                                game.clan.freshkill_pile.add_freshkill(total_amount)
+                                print("WAR WON: +40 prey!")
+                        elif war["reason"] == "cosmetics":
+                            if winner == offense_clan:
+                                print("WAR WON: cosmetics!")
+                        elif war["reason"] == "herbs":
+                            gained_herbs = []
+                            if winner == offense_clan:
+                                possible_herbs = []
+                                for herb in game.clan.herb_supply.base_herb_list.keys():
+                                    possible_herbs.append(herb)
+                                for i in range(random.randint(5,10)):
+                                    chosen_herb = random.choice(possible_herbs)
+                                    amount_added = random.randint(5, 20)
+                                    game.clan.herb_supply.add_herb(chosen_herb, amount_added)
+                                    gained_herbs.append(str(amount_added) + " " + chosen_herb.replace("_", " "))
+                                game.herb_events_list.append("The following was won in a war: " + (", ".join(gained_herbs)))
+
+
 
                     defensive_clan = defense_clan
                     offensive_clan = offense_clan
@@ -1216,8 +1259,35 @@ class Events:
                     elif choice == "rel_down" and offensive_relations > 1:
                         offensive_relations -= 1
                         defensive_relations -= 1
+                # if nothing happened, return
+                if not war_events:
+                    return
 
-        else:  # try to start a war if no war in progress
+                if not game.clan.baron or not game.clan.regent or not game.clan.doctor:
+                    for event in war_events:
+                        if not game.clan.baron and "lead_name" in event:
+                            war_events.remove(event)
+                        if not game.clan.regent and "dep_name" in event:
+                            war_events.remove(event)
+                        if not game.clan.doctor and "med_name" in event:
+                            war_events.remove(event)
+
+                event = random.choice(war_events)
+
+                # and get the additional event text
+                if gain_events:
+                    gain_event = random.choice(gain_events)
+                    event = event + gain_event
+
+                event = ongoing_event_text_adjust(
+                    Cat, event, barony=offensive_clan, other_barony=defensive_clan, clan=game.clan
+                )
+                game.cur_events_list.append(Single_Event(event, "other_clans"))
+
+        war_events = []
+        # else:  # try to start a war if no war
+        # BL change: wars can start even if there's another one going on already
+        if len(game.clan.war) < 4:
             for other_clan in game.clan.all_clans:
                 if war_started or war_events:
                     break
@@ -1234,11 +1304,12 @@ class Events:
                 if other_clan.temperament in ["mellow", "amiable", "gracious"]:
                     threshold = 3
 
-                if int(other_clan.relations[clan_to_attack.name]) <= threshold and not int(
-                    random.random() * int(other_clan.relations[clan_to_attack.name])
-                ):
+                if (
+                    int(other_clan.relations[clan_to_attack.name]) <= threshold and
+                    not int(random.random() * (int(other_clan.relations[clan_to_attack.name])) * 2
+                )):
                     # print("WAR STARTED BETWEEN", other_clan.name, "and", clan_to_attack.name)
-                    reasons = ["food", "cosmetics", "supplies", "herbs"]
+                    reasons = ["food", "cosmetics", "herbs"]
                     if clan_to_attack.name in get_bordering_baronies(other_clan):
                         # print("Adding territory to options;", other_clan.name, "and", clan_to_attack.name, "are neighbours.")
                         reasons.append("territory")
@@ -1263,40 +1334,42 @@ class Events:
                     offensive_clan = other_clan
                     war_started = True
 
-        # if nothing happened, return
-        if not war_events:
-            return
+                    # if nothing happened, return
+                    if not war_events:
+                        return
 
-        if not game.clan.baron or not game.clan.regent or not game.clan.doctor:
-            for event in war_events:
-                if not game.clan.baron and "lead_name" in event:
-                    war_events.remove(event)
-                if not game.clan.regent and "dep_name" in event:
-                    war_events.remove(event)
-                if not game.clan.doctor and "med_name" in event:
-                    war_events.remove(event)
+                    if not game.clan.baron or not game.clan.regent or not game.clan.doctor:
+                        for event in war_events:
+                            if not game.clan.baron and "lead_name" in event:
+                                war_events.remove(event)
+                            if not game.clan.regent and "dep_name" in event:
+                                war_events.remove(event)
+                            if not game.clan.doctor and "med_name" in event:
+                                war_events.remove(event)
 
-        event = random.choice(war_events)
+                    event = random.choice(war_events)
 
-        # and get the additional event text
-        if gain_events:
-            gain_event = random.choice(gain_events)
-            event = event + gain_event
+                    # and get the additional event text
+                    if gain_events:
+                        gain_event = random.choice(gain_events)
+                        event = event + gain_event
 
-        event = ongoing_event_text_adjust(
-            Cat, event, barony=offensive_clan, other_barony=defensive_clan, clan=game.clan
-        )
-        game.cur_events_list.append(Single_Event(event, "other_clans"))
+                    event = ongoing_event_text_adjust(
+                        Cat, event, barony=offensive_clan, other_barony=defensive_clan, clan=game.clan
+                    )
+                    game.cur_events_list.append(Single_Event(event, "other_clans"))
     
     def other_barony_relations(self):
+        """
+        random relation events between two npc baronies
+        """
         for barony in game.clan.all_clans:
             # choose one random relationship to try and affect
             possible_barons = game.clan.all_clans.copy()
             possible_barons.remove(barony)
             barony_affected = random.choice(possible_barons)
 
-            # add a chance here
-            if not int(random.random() * 5):
+            if not int(random.random() * 8):
                 before = barony.relations[barony_affected.name]
                 change = random.choice([-2, -1, 0, 1, 2])
                 barony.relations[barony_affected.name] += change
@@ -1321,7 +1394,7 @@ class Events:
                 involved_cats = [Cat.fetch_cat(barony.baron).ID, Cat.fetch_cat(barony_affected.baron).ID]
                 
                 game.cur_events_list.append(
-                    Single_Event(event_text_adjust(Cat, event, barony=barony, other_barony=barony_affected), "other_clans")
+                    Single_Event(event_text_adjust(Cat, event, barony=barony, other_barony=barony_affected), "other_clans", involved_cats)
                 )
 
 
@@ -1341,12 +1414,14 @@ class Events:
         if game.clan.baron:
             baron_dead = game.clan.baron.dead
             baron_outside = game.clan.baron.outside
+            baron_stepped_down = game.clan.baron.status != "baron"
         else:
             baron_dead = True
             # If baron is None, treat them as dead (since they are dead - and faded away.)
             baron_outside = True
+            baron_stepped_down = True
 
-        if baron_dead or baron_outside:
+        if baron_dead or baron_outside or baron_stepped_down:
             new_baron = None
             prev_role = None
             if (
@@ -2474,23 +2549,25 @@ class Events:
         """Checks if a new baron need to be promoted, and promotes them, if needed."""
         # check for baron
         if game.clan.baron:
-            baron_invalid = game.clan.baron.dead or game.clan.baron.outside
+            baron_invalid = game.clan.baron.dead or game.clan.baron.outside or game.clan.baron.status != "baron"
         else:
             baron_invalid = True
 
         if baron_invalid:
             self.perform_ceremonies(
                 game.clan.baron
-            )  # This is where the regent will be make baron
+            )
 
             if game.clan.baron:
                 baron_dead = game.clan.baron.dead
                 baron_outside = game.clan.baron.outside
+                baron_stepped_down = game.clan.baron.status != "baron"
             else:
                 baron_dead = True
                 baron_outside = True
+                baron_stepped_down = True
 
-            if baron_dead or baron_outside:
+            if baron_dead or baron_outside or baron_stepped_down:
                 game.cur_events_list.insert(
                     0,
                     Single_Event(

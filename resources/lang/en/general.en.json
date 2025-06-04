@@ -141,9 +141,9 @@
         "sibling": "sibling",
         "sibling_littermate": "sibling (littermate)",
         "cousin": "cousin",
-        "starclan": "StarClan",
-        "dark_forest": "Dark Forest",
-        "unknown_residence": "Unknown Residence",
+        "starclan": "Great Beyond",
+        "dark_forest": "Great Below",
+        "unknown_residence": "Great Between",
         "empty": "empty",
         "none": "none",
         "name_search": "name search",
@@ -175,6 +175,10 @@
             "zero": "",
             "one": "colt: %{apprentices}",
             "many": "colts: %{apprentices}"
+        },
+        "former_colt_label": {
+            "one": "former colt: %{apprentices}",
+            "many": "former colts: %{apprentices}"
         },
         "former_apprentice_label": {
             "one": "former apprentice: %{apprentices}",

@@ -8,7 +8,7 @@
             "any"
         ],
         "weight": 5,
-        "event_text": "The desert is a deadly place for a lone wanderer. n_c:0 readily accepts m_c's offer to join c_n.",
+        "event_text": "The desert is a deadly place for a lone wanderer. n_c:0 readily accepts m_c's offer to join the Barony.",
         "m_c": {
             "age": [
                 "young adult",
@@ -46,7 +46,7 @@
             "any"
         ],
         "weight": 5,
-        "event_text": "m_c finds a wandering nomad while on patrol. Though c_n may not be fond of outsiders, no cat can deny new blood is hard to come by and inevitably needed. n_c:0 is allowed to join the Clan.",
+        "event_text": "m_c finds a wandering nomad while on patrol. Though baron1 may not be fond of outsiders, no cat can deny new blood is hard to come by and inevitably needed. n_c:0 is allowed to join the Barony.",
         "m_c": {
             "age": [
                 "young adult",

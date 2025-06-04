@@ -10,6 +10,7 @@ from scripts.events_module.event_filters import (
     event_for_season,
     event_for_tags,
     event_for_reputation,
+    event_for_war_reason,
     event_for_cat,
     event_for_freshkill_supply,
     event_for_herb_supply,
@@ -538,6 +539,7 @@ class GenerateEvents:
         success: bool,
         other_clan_temper=None,
         player_clan_temper=None,
+        reason=None
     ) -> list:
         """
         finds and generates a list of possible baron den events
@@ -574,6 +576,11 @@ class GenerateEvents:
             cat_info = event["m_c"]
             if not event_for_cat(cat_info=cat_info, cat=cat):
                 continue
+
+            # BL
+            if "war_reason" in event:
+                if not event_for_war_reason(event["war_reason"]):
+                    continue
 
             possible_events.append(event)
 

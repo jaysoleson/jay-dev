@@ -82,7 +82,7 @@ class MapScreen(Screens):
                 else:
                     self.borders_hidden = True
             elif event.ui_element == self.cycle_war_right_button:
-                if self.viewing_war != len(game.clan.war):
+                if self.viewing_war < len(game.clan.war) - 1:
                     self.viewing_war += 1
                 else:
                     self.viewing_war = 0
@@ -91,7 +91,7 @@ class MapScreen(Screens):
                 if self.viewing_war != 0:
                     self.viewing_war -= 1
                 else:
-                    self.viewing_war = len(game.clan.war)
+                    self.viewing_war = len(game.clan.war) - 1
                 self.update_war_display()
             elif event.ui_element in self.barony_button_elements.values():
                 all_clans_list = [game.clan] + game.clan.all_clans
@@ -201,26 +201,6 @@ class MapScreen(Screens):
             container=self.baronies_container,
             anchors={"centerx": "centerx"}
         )
-
-        self.war_elements["frame"] = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((0, 30), (280, 125))),
-            get_box(BoxStyles.FRAME, (280, 125)),
-            manager=MANAGER,
-            container = self.war_info_container
-        )
-
-        # war info
-        self.war_elements["heading"] = pygame_gui.elements.UITextBox(
-            relative_rect=ui_scale(pygame.Rect((0, 0), (180, 30))),
-            html_text="<b>CURRENT WARS</b>",
-            object_id=get_text_box_theme("#text_box_30_horizcenter"),
-            manager=MANAGER,
-            container=self.war_info_container,
-            text_kwargs={},
-            anchors={
-                "centerx": "centerx"
-            }
-        )
         self.cycle_war_left_button = UISurfaceImageButton(
             ui_scale(pygame.Rect((440, 110), (25, 40))),
             "<",
@@ -244,7 +224,31 @@ class MapScreen(Screens):
 
     def update_war_display(self):
 
+        for ele in self.war_elements:
+            self.war_elements[ele].kill()
+        self.war_elements = {}
+
         war_heading, war_desc = self.get_war_info()
+
+        self.war_elements["frame"] = pygame_gui.elements.UIImage(
+            ui_scale(pygame.Rect((0, 30), (280, 125))),
+            get_box(BoxStyles.FRAME, (280, 125)),
+            manager=MANAGER,
+            container = self.war_info_container
+        )
+
+        # war info
+        self.war_elements["heading"] = pygame_gui.elements.UITextBox(
+            relative_rect=ui_scale(pygame.Rect((0, 0), (180, 30))),
+            html_text="<b>CURRENT WARS</b>",
+            object_id=get_text_box_theme("#text_box_30_horizcenter"),
+            manager=MANAGER,
+            container=self.war_info_container,
+            text_kwargs={},
+            anchors={
+                "centerx": "centerx"
+            }
+        )
 
         self.war_elements["info"] = pygame_gui.elements.UITextBox(
             relative_rect=ui_scale(pygame.Rect((0, 40), (240, 80))),
@@ -280,6 +284,9 @@ class MapScreen(Screens):
         """
         Deletes all elements when this screen is closed
         """
+
+        self.viewing_war = 0
+
         self.back_button.kill()
         self.view_all_button.kill()
         self.hide_borders_button.kill()
