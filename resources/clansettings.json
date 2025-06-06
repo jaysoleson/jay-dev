@@ -31,8 +31,8 @@
             false
         ],
         "showxp": [
-            "Show exact XP and nutrition status",
-            "Will turn 'experience: proficient' into 'experience: proficient (151)'; and 'nutrition: full' into 'nutrition: full (70)'.",
+            "Show exact XP, nutrition status, and happiness",
+            "Will turn 'experience: proficient' into 'experience: proficient (151)', 'nutrition: full' into 'nutrition: full (70)', and 'happiness: content' into 'happiness: content (46)'.",
             false
         ],
         "random med cat": [

@@ -116,6 +116,10 @@ class HandleShortEvents:
             )
             self.other_clan_name = f"{self.other_clan.name}Clan"
 
+            # BL
+            self.other_barony = self.other_clan
+            self.barony = game.clan
+
         # checking if a murder reveal should happen
         if event_type == "misc":
             self.victim_cat = None

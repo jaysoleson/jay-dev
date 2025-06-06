@@ -32,6 +32,7 @@ from scripts.events_module.relationship.pregnancy_events import Pregnancy_Events
 from scripts.game_structure.game_essentials import game
 from scripts.game_structure.windows import SaveError
 from scripts.events_module.patrol.patrol import Patrol
+from scripts.cat.pelts import Pelt
 from scripts.utility import (
     change_clan_relations,
     change_clan_reputation,
@@ -348,11 +349,8 @@ class Events:
                 i != game.clan.baron
                 )
         ]:
-            print("OUTSIDE BARON DYING:", baron.name)
             old_baron = baron
             if baron.ID != game.clan.baron.ID:
-                print("creating new baron for", baron.name)
-                print(game.clan.baron.name)
                 if old_baron.moons - 14 >= 10:
                     moons = random.randint(10, old_baron.moons - 14)
                     parent = old_baron.ID
@@ -1219,24 +1217,48 @@ class Events:
                                 winner.territory.append(territory_tile)
                         elif war["reason"] == "prey":
                             if winner == offense_clan:
-                                total_amount = 40
-                                game.clan.freshkill_pile.add_freshkill(total_amount)
-                                print("WAR WON: +40 prey!")
+                                if winner == game.clan:
+                                    total_amount = 40
+                                    game.clan.freshkill_pile.add_freshkill(total_amount)
+                                    print("WAR WON: +40 prey!")
+                                elif loser == game.clan:
+                                    reduce_amount = int(game.clan.freshkill_pile.total_amount / 2)
+                                    game.clan.freshkill_pile.remove_freshkill(reduce_amount, take_random=True)
+                                    print(f"WAR LOST: -{reduce_amount} prey!")
                         elif war["reason"] == "cosmetics":
                             if winner == offense_clan:
                                 print("WAR WON: cosmetics!")
+                                if winner == game.clan:
+                                    possible_cats = [
+                                        cat for cat in Cat.all_cats_list if (
+                                            not cat.dead and
+                                            not cat.outside and
+                                            cat.status in [
+                                                "clipper", "colt", "heir", "regent", "baron"
+                                                ]
+                                            )
+                                        ]
+                                    if possible_cats:
+                                        accessory_groups = [Pelt.collars, Pelt.head_accessories, Pelt.tail_accessories, Pelt.body_accessories]
+                                        for i in range(random.randint(1,8)):
+                                            if not possible_cats:
+                                                break
+                                            chosen_cat = random.choice(possible_cats)
+                                            chosen_cat.pelt.accessory.append(random.choice(random.choice(accessory_groups)))
+                                            possible_cats.remove(chosen_cat)
                         elif war["reason"] == "herbs":
                             gained_herbs = []
                             if winner == offense_clan:
-                                possible_herbs = []
-                                for herb in game.clan.herb_supply.base_herb_list.keys():
-                                    possible_herbs.append(herb)
-                                for i in range(random.randint(5,10)):
-                                    chosen_herb = random.choice(possible_herbs)
-                                    amount_added = random.randint(5, 20)
-                                    game.clan.herb_supply.add_herb(chosen_herb, amount_added)
-                                    gained_herbs.append(str(amount_added) + " " + chosen_herb.replace("_", " "))
-                                game.herb_events_list.append("The following was won in a war: " + (", ".join(gained_herbs)))
+                                if winner == game.clan:
+                                    possible_herbs = []
+                                    for herb in game.clan.herb_supply.base_herb_list.keys():
+                                        possible_herbs.append(herb)
+                                    for i in range(random.randint(5,10)):
+                                        chosen_herb = random.choice(possible_herbs)
+                                        amount_added = random.randint(5, 20)
+                                        game.clan.herb_supply.add_herb(chosen_herb, amount_added)
+                                        gained_herbs.append(str(amount_added) + " " + chosen_herb.replace("_", " "))
+                                    game.herb_events_list.append("The following was won in a war: " + (", ".join(gained_herbs)))
 
 
 

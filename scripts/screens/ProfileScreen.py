@@ -787,6 +787,9 @@ class ProfileScreen(Screens):
         if not the_cat.dead:
             # NEWLINE ----------
             output += "\n"
+            output += "happiness: " + str(the_cat.happiness_level)
+            if game.clan.clan_settings["showxp"]:
+                output += " (" + str(the_cat.happiness) + ")"
 
         return output
 

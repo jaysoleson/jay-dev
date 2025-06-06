@@ -213,6 +213,7 @@ def json_load():
             new_cat.dead = cat["dead"]
             new_cat.dead_for = cat["dead_moons"]
             new_cat.experience = cat["experience"]
+            new_cat.happiness = cat["happiness"] if "happiness" in cat else 90
             new_cat.apprentice = cat["current_apprentice"]
             new_cat.former_apprentices = cat["former_apprentices"]
             new_cat.df = cat["df"] if "df" in cat else False

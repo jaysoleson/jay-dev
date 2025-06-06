@@ -513,7 +513,7 @@ class RomanticEvents:
         try:
             text = choice(RomanticEvents.BREAKUP_STRINGS[breakup_type])
         except KeyError as e:
-            print(e)
+            print("Breakup Events Keyerror:", e)
             print(RomanticEvents.BREAKUP_STRINGS)
             return
         text = event_text_adjust(Cat, text, main_cat=cat_from, random_cat=cat_to)

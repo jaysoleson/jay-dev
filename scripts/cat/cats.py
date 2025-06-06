@@ -96,6 +96,17 @@ class Cat:
         "master": (321, 321),
     }
 
+    # BL
+    happiness_levels_range = {
+        "miserable": (0, 5),
+        "sad": (6, 25),
+        "displeased": (26, 45),
+        "content": (46, 65),
+        "satisfied": (66, 85),
+        "happy": (86, 95),
+        "ecstatic": (96, 100)
+    }
+
     all_cats: Dict[str, Cat] = {}  # ID: object
     outside_cats: Dict[str, Cat] = {}  # cats outside the clan
     id_iter = itertools.count()
@@ -157,6 +168,7 @@ class Cat:
         self._mentor = None  # plz
         self._experience = None
         self._moons = None
+        self._happiness = None
 
         # Public attributes
         self.gender = gender
@@ -198,6 +210,10 @@ class Cat:
         self.permanent_condition = {}
         self.df = False
         self.experience_level = None
+
+        # BL
+        self.happiness = 0
+        self.happiness_level = None
 
         # Various behavior toggles
         self.no_kits = False
@@ -453,6 +469,33 @@ class Cat:
         if not skill_dict:
             self.skills = CatSkills.generate_new_catskills(self.status, self.moons)
 
+        # BL happiness
+        if self.status in ["nomad", "rogue"]:
+            self.happiness = randint(
+                Cat.happiness_levels_range["sad"][0],
+                Cat.happiness_levels_range["content"][1]
+            )
+        elif self.status == "kittypet":
+            self.happiness = randint(
+                Cat.happiness_levels_range["content"][0],
+                Cat.happiness_levels_range["happy"][1]
+            )
+        elif self.status == "cog":
+            self.happiness = randint(
+                Cat.happiness_levels_range["sad"][0],
+                Cat.happiness_levels_range["content"][1]
+            )
+        elif self.status not in ["baron", "heir"] and (game.clan and self.ID not in game.clan.baron.mate):
+            self.happiness = randint(
+                Cat.happiness_levels_range["satisfied"][0],
+                Cat.happiness_levels_range["happy"][1]
+            )
+        else:
+            self.happiness = randint(
+                Cat.happiness_levels_range["displeased"][0],
+                Cat.happiness_levels_range["satisfied"][1]
+            )
+
     def __repr__(self):
         return "CAT OBJECT:" + self.ID
 
@@ -702,10 +745,10 @@ class Cat:
                 # These minor grief message will be applied as thoughts.
                 minor_grief_messages = (
                     "Told a fond story at r_c's vigil",
-                    "Bargains with StarClan, begging them to send r_c back",
+                    "Bargains with the Gods, begging them to send r_c back",
                     "Sat all night at r_c's vigil",
                     "Will never forget r_c",
-                    "Prays that r_c is safe in StarClan",
+                    "Prays that r_c is safe in the Great Beyond",
                     "Misses the warmth that r_c brought to {PRONOUN/m_c/poss} life",
                     "Is mourning r_c",
                     "Can't stop coming to tears each time r_c is mentioned",
@@ -714,11 +757,11 @@ class Cat:
                     "Lashes out at any cat who checks on {PRONOUN/m_c/object} after r_c's death",
                     "Took a long walk on {PRONOUN/m_c/poss} own to mourn r_c in private",
                     "Is busying {PRONOUN/m_c/self} with too much work to forget about r_c's death",
-                    "Does {PRONOUN/m_c/poss} best to console {PRONOUN/m_c/poss} clanmates about r_c's death",
+                    "Does {PRONOUN/m_c/poss} best to console {PRONOUN/m_c/poss} friends about r_c's death",
                     "Takes a part of r_c's nest to put with {PRONOUN/m_c/poss} own, clinging to the fading scent",
                     "Sleeps in r_c's nest tonight",
                     "Defensively states that {PRONOUN/m_c/subject} {VERB/m_c/don't/doesn't} need any comfort about r_c's death",
-                    "Wonders why StarClan had to take r_c so soon",
+                    "Wonders why the Gods had to take r_c so soon",
                     "Still needs r_c even though they're gone",
                     "Doesn't think {PRONOUN/m_c/subject} will ever be the same without r_c",
                     "Was seen crying in {PRONOUN/m_c/poss} nest after r_c's vigil",
@@ -3250,6 +3293,25 @@ class Cat:
             ):
                 self.experience_level = x
                 break
+    
+    # BL
+    @property
+    def happiness(self):
+        return self._happiness
+    
+    @happiness.setter
+    def happiness(self, happiness:int):
+        happiness = min(happiness, self.happiness_levels_range["ecstatic"][1])
+        self._happiness = int(happiness)
+
+        for x in self.happiness_levels_range:
+            if (
+                self.happiness_levels_range[x][0]
+                <= happiness
+                <= self.happiness_levels_range[x][1]
+            ):
+                self.happiness_level = x
+                break
 
     @property
     def moons(self):
@@ -3414,6 +3476,7 @@ class Cat:
                 "opacity": self.pelt.opacity,
                 "prevent_fading": self.prevent_fading,
                 "favourite": self.favourite,
+                "happiness": self.happiness
             }
 
     def determine_next_and_previous_cats(
