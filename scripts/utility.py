@@ -2111,7 +2111,7 @@ def history_text_adjust(
             else:
                 b1_t_baron = Cat.fetch_cat(barony.baron)
             font_colour = get_baron_colour(b1_t_baron.ID, force_dark=baron_colour_force_dark)
-            text = text.replace("b1_t", f"<font color='{font_colour}'>" + str(barony.name.capitalize()) + " Territory</font>")
+            text = text.replace("b1_t", f"<font color='{font_colour}'>" + str(barony.name) + " Territory</font>")
     if other_barony:
         if "baron2" in text:
             baron2 = Cat.fetch_cat(other_barony.baron)
@@ -2122,7 +2122,7 @@ def history_text_adjust(
             else:
                 b2_t_baron = Cat.fetch_cat(other_barony.baron)
             font_colour = get_baron_colour(b2_t_baron.ID, force_dark=baron_colour_force_dark)
-            text = text.replace("b2_t", f"<font color='{font_colour}'>" + str(other_barony.name.capitalize()) + " Territory</font>")
+            text = text.replace("b2_t", f"<font color='{font_colour}'>" + str(other_barony) + " Territory</font>")
 
     if replace_dict:
         text = process_text(text, replace_dict, baron_colour_force_dark=baron_colour_force_dark)
@@ -2181,7 +2181,7 @@ def ongoing_event_text_adjust(Cat, text, barony=None, other_barony=None, clan=No
             else:
                 b1_t_baron = Cat.fetch_cat(barony.baron)
             font_colour = get_baron_colour(b1_t_baron.ID, force_dark=baron_colour_force_dark)
-            text = text.replace("b1_t", f"<font color='{font_colour}'>" + str(barony.name.capitalize()) + " Territory</font>")
+            text = text.replace("b1_t", f"<font color='{font_colour}'>" + str(barony.name) + " Territory</font>")
     if other_barony:
         kitty = Cat.fetch_cat(other_barony.baron)
         cat_dict["baron2"] = ([str(kitty.name), kitty.ID], choice(kitty.pronouns))
@@ -2191,7 +2191,7 @@ def ongoing_event_text_adjust(Cat, text, barony=None, other_barony=None, clan=No
             else:
                 b2_t_baron = Cat.fetch_cat(other_barony.baron)
             font_colour = get_baron_colour(b2_t_baron.ID, force_dark=baron_colour_force_dark)
-            text = text.replace("b2_t", f"<font color='{font_colour}'>" + str(other_barony.name.capitalize()) + " Territory</font>")
+            text = text.replace("b2_t", f"<font color='{font_colour}'>" + str(other_barony.name) + " Territory</font>")
     
     if cat_dict:
         text = process_text(text, cat_dict)
@@ -2366,7 +2366,7 @@ def event_text_adjust(
                 b1_t_baron = Cat.fetch_cat(barony.baron)
             # force dark if its a patrol
             font_colour = get_baron_colour(b1_t_baron.ID, force_dark=baron_colour_force_dark)
-            text = text.replace("b1_t", f"<font color='{font_colour}'>" + str(barony.name.capitalize()) + " Territory</font>")
+            text = text.replace("b1_t", f"<font color='{font_colour}'>" + str(barony.name) + " Territory</font>")
     if other_barony:
         if "baron2" in text:
             baron2 = Cat.fetch_cat(other_barony.baron)
@@ -2377,7 +2377,7 @@ def event_text_adjust(
             else:
                 b2_t_baron = Cat.fetch_cat(other_barony.baron)
             font_colour = get_baron_colour(b2_t_baron.ID, force_dark=baron_colour_force_dark)
-            text = text.replace("b2_t", f"<font color='{font_colour}'>" + str(other_barony.name.capitalize()) + " Territory</font>")
+            text = text.replace("b2_t", f"<font color='{font_colour}'>" + str(other_barony.name) + " Territory</font>")
     # ---
 
     # assign all names and pronouns

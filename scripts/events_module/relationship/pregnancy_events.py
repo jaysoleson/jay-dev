@@ -811,12 +811,17 @@ class Pregnancy_Events:
                     )[0]
                     blood_parent.thought = thought
 
+                    kit_allegiance = game.clan.baron.ID
+                else:
+                    kit_allegiance = blood_parent.allegiance
+
                 kit = Cat(
                     parent1=blood_parent.ID,
                     moons=0,
                     backstory=backstory,
                     status="newborn",
                 )
+                kit.allegiance = kit_allegiance
 
             elif cat and other_cat:
                 # Two parents provided
@@ -826,6 +831,7 @@ class Pregnancy_Events:
                 )
                 kit.thought = i18n.t("hardcoded.new_kit_thought", name=str(cat.name))
                 kit.thought = event_text_adjust(Cat, kit.thought, random_cat=cat)
+                kit.allegiance = cat.allegiance
             else:
                 # A one blood parent litter is the only option left.
                 kit = Cat(
@@ -833,6 +839,7 @@ class Pregnancy_Events:
                 )
                 kit.thought = i18n.t("hardcoded.new_kit_thought", name=str(cat.name))
                 kit.thought = event_text_adjust(Cat, kit.thought, random_cat=cat)
+                kit.allegiance = cat.allegiance
 
             # Prevent duplicate prefixes in the same litter
             while kit.name.prefix in [kitty.name.prefix for kitty in all_kitten]:

@@ -2966,7 +2966,7 @@
         },
         "weight": 20,
         "chance_of_success": 40,
-        "intro_text": "The patrol reaches the b2_t's border just as a b2_t patrol approaches from the other side. The cats of both BAronies shift uneasily, waiting for someone to break the silence. app1 perks up when {PRONOUN/app1/subject} {VERB/app1/spot/spots} another colt in the b2_t patrol.",
+        "intro_text": "The patrol reaches the b2_t's border just as a b2_t patrol approaches from the other side. The cats of both Baronies shift uneasily, waiting for someone to break the silence. app1 perks up when {PRONOUN/app1/subject} {VERB/app1/spot/spots} another colt in the b2_t patrol.",
         "decline_text": "p_l quickly marks the border and then steers {PRONOUN/p_l/poss} patrol away from the b2_t patrol. Best not to risk a confrontation.",
         "success_outcomes": [
             {

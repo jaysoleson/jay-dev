@@ -2256,7 +2256,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "r_c gives in to their grumbling belly, reasoning that no one will notice, but when the patrol reforms and r_c arrives back empty-pawed with blood on their lips they feel the suspicious stares of the other clippers on their pelt.",
+                "text": "r_c gives in to {PRONOUN/r_c/poss} grumbling belly, reasoning that no one will notice, but when the patrol reforms and r_c arrives back empty-pawed with blood on {PRONOUN/r_c/poss} lips {PRONOUN/r_c/subject} {VERB/r_c/feel/feels} the suspicious stares of the Clippers on {PRONOUN/r_c/poss} pelt.",
                 "exp": 0,
                 "weight": 20,
                 "relationships": [

@@ -1,10 +1,10 @@
 {
     "en": {
-        "heading": "Timeskip to progress your Clan's life.",
+        "heading": "Timeskip to progress your Barony's life.",
         "season": "Current season: %{season}",
         "age": {
-            "one": "Clan age: %{count} moon",
-            "many": "Clan age: %{count} moons"
+            "one": "Barony age: %{count} moon",
+            "many": "Barony age: %{count} moons"
         },
         "timeskip_button": "Timeskip One Moon",
         "map_screen_button": "View Map",
@@ -13,7 +13,7 @@
         "births & deaths": "births & deaths",
         "relationships": "relationships",
         "health": "health",
-        "other clans": "other clans",
+        "other clans": "other Baronies",
         "miscellaneous": "miscellaneous",
         "no_events": "Nothing interesting happened this moon."
     }

@@ -556,7 +556,7 @@
   },
   {
     "interaction_type": "invite",
-    "event_text": "A Clipper patrol finds m_c just outside {PRONOUN/m_c/poss} Twoleg nest and makes {PRONOUN/m_c/object} an offer. Though m_c asks a few questions about leaf-bare, sickness, and injury, {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} persuaded that life inside the BArony is worth it.",
+    "event_text": "A Clipper patrol finds m_c just outside {PRONOUN/m_c/poss} Twoleg nest and makes {PRONOUN/m_c/object} an offer. Though m_c asks a few questions about leaf-bare, sickness, and injury, {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} persuaded that life inside the Barony is worth it.",
     "reputation": ["any"],
     "rep_change": 3,
     "m_c": {

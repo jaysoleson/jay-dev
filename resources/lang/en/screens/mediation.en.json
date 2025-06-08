@@ -6,7 +6,7 @@
         "sabotage": "Sabotage",
         "cat_feelings": "~~%{name}'s feelings~~",
         "cant_work": "This cat can't mediate this moon. ",
-        "already_worked": "This cat has already mediated this moon. ",
+        "already_worked": "This cat has already mediated three pairs this moon. ",
         "pair_already_mediated": "This pair has already been mediated this moon. ",
         "sabotage_failed": "Sabotage Failed!",
         "mediate_failed": "Mediate Failed!",
@@ -20,6 +20,7 @@
         "output_increase": "%{trait} increased. ",
         "output_decrease": "%{trait} decreased. ",
         "output_sabotage_failed": "Sabotage Failed!\n",
-        "output_mediate_failed": "Mediate Failed!\n"
+        "output_mediate_failed": "Mediate Failed!\n",
+        "help_tooltip": "Your Baron is a very influential cat. They are able to mediate up to three pairs of cats each moon, on top of being able to do one regular patrol. These mediation sessions improve relationships and boost happiness."
     }
 }

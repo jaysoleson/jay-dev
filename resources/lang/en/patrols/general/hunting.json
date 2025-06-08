@@ -353,7 +353,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "r_c gives in to {PRONOUN/r_c/poss} grumbling belly, reasoning that no one will notice, but when {PRONOUN/r_c/subject} {VERB/r_c/arrive/arrives} back at camp empty-pawed and with blood on {PRONOUN/r_c/poss} lips, {PRONOUN/r_c/subject} {VERB/r_c/feel/feels} the stares of the other clippers on {PRONOUN/r_c/poss} pelt.",
+                "text": "r_c gives in to {PRONOUN/r_c/poss} grumbling belly, reasoning that no one will notice, but when {PRONOUN/r_c/subject} {VERB/r_c/arrive/arrives} back at camp empty-pawed and with blood on {PRONOUN/r_c/poss} lips, {PRONOUN/r_c/subject} {VERB/r_c/feel/feels} the stares of the Clippers on {PRONOUN/r_c/poss} pelt.",
                 "exp": 0,
                 "weight": 20,
                 "relationships": [
@@ -500,7 +500,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "r_c gives in to {PRONOUN/r_c/poss} grumbling belly, reasoning that no one will notice, but when the patrol reforms and r_c arrives back empty-pawed with blood on {PRONOUN/r_c/poss} lips, {PRONOUN/r_c/subject} {VERB/r_c/feel/feels} the suspicious stares of the other clippers on {PRONOUN/r_c/poss} pelt.",
+                "text": "r_c gives in to {PRONOUN/r_c/poss} grumbling belly, reasoning that no one will notice, but when the patrol reforms and r_c arrives back empty-pawed with blood on {PRONOUN/r_c/poss} lips, {PRONOUN/r_c/subject} {VERB/r_c/feel/feels} the suspicious stares of the Clippers on {PRONOUN/r_c/poss} pelt.",
                 "exp": 0,
                 "weight": 20,
                 "relationships": [

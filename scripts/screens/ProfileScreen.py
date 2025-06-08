@@ -306,14 +306,14 @@ class ProfileScreen(Screens):
                         self.the_cat.df = False
                         game.clan.add_to_starclan(self.the_cat)
                         self.the_cat.thought = (
-                            "Is relieved to once again hunt in StarClan"
+                            "Is relieved to once again hunt in the Great Beyond"
                         )
                     else:
                         self.the_cat.outside, self.the_cat.exiled = False, False
                         self.the_cat.df = True
                         game.clan.add_to_darkforest(self.the_cat)
                         self.the_cat.thought = (
-                            "Is distraught after being sent to the Place of No Stars"
+                            "Is distraught after being sent to the Great Below"
                         )
 
                 self.clear_profile()
@@ -564,7 +564,7 @@ class ProfileScreen(Screens):
 
         # Write cat thought
         self.profile_elements["cat_thought"] = pygame_gui.elements.UITextBox(
-            self.the_cat.thought,
+            event_text_adjust(Cat, self.the_cat.thought, barony=game.clan),
             ui_scale(pygame.Rect((0, 170), (600, -1))),
             wrap_to_height=True,
             object_id=get_text_box_theme("#text_box_30_horizcenter"),
@@ -657,15 +657,15 @@ class ProfileScreen(Screens):
         if self.open_tab == "history" and self.open_sub_tab == "user notes":
             self.load_user_notes()
 
-        if self.the_cat.status == "baron" and not self.the_cat.dead:
-            self.profile_elements["baron_ceremony"] = UIImageButton(
-                ui_scale(pygame.Rect((383, 110), (34, 34))),
-                "",
-                object_id="#leader_ceremony_button",
-                tool_tip_text="screens.profile.baron_ceremony",
-                manager=MANAGER,
-            )
-        elif self.the_cat.status in ("mediator"):
+        # if self.the_cat.status == "baron" and not self.the_cat.dead:
+        #     self.profile_elements["baron_ceremony"] = UIImageButton(
+        #         ui_scale(pygame.Rect((383, 110), (34, 34))),
+        #         "",
+        #         object_id="#leader_ceremony_button",
+        #         tool_tip_text="screens.profile.baron_ceremony",
+        #         manager=MANAGER,
+        #     )
+        if self.the_cat.status in ("baron"):
             self.profile_elements["mediation"] = UIImageButton(
                 ui_scale(pygame.Rect((383, 110), (34, 34))),
                 "",
@@ -784,7 +784,7 @@ class ProfileScreen(Screens):
                 "general.mate_label", count=len(mate_names), mates=mate_block
             )
 
-        if not the_cat.dead:
+        if not the_cat.dead and not the_cat.outside:
             # NEWLINE ----------
             output += "\n"
             output += "happiness: " + str(the_cat.happiness_level)

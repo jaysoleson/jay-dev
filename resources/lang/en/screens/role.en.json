@@ -1,7 +1,7 @@
 {
     "en": {
         "promote_baron": "promote to Baron",
-        "blurb_baron": "%{name} is the <b>Baron</b> of the b1_t. The Baron makes all decisions for their people and is solely responsible for keeping things running smoothly. Any cat who dares to disobey the Baron can quickly come to regret it.",
+        "blurb_baron": "%{name} is the <b>Baron</b> of the b1_t. The Baron makes all decisions for their people and is responsible for keeping things running smoothly. A territory with an injured, ill, or absent Baron can quickly fall to ruin, so keeping their Baron safe and protected is every Regent, doctor, and Clipper's top priority.",
         "promote_regent": "promote to Regent",
         "blurb_regent": "%{name} is the Barony's <b>Regent</b>. The Regent is the head of all Clippers, and the Baron's first line of defense. They are very well respected, and often allowed into the Baron's close circle of advisors. A Regent's first duty in life is to serve their Baron. As such, Regents are not allowed to have kits.",
         "promote_heir": "promote to heir",

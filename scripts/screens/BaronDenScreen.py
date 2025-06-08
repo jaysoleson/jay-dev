@@ -75,6 +75,10 @@ class BaronDenScreen(Screens):
 
         # BL
         self.war_reason = None
+        self.trade1 = "food"
+        self.trade2 = "herbs"
+        self.subscreen = None
+        self.subscreen_elements = {}
 
     def handle_event(self, event):
         """
@@ -111,6 +115,7 @@ class BaronDenScreen(Screens):
                 self.update_clan_interaction_choice(text)
             elif event.ui_element == self.focus_frame_elements["clans_tab"]:
                 self.open_clans_tab()
+                self.update_other_clan_focus()
             elif event.ui_element == self.focus_frame_elements["outsiders_tab"]:
                 self.open_outsiders_tab()
             elif event.ui_element in self.outsider_cat_buttons.values():
@@ -123,61 +128,116 @@ class BaronDenScreen(Screens):
                 self.update_outsider_cats()
             
             # BL
-            elif event.ui_element == self.focus_clan_elements["declare_war"]:
-                self.focus_clan_elements["declare_war"].hide()
-                
-                self.focus_clan_elements["food"].show()
-                self.focus_clan_elements["herbs"].show()
-                self.focus_clan_elements["territory"].show()
-                self.focus_clan_elements["cosmetics"].show()
-
-                self.focus_clan_elements["war_back"].show()
-                self.focus_clan_elements["war_confirm"].show()
-
-                self.focus_clan_elements["clan_rel"].hide()
-                self.focus_clan_elements["clan_temper"].hide()
-
-                self.war_reason = "food"
-                self.focus_clan_elements[self.war_reason].disable()
-                
-            elif event.ui_element == self.focus_clan_elements["war_confirm"]:
-                self.focus_clan_elements["declare_war"].show()
-                
-                self.focus_clan_elements["food"].hide()
-                self.focus_clan_elements["herbs"].hide()
-                self.focus_clan_elements["territory"].hide()
-                self.focus_clan_elements["cosmetics"].hide()
-
-                self.focus_clan_elements["war_back"].hide()
-                self.focus_clan_elements["war_confirm"].hide()
-
-                self.focus_clan_elements["clan_rel"].show()
-                self.focus_clan_elements["clan_temper"].show()
-                
-                self.update_clan_interaction_choice("declare")
-            elif event.ui_element == self.focus_clan_elements["war_back"]:
-                self.focus_clan_elements["declare_war"].show()
-                
-                self.focus_clan_elements["food"].hide()
-                self.focus_clan_elements["herbs"].hide()
-                self.focus_clan_elements["territory"].hide()
-                self.focus_clan_elements["cosmetics"].hide()
-
-                self.focus_clan_elements["war_back"].hide()
-                self.focus_clan_elements["war_confirm"].hide()
-
-                self.focus_clan_elements["clan_rel"].show()
-                self.focus_clan_elements["clan_temper"].show()
+            elif event.ui_element == self.subscreen_elements["declare_war"]:
+                self.subscreen = "declare_war"
+                self.build_subscreen()
+            elif event.ui_element == self.subscreen_elements["subscreen_confirm"]:
+                if self.subscreen == "trade1":
+                    self.subscreen = "trade2"
+                elif self.subscreen == "trade2":
+                    self.subscreen = None
+                    self.update_clan_interaction_choice("trade")
+                if self.subscreen == "declare_war":
+                    self.subscreen = None
+                    self.update_clan_interaction_choice("declare")
+                self.build_subscreen()
+                    
+            elif event.ui_element == self.subscreen_elements["subscreen_back"]:
+                if self.subscreen == "trade2":
+                    self.subscreen = "trade1"
+                self.subscreen = None
+                self.build_subscreen()
+            elif event.ui_element == self.subscreen_elements["trade"]:
+                self.subscreen = "trade1"
+                self.build_subscreen()
                 
                 game.clan.clan_settings["lead_den_clan_event"] = {}
             for reason in ["food", "herbs", "cosmetics", "territory"]:
-                if event.ui_element == self.focus_clan_elements[reason]:
-                    self.war_reason = reason
-                    self.focus_clan_elements[reason].disable()
+                if event.ui_element == self.subscreen_elements[reason]:
+                    if self.subscreen == "declare_war":
+                        self.war_reason = reason
+                    elif self.subscreen == "trade1":
+                        self.trade1 = reason
+                    elif self.subscreen == "trade2":
+                        self.trade2 = reason
+                    self.subscreen_elements[reason].disable()
                 else:
-                    self.focus_clan_elements[reason].enable()
+                    self.subscreen_elements[reason].enable()
                 if self.focus_clan.name not in get_bordering_baronies(game.clan):
-                    self.focus_clan_elements["territory"].disable()
+                    self.subscreen_elements["territory"].disable()
+    
+    def build_subscreen(self):
+        if not self.subscreen:
+            self.focus_clan_elements["clan_name"].set_text(self.focus_clan.name + " Territory")
+
+            self.subscreen_elements["declare_war"].show()
+            self.subscreen_elements["trade"].show()
+            
+            self.subscreen_elements["food"].hide()
+            self.subscreen_elements["herbs"].hide()
+            self.subscreen_elements["territory"].hide()
+            self.subscreen_elements["cosmetics"].hide()
+
+            self.subscreen_elements["subscreen_back"].hide()
+            self.subscreen_elements["subscreen_confirm"].hide()
+
+            self.focus_clan_elements["clan_rel"].show()
+            self.focus_clan_elements["clan_temper"].show()
+            return
+        if self.subscreen == "declare_war":
+            self.focus_clan_elements["clan_name"].set_text("What is your demand?")
+            self.subscreen_elements["declare_war"].hide()
+            self.subscreen_elements["trade"].hide()
+            
+            self.subscreen_elements["food"].show()
+            self.subscreen_elements["herbs"].show()
+            self.subscreen_elements["territory"].show()
+            self.subscreen_elements["cosmetics"].show()
+
+            self.subscreen_elements["subscreen_back"].show()
+            self.subscreen_elements["subscreen_confirm"].show()
+
+            self.focus_clan_elements["clan_rel"].hide()
+            self.focus_clan_elements["clan_temper"].hide()
+
+            self.war_reason = "food"
+            self.subscreen_elements[self.war_reason].disable()
+        if self.subscreen == "trade1":
+            self.focus_clan_elements["clan_name"].set_text("What will you offer?")
+            self.subscreen_elements["declare_war"].hide()
+            self.subscreen_elements["trade"].hide()
+            
+            self.subscreen_elements["food"].show()
+            self.subscreen_elements["herbs"].show()
+            self.subscreen_elements["territory"].show()
+            self.subscreen_elements["cosmetics"].show()
+
+            self.subscreen_elements["subscreen_back"].show()
+            self.subscreen_elements["subscreen_confirm"].show()
+
+            self.focus_clan_elements["clan_rel"].hide()
+            self.focus_clan_elements["clan_temper"].hide()
+
+            self.trade1 = "food"
+            self.subscreen_elements[self.trade1].disable()
+        if self.subscreen == "trade2":
+            self.focus_clan_elements["clan_name"].set_text("What do you want?")
+            self.subscreen_elements["declare_war"].hide()
+            self.subscreen_elements["trade"].hide()
+            
+            self.subscreen_elements["food"].show()
+            self.subscreen_elements["herbs"].show()
+            self.subscreen_elements["territory"].show()
+            self.subscreen_elements["cosmetics"].show()
+
+            self.subscreen_elements["subscreen_back"].show()
+            self.subscreen_elements["subscreen_confirm"].show()
+
+            self.focus_clan_elements["clan_rel"].hide()
+            self.focus_clan_elements["clan_temper"].hide()
+
+            self.subscreen_elements[self.trade1].disable()
+
 
     def screen_switches(self):
         """
@@ -323,7 +383,7 @@ class BaronDenScreen(Screens):
             anchors={"centerx": "centerx"}
         )
         self.screen_elements["outsider_notice_text"] = pygame_gui.elements.UITextBox(
-            relative_rect=ui_scale(pygame.Rect((0, 10), (445, -1))),
+            relative_rect=ui_scale(pygame.Rect((0, 10), (595, -1))),
             html_text="screens.baron_den.outsider_notice_text",
             object_id=get_text_box_theme("#text_box_30_horizcenter_spacing_95"),
             visible=False,
@@ -806,7 +866,7 @@ class BaronDenScreen(Screens):
         )
         self.focus_clan_elements["clan_name"] = pygame_gui.elements.UILabel(
             ui_scale(pygame.Rect((0, 10), (215, -1))),
-            text=self.focus_clan.name + " Territory",
+            text="",
             object_id="#text_box_30_horizcenter",
             container=self.focus_info_container,
             manager=MANAGER,
@@ -815,6 +875,7 @@ class BaronDenScreen(Screens):
                 "top_target": self.focus_clan_elements["clan_symbol"],
             },
         )
+        self.focus_clan_elements["clan_name"].set_text(self.focus_clan.name + " Territory")
         self.focus_clan_elements["clan_temper"] = pygame_gui.elements.UILabel(
             ui_scale(pygame.Rect((0, 5), (215, -1))),
             text=f"screens.baron_den.{self.focus_clan.temperament.strip()}",
@@ -837,8 +898,8 @@ class BaronDenScreen(Screens):
                 "top_target": self.focus_clan_elements["clan_temper"],
             },
         )
-        self.focus_clan_elements["declare_war"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((0, 25), (121, 30))),
+        self.subscreen_elements["declare_war"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((0, 265), (121, 30))),
             "declare war",
             get_button_dict(ButtonStyles.SQUOVAL, (121, 30)),
             container=self.focus_info_container,
@@ -847,19 +908,31 @@ class BaronDenScreen(Screens):
             manager=MANAGER,
             anchors={
                 "centerx": "centerx",
-                "top_target": self.focus_clan_elements["clan_rel"]
+                },
+        )
+        self.subscreen_elements["trade"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((0, 10), (121, 30))),
+            "offer trade",
+            get_button_dict(ButtonStyles.SQUOVAL, (121, 30)),
+            container=self.focus_info_container,
+            object_id="@buttonstyles_squoval",
+            starting_height=3,
+            manager=MANAGER,
+            anchors={
+                "centerx": "centerx",
+                "top_target": self.subscreen_elements["declare_war"]
                 },
         )
 
         reasons = {
-            "food": "Fight for food. If you win the war, you will gain a large amount of prey.",
-            "herbs": "Fight for herbs. If you win this war, you will gain a large amount of herbs.",
-            "cosmetics": "Fight for cosmetics. If you win this war, you and your cats will gain a large amount of cosmetic and recreational items. This will boost your cats' happiness and give some cats accessories.",
-            "territory": "Fight for territory. If you win the war, you will gain a territory space from this Baron."
+            "food": "Food will feed your cats, boosting nutrition and happiness.",
+            "herbs": "Herbs will heal your sick and injured members.",
+            "cosmetics": "Cosmetics include accessories and boost happiness.",
+            "territory": "Expanding your territory will make your Barony stronger."
         }
         y_pos = 200
         for reason, hover_text in reasons.items():
-            self.focus_clan_elements[reason] = UISurfaceImageButton(
+            self.subscreen_elements[reason] = UISurfaceImageButton(
                 ui_scale(pygame.Rect((0, y_pos), (121, 25))),
                 reason,
                 get_button_dict(ButtonStyles.ROUNDED_RECT, (121, 25)),
@@ -871,13 +944,13 @@ class BaronDenScreen(Screens):
                     "centerx": "centerx",
                     },
             )
-            self.focus_clan_elements[reason].hide()
+            self.subscreen_elements[reason].hide()
             y_pos += 30
 
         if self.focus_clan.name not in get_bordering_baronies(game.clan):
-            self.focus_clan_elements["territory"].disable()
+            self.subscreen_elements["territory"].disable()
 
-        self.focus_clan_elements["war_back"] = UISurfaceImageButton(
+        self.subscreen_elements["subscreen_back"] = UISurfaceImageButton(
             ui_scale(pygame.Rect((40, y_pos + 5), (30, 30))),
             Icon.ARROW_LEFT,
             get_button_dict(ButtonStyles.ROUNDED_RECT, (30, 30)),
@@ -885,7 +958,7 @@ class BaronDenScreen(Screens):
             object_id="@buttonstyles_rounded_rect",
             manager=MANAGER,
         )
-        self.focus_clan_elements["war_confirm"] = UISurfaceImageButton(
+        self.subscreen_elements["subscreen_confirm"] = UISurfaceImageButton(
             ui_scale(pygame.Rect((80, y_pos + 5), (80, 30))),
             "done",
             get_button_dict(ButtonStyles.SQUOVAL, (80, 30)),
@@ -893,8 +966,8 @@ class BaronDenScreen(Screens):
             object_id="@buttonstyles_squoval",
             manager=MANAGER,
         )
-        self.focus_clan_elements["war_back"].hide()
-        self.focus_clan_elements["war_confirm"].hide()
+        self.subscreen_elements["subscreen_back"].hide()
+        self.subscreen_elements["subscreen_confirm"].hide()
 
 
         you_at_war = False
@@ -925,7 +998,9 @@ class BaronDenScreen(Screens):
                 "m_c": game.clan.baron,
                 "other_clan": self.focus_clan,
                 "baron": f"<font color='{baron_colour}'>{Cat.fetch_cat(self.focus_clan.baron).name}</font>",
-                "reason": self.war_reason if self.war_reason else ""
+                "reason": self.war_reason if self.war_reason else "",
+                "trade1": self.trade1 if self.trade1 else "",
+                "trade2": self.trade2 if self.trade2 else ""
             },
         )
 
@@ -950,13 +1025,24 @@ class BaronDenScreen(Screens):
         
         if self.war_reason:
             game.clan.clan_settings["lead_den_clan_event"] = {
-            "cat_ID": gathering_cat.ID,
-            "other_clan": self.focus_clan.name,
-            "player_clan_temper": self.clan_temper,
-            "interaction_type": interaction_type,
-            "success": True,
-            "war_reason": self.war_reason
-        }
+                "cat_ID": gathering_cat.ID,
+                "other_clan": self.focus_clan.name,
+                "player_clan_temper": self.clan_temper,
+                "interaction_type": interaction_type,
+                "success": True,
+                "war_reason": self.war_reason
+            }
+        elif self.trade1 and self.trade2:
+            game.clan.clan_settings["lead_den_clan_event"] = {
+                "cat_ID": gathering_cat.ID,
+                "other_clan": self.focus_clan.name,
+                "player_clan_temper": self.clan_temper,
+                "interaction_type": interaction_type,
+                "success": success,
+                "trade1": self.trade1,
+                "trade2": self.trade2
+            }
+
         else:
             game.clan.clan_settings["lead_den_clan_event"] = {
                 "cat_ID": gathering_cat.ID,
@@ -1044,7 +1130,7 @@ class BaronDenScreen(Screens):
         )
 
         self.focus_outsider_elements["cat_sprite"] = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((0, 67), (120, 120))),
+            ui_scale(pygame.Rect((0, 45), (120, 120))),
             pygame.transform.scale(
                 self.focus_cat.sprite, ui_scale_dimensions((120, 120))
             ),

@@ -734,6 +734,9 @@ class Cat:
                 text = event_text_adjust(Cat, text=text, main_cat=self, random_cat=cat)
 
                 cat.get_ill("grief stricken", event_triggered=True, severity="major")
+                
+                if cat.happiness > 35:
+                    cat.happiness = randint(15, 35)
 
             # If major grief fails, but there are still very_high or high values,
             # it can fail to to minor grief. If they have a family relation, bypass the roll.
@@ -857,6 +860,25 @@ class Cat:
         for x in self.apprentice:
             Cat.fetch_cat(x).update_mentor()
         game.clan.add_to_outside(self)
+    
+    def defect(self, new_allegiance=None):
+        """ a cat defecting from the barony. not the same as being lost """
+        self.outside = True
+        self.status_change("nomad")
+
+        for app in self.apprentice.copy():
+            app_ob = Cat.fetch_cat(app)
+            if app_ob:
+                app_ob.update_mentor()
+        self.update_mentor()
+        for x in self.apprentice:
+            Cat.fetch_cat(x).update_mentor()
+        game.clan.add_to_outside(self)
+
+        if new_allegiance:
+            self.thought = event_text_adjust(Cat, "Is happy to be welcomed into the b2_t.", other_barony=new_allegiance)
+        else:
+            self.thought = "Runs far, far away from the Badlands"
 
     def add_to_clan(self) -> list:
         """Makes an "outside cat" a Clan cat. Returns a list of IDs for any additional cats that
@@ -2861,6 +2883,11 @@ class Cat:
                 else:
                     lvl_modifier = 1
                 mediator.experience += exp_gain / lvl_modifier / gm_modifier
+
+                happiness_change = randint(5,15)
+                happiness_change *= lvl_modifier
+                rel1.cat_from.happiness += round(happiness_change)
+                rel2.cat_from.happiness += round(happiness_change)
 
         # determine the traits to effect
         # Are they mates?

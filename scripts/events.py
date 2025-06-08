@@ -275,6 +275,8 @@ class Events:
                 game.cur_events_list.insert(0, Single_Event(event_text_adjust(Cat, event_string, barony=game.clan)))
                 game.freshkill_event_list.append(event_string)
 
+        self.check_defecting_cats()
+
         self.handle_focus()
 
         # handle the herb supply for the moon
@@ -426,6 +428,17 @@ class Events:
                     }
                 )
                 other_clan.relations[game.clan.name] = random.randint(4,8)
+            elif info_dict["interaction_type"] == "trade":
+                giving = info_dict["trade1"]
+                recieving = info_dict["trade2"]
+                if recieving == "territory":
+                    territory_tile = random.choice(get_bordering_baronies(game.clan)[other_clan.name])
+                    other_clan.territory.remove(territory_tile)
+                    game.clan.territory.append(territory_tile)
+                elif giving == "territory":
+                    territory_tile = random.choice(get_bordering_baronies(other_clan)[game.clan.name])
+                    game.clan.territory.remove(territory_tile)
+                    other_clan.territory.append(territory_tile)
 
             # get events
             events = generate_events.possible_lead_den_events(
@@ -435,7 +448,9 @@ class Events:
                 event_type="other_clan",
                 interaction_type=info_dict["interaction_type"],
                 success=info_dict["success"],
-                reason=info_dict["reason"] if "reason" in info_dict else None
+                reason=info_dict["reason"] if "reason" in info_dict else None,
+                trade1=info_dict["trade1"] if "trade1" in info_dict else None,
+                trade2=info_dict["trade2"] if "trade2" in info_dict else None
             )
             chosen_event = random.choice(events)
 
@@ -463,6 +478,10 @@ class Events:
                 other_clan=other_clan,
                 clan=game.clan,
             )
+
+            event_text = event_text.replace("trade1", giving)
+            event_text = event_text.replace("trade2", recieving)
+
             game.cur_events_list.insert(
                 4, Single_Event(event_text, "other_clans", [gathering_cat.ID])
             )
@@ -560,10 +579,12 @@ class Events:
                                 invited_cat.status = (["cog", "cog", "cog", "cog", "clipper"])
 
                         invited_cat.create_relationships_new_cat()
+                        invited_cat.allegiance = game.clan.baron.ID
 
                 # this handles ceremonies for cats coming into the clan
                 if invited_cats:
                     self.handle_lost_cats_return(invited_cats)
+                    invited_cat.allegiance = game.clan.baron.ID
 
             # give new thought to cats
             if "new_thought" in cat_dict:
@@ -650,7 +671,18 @@ class Events:
         focus_text = i18n.t("defaults.focus_text")
         if game.clan.clan_settings.get(
             "business as usual"
-        ) or game.clan.clan_settings.get("rest and recover"):
+        ):
+            return
+        if game.clan.clan_settings.get("rest and recover"):
+            for cat in Cat.all_cats_list:
+                if cat.dead or cat.outside:
+                    happiness_change = 0
+                    while True:
+                        num = round(random.gauss(2, 4))
+                        if 0 <= num <= 10:
+                            happiness_change = num
+                            break
+                    cat.happiness += happiness_change
             return
         elif game.clan.clan_settings.get("hunting"):
             # handle warrior
@@ -1059,6 +1091,9 @@ class Events:
                 return
 
         self.coming_out(cat)
+
+        self.tweak_happiness(cat)
+
         Pregnancy_Events.handle_having_kits(cat, clan=game.clan)
         # Stop the timeskip if the cat died in childbirth
         if cat.dead:
@@ -1098,6 +1133,97 @@ class Events:
         self.handle_murder(cat)
 
         game.switches["skip_conditions"].clear()
+
+    def tweak_happiness(self, cat):
+        """ change cats happiness on moonskip"""
+        happiness_change = 0
+
+        change_lower = -10
+        change_upper = 10
+        median = 0
+
+        for war in game.clan.war:
+            if war["offense"]["name"] == game.clan.name:
+                change_lower = -16
+                change_upper = 10
+                break
+            if war["defense"]["name"] == game.clan.name:
+                change_lower = -25
+                change_upper = 10
+                break
+
+        if cat.is_injured() or cat.is_ill():
+            change_lower = -15
+            change_upper = 2
+            median = -4
+
+        while True:
+            num = round(random.gauss(median, 4))
+            if change_lower <= num <= change_upper:
+                happiness_change = num
+                break
+
+        if cat.is_ill() or cat.is_injured():
+            happiness_change = round(happiness_change * -happiness_change)
+        cat.happiness += happiness_change
+
+        if cat.happiness < 0:
+            cat.happiness = 0
+        elif cat.happiness > 100:
+            cat.happiness = 100
+    
+    def check_defecting_cats(self):
+        """
+        Badlands: random cats defecting from the barony
+        """
+        possible_defectors = [
+            cat for cat in Cat.all_cats_list if (
+                not cat.dead and
+                not cat.outside and
+                cat.allegiance == game.clan.baron.ID and
+                cat.status != "baron"
+            )
+        ]
+        actual_defectors = []
+        for cat in possible_defectors:
+            if cat.happiness < 20 and not int(random.random() * 4):
+                actual_defectors.append(cat)
+            if (
+                ("malnourished" in cat.illnesses and not int(random.random() * 7)) or
+                ("starving" in cat.illnesses and not int(random.random() * 4))
+                ):
+                actual_defectors.append(cat)
+            
+            # now warning messages
+            if cat not in actual_defectors:
+                if cat.happiness < 30 or "malnourished" in cat.illnesses or "starving" in cat.illnesses:
+                    event = f"{cat.name} is at risk of fleeing the Barony due to unhappiness or hunger!"
+                    game.cur_events_list.append(Single_Event(event, "alert", cat.ID))
+        
+        if not actual_defectors:
+            return
+        
+        defector_names = [str(cat.name) for cat in actual_defectors]
+        involved_cats = [cat.ID for cat in actual_defectors]
+        names_list = adjust_list_text(defector_names)
+
+        if len(defector_names) == 1:
+            event = f"{names_list} has defected from the Barony due to hunger or unhappiness."
+        else:
+            event = f"{names_list} have defected from the Barony due to hunger or unhappiness."
+
+        # now they fuck off
+        for cat in actual_defectors:
+            if not int(random.random() * 2):
+                new_barony = random.choice(game.clan.all_clans)
+                cat.allegiance = new_barony.baron
+                cat.defect(new_allegiance=new_barony)
+            else:
+                cat.allegiance = None
+                cat.defect()
+
+        game.cur_events_list.append(Single_Event(event, "misc", involved_cats))
+
 
     def load_war_resources(self):
         if Events.war_lang == i18n.config.get("locale"):
@@ -1209,6 +1335,18 @@ class Events:
 
                     # give supplies
                     if winner and loser:
+                        # happiness
+                        if winner == game.clan:
+                            for cat in Cat.all_cats_list:
+                                if cat.outside or cat.dead:
+                                    continue
+                                happiness_change = 0
+                                while True:
+                                    num = round(random.gauss(8, 4))
+                                    if 4 <= num <= 20:
+                                        happiness_change = num
+                                        break
+                                cat.happiness += happiness_change
                         if war["reason"] == "territory":
                             if winner == offense_clan:
                                 # the defending clan doesnt steal territory, they just manage to keep theirs.

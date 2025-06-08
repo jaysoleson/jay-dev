@@ -108,7 +108,7 @@
                 "other_clan_rep": 2
             },
             {
-                "text": "s_c approaches the other patrol first, calling out a greeting and then remarking on a recent battle between the b2_t and one of the other BAronies. s_c compliments the b2_t cats on their battle prowess.",
+                "text": "s_c approaches the other patrol first, calling out a greeting and then remarking on a recent battle between the b2_t and one of the other Baronies. s_c compliments the b2_t cats on their battle prowess.",
                 "exp": 10,
                 "weight": 20,
                 "stat_trait": [
@@ -182,7 +182,7 @@
                 "prey": ["medium"]
             },
             {
-                "text": "s_c leaps for the rabbit, making a swift kill just before a b2_t patrol comes into view. The b2_t cats seem miffed by this trespass, but not yet hostile thanks to your alliance. Thankfully s_c smooths things over with the other patrol by graciously gifting them the rabbit. They part ways, fortunately without damaging the relationship between BAronies.",
+                "text": "s_c leaps for the rabbit, making a swift kill just before a b2_t patrol comes into view. The b2_t cats seem miffed by this trespass, but not yet hostile thanks to your alliance. Thankfully s_c smooths things over with the other patrol by graciously gifting them the rabbit. They part ways, fortunately without damaging the relationship between Baronies.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["SPEAKER,1"],

@@ -2510,5 +2510,13 @@
     "m_c": {},
     "player_clan_temper": ["any"],
     "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "trade",
+    "event_text": "m_c proposes a trade deal to baron2. baron2 agrees, and later that day, a b1_t patrol travels to the Crossroads to trade some trade1 for some b2_t trade2.",
+    "rel_change": 2,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
   }
 ]

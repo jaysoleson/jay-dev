@@ -105,7 +105,7 @@ class MakeClanScreen(Screens):
 
         # BL
         self.barony_colours = [
-            "crimson", "blue", "cyan", "yellow", "green", "pink", "purple"
+            "crimson", "cyan", "yellow", "green", "pink", "purple"
         ]
         self.colour = "crimson"
         self.export = "food"

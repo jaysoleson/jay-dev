@@ -269,7 +269,7 @@ class Clan:
         # BL: this is moved
         number_other_clans = 5
         available_colours = [
-            "crimson", "blue", "cyan", "yellow", "green", "pink", "purple"
+            "crimson", "cyan", "yellow", "green", "pink", "purple"
         ]
         available_colours.remove(self.colour)
 
@@ -476,7 +476,6 @@ class Clan:
         """
         TODO: DOCS
         """
-        print("new_baron")
         if baron:
             self.history.add_lead_ceremony(baron)
             self.baron = baron

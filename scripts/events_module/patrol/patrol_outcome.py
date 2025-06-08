@@ -286,6 +286,9 @@ class PatrolOutcome:
         results.append(self._handle_exp(patrol))
         results.append(self._handle_mentor_app(patrol))
 
+        # BL
+        results.append(self._handle_happiness(patrol))
+
         # Filter out empty results strings
         results = [x for x in results if x]
 
@@ -895,6 +898,54 @@ class PatrolOutcome:
                     print(str(cat.name), affect_skills)
 
         return ""
+    
+    def _handle_happiness(self, patrol: "Patrol") -> str:
+        """Handle changing happiness based on patrol outcome"""
+
+        for cat in patrol.patrol_cats:
+            change_lower = 7 - len(patrol.patrol_cats)
+            change_upper = 11 - len(patrol.patrol_cats)
+
+            if not self.success:
+                new_change_lower = -change_upper
+                new_change_upper = -change_lower
+
+                change_upper = new_change_upper
+                change_lower = new_change_lower
+
+                if self.dead_cats:
+                    change_upper *= 3
+                    change_lower *= 2
+                elif self.lost_cats:
+                    cats_to_lose = gather_cat_objects(
+                        Cat, self.lost_cats, patrol, stat_cat=self.stat_cat, other_barony=patrol.other_clan
+                    )
+                    if cat in cats_to_lose:
+                        change_upper *= 4
+                        change_lower *= 4
+                    else:
+                        change_upper *= 2
+                        change_lower *= 2
+                elif self.injury:
+                    for block in self.injury:
+                        cats = gather_cat_objects(Cat, block.get("cats", ()), patrol, self.stat_cat, other_barony=patrol.other_clan)
+                        if cat in cats:
+                            change_upper *= 3
+                            change_lower *= 3
+
+            happiness_change = 0
+            while True:
+                num = round(random.gauss(3, 5))
+                if change_lower <= num <= change_upper:
+                    happiness_change = num
+                    break
+            if happiness_change:
+                print(cat.name, "happiness: ", cat.happiness, "=>", cat.happiness + happiness_change)
+                cat.happiness += happiness_change
+                if cat.happiness > 100:
+                    cat.happiness = 100
+                elif cat.happiness < 0:
+                    cat.happiness = 0
 
     # ---------------------------------------------------------------------------- #
     #                                   HELPERS                                    #

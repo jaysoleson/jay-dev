@@ -135,7 +135,7 @@ class AllegiancesScreen(Screens):
             if not cat.dead and not cat.outside
         ]
         living_meds = []
-        living_mediators = []
+        living_cogs = []
         living_clippers = []
         living_apprentices = []
         living_kits = []
@@ -145,8 +145,8 @@ class AllegiancesScreen(Screens):
                 living_meds.append(cat)
             elif cat.status == "clipper":
                 living_clippers.append(cat)
-            elif cat.status == "mediator":
-                living_mediators.append(cat)
+            elif cat.status == "cog":
+                living_cogs.append(cat)
             elif cat.status in (
                 "colt",
                 "apprentice doctor"
@@ -181,7 +181,15 @@ class AllegiancesScreen(Screens):
                 ]
             )
 
-        # regent Box:
+        # Heir Box:
+        if game.clan.heir and not (game.clan.heir.dead or game.clan.heir.outside):
+            outputs.append(
+                [
+                    f"<b><u>{i18n.t('general.heir', count=1).upper()}</u></b>",
+                    self.generate_one_entry(game.clan.heir),
+                ]
+            )
+        # Regent Box:
         if game.clan.regent and not (game.clan.regent.dead or game.clan.regent.outside):
             outputs.append(
                 [
@@ -190,7 +198,7 @@ class AllegiancesScreen(Screens):
                 ]
             )
 
-        # doctor Box:
+        # Doctor Box:
         if living_meds:
             _box = ["", ""]
             _box[
@@ -200,14 +208,14 @@ class AllegiancesScreen(Screens):
             _box[1] = "\n".join([self.generate_one_entry(i) for i in living_meds])
             outputs.append(_box)
 
-        # Mediator Box:
-        if living_mediators:
+        # Cog Box:
+        if living_cogs:
             _box = ["", ""]
             _box[
                 0
-            ] = f"<b><u>{i18n.t('general.mediator', count=len(living_mediators)).upper()}</u></b>"
+            ] = f"<b><u>{i18n.t('general.cog', count=2).upper()}</u></b>"
 
-            _box[1] = "\n".join([self.generate_one_entry(i) for i in living_mediators])
+            _box[1] = "\n".join([self.generate_one_entry(i) for i in living_cogs])
             outputs.append(_box)
 
         # clipper Box:

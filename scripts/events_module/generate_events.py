@@ -539,7 +539,9 @@ class GenerateEvents:
         success: bool,
         other_clan_temper=None,
         player_clan_temper=None,
-        reason=None
+        reason=None,
+        trade1=None,
+        trade2=None
     ) -> list:
         """
         finds and generates a list of possible baron den events

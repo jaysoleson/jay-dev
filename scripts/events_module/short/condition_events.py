@@ -1138,9 +1138,27 @@ class Condition_Events:
                 game.switches["skip_conditions"].append(new_condition_name)
                 # here we give the new condition
                 if new_condition_name in Condition_Events.INJURIES:
+                    # BL
+                    happiness_change = 0
+                    while True:
+                        num = round(random.gauss(-8, 4))
+                        if -20 <= num <= -5:
+                            happiness_change = num
+                            break
+                    cat.happiness += happiness_change
+                    # ---
                     cat.get_injured(new_condition_name, event_triggered=event_triggered)
                     break
                 elif new_condition_name in Condition_Events.ILLNESSES:
+                    # BL
+                    happiness_change = 0
+                    while True:
+                        num = round(random.gauss(-7, 4))
+                        if -15 <= num <= -5:
+                            happiness_change = num
+                            break
+                    cat.happiness += happiness_change
+                    # ---
                     cat.get_ill(new_condition_name, event_triggered=event_triggered)
                     if dictionary == cat.illnesses or removed_condition:
                         break

@@ -1,9 +1,9 @@
 {
     "en": {
-        "info": "Note: This will close the game.\n When you open it next, it should have the new Clan.",
+        "info": "Note: This will close the game.\n When you open it next, the new save should be loaded.",
         "current_clan": {
-            "zero": "There is no Clan currently loaded.",
-            "one": "The currently loaded Clan is %{clan}Clan."
+            "zero": "There is no save currently loaded.",
+            "one": "The currently loaded save is the %{clan} Territory."
         }
     }
 }

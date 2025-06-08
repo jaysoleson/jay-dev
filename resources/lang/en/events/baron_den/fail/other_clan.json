@@ -1503,5 +1503,13 @@
     },
     "player_clan_temper": ["any"],
     "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "trade",
+    "event_text": "m_c proposes a trade deal to baron2. baron2 politely declines, however, as m_c's offer of trade1 isn't something {PRONOUN/baron2/poss} cats need.",
+    "rel_change": 0,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
   }
 ]

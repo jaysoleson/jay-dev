@@ -817,7 +817,7 @@ class ListScreen(Screens):
         for the_cat in Cat.all_cats_list:
             # if not the_cat.dead and the_cat.outside and not the_cat.driven_out:
             #     self.full_cat_list.append(the_cat)
-            if not the_cat.dead and the_cat.allegiance != game.clan.baron.ID and not the_cat.driven_out:
+            if not the_cat.dead and the_cat.outside and not the_cat.driven_out:
                 self.full_cat_list.append(the_cat)
 
 

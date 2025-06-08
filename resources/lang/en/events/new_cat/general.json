@@ -570,7 +570,7 @@
         "location": ["any"],
         "season": ["any"],
         "weight": 20,
-        "event_text": "m_c finds a Clipper from the b2_t named n_c:0, who asks to defect to your barony.",
+        "event_text": "m_c finds a Clipper from the b2_t named n_c:0, who asks to defect to your Barony.",
         "m_c": {
             "age": ["adolescent", "young adult", "adult", "senior adult", "senior"],
             "status": ["any"]

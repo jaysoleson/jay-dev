@@ -31,6 +31,7 @@ class MediationScreen(Screens):
     def __init__(self, name=None):
         super().__init__(name)
         self.back_button = None
+        self.help_button = None
         self.selected_mediator = None
         self.selected_cat_1 = None
         self.selected_cat_2 = None
@@ -77,7 +78,7 @@ class MediationScreen(Screens):
                 self.update_selected_cats()
             elif event.ui_element == self.mediate_button:
                 game.mediated.append([self.selected_cat_1.ID, self.selected_cat_2.ID])
-                game.patrolled.append(self.mediators[self.selected_mediator].ID)
+                # game.patrolled.append(self.mediators[self.selected_mediator].ID)
                 output = Cat.mediate_relationship(
                     self.mediators[self.selected_mediator],
                     self.selected_cat_1,
@@ -89,7 +90,7 @@ class MediationScreen(Screens):
                 self.update_mediator_info()
             elif event.ui_element == self.sabotage_button:
                 game.mediated.append([self.selected_cat_1.ID, self.selected_cat_2.ID])
-                game.patrolled.append(self.mediators[self.selected_mediator].ID)
+                # game.patrolled.append(self.mediators[self.selected_mediator].ID)
                 output = Cat.mediate_relationship(
                     self.mediators[self.selected_mediator],
                     self.selected_cat_1,
@@ -130,11 +131,10 @@ class MediationScreen(Screens):
         # Gather the mediators:
         self.mediators = []
         for cat in Cat.all_cats_list:
-            if cat.status in ("mediator") and not (
+            if cat.status in ("baron") and not (
                 cat.dead or cat.outside
             ):
                 self.mediators.append(cat)
-            # BL TODO: change this to mediator skill
 
         self.page = 1
 
@@ -154,6 +154,14 @@ class MediationScreen(Screens):
             get_button_dict(ButtonStyles.SQUOVAL, (105, 30)),
             object_id="@buttonstyles_squoval",
             manager=MANAGER,
+        )
+
+        self.help_button = UIImageButton(
+            ui_scale(pygame.Rect((725, 25), (34, 34))),
+            "",
+            object_id="#help_button",
+            manager=MANAGER,
+            tool_tip_text="screens.mediation.help_tooltip",
         )
 
         self.selected_frame_1 = pygame_gui.elements.UIImage(
@@ -863,7 +871,8 @@ class MediationScreen(Screens):
             if self.mediators[self.selected_mediator].not_working():
                 invalid_mediator = True
                 error_message += i18n.t("screens.mediation.cant_work")
-            elif self.mediators[self.selected_mediator].ID in game.patrolled:
+            # elif self.mediators[self.selected_mediator].ID in game.patrolled:
+            elif len(game.mediated) >= 3:
                 invalid_mediator = True
                 error_message += i18n.t("screens.mediation.already_worked")
         else:
@@ -942,6 +951,8 @@ class MediationScreen(Screens):
         self.mediators = []
         self.back_button.kill()
         del self.back_button
+        self.help_button.kill()
+        del self.help_button
         self.selected_frame_1.kill()
         del self.selected_frame_1
         self.selected_frame_2.kill()
