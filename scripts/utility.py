@@ -11,7 +11,7 @@ import os
 import re
 from itertools import combinations
 from math import floor
-from random import choice, choices, randint, random, sample, randrange, getrandbits
+from random import choice, choices, randint, random, sample, randrange, getrandbits, gauss
 from sys import exit as sys_exit
 from typing import List, Tuple, TYPE_CHECKING, Type, Union
 
@@ -603,18 +603,38 @@ def create_new_cat_block(
                 name = f"{chosen_cat.name.prefix}"
                 spaces = name.count(" ")
                 if bool(getrandbits(1)) and spaces > 0:
-                    # make a list of the words within the name, then add the OG name back in the list
-                    words = name.split(" ")
-                    words.append(name)
-                    new_prefix = choice(words)  # pick new prefix from that list
-                    name = new_prefix
-                    chosen_cat.name.prefix = name
+                    if game.clan.clan_settings["clan_names"]:
+                        # make a list of the words within the name, then add the OG name back in the list
+                        words = name.split(" ")
+                        words.append(name)
+                        new_prefix = choice(words)  # pick new prefix from that list
+                        name = new_prefix
+                        chosen_cat.name.prefix = name
+                        chosen_cat.name.give_suffix(
+                            pelt=chosen_cat.pelt,
+                            biome=game.clan.biome,
+                            tortiepattern=chosen_cat.pelt.tortiepattern,
+                        )
+                    else:
+                        # make a list of the words within the name, then add the OG name back in the list
+                        words = name.split(" ")
+                        words.append(name)
+                        new_prefix = choice(words)
+                        name = new_prefix
+                        chosen_cat.name.prefix = name
+                        chosen_cat.name.suffix = ""
                 else:  # completely new name
                     chosen_cat.name.give_prefix(
                         eyes=chosen_cat.pelt.eye_colour,
                         colour=chosen_cat.pelt.colour,
                         biome=game.clan.biome,
                     )
+                    if game.clan.clan_settings["clan_names"]:
+                        chosen_cat.name.give_suffix(
+                            pelt=chosen_cat.pelt.colour,
+                            biome=game.clan.biome,
+                            tortiepattern=chosen_cat.pelt.tortiepattern,
+                        )
             new_cats = [chosen_cat]
 
     # Now we generate the new cat
@@ -891,6 +911,7 @@ def create_new_cat(
                 new_cat = Cat(
                     moons=age,
                     prefix=name,
+                    suffix="",
                     status=status,
                     gender=_gender,
                     backstory=backstory,
@@ -1715,6 +1736,22 @@ def change_relationship_values(
                 if log_text not in rel.log:
                     rel.log.append(log_text)
 
+def change_happiness(cat, lower, upper, median, gauss_val):
+    """
+    returns a change in happiness
+    :param Cat Cat: Cat object
+    :param int lower: the happiness change minimum
+    :param int upper: the happiness change miximum
+    :param int median: the median value for the random happiness change selection
+    :param int gauss_val: random.gauss argument for how dispersed the choice can be from the median.
+    """
+    happiness_change = 0
+    while True:
+        num = round(gauss(median, gauss_val))
+        if lower <= num <= upper:
+            happiness_change = num
+            break
+    return happiness_change
 
 # ---------------------------------------------------------------------------- #
 #                               Text Adjust                                    #

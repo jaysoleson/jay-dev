@@ -26,7 +26,7 @@
             "Is busy mastering a battle move {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} performing incorrectly",
             "Is hatching a plan to sneak out of camp and play",
             "Is running like a whirlwind around the camp",
-            "Is pretending to be the Clan baron",
+            "Is pretending to be the Baron",
             "Doesn't want to grow up yet...",
             "Got in trouble for bringing thorns into the nest",
             "Is hunting bugs",
@@ -38,21 +38,21 @@
             "Wants to be big someday",
             "Wants to have fun",
             "Is playing pretend",
-            "Is going through an angsty phase, much to {PRONOUN/m_c/poss} Clanmates' chagrin",
+            "Is going through an angsty phase, much to {PRONOUN/m_c/poss} denmates' chagrin",
             "Is fighting sleep... and failing",
             "Knocked {PRONOUN/m_c/self} over with a sneeze",
             "Wants a badger ride",
             "Falls asleep in the elders' den while listening to a story",
-            "Wonders what {PRONOUN/m_c/poss} clipper name will be",
             "Wants to join the hunting patrol but can't",
             "Is learning how to use {PRONOUN/m_c/poss} claws",
             "Tried climbing r_c",
             "Is eating grass, pretending to be prey",
             "Starts whining when r_c ignores {PRONOUN/m_c/object}",
-            "Can't wait to be a clipper",
+            "Can't wait to be a Clipper",
             "Pricked {PRONOUN/m_c/self} on the brambles protecting camp",
             "Pounces on a shred of moss",
-            "Is wondering if {PRONOUN/m_c/subject} would be a good swimmer"
+            "Is wondering if {PRONOUN/m_c/subject} would be a good swimmer",
+            "Wonders if there are any kits in the other Baronies"
         ],
         "random_living_status": [
             "living"
@@ -106,7 +106,7 @@
         "thoughts": [
             "Refuses to eat the herbs the doctor has given {PRONOUN/m_c/object} for {PRONOUN/m_c/poss} tummy",
             "Hides in the doctor's herb stores",
-            "Is asking the doctor about StarClan",
+            "Is asking the doctor about the Great Beyond",
             "Is asking the doctor why all the herbs have to be stinky and gross",
             "Wants to follow the doctor everywhere",
             "Is asking r_c what every herb does but isn't retaining a word of it",
@@ -174,7 +174,7 @@
             "Is in r_c's way... again",
             "Yowls loudly in the middle of the clearing for absolutely no reason",
             "Begs for life-saving herbs to cure {PRONOUN/m_c/poss} minor scrape",
-            "Is calling a Clan meeting, before r_c rudely interrupts {PRONOUN/m_c/object}",
+            "Is calling a Barony meeting, before r_c rudely interrupts {PRONOUN/m_c/object}",
             "Is demanding r_c's attention even though {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} busy",
             "Is waiting by the camp entrance to see what the patrol brings back"
         ],

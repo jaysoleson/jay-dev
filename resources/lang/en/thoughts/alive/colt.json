@@ -13,13 +13,13 @@
             "Practices {PRONOUN/m_c/poss} highest jump",
             "Practices {PRONOUN/m_c/poss} farthest leap",
             "Feels proud of {PRONOUN/m_c/self} for doing so well in training today",
-            "Is thinking about how cool it'll be when {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} a clipper",
-            "Wants to become a fierce clipper someday",
+            "Is thinking about how cool it'll be when {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} a Clipper",
+            "Wants to become a fierce Clipper someday",
             "Wants to learn as many fighting techniques as {PRONOUN/m_c/subject} can",
             "Is determined to master a hunting technique by dusk",
             "Wants to be taught an advanced hunting move",
             "Has been training very hard recently",
-            "Is anxious about becoming a clipper",
+            "Is anxious about becoming a Clipper",
             "Can't wait to get back to training as soon as the sun rises",
             "Wonders if {PRONOUN/m_c/subject} can train late tonight",
             "Hopes to have an easy training session",
@@ -40,7 +40,7 @@
             "Is jumpy after battle practice",
             "Whirls around and bares {PRONOUN/m_c/poss} fangs, only to realize training is over",
             "Was overzealous during battle training and got a stern lecture",
-            "Hopes {PRONOUN/m_c/subject}'ll be remembered as a mighty clipper",
+            "Hopes {PRONOUN/m_c/subject}'ll be remembered as a mighty Clipper",
             "Wonders if there would ever be a story about {PRONOUN/m_c/poss} deeds",
             "Puffs out {PRONOUN/m_c/poss} chest after hearing someone praise {PRONOUN/m_c/object}",
             "Boasts that {PRONOUN/m_c/subject} {VERB/m_c/were/was} a rabbit in {PRONOUN/m_c/poss} past life because of {PRONOUN/m_c/poss} mighty leap",
@@ -56,7 +56,7 @@
             "Frets about future battles {PRONOUN/m_c/subject} might fight in",
             "Wonders how much defeat hurts",
             "Bristles at the thought of being beneath an enemy",
-            "Feels antsy around other Clans knowing they might meet in battle",
+            "Feels antsy around cats from other Baronies, knowing they might meet in battle",
             "Gulps when {PRONOUN/m_c/subject} {VERB/m_c/see/sees} claws unsheathe during a border patrol",
             "Huffs as {PRONOUN/m_c/subject} {VERB/m_c/fly/flies} past {PRONOUN/m_c/poss} target and {VERB/m_c/flop/flops} onto the ground",
             "Swears {PRONOUN/m_c/subject}'ll catch the moss ball this time!",
@@ -64,11 +64,13 @@
             "Tries to convince {PRONOUN/m_c/self} that a bug has the same worth as a mouse",
             "Mistook a spider for a mouse...",
             "Grins upon remembering {PRONOUN/m_c/poss} best hunt ever",
-            "Spends the night thinking about what it means to be a clipper",
-            "Questions if {PRONOUN/m_c/subject} still {VERB/m_c/want/wants} to be a clipper after a brush with death",
+            "Spends the night thinking about what it means to be a Clipper",
+            "Questions if {PRONOUN/m_c/subject} still {VERB/m_c/want/wants} to be a Clipper after a brush with death",
             "Is trembling at the thought of not being strong enough to save someone",
-            "Is struggling to come to terms with what 'being a clipper' entails",
-            "Feels {PRONOUN/m_c/poss} kithood admiration of clippers waning"
+            "Is struggling to come to terms with what 'being a Clipper' entails",
+            "Feels {PRONOUN/m_c/poss} kithood admiration of Clippers waning",
+            "Is waiting to make {PRONOUN/m_c/poss} first kill",
+            "Wonders if being a cog would be simpler"
         ]
     },
     {
@@ -85,7 +87,7 @@
             "Finds r_c's work overwhelming to think about",
             "Catalogues r_c's day-to-day in {PRONOUN/m_c/poss} head",
             "Is raring to join r_c on patrol",
-            "Admires r_c's status in c_n",
+            "Admires r_c's status in the b1_t",
             "Wonders what it would take to be in r_c's paws",
             "Insists on lending a paw in hopes of catching r_c's attention",
             "Spends the day shadowing under r_c",
@@ -95,20 +97,35 @@
         ],
         "random_status_constraint": [
             "baron",
-            "regent"
+            "regent",
+            "heir"
         ],
         "random_living_status": [
             "living"
         ]
     },
     {
+        "id": "colt_to_heir",
+        "thoughts": [
+            "Envies r_c's influence",
+            "Wonders if {PRONOUN/m_c/subject} could ever become heir like r_c",
+            "Wonders why the Gods made r_c so lucky as to be the heir to the Barony",
+            "Doesn't feel like listening to r_c",
+            "Only listens to r_c when the Baron can hear"
+        ],
+        "random_status_constraint": [
+            "heir"
+        ]
+    },
+    {
         "id": "clipper_apprentice_to_alive_baron",
         "thoughts": [
-            "Believes {PRONOUN/m_c/subject} could become a baron like r_c",
+            "Believes {PRONOUN/m_c/subject} could become a Baron like r_c",
             "Insists that, one day, {PRONOUN/m_c/subject} will stand in r_c's position",
             "Refuses to listen to anyone, including r_c",
-            "Pays attention to how r_c commands c_n",
-            "Admires r_c's ability to stand unwavering above c_n"
+            "Watches how r_c commands attention",
+            "Admires r_c's ability to stand unwavering",
+            "Watches r_c, the big, bad, Baron of the Badlands, from afar"
         ],
         "random_status_constraint": [
             "baron"
@@ -135,7 +152,7 @@
             "Tries to convince r_c that {PRONOUN/m_c/subject} {VERB/m_c/are/is} ready for an assessment",
             "Wants to show r_c {PRONOUN/m_c/poss} worth",
             "Shows off in front of r_c in hopes {PRONOUN/r_c/subject} {VERB/r_c/put/puts} in a good word for {PRONOUN/m_c/object}",
-            "Believes {PRONOUN/m_c/subject} could become a regent like r_c"
+            "Believes {PRONOUN/m_c/subject} could become a Regent like r_c"
         ],
         "random_status_constraint": [
             "regent"
@@ -148,9 +165,9 @@
         "id": "clipper_apprentice_to_alive_clipper",
         "thoughts": [
             "Is watching and learning from r_c",
-            "Is asking r_c questions about clipper life",
+            "Is asking r_c questions about Clipper life",
             "Is re-enacting a move that {PRONOUN/m_c/subject} saw r_c do",
-            "Got caught trying to sneak out of camp without a clipper",
+            "Got caught trying to sneak out of camp without a Clipper",
             "Asks r_c for some advice",
             "Asks r_c for hunting tips",
             "Asks r_c for advice on passing an assessment",
@@ -166,7 +183,7 @@
     {
         "id": "clipper_apprentice_to_clanborn_clipper",
         "thoughts": [
-            "Wonders if r_c was a good apprentice"
+            "Wonders if r_c was a good colt"
         ],
         "backstory_constraint": {
             "r_c": ["clan_founder_backstories", 
@@ -186,12 +203,12 @@
         "thoughts": [
             "Can't get the taste of herbs out of {PRONOUN/m_c/poss} mouth after helping r_c",
             "Is gagging after helping r_c",
-            "Glances at r_c tending to herbs and feels thankful to have chosen the path of a clipper",
+            "Glances at r_c tending to herbs and feels thankful to have chosen the path of a Clipper",
             "Hates the strong stench of herbs",
             "Is swallowing a remark after being told to take something nasty",
-            "Gasps for air after leaving the doctor den",
-            "Is listening to r_c discuss the intricacies of StarClan",
-            "Feels puzzled after asking r_c about StarClan",
+            "Gasps for air after leaving the doctor's den",
+            "Is listening to r_c discuss the intricacies of the afterlife",
+            "Feels puzzled after asking r_c about the afterlife",
             "Is tuning out during r_c's lecture about dangerous herbs",
             "Listens intently during r_c's lecture about dangerous herbs",
             "Spots an herb r_c talked about and reports it",
@@ -214,9 +231,9 @@
     {
         "id": "clipper_apprentice_to_clanborn_clipper",
         "thoughts": [
-            "Wonders if r_c was a good apprentice",
-            "Asks r_c what the Clan was like when {PRONOUN/r_c/subject} {VERB/r_c/were/was} {PRONOUN/m_c/poss} age",
-            "Asks r_c if the colts' den has changed since {PRONOUN/r_c/subject} {VERB/r_c/were/was} an apprentice",
+            "Wonders if r_c was a good colt",
+            "Asks r_c what the Barony was like when {PRONOUN/r_c/subject} {VERB/r_c/were/was} {PRONOUN/m_c/poss} age",
+            "Asks r_c if the colts' den has changed since {PRONOUN/r_c/subject} {VERB/r_c/were/was} a colt",
             "Heard a scary story about the colts' den from r_c",
             "Is jumpy about a particular spot in the colts' den r_c claimed was haunted",
             "Is listening to a story r_c heard when {PRONOUN/r_c/subject} {VERB/r_c/were/was} a kit"
@@ -247,10 +264,10 @@
             "Is practicing sparring with r_c",
             "Wants to compare catches with r_c",
             "Asks r_c for help with an upcoming assessment",
-            "Asks r_c if {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} ready to be a clipper",
+            "Asks r_c if {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} ready to be a Clipper",
             "Hopes to go on the same patrol as r_c",
             "Asks r_c to wake {PRONOUN/m_c/object} up if {PRONOUN/m_c/subject} {VERB/m_c/oversleep/oversleeps}",
-            "Wants to be a clipper before r_c",
+            "Wants to be a Clipper before r_c",
             "Swaps new techniques with r_c",
             "Asks r_c to quiz {PRONOUN/m_c/object} on types of hunting techniques",
             "Asks r_c to quiz {PRONOUN/m_c/object} on types of battle moves",
@@ -300,9 +317,9 @@
             "Looks at r_c and wonders if {PRONOUN/m_c/subject} {VERB/m_c/were/was} ever that small",
             "Brought back some feathers for the kits to play with",
             "Is showing off {PRONOUN/m_c/poss} new battle moves to the kits",
-            "Wonders if r_c can be {PRONOUN/m_c/poss} apprentice someday",
-            "Wants to be a clipper before r_c is an apprentice",
-            "Hopes r_c will be an apprentice with {PRONOUN/m_c/object}",
+            "Wonders if r_c can be {PRONOUN/m_c/poss} colt someday",
+            "Wants to be a Clipper before r_c is a colt",
+            "Hopes r_c will be a colt with {PRONOUN/m_c/object}",
             "Is letting r_c see the colts' den",
             "Takes time to play with r_c in between training sessions",
             "Tries to teach r_c something new... but {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} not listening",
@@ -318,10 +335,10 @@
     {
         "id": "ambitious_clipper_apprentice",
         "thoughts": [
-            "Begs to be made a clipper early",
+            "Begs to be made a Clipper early",
             "Wants to go on both a border and hunting patrol",
             "Is asking for extra, extra training",
-            "Wants to be made a clipper so {PRONOUN/m_c/subject} can hurry up and get {PRONOUN/m_c/poss} own apprentice",
+            "Wants to be made a Clipper so {PRONOUN/m_c/subject} can hurry up and get {PRONOUN/m_c/poss} own colt",
             "Is staying out late to hunt",
             "Doesn't like to take breaks",
             "Offers to go on every patrol today",
@@ -338,11 +355,11 @@
     {
         "id": "ambitious_clipper_apprentice_to_other_apps",
         "thoughts": [
-            "Has been catching the most prey out of all the apprentices",
-            "Is confident that {PRONOUN/m_c/subject} could beat the other apprentices",
-            "Wants to be the most promising apprentice",
-            "Is trying to outshine the other apprentices",
-            "Wants to be made a clipper before r_c"
+            "Has been catching the most prey out of all the colts",
+            "Is confident that {PRONOUN/m_c/subject} could beat the other colts",
+            "Wants to be the most promising colt",
+            "Is trying to outshine the other colts",
+            "Wants to be made a Clipper before r_c"
         ],
         "random_status_constraint": [
             "colt"
@@ -357,7 +374,7 @@
     {
         "id": "bold_clipper_apprentice",
         "thoughts": [
-            "Taunted a rival Clan's apprentice at the border",
+            "Taunted a rival Baron's colt at the border",
             "Took the biggest piece of prey from the pile",
             "Is claiming to be ready for {PRONOUN/m_c/poss} assessment early",
             "Assigns {PRONOUN/m_c/self} to a patrol",
@@ -379,7 +396,7 @@
     {
         "id": "bold_clipper_apprentice_to_clipper",
         "thoughts": [
-            "Is looking to challenge a clipper to a sparring match",
+            "Is looking to challenge a Clipper to a sparring match",
             "Is pretty sure r_c would lose in a fight with {PRONOUN/m_c/object}",
             "Doesn't listen to r_c's advice"
         ],
@@ -484,13 +501,13 @@
     {
         "id": "confident_clipper_apprentice",
         "thoughts": [
-            "Is sure that {PRONOUN/m_c/subject}'ll be made into a clipper soon",
-            "Thinks that {PRONOUN/m_c/subject} will be the strongest clipper to ever live",
+            "Is sure that {PRONOUN/m_c/subject}'ll be made into a Clipper soon",
+            "Thinks that {PRONOUN/m_c/subject} will be the strongest Clipper to ever live",
             "Isn't worried about anything",
             "Is planning on bringing a lot of fresh-kill back from patrol",
             "Wants to lead the next dawn patrol",
             "Perfects a new fighting stance during today's training session",
-            "Is sure that r_c thinks {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} the best apprentice",
+            "Is sure that r_c thinks {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} the best colt",
             "Is a very quick learner",
             "Is sure {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} doing a good job today",
             "Knows {PRONOUN/m_c/subject} will get picked first for today's hunting patrol"
@@ -545,10 +562,10 @@
     {
         "id": "insecure_nervous_clipper_apprentice",
         "thoughts": [
-            "Is wondering if {PRONOUN/m_c/subject} {VERB/m_c/are/is} good enough to be a clipper...",
+            "Is wondering if {PRONOUN/m_c/subject} {VERB/m_c/are/is} good enough to be a Clipper...",
             "Is reluctant to spar with {PRONOUN/m_c/poss} mentor today",
             "Hopes {PRONOUN/m_c/subject} {VERB/m_c/are/is} not assigned to a border patrol",
-            "Is worried about being an apprentice forever",
+            "Is worried about being a colt forever",
             "Is fighting back tears after missing a catch",
             "Is afraid to lose in a real fight",
             "Is avoiding everyone today",
@@ -566,14 +583,14 @@
         "thoughts": [
             "Is scared to go on border patrol",
             "Fled upon hearing the distant barking of a dog",
-            "Wonders if {PRONOUN/m_c/subject}'ll ever become a clipper",
+            "Wonders if {PRONOUN/m_c/subject}'ll ever become a Clipper",
             "Jumps at {PRONOUN/m_c/poss} own shadow",
             "Is nervous about something",
             "Stumbled over {PRONOUN/m_c/poss} words when talking with r_c",
-            "Wishes that one day {PRONOUN/m_c/subject}'ll be brave enough to be the regent, or even the baron...",
+            "Wishes that one day {PRONOUN/m_c/subject}'ll be brave enough to be the Regent, or even the Baron...",
             "Is scared around water after a nightmare",
             "Is nervous about {PRONOUN/m_c/poss} upcoming assessment",
-            "Wishes to be like the clippers in the stories told to {PRONOUN/m_c/object} in the nursery"
+            "Wishes to be like the Clippers in the stories told to {PRONOUN/m_c/object} in the nursery"
         ],
         "main_trait_constraint": [
             "nervous"
@@ -620,7 +637,7 @@
             "Is grumbling after r_c woke {PRONOUN/m_c/object} up for the dawn patrol",
             "Obediently follows r_c out of camp for today's lesson",
             "Is doing {PRONOUN/m_c/poss} best to listen to r_c",
-            "Hopes to be just like r_c as a clipper",
+            "Hopes to be just like r_c as a Clipper",
             "Admires r_c's knowledge and skills",
             "Wants to learn everything that r_c knows",
             "Wants to make r_c proud today",
@@ -678,7 +695,7 @@
         "id": "clipper_apprentice_to_harsher_mentor",
         "thoughts": [
             "Has difficulty following r_c's lessons",
-            "Knows that r_c's training will make {PRONOUN/m_c/object} a stronger clipper",
+            "Knows that r_c's training will make {PRONOUN/m_c/object} a stronger Clipper",
             "Wishes r_c would let {PRONOUN/m_c/object} relax for a day",
             "Feels awkward around {PRONOUN/m_c/poss} mentor"
         ],
@@ -705,7 +722,7 @@
             "Gets dragged out of {PRONOUN/m_c/poss} nest for an all-day, out-of-camp training session",
             "Is wide-eyed at how r_c seems to know <i>everyone</i>",
             "Finds r_c's energy contagious, and is excited to train today",
-            "Begs StarClan for r_c to stop making small talk",
+            "Begs the Gods for r_c to stop making small talk",
             "Can feel {PRONOUN/m_c/poss} paws falling off waiting for r_c to finish {PRONOUN/r_c/poss} conversation",
             "Craves silence, but unfortunately, r_c is training {PRONOUN/m_c/object} today"
         ],
@@ -756,7 +773,7 @@
         "id": "insecure_nervous_clipper_apprentice_to_mentor",
         "thoughts": [
             "Feels worried about going on patrol today",
-            "Asks {PRONOUN/m_c/poss} mentor if {PRONOUN/m_c/subject} {VERB/m_c/are/is} meant to be a clipper",
+            "Asks {PRONOUN/m_c/poss} mentor if {PRONOUN/m_c/subject} {VERB/m_c/are/is} meant to be a Clipper",
             "Thinks that {PRONOUN/m_c/subject} could be doing better",
             "Wishes {PRONOUN/m_c/subject} {VERB/m_c/were/was} more like r_c, {PRONOUN/m_c/poss} mentor is so cool"
         ],
@@ -776,14 +793,14 @@
         "thoughts": [
             "Seeks out r_c's comfort after a hard day",
             "Is glad to have r_c as {PRONOUN/m_c/poss} mentor",
-            "Wouldn't trade {PRONOUN/m_c/poss} mentor for anyone else in the Clan",
+            "Wouldn't trade {PRONOUN/m_c/poss} mentor for anyone else in the Badlands",
             "Is thankful for how patient r_c is with {PRONOUN/m_c/object}",
             "Is being comforted by r_c after admitting to not thinking {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} doing good enough",
-            "Asks r_c if {PRONOUN/r_c/subject} {VERB/r_c/think/thinks} that {PRONOUN/m_c/subject}'ll ever be a strong clipper",
+            "Asks r_c if {PRONOUN/r_c/subject} {VERB/r_c/think/thinks} that {PRONOUN/m_c/subject}'ll ever be a strong Clipper",
             "Admits to r_c that {PRONOUN/m_c/subject} {VERB/m_c/feel/feels} like a failure, and {PRONOUN/m_c/poss} mentor reassures {PRONOUN/m_c/subject}",
             "Feels hurt when r_c doesn't notice {PRONOUN/m_c/object} struggling",
             "Wonders if r_c really likes {PRONOUN/m_c/object}, or just pretends to",
-            "Doesn't feel worthy of being r_c's apprentice"
+            "Doesn't feel worthy of being r_c's colt"
         ],
         "main_trait_constraint": [
             "insecure",
@@ -916,11 +933,11 @@
         "thoughts": [
             "Got scolded for eating what {PRONOUN/m_c/subject} caught",
             "Is having some trouble adjusting",
-            "Forgets the clipper Code sometimes",
-            "Wants to prove to the Clan that {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} going to be a good clipper",
+            "Forgets the Clipper Code sometimes",
+            "Wants to prove to the Barony that {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} going to be a good Clipper",
             "Doesn't want to run into any rogues while on patrol",
             "Doesn't miss being a rogue",
-            "Is happy to be training as a clipper instead of living as a rogue"
+            "Is happy to be training as a Clipper instead of living as a rogue"
         ],
         "main_backstory_constraint": [
             "rogue1",
@@ -935,7 +952,7 @@
         "id": "clipper_apprentice_to_dead_clipper",
         "thoughts": [
             "Wishes {PRONOUN/m_c/subject} could learn from r_c",
-            "Wants to be a great clipper, just like r_c"
+            "Wants to be a great Clipper, just like r_c"
         ],
         "random_status_constraint": [
             "clipper"

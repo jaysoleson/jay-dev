@@ -71,7 +71,7 @@
   "gain_events": {
     "territory_gain": {
       "winner_offense": [
-        " baron1 triumphantly walks away from the final battle with a new piece of territory in {PRONOUN/baron/poss} possession.",
+        " baron1 triumphantly walks away from the final battle with a new piece of territory in {PRONOUN/baron1/poss} possession.",
         " As baron2 stumbles away from the final battle, bleeding and bruised, a group of b1_t Clippers are quick to claim their newly won piece of territory."
       ],
       "winner_defense": [

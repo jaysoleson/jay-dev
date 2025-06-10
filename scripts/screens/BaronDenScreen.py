@@ -209,7 +209,7 @@ class BaronDenScreen(Screens):
             
             self.subscreen_elements["food"].show()
             self.subscreen_elements["herbs"].show()
-            self.subscreen_elements["territory"].show()
+            self.subscreen_elements["territory"].hide()
             self.subscreen_elements["cosmetics"].show()
 
             self.subscreen_elements["subscreen_back"].show()
@@ -227,7 +227,7 @@ class BaronDenScreen(Screens):
             
             self.subscreen_elements["food"].show()
             self.subscreen_elements["herbs"].show()
-            self.subscreen_elements["territory"].show()
+            self.subscreen_elements["territory"].hide()
             self.subscreen_elements["cosmetics"].show()
 
             self.subscreen_elements["subscreen_back"].show()
@@ -979,7 +979,7 @@ class BaronDenScreen(Screens):
                 you_at_war = True
                 break
         if you_at_war:
-            self.focus_clan_elements["declare_war"].disable()
+            self.subscreen_elements["declare_war"].disable()
             
 
     def update_clan_interaction_choice(self, object_id):
@@ -1019,11 +1019,18 @@ class BaronDenScreen(Screens):
 
         if gathering_cat != game.clan.baron:
             fail_chance = fail_chance * 1.4
+        
+        if self.trade1 and self.trade2:
+            if get_other_clan_relation(self.focus_clan.relations[game.clan.name]) == "hostile":
+                fail_chance /= 2
+            if get_other_clan_relation(self.focus_clan.relations[game.clan.name]) == "ally":
+                fail_chance /= 0.8
 
+            # print("Trade fail chance:", (1 - fail_chance) * 100, "%")
         if random.random() >= fail_chance:
             success = True
         
-        if self.war_reason:
+        if interaction_type == "declare":
             game.clan.clan_settings["lead_den_clan_event"] = {
                 "cat_ID": gathering_cat.ID,
                 "other_clan": self.focus_clan.name,
@@ -1032,7 +1039,7 @@ class BaronDenScreen(Screens):
                 "success": True,
                 "war_reason": self.war_reason
             }
-        elif self.trade1 and self.trade2:
+        elif interaction_type == "trade":
             game.clan.clan_settings["lead_den_clan_event"] = {
                 "cat_ID": gathering_cat.ID,
                 "other_clan": self.focus_clan.name,
@@ -1091,6 +1098,10 @@ class BaronDenScreen(Screens):
 
         if fail_chance > 0.5:
             fail_chance = 0.5
+        
+        # BL
+        if fail_chance <= 0:
+            fail_chance = 0.35
 
         return fail_chance
 

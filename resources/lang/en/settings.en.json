@@ -48,6 +48,8 @@
         "regent_tooltip": "Barons will choose new Regents and heirs automatically when a spot is open.",
         "12_moon_graduation": "Disable experience-based apprentice graduation",
         "12_moon_graduation_tooltip": "All apprentices will graduate at 12 moons.",
+        "clan_names": "This save will use Warrior Cats names (prefix + suffix)",
+        "clan_names_tooltip": "When this setting is off, cats will only generate with prefixes. This is to replicate the human names in Into the Badlands",
         "retirement": "Cats will never retire due to a permanent condition",
         "retirement_tooltip": "When this setting is off, cats with permanent conditions will choose whether or not they want to retire",
         "affair": "Allow cats to breed with cats that aren't their mates",

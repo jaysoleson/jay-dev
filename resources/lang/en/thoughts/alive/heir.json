@@ -3,7 +3,10 @@
         "id": "heir_about_baron",
         "thoughts": [
             "Discusses the other Territories with r_c",
-            "Attentively watches r_c work"
+            "Attentively watches r_c work",
+            "Reports a misbehaving cog to r_c",
+            "Hopes to one day command the respect that r_c does",
+            "Is planning how to redecorate the Baron's den once it's {PRONOUN/m_c/inposs}"
         ],
         "random_status_constraint": [
             "baron"
@@ -13,7 +16,51 @@
         "id": "heir_gen",
         "thoughts": [
             "Watches the cogs work, puffing {PRONOUN/m_c/poss} chest out in pride",
-            "Is planning how to redecorate the Baron's den once it's {PRONOUN/m_c/inposs}"
+            "Looks over the land that will one day be {PRONOUN/m_c/inposs}",
+            "Can't wait to be Baron",
+            "Is nervous to be Baron"
         ]
+    },
+    {
+        "id": "heir_rude_to_cog",
+        "thoughts": [
+            "Bosses the cogs around, just because {PRONOUN/m_c/subject} can",
+            "Complains to the Baron that r_c won't follow {PRONOUN/m_c/poss} orders",
+            "Yells at r_c in front of the other cogs when {PRONOUN/r_c/subject} {VERB/m_c/fail/fails} to follow an order"
+        ],
+        "random_status_constraint": [
+            "cog"
+        ],
+        "main_trait_constraint": [
+            "troublesome",
+            "bold",
+            "arrogant",
+            "rebellious"
+        ]
+    },
+    {
+        "id": "heir_baron_injured",
+        "thoughts": [
+            "Struggles to command the respect of {PRONOUN/m_c/poss} Clippers while r_c is resting",
+            "Is feeling very stressed out by temporary leadership",
+            "Hopes r_c gets well soon",
+            "Is secretly glad r_c's injury has given {PRONOUN/m_c/object} the chance to lead",
+            "Is being ignored by the Clippers, who only want to report to the Baron"
+        ],
+        "random_status_constraint": [
+            "baron"
+        ],
+        "has_injuries": {
+            "r_c": [
+                "broken jaw",
+                "broken back",
+                "broken bone",
+                "mangled leg",
+                "mangled tail",
+                "head damage",
+                "severe burn",
+                "severe headache"
+            ]
+        }
     }
 ]

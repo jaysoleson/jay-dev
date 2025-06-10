@@ -101,6 +101,18 @@ class MediationScreen(Screens):
                 self.results.set_text(output)
                 self.update_selected_cats()
                 self.update_mediator_info()
+            elif event.ui_element == self.solo_mediate_button:
+                game.mediated.append([self.selected_cat_1.ID])
+                output = Cat.mediate_relationship(
+                    self.mediators[self.selected_mediator],
+                    self.selected_cat_1,
+                    self.selected_cat_2,
+                    self.allow_romantic,
+                    solo=True
+                )
+                self.results.set_text(output)
+                self.update_selected_cats()
+                self.update_mediator_info()
             elif event.ui_element == self.random1:
                 self.selected_cat_1 = self.random_cat()
                 if pygame.key.get_mods() & pygame.KMOD_SHIFT:
@@ -184,35 +196,44 @@ class MediationScreen(Screens):
         # Will be overwritten
         self.romantic_checkbox = None
         self.romantic_checkbox_text = pygame_gui.elements.UILabel(
-            ui_scale(pygame.Rect((368, 325), (100, 20))),
+            ui_scale(pygame.Rect((368, 305), (100, 20))),
             "screens.mediation.allow_romantic",
             object_id=get_text_box_theme("#text_box_22_horizleft"),
             manager=MANAGER,
         )
 
         self.mediate_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((280, 350), (105, 30))),
+            ui_scale(pygame.Rect((280, 330), (105, 30))),
             "screens.mediation.mediate",
             get_button_dict(ButtonStyles.SQUOVAL, (105, 30)),
             object_id="@buttonstyles_squoval",
             manager=MANAGER,
         )
         self.sabotage_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((400, 350), (109, 30))),
+            ui_scale(pygame.Rect((400, 330), (105, 30))),
             "screens.mediation.sabotage",
             get_button_dict(ButtonStyles.SQUOVAL, (105, 30)),
             object_id="@buttonstyles_squoval",
             manager=MANAGER,
         )
+        self.solo_mediate_button = UISurfaceImageButton(
+            ui_scale(pygame.Rect((0, 370), (120, 30))),
+            "screens.mediation.solo",
+            get_button_dict(ButtonStyles.SQUOVAL, (120, 30)),
+            object_id="@buttonstyles_squoval",
+            manager=MANAGER,
+            tool_tip_text="screens.mediation.solo_tooltip",
+            anchors={"centerx": "centerx"}
+        )
 
         self.next_med = UISurfaceImageButton(
-            ui_scale(pygame.Rect((476, 270), (34, 34))),
+            ui_scale(pygame.Rect((476, 250), (34, 34))),
             Icon.ARROW_RIGHT,
             get_button_dict(ButtonStyles.ICON, (34, 34)),
             object_id="@buttonstyles_icon",
         )
         self.last_med = UISurfaceImageButton(
-            ui_scale(pygame.Rect((280, 270), (34, 34))),
+            ui_scale(pygame.Rect((280, 250), (34, 34))),
             Icon.ARROW_LEFT,
             get_button_dict(ButtonStyles.ICON, (34, 34)),
             object_id="@buttonstyles_icon",
@@ -250,7 +271,7 @@ class MediationScreen(Screens):
 
         self.results = pygame_gui.elements.UITextBox(
             "",
-            ui_scale(pygame.Rect((280, 385), (229, 100))),
+            ui_scale(pygame.Rect((280, 405), (229, 70))),
             object_id=get_text_box_theme("#text_box_22_horizcenter_spacing_95"),
             manager=MANAGER,
         )
@@ -323,7 +344,7 @@ class MediationScreen(Screens):
                 self.update_selected_cats()
 
             self.mediator_elements["mediator_image"] = pygame_gui.elements.UIImage(
-                ui_scale(pygame.Rect((x_value, 90), (150, 150))),
+                ui_scale(pygame.Rect((x_value, 70), (150, 150))),
                 pygame.transform.scale(
                     mediator.sprite, ui_scale_dimensions((150, 150))
                 ),
@@ -332,7 +353,7 @@ class MediationScreen(Screens):
             name = str(mediator.name)
             short_name = shorten_text_to_fit(name, 120, 11)
             self.mediator_elements["name"] = pygame_gui.elements.UILabel(
-                ui_scale(pygame.Rect((x_value - 5, 240), (160, -1))),
+                ui_scale(pygame.Rect((x_value - 5, 220), (160, -1))),
                 short_name,
                 object_id=get_text_box_theme(),
             )
@@ -343,14 +364,22 @@ class MediationScreen(Screens):
                 text += "\n" + i18n.t("general.cant_work")
                 self.mediate_button.disable()
                 self.sabotage_button.disable()
+                self.solo_mediate_button.disable()
             else:
                 text += "\n" + i18n.t("general.can_work")
                 self.mediate_button.enable()
                 self.sabotage_button.enable()
+                self.solo_mediate_button.enable()
+            
+            if not self.selected_cat_2:
+                self.mediate_button.disable()
+                self.sabotage_button.disable()
+            if self.selected_cat_1 and not self.selected_cat_2:
+                self.solo_mediate_button.enable()
 
             self.mediator_elements["details"] = pygame_gui.elements.UITextBox(
                 text,
-                ui_scale(pygame.Rect((x_value, 260), (155, 60))),
+                ui_scale(pygame.Rect((x_value, 240), (155, 60))),
                 object_id=get_text_box_theme("#text_box_22_horizcenter_spacing_95"),
                 manager=MANAGER,
             )
@@ -609,6 +638,19 @@ class MediationScreen(Screens):
             ui_scale(pygame.Rect((x + 110, y + 126), (80, -1))),
             object_id="#text_box_22_horizleft_spacing_95",
             manager=MANAGER,
+        )
+
+        happiness = "happiness: " + str(cat.happiness_level)
+        if game.clan.clan_settings["showxp"]:
+            happiness += " (" + str(cat.happiness) + ")"
+
+        self.selected_cat_elements[
+            f"happiness_{tag}"
+        ] = pygame_gui.elements.UILabel(
+            ui_scale(pygame.Rect((x + 20, 63), (160, -1))),
+            happiness,
+            object_id=get_text_box_theme("#text_box_22_horizcenter"),
+            text_kwargs={"name": short_name, "m_c": cat},
         )
 
         # ------------------------------------------------------------------------------------------------------------ #
@@ -879,11 +921,18 @@ class MediationScreen(Screens):
             invalid_mediator = True
 
         invalid_pair = False
+        invalid_solo = False
         if self.selected_cat_1 and self.selected_cat_2:
             for x in game.mediated:
                 if self.selected_cat_1.ID in x and self.selected_cat_2.ID in x:
                     invalid_pair = True
                     error_message += i18n.t("screens.mediation.pair_already_mediated")
+                    break
+        elif self.selected_cat_1 and not self.selected_cat_2:
+            for x in game.mediated:
+                if len(x) == 1 and self.selected_cat_1.ID == x[0]:
+                    invalid_solo = True
+                    error_message += i18n.t("screens.mediation.solo_already_mediated")
                     break
         else:
             invalid_pair = True
@@ -893,15 +942,26 @@ class MediationScreen(Screens):
         if invalid_mediator or invalid_pair:
             self.mediate_button.disable()
             self.sabotage_button.disable()
+            self.solo_mediate_button.disable()
         else:
-            self.mediate_button.enable()
-            self.sabotage_button.enable()
+            if invalid_solo:
+                self.mediate_button.disable()
+                self.sabotage_button.disable()
+                self.solo_mediate_button.disable()
+            elif self.selected_cat_2 and self.selected_cat_1:
+                self.mediate_button.enable()
+                self.sabotage_button.enable()
+                self.solo_mediate_button.disable()
+            elif self.selected_cat_1 and not self.selected_cat_2:
+                self.solo_mediate_button.enable()
+                self.mediate_button.disable()
+                self.sabotage_button.disable()
 
         if self.romantic_checkbox:
             self.romantic_checkbox.kill()
 
         self.romantic_checkbox = UIImageButton(
-            ui_scale(pygame.Rect((321, 317), (34, 34))),
+            ui_scale(pygame.Rect((321, 297), (34, 34))),
             "",
             object_id="@checked_checkbox"
             if self.allow_romantic
@@ -963,6 +1023,8 @@ class MediationScreen(Screens):
         del self.mediate_button
         self.sabotage_button.kill()
         del self.sabotage_button
+        self.solo_mediate_button.kill()
+        del self.solo_mediate_button
         self.last_med.kill()
         del self.last_med
         self.next_med.kill()

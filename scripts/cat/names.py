@@ -37,14 +37,50 @@ class Name:
                         else:
                             names_dict["normal_prefixes"].append(new_name)
 
+        if os.path.exists(get_save_dir() + "/suffixlist.txt"):
+            with open(
+                str(get_save_dir() + "/suffixlist.txt"), "r", encoding="utf-8"
+            ) as read_file:
+                name_list = read_file.read()
+                if_names = len(name_list)
+            if if_names > 0:
+                new_names = name_list.split("\n")
+                for new_name in new_names:
+                    if new_name != "":
+                        if new_name.startswith("-"):
+                            while new_name[1:] in names_dict["normal_suffixes"]:
+                                names_dict["normal_suffixes"].remove(new_name[1:])
+                        else:
+                            names_dict["normal_suffixes"].append(new_name)
+
+        if os.path.exists(get_save_dir() + "/specialsuffixes.txt"):
+            with open(
+                str(get_save_dir() + "/specialsuffixes.txt", "r"), encoding="utf-8"
+            ) as read_file:
+                name_list = read_file.read()
+                if_names = len(name_list)
+            if if_names > 0:
+                new_names = name_list.split("\n")
+                for new_name in new_names:
+                    if new_name != "":
+                        if new_name.startswith("-"):
+                            del names_dict["special_suffixes"][new_name[1:]]
+                        elif ":" in new_name:
+                            _tmp = new_name.split(":")
+                            names_dict["special_suffixes"][_tmp[0]] = _tmp[1]
+
     def __init__(
         self,
         prefix=None,
+        suffix=None,
         biome=None,
+        specsuffix_hidden=False,
         load_existing_name=False,
         cat=None,
     ):
         self.prefix = prefix
+        self.suffix = suffix
+        self.specsuffix_hidden = specsuffix_hidden
 
         self.cat = cat
 
@@ -65,6 +101,73 @@ class Name:
             self.give_prefix(eyes, color, biome)
             # needed for random dice when we're changing the Prefix
             name_fixpref = True
+
+        # Set suffix
+        if self.suffix is None:
+            self.give_suffix(pelt, biome, tortiepattern)
+            if name_fixpref and self.prefix is None:
+                # needed for random dice when we're changing the Prefix
+                name_fixpref = False
+
+        if self.suffix and not load_existing_name:
+            # Prevent triple letter names from joining prefix and suffix from occurring (ex. Beeeye)
+            possible_three_letter = (
+                self.prefix[-2:] + self.suffix[0],
+                self.prefix[-1] + self.suffix[:2],
+            )
+            triple_letter = all(
+                i == possible_three_letter[0][0] for i in possible_three_letter[0]
+            ) or all(
+                i == possible_three_letter[1][0]
+                for i in possible_three_letter[1]
+                # Prevent double animal names (ex. Spiderfalcon)
+            )
+            double_animal = (
+                self.prefix in self.names_dict["animal_prefixes"]
+                and self.suffix in self.names_dict["animal_suffixes"]
+            )
+            # Prevent the inappropriate names
+            nono_name = self.prefix + self.suffix
+            # Prevent double names (ex. Iceice)
+            # Prevent suffixes containing the prefix (ex. Butterflyfly)
+
+            i = 0
+            while (
+                nono_name.lower() in self.names_dict["inappropriate_names"]
+                or triple_letter
+                or double_animal
+                or (
+                    self.prefix.lower() in self.suffix.lower()
+                    and str(self.prefix) != ""
+                )
+                or (
+                    self.suffix.lower() in self.prefix.lower()
+                    and str(self.suffix) != ""
+                )
+            ):
+                # check if random die was for prefix
+                if name_fixpref:
+                    self.give_prefix(eyes, color, biome)
+                else:
+                    self.give_suffix(pelt, biome, tortiepattern)
+
+                nono_name = self.prefix + self.suffix
+                possible_three_letter = (
+                    self.prefix[-2:] + self.suffix[0],
+                    self.prefix[-1] + self.suffix[:2],
+                )
+                if any(
+                    i != possible_three_letter[0][0] for i in possible_three_letter[0]
+                ) and any(
+                    i != possible_three_letter[1][0] for i in possible_three_letter[1]
+                ):
+                    triple_letter = False
+                if (
+                    self.prefix not in self.names_dict["animal_prefixes"]
+                    or self.suffix not in self.names_dict["animal_suffixes"]
+                ):
+                    double_animal = False
+                i += 1
 
     def __str__(self):
         return self.__repr__()
@@ -107,7 +210,7 @@ class Name:
             prefix_category = random.choice(possible_prefix_categories)
             self.prefix = random.choice(prefix_category)
         else:
-            self.prefix = random.choice(self.names_dict["normal_prefixes"] + self.names_dict["nomad_names"])
+            self.prefix = random.choice(self.names_dict["normal_prefixes"])
 
         # This thing prevents any prefix duplications from happening.
         # Try statement stops this form running when initializing.
@@ -125,8 +228,82 @@ class Name:
                 # removing at zero so the oldest gets removed
                 names.prefix_history.pop(0)
 
+    # Generate possible suffix
+    def give_suffix(self, pelt, biome, tortiepattern):
+        """Generate possible suffix."""
+        if pelt is None or pelt == "SingleColour":
+            self.suffix = random.choice(self.names_dict["normal_suffixes"])
+        else:
+            named_after_pelt = not random.getrandbits(2)  # Chance for True is '1/8'.
+            named_after_biome = not random.getrandbits(3)  # 1/8
+            # Pelt name only gets used if there's an associated suffix.
+            if named_after_pelt:
+                if (
+                    pelt in ("Tortie", "Calico")
+                    and tortiepattern in self.names_dict["tortie_pelt_suffixes"]
+                ):
+                    self.suffix = random.choice(
+                        self.names_dict["tortie_pelt_suffixes"][tortiepattern]
+                    )
+                elif pelt in self.names_dict["pelt_suffixes"]:
+                    self.suffix = random.choice(self.names_dict["pelt_suffixes"][pelt])
+                else:
+                    self.suffix = random.choice(self.names_dict["normal_suffixes"])
+            elif named_after_biome:
+                if biome in self.names_dict["biome_suffixes"]:
+                    self.suffix = random.choice(
+                        self.names_dict["biome_suffixes"][biome]
+                    )
+                else:
+                    self.suffix = random.choice(self.names_dict["normal_suffixes"])
+            else:
+                self.suffix = random.choice(self.names_dict["normal_suffixes"])
+
     def __repr__(self):
+        # Handles predefined suffixes (such as newborns being kit),
+        # then suffixes based on ages (fixes #2004, just trust me)
+
+        # Handles suffix assignment with outside cats
+        if self.cat.status not in ("rogue", "nomad", "kittypet") and self.cat.outside:
+            adjusted_status: str = ""
+            if self.cat.moons >= 15:
+                adjusted_status = "clipper"
+            elif self.cat.moons >= 6:
+                adjusted_status = "colt"
+            if self.cat.moons == 0:
+                adjusted_status = "newborn"
+            elif self.cat.moons < 6:
+                adjusted_status = "kitten"
+            elif self.cat.moons < 12:
+                adjusted_status = "colt"
+            else:
+                adjusted_status = "clipper"
+
+            # if adjusted_status != "clipper" and not self.specsuffix_hidden:
+            #     if game.clan:
+            #         if game.clan.clan_settings["clan_names"] is True:
+            #             return (
+            #                 self.prefix + self.names_dict["special_suffixes"][adjusted_status]
+            #             )
+        # if (
+        #     self.cat.status in self.names_dict["special_suffixes"]
+        #     and not self.specsuffix_hidden
+        # ):
+            # if game.clan:
+            #     if game.clan.clan_settings["clan_names"] is True:
+            #         return self.prefix + self.names_dict["special_suffixes"][self.cat.status]
+        if game.config["fun"]["april_fools"]:
+            return f"{self.prefix}egg"
+        
+        # if game.clan:
+        #     if game.clan.clan_settings["clan_names"] is False:
+        #         return self.prefix
+        # return self.prefix + self.suffix
         return self.prefix
+    
+        # suffix stuff commented out until i can figure out game.clan being none on thought load
+        # bc of this, even if the clan name setting is off, thoughts when the game is launched will use pref+suff names
+
 
 names = Name()
 names.prefix_history = []

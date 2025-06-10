@@ -6,16 +6,16 @@
             "m_c couldn't even treat a thorn in a paw with so little supplies. The herb stores need replenishing.",
             "Seeing the empty herb stores makes m_c shiver slightly and puff out {PRONOUN/m_c/poss} fur.",
             "Without any herbs m_c feels helpless.",
-            "c_n needs a herb gathering patrol <i>yesterday</i>, the herb stores are entirely empty and m_c feels like {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} going to vibrate out of {PRONOUN/m_c/poss} skin."
+            "The b1_t needs a herb gathering patrol <i>yesterday</i>, the herb stores are entirely empty and m_c feels like {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} going to vibrate out of {PRONOUN/m_c/poss} skin."
         ],
         "low": [
-            "m_c worries over the herb stores, there isn't nearly enough for the whole Clan.",
-            "m_c doesn't think the the current herb supply can handle all the possible ailments {PRONOUN/m_c/poss} Clanmates may face.",
-            "m_c tells {PRONOUN/m_c/poss} Clanmates to be careful this moon, {PRONOUN/m_c/subject} can't afford to waste herbs on unnecessary injury.",
-            "m_c worriedly recounts the herbs; the Clan can't afford to waste even the driest leaves.",
-            "m_c looks at the herb stores and wonders if {PRONOUN/m_c/subject}'ll have to ask for other Clans' help.",
+            "m_c worries over the herb stores, there isn't nearly enough for the whole Barony.",
+            "m_c doesn't think the the current herb supply can handle all the possible ailments {PRONOUN/m_c/poss} Clippers may face.",
+            "m_c tells {PRONOUN/m_c/poss} Clippers to be careful this moon, {PRONOUN/m_c/subject} can't afford to waste herbs on unnecessary injury.",
+            "m_c worriedly recounts the herbs; the Barony can't afford to waste even the driest leaves.",
+            "m_c looks at the herb stores and wonders if {PRONOUN/m_c/subject}'ll have to ask for other Barons' help.",
             "m_c scrounges around the very back of the herb stores, trying to see if there's any wilted leaves that have been overlooked.",
-            "m_c is going to talk to lead_name about giving {PRONOUN/m_c/object} a patrol full of clippers. c_n urgently needs more medicinal supplies.",
+            "m_c is going to talk to lead_name about giving {PRONOUN/m_c/object} a patrol full of clippers. The b1_t urgently needs more medicinal supplies.",
             "The state of the herb stores makes m_c's pelt prickle with unease.",
             "m_c is going to have to prioritize treating emergency injuries rather than easing more long term pain. The herb stores just don't have enough supplies.",
             "It's rare for m_c to get the chance to clean out the surfaces of the herb stores. The low level of supplies worries {PRONOUN/m_c/object}, but {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} determined to find an upside."

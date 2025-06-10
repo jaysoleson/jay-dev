@@ -19,6 +19,7 @@ from scripts.utility import (
     event_text_adjust,
     get_personality_compatibility,
     process_text,
+    change_happiness
 )
 from scripts.game_structure.localization import load_lang_resource
 
@@ -605,6 +606,11 @@ class RomanticEvents:
             )
             cat_from.relationships[cat_to.ID].romantic_love -= 10
             cat_to.relationships[cat_from.ID].comfortable -= 10
+
+            happiness_change = change_happiness(cat_from, -25, -8, -12, 4)
+            cat_from.happiness += happiness_change
+            happiness_change = change_happiness(cat_to, -10, -2, -4, 4)
+            cat_to.happiness += happiness_change
 
         mate_string = RomanticEvents.prepare_relationship_string(
             mate_string, cat_from, cat_to

@@ -20,6 +20,7 @@ from scripts.utility import (
     change_relationship_values,
     get_alive_status_cats,
     adjust_list_text,
+    change_happiness
 )
 from scripts.game_structure.localization import load_lang_resource
 
@@ -381,6 +382,9 @@ class Pregnancy_Events:
 
         involved_cats = [cat.ID]
         cat_dict = {"m_c": cat}
+
+        change = change_happiness(cat, 15, 30, 22, 3)
+        cat.happiness += change
 
         kits_amount = clan.pregnancy_data[cat.ID]["amount"]
         if (

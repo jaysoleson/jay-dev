@@ -76,6 +76,11 @@
             "Cats will never retire due to a permanent condition",
             "When this setting is off, cats with permanent conditions will choose whether or not they want to retire.",
             false
+        ],
+        "clan_names": [
+            "This save will use Warrior Cats names (prefix + suffix)",
+            "When this setting is off, cats will only generate with prefixes. This is to replicate the human names in Into the Badlands",
+            false
         ]
     },
     "relation": {

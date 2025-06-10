@@ -197,7 +197,7 @@ class MedDenScreen(Screens):
             self.cat_bg.disable()
             log_text = game.herb_events_list.copy()
             self.log_box = pygame_gui.elements.UITextBox(
-                f"{f'<br>-------------------------------<br>'.join(log_text)}<br>",
+                f"{f'<br>-------------------------------<br>'.join((log_text))}<br>",
                 ui_scale(pygame.Rect((150, 450), (540, 180))),
                 object_id="#text_box_26_horizleft_verttop_pad_14_0_10",
                 manager=MANAGER,

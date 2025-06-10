@@ -59,6 +59,10 @@ def json_load():
             new_cat = Cat(
                 ID=cat["ID"],
                 prefix=cat["name_prefix"],
+                suffix=cat["name_suffix"],
+                specsuffix_hidden=(
+                    cat["specsuffix_hidden"] if "specsuffix_hidden" in cat else False
+                ),
                 gender=cat["gender"],
                 status=cat["status"],
                 parent1=cat["parent1"],
@@ -347,6 +351,7 @@ def csv_load(all_cats):
                 the_cat = Cat(
                     ID=attr[0],
                     prefix=attr[1].split(":")[0],
+                    suffix=attr[1].split(":")[1],
                     gender=attr[2],
                     status=attr[3],
                     pelt=the_pelt,

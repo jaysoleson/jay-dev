@@ -230,7 +230,7 @@
   },
   {
     "interaction_type": "praise",
-    "event_text": "At the Conclave, baron2 sorrowfully announces the death of a close advisor. m_c reminds {PRONOUN/baron/object} to chin up, {PRONOUN/baron/subject}'ll see them again in the afterlife someday! baron2 doesn't take this well.",
+    "event_text": "At the Conclave, baron2 sorrowfully announces the death of a close advisor. m_c reminds {PRONOUN/baron2/object} to chin up, {PRONOUN/baron2/subject}'ll see them again in the afterlife someday! baron2 doesn't take this well.",
     "rel_change": -2,
     "m_c": {
       "skill": ["STAR,1"],
@@ -1507,6 +1507,14 @@
   {
     "interaction_type": "trade",
     "event_text": "m_c proposes a trade deal to baron2. baron2 politely declines, however, as m_c's offer of trade1 isn't something {PRONOUN/baron2/poss} cats need.",
+    "rel_change": 0,
+    "m_c": {},
+    "player_clan_temper": ["any"],
+    "other_clan_temper": ["any"]
+  },
+  {
+    "interaction_type": "trade",
+    "event_text": "baron2 awkwardly declines m_c's trade offer at the Conclave. The b2_t would like to keep their trade2.",
     "rel_change": 0,
     "m_c": {},
     "player_clan_temper": ["any"],

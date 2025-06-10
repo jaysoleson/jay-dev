@@ -23,7 +23,8 @@ from scripts.utility import (
     create_new_cat_block,
     gather_cat_objects,
     adjust_list_text,
-    get_baron_colour
+    get_baron_colour,
+    change_happiness
 )
 from scripts.game_structure.game_essentials import game
 from scripts.cat.skills import SkillPath
@@ -933,12 +934,7 @@ class PatrolOutcome:
                             change_upper *= 3
                             change_lower *= 3
 
-            happiness_change = 0
-            while True:
-                num = round(random.gauss(3, 5))
-                if change_lower <= num <= change_upper:
-                    happiness_change = num
-                    break
+            happiness_change = change_happiness(cat, change_lower, change_upper, 3, 4)
             if happiness_change:
                 print(cat.name, "happiness: ", cat.happiness, "=>", cat.happiness + happiness_change)
                 cat.happiness += happiness_change

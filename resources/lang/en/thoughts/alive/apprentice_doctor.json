@@ -17,7 +17,7 @@
             "Is taking {PRONOUN/m_c/poss} training very seriously",
             "Is learning the early signs of infection",
             "Is memorizing all the places catmint grows",
-            "Wonders if StarClan will send {PRONOUN/m_c/object} a practice sign before a real one",
+            "Wonders if the Great Beyond will send {PRONOUN/m_c/object} a practice sign before a real one",
             "Is neatly stacking bundles of herbs after drying"
         ]
     },
@@ -29,7 +29,7 @@
             "Wishes {PRONOUN/m_c/subject} understood the apprentice's inside jokes",
             "Hopes r_c will come with {PRONOUN/m_c/object} to help gather herbs",
             "Is assuring r_c that everything is okay",
-            "Is wondering if StarClan is visiting r_c's dreams",
+            "Is wondering if the Great Beyond is visiting r_c's dreams",
             "Is realizing how lonely it can be to be a apprentice doctor",
             "Is watching other apprentices train"
         ],
@@ -68,7 +68,7 @@
             "Is watching r_c work",
             "Asks r_c about the best way to help with bee stings",
             "Is asking r_c for guidance about a recent dream",
-            "Asks r_c how to tell something is a sign from StarClan",
+            "Asks r_c how to tell something is a sign from above",
             "Hopes to learn from r_c's expertise",
             "Asks r_c how to tell the difference between a sprain and a dislocated joint"
         ],
@@ -86,7 +86,7 @@
             "Is always worrying about {PRONOUN/m_c/poss} patients",
             "Is worried about a greencough outbreak",
             "Is terrified of misdiagnosing something serious",
-            "Isn't sure if {PRONOUN/m_c/subject} can handle the stress of caring for the Clan",
+            "Isn't sure if {PRONOUN/m_c/subject} can handle the stress of caring for the Barony",
             "Is holding back tears after using the wrong herbs",
             "Is upset after {PRONOUN/m_c/subject} froze at the sight of blood from a minor wound"
         ],
@@ -101,7 +101,7 @@
             "Is hoping {PRONOUN/m_c/poss} doctor name will end in -claw",
             "Wants to learn some battle moves... just in case",
             "Is keeping something hidden in the back of doctor den",
-            "Is wondering if StarClan uses greencough to weed out the weaker members of the Clan",
+            "Is wondering if the Gods use greencough to weed out the weaker cats in the Badlands",
             "Doesn't understand the point of keeping sickly old elders healthy with precious herbs",
             "Is seen secretly leaving camp to wash {PRONOUN/m_c/poss} paws in a creek",
             "Is studying the effects of deathberries"
@@ -117,8 +117,8 @@
         "id": "nice_doctor_apprentice",
         "thoughts": [
             "Is vowing to help any cat in need",
-            "Is looking to StarClan for guidance in a difficult decision",
-            "Is thinking about how to keep the Clan safe and healthy",
+            "Is looking to the Great Beyond for guidance in a difficult decision",
+            "Is thinking about how to keep the Barony safe and healthy",
             "Is dreaming about taking care of a patient",
             "Is arguing that rogues and nomads deserve help too"
         ],
@@ -136,7 +136,7 @@
             "Is unsure of r_c's treatment methods",
             "Wonders why r_c decided to be a doctor",
             "Is worried r_c likes to hurt patients",
-            "Is skeptical of StarClan's choice of r_c as a doctor",
+            "Is skeptical of the Gods' choice of r_c as a doctor",
             "Is startled to find r_c has a stockpile of deathberries"
         ],
         "main_trait_constraint": [
@@ -162,11 +162,11 @@
     {
         "id": "doctor_apprentice_meanie_to_meanie_med",
         "thoughts": [
-            "Is plotting the downfall of c_n with r_c",
+            "Is plotting the downfall of the b1_t with r_c",
             "Is meeting secretly with r_c to discuss a new 'treatment' method",
             "Is helping r_c secretly gather deathberries",
             "Is delighted to find r_c feels the same way about weak cats",
-            "Is glad r_c is against sharing life-saving herbs with enemy Clans",
+            "Is glad r_c is against sharing life-saving herbs with enemy Barons",
             "Is standing with r_c, both glaring over their newest vict-, erm, 'patients'",
             "Is learning the best way to make a death look like an accident from r_c",
             "Is discussing attacking other doctors at the next half-moon with r_c"
@@ -238,22 +238,22 @@
             "Can still smell the bitter herbs that {PRONOUN/m_c/subject} desperately fetched to try and save r_c's life",
             "Thought {PRONOUN/m_c/subject} heard r_c's mewls, but was wrong",
             "Contemplates how short r_c's life was and how much {PRONOUN/r_c/subject} {VERB/m_c/are/is} missing",
-            "Is questioning if r_c would grow up in StarClan or stay a newborn",
-            "Prays that r_c is healthy and receives the strength {PRONOUN/r_c/subject} need to grow in StarClan",
+            "Is questioning if r_c would grow up in the Great Beyond or stay a newborn",
+            "Prays that r_c is healthy and receives the strength {PRONOUN/r_c/subject} need to grow in the Great Beyond",
             "Is finally accepting {PRONOUN/m_c/subject} did all {PRONOUN/m_c/subject} could to save r_c",
             "Is pondering which role r_c would have been",
-            "Ponders how StarClan would deal with r_c",
+            "Ponders how the Great Beyond would deal with r_c",
             "Thought {PRONOUN/m_c/subject} encountered r_c while scavenging for herbs, but it was a trick of {PRONOUN/m_c/poss} mind",
             "Is listening to the reason behind r_c's name with a fond smile",
-            "Wonders if newborn kits grow up to be adults or stay young forever in StarClan",
-            "Is asking StarClan why they take newborns to Silverpelt",
-            "Prays that all the newborn kits in StarClan get enough food to stay strong",
-            "Is contemplating StarClan and why they would allow newborns to pass",
+            "Wonders if newborn kits grow up to be adults or stay young forever in the Great Beyond",
+            "Is asking the Great Beyond why they take newborns to join them",
+            "Prays that all the newborn kits in the Great Beyond get enough food to stay strong",
+            "Is contemplating the Great Beyond and why they would allow newborns to pass",
             "Is reflecting on r_c's pelt, and is sad {PRONOUN/m_c/subject} never knew {PRONOUN/r_c/poss} eye color",
             "Was startled to meet a newborn kit while dreaming and ponders what it meant",
             "Was spooked when {PRONOUN/m_c/subject} was out collecting herbs and encountered a ghostly newborn, which disappeared when noticed",
-            "Is asking {PRONOUN/m_c/poss} mentor why StarClan allows newborns to join Silverpelt",
-            "Is vowing to never let another newborn join StarClan's ranks"
+            "Is asking {PRONOUN/m_c/poss} mentor why the Great Beyond allows newborns to join Silverpelt",
+            "Is vowing to never let another newborn join the Great Beyond's ranks"
         ],
         "random_status_constraint": [
             "newborn"
@@ -267,16 +267,16 @@
         "thoughts": [
             "Is wondering if r_c was a part of the stars last night",
             "Thought {PRONOUN/m_c/subject} heard r_c's mewls, but it was just the wind",
-            "Is questioning who would provide for r_c in StarClan",
+            "Is questioning who would provide for r_c in the Great Beyond",
             "Wonders if r_c would have played with the insects in the grass if {PRONOUN/r_c/subject} had time to grow up",
             "Questions if r_c's spirit exists in the tall grass",
             "Thought {PRONOUN/m_c/subject} saw r_c's spirit hanging around the nursery tunnel",
-            "Wonders if r_c gets to venture out of the tunnels in StarClan",
+            "Wonders if r_c gets to venture out of the tunnels in the Great Beyond",
             "Thought {PRONOUN/m_c/subject} saw r_c playing with the roots of the tree, but sadly shakes off the thought",
             "Was surprised to find r_c's spot in the nursery warm, despite {PRONOUN/r_c/object} being with the stars now",
-            "Is pondering if r_c would stay in tunnels or go out an explore the territory in StarClan",
-            "Wonders if the newborns in StarClan will ever get to play and run across open fields",
-            "Prays to StarClan that the passed newborn kits get to feel the wind across their pelt"
+            "Is pondering if r_c would stay in tunnels or go out an explore the territory in the Great Beyond",
+            "Wonders if the newborns in the Great Beyond will ever get to play and run across open fields",
+            "Prays to the Great Beyond that the passed newborn kits get to feel the wind across their pelt"
         ],
         "biome": [
             "plains"

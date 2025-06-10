@@ -1,1 +1,54 @@
-[]
+[
+    {
+        "id": "cog_gen",
+        "thoughts": [
+            "Has sore paws from working",
+            "Is patching up some camp walls",
+            "Inspects the fresh-kill pile",
+            "Helps a fellow cog with their tasks",
+            "Wonders what being a Clipper is like",
+            "Nods respectfully when a Clipper walks past",
+            "Practices hunting",
+            "Practicies cleaning",
+            "Practices foraging",
+            "Fortifies the dens",
+            "Spends the day gathering feathers and moss",
+            "Tidies up the fresh-kill pile"
+        ]
+    },
+    {
+        "id": "cog_gen_forest",
+        "biome": [
+            "forest"
+        ],
+        "season": [
+            "Newleaf",
+            "Greenleaf",
+            "Leaf-fall"
+        ],
+        "thoughts": [
+            "Waters the plants at the edge of camp",
+            "Is watering the grass",
+            "Is on a berry-foraging patrol",
+            "Is cleaning up forest debris"
+        ]
+    },
+    {
+        "id": "cog_bloodthirsty",
+        "thoughts": [
+            "Watches enviously as the Clippers spar",
+            "Asks r_c about Clipper life",
+            "Asks r_c to teach {PRONOUN/r_c/object} how to fight",
+            "Tackles a rabbit, pretending it's an enemy Clipper",
+            "Spars with a tree",
+            "Is hoping for the chance to fight somecat soon"
+        ],
+        "main_trait_constraint": [
+            "bloodthirsty",
+            "fierce"
+        ],
+        "random_status_constraint": [
+            "clipper"
+        ]
+    }
+]

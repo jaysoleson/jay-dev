@@ -298,7 +298,9 @@ class HerbSupply:
             Cat=med_cat,
             text=choice(messages),
             main_cat=med_cat,
-            clan=game.clan
+            clan=game.clan,
+            barony=game.clan,
+            baron_colour_force_dark=True
         )
 
     def get_single_herb_total(self, herb: str) -> int:
@@ -693,7 +695,8 @@ class HerbSupply:
             Cat=treated_cat,
             text=message,
             main_cat=treated_cat,
-            clan=game.clan
+            clan=game.clan,
+            baron_colour_force_dark=True
         )
         self.log.append(message)
 

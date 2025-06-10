@@ -1,4 +1,11 @@
 {
+    "special_suffixes": {
+      "newborn": "kit",
+      "kitten": "kit",
+      "colt": "paw",
+      "doctor apprentice": "paw",
+      "baron": "star"
+  },
   "normal_suffixes" : [
     "fur", "fur", "fur", "fur", "fur", "fur", "fur", "fur", "fur", "fur", "fur",
     "tuft", "tuft", "tuft", "tuft", "tuft", "tooth", "tooth", "tooth", "tooth", "tooth",

@@ -119,6 +119,7 @@ class Cat:
     def __init__(
         self,
         prefix=None,
+        suffix=None,
         gender=None,
         allegiance=None,
         status="newborn",
@@ -127,6 +128,7 @@ class Cat:
         parent2=None,
         adoptive_parents=None,
         ID=None,
+        specsuffix_hidden=False,
         moons=None,
         example=False,
         faded=False,
@@ -144,6 +146,8 @@ class Cat:
         :param allegiance: BL-- Cat's allegiance, default None
         :param parent1: ID of parent 1, default None
         :param parent2: ID of parent 2, default None
+        :param suffix: Cat's suffix (e.g. -heart for Fireheart)
+        :param specsuffix_hidden: Whether cat has a special suffix (-kit, -paw, etc.), default False
         :param ID: Cat's unique ID, default None
         :param moons: Cat's age, default None
         :param example: If cat is an example cat, default False
@@ -159,7 +163,7 @@ class Cat:
         if (
             faded
         ):  # This must be at the top. It's a smaller list of things to init, which is only for faded cats
-            self.init_faded(ID, status, prefix, moons, **kwargs)
+            self.init_faded(ID, status, prefix, suffix, moons, **kwargs)
             return
 
         self.generate_events = GenerateEvents()
@@ -231,6 +235,7 @@ class Cat:
 
         self.favourite = False
 
+        self.specsuffix_hidden = specsuffix_hidden
         self.inheritance = None
 
         self.history = None
@@ -322,7 +327,9 @@ class Cat:
         if self.pelt is not None:
             self.name = Name(
                 prefix,
+                suffix,
                 biome=biome,
+                specsuffix_hidden=self.specsuffix_hidden,
                 load_existing_name=loading_cat,
                 cat=self,
             )
@@ -330,6 +337,8 @@ class Cat:
             self.name = Name(
                 status,
                 prefix,
+                suffix,
+                specsuffix_hidden=self.specsuffix_hidden,
                 load_existing_name=loading_cat,
                 cat=self,
             )
@@ -343,12 +352,13 @@ class Cat:
         if self.ID is not None and self.ID != "0":
             Cat.insert_cat(self)
 
-    def init_faded(self, ID, status, prefix, moons, **kwargs):
+    def init_faded(self, ID, status, prefix, suffix, moons, **kwargs):
         """Perform faded-specific initialization
 
         :param ID: Cat ID
         :param status: Cat status
         :param prefix: Cat's prefix
+        :param suffix: Cat's suffix
         :param moons: Age in moons
         :param kwargs:
 
@@ -367,7 +377,7 @@ class Cat:
         self.outside = False
         self.exiled = False
         self.inheritance = None  # This should never be used, but just for safety
-        self.name = Name(prefix=prefix, cat=self)
+        self.name = Name(prefix=prefix, suffix=suffix, cat=self)
         if "df" in kwargs:
             self.df = kwargs["df"]
         else:
@@ -2806,19 +2816,22 @@ class Cat:
                 )
 
     @staticmethod
-    def mediate_relationship(mediator, cat1, cat2, allow_romantic, sabotage=False):
+    def mediate_relationship(mediator, cat1, cat2, allow_romantic, sabotage=False, solo=False):
         # Gather some important info
 
-        # Gathering the relationships.
-        if cat1.ID in cat2.relationships:
-            rel1 = cat1.relationships[cat2.ID]
-        else:
-            rel1 = cat1.create_one_relationship(cat2)
+        rel1 = None
+        rel2 = None
+        if not solo:
+            # Gathering the relationships.
+            if cat1.ID in cat2.relationships:
+                rel1 = cat1.relationships[cat2.ID]
+            else:
+                rel1 = cat1.create_one_relationship(cat2)
 
-        if cat2.ID in cat1.relationships:
-            rel2 = cat2.relationships[cat1.ID]
-        else:
-            rel2 = cat2.create_one_relationship(cat1)
+            if cat2.ID in cat1.relationships:
+                rel2 = cat2.relationships[cat1.ID]
+            else:
+                rel2 = cat2.create_one_relationship(cat1)
 
         # Output string.
         output = ""
@@ -2840,14 +2853,17 @@ class Cat:
         else:
             chance = 40
 
-        compat = get_personality_compatibility(cat1, cat2)
-        if compat is True:
-            chance += 10
-        elif compat is False:
-            chance -= 5
+        if not solo:
+            compat = get_personality_compatibility(cat1, cat2)
+            if compat is True:
+                chance += 10
+            elif compat is False:
+                chance -= 5
 
         # Cat's compatibility with mediator also has an effect on success chance.
         for cat in (cat1, cat2):
+            if cat is None:
+                continue
             if get_personality_compatibility(cat, mediator) is True:
                 chance += 5
             elif get_personality_compatibility(cat, mediator) is False:
@@ -2862,6 +2878,14 @@ class Cat:
             else:
                 output += "Mediate Failed!\n"
                 sabotage = True
+
+            happiness_change = randint(-10,-2)
+
+            if solo:
+                cat1.happiness += round(happiness_change)
+            else:
+                cat1.happiness += round(happiness_change) / 2
+                cat2.happiness += round(happiness_change) / 2
         else:
             apply_bonus = True
             # EX gain on success
@@ -2886,218 +2910,229 @@ class Cat:
 
                 happiness_change = randint(5,15)
                 happiness_change *= lvl_modifier
-                rel1.cat_from.happiness += round(happiness_change)
-                rel2.cat_from.happiness += round(happiness_change)
+
+                if solo:
+                    cat1.happiness += round(happiness_change)
+                else:
+                    cat1.happiness += round(happiness_change) / 2
+                    cat2.happiness += round(happiness_change) / 2
 
         # determine the traits to effect
         # Are they mates?
-        mates = rel1.cat_from.ID in rel1.cat_to.mate
+        if not solo:
+            mates = rel1.cat_from.ID in rel1.cat_to.mate
 
-        pos_traits = ["platonic", "respect", "comfortable", "trust"]
-        if allow_romantic and (mates or cat1.is_potential_mate(cat2)):
-            pos_traits.append("romantic")
+            pos_traits = ["platonic", "respect", "comfortable", "trust"]
+            if allow_romantic and (mates or cat1.is_potential_mate(cat2)):
+                pos_traits.append("romantic")
 
-        neg_traits = ["dislike", "jealousy"]
+            neg_traits = ["dislike", "jealousy"]
 
-        # Determine the number of positive traits to effect, and choose the traits
-        chosen_pos = sample(pos_traits, k=randint(2, len(pos_traits)))
+            # Determine the number of positive traits to effect, and choose the traits
+            chosen_pos = sample(pos_traits, k=randint(2, len(pos_traits)))
 
-        # Determine negative trains effected
-        neg_traits = sample(neg_traits, k=randint(1, 2))
+            # Determine negative trains effected
+            neg_traits = sample(neg_traits, k=randint(1, 2))
 
-        if compat is True:
-            personality_bonus = 2
-        elif compat is False:
-            personality_bonus = -2
-        else:
-            personality_bonus = 0
-
-        # Effects on traits
-        for trait in chosen_pos + neg_traits:
-            # The EX bonus in not applied upon a fail.
-            if apply_bonus:
-                if mediator.experience_level == "very low":
-                    # Negative bonus for very low.
-                    bonus = randint(-2, -1)
-                elif mediator.experience_level == "low":
-                    bonus = randint(-2, 0)
-                elif mediator.experience_level == "high":
-                    bonus = randint(1, 3)
-                elif mediator.experience_level == "master":
-                    bonus = randint(3, 4)
-                elif mediator.experience_level == "max":
-                    bonus = randint(4, 5)
-                else:
-                    bonus = 0  # Average gets no bonus.
+            if compat is True:
+                personality_bonus = 2
+            elif compat is False:
+                personality_bonus = -2
             else:
-                bonus = 0
+                personality_bonus = 0
 
-            decrease: bool = sabotage
-
-            if trait == "romantic":
-                if mates:
-                    ran = (5, 10)
+            # Effects on traits
+            for trait in chosen_pos + neg_traits:
+                # The EX bonus in not applied upon a fail.
+                if apply_bonus:
+                    if mediator.experience_level == "very low":
+                        # Negative bonus for very low.
+                        bonus = randint(-2, -1)
+                    elif mediator.experience_level == "low":
+                        bonus = randint(-2, 0)
+                    elif mediator.experience_level == "high":
+                        bonus = randint(1, 3)
+                    elif mediator.experience_level == "master":
+                        bonus = randint(3, 4)
+                    elif mediator.experience_level == "max":
+                        bonus = randint(4, 5)
+                    else:
+                        bonus = 0  # Average gets no bonus.
                 else:
+                    bonus = 0
+
+                decrease: bool = sabotage
+
+                if trait == "romantic":
+                    if mates:
+                        ran = (5, 10)
+                    else:
+                        ran = (4, 6)
+
+                    if sabotage:
+                        rel1.romantic_love = Cat.effect_relation(
+                            rel1.romantic_love,
+                            -(randint(ran[0], ran[1]) + bonus) + personality_bonus,
+                        )
+                        rel2.romantic_love = Cat.effect_relation(
+                            rel2.romantic_love,
+                            -(randint(ran[0], ran[1]) + bonus) + personality_bonus,
+                        )
+                    else:
+                        rel1.romantic_love = Cat.effect_relation(
+                            rel1.romantic_love,
+                            (randint(ran[0], ran[1]) + bonus) + personality_bonus,
+                        )
+                        rel2.romantic_love = Cat.effect_relation(
+                            rel2.romantic_love,
+                            (randint(ran[0], ran[1]) + bonus) + personality_bonus,
+                        )
+
+                elif trait == "platonic":
                     ran = (4, 6)
 
-                if sabotage:
-                    rel1.romantic_love = Cat.effect_relation(
-                        rel1.romantic_love,
-                        -(randint(ran[0], ran[1]) + bonus) + personality_bonus,
-                    )
-                    rel2.romantic_love = Cat.effect_relation(
-                        rel2.romantic_love,
-                        -(randint(ran[0], ran[1]) + bonus) + personality_bonus,
-                    )
+                    if sabotage:
+                        rel1.platonic_like = Cat.effect_relation(
+                            rel1.platonic_like,
+                            -(randint(ran[0], ran[1]) + bonus) + personality_bonus,
+                        )
+                        rel2.platonic_like = Cat.effect_relation(
+                            rel2.platonic_like,
+                            -(randint(ran[0], ran[1]) + bonus) + personality_bonus,
+                        )
+                    else:
+                        rel1.platonic_like = Cat.effect_relation(
+                            rel1.platonic_like,
+                            (randint(ran[0], ran[1]) + bonus) + personality_bonus,
+                        )
+                        rel2.platonic_like = Cat.effect_relation(
+                            rel2.platonic_like,
+                            (randint(ran[0], ran[1]) + bonus) + personality_bonus,
+                        )
+
+                elif trait == "respect":
+                    ran = (4, 6)
+
+                    if sabotage:
+                        rel1.admiration = Cat.effect_relation(
+                            rel1.admiration,
+                            -(randint(ran[0], ran[1]) + bonus) + personality_bonus,
+                        )
+                        rel2.admiration = Cat.effect_relation(
+                            rel2.admiration,
+                            -(randint(ran[0], ran[1]) + bonus) + personality_bonus,
+                        )
+                    else:
+                        rel1.admiration = Cat.effect_relation(
+                            rel1.admiration,
+                            (randint(ran[0], ran[1]) + bonus) + personality_bonus,
+                        )
+                        rel2.admiration = Cat.effect_relation(
+                            rel2.admiration,
+                            (randint(ran[0], ran[1]) + bonus) + personality_bonus,
+                        )
+
+                elif trait == "comfortable":
+                    ran = (4, 6)
+
+                    if sabotage:
+                        rel1.comfortable = Cat.effect_relation(
+                            rel1.comfortable,
+                            -(randint(ran[0], ran[1]) + bonus) + personality_bonus,
+                        )
+                        rel2.comfortable = Cat.effect_relation(
+                            rel2.comfortable,
+                            -(randint(ran[0], ran[1]) + bonus) + personality_bonus,
+                        )
+                    else:
+                        rel1.comfortable = Cat.effect_relation(
+                            rel1.comfortable,
+                            (randint(ran[0], ran[1]) + bonus) + personality_bonus,
+                        )
+                        rel2.comfortable = Cat.effect_relation(
+                            rel2.comfortable,
+                            (randint(ran[0], ran[1]) + bonus) + personality_bonus,
+                        )
+
+                elif trait == "trust":
+                    ran = (4, 6)
+
+                    if sabotage:
+                        rel1.trust = Cat.effect_relation(
+                            rel1.trust,
+                            -(randint(ran[0], ran[1]) + bonus) + personality_bonus,
+                        )
+                        rel2.trust = Cat.effect_relation(
+                            rel2.trust,
+                            -(randint(ran[0], ran[1]) + bonus) + personality_bonus,
+                        )
+                    else:
+                        rel1.trust = Cat.effect_relation(
+                            rel1.trust,
+                            (randint(ran[0], ran[1]) + bonus) + personality_bonus,
+                        )
+                        rel2.trust = Cat.effect_relation(
+                            rel2.trust,
+                            (randint(ran[0], ran[1]) + bonus) + personality_bonus,
+                        )
+
+                elif trait == "dislike":
+                    ran = (4, 9)
+                    if sabotage:
+                        rel1.dislike = Cat.effect_relation(
+                            rel1.dislike,
+                            (randint(ran[0], ran[1]) + bonus) - personality_bonus,
+                        )
+                        rel2.dislike = Cat.effect_relation(
+                            rel2.dislike,
+                            (randint(ran[0], ran[1]) + bonus) - personality_bonus,
+                        )
+                    else:
+                        rel1.dislike = Cat.effect_relation(
+                            rel1.dislike,
+                            -(randint(ran[0], ran[1]) + bonus) - personality_bonus,
+                        )
+                        rel2.dislike = Cat.effect_relation(
+                            rel2.dislike,
+                            -(randint(ran[0], ran[1]) + bonus) - personality_bonus,
+                        )
+
+                    decrease = not decrease
+
+                elif trait == "jealousy":
+                    ran = (4, 6)
+
+                    if sabotage:
+                        rel1.jealousy = Cat.effect_relation(
+                            rel1.jealousy,
+                            (randint(ran[0], ran[1]) + bonus) - personality_bonus,
+                        )
+                        rel2.jealousy = Cat.effect_relation(
+                            rel2.jealousy,
+                            (randint(ran[0], ran[1]) + bonus) - personality_bonus,
+                        )
+                    else:
+                        rel1.jealousy = Cat.effect_relation(
+                            rel1.jealousy,
+                            -(randint(ran[0], ran[1]) + bonus) - personality_bonus,
+                        )
+                        rel2.jealousy = Cat.effect_relation(
+                            rel2.jealousy,
+                            -(randint(ran[0], ran[1]) + bonus) - personality_bonus,
+                        )
+
+                    decrease = not decrease
+
+                if not solo:
+                    if decrease:
+                        output += i18n.t("screens.mediation.output_decrease", trait=i18n.t(f"screens.mediation.{trait}"))
+                    else:
+                        output += i18n.t("screens.mediation.output_increase", trait=i18n.t(f"screens.mediation.{trait}"))
+            if solo:
+                if decrease:
+                    output += "Happiness decreased."
                 else:
-                    rel1.romantic_love = Cat.effect_relation(
-                        rel1.romantic_love,
-                        (randint(ran[0], ran[1]) + bonus) + personality_bonus,
-                    )
-                    rel2.romantic_love = Cat.effect_relation(
-                        rel2.romantic_love,
-                        (randint(ran[0], ran[1]) + bonus) + personality_bonus,
-                    )
-
-            elif trait == "platonic":
-                ran = (4, 6)
-
-                if sabotage:
-                    rel1.platonic_like = Cat.effect_relation(
-                        rel1.platonic_like,
-                        -(randint(ran[0], ran[1]) + bonus) + personality_bonus,
-                    )
-                    rel2.platonic_like = Cat.effect_relation(
-                        rel2.platonic_like,
-                        -(randint(ran[0], ran[1]) + bonus) + personality_bonus,
-                    )
-                else:
-                    rel1.platonic_like = Cat.effect_relation(
-                        rel1.platonic_like,
-                        (randint(ran[0], ran[1]) + bonus) + personality_bonus,
-                    )
-                    rel2.platonic_like = Cat.effect_relation(
-                        rel2.platonic_like,
-                        (randint(ran[0], ran[1]) + bonus) + personality_bonus,
-                    )
-
-            elif trait == "respect":
-                ran = (4, 6)
-
-                if sabotage:
-                    rel1.admiration = Cat.effect_relation(
-                        rel1.admiration,
-                        -(randint(ran[0], ran[1]) + bonus) + personality_bonus,
-                    )
-                    rel2.admiration = Cat.effect_relation(
-                        rel2.admiration,
-                        -(randint(ran[0], ran[1]) + bonus) + personality_bonus,
-                    )
-                else:
-                    rel1.admiration = Cat.effect_relation(
-                        rel1.admiration,
-                        (randint(ran[0], ran[1]) + bonus) + personality_bonus,
-                    )
-                    rel2.admiration = Cat.effect_relation(
-                        rel2.admiration,
-                        (randint(ran[0], ran[1]) + bonus) + personality_bonus,
-                    )
-
-            elif trait == "comfortable":
-                ran = (4, 6)
-
-                if sabotage:
-                    rel1.comfortable = Cat.effect_relation(
-                        rel1.comfortable,
-                        -(randint(ran[0], ran[1]) + bonus) + personality_bonus,
-                    )
-                    rel2.comfortable = Cat.effect_relation(
-                        rel2.comfortable,
-                        -(randint(ran[0], ran[1]) + bonus) + personality_bonus,
-                    )
-                else:
-                    rel1.comfortable = Cat.effect_relation(
-                        rel1.comfortable,
-                        (randint(ran[0], ran[1]) + bonus) + personality_bonus,
-                    )
-                    rel2.comfortable = Cat.effect_relation(
-                        rel2.comfortable,
-                        (randint(ran[0], ran[1]) + bonus) + personality_bonus,
-                    )
-
-            elif trait == "trust":
-                ran = (4, 6)
-
-                if sabotage:
-                    rel1.trust = Cat.effect_relation(
-                        rel1.trust,
-                        -(randint(ran[0], ran[1]) + bonus) + personality_bonus,
-                    )
-                    rel2.trust = Cat.effect_relation(
-                        rel2.trust,
-                        -(randint(ran[0], ran[1]) + bonus) + personality_bonus,
-                    )
-                else:
-                    rel1.trust = Cat.effect_relation(
-                        rel1.trust,
-                        (randint(ran[0], ran[1]) + bonus) + personality_bonus,
-                    )
-                    rel2.trust = Cat.effect_relation(
-                        rel2.trust,
-                        (randint(ran[0], ran[1]) + bonus) + personality_bonus,
-                    )
-
-            elif trait == "dislike":
-                ran = (4, 9)
-                if sabotage:
-                    rel1.dislike = Cat.effect_relation(
-                        rel1.dislike,
-                        (randint(ran[0], ran[1]) + bonus) - personality_bonus,
-                    )
-                    rel2.dislike = Cat.effect_relation(
-                        rel2.dislike,
-                        (randint(ran[0], ran[1]) + bonus) - personality_bonus,
-                    )
-                else:
-                    rel1.dislike = Cat.effect_relation(
-                        rel1.dislike,
-                        -(randint(ran[0], ran[1]) + bonus) - personality_bonus,
-                    )
-                    rel2.dislike = Cat.effect_relation(
-                        rel2.dislike,
-                        -(randint(ran[0], ran[1]) + bonus) - personality_bonus,
-                    )
-
-                decrease = not decrease
-
-            elif trait == "jealousy":
-                ran = (4, 6)
-
-                if sabotage:
-                    rel1.jealousy = Cat.effect_relation(
-                        rel1.jealousy,
-                        (randint(ran[0], ran[1]) + bonus) - personality_bonus,
-                    )
-                    rel2.jealousy = Cat.effect_relation(
-                        rel2.jealousy,
-                        (randint(ran[0], ran[1]) + bonus) - personality_bonus,
-                    )
-                else:
-                    rel1.jealousy = Cat.effect_relation(
-                        rel1.jealousy,
-                        -(randint(ran[0], ran[1]) + bonus) - personality_bonus,
-                    )
-                    rel2.jealousy = Cat.effect_relation(
-                        rel2.jealousy,
-                        -(randint(ran[0], ran[1]) + bonus) - personality_bonus,
-                    )
-
-                decrease = not decrease
-
-            if decrease:
-                output += i18n.t("screens.mediation.output_decrease", trait=i18n.t(f"screens.mediation.{trait}"))
-            else:
-                output += i18n.t("screens.mediation.output_increase", trait=i18n.t(f"screens.mediation.{trait}"))
+                    output += "Happiness increased!"
 
         return output
 
@@ -3188,6 +3223,7 @@ class Cat:
         cat_ob = Cat(
             ID=cat_info["ID"],
             prefix=cat_info["name_prefix"],
+            suffix=cat_info["name_suffix"],
             status=cat_info["status"],
             moons=cat_info["moons"],
             faded=True,
@@ -3427,6 +3463,7 @@ class Cat:
             return {
                 "ID": self.ID,
                 "name_prefix": self.name.prefix,
+                "name_suffix": self.name.suffix,
                 "status": self.status,
                 "moons": self.moons,
                 "dead_for": self.dead_for,
@@ -3440,6 +3477,8 @@ class Cat:
             return {
                 "ID": self.ID,
                 "name_prefix": self.name.prefix,
+                "name_suffix": self.name.suffix,
+                "specsuffix_hidden": self.name.specsuffix_hidden,
                 "gender": self.gender,
                 "gender_align": self.genderalign,
                 "pronouns": self._pronouns

@@ -1487,22 +1487,17 @@ class MakeClanScreen(Screens):
             )
             self.members.append(create_cat(status=random_status))
 
-    def random_clan_name(self, baron=False):
-        if baron:
-            clan_names = (
-                names.names_dict["normal_prefixes"] + names.names_dict["nomad_names"]
-            )
-        else:
-            clan_names = (
-                names.names_dict["normal_prefixes"] + names.names_dict["clan_prefixes"]
-            )
+    def random_clan_name(self):
+        clan_names = (
+            names.names_dict["normal_prefixes"] + names.names_dict["clan_prefixes"]
+        )
         while True:
             chosen_name = choice(clan_names)
             if chosen_name.casefold() not in (
                 clan.casefold() for clan in game.switches["clan_list"]
             ):
                 return chosen_name
-            print("Generated clan name was already in use! Rerolling...")
+            print("Generated name was already in use! Rerolling...")
 
     def random_biome_selection(self):
         # Select a random biome and background

@@ -8,8 +8,8 @@
             "Is being begged by r_c to teach {PRONOUN/r_c/object} a few moves, despite r_c being a kit",
             "Somehow got roped up in watching r_c for the day",
             "Theatrically dies after r_c slays {PRONOUN/m_c/object}",
-            "Has to pretend to be a captured clipper for r_c's games",
-            "Is pretending to be a big, evil clipper for r_c",
+            "Has to pretend to be a captured Clipper for r_c's games",
+            "Is pretending to be a big, evil Clipper for r_c",
             "Gave a badger ride to r_c, and is now being begged by more kittens to do the same"
         ],
         "random_status_constraint": [
@@ -34,7 +34,7 @@
     {
         "id": "clipper_gen_regent",
         "thoughts": [
-            "Wants to be chosen as the new regent"
+            "Wants to be chosen as the new Regent"
         ],
         "random_status_constraint": [
             "regent"
@@ -70,7 +70,7 @@
     {
         "id": "clipper_gen_clipper",
         "thoughts": [
-            "Is sparring with some Clanmates",
+            "Is sparring with some fellow Clippers",
             "Wants to critique r_c's fighting techniques",
             "Wants to compliment r_c's fighting techniques"
         ],
@@ -96,16 +96,16 @@
     {
         "id": "ambitious_clipper",
         "thoughts": [
-            "Is boasting loudly about having defeated an enemy clipper on patrol the other day",
+            "Is boasting loudly about having defeated an enemy Clipper on patrol the other day",
             "Made sure to wake up early to volunteer for the dawn patrol",
             "Has been catching the most prey on the latest hunting patrols",
             "Has been taking on extra patrols lately",
-            "Sucks up to the baron and regent by offering to lead every patrol",
+            "Sucks up to the Baron and Regent by offering to lead every patrol",
             "Sets out to catch five pieces of fresh-kill today",
             "Evaluates how {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} going to sharpen up {PRONOUN/m_c/poss} battle skills",
-            "Tries to emulate the baron's body language when talking to younger cats",
-            "Feels inadequate about being nothing more than an ordinary clipper",
-            "Knows {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} a shoo-in for regent"
+            "Tries to emulate the Baron's body language when talking to younger cats",
+            "Feels inadequate about being nothing more than an ordinary Clipper",
+            "Knows {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} a shoo-in for Regent"
         ],
         "main_trait_constraint": [
             "ambitious"
@@ -116,7 +116,7 @@
         "thoughts": [
             "Is dutifully standing guard outside of camp",
             "Is going back to check on an old fox burrow {PRONOUN/m_c/subject} discovered yesterday, just to be safe",
-            "Coaches other clippers to take a more guarded stance for their technique"
+            "Coaches other Clippers to take a more guarded stance for their technique"
         ],
         "main_trait_constraint": [
             "careful"
@@ -125,7 +125,7 @@
     {
         "id": "careful_clipper_to_regent",
         "thoughts": [
-            "Asks the regent about sending out some more hunting patrols - just to be sure"
+            "Asks the Regent about sending out some more hunting patrols - just to be sure"
         ],
         "main_trait_constraint": [
             "careful"
@@ -140,7 +140,7 @@
     {
         "id": "childish_clipper",
         "thoughts": [
-            "Is whining about Clan duties",
+            "Is whining about {PRONOUN/m_c/poss} boring duties",
             "Splashes in a puddle of water during a patrol",
             "Jumps around while on patrol",
             "Is complaining about being sent on dawn patrol"
@@ -159,8 +159,8 @@
             "Volunteered for extra patrols",
             "Volunteered for extra duties",
             "Volunteered to stand guard of the camp",
-            "Shares the best hunting spots with the other clippers",
-            "Does {PRONOUN/m_c/poss} Clanmates' chores with a smile on {PRONOUN/m_c/poss} face"
+            "Shares the best hunting spots with the other Clippers",
+            "Does some cogs' chores with a smile on {PRONOUN/m_c/poss} face"
         ],
         "main_trait_constraint": [
             "compassionate"
@@ -184,12 +184,12 @@
     {
         "id": "daring_clipper",
         "thoughts": [
-            "Is challenging any Clanmate {PRONOUN/m_c/subject} can to a sparring match... with minimal recruiting success",
-            "Is challenging some Clanmates to a sparring match, two-on-one!",
+            "Is challenging any Clipper {PRONOUN/m_c/subject} can to a sparring match... with minimal recruiting success",
+            "Is challenging some fellow Clippers to a sparring match, two-on-one!",
             "Batted at a snake on a patrol recently and fled",
             "Is walking along the edge of a very tall cliff",
             "Recently avoided a monster on the Thunderpath by the skin of {PRONOUN/m_c/poss} teeth!",
-            "Challenges a Clanmate to a friendly spar"
+            "Challenges a Clipper to a friendly spar"
         ],
         "main_trait_constraint": [
             "daring"
@@ -201,7 +201,7 @@
             "Is showing off {PRONOUN/m_c/poss} battle moves",
             "Offered to lead a border patrol today",
             "Has been waiting for a war to be declared",
-            "Doesn't understand why the other clippers are hesitant to train with {PRONOUN/m_c/object}"
+            "Doesn't understand why the other Clippers are hesitant to train with {PRONOUN/m_c/object}"
         ],
         "main_trait_constraint": [
             "fierce"
@@ -210,7 +210,7 @@
     {
         "id": "fierce_clipper_to_living_regent",
         "thoughts": [
-            "Was recently chastised by the regent for reckless behavior out on patrol"
+            "Was recently chastised by the Regent for reckless behavior out on patrol"
         ],
         "random_status_constraint": [
             "regent"
@@ -256,11 +256,11 @@
     {
         "id": "loyal_clipper_to_baron",
         "thoughts": [
-            "Is listening to the baron intently",
-            "Is telling the baron details about {PRONOUN/m_c/poss} recent patrol",
-            "Listened to the baron's orders recently, despite {PRONOUN/m_c/poss} own doubts",
-            "Proclaimed {PRONOUN/m_c/poss} unwavering loyalty to the baron",
-            "Is suspicious of a Clanmate who questions their baron"
+            "Is listening to the Baron intently",
+            "Is telling the Baron details about {PRONOUN/m_c/poss} recent patrol",
+            "Listened to the Baron's orders recently, despite {PRONOUN/m_c/poss} own doubts",
+            "Proclaimed {PRONOUN/m_c/poss} unwavering loyalty to the Baron",
+            "Is suspicious of a Clipper who questions their Baron"
         ],
         "main_trait_constraint": [
             "loyal"
@@ -275,9 +275,9 @@
     {
         "id": "loyal_clipper_to_regent",
         "thoughts": [
-            "Is listening to the regent intently",
-            "Is telling the regent details about {PRONOUN/m_c/poss} recent patrol",
-            "Is offering constructive criticism to the regent"
+            "Is listening to the Regent intently",
+            "Is telling the Regent details about {PRONOUN/m_c/poss} recent patrol",
+            "Is offering constructive criticism to the Regent"
         ],
         "main_trait_constraint": [
             "loyal"
@@ -303,7 +303,7 @@
     {
         "id": "righteous_clipper",
         "thoughts": [
-            "Is refusing to follow the regent's recent orders due to {PRONOUN/m_c/poss} own morals"
+            "Is refusing to follow the Regent's recent orders due to {PRONOUN/m_c/poss} own morals"
         ],
         "main_trait_constraint": [
             "righteous"
@@ -318,7 +318,7 @@
     {
         "id": "strict_clipper",
         "thoughts": [
-            "Is conducting a rather rigorous training session for the younger clippers",
+            "Is conducting a rather rigorous training session for the younger Clippers",
             "Takes pride in how well-run {PRONOUN/m_c/poss} patrols always are"
         ],
         "main_trait_constraint": [
@@ -337,7 +337,7 @@
     {
         "id": "troublesome_clipper_to_regent",
         "thoughts": [
-            "Is being lectured yet again by the regent"
+            "Is being lectured yet again by the Regent"
         ],
         "main_trait_constraint": [
             "troublesome"

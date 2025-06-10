@@ -50,7 +50,8 @@ from scripts.utility import (
     get_baron_colour,
     create_new_cat,
     get_bordering_baronies,
-    get_other_clan_relation
+    get_other_clan_relation,
+    change_happiness
 )
 from scripts.game_structure.localization import load_lang_resource
 
@@ -398,12 +399,19 @@ class Events:
         Handles the events that are chosen in the barons den the previous moon and resets the relevant clan settings
         """
         if game.clan.clan_settings["lead_den_clan_event"]:
+
+            # BL
+
             info_dict = game.clan.clan_settings["lead_den_clan_event"]
             gathering_cat = Cat.fetch_cat(info_dict["cat_ID"])
 
             # drop the event if the gathering cat is no longer available
             if gathering_cat.exiled or gathering_cat.dead or gathering_cat.outside:
                 return
+
+            if info_dict["success"] is True:
+                happiness_change = change_happiness(gathering_cat, 4, 10, 6, 4)
+                gathering_cat.happiness += happiness_change
 
             other_clan = get_other_clan(info_dict["other_clan"])
             if not other_clan:
@@ -428,17 +436,90 @@ class Events:
                     }
                 )
                 other_clan.relations[game.clan.name] = random.randint(4,8)
-            elif info_dict["interaction_type"] == "trade":
+            elif info_dict["interaction_type"] == "trade" and info_dict["success"] is True:
+                trade_event_text = ""
                 giving = info_dict["trade1"]
                 recieving = info_dict["trade2"]
+                # give territory
+                # squash these into a function probably
+                if giving == "territory":
+                    territory_tile = random.choice(get_bordering_baronies(other_clan)[game.clan.name])
+                    game.clan.territory.remove(territory_tile)
+                    other_clan.territory.append(territory_tile)
                 if recieving == "territory":
                     territory_tile = random.choice(get_bordering_baronies(game.clan)[other_clan.name])
                     other_clan.territory.remove(territory_tile)
                     game.clan.territory.append(territory_tile)
-                elif giving == "territory":
-                    territory_tile = random.choice(get_bordering_baronies(other_clan)[game.clan.name])
-                    game.clan.territory.remove(territory_tile)
-                    other_clan.territory.append(territory_tile)
+
+                if recieving == "food":
+                    game.clan.freshkill_pile.total_amount *= 1.4
+                if giving == "food":
+                    game.clan.freshkill_pile.total_amount -= game.clan.freshkill_pile.total_amount / 4
+
+                possible_herbs = []
+                if recieving == "herbs":
+                    trade_event_text = "You have recieved "
+                    recieved_herbs = []
+                    for herb in game.clan.herb_supply.base_herb_list.keys():
+                        possible_herbs.append(herb)
+                    for i in range(random.randint(3,8)):
+                        chosen_herb = random.choice(possible_herbs)
+                        possible_herbs.remove(chosen_herb)
+                        amount_added = random.randint(2, 10)
+                        recieved_herbs.append(str(amount_added) + " " + chosen_herb.replace("_", " "))
+                        game.clan.herb_supply.add_herb(chosen_herb, amount_added)
+                    trade_event_text += adjust_list_text(recieved_herbs)
+                    trade_event_text += " from the trade."
+                if giving == "herbs":
+                    possible_herbs = []
+                    for herb in game.clan.herb_supply.entire_supply:
+                        if game.clan.herb_supply.entire_supply[herb] > 0:
+                            possible_herbs.append(herb)
+                    for i in range(random.randint(3,8)):
+                        if not possible_herbs:
+                            break
+                        chosen_herb = random.choice(possible_herbs)
+                        possible_herbs.remove(chosen_herb)
+
+                        amount_taken = random.randint(1, game.clan.herb_supply.entire_supply[chosen_herb])
+                        game.clan.herb_supply.remove_herb(chosen_herb, amount_taken)
+
+                if recieving == "cosmetics":
+                    possible_cats = [
+                        cat for cat in Cat.all_cats_list if (
+                            not cat.dead and
+                            not cat.outside and
+                            cat.status in [
+                                "clipper", "colt", "heir", "regent", "baron"
+                                ]
+                            )
+                        ]
+                    if possible_cats:
+                        accessory_groups = [Pelt.collars, Pelt.head_accessories, Pelt.tail_accessories, Pelt.body_accessories]
+                        for i in range(random.randint(1,8)):
+                            if not possible_cats:
+                                break
+                            chosen_cat = random.choice(possible_cats)
+                            chosen_cat.pelt.accessory.append(random.choice(random.choice(accessory_groups)))
+                            possible_cats.remove(chosen_cat)
+                if giving == "cosmetics":
+                    possible_cats = [
+                        cat for cat in Cat.all_cats_list if (
+                            not cat.dead and
+                            not cat.outside and
+                            cat.pelt.accessory
+                            )
+                        ]
+                    if possible_cats:
+                        for i in range(random.randint(1,8)):
+                            if not possible_cats:
+                                break
+                            chosen_cat = random.choice(possible_cats)
+                            chosen_cat.pelt.accessory.remove(random.choice(chosen_cat.pelt.accessory))
+                            possible_cats.remove(chosen_cat)
+
+                game.cur_events_list.append(Single_Event(trade_event_text, "misc"))
+            # ---
 
             # get events
             events = generate_events.possible_lead_den_events(
@@ -479,11 +560,12 @@ class Events:
                 clan=game.clan,
             )
 
-            event_text = event_text.replace("trade1", giving)
-            event_text = event_text.replace("trade2", recieving)
+            if info_dict["interaction_type"] == "trade":
+                event_text = event_text.replace("trade1", giving)
+                event_text = event_text.replace("trade2", recieving)
 
             game.cur_events_list.insert(
-                4, Single_Event(event_text, "other_clans", [gathering_cat.ID])
+                0, Single_Event(event_text, "other_clans", [gathering_cat.ID])
             )
 
             game.clan.clan_settings["lead_den_clan_event"] = {}
@@ -569,6 +651,21 @@ class Events:
 
                             elif invited_cat.age in ("newborn", "kitten"):
                                 invited_cat.status = invited_cat.age
+
+                                if game.clan.clan_settings["clan_names"]:
+                                    if not invited_cat.name.suffix:
+                                        invited_cat.name = Name(
+                                            invited_cat.name.prefix,
+                                            invited_cat.name.suffix,
+                                            game.clan.biome,
+                                            cat=invited_cat,
+                                        )
+                                        invited_cat.name.give_suffix(
+                                            pelt=None,
+                                            biome=game.clan.biome,
+                                            tortiepattern=None,
+                                        )
+                                        invited_cat.specsuffix_hidden = False
 
                             elif invited_cat.age == "senior":
                                 invited_cat.status = "elder"
@@ -676,12 +773,7 @@ class Events:
         if game.clan.clan_settings.get("rest and recover"):
             for cat in Cat.all_cats_list:
                 if cat.dead or cat.outside:
-                    happiness_change = 0
-                    while True:
-                        num = round(random.gauss(2, 4))
-                        if 0 <= num <= 10:
-                            happiness_change = num
-                            break
+                    happiness_change = change_happiness(cat, 0, 10, 2, 4)
                     cat.happiness += happiness_change
             return
         elif game.clan.clan_settings.get("hunting"):
@@ -1136,7 +1228,6 @@ class Events:
 
     def tweak_happiness(self, cat):
         """ change cats happiness on moonskip"""
-        happiness_change = 0
 
         change_lower = -10
         change_upper = 10
@@ -1157,11 +1248,7 @@ class Events:
             change_upper = 2
             median = -4
 
-        while True:
-            num = round(random.gauss(median, 4))
-            if change_lower <= num <= change_upper:
-                happiness_change = num
-                break
+        happiness_change = change_happiness(cat, change_lower, change_upper, median, 4)
 
         if cat.is_ill() or cat.is_injured():
             happiness_change = round(happiness_change * -happiness_change)
@@ -1181,12 +1268,21 @@ class Events:
                 not cat.dead and
                 not cat.outside and
                 cat.allegiance == game.clan.baron.ID and
-                cat.status != "baron"
+                cat.status != "baron" and
+                not cat.is_injured() and
+                not cat.is_ill()
             )
         ]
         actual_defectors = []
         for cat in possible_defectors:
-            if cat.happiness < 20 and not int(random.random() * 4):
+            chance = 4
+            if cat.status in ("regent", "heir", "doctor"):
+                chance *= 3
+            elif cat.status == "baron":
+                chance *= 8
+            elif cat.status == "clipper":
+                chance += 2
+            if cat.happiness < 5 and not int(random.random() * 6):
                 actual_defectors.append(cat)
             if (
                 ("malnourished" in cat.illnesses and not int(random.random() * 7)) or
@@ -1196,7 +1292,7 @@ class Events:
             
             # now warning messages
             if cat not in actual_defectors:
-                if cat.happiness < 30 or "malnourished" in cat.illnesses or "starving" in cat.illnesses:
+                if cat.happiness < 20 or "malnourished" in cat.illnesses or "starving" in cat.illnesses:
                     event = f"{cat.name} is at risk of fleeing the Barony due to unhappiness or hunger!"
                     game.cur_events_list.append(Single_Event(event, "alert", cat.ID))
         
@@ -1340,12 +1436,7 @@ class Events:
                             for cat in Cat.all_cats_list:
                                 if cat.outside or cat.dead:
                                     continue
-                                happiness_change = 0
-                                while True:
-                                    num = round(random.gauss(8, 4))
-                                    if 4 <= num <= 20:
-                                        happiness_change = num
-                                        break
+                                happiness_change = change_happiness(cat, 4, 20, 8, 4)
                                 cat.happiness += happiness_change
                         if war["reason"] == "territory":
                             if winner == offense_clan:
@@ -1365,7 +1456,6 @@ class Events:
                                     print(f"WAR LOST: -{reduce_amount} prey!")
                         elif war["reason"] == "cosmetics":
                             if winner == offense_clan:
-                                print("WAR WON: cosmetics!")
                                 if winner == game.clan:
                                     possible_cats = [
                                         cat for cat in Cat.all_cats_list if (

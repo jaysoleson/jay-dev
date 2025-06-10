@@ -1438,7 +1438,6 @@ class OtherClan:
         self.name = name or choice(clan_names)
 
         # bl
-        # baron_names = names.names_dict["normal_prefixes"] + names.names_dict["nomad_names"]
         self.baron = baron
         self.colour = colour or "black"
         self.territory = territory or []
