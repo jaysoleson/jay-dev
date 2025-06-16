@@ -754,6 +754,8 @@ class Cat:
                 family_relation != "general" or not int(random() * 5)
             ):
                 grief_type = "minor"
+                if cat.happiness > 40:
+                    cat.happiness = randint(25, 40)
 
                 # These minor grief message will be applied as thoughts.
                 minor_grief_messages = (

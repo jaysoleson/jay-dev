@@ -1248,7 +1248,8 @@
             "Persuades r_c to back {PRONOUN/m_c/object} up in a lie",
             "Schemes intensely",
             "Concocts a plan for world domination... just for fun",
-            "Swindles {PRONOUN/m_c/poss} way into an extra piece of fresh-kill"
+            "Swindles {PRONOUN/m_c/poss} way into an extra piece of fresh-kill",
+            "Has always had a slippery relationship with the truth..."
         ],
         "main_trait_constraint": [
             "cunning"
@@ -3228,11 +3229,11 @@
         "thoughts": [
             "Lectures r_c on the Clipper Code",
             "Is on a walk in the territory with r_c",
-            "Makes note of r_c's journey as an apprentice",
+            "Makes note of r_c's journey as a colt",
             "Is wondering if r_c will be chosen for the next Conclave",
             "Wants to go on patrol with r_c",
-            "Hopes {PRONOUN/m_c/poss} next apprentice is just like r_c",
-            "Wishes r_c was {PRONOUN/m_c/poss} apprentice",
+            "Hopes {PRONOUN/m_c/poss} next colt is just like r_c",
+            "Wishes r_c was {PRONOUN/m_c/poss} colt",
             "Doesn't want to go on patrol with r_c",
             "Thinks r_c needs to work on {PRONOUN/r_c/poss} stalking technique",
             "Saw r_c sneaking a bite of fresh-kill",
@@ -3296,7 +3297,6 @@
         "thoughts": [
             "Gossips",
             "Acts angsty",
-            "Dreads {PRONOUN/m_c/poss} apprentice duties",
             "Fell into the nearby creek yesterday and is still feeling damp",
             "Has a hard time keeping up with {PRONOUN/m_c/poss} training",
             "Was tasked with lining nests with fresh moss today",
@@ -3357,7 +3357,7 @@
             "Claims that everyone has a corner they cry in",
             "Guards an object and proclaims it's part of {PRONOUN/m_c/poss} calling",
             "Winces at {PRONOUN/m_c/self} after remembering something {PRONOUN/m_c/subject} erased from {PRONOUN/m_c/poss} memory",
-            "Is sighing at the thought of no longer being an apprentice",
+            "Is sighing at the thought of no longer being in training",
             "Has so many emotions, but doesn't know what to do with any of them",
             "Screams into moss after a long, <i>long</i> day",
             "Asks {PRONOUN/m_c/self} what the code means to {PRONOUN/m_c/object}",
@@ -3491,7 +3491,7 @@
         "id": "apprentices_to_alive_med_cat_app",
         "thoughts": [
             "Wants to visit r_c at the doctor den",
-            "Talks to r_c about what being a apprentice doctor is like",
+            "Talks to r_c about what being an apprentice doctor is like",
             "Can't understand why r_c doesn't want to learn to fight",
             "Shows r_c some defensive moves",
             "Promises r_c that once {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} a Clipper , {PRONOUN/m_c/subject}'ll take care of {PRONOUN/r_c/object}"
@@ -3593,12 +3593,11 @@
     {
         "id": "bold_apprentices",
         "thoughts": [
-            "Winked cheekily at another apprentice",
+            "Winked cheekily at another trainee",
             "Criticizes {PRONOUN/m_c/poss} mentor",
             "Demands to lead a patrol",
             "Tells {PRONOUN/m_c/poss} mentor to challenge {PRONOUN/m_c/object}",
-            "Declares {PRONOUN/m_c/poss} intentions for the future",
-            "Decides on a full name for {PRONOUN/m_c/self}"
+            "Declares {PRONOUN/m_c/poss} intentions for the future"
         ],
         "main_status_constraint": [
             "colt",
@@ -3614,7 +3613,7 @@
             "Tells the Baron {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} doing something wrong",
             "Informs r_c of {PRONOUN/m_c/poss} preferred full name",
             "Corrects r_c's hunting posture",
-            "Asks r_c if {PRONOUN/r_c/subject}{VERB/r_c/'ve/'s} ever seen an apprentice like {PRONOUN/m_c/object}"
+            "Asks r_c if {PRONOUN/r_c/subject}{VERB/r_c/'ve/'s} ever seen a trainee like {PRONOUN/m_c/object}"
         ],
         "main_status_constraint": [
             "colt",

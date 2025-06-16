@@ -1,53 +1,79 @@
 {
     "hostile": {
         "-2": [
-            "Two Clippers from the b1_t and the b2_t are caught together at the border. This leads to a massive fight between baron1 and baron2."
+            "Two Clippers from the b1_t and the b2_t are caught together at the border. This leads to a massive fight between baron1 and baron2.",
+            "baron1 gets into a heated argument with their own Regent at the Conclave. baron2 takes the side of the Regent.",
+            "baron1 leaves a threatening message on baron2's border."
         ],
         "-1": [
-            "baron2 noses baron1 out of the way when they both arrive to the Conclave at the same time."
+            "baron2 noses baron1 out of the way when they both arrive to the Conclave at the same time.",
+            "baron1 asks baron2 to trade some food for some supplies, but baron2 refuses.",
+            "baron1 overhears their cogs talking about how great it must be to live in the b2_t.",
+            "baron2's heir trespasses on baron1's territory. When confronted, baron2 takes their heir's side in the argument."
         ],
         "0": [
-            "baron1 stomps into baron2's camp with an insult on {PRONOUN/baron2/poss} tongue, but it seems that baron1 is out of camp at the moment."
+            "baron1 stomps into baron2's camp with an insult on {PRONOUN/baron2/poss} tongue, but it seems that baron1 is out of camp at the moment.",
+            "baron1's Regent makes a joke about baron2 at the Conclave. Thankfully, no one from the b2_t heard it."
         ],
         "1": [
-            "Despite their differences, baron1 and baron2 manage to share a laugh at the Conclave."
+            "Despite their differences, baron1 and baron2 manage to share a laugh at the Conclave.",
+            "baron1 compliments baron2 at the Conclave."
         ],
         "2": [
-            "A party of Clippers from the b1_t show up at baron2's border with a heap of prey, hoping to try to mend the relationship between the two Barons."
+            "A party of Clippers from the b1_t show up at baron2's border with a heap of prey, hoping to try to mend the relationship between the two Barons.",
+            "When baron1 gets into a nasty fight with another Baron at the Conclave, baron2, surprisingly, comes to {PRONOUN/baron1/poss} defense."
         ]
     },
     "neutral": {
         "-2": [
-            "baron1 has started rolling {PRONOUN/baron2/poss} eyes anytime baron2 speaks at a Conclave."
+            "baron1 has started rolling {PRONOUN/baron2/poss} eyes anytime baron2 speaks at a Conclave.",
+            "baron1 gets into a heated argument with their own Regent at the Conclave. baron2 takes the side of the Regent.",
+            "A group of b1_t cogs defect to baron2. This infuriates baron1."
         ],
         "-1": [
-            "A b1_t patrol runs into one from the b2_t on the border. The b1_t Clippers nod a greeting, but the b2_t ignores them."
+            "A b1_t patrol runs into one from the b2_t on the border. The b1_t Clippers nod a greeting, but the b2_t ignores them.",
+            "baron1 and baron2 arrange a gathering for all of their cats to mingle and become friends. but baron2 cancels at the last moment, leaving baron1 bitter.",
+            "baron1 asks baron2 to trade some food for some supplies, but baron2 refuses.",
+            "baron1 overhears their cogs talking about how great it must be to live in the b2_t.",
+            "baron2's heir trespasses on baron1's territory. When confronted, baron2 takes their heir's side in the argument."
         ],
         "0": [
-            "baron1 and baron2's border patrols nod at each other politely when they cross paths."
+            "baron1 and baron2's border patrols nod at each other politely when they cross paths.",
+            "baron1's Regent makes a joke about baron2 at the Conclave. Thankfully, no one from the b2_t heard it."
         ],
         "1": [
-            "baron1 offers baron2 a helpful battle tip."
+            "baron1 offers baron2 a helpful battle tip.",
+            "baron1 compliments baron2 at the Conclave.",
+            "baron1 sends a care package to the b2_t for a queen who has recently kitted."
         ],
         "2": [
-            "baron2 agrees with everything baron1 says at the Conclave."
+            "baron2 agrees with everything baron1 says at the Conclave.",
+            "baron1 and baron2 hold a large gathering for all of their cats to mingle and sow seeds of friendship."
         ]
     },
     "ally": {
         "-2": [
-            "baron1 disagrees with baron2 about {PRONOUN/baron2/poss} conflict with another Baron. baron2 doesn't take this well."
+            "baron1 disagrees with baron2 about {PRONOUN/baron2/poss} conflict with another Baron. baron2 doesn't take this well.",
+            "baron1 gets into a heated argument with their own Regent at the Conclave. baron2 takes the side of the Regent."
         ],
         "-1": [
-            "When baron1 states an opinion at the Conclave and looks to baron2 for backup, baron2 doesn't agree."
+            "When baron1 states an opinion at the Conclave and looks to baron2 for backup, baron2 doesn't agree.",
+            "baron1 asks baron2 to trade some food for some supplies, but baron2 refuses.",
+            "baron1 overhears their cogs talking about how great it must be to live in the b2_t.",
+            "baron2's heir trespasses on baron1's territory. When confronted, baron2 takes their heir's side in the argument."
         ],
         "0": [
-            "baron1 and baron2 haven't had time to talk to each other much this moon."
+            "baron1 and baron2 haven't had time to talk to each other much this moon.",
+            "baron1's Regent makes a joke about baron2 at the Conclave. Thankfully, no one from the b2_t heard it."
         ],
         "1": [
-            "A b1_t patrol leaves a small gift on baron2's border."
+            "A b1_t patrol leaves a small gift on baron2's border.",
+            "baron1 compliments baron2 at the Conclave.",
+            "baron1 sends a care package to the b2_t for a queen who has recently kitted."
         ],
         "2": [
-            "baron2 makes the journey over to baron1's territory just to spend some time together."
+            "baron2 makes the journey over to baron1's territory just to spend some time together.",
+            "baron1 and baron2 hold a large gathering for all of their cats to mingle and sow seeds of friendship."
         ]
     }
 }
