@@ -269,11 +269,10 @@ class Events:
 
             # and if there are any fallen clans, they're completely gone now. bc u didnt share the cure >:P
             for clan in game.clan.all_clans:
-                if clan.name in game.clan.infection["fallen_clans"]:
+                if clan.fallen:
                     game.clan.all_clans.remove(clan)
-            
-            game.clan.infection["fallen_clans"] = []
-            game.clan.infection["cured_clans"] = []
+
+                clan.cured = False
 
         # keeping this commented out till disasters are more polished
         # self.disaster_events.handle_disasters()
@@ -1731,17 +1730,15 @@ class Events:
         # event for newly cured clans
         if "cure_found" in game.clan.infection["logs"]:
             for clan in game.clan.all_clans:
-                if clan.infection_level == -1:
+                if clan.cured and clan.infection_level != 0:
                     clan.infection_level = 0
-                    if clan.name in game.clan.infection["fallen_clans"]:
+                    if clan.fallen:
                         event = "o_c_n is beginning to rebuild after recieving news of the cure."
                     else:
                         event = "o_c_n is in recovery from the infection after recieving news of the cure."
                     text = event_text_adjust(Cat, event, other_clan=clan)
                     game.cur_events_list.insert(0, Single_Event(text, ["other_clans", "infection"]))
-                    if clan.name in game.clan.infection["fallen_clans"]:
-                        game.clan.infection["fallen_clans"].remove(clan.name)
-                    game.clan.infection["cured_clans"].append(clan.name)
+                    clan.fallen = False
 
                     clan.relations += 5
                     continue
@@ -1763,9 +1760,9 @@ class Events:
         inftype = game.clan.infection["infection_type"]
 
         for clan in game.clan.all_clans:
-            if clan.name in game.clan.infection["fallen_clans"]:
+            if clan.fallen:
                 continue
-            if clan.name in game.clan.infection["cured_clans"]:
+            if clan.cured:
                 continue
             if clan.infection_level >= 50 and not game.clan.infection["clan_infected"]:
                 continue
@@ -1810,7 +1807,7 @@ class Events:
                     level_string = "mid"
                 elif level <= 99:
                     level_string = "high"
-                elif level >= 100 and clan.name not in game.clan.infection["fallen_clans"]:
+                elif level >= 100 and not clan.fallen:
                     level_string = "fallen"
                     self.clan_fall(clan)
 
@@ -1846,7 +1843,12 @@ class Events:
         """
         adds a clan to fallen clans + generated refugee outsiders
         """
-        game.clan.infection["fallen_clans"].append(clan.name)
+        clan.fallen = True
+
+        if "enemy" in game.clan.war and game.clan.war["enemy"] == clan.name:
+            game.clan.war["at_war"] = False
+            game.clan.war["enemy"] = None
+            game.clan.war["duration"] = 0
 
         # now, create some new cats to be former clancats to be discovered by the clan
         new_cats_num = random.randint(1,6)
@@ -1866,11 +1868,11 @@ class Events:
                                     outside=True)[0]
         for x in new_cats.items():
             new_cat = x[1]
-            new_cat.status = "former Clancat"
+            new_cat.status_change("former Clancat")
             # changing the status after so they properly get clan names
 
             if new_cat.moons > 20 and new_cat.moons < 90:
-                if random.randint(1,100) == 1:
+                if random.randint(1,25) == 1:
                     print("giving kits to", new_cat.name)
                     kit_age = random.randint(0,5)
                     kit_count = random.randint(1,5)
@@ -1884,7 +1886,7 @@ class Events:
                                         outside=True,
                                         parent1=new_cat.ID)[0]
                     for new_kit in new_kits.items():
-                        new_kit[1].status = "former Clancat"
+                        new_kit[1].status_change("former Clancat")
                 
     def generate_df_events(self):
         if random.randint(1,3) == 1:

@@ -2414,7 +2414,10 @@ def event_text_adjust(
 
     # other_clan_name
     if "o_c_n" in text:
-        other_clan_name = other_clan.name
+        if other_clan:
+            other_clan_name = other_clan.name
+        else:
+            other_clan_name = "fallen "
         pos = 0
         for x in range(text.count('o_c_n')):
             if 'o_c_n' in text:

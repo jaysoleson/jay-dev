@@ -6165,5 +6165,17 @@
             "mediator apprentice",
             "queen's apprentice"
         ]
+    },
+    {
+        "id": "gen_infection_refugee",
+        "thoughts": [
+            "Tells a story about {PRONOUN/m_c/poss} old friends",
+            "Tells a story about an old friend who died to the infection",
+            "Is thinking about {PRONOUN/m_c/poss} old Clan",
+            "Had a nightmare about {PRONOUN/m_c/poss} fallen Clan"
+        ],
+        "main_backstory_constraint": [
+            "infection_refugee"
+        ]
     }
 ]

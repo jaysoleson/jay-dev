@@ -161,8 +161,6 @@ class Clan:
         self.cure_discovered = False
         self.infection_type = 'fungal'
         self.treatments = []
-        self.fallen_clans = []
-        self.cured_clans = []
         self.story_break_moons = 0
         self.spread_by = "air"
         self.infection_moons = 0
@@ -300,8 +298,6 @@ class Clan:
             "treatments": [],
             "infection_moons": 0,
             "logs": [],
-            "fallen_clans": [],
-            "cured_clans": [],
             "priority_herb": None,
             "allow_infection": False,
             "between_infections": False,
@@ -896,8 +892,6 @@ class Clan:
             "treatments": self.infection["treatments"],
             "infection_moons": self.infection["infection_moons"],
             "logs": self.infection["logs"],
-            "fallen_clans": self.infection["fallen_clans"],
-            "cured_clans": self.infection["cured_clans"],
             "priority_herb": self.infection["priority_herb"],
             "allow_infection": self.infection["allow_infection"],
             "between_infections": self.infection["between_infections"],
@@ -1342,7 +1336,9 @@ class Clan:
                         int(other_clan["relations"]),
                         other_clan["temperament"],
                         int(other_clan["infection_level"]) if "infection_level" in other_clan else 0,
-                        other_clan["chosen_symbol"]
+                        other_clan["chosen_symbol"],
+                        other_clan["fallen"] if "fallen" in other_clan else False,
+                        other_clan["cured"] if "cured" in other_clan else False,
                         )
                     )
         else:
@@ -1958,7 +1954,7 @@ class OtherClan:
         "gracious",
     ]
 
-    def __init__(self, name="", relations=0, temperament="", infection_level=0, chosen_symbol=""):
+    def __init__(self, name="", relations=0, temperament="", infection_level=0, chosen_symbol="", fallen=False, cured=False):
         clan_names = names.names_dict["normal_prefixes"]
         clan_names.extend(names.names_dict["clan_prefixes"])
         self.name = name or choice(clan_names)
@@ -1967,6 +1963,8 @@ class OtherClan:
         if self.temperament not in self.temperament_list:
             self.temperament = choice(self.temperament_list)
         self.infection_level = infection_level or 0
+        self.fallen = fallen or False
+        self.cured = cured or False
 
         self.chosen_symbol = (
             None  # have to establish None first so that clan_symbol_sprite works

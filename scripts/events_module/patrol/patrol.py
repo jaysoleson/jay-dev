@@ -243,7 +243,7 @@ class Patrol:
                 self.patrol_leader = choice(self.patrol_cats)
 
         # INF edited
-        all_clans = [i for i in clan.all_clans if i.name not in game.clan.infection["fallen_clans"]]
+        all_clans = [i for i in clan.all_clans if not i.fallen]
         if all_clans and len(all_clans) > 0:
             self.other_clan = choice(all_clans)
         else:
@@ -773,6 +773,8 @@ class Patrol:
                 if "air" in patrol.tags:
                     continue
 
+            # INF
+            clan_left = False
             #  correct button check
             if game.switches["patrol_category"] == 'clangen':
                 if patrol_type == "general":
@@ -791,12 +793,10 @@ class Patrol:
 
                     # INF
                     if "other_clan" in patrol.tags:
-                        fallen_clans = game.clan.infection["fallen_clans"]
-                        clan_left = False
                         for i in game.clan.all_clans:
                             if i.name == game.clan.name:
                                 continue
-                            if i.name not in fallen_clans:
+                            if i.fallen:
                                 clan_left = True
                                 break
                         if clan_left is False:
@@ -875,38 +875,53 @@ class Patrol:
                     if len(get_alive_status_cats(Cat, ["kitten", "newborn"])) > 0:
                         continue
 
-                # this is testing every piece of text in the patrol
-                # to see if there's an abbrev that cant be fulfilled.
-                # theres probably a better way to do it but.... patrols scare me. and this works
-                tests = []
-                test_runs = {}
-                skip = False
+            # this is testing every piece of text in the patrol
+            # to see if there's an abbrev that cant be fulfilled.
+            # theres probably a better way to do it but.... patrols scare me. and this works
 
-                tests.append(patrol.intro_text)
-                tests.append(patrol.decline_text)
+            clan_left = False
+            for i in game.clan.all_clans:
+                if i.name == game.clan.name:
+                    continue
+                if not i.fallen:
+                    clan_left = True
+                    break
 
-                if len(patrol.antag_fail_outcomes) > 0:
-                    for i in patrol.antag_fail_outcomes:
-                        tests.append(i.text)
-                if len(patrol.antag_success_outcomes) > 0:
-                    for i in patrol.antag_success_outcomes:
-                        tests.append(i.text)
+            tests = []
+            test_runs = {}
+            skip = False
 
-                for i in patrol.success_outcomes:
+            tests.append(patrol.intro_text)
+            tests.append(patrol.decline_text)
+
+            if len(patrol.antag_fail_outcomes) > 0:
+                for i in patrol.antag_fail_outcomes:
                     tests.append(i.text)
-                for i in patrol.fail_outcomes:
+            if len(patrol.antag_success_outcomes) > 0:
+                for i in patrol.antag_success_outcomes:
                     tests.append(i.text)
 
-                for i in tests:
-                    test_runs[i] = adjust_txt(Cat, str(i), self.patrol_leader, self.patrol_cat_dict, r_c_allowed=False, o_c_allowed=False)
-                    if test_runs[i] == "":
+            for i in patrol.success_outcomes:
+                tests.append(i.text)
+            for i in patrol.fail_outcomes:
+                tests.append(i.text)
+
+            for i in tests:
+                # INF
+                test_runs[i] = adjust_txt(Cat, str(i), self.patrol_leader, self.patrol_cat_dict, r_c_allowed=False, o_c_allowed=False)
+                if test_runs[i] == "":
+                    skip = True
+                    # print("Lifegen abbrev repl failed: Skipping", patrol.patrol_id)
+                    break
+                if "o_c_n" in i:
+                    # print("No o_c_n: Skipping", patrol.patrol_id)
+                    if clan_left == False:
                         skip = True
-                        # print("Lifegen abbrev repl failed: Skipping", patrol.patrol_id)
                         break
-                    # else:
-                    #     print(i)
-                if skip is True:
-                    continue            
+                # else:
+                #     print(i)
+            if skip is True:
+                continue            
             # cruel season tag check
             if "cruel_season" in patrol.tags:
                 if game.clan and game.clan.game_mode != "cruel_season":
@@ -944,6 +959,10 @@ class Patrol:
 
     def generate_patrol_events(self, patrol_dict):
         all_patrol_events = []
+
+        # INF
+        if not patrol_dict:
+            return all_patrol_events
         for patrol in patrol_dict:
             patrol_event = PatrolEvent(
                 patrol_id=patrol.get("patrol_id"),
@@ -1222,20 +1241,21 @@ class Patrol:
             
             # OTHER CLAN #
             self.OTHER_CLAN = None
-            with open(f"{resource_dir}other_clan.json", 'r', encoding='ascii') as read_file:
-                self.OTHER_CLAN = ujson.loads(read_file.read())
             self.OTHER_CLAN_ALLIES = None
-            with open(f"{resource_dir}other_clan_allies.json", 'r', encoding='ascii') as read_file:
-                self.OTHER_CLAN_ALLIES = ujson.loads(read_file.read())
             self.OTHER_CLAN_HOSTILE = None
-            with open(f"{resource_dir}other_clan_hostile.json", 'r', encoding='ascii') as read_file:
-                self.OTHER_CLAN_HOSTILE = ujson.loads(read_file.read())
-                    
-            # INF
             self.OTHER_CLAN_INFECTION = None
-            with open(f"{resource_dir}other_clan_infection.json", 'r', encoding='ascii') as read_file:
-                self.OTHER_CLAN_INFECTION = ujson.loads(read_file.read())
-            ####
+            if self.other_clan:
+                with open(f"{resource_dir}other_clan.json", 'r', encoding='ascii') as read_file:
+                    self.OTHER_CLAN = ujson.loads(read_file.read())
+                with open(f"{resource_dir}other_clan_allies.json", 'r', encoding='ascii') as read_file:
+                    self.OTHER_CLAN_ALLIES = ujson.loads(read_file.read())
+                with open(f"{resource_dir}other_clan_hostile.json", 'r', encoding='ascii') as read_file:
+                    self.OTHER_CLAN_HOSTILE = ujson.loads(read_file.read())
+                        
+                # INF
+                with open(f"{resource_dir}other_clan_infection.json", 'r', encoding='ascii') as read_file:
+                    self.OTHER_CLAN_INFECTION = ujson.loads(read_file.read())
+                ####
             
             self.DISASTER = None
             with open(f"{resource_dir}disaster.json", 'r', encoding='ascii') as read_file:
@@ -1547,26 +1567,29 @@ class Patrol:
 
         if self.other_clan:
             other_clan_name = self.other_clan.name
-            s = 0
-            for x in range(text.count("o_c_n")):
-                if "o_c_n" in text:
-                    for y in vowels:
-                        if str(other_clan_name).startswith(y):
-                            modify = text.split()
-                            pos = 0
-                            if "o_c_n" in modify:
-                                pos = modify.index("o_c_n")
-                            if "o_c_n's" in modify:
-                                pos = modify.index("o_c_n's")
-                            if "o_c_n." in modify:
-                                pos = modify.index("o_c_n.")
-                            if modify[pos - 1] == "a":
-                                modify.remove("a")
-                                modify.insert(pos - 1, "an")
-                            text = " ".join(modify)
-                            break
+        else:
+            other_clan_name = "SKIP"
+        s = 0
+        for x in range(text.count("o_c_n")):
+            if "o_c_n" in text:
+                for y in vowels:
+                    if str(other_clan_name.capitalize()).startswith(y):
+                        modify = text.split()
+                        pos = 0
+                        if "o_c_n" in modify:
+                            pos = modify.index("o_c_n")
+                        if "o_c_n's" in modify:
+                            pos = modify.index("o_c_n's")
+                        if "o_c_n." in modify:
+                            pos = modify.index("o_c_n.")
+                        if modify[pos - 1] == "a":
+                            modify.remove("a")
+                            modify.insert(pos - 1, "an")
+                        text = " ".join(modify)
+                        break
 
             text = text.replace("o_c_n", str(other_clan_name) + "Clan")
+
 
         clan_name = game.clan.name
         s = 0

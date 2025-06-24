@@ -1297,7 +1297,7 @@
             "infection"
         ],
         [
-            "It's for the better {PRONOUN/d_c_infected/subject/CAP}{VERB/d_c_infected/'re/'s} gone. The loss of one is better than the loss of many. "
+            "It's for the better {PRONOUN/d_c_infected/subject}{VERB/d_c_infected/'re/'s} gone. The loss of one is better than the loss of many. "
         ]
     ],
     "infection_void_J1": [

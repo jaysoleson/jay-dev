@@ -110,7 +110,7 @@ class LeaderDenScreen(Screens):
                 self.update_clan_interaction_choice(text)
             # INF
             elif event.ui_element == self.focus_frame_elements["share_cure"]:
-                self.focus_clan.infection_level = -1
+                self.focus_clan.cured = True
                 self.update_other_clan_focus()
             # ---
             elif event.ui_element == self.focus_frame_elements["clans_tab"]:
@@ -306,7 +306,7 @@ class LeaderDenScreen(Screens):
          # INF
         living_clans = []
         for clan in game.clan.all_clans:
-            if clan.name in game.clan.infection["fallen_clans"]:
+            if clan.fallen:
                 continue
             if clan.name == game.clan.name:
                 continue
@@ -541,7 +541,7 @@ class LeaderDenScreen(Screens):
                 addon = "_dark"
             else:
                 addon = ""
-            if other_clan.name in game.clan.infection["fallen_clans"]:
+            if other_clan.fallen:
                 text = "FALLEN"
                 theme=f"#text_box_22_horizcenter_green{addon}"
             elif other_clan.infection_level > 0:
@@ -745,12 +745,16 @@ class LeaderDenScreen(Screens):
             ),
             anchors={"centerx": "centerx"},
         )
-        if self.focus_clan.infection_level < 1:
+        if (
+            self.focus_clan.infection_level < 1 or
+            self.focus_clan.fallen or
+            self.focus_clan.cured
+            ):
             self.focus_frame_elements["share_cure"].disable()
         else:
             self.focus_frame_elements["share_cure"].enable()
 
-        if self.focus_clan.name in game.clan.infection["fallen_clans"]:
+        if self.focus_clan.fallen:
             self.focus_clan_elements["clan_fallen_text"] = pygame_gui.elements.UILabel(
             ui_scale(pygame.Rect((0, 260), (200, -1))),
             text=f"{self.focus_clan.name}Clan has fallen.",
@@ -777,7 +781,7 @@ class LeaderDenScreen(Screens):
         if "cure_found" in game.clan.infection["logs"]:
             self.focus_frame_elements["share_cure"].show()
 
-        if self.focus_clan.name in game.clan.infection["fallen_clans"]:
+        if self.focus_clan.fallen:
             self.focus_frame_elements["negative_interaction"].hide()
             self.focus_frame_elements["positive_interaction"].hide()
 

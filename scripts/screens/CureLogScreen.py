@@ -646,11 +646,14 @@ class CureLogScreen(Screens):
                 anchors={"centerx": "centerx"}
                 )
             
-        if len(game.clan.infection["fallen_clans"]) > 0 or debug_all_stamps:
+        fallenclans = []
+        for clan in game.clan.all_clans:
+            if clan.fallen:
+                fallenclans.append(clan)
+        
+        if fallenclans or debug_all_stamps:
             if debug_all_stamps:
                 fallenclans = 5
-            else:
-                fallenclans = len(game.clan.infection['fallen_clans'])
             
             if fallenclans == 1:
                 hovertext = f"<b>Fallen Clans</b>\n{fallenclans} Clan has fallen to the infection."

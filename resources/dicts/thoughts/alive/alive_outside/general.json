@@ -154,6 +154,9 @@
             "rogue",
             "loner",
             "kittypet"
+        ],
+        "main_infected_constraint": [
+            "not_infected"
         ]
     },
     {
@@ -175,6 +178,19 @@
         ],
         "main_infected_constraint": [
             "undead"
+        ]
+    },
+    {
+        "id": "gen_infection_refugee",
+        "thoughts": [
+            "Thinks about {PRONOUN/m_c/poss} old friends",
+            "Thinks about an old friend who died to the infection",
+            "Is thinking about {PRONOUN/m_c/poss} old Clan",
+            "Had a nightmare about {PRONOUN/m_c/poss} fallen Clan",
+            "Visits {PRONOUN/m_c/poss} fallen Clan's camp"
+        ],
+        "main_backstory_constraint": [
+            "infection_refugee"
         ]
     }
 ]

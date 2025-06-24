@@ -565,8 +565,6 @@ class Game:
                 self.clan.infection = ujson.loads(read_file.read())
             if "treated" not in self.clan.infection:
                 self.clan.infection["treated"] = []
-            if "cured_clans" not in self.clan.infection:
-                self.clan.infection["cured_clans"] = []
             if "exiled_infected" not in self.clan.infection:
                 self.clan.infection["exiled_infected"] = ""
             if "killed_infected" not in self.clan.infection:
@@ -596,8 +594,6 @@ class Game:
                     "treatments": [],
                     "infection_moons": 0,
                     "logs": [],
-                    "fallen_clans": [],
-                    "cured_clans": [],
                     "priority_herb": None,
                     "allow_infection": False,
                     "between_infections": False,
