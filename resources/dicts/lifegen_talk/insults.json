@@ -3620,5 +3620,18 @@
         [
             "... ... ..."
         ]
+    ],
+    "insult_sam2": [
+        [
+            "they_newborn",
+            "you_deaf",
+            "you_blind",
+            "they_deaf",
+            "they_blind",
+            "insult"
+        ],
+        [
+            "[t_c rolls around, trying to swing {PRONOUN/t_c/poss} claws at you.]"
+        ]
     ]
 }

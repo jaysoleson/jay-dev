@@ -75,7 +75,8 @@
             "brooding",
             "neutral",
             "you_unlawful",
-            "you_cool"
+            "you_cool",
+            "you_warrior"
         ],
         [
             "y_c. We have something to discuss.",
@@ -510,7 +511,7 @@
             "Hehe, no need to look so scared. I don't bite!",
             "... Aren't I important?",
             "Well, sure, I'm important, but never too important to spend time with my Clan's great future warriors!",
-            "Now, tell me, how are you liking life in c_nClan? You growing up okay? Everybody treating you well?",
+            "Now, tell me, how are you liking life in c_n? You growing up okay? Everybody treating you well?",
             "If anything's ever bothering you, or there's something on your mind, never hesitate to speak up. This Clan is full of cats who want to help you grow up to be the best version of yourself you can be, myself included. Okay?",
             "Now, go play! And make sure you save a game for me later! Hehe!"
         ]
@@ -528,7 +529,7 @@
         ],
         [
             "y_c, look at you! You are just growing up way too fast for your own good. Pretty soon, you'll be outpacing even me!",
-            "I better look out, or else c_nClan may have a new leader soon! Hehehe!"
+            "I better look out, or else c_n may have a new leader soon! Hehehe!"
         ]
     ],
     "assertive_elder_14": [
@@ -586,7 +587,7 @@
             "they_blind"
         ],
         [
-            "Ahh ... plentiful prey, good health, greenleaf is when c_nClan is at its best!",
+            "Ahh ... plentiful prey, good health, greenleaf is when c_n is at its best!",
             "It's also, coincidentally, when my job's easiest! Hehe!"
         ]
     ],
@@ -1119,7 +1120,7 @@
             "they_blind"
         ],
         [
-            "You know, it's kind of weird to think that I could probably get c_nClan to do just about anything.",
+            "You know, it's kind of weird to think that I could probably get c_n to do just about anything.",
             "Well, I guess not ANYTHING, but a whole lot of crazy stuff.",
             "Heck, I could even just declare that no one's allowed to be mean to you!",
             "[t_c starts laughing in an almost scary manner.]",
@@ -1328,7 +1329,7 @@
         [
             "... What do you need?",
             "Just to chat? Do you know who you're talking to?",
-            "I'm the leader of c_nClan. I have far more important things to concern myself with than 'chatting'."
+            "I'm the leader of c_n. I have far more important things to concern myself with than 'chatting'."
         ]
     ],
     "brooding_leader1": [
@@ -1382,7 +1383,7 @@
         ],
         [
             "Our next little warrior.",
-            "Grow up to make c_nClan proud, y_c."
+            "Grow up to make c_n proud, y_c."
         ]
     ],
     "newborn_fromleader1": [
@@ -1433,7 +1434,7 @@
             "they_blind"
         ],
         [
-            "Ah, r_c told me the news about your arrival. Greetings y_c, and welcome to c_nClan!",
+            "Ah, r_c told me the news about your arrival. Greetings y_c, and welcome to c_n!",
             "I hope I can be nothing short of the best leader I can for you... I can already tell that you'll be a wonderful warrior."
         ]
     ],
@@ -1527,7 +1528,7 @@
             "Mm.. I see.. Feeling insecure about your role in the Clan? I understand.",
             "Well, everycat in the Clan has a very special role, from the smallest kit all the way up to the eldest elder. Your role matters too.",
             "[t_c rests {PRONOUN/t_c/poss} tail on your shoulders.]",
-            "All you need to do is your best, you're perfect the way you are, as all cats in c_nClan are. Just because you don't really fight or hunt means nothing."
+            "All you need to do is your best, you're perfect the way you are, as all cats in c_n are. Just because you don't really fight or hunt means nothing."
         ]
     ],
     "sweet_leader_9": [
@@ -1774,7 +1775,7 @@
             "[You poke your head into the leader's den and stare at a bewildered t_c. {PRONOUN/t_c/subject/CAP} {VERB/t_c/blink/blinks} a couple of times, a silence looms in the air.]",
             "You scared me, y_c! Please remember to meow or something before you come in. Sorry, I'm just nervous. I have an announcement I need to make at the Gathering. But, I'm not looking forward to it.",
             "o_c_n has once again, overstepped some boundaries, and look- I'm not one to shudder in fear when facing other leaders- but... The deputy just became leader. And are proving to be a rather big problem. No-",
-            "No I'm sorry, I shouldn't be discussing this out loud. I just- I just want to guarantee the safety of c_nClan. No matter what."
+            "No I'm sorry, I shouldn't be discussing this out loud. I just- I just want to guarantee the safety of c_n. No matter what."
         ]
     ],
     "murderedthem_leader_J1": [
@@ -1842,8 +1843,8 @@
         [
             "[You walk into the leader's den, needing to ask {PRONOUN/t_c/object} an important question. When you find t_c clawing some kind of masterpiece onto the soft ground of the den, {PRONOUN/t_c/subject} quickly {VERB/t_c/step/steps} in front of it to obscure your view.]",
             "y_c! What did you need me for? Oh- what was I doing?",
-            "Illustrating my grand plan, of course! It's my dutiful responsibility as the humble leader of c_nClan!",
-            "[Really? At this time of the moon, at this time of day, in this part of c_nClan, localized entirely inside a drawing on these two fox-tails of ground? Now that you're intrigued, you ask to see it.]",
+            "Illustrating my grand plan, of course! It's my dutiful responsibility as the humble leader of c_n!",
+            "[Really? At this time of the moon, at this time of day, in this part of c_n, localized entirely inside a drawing on these two fox-tails of ground? Now that you're intrigued, you ask to see it.]",
             "No."
         ]
     ],
@@ -1858,8 +1859,8 @@
         ],
         [
             "Hello, y_c! What've you been up to?",
-            "...Oh dear, that question feels so loaded now that I'm a leader. I don't expect you to have single-pawedly defeated c_nClan's greatest threat, I know I certainly haven't!",
-            "Nobody in c_nClan is perfect. That's why we all work together, right?"
+            "...Oh dear, that question feels so loaded now that I'm a leader. I don't expect you to have single-pawedly defeated c_n's greatest threat, I know I certainly haven't!",
+            "Nobody in c_n is perfect. That's why we all work together, right?"
         ]
     ],
     "silly_leader_decoration": [
@@ -2082,7 +2083,7 @@
             "[You poke your head into the leader's den and stare at a bewildered t_c. {PRONOUN/t_c/subject/CAP} blink a couple of times, a silence looms in the air.]",
             "You scared me, y_c! Please remember to meow or something before you come in. Sorry, I'm just nervous. I have an announcement I need to make at the gathering. But, I'm not looking forward to it.",
             "o_c_n has once again, overstepped some boundaries, and look- I'm not one to shudder in fear when facing other leaders- but... The deputy just became leader. And are proving to be a rather big problem. No-",
-            "No I'm sorry, I shouldn't be discussing this out loud. I just- I just want to guarantee the safety of c_nClan. No matter what."
+            "No I'm sorry, I shouldn't be discussing this out loud. I just- I just want to guarantee the safety of c_n. No matter what."
         ]
     ],
     "livingskill_grace_SQ1": [
@@ -2530,7 +2531,7 @@
         [
             "y_c, hello. The weather's lovely today.",
             "I saw some dandelions had sprouted this morning, and I've been wandering about looking at all the new flowers.",
-            "They're beautiful, all different shades and shapes and smells, like c_nClan, I suppose.",
+            "They're beautiful, all different shades and shapes and smells, like c_n, I suppose.",
             "... huh? Yeah, I know, I should be hunting. I can hunt and look at flowers at the same time, y_c, don't you worry about me."
         ]
     ],
@@ -2682,7 +2683,7 @@
         ],
         [
             "I can see that look on your face. You're mad at me.",
-            "Look, I'm sorry. But shunning a cat is a unanimous decision - I have no say, even as the leader of c_nClan.",
+            "Look, I'm sorry. But shunning a cat is a unanimous decision - I have no say, even as the leader of c_n.",
             "... I hope you can forgive me."
         ]
     ],

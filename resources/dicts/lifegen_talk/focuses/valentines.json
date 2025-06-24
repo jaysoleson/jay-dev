@@ -173,7 +173,7 @@
             "[t_c approaches you nervously, holding a tiny yellow flower in {PRONOUN/t_c/poss} mouth.]",
             "I don't think I'm doing this right, but...",
             "[t_c nudges the flower towards you.]",
-            "Everycat's giving flowers to cats they really like, and you're the bestest sibling ever, so... here!"
+            "Everycat's giving flowers to cats they really like, and you're the bestest {PRONOUN/y_c/sibling} ever, so... here!"
         ]
     ],
     "valentine_focus_SQ2": [
@@ -390,7 +390,7 @@
         ],
         [
             "[t_c is making a huge commotion in the middle of camp.]",
-            "Ahem, may all cats of c_nClan gather for a Clan meeting ... on why t_m is the best mate ever!",
+            "Ahem, may all cats of c_n gather for a Clan meeting ... on why t_m is the best mate ever!",
             "Reason number one: {PRONOUN/t_m/subject}{VERB/t_m/'re/'s}, like, the smartest cat in the whole world.",
             "Reason number two: {PRONOUN/t_m/subject} can always find a way to make me laugh.",
             "Reason number three: {PRONOUN/t_m/subject}{VERB/t_m/'re/'s} more beautiful than the stars themselves!",
@@ -528,7 +528,7 @@
             "you_blind"
         ],
         [
-            "Wahhh! It's not fair! Why is everycat in c_nClan getting a pretty gift except for me?",
+            "Wahhh! It's not fair! Why is everycat in c_n getting a pretty gift except for me?",
             "[You explain to t_c that it's a special time where cats are celebrating their mates, and {PRONOUN/t_c/subject}'ll get to have a gift some other time.]",
             "*Sniffle* O-Oh ...",
             "How do I get a 'mate', then?"

@@ -24,7 +24,6 @@ from scripts.cat.pelts import Pelt
 from scripts.cat.history import History
 from scripts.cat.names import names
 from scripts.cat.sprites import sprites
-from sys import exit  # pylint: disable=redefined-builtin
 from scripts.cat.names import Name
 from scripts.clan_resources.freshkill import FreshkillPile, Nutrition
 from scripts.events_module.generate_events import OngoingEvent
@@ -1271,7 +1270,7 @@ class Clan:
             game.clan.followingsc = clan_data['following_starclan']
         else:
             game.clan.followingsc = True
-        game.clan.reputation = int(clan_data["reputation"])
+        game.clan.reputation = max(0, min(100, int(clan_data["reputation"])))
 
         game.switches["error_message"] = "Error loading ---clan.json. Check clan age"
         game.clan.age = clan_data["clanage"]

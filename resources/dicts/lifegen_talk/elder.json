@@ -324,7 +324,7 @@
         [
             "All these pitying looks ... I just can't stand it!",
             "Like, yeah, I may be an elder, but my brain still works just fine! Unlike half the cats in this Clan ...",
-            "What's it gonna take to be treated with some respect around here? It's not like I'm some sad, helpless kit! I'm a c_nClan cat, just like everybody else!"
+            "What's it gonna take to be treated with some respect around here? It's not like I'm some sad, helpless kit! I'm a c_n cat, just like everybody else!"
         ]
     ],
     "young_eldergen1": [
@@ -1000,7 +1000,7 @@
             "you_blind"
         ],
         [
-            "Just an average day in c_nClan!",
+            "Just an average day in c_n!",
             "But that doesn't mean we should take it for granted.",
             "Let's make it a good day."
         ]
@@ -1088,7 +1088,7 @@
         ],
         [
             "Hmph. My advice to you, y_c: don't ever get old.",
-            "I used to be one of the most valuable warriors in c_nClan. Now, everycat just talks about me like I'm obsolete. A nobody.",
+            "I used to be one of the most valuable warriors in c_n. Now, everycat just talks about me like I'm obsolete. A nobody.",
             "My entire life was my purpose to my Clan ... what do I do now that that purpose is over?"
         ]
     ],
@@ -1102,7 +1102,7 @@
             "you_blind"
         ],
         [
-            "If a battle ever made its way into c_nClan camp, don't count on me just lazing around the elder's den.",
+            "If a battle ever made its way into c_n camp, don't count on me just lazing around the elder's den.",
             "I still have more than enough fight left in me to defend my Clan, and I'll do it to my last dying breath."
         ]
     ],
@@ -1166,7 +1166,7 @@
             "sweet"
         ],
         [
-            "Welcome to c_nClan, y_c! Ah, I remember being a little kit like you... Well, not <i>as</i> little as you, of course!",
+            "Welcome to c_n, y_c! Ah, I remember being a little kit like you... Well, not <i>as</i> little as you, of course!",
             "You'll be someone future cats tell stories about, I can already tell... until then, you better be ready for all the teasing you can get~."
         ]
     ],
@@ -1306,7 +1306,7 @@
             "[It's t_c's monthly checkup day, but {PRONOUN/t_c/subject} {VERB/t_c/seem/seems} a little quieter than usual.]",
             "[You ask {PRONOUN/t_c/object} what's wrong, you usually can't escape from a story but {PRONOUN/t_c/subject} haven't said a word.]",
             "I apologize... I just worry. I've spent many moons on this earth, wonderful and painful.",
-            "But I worry... There's only so many moons left for me. What will happen to c_nClan?",
+            "But I worry... There's only so many moons left for me. What will happen to c_n?",
             "What if I can't be here to take care of you all?",
             "[You gently nudge the elder, giving them a reassuring look. You promise to {PRONOUN/t_c/object} that everything will be okay.]",
             "[t_c gives you a smile, still saddened but definitely looking much better.]",
@@ -2102,7 +2102,7 @@
         [
             "[t_c paces in front of the elders' den. When {PRONOUN/t_c/subject} {VERB/t_c/see/sees} you, {PRONOUN/t_c/subject} {VERB/t_c/straighten/straightens}.]",
             "Ah, y_c? Let me know if there's anything I can help with. I could patch a den, or organize the fresh-kill pile, or... maybe even join a patrol?",
-            "Sorry, I don't mean to sound demanding! I just... want to help. I might be an elder, but I'm still a member of c_nClan. I don't want to be a burden."
+            "Sorry, I don't mean to sound demanding! I just... want to help. I might be an elder, but I'm still a member of c_n. I don't want to be a burden."
         ]
     ],
     "elder_neg_youshunned_H5": [

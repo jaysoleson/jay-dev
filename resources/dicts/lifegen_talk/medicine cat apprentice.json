@@ -102,7 +102,7 @@
         ],
         [
             "I'll make you proud, y_c!",
-            "I'll make all of c_nClan proud!"
+            "I'll make all of c_n proud!"
         ]
     ],
     "assertiveapp_6": [
@@ -310,7 +310,7 @@
             "Helps keep the soul light.",
             "I love my duties, I love being a medicine cat apprentice, I'm looking forward to the day where I get to press my nose to the Moonplace and get my medicine cat name.",
             "The camp's always a bit... much. I didn't think I'd need to interact with cats so much, but I suppose there isn't a path you can walk in the Clan where you can avoid cats, I suppose that's the point of living together.",
-            "Even though not all of us are related, we're kin under c_nClan, we've all got a path to walk.",
+            "Even though not all of us are related, we're kin under c_n, we've all got a path to walk.",
             "Oh! I think I see some watermint over there. We should get going, or we'll be out all day."
         ]
     ],
@@ -722,7 +722,7 @@
         [
             "Hey, y_c. I just got a message from StarClan. They told me that you need to pass me that scrap of moss over there.",
             "[You pass the moss to t_c.]",
-            "c_nClan has been saved!"
+            "c_n has been saved!"
         ]
     ],
     "cool_medcat_AJ1~2": [
@@ -1337,7 +1337,7 @@
             "they_blind"
         ],
         [
-            "Do c_nClan a favor and try not to pull any stupid stunts out there today.",
+            "Do c_n a favor and try not to pull any stupid stunts out there today.",
             "The medicine den is crowded enough without apprentices injuring themselves for foolish reasons."
         ]
     ],
@@ -1374,7 +1374,7 @@
             "neutral"
         ],
         [
-            "[You've heard stories about the mean, grumpy medicine cat apprentice of c_nClan, and decide to pay {PRONOUN/t_c/object} a visit.]",
+            "[You've heard stories about the mean, grumpy medicine cat apprentice of c_n, and decide to pay {PRONOUN/t_c/object} a visit.]",
             "Tansy, horsetail ...",
             "Hm? A kit?",
             "You ... want to know what I'm doing?",
@@ -1635,7 +1635,7 @@
             "I know that I'm really not supposed to tell you what StarClan tells me in my dreams, but... Technically, if I don't tell you exactly what they said, then it's not breaking any rules. Technically.",
             "Besides, this is important. Really important.",
             "[t_c takes a deep breath.]",
-            "Just... make sure that you stick to the right path, ok? Stick to what the Warrior Code has taught us; don't stray too far away. Remember what c_nClan has taught you. I need you to trust me on this.",
+            "Just... make sure that you stick to the right path, ok? Stick to what the Warrior Code has taught us; don't stray too far away. Remember what c_n has taught you. I need you to trust me on this.",
             "I have to go now. I told tm_n that I would be dropping some herbs for r_k at the nursery, and {PRONOUN/tm_n/subject}'ll be expecting me to be back soon. Just remember what I said. You still have a chance to do the right thing."
         ]
     ],
@@ -2125,7 +2125,7 @@
             "platonic_like"
         ],
         [
-            "c_nClan is lucky to have a medicine cat like plike_r_m_silly.",
+            "c_n is lucky to have a medicine cat like plike_r_m_silly.",
             "It's like {PRONOUN/plike_r_m_silly/subject} {VERB/plike_r_m_silly/have/has} an infinite supply of jokes and silly questions for when we get bored in the medicine den, or for when a patient needs cheering up.",
             "The other day, {PRONOUN/plike_r_m_silly/subject} {VERB/plike_r_m_silly/were/was} goofing around with r_s, and r_s smiled despite everything...",
             "It was really nice to see."
@@ -2210,7 +2210,7 @@
         [
             "Is it strange that I'm afraid to see tg_c at the moonpool?",
             "Not- not afraid, necessarily. But... I'm worried about how I'll react. A medicine cat shouldn't be bawling their eyes out at the half-moon meeting.",
-            "Or worse, will I freeze up? Forget what to say? Oh, StarClan, would I forget the prophecy {PRONOUN/tg_c/subject}'d bless c_nClan with?",
+            "Or worse, will I freeze up? Forget what to say? Oh, StarClan, would I forget the prophecy {PRONOUN/tg_c/subject}'d bless c_n with?",
             "[You gently remind t_c that {PRONOUN/t_c/subject}'ll do great, even with tg_c present.]",
             "Do you think so? I hope you're right, y_c."
         ]
@@ -2347,7 +2347,7 @@
     "medcat_chaotic_innovator_rad1": [
         [
             "they_medicine_cat",
-            "they_medicine_cat_app",
+            "they_medicine_cat_apprentince",
             "they_silly",
             "they_innovator",
             "no_kit"

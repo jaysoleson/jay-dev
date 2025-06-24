@@ -663,7 +663,9 @@ class Events:
             game.clan.focus_cat = None
             
         if not game.clan.focus:
-            if game.clan.war.get("at_war"):
+            if "debug_ensure_focus" in game.config and game.config["debug_ensure_focus"] and game.config["debug_ensure_focus"] in dialogue_focuses:
+                game.clan.focus = game.config["debug_ensure_focus"]
+            elif game.clan.war.get("at_war"):
                 game.clan.focus = "war"
             elif game.clan.freshkill_pile.total_amount < game.clan.freshkill_pile.amount_food_needed()*0.5:
                 game.clan.focus = "starving"
@@ -1186,7 +1188,7 @@ class Events:
 
         text = re.sub(r"\{(.*?)\}", lambda x: pronoun_repl(x, process_text_dict, False), text)
 
-        text = text.replace("c_n", str(game.clan.name))
+        text = text.replace("c_n", str(game.clan.name) + "Clan")
         if "w_c" in text:
             if game.clan.war.get("at_war", True):
                 text = text.replace("w_c", str(game.clan.war["enemy"]))
@@ -1203,7 +1205,7 @@ class Events:
 
         text = re.sub(r"\{(.*?)\}", lambda x: pronoun_repl(x, process_text_dict, False), text)
 
-        text = text.replace("c_n", str(game.clan.name))
+        text = text.replace("c_n", str(game.clan.name) + "Clan")
         if "w_c" in text:
             if game.clan.war.get("at_war", True):
                 text = text.replace("w_c", str(game.clan.war["enemy"]))
@@ -1374,7 +1376,7 @@ class Events:
                 add_on_mentor = " no mentor" if not game.clan.your_cat.mentor else ""
                 ceremony_txt = random.choice(self.b_txt[f"{game.clan.your_cat.status} ceremony{add_on_lead}{add_on_mentor}"])
 
-            ceremony_txt = ceremony_txt.replace('c_n', str(game.clan.name))
+            ceremony_txt = ceremony_txt.replace('c_n', str(game.clan.name) + "Clan")
             ceremony_txt = ceremony_txt.replace('y_c', str(game.clan.your_cat.name))
             if game.clan.leader and not game.clan.leader.dead and not game.clan.leader.outside:
                 ceremony_txt = re.sub(r'(?<!\/)l_n(?!\/)', str(game.clan.leader.name), ceremony_txt)
@@ -1424,7 +1426,7 @@ class Events:
             else:
                 ceremony_txt = random.choice(self.b_txt[game.clan.your_cat.status + '_ceremony_no_mentor'])
         
-        ceremony_txt = ceremony_txt.replace('c_n', str(game.clan.name))
+        ceremony_txt = ceremony_txt.replace('c_n', str(game.clan.name) + "Clan")
         ceremony_txt = ceremony_txt.replace('y_c', str(game.clan.your_cat.name))
         
         if game.clan.leader and not game.clan.leader.dead and not game.clan.leader.outside:
@@ -1455,7 +1457,7 @@ class Events:
         
     def generate_elder_ceremony(self):
         ceremony_txt = random.choice(self.b_txt['elder_ceremony'])
-        ceremony_txt = ceremony_txt.replace('c_n', str(game.clan.name))
+        ceremony_txt = ceremony_txt.replace('c_n', str(game.clan.name) + "Clan")
         ceremony_txt = ceremony_txt.replace('y_c', str(game.clan.your_cat.name))
         if game.clan.leader and not game.clan.leader.dead and not game.clan.leader.outside:
             ceremony_txt = re.sub(r'(?<!\/)l_n(?!\/)', str(game.clan.leader.name), ceremony_txt)
@@ -1886,7 +1888,10 @@ class Events:
                 
     def generate_df_events(self):
         if random.randint(1,3) == 1:
-            evt = self.process_text(random.choice(self.df_txt["general"]))
+            possible_events = self.df_txt["general"]
+            if not game.clan.your_cat.graduated_df:
+                possible_events += self.df_txt["mentor"]
+            evt = self.process_text(random.choice(possible_events))
             if evt:
                 involved_cats = []
                 involved_cats.append(game.clan.your_cat.ID)
@@ -1905,6 +1910,7 @@ class Events:
                 r_clanmate = Cat.all_cats.get(random.choice(game.clan.clan_cats))
             
             r_clanmate.joined_df = True
+            r_clanmate.df_join_moon = game.clan.age
             r_clanmate.faith -= 1
             r_clanmate.update_df_mentor()
             self.cat_dict["c_m"] = r_clanmate
@@ -1918,6 +1924,22 @@ class Events:
             evt = Single_Event(evt_txt, ["alert"], r_clanmate.ID)
             if evt not in game.cur_events_list:
                 game.cur_events_list.insert(0, evt)
+        
+        
+        if game.clan.your_cat.df_patrols >= 5 and game.clan.age - game.clan.your_cat.df_join_moon >= 12 and not game.clan.your_cat.graduated_df:
+            game.clan.your_cat.graduated_df = True
+            evt = self.process_text(random.choice(self.df_txt["graduate"]))
+            if evt:
+                involved_cats = []
+                involved_cats.append(game.clan.your_cat.ID)
+                for i in self.cat_dict.items():
+                    involved_cats.append(i[1].ID)
+                evt = Single_Event(evt, ["alert"], [i for i in involved_cats])
+                if evt not in game.cur_events_list:
+                    game.cur_events_list.insert(0, evt)
+            Cat.all_cats[game.clan.your_cat.df_mentor].df_apprentices.remove(game.clan.your_cat.ID)
+            game.clan.your_cat.df_mentor = None
+            
 
     def handle_lead_den_event(self):
         """
@@ -2854,6 +2876,13 @@ class Events:
         # Handle Mediator Events
         # TODO: this is not a great way to handle them, ideally they should be converted to ShortEvent format
         self.mediator_events(cat)
+
+       
+        # LIFEGEN: handle faith events
+        # they only get a faith event if they hit the chance. that chance being 8 rn
+        if not int(random.random() * 8):
+            self.generate_faith_events(cat)
+        # ---
 
         # handle nutrition amount
         # (CARE: the cats have to be fed before this happens - should be handled in "one_moon" function)
@@ -4578,6 +4607,24 @@ class Events:
                     text = f"The Clan takes a vote and agrees they feel unsafe around {cat.name}. {cat.name} is exiled."
 
             game.cur_events_list.insert(0, Single_Event(text, ["alert", "misc"], involved_cats))
+
+    def generate_faith_events(self, cat):
+        """ yay """
+        if (
+            cat.outside or
+            cat.dead or
+            cat.moons < 1
+        ):
+            return
+        
+        random_cat = get_random_moon_cat(Cat, main_cat=cat)
+
+        handle_short_events.handle_event(event_type="faith",
+                                            main_cat=cat,
+                                            random_cat=random_cat,
+                                            sub_type=[],
+                                            freshkill_pile=game.clan.freshkill_pile)
+        
 
     def coming_out(self, cat):
         """turnin' the kitties trans..."""

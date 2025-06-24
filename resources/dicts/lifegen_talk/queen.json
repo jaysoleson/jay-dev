@@ -965,7 +965,7 @@
             "y_c, if an unknown threat ever tries to enter the nursery, what should you do?",
             "That's right. Run, hide, or find an adult to protect you.",
             "No matter what, don't you ever, EVER try to fight it off by yourself.",
-            "You may be c_nClan, but you're no warrior. Not yet, at least.",
+            "You may be c_n, but you're no warrior. Not yet, at least.",
             "Better to run and live to fight another day. It's advice that will take you far, all throughout your life. Don't forget it."
         ]
     ],
@@ -1004,7 +1004,7 @@
             "[You roll the stone to t_c. {PRONOUN/t_c/subject/CAP} {VERB/t_c/catch/catches} it and gently {VERB/t_c/roll/rolls} it back to you with {PRONOUN/t_c/poss} paw.]",
             "Y'know, I had a hard time making friends, too, at your age ...",
             "Life isn't always easy for sensitive cats like us.",
-            "But you'll find your place in c_nClan, don't you worry.",
+            "But you'll find your place in c_n, don't you worry.",
             "And I'll always be here if you ever need a playmate."
         ]
     ],
@@ -1094,7 +1094,7 @@
         [
             "[Throughout the day, t_c has been entertaining the kits with various different games such as Hunt the Pebble, Hide n' Seek, Guess the Sound, and more.]",
             "[This latest game seems to involve t_c pretending to be an enemy warrior from o_c_n.]",
-            "Gah! You've killed me! I'm no match for c_nClan kits!",
+            "Gah! You've killed me! I'm no match for c_n kits!",
             "[t_c stumbles back, dramatically flopping onto {PRONOUN/t_c/poss} side as the kits squeal with delight.]"
         ]
     ],
@@ -1247,7 +1247,7 @@
         [
             "[t_c lets out a soft yawn, stretching as you tug at {PRONOUN/t_c/poss} tail for attention.]",
             "Oh, good evening, y_c! What is it that you need, littlest one?",
-            "You had a nightmare...? Come here, tell me all about it... You don't ever need to worry, c_nClan will always keep you safe."
+            "You had a nightmare...? Come here, tell me all about it... You don't ever need to worry, c_n will always keep you safe."
         ]
     ],
     "sweet_queen_3": [

@@ -185,7 +185,6 @@ class HandleShortEvents:
             #     f"WARNING: no {event_type}: {self.sub_types} events found for {self.main_cat.name} "
             #     f"and {self.random_cat.name if self.random_cat else 'no random cat'}"
             # )
-            # this was rlly annoying me Oops
             return
 
         self.text = self.chosen_event.text
@@ -340,6 +339,52 @@ class HandleShortEvents:
             if self.main_cat.status not in ["apprentice", "kitten", "elder", "warrior"] and shunned:
                 secondary_event = self.main_cat.shunned_demotion()
         # ---
+        # faith
+        if "faith" in self.types:
+            mc_affected = False
+            rc_affected = False
+
+            if "affected" in self.chosen_event.m_c and self.chosen_event.m_c["affected"]:
+                self.main_cat.faith += self.chosen_event.faith_effect
+                mc_affected = True
+            
+            if self.random_cat:
+                if "affected" in self.chosen_event.r_c and self.chosen_event.r_c["affected"]:
+                    self.random_cat.faith += self.chosen_event.faith_effect
+                    rc_affected = True
+
+            # change text
+            # if both mc and rc are affected, the mc text is chosen
+            if mc_affected:
+                if main_cat.faith <= 0:
+                    if self.chosen_event.faith_effect < 0:
+                        self.additional_event_text = "(Dark Forest faith increased)"
+                    elif self.chosen_event.faith_effect > 0:
+                        self.additional_event_text = "(Dark Forest faith decreased)"
+                    else:
+                        self.additional_event_text = "(Faith unchanged)"
+                elif main_cat.faith > 0:
+                    if self.chosen_event.faith_effect > 0:
+                        self.additional_event_text = "(StarClan faith increased)"
+                    elif self.chosen_event.faith_effect < 0:
+                        self.additional_event_text = "(StarClan faith decreased)"
+                    else:
+                        self.additional_event_text = "(Faith unchanged)"
+            elif rc_affected:
+                if random_cat.faith <= 0:
+                    if self.chosen_event.faith_effect < 0:
+                        self.additional_event_text = "(Dark Forest faith increased)"
+                    elif self.chosen_event.faith_effect > 0:
+                        self.additional_event_text = "(Dark Forest faith decreased)"
+                    else:
+                        self.additional_event_text = "(Faith unchanged)"
+                elif random_cat.faith > 0:
+                    if self.chosen_event.faith_effect > 0:
+                        self.additional_event_text = "(StarClan faith increased)"
+                    elif self.chosen_event.faith_effect < 0:
+                        self.additional_event_text = "(StarClan faith decreased)"
+                    else:
+                        self.additional_event_text = "(Faith unchanged)"
 
         if self.chosen_herb:
             game.herb_events_list.append(f"{self.chosen_event} {self.herb_notice}.")

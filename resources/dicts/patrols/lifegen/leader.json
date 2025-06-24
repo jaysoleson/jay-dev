@@ -460,5 +460,187 @@
                 "weight": 20
             }
         ]
-    }
+    },
+    {
+        "patrol_id": "leaderinteract_DEAD_H1",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "sc_lifegen"
+        ],
+        "tags": [],
+        "patrol_art": "lg_default_sc",
+        "min_cats": 1,
+        "max_cats": 1,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "While doing a check-up on c_n, you notice r_k is sitting a ways away from the others. While floating closer, your eyes meet, and a moment of silence falls over the two of you as the shock of being seen by the living settles in your heart.",
+        "decline_text": "You're not ready to be seen by any alive cat, and decide to cut your check-up short and leave r_k to {PRONOUN/r_k/poss} own devices.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "r_k seems to be unsure of your presence. Neither one of you move an inch as you stare at each other, and you can't help but feel amused. It's like a serious standoff, but between a ghost and a kitten.",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "r_k is the first to move, visibly startled by your sudden appearance. However, {PRONOUN/r_k/subject} {VERB/r_k/don't/doesn't} seem terribly unnerved as {PRONOUN/r_k/subject} {VERB/r_k/open/opens} {PRONOUN/r_k/poss} paws to show you a flower crown. It must be a gift. You smile at r_k in goodbye and leave {PRONOUN/r_k/object} to {PRONOUN/r_k/poss} gift making.",
+                "exp": 0,
+                "weight": 20,
+                "stat_cluster": ["neurotic", "sweet"],
+                "can_have_stat": [
+                    "r_k"
+                ]
+            },
+            {
+                "text": "r_k's eyes brighten, and {PRONOUN/r_k/subject} {VERB/r_k/exclaim/exclaims} your name, succeeding in getting the other cat's attention. It surprised you, but you suppose as a former leader, you should be well-known. Despite r_k tumultuously announcing your ghostly appearance, at least now r_k is interacting with the others.",
+                "exp": 0,
+                "weight": 20,
+                "stat_cluster": ["assertive", "silly", "unabashed"],
+                "can_have_stat": [
+                    "r_k"
+                ]
+            },
+            {
+                "text": "r_k noticed you, but {PRONOUN/r_k/subject} {VERB/r_k/seem/seems} to ignore your presence and glances at the ground. You follow {PRONOUN/r_k/poss} gaze and see a flurry of bugs in the dirt. r_k is enraptured by the sight, and you suddenly realize why {PRONOUN/r_k/subject} decided to be alone. With an amused huff, you leave {PRONOUN/r_k/object} be.",
+                "exp": 0,
+                "weight": 20,
+                "stat_cluster": ["introspective", "stable"],
+                "can_have_stat": [
+                    "r_k"
+                ]
+            },
+            {
+                "text": "r_k looks to have the nastiest, meanest look on {PRONOUN/r_k/poss} face. Someone isn't happy, and {PRONOUN/r_k/subject} definitely {VERB/t_c/voice/voices} that as you hover in eyesight. Despite wanting to scold {PRONOUN/r_k/object} for {PRONOUN/r_k/poss} harsh use of words, you decide to just walk - or well, float - away.",
+                "exp": 0,
+                "weight": 20,
+                "stat_cluster": ["brooding", "unlawful"],
+                "can_have_stat": [
+                    "r_k"
+                ]
+            },
+            {
+                "text": "r_k seems to recognize you almost immediately, and puffs up {PRONOUN/r_k/poss} chest, looking as fierce and regal as a kitten pretending to be a warrior cat can be. You can't help but stifle a laugh at {PRONOUN/r_k/poss} attempt to appear warrior-like. It's cute, and doesn't fail to brighten your usually dull day.",
+                "exp": 0,
+                "weight": 20,
+                "stat_cluster": ["cool", "upstanding"],
+                "can_have_stat": [
+                    "r_k"
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "Clearly, the sight of the dead is scary to r_k. {PRONOUN/r_k/subject/CAP} {VERB/r_k/run/runs} up to a nearby cat to tattle about your sudden appearance, but the cat doesn't seem to see you either. They brush r_k off with an unnerved smile. You leave before you cause more damage.",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "You thought you and r_k caught eyes, but {PRONOUN/r_k/subject} {VERB/r_k/seem/seems} to see directly through you, unaware of your presence. A part of you is disappointed at the missed opportunity, but another shivers at the thought of being noticed by the living. You leave before anyone sees you.",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "r_k doesn't seem to recognize you or your previous role as the leader of c_n. You try to explain who you are, but r_k does not have any of it. {PRONOUN/r_k/subject/CAP} promptly {VERB/t_c/exclaim/exclaims} stranger danger and {VERB/r_k/scatter/scatters} from your line of sight.",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "r_k sees you, but is distressed by a bee flying directly onto {PRONOUN/r_k/poss} face. {PRONOUN/r_k/subject/CAP} {VERB/r_k/scream/screams} and {VERB/r_k/run/runs} away, the bee following, and you have a moment to be grateful that you're a translucent being unable to be touched by the living realm. You would have ran for the hills, too.",
+                "exp": 0,
+                "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "life_ur_sam3",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "ur_lifegen"
+        ],
+        "tags": [],
+        "patrol_art": "lg_default_ur",
+        "min_cats": 1,
+        "max_cats": 1,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "You're still not quite used to being in the Unknown Residence. You find yourself wandering around, attempting to act like a leader for the other cats, despite knowing most of them do not understand your intentions.",
+        "decline_text": "Decline text",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "Success text",
+                "exp": 0,
+                "weight": 20
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "Fail text",
+                "exp": 0,
+                "weight": 20
+            }
+        ]
+    },
+{
+    	"patrol_id": "life_df_leader_rad1",
+    	"biome": [
+        	"Any"
+    	],
+    	"season": [
+        	"Any"
+    	],
+    	"types": [
+        	"df_lifegen"
+    	],
+    	"tags": [],
+    	"patrol_art": "lg_default_df",
+    	"min_cats": 1,
+    	"max_cats": 1,
+    	"min_max_status": {},
+    	"weight": 20,
+    	"intro_text": "All your life, your Clanmates would share scary stories about leaders who wound up in the Dark Forest. Now that you're one of those leaders in Dark Forest, you can't help but be curious... What stories are living cats telling about <i>you</i>?",
+    	"decline_text": "Though you could easily find out, you decide not to. You already imagine them telling wild and outlandish stories about you, and you don't want to be disappointed if the real ones are boring.",
+    	"chance_of_success": 50,
+    	"success_outcomes": [
+        	{
+            	"text": "Not wanting to risk being spotted by a living cat, you wait until the Dark Forest trainees have arrived for tonight's practice session and casually ask one if their Clanmates ever tell stories about you. Their eyes widen as they begin sharing one of the most common stories about you, one that's often used to frighten the kits and apprentices into behaving, and one they've heard many times themselves. Normally you'd interrupt a trainee's long-winded tale, since you're supposed to be focusing on battle moves, but you'll make an exception - just this once.",
+            	"exp": 0,
+            	"weight": 20
+        	},
+        	{
+            	"text": "Determined to find out for yourself, you manage to enter the c_n elders' den, secretly joining an audience of cats who are waiting to listen to a story from r_e. It's a nice surprise when {PRONOUN/r_e/subject} {VERB/r_e/start/stars} regaling a tale of your misdeeds, and an even bigger surprise that {PRONOUN/r_e/subject}{VERB/r_e/'re/'s} describing you quite warmly and correctly explaining every justification you had for your actions. You smile as you listen along with the living cats, knowing your legacy is being passed down by good paws.",
+            	"exp": 0,
+            	"weight": 20,
+            	"stat_faith": [-9, -6],
+            	"can_have_stat": ["r_e"]
+        	},
+        	{
+            	"text": "Some of your former Clanmates are always keen to give the younger cats a good scare, so you slip out of the confines of the Dark Forest and slink into the c_n camp. Once the cats start sharing spooky stories, you're dismayed to realize that not one of them is about you. Perhaps, during your life, you didn't accomplish anything worthy of becoming a warning tale to your Clanmates... But then again, you realize, your presence in the Dark Forest means you can accomplish that during death.",
+            	"exp": 0,
+            	"weight": 18
+        	}
+    	],
+    	"fail_outcomes": [
+        	{
+            	"text": "Knowing that some of your former Clanmates are always keen to give the younger cats a good scare, you slip out of the confines of the Dark Forest and slink into the c_n camp. When the cats start sharing spooky stories, though, you're dismayed to realize that not one of them is about you. Did you really accomplish nothing worthy of becoming frightening lore among your Clanmates?",
+            	"exp": 0,
+            	"weight": 20
+        	},
+        	{
+            	"text": "Not wanting to risk being spotted by a living cat, you save the question for that night: as you prepare to square off against a Dark Forest trainee, you casually ask if their Clanmates ever tell stories about you. The fury raises in your chest as they shake their head no, but you try to put that aside; after all, they're here to train. The fact that they return to the waking world with more injuries than usual has nothing to do with this piece of information, truly.",
+            	"exp": 0,
+            	"weight": 20
+        	}
+    	]
+	}
 ]

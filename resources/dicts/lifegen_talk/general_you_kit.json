@@ -221,7 +221,7 @@
         ],
         [
             "Oh my- you're so precious!",
-            "Hello, little one! Welcome to c_nClan! What a cute lil fella, you are.",
+            "Hello, little one! Welcome to c_n! What a cute lil fella, you are.",
             "Here we go, let me take you back to your nest. Little ones like you need plenty of rest to become big strong warriors!"
         ]
     ],
@@ -315,7 +315,7 @@
             "I remember when I was that age, goodness, that was so long ago. Well, not that I remember what I could see nor hear- but I remember my parent's voice.",
             "Their calm whispers of support, their promises of love and the way they said my name- I don't remember much, but just a sense of protection. A sense of love.",
             "Little kit, you may not remember this when you're older, but I hope you remember this feeling of warmth.",
-            "So I'll say this, you are loved y_c, loved by c_nClan and all the cats here. We can't wait to see what you do next."
+            "So I'll say this, you are loved y_c, loved by c_n and all the cats here. We can't wait to see what you do next."
         ]
     ],
     "stable_9_2": [
@@ -399,7 +399,7 @@
         ],
         [
             "Stay close to your mentor, once you're an apprentice.",
-            "c_nClan's territory spans thousands of tail-lengths. It's easy to get lost if you wander too far."
+            "c_n's territory spans thousands of tail-lengths. It's easy to get lost if you wander too far."
         ]
     ],
     "introspective_leafbare": [
@@ -685,7 +685,7 @@
         [
             "Rules are there for a reason, y_c.",
             "But sometimes, I can't help but wonder if they're truly for our own good.",
-            "Still, we must respect them. That's what being a part of c_nClan means."
+            "Still, we must respect them. That's what being a part of c_n means."
         ]
     ],
     "you_kitten_12": [
@@ -850,6 +850,7 @@
         [
             "you_newborn",
             "cool",
+            "they_not_queen",
             "non-related",
             "you_blind",
             "they_blind"
@@ -1554,8 +1555,8 @@
         ],
         [
             "Really, you want to hear the song again? Ok, fine... Remember, you asked for this.",
-            "There's no place like c_nClan, because here we are wild and free! And nobody can disagree! Look at the stars, the way they shine! StarClan has given us bountiful time.",
-            "And prey and rocks and leaves of gold- may StarClan continue to sing the songs of old. From once before and now onwards, as a Clan we strive forward. We push on. And this is the c_nClan cats' song!"
+            "There's no place like c_n, because here we are wild and free! And nobody can disagree! Look at the stars, the way they shine! StarClan has given us bountiful time.",
+            "And prey and rocks and leaves of gold- may StarClan continue to sing the songs of old. From once before and now onwards, as a Clan we strive forward. We push on. And this is the c_n cats' song!"
         ]
     ],
     "neurotic_tokit": [
@@ -1695,7 +1696,7 @@
             "Oh, a slight swish of the tail, the sign of a confident warrior ...",
             "y_c steadies {PRONOUN/y_c/poss} haunches, could this be the moment of truth ...?",
             "Aaaand ... {PRONOUN/y_c/subject} {VERB/y_c/pounce/pounces}!",
-            "An incredible catch from y_c, the mightiest hunter in c_nClan!",
+            "An incredible catch from y_c, the mightiest hunter in c_n!",
             "[t_c hoists you onto {PRONOUN/t_c/poss} shoulders and parades you around camp as you giggle uncontrollably.]"
         ]
     ],
@@ -1788,7 +1789,7 @@
         [
             "A new kit?",
             "Hmm ... How will this factor into my twenty-moon plan?",
-            "I suppose {PRONOUN/y_c/subject}'ll be grown in six moons ... I could take {PRONOUN/y_c/object} on as my apprentice ... raise {PRONOUN/y_c/object} into a strong and capable member of c_nClan ...",
+            "I suppose {PRONOUN/y_c/subject}'ll be grown in six moons ... I could take {PRONOUN/y_c/object} on as my apprentice ... raise {PRONOUN/y_c/object} into a strong and capable member of c_n ...",
             "Then, l_n would have to recognize my greatness!",
             "Just you wait, y_c. You and I are gonna do big things together!"
         ]
@@ -1858,7 +1859,7 @@
             "The miracle of life never ceases to amaze me ...",
             "So many forces, so many variables, all culminating in perfect harmony to produce one beautiful living, breathing thing.",
             "Ah, I guess all this is to say ... Welcome to the world, y_c.",
-            "c_nClan's newest little miracle."
+            "c_n's newest little miracle."
         ]
     ],
     "newborn_brooding": [
@@ -2781,7 +2782,7 @@
             "you_blind"
         ],
         [
-            "You should still be in c_nClan's nursery, surrounded by soft moss and feathers."
+            "You should still be in c_n's nursery, surrounded by soft moss and feathers."
         ]
     ],
     "df_newborn": [
@@ -2792,7 +2793,7 @@
             "you_blind"
         ],
         [
-            "You should still be in c_nClan's nursery, surrounded by soft moss and feathers."
+            "You should still be in c_n's nursery, surrounded by soft moss and feathers."
         ]
     ],
     "sc_newborn2": [
@@ -2804,7 +2805,7 @@
             "you_blind"
         ],
         [
-            "You should still be in c_nClan's nursery, surrounded by soft moss and feathers."
+            "You should still be in c_n's nursery, surrounded by soft moss and feathers."
         ]
     ],
     "df_newborn2": [
@@ -2829,7 +2830,7 @@
             "you_blind"
         ],
         [
-            "You should still be in c_nClan's nursery, surrounded by soft moss and feathers."
+            "You should still be in c_n's nursery, surrounded by soft moss and feathers."
         ]
     ],
     "df_newborn3": [
@@ -2924,7 +2925,7 @@
             "you_blind"
         ],
         [
-            "Hey, kid! How's it going in c_nClan?",
+            "Hey, kid! How's it going in c_n?",
             "If anyone ever gives you trouble, just let me know. I'll give them a good haunting for you."
         ]
     ],
@@ -3358,7 +3359,7 @@
         ],
         [
             "I can't believe I was damned here by a little kit.",
-            "You'd better go on to be the geatest leader c_nClan has ever known so my death wasn't for nothing."
+            "You'd better go on to be the geatest leader c_n has ever known so my death wasn't for nothing."
         ]
     ],
     "they_forgiven_J1": [
@@ -4171,7 +4172,7 @@
         [
             "Are you here to ask to be forgiven?",
             "I'm sorry, little one, but that is not my choice to make.",
-            "Go back to c_nClan."
+            "Go back to c_n."
         ]
     ],
     "injury_kit_H1": [
@@ -5068,8 +5069,8 @@
             "In other words, it's what I used to be when I was your age- oh yeah! I was a storm in a kits body, that's what the queens say anyways.",
             "But I mellowed out and eventually just became a light drizzle... and none of this is actually answering your question huh? Look at me go, sibling of the moon. It's just, being honest, there's such a difference between you and I.",
             "It feels like we're oceans apart, see, no cat actually knows what a storm is- maybe the kittypets living west do, but we just say it's a gift from StarClan...",
-            "As your older sibling I want to do everything I can to protect you and raise you. But, I don't really know how to approach this, I know how to talk to kits, that's understandable, but... my little sibling? That feels different...",
-            "[You press into t_c's shoulder and purr. You remind {PRONOUN/t_c/object} that no matter the difference between you both, you're family. And family sticks together. You also say you love the way {PRONOUN/t_c/subject} see the world!]",
+            "As your older {PRONOUN/t_c/sibling} I want to do everything I can to protect you and raise you. But, I don't really know how to approach this, I know how to talk to kits, that's understandable, but... my little {PRONOUN/y_c/sibling}? That feels different...",
+            "[You press into t_c's shoulder and purr. You remind {PRONOUN/t_c/object} that no matter the difference between you both, you're family. And family sticks together. You also say you love the way {PRONOUN/t_c/subject} {VERB/t_c/see/sees} the world!]",
             "Oh! You do? Well then, can I ramble for a bit? I can?",
             "Thank you, y_c, I love you."
         ]
@@ -5523,7 +5524,7 @@
             "you_blind"
         ],
         [
-            "c_nClan acts so surprised as if their young isn't surrounded by violence every day.",
+            "c_n acts so surprised as if their young isn't surrounded by violence every day.",
             "You just made a mistake. They'll see soon that it is a creation of their own doing."
         ]
     ],
@@ -5649,7 +5650,7 @@
         [
             "What's that? You want me to tell you a story? Um... okay, let me think.",
             "I've got one, but it's been a while since I told it. Let me know if anything's too scary, or you don't understand something, okay?",
-            "[t_c launches into a thrilling tale of cats who lived long before c_nClan's founding. When three of the cats dream of a huge storm coming to their forest, they set out to find the cause.]",
+            "[t_c launches into a thrilling tale of cats who lived long before c_n's founding. When three of the cats dream of a huge storm coming to their forest, they set out to find the cause.]",
             "[The cats in the story are really brave! Maybe you'll be like them someday.]"
         ]
     ],

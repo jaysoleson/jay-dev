@@ -317,6 +317,10 @@ class ChooseRebornScreen(Screens):
         self.unknown_tab.kill()
         del self.unknown_tab
 
+        if self.cant_switch_warning:
+            self.cant_switch_warning.kill()
+            del self.cant_switch_warning
+
         self.list_frame.kill()
 
     def find_next_previous_cats(self):

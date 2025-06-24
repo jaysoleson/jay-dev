@@ -3020,7 +3020,7 @@
         ],
         [
             ".. That gives me an idea, y_c.",
-            "c_nClan will never see us the same. We'll always be the dirt on their paws because we have blood on our own.",
+            "c_n will never see us the same. We'll always be the dirt on their paws because we have blood on our own.",
             "We should leave, y_c, make something for us - maybe an entire Clan. But I won't leave until you're ready to come with me.",
             "I couldn't do it alone."
         ]
@@ -5569,6 +5569,135 @@
         ],
         [
             "... ... ..."
+        ]
+    ],
+    "shunned_deaf_flirt_H1": [
+        [
+            "they_shunned",
+            "they_deaf",
+            "they_blind",
+            "you_deaf",
+            "flirt",
+            "any"
+        ],
+        [
+            "[t_c smiles slightly. Even though {PRONOUN/t_c/subject} {VERB/t_c/seem/seems} hesitant, t_c doesn't appear to hate your flirting.]"
+        ]
+    ],
+    "shunned_deaf_flirt_H2": [
+        [
+            "they_shunned",
+            "they_deaf",
+            "you_deaf",
+            "flirt",
+            "reject",
+            "any"
+        ],
+        [
+            "[t_c turns {PRONOUN/t_c/poss} head away and lashes {PRONOUN/t_c/poss} tail.]",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/don't/doesn't} seem impressed.]"
+        ]
+    ],
+    "shunned_grieving_flirt_H1": [
+        [
+            "you_shunned",
+            "they_grieving",
+            "flirt",
+            "reject",
+            "non-mates",
+            "any",
+            "min_dislike_10",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "Go away!"
+        ]
+    ],
+    "shunned_grieving_flirt_H2": [
+        [
+            "you_shunned",
+            "they_grieving",
+            "flirt",
+            "reject",
+            "any",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "I do not want to speak with you right now, y_c.",
+            "Please, leave me to grieve."
+        ]
+    ],
+    "shunned_grieving_flirt_H4": [
+        [
+            "they_grieving",
+            "flirt",
+            "reject",
+            "any",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "I do not want to speak with you right now, y_c.",
+            "Please, leave me to grieve."
+        ]
+    ],
+    "shunned_grieving_flirt_H3": [
+        [
+            "you_shunned",
+            "they_grieving",
+            "grievingyou",
+            "flirt",
+            "reject",
+            "any",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "Don't you think you have caused me enough suffering? I do not need your awful flirting on top of it."
+        ]
+    ],
+    "deaf_grieving_flirt_H1": [
+        [
+            "they_grieving",
+            "you_grieving",
+            "you_deaf",
+            "flirt",
+            "any"
+        ],
+        [
+            "[t_c shakes {PRONOUN/t_c/poss} head, eyes shining with disappointment.]",
+            "[It's not the time for flirting.]"
+        ]
+    ],
+    "deaf_grieving_H1": [
+        [
+            "they_grieving",
+            "you_deaf",
+            "they_blind",
+            "flirt",
+            "reject",
+            "any"
+        ],
+        [
+            "[t_c shakes {PRONOUN/t_c/poss} head, eyes shining with disappointment.]",
+            "[It's not the time for flirting.]"
+        ]
+    ],
+    "deaf_grieving_H2": [
+        [
+            "they_grieving",
+            "grievingyou",
+            "you_deaf",
+            "they_blind",
+            "flirt",
+            "reject",
+            "any"
+        ],
+        [
+            "[t_c shakes {PRONOUN/t_c/poss} head, eyes shining with disappointment.]",
+            "[It's not the time for flirting.]"
         ]
     ]
 }

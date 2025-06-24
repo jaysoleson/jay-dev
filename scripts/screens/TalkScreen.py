@@ -1150,6 +1150,42 @@ class TalkScreen(Screens):
                     has_role = True
                 if not has_role:
                     continue
+            
+            roles = [
+                "they_kitten", "they_apprentice", "they_medicine_cat_apprentice",
+                "they_mediator_apprentice", "they_queen's_apprentice", "they_warrior",
+                "they_mediator", "they_medicine_cat", "they_queen", "they_deputy",
+                "they_leader", "they_elder", "they_newborn"]
+            if any(r in roles for r in tags):
+                has_role = False
+                if "they_previously_kitten" in tags and cat.old_status == "kitten":
+                    has_role = True
+                elif "they_previously_apprentice" in tags and cat.old_status == "apprentice":
+                    has_role = True
+                elif "they_previously_medicine_cat_apprentice" in tags and cat.old_status == "medicine cat apprentice":
+                    has_role = True
+                elif "they_previously_mediator_apprentice" in tags and cat.old_status == "mediator apprentice":
+                    has_role = True
+                elif "they_previously_queen's_apprentice" in tags and cat.old_status == "queen's apprentice":
+                    has_role = True
+                elif "they_previously_warrior" in tags and cat.old_status == "warrior":
+                    has_role = True
+                elif "they_previously_mediator" in tags and cat.old_status == "mediator":
+                    has_role = True
+                elif "they_previously_medicine_cat" in tags and cat.old_status == "medicine cat":
+                    has_role = True
+                elif "they_previously_queen" in tags and cat.old_status == "queen":
+                    has_role = True
+                elif "they_previously_deputy" in tags and cat.old_status == "deputy":
+                    has_role = True
+                elif "they_previously_leader" in tags and cat.old_status == "leader":
+                    has_role = True
+                elif "they_previously_elder" in tags and cat.old_status == "elder":
+                    has_role = True
+                elif "they_previously_newborn" in tags and cat.old_status == "newborn":
+                    has_role = True
+                if not has_role:
+                    continue
 
             if "they_grieving" not in tags and "grief stricken" in cat.illnesses and not cat.dead:
                 continue
@@ -1490,7 +1526,10 @@ class TalkScreen(Screens):
             if you.shunned > 0 and cat.shunned == 0 and "you_shunned" not in tags:
                 continue
 
-            if you.shunned > 0 and cat.shunned > 0 and "both_shunned" not in tags:
+            if you.shunned > 0 and cat.shunned > 0 and (
+                "both_shunned" not in tags and
+                ("you_shunned" not in tags and "they_shunned" not in tags)
+                ):
                 continue
 
             if "guilty" in tags and "guilt" not in cat.illnesses:
@@ -2072,7 +2111,7 @@ class TalkScreen(Screens):
         for i in range(len(text)):
             text[i] = re.sub(r"\{(.*?)\}", lambda x: pronoun_repl(x, process_text_dict, False), text[i])
         
-        text = [t1.replace("c_n", game.clan.name) for t1 in text]
+        text = [t1.replace("c_n", game.clan.name + "Clan") for t1 in text]
         text = [t1.replace("y_c", str(you.name)) for t1 in text]
         text = [t1.replace("t_c", str(cat.name)) for t1 in text]
 

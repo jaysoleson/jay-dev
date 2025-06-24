@@ -58,7 +58,7 @@
         ],
         [
             "I went on a hunting patrol with r_w the other day and found THE cutest mouse I think I've ever seen. It had big, innocent eyes and it was snacking on a blackberry!",
-            "It was large, so r_w wanted to catch it for c_nClan, but I couldn't bear to see it killed.",
+            "It was large, so r_w wanted to catch it for c_n, but I couldn't bear to see it killed.",
             "I, ah, ended up scaring it off to save it from being caught. That... really didn't make r_w happy at all. But it was worth it! You should've seen the little thing!"
         ]
     ],
@@ -990,7 +990,7 @@
         ],
         [
             "Aw, hello there, y_c! Welcome to the world!!",
-            "I can't wait to see how much you grow, and how you adapt to c_nClan... Maybe I'll even be your mentor!",
+            "I can't wait to see how much you grow, and how you adapt to c_n... Maybe I'll even be your mentor!",
             "If that happens, then I promise on my role as a warrior that I'll be the best mentor I can be to you."
         ]
     ],
@@ -1224,7 +1224,7 @@
             "[t_c seems to look at you with concern, you don't know why until {PRONOUN/t_c/subject} {VERB/t_c/approach/approaches} you.]",
             "Um.. y_c? You look really tired... Was the leak in the warriors' den waking you up?",
             "Well... if you'd like, you can take my nest until we get that fixed. I don't mind! It's in a dry spot, so you should get plenty of rest.",
-            "The deputy of c_nClan needs to be awake, after all!"
+            "The deputy of c_n needs to be awake, after all!"
         ]
     ],
     "sweet_warrior_20": [
@@ -1408,7 +1408,7 @@
             "Anyways, now that I've got you here, would you mind telling me what in the name of StarClan crossed your mind when you decided to skip this morning's dawn patrol?",
             "'Accidentally' sleeping in isn't an excuse and you know that! Do you think the sun will stop rising or the seasons will stop shifting just because of your lack of awareness?",
             "Honestly y_c, you need to start pulling your weight. We can't afford to have you just lounging around in your den while the rest of us are stuck picking up your slack!",
-            "c_nClan has no room for inadequate warriors who can't handle something as simple as showing up to patrol on time. Work on that, yeah? I don't want to have this conversation with you again."
+            "c_n has no room for inadequate warriors who can't handle something as simple as showing up to patrol on time. Work on that, yeah? I don't want to have this conversation with you again."
         ]
     ],
     "upstanding_warrior2": [
@@ -1467,7 +1467,7 @@
         ],
         [
             "AH-CHOO!",
-            "What? Allergies? Please, y_c. I'm a fearsome warrior of c_nClan, I'm made of tougher stuff than thah ... AH ...",
+            "What? Allergies? Please, y_c. I'm a fearsome warrior of c_n, I'm made of tougher stuff than thah ... AH ...",
             "AH-CHOO!"
         ]
     ],
@@ -1630,7 +1630,7 @@
         ],
         [
             "y_c, can I ask you something?",
-            "... do you think I'm doing enough for c_nClan?",
+            "... do you think I'm doing enough for c_n?",
             "It might be a silly question, I know. I'm practically always on patrols, or helping the apprentices patch up dens, or whatever, but does that all really matter if you feel like you aren't making a difference?",
             "All I've ever wanted was to help my Clan and be someone other cats can look up to. I want to be able to inspire someone to work even harder, just like I was.",
             "But sometimes, it just feels like I'm getting nowhere, like I'm barely making a difference.",
@@ -1866,7 +1866,7 @@
         [
             "y_c, Why is your head drooping? Remember to keep your chin up and eyes straight when you walk.",
             "With your head hanging low it leaves you open to attack, and if that were to happen, that would not be good. No! Absolutely not! That would be just terrible!",
-            "So please, for my sake and for the sake of c_nClan, pick yourself up, shake off whatever- this is and get back to work!",
+            "So please, for my sake and for the sake of c_n, pick yourself up, shake off whatever- this is and get back to work!",
             "[You watch in confusion as t_c struts away, {PRONOUN/t_c/poss} head held high.]",
             "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/walk/walks} for a while in a strong march but {VERB/t_c/stop/stops} midway through the clearing, a look of hesitation on {PRONOUN/t_c/poss} face. {PRONOUN/t_c/subject/CAP} {VERB/t_c/bolt/bolts} back and {VERB/t_c/skid/skids} to a stop before you.]",
             "I'm so sorry y_c, I didn't mean to be so harsh! I take it all back, I swear! I just wanted to sound tough but then I felt so bad!",
@@ -2141,7 +2141,7 @@
         [
             "It doesn't matter how hard I try, y_c... I just feel so overlooked, all because I'm not from here... It's not fair...",
             "[t_c bows {PRONOUN/t_c/poss} head low, {PRONOUN/t_c/poss} gaze fixated to the ground.]",
-            "I just want to prove myself to c_nClan, to l_n. I give it my all, I work hard, I'm on every patrol but-",
+            "I just want to prove myself to c_n, to l_n. I give it my all, I work hard, I'm on every patrol but-",
             "[t_c looks up, you follow {PRONOUN/t_c/poss} line of sight to see a few warriors turn away. {PRONOUN/t_c/poss/CAP} brows crease and you sigh heavily...]",
             "All they see is an outsider...",
             "[You lean against {PRONOUN/t_c/object} and purr softly, {PRONOUN/t_c/subject} {VERB/t_c/lean/leans} slightly into you as well.]",
@@ -2161,7 +2161,7 @@
             "[t_c could just see a blade of grass and beam at the sight of it.]",
             "One day, I think you'll appreciate nature as much as I do. To be in tune with the world around you, y_c, it's a gift.",
             "Don't give me that look, I'm serious. Nothing beats being wild and free. Huh, remember that song? I haven't heard it in ages... How did it go again?",
-            "There's no place like c_nClan, because here we're wild and free. And nobody can disagree, look at the stars, the way they shine. StarClan has given us bountiful time-",
+            "There's no place like c_n, because here we're wild and free. And nobody can disagree, look at the stars, the way they shine. StarClan has given us bountiful time-",
             "Well that's dumb, because they haven't. Life is short, y_c, too short to worry. Too short to take the Clan for granted. Too short to take our home for granted.",
             "Too short not to take a nap in the sun."
         ]
@@ -2229,7 +2229,7 @@
             "they_blind"
         ],
         [
-            "I think l_n needs to start running activities for the warriors of c_nClan.",
+            "I think l_n needs to start running activities for the warriors of c_n.",
             "Not that we don't work well together, but- maybe some trust exercises won't hurt. In fact, I think it will do us well.",
             "But that's just me."
         ]
@@ -2275,7 +2275,7 @@
             "Oh please y_c, {PRONOUN/t_s/subject} will get over it I'm sure.",
             "[You struggle to hold back your laughter as you point to a twig in {PRONOUN/t_c/poss} pelt- maybe t_s is right.]",
             "That- HEY! YOU DID THIS DIDN'T YOU?!?!",
-            "[t_s shakes {PRONOUN/t_s/poss} head as {PRONOUN/t_s/subject} {VERB/t_s/cackle/cackles} and {VERB/t_s/bound/bounds} away, t_c on {PRONOUN/t_s/poss} tail... And this is a valued and respected warrior of c_nClan?]",
+            "[t_s shakes {PRONOUN/t_s/poss} head as {PRONOUN/t_s/subject} {VERB/t_s/cackle/cackles} and {VERB/t_s/bound/bounds} away, t_c on {PRONOUN/t_s/poss} tail... And this is a valued and respected warrior of c_n?]",
             "[You have your doubts...]"
         ]
     ],
@@ -2306,7 +2306,7 @@
             "[You stare at {PRONOUN/t_c/object} with big eyes. {PRONOUN/t_c/subject/CAP} {VERB/t_c/stare/stares} back at you.]",
             "What?",
             "['Maybe, {PRONOUN/t_p/subject} {VERB/t_p/want/wants} to spend time with you.']",
-            "PFT! Good one y_c. I'm a warrior, a cat dedicated to c_nClan... I don't... I...",
+            "PFT! Good one y_c. I'm a warrior, a cat dedicated to c_n... I don't... I...",
             "I just want to make sure {PRONOUN/t_p/subject}{VERB/t_p/'re/'s} safe..."
         ]
     ],
@@ -2356,7 +2356,7 @@
             "they_blind"
         ],
         [
-            "Always a blessing when there's new life in the Clan. You will do wondrous things for c_nClan, little y_c. Take my word for it.",
+            "Always a blessing when there's new life in the Clan. You will do wondrous things for c_n, little y_c. Take my word for it.",
             "That actually reminds me, here, got this as a celebration.",
             "[{PRONOUN/t_c/subject/CAP} carefully {VERB/t_c/pull/pulls} out a light moss blanket and {VERB/t_c/wrap/wraps} you up in it.]",
             "There we go, nice and snuggly."
@@ -2494,7 +2494,7 @@
             "they_blind"
         ],
         [
-            "Hey! A new friend! Maybe when t_m and I have kits in the future, you guys will get along so well. But, oh what am I saying- Hey there y_c, welcome to c_nClan."
+            "Hey! A new friend! Maybe when t_m and I have kits in the future, you guys will get along so well. But, oh what am I saying- Hey there y_c, welcome to c_n."
         ]
     ],
     "stable_warriortoNEWBORN_14": [
@@ -2518,7 +2518,7 @@
             "they_blind"
         ],
         [
-            "Sleep well my little warrior, let your mind take you places beyond the c_nClan camp, beyond the borders and beyond the sky. I love you y_c."
+            "Sleep well my little warrior, let your mind take you places beyond the c_n camp, beyond the borders and beyond the sky. I love you y_c."
         ]
     ],
     "stable_warriortoNEWBORN_FROMParent1": [
@@ -2724,7 +2724,7 @@
             "they_deaf"
         ],
         [
-            "[You watch with interest as t_c nods {PRONOUN/t_c/poss} head as the deputy gives {PRONOUN/t_c/object} instructions. {PRONOUN/t_c/subject/CAP} {VERB/t_c/seem/seems} so focused, {PRONOUN/t_c/poss} posture straight and paws grounded. You hope one day you can sit that proudly as a warrior of c_nClan.]"
+            "[You watch with interest as t_c nods {PRONOUN/t_c/poss} head as the deputy gives {PRONOUN/t_c/object} instructions. {PRONOUN/t_c/subject/CAP} {VERB/t_c/seem/seems} so focused, {PRONOUN/t_c/poss} posture straight and paws grounded. You hope one day you can sit that proudly as a warrior of c_n.]"
         ]
     ],
     "stable_warriortoKITTEN_6": [
@@ -2849,7 +2849,7 @@
             "they_blind"
         ],
         [
-            "Remember y_c, as a cat of c_nClan, it's our duty to uphold our good name. Don't let us down. Oh, please, don't look so scared, you will do great things one day, I assure you of that."
+            "Remember y_c, as a cat of c_n, it's our duty to uphold our good name. Don't let us down. Oh, please, don't look so scared, you will do great things one day, I assure you of that."
         ]
     ],
     "stable_warriortoKITTEN_15": [
@@ -2926,7 +2926,7 @@
         [
             "I heard what r_w was saying to you earlier and I want you to ignore {PRONOUN/r_w/subject}. I- I'm sorry, let me choose my words more carefully.",
             "I am aware that with my history as a... kittypet- Some cats think I'm not as skilled or as intelligent as a Clanborn cat. But that's not true.",
-            "They think I'm talentless and are a burden here, but I have proven myself time and time again. I'm determined to serve c_nClan as best as I can.",
+            "They think I'm talentless and are a burden here, but I have proven myself time and time again. I'm determined to serve c_n as best as I can.",
             "My past is a part of me, but it doesn't define me because I grew up and grew past that. Words mean so little-- remember, y_c-- your actions hold the real weight.",
             "And I have proven, through my actions, that I am as much of a warrior as anyone else."
         ]
@@ -3347,13 +3347,13 @@
         ],
         [
             "[You're aware of a session in the nursery and decide to engage today as encouraged by both l_n and d_n. t_c sits calmly in the nursery, surrounded by the kits and apprentices. r_q briefly thanks them all for being so polite and gestures for t_c to start.]",
-            "Thank you and all that you do here for the nursery. Before I begin, my name is t_c, I am a warrior and one of your fellow Clanmates here in c_nClan. But as some of you may already know, I have a bit of trouble with my joints.",
+            "Thank you and all that you do here for the nursery. Before I begin, my name is t_c, I am a warrior and one of your fellow Clanmates here in c_n. But as some of you may already know, I have a bit of trouble with my joints.",
             "Sometimes they ache a little, other times they hurt quite a lot and I'll need to sit down for the day. r_q was kind enough to invite me here today to teach you young ones about my condition. I think it's very important that as a Clan we educate each other on these topics.",
             "I was an apprentice at six moons and then became a warrior. I'm sure you've all heard it before but training is very hard work. But I persevered, as will all of you. When I was diagnosed, it was like my world turned upside down.",
             "To be told that you won't be able to perform to the best of your abilities is rough. Knowing that it was something I had to live with, was rougher. But, it changed my perspective on things. On life.",
             "I learned that while there are things I couldn't do, I learned there were things I could do differently. I learned how to adapt, change and better myself. I didn't choose this, no one chooses their conditions.",
             "That's all the more reason to fight back. Earn your place and do so with pride. For example, on days where my joints are sore; a little fern warmed in the sun wrapped tightly helps relieve that stress. By stretching every morning I can stay flexible and of course, the medicine den is always there to support me.",
-            "If you are going to take anything away from this today; take away the fact there is no right way. Yes, there are things I can't do, I can't climb as well or jump as high. To compensate, I learnt to swim. Thanks to that, I can still hunt. I still serve c_nClan my way.",
+            "If you are going to take anything away from this today; take away the fact there is no right way. Yes, there are things I can't do, I can't climb as well or jump as high. To compensate, I learnt to swim. Thanks to that, I can still hunt. I still serve c_n my way.",
             "You kits are our future, it will be your duty to support each other, regardless of the limits of your bodies. Don't give up, give things a go and if something is absolutely out of your ability, it's okay to be upset. It's okay to second guess yourself, but don't be afraid to reach out for help and think differently.",
             "I could ramble on and on but, I think that's enough from me. Now, I'm about to go hunting, I'm sure r_q would be kind enough to let you all see how I do things.",
             "[The queen nods and gathers a couple of warriors, together the group trots out of camp towards the nearby stream. t_c casts a cheeky grin over {PRONOUN/t_c/poss} shoulder as r_q leads the way.]",
@@ -4214,7 +4214,7 @@
             "you_deaf"
         ],
         [
-            "[t_c pads beside d_n,  r_w1, and r_w2 as they patrol the c_nClan border.]",
+            "[t_c pads beside d_n,  r_w1, and r_w2 as they patrol the c_n border.]",
             "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/nod/nods} when d_n points something out to the other cats, and {VERB/t_c/make/makes} sure to not stray into o_c_n territory, though it doesn't matter at this point.]",
             "[When t_c notices you, {PRONOUN/t_c/subject} {VERB/t_c/look/looks} embarrassed. You quickly turn away.]"
         ]
@@ -4870,7 +4870,7 @@
             "they_apprentice"
         ],
         [
-            "I love border patrols. Well, I don't love them, but I love pretending I'm on a quest to save c_nClan from badgers and threatening cats!",
+            "I love border patrols. Well, I don't love them, but I love pretending I'm on a quest to save c_n from badgers and threatening cats!",
             "Maybe we could go questing sometime. I mean, if you wanted... just the two of us."
         ]
     ],
@@ -5078,7 +5078,7 @@
         [
             "y_c, hello. The weather's lovely today.",
             "I saw some dandelions had sprouted this morning, and I've been wandering about looking at all the new flowers.",
-            "They're beautiful, all different shades and shapes and smells, like c_nClan, I suppose.",
+            "They're beautiful, all different shades and shapes and smells, like c_n, I suppose.",
             "... huh? Yeah, I know, I should be hunting. I can hunt and look at flowers at the same time, y_c, don't you worry about me."
         ]
     ],

@@ -1120,11 +1120,6 @@
     "plural": "small comet moth wings",
     "singular": "small comet moth wing"
   },
-  "LADYBUGS": {
-    "default": "ladybugs",
-    "plural": "ladybug",
-    "singular": "ladybugs"
-  },
   "LADYBUG": {
     "default": "ladybugs",
     "plural": "ladybug",
@@ -1753,7 +1748,7 @@
   "CORKHAT": {
     "default": "cork hat",
     "plural": "cork hats",
-    "singluar": "cork hat"
+    "singular": "cork hat"
   },
   "RAINBOWLORIKEET": {
     "default": "rainbow lorikeet",
@@ -1763,7 +1758,7 @@
   "BILBY": {
     "default": "bilby",
     "plural": "bilbies",
-    "singluar": "bilby"
+    "singular": "bilby"
   },
   "ZOOKEEPER": {
     "default": "zookeeper outfit",

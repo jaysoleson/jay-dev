@@ -1343,7 +1343,7 @@
             "you_deaf"
         ],
         [
-            "[From across camp, you stare at one of the only members of c_nClan who doesn't know what you did.]",
+            "[From across camp, you stare at one of the only members of c_n who doesn't know what you did.]",
             "[r_q sees you staring and steps in front of t_c to block your view.]",
             "[You sigh. It won't be long before someone lets {PRONOUN/t_c/object} know.]"
         ]

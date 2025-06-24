@@ -127,7 +127,7 @@
             "you_blind"
         ],
         [
-            "What is it, y_c? I was just about to leave with tm_n on a visit to c_nClan ...",
+            "What is it, y_c? I was just about to leave with tm_n on a visit to c_n ...",
             "You're upset with somecat?",
             "[t_c casts a glance at {PRONOUN/t_c/poss} mentor over {PRONOUN/t_c/poss} shoulder, then turns back to you with a rare smile.]",
             "It's okay. tm_n can wait. Now, tell me what's wrong."
@@ -410,7 +410,7 @@
         ],
         [
             "I'll make you proud, y_c!",
-            "I'll make all of c_nClan proud!"
+            "I'll make all of c_n proud!"
         ]
     ],
     "assertive_elder": [
@@ -850,8 +850,8 @@
         ],
         [
             "y_c...? Oh- I'm fine, don't worry about me! I was just doing a lot of thinking.",
-            "I want to help everycat I can, but I... I don't know. I feel like I could be so much more useful out there, not just in c_nClan. Am I weird for that?",
-            "I adore c_nClan, but... I saw some o_c_n apprentices fighting, but when I tried to help they told me to keep my nose in my own Clan's business.",
+            "I want to help everycat I can, but I... I don't know. I feel like I could be so much more useful out there, not just in c_n. Am I weird for that?",
+            "I adore c_n, but... I saw some o_c_n apprentices fighting, but when I tried to help they told me to keep my nose in my own Clan's business.",
             "... Thank you for listening to me. It really means a lot, you know? Ah- I'm sure you came to ask me for something, what is it you need?"
         ]
     ],
@@ -1436,7 +1436,7 @@
             "they_mediator_apprentice"
         ],
         [
-            "y_c! You see r_c arguing with d_n over there about c_nClan's fresh-kill stock? Well, I wasn't sure how to help resolve the situation, but now I think I have the perfect plan!",
+            "y_c! You see r_c arguing with d_n over there about c_n's fresh-kill stock? Well, I wasn't sure how to help resolve the situation, but now I think I have the perfect plan!",
             "...Hey, don't \"oh no\" me! I'm not asking for your opinion, I just need you to watch me in case it all goes wrong!",
             "[t_c struts over to the two bristling cats, not-so-quietly singing \"This is the greatest plaaan!\" to themself as they approach. Unsurprisingly, the apprentice's bubbly approach returns nothing... shouldn't somecat know to stop them by now?]"
         ]
@@ -1561,7 +1561,7 @@
         ],
         [
             "[tm_n is going to discuss diplomatic matters with o_c_n, and is bringing t_c along to observe the proceedings.]",
-            "[t_c fidgets by the camp entrance, clearly nervous about representing the entirety of c_nClan. When {PRONOUN/t_c/subject} {VERB/t_c/notice/notices} you looking, {PRONOUN/t_c/subject} awkwardly {VERB/t_c/duck/ducks} behind a rock.]"
+            "[t_c fidgets by the camp entrance, clearly nervous about representing the entirety of c_n. When {PRONOUN/t_c/subject} {VERB/t_c/notice/notices} you looking, {PRONOUN/t_c/subject} awkwardly {VERB/t_c/duck/ducks} behind a rock.]"
         ]
     ],
     "neurotic_skillstory_SQ8": [

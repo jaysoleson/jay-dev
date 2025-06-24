@@ -11,7 +11,7 @@ from scripts.cat_relations.interaction import (
 )
 from scripts.event_class import Single_Event
 from scripts.game_structure.game_essentials import game
-from scripts.utility import get_personality_compatibility, process_text
+from scripts.utility import get_personality_compatibility, process_text, event_text_adjust
 
 
 # ---------------------------------------------------------------------------- #
@@ -241,7 +241,13 @@ class Relationship:
             "r_c": (str(self.cat_to.name), choice(self.cat_to.pronouns)),
         }
 
-        return process_text(string, cat_dict)
+        # LG: added o_c_n and c_n
+        event_text = process_text(string, cat_dict)
+        if game.clan.all_clans:
+            event_text = event_text.replace("o_c_n", random.choice(game.clan.all_clans).name + "Clan")
+        event_text = event_text.replace("c_n", game.clan.name + "Clan")
+
+        return event_text
 
     def get_amount(self, in_de_crease: str, intensity: str) -> int:
         """Calculates the amount of such an interaction.

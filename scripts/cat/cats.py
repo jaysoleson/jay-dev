@@ -268,7 +268,11 @@ class Cat:
         self.faith = randint(-3, 3)
         self.connected_dialogue = {}
         self.lock_faith = "flexible"
-
+        self.df_join_moon = 0
+        self.df_patrols = 0
+        self.graduated_df = False
+        self.old_status = ""
+        
         self.prevent_fading = False  # Prevents a cat from fading.
         self.faded_offspring = []  # Stores of a list of faded offspring, for family page purposes.
 
@@ -1327,6 +1331,7 @@ class Cat:
         resort = If sorting type is 'rank', and resort is True, it will resort the cat list. This should
                 only be true for non-timeskip status changes."""
         old_status = self.status
+        self.old_status = self.status
         self.status = new_status
         self.name.status = new_status
 
@@ -1459,10 +1464,15 @@ class Cat:
         output = f"an {output}" if output[0].lower() in "aeiou" else f"a {output}"
         return output
 
-    def describe_eyes(self):
-        """Get a human-readable description of this cat's eye colour"""
-        colour = str(self.pelt.eye_colour).lower()
-        colour2 = str(self.pelt.eye_colour2).lower()
+    def describe_eyes(self, eye_colour=None):
+        """Get a human-readable description of this cat's eye colour
+        eye_colour is a LifeGen argument to describe eyes in the customiser"""
+        if self:
+            colour = str(self.pelt.eye_colour).lower()
+            colour2 = str(self.pelt.eye_colour2).lower()
+        else:
+            colour = str(eye_colour).lower()
+            colour2 = None
 
         if colour == "palegreen":
             colour = "pale green"
@@ -1480,7 +1490,7 @@ class Cat:
             colour = "sunlit ice"
         elif colour == "greenyellow":
             colour = "green-yellow"
-        if self.pelt.eye_colour2:
+        if self and self.pelt.eye_colour2:
             if colour2 == "palegreen":
                 colour2 = "pale green"
             if colour2 == "darkblue":
@@ -2622,9 +2632,9 @@ class Cat:
                 "DAISY CORSAGE", "GULL FEATHERS", "SPARROW FEATHERS", "CLOVER", "DAISY",
                 "SPRINGFEATHERS", "CLOVER", "LAVENDERTAILWRAP", "CELESTIALCHIMES",
                 "LUNARCHIMES", "SILVERLUNARCHIMES", "FLOWER MOSS", "SANVITALIAFLOWERS",
-                "STARFLOWERS", "SHELL PACK", "MOSS2", "MUSHROOMS", "CLOVERS", "MUD", "LADYBUGS",
+                "STARFLOWERS", "SHELL PACK", "MOSS2", "MUSHROOMS", "CLOVERS", "MUD", "LADYBUG",
                 "FIRBRANCHES", "CHERRYBLOSSOM", "MISTLETOE", "BROWNMOSSPELT", "BLEEDINGVINES",
-                "BLEEDINGHEART", "MOREFERN", "GRAYMOSSPELT", "FERN"
+                "BLEEDINGHEART", "MOREFERN", "GRAYMOSSPELT", "FERN", "YELLOWWISTERIA", "WATTLE", "SPRINGFLOWERCORSAGE"
                 ]:
                 if acc in self.pelt.accessories:
                     self.pelt.inventory.remove(acc)
@@ -3079,7 +3089,7 @@ class Cat:
                         priority_mentors.append(cat)
             # First try for a cat who currently has no apprentices and is working
             if 'request apprentice' in game.switches:
-                if game.switches['request apprentice'] and self.moons == 6 and not game.clan.your_cat.dead and not game.clan.your_cat.outside:
+                if game.switches['request apprentice'] and self.moons == 6 and not game.clan.your_cat.dead and not game.clan.your_cat.outside and game.clan.your_cat.status in ["warrior", "medicine cat", "mediator", "queen", "deputy", "leader"]:
                     new_mentor = game.clan.your_cat
                 else:
                     if priority_mentors:  # length of list > 0
@@ -3100,7 +3110,7 @@ class Cat:
         
         potential_mentors = []
         for c in Cat.all_cats_list:
-            if c.dead and c.df and c.moons >= 6 and self.ID != c.ID:
+            if (c.dead or c.graduated_df) and (c.df or (not c.dead and c.joined_df)) and c.moons >= 6 and self.ID != c.ID:
                 potential_mentors.append(c)
 
         priority_mentors = []
@@ -4287,18 +4297,19 @@ class Cat:
                 "faith": self.faith if self.faith else 0,
                 "no_faith": self.no_faith if self.no_faith else False,
                 "connected_dialogue": self.connected_dialogue if self.connected_dialogue else {},
-                "lock_faith": self.lock_faith if self.lock_faith else "flexible"
+                "lock_faith": self.lock_faith if self.lock_faith else "flexible",
+                "df_patrols": self.df_patrols if self.df_patrols else 0,
+                "df_join_moon": self.df_join_moon if self.df_join_moon else 0,
+                "graduated_df": self.graduated_df if self.graduated_df else False,
+                "old_status": self.old_status if self.old_status else ""
             }
 
-    def determine_next_and_previous_cats(
-        self, filter_func: Callable[[Cat], bool] = None
-    ):
-
+    def determine_next_and_previous_cats(self, filter_func: Callable[[Cat], bool] = None):
         """Determines where the next and previous buttons point to, relative to this cat.
 
         :param status: Allows you to constrain the list by status
-        :param filter_func: Allows you to constrain the list by any attribute of
-            the Cat object. Takes a function which takes in a Cat instance and
+        :param filter_func: Allows you to constrain the list by any attribute of 
+            the Cat object. Takes a function which takes in a Cat instance and 
             returns a boolean.
         """
         sorted_specific_list = [
@@ -4337,7 +4348,6 @@ class Cat:
             ),
             sorted_specific_list[idx - 1].ID if idx - 1 >= 0 else 0,
         )
-
 
 # ---------------------------------------------------------------------------- #
 #                               END OF CAT CLASS                               #

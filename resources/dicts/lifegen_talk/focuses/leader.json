@@ -33,7 +33,7 @@
             "focus"
         ],
         [
-            "I believe l_n might be the best leader c_nClan has ever had."
+            "I believe l_n might be the best leader c_n has ever had."
         ]
     ],
     "good_opinion_AJ": [
@@ -323,8 +323,8 @@
             "they_elder"
         ],
         [
-            "If you ask me, l_n is exactly what this Clan needs. Things have only gotten better in c_nClan since {PRONOUN/l_n/subject} became leader!",
-            "Before {PRONOUN/l_n/object}, everybody in this Clan was so weak and lily livered ... l_n has really whipped us into shape, and shown us what being a c_nClanner is really all about!"
+            "If you ask me, l_n is exactly what this Clan needs. Things have only gotten better in c_n since {PRONOUN/l_n/subject} became leader!",
+            "Before {PRONOUN/l_n/object}, everybody in this Clan was so weak and lily livered ... l_n has really whipped us into shape, and shown us what being a c_nner is really all about!"
         ]
     ],
     "good_opinion_AJ17": [
@@ -486,7 +486,7 @@
         [
             "Psh, who cares about l_n? It's not like what {PRONOUN/l_n/subject} {VERB/l_n/do/does} really matters to the Clan much anyways.",
             "{PRONOUN/l_n/subject/CAP} can make whatever choices {PRONOUN/l_n/subject} {VERB/l_n/want/wants}, but we all know that it's what the rest of the Clan does that really matters. {PRONOUN/l_n/subject/CAP}{VERB/l_n/'re/'s} only one cat, after all.",
-            "A natural born leader with their paws on the ground has just as much influence over c_nClan as any one -star ever could!"
+            "A natural born leader with their paws on the ground has just as much influence over c_n as any one -star ever could!"
         ]
     ],
     "neutral_opinion_AJ2": [
@@ -544,7 +544,7 @@
         ],
         [
             "A big change is coming ... Can you feel it in the air?",
-            "This isn't the c_nClan it once was, when l_n first came into power.",
+            "This isn't the c_n it once was, when l_n first came into power.",
             "I can only hope the change will be for the better ... not for the worse."
         ]
     ],
@@ -556,7 +556,7 @@
         ],
         [
             "There is good and bad in everycat. l_n is no different.",
-            "To expect anything different would be completely irrational. No matter what l_n does, c_nClan will persist as it always has."
+            "To expect anything different would be completely irrational. No matter what l_n does, c_n will persist as it always has."
         ]
     ],
     "neutral_opinion_AJ7": [
@@ -566,7 +566,7 @@
         ],
         [
             "Y'know, I remember a time before l_n was leader. The leader then never always made the right choices, either. There were times when all of us doubted.",
-            "But, in the end ... c_nClan always pulled through.",
+            "But, in the end ... c_n always pulled through.",
             "I have to have faith that the same thing will happen now, as well."
         ]
     ],
@@ -641,7 +641,7 @@
             "platonic_like"
         ],
         [
-            "Honestly, forget whatever l_n did to upset everycat -- I'm way more worried about the way c_nClan can't seem to present a unified front on ... Well, much of anything these days!",
+            "Honestly, forget whatever l_n did to upset everycat -- I'm way more worried about the way c_n can't seem to present a unified front on ... Well, much of anything these days!",
             "The strength of a Clan is in its unity. If other cats saw the cracks that were starting to form in our very own camp, you bet your tail they'd love to take advantage!",
             "I just hope we can manage to pull ourselves back together soon, or else who knows what'll happen?"
         ]
@@ -762,7 +762,7 @@
             "focus"
         ],
         [
-            "If things in c_nClan keep continuing on the way they've been going ... Well, then I don't know how much longer I can stay.",
+            "If things in c_n keep continuing on the way they've been going ... Well, then I don't know how much longer I can stay.",
             "My loyalty is to my Clan, not the tyrant who wants to run it into the ground."
         ]
     ],

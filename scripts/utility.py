@@ -306,7 +306,10 @@ def change_clan_reputation(difference):
     will change the Clan's reputation with outsider cats according to the difference parameter.
     """
     game.clan.reputation += difference
-
+    if game.clan.reputation < 0:
+        game.clan.reputation = 0 # clamp to 0
+    elif game.clan.reputation > 100:
+        game.clan.reputation = 100 # clamp to 100
 
 def change_clan_relations(other_clan, difference):
     """
@@ -1306,9 +1309,8 @@ def get_amount_of_cats_with_relation_value_towards(cat, value, all_cats):
 
     return return_dict
 
-
 def filter_relationship_type(
-    group: list, filter_types: List[str], event_id: str = None, patrol_leader=None
+        group: list, filter_types: List[str], event_id: str = None, patrol_leader=None
 ):
     """
     filters for specific types of relationships between groups of cat objects, returns bool
@@ -1321,11 +1323,35 @@ def filter_relationship_type(
     :param str event_id: if the event has an ID, include it here
     :param Cat patrol_leader: if you are testing a patrol, ensure you include the self.patrol_leader here
     """
-    # keeping this list here just for quick reference of what tags are handled here
-    possible_rel_types = ["siblings", "mates", "mates_with_pl", "not_mates", "parent/child", "child/parent",
-                          "mentor/app", "app/mentor"]
+    if not filter_types:
+        return True
 
-    possible_value_types = ["romantic", "platonic", "dislike", "comfortable", "jealousy", "trust", "admiration"]
+    # keeping this list here just for quick reference of what tags are handled here
+    possible_rel_types = [
+        "siblings",
+        "mates",
+        "mates_with_pl",
+        "not_mates",
+        "parent/child",
+        "child/parent",
+        "mentor/app",
+        "app/mentor",
+
+        #lg types
+        "df_app/df_mentor",
+        "df_mentor/df_app",
+        "strangers"
+    ]
+
+    possible_value_types = [
+        "romantic",
+        "platonic",
+        "dislike",
+        "comfortable",
+        "jealousy",
+        "trust",
+        "admiration",
+    ]
 
     if "siblings" in filter_types:
         test_cat = group[0]
@@ -1418,6 +1444,26 @@ def filter_relationship_type(
         # test for parentage
         if not group[0].ID in group[1].apprentice:
             return False
+        
+    # lifegen
+    if "df_app/df_mentor" in filter_types:
+        if len(group) != 2:
+            return False
+        if not group[0].ID in group[1].df_apprentices:
+            return False
+        
+    if "df_mentor/df_app" in filter_types:
+        if len(group) != 2:
+            return False
+        if not group[1].ID in group[0].df_apprentices:
+            return False
+
+    if "strangers" in filter_types and len(group) == 2:
+        relationship = group[0].relationships[group[1].ID]
+        if relationship and (relationship.platonic_like < 1 or relationship.romantic_love < 1):
+            return False
+    elif "strangers" in filter_types:
+        return False
 
     # Filtering relationship values
     break_loop = False
@@ -1431,28 +1477,33 @@ def filter_relationship_type(
 
             # there should be only one value constraint for each value type
         elif len(tags) > 1:
-            print(f"ERROR: event {event_id} has multiple relationship constraints for the value {v_type}.")
+            print(
+                f"ERROR: event {event_id} has multiple relationship constraints for the value {v_type}."
+            )
             break_loop = True
             break
 
         # try to extract the value/threshold from the text
         try:
-            threshold = int(tags[0].split('_')[1])
+            threshold = int(tags[0].split("_")[1])
         except:
             print(
-                f"ERROR: event {event_id} with the relationship constraint for the value does not {v_type} follow the formatting guidelines.")
+                f"ERROR: event {event_id} with the relationship constraint for the value does not {v_type} follow the formatting guidelines."
+            )
             break_loop = True
             break
 
         if threshold > 100:
             print(
-                f"ERROR: event {event_id} has a relationship constraint for the value {v_type}, which is higher than the max value of a relationship.")
+                f"ERROR: event {event_id} has a relationship constraint for the value {v_type}, which is higher than the max value of a relationship."
+            )
             break_loop = True
             break
 
         if threshold <= 0:
             print(
-                f"ERROR: event {event_id} has a relationship constraint for the value {v_type}, which is lower than the min value of a relationship or 0.")
+                f"ERROR: event {event_id} has a relationship constraint for the value {v_type}, which is lower than the min value of a relationship or 0."
+            )
             break_loop = True
             break
 
@@ -1464,26 +1515,40 @@ def filter_relationship_type(
             relevant_relationships = list(
                 filter(
                     lambda rel: rel.cat_to.ID in group_ids
-                    and rel.cat_to.ID != inter_cat.ID,
+                                and rel.cat_to.ID != inter_cat.ID,
                     list(inter_cat.relationships.values()),
                 )
             )
 
             # get the relationships depending on the current value type + threshold
             if v_type == "romantic":
-                rel_above_threshold = [i for i in relevant_relationships if i.romantic_love >= threshold]
+                rel_above_threshold = [
+                    i for i in relevant_relationships if i.romantic_love >= threshold
+                ]
             elif v_type == "platonic":
-                rel_above_threshold = [i for i in relevant_relationships if i.platonic_like >= threshold]
+                rel_above_threshold = [
+                    i for i in relevant_relationships if i.platonic_like >= threshold
+                ]
             elif v_type == "dislike":
-                rel_above_threshold = [i for i in relevant_relationships if i.dislike >= threshold]
+                rel_above_threshold = [
+                    i for i in relevant_relationships if i.dislike >= threshold
+                ]
             elif v_type == "comfortable":
-                rel_above_threshold = [i for i in relevant_relationships if i.comfortable >= threshold]
+                rel_above_threshold = [
+                    i for i in relevant_relationships if i.comfortable >= threshold
+                ]
             elif v_type == "jealousy":
-                rel_above_threshold = [i for i in relevant_relationships if i.jealousy >= threshold]
+                rel_above_threshold = [
+                    i for i in relevant_relationships if i.jealousy >= threshold
+                ]
             elif v_type == "trust":
-                rel_above_threshold = [i for i in relevant_relationships if i.trust >= threshold]
+                rel_above_threshold = [
+                    i for i in relevant_relationships if i.trust >= threshold
+                ]
             elif v_type == "admiration":
-                rel_above_threshold = [i for i in relevant_relationships if i.admiration >= threshold]
+                rel_above_threshold = [
+                    i for i in relevant_relationships if i.admiration >= threshold
+                ]
 
             # if the lengths are not equal, one cat has not the relationship value which is needed to another cat of
             # the event
@@ -1501,6 +1566,7 @@ def filter_relationship_type(
         return False
 
     return True
+
 
 
 def gather_cat_objects(
@@ -1572,9 +1638,9 @@ def gather_cat_objects(
         for kitty in event.patrol_cat_dict.items():
             if kitty[0] in abbr_list:
                 out_set.add(kitty[1])
-    except AttributeError:
+    except Exception as e:
+        # print(e)
         pass
-    # im so lazy but this works lmfao
     # ----------------------------------------
 
     return list(out_set)
@@ -1830,27 +1896,27 @@ def change_relationship_values(
                         rel.log.append(log_text)
 
 def get_cluster(trait):
-        # Mapping traits to their respective clusters
-        trait_to_clusters = {
-            "assertive": ["bloodthirsty", "fierce", "bold", "daring", "confident", "arrogant", "competitive", "smug", "impulsive", "noisy"],
-            "brooding": ["bloodthirsty", "cold", "gloomy", "strict", "vengeful", "grumpy", "bullying", "secretive", "aloof", "stoic", "reserved"],
-            "cool": ["charismatic", "cunning", "arrogant", "charming", "manipulative", "leader-like", "passionate", "witty", "flexible", "mellow", "flamboyant"],
-            "upstanding": ["righteous", "ambitious", "strict", "competitive", "responsible", "bossy", "know-it-all", "leader-like", "smug", "loyal", "justified", "methodical"],
-            "introspective": ["lonesome", "righteous", "calm", "wise", "thoughtful", "quiet", "daydreamer", "flexible", "mellow", "Self-conscious"],
-            "neurotic": ["nervous", "insecure", "lonesome", "quiet", "secretive", "careful", "meek", "cowardly", "emotional", "self-conscious", "skittish"],
-            "silly": ["troublesome", "childish", "playful", "strange", "noisy", "attention-seeker", "rebellious", "bouncy", "energetic", "spontaneous"],
-            "stable": ["loyal", "responsible", "wise", "faithful", "polite", "disciplined", "patient", "passionate", "witty", "trusting"],
-            "sweet": ["compassionate", "faithful", "loving", "oblivious", "sincere", "sweet", "polite", "daydreamer", "trusting", "humble", "emotional"],
-            "unabashed": ["childish", "confident", "bold", "shameless", "strange", "oblivious", "flamboyant", "impulsive", "noisy", "honest", "spontaneous", "fearless"],
-            "unlawful": ["adventurous", "sneaky", "rebellious", "manipulative", "obsessive", "aloof", "stoic", "cunning", "troublesome", "unruly"]
-        }
-        clusters = [key for key, values in trait_to_clusters.items() if trait in values]
+    # Mapping traits to their respective clusters
+    trait_to_clusters = {
+        "assertive": ["bloodthirsty", "fierce", "bold", "daring", "confident", "arrogant", "competitive", "smug", "impulsive", "noisy"],
+        "brooding": ["bloodthirsty", "cold", "gloomy", "strict", "vengeful", "grumpy", "bullying", "secretive", "aloof", "stoic", "reserved"],
+        "cool": ["charismatic", "cunning", "arrogant", "charming", "manipulative", "leader-like", "passionate", "witty", "flexible", "mellow", "flamboyant"],
+        "upstanding": ["righteous", "ambitious", "strict", "competitive", "responsible", "bossy", "know-it-all", "leader-like", "smug", "loyal", "justified", "methodical"],
+        "introspective": ["lonesome", "righteous", "calm", "wise", "thoughtful", "quiet", "daydreamer", "flexible", "mellow", "self-conscious"],
+        "neurotic": ["nervous", "insecure", "lonesome", "quiet", "secretive", "careful", "meek", "cowardly", "emotional", "self-conscious", "skittish", "shy"],
+        "silly": ["troublesome", "childish", "playful", "strange", "noisy", "attention-seeker", "rebellious", "bouncy", "energetic", "spontaneous"],
+        "stable": ["loyal", "responsible", "wise", "faithful", "polite", "disciplined", "patient", "passionate", "witty", "trusting"],
+        "sweet": ["compassionate", "faithful", "loving", "oblivious", "sincere", "sweet", "polite", "daydreamer", "trusting", "humble", "emotional"],
+        "unabashed": ["childish", "confident", "bold", "shameless", "strange", "oblivious", "flamboyant", "impulsive", "noisy", "honest", "spontaneous", "fearless"],
+        "unlawful": ["adventurous", "sneaky", "rebellious", "manipulative", "obsessive", "aloof", "stoic", "cunning", "troublesome", "unruly"]
+    }
+    clusters = [key for key, values in trait_to_clusters.items() if trait in values]
 
-        # Assign cluster and second_cluster based on the length of clusters list
-        cluster = clusters[0] if clusters else ""
-        second_cluster = clusters[1] if len(clusters) > 1 else ""
+    # Assign cluster and second_cluster based on the length of clusters list
+    cluster = clusters[0] if clusters else ""
+    second_cluster = clusters[1] if len(clusters) > 1 else ""
 
-        return cluster, second_cluster
+    return cluster, second_cluster
 
 
 # ---------------------------------------------------------------------------- #
@@ -2135,7 +2201,7 @@ def history_text_adjust(text,
         text = text.replace("o_c_n", str(other_clan_name))
 
     if "c_n" in text:
-        text = text.replace("c_n", clan.name)
+        text = text.replace("c_n", str(game.clan.name) + "Clan")
     if "r_c" in text and other_cat_rc:
         text = selective_replace(text, "r_c", str(other_cat_rc.name))
     return text
@@ -2709,43 +2775,26 @@ def clan_symbol_sprite(clan, return_string=False, force_light=False):
     :param return_string: default False, set True if the sprite name string is required rather than the sprite image
     :param force_light: Set true if you want this sprite to override the dark/light mode changes with the light sprite
     """
-    clan_name = clan.name
-    if clan.chosen_symbol:
-        if return_string:
-            return clan.chosen_symbol
-        else:
-            if game.settings["dark mode"] and not force_light:
-                return sprites.dark_mode_symbol(sprites.sprites[clan.chosen_symbol])
-            else:
-                return sprites.sprites[clan.chosen_symbol]
-    else:
+    if not clan.chosen_symbol:
         possible_sprites = []
         for sprite in sprites.clan_symbols:
             name = sprite.strip("1234567890")
-            if f"symbol{clan_name.upper()}" == name:
+            if f"symbol{clan.name.upper()}" == name:
                 possible_sprites.append(sprite)
-        if return_string:  # returns the str of the symbol
-            if possible_sprites:
-                return choice(possible_sprites)
-            else:
-                # give random symbol if no matching symbol exists
-                print(
-                    f"WARNING: attempted to return symbol string, but there's no clan symbol for {clan_name.upper()}.  Random symbol string returned."
-                )
-                return f"{choice(sprites.clan_symbols)}"
-
-        # returns the actual sprite of the symbol
         if possible_sprites:
-            if game.settings["dark mode"] and not force_light:
-                return sprites.dark_mode_symbol(sprites.sprites[choice(possible_sprites)])
-            else:
-                return sprites.sprites[choice(possible_sprites)]
+            clan.chosen_symbol = choice(possible_sprites)
         else:
             # give random symbol if no matching symbol exists
             print(
-                f"WARNING: attempted to return symbol sprite, but there's no clan symbol for {clan_name.upper()}.  Random symbol sprite returned."
+                f"WARNING: attempted to return symbol, but there's no clan symbol for {clan.name.upper()}. "
+                f"Random chosen."
             )
-            return sprites.dark_mode_symbol(sprites.sprites[f"{choice(sprites.clan_symbols)}"])
+            clan.chosen_symbol = choice(sprites.clan_symbols)
+
+    if return_string:
+        return clan.chosen_symbol
+    else:
+        return sprites.get_symbol(clan.chosen_symbol, force_light=force_light)
 
 
 def generate_sprite(

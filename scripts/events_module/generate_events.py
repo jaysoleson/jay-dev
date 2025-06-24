@@ -3,6 +3,7 @@
 import random
 
 import ujson
+from copy import deepcopy
 
 from scripts.events_module.ongoing.ongoing_event import OngoingEvent
 from scripts.events_module.short.short_event import ShortEvent
@@ -100,7 +101,14 @@ class GenerateEvents:
 
     @staticmethod
     def generate_short_events(event_triggered, biome):
-        file_path = f"{resource_directory}{event_triggered}/{biome}.json"
+        # LG
+        faith_event = False
+        if event_triggered != "faith":
+            file_path = f"{resource_directory}{event_triggered}/{biome}.json"
+        else:
+            faith_event = True
+            file_path = "resources/dicts/relationship_events/faith.json"
+        # ---
 
         try:
             if file_path in GenerateEvents.loaded_events:
@@ -111,7 +119,19 @@ class GenerateEvents:
                 event_list = []
                 if not events_dict:
                     return event_list
-                for event in events_dict:
+                
+                new_events_dict = []
+                if faith_event:
+                    # this sucks so bad but
+                    # i have to go through the dicts with multiple interactions and seperate them here into different events
+                    for faith_event in events_dict:
+                        for count, text in enumerate(faith_event["interactions"], start=1):
+                            new_event = deepcopy(faith_event)
+                            new_event["event_text"] = [text]
+                            new_event["event_id"] = f"{count}faith_{faith_event['event_id']}"
+                            new_events_dict.append(new_event)
+
+                for event in new_events_dict:
                     event_text = event["event_text"] if "event_text" in event else None
                     if not event_text:
                         event_text = (
@@ -125,6 +145,7 @@ class GenerateEvents:
                     event = ShortEvent(
                         event_id=event["event_id"] if "event_id" in event else "",
                         location=event["location"] if "location" in event else ["any"],
+                        faith_effect=event["faith_effect"] if "faith_effect" in event else 0,
                         season=event["season"] if "season" in event else ["any"],
                         infection=event["infection"] if "infection" in event else {
                             "infected": False,
@@ -533,6 +554,37 @@ class GenerateEvents:
                         continue
                 # ---
 
+                # FAITH EVENT STUFF
+                if "min_max_faith" in event.m_c:
+                    if cat.faith < event.m_c["min_max_faith"][0]:
+                        continue
+                    if cat.faith > event.m_c["min_max_faith"][1]:
+                        continue
+                if event.r_c and random_cat and "min_max_faith" in event.r_c:
+                    if random_cat.faith < event.r_c["min_max_faith"][0]:
+                        continue
+                    if random_cat.faith > event.r_c["min_max_faith"][1]:
+                        continue
+
+                # residence
+                if "residence" in event.m_c:
+                    if not cat.dead:
+                        continue
+                    if "ur" in event.m_c["residence"]:
+                        if not cat.outside:
+                            continue
+                    if "df" in event.m_c["residence"]:
+                        if not cat.df:
+                            continue
+                    if "sc" in event.m_c["residence"]:
+                        if cat.outside or cat.df:
+                            continue
+                if "shunned" in event.m_c:
+                    if event.m_c["shunned"] is True and cat.shunned == 0:
+                        continue
+                    elif event.m_c["shunned"] is False and cat.shunned != 0:
+                        continue
+
                 # check cat trait and skill
                 if (
                     int(random.random() * trait_skill_bypass) or prevent_bypass
@@ -541,6 +593,26 @@ class GenerateEvents:
                     if event.m_c["trait"]:
                         if cat.personality.trait in event.m_c["trait"]:
                             has_trait = True
+                    
+                    # LG
+                    has_cluster = False
+                    if "cluster" in event.m_c and event.m_c["cluster"]:
+                        cluster1, cluster2 = get_cluster(cat.personality.trait)
+                        if (
+                            cluster1 in event.m_c["cluster"] or
+                            cluster2 in event.m_c["cluster"]
+                            ):
+                            has_cluster = True
+                    
+                    if "df_status" in event.m_c and event.m_c["df_status"]:
+                        if cat.joined_df is False:
+                            continue
+                        else:
+                            if cat.graduated_df and "warrior" not in event.m_c["df_status"]:
+                                continue
+                            if not cat.graduated_df and "apprentice" not in event.m_c["df_status"]:
+                                continue
+                    #  ---
 
                     has_skill = False
                     if event.m_c["skill"]:
@@ -565,6 +637,10 @@ class GenerateEvents:
                             continue
                     elif event.m_c["skill"]:
                         if not has_skill:
+                            continue
+
+                    if "cluster" in event.m_c and event.m_c["cluster"]:
+                        if not has_cluster:
                             continue
 
                     # check cat negate trait and skill
@@ -650,6 +726,26 @@ class GenerateEvents:
                         continue
                 # ---
 
+                # residence
+                if "residence" in event.r_c:
+                    if not random_cat.dead:
+                        continue
+                    if "ur" in event.r_c["residence"]:
+                        if not random_cat.outside:
+                            continue
+                    if "df" in event.r_c["residence"]:
+                        if not random_cat.df:
+                            continue
+                    if "sc" in event.r_c["residence"]:
+                        if random_cat.outside or random_cat.df:
+                            continue
+
+                if "shunned" in event.r_c:
+                    if event.r_c["shunned"] is True and cat.shunned == 0:
+                        continue
+                    elif event.r_c["shunned"] is False and cat.shunned != 0:
+                        continue
+
                 # check cat trait and skill
                 if (
                     int(random.random() * trait_skill_bypass) or prevent_bypass
@@ -658,6 +754,25 @@ class GenerateEvents:
                     if event.r_c["trait"]:
                         if random_cat.personality.trait in event.r_c["trait"]:
                             has_trait = True
+
+                    # LG
+                    has_cluster = False
+                    if  "cluster" in event.r_c and event.r_c["cluster"]:
+                        cluster1, cluster2 = get_cluster(random_cat.personality.trait)
+                        if (
+                            cluster1 in event.r_c["cluster"] or
+                            cluster2 in event.r_c["cluster"]
+                            ):
+                            has_cluster = True
+                    if "df_status" in event.r_c and event.r_c["df_status"]:
+                        if random_cat.joined_df is False:
+                            continue
+                        else:
+                            if random_cat.graduated_df and "warrior" not in event.r_c["df_status"]:
+                                continue
+                            if not random_cat.graduated_df and "apprentice" not in event.r_c["df_status"]:
+                                continue
+                    #  ---
 
                     has_skill = False
                     if event.r_c["skill"]:
@@ -682,6 +797,10 @@ class GenerateEvents:
                             continue
                     elif event.r_c["skill"]:
                         if not has_skill:
+                            continue
+                    
+                    if "cluster" in event.r_c and event.r_c["cluster"]:
+                        if not has_cluster:
                             continue
 
                     # check cat negate trait and skill
@@ -1016,6 +1135,45 @@ class GenerateEvents:
                                 break
                 if discard:
                     continue
+
+            # LG
+            # Slightly changing the event weight based on the cats current faiths
+            if event.faith_effect:
+                if event.faith_effect > 0:
+                    if event.m_c:
+                        if "affected" in event.m_c and event.m_c["affected"] is True:
+                            if cat.faith < 0:
+                                event.weight -= round(event.weight / 3)
+                    if event.r_c:
+                        if "affected" in event.m_c and event.m_c["affected"] is True:
+                            if random_cat.faith < 0:
+                                event.weight -= round(event.weight / 3)
+                elif event.faith_effect < 0:
+                    if event.m_c:
+                        if "affected" in event.m_c and event.m_c["affected"] is True:
+                            if cat.faith > 0:
+                                event.weight -= round(event.weight / 3)
+                    if event.r_c:
+                        if "affected" in event.m_c and event.m_c["affected"] is True:
+                            if random_cat.faith > 0:
+                                event.weight -= round(event.weight / 3)
+                elif event.faith_effect == 0:
+                    if event.m_c:
+                        if "affected" in event.m_c and event.m_c["affected"] is True:
+                            if (
+                                cat.faith > 2 or
+                                cat.faith < 2
+                                ):
+                                event.weight -= round(event.weight / 3)
+                    if event.r_c:
+                        if "affected" in event.m_c and event.m_c["affected"] is True:
+                            if (
+                                random_cat.faith > 2 or
+                                random_cat.faith < 2
+                                ):
+                                event.weight -= round(event.weight / 3)
+            # ------
+
 
             final_events.extend([event] * event.weight)
 

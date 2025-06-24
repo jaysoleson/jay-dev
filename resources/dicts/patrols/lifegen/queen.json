@@ -946,5 +946,142 @@
                 "weight": 20
             }
         ]
+    },
+    {
+        "patrol_id": "life_df_sam3",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "df_lifegen"
+        ],
+        "tags": [],
+        "patrol_art": "lg_default_df",
+        "min_cats": 1,
+        "max_cats": 1,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "You're sitting with the Dark Forest kits, when you can't help but wish you knew how to fight so you could protect them better. It's good to know how to fight - you're in the Dark Forest, after all.",
+        "decline_text": "Most of the Dark Forest cats probably don't have time, or don't care enough, to teach you even the basics of fighting. You just hope that you won't run into any situations where you'd need to fight.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "You eventually ask rdf_c to help you learn to fight, and {PRONOUN/rdf_c/subject} {VERB/rdf_c/agree/agrees}! You spend a few hours with {PRONOUN/rdf_c/object}, training and learning the basics of fighting. You leave the training session with confidence that you'll be able to protect the kits now.",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "When you ask rdf_c to help you learn to fight, {PRONOUN/rdf_c/subject} {VERB/rdf_c/agree/agrees}. You quickly realize that you're actually a natural at fighting! Who knew? You leave the training session with much more confidence, despite not having learned anything.",
+                "exp": 0,
+                "weight": 20,
+                "can_have_stat": ["p_l"],
+                "stat_skill": ["FIGHTER"]
+            },
+            {
+                "text": "You realize that you may not be the best at fighting, and probably never will be, but you can do other things! You're quite good at protecting the kits, for example, even without fighting. You decide that makes you happy enough, and continue to protect them with your innate skill.",
+                "exp": 0,
+                "weight": 20,
+                "can_have_stat": ["p_l"],
+                "stat_skill": ["GUARDIAN"]
+            },
+            {
+                "text": "You realize that you may not be the best at fighting, and probably never will be, but you can do other things! You're quite good at creating safe places for the kits, for example, so you don't even need to protect them by fighting! That makes you happy enough, so you continue to do what you do best.",
+                "exp": 0,
+                "weight": 20,
+                "can_have_stat": ["p_l"],
+                "stat_skill": ["INNOVATOR", "THINKER"]
+            },
+            {
+                "text": "When you ask rdf_c to help you, {PRONOUN/rdf_c/subject} {VERB/rdf_c/agree/agrees}, but {VERB/rdf_c/say/says} it'll come with a price. {PRONOUN/rdf_c/subject/CAP} {VERB/rdf_c/have/has} you do a few tasks to 'earn' the training, and you do them gladly. You'd do anything for the kits, after all. Once you've done the tasks, rdf_c eagerly teaches you anything you want to know.",
+                "exp": 0,
+                "weight": 20,
+                "can_have_stat": ["rdf_c"],
+                "stat_cluster": ["upstanding"]
+            },
+            {
+                "text": "Just as you begin to lose hope on learning how to fight, r_w appears in the Dark Forest. {PRONOUN/r_w/subject/CAP} {VERB/r_w/are/is} clearly in distress, but calms down after seeing you with the kits. You approach {PRONOUN/r_w/object} and ask for {PRONOUN/r_w/object} to help you learn to fight. {PRONOUN/r_w/subject/CAP} {VERB/r_w/agree/agrees}, and even decides to train in the Dark Forest! rdf_c would be proud.",
+                "exp": 0,
+                "weight": 15,
+                "convert": ["r_w"]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You eventually ask rdf_c to help you learn to fight, but {PRONOUN/rdf_c/subject} {VERB/rdf_c/decline/declines}. Maybe you'll be able to ask a different cat.",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "You eventually ask rdf_c to help you learn to fight, and {PRONOUN/rdf_c/subject} {VERB/rdf_c/agree/agrees}! After only a few minutes of training, you unfortunately realize that rdf_c is <i>not</i> a good teacher. You spend about an hour training with {PRONOUN/rdf_c/object}, but you learn nothing from the session.",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "When you ask rdf_c to help you learn to fight, {PRONOUN/rdf_c/subject} {VERB/rdf_c/laugh/laughs} and leads you on a wild goose chase around the Dark Forest, doing odd tasks for hours. After you finish the last task, you turn around to see {PRONOUN/rdf_c/object} gone. This was all for nothing?!",
+                "exp": 0,
+                "weight": 20,
+                "can_have_stat": ["rdf_c"],
+                "stat_cluster": ["unlawful"]
+            },
+            {
+                "text": "You're beginning to lose hope on learning how to fight, when r_w shows up! Before you can approach {PRONOUN/r_w/object}, {PRONOUN/r_w/subject} {VERB/r_w/run/runs} away from you. Well, without a guide, {PRONOUN/r_w/subject}{VERB/r_w/'re/'s} definitely getting lost.",
+                "exp": 0,
+                "weight": 5,
+                "lost_cats": ["r_w"]
+            }
+        ]
+    },
+    {
+        "patrol_id": "life_ur_sam2",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "ur_lifegen"
+        ],
+        "tags": [],
+        "patrol_art": "lg_default_ur",
+        "min_cats": 1,
+        "max_cats": 1,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "You could've sworn you heard soft meowing nearby, as if there were kits in the Unknown Residence too.",
+        "decline_text": "You shake your head, and convince yourself that you're just hearing things.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "You sniff around for a bit before finding a kit! {PRONOUN/n_c:0/subject/CAP} {VERB/n_c:0/introduce/introduces} {PRONOUN/n_c:0/self} as n_c:0. You decide to take {PRONOUN/n_c:0/object} under your care.",
+                "exp": 0,
+                "weight": 5,
+                "new_cat": [
+                    ["meeting", "residence:ur", "clan_status", "status:kitten"]
+                ]
+            },
+            {
+                "text": "Perhaps you are just hearing things, but you decide to follow your gut and approach where you think the meowing is coming from. Well, you discover that you are not going crazy, and find an Unknown Residence kitten who ventured too far from the dens. Tsking, you guide them back to safety.",
+                "exp": 0,
+                "weight": 20
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "After searching for what feels like moons, you discover there <i>is</i> a kit in the Unknown Residence... but that kit isn't a resident. Somehow a very-much-alive kit from one of the Clans has managed to slip into this ghostly afterlife, and {PRONOUN/r_k/subject}{VERB/r_k/'ve/'s} been calling to you, thinking the two of you were playing some game {PRONOUN/r_k/subject} {VERB/r_k/have/has} with {PRONOUN/r_k/poss} Clanmates. While you're relieved that the kit is still alive, you can't help but feel disappointed; you were truly hoping you could care for kittens again like you did in life.",
+                "exp": 0,
+                "weight": 20,
+                "stat_skill": ["GHOST,1"],
+                "can_have_stat": ["r_k"]
+            },
+            {
+                "text": "You turn your head and see a shadow in the mist, strangely kitten-like in shape. You tentatively creep closer, calling out for them, but they do not move or respond back. Once you get near enough to see through the mist, you only find a pile of sticks and a goop-like substance from the Dark Forest. You've been pranked again!",
+                "exp": 0,
+                "weight": 20
+            }
+        ]
     }
 ]

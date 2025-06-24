@@ -335,7 +335,7 @@
         [
             "Hey, y_c. I just got a message from StarClan. They told me that you need to pass me that scrap of moss over there.",
             "[You pass the moss to t_c.]",
-            "c_nClan has been saved!"
+            "c_n has been saved!"
         ]
     ],
     "cool_medcat_AJ1~2": [
@@ -1139,7 +1139,7 @@
             "they_blind"
         ],
         [
-            "Do c_nClan a favor and try not to pull any stupid stunts out there today.",
+            "Do c_n a favor and try not to pull any stupid stunts out there today.",
             "The medicine den is crowded enough without cats injuring themselves for foolish reasons."
         ]
     ],
@@ -1176,7 +1176,7 @@
             "neutral"
         ],
         [
-            "[You've heard stories about the mean, grumpy medicine cat of c_nClan, and decide to pay {PRONOUN/t_c/object} a visit.]",
+            "[You've heard stories about the mean, grumpy medicine cat of c_n, and decide to pay {PRONOUN/t_c/object} a visit.]",
             "Tansy, horsetail ...",
             "Hm? y_c?",
             "You ... want to know what I'm doing?",
@@ -1225,7 +1225,7 @@
         [
             "[You say something to t_c but {PRONOUN/t_c/subject} {VERB/t_c/don't/doesn't} seem to realize.]",
             "What, huh? Oh, sorry y_c, but I'm really busy right now.",
-            "c_nClan is always so sick during these seasons. I'm stressed out trying to get last-minute herbs and remedies prepared.",
+            "c_n is always so sick during these seasons. I'm stressed out trying to get last-minute herbs and remedies prepared.",
             "[t_c looks guilty, but {PRONOUN/t_c/subject} {VERB/t_c/continue/continues} {PRONOUN/t_c/poss} work.]"
         ]
     ],
@@ -2167,7 +2167,7 @@
         [
             "[t_c gazes around the medicine den, admiring the stockpiled herbs. When {PRONOUN/t_c/subject} {VERB/t_c/see/sees} you, {PRONOUN/t_c/subject} {VERB/t_c/smile/smiles} self-consciously.]",
             "When I was a loner, I collected some herbs, but never this many. I never stayed in one place for long, you know? And the one time I started a big collection, a gang of rogues took over my spot and stole them...",
-            "c_nClan just feels so much safer than being on my own. I love it a lot."
+            "c_n just feels so much safer than being on my own. I love it a lot."
         ]
     ],
     "neurotic_medcat_SQ10": [
@@ -2784,7 +2784,7 @@
             "platonic_like"
         ],
         [
-            "c_nClan is lucky to have a medicine cat like plike_r_m_silly.",
+            "c_n is lucky to have a medicine cat like plike_r_m_silly.",
             "It's like {PRONOUN/plike_r_m_silly/subject} {VERB/plike_r_m_silly/have/has} an infinite supply of jokes and silly questions for when we get bored in the medicine den, or for when a patient needs cheering up.",
             "The other day, {PRONOUN/plike_r_m_silly/subject} {VERB/plike_r_m_silly/were/was} goofing around with r_s, and r_s smiled despite everything...",
             "It was really nice to see."
@@ -2921,7 +2921,7 @@
         [
             "Is it strange that I'm afraid to see tg_c at the moonpool?",
             "Not- not afraid, necessarily. But... I'm worried about how I'll react. A medicine cat shouldn't be bawling their eyes out at the half-moon meeting.",
-            "Or worse, will I freeze up? Forget what to say? Oh, StarClan, would I forget the prophecy {PRONOUN/tg_c/subject}'d bless c_nClan with?",
+            "Or worse, will I freeze up? Forget what to say? Oh, StarClan, would I forget the prophecy {PRONOUN/tg_c/subject}'d bless c_n with?",
             "[You gently remind t_c that {PRONOUN/t_c/subject}'ll do great, even with tg_c present.]",
             "Do you think so? I hope you're right, y_c."
         ]
@@ -3135,7 +3135,7 @@
     "medcat_chaotic_innovator_rad1": [
         [
             "they_medicine_cat",
-            "they_medicine_cat_app",
+            "they_medicine_cat_apprentince",
             "they_silly",
             "they_innovator",
             "no_kit"

@@ -1149,8 +1149,8 @@ class MurderScreen(Screens):
                 print("Discovery chances will go up if the leader doesn't lose all of their lives.")
 
     def change_cat(self, new_mentor=None, accomplice=None, accompliced=None):
+        self.current_page = 1
         self.exit_screen()
-        self.current_page = 0
         r = randint(0,100)
         r2 = randint(-10, 10)
 

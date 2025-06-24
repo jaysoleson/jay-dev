@@ -78,7 +78,8 @@
             "brooding",
             "neutral",
             "you_unlawful",
-            "you_cool"
+            "you_cool",
+            "you_warrior"
         ],
         [
             "y_c. We have something to discuss.",
@@ -114,7 +115,7 @@
         ],
         [
             "I went on a hunting patrol with neutral_r_w the other day and found THE cutest mouse I think I've ever seen. It had big, innocent eyes and it was snacking on a blackberry!",
-            "It was large, so neutral_r_w wanted to catch it for c_nClan, but I couldn't bear to see it killed.",
+            "It was large, so neutral_r_w wanted to catch it for c_n, but I couldn't bear to see it killed.",
             "I, ah, ended up scaring it off to save it from being caught. That... really didn't make neutral_r_w happy at all. But it was worth it! You should've seen the little thing!"
         ]
     ],
@@ -393,7 +394,7 @@
         [
             "Alright, y_c! You're totally mastering that skill I taught you the other day ... you're improving so fast, pretty soon, you're gonna be outperforming me! Haha!",
             "I have nothing to say, except for, I guess ... I'm proud of you.",
-            "You're turning into a fine member of c_nClan already."
+            "You're turning into a fine member of c_n already."
         ]
     ],
     "assertive_jealous1": [
@@ -592,7 +593,7 @@
         [
             "Thought I should let you know, my patrol ran into a bit of trouble today. A rowdy gang of kittypets near Twolegplace.",
             "We made quick work of 'em, though! And didn't even have to unsheath a claw ... One cold glare and they went scampering right back to their Twolegs! Haha!",
-            "I gotta admit, it made me feel pretty powerful ... Guess c_nClan's reputation is starting to precede us!"
+            "I gotta admit, it made me feel pretty powerful ... Guess c_n's reputation is starting to precede us!"
         ]
     ],
     "assertive_elder_8": [
@@ -1000,7 +1001,7 @@
             "Hehe, no need to look so scared. I don't bite!",
             "... Aren't I important?",
             "Well, sure, I'm important, but never too important to spend time with my Clan's great future warriors!",
-            "Now, tell me, how are you liking life in c_nClan? You growing up okay? Everybody treating you well?",
+            "Now, tell me, how are you liking life in c_n? You growing up okay? Everybody treating you well?",
             "If anything's ever bothering you, or there's something on your mind, never hesitate to speak up. This Clan is full of cats who want to help you grow up to be the best version of yourself you can be, myself included. Okay?",
             "Now, go play! And make sure you save a game for me later! Hehe!"
         ]
@@ -1017,7 +1018,7 @@
         ],
         [
             "y_c, look at you! You are just growing up way too fast for your own good. Pretty soon, you'll be outpacing even me!",
-            "I better look out, or else c_nClan may have a new deputy soon! Hehehe!"
+            "I better look out, or else c_n may have a new deputy soon! Hehehe!"
         ]
     ],
     "assertive_elder_15": [
@@ -1077,7 +1078,7 @@
             "you_blind"
         ],
         [
-            "Ahh ... plentiful prey, good health, greenleaf is when c_nClan is at its best!",
+            "Ahh ... plentiful prey, good health, greenleaf is when c_n is at its best!",
             "It's also, coincidentally, when my job's easiest! Hehe!"
         ]
     ],
@@ -1863,7 +1864,7 @@
             "you_blind"
         ],
         [
-            "Oh, sometimes I hate being busy all the time! One minute I have to organize patrols, and the next I have to deal with important c_nClan business, and then go on my own patrols for the day, and who knows what else?",
+            "Oh, sometimes I hate being busy all the time! One minute I have to organize patrols, and the next I have to deal with important c_n business, and then go on my own patrols for the day, and who knows what else?",
             "Seriously! I can barely manage my own day, how does l_n expect me to manage the days of everycat else? If only I had some way to visualize it all...",
             "Oh! What if I used pebbles to represent every member of the Clan? And then dug small pits in the ground to put them in and visualize what needs to get done? y_c, let's go collect some pebbles!"
         ]
@@ -2735,7 +2736,7 @@
             "you_app"
         ],
         [
-            "Everycat of c_nClan should carry themselves with pride and confidence. You included. Despite being young and new to the ranks you deserve that recognition and praise. You too are working hard, in more ways than one.",
+            "Everycat of c_n should carry themselves with pride and confidence. You included. Despite being young and new to the ranks you deserve that recognition and praise. You too are working hard, in more ways than one.",
             "Keep working with enthusiasm and always remain curious. We need more cats like you, y_c. I couldn't be prouder of your progress and it's truly an honour to watch you grow. StarClan has big plans for you, I can already see your name in silverpelt."
         ]
     ],
@@ -2757,7 +2758,7 @@
         ],
         [
             "Just to double check, you and that kittypet to the edge of the territory are just friends? Yes, I'm aware and no, I'm not mad. You're allowed to have connections outside the Clan, in fact I think it's a good thing.",
-            "However, your loyalty is to this Clan and your clanmates is first and foremost. If you wish to follow your friend into another life, then by all means, that is your choice to make. But you cannot live a paw in each world. It puts yourself, them and c_nClan at risk.",
+            "However, your loyalty is to this Clan and your clanmates is first and foremost. If you wish to follow your friend into another life, then by all means, that is your choice to make. But you cannot live a paw in each world. It puts yourself, them and c_n at risk.",
             "I just want you to be safe as well as your friend. o_c_n has been lurking around there recently and I worry some warriors might not be as accepting of others as we are. You should tell your friend and find a different place to converse.",
             "I'm sure they would be alright to visit here. But that's their call to make. Look after them and look after yourself, y_c. If you ever need to talk to me about... This topic... just ask, I'm always here to help."
         ]
@@ -2802,7 +2803,7 @@
             "no_kit"
         ],
         [
-            "[t_c sleeps comfortably outside in the sun, guessing they finally got a break. Good. {PRONOUN/t_c/subject/CAP} work very hard for c_nClan.]"
+            "[t_c sleeps comfortably outside in the sun, guessing they finally got a break. Good. {PRONOUN/t_c/subject/CAP} work very hard for c_n.]"
         ]
     ],
     "TinyTeddy_stable_Deputy_Gen_01": [
@@ -2974,12 +2975,12 @@
         ],
         "noworry": [
             "[Even if dislike_r_w_assertive is trying to get the deputy role, l_n chose t_c for a reason. {PRONOUN/l_n/subject/CAP} {VERB/l_n/trust/trusts} t_c, and {PRONOUN/l_n/subject} wouldn't take away {PRONOUN/t_c/poss} position without good reason.]",
-            "[t_c's done a good job as deputy. l_n and c_nClan as a whole trusts {PRONOUN/t_c/object}. That matters more than whatever dislike_r_w_assertive thinks.]",
+            "[t_c's done a good job as deputy. l_n and c_n as a whole trusts {PRONOUN/t_c/object}. That matters more than whatever dislike_r_w_assertive thinks.]",
             "[t_c still seems nervous, but {PRONOUN/t_c/subject} {VERB/t_c/take/takes} a deep breath and {VERB/t_c/nod/nods}.]"
         ],
         "yesworry": [
             "[t_c isn't exactly the most confident cat, especially compared to cats like dislike_r_w_assertive.]",
-            "[It's important to have a deputy that manages tasks well and makes c_nClan look strong, and if dislike_r_w_assertive can convince l_n that {PRONOUN/dislike_r_w_assertive/subject} can do a better job at that than t_c, then... well...]",
+            "[It's important to have a deputy that manages tasks well and makes c_n look strong, and if dislike_r_w_assertive can convince l_n that {PRONOUN/dislike_r_w_assertive/subject} can do a better job at that than t_c, then... well...]",
             "[t_c's eyes widen. {PRONOUN/t_c/subject/CAP} {VERB/t_c/nod/nods} quickly, then {VERB/t_c/run/runs} off.]"
         ]
     },
@@ -3429,7 +3430,7 @@
         [
             "y_c, hello. The weather's lovely today.",
             "I saw some dandelions had sprouted this morning, and I've been wandering about looking at all the new flowers.",
-            "They're beautiful, all different shades and shapes and smells, like c_nClan, I suppose.",
+            "They're beautiful, all different shades and shapes and smells, like c_n, I suppose.",
             "... huh? Yeah, I know, I should be hunting. I can hunt and look at flowers at the same time, y_c, don't you worry about me."
         ]
     ],
@@ -3714,7 +3715,7 @@
             "[You glare at the deputy and stalk off, leaving {PRONOUN/t_c/object} fumbling for words behind you.]"
         ],
         "help": [
-            "[You argue that you still want to go on the patrol! You're part of c_nClan, and if warriors are going on patrol, then you should help them.]",
+            "[You argue that you still want to go on the patrol! You're part of c_n, and if warriors are going on patrol, then you should help them.]",
             "I know how you feel, y_c, but it really is dangerous! You're just... not as big, or as well-trained, as the warriors. You know?",
             "Please don't be upset! I'm going to put you on a hunting patrol instead, okay?"
         ],

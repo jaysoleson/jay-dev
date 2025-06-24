@@ -233,7 +233,7 @@
             "It'll be okay. I promise.",
             "[t_c is talking to a upset kit curled up against {PRONOUN/t_c/poss} side.]",
             "You don't need to try and force yourself to be something you're not. I get tired of talking to others too.",
-            "You're still a wonderful part of c_nClan. Even if you need space sometimes... You'll always have cats who want to be around you, and see you.",
+            "You're still a wonderful part of c_n. Even if you need space sometimes... You'll always have cats who want to be around you, and see you.",
             "[You notice t_c is looking at you. {PRONOUN/t_c/subject/CAP} {VERB/t_c/smile/smiles} pleasantly, then returns {PRONOUN/t_c/poss} full attention to the kit.]",
             "You'll never be forgotten, no matter what path your paws will lead you."
         ]
@@ -250,7 +250,7 @@
         ],
         [
             "y_c, can you believe it? I actually got to advise a real queen today! Eeee, so cool!!!",
-            "I mean, uh, definitely not cool. I'm definitely very serious and respectful towards my sacred duty to c_nClan.",
+            "I mean, uh, definitely not cool. I'm definitely very serious and respectful towards my sacred duty to c_n.",
             "... Is tm_n still there?"
         ]
     ],
@@ -339,7 +339,7 @@
         [
             "You want me to stop roughhousing with the kits?",
             "Psh, c'mon, y_c, loosen up! You worry too much!",
-            "These are the fearsome future warriors of c_nClan. {PRONOUN/t_c/subject/CAP} can withstand a little -",
+            "These are the fearsome future warriors of c_n. {PRONOUN/t_c/subject/CAP} can withstand a little -",
             "[One of the kits smacks facefirst into the nursery wall and starts crying.]",
             "... Okay, I swear that's the first time that's happened."
         ]
@@ -690,7 +690,7 @@
             "they_blind"
         ],
         [
-            "Another good day in c_nClan, right y_c? Ah- I'm sorry, I didn't mean to startle you!",
+            "Another good day in c_n, right y_c? Ah- I'm sorry, I didn't mean to startle you!",
             "I've finally got a break, being a queen is no easy task! What about you, how has today been?",
             "Wait- Let's go grab something to eat first, gotta make sure we're well fed and ready for the day!"
         ]
@@ -925,7 +925,7 @@
             "sweet"
         ],
         [
-            "[You're up late. It's a beautiful night in c_nClan and you wanted to see the stars.]",
+            "[You're up late. It's a beautiful night in c_n and you wanted to see the stars.]",
             "[Surprisingly, you were not alone. You exited the camp to spot t_c, sobbing to {PRONOUN/t_c/self}.]",
             "... How many of these little stars used to be kits? ... The smallest of us, taken too soon...",
             "[Ah, you understand. You sit by {PRONOUN/t_c/object} and explain that... sadly, a lot of them probably were kits and apprentices.",

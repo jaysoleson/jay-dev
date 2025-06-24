@@ -112,7 +112,7 @@
         [
             "Why can't l_n just call off the war? Why is it taking so long to stop it?",
             "No... It feels unfair. r_d says we should be talking about our feelings instead of fighting about it!",
-            "That's what w_cClan and c_nClan are doing, right? Fighting about something?"
+            "That's what w_cClan and c_n are doing, right? Fighting about something?"
         ]
     ],
     "war_kitten_H5": [
@@ -150,7 +150,7 @@
             "[t_c is fruitlessly trying to make the warriors laugh.]",
             "C'mon, guys! Hey, how about this one? A w_cClan cat walks into a creek ...",
             "[One of the warriors tosses a stick at {PRONOUN/t_c/object}, snapping at {PRONOUN/t_c/object} to give it a rest.]",
-            "[It seems like no one in c_nClan is in much of a laughing mood. Defeated, t_c slinks back to {PRONOUN/t_c/poss} nest.]"
+            "[It seems like no one in c_n is in much of a laughing mood. Defeated, t_c slinks back to {PRONOUN/t_c/poss} nest.]"
         ]
     ],
     "war_silly_AJ1": [
@@ -177,7 +177,7 @@
         ],
         [
             "[t_c slashes at the ground menacingly, mumbling to {PRONOUN/t_c/self} about the war.]",
-            "If any of those fox-hearts put even <i>one</i> whisker over the border, I'll kill their leader myself as many times as it takes... They'll learn not to mess with c_nClan."
+            "If any of those fox-hearts put even <i>one</i> whisker over the border, I'll kill their leader myself as many times as it takes... They'll learn not to mess with c_n."
         ]
     ],
     "unlawful_warGuy1": [
@@ -575,7 +575,7 @@
             "they_blind"
         ],
         [
-            "If you ask me, this war couldn't have come soon enough! No other Clan disrespects c_nClan and gets away with it!",
+            "If you ask me, this war couldn't have come soon enough! No other Clan disrespects c_n and gets away with it!",
             "I think I'm gonna ask l_n about putting me on the front lines ... Just you wait, y_c! Those lousy w_cClan cats aren't gonna know what hit 'em!"
         ]
     ],
@@ -591,7 +591,7 @@
         ],
         [
             "Everybody around here talks about this war like it's some huge tragedy ... But I see it as an opportunity!",
-            "I've been waiting my whole life for the chance to show everycat in c_nClan what I'm really capable of!",
+            "I've been waiting my whole life for the chance to show everycat in c_n what I'm really capable of!",
             "Get ready, y_c, because my name's about to go down in history! 't_c, slayer of w_cClan!'",
             "Heh ... Has a nice ring to it, doesn't it?"
         ]
@@ -1083,7 +1083,7 @@
         "intro": [
             "[t_c watches the camp entrance with a troubled expression.]",
             "Mediators ... We're not supposed to play favorites with any one Clan. Everycat's needs must be taken into account, especially in times like this.",
-            "But c_nClan is my home. My friends, my family, my entire life is here. How am I supposed to make a decision that could hurt the ones I love? After all that w_cClan has done?"
+            "But c_n is my home. My friends, my family, my entire life is here. How am I supposed to make a decision that could hurt the ones I love? After all that w_cClan has done?"
         ],
         "intro_choices": {
             "choice1": {
@@ -1144,7 +1144,7 @@
         ],
         [
             "Doesn't d_n know what {PRONOUN/d_n/subject}{VERB/d_n/'re/'s} risking by putting me on the border patrol?",
-            "How ever will the brave little soldiers of c_nClan get by without my beautiful face as moral support?~"
+            "How ever will the brave little soldiers of c_n get by without my beautiful face as moral support?~"
         ]
     ],
     "war_focus_AJ26": [
@@ -1251,7 +1251,7 @@
             "[d_n is swatting at t_c, insisting that {PRONOUN/d_n/poss} {VERB/d_n/know/knows} {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} not really sick, and {PRONOUN/d_n/subject} {VERB/d_n/need/needs} all the warriors {PRONOUN/d_n/subject} can get for the next border patrol.]",
             "Y'know, have you tried yelling just a little louder? I feel like that'd <i>really</i> convince me.",
             "[With a grunt of effort, t_c sluggishly rises to {PRONOUN/t_c/poss} paws and shakes scraps of moss out of {PRONOUN/t_c/poss} fur.]",
-            "c_nClan's bravest little warrior. Reporting for duty.",
+            "c_n's bravest little warrior. Reporting for duty.",
             "Let's just get this over with so I can go back to napping."
         ]
     ],
@@ -1401,7 +1401,7 @@
         ],
         [
             "No matter what happens ... No matter what ends up happening with this war ...",
-            "I will keep c_nClan safe."
+            "I will keep c_n safe."
         ]
     ],
     "war_focus_AJ31": [
@@ -1415,7 +1415,7 @@
             "they_blind"
         ],
         [
-            "[You ask t_c if it's true that StarClan will stop any c_nClan cats from getting hurt in the war.]",
+            "[You ask t_c if it's true that StarClan will stop any c_n cats from getting hurt in the war.]",
             "Oh, StarClan, no, that's not true at all. Who told you that? All of us could die in a million different horrific ways at any moment.",
             "Hey - why are you looking at me like that, r_q? The kit asked!"
         ]
@@ -1948,7 +1948,7 @@
             "no_kit"
         ],
         [
-            "[You and t_c watch the cats of c_nClan swarm around camp like ants amidst the stress of the war.]",
+            "[You and t_c watch the cats of c_n swarm around camp like ants amidst the stress of the war.]",
             "They keep asking us for help, but I don't know what to do..."
         ]
     ],
@@ -1962,7 +1962,7 @@
             "they_blind"
         ],
         [
-            "c_nClan is really struggling with this war.",
+            "c_n is really struggling with this war.",
             "You're enjoying this, aren't you?"
         ]
     ],

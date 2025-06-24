@@ -256,7 +256,7 @@
             "[t_c noses a small sparrow towards you.]",
             "Please, t_c, you have to eat something.",
             "It's very moving to see your dedication to the Clan during this period of hardship, but no cat can go without forever.",
-            "Your life is not worth any less than the rest of ours. c_nClan needs you healthy.",
+            "Your life is not worth any less than the rest of ours. c_n needs you healthy.",
             "Promise me you'll eat it and regain your strength, okay?"
         ]
     ],
@@ -408,7 +408,7 @@
         "intro": [
             "[t_c looks up as you approach, {PRONOUN/t_c/poss} body sunken from the lack of fresh-kill.]",
             "y_c, I'm sorry to ask this of you.",
-            "You're able to disrupt omens and prophecies, right? You're able to help c_nClan... right?",
+            "You're able to disrupt omens and prophecies, right? You're able to help c_n... right?",
             "[t_c gazes at you with pleading eyes. It seems you are {PRONOUN/t_c/poss} last, fickle hope.]"
         ],
         "intro_choices": {
@@ -456,7 +456,7 @@
             "[You decided to visit t_c once more, curious about {PRONOUN/t_c/poss} situation. t_c smiles brightly as {PRONOUN/t_c/subject} catch sight of your star-speckled pelt.]",
             "y_c! Oh, I am so glad to see you!",
             "[t_c looks better -- less sunken and sad.]",
-            "c_nClan's patrols suddenly found a whole lot of fresh-kill! It was a blessing!",
+            "c_n's patrols suddenly found a whole lot of fresh-kill! It was a blessing!",
             "I can't help but wonder if you had a role in the patrol's discovery. I need to give you my thanks."
         ],
         "intro_choices": {
@@ -471,7 +471,7 @@
         },
         "didnt_do": [
             "Even if you didn't do anything directly, I still need to thank you!",
-            "c_nClan is doing so much better with StarClan's help and we'll thrive once again -- I just know it!",
+            "c_n is doing so much better with StarClan's help and we'll thrive once again -- I just know it!",
             "So... I thank you sincerely, y_c, and the rest of those with star-speckled pelts."
         ],
         "no_thanks": [
@@ -494,7 +494,7 @@
         "intro": [
             "[t_c looks up as you approach, {PRONOUN/t_c/poss} body sunken from the lack of fresh-kill.]",
             "y_c, I'm sorry to ask this of you.",
-            "You're able to disrupt omens and prophecies, right? You're able to help c_nClan... right?",
+            "You're able to disrupt omens and prophecies, right? You're able to help c_n... right?",
             "[t_c gazes at you with pleading eyes. It seems you are {PRONOUN/t_c/poss} last, fickle hope.]"
         ],
         "intro_choices": {
@@ -539,7 +539,7 @@
             "connected"
         ],
         "intro": [
-            "[It didn't surprise you to see t_c in the afterlife, regardless of the saddening discovery. c_nClan must have not thrived, in the end.]",
+            "[It didn't surprise you to see t_c in the afterlife, regardless of the saddening discovery. c_n must have not thrived, in the end.]",
             "Oh, y_c.",
             "It is... strange being here, alongside the dead. Yet I suppose it was inevitable."
         ],
@@ -560,7 +560,7 @@
         ],
         "stay_quiet": [
             "I'll admit, I held too much faith in you to stop the inevitable, but I didn't want to die like that - starving and suffering.I guess I started to become desperate.",
-            "It's unfair. Why do our ancestors allow it? What did c_nClan do? There's too many questions and no answers in sight."
+            "It's unfair. Why do our ancestors allow it? What did c_n do? There's too many questions and no answers in sight."
         ]
     },
     "dead_to_starving_H1": [
