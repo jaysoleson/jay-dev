@@ -1955,12 +1955,20 @@ class MurderScreen(Screens):
                 return
             punishment_chance = 1
 
+        if randint(1,3) != 1:
+            if cat_to_murder.infected_for > 0:
+                punishment_chance = 4
+            if you.infected_for > 0:
+                punishment_chance = 5
+        if "undead" in you.illnesses:
+            punishment_chance = 6
+
         shunned_cats = []
         if punishment_chance == 1:
             shunned_cats = [you]
         elif punishment_chance == 2:
             shunned_cats = [accomplice]
-        else:
+        elif punishment_chance == 3:
             shunned_cats = [you, accomplice]
 
         for kitty in shunned_cats:
@@ -1987,14 +1995,6 @@ class MurderScreen(Screens):
                         event_text,
                         ["alert"],
                         [game.clan.your_cat.ID]))
-
-            if randint(1,3) != 1:
-                if cat_to_murder.infected_for > 0:
-                    punishment_chance = 4
-                if you.infected_for > 0:
-                    punishment_chance = 5
-        if "undead" in you.illnesses:
-            punishment_chance = 6
         
         # INF
         # this is moved here for the infected_for stuff
@@ -2111,11 +2111,6 @@ class MurderScreen(Screens):
                                 f"{a_n} is required to take meals last and is forced to sleep in a separate den away from their clanmates.",
                                 f"{a_n} is assigned to several moons of tasks that include cleaning out nests, checking elders for ticks, and other chores alongside their normal duties.",
                                 f"{a_n} is assigned a mentor who will better educate them about the Warrior Code and the sacredness of life."]
-            
-            # demote_leader = [f"{a_n}'s lives will be stripped away and they will be demoted to a warrior, no longer trusted to be the Clan's leader."]
-            # demote_deputy = [f"The Clan decides that {a_n} will be demoted to a warrior, no longer trusting them as their deputy."]
-            # demote_medicine_cat = [f"The Clan decides that {a_n} will be demoted to a warrior, no longer trusting them as their medicine cat."]
-            # exiled = [f"The Clan decides that they no longer feel safe with {a_n} as a Clanmate. They will be exiled from the Clan."]
 
             if accomplice.status == 'kitten' or accomplice.status == 'newborn':
                 game.cur_events_list.insert(3, Single_Event(

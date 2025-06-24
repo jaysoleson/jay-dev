@@ -3254,7 +3254,7 @@ def abbrev_addons(t_c, r_c, cluster, x, rel, r):
             if not r_c.history:
                 r_c.load_history()
             else:
-                if "died_infected" in r_c.history:
+                if r_c.history.died_infected:
                     if r_c.history.died_infected is False:
                         return False
         else:
