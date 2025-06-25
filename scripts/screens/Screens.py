@@ -329,13 +329,13 @@ class Screens:
             self.update_dens()
 
         elif event.ui_element == Screens.menu_buttons["lead_den"]:
-            self.change_screen("baron den screen")
+            self.change_screen("leader den screen")
         elif event.ui_element == Screens.menu_buttons["clearing"]:
             self.change_screen("clearing screen")
         elif event.ui_element == Screens.menu_buttons["med_cat_den"]:
             self.change_screen("med den screen")
         elif event.ui_element == Screens.menu_buttons["clipper_den"]:
-            self.change_screen("clipper den screen")
+            self.change_screen("warrior den screen")
 
     @classmethod
     def update_dens(cls):

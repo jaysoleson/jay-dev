@@ -22,7 +22,7 @@ with open("resources/clansettings.json", "r", encoding="utf-8") as f:
     settings_dict = ujson.load(f)
 
 
-class ClipperDenScreen(Screens):
+class WarriorDenScreen(Screens):
     """
     The screen to change the focus of the Clan, which gives bonuses.
     """

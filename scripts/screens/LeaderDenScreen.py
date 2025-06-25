@@ -33,7 +33,7 @@ from scripts.utility import (
 )
 
 
-class BaronDenScreen(Screens):
+class LeaderDenScreen(Screens):
     def __init__(self, name=None):
         super().__init__(name)
 

@@ -273,7 +273,16 @@ class MapScreen(Screens):
                 "centerx": "centerx"
             }
         )
+        # cycle buttons
+        if self.viewing_war == 0:
+            self.cycle_war_left_button.disable()
+        else:
+            self.cycle_war_left_button.enable()
 
+        if self.viewing_war == len(game.clan.war) - 1:
+            self.cycle_war_right_button.disable()
+        else:
+            self.cycle_war_right_button.enable()
     
     def on_use(self):
         super().on_use()
@@ -328,8 +337,8 @@ class MapScreen(Screens):
         self.info_elements = {}
 
         self.info_elements["frame"] = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((0, 0), (280, 370))),
-            get_box(BoxStyles.FRAME, (280, 370)),
+            ui_scale(pygame.Rect((0, 0), (280, 320))),
+            get_box(BoxStyles.FRAME, (280, 320)),
             manager=MANAGER,
             container = self.focus_barony_info_container
         )
@@ -373,26 +382,26 @@ class MapScreen(Screens):
             "This includes: " + ", ".join(exports_list)
             )
 
-        self.info_elements["desc"] = pygame_gui.elements.UITextBox(
-            relative_rect=ui_scale(pygame.Rect((0, 60), (260, 160))),
-            html_text=(
-                "<b>Territory</b>: " + str(len(self.focus_barony.territory)) + "<br>" +
-                "<b>Clippers</b>: " + str(clipper_num) + "<br><br>" +
-                export_string
-                ),
-            object_id=get_text_box_theme("#text_box_26_horizleft"),
-            container=self.focus_barony_info_container,
-            manager=MANAGER,
-            text_kwargs={},
-            anchors={
-                "centerx": "centerx"
-            }
-        )
+        # self.info_elements["desc"] = pygame_gui.elements.UITextBox(
+        #     relative_rect=ui_scale(pygame.Rect((0, 60), (260, 160))),
+        #     html_text=(
+        #         "<b>Territory</b>: " + str(len(self.focus_barony.territory)) + "<br>" +
+        #         "<b>Clippers</b>: " + str(clipper_num) + "<br><br>" +
+        #         export_string
+        #         ),
+        #     object_id=get_text_box_theme("#text_box_26_horizleft"),
+        #     container=self.focus_barony_info_container,
+        #     manager=MANAGER,
+        #     text_kwargs={},
+        #     anchors={
+        #         "centerx": "centerx"
+        #     }
+        # )
 
         self.info_elements["relations_heading"] = pygame_gui.elements.UITextBox(
-            relative_rect=ui_scale(pygame.Rect((0, 190), (160, 40))),
+            relative_rect=ui_scale(pygame.Rect((0, 45), (160, 40))),
             html_text=(
-                "<b>Relations</b>"
+                "<b><u>Relations</u></b>"
                 ),
             object_id=get_text_box_theme("#text_box_34_horizcenter"),
             container=self.focus_barony_info_container,
@@ -402,47 +411,49 @@ class MapScreen(Screens):
                 "centerx": "centerx",
             }
         )
-        relations = ""
-        if self.focus_barony != game.clan:
-            for barony in [game.clan] + game.clan.all_clans:
-                if barony == self.focus_barony:
-                    continue
-                relation_string = get_other_clan_relation(self.focus_barony.relations[barony.name])
-                font_colour = get_baron_colour(Cat.fetch_cat(barony.baron).ID)
-                relations += f"<font color='{font_colour}'>{Cat.fetch_cat(barony.baron).name}</font>:  {relation_string}<br>"
-        else:
-            for barony in game.clan.all_clans:
-                if barony == self.focus_barony:
-                    continue
-                relation_string = get_other_clan_relation(barony.relations[game.clan.name])
-                font_colour = get_baron_colour(Cat.fetch_cat(barony.baron).ID)
-                relations += f"<font color='{font_colour}'>{Cat.fetch_cat(barony.baron).name}</font>:  {relation_string}<br>"
-        
-        self.info_elements["relations"] = pygame_gui.elements.UITextBox(
-            relative_rect=ui_scale(pygame.Rect((0, 220), (230, 150))),
-            html_text=(
-                relations
-                ),
-            object_id=get_text_box_theme("#text_box_26_horizleft"),
-            container=self.focus_barony_info_container,
-            manager=MANAGER,
-            text_kwargs={},
-            anchors={
-                "centerx": "centerx",
-            }
-        )
+
+        # attempt
+        y_pos = 85
+        for clan in [game.clan] + game.clan.all_clans:
+            if clan == self.focus_barony:
+                continue
+            self.info_elements[
+                f"{clan.name}_small_symbol"
+            ] = pygame_gui.elements.UIImage(
+                ui_scale(pygame.Rect((20, y_pos), (25, 25))),
+                clan_symbol_sprite(clan),
+                starting_height=1,
+                container=self.focus_barony_info_container,
+                manager=MANAGER
+            )
+            # pylint: disable=no-member
+            rel_string = ""
+            if self.focus_barony == game.clan:
+                rel_string = get_other_clan_relation(clan.relations[game.clan.name])
+            else:
+                rel_string = get_other_clan_relation(self.focus_barony.relations[clan.name])
+            # pylint: enable=no-member
+
+            font_colour = get_baron_colour(Cat.fetch_cat(clan.baron).ID)
+            baron_info_string = f"<b><font color='{font_colour}'>{Cat.fetch_cat(clan.baron).name}</font></b> |  {rel_string}<br>"
+
+            self.info_elements["relations_" + clan.name] = pygame_gui.elements.UITextBox(
+                relative_rect=ui_scale(pygame.Rect((50, y_pos), (400, 25))),
+                html_text=(
+                    baron_info_string
+                    ),
+                object_id=get_text_box_theme("#text_box_26_horizleft"),
+                container=self.focus_barony_info_container,
+                manager=MANAGER,
+                text_kwargs={},
+            )
+            y_pos += 32
 
     def update_buttons(self):
         if self.borders_hidden is True:
             self.view_all_button.disable()
         else:
             self.view_all_button.enable()
-        if len(game.clan.war) < 2:
-            self.cycle_war_left_button.disable()
-            self.cycle_war_right_button.disable()
-        else:
-            self.cycle_war_left_button.enable()
-            self.cycle_war_right_button.enable()
     
     def get_war_info(self):
         """ puts together a string of war info """

@@ -1867,6 +1867,12 @@ def get_baron_colour(cat_id, force_dark=False):
                     if baron == cat_id:
                         baron_colour = clan.colour
                         break
+        else:
+            if game.settings["dark mode"]:
+                if force_dark:
+                    return "#1E1809"
+                return "#EFE5CE"
+            return "#1E1809"
     else:
         return
     

@@ -287,9 +287,14 @@ class RoleScreen(Screens):
                     if Cat.fetch_cat(x)
                 ]
             )
+            if self.the_cat.status == "doctor":
+                label = "general.apprentice_doctor_label"
+            else:
+                label = "general.colt_label"
+
             text.append(
                 i18n.t(
-                    "general.apprentice_label",
+                    label,
                     count=len(self.the_cat.apprentice),
                     apprentices=apprentices,
                 )

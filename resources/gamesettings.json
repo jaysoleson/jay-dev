@@ -23,7 +23,7 @@
         ],
         "baron name colours": [
             "Coloured names",
-            "Baron's names will display in their Barony's colour.",
+            "Baron's names and borders will display in their Barony's colour.",
             true
         ],
         "fullscreen scaling": [

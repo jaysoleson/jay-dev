@@ -87,9 +87,9 @@ class ClanScreen(Screens):
             else:
                 self.menu_button_pressed(event)
             if event.ui_element == self.clipper_den_label:
-                self.change_screen("clipper den screen")
+                self.change_screen("warrior den screen")
             if event.ui_element == self.baron_den_label:
-                self.change_screen("baron den screen")
+                self.change_screen("leader den screen")
 
         elif event.type == pygame.KEYDOWN and game.settings["keybinds"]:
             if event.key == pygame.K_RIGHT:

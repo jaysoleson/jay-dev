@@ -9,7 +9,7 @@ from .ClanSettingsScreen import ClanSettingsScreen
 from .ClearingScreen import ClearingScreen
 from .EventsScreen import EventsScreen
 from .FamilyTreeScreen import FamilyTreeScreen
-from .BaronDenScreen import BaronDenScreen
+from .LeaderDenScreen import LeaderDenScreen
 from .ListScreen import ListScreen
 from .MakeClanScreen import MakeClanScreen
 from .MedDenScreen import MedDenScreen
@@ -23,7 +23,7 @@ from .SettingsScreen import SettingsScreen
 from .SpriteInspectScreen import SpriteInspectScreen
 from .StartScreen import StartScreen
 from .SwitchClanScreen import SwitchClanScreen
-from .ClipperDenScreen import ClipperDenScreen
+from .WarriorDenScreen import WarriorDenScreen
 
 # NEW BL
 from .MapScreen import MapScreen
@@ -63,8 +63,8 @@ class AllScreens:
     list_screen = ListScreen("list screen")
     med_den_screen = MedDenScreen("med den screen")
     clearing_screen = ClearingScreen("clearing screen")
-    clipper_den_screen = ClipperDenScreen("clipper den screen")
-    baron_den_screen = BaronDenScreen("baron den screen")
+    warrior_den_screen = WarriorDenScreen("warrior den screen")
+    leader_den_screen = LeaderDenScreen("leader den screen")
 
     events_screen = EventsScreen("events screen")
 
@@ -103,8 +103,8 @@ class AllScreens:
         cls.list_screen = ListScreen("list screen")
         cls.med_den_screen = MedDenScreen("med den screen")
         cls.clearing_screen = ClearingScreen("clearing screen")
-        cls.clipper_den_screen = ClipperDenScreen("clipper den screen")
-        cls.baron_den_screen = BaronDenScreen("baron den screen")
+        cls.warrior_den_screen = WarriorDenScreen("warrior den screen")
+        cls.leader_den_screen = LeaderDenScreen("leader den screen")
 
         cls.events_screen = EventsScreen("events screen")
 

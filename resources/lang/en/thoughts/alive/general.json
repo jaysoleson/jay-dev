@@ -3318,7 +3318,7 @@
             "Feels proud of the progress {PRONOUN/m_c/subject}{VERB/m_c/'ve/'s} made",
             "Feels nervous about an upcoming assessment",
             "Tries to recite the Clipper Code from memory",
-            "Wants to earn {PRONOUN/m_c/poss} full name",
+            "Wants to graduate",
             "Had a very strange dream",
             "Promises to do {PRONOUN/m_c/poss} best today",
             "Has so much to learn",
@@ -3540,7 +3540,7 @@
             "Tries to recruit other apprentices for a quick adventure",
             "Sneaks off to the Twolegplace to explore",
             "Wanders out beyond Clan territory",
-            "Plans all the adventures {PRONOUN/m_c/subject}'ll take once {PRONOUN/m_c/subject} {VERB/m_c/get/gets} {PRONOUN/m_c/poss} full name",
+            "Plans all the adventures {PRONOUN/m_c/subject}'ll take once {PRONOUN/m_c/subject} {VERB/m_c/graduate/graduates}",
             "Wonders if {PRONOUN/m_c/poss} assessment will involve a quest"
         ],
         "main_status_constraint": [
@@ -3611,7 +3611,6 @@
         "id": "bold_apprentices_to_baron",
         "thoughts": [
             "Tells the Baron {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} doing something wrong",
-            "Informs r_c of {PRONOUN/m_c/poss} preferred full name",
             "Corrects r_c's hunting posture",
             "Asks r_c if {PRONOUN/r_c/subject}{VERB/r_c/'ve/'s} ever seen a trainee like {PRONOUN/m_c/object}"
         ],
@@ -4364,8 +4363,7 @@
             "Chokes up thinking about r_c",
             "Is thinking about who r_c could have grown up to become",
             "Ponders what r_c's favorite game would have been",
-            "Notices a small, faint star and thinks of r_c",
-            "Imagines what r_c's full name would have been"
+            "Notices a small, faint star and thinks of r_c"
         ],
         "random_status_constraint": [
             "kitten"
@@ -4443,9 +4441,7 @@
             "Is mourning the lost potential of r_c",
             "Is listening to stories about r_c",
             "Is learning more about r_c",
-            "Is mourning the fact that r_c will never get {PRONOUN/r_c/object} full name",
             "Is sad {PRONOUN/m_c/subject} couldn't spend time with r_c",
-            "Wonders what r_c's full name might have been",
             "Thinks fondly of r_c's training days"
         ],
         "random_status_constraint": [

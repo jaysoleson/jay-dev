@@ -707,10 +707,13 @@ class Sprites:
         """
         loads clan symbols
         """
+        
+        # BL
+        symbols_path = "resources/dicts/clan_symbols.json"
 
-        if os.path.exists("resources/dicts/clan_symbols.json"):
+        if os.path.exists(symbols_path):
             with open(
-                "resources/dicts/clan_symbols.json", encoding="utf-8"
+                symbols_path, encoding="utf-8"
             ) as read_file:
                 self.symbol_dict = ujson.loads(read_file.read())
 

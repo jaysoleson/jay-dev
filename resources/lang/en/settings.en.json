@@ -3,7 +3,7 @@
         "dark mode": "Dark mode",
         "dark mode_tooltip": "Camp backgrounds will match with the mode: nighttime for dark mode and daytime for light mode.",
         "baron name colours": "Baron name colours",
-        "baron name colours_tooltip": "Baron's names will display in their Barony's colour.",
+        "baron name colours_tooltip": "Baron's names and borders will display in their Barony's colour.",
         "fullscreen scaling": "Ignore fullscreen scaling rules",
         "fullscreen scaling_tooltip": "If enabled, fullscreen will display as large as possible (toggle fullscreen to update). This may include visual artifacts.",
         "no sprite antialiasing": "Disable sprite antialiasing",
