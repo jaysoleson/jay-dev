@@ -81,6 +81,27 @@ def json_load():
                 cat["accessories"].append(cat["accessory"])
                 cat["inventory"].append(cat["accessory"])
                 cat["accessory"] = None
+            
+            # converting old accessories 
+            if "LADYBUG" in cat["inventory"]:
+                cat["inventory"].remove("LADYBUG")
+                cat["inventory"].append("LADYBUGS")
+            if "CHIMES" in cat["inventory"]:
+                cat["inventory"].remove("CHIMES")
+                cat["inventory"].append("CELESTIALCHIMES")
+            if "RAINCOAT" in cat["inventory"]:
+                cat["inventory"].remove("RAINCOAT")
+                cat["inventory"].append("YELLOWRAINCOAT")
+
+            if "LADYBUG" in cat["accessories"]:
+                cat["accessories"].remove("LADYBUG")
+                cat["accessories"].append("LADYBUGS")
+            if "CHIMES" in cat["accessories"]:
+                cat["accessories"].remove("CHIMES")
+                cat["accessories"].append("CELESTIALCHIMES")
+            if "RAINCOAT" in cat["accessories"]:
+                cat["accessories"].remove("RAINCOAT")
+                cat["accessories"].append("YELLOWRAINCOAT")
 
             new_cat = Cat(
                 ID=cat["ID"],
