@@ -337,7 +337,7 @@
             "[Something's off. {PRONOUN/t_c/poss/CAP} usual caring demeanor has been replaced by a desperation. An anger you've never seen before.]",
             "How DARE you!? How dare you curse such a loyal cat! How can you sit up there and watch us all die?",
             "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/lash/lashes} {PRONOUN/t_c/poss} tail, and {VERB/t_c/hiss/hisses} the next words.]",
-            "I will darken every star in the sky if m_c is taken from me. If {PRONOUN/y_c/subject} {VERB/y_c/die/dies}, I--",
+            "I will darken every star in the sky if y_c is taken from me. If {PRONOUN/y_c/subject} {VERB/y_c/die/dies}, I--",
             "[t_c's voice breaks, and {PRONOUN/t_c/subject} {VERB/t_c/press/presses} {PRONOUN/t_c/poss} nose into your pelt.]",
             "I don't know what I'd do.",
             "[You watch as {PRONOUN/t_c/subject} {VERB/t_c/slink/slinks} out of camp. The next morning, when {PRONOUN/t_c/subject} {VERB/t_c/come/comes} to check on you, there isn't a single trace of what you saw the previous night.]"
@@ -1745,7 +1745,8 @@
             "they_blind",
             "you_blind",
             "they_deaf",
-            "you_deaf"
+            "you_deaf",
+            "infection"
         ],
         [
             "[t_c runs past you too quickly for you to lunge.]"
@@ -1758,7 +1759,8 @@
             "they_blind",
             "you_blind",
             "they_deaf",
-            "you_deaf"
+            "you_deaf",
+            "infection"
         ],
         [
             "[t_c almost trips and falls while scrambling to run away from you.]"
@@ -1772,7 +1774,8 @@
             "you_blind",
             "they_deaf",
             "you_deaf",
-            "they_shunned"
+            "they_shunned",
+            "infection"
         ],
         [
             "[t_c isn't as scared of you as everyone else.]"
@@ -1783,7 +1786,8 @@
             "you_undead",
             "any",
             "they_blind",
-            "you_blind"
+            "you_blind",
+            "infection"
         ],
         [
             "[t_c seems to be saying something, but it sounds muffled and distant...]"
@@ -1795,7 +1799,8 @@
             "any",
             "they_blind",
             "you_blind",
-            "you_shunned"
+            "you_shunned",
+            "infection"
         ],
         [
             "[t_c almost trips and falls while scrambling to run away from you.]"
@@ -1807,7 +1812,8 @@
             "any",
             "they_blind",
             "you_blind",
-            "they_sc"
+            "they_sc",
+            "infection"
         ],
         [
             "We failed you. I'm sorry. I hope you'll find your way to us soon."
@@ -1819,7 +1825,8 @@
             "any",
             "they_blind",
             "you_blind",
-            "they_ur"
+            "they_ur",
+            "infection"
         ],
         [
             "You're a lot like me, you know. Not really alive, not really dead... I don't feel dead, at least.",
@@ -1832,7 +1839,8 @@
             "any",
             "they_blind",
             "you_blind",
-            "they_df"
+            "they_df",
+            "infection"
         ],
         [
             "I wonder which one of us is having a worse time right now."
@@ -1846,7 +1854,8 @@
             "you_blind",
             "they_dead",
             "you_deaf",
-            "they_deaf"
+            "they_deaf",
+            "infection"
         ],
         [
             "[For some reason, a part of you feels drawn to t_c and the afterlife.]",
@@ -1862,7 +1871,8 @@
             "they_dead",
             "you_deaf",
             "they_deaf",
-            "you_shunned"
+            "you_shunned",
+            "infection"
         ],
         [
             "[For some reason, a part of you feels drawn to t_c and the afterlife.]",
@@ -1879,7 +1889,8 @@
             "you_deaf",
             "they_deaf",
             "you_shunned",
-            "you_grieving"
+            "you_grieving",
+            "infection"
         ],
         [
             "[For some reason, a part of you feels drawn to t_c and the afterlife.]",
@@ -1895,7 +1906,8 @@
             "they_dead",
             "you_deaf",
             "they_deaf",
-            "you_grieving"
+            "you_grieving",
+            "infection"
         ],
         [
             "[For some reason, a part of you feels drawn to t_c and the afterlife.]",
@@ -1909,7 +1921,8 @@
             "they_blind",
             "you_blind",
             "they_immune",
-            "no_kit"
+            "no_kit",
+            "infection"
         ],
         "intro": [
             "[t_c gets a bit closer to you than most cats dare to.]",
@@ -1942,7 +1955,8 @@
             "you_undead",
             "any",
             "they_deaf",
-            "you_deaf"
+            "you_deaf",
+            "infection"
         ],
         [
             "[t_c keeps {PRONOUN/t_c/poss} wide eyes fixed on you as {PRONOUN/t_c/subject} {VERB/t_c/cross/crosses} the clearing. You turn your head to watch {PRONOUN/t_c/object} until {PRONOUN/t_c/subject} {VERB/t_c/disappear/disappears} into a den.]"
@@ -1956,7 +1970,8 @@
             "they_deaf",
             "you_deaf",
             "you_blind",
-            "they_blind"
+            "they_blind",
+            "infection"
         ],
         [
             "[t_c's ghostly form passes through you, but you feel just as cold as before.]"
@@ -1970,7 +1985,8 @@
             "you_blind",
             "they_blind",
             "you_deaf",
-            "they_deaf"
+            "they_deaf",
+            "infection"
         ],
         [
             "[You and t_c absently bump into each other.]"
@@ -1985,7 +2001,8 @@
             "they_blind",
             "you_deaf",
             "they_deaf",
-            "you_shunned"
+            "you_shunned",
+            "infection"
         ],
         [
             "[You and t_c absently bump into each other.]"
@@ -2000,7 +2017,8 @@
             "they_blind",
             "you_deaf",
             "they_deaf",
-            "they_shunned"
+            "they_shunned",
+            "infection"
         ],
         [
             "[You and t_c absently bump into each other.]"
@@ -2016,7 +2034,8 @@
             "you_deaf",
             "they_deaf",
             "they_shunned",
-            "you_shunned"
+            "you_shunned",
+            "infection"
         ],
         [
             "[You and t_c absently bump into each other.]"
@@ -2032,7 +2051,8 @@
             "you_deaf",
             "they_deaf",
             "they_shunned",
-            "you_shunned"
+            "you_shunned",
+            "infection"
         ],
         [
             "... ... ..."
@@ -2047,7 +2067,8 @@
             "they_blind",
             "you_deaf",
             "they_deaf",
-            "you_shunned"
+            "you_shunned",
+            "infection"
         ],
         [
             "... ... ..."
@@ -2062,7 +2083,8 @@
             "they_blind",
             "you_deaf",
             "they_deaf",
-            "they_shunned"
+            "they_shunned",
+            "infection"
         ],
         [
             "... ... ..."
@@ -2076,7 +2098,8 @@
             "you_blind",
             "they_blind",
             "you_deaf",
-            "they_deaf"
+            "they_deaf",
+            "infection"
         ],
         [
             "... ... ..."
@@ -2088,7 +2111,8 @@
             "they_undead",
             "any",
             "you_blind",
-            "they_blind"
+            "they_blind",
+            "infection"
         ],
         [
             "[t_c growls at you as you pass, not lifting {PRONOUN/t_c/poss} head. You growl back.]"
@@ -2099,10 +2123,289 @@
             "you_undead",
             "they_grieving",
             "grievingyou",
-            "any"
+            "any",
+            "infection",
+            "they_blind",
+            "you_blind"
         ],
         [
             "[t_c bursts into tears when you stumble by.]"
         ]
-    ]
+    ],
+    "infection_mates_tami1": [
+        [
+            "any",
+            "you_infected",
+            "from_mate",
+            "infection",
+            "they_blind",
+            "you_blind"
+        ],
+        [
+            "[t_c stumbles into the den one night while you're half-asleep, eyes stained with tears.]",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/collapse/collapses} next to you, sniffling and burying {PRONOUN/t_c/poss} face into your fur.]",
+            "[Before you're able to say something, {PRONOUN/t_c/subject} {VERB/t_c/begin/begins} to speak.]",
+            "StarClan, i-if you're even still listening, please...",
+            "... Don't let y_c get even worse. I can't lose {PRONOUN/y_c/object}. Not after everyone else we've already lost to this.",
+            "[{PRONOUN/t_c/subject/CAP} shakily stands up and stumbles out of the den.]",
+            "[When you wake up, you spend the rest of the day comforting t_c.]"
+        ]
+    ],
+    "infection_mates_tami2": [
+        [
+            "they_stage_one",
+            "you_stage_three",
+            "they_stage_two",
+            "you_stage_four",
+            "any",
+            "from_mate",
+            "infection"
+        ],
+        [
+
+            "[t_c walks over to you, despite several warnings from r_m not to.]",
+            "[Just as you're about to shoo {PRONOUN/t_c/object} away, {PRONOUN/t_c/subject} {VERB/t_c/bury/buries} {PRONOUN/t_c/poss} face in your fur.]",
+            "I don't care how bad you look, or what you'll turn into. I still love you.",
+            "I'll always love you, y_c.",
+            "[t_c shuffles away, silently crying. It hurts seeing {PRONOUN/t_c/object} look like that.]",
+            "[And you know it probably hurts {PRONOUN/t_c/object}, seeing you look like what you do now, too.]"
+        ]
+    ],
+    "infection_mates_tami3": [
+        [
+            "you_infected",
+            "they_not_infected",
+            "any",
+            "from_mate",
+            "cure_not_found",
+            "infection",
+            "they_blind"
+        ],
+        [
+            "[You overhear a conversation between t_c and r_m while sitting in a far-off corner of the medicine den.]",
+            "y_c is going to get better, right? {PRONOUN/y_c/subject/CAP} {VERB/y_c/have/has} to!",
+            "[You watch as r_m lowers {PRONOUN/r_m/poss} head, not saying anything. t_c frowns.]",
+            "How can you call yourself a medicine cat when you can't even help a single cat get better?",
+            "[r_m stays silent, glancing over at you as t_c storms out of the den.]"
+        ]
+    ],
+    "infection_tami1": [
+        [
+            "any",
+            "they_infected",
+            "you_not_infected",
+            "they_stage_three",
+            "they_stage_four",
+            "min_platonic_50"
+        ],
+        [
+            "[You stare at t_c as {PRONOUN/t_c/subject} {VERB/t_c/shake/shakes} uncontrollably, clouded gaze unable to move from the ground.]",
+            "[Why did this stupid infection have to take the t_c you knew away from you..?]"
+        ]
+    ],
+    "infection_tami2": [
+        [
+            "you_infected",
+            "they_not_infected",
+            "any",
+            "spread_by_bite",
+            "infection",
+            "you_deaf",
+            "they_blind",
+            "they_deaf",
+            "you_stage_one",
+            "you_stage_two"
+        ],
+        [
+            "[You look over at t_c.]",
+            "[As you stare, there's an itch in the back of your mind to bite {PRONOUN/t_c/object}.]",
+            "[You shake your head, shuffling away from t_c for {PRONOUN/t_c/poss} safety, much to {PRONOUN/t_c/poss} confusion.]"
+        ]
+    ],
+    "infection_mednocure_tami1": [
+        [
+            "they_medicine_cat",
+            "they_medicine_cat_apprentice",
+            "you_medicine_cat",
+            "you_medicine_cat_apprentice",
+            "neurotic",
+            "cure_not_found",
+            "infection"
+        ],
+        [
+            "[t_c jumps as you walk into the medicine den, {PRONOUN/t_c/poss} eyes heavy with exhaustion]",
+            "Oh, y_c! It's good to see you! I think I've made some progress on the cure.",
+            "[You sigh and sit down next to {PRONOUN/t_c/object}, staring at {PRONOUN/t_c/object} and waiting for {PRONOUN/t_c/object} to continue.]",
+            "[t_c sighs.]",
+            "... Okay, maybe I haven't made that much progress, but, I think it's at least <i>something</i> in the right direction!",
+            "[You raise an eyebrow. t_c lets out a defeated huff, slinking a bit closer to the ground.]",
+            "... I haven't figured out anything. I just didn't want to sound useless.",
+            "[You gently curl your tail around t_c, reassuring {PRONOUN/t_c/object}. It's clear that {PRONOUN/t_c/subject} needed that, as {PRONOUN/t_c/subject} {VERB/t_c/start/starts} to feel a bit better after.]"
+        ]
+    ],
+    "you_undead_tami1": [
+        [
+            "you_undead",
+            "any",
+            "they_blind",
+            "you_blind",
+            "infection",
+            "you_deaf",
+            "they_deaf"
+        ],
+        [
+            "[t_c cautiously approaches you from the clearing.]",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/pause/pauses} as you stumble forward, suddenly scrambling away before you can lunge at {PRONOUN/t_c/object}.]"
+        ]
+    ],
+    "you_undead_tami2": [
+        [
+            "you_undead",
+            "any",
+            "they_kitten",
+            "you_deaf",
+            "they_deaf"
+        ],
+        [
+            "[t_c bounds over to you, {PRONOUN/t_c/poss} eyes gleaming with curiosity.]",
+            "[Before you or t_c can do anything, r_c yells out something you don't understand and pulls {PRONOUN/t_c/object} back.]"
+        ]
+    ],
+    "you_undead_tami3": [
+        [
+            "you_undead",
+            "they_medicine_cat",
+            "you_deaf",
+            "they_blind",
+            "they_deaf",
+            "cure_found"
+        ],
+        [
+            "[t_c walks over to you, a bundle of herbs in {PRONOUN/t_c/poss} mouth.]",
+            "[{PRONOUN/t_c/subject} {VERB/t_c/drop/drops} the herbs on the ground, gently nudging them towards you, then {VERB/t_c/mutter/mutters} something incomprehensible as {PRONOUN/t_c/subject} {VERB/t_c/walk/walks} away.]"
+        ]
+    ],
+    "you_undead_tami4": [
+        [
+            "you_undead",
+            "any",
+            "no_kit"
+        ],
+        [
+            "[t_c slowly approaches you, stopping suddenly and pausing to speak.]",
+            "y_c? Are you still in there?",
+            "[You want to say something, but you can't move your mouth. Your body suddenly lurches forward, preparing to lunge, as t_c jolts, fleeing before you can do anything.]"
+        ]
+    ],
+    "you_undead_tami5": [
+        [
+            "you_undead",
+            "any",
+            "you_blind",
+            "you_deaf",
+            "they_deaf"
+        ],
+        [
+            "[t_c doesn't seem to notice you as you slowly shamble towards {PRONOUN/t_c/object}.]",
+            "[For just a moment, you manage to regain the tiniest bit of control, forcing your paws to stop moving just long enough for t_c to notice.]",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/jolt/jolts}, fur puffing up the moment {PRONOUN/t_c/subject} {VERB/t_c/see/sees} you. {PRONOUN/t_c/subject/CAP} {VERB/t_c/run/runs} away without a second thought.]"
+        ]
+    ],
+    "you_undead_mates_tami1": [
+        [
+            "you_undead",
+            "any",
+            "from_mate",
+            "they_deaf",
+            "you_deaf"
+        ],
+        [
+            "[t_c bursts into tears the second {PRONOUN/t_c/subject} {VERB/t_c/see/sees} you.]"
+        ]
+    ],
+    "mourningjay_infection_1": [
+        [
+            "they_kitten",
+            "any",
+            "they_infected"
+        ],
+        [
+            "Why does it hurt so much..?",
+            "[t_c notices you and looks up at you blearily, eyes crested over with confusion.]",
+            "Who are you?"
+        ]
+    ],
+    "mourningjay_infection_2": [
+        [
+            "min_platonic_50",
+            "any",
+            "they_not_kit",
+            "you_infected",
+            "they_not_infected"
+        ],
+        [
+            "Oh, y_c..",
+            "If I could take the pain away from you, I would..."
+        ]
+    ],
+    "wootus_infection_1": [
+        [
+            "you_pregnant",
+            "brooding",
+            "assertive",
+            "max_platonic_20"
+        ],
+        [
+            "[t_c casts you an accusatory look.]",
+            "How could you bring kits into this world..?"
+        ]
+    ],
+    "wootus_infection_2": [
+        [
+            "they_formerlyarogue",
+            "they_formerlyaloner",
+            "you_kitten"
+        ],
+        [
+            "[t_c shuffles their paws, seeming out of their element as they do their best to entertain you. After a while, they apologize.]",
+            "I'm sorry. I'm not used to interacting with kits, these days..."
+        ]
+    ],
+    "wootus_infection_3": {
+        "tags": [
+            "they_elder",
+            "they_senior",
+            "sweet",
+            "stable",
+            "introspective",
+            "they_not_infected",
+            "you_not_infected"
+        ],
+        "intro": [
+            "[You follow the scent of infection to a secluded clearing in the territory, where you find t_c.]",
+            "[You bristle in shock upon discovering what they're doing-- t_c has stumbled across the body of an infected rogue, and is trying to mask the scent with herbs. You call out to ask what's going on.]",
+            "Is there a problem?",
+            "[You ask why t_c seems to be holding a burial for an infected cat they never knew.]",
+            "They were alive once, too. If they had to die like this, without so much as a name, don't they at least deserve a funeral?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Leave",
+                "next_scene": "leave"
+            },
+            "choice2": {
+                "text": "Offer to help",
+                "next_scene": "offertohelp"
+            }
+        },
+        "leave": [
+            "[You shake your head. No matter how sad it is, this is dangerous and unnecessary.]",
+            "I hope that one day, if you find yourself in as dire a situation as this cat did, a stranger will afford you the same kindness that you have just refused to lend to this poor soul.",
+            "No cat asked you to follow me out here. Go back to camp. I'll finish this on my own."
+        ],
+        "offertohelp": [
+            "[You dip your head apologetically and offer to help.]",
+            "You can spare these old joints by starting to dig for me."
+        ]
+    }
 }

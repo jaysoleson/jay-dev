@@ -174,10 +174,7 @@
             "Saw a kittypet with the fluffiest fur imaginable today",
             "Saw a big scary dog today",
             "Is drinking water from a nearby stream",
-            "Thought {PRONOUN/m_c/subject} saw a cat, but turns out it's a Twoleg object that just looks like one",
-            "Is wondering if the other Clans are dealing with the infection as well",
-            "Wonders if StarClan enjoys watching the Clan suffer with the infection",
-            "Is saying that the Dark Forest caused the infection"
+            "Thought {PRONOUN/m_c/subject} saw a cat, but turns out it's a Twoleg object that just looks like one"
         ],
         "main_status_constraint": [
             "apprentice",
@@ -5770,6 +5767,16 @@
         ]
     },
     {
+        "id": "gen_infection",
+        "infected": true,
+        "thoughts": [
+            "Is wondering if the other Clans are dealing with the infection as well",
+            "Wonders if StarClan enjoys watching the Clan suffer with the infection",
+            "Is saying that the Dark Forest caused the infection",
+            "Nuzzles {PRONOUN/t_c/poss} loved ones each time they're about to leave camp for fear that they won't return"
+        ]
+    },
+    {
         "id": "gen_infected",
         "infected": true,
         "thoughts": [
@@ -5797,6 +5804,26 @@
     },
     {
         "id": "gen_not_infected",
+        "infected": true,
+        "thoughts": [
+            "is wondering if {PRONOUN/m_c/subject}'ll be next to fall ill",
+            "Avoids the fresh-kill pile, just in case",
+            "Thinks about how quiet the camp has become",
+            "Imagines what it's like to be infected",
+            "Doubts the Clan will survive another moon of this",
+            "Wonders if Twolegs are to blame for all this",
+            "Catches a strange scent on the wind and tenses up",
+            "Daydreams about a time before the infection"
+        ],
+        "main_infected_constraint": [
+            "not_infected"
+        ],
+        "main_age_constraint": [
+            "no_kit"
+        ]
+    },
+    {
+        "id": "gen_not_infected_zombie",
         "infected": true,
         "thoughts": [
             "Is wondering when {PRONOUN/m_c/subject}'ll be able to sleep soundly again.",
@@ -6029,7 +6056,10 @@
             "Never blinks",
             "Idly chews on {PRONOUN/m_c/poss} own paw",
             "Trips when {PRONOUN/m_c/subject} {VERB/m_c/walk/walks}",
-            "Is wandering around mindlessly"
+            "Is wandering around mindlessly",
+            "Can no longer detect {PRONOUN/m_c/poss} own pulse",
+            "Feels a deep hunger, but not for prey",
+            "Stumbles through a crowd of terrified cats, easily clearing a path"
         ],
         "main_infected_constraint": [
             "undead"
@@ -6176,6 +6206,129 @@
         ],
         "main_backstory_constraint": [
             "infection_refugee"
+        ]
+    },
+    {
+        "id": "gen_fungal",
+        "infected": true,
+        "thoughts": [
+            "Hopes the black spores in the air are just tricks of the light",
+            "Stomps on every mushroom {PRONOUN/m_c/subject} {VERB/m_c/see/sees}"
+        ]
+    },
+    {
+        "id": "gen_fungal_infected_earlystage",
+        "infected": true,
+        "thoughts": [
+            "Notices the tiny, dark specks on {PRONOUN/m_c/poss} pelt and hopes it's just dirt",
+            "Feels damp, despite it not raining",
+            "Wonders why an earthy smell clings to {PRONOUN/m_c/object}",
+            "Feels an itch beneath {PRONOUN/m_c/poss} fur that never quite goes away",
+            "Feels an odd pressure in {PRONOUN/m_c/poss} chest with every breath",
+            "Watches the glowing mushrooms at night, drawn to them",
+            "Scratches endlessly at {PRONOUN/m_c/poss} pelt, sending spores flying in every direction",
+            "Sleeps in strategic positions to hide {PRONOUN/m_c/poss} glowing wounds from sight"
+        ],
+        "main_infected_constraint": [
+            "infected"
+        ],
+        "infection": [
+            "fungal",
+            "stage one",
+            "stage two"
+        ]
+    },
+    {
+        "id": "gen_fungal_infected_latestage",
+        "infected": true,
+        "thoughts": [
+            "Glows in the dark",
+            "Inhales infected spores with each breath"
+        ],
+        "main_infected_constraint": [
+            "infected"
+        ],
+        "infection": [
+            "fungal",
+            "stage three",
+            "stage four"
+        ]
+    },
+    {
+        "id": "gen_void_infected_earlystage",
+        "infected": true,
+        "thoughts": [
+            "Feels the weight of something unseen pressing on {PRONOUN/m_c/poss} chest",
+            "Feels cold, even in the sun",
+            "Is noticing {PRONOUN/m_c/poss} fur begin to darken",
+            "Notices that {PRONOUN/m_c/poss} voice is starting to get quieter",
+            "Sees shadows flicker and move, even under the bright sun",
+            "Feels as if {PRONOUN/m_c/subject} might float away"
+        ],
+        "main_infected_constraint": [
+            "infected"
+        ],
+        "infection": [
+            "void",
+            "stage one",
+            "stage two"
+        ]
+    },
+    {
+        "id": "gen_void_infected_latestage",
+        "infected": true,
+        "thoughts": [
+            "Is feeling hollow on the inside",
+            "Notices {PRONOUN/m_c/poss} paws are beginning to fade away",
+            "Realises {PRONOUN/m_c/poss} pawsteps make no sound",
+            "Can't remember the last time {PRONOUN/m_c/subject} felt any warmth"
+        ],
+        "main_infected_constraint": [
+            "infected"
+        ],
+        "infection": [
+            "void",
+            "stage three",
+            "stage four"
+        ]
+    },
+    {
+        "id": "gen_parasitic_infected_earlystage",
+        "infected": true,
+        "thoughts": [
+            "Feels oddly thirsty, despite drinking plenty of water",
+            "Shakes {PRONOUN/m_c/poss} head to clear a buzzing that isn't really there",
+            "Feels something crawling underneath {PRONOUN/m_c/poss} fur",
+            "Notices the wounds on their paws aren't healing like they should"
+        ],
+        "main_infected_constraint": [
+            "infected"
+        ],
+        "infection": [
+            "parasitic",
+            "stage one",
+            "stage two"
+        ]
+    },
+    {
+        "id": "gen_parasitic_infected_latestage",
+        "infected": true,
+        "thoughts": [
+            "Struggles to focus as {PRONOUN/m_c/poss} vision blurs",
+            "Struggles to say {PRONOUN/m_c/poss} own name when someone asks",
+            "Notices {PRONOUN/m_c/poss} body seems to act on its own",
+            "Keeps bleeding through {PRONOUN/m_c/poss} bedding",
+            "Wishes {PRONOUN/m_c/subject} wasn't so scary-looking",
+            "Smells nothing but blood",
+            "Wishes somecat would be willing to give {PRONOUN/m_c/object} a hug"
+        ],
+        "main_infected_constraint": [
+            "infected"
+        ],
+        "infection": [
+            "parasitic",
+            "stage three",
+            "stage four"
         ]
     }
 ]

@@ -25,7 +25,8 @@
         "general": [
             "o_c_n looked well at the last Gathering. Perhaps the infection hasn't reached them yet.",
             "o_c_n's border markers smell clean and uninfected. Have they somehow not come across the disease yet?",
-            "The healthy group of o_c_n cats avoids the other Clans at the Gathering."
+            "The healthy group of o_c_n cats avoids the other Clans at the Gathering.",
+            "Despite the infection ravaging c_n, o_c_n continues to show up to Gatherings without a trace of it."
         ],
         "fungal": [],
         "void": [],
@@ -55,8 +56,12 @@
             "o_c_n's leader appeared to be sick at the most recent Gathering, but strongly denied it."
         ],
         "fungal": [],
-        "void": [],
-        "parasitic": []
+        "void": [
+            "The pelts of o_c_n's warriors seem to be growing darker."
+        ],
+        "parasitic": [
+            "o_c_n's medicine cats show up to the half-moon meeting with their paws covered in blood, and their pelts smelling of infection."
+        ]
     },
     "low_allies": {
         "general": [
@@ -82,8 +87,12 @@
             "With sad eyes, the o_c_n leader announces at the Gathering that they've lost a Clanmate to the infection.",
             "o_c_n has been seen less and less often during border patrols."
         ],
-        "fungal": [],
-        "void": [],
+        "fungal": [
+            "o_c_n's medicine cat confesses to the others that all of their herbs were recently destroyed by the infection."
+        ],
+        "void": [
+            "o_c_n's medicine cats ask the others at the half-moon meeting what they can do about their infected patients-- no matter how much bedding they supply, the sick cats continue to shiver."
+        ],
         "parasitic": [
             "The pelts of o_c_n's medicine cats are stained with blood as they arrive late to every half-moon meeting."
         ]
@@ -91,7 +100,8 @@
     "mid_allies": {
         "general": [
             "o_c_n reaches out to try and trade some herbs.",
-            "o_c_n's deputy shows up at the border, informing the deputy that o_c_n's leader is severely infected."
+            "A senior warrior from o_c_n shows up at the border, informing the deputy that o_c_n's leader is severely infected.",
+            "A c_n patrol sends a bundle of prey to the o_c_n camp to aid them in these troubling times."
         ],
         "fungal": [],
         "void": [],
@@ -116,13 +126,19 @@
             "o_c_n's border marking has become wildly inconsistent as the scent of the infection from their territory grows stronger.",
             "o_c_n's leader shows up to the Gathering alone.",
             "med_name has been seeing a lot more o_c_n cats lately when visiting StarClan.",
-            "lead_name can't get in contact with o_c_n's leader or deputy."
+            "lead_name can't get in contact with o_c_n's leader or deputy.",
+            "o_c_n hasn't marked their borders in moons."
         ],
-        "fungal": [],
+        "fungal": [
+            "It's hard to spot a tree or plant on o_c_n territory that hasn't been touched by the infection."
+        ],
         "void": [
             "Most of the o_c_n cats look like shadows."
         ],
-        "parasitic": []
+        "parasitic": [
+            "It seems like every tail-length of o_c_n's border is marked with a trail of infected blood.",
+            "Every border and landmark in o_c_n territory has been dotted with blood by the infected cats who walk by."
+        ]
     },
     "high_allies": {
         "general": [
@@ -148,7 +164,8 @@
             "lead_name hasn't heard from o_c_n lately, and med_name hasn't seen o_c_n's medicine cats at the half-moon meetings. After sending a patrol to o_c_n's camp, the Clan has learned that o_c_n is no more."
         ],
         "fungal": [
-            "A patrol travels to o_c_n camp to offer some support, as they've been missing from Gatherings for a while now. When they arrive at camp, the horrified patrol discovers that those glowing, malicious mushrooms have taken over the entire camp, obscuring the clearing and dens. o_c_n's leader lays in the entrance to their den, their body fused to the ground by the fungus overtaking it. o_c_n has died out."
+            "A patrol travels to o_c_n camp to offer some support, as they've been missing from Gatherings for a while now. When they arrive at camp, the horrified patrol discovers that those glowing, malicious mushrooms have taken over the entire camp, obscuring the clearing and dens. o_c_n's leader lays in the entrance to their den, their body fused to the ground by the fungus overtaking it. o_c_n has died out.",
+            "The o_c_n camp has been completely abandoned, overtaken by the malicious, glowing fungus."
         ],
         "void": [
             "lead_name sends a welfare patrol to the o_c_n camp. It soon becomes apparent to the patrol that there is no camp left to visit-- a large, toxic black stain lays where it used to be. o_c_n has become consumed by the infection."

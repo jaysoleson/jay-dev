@@ -702,6 +702,7 @@ class TalkScreen(Screens):
 
             # INF
             # any tag
+            # this will ignore all tags and make the dialogue attainable for everyone.
             if "any_cat_override" in tags:
                 texts_list[talk_key] = talk
 

@@ -1889,5 +1889,12 @@
         "random_living_status": [
             "living"
         ]
+    },
+    {
+        "id": "gen_elder_infection",
+        "infected": true,
+        "thoughts": [
+            "Spends a lot of time digging graves these days"
+        ]
     }
 ]

@@ -81,9 +81,12 @@ class Thoughts:
         
         # clan infection
         if "infected" in thought:
-            if thought["infected"] is True and game.clan and game.clan.infection["clan_infected"] is False:
-                return False
-            if thought["infected"] is False and game.clan and game.clan.infection["clan_infected"] is True:
+            if game.clan:
+                if thought["infected"] is True and game.clan and game.clan.infection["clan_infected"] is False:
+                    return False
+                if thought["infected"] is False and game.clan and game.clan.infection["clan_infected"] is True:
+                    return False
+            else:
                 return False
 
         # This is for checking if another cat is needed and there is another cat

@@ -47,5 +47,29 @@
         "main_trait_constraint": [
             "flamboyant"
         ]
+    },
+    {
+        "id": "gen_infection_queen",
+        "infected": true,
+        "thoughts": [
+            "Regrets that r_c won't remember the world before the outbreak"
+        ],
+        "random_status_constraint": [
+            "kitten"
+        ]
+    },
+    {
+        "id": "assertive_infection_queen",
+        "infected": true,
+        "thoughts": [
+            "Is secretly teaching the kits how to defend themselves against infected cats"
+        ],
+        "random_status_constraint": [
+            "kitten"
+        ],
+        "main_cluster_constraint": [
+            "assertive",
+            "unlawful"
+        ]
     }
 ]
