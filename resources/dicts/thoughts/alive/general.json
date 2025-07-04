@@ -5856,7 +5856,8 @@
         "id": "gen_infected_cure",
         "infected": true,
         "thoughts": [
-            "Thanks StarClan for the cure"
+            "Thanks StarClan for the cure",
+            "Wonders if the territory will run out of ingredients for the cure"
         ],
         "infection": [
             "cured"
