@@ -895,17 +895,17 @@
         "max_cats": 1,
         "min_max_status": {},
         "weight": 20,
-        "intro_text": "r_k_neurotic is missing! Just as you leave the den to look for them, they barrel into you, crying so hard they can't get a word out.",
-        "decline_text": "You let the kit cry into your fur without a word until {PRONOUN/r_k_neurotic/subject} tucker {VERB/r_k_neurotic/self} out.",
+        "intro_text": "r_k-neurotic is missing! Just as you leave the den to look for them, they barrel into you, crying so hard they can't get a word out.",
+        "decline_text": "You let the kit cry into your fur without a word until {PRONOUN/r_k-neurotic/subject} {VERB/r_k-neurotic/tucker/tuckers} {PRONOUN/r_k-neurotic/self} out.",
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "You know that if r_k_neurotic doesn't get regulated, {PRONOUN/r_k_neurotic/subject}{VERB/r_k_neurotic/'re/'s} not going to be able to breathe properly. Instead of asking what happened, you hug {PRONOUN/r_k_neurotic/object} close and begin to groom {PRONOUN/r_k_neurotic/poss} fur until {PRONOUN/r_k_neurotic/subject} {VERB/r_k_neurotic/fall/falls} asleep. Later, r_w comes in to check on {PRONOUN/r_k_neurotic/object} and tells you {PRONOUN/r_k_neurotic/subject} got startled by an angry squirrel. Poor little kit!",
+                "text": "You know that if r_k-neurotic doesn't get regulated, {PRONOUN/r_k-neurotic/subject}{VERB/r_k-neurotic/'re/'s} not going to be able to breathe properly. Instead of asking what happened, you hug {PRONOUN/r_k-neurotic/object} close and begin to groom {PRONOUN/r_k-neurotic/poss} fur until {PRONOUN/r_k-neurotic/subject} {VERB/r_k-neurotic/fall/falls} asleep. Later, r_w comes in to check on {PRONOUN/r_k-neurotic/object} and tells you {PRONOUN/r_k-neurotic/subject} got startled by an angry squirrel. Poor little kit!",
                 "exp": 15,
                 "weight": 20
             },
             {
-                "text": "Though startled, you understand that r_k_neurotic is suffocating underneath {PRONOUN/r_k_neurotic/poss} panic and you need to act quickly. You curl around r_k_neurotic and start humming a rhythmic tune, hoping the vibrations will be a welcome distraction from {PRONOUN/r_k_neurotic/poss} fear. It takes a bit, but r_k_neurotic takes comfort in your humming and calms down enough to breathe properly again.",
+                "text": "Though startled, you understand that r_k-neurotic is suffocating underneath {PRONOUN/r_k-neurotic/poss} panic and you need to act quickly. You curl around r_k-neurotic and start humming a rhythmic tune, hoping the vibrations will be a welcome distraction from {PRONOUN/r_k-neurotic/poss} fear. It takes a bit, but r_k-neurotic takes comfort in your humming and calms down enough to breathe properly again.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": [
@@ -916,7 +916,7 @@
                 ]
             },
             {
-                "text": "You coax r_k_neurotic to a secluded area within the nursery to give {PRONOUN/r_k_neurotic/poss} some privacy, and stay with {PRONOUN/r_k_neurotic/object} as a comforting presence until r_k_neurotic is able to catch {PRONOUN/r_k_neurotic/poss} breath. r_k_neurotic blubbers out that a bird of prey scared {PRONOUN/r_k_neurotic/object} and {PRONOUN/r_k_neurotic/subject}{VERB/r_k_neurotic/'re/'s} sorry, but you shush {PRONOUN/r_k_neurotic/object} gently before r_k_neurotic apologizes again. There's no need for apologies when seeking comfort.",
+                "text": "You coax r_k-neurotic to a secluded area within the nursery to give {PRONOUN/r_k-neurotic/poss} some privacy, and stay with {PRONOUN/r_k-neurotic/object} as a comforting presence until r_k-neurotic is able to catch {PRONOUN/r_k-neurotic/poss} breath. r_k-neurotic blubbers out that a bird of prey scared {PRONOUN/r_k-neurotic/object} and {PRONOUN/r_k-neurotic/subject}{VERB/r_k-neurotic/'re/'s} sorry, but you shush {PRONOUN/r_k-neurotic/object} gently before r_k-neurotic apologizes again. There's no need for apologies when seeking comfort.",
                 "exp": 10,
                 "weight": 20,
                 "stat_trait": [
@@ -936,12 +936,12 @@
         ],
         "fail_outcomes": [
             {
-                "text": "You try to guide the kit through some breathing exercises, but {PRONOUN/r_k_neurotic/subject} {VERB/r_k_neurotic/don't/doesn't} seem to hear you. Whatever happened must have scared {PRONOUN/r_k_neurotic/object} a lot.",
+                "text": "You try to guide the kit through some breathing exercises, but {PRONOUN/r_k-neurotic/subject} {VERB/r_k-neurotic/don't/doesn't} seem to hear you. Whatever happened must have scared {PRONOUN/r_k-neurotic/object} a lot.",
                 "exp": 0,
                 "weight": 20
             },
             {
-                "text": "You try to ask what is wrong, but r_k_neurotic is unable to speak through {PRONOUN/r_k_neurotic/poss} tears and quickened breath. You make the mistake of allowing panic to appear in your expression and r_k_neurotic cries harder, not finding any comfort at all. In a last ditch effort, you call over another queen and they take care of the issue with hushed words and gentle snuggles.",
+                "text": "You try to ask what is wrong, but r_k-neurotic is unable to speak through {PRONOUN/r_k-neurotic/poss} tears and quickened breath. You make the mistake of allowing panic to appear in your expression and r_k-neurotic cries harder, not finding any comfort at all. In a last ditch effort, you call over another queen and they take care of the issue with hushed words and gentle snuggles.",
                 "exp": 0,
                 "weight": 20
             }

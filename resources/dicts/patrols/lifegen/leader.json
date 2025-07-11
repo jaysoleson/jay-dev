@@ -343,17 +343,17 @@
         "max_cats": 6,
         "min_max_status": {},
         "weight": 20,
-        "intro_text": "d_n has come to you with an issue. More warriors are reporting to {PRONOUN/d_n/object} that r_w_assertive has been starting more arguments as of late on patrols. Before {PRONOUN/d_n/subject} {VERB/d_n/speak/speaks} to {PRONOUN/r_w_assertive/object}, {PRONOUN/d_n/subject} wanted your opinion.",
+        "intro_text": "d_n has come to you with an issue. More warriors are reporting to {PRONOUN/d_n/object} that r_w-assertive has been starting more arguments as of late on patrols. Before {PRONOUN/d_n/subject} {VERB/d_n/speak/speaks} to {PRONOUN/r_w-assertive/object}, {PRONOUN/d_n/subject} wanted your opinion.",
         "decline_text": "d_n should trust {PRONOUN/d_n/self} more. {PRONOUN/d_n/subject/CAP} {VERB/d_n/know/knows} what is best.",
         "chance_of_success": 65,
         "success_outcomes": [
             {
-                "text": "r_w_assertive isn't a problem starter - {PRONOUN/r_w_assertive/subject}{VERB/r_w_assertive/'re/'s} a problem finisher. d_n realizes the issue seems to lie with r_w1 as well. After a moment {PRONOUN/d_n/subject} {VERB/d_n/decide/decides} to separate the two for a bit and resolve it with r_d.",
+                "text": "r_w-assertive isn't a problem starter - {PRONOUN/r_w-assertive/subject}{VERB/r_w-assertive/'re/'s} a problem finisher. d_n realizes the issue seems to lie with r_w1 as well. After a moment {PRONOUN/d_n/subject} {VERB/d_n/decide/decides} to separate the two for a bit and resolve it with r_d.",
                 "exp": 10,
                 "weight": 20
             },
             {
-                "text": "d_n hasn't seemed to catch on that r_w_assertive isn't a problem starter - {PRONOUN/r_w_assertive/subject}{VERB/r_w_assertive/'re/'s} a problem finisher. You gently remind {PRONOUN/d_n/object} that each of {PRONOUN/d_n/poss} Clanmates are unique. By the time you finish explaining d_n is more confident with new knowledge before heading off to complete the task.",
+                "text": "d_n hasn't seemed to catch on that r_w-assertive isn't a problem starter - {PRONOUN/r_w-assertive/subject}{VERB/r_w-assertive/'re/'s} a problem finisher. You gently remind {PRONOUN/d_n/object} that each of {PRONOUN/d_n/poss} Clanmates are unique. By the time you finish explaining d_n is more confident with new knowledge before heading off to complete the task.",
                 "exp": 10,
                 "weight": 20
             }
@@ -365,7 +365,7 @@
                 "weight": 20
             },
             {
-                "text": "r_c_assertive, causing problems? What else is new? And why would d_n need your advice for handling it? You shake your head at {PRONOUN/d_n/object} and tell {PRONOUN/d_n/object} to speak to r_w_assertive on {PRONOUN/d_n/poss} own if it's so important. You have other matters to attend to.",
+                "text": "r_c-assertive, causing problems? What else is new? And why would d_n need your advice for handling it? You shake your head at {PRONOUN/d_n/object} and tell {PRONOUN/d_n/object} to speak to r_w-assertive on {PRONOUN/d_n/poss} own if it's so important. You have other matters to attend to.",
                 "exp": 0,
                 "weight": 20
             }
@@ -433,29 +433,29 @@
         "max_cats": 6,
         "min_max_status": {},
         "weight": 20,
-        "intro_text": "While in your den, r_w_upstanding bursts in, frustrated. {PRONOUN/r_w_upstanding/subject/CAP} exclaims that r_w chased and caught prey over the o_c_n border but d_n doesn't see the issue! Something needs to be done about this.",
-        "decline_text": "You're too busy for this. r_w_upstanding is dismissed so you can focus.",
+        "intro_text": "While in your den, r_w-upstanding bursts in, frustrated. {PRONOUN/r_w-upstanding/subject/CAP} exclaims that r_w chased and caught prey over the o_c_n border but d_n doesn't see the issue! Something needs to be done about this.",
+        "decline_text": "You're too busy for this. r_w-upstanding is dismissed so you can focus.",
         "chance_of_success": 70,
         "success_outcomes": [
             {
-                "text": "Gently, you assure r_w_upstanding that one mistake isn't going to cause problems. To make {PRONOUN/r_w_upstanding/object} feel more at ease, you agree to mention this to r_d. {PRONOUN/r_w_upstanding/subject/CAP} {VERB/r_w_upstanding/aren't/isn't} totally satisfied by this but is more assured as {PRONOUN/r_w_upstanding/subject} {VERB/r_w_upstanding/walk/walks} away.",
+                "text": "Gently, you assure r_w-upstanding that one mistake isn't going to cause problems. To make {PRONOUN/r_w-upstanding/object} feel more at ease, you agree to mention this to r_d. {PRONOUN/r_w-upstanding/subject/CAP} {VERB/r_w-upstanding/aren't/isn't} totally satisfied by this but is more assured as {PRONOUN/r_w-upstanding/subject} {VERB/r_w-upstanding/walk/walks} away.",
                 "exp": 10,
                 "weight": 20
             },
             {
-                "text": "You summon r_w and d_n to your den after assuring r_w_upstanding you'll take care of it. The two receive an earful from you for the trespassing and dismissal of r_w_upstanding. ",
+                "text": "You summon r_w and d_n to your den after assuring r_w-upstanding you'll take care of it. The two receive an earful from you for the trespassing and dismissal of r_w-upstanding. ",
                 "exp": 10,
                 "weight": 20
             }
         ],
         "fail_outcomes": [
             {
-                "text": "r_w_upstanding is so frustrated and flustered that it's hard to understand exactly what's happening. You send {PRONOUN/r_w_upstanding/object} to r_d, who is better equipped for whatever is happening.",
+                "text": "r_w-upstanding is so frustrated and flustered that it's hard to understand exactly what's happening. You send {PRONOUN/r_w-upstanding/object} to r_d, who is better equipped for whatever is happening.",
                 "exp": 0,
                 "weight": 20
             },
             {
-                "text": "It's rude to enter the leader's den without permission. You scold r_w_upstanding for bursting in and making a fuss about something minor. If d_n said it was fine, then it was fine. r_w_upstanding leaves with {PRONOUN/r_w_upstanding/poss} tail lashing and ears pinned back in anger.",
+                "text": "It's rude to enter the leader's den without permission. You scold r_w-upstanding for bursting in and making a fuss about something minor. If d_n said it was fine, then it was fine. r_w-upstanding leaves with {PRONOUN/r_w-upstanding/poss} tail lashing and ears pinned back in anger.",
                 "exp": 0,
                 "weight": 20
             }

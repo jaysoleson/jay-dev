@@ -758,7 +758,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "You try to make your way through the camp wall, but r_c_unlawful catches you before you can get through. {PRONOUN/r_c_unlawful/subject}{VERB/r_c_unlawful/'re/'s} seemingly a little impressed you found this spot - but reminds you of the dangers beyond the camp walls. Despite the scolding, you're indulged in a game, and you have a new respect for r_c_unlawful.",
+                "text": "You try to make your way through the camp wall, but r_w-unlawful catches you before you can get through. {PRONOUN/r_w-unlawful/subject/CAP}{VERB/r_w-unlawful/'re/'s} seemingly a little impressed you found this spot - but reminds you of the dangers beyond the camp walls. Despite the scolding, you're indulged in a game, and you have a new respect for r_w-unlawful.",
                 "exp": 0,
                 "weight": 20
             },

@@ -407,7 +407,7 @@ class MoonplaceScreen(Screens):
                 moonplace = moonplace_dict.get(game.clan.biome, "Moonplace")
                 text = text.replace("moonplace", moonplace)
                 text = text.replace("Moonplace", moonplace)
-            if "your_crush" in text:
+            if "yourcrush" in text:
                 if len(game.clan.your_cat.mate) > 0 or game.clan.your_cat.no_mates:
                     return ""
                 crush = None
@@ -421,10 +421,10 @@ class MoonplaceScreen(Screens):
                         crush = c
                         break
                 if crush:
-                    text = text.replace("your_crush", str(crush.name))
+                    text = text.replace("yourcrush", str(crush.name))
                 else:
                     return ""
-            if "their_crush" in text:
+            if "rlike-r_c" in text:
                 if len(cat.mate) > 0 or cat.no_mates:
                     return ""
                 crush = None
@@ -438,7 +438,7 @@ class MoonplaceScreen(Screens):
                         crush = c
                         break
                 if crush:
-                    text = text.replace("their_crush", str(crush.name))
+                    text = text.replace("rlike-r_c", str(crush.name))
                 else:
                     return ""
 

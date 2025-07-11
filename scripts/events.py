@@ -24,7 +24,6 @@ from scripts.clan import HERBS
 from scripts.cat.pelts import Pelt
 from scripts.events_module.outsider_events import OutsiderEvents
 from scripts.event_class import Single_Event
-from scripts.game_structure.game_essentials import game
 from scripts.cat_relations.relationship import Relationship
 from scripts.cat.cats import Cat, cat_class, BACKSTORIES
 from scripts.cat.history import History
@@ -34,6 +33,7 @@ from scripts.conditions import (
     medical_cats_condition_fulfilled,
     get_amount_cat_for_one_medic,
 )
+from scripts.game_structure.game_essentials import game
 from scripts.events_module.generate_events import GenerateEvents, generate_events
 from scripts.clan_resources.freshkill import FreshkillPile
 from scripts.events_module.short.condition_events import Condition_Events
@@ -60,7 +60,7 @@ from scripts.utility import (
     unpack_rel_block,
     pronoun_repl,
     create_new_cat,
-    adjust_txt,
+    lifegen_text_adjust,
     get_cluster,
     get_infected_clan_cat_count,
     get_infection_herb
@@ -1195,7 +1195,7 @@ class Events:
 
     def process_text(self, text):
         self.cat_dict.clear()
-        text = adjust_txt(Cat, text, game.clan.your_cat, self.cat_dict, r_c_allowed=True, o_c_allowed=True)
+        text = lifegen_text_adjust(Cat, text, game.clan.your_cat, self.cat_dict, r_c_allowed=True, o_c_allowed=True)
 
         process_text_dict = self.cat_dict.copy()
         for abbrev in process_text_dict.keys():
@@ -1314,6 +1314,7 @@ class Events:
                 current_event = self.process_text(event)
 
                 while current_event == "":
+                    # print("Chosen event returned empty. Rerolling")
                     event = random.choice(possible_events)
                     current_event = self.process_text(event)
 

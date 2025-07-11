@@ -163,12 +163,12 @@
             ]
         },
         "weight": 15,
-        "intro_text": "You're on a dawn patrol with r_w_neurotic. Fog hangs over the whole territory, turning familiar landmarks into ghostly silhouettes and making it hard to see even several tail-lengths in front of you. Suddenly, r_w_neurotic gasps. With a jolt, you follow {PRONOUN/r_w_neurotic/poss} gaze and see an indistinct, cat-sized shadow with two glowing eyes, watching you. The figure turns and runs. A haunting jingling noise follows them.",
-        "decline_text": "Absolutely not. It's too early for this! You turn away and lead r_w_neurotic the opposite direction.",
+        "intro_text": "You're on a dawn patrol with r_w-neurotic. Fog hangs over the whole territory, turning familiar landmarks into ghostly silhouettes and making it hard to see even several tail-lengths in front of you. Suddenly, r_w-neurotic gasps. With a jolt, you follow {PRONOUN/r_w-neurotic/poss} gaze and see an indistinct, cat-sized shadow with two glowing eyes, watching you. The figure turns and runs. A haunting jingling noise follows them.",
+        "decline_text": "Absolutely not. It's too early for this! You turn away and lead r_w-neurotic the opposite direction.",
         "chance_of_success": 30,
         "success_outcomes": [
             {
-                "text": "Despite r_w_neurotic's protests, you leap after the shadow. You quickly catch up to it and leap for it, but your paws pass straight through the shape and you crash to the ground! When you've finally regained your bearings, the shadow is gone. The only sign of it is a belled collar lying a tail-length away.",
+                "text": "Despite r_w-neurotic's protests, you leap after the shadow. You quickly catch up to it and leap for it, but your paws pass straight through the shape and you crash to the ground! When you've finally regained your bearings, the shadow is gone. The only sign of it is a belled collar lying a tail-length away.",
                 "exp": 10,
                 "weight": 15,
                 "accessory": [
@@ -209,7 +209,7 @@
                 ]
             },
             {
-                "text": "You remember an old story that says dead cats sometimes appear when the fog is thickest: not StarClan cats, but cats who have died and now roam elsewhere. You call after the shadow, asking if they're one of those cats. For a long moment, there's no response. r_w_neurotic quivers beside you. Then, the figure reappears and blinks at you with its still-glowing eyes. You make out an indistinct cat silhouette before it seems to fade and become one with the fog, leaving a belled collar on the ground where it once stood.",
+                "text": "You remember an old story that says dead cats sometimes appear when the fog is thickest: not StarClan cats, but cats who have died and now roam elsewhere. You call after the shadow, asking if they're one of those cats. For a long moment, there's no response. r_w-neurotic quivers beside you. Then, the figure reappears and blinks at you with its still-glowing eyes. You make out an indistinct cat silhouette before it seems to fade and become one with the fog, leaving a belled collar on the ground where it once stood.",
                 "exp": 10,
                 "weight": 15,
                 "stat_skill": [
@@ -232,12 +232,12 @@
                 ]
             },
             {
-                "text": "You race after the jingling noise, and r_w_neurotic follows close behind. As you run, the fog gradually clears, until you're standing before a gnarled, lone tree with tangled chimes hanging from one branch. Was that what was making the noise? You're skeptical, but r_w_neurotic is obviously spooked, so you quickly leave the area.",
+                "text": "You race after the jingling noise, and r_w-neurotic follows close behind. As you run, the fog gradually clears, until you're standing before a gnarled, lone tree with tangled chimes hanging from one branch. Was that what was making the noise? You're skeptical, but r_w-neurotic is obviously spooked, so you quickly leave the area.",
                 "exp": 10,
                 "weight": 15
             },
             {
-                "text": "You race after the jingling noise, and r_w_neurotic follows close behind. As you run, the fog gradually clears, until you're standing before a gnarled, lone tree with tangled chimes hanging from one branch. Was that what was making the noise? Despite r_w_neurotic's nervous protests, you climb the tree and cut the chimes down before heading back towards more familiar territory.",
+                "text": "You race after the jingling noise, and r_w-neurotic follows close behind. As you run, the fog gradually clears, until you're standing before a gnarled, lone tree with tangled chimes hanging from one branch. Was that what was making the noise? Despite r_w-neurotic's nervous protests, you climb the tree and cut the chimes down before heading back towards more familiar territory.",
                 "exp": 10,
                 "weight": 15,
                 "accessory": [
@@ -254,7 +254,7 @@
                 ]
             },
             {
-                "text": "You're familiar with ghost cats, and that looks like a ghost! You gently call after the shadow, and {PRONOUN/n_c:0/subject} {VERB/n_c:0/pause/pauses}. Slowly, {PRONOUN/n_c:0/subject} {VERB/n_c:0/pad/pads} back towards you, {PRONOUN/n_c:0/poss} collar gently jangling. While the interaction is a bit awkward, especially with a clearly spooked r_w_neurotic beside you, you have a polite conversation before parting ways.",
+                "text": "You're familiar with ghost cats, and that looks like a ghost! You gently call after the shadow, and {PRONOUN/n_c:0/subject} {VERB/n_c:0/pause/pauses}. Slowly, {PRONOUN/n_c:0/subject} {VERB/n_c:0/pad/pads} back towards you, {PRONOUN/n_c:0/poss} collar gently jangling. While the interaction is a bit awkward, especially with a clearly spooked r_w-neurotic beside you, you have a polite conversation before parting ways.",
                 "exp": 10,
                 "weight": 15,
                 "stat_skill": [
@@ -283,7 +283,7 @@
                 ]
             },
             {
-                "text": "You're about to run after the shadow but r_w_neurotic, panicked, begs for you not to leave {PRONOUN/r_w_neurotic/object}. {PRONOUN/r_w_neurotic/subject/CAP}{VERB/r_w_neurotic/'re/'s} wide-eyed and breathing hard, clearly terrified by the fog. You turn back and talk to {PRONOUN/r_w_neurotic/object} gently, urging {PRONOUN/r_w_neurotic/object} to take deep breaths, trying to calm {PRONOUN/r_w_neurotic/object} down. It takes a few minutes, but you manage to talk r_w_neurotic out of {PRONOUN/r_w_neurotic/poss} panic, and your Clanmate is shaken but grateful.",
+                "text": "You're about to run after the shadow but r_w-neurotic, panicked, begs for you not to leave {PRONOUN/r_w-neurotic/object}. {PRONOUN/r_w-neurotic/subject/CAP}{VERB/r_w-neurotic/'re/'s} wide-eyed and breathing hard, clearly terrified by the fog. You turn back and talk to {PRONOUN/r_w-neurotic/object} gently, urging {PRONOUN/r_w-neurotic/object} to take deep breaths, trying to calm {PRONOUN/r_w-neurotic/object} down. It takes a few minutes, but you manage to talk r_w-neurotic out of {PRONOUN/r_w-neurotic/poss} panic, and your Clanmate is shaken but grateful.",
                 "exp": 10,
                 "weight": 15,
                 "stat_skill": [
@@ -302,7 +302,7 @@
                             "y_c"
                         ],
                         "cats_from": [
-                            "r_w_neurotic"
+                            "r_w-neurotic"
                         ],
                         "mutual": false,
                         "values": [
@@ -316,7 +316,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "For a second, you're frozen, but then you leap after the shadow. Is it another cat? A harmless kittypet, or maybe a dangerous rogue? You're spurred onwards by a need to make sure the shadow isn't a threat to your Clan, but you lose it in the thick fog. It takes you a while to find your way back to r_w_neurotic.",
+                "text": "For a second, you're frozen, but then you leap after the shadow. Is it another cat? A harmless kittypet, or maybe a dangerous rogue? You're spurred onwards by a need to make sure the shadow isn't a threat to your Clan, but you lose it in the thick fog. It takes you a while to find your way back to r_w-neurotic.",
                 "exp": 0,
                 "weight": 15,
                 "stat_trait": [
@@ -333,12 +333,12 @@
                 ]
             },
             {
-                "text": "You start to run after the shadow, but r_w_neurotic leaps in front of you, {PRONOUN/r_w_neurotic/poss} eyes wide and {PRONOUN/r_w_neurotic/poss} fur fluffed in terror. {PRONOUN/r_w_neurotic/subject/CAP} {VERB/r_w_neurotic/beg/begs} you not to follow the figure and {VERB/r_w_neurotic/plead/pleads} for you to come back to camp with {PRONOUN/r_w_neurotic/object} instead. You manage to talk {PRONOUN/r_w_neurotic/object} out of {PRONOUN/r_w_neurotic/poss} panic, but by then the shadow is long gone.",
+                "text": "You start to run after the shadow, but r_w-neurotic leaps in front of you, {PRONOUN/r_w-neurotic/poss} eyes wide and {PRONOUN/r_w-neurotic/poss} fur fluffed in terror. {PRONOUN/r_w-neurotic/subject/CAP} {VERB/r_w-neurotic/beg/begs} you not to follow the figure and {VERB/r_w-neurotic/plead/pleads} for you to come back to camp with {PRONOUN/r_w-neurotic/object} instead. You manage to talk {PRONOUN/r_w-neurotic/object} out of {PRONOUN/r_w-neurotic/poss} panic, but by then the shadow is long gone.",
                 "exp": 0,
                 "weight": 15
             },
             {
-                "text": "You leap after the figure, but you trip and slam into the ground. You look back to see what you tripped over, and see a familiar log... But you recognize it from a completely different part of the territory. How did you get here? Did the fog disorient you so much you've been wandering the complete wrong direction? Unnerved, and with the shadowy figure now long gone, you and r_w_neurotic quickly make your way back to camp.",
+                "text": "You leap after the figure, but you trip and slam into the ground. You look back to see what you tripped over, and see a familiar log... But you recognize it from a completely different part of the territory. How did you get here? Did the fog disorient you so much you've been wandering the complete wrong direction? Unnerved, and with the shadowy figure now long gone, you and r_w-neurotic quickly make your way back to camp.",
                 "exp": 0,
                 "weight": 15
             },
@@ -348,7 +348,7 @@
                 "weight": 15
             },
             {
-                "text": "You plunge into the fog, following the jingling sound. Soon, you can't see anything, and the jingling seems to be coming from all around you. You think you're running in circles, but without any visible landmarks, it feels like you're in a void. You're not sure how long it takes for the fog to clear. When you finally regain your bearings, you're at the edge of the territory, and you trudge home to find a distraught r_w_neurotic telling your Clanmates how the fog seemed to eat you.",
+                "text": "You plunge into the fog, following the jingling sound. Soon, you can't see anything, and the jingling seems to be coming from all around you. You think you're running in circles, but without any visible landmarks, it feels like you're in a void. You're not sure how long it takes for the fog to clear. When you finally regain your bearings, you're at the edge of the territory, and you trudge home to find a distraught r_w-neurotic telling your Clanmates how the fog seemed to eat you.",
                 "exp": 0,
                 "weight": 15
             }
@@ -373,12 +373,12 @@
         "max_cats": 1,
         "min_max_status": {},
         "weight": 20,
-        "intro_text": "r_w_neurotic has been insisting that a grove of trees on the territory is haunted. {PRONOUN/r_w_neurotic/subject/CAP} {VERB/r_w_neurotic/claim/claims} to hear strange noises whenever {PRONOUN/r_w_neurotic/subject} {VERB/r_w_neurotic/get/gets} close, and {VERB/r_w_neurotic/say/says} {PRONOUN/r_w_neurotic/subject} {VERB/r_w_neurotic/feel/feels} like {PRONOUN/r_w_neurotic/subject}{VERB/r_w_neurotic/'re/'s} being watched. After several days of this, you consider checking the grove out yourself.",
-        "decline_text": "You don't have time to investigate every rumor you hear. If r_w_neurotic is really worried, {PRONOUN/r_w_neurotic/subject} should ask someone to accompany {PRONOUN/r_w_neurotic/object} {PRONOUN/r_w_neurotic/self}.",
+        "intro_text": "r_w-neurotic has been insisting that a grove of trees on the territory is haunted. {PRONOUN/r_w-neurotic/subject/CAP} {VERB/r_w-neurotic/claim/claims} to hear strange noises whenever {PRONOUN/r_w-neurotic/subject} {VERB/r_w-neurotic/get/gets} close, and {VERB/r_w-neurotic/say/says} {PRONOUN/r_w-neurotic/subject} {VERB/r_w-neurotic/feel/feels} like {PRONOUN/r_w-neurotic/subject}{VERB/r_w-neurotic/'re/'s} being watched. After several days of this, you consider checking the grove out yourself.",
+        "decline_text": "You don't have time to investigate every rumor you hear. If r_w-neurotic is really worried, {PRONOUN/r_w-neurotic/subject} should ask someone to accompany {PRONOUN/r_w-neurotic/object} {PRONOUN/r_w-neurotic/self}.",
         "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "As you approach the grove, you hear a strange hissing noise. You crouch and creep forward, alert for any signs of danger. Could r_w_neurotic be right? Could the grove really be haunted? You follow the sound to a bundle of Twoleg trash and cautiously paw through it until you uncover a strange, hissing device. When you bat at the pieces sticking out of it, the hissing subsides, and you triumphantly return to camp with the now-silent object to let r_w_neurotic know what you discovered.",
+                "text": "As you approach the grove, you hear a strange hissing noise. You crouch and creep forward, alert for any signs of danger. Could r_w-neurotic be right? Could the grove really be haunted? You follow the sound to a bundle of Twoleg trash and cautiously paw through it until you uncover a strange, hissing device. When you bat at the pieces sticking out of it, the hissing subsides, and you triumphantly return to camp with the now-silent object to let r_w-neurotic know what you discovered.",
                 "exp": 15,
                 "weight": 10,
                 "accessory": [
@@ -393,7 +393,7 @@
                 ]
             },
             {
-                "text": "You approach the grove and hear a haunting, bird-like chorus coming from the branches above. You creep forward, ready to fight or flee, but... oh! You're familiar with ghost cats, but this is a different sight: a flock of translucent birds flits through the canopy, calling to each other with chirps that sound a bit too ghostly and resonant to be comforting. You're not sure how r_w_neurotic was able to hear them, too, but they don't look like a threat. You watch the ghost birds for a while before returning to camp.",
+                "text": "You approach the grove and hear a haunting, bird-like chorus coming from the branches above. You creep forward, ready to fight or flee, but... oh! You're familiar with ghost cats, but this is a different sight: a flock of translucent birds flits through the canopy, calling to each other with chirps that sound a bit too ghostly and resonant to be comforting. You're not sure how r_w-neurotic was able to hear them, too, but they don't look like a threat. You watch the ghost birds for a while before returning to camp.",
                 "exp": 15,
                 "weight": 20,
                 "stat_skill": [
@@ -406,7 +406,7 @@
                 ]
             },
             {
-                "text": "As you enter the grove, something lunges at you with a yowl! You yelp and prepare to fight or flee, only for you to realize your attacker is... r_w_neurotic? It seems this was the setup to a prank! You wouldn't have guessed r_w_neurotic to be capable of such a thing, but {PRONOUN/r_w_neurotic/subject} {VERB/r_w_neurotic/seem/seems} thrilled to have scared you.",
+                "text": "As you enter the grove, something lunges at you with a yowl! You yelp and prepare to fight or flee, only for you to realize your attacker is... r_w-neurotic? It seems this was the setup to a prank! You wouldn't have guessed r_w-neurotic to be capable of such a thing, but {PRONOUN/r_w-neurotic/subject} {VERB/r_w-neurotic/seem/seems} thrilled to have scared you.",
                 "exp": 15,
                 "weight": 20
             }
@@ -423,7 +423,7 @@
                 "weight": 20
             },
             {
-                "text": "As you enter the grove, you hear a strange creaking noise coming from the canopy. You tense, but quickly realize it's just the trees creaking as they're blown back and forth by the wind. You spend some time searching the area for anything suspicious, but find nothing. You aren't convinced that r_w_neurotic wouldn't have recognized the sounds of creaking trees, but that must be all... right?",
+                "text": "As you enter the grove, you hear a strange creaking noise coming from the canopy. You tense, but quickly realize it's just the trees creaking as they're blown back and forth by the wind. You spend some time searching the area for anything suspicious, but find nothing. You aren't convinced that r_w-neurotic wouldn't have recognized the sounds of creaking trees, but that must be all... right?",
                 "exp": 0,
                 "weight": 20
             }
@@ -866,18 +866,18 @@
         "max_cats": 1,
         "min_max_status": {},
         "weight": 20,
-        "intro_text": "You're enjoying a meal during a calm, snowy day in camp when suddenly, you receive a sharp and cold <i>thwap</i> to the back of your head. You turn to see plike_r_w_silly with a pawful of snow, snickering to {PRONOUN/plike_r_w_silly/self}.",
-        "decline_text": "You pick up your fresh-kill and head inside to finish it, ignoring your friend's disappointed face. {PRONOUN/plike_r_w_silly/subject/CAP} should know not to mess with a cat's mealtime!",
+        "intro_text": "You're enjoying a meal during a calm, snowy day in camp when suddenly, you receive a sharp and cold <i>thwap</i> to the back of your head. You turn to see plike-r_w-silly with a pawful of snow, snickering to {PRONOUN/plike-r_w-silly/self}.",
+        "decline_text": "You pick up your fresh-kill and head inside to finish it, ignoring your friend's disappointed face. {PRONOUN/plike-r_w-silly/subject/CAP} should know not to mess with a cat's mealtime!",
         "chance_of_success": 60,
         "success_outcomes": [
             {
-                "text": "Challenge accepted! You jump to your paws, dodging your friend's second snowball attack, and manage to tackle {PRONOUN/plike_r_w_silly/object} into a snowbank with a triumphant laugh. You take turns shoving each other into the snow until you're too exhausted to continue.",
+                "text": "Challenge accepted! You jump to your paws, dodging your friend's second snowball attack, and manage to tackle {PRONOUN/plike-r_w-silly/object} into a snowbank with a triumphant laugh. You take turns shoving each other into the snow until you're too exhausted to continue.",
                 "exp": 15,
                 "weight": 20,
                 "relationships": [
                     {
                         "cats_to": [
-                            "plike_r_w_silly"
+                            "plike-r_w-silly"
                         ],
                         "cats_from": [
                             "p_l"
@@ -891,7 +891,7 @@
                 ]
             },
             {
-                "text": "When you meet plike_r_w_silly's gaze, {PRONOUN/plike_r_w_silly/subject} instantly {VERB/plike_r_w_silly/drop/drops} {PRONOUN/plike_r_w_silly/poss} snowball and {VERB/plike_r_w_silly/dip/dips} {PRONOUN/plike_r_w_silly/poss} head with a polite laugh. Your friend knows you well enough not to continue messing with you during your meal. You'll make sure to get {PRONOUN/plike_r_w_silly/object} back later, though.",
+                "text": "When you meet plike-r_w-silly's gaze, {PRONOUN/plike-r_w-silly/subject} instantly {VERB/plike-r_w-silly/drop/drops} {PRONOUN/plike-r_w-silly/poss} snowball and {VERB/plike-r_w-silly/dip/dips} {PRONOUN/plike-r_w-silly/poss} head with a polite laugh. Your friend knows you well enough not to continue messing with you during your meal. You'll make sure to get {PRONOUN/plike-r_w-silly/object} back later, though.",
                 "exp": 15,
                 "weight": 15,
                 "can_have_stat": [
@@ -910,7 +910,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "You covertly scoop up a pawful of snow from next to you and turn around, launching it in plike_r_w_silly's direction. Your attack hits {PRONOUN/plike_r_w_silly/object} square in the face-- so hard that {PRONOUN/plike_r_w_silly/subject} {VERB/plike_r_w_silly/let/lets} out a yelp and {VERB/plike_r_w_silly/fall/falls} into the snowbank behind {PRONOUN/plike_r_w_silly/object}. When you rush to check on {PRONOUN/plike_r_w_silly/object}, there's no serious damage and {PRONOUN/plike_r_w_silly/subject} {VERB/plike_r_w_silly/laugh/laughs} it off, but you still feel bad.",
+                "text": "You covertly scoop up a pawful of snow from next to you and turn around, launching it in plike-r_w-silly's direction. Your attack hits {PRONOUN/plike-r_w-silly/object} square in the face-- so hard that {PRONOUN/plike-r_w-silly/subject} {VERB/plike-r_w-silly/let/lets} out a yelp and {VERB/plike-r_w-silly/fall/falls} into the snowbank behind {PRONOUN/plike-r_w-silly/object}. When you rush to check on {PRONOUN/plike-r_w-silly/object}, there's no serious damage and {PRONOUN/plike-r_w-silly/subject} {VERB/plike-r_w-silly/laugh/laughs} it off, but you still feel bad.",
                 "exp": 0,
                 "weight": 20
             }
@@ -1188,7 +1188,7 @@
             },
 
 {
-                "text": "You pad into the c_n camp, not expecting anyone to be able to see you. However, as you pass by, plike_r_w lets out a horrified gasp. {PRONOUN/plike_r_w /subject/CAP} can see you, and {PRONOUN/plike_r_w /subject}{VERB/plike_r_w /'re/'s} shocked by where you've ended up. As the muck on your pelt settles into the floor of the camp, you ask plike_r_w if {PRONOUN/plike_r_w /subject}{VERB/plike_r_w /'ve/'s} missed you.",
+                "text": "You pad into the c_n camp, not expecting anyone to be able to see you. However, as you pass by, plike-r_w lets out a horrified gasp. {PRONOUN/plike-r_w/subject/CAP} can see you, and {PRONOUN/plike-r_w/subject}{VERB/plike-r_w/'re/'s} shocked by where you've ended up. As the muck on your pelt settles into the floor of the camp, you ask plike-r_w if {PRONOUN/plike-r_w/subject}{VERB/plike-r_w/'ve/'s} missed you.",
                 "exp": 0,
                 "weight": 20
             },
