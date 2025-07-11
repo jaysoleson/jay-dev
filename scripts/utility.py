@@ -1913,7 +1913,7 @@ def get_cluster(trait):
     clusters = [key for key, values in trait_to_clusters.items() if trait in values]
 
     # Assign cluster and second_cluster based on the length of clusters list
-    cluster = clusters[0] if clusters else ""
+    cluster = clusters[0] if clusters else "stable"
     second_cluster = clusters[1] if len(clusters) > 1 else ""
 
     return cluster, second_cluster

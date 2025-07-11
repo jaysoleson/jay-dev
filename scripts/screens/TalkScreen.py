@@ -104,7 +104,8 @@ class TalkScreen(Screens):
             flirt_success = self.is_flirt_success(self.the_cat)
             if flirt_success is True:
                 self.the_cat.relationships.get(game.clan.your_cat.ID).romantic_love += randint(1,10)
-                game.clan.your_cat.relationships.get(self.the_cat.ID).romantic_love += randint(1,10)
+                if self.the_cat.ID in game.clan.your_cat.relationships:
+                    game.clan.your_cat.relationships.get(self.the_cat.ID).romantic_love += randint(1,10)
             else:
                 if game.clan.your_cat.ID in self.the_cat.relationships:
                     self.the_cat.relationships.get(game.clan.your_cat.ID).romantic_love -= randint(1,5)
