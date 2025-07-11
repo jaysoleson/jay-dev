@@ -6231,12 +6231,12 @@
             "Sleeps in strategic positions to hide {PRONOUN/m_c/poss} glowing wounds from sight"
         ],
         "main_infected_constraint": [
-            "infected"
-        ],
-        "infection": [
-            "fungal",
+            "infected",
             "stage one",
             "stage two"
+        ],
+        "infection": [
+            "fungal"
         ]
     },
     {
@@ -6247,12 +6247,12 @@
             "Inhales infected spores with each breath"
         ],
         "main_infected_constraint": [
-            "infected"
-        ],
-        "infection": [
-            "fungal",
+            "infected",
             "stage three",
             "stage four"
+        ],
+        "infection": [
+            "fungal"
         ]
     },
     {
@@ -6267,12 +6267,12 @@
             "Feels as if {PRONOUN/m_c/subject} might float away"
         ],
         "main_infected_constraint": [
-            "infected"
-        ],
-        "infection": [
-            "void",
+            "infected",
             "stage one",
             "stage two"
+        ],
+        "infection": [
+            "void"
         ]
     },
     {
@@ -6285,12 +6285,12 @@
             "Can't remember the last time {PRONOUN/m_c/subject} felt any warmth"
         ],
         "main_infected_constraint": [
-            "infected"
-        ],
-        "infection": [
-            "void",
+            "infected",
             "stage three",
             "stage four"
+        ],
+        "infection": [
+            "void"
         ]
     },
     {
@@ -6303,12 +6303,12 @@
             "Notices the wounds on their paws aren't healing like they should"
         ],
         "main_infected_constraint": [
-            "infected"
-        ],
-        "infection": [
-            "parasitic",
+            "infected",
             "stage one",
             "stage two"
+        ],
+        "infection": [
+            "parasitic"
         ]
     },
     {
@@ -6324,12 +6324,39 @@
             "Wishes somecat would be willing to give {PRONOUN/m_c/object} a hug"
         ],
         "main_infected_constraint": [
-            "infected"
-        ],
-        "infection": [
-            "parasitic",
+            "infected",
             "stage three",
             "stage four"
+        ],
+        "infection": [
+            "parasitic"
+        ]
+    },
+    {
+        "id": "spread_by_bite_latestage",
+        "thoughts": [
+            "Stares intently at a healthy cat, maw slightly ajar",
+            "Is chewing on a tree branch",
+            "Snaps at passing cats like a dog",
+            "Panics at the thought of accidentally hurting {PRONOUN/t_c/poss} loved ones"
+        ],
+        "main_infected_constraint": [
+            "infected",
+            "stage three",
+            "stage four"
+        ],
+        "infection": [
+            "spread_by_bite"
+        ]
+    },
+    {
+        "id": "immune_gen",
+        "infected": true,
+        "thoughts": [
+            "Is glad {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} immune"
+        ],
+        "main_infected_constraint": [
+            "immune"
         ]
     }
 ]

@@ -337,7 +337,7 @@ class TalkScreen(Screens):
             if now >= self.next_frame_time and self.frame_index < len(self.text_frames[self.text_index]) - 1:
                 self.frame_index += 1
                 self.next_frame_time = now + self.typing_delay
-                sound_manager.play("button_press")
+                # sound_manager.play("button_press")
         if self.text_index == len(self.text_frames) - 1:
             if self.frame_index == len(self.text_frames[self.text_index]) - 1:
                 if self.text_type != "choices":
@@ -714,7 +714,7 @@ class TalkScreen(Screens):
                             possible_texts.update(aprilfools_dialogue)
 
 
-                with open(f"{resource_dir}infection.json", 'r') as read_file:
+                with open(f"{self.resource_dir}infection.json", 'r') as read_file:
                     infection_dialogue = ujson.loads(read_file.read())
                     possible_texts.update(infection_dialogue)
 
@@ -760,9 +760,9 @@ class TalkScreen(Screens):
 
             # what if i just start over
             # old stuff
-            if "debug_ensure_dialogue" in game.config and game.config["debug_ensure_dialogue"]:
-                if game.config["debug_ensure_dialogue"] == talk_key:
-                    pass
+            # if "debug_ensure_dialogue" in game.config and game.config["debug_ensure_dialogue"]:
+            #     if game.config["debug_ensure_dialogue"] == talk_key:
+            #         pass
             
             if contains_special_date_tag(TAGS):
                 if not special_date or special_date.patrol_tag not in TAGS:
@@ -791,17 +791,10 @@ class TalkScreen(Screens):
                     continue
             
             if any(tag in TAGS for tag in ["fungal", "parasitic", "void"]):
-                if inftype not in TAGS:
+                if game.clan.infection["infection_type"] not in TAGS:
                     continue
 
             if "infection" in TAGS and game.clan.infection["clan_infected"] is False:
-                continue
-
-            if "void" in TAGS and game.clan.infection["infection_type"] != "void":
-                continue
-            if "parasitic" in TAGS and game.clan.infection["infection_type"] != "parasitic":
-                continue
-            if "fungal" in TAGS and game.clan.infection["infection_type"] != "fungal":
                 continue
 
             logs = game.clan.infection["logs"]
@@ -809,16 +802,13 @@ class TalkScreen(Screens):
                 continue
             elif "spread_by_bite" in TAGS and game.clan.infection["spread_by"] != "bite" and "lore_spread_by_bite" not in logs:
                 continue
-
             if "spread_by_unknown" in TAGS and ("lore_spread_by_bite" in logs or "lore_spread_by_air" in logs):
                 continue
 
             if "discovered" in TAGS and "discovered" not in logs:
                 continue
-
             if "cure_found" in TAGS and "cure_found" not in logs:
                 continue
-
             if "cure_not_found" in TAGS and "cure_found" in logs:
                 continue
 
@@ -831,7 +821,7 @@ class TalkScreen(Screens):
 
             skip = False
             # lazy
-            for tag in tags:
+            for tag in TAGS:
                 if tag.startswith("maxinfectedpercent_"):
                     tag_percent = int(tag.split("_")[1]) 
                     if tag_percent < percentage:
@@ -1479,6 +1469,7 @@ class TalkScreen(Screens):
 
             texts_list[talk_key] = talk
 
+        # print("Possible Dialogue:", texts_list.keys())
         return self.choose_text(cat, texts_list)
     
     def validate_dead(self, BLOCK, cat):
@@ -1572,7 +1563,8 @@ class TalkScreen(Screens):
         """
         Checks the condition list
         """
-        has_condition = False
+        if not BLOCK["condition"]:
+            return True
 
         if "injury:any" in BLOCK["condition"] and not cat.is_injured():
             return False
@@ -1592,37 +1584,17 @@ class TalkScreen(Screens):
         # INF
         if "infected" in BLOCK["condition"] and cat.infected_for < 1:
             return False
+        if "immune" in BLOCK["condition"] and cat.infected_for != -1:
+            return False
         if "undead" in BLOCK["condition"] and "undead" not in cat.illnesses:
             return False
         if "undead" not in BLOCK["condition"] and "undead" in cat.illnesses:
             return False
 
+        reg_condition_check = False
         has_condition = False
         blind_valid = True
         deaf_valid = True
-
-        # INF
-        inftype = game.clan.infection["infection_type"]
-        stages = [
-            f"{inftype} stage one",
-            f"{inftype} stage two",
-            f"{inftype} stage three",
-            f"{inftype} stage four"
-        ]
-        cat_stage = None
-        for stage in stages:
-            if stage in cat.illnesses:
-                cat_stage = stage
-                
-        for stage in stages:
-            stage_tag = stage.replace(f"{inftype}_", "")
-            if cat_stage:
-                cat_stage = cat_stage.replace(f"{inftype}_", "")
-
-            if {stage_tag} in BLOCK:
-                if stage not in cat.illnesses and (cat_stage is not None and {cat_stage} not in BLOCK):
-                    # this is so i can multitag stages in dialogue :3
-                    return False
 
         for tag in BLOCK["condition"]:
             if isinstance(tag, list):
@@ -1701,6 +1673,7 @@ class TalkScreen(Screens):
                                 if condition_name == "deaf":
                                     deaf_valid = False
                 else:
+                    reg_condition_check = True
                     # regular conditions
                     if tag in INJURIES:
                         if tag in cat.injuries:
@@ -1714,16 +1687,22 @@ class TalkScreen(Screens):
                     elif tag == "hearing":
                         if "deaf" in cat.permanent_condition:
                             return False
-                    else:
-                        print("Incorrect condition tag:", tag)
-                        return False
+                    elif tag in ["stage one", "stage two", "stage three", "stage four"]:
+                        inftype = game.clan.infection["infection_type"]
+                        if inftype + " " + tag in cat.illnesses:
+                            has_condition = True
+                    elif tag == "infected":
+                        if cat.infected_for > 0:
+                            has_condition = True
 
         if "blind" in cat.permanent_condition and not blind_valid:
             return False
         if "deaf" in cat.permanent_condition and not deaf_valid:
             return False
 
-        if not has_condition:
+        if reg_condition_check and not has_condition:
+            if game.config["debug_ensure_dialogue"] != "":
+                print("1 Returning for", game.config["debug_ensure_dialogue"])
             return False
 
         return True
@@ -1815,18 +1794,25 @@ class TalkScreen(Screens):
                 weight += 3
             if "focus" in tags or "connected" in tags or "infection" in tags:
                 weight += 8
-            if "they_infected" in tags or "you_infected" in tags:
-                inftype = game.clan.infection["infection_type"]
-                if f"{inftype} stage one" in cat.illnesses:
-                    weight += 15
-                elif f"{inftype} stage two" in cat.illnesses:
-                    weight += 22
-                elif f"{inftype} stage three" in cat.illnesses:
-                    weight += 29
-                elif f"{inftype} stage four" in cat.illnesses:
-                    weight += 36
-            if "story_key" in tags:
-                weight += 15
+
+            they_block = item["t_c"] if "t_c" in item else {}
+            they_condition = they_block["condition"] if "condition" in they_block else {}
+
+            you_block = item["y_c"] if "y_c" in item else {}
+            you_condition = you_block["condition"] if "condition" in you_block else {}
+
+            if "infected" in they_condition or "infected" in you_condition:
+                for kitty in (cat, you):
+                    inftype = game.clan.infection["infection_type"]
+                    if f"{inftype} stage one" in kitty.illnesses:
+                        weight += 15
+                    elif f"{inftype} stage two" in kitty.illnesses:
+                        weight += 22
+                    elif f"{inftype} stage three" in kitty.illnesses:
+                        weight += 29
+                    elif f"{inftype} stage four" in kitty.illnesses:
+                        weight += 36
+
             weights.append(weight)
 
         # Check for debug mode
@@ -1843,9 +1829,9 @@ class TalkScreen(Screens):
                     cat.connected_dialogue[text_chosen_key_split[0]] = int(text_chosen_key_split[1])
                 print("Debug:", text_chosen_key)
                 return new_text
-            print("Could not find debug ensure dialogue '" + game.config["debug_ensure_dialogue"] + "' within possible dialogues")
+            print("1 Could not find debug ensure dialogue '" + game.config["debug_ensure_dialogue"] + "' within possible dialogues")
         elif game.config["debug_ensure_dialogue"]:
-            print("Could not find debug ensure dialogue '" + game.config["debug_ensure_dialogue"] + "' within possible dialogues")
+            print("2 Could not find debug ensure dialogue '" + game.config["debug_ensure_dialogue"] + "' within possible dialogues")
 
         # Try to find a valid, unused text
         for _ in range(MAX_RETRIES):

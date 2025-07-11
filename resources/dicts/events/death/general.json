@@ -8179,5 +8179,79 @@
                 "lead_death": "was killed by a group of infected cats in camp"
             }
         ]
+    },
+    {
+        "event_id": "infection_murder_saline_1",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "murder"
+        ],
+        "tags": [],
+        "weight": 20,
+        "event_text": "It's for the good of the Clan, r_c tells {PRONOUN/m_c/self}. m_c had lost {PRONOUN/m_c/poss} mind-- this is the only way to keep more from being infected. r_c stands over the corpse, scratches peppering {PRONOUN/r_c/poss} pelt. This was for the best.",
+        "m_c": {
+            "status": [
+                "any"
+            ],
+            "dies": true,
+            "infected": true,
+            "stage": [
+                "stage one",
+                "stage two",
+                "stage three",
+                "stage four"
+            ]
+        },
+        "r_c": {
+            "age": [
+                "adolescent",
+                "young adult",
+                "adult",
+                "senior adult"
+            ],
+            "status": [
+                "any"
+            ]
+        },
+        "history": [
+            {
+                "cats": [
+                    "m_c"
+                ],
+                "reg_death": "m_c was ambushed and killed by r_c while chasing after a butterfly.",
+                "lead_death": "died when chasing after a butterfly"
+            }
+        ],
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c"
+                ],
+                "cats_to": [
+                    "m_c"
+                ],
+                "values": [
+                    "platonic"
+                ],
+                "amount": -15
+            },
+            {
+                "cats_from": [
+                    "r_c"
+                ],
+                "cats_to": [
+                    "m_c"
+                ],
+                "values": [
+                    "dislike"
+                ],
+                "amount": 15
+            }
+        ]
     }
 ]

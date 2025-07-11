@@ -4185,5 +4185,19 @@
         "intro": [
             "[t_c doesn't seem to be scared of you at all. Perhaps because {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} too small to understand the problem, but you appreciate it anyway.]"
         ]
+    },
+    "nb_infection_saline_1": {
+        "y_c": {
+            "condition": ["infected"]
+        },
+        "t_c": {
+            "status": ["newborn"],
+            "condition": ["infected"]
+        },
+        "relationship": ["from_your_kit"],
+        "intro": [
+            "[As t_c nuzzles into your fur, you can't help but feel guilty. Unworthy of {PRONOUN/t_c/poss} love.]",
+            "[It's your fault your kit was born with this horrible infection. How could you be so selfish?]"
+        ]
     }
 }
