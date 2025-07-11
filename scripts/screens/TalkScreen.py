@@ -1670,8 +1670,10 @@ class TalkScreen(Screens):
                             if exclusive == "true":
                                 if condition_name == "blind":
                                     blind_valid = False
+                                    return False
                                 if condition_name == "deaf":
                                     deaf_valid = False
+                                    return False
                 else:
                     reg_condition_check = True
                     # regular conditions
@@ -1692,8 +1694,9 @@ class TalkScreen(Screens):
                         if inftype + " " + tag in cat.illnesses:
                             has_condition = True
                     elif tag == "infected":
-                        if cat.infected_for > 0:
-                            has_condition = True
+                        if not any(t in ["stage one", "stage two", "stage three", "stage four"] for t in BLOCK["condition"]):
+                            if cat.infected_for > 0:
+                                has_condition = True
 
         if "blind" in cat.permanent_condition and not blind_valid:
             return False

@@ -300,7 +300,7 @@ class CureLogScreen(Screens):
             for i in infologs:
                 log = a_txt[i].replace("herb1", str(cure_herbs[0])).replace("herb2", str(cure_herbs[1])).replace("herb3", str(cure_herbs[2])).replace("herb4", str(cure_herbs[3]))
                 
-                stats_text += "-" + log + "\n" + "<br>"
+                stats_text += "-" + log.replace("_", " ") + "\n" + "<br>"
 
             self.heading1 = pygame_gui.elements.UITextBox(
                 "<b>Events:</b>",

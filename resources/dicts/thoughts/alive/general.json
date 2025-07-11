@@ -5472,7 +5472,7 @@
             "Happily agrees to patrol with r_c",
             "Volunteers to guard the camp during a Gathering",
             "Purposely loses a prey for r_c to catch instead",
-            "Offers to grab some herbs for the medicine den while {PRONOUN/m_c/subject}{VERB/t_c/'re/'s} hunting",
+            "Offers to grab some herbs for the medicine den while {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} hunting",
             "Practices a fighting move with r_c",
             "Creates a new two-cat fighting move",
             "Helps r_c up a tree so {PRONOUN/r_c/subject} can grab a bird",
@@ -6338,7 +6338,7 @@
             "Stares intently at a healthy cat, maw slightly ajar",
             "Is chewing on a tree branch",
             "Snaps at passing cats like a dog",
-            "Panics at the thought of accidentally hurting {PRONOUN/t_c/poss} loved ones"
+            "Panics at the thought of accidentally hurting {PRONOUN/m_c/poss} loved ones"
         ],
         "main_infected_constraint": [
             "infected",
@@ -6353,7 +6353,7 @@
         "id": "immune_gen",
         "infected": true,
         "thoughts": [
-            "Is glad {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} immune"
+            "Is glad {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} immune"
         ],
         "main_infected_constraint": [
             "immune"

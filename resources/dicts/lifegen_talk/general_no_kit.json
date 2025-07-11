@@ -27701,7 +27701,8 @@
         ],
         "intro": [
             "[t_c is playing with r_k just outside the nursery, dodging back and forth as the tiny kit attempts to attack {PRONOUN/t_c/poss} paws.]",
-            "[The kit has finally seemed to catch on to the pattern. {PRONOUN/r_k/subject/CAP} {VERB/r_k/lunge/lunges} one way then leap the other to catch t_c right as {PRONOUN/t_c/subject} {VERB/t_c/swerve/swerves} sideways once more. {PRONOUN/r_k/subject/CAP} {VERB/r_k/wrap/wraps} {PRONOUN/r_k/poss} paws around t_c's leg, taking a mouthful of fur and kicking at it with {PRONOUN/r_k/poss} tiny little legs.]",
+            "[The kit has finally seemed to catch on to the pattern. {PRONOUN/r_k/subject/CAP} {VERB/r_k/lunge/lunges} one way then leap the other to catch t_c right as {PRONOUN/t_c/subject} {VERB/t_c/swerve/swerves} sideways once more.",
+            "{PRONOUN/r_k/subject/CAP} {VERB/r_k/wrap/wraps} {PRONOUN/r_k/poss} paws around t_c's leg, taking a mouthful of fur and kicking at it with {PRONOUN/r_k/poss} tiny little legs.]",
             "Hahahahahaha!",
             "[t_c bursts out in laughter at the scene.]",
             "[You can't help but smile. You love t_c's laugh-- you wish {PRONOUN/t_c/subject} could hear it, too.]"
