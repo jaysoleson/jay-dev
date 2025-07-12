@@ -248,17 +248,17 @@
             "kitten": [1, 1]
         },
         "weight": 60,
-        "intro_text": "r_k_infected is staring at you from across the nursery.",
-        "decline_text": "Shaken, you leave the nursery to get away from {PRONOUN/r_k_infected/object}.",
+        "intro_text": "r_k-infected is staring at you from across the nursery.",
+        "decline_text": "Shaken, you leave the nursery to get away from {PRONOUN/r_k-infected/object}.",
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "You cautiously bat a moss ball across the nursery towards where {PRONOUN/r_k_infected/subject} {VERB/r_k_infected/sit/sits} in the darkest corner. It takes a moment, but after a shake of the head, r_k_infected hits it back, and you play a nice long-distance game of moss ball. Almost as if everything were normal.",
+                "text": "You cautiously bat a moss ball across the nursery towards where {PRONOUN/r_k-infected/subject} {VERB/r_k-infected/sit/sits} in the darkest corner. It takes a moment, but after a shake of the head, r_k-infected hits it back, and you play a nice long-distance game of moss ball. Almost as if everything were normal.",
                 "exp": 0,
                 "weight": 20,
                 "relationships": [
                     {
-                        "cats_to": ["r_k_infected"],
+                        "cats_to": ["r_k-infected"],
                         "cats_from": ["y_c"],
                         "mutual": true,
                         "values": ["trust", "platonic"],
@@ -269,12 +269,12 @@
         ],
         "fail_outcomes": [
             {
-                "text": "You puff your fur up, trying to scare {PRONOUN/r_k_infected/object} away, but {PRONOUN/r_k_infected/subject} {VERB/r_k_infected/lunge/lunges} towards you with cloudy eyes. You yelp and race out of the nursery before {PRONOUN/r_k_infected/subject} can get you. You wish running from {PRONOUN/r_k_infected/object} was just a game.",
+                "text": "You puff your fur up, trying to scare {PRONOUN/r_k-infected/object} away, but {PRONOUN/r_k-infected/subject} {VERB/r_k-infected/lunge/lunges} towards you with cloudy eyes. You yelp and race out of the nursery before {PRONOUN/r_k-infected/subject} can get you. You wish running from {PRONOUN/r_k-infected/object} was just a game.",
                 "exp": 0,
                 "weight": 20,
                 "relationships": [
                     {
-                        "cats_to": ["r_k_infected"],
+                        "cats_to": ["r_k-infected"],
                         "cats_from": ["y_c"],
                         "mutual": false,
                         "values": ["trust"],
@@ -1034,22 +1034,22 @@
             "healer cats": [-1, 0]
         },
         "weight": 20,
-        "intro_text": "r_m_neurotic, frantically, asks you to fetch them an herb. {PRONOUN/r_m_neurotic/subject/CAP}{VERB/r_m_neurotic/'ve/'s} been frantically trying to treat {PRONOUN/r_m_neurotic/poss} infected patients all day, and you know that accidentally handing {PRONOUN/r_m_neurotic/object} the wrong herb might cause some sort of explosion...",
-        "decline_text": "You tell r_m_neurotic that you're not confident to find the herb for {PRONOUN/r_m_neurotic/object}, and {PRONOUN/r_m_neurotic/subject} {VERB/r_m_neurotic/snap/snaps} at you to get away from the medicine den if you're going to be of no help.",
+        "intro_text": "r_m-neurotic, frantically, asks you to fetch them an herb. {PRONOUN/r_m-neurotic/subject/CAP}{VERB/r_m-neurotic/'ve/'s} been frantically trying to treat {PRONOUN/r_m-neurotic/poss} infected patients all day, and you know that accidentally handing {PRONOUN/r_m-neurotic/object} the wrong herb might cause some sort of explosion...",
+        "decline_text": "You tell r_m-neurotic that you're not confident to find the herb for {PRONOUN/r_m-neurotic/object}, and {PRONOUN/r_m-neurotic/subject} {VERB/r_m-neurotic/snap/snaps} at you to get away from the medicine den if you're going to be of no help.",
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "You wrack your brain and locate the herb that r_m_neurotic was looking for. When you hand it to {PRONOUN/r_m_neurotic/object}, {PRONOUN/r_m_neurotic/subject} {VERB/r_m_neurotic/thank/thanks} you with a nod, then all but shove you back out of the medicine den, that herb having done nothing to ease {PRONOUN/r_m_neurotic/poss} stress. Poor cat.",
+                "text": "You wrack your brain and locate the herb that r_m-neurotic was looking for. When you hand it to {PRONOUN/r_m-neurotic/object}, {PRONOUN/r_m-neurotic/subject} {VERB/r_m-neurotic/thank/thanks} you with a nod, then all but shove you back out of the medicine den, that herb having done nothing to ease {PRONOUN/r_m-neurotic/poss} stress. Poor cat.",
                 "exp": 10,
                 "weight": 20
             },
             {
-                "text": "You have no idea what this herb is! You grab a random one from the stores and hand it over, and to your surprise, it appears to be the right one! r_m_neurotic thanks you briefly before turning back to {PRONOUN/r_m_neurotic/poss} work."
+                "text": "You have no idea what this herb is! You grab a random one from the stores and hand it over, and to your surprise, it appears to be the right one! r_m-neurotic thanks you briefly before turning back to {PRONOUN/r_m-neurotic/poss} work."
             }
         ],
         "fail_outcomes": [
             {
-                "text": "You have no idea what this herb is! You grab a random leaf from the stores and hand it over, but r_m_neurotic just slaps it out of your paws and shoves you back out of the medicine den. It seems that medicine is still not your calling.",
+                "text": "You have no idea what this herb is! You grab a random leaf from the stores and hand it over, but r_m-neurotic just slaps it out of your paws and shoves you back out of the medicine den. It seems that medicine is still not your calling.",
                 "exp": 10,
                 "weight": 20
             }
@@ -1127,12 +1127,12 @@
             "healer cats": [1, 1]
         },
         "weight": 20,
-        "intro_text": "r_w_infected calls your name from the edge of the medicine den, infection clouding {PRONOUN/r_w_infected/poss} eyes.",
+        "intro_text": "r_w-infected calls your name from the edge of the medicine den, infection clouding {PRONOUN/r_w-infected/poss} eyes.",
         "decline_text": "You turn and leave. You don't want to risk having an idle chat with such a potentially dangerous cat.",
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "You look {PRONOUN/r_w_infected/poss} way, but don't move any closer. r_w_infected tells you that {PRONOUN/r_w_infected/subject} {VERB/r_w_infected/appreciate/appreciates} you being here for {PRONOUN/r_w_infected/object}, even though {PRONOUN/r_w_infected/subject} {VERB/r_w_infected/don't/doesn't} think you'll find a cure. You tell {PRONOUN/r_w_infected/object} not to think like that.",
+                "text": "You look {PRONOUN/r_w-infected/poss} way, but don't move any closer. r_w-infected tells you that {PRONOUN/r_w-infected/subject} {VERB/r_w-infected/appreciate/appreciates} you being here for {PRONOUN/r_w-infected/object}, even though {PRONOUN/r_w-infected/subject} {VERB/r_w-infected/don't/doesn't} think you'll find a cure. You tell {PRONOUN/r_w-infected/object} not to think like that.",
                 "exp": 10,
                 "weight": 20
             }
@@ -1140,7 +1140,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "You slowly approach the cat, but {PRONOUN/r_w_infected/subject} {VERB/r_w_infected/start/starts} hissing when you draw near. You retreat. You'll speak to {PRONOUN/r_w_infected/object} later, when the infection isn't actively taking its toll.",
+                "text": "You slowly approach the cat, but {PRONOUN/r_w-infected/subject} {VERB/r_w-infected/start/starts} hissing when you draw near. You retreat. You'll speak to {PRONOUN/r_w-infected/object} later, when the infection isn't actively taking its toll.",
                 "exp": 10,
                 "weight": 20
             }

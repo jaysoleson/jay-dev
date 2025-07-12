@@ -30,7 +30,7 @@
     ],
     "general stable": [],
     "general sweet": [
-        "r_c_infected catches a glimpse of {PRONOUN/r_c_infected/self} in a puddle and bursts into tears. You lay with {PRONOUN/r_c_infected/object} to offer some comfort."
+        "r_c-infected catches a glimpse of {PRONOUN/r_c-infected/self} in a puddle and bursts into tears. You lay with {PRONOUN/r_c-infected/object} to offer some comfort."
     ],
     "general unabashed": [],
     "general unlawful": [],
