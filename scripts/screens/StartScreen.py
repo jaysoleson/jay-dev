@@ -392,7 +392,7 @@ class StartScreen(Screens):
         self.warning_label_background.hide()
         self.warning_label = pygame_gui.elements.UITextBox(
             "Warning: this game includes descriptions of gore, violence, murder, kit death, and animal abuse",
-            ui_scale(pygame.Rect((0, 12), (700, 30))),
+            ui_scale(pygame.Rect((0, 12), (700, 40))),
             object_id=ObjectID("#text_box_30_horizcenter", "#dark"),
             manager=MANAGER,
             anchors={
