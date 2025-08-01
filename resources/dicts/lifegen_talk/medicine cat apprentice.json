@@ -1152,9 +1152,6 @@
             ],
             "age": [
                 "not_kitten"
-            ],
-            "status": [
-                "connected"
             ]
         },
         "tags": [
@@ -1180,9 +1177,6 @@
             ],
             "age": [
                 "not_kitten"
-            ],
-            "status": [
-                "connected"
             ]
         },
         "tags": [
@@ -1302,13 +1296,10 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "min_plat_35"
             ]
         },
-        "tags": [
-            "min_plat_35"
+        "relationship": [
+            "min_platonic_35"
         ],
         "intro": [
             "[t_c hurries a bundle of herbs into the medicine den, brow furrowed and ears pinned back in concentration.]",
@@ -1324,14 +1315,12 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "min_plat_35",
-                "connected"
             ]
         },
+        "relationship": [
+            "min_platonic_35"
+        ],
         "tags": [
-            "min_plat_35",
             "connected"
         ],
         "intro": [
@@ -1720,9 +1709,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "clan_has_kits"
             ]
         },
         "tags": [
@@ -2769,8 +2755,7 @@
                 "min_they_deadfor_40"
             ],
             "status": [
-                "medicine cat",
-                "connected"
+                "medicine cat"
             ]
         },
         "tags": [
@@ -2805,8 +2790,7 @@
                 "min_they_deadfor_40"
             ],
             "status": [
-                "medicine cat",
-                "connected"
+                "medicine cat"
             ]
         },
         "tags": [

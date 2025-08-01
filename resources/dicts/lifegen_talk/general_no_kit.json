@@ -4225,7 +4225,8 @@
     "cool_tomediatorAJ": {
         "y_c": {
             "status": [
-                "mediator"
+                "mediator",
+                "mediator's apprentice"
             ],
             "condition": [
                 "blind:any:false"
@@ -4246,9 +4247,7 @@
         "relationship": [
             "max_platonic_15"
         ],
-        "tags": [
-            "mediator's apprentice"
-        ],
+        "tags": [],
         "intro": [
             "Huh? Oh, I don't really need any mediation. Thanks."
         ]
@@ -4258,7 +4257,8 @@
             "status": [
                 "apprentice",
                 "queen's apprentice",
-                "medicine cat apprentice"
+                "medicine cat apprentice",
+                "mediator's apprentice"
             ],
             "condition": [
                 "blind:any:false"
@@ -4278,9 +4278,7 @@
         "relationship": [
             "max_platonic_10"
         ],
-        "tags": [
-            "mediator's apprentice"
-        ],
+        "tags": [],
         "intro": [
             "Shouldn't you be out with m_n ...?",
             "When I was your age, I'd never be caught dead shirking my duties."
@@ -25568,14 +25566,13 @@
             ]
         },
         "season": [
-            "greenleaf"
+            "greenleaf",
+            "leaffall"
         ],
         "biome": [
             "forest"
         ],
-        "tags": [
-            "leaf-fall"
-        ],
+        "tags": [],
         "intro": [
             "[After a recent windstorm, t_c has {PRONOUN/t_c/poss} nose to the ground, using {PRONOUN/t_c/poss} whiskers to navigate around all of the branches that have fallen into the clearing.]",
             "[Focussed on the debris underpaw, {PRONOUN/t_c/subject}{VERB/t_c/stop/stops} shorter of you than {PRONOUN/t_c/subject} normally would.]",
@@ -29063,10 +29060,10 @@
         },
         "relationship": [
             "min_platonic_50",
-            "from_parent"
+            "from_parent",
+            "from_adopted_parent"
         ],
         "tags": [
-            "adoptive_parent",
             "connected"
         ],
         "intro": [
@@ -29095,10 +29092,10 @@
         },
         "relationship": [
             "min_platonic_50",
-            "from_parent"
+            "from_parent",
+            "from_adopted_parent"
         ],
         "tags": [
-            "adoptive_parent",
             "connected"
         ],
         "intro": [
@@ -29127,10 +29124,10 @@
         },
         "relationship": [
             "min_platonic_50",
-            "from_parent"
+            "from_parent",
+            "from_adopted_parent"
         ],
         "tags": [
-            "adoptive_parent",
             "connected"
         ],
         "intro": [
@@ -29159,10 +29156,10 @@
         },
         "relationship": [
             "min_platonic_50",
-            "from_parent"
+            "from_parent",
+            "from_adopted_parent"
         ],
         "tags": [
-            "adoptive_parent",
             "connected"
         ],
         "intro": [
@@ -41161,11 +41158,10 @@
         },
         "relationship": [
             "min_platonic_20",
-            "from_parent"
+            "from_parent",
+            "from_adopted_parent"
         ],
-        "tags": [
-            "adoptive_parent"
-        ],
+        "tags": [],
         "intro": [
             "Ah... y_c? plike-m_n mentioned you hurt yourself while training... are you okay? Do you need to see r_m?",
             "[You indeed scraped your side on a rock today, but it only left a scratch. You show t_c, and {PRONOUN/t_c/subject} {VERB/t_c/take/takes} a while to inspect it.]",

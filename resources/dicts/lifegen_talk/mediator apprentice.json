@@ -359,18 +359,13 @@
             ],
             "age": [
                 "not_kitten"
-            ],
-            "status": [
-                "no_kit"
             ]
         },
         "relationship": [
             "min_platonic_20",
             "min_platonic_20"
         ],
-        "tags": [
-            "no_kit"
-        ],
+        "tags": [],
         "intro": [
             "y_c. Buddy. Best friend. We've GOTTA TRY this. r_c told me that if you eat three mice, one rabbit, and howl at the moon, you get magic powers!",
             "What? It's totally real, {PRONOUN/r_c/subject} wouldn't lie to me like that! I prommissseee."
@@ -1097,17 +1092,12 @@
             ],
             "age": [
                 "not_kitten"
-            ],
-            "status": [
-                "no_kit"
             ]
         },
         "relationship": [
             "min_jealousy_50"
         ],
-        "tags": [
-            "no_kit"
-        ],
+        "tags": [],
         "intro": [
             "Hey, so, remember when you cracked that joke today, and everybody laughed, and then I tried to be funny, and no one laughed?",
             "... What was the deal with that?"

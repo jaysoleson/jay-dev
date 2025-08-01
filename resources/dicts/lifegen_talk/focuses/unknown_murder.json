@@ -1874,7 +1874,6 @@
             ]
         },
         "tags": [
-            "focus",
             "focus"
         ],
         "intro": [
@@ -2418,10 +2417,12 @@
                 "elder"
             ]
         },
+        "relationship": [
+            "they_grandparent"
+        ],
         "tags": [
             "focus",
-            "you_murderer",
-            "grandparent"
+            "you_murderer"
         ],
         "intro": [
             "Dear, you have been very smug lately. Don't think I can't tell.",

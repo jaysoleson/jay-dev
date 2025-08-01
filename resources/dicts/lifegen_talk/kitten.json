@@ -10685,11 +10685,10 @@
         },
         "relationship": [
             "min_platonic_50",
-            "from_parent"
+            "from_parent",
+            "from_adopted_parent"
         ],
-        "tags": [
-            "adoptive_parent"
-        ],
+        "tags": [],
         "intro": [
             "y_c, my sweet kit... after you become an apprentice, and start spending all day with your mentor and the other apprentices...",
             "Make sure to come tell me how everything's going. I want to hear about your training, and if anyone's being mean to you, and if you noticed something scary...",
@@ -14589,8 +14588,8 @@
                 "kitten"
             ]
         },
-        "tags": [
-            "grieving_you"
+        "relationship": [
+            "grievingyou"
         ],
         "intro": [
             "What - When did you come back?",
@@ -14850,15 +14849,14 @@
             ],
             "status": [
                 "kitten"
-            ]
+            ],
+            "cluster": ["unruly"]
         },
         "season": [
             "leafbare",
             "newleaf"
         ],
-        "tags": [
-            "unruly"
-        ],
+        "tags": [],
         "intro": [
             "[In the midst of doing your chores for the day, you happen to stumble across t_c causing some trouble.]",
             "[t_c's head pops out of the hole {PRONOUN/t_c/subject} dug, completely covered in mud.]",
@@ -15010,11 +15008,10 @@
         "t_c": {
             "status": [
                 "kitten"
-            ]
+            ],
+            "cluster": ["unruly"]
         },
-        "tags": [
-            "unruly"
-        ],
+        "tags": [],
         "intro": [
             "Hey, I noticed it's been really quiet.",
             "So I stirred up some trouble for you! r_c1 and r_c2 have been mad for hourrrssss!",
@@ -15598,15 +15595,14 @@
         "t_c": {
             "status": [
                 "kitten"
-            ]
+            ],
+            "cluster": ["self-conscious"]
         },
         "relationship": [
             "from_kit",
             "from_adopted_kit"
         ],
-        "tags": [
-            "self-conscious"
-        ],
+        "tags": [],
         "intro": [
             "[You watch t_c as {PRONOUN/t_c/subject} {VERB/t_c/groom/grooms} {PRONOUN/t_c/poss} little paws, love for {PRONOUN/t_c/object} coursing through your body at the sight. Your kit is so cute!]",
             "What? Do I look funny? What's wrong??"
@@ -15773,14 +15769,13 @@
             ],
             "condition": [
                 "blind:any:false"
-            ]
+            ],
+            "cluster": ["self-conscious"]
         },
         "relationship": [
             "min_platonic_25"
         ],
-        "tags": [
-            "self-conscious"
-        ],
+        "tags": [],
         "intro": [
             "Hey, umm... y_c? Can I ask a weird question?",
             "... Do I sneeze funny?",
@@ -15860,9 +15855,8 @@
                 "blind:any:false"
             ]
         },
-        "tags": [
-            "leaf-fall"
-        ],
+        "season": ["leaffall"],
+        "tags": [],
         "intro": [
             "If r_k brings any more leaves into the nursery just because {PRONOUN/r_k/subject} thought they looked pretty, I'm moving my nest outside."
         ]
@@ -16266,11 +16260,10 @@
         "t_c": {
             "status": [
                 "kitten"
-            ]
+            ],
+            "cluster": ["quiet"]
         },
-        "tags": [
-            "quiet"
-        ],
+        "tags": [],
         "intro": [
             "[While sorting through herbs, you glance up to see t_c, observing you from the entrance to the medicine den.]",
             "... I have a thorn stuck behind my ear. Can you pull it out?",
@@ -16374,11 +16367,10 @@
             "condition": [
                 "deaf:any:false"
             ],
-            "shunned": true
+            "shunned": true,
+            "cluster": ["self-conscious"]
         },
-        "tags": [
-            "self-conscious"
-        ],
+        "tags": [],
         "intro": [
             "[t_c huddles off to the side, as though {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} trying to be as inconspicuous as possible.]"
         ]

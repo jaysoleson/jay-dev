@@ -580,9 +580,6 @@
             ],
             "age": [
                 "not_kitten"
-            ],
-            "status": [
-                "connected"
             ]
         },
         "tags": [
@@ -608,9 +605,6 @@
             ],
             "age": [
                 "not_kitten"
-            ],
-            "status": [
-                "connected"
             ]
         },
         "tags": [
@@ -778,13 +772,10 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "min_plat_35"
             ]
         },
         "tags": [
-            "min_plat_35"
+            "min_platonic_35"
         ],
         "intro": [
             "[t_c hurries a bundle of herbs into the medicine den, brow furrowed and ears pinned back in concentration.]",
@@ -800,14 +791,10 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "min_plat_35",
-                "connected"
             ]
         },
         "tags": [
-            "min_plat_35",
+            "min_platonic_35",
             "connected"
         ],
         "intro": [

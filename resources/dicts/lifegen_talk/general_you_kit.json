@@ -8010,11 +8010,10 @@
             ]
         },
         "relationship": [
-            "from_parent"
+            "from_parent",
+            "from_adopted_parent"
         ],
-        "tags": [
-            "adoptive_parent"
-        ],
+        "tags": [],
         "intro": [
             "[Sometimes, t_c's smile flickers when {PRONOUN/t_c/subject} {VERB/t_c/notice/notices} how small you still are. {PRONOUN/t_c/subject/CAP} {VERB/t_c/lean/leans} close, pressing {PRONOUN/t_c/poss} face into your side.]",
             "I tried so hard to keep you safe, y_c. I'm sorry that it wasn't enough."
@@ -8047,11 +8046,10 @@
             ]
         },
         "relationship": [
-            "from_parent"
+            "from_parent",
+            "from_adopted_parent"
         ],
-        "tags": [
-            "adoptive_parent"
-        ],
+        "tags": [],
         "intro": [
             "y_c, did I hear r_w right? Did you sneak into the warriors' den this morning?",
             "I know you're excited to grow up, but you can't do things like that! It's important to stay out of trouble, and not bother other cats...",
