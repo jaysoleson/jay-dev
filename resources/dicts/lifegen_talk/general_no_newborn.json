@@ -2469,7 +2469,8 @@
                 "silly"
             ],
             "age": [
-                "adolescent"
+                "adolescent",
+                "kitten"
             ],
             "condition": [
                 "blind:any:false"
@@ -2482,9 +2483,7 @@
             "min_platonic_20",
             "sibling"
         ],
-        "tags": [
-            "they_kit"
-        ],
+        "tags": [],
         "intro": [
             "Hey! Hey, hey, y_c! Hey!",
             "We should do something together sometime! Like... a sibling song! After all...",
@@ -2506,7 +2505,8 @@
                 "silly"
             ],
             "age": [
-                "adolescent"
+                "adolescent",
+                "kitten"
             ],
             "condition": [
                 "blind:any:false"
@@ -2518,9 +2518,7 @@
         "relationship": [
             "min_platonic_20"
         ],
-        "tags": [
-            "they_kit"
-        ],
+        "tags": [],
         "intro": [
             "I had an idea for a new song! Wanna hear it?",
             "What? 'I'm busy'? Well, that's perfect! Unwilling listeners are the best kind!",
@@ -3833,7 +3831,8 @@
             "cluster": [
                 "unabashed",
                 "silly",
-                "neurotic"
+                "neurotic",
+                "assertive"
             ],
             "age": [
                 "not_kitten"
@@ -3842,9 +3841,7 @@
         "relationship": [
             "min_platonic_25"
         ],
-        "tags": [
-            "they_asseritve"
-        ],
+        "tags": [],
         "intro": [
             "You ever notice how plike-r_c-introspective doesn't say much, but when {PRONOUN/plike-r_c-introspective/subject} {VERB/plike-r_c-introspective/do/does}, it's, like, the smartest thing you've ever heard?",
             "I swear, {PRONOUN/plike-r_c-introspective/subject}{VERB/plike-r_c-introspective/'re/'s} like a StarClan cat reincarnated, {PRONOUN/plike-r_c-introspective/subject}{VERB/plike-r_c-introspective/'re/'s} so wise. If I had a brain like that, I wouldn't be able to stand living in this Clan, every other cat would seem so mouse-brained!",

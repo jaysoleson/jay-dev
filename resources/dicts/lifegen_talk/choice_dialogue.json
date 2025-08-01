@@ -5055,11 +5055,12 @@
             ],
             "dead": [
                 "ur"
+            ],
+            "status": [
+                "kittypet"
             ]
         },
-        "tags": [
-            "they_kittypet"
-        ],
+        "tags": [],
         "intro": [
             "D-don't hurt me! I didn't realize anyone else was here!",
             "[The ghostly cat backs away from you, {PRONOUN/t_c/poss} fur bristling. Is this a game?]",
@@ -6547,11 +6548,12 @@
             ],
             "age": [
                 "not_kitten"
+            ],
+            "skill": [
+                "ARTISTAN,1"
             ]
         },
-        "tags": [
-            "they_artistian"
-        ],
+        "tags": [],
         "intro": [
             "[t_c is decorating a mucky rock overhang. You creep forward to inspect {PRONOUN/t_c/poss} creation.]",
             "[All of the foul-smelling components seem wrong. Is that a tuft of fur? Why is that piece of wood dripping?]",

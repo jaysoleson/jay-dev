@@ -4005,5 +4005,67 @@
             "[As you watch t_c flop around like a fish out of water, you can't help but think of yg_c.]",
             "[Even the most ridiculously random things remind you of {PRONOUN/yg_c/object}.]"
         ]
+    },
+    "scnew_urnew_R1": {
+        "y_c": {
+            "status": [
+                "newborn"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "dead": [
+                "sc"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "dead": [
+                "ur"
+            ],
+            "status": [
+                "newborn"
+            ]
+        },
+        "tags": [],
+        "intro": [
+            "Meewwww!",
+            "[Oh? Who is that? You toddle closer curiously.]",
+            "Meeew mew.",
+            "[You're friends now. The day is spent napping together.]"
+        ]
+    },
+    "scnew_urnew_R3": {
+        "y_c": {
+            "status": [
+                "newborn"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "dead": [
+                "sc"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "dead": [
+                "ur"
+            ],
+            "status": [
+                "newborn"
+            ]
+        },
+        "tags": [],
+        "intro": [
+            "Mew! Mew! Mew! Mew!",
+            "[What's that sound?]",
+            "Mew! Meeew! Meeeew! Meeeew!",
+            "[You decide to mew back, and soon there is a volley of tiny squeaks echoing softly between the two of you.]"
+        ]
     }
 }

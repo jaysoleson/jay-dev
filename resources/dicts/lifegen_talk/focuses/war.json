@@ -3454,13 +3454,15 @@
             ],
             "dead": [
                 "any"
+            ],
+            "status": [
+                "kittypet",
+                "rogue",
+                "loner"
             ]
         },
         "tags": [
-            "focus",
-            "they_kittypet",
-            "they_rogue",
-            "they_loner"
+            "focus"
         ],
         "intro": [
             "Ah, you never got old enough to have to deal with all of this... Clancat violence, did you?",

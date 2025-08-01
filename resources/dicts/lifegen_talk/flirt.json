@@ -6865,11 +6865,11 @@
         "t_c": {
             "condition": [
                 "blind:any:false",
-                "deaf:any:false"
+                "deaf:any:false",
+                "guilt"
             ]
         },
         "tags": [
-            "they_guilty",
             "reject"
         ],
         "intro": [
@@ -6888,11 +6888,11 @@
         "t_c": {
             "condition": [
                 "blind:any:false",
-                "deaf:any:false"
+                "deaf:any:false",
+                "guilt"
             ]
         },
         "tags": [
-            "they_guilty",
             "accept"
         ],
         "intro": [
@@ -6907,14 +6907,14 @@
         },
         "t_c": {
             "condition": [
-                "blind:any:false"
+                "blind:any:false",
+                "guilt"
             ]
         },
         "relationship": [
             "from_mate"
         ],
         "tags": [
-            "they_guilty",
             "reject"
         ],
         "intro": [

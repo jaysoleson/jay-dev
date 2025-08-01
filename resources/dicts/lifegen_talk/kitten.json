@@ -15960,12 +15960,10 @@
             ],
             "condition": [
                 "deaf:any:false"
-            ]
+            ],
+            "cluster": ["quiet"]
         },
-        "tags": [
-            "quiet",
-            "they_living"
-        ],
+        "tags": [],
         "intro": [
             "[t_c gazes at you curiously.]"
         ]
@@ -16066,16 +16064,14 @@
         },
         "t_c": {
             "cluster": [
+                "self-conscious",
                 "shy"
             ],
             "status": [
                 "kitten"
             ]
         },
-        "tags": [
-            "self-conscious",
-            "they_living"
-        ],
+        "tags": [],
         "intro": [
             "Umm...",
             "You're a StarClan cat, right? What are you doing here?",
@@ -16177,9 +16173,7 @@
                 "kitten"
             ]
         },
-        "tags": [
-            "they_living"
-        ],
+        "tags": [],
         "intro": [
             "[Some of the kits, when they see you, react with surprise or confusion - much differently than they do when they see their living Clanmates.]",
             "... What do you want?",

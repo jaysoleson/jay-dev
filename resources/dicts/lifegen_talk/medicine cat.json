@@ -5209,7 +5209,8 @@
                 "silly"
             ],
             "status": [
-                "medicine cat"
+                "medicine cat",
+                "medicine cat apprentice"
             ],
             "age": [
                 "not_kitten"
@@ -5218,9 +5219,7 @@
                 "INNOVATOR,1"
             ]
         },
-        "tags": [
-            "they_medicine_cat_apprentince"
-        ],
+        "tags": [],
         "intro": [
             "[You make your way into the medicine den to find that t_c is building some sort of contraption around the herb stock.]",
             "Hi, y_c. What do you need?",

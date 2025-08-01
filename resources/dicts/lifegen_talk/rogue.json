@@ -411,11 +411,12 @@
             ],
             "dead": [
                 "ur"
+            ],
+            "status": [
+                "kittypet"
             ]
         },
-        "tags": [
-            "they_kittypet"
-        ],
+        "tags": [],
         "intro": [
             "Do you have a family, little one?",
             "Oh... you're one of them. I'm glad you have someone to look out for you."

@@ -31733,16 +31733,15 @@
                 "neurotic"
             ],
             "condition": [
-                "blind:any:false"
+                "blind:any:false",
+                "guilt"
             ],
             "shunned": true,
             "age": [
                 "not_kitten"
             ]
         },
-        "tags": [
-            "they_guilty"
-        ],
+        "tags": [],
         "intro": [
             "[t_c, alone in the corner, mumbles the same things over and over again.]",
             "I didn't mean it. I didn't mean to do it...",
@@ -33673,11 +33672,12 @@
         "t_c": {
             "cluster": [
                 "assertive"
+            ],
+            "skill": [
+                "COMFORTER,1"
             ]
         },
-        "relationship": [
-            "they_comforter"
-        ],
+        "relationship": [],
         "intro": [
             "Well if it ain't y_c, how're you doin' today?",
             "You sure don't look great. Too much to do?",
@@ -33705,11 +33705,12 @@
             ],
             "age": [
                 "not_kitten"
+            ],
+            "skill": [
+                "ARTISTAN,1"
             ]
         },
-        "tags": [
-            "they_artistian"
-        ],
+        "tags": [],
         "intro": [
             "[t_c is arranging brittle, blackened leaves in the semblance of a garland. {PRONOUN/t_c/subject/CAP} {VERB/t_c/try/tries} to hang them so they curl around one of the twisted trees, but the leaves keep cracking and falling to the ground.]",
             "[When t_c notices you watching, {PRONOUN/t_c/subject} {VERB/t_c/glare/glares} at you and {VERB/t_c/stalk/stalks} away. The leaves crumble to dust as {PRONOUN/t_c/subject} {VERB/t_c/vanish/vanishes}.]"
@@ -39018,7 +39019,8 @@
             ],
             "condition": [
                 "blind:any:false",
-                "deaf:any:false"
+                "deaf:any:false",
+                "guilt"
             ],
             "shunned": true
         },
@@ -39027,9 +39029,7 @@
             "min_trust_10",
             "from_mate"
         ],
-        "tags": [
-            "they_guilty"
-        ],
+        "tags": [],
         "intro": [
             "[t_c's head is buried underneath {PRONOUN/t_c/poss} paws as if hiding away from the world.]"
         ]
