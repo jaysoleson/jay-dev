@@ -2665,7 +2665,8 @@
                 "warrior",
                 "apprentice",
                 "deputy",
-                "leader"
+                "leader",
+                "not_df_trainee"
             ]
         },
         "t_c": {
@@ -2680,8 +2681,7 @@
             ]
         },
         "tags": [
-            "focus",
-            "you_not_dftrainee"
+            "focus"
         ],
         "intro": [
             "[On patrol with t_c and r_w today, you were ambushed by a small group of w_cClan warriors.]",

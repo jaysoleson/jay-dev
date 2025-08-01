@@ -3213,7 +3213,8 @@
     "brooding_toqueen_AJ": {
         "y_c": {
             "status": [
-                "queen"
+                "queen",
+                "queen's apprentice"
             ]
         },
         "t_c": {
@@ -3231,9 +3232,7 @@
                 "deputy"
             ]
         },
-        "tags": [
-            "you_queen's_aprentice"
-        ],
+        "tags": [],
         "intro": [
             "[The nursery entrance shudders open, revealing little r_k dangling from t_c's mouth, mewling and squirming in protest.]",
             "[t_c sets {PRONOUN/r_k/object} on the ground, and the kit bounds towards you, cowering behind your leg at t_c's cold glare.]",
@@ -3244,7 +3243,8 @@
     "brooding_toqueen_AJ1": {
         "y_c": {
             "status": [
-                "queen"
+                "queen",
+                "queen's apprentice"
             ]
         },
         "t_c": {
@@ -3260,7 +3260,6 @@
             ]
         },
         "tags": [
-            "you_queen's_aprentice",
             "clan_has_kits"
         ],
         "intro": [

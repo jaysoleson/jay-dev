@@ -1050,7 +1050,8 @@
         "y_c": {
             "backstory": [
                 "clanfounder",
-                "clanborn"
+                "clanborn",
+                "originallyfromanotherclan"
             ]
         },
         "t_c": {
@@ -1062,9 +1063,7 @@
                 "formerlyakittypet"
             ]
         },
-        "tags": [
-            "you_originallyanotherclan"
-        ],
+        "tags": [],
         "intro": [
             "Oh, hit the road, Jack.",
             "[You bristle in confusion, not understanding the terminology t_c just used for you. You ask what {PRONOUN/t_c/subject} {VERB/t_c/mean/means} by that, but t_c only grins.]",

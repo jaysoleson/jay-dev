@@ -5484,7 +5484,8 @@
     "brooding_toqueen_AJ1": {
         "y_c": {
             "status": [
-                "queen"
+                "queen",
+                "queen's apprentice"
             ]
         },
         "t_c": {
@@ -5500,7 +5501,6 @@
             ]
         },
         "tags": [
-            "you_queen's_aprentice",
             "clan_has_kits"
         ],
         "intro": [

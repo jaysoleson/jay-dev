@@ -36500,7 +36500,8 @@
     "neurotic_yourecoveringfrombirth_SQ1": {
         "y_c": {
             "condition": [
-                "deaf:any:false"
+                "deaf:any:false",
+                "recovering from birth"
             ],
             "age": [
                 "not_kitten"
@@ -36520,9 +36521,7 @@
         "relationship": [
             "min_platonic_10"
         ],
-        "tags": [
-            "you_recoveringfrombirth"
-        ],
+        "tags": [],
         "intro": [
             "[t_c hovers outside of the nursery until you invite {PRONOUN/t_c/object} inside. {PRONOUN/t_c/subject/CAP} {VERB/t_c/step/steps} carefully, as if worried that a kitten will teleport underfoot.]",
             "[When you beckon {PRONOUN/t_c/object} forward to see y_kk, who's asleep by your side, {PRONOUN/t_c/poss} eyes widen. {PRONOUN/t_c/subject/CAP} {VERB/t_c/reach/reaches} out a paw to touch {PRONOUN/y_kk/object}, then quickly {VERB/t_c/pull/pulls} it back.]",
@@ -42246,7 +42245,8 @@
     "theypreg_sign_rad1": {
         "y_c": {
             "status": [
-                "queen"
+                "queen",
+                "queen's apprentice"
             ]
         },
         "t_c": {
@@ -42258,9 +42258,7 @@
                 "not_queen's apprentice"
             ]
         },
-        "tags": [
-            "you_queen_apprentice"
-        ],
+        "tags": [],
         "intro": [
             "Hey, y_c, what was the sign for moss-ball again?",
             "It's been awhile since I've been in the nursery, and I don't remember all the signs the kits use."

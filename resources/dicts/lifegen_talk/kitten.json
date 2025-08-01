@@ -13732,6 +13732,9 @@
         "y_c": {
             "condition": [
                 "deaf:any:false"
+            ],
+            "status": [
+                "queen's apprentice"
             ]
         },
         "t_c": {
@@ -13747,9 +13750,7 @@
             "max_trust_10",
             "max_comfort_15"
         ],
-        "tags": [
-            "you_queen_apprentice"
-        ],
+        "tags": [],
         "intro": [
             "[t_c, unwelcome amongst the other kits in the nursery, is batting at a leaf.]",
             "[You'd never have thought a kit capable of such brutal actions.]",
@@ -13766,7 +13767,8 @@
             ],
             "shunned": true,
             "status": [
-                "queen"
+                "queen",
+                "queen's apprentice"
             ]
         },
         "t_c": {
@@ -13784,9 +13786,7 @@
         "relationship": [
             "min_platonic_15"
         ],
-        "tags": [
-            "you_queen_apprentice"
-        ],
+        "tags": [],
         "intro": [
             "How come you're being shunned, anyway?",
             "... You killed a cat?",
@@ -13797,6 +13797,9 @@
     },
     "queenapp_youshunned_kit_pos_rad1": {
         "y_c": {
+            "status": [
+                "queen's apprentice"
+            ],
             "shunned": true
         },
         "t_c": {
@@ -13810,9 +13813,7 @@
         "relationship": [
             "min_platonic_15"
         ],
-        "tags": [
-            "you_queen_apprentice"
-        ],
+        "tags": [],
         "intro": [
             "Why's everycat acting funny around you?",
             "... You killed a cat?",
@@ -15664,7 +15665,8 @@
     "daydreamer_kit_rad1": {
         "y_c": {
             "age": [
-                "adult"
+                "adult",
+                "adolescent"
             ]
         },
         "t_c": {
@@ -15678,9 +15680,7 @@
                 "kitten"
             ]
         },
-        "tags": [
-            "you_adolescent"
-        ],
+        "tags": [],
         "intro": [
             "[You call t_c's name to get {PRONOUN/t_c/poss} attention, but {PRONOUN/t_c/subject} {VERB/t_c/don't/doesn't} react.]",
             "[Nor {VERB/t_c/do/does} {PRONOUN/t_c/subject} react the next five times you say {PRONOUN/t_c/poss} name. {PRONOUN/t_c/subject/CAP} only {VERB/t_c/react/reacts} when you prod {PRONOUN/t_c/object} with your paw.]",
@@ -15871,6 +15871,9 @@
         "y_c": {
             "condition": [
                 "grief stricken"
+            ],
+            "status": [
+                "not_kitten"
             ]
         },
         "t_c": {
@@ -15881,9 +15884,7 @@
                 "kitten"
             ]
         },
-        "tags": [
-            "you_no_kit"
-        ],
+        "tags": [],
         "intro": [
             "[t_c drops a small bundle of flowers at your paws.]",
             "r_q said that sometimes when cats are grieving, putting flowers on the dead cat's grave can help them feel better.",
@@ -16137,7 +16138,11 @@
         ]
     },
     "attention-seeker_kitten_rad1": {
-        "y_c": {},
+        "y_c": {
+            "status": [
+                "not_kitten"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "attention-seeker"
@@ -16146,9 +16151,7 @@
                 "kitten"
             ]
         },
-        "tags": [
-            "you_no_kitten"
-        ],
+        "tags": [],
         "intro": [
             "[t_c has wadded a bunch of old moss together and is embedding sticks into it.]",
             "[Finally, when {PRONOUN/t_c/subject} {VERB/t_c/appear/appears} satisfied with the result, {PRONOUN/t_c/subject} {VERB/t_c/drape/drapes} the moss over {PRONOUN/t_c/poss} back, sticks facing outwards.]",

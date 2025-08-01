@@ -5289,7 +5289,11 @@
         ]
     },
     "Introspective_mentor_H1": {
-        "y_c": {},
+        "y_c": {
+            "status": [
+                "apprentice"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "introspective"
@@ -5302,9 +5306,7 @@
             "min_platonic_50",
             "from_mentor"
         ],
-        "tags": [
-            "you_apprentince"
-        ],
+        "tags": [],
         "intro": [
             "[t_c has had you training ever since sunrise but today you just can't get your pounce right. Eyes filled with frustrated tears, you try again... But fail.]",
             "Chin up, let me help. All it takes is practice. You're allowed mistakes because that's how we learn.",
@@ -5314,7 +5316,11 @@
         ]
     },
     "Introspective_mentor_H2": {
-        "y_c": {},
+        "y_c": {
+            "status": [
+                "apprentice"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "brooding",
@@ -5328,9 +5334,7 @@
             "min_dislike_50",
             "from_mentor"
         ],
-        "tags": [
-            "you_apprentince"
-        ],
+        "tags": [],
         "intro": [
             "[t_c has been quiet these past few moons, {PRONOUN/t_c/poss} eyes filled with an emotion you can't explain. Not yet, anyway.]",
             "We're training in the rain today. Come, y_c.",
@@ -8383,7 +8387,8 @@
     "brooding_toqueen_AJ": {
         "y_c": {
             "status": [
-                "queen"
+                "queen",
+                "queen's apprentice"
             ]
         },
         "t_c": {
@@ -8401,9 +8406,7 @@
                 "deputy"
             ]
         },
-        "tags": [
-            "you_queen's_aprentice"
-        ],
+        "tags": [],
         "intro": [
             "[The nursery entrance shudders open, revealing little r_k dangling from t_c's mouth, mewling and squirming in protest.]",
             "[t_c sets {PRONOUN/r_k/object} on the ground, and the kit bounds towards you, cowering behind your leg at t_c's cold glare.]",
@@ -8414,7 +8417,8 @@
     "brooding_toqueen_AJ1": {
         "y_c": {
             "status": [
-                "queen"
+                "queen",
+                "queen's apprentice"
             ]
         },
         "t_c": {
@@ -8430,7 +8434,6 @@
             ]
         },
         "tags": [
-            "you_queen's_aprentice",
             "clan_has_kits"
         ],
         "intro": [

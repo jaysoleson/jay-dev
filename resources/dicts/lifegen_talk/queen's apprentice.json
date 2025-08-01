@@ -2319,7 +2319,7 @@
             ],
             "shunned": true,
             "status": [
-                "they_queen_apprentice"
+                "queen's apprentice"
             ]
         },
         "relationship": [
@@ -2327,9 +2327,7 @@
             "max_trust_10",
             "from_your_apprentice"
         ],
-        "tags": [
-            "they_queen_apprentice"
-        ],
+        "tags": [],
         "intro": [
             "[You shoo t_c away from the nursery with a pang of guilt in your heart.]",
             "[{PRONOUN/t_c/subject/CAP}{VERB/t_c/'re/'s} always so good with the kits, and you can't imagine {PRONOUN/t_c/object} doing anything to them.]",

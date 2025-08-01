@@ -3908,7 +3908,8 @@
         "y_c": {
             "condition": [
                 "blind:any:false",
-                "deaf:any:false"
+                "deaf:any:false",
+                "guilt"
             ],
             "shunned": true
         },
@@ -3922,12 +3923,10 @@
             ]
         },
         "relationship": [
-            "from_your_kit"
+            "from_kit",
+            "from_adopted_kit"
         ],
-        "tags": [
-            "from_your_adopted_kit",
-            "you_guilty"
-        ],
+        "tags": [],
         "intro": [
             "[Every time t_c shifts ever so slightly away from you, you're struck with a pang of terror.]",
             "[It almost feels as though t_c, despite being a newborn, already knows <i>exactly</i> what you did.]"

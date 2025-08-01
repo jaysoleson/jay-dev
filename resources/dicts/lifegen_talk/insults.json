@@ -5921,7 +5921,8 @@
     "shunned_insults_H2": {
         "y_c": {
             "condition": [
-                "blind:any:false"
+                "blind:any:false",
+                "guilt"
             ],
             "shunned": true,
             "age": [
@@ -5937,7 +5938,6 @@
             ]
         },
         "tags": [
-            "you_guilty",
             "insult"
         ],
         "intro": [
@@ -6318,12 +6318,12 @@
                 "deaf:any:false"
             ],
             "status": [
-                "queen"
+                "queen",
+                "queen's apprentice"
             ]
         },
         "tags": [
-            "insult",
-            "they_queen_apprentice"
+            "insult"
         ],
         "intro": [
             "[t_c cuffs your ear sharply.]"
