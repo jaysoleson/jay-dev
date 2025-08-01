@@ -30618,6 +30618,9 @@
             ],
             "condition": [
                 "blind:any:false"
+            ],
+            "status": [
+                "df_trainee"
             ]
         },
         "t_c": {
@@ -30637,9 +30640,7 @@
         "relationship": [
             "from_df_mentor"
         ],
-        "tags": [
-            "you_df_trainee"
-        ],
+        "tags": [],
         "intro": [
             "So, what's the waking world like? How's your training going there?",
             "[t_c swipes at your face. You twist aside just as {PRONOUN/t_c/subject} taught you, and {PRONOUN/t_c/subject} {VERB/t_c/purr/purrs} approvingly.]",
@@ -30654,6 +30655,9 @@
             ],
             "age": [
                 "not_kitten"
+            ],
+            "status": [
+                "df_trainee"
             ]
         },
         "t_c": {
@@ -30670,9 +30674,7 @@
         "relationship": [
             "from_df_mentor"
         ],
-        "tags": [
-            "you_df_trainee"
-        ],
+        "tags": [],
         "intro": [
             "You look terrible. I'm not going to train you when you're like that.",
             "Why are you even here tonight? Are you trying to spread whatever you have?",
@@ -30687,6 +30689,9 @@
             ],
             "age": [
                 "not_kitten"
+            ],
+            "status": [
+                "df_trainee"
             ]
         },
         "t_c": {
@@ -30706,9 +30711,7 @@
         "relationship": [
             "from_df_mentor"
         ],
-        "tags": [
-            "you_df_trainee"
-        ],
+        "tags": [],
         "intro": [
             "So you're going to have kits, hmm?",
             "Well... good luck, y_c. But don't stop training with me just because you'll have some furballs to look after.",
@@ -30722,6 +30725,9 @@
             ],
             "age": [
                 "not_kitten"
+            ],
+            "status": [
+                "df_trainee"
             ]
         },
         "t_c": {
@@ -30741,9 +30747,7 @@
         "relationship": [
             "from_df_mentor"
         ],
-        "tags": [
-            "you_df_trainee"
-        ],
+        "tags": [],
         "intro": [
             "Don't wander too deep into the forest. If you go too far, you might never come out.",
             "There are some cruel cats in there, and they've had lifetimes to hone their skills. Let me train you just a little more, first."
@@ -30753,7 +30757,8 @@
         "y_c": {
             "status": [
                 "medicine cat",
-                "medicine cat apprentice"
+                "medicine cat apprentice",
+                "df_trainee"
             ],
             "age": [
                 "not_kitten"
@@ -30776,9 +30781,7 @@
         "relationship": [
             "from_df_mentor"
         ],
-        "tags": [
-            "you_df_trainee"
-        ],
+        "tags": [],
         "intro": [
             "[You glimpse what seems to be a deep claw wound beneath the muck caking t_c's pelt, and ask if {PRONOUN/t_c/subject}'d like you to look at it. t_c hisses.]",
             "Remember your place, y_c. I'm your <i>mentor.</i> I can take care of myself.",
@@ -30790,6 +30793,9 @@
         "y_c": {
             "age": [
                 "not_kitten"
+            ],
+            "status": [
+                "df_trainee"
             ]
         },
         "t_c": {
@@ -30806,9 +30812,7 @@
         "relationship": [
             "from_df_mentor"
         ],
-        "tags": [
-            "you_df_trainee"
-        ],
+        "tags": [],
         "intro": [
             "[You're training with t_c when the ground suddenly shudders beneath you. You both leap away as the earth collapses and your training space is swallowed by dark muck.]",
             "[t_c doesn't look at you. They stare at the sinkhole, quivering. Their eyes are wide as they slowly back away from it.]",
@@ -30819,6 +30823,9 @@
         "y_c": {
             "age": [
                 "not_kitten"
+            ],
+            "status": [
+                "df_trainee"
             ]
         },
         "t_c": {
@@ -30838,9 +30845,7 @@
         "relationship": [
             "from_df_mentor"
         ],
-        "tags": [
-            "you_df_trainee"
-        ],
+        "tags": [],
         "intro": [
             "[During a break between tonight's exercises, you ask t_c a few questions about {PRONOUN/t_c/self}. You're careful not to ask anything too sensitive, but t_c still looks uncomfortable.]",
             "I'm... uh... flattered that you're interested, but I don't have much to say.",
@@ -30851,6 +30856,9 @@
         "y_c": {
             "age": [
                 "not_kitten"
+            ],
+            "status": [
+                "df_trainee"
             ]
         },
         "t_c": {
@@ -30867,9 +30875,7 @@
         "relationship": [
             "from_df_mentor"
         ],
-        "tags": [
-            "you_df_trainee"
-        ],
+        "tags": [],
         "intro": [
             "[Your previous attempts to ask t_c about {PRONOUN/t_c/self} have been unsuccessful, so you try to ask {PRONOUN/t_c/object} what the world was like when {PRONOUN/t_c/subject} {VERB/t_c/were/was} alive, instead. {PRONOUN/t_c/subject/CAP} {VERB/t_c/don't/doesn't} look at you.]",
             "You don't have to pretend to be interested in me, y_c. I know you're just here to train.",
@@ -30880,6 +30886,9 @@
         "y_c": {
             "age": [
                 "not_kitten"
+            ],
+            "status": [
+                "df_trainee"
             ]
         },
         "t_c": {
@@ -30893,9 +30902,7 @@
                 "not_kitten"
             ]
         },
-        "tags": [
-            "you_df_trainee"
-        ],
+        "tags": [],
         "intro": [
             "Life's too short to sit and take what other cats do to you.",
             "If someone's making your life miserable, it's okay to... do something about it, if you know what I mean.",
@@ -30908,6 +30915,9 @@
         "y_c": {
             "age": [
                 "not_kitten"
+            ],
+            "status": [
+                "df_trainee"
             ]
         },
         "t_c": {
@@ -30921,9 +30931,7 @@
                 "not_kitten"
             ]
         },
-        "tags": [
-            "you_df_trainee"
-        ],
+        "tags": [],
         "intro": [
             "Don't listen to what the other cats here might say. They call me a coward. They think I'm weak.",
             "[t_c spits into the murk pooled around {PRONOUN/t_c/poss} paws.]",

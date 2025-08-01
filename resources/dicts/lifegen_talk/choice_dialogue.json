@@ -5489,6 +5489,9 @@
             "age": [
                 "adolescent",
                 "not_kitten"
+            ],
+            "status": [
+                "df_trainee"
             ]
         },
         "t_c": {
@@ -5505,9 +5508,7 @@
         "relationship": [
             "from_df_mentor"
         ],
-        "tags": [
-            "you_df_trainee"
-        ],
+        "tags": [],
         "intro": [
             "You've been an apprentice for a bit, now. Do you like training with me, or with m_n better?",
             "[t_c's eyes flash for a moment. {PRONOUN/t_c/poss/CAP} tail flicks as {PRONOUN/t_c/subject} {VERB/t_c/await/awaits} your answer.]"
