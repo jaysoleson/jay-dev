@@ -6620,5 +6620,87 @@
         "intro": [
             "You're just being a meanie 'cause yg_c left you!"
         ]
+    },
+    "mcgrievingonly_insult_H6": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "relationship": [],
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "Oh, so now you think it's alright to insult people just because you're hurting? Give me a break."
+        ]
+    },
+    "mcgrievingonly_insult_H7": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "shunned": "any"
+        },
+        "relationship": [],
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "Oh, sorry, didn't realize grieving cats were so delusional."
+        ]
+    },
+    "mcgrievingonly_insult_H8": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "deaf:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "deaf:any:false"
+            ],
+            "shunned": "any"
+        },
+        "relationship": [],
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "[t_c rolls {PRONOUN/t_c/poss} eyes.]"
+        ]
+    },
+    "mcgrievingonly_insult_H9": {
+        "y_c": {
+            "condition": [
+                "deaf:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "deaf:any:false"
+            ],
+            "shunned": "any"
+        },
+        "relationship": [],
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "[t_c rolls {PRONOUN/t_c/poss} eyes.]"
+        ]
     }
 }
