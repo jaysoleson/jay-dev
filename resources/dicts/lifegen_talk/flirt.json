@@ -6409,7 +6409,8 @@
             "min_romantic_20"
         ],
         "tags": [
-            "accept"
+            "accept",
+            "has_mate"
         ],
         "intro": [
             "Does everycat want a piece of me, or what?",
@@ -6729,7 +6730,8 @@
             "non-mates"
         ],
         "tags": [
-            "reject"
+            "reject",
+            "has_mate"
         ],
         "intro": [
             "Sorry, you're definitely not my type of cat."
