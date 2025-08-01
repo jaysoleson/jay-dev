@@ -3822,7 +3822,7 @@
         },
         "relationship": [
             "from_parent",
-            "from_adoptive_parent"
+            "from_adopted_parent"
         ],
         "tags": [],
         "intro": [
@@ -3888,7 +3888,7 @@
         },
         "relationship": [
             "from_parent",
-            "from_adoptive_parent"
+            "from_adopted_parent"
         ],
         "tags": [],
         "intro": [
