@@ -10678,9 +10678,6 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "adoptive_parent"
             ]
         },
         "relationship": [
