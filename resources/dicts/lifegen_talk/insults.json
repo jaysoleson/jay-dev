@@ -6502,6 +6502,9 @@
             "condition": [
                 "deaf:any:false",
                 "blind:any:false"
+            ],
+            "status": [
+                "not_newborn"
             ]
         },
         "t_c": {
@@ -6510,7 +6513,8 @@
                 "blind:any:false"
             ],
             "status": [
-                "older"
+                "older",
+                "not_newborn"
             ]
         },
         "relationship": [
@@ -6541,12 +6545,18 @@
             "condition": [
                 "grief stricken",
                 "deaf:any:false"
+            ],
+            "status": [
+                "not_newborn"
             ]
         },
         "t_c": {
             "condition": [
                 "deaf:any:false",
                 "blind:any:false"
+            ],
+            "status": [
+                "not_newborn"
             ]
         },
         "relationship": [],
@@ -6562,11 +6572,17 @@
             "condition": [
                 "grief stricken",
                 "blind:any:false"
+            ],
+            "status": [
+                "not_newborn"
             ]
         },
         "t_c": {
             "condition": [
                 "blind:any:false"
+            ],
+            "status": [
+                "not_newborn"
             ]
         },
         "relationship": [
@@ -6584,11 +6600,17 @@
             "condition": [
                 "grief stricken",
                 "blind:any:false"
+            ],
+            "status": [
+                "not_newborn"
             ]
         },
         "t_c": {
             "condition": [
                 "blind:any:false"
+            ],
+            "status": [
+                "not_newborn"
             ]
         },
         "relationship": [],
