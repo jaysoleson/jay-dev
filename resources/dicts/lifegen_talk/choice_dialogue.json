@@ -738,7 +738,7 @@
     "assertivekit_1": {
         "y_c": {
             "age": [
-                "not_kit"
+                "not_kitten"
             ],
             "condition": [
                 "blind:any:false"
