@@ -1782,11 +1782,10 @@
         },
         "season": [
             "greenleaf",
-            "newleaf"
+            "newleaf",
+            "leaffall"
         ],
-        "tags": [
-            "leaf-fall"
-        ],
+        "tags": [],
         "intro": [
             "y_c! Your humble Clan mediator, t_c, has a plan, and I need you to help me go through with it!",
             "We've been hunting too much recently, and the prey is starting to dwindle. This could spell the end if we don't let it repopulate - we don't want to worsen leaf-bare, after all.",

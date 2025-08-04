@@ -5921,7 +5921,8 @@
     "shunned_insults_H2": {
         "y_c": {
             "condition": [
-                "blind:any:false"
+                "blind:any:false",
+                "guilt"
             ],
             "shunned": true,
             "age": [
@@ -5937,7 +5938,6 @@
             ]
         },
         "tags": [
-            "you_guilty",
             "insult"
         ],
         "intro": [
@@ -6318,12 +6318,12 @@
                 "deaf:any:false"
             ],
             "status": [
-                "queen"
+                "queen",
+                "queen's apprentice"
             ]
         },
         "tags": [
-            "insult",
-            "they_queen_apprentice"
+            "insult"
         ],
         "intro": [
             "[t_c cuffs your ear sharply.]"
@@ -6502,6 +6502,9 @@
             "condition": [
                 "deaf:any:false",
                 "blind:any:false"
+            ],
+            "status": [
+                "not_newborn"
             ]
         },
         "t_c": {
@@ -6510,7 +6513,8 @@
                 "blind:any:false"
             ],
             "status": [
-                "older"
+                "older",
+                "not_newborn"
             ]
         },
         "relationship": [
@@ -6541,12 +6545,18 @@
             "condition": [
                 "grief stricken",
                 "deaf:any:false"
+            ],
+            "status": [
+                "not_newborn"
             ]
         },
         "t_c": {
             "condition": [
                 "deaf:any:false",
                 "blind:any:false"
+            ],
+            "status": [
+                "not_newborn"
             ]
         },
         "relationship": [],
@@ -6562,11 +6572,17 @@
             "condition": [
                 "grief stricken",
                 "blind:any:false"
+            ],
+            "status": [
+                "not_newborn"
             ]
         },
         "t_c": {
             "condition": [
                 "blind:any:false"
+            ],
+            "status": [
+                "not_newborn"
             ]
         },
         "relationship": [
@@ -6584,11 +6600,17 @@
             "condition": [
                 "grief stricken",
                 "blind:any:false"
+            ],
+            "status": [
+                "not_newborn"
             ]
         },
         "t_c": {
             "condition": [
                 "blind:any:false"
+            ],
+            "status": [
+                "not_newborn"
             ]
         },
         "relationship": [],
@@ -6619,6 +6641,88 @@
         ],
         "intro": [
             "You're just being a meanie 'cause yg_c left you!"
+        ]
+    },
+    "mcgrievingonly_insult_H6": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "relationship": [],
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "Oh, so now you think it's alright to insult people just because you're hurting? Give me a break."
+        ]
+    },
+    "mcgrievingonly_insult_H7": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "shunned": "any"
+        },
+        "relationship": [],
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "Oh, sorry, didn't realize grieving cats were so delusional."
+        ]
+    },
+    "mcgrievingonly_insult_H8": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "deaf:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "deaf:any:false"
+            ],
+            "shunned": "any"
+        },
+        "relationship": [],
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "[t_c rolls {PRONOUN/t_c/poss} eyes.]"
+        ]
+    },
+    "mcgrievingonly_insult_H9": {
+        "y_c": {
+            "condition": [
+                "deaf:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "deaf:any:false"
+            ],
+            "shunned": "any"
+        },
+        "relationship": [],
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "[t_c rolls {PRONOUN/t_c/poss} eyes.]"
         ]
     }
 }
