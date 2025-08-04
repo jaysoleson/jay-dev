@@ -3953,5 +3953,57 @@
             "Mrow?",
             "[... You probably shouldn't be this close.]"
         ]
+    },
+    "mcgrievingonly_general_H1": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ],
+            "status": [
+                "not_kitten"
+            ]
+        },
+        "t_c": {
+            "age": [
+                "newborn"
+            ],
+            "condition": [
+                "blind:any:false",
+                "deaf:any:false"
+            ]
+        },
+        "relationship": [],
+        "tags": [],
+        "intro": [
+            "[You can't help but curl around t_c, looking for comfort only the smallest and cutest of things can give.]",
+            "[t_c squeaks and spits in protest.]"
+        ]
+    },
+    "mcgrievingonly_general_H2": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "deaf:any:false"
+            ],
+            "status": [
+                "not_kitten"
+            ]
+        },
+        "t_c": {
+            "age": [
+                "newborn"
+            ],
+            "condition": [
+                "blind:any:false",
+                "deaf:any:false"
+            ]
+        },
+        "relationship": [],
+        "tags": [],
+        "intro": [
+            "[As you watch t_c flop around like a fish out of water, you can't help but think of yg_c.]",
+            "[Even the most ridiculously random things remind you of {PRONOUN/yg_c/object}.]"
+        ]
     }
 }

@@ -6461,5 +6461,164 @@
         "intro": [
             "[You feel too guilty to insult this cat. {PRONOUN/t_c/subject/CAP}{VERB/t_c/'re/'s} a newborn, for StarClan's sake.]"
         ]
+    },
+    "attack_insult_H1": {
+        "y_c": {
+            "condition": [
+                "deaf:any:false",
+                "blind:any:true"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "deaf:any:false",
+                "blind:any:false"
+            ]
+        },
+        "relationship": [
+            "min_dislike_15"
+        ],
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "[You feel the air shift as something - or somecat - gets close to smacking your nose. Darn t_c is trying to attack you!]",
+            "[You swipe back with your claws, but don't touch anything solid. Rats.]"
+        ],
+        "intro_scene_effects": {
+            "relationship": {
+                "cats_to": ["t_c"],
+                "cats_from": ["y_c"],
+                "values": {
+                    "dislike": 1,
+                    "trust": -1
+                },
+                "mutual": true
+            }
+        }
+    },
+    "attack_insult_H2": {
+        "y_c": {
+            "condition": [
+                "deaf:any:false",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "deaf:any:false",
+                "blind:any:false"
+            ],
+            "status": [
+                "older"
+            ]
+        },
+        "relationship": [
+            "min_platonic_10",
+            "min_dislike_10"
+        ],
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "[In response to your insults, t_c puts you in a headlock and buddy kicks your side.]",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/let/lets} you go a moment after the assault. It feels like you were let off easy.]"
+        ],
+        "intro_scene_effects": {
+            "relationship": {
+                "cats_to": ["t_c"],
+                "cats_from": ["y_c"],
+                "values": {
+                    "dislike": 1,
+                    "trust": -1
+                },
+                "mutual": true
+            }
+        }
+    },
+    "mcgrievingonly_insult_H1": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "deaf:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "deaf:any:false",
+                "blind:any:false"
+            ]
+        },
+        "relationship": [],
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "[t_c frowns at your insult, but doesn't insult you back. Perhaps {PRONOUN/t_c/subject} {VERB/t_c/feel/feels} pity for your grief.]"
+        ]
+    },
+    "mcgrievingonly_insult_H2": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "relationship": [
+            "min_platonic_30"
+        ],
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "Hey... Are you feeling okay? It's unlike you to just start insulting cats out of nowhere."
+        ]
+    },
+    "mcgrievingonly_insult_H3": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "relationship": [],
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "Tsk, come on, don't take your out frustrations on me.",
+            "Just because you're grieving doesn't mean everycat is just going to excuse your actions."
+        ]
+    },
+    "mcgrievingonly_insult_H4": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "age": ["kitten"]
+        },
+        "relationship": [],
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "You're just being a meanie 'cause yg_c left you!"
+        ]
     }
 }

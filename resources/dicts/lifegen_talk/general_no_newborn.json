@@ -5210,7 +5210,6 @@
             "[t_c narrows {PRONOUN/t_c/poss} eyes at you until you back away from {PRONOUN/t_c/poss} precious decoration.]"
         ]
     },
-
     "no_newborn_brooding_SQ2": {
         "y_c": {
             "condition": ["blind:any:false"]
@@ -5224,6 +5223,78 @@
         "intro": [
             "I can't help you right now. Ask neutral-r_w or somecat.",
             "...No, I'm not busy. I just want to spend some time alone."
+        ]
+    },
+    "mcgrievingonly_generaldf_H1": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "dead": [
+                "df"
+            ]
+        },
+        "relationship": [],
+        "tags": [],
+        "intro": [
+            "Oh, uh, sorry for your loss?",
+            "I would help you find yg_c, butttt I'm too comfortable in this spot. Sorry!"
+        ]
+    },
+    "mcgrievingonly_generaldf_H2": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "dead": [
+                "any"
+            ]
+        },
+        "relationship": [
+            "murderedthem",
+            "grievingthem"
+        ],
+        "tags": [],
+        "intro": [
+            "Wait, why are you grieving me? Did you regret your decision to murder me or something?",
+            "Hey, wait! Don't tell me you're trying to guilt trip me!"
+        ]
+    },
+    "mcgrievingonly_generaldf_H3": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "dead": [
+                "df"
+            ]
+        },
+        "relationship": [
+            "grievingthem"
+        ],
+        "tags": [],
+        "intro": [
+            "t_c, don't be sad. You can still talk to me! Think of that as a blessing.",
+            "Besides, the Dark Forest isn't as bad as they say. Yeah, it's goopy and kinda gross and everycat is always fighting over something...",
+            "But it's cool!"
         ]
     }
 }

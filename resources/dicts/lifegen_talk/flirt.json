@@ -8768,5 +8768,142 @@
             "[t_c scurries away, {PRONOUN/t_c/poss} pelt burning with embarrassment.]",
             "[Maybe t_c doesn't hate you after all.]"
         ]
+    },
+    "mcgrievingonly_flirting_H1": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {},
+        "relationship": [],
+        "tags": [
+            "accept"
+        ],
+        "intro": [
+            "You're so pretty even when you cry."
+        ]
+    },
+    "mcgrievingonly_flirting_H2": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "relationship": [],
+        "tags": [
+            "accept"
+        ],
+        "intro": [
+            "You're being really sweet, but take care of yourself, yeah?",
+            "How about we visit yg_c later?"
+        ]
+    },
+    "mcgrievingonly_flirting_H3": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {},
+        "relationship": [],
+        "tags": [
+            "reject"
+        ],
+        "intro": [
+            "Has anycat ever told you to look ugly when you cry?"
+        ]
+    },
+    "mcgrievingonly_flirting_H6": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "relationship": [],
+        "tags": [
+            "reject"
+        ],
+        "intro": [
+            "Are you using flirting as a coping mechanism?"
+        ]
+    },
+    "mcgrievingonly_flirting_H4": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {},
+        "relationship": [
+            "non-mates",
+            "min_platonic_20"
+        ],
+        "tags": [
+            "reject"
+        ],
+        "intro": [
+            "Hey, uh, sorry, but I think you should be reflecting in your feelings before flirting with anycat. You know, think about yourself first."
+        ]
+    },
+    "mcgrievingonly_flirting_H5": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ],
+            "shunned": true
+        },
+        "t_c": {
+            "condition": [
+                "grief stricken"
+            ]
+        },
+        "relationship": [],
+        "tags": [
+            "accept"
+        ],
+        "intro": [
+            "I think that's the most heartfelt thing you've said in a while. Are you feeling feverish or something?",
+            "Hehe, just kidding."
+        ]
+    },
+    "mcgrievingonly_flirting_H7": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ],
+            "shunned": true
+        },
+        "t_c": {
+            "condition": [
+                "grief stricken"
+            ]
+        },
+        "relationship": [
+            "min_dislike_25"
+        ],
+        "tags": [
+            "accept"
+        ],
+        "intro": [
+            "Did yg_c going to StarClan make you finally realize you like me?"
+        ]
     }
 }
