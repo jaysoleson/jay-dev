@@ -1334,6 +1334,11 @@ class TalkScreen(Screens):
                                 continue
                             if tag.startswith(f"min_{v}_"):
                                 continue
+            
+            if TAGS:
+                if "has_mate" in TAGS:
+                    if not cat.mates:
+                        continue
 
             # FOCUS TAGS
             if game.clan.focus and game.clan.focus == "leader" and "focus" in TAGS:
@@ -1884,7 +1889,7 @@ class TalkScreen(Screens):
             if text[i] == "":
                 return ""
         # for item in self.cat_dict.items():
-            # print("final", item[0], ":", item[1].name)
+        #     print("final", item[0], ":", item[1].name)
 
         process_text_dict = self.cat_dict.copy()
 
