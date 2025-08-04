@@ -10678,18 +10678,14 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "adoptive_parent"
             ]
         },
         "relationship": [
             "min_platonic_50",
-            "from_parent"
+            "from_parent",
+            "from_adopted_parent"
         ],
-        "tags": [
-            "adoptive_parent"
-        ],
+        "tags": [],
         "intro": [
             "y_c, my sweet kit... after you become an apprentice, and start spending all day with your mentor and the other apprentices...",
             "Make sure to come tell me how everything's going. I want to hear about your training, and if anyone's being mean to you, and if you noticed something scary...",
@@ -13732,6 +13728,9 @@
         "y_c": {
             "condition": [
                 "deaf:any:false"
+            ],
+            "status": [
+                "queen's apprentice"
             ]
         },
         "t_c": {
@@ -13747,9 +13746,7 @@
             "max_trust_10",
             "max_comfort_15"
         ],
-        "tags": [
-            "you_queen_apprentice"
-        ],
+        "tags": [],
         "intro": [
             "[t_c, unwelcome amongst the other kits in the nursery, is batting at a leaf.]",
             "[You'd never have thought a kit capable of such brutal actions.]",
@@ -13766,7 +13763,8 @@
             ],
             "shunned": true,
             "status": [
-                "queen"
+                "queen",
+                "queen's apprentice"
             ]
         },
         "t_c": {
@@ -13784,9 +13782,7 @@
         "relationship": [
             "min_platonic_15"
         ],
-        "tags": [
-            "you_queen_apprentice"
-        ],
+        "tags": [],
         "intro": [
             "How come you're being shunned, anyway?",
             "... You killed a cat?",
@@ -13797,6 +13793,9 @@
     },
     "queenapp_youshunned_kit_pos_rad1": {
         "y_c": {
+            "status": [
+                "queen's apprentice"
+            ],
             "shunned": true
         },
         "t_c": {
@@ -13810,9 +13809,7 @@
         "relationship": [
             "min_platonic_15"
         ],
-        "tags": [
-            "you_queen_apprentice"
-        ],
+        "tags": [],
         "intro": [
             "Why's everycat acting funny around you?",
             "... You killed a cat?",
@@ -14588,8 +14585,8 @@
                 "kitten"
             ]
         },
-        "tags": [
-            "grieving_you"
+        "relationship": [
+            "grievingyou"
         ],
         "intro": [
             "What - When did you come back?",
@@ -14849,15 +14846,14 @@
             ],
             "status": [
                 "kitten"
-            ]
+            ],
+            "cluster": ["unruly"]
         },
         "season": [
             "leafbare",
             "newleaf"
         ],
-        "tags": [
-            "unruly"
-        ],
+        "tags": [],
         "intro": [
             "[In the midst of doing your chores for the day, you happen to stumble across t_c causing some trouble.]",
             "[t_c's head pops out of the hole {PRONOUN/t_c/subject} dug, completely covered in mud.]",
@@ -15009,11 +15005,10 @@
         "t_c": {
             "status": [
                 "kitten"
-            ]
+            ],
+            "cluster": ["unruly"]
         },
-        "tags": [
-            "unruly"
-        ],
+        "tags": [],
         "intro": [
             "Hey, I noticed it's been really quiet.",
             "So I stirred up some trouble for you! r_c1 and r_c2 have been mad for hourrrssss!",
@@ -15597,15 +15592,14 @@
         "t_c": {
             "status": [
                 "kitten"
-            ]
+            ],
+            "cluster": ["self-conscious"]
         },
         "relationship": [
             "from_kit",
             "from_adopted_kit"
         ],
-        "tags": [
-            "self-conscious"
-        ],
+        "tags": [],
         "intro": [
             "[You watch t_c as {PRONOUN/t_c/subject} {VERB/t_c/groom/grooms} {PRONOUN/t_c/poss} little paws, love for {PRONOUN/t_c/object} coursing through your body at the sight. Your kit is so cute!]",
             "What? Do I look funny? What's wrong??"
@@ -15664,7 +15658,8 @@
     "daydreamer_kit_rad1": {
         "y_c": {
             "age": [
-                "adult"
+                "adult",
+                "adolescent"
             ]
         },
         "t_c": {
@@ -15678,9 +15673,7 @@
                 "kitten"
             ]
         },
-        "tags": [
-            "you_adolescent"
-        ],
+        "tags": [],
         "intro": [
             "[You call t_c's name to get {PRONOUN/t_c/poss} attention, but {PRONOUN/t_c/subject} {VERB/t_c/don't/doesn't} react.]",
             "[Nor {VERB/t_c/do/does} {PRONOUN/t_c/subject} react the next five times you say {PRONOUN/t_c/poss} name. {PRONOUN/t_c/subject/CAP} only {VERB/t_c/react/reacts} when you prod {PRONOUN/t_c/object} with your paw.]",
@@ -15773,14 +15766,13 @@
             ],
             "condition": [
                 "blind:any:false"
-            ]
+            ],
+            "cluster": ["self-conscious"]
         },
         "relationship": [
             "min_platonic_25"
         ],
-        "tags": [
-            "self-conscious"
-        ],
+        "tags": [],
         "intro": [
             "Hey, umm... y_c? Can I ask a weird question?",
             "... Do I sneeze funny?",
@@ -15860,9 +15852,8 @@
                 "blind:any:false"
             ]
         },
-        "tags": [
-            "leaf-fall"
-        ],
+        "season": ["leaffall"],
+        "tags": [],
         "intro": [
             "If r_k brings any more leaves into the nursery just because {PRONOUN/r_k/subject} thought they looked pretty, I'm moving my nest outside."
         ]
@@ -15871,6 +15862,9 @@
         "y_c": {
             "condition": [
                 "grief stricken"
+            ],
+            "status": [
+                "not_kitten"
             ]
         },
         "t_c": {
@@ -15881,9 +15875,7 @@
                 "kitten"
             ]
         },
-        "tags": [
-            "you_no_kit"
-        ],
+        "tags": [],
         "intro": [
             "[t_c drops a small bundle of flowers at your paws.]",
             "r_q said that sometimes when cats are grieving, putting flowers on the dead cat's grave can help them feel better.",
@@ -15960,12 +15952,10 @@
             ],
             "condition": [
                 "deaf:any:false"
-            ]
+            ],
+            "cluster": ["quiet"]
         },
-        "tags": [
-            "quiet",
-            "they_living"
-        ],
+        "tags": [],
         "intro": [
             "[t_c gazes at you curiously.]"
         ]
@@ -16066,16 +16056,14 @@
         },
         "t_c": {
             "cluster": [
+                "self-conscious",
                 "shy"
             ],
             "status": [
                 "kitten"
             ]
         },
-        "tags": [
-            "self-conscious",
-            "they_living"
-        ],
+        "tags": [],
         "intro": [
             "Umm...",
             "You're a StarClan cat, right? What are you doing here?",
@@ -16141,7 +16129,11 @@
         ]
     },
     "attention-seeker_kitten_rad1": {
-        "y_c": {},
+        "y_c": {
+            "status": [
+                "not_kitten"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "attention-seeker"
@@ -16150,9 +16142,7 @@
                 "kitten"
             ]
         },
-        "tags": [
-            "you_no_kitten"
-        ],
+        "tags": [],
         "intro": [
             "[t_c has wadded a bunch of old moss together and is embedding sticks into it.]",
             "[Finally, when {PRONOUN/t_c/subject} {VERB/t_c/appear/appears} satisfied with the result, {PRONOUN/t_c/subject} {VERB/t_c/drape/drapes} the moss over {PRONOUN/t_c/poss} back, sticks facing outwards.]",
@@ -16177,9 +16167,7 @@
                 "kitten"
             ]
         },
-        "tags": [
-            "they_living"
-        ],
+        "tags": [],
         "intro": [
             "[Some of the kits, when they see you, react with surprise or confusion - much differently than they do when they see their living Clanmates.]",
             "... What do you want?",
@@ -16269,11 +16257,10 @@
         "t_c": {
             "status": [
                 "kitten"
-            ]
+            ],
+            "cluster": ["quiet"]
         },
-        "tags": [
-            "quiet"
-        ],
+        "tags": [],
         "intro": [
             "[While sorting through herbs, you glance up to see t_c, observing you from the entrance to the medicine den.]",
             "... I have a thorn stuck behind my ear. Can you pull it out?",
@@ -16377,11 +16364,10 @@
             "condition": [
                 "deaf:any:false"
             ],
-            "shunned": true
+            "shunned": true,
+            "cluster": ["self-conscious"]
         },
-        "tags": [
-            "self-conscious"
-        ],
+        "tags": [],
         "intro": [
             "[t_c huddles off to the side, as though {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} trying to be as inconspicuous as possible.]"
         ]

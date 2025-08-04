@@ -2843,7 +2843,7 @@
                 "elder"
             ]
         },
-        "tags": [
+        "relationship": [
             "they_grandparent"
         ],
         "intro": [
@@ -2867,7 +2867,7 @@
                 "elder"
             ]
         },
-        "tags": [
+        "relationship": [
             "they_grandparent"
         ],
         "intro": [
@@ -3268,11 +3268,10 @@
         },
         "relationship": [
             "max_platonic_30",
-            "max_trust_30"
-        ],
-        "tags": [
+            "max_trust_30",
             "they_grandparent"
         ],
+        "tags": [],
         "intro": [
             "You have put disgrace on the family's name. How is my precious y_p suppose to succeed now?",
             "A murderer as {PRONOUN/y_p/poss} heir... tsk tsk tsk."
@@ -3299,11 +3298,10 @@
         },
         "relationship": [
             "max_platonic_30",
-            "min_dislike_30"
-        ],
-        "tags": [
+            "min_dislike_30",
             "they_grandparent"
         ],
+        "tags": [],
         "intro": [
             "You have disappointed me, young one.",
             "... Well, more than normal."
@@ -3614,11 +3612,10 @@
         },
         "relationship": [
             "max_platonic_30",
-            "max_trust_30"
-        ],
-        "tags": [
+            "max_trust_30",
             "they_grandparent"
         ],
+        "tags": [],
         "intro": [
             "I trust StarClan will punish you enough to realize your mistake."
         ]
