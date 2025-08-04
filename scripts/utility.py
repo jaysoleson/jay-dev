@@ -3845,9 +3845,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat in current_cat_objects
     ) else True
 
-    # Dead cat
-    # If t_C is grieving, it will be their grief cat regardless of residence
-    # If not, a random starclan cat
+    # Dead cat of any residence
     d_c = False if (
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
@@ -3861,6 +3859,25 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == cat.ID or
         not chosen_cat.dead or
         not chosen_cat.df or
+        chosen_cat in current_cat_objects
+    ) else True
+
+    # Random UR cat
+    rur_c = False if (
+        chosen_cat.ID == you.ID or
+        chosen_cat.ID == cat.ID or
+        not chosen_cat.dead or
+        not chosen_cat.outside or
+        chosen_cat in current_cat_objects
+    ) else True
+
+    # Random SC cat
+    rsc_c = False if (
+        chosen_cat.ID == you.ID or
+        chosen_cat.ID == cat.ID or
+        not chosen_cat.dead or
+        chosen_cat.df or
+        chosen_cat.outside or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -3903,12 +3920,6 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         "grief stricken" in you.illnesses and "grief_cat" not in you.illnesses["grief stricken"] or
         chosen_cat.ID != you.illnesses["grief stricken"]["grief_cat"] or
         chosen_cat in current_cat_objects
-    ) else True
-
-    r_c_sc = False if (
-        not chosen_cat.dead or
-        chosen_cat.df or
-        chosen_cat.outside
     ) else True
 
     # now the abbrevs dict!
@@ -3970,12 +3981,13 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         "sh_d": sh_d,
         "d_c": d_c,
         "rdf_c": rdf_c,
+        "rur_c": rur_c,
+        "rsc_c": rsc_c,
         "l_c": l_c,
         "e_c": e_c,
         "fc_c": fc_c,
         "tg_c": tg_c,
-        "yg_c": yg_c,
-        "r_c_sc": r_c_sc
+        "yg_c": yg_c
     }
 
     return abbrevs
@@ -4026,9 +4038,6 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
             if abbrev_string == "t_k" and "t_kk" in text:
                 continue
             if abbrev_string == "m_n" and "tm_n" in text:
-                continue
-
-            if abbrev_string == "r_c" and "r_c_sc" in text:
                 continue
 
             # find cluster and rel addons if theyre there
@@ -4095,10 +4104,8 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
                 elif abbrev_string in ["t_m"]:
                     for cat_id in cat.mates:
                         cat_choices.append(Cat.fetch_cat(cat_id))
-                elif abbrev_string in ["rdf_c"]:
-                    cat_choices = [i for i in Cat.all_cats_list if i.dead is True]
-                elif abbrev_string in ["d_c"]:
-                    cat_choices = [i for i in Cat.all_cats_list if i.dead and not i.outside and not i.df]
+                elif abbrev_string in ["rdf_c", "d_c", "rur_c", "rsc_c"]:
+                    cat_choices = [i for i in Cat.all_cats_list if i.dead]
                 elif abbrev_string in ["tg_c"]:
                     cat_choices = (
                         [Cat.fetch_cat(cat.illnesses['grief stricken']["grief_cat"])]
