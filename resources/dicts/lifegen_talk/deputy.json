@@ -4489,7 +4489,7 @@
         "intro": [
             "[t_c orders the warriors to go out- a dog was just sighted on the territory.]",
             "[You couldn't help but feel proud knowing t_c is the deputy, a cat who immediately takes action and acts with the best interests at heart.]",
-            "[Knowing {PRONOUN/t_c/object}, {PRONOUN/t_c/object} will have this sorted in no time.]"
+            "[Knowing {PRONOUN/t_c/object}, {PRONOUN/t_c/subject} will have this sorted in no time.]"
         ]
     },
     "TinyTeddy_stable_theydep_younokit_03": {

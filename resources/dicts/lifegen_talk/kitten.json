@@ -3738,7 +3738,7 @@
     "stable_kit_02": {
         "y_c": {
             "age": [
-                "not_kit"
+                "not_kitten"
             ]
         },
         "t_c": {
@@ -4119,7 +4119,7 @@
     "stable_kit_20": {
         "y_c": {
             "age": [
-                "not_kit"
+                "not_kitten"
             ],
             "condition": [
                 "deaf:any:false"
@@ -13687,7 +13687,7 @@
     "accomplice_J6": {
         "y_c": {
             "age": [
-                "not_kit"
+                "not_kitten"
             ],
             "shunned": true
         },
@@ -15427,7 +15427,7 @@
     "charming_kit_J2": {
         "y_c": {
             "age": [
-                "not_kit"
+                "not_kitten"
             ]
         },
         "t_c": {
