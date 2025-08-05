@@ -4109,11 +4109,17 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
                 elif abbrev_string in ["tg_c"]:
                     cat_choices = (
                         [Cat.fetch_cat(cat.illnesses['grief stricken']["grief_cat"])]
-                    ) if "grief stricken" in cat.illnesses else []
+                        ) if (
+                            "grief stricken" in cat.illnesses and
+                            "grief_cat" in cat.illnesses['grief stricken']
+                            ) else []
                 elif abbrev_string in ["yg_c"]:
                     cat_choices = (
                         [Cat.fetch_cat(game.clan.your_cat.illnesses['grief stricken']["grief_cat"])]
-                    ) if "grief stricken" in game.clan.your_cat.illnesses else []
+                        ) if (
+                            "grief stricken" in game.clan.your_cat.illnesses and
+                            "grief_cat" in game.clan.your_cat.illnesses['grief stricken']
+                            ) else []
                 else:
                     if abbrev_string not in abbrevs:
                         print("Unknown LifeGen abbrev:", abbrev_string)
