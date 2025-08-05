@@ -860,6 +860,9 @@ class TalkScreen(Screens):
                     else:
                         if dead_cat.ID == game.clan.your_cat.ID:
                             continue
+                else:
+                    if "grievingyou" in REL:
+                        continue
             elif "grievingyou" in REL:
                 continue
 
@@ -872,6 +875,9 @@ class TalkScreen(Screens):
                     else:
                         if dead_cat.name == cat.name:
                             continue
+                else:
+                    if "grievingthem" in REL:
+                        continue
             elif "grievingthem" in REL:
                 continue
 
@@ -1763,6 +1769,7 @@ class TalkScreen(Screens):
                 weighted_tags.append(special_date)
 
             # print("------")
+            # print("Possible Dialogue for", game.clan.your_cat.name, "and", self.the_cat.name)
             for dialogue_id, item in texts_list.items():
                 tags = item["tags"] if "tags" in item else {}
                 weight = 1
