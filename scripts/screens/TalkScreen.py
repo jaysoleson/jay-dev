@@ -1769,6 +1769,7 @@ class TalkScreen(Screens):
                 weighted_tags.append(special_date)
 
             # print("------")
+            # print("Possible Dialogue for", game.clan.your_cat.name, "and", self.the_cat.name)
             for dialogue_id, item in texts_list.items():
                 tags = item["tags"] if "tags" in item else {}
                 weight = 1
