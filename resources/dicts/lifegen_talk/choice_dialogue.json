@@ -738,7 +738,7 @@
     "assertivekit_1": {
         "y_c": {
             "age": [
-                "not_kit"
+                "not_kitten"
             ],
             "condition": [
                 "blind:any:false"
@@ -3821,11 +3821,10 @@
             ]
         },
         "relationship": [
-            "from_parent"
+            "from_parent",
+            "from_adopted_parent"
         ],
-        "tags": [
-            "from_adoptive_parent"
-        ],
+        "tags": [],
         "intro": [
             "Hey, y_c. Tell me, what would you like to be when you grow up?"
         ],
@@ -3888,11 +3887,10 @@
             ]
         },
         "relationship": [
-            "from_parent"
+            "from_parent",
+            "from_adopted_parent"
         ],
-        "tags": [
-            "from_adoptive_parent"
-        ],
+        "tags": [],
         "intro": [
             "Hey, y_c. Tell me, what would you like to be when you grow up?"
         ],
@@ -4721,6 +4719,9 @@
         ]
     },
     "theyallergies_SL2": {
+        "season": [
+            "newleaf"
+        ],
         "y_c": {
             "age": [
                 "not_kitten"
@@ -4737,9 +4738,7 @@
                 "not_kitten"
             ]
         },
-        "tags": [
-            "Newleaf"
-        ],
+        "tags": [],
         "intro": [
             "Ugh!",
             "[t_c lets out an irritated groan before suddenly breaking out into a sneezing fit.]",
@@ -5055,11 +5054,12 @@
             ],
             "dead": [
                 "ur"
+            ],
+            "status": [
+                "kittypet"
             ]
         },
-        "tags": [
-            "they_kittypet"
-        ],
+        "tags": [],
         "intro": [
             "D-don't hurt me! I didn't realize anyone else was here!",
             "[The ghostly cat backs away from you, {PRONOUN/t_c/poss} fur bristling. Is this a game?]",
@@ -5489,6 +5489,9 @@
             "age": [
                 "adolescent",
                 "not_kitten"
+            ],
+            "status": [
+                "df_trainee"
             ]
         },
         "t_c": {
@@ -5505,9 +5508,7 @@
         "relationship": [
             "from_df_mentor"
         ],
-        "tags": [
-            "you_df_trainee"
-        ],
+        "tags": [],
         "intro": [
             "You've been an apprentice for a bit, now. Do you like training with me, or with m_n better?",
             "[t_c's eyes flash for a moment. {PRONOUN/t_c/poss/CAP} tail flicks as {PRONOUN/t_c/subject} {VERB/t_c/await/awaits} your answer.]"
@@ -6546,11 +6547,12 @@
             ],
             "age": [
                 "not_kitten"
+            ],
+            "skill": [
+                "ARTISTAN,1"
             ]
         },
-        "tags": [
-            "they_artistian"
-        ],
+        "tags": [],
         "intro": [
             "[t_c is decorating a mucky rock overhang. You creep forward to inspect {PRONOUN/t_c/poss} creation.]",
             "[All of the foul-smelling components seem wrong. Is that a tuft of fur? Why is that piece of wood dripping?]",

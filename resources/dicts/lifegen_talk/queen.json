@@ -1682,9 +1682,6 @@
             ],
             "age": [
                 "not_kitten"
-            ],
-            "status": [
-                "clan_has_kits"
             ]
         },
         "tags": [
@@ -3163,7 +3160,7 @@
             ]
         },
         "relationship": [
-            "min_trust_50",
+            "min_trust_20",
             "from_mentor"
         ],
         "tags": [

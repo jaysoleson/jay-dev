@@ -1874,7 +1874,6 @@
             ]
         },
         "tags": [
-            "focus",
             "focus"
         ],
         "intro": [
@@ -2069,7 +2068,7 @@
     "unknown_murder_J12": {
         "y_c": {
             "age": [
-                "not_kit"
+                "not_kitten"
             ]
         },
         "t_c": {
@@ -2418,10 +2417,12 @@
                 "elder"
             ]
         },
+        "relationship": [
+            "they_grandparent"
+        ],
         "tags": [
             "focus",
-            "you_murderer",
-            "grandparent"
+            "you_murderer"
         ],
         "intro": [
             "Dear, you have been very smug lately. Don't think I can't tell.",
