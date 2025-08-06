@@ -1782,8 +1782,8 @@ class TalkScreen(Screens):
                 # like scribble just did in clangen for shortevents
                 # but, of course, worse
                 for constraint in item:
-                    if constraint.endswith("inventory_changes"):
-                        break
+                    # if constraint.endswith("scene_effects"):
+                    #     break
                     if constraint not in ["y_c", "t_c", "relationship", "tags", "season"]:
                         continue
                     for tag in item[constraint]:
