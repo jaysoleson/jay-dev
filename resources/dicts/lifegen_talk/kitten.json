@@ -9304,51 +9304,12 @@
         },
         "t_c": {
             "status": [
-                "kitten"
+                "kitten",
+                "not_newborn"
             ],
             "condition": [
-                "paralyzed:any:true"
-            ]
-        },
-        "intro": [
-            "[You notice t_c is watching the other kits chase each other. Just when you are about to suggest a new game that {PRONOUN/t_c/subject} can be included in, t_c pounces on r_k!]",
-            "I win again!",
-            "|r_k|Aah!",
-            "|r_k|y_c, is t_c from LeopardClan, like in the story you told me?"
-        ]
-    },
-    "JointpainKit_Guy1": {
-        "y_c": {
-            "status": [
-                "queen's apprentice",
-                "queen"
-            ]
-        },
-        "t_c": {
-            "status": [
-                "kitten"
-            ],
-            "condition": ["constant join pain:any:true"]
-        },
-        "intro": [
-            "[You notice t_c is watching the other kits chase each other. Just when you are about to suggest a new game that {PRONOUN/t_c/subject} can be included in, t_c pounces on r_k!]",
-            "I win again!",
-            "|r_k|Aah!",
-            "|r_k|y_c, is t_c from LeopardClan, like in the story you told me?"
-        ]
-    },
-    "RaspylungsKit_Guy1": {
-        "y_c": {
-            "status": [
-                "queen's apprentice",
-                "queen"
-            ]
-        },
-        "t_c": {
-            "status": [
-                "kitten"
-            ],
-            "condition": [
+                "paralyzed:any:true",
+                "constant join pain:any:true",
                 "raspy lungs:any:true"
             ]
         },
@@ -16943,6 +16904,84 @@
            "[t_c turns away when you begin inviting {PRONOUN/t_c/object} to play.]",
            "I'm s'posed to rest so I get better. r_m's orders.",
            "No, don't argue! You've gotta leave me alone now."
+        ]
+    },
+    "mcgrievingonly_kitten_H1": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "relationship": [],
+        "tags": [],
+        "intro": [
+            "t_p says you're sad because somecat you cared for went to lay with the stars.",
+            "I don't know how yg_c was able to travel so far up... but {PRONOUN/yg_c/subject}{VERB/yg_c/'re/'s} really cool if {PRONOUN/yg_c/subject} did!"
+        ]
+    },
+    "mcgrievingonly_kitten_H2": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "kitten"
+            ]
+        },
+        "relationship": [],
+        "tags": [],
+        "intro": [
+            "Why are you laying down? Are you sick?"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "I lost somecat close to me.",
+                "next_scene": "closetome"
+            },
+            "choice2": {
+                "text": "None of your business.",
+                "next_scene": "noneofyabees"
+            }
+        },
+        "closetome": [
+            "Lost? If they're hiding, I'll help you find them!",
+            "I'm really good at finding r_k, so it should be easy peasy!"
+        ],
+        "noneofyabees": [
+            "Oh! Uh, okay. But if you're sick, you should see r_m just in case it can spread or something."
+        ]
+    },
+    "mcgrievingonly_kitten_H3": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "relationship": [],
+        "tags": [],
+        "intro": [
+            "Can sadness spread like a disease? I don't wanna be sad!"
         ]
     }
 }
