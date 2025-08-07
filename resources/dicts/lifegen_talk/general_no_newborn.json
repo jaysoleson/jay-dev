@@ -4826,7 +4826,7 @@
         ],
         "intro": [
             "Sometimes I call out for tg_c as if {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} still alive. The silence that follows... I can't bear it.",
-            "I wish I was able to talk to {PRONOUN/t_c/poss} one last time."
+            "I wish I was able to talk to {PRONOUN/t_c/object} one last time."
         ]
     },
     "dead_grieving_shunned_blind_H1": {
@@ -4842,7 +4842,7 @@
                 "blind:any:false"
             ],
             "dead": [
-                "df"
+                "any"
             ]
         },
         "intro": [
