@@ -3183,17 +3183,16 @@ def add_to_cat_dict(abbrev, cluster, x, rel, r, abbrev_cat, text, cat_dict):
     """ Adds a cat to the dict, assigning them to their abbrev to be reused in later text. """
 
     if cluster and rel:
-        cat_dict[f"{r}-{abbrev}-{x}"] = abbrev_cat
-        text = re.sub(fr'(?<!\/){r}-{abbrev}-{x}(?!\/)', str(abbrev_cat.name), text)
+        abbrev_string = f"{r}-{abbrev}-{x}"
     elif cluster and not rel:
-        cat_dict[f"{abbrev}-{x}"] = abbrev_cat
-        text = re.sub(fr'(?<!\/){abbrev}-{x}(?!\/)', str(abbrev_cat.name), text)
+        abbrev_string = f"{abbrev}-{x}"
     elif rel and not cluster:
-        cat_dict[f"{r}-{abbrev}"] = abbrev_cat
-        text = re.sub(fr'(?<!\/){r}-{abbrev}(?!\/)', str(abbrev_cat.name), text)
+        abbrev_string = f"{r}-{abbrev}"
     else:
-        cat_dict[f"{abbrev}"] = abbrev_cat
-        text = re.sub(fr'(?<!\/){abbrev}(?!\/)', str(abbrev_cat.name), text)
+        abbrev_string = abbrev
+
+    cat_dict[abbrev_string] = abbrev_cat
+    text = re.sub(fr'(?<!\/){abbrev_string}(?!\/)', str(abbrev_cat.name), text)
     
     return text
 
@@ -3242,20 +3241,20 @@ def cat_dict_check(abbrev, cluster, x, rel, r, text, cat_dict):
     """ Checks if a cat is in the dict already.
     If so, it will reuse the name in later text.
     If not, it will find a cat for the abbrev."""
-
     in_dict = False
     try:
-        if f"{abbrev}-{x}" in cat_dict or f"{abbrev}" in cat_dict or f"{r}-{abbrev}" in cat_dict or f"{r}-{abbrev}-{x}" in cat_dict:
+        if cluster and rel:
+            abbrev_string = f"{r}-{abbrev}-{x}"
+        elif cluster and not rel:
+            abbrev_string = f"{abbrev}-{x}"
+        elif rel and not cluster:
+            abbrev_string = f"{r}-{abbrev}"
+        else:
+            abbrev_string = abbrev
+        if abbrev_string in cat_dict:
             in_dict = True
-            if cluster and rel:
-                text = re.sub(fr'(?<!\/){r}-{abbrev}-{x}(?!\/)', str(cat_dict[f"{r}-{abbrev}-{x}"].name), text)
-            elif cluster and not rel:
-                text = re.sub(fr'(?<!\/){abbrev}-{x}(?!\/)', str(cat_dict[f"{abbrev}-{x}"].name), text)
-            elif rel and not cluster:
-                text = re.sub(fr'(?<!\/){r}-{abbrev}(?!\/)', str(cat_dict[f"{r}-{abbrev}"].name), text)
-            else:
-                text = re.sub(fr'(?<!\/){abbrev}(?!\/)', str(cat_dict[f"{abbrev}"].name), text)
-    except KeyError:
+            text = re.sub(fr'(?<!\/){abbrev_string}(?!\/)', str(cat_dict[abbrev_string].name), text)
+    except KeyError as e:
         text = ""
         # returning an empty string to reroll for dialogue
     return text, in_dict
@@ -3271,6 +3270,9 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
     for abbrev, cat_object in cat_dict.items():
         current_cat_objects.append(cat_object)
         # print("Already in cat dict:", cat_object.name)
+    
+    current_cat_objects.append(cat)
+    current_cat_objects.append(you)
 
     yourcrush = False if (
         chosen_cat.ID == you.ID or
@@ -3383,11 +3385,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
         chosen_cat.outside or
-        "r_c1" in text or
-        "r_c2" in text or
-        "r_c3" in text or
-        "r_c4" in text or
-        chosen_cat.shunned != 0 or
+        chosen_cat.shunned == 0 or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -3397,7 +3395,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.dead or
         chosen_cat.outside or
         chosen_cat.status != "warrior" or
-        chosen_cat.shunned != 0 or
+        chosen_cat.shunned == 0 or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -3407,7 +3405,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.dead or
         chosen_cat.outside or
         chosen_cat.status not in ["kitten", "newborn"] or
-        chosen_cat.shunned != 0 or
+        chosen_cat.shunned == 0 or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -3417,7 +3415,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.dead or
         chosen_cat.outside or
         chosen_cat.status != "apprentice" or
-        chosen_cat.shunned != 0 or
+        chosen_cat.shunned == 0 or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -3427,7 +3425,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.dead or
         chosen_cat.outside or
         chosen_cat.status not in ["medicine cat", "medicine cat apprentice"] or
-        chosen_cat.shunned != 0 or
+        chosen_cat.shunned == 0 or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -3437,7 +3435,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.dead or
         chosen_cat.outside or
         chosen_cat.status not in ["mediator", "mediator apprentice"] or
-        chosen_cat.shunned != 0 or
+        chosen_cat.shunned == 0 or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -3447,7 +3445,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.dead or
         chosen_cat.outside or
         chosen_cat.status not in ["queen", "queen's apprentice"] or
-        chosen_cat.shunned != 0 or
+        chosen_cat.shunned == 0 or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -3457,7 +3455,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.dead or
         chosen_cat.outside or
         chosen_cat.status != "elder" or
-        chosen_cat.shunned != 0 or
+        chosen_cat.shunned == 0 or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -3828,7 +3826,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.dead or
         chosen_cat.outside or
         chosen_cat.ID != game.clan.leader or
-        chosen_cat.shunned != 0 or
+        chosen_cat.shunned == 0 or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -3839,13 +3837,11 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.dead or
         chosen_cat.outside or
         chosen_cat.ID != game.clan.deputy or
-        chosen_cat.shunned != 0 or
+        chosen_cat.shunned == 0 or
         chosen_cat in current_cat_objects
     ) else True
 
-    # Dead cat
-    # If t_C is grieving, it will be their grief cat regardless of residence
-    # If not, a random starclan cat
+    # Dead cat of any residence
     d_c = False if (
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
@@ -3859,6 +3855,25 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == cat.ID or
         not chosen_cat.dead or
         not chosen_cat.df or
+        chosen_cat in current_cat_objects
+    ) else True
+
+    # Random UR cat
+    rur_c = False if (
+        chosen_cat.ID == you.ID or
+        chosen_cat.ID == cat.ID or
+        not chosen_cat.dead or
+        not chosen_cat.outside or
+        chosen_cat in current_cat_objects
+    ) else True
+
+    # Random SC cat
+    rsc_c = False if (
+        chosen_cat.ID == you.ID or
+        chosen_cat.ID == cat.ID or
+        not chosen_cat.dead or
+        chosen_cat.df or
+        chosen_cat.outside or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -3901,12 +3916,6 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         "grief stricken" in you.illnesses and "grief_cat" not in you.illnesses["grief stricken"] or
         chosen_cat.ID != you.illnesses["grief stricken"]["grief_cat"] or
         chosen_cat in current_cat_objects
-    ) else True
-
-    r_c_sc = False if (
-        not chosen_cat.dead or
-        chosen_cat.df or
-        chosen_cat.outside
     ) else True
 
     # now the abbrevs dict!
@@ -3968,12 +3977,13 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         "sh_d": sh_d,
         "d_c": d_c,
         "rdf_c": rdf_c,
+        "rur_c": rur_c,
+        "rsc_c": rsc_c,
         "l_c": l_c,
         "e_c": e_c,
         "fc_c": fc_c,
         "tg_c": tg_c,
-        "yg_c": yg_c,
-        "r_c_sc": r_c_sc
+        "yg_c": yg_c
     }
 
     return abbrevs
@@ -4015,18 +4025,15 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
                 return ""
             
             # some tomfoolery for abbrevs that might conflict with each other
-            if abbrev_string == "r_c" and "r_c1" in text:
+            if abbrev_string == "r_c" and any(ab in text for ab in ["r_c1", "r_c2", "r_c3", "r_c4"]):
                 continue
-            if abbrev_string == "r_w" and "r_w1" in text:
+            if abbrev_string == "r_w" and any(ab in text for ab in ["r_w1", "r_w2", "r_w3", "r_w4"]):
                 continue
             if abbrev_string == "t_k" and "t_ka" in text:
                 continue
             if abbrev_string == "t_k" and "t_kk" in text:
                 continue
             if abbrev_string == "m_n" and "tm_n" in text:
-                continue
-
-            if abbrev_string == "r_c" and "r_c_sc" in text:
                 continue
 
             # find cluster and rel addons if theyre there
@@ -4051,7 +4058,7 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
                 cat_choices = []
 
                 # Grab the right selection of cats to narrow down the options before the counter starts
-                if abbrev_string in ["r_w", "r_w1", "r_w2", "r_w3", "rsh_w"]:
+                if abbrev_string in ["r_w", "r_w1", "r_w2", "r_w3", "r_w4", "rsh_w"]:
                     cat_choices = get_alive_status_cats(Cat, ["warrior"])
                 elif abbrev_string in ["r_a", "rsh_a"]:
                     cat_choices = get_alive_status_cats(Cat, ["apprentice"])
@@ -4093,18 +4100,22 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
                 elif abbrev_string in ["t_m"]:
                     for cat_id in cat.mates:
                         cat_choices.append(Cat.fetch_cat(cat_id))
-                elif abbrev_string in ["rdf_c"]:
-                    cat_choices = [i for i in Cat.all_cats_list if i.dead is True]
-                elif abbrev_string in ["d_c"]:
-                    cat_choices = [i for i in Cat.all_cats_list if i.dead and not i.outside and not i.df]
+                elif abbrev_string in ["rdf_c", "d_c", "rur_c", "rsc_c"]:
+                    cat_choices = [i for i in Cat.all_cats_list if i.dead]
                 elif abbrev_string in ["tg_c"]:
                     cat_choices = (
                         [Cat.fetch_cat(cat.illnesses['grief stricken']["grief_cat"])]
-                    ) if "grief stricken" in cat.illnesses else []
+                        ) if (
+                            "grief stricken" in cat.illnesses and
+                            "grief_cat" in cat.illnesses['grief stricken']
+                            ) else []
                 elif abbrev_string in ["yg_c"]:
                     cat_choices = (
                         [Cat.fetch_cat(game.clan.your_cat.illnesses['grief stricken']["grief_cat"])]
-                    ) if "grief stricken" in game.clan.your_cat.illnesses else []
+                        ) if (
+                            "grief stricken" in game.clan.your_cat.illnesses and
+                            "grief_cat" in game.clan.your_cat.illnesses['grief stricken']
+                            ) else []
                 else:
                     if abbrev_string not in abbrevs:
                         print("Unknown LifeGen abbrev:", abbrev_string)
