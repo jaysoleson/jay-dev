@@ -488,6 +488,7 @@ class ElderStoryScreen(Screens):
                 self.update_selected_cats()
         
             if self.stage == "cats":
+                game.switches["cat"] = elder.ID
                 self.elder_elements["elder_container"] = pygame_gui.core.UIContainer(
                     ui_scale(pygame.Rect((0, 160), (150, 230))),
                     starting_height=1,
@@ -582,6 +583,7 @@ class ElderStoryScreen(Screens):
             if (i.ID != self.elders[self.selected_elder].ID)
             and not (i.dead or i.outside)
             and i.moons > 0
+            and i.ID not in game.told_story
         ]
         self.all_cats = self.chunks(self.all_cats_list, 12)
         self.current_listed_cats = self.all_cats_list
