@@ -1450,7 +1450,7 @@ class TalkScreen(Screens):
                 return False
             elif cat.outside and "ur" not in BLOCK["dead"]:
                 return False
-            elif "sc" not in BLOCK["dead"]:
+            elif (not cat.df and not cat.outside) and "sc" not in BLOCK["dead"]:
                 return False
         else:
             if "any" not in BLOCK["dead"]:
