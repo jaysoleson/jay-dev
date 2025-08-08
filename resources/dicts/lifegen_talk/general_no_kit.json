@@ -16113,7 +16113,8 @@
                 "not_kitten"
             ],
             "status": [
-                "not_deputy"
+                "not_deputy",
+                "not_leader"
             ]
         },
         "intro": [

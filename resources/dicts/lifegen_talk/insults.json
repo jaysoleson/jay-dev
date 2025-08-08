@@ -6724,5 +6724,71 @@
         "intro": [
             "[t_c rolls {PRONOUN/t_c/poss} eyes.]"
         ]
+    },
+    "insult_shunnedgrieving_H1": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "shunned": true
+        },
+        "relationship": [],
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "Oh boo hoo, previous yg_c died. Did you come here to blame me for {PRONOUN/yg_c/poss} death?",
+            "You cats are becoming so predictable."
+        ]
+    },
+    "insult_shunnedgrieving_H2": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "shunned": "any"
+        },
+        "relationship": [],
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "Cute. Did precious yg_c teach you that one?"
+        ]
+    },
+    "insult_shunnedgrieving_H3": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false",
+                "deaf:any:false",
+                "guilt"
+            ],
+            "shunned": true
+        },
+        "relationship": [],
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "[t_c just takes your insults with lowered eyes, not even fighting back.]"
+        ]
     }
 }

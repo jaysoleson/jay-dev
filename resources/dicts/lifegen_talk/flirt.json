@@ -8994,7 +8994,8 @@
             "condition": [
                 "grief stricken",
                 "blind:any:false"
-            ]
+            ],
+            "shunned": "any"
         },
         "t_c": {
             "condition": [
@@ -9016,7 +9017,11 @@
                 "blind:any:false"
             ]
         },
-        "t_c": {},
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ]
+        },
         "relationship": [
             "non-mates",
             "min_platonic_20"
@@ -9038,7 +9043,7 @@
         },
         "t_c": {
             "condition": [
-                "grief stricken"
+                "blind:any:false"
             ]
         },
         "relationship": [],
@@ -9060,7 +9065,7 @@
         },
         "t_c": {
             "condition": [
-                "grief stricken"
+                "blind:any:false"
             ]
         },
         "relationship": [
@@ -9071,6 +9076,162 @@
         ],
         "intro": [
             "Did yg_c going to StarClan make you finally realize you like me?"
+        ]
+    },
+    "bothgrieving_flirt_H1": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ]
+        },
+        "relationship": [],
+        "tags": [
+            "accept"
+        ],
+        "intro": [
+            "You're a nice distraction."
+        ]
+    },
+    "bothgrieving_flirt_H2": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ],
+            "shunned": "any"
+        },
+        "t_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ],
+            "shunned": "any"
+        },
+        "relationship": [],
+        "tags": [
+            "accept"
+        ],
+        "intro": [
+            "Determined to distract the both of us from our grievances, huh?",
+            "I won't complain."
+        ]
+    },
+    "bothgrieving_flirt_H3": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ],
+            "shunned": "any"
+        },
+        "t_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ],
+            "shunned": "any"
+        },
+        "relationship": [],
+        "tags": [
+            "reject"
+        ],
+        "intro": [
+            "Now is not the time, y_c..."
+        ]
+    },
+    "bothgrieving_flirt_H4": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "deaf:any:false"
+            ],
+            "shunned": "any"
+        },
+        "t_c": {
+            "condition": [
+                "grief stricken",
+                "deaf:any:false",
+                "blind:any:false"
+            ],
+            "shunned": "any"
+        },
+        "relationship": [],
+        "tags": [
+            "reject"
+        ],
+        "intro": [
+            "[t_c avoids your flirting by sitting with {PRONOUN/t_c/poss} back facing you.]"
+        ]
+    },
+    "mcgrievingonly_flirting_H8": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "deaf:any:false",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false",
+                "deaf:any:false"
+            ]
+        },
+        "relationship": [
+            "from_mate"
+        ],
+        "tags": [
+            "accept"
+        ],
+        "intro": [
+            "[t_c decides to cuddle with you instead of encouraging the flirting, hoping to make you feel better.]"
+        ]
+    },
+    "mcgrievingonly_flirting_H9": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "deaf:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "deaf:any:false"
+            ]
+        },
+        "relationship": [],
+        "tags": [
+            "accept"
+        ],
+        "intro": [
+            "[t_c smiles, taking your flirting in stride.]"
+        ]
+    },
+    "mcgrievingonly_flirting_H10": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "deaf:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "deaf:any:false"
+            ]
+        },
+        "relationship": [],
+        "tags": [
+            "reject"
+        ],
+        "intro": [
+            "[t_c smiles, but {PRONOUN/t_c/subject} {VERB/t_c/look/looks} a little awkward around the eyes.]"
         ]
     }
 }
