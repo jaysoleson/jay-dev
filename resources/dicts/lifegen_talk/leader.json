@@ -4454,15 +4454,15 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "Shush {PRONOUN/t_c/object}",
+                "text": "[Shush {PRONOUN/t_c/object}.]",
                 "next_scene": "shush"
             },
             "choice2": {
-                "text": "Agree",
+                "text": "[Agree.]",
                 "next_scene": "agree"
             },
             "choice3": {
-                "text": "Deny",
+                "text": "[Deny.]",
                 "next_scene": "deny"
             }
         },
@@ -4482,11 +4482,11 @@
         ],
         "deny_choices": {
             "choice1": {
-                "text": "Relent",
+                "text": "[Relent.]",
                 "next_scene": "agree"
             },
             "choice2": {
-                "text": "Keep denying",
+                "text": "[Keep denying.]",
                 "next_scene": "no_fun"
             }
         },

@@ -2055,11 +2055,11 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "[Object]",
+                "text": "[Object.]",
                 "next_scene": "object"
             },
             "choice2": {
-                "text": "[Agree]",
+                "text": "[Agree.]",
                 "next_scene": "agree"
             }
         },

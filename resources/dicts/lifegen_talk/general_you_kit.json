@@ -9667,11 +9667,11 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "Yes",
+                "text": "Yes.",
                 "next_scene": "real"
             },
             "choice2": {
-                "text": "No",
+                "text": "No.",
                 "next_scene": "not_real"
             }
         },

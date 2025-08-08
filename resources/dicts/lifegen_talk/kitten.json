@@ -9638,11 +9638,11 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "Yes",
+                "text": "Yes.",
                 "next_scene": "showaround_yes"
             },
             "choice2": {
-                "text": "No",
+                "text": "No.",
                 "next_scene": "showaround_no"
             }
         },
@@ -9695,15 +9695,15 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "The black roses",
+                "text": "The black roses.",
                 "next_scene": "blackroses"
             },
             "choice2": {
-                "text": "The blue lillies",
+                "text": "The blue lillies.",
                 "next_scene": "bluelilles"
             },
             "choice3": {
-                "text": "The yellow tulips",
+                "text": "The yellow tulips.",
                 "next_scene": "yellowtulips"
             }
         },
@@ -9788,15 +9788,15 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "Sometimes",
+                "text": "Sometimes.",
                 "next_scene": "df_nice_sometimes"
             },
             "choice2": {
-                "text": "No",
+                "text": "No.",
                 "next_scene": "df_nice_no"
             },
             "choice3": {
-                "text": "Yes",
+                "text": "Yes.",
                 "next_scene": "df_nice_yes"
             }
         },
@@ -10424,7 +10424,7 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "Sure",
+                "text": "Sure.",
                 "next_scene": "sure"
             },
             "choice2": {
@@ -11037,11 +11037,11 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "Explain what you did",
+                "text": "[Explain what you did.]",
                 "next_scene": "yes"
             },
             "choice2": {
-                "text": "No",
+                "text": "No.",
                 "next_scene": "no"
             }
         },
@@ -11080,11 +11080,11 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "Explain what you did",
+                "text": "[Explain what you did.]",
                 "next_scene": "yes"
             },
             "choice2": {
-                "text": "No",
+                "text": "No.",
                 "next_scene": "no"
             }
         },
@@ -14670,11 +14670,11 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "But you're always the clancat.",
+                "text": "But you're always the Clancat.",
                 "next_scene": "always_clancat"
             },
             "choice2": {
-                "text": "But I wanna be the clancat!",
+                "text": "But I wanna be the Clancat!",
                 "next_scene": "wanna_be_clancat"
             },
             "choice3": {
@@ -15369,11 +15369,11 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "No",
+                "text": "No.",
                 "next_scene": "join_no"
             },
             "choice2": {
-                "text": "Yes",
+                "text": "Yes.",
                 "next_scene": "join_yes"
             }
         },
@@ -16186,11 +16186,11 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "Run",
+                "text": "Run.",
                 "next_scene": "run"
             },
             "choice2": {
-                "text": "Stay where you are",
+                "text": "Stay where you are.",
                 "next_scene": "stay"
             }
         },
@@ -16510,7 +16510,7 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "[Yes!.]",
+                "text": "[Yes!]",
                 "next_scene": "yes"
             },
             "choice2": {
@@ -16568,11 +16568,11 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "Refuse",
+                "text": "Refuse.",
                 "next_scene": "refuse"
             },
             "choice2": {
-                "text": "Help hide",
+                "text": "Help hide.",
                 "next_scene": "help"
             }
         },

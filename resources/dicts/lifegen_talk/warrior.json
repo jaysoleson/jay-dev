@@ -8303,11 +8303,11 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "[Ask t_c what's wrong]",
+                "text": "[Ask t_c what's wrong.]",
                 "next_scene": "ask"
             },
             "choice2": {
-                "text": "[Leave t_c alone]",
+                "text": "[Leave t_c alone.]",
                 "next_scene": "leave"
             }
         },
