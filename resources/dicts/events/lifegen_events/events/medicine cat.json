@@ -23,7 +23,8 @@
     "medicine cat cool": [],
     "medicine cat upstanding": [],
     "medicine cat introspective": [
-        "You peacefully reorganize herbs within the medicine den, finding the repetitive task strangely calming."
+        "You peacefully reorganize herbs within the medicine den, finding the repetitive task strangely calming.",
+        "You think about how fleeting a cat's life can be, and how important it is to cherish every moment."
     ],
     "medicine cat neurotic": [
         "You try to warn an overenthusiastic r_a about the dangers of deathberries, only to internally scare yourself into believing you've accidentally eaten some.",
@@ -32,10 +33,15 @@
     "medicine cat silly": [
         "You try to warn an overenthusiastic r_a about the dangers of deathberries, only to internally scare yourself into believing you've accidentally eaten some."
     ],
-    "medicine cat stable": [],
+    "medicine cat stable": [
+        "You wake up early to organize your herbs before the sun even rises."
+    ],
     "medicine cat sweet": [],
     "medicine cat unabashed": [],
-    "medicine cat unlawful": [],
+    "medicine cat unlawful": [
+        "You think about sneaking across the border of o_c_n to gather some herbs that you're running low on.",
+        "You wonder how kittypets seem to recover from illnesses and injuries so quickly. Perhaps you should ask a kittypet about their secrets?"
+    ],
     "medicine cat rare": [
         "You don't catch a kit sneaking into your den, and end up having to treat them when they get into the poppy seeds. Thankfully, they survive, but you have a very important talk with the queens and the kits on the importance of using herbs correctly.",
         "A prophecy burns in your mind as you are shocked awake, leaving you lost and befuddled. Maybe you should speak with l_n about it?",

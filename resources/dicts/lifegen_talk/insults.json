@@ -6768,6 +6768,75 @@
             "Cute. Did precious yg_c teach you that one?"
         ]
     },
+    "insult_grieving_c": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "relationship": [
+            "min_platonic_20",
+            "min_dislike_20"
+        ],
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "Say what you want, y_c.",
+            "I'm still here, even if you hate me for it."
+        ]
+    },
+    "insult_grieving_c2": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "relationship": [
+            "min_platonic_20"
+        ],
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "I get that you lost yg_c. I get it.",
+            "But you don't have to lose everyone else while you're at it."
+        ]
+    },
+    "insult_grieving_c3": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "relationship": [
+            "min_platonic_20"
+        ],
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "Hurt cats hurt cats. Go ahead, do whatever you need to do."
+        ]
+    },
     "insult_shunnedgrieving_H3": {
         "y_c": {
             "condition": [

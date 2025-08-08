@@ -9078,6 +9078,68 @@
             "Did yg_c going to StarClan make you finally realize you like me?"
         ]
     },
+    "mcgrievingonly_flirting_c": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "relationship": [],
+        "tags": [
+            "accept"
+        ],
+        "intro": [
+            "There's something beautiful about how much you miss them."
+        ]
+    },
+    "mcgrievingonly_flirting_c2": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "relationship": [],
+        "tags": [
+            "accept"
+        ],
+        "intro": [
+            "The way you loved yg_c...",
+            "It does make me wonder what it would feel to be loved like that too."
+        ]
+    },
+    "mcgrievingonly_flirting_c3": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "relationship": [],
+        "tags": [
+            "reject"
+        ],
+        "intro": [
+            "[t_c shuffles their paws, not meeting your eyes.]",
+            "[It doesn't feel entirely appropriate to accept your advances, not when you're missing yg_c so much.]"
+        ]
+    },
     "bothgrieving_flirt_H1": {
         "y_c": {
             "condition": [
