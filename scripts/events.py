@@ -1578,7 +1578,10 @@ class Events:
                 evt = Single_Event(evt, ["alert"], [i for i in involved_cats])
                 if evt not in game.cur_events_list:
                     game.cur_events_list.insert(0, evt)
-            Cat.all_cats[game.clan.your_cat.df_mentor].df_apprentices.remove(game.clan.your_cat.ID)
+            try:
+                Cat.all_cats[game.clan.your_cat.df_mentor].df_apprentices.remove(game.clan.your_cat.ID)
+            except:
+                print("Error removing df apprentice from mentor's list")
             game.clan.your_cat.df_mentor = None
             
 
