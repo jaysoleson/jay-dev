@@ -3952,11 +3952,11 @@
         "intro_choices": {
             "choice1": {
                 "text": "I do",
-                "next_scene": "regret_ido"
+                "next_scene": "I do"
             },
             "choice2": {
                 "text": "I don't",
-                "next_scene": "regret_idont"
+                "next_scene": "I don't"
             }
         },
         "I do": [
