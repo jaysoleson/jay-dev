@@ -3804,13 +3804,13 @@ class Events:
             disaster_text = ujson.loads(read_file.read())
         current_disaster = disaster_text.get(game.clan.second_disaster)
         current_moon = game.clan.second_disaster_moon
-        if current_moon > 0 and current_moon < current_disaster["duration"]:
+        if current_disaster and current_moon > 0 and current_moon < current_disaster["duration"]:
             event_string = random.choice(current_disaster["progress_events"]["moon" + str(current_moon)])
             event_string = ongoing_event_text_adjust(Cat, event_string)
             game.clan.second_disaster_moon += 1
             game.cur_events_list.insert(0,
                         Single_Event(event_string, "alert"))
-        elif current_moon == current_disaster["duration"]:
+        elif current_disaster and current_moon == current_disaster["duration"]:
             event_string = random.choice(current_disaster["conclusion_events"])
             game.clan.second_disaster_moon = 0
             game.clan.second_disaster = ""
