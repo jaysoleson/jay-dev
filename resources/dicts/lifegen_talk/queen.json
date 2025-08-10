@@ -3425,23 +3425,23 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "Prey",
+                "text": "Prey.",
                 "next_scene": "wrong"
             },
             "choice2": {
-                "text": "Kit",
+                "text": "Kit.",
                 "next_scene": "wrong"
             },
             "choice3": {
-                "text": "Monster",
+                "text": "Monster.",
                 "next_scene": "wrong"
             },
             "choice4": {
-                "text": "Dirtplace",
+                "text": "Dirtplace.",
                 "next_scene": "right"
             },
             "choice5": {
-                "text": "t_c",
+                "text": "t_c.",
                 "next_scene": "flatter"
             }
         },
@@ -4144,11 +4144,11 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "No",
+                "text": "No.",
                 "next_scene": "kits_no"
             },
             "choice2": {
-                "text": "Yes",
+                "text": "Yes.",
                 "next_scene": "kits_yes"
             }
         },

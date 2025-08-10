@@ -1976,15 +1976,15 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "Labor pains",
+                "text": "Labor pains.",
                 "next_scene": "labor_pains"
             },
             "choice2": {
-                "text": "Milk production",
+                "text": "Milk production.",
                 "next_scene": "milk_production"
             },
             "choice3": {
-                "text": "Nausea",
+                "text": "Nausea.",
                 "next_scene": "nausea"
             }
         },
@@ -2072,15 +2072,15 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "Cobwebs and chervil",
+                "text": "Cobwebs and chervil.",
                 "next_scene": "cobwebs_chervil"
             },
             "choice2": {
-                "text": "Yarrow",
+                "text": "Yarrow.",
                 "next_scene": "yarrow"
             },
             "choice3": {
-                "text": "Cobwebs and comfrey",
+                "text": "Cobwebs and comfrey.",
                 "next_scene": "cobwebs_comfrey"
             }
         },
@@ -2121,7 +2121,7 @@
                 "next_scene": "help_socialize"
             },
             "choice2": {
-                "text": "[Leave {PRONOUN/t_c/object} alone]",
+                "text": "[Leave {PRONOUN/t_c/object} alone.]",
                 "next_scene": "leave_alone"
             }
         },
@@ -2362,11 +2362,11 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "[Comfort]",
+                "text": "[Comfort.]",
                 "next_scene": "comfort"
             },
             "choice2": {
-                "text": "[Leave Alone]",
+                "text": "[Leave alone.]",
                 "next_scene": "leave_alone"
             }
         },
@@ -2408,15 +2408,15 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "[Comfort]",
+                "text": "[Comfort.]",
                 "next_scene": "comfort"
             },
             "choice2": {
-                "text": "[Confidently reassure]",
+                "text": "[Confidently reassure.]",
                 "next_scene": "confidently_reassure"
             },
             "choice3": {
-                "text": "[Criticize]",
+                "text": "[Criticize.]",
                 "next_scene": "criticize"
             }
         },
@@ -2523,11 +2523,11 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "[Praise your apprentice]",
+                "text": "[Praise your apprentice.]",
                 "next_scene": "praise_apprentice"
             },
             "choice2": {
-                "text": "[Scold your apprentice]",
+                "text": "[Scold your apprentice.]",
                 "next_scene": "scold_apprentice"
             }
         },
@@ -2626,11 +2626,11 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "Yes",
+                "text": "Yes.",
                 "next_scene": "yes"
             },
             "choice2": {
-                "text": "No",
+                "text": "No.",
                 "next_scene": "no"
             }
         },
@@ -2848,15 +2848,15 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "[Doe eyes]",
+                "text": "[Doe eyes.]",
                 "next_scene": "doe"
             },
             "choice2": {
-                "text": "[War face]",
+                "text": "[War face.]",
                 "next_scene": "war"
             },
             "choice3": {
-                "text": "[Squint]",
+                "text": "[Squint.]",
                 "next_scene": "war"
             }
         },
@@ -3448,11 +3448,11 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "Maybe",
+                "text": "Maybe.",
                 "next_scene": "shunnedmate_maybe"
             },
             "choice2": {
-                "text": "I don't think so",
+                "text": "I don't think so.",
                 "next_scene": "shunnedmate_no"
             }
         },
@@ -3484,11 +3484,11 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "[Stop them]",
+                "text": "[Stop them.]",
                 "next_scene": "shunnedtalk_stop"
             },
             "choice2": {
-                "text": "[Let them be]",
+                "text": "[Let them be.]",
                 "next_scene": "shunnedtalk_allow"
             }
         },
@@ -3525,11 +3525,11 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "Yes",
+                "text": "Yes.",
                 "next_scene": "somethingbad_yes"
             },
             "choice2": {
-                "text": "No",
+                "text": "No.",
                 "next_scene": "somethingbad_no"
             }
         },
@@ -3574,11 +3574,11 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "Yes",
+                "text": "Yes.",
                 "next_scene": "leaderagain_yes"
             },
             "choice2": {
-                "text": "No",
+                "text": "No.",
                 "next_scene": "leaderagain_no"
             }
         },
@@ -3830,19 +3830,19 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "The Clan's leader",
+                "text": "The Clan's leader.",
                 "next_scene": "growup_leader"
             },
             "choice2": {
-                "text": "A warrior",
+                "text": "A warrior.",
                 "next_scene": "growup_warrior"
             },
             "choice3": {
-                "text": "A medicine cat",
+                "text": "A medicine cat.",
                 "next_scene": "growup_medcat"
             },
             "choice4": {
-                "text": "I don't know",
+                "text": "I don't know.",
                 "next_scene": "growup_idk"
             }
         },
@@ -3896,19 +3896,19 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "The Clan's leader",
+                "text": "The Clan's leader.",
                 "next_scene": "growup_leader"
             },
             "choice2": {
-                "text": "A warrior",
+                "text": "A warrior.",
                 "next_scene": "growup_warrior"
             },
             "choice3": {
-                "text": "A medicine cat",
+                "text": "A medicine cat.",
                 "next_scene": "growup_medcat"
             },
             "choice4": {
-                "text": "I don't know",
+                "text": "I don't know.",
                 "next_scene": "growup_idk"
             }
         },
@@ -3951,20 +3951,20 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "I do",
-                "next_scene": "I do"
+                "text": "I do.",
+                "next_scene": "regret_ido"
             },
             "choice2": {
-                "text": "I don't",
-                "next_scene": "I don't"
+                "text": "I don't.",
+                "next_scene": "regret_idont"
             }
         },
-        "I do": [
+        "regret_ido": [
             "I see... Some advice to you then? Work for forgiveness and don't give up. Show them you deserve a second chance.",
             "Everycat makes mistakes sometimes. You don't need to explain that to anyone either. Just do your best from now on.",
             "You only live once after all. Make the most of it. And if you end up here in the end... It was still worth a try, right?"
         ],
-        "I don't": [
+        "regret_idont": [
             "No shame in that at all. Respectable choice, really.",
             "Just don't get caught if you do it again. I'd hate to see you kicked out for something like this. Those star-blind fools will know in the end...",
             "But what your Clanmates don't know in life won't hurt them."
@@ -4136,15 +4136,15 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "[Attack t_c]",
+                "text": "[Attack t_c.]",
                 "next_scene": "attack"
             },
             "choice2": {
-                "text": "[Tattle on t_c]",
+                "text": "[Tattle on t_c.]",
                 "next_scene": "tattle"
             },
             "choice3": {
-                "text": "[Leave t_c alone]",
+                "text": "[Leave t_c alone.]",
                 "next_scene": "leave"
             }
         },
@@ -4212,11 +4212,11 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "[Intervene]",
+                "text": "[Intervene.]",
                 "next_scene": "intervene"
             },
             "choice2": {
-                "text": "[Let {PRONOUN/t_c/object} be]",
+                "text": "[Let {PRONOUN/t_c/object} be.]",
                 "next_scene": "leave"
             }
         },
@@ -4271,11 +4271,11 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "[Get someone else to help]",
+                "text": "[Get someone else to help.]",
                 "next_scene": "other"
             },
             "choice2": {
-                "text": "[Leave {PRONOUN/t_c/object} alone]",
+                "text": "[Leave {PRONOUN/t_c/object} alone.]",
                 "next_scene": "leave"
             }
         },
@@ -4317,15 +4317,15 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "[Get someone else to help]",
+                "text": "[Get someone else to help.]",
                 "next_scene": "other"
             },
             "choice2": {
-                "text": "[Leave {PRONOUN/t_c/object} alone]",
+                "text": "[Leave {PRONOUN/t_c/object} alone.]",
                 "next_scene": "leave"
             },
             "choice3": {
-                "text": "[Talk to t_c yourself]",
+                "text": "[Talk to t_c yourself.]",
                 "next_scene": "help"
             }
         },
@@ -4426,15 +4426,15 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "[Tease t_c]",
+                "text": "[Tease t_c.]",
                 "next_scene": "tease"
             },
             "choice2": {
-                "text": "[Crack t_c's shell]",
+                "text": "[Crack t_c's shell.]",
                 "next_scene": "compliment"
             },
             "choice3": {
-                "text": "[Leave t_c alone]",
+                "text": "[Leave t_c alone.]",
                 "next_scene": "leave"
             }
         },
@@ -4539,15 +4539,15 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "[Compliment t_c]",
+                "text": "[Compliment t_c.]",
                 "next_scene": "compliment"
             },
             "choice2": {
-                "text": "[Tease t_c]",
+                "text": "[Tease t_c.]",
                 "next_scene": "tease"
             },
             "choice3": {
-                "text": "[Keep it professional]",
+                "text": "[Keep it professional.]",
                 "next_scene": "profesh"
             }
         },
@@ -4590,11 +4590,11 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "Yes",
+                "text": "Yes.",
                 "next_scene": "yes"
             },
             "choice2": {
-                "text": "No",
+                "text": "No.",
                 "next_scene": "no"
             }
         },
@@ -4635,11 +4635,11 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "[Get up]",
+                "text": "[Get up.]",
                 "next_scene": "rise"
             },
             "choice2": {
-                "text": "[Keep sleeping]",
+                "text": "[Keep sleeping.]",
                 "next_scene": "sleep"
             }
         },
@@ -4678,11 +4678,11 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "Yes",
+                "text": "Yes.",
                 "next_scene": "yes"
             },
             "choice2": {
-                "text": "No",
+                "text": "No.",
                 "next_scene": "no"
             }
         },
@@ -5082,7 +5082,7 @@
             "Really? But they were so sure... They told so many stories...",
             "S-sorry. I think I'm going to go now."
         ],
-        "shrug": [
+        "smile": [
             "[You smile, showing your teeth. The cat jumps away.]",
             "O-okay! Sorry for asking! I got lost, I swear, I didn't mean to be here!",
             "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/run/runs}, leaving a trail of misty pawprints.]"
