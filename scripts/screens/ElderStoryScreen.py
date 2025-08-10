@@ -454,6 +454,7 @@ class ElderStoryScreen(Screens):
                     not i.dead and not i.outside and
                     (i.ID != self.elders[self.selected_elder].ID) and
                     i.ID not in game.mediated and
+                    i.ID not in game.told_story and 
                     i.moons > 0
                 )
             ]
