@@ -35750,11 +35750,11 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "Wake {PRONOUN/t_c/object} up",
+                "text": "[Wake {PRONOUN/t_c/object} up.]",
                 "next_scene": "wake"
             },
             "choice2": {
-                "text": "Let {PRONOUN/t_c/object} sleep",
+                "text": "[Let {PRONOUN/t_c/object} sleep.]",
                 "next_scene": "sleep"
             }
         },
@@ -35901,7 +35901,7 @@
                 "next_scene": "withme"
             },
             "choice2": {
-                "text": "Ignore them.",
+                "text": "[Ignore them.]",
                 "next_scene": "ignore"
             },
             "choice3": {
@@ -38728,7 +38728,7 @@
                 "next_scene": "shunned_revenge"
             },
             "choice2": {
-                "text": "Impulsive.",
+                "text": "Impulse.",
                 "next_scene": "shunned_impulsive"
             },
             "choice3": {
@@ -39089,10 +39089,6 @@
             "l_n said you did really bad things and I shouldn't talk with you anymore.",
             "Is it true? Did you do something? I know it's serious enough for l_n to tell me personally."
         ],
-        "intro_text": [
-            "l_n said you did really bad things and I shouldn't talk with you anymore.",
-            "Is it true? Did you do something? I know it's serious enough for l_n to tell me personally."
-        ],
         "intro_choices": {
             "choice1": {
                 "text": "[Tell the truth.]",
@@ -39385,9 +39381,6 @@
             "not_accomplice"
         ],
         "intro": [
-            "I'm mad at you."
-        ],
-        "intro_text": [
             "I'm mad at you."
         ],
         "intro_choices": {

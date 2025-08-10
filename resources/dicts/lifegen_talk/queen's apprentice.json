@@ -2391,10 +2391,6 @@
             "... y_c?",
             "[t_c's unsure voice is heard from behind you. {PRONOUN/t_c/subject/CAP} awkwardly {VERB/t_c/shift/shifts} {PRONOUN/t_c/poss} paws as {PRONOUN/t_c/subject} {VERB/t_c/work/works} up the courage to speak to you.]"
         ],
-        "intro_text": [
-            "... y_c?",
-            "[t_c's unsure voice is heard from behind you. {PRONOUN/t_c/subject/CAP} awkwardly {VERB/t_c/shift/shifts} {PRONOUN/t_c/poss} paws as {PRONOUN/t_c/subject} {VERB/t_c/work/works} up the courage to speak to you.]"
-        ],
         "intro_choices": {
             "choice1": {
                 "text": "You're not supposed to talk to me.",
