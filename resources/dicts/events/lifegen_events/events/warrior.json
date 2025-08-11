@@ -19,11 +19,20 @@
         "r_k asks you about your first battle. You paint yourself as the hero who saved c_n from the evil o_c_n.",
         "You help r_q drag a bunch of brambles into camp to reinforce the nursery with."
     ],
-    "warrior assertive": [],
-    "warrior brooding": [],
+    "warrior assertive": [
+        "You often volunteer yourself to lead patrols. d_n appreciates your willingness to take charge.",
+        "You and r_w argue about what prey tastes best.",
+        "You tell d_n that more hunting patrols should be sent to the far side of the territory, as you've noticed more prey there recently."
+    ],
+    "warrior brooding": [
+        "During a border patrol, while marking the lines that separate c_n and o_c_n, you think about how much blood has been shed at this very spot.",
+        "r_k is constantly in your way, and while you feign annoyance, you'd almost miss them if {PRONOUN/r_k/subject}'d stop.",
+        "You can't shake the feeling of unease after the morning patrol."
+    ],
     "warrior cool": [
         "You hold your prey high as you return from a successful hunting trip.",
-        "l_n makes a remark about how charismatic you are."
+        "l_n makes a remark about how charismatic you are, and you puff out your chest proudly.",
+        "r_d tells you that you'd make a good mediator."
     ],
     "warrior upstanding": [
         "Despite your exhaustion, you volunteer for an extra dawn patrol to ensure the Clan's safety.",
@@ -41,12 +50,12 @@
         "You're not too disappointed when neutral-r_w1 has to help r_w2 instead of joining you on a hunting patrol, leaving you to go alone. You spend an afternoon traipsing through the territory, enjoying the solitude."
     ],
     "warrior silly": [
-        "You pounce on r_a, laughing when they jump.",
+        "You pounce on r_a, laughing when {PRONOUN/r_a/subject} {VERB/r_a/jump/jumps}.",
         "You hide with r_e in the elders' den, trying to avoid dawn patrol.",
         "You pretend y_s's tail is a piece of prey and jump on it, just like when you both were kits."
     ],
     "warrior stable": [
-        "When a kit wanders too close to the edge of the camp, you gently guide them back to the nursery, promising to teach them about the territory when they're older.",
+        "When r_k wanders too close to the edge of the camp, you gently guide {PRONOUN/r_k/object} back to the nursery, promising to teach them about the territory when {PRONOUN/r_k/subject}{VERB/r_k/'s/'re} older.",
         "You make a habit of visiting the nursery each night to check for any holes in the den before heading to bed.",
         "You methodically remark the c_n borders while on patrol."
     ],
