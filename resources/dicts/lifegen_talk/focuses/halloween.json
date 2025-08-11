@@ -82,7 +82,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -190,7 +190,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -229,7 +229,7 @@
     },
     "halloween_sam1": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -306,7 +306,7 @@
     },
     "halloween_sam2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -314,7 +314,7 @@
             "cluster": [
                 "silly"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -413,7 +413,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -444,7 +444,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },

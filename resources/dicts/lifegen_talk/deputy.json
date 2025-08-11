@@ -97,7 +97,7 @@
     },
     "brooding_leader": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten",
                 "newborn"
             ],
@@ -629,7 +629,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -658,7 +658,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -770,7 +770,7 @@
     },
     "assertive_5": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -1420,7 +1420,7 @@
     },
     "assertive_tokit_2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -1567,7 +1567,7 @@
     },
     "assertive_elder_13": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -1619,7 +1619,7 @@
     },
     "assertive_elder_15": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -2024,7 +2024,7 @@
     },
     "brooding_dep_1": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -3061,7 +3061,7 @@
     },
     "sweet_deputy_2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -3078,7 +3078,7 @@
     },
     "sweet_deputy_3": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -3102,7 +3102,7 @@
     },
     "sweet_deputy_4": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -3867,7 +3867,7 @@
     },
     "deputyshunned_H2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -4307,7 +4307,7 @@
     },
     "neurotic_choice_foxtokit_SQ5~2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -5757,7 +5757,7 @@
     },
     "neurotic_tokit_SQ2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },

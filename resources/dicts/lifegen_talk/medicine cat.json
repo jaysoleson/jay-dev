@@ -870,16 +870,9 @@
     "assertivemedapp_3": {
         "y_c": {
             "status": [
-                "kitten",
-                "apprentice",
-                "warrior",
-                "elder",
-                "deputy",
-                "leader",
-                "mediator",
-                "mediator apprentice",
-                "queen",
-                "queen's apprentice"
+                "not_medicine cat",
+                "not_medicine cat apprentice",
+                "not_newborn"
             ],
             "condition": [
                 "blind:any:false"
@@ -1005,7 +998,7 @@
     },
     "assertivemedapp_tokit": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -1655,7 +1648,7 @@
     },
     "brooding_medapp_2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -1798,7 +1791,7 @@
     },
     "brooding_medapp_7": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -1822,7 +1815,7 @@
     },
     "brooding_medapp_8": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -1847,7 +1840,7 @@
     },
     "brooding_medapp_9": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -1936,7 +1929,7 @@
     },
     "sweet_meddie_2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -1959,7 +1952,7 @@
     },
     "sweet_meddie_3": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -1976,7 +1969,7 @@
     },
     "sweet_meddie_4": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -4870,7 +4863,7 @@
     },
     "neurotic_tokit_SQ2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -4926,7 +4919,7 @@
     },
     "neurotic_tokit_SQ4": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },

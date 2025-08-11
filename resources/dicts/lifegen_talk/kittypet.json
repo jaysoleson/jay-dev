@@ -146,7 +146,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten",
                 "newborn"
             ]
@@ -413,7 +413,7 @@
     },
     "sckit_urnew_R1": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -446,7 +446,7 @@
     },
     "sckit_urnew_R2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "dead": [

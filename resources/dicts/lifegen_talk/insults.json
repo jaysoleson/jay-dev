@@ -1,7 +1,7 @@
 {
     "app_16a": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -39,7 +39,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -269,7 +269,7 @@
     },
     "dep_1a6": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -344,7 +344,7 @@
     },
     "elder_321312": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -2628,7 +2628,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -2774,7 +2774,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -2813,7 +2813,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -2837,7 +2837,7 @@
                 "unabashed",
                 "silly"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -2858,7 +2858,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -3205,7 +3205,7 @@
     },
     "unlawful_forgiven_insult_Guy2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -3527,7 +3527,7 @@
     },
     "unlawful_tokit_neg1": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -3554,7 +3554,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -3575,7 +3575,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -3689,7 +3689,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -3705,7 +3705,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -3716,7 +3716,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -3738,7 +3738,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -3764,7 +3764,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -3867,7 +3867,7 @@
     },
     "leader_16": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -4000,7 +4000,7 @@
     },
     "leader_1ax5x": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -4082,7 +4082,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -4107,7 +4107,7 @@
     },
     "medapp_1s5s": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -4124,7 +4124,7 @@
     },
     "medcat_16": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -4252,7 +4252,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -4277,7 +4277,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -4302,7 +4302,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -4324,7 +4324,7 @@
     },
     "warrior_1d6": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -5350,7 +5350,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -5378,7 +5378,7 @@
                 "blind:any:false",
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -5392,7 +5392,7 @@
     "they_kitten_H3": {
         "y_c": {},
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -5407,7 +5407,7 @@
     "they_kitten_H4": {
         "y_c": {},
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -5422,7 +5422,7 @@
     "they_kitten_H5": {
         "y_c": {},
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -5436,7 +5436,7 @@
     "they_kitten_H6": {
         "y_c": {},
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -5451,7 +5451,7 @@
     "they_kitten_H7": {
         "y_c": {},
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -5469,7 +5469,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -5486,7 +5486,7 @@
     },
     "TinyTeddy_stable_neg_youkitten_theywarrior_01": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -5582,12 +5582,12 @@
     },
     "kitten_to_kitten_H1": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -5631,7 +5631,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten",
                 "newborn"
             ]
@@ -5658,7 +5658,7 @@
     },
     "queen_insult_H1": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten",
                 "newborn"
             ],
@@ -6039,7 +6039,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -6309,7 +6309,7 @@
             "condition": [
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -6425,7 +6425,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
