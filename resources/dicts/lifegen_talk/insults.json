@@ -6859,5 +6859,197 @@
         "intro": [
             "[t_c just takes your insults with lowered eyes, not even fighting back.]"
         ]
+    },
+    "bothgrieving_insult_H1": {
+        "y_c": {
+            "shunned":"any",
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ],
+            "age": [
+                "not_newborn"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ],
+            "shunned":"any",
+            "age": [
+                "not_newborn"
+            ]
+        },
+        "relationship": [],
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "Why are we here? Just to suffer?"
+        ]
+    },
+    "bothgrieving_insult_H2": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ],
+            "age": [
+                "not_newborn"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ],
+            "age": [
+                "not_newborn"
+            ]
+        },
+        "relationship": [],
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "It's like you're a different cat when you're grieving."
+        ]
+    },
+    "bothgrieving_insult_H3": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ],
+            "age": [
+                "not_newborn"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "age": [
+                "not_newborn"
+            ]
+        },
+        "relationship": [],
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "It's like you're a different cat when you're grieving."
+        ]
+    },
+    "bothgrieving_insult_H4": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ],
+            "age": [
+                "not_newborn"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false",
+                "grief stricken"
+            ],
+            "age": [
+                "not_newborn"
+            ]
+        },
+        "relationship": [
+            "min_jealousy_10"
+        ],
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "Cool! Hey, I'm sad, too. Do you think I can be rude to hate-r_c and get away with it like you are?"
+        ]
+    },
+    "bothgrieving_insult_H5": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ],
+            "age": [
+                "not_newborn"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false",
+                "grief stricken"
+            ],
+            "age": [
+                "not_newborn"
+            ]
+        },
+        "relationship": [],
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "Get tg_c's name out of your mouth."
+        ]
+    },
+    "bothgrieving_insult_H6": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ],
+            "age": [
+                "not_newborn"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false",
+                "grief stricken"
+            ],
+            "age": [
+                "not_newborn"
+            ]
+        },
+        "relationship": [],
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "Oh! Well, if you wanna play that game...",
+            "yg_c was a mousebrain, and I'm sick of pretending otherwise!"
+        ]
+    },
+    "bothgrieving_insult_H7": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ],
+            "shunned": "any"
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false",
+                "grief stricken"
+            ],
+            "shunned": "any",
+            "age": [
+                "not_newborn"
+            ]
+        },
+        "relationship": [],
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "Get out of my sight."
+        ]
     }
 }
