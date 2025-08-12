@@ -4510,7 +4510,7 @@
             ]
         },
         "intro": [
-            "[t_c sleeps comfortably outside in the sun, guessing they finally got a break. Good. {PRONOUN/t_c/subject/CAP} work very hard for c_n.]"
+            "[t_c sleeps comfortably outside in the sun. You guess {PRONOUN/t_c/subject} finally got a break. Good. {PRONOUN/t_c/subject/CAP} {VERB/t_c/work/works} very hard for c_n.]"
         ]
     },
     "TinyTeddy_stable_Deputy_Gen_01": {

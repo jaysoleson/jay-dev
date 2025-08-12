@@ -9295,5 +9295,71 @@
         "intro": [
             "[t_c smiles, but {PRONOUN/t_c/subject} {VERB/t_c/look/looks} a little awkward around the eyes.]"
         ]
+    },
+    "mcshunned_theygrieving_flirting_H1": {
+        "y_c": {
+            "shunned":"any",
+            "condition": [
+                "deaf:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "grief stricken",
+                "deaf:any:false",
+                "blind:any:false"
+            ]
+        },
+        "relationship": [],
+        "tags": [
+            "reject"
+        ],
+        "intro": [
+            "[t_c ignores you with a flick of {PRONOUN/t_c/poss} tail.]"
+        ]
+    },
+    "mcshunned_theygrieving_flirting_H2": {
+        "y_c": {
+            "shunned":"any"
+        },
+        "t_c": {
+            "condition": [
+                "grief stricken"
+            ],
+            "skill": [
+                "STAR,1",
+                "DARK,1",
+                "GHOST,1"
+            ]
+        },
+        "relationship": [
+            "grievingyou"
+        ],
+        "tags": [
+            "reject"
+        ],
+        "intro": [
+            "You're not real, you're not real, you're not real."
+        ]
+    },
+    "mcshunned_theygrieving_flirting_H3": {
+        "y_c": {
+            "shunned":"any"
+        },
+        "t_c": {
+            "condition": [
+                "grief stricken"
+            ]
+        },
+        "relationship": [
+            "grievingyou"
+        ],
+        "tags": [
+            "reject",
+            "accept"
+        ],
+        "intro": [
+            "Is my mind playing tricks on me?"
+        ]
     }
 }
