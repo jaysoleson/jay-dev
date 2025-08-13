@@ -1,7 +1,7 @@
 {
     "kit_6": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -198,7 +198,7 @@
             "condition": [
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -216,7 +216,7 @@
             "condition": [
                 "deaf:any:true"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -241,7 +241,7 @@
                 "blind:any:false",
                 "deaf:any:true"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -292,7 +292,7 @@
             "shunned": true
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -575,7 +575,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -924,7 +924,7 @@
     },
     "assertivekit_18": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -967,7 +967,7 @@
     },
     "assertivekit_20": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -997,7 +997,7 @@
                 "neurotic",
                 "upstanding"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -1071,7 +1071,7 @@
     },
     "assertivekit_23": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -1101,7 +1101,7 @@
     },
     "assertivekit_25": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -1130,7 +1130,7 @@
     },
     "assertivekit_sibling": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -1157,7 +1157,7 @@
     },
     "assertivekit_sibling1": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -1262,7 +1262,7 @@
     },
     "assertivekit_sibling5": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -1321,7 +1321,7 @@
     },
     "assertivekit_26": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -1344,7 +1344,7 @@
     },
     "assertivekit_27": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -1371,7 +1371,7 @@
     },
     "assertivekit_28": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -1402,7 +1402,7 @@
     },
     "assertivekit_29": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -1433,7 +1433,7 @@
     },
     "assertivekit_30": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -1460,7 +1460,7 @@
     },
     "assertivekit_your": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -1485,7 +1485,7 @@
     },
     "assertivekit_your1": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -1504,7 +1504,7 @@
     },
     "assertivekit_your2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -1528,7 +1528,7 @@
     },
     "assertivekit_your3": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -1557,7 +1557,7 @@
     },
     "assertivekit_31": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -1626,7 +1626,7 @@
     },
     "introspective_kit_2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -1668,7 +1668,7 @@
     },
     "introspective_kit_3": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -1744,7 +1744,7 @@
     },
     "sweet_kit_4": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -1765,7 +1765,7 @@
     },
     "sweet_kit_5": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -1788,7 +1788,7 @@
     },
     "sweet_kit_6": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -2723,7 +2723,7 @@
     },
     "silly_kit_sticks": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -3137,7 +3137,7 @@
     },
     "broodingnewborn_14": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -3176,7 +3176,7 @@
     },
     "broodingnewborn_17": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -3198,7 +3198,7 @@
     },
     "broodingnewborn_18": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -3390,7 +3390,7 @@
     },
     "neurotic_kit__5": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -3614,7 +3614,7 @@
     },
     "neurotic_kit__16": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -3634,7 +3634,7 @@
     },
     "neurotic_kit__17": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -3815,7 +3815,7 @@
     },
     "stable_kit_06": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -3839,7 +3839,7 @@
     },
     "stable_kit_07": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -3856,7 +3856,7 @@
     },
     "stable_kit_08": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -3875,7 +3875,7 @@
     },
     "stable_kit_09": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -3893,7 +3893,7 @@
     },
     "stable_kit_10": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -3917,7 +3917,7 @@
     },
     "stable_kit_11": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -4181,7 +4181,7 @@
     },
     "neurotic_kit__22": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -4382,7 +4382,7 @@
     },
     "brooding_kitten_like": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -4463,7 +4463,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -5338,7 +5338,7 @@
     },
     "sweet_kit_33": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -5733,7 +5733,7 @@
                 "blind:any:false",
                 "grief stricken"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -5749,7 +5749,7 @@
             "condition": [
                 "grief stricken"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -5778,7 +5778,7 @@
                 "blind:any:false",
                 "grief stricken"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -5801,7 +5801,7 @@
                 "blind:any:false",
                 "grief stricken"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -5821,7 +5821,7 @@
                 "illness:any",
                 "injury:any"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -5846,7 +5846,7 @@
                 "illness:any",
                 "injury:any"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -5874,7 +5874,7 @@
                 "illness:any",
                 "injury:any"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -5897,7 +5897,7 @@
                 "illness:any",
                 "injury:any"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -5918,7 +5918,7 @@
                 "illness:any",
                 "injury:any"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -5938,7 +5938,7 @@
                 "illness:any",
                 "injury:any"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -6078,7 +6078,7 @@
         },
         "t_c": {
             "shunned": true,
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -6101,7 +6101,7 @@
             "condition": [
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -6123,7 +6123,7 @@
                 "blind:any:false"
             ],
             "shunned": true,
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -6143,7 +6143,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -6174,7 +6174,7 @@
                 "deaf:any:false"
             ],
             "shunned": true,
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -6299,7 +6299,7 @@
                 "grief stricken"
             ],
             "shunned": true,
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -6320,7 +6320,7 @@
                 "blind:any:false"
             ],
             "shunned": true,
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -6342,7 +6342,7 @@
             "condition": [
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -6364,7 +6364,7 @@
                 "deaf:any:false",
                 "grief stricken"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -6387,7 +6387,7 @@
                 "grief stricken"
             ],
             "shunned": true,
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -6408,7 +6408,7 @@
                 "blind:any:false"
             ],
             "shunned": true,
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -6432,7 +6432,7 @@
                 "grief stricken"
             ],
             "shunned": true,
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -6445,7 +6445,7 @@
             "dead": [
                 "sc"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -6475,7 +6475,7 @@
             "dead": [
                 "df"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -6493,7 +6493,7 @@
             "dead": [
                 "df"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -6519,7 +6519,7 @@
             "dead": [
                 "df"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -6533,7 +6533,7 @@
             "dead": [
                 "sc"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -6581,7 +6581,7 @@
             "dead": [
                 "df"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -6602,7 +6602,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -6622,7 +6622,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -6647,7 +6647,7 @@
                 "blind:any:false",
                 "hearing"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -6667,7 +6667,7 @@
                 "blind:any:false"
             ],
             "shunned": true,
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -6675,7 +6675,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -6693,7 +6693,7 @@
             "dead": [
                 "sc"
             ],
-            "status": [
+            "age": [
                 "kitten",
                 "newborn"
             ]
@@ -6716,7 +6716,7 @@
             "dead": [
                 "df"
             ],
-            "status": [
+            "age": [
                 "kitten",
                 "newborn"
             ]
@@ -6744,7 +6744,7 @@
             "dead": [
                 "sc"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -6767,7 +6767,7 @@
             "dead": [
                 "df"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -6794,7 +6794,7 @@
             "dead": [
                 "sc"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -6819,7 +6819,7 @@
             "dead": [
                 "df"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -6846,7 +6846,7 @@
             "dead": [
                 "sc"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -6864,7 +6864,7 @@
             "dead": [
                 "df"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -6886,7 +6886,7 @@
             "condition": [
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -6901,7 +6901,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -6916,7 +6916,7 @@
             "dead": [
                 "sc"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -6942,7 +6942,7 @@
             "dead": [
                 "sc"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -6964,7 +6964,7 @@
             "dead": [
                 "sc"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -6975,7 +6975,7 @@
     },
     "sc_sc_kittens": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -7047,7 +7047,7 @@
                 "blind:any:false",
                 "grief stricken"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -7070,7 +7070,7 @@
                 "deaf:any:false",
                 "grief stricken"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -7092,7 +7092,7 @@
                 "blind:any:false",
                 "grief stricken"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -7118,7 +7118,7 @@
             "condition": [
                 "grief stricken"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -7183,7 +7183,7 @@
             "dead": [
                 "sc"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -7201,7 +7201,7 @@
             "dead": [
                 "sc"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -7220,7 +7220,7 @@
             "dead": [
                 "sc"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -7239,7 +7239,7 @@
             "dead": [
                 "sc"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -7262,7 +7262,7 @@
             "dead": [
                 "sc"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -7289,7 +7289,7 @@
             "dead": [
                 "sc"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -7316,7 +7316,7 @@
             "dead": [
                 "sc"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -7334,7 +7334,7 @@
             "dead": [
                 "sc"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -7345,7 +7345,7 @@
             "dead": [
                 "sc"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -7369,7 +7369,7 @@
             "dead": [
                 "sc"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -7391,7 +7391,7 @@
             "dead": [
                 "sc"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -7407,7 +7407,7 @@
             "dead": [
                 "sc"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -7426,7 +7426,7 @@
             "dead": [
                 "sc"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -7446,7 +7446,7 @@
             "dead": [
                 "sc"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -7468,7 +7468,7 @@
             "dead": [
                 "sc"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -7493,7 +7493,7 @@
             "dead": [
                 "sc"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -7517,7 +7517,7 @@
             "dead": [
                 "sc"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -7541,7 +7541,7 @@
             "dead": [
                 "sc"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -7566,7 +7566,7 @@
             "dead": [
                 "sc"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -7590,7 +7590,7 @@
             "dead": [
                 "sc"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -7614,7 +7614,7 @@
             "dead": [
                 "df"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -7638,7 +7638,7 @@
             "dead": [
                 "df"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -7662,7 +7662,7 @@
             "dead": [
                 "df"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -7680,7 +7680,7 @@
             "dead": [
                 "df"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -7703,7 +7703,7 @@
             "dead": [
                 "df"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -8929,7 +8929,7 @@
             "dead": [
                 "df"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -8953,7 +8953,7 @@
             "dead": [
                 "df"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -8979,7 +8979,7 @@
             "dead": [
                 "df"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -9003,7 +9003,7 @@
             "dead": [
                 "df"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -9033,7 +9033,7 @@
             "dead": [
                 "df"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -9062,7 +9062,7 @@
             "dead": [
                 "df"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -9085,7 +9085,7 @@
                 "blind:any:false"
             ],
             "shunned": true,
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -9273,7 +9273,7 @@
             "condition": [
                 "allergies:any:true"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -9331,7 +9331,7 @@
             "cluster": [
                 "neurotic"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -9355,7 +9355,7 @@
             "cluster": [
                 "neurotic"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -9380,7 +9380,7 @@
             "cluster": [
                 "neurotic"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -9406,7 +9406,7 @@
             "cluster": [
                 "neurotic"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -9429,7 +9429,7 @@
             "cluster": [
                 "neurotic"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -9457,7 +9457,7 @@
             "condition": [
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -9485,7 +9485,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -9509,7 +9509,7 @@
             "cluster": [
                 "neurotic"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -9541,7 +9541,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -9563,9 +9563,7 @@
                 "introspective"
             ],
             "age": [
-                "adolescent"
-            ],
-            "status": [
+                "adolescent",
                 "kitten"
             ]
         },
@@ -9587,7 +9585,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "shunned": true
@@ -9619,7 +9617,7 @@
                 "sc",
                 "min_they_deadfor_30"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -9677,7 +9675,7 @@
                 "sc",
                 "min_they_deadfor_30"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -9742,7 +9740,7 @@
                 "sc",
                 "min_they_deadfor_30"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -9775,7 +9773,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "skill": [
@@ -9815,7 +9813,7 @@
     },
     "theyseizures_J1": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -9847,7 +9845,7 @@
             "cluster": [
                 "cool"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -9871,7 +9869,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -9899,7 +9897,7 @@
             "cluster": [
                 "cool"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -9922,7 +9920,7 @@
             "cluster": [
                 "cool"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -9943,7 +9941,7 @@
             "cluster": [
                 "cool"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -9959,7 +9957,7 @@
                 "blind:any:false"
             ],
             "shunned": true,
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -9968,7 +9966,7 @@
                 "blind:any:false"
             ],
             "shunned": true,
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -9983,7 +9981,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -9992,7 +9990,7 @@
                 "blind:any:false"
             ],
             "shunned": true,
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10006,7 +10004,7 @@
                 "blind:any:false"
             ],
             "shunned": true,
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10014,7 +10012,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10034,7 +10032,7 @@
                 "deaf:any:false"
             ],
             "shunned": true,
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10045,7 +10043,7 @@
                 "deaf:any:false"
             ],
             "shunned": true,
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10060,7 +10058,7 @@
             "condition": [
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10069,7 +10067,7 @@
                 "deaf:any:false"
             ],
             "shunned": true,
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10085,7 +10083,7 @@
                 "deaf:any:false"
             ],
             "shunned": true,
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10093,7 +10091,7 @@
             "condition": [
                 "deaf:any:true"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10109,7 +10107,7 @@
             "condition": [
                 "grief stricken"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10117,7 +10115,7 @@
             "dead": [
                 "sc"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10134,7 +10132,7 @@
                 "deaf:any:false",
                 "grief stricken"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10146,7 +10144,7 @@
             "dead": [
                 "df"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10161,7 +10159,7 @@
                 "blind:any:false",
                 "grief stricken"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10172,7 +10170,7 @@
             "dead": [
                 "df"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10197,7 +10195,7 @@
                 "blind:any:false"
             ],
             "forgiven": true,
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10219,7 +10217,7 @@
             "dead": [
                 "sc"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10249,7 +10247,7 @@
             "dead": [
                 "sc"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10278,7 +10276,7 @@
             "dead": [
                 "sc"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10296,7 +10294,7 @@
             "dead": [
                 "df"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10313,7 +10311,7 @@
             "dead": [
                 "df"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10353,7 +10351,7 @@
                 "unabashed",
                 "silly"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10373,7 +10371,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10391,7 +10389,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10411,7 +10409,7 @@
             "cluster": [
                 "introspective"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10468,7 +10466,7 @@
                 "unlawful",
                 "unabashed"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -10495,7 +10493,7 @@
             "cluster": [
                 "neurotic"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10517,7 +10515,7 @@
             "cluster": [
                 "neurotic"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10541,7 +10539,7 @@
             "cluster": [
                 "neurotic"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10577,7 +10575,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10608,7 +10606,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10626,7 +10624,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10663,7 +10661,7 @@
             "cluster": [
                 "neurotic"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10686,7 +10684,7 @@
             "cluster": [
                 "neurotic"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "skill": [
@@ -10714,7 +10712,7 @@
             "cluster": [
                 "neurotic"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "skill": [
@@ -10755,7 +10753,7 @@
                 "blind:any:false",
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "skill": [
@@ -10780,7 +10778,7 @@
             "condition": [
                 "grief stricken"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10806,7 +10804,7 @@
             "condition": [
                 "grief stricken"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10831,7 +10829,7 @@
             "condition": [
                 "grief stricken"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10851,7 +10849,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10866,7 +10864,7 @@
     },
     "about_unlawful_SQ6": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10877,7 +10875,7 @@
                 "cool",
                 "brooding"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10899,7 +10897,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10922,7 +10920,7 @@
             "cluster": [
                 "neurotic"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -10951,7 +10949,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -11023,7 +11021,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -11066,7 +11064,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -11106,7 +11104,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "dead": [
@@ -11136,7 +11134,7 @@
             "dead": [
                 "any"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -11160,7 +11158,7 @@
                 "blind:any:false",
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "skill": [
@@ -11186,7 +11184,7 @@
                 "introspective",
                 "neurotic"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -11238,7 +11236,7 @@
             "cluster": [
                 "neurotic"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -11285,7 +11283,7 @@
             "cluster": [
                 "neurotic"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "skill": [
@@ -11329,7 +11327,7 @@
     },
     "neurotic_choice_campkitquestion_SQ34": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -11337,7 +11335,7 @@
             "cluster": [
                 "neurotic"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "skill": [
@@ -11395,7 +11393,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -11404,13 +11402,11 @@
                 "neurotic"
             ],
             "age": [
-                "younger"
+                "younger",
+                "kitten"
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "kitten"
             ]
         },
         "relationship": [
@@ -11434,7 +11430,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -11491,7 +11487,7 @@
                 "assertive",
                 "unlawful"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -11499,7 +11495,7 @@
             "cluster": [
                 "neurotic"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -11517,7 +11513,7 @@
     },
     "neurotic_choice_kitnightadventure_SQ29~2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -11525,7 +11521,7 @@
             "cluster": [
                 "neurotic"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -11573,7 +11569,7 @@
     },
     "neurotic_skillcamp_SQ1": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -11584,7 +11580,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "skill": [
@@ -11611,7 +11607,7 @@
             "condition": [
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "skill": [
@@ -11637,7 +11633,7 @@
                 "blind:any:false",
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "skill": [
@@ -11666,7 +11662,7 @@
             "condition": [
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "skill": [
@@ -11694,7 +11690,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "skill": [
@@ -11726,7 +11722,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "skill": [
@@ -11757,7 +11753,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "skill": [
@@ -11786,7 +11782,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "skill": [
@@ -11815,7 +11811,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "skill": [
@@ -11836,7 +11832,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -11847,7 +11843,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "skill": [
@@ -11877,7 +11873,7 @@
                 "blind:any:false",
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "skill": [
@@ -11910,7 +11906,7 @@
                 "blind:any:false",
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "skill": [
@@ -11936,7 +11932,7 @@
             "cluster": [
                 "neurotic"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "skill": [
@@ -11964,7 +11960,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "skill": [
@@ -12002,7 +11998,7 @@
             "condition": [
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -12026,7 +12022,7 @@
             "cluster": [
                 "neurotic"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -12053,7 +12049,7 @@
             "cluster": [
                 "neurotic"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -12077,7 +12073,7 @@
                 "silly",
                 "upstanding"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -12085,7 +12081,7 @@
             "cluster": [
                 "neurotic"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -12114,7 +12110,7 @@
             "condition": [
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -12145,7 +12141,7 @@
             "condition": [
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -12174,7 +12170,7 @@
                 "blind:any:false",
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -12191,7 +12187,7 @@
                 "silly",
                 "upstanding"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -12202,7 +12198,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -12228,7 +12224,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -12260,7 +12256,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -12285,7 +12281,7 @@
             "cluster": [
                 "neurotic"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -12320,7 +12316,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "skill": [
@@ -12348,10 +12344,8 @@
                 "introspective",
                 "upstanding"
             ],
-            "status": [
-                "kitten"
-            ],
             "age": [
+                "kitten",
                 "younger"
             ]
         },
@@ -12378,7 +12372,7 @@
                 "introspective",
                 "upstanding"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -12406,7 +12400,7 @@
                 "introspective",
                 "neurotic"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -12433,7 +12427,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -12452,7 +12446,7 @@
     },
     "cool_kit_8": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -12460,7 +12454,7 @@
             "cluster": [
                 "cool"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -12481,7 +12475,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -12506,7 +12500,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "skill": [
@@ -12538,7 +12532,7 @@
             "dead": [
                 "sc"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -12561,7 +12555,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -12588,7 +12582,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -12615,7 +12609,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -12642,7 +12636,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -12666,7 +12660,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -12690,7 +12684,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -12712,7 +12706,7 @@
             "dead": [
                 "df"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -12726,13 +12720,13 @@
     },
     "general_kit_they_shunned_CM1": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
         "t_c": {
             "shunned": true,
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -12754,7 +12748,7 @@
             "dead": [
                 "df"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -12779,7 +12773,7 @@
                 "unlawful",
                 "brooding"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -12802,7 +12796,7 @@
                 "unlawful",
                 "cool"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -12825,7 +12819,7 @@
             "condition": [
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -12838,7 +12832,7 @@
             "condition": [
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -12856,12 +12850,12 @@
             "condition": [
                 "deaf:any:true"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -12879,7 +12873,7 @@
             "condition": [
                 "deaf:any:true"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -12888,7 +12882,7 @@
                 "blind:any:false",
                 "hearing"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -12904,7 +12898,7 @@
             "condition": [
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -12912,7 +12906,7 @@
             "condition": [
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -12924,7 +12918,7 @@
     },
     "neurotic_kitten_SQ4": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -12935,7 +12929,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -12962,7 +12956,7 @@
             "cluster": [
                 "neurotic"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -12983,7 +12977,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten",
                 "queen",
                 "queen's apprentice"
@@ -12997,7 +12991,7 @@
                 "blind:any:false",
                 "hearing"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -13016,7 +13010,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -13027,7 +13021,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -13047,7 +13041,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -13058,7 +13052,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -13077,7 +13071,7 @@
     },
     "neurotic_kitten_SQ17": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -13085,7 +13079,7 @@
             "cluster": [
                 "neurotic"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -13105,7 +13099,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -13116,7 +13110,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -13134,7 +13128,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -13145,7 +13139,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -13158,7 +13152,7 @@
     },
     "cool_kit_AJ6": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -13171,13 +13165,11 @@
                 "cool"
             ],
             "age": [
-                "older"
+                "older",
+                "kitten"
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "kitten"
             ]
         },
         "intro": [
@@ -13189,7 +13181,7 @@
     },
     "cool_kit_AJ7": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -13201,7 +13193,7 @@
                 "unlawful",
                 "cool"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -13221,7 +13213,7 @@
     },
     "cool_kit_AJ8": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -13235,7 +13227,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -13251,7 +13243,7 @@
     },
     "cool_kit_AJ9": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -13262,7 +13254,7 @@
             "cluster": [
                 "cool"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -13277,7 +13269,7 @@
     },
     "cool_kit_AJ10~1": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -13286,7 +13278,7 @@
                 "cool",
                 "upstanding"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "backstory": [
@@ -13309,7 +13301,7 @@
     },
     "cool_kit_AJ10~2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -13318,7 +13310,7 @@
                 "cool",
                 "upstanding"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "backstory": [
@@ -13342,7 +13334,7 @@
     },
     "kitten_dfcat_J1": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "skill": [
@@ -13350,7 +13342,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "skill": [
@@ -13368,7 +13360,7 @@
     },
     "deaf_shunned_J2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -13380,7 +13372,7 @@
             "condition": [
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -13400,7 +13392,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -13420,7 +13412,7 @@
             "condition": [
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -13445,7 +13437,7 @@
                 "blind:any:false",
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -13470,7 +13462,7 @@
                 "blind:any:false",
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -13496,7 +13488,7 @@
                 "introspective",
                 "neurotic"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -13521,7 +13513,7 @@
             "cluster": [
                 "introspective"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -13555,7 +13547,7 @@
                 "blind:any:false",
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -13577,7 +13569,7 @@
                 "sweet",
                 "stable"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -13604,7 +13596,7 @@
                 "assertive",
                 "upstanding"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -13629,7 +13621,7 @@
                 "assertive",
                 "upstanding"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -13653,7 +13645,7 @@
             "shunned": true
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "shunned": true
@@ -13695,7 +13687,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -13733,7 +13725,7 @@
                 "unlawful",
                 "unabashed"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -13763,7 +13755,7 @@
             "cluster": [
                 "unlawful"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -13789,7 +13781,7 @@
                 "unabashed",
                 "brooding"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -13806,13 +13798,13 @@
     },
     "kit_youshunned_kit_discomfort_rad1": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "shunned": true
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -13852,7 +13844,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -13874,7 +13866,7 @@
             "cluster": [
                 "secretive"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -13899,7 +13891,7 @@
             "cluster": [
                 "secretive"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -13925,7 +13917,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "skill": [
@@ -13950,7 +13942,7 @@
             "cluster": [
                 "neurotic"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -14002,7 +13994,7 @@
             "cluster": [
                 "neurotic"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "skill": [
@@ -14058,7 +14050,7 @@
     },
     "youdeaf_SQ2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -14074,7 +14066,7 @@
             "condition": [
                 "hearing"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -14091,7 +14083,7 @@
     },
     "youdeaf_SQ3": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -14105,7 +14097,7 @@
             "condition": [
                 "hearing"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -14116,7 +14108,7 @@
     },
     "youdeaf_SQ4": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -14130,7 +14122,7 @@
             "condition": [
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -14159,7 +14151,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -14186,7 +14178,7 @@
             "cluster": [
                 "neurotic"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -14211,7 +14203,7 @@
             "cluster": [
                 "neurotic"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -14234,7 +14226,7 @@
             "condition": [
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -14252,7 +14244,7 @@
             "condition": [
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -14262,7 +14254,7 @@
     },
     "bullying_kittens_H1": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -14270,7 +14262,7 @@
             "cluster": [
                 "bullying"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -14321,7 +14313,7 @@
             "cluster": [
                 "bullying"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -14346,7 +14338,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -14372,7 +14364,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -14391,7 +14383,7 @@
             "cluster": [
                 "bullying"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -14433,7 +14425,7 @@
             "cluster": [
                 "bullying"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -14457,7 +14449,7 @@
             "cluster": [
                 "bullying"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -14501,7 +14493,7 @@
             "condition": [
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -14524,7 +14516,7 @@
                 "blind:any:false",
                 "grief stricken"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -14542,7 +14534,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -14565,7 +14557,7 @@
             "cluster": [
                 "daydreamer"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -14634,7 +14626,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -14649,7 +14641,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -14660,7 +14652,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -14700,7 +14692,7 @@
             "condition": [
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -14712,7 +14704,7 @@
                 "blind:any:false",
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -14729,7 +14721,7 @@
             "cluster": [
                 "bossy"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -14751,7 +14743,7 @@
             "cluster": [
                 "bossy"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -14780,7 +14772,7 @@
             "condition": [
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -14805,7 +14797,7 @@
             "condition": [
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "cluster": ["unruly"]
@@ -14832,7 +14824,7 @@
             "cluster": [
                 "patient"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -14859,7 +14851,7 @@
                 "blind:any:false",
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -14874,7 +14866,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -14885,7 +14877,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -14905,7 +14897,7 @@
             "cluster": [
                 "smug"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -14925,7 +14917,7 @@
             "cluster": [
                 "secretive"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -14936,7 +14928,7 @@
     },
     "know-it-all_kittens_H1": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -14944,7 +14936,7 @@
             "cluster": [
                 "know-it-all"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -14964,7 +14956,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "cluster": ["unruly"]
@@ -14987,7 +14979,7 @@
             "cluster": [
                 "disciplined"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -15009,7 +15001,7 @@
             "cluster": [
                 "passionate"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -15035,7 +15027,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -15061,7 +15053,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -15072,7 +15064,7 @@
     },
     "manipulative_kittens_H1": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -15080,7 +15072,7 @@
             "cluster": [
                 "manipulative"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -15100,7 +15092,7 @@
             "cluster": [
                 "manipulative"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -15125,7 +15117,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -15151,7 +15143,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -15180,7 +15172,7 @@
                 "blind:any:false",
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -15207,7 +15199,7 @@
                 "blind:any:false",
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -15220,7 +15212,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -15231,7 +15223,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -15257,7 +15249,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -15268,7 +15260,7 @@
     },
     "polite_kittens_H2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -15276,7 +15268,7 @@
             "cluster": [
                 "polite"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -15291,7 +15283,7 @@
             "cluster": [
                 "leader-like"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -15314,7 +15306,7 @@
             "cluster": [
                 "impulsive"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -15349,7 +15341,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -15357,7 +15349,7 @@
             "cluster": [
                 "charming"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -15395,7 +15387,7 @@
             "cluster": [
                 "charming"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -15424,7 +15416,7 @@
             "condition": [
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -15445,7 +15437,7 @@
             "cluster": [
                 "neurotic"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -15453,7 +15445,7 @@
             "cluster": [
                 "fearless"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -15470,7 +15462,7 @@
             "cluster": [
                 "fearless"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -15494,7 +15486,7 @@
             "cluster": [
                 "skittish"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -15513,7 +15505,7 @@
             "cluster": [
                 "skittish"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -15536,7 +15528,7 @@
             "cluster": [
                 "impulsive"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -15551,7 +15543,7 @@
     "self-conscious_kit_J1": {
         "y_c": {},
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "cluster": ["self-conscious"]
@@ -15568,7 +15560,7 @@
     },
     "bullying_kits_dislike_rad1": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -15577,9 +15569,7 @@
                 "bullying"
             ],
             "age": [
-                "older"
-            ],
-            "status": [
+                "older",
                 "kitten"
             ]
         },
@@ -15604,7 +15594,7 @@
             "cluster": [
                 "noisy"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -15630,7 +15620,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -15648,7 +15638,7 @@
             "cluster": [
                 "noisy"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "shunned": true
@@ -15670,7 +15660,7 @@
             "cluster": [
                 "honest"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -15694,7 +15684,7 @@
             "cluster": [
                 "shy"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -15722,7 +15712,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -15753,7 +15743,7 @@
             "cluster": [
                 "grumpy"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -15778,7 +15768,7 @@
             "cluster": [
                 "grumpy"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -15806,7 +15796,7 @@
             "cluster": [
                 "grumpy"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -15832,7 +15822,7 @@
             "cluster": [
                 "sweet_trait"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -15855,7 +15845,7 @@
             "cluster": [
                 "sweet_trait"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -15884,7 +15874,7 @@
             "cluster": [
                 "rebellious"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -15908,7 +15898,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -15938,7 +15928,7 @@
             "cluster": [
                 "daydreamer"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -15966,7 +15956,7 @@
             "cluster": [
                 "smug"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -15994,7 +15984,7 @@
             "cluster": [
                 "fearless"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -16020,7 +16010,7 @@
                 "self-conscious",
                 "shy"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -16050,7 +16040,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -16064,7 +16054,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -16072,7 +16062,7 @@
             "cluster": [
                 "manipulative"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -16099,7 +16089,7 @@
             "cluster": [
                 "attention-seeker"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -16124,7 +16114,7 @@
             "cluster": [
                 "grumpy"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -16149,7 +16139,7 @@
             "cluster": [
                 "secretive"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -16163,7 +16153,7 @@
     },
     "manipulative_kittens_rad2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -16171,7 +16161,7 @@
             "cluster": [
                 "manipulative"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -16216,7 +16206,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "cluster": ["quiet"]
@@ -16239,7 +16229,7 @@
             "cluster": [
                 "attention-seeker"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -16270,7 +16260,7 @@
             "cluster": [
                 "bossy"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "skill": [
@@ -16298,7 +16288,7 @@
             "cluster": [
                 "skittish"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -16319,7 +16309,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -16335,7 +16325,7 @@
     },
     "rebellious_kitten_ant1": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -16343,7 +16333,7 @@
             "cluster": [
                 "rebellious"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -16366,7 +16356,7 @@
             "cluster": [
                 "rebellious"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -16410,7 +16400,7 @@
             "cluster": [
                 "rebellious"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -16432,7 +16422,7 @@
             "cluster": [
                 "sweet_trait"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -16460,7 +16450,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -16492,7 +16482,7 @@
     },
     "sweet_kitten_ant3": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -16500,7 +16490,7 @@
             "cluster": [
                 "sweet_trait"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -16540,7 +16530,7 @@
             "cluster": [
                 "sweet_trait"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -16601,7 +16591,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -16628,7 +16618,7 @@
             "cluster": [
                 "silly"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -16648,7 +16638,7 @@
             "shunned": true
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -16696,7 +16686,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -16721,7 +16711,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -16800,7 +16790,7 @@
                 "severe burn",
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -16917,7 +16907,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -16936,7 +16926,7 @@
             ]
         },
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -16974,7 +16964,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },

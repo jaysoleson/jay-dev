@@ -591,7 +591,7 @@
     },
     "app31232": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -1246,7 +1246,7 @@
     },
     "assertive_tokit": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -2322,9 +2322,7 @@
     "cool_apprentice_1": {
         "y_c": {
             "age": [
-                "adolescent"
-            ],
-            "status": [
+                "adolescent",
                 "kitten"
             ]
         },
@@ -2342,13 +2340,11 @@
     "cool_apprentice_2": {
         "y_c": {
             "age": [
-                "adolescent"
+                "adolescent",
+                "kitten"
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "kitten"
             ]
         },
         "t_c": {
@@ -2466,7 +2462,7 @@
     },
     "sweet_apprentice_5": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -2486,7 +2482,7 @@
     },
     "sweet_apprentice_6": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -2509,7 +2505,7 @@
     },
     "sweet_apprentice_7": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -3973,7 +3969,7 @@
     },
     "stable_apprentice_8": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -3995,7 +3991,7 @@
     },
     "stable_apprentice_9": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -5230,7 +5226,7 @@
     },
     "assertive_queensapp2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -5422,9 +5418,7 @@
     "injury_kit_H2": {
         "y_c": {
             "age": [
-                "adolescent"
-            ],
-            "status": [
+                "adolescent",
                 "kitten"
             ]
         },
@@ -5447,9 +5441,7 @@
     "injury_kit_H3": {
         "y_c": {
             "age": [
-                "adolescent"
-            ],
-            "status": [
+                "adolescent",
                 "kitten"
             ]
         },
@@ -7613,7 +7605,7 @@
     },
     "assertive_tokit_2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },

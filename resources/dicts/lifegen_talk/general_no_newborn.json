@@ -826,7 +826,7 @@
     },
     "sibling_H2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -1104,9 +1104,7 @@
                 "neurotic"
             ],
             "age": [
-                "adolescent"
-            ],
-            "status": [
+                "adolescent",
                 "kitten"
             ]
         },
@@ -1675,7 +1673,7 @@
     },
     "livekit_sc_Guy1": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -1691,7 +1689,7 @@
     },
     "livekit_sc_Guy2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -1707,7 +1705,7 @@
     },
     "livekit_sc_Guy4": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -2234,7 +2232,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -2966,7 +2964,7 @@
     },
     "dfcat_J1~1": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "skill": [
@@ -3000,7 +2998,7 @@
     },
     "dfcat_J1~2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "skill": [
@@ -3066,7 +3064,7 @@
     },
     "parent_gift_J1~1": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -3094,7 +3092,7 @@
     },
     "parent_gift_J1~2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -3499,7 +3497,7 @@
     },
     "nightsky_R1~1": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "skill": [
@@ -3523,7 +3521,7 @@
     },
     "nightsky_R1~2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "skill": [
@@ -4105,7 +4103,7 @@
     },
     "kit_df_Guy~1": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -4123,7 +4121,7 @@
     },
     "kit_df_Guy~2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
