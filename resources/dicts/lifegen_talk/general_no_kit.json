@@ -43104,13 +43104,18 @@
         "t_c": {
             "condition": [
                 "blind:any:false",
-                "illness:any"
+                "running nose",
+                "whitecough",
+                "greencough",
+                "yellowcough",
+                "redcough"
             ],
             "age": [
                 "not_kitten"
             ]
         },
         "intro": [
+            "[t_c sniffles loudly before speaking.]",
             "...I miss breathing."
         ]
     },
