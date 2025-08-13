@@ -276,7 +276,7 @@
             "dead": [
                 "sc"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -301,7 +301,7 @@
             "dead": [
                 "ur"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -326,7 +326,7 @@
             "dead": [
                 "df"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -414,7 +414,7 @@
             "dead": [
                 "ur"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -489,7 +489,7 @@
             "dead": [
                 "ur"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -580,7 +580,7 @@
     },
     "sckit_urnew_R3": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -613,7 +613,7 @@
     },
     "sckit_urnew_R4": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -647,7 +647,7 @@
     },
     "sckit_urnew_R5": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -682,7 +682,7 @@
             "condition": [
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -704,7 +704,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },

@@ -27387,10 +27387,8 @@
     "injury_kit_H2": {
         "y_c": {
             "age": [
-                "adolescent"
-            ],
-            "status": [
-                "kitten"
+                "adolescent",
+                "not_kitten"
             ]
         },
         "t_c": {
@@ -27412,9 +27410,7 @@
     "injury_kit_H3": {
         "y_c": {
             "age": [
-                "adolescent"
-            ],
-            "status": [
+                "adolescent",
                 "kitten"
             ]
         },
@@ -38223,7 +38219,7 @@
     },
     "neurotic_general_SQ19": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -41272,7 +41268,7 @@
     },
     "neurotic_skillclairvoyant_SQ1": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -41469,7 +41465,7 @@
             "condition": [
                 "deaf:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ],
             "skill": [
@@ -43108,13 +43104,18 @@
         "t_c": {
             "condition": [
                 "blind:any:false",
-                "illness:any"
+                "running nose",
+                "whitecough",
+                "greencough",
+                "yellowcough",
+                "redcough"
             ],
             "age": [
                 "not_kitten"
             ]
         },
         "intro": [
+            "[t_c sniffles loudly before speaking.]",
             "...I miss breathing."
         ]
     },
@@ -45441,7 +45442,7 @@
 },
 "recovering_from_birth_SQ1": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -45470,7 +45471,7 @@
     },
     "recovering_from_birth_SQ2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [

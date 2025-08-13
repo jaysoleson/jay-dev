@@ -21,7 +21,7 @@
     "good_opinion_Guy1": {
         "y_c": {},
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -694,7 +694,7 @@
     "neutral_opinion_Guy1": {
         "y_c": {},
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -1135,7 +1135,7 @@
     "bad_opinion_Guy1": {
         "y_c": {},
         "t_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
