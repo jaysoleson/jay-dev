@@ -8454,5 +8454,283 @@
       "gender": ["male"]
     },
     "new_gender": ["trans female", "nonbinary"]
-  }
+  },
+      {
+        "event_id": "lifegen_war_queen_H1",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": ["war"],
+        "tags": ["clan:kitten"],
+        "weight": 20,
+        "event_text": "m_c teaches the kittens some battle moves with r_c's help, hoping to increase their survivability during the war.",
+        "m_c": {
+            "status": [
+                "queen",
+                "queen's apprentice"
+            ]
+        },
+        "r_c": {
+            "status": [
+                "warrior",
+                "deputy",
+                "apprentice",
+                "leader"
+            ]
+        }
+    },
+    {
+        "event_id": "lifegen_war_queen_H2",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": ["war"],
+        "tags": ["clan:kitten"],
+        "weight": 20,
+        "event_text": "m_c watches the kittens innocently play a game of c_n versus o_c_n, an unsettling feeling weighing in {PRONOUN/m_c/poss} gut.",
+        "m_c": {
+            "status": [
+                "queen",
+                "queen's apprentice"
+            ]
+        }
+    },
+    {
+        "event_id": "lifegen_war_queen_H3",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": ["war"],
+        "tags": ["clan:kitten"],
+        "weight": 20,
+        "event_text": "It's vital for the kittens to know how to protect themselves, especially in times of war. Despite m_c's little experience in fighting, {PRONOUN/m_c/subject} {VERB/m_c/teach/teaches} the kittens the basics and {VERB/m_c/hope/hopes} it's enough.",
+        "m_c": {
+            "status": [
+                "queen",
+                "queen's apprentice"
+            ]
+        }
+    },
+    {
+        "event_id": "lifegen_war_queen_H4",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": ["war"],
+        "tags": ["clan:kitten"],
+        "weight": 20,
+        "event_text": "m_c caught r_c parroting information {PRONOUN/r_c/subject} overheard about o_c_n to the other kittens.",
+        "m_c": {
+            "status": [
+                "queen",
+                "queen's apprentice"
+            ]
+        },
+        "r_c": {
+            "status": [
+                "kitten"
+            ]
+        }
+    },
+    {
+        "event_id": "lifegen_war_queen_H5",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": ["war"],
+        "weight": 20,
+        "event_text": "r_c keeps asking difficult questions about war that m_c is not ready to answer.",
+        "m_c": {
+            "status": [
+                "queen",
+                "queen's apprentice"
+            ]
+        },
+        "r_c": {
+            "status": [
+                "kitten",
+                "apprentice",
+                "queen's apprentice",
+                "mediator apprentice",
+                "medicine cat apprentice"
+            ]
+        }
+    },
+    {
+        "event_id": "lifegen_war_queen_H6",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": ["war"],
+        "weight": 20,
+        "event_text": "m_c practices battle moves in {PRONOUN/m_c/poss} free time, determined to help protect the Clan as much as {PRONOUN/m_c/subject} can.",
+        "m_c": {
+            "status": [
+                "queen",
+                "queen's apprentice"
+            ]
+        }
+    },
+        {
+        "event_id": "lifegen_war_queen_H9",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": ["war"],
+        "tags": ["clan:kitten"],
+        "weight": 20,
+        "event_text": "m_c practices hide and flee routines with the kittens.",
+        "m_c": {
+            "status": [
+                "queen",
+                "queen's apprentice"
+            ]
+        }
+    },
+    {
+        "event_id": "lifegen_war_queen_H10",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": ["war"],
+        "weight": 10,
+        "event_text": "m_c argues with l_n over the lack of supplies for the nursery, criticizing {PRONOUN/r_c/poss} unbalanced distribution of materials and supplies.",
+        "m_c": {
+            "status": [
+                "queen",
+                "queen's apprentice"
+            ],
+            "relationship_status": ["dislike_10"]
+        },
+        "r_c": {
+            "status": [
+                "leader",
+                "deputy"
+            ]
+        },
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c"
+                ],
+                "cats_to": [
+                    "m_c"
+                ],
+                "mutual": true,
+                "values": [
+                    "respect"
+                ],
+                "amount": -5
+            }
+        ]
+    },
+    {
+        "event_id": "lifegen_war_queen_H11",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": ["war"],
+        "weight": 20,
+        "event_text": "m_c wishes {PRONOUN/m_c/subject} could do more during the war, but sees {PRONOUN/m_c/poss} lack of fighting experience as a dangerous liability.",
+        "m_c": {
+            "status": [
+                "queen",
+                "queen's apprentice",
+                "mediator",
+                "mediator apprentice"
+            ]
+        }
+    },
+    {
+        "event_id": "lifegen_war_queen_H12",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": ["war"],
+        "weight": 20,
+        "event_text": "m_c realizes r_c is missing and panics, turning the nursery upside down as {PRONOUN/m_c/subject} desperately {VERB/m_c/plead/pleads} with {PRONOUN/m_c/poss} ancestors that r_c wasn't taken by o_c_n. When r_c is found hiding under a pile of moss, m_c isn't sure whether to be angry or relieved.",
+        "m_c": {
+            "status": [
+                "queen",
+                "queen's apprentice"
+            ]
+        },
+        "r_c": {
+            "status": [
+                "kitten"
+            ]
+        }
+    },
+    {
+        "event_id": "lifegen_war_queen_H13",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": ["war"],
+        "weight": 20,
+        "event_text": "m_c provides r_c comfort as {PRONOUN/m_c/subject} {PRONOUN/m_c/realize/realizes} mediating during the war is taking its toll on r_c.",
+        "m_c": {
+            "status": [
+                "queen",
+                "queen's apprentice"
+            ]
+        },
+        "r_c": {
+            "status": [
+                "mediator",
+                "mediator apprentice"
+            ]
+        }
+    },
+    {
+        "event_id": "lifegen_war_queen_H14",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": ["war"],
+        "weight": 20,
+        "event_text": "m_c lets r_c have {PRONOUN/m_c/poss} freshkill, suddenly not having an appetite after hearing what is going on outside of the camp.",
+        "m_c": {
+            "status": [
+                "queen",
+                "queen's apprentice"
+            ]
+        }
+    }
 ]

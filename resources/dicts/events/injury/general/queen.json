@@ -300,5 +300,43 @@
                 ]
             }
         ]
+    },
+        {
+        "event_id": "lifegen_war_queen_H16",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": ["war"],
+        "weight": 10,
+        "event_text": "m_c gets injured while protecting r_c and {PRONOUN/r_c/poss} patients from an enemy cat.",
+        "m_c": {
+            "status": [
+                "queen",
+                "queen's apprentice"
+            ]
+        },
+        "r_c": {
+            "status": [
+                "medicine cat apprentice",
+                "medicine cat"
+            ]
+        },
+        "injury": [
+            {
+                "cats": [
+                    "m_c"
+                ],
+                "injuries": [
+                    "claw-wound"
+                ]
+            }
+        ],
+        "history:": {
+            "scar": "{VERB/m_c/were/was} hurt while protecting r_c from an enemy cat.",
+            "reg_death": "m_c was killed while protecting r_c from an enemy cat."
+        }
     }
 ]
