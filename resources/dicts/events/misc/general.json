@@ -8701,7 +8701,7 @@
         ],
         "sub_type": ["war"],
         "weight": 20,
-        "event_text": "m_c provides r_c comfort as {PRONOUN/m_c/subject} {PRONOUN/m_c/realize/realizes} mediating during the war is taking its toll on r_c.",
+        "event_text": "m_c provides r_c comfort as {PRONOUN/m_c/subject} {VERB/m_c/realize/realizes} mediating during the war is taking its toll on r_c.",
         "m_c": {
             "status": [
                 "queen",

@@ -44671,13 +44671,13 @@
         "y_c": {
             "condition": [
                 "blind:any:false",
-                "ill:any"
+                "illness:any"
             ]
         },
         "t_c": {
             "condition": [
                 "blind:any:false",
-                "ill:any"
+                "illness:any"
             ],
             "cluster": [
                 "assertive",
@@ -44702,13 +44702,13 @@
         "y_c": {
             "condition": [
                 "blind:any:false",
-                "ill:any"
+                "illness:any"
             ]
         },
         "t_c": {
             "condition": [
                 "blind:any:false",
-                "ill:any"
+                "illness:any"
             ]
         },
         "relationship": [
