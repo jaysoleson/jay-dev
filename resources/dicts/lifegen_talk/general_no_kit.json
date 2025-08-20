@@ -614,7 +614,7 @@
         ],
         "intro_scene_effects": {
             "inventory": {
-                "cats_to": ["m_c"],
+                "cats_to": ["y_c"],
                 "accessory": ["JAYFEATHER", "DRACULAPARROTFEATHER", "SWANFEATHER", "EAGLEFEATHER"],
                 "addition": "choice"
             }
