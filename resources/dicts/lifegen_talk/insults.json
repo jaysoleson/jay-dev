@@ -257,7 +257,7 @@
                 "blind:any:false"
             ],
             "age": [
-                "not_kitten"
+                "not_newborn"
             ]
         },
         "tags": [
@@ -309,6 +309,9 @@
             ],
             "status": [
                 "any"
+            ],
+            "age": [
+                "not_newborn"
             ]
         },
         "tags": [
@@ -373,6 +376,9 @@
         "y_c": {
             "condition": [
                 "blind:any:false"
+            ],
+            "age": [
+                "not_newborn"
             ]
         },
         "t_c": {
@@ -422,6 +428,9 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
+            ],
+            "age": [
+                "not_newborn"
             ]
         },
         "t_c": {
@@ -429,6 +438,9 @@
                 "blind:any:false",
                 "deaf:any:false",
                 "grief stricken"
+            ],
+            "age": [
+                "not_newborn"
             ]
         },
         "tags": [
@@ -442,12 +454,18 @@
         "y_c": {
             "condition": [
                 "blind:any:false"
+            ],
+            "age": [
+                "not_newborn"
             ]
         },
         "t_c": {
             "condition": [
                 "blind:any:false",
                 "grief stricken"
+            ],
+            "age": [
+                "not_newborn"
             ]
         },
         "tags": [
@@ -462,6 +480,9 @@
         "y_c": {
             "condition": [
                 "blind:any:false"
+            ],
+            "age": [
+                "not_newborn"
             ]
         },
         "t_c": {
@@ -472,6 +493,9 @@
             ],
             "condition": [
                 "blind:any:false"
+            ],
+            "age": [
+                "not_newborn"
             ]
         },
         "tags": [
@@ -485,6 +509,9 @@
         "y_c": {
             "condition": [
                 "blind:any:false"
+            ],
+            "age": [
+                "not_newborn"
             ]
         },
         "t_c": {
@@ -497,7 +524,7 @@
                 "blind:any:false"
             ],
             "age": [
-                "not_kitten"
+                "not_newborn"
             ]
         },
         "tags": [

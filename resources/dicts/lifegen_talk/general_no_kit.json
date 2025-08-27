@@ -614,7 +614,7 @@
         ],
         "intro_scene_effects": {
             "inventory": {
-                "cats_to": ["m_c"],
+                "cats_to": ["y_c"],
                 "accessory": ["JAYFEATHER", "DRACULAPARROTFEATHER", "SWANFEATHER", "EAGLEFEATHER"],
                 "addition": "choice"
             }
@@ -44671,13 +44671,13 @@
         "y_c": {
             "condition": [
                 "blind:any:false",
-                "ill:any"
+                "illness:any"
             ]
         },
         "t_c": {
             "condition": [
                 "blind:any:false",
-                "ill:any"
+                "illness:any"
             ],
             "cluster": [
                 "assertive",
@@ -44702,13 +44702,13 @@
         "y_c": {
             "condition": [
                 "blind:any:false",
-                "ill:any"
+                "illness:any"
             ]
         },
         "t_c": {
             "condition": [
                 "blind:any:false",
-                "ill:any"
+                "illness:any"
             ]
         },
         "relationship": [
@@ -45498,5 +45498,283 @@
             "See, for a while, my job was to take care of myself and carry kits, and now my job is to get better so I can return to my usual tasks.",
             "Things have fallen behind enough already without my help."
         ]
-    }
+    },
+     "no_kit_brooding_SQ1": {
+        "y_c": {
+            "condition": ["grief stricken"]
+        },
+        "t_c": {
+"status": ["not_kitten"],
+            "cluster": ["brooding"],
+            "condition": ["blind:any:false"]
+},
+        "relationship": ["min_platonic_10", "max_platonic_30", "max_dislike_10"],
+        "intro": [
+            "...I'm sorry. About yg_c.",
+            "[You turn around, but t_c is already walking away.]",
+            "[...Did {PRONOUN/t_c/subject} even say something, or did you make it up?]"
+]
+},
+
+ "no_kit_brooding_SQ2": {
+        "y_c": {
+            "status": ["not_kitten"]
+        },
+        "t_c": {
+"status": ["not_kitten", "not_mediator", "not_mediator apprentice", "not_elder"],
+            "cluster": ["brooding"],
+            "condition": ["blind:any:false"],
+            "skill": ["MEDIATOR,1"]
+},
+        "intro": [
+            "[You walk in on neutral-r_w-stable trying to convince t_c to come help de-escalate an argument. t_c looks less than amused.]",
+            "If I wanted to spend my time stopping other cats' squabbles, I would have become a mediator. But I don't. So I didn't.",
+            "|neutral-r_w-stable|I know, t_c. But you're <i>good</i> at mediation, and we could really use your help.",
+            "[t_c mutters something under {PRONOUN/t_c/poss} breath. Finally, {PRONOUN/t_c/subject} {VERB/t_c/roll/rolls} {PRONOUN/t_c/poss} eyes and {VERB/t_c/sigh/sighs}.]",
+            "...Fine. But only for a bit."
+]
+},
+
+ "no_kit_brooding_SQ3": {
+        "y_c": {
+            "status": ["not_kitten"],
+            "condition": ["deaf:any:false"]
+        },
+        "t_c": {
+            "status": ["not_kitten"],
+            "cluster": ["brooding"],
+            "condition": ["blind:any:false", "deaf:any:false"],
+            "skill": ["KIT,1", "COMFORTER,1"]
+},
+        "intro": [
+            "[t_c sits beside the nursery with r_k asleep against {PRONOUN/t_c/poss} side.]",
+            "[t_c is so prickly... but kits seem to love {PRONOUN/t_c/object}. You wonder how {PRONOUN/t_c/subject} {VERB/t_c/manage/manages} that.]"
+]
+},
+
+ "no_kit_brooding_SQ4": {
+        "y_c": {
+            "status": ["not_kitten"]
+        },
+        "t_c": {
+            "status": ["not_kitten"],
+            "cluster": ["brooding"]
+},
+        "relationship": ["max_dislike_10", "min_platonic_40"],
+        "intro": [
+            "I don't get how plove-t_l-silly and I are littermates.", 
+            "{PRONOUN/plove-t_l-silly/subject/CAP}{VERB/plove-t_l-silly/'re/'s} just so... goofy. Never serious. And I... love {PRONOUN/plove-t_l-silly/object}, I guess, but how in StarClan's name did we come from the same family?",
+            "[plove-t_l-silly hollers at t_c from the other side of camp.]",
+            "|plove-t_l-silly|t_c! Hey, come look at these weird bugs! One of them looks, like, <i>exactly</i> like you!",
+            "[t_c sighs and glances at you.]",
+            "...See?"
+]
+},
+
+ "no_kit_brooding_SQ5": {
+        "y_c": {
+            "status": ["not_kitten"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+            "status": ["not_kitten"],
+            "cluster": ["brooding"],
+            "backstory": ["clanfounder"],
+            "condition": ["blind:any:false"]
+},
+        "relationship": ["max_dislike_10", "min_platonic_25"],
+        "intro": [
+            "Did you hear how dislike-r_c was talking to me earlier?",
+            "Hmph. I didn't help found this Clan so I could be surrounded by obnoxious, disrespectful cats all day."
+]
+},
+
+ "no_kit_brooding_SQ8": {
+        "y_c": {
+            "status": ["not_kitten"]
+        },
+        "t_c": {
+            "status": ["not_kitten"],
+            "cluster": ["brooding"]
+},
+        "relationship": ["min_platonic_20", "max_dislike_10"],
+        "intro": [
+            "Everyone's so... chatty today. What are we, a flock of magpies?",
+            "[t_c wrinkles {PRONOUN/t_c/poss} nose and glares at dislike-r_w1-assertive and r_w2-silly, who are talking boisterously in the center of camp.]",
+            "...I'm going to take a walk before all this noise gives me a headache."
+]
+},
+
+ "no_kit_brooding_SQ9": {
+        "y_c": {
+            "status": ["not_kitten"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+            "status": ["not_kitten"],
+            "cluster": ["brooding"],
+            "condition": ["illness:any", "injury:any"]
+},
+        "relationship": ["min_platonic_25", "max_dislike_10"],
+        "intro": [
+           "Hmph. I'm going to be fine. Tell everyone to stop looking at me like I'm dying.",
+           "Especially dislike-r_c-sweet. I don't need {PRONOUN/dislike-r_c-sweet/poss} sympathy."
+]
+},
+
+ "no_kit_brooding_SQ10": {
+        "y_c": {
+            "status": ["medicine cat", "medicine cat apprentice"]
+        },
+        "t_c": {
+            "status": ["not_kitten"],
+            "cluster": ["brooding"],
+            "condition": ["illness:any", "injury:any"]
+},
+        "intro": [
+           "Stop staring at me, for StarClan's sake. I'm not going to die if you look away for five seconds.",
+           "...Don't you have other cats to worry about?"
+]
+},
+
+ "no_kit_brooding_SQ11": {
+        "y_c": {
+            "status": ["medicine cat apprentice"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+            "status": ["not_kitten", "not_medicine cat", "not_medicine cat apprentice"],
+            "cluster": ["brooding"],
+            "condition": ["greencough", "whitecough", "redcough", "yellowcough", "blind:any:false"]
+},
+        "relationship": ["max_platonic_10"],
+        "intro": [
+           "[t_c grumbles at you in between {PRONOUN/t_c/poss} coughs.]",
+           "Does an apprentice like you really know enough to treat actual illnesses yet?",
+           "Hmph. Fine. I'll know who to blame if I get worse."
+]
+},
+
+ "no_kit_brooding_SQ12": {
+        "y_c": {
+            "status": ["not_kitten"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+            "status": ["not_kitten"],
+            "cluster": ["brooding"],
+            "condition": ["greencough", "whitecough", "redcough", "yellowcough", "blind:any:false"]
+},
+        "relationship": ["min_platonic_50"],
+        "intro": [
+           "...y_c?",
+           "[It hurts to hear how weak t_c's usually-sharp voice sounds. {PRONOUN/t_c/subject/CAP} {VERB/t_c/cough/coughs} as {PRONOUN/t_c/subject} {VERB/t_c/struggle/struggles} to sit up.]",
+           "Thank... thank you. For everything."
+]
+},
+
+ "no_kit_brooding_SQ13": {
+        "y_c": {
+            "status": ["not_kitten"]
+        },
+        "t_c": {
+            "status": ["not_kitten"],
+            "cluster": ["brooding"]
+},
+        "relationship": ["max_platonic_30"],
+        "intro": [
+           "[t_c crouches by {PRONOUN/t_c/poss} den, glowering at the cats sharing tongues or chatting in the center of camp. What's up with {PRONOUN/t_c/object} today?]",
+           "[t_c notices you watching {PRONOUN/t_c/object}, and {PRONOUN/t_c/poss} expression darkens. {PRONOUN/t_c/subject/CAP} {VERB/t_c/get/gets} to {PRONOUN/t_c/poss} paws and {VERB/t_c/stalk/stalks} away, muttering to you as {PRONOUN/t_c/subject} {VERB/t_c/pass/passes}.]",
+           "Everything was better when plove-r_c was here.",
+           "[...You're not sure why {PRONOUN/t_c/subject} {VERB/t_c/were/was} thinking about plove-r_c, but t_c's gone before you can ask.]"
+]
+},
+
+ "no_kit_brooding_SQ14": {
+        "y_c": {
+            "status": ["not_kitten"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+            "status": ["not_kitten"],
+            "cluster": ["brooding", "neurotic"],
+            "condition": ["blind:any:false"]
+},
+        "relationship": ["min_platonic_30", "max_dislike_10"],
+        "intro": [
+           "[You're sitting by t_c when neutral-r_w-assertive trots by.]",
+           "|neutral-r_w-assertive|Hey, t_c! Your fur looks super nice today!",
+           "...",
+           "...I'm never sure how to react when cats say stuff like that.",
+           "Especially since I doubt they actually mean it."
+]
+},
+
+ "no_kit_brooding_SQ15": {
+        "season": ["greenleaf"],
+        "y_c": {
+            "status": ["not_kitten"],
+            "condition": ["deaf:any:false"]
+        },
+        "t_c": {
+            "status": ["not_kitten"],
+            "cluster": ["brooding"],
+            "condition": ["blind:any:false"]
+},
+        "intro": [
+           "[The heat seems to be making t_c even more grumpy than usual.]",
+           "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/shove/shoves} past dislike-r_c on {PRONOUN/t_c/poss} way to make dirt, muttering something under {PRONOUN/t_c/poss} breath.]"
+]
+},
+
+ "no_kit_brooding_SQ18": {
+        "season": ["leafbare"],
+        "y_c": {
+            "status": ["not_kitten"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+            "status": ["not_kitten"],
+            "cluster": ["brooding"],
+            "condition": ["blind:any:false"]
+},
+        "relationship": ["min_platonic_30", "max_dislike_10"],
+        "intro": [
+           "[Despite the cold weather, t_c has been spending a lot of time outside. Finally, you ask {PRONOUN/t_c/object} why.]",
+           "...Everyone's inside during leafbare. The dens are so cramped.",
+           "I'd rather be out here, even if it's cold."
+]
+},
+ "no_kit_brooding_SQ19": {
+        "y_c": {
+            "status": ["not_kitten"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+            "status": ["not_kitten"],
+            "cluster": ["brooding"],
+            "condition": ["blind:any:false"]
+},
+        "relationship": ["min_platonic_40", "max_dislike_10"],
+        "intro": [
+           "neutral_t_ka hasn't been... talking to me much recently.",
+           "...",
+           "[You consider pointing out that t_c doesn't go out of {PRONOUN/t_c/poss} way to talk to {PRONOUN/t_c/poss} kit, either, but decide to leave the issue alone.]"
+]
+},
+ "no_kit_brooding_SQ20": {
+        "y_c": {
+            "status": ["not_kitten"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+            "status": ["not_kitten"],
+            "cluster": ["brooding"]
+},
+        "relationship": ["min_platonic_40", "max_dislike_10"],
+        "intro": [
+           "I told plike-t_ka {PRONOUN/plike-t_ka/subject} {VERB/plike-t_ka/were/was} doing a good job today, and {PRONOUN/plike-t_ka/subject} looked at me like I'd grown wings.",
+           "...I suppose I don't say that kind of thing often."
+]
+}
 }

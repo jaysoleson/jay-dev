@@ -303,8 +303,10 @@
                 "ur"
             ],
             "status": [
-                "kitten",
                 "kittypet"
+            ],
+            "age": [
+                "kitten"
             ]
         },
         "tags": [],
@@ -345,8 +347,10 @@
                 "ur"
             ],
             "status": [
-                "kitten",
                 "kittypet"
+            ],
+            "age": [
+                "kitten"
             ]
         },
         "tags": [],
