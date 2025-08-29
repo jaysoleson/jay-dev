@@ -3195,12 +3195,27 @@ def generate_sprite(
                         new_sprite.blit(sprites.sprites['acc_plant2' + i + cat_sprite], (0, 0))
                     elif i in cat.pelt.snake_accessories:
                         new_sprite.blit(sprites.sprites['acc_snake' + i + cat_sprite], (0, 0))
+                    # elif i in cat.pelt.snake_accessories:
+                    # if uninfected:
+                        # new_sprite.blit(sprites.sprites['acc_snake' + i + cat_sprite], (0, 0))
+                    # else:
+                        # new_sprite.blit(sprites.sprites['acc_snake-{inf_type)}' + i + cat_sprite], (0, 0))
                     elif i in cat.pelt.smallAnimal_accessories:
                         new_sprite.blit(sprites.sprites['acc_smallAnimal' + i + cat_sprite], (0, 0))
+                    # elif i in cat.pelt.smallAnimal_accessories:
+                    # if uninfected:
+                        # new_sprite.blit(sprites.sprites['acc_smallAnimal' + i + cat_sprite], (0, 0))
+                    # else:
+                        # new_sprite.blit(sprites.sprites['acc_smallAnimal-{inf_type)}' + i + cat_sprite], (0, 0))
                     elif i in cat.pelt.deadInsect_accessories:
                         new_sprite.blit(sprites.sprites['acc_deadInsect' + i + cat_sprite], (0, 0))
                     elif i in cat.pelt.aliveInsect_accessories:
                         new_sprite.blit(sprites.sprites['acc_aliveInsect' + i + cat_sprite], (0, 0))
+                    # elif i in cat.pelt.aliveInsect_accessories:
+                    # if uninfected:
+                        # new_sprite.blit(sprites.sprites['acc_aliveInsect' + i + cat_sprite], (0, 0))
+                    # else:
+                        # new_sprite.blit(sprites.sprites['acc_aliveInsect-{inf_type)}' + i + cat_sprite], (0, 0))
                     elif i in cat.pelt.fruit_accessories:
                         new_sprite.blit(sprites.sprites['acc_fruit' + i + cat_sprite], (0, 0))
                     elif i in cat.pelt.crafted_accessories:
