@@ -756,7 +756,7 @@ class TalkScreen(Screens):
             "orphaned",
             "abandoned",
             "ancientspirit",
-            "immunekittypet",
+            "immune_kittypet",
             "infectionrefugee"
         ]
         special_date = get_special_date()
@@ -1620,7 +1620,7 @@ class TalkScreen(Screens):
         """
         Checks the condition list
         """
-        if not BLOCK["condition"]:
+        if not CONDITIONS:
             return True
 
         if "injury:any" in CONDITIONS and not cat.is_injured():
@@ -1639,13 +1639,13 @@ class TalkScreen(Screens):
         if "grief stricken" in CONDITIONS and "grief stricken" not in cat.illnesses:
             return False
         # INF
-        if "infected" in BLOCK["condition"] and cat.infected_for < 1:
+        if "infected" in CONDITIONS and cat.infected_for < 1:
             return False
-        if "immune" in BLOCK["condition"] and cat.infected_for != -1:
+        if "immune" in CONDITIONS and cat.infected_for != -1:
             return False
-        if "undead" in BLOCK["condition"] and "undead" not in cat.illnesses:
+        if "undead" in CONDITIONS and "undead" not in cat.illnesses:
             return False
-        if "undead" not in BLOCK["condition"] and "undead" in cat.illnesses:
+        if "undead" not in CONDITIONS and "undead" in cat.illnesses:
             return False
 
         reg_condition_check = False
@@ -1875,6 +1875,8 @@ class TalkScreen(Screens):
                     weight += 3
                 if "focus" in tags or "connected" in tags:
                     weight += 6
+                if "infection" in tags:
+                    weight += 10
 
                 # im gonna attempt to up the weight for dialogue with a lot of constraints
                 # like scribble just did in clangen for shortevents
@@ -1888,7 +1890,7 @@ class TalkScreen(Screens):
                         weight += 2
                 # print(dialogue_id + ": ", weight)
 
-                if "infected" in they_condition or "infected" in you_condition:
+                # INF
                 for kitty in (cat, you):
                     inftype = game.clan.infection["infection_type"]
                     if f"{inftype} stage one" in kitty.illnesses:
@@ -1899,6 +1901,7 @@ class TalkScreen(Screens):
                         weight += 13
                     elif f"{inftype} stage four" in kitty.illnesses:
                         weight += 17
+                # ---
 
                 weights.append(weight)
 

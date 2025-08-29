@@ -2202,10 +2202,12 @@
         "t_c": {
             "status": [
                 "medicine cat"
+            ],
+            "backstory": [
+                "immune_kittypet"
             ]
         },
         "tags": [
-            "they_immune_kittypet",
             "fungal_lore_3",
             "infection"
         ],
