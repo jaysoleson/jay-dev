@@ -249,7 +249,7 @@
             "Is picking ticks off of r_c",
             "Listens to a story from r_c",
             "Is making sure the elders are comfortable",
-            "Is asking r_c how things have changed since {PRONOUN/m_c/subject} {VERB/m_c/were/was} a 'paw",
+            "Is asking r_c how things have changed since {PRONOUN/r_c/subject} {VERB/r_c/were/was} a 'paw",
             "Appreciates r_c's words of wisdom",
             "Doesn't mind taking care of the elders",
             "Is cleaning out the elders' den today",

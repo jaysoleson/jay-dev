@@ -116,7 +116,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "lg_leader_default",
+        "patrol_art": "life_lead_og4",
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
@@ -383,7 +383,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "lg_leader_default",
+        "patrol_art": "life_lead_R2",
         "min_cats": 1,
         "max_cats": 6,
         "min_max_status": {},
@@ -428,7 +428,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "lg_leader_default",
+        "patrol_art": "life_lead_R3",
         "min_cats": 1,
         "max_cats": 6,
         "min_max_status": {},
@@ -556,41 +556,6 @@
             }
         ]
     },
-    {
-        "patrol_id": "life_ur_sam3",
-        "biome": [
-            "Any"
-        ],
-        "season": [
-            "Any"
-        ],
-        "types": [
-            "ur_lifegen"
-        ],
-        "tags": [],
-        "patrol_art": "lg_default_ur",
-        "min_cats": 1,
-        "max_cats": 1,
-        "min_max_status": {},
-        "weight": 20,
-        "intro_text": "You're still not quite used to being in the Unknown Residence. You find yourself wandering around, attempting to act like a leader for the other cats, despite knowing most of them do not understand your intentions.",
-        "decline_text": "Decline text",
-        "chance_of_success": 50,
-        "success_outcomes": [
-            {
-                "text": "Success text",
-                "exp": 0,
-                "weight": 20
-            }
-        ],
-        "fail_outcomes": [
-            {
-                "text": "Fail text",
-                "exp": 0,
-                "weight": 20
-            }
-        ]
-    },
 {
     	"patrol_id": "life_df_leader_rad1",
     	"biome": [
@@ -642,5 +607,241 @@
             	"weight": 20
         	}
     	]
-	}
+	},
+       {
+        "patrol_id": "leaderwithkits_H1",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "clan_has_kits"
+        ],
+        "patrol_art": "leaderwithkits_H1",
+        "min_cats": 1,
+        "max_cats": 2,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "While idly wandering around the Clan, r_q stops you and sheepishly asks if you would be interested in watching the nursery while {PRONOUN/r_q/subject} {VERB/r_q/take/takes} a kitten to the medicine den.",
+        "decline_text": "You politely decline with the excuse of being busy with duties, and quickly scurry off.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "It wouldn't hurt to watch the younger generation for a bit. You accept the request and head to the nursery, expecting chaos, only to be met with the delightful sight of kittens taking a nap. You breathe a sigh of relief and settle near the entrance of the nursery, lazily taking watch.",
+                "exp": 5,
+                "weight": 20
+            },
+            {
+                "text": "It would be unfair to both r_q and the kittens if you accepted a request you didn't wish to do. With a smooth voice and a calming smile, you decline the offer and instead recommend r_w_kit for the job. It's like r_q's worries magically wash away as {PRONOUN/r_q/subject} {VERB/r_q/thank/thanks} you for your insight.",
+                "exp": 5,
+                "weight": 20,
+                "stat_skill": ["COMFORTER,1","SPEAKER,1","GRACE,1","MEDIATOR,1","INSIGHTFUL,1"],
+                "relationships": [
+                    {
+                        "cats_to": ["p_l"],
+                        "cats_from": ["r_q"],
+                        "mutual": false,
+                        "values": ["trust"],
+                        "amount": 10
+                    }
+                ],
+           	     "can_have_stat": ["p_l"]
+            },
+            {
+                "text": "You have nothing better to do and accept the request. As soon as you wander into the nursery, the kittens excitedly jump around you, asking for a story about the Clan's founding! You yield almost immediately and begin telling the nursery a tale about the many wars between StarClan and the Dark Forest, and how c_n was founded because of it. However, you realize you made the story sound too cool as r_k keeps asking questions about the Dark Forest.",
+                "exp": 5,
+                "weight": 10,
+                "faith_effects": [
+                    {
+                        "faith_cat": ["r_k"],
+                        "amount": -1
+                    }
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "Your reluctant emotions must have seeped into your expression, and r_q quickly makes an excuse to ask some other cat to watch the nursery. {PRONOUN/r_q/subject/CAP} bids you a good walk as {PRONOUN/r_q/subject} {VERB/r_q/scurry/scurries} off.",
+                "exp": 0,
+                "weight": 10,
+                "relationships": [
+                    {
+                        "cats_to": ["p_l"],
+                        "cats_from": ["r_q"],
+                        "mutual": false,
+                        "values": ["comfort"],
+                        "amount": -5
+                    }
+                ]
+            },
+            {
+                "text": "Despite being reluctant, you accept r_q's request and head to the nursery. When you arrive, all the kittens look strangely suspicious. One head count later, you're realizing a kitten is missing. Or are you counting wrong? Do you not know how many kittens are currently in the Clan? Aren't you the leader? Uh oh.",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "You deny the request, knowing you best get to your duties before the elders begin their judgement. r_q nods in understanding, but perks up and asks you to stay here as {PRONOUN/r_q/subject} {VERB/r_q/run/runs} off. r_q comes back a moment later with a clover and, with a big smile, wishes you luck.",
+                "exp": 5,
+                "weight": 10,
+                "accessory": [
+                    {
+                        "cats": [
+                            "y_c"
+                        ],
+                        "accessory": [
+                            "SINGULARCLOVER",
+                            "CLOVERS",
+                            "CLOVER2",
+                            "CLOVERFLOWER",
+                            "CLOVER"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+   {
+        "patrol_id": "simplestroll_leader_H1",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": ["other_clan"],
+        "patrol_art": "fst_hunt_mice",
+        "min_cats": 1,
+        "max_cats": 2,
+        "min_max_status": {},
+        "weight": 5,
+        "intro_text": "While staying in c_n's camp is nice, you need to stretch your legs and get some fresh air. You idly wander around the territory, lazily on the lookout for anything particularly strange.",
+        "decline_text": "Your walk was pleasantly uneventful, but after a while you start to get jittery from the uncharacteristic calm. You decide to hurry back to camp, hoping it's not up in chaos.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "It doesn't take you long to bump into another patrol from c_n. The cats greet you and begin reporting anything they've come across during their patrol so far. Thankfully, nothing particularly worrying has come up, and you go your separate ways.",
+                "exp": 5,
+                "weight": 20
+            },
+            {
+                "text": "You hear your name being called out, and coincidentally, the leader from o_c_n is also taking a walk! They're quick to ask about the status of c_n and if they need anything, such as herbs, but out of politeness you decline o_c_n's offer. The leader huffs, not taking your decline as an answer, and they give you the small batch of herbs anyway.",
+                "exp": 10,
+                "weight": 10,
+                "other_clan_rep": 1,
+                "herbs": [
+                    "random_herbs"
+                ]
+            },
+            {
+                "text": "During your walk, you spot a lone cat wandering around the edge of o_c_n's territory. While you may have not been bothered otherwise, the cat appears injured and your newfound pity forces your paws to move. When you draw closer, the cat notices your presence and runs away. Peculiar.",
+                "exp": 10,
+                "weight": 5,
+                "new_cat": [
+                    ["meeting", "exists", "loner"]
+                ]
+            },
+            {
+                "text": "Of course, specifically looking for something strange always ends in never finding anything strange. You recall a few words of wisdom from an elder - waiting for something to happen makes it draw out longer - and you find yourself sighing as you realize that elder was correct. At least you caught a bird during your stroll.",
+                "exp": 5,
+                "weight": 10,
+                "prey": ["small"]
+            },
+            {
+                "text": "Strangeness always seems to find you, even if you're not searching for it. You witness an argument between a o_c_n patrol, scolding an apprentice for deliberately crossing c_n's border for a measly mouse. You can't be mad as you sit at the sidelines, soaking in the drama that doesn't involve you, for once.",
+                "exp": 5,
+                "weight": 20
+            },
+            {
+                "text": "Being away from the camp for so long by yourself is slowly building your nerves, and you decide you can definitely leave patrolling the territory to your perfectly capable warriors. You grab a beautiful flower on your way. Maybe d_n would like this one...",
+                "exp": 5,
+                "weight": 20,
+                "accessory": [
+                    {
+                        "cats": [
+                            "y_c"
+                        ],
+                        "accessory": [
+                            "FORGET ME NOTS",
+                            "DAISY",
+                            "POPPY",
+                            "LAVENDER",
+                            "BELLFLOWERS",
+                            "FORSYTHIA"
+                        ]
+                    }
+                ]
+            },
+            {
+                "text": "You were aware of Twoleg from the previous patrol reports, but you didn't expect to accidentally stumble across their whereabouts. The Twolegplace is a disgusting stain on your territory, but you are smart enough to not barrel through there and cause trouble. You memorize the location, and decide to steal something before stalking off.",
+                "exp": 10,
+                "weight": 10,
+                "accessory": [
+                    {
+                        "cats": [
+                            "y_c"
+                        ],
+                        "accessory": [
+                            "YELLOWRAINCOAT",
+                            "POPTABS",
+                            "CORKHAT",
+                            "ZOOKEEPER",
+                            "FAZBEAR",
+                            "WHITEBEAR",
+                            "PANDA",
+                            "BEAR",
+                            "BROWNBEAR"
+                        ]
+                    }
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "Turns out, you're a bit rusty with the territory. It only takes one trip over a raised root to send you stumbling into a tree, successfully hurting yourself. That's embarrassing.",
+                "exp": 0,
+                "weight": 5,
+                "injury": [
+                    {
+                        "cats": ["p_l"],
+                        "injuries": ["bruises"]
+                    }
+                ]
+            },
+            {
+                "text": "While on your walk, you spot a o_c_n patrol near the border of your territory. Disapproving the patrols' proximity, you decide to confront the patrol. The cat who appears to be the patrol leader boldly claims they're not <i>in</i> c_n's territory, so they can be wherever they want! You can't argue with that logic, but your mood sours anyway.",
+                "exp": 0,
+                "weight": 10,
+                "other_clan_rep": -1            
+            },
+            {
+                "text": "Unfortunately, the walk is uneventful and you don't spot anything that needs your attention. You don't see any reason to wander the territory any longer, and tentatively hurry back to the camp. You can't help but feel like you missed something...",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "While the air was refreshing and the gentle sound of the wildlife calming, you're starting to feel shifty without the chaos and volume of camp. With a few more moments of contemplation, you swiftly turn around and head back.",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "While checking out some animal prints, you hear a whisper behind you. As you swiftly turn your head, you hear another whisper - this time behind you again! You feel surrounded, yet you're unable to use your senses to find the source of the whispering. With your heart racing and your shackles raised, you decide to sprint away to escape whatever it is!",
+                "exp": 0,
+                "weight": 10,
+                "faith_effects": [
+                    {
+                        "faith_cat": ["y_c"],
+                        "amount": -1
+                    }
+                ]
+            }
+        ]
+    }
 ]

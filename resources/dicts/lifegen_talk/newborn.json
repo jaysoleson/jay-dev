@@ -1469,6 +1469,13 @@
         "y_c": {
             "condition": [
                 "deaf:any:false"
+            ],
+            "age": [
+                "adolescent",
+                "young adult",
+                "adult",
+                "senior adult",
+                "senior"
             ]
         },
         "t_c": {
@@ -2155,7 +2162,7 @@
             ]
         },
         "intro": [
-            "[From across camp, you stare at one of the only members of c_nClan who doesn't know what you did.]",
+            "[From across camp, you stare at one of the only members of c_n who doesn't know what you did.]",
             "[r_q sees you staring and steps in front of t_c to block your view.]",
             "[You sigh. It won't be long before someone lets {PRONOUN/t_c/object} know.]"
         ]
@@ -3914,11 +3921,10 @@
             ]
         },
         "relationship": [
-            "from_your_kit"
-        ],
-        "tags": [
+            "from_your_kit",
             "from_your_adopted_kit"
         ],
+        "tags": [],
         "intro": [
             "[t_c's sides rise and fall as {PRONOUN/t_c/subject} {VERB/t_c/nestle/nestles} against you.]",
             "[As you watch t_c sleep, you find yourself hoping that {PRONOUN/t_c/subject} {VERB/t_c/don't/doesn't} make the same mistakes you did.]"
@@ -3928,7 +3934,8 @@
         "y_c": {
             "condition": [
                 "blind:any:false",
-                "deaf:any:false"
+                "deaf:any:false",
+                "guilt"
             ],
             "shunned": true
         },
@@ -3942,12 +3949,10 @@
             ]
         },
         "relationship": [
-            "from_your_kit"
+            "from_kit",
+            "from_adopted_kit"
         ],
-        "tags": [
-            "from_your_adopted_kit",
-            "you_guilty"
-        ],
+        "tags": [],
         "intro": [
             "[Every time t_c shifts ever so slightly away from you, you're struck with a pang of terror.]",
             "[It almost feels as though t_c, despite being a newborn, already knows <i>exactly</i> what you did.]"
@@ -3972,6 +3977,120 @@
         "intro": [
             "Mrow?",
             "[... You probably shouldn't be this close.]"
+        ]
+    },
+    "mcgrievingonly_general_H1": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ],
+            "status": [
+                "not_kitten"
+            ]
+        },
+        "t_c": {
+            "age": [
+                "newborn"
+            ],
+            "condition": [
+                "blind:any:false",
+                "deaf:any:false"
+            ]
+        },
+        "relationship": [],
+        "tags": [],
+        "intro": [
+            "[You can't help but curl around t_c, looking for comfort only the smallest and cutest of things can give.]",
+            "[t_c squeaks and spits in protest.]"
+        ]
+    },
+    "mcgrievingonly_general_H2": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "deaf:any:false"
+            ],
+            "status": [
+                "not_kitten"
+            ]
+        },
+        "t_c": {
+            "age": [
+                "newborn"
+            ],
+            "condition": [
+                "blind:any:false",
+                "deaf:any:false"
+            ]
+        },
+        "relationship": [],
+        "tags": [],
+        "intro": [
+            "[As you watch t_c flop around like a fish out of water, you can't help but think of yg_c.]",
+            "[Even the most ridiculously random things remind you of {PRONOUN/yg_c/object}.]"
+        ]
+    },
+    "scnew_urnew_R1": {
+        "y_c": {
+            "status": [
+                "newborn"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "dead": [
+                "sc"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "dead": [
+                "ur"
+            ],
+            "status": [
+                "newborn"
+            ]
+        },
+        "tags": [],
+        "intro": [
+            "Meewwww!",
+            "[Oh? Who is that? You toddle closer curiously.]",
+            "Meeew mew.",
+            "[You're friends now. The day is spent napping together.]"
+        ]
+    },
+    "scnew_urnew_R3": {
+        "y_c": {
+            "status": [
+                "newborn"
+            ],
+            "condition": [
+                "blind:any:false"
+            ],
+            "dead": [
+                "sc"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "dead": [
+                "ur"
+            ],
+            "status": [
+                "newborn"
+            ]
+        },
+        "tags": [],
+        "intro": [
+            "Mew! Mew! Mew! Mew!",
+            "[What's that sound?]",
+            "Mew! Meeew! Meeeew! Meeeew!",
+            "[You decide to mew back, and soon there is a volley of tiny squeaks echoing softly between the two of you.]"
         ]
     },
     "undead_to_newborn_J1": {

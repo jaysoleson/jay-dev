@@ -437,7 +437,7 @@
             "It'll be okay. I promise.",
             "[t_c is talking to a upset kit curled up against {PRONOUN/t_c/poss} side.]",
             "You don't need to try and force yourself to be something you're not. I get tired of talking to others too.",
-            "You're still a wonderful part of c_nClan. Even if you need space sometimes... You'll always have cats who want to be around you, and see you.",
+            "You're still a wonderful part of c_n. Even if you need space sometimes... You'll always have cats who want to be around you, and see you.",
             "[You notice t_c is looking at you. {PRONOUN/t_c/subject/CAP} {VERB/t_c/smile/smiles} pleasantly, then returns {PRONOUN/t_c/poss} full attention to the kit.]",
             "You'll never be forgotten, no matter what path your paws will lead you."
         ]
@@ -468,7 +468,7 @@
         ],
         "intro": [
             "y_c, can you believe it? I actually got to advise a real queen today! Eeee, so cool!!!",
-            "I mean, uh, definitely not cool. I'm definitely very serious and respectful towards my sacred duty to c_nClan.",
+            "I mean, uh, definitely not cool. I'm definitely very serious and respectful towards my sacred duty to c_n.",
             "... Is tm_n still there?"
         ]
     },
@@ -627,7 +627,7 @@
         "intro": [
             "You want me to stop roughhousing with the kits?",
             "Psh, c'mon, y_c, loosen up! You worry too much!",
-            "These are the fearsome future warriors of c_nClan. {PRONOUN/t_c/subject/CAP} can withstand a little -",
+            "These are the fearsome future warriors of c_n. {PRONOUN/t_c/subject/CAP} can withstand a little -",
             "[One of the kits smacks facefirst into the nursery wall and starts crying.]",
             "... Okay, I swear that's the first time that's happened."
         ]
@@ -1251,7 +1251,7 @@
             ]
         },
         "intro": [
-            "Another good day in c_nClan, right y_c? Ah- I'm sorry, I didn't mean to startle you!",
+            "Another good day in c_n, right y_c? Ah- I'm sorry, I didn't mean to startle you!",
             "I've finally got a break, being a queen is no easy task! What about you, how has today been?",
             "Wait- Let's go grab something to eat first, gotta make sure we're well fed and ready for the day!"
         ]
@@ -1645,17 +1645,16 @@
         },
         "t_c": {
             "cluster": [
-                "sweet"
+                "sweet",
+                "sensitive"
             ],
             "status": [
                 "queen's apprentice"
             ]
         },
-        "tags": [
-            "sensitive"
-        ],
+        "tags": [],
         "intro": [
-            "[You're up late. It's a beautiful night in c_nClan and you wanted to see the stars.]",
+            "[You're up late. It's a beautiful night in c_n and you wanted to see the stars.]",
             "[Surprisingly, you were not alone. You exited the camp to spot t_c, sobbing to {PRONOUN/t_c/self}.]",
             "... How many of these little stars used to be kits? ... The smallest of us, taken too soon...",
             "[Ah, you understand. You sit by {PRONOUN/t_c/object} and explain that... sadly, a lot of them probably were kits and apprentices.",
@@ -2319,7 +2318,7 @@
             ],
             "shunned": true,
             "status": [
-                "they_queen_apprentice"
+                "queen's apprentice"
             ]
         },
         "relationship": [
@@ -2327,9 +2326,7 @@
             "max_trust_10",
             "from_your_apprentice"
         ],
-        "tags": [
-            "they_queen_apprentice"
-        ],
+        "tags": [],
         "intro": [
             "[You shoo t_c away from the nursery with a pang of guilt in your heart.]",
             "[{PRONOUN/t_c/subject/CAP}{VERB/t_c/'re/'s} always so good with the kits, and you can't imagine {PRONOUN/t_c/object} doing anything to them.]",
@@ -2465,6 +2462,30 @@
         "intro": [
             "Uhh... I have duties at the nursery.",
             "[t_c hastily runs away toward the nursery. {PRONOUN/t_c/subject/CAP}{VERB/t_c/'re/'s} avoiding you, it seems.]"
+        ]
+    },
+    "redcough_sam1": {
+        "y_c": {
+            "status": ["medicine cat apprentice", "medicine cat"]
+        },
+        "t_c": {
+            "condition": ["redcough", "blind:any:false"],
+            "status": ["queen's apprentice"]
+        },
+        "intro": [
+            "y_c? Will I be allowed to help with the kits again?",
+            "Will I even recover from this?",
+            "[Before you have a chance to respond, r_k runs into the medicine den.]",
+            "|r_k|t_c! Can we play mossball? I miss playing with you!",
+            "[t_c sighs softly, a conflict clear in {PRONOUN/t_c/poss} eyes.]",
+            "Not today, r_k. Maybe tomorrow.",
+            "|r_k|Okay! I'll see you tomorrow!",
+            "[r_k runs back out of the medicine den, and t_c looks like {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} going to cry.]",
+            "I miss the kits. I don't think I'll be able to help with them again.",
+            "I might not even be able to become a full queen. How sad is that?",
+            "A queen apprentice not able to graduate because {PRONOUN/t_c/subject} caught redcough.",
+            "Maybe I'll become one of those 'guardian cats' I talk about in the stories I tell to the kits.",
+            "That'd be nice."
         ]
     }
 }

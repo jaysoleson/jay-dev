@@ -7,6 +7,7 @@ from platform import system
 from random import choice
 import ujson
 import pygame
+import platform
 import pygame_gui
 from re import sub
 import random
@@ -1552,10 +1553,17 @@ class UpdateAvailablePopup(UIWindow):
     def process_event(self, event):
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
             if event.ui_element == self.continue_button:
-                self.x = UpdateWindow(
-                    game.switches["cur_screen"], self.announce_restart_callback
-                )
-                self.kill()
+                url = "https://mods.clangen.io/LifeGen/download"
+
+                if get_version_info().is_dev():
+                    url = "https://mods.clangen.io/LifeGen/download"
+
+                if platform.system() == "Darwin":
+                    subprocess.Popen(["open", "-u", url])
+                elif platform.system() == "Windows":
+                    os.system(f"start \"\" {url}")
+                elif platform.system() == "Linux":
+                    subprocess.Popen(["xdg-open", url])
             elif (
                 event.ui_element == self.close_button
                 or event.ui_element == self.cancel_button
@@ -1580,7 +1588,6 @@ class UpdateAvailablePopup(UIWindow):
         return super().process_event(event)
 
     def announce_restart_callback(self):
-        self.x.kill()
         y = AnnounceRestart(game.switches["cur_screen"])
         y.update(1)
 
@@ -2387,9 +2394,9 @@ class MateScreen(UIWindow):
         game.switches['window_open'] = True
         self.clan_name = str(game.clan.name + 'Clan')
         self.last_screen = last_screen
-        self.mate = game.switches['new_mate']
+        self.mates = game.switches['new_mate']
         self.pick_path_message = UITextBoxTweaked(
-            f"{self.mate.name} confesses their feelings to you.",
+            f"{self.mates.name} confesses their feelings to you.",
             ui_scale(pygame.Rect((20, 20), (260, -1))),
             line_spacing=1,
             object_id="#text_box_30_horizcenter",

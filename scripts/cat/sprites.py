@@ -178,7 +178,7 @@ class Sprites:
             'superartsi',
 
             #coffee
-            'coffee','eragona','crowns','springwinter','raincoats','chimes','moipa','moipa2','pocky1','misc_acc','reign1'
+            'coffee','eragona','crowns','springwinter','raincoats','chimes','moipa','moipa2','pocky1','misc_acc','reign1', 'moonhat'
 
         ]:
             if "lineart" in x and game.config["fun"]["april_fools"]:
@@ -900,6 +900,10 @@ class Sprites:
         for a, i in enumerate([
             "LAVENDERHEADPIECE", "LAVENDERTAILWRAP", "LAVENDERANKLET"]):
             self.make_group('moipa2', (a, 2), f'acc_wild{i}')
+
+        for a, i in enumerate([
+            "MOONHAT"]):
+            self.make_group('moonhat', (a, 0), f'acc_crafted{i}')
 
     def load_symbols(self):
         """

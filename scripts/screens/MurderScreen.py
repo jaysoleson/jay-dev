@@ -3035,7 +3035,7 @@ class MurderScreen(Screens):
                 chance += 10
             if accomplice.status in ['medicine cat', 'mediator', 'deputy', 'leader']:
                 chance -= 20
-            if accomplice.ID in game.clan.your_cat.mate:
+            if accomplice.ID in game.clan.your_cat.mates:
                 chance += 50
             if game.clan.your_cat.is_related(accomplice, False):
                 chance += 30

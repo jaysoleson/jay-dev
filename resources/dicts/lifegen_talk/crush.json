@@ -16,7 +16,7 @@
         "intro": [
             "[You're chatting with t_c, but {PRONOUN/t_c/subject} {VERB/t_c/keep/keeps} glancing away and swishing {PRONOUN/t_c/poss} tail. It's clear that {PRONOUN/t_c/poss} attention lies elsewhere.]",
             "*Sigh* ...",
-            "[You follow {PRONOUN/t_c/poss} gaze to the middle of the clearing, where rlike-r_c lazes, grooming {PRONOUN/rlike-r_c/self}.]",
+            "[You follow {PRONOUN/t_c/poss} gaze to the middle of the clearing, where theircrush lazes, grooming {PRONOUN/theircrush/self}.]",
             "[It seems there's something t_c isn't telling you ...]"
         ]
     },
@@ -45,7 +45,7 @@
             "min_platonic_20"
         ],
         "intro": [
-            "[t_c and rlike-r_c laugh hysterically together in the middle of the clearing, howls careening off the camp walls.]",
+            "[t_c and theircrush laugh hysterically together in the middle of the clearing, howls careening off the camp walls.]",
             "[You smile to yourself, happy to see t_c make some progress with {PRONOUN/t_c/poss} obvious crush.]"
         ]
     },
@@ -72,7 +72,7 @@
         "intro": [
             "[t_c sits alone at the edge of camp, grinning from ear to ear with a dreamy look in {PRONOUN/t_c/poss} eyes.]",
             "[You'd know that look anywhere, and if you had to guess, you could probably predict exactly who {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} thinking about.]",
-            "[Just then, rlike-r_c peeks in through the camp entrance, and t_c races over to greet {PRONOUN/rlike-r_c/object}, apparently overjoyed.]",
+            "[Just then, theircrush peeks in through the camp entrance, and t_c races over to greet {PRONOUN/theircrush/object}, apparently overjoyed.]",
             "[It seems your prediction was correct!]"
         ]
     },
@@ -100,8 +100,8 @@
             ]
         },
         "intro": [
-            "[t_c stares at rlike-r_c talking with r_w across camp, expression filled with pain.]",
-            "[When rlike-r_c laughs and bats at {PRONOUN/r_w/object}, t_c digs {PRONOUN/t_c/poss} claws into the soil.]",
+            "[t_c stares at theircrush talking with r_w across camp, expression filled with pain.]",
+            "[When theircrush laughs and bats at {PRONOUN/r_w/object}, t_c digs {PRONOUN/t_c/poss} claws into the soil.]",
             "[Yeesh ... probably best to give {PRONOUN/t_c/object} some space.]"
         ]
     },
@@ -122,12 +122,12 @@
             "min_comfort_50"
         ],
         "intro": [
-            "Say, ah ... What do you think about rlike-r_c?",
-            "I mean, like, me and rlike-r_c. Do you think we'd make a good pair?",
+            "Say, ah ... What do you think about theircrush?",
+            "I mean, like, me and theircrush. Do you think we'd make a good pair?",
             "I dunno. I just ... value your opinion, I guess.",
             "I really like {PRONOUN/t_c/object}, but asking someone to be your mate? It's a big decision. Plus, I have no idea if {PRONOUN/t_c/subject} even {VERB/t_c/feel/feels} the same way!",
             "I just don't want to make a mistake and end up heartbroken ...",
-            "[t_c stares at rlike-r_c from across camp, expression filled with incredible yearning.]"
+            "[t_c stares at theircrush from across camp, expression filled with incredible yearning.]"
         ]
     },
     "confront_crush": {
@@ -151,11 +151,11 @@
             ]
         },
         "intro": [
-            "[You ask t_c if the rumors about {PRONOUN/t_c/object} and rlike-r_c are true.]",
-            "What? Me and rlike-r_c? C'mon, don't be ridiculous! Why would I ever like rlike-r_c?",
-            "Sure, I guess {PRONOUN/rlike-r_c/subject}{VERB/rlike-r_c/'re/'s} kinda pretty, and - and smart, and {PRONOUN/rlike-r_c/subject} {VERB/rlike-r_c/make/makes} me laugh like no one else can ...",
-            "Not to mention talented ... and hardworking ... and {PRONOUN/rlike-r_c/poss} smile, great StarClan, there's nothing else like it ...",
-            "... But - But it's not like I like {PRONOUN/rlike-r_c/object}, or anything!",
+            "[You ask t_c if the rumors about {PRONOUN/t_c/object} and theircrush are true.]",
+            "What? Me and theircrush? C'mon, don't be ridiculous! Why would I ever like theircrush?",
+            "Sure, I guess {PRONOUN/theircrush/subject}{VERB/theircrush/'re/'s} kinda pretty, and - and smart, and {PRONOUN/theircrush/subject} {VERB/theircrush/make/makes} me laugh like no one else can ...",
+            "Not to mention talented ... and hardworking ... and {PRONOUN/theircrush/poss} smile, great StarClan, there's nothing else like it ...",
+            "... But - But it's not like I like {PRONOUN/theircrush/object}, or anything!",
             "*Blush*"
         ]
     },
@@ -177,10 +177,10 @@
             "min_platonic_50"
         ],
         "intro": [
-            "Ah - maybe I just gotta face it, y_c. There's no way I'm gonna end up with rlike-r_c, not in a million moons.",
-            "Why would a cat like {PRONOUN/t_c/object} ever settle down with a cat like me? It just wouldn't make any sense.",
-            "Maybe I just gotta move on and -- Oh, hang on, {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} coming over here!",
-            "Oh - Oh, hey, rlike-r_c! Yeah, sure, I can come on a walk with you tonight, when are you free?",
+            "Ah - maybe I just gotta face it, y_c. There's no way I'm gonna end up with theircrush, not in a million moons.",
+            "Why would a cat like {PRONOUN/theircrush/object} ever settle down with a cat like me? It just wouldn't make any sense.",
+            "Maybe I just gotta move on and -- Oh, hang on, {PRONOUN/theircrush/subject}{VERB/theircrush/'re/'s} coming over here!",
+            "Oh - Oh, hey, theircrush! Yeah, sure, I can come on a walk with you tonight, when are you free?",
             "[You roll your eyes. t_c is hopeless!]"
         ]
     },
@@ -580,7 +580,7 @@
             "[As fast as the wind, you sit up, giving t_c your full attention.]",
             "Hah! I knew that would work. Actually, I just wanted to know if you would help me replace the elder's moss..",
             "...",
-            "... No, yourcrush wasn't actually asking for you. But if you're that eager to talk to {PRONOUN/yourcrush/object}, maybe you should just go ask {PRONOUN/rlike-r_c/object}."
+            "... No, yourcrush wasn't actually asking for you. But if you're that eager to talk to {PRONOUN/yourcrush/object}, maybe you should just go ask {PRONOUN/theircrush/object}."
         ]
     },
     "yourcrush_parent2": {
@@ -724,9 +724,9 @@
         ],
         "intro": [
             "[You tease t_c about how much time {PRONOUN/t_c/subject}{VERB/t_c/'ve/'s} been spending with {PRONOUN/t_c/poss} crush, asking if there will maybe be an expansion to the family soon.]",
-            "Ah, come off it, y_c. rlike-r_c is just a friend, that's all ...",
-            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/sigh/sighs} wistfully and you can't suppress an eyeroll. If t_c and rlike-r_c are 'just friends', then hedgehogs can fly.]",
-            "[Still, you just hope the kit has the sense not to get {PRONOUN/t_c/poss} heart broken ... Or else you might have to have a conversation with rlike-r_c yourself.]"
+            "Ah, come off it, y_c. theircrush is just a friend, that's all ...",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/sigh/sighs} wistfully and you can't suppress an eyeroll. If t_c and theircrush are 'just friends', then hedgehogs can fly.]",
+            "[Still, you just hope the kit has the sense not to get {PRONOUN/t_c/poss} heart broken ... Or else you might have to have a conversation with theircrush yourself.]"
         ]
     },
     "assertive_gen1": {
@@ -742,8 +742,8 @@
             ]
         },
         "intro": [
-            "[t_c is flexing, showing off {PRONOUN/t_c/poss} muscles for rlike-r_c.]",
-            "[It almost seems like t_c is enjoying the whole display more than rlike-r_c is.]"
+            "[t_c is flexing, showing off {PRONOUN/t_c/poss} muscles for theircrush.]",
+            "[It almost seems like t_c is enjoying the whole display more than theircrush is.]"
         ]
     },
     "neurotic_abouttheircrush_SQ1": {
@@ -767,7 +767,7 @@
         ],
         "intro": [
             "y_c, how do you impress a cat that you like? I can't help but...",
-            "[t_c trails off as rlike-r_c passes by, giving a small chirp of greeting. t_c's whiskers twitch as {PRONOUN/t_c/subject} {VERB/t_c/watch/watches} {PRONOUN/rlike-r_c/object} go.]",
+            "[t_c trails off as theircrush passes by, giving a small chirp of greeting. t_c's whiskers twitch as {PRONOUN/t_c/subject} {VERB/t_c/watch/watches} {PRONOUN/theircrush/object} go.]",
             "Um. I just feel like I'm not all that interesting? I'm not exactly the daring-show-of-skill sort of cat, or a clever talker... I'm just... me. And that's really disappointing, sometimes."
         ]
     },
@@ -789,9 +789,9 @@
             "min_platonic_30"
         ],
         "intro": [
-            "Have you seen how pretty rlike-r_c's fur looks today? Wow...",
-            "[t_c sneaks a wistful glance at rlike-r_c but then quickly looks away, {PRONOUN/t_c/poss} whiskers twitching.]",
-            "*sigh* I wish I could compliment {PRONOUN/rlike-r_c/object} on it, but my words all feel jumbled and wrong when I'm around {PRONOUN/rlike-r_c/object}."
+            "Have you seen how pretty theircrush's fur looks today? Wow...",
+            "[t_c sneaks a wistful glance at theircrush but then quickly looks away, {PRONOUN/t_c/poss} whiskers twitching.]",
+            "*sigh* I wish I could compliment {PRONOUN/theircrush/object} on it, but my words all feel jumbled and wrong when I'm around {PRONOUN/theircrush/object}."
         ]
     },
     "neurotic_abouttheircrush_SQ3": {
@@ -816,7 +816,7 @@
             "min_trust_15"
         ],
         "intro": [
-            "[t_c slips over to you, casting surreptitious glances towards rlike-r_c.]",
+            "[t_c slips over to you, casting surreptitious glances towards theircrush.]",
             "Psst, y_c. The heat is really messing with my fur... does it look bad?",
             "[You point out a few patches that could use grooming and t_c quickly gets to work.]"
         ]
@@ -851,9 +851,9 @@
             "min_platonic_20"
         ],
         "intro": [
-            "I found a great place I want to take rlike-r_c. There's a big tree with a branch big enough for the two of us to sit, and it's shaded by the leaves, and it has a great view of the territory.",
-            "I want to take {PRONOUN/rlike-r_c/object} there, but I'm a bit worried... I'm pretty skilled at climbing, but I don't know how good {PRONOUN/rlike-r_c/subject} {VERB/rlike-r_c/are/is}, and it'd be terrible if {PRONOUN/rlike-r_c/subject} slipped and fell.",
-            "From that height, rlike-r_c could be really hurt! And then it would be hard for {PRONOUN/rlike-r_c/object} to trust me again, and I'd feel terrible...",
+            "I found a great place I want to take theircrush. There's a big tree with a branch big enough for the two of us to sit, and it's shaded by the leaves, and it has a great view of the territory.",
+            "I want to take {PRONOUN/theircrush/object} there, but I'm a bit worried... I'm pretty skilled at climbing, but I don't know how good {PRONOUN/theircrush/subject} {VERB/theircrush/are/is}, and it'd be terrible if {PRONOUN/theircrush/subject} slipped and fell.",
+            "From that height, theircrush could be really hurt! And then it would be hard for {PRONOUN/theircrush/object} to trust me again, and I'd feel terrible...",
             "[You tell t_c to calm down. {PRONOUN/t_c/subject/CAP} {VERB/t_c/shake/shakes} {PRONOUN/t_c/poss} head to jolt {PRONOUN/t_c/self} out of {PRONOUN/t_c/poss} thoughts and {VERB/t_c/smile/smiles} weakly.]"
         ]
     },
@@ -879,9 +879,9 @@
         "intro": [
             "Hey, y_c, could I please have some advice? Seeing as you're my {PRONOUN/y_c/sibling} and all, I thought you would be one of the better cats to get an opinion from.",
             "...",
-            "Every time I look at rlike-r_c I can't help but feel lighter... And honestly, I'd love to get to know {PRONOUN/rlike-r_c/object} more. I would really like to get to know {PRONOUN/rlike-r_c/object} more... Maybe even one day, I could ask {PRONOUN/rlike-r_c/object} to be...",
-            "I've never met someone like {PRONOUN/rlike-r_c/object} before, y_c. Really, I never thought someone like me could ever find somebody... and maybe, I've found them.",
-            "{PRONOUN/rlike-r_c/subject/CAP}{VERB/rlike-r_c/'re/'s} just so kind, caring, loyal and the way the light bounces off {PRONOUN/rlike-r_c/poss} fur~ My heart stops every time we speak.",
+            "Every time I look at theircrush I can't help but feel lighter... And honestly, I'd love to get to know {PRONOUN/theircrush/object} more. I would really like to get to know {PRONOUN/theircrush/object} more... Maybe even one day, I could ask {PRONOUN/theircrush/object} to be...",
+            "I've never met someone like {PRONOUN/theircrush/object} before, y_c. Really, I never thought someone like me could ever find somebody... and maybe, I've found them.",
+            "{PRONOUN/theircrush/subject/CAP}{VERB/theircrush/'re/'s} just so kind, caring, loyal and the way the light bounces off {PRONOUN/theircrush/poss} fur~ My heart stops every time we speak.",
             "Thank you for listening, y_c, you're the best {PRONOUN/y_c/sibling} I could ever ask for.",
             "[t_c bounds away, a dreamy look in {PRONOUN/t_c/poss} eyes... Wait, didn't {PRONOUN/t_c/subject} ask for your opinion??? You chuckle, your {PRONOUN/t_c/sibling} is so lost in thought {PRONOUN/t_c/subject} forgot to wait for you to answer."
         ]
@@ -901,6 +901,9 @@
             ],
             "age": [
                 "not_kitten"
+            ],
+            "condition": [
+                "deaf:any:false"
             ]
         },
         "season": [
@@ -908,8 +911,8 @@
             "newleaf"
         ],
         "intro": [
-            "[You notice t_c sliding a bundle of tiny periwinkle flowers towards rlike-r_c with a bashful smile.]",
-            "[rlike-r_c's eyes widen, and {PRONOUN/rlike-r_c/subject} {VERB/rlike-r_c/start/starts} to say something, but t_c is already fleeing the scene.]"
+            "[You notice t_c sliding a bundle of tiny periwinkle flowers towards theircrush with a bashful smile.]",
+            "[theircrush's eyes widen, and {PRONOUN/theircrush/subject} {VERB/theircrush/start/starts} to say something, but t_c is already fleeing the scene.]"
         ]
     },
     "neurotic_abouttheircrush_SQ5": {
@@ -933,10 +936,10 @@
             "min_platonic_15"
         ],
         "intro": [
-            "[Flowers are a classic gift to give a crush, but now that it's leafbare, t_c seems at a loss for something to show their affection towards rlike-r_c.]",
+            "[Flowers are a classic gift to give a crush, but now that it's leafbare, t_c seems at a loss for something to show their affection towards theircrush.]",
             "[While you're on a walk together, {PRONOUN/t_c/subject} {VERB/t_c/stop/stops} and {VERB/t_c/stare/stares} at a scarlet lichen for a few seconds, then {VERB/t_c/sigh/sighs} and {VERB/t_c/turn/turns} away.]",
-            "I don't want to give {PRONOUN/rlike-r_c/object} something weird, or useless, or silly. And I don't want to give {PRONOUN/rlike-r_c/object} a random thing, just for the sake of giving {PRONOUN/rlike-r_c/object} <i>something</i>.",
-            "I just don't know how to show {PRONOUN/rlike-r_c/object} that I... you know... like {PRONOUN/rlike-r_c/object}! And giving gifts is still scary, but it feels safer than talking to {PRONOUN/rlike-r_c/object} about my feelings, and that sort of thing.",
+            "I don't want to give {PRONOUN/theircrush/object} something weird, or useless, or silly. And I don't want to give {PRONOUN/theircrush/object} a random thing, just for the sake of giving {PRONOUN/theircrush/object} <i>something</i>.",
+            "I just don't know how to show {PRONOUN/theircrush/object} that I... you know... like {PRONOUN/theircrush/object}! And giving gifts is still scary, but it feels safer than talking to {PRONOUN/theircrush/object} about my feelings, and that sort of thing.",
             "Maybe... a pinecone? A leaf from leaffall? Not an icicle... That would just melt..."
         ]
     },
@@ -964,8 +967,8 @@
             "leafbare"
         ],
         "intro": [
-            "[You glimpse t_c sitting by rlike-r_c, pointing out the way ice is feathering across a nearby rock.]",
-            "[t_c seems a bit nervous to be sitting so close to rlike-r_c as the pair admire the way the sun glints off of the delicate pattern, but rlike-r_c looks too entranced by the ice to notice.]"
+            "[You glimpse t_c sitting by theircrush, pointing out the way ice is feathering across a nearby rock.]",
+            "[t_c seems a bit nervous to be sitting so close to theircrush as the pair admire the way the sun glints off of the delicate pattern, but theircrush looks too entranced by the ice to notice.]"
         ]
     },
     "neurotic_abouttheircrush_SQ7": {
@@ -995,8 +998,8 @@
             "neutral"
         ],
         "intro": [
-            "[t_c sits beside rlike-r_c, admiring the bright leaves tumbling from the sky. Several times, {PRONOUN/t_c/subject} {VERB/t_c/start/starts} to lean closer to rlike-r_c, then {VERB/t_c/pull/pulls} away at the last moment.]",
-            "[When t_c notices you, {PRONOUN/t_c/subject} {VERB/t_c/lean/leans} even further away from rlike-r_c, almost losing {PRONOUN/t_c/poss} balance. You leave before {PRONOUN/t_c/subject} {VERB/t_c/get/gets} even more nervous about being watched.]"
+            "[t_c sits beside theircrush, admiring the bright leaves tumbling from the sky. Several times, {PRONOUN/t_c/subject} {VERB/t_c/start/starts} to lean closer to theircrush, then {VERB/t_c/pull/pulls} away at the last moment.]",
+            "[When t_c notices you, {PRONOUN/t_c/subject} {VERB/t_c/lean/leans} even further away from theircrush, almost losing {PRONOUN/t_c/poss} balance. You leave before {PRONOUN/t_c/subject} {VERB/t_c/get/gets} even more nervous about being watched.]"
         ]
     },
     "neurotic_abouttheircrush_SQ8": {
@@ -1021,7 +1024,7 @@
             "min_platonic_30"
         ],
         "intro": [
-            "I was going to give rlike-r_c some flowers, but I noticed {PRONOUN/rlike-r_c/subject} already {VERB/rlike-r_c/have/has} some in {PRONOUN/rlike-r_c/poss} nest. Do you know... is someone else, you know, interested in {PRONOUN/rlike-r_c/object}? I don't have a chance, do I?",
+            "I was going to give theircrush some flowers, but I noticed {PRONOUN/theircrush/subject} already {VERB/theircrush/have/has} some in {PRONOUN/theircrush/poss} nest. Do you know... is someone else, you know, interested in {PRONOUN/theircrush/object}? I don't have a chance, do I?",
             "I know that cats give each other things for different reasons, but I just... I'm super nervous about this...",
             "Y-you know, on second thought, I don't want to know right now.",
             "[t_c dashes off, leaving you alone.]"

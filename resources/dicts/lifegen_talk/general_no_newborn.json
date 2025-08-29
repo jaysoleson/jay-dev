@@ -7,7 +7,7 @@
             ]
         },
         "intro": [
-            "I heard some of c_nClan's cats whisper about wisps. It was under their breath, as if they wanted the topic of wisps to be a secret. Supposedly, they've been appearing more often lately.",
+            "I heard some of c_n's cats whisper about wisps. It was under their breath, as if they wanted the topic of wisps to be a secret. Supposedly, they've been appearing more often lately.",
             "[t_c gathers {PRONOUN/t_c/poss} thoughts for a moment and glances at you.]",
             "... Have you heard about wisps? No?",
             "I was told by my parent that wisps are the cats who never make it to the afterlife. They float around aimlessly to help those in the living. Something about fate and destiny being weaved together like a cloth, whatever that means.",
@@ -405,7 +405,8 @@
         "t_c": {
             "condition": [
                 "grief stricken"
-            ]
+            ],
+            "shunned": "any"
         },
         "intro": [
             "Go away, y_c. I don't want to see <i>you</i>."
@@ -565,7 +566,7 @@
             ]
         },
         "intro": [
-            "[t_c is busy debating with another cat about which omen to send c_nClan.]",
+            "[t_c is busy debating with another cat about which omen to send c_n.]",
             "[You probably shouldn't bother {PRONOUN/t_c/object}.]"
         ]
     },
@@ -966,7 +967,8 @@
         "y_c": {
             "condition": [
                 "grief stricken"
-            ]
+            ],
+            "shunned": "any"
         },
         "t_c": {
             "condition": [
@@ -1048,7 +1050,8 @@
         "y_c": {
             "backstory": [
                 "clanfounder",
-                "clanborn"
+                "clanborn",
+                "originallyfromanotherclan"
             ]
         },
         "t_c": {
@@ -1060,9 +1063,7 @@
                 "formerlyakittypet"
             ]
         },
-        "tags": [
-            "you_originallyanotherclan"
-        ],
+        "tags": [],
         "intro": [
             "Oh, hit the road, Jack.",
             "[You bristle in confusion, not understanding the terminology t_c just used for you. You ask what {PRONOUN/t_c/subject} {VERB/t_c/mean/means} by that, but t_c only grins.]",
@@ -1379,7 +1380,7 @@
             "Look, I know I haven't exactly been the best cat ... But I could really use some help. Or, guidance, or whatever.",
             "Um ... Well, I guess my whole life I always swore that I would never get too attached to anyone. It just seemed easier that way. Easier to protect what was mine.",
             "But, now, ah ...",
-            "You see, there's this cat called rlike-r_c. {PRONOUN/rlike-r_c/subject/CAP}{VERB/rlike-r_c/'re/'s} ... Oh, how can I even describe {PRONOUN/rlike-r_c/object}? {PRONOUN/rlike-r_c/subject/CAP}{VERB/rlike-r_c/'re/'s} like this perfect thing. {PRONOUN/rlike-r_c/subject/CAP} make me happy.",
+            "You see, there's this cat called theircrush. {PRONOUN/theircrush/subject/CAP}{VERB/theircrush/'re/'s} ... Oh, how can I even describe {PRONOUN/theircrush/object}? {PRONOUN/theircrush/subject/CAP}{VERB/theircrush/'re/'s} like this perfect thing. {PRONOUN/theircrush/subject/CAP} make me happy.",
             "Not glibly sardonic, or ironically hedonistic, or any half-sincere thing like that. Actually happy.",
             "And ... I don't know. I guess I'm just scared. I don't know what to do. I haven't felt this way in years. What if I do something wrong?",
             "Could I get a little guidance? Advice from the other side? Hello? Is anyone listening? Is anyone even there ...?",
@@ -1456,7 +1457,8 @@
         "y_c": {
             "condition": [
                 "grief stricken"
-            ]
+            ],
+            "shunned": "any"
         },
         "t_c": {},
         "relationship": [
@@ -1471,82 +1473,14 @@
         "y_c": {
             "condition": [
                 "grief stricken"
-            ]
-        },
-        "t_c": {
-            "condition": [
-                "grief stricken"
-            ]
-        },
-        "relationship": [
-            "grievingthem",
-            "grievingyou"
-        ],
-        "intro": [
-            "[You and t_c have been stuck together all day in a never-ending hug.]",
-            "I missed you, y_c.",
-            "[You know. {PRONOUN/t_c/subject/CAP}{VERB/t_c/'ve/'s} told you a dozen times already.]",
-            "[You missed {PRONOUN/t_c/object}, too, you tell {PRONOUN/t_c/object} for the thirteenth time.]"
-        ]
-    },
-    "bothgrieving_J2": {
-        "y_c": {
-            "condition": [
-                "grief stricken"
-            ]
+            ],
+            "shunned": "any"
         },
         "t_c": {
             "condition": [
                 "grief stricken"
             ],
-            "shunned": true
-        },
-        "relationship": [
-            "grievingthem",
-            "grievingyou"
-        ],
-        "intro": [
-            "[You and t_c have been stuck together all day in a never-ending hug.]",
-            "I missed you, y_c.",
-            "[You know. {PRONOUN/t_c/subject/CAP}{VERB/t_c/'ve/'s} told you a dozen times already.]",
-            "[You missed {PRONOUN/t_c/object}, too, you tell {PRONOUN/t_c/object} for the thirteenth time.]"
-        ]
-    },
-    "bothgrieving_J3": {
-        "y_c": {
-            "condition": [
-                "grief stricken"
-            ],
-            "shunned": true
-        },
-        "t_c": {
-            "condition": [
-                "grief stricken"
-            ]
-        },
-        "relationship": [
-            "grievingthem",
-            "grievingyou"
-        ],
-        "intro": [
-            "[You and t_c have been stuck together all day in a never-ending hug.]",
-            "I missed you, y_c.",
-            "[You know. {PRONOUN/t_c/subject/CAP}{VERB/t_c/'ve/'s} told you a dozen times already.]",
-            "[You missed {PRONOUN/t_c/object}, too, you tell {PRONOUN/t_c/object} for the thirteenth time.]"
-        ]
-    },
-    "bothgrieving_J4": {
-        "y_c": {
-            "condition": [
-                "grief stricken"
-            ],
-            "shunned": true
-        },
-        "t_c": {
-            "condition": [
-                "grief stricken"
-            ],
-            "shunned": true
+            "shunned": "any"
         },
         "relationship": [
             "grievingthem",
@@ -1563,73 +1497,14 @@
         "y_c": {
             "condition": [
                 "grief stricken"
-            ]
-        },
-        "t_c": {
-            "condition": [
-                "grief stricken"
-            ]
-        },
-        "relationship": [
-            "grievingthem",
-            "grievingyou"
-        ],
-        "intro": [
-            "What? y_c? Why would you say that?"
-        ]
-    },
-    "bothgrieving_insult_J2": {
-        "y_c": {
-            "condition": [
-                "grief stricken"
-            ]
+            ],
+            "shunned": "any"
         },
         "t_c": {
             "condition": [
                 "grief stricken"
             ],
-            "shunned": true
-        },
-        "relationship": [
-            "grievingthem",
-            "grievingyou"
-        ],
-        "intro": [
-            "What? y_c? Why would you say that?"
-        ]
-    },
-    "bothgrieving_insult_J3": {
-        "y_c": {
-            "condition": [
-                "grief stricken"
-            ],
-            "shunned": true
-        },
-        "t_c": {
-            "condition": [
-                "grief stricken"
-            ]
-        },
-        "relationship": [
-            "grievingthem",
-            "grievingyou"
-        ],
-        "intro": [
-            "What? y_c? Why would you say that?"
-        ]
-    },
-    "bothgrieving_insult_J4": {
-        "y_c": {
-            "condition": [
-                "grief stricken"
-            ],
-            "shunned": true
-        },
-        "t_c": {
-            "condition": [
-                "grief stricken"
-            ],
-            "shunned": true
+            "shunned": "any"
         },
         "relationship": [
             "grievingthem",
@@ -1649,27 +1524,11 @@
             "condition": [
                 "grief stricken"
             ],
-            "shunned": true
+            "shunned": "any"
         },
         "relationship": [
             "grievingyou"
         ],
-        "intro": [
-            "[t_c is sound asleep. You'd better not wake {PRONOUN/t_c/object}.]"
-        ]
-    },
-    "deadtoshunned_J2": {
-        "y_c": {
-            "dead": [
-                "any"
-            ]
-        },
-        "t_c": {
-            "condition": [
-                "grief stricken"
-            ],
-            "shunned": true
-        },
         "intro": [
             "[t_c is sound asleep. You'd better not wake {PRONOUN/t_c/object}.]"
         ]
@@ -1710,7 +1569,7 @@
         ],
         "intro": [
             "I miss you a lot, y_c.",
-            "Everything in my life is going wrong. How did I miss everything up this badly?",
+            "Everything in my life is going wrong. How did I mess everything up this badly?",
             "If you were still here, I might be able to return to normal, but... without you...",
             "I don't know. Nothing makes sense anymore.",
             "What do I do?"
@@ -1954,7 +1813,7 @@
             "from_parent"
         ],
         "intro": [
-            "[t_c glances around briefly. After making sure you are the only one that could hear {PRONOUN/t_c/object}, {PRONOUN/t_c/subject} catch your gaze and hold it there.]",
+            "[t_c glances around briefly. After making sure you are the only one that could hear {PRONOUN/t_c/object}, {PRONOUN/t_c/subject} {VERB/t_c/catch/catches} your gaze and {VERB/t_c/hold/holds} it there.]",
             "The Clan won't choose you over their petty wars, but I will. You share my blood and that is all that matters."
         ]
     },
@@ -1999,7 +1858,7 @@
             "sibling"
         ],
         "intro": [
-            "[t_c glances around briefly. After making sure you are the only one that could hear {PRONOUN/t_c/object}, {PRONOUN/t_c/subject} catch your gaze and hold it there.]",
+            "[t_c glances around briefly. After making sure you are the only one that could hear {PRONOUN/t_c/object}, {PRONOUN/t_c/subject} {VERB/t_c/catch/catches} your gaze and {VERB/t_c/hold/holds} it there.]",
             "The Clan won't choose you over their petty wars, but I will. You share my blood and that is all that matters."
         ]
     },
@@ -2021,7 +1880,7 @@
             "from_your_kit"
         ],
         "intro": [
-            "[t_c glances around briefly. After making sure you are the only one that could hear {PRONOUN/t_c/object}, {PRONOUN/t_c/subject} catch your gaze and hold it there.]",
+            "[t_c glances around briefly. After making sure you are the only one that could hear {PRONOUN/t_c/object}, {PRONOUN/t_c/subject} {VERB/t_c/catch/catches} your gaze and {VERB/t_c/hold/holds} it there.]",
             "The Clan won't choose you over their petty wars, but I will. You share my blood, and that is all that matters."
         ]
     },
@@ -2208,7 +2067,8 @@
         "y_c": {
             "condition": [
                 "deaf:any:true"
-            ]
+            ],
+            "shunned": "any"
         },
         "t_c": {
             "condition": [
@@ -2227,7 +2087,8 @@
         "y_c": {
             "condition": [
                 "deaf:any:true"
-            ]
+            ],
+            "shunned": "any"
         },
         "t_c": {
             "condition": [
@@ -2242,7 +2103,7 @@
         },
         "intro": [
             "[Every time you sign at {PRONOUN/t_c/object}, t_c just blinks at you curiously.]",
-            "[You'd expected such an ancient dead cat to have all of the knowledge in the world, but maybe c_nClan sign language didn't exist back in {PRONOUN/t_c/poss} day.]",
+            "[You'd expected such an ancient dead cat to have all of the knowledge in the world, but maybe c_n sign language didn't exist back in {PRONOUN/t_c/poss} day.]",
             "[Maybe you should teach {PRONOUN/t_c/object} sometime.]"
         ]
     },
@@ -2250,7 +2111,8 @@
         "y_c": {
             "condition": [
                 "deaf:any:true"
-            ]
+            ],
+            "shunned": "any"
         },
         "t_c": {
             "condition": [
@@ -2277,7 +2139,8 @@
         "y_c": {
             "condition": [
                 "deaf:any:true"
-            ]
+            ],
+            "shunned": "any"
         },
         "t_c": {
             "condition": [
@@ -2352,13 +2215,15 @@
             "condition": [
                 "blind:any:true",
                 "deaf:any:true"
-            ]
+            ],
+            "shunned": "any"
         },
         "t_c": {
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ]
+            ],
+            "shunned": "any"
         },
         "intro": [
             "[You and t_c roll around in the sun together.]"
@@ -2483,9 +2348,13 @@
             "condition": [
                 "deaf:any:false",
                 "deaf:any:true"
-            ]
+            ],
+            "shunned": "any"
         },
-        "t_c": {},
+        "t_c": {
+            "shunned": "any",
+            "condition": ["blind:any:false"]
+        },
         "intro": [
             "[You watch t_c's mouth moving from across camp. You wonder what {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} saying.]"
         ]
@@ -2495,13 +2364,15 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ]
+            ],
+            "shunned": "any"
         },
         "t_c": {
             "condition": [
                 "blind:any:false",
                 "deaf:any:true"
-            ]
+            ],
+            "shunned": "any"
         },
         "intro": [
             "[You and t_c both sit outside during some light rain, enjoying the cool mist on your faces.]"
@@ -2530,14 +2401,16 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ]
+            ],
+            "shunned": "any"
         },
         "t_c": {
             "condition": [
                 "blind:any:false",
                 "deaf:any:false",
                 "grief stricken"
-            ]
+            ],
+            "shunned": "any"
         },
         "intro": [
             "[t_c clearly doesn't feel like talking right now.]"
@@ -2549,14 +2422,16 @@
                 "blind:any:false",
                 "deaf:any:false",
                 "grief stricken"
-            ]
+            ],
+            "shunned": "any"
         },
         "t_c": {
             "condition": [
                 "blind:any:false",
                 "deaf:any:false",
                 "grief stricken"
-            ]
+            ],
+            "shunned": "any"
         },
         "intro": [
             "[t_c clearly doesn't feel like talking right now.]"
@@ -2568,13 +2443,15 @@
                 "blind:any:false",
                 "deaf:any:false",
                 "grief stricken"
-            ]
+            ],
+            "shunned": "any"
         },
         "t_c": {
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
-            ]
+            ],
+            "shunned": "any"
         },
         "intro": [
             "[t_c kneads {PRONOUN/t_c/poss} paws into your back while you doze off. It's a nice feeling, and the comfort in your body is able to momentarily distract you from the pain in your heart.]"
@@ -2591,7 +2468,8 @@
                 "silly"
             ],
             "age": [
-                "adolescent"
+                "adolescent",
+                "kitten"
             ],
             "condition": [
                 "blind:any:false"
@@ -2604,9 +2482,7 @@
             "min_platonic_20",
             "sibling"
         ],
-        "tags": [
-            "they_kit"
-        ],
+        "tags": [],
         "intro": [
             "Hey! Hey, hey, y_c! Hey!",
             "We should do something together sometime! Like... a sibling song! After all...",
@@ -2628,7 +2504,8 @@
                 "silly"
             ],
             "age": [
-                "adolescent"
+                "adolescent",
+                "kitten"
             ],
             "condition": [
                 "blind:any:false"
@@ -2640,9 +2517,7 @@
         "relationship": [
             "min_platonic_20"
         ],
-        "tags": [
-            "they_kit"
-        ],
+        "tags": [],
         "intro": [
             "I had an idea for a new song! Wanna hear it?",
             "What? 'I'm busy'? Well, that's perfect! Unwilling listeners are the best kind!",
@@ -2720,7 +2595,7 @@
         ],
         "intro": [
             "Sometimes I like to climb onto the highest surfaces of the camp in the middle of the night when only the guards can see.",
-            "It's really peaceful, actually. Everycat in c_nClan is in their dens, and it's completely quiet, save for the murmurs of the guards and the night animals.",
+            "It's really peaceful, actually. Everycat in c_n is in their dens, and it's completely quiet, save for the murmurs of the guards and the night animals.",
             "Actually, speaking of \"the murmurs of the guards,\" do you want to hear some info I caught on r_c while eavesdropping? Don't worry, it's not incriminating."
         ]
     },
@@ -2983,7 +2858,7 @@
         },
         "intro": [
             "There is so much hate within your presence, it darkens our pure clouds.",
-            "c_nClan was right to shun you, y_c.",
+            "c_n was right to shun you, y_c.",
             "You must realize that to be at peace."
         ]
     },
@@ -3402,69 +3277,16 @@
         "y_c": {
             "condition": [
                 "deaf:any:false"
-            ]
+            ],
+            "shunned": "any"
         },
         "t_c": {
             "condition": [
                 "deaf:any:false",
                 "grief stricken",
                 "lasting grief:any:true"
-            ]
-        },
-        "intro": [
-            "[t_c has a far off look in {PRONOUN/t_c/poss} eye.]",
-            "[It's best to leave {PRONOUN/t_c/object} alone.]"
-        ]
-    },
-    "lastinggrief_H2_J1": {
-        "y_c": {
-            "condition": [
-                "deaf:any:false"
-            ]
-        },
-        "t_c": {
-            "condition": [
-                "deaf:any:false",
-                "grief stricken"
             ],
-            "shunned": true
-        },
-        "intro": [
-            "[t_c has a far off look in {PRONOUN/t_c/poss} eye.]",
-            "[It's best to leave {PRONOUN/t_c/object} alone.]"
-        ]
-    },
-    "lastinggrief_H2_J2": {
-        "y_c": {
-            "condition": [
-                "deaf:any:false"
-            ],
-            "shunned": true
-        },
-        "t_c": {
-            "condition": [
-                "deaf:any:false",
-                "grief stricken"
-            ]
-        },
-        "intro": [
-            "[t_c has a far off look in {PRONOUN/t_c/poss} eye.]",
-            "[It's best to leave {PRONOUN/t_c/object} alone.]"
-        ]
-    },
-    "lastinggrief_H2_J3": {
-        "y_c": {
-            "condition": [
-                "deaf:any:false"
-            ],
-            "shunned": true
-        },
-        "t_c": {
-            "condition": [
-                "deaf:any:false",
-                "grief stricken"
-            ],
-            "shunned": true
+            "shunned": "any"
         },
         "intro": [
             "[t_c has a far off look in {PRONOUN/t_c/poss} eye.]",
@@ -3489,13 +3311,14 @@
     },
     "starclan_guide_c": {
         "y_c": {
-            "status": [
-                "guide"
-            ]
+            "shunned": "any"
         },
         "t_c": {
             "dead": [
                 "sc"
+            ],
+            "status": [
+                "guide"
             ]
         },
         "intro": [
@@ -3505,6 +3328,7 @@
     },
     "df_guide_c": {
         "y_c": {
+            "shunned": "any",
             "status": [
                 "guide"
             ]
@@ -3512,6 +3336,9 @@
         "t_c": {
             "dead": [
                 "df"
+            ],
+            "status": [
+                "guide"
             ]
         },
         "intro": [
@@ -3600,12 +3427,14 @@
         "y_c": {
             "condition": [
                 "deaf:any:true"
-            ]
+            ],
+            "shunned": "any"
         },
         "t_c": {
             "condition": [
                 "deaf:any:false"
-            ]
+            ],
+            "shunned": "any"
         },
         "relationship": [
             "littermate"
@@ -3883,12 +3712,14 @@
         "y_c": {
             "condition": [
                 "deaf:any:true"
-            ]
+            ],
+            "shunned": "any"
         },
         "t_c": {
             "condition": [
                 "deaf:any:false"
-            ]
+            ],
+            "shunned": "any"
         },
         "relationship": [
             "min_platonic_40"
@@ -3903,7 +3734,8 @@
         "y_c": {
             "condition": [
                 "deaf:any:true"
-            ]
+            ],
+            "shunned": "any"
         },
         "t_c": {
             "age": [
@@ -3911,7 +3743,8 @@
             ],
             "condition": [
                 "deaf:any:false"
-            ]
+            ],
+            "shunned": "any"
         },
         "intro": [
             "[t_c's always seemed to have the heaviest gait. You swear you can feel {PRONOUN/t_c/object} from across the camp!]",
@@ -3922,12 +3755,14 @@
         "y_c": {
             "condition": [
                 "deaf:any:true"
-            ]
+            ],
+            "shunned": "any"
         },
         "t_c": {
             "condition": [
                 "deaf:any:false"
-            ]
+            ],
+            "shunned": "any"
         },
         "intro": [
             "[You watch t_c knead the ground. What's got {PRONOUN/t_c/object} so excited today?]"
@@ -3995,7 +3830,8 @@
             "cluster": [
                 "unabashed",
                 "silly",
-                "neurotic"
+                "neurotic",
+                "assertive"
             ],
             "age": [
                 "not_kitten"
@@ -4004,9 +3840,7 @@
         "relationship": [
             "min_platonic_25"
         ],
-        "tags": [
-            "they_asseritve"
-        ],
+        "tags": [],
         "intro": [
             "You ever notice how plike-r_c-introspective doesn't say much, but when {PRONOUN/plike-r_c-introspective/subject} {VERB/plike-r_c-introspective/do/does}, it's, like, the smartest thing you've ever heard?",
             "I swear, {PRONOUN/plike-r_c-introspective/subject}{VERB/plike-r_c-introspective/'re/'s} like a StarClan cat reincarnated, {PRONOUN/plike-r_c-introspective/subject}{VERB/plike-r_c-introspective/'re/'s} so wise. If I had a brain like that, I wouldn't be able to stand living in this Clan, every other cat would seem so mouse-brained!",
@@ -4178,7 +4012,7 @@
         "intro": [
             "dislike-l_n-neurotic is a little too... sensitive, don't you think?",
             "Leaders should be strong! Unyielding! dislike-l_n-neurotic would lie down and let the other leaders walk all over {PRONOUN/dislike-l_n-neurotic/object} if they just asked.",
-            "{PRONOUN/dislike-l_n-neurotic/subject/CAP} {VERB/dislike-l_n-neurotic/make/makes} c_nClan seem weak."
+            "{PRONOUN/dislike-l_n-neurotic/subject/CAP} {VERB/dislike-l_n-neurotic/make/makes} c_n seem weak."
         ]
     },
     "about_neurotic_SQ7": {
@@ -4236,7 +4070,7 @@
         "intro": [
             "I like having a leader who's a bit more cautious.",
             "Leaders who jump into every decision paws-first are all well and good, but they leave more room for mistakes.",
-            "At least with trust-l_n-neurotic, I trust {PRONOUN/trust-l_n-neurotic/subject}{VERB/trust-l_n-neurotic/'ve/'s} fully thought through whether a choice is best for c_nClan."
+            "At least with trust-l_n-neurotic, I trust {PRONOUN/trust-l_n-neurotic/subject}{VERB/trust-l_n-neurotic/'ve/'s} fully thought through whether a choice is best for c_n."
         ]
     },
     "about_neurotic_SQ9": {
@@ -4389,14 +4223,15 @@
         "y_c": {
             "condition": [
                 "blind:any:false"
-            ]
+            ],
+            "shunned": "any"
         },
         "t_c": {
             "condition": [
                 "blind:any:false",
                 "grief stricken"
             ],
-            "shunned": true
+            "shunned": "any"
         },
         "relationship": [
             "grievingyou"
@@ -4408,12 +4243,14 @@
         ]
     },
     "shunned_grievingyou_H2": {
-        "y_c": {},
+        "y_c": {
+            "shunned": "any"
+        },
         "t_c": {
             "condition": [
                 "grief stricken"
             ],
-            "shunned": true
+            "shunned": "any"
         },
         "relationship": [
             "grievingyou"
@@ -4424,12 +4261,14 @@
         ]
     },
     "shunned_grievingyou_Guy1": {
-        "y_c": {},
+        "y_c": {
+            "shunned": "any"
+        },
         "t_c": {
             "condition": [
                 "grief stricken"
             ],
-            "shunned": true
+            "shunned": "any"
         },
         "relationship": [
             "grievingyou"
@@ -4443,7 +4282,8 @@
         "y_c": {
             "condition": [
                 "grief stricken"
-            ]
+            ],
+            "shunned": "any"
         },
         "t_c": {
             "cluster": [
@@ -4468,14 +4308,15 @@
                 "blind:any:false",
                 "deaf:any:false",
                 "grief stricken"
-            ]
+            ],
+            "shunned": "any"
         },
         "t_c": {
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
             ],
-            "shunned": true
+            "shunned": "any"
         },
         "relationship": [
             "min_platonic_40",
@@ -4491,7 +4332,7 @@
                 "blind:any:false",
                 "deaf:any:false"
             ],
-            "shunned": true
+            "shunned": "any"
         },
         "t_c": {
             "condition": [
@@ -4499,7 +4340,7 @@
                 "deaf:any:false",
                 "grief stricken"
             ],
-            "shunned": true
+            "shunned": "any"
         },
         "relationship": [
             "grievingyou"
@@ -4516,106 +4357,14 @@
                 "deaf:any:false",
                 "grief stricken"
             ],
-            "shunned": true
+            "shunned": "any"
         },
         "t_c": {
             "condition": [
                 "blind:any:false",
                 "deaf:any:false"
             ],
-            "shunned": true
-        },
-        "relationship": [
-            "grievingthem"
-        ],
-        "intro": [
-            "[You smell t_c nearby while trying to get to sleep.]",
-            "[You don't lift your head. You must be hallucinating in your grief.]"
-        ]
-    },
-    "grievingyou_shunned_J3": {
-        "y_c": {
-            "condition": [
-                "blind:any:false",
-                "deaf:any:false"
-            ],
-            "shunned": true
-        },
-        "t_c": {
-            "condition": [
-                "blind:any:false",
-                "deaf:any:false",
-                "grief stricken"
-            ]
-        },
-        "relationship": [
-            "grievingyou"
-        ],
-        "intro": [
-            "[t_c gets up and runs as soon as you approach, {PRONOUN/t_c/poss} fear-scent hanging in the air.]",
-            "[Perhaps no one warned {PRONOUN/t_c/object} that you're back...]"
-        ]
-    },
-    "grievingyou_shunned_J4": {
-        "y_c": {
-            "condition": [
-                "blind:any:false",
-                "deaf:any:false",
-                "grief stricken"
-            ],
-            "shunned": true
-        },
-        "t_c": {
-            "condition": [
-                "blind:any:false",
-                "deaf:any:false"
-            ]
-        },
-        "relationship": [
-            "grievingthem"
-        ],
-        "intro": [
-            "[You smell t_c nearby while trying to get to sleep.]",
-            "[You don't lift your head. You must be hallucinating in your grief.]"
-        ]
-    },
-    "grievingyou_shunned_J5": {
-        "y_c": {
-            "condition": [
-                "blind:any:false",
-                "deaf:any:false"
-            ]
-        },
-        "t_c": {
-            "condition": [
-                "blind:any:false",
-                "deaf:any:false",
-                "grief stricken"
-            ],
-            "shunned": true
-        },
-        "relationship": [
-            "grievingyou"
-        ],
-        "intro": [
-            "[t_c gets up and runs as soon as you approach, {PRONOUN/t_c/poss} fear-scent hanging in the air.]",
-            "[Perhaps no one warned {PRONOUN/t_c/object} that you're back...]"
-        ]
-    },
-    "grievingyou_shunned_J6": {
-        "y_c": {
-            "condition": [
-                "blind:any:false",
-                "deaf:any:false",
-                "grief stricken"
-            ]
-        },
-        "t_c": {
-            "condition": [
-                "blind:any:false",
-                "deaf:any:false"
-            ],
-            "shunned": true
+            "shunned": "any"
         },
         "relationship": [
             "grievingthem"
@@ -4629,13 +4378,15 @@
         "y_c": {
             "condition": [
                 "deaf:any:false"
-            ]
+            ],
+            "shunned": "any"
         },
         "t_c": {
             "condition": [
                 "deaf:any:false",
                 "grief stricken"
-            ]
+            ],
+            "shunned": "any"
         },
         "relationship": [
             "grievingyou",
@@ -4649,7 +4400,8 @@
         "y_c": {
             "condition": [
                 "deaf:any:false"
-            ]
+            ],
+            "shunned": "any"
         },
         "t_c": {
             "condition": [
@@ -4673,12 +4425,14 @@
             "condition": [
                 "deaf:any:true",
                 "grief stricken"
-            ]
+            ],
+            "shunned": "any"
         },
         "t_c": {
             "condition": [
                 "deaf:any:false"
-            ]
+            ],
+            "shunned": "any"
         },
         "relationship": [
             "grievingthem",
@@ -4689,30 +4443,6 @@
             "[You bunts heads with t_c and stay like that for a while, signing for {PRONOUN/t_c/object} to never leave you like that again.]"
         ]
     },
-    "gen_grievingthem_H2": {
-        "y_c": {
-            "condition": [
-                "deaf:any:true",
-                "grief stricken"
-            ]
-        },
-        "t_c": {
-            "condition": [
-                "deaf:any:false"
-            ],
-            "dead": [
-                "any"
-            ]
-        },
-        "relationship": [
-            "grievingthem",
-            "min_platonic_20"
-        ],
-        "intro": [
-            "[You rush over to t_c, overjoyed to see {PRONOUN/t_c/object} once again.]",
-            "[You bunts heads with t_c and stay like that for a while, signing for {PRONOUN/t_c/object} to never leave you like that again.]"
-        ]
-    },
     "dead_to_blind_J3": {
         "y_c": {
             "condition": [
@@ -4720,7 +4450,8 @@
             ],
             "dead": [
                 "any"
-            ]
+            ],
+            "shunned": "any"
         },
         "t_c": {
             "condition": [
@@ -4743,7 +4474,8 @@
             "condition": [
                 "deaf:any:false",
                 "grief stricken"
-            ]
+            ],
+            "shunned": "any"
         },
         "intro": [
             "[t_c doesn't know how loud {PRONOUN/t_c/poss} cries are. You want to comfort {PRONOUN/t_c/object}, but you know that you'd be the last cat {PRONOUN/t_c/subject}'d want comfort from right now.]"
@@ -4759,7 +4491,8 @@
             "condition": [
                 "blind:any:false",
                 "grief stricken"
-            ]
+            ],
+            "shunned": "any"
         },
         "intro": [
             "[t_c's ears twitch as you approach.]",
@@ -4771,7 +4504,7 @@
             "condition": [
                 "deaf:any:false"
             ],
-            "shunned": true
+            "shunned": "any"
         },
         "t_c": {
             "condition": [
@@ -4782,8 +4515,8 @@
                 "max_they_deadfor_5"
             ]
         },
-        "tags": [
-            "murdered_them"
+        "relationship": [
+            "murderedthem"
         ],
         "intro": [
             "[Though dead, t_c pretends to sleep - ignoring your presence.]"
@@ -4795,7 +4528,8 @@
                 "blind:any:false",
                 "deaf:any:false",
                 "grief stricken"
-            ]
+            ],
+            "shunned": "any"
         },
         "t_c": {
             "condition": [
@@ -4821,7 +4555,8 @@
                 "blind:any:false",
                 "deaf:any:false",
                 "grief stricken"
-            ]
+            ],
+            "shunned": "any"
         },
         "t_c": {
             "condition": [
@@ -4895,8 +4630,8 @@
                 "max_they_deadfor_5"
             ]
         },
-        "tags": [
-            "murdered_them"
+        "relationship": [
+            "murderedthem"
         ],
         "intro": [
             "[t_c, once catching sight of your presence, turns tail and goes off to disappear within the surrounding mist.]"
@@ -4910,7 +4645,8 @@
             "condition": [
                 "deaf:any:false",
                 "grief stricken"
-            ]
+            ],
+            "shunned": "any"
         },
         "intro": [
             "[t_c makes it obvious that {PRONOUN/t_c/subject} {VERB/t_c/do/does} not want to talk. {PRONOUN/t_c/subject/CAP} {VERB/t_c/huff/huffs} heavily and {VERB/t_c/turn/turns} {PRONOUN/t_c/poss} head away.]"
@@ -4961,7 +4697,8 @@
                 "blind:any:false",
                 "deaf:any:false",
                 "grief stricken"
-            ]
+            ],
+            "shunned": "any"
         },
         "intro": [
             "[You bump into t_c's shaking body as you're walking, but {PRONOUN/t_c/subject} quickly {VERB/t_c/flinch/flinches} away."
@@ -5035,12 +4772,14 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:true"
-            ]
+            ],
+            "shunned": "any"
         },
         "t_c": {
             "condition": [
                 "blind:any:false"
-            ]
+            ],
+            "shunned": "any"
         },
         "relationship": [
             "min_platonic_15"
@@ -5055,12 +4794,14 @@
             "condition": [
                 "blind:any:false",
                 "deaf:any:true"
-            ]
+            ],
+            "shunned": "any"
         },
         "t_c": {
             "condition": [
                 "blind:any:true"
-            ]
+            ],
+            "shunned": "any"
         },
         "intro": [
             "[t_c creeps up behind you and scares the fur off your body.]",
@@ -5077,7 +4818,8 @@
             "condition": [
                 "blind:any:false",
                 "grief stricken"
-            ]
+            ],
+            "shunned": "any"
         },
         "relationship": [
             "min_comfort_5"
@@ -5092,7 +4834,8 @@
             "condition": [
                 "blind:any:false",
                 "grief stricken"
-            ]
+            ],
+            "shunned": "any"
         },
         "t_c": {
             "condition": [
@@ -5122,51 +4865,7 @@
                 "deaf:any:false"
             ],
             "dead": [
-                "df"
-            ]
-        },
-        "intro": [
-            "[t_c doesn't acknowledge you, but {PRONOUN/t_c/subject} {VERB/t_c/don't/doesn't} chase you away either.]"
-        ]
-    },
-    "dead_grieving_shunned_blind_H3": {
-        "y_c": {
-            "condition": [
-                "blind:any:false",
-                "deaf:any:false",
-                "grief stricken"
-            ],
-            "shunned": true
-        },
-        "t_c": {
-            "condition": [
-                "blind:any:false",
-                "deaf:any:false"
-            ],
-            "dead": [
-                "sc"
-            ]
-        },
-        "intro": [
-            "[t_c doesn't acknowledge you, but {PRONOUN/t_c/subject} {VERB/t_c/don't/doesn't} chase you away either.]"
-        ]
-    },
-    "dead_grieving_shunned_blind_H4": {
-        "y_c": {
-            "condition": [
-                "blind:any:false",
-                "deaf:any:false",
-                "grief stricken"
-            ],
-            "shunned": true
-        },
-        "t_c": {
-            "condition": [
-                "blind:any:false",
-                "deaf:any:false"
-            ],
-            "dead": [
-                "ur"
+                "any"
             ]
         },
         "intro": [
@@ -5186,11 +4885,412 @@
             "condition": [
                 "deaf:any:false",
                 "grief stricken"
-            ]
+            ],
+            "shunned": "any"
         },
         "intro": [
             "[t_c notices you hovering in the distance and frowns.]",
             "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/turn/turns} away, ignoring your presence.]"
+        ]
+    },
+    "condition_J5": {
+        "y_c": {},
+        "t_c": {
+            "condition": [
+                "shivering",
+                "blind:any:false"
+            ],
+            "shunned": "any"
+        },
+        "relationship": [
+            "min_platonic_30"
+        ],
+        "intro": [
+            "y_c! Come here!",
+            "[t_c tackles you to the ground in the middle of camp.]",
+            "I'm still shivering. You have to cuddle with me-- medicine cat's orders!"
+        ]
+    },
+    "condition_J7": {
+        "y_c": {
+            "condition": [
+                "deaf:any:false"
+            ],
+            "shunned": "any"
+        },
+        "t_c": {
+            "condition": [
+                "shock",
+                "deaf:any:false"
+            ],
+            "shunned": "any"
+        },
+        "intro": [
+            "[During mealtime, t_c stares at the mouse in front of {PRONOUN/t_c/object}, face completely blank.]"
+        ]
+    },
+    "condition_J8": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "shunned": "any"
+        },
+        "t_c": {
+            "condition": [
+                "scrapes",
+                "bruises",
+                "small cut",
+                "sore",
+                "blind:any:false"
+            ],
+            "cluster": [
+                "silly",
+                "unlawful"
+            ]
+        },
+        "relationship": [
+            "min_platonic_20"
+        ],
+        "intro": [
+            "StarClan, help me! Dealing with this horrible injury... it's a fate worse than death!",
+            "I can feel myself slipping away... y_c, tell t_m I love {PRONOUN/t_m/object}...",
+            "[t_c flops into {PRONOUN/t_c/poss} nest dramatically.]",
+            "|t_m|Honey, I'm right here. You're not dying.",
+            "Oh. I'm not? That's a relief. Love you!"
+        ]
+    },
+    "condition_J9": {
+        "y_c": {
+            "shunned": "any"
+        },
+        "t_c": {
+            "condition": [
+                "bee sting",
+                "blind:any:false"
+            ],
+            "cluster": [
+                "brooding"
+            ],
+            "age": [
+                "not_kitten"
+            ],
+            "shunned": "any"
+        },
+        "intro": [
+            "[You stifle a laugh as t_c walks past, {PRONOUN/t_c/poss} muzzle still swollen from {PRONOUN/t_c/poss} bee sting.]",
+            "What, y_c? Is something funny to you?",
+            "... Didn't think so."
+        ]
+    },
+    "condition_J10": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "stomachache",
+                "blind:any:false"
+            ],
+            "cluster": [
+                "silly"
+            ]
+        },
+        "intro": [
+            "Have you heard I have a stomachache? I do. And I'm being very brave about it.",
+            "[Everyone in camp has heard about t_c's stomachache. At least twice.]"
+        ]
+    },
+    "severeheadache_rad1": {
+        "y_c": {
+            "shunned": "any"
+        },
+        "t_c": {
+            "condition": [
+                "severe headache",
+                "deaf:any:false"
+            ],
+            "shunned": "any"
+        },
+        "intro": [
+            "[t_c pulls a wad of moss over {PRONOUN/t_c/poss} eyes with a whimper, like {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} trying to block out the light.]"
+        ]
+    },
+    "heat_conditions_SQ6": {
+        "season": [
+            "greenleaf"
+        ],
+        "y_c": {
+            "status": [
+                "not_kitten"
+            ],
+            "condition": [
+                "deaf:any:false"
+            ],
+            "shunned": "any"
+        },
+        "t_c": {
+            "condition": [
+                "heat exhaustion",
+                "heat stroke",
+                "deaf:any:false",
+                "blind:any:false"
+            ],
+            "shunned": "any"
+        },
+        "intro": [
+            "[Today, a gentle wind disrupts the thick greenleaf heat. r_m made sure that t_c's nest is as close to the medicine den entrance as it can be without being in the sun, so t_c can feel the breeze.]",
+            "[t_c is resting, {PRONOUN/t_c/poss} eyes closed. As the wind ruffles {PRONOUN/t_c/poss} fur, you could swear you see {PRONOUN/t_c/poss} breathing become a bit less labored.]"
+        ]
+    },
+    "coughing_SQ3": {
+        "y_c": {
+            "shunned": "any"
+        },
+        "t_c": {
+            "condition": [
+                "yellowcough",
+                "greencough",
+                "kittencough",
+                "whitecough",
+                "redcough",
+                "blind:any:false"
+            ]
+        },
+        "intro": [
+            "[t_c's hacking coughs resonate through the medicine den. neutral-r_m-neurotic winces and runs to {PRONOUN/t_c/poss} side.",
+            "|neutral-r_m-neurotic|Here, try these herbs, and I'll get more honey for your throat. Could you, uh, try to cough away from me, though? Thanks."
+        ]
+    },
+    "torne_sam1": {
+        "y_c": {
+            "condition": [
+                "deaf:any:false"
+            ],
+            "status": [
+                "not_newborn"
+            ],
+            "shunned": "any"
+        },
+        "t_c": {
+            "condition": [
+                "torn ear",
+                "deaf:any:false",
+                "blind:any:false"
+            ],
+            "status": [
+                "not_kitten"
+            ],
+            "shunned": "any"
+        },
+        "intro": [
+            "[t_c flicks {PRONOUN/t_c/poss} ear without thinking about it, and winces in pain.]"
+        ]
+    },
+    "starving_sam1": {
+        "y_c": {
+            "condition": [
+                "starving",
+                "blind:any:false"
+            ],
+            "status": [
+                "not_newborn"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "starving"
+            ],
+            "cluster": [
+                "sweet"
+            ],
+            "status": [
+                "not_kitten"
+            ],
+            "shunned": "any"
+        },
+        "intro": [
+            "Oh, you look really hungry...",
+            "[t_c nudges {PRONOUN/t_c/poss} piece of prey towards you.]",
+            "Have my prey.",
+            "Yes, I'm sure. You need it more than I do."
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "Take the prey",
+                "next_scene": "take"
+            },
+            "choice2": {
+                "text": "Decline",
+                "next_scene": "nuh_uh"
+            }
+        },
+        "take": [
+            "[You take the prey, despite t_c being starving {PRONOUN/t_c/self}.]",
+            "I'll find another piece of prey."
+        ],
+        "nuh_uh": [
+            "[You argue, saying that t_c is starving too and that {PRONOUN/t_c/subject} should eat {PRONOUN/t_c/poss} own prey.]",
+            "No, please! Take it! I told you, you need it more than I do."
+        ],
+        "nuh_uh_choices": {
+            "choice1": {
+                "text": "Relent",
+                "next_scene": "take"
+            },
+            "choice2": {
+                "text": "Continue to refuse",
+                "next_scene": "fine"
+            }
+        },
+        "fine": [
+            "Okay.. If you're sure.."
+        ]
+    },
+    "dead_new_J1": {
+        "y_c": {
+            "forgiven": true
+        },
+        "t_c": {
+            "age": ["not_kitten", "not_adolescent"],
+            "dead": ["sc"],
+            "cluster": ["cool", "brooding", "assertive"]
+        },
+        "intro": [
+            "Don't get friendly with me. You think StarClan will forgive your transgressions so easily?",
+            "You have more work to do."
+        ]
+    },
+    "sh_to_sh_J1": {
+        "y_c": {
+            "shunned": "any",
+            "condition": ["deaf:any:false", "blind:any:false"]
+        },
+        "t_c": {
+            "shunned": "any",
+            "condition": ["deaf:any:false", "blind:any:false"]
+        },
+        "intro": [
+            "[Bored, you kick a pebble across the clearing. t_c, who happened to be sitting closeby, catches the pebble as it rolls next to {PRONOUN/t_c/object}.]",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/pass/passes} it back, and you end up in a decently spirited back-and-forth game, passing the stone in between the paws of warriors passing through camp.]"
+        ]
+    },
+    "sh_to_sh_J2": {
+        "y_c": {
+            "shunned": "any",
+            "condition": ["deaf:any:false", "blind:any:false"]
+        },
+        "t_c": {
+            "shunned": "any",
+            "condition": ["deaf:any:false", "blind:any:false"]
+        },
+        "intro": [
+            "[When you settle into your nest for the night, you feel a stone under your haunches.]",
+            "[When you go to remove the disturbance, you notice it's covered in the scent of t_c.]",
+            "[A rather underwhelming prank, but a slight nonetheless. You'll be sure to get {PRONOUN/t_c/object} back for this transgression.]"
+        ]
+    },
+    "no_newborn_brooding_SQ1": {
+        "season": ["newleaf", "greenleaf"],
+        "t_c": {
+            "status": ["not_kitten"],
+            "cluster": ["brooding"],
+            "skill": ["ARTISTAN,1"]
+        },
+        "relationship": ["max_platonic_30"],
+        "intro": [
+            "[There are new flowers decorating the warriors' den! You walk over to inspect them, but hear t_c snap from behind you.]",
+            "Don't touch those flowers, y_c. I've spent ages arranging them.",
+            "[t_c narrows {PRONOUN/t_c/poss} eyes at you until you back away from {PRONOUN/t_c/poss} precious decoration.]"
+        ]
+    },
+    "no_newborn_brooding_SQ2": {
+        "y_c": {
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+            "status": ["not_kitten"],
+            "cluster": ["brooding"],
+            "condition": ["blind:any:false"]
+        },
+        "relationship": ["max_platonic_30"],
+        "intro": [
+            "I can't help you right now. Ask neutral-r_w or somecat.",
+            "...No, I'm not busy. I just want to spend some time alone."
+        ]
+    },
+    "mcgrievingonly_generaldf_H1": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "dead": [
+                "df"
+            ]
+        },
+        "relationship": [],
+        "tags": [],
+        "intro": [
+            "Oh, uh, sorry for your loss?",
+            "I would help you find yg_c, butttt I'm too comfortable in this spot. Sorry!"
+        ]
+    },
+    "mcgrievingonly_generaldf_H2": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "dead": [
+                "any"
+            ]
+        },
+        "relationship": [
+            "murderedthem",
+            "grievingthem"
+        ],
+        "tags": [],
+        "intro": [
+            "Wait, why are you grieving me? Did you regret your decision to murder me or something?",
+            "Hey, wait! Don't tell me you're trying to guilt trip me!"
+        ]
+    },
+    "mcgrievingonly_generaldf_H3": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "dead": [
+                "df"
+            ]
+        },
+        "relationship": [
+            "grievingthem"
+        ],
+        "tags": [],
+        "intro": [
+            "t_c, don't be sad. You can still talk to me! Think of that as a blessing.",
+            "Besides, the Dark Forest isn't as bad as they say. Yeah, it's goopy and kinda gross and everycat is always fighting over something...",
+            "But it's cool!"
         ]
     }
 }

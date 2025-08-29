@@ -37,6 +37,7 @@ from .GiftScreen import GiftScreen
 from .CureLogScreen import CureLogScreen
 from .TreatmentScreen import TreatmentScreen
 from .PriorityHerbScreen import PriorityHerbScreen
+from .ElderStoryScreen import ElderStoryScreen
 
 # ---------------------------------------------------------------------------- #
 #                                  UI RULES                                    #
@@ -107,6 +108,7 @@ class AllScreens:
     queen_screen = QueenScreen("queen screen")
     moonplace_screen = MoonplaceScreen("moonplace screen")
     gift_screen = GiftScreen("gift screen")
+    elder_screen = ElderStoryScreen("elder story screen")
 
     # INFECTION
     cure_log_screen = CureLogScreen('cure log screen')
@@ -162,6 +164,7 @@ class AllScreens:
         cls.queen_screen = QueenScreen("queen screen")
         cls.moonplace_screen = MoonplaceScreen("moonplace screen")
         cls.gift_screen = GiftScreen("gift screen")
+        cls.elder_screen = ElderStoryScreen("elder story screen")
 
         # INFECTION
         cls.cure_log_screen = CureLogScreen('cure log screen')

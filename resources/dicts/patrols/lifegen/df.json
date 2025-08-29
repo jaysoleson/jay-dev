@@ -3199,7 +3199,7 @@
             "tags": [
                 "df"
             ],
-            "patrol_art": "life_df_og11",
+            "patrol_art": "life_df_ant5",
             "min_cats": 1,
             "max_cats": 1,
             "min_max_status": {},
@@ -3492,7 +3492,7 @@
             ],
             "antag_success_outcomes": [
                 {
-                    "text": "You lunge forward, leaving a wound across the apprentice's eye before they can even react. Even if you've been shunned in your own Clan, you harshly remind them that that doesn't apply here, and they'd better not talk back to you, or else. The Dark Forest cat, rdf_c_brooding, catches your eye from afar and gives you a small nod of approval.",
+                    "text": "You lunge forward, leaving a wound across the apprentice's eye before they can even react. Even if you've been shunned in your own Clan, you harshly remind them that that doesn't apply here, and they'd better not talk back to you, or else. The Dark Forest cat, rdf_c-brooding, catches your eye from afar and gives you a small nod of approval.",
                     "exp": 30,
                     "weight": 20
                 }

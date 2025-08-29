@@ -595,7 +595,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "lg_warrior_default",
+        "patrol_art": "life_warrior_og5",
         "min_cats": 1,
         "max_cats": 2,
         "min_max_status": {},
@@ -711,7 +711,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "lg_warrior_default",
+        "patrol_art": "life_warrior_og7",
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
@@ -816,7 +816,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "lg_warrior_default",
+        "patrol_art": "life_warrior_og10",
         "min_cats": 1,
         "max_cats": 3,
         "min_max_status": {},
@@ -851,7 +851,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "lg_warrior_default",
+        "patrol_art": "life_warrior_og11",
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
@@ -886,7 +886,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "lg_warrior_default",
+        "patrol_art": "life_warrior_og12",
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
@@ -1269,7 +1269,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "lg_warrior_default",
+        "patrol_art": "life_warrior_og18",
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
@@ -1304,7 +1304,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "lg_warrior_default",
+        "patrol_art": "life_warrior_og19",
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
@@ -1454,7 +1454,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "lg_warrior_default",
+        "patrol_art": "life_warrior_og21",
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
@@ -1489,7 +1489,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "lg_warrior_default",
+        "patrol_art": "life_warrior_og22",
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},

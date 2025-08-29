@@ -131,6 +131,8 @@ class GenerateEvents:
                             new_event["event_id"] = f"{count}faith_{faith_event['event_id']}"
                             new_events_dict.append(new_event)
 
+                if not new_events_dict:
+                    new_events_dict = events_dict
                 for event in new_events_dict:
                     event_text = event["event_text"] if "event_text" in event else None
                     if not event_text:
@@ -471,7 +473,7 @@ class GenerateEvents:
                     continue
                 if cat.moons <= 14 + cat.age_moons["kitten"][1]:
                     continue
-                if any(Cat_class.fetch_cat(i).no_kits for i in cat.mate):
+                if any(Cat_class.fetch_cat(i).no_kits for i in cat.mates):
                     continue
 
             # check for old age

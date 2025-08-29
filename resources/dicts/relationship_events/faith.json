@@ -751,7 +751,7 @@
         "faith_effect": 0.5,
         "interactions": [
             "m_c prayed to StarClan that r_c would give {PRONOUN/m_c/poss} a badger ride, and r_c did!",
-            "It took a lot of asking, but m_c managed to convince r_w to tell {PRONOUN/m_c/object} a story about StarClan!",
+            "It took a lot of asking, but m_c managed to convince r_c to tell {PRONOUN/m_c/object} a story about StarClan!",
             "r_c told a story about a StarClan warrior that enchanted m_c.",
             "After having a bad dream, r_c reassures m_c that the stars are watching out for {PRONOUN/m_c/object}.",
             "When m_c is unable to sleep one night, r_c sits with {PRONOUN/m_c/object}, pointing out the stars to {PRONOUN/m_c/object} until m_c falls asleep."

@@ -1764,5 +1764,10 @@
     "default": "zookeeper outfit",
     "plural": "zookeeper outfits",
     "singular": "zookeeper outfit"
+  },
+  "MOONHAT": {
+    "default": "moonhat",
+    "plural": "moonhats",
+    "singular": "moonhat"
   }
 }

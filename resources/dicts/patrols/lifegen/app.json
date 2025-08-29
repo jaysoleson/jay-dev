@@ -40,7 +40,7 @@
                 ]
             },
             {
-                "text": "You're y_c - you never give less than your absolute best! m_n is found again and again and again... Until {PRONOUN/m_n/subject}{VERB/m_n/'re/'s} more worn out than you. Your head is held high on the way back to camp. You can't wait to tell your denmates all about your skills again!",
+                "text": "You're p_l - you never give less than your absolute best! m_n is found again and again and again... Until {PRONOUN/m_n/subject}{VERB/m_n/'re/'s} more worn out than you. Your head is held high on the way back to camp. You can't wait to tell your denmates all about your skills again!",
                 "exp": 10,
                 "weight": 20,
                 "stat_trait": [
@@ -557,7 +557,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "app_default",
+        "patrol_art": "lifegen_app6",
         "min_cats": 1,
         "max_cats": 2,
         "min_max_status": {},
@@ -822,7 +822,7 @@
                 "weight": 20
             },
             {
-                "text": "Swimming! You're a master at that! Without hesitation you dive in and show off your skills. m_n/CAP} {VERB/m_n/joke/jokes} that {PRONOUN/m_n/subject} should learn from you instead of teaching you!",
+                "text": "Swimming! You're a master at that! Without hesitation you dive in and show off your skills. m_n jokes that {PRONOUN/m_n/subject} should learn from you instead of teaching you!",
                 "exp": 10,
                 "weight": 20,
                 "stat_trait": [
@@ -865,7 +865,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "app_default",
+        "patrol_art": "lifegen_app_10",
         "min_cats": 1,
         "max_cats": 3,
         "min_max_status": {},
@@ -923,7 +923,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "app_default",
+        "patrol_art": "lifegen_app11",
         "min_cats": 1,
         "max_cats": 2,
         "min_max_status": {},
@@ -1181,7 +1181,7 @@
         "chance_of_success": 55,
         "success_outcomes": [
             {
-                "text": "You reassure r_a that it's alright and the two of you manage to share a good laugh about it. After your mentors are ready for you to continue, the training session turns out to be a fun one! Your bond with {PRONOUN/r_a/subject} grows even if you're both exhausted in the end.",
+                "text": "You reassure r_a that it's alright and the two of you manage to share a good laugh about it. After your mentors are ready for you to continue, the training session turns out to be a fun one! Your bond with {PRONOUN/r_a/object} grows even if you're both exhausted in the end.",
                 "exp": 5,
                 "weight": 20
             },
@@ -1882,7 +1882,7 @@
         "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "Although it's one of the worst duties an apprentice can be assigned, the task you have been given must be done. As you clean out the flea-infested moss r_e tell you an enthralling tale of daring acts and courageous moments to keep up your good spirits. It turns out that the task wasn't as bad as you thought! You thankfully don't bring any back with you either.",
+                "text": "Although it's one of the worst duties an apprentice can be assigned, the task you have been given must be done. As you clean out the flea-infested moss r_e tells you an enthralling tale of daring acts and courageous moments to keep up your good spirits. It turns out that the task wasn't as bad as you thought! You thankfully don't bring any back with you either.",
                 "exp": 10,
                 "weight": 20
             }

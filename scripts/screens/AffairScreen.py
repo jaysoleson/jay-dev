@@ -254,7 +254,7 @@ class AffairScreen(Screens):
             if self.get_fail_consequence() == 0:
                 ceremony_txt = self.adjust_txt(
                     choice(self.mu_txt['fail breakup']), affair_cat)
-                for i in game.clan.your_cat.mate:
+                for i in game.clan.your_cat.mates:
                     Cat.fetch_cat(i).get_ill("heartbroken")
                     Cat.fetch_cat(i).unset_mate(game.clan.your_cat)
                     Cat.fetch_cat(i).relationships.get(
@@ -270,7 +270,7 @@ class AffairScreen(Screens):
                 ceremony_txt = self.adjust_txt(
                     choice(self.mu_txt['fail none']), affair_cat)
                 game.cur_events_list.insert(1, Single_Event(ceremony_txt))
-                for i in game.clan.your_cat.mate:
+                for i in game.clan.your_cat.mates:
                     Cat.fetch_cat(i).relationships.get(
                         game.clan.your_cat.ID).dislike += randint(affair_relationship_chance_lb, affair_relationship_chance_ub)
                     Cat.fetch_cat(i).relationships.get(
@@ -286,7 +286,7 @@ class AffairScreen(Screens):
     def is_success(self, affair_cat):
         """Calculates affair success rate based on relationships"""
         chance = game.config["affair_success_chance"]
-        for i in game.clan.your_cat.mate:
+        for i in game.clan.your_cat.mates:
             if Cat.fetch_cat(i).relationships.get(game.clan.your_cat.ID).romantic_love > 50:
                 chance -=5
             elif Cat.fetch_cat(i).relationships.get(game.clan.your_cat.ID).romantic_love < 10:
@@ -327,12 +327,12 @@ class AffairScreen(Screens):
         return randint(0, 1)
 
     def adjust_txt(self, txt, affair_cat):
-        random_mate = Cat.fetch_cat(choice(game.clan.your_cat.mate))
+        random_mate = Cat.fetch_cat(choice(game.clan.your_cat.mates))
         while random_mate.dead or random_mate.outside:
-            random_mate = Cat.fetch_cat(choice(game.clan.your_cat.mate))
+            random_mate = Cat.fetch_cat(choice(game.clan.your_cat.mates))
         random_warrior = Cat.fetch_cat(choice(game.clan.clan_cats))
         counter = 0
-        while random_warrior.status != "warrior" or random_warrior.dead or random_warrior.outside or random_warrior.ID == affair_cat.ID or random_warrior.ID in game.clan.your_cat.mate or random_warrior.ID == game.clan.your_cat.ID:
+        while random_warrior.status != "warrior" or random_warrior.dead or random_warrior.outside or random_warrior.ID == affair_cat.ID or random_warrior.ID in game.clan.your_cat.mates or random_warrior.ID == game.clan.your_cat.ID:
             random_warrior = Cat.fetch_cat(choice(game.clan.clan_cats))
             counter += 1
             if counter > 30:
@@ -451,7 +451,7 @@ class AffairScreen(Screens):
                            i, for_love_interest=False,
                            age_restriction=True
                        )
-                       and i.ID not in self.the_cat.mate
+                       and i.ID not in self.the_cat.mates
                        and i.outside == self.the_cat.outside]
 
         return valid_mates

@@ -81,7 +81,7 @@ class Relationship:
             return
 
         # update relationship
-        if self.cat_to.ID in self.cat_from.mate:
+        if self.cat_to.ID in self.cat_from.mates:
             self.mates = True
 
         # check if opposite_relationship is here, otherwise creates it

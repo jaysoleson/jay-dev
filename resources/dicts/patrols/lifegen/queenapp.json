@@ -11,7 +11,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "lg_queenapp_default",
+        "patrol_art": "life_qapp_og1",
         "min_cats": 1,
         "max_cats": 3,
         "min_max_status": {},
@@ -289,7 +289,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "lg_queenapp_default",
+        "patrol_art": "life_qapp_og4",
         "min_cats": 1,
         "max_cats": 3,
         "min_max_status": {},
@@ -391,7 +391,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "lg_queenapp_default",
+        "patrol_art": "life_qapp_R1",
         "min_cats": 1,
         "max_cats": 3,
         "min_max_status": {},

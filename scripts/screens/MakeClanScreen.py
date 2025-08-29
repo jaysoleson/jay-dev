@@ -608,6 +608,10 @@ class MakeClanScreen(Screens):
                 return
             self.your_cat.name.prefix = new_name
 
+            while self.your_cat.name.prefix.lower() == self.your_cat.name.suffix:
+                print("Prefix and suffix are the same, rerolling suffix...")
+                self.your_cat.name.give_suffix(self.your_cat.pelt, game.clan.biome, None)
+
             if game.switches["customise_new_life"] is True:
                 self.open_clan_saved_screen()
             else:
@@ -3831,7 +3835,7 @@ class MakeClanScreen(Screens):
                     self.your_cat.permanent_condition['born without a leg']["moons_with"] = -1
                     self.your_cat.permanent_condition['born without a leg']['born_with'] = True
                 self.your_cat.pelt.accessories = self.accessories
-                self.your_cat.pelt.inventory = self.accessories
+                self.your_cat.pelt.inventory = self.inventory
                 self.your_cat.personality = Personality(trait=self.personality, kit_trait=True)
                 if self.skill == "Random":
                     self.skill = random.choice(self.skills)
@@ -4158,7 +4162,7 @@ class MakeClanScreen(Screens):
             senior_sprite=self.elder_pose if self.elder_pose > 2 else self.elder_pose + 12,
             reverse=self.reverse,
             accessories=self.accessories,
-            inventory=self.accessories
+            inventory=self.inventory
         )
 
 
@@ -4572,6 +4576,7 @@ class MakeClanScreen(Screens):
                 "#text_box_30_horizcenter"),
             manager=MANAGER
             )
+        
     def delete_example_cats(self):
         """ Deletes the other generated kits so they don't also get added to the Clan """
         key_copy = tuple(Cat.all_cats.keys())
@@ -4602,9 +4607,6 @@ class MakeClanScreen(Screens):
         if ID in game.clan.darkforest_cats:
             game.clan.darkforest_cats.remove(ID)
 
-        self.get_camp_bg()
-
-        scripts.screens.screens_core.screens_core.rebuild_bgs()
 
     def save_clan(self):
         if game.switches["customise_new_life"] is True:
@@ -4616,6 +4618,7 @@ class MakeClanScreen(Screens):
         else:
             self.handle_create_other_cats()
             game.mediated.clear()
+            game.told_story.clear()
             game.patrolled.clear()
             game.dated_cats.clear()
             game.cat_to_fade.clear()

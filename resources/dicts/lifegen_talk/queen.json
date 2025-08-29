@@ -1682,9 +1682,6 @@
             ],
             "age": [
                 "not_kitten"
-            ],
-            "status": [
-                "clan_has_kits"
             ]
         },
         "tags": [
@@ -3163,7 +3160,7 @@
             ]
         },
         "relationship": [
-            "min_trust_50",
+            "min_trust_20",
             "from_mentor"
         ],
         "tags": [
@@ -4122,6 +4119,50 @@
             "You promise to stop crying if I tell you?",
             "Alright. The secret is...",
             "The mushrooms in camp are secretly edible."
+        ]
+    },
+    "sick_queen_J1": {
+        "y_c": {
+            "age": [
+                "not_kitten"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "queen"
+            ],
+            "condition": [
+                "illness:any",
+                "injury:any"
+            ]
+        },
+        "tags": [
+            "clan_has_kits"
+        ],
+        "intro": [
+            "y_c, could you take a moment to look after r_k? Just for a little bit? I really need to rest, and {PRONOUN/r_k/subject}{VERB/r_k/'re/'s} so full of energy today..."
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "No",
+                "next_scene": "kits_no"
+            },
+            "choice2": {
+                "text": "Yes",
+                "next_scene": "kits_yes"
+            }
+        },
+        "kits_no": [
+            "Okay... I know you're probably very busy.",
+            "|r_k|t_c! Come watch how fast I can run!",
+            "[The little kit comes barrelling through the nursery. t_c wobbles to {PRONOUN/t_c/poss} paws.]",
+            "Agh... coming!"
+        ],
+        "kits_yes": [
+            "Oh, you're a lifesaver, y_c. Thank you.",
+            "r_k! y_c wants to race you across the clearing!",
+            "|r_k|Really?! You don't stand a chance, y_c!",
+            "|r_k|Ready, set, go!"
         ]
     }
 }

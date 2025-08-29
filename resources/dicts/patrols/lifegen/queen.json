@@ -679,7 +679,7 @@
         "types": [
             "lifegen"
         ],
-        "patrol_art": "lg_queen_default",
+        "patrol_art": "life_queen_R6",
         "min_cats": 1,
         "max_cats": 3,
         "min_max_status": {},

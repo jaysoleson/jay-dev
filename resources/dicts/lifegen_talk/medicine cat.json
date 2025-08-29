@@ -562,7 +562,7 @@
         "intro": [
             "Hey, y_c. I just got a message from StarClan. They told me that you need to pass me that scrap of moss over there.",
             "[You pass the moss to t_c.]",
-            "c_nClan has been saved!"
+            "c_n has been saved!"
         ]
     },
     "cool_medcat_AJ1~2": {
@@ -580,9 +580,6 @@
             ],
             "age": [
                 "not_kitten"
-            ],
-            "status": [
-                "connected"
             ]
         },
         "tags": [
@@ -608,9 +605,6 @@
             ],
             "age": [
                 "not_kitten"
-            ],
-            "status": [
-                "connected"
             ]
         },
         "tags": [
@@ -778,13 +772,10 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "min_plat_35"
             ]
         },
         "tags": [
-            "min_plat_35"
+            "min_platonic_35"
         ],
         "intro": [
             "[t_c hurries a bundle of herbs into the medicine den, brow furrowed and ears pinned back in concentration.]",
@@ -800,14 +791,10 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "min_plat_35",
-                "connected"
             ]
         },
         "tags": [
-            "min_plat_35",
+            "min_platonic_35",
             "connected"
         ],
         "intro": [
@@ -1805,7 +1792,7 @@
             ]
         },
         "intro": [
-            "Do c_nClan a favor and try not to pull any stupid stunts out there today.",
+            "Do c_n a favor and try not to pull any stupid stunts out there today.",
             "The medicine den is crowded enough without cats injuring themselves for foolish reasons."
         ]
     },
@@ -1874,7 +1861,7 @@
             "non-related"
         ],
         "intro": [
-            "[You've heard stories about the mean, grumpy medicine cat of c_nClan, and decide to pay {PRONOUN/t_c/object} a visit.]",
+            "[You've heard stories about the mean, grumpy medicine cat of c_n, and decide to pay {PRONOUN/t_c/object} a visit.]",
             "Tansy, horsetail ...",
             "Hm? y_c?",
             "You ... want to know what I'm doing?",
@@ -1943,7 +1930,7 @@
         "intro": [
             "[You say something to t_c but {PRONOUN/t_c/subject} {VERB/t_c/don't/doesn't} seem to realize.]",
             "What, huh? Oh, sorry y_c, but I'm really busy right now.",
-            "c_nClan is always so sick during these seasons. I'm stressed out trying to get last-minute herbs and remedies prepared.",
+            "c_n is always so sick during these seasons. I'm stressed out trying to get last-minute herbs and remedies prepared.",
             "[t_c looks guilty, but {PRONOUN/t_c/subject} {VERB/t_c/continue/continues} {PRONOUN/t_c/poss} work.]"
         ]
     },
@@ -3087,7 +3074,10 @@
     },
     "medshunned_H2": {
         "y_c": {
-            "shunned": true
+            "shunned": true,
+            "condition": [
+                "illness:any"
+            ]
         },
         "t_c": {
             "shunned": true,
@@ -3101,9 +3091,7 @@
         "relationship": [
             "min_platonic_50"
         ],
-        "tags": [
-            "you_sick"
-        ],
+        "tags": [],
         "intro": [
             "[t_c curls around your sickly body, protecting you from the stares and judgment from the rest of the clan.]",
             "Don't worry. If any of them come close, I'll protect you.",
@@ -3112,7 +3100,10 @@
     },
     "medshunned_H3": {
         "y_c": {
-            "shunned": true
+            "shunned": true,
+            "condition": [
+                "illness:any"
+            ]
         },
         "t_c": {
             "shunned": true,
@@ -3124,9 +3115,7 @@
         "relationship": [
             "min_dislike_50"
         ],
-        "tags": [
-            "you_sick"
-        ],
+        "tags": [],
         "intro": [
             "[t_c reluctantly shoves a few herbs into your paws, looking away.]",
             "Stop. Don't say anything. I may dislike you, but it really pains me to see you suffer.",
@@ -3516,7 +3505,7 @@
         "intro": [
             "[t_c gazes around the medicine den, admiring the stockpiled herbs. When {PRONOUN/t_c/subject} {VERB/t_c/see/sees} you, {PRONOUN/t_c/subject} {VERB/t_c/smile/smiles} self-consciously.]",
             "When I was a loner, I collected some herbs, but never this many. I never stayed in one place for long, you know? And the one time I started a big collection, a gang of rogues took over my spot and stole them...",
-            "c_nClan just feels so much safer than being on my own. I love it a lot."
+            "c_n just feels so much safer than being on my own. I love it a lot."
         ]
     },
     "neurotic_medcat_SQ10": {
@@ -4421,7 +4410,8 @@
     "brooding_toqueen_AJ": {
         "y_c": {
             "status": [
-                "queen"
+                "queen",
+                "queen's apprentice"
             ]
         },
         "t_c": {
@@ -4439,9 +4429,7 @@
                 "deputy"
             ]
         },
-        "tags": [
-            "you_queen's_aprentice"
-        ],
+        "tags": [],
         "intro": [
             "[The nursery entrance shudders open, revealing little r_k dangling from t_c's mouth, mewling and squirming in protest.]",
             "[t_c sets {PRONOUN/r_k/object} on the ground, and the kit bounds towards you, cowering behind your leg at t_c's cold glare.]",
@@ -4452,7 +4440,8 @@
     "brooding_toqueen_AJ1": {
         "y_c": {
             "status": [
-                "queen"
+                "queen",
+                "queen's apprentice"
             ]
         },
         "t_c": {
@@ -4468,7 +4457,6 @@
             ]
         },
         "tags": [
-            "you_queen's_aprentice",
             "clan_has_kits"
         ],
         "intro": [
@@ -4626,7 +4614,7 @@
             "min_platonic_20"
         ],
         "intro": [
-            "c_nClan is lucky to have a medicine cat like plike-r_m-silly.",
+            "c_n is lucky to have a medicine cat like plike-r_m-silly.",
             "It's like {PRONOUN/plike-r_m-silly/subject} {VERB/plike-r_m-silly/have/has} an infinite supply of jokes and silly questions for when we get bored in the medicine den, or for when a patient needs cheering up.",
             "The other day, {PRONOUN/plike-r_m-silly/subject} {VERB/plike-r_m-silly/were/was} goofing around with r_s, and r_s smiled despite everything...",
             "It was really nice to see."
@@ -4849,7 +4837,7 @@
         "intro": [
             "Is it strange that I'm afraid to see tg_c at the moonpool?",
             "Not- not afraid, necessarily. But... I'm worried about how I'll react. A medicine cat shouldn't be bawling their eyes out at the half-moon meeting.",
-            "Or worse, will I freeze up? Forget what to say? Oh, StarClan, would I forget the prophecy {PRONOUN/tg_c/subject}'d bless c_nClan with?",
+            "Or worse, will I freeze up? Forget what to say? Oh, StarClan, would I forget the prophecy {PRONOUN/tg_c/subject}'d bless c_n with?",
             "[You gently remind t_c that {PRONOUN/t_c/subject}'ll do great, even with tg_c present.]",
             "Do you think so? I hope you're right, y_c."
         ]
@@ -5209,7 +5197,8 @@
                 "silly"
             ],
             "status": [
-                "medicine cat"
+                "medicine cat",
+                "medicine cat apprentice"
             ],
             "age": [
                 "not_kitten"
@@ -5218,9 +5207,7 @@
                 "INNOVATOR,1"
             ]
         },
-        "tags": [
-            "they_medicine_cat_apprentince"
-        ],
+        "tags": [],
         "intro": [
             "[You make your way into the medicine den to find that t_c is building some sort of contraption around the herb stock.]",
             "Hi, y_c. What do you need?",
@@ -5292,5 +5279,364 @@
             "Uhhh....",
             "[t_c runs away.]"
         ]
-    }
+    },
+    "nightmares_medcat_brooding_rad1": {
+        "y_c": {
+            "condition": [
+                "constant nightmares",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "medicine cat",
+                "medicine cat apprentice"
+            ],
+            "cluster": [
+                "brooding"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "intro": [
+            "There are no herbs to stop nightmares, y_c. They don't work that way. What is so hard about that to understand?",
+            "Look, I'm sorry about your nightmares. But for StarClan's sake, why would I say I can't treat your nightmares if I knew I could?"
+        ]
+    },
+    "bite_wounds_SQ1": {
+        "y_c": {
+            "status": [
+                "not_kitten",
+                "not_medicine_cat",
+                "not_medicine_cat_apprentice"
+            ],
+            "condition": [
+                "bite-wound",
+                "cat bite",
+                "beak bite",
+                "snake bite",
+                "rat bite",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "medicine_cat"
+            ],
+            "cluster": [
+                "brooding"
+            ]
+        },
+        "relationship": [
+            "max_dislike_15"
+        ],
+        "intro": [
+            "[t_c is applying a new poultice to your bite wound. At the herbs' pungent scent, you wrinkle your nose and instinctively lean away from t_c.]",
+            "Don't make that face. Would you rather your wound gets infected? Or takes forever to heal?",
+            "Stop squirming so I can apply this properly."
+        ]
+    },
+    "bite_wounds_SQ2": {
+        "y_c": {
+            "status": [
+                "not_kitten",
+                "not_medicine_cat",
+                "not_medicine_cat_apprentice"
+            ],
+            "condition": [
+                "bite-wound",
+                "cat bite",
+                "beak bite",
+                "snake bite",
+                "rat bite"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "medicine_cat",
+                "medicine cat apprentice"
+            ],
+            "cluster": [
+                "neurotic"
+            ]
+        },
+        "relationship": [
+            "max_dislike_10"
+        ],
+        "intro": [
+            "[t_c carefully checks your bite wound. {PRONOUN/t_c/subject/CAP} {VERB/t_c/pull/pulls} away the cobwebs and old poultice {PRONOUN/t_c/subject} had dressed your injury with yesterday, and {VERB/t_c/wince/winces} upon revealing the wound.]",
+            "Ah... okay. This doesn't look... uh... terrible...",
+            "[With those less-than-comforting words, t_c turns away to retrieve some fresh herbs.]"
+        ]
+    },
+    "dehydrated_SQ1": {
+        "y_c": {
+            "status": [
+                "not_medicine_cat",
+                "not_medicine_cat_apprentice"
+            ],
+            "condition": [
+                "dehydrated"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "medicine_cat",
+                "medicine cat apprentice"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "relationship": [
+            "max_dislike_10"
+        ],
+        "intro": [
+            "[t_c drops a damp bundle of moss beside you.]",
+            "Make sure to drink, y_c, even if you don't feel like it.",
+            "It's the only way you'll feel better."
+        ]
+    },
+    "cracked_pads_SQ2": {
+        "y_c": {
+            "status": [
+                "medicine cat apprentice"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "medicine_cat"
+            ],
+            "condition": [
+                "cracked pads"
+            ]
+        },
+        "relationship": [
+            "max_dislike_10"
+        ],
+        "intro": [
+            "[You find t_c in the medicine den, chewing oak leaves into a poultice and spreading it on {PRONOUN/t_c/poss} cracked paw pads. {PRONOUN/t_c/subject/CAP} {VERB/t_c/look/looks} up and {VERB/t_c/motion/motions} you over.]",
+            "I don't think I've taught you this, yet. A poultice of dried oak leaves can help prevent a wound from getting infected. It's best if you chew them into pieces, about this size.",
+            "[The medicine cat finishes treating one paw and holds the other towards you.]",
+            "Now you practice."
+        ]
+    },
+    "coughing_SQ1": {
+        "y_c": {
+            "status": [
+                "not_kitten"
+            ],
+            "condition": [
+                "yellowcough"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "medicine_cat"
+            ],
+            "cluster": [
+                "brooding"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "relationship": [
+            "max_platonic_30",
+            "max_dislike_10"
+        ],
+        "intro": [
+            "[t_c is giving you a checkup and treating your yellowcough, which is only getting worse. {PRONOUN/t_c/subject/CAP} {VERB/t_c/pull/pulls} a stack of spotted, long leaves from {PRONOUN/t_c/poss} herb supply. You lean over to inspect the plants, but t_c snaps at you.]",
+            "Get away from those. I don't want sick cats breathing on them, and I don't want anyone touching them with their dirty paws.",
+            "[The medicine cat expertly pulls a few leaves from the stack, scrutinizes them, and then passes them to you.]",
+            "This is lungwort. Chew these up, and they should help.",
+            "[You start to thank t_c, but {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} already turning away.]"
+        ]
+    },
+    "coughing_SQ2": {
+        "y_c": {
+            "condition": [
+                "yellowcough",
+                "greencough",
+                "kittencough",
+                "whitecough",
+                "redcough"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "medicine_cat"
+            ],
+            "cluster": [
+                "brooding"
+            ]
+        },
+        "relationship": [
+            "max_platonic_20",
+            "max_dislike_10"
+        ],
+        "intro": [
+            "[t_c recently gave you herbs for your cough, but they don't seem to be helping much. As the medicine cat passes by, you ask if you could have some more. t_c narrows {PRONOUN/t_c/poss} eyes.]",
+            "No. Too many herbs can be dangerous, too. I can give you more tomorrow, but I don't want to risk giving you any more today.",
+            "[You start to nod, but you're interrupted by another coughing fit. t_c watches, concern flickering across {PRONOUN/t_c/poss} usually-stern face.]",
+            "...Let me know if you start feeling worse, though."
+        ]
+    },
+    "poison_sam1": {
+        "y_c": {
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "poisoned",
+                "blind:any:false"
+            ],
+            "status": [
+                "medicine cat",
+                "medicine cat apprentice"
+            ]
+        },
+        "intro": [
+            "Ugh, the normal remedies me and r_m use for poisonings aren't working...",
+            "This sucks."
+        ]
+    },
+    "cracked_pads_SQ3": {
+        "y_c": {
+            "condition": [
+                "cracked pads"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "medicine_cat",
+                "medicine cat apprentice"
+            ],
+            "cluster": [
+                "neurotic"
+            ]
+        },
+        "relationship": [
+            "max_dislike_15"
+        ],
+        "intro": [
+            "[t_c winces as {PRONOUN/t_c/subject} {VERB/t_c/inspect/inspects} your cracked paw pads.]",
+            "These don't look much better than they did yesterday... maybe I didn't put enough poultice on.",
+            "Here, let me try again..."
+        ]
+    },
+    "scrapes_SQ2": {
+        "y_c": {
+            "cluster": [
+                "neurotic"
+            ],
+            "condition": [
+                "scrapes",
+                "torn pelt",
+                "small cut"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "medicine_cat, medicine_cat_apprentice"
+            ],
+            "cluster": [
+                "sweet",
+                "stable"
+            ]
+        },
+        "relationship": [
+            "min_platonic_40"
+        ],
+        "intro": [
+            "[t_c doesn't usually use {PRONOUN/t_c/poss} herbs on small injuries like yours, but {PRONOUN/t_c/subject} {VERB/t_c/know/knows} you become worried about getting an infection. To assuage your fears, {PRONOUN/t_c/subject} sometimes {VERB/t_c/bandage/bandages} your scrapes and cuts if {PRONOUN/t_c/subject} {VERB/t_c/have/has} extra supplies.]",
+            "And... done. There you go.",
+            "[t_c finishes patching you up and gives you an understanding smile.]"
+        ]
+    },
+    "scrapes_SQ3": {
+        "y_c": {
+            "status": [
+                "not_medicine_cat, not_medicine_cat_apprentice"
+            ],
+            "condition": [
+                "scrapes",
+                "torn pelt",
+                "small cut"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "medicine_cat, medicine_cat_apprentice"
+            ],
+            "cluster": [
+                "upstanding",
+                "stable"
+            ],
+            "condition": [
+                "scrapes",
+            "torn pelt", "small cut"]
+        },
+        "relationship": [
+            "max_dislike_15"
+        ],
+        "intro": [
+            "y_c, I heard you got a bit scraped up. Can I take a look?",
+            "[t_c meticulously inspects your minor injuries with the same seriousness with which {PRONOUN/t_c/subject} would look at a broken bone. Finally, {PRONOUN/t_c/subject} {VERB/t_c/step/steps} back.]",
+            "All right. Those look like they'll heal on their own, but let me know if they start hurting more.",
+            "I'd prefer to not use herbs on small scrapes, but I will if there's an infection risk."
+        ]
+    },
+    "you_kit_brooding_SQ1~2": {
+        "y_c": {
+            "status": ["apprentice", "queen's apprentice", "mediator apprentice"]
+        },
+        "t_c": {
+"status": ["medicine cat"],
+            "cluster": ["brooding"]
+},
+        "relationship": ["max_dislike_5"],
+        "tags": ["connected"],
+        "intro": [
+            "Thank StarClan you're finally an apprentice. Maybe now you'll stop bothering me all day.",
+            "[t_c continues laying out herbs to dry in the sun. After a moment, though, {PRONOUN/t_c/subject} {VERB/t_c/look/looks} up at you with the hint of a smile.]",
+            "...Congratulations. And good luck. Now leave."
+]
+},
+
+ "medicine_cat_brooding_SQ1": {
+        "y_c": {
+            "status": ["not_medicine_cat", "not_medicine_cat_apprentice"]
+        },
+        "t_c": {
+"status": ["medicine cat", "medicine cat apprentice"],
+            "cluster": ["brooding"]
+},
+        "relationship": ["max_dislike_5", "max_platonic_30"],
+        "intro": [
+            "*grumble* Everyone's been visiting the medicine den today with all kinds of trivial injuries.",
+            "Scrapes, aches, being sore from training...",
+            "Yes, I'm a medicine cat, but that doesn't mean everyone should come crying to me for help with every little thing!",
+            "...",
+            "You better not be here to ask me to look at a tiny scratch too, y_c."
+]
+},
+
+ "medicine_cat_brooding_SQ2": {
+        "season": ["leafbare"],
+        "t_c": {
+"status": ["medicine cat"],
+            "cluster": ["brooding"]
+},
+        "intro": [
+            "[It's very cold and windy. Most cats are staying in camp today, so you're surprised to see t_c return from gathering herbs.]",
+            "|r_w-stable|Oh, t_c, I didn't realize you'd left! It's so cold out...",
+            "[t_c frowns and glances at the sky, as if {PRONOUN/t_c/subject} hadn't noticed the weather. {PRONOUN/t_c/subject/CAP} {VERB/t_c/aren't/isn't} even shivering...]",
+            "...I guess."
+]
+}
+
 }

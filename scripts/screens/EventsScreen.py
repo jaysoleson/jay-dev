@@ -29,7 +29,8 @@ from scripts.utility import (
     ui_scale_value,
     ui_scale_offset,
     get_non_infected_clan_cat_count,
-    get_infected_clan_cat_count
+    get_infected_clan_cat_count,
+    get_alive_cats
 )
  
 # LG
@@ -984,19 +985,19 @@ class EventsScreen(Screens):
         # ----------------------------------------------------------------
 
         self.ceremony_events = [
-            x for x in game.cur_events_list if "ceremony" in x.types
+            x for x in game.cur_events_list if "ceremony" in x.types and x.text
         ]
         self.birth_death_events = [
-            x for x in game.cur_events_list if "birth_death" in x.types
+            x for x in game.cur_events_list if "birth_death" in x.types and x.text
         ]
         self.relation_events = [
-            x for x in game.cur_events_list if "relation" in x.types
+            x for x in game.cur_events_list if "relation" in x.types and x.text
         ]
-        self.health_events = [x for x in game.cur_events_list if "health" in x.types]
+        self.health_events = [x for x in game.cur_events_list if "health" in x.types and x.text]
         self.other_clans_events = [
             x for x in game.cur_events_list if "other_clans" in x.types
         ]
-        self.misc_events = [x for x in game.cur_events_list if "misc" in x.types]
+        self.misc_events = [x for x in game.cur_events_list if "misc" in x.types and x.text]
 
     def update_events_display(self):
         """
@@ -1008,7 +1009,7 @@ class EventsScreen(Screens):
             print(
                 "Are you playing a normal ClanGen save? Switch to a LifeGen save or create a new cat!")
             print("Choosing random cat to play...")
-            game.clan.your_cat = Cat.all_cats[random.choice(game.clan.clan_cats)]
+            game.clan.your_cat = random.choice(get_alive_cats(Cat))
             print("Chose " + str(game.clan.your_cat.name))
         # UPDATE CLAN INFO
         # self.clan_info["season"].set_text(f"Current season: {game.clan.current_season}")

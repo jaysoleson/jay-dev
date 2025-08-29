@@ -175,11 +175,13 @@
             ],
             "condition": [
                 "blind:any:false"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "If you put as much effort into hunting as you do into hurling insults, we'd never go hungry."
@@ -202,11 +204,13 @@
             ],
             "condition": [
                 "blind:any:false"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "Careful, your jealousy is showing."
@@ -224,14 +228,16 @@
         "t_c": {
             "condition": [
                 "blind:any:false"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "relationship": [
             "min_platonic_20"
         ],
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "You don't really mean that... do you?"
@@ -249,11 +255,13 @@
         "t_c": {
             "condition": [
                 "blind:any:false"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "That's- That's not nice!"
@@ -274,11 +282,13 @@
             ],
             "status": [
                 "deputy"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "Your courage is commendable, but your manners could use some work."
@@ -485,11 +495,13 @@
             ],
             "condition": [
                 "blind:any:false"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "Bold of you to assume that I care."
@@ -508,14 +520,16 @@
             ],
             "condition": [
                 "blind:any:false"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "relationship": [
             "min_dislike_50"
         ],
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "Go dig a hole and bury yourself in it, snake-heart."
@@ -573,14 +587,16 @@
         "t_c": {
             "condition": [
                 "blind:any:false"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "relationship": [
             "min_platonic_20"
         ],
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "Hey! What gives?"
@@ -595,14 +611,16 @@
         "t_c": {
             "condition": [
                 "blind:any:false"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "relationship": [
             "min_dislike_50"
         ],
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "As if I couldn't like you any less ..."
@@ -621,14 +639,16 @@
             "min_max_faith": [
                 0,
                 9
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "relationship": [
             "min_dislike_50"
         ],
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "StarClan above. No wonder your parents left you."
@@ -768,11 +788,13 @@
         "t_c": {
             "cluster": [
                 "brooding"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "Quit buzzing in my ear."
@@ -783,11 +805,13 @@
         "t_c": {
             "cluster": [
                 "brooding"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "Pathetic."
@@ -798,11 +822,13 @@
         "t_c": {
             "cluster": [
                 "brooding"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "Cry about it."
@@ -1003,11 +1029,13 @@
             ],
             "condition": [
                 "blind:any:false"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "Hmph. Think you're tough, huh?",
@@ -1077,11 +1105,13 @@
             ],
             "condition": [
                 "blind:any:false"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "Aw, look! It thinks it's clever."
@@ -1101,11 +1131,13 @@
             "condition": [
                 "blind:any:false",
                 "hearing"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "Please. I've heard worse from the kits in the nursery."
@@ -1217,11 +1249,13 @@
             ],
             "condition": [
                 "blind:any:false"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "Try not to burst a blood vessel."
@@ -1475,6 +1509,9 @@
             ],
             "condition": [
                 "blind:any:false"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "relationship": [
@@ -1482,8 +1519,7 @@
             "min_romantic_20"
         ],
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "I'm... I'm sorry... I'm guessing you're mad I don't take things seriously enough... I'm trying to, but... It's hard."
@@ -1501,14 +1537,16 @@
             ],
             "condition": [
                 "blind:any:false"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "relationship": [
             "min_platonic_20"
         ],
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "Haha...ha... I'll... um, keep that in mind next time we talk."
@@ -1526,14 +1564,16 @@
             ],
             "condition": [
                 "blind:any:false"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "relationship": [
             "min_platonic_20"
         ],
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "Is someone hungry? Because you're really not acting like yourself. Have a snack, y_c."
@@ -1551,11 +1591,13 @@
             ],
             "condition": [
                 "blind:any:false"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "Yeah, yeah, go back to sleep, grandpa."
@@ -1594,11 +1636,13 @@
             ],
             "condition": [
                 "blind:any:false"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "...You're lucky that plike-r_c is here. Otherwise, I don't think you'd want to know what I would do to you."
@@ -1616,14 +1660,16 @@
             ],
             "condition": [
                 "blind:any:false"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "relationship": [
             "min_dislike_50"
         ],
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "...You're so damn lucky I haven't shredded you to pieces yet."
@@ -1641,11 +1687,13 @@
             ],
             "condition": [
                 "blind:any:false"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "Watch yourself, y_c."
@@ -1792,11 +1840,13 @@
             ],
             "condition": [
                 "blind:any:false"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "Your ancestors would be ashamed."
@@ -1812,11 +1862,13 @@
             ],
             "condition": [
                 "blind:any:false"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "Maybe one day you'll be worth something to your Clan."
@@ -1830,11 +1882,13 @@
             ],
             "condition": [
                 "blind:any:false"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "Keep talking and you'll find out how sharp my claws really are."
@@ -1850,11 +1904,13 @@
             ],
             "condition": [
                 "blind:any:false"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "Keep yowling. Maybe one day you'll actually sound intimidating."
@@ -1891,11 +1947,13 @@
             ],
             "condition": [
                 "blind:any:false"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "Oh, y_c. I believe everycat has good in them, even you."
@@ -1906,11 +1964,13 @@
         "t_c": {
             "cluster": [
                 "sweet"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "[t_c smiles at your words. The smile doesn't reach {PRONOUN/t_c/poss} eyes.]",
@@ -2023,8 +2083,7 @@
             ]
         },
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "Are you lashing out to compensate for your abnormally large nose?"
@@ -2175,11 +2234,13 @@
             "condition": [
                 "blind:any:false"
             ],
-            "shunned": true
+            "shunned": true,
+            "age": [
+                "not_kitten"
+            ]
         },
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "You're not exactly a pillar of morality yourself, you know."
@@ -2234,11 +2295,13 @@
         "t_c": {
             "cluster": [
                 "unlawful"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "I wonder how you plan on being a mediator with no tongue?"
@@ -2267,11 +2330,13 @@
         "t_c": {
             "cluster": [
                 "unlawful"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "Careful. We both know I'm stronger than you, and your behavior tells me everything I could need to know about your wit."
@@ -2308,11 +2373,13 @@
         "t_c": {
             "cluster": [
                 "unlawful"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "Aw, what are you gonna do, go crying to the stars for help?"
@@ -2346,11 +2413,13 @@
         "t_c": {
             "cluster": [
                 "unlawful"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "Heh. They'll start treating you like me if that's how you 'solve problems'."
@@ -2825,11 +2894,13 @@
         "t_c": {
             "condition": [
                 "grief stricken"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "How. Dare. You.",
@@ -2883,11 +2954,13 @@
             ],
             "condition": [
                 "grief stricken"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "Hah! Hahaha!",
@@ -3044,14 +3117,16 @@
             ]
         },
         "t_c": {
-            "forgiven": true
+            "forgiven": true,
+            "age": [
+                "not_kitten"
+            ]
         },
         "relationship": [
             "min_platonic_20"
         ],
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "I can't tell if that's a joke.",
@@ -3068,11 +3143,13 @@
             ]
         },
         "t_c": {
-            "forgiven": true
+            "forgiven": true,
+            "age": [
+                "not_kitten"
+            ]
         },
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "Can a cat not enjoy a day unshunned to {PRONOUN/t_c/self}?",
@@ -3098,14 +3175,16 @@
             ]
         },
         "t_c": {
-            "forgiven": true
+            "forgiven": true,
+            "age": [
+                "not_kitten"
+            ]
         },
         "relationship": [
             "min_dislike_50"
         ],
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "Ouch, I would have thought with so much venom on your tone, you'd be better at this by now."
@@ -3255,6 +3334,9 @@
         "y_c": {
             "condition": [
                 "blind:any:false"
+            ],
+            "age": [
+                "kitten"
             ]
         },
         "t_c": {
@@ -3431,11 +3513,13 @@
         "t_c": {
             "cluster": [
                 "unlawful"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "You've got a lot to say for such a small scrap of fur, huh?"
@@ -3450,11 +3534,13 @@
         "t_c": {
             "cluster": [
                 "unlawful"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
-            "insult",
-            "they_not_kit"
+            "insult"
         ],
         "intro": [
             "Best to use those words sparingly.",
@@ -5835,7 +5921,8 @@
     "shunned_insults_H2": {
         "y_c": {
             "condition": [
-                "blind:any:false"
+                "blind:any:false",
+                "guilt"
             ],
             "shunned": true,
             "age": [
@@ -5851,7 +5938,6 @@
             ]
         },
         "tags": [
-            "you_guilty",
             "insult"
         ],
         "intro": [
@@ -6232,12 +6318,12 @@
                 "deaf:any:false"
             ],
             "status": [
-                "queen"
+                "queen",
+                "queen's apprentice"
             ]
         },
         "tags": [
-            "insult",
-            "they_queen_apprentice"
+            "insult"
         ],
         "intro": [
             "[t_c cuffs your ear sharply.]"
@@ -6481,6 +6567,269 @@
         ],
         "intro": [
             "[You feel too guilty to insult this cat. {PRONOUN/t_c/subject/CAP}{VERB/t_c/'re/'s} a newborn, for StarClan's sake.]"
+        ]
+    },
+    "attack_insult_H1": {
+        "y_c": {
+            "condition": [
+                "deaf:any:false",
+                "blind:any:true"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "deaf:any:false",
+                "blind:any:false"
+            ]
+        },
+        "relationship": [
+            "min_dislike_15"
+        ],
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "[You feel the air shift as something - or somecat - gets close to smacking your nose. Darn t_c is trying to attack you!]",
+            "[You swipe back with your claws, but don't touch anything solid. Rats.]"
+        ],
+        "intro_scene_effects": {
+            "relationship": {
+                "cats_to": ["t_c"],
+                "cats_from": ["y_c"],
+                "values": {
+                    "dislike": 1,
+                    "trust": -1
+                },
+                "mutual": true
+            }
+        }
+    },
+    "attack_insult_H2": {
+        "y_c": {
+            "condition": [
+                "deaf:any:false",
+                "blind:any:false"
+            ],
+            "status": [
+                "not_newborn"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "deaf:any:false",
+                "blind:any:false"
+            ],
+            "status": [
+                "older",
+                "not_newborn"
+            ]
+        },
+        "relationship": [
+            "min_platonic_10",
+            "min_dislike_10"
+        ],
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "[In response to your insults, t_c puts you in a headlock and buddy kicks your side.]",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/let/lets} you go a moment after the assault. It feels like you were let off easy.]"
+        ],
+        "intro_scene_effects": {
+            "relationship": {
+                "cats_to": ["t_c"],
+                "cats_from": ["y_c"],
+                "values": {
+                    "dislike": 1,
+                    "trust": -1
+                },
+                "mutual": true
+            }
+        }
+    },
+    "mcgrievingonly_insult_H1": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "deaf:any:false"
+            ],
+            "status": [
+                "not_newborn"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "deaf:any:false",
+                "blind:any:false"
+            ],
+            "status": [
+                "not_newborn"
+            ]
+        },
+        "relationship": [],
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "[t_c frowns at your insult, but doesn't insult you back. Perhaps {PRONOUN/t_c/subject} {VERB/t_c/feel/feels} pity for your grief.]"
+        ]
+    },
+    "mcgrievingonly_insult_H2": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ],
+            "status": [
+                "not_newborn"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "not_newborn"
+            ]
+        },
+        "relationship": [
+            "min_platonic_30"
+        ],
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "Hey... Are you feeling okay? It's unlike you to just start insulting cats out of nowhere."
+        ]
+    },
+    "mcgrievingonly_insult_H3": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ],
+            "status": [
+                "not_newborn"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "status": [
+                "not_newborn"
+            ]
+        },
+        "relationship": [],
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "Tsk, come on, don't take your out frustrations on me.",
+            "Just because you're grieving doesn't mean everycat is just going to excuse your actions."
+        ]
+    },
+    "mcgrievingonly_insult_H4": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "age": ["kitten"]
+        },
+        "relationship": [],
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "You're just being a meanie 'cause yg_c left you!"
+        ]
+    },
+    "mcgrievingonly_insult_H6": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "relationship": [],
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "Oh, so now you think it's alright to insult people just because you're hurting? Give me a break."
+        ]
+    },
+    "mcgrievingonly_insult_H7": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "blind:any:false"
+            ],
+            "shunned": "any"
+        },
+        "relationship": [],
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "Oh, sorry, didn't realize grieving cats were so delusional."
+        ]
+    },
+    "mcgrievingonly_insult_H8": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "deaf:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "deaf:any:false"
+            ],
+            "shunned": "any"
+        },
+        "relationship": [],
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "[t_c rolls {PRONOUN/t_c/poss} eyes.]"
+        ]
+    },
+    "mcgrievingonly_insult_H9": {
+        "y_c": {
+            "condition": [
+                "deaf:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "deaf:any:false"
+            ],
+            "shunned": "any"
+        },
+        "relationship": [],
+        "tags": [
+            "insult"
+        ],
+        "intro": [
+            "[t_c rolls {PRONOUN/t_c/poss} eyes.]"
         ]
     }
 }

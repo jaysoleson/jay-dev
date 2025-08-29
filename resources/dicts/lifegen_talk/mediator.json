@@ -1782,11 +1782,10 @@
         },
         "season": [
             "greenleaf",
-            "newleaf"
+            "newleaf",
+            "leaffall"
         ],
-        "tags": [
-            "leaf-fall"
-        ],
+        "tags": [],
         "intro": [
             "y_c! Your humble Clan mediator, t_c, has a plan, and I need you to help me go through with it!",
             "We've been hunting too much recently, and the prey is starting to dwindle. This could spell the end if we don't let it repopulate - we don't want to worsen leaf-bare, after all.",
@@ -2730,5 +2729,19 @@
             "It was so different from any story I'd heard before, with completely new cats. I really wanted to hear the end, but the queen took the kits inside when they realized we were there.",
             "*sigh* It's silly, but it bothers me that I'll never know how it ends. And even if I see that queen again, I'd never be brave enough to ask."
         ]
-    }
+    },
+    "sevhache_sam1": {
+            "y_c": {
+                "status": ["not_kitten"],
+                "condition": ["blind:any:false"]
+            },
+            "t_c": {
+                "condition": ["severe headache", "blind:any:false"],
+                "status": ["mediator", "mediator apprentice"]
+            },
+            "intro": [
+                "Ugh... My headache is messing with my ability to mediate arguments.",
+                "How have I never noticed how loud arguments are?"
+            ]
+        }
 }

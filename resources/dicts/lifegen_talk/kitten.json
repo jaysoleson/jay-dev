@@ -2304,7 +2304,7 @@
             "[You tell t_c that you like {PRONOUN/t_c/poss} pretty feather.]",
             "Thanks!!! It's for tg_c!",
             "Could you help me put it in {PRONOUN/tg_c/poss} nest?",
-            "I'm hoping that, when {PRONOUN/tg_c/subject} {VERB/tg_c/see/sees} it in StarClan, {PRONOUN/tg_c/subject}'ll like it so much that {PRONOUN/tg_c/subject}'ll come back down to c_nClan, and we can play together again!"
+            "I'm hoping that, when {PRONOUN/tg_c/subject} {VERB/tg_c/see/sees} it in StarClan, {PRONOUN/tg_c/subject}'ll like it so much that {PRONOUN/tg_c/subject}'ll come back down to c_n, and we can play together again!"
         ]
     },
     "assertivekitten_deadclose_3": {
@@ -2695,7 +2695,7 @@
             ]
         },
         "intro": [
-            "[In the middle of the night, t_c wakes all of c_nClan with a fur-raising screech.]",
+            "[In the middle of the night, t_c wakes all of c_n with a fur-raising screech.]",
             "tg_c!!!",
             "Where ... What ...",
             "Uh ...",
@@ -2814,7 +2814,7 @@
         },
         "intro": [
             "y_c! y_c!",
-            "What do you think of this cool stick I found? I bet I could rule the entirety of c_nClan with it! Or even o_c_n! Or every Clan in the WORLD!",
+            "What do you think of this cool stick I found? I bet I could rule the entirety of c_n with it! Or even o_c_n! Or every Clan in the WORLD!",
             "Woah. What if I could even rule all the Twolegs in the world, so they have to do everything I tell them?"
         ]
     },
@@ -2828,7 +2828,7 @@
         "intro": [
             "y_c!",
             "Do you think I could climb up that big rock wall up there? What do you think is on the other side?",
-            "Maybe it's that thing that turns cats into leaders, like the founder c_nClan cat found when they bested that tyrannical old cat!",
+            "Maybe it's that thing that turns cats into leaders, like the founder c_n cat found when they bested that tyrannical old cat!",
             "You know that one? I think it's the same one l_n used. Maybe I'll ask {PRONOUN/l_n/object} about it."
         ]
     },
@@ -2920,7 +2920,7 @@
             "min_platonic_50"
         ],
         "intro": [
-            "Hmph. I swear, y_c, you're the only cat in all of c_nClan who I like to play with at all.",
+            "Hmph. I swear, y_c, you're the only cat in all of c_n who I like to play with at all.",
             "We'll be together forever, then ...",
             "... Won't we?"
         ]
@@ -2969,7 +2969,7 @@
             "Wake up, y_c! Wake up, wake up, wake up!!!",
             "Why do I keep ordering you around?",
             "Um, because it's fun, dummy!",
-            "Of all the cats in c_nClan, you're the one I like spending time with best of all. So, I've decided to make you my second in command!",
+            "Of all the cats in c_n, you're the one I like spending time with best of all. So, I've decided to make you my second in command!",
             "Together, we'll take over the world ...",
             "Now, c'mon! Lots to do today!"
         ]
@@ -4287,7 +4287,7 @@
             "You might not seem like you're damaged now, but what if it happens later? What if you have a concussion - or worse, internal bleeding???",
             "I - I better get r_m! And l_n, too!",
             "*Gasp* But ... Oh, no - What if they exile me?",
-            "Well ... I guess that's a risk I'll have to take. For your health, y_c, and for the safety of c_nClan.",
+            "Well ... I guess that's a risk I'll have to take. For your health, y_c, and for the safety of c_n.",
             "I - I'll be right back! Try not to move!"
         ]
     },
@@ -4476,7 +4476,7 @@
             ]
         },
         "intro": [
-            "I decided that I'm going to be the greatest c_nClan cat ever!",
+            "I decided that I'm going to be the greatest c_n cat ever!",
             "I'm going to work SUPER hard and not break ANY of the rules, and- and!",
             "[t_c is literally bouncing around with excitement as {PRONOUN/t_c/subject} {VERB/t_c/talk/talks} about {PRONOUN/t_c/poss} plans.]"
         ]
@@ -4502,7 +4502,7 @@
         "intro": [
             "y_c! You'll never believe what r_k-unlawful tried to do!",
             "I caught {PRONOUN/r_k/object} trying to sneak out of camp! Can you believe that? {PRONOUN/r_k/subject/CAP} {VERB/r_k/were/was} breaking the rules on purpose!",
-            "Why would {PRONOUN/r_k/subject} even do that? {VERB/r_k/Don't/Doesn't} {PRONOUN/r_k/subject} want to be a good c_nClan cat? It doesn't make any sense.",
+            "Why would {PRONOUN/r_k/subject} even do that? {VERB/r_k/Don't/Doesn't} {PRONOUN/r_k/subject} want to be a good c_n cat? It doesn't make any sense.",
             "Anyway, that's all! I'm going to go back to playing now. If anyone else isn't following the rules, I'll come back and tell you!"
         ]
     },
@@ -4601,7 +4601,7 @@
         },
         "intro": [
             "[Since sunhigh, you have been trying to convince t_c to take a nap, going back and forth with the kit who outright refuses to lie down.]",
-            "But I can't take a nap! I need to become the best warrior in c_nClan, and warriors don't take naps!",
+            "But I can't take a nap! I need to become the best warrior in c_n, and warriors don't take naps!",
             "Besides, I... I can help you and stuff! Warriors... *yawn* warriors help cats all the time! So why can't I...",
             "[t_c's sentence is cut off by a yawn as {PRONOUN/t_c/subject} {VERB/t_c/slump/slumps} down into {PRONOUN/t_c/poss} nest.]",
             "Zzz..."
@@ -4629,7 +4629,7 @@
         ],
         "intro": [
             "[You hear a trembling mew and feel a small paw tugging at your fur. You turn and find yourself staring down into t_c's tear-filled eyes.]",
-            "y_c? H-how can I be the best c_nClan cat without tg_c? W-what do I do?"
+            "y_c? H-how can I be the best c_n cat without tg_c? W-what do I do?"
         ]
     },
     "upstanding_kit7": {
@@ -4655,7 +4655,7 @@
         "intro": [
             "[As you lie in your nest, you notice t_c marching back and forth near the entrance of the den. {PRONOUN/t_c/subject/CAP} {VERB/t_c/have/has} a determined look on {PRONOUN/t_c/poss} face, taking large steps that almost cause {PRONOUN/t_c/object} to stumble.]",
             "[Both curious and amused, you ask {PRONOUN/t_c/object} what {PRONOUN/t_c/subject} {VERB/t_c/are/is} doing.]",
-            "Oh, I'm guarding you! I'm practicing so that I can become the most fearsome warrior in all of c_nClan! No cat is going to bother you with me around.",
+            "Oh, I'm guarding you! I'm practicing so that I can become the most fearsome warrior in all of c_n! No cat is going to bother you with me around.",
             "I'll be such a good warrior too, cats won't ever get hurt like you are! Not on my watch!"
         ]
     },
@@ -5215,7 +5215,7 @@
             ]
         },
         "intro": [
-            "Hello y_c! Welcome to c_nClan! It's so very nice to meet you!",
+            "Hello y_c! Welcome to c_n! It's so very nice to meet you!",
             "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/plop/plops} down next to you, forming the smallest loaf as {PRONOUN/t_c/subject} {VERB/t_c/start/starts} to purr.]",
             "I'm t_c! That over there is the leader's den, and that's the warrior's den, and-!",
             "[r_w approaches, letting t_c know that you can't really hear {PRONOUN/t_c/object} yet.]",
@@ -5691,7 +5691,7 @@
         },
         "intro": [
             "[t_c is giving a performance in the middle of the clearing, singing and dancing {PRONOUN/t_c/poss} little heart out.]",
-            "... From once before and now onwards, as a Clan we strive forwards, we push on, and this is the c_nClan cats' soooong!",
+            "... From once before and now onwards, as a Clan we strive forwards, we push on, and this is the c_n cats' soooong!",
             "[As soon as {PRONOUN/t_c/subject} {VERB/t_c/finish/finishes}, seemingly the entire Clan explodes into cheers and applause, praising what a talented young cat t_c is.]",
             "[t_c is certainly not lacking in supporters!]"
         ]
@@ -5757,7 +5757,7 @@
             "[You tell t_c that you like {PRONOUN/t_c/poss} pretty feather.]",
             "Thanks!!! It's for tg_c!",
             "Could you help me put it in {PRONOUN/tg_c/poss} nest?",
-            "I'm hoping that, when {PRONOUN/tg_c/subject} {VERB/tg_c/see/sees} it in StarClan, {PRONOUN/tg_c/subject}'ll like it so much that {PRONOUN/tg_c/subject}'ll come back down to c_nClan, and we can play together again!"
+            "I'm hoping that, when {PRONOUN/tg_c/subject} {VERB/tg_c/see/sees} it in StarClan, {PRONOUN/tg_c/subject}'ll like it so much that {PRONOUN/tg_c/subject}'ll come back down to c_n, and we can play together again!"
         ]
     },
     "kit_grief2": {
@@ -6259,7 +6259,7 @@
             ]
         },
         "intro": [
-            "It's fun being up here and all, but when can we go back to c_nClan?",
+            "It's fun being up here and all, but when can we go back to c_n?",
             "t_p misses me. I heard {PRONOUN/t_p/object} say it.",
             "I miss {PRONOUN/t_p/object} too."
         ]
@@ -6705,7 +6705,7 @@
         },
         "intro": [
             "Who are you?",
-            "You don't smell like you're from c_nClan!"
+            "You don't smell like you're from c_n!"
         ]
     },
     "df_they_living": {
@@ -6728,7 +6728,7 @@
         },
         "intro": [
             "W-who are you?",
-            "You don't smell like you're from c_nClan!"
+            "You don't smell like you're from c_n!"
         ]
     },
     "sckit": {
@@ -6751,7 +6751,7 @@
         "intro": [
             "Hi there!",
             "What are you doing here? You're not staying here forever, are you?",
-            "You still have a lot to do for c_nClan, trust me."
+            "You still have a lot to do for c_n, trust me."
         ]
     },
     "dfkit": {
@@ -7011,7 +7011,7 @@
         "intro": [
             "I bet I'm a brighter star than you are!",
             "[You ask t_c what {PRONOUN/t_c/subject} {VERB/t_c/mean/means}.]",
-            "Well, we all appear as stars to c_nClan cats, right?"
+            "Well, we all appear as stars to c_n cats, right?"
         ]
     },
     "sc_kitten3": {
@@ -7029,7 +7029,7 @@
             ]
         },
         "intro": [
-            "I wish I had more time with c_nClan...",
+            "I wish I had more time with c_n...",
             "Make sure you enjoy it while you can, okay y_c?"
         ]
     },
@@ -7295,8 +7295,8 @@
         },
         "intro": [
             "Do you think there's any cats that are looking down at us?",
-            "[You ask t_c what {PRONOUN/t_c/subject} {VERB/t_c/mean/means}. StarClan cats look down upon c_nClan cats.]",
-            "I know we're supposed to watch over c_nClan cats, but who's watching over us?",
+            "[You ask t_c what {PRONOUN/t_c/subject} {VERB/t_c/mean/means}. StarClan cats look down upon c_n cats.]",
+            "I know we're supposed to watch over c_n cats, but who's watching over us?",
             "Maybe there's another StarClan... for StarClan cats. Maybe that's where cats go when they fade!"
         ]
     },
@@ -7322,7 +7322,7 @@
         },
         "intro": [
             "I had fun playing with the o_c_n kits the other day!",
-            "I wonder why o_c_n can't combine nurseries with c_nClan.",
+            "I wonder why o_c_n can't combine nurseries with c_n.",
             "It would have been so much fun!"
         ]
     },
@@ -7351,7 +7351,7 @@
         },
         "intro": [
             "[You ask t_c if {PRONOUN/t_c/subject} {VERB/t_c/want/wants} to play a game of 'warriors'.]",
-            "Fine, but only if I get to be a warrior from c_nClan!",
+            "Fine, but only if I get to be a warrior from c_n!",
             "[You sigh, and offer to be an enemy warrior from o_c_n.]",
             "No! I talked with a o_c_n warrior yesterday and they were really nice! You can be a badger instead, okay? Now get ready, stinky badger!"
         ]
@@ -7375,7 +7375,7 @@
         },
         "intro": [
             "It's almost time to watch the Gathering, y_c!",
-            "When I was back in c_nClan, I could never go to Gatherings. But now I can!"
+            "When I was back in c_n, I could never go to Gatherings. But now I can!"
         ]
     },
     "sc_living_kitten_1": {
@@ -7474,7 +7474,7 @@
         },
         "intro": [
             "What's it like in StarClan, you ask?",
-            "Well, it's fun! But I miss being in c_nClan."
+            "Well, it's fun! But I miss being in c_n."
         ]
     },
     "sc_df_kitten_1": {
@@ -7643,7 +7643,7 @@
             ]
         },
         "intro": [
-            "Why do you help those who don't listen? I've seen cats from c_nClan ignore your signs and then blame you when things go wrong. Why bother?"
+            "Why do you help those who don't listen? I've seen cats from c_n ignore your signs and then blame you when things go wrong. Why bother?"
         ]
     },
     "df_sc_kitten_3": {
@@ -8176,7 +8176,7 @@
             "murderedthem"
         ],
         "intro": [
-            "I'm glad c_nClan forgave you. I'm sorry I made you mad."
+            "I'm glad c_n forgave you. I'm sorry I made you mad."
         ]
     },
     "youforgiven_J8": {
@@ -8198,7 +8198,7 @@
             "murderedthem"
         ],
         "intro": [
-            "Is c_nClan really forgiving you?",
+            "Is c_n really forgiving you?",
             "You're a bad cat. They shouldn't do that!"
         ]
     },
@@ -9634,7 +9634,7 @@
         "intro": [
             "It's so unfair!",
             "[You hear t_c squeal across the camp, to no answer other than flicked ears.]",
-            "t_p told me that c_nClan would always love and protect me!",
+            "t_p told me that c_n would always love and protect me!",
             "[You don't have the heart to tell {PRONOUN/t_c/object} that, maybe, even t_p wouldn't anymore...]"
         ]
     },
@@ -9729,7 +9729,7 @@
         "intro": [
             "[Every day, t_c finds a new piece of StarClan territory to show you as part of your welcoming tour.]",
             "[Today, it's a specific flower patch in the centre of a large tree grove.]",
-            "Look at all of the different flowers! There's way more colours than we had back in c_nClan, isn't there?",
+            "Look at all of the different flowers! There's way more colours than we had back in c_n, isn't there?",
             "Which one is your favourite?"
         ],
         "intro_choices": {
@@ -9800,7 +9800,7 @@
             "[You lean forwards and squint into the murky blue water. After a moment, an image starts to reveal itself, and soon, you're seeing a clear picture of your Clan from above!]",
             "[r_w1 and r_w2 are sharing tongues by the warrior's den while r_a is doing some sparring with a tree at the edge of camp. r_m, d_n and l_n are heading out of camp, in deep conversation.]",
             "[It's bittersweet to watch your Clan mill about like ants, unaware that you can even see them.]",
-            "You can come here anytime to check what c_nClan is up to. So you don't miss them too much!",
+            "You can come here anytime to check what c_n is up to. So you don't miss them too much!",
             "[You give t_c a hug. {PRONOUN/t_c/subject/CAP}{VERB/t_c/'ve/'s} been a great tour guide, and, with {PRONOUN/t_c/object} here with you, you know you'll never feel as lonely as you thought you would.]"
         ]
     },
@@ -10678,18 +10678,14 @@
             ],
             "condition": [
                 "blind:any:false"
-            ],
-            "status": [
-                "adoptive_parent"
             ]
         },
         "relationship": [
             "min_platonic_50",
-            "from_parent"
+            "from_parent",
+            "from_adopted_parent"
         ],
-        "tags": [
-            "adoptive_parent"
-        ],
+        "tags": [],
         "intro": [
             "y_c, my sweet kit... after you become an apprentice, and start spending all day with your mentor and the other apprentices...",
             "Make sure to come tell me how everything's going. I want to hear about your training, and if anyone's being mean to you, and if you noticed something scary...",
@@ -10929,7 +10925,7 @@
         ],
         "intro": [
             "Psst, y_c! Let's go ask if we can listen to one of r_e-unlawful's stories.",
-            "They always tell the good ones, the ones r_q says we're not allowed to hear!"
+            "{PRONOUN/r_e-unlawful/subject/CAP} always {VERB/r_e-unlawful/tell/tells} the good ones, the ones r_q says we're not allowed to hear!"
         ]
     },
     "about_neurotic_SQ10": {
@@ -10951,7 +10947,7 @@
         ],
         "intro": [
             "y_c? Is neutral-r_w-neurotic scared of me?",
-            "Whenever I get close to them, they get really big eyes and back away!"
+            "Whenever I get close to {PRONOUN/neutral-r_w-neurotic/object}, {PRONOUN/neutral-r_w-neurotic/subject} {VERB/neutral-r_w-neurotic/get/gets} really big eyes and {VERB/neutral-r_w-neurotic/back/backs} away!"
         ]
     },
     "neurotic_kitten_SQ21": {
@@ -11749,7 +11745,7 @@
         ],
         "intro": [
             "neutral-r_e's seen a lot, right? {PRONOUN/neutral-r_e/subject/CAP}{VERB/neutral-r_e/'ve/'s} been around for a long, long time...",
-            "I really, really want to ask {PRONOUN/neutral-r_e/object} what c_nClan used to be like, and what the old leaders' names were, and if there were any prophecies...",
+            "I really, really want to ask {PRONOUN/neutral-r_e/object} what c_n used to be like, and what the old leaders' names were, and if there were any prophecies...",
             "...And lots of other things, b-but I don't want to bother {PRONOUN/neutral-r_e/object}! Aren't elders supposed to be grumpy? I don't want {PRONOUN/neutral-r_e/object} to be mad at me."
         ]
     },
@@ -11870,7 +11866,7 @@
         ],
         "intro": [
             "r_q told me a story last night about a kit who... who was kinda shy, like me. They had to be brave, and do a lot of things that scared them, but they ended up going on an adventure and talked to StarClan!",
-            "I kind of want to know if that was a real, ancient c_nClan cat, or just a story.",
+            "I kind of want to know if that was a real, ancient c_n cat, or just a story.",
             "Like... um... I know it doesn't really matter, but I want them to be real."
         ]
     },
@@ -12081,7 +12077,7 @@
         ],
         "intro": [
             "[t_c meticulously forms snow into tiny piles. You ask what {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} doing.]",
-            "Ohh... Um, I'm making c_nClan! Out of snow.",
+            "Ohh... Um, I'm making c_n! Out of snow.",
             "I know it doesn't really look like us, but that's l_n, and that's d_n, and that's you...",
             "I... I've gotta make me, still. I'm gonna do that last."
         ]
@@ -13732,6 +13728,9 @@
         "y_c": {
             "condition": [
                 "deaf:any:false"
+            ],
+            "status": [
+                "queen's apprentice"
             ]
         },
         "t_c": {
@@ -13747,9 +13746,7 @@
             "max_trust_10",
             "max_comfort_15"
         ],
-        "tags": [
-            "you_queen_apprentice"
-        ],
+        "tags": [],
         "intro": [
             "[t_c, unwelcome amongst the other kits in the nursery, is batting at a leaf.]",
             "[You'd never have thought a kit capable of such brutal actions.]",
@@ -13766,7 +13763,8 @@
             ],
             "shunned": true,
             "status": [
-                "queen"
+                "queen",
+                "queen's apprentice"
             ]
         },
         "t_c": {
@@ -13784,9 +13782,7 @@
         "relationship": [
             "min_platonic_15"
         ],
-        "tags": [
-            "you_queen_apprentice"
-        ],
+        "tags": [],
         "intro": [
             "How come you're being shunned, anyway?",
             "... You killed a cat?",
@@ -13797,6 +13793,9 @@
     },
     "queenapp_youshunned_kit_pos_rad1": {
         "y_c": {
+            "status": [
+                "queen's apprentice"
+            ],
             "shunned": true
         },
         "t_c": {
@@ -13810,9 +13809,7 @@
         "relationship": [
             "min_platonic_15"
         ],
-        "tags": [
-            "you_queen_apprentice"
-        ],
+        "tags": [],
         "intro": [
             "Why's everycat acting funny around you?",
             "... You killed a cat?",
@@ -14077,8 +14074,8 @@
             }
         },
         "clan": [
-            "[You suggest that t_c names the hero c_nkit, kind of like c_nClan! t_c's eyes widen.]",
-            "Oh! Okay... I kind of really like that, actually! Like... like they're a cat from really, really long ago, and maybe they're who c_nClan was named after?",
+            "[You suggest that t_c names the hero c_nkit, kind of like c_n! t_c's eyes widen.]",
+            "Oh! Okay... I kind of really like that, actually! Like... like they're a cat from really, really long ago, and maybe they're who c_n was named after?",
             "Thanks, y_c! I'm gonna go think about what happens in the story now."
         ],
         "liked": [
@@ -14588,8 +14585,8 @@
                 "kitten"
             ]
         },
-        "tags": [
-            "grieving_you"
+        "relationship": [
+            "grievingyou"
         ],
         "intro": [
             "What - When did you come back?",
@@ -14849,15 +14846,14 @@
             ],
             "status": [
                 "kitten"
-            ]
+            ],
+            "cluster": ["unruly"]
         },
         "season": [
             "leafbare",
             "newleaf"
         ],
-        "tags": [
-            "unruly"
-        ],
+        "tags": [],
         "intro": [
             "[In the midst of doing your chores for the day, you happen to stumble across t_c causing some trouble.]",
             "[t_c's head pops out of the hole {PRONOUN/t_c/subject} dug, completely covered in mud.]",
@@ -15009,11 +15005,10 @@
         "t_c": {
             "status": [
                 "kitten"
-            ]
+            ],
+            "cluster": ["unruly"]
         },
-        "tags": [
-            "unruly"
-        ],
+        "tags": [],
         "intro": [
             "Hey, I noticed it's been really quiet.",
             "So I stirred up some trouble for you! r_c1 and r_c2 have been mad for hourrrssss!",
@@ -15597,15 +15592,14 @@
         "t_c": {
             "status": [
                 "kitten"
-            ]
+            ],
+            "cluster": ["self-conscious"]
         },
         "relationship": [
             "from_kit",
             "from_adopted_kit"
         ],
-        "tags": [
-            "self-conscious"
-        ],
+        "tags": [],
         "intro": [
             "[You watch t_c as {PRONOUN/t_c/subject} {VERB/t_c/groom/grooms} {PRONOUN/t_c/poss} little paws, love for {PRONOUN/t_c/object} coursing through your body at the sight. Your kit is so cute!]",
             "What? Do I look funny? What's wrong??"
@@ -15664,7 +15658,8 @@
     "daydreamer_kit_rad1": {
         "y_c": {
             "age": [
-                "adult"
+                "adult",
+                "adolescent"
             ]
         },
         "t_c": {
@@ -15678,9 +15673,7 @@
                 "kitten"
             ]
         },
-        "tags": [
-            "you_adolescent"
-        ],
+        "tags": [],
         "intro": [
             "[You call t_c's name to get {PRONOUN/t_c/poss} attention, but {PRONOUN/t_c/subject} {VERB/t_c/don't/doesn't} react.]",
             "[Nor {VERB/t_c/do/does} {PRONOUN/t_c/subject} react the next five times you say {PRONOUN/t_c/poss} name. {PRONOUN/t_c/subject/CAP} only {VERB/t_c/react/reacts} when you prod {PRONOUN/t_c/object} with your paw.]",
@@ -15773,14 +15766,13 @@
             ],
             "condition": [
                 "blind:any:false"
-            ]
+            ],
+            "cluster": ["self-conscious"]
         },
         "relationship": [
             "min_platonic_25"
         ],
-        "tags": [
-            "self-conscious"
-        ],
+        "tags": [],
         "intro": [
             "Hey, umm... y_c? Can I ask a weird question?",
             "... Do I sneeze funny?",
@@ -15860,9 +15852,8 @@
                 "blind:any:false"
             ]
         },
-        "tags": [
-            "leaf-fall"
-        ],
+        "season": ["leaffall"],
+        "tags": [],
         "intro": [
             "If r_k brings any more leaves into the nursery just because {PRONOUN/r_k/subject} thought they looked pretty, I'm moving my nest outside."
         ]
@@ -15871,6 +15862,9 @@
         "y_c": {
             "condition": [
                 "grief stricken"
+            ],
+            "status": [
+                "not_kitten"
             ]
         },
         "t_c": {
@@ -15881,9 +15875,7 @@
                 "kitten"
             ]
         },
-        "tags": [
-            "you_no_kit"
-        ],
+        "tags": [],
         "intro": [
             "[t_c drops a small bundle of flowers at your paws.]",
             "r_q said that sometimes when cats are grieving, putting flowers on the dead cat's grave can help them feel better.",
@@ -15960,12 +15952,10 @@
             ],
             "condition": [
                 "deaf:any:false"
-            ]
+            ],
+            "cluster": ["quiet"]
         },
-        "tags": [
-            "quiet",
-            "they_living"
-        ],
+        "tags": [],
         "intro": [
             "[t_c gazes at you curiously.]"
         ]
@@ -16066,16 +16056,14 @@
         },
         "t_c": {
             "cluster": [
+                "self-conscious",
                 "shy"
             ],
             "status": [
                 "kitten"
             ]
         },
-        "tags": [
-            "self-conscious",
-            "they_living"
-        ],
+        "tags": [],
         "intro": [
             "Umm...",
             "You're a StarClan cat, right? What are you doing here?",
@@ -16141,7 +16129,11 @@
         ]
     },
     "attention-seeker_kitten_rad1": {
-        "y_c": {},
+        "y_c": {
+            "status": [
+                "not_kitten"
+            ]
+        },
         "t_c": {
             "cluster": [
                 "attention-seeker"
@@ -16150,9 +16142,7 @@
                 "kitten"
             ]
         },
-        "tags": [
-            "you_no_kitten"
-        ],
+        "tags": [],
         "intro": [
             "[t_c has wadded a bunch of old moss together and is embedding sticks into it.]",
             "[Finally, when {PRONOUN/t_c/subject} {VERB/t_c/appear/appears} satisfied with the result, {PRONOUN/t_c/subject} {VERB/t_c/drape/drapes} the moss over {PRONOUN/t_c/poss} back, sticks facing outwards.]",
@@ -16177,9 +16167,7 @@
                 "kitten"
             ]
         },
-        "tags": [
-            "they_living"
-        ],
+        "tags": [],
         "intro": [
             "[Some of the kits, when they see you, react with surprise or confusion - much differently than they do when they see their living Clanmates.]",
             "... What do you want?",
@@ -16269,11 +16257,10 @@
         "t_c": {
             "status": [
                 "kitten"
-            ]
+            ],
+            "cluster": ["quiet"]
         },
-        "tags": [
-            "quiet"
-        ],
+        "tags": [],
         "intro": [
             "[While sorting through herbs, you glance up to see t_c, observing you from the entrance to the medicine den.]",
             "... I have a thorn stuck behind my ear. Can you pull it out?",
@@ -16377,11 +16364,10 @@
             "condition": [
                 "deaf:any:false"
             ],
-            "shunned": true
+            "shunned": true,
+            "cluster": ["self-conscious"]
         },
-        "tags": [
-            "self-conscious"
-        ],
+        "tags": [],
         "intro": [
             "[t_c huddles off to the side, as though {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} trying to be as inconspicuous as possible.]"
         ]
@@ -16572,7 +16558,7 @@
             }
         },
         "yes": [
-            "Yay! I'll be the leader of o_c_n, and you can be the leader of your own Clan... y_cClan! r_k already said {PRONOUN/r_k/subject} {VERB/r_k/want/wants} to be the leader of c_nClan.",
+            "Yay! I'll be the leader of o_c_n, and you can be the leader of your own Clan... y_cClan! r_k already said {PRONOUN/r_k/subject} {VERB/r_k/want/wants} to be the leader of c_n.",
             "C'mon, y_c! Let's go find r_k!",
             "[You follow t_c away from the nursery, feeling happy that {PRONOUN/t_c/subject} decided to include you in {PRONOUN/t_c/poss} game.]"
         ],
@@ -16715,6 +16701,248 @@
         "intro": [
             "[t_c leans on you silently in comfort.]",
             "[Even kits from the Dark Forest are sweet.]"
+        ]
+    },
+    "condition_J1": {
+        "y_c": {},
+        "t_c": {
+            "condition": [
+                "kittencough",
+                "whitecough",
+                "greencough"
+            ],
+            "age": [
+                "newborn",
+                "kitten"
+            ]
+        },
+        "relationship": [
+            "from_kit",
+            "from_adopted_kit"
+        ],
+        "intro": [
+            "*Cough* Ow! *Cough* Ow! *Cough* Ow!",
+            "[t_c's entire body shakes with each cough. You lick {PRONOUN/t_c/poss} head, trying to comfort {PRONOUN/t_c/object}. You hate to see your kit so sick!]"
+        ]
+    },
+    "tickbites_H2": {
+        "y_c": {
+            "status": [
+                "any"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "tick bites",
+                "blind:any:false",
+                "fleas"
+            ]
+        },
+        "intro": [
+            "No! Don't come any closer!",
+            "r_m says I've been contaminated by little beasts that feast on flesh!",
+            "Save yourself!!"
+        ]
+    },
+    "tickbites_H4": {
+        "y_c": {
+            "status": [
+                "any"
+            ],
+            "condition": [
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "kitten"
+            ],
+            "condition": [
+                "tick bites",
+                "blind:any:false",
+                "fleas"
+            ]
+        },
+        "intro": [
+            "No! Don't come any closer!",
+            "r_m-unlawful says I've been contaminated by little beasts that feast on flesh!",
+            "Save yourself!!"
+        ],
+        "intro_choices": {
+            "choice1": {
+                "text": "It's just ticks.",
+                "next_scene": "just_ticks"
+            },
+            "choice2": {
+                "text": "[Heed {PRONOUN/t_c/poss} warning.]",
+                "next_scene": "scooty_scooty"
+            },
+            "choice3": {
+                "text": "r_m-unlawful is over-exaggerating.",
+                "next_scene": "unlawful_exaggerating"
+            }
+        },
+        "just_ticks": [
+            "Wahhh you're just being cool about it because you're not experiencing it.",
+            "I'm itching so much, it feels like I'm doing more flesh destroying than the beasts are!"
+        ],
+        "scooty_scooty": [
+            "Run for your life!!"
+        ],
+        "unlawful_exaggerating": [
+            "No, r_m-unlawful is mean but {PRONOUN/r_m-unlawful/subject}{VERB/r_m-unlawful/'re/'s} not that mean!",
+            "... Right?"
+        ]
+    },
+    "you_preg_upstanding_kit_rad1": {
+        "y_c": {
+            "condition": [
+                "pregnant"
+            ]
+        },
+        "t_c": {
+            "age": [
+                "kitten"
+            ],
+            "cluster": [
+                "upstanding"
+            ]
+        },
+        "relationship": [],
+        "intro": [
+            "[One of your unborn kits kicks a little too sharply, and you wince.]",
+            "y_c? Are you okay?",
+            "... Your kits can kick you from inside your belly?",
+            "[Before you can respond, t_c marches up and shoves {PRONOUN/t_c/poss} muzzle against your belly, as though {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} trying to talk directly to your kits.]",
+            "Hey! Stop kicking y_c! That's not nice!",
+            "[As if on cue, your kits kick again, this time directly bumping against t_c's muzzle.]",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/pull/pulls} back and looks at you forlornly.]",
+            "... It didn't work."
+        ]
+    },
+    "burn_sam1": {
+        "y_c": {
+            "status": [
+                "medicine cat",
+                "medicine cat apprentice"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "burn",
+                "severe burn",
+                "blind:any:false"
+            ],
+            "status": [
+                "kitten"
+            ]
+        },
+        "intro": [
+            "[t_c is limping, purposefully not putting weight on the burn on {PRONOUN/t_c/poss} paw.]",
+            "y_c? How much longer will it be until my burn heals? I wanna play more mossball!"
+        ]
+    },
+    "upstanding_kitten_SQ1": {
+        "y_c": {
+            "age": ["newborn"],
+            "cluster": ["assertive", "silly", "unlawful"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+"status": ["kitten"],
+            "cluster": ["upstanding"],
+            "condition": ["blind:any:false"]
+},
+        "intro": [
+           "Newborns are s'posed to stay in their nests. You're not allowed to wander around yet!",
+           "[Ignoring your mews of protest, t_c nudges you back into your moss-lined bed.]"
+]
+},
+
+ "upstanding_kitten_SQ2": {
+        "t_c": {
+"status": ["kitten"],
+            "cluster": ["upstanding"]
+},
+        "relationship": ["min_platonic_5", "max_dislike_10"],
+        "intro": [
+           "I wonder who's gonna be my mentor. There's a lot of good cats...",
+           "[t_c scans the camp, {PRONOUN/t_c/poss} gaze lingering on plike-r_w1 and plike-r_w2.]",
+           "I just want someone who's serious about teaching me! And isn't, like, a pushover...",
+           "l_n better choose someone good."
+]
+},
+
+ "upstanding_kitten_SQ3": {
+        "t_c": {
+"status": ["kitten"],
+            "cluster": ["upstanding"]
+},
+        "relationship": ["min_platonic_5", "max_dislike_10"],
+        "intro": [
+           "Did you see r_k-assertive running after l_n, begging {PRONOUN/l_n/object} to make {PRONOUN/r_k-assertive/object} an apprentice early?",
+           "[t_c heaves a dramatic sigh.]",
+           "We have the six-moon rule for a reason! And of course I want to be an apprentice, too, but that doesn't mean I'm gonna ask cats to break the rules for me!"
+]
+},
+
+ "upstanding_kitten_SQ4": {
+        "y_c": {
+            "status": ["kitten"],
+            "condition": ["blind:any:false"]
+        },
+        "t_c": {
+"status": ["kitten"],
+            "cluster": ["upstanding"],
+            "condition": ["blind:any:false"]
+},
+        "relationship": ["max_dislike_5"],
+        "intro": [
+           "y_c! y_c! I decided we should have a schedule, just like the adults do!",
+           "So I made one. First, we're gonna have breakfast, and then we're gonna go watch d_n organize patrols, and then we're gonna clean the nursery...",
+           "[You try to interject, but t_c talks over you.]",
+           "...And then we're gonna ask if anyone needs help, and then we'll patrol the elders' den, and then...",
+           "[StarClan, you're going to be busy if t_c gets {PRONOUN/t_c/poss} way!]"
+]
+},
+
+ "upstanding_kitten_SQ5": {
+        "y_c": {
+            "condition": ["illness:any", "injury:any"]
+        },
+        "t_c": {
+"status": ["kitten"],
+            "cluster": ["upstanding"]
+},
+        "relationship": ["max_dislike_5"],
+        "intro": [
+           "r_m said you aren't feeling well. Why aren't you asleep?",
+           "[t_c draws {PRONOUN/t_c/self} up and looks sternly down at you.]",
+           "r_m also said it's important that you sleep, so you get better! So come on, close your eyes and take a nap!"
+]
+},
+
+ "upstanding_kitten_SQ6": {
+        "y_c": {
+            "status": ["kitten"],
+            "cluster": ["assertive", "cool", "upstanding", "silly", "unabashed"]
+        },
+        "t_c": {
+            "status": ["kitten"],
+            "cluster": ["upstanding"],
+            "condition": ["illness:any", "injury:any"]
+        },
+        "relationship": ["max_dislike_5"],
+        "intro": [
+           "[t_c turns away when you begin inviting {PRONOUN/t_c/object} to play.]",
+           "I'm s'posed to rest so I get better. r_m's orders.",
+           "No, don't argue! You've gotta leave me alone now."
         ]
     }
 }

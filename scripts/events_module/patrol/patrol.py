@@ -585,7 +585,7 @@ class Patrol:
 
         if (
             not love1.is_potential_mate(love2, for_love_interest=True)
-            and love1.ID not in love2.mate
+            and love1.ID not in love2.mates
         ):
             print("not a potential mate or current mate")
             return False
@@ -597,7 +597,7 @@ class Patrol:
 
         if (
             get_personality_compatibility(love1, love2) is True
-            or love1.ID in love2.mate
+            or love1.ID in love2.mates
         ):
             chance_of_romance_patrol -= 10
         else:
@@ -900,11 +900,6 @@ class Patrol:
             if len(patrol.antag_success_outcomes) > 0:
                 for i in patrol.antag_success_outcomes:
                     tests.append(i.text)
-
-            for i in patrol.success_outcomes:
-                tests.append(i.text)
-            for i in patrol.fail_outcomes:
-                tests.append(i.text)
 
             for i in tests:
                 # INF
@@ -1549,9 +1544,15 @@ class Patrol:
         if stat_cat:
             replace_dict["s_c"] = (str(stat_cat.name), choice(stat_cat.pronouns))
 
+        # this is really bad and hacky
+        if "r_c" in self.patrol_cat_dict:
+            if self.random_cat:
+                self.patrol_cat_dict["r_c"] = self.random_cat
+        # but oh well
+
         # adjusting text for lifegen abbrevs + adding to replace dict
         if game.switches["patrol_category"] in ['lifegen', 'df', 'date']:
-            text = lifegen_text_adjust(Cat, text, self.patrol_leader, self.patrol_cat_dict, r_c_allowed=False, o_c_allowed=False)
+            text = lifegen_text_adjust(Cat, text, self.patrol_leader, self.patrol_cat_dict, r_c_allowed=True, o_c_allowed=False)
             if text == "":
                 # This shouldn't ever happen naturally, as the abbrevs in the patrol are all tested during filtering
                 if isinstance(game.config["patrol_generation"]["debug_ensure_patrol_id"], str):
@@ -1560,7 +1561,6 @@ class Patrol:
                     text = "Mrrp? Please report as a Lifegen bug!"
             for cat in self.patrol_cat_dict.items():
                 replace_dict[cat[0]] = (str(cat[1].name), choice(cat[1].pronouns))
-
 
         text = process_text(text, replace_dict)
         text = adjust_prey_abbr(text)

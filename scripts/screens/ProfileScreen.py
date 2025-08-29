@@ -56,6 +56,7 @@ from scripts.utility import (
     ui_scale_offset,
     adjust_list_text,
     pronoun_repl,
+    get_alive_cats
 )
 from .Screens import Screens
 from ..cat.history import History
@@ -420,6 +421,8 @@ class ProfileScreen(Screens):
                 self.change_screen('queen screen')
             elif "halfmoon" in self.profile_elements and event.ui_element == self.profile_elements["halfmoon"]:
                 self.change_screen('moonplace screen')
+            elif "story" in self.profile_elements and event.ui_element == self.profile_elements["story"]:
+                self.change_screen('elder story screen')
             elif event.ui_element == self.profile_elements["favourite_button"]:
                 if self.the_cat.favourite == 3:
                     self.the_cat.favourite = 0
@@ -1055,14 +1058,7 @@ class ProfileScreen(Screens):
         if not game.clan.your_cat:
             print("Are you playing a normal ClanGen save? Switch to a LifeGen save or create a new cat!")
             print("Choosing random cat to play...")
-            game.clan.your_cat = Cat.all_cats[choice(game.clan.clan_cats)]
-            counter = 0
-            while game.clan.your_cat.dead or game.clan.your_cat.outside:
-                if counter == 25:
-                    break
-                game.clan.your_cat = Cat.all_cats[choice(game.clan.clan_cats)]
-                counter+=1
-
+            game.clan.your_cat = choice(get_alive_cats(Cat))
             print("Chose " + str(game.clan.your_cat.name))
 
         if self.the_cat.ID == game.clan.your_cat.ID:
@@ -1213,7 +1209,15 @@ class ProfileScreen(Screens):
                 self.profile_elements["halfmoon"].disable()
             elif "attended half-moon" in game.switches and game.switches["attended half-moon"]:
                 self.profile_elements["halfmoon"].disable()
-        elif self.the_cat.status in ["queen's apprentice", "mediator apprentice", "apprentice"] and self.the_cat.ID == game.clan.your_cat.ID and self.the_cat.moons >= 6:
+        elif (
+            self.the_cat.status in [
+                "queen's apprentice",
+                "mediator apprentice",
+                "apprentice"
+                ] and
+                self.the_cat.ID == game.clan.your_cat.ID and
+                self.the_cat.moons >= 6
+                ):
             if self.the_cat.status == "apprentice":
                 self.profile_elements["halfmoon"] = UIImageButton(ui_scale(pygame.Rect(
                     (383, y_pos), (34, 34))),
@@ -1234,6 +1238,19 @@ class ProfileScreen(Screens):
                 self.profile_elements["halfmoon"].disable()
             elif "attended half-moon" in game.switches and game.switches["attended half-moon"]:
                 self.profile_elements["halfmoon"].disable()
+        elif self.the_cat.status == "elder":
+            self.profile_elements["story"] = UISurfaceImageButton(
+                ui_scale(pygame.Rect((383, y_pos), (34, 34))),
+                Icon.NOTEPAD,
+                get_button_dict(ButtonStyles.ICON, (34, 34)),
+                manager=MANAGER,
+                tool_tip_text="Tell a story",
+                object_id="@buttonstyles_icon",
+                starting_height=2,
+            )
+           
+            if self.the_cat.dead or self.the_cat.outside or self.the_cat.shunned > 0:
+                self.profile_elements["story"].disable()
         
         if self.the_cat.ID == game.clan.your_cat.ID and not game.clan.your_cat.dead:
             if self.open_tab == "faith":
@@ -1381,12 +1398,12 @@ class ProfileScreen(Screens):
                     output += ' moons'
 
         # MATE
-        if len(the_cat.mate) > 0:
+        if len(the_cat.mates) > 0:
             output += "\n"
 
             mate_names = []
             # Grab the names of only the first two, since that's all we will display
-            for _m in the_cat.mate[:2]:
+            for _m in the_cat.mates[:2]:
                 mate_ob = Cat.fetch_cat(_m)
                 if not isinstance(mate_ob, Cat):
                     continue
@@ -1402,16 +1419,16 @@ class ProfileScreen(Screens):
                 else:
                     mate_names.append(f"{str(mate_ob.name)}")
 
-            if len(the_cat.mate) == 1:
+            if len(the_cat.mates) == 1:
                 output += "mate: "
             else:
                 output += "mates: "
 
             output += ", ".join(mate_names)
 
-            if len(the_cat.mate) > 2:
-                output += f", and {len(the_cat.mate) - 2}"
-                if len(the_cat.mate) - 2 > 1:
+            if len(the_cat.mates) > 2:
+                output += f", and {len(the_cat.mates) - 2}"
+                if len(the_cat.mates) - 2 > 1:
                     output += " others"
                 else:
                     output += " other"
@@ -1458,14 +1475,14 @@ class ProfileScreen(Screens):
                 output += "<font color='#950000' >" + "Dark Forest "+ the_cat.status + "</font>"
         elif the_cat.dead and not the_cat.df and not the_cat.outside:
             if game.settings['dark mode']:
-                output += "<font color ='#A8BBFF'>" "StarClan " + the_cat.status + "</font>"
+                output += "<font color ='#A8BBFF'>" + "StarClan " + the_cat.status + "</font>"
             else:
-                output += "<font color ='#2B3DC3'>" "StarClan " + the_cat.status + "</font>"
+                output += "<font color ='#2B3DC3'>" + "StarClan " + the_cat.status + "</font>"
         elif the_cat.dead and not the_cat.df and the_cat.outside:
             if game.settings['dark mode']:
-                output += "<font color ='#CE9DFF'>" "ghost " + the_cat.status + "</font>"
+                output += "<font color ='#CE9DFF'>" + "ghost " + the_cat.status + "</font>"
             else:
-                output += "<font color ='#450E7B'>" "ghost " + the_cat.status + "</font>"
+                output += "<font color ='#450E7B'>" + "ghost " + the_cat.status + "</font>"
         else:
             output += the_cat.status
 
@@ -3150,11 +3167,11 @@ class ProfileScreen(Screens):
                 tool_tip_text='Have an affair with one of your clanmates',
                 starting_height=2, manager=MANAGER
             )
-            if len(game.clan.your_cat.mate) == 0 or game.clan.affair:
+            if len(game.clan.your_cat.mates) == 0 or game.clan.affair:
                 self.affair_button.disable()
-            if game.clan.your_cat.mate:
+            if game.clan.your_cat.mates:
                 alive_mate = False
-                for m in game.clan.your_cat.mate:
+                for m in game.clan.your_cat.mates:
                     if Cat.all_cats.get(m).dead == False:
                         alive_mate = True
                 if not alive_mate:

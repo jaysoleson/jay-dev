@@ -46,7 +46,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "lg_medcat_default",
+        "patrol_art": "life_med_og2",
         "min_cats": 1,
         "max_cats": 3,
         "min_max_status": {},
@@ -186,7 +186,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "lg_medcat_default",
+        "patrol_art": "life_med_og6",
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
@@ -339,7 +339,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "lg_medcat_default",
+        "patrol_art": "life_Med_Guy2",
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},

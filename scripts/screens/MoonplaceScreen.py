@@ -408,7 +408,7 @@ class MoonplaceScreen(Screens):
                 text = text.replace("moonplace", moonplace)
                 text = text.replace("Moonplace", moonplace)
             if "yourcrush" in text:
-                if len(game.clan.your_cat.mate) > 0 or game.clan.your_cat.no_mates:
+                if len(game.clan.your_cat.mates) > 0 or game.clan.your_cat.no_mates:
                     return ""
                 crush = None
                 for c in self.get_living_cats():
@@ -424,8 +424,8 @@ class MoonplaceScreen(Screens):
                     text = text.replace("yourcrush", str(crush.name))
                 else:
                     return ""
-            if "rlike-r_c" in text:
-                if len(cat.mate) > 0 or cat.no_mates:
+            if "theircrush" in text:
+                if len(cat.mates) > 0 or cat.no_mates:
                     return ""
                 crush = None
                 for c in self.get_living_cats():
@@ -438,7 +438,7 @@ class MoonplaceScreen(Screens):
                         crush = c
                         break
                 if crush:
-                    text = text.replace("rlike-r_c", str(crush.name))
+                    text = text.replace("theircrush", str(crush.name))
                 else:
                     return ""
 
@@ -709,9 +709,9 @@ class MoonplaceScreen(Screens):
                     return ""
                 text = text.replace("t_p", str(parent.name))
             if "y_m" in text:
-                if game.clan.your_cat.mate is None or len(game.clan.your_cat.mate) == 0 or cat.ID in game.clan.your_cat.mate:
+                if game.clan.your_cat.mates is None or len(game.clan.your_cat.mates) == 0 or cat.ID in game.clan.your_cat.mates:
                     return ""
-                text = text.replace("y_m", str(Cat.fetch_cat(choice(game.clan.your_cat.mate)).name))
+                text = text.replace("y_m", str(Cat.fetch_cat(choice(game.clan.your_cat.mates)).name))
             if "tm_n" in text:
                 if cat.mentor is None:
                     return ""
@@ -732,9 +732,9 @@ class MoonplaceScreen(Screens):
 
             #their mate
             if "t_m" in text:
-                if cat.mate is None or len(cat.mate) == 0 or cat.ID in game.clan.your_cat.mate:
+                if cat.mates is None or len(cat.mates) == 0 or cat.ID in game.clan.your_cat.mates:
                     return ""
-                mate1 = Cat.fetch_cat(choice(cat.mate))
+                mate1 = Cat.fetch_cat(choice(cat.mates))
                 if mate1.outside or mate1.dead:
                     return ""
                 text = text.replace("t_m", str(mate1.name))
@@ -821,7 +821,7 @@ class MoonplaceScreen(Screens):
     def get_other_med_greeting(self, possible_texts):
         """Handles other medicine cat greetings at the Moonplace."""
         
-        def format_greeting(template: str, clan_name: str, med_names: list[str]) -> str:
+        def format_greeting(template, clan_name, med_names):
             formatted_names = ", ".join(med_names[:-1]) + f", and {med_names[-1]}" if len(med_names) > 2 else \
                             " and ".join(med_names) if len(med_names) == 2 else \
                             med_names[0]

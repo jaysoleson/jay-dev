@@ -11,7 +11,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "lg_medcatapp_default",
+        "patrol_art": "life_medapp_og1",
         "min_cats": 1,
         "max_cats": 2,
         "min_max_status": {},
@@ -86,7 +86,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "lg_medcatapp_default",
+        "patrol_art": "life_medapp_og3",
         "min_cats": 1,
         "max_cats": 2,
         "min_max_status": {},
@@ -156,7 +156,7 @@
             "lifegen"
         ],
         "tags": [],
-        "patrol_art": "lg_medcatapp_default",
+        "patrol_art": "life_medapp_og5",
         "min_cats": 1,
         "max_cats": 2,
         "min_max_status": {},
@@ -278,7 +278,7 @@
                 "weight": 20
             },
             {
-                "text": "Just as you turn away from watching r_m and r_i, d_c passes by with a fresh fading spot, which gives you an idea. You promptly pretend to 'treat' d_c's fading spot as if it were an injury. You both have loads of fun, and you forget all about your sadness.",
+                "text": "Just as you turn away from watching r_m and r_i, rsc_c passes by with a fresh fading spot, which gives you an idea. You promptly pretend to 'treat' rsc_c's fading spot as if it were an injury. You both have loads of fun, and you forget all about your sadness.",
                 "exp": 0,
                 "weight": 20,
                 "can_have_stat": ["p_l"],

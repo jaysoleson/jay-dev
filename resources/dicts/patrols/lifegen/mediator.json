@@ -262,7 +262,7 @@
         "tags": [
             "shunned"
         ],
-        "patrol_art": "lg_mediator_default",
+        "patrol_art": "lg_mediator_shunned_J1",
         "min_cats": 1,
         "max_cats": 6,
         "min_max_status": {},
