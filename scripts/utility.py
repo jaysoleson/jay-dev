@@ -3951,7 +3951,9 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
         chosen_cat.outside or
-        chosen_cat.ID != game.clan.leader.ID or
+        (game.clan.leader and
+        chosen_cat.ID != game.clan.leader.ID) or
+        not game.clan.leader or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -3961,7 +3963,9 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
         chosen_cat.outside or
-        chosen_cat.ID != game.clan.deputy.ID or
+        (game.clan.deputy and
+        chosen_cat.ID != game.clan.deputy.ID) or
+        not game.clan.deputy or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -3971,7 +3975,9 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
         chosen_cat.outside or
-        chosen_cat.ID != game.clan.leader or
+        (game.clan.leader and
+        chosen_cat.ID != game.clan.leader.ID) or
+        not game.clan.leader or
         chosen_cat.shunned == 0 or
         chosen_cat in current_cat_objects
     ) else True
@@ -3982,7 +3988,9 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
         chosen_cat.outside or
-        chosen_cat.ID != game.clan.deputy or
+        (game.clan.deputy and
+        chosen_cat.ID != game.clan.deputy.ID) or
+        not game.clan.deputy or
         chosen_cat.shunned == 0 or
         chosen_cat in current_cat_objects
     ) else True
