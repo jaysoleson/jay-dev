@@ -460,7 +460,7 @@ class CureLogScreen(Screens):
                 ui_scale(pygame.Rect(((60, 77), (726, 630)))),
                 pygame.transform.scale(
                     pygame.image.load(
-                        "resources/images/treatment_log_dark.png"
+                        imagesrc
                     ).convert_alpha(),
                     ui_scale_dimensions((726, 630))
                     ),
