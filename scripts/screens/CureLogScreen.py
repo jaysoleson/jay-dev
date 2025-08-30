@@ -132,7 +132,7 @@ class CureLogScreen(Screens):
             ##code block for achievement 31
             achieve31RankList = ['warrior', 'mediator', 'leader']
             achieve31UsedRanks = []
-            if len(Cat.all_cats.get(cat).mate) >= 2:
+            if len(Cat.all_cats.get(cat).mates) >= 2:
                 catMateIDs = Cat.all_cats.get(cat).mate.copy()
                 if Cat.all_cats.get(cat).status in achieve31RankList:
                     achieve31UsedRanks.append(Cat.all_cats.get(cat).status)
@@ -171,7 +171,7 @@ class CureLogScreen(Screens):
             if you.relationships.get(i).romantic_love >= 60:
                 achievements.add('12')
             
-        if len(you.mate) >= 5:
+        if len(you.mates) >= 5:
             achievements.add('13')
         if you.status == 'warrior':
             achievements.add('14')
@@ -298,9 +298,17 @@ class CureLogScreen(Screens):
             for num in game.clan.infection["cure"]:
                 cure_herbs.append(get_infection_herb(num))
             for i in infologs:
-                log = a_txt[i].replace("herb1", str(cure_herbs[0])).replace("herb2", str(cure_herbs[1])).replace("herb3", str(cure_herbs[2])).replace("herb4", str(cure_herbs[3]))
+                log = a_txt[i].replace(
+                    "herb1", str(cure_herbs[0])
+                    ).replace(
+                        "herb2", str(cure_herbs[1])
+                        ).replace(
+                            "herb3", str(cure_herbs[2])
+                            ).replace(
+                                "herb4", str(cure_herbs[3])
+                                ) # lol
                 
-                stats_text += "-" + log.replace("_", " ") + "\n" + "<br>"
+                stats_text += "- " + log.replace("_", " ") + "\n" + "<br>"
 
             self.heading1 = pygame_gui.elements.UITextBox(
                 "<b>Events:</b>",
@@ -316,9 +324,9 @@ class CureLogScreen(Screens):
             
             self.stats_box = pygame_gui.elements.UITextBox(
                 f"<font color='#120905'>{stats_text}</font>",
-                ui_scale(pygame.Rect((135, 170), (265, 360))),
+                ui_scale(pygame.Rect((155, 170), (235, 360))),
                 manager=MANAGER,
-                object_id=get_text_box_theme("#text_box_30_horizcenter"))
+                object_id=get_text_box_theme("#text_box_26_horizleft_pad_10_14"))
             
             if len(game.clan.infection["treatments"]) > 0:
                 self.next_page_button.enable()

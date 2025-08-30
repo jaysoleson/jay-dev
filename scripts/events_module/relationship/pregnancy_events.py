@@ -258,7 +258,7 @@ class Pregnancy_Events:
             }
             infectionevent = False
             if (
-                (other_cat and other_cat.infected_for > 0 and other_cat.ID in cat.mate)
+                (other_cat and other_cat.infected_for > 0 and other_cat.ID in cat.mates)
                 or cat.infected_for > 0
                 ):
                 text = choice(Pregnancy_Events.PREGNANT_STRINGS["infected_announcement"])
@@ -321,7 +321,7 @@ class Pregnancy_Events:
             }
             infectionevent = False
             if (
-                (second_parent and second_parent.infected_for > 0 and second_parent.ID in pregnant_cat.mate)
+                (second_parent and second_parent.infected_for > 0 and second_parent.ID in pregnant_cat.mates)
                 or pregnant_cat.infected_for > 0
                 ):
                 text = choice(Pregnancy_Events.PREGNANT_STRINGS["infected_announcement"])
@@ -507,7 +507,7 @@ class Pregnancy_Events:
                 else:
                     print("Infected kits but", cat.name, "and", other_cat.name, "are both uninfected?")
                     addon = "error"
-                if other_cat.ID not in cat.mate:
+                if other_cat.ID not in cat.mates:
                     addon += "_unmated"
 
                 event_list.append(choice(events["birth"]["infected_kits"][addon]))
