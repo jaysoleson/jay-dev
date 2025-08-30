@@ -1235,9 +1235,10 @@ class PatrolOutcome:
             if not int(random.random() * chance):
                 infected_cat = random.choice(patrol.patrol_cats)
                 infected_cat.get_ill(f"{game.clan.infection['infection_type']} stage one")
-                additional_text = f"\n<font color='#A6D000'>The prey is infected!</font> {infected_cat.name} has become mysteriously ill after eating it..."
+                additional_text = f"\n<font color='#A6D000'> The prey is infected!</font> {infected_cat.name} has become mysteriously ill after eating it..."
 
-                game.clan.infection["logs"].append("start")
+                if "start" not in game.clan.infection["logs"]:
+                    game.clan.infection["logs"].append("start")
                 game.clan.infection["clan_infected"] = True
 
         results = ""

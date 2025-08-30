@@ -115,6 +115,9 @@ class LeaderDenScreen(Screens):
             # ---
             elif event.ui_element == self.focus_frame_elements["clans_tab"]:
                 self.open_clans_tab()
+                # INF
+                self.update_other_clan_focus()
+                # ---
             elif event.ui_element == self.focus_frame_elements["outsiders_tab"]:
                 self.open_outsiders_tab()
             elif event.ui_element in self.outsider_cat_buttons.values():
@@ -745,14 +748,21 @@ class LeaderDenScreen(Screens):
             ),
             anchors={"centerx": "centerx"},
         )
-        if (
-            self.focus_clan.infection_level < 1 or
-            self.focus_clan.fallen or
-            self.focus_clan.cured
-            ):
-            self.focus_frame_elements["share_cure"].disable()
+
+        # INF
+        if "cure_found" in game.clan.infection["logs"]:
+            self.focus_frame_elements["share_cure"].show()
+        
+            if (
+                self.focus_clan.infection_level < 1 or
+                self.focus_clan.fallen or
+                self.focus_clan.cured
+                ):
+                self.focus_frame_elements["share_cure"].disable()
+            else:
+                self.focus_frame_elements["share_cure"].enable()
         else:
-            self.focus_frame_elements["share_cure"].enable()
+            self.focus_frame_elements["share_cure"].hide()
 
         if self.focus_clan.fallen:
             self.focus_clan_elements["clan_fallen_text"] = pygame_gui.elements.UILabel(
@@ -776,10 +786,6 @@ class LeaderDenScreen(Screens):
 
         self.focus_frame_elements["positive_interaction"].set_text(f"{interaction[1]}")
         self.focus_frame_elements["positive_interaction"].show()
-
-        # INF
-        if "cure_found" in game.clan.infection["logs"]:
-            self.focus_frame_elements["share_cure"].show()
 
         if self.focus_clan.fallen:
             self.focus_frame_elements["negative_interaction"].hide()

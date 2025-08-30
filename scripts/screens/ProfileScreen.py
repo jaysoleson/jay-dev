@@ -3576,7 +3576,7 @@ class ProfileScreen(Screens):
                     "-Encase text between 'font color= #hex code of the color' and '/font' to change the color of the text.<br>"
                     "-Encase text between 'font size=number of size' and '/font' to change the text size.",
                 )
-                print("user notes", self.user_notes)
+                # print("user notes", self.user_notes)
                 if self.editing_notes is True:
                     self.save_text = UIImageButton(
                         ui_scale(pygame.Rect((52, 514), (34, 34))),

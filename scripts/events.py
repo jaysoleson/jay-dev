@@ -1789,13 +1789,15 @@ class Events:
             if clan.infection_level >= 50 and not game.clan.infection["clan_infected"]:
                 continue
             events = []
-            
-            increase_amount = temper_chance[clan.temperament]
-            
-            increase_chance = 0
-            increase_chance += (increase_amount + random.randint(-4,4))
 
-            increase_chance = max(1, min(increase_chance, 10))
+            if clan.infection_level == 0:
+                increase_chance = 8
+            else:
+                increase_amount = temper_chance[clan.temperament]
+                increase_chance = 0
+                increase_chance += (increase_amount + random.randint(-4,4))
+                increase_chance = max(1, min(increase_chance, 10))
+            
             beginning = False
 
             if random.random() < 1 / increase_chance:
@@ -1833,7 +1835,7 @@ class Events:
                     level_string = "fallen"
                     self.clan_fall(clan)
 
-            if (random.randint(1,10) == 1) or level_string == "fallen":
+            if (random.randint(1,10) == 1) or level_string == "fallen" or beginning:
                 events = other_clan_events[level_string]["general"]
                 events.extend(other_clan_events[level_string][inftype])
                 if addon:
