@@ -901,6 +901,11 @@ class Patrol:
                 for i in patrol.antag_success_outcomes:
                     tests.append(i.text)
 
+            for i in patrol.success_outcomes:
+                tests.append(i.text)
+            for i in patrol.fail_outcomes:
+                tests.append(i.text)
+
             for i in tests:
                 # INF
                 test_runs[i] = lifegen_text_adjust(Cat, str(i), self.patrol_leader, self.patrol_cat_dict, r_c_allowed=False, o_c_allowed=False)
