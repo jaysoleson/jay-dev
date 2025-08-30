@@ -12,7 +12,12 @@ import ujson
 
 from scripts.game_structure.game_essentials import game
 from scripts.game_structure.ui_elements import UIImageButton
-from scripts.utility import get_text_box_theme, ui_scale, get_infection_herb  # pylint: disable=redefined-builtin
+from scripts.utility import (
+    get_text_box_theme,
+    ui_scale,
+    get_infection_herb,
+    ui_scale_dimensions
+    )  # pylint: disable=redefined-builtin
 from .Screens import Screens
 from ..housekeeping.datadir import get_save_dir
 
@@ -23,12 +28,9 @@ from scripts.cat.cats import Cat
 from scripts.clan import Clan
 from scripts.cat.pelts import Pelt
 
-from scripts.game_structure.ui_elements import UITextBoxTweaked,UISurfaceImageButton
-from .Screens import Screens
+from scripts.game_structure.ui_elements import UITextBoxTweaked, UISurfaceImageButton
 from ..game_structure.screen_settings import MANAGER
-from ..ui.generate_box import BoxStyles, get_box
 from ..ui.generate_button import get_button_dict, ButtonStyles
-from ..ui.get_arrow import get_arrow
 from ..ui.icon import Icon
 
 
@@ -361,7 +363,7 @@ class CureLogScreen(Screens):
             allow_scroll_x=False,
             manager=MANAGER)
 
-            stats_text = "<b>Treatments:</b>"
+            stats_text = "<b>Treatments</b>"
 
             if game.settings["fullscreen"]:
                 fullscreen = True
@@ -450,23 +452,26 @@ class CureLogScreen(Screens):
             )
             
             if game.settings["dark mode"]:
-                self.screen_art = pygame_gui.elements.UIImage(ui_scale(pygame.Rect(((60, 77), (726, 630)))),
-                                                                 pygame.transform.scale(
-                                                                     pygame.image.load(
-                                                                         "resources/images/treatment_log_dark.png").convert_alpha(),
-                                                                     (1600, 1400)), manager=MANAGER)
+                imagesrc = "resources/images/treatment_log_dark.png"
             else:
-                self.screen_art = pygame_gui.elements.UIImage(ui_scale(pygame.Rect(((60, 77), (726, 630)))),
-                                                                 pygame.transform.scale(
-                                                                     pygame.image.load(
-                                                                         "resources/images/treatment_log_light.png").convert_alpha(),
-                                                                     (800, 700)), manager=MANAGER)
+                imagesrc = "resources/images/treatment_log_light.png"
+
+            self.screen_art = pygame_gui.elements.UIImage(
+                ui_scale(pygame.Rect(((60, 77), (726, 630)))),
+                pygame.transform.scale(
+                    pygame.image.load(
+                        "resources/images/treatment_log_dark.png"
+                    ).convert_alpha(),
+                    ui_scale_dimensions((726, 630))
+                    ),
+                manager=MANAGER
+                )
 
             self.stats_box = pygame_gui.elements.UITextBox(
                 stats_text,
-                ui_scale(pygame.Rect((135, 125), (350, 50))),
+                ui_scale(pygame.Rect((120, 125), (350, 50))),
                 manager=MANAGER,
-                object_id=get_text_box_theme("#text_box_30_horizcenter"))
+                object_id=get_text_box_theme("#text_box_30_horizleft"))
            
             self.scroll_container.set_scrollable_area_dimensions((100, y_offset + 25))
 
