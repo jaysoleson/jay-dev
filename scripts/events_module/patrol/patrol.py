@@ -1625,7 +1625,7 @@ class Patrol:
             "Plains": "Moongrove"
         }
 
-        text = text.replace("m_p", moonplace_dict[game.clan.biome.lower()])
+        text = text.replace("m_p", moonplace_dict[game.clan.biome])
 
 
         text, senses, list_type, _ = find_special_list_types(text)
