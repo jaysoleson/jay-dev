@@ -1618,6 +1618,16 @@ class Patrol:
 
         text = text.replace("c_n", str(game.clan.name) + "Clan")
 
+        moonplace_dict = {
+            "Beach": "Mooncove",
+            "Mountainous": "Moonfalls",
+            "Forest": "Moonhollow",
+            "Plains": "Moongrove"
+        }
+
+        text = text.replace("m_p", moonplace_dict[game.clan.biome.lower()])
+
+
         text, senses, list_type, _ = find_special_list_types(text)
         if list_type:
             sign_list = get_special_snippet_list(

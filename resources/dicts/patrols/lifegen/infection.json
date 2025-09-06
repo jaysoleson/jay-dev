@@ -333,6 +333,60 @@
         ]
     },
     {
+        "patrol_id": "kitten_infection_J3",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection"
+        ],
+        "patrol_art": "lg_kit_default",
+        "min_cats": 1,
+        "max_cats": 3,
+        "min_max_status": {
+            "kitten": [1, 1]
+        },
+        "weight": 60,
+        "intro_text": "Since everyone is too worried to play with you today, you've been forced to come up with your own games. Today, you're picking up all the trinkets you can find and assembling them into a big pile. But what to do with them...?",
+        "decline_text": "Nothing! You've earned these toys, fair and square! You keep them all in a stack by your nest.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "What's the only thing better than having a trinket? Giving it to someone else! You spend the afternoon picking out items from your pile and delivering them to your Clanmates. You leave the prettiest falcon feather outside the medicine den, since you aren't allowed inside.",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "How are you meant to play with these toys if they aren't organised? You knock down the pile and spend the day sorting them by colour and category. Later, when r_k asks if you've ever seen a blue feather before, you know just where to find yours!",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "These rocks and feathers aren't very impressive on their own, but maybe they can be combined into something great! You push your pile of goods outside and begin lining the outside of the nursery with your most colourful wares. By the time the sun has begin to set, the whole Clan is outside admiring your handiwork!",
+                "exp": 0,
+                "weight": 20
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "While you're considering what you should do with your riches, you're scolded for hogging so many toys. You try to explain that you found them all yourself, but it's no use-- you're forced to surrender your hoard so some of your Clanmates can have some trinkets of their own.",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "It's not too long before a warrior passes by the nursery and remarks that the feather at the top of your pile looks remarkably similar to one that went missing from their nest the other day. Another Clanmate comments how familiar one of your rocks looks, and comes inside to reclaim it. By the end of the day, your pile has dwindled to just a few stones and feathers. Those warriors are no fun.",
+                "exp": 0,
+                "weight": 20
+            }
+        ]
+    },
+    {
         "patrol_id": "gen_infection_beginning_1",
         "biome": [
             "Any"
@@ -1264,10 +1318,10 @@
         "weight": 20,
         "intro_text": "It's been an exhausting day. You lift your head and stare up at the sky. Does StarClan have anything to say about this?",
         "decline_text": "You don't need to know. StarClan can't help your Clanmates-- only you can. You stand up to get back to work.",
-        "chance_of_success": 60,
+        "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "After a moment of waiting, you start to feel a presence. Suddenly, d_c's starry pelt is in front of you. They don't say a word, but they drop a gift at your paws, give you a nod, and dissipate into the trees.",
+                "text": "After a moment of waiting, you start to feel a presence. Suddenly, rsc_c's starry pelt is in front of you. They don't say a word, but they drop a gift at your paws, give you a nod, and dissipate into the trees.",
                 "exp": 10,
                 "weight": 10,
                 "herbs": ["priority_herb"]
@@ -1419,6 +1473,55 @@
         "fail_outcomes": [
             {
                 "text": "You decide to risk it and begin trotting towards the camp entrance, but you stop in your tracks when you hear a cough behind you. Nope, you're too important to leave! You turn around to find the source, hoping that a Clanmate just has something in their throat.",
+                "exp": 10,
+                "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "gen_med_infection_5",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection"
+        ],
+        "patrol_art": "lg_medcat_default",
+        "min_cats": 1,
+        "max_cats": 1,
+        "min_max_status": {
+            "healer cats": [1, 1]
+        },
+        "weight": 60,
+        "intro_text": "Fed up with the constant finnicking with the cure and watching Clanmates suffer, you've embarked on a trip to the m_p to see if StarClan, or anyone else, can finally give you some answers. On your way there, however, you catch the scent of infection on the breeze-- and it's strong.",
+        "decline_text": "You turn and head back to your own territory. You can't risk being attacked by an infected rogue this far from help.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "Cautiously, you press on. Though the bushes rustle ominiously in the wind, the scent of sickness dissipates, adn you make it to the m_p without incident.",
+                "exp": 10,
+                "weight": 20
+            },
+            {
+                "text": "You continue down the path, unfazed by the familiar scent. When you arrive to the m_p, you find the head medicine cat of o_c_n, the scent of infection clinging to their pelt from all of their patients. You settle in next to them to sleep.",
+                "exp": 10,
+                "weight": 20
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You cautiously continue on your journey, but the scent only gets stronger. When you make it to the m_p, you're horrified to see the sacred spot swarming with infected rogues. When one notices you from afar, you turn and bolt back home, thoroughly shaken. If StarClan couldn't reach you before, they certainly can't now.",
+                "exp": 10,
+                "weight": 20
+            },
+            {
+                "text": "You press on, but after only a few moments, you come across the the infected body of a loner right in the middle of the path. Cautiously, you decide to dig the cat a grave, and by the time you've sent them to StarClan, the moon has already set and you ahve no choice but to return home.",
                 "exp": 10,
                 "weight": 20
             }
