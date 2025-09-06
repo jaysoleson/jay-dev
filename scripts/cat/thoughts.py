@@ -6,7 +6,7 @@ from scripts.utility import get_cluster
 import ujson
 from scripts.game_structure.game_essentials import game
 
-from scripts.utility import get_cluster
+from scripts.utility import get_cluster, get_infection_info
 
 
 class Thoughts:
@@ -172,7 +172,7 @@ class Thoughts:
                 if game.clan:
                     for stage in ["stage one", "stage two", "stage three", "stage four"]:
                         if stage in thought["main_infected_constraint"]:
-                            if game.clan.infection['infection_type'] + ' ' + stage not in main_cat.illnesses:
+                            if get_infection_info('type') + ' ' + stage not in main_cat.illnesses:
                                 continue
             
         if "random_infected_constraint" in thought and random_cat:
@@ -196,7 +196,7 @@ class Thoughts:
                 if game.clan:
                     for stage in ["stage one", "stage two", "stage three", "stage four"]:
                         if stage in thought["random_infected_constraint"]:
-                            if game.clan.infection['infection_type'] + ' ' + stage not in main_cat.illnesses:
+                            if get_infection_info('type') + ' ' + stage not in main_cat.illnesses:
                                 continue
         # if random_cat:
         #     if (
@@ -222,19 +222,19 @@ class Thoughts:
         if "infection" in thought:
             if game.clan:
                 if game.clan.infection["clan_infected"] is True:
-                    if "void" in thought["infection"] and game.clan.infection["infection_type"] != "void":
+                    if "void" in thought["infection"] and get_infection_info("type") != "void":
                         return False
-                    if "fungal" in thought["infection"] and game.clan.infection["infection_type"] != "fungal":
+                    if "fungal" in thought["infection"] and get_infection_info("type") != "fungal":
                         return False
-                    if "parasitic" in thought["infection"] and game.clan.infection["infection_type"] != "parasitic":
+                    if "parasitic" in thought["infection"] and get_infection_info("type") != "parasitic":
                         return False
-                    if "spread_by_bite" in thought["infection"] and game.clan.infection["spread_by"] != "bite":
+                    if "spread_by_bite" in thought["infection"] and get_infection_info("spread_by") != "bite":
                         return False
-                    if "spread_by_air" in thought["infection"] and game.clan.infection["spread_by"] != "air":
+                    if "spread_by_air" in thought["infection"] and get_infection_info("spread_by") != "air":
                         return False
-                    if "cured" in thought["infection"] and "cure_found" not in game.clan.infection["logs"]:
+                    if "cured" in thought["infection"] and "cure_found" not in get_infection_info("logs"):
                         return False
-                    if "not_cured" in thought["infection"] and "cure_found" in game.clan.infection["logs"]:
+                    if "not_cured" in thought["infection"] and "cure_found" in get_infection_info("logs"):
                         return False
                 else:
                     return False
@@ -244,7 +244,7 @@ class Thoughts:
         if game.clan:
             if "log_prereq" in thought and game.clan.infection["clan_infected"] is True:
                 for tag in thought["prereq"]:
-                    if tag not in game.clan.infection["logs"]:
+                    if tag not in get_infection_info("logs"):
                         return False
 
         if 'main_skill_constraint' in thought:

@@ -30,7 +30,8 @@ from scripts.utility import (
     lifegen_text_adjust,
     shorten_text_to_fit,
     get_infected_clan_cat_count,
-    get_living_clan_cat_count
+    get_living_clan_cat_count,
+    get_infection_info
     )
 from scripts.game_structure.screen_settings import MANAGER
 from ..ui.generate_button import ButtonStyles, get_button_dict
@@ -799,23 +800,23 @@ class TalkScreen(Screens):
             skip = False
             if log_prereq is not None:
                 for i in log_prereq: # its a list so there can be multiple
-                    if i not in game.clan.infection["logs"]:
+                    if i not in get_infection_info("logs"):
                         skip = True
                         break
                 if skip is True:
                     continue
             
             if any(tag in TAGS for tag in ["fungal", "parasitic", "void"]):
-                if game.clan.infection["infection_type"] not in TAGS:
+                if get_infection_info("type") not in TAGS:
                     continue
 
             if "infection" in TAGS and game.clan.infection["clan_infected"] is False:
                 continue
 
-            logs = game.clan.infection["logs"]
-            if "spread_by_air" in TAGS and game.clan.infection["spread_by"] != "air" and "lore_spread_by_air" not in logs:
+            logs = get_infection_info("logs")
+            if "spread_by_air" in TAGS and get_infection_info("spread_by") != "air" and "lore_spread_by_air" not in logs:
                 continue
-            elif "spread_by_bite" in TAGS and game.clan.infection["spread_by"] != "bite" and "lore_spread_by_bite" not in logs:
+            elif "spread_by_bite" in TAGS and get_infection_info("spread_by") != "bite" and "lore_spread_by_bite" not in logs:
                 continue
             if "spread_by_unknown" in TAGS and ("lore_spread_by_bite" in logs or "lore_spread_by_air" in logs):
                 continue
@@ -1768,7 +1769,7 @@ class TalkScreen(Screens):
                         if "deaf" in cat.permanent_condition:
                             return False
                     elif tag in ["stage one", "stage two", "stage three", "stage four"]:
-                        inftype = game.clan.infection["infection_type"]
+                        inftype = get_infection_info("type")
                         if inftype + " " + tag in cat.illnesses:
                             has_condition = True
                     elif tag == "infected":
@@ -1892,7 +1893,7 @@ class TalkScreen(Screens):
 
                 # INF
                 for kitty in (cat, you):
-                    inftype = game.clan.infection["infection_type"]
+                    inftype = get_infection_info("type")
                     if f"{inftype} stage one" in kitty.illnesses:
                         weight += 7
                     elif f"{inftype} stage two" in kitty.illnesses:
@@ -1939,7 +1940,7 @@ class TalkScreen(Screens):
                         if not choice_text:
                             new_text = ""
                             break
-            spread = game.clan.infection["spread_by"]
+            spread = get_infection_info("spread_by")
             if text_chosen_key not in game.clan.talks and new_text:
                 game.clan.talks.append(text_chosen_key)
                 if "intro" in texts_list[text_chosen_key]:

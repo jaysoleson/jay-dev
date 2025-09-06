@@ -25,7 +25,8 @@ from scripts.utility import (
     gather_cat_objects,
     lifegen_text_adjust,
     create_new_cat_block,
-    get_cluster
+    get_cluster,
+    get_infection_info
 )
 from scripts.game_structure.game_essentials import game
 from scripts.cat.skills import SkillPath
@@ -770,11 +771,11 @@ class PatrolOutcome:
         if entry == "start":
             results.append("Your Clan is now infected.")
             game.clan.infection["clan_infected"] = True
-            if "discovered" in game.clan.infection["logs"]:
-                game.clan.infection["logs"].remove("discovered")
+            if "discovered" in get_infection_info("logs"):
+                get_infection_info("logs").remove("discovered")
 
         else:
-            if entry not in game.clan.infection["logs"]:
+            if entry not in get_infection_info("logs"):
                 results.append("Your log has been updated.")
             else:
                 results.append("")
@@ -782,10 +783,10 @@ class PatrolOutcome:
         # now add it to the log!
         cure_logs = set()
         cure_logs.add(entry)
-        for i in game.clan.infection["logs"]:
+        for i in get_infection_info("logs"):
             cure_logs.add(i)
         
-        game.clan.infection["logs"] = list(cure_logs)
+        game.clan.infection[game.clan.infection["current_infection"]]["logs"] = list(cure_logs)
 
             
         return " ".join(results)
@@ -879,7 +880,7 @@ class PatrolOutcome:
                 elif _tag in INJURIES or _tag in ILLNESSES or _tag in PERMANENT:
                     possible_injuries.append(_tag)
                 elif _tag in stages:
-                    possible_injuries.append(f"{game.clan.infection['infection_type']} {_tag}")
+                    possible_injuries.append(f"{get_infection_info('type')} {_tag}")
 
             lethal = True
             if "non_lethal" in injury:
@@ -907,10 +908,10 @@ class PatrolOutcome:
                 give_injury = choice(possible_injuries)
                 
                 already_infected = False
-                if game.clan.infection["infection_type"] in give_injury:
+                if get_infection_info("type") in give_injury:
                     for stage in ["one", "two", "three", "four"]:
-                        if f"{game.clan.infection['infection_type']} stage {stage}" in _cat.illnesses:
-                            _cat.illnesses.pop(f"{game.clan.infection['infection_type']} stage {stage}")
+                        if f"{get_infection_info('type')} stage {stage}" in _cat.illnesses:
+                            _cat.illnesses.pop(f"{get_infection_info('type')} stage {stage}")
                             already_infected = True
 
                 # If the cat already has this injury, reroll it to get something new
@@ -950,10 +951,10 @@ class PatrolOutcome:
                     for given_condition in given_conditions:
                         self.__handle_condition_history(_cat, given_condition, patrol)
                     if give_injury in [
-                        f"{game.clan.infection['infection_type']} stage one",
-                        f"{game.clan.infection['infection_type']} stage two",
-                        f"{game.clan.infection['infection_type']} stage three",
-                        f"{game.clan.infection['infection_type']} stage four",
+                        f"{get_infection_info('type')} stage one",
+                        f"{get_infection_info('type')} stage two",
+                        f"{get_infection_info('type')} stage three",
+                        f"{get_infection_info('type')} stage four",
                         "undead"
                     ] and not already_infected:
                         if game.settings["dark mode"]:
@@ -970,8 +971,8 @@ class PatrolOutcome:
                     )
 
                 if give_injury == "undead":
-                    if "zombie" not in game.clan.infection["logs"]:
-                        game.clan.infection["logs"].append("zombie")
+                    if "zombie" not in get_infection_info("logs"):
+                        get_infection_info("logs").append("zombie")
                         results.append("\nYour log has been updated.")
 
         return " ".join(results)
@@ -1137,15 +1138,15 @@ class PatrolOutcome:
         additional_text = ""
         if (
             game.clan.infection["clan_infected"] is False
-            and game.clan.infection["infection_type"] in ["fungal", "void"]
+            and get_infection_info("type") in ["fungal", "void"]
             ):
             chance = 25
             if not int(random.random() * chance):
                 infected_cat = random.choice(patrol.patrol_cats)
-                infected_cat.get_ill(f"{game.clan.infection['infection_type']} stage one")
+                infected_cat.get_ill(f"{get_infection_info('type')} stage one")
                 additional_text = f"\n<font color='#A6D000'>The herbs are infected!</font> {infected_cat.name} has become mysteriously ill after carrying them home..."
 
-                game.clan.infection["logs"].append("start")
+                get_infection_info("logs").append("start")
                 game.clan.infection["clan_infected"] = True
 
         plural_herbs_list = ["cobwebs", "oak leaves", "elder leaves"]
@@ -1238,11 +1239,11 @@ class PatrolOutcome:
             chance = 25
             if not int(random.random() * chance):
                 infected_cat = random.choice(patrol.patrol_cats)
-                infected_cat.get_ill(f"{game.clan.infection['infection_type']} stage one")
+                infected_cat.get_ill(f"{get_infection_info('type')} stage one")
                 additional_text = f"\n<font color='#A6D000'> The prey is infected!</font> {infected_cat.name} has become mysteriously ill after eating it..."
 
-                if "start" not in game.clan.infection["logs"]:
-                    game.clan.infection["logs"].append("start")
+                if "start" not in get_infection_info("logs"):
+                    get_infection_info("logs").append("start")
                 game.clan.infection["clan_infected"] = True
 
         results = ""

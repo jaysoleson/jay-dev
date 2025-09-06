@@ -44,7 +44,8 @@ from scripts.utility import (
     event_text_adjust,
     update_sprite,
     leader_ceremony_text_adjust,
-    get_cluster
+    get_cluster,
+    get_infection_info
 )
 
 
@@ -571,7 +572,7 @@ class Cat:
         """ 
         Cures a cat of the infection!
         """
-        inftype = game.clan.infection["infection_type"]
+        inftype = get_infection_info("type")
         stages = [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]
 
         for stage in stages:
@@ -590,11 +591,11 @@ class Cat:
                         self.pelt.scars.remove("EYESOCKET")
                         self.pelt.scars.append("BRIGHTHEART")
                     
-                    if "cure_found" not in game.clan.infection["logs"]:
+                    if "cure_found" not in get_infection_info("logs"):
                         event = choice([
                             f"The Clan awakens to screams from the medicine den. Warriors scramble outside, claws unsheathed, to the sight of the medicine cats yowling and jumping with joy. The startled crowd is confused until the medicine cats explain. The cure has been discovered, and {self.name} is the first to be cured!<br>Your log has been updated."
                             ])
-                        game.clan.infection["logs"].append("cure_found")
+                        get_infection_info("logs").append("cure_found")
                     else:
                         event = f"{self.name} has been cured of the infection!"
                     self.infected_for = -1
@@ -633,16 +634,16 @@ class Cat:
                         self.illnesses.pop(stage)
                     
                     if cured:
-                        if "partial_cure" not in game.clan.infection["logs"]:
+                        if "partial_cure" not in get_infection_info("logs"):
                             event = f"Evidently, it's not a full cure, but it seems that {self.name}'s infection was in an early enough stage for the partial cure to work!\nYour log has been updated."
-                            game.clan.infection["logs"].append("partial_cure")
+                            get_infection_info("logs").append("partial_cure")
                         else:
                             event = f"The partial cure has worked on {self.name}'s stage one infection."
                         self.infected_for = -1
                     else:
-                        if "partial_cure" not in game.clan.infection["logs"]:
+                        if "partial_cure" not in get_infection_info("logs"):
                             addon = "\n Your log has been updated."
-                            game.clan.infection["logs"].append("partial_cure")
+                            get_infection_info("logs").append("partial_cure")
                         else:
                             addon = ""
                         event = f"Thanks to recieving treatment, {self.name}'s infection has remissed from{old_stage.replace(f'{inftype}', '')} to{new_stage.replace(f'{inftype}', '')}!{addon}"
@@ -680,8 +681,8 @@ class Cat:
         event = f"{self.name} has died, but the infection seems to have enough power over their mind to keep them standing..."
         game.cur_events_list.append(Single_Event(event, ["birth_death", "health", "infection"], self.ID))
 
-        if "zombie" not in game.clan.infection["logs"]:
-            game.clan.infection["logs"].append("zombie")
+        if "zombie" not in get_infection_info("logs"):
+            get_infection_info("logs").append("zombie")
 
         if game.clan and not self.outside and not self.exiled:
             self.grief(body=False, undead=True)
@@ -698,12 +699,12 @@ class Cat:
 
         if (
             self.infected_for > 0 and
-            f"{game.clan.infection['infection_type']} stage four" not in self.illnesses and
-            "lore_undead" in game.clan.infection["logs"]
+            f"{get_infection_info('type')} stage four" not in self.illnesses and
+            "lore_undead" in get_infection_info("logs")
             ):
-            game.clan.infection["logs"].append("lore_premature_death")
+            get_infection_info("logs").append("lore_premature_death")
 
-        if f"{game.clan.infection['infection_type']} stage four" in self.illnesses:
+        if f"{get_infection_info('type')} stage four" in self.illnesses:
             
             if self.history:
                 if self.history.died_infected:
@@ -714,8 +715,8 @@ class Cat:
                 self.status != "leader" or
                 (self.ID == game.clan.leader.ID and game.clan.leader_lives <= 1)):
                 self.zombie()
-                if "lore_undead" not in game.clan.infection["logs"]:
-                    game.clan.infection["logs"].append("lore_undead")
+                if "lore_undead" not in get_infection_info("logs"):
+                    get_infection_info("logs").append("lore_undead")
             return
 
         if (
@@ -2189,7 +2190,7 @@ class Cat:
 
     def moon_skip_illness(self, illness):
         """handles the moon skip for illness"""
-        inftype = game.clan.infection['infection_type']
+        inftype = get_infection_info('type')
         if not self.is_ill():
             return True
 
@@ -2215,7 +2216,7 @@ class Cat:
             if self.status == "leader":
                 self.leader_death_heal = True
                 game.clan.leader_lives -= 1
-            if f"{game.clan.infection['infection_type']} stage four" in self.illnesses:
+            if f"{get_infection_info('type')} stage four" in self.illnesses:
                 self.zombie()
             else:
                 self.die()
@@ -2424,17 +2425,17 @@ class Cat:
         
         if game.clan:
             if name in [
-                f"{game.clan.infection['infection_type']} stage one",
-                f"{game.clan.infection['infection_type']} stage two",
-                f"{game.clan.infection['infection_type']} stage three",
-                f"{game.clan.infection['infection_type']} stage four",
+                f"{get_infection_info('type')} stage one",
+                f"{get_infection_info('type')} stage two",
+                f"{get_infection_info('type')} stage three",
+                f"{get_infection_info('type')} stage four",
                 "undead"
             ] and self.infected_for == 0:
                 self.infected_for = 1
                 if self.outside is False:
                     if game.clan.infection["clan_infected"] is False:
                         game.clan.infection["clan_infected"] = True
-                        game.clan.infection["logs"].append('start')
+                        get_infection_info("logs").append('start')
 
         illness = ILLNESSES[name]
         mortality = illness["mortality"][self.age]
@@ -2799,10 +2800,10 @@ class Cat:
         if cat.is_ill():
             for illness in cat.illnesses:
                 if illness in [
-                    f"{game.clan.infection['infection_type']} stage one",
-                    f"{game.clan.infection['infection_type']} stage two",
-                    f"{game.clan.infection['infection_type']} stage three",
-                    f"{game.clan.infection['infection_type']} stage four"
+                    f"{get_infection_info('type')} stage one",
+                    f"{get_infection_info('type')} stage two",
+                    f"{get_infection_info('type')} stage three",
+                    f"{get_infection_info('type')} stage four"
                     ]:
                     infectious_illnesses.append(illness)
             if len(infectious_illnesses) == 0:
@@ -2831,7 +2832,7 @@ class Cat:
             chamce = int(random() * (cat.illnesses[illness]["infectiousness"] * 2))
             if cat.quarantined:
                 chamce = chamce * 0.3 # lower rate for quarantined cats
-            if game.clan.infection["spread_by"] == "bite":
+            if get_infection_info("spread_by") == "bite":
                 chamce = chamce * 0.75 # for a higher rate for airborne
         
             # littermates of infected kits
@@ -2839,27 +2840,27 @@ class Cat:
                 chamce /= 3
             
             if self.infected_for == -1:
-                if "lore_no_reinfection" not in game.clan.infection["logs"]:
+                if "lore_no_reinfection" not in get_infection_info("logs"):
                     event = f"{self.name} has been in contact with the infected {cat.name}, but isn't getting ill. It seems that cats who have been infected in the past are unable to become infected again!"
                     game.cur_events_list.append(Single_Event(event, ["health", "infection"], [self.ID, cat.ID]))
-                    game.clan.infection["logs"].append("lore_no_reinfection")
+                    get_infection_info("logs").append("lore_no_reinfection")
                 return
 
             if not int(random() * chamce):
-                if game.clan.infection["spread_by"] == "bite":
+                if get_infection_info("spread_by") == "bite":
                     text = f"{self.name} was bitten by {cat.name} and is now infected."
                     self.get_injured("cat bite")
-                    if "lore_spread_by_bite" not in game.clan.infection["logs"]:
-                        game.clan.infection["logs"].append("lore_spread_by_bite")
+                    if "lore_spread_by_bite" not in get_infection_info("logs"):
+                        get_infection_info("logs").append("lore_spread_by_bite")
                         text += "\nYour log has been updated."
                 else:
                     text = f"{self.name} has contracted the infection from {cat.name}."
-                    if "lore_spread_by_air" not in game.clan.infection["logs"]:
-                        game.clan.infection["logs"].append("lore_spread_by_air")
+                    if "lore_spread_by_air" not in get_infection_info("logs"):
+                        get_infection_info("logs").append("lore_spread_by_air")
                         text += "\nYour log has been updated."
 
                 game.cur_events_list.append(Single_Event(text, ["health", "infection"], [self.ID, cat.ID]))
-                self.get_ill(f"{game.clan.infection['infection_type']} stage one")
+                self.get_ill(f"{get_infection_info('type')} stage one")
                 self.infected_for += 1
 
     def contact_with_ill_cat(self, cat: Cat):

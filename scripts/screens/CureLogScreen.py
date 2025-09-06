@@ -16,7 +16,8 @@ from scripts.utility import (
     get_text_box_theme,
     ui_scale,
     get_infection_herb,
-    ui_scale_dimensions
+    ui_scale_dimensions,
+    get_infection_info
     )  # pylint: disable=redefined-builtin
 from .Screens import Screens
 from ..housekeeping.datadir import get_save_dir
@@ -294,10 +295,10 @@ class CureLogScreen(Screens):
             )
             # logs !
 
-            infologs = [i for i in game.clan.infection["logs"]]
+            infologs = [i for i in get_infection_info("logs")]
             stats_text = ""
             cure_herbs = []
-            for num in game.clan.infection["cure"]:
+            for num in get_infection_info("cure"):
                 cure_herbs.append(get_infection_herb(num))
             for i in infologs:
                 log = a_txt[i].replace(
@@ -585,17 +586,17 @@ class CureLogScreen(Screens):
                 manager=MANAGER
             )
         
-        if "start" in game.clan.infection["logs"] or debug_all_stamps:
+        if "start" in get_infection_info("logs") or debug_all_stamps:
             self.stamps["start"] = UIImageButton(
                 ui_scale(pygame.Rect((0, 0), (74, 118))),
                 "",
-                object_id=f"#{game.clan.infection['infection_type']}_stamp_start",
-                tool_tip_text=f"<b>LifeGen: INFECTION</b>\nYou've discovered the infection ({game.clan.infection['infection_type']}).",
+                object_id=f"#{get_infection_info('type')}_stamp_start",
+                tool_tip_text=f"<b>LifeGen: INFECTION</b>\nYou've discovered the infection ({get_infection_info('type')}).",
                 manager=MANAGER,
                 anchors={"centerx": "centerx", "centery": "centery"}
                 )
             
-        if "cure_found" in game.clan.infection["logs"] or debug_all_stamps:
+        if "cure_found" in get_infection_info("logs") or debug_all_stamps:
             self.stamps["cure_discovered"] = UIImageButton(
                 ui_scale(pygame.Rect((0, 160), (94, 94))),
                 "",
@@ -604,7 +605,7 @@ class CureLogScreen(Screens):
                 manager=MANAGER,
                 anchors={"centerx": "centerx"}
                 )
-        elif "partial_cure" in game.clan.infection["logs"]:
+        elif "partial_cure" in get_infection_info("logs"):
             self.stamps["partial_cure"] = UIImageButton(
                 ui_scale(pygame.Rect((0, 160), (94, 94))),
                 "",
@@ -688,7 +689,7 @@ class CureLogScreen(Screens):
                 manager=MANAGER
             )
 
-        if "zombie" in game.clan.infection["logs"] or debug_all_stamps:
+        if "zombie" in get_infection_info("logs") or debug_all_stamps:
             self.stamps["zombie"] = UIImageButton(
                 ui_scale(pygame.Rect((500, 360), (94, 94))),
                 "",

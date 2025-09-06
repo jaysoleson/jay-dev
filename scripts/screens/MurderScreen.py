@@ -8,7 +8,7 @@ from scripts.cat.history import History
 from scripts.event_class import Single_Event
 
 from .Screens import Screens
-from scripts.utility import get_text_box_theme, process_text, pronoun_repl, ui_scale_dimensions
+from scripts.utility import get_text_box_theme, process_text, pronoun_repl, ui_scale_dimensions, get_infection_info
 from scripts.cat.cats import Cat, INJURIES
 from scripts.game_structure import image_cache
 from scripts.game_structure.ui_elements import UIImageButton, UISpriteButton, UISurfaceImageButton
@@ -1507,7 +1507,7 @@ class MurderScreen(Screens):
             key = i[0]
             murder_dict = i[1]
 
-            inftype = game.clan.infection["infection_type"]
+            inftype = get_infection_info("type")
             stages = [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]
 
             if "your_status" in murder_dict:

@@ -18,6 +18,7 @@ from scripts.utility import (
     get_personality_compatibility,
     change_relationship_values,
     get_alive_status_cats,
+    get_infection_info
 )
 
 
@@ -231,7 +232,7 @@ class Pregnancy_Events:
 
                 infected = False
                 for kit in kits:
-                    if f"{game.clan.infection['infection_type']} stage one" in kit.illnesses:
+                    if f"{get_infection_info('type')} stage one" in kit.illnesses:
                         infected = True
                         break
                 
@@ -286,7 +287,7 @@ class Pregnancy_Events:
 
                 infected = False
                 for kit in kits:
-                    if f"{game.clan.infection['infection_type']} stage one" in kit.illnesses:
+                    if f"{get_infection_info('type')} stage one" in kit.illnesses:
                         infected = True
                         break
                 
@@ -799,7 +800,7 @@ class Pregnancy_Events:
         """ Determines the chances of kits gaining the infection from infected parents """
         if (cat and cat.infected_for > 0) or (other_cat and other_cat.infected_for > 0):
             chance = game.config["kit_gain_infection_chance"]
-            inftype = game.clan.infection["infection_type"]
+            inftype = get_infection_info("type")
 
             if (cat and cat.infected_for > 0) and (other_cat and other_cat.infected_for > 0):
                 chance *= 0.75

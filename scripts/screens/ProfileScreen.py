@@ -12,7 +12,7 @@ from scripts.events_module.relationship.pregnancy_events import Pregnancy_Events
 
 import ujson
 
-from scripts.utility import event_text_adjust, ACC_DISPLAY, process_text, chunks, get_cluster
+from scripts.utility import event_text_adjust, ACC_DISPLAY, process_text, chunks, get_cluster, get_infection_info
 
 from .Screens import Screens
 
@@ -1670,7 +1670,7 @@ class ProfileScreen(Screens):
                 else:
                     output += "<font color='#416101'>undead</font>"
 
-        elif the_cat.infected_for == -1 and "lore_no_reinfection" in game.clan.infection["logs"]:
+        elif the_cat.infected_for == -1 and "lore_no_reinfection" in get_infection_info("logs"):
             if game.settings["dark mode"]:
                 output += "<font color='#A6D000'>immune </font>"
             else:
@@ -2561,7 +2561,7 @@ class ProfileScreen(Screens):
             y_adjust = 60
 
             # INF
-            inftype = game.clan.infection["infection_type"]
+            inftype = get_infection_info("type")
 
             if con[0] == f"{inftype} stage one":
                 condition_name = "stage one infection"
@@ -3370,7 +3370,7 @@ class ProfileScreen(Screens):
                     starting_height=2, manager=MANAGER
                     )
 
-            inftype = game.clan.infection["infection_type"]
+            inftype = get_infection_info("type")
             infected = False
             stages = [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]
             for stage in stages:

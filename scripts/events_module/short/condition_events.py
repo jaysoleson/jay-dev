@@ -30,6 +30,7 @@ from scripts.utility import (
     event_text_adjust,
     get_alive_status_cats,
     get_leader_life_notice,
+    get_infection_info
 )
 
 
@@ -271,7 +272,7 @@ class Condition_Events:
         This function handles the illnesses overall by randomly making cat ill (or not).
         It will return a bool to indicate if the cat is dead.
         """
-        inftype = game.clan.infection["infection_type"]
+        inftype = get_infection_info("type")
 
         # return immediately if they're already dead
         triggered = False
@@ -300,7 +301,7 @@ class Condition_Events:
                 "void": "void sickness",
                 "fungal": "rot"
             }
-            infection_type = game.clan.infection["infection_type"]
+            infection_type = get_infection_info("type")
             infection_condition = inf_dict[infection_type]
 
             infected = False
@@ -372,7 +373,7 @@ class Condition_Events:
                     wrong_illness = f"{i} stage one"
                     while (
                         wrong_illness in possible_illnesses and
-                        (game.clan.infection["infection_type"] != i or
+                        (get_infection_info("type") != i or
                         cat.ID == game.clan.your_cat.ID or cat.infected_for > 0
                         or game.clan.infection["clan_infected"] is True)
                         ):
@@ -390,7 +391,7 @@ class Condition_Events:
                 dont = False
                 types = ["fungal", "parasitic", "void"]
                 for i in types:
-                    if i in chosen_illness and i != game.clan.infection["infection_type"]:
+                    if i in chosen_illness and i != get_infection_info("type"):
                         # INFECTION failsafe-- you should never see this
                         print("Tried to give", cat.name, "a ", i, "infection?")
                         dont = True
@@ -408,25 +409,25 @@ class Condition_Events:
                     infected_cats = [cat for cat in Cat.all_cats_list if not cat.outside and not cat.dead and cat.infected_for > 0]
 
                     strings = []
-                    if game.clan.infection["spread_by"] == "bite":
+                    if get_infection_info("spread_by") == "bite":
                         strings = [
                             f"{cat.name} was bitten by an infected rogue.",
                             f"{cat.name} stumbles back into camp after an outing with a fresh cat bite and a clouded look in their eyes.",
                             f"{cat.name} tries to hide their fresh wound, but the potent smell of the infection coming from them is too hard to ignore."
                         ]
-                        if "spread_by_bite" not in game.clan.infection["logs"]:
-                            game.clan.infection["logs"].append("spread_by_bite")
+                        if "spread_by_bite" not in get_infection_info("logs"):
+                            get_infection_info("logs").append("spread_by_bite")
                             insert= "\nYour log has been updated."
                         cat.get_injured("cat bite")
-                    elif game.clan.infection["spread_by"] == "air":
+                    elif get_infection_info("spread_by") == "air":
                         strings = [
                             f"{cat.name} leaves camp alone and comes back with clouded eyes that can only mean one thing.",
                             f"{cat.name} stumbles back into camp after an outing with a clouded look in their eyes.",
                             f"{cat.name} has come down with the infection."
                         ]                        
                         
-                        if "lore_spread_by_air" not in game.clan.infection["logs"]:
-                            game.clan.infection["logs"].append("lore_spread_by_air")
+                        if "lore_spread_by_air" not in get_infection_info("logs"):
+                            get_infection_info("logs").append("lore_spread_by_air")
                             insert= "\nYour log has been updated."
                     
                     if len(infected_cats) > 5:
@@ -647,8 +648,8 @@ class Condition_Events:
 
     @staticmethod
     def handle_infection_risks(cat):
-        inftype = game.clan.infection["infection_type"]
-        spreadby = game.clan.infection["spread_by"]
+        inftype = get_infection_info("type")
+        spreadby = get_infection_info("spread_by")
         possible_risks = []
 
         # this sucks
@@ -709,7 +710,7 @@ class Condition_Events:
     @staticmethod
     def handle_already_ill(cat):
 
-        inftype = game.clan.infection["infection_type"]
+        inftype = get_infection_info("type")
         starting_life_count = game.clan.leader_lives
         cat.healed_condition = False
         event_list = []
@@ -1240,7 +1241,7 @@ class Condition_Events:
                             
     @staticmethod
     def give_risks(cat, event_list, condition, progression, conditions, dictionary):
-        inftype = game.clan.infection["infection_type"]
+        inftype = get_infection_info("type")
         event_triggered = False
         if dictionary == cat.permanent_condition:
             event_triggered = True
@@ -1278,7 +1279,7 @@ class Condition_Events:
                 if cat.infected_for == -1:
                     return
                 infection_event = True
-                if "cure_found" in game.clan.infection["logs"]:
+                if "cure_found" in get_infection_info("logs"):
                     chance = round(chance / 3)
 
                 # print(cat.name, cat_stage, "infection progression chance: 1/" + str(chance))

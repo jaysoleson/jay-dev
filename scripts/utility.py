@@ -723,7 +723,7 @@ def create_new_cat_block(
                 n_c.infected_for = -1
             
             if infected is True:
-                n_c.get_ill(f"{game.clan.infection['infection_type']} stage one")
+                n_c.get_ill(f"{get_infection_info('type')} stage one")
             
             chance = None
 
@@ -749,7 +749,7 @@ def create_new_cat_block(
                     infected is False
                     ):
                     # print("random infected cat chance hit for", n_c.name)
-                    n_c.get_ill(f"{game.clan.infection['infection_type']} stage one")
+                    n_c.get_ill(f"{get_infection_info('type')} stage one")
 
             # LIFEGEN: encountered dead cat stuff -----------------------------
             beginning = History.get_beginning(n_c)
@@ -3025,7 +3025,7 @@ def generate_sprite(
             new_sprite.blit(sprites.sprites["lighting" + cat_sprite], (0, 0))
 
         if game.clan:
-            inftype = game.clan.infection["infection_type"]
+            inftype = get_infection_info("type")
             if not dead:
                 lineart_string = 'lines'
                 if uninfected:
@@ -4371,6 +4371,9 @@ def get_infection_herb(code):
         25: "ragwort"
         }
     return code_dict[code]
+
+def get_infection_info(item):
+    return game.clan.infection[game.clan.infection["current_infection"]][item]
 
 
 def quit(savesettings=False, clearevents=False):

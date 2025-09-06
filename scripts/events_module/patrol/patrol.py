@@ -28,7 +28,8 @@ from scripts.utility import (
     lifegen_text_adjust,
     get_alive_status_cats,
     get_infected_clan_cat_count,
-    get_living_clan_cat_count
+    get_living_clan_cat_count,
+    get_infection_info
 )
 from scripts.game_structure.game_essentials import game
 from itertools import combinations
@@ -552,9 +553,9 @@ class Patrol:
         ):
             return False
         
-        if game.clan.infection["logs"] != []: # if theres stuff in your logs
+        if get_infection_info("logs") != []: # if theres stuff in your logs
             for i in patrol.log_prereq:
-                if i not in game.clan.infection["logs"]:
+                if i not in get_infection_info("logs"):
                     return False
         else:
 
@@ -716,9 +717,9 @@ class Patrol:
 
             if "infection" in patrol.tags and game.clan.infection["clan_infected"] is False:
                 continue
-            if "infection" in patrol.tags and "cure_found" in patrol.tags and "cure_found" not in game.clan.infection["logs"]:
+            if "infection" in patrol.tags and "cure_found" in patrol.tags and "cure_found" not in get_infection_info("logs"):
                 continue
-            if "infection" in patrol.tags and "cure_not_found" in patrol.tags and "cure_found" in game.clan.infection["logs"]:
+            if "infection" in patrol.tags and "cure_not_found" in patrol.tags and "cure_found" in get_infection_info("logs"):
                 continue
 
             if "you_immune" in patrol.tags and game.clan.your_cat.infected_for != -1:
@@ -748,28 +749,28 @@ class Patrol:
             if skip:
                 continue
 
-            if game.clan.infection["infection_type"] == "fungal":
+            if get_infection_info("type") == "fungal":
                 if "parasitic" in patrol.tags:
                     continue
                 if "void" in patrol.tags:
                     continue
 
-            if game.clan.infection["infection_type"] == "parasitic":
+            if get_infection_info("type") == "parasitic":
                 if "fungal" in patrol.tags:
                     continue
                 if "void" in patrol.tags:
                     continue
 
-            if game.clan.infection["infection_type"] == "void":
+            if get_infection_info("type") == "void":
                 if "parasitic" in patrol.tags:
                     continue
                 if "fungal" in patrol.tags:
                     continue
 
-            if game.clan.infection["spread_by"] == "air":
+            if get_infection_info("spread_by") == "air":
                 if "bite" in patrol.tags:
                     continue
-            if game.clan.infection["spread_by"] == "bite":
+            if get_infection_info("spread_by") == "bite":
                 if "air" in patrol.tags:
                     continue
 
@@ -812,7 +813,7 @@ class Patrol:
 
                 already_have = False
                 for i in possible_logs.keys():
-                    if i in patrol.tags and i in game.clan.infection["logs"]:
+                    if i in patrol.tags and i in get_infection_info("logs"):
                         # making log patrols impossible when u already have the log
                         already_have = True
                         break
@@ -821,7 +822,7 @@ class Patrol:
                     continue
 
 
-                if patrol.patrol_id in game.clan.infection["logs"]:
+                if patrol.patrol_id in get_infection_info("logs"):
                     continue
                 # ------------------------------------
                 if game.switches["patrol_category"] == "lifegen":
@@ -1440,7 +1441,7 @@ class Patrol:
             file_name = self.patrol_event.patrol_art
 
         # INF
-        file_name = file_name.replace("INFTYPE", game.clan.infection["infection_type"])
+        file_name = file_name.replace("INFTYPE", get_infection_info("type"))
         # ---
 
         if not isinstance(file_name, str) or not path_exists(

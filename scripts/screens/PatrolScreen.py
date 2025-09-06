@@ -17,7 +17,8 @@ from scripts.utility import (
     ui_scale,
     shorten_text_to_fit,
     ui_scale_dimensions,
-    get_alive_cats
+    get_alive_cats,
+    get_infection_info
 )
 from .Screens import Screens
 from ..game_structure import image_cache
@@ -1077,7 +1078,7 @@ class PatrolScreen(Screens):
         if "patrolled" not in game.switches:
             game.switches['patrolled'] = []
 
-        stages = [f"{game.clan.infection['infection_type']} stage two", f"{game.clan.infection['infection_type']} stage three", f"{game.clan.infection['infection_type']} stage four", "undead"]
+        stages = [f"{get_infection_info('type')} stage two", f"{get_infection_info('type')} stage three", f"{get_infection_info('type')} stage four", "undead"]
 
         if game.switches["patrol_category"] == "clangen":
             for the_cat in Cat.all_cats_list:

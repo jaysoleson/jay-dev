@@ -159,9 +159,9 @@ class Clan:
         self.cure = []
         self.cure_attempt = False
         self.cure_discovered = False
+        self.current_infection = 1
         self.infection_type = 'fungal'
         self.treatments = []
-        self.story_break_moons = 0
         self.spread_by = "air"
         self.infection_moons = 0
         self.cure_logs = []
@@ -290,21 +290,24 @@ class Clan:
 
         self.infection = {
             "clan_infected": False,
-            "infection_type": self.infection["infection_type"] if self.infection["infection_type"] else choice(["fungal", "parasitic", "void"]),
-            "cure": [herb1, herb2, herb3, herb4],
             "cure_attempt": False,
             "cure_discovered": False,
-            "spread_by": choice(["air", "bite"]),
+            "current_infection": 1,
             "treatments": [],
             "infection_moons": 0,
-            "logs": [],
             "priority_herb": None,
             "allow_infection": False,
             "between_infections": False,
             "exiled_infected": "",
             "killed_infected": "",
             "cured_infected": "",
-            "treated": []
+            "treated": [],
+            "1": {
+                "type": self.infection_type if self.infection_type else choice(["fungal", "parasitic", "void"]),
+                "cure": [herb1, herb2, herb3, herb4],
+                "spread_by": choice(["air", "bite"]),
+                "logs": []
+            }
         }
         # ---
 
@@ -885,21 +888,24 @@ class Clan:
 
         infection_data = {
             "clan_infected": self.infection["clan_infected"],
-            "infection_type": self.infection["infection_type"],
-            "cure": self.infection["cure"],
             "cure_attempt": self.infection["cure_attempt"],
             "cure_discovered": self.infection["cure_discovered"],
-            "spread_by": self.infection["spread_by"],
+            "current_infection": self.infection["current_infection"],
             "treatments": self.infection["treatments"],
             "infection_moons": self.infection["infection_moons"],
-            "logs": self.infection["logs"],
             "priority_herb": self.infection["priority_herb"],
             "allow_infection": self.infection["allow_infection"],
             "between_infections": self.infection["between_infections"],
             "exiled_infected": self.infection["exiled_infected"],
             "killed_infected": self.infection["killed_infected"],
             "cured_infected": self.infection["cured_infected"],
-            "treated": self.infection["treated"]
+            "treated": self.infection["treated"],
+            "1": {
+                "type": self.infection[self.infection["current_infection"]]["type"],
+                "cure": self.infection[self.infection["current_infection"]]["cure"],
+                "spread_by": self.infection[self.infection["current_infection"]]["spread_by"],
+                "logs": self.infection[self.infection["current_infection"]]["logs"]
+            }
         }
 
         # LEADER DATA

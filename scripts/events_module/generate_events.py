@@ -13,7 +13,8 @@ from scripts.utility import (
     get_living_clan_cat_count,
     get_alive_status_cats,
     get_cluster,
-    get_infected_clan_cat_count
+    get_infected_clan_cat_count,
+    get_infection_info
 )
 
 resource_directory = "resources/dicts/events/"
@@ -308,7 +309,7 @@ class GenerateEvents:
             if log_prereq:
                 skip = False
                 for i in log_prereq:
-                    if i not in game.clan.infection["logs"]:
+                    if i not in get_infection_info("logs"):
                         skip = True
                         print("Skipping event", event.event_id, "as there is no", i, "in logs.")
                     else:
@@ -382,7 +383,7 @@ class GenerateEvents:
                 continue
             if (
                 "type" in event.infection
-                and game.clan.infection["infection_type"] not in event.infection["type"]
+                and get_infection_info("type") not in event.infection["type"]
             ):
                 continue
             if (
@@ -397,7 +398,7 @@ class GenerateEvents:
             if (
                 "spread_by" in event.infection
                 and "any" not in event.infection["spread_by"]
-                and game.clan.infection["spread_by"] not in event.infection["spread_by"]
+                and get_infection_info("spread_by") not in event.infection["spread_by"]
             ):
                 continue
 
@@ -422,7 +423,7 @@ class GenerateEvents:
                 if game.clan.infection["clan_infected"] is False:
                     continue
             if "no_cure" in event.tags:
-                if "cure_found" in game.clan.infection["logs"]:
+                if "cure_found" in get_infection_info("logs"):
                     continue
             # ---
 
@@ -539,7 +540,7 @@ class GenerateEvents:
                     elif event.r_c["infected"] == False and random_cat.infected_for > 0:
                         continue
                 
-                inftype = game.clan.infection["infection_type"]
+                inftype = get_infection_info("type")
                 if "stage" in event.m_c and event.m_c["stage"]:
                     stages = ["stage one", "stage two", "stage three", "stage four"]
                     skip = False

@@ -28,6 +28,7 @@ from scripts.utility import (
     get_alive_status_cats,
     get_living_clan_cat_count,
     ui_scale_dimensions,
+    get_infection_info
 )
 
 
@@ -268,7 +269,7 @@ class LeaderDenScreen(Screens):
             anchors={"centerx": "centerx"}
         )
 
-        if "cure_found" in game.clan.infection["logs"] and game.clan.infection["clan_infected"] is False:
+        if "cure_found" in get_infection_info("logs") and game.clan.infection["clan_infected"] is False:
             self.open_borders_button.show()
             if game.clan.infection["allow_infection"] is False:
                 self.open_borders_button.enable()
@@ -750,7 +751,7 @@ class LeaderDenScreen(Screens):
         )
 
         # INF
-        if "cure_found" in game.clan.infection["logs"]:
+        if "cure_found" in get_infection_info("logs"):
             self.focus_frame_elements["share_cure"].show()
         
             if (

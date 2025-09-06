@@ -27,7 +27,8 @@ from scripts.utility import (
     get_alive_status_cats,
     get_living_clan_cat_count,
     adjust_list_text,
-    get_infection_herb
+    get_infection_herb,
+    get_infection_info
 )
 
 
@@ -982,7 +983,7 @@ class HandleShortEvents:
                 self.chosen_herb = random.choice(possible_herbs)
             # INF
             elif supply_type == "cure_herbs":
-                for herb in game.clan.infection["cure"]:
+                for herb in get_infection_info("cure"):
                     herb_list.append(get_infection_herb(herb))
             elif supply_type == "priority_herb":
                 self.chosen_herb = game.clan.infection["priority_herb"]

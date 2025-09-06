@@ -8,6 +8,8 @@ import ujson
 from scripts.game_structure.game_essentials import game
 from scripts.game_structure.ui_elements import CatButton, UISpriteButton
 
+from scripts.utility import get_infection_info
+
 logger = logging.getLogger(__name__)
 
 menu_screens = ["settings screen", "start screen", "switch clan screen"]
@@ -56,8 +58,11 @@ class MusicManager:
         # print(f"menu playlist is {self.playlists['menu_playlist']}")
 
         unavailable_playlists = [self.playlists["menu_playlist"]]
-        if game.clan:
-            unavailable_playlists.append(self.playlists[f"{game.clan.infection['infection_type']}_playlist"])
+        if game.clan and game.clan.infection:
+            unavailable_playlists.append(self.playlists[f"{get_infection_info('type')}_playlist"])
+            # unavailable_playlists.append(self.playlists["fungal_playlist"])
+            # unavailable_playlists.append(self.playlists["void_playlist"])
+            # unavailable_playlists.append(self.playlists["parasitic_playlist"])
 
         # menu screen
         if (
@@ -68,7 +73,7 @@ class MusicManager:
             self.fade_out_music()
             try:
                 if game.clan and game.clan.infection["clan_infected"] is True:
-                    self.play_playlist(self.playlists[f"{game.clan.infection['infection_type']}_playlist"])
+                    self.play_playlist(self.playlists[f"{get_infection_info('type')}_playlist"])
                 else:
                     self.play_playlist(self.playlists["menu_playlist"])
             except KeyError as e:
@@ -237,7 +242,7 @@ class MusicManager:
             new_playlist = self.playlists["mountainous_playlist"]
         
         # if game.clan.infection["clan_infected"] is True:
-        #     new_playlist = self.playlists[f"{game.clan.infection['infection_type']}_playlist"]
+        #     new_playlist = self.playlists[f"{get_infection_info('type')}_playlist"]
 
         return new_playlist
 

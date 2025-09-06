@@ -12,6 +12,7 @@ from scripts.utility import (
     ui_scale_dimensions,
     ui_scale_offset,
     get_text_box_theme,
+    get_infection_info
 )
 from scripts.utility import ui_scale
 from .Screens import Screens
@@ -349,7 +350,7 @@ class SpriteInspectScreen(Screens):
             
        
         catinfected = False
-        inftype = game.clan.infection["infection_type"]
+        inftype = get_infection_info("type")
         if any(i in self.the_cat.illnesses for i in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]):
             catinfected = True
         

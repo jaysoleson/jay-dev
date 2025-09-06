@@ -576,6 +576,26 @@ class Game:
             if "next_infection_allowed" in self.clan.infection:
                 self.clan.infection["allow_infection"] = self.clan.infection["next_infection_allowed"]
                 self.clan.infection.pop("next_infection_allowed")
+
+            # correct old inf format to new
+            if "infection_type" in self.clan.infection:
+                print("CORRECTING JSON")
+                self.clan.infection["1"] = {}
+
+                self.clan.infection["1"]["type"] = self.clan.infection["infection_type"]
+                self.clan.infection.pop("infection_type")
+
+                self.clan.infection["1"]["cure"] = self.clan.infection["cure"]
+                self.clan.infection.pop("cure")
+
+                self.clan.infection["1"]["spread_by"] = self.clan.infection["spread_by"]
+                self.clan.infection.pop("spread_by")
+
+                self.clan.infection["1"]["logs"] = self.clan.infection["logs"]
+                self.clan.infection.pop("logs")
+
+                self.clan.infection["current_infection"] = "1"
+
         except AttributeError:
             print("Clan is None?")
         except FileNotFoundError:
@@ -587,21 +607,24 @@ class Game:
 
                 self.clan.infection = {
                     "clan_infected": False,
-                    "infection_type": random.choice(["fungal", "parasitic", "void"]),
-                    "cure": [herb1, herb2, herb3, herb4],
                     "cure_attempt": False,
                     "cure_discovered": False,
-                    "spread_by": random.choice(["air", "bite"]),
+                    "current_infection": 1,
                     "treatments": [],
                     "infection_moons": 0,
-                    "logs": [],
                     "priority_herb": None,
                     "allow_infection": False,
                     "between_infections": False,
                     "exiled_infected": "",
                     "killed_infected": "",
                     "cured_infected": "",
-                    "treated": []
+                    "treated": [],
+                    "1": {
+                        "type": random.choice(["fungal", "parasitic", "void"]),
+                        "cure": [herb1, herb2, herb3, herb4],
+                        "spread_by": random.choice(["air", "bite"]),
+                        "logs": [],
+                    }
                 }
                 
                 with open(f"saves/{self.clan.name}/infection.json", 'w') as create_file:

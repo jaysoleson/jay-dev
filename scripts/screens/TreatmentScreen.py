@@ -13,7 +13,7 @@ from scripts.events import events_class
 from scripts.clan import HERBS
 
 from .Screens import Screens
-from scripts.utility import get_personality_compatibility, get_text_box_theme, ui_scale, shorten_text_to_fit, pronoun_repl, get_infection_herb, get_alive_status_cats
+from scripts.utility import get_personality_compatibility, get_text_box_theme, ui_scale, shorten_text_to_fit, pronoun_repl, get_infection_herb, get_alive_status_cats, get_infection_info
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
 from scripts.cat.pelts import Pelt
@@ -98,6 +98,8 @@ class TreatmentScreen(Screens):
         self.herb2 = None
         self.herb3 = None
         self.herb4 = None
+
+        self.correct_cure = []
         
     def handle_event(self, event):
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
@@ -170,10 +172,10 @@ class TreatmentScreen(Screens):
                 self.current_page -= 1
                 self.update_cat_list()
             elif "cure_button" in self.herb_displays and event.ui_element == self.herb_displays["cure_button"]:
-                self.herb1 = get_infection_herb(game.clan.infection["cure"][0])
-                self.herb2 = get_infection_herb(game.clan.infection["cure"][1])
-                self.herb3 = get_infection_herb(game.clan.infection["cure"][2])
-                self.herb4 = get_infection_herb(game.clan.infection["cure"][3])
+                self.herb1 = get_infection_herb(self.correct_cure[0])
+                self.herb2 = get_infection_herb(self.correct_cure[1])
+                self.herb3 = get_infection_herb(self.correct_cure[2])
+                self.herb4 = get_infection_herb(self.correct_cure[3])
                 self.update_herb_buttons()
                 self.update_treatment_display()
 
@@ -293,7 +295,7 @@ class TreatmentScreen(Screens):
             anchors={"centerx": "centerx"}
             )
         
-        if "cure_found" in game.clan.infection["logs"]:
+        if "cure_found" in get_infection_info("logs"):
             self.herb_displays["cure_button"] = UISurfaceImageButton(
                 ui_scale(pygame.Rect((150, 337), (80, 30))),
                 "use cure",
@@ -304,7 +306,7 @@ class TreatmentScreen(Screens):
         
         if "cure_button" in self.herb_displays:
             cure_unstocked = False
-            for herb in game.clan.infection["cure"]:
+            for herb in self.correct_cure:
                 if get_infection_herb(herb) not in game.clan.herbs.keys():
                     cure_unstocked = True
                     break
@@ -715,6 +717,38 @@ class TreatmentScreen(Screens):
             self.previous_stage_button.hide()
             self.next_stage_button.hide()
 
+            self.update_correct_cure()
+    
+    def update_correct_cure(self):
+        # find the correct cure for the cat, since not all cats being treated
+        # will necessary have the CURRENT infection.
+        # it could be a newly invited outsider with an old infection
+        # thanks to tami for reminding me this is possible lol
+
+        self.correct_cure = get_infection_info("cure")
+        correct_cure = None
+        infectiontype = None
+        condition_found = False
+        # pylint: disable=consider-using-dict-items
+        # shut up bitch
+        for item in game.clan.infection:
+            if isinstance(game.clan.infection[item], dict):
+                try:
+                    test = int(item)
+                except:
+                    return
+                inftype = game.clan.infection[item]["type"]
+
+                for condition in self.selected_cat.illnesses:
+                    if inftype in condition:
+                        correct_cure = game.clan.infection[item]["cure"]
+                        infectiontype = inftype
+                        condition_found = True
+            if condition_found:
+                break
+
+        self.correct_cure = correct_cure
+
     def exit_screen(self):
 
         if self.text:
@@ -842,10 +876,10 @@ class TreatmentScreen(Screens):
         """ determine if the medcat will even be effective in attempting treatment.
         if a treatment is failed, no information on the herbs is given to the player. """
 
-        stageone = True if f"{game.clan.infection['infection_type']} stage one" in patient.illnesses else False
-        stagetwo = True if "{game.clan.infection['infection_type']} stage two" in patient.illnesses else False
-        stagethree = True if f"{game.clan.infection['infection_type']} stage three" in patient.illnesses else False
-        stagefour = True if f"{game.clan.infection['infection_type']} stage four" in patient.illnesses else False
+        stageone = True if f"{get_infection_info('type')} stage one" in patient.illnesses else False
+        stagetwo = True if "{get_infection_info('type')} stage two" in patient.illnesses else False
+        stagethree = True if f"{get_infection_info('type')} stage three" in patient.illnesses else False
+        stagefour = True if f"{get_infection_info('type')} stage four" in patient.illnesses else False
 
         failchance = 0
 
@@ -877,7 +911,7 @@ class TreatmentScreen(Screens):
 
     def choose_treatment_text(self, patient):
         """ choosing text from the json regarding the success or failure of the treatment."""
-        inftype = game.clan.infection["infection_type"]
+        inftype = get_infection_info("type")
         with open(f"{self.RESOURCE_DIR}/treatment_results.json",
                 encoding="ascii") as read_file:
             self.m_txt = ujson.loads(read_file.read())
@@ -889,7 +923,7 @@ class TreatmentScreen(Screens):
             who_key = "you "
         
         curelist = []
-        for num in game.clan.infection["cure"]:
+        for num in self.correct_cure:
             curelist.append(get_infection_herb(num))
         
         if self.herb1 in curelist:
@@ -988,10 +1022,10 @@ class TreatmentScreen(Screens):
         if not success:
             return
         
-        inftype = game.clan.infection["infection_type"]
+        inftype = get_infection_info("type")
 
         curelist = []
-        for num in game.clan.infection["cure"]:
+        for num in get_infection_info("cure"):
             curelist.append(get_infection_herb(num))
 
         herblist = [self.herb1, self.herb2, self.herb3, self.herb4]
@@ -1094,7 +1128,7 @@ class TreatmentScreen(Screens):
         
     def update_selected_cat(self):
         """Updates the image and information on the currently selected mentor"""
-        inftype = game.clan.infection["infection_type"]
+        inftype = get_infection_info("type")
         for ele in self.selected_details:
             self.selected_details[ele].kill()
         self.selected_details = {}
@@ -1174,7 +1208,7 @@ class TreatmentScreen(Screens):
 
     def get_valid_cats(self):
         """ find all of the infected cats to choose from """
-        inftype = game.clan.infection["infection_type"]
+        inftype = get_infection_info("type")
         infected_cats = []
 
         for cat in Cat.all_cats_list:

@@ -16,7 +16,8 @@ from scripts.utility import (
     get_alive_status_cats,
     shorten_text_to_fit,
     get_living_clan_cat_count,
-    get_infected_clan_cat_count
+    get_infected_clan_cat_count,
+    get_infection_info
 )
 from .Screens import Screens
 from ..conditions import get_amount_cat_for_one_medic, medical_cats_condition_fulfilled
@@ -356,7 +357,7 @@ class MedDenScreen(Screens):
                             if cat not in self.minor_cats:
                                 self.minor_cats.append(cat)
                 if cat.illnesses:
-                    inftype = game.clan.infection["infection_type"]
+                    inftype = get_infection_info("type")
                     for illness in cat.illnesses:
                         if (
                             cat.illnesses[illness]["severity"] != "minor"
@@ -423,7 +424,7 @@ class MedDenScreen(Screens):
         else:
             self.treatment_button.enable()
         
-        if "cure_found" in game.clan.infection["logs"] and get_infected_clan_cat_count(Cat) > 0:
+        if "cure_found" in get_infection_info("logs") and get_infected_clan_cat_count(Cat) > 0:
             self.treatment_button.enable()
 
         self.meds_messages = UITextBoxTweaked(
@@ -663,7 +664,7 @@ class MedDenScreen(Screens):
                     if cat.permanent_condition[condition]["moons_until"] == -2:
                         condition_list.extend(cat.permanent_condition.keys())
 
-            inftype = game.clan.infection["infection_type"]
+            inftype = get_infection_info("type")
 
             # changing tooltip display to just say stages instead of type
             for idx, condition in enumerate(condition_list):
