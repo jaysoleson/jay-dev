@@ -71,7 +71,7 @@
     },
     "brooding_leader": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten",
                 "newborn"
             ]
@@ -317,7 +317,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -343,7 +343,7 @@
     },
     "assertivewarrior_mediatorapp1": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -371,7 +371,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -446,7 +446,7 @@
     },
     "assertive_5": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -476,7 +476,7 @@
     },
     "assertive_tokit": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -809,7 +809,7 @@
     },
     "assertive_elder_12": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -867,7 +867,7 @@
     },
     "assertive_elder_14": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -1387,7 +1387,7 @@
     },
     "assertive_tokit_2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -2310,7 +2310,7 @@
     },
     "sweet_leader_2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -2332,7 +2332,7 @@
     },
     "sweet_leader_3": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -2349,7 +2349,7 @@
     },
     "sweet_leader_4": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -3162,7 +3162,7 @@
     },
     "neurotic_choice_foxtokit_SQ5~2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -4186,7 +4186,7 @@
     },
     "neurotic_tokit_SQ2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -4341,7 +4341,7 @@
     "from_parent_leader_youshunned_H1": {
         "y_c": {
             "shunned": true,
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -4374,7 +4374,7 @@
                 "blind:any:false"
             ],
             "shunned": true,
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -4454,15 +4454,15 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "Shush {PRONOUN/t_c/object}",
+                "text": "[Shush {PRONOUN/t_c/object}.]",
                 "next_scene": "shush"
             },
             "choice2": {
-                "text": "Agree",
+                "text": "[Agree.]",
                 "next_scene": "agree"
             },
             "choice3": {
-                "text": "Deny",
+                "text": "[Deny.]",
                 "next_scene": "deny"
             }
         },
@@ -4482,11 +4482,11 @@
         ],
         "deny_choices": {
             "choice1": {
-                "text": "Relent",
+                "text": "[Relent.]",
                 "next_scene": "agree"
             },
             "choice2": {
-                "text": "Keep denying",
+                "text": "[Keep denying.]",
                 "next_scene": "no_fun"
             }
         },

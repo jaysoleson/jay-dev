@@ -826,7 +826,7 @@
     },
     "sibling_H2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -1104,9 +1104,7 @@
                 "neurotic"
             ],
             "age": [
-                "adolescent"
-            ],
-            "status": [
+                "adolescent",
                 "kitten"
             ]
         },
@@ -1675,7 +1673,7 @@
     },
     "livekit_sc_Guy1": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -1691,7 +1689,7 @@
     },
     "livekit_sc_Guy2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -1707,7 +1705,7 @@
     },
     "livekit_sc_Guy4": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -2234,7 +2232,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -2966,7 +2964,7 @@
     },
     "dfcat_J1~1": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "skill": [
@@ -3000,7 +2998,7 @@
     },
     "dfcat_J1~2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "skill": [
@@ -3066,7 +3064,7 @@
     },
     "parent_gift_J1~1": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -3094,7 +3092,7 @@
     },
     "parent_gift_J1~2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -3499,7 +3497,7 @@
     },
     "nightsky_R1~1": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "skill": [
@@ -3523,7 +3521,7 @@
     },
     "nightsky_R1~2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "skill": [
@@ -4105,7 +4103,7 @@
     },
     "kit_df_Guy~1": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -4123,7 +4121,7 @@
     },
     "kit_df_Guy~2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -4826,7 +4824,7 @@
         ],
         "intro": [
             "Sometimes I call out for tg_c as if {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} still alive. The silence that follows... I can't bear it.",
-            "I wish I was able to talk to {PRONOUN/t_c/poss} one last time."
+            "I wish I was able to talk to {PRONOUN/t_c/object} one last time."
         ]
     },
     "dead_grieving_shunned_blind_H1": {
@@ -4842,7 +4840,7 @@
                 "blind:any:false"
             ],
             "dead": [
-                "df"
+                "any"
             ]
         },
         "intro": [
@@ -5291,6 +5289,99 @@
             "t_c, don't be sad. You can still talk to me! Think of that as a blessing.",
             "Besides, the Dark Forest isn't as bad as they say. Yeah, it's goopy and kinda gross and everycat is always fighting over something...",
             "But it's cool!"
+        ]
+    },
+    "bothgrieving_general_H1": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ],
+            "min_max_faith": [
+                1,
+                9
+            ]
+        },
+        "relationship": [],
+        "tags": [],
+        "intro": [
+            "I pray that tg_c and yg_c are looking after us in StarClan."
+        ]
+    },
+    "bothgrieving_general_H2": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ],
+            "min_max_faith": [
+                -9,
+                -1
+            ]
+        },
+        "relationship": [
+            "min_platonic_10"
+        ],
+        "tags": [],
+        "intro": [
+            "I hope tg_c is having the time of {PRONOUN/tg_c/poss} life in the Dark Forest right now.",
+            "Hey, maybe yg_c is with {PRONOUN/tg_c/object}! Maybe they're frolicking in the goop or something."
+        ]
+    },
+    "bothgrieving_general_H3": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false",
+                "deaf:any:false"
+            ]
+        },
+        "t_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false",
+                "deaf:any:false"
+            ]
+        },
+        "relationship": [
+            "min_platonic_20"
+        ],
+        "tags": [],
+        "intro": [
+            "[t_c allows you to lie with {PRONOUN/t_c/object} for a little while, seemingly also taking comfort in the presence at {PRONOUN/t_c/poss} side.]"
+        ]
+    },
+    "bothgrieving_general_H4": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ],
+            "shunned": "any"
+        },
+        "t_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ],
+            "shunned": "any"
+        },
+        "relationship": [],
+        "tags": [],
+        "intro": [
+            "You're having a hard day, too, huh?"
         ]
     }
 }

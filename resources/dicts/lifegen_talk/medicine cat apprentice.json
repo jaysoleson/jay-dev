@@ -84,7 +84,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -167,7 +167,7 @@
     },
     "assertiveapp_6": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -581,7 +581,7 @@
     },
     "assertive_tokit": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -628,7 +628,7 @@
     },
     "assertivemedapp_tokit": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -658,16 +658,8 @@
     "assertivemedapp_3": {
         "y_c": {
             "status": [
-                "kitten",
-                "apprentice",
-                "warrior",
-                "elder",
-                "deputy",
-                "leader",
-                "mediator",
-                "mediator apprentice",
-                "queen",
-                "queen's apprentice"
+                "not_medicine cat",
+                "not_medicine cat apprentice"
             ],
             "condition": [
                 "blind:any:false"
@@ -1543,7 +1535,7 @@
     },
     "sweet_medapp_2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -1566,7 +1558,7 @@
     },
     "sweet_medapp_3": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -1590,7 +1582,7 @@
     },
     "sweet_medapp_4": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -1960,7 +1952,7 @@
     },
     "brooding_medapp_2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -2037,15 +2029,9 @@
     "brooding_medapp_5": {
         "y_c": {
             "status": [
-                "kitten",
-                "apprentice",
-                "warrior",
-                "mediator apprentice",
-                "mediator",
-                "queen's apprentice",
-                "queen",
-                "deputy",
-                "leader"
+                "not_elder",
+                "not_medicine cat",
+                "not_medicine cat apprentice"
             ],
             "condition": [
                 "blind:any:false"
@@ -2098,7 +2084,7 @@
     },
     "brooding_medapp_7": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -2122,7 +2108,7 @@
     },
     "brooding_medapp_8": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -2147,7 +2133,7 @@
     },
     "brooding_medapp_9": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -3560,7 +3546,7 @@
     },
     "neurotic_tokit_SQ4": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },

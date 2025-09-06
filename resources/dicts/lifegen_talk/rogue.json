@@ -409,7 +409,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten",
                 "newborn"
             ]

@@ -4321,5 +4321,30 @@
             "[As t_c nuzzles into your fur, you can't help but feel guilty. Unworthy of {PRONOUN/t_c/poss} love.]",
             "[It's your fault your kit was born with this horrible infection. How could you be so selfish?]"
         ]
+    },
+    "shunnedguilty_H1": {
+        "y_c": {
+            "condition": [
+                "grief stricken",
+                "blind:any:false"
+            ],
+            "shunned": "any",
+            "status": [
+                "not_newborn"
+            ]
+        },
+        "t_c": {
+            "status": [
+                "newborn",
+                "blind:any:false",
+                "deaf:any:false"
+            ]
+        },
+        "relationship": [],
+        "tags": [],
+        "intro": [
+            "[t_c mewls.]",
+            "[Sometimes it feels like even the newborns are judging you.]"
+        ]
     }
 }

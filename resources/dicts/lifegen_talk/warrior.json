@@ -637,7 +637,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -788,7 +788,7 @@
     },
     "assertive_tokit4": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -811,7 +811,7 @@
     },
     "assertive_tokit": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -1609,7 +1609,7 @@
     },
     "sweet_warrior_2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -1625,7 +1625,7 @@
     },
     "sweet_warrior_3": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -1642,7 +1642,7 @@
     },
     "sweet_warrior_4": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -4348,7 +4348,7 @@
     },
     "stable_warriortoKITTEN_1": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -4366,7 +4366,7 @@
     },
     "stable_warriortoKITTEN_2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -4388,7 +4388,7 @@
     },
     "stable_warriortoKITTEN_3": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -4414,7 +4414,7 @@
     },
     "stable_warriortoKITTEN_4": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -4437,7 +4437,7 @@
     },
     "stable_warriortoKITTEN_5": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -4458,7 +4458,7 @@
     },
     "stable_warriortoKITTEN_6": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -4476,7 +4476,7 @@
     },
     "stable_warriortoKITTEN_7": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -4500,7 +4500,7 @@
     },
     "stable_warriortoKITTEN_8": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -4526,7 +4526,7 @@
     },
     "stable_warriortoKITTEN_9": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -4545,7 +4545,7 @@
     },
     "stable_warriortoKITTEN_10": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -4566,7 +4566,7 @@
     },
     "stable_warriortoKITTEN_11": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -4587,7 +4587,7 @@
     },
     "stable_warriortoKITTEN_12": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -4608,7 +4608,7 @@
     },
     "stable_warriortoKITTEN_13": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -4633,7 +4633,7 @@
     },
     "stable_warriortoKITTEN_14": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -4654,7 +4654,7 @@
     },
     "stable_warriortoKITTEN_15": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -4675,7 +4675,7 @@
     },
     "stable_warriortoKITTEN_16": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -4697,7 +4697,7 @@
     },
     "stable_warriortoKITTEN_17": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -4717,7 +4717,7 @@
     },
     "stable_warriortoKITTEN_18": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -4740,7 +4740,7 @@
     },
     "stable_warriortoKITTEN_19": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -4762,7 +4762,7 @@
     },
     "stable_warriortoKITTEN_20": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -4791,7 +4791,7 @@
     },
     "stable_warriortoKITTEN_FROMSIB_1": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -4819,7 +4819,7 @@
     },
     "stable_warriortoKITTEN_FROMSIB_2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -4843,7 +4843,7 @@
     },
     "stable_warriortoKITTEN_FROMSIB_3": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -6028,7 +6028,7 @@
     },
     "neurotic_choice_foxtokit_SQ5~2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -8306,11 +8306,11 @@
         ],
         "intro_choices": {
             "choice1": {
-                "text": "[Ask t_c what's wrong]",
+                "text": "[Ask t_c what's wrong.]",
                 "next_scene": "ask"
             },
             "choice2": {
-                "text": "[Leave t_c alone]",
+                "text": "[Leave t_c alone.]",
                 "next_scene": "leave"
             }
         },
@@ -8939,7 +8939,7 @@
     },
     "cool_you_kit_11_AJ": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -8992,7 +8992,7 @@
     },
     "neurotic_tokit_SQ2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -9102,7 +9102,7 @@
     },
     "assertive_tokit_2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },

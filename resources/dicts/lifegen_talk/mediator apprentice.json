@@ -263,7 +263,7 @@
             "condition": [
                 "blind:any:false"
             ],
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -703,7 +703,7 @@
     },
     "assertiveapp_30": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ]
         },
@@ -883,16 +883,8 @@
     "assertivemedapp_3": {
         "y_c": {
             "status": [
-                "kitten",
-                "apprentice",
-                "warrior",
-                "elder",
-                "deputy",
-                "leader",
-                "medicine cat",
-                "medicine cat apprentice",
-                "queen",
-                "queen's apprentice"
+                "not_mediator",
+                "not_mediator apprentice"
             ],
             "condition": [
                 "blind:any:false"
@@ -1225,7 +1217,7 @@
     },
     "sweet_mediapp_2": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -1249,7 +1241,7 @@
     },
     "sweet_mediapp_3": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
@@ -1270,7 +1262,7 @@
     },
     "sweet_mediapp_4": {
         "y_c": {
-            "status": [
+            "age": [
                 "kitten"
             ],
             "condition": [
