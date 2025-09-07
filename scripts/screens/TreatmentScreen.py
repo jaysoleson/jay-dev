@@ -983,7 +983,7 @@ class TreatmentScreen(Screens):
 
         infection_stage = [i for i in self.selected_cat.illnesses if i in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]]
         infection_stage_stripped = str(infection_stage).replace('[', '').replace(']', '').replace("'", '')
-        if not game.clan.infection["cure_discovered"] or (game.clan.infection["cure_discovered"] and correct < 4):
+        if not get_infection_info("cure_discovered") or (get_infection_info("cure_discovered") and correct < 4):
             if self.selected_cat.status == "newborn":
                 ceremony_txt = self.m_txt[who_key + "newborn" + successkey]
             try:
@@ -1086,14 +1086,14 @@ class TreatmentScreen(Screens):
             "correct_herbs": len(correctherbs)
         }
 
-        if (len(correctherbs) != 4) or (len(correctherbs) == 4 and game.clan.infection["cure_discovered"] is False):
+        if (len(correctherbs) != 4) or (len(correctherbs) == 4 and get_infection_info("cure_discovered") is False):
             game.clan.infection["treatments"].append(treatment)
         
         if cure:
             print(patient.name, "appended to treated")
             game.clan.infection["treated"].append(patient.ID)
-            if not game.clan.infection["cure_discovered"]:
-                game.clan.infection["cure_discovered"] = True
+            if not get_infection_info("cure_discovered"):
+                get_infection_info("cure_discovered") = True
         
         herbs = game.clan.herbs.copy()
         for herb in herbs:

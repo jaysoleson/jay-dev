@@ -291,7 +291,6 @@ class Clan:
         self.infection = {
             "clan_infected": False,
             "cure_attempt": False,
-            "cure_discovered": False,
             "current_infection": 1,
             "treatments": [],
             "infection_moons": 0,
@@ -306,7 +305,8 @@ class Clan:
                 "type": self.infection_type if self.infection_type else choice(["fungal", "parasitic", "void"]),
                 "cure": [herb1, herb2, herb3, herb4],
                 "spread_by": choice(["air", "bite"]),
-                "logs": []
+                "logs": [],
+                "cure_discovered": False
             }
         }
         # ---
@@ -889,7 +889,6 @@ class Clan:
         infection_data = {
             "clan_infected": self.infection["clan_infected"],
             "cure_attempt": self.infection["cure_attempt"],
-            "cure_discovered": self.infection["cure_discovered"],
             "current_infection": self.infection["current_infection"],
             "treatments": self.infection["treatments"],
             "infection_moons": self.infection["infection_moons"],
@@ -904,7 +903,8 @@ class Clan:
                 "type": self.infection[self.infection["current_infection"]]["type"],
                 "cure": self.infection[self.infection["current_infection"]]["cure"],
                 "spread_by": self.infection[self.infection["current_infection"]]["spread_by"],
-                "logs": self.infection[self.infection["current_infection"]]["logs"]
+                "logs": self.infection[self.infection["current_infection"]]["logs"],
+                "cure_discovered": self.infection[self.infection["current_infection"]]["cure_discovered"]
             }
         }
 

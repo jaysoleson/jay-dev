@@ -608,7 +608,6 @@ class Game:
                 self.clan.infection = {
                     "clan_infected": False,
                     "cure_attempt": False,
-                    "cure_discovered": False,
                     "current_infection": 1,
                     "treatments": [],
                     "infection_moons": 0,
@@ -624,6 +623,7 @@ class Game:
                         "cure": [herb1, herb2, herb3, herb4],
                         "spread_by": random.choice(["air", "bite"]),
                         "logs": [],
+                        "cure_discovered": False,
                     }
                 }
                 

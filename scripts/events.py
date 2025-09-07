@@ -2297,7 +2297,7 @@ class Events:
         if game.clan.infection["priority_herb"] is not None:
             weight = 25
             possible_herbs.extend([game.clan.infection["priority_herb"]] * weight)
-        if game.clan.infection["cure_discovered"] is True:
+        if get_infection_info("cure_discovered") is True:
             for num in get_infection_info("cure"):
                 herb = get_infection_herb(num)
                 weight = 15
