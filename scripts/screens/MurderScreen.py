@@ -1508,7 +1508,7 @@ class MurderScreen(Screens):
             murder_dict = i[1]
 
             inftype = get_infection_info("type")
-            stages = [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]
+            stages = ["stage one infection", "stage two infection", "stage three infection", "stage four infection"]
 
             if "your_status" in murder_dict:
 
@@ -1516,16 +1516,16 @@ class MurderScreen(Screens):
                 if any(t in murder_dict["your_status"] for t in ["infected_1", "infected_2", "infected_3", "infected_4"]):
                     if you.infected_for < 1:
                         continue
-                    if f"{inftype} stage one" in you.illnesses:
+                    if "stage one infection" in you.illnesses:
                         if "infected_1" not in murder_dict["your_status"]:
                             continue
-                    if f"{inftype} stage two" in you.illnesses:
+                    if "stage two infection" in you.illnesses:
                         if "infected_2" not in murder_dict["your_status"]:
                             continue
-                    if f"{inftype} stage three" in you.illnesses:
+                    if "stage three infection" in you.illnesses:
                         if "infected_3" not in murder_dict["your_status"]:
                             continue
-                    if f"{inftype} stage four" in you.illnesses:
+                    if "stage four infection" in you.illnesses:
                         if "infected_4" not in murder_dict["your_status"]:
                             continue
                 if "undead" in murder_dict["your_status"]:
@@ -1562,16 +1562,16 @@ class MurderScreen(Screens):
                 if any(t in murder_dict["victim_status"] for t in ["infected_1", "infected_2", "infected_3", "infected_4"]):
                     if cat_to_murder.infected_for < 1:
                         continue
-                    if f"{inftype} stage one" in cat_to_murder.illnesses:
+                    if "stage one infection" in cat_to_murder.illnesses:
                         if "infected_1" not in murder_dict["victim_status"]:
                             continue
-                    if f"{inftype} stage two" in cat_to_murder.illnesses:
+                    if "stage two infection" in cat_to_murder.illnesses:
                         if "infected_2" not in murder_dict["victim_status"]:
                             continue
-                    if f"{inftype} stage three" in cat_to_murder.illnesses:
+                    if "stage three infection" in cat_to_murder.illnesses:
                         if "infected_3" not in murder_dict["victim_status"]:
                             continue
-                    if f"{inftype} stage four" in cat_to_murder.illnesses:
+                    if "stage four infection" in cat_to_murder.illnesses:
                         if "infected_4" not in murder_dict["victim_status"]:
                             continue
                 else:

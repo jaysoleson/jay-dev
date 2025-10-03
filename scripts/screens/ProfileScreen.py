@@ -2560,20 +2560,7 @@ class ProfileScreen(Screens):
 
             y_adjust = 60
 
-            # INF
-            inftype = get_infection_info("type")
-
-            if con[0] == f"{inftype} stage one":
-                condition_name = "stage one infection"
-            elif con[0] == f"{inftype} stage two":
-                condition_name = "stage two infection"
-            elif con[0] == f"{inftype} stage three":
-                condition_name = "stage three infection"
-            elif con[0] == f"{inftype} stage four":
-                condition_name = "stage four infection"
-            else:
-                condition_name = con[0]
-            # ---
+            condition_name = con[0]
 
             self.condition_data[f"name_{con}"] = UITextBoxTweaked(
                 condition_name,
@@ -3372,7 +3359,7 @@ class ProfileScreen(Screens):
 
             inftype = get_infection_info("type")
             infected = False
-            stages = [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]
+            stages = ["stage one infection", "stage two infection", "stage three infection", "stage four infection"]
             for stage in stages:
                 if stage in self.the_cat.illnesses:
                     infected = True

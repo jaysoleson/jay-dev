@@ -166,6 +166,19 @@ class LeaderDenScreen(Screens):
             "out a cat, they will no longer appear in the Cats Outside the Clans list.  If you invite "
             "in a cat, they might join your Clan!",
         )
+
+        # INF --- open borders button
+        self.open_borders_button = UISurfaceImageButton(
+            ui_scale(pygame.Rect((0, 25), (140, 30))),
+            "open the borders",
+            get_button_dict(ButtonStyles.ROUNDED_RECT, (140, 30)),
+            object_id="@buttonstyles_rounded_rect",
+            manager=MANAGER,
+            tool_tip_text="Opening your borders will open your Clan up to the possibility of another infection. "
+            "This will wipe all of your logs. Immune cats will not be immune to the new infection.",
+            anchors={"centerx": "centerx"}
+        )
+
         # This is here incase the leader comes back
         self.no_leader = False
 
@@ -257,17 +270,6 @@ class LeaderDenScreen(Screens):
                     starting_height=2,
                     manager=MANAGER,
                 )
-
-        # INF --- open borders button
-        self.open_borders_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((0, 25), (140, 30))),
-            "open the borders",
-            get_button_dict(ButtonStyles.ROUNDED_RECT, (140, 30)),
-            object_id="@buttonstyles_rounded_rect",
-            manager=MANAGER,
-            tool_tip_text="Opening your borders will open your Clan up to the possibility of another infection. This will wipe all of your logs. Immune cats will not be immune to the new infection.",
-            anchors={"centerx": "centerx"}
-        )
 
         if "cure_found" in get_infection_info("logs") and game.clan.infection["clan_infected"] is False:
             self.open_borders_button.show()

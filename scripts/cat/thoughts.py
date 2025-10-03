@@ -172,7 +172,7 @@ class Thoughts:
                 if game.clan:
                     for stage in ["stage one", "stage two", "stage three", "stage four"]:
                         if stage in thought["main_infected_constraint"]:
-                            if get_infection_info('type') + ' ' + stage not in main_cat.illnesses:
+                            if stage + "infection" not in main_cat.illnesses:
                                 continue
             
         if "random_infected_constraint" in thought and random_cat:
@@ -196,7 +196,7 @@ class Thoughts:
                 if game.clan:
                     for stage in ["stage one", "stage two", "stage three", "stage four"]:
                         if stage in thought["random_infected_constraint"]:
-                            if get_infection_info('type') + ' ' + stage not in main_cat.illnesses:
+                            if stage + "infection" not in main_cat.illnesses:
                                 continue
         # if random_cat:
         #     if (

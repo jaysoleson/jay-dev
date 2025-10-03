@@ -232,7 +232,7 @@ class Pregnancy_Events:
 
                 infected = False
                 for kit in kits:
-                    if f"{get_infection_info('type')} stage one" in kit.illnesses:
+                    if "stage one infection" in kit.illnesses:
                         infected = True
                         break
                 
@@ -287,7 +287,7 @@ class Pregnancy_Events:
 
                 infected = False
                 for kit in kits:
-                    if f"{get_infection_info('type')} stage one" in kit.illnesses:
+                    if "stage one infection" in kit.illnesses:
                         infected = True
                         break
                 
@@ -814,13 +814,13 @@ class Pregnancy_Events:
                 infected_parents.append(other_cat)
 
             for parent in infected_parents:
-                if f"{inftype} stage one" in parent.illnesses:
+                if "stage one infection" in parent.illnesses:
                     chance *= 1.5
-                elif f"{inftype} stage two" in parent.illnesses:
+                elif "stage two infection" in parent.illnesses:
                     chance *= 1.2
-                elif f"{inftype} stage three" in parent.illnesses:
+                elif "stage three infection" in parent.illnesses:
                     chance *= 0.8
-                elif f"{inftype} stage four" in parent.illnesses:
+                elif "stage four infection" in parent.illnesses:
                     chance *= 0.5
                 
             chance = math.ceil(chance)
@@ -829,7 +829,7 @@ class Pregnancy_Events:
             # chance = 1
 
             if game.clan and not int(random.random() * int(chance)):
-                kit.get_ill(f"{inftype} stage one")
+                kit.get_ill("stage one infection")
                 kit.infected_for = 1
 
     @staticmethod

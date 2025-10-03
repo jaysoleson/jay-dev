@@ -296,26 +296,19 @@ class Condition_Events:
 
             # INFECTION
             # withering, void sickness, rot
-            inf_dict = {
-                "parasitic": "withering",
-                "void": "void sickness",
-                "fungal": "rot"
-            }
-            infection_type = get_infection_info("type")
-            infection_condition = inf_dict[infection_type]
 
             infected = False
             sickness_chance = 0
-            if f"{infection_type} stage one" in cat.illnesses:
+            if f"stage one infection" in cat.illnesses:
                 sickness_chance = 80
                 infected = True
-            elif f"{infection_type} stage two" in cat.illnesses:
+            elif f"stage two infection" in cat.illnesses:
                 sickness_chance = 50
                 infected = True
-            elif f"{infection_type} stage three" in cat.illnesses:
+            elif f"stage three infection" in cat.illnesses:
                 sickness_chance = 30
                 infected = True
-            elif f"{infection_type} stage four" in cat.illnesses:
+            elif f"stage four infection" in cat.illnesses:
                 sickness_chance = 10
                 infected = True
             
@@ -327,6 +320,9 @@ class Condition_Events:
 
             if infected:
                 if random.random() < 1 / sickness_chance and infection_condition not in cat.injuries:
+                    for illness in cat.illnesses:
+                        if "stage" in illness:
+                            infection_type = illness["type"]
                     cat.get_injured(infection_condition)
                     event = string_dict[infection_type]
                     game.cur_events_list.append(Single_Event(event, ["health", "infection"], cat.ID))
@@ -360,7 +356,7 @@ class Condition_Events:
 
                 # pick up possible illnesses from the season dict
                 for illness_name in season_dict:
-                    if illness_name == f"{inftype} stage one":
+                    if illness_name == "stage one infection":
                         if not game.clan.infection["clan_infected"]:
                             return triggered
                         else:
@@ -368,17 +364,6 @@ class Condition_Events:
                     else:
                         possible_illnesses += [illness_name] * (season_dict[illness_name] * 2)
                         # multiply by three because i cant divide stage one by three, and i want it to be less likely
-
-                for i in types:
-                    wrong_illness = f"{i} stage one"
-                    while (
-                        wrong_illness in possible_illnesses and
-                        (get_infection_info("type") != i or
-                        cat.ID == game.clan.your_cat.ID or cat.infected_for > 0
-                        or game.clan.infection["clan_infected"] is True)
-                        ):
-                        # no wrong type infection OR random infections for MC OR infections while the clan isnt infected
-                        possible_illnesses.remove(wrong_illness)
 
                 # pick a random illness from those possible
                 random_index = int(random.random() * len(possible_illnesses))
@@ -403,7 +388,7 @@ class Condition_Events:
                 # create event text
                 if chosen_illness in ["running nose", "stomachache"]:
                     event_string = f"{cat.name} has gotten a {chosen_illness}."
-                elif chosen_illness == f"{inftype} stage one":
+                elif chosen_illness == "stage one infection":
                     insert = ""
 
                     infected_cats = [cat for cat in Cat.all_cats_list if not cat.outside and not cat.dead and cat.infected_for > 0]
@@ -438,10 +423,6 @@ class Condition_Events:
                     infection_events.append(event_string)
                     cat.infected_for += 1
                 else:
-                    types = ["fungal", "void", "parasitic"]
-                    for i in types:
-                        if chosen_illness == f"{i} stage one" and i != inftype:
-                            return
                     event_string = f"{cat.name} has gotten {chosen_illness}."
 
         # if an event happened, then add event to cur_event_list and save death if it happened.
@@ -662,21 +643,21 @@ class Condition_Events:
         elif inftype == "void":
             possible_risks.append("shivering")
 
-        # if f"{inftype} stage one" in cat.illnesses:
+        # if "stage one infection" in cat.illnesses:
         #     if inftype == "fungal":
         #         # possible_risks.append("fleas")
         #         pass
 
-        # elif f"{inftype} stage two" in cat.illnesses:
+        # elif "stage two infection" in cat.illnesses:
         #     pass
 
-        # elif f"{inftype} stage three" in cat.illnesses:
+        # elif "stage three infection" in cat.illnesses:
         #     if inftype == "parasitic":
         #         possible_risks.append("lost their tail")
         #     elif inftype == "void":
         #         possible_risks.extend(["partial hearing loss", "failing eyesight", "one bad eye"])
 
-        # elif f"{inftype} stage four" in cat.illnesses:
+        # elif "stage four infection" in cat.illnesses:
         #     if inftype == "parasitic":
         #         possible_risks.extend(["lost their tail", "lost their leg"])
         #     elif inftype == "void":
@@ -724,9 +705,9 @@ class Condition_Events:
             "heat exhaustion": "heat stroke",
             "stomachache": "diarrhea",
             "grief stricken": "lasting grief",
-            f"{inftype} stage one": f"{inftype} stage two",
-            f"{inftype} stage two": f"{inftype} stage three",
-            f"{inftype} stage three": f"{inftype} stage four"
+            "stage one infection": "stage two infection",
+            "stage two infection": "stage three infection",
+            "stage three infection": "stage four infection"
         }
         # ---------------------------------------------------------------------------- #
         #                         handle currently sick cats                           #
@@ -792,7 +773,7 @@ class Condition_Events:
 
             # heal the cat
             elif cat.healed_condition is True:
-                if illness in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three",f"{inftype} stage four"]:
+                if illness in ["stage one infection", "stage two infection", "stage three infection","stage four infection"]:
                     continue
                 History.remove_possible_history(cat, illness)
                 game.switches["skip_conditions"].append(illness)
@@ -850,7 +831,7 @@ class Condition_Events:
                 # move to next illness, the cat can't get a risk from an illness that has healed
                 continue
 
-            if illness in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three",f"{inftype} stage four"]:
+            if illness in ["stage one infection", "stage two infection", "stage three infection","stage four infection"]:
                 # id rather stop it from ever being true in the first place for infected cats
                 # because after a certain point, this is happening every moon
                 # but whatever. this works.
@@ -1256,7 +1237,7 @@ class Condition_Events:
 
             infection_progression = False
             cat_stage = None
-            if risk["name"] in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]:
+            if risk["name"] in ["stage one infection", "stage two infection", "stage three infection", "stage four infection"]:
                 cat_stage = risk["name"]
                 infection_progression = True
             

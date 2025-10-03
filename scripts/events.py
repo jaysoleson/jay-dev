@@ -64,7 +64,8 @@ from scripts.utility import (
     get_cluster,
     get_infected_clan_cat_count,
     get_infection_herb,
-    get_infection_info
+    get_infection_info,
+    update_infection_info
 )
 class BirthType(Enum):
     NO_PARENTS = "birth_no_parents"
@@ -242,45 +243,7 @@ class Events:
             ):
             # this is if the infection is cured, if it's completely gone, and if youve opened the borders
             
-            print("Triggered next infection. Infection reset!")
-
-            new_num = int(game.clan.infection["current_infection"]) + 1
-            game.clan.infection["current_infection"] = str(new_num)
-
-            game.clan.infection[game.clan.infection["current_infection"]] = {}
-
-            # RESETTING SHIT
-            current_type = get_infection_info("type")
-            inftypes = ["fungal", "void", "parasitic"]
-            inftypes.remove(current_type)
-            game.clan.infection[game.clan.infection["current_infection"]]["type"] = random.choice(inftypes)
-            
-            herb1, herb2, herb3, herb4 = random.sample(range(1, 26), 4)
-            game.clan.infection[game.clan.infection["current_infection"]]["cure"] = [herb1, herb2, herb3, herb4]
-            
-            game.clan.infection["between_infections"] = False
-
-            game.clan.infection["treatments"].clear()
-            game.clan.infection["exiled_cats"] = ""
-            game.clan.infection["killed_cats"] = ""
-            game.clan.infection["cured_cats"] = ""
-
-            for kitty in Cat.all_cats_list:
-                if kitty.infected_for == -1:
-                    # no immunity for the new infection!!!!
-                    kitty.infected_for = 0
-                # if kitty.outside and "undead" in kitty.illnesses:
-                #     kitty.die()
-                #     # outside infected cats switch infection type when the clans type switches oops.... just die ig
-
-            game.clan.infection["infection_moons"] = 0
-
-            # and if there are any fallen clans, they're completely gone now. bc u didnt share the cure >:P
-            for clan in game.clan.all_clans:
-                if clan.fallen:
-                    game.clan.all_clans.remove(clan)
-
-                clan.cured = False
+            self.new_infection()
 
         # keeping this commented out till disasters are more polished
         # self.disaster_events.handle_disasters()
@@ -572,6 +535,61 @@ class Events:
                 game.save_events()
             except:
                 SaveError(traceback.format_exc())
+    
+    def new_infection(self, custom_type=None):
+        """
+        Reinfecting the Clan
+        """
+        current_type = get_infection_info("type")
+        inftypes = ["fungal", "void", "parasitic"]
+        inftypes.remove(current_type)
+
+        if custom_type:
+            new_inftype = custom_type
+        else:
+            new_inftype = random.choice(inftypes)
+        
+        if current_type == custom_type:
+            print("New type and old type are the same-- not rerolling everything else.")
+            return
+        
+        print("Triggered next infection. Infection reset!")
+
+        new_num = int(game.clan.infection["current_infection"]) + 1
+        game.clan.infection["current_infection"] = str(new_num)
+        game.clan.infection[str(new_num)] = {}
+
+
+        # RESETTING SHIT
+        update_infection_info("type", new_inftype)
+        print("TYPE:", get_infection_info("type"))
+
+        herb1, herb2, herb3, herb4 = random.sample(range(1, 26), 4)
+
+        update_infection_info("cure", [herb1, herb2, herb3, herb4])
+        update_infection_info("logs", [])
+        update_infection_info("spread_by", random.choice(["air", "bite"]))
+        update_infection_info("cure_discovered", False)
+        
+        game.clan.infection["between_infections"] = False
+        game.clan.infection["treatments"].clear()
+        game.clan.infection["exiled_cats"] = ""
+        game.clan.infection["killed_cats"] = ""
+        game.clan.infection["cured_cats"] = ""
+
+        for kitty in Cat.all_cats_list:
+            if kitty.infected_for == -1:
+                # no immunity for the new infection!!!!
+                kitty.infected_for = 0
+
+        game.clan.infection["infection_moons"] = 0
+
+        # and if there are any fallen clans, they're completely gone now. bc u didnt share the cure >:P
+        for clan in game.clan.all_clans:
+            if clan.fallen:
+                game.clan.all_clans.remove(clan)
+
+            clan.cured = False
             
     def yourcat_infection(self, you):
         """ Determines the chances for MC to get infected. Based on infected cats talked to and the percentage of infected cats in camp. """
@@ -604,13 +622,13 @@ class Events:
                 if cat.talked_to:
                     # if cat.infected_for > 0:
                     #     infected_talked_to.append(cat.ID)
-                    if f"{get_infection_info('type')} stage one" in cat.illnesses:
+                    if "stage one infection" in cat.illnesses:
                         points += 1
-                    elif f"{get_infection_info('type')} stage two" in cat.illnesses:
+                    elif "stage two infection" in cat.illnesses:
                         points += 2
-                    elif f"{get_infection_info('type')} stage three" in cat.illnesses:
+                    elif "stage three infection" in cat.illnesses:
                         points += 3
-                    elif f"{get_infection_info('type')} stage four" in cat.illnesses:
+                    elif "stage four infection" in cat.illnesses:
                         points += 4
             infection_chance = infection_chance + (-points * 2)
 
@@ -630,7 +648,7 @@ class Events:
 
         num = random.randint(1, chance)
         if num == 1:
-            you.get_ill(f"{get_infection_info('type')} stage one")
+            you.get_ill("stage one infection")
             event = "It seems you've been in contact with too many infected cats. You are now infected."
             print("Infection chance HIT: You are now infected.")
             game.cur_events_list.insert(0, Single_Event(event, ["alert", "infection"]))
@@ -1722,7 +1740,7 @@ class Events:
             return
         random_cat = random.choice(cats)
         if not int(random.random() * chance):
-            random_cat.get_ill(f"{get_infection_info('type')} stage one")
+            random_cat.get_ill("stage one infection")
             if get_infection_info("spread_by") == "bite":
                 if random.randint(1,4) == 1:
                     random_cat.get_injured(
@@ -2101,19 +2119,25 @@ class Events:
                         invited_cats.extend(additional_kits)
 
                         for cat_ID in invited_cats:
+                            invited_cat = Cat.fetch_cat(cat_ID)
 
                             # INF
                             if invited_cat.infected_for > 0:
                                 types = ["misc", "infection"]
                                 if game.clan.infection["clan_infected"] is False:
                                     game.clan.infection["clan_infected"] = True
-                                    get_infection_info("logs").append("start")
+                                    if "cure_found" in get_infection_info("logs"):
+                                        get_infection_info("logs").append("start")
+                                        custom_type = None
+                                        for illness in invited_cat.illnesses:
+                                            if "infection" in illness:
+                                                custom_type = invited_cat.illnesses[illness]["type"]
+                                        self.new_infection(custom_type=custom_type)
 
                                     if "discovered" in get_infection_info("logs"):
                                         get_infection_info("logs").remove("discovered")
                             # ---
 
-                            invited_cat = Cat.fetch_cat(cat_ID)
                             if invited_cat.status.lower() in [
                                 "kittypet",
                                 "loner",
@@ -2625,7 +2649,7 @@ class Events:
                         for illness, amount in injury_dict.items():
                             possible_illnesses.extend([illness] * amount)
                         chosen_illness = random.choice(possible_illnesses)
-                        if not (chosen_illness == f"{inftype} stage one" and cat.ID == game.clan.your_cat.ID):
+                        if not (chosen_illness == "stage one infection" and cat.ID == game.clan.your_cat.ID):
                             # no random infection for MC
                             cat.get_ill(chosen_illness)
                         involved_cats["sick"].append(cat.ID)
@@ -2967,18 +2991,7 @@ class Events:
         # INFECTION moon stuff-- must be after handle_illnesses
         inftype = get_infection_info("type")
 
-        # types = ["fungal", "void", "parasitic"]
-        # base_stages = ["stage one", "stage two", "stage three", "stage four"]
-        # for i in types:
-        #     if i != inftype:
-        #         for stage in base_stages:
-        #             if f"{i} {stage}" in cat.illnesses:
-        #                 print("WRONG TYPE: Removing", stage, i, "infection from", cat.name)
-        #                 print("Giving", cat.name, f"{inftype} {stage}")
-        #                 cat.illnesses.pop(f"{i} {stage}")
-        #                 cat.get_ill(f"{inftype} {stage}")
-
-        stages = [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]
+        stages = ["stage one infection", "stage two infection", "stage three infection", "stage four infection"]
 
         for stage in stages:
             if stage in cat.illnesses:
@@ -2986,10 +2999,10 @@ class Events:
         
         if (
             not any(t in cat.illnesses for t in [
-            f"{inftype} stage one",
-            f"{inftype} stage two",
-            f"{inftype} stage three",
-            f"{inftype} stage four",
+            "stage one infection",
+            "stage two infection",
+            "stage three infection",
+            "stage four infection",
             "undead"
             ])
             ):
@@ -2999,10 +3012,10 @@ class Events:
         
         if (
             any(t in cat.illnesses for t in [
-            f"{inftype} stage one",
-            f"{inftype} stage two",
-            f"{inftype} stage three",
-            f"{inftype} stage four",
+            "stage one infection",
+            "stage two infection",
+            "stage three infection",
+            "stage four infection",
             "undead"
             ])
             ):
@@ -4442,14 +4455,14 @@ class Events:
         for illness in cat.illnesses:
             # outbreaks wont happen if the infection isnt airborne
             # maybe change this to just be less likely?
-            if illness in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"] and get_infection_info("spread_by") == "bite":
+            if illness in ["stage one infection", "stage two infection", "stage three infection", "stage four infection"] and get_infection_info("spread_by") == "bite":
                 continue
             # check if illness can infect other cats
             if cat.illnesses[illness]["infectiousness"] == 0:
                 continue
             chance = cat.illnesses[illness]["infectiousness"]
             chance += len(meds) * 7
-            if illness in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]:
+            if illness in ["stage one infection", "stage two infection", "stage three infection", "stage four infection"]:
                 chance += len(quarantined_cats) * 5
                 # quarantining cats slows the infection!
             if not int(random.random() * chance):  # 1/chance to infect
@@ -4481,7 +4494,7 @@ class Events:
                     )
                     alive_count = len(alive_cats)
 
-                if illness in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]:
+                if illness in ["stage one infection", "stage two infection", "stage three infection", "stage four infection"]:
                     # adjust alive cats list for infection
                     alive_cats = list(
                         filter(
@@ -4490,7 +4503,7 @@ class Events:
                              not kitty.outside and kitty.infected_for == 0), Cat.all_cats.values()))
                     alive_count = len(alive_cats)
 
-                if illness not in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]:
+                if illness not in ["stage one infection", "stage two infection", "stage three infection", "stage four infection"]:
                     max_infected = int(alive_count / 2)  # 1/2 of alive cats
                 else:
                     max_infected = int(alive_count / 3)  # a bit less bc they can get it in other ways tooo ill be niiiceeee
@@ -4520,9 +4533,9 @@ class Events:
                 for sick_meowmeow in infected_cats:
                     infected_names.append(str(sick_meowmeow.name))
                     involved_cats.append(sick_meowmeow.ID)
-                    if illness in [f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]:
+                    if illness in ["stage two infection", "stage three infection", "stage four infection"]:
                         sick_meowmeow.get_ill(
-                            f"{inftype} stage one", event_triggered=True)
+                            "stage one infection", event_triggered=True)
                     else:
                         sick_meowmeow.get_ill(
                             illness, event_triggered=True)  # SPREAD THE GERMS >:)
@@ -4538,7 +4551,7 @@ class Events:
                     event = f'Fleas have been hopping from pelt to pelt and now ' \
                             f'{", ".join(infected_names[:-1])}, ' \
                             f'and {infected_names[-1]} are all infested.'
-                elif illness in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]:
+                elif illness in ["stage one infection", "stage two infection", "stage three infection", "stage four infection"]:
                     event = f'The infection is hard to contain. ' \
                             f'{", ".join(infected_names[:-1])}, and ' \
                             f'{infected_names[-1]} have become ill.'
@@ -4552,7 +4565,7 @@ class Events:
                         f"{infected_names[-1]} have been infected."
                     )
 
-                if illness in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]:
+                if illness in ["stage one infection", "stage two infection", "stage three infection", "stage four infection"]:
                     game.cur_events_list.append(
                         Single_Event(event, ["health", "infection"], involved_cats))
                     for i in involved_cats:

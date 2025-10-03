@@ -1078,7 +1078,7 @@ class PatrolScreen(Screens):
         if "patrolled" not in game.switches:
             game.switches['patrolled'] = []
 
-        stages = [f"{get_infection_info('type')} stage two", f"{get_infection_info('type')} stage three", f"{get_infection_info('type')} stage four", "undead"]
+        stages = ["stage two infection", "stage three infection", "stage four infection", "undead"]
 
         if game.switches["patrol_category"] == "clangen":
             for the_cat in Cat.all_cats_list:

@@ -274,7 +274,6 @@ def get_warring_clan():
 
     return enemy_clan
 
-
 # ---------------------------------------------------------------------------- #
 #                          Handling Outside Factors                            #
 # ---------------------------------------------------------------------------- #
@@ -329,7 +328,6 @@ def change_clan_relations(other_clan, difference):
         clan_relations = 0
     # setting it in the Clan save
     game.clan.all_clans[y].relations = clan_relations
-
 
 def create_new_cat_block(
     Cat, Relationship, event, in_event_cats: dict, i: int, attribute_list: List[str]
@@ -723,7 +721,7 @@ def create_new_cat_block(
                 n_c.infected_for = -1
             
             if infected is True:
-                n_c.get_ill(f"{get_infection_info('type')} stage one")
+                n_c.get_ill("stage one infection")
             
             chance = None
 
@@ -749,7 +747,7 @@ def create_new_cat_block(
                     infected is False
                     ):
                     # print("random infected cat chance hit for", n_c.name)
-                    n_c.get_ill(f"{get_infection_info('type')} stage one")
+                    n_c.get_ill("stage one infection")
 
             # LIFEGEN: encountered dead cat stuff -----------------------------
             beginning = History.get_beginning(n_c)
@@ -3025,18 +3023,16 @@ def generate_sprite(
             new_sprite.blit(sprites.sprites["lighting" + cat_sprite], (0, 0))
 
         if game.clan:
-            inftype = get_infection_info("type")
             if not dead:
                 lineart_string = 'lines'
                 if uninfected:
                     new_sprite.blit(sprites.sprites['lines' + cat_sprite], (0, 0))
                 else:
-                    for inf_type in ["void", "fungal", "parasitic"]:
-                        for stage in ["one", "two", "three", "four"]:
-                            if f"{inf_type} stage {stage}" in cat.illnesses:
-                                lineart_string = f'{inf_type}lineartstage{stage}'
+                    for stage in ["one", "two", "three", "four"]:
+                        if f"stage {stage} infection" in cat.illnesses:
+                            lineart_string = f'{cat.illnesses[f"stage {stage} infection"]["type"]}lineartstage{stage}'
                     if "undead" in cat.illnesses:
-                        lineart_string = f'{inftype}lineartstagefour'
+                        lineart_string = f'{cat.illnesses["undead"]["type"]}lineartstagefour'
                 new_sprite.blit(sprites.sprites[lineart_string + cat_sprite], (0, 0))
             elif cat.df:
                 new_sprite.blit(sprites.sprites["lineartdf" + cat_sprite], (0, 0))
@@ -4374,6 +4370,9 @@ def get_infection_herb(code):
 
 def get_infection_info(item):
     return game.clan.infection[game.clan.infection["current_infection"]][item]
+
+def update_infection_info(item, new_value):
+    game.clan.infection[game.clan.infection["current_infection"]][item] = new_value
 
 
 def quit(savesettings=False, clearevents=False):

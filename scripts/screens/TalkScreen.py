@@ -1770,8 +1770,9 @@ class TalkScreen(Screens):
                             return False
                     elif tag in ["stage one", "stage two", "stage three", "stage four"]:
                         inftype = get_infection_info("type")
-                        if inftype + " " + tag in cat.illnesses:
-                            has_condition = True
+                        if tag + " infection" in cat.illnesses:
+                            if cat.illnesses[tag + " infection"]["type"] == inftype:
+                                has_condition = True
                     elif tag == "infected":
                         if not any(t in ["stage one", "stage two", "stage three", "stage four"] for t in CONDITIONS):
                             if cat.infected_for > 0:
@@ -1894,13 +1895,13 @@ class TalkScreen(Screens):
                 # INF
                 for kitty in (cat, you):
                     inftype = get_infection_info("type")
-                    if f"{inftype} stage one" in kitty.illnesses:
+                    if "stage one infection" in kitty.illnesses:
                         weight += 7
-                    elif f"{inftype} stage two" in kitty.illnesses:
+                    elif "stage two infection" in kitty.illnesses:
                         weight += 11
-                    elif f"{inftype} stage three" in kitty.illnesses:
+                    elif "stage three infection" in kitty.illnesses:
                         weight += 13
-                    elif f"{inftype} stage four" in kitty.illnesses:
+                    elif "stage four infection" in kitty.illnesses:
                         weight += 17
                 # ---
 

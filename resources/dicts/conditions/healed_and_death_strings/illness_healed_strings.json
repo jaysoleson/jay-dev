@@ -98,40 +98,16 @@
         "m_c's paws no longer feel quite so heavy. {PRONOUN/m_c/subject/CAP} can tell that {PRONOUN/m_c/subject} still {VERB/m_c/need/needs} to eat more, but at least the situation isn't as dire.",
         "m_c still feels the rumbles of hunger in {PRONOUN/m_c/poss} belly, but it's nothing compared to the emptiness {PRONOUN/m_c/subject}'d so recently experienced."
     ],
-    "fungal stage one": [
+    "stage one infection": [
         "m_c has recovered from {PRONOUN/m_c/poss} stage one infection!"
     ],
-    "fungal stage two": [
+    "stage two infection": [
         "m_c has recovered from {PRONOUN/m_c/poss} stage two infection!"
     ],
-    "fungal stage three": [
+    "stage three infection": [
         "m_c has recovered from {PRONOUN/m_c/poss} stage three infection!"
     ],
-    "fungal stage four": [
-        "m_c has recovered from {PRONOUN/m_c/poss} stage four infection!"
-    ],
-    "parasitic stage one": [
-        "m_c has recovered from {PRONOUN/m_c/poss} stage one infection!"
-    ],
-    "parasitic stage two": [
-        "m_c has recovered from {PRONOUN/m_c/poss} stage two infection!"
-    ],
-    "parasitic stage three": [
-        "m_c has recovered from {PRONOUN/m_c/poss} stage three infection!"
-    ],
-    "parasitic stage four": [
-        "m_c has recovered from {PRONOUN/m_c/poss} stage four infection!"
-    ],
-    "void stage one": [
-        "m_c has recovered from {PRONOUN/m_c/poss} stage one infection!"
-    ],
-    "void stage two": [
-        "m_c has recovered from {PRONOUN/m_c/poss} stage two infection!"
-    ],
-    "void stage three": [
-        "m_c has recovered from {PRONOUN/m_c/poss} stage three infection!"
-    ],
-    "void stage four": [
+    "stage four infection": [
         "m_c has recovered from {PRONOUN/m_c/poss} stage four infection!"
     ]
 }

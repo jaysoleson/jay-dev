@@ -594,6 +594,9 @@ class Game:
                 self.clan.infection["1"]["logs"] = self.clan.infection["logs"]
                 self.clan.infection.pop("logs")
 
+                self.clan.infection["1"]["cure_discovered"] = self.clan.infection["cure_discovered"]
+                self.clan.infection.pop("cure_discovered")
+
                 self.clan.infection["current_infection"] = "1"
 
         except AttributeError:

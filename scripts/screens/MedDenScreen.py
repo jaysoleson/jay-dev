@@ -361,7 +361,7 @@ class MedDenScreen(Screens):
                     for illness in cat.illnesses:
                         if (
                             cat.illnesses[illness]["severity"] != "minor"
-                            and illness not in ['grief stricken', f'{inftype} stage one', f'{inftype} stage two', f'{inftype} stage three', f'{inftype} stage four']
+                            and illness not in ['grief stricken', f'stage one infection', f'stage two infection', f'stage three infection', f'stage four infection']
                             and not cat.quarantined
                         ):
                             if cat not in self.in_den_cats:
@@ -378,7 +378,7 @@ class MedDenScreen(Screens):
                             if cat in self.minor_cats:
                                 self.minor_cats.remove(cat)
                             break
-                        elif illness in [f'{inftype} stage one', f'{inftype} stage two', f'{inftype} stage three', f'{inftype} stage four']:
+                        elif illness in [f'stage one infection', f'stage two infection', f'stage three infection', f'stage four infection']:
                             if cat not in self.infected_cats:
                                 if cat not in self.infected_cats:
                                     self.infected_cats.append(cat)
@@ -668,13 +668,13 @@ class MedDenScreen(Screens):
 
             # changing tooltip display to just say stages instead of type
             for idx, condition in enumerate(condition_list):
-                if condition == f"{inftype} stage one":
+                if condition == "stage one infection":
                     condition_list[idx] = "stage one infection"
-                if condition == f"{inftype} stage two":
+                if condition == "stage two infection":
                     condition_list[idx] = "stage two infection"
-                if condition == f"{inftype} stage three":
+                if condition == "stage three infection":
                     condition_list[idx] = "stage three infection"
-                if condition == f"{inftype} stage four":
+                if condition == "stage four infection":
                     condition_list[idx] = "stage four infection"
 
 

@@ -545,7 +545,7 @@ class GenerateEvents:
                     stages = ["stage one", "stage two", "stage three", "stage four"]
                     skip = False
                     for stage in stages:
-                        if f"{inftype} {stage}" in cat.illnesses and stage not in event.m_c["stage"]:
+                        if f"{stage} infection" in cat.illnesses and stage not in event.m_c["stage"]:
                             skip = True
                     if "undead" in event.m_c["stage"] and "undead" not in cat.illnesses:
                         skip = True
@@ -718,7 +718,7 @@ class GenerateEvents:
                     stages = ["stage one", "stage two", "stage three", "stage four"]
                     skip = False
                     for stage in stages:
-                        if f"{inftype} {stage}" in random_cat.illnesses and stage not in event.r_c["stage"]:
+                        if f"{stage} infection" in random_cat.illnesses and stage not in event.r_c["stage"]:
                             skip = True
                     if "undead" in event.r_c["stage"] and "undead" not in random_cat.illnesses:
                         skip = True

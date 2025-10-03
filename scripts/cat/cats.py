@@ -572,8 +572,7 @@ class Cat:
         """ 
         Cures a cat of the infection!
         """
-        inftype = get_infection_info("type")
-        stages = [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]
+        stages = ["stage one infection", "stage two infection", "stage three infection", "stage four infection"]
 
         for stage in stages:
             if stage in self.illnesses:
@@ -617,18 +616,18 @@ class Cat:
                 else:
                     cured = False
                     new_stage = "stage one"
-                    if stage == f"{inftype} stage two":
+                    if stage == "stage two infection":
                         self.illnesses.pop(stage)
-                        self.get_ill(f"{inftype} stage one")
-                        new_stage = f"{inftype} stage one"
-                    elif stage == f"{inftype} stage three":
+                        self.get_ill("stage one infection")
+                        new_stage = "stage one infection"
+                    elif stage == "stage three infection":
                         self.illnesses.pop(stage)
-                        self.get_ill(f"{inftype} stage two")
-                        new_stage = f"{inftype} stage two"
-                    elif stage == f"{inftype} stage four":
+                        self.get_ill("stage two infection")
+                        new_stage = "stage two infection"
+                    elif stage == "stage four infection":
                         self.illnesses.pop(stage)
-                        self.get_ill(f"{inftype} stage three")
-                        new_stage = f"{inftype} stage three"
+                        self.get_ill("stage three infection")
+                        new_stage = "stage three infection"
                     else:
                         cured = True
                         self.illnesses.pop(stage)
@@ -646,7 +645,7 @@ class Cat:
                             get_infection_info("logs").append("partial_cure")
                         else:
                             addon = ""
-                        event = f"Thanks to recieving treatment, {self.name}'s infection has remissed from{old_stage.replace(f'{inftype}', '')} to{new_stage.replace(f'{inftype}', '')}!{addon}"
+                        event = f"Thanks to recieving treatment, {self.name}'s infection has remissed from{old_stage.replace(f' infection', '')} to{new_stage.replace(f' infection', '')}!{addon}"
                     game.cur_events_list.insert(0, Single_Event(event, ["health", "infection"], self.ID))
     
     def zombie(self):
@@ -699,12 +698,12 @@ class Cat:
 
         if (
             self.infected_for > 0 and
-            f"{get_infection_info('type')} stage four" not in self.illnesses and
+            "stage four infection" not in self.illnesses and
             "lore_undead" in get_infection_info("logs")
             ):
             get_infection_info("logs").append("lore_premature_death")
 
-        if f"{get_infection_info('type')} stage four" in self.illnesses:
+        if "stage four infection" in self.illnesses:
             
             if self.history:
                 if self.history.died_infected:
@@ -2190,7 +2189,6 @@ class Cat:
 
     def moon_skip_illness(self, illness):
         """handles the moon skip for illness"""
-        inftype = get_infection_info('type')
         if not self.is_ill():
             return True
 
@@ -2216,7 +2214,7 @@ class Cat:
             if self.status == "leader":
                 self.leader_death_heal = True
                 game.clan.leader_lives -= 1
-            if f"{get_infection_info('type')} stage four" in self.illnesses:
+            if "stage four infection" in self.illnesses:
                 self.zombie()
             else:
                 self.die()
@@ -2409,7 +2407,7 @@ class Cat:
     #                                  conditions                                  #
     # ---------------------------------------------------------------------------- #
 
-    def get_ill(self, name, event_triggered=False, lethal=True, severity="default", grief_cat=None):
+    def get_ill(self, name, event_triggered=False, lethal=True, severity="default", grief_cat=None, infection_type=None):
         """Add an illness to this cat.
 
         :param name: name of the illness (str)
@@ -2425,10 +2423,10 @@ class Cat:
         
         if game.clan:
             if name in [
-                f"{get_infection_info('type')} stage one",
-                f"{get_infection_info('type')} stage two",
-                f"{get_infection_info('type')} stage three",
-                f"{get_infection_info('type')} stage four",
+                "stage one infection",
+                "stage two infection",
+                "stage three infection",
+                "stage four infection",
                 "undead"
             ] and self.infected_for == 0:
                 self.infected_for = 1
@@ -2476,6 +2474,9 @@ class Cat:
             event_triggered=event_triggered,
             grief_cat = grief_cat
         )
+        infection = False
+        if "infection" in name or "undead" in name:
+            infection = True
 
         if new_illness.name not in self.illnesses:
             self.illnesses[new_illness.name] = {
@@ -2489,6 +2490,13 @@ class Cat:
             }
             if grief_cat:
                 self.illnesses[new_illness.name]['grief_cat'] = grief_cat.ID
+            
+            # INF
+            if infection:
+                if infection_type:
+                    self.illnesses[new_illness.name]["type"] = infection_type
+                else:
+                    self.illnesses[new_illness.name]["type"] = get_infection_info("type")
 
     def get_injured(self, name, event_triggered=False, lethal=True, severity="default"):
         """Add an injury to this cat.
@@ -2753,7 +2761,6 @@ class Cat:
     def is_disabled(self):
         return len(self.permanent_condition) > 0
 
-    
     def infection_go(self):
         """
         for infection_spread so i can call the damn thing
@@ -2796,15 +2803,17 @@ class Cat:
         if cat.quarantined:
             return
         
+        infection_type = None
         infectious_illnesses = []
         if cat.is_ill():
             for illness in cat.illnesses:
                 if illness in [
-                    f"{get_infection_info('type')} stage one",
-                    f"{get_infection_info('type')} stage two",
-                    f"{get_infection_info('type')} stage three",
-                    f"{get_infection_info('type')} stage four"
+                    "stage one infection",
+                    "stage two infection",
+                    "stage three infection",
+                    "stage four infection"
                     ]:
+                    infection_type = cat.illnesses[illness]["type"]
                     infectious_illnesses.append(illness)
             if len(infectious_illnesses) == 0:
                 return
@@ -2860,7 +2869,8 @@ class Cat:
                         text += "\nYour log has been updated."
 
                 game.cur_events_list.append(Single_Event(text, ["health", "infection"], [self.ID, cat.ID]))
-                self.get_ill(f"{get_infection_info('type')} stage one")
+                if infection_type:
+                    self.get_ill("stage one infection", infection_type=infection_type)
                 self.infected_for += 1
 
     def contact_with_ill_cat(self, cat: Cat):
@@ -2925,9 +2935,9 @@ class Cat:
         if (
             (not self.is_ill() and not self.is_injured() and not self.is_disabled())
             or (self.dead and not self.is_disabled())
-            or (self.outside and self.infected_for < 1)
         ):
             if os.path.exists(condition_file_path):
+                print("Removing conditions file for", self.name)
                 os.remove(condition_file_path)
             return
 
@@ -2961,6 +2971,30 @@ class Cat:
                 self.illnesses = rel_data.get("illnesses", {})
                 self.injuries = rel_data.get("injuries", {})
                 self.permanent_condition = rel_data.get("permanent conditions", {})
+
+                # fix old infection stuff :C
+                for illness in self.illnesses.copy():
+                    if " stage one" in illness:
+                        self.illnesses["stage one infection"] = self.illnesses[illness]
+                        self.illnesses["stage one infection"]["type"] = illness.split(" ")[0]
+                        self.illnesses.pop(illness)
+                    if " stage two" in illness:
+                        self.illnesses["stage two infection"] = self.illnesses[illness]
+                        self.illnesses["stage two infection"]["type"] = illness.split(" ")[0]
+                        self.illnesses.pop(illness)
+                    if " stage three" in illness:
+                        self.illnesses["stage three infection"] = self.illnesses[illness]
+                        self.illnesses["stage three infection"]["type"] = illness.split(" ")[0]
+                        self.illnesses.pop(illness)
+                    if " stage four" in illness:
+                        self.illnesses["stage four infection"] = self.illnesses[illness]
+                        self.illnesses["stage four infection"]["type"] = illness.split(" ")[0]
+                        self.illnesses.pop(illness)
+                    if illness == "undead":
+                        # cant accurately change it bc game.clan isnt loaded yet
+                        # this will only affect beta testers . lol
+                        if "type" not in self.illnesses["undead"]:
+                            self.illnesses["undead"]["type"] = "void"
 
             if "paralyzed" in self.permanent_condition and not self.pelt.paralyzed:
                 self.pelt.paralyzed = True

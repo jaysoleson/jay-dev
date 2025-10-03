@@ -880,7 +880,7 @@ class PatrolOutcome:
                 elif _tag in INJURIES or _tag in ILLNESSES or _tag in PERMANENT:
                     possible_injuries.append(_tag)
                 elif _tag in stages:
-                    possible_injuries.append(f"{get_infection_info('type')} {_tag}")
+                    possible_injuries.append(f"{_tag} infection")
 
             lethal = True
             if "non_lethal" in injury:
@@ -910,8 +910,8 @@ class PatrolOutcome:
                 already_infected = False
                 if get_infection_info("type") in give_injury:
                     for stage in ["one", "two", "three", "four"]:
-                        if f"{get_infection_info('type')} stage {stage}" in _cat.illnesses:
-                            _cat.illnesses.pop(f"{get_infection_info('type')} stage {stage}")
+                        if f"stage {stage} infection" in _cat.illnesses:
+                            _cat.illnesses.pop(f"stage {stage} infection")
                             already_infected = True
 
                 # If the cat already has this injury, reroll it to get something new
@@ -951,10 +951,10 @@ class PatrolOutcome:
                     for given_condition in given_conditions:
                         self.__handle_condition_history(_cat, given_condition, patrol)
                     if give_injury in [
-                        f"{get_infection_info('type')} stage one",
-                        f"{get_infection_info('type')} stage two",
-                        f"{get_infection_info('type')} stage three",
-                        f"{get_infection_info('type')} stage four",
+                        "stage one infection",
+                        "stage two infection",
+                        "stage three infection",
+                        "stage four infection",
                         "undead"
                     ] and not already_infected:
                         if game.settings["dark mode"]:
@@ -1143,7 +1143,7 @@ class PatrolOutcome:
             chance = 25
             if not int(random.random() * chance):
                 infected_cat = random.choice(patrol.patrol_cats)
-                infected_cat.get_ill(f"{get_infection_info('type')} stage one")
+                infected_cat.get_ill("stage one infection")
                 additional_text = f"\n<font color='#A6D000'>The herbs are infected!</font> {infected_cat.name} has become mysteriously ill after carrying them home..."
 
                 get_infection_info("logs").append("start")
@@ -1239,7 +1239,7 @@ class PatrolOutcome:
             chance = 25
             if not int(random.random() * chance):
                 infected_cat = random.choice(patrol.patrol_cats)
-                infected_cat.get_ill(f"{get_infection_info('type')} stage one")
+                infected_cat.get_ill("stage one infection")
                 additional_text = f"\n<font color='#A6D000'> The prey is infected!</font> {infected_cat.name} has become mysteriously ill after eating it..."
 
                 if "start" not in get_infection_info("logs"):

@@ -898,15 +898,19 @@ class Clan:
             "exiled_infected": self.infection["exiled_infected"],
             "killed_infected": self.infection["killed_infected"],
             "cured_infected": self.infection["cured_infected"],
-            "treated": self.infection["treated"],
-            "1": {
-                "type": self.infection[self.infection["current_infection"]]["type"],
-                "cure": self.infection[self.infection["current_infection"]]["cure"],
-                "spread_by": self.infection[self.infection["current_infection"]]["spread_by"],
-                "logs": self.infection[self.infection["current_infection"]]["logs"],
-                "cure_discovered": self.infection[self.infection["current_infection"]]["cure_discovered"]
-            }
+            "treated": self.infection["treated"]
         }
+
+        for infection in range(int((self.infection['current_infection'])) + 1):
+            if infection == 0:
+                continue
+            infection_data[str(infection)] = {
+                "type": self.infection[str(infection)]["type"],
+                "cure": self.infection[str(infection)]["cure"],
+                "spread_by": self.infection[str(infection)]["spread_by"],
+                "logs": self.infection[str(infection)]["logs"],
+                "cure_discovered": self.infection[str(infection)]["cure_discovered"]
+            }
 
         # LEADER DATA
         if self.leader:

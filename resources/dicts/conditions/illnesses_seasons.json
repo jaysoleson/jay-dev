@@ -2,27 +2,21 @@
     "Newleaf": {
         "running nose": 2,
         "stomachache": 1,
-        "fungal stage one": 1,
-        "void stage one": 1,
-        "parasitic stage one": 1
+        "stage one infection": 1
     },
     "Greenleaf": {
         "fleas": 2,
         "stomachache":1,
         "heat exhaustion":3,
         "heat stroke":1,
-        "fungal stage one": 1,
-        "void stage one": 1,
-        "parasitic stage one": 1
+        "stage one infection": 1
     },
     "Leaf-fall": {
         "stomachache": 1,
         "greencough": 1,
         "kittencough": 4,
         "running nose": 3,
-        "fungal stage one": 1,
-        "void stage one": 1,
-        "parasitic stage one": 1
+        "stage one infection": 1
     },
     "Leaf-bare": {
         "stomachache": 1,
@@ -30,8 +24,6 @@
         "running nose": 1,
         "kittencough": 4,
         "yellowcough": 3,
-        "fungal stage one": 1,
-        "void stage one": 1,
-        "parasitic stage one": 1
+        "stage one infection": 1
     }
 }

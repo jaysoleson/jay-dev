@@ -13,7 +13,17 @@ from scripts.events import events_class
 from scripts.clan import HERBS
 
 from .Screens import Screens
-from scripts.utility import get_personality_compatibility, get_text_box_theme, ui_scale, shorten_text_to_fit, pronoun_repl, get_infection_herb, get_alive_status_cats, get_infection_info
+from scripts.utility import (
+    get_personality_compatibility,
+    get_text_box_theme,
+    ui_scale,
+    shorten_text_to_fit,
+    pronoun_repl,
+    get_infection_herb,
+    get_alive_status_cats,
+    get_infection_info,
+    update_infection_info
+    )
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
 from scripts.cat.pelts import Pelt
@@ -876,10 +886,10 @@ class TreatmentScreen(Screens):
         """ determine if the medcat will even be effective in attempting treatment.
         if a treatment is failed, no information on the herbs is given to the player. """
 
-        stageone = True if f"{get_infection_info('type')} stage one" in patient.illnesses else False
-        stagetwo = True if "{get_infection_info('type')} stage two" in patient.illnesses else False
-        stagethree = True if f"{get_infection_info('type')} stage three" in patient.illnesses else False
-        stagefour = True if f"{get_infection_info('type')} stage four" in patient.illnesses else False
+        stageone = True if "stage one infection" in patient.illnesses else False
+        stagetwo = True if "stage two infection" in patient.illnesses else False
+        stagethree = True if "stage three infection" in patient.illnesses else False
+        stagefour = True if "stage four infection" in patient.illnesses else False
 
         failchance = 0
 
@@ -981,7 +991,7 @@ class TreatmentScreen(Screens):
         
         herbinsert = f" {str(herbcount)}herb"
 
-        infection_stage = [i for i in self.selected_cat.illnesses if i in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]]
+        infection_stage = [i for i in self.selected_cat.illnesses if i in ["stage one infection", "stage two infection", "stage three infection", "stage four infection"]]
         infection_stage_stripped = str(infection_stage).replace('[', '').replace(']', '').replace("'", '')
         if not get_infection_info("cure_discovered") or (get_infection_info("cure_discovered") and correct < 4):
             if self.selected_cat.status == "newborn":
@@ -1053,7 +1063,7 @@ class TreatmentScreen(Screens):
                 remission_chance -= 8
             sick = False
             for illness in patient.illnesses:
-                if illness not in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]:
+                if illness not in ["stage one infection", "stage two infection", "stage three infection", "stage four infection"]:
                     sick = True
             if not sick:
                 remission_chance -= 8
@@ -1093,7 +1103,7 @@ class TreatmentScreen(Screens):
             print(patient.name, "appended to treated")
             game.clan.infection["treated"].append(patient.ID)
             if not get_infection_info("cure_discovered"):
-                get_infection_info("cure_discovered") = True
+                update_infection_info("cure_discovered", True)
         
         herbs = game.clan.herbs.copy()
         for herb in herbs:
@@ -1140,7 +1150,7 @@ class TreatmentScreen(Screens):
                     self.selected_cat.sprite,
                     (135, 135)), manager=MANAGER)
 
-            infection_stage = [i for i in self.selected_cat.illnesses if i in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]]
+            infection_stage = [i for i in self.selected_cat.illnesses if i in ["stage one infection", "stage two infection", "stage three infection", "stage four infection"]]
 
             infection_stage_stripped = str(infection_stage).replace('[', '').replace(']', '').replace("'", '').replace(f"{inftype} ", "")
             quar = "quarantined" if self.selected_cat.quarantined else ""
@@ -1215,10 +1225,10 @@ class TreatmentScreen(Screens):
             if (
                 not cat.dead and
                 not cat.outside and
-                (f"{inftype} stage one" in cat.illnesses or
-                 f"{inftype} stage two" in cat.illnesses or
-                 f"{inftype} stage three" in cat.illnesses or
-                 f"{inftype} stage four" in cat.illnesses) and
+                ("stage one infection" in cat.illnesses or
+                 "stage two infection" in cat.illnesses or
+                 "stage three infection" in cat.illnesses or
+                 "stage four infection" in cat.illnesses) and
                  cat.ID not in game.clan.infection["treated"]):
                 infected_cats.append(cat)
         

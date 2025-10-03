@@ -351,7 +351,7 @@ class SpriteInspectScreen(Screens):
        
         catinfected = False
         inftype = get_infection_info("type")
-        if any(i in self.the_cat.illnesses for i in [f"{inftype} stage one", f"{inftype} stage two", f"{inftype} stage three", f"{inftype} stage four"]):
+        if any(i in self.the_cat.illnesses for i in ["stage one infection", "stage two infection", "stage three infection", "stage four infection"]):
             catinfected = True
         
         # "Show as uninfected"
