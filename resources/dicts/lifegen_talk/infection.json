@@ -3897,10 +3897,21 @@
         },
         "tags": ["clan_has_kits"],
         "intro": [
-            "[Mind clouded with infection, you find yourself stumbling towards the ursery, where you used to sleep every night.]",
+            "[Mind clouded with infection, you find yourself stumbling towards the nursery, where you used to sleep every night.]",
             "... y_c? Hello.",
             "You're not supposed to be here anymore. You're too sick. You can't be around the kits.",
             "[t_c nudges you with a paw and you absentmindedly stumble back towards the medicine den, longing in your heart.]"
+        ]
+    },
+    "infdialogue_test": {
+        "y_c": {
+            "age": ["kitten"]
+        },
+        "t_c": {
+            "age": ["not_kitten"]
+        },
+        "intro": [
+            "Don't get so close, y_c. You'll get sick."
         ]
     }
 }
