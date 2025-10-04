@@ -543,7 +543,14 @@ class Events:
         """
         current_type = get_infection_info("type")
         inftypes = ["fungal", "void", "parasitic"]
-        inftypes.remove(current_type)
+
+        past_infections = []
+
+        for item in game.clan.infection:
+            if isinstance(game.clan.infection[item], dict) and "type" in game.clan.infection[item]:
+                # this is an infection dict
+                inftypes.remove(game.clan.infection[item]["type"])
+                past_infections.append(game.clan.infection[item]["type"])
 
         if custom_type:
             new_inftype = custom_type
@@ -559,7 +566,16 @@ class Events:
         new_num = int(game.clan.infection["current_infection"]) + 1
         game.clan.infection["current_infection"] = str(new_num)
         game.clan.infection[str(new_num)] = {}
-
+        
+        if new_inftype in past_infections:
+            if all(i in inftypes for i in past_infections):
+                print("You've cured every infection!")
+                # add like an achievement here
+            for item in game.clan.infection:
+                if isinstance(game.clan.infection[item], dict) and "type" in game.clan.infection[item]:
+                    if game.clan.infection[item]["type"] == new_inftype:
+                        game.clan.infection["current_infection"] = item
+                        return
 
         # RESETTING SHIT
         update_infection_info("type", new_inftype)
