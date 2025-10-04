@@ -4333,6 +4333,12 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
 
     return text
 
+def get_infection_type(cat):
+    for illness in cat.illnesses:
+        if "stage" in illness:
+            return cat.illnesses[illness]["type"]
+        elif illness == "undead":
+            return cat.illnesses[illness]["type"]
 
 def get_infection_herb(code):
     """
@@ -4368,8 +4374,30 @@ def get_infection_herb(code):
         }
     return code_dict[code]
 
-def get_infection_info(item):
-    return game.clan.infection[game.clan.infection["current_infection"]][item]
+def get_infection_info(item, cat=None):
+    """
+    returns the specified infection info.
+    if a cat is passed, it will get the info from THEIR infection specifically.
+    if not, it will default to the current infection.
+    """
+
+    info = game.clan.infection[game.clan.infection["current_infection"]][item]
+    inftype = None
+    if cat:
+        if cat.infected_for > 0:
+            for illness in cat.illnesses:
+                if "stage" in illness or illness == "undead":
+                    inftype = cat.illnesses[illness]["type"]
+            for infection in game.clan.infection:
+                if isinstance(game.clan.infection[infection], dict):
+                    if "type" in game.clan.infection[infection]:
+                        if game.clan.infection[infection]["type"] == inftype:
+                            print("RETRIEVING", item, "for", inftype.upper(), "infection.")
+                            print(item, ":", game.clan.infection[infection][item])
+                            info = game.clan.infection[infection][item]
+                            break
+
+    return info
 
 def update_infection_info(item, new_value):
     game.clan.infection[game.clan.infection["current_infection"]][item] = new_value

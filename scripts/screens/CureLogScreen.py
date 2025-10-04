@@ -398,6 +398,8 @@ class CureLogScreen(Screens):
                 self.x_treatment = treatment
 
                 self.moon_text = f"<b>Moon {treatment['moon']}</b>"
+                if "type" in treatment:
+                    self.moon_text += f" | {treatment['type']}"
                 self.moon_text_box = pygame_gui.elements.UITextBox(self.moon_text,
                                     pygame.Rect((info_x, y_offset), (log_width, 35)),
                                     container=self.scroll_container,

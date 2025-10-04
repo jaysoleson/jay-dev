@@ -299,16 +299,16 @@ class Condition_Events:
 
             infected = False
             sickness_chance = 0
-            if f"stage one infection" in cat.illnesses:
+            if "stage one infection" in cat.illnesses:
                 sickness_chance = 80
                 infected = True
-            elif f"stage two infection" in cat.illnesses:
+            elif "stage two infection" in cat.illnesses:
                 sickness_chance = 50
                 infected = True
-            elif f"stage three infection" in cat.illnesses:
+            elif "stage three infection" in cat.illnesses:
                 sickness_chance = 30
                 infected = True
-            elif f"stage four infection" in cat.illnesses:
+            elif "stage four infection" in cat.illnesses:
                 sickness_chance = 10
                 infected = True
             
@@ -317,12 +317,23 @@ class Condition_Events:
                 "void": f"The infection has left {cat.name} feeling especially hollow today...",
                 "fungal": f"{cat.name}'s body is becoming very overgrown."
             }
+            infection_conditions = {
+                "void": "void sickness",
+                "parasitic": "withering",
+                "fungal": "rot"
+            }
+            infection_type = None
+            for illness in cat.illnesses:
+                if "stage" in illness or illness == "undead":
+                    infection_type = cat.illnesses[illness]["type"]
+                    break
+            if not infection_type:
+                return
+            infection_condition = infection_conditions[infection_type]
 
             if infected:
                 if random.random() < 1 / sickness_chance and infection_condition not in cat.injuries:
-                    for illness in cat.illnesses:
-                        if "stage" in illness:
-                            infection_type = illness["type"]
+                    
                     cat.get_injured(infection_condition)
                     event = string_dict[infection_type]
                     game.cur_events_list.append(Single_Event(event, ["health", "infection"], cat.ID))

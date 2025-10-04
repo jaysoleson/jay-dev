@@ -65,7 +65,8 @@ from scripts.utility import (
     get_infected_clan_cat_count,
     get_infection_herb,
     get_infection_info,
-    update_infection_info
+    update_infection_info,
+    get_infection_type
 )
 class BirthType(Enum):
     NO_PARENTS = "birth_no_parents"
@@ -1740,18 +1741,23 @@ class Events:
             return
         random_cat = random.choice(cats)
         if not int(random.random() * chance):
-            random_cat.get_ill("stage one infection")
+            cat_inftype = None
+            try:
+                cat_inftype = get_infection_type(cat)
+            except:
+                print("Couldn't find infection type for", cat.name)
+            random_cat.get_ill("stage one infection", infection_type=cat_inftype)
             if get_infection_info("spread_by") == "bite":
                 if random.randint(1,4) == 1:
                     random_cat.get_injured(
                         random.choice(
-                            ["cat bite", "claw-wound", "broken bone", "scrapes"]
+                            ["cat bite", "claw-wound"]
                             ))
                 random_cat.get_injured("cat bite")
             else:
                 random_cat.get_injured(
                     random.choice(
-                        ["cat bite", "claw-wound", "broken bone", "scrapes"]
+                        ["claw-wound", "town pelt", "scrapes"]
                         ))
 
             event_list = [

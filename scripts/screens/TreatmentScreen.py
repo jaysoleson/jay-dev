@@ -22,7 +22,8 @@ from scripts.utility import (
     get_infection_herb,
     get_alive_status_cats,
     get_infection_info,
-    update_infection_info
+    update_infection_info,
+    get_infection_type
     )
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
@@ -735,29 +736,7 @@ class TreatmentScreen(Screens):
         # it could be a newly invited outsider with an old infection
         # thanks to tami for reminding me this is possible lol
 
-        self.correct_cure = get_infection_info("cure")
-        correct_cure = None
-        infectiontype = None
-        condition_found = False
-        # pylint: disable=consider-using-dict-items
-        # shut up bitch
-        for item in game.clan.infection:
-            if isinstance(game.clan.infection[item], dict):
-                try:
-                    test = int(item)
-                except:
-                    return
-                inftype = game.clan.infection[item]["type"]
-
-                for condition in self.selected_cat.illnesses:
-                    if inftype in condition:
-                        correct_cure = game.clan.infection[item]["cure"]
-                        infectiontype = inftype
-                        condition_found = True
-            if condition_found:
-                break
-
-        self.correct_cure = correct_cure
+        self.correct_cure = get_infection_info("cure", self.selected_cat)
 
     def exit_screen(self):
 
@@ -991,16 +970,25 @@ class TreatmentScreen(Screens):
         
         herbinsert = f" {str(herbcount)}herb"
 
-        infection_stage = [i for i in self.selected_cat.illnesses if i in ["stage one infection", "stage two infection", "stage three infection", "stage four infection"]]
-        infection_stage_stripped = str(infection_stage).replace('[', '').replace(']', '').replace("'", '')
-        if not get_infection_info("cure_discovered") or (get_infection_info("cure_discovered") and correct < 4):
+        infection_stage = ""
+        for illness in self.selected_cat.illnesses:
+            if illness == "stage one infection":
+                infection_stage = "stageone"
+            if illness == "stage two infection":
+                infection_stage = "stagetwo"
+            if illness == "stage three infection":
+                infection_stage = "stagethree"
+            if illness == "stage four infection":
+                infection_stage = "stagefour"
+
+        if not get_infection_info("cure_discovered", self.selected_cat) or (get_infection_info("cure_discovered", self.selected_cat) and correct < 4):
             if self.selected_cat.status == "newborn":
                 ceremony_txt = self.m_txt[who_key + "newborn" + successkey]
             try:
                 if success:
-                    ceremony_txt = self.m_txt[who_key + infection_stage_stripped.replace(' ', '').replace(f'{inftype}', '') + " " + correctherbs + herbinsert + successkey]
+                    ceremony_txt = self.m_txt[who_key + infection_stage + " " + correctherbs + herbinsert + successkey]
                 else:
-                    ceremony_txt = self.m_txt[who_key + infection_stage_stripped.replace(' ', '').replace(f'{inftype}', '') + herbinsert + successkey]
+                    ceremony_txt = self.m_txt[who_key + infection_stage + herbinsert + successkey]
 
                     
             except KeyError:
@@ -1015,8 +1003,10 @@ class TreatmentScreen(Screens):
                             ceremony_txt = self.m_txt[who_key + " " + correctherbs  + successkey]
                         else:
                             ceremony_txt = self.m_txt[who_key + " " + successkey]
-                    except:
+                    except Exception as e:
                         print("NO TEXT FOUND")
+                        print(e)
+                        print(success, "|", who_key + " " + correctherbs  + successkey)
                         ceremony_txt = (self.m_txt[who_key + "anystage anyright anyherb" + successkey])
         
         else:
@@ -1032,10 +1022,17 @@ class TreatmentScreen(Screens):
         if not success:
             return
         
-        inftype = get_infection_info("type")
+        infection_type = get_infection_type(self.selected_cat)
+        correct_infection = None
+        for item in game.clan.infection:
+            if isinstance(game.clan.infection[item], dict):
+                if "type" in game.clan.infection[item]:
+                    if game.clan.infection[item]["type"] == infection_type:
+                        correct_infection = game.clan.infection[item]
+                        break
 
         curelist = []
-        for num in get_infection_info("cure"):
+        for num in correct_infection["cure"]:
             curelist.append(get_infection_herb(num))
 
         herblist = [self.herb1, self.herb2, self.herb3, self.herb4]
@@ -1091,6 +1088,7 @@ class TreatmentScreen(Screens):
                 game.clan.infection["treated"].append(patient.ID)
 
         treatment = {
+            "type": infection_type,
             "moon": game.clan.age,
             "herbs": [herb for herb in herblist if herb is not None],
             "correct_herbs": len(correctherbs)
@@ -1150,12 +1148,20 @@ class TreatmentScreen(Screens):
                     self.selected_cat.sprite,
                     (135, 135)), manager=MANAGER)
 
-            infection_stage = [i for i in self.selected_cat.illnesses if i in ["stage one infection", "stage two infection", "stage three infection", "stage four infection"]]
-
-            infection_stage_stripped = str(infection_stage).replace('[', '').replace(']', '').replace("'", '').replace(f"{inftype} ", "")
+            infection_stage = ""
+            for illness in self.selected_cat.illnesses:
+                if illness == "stage one infection":
+                    infection_stage = "stage one"
+                if illness == "stage two infection":
+                    infection_stage = "stage two"
+                if illness == "stage three infection":
+                    infection_stage = "stage three"
+                if illness == "stage four infection":
+                    infection_stage = "stage four"
+            
             quar = "quarantined" if self.selected_cat.quarantined else ""
             info = self.selected_cat.status + "\n" + \
-                   self.selected_cat.genderalign + "\n <b>" + infection_stage_stripped + "</b> \n" + quar
+                   self.selected_cat.genderalign + "\n <b>" + infection_stage + "</b> \n" + quar
             
             self.selected_details["selected_info"] = pygame_gui.elements.UITextBox(info,
                                                                                    ui_scale(pygame.Rect((270, 162),

@@ -2494,9 +2494,13 @@ class Cat:
             # INF
             if infection:
                 if infection_type:
-                    self.illnesses[new_illness.name]["type"] = infection_type
+                    inftype = infection_type
                 else:
-                    self.illnesses[new_illness.name]["type"] = get_infection_info("type")
+                    inftype = get_infection_info("type")
+                
+                self.illnesses[new_illness.name]["type"] = inftype
+                # print("INFECTING", self.name, "with", inftype.upper(), "infection.")
+                # print(infection_type)
 
     def get_injured(self, name, event_triggered=False, lethal=True, severity="default"):
         """Add an injury to this cat.
@@ -2871,6 +2875,8 @@ class Cat:
                 game.cur_events_list.append(Single_Event(text, ["health", "infection"], [self.ID, cat.ID]))
                 if infection_type:
                     self.get_ill("stage one infection", infection_type=infection_type)
+                else:
+                    self.get_ill("stage one infection")
                 self.infected_for += 1
 
     def contact_with_ill_cat(self, cat: Cat):
@@ -2937,7 +2943,6 @@ class Cat:
             or (self.dead and not self.is_disabled())
         ):
             if os.path.exists(condition_file_path):
-                print("Removing conditions file for", self.name)
                 os.remove(condition_file_path)
             return
 
