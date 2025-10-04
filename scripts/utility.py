@@ -4392,8 +4392,8 @@ def get_infection_info(item, cat=None):
                 if isinstance(game.clan.infection[infection], dict):
                     if "type" in game.clan.infection[infection]:
                         if game.clan.infection[infection]["type"] == inftype:
-                            print("RETRIEVING", item, "for", inftype.upper(), "infection.")
-                            print(item, ":", game.clan.infection[infection][item])
+                            # print("RETRIEVING", item, "for", inftype.upper(), "infection.")
+                            # print(item, ":", game.clan.infection[infection][item])
                             info = game.clan.infection[infection][item]
                             break
 

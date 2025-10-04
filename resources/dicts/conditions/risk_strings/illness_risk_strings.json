@@ -72,24 +72,50 @@
         ]
     },
     "stage one infection": {
-        "stage two infection": [
-            "m_c's infection has reached stage two.",
-            "m_c's infection has progressed to stage two.",
-            "m_c's infection is getting worse."
-        ]
+        "stage two infection": {
+            "general": [
+                "m_c's infection has reached stage two.",
+                "m_c's infection has progressed to stage two.",
+                "m_c's infection is getting worse."
+            ],
+            "parasitic": [],
+            "void": [
+                "The sickly black patches on m_c's pelt are getting harder to hide as their infection progresses."
+            ],
+            "fungal": []
+        }
     },
     "stage two infection": {
-        "stage three infection": [
-            "m_c's infection has reached stage three.",
-            "m_c's infection has progressed to stage three.",
-            "m_c's infection is getting worse."
-        ]
+        "general": {
+            "stage three infection": [
+                "m_c's infection has reached stage three.",
+                "m_c's infection has progressed to stage three.",
+                "m_c's infection is getting worse."
+            ],
+            "parasitic": [],
+            "void": [
+                "r_c watches m_c from afar as the black poison of the infection continues to overtake {PRONOUN/m_c/poss} body. {PRONOUN/m_c/poss/CAP} illness has progressed another stage."
+            ],
+            "fungal": []
+        }
     },
     "stage three infection": {
-        "stage four infection": [
-            "m_c's infection has reached stage four.",
-            "m_c's infection has progressed to stage four.",
-            "m_c's infection is getting worse."
-        ]
+        "stage four infection": {
+            "general": [
+                "m_c's infection has reached stage four.",
+                "m_c's infection has progressed to stage four.",
+                "m_c's infection is getting worse."
+            ],
+            "parasitic": [
+                "While m_c sleeps, r_c desperately tries to mend {PRONOUN/m_c/poss} pelt back together with cobwebs, to no avail. m_c's illness is continuing to progress, and {PRONOUN/m_c/poss} body is falling apart."
+            ],
+            "void": [
+                "r_c watches m_c from afar as the black poison of the infection continues to overtake {PRONOUN/m_c/poss} body. {PRONOUN/m_c/poss/CAP} illness has progressed another stage.",
+                "m_c has been lashing out at {PRONOUN/m_c/poss} Clanmates more and more frequently. It becomes apparent to the Clan that {PRONOUN/m_c/poss} infection is progressing."
+            ],
+            "fungal": [
+                "The mushrooms growing from m_c's pelt are making it hard to walk. As {PRONOUN/m_c/subject} {VERB/m_c/stumble/stumbles} across camp in an attempt to blindly attack a Clanmate, it becomes clear that {PRONOUN/m_c/poss} infection is getting much worse."
+            ]
+        }
     }
 }

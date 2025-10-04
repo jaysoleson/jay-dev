@@ -3908,7 +3908,10 @@
             "age": ["kitten"]
         },
         "t_c": {
-            "age": ["not_kitten"]
+            "age": ["not_kitten"],
+            "condition": [
+                "infected"
+            ]
         },
         "intro": [
             "Don't get so close, y_c. You'll get sick."

@@ -59,9 +59,13 @@ class CureLogScreen(Screens):
         self.correct_text = None
         self.correct_text_box = None
         self.screen_art = None
+        self.stats_box = None
 
         self.x_buttons = {}
         self.x_treatment = None
+        self.treatment_page = 1
+        self.next_treatment_page_button = None
+        self.previous_treatment_page_button = None
 
         # notes
         self.editing_notes = False
@@ -243,7 +247,7 @@ class CureLogScreen(Screens):
             
             # notes
             self.scroll_container = pygame_gui.elements.UIScrollingContainer(ui_scale(pygame.Rect(
-            (385, 160), (270, 370))),
+            (385, 160), (270, 395))),
             allow_scroll_x=False,
             manager=MANAGER)
 
@@ -314,13 +318,13 @@ class CureLogScreen(Screens):
                 stats_text += "- " + log.replace("_", " ") + "\n" + "<br>"
 
             self.heading1 = pygame_gui.elements.UITextBox(
-                "<b>Events:</b>",
+                "<b>Events</b>",
                 ui_scale(pygame.Rect((105, 110), (280, 30))),
                 manager=MANAGER,
                 object_id=get_text_box_theme("#text_box_30_horizcenter"))
 
             self.heading2 = pygame_gui.elements.UITextBox(
-                "<b>Information:</b>",
+                "<b>Information</b>",
                 ui_scale(pygame.Rect((400, 110), (280, 30))),
                 manager=MANAGER,
                 object_id=get_text_box_theme("#text_box_30_horizcenter"))
@@ -339,7 +343,6 @@ class CureLogScreen(Screens):
             self.update_notes_buttons()
             
         elif self.stage == "treatments":
-            logs = 0
             self.set_disabled_menu_buttons(["stats"])
             self.show_menu_buttons()
             self.update_heading_text(f'{game.clan.name}Clan')
@@ -358,86 +361,40 @@ class CureLogScreen(Screens):
             self.treatment_text_box = None
             self.correct_text_box = None
             self.x_buttons = {}
+            self.next_treatment_page_button = None
+            self.previous_treatment_page_button = None
+
+            self.treatment_page = int(game.clan.infection["current_infection"])
 
             self.scroll_container = pygame_gui.elements.UIScrollingContainer(ui_scale(pygame.Rect(
-            (50, 175), (365, 395))),
-            allow_scroll_x=False,
-            manager=MANAGER)
+                (50, 175), (365, 300))),
+                allow_scroll_x=False,
+                manager=MANAGER
+                )
+            self.previous_treatment_page_button = UISurfaceImageButton(
+                ui_scale(pygame.Rect((195, 500), (70, 30))),
+                Icon.ARROW_LEFT,
+                get_button_dict(ButtonStyles.MENU_LEFT, (70, 30)),
+                object_id="@buttonstyles_menu_left",
+                starting_height=0,
+            )
+            self.next_treatment_page_button = UISurfaceImageButton(
+                ui_scale(pygame.Rect((265, 500), (70, 30))),
+                Icon.ARROW_RIGHT,
+                get_button_dict(ButtonStyles.MENU_RIGHT, (70, 30)),
+                object_id="@buttonstyles_menu_right",
+                starting_height=0,
+            )
 
-            stats_text = "<b>Treatments</b>"
-
-            if game.settings["fullscreen"]:
-                fullscreen = True
+            if int(game.clan.infection["current_infection"]) < 2:
+                self.next_treatment_page_button.hide()
+                self.previous_treatment_page_button.hide()
             else:
-                fullscreen = False
-
-            if fullscreen:
-                log_width = 300
-                y_offset = 0
-                info_x = 125
-            else:
-                log_width = 230
-                y_offset = 0
-                info_x = 105
-            
-            x_button_y_offset = 5
-            button_x = 70
-            
-            
-            for treatment in game.clan.infection['treatments']:
-                logs += 1
-
-                self.x_buttons[str(treatment['moon'])] = UIImageButton(ui_scale(pygame.Rect((button_x, x_button_y_offset), (25, 25))),
-                                "",
-                                object_id="#exit_window_button",
-                                tool_tip_text=f"Delete moon {str(treatment['moon'])}'s entry (cannot be undone!)",
-                                container=self.scroll_container,
-                                manager=MANAGER
-                            )
+                self.next_treatment_page_button.show()
+                self.previous_treatment_page_button.show()
                 
-                self.x_treatment = treatment
+            self.update_treatment_display()
 
-                self.moon_text = f"<b>Moon {treatment['moon']}</b>"
-                if "type" in treatment:
-                    self.moon_text += f" | {treatment['type']}"
-                self.moon_text_box = pygame_gui.elements.UITextBox(self.moon_text,
-                                    pygame.Rect((info_x, y_offset), (log_width, 35)),
-                                    container=self.scroll_container,
-                                    manager=MANAGER,
-                                    object_id=get_text_box_theme("#text_box_30_horizleft"))
-                
-                offset2 = 25
-                self.treatment_text = f"{', '.join([herb.replace('_', ' ') for herb in treatment['herbs']])}"
-                
-                # correct_text = f"Effective Herbs: {treatment['correct_herbs']}"
-                if int(treatment['correct_herbs']) > 0 and int(treatment['correct_herbs']) < 4:
-                    if game.settings["dark mode"]:
-                        self.correct_text = "<font color='#DBD076'>At least one effective herb</font>"
-                    else:
-                        self.correct_text = "<font color='#473B0A'>At least one effective herb</font>"
-                elif int(treatment['correct_herbs']) == 4:
-                    if game.settings["dark mode"]:
-                        self.correct_text = "<font color='#A2D86C'>Cure Found!</font>"
-                    else:
-                        self.correct_text = "<font color='#136D05'>Cure Found!</font>"
-                else:
-                    if game.settings["dark mode"]:
-                        self.correct_text = "<font color='#FF0000'>Zero Effective Herbs</font>"
-                    else:
-                        self.correct_text = "<font color='#550D0D'>Zero Effective Herbs</font>"
-
-                self.treatment_text_box = pygame_gui.elements.UITextBox(
-                    self.treatment_text + "\n" + self.correct_text,
-                    pygame.Rect((info_x, (y_offset + offset2)), (log_width, 90)),
-                    container=self.scroll_container,
-                    manager=MANAGER,
-                    object_id=get_text_box_theme("#text_box_26_horizleft"))
-                
-                y_offset += 120
-                if fullscreen:
-                    x_button_y_offset += 96
-                else:
-                    x_button_y_offset += 120
 
             self.previous_page_button = UISurfaceImageButton(
                 ui_scale(pygame.Rect((315, 595), (34, 34))),
@@ -460,23 +417,21 @@ class CureLogScreen(Screens):
                 imagesrc = "resources/images/treatment_log_light.png"
 
             self.screen_art = pygame_gui.elements.UIImage(
-                ui_scale(pygame.Rect(((60, 77), (726, 630)))),
+                ui_scale(pygame.Rect(((460, 120), (295, 445)))),
                 pygame.transform.scale(
                     pygame.image.load(
                         imagesrc
                     ).convert_alpha(),
-                    ui_scale_dimensions((726, 630))
+                    ui_scale_dimensions((295, 445))
                     ),
                 manager=MANAGER
                 )
-
+            stats_text = "<b>Treatments</b>"
             self.stats_box = pygame_gui.elements.UITextBox(
                 stats_text,
                 ui_scale(pygame.Rect((120, 125), (350, 50))),
                 manager=MANAGER,
                 object_id=get_text_box_theme("#text_box_30_horizleft"))
-           
-            self.scroll_container.set_scrollable_area_dimensions((100, y_offset + 25))
 
         elif self.stage == "stamps":
             self.set_disabled_menu_buttons(["stats"])
@@ -532,6 +487,108 @@ class CureLogScreen(Screens):
             # JOURNAL STAMPS
             # wwhoooaaaaoo
             self.show_journal_stamps()
+
+    def update_treatment_display(self):
+        """"
+        displays the treatment lists.
+        """
+
+        self.kill_treatment_display()
+
+        current_treatments = []
+        all_treatments = {}
+
+        for infection in game.clan.infection:
+            if isinstance(game.clan.infection[infection], dict):
+                if infection not in all_treatments:
+                    all_treatments.update({infection:[]})
+
+        # all treatments should look like
+        # "1": [treatments list]
+
+        for treatment in game.clan.infection["treatments"]:
+            if "type" not in treatment:
+                all_treatments["1"].append(treatment)
+            else:
+                for infection in game.clan.infection:
+                    if isinstance(game.clan.infection[infection], dict):
+                        if game.clan.infection[infection]["type"] == treatment["type"]:
+                            all_treatments[infection].append(treatment)
+        # print("ALL TREATMENTS DICT")
+        # print(all_treatments)
+        
+        current_treatments = all_treatments[str(self.treatment_page)]
+
+        if game.settings["fullscreen"]:
+            fullscreen = True
+        else:
+            fullscreen = False
+
+        if fullscreen:
+            log_width = 300
+            y_offset = 0
+            info_x = 125
+        else:
+            log_width = 230
+            y_offset = 0
+            info_x = 105
+        
+        x_button_y_offset = 5
+        button_x = 70
+
+        for treatment in current_treatments:
+
+            self.x_buttons[str(treatment['moon'])] = UIImageButton(ui_scale(pygame.Rect((button_x, x_button_y_offset), (25, 25))),
+                "",
+                object_id="#exit_window_button",
+                tool_tip_text=f"Delete moon {str(treatment['moon'])}'s entry (cannot be undone!)",
+                container=self.scroll_container,
+                manager=MANAGER
+            )
+            
+            self.x_treatment = treatment
+
+            self.moon_text = f"<b>Moon {treatment['moon']}</b>"
+            self.moon_text_box = pygame_gui.elements.UITextBox(self.moon_text,
+                                pygame.Rect((info_x, y_offset), (log_width, 35)),
+                                container=self.scroll_container,
+                                manager=MANAGER,
+                                object_id=get_text_box_theme("#text_box_30_horizleft"))
+            
+            offset2 = 25
+            self.treatment_text = f"{', '.join([herb.replace('_', ' ') for herb in treatment['herbs']])}"
+            
+            # correct_text = f"Effective Herbs: {treatment['correct_herbs']}"
+            if int(treatment['correct_herbs']) > 0 and int(treatment['correct_herbs']) < 4:
+                if game.settings["dark mode"]:
+                    self.correct_text = "<font color='#DBD076'>At least one effective herb</font>"
+                else:
+                    self.correct_text = "<font color='#473B0A'>At least one effective herb</font>"
+            elif int(treatment['correct_herbs']) == 4:
+                if game.settings["dark mode"]:
+                    self.correct_text = "<font color='#A2D86C'>Cure Found!</font>"
+                else:
+                    self.correct_text = "<font color='#136D05'>Cure Found!</font>"
+            else:
+                if game.settings["dark mode"]:
+                    self.correct_text = "<font color='#FF0000'>Zero Effective Herbs</font>"
+                else:
+                    self.correct_text = "<font color='#550D0D'>Zero Effective Herbs</font>"
+
+            self.treatment_text_box = pygame_gui.elements.UITextBox(
+                self.treatment_text + "\n" + self.correct_text,
+                pygame.Rect((info_x, (y_offset + offset2)), (log_width, 90)),
+                container=self.scroll_container,
+                manager=MANAGER,
+                object_id=get_text_box_theme("#text_box_26_horizleft"))
+            
+            y_offset += 120
+            if fullscreen:
+                x_button_y_offset += 96
+            else:
+                x_button_y_offset += 120
+        
+        self.scroll_container.set_scrollable_area_dimensions((100, y_offset + 25))
     
     def show_journal_stamps(self):
         self.check_achivements()
@@ -816,10 +873,30 @@ class CureLogScreen(Screens):
                 manager=MANAGER
                 )
             
+    def kill_treatment_display(self):
+        
+        for ele in self.x_buttons:
+            self.x_buttons[ele].kill()
+        self.x_buttons = {}
+
+        if self.moon_text_box:
+            self.moon_text_box.kill()
+            del self.moon_text_box
+        
+        if self.treatment_text_box:
+            self.treatment_text_box.kill()
+            del self.treatment_text_box
+
+        if self.correct_text_box:
+            self.correct_text_box.kill()
+            del self.correct_text_box
+
+            
     def exit_screen(self):
         """
         TODO: DOCS
         """
+
         if self.stats_box:
             self.stats_box.kill()
             del self.stats_box
@@ -835,10 +912,6 @@ class CureLogScreen(Screens):
         for ele in self.stamps:
             self.stamps[ele].kill()
         self.stamps = {}
-
-        for ele in self.x_buttons:
-            self.x_buttons[ele].kill()
-        self.x_buttons = {}
 
         if self.screen_art:
             self.screen_art.kill()
@@ -859,20 +932,15 @@ class CureLogScreen(Screens):
             self.previous_page_button.kill()
             del self.previous_page_button
 
-        if self.moon_text_box:
-            self.moon_text_box.kill()
-            del self.moon_text_box
+        if self.next_treatment_page_button:
+            self.next_treatment_page_button.kill()
+            del self.next_treatment_page_button
+        if self.previous_treatment_page_button:
+            self.previous_treatment_page_button.kill()
+            del self.previous_treatment_page_button
 
-        
         self.x_treatment = None
 
-        if self.treatment_text_box:
-            self.treatment_text_box.kill()
-            del self.treatment_text_box
-
-        if self.correct_text_box:
-            self.correct_text_box.kill()
-            del self.correct_text_box
         if self.notes_entry:
             self.notes_entry.kill()
             del self.notes_entry
@@ -886,6 +954,8 @@ class CureLogScreen(Screens):
             self.save_text.kill()
             del self.save_text
 
+        self.kill_treatment_display()
+
     def delete_entry(self, treatment):
         treatment_to_remove = None
         for i in game.clan.infection["treatments"]:
@@ -897,6 +967,23 @@ class CureLogScreen(Screens):
                 game.clan.infection["treatments"].remove(treatment_to_remove)
                 self.exit_screen()
                 self.screen_switches()
+    
+    def update_treatment_page(self, increase):
+        """
+        updates the treatment page variable
+        """
+
+        if increase:
+            if self.treatment_page >= int(game.clan.infection["current_infection"]):
+                self.treatment_page = 1
+            else:
+                self.treatment_page += 1
+        else:
+            if self.treatment_page <= 1:
+                self.treatment_page = int(game.clan.infection["current_infection"])
+            else:
+                self.treatment_page -= 1
+        self.update_treatment_display()
 
     def handle_event(self, event):
         """
@@ -938,6 +1025,10 @@ class CureLogScreen(Screens):
             elif event.ui_element == self.edit_text:
                 self.editing_notes = True
                 self.update_notes_buttons()
+            elif event.ui_element == self.next_treatment_page_button:
+                self.update_treatment_page(True)
+            elif event.ui_element == self.previous_treatment_page_button:
+                self.update_treatment_page(False)
             for treatment, button in self.x_buttons.items():
                 if event.ui_element == button:
                     self.delete_entry(treatment)

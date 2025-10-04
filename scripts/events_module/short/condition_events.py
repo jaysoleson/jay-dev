@@ -1317,9 +1317,19 @@ class Condition_Events:
                 try:
                     # gather potential event strings for gotten condition
                     if dictionary == cat.illnesses:
-                        possible_string_list = Condition_Events.ILLNESS_RISK_STRINGS[
-                            condition
-                        ][new_condition_name]
+                        # INF
+                        if "stage" in condition:
+                            possible_string_list = Condition_Events.ILLNESS_RISK_STRINGS[
+                                condition
+                            ][new_condition_name]["general"]
+                            possible_string_list += Condition_Events.ILLNESS_RISK_STRINGS[
+                                condition
+                            ][new_condition_name][get_infection_info("type", cat)]
+                        else:
+                            # ---
+                            possible_string_list = Condition_Events.ILLNESS_RISK_STRINGS[
+                                condition
+                            ][new_condition_name]
                     elif dictionary == cat.injuries:
                         possible_string_list = Condition_Events.INJURY_RISK_STRINGS[
                             condition
