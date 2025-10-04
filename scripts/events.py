@@ -579,7 +579,6 @@ class Events:
 
         # RESETTING SHIT
         update_infection_info("type", new_inftype)
-        print("TYPE:", get_infection_info("type"))
 
         herb1, herb2, herb3, herb4 = random.sample(range(1, 26), 4)
 

@@ -159,7 +159,7 @@ class Clan:
         self.cure = []
         self.cure_attempt = False
         self.cure_discovered = False
-        self.current_infection = 1
+        self.current_infection = "1"
         self.infection_type = 'fungal'
         self.treatments = []
         self.spread_by = "air"
@@ -291,7 +291,7 @@ class Clan:
         self.infection = {
             "clan_infected": False,
             "cure_attempt": False,
-            "current_infection": 1,
+            "current_infection": "1",
             "treatments": [],
             "infection_moons": 0,
             "priority_herb": None,

@@ -577,6 +577,9 @@ class Game:
                 self.clan.infection["allow_infection"] = self.clan.infection["next_infection_allowed"]
                 self.clan.infection.pop("next_infection_allowed")
 
+            if "current_infection" in self.clan.infection and isinstance(self.clan.infection["current_infection"], int):
+                self.clan.infection["current_infection"] = str(self.clan.infection["current_infection"])
+
             # correct old inf format to new
             if "infection_type" in self.clan.infection:
                 print("CORRECTING JSON")
@@ -611,9 +614,10 @@ class Game:
                 self.clan.infection = {
                     "clan_infected": False,
                     "cure_attempt": False,
-                    "current_infection": 1,
+                    "current_infection": "1",
                     "treatments": [],
                     "infection_moons": 0,
+                    "current_infection": "1",
                     "priority_herb": None,
                     "allow_infection": False,
                     "between_infections": False,
