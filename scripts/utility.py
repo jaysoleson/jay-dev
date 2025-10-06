@@ -2479,6 +2479,17 @@ def event_text_adjust(
                         break
 
         text = text.replace('c_n', str(clan_name) + 'Clan')
+    
+    if "m_p" in text:
+
+        moonplace_dict = {
+            "Beach": "Mooncove",
+            "Mountainous": "Moonfalls",
+            "Forest": "Moonhollow",
+            "Plains": "Moongrove"
+        }
+
+        text = text.replace("m_p", moonplace_dict[game.clan.biome])
 
     # prey lists
     text = adjust_prey_abbr(text)
