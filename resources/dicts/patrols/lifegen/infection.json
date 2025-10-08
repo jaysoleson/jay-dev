@@ -1938,5 +1938,104 @@
                 "weight": 20
             }
         ]
+    },
+    {
+        "patrol_id": "avixthecat_1",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection",
+            "mininfectedpercent_20",
+            "you_not_infected"
+        ],
+        "patrol_art": "lg_warrior_default",
+        "min_cats": 1,
+        "max_cats": 3,
+        "min_max_status": {
+            "kitten": [-1, 0],
+            "healer cats": [-1, 0]
+        },
+        "weight": 20,
+        "intro_text": "The infected cats in the medicine den need fresh moss for their nests, but with no medicine cats around camp to help, nobody is willing to get close enough to bring them some new bedding.",
+        "decline_text": "It's not your problem. Your health is far more important than their comfort right now. Walking past, you pretend not to hear their raspy, quiet voices.",
+        "chance_of_success": 70,
+        "success_outcomes": [
+            {
+                "text": "With quick wit, you climb up the nearest tree and drop some moss down as carefully as you can. The elders are thankful, and your Clanmates are proud of your clever thinking.",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "Making sure your sick Clanmates are comfortable is what's important, not everyone's silly fears of getting sick! You roll up the plumpest bundle of moss you can and roll it into the medicine den. Those of your Clanmates who are lucid enough to speak thank you gratefully.",
+                "exp": 0,
+                "weight": 20
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "As you step closer to the den, a particularly infected Clanmate gets too close for your comfort. Apologizing profusely, you leave the moss where you were standing and leave. Maybe next time.",
+                "exp": 10,
+                "weight": 20
+            }
+        ]
+    },
+    {
+        "patrol_id": "avixthecat_2",
+        "biome": [
+            "Any"
+        ],
+        "season": [
+            "Any"
+        ],
+        "types": [
+            "lifegen"
+        ],
+        "tags": [
+            "infection",
+            "you_infected",
+            "clan_has_kits"
+        ],
+        "patrol_art": "lg_elder_default",
+        "min_cats": 1,
+        "max_cats": 3,
+        "min_max_status": {
+            "elder": [1, 1]
+        },
+        "weight": 20,
+        "intro_text": "The healthy kits are begging you for a story.",
+        "decline_text": "It's too much risk, you wouldn't be able to forgive yourself if something happened to them because of you. Sadly, you turn them down, telling them that you will once you're cured.",
+        "chance_of_success": 70,
+        "success_outcomes": [
+            {
+                "text": "Telling the kits to keep a distance, you begin to regale them with a story about a group of starry cats who saved far away Clans from a disease. The kits listen with sparkling eyes, asking for more.",
+                "exp": 0,
+                "weight": 20
+            },
+            {
+                "text": "Perhaps you should use this situation to your advantage. You decide to tell the kits a scary story about cats who come back from the dead. Towards the end, you lunge forwards with a growl, and the kits scurry away. You can't tell if they're laughing or crying, but you'd be satisfied with either one.",
+                "exp": 0,
+                "weight": 20,
+                "stat_cluster": ["brooding", "unlawful"]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "You start to tell the kits one of your favorite stories. Before you can get to the climax, a queen pulls the kits away, muttering about dangers and warning about the risks of being near you.",
+                "exp": 10,
+                "weight": 20
+            },
+            {
+                "text": "A queen across the clearing gives you threatening looks, and you quickly deny them a story. You tell them to ask another elder; you're too busy dealing with personal matters right now. Though the kits remark on the fact that you don't look busy, they leave you alone, looking for somebody else to entertain them.",
+                "exp": 10,
+                "weight": 20
+            }
+        ]
     }
 ]

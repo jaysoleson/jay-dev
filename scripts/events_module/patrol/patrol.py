@@ -725,6 +725,12 @@ class Patrol:
             if "you_immune" in patrol.tags and game.clan.your_cat.infected_for != -1:
                 continue
 
+            if "you_infected" in patrol.tags and game.clan.your_cat.infected_for < 1:
+                continue
+
+            if "you_not_infected" in patrol.tags and game.clan.your_cat.infected_for != 0:
+                continue
+
             if "priority_herb" in patrol.tags and game.clan.infection["priority_herb"] is None:
                 continue
 

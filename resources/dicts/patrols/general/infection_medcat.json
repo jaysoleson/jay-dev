@@ -339,5 +339,67 @@
                 "weight": 20
             }
         ]
+    },
+    {
+        "patrol_id": "jubilife_1",
+        "biome": [
+            "Plains"
+        ],
+        "season": [
+            "newleaf",
+            "greenleaf",
+            "leaf-fall"
+        ],
+        "types": [
+            "herb_gathering"
+        ],
+        "tags": [
+            "infection",
+            "priority_herb"
+        ],
+        "patrol_art": "med_general_intro",
+        "min_cats": 3,
+        "max_cats": 6,
+        "min_max_status": {
+            "healer cats": [1,1]
+        },
+        "weight": 20,
+        "intro_text": "While out searching for webs in the tall grass, p_l can't help but marvel at how beautiful of a day it is. Sunshine and a gentle breeze sway the towering stalks in a way that is almost mesmerizing, though not enough that {PRONOUN/p_l/subject} could risk taking {PRONOUN/p_l/poss} eyes off the lone infected standing a good few fox-lengths away.",
+        "decline_text": "p_l remains crouched and silent, the web-wrapped stick in {PRONOUN/p_l/poss} jaws clenched tight until {PRONOUN/p_l/subject} can make a break for it and {PRONOUN/p_l/subject} {VERB/p_l/sprint/sprints} back to camp with {PRONOUN/p_l/poss} heart in {PRONOUN/p_l/poss} throat.",
+        "chance_of_success": 50,
+        "success_outcomes": [
+            {
+                "text": "From where {PRONOUN/p_l/subject} {VERB/p_l/are/is} crouched there is almost a sense of peace coming off of the infected cat as it shudders in place, unaware of {PRONOUN/p_l/poss} presence as it stares up at the blue sky. Can somecat so far gone still appreciate such a view? p_l doesn't know, but {PRONOUN/p_l/subject}{VERB/p_l/'re/'s} happy enough to make a silent escape with {PRONOUN/p_l/poss} gathered materials before the moment passes.",
+                "exp": 0,
+                "weight": 10,
+                "herbs": ["cobwebs"]
+            },
+            {
+                "text": "p_l can't help but notice that the poor cat is idly chewing on some priority_herb-- exactly the herb p_l was out to gather. Thinking quickly, {PRONOUN/p_l/subject} {VERB/p_l/toss/tosses} a pebble over the cat's head, which is distracting enough to send them stumbling off towards the source of the noise. p_l quickly races forward to pick up all of the unchewed priority_herb in the patch.",
+                "exp": 0,
+                "weight": 20,
+                "herbs": [
+                    "priority_herb"
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "p_l takes a step back from where {PRONOUN/p_l/subject}{VERB/p_l/'re/'s} crouched before flinching when a patch of dried growth crackles underpaw. Immediately, the infected snaps their attention to MEDICINECAT and the chase is on. It takes some zig-zagging and a few scrapes from dragging {PRONOUN/p_l/self} through brambles, but p_l considers {PRONOUN/p_l/self} lucky to have escaped with only a clawed flank.",
+                "exp": 0,
+                "weight": 20,
+                "injury": [
+                    {
+                        "cats": ["p_l"],
+                        "injuries": ["scrapes"]
+                    }
+                ]
+            },
+            {
+                "text": "p_l cautiously steps forward. As a healer, it's {PRONOUN/p_l/poss} instinct to help, and this cat doesn't look too far gone... right? p_l is instantly proven wrong when {PRONOUN/p_l/subject} {VERB/p_l/call/calls} out a friendly greeting and the infected cat stumbles forward with a sneer. This cat is beyond treatment. p_l is able to race back to camp without being followed, a weight on {PRONOUN/p_l/poss} heart.",
+                "exp": 0,
+                "weight": 20
+            }
+        ]
     }
 ]
