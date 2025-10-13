@@ -160,7 +160,7 @@ class Clan:
         self.cure_attempt = False
         self.cure_discovered = False
         self.current_infection = "1"
-        self.infection_type = 'fungal'
+        self.infection_type = game.switches["make_clan_infection_type"]
         self.treatments = []
         self.spread_by = "air"
         self.infection_moons = 0
@@ -254,6 +254,9 @@ class Clan:
         created in the 'clan created' screen, not every time
         the program starts
         """
+
+        self.infection_type = game.switches["make_clan_infection_type"]
+
         self.instructor = Cat(status=choice(["apprentice", "mediator apprentice", "medicine cat apprentice", "warrior",
                                             "medicine cat", "leader", "mediator", "queen", "queen's apprentice", "deputy", "elder"]),
                             )
@@ -302,13 +305,15 @@ class Clan:
             "cured_infected": "",
             "treated": [],
             "1": {
-                "type": self.infection_type if self.infection_type else choice(["fungal", "parasitic", "void"]),
+                "type": self.infection_type,
                 "cure": [herb1, herb2, herb3, herb4],
                 "spread_by": choice(["air", "bite"]),
                 "logs": [],
                 "cure_discovered": False
             }
         }
+
+        # game.switches["make_clan_infection_type"] = ""
         # ---
 
 

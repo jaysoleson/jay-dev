@@ -4638,9 +4638,7 @@ class MakeClanScreen(Screens):
                             starting_season=self.selected_season,
                             your_cat=self.your_cat,
                             clan_age=self.clan_age)
-            game.clan.infection = {
-                "infection_type": self.infection_type
-            }
+            game.switches["make_clan_infection_type"] = self.infection_type
             game.clan.your_cat.moons = -1
             game.clan.create_clan()
             if self.clan_age == "established":
