@@ -60,6 +60,7 @@ class CureLogScreen(Screens):
         self.correct_text_box = None
         self.screen_art = None
         self.stats_box = None
+        self.treatments_heading = None
 
         self.x_buttons = {}
         self.x_treatment = None
@@ -223,6 +224,7 @@ class CureLogScreen(Screens):
         if self.stage == "logs":
             self.moon_text = None
             self.moon_text_box = None
+            self.treatments_heading = None
             self.treatment_text = None
             self.treatment_text_box = None
             self.correct_text = None
@@ -353,16 +355,17 @@ class CureLogScreen(Screens):
             self.journalart = None
             self.heading1 = None
             self.heading2 = None
-
-            # fixes asters crash
+            self.stats_box = None
             self.moon_text = None
             self.moon_text_box = None
             self.treatment_text = None
             self.treatment_text_box = None
+            self.treatments_heading = None
             self.correct_text_box = None
             self.x_buttons = {}
             self.next_treatment_page_button = None
             self.previous_treatment_page_button = None
+            # omfg
 
             self.treatment_page = int(game.clan.infection["current_infection"])
 
@@ -395,7 +398,6 @@ class CureLogScreen(Screens):
                 
             self.update_treatment_display()
 
-
             self.previous_page_button = UISurfaceImageButton(
                 ui_scale(pygame.Rect((315, 595), (34, 34))),
                 Icon.ARROW_LEFT,
@@ -426,12 +428,6 @@ class CureLogScreen(Screens):
                     ),
                 manager=MANAGER
                 )
-            stats_text = "<b>Treatments</b>"
-            self.stats_box = pygame_gui.elements.UITextBox(
-                stats_text,
-                ui_scale(pygame.Rect((120, 125), (350, 50))),
-                manager=MANAGER,
-                object_id=get_text_box_theme("#text_box_30_horizleft"))
 
         elif self.stage == "stamps":
             self.set_disabled_menu_buttons(["stats"])
@@ -442,6 +438,7 @@ class CureLogScreen(Screens):
             self.moon_text_box = None
             self.treatment_text = None
             self.treatment_text_box = None
+            self.treatments_heading = None
             self.correct_text = None
             self.correct_text_box = None
             self.save_text = None
@@ -496,6 +493,7 @@ class CureLogScreen(Screens):
         self.kill_treatment_display()
 
         current_treatments = []
+        current_type = ""
         all_treatments = {}
 
         for infection in game.clan.infection:
@@ -518,6 +516,17 @@ class CureLogScreen(Screens):
         # print(all_treatments)
         
         current_treatments = all_treatments[str(self.treatment_page)]
+        try:
+            current_type = game.clan.infection[str(self.treatment_page)]["type"]
+        except Exception as e:
+            print("Error finding treatment type")
+            print(e)
+
+        self.treatments_heading = pygame_gui.elements.UITextBox(
+            "<b>" + current_type.capitalize() + " Treatments</b>",
+            ui_scale(pygame.Rect((120, 125), (350, 50))),
+            manager=MANAGER,
+            object_id=get_text_box_theme("#text_box_30_horizleft"))
 
         if game.settings["fullscreen"]:
             fullscreen = True
@@ -682,6 +691,30 @@ class CureLogScreen(Screens):
                 anchors={"centerx": "centerx"}
             )
 
+        all_infections = False
+        all_types = ["void", "parasitic", "fungal"]
+
+        for item in game.clan.infection:
+            if isinstance(game.clan.infection[item], dict):
+                if "type" in game.clan.infection[item]:
+                    if game.clan.infection[item]["cure_discovered"] is True:
+                        all_types.remove(game.clan.infection[item]["type"])
+
+        if not all_types:
+            all_infections = True
+        else:
+            print("Remaining types to cure:", all_types)
+       
+        if all_infections:
+            self.stamps["all_infections"] = UIImageButton(
+                ui_scale(pygame.Rect((80, 0), (94, 94))),
+                "",
+                object_id="#stamp_cure",
+                tool_tip_text="<b>Completionist</b>\nYou've cured every infection!",
+                manager=MANAGER,
+                anchors={"centery": "centery"}
+                )
+
         cured_cats = len(game.clan.infection["cured_infected"].split(",")) if game.clan.infection["cured_infected"] else 0
         killed_cats = len(game.clan.infection["killed_infected"].split(",")) if game.clan.infection["killed_infected"] else 0
         exiled_cats = len(game.clan.infection["exiled_infected"].split(",")) if game.clan.infection["exiled_infected"] else 0
@@ -728,15 +761,15 @@ class CureLogScreen(Screens):
             if debug_all_stamps:
                 fallenclans = 5
             
-            if fallenclans == 1:
-                hovertext = f"<b>Fallen Clans</b>\n{fallenclans} Clan has fallen to the infection."
+            if len(fallenclans) == 1:
+                hovertext = f"<b>Fallen Clans</b>\n{len(fallenclans)} Clan has fallen to the infection."
             else:
-                hovertext = f"<b>Fallen Clans</b>\n{fallenclans} Clans have fallen to the infection."
+                hovertext = f"<b>Fallen Clans</b>\n{len(fallenclans)} Clans have fallen to the infection."
 
             self.stamps["fallen_clans"] = UIImageButton(
                 ui_scale(pygame.Rect((500, 205), (94, 94))),
                 "",
-                object_id=f"#stamp_fallen_clans_{fallenclans}",
+                object_id=f"#stamp_fallen_clans_{len(fallenclans)}",
                 tool_tip_text=hovertext,
                 manager=MANAGER
                 )
@@ -890,6 +923,10 @@ class CureLogScreen(Screens):
         if self.correct_text_box:
             self.correct_text_box.kill()
             del self.correct_text_box
+
+        if self.treatments_heading:
+            self.treatments_heading.kill()
+            del self.treatments_heading
 
             
     def exit_screen(self):

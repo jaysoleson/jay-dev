@@ -4385,14 +4385,18 @@ def get_infection_herb(code):
         }
     return code_dict[code]
 
-def get_infection_info(item, cat=None):
+def get_infection_info(item, cat=None, num=None):
     """
     returns the specified infection info.
     if a cat is passed, it will get the info from THEIR infection specifically.
     if not, it will default to the current infection.
     """
 
-    info = game.clan.infection[game.clan.infection["current_infection"]][item]
+    if num:
+        info = game.clan.infection[str(num)][item]
+    else:
+        info = game.clan.infection[game.clan.infection["current_infection"]][item]
+
     inftype = None
     if cat:
         if cat.infected_for > 0:
