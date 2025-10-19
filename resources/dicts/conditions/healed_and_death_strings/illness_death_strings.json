@@ -65,15 +65,19 @@
         "Frail and exhausted from the lack of food, m_c died of starvation."
     ],
     "stage one infection": [
-      "m_c was killed by the infection."
+      "m_c was killed by the infection.",
+      "m_c's body was not strong enough to hold the infection. m_c has died."
     ],
     "stage two infection": [
-      "m_c was killed by the infection."
+      "m_c was killed by the infection.",
+      "m_c's body was not strong enough to hold the infection. m_c has died."
     ],
     "stage three infection": [
-      "m_c was killed by the infection."
+      "m_c was killed by the infection.",
+      "m_c's body was not strong enough to hold the infection. m_c has died."
     ],
     "stage four infection": [
-      "m_c was killed by the infection."
+      "m_c was killed by the infection.",
+      "m_c's body was not strong enough to hold the infection. m_c has died."
     ]
 }

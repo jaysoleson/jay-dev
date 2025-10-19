@@ -2214,9 +2214,6 @@ class Cat:
             if self.status == "leader":
                 self.leader_death_heal = True
                 game.clan.leader_lives -= 1
-            if "stage four infection" in self.illnesses:
-                self.zombie(self.illnesses["stage four infection"]["type"])
-            else:
                 self.die()
             return False
         if "moon_start" in self.illnesses[illness]:
