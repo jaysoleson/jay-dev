@@ -244,7 +244,12 @@ class TreatmentScreen(Screens):
         logs = 0
         log_width = 500
         y_offset = 0
+
+        current_type = get_infection_info("type", self.selected_cat)
         for treatment in game.clan.infection['treatments']:
+            if "type" in treatment:
+                if treatment["type"] != current_type:
+                    continue
             logs += 1
 
             moon_text = f"<b>Moon {treatment['moon']}</b>"

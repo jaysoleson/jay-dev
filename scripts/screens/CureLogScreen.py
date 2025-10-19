@@ -220,23 +220,27 @@ class CureLogScreen(Screens):
         """
         TODO: DOCS
         """
+
+        self.next_treatment_page_button = None
+        self.previous_treatment_page_button = None
+        self.moon_text = None
+        self.moon_text_box = None
+        self.treatments_heading = None
+        self.treatment_text = None
+        self.treatment_text_box = None
+        self.correct_text = None
+        self.correct_text_box = None
+        self.scroll_container = None
+        self.screen_art = None
+        self.notes_entry = None
+        self.display_notes = None
+        self.edit_text = None
+        self.save_text = None
+        self.x_buttons = {}
+        self.x_treatment = None
+
         super().screen_switches()
         if self.stage == "logs":
-            self.moon_text = None
-            self.moon_text_box = None
-            self.treatments_heading = None
-            self.treatment_text = None
-            self.treatment_text_box = None
-            self.correct_text = None
-            self.correct_text_box = None
-            self.scroll_container = None
-            self.screen_art = None
-            self.notes_entry = None
-            self.display_notes = None
-            self.edit_text = None
-            self.save_text = None
-            self.x_buttons = {}
-            self.x_treatment = None
 
             self.set_disabled_menu_buttons(["stats"])
             self.show_menu_buttons()
