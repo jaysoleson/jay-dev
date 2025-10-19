@@ -262,8 +262,7 @@ class SwitchClanScreen(Screens):
             if your_name != "" and clan_age != "":
                 tooltext = f"{your_name}<br>Clan age: {clan_age} moons"
             else:
-                print("Can't find info for", clan)
-                print(your_name, clan_age)
+                print("Can't find info for", clan + "Clan")
                 tooltext = ""
             
             self.your_cat_buttons[-1].append(

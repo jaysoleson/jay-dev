@@ -53,7 +53,7 @@ class PriorityHerbScreen(Screens):
         )
         
         self.herb_displays["subtitle"] = pygame_gui.elements.UITextBox(
-            f"{game.clan.name}Clan will focus their efforts into finding more:",
+            f"{game.clan.name}Clan will focus their efforts on finding more:",
             ui_scale(pygame.Rect((150, 455), (500, 40))),
             object_id=get_text_box_theme("#text_box_30_horizcenter"),
             manager=MANAGER

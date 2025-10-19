@@ -667,6 +667,32 @@ class CureLogScreen(Screens):
                 manager=MANAGER,
                 anchors={"centerx": "centerx", "centery": "centery"}
                 )
+        
+        all_infections = False
+        all_types = ["void", "parasitic", "fungal"]
+
+        for item in game.clan.infection:
+            if isinstance(game.clan.infection[item], dict):
+                if "type" in game.clan.infection[item]:
+                    if game.clan.infection[item]["cure_discovered"] is True:
+                        all_types.remove(game.clan.infection[item]["type"])
+
+        if not all_types:
+            all_infections = True
+        else:
+            print("Remaining types to cure:", all_types)
+       
+        if all_infections:
+            print("All infections")
+            self.stamps["start"].kill()
+            self.stamps["all"] = UIImageButton(
+                ui_scale(pygame.Rect((0, 0), (74, 118))),
+                "",
+                object_id="#fungal_stamp_start",
+                tool_tip_text="<b>Completionist</b>\nYou've cured every infection!",
+                manager=MANAGER,
+                anchors={"centerx": "centerx", "centery": "centery"}
+                )
             
         if "cure_found" in get_infection_info("logs") or debug_all_stamps:
             self.stamps["cure_discovered"] = UIImageButton(
@@ -694,30 +720,6 @@ class CureLogScreen(Screens):
                 manager=MANAGER,
                 anchors={"centerx": "centerx"}
             )
-
-        all_infections = False
-        all_types = ["void", "parasitic", "fungal"]
-
-        for item in game.clan.infection:
-            if isinstance(game.clan.infection[item], dict):
-                if "type" in game.clan.infection[item]:
-                    if game.clan.infection[item]["cure_discovered"] is True:
-                        all_types.remove(game.clan.infection[item]["type"])
-
-        if not all_types:
-            all_infections = True
-        else:
-            print("Remaining types to cure:", all_types)
-       
-        if all_infections:
-            self.stamps["all_infections"] = UIImageButton(
-                ui_scale(pygame.Rect((80, 0), (94, 94))),
-                "",
-                object_id="#stamp_cure",
-                tool_tip_text="<b>Completionist</b>\nYou've cured every infection!",
-                manager=MANAGER,
-                anchors={"centery": "centery"}
-                )
 
         cured_cats = len(game.clan.infection["cured_infected"].split(",")) if game.clan.infection["cured_infected"] else 0
         killed_cats = len(game.clan.infection["killed_infected"].split(",")) if game.clan.infection["killed_infected"] else 0
@@ -820,7 +822,7 @@ class CureLogScreen(Screens):
         else:
             empty_stamps += 1
             self.stamps[str(empty_stamps)] = pygame_gui.elements.UIImage(
-                ui_scale(pygame.Rect((200, 400), (94, 94))),
+                ui_scale(pygame.Rect((200, 360), (94, 94))),
                 empty_stamp,
                 manager=MANAGER
             )

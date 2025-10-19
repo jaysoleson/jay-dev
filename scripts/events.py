@@ -552,6 +552,11 @@ class Events:
                 inftypes.remove(game.clan.infection[item]["type"])
                 past_infections.append(game.clan.infection[item]["type"])
 
+        if len(past_infections) == 3:
+            game.clan.infection["clan_infected"] = False
+            # You've gotten all of the infections, and the save should return to normal. More or less
+            return
+
         if custom_type:
             new_inftype = custom_type
         else:

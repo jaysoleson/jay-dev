@@ -648,7 +648,7 @@ class Cat:
                         event = f"Thanks to recieving treatment, {self.name}'s infection has remissed from{old_stage.replace(f' infection', '')} to{new_stage.replace(f' infection', '')}!{addon}"
                     game.cur_events_list.insert(0, Single_Event(event, ["health", "infection"], self.ID))
     
-    def zombie(self):
+    def zombie(self, infection_type):
         """
         kills the cat, but they come back >:3
         """
@@ -675,7 +675,7 @@ class Cat:
                 fetched_cat.update_mentor()
         self.update_mentor()
 
-        self.get_ill("undead")
+        self.get_ill("undead", infection_type=infection_type)
         self.thought = "... ... ... ... ..."
         event = f"{self.name} has died, but the infection seems to have enough power over their mind to keep them standing..."
         game.cur_events_list.append(Single_Event(event, ["birth_death", "health", "infection"], self.ID))
@@ -713,7 +713,7 @@ class Cat:
             if (
                 self.status != "leader" or
                 (self.ID == game.clan.leader.ID and game.clan.leader_lives <= 1)):
-                self.zombie()
+                self.zombie(self.illnesses["stage four infection"]["type"])
                 if "lore_undead" not in get_infection_info("logs"):
                     get_infection_info("logs").append("lore_undead")
             return
@@ -2215,7 +2215,7 @@ class Cat:
                 self.leader_death_heal = True
                 game.clan.leader_lives -= 1
             if "stage four infection" in self.illnesses:
-                self.zombie()
+                self.zombie(self.illnesses["stage four infection"]["type"])
             else:
                 self.die()
             return False
