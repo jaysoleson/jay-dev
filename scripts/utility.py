@@ -1738,6 +1738,7 @@ def change_relationship_values(
 
 def change_happiness(cat, lower, upper, median, gauss_val):
     """
+    BADLANDS FUNCTION
     returns a change in happiness
     :param Cat Cat: Cat object
     :param int lower: the happiness change minimum
@@ -3110,6 +3111,10 @@ def apply_opacity(surface, opacity):
 
 
 def generate_map(Cat, screen, x, y, x_pos, y_pos, clan_territory, clan=None):
+    """ 
+    generates the map borders on MapScreen
+    """
+
     tile_colour = "#FAFAFA"
     tile_string = str(y) + "-" + str(x)
 
@@ -3128,7 +3133,7 @@ def generate_map(Cat, screen, x, y, x_pos, y_pos, clan_territory, clan=None):
         #     tile_colour = get_baron_colour(None)
  
         # convert the colour to RGB and generate a rect
-        # i stole the rgb function i didnt write that shoutout da internet
+        # i stole this rgb function i didnt write that shoutout da internet
         rgb_tile_colour = hex_to_rgb(tile_colour)
         rect = ui_scale(pygame.Rect((x_pos+1, y_pos+1), (48, 48)))
 

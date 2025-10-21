@@ -1333,7 +1333,7 @@ class PatrolScreen(Screens):
                         self.selected_cat.apprentice[self.selected_apprentice_index]
                     )
                     if self.selected_cat.status == "doctor":
-                        relation = "general.apprentice_doctor"
+                        relation = "general.apprentice doctor"
                     else:
                         relation = "general.colt"
                 else:

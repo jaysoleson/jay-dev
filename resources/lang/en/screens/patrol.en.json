@@ -13,7 +13,7 @@
         "skills_traits_label":  "skills & traits",
         "remove_all_label": "remove all",
 
-        "help_tooltip": "In the Badlands, not every cat can do every type of patrol.\nDue to its danger and potential for interaction with other Baronies, only Clippers, colts, Regents, and Barons may patrol the borders. Clippers, Regents, Barons, colts, <i>and</i> cogs may participate in hunting or training patrols.\nIncluding cogs on hunting patrols will increase the amount of prey caught.\nAny cat can join the doctor for herb gathering.",
+        "help_tooltip": "In the Badlands, not every cat can do every type of patrol.\nDue to its danger and potential for interaction with other Baronies, only Clippers, colts, Regents, heirs, and Barons may patrol the borders. Clippers, Regents, heirs, Barons, colts, <i>and</i> cogs may participate in hunting or training patrols.\nIncluding cogs on hunting patrols will increase the amount of prey caught.\nAny cat can join the doctor for herb gathering.",
         
         "go_on_patrol": "go on patrol",
         "current_prey": "current prey: %{prey}",

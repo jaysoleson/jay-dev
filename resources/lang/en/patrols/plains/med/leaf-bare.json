@@ -185,12 +185,12 @@
             "normal adult": [-1, -1]
         },
         "weight": 20,
-        "intro_text": "Hmm. p_l heads out, deciding that c_n needs more blackberry leaves in their stores.",
+        "intro_text": "Hmm. p_l heads out, deciding that the b1_t needs more blackberry leaves in their stores.",
         "decline_text": "{PRONOUN/p_l/subject/CAP} {VERB/p_l/have/has} second thoughts about leaving {PRONOUN/p_l/poss} patients behind and {VERB/p_l/decide/decides} to go another day.",
         "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "While blackberries don't lose their leaves completely, leaf-bare is hard on every plant. p_l has to balance the plant's needs, the Clan's needs, and {PRONOUN/p_l/poss} own frozen paws, as {PRONOUN/p_l/subject} {VERB/p_l/try/tries} to gather what {PRONOUN/p_l/subject} can.",
+                "text": "While blackberries don't lose their leaves completely, leaf-bare is hard on every plant. p_l has to balance the plant's needs, the Barony's needs, and {PRONOUN/p_l/poss} own frozen paws, as {PRONOUN/p_l/subject} {VERB/p_l/try/tries} to gather what {PRONOUN/p_l/subject} can.",
                 "exp": 10,
                 "weight": 20,
                 "herbs": ["blackberry"]
@@ -202,7 +202,7 @@
                 "herbs": ["blackberry"]
             },
             {
-                "text": "s_c spots a sheltered corner that has protected a branch of blackberry from the cold and expertly maneuvers in to pluck the leaves for c_n.",
+                "text": "s_c spots a sheltered corner that has protected a branch of blackberry from the cold and expertly maneuvers in to pluck the leaves for the b1_t.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["SENSE,2"],
@@ -249,12 +249,12 @@
             "normal adult": [-1, -1]
         },
         "weight": 20,
-        "intro_text": "p_l heads out with app1, deciding that c_n needs more blackberry leaves in their stores.",
+        "intro_text": "p_l heads out with app1, deciding that the b1_t needs more blackberry leaves in their stores.",
         "decline_text": "{PRONOUN/p_l/subject/CAP} {VERB/p_l/have/has} second thoughts leaving {PRONOUN/p_l/poss} patients behind, especially with {PRONOUN/p_l/object} also bringing {PRONOUN/p_l/poss} apprentice, and {VERB/p_l/decide/decides} to go another day.",
         "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "While blackberries don't lose their leaves completely, leaf-bare is hard on every plant. p_l has to balance the plant's needs, the Clan's needs, and {PRONOUN/p_l/poss} own frozen paws, as {PRONOUN/p_l/subject} {VERB/p_l/try/tries} to gather what {PRONOUN/p_l/subject} can. It's a great help having app1 with {PRONOUN/p_l/object}, though {PRONOUN/p_l/subject} {VERB/p_l/stay/stays} cognizant that the younger cat can't be out in the cold as long as {PRONOUN/p_l/object}.",
+                "text": "While blackberries don't lose their leaves completely, leaf-bare is hard on every plant. p_l has to balance the plant's needs, the Barony's needs, and {PRONOUN/p_l/poss} own frozen paws, as {PRONOUN/p_l/subject} {VERB/p_l/try/tries} to gather what {PRONOUN/p_l/subject} can. It's a great help having app1 with {PRONOUN/p_l/object}, though {PRONOUN/p_l/subject} {VERB/p_l/stay/stays} cognizant that the younger cat can't be out in the cold as long as {PRONOUN/p_l/object}.",
                 "exp": 30,
                 "weight": 20,
                 "herbs": ["blackberry"],
@@ -298,7 +298,7 @@
                 ]
             },
             {
-                "text": "s_c spots a sheltered corner that has protected a branch of blackberry from the cold and expertly maneuvers in to pluck the leaves for c_n. {PRONOUN/s_c/subject/CAP} {VERB/s_c/leave/leaves} app1 outside, not wanting to risk {PRONOUN/s_c/poss} apprentice in the snow and thorns.",
+                "text": "s_c spots a sheltered corner that has protected a branch of blackberry from the cold and expertly maneuvers in to pluck the leaves for the b1_t. {PRONOUN/s_c/subject/CAP} {VERB/s_c/leave/leaves} app1 outside, not wanting to risk {PRONOUN/s_c/poss} apprentice in the snow and thorns.",
                 "exp": 30,
                 "weight": 20,
                 "stat_skill": ["SENSE,2"],
@@ -390,12 +390,12 @@
             "normal adult": [1, 6]
         },
         "weight": 20,
-        "intro_text": "Hmm. p_l heads out, deciding that c_n needs more blackberry leaves in their stores, bringing along anyone who isn't busy with other work.",
+        "intro_text": "Hmm. p_l heads out, deciding that the b1_t needs more blackberry leaves in their stores, bringing along anyone who isn't busy with other work.",
         "decline_text": "They're stopped before they leave camp - these Clippers are needed elsewhere. p_l's expedition will have to wait.",
         "chance_of_success": 20,
         "success_outcomes": [
             {
-                "text": "While blackberries don't lose their leaves completely, leaf-bare is hard on every plant. p_l has to balance the plant's needs, the Clan's needs, and {PRONOUN/p_l/poss} own frozen paws, as {PRONOUN/p_l/subject} {VERB/p_l/try/tries} to gather what {PRONOUN/p_l/subject} can. The patrol sees {PRONOUN/p_l/poss} stress and gathers around to support {PRONOUN/p_l/object}.",
+                "text": "While blackberries don't lose their leaves completely, leaf-bare is hard on every plant. p_l has to balance the plant's needs, the Barony's needs, and {PRONOUN/p_l/poss} own frozen paws, as {PRONOUN/p_l/subject} {VERB/p_l/try/tries} to gather what {PRONOUN/p_l/subject} can. The patrol sees {PRONOUN/p_l/poss} stress and gathers around to support {PRONOUN/p_l/object}.",
                 "exp": 10,
                 "weight": 20,
                 "herbs": ["blackberry"],
@@ -439,7 +439,7 @@
                 ]
             },
             {
-                "text": "s_c spots a sheltered corner that has protected a branch of blackberry from the cold and expertly maneuvers in to pluck the leaves for c_n. {PRONOUN/s_c/subject/CAP} {VERB/s_c/pass/passes} them out to the members of the patrol from within the thicket, and {PRONOUN/s_c/poss} entourage ensures that s_c is able to bring a huge quantity of fresh blackberry leaves home.",
+                "text": "s_c spots a sheltered corner that has protected a branch of blackberry from the cold and expertly maneuvers in to pluck the leaves for the b1_t. {PRONOUN/s_c/subject/CAP} {VERB/s_c/pass/passes} them out to the members of the patrol from within the thicket, and {PRONOUN/s_c/poss} entourage ensures that s_c is able to bring a huge quantity of fresh blackberry leaves home.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["SENSE,2"],

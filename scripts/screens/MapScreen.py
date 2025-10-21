@@ -1,33 +1,23 @@
-import random
-
-import i18n
 import pygame
 import pygame_gui
 from pygame_gui.core import UIContainer
 
 from scripts.cat.cats import Cat
-from scripts.clan import OtherClan
 from scripts.game_structure.game_essentials import game
-from scripts.game_structure.screen_settings import screen_scale, MANAGER, screen
-from scripts.game_structure.screen_settings import MANAGER
+from scripts.game_structure.screen_settings import MANAGER, screen
 from scripts.game_structure.ui_elements import (
     UIImageButton,
-    UISpriteButton,
     UISurfaceImageButton,
 )
 from scripts.screens.Screens import Screens
 from scripts.ui.generate_box import get_box, BoxStyles
 from scripts.ui.generate_button import get_button_dict, ButtonStyles
-from scripts.ui.icon import Icon
 from scripts.utility import (
     ui_scale,
     get_text_box_theme,
     get_other_clan_relation,
-    get_other_clan,
     clan_symbol_sprite,
     get_alive_status_cats,
-    get_living_clan_cat_count,
-    ui_scale_dimensions,
     get_baron_colour,
     generate_map
 )
@@ -283,6 +273,10 @@ class MapScreen(Screens):
             self.cycle_war_right_button.disable()
         else:
             self.cycle_war_right_button.enable()
+        
+        if not game.clan.war:
+            self.cycle_war_right_button.disable()
+
     
     def on_use(self):
         super().on_use()
@@ -454,7 +448,7 @@ class MapScreen(Screens):
             self.view_all_button.disable()
         else:
             self.view_all_button.enable()
-    
+
     def get_war_info(self):
         """ puts together a string of war info """
 
@@ -524,7 +518,7 @@ class MapScreen(Screens):
             x_pos = 80
             y_pos = 80
             position = (80, 80)
-        
+
         scaled_image.set_alpha(220) #255 is full opaque
 
         screen.blit(scaled_image, position)
@@ -545,4 +539,3 @@ class MapScreen(Screens):
                     x_pos = 295
                 else:
                     x_pos = 80
-

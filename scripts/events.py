@@ -600,6 +600,7 @@ class Events:
                         death_text=history_text_adjust(
                             i18n.t("hardcoded.lead_den_killed"),
                             Cat=Cat,
+                            clan=game.clan,
                             other_clan_name=None,
                             barony=game.clan,
                         ),
@@ -1276,10 +1277,9 @@ class Events:
         actual_defectors = []
         for cat in possible_defectors:
             chance = 4
+            # cogs keep the base chance of four
             if cat.status in ("regent", "heir", "doctor"):
                 chance *= 3
-            elif cat.status == "baron":
-                chance *= 8
             elif cat.status == "clipper":
                 chance += 2
             if cat.happiness < 5 and not int(random.random() * 6):

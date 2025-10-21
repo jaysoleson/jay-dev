@@ -220,7 +220,7 @@
         "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "While blackberries don't lose their leaves completely, leaf-bare is hard on every plant. p_l has to balance the plant's needs, the Clan's needs, and {PRONOUN/p_l/poss} own frozen paws, as {PRONOUN/p_l/subject} {VERB/p_l/try/tries} to gather what {PRONOUN/p_l/subject} can.",
+                "text": "While blackberries don't lose their leaves completely, leaf-bare is hard on every plant. p_l has to balance the plant's needs, the Barony's needs, and {PRONOUN/p_l/poss} own frozen paws, as {PRONOUN/p_l/subject} {VERB/p_l/try/tries} to gather what {PRONOUN/p_l/subject} can.",
                 "exp": 10,
                 "weight": 20,
                 "herbs": ["blackberry"]
@@ -294,7 +294,7 @@
         "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "While blackberries don't lose their leaves completely, leaf-bare is hard on every plant. p_l has to balance the plant's needs, the Clan's needs, and {PRONOUN/p_l/poss} own frozen paws, as {PRONOUN/p_l/subject} {VERB/p_l/try/tries} to gather what {PRONOUN/p_l/subject} can. It's a great help having app1 with {PRONOUN/p_l/object}, though {PRONOUN/p_l/subject} {VERB/p_l/stay/stays} cognizant that the younger cat can't be out in the cold as long as {PRONOUN/p_l/object}.",
+                "text": "While blackberries don't lose their leaves completely, leaf-bare is hard on every plant. p_l has to balance the plant's needs, the Barony's needs, and {PRONOUN/p_l/poss} own frozen paws, as {PRONOUN/p_l/subject} {VERB/p_l/try/tries} to gather what {PRONOUN/p_l/subject} can. It's a great help having app1 with {PRONOUN/p_l/object}, though {PRONOUN/p_l/subject} {VERB/p_l/stay/stays} cognizant that the younger cat can't be out in the cold as long as {PRONOUN/p_l/object}.",
                 "exp": 30,
                 "weight": 20,
                 "herbs": ["blackberry"],
@@ -504,7 +504,7 @@
         "chance_of_success": 30,
         "success_outcomes": [
             {
-                "text": "While blackberries don't lose their leaves completely, leaf-bare is hard on every plant. p_l has to balance the plant's needs, the Clan's needs, and {PRONOUN/p_l/poss} own frozen paws, as {PRONOUN/p_l/subject} {VERB/p_l/try/tries} to gather what {PRONOUN/p_l/subject} can. The patrol sees {PRONOUN/p_l/poss} stress and gathers around to support {PRONOUN/p_l/object}.",
+                "text": "While blackberries don't lose their leaves completely, leaf-bare is hard on every plant. p_l has to balance the plant's needs, the Barony's needs, and {PRONOUN/p_l/poss} own frozen paws, as {PRONOUN/p_l/subject} {VERB/p_l/try/tries} to gather what {PRONOUN/p_l/subject} can. The patrol sees {PRONOUN/p_l/poss} stress and gathers around to support {PRONOUN/p_l/object}.",
                 "exp": 10,
                 "weight": 20,
                 "herbs": ["blackberry"],

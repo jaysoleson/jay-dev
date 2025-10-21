@@ -136,6 +136,12 @@ class MediationScreen(Screens):
                     else:
                         self.selected_cat_2 = event.ui_element.return_cat_object()
                     self.update_selected_cats()
+                # BL
+                elif event.ui_element.return_cat_object() == self.selected_cat_1:
+                    self.selected_cat_1 = None
+                elif event.ui_element.return_cat_object() == self.selected_cat_2:
+                    self.selected_cat_1 = self.selected_cat_2
+                    self.selected_cat_2 = None
 
     def screen_switches(self):
         super().screen_switches()

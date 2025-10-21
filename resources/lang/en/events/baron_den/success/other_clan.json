@@ -2480,7 +2480,7 @@
   },
   {
     "interaction_type": "declare",
-    "event_text": "What started as a lighthearted discussion about territory turns into a nasty argument between m_c and baron2. In the end, m_c snaps-- baron2 can't possibly need all of that territory, whereas the b1_t does! A formal war for the stretch of land is declared.",
+    "event_text": "What started as a lighthearted discussion about territory turns into a nasty argument between m_c and baron2. In the end, m_c snaps-- baron2 can't possibly need all of that territory, but the b1_t does! A formal war for the stretch of land is declared.",
     "rel_change": -2,
     "m_c": {},
     "player_clan_temper": ["any"],
