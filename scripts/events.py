@@ -321,6 +321,7 @@ class Events:
         
         self.check_outside_barons()
         self.check_and_promote_regent()
+        self.check_and_promote_heir()
 
         # Resort
         if game.sort_type != "id":
@@ -561,6 +562,9 @@ class Events:
             )
 
             if info_dict["interaction_type"] == "trade":
+                giving = info_dict["trade1"]
+                recieving = info_dict["trade2"]
+
                 event_text = event_text.replace("trade1", giving)
                 event_text = event_text.replace("trade2", recieving)
 
@@ -2940,6 +2944,142 @@ class Events:
             game.clan.regent = random_cat
 
             game.cur_events_list.append(Single_Event(text, "ceremony", involved_cats))
+
+
+    def check_and_promote_heir(self):
+
+        """
+        Checks if a new heir needs to be appointed, and appointed them if needed.
+        basically copied from the regent function
+        """
+        if game.clan.baron:
+            baron_invalid = game.clan.baron.dead or game.clan.baron.outside or game.clan.baron.status != "baron"
+        else:
+            baron_invalid = True
+        
+        if baron_invalid:
+            return
+
+        if (
+            not game.clan.heir
+            or game.clan.heir.dead
+            or game.clan.heir.outside
+            or game.clan.heir.status != "heir"
+        ):
+            if not game.clan.clan_settings.get("regent"):
+                game.cur_events_list.insert(
+                    0, Single_Event(
+                        event_text_adjust(Cat, "defaults.warn_no_heir", barony=game.clan)
+                        )
+                    )
+                return
+            # This determines all the cats who are eligible to be heir.
+            # try for blood kits first
+
+            baron_kits = []
+            if game.clan.baron.inheritance.get_blood_kits():
+                baron_kits = game.clan.baron.inheritance.get_blood_kits()
+            elif game.clan.baron.inheritance.get_not_blood_kits():
+                baron_kits = game.clan.baron.inheritance.get_not_blood_kits()
+
+            # TODO: maybe relatives kits? like neices n nephews?
+
+            possible_heirs = list(
+                filter(
+                    lambda x: not x.dead
+                    and not x.outside
+                    and x.ID in baron_kits,
+                    Cat.all_cats_list,
+                )
+            )
+
+            # If there are possible heirs, choose from that list.
+            too_young = False
+            if possible_heirs:
+                random_cat = random.choice(possible_heirs)
+
+                if random_cat.moons < 6:
+                    too_young = True
+                involved_cats = [random_cat.ID]
+
+                # Gather regent and baron status, for determination of the text.
+                if game.clan.baron:
+                    if game.clan.baron.dead or game.clan.baron.outside:
+                        baron_status = "not_here"
+                    else:
+                        baron_status = "here"
+                else:
+                    baron_status = "not_here"
+
+                if game.clan.heir:
+                    if game.clan.heir.dead or game.clan.heir.outside:
+                        heir_status = "not_here"
+                    else:
+                        heir_status = "here"
+                else:
+                    heir_status = "not_here"
+
+                if baron_status == "here" and heir_status == "not_here":
+                    if game.clan.heir:
+                        previous_heir_mention = i18n.t(
+                            "hardcoded.ceremony_heir_prev"
+                        )
+                        involved_cats.append(game.clan.regent.ID)
+
+                    else:
+                        previous_heir_mention = ""
+
+                    text = i18n.t(
+                        "hardcoded.ceremony_heir",
+                        previous=previous_heir_mention,
+                    )
+
+                    involved_cats.append(game.clan.baron.ID)
+                elif baron_status == "here" and heir_status == "here":
+                    # No additional involved cats
+                    text = i18n.t(
+                        f"hardcoded.ceremony_regent_lead_retireddep{random.choice(range(0, 5))}"
+                    )
+                    # BL
+                    text = event_text_adjust(Cat, text, barony=game.clan)
+                else:
+                    # This should never happen. Failsafe.
+                    text = i18n.t("defaults.heir_event")
+            else:
+                all_heirs = list(
+                    filter(
+                        lambda x: not x.dead
+                        and not x.outside
+                        and x.status in ("clipper", "colt")
+                        and x.moons > 6,
+                        Cat.all_cats_list,
+                    )
+                )
+                if all_heirs:
+                    random_cat = random.choice(all_heirs)
+                    involved_cats = [random_cat.ID]
+                    text = i18n.t("hardcoded.ceremony_heir_unsuitable")
+
+                else:
+                    game.cur_events_list.append(
+                        Single_Event(
+                            i18n.t("hardcoded.ceremony_heir_none"), "ceremony"
+                        )
+                    )
+                    return
+                
+            if too_young:
+                too_young_event = i18n.t(
+                            "hardcoded.ceremony_heir_too_young"
+                        )
+                event = event_text_adjust(Cat, too_young_event, main_cat=random_cat, clan=game.clan, barony=game.clan)
+                game.cur_events_list.append(Single_Event(event, "misc", involved_cats))
+            else:
+                text = event_text_adjust(Cat, text, main_cat=random_cat, clan=game.clan)
+                random_cat.status_change("heir")
+                game.clan.heir = random_cat
+
+                game.cur_events_list.append(Single_Event(text, "ceremony", involved_cats))
 
 
 events_class = Events()

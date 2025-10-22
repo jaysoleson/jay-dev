@@ -48,6 +48,15 @@
         "ceremony_regent_lead_retireddep5": "m_c has been chosen as the new Regent. Although {PRONOUN/m_c/subject} {VERB/m_c/are/is} nervous, {PRONOUN/m_c/subject} {VERB/m_c/put/puts} on a brave face and {VERB/m_c/look/looks} forward to leading the Clippers.",
         "ceremony_regent_unsuitable": "No cat is truly fit to be Regent, but the position can't remain vacant. m_c is appointed as the new Regent.",
         "ceremony_regent_none": "There are no cats fit to become Regent.",
+
+        "ceremony_heir": "lead_name chooses m_c as {PRONOUN/lead_name/poss} new heir. %{previous}",
+        "ceremony_heir_prev": "{PRONOUN/lead_name/subject/CAP} {VERB/lead_name/know/knows} dep_name would approve.",
+        
+        "ceremony_heir_unsuitable": "With no kits to bestow the title to, m_c has been chosen as lead_name's heir.",
+        "ceremony_heir_none": "There are no cats suitable to be heir.",
+        "ceremony_heir_too_young": "lead_name considers m_c for the role of heir once {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} old enough.",
+        
+        
         "adoption_kittens_single": {
             "one": "%{names} found a %{insert} and decides to adopt it.",
             "many": "%{names} found a %{insert} and decides to adopt them."

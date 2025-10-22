@@ -788,11 +788,11 @@ class PatrolOutcome:
             if cat.status == "cog":
                 cog_count += 1
         if cog_count:
-            print(cog_count, "COG BONUS BEFORE:", total_amount)
+            # print(cog_count, "COG BONUS BEFORE:", total_amount)
             total_amount = int(
                 total_amount * (COG_BONUS[str(cog_count)] / 10 + 1)
             )
-            print(cog_count, "COG BONUS AFTER:", total_amount)
+            # print(cog_count, "COG BONUS AFTER:", total_amount)
 
         results = ""
         if total_amount > 0:

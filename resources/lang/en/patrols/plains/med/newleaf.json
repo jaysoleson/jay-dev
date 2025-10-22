@@ -1156,7 +1156,7 @@
             "normal adult": [1, 6]
         },
         "weight": 20,
-        "intro_text": "As p_l looks at the twitching tails and wide eyes of the patrol set up to 'help' {PRONOUN/p_l/object} gather catmint, {PRONOUN/p_l/poss} heart sinks. These overly excited Clippers don't look like they're going to be useful, and p_l really needs to renew c_n's stocks of catmint as newleaf brings the plants back to life.",
+        "intro_text": "As p_l looks at the twitching tails and wide eyes of the patrol set up to 'help' {PRONOUN/p_l/object} gather catmint, {PRONOUN/p_l/poss} heart sinks. These overly excited Clippers don't look like they're going to be useful, and p_l really needs to renew baron1's stocks of catmint as newleaf brings the plants back to life.",
         "decline_text": "They're stopped before they leave camp - these Clippers are needed elsewhere. p_l's expedition will have to wait.",
         "chance_of_success": 20,
         "success_outcomes": [
@@ -1273,7 +1273,7 @@
         "chance_of_success": 70,
         "success_outcomes": [
             {
-                "text": "The many stems of goldenrod surround p_l as {PRONOUN/p_l/subject} {VERB/p_l/work/works}, snipping off stems and clumps of tiny yellow flowers to bring back to c_n's herb stores.",
+                "text": "The many stems of goldenrod surround p_l as {PRONOUN/p_l/subject} {VERB/p_l/work/works}, snipping off stems and clumps of tiny yellow flowers to bring back to the b1_t's herb stores.",
                 "exp": 10,
                 "weight": 20,
                 "herbs": ["goldenrod"]
@@ -1322,7 +1322,7 @@
         "chance_of_success": 70,
         "success_outcomes": [
             {
-                "text": "The many stems of goldenrod surround p_l as {PRONOUN/p_l/subject} {VERB/p_l/work/works}, snipping off stems and clumps of tiny yellow flowers to bring back to c_n's herb stores. app1 and p_l occasionally exchange quiet meows as they work, contact calls reassuring each other that they're both still there amidst the towering goldenrod.",
+                "text": "The many stems of goldenrod surround p_l as {PRONOUN/p_l/subject} {VERB/p_l/work/works}, snipping off stems and clumps of tiny yellow flowers to bring back to the b1_t's herb stores. app1 and p_l occasionally exchange quiet meows as they work, contact calls reassuring each other that they're both still there amidst the towering goldenrod.",
                 "exp": 20,
                 "weight": 20,
                 "herbs": ["goldenrod"],
@@ -1433,7 +1433,7 @@
         "chance_of_success": 30,
         "success_outcomes": [
             {
-                "text": "The many stems of goldenrod surround p_l as {PRONOUN/p_l/subject} {VERB/p_l/work/works}, snipping off stems and clumps of tiny yellow flowers to bring back to c_n's herb stores. The patrol chats as they work, exchanging gossip and news as the smell of cut stems wreathes around them.",
+                "text": "The many stems of goldenrod surround p_l as {PRONOUN/p_l/subject} {VERB/p_l/work/works}, snipping off stems and clumps of tiny yellow flowers to bring back to the b1_t's herb stores. The patrol chats as they work, exchanging gossip and news as the smell of cut stems wreathes around them.",
                 "exp": 10,
                 "weight": 20,
                 "herbs": ["goldenrod"],
@@ -1544,7 +1544,7 @@
         "chance_of_success": 70,
         "success_outcomes": [
             {
-                "text": "Even evergreens make sure to send out new leaves in newleaf, and p_l snips off the new, still soft needles, taking them home for c_n.",
+                "text": "Even evergreens make sure to send out new leaves in newleaf, and p_l snips off the new, still soft needles, taking them home for the b1_t.",
                 "exp": 10,
                 "weight": 20,
                 "herbs": ["juniper"]
@@ -1593,7 +1593,7 @@
         "chance_of_success": 70,
         "success_outcomes": [
             {
-                "text": "Even evergreens make sure to send out new leaves in newleaf, and p_l snips off the new, still soft needles, taking them home for c_n with app1 and teaching the apprentice about juniper's many uses.",
+                "text": "Even evergreens make sure to send out new leaves in newleaf, and p_l snips off the new, still soft needles, taking them home for the b1_t with app1 and teaching the apprentice about juniper's many uses.",
                 "exp": 20,
                 "weight": 20,
                 "herbs": ["juniper"],
@@ -1703,7 +1703,7 @@
         "chance_of_success": 30,
         "success_outcomes": [
             {
-                "text": "Even evergreens make sure to send out new leaves in newleaf, and p_l snips off the new, still soft needles, taking them home for c_n. The Clippers really help p_l carry more than {PRONOUN/p_l/subject} could ever dream of by {PRONOUN/p_l/self}, and p_l is happy to give up some needles for the dens in exchange.",
+                "text": "Even evergreens make sure to send out new leaves in newleaf, and p_l snips off the new, still soft needles, taking them home for the b1_t. The Clippers really help p_l carry more than {PRONOUN/p_l/subject} could ever dream of by {PRONOUN/p_l/self}, and p_l is happy to give up some needles for the dens in exchange.",
                 "exp": 10,
                 "weight": 20,
                 "herbs": ["juniper"],
@@ -1883,7 +1883,7 @@
                 ]
             },
             {
-                "text": "Night falls, and still s_c insists they keep going. Lungwort is the only reliable cure for yellowcough, and they just can't let c_n go without. Exhausted, but determined, the doctors persist patiently until they finally find the precious, speckled leaves.",
+                "text": "Night falls, and still s_c insists they keep going. Lungwort is the only reliable cure for yellowcough, and they just can't let the b1_t go without. Exhausted, but determined, the doctors persist patiently until they finally find the precious, speckled leaves.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": ["thoughtful", "confident", "loyal", "responsible", "arrogant"],
@@ -1996,7 +1996,7 @@
                 ]
             },
             {
-                "text": "Night falls, and still s_c insists on continuing - {PRONOUN/s_c/subject} just can't let c_n go without. Exhausted, but determined, the doctor persists patiently until {PRONOUN/s_c/subject} {VERB/s_c/find/finds} the precious, speckled leaves.",
+                "text": "Night falls, and still s_c insists on continuing - {PRONOUN/s_c/subject} just can't let the b1_t go without. Exhausted, but determined, the doctor persists patiently until {PRONOUN/s_c/subject} {VERB/s_c/find/finds} the precious, speckled leaves.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": ["thoughtful", "confident", "loyal", "responsible", "arrogant"],
@@ -2103,7 +2103,7 @@
                 ]
             },
             {
-                "text": "Night falls, but still s_c continues - {PRONOUN/s_c/subject} just can't let c_n go without. Exhausted, but determined, the doctor persists until {PRONOUN/s_c/subject} {VERB/s_c/find/finds} the precious, speckled leaves.",
+                "text": "Night falls, but still s_c continues - {PRONOUN/s_c/subject} just can't let the b1_t go without. Exhausted, but determined, the doctor persists until {PRONOUN/s_c/subject} {VERB/s_c/find/finds} the precious, speckled leaves.",
                 "exp": 20,
                 "weight": 20,
                 "stat_trait": ["thoughtful", "confident", "loyal", "responsible", "arrogant"],
@@ -2743,7 +2743,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "Frustratingly, some herbivore has come through and feasted on the daisies p_l targets. The plants will recover, but these half-chewed on leaves are useless to c_n.",
+                "text": "Frustratingly, some herbivore has come through and feasted on the daisies p_l targets. The plants will recover, but these half-chewed on leaves are useless.",
                 "exp": 0,
                 "weight": 20
             }
@@ -2840,7 +2840,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "Frustratingly, some herbivore has come through and feasted on the daisies p_l targets. The plants will recover, but these half-chewed on leaves are useless to c_n. {PRONOUN/p_l/subject/CAP} {VERB/p_l/avoid/avoids} snapping at app1, who seems unable to identify the common herb, but {PRONOUN/p_l/subject} definitely {VERB/p_l/come/comes} close.",
+                "text": "Frustratingly, some herbivore has come through and feasted on the daisies p_l targets. The plants will recover, but these half-chewed on leaves are useless. {PRONOUN/p_l/subject/CAP} {VERB/p_l/avoid/avoids} snapping at app1, who seems unable to identify the common herb, but {PRONOUN/p_l/subject} definitely {VERB/p_l/come/comes} close.",
                 "exp": 0,
                 "weight": 20,
                 "relationships": [
@@ -3013,7 +3013,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "Unfortunately, c_n doesn't seem to be the only things after dandelions, and p_l can't gather from this patch without killing off the already-damaged plants.",
+                "text": "Unfortunately, the b1_t doesn't seem to be the only things after dandelions, and p_l can't gather from this patch without killing off the already-damaged plants.",
                 "exp": 0,
                 "weight": 20
             }
@@ -3110,7 +3110,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "Unfortunately, c_n doesn't seem to be the only things after dandelions, and p_l can't gather from this patch without killing off the already-damaged plants. app1 actually starts an argument about it, insistent that they don't need to worry about protecting the dandelion patch for the future.",
+                "text": "Unfortunately, the b1_t doesn't seem to be the only things after dandelions, and p_l can't gather from this patch without killing off the already-damaged plants. app1 actually starts an argument about it, insistent that they don't need to worry about protecting the dandelion patch for the future.",
                 "exp": 0,
                 "weight": 20,
                 "relationships": [
@@ -4619,7 +4619,7 @@
                 ]
             },
             {
-                "text": "s_c uses the bright flowers to find the plants quickly, determined to bring back as many poppy seeds as possible. The rest of the patrol, knowing how important poppy seeds are as a painkiller, work hard, both for s_c and all of c_n.",
+                "text": "s_c uses the bright flowers to find the plants quickly, determined to bring back as many poppy seeds as possible. The rest of the patrol, knowing how important poppy seeds are as a painkiller, work hard, both for s_c and all of the b1_t.",
                 "exp": 10,
                 "weight": 20,
                 "stat_skill": ["SENSE,2"],
@@ -4951,7 +4951,7 @@
             "normal adult": [-1, -1]
         },
         "weight": 20,
-        "intro_text": "As newleaf brings green to c_n's lands, p_l goes out in a search for tansy. It can be reassuring, in a way, to be the only cat gathering the sometimes-dangerous herb.",
+        "intro_text": "As newleaf brings green to the b1_t, p_l goes out in a search for tansy. It can be reassuring, in a way, to be the only cat gathering the sometimes-dangerous herb.",
         "decline_text": "{PRONOUN/p_l/subject/CAP} {VERB/p_l/have/has} second thoughts about leaving {PRONOUN/p_l/poss} patients behind and {VERB/p_l/decide/decides} to go another day.",
         "chance_of_success": 70,
         "success_outcomes": [
@@ -5000,7 +5000,7 @@
             "normal adult": [-1, -1]
         },
         "weight": 20,
-        "intro_text": "As newleaf brings green to c_n's lands, p_l goes out in a search for tansy. They bring app1 with them for an important lesson on its use.",
+        "intro_text": "As newleaf brings green to the b1_t, p_l goes out in a search for tansy. They bring app1 with them for an important lesson on its use.",
         "decline_text": "{PRONOUN/p_l/subject/CAP} {VERB/p_l/have/has} second thoughts leaving {PRONOUN/p_l/poss} patients behind, especially with {PRONOUN/p_l/object} also bringing {PRONOUN/p_l/poss} apprentice, and {VERB/p_l/decide/decides} to go another day.",
         "chance_of_success": 70,
         "success_outcomes": [
@@ -5110,7 +5110,7 @@
             "normal adult": [1, 6]
         },
         "weight": 20,
-        "intro_text": "As newleaf brings green to c_n's lands, p_l goes out in a search for tansy. There shouldn't be any problem collecting it with other cats - these Clippers are all strong and healthy.",
+        "intro_text": "As newleaf brings green to the b1_t, p_l goes out in a search for tansy. There shouldn't be any problem collecting it with other cats - these Clippers are all strong and healthy.",
         "decline_text": "They're stopped before they leave camp - these Clippers are needed elsewhere. p_l's expedition will have to wait.",
         "chance_of_success": 30,
         "success_outcomes": [
@@ -6005,7 +6005,7 @@
         "chance_of_success": 30,
         "success_outcomes": [
             {
-                "text": "Lungwort doesn't help with many ailments. But it is the <b>only</b> cure for yellowcough, and Baronies have wasted away and died out for want of it, plague sweeping through their ranks, breath rasping in failing lungs till none remained to witness. c_n <i>needs</i> a steady supply of lungwort.",
+                "text": "Lungwort doesn't help with many ailments. But it is the <b>only</b> cure for yellowcough, and Baronies have wasted away and died out for want of it, plague sweeping through their ranks, breath rasping in failing lungs till none remained to witness. The b1_t <i>needs</i> a steady supply of lungwort.",
                 "exp": 20,
                 "weight": 20,
                 "art": "gen_bord_story",

@@ -963,7 +963,7 @@
     "season": ["newleaf"],
     "tags": ["clan_wide"],
     "weight": 1,
-    "event_text": "Ants, desperate to extablish a nest before the dry season fully kicks in, try to do so in c_n's herb stores. No one is pleased at the results.",
+    "event_text": "Ants, desperate to extablish a nest before the dry season fully kicks in, try to do so in the b1_t's herb stores. No one is pleased at the results.",
     "supplies": [
       {
           "type": "all_herb",
