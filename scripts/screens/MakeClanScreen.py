@@ -213,7 +213,7 @@ class MakeClanScreen(Screens):
         self.accessories=[]
         self.inventory = []
         self.sex = "male"
-        self.personality = "troublesome"
+        self.personality = "unruly"
         self.permanent_condition = None
         self.preview_age = "kitten"
         self.page = 0
@@ -2972,7 +2972,7 @@ class MakeClanScreen(Screens):
             traits = []
             for trait in Personality.trait_ranges["kit_traits"]:
                 traits.append(trait)
-            traits = ['troublesome', 'lonesome', 'impulsive', 'bullying', 'attention-seeker', 'charming', 'daring', 'noisy', 'nervous', 'quiet', 'insecure', 'daydreamer', 'sweet', 'polite', 'know-it-all', 'bossy', 'disciplined', 'patient', 'manipulative', 'secretive', 'rebellious', 'grumpy', 'passionate', 'honest', 'leader-like', 'smug']
+            traits = ['unruly','shy','impulsive','bullying','attention-seeker','daydreamer','charming','fearless','skittish','quiet','self-concious','know-it-all','sweet','polite','bossy','noisy','smug','secretive','grumpy','manipulative','leader-like','passionate','disciplined','patient','rebellious','honest']
             if self.current_selection == "trait":
                 for trait in traits:
                     if 15 <= len(trait):
@@ -3308,7 +3308,7 @@ class MakeClanScreen(Screens):
                             if any(scar in ["LEFTBLIND", "RIGHTBLIND", "BRIGHTHEART"] for scar in self.scars):
                                 self.scars = []
                     elif self.current_selection == "trait":
-                        traits = ['troublesome', 'lonesome', 'impulsive', 'bullying', 'attention-seeker', 'charming', 'daring', 'noisy', 'nervous', 'quiet', 'insecure', 'daydreamer', 'sweet', 'polite', 'know-it-all', 'bossy', 'disciplined', 'patient', 'manipulative', 'secretive', 'rebellious', 'grumpy', 'passionate', 'honest', 'leader-like', 'smug']
+                        traits = ['unruly','shy','impulsive','bullying','attention-seeker','daydreamer','charming','fearless','skittish','quiet','self-concious','know-it-all','sweet','polite','bossy','noisy','smug','secretive','grumpy','manipulative','leader-like','passionate','disciplined','patient','rebellious','honest']
                         current_index = traits.index(self.personality)
                         next_index = (current_index + num) % len(traits)
                         self.personality = traits[next_index]
@@ -3416,7 +3416,7 @@ class MakeClanScreen(Screens):
                         else:
                             self.paralyzed = False
                     elif self.current_selection == "trait":
-                        self.personality = random.choice(['troublesome', 'lonesome', 'impulsive', 'bullying', 'attention-seeker', 'charming', 'daring', 'noisy', 'nervous', 'quiet', 'insecure', 'daydreamer', 'sweet', 'polite', 'know-it-all', 'bossy', 'disciplined', 'patient', 'manipulative', 'secretive', 'rebellious', 'grumpy', 'passionate', 'honest', 'leader-like', 'smug'])
+                        self.personality = random.choice(['unruly','shy','impulsive','bullying','attention-seeker','daydreamer','charming','fearless','skittish','quiet','self-concious','know-it-all','sweet','polite','bossy','noisy','smug','secretive','grumpy','manipulative','leader-like','passionate','disciplined','patient','rebellious','honest'])
                     elif self.current_selection == "skill":
                         skill_choices = []
                         for i in self.skills:
