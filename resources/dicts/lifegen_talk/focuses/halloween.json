@@ -66,7 +66,7 @@
             "halloween"
         ],
         "intro": [
-            "[everycat in the Clan has been doing their best to scare each other lately. Today, r_k catches a glimpse of t_c from across the camp, jumps, and races back into the nursery.]",
+            "[Everycat in the Clan has been doing their best to scare each other lately. Today, r_k catches a glimpse of t_c from across the camp, jumps, and races back into the nursery.]",
             "What? What's wrong?",
             "I scared {PRONOUN/r_k/object}?",
             "... That's just my face."
@@ -299,7 +299,7 @@
         },
         "costume": [
             "Aww! You look so cute!",
-            "..There's no way to convince you to wear that for the rest of the day, is there?",
+            "...There's no way to convince you to wear that for the rest of the day, is there?",
             "It was worth a try. You can take it off now, if you want.",
             "Who's next?"
         ]
@@ -535,7 +535,9 @@
         ]
     },
     "ofrenda_dead_H3": {
-        "y_c": {},
+        "y_c": {
+            "condition": ["blind:any:false"]
+        },
         "t_c": {
             "cluster": [
                 "introspective"
@@ -546,7 +548,8 @@
             "status": [
                 "loner",
                 "rogue"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "halloween"
@@ -898,7 +901,7 @@
             "[In a moment of downtime you ask t_c if {PRONOUN/t_c/subject} would like to accompany you while you check on the o_c_n border.]",
             "The o_c_n border? No way! The river over there is totally haunted.",
             "I heard that if you look into the water, you'll see another cat in your reflection looking right back at you!",
-            "r_c thinks they're Dark Forest cats trying to find their way back to the Clans. Creepy huh?"
+            "r_c thinks they're Dark Forest cats trying to find their way back to the Clans. Creepy, huh?"
         ]
     },
     "halloween_E4": {
