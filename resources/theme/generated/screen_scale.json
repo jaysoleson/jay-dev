@@ -5447,6 +5447,23 @@
             }
         }
     },
+    "#stamp_medical_professional": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/journal_stamps/medical_professional.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/journal_stamps/medical_professional_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/journal_stamps/medical_professional_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/journal_stamps/medical_professional.png"
+            }
+        }
+    },
     "#tint_button_red": {
         "prototype": "#image_button",
         "images": {

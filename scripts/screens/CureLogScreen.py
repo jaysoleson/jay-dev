@@ -703,7 +703,7 @@ class CureLogScreen(Screens):
             self.stamps["all_cured"] = UIImageButton(
                     ui_scale(pygame.Rect((0, 160), (94, 94))),
                     "",
-                    object_id="#stamp_cure",
+                    object_id="#stamp_medical_professional",
                     tool_tip_text="<b>Medical Professional</b>\nYou've cured every infection!",
                     manager=MANAGER,
                     anchors={"centerx": "centerx"}
