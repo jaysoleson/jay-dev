@@ -715,11 +715,9 @@ class Patrol:
                  ):
                 continue
 
-            if "infection" in patrol.tags and game.clan.infection["clan_infected"] is False:
+            if "cure_found" in patrol.tags and "cure_found" not in get_infection_info("logs"):
                 continue
-            if "infection" in patrol.tags and "cure_found" in patrol.tags and "cure_found" not in get_infection_info("logs"):
-                continue
-            if "infection" in patrol.tags and "cure_not_found" in patrol.tags and "cure_found" in get_infection_info("logs"):
+            if "cure_not_found" in patrol.tags and "cure_found" in get_infection_info("logs"):
                 continue
 
             if "you_immune" in patrol.tags and game.clan.your_cat.infected_for != -1:
@@ -914,21 +912,21 @@ class Patrol:
                 tests.append(i.text)
 
             for i in tests:
-                # INF
-                test_runs[i] = lifegen_text_adjust(Cat, str(i), self.patrol_leader, self.patrol_cat_dict, r_c_allowed=False, o_c_allowed=False)
+                test_runs[i] = lifegen_text_adjust(Cat, str(i), self.patrol_leader, self.patrol_cat_dict, r_c_allowed=True, o_c_allowed=False)
                 if test_runs[i] == "":
                     skip = True
                     # print("Lifegen abbrev repl failed: Skipping", patrol.patrol_id)
                     break
+                # INF
                 if "o_c_n" in i:
                     # print("No o_c_n: Skipping", patrol.patrol_id)
                     if clan_left == False:
                         skip = True
                         break
-                # else:
-                #     print(i)
+
             if skip is True:
-                continue            
+                continue  
+          
             # cruel season tag check
             if "cruel_season" in patrol.tags:
                 if game.clan and game.clan.game_mode != "cruel_season":

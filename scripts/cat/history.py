@@ -161,6 +161,18 @@ class History:
     #                            adding and removing                               #
     # ---------------------------------------------------------------------------- #
 
+    # INF
+    @staticmethod
+    def add_died_infected(cat, value=False):
+        """
+        adds "died_infected" to a cat's history
+        """
+        if not game.clan:
+            return
+        History.check_load(cat)
+
+        cat.history.died_infected = value
+
     @staticmethod
     def add_beginning(cat, df=False, clan_born=False):
         """

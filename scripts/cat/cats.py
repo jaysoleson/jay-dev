@@ -705,11 +705,6 @@ class Cat:
 
         if "stage four infection" in self.illnesses:
             
-            if self.history:
-                if self.history.died_infected:
-                    if self.history.died_infected is True:
-                        self.history.died_infected = False
-            
             if (
                 self.status != "leader" or
                 (self.ID == game.clan.leader.ID and game.clan.leader_lives <= 1)):
@@ -818,9 +813,10 @@ class Cat:
         if self.exiled:
             self.status = 'former Clancat'
 
-        if self.history and self.infected_for > 0:
-            self.history.died_infected = True
-        if self.infected_for != 0:
+        if self.infected_for > 0:
+            History.add_died_infected(self, True)
+
+        if self.infected_for > 0:
             self.infected_for = 0
         
         self.quarantined = False

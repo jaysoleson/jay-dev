@@ -1473,8 +1473,11 @@ class PatrolOutcome:
             final_death_history = "m_c died on patrol."
 
         if final_death_history and isinstance(final_death_history, str):
+            # INF
+            replacement = f"{str(patrol.other_clan.name)}Clan" if patrol.other_clan else "another Clan"
+            # ---
             final_death_history = final_death_history.replace(
-                "o_c_n", f"{str(patrol.other_clan.name)}Clan"
+                "o_c_n", replacement
             )
 
         History.add_death(cat, death_text=final_death_history)

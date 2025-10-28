@@ -606,11 +606,12 @@ class Events:
         game.clan.infection["infection_moons"] = 0
 
         # and if there are any fallen clans, they're completely gone now. bc u didnt share the cure >:P
-        for clan in game.clan.all_clans:
-            if clan.fallen:
-                game.clan.all_clans.remove(clan)
+        # UPDATE: taking this out for now for consistent fallen clans stamps. also bc i dont want to be so mean
+        # for clan in game.clan.all_clans:
+        #     if clan.fallen:
+        #         game.clan.all_clans.remove(clan)
 
-            clan.cured = False
+        #     clan.cured = False
             
     def yourcat_infection(self, you):
         """ Determines the chances for MC to get infected. Based on infected cats talked to and the percentage of infected cats in camp. """

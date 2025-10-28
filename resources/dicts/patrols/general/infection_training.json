@@ -5,7 +5,6 @@
         "season": ["any"],
         "types": ["training"],
         "tags": [
-            "infection",
             "bite"
         ],
         "patrol_art": "train_general_intro",
@@ -54,5 +53,58 @@
                 "weight": 10
             }
         ]
-    } 
+    },
+    {
+        "patrol_id": "infection_training_J2",
+        "biome": ["any"],
+        "season": ["any"],
+        "types": ["training"],
+        "tags": [
+        ],
+        "patrol_art": "train_general_intro",
+        "min_cats": 2,
+        "max_cats": 6,
+        "min_max_status": {},
+        "weight": 20,
+        "intro_text": "The patrol is having a hard time focussing on their training as the breeze carries the scent of infection through the clearing.",
+        "decline_text": "The patrol decides to head back to camp, where they can train in safety.",
+        "chance_of_success": 20,
+        "success_outcomes": [
+            {
+                "text": "Being a warrior is all about adapting to your surroundings, even if they're scary! p_l manages to improve the spirits of the patrol enough to get a good few sparring sessions in. Now, these c_n warriors will be ready to face the infection head-on!",
+                "exp": 40,
+                "weight": 20,
+                "relationships": [
+                    {
+                        "cats_to": ["patrol"],
+                        "cats_from": ["patrol"],
+                        "mutual": false,
+                        "values": ["comfort", "trust"],
+                        "amount": 5
+                    }
+                ]
+            },
+            {
+                "text": "How is c_n supposed to defned themselves against the infection if their warriors are too afraid? p_l gives a quick pep talk, tail lashing with passion, and by the end, the cats are pumped up enough to continue their training, regardless of the sickness on the wind.",
+                "exp": 40,
+                "weight": 20,
+                "relationships": [
+                    {
+                        "cats_to": ["patrol"],
+                        "cats_from": ["patrol"],
+                        "mutual": false,
+                        "values": ["comfort", "trust"],
+                        "amount": 5
+                    }
+                ]
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "p_l tries to start up a sparring session, but fear leaves the rest of the patrol too distracted to participate. Unaccomplished, the patrol heads back to camp.",
+                "exp": 0,
+                "weight": 10
+            }
+        ]
+    }
 ]

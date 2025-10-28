@@ -1812,8 +1812,7 @@ class MurderScreen(Screens):
             game.clan.leader_lives -= 1
             if discover_chance < 7:
                 discover_chance = randint(7,9)
-        # if u kill the leader n they wake up like an hour later Yeah ur probably gonna get caught
-        cat_to_murder.die()
+
         # discover_chance = 3
         # discovery_num = 1
         # ^^ shun debug
