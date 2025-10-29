@@ -1098,7 +1098,9 @@
                 "weight": 20
             },
             {
-                "text": "You have no idea what this herb is! You grab a random one from the stores and hand it over, and to your surprise, it appears to be the right one! r_m-neurotic thanks you briefly before turning back to {PRONOUN/r_m-neurotic/poss} work."
+                "text": "You have no idea what this herb is! You grab a random one from the stores and hand it over, and to your surprise, it appears to be the right one! r_m-neurotic thanks you briefly before turning back to {PRONOUN/r_m-neurotic/poss} work.",
+                "exp": 10,
+                "weight": 20
             }
         ],
         "fail_outcomes": [

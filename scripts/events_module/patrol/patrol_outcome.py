@@ -261,7 +261,7 @@ class PatrolOutcome:
 
             text = lifegen_abbrev_text
             if lifegen_abbrev_text == "":
-                print("Lifegen: No abbrevs to adjust")
+                # print("Lifegen: No abbrevs to adjust")
                 text = self.text
         except Exception as e:
             print("Lifegen: Error adjusting abbrevs:", e)
