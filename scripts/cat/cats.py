@@ -645,7 +645,7 @@ class Cat:
                             get_infection_info("logs").append("partial_cure")
                         else:
                             addon = ""
-                        event = f"Thanks to recieving treatment, {self.name}'s infection has remissed from{old_stage.replace(f' infection', '')} to{new_stage.replace(f' infection', '')}!{addon}"
+                        event = f"Thanks to recieving treatment, {self.name}'s infection has remissed from {old_stage.replace(' infection', '')} to {new_stage.replace(' infection', '')}!{addon}"
                     game.cur_events_list.insert(0, Single_Event(event, ["health", "infection"], self.ID))
     
     def zombie(self, infection_type):
@@ -677,8 +677,14 @@ class Cat:
 
         self.get_ill("undead", infection_type=infection_type)
         self.thought = "... ... ... ... ..."
-        event = f"{self.name} has died, but the infection seems to have enough power over their mind to keep them standing..."
-        game.cur_events_list.append(Single_Event(event, ["birth_death", "health", "infection"], self.ID))
+        event = "m_c has died, but the infection seems to have enough power over {PRONOUN/m_c/poss} mind to keep {PRONOUN/m_c/object} standing..."
+        
+        
+        game.cur_events_list.append(Single_Event(
+            event_text_adjust(Cat, event, main_cat=self),
+            ["birth_death", "health", "infection"],
+            self.ID
+            ))
 
         if "zombie" not in get_infection_info("logs"):
             get_infection_info("logs").append("zombie")
