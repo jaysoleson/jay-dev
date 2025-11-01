@@ -36,7 +36,7 @@
                 "injury": [
                     {
                         "cats": ["r_w"],
-                        "injuries": ["stage one"]
+                        "injuries": ["stage one infection"]
                     }
                 ]
             }
@@ -91,8 +91,7 @@
                 "injury": [
                     {
                         "cats": ["n_c:0"],
-                        "injuries": ["stage two"],
-                        "no_results": true
+                        "injuries": ["stage two infection"]
                     }
                 ],
                 "new_cat": [
@@ -511,8 +510,7 @@
                 "injury": [
                     {
                         "cats": ["n_c:0"],
-                        "injuries": ["stage four"],
-                        "no_results": true
+                        "injuries": ["stage four infection"]
                     }
                 ]
             },
@@ -895,8 +893,7 @@
                 "injury": [
                     {
                         "cats": ["n_c:0"],
-                        "injuries": ["stage one"],
-                        "no_results": true
+                        "injuries": ["stage one infection"]
                     }
                 ],
                 "new_cat": [
@@ -917,8 +914,7 @@
                 "injury": [
                     {
                         "cats": ["n_c:0"],
-                        "injuries": ["stage two"],
-                        "no_results": true
+                        "injuries": ["stage two infection"]
                     }
                 ],
                 "new_cat": [
@@ -965,8 +961,7 @@
                 "injury": [
                     {
                         "cats": ["n_c:0"],
-                        "injuries": ["stage one"],
-                        "no_results": true
+                        "injuries": ["stage one infection"]
                     }
                 ],
                 "new_cat": [
@@ -987,8 +982,7 @@
                 "injury": [
                     {
                         "cats": ["n_c:0"],
-                        "injuries": ["stage three"],
-                        "no_results": true
+                        "injuries": ["stage three infection"]
                     }
                 ],
                 "new_cat": [
@@ -1035,8 +1029,7 @@
                 "injury": [
                     {
                         "cats": ["n_c:0"],
-                        "injuries": ["stage one"],
-                        "no_results": true
+                        "injuries": ["stage one infection"]
                     }
                 ],
                 "new_cat": [
@@ -1057,8 +1050,7 @@
                 "injury": [
                     {
                         "cats": ["n_c:0"],
-                        "injuries": ["stage three"],
-                        "no_results": true
+                        "injuries": ["stage three infection"]
                     }
                 ],
                 "new_cat": [
@@ -1388,8 +1380,7 @@
                 "injury": [
                     {
                         "cats": ["y_c"],
-                        "injuries": ["sore"],
-                        "no_results": false
+                        "injuries": ["sore"]
                     }
                 ]
             }

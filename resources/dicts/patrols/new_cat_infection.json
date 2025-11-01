@@ -35,7 +35,7 @@
                 "injury": [
                     {
                         "cats": ["n_c:0"],
-                        "injuries": ["stage two"]
+                        "injuries": ["stage two infection"]
                     }
                 ]
             },
@@ -58,7 +58,7 @@
                 "injury": [
                     {
                         "cats": ["n_c:0"],
-                        "injuries": ["stage three"]
+                        "injuries": ["stage three infection"]
                     }
                 ]
             }
@@ -75,7 +75,7 @@
                 "injury": [
                     {
                         "cats": ["n_c:0"],
-                        "injuries": ["stage two"]
+                        "injuries": ["stage two infection"]
                     }
                 ]
             },
@@ -94,7 +94,7 @@
                     },
                     {
                         "cats": ["n_c:0"],
-                        "injuries": ["stage three"]
+                        "injuries": ["stage three infection"]
                     }
                 ],
                 "relationships": [
@@ -299,8 +299,7 @@
                 "injury": [
                     {
                         "cats": ["n_c:1"],
-                        "injuries": ["stage two"],
-                        "no_results": false
+                        "injuries": ["stage two infection"]
                     }
                 ] 
             }
@@ -437,7 +436,7 @@
                 "injury": [
                     {
                         "cats": ["n_c:0"],
-                        "injuries": ["stage two"]
+                        "injuries": ["stage two infection"]
                     }
                 ]
             },
@@ -452,7 +451,7 @@
                 "injury": [
                     {
                         "cats": ["n_c:0"],
-                        "injuries": ["stage two"]
+                        "injuries": ["stage two infection"]
                     }
                 ]
             }

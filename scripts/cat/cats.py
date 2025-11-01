@@ -2429,6 +2429,15 @@ class Cat:
                 "undead"
             ] and self.infected_for == 0:
                 self.infected_for = 1
+                if any(illness in self.illnesses for illness in [
+                    "stage one infection",
+                    "stage two infection",
+                    "stage three infection",
+                    "stage four infection",
+                    "undead"
+                ]):
+                    print("WARNING: Tried to infect", self.name, ", who is already infected!")
+                    return
                 if self.outside is False:
                     if game.clan.infection["clan_infected"] is False:
                         game.clan.infection["clan_infected"] = True

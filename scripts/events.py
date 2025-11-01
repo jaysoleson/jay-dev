@@ -1795,6 +1795,10 @@ class Events:
 
     def other_clans_infection(self):
         """ progresses the infection for clans who are infected."""
+
+        if game.clan.infection["clan_infected"] is False:
+            return
+
         # LOAD JSON -------
         resource_dir = "resources/dicts/infection/"
         with open(f"{resource_dir}other_clan_events.json", encoding="ascii") as read_file:
@@ -4211,9 +4215,9 @@ class Events:
         )
 
         if "undead" in cat.illnesses:
-            print("pre undead chance:", random_murder_chance)
+            # print("pre undead chance:", random_murder_chance)
             random_murder_chance *= 0.5 # doubles chances
-            print("post undead chance:", random_murder_chance)
+            # print("post undead chance:", random_murder_chance)
 
         # Check to see if random murder is triggered.
         # If so, we allow targets to be anyone they have even the smallest amount of dislike for

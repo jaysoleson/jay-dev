@@ -1053,6 +1053,7 @@
                 "blind:any:false"
             ]
         },
+        "tags": ["infection"],
         "intro": [
             "[t_c is in hushed conversation with l_n.]",
             "[They're talking about some infection. Is one of them injured? Maybe they should be talking to r_m.]"

@@ -53,7 +53,7 @@
                 "injury": [
                     {
                         "cats": ["p_l"],
-                        "injuries": ["stage one"]
+                        "injuries": ["stage one infection"]
                     }
                 ],
                 "cure_log": [
@@ -107,8 +107,7 @@
                 "injury": [
                     {
                         "cats": ["n_c:0"],
-                        "injuries": ["stage one"],
-                        "no_results": true
+                        "injuries": ["stage one infection"]
                     }
                 ],
                 "new_cat": [
@@ -131,8 +130,7 @@
                 "injury": [
                     {
                         "cats": ["n_c:0"],
-                        "injuries": ["stage one"],
-                        "no_results": true
+                        "injuries": ["stage one infection"]
                     }
                 ],
                 "new_cat": [

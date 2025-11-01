@@ -715,6 +715,9 @@ class Patrol:
                  ):
                 continue
 
+            if "infection" in patrol.tags and game.clan.infection["clan_infected"] is False:
+                continue
+
             if "cure_found" in patrol.tags and "cure_found" not in get_infection_info("logs"):
                 continue
             if "cure_not_found" in patrol.tags and "cure_found" in get_infection_info("logs"):

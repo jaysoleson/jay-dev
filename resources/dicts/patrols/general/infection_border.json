@@ -50,7 +50,7 @@
                 "injury": [
                     {
                         "cats": ["r_c"],
-                        "injuries": ["stage one"]
+                        "injuries": ["stage one infection"]
                     }
                 ]
             },
@@ -61,7 +61,7 @@
                 "injury": [
                     {
                         "cats": ["r_c"],
-                        "injuries": ["stage one"]
+                        "injuries": ["stage one infection"]
                     }
                 ]
             },
@@ -176,7 +176,7 @@
                 "injury": [
                     {
                         "cats": ["n_c:0"],
-                        "injuries": ["stage three"]
+                        "injuries": ["stage three infection"]
                     }
                 ],
                 "relationships": [

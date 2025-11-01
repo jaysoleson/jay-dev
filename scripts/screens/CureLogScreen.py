@@ -681,8 +681,8 @@ class CureLogScreen(Screens):
 
         if not all_types:
             all_infections = True
-        else:
-            print("Remaining types to cure:", all_types)
+        # else:
+        #     print("Remaining types to cure:", all_types)
        
         if all_infections:
             self.stamps["start"].kill()

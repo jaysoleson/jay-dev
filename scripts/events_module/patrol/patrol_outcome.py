@@ -289,8 +289,8 @@ class PatrolOutcome:
         results.append(self._handle_df_convert(patrol))
         results.append(self._handle_murder(patrol))
         results.append(self._handle_faith_changes(patrol))
-        # ---
         results.append(self._handle_condition_and_scars(patrol))
+        # ---
 
         # pronounify the relationship log
         for block in self.relationship_effects:
@@ -861,9 +861,6 @@ class PatrolOutcome:
         results = []
         condition_lists = INJURY_GROUPS
 
-        # INFECTION
-        stages = ["stage one", "stage two", "stage three", "stage four"]
-
         for block in self.injury:
             cats = gather_cat_objects(Cat, block.get("cats", ()), patrol, self.stat_cat)
             injury = block.get("injuries", ())
@@ -879,8 +876,6 @@ class PatrolOutcome:
                     possible_injuries.extend(condition_lists[_tag])
                 elif _tag in INJURIES or _tag in ILLNESSES or _tag in PERMANENT:
                     possible_injuries.append(_tag)
-                elif _tag in stages:
-                    possible_injuries.append(f"{_tag} infection")
 
             lethal = True
             if "non_lethal" in injury:
@@ -908,7 +903,7 @@ class PatrolOutcome:
                 give_injury = choice(possible_injuries)
                 
                 already_infected = False
-                if get_infection_info("type") in give_injury:
+                if "stage" in give_injury:
                     for stage in ["one", "two", "three", "four"]:
                         if f"stage {stage} infection" in _cat.illnesses:
                             _cat.illnesses.pop(f"stage {stage} infection")
@@ -1138,9 +1133,8 @@ class PatrolOutcome:
         additional_text = ""
         if (
             game.clan.infection["clan_infected"] is False
-            and get_infection_info("type") in ["fungal", "void"]
             ):
-            chance = 25
+            chance = 15
             if not int(random.random() * chance):
                 infected_cat = random.choice(patrol.patrol_cats)
                 infected_cat.get_ill("stage one infection")
@@ -1236,7 +1230,7 @@ class PatrolOutcome:
         if (
             game.clan.infection["clan_infected"] is False
             ):
-            chance = 25
+            chance = 15
             if not int(random.random() * chance):
                 infected_cat = random.choice(patrol.patrol_cats)
                 infected_cat.get_ill("stage one infection")
