@@ -289,8 +289,8 @@ class PatrolOutcome:
         results.append(self._handle_df_convert(patrol))
         results.append(self._handle_murder(patrol))
         results.append(self._handle_faith_changes(patrol))
-        results.append(self._handle_condition_and_scars(patrol))
         # ---
+        results.append(self._handle_condition_and_scars(patrol))
 
         # pronounify the relationship log
         for block in self.relationship_effects:

@@ -1648,6 +1648,11 @@ class TalkScreen(Screens):
             return False
         if "undead" not in CONDITIONS and "undead" in cat.illnesses:
             return False
+        
+        cat_infection_type = ""
+        for illness in cat.illnesses:
+            if "type" in cat.illnesses[illness]:
+                cat_infection_type = cat.illnesses[illness]["type"]
 
         reg_condition_check = False
         has_condition = False
@@ -1778,10 +1783,11 @@ class TalkScreen(Screens):
                             if cat.infected_for > 0:
                                 has_condition = True
                     elif tag in ["fungal", "parasitic", "void"]:
-                        for illness in cat.illnesses:
-                            if "type" in cat.illnesses[illness]:
-                                if cat.illnesses[illness]["type"] == tag:
-                                    has_condition = True
+                        if tag == cat_infection_type:
+                            has_condition = True
+                        else:
+                            return False
+                # ---
 
         if "blind" in cat.permanent_condition and not blind_valid:
             return False
