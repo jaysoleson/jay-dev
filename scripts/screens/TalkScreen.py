@@ -1778,9 +1778,9 @@ class TalkScreen(Screens):
                             if cat.infected_for > 0:
                                 has_condition = True
                     elif tag in ["fungal", "parasitic", "void"]:
-                        for i, illness in cat.illnesses:
-                            if "type" in illness:
-                                if illness["type"] == tag:
+                        for illness in cat.illnesses:
+                            if "type" in cat.illnesses[illness]:
+                                if cat.illnesses[illness]["type"] == tag:
                                     has_condition = True
 
         if "blind" in cat.permanent_condition and not blind_valid:
