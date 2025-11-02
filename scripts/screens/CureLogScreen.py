@@ -141,7 +141,7 @@ class CureLogScreen(Screens):
             achieve31RankList = ['warrior', 'mediator', 'leader']
             achieve31UsedRanks = []
             if len(Cat.all_cats.get(cat).mates) >= 2:
-                catMateIDs = Cat.all_cats.get(cat).mate.copy()
+                catMateIDs = Cat.all_cats.get(cat).mates.copy()
                 if Cat.all_cats.get(cat).status in achieve31RankList:
                     achieve31UsedRanks.append(Cat.all_cats.get(cat).status)
                     for cat in clan_cats:
