@@ -411,8 +411,8 @@ class Condition_Events:
                             f"{cat.name} stumbles back into camp after an outing with a fresh cat bite and a clouded look in their eyes.",
                             f"{cat.name} tries to hide their fresh wound, but the potent smell of the infection coming from them is too hard to ignore."
                         ]
-                        if "spread_by_bite" not in get_infection_info("logs"):
-                            get_infection_info("logs").append("spread_by_bite")
+                        if "lore_spread_by_bite" not in get_infection_info("logs"):
+                            get_infection_info("logs").append("lore_spread_by_bite")
                             insert= "\nYour log has been updated."
                         cat.get_injured("cat bite")
                     elif get_infection_info("spread_by") == "air":

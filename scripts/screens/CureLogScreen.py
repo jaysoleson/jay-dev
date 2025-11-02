@@ -494,7 +494,6 @@ class CureLogScreen(Screens):
         displays the treatment lists.
         """
 
-        self.kill_treatment_display()
 
         current_treatments = []
         current_type = ""
@@ -526,6 +525,8 @@ class CureLogScreen(Screens):
             print("Error finding treatment type")
             print(e)
 
+        self.kill_treatment_display()
+
         self.treatments_heading = pygame_gui.elements.UITextBox(
             "<b>" + current_type.capitalize() + " Treatments</b>",
             ui_scale(pygame.Rect((120, 125), (350, 50))),
@@ -547,16 +548,25 @@ class CureLogScreen(Screens):
             info_x = 105
         
         x_button_y_offset = 5
-        button_x = 70
+        button_x = 0
+
+        self.moon_text_box = None
+        self.moon_text = None
+        self.treatment_text = None
+        self.treatment_text_box = None
 
         for treatment in current_treatments:
+            # print("Displaying treatment from moon", treatment['moon'])
 
             self.x_buttons[str(treatment['moon'])] = UIImageButton(ui_scale(pygame.Rect((button_x, x_button_y_offset), (25, 25))),
                 "",
                 object_id="#exit_window_button",
                 tool_tip_text=f"Delete moon {str(treatment['moon'])}'s entry (cannot be undone!)",
                 container=self.scroll_container,
-                manager=MANAGER
+                anchors={
+                    "target_left": self.moon_text_box
+                },
+                manager=MANAGER,
             )
             
             self.x_treatment = treatment
@@ -1036,6 +1046,7 @@ class CureLogScreen(Screens):
                 self.treatment_page = int(game.clan.infection["current_infection"])
             else:
                 self.treatment_page -= 1
+
         self.update_treatment_display()
 
     def handle_event(self, event):
