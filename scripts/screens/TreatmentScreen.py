@@ -242,7 +242,11 @@ class TreatmentScreen(Screens):
 
         # cure logs
         logs = 0
-        log_width = 500
+        if game.settings["fullscreen"]:
+            log_width = 700
+        else:
+            log_width = 500
+
         y_offset = 0
 
         current_type = get_infection_info("type", self.selected_cat)
