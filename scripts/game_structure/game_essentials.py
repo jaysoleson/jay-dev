@@ -564,7 +564,7 @@ class Game:
     def load_infection(self):
         """ load the infection json! """
         try:
-            with open(f"saves/{self.clan.name}/infection.json", 'r') as read_file:
+            with open(f"{get_save_dir()}/{self.clan.name}/infection.json", 'r') as read_file:
                 self.clan.infection = ujson.loads(read_file.read())
             if "treated" not in self.clan.infection:
                 self.clan.infection["treated"] = []
