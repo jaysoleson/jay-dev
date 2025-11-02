@@ -40,7 +40,7 @@ AppPublisherURL={#ApplicationURL}
 AppVersion={#ApplicationVersion}
 
 ; Installer icon (if you'd like to provide one)
-SetupIconFile=.\main.ico
+SetupIconFile=.\infection.ico
 ; Uninstalling will not delete saves so I figured no need for an uninstaller.
 Uninstallable=no
 
