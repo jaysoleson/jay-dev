@@ -554,7 +554,10 @@ class LeaderDenScreen(Screens):
                 text = "infected"
                 theme=f"#text_box_22_horizcenter_green{addon}"
             else:
-                text = "uninfected"
+                if game.clan.infection["clan_infected"]:
+                    text = "uninfected"
+                else:
+                    text = ""
                 theme=get_text_box_theme("#text_box_22_horizcenter")
             self.other_clan_selection_elements[f"clan_fallen{i}"] = (
                 pygame_gui.elements.UILabel(
