@@ -58,7 +58,7 @@
     ],
     "infected deputy": [
         "You wish you could still send r_w-infected on patrol, but r_m insists {PRONOUN/r_w-infected/subject} be monitored closely and not leave camp.",
-        "With l_n_infected infected, you know you may have to step up to lead soon. You wonder if this is a blessing or a curse...",
+        "With l_n-infected infected, you know you may have to step up to lead soon. You wonder if this is a blessing or a curse...",
         "Border patrols are getting harder for you to arrange amongst the chaos of the Clan."
     ]
 }

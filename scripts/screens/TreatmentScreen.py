@@ -243,9 +243,9 @@ class TreatmentScreen(Screens):
         # cure logs
         logs = 0
         if game.settings["fullscreen"]:
-            log_width = 700
-        else:
-            log_width = 500
+-            log_width = 700
+-       else:
+-            log_width = 500
 
         y_offset = 0
 
@@ -398,9 +398,6 @@ class TreatmentScreen(Screens):
 
     def screen_switches(self):
         super().screen_switches()
-
-        self.update_correct_cure()
-
         if self.stage == 'choose patient':
             self.frame_index = 0
             self.text_index = 0
@@ -739,6 +736,8 @@ class TreatmentScreen(Screens):
             self.next_page_button.hide()
             self.previous_stage_button.hide()
             self.next_stage_button.hide()
+
+        self.update_correct_cure()
     
     def update_correct_cure(self):
         # find the correct cure for the cat, since not all cats being treated
