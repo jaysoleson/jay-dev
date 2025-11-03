@@ -2449,7 +2449,14 @@ class Cat:
                 "stage four infection",
                 "undead"
             ] and self.infected_for > 0:
-                print("WARNING: Tried to infect", self.name, ", who is already infected!")
+                already_infected = False
+                for illness in self.illnesses:
+                    if "stage" in illness:
+                        already_infected = True
+                        break
+                if already_infected:
+                    print("WARNING: Tried to infect", self.name, ", who is already infected!")
+                    return
                 return
 
         illness = ILLNESSES[name]
