@@ -5,19 +5,34 @@
        "You have the instinct to lunge when r_k waddles past you. You shake the horrible thought from your mind.",
        "You wonder how long it will be until you lose control.",
        "r_k looks at you and starts crying.",
-       "You wonder if StarClan is even watching you anymore."
+       "You wonder if StarClan is even watching you anymore.",
+       "You blink as you realized you had zoned out whilst walking around camp, unable to remember the last few seconds.",
+       "You watch as r_c-infected blankly stares at the wall.",
+       "You see a murder of crows fly overhead when r_c-infected decides to take a walk around camp.",
+       "You watch a sickly looking bird fly in aimless circles overhead.",
+       "You watch r_m working tirelessly, seeming like {PRONOUN/r_m/subject} could fall asleep any second.",
+       "You clentch your jaw at realizing you want to lunge at r_w.",
+       "You stare blankly at the wall, your mind feeling fuzzier by the moon.",
+       "As you flex your claws you see r_k watching you in horror.",
+       "Stretching out, r_m nearly jumps out of {PRONOUN/r_m/poss} pelt when you accidentally brush your tail against {PRONOUN/r_m/object}.",
+       "You accidentally whip around to look at r_w too quickly, freaking {RPONOUN/r_w/object} out.",
+       "You claw at your nest, feeling sick when you think of a cat being beneath your paws instead of moss."
     ],
     "general assertive": [
-        "You snap at r_m to leave you alone for a moment, then feel bad when {PRONOUN/r_m/subject} {VERB/r_m/look/looks} genuinely frightened."
+        "You snap at r_m to leave you alone for a moment, then feel bad when {PRONOUN/r_m/subject} {VERB/r_m/look/looks} genuinely frightened.",
+        "You ask r_m about if and when a cure is found if you could be cured first."
     ],
     "general brooding": [
-        "You snap at r_m to leave you alone for a moment, then feel bad when {PRONOUN/r_m/subject} {VERB/r_m/look/looks} genuinely frightened."
+        "You snap at r_m to leave you alone for a moment, then feel bad when {PRONOUN/r_m/subject} {VERB/r_m/look/looks} genuinely frightened.",
+        "You swat at r_w, but seeing {PRONOUN/r_w/object} jump back makes you retract your paw hesitantly."
     ],
     "general cool": [
-        "You insist to r_m that you feel perfectly fine."
+        "You insist to r_m that you feel perfectly fine.",
+        "You crack a joke to r_m about your current infected state, ignoring the look {PRONOUN/r_m/subject} {VERB/r_m/give/gives} you."
     ],
     "general upstanding": [
-        "You do your best to help clean up around camp, but one cough near the nursery and r_m sends you back to your den."
+        "You do your best to help clean up around camp, but one cough near the nursery and r_m sends you back to your den.",
+        "You offer to help guard the camp, but are ushered back to the medicine den after zoning out for a little too long."
     ],
     "general introspective": [],
     "general neurotic": [
@@ -26,15 +41,23 @@
         "You ask r_w if you've recently attacked anyone without remembering, and breathe a sigh of relief when {PRONOUN/r_w/subject} {VERB/r_w/say/says} no."
     ],
     "general silly": [
-        "You struggle to come up with ways to lighten the mood."
+        "You struggle to come up with ways to lighten the mood.",
+        "You try to play games with the kits, but when you make a sudden move by r_k, {PRONOUN/r_k/subject} {VERB/r_k/run/runs} away thoroughly spooked."
     ],
-    "general stable": [],
+    "general stable": [
+        "You comfort r_c-infected about the infection, reassuring {PRONOUN/r_c-infected/object} that a cure will be found eventually."
+    ],
     "general sweet": [
         "r_c-infected catches a glimpse of {PRONOUN/r_c-infected/self} in a puddle and bursts into tears. You lay with {PRONOUN/r_c-infected/object} to offer some comfort."
     ],
-    "general unabashed": [],
-    "general unlawful": [],
+    "general unabashed": [
+        "You feel like your clanmates are being dramatic about avoiding you like the plague."
+    ],
+    "general unlawful": [
+        "You sneak out of the medicine den tired of being cooped up, but are hastily escorted back by r_w after zoning out whilst looking at a kit."
+    ],
     "general rare": [
-        "An eye-catching blue butterfly lands on top of the medicine den. Could StarClan be sending a sign to mock you?"
+        "An eye-catching blue butterfly lands on top of the medicine den. Could StarClan be sending a sign to mock you?",
+        "You could've sworn when you were about to fall asleep you heard the whispers of your ancestors."
     ]
 }
