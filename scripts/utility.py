@@ -739,7 +739,8 @@ def create_new_cat_block(
                 if (
                     not int(random() * chance) and
                     not n_c.dead and
-                    infected is False
+                    infected is False and
+                    immune is False
                     ):
                     # print("random infected cat chance hit for", n_c.name)
                     n_c.get_ill("stage one infection")

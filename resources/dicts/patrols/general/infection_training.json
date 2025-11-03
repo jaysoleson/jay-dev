@@ -60,6 +60,7 @@
         "season": ["any"],
         "types": ["training"],
         "tags": [
+            "infection"
         ],
         "patrol_art": "train_general_intro",
         "min_cats": 2,
