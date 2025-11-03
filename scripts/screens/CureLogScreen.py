@@ -582,16 +582,16 @@ class CureLogScreen(Screens):
             self.treatment_text = f"{', '.join([herb.replace('_', ' ') for herb in treatment['herbs']])}"
             
             # correct_text = f"Effective Herbs: {treatment['correct_herbs']}"
-            if int(treatment['correct_herbs']) > 0:
-                if game.settings["dark mode"]:
-                    self.correct_text = "<font color='#DBD076'>At least one effective herb</font>"
-                else:
-                    self.correct_text = "<font color='#473B0A'>At least one effective herb</font>"
-            elif int(treatment['correct_herbs']) == 4:
+            if int(treatment['correct_herbs']) == 4:
                 if game.settings["dark mode"]:
                     self.correct_text = "<font color='#A2D86C'>Cure Found!</font>"
                 else:
                     self.correct_text = "<font color='#136D05'>Cure Found!</font>"
+            elif int(treatment['correct_herbs']) > 0:
+                if game.settings["dark mode"]:
+                    self.correct_text = "<font color='#DBD076'>At least one effective herb</font>"
+                else:
+                    self.correct_text = "<font color='#473B0A'>At least one effective herb</font>"
             else:
                 if game.settings["dark mode"]:
                     self.correct_text = "<font color='#FF0000'>Zero Effective Herbs</font>"
