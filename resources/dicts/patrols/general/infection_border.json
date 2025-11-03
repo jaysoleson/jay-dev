@@ -55,7 +55,7 @@
                 ]
             },
             {
-                "text": "r_c grows more and more disoriented and distracted as the patrol carries on. It's when {PRONOUN/r_c/subject} {VERB/r_c/bump/bumps} into a tree that p_l orders {PRONOUN/r_c/object} to return to cat and visit the medicine den. The remaining patrol does not get good news when they return home.",
+                "text": "r_c grows more and more disoriented and distracted as the patrol carries on. It's when {PRONOUN/r_c/subject} {VERB/r_c/bump/bumps} into a tree that p_l orders {PRONOUN/r_c/object} to return to camp and visit the medicine den. The remaining patrol does not get good news when they return home.",
                 "exp": 0,
                 "weight": 20,
                 "injury": [
