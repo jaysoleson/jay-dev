@@ -988,7 +988,7 @@
             "min_respect_50"
         ],
         "intro": [
-            "y_c, we gotta get on a patrol together. D'you think if we asked d_n, {PRONOUN/d_c/subject}'d let us???",
+            "y_c, we gotta get on a patrol together. D'you think if we asked d_n, {PRONOUN/d_n/subject}'d let us???",
             "Hang on, I'm gonna go ask {PRONOUN/d_n/object}.",
             "[Before you can say anything, t_c takes off across camp to go hunt down d_n, who seems to be busy doing something else.]",
             "[You consider stopping t_c, but then realize it's probably futile.]",

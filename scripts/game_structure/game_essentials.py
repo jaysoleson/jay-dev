@@ -582,10 +582,11 @@ class Game:
             if "current_infection" in self.clan.infection and isinstance(self.clan.infection["current_infection"], int):
                 self.clan.infection["current_infection"] = str(self.clan.infection["current_infection"])
 
-            if "logs" in self.clan.infection:
-                if "spread_by_bite" in self.clan.infection["logs"]:
-                    self.clan.infection["logs"].remove("spread_by_bite")
-                    self.clan.infection["logs"].append("lore_spread_by_bite")
+            for item in self.clan.infection.copy():
+                if isinstance(self.clan.infection[item], dict) and "logs" in self.clan.infection[item]:
+                    if "spread_by_bite" in self.clan.infection[item]["logs"]:
+                        self.clan.infection[item]["logs"].remove("spread_by_bite")
+                        self.clan.infection[item]["logs"].append("lore_spread_by_bite")
 
             # correct old inf format to new
             if "infection_type" in self.clan.infection:
