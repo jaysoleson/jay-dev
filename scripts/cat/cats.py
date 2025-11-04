@@ -568,7 +568,7 @@ class Cat:
         """
         return not self.dead
     
-    def cure(self):
+    def cure(self, partial=False):
         """ 
         Cures a cat of the infection!
         """
@@ -580,7 +580,7 @@ class Cat:
                 for condition in ["withering", "rot", "void sickness"]:
                     if condition in self.injuries:
                         self.injuries.pop(condition)
-                if get_infection_info("cure_discovered") is True:
+                if not partial:
                     self.illnesses.pop(stage)
                     infection_scars = ["EXPOSEDRIBS", "ARMBONE", "VOIDBACK", "VOIDEYE", "VOIDTAIL", "SHELFMUSHROOMS", "EYEMOSS", "PAWMOSS"]
                     for scar in infection_scars:
