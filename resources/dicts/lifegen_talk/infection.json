@@ -280,6 +280,7 @@
                 "cool",
                 "brooding"
             ],
+            "age": ["not_kitten"],
             "condition": [
                 "blind:any:false",
                 "infected",
