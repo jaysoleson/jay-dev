@@ -82,7 +82,9 @@
             "void": [
                 "The sickly black patches on m_c's pelt are getting harder to hide as their infection progresses."
             ],
-            "fungal": []
+            "fungal": [
+                "Mushrooms have begun to sprout out of m_c's pelt as {PRONOUN/m_c/poss} infection worsens."
+            ]
         }
     },
     "stage two infection": {
