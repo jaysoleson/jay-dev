@@ -3038,6 +3038,7 @@ class Events:
             ])
             ):
             if cat.infected_for > 0:
+                # print(cat.illnesses)
                 print(cat.name, "has infected moons, but is not infected?")
                 cat.infected_for = 0
         

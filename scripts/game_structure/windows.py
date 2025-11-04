@@ -469,7 +469,7 @@ class InfectionGameOver(UIWindow):
         self.clan_name = str(game.clan.name + 'Clan')
         self.last_screen = last_screen
         self.game_over_message = UITextBoxTweaked(
-            f"{self.clan_name} is completely infected. There is no hope of recovery.<br>"
+            f"<b>{self.clan_name}</b> is completely infected. There is no hope of recovery.<br>"
             f"What will you do?",
             ui_scale(pygame.Rect((20, 40), (260, -1))),
             line_spacing=1,
@@ -479,23 +479,25 @@ class InfectionGameOver(UIWindow):
 
         self.game_over_message = UITextBoxTweaked(
             f"(leaving will not erase the save file)",
-            ui_scale(pygame.Rect((20, 155), (260, -1))),
+            ui_scale(pygame.Rect((20, 150), (260, -1))),
             line_spacing=.8,
             object_id="#text_box_22_horizcenter",
             container=self
         )
 
-        self.begin_anew_button = UIImageButton(
-            ui_scale(pygame.Rect((20, 115), (111, 30))),
-            "",
-            object_id="#begin_anew_button",
-            container=self
+        self.begin_anew_button = UISurfaceImageButton(
+            ui_scale(pygame.Rect((25, 115), (111, 30))),
+            "begin anew",
+            get_button_dict(ButtonStyles.SQUOVAL, (111, 30)),
+            object_id="@buttonstyles_squoval",
+            container=self,
         )
-        self.not_yet_button = UIImageButton(
+        self.not_yet_button = UISurfaceImageButton(
             ui_scale(pygame.Rect((159, 115), (111, 30))),
-            "",
-            object_id="#not_yet_button",
-            container=self
+            "not yet",
+            get_button_dict(ButtonStyles.SQUOVAL, (111, 30)),
+            object_id="@buttonstyles_squoval",
+            container=self,
         )
 
         self.not_yet_button.enable()

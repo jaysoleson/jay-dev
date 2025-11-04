@@ -784,7 +784,7 @@ class Condition_Events:
 
             # heal the cat
             elif cat.healed_condition is True:
-                if illness in ["stage one infection", "stage two infection", "stage three infection","stage four infection"]:
+                if illness in ["stage one infection", "stage two infection", "stage three infection", "stage four infection"]:
                     continue
                 History.remove_possible_history(cat, illness)
                 game.switches["skip_conditions"].append(illness)
@@ -842,7 +842,7 @@ class Condition_Events:
                 # move to next illness, the cat can't get a risk from an illness that has healed
                 continue
 
-            if illness in ["stage one infection", "stage two infection", "stage three infection","stage four infection"]:
+            if illness in ["stage one infection", "stage two infection", "stage three infection", "stage four infection"]:
                 # id rather stop it from ever being true in the first place for infected cats
                 # because after a certain point, this is happening every moon
                 # but whatever. this works.
@@ -850,9 +850,12 @@ class Condition_Events:
             else:
                 infection_event = False
 
+            # print("----", cat.name, "already_ill before risks")
+            # print(cat.illnesses)
             Condition_Events.give_risks(
                 cat, event_list, illness, illness_progression, illnesses, cat.illnesses
             )
+            # print(cat.illnesses)
 
         # joining event list into one event string
         event_string = None
@@ -1251,7 +1254,7 @@ class Condition_Events:
             if risk["name"] in ["stage one infection", "stage two infection", "stage three infection", "stage four infection"]:
                 cat_stage = risk["name"]
                 infection_progression = True
-            
+
             # adjust chance of risk gain if Clan has enough meds
             chance = risk["chance"]
             if not infection_progression:
@@ -1265,7 +1268,7 @@ class Condition_Events:
                 )  # higher risk if no meds and risk chance wasn't 0
                 if chance <= 0:  # ensure that chance is never 0
                     chance = 1
-            
+
             infection_event = False
             if infection_progression:
                 if cat.infected_for == -1:
@@ -1274,7 +1277,7 @@ class Condition_Events:
                 if "cure_found" in get_infection_info("logs"):
                     chance = round(chance / 3)
 
-                # print(cat.name, cat_stage, "infection progression chance: 1/" + str(chance))
+            # print(cat.name, cat_stage, "infection progression chance: 1/" + str(chance))
             # inf
             if chance < 2:
                 chance = 2
@@ -1371,10 +1374,11 @@ class Condition_Events:
                     except:
                         event = ""
                         print("Need more risk text for", condition, "!")
-                except KeyError:
+                except KeyError as e:
                     print(
-                        f"WARNING: {condition} couldn't be found in the risk strings! placeholder string was used"
+                        f"RISK WARNING: {condition} couldn't be found in the risk strings! placeholder string was used"
                     )
+                    print(e)
                     event = "m_c's condition has gotten worse."
 
                 event = event_text_adjust(

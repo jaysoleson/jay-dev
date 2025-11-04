@@ -2427,37 +2427,25 @@ class Cat:
                 "stage three infection",
                 "stage four infection",
                 "undead"
-            ] and self.infected_for == 0:
-                self.infected_for = 1
-                if any(illness in self.illnesses for illness in [
-                    "stage one infection",
-                    "stage two infection",
-                    "stage three infection",
-                    "stage four infection",
-                    "undead"
-                ]):
-                    print("WARNING: Tried to infect", self.name, ", who is already infected!")
-                    return
-                if self.outside is False:
-                    if game.clan.infection["clan_infected"] is False:
-                        game.clan.infection["clan_infected"] = True
-                        get_infection_info("logs").append('start')
-            elif name in [
-                "stage one infection",
-                "stage two infection",
-                "stage three infection",
-                "stage four infection",
-                "undead"
-            ] and self.infected_for > 0:
-                already_infected = False
-                for illness in self.illnesses:
-                    if "stage" in illness:
-                        already_infected = True
-                        break
-                if already_infected:
-                    print("WARNING: Tried to infect", self.name, ", who is already infected!")
-                    return
-                return
+            ]:
+                if self.infected_for == 0:
+                    self.infected_for = 1
+                    if any(illness in self.illnesses for illness in [
+                        "stage one infection",
+                        "stage two infection",
+                        "stage three infection",
+                        "stage four infection",
+                        "undead"
+                    ]):
+                        print("WARNING: Tried to infect", self.name, ", who is already infected!")
+                        return
+                    if self.outside is False:
+                        if game.clan.infection["clan_infected"] is False:
+                            game.clan.infection["clan_infected"] = True
+                            get_infection_info("logs").append('start')
+                # else:
+                #     print("2 WARNING: Tried to infect", self.name, ", who is already infected!")
+                #     return
 
         illness = ILLNESSES[name]
         mortality = illness["mortality"][self.age]
@@ -2839,7 +2827,8 @@ class Cat:
                     "stage one infection",
                     "stage two infection",
                     "stage three infection",
-                    "stage four infection"
+                    "stage four infection",
+                    "undead"
                     ]:
                     infection_type = cat.illnesses[illness]["type"]
                     infectious_illnesses.append(illness)

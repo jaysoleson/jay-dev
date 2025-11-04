@@ -17,7 +17,8 @@ from scripts.utility import (
     ui_scale,
     get_infection_herb,
     ui_scale_dimensions,
-    get_infection_info
+    get_infection_info,
+    get_non_infected_clan_cat_count
     )  # pylint: disable=redefined-builtin
 from .Screens import Screens
 from ..housekeeping.datadir import get_save_dir
@@ -720,33 +721,42 @@ class CureLogScreen(Screens):
                     )
             
         else:
-            
-            if "cure_found" in get_infection_info("logs"):
-                self.stamps["cure_discovered"] = UIImageButton(
-                    ui_scale(pygame.Rect((0, 160), (94, 94))),
-                    "",
-                    object_id="#stamp_cure",
-                    tool_tip_text="<b>Cured!</b>\nYou've discovered the cure!",
-                    manager=MANAGER,
-                    anchors={"centerx": "centerx"}
-                    )
-            elif "partial_cure" in get_infection_info("logs"):
-                self.stamps["partial_cure"] = UIImageButton(
-                    ui_scale(pygame.Rect((0, 160), (94, 94))),
-                    "",
-                    object_id="#stamp_partial_cure",
-                    tool_tip_text="<b>Partial Cure</b>\nPart of the cure has been discovered!",
-                    manager=MANAGER,
-                    anchors={"centerx": "centerx"}
-                    )
+            if get_non_infected_clan_cat_count(Cat) == 0:
+                self.stamps["deadclan"] = UIImageButton(
+                        ui_scale(pygame.Rect((0, 160), (94, 94))),
+                        "",
+                        object_id="#stamp_zombie",
+                        tool_tip_text="<b>Doomed</b>\nYour Clan has completely fallen to the infection.",
+                        manager=MANAGER,
+                        anchors={"centerx": "centerx"}
+                        )
             else:
-                empty_stamps += 1
-                self.stamps[str(empty_stamps)] = pygame_gui.elements.UIImage(
-                    ui_scale(pygame.Rect((0, 160), (94, 94))),
-                    empty_stamp,
-                    manager=MANAGER,
-                    anchors={"centerx": "centerx"}
-                )
+                if "cure_found" in get_infection_info("logs"):
+                    self.stamps["cure_discovered"] = UIImageButton(
+                        ui_scale(pygame.Rect((0, 160), (94, 94))),
+                        "",
+                        object_id="#stamp_cure",
+                        tool_tip_text="<b>Cured!</b>\nYou've discovered the cure!",
+                        manager=MANAGER,
+                        anchors={"centerx": "centerx"}
+                        )
+                elif "partial_cure" in get_infection_info("logs"):
+                    self.stamps["partial_cure"] = UIImageButton(
+                        ui_scale(pygame.Rect((0, 160), (94, 94))),
+                        "",
+                        object_id="#stamp_partial_cure",
+                        tool_tip_text="<b>Partial Cure</b>\nPart of the cure has been discovered!",
+                        manager=MANAGER,
+                        anchors={"centerx": "centerx"}
+                        )
+                else:
+                    empty_stamps += 1
+                    self.stamps[str(empty_stamps)] = pygame_gui.elements.UIImage(
+                        ui_scale(pygame.Rect((0, 160), (94, 94))),
+                        empty_stamp,
+                        manager=MANAGER,
+                        anchors={"centerx": "centerx"}
+                    )
 
         cured_cats = len(game.clan.infection["cured_infected"].split(",")) if game.clan.infection["cured_infected"] else 0
         killed_cats = len(game.clan.infection["killed_infected"].split(",")) if game.clan.infection["killed_infected"] else 0

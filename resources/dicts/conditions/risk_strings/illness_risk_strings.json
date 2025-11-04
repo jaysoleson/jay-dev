@@ -86,8 +86,8 @@
         }
     },
     "stage two infection": {
-        "general": {
-            "stage three infection": [
+        "stage three infection": {
+            "general": [
                 "m_c's infection has reached stage three.",
                 "m_c's infection has progressed to stage three.",
                 "m_c's infection is getting worse."

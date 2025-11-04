@@ -361,7 +361,7 @@ class MedDenScreen(Screens):
                     for illness in cat.illnesses:
                         if (
                             cat.illnesses[illness]["severity"] != "minor"
-                            and illness not in ['grief stricken', f'stage one infection', f'stage two infection', f'stage three infection', f'stage four infection']
+                            and illness not in ['grief stricken', 'stage one infection', 'stage two infection', 'stage three infection', 'stage four infection']
                             and not cat.quarantined
                         ):
                             if cat not in self.in_den_cats:
@@ -679,7 +679,6 @@ class MedDenScreen(Screens):
                     condition_list[idx] = "stage three infection"
                 if condition == "stage four infection":
                     condition_list[idx] = "stage four infection"
-
 
             conditions = ",<br>".join(condition_list)
 
