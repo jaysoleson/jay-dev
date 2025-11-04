@@ -953,9 +953,10 @@ class PatrolOutcome:
                         "undead"
                     ] and not already_infected:
                         if game.settings["dark mode"]:
-                            results.append(f"\n<font color='#A6D000'>{_cat.name} is infected.</font")
+                            colour = "A6D000"
                         else:
-                            results.append(f"\n<font color='#416101'>{_cat.name} is infected.</font")
+                            colour = "416101"
+                        results.append(f"\n<font color='#{colour}'>{_cat.name} is infected.</font")
                     else:  
                         combined_conditions = ", ".join(given_conditions)
                         results.append(f"{_cat.name} got: {combined_conditions}.")
@@ -1234,7 +1235,11 @@ class PatrolOutcome:
             if not int(random.random() * chance):
                 infected_cat = random.choice(patrol.patrol_cats)
                 infected_cat.get_ill("stage one infection")
-                additional_text = f"\n<font color='#A6D000'> The prey is infected!</font> {infected_cat.name} has become mysteriously ill after eating it..."
+                if game.settings["dark mode"]:
+                    colour = "A6D000"
+                else:
+                    colour = "416101"
+                additional_text = f"\n<font color='#{colour}'> The prey is infected!</font> {infected_cat.name} has become mysteriously ill after eating it..."
 
                 if "start" not in get_infection_info("logs"):
                     get_infection_info("logs").append("start")
@@ -1301,7 +1306,11 @@ class PatrolOutcome:
                     results.append(f"{cat.name} joined the Clan.")
 
                 if cat.infected_for > 0:
-                    results.append(f"\n<font color='#A6D000'>{cat.name} is infected.</font")
+                    if game.settings["dark mode"]:
+                        colour = "A6D000"
+                    else:
+                        colour = "416101"
+                    results.append(f"\n<font color='#{colour}'>{cat.name} is infected.</font")
 
                 cat.pelt.inventory = []
                 # ^^ this stops the multi-cat inventory thing for kittypets joining from patrols!!
