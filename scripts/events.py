@@ -3097,17 +3097,6 @@ class Events:
         if not cat.dead and not cat.outside:
             Relation_Events.handle_relationships(cat)
 
-        # now we make sure ill and injured cats don't get interactions they shouldn't
-        if cat.is_ill() or cat.is_injured():
-            return
-
-        if cat.exiled:
-            Cat.handle_exile_returns(self)
-        
-        self.invite_new_cats(cat)
-        self.other_interactions(cat)
-        # self.gain_accessories(cat)
-
         # switches between the two death handles
         if random.getrandbits(1):
             triggered_death = self.handle_injuries_or_general_death(cat)
@@ -3123,6 +3112,18 @@ class Events:
             else:
                 game.switches["skip_conditions"].clear()
                 return
+
+        # now we make sure ill and injured cats don't get interactions they shouldn't
+        if cat.is_ill() or cat.is_injured():
+            return
+
+        if cat.exiled:
+            Cat.handle_exile_returns(self)
+        
+        self.invite_new_cats(cat)
+        self.other_interactions(cat)
+        # self.gain_accessories(cat)
+
 
         self.handle_murder(cat)
         cat.faith += round(random.uniform(-0.2,0.2), 2)

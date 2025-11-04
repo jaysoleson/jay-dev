@@ -1923,9 +1923,9 @@
         ],
         "intro": [
             "[Although t_c seems like {PRONOUN/t_c/subject} {VERB/t_c/want/wants} to help, {PRONOUN/t_c/subject} {VERB/t_c/have/has} no idea how to.]",
-            "At least {PRONOUN/d_c-infected/subject} won't be able to infect anyone else..?",
+            "At least {PRONOUN/yg_c-infected/subject} won't be able to infect anyone else..?",
             "Sorry.",
-            "[You'd rather d_c-infected infect everyone than be gone.]"
+            "[You'd rather yg_c-infected infect everyone than be gone.]"
         ]
     },
     "infection_lyric_19": {
@@ -1949,8 +1949,8 @@
             "infection"
         ],
         "intro": [
-            "I know. It's going to be okay. {PRONOUN/d_c-infected/subject/CAP}{VERB/d_c-infected/'re/'s} in a better place.",
-            "{PRONOUN/d_c-infected/subject/CAP} deserved better than to live with that disease."
+            "I know. It's going to be okay. {PRONOUN/yg_c-infected/subject/CAP}{VERB/yg_c-infected/'re/'s} in a better place.",
+            "{PRONOUN/yg_c-infected/subject/CAP} deserved better than to live with that disease."
         ]
     },
     "infection_lyric_20": {
@@ -1973,7 +1973,7 @@
             "infection"
         ],
         "intro": [
-            "It's for the better {PRONOUN/d_c-infected/subject}{VERB/d_c-infected/'re/'s} gone. The loss of one is better than the loss of many. "
+            "It's for the better {PRONOUN/yg_c-infected/subject}{VERB/yg_c-infected/'re/'s} gone. The loss of one is better than the loss of many. "
         ]
     },
     "infection_void_J1": {
