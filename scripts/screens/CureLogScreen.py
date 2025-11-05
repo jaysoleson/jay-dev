@@ -512,11 +512,11 @@ class CureLogScreen(Screens):
 
         self.treatments_heading = pygame_gui.elements.UITextBox(
             "<b>" + current_type.capitalize() + " Treatments</b>",
-            ui_scale(pygame.Rect((120, 125), (350, 50))),
+            ui_scale(pygame.Rect((120, 125), (250, 50))),
             manager=MANAGER,
-            object_id=get_text_box_theme("#text_box_30_horizleft"))
+            object_id=get_text_box_theme("#text_box_30_horizcenter"))
 
-        log_width = 400
+        log_width = 600
 
         logs = 0
         for treatment in current_treatments:
@@ -538,7 +538,7 @@ class CureLogScreen(Screens):
             else:
                 self.log_items["moon_text" + str(logs)] = pygame_gui.elements.UITextBox(
                     f"<b>Moon {treatment['moon']}</b>",
-                    pygame.Rect((30, 20), (log_width, 30)),
+                    pygame.Rect((30, 20), (log_width, -1)),
                     container=self.scroll_container,
                     manager=MANAGER,
                     object_id=get_text_box_theme("#text_box_30_horizleft"),
@@ -563,7 +563,7 @@ class CureLogScreen(Screens):
 
             self.log_items["herbs_text" + str(logs)] = pygame_gui.elements.UITextBox(
                 f"{', '.join([herb.replace('_', ' ') for herb in treatment['herbs']])}\n" + successtext,
-                pygame.Rect((30, 0), (log_width, 60)),
+                pygame.Rect((30, 0), (log_width, -1)),
                 container=self.scroll_container,
                 manager=MANAGER,
                 object_id=get_text_box_theme("#text_box_26_horizleft"),
@@ -574,14 +574,15 @@ class CureLogScreen(Screens):
             
             # X BUTTON
             # x buttons dont go in log_items to make entry deletion easier
-            self.x_buttons[str(treatment['moon'])] = UIImageButton(ui_scale(pygame.Rect((0, -28), (25, 25))),
+            self.x_buttons[str(treatment['moon'])] = UIImageButton(ui_scale(pygame.Rect((0, 0), (25, 25))),
                 "",
                 object_id="#exit_window_button",
                 tool_tip_text=f"Delete moon {str(treatment['moon'])}'s entry (cannot be undone!)",
                 container=self.scroll_container,
                 anchors={
                     "right_target": self.log_items["moon_text" + str(logs)],
-                    "top_target": self.log_items["moon_text" + str(logs)]
+                    "bottom": "bottom",
+                    "bottom_target": self.log_items["moon_text" + str(logs)]
                 },
                 manager=MANAGER,
             )

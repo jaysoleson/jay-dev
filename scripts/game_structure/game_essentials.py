@@ -640,7 +640,7 @@ class Game:
                         "cure_discovered": False,
                     }
                 }
-                
+
                 with open(f"saves/{self.clan.name}/infection.json", 'w') as create_file:
                     ujson.dump(self.clan.infection, create_file, indent=4)
 
