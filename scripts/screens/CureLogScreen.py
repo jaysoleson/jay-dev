@@ -227,6 +227,7 @@ class CureLogScreen(Screens):
         self.edit_text = None
         self.save_text = None
         self.x_buttons = {}
+        self.treatments_heading = None
 
         self.log_items = {}
 
@@ -481,6 +482,8 @@ class CureLogScreen(Screens):
         current_type = ""
         all_treatments = {}
 
+        self.treatments_heading = None
+
         for infection in game.clan.infection:
             if isinstance(game.clan.infection[infection], dict):
                 if infection not in all_treatments:
@@ -506,9 +509,6 @@ class CureLogScreen(Screens):
         except Exception as e:
             print("Error finding treatment type")
             print(e)
-
-        self.treatments_heading = None
-        self.kill_treatment_display()
 
         self.treatments_heading = pygame_gui.elements.UITextBox(
             "<b>" + current_type.capitalize() + " Treatments</b>",
@@ -1022,6 +1022,7 @@ class CureLogScreen(Screens):
             else:
                 self.treatment_page -= 1
 
+        self.kill_treatment_display()
         self.update_treatment_display()
 
     def handle_event(self, event):

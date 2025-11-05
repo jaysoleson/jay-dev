@@ -622,7 +622,6 @@ class Game:
                 self.clan.infection = {
                     "clan_infected": False,
                     "cure_attempt": False,
-                    "current_infection": "1",
                     "treatments": [],
                     "infection_moons": 0,
                     "current_infection": "1",
