@@ -559,7 +559,7 @@
         },
         "weight": 20,
         "log_prereq": ["lore_spread_by_bite"],
-        "intro_text": "You've left camp try try and find some herbs, as you feel awful for the poor medicine cats dealing with this sickness right now. Just as you spot a nice-looking patch several fox-lengths away, you lift your head and see a Twoleg. Or... what you think is a Twoleg. It looks sick, just like the cats back at camp.",
+        "intro_text": "You've left camp to try and find some herbs, as you feel awful for the poor medicine cats dealing with this sickness right now. Just as you spot a nice-looking patch several fox-lengths away, you lift your head and see a Twoleg. Or... what you think is a Twoleg. It looks sick, just like the cats back at camp.",
         "decline_text": "You leave without gathering any herbs. You don't know what that Twoleg is capable of.",
         "chance_of_success": 50,
         "success_outcomes": [
@@ -760,7 +760,7 @@
                 "weight": 20
             },
             {
-                "text": "You soak some water up with the moss anyway, unwilling to let this infection intimidate you. However, as soon as the water hits for mouth, the foul taste makes you immediately spit it, along with the moss, back into the stream. Something has infected this water... You'll just have to wait for some rain.",
+                "text": "You soak some water up with the moss anyway, unwilling to let this infection intimidate you. However, as soon as the water hits your mouth, the foul taste makes you immediately spit it, along with the moss, back into the stream. Something has infected this water... You'll just have to wait for some rain.",
                 "exp": 10,
                 "weight": 10
             }
@@ -1514,7 +1514,7 @@
                 "weight": 20
             },
             {
-                "text": "You press on, but after only a few moments, you come across the the infected body of a loner right in the middle of the path. Cautiously, you decide to dig the cat a grave, and by the time you've sent them to StarClan, the moon has already set and you ahve no choice but to return home.",
+                "text": "You press on, but after only a few moments, you come across the the infected body of a loner right in the middle of the path. Cautiously, you decide to dig the cat a grave, and by the time you've sent them to StarClan, the moon has already set and you have no choice but to return home.",
                 "exp": 10,
                 "weight": 20
             }
