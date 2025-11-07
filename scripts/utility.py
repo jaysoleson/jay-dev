@@ -4400,14 +4400,14 @@ def get_infection_info(item, cat=None, num=None):
             for illness in cat.illnesses:
                 if "stage" in illness or illness == "undead":
                     inftype = cat.illnesses[illness]["type"]
-            for infection in game.clan.infection:
-                if isinstance(game.clan.infection[infection], dict):
-                    if "type" in game.clan.infection[infection]:
-                        if game.clan.infection[infection]["type"] == inftype:
-                            # print("RETRIEVING", item, "for", inftype.upper(), "infection.")
-                            # print(item, ":", game.clan.infection[infection][item])
-                            info = game.clan.infection[infection][item]
-                            break
+                for infection in game.clan.infection:
+                    if isinstance(game.clan.infection[infection], dict):
+                        if "type" in game.clan.infection[infection]:
+                            if game.clan.infection[infection]["type"] == inftype:
+                                # print("RETRIEVING", item, "for", inftype.upper(), "infection.")
+                                # print(item, ":", game.clan.infection[infection][item])
+                                info = game.clan.infection[infection][item]
+                                break
 
     return info
 

@@ -2443,6 +2443,9 @@ class Cat:
                         if game.clan.infection["clan_infected"] is False:
                             game.clan.infection["clan_infected"] = True
                             get_infection_info("logs").append('start')
+                elif self.infected_for == -1:
+                    print("Tried to infect", self.name, "but", self.name, "is immune!")
+                    return
                 # else:
                 #     print("2 WARNING: Tried to infect", self.name, ", who is already infected!")
                 #     return

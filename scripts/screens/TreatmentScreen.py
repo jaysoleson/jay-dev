@@ -653,7 +653,7 @@ class TreatmentScreen(Screens):
                                                     manager=MANAGER)
             
             self.heading = pygame_gui.elements.UITextBox("Results",
-                                                        ui_scale(pygame.Rect((150, 25), (500, 40))),
+                                                        ui_scale(pygame.Rect((150, 25), (800, 40))),
                                                         object_id=get_text_box_theme("#text_box_34_horizcenter"),
                                                         manager=MANAGER)
 

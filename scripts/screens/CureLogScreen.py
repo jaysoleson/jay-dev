@@ -477,7 +477,6 @@ class CureLogScreen(Screens):
         displays the treatment lists.
         """
 
-
         current_treatments = []
         current_type = ""
         all_treatments = {}
@@ -520,14 +519,13 @@ class CureLogScreen(Screens):
 
         logs = 0
         for treatment in current_treatments:
-            # print("Displaying treatment from moon", treatment['moon'])
 
             # MOON TEXT
             if logs > 0:
                 # if its not the first log it gets anchored to the last one
                 self.log_items["moon_text" + str(logs)] = pygame_gui.elements.UITextBox(
                     f"<b>Moon {treatment['moon']}</b>",
-                    pygame.Rect((30, 20), (log_width, -1)),
+                    pygame.Rect((50, 20), (log_width, -1)),
                     container=self.scroll_container,
                     manager=MANAGER,
                     object_id=get_text_box_theme("#text_box_30_horizleft"),
@@ -538,7 +536,7 @@ class CureLogScreen(Screens):
             else:
                 self.log_items["moon_text" + str(logs)] = pygame_gui.elements.UITextBox(
                     f"<b>Moon {treatment['moon']}</b>",
-                    pygame.Rect((30, 20), (log_width, -1)),
+                    pygame.Rect((50, 20), (log_width, -1)),
                     container=self.scroll_container,
                     manager=MANAGER,
                     object_id=get_text_box_theme("#text_box_30_horizleft"),
@@ -563,7 +561,7 @@ class CureLogScreen(Screens):
 
             self.log_items["herbs_text" + str(logs)] = pygame_gui.elements.UITextBox(
                 f"{', '.join([herb.replace('_', ' ') for herb in treatment['herbs']])}\n" + successtext,
-                pygame.Rect((30, 0), (log_width, -1)),
+                pygame.Rect((50, 0), (log_width, -1)),
                 container=self.scroll_container,
                 manager=MANAGER,
                 object_id=get_text_box_theme("#text_box_26_horizleft"),

@@ -80,7 +80,7 @@
             ],
             "parasitic": [],
             "void": [
-                "The sickly black patches on m_c's pelt are getting harder to hide as their infection progresses."
+                "The sickly black patches on m_c's pelt are getting harder to hide as {PRONOUN/m_c/poss} infection progresses."
             ],
             "fungal": [
                 "Mushrooms have begun to sprout out of m_c's pelt as {PRONOUN/m_c/poss} infection worsens."
