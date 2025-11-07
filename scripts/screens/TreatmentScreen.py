@@ -47,6 +47,7 @@ class TreatmentScreen(Screens):
     cat_list_buttons = {}
     herb_buttons = {}
     herb_displays = {}
+    log_items = {}
     additional_infected_sprites = {}
     stage = 'choose patient'
 
@@ -227,6 +228,9 @@ class TreatmentScreen(Screens):
         for ele in self.herb_displays:
             self.herb_displays[ele].kill()
         self.herb_displays = {}
+        for ele in self.log_items:
+            self.log_items[ele].kill()
+        self.log_items = {}
 
         if self.herb1 is None and self.herb2 is None and self.herb3 is None and self.herb4 is None:
             self.next_stage_button.disable()
@@ -242,56 +246,68 @@ class TreatmentScreen(Screens):
 
         # cure logs
         logs = 0
-        if game.settings["fullscreen"]:
-            log_width = 700
-        else:
-            log_width = 500
-
-        y_offset = 0
+        log_width = 700
 
         current_type = get_infection_info("type", self.selected_cat)
         for treatment in game.clan.infection['treatments']:
             if "type" in treatment:
                 if treatment["type"] != current_type:
                     continue
-            logs += 1
 
-            moon_text = f"<b>Moon {treatment['moon']}</b>"
-            self.herb_displays["moon_text_box" + str(logs)] = pygame_gui.elements.UITextBox(
-                moon_text,
-                pygame.Rect((80, y_offset), (log_width, 30)),
-                container=self.scroll_container,
-                manager=MANAGER,
-                object_id="#text_box_30_horizcenter")
-            
-            offset2 = 13
-            
-            treatment_text = f"{', '.join([herb.replace('_', ' ') for herb in treatment['herbs']])}"
-            self.herb_displays["treatment_text_box" + str(logs)] = pygame_gui.elements.UITextBox(
-                treatment_text,
-                pygame.Rect((80, (y_offset + offset2)), (log_width, 100)),
-                container=self.scroll_container,
-                manager=MANAGER,
-                object_id="#text_box_30_horizcenter")
-            
-            # correct_text = f"Effective Herbs: {treatment['correct_herbs']}"
-            correct_text = ""
-            if int(treatment['correct_herbs']) > 0 and int(treatment['correct_herbs']) < 4:
-                correct_text = "<font color = '#473B0A'> At least one effective herb </font>"
-            elif int(treatment['correct_herbs']) == 4:
-                correct_text = "<font color='#136D05'>Cure Found!</font>"
+            if logs > 0:
+                # if its not the first log it gets anchored to the last one
+                self.log_items["moon_text" + str(logs)] = pygame_gui.elements.UITextBox(
+                    f"<b>Moon {treatment['moon']}</b>",
+                    pygame.Rect((0, 20), (log_width, -1)),
+                    container=self.scroll_container,
+                    manager=MANAGER,
+                    object_id="#text_box_30_horizcenter",
+                    anchors={
+                        "top_target": self.log_items["herbs_text" + str(logs - 1)],
+                        "centerx": "centerx"
+                        }
+                    )
             else:
-                correct_text = "<font color='#550D0D'>Zero Effective Herbs</font>"
+                self.log_items["moon_text" + str(logs)] = pygame_gui.elements.UITextBox(
+                    f"<b>Moon {treatment['moon']}</b>",
+                    pygame.Rect((0, 20), (log_width, -1)),
+                    container=self.scroll_container,
+                    manager=MANAGER,
+                    object_id="#text_box_30_horizcenter",
+                    anchors={
+                        "centerx": "centerx"
+                        }
+                    )
+            
+            # HERBS + SUCCESS TEXT
+            if int(treatment['correct_herbs']) == 4:
+                if game.settings["dark mode"]:
+                    successtext = "<font color='#A2D86C'>Cure Found!</font>"
+                else:
+                    successtext = "<font color='#136D05'>Cure Found!</font>"
+            elif int(treatment['correct_herbs']) > 0:
+                if game.settings["dark mode"]:
+                    successtext = "<font color='#DBD076'>At least one effective herb</font>"
+                else:
+                    successtext = "<font color='#473B0A'>At least one effective herb</font>"
+            else:
+                if game.settings["dark mode"]:
+                    successtext = "<font color='#FF0000'>Zero Effective Herbs</font>"
+                else:
+                    successtext = "<font color='#550D0D'>Zero Effective Herbs</font>"
 
-            offset3 = 32
-            self.herb_displays["correct_text_box" + str(logs)] = pygame_gui.elements.UITextBox(
-                correct_text,
-                pygame.Rect((80, (y_offset + offset3)), (log_width, 50)),
+            self.log_items["herbs_text" + str(logs)] = pygame_gui.elements.UITextBox(
+                f"{', '.join([herb.replace('_', ' ') for herb in treatment['herbs']])}\n" + successtext,
+                pygame.Rect((0, 0), (log_width, -1)),
                 container=self.scroll_container,
                 manager=MANAGER,
-                object_id="#text_box_30_horizcenter"
+                object_id="#text_box_26_horizcenter",
+                anchors={
+                    "top_target": self.log_items["moon_text" + str(logs)],
+                    "centerx": "centerx"
+                    }
                 )
-            y_offset += 70
+            logs += 1
         # -----
         
         self_herbs = [self.herb1, self.herb2, self.herb3, self.herb4]
@@ -768,6 +784,10 @@ class TreatmentScreen(Screens):
         for ele in self.herb_displays:
             self.herb_displays[ele].kill()
         self.herb_displays = {}
+
+        for ele in self.log_items:
+            self.log_items[ele].kill()
+        self.log_items = {}
 
         for ele in self.additional_infected_sprites:
             self.additional_infected_sprites[ele].kill()
