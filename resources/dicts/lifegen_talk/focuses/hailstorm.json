@@ -127,7 +127,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["deaf:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -135,7 +136,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false","deaf:any:false"]
         },
         "tags": [
             "focus"
@@ -207,7 +209,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -224,7 +227,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -232,7 +236,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -313,7 +318,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -339,7 +345,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -347,7 +354,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -363,7 +371,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -374,7 +383,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -389,7 +399,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -402,7 +413,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -417,7 +429,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -449,7 +462,8 @@
             ],
             "age": [
                 "kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -502,7 +516,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -545,7 +560,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -558,7 +574,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -617,7 +634,7 @@
             "connected"
         ],
         "intro": [
-            "[You stop to peek over a group of warriors shoulders, catching sight of t_c jumping side to side, teaching other kittens on how to 'dodge' the balls of ice if the storm ever happens again.]",
+            "[You stop to peek over a group of warriors' shoulders, catching sight of t_c jumping side to side, teaching other kittens on how to 'dodge' the balls of ice if the storm ever happens again.]",
             "Like this, like this! Then, if the ice ever does rain again, we can outsmart it and dodge! Just like r_w says we should do if something is coming after us.",
             "[The kittens attempt to follow t_c's movements, yet they trip over each other in a heep of giggles. At least the kittens are entertained.]"
         ]

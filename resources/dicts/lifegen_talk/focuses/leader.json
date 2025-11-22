@@ -3,12 +3,14 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -19,11 +21,14 @@
         ]
     },
     "good_opinion_Guy1": {
-        "y_c": {},
+        "y_c": {
+            "condition": ["blind:any:false"]
+        },
         "t_c": {
             "age": [
                 "kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -33,11 +38,14 @@
         ]
     },
     "good_opinion_Guy2": {
-        "y_c": {},
+        "y_c": {
+            "condition": ["blind:any:false"]
+        },
         "t_c": {
             "age": [
                 "adolescent"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -47,11 +55,14 @@
         ]
     },
     "good_opinion_Guy3": {
-        "y_c": {},
+        "y_c": {
+            "condition": ["blind:any:false"]
+        },
         "t_c": {
             "status": [
                 "elder"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -64,7 +75,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -73,7 +85,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -87,7 +100,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -97,7 +111,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -121,7 +136,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -160,7 +176,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -170,7 +187,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -184,7 +202,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -192,7 +211,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -206,7 +226,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -215,7 +236,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "relationship": [
             "min_platonic_20"
@@ -233,7 +255,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -241,7 +264,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -256,7 +280,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -266,7 +291,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -314,7 +340,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["deaf:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -323,7 +350,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["deaf:any:false"]
         },
         "tags": [
             "focus"
@@ -336,7 +364,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -345,7 +374,8 @@
             "age": [
                 "adult",
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -360,7 +390,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -373,7 +404,8 @@
             "status": [
                 "warrior",
                 "apprentice"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -392,7 +424,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -404,7 +437,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -423,7 +457,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -436,7 +471,8 @@
             "status": [
                 "mediator",
                 "mediator apprentice"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -455,7 +491,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -468,7 +505,8 @@
             "status": [
                 "queen",
                 "queen's apprentice"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -487,7 +525,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -503,7 +542,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "relationship": [
             "min_trust_30"
@@ -518,13 +558,16 @@
         ]
     },
     "good_opinion_AJ14": {
-        "y_c": {},
+        "y_c": {
+            "condition": ["blind:any:false"]
+        },
         "t_c": {
             "cluster": [
                 "assertive",
                 "unabashed",
                 "upstanding"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -536,11 +579,14 @@
         ]
     },
     "good_opinion_AJ15": {
-        "y_c": {},
+        "y_c": {
+            "condition": ["blind:any:false"]
+        },
         "t_c": {
             "cluster": [
                 "unlawful"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -551,7 +597,9 @@
         ]
     },
     "good_opinion_AJ16": {
-        "y_c": {},
+        "y_c": {
+            "condition": ["blind:any:false"]
+        },
         "t_c": {
             "cluster": [
                 "unabashed",
@@ -560,7 +608,8 @@
             ],
             "status": [
                 "elder"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -571,12 +620,15 @@
         ]
     },
     "good_opinion_AJ17": {
-        "y_c": {},
+        "y_c": {
+            "condition": ["blind:any:false"]
+        },
         "t_c": {
             "min_max_faith": [
                 0,
                 9
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "intro": [
             "Have you seen how well the prey has been running lately? It has to be some kind of good sign.",
@@ -584,12 +636,15 @@
         ]
     },
     "good_opinion_AJ18": {
-        "y_c": {},
+        "y_c": {
+            "condition": ["blind:any:false"]
+        },
         "t_c": {
             "min_max_faith": [
                 0,
                 9
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "intro": [
             "I might not always have faith in l_n, but I do have faith in StarClan.",
@@ -597,14 +652,17 @@
         ]
     },
     "good_opinion_AJ19": {
-        "y_c": {},
+        "y_c": {
+            "condition": ["blind:any:false"]
+        },
         "t_c": {
             "cluster": [
                 "stable",
                 "brooding",
                 "silly",
                 "upstanding"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "intro": [
             "Everycat complaining about l_n around camp ... I'm just so sick of hearing about it.",
@@ -615,7 +673,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "status": [
@@ -624,7 +683,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "relationship": [
             "min_trust_30"
@@ -639,7 +699,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -647,7 +708,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "intro": [
             "Y'know, all this controversy has really only made me gain respect for our leader. Despite all the squabble, {PRONOUN/l_n/subject} still managed to rise above it all.",
@@ -658,7 +720,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -667,7 +730,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "intro": [
             "I never really felt all that strongly about l_n's leadership style, but all this squawking about how terrible {PRONOUN/l_n/subject} {VERB/l_n/are/is} is so annoying that I just might have to support {PRONOUN/l_n/object} now, just to make a point."
@@ -677,12 +741,14 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -692,11 +758,14 @@
         ]
     },
     "neutral_opinion_Guy1": {
-        "y_c": {},
+        "y_c": {
+            "condition": ["blind:any:false"]
+        },
         "t_c": {
             "age": [
                 "kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -706,11 +775,14 @@
         ]
     },
     "neutral_opinion_Guy2": {
-        "y_c": {},
+        "y_c": {
+            "condition": ["blind:any:false"]
+        },
         "t_c": {
             "age": [
                 "adolescent"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -722,11 +794,14 @@
         ]
     },
     "neutral_opinion_Guy3": {
-        "y_c": {},
+        "y_c": {
+            "condition": ["blind:any:false"]
+        },
         "t_c": {
             "status": [
                 "elder"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -740,7 +815,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -748,7 +824,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -761,7 +838,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -769,7 +847,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -783,7 +862,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -791,7 +871,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -802,11 +883,14 @@
         ]
     },
     "neutral_opinion_AJ": {
-        "y_c": {},
+        "y_c": {
+            "condition": ["blind:any:false"]
+        },
         "t_c": {
             "cluster": [
                 "brooding"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "relationship": [
             "neutral"
@@ -823,7 +907,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -833,7 +918,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "intro": [
             "Psh, who cares about l_n? It's not like what {PRONOUN/l_n/subject} {VERB/l_n/do/does} really matters to the Clan much anyways.",
@@ -845,7 +931,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -863,7 +950,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "intro": [
             "l_n this, l_n that. Does anycat really think all this talk about l_n is going to make any difference to the Clan whatsoever?",
@@ -875,7 +963,8 @@
         "y_c": {
             "age": [
                 "adolescent"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -887,7 +976,8 @@
             ],
             "age": [
                 "older"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "relationship": [
             "neutral"
@@ -901,7 +991,8 @@
         "y_c": {
             "age": [
                 "adolescent"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -910,7 +1001,8 @@
             ],
             "age": [
                 "older"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "intro": [
             "Sorry, pipsqueak. I don't talk politics with cats who don't even know if their name is gonna end with a -claw or a -cloud yet.",
@@ -918,14 +1010,17 @@
         ]
     },
     "neutral_opinion_AJ5": {
-        "y_c": {},
+        "y_c": {
+            "condition": ["blind:any:false"]
+        },
         "t_c": {
             "cluster": [
                 "introspective"
             ],
             "age": [
                 "older"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "intro": [
             "A big change is coming ... Can you feel it in the air?",
@@ -934,12 +1029,15 @@
         ]
     },
     "neutral_opinion_AJ6": {
-        "y_c": {},
+        "y_c": {
+            "condition": ["blind:any:false"]
+        },
         "t_c": {
             "cluster": [
                 "stable",
                 "introspective"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "intro": [
             "There is good and bad in everycat. l_n is no different.",
@@ -947,11 +1045,14 @@
         ]
     },
     "neutral_opinion_AJ7": {
-        "y_c": {},
+        "y_c": {
+            "condition": ["blind:any:false"]
+        },
         "t_c": {
             "status": [
                 "elder"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "intro": [
             "Y'know, I remember a time before l_n was leader. The leader then never always made the right choices, either. There were times when all of us doubted.",
@@ -963,7 +1064,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -971,7 +1073,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "relationship": [
             "max_platonic_30"
@@ -984,7 +1087,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -992,7 +1096,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "intro": [
             "So much idle gossip in this Clan, it's enough to make you sick.",
@@ -1003,7 +1108,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -1012,7 +1118,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "intro": [
             "Pst, y_c. I heard a terrible rumor that l_n is part turtle! How can we ever expect anycat so slow to lead our Clan to success?",
@@ -1020,23 +1127,29 @@
         ]
     },
     "neutral_opinion_AJ11": {
-        "y_c": {},
+        "y_c": {
+            "condition": ["blind:any:false"]
+        },
         "t_c": {
             "age": [
                 "adolescent",
                 "adult"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "intro": [
             "[When older cats start discussing l_n, t_c gets up and moves to a different part of camp.]"
         ]
     },
     "neutral_opinion_AJ12": {
-        "y_c": {},
+        "y_c": {
+            "condition": ["blind:any:false"]
+        },
         "t_c": {
             "cluster": [
                 "neurotic"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "intro": [
             "Oh, I just hate how much animosity there is around camp nowadays! Don't you, y_c? It seems like even the tiniest comments are enough to start a fight.",
@@ -1047,7 +1160,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -1055,7 +1169,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "intro": [
             "Hey, love l_n or hate {PRONOUN/l_n/object}, you can't deny this is the most excitement we've had around camp in moons.",
@@ -1067,7 +1182,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "status": [
@@ -1077,7 +1193,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "relationship": [
             "min_platonic_20"
@@ -1092,12 +1209,14 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "relationship": [
             "min_platonic_20"
@@ -1133,11 +1252,14 @@
         ]
     },
     "bad_opinion_Guy1": {
-        "y_c": {},
+        "y_c": {
+            "condition": ["blind:any:false"]
+        },
         "t_c": {
             "age": [
                 "kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -1147,11 +1269,14 @@
         ]
     },
     "bad_opinion_Guy2": {
-        "y_c": {},
+        "y_c": {
+            "condition": ["blind:any:false"]
+        },
         "t_c": {
             "status": [
                 "apprentice"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -1163,11 +1288,14 @@
         ]
     },
     "bad_opinion_Guy3": {
-        "y_c": {},
+        "y_c": {
+            "condition": ["blind:any:false"]
+        },
         "t_c": {
             "status": [
                 "elder"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -1180,7 +1308,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -1190,7 +1319,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -1230,7 +1360,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -1240,7 +1371,8 @@
             "age": [
                 "adolescent",
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -1280,7 +1412,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -1290,7 +1423,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -1304,7 +1438,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -1313,7 +1448,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -1327,7 +1463,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -1336,7 +1473,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
