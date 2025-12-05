@@ -13,9 +13,7 @@ from scripts.housekeeping.datadir import get_save_dir
 
 import scripts.game_structure.screen_settings
 from scripts.clan import Clan
-from scripts.game_structure.game_essentials import (
-    game,
-)
+from scripts.game_structure import game
 from scripts.game_structure.ui_elements import UIImageButton, UISurfaceImageButton
 from scripts.game_structure.windows import DeleteCheck
 from scripts.utility import (
@@ -26,9 +24,10 @@ from scripts.utility import (
     ui_scale_offset,
 )
 from .Screens import Screens
+from ..game_structure.game.save_load import read_clans
+from ..game_structure.game.settings import game_setting_get
 from ..game_structure.screen_settings import MANAGER
 from ..ui.generate_button import get_button_dict, ButtonStyles
-from ..ui.get_arrow import get_arrow
 from ..ui.icon import Icon
 
 logger = logging.getLogger(__name__)
@@ -66,11 +65,13 @@ class SwitchClanScreen(Screens):
 
                 for page in self.clan_buttons:
                     if event.ui_element in page:
+                        self.change_screen("start screen")
                         Clan.switch_clans(
-                            self.clan_name[self.page][page.index(event.ui_element)]
+                            self.clan_name[self.page][page.index(event.ui_element)],
+                            False,
                         )
 
-        elif event.type == pygame.KEYDOWN and game.settings["keybinds"]:
+        elif event.type == pygame.KEYDOWN and game_setting_get("keybinds"):
             if event.key == pygame.K_ESCAPE:
                 self.change_screen("start screen")
 
@@ -80,8 +81,6 @@ class SwitchClanScreen(Screens):
         """
         self.main_menu.kill()
         del self.main_menu
-        self.info.kill()
-        del self.info
         self.current_clan.kill()
         del self.current_clan
 
@@ -131,36 +130,26 @@ class SwitchClanScreen(Screens):
         )
         self.main_menu = UISurfaceImageButton(
             ui_scale(pygame.Rect((25, 25), (153, 30))),
-            get_arrow(3) + " Main Menu",
+            "buttons.main_menu",
             get_button_dict(ButtonStyles.SQUOVAL, (153, 30)),
             manager=MANAGER,
             object_id="@buttonstyles_squoval",
             starting_height=1,
         )
 
-        self.info = pygame_gui.elements.UITextBox(
-            "Note: This will close the game.\n When you open it next, it should have the new Clan.",
-            # pylint: disable=line-too-long
-            ui_scale(pygame.Rect((100, 600), (600, 70))),
-            object_id=get_text_box_theme("#text_box_30_horizcenter"),
-            manager=MANAGER,
-        )
-
         self.current_clan = pygame_gui.elements.UITextBox(
-            "",
-            ui_scale(pygame.Rect((0, 100), (600, 40))),
+            "screens.switch_clan.current_clan",
+            ui_scale(pygame.Rect((0, 90), (600, 80))),
             object_id=get_text_box_theme("#text_box_30_horizcenter"),
             manager=MANAGER,
             anchors={"centerx": "centerx"},
+            text_kwargs={
+                "clan": game.clan.displayname if game.clan else "",
+                "clan_id": game.clan.name if game.clan else "",
+                "count": 1 if game.clan else 0,
+            },
         )
-        if game.clan:
-            self.current_clan.set_text(
-                f"The currently loaded Clan is {game.clan.name}Clan"
-            )
-        else:
-            self.current_clan.set_text("There is no Clan currently loaded.")
-
-        self.clan_list = game.read_clans()
+        self.clan_list = read_clans()
 
         self.clan_buttons = [[]]
         self.clan_name = [[]]
@@ -251,12 +240,14 @@ class SwitchClanScreen(Screens):
                     ),
                     object_id=ObjectID("#text_box_34_horizcenter_vertcenter", "#dark"),
                     manager=MANAGER,
-                    anchors={
-                        "centerx": "centerx",
-                        "top_target": self.clan_buttons[-1][-1],
-                    }
-                    if len(self.clan_buttons[-1]) % 8 != 0
-                    else {"centerx": "centerx"},
+                    anchors=(
+                        {
+                            "centerx": "centerx",
+                            "top_target": self.clan_buttons[-1][-1],
+                        }
+                        if len(self.clan_buttons[-1]) % 8 != 0
+                        else {"centerx": "centerx"}
+                    ),
                 )
             )
             if your_name != "" and clan_age != "":

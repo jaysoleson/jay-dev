@@ -2,20 +2,40 @@
 # -*- coding: ascii -*-
 import random
 
+import i18n
 import ujson
 from copy import deepcopy
 
+from scripts.cat_relations.enums import RelType
+from scripts.events_module.event_filters import (
+    event_for_location,
+    event_for_season,
+    event_for_tags,
+    event_for_reputation,
+    event_for_cat,
+    event_for_freshkill_supply,
+    event_for_herb_supply,
+    event_for_clan_relations,
+    cat_for_event,
+)
 from scripts.events_module.ongoing.ongoing_event import OngoingEvent
 from scripts.events_module.short.short_event import ShortEvent
-from scripts.game_structure.game_essentials import game
+from scripts.game_structure import constants
+from scripts.game_structure.game.switches import switch_get_value, Switch
+from scripts.game_structure import game
+from scripts.game_structure.localization import load_lang_resource
 from scripts.utility import (
-    filter_relationship_type,
     get_living_clan_cat_count,
+<<<<<<< HEAD
     get_alive_status_cats,
     get_cluster
+=======
+>>>>>>> development
 )
 
-resource_directory = "resources/dicts/events/"
+
+def get_resource_directory(fallback=False):
+    return f"resources/lang/{i18n.config.get('locale') if not fallback else i18n.config.get('fallback')}/events/"
 
 
 # ---------------------------------------------------------------------------- #
@@ -26,27 +46,29 @@ resource_directory = "resources/dicts/events/"
 class GenerateEvents:
     loaded_events = {}
 
-    INJURY_DISTRIBUTION = None
     with open(
-        f"resources/dicts/conditions/event_injuries_distribution.json", "r"
+        f"resources/dicts/conditions/injuries.json", "r", encoding="utf-8"
     ) as read_file:
-        INJURY_DISTRIBUTION = ujson.loads(read_file.read())
-
-    INJURIES = None
-    with open(f"resources/dicts/conditions/injuries.json", "r") as read_file:
         INJURIES = ujson.loads(read_file.read())
 
     @staticmethod
     def get_short_event_dicts(file_path):
         try:
             with open(
-                file_path,
-                "r",
+                get_resource_directory() + file_path, "r", encoding="utf-8"
             ) as read_file:
                 events = ujson.loads(read_file.read())
         except:
-            print(f"ERROR: Unable to load {file_path}.")
-            return None
+            try:
+                with open(
+                    get_resource_directory(fallback=True) + file_path,
+                    "r",
+                    encoding="utf-8",
+                ) as read_file:
+                    events = ujson.loads(read_file.read())
+            except:
+                print(f"ERROR: Unable to load {file_path}.")
+                return None
 
         return events
 
@@ -54,10 +76,7 @@ class GenerateEvents:
     def get_ongoing_event_dicts(file_path):
         events = None
         try:
-            with open(
-                file_path,
-                "r",
-            ) as read_file:
+            with open(file_path, "r", encoding="utf-8") as read_file:
                 events = ujson.loads(read_file.read())
         except:
             print(f"ERROR: Unable to load events from biome {file_path}.")
@@ -66,25 +85,15 @@ class GenerateEvents:
 
     @staticmethod
     def get_death_reaction_dicts(family_relation, rel_value):
-        try:
-            file_path = f"{resource_directory}/death/death_reactions/{family_relation}/{family_relation}_{rel_value}.json"
-            with open(
-                file_path,
-                "r",
-            ) as read_file:
-                events = ujson.loads(read_file.read())
-        except:
-            events = None
-            print(
-                f"ERROR: Unable to load death reaction events for {family_relation}_{rel_value}."
-            )
-        return events
+        return load_lang_resource(
+            f"events/death/death_reactions/{family_relation}/{family_relation}_{rel_value}.json"
+        )
 
     @staticmethod
     def get_lead_den_event_dicts(event_type: str, success: bool):
         try:
-            file_path = f"{resource_directory}/leader_den/{'success' if success else 'fail'}/{event_type}.json"
-            with open(file_path, "r") as read_file:
+            file_path = f"{get_resource_directory()}leader_den/{'success' if success else 'fail'}/{event_type}.json"
+            with open(file_path, "r", encoding="utf-8") as read_file:
                 events = ujson.loads(read_file.read())
         except:
             events = None
@@ -99,6 +108,7 @@ class GenerateEvents:
         GenerateEvents.loaded_events = {}
 
     @staticmethod
+<<<<<<< HEAD
     def generate_short_events(event_triggered, biome):
         # LG
         faith_event = False
@@ -108,10 +118,15 @@ class GenerateEvents:
             faith_event = True
             file_path = "resources/dicts/relationship_events/faith.json"
         # ---
+=======
+    def generate_short_events(event_triggered, biome, frequency):
+        file_path = f"{event_triggered}/{biome}.json"
+        load_name = f"{file_path}_{frequency}"
+>>>>>>> development
 
         try:
-            if file_path in GenerateEvents.loaded_events:
-                return GenerateEvents.loaded_events[file_path]
+            if load_name in GenerateEvents.loaded_events:
+                return GenerateEvents.loaded_events[load_name]
             else:
                 events_dict = GenerateEvents.get_short_event_dicts(file_path)
 
@@ -134,6 +149,7 @@ class GenerateEvents:
                     new_events_dict = events_dict
                 for event in new_events_dict:
                     event_text = event["event_text"] if "event_text" in event else None
+                    event_frequency = event["frequency"] if "frequency" in event else 4
                     if not event_text:
                         event_text = (
                             event["death_text"] if "death_text" in event else None
@@ -143,6 +159,10 @@ class GenerateEvents:
                         print(
                             f"WARNING: some events resources which are used in generate_events have no 'event_text'."
                         )
+
+                    if frequency != event_frequency:
+                        continue
+
                     event = ShortEvent(
                         event_id=event["event_id"] if "event_id" in event else "",
                         location=event["location"] if "location" in event else ["any"],
@@ -150,40 +170,47 @@ class GenerateEvents:
                         season=event["season"] if "season" in event else ["any"],
                         sub_type=event["sub_type"] if "sub_type" in event else [],
                         tags=event["tags"] if "tags" in event else [],
-                        weight=event["weight"] if "weight" in event else 20,
                         text=event_text,
-                        new_accessory=event["new_accessory"]
-                        if "new_accessory" in event
-                        else [],
+                        new_accessory=(
+                            event["new_accessory"] if "new_accessory" in event else []
+                        ),
                         m_c=event["m_c"] if "m_c" in event else {},
                         r_c=event["r_c"] if "r_c" in event else {},
                         new_cat=event["new_cat"] if "new_cat" in event else [],
                         injury=event["injury"] if "injury" in event else [],
+                        exclude_involved=(
+                            event["exclude_involved"]
+                            if "exclude_involved" in event
+                            else []
+                        ),
                         history=event["history"] if "history" in event else [],
-                        relationships=event["relationships"]
-                        if "relationships" in event
-                        else [],
+                        relationships=(
+                            event["relationships"] if "relationships" in event else []
+                        ),
                         outsider=event["outsider"] if "outsider" in event else {},
                         other_clan=event["other_clan"] if "other_clan" in event else {},
                         supplies=event["supplies"] if "supplies" in event else [],
-                        new_gender=event["new_gender"] if "new_gender" in event else []
+                        new_gender=event["new_gender"] if "new_gender" in event else [],
+                        future_event=event["future_event"]
+                        if "future_event" in event
+                        else {},
                     )
                     event_list.append(event)
 
                 # Add to loaded events.
-                GenerateEvents.loaded_events[file_path] = event_list
+                GenerateEvents.loaded_events[load_name] = event_list
                 return event_list
         except:
             print(f"WARNING: {file_path} was not found, check short event generation")
 
     @staticmethod
     def generate_ongoing_events(event_type, biome, specific_event=None):
-        file_path = f"resources/dicts/events/{event_type}/{biome}.json"
+        file_path = f"{get_resource_directory()}/{event_type}/{biome}.json"
 
         if file_path in GenerateEvents.loaded_events:
             return GenerateEvents.loaded_events[file_path]
         else:
-            events_dict = GenerateEvents.get_ongoing_event_dicts(file_path)
+            events_dict = GenerateEvents.get_short_event_dicts(file_path)
 
             if not specific_event:
                 event_list = []
@@ -226,23 +253,35 @@ class GenerateEvents:
                 return event
 
     @staticmethod
-    def possible_short_events(event_type=None):
+    def possible_short_events(
+        frequency,
+        event_type=None,
+    ):
         event_list = []
 
         # skip the rest of the loading if there is an unrecognised biome
-        if game.clan.biome not in game.clan.BIOME_TYPES:
+        temp_biome = (
+            game.clan.biome
+            if not game.clan.override_biome
+            else game.clan.override_biome
+        )
+        if temp_biome not in constants.BIOME_TYPES:
             print(
                 f"WARNING: unrecognised biome {game.clan.biome} in generate_events. Have you added it to BIOME_TYPES "
                 f"in clan.py?"
             )
 
-        biome = game.clan.biome.lower()
+        biome = temp_biome.lower()
 
         # biome specific events
-        event_list.extend(GenerateEvents.generate_short_events(event_type, biome))
+        event_list.extend(
+            GenerateEvents.generate_short_events(event_type, biome, frequency)
+        )
 
         # any biome events
-        event_list.extend(GenerateEvents.generate_short_events(event_type, "general"))
+        event_list.extend(
+            GenerateEvents.generate_short_events(event_type, "general", frequency)
+        )
 
         return event_list
 
@@ -251,21 +290,17 @@ class GenerateEvents:
         Cat_class,
         possible_events,
         cat,
-        random_cat,
         other_clan,
         freshkill_active,
         freshkill_trigger_factor,
+        random_cat=None,
         sub_types=None,
+        allowed_events=None,
+        excluded_events=None,
+        ignore_subtyping=False,
     ):
         final_events = []
         incorrect_format = []
-
-        # Chance to bypass the skill or trait requirements.
-        trait_skill_bypass = 15
-
-        # check if generated event should be a war event
-        if "war" in sub_types and random.randint(1, 10) == 1:
-            sub_types.remove("war")
 
         for event in possible_events:
             if event.history:
@@ -290,77 +325,39 @@ class GenerateEvents:
                             f"{event.event_id} injury formatted incorrectly"
                         )
 
+            # check if event is in allowed or excluded
+            if allowed_events and event.event_id not in allowed_events:
+                continue
+            if excluded_events and event.event_id in excluded_events:
+                continue
+
+            # if requirements are overridden, allow event through
+            if constants.CONFIG["event_generation"]["debug_override_requirements"]:
+                final_events.append(event)
+                continue
+
             # check for event sub_type
-            wrong_type = False
-            for sub in sub_types:
-                if sub not in event.sub_type:
-                    wrong_type = True
-
-            for sub in event.sub_type:
-                if sub not in sub_types:
-                    wrong_type = True
-
-            if wrong_type:
-                continue
-
-            discard = True
-            for location in event.location:
-                if location == "any":
-                    discard = False
-                    break
-                if ":" in location:
-                    location_info = location.split(":")
-                    req_biome = location_info[0]
-                    req_camps = location_info[1].split("_")
-                else:
-                    req_biome = location
-                    req_camps = ["any"]
-
-                if req_biome == game.clan.biome.lower():
-                    discard = False
-                else:
+            if not ignore_subtyping:
+                if set(event.sub_type) != set(sub_types):
                     continue
 
-                if game.clan.camp_bg in req_camps or "any" in req_camps:
-                    discard = False
-                else:
-                    continue
-
-                if not discard:
-                    break
-
-            if discard:
+            if not event_for_location(event.location):
                 continue
 
-            # check season
-            if (
-                game.clan.current_season.lower() not in event.season
-                and "any" not in event.season
-            ):
+            if not event_for_season(event.season):
                 continue
 
             # check tags
-            prevent_bypass = "skill_trait_required" in event.tags
-
-            # some events are classic only
-            if (
-                game.clan.game_mode in ["expanded", "cruel season"]
-                and "classic" in event.tags
-            ):
-                continue
-            # cruel season only events
-            if (
-                game.clan.game_mode in ["classic", "expanded"]
-                and "cruel_season" in event.tags
-            ):
+            if not event_for_tags(event.tags, cat, random_cat):
                 continue
 
             # make complete leader death less likely until the leader is over 150 moons (or unless it's a murder)
-            if cat.status == "leader":
+            if cat.status.is_leader:
                 if "all_lives" in event.tags and "murder" not in event.sub_type:
                     if int(cat.moons) < 150 and int(random.random() * 5):
                         continue
 
+<<<<<<< HEAD
                 leader_lives = game.clan.leader_lives
 
                 # make sure that 'some lives' and "lives_remain" events don't show up if the leader doesn't have
@@ -405,32 +402,27 @@ class GenerateEvents:
                 if any(Cat_class.fetch_cat(i).no_kits for i in cat.mates):
                     continue
 
+=======
+>>>>>>> development
             # check for old age
             if (
                 "old_age" in event.sub_type
-                and cat.moons < game.config["death_related"]["old_age_death_start"]
+                and cat.moons < constants.CONFIG["death_related"]["old_age_death_start"]
             ):
                 continue
             # remove some non-old age events to encourage elders to die of old age more often
             if (
                 "old_age" not in event.sub_type
-                and cat.moons > game.config["death_related"]["old_age_death_start"]
+                and cat.moons > constants.CONFIG["death_related"]["old_age_death_start"]
                 and int(random.random() * 3)
             ):
                 continue
 
-            # if the event is marked as changing romantic interest, check that the cats are allowed to be romantic
-            if random_cat:
-                if "romantic" in event.tags and not random_cat.is_potential_mate(cat):
-                    continue
-
             # check if already trans
-            if (
-                "transition" in event.sub_type
-                and cat.gender != cat.genderalign
-            ):
+            if "transition" in event.sub_type and cat.gender != cat.genderalign:
                 continue
 
+<<<<<<< HEAD
             if event.m_c:
                 if cat.age not in event.m_c["age"] and "any" not in event.m_c["age"]:
                     continue
@@ -759,238 +751,98 @@ class GenerateEvents:
                                 ):
                                     continue
 
+=======
+            m_c_injuries = []
+            r_c_injuries = []
+            discard = False
+            for block in event.injury:
+                for injury in block["injuries"]:
+                    if "m_c" in block["cats"]:
+                        m_c_injuries.append(injury)
+                    if "r_c" in block["cats"]:
+                        r_c_injuries.append(injury)
+>>>>>>> development
                 if discard:
+                    continue
+
+            # check if m_c is allowed this event
+            if event.m_c:
+                if not event_for_cat(
+                    cat_info=event.m_c,
+                    cat=cat,
+                    cat_group=[cat, random_cat] if random_cat else None,
+                    event_id=event.event_id,
+                    injuries=m_c_injuries,
+                ):
+                    continue
+            # if a random cat was pre-chosen, then we check if the event will be suitable for them
+            if random_cat:
+                if not event_for_cat(
+                    cat_info=event.r_c,
+                    cat=random_cat,
+                    cat_group=[random_cat, cat],
+                    event_id=event.event_id,
+                    injuries=r_c_injuries,
+                ):
                     continue
 
             # check if outsider event is allowed
             if event.outsider:
-                # don't waste time checking rep if any rep is allowed
-                if "any" not in event.outsider["current_rep"]:
-                    # hostile
-                    if (
-                        1 <= game.clan.reputation <= 30
-                        and "hostile" not in event.outsider["current_rep"]
-                    ):
-                        continue
-                    # neutral
-                    elif (
-                        31 <= game.clan.reputation <= 70
-                        and "neutral" not in event.outsider["current_rep"]
-                    ):
-                        continue
-                    # welcoming
-                    elif (
-                        71 <= game.clan.reputation <= 100
-                        and "welcoming" not in event.outsider["current_rep"]
-                    ):
-                        continue
+                if not event_for_reputation(event.outsider["current_rep"]):
+                    continue
 
             # other Clan related checks
             if event.other_clan:
                 if not other_clan:
                     continue
 
+                if not event_for_clan_relations(
+                    event.other_clan["current_rep"], other_clan
+                ):
+                    continue
+
                 # during a war we want to encourage the clans to have positive events
                 # when the overall war notice was positive
                 if "war" in event.sub_type:
-                    rel_change_type = game.switches["war_rel_change_type"]
+                    rel_change_type = switch_get_value(Switch.war_rel_change_type)
                     if (
                         event.other_clan["changed"] < 0
                         and rel_change_type != "rel_down"
                     ):
                         continue
 
-                # don't waste time checking rep if any rep is allowed
-                if "any" not in event.other_clan["current_rep"]:
-                    # ally
-                    if (
-                        "ally" in event.other_clan["current_rep"]
-                        and int(other_clan.relations) < 17
-                    ):
-                        continue
-                    # neutral
-                    elif "neutral" in event.other_clan["current_rep"] and (
-                        int(other_clan.relations) <= 7
-                        or int(other_clan.relations) >= 17
-                    ):
-                        continue
-                    # hostile
-                    elif (
-                        "hostile" in event.other_clan["current_rep"]
-                        and int(other_clan.relations) > 7
-                    ):
-                        continue
-
             # clans below a certain age can't have their supplies messed with
             if game.clan.age < 5 and event.supplies:
                 continue
+
             elif event.supplies:
                 clan_size = get_living_clan_cat_count(Cat_class)
-                discard = True
+                discard = False
                 for supply in event.supplies:
                     trigger = supply["trigger"]
                     supply_type = supply["type"]
                     if supply_type == "freshkill":
-                        # classic mode doesn't do freshkill
-                        # TODO: consider if events could still be allowed as "flavor" rather than actual supply changes
-                        if game.clan.game_mode == "classic":
-                            continue
-
-                        pile = game.clan.freshkill_pile
-                        needed_amount = pile.amount_food_needed()
                         if not freshkill_active:
                             continue
 
-                        if "always" in trigger:
+                        if not event_for_freshkill_supply(
+                            game.clan.freshkill_pile,
+                            trigger,
+                            freshkill_trigger_factor,
+                            clan_size,
+                        ):
+                            discard = True
+                            break
+                        else:
                             discard = False
 
-                        # "low" means total_amount must be less than half what is needed
-                        if "low" in trigger:
-                            if needed_amount / 2 > pile.total_amount:
-                                discard = False
-
-                        # "adequate" means total_amount must be greater than half needed,
-                        # but not greater than 1 moons worth of food
-                        if "adequate" in trigger:
-                            if needed_amount / 2 < pile.total_amount < needed_amount:
-                                discard = False
-
-                        # now do the math to find how much is too much prey
-                        trigger_factor = freshkill_trigger_factor
-                        divider = 35 if game.clan.game_mode == "expanded" else 20
-                        trigger_factor = trigger_factor - round(
-                            pow((clan_size / divider), 2)
-                        )
-                        if trigger_factor < 2 and game.clan.game_mode == "expanded":
-                            trigger_factor = 2
-                        if (
-                            trigger_factor < 1.2
-                            and game.clan.game_mode == "cruel season"
-                        ):
-                            trigger_factor = 1.2
-
-                        trigger_value = round(trigger_factor * needed_amount, 2)
-
-                        # "full" means total_amount is enough for 1 moons worth, but is not over the multiplier
-                        if "full" in trigger:
-                            # check this quick to see if we can skip the math
-                            if needed_amount < pile.total_amount < trigger_value:
-                                discard = False
-
-                        # "excess" means total_amount is over the multiplier and there's too much food!
-                        if "excess" in trigger:
-                            if pile.total_amount > trigger_value:
-                                discard = False
-
-                        if discard:
-                            break
-
                     else:  # if supply type wasn't freshkill, then it must be a herb type
-                        herbs = game.clan.herbs
-                        needed_amount = int(clan_size * 3)
-                        entire_supply_needed_amount = needed_amount * len(herbs.keys())
-                        discard = True
-
-                        if not herbs:
+                        if not event_for_herb_supply(trigger, supply_type, clan_size):
+                            discard = True
                             break
-
-                        if supply_type == "all_herb":
-                            if "always" in trigger:
-                                discard = False
-                                break
-                            if "low" in trigger:
-                                for herb in herbs:
-                                    if herbs[herb] < entire_supply_needed_amount / 2:
-                                        discard = False
-                                    else:
-                                        discard = True
-                                        break
-                            if "adequate" in trigger:
-                                for herb in herbs:
-                                    if (
-                                        entire_supply_needed_amount / 2
-                                        < herbs[herb]
-                                        < entire_supply_needed_amount
-                                    ):
-                                        discard = False
-                                    else:
-                                        discard = True
-                                        break
-                            if "full" in trigger:
-                                for herb in herbs:
-                                    if (
-                                        entire_supply_needed_amount
-                                        < herbs[herb]
-                                        < entire_supply_needed_amount * 2
-                                    ):
-                                        discard = False
-                                    else:
-                                        discard = True
-                                        break
-                            if "excess" in trigger:
-                                for herb in herbs:
-                                    if entire_supply_needed_amount * 2 < herbs[herb]:
-                                        discard = False
-                                    else:
-                                        discard = True
-                                        break
-                        elif supply_type == "any_herb":
-                            for herb in herbs.keys():
-                                if "always" in trigger:
-                                    discard = False
-                                    break
-                                if "low" in trigger and herbs[herb] < needed_amount / 2:
-                                    discard = False
-                                    break
-                                if (
-                                    "adequate" in trigger
-                                    and needed_amount / 2 < herbs[herb] < needed_amount
-                                ):
-                                    discard = False
-                                    break
-                                if (
-                                    "full" in trigger
-                                    and needed_amount < herbs[herb] < needed_amount * 2
-                                ):
-                                    discard = False
-                                    break
-                                if (
-                                    "excess" in trigger
-                                    and needed_amount * 2 < herbs[herb]
-                                ):
-                                    discard = False
-                                    break
-                            if discard:
-                                break
                         else:
-                            chosen_herb = supply_type
-                            if chosen_herb not in herbs:
-                                continue
-                            if "always" in trigger:
-                                discard = False
-                            if "low" in trigger:
-                                if herbs[chosen_herb] < needed_amount / 2:
-                                    discard = False
-                            if "adequate" in trigger:
-                                if (
-                                    needed_amount / 2
-                                    < herbs[chosen_herb]
-                                    < needed_amount
-                                ):
-                                    discard = False
-                            if "full" in trigger:
-                                if (
-                                    needed_amount
-                                    < herbs[chosen_herb]
-                                    < needed_amount * 2
-                                ):
-                                    discard = False
-                            if "excess" in trigger:
-                                if needed_amount * 2 < herbs[chosen_herb]:
-                                    discard = False
+                            discard = False
 
-                            if discard:
-                                break
                 if discard:
                     continue
 
@@ -1034,17 +886,89 @@ class GenerateEvents:
 
 
             final_events.extend([event] * event.weight)
+        if not final_events:
+            return None, None
+
+        cat_list = [
+            c for c in Cat_class.all_cats.values() if c.status.alive_in_player_clan
+        ]
+        chosen_cat = None
+        chosen_event = None
+
+        if random_cat:
+            chosen_cat = random_cat
+            # if we've got our random cat already, then check if we have to find an ensured event
+            if constants.CONFIG["event_generation"]["debug_ensure_event_id"]:
+                for event in final_events:
+                    if (
+                        event.event_id
+                        == constants.CONFIG["event_generation"]["debug_ensure_event_id"]
+                    ):
+                        chosen_event = event
+                        break
+            # else, pick a random one from the available events
+            elif not chosen_event:
+                chosen_event = random.choice(final_events)
+
+        failed_ids = []
+        while final_events and not chosen_cat and not chosen_event:
+            chosen_event = random.choice(final_events)
+            if chosen_event.event_id in failed_ids:
+                final_events.remove(chosen_event)
+                chosen_event = None
+                continue
+
+            # if we have an ensured id, only allow that event past
+            if (
+                constants.CONFIG["event_generation"]["debug_ensure_event_id"]
+                and constants.CONFIG["event_generation"]["debug_ensure_event_id"]
+                != chosen_event.event_id
+            ):
+                final_events.remove(chosen_event)
+                chosen_event = None
+                continue
+
+            if not chosen_event.r_c:
+                break
+
+            # if we're overriding requirements, don't bother looking for an appropriate cat
+            if constants.CONFIG["event_generation"]["debug_override_requirements"]:
+                chosen_cat = random.choice(cat_list)
+                continue
+
+            # gotta gather injuries so we can check if the cat can get them
+            r_c_injuries = []
+            for block in chosen_event.injury:
+                r_c_injuries.extend(block["injuries"] if "r_c" in block["cats"] else [])
+
+            chosen_cat = cat_for_event(
+                constraint_dict=chosen_event.r_c,
+                possible_cats=cat_list,
+                comparison_cat=cat,
+                comparison_cat_rel_status=chosen_event.m_c.get(
+                    "relationship_status", []
+                ).copy(),
+                injuries=r_c_injuries,
+                return_id=False,
+            )
+
+            if not chosen_cat:
+                failed_ids.append(chosen_event.event_id)
+                final_events.remove(chosen_event)
+                chosen_event = None
+            else:
+                break
 
         for notice in incorrect_format:
             print(notice)
 
-        return final_events
+        return chosen_event, chosen_cat
 
     @staticmethod
     def possible_ongoing_events(event_type=None, specific_event=None):
         event_list = []
 
-        if game.clan.biome not in game.clan.BIOME_TYPES:
+        if game.clan.biome not in constants.BIOME_TYPES:
             print(
                 f"WARNING: unrecognised biome {game.clan.biome} in generate_events. Have you added it to BIOME_TYPES in clan.py?"
             )
@@ -1075,7 +999,7 @@ class GenerateEvents:
             possible_events.extend(events[trait][body_status])
 
         # grab family events if they're needed. Family events should not be romantic.
-        if family_relation != "general" and rel_value != "romantic":
+        if family_relation != "general" and rel_value != RelType.ROMANCE:
             events = GenerateEvents.get_death_reaction_dicts(family_relation, rel_value)
             possible_events.extend(events["general"][body_status])
             if trait in events and body_status in events[trait]:
@@ -1121,72 +1045,12 @@ class GenerateEvents:
                     continue
 
             elif "reputation" in event:
-                reputation = game.clan.reputation
-                # hostile
-                if (
-                    1 <= reputation <= 30
-                    and "hostile" not in event["reputation"]
-                    and "any" not in event["reputation"]
-                ):
-                    continue
-                # neutral
-                elif (
-                    31 <= reputation <= 70
-                    and "neutral" not in event["reputation"]
-                    and "any" not in event["reputation"]
-                ):
-                    continue
-                # welcoming
-                elif (
-                    71 <= reputation <= 100
-                    and "welcoming" not in event["reputation"]
-                    and "any" not in event["reputation"]
-                ):
+                if not event_for_reputation(event["reputation"]):
                     continue
 
             cat_info = event["m_c"]
-            if "status" in cat_info:
-                # special lost cat check
-                if event_type == "outsider":
-                    if cat.status not in [
-                        "loner",
-                        "rogue",
-                        "kittypet",
-                        "former Clancat",
-                        "exiled",
-                    ]:
-                        if "lost" not in cat_info["status"]:
-                            continue
-                    elif (
-                        cat.status.casefold() not in [x.casefold() for x in cat_info["status"]]
-                        and "any" not in cat_info["status"]
-                    ):
-                        continue
-                elif (
-                    cat.status not in cat_info["status"]
-                    and "any" not in cat_info["status"]
-                ):
-                    continue
-            if "age" in cat_info:
-                if cat.age not in cat_info["age"]:
-                    continue
-            if "trait" in cat_info:
-                if cat.personality.trait not in cat_info["trait"]:
-                    continue
-            if "skill" in cat_info:
-                has_skill = False
-                for _skill in cat_info["skill"]:
-                    split = _skill.split(",")
-
-                    if len(split) < 2:
-                        print("Cat skill incorrectly formatted", _skill)
-                        continue
-
-                    if cat.skills.meets_skill_requirement(split[0], int(split[1])):
-                        has_skill = True
-                        break
-                if not has_skill:
-                    continue
+            if not event_for_cat(cat_info=cat_info, cat=cat):
+                continue
 
             possible_events.append(event)
 
@@ -1194,4 +1058,3 @@ class GenerateEvents:
 
 
 generate_events = GenerateEvents()
-

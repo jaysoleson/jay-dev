@@ -7,10 +7,11 @@ TODO: Docs
 """
 
 import random
+
 # pylint: enable=line-too-long
 import traceback
-from collections import Counter
 
+<<<<<<< HEAD
 import ujson
 import re
 
@@ -20,14 +21,25 @@ from scripts.cat.pelts import Pelt
 from scripts.events_module.outsider_events import OutsiderEvents
 from scripts.event_class import Single_Event
 from scripts.cat_relations.relationship import Relationship
+=======
+import i18n
+
+from scripts.cat import save_load
+>>>>>>> development
 from scripts.cat.cats import Cat, cat_class, BACKSTORIES
-from scripts.cat.history import History
+from scripts.cat.enums import CatAge, CatRank, CatGroup, CatStanding, CatSocial
 from scripts.cat.names import Name
+<<<<<<< HEAD
+=======
+from scripts.cat.save_load import save_cats, add_cat_to_fade_id
+from scripts.clan_package.settings import get_clan_setting, set_clan_setting
+>>>>>>> development
 from scripts.clan_resources.freshkill import FRESHKILL_EVENT_ACTIVE
 from scripts.conditions import (
-    medical_cats_condition_fulfilled,
+    medicine_cats_can_cover_clan,
     get_amount_cat_for_one_medic,
 )
+<<<<<<< HEAD
 from scripts.game_structure.game_essentials import game
 from scripts.events_module.generate_events import GenerateEvents, generate_events
 from scripts.clan_resources.freshkill import FreshkillPile
@@ -39,12 +51,35 @@ from scripts.game_structure.windows import SaveError
 from scripts.game_structure.windows import RetireScreen, DeputyScreen, NameKitsWindow
 from enum import Enum
 
+=======
+from scripts.event_class import Single_Event
+from scripts.events_module.generate_events import GenerateEvents, generate_events
+from scripts.events_module.outsider_events import OutsiderEvents
+>>>>>>> development
 from scripts.events_module.patrol.patrol import Patrol
+from scripts.events_module.relationship.pregnancy_events import Pregnancy_Events
+from scripts.events_module.relationship.relation_events import Relation_Events
+from scripts.events_module.short.condition_events import Condition_Events
+from scripts.events_module.short.handle_short_events import handle_short_events
+from scripts.game_structure import constants
+from scripts.game_structure.game.switches import (
+    Switch,
+    switch_get_value,
+    switch_set_value,
+)
+from scripts.game_structure import game
+from scripts.game_structure.localization import load_lang_resource
+from scripts.game_structure.windows import SaveError
 from scripts.utility import (
     change_clan_relations,
     change_clan_reputation,
+<<<<<<< HEAD
     get_alive_status_cats,
     get_random_moon_cat,
+=======
+    find_alive_cats_with_rank,
+    get_living_clan_cat_count,
+>>>>>>> development
     ceremony_text_adjust,
     get_current_season,
     adjust_list_text,
@@ -53,10 +88,13 @@ from scripts.utility import (
     get_other_clan,
     history_text_adjust,
     unpack_rel_block,
+<<<<<<< HEAD
     pronoun_repl,
     create_new_cat,
     lifegen_text_adjust,
     get_cluster
+=======
+>>>>>>> development
 )
 class BirthType(Enum):
     NO_PARENTS = "birth_no_parents"
@@ -73,11 +111,12 @@ class Events:
     """
 
     all_events = {}
-    game.switches["timeskip"] = False
     new_cat_invited = False
     ceremony_accessory = False
     CEREMONY_TXT = None
     WAR_TXT = None
+    ceremony_lang = None
+    war_lang = None
 
     def __init__(self):
         self.load_ceremonies()
@@ -109,8 +148,12 @@ class Events:
         game.herb_events_list = []
         game.freshkill_events_list = []
         game.mediated = []
+<<<<<<< HEAD
         game.told_story = []
         game.switches["saved_clan"] = False
+=======
+        switch_set_value(Switch.saved_clan, False)
+>>>>>>> development
         self.new_cat_invited = False
         Relation_Events.clear_trigger_dict()
         Patrol.used_patrols.clear()
@@ -126,6 +169,7 @@ class Events:
         murder_history = History.get_murders(game.clan.your_cat)
         
         if any(
+<<<<<<< HEAD
                 str(cat.status) in {
                     'leader', 'deputy', 'warrior', 'medicine cat',
                     'medicine cat apprentice', 'apprentice', 'mediator',
@@ -133,6 +177,13 @@ class Events:
                 } and not cat.dead and not cat.outside and not cat.shunned
                 for cat in Cat.all_cats.values()):
             game.switches['no_able_left'] = False
+=======
+            cat.status.rank.is_active_clan_rank() and cat.status.alive_in_player_clan
+            for cat in Cat.all_cats.values()
+        ):
+            # todo: this links nowhere, can it be removed?
+            switch_set_value(Switch.no_able_left, False)
+>>>>>>> development
 
         # age up the clan, set current season
         game.clan.age += 1
@@ -144,15 +195,13 @@ class Events:
                 self.add_freshkill()
 
         if (
-            game.clan.game_mode in ["expanded", "cruel season"]
+            game.clan.game_mode in ("expanded", "cruel season")
             and game.clan.freshkill_pile
         ):
             # feed the cats and update the nutrient status
             relevant_cats = list(
                 filter(
-                    lambda _cat: _cat.is_alive()
-                    and not _cat.exiled
-                    and not _cat.outside,
+                    lambda _cat: _cat.status.alive_in_player_clan,
                     Cat.all_cats.values(),
                 )
             )
@@ -161,16 +210,18 @@ class Events:
             self.get_moon_freshkill()
 
         # Adding in any potential lead den events that have been saved
-        if "lead_den_interaction" in game.clan.clan_settings:
-            if game.clan.clan_settings["lead_den_interaction"]:
-                self.handle_lead_den_event()
+        if get_clan_setting("lead_den_interaction"):
+            self.handle_lead_den_event()
 
         # checking if a lost cat returns on their own
-        rejoin_upperbound = game.config["lost_cat"]["rejoin_chance"]
+        rejoin_upperbound = constants.CONFIG["lost_cat"]["rejoin_chance"]
         if random.randint(1, rejoin_upperbound) == 1:
             self.handle_lost_cats_return()
 
+        self.handle_future_events()
+
         # Calling of "one_moon" functions.
+<<<<<<< HEAD
         resource_dir = "resources/dicts/events/disasters/"
         disaster_text = {}
         with open(f"{resource_dir}forest.json",
@@ -200,9 +251,16 @@ class Events:
         
         for cat in Cat.all_cats.copy().values():
             if not cat.outside or cat.dead:
+=======
+        other_clan_cats = [c for c in Cat.all_cats_list if c.status.is_other_clancat]
+        for cat in Cat.all_cats_list.copy():
+            if cat.status.alive_in_player_clan or (
+                cat.status.group and cat.status.group.is_afterlife()
+            ):
+>>>>>>> development
                 self.one_moon_cat(cat)
-            else:
-                self.one_moon_outside_cat(cat)
+            elif not cat.status.group or cat.status.is_other_clancat:
+                self.one_moon_outside_cat(cat, other_clan_cats)
 
         # keeping this commented out till disasters are more polished
         # self.disaster_events.handle_disasters()
@@ -213,7 +271,7 @@ class Events:
             for ID in Cat.grief_strings.copy():
                 check_cat = Cat.all_cats.get(ID)
                 if isinstance(check_cat, Cat):
-                    if check_cat.dead or check_cat.outside:
+                    if check_cat.dead or not check_cat.status.alive_in_player_clan:
                         Cat.grief_strings.pop(ID)
 
             # Generate events
@@ -226,7 +284,8 @@ class Events:
                             Cat,
                             _val[0],
                             main_cat=Cat.fetch_cat(cat_id),
-                            random_cat=Cat.fetch_cat(_val[1][0]))
+                            random_cat=Cat.fetch_cat(_val[1][0]),
+                        )
 
                         Cat.fetch_cat(cat_id).thought = text
                     else:
@@ -253,24 +312,27 @@ class Events:
             if ghost_names:
                 insert = adjust_list_text(ghost_names)
 
+<<<<<<< HEAD
             if len(Cat.dead_cats) > 1 and insert:
                 event = f"The past moon, {insert} have taken their place in StarClan. {game.clan.name}Clan mourns their " \
                         f"loss, and their Clanmates will miss where they had been in their lives. Moments of their " \
                         f"lives are shared in stories around the circle of mourners as those that were closest to them " \
                         f"take them to their final resting place."
     
+=======
+            if len(Cat.dead_cats) > 1:
+                event = i18n.t(
+                    "hardcoded.event_deaths", count=len(Cat.dead_cats), insert=insert
+                )
+
+>>>>>>> development
                 if len(ghost_names) > 2:
-                    alive_cats = list(
-                        filter(
-                            lambda kitty: (
-                                kitty.status != "leader"
-                                and not kitty.dead
-                                and not kitty.outside
-                                and not kitty.exiled
-                            ),
-                            Cat.all_cats.values(),
-                        )
-                    )
+                    alive_cats = [
+                        kitty
+                        for kitty in Cat.all_cats.values()
+                        if kitty.status.alive_in_player_clan
+                    ]
+
                     # finds a percentage of the living Clan to become shaken
 
                     if len(alive_cats) == 0:
@@ -296,11 +358,13 @@ class Events:
 
                     insert = adjust_list_text(shaken_cat_names)
 
-                    if len(shaken_cats) == 1:
-                        extra_event = f"So much grief and death has taken its toll on the cats of {game.clan.name}Clan. {insert} is particularly shaken by it."
-                    else:
-                        extra_event = f"So much grief and death has taken its toll on the cats of {game.clan.name}Clan. {insert} are particularly shaken by it. "
+                    extra_event = i18n.t(
+                        "hardcoded.event_shaken_grief",
+                        count=len(shaken_cat_names),
+                        insert=insert,
+                    )
 
+<<<<<<< HEAD
             elif insert:
                 event = (
                     f"The past moon, {insert} has taken their place in StarClan. {game.clan.name}Clan mourns their "
@@ -313,6 +377,21 @@ class Events:
                 game.cur_events_list.append(
                     Single_Event(event, ["birth_death"], [i.ID for i in Cat.dead_cats])
                 )
+=======
+            else:
+                event = i18n.t("hardcoded.event_deaths", count=1)
+
+            game.cur_events_list.append(
+                Single_Event(
+                    event,
+                    ["birth_death"],
+                    [i.ID for i in Cat.dead_cats],
+                    cat_dict=(
+                        {"m_c": Cat.dead_cats[0]} if len(Cat.dead_cats) == 1 else None
+                    ),
+                )
+            )
+>>>>>>> development
             if extra_event:
                 game.cur_events_list.append(
                     Single_Event(
@@ -321,14 +400,19 @@ class Events:
                 )
             Cat.dead_cats.clear()
 
-        if game.clan.game_mode in ['expanded', 'cruel season'] and game.clan.freshkill_pile:
+        if (
+            game.clan.game_mode in ("expanded", "cruel season")
+            and game.clan.freshkill_pile
+        ):
             # make a notification if the Clan does not have enough prey
-            if FRESHKILL_EVENT_ACTIVE and not game.clan.freshkill_pile.clan_has_enough_food():
-                event_string = f"{game.clan.name}Clan doesn't have enough prey for next moon!"
+            if (
+                FRESHKILL_EVENT_ACTIVE
+                and not game.clan.freshkill_pile.clan_has_enough_food()
+            ):
+                event_string = i18n.t("defaults.warn_low_freshkill")
                 game.cur_events_list.insert(0, Single_Event(event_string))
                 game.freshkill_event_list.append(event_string)
 
-        self.herb_gather()
         self.handle_focus()
         game.switches['have kits'] = True
         
@@ -371,27 +455,49 @@ class Events:
         self.check_and_promote_leader()
         self.check_and_promote_deputy()
 
-        if game.clan.game_mode in ["expanded", "cruel season"]:
+        # handle the herb supply for the moon
+        game.clan.herb_supply.handle_moon(
+            clan_size=get_living_clan_cat_count(Cat),
+            clan_cats=Cat.all_cats_list,
+            med_cats=find_alive_cats_with_rank(
+                Cat,
+                ranks=[CatRank.MEDICINE_CAT, CatRank.MEDICINE_APPRENTICE],
+                working=True,
+            ),
+        )
+
+        if game.clan.game_mode in ("expanded", "cruel season"):
             amount_per_med = get_amount_cat_for_one_medic(game.clan)
-            med_fullfilled = medical_cats_condition_fulfilled(
+            med_fulfilled = medicine_cats_can_cover_clan(
                 Cat.all_cats.values(), amount_per_med
             )
+<<<<<<< HEAD
             if not med_fullfilled:
                 string = (
                     f"{game.clan.name}Clan does not have enough healthy medicine cats! Cats will be sick/hurt "
                     f"for longer and have a higher chance of dying. "
                 )
                 game.cur_events_list.insert(0, Single_Event(string, ["health", "alert"]))
+=======
+
+            if not med_fulfilled:
+                string = i18n.t("defaults.warn_low_medcats")
+                game.cur_events_list.insert(0, Single_Event(string, "health"))
+>>>>>>> development
         else:
             has_med = any(
-                str(cat.status) in {"medicine cat", "medicine cat apprentice"}
-                and not cat.dead
-                and not cat.outside
+                cat.status.rank.is_any_medicine_rank()
+                and cat.status.alive_in_player_clan
                 for cat in Cat.all_cats.values()
             )
             if not has_med:
+<<<<<<< HEAD
                 string = f"{game.clan.name}Clan has no medicine cat!"
                 game.cur_events_list.insert(0, Single_Event(string, ["health", "alert"]))
+=======
+                string = i18n.t("defaults.warn_no_medcats")
+                game.cur_events_list.insert(0, Single_Event(string, "health"))
+>>>>>>> development
 
         # Clear the list of cats that died this moon.
         game.just_died.clear()
@@ -474,16 +580,16 @@ class Events:
             self.checks[3] = game.clan.leader.ID
             
         # Resort
-        if game.sort_type != "id":
+        if switch_get_value(Switch.sort_type) != "id":
             Cat.sort_cats()
 
         # Clear all the loaded event dicts.
         GenerateEvents.clear_loaded_events()
 
         # autosave
-        if game.clan.clan_settings.get("autosave") and game.clan.age % 5 == 0:
+        if get_clan_setting("autosave") and game.clan.age % 5 == 0:
             try:
-                game.save_cats()
+                save_cats(switch_get_value(Switch.clan_name), Cat, game)
                 game.clan.save_clan()
                 game.clan.save_pregnancy(game.clan)
                 game.save_events()
@@ -1585,16 +1691,35 @@ class Events:
             game.clan.your_cat.df_mentor = None
             
 
+    def handle_future_events(self):
+        """
+        Handles aging future events and triggering them.
+        """
+        removals = []
+
+        for event in game.clan.future_events:
+            event.moon_delay -= 1
+            # we give events a buffer of 12 moons to allow any season-locked events a chance to trigger, then we remove
+            if event.moon_delay <= -12:
+                removals.append(event)
+            if event.moon_delay <= 0:
+                if not handle_short_events.trigger_future_event(event):
+                    removals.append(event)
+
+        for event in removals:
+            if event in game.clan.future_events:
+                game.clan.future_events.remove(event)
+
     def handle_lead_den_event(self):
         """
         Handles the events that are chosen in the leaders den the previous moon and resets the relevant clan settings
         """
-        if game.clan.clan_settings["lead_den_clan_event"]:
-            info_dict = game.clan.clan_settings["lead_den_clan_event"]
+        if get_clan_setting("lead_den_clan_event"):
+            info_dict = get_clan_setting("lead_den_clan_event")
             gathering_cat = Cat.fetch_cat(info_dict["cat_ID"])
 
             # drop the event if the gathering cat is no longer available
-            if gathering_cat.exiled or gathering_cat.dead or gathering_cat.outside:
+            if not gathering_cat.status.alive_in_player_clan:
                 return
 
             other_clan = get_other_clan(info_dict["other_clan"])
@@ -1614,6 +1739,7 @@ class Events:
                 # get text
                 event_text = chosen_event["event_text"]
 
+<<<<<<< HEAD
                 # change relations and append relation text
                 rel_change = chosen_event["rel_change"]
                 other_clan.relations += rel_change
@@ -1634,9 +1760,34 @@ class Events:
                 game.cur_events_list.insert(4, Single_Event(event_text, "other_clans", [gathering_cat.ID]))
 
                 game.clan.clan_settings["lead_den_clan_event"] = {}
+=======
+            # change relations and append relation text
+            rel_change = chosen_event["rel_change"]
+            other_clan.relations += rel_change
+            if rel_change > 0:
+                event_text += i18n.t("hardcoded.relations_improved")
+            elif rel_change == 0:
+                event_text += i18n.t("hardcoded.relations_neutral")
+            else:
+                event_text += i18n.t("hardcoded.relations_worsened")
 
-        if game.clan.clan_settings["lead_den_outsider_event"]:
-            info_dict = game.clan.clan_settings["lead_den_outsider_event"]
+            # adjust text and add to event list
+            event_text = event_text_adjust(
+                Cat,
+                event_text,
+                main_cat=gathering_cat,
+                other_clan=other_clan,
+                clan=game.clan,
+            )
+            game.cur_events_list.insert(
+                4, Single_Event(event_text, "other_clans", [gathering_cat.ID])
+            )
+
+            set_clan_setting("lead_den_clan_event", {})
+>>>>>>> development
+
+        if get_clan_setting("lead_den_outsider_event"):
+            info_dict = get_clan_setting("lead_den_outsider_event")
             outsider_cat = Cat.fetch_cat(info_dict["cat_ID"])
             involved_cats = [outsider_cat.ID]
             invited_cats = []
@@ -1657,6 +1808,7 @@ class Events:
                 # ADJUST REP
                 game.clan.reputation += chosen_event["rep_change"]
 
+<<<<<<< HEAD
                 additional_kits = None
                 # SUCCESS/FAIL
                 if info_dict["success"]:
@@ -1686,6 +1838,78 @@ class Events:
                                 event_text += str(len(additional_kits)) + " kittens."
                             else:
                                 event_text += "kit."
+=======
+            additional_kits = None
+            # SUCCESS/FAIL
+            if info_dict["success"]:
+                if info_dict["interaction_type"] == "hunt":
+                    outsider_cat.history.add_death(
+                        death_text=history_text_adjust(
+                            i18n.t("hardcoded.lead_den_killed"),
+                            other_clan_name=None,
+                            clan=game.clan,
+                        ),
+                    )
+                    outsider_cat.die()
+
+                elif info_dict["interaction_type"] == "drive":
+                    outsider_cat.status.change_group_nearness(CatGroup.PLAYER_CLAN)
+
+                elif info_dict["interaction_type"] in ("invite", "search"):
+                    # ADD TO CLAN AND CHECK FOR KITS
+                    additional_kits = outsider_cat.add_to_clan()
+
+                    if additional_kits:
+                        event_text += i18n.t("hardcoded.event_lost_kits")
+
+                        for kit_ID in additional_kits:
+                            # add to involved cat list
+                            involved_cats.append(kit_ID)
+
+                    invited_cats = [outsider_cat.ID]
+                    invited_cats.extend(additional_kits)
+
+                    for cat_ID in invited_cats:
+                        invited_cat = Cat.fetch_cat(cat_ID)
+                        # some things to handle if the cat has not been in the clan before
+                        if (
+                            CatStanding.EXILED
+                            not in invited_cat.status.get_standing_with_group(
+                                CatGroup.PLAYER_CLAN
+                            )
+                        ):
+                            # reset to make sure backstory makes sense
+                            if "guided" in invited_cat.backstory:
+                                invited_cat.backstory = "outsider1"
+                            # if the cat is a healer, give healer rank
+                            elif (
+                                invited_cat.backstory
+                                in BACKSTORIES["backstory_categories"][
+                                    "healer_backstories"
+                                ]
+                            ):
+                                invited_cat.status._change_rank(CatRank.MEDICINE_CAT)
+                            # if cat is a little baby, check name
+                            elif invited_cat.age in (CatAge.NEWBORN, CatAge.KITTEN):
+                                if not invited_cat.name.suffix:
+                                    invited_cat.name = Name(
+                                        invited_cat.name.prefix,
+                                        invited_cat.name.suffix,
+                                        game.clan.biome,
+                                        cat=invited_cat,
+                                    )
+                                    invited_cat.name.give_suffix(
+                                        pelt=None,
+                                        biome=game.clan.biome
+                                        if not game.clan.override_biome
+                                        else game.clan.override_biome,
+                                        tortie_pattern=None,
+                                    )
+                                    invited_cat.specsuffix_hidden = False
+                            # if cat is an apprentice, make sure they get a mentor!
+                            if invited_cat.status.rank == CatRank.APPRENTICE:
+                                invited_cat.update_mentor()
+>>>>>>> development
 
                             for kit_ID in additional_kits:
                                 # add to involved cat list
@@ -1776,41 +2000,64 @@ class Events:
                     Cat,
                     text=event_text,
                     main_cat=outsider_cat,
-                    clan=game.clan)
+                    clan=game.clan,
+                )
 
+<<<<<<< HEAD
                 game.cur_events_list.insert(4, Single_Event(event_text, "misc", involved_cats))
 
                 game.clan.clan_settings["lead_den_outsider_event"] = {}
 
         game.clan.clan_settings["lead_den_interaction"] = False
+=======
+            if "kit_thought" in cat_dict:
+                if additional_kits is None:
+                    additional_kits = outsider_cat.get_children()
+                if additional_kits:
+                    for kit_ID in additional_kits:
+                        kit = Cat.fetch_cat(kit_ID)
+                        kit.thought = event_text_adjust(
+                            Cat,
+                            text=cat_dict["kit_thought"],
+                            main_cat=kit,
+                            clan=game.clan,
+                        )
+
+            if "relationships" in cat_dict:
+                unpack_rel_block(Cat, cat_dict["relationships"], extra_cat=outsider_cat)
+
+                pass
+
+            # adjust text and add to event list
+            event_text = event_text_adjust(
+                Cat, text=event_text, main_cat=outsider_cat, clan=game.clan
+            )
+
+            game.cur_events_list.insert(
+                4, Single_Event(event_text, "misc", involved_cats)
+            )
+            set_clan_setting("lead_den_outsider_event", {})
+
+        set_clan_setting("lead_den_interaction", False)
+>>>>>>> development
 
     def mediator_events(self, cat):
         """Check for mediator events"""
-        # If the cat is a mediator, check if they visited other clans
-        if cat.status in ["mediator", "mediator apprentice"] and not cat.not_working():
-            # 1/10 chance
-            if not int(random.random() * 10):
-                random_cat = get_random_moon_cat(Cat, main_cat=cat)
-                handle_short_events.handle_event(event_type="misc",
-                                                 main_cat=cat,
-                                                 random_cat=random_cat,
-                                                 sub_type=["mediator"],
-                                                 freshkill_pile=game.clan.freshkill_pile)
-
-        if game.clan.clan_settings["become_mediator"]:
+        if get_clan_setting("become_mediator"):
             # Note: These chances are large since it triggers every moon.
             # Checking every moon has the effect giving older cats more chances to become a mediator
-            _ = game.config["roles"]["become_mediator_chances"]
-            if cat.status in _ and not int(random.random() * _[cat.status]):
+            _ = constants.CONFIG["roles"]["become_mediator_chances"]
+            if cat.status.rank in _ and not int(random.random() * _[cat.status.rank]):
                 game.cur_events_list.append(
                     Single_Event(
-                        f"{cat.name} had chosen to use their skills and experience to help "
-                        f"solve the Clan's disagreements. A meeting is called, and they "
-                        f"become the Clan's newest mediator. ",
+                        event_text_adjust(
+                            Cat, i18n.t("hardcoded.event_mediator_app"), main_cat=cat
+                        ),
                         "ceremony",
                         cat.ID,
                     )
                 )
+<<<<<<< HEAD
                 cat.status_change("mediator")
         if game.clan.clan_settings['become_med']:
             # Note: These chances are large since it triggers every moon.
@@ -1838,15 +2085,17 @@ class Events:
                         f"become the Clan's newest queen. ", "ceremony",
                         cat.ID))
                 cat.status_change("queen")
+=======
+                cat.rank_change(CatRank.MEDIATOR)
+>>>>>>> development
 
     def get_moon_freshkill(self):
         """Adding auto freshkill for the current moon."""
         healthy_hunter = list(
             filter(
-                lambda c: c.status in ["warrior", "apprentice", "leader", "deputy"]
-                and not c.dead
-                and not c.outside
-                and not c.exiled
+                lambda c: c.status.rank
+                in (CatRank.WARRIOR, CatRank.APPRENTICE, CatRank.LEADER, CatRank.DEPUTY)
+                and c.status.alive_in_player_clan
                 and not c.not_working(),
                 Cat.all_cats.values(),
             )
@@ -1856,16 +2105,17 @@ class Events:
         for cat in healthy_hunter:
             lower_value = game.prey_config["auto_warrior_prey"][0]
             upper_value = game.prey_config["auto_warrior_prey"][1]
-            if cat.status == "apprentice":
+            if cat.status.rank == CatRank.APPRENTICE:
                 lower_value = game.prey_config["auto_apprentice_prey"][0]
                 upper_value = game.prey_config["auto_apprentice_prey"][1]
 
             prey_amount += random.randint(lower_value, upper_value)
         game.freshkill_event_list.append(
-            f"The clan managed to catch {prey_amount} pieces of prey in this moon."
+            i18n.t("hardcoded.prey_catch_count", count=prey_amount)
         )
         game.clan.freshkill_pile.add_freshkill(prey_amount)
 
+<<<<<<< HEAD
     def herb_gather(self):
         """
         TODO: DOCS
@@ -1917,6 +2167,8 @@ class Events:
                     return
         game.herb_events_list.extend(event_list)
 
+=======
+>>>>>>> development
     def handle_focus(self):
         """
         This function should be called late in the 'one_moon' function and handles all focuses which are possible to handle here:
@@ -1938,211 +2190,130 @@ class Events:
                 - 'cat.moon_skip_injury'
         """
         # if no focus is selected, skip all other
-        focus_text = "This shouldn't show up, report a bug for the focus feature."
-        if game.clan.clan_settings.get(
-            "business as usual"
-        ) or game.clan.clan_settings.get("rest and recover"):
+        focus_text = i18n.t("defaults.focus_text")
+        if get_clan_setting("business as usual") or get_clan_setting(
+            "rest and recover"
+        ):
             return
-        elif game.clan.clan_settings.get("hunting"):
+        elif get_clan_setting("hunting"):
             # handle warrior
-            healthy_warriors = list(
-                filter(
-                    lambda c: c.status in ["warrior", "leader", "deputy"]
-                    and not c.dead
-                    and not c.outside
-                    and not c.exiled
-                    and not c.not_working(),
-                    Cat.all_cats.values(),
-                )
-            )
+            healthy_warriors = [
+                cat
+                for cat in Cat.all_cats.values()
+                if cat.status.rank.is_any_adult_warrior_like_rank()
+                and cat.available_to_work()
+            ]
+
             warrior_amount = (
-                len(healthy_warriors) * game.config["focus"]["hunting"]["warrior"]
+                len(healthy_warriors)
+                * constants.CONFIG["focus"]["hunting"][CatRank.WARRIOR]
             )
 
             # handle apprentices
-            healthy_apprentices = list(
-                filter(
-                    lambda c: c.status == "apprentice"
-                    and not c.dead
-                    and not c.outside
-                    and not c.exiled
-                    and not c.not_working(),
-                    Cat.all_cats.values(),
-                )
-            )
+            healthy_apprentices = [
+                cat
+                for cat in Cat.all_cats.values()
+                if cat.status.rank == CatRank.APPRENTICE and cat.available_to_work()
+            ]
+
             app_amount = (
-                len(healthy_apprentices) * game.config["focus"]["hunting"]["apprentice"]
+                len(healthy_apprentices)
+                * constants.CONFIG["focus"]["hunting"][CatRank.APPRENTICE]
             )
 
             # finish
             total_amount = warrior_amount + app_amount
             game.clan.freshkill_pile.add_freshkill(total_amount)
-            if total_amount > 1:
-                focus_text = f"With the heightened focus of the Clan, {total_amount} additional pieces of prey were gathered."
-            elif total_amount == 1:
-                focus_text = f"With the heightened focus of the Clan, {total_amount} additional piece of prey was gathered."
-            else:
-                focus_text = "Despite the additional focus of the Clan, no prey could be gathered."
+            focus_text = i18n.t("hardcoded.focus_prey", count=total_amount)
             game.freshkill_event_list.append(focus_text)
 
-        elif game.clan.clan_settings.get("herb gathering"):
-            herbs_found = []
-
-            # handle medicine cats
-            healthy_meds = list(
-                filter(
-                    lambda c: c.status == "medicine cat"
-                    and not c.dead
-                    and not c.outside
-                    and not c.exiled
-                    and not c.not_working(),
-                    Cat.all_cats.values(),
-                )
+        elif get_clan_setting("herb gathering"):
+            # get medicine cats
+            healthy_meds = find_alive_cats_with_rank(
+                Cat,
+                ranks=[CatRank.MEDICINE_CAT, CatRank.MEDICINE_APPRENTICE],
+                working=True,
             )
-            med_amount = game.config["focus"]["herb gathering"]["med"]
-            for med in healthy_meds:
-                herbs_found.extend(random.sample(HERBS, k=med_amount))
-
-            # handle medicine cat apprentices
-            healthy_med_apps = list(
-                filter(
-                    lambda c: c.status == "medicine cat apprentice"
-                    and not c.dead
-                    and not c.outside
-                    and not c.exiled
-                    and not c.not_working(),
-                    Cat.all_cats.values(),
-                )
+            # get warriors to help
+            healthy_warriors = find_alive_cats_with_rank(
+                Cat,
+                ranks=[CatRank.WARRIOR, CatRank.DEPUTY, CatRank.LEADER],
+                working=True,
             )
-            med_amount = game.config["focus"]["herb gathering"]["med_apprentice"]
-            for med in healthy_med_apps:
-                herbs_found.extend(random.sample(HERBS, k=med_amount))
 
-            # finish
-            herb_amount = len(herbs_found)
-            herb_counter = Counter(herbs_found)
-            game.clan.herbs.update(herb_counter)
-            if herb_amount > 1:
-                focus_text = f"With the additional focus of the Clan, {herb_amount} herbs were gathered."
-            elif herb_amount == 1:
-                focus_text = f"With the additional focus of the Clan, {herb_amount} herb was gathered."
-            else:
-                focus_text = f"Despite the additional focus of the Clan, no herbs could be gathered."
-
-            log_text = (
-                "With the additional focus of the Clan, following herbs were gathered: "
+            focus_text = game.clan.herb_supply.handle_focus(
+                healthy_meds, healthy_warriors
             )
-            idx = 0
-            for herb, amount in herb_counter.items():
-                log_text += str(amount) + " " + herb.replace("_", " ")
-                idx += 1
-                if idx < len(herb_counter) - 1:
-                    log_text += ", "
-                elif idx < len(herb_counter):
-                    log_text += " and "
-            log_text += "."
-            game.herb_events_list.append(log_text)
 
-        elif game.clan.clan_settings.get("threaten outsiders"):
-            amount = game.config["focus"]["outsiders"]["reputation"]
+        elif get_clan_setting("threaten outsiders"):
+            amount = constants.CONFIG["focus"]["outsiders"]["reputation"]
             change_clan_reputation(-amount)
             focus_text = None
 
-        elif game.clan.clan_settings.get("seek outsiders"):
-            amount = game.config["focus"]["outsiders"]["reputation"]
+        elif get_clan_setting("seek outsiders"):
+            amount = constants.CONFIG["focus"]["outsiders"]["reputation"]
             change_clan_reputation(amount)
             focus_text = None
 
-        elif game.clan.clan_settings.get(
-            "sabotage other clans"
-        ) or game.clan.clan_settings.get("aid other clans"):
-            amount = game.config["focus"]["other clans"]["relation"]
-            if game.clan.clan_settings.get("sabotage other clans"):
+        elif get_clan_setting("sabotage other clans") or get_clan_setting(
+            "aid other clans"
+        ):
+            amount = constants.CONFIG["focus"]["other clans"]["relation"]
+            if get_clan_setting("sabotage other clans"):
                 amount = amount * -1
             for name in game.clan.clans_in_focus:
                 clan = [clan for clan in game.clan.all_clans if clan.name == name][0]
-                sabotage = game.clan.clan_settings.get("sabotage other clans")
                 change_clan_relations(clan, amount)
             focus_text = None
 
-        elif game.clan.clan_settings.get("hoarding") or game.clan.clan_settings.get(
-            "raid other clans"
-        ):
-            info_dict = game.config["focus"]["hoarding"]
-            if game.clan.clan_settings.get("raid other clans"):
-                info_dict = game.config["focus"]["raid other clans"]
+        elif get_clan_setting("hoarding") or get_clan_setting("raid other clans"):
+            info_dict = constants.CONFIG["focus"]["hoarding"]
+            if get_clan_setting("raid other clans"):
+                info_dict = constants.CONFIG["focus"]["raid other clans"]
 
             involved_cats = {"injured": [], "sick": []}
             # handle prey
             healthy_warriors = list(
                 filter(
-                    lambda c: c.status in ["warrior", "leader", "deputy"]
-                    and not c.dead
-                    and not c.outside
-                    and not c.exiled
+                    lambda c: c.status.rank.is_any_adult_warrior_like_rank()
+                    and c.status.alive_in_player_clan
                     and not c.not_working(),
                     Cat.all_cats.values(),
                 )
             )
             warrior_amount = len(healthy_warriors) * info_dict["prey_warrior"]
             game.clan.freshkill_pile.add_freshkill(warrior_amount)
-            if warrior_amount > 1:
-                game.freshkill_event_list.append(
-                    f"With the additional focus of the Clan, {warrior_amount} prey pieces were caught."
-                )
-            else:
-                game.freshkill_event_list.append(
-                    f"With the additional focus of the Clan, {warrior_amount} prey piece was caught."
-                )
+            game.freshkill_event_list.append(
+                i18n.t("hardcoded.focus_raid_prey", count=warrior_amount)
+            )
 
             # handle herbs
-            herbs_found = []
             healthy_meds = list(
                 filter(
-                    lambda c: c.status == "medicine cat"
-                    and not c.dead
-                    and not c.outside
-                    and not c.exiled
+                    lambda c: c.status.rank == CatRank.MEDICINE_CAT
+                    and c.status.alive_in_player_clan
                     and not c.not_working(),
                     Cat.all_cats.values(),
                 )
             )
-            med_amount = info_dict["herb_medicine"]
-            for med in healthy_meds:
-                herbs_found.extend(random.sample(HERBS, k=med_amount))
-            herb_amount = len(herbs_found)
-            if herb_amount > 0:
-                herb_counter = Counter(herbs_found)
-                game.clan.herbs.update(herb_counter)
-                log_text = "With the additional focus of the Clan, following herbs were gathered: "
-                idx = 0
-                for herb, amount in herb_counter.items():
-                    log_text += str(amount) + " " + herb.replace("_", " ")
-                    idx += 1
-                    if idx < len(herb_counter) - 1:
-                        log_text += ", "
-                    elif idx < len(herb_counter):
-                        log_text += " and "
-                log_text += "."
-                game.herb_events_list.append(log_text)
+
+            herb_focus_text = game.clan.herb_supply.handle_focus(healthy_meds)
 
             # handle injuries / illness
             relevant_cats = healthy_warriors + healthy_meds
-            if game.clan.clan_settings.get("raid other clans"):
+            if get_clan_setting("raid other clans"):
                 chance = info_dict[f"injury_chance_warrior"]
                 # increase the chance of injuries depending on how many clans are raided
                 increase = info_dict["chance_increase_per_clan"]
                 chance -= increase * len(game.clan.clans_in_focus)
             for cat in relevant_cats:
                 # if the raid setting or 50/50 for hoarding to get to the injury part
-                if game.clan.clan_settings.get(
-                    "raid other clans"
-                ) or random.getrandbits(1):
-                    status_use = cat.status
-                    if status_use in ["deputy", "leader"]:
-                        status_use = "warrior"
+                if get_clan_setting("raid other clans") or random.getrandbits(1):
+                    status_use = cat.status.rank
+                    if status_use in (CatRank.DEPUTY, CatRank.LEADER):
+                        status_use = CatRank.WARRIOR
                     chance = info_dict[f"injury_chance_{status_use}"]
-                    if game.clan.clan_settings.get("raid other clans"):
+                    if get_clan_setting("raid other clans"):
                         # increase the chance of injuries depending on how many clans are raided
                         increase = info_dict["chance_increase_per_clan"]
                         chance -= increase * len(game.clan.clans_in_focus)
@@ -2155,64 +2326,47 @@ class Events:
                         chosen_injury = random.choice(possible_injuries)
                         cat.get_injured(chosen_injury)
                         involved_cats["injured"].append(cat.ID)
-                else:
-                    chance = game.config["focus"]["hoarding"]["illness_chance"]
-                    if not int(random.random() * chance):  # 1/chance
-                        possible_illnesses = []
-                        injury_dict = game.config["focus"]["hoarding"]["illnesses"]
-                        for illness, amount in injury_dict.items():
-                            possible_illnesses.extend([illness] * amount)
-                        chosen_illness = random.choice(possible_illnesses)
-                        cat.get_ill(chosen_illness)
-                        involved_cats["sick"].append(cat.ID)
+                    else:
+                        chance = constants.CONFIG["focus"]["hoarding"]["illness_chance"]
+                        if not int(random.random() * chance):  # 1/chance
+                            possible_illnesses = []
+                            injury_dict = constants.CONFIG["focus"]["hoarding"][
+                                "illnesses"
+                            ]
+                            for illness, amount in injury_dict.items():
+                                possible_illnesses.extend([illness] * amount)
+                            chosen_illness = random.choice(possible_illnesses)
+                            cat.get_ill(chosen_illness)
+                            involved_cats["sick"].append(cat.ID)
 
             # if it is raiding, lower the relation to other clans
-            if game.clan.clan_settings.get("raid other clans"):
+            if get_clan_setting("raid other clans"):
                 for name in game.clan.clans_in_focus:
                     clan = [clan for clan in game.clan.all_clans if clan.name == name][
                         0
                     ]
-                    amount = -game.config["focus"]["raid other clans"]["relation"]
+                    amount = -constants.CONFIG["focus"]["raid other clans"]["relation"]
                     change_clan_relations(clan, amount)
 
             # finish
-            text_snippet = "due the additional work of hoarding herbs and prey."
-            if game.clan.clan_settings.get("raid other clans"):
-                text_snippet = "while raiding other Clans to get additional prey."
+            text_snippet = "hardcoded.focus_injury_hoarding"
+            if get_clan_setting("raid other clans"):
+                text_snippet = "hardcoded.focus_injury_raiding"
             for condition_type, value in involved_cats.items():
-                if len(value) == 1:
-                    game.cur_events_list.append(
-                        Single_Event(
-                            f"One cat got {condition_type} during {text_snippet}",
-                            "health",
-                            value,
-                        )
+                game.cur_events_list.append(
+                    Single_Event(
+                        i18n.t(
+                            text_snippet, condition=condition_type, count=len(value)
+                        ),
+                        "health",
+                        value,
                     )
-                elif len(value) > 1:
-                    game.cur_events_list.append(
-                        Single_Event(
-                            f"Multiple cats got {condition_type} {text_snippet}",
-                            "health",
-                            value,
-                        )
-                    )
+                )
 
-            if warrior_amount > 1 and herb_amount > 1:
-                focus_text = f"With the additional focus of the Clan, {warrior_amount} pieces of prey and {herb_amount} herbs were gathered."
-            elif warrior_amount > 1 and herb_amount == 1:
-                focus_text = f"With the additional focus of the Clan, {warrior_amount} pieces of prey and {herb_amount} herb were gathered."
-            elif warrior_amount > 1 and herb_amount <= 0:
-                focus_text = f"With the additional focus of the Clan, {warrior_amount} pieces of prey and no herbs were gathered."
-            elif warrior_amount == 1 and herb_amount > 1:
-                focus_text = f"With the additional focus of the Clan, {warrior_amount} piece of prey and {herb_amount} herbs were gathered."
-            elif warrior_amount <= 0 and herb_amount > 1:
-                focus_text = f"With the additional focus of the Clan, no prey and {herb_amount} herbs were gathered."
-            elif warrior_amount == 1 and herb_amount == 1:
-                focus_text = f"With the additional focus of the Clan, {warrior_amount} piece of prey and {herb_amount} herb were gathered."
-            elif warrior_amount <= 0 and herb_amount <= 0:
-                focus_text = "Despite the additional focus of the Clan, neither prey nor herbs could be gathered."
-            else:
-                focus_text = "This is a bug, report it - focus feature"
+            focus_text = i18n.t("hardcoded.focus_prey", count=warrior_amount)
+
+            if herb_focus_text:
+                focus_text += f" {herb_focus_text}"
 
         if focus_text:
             game.cur_events_list.insert(0, Single_Event(focus_text, "misc"))
@@ -2226,26 +2380,11 @@ class Events:
             cat_IDs = predetermined_cat_IDs
 
         if not predetermined_cat_IDs:
-            eligible_cats = []
-            for cat in Cat.all_cats.values():
-                if cat.outside and cat.ID not in Cat.outside_cats:
-                    # The outside-value must be set to True before the cat can go to cotc
-                    Cat.outside_cats.update({cat.ID: cat})
-
-                if (
-                    cat.outside
-                    and cat.status
-                    not in [
-                        "kittypet",
-                        "loner",
-                        "rogue",
-                        "former Clancat",
-                        "driven off",
-                    ]
-                    and not cat.exiled
-                    and not cat.dead
-                ):
-                    eligible_cats.append(cat)
+            eligible_cats = [
+                cat
+                for cat in Cat.all_cats.values()
+                if not cat.dead and cat.status.is_lost(CatGroup.PLAYER_CLAN)
+            ]
 
             if not eligible_cats:
                 return
@@ -2253,24 +2392,12 @@ class Events:
             lost_cat = random.choice(eligible_cats)
             cat_IDs.append(lost_cat.ID)
 
-            text = [
-                "After a long journey, m_c has finally returned home to c_n.",
-                "m_c was found at the border, tired, but happy to be home.",
-                "m_c strides into camp, much to the everyone's surprise. {PRONOUN/m_c/subject/CAP}{VERB/m_c/'re/'s} home!",
-                "{PRONOUN/m_c/subject/CAP} met so many friends on {PRONOUN/m_c/poss} journey, but c_n is where m_c truly belongs. With a tearful goodbye, "
-                "{PRONOUN/m_c/subject} {VERB/m_c/return/returns} home.",
-            ]
-            lost_cat.outside = False
             additional_cats = lost_cat.add_to_clan()
             cat_IDs.extend(additional_cats)
-            text = random.choice(text)
+            text = i18n.t(f"hardcoded.event_lost{random.choice(range(1,5))}")
 
             if additional_cats:
-                text += " {PRONOUN/m_c/subject/CAP} {VERB/m_c/bring/brings} along {PRONOUN/m_c/poss} "
-                if len(additional_cats) > 1:
-                    text += str(len(additional_cats)) + " children."
-                else:
-                    text += "child."
+                text += i18n.t("hardcoded.event_lost_kits", count=len(additional_cats))
 
             text = event_text_adjust(Cat, text, main_cat=lost_cat, clan=game.clan)
 
@@ -2279,14 +2406,15 @@ class Events:
         # Perform a ceremony if needed
         for cat_ID in cat_IDs:
             x = Cat.fetch_cat(cat_ID)
-            if x.status in [
-                "apprentice",
-                "medicine cat apprentice",
-                "mediator apprentice",
-                "kitten",
-                "newborn",
+            if x.status.rank in [
+                CatRank.APPRENTICE,
+                CatRank.MEDICINE_APPRENTICE,
+                CatRank.MEDIATOR_APPRENTICE,
+                CatRank.KITTEN,
+                CatRank.NEWBORN,
             ]:
                 if x.moons >= 15:
+<<<<<<< HEAD
                     if x.status == "medicine cat apprentice":
                         self.ceremony(x, "medicine cat")
                     elif x.status == "mediator apprentice":
@@ -2317,17 +2445,39 @@ class Events:
                     x.status_change("warrior")
                 elif x.moons > 120:
                     x.status_change("elder")
+=======
+                    if x.status.rank == CatRank.MEDICINE_APPRENTICE:
+                        self.ceremony(x, CatRank.MEDICINE_CAT)
+                    elif x.status.rank == CatRank.MEDIATOR_APPRENTICE:
+                        self.ceremony(x, CatRank.MEDIATOR)
+                    else:
+                        self.ceremony(x, CatRank.WARRIOR)
+                elif not x.status.rank.is_any_apprentice_rank() and x.moons >= 6:
+                    self.ceremony(x, CatRank.APPRENTICE)
+>>>>>>> development
 
     def handle_fading(self, cat):
         """
         TODO: DOCS
         """
+<<<<<<< HEAD
         if game.clan.clan_settings["fading"] and not cat.prevent_fading \
                 and cat.ID != game.clan.instructor.ID and cat.ID != game.clan.demon.ID and not cat.faded:
 
             age_to_fade = game.config["fading"]["age_to_fade"]
             opacity_at_fade = game.config["fading"]["opacity_at_fade"]
             fading_speed = game.config["fading"]["visual_fading_speed"]
+=======
+        if (
+            get_clan_setting("fading")
+            and not cat.prevent_fading
+            and cat.ID != game.clan.instructor.ID
+            and not cat.faded
+        ):
+            age_to_fade = constants.CONFIG["fading"]["age_to_fade"]
+            opacity_at_fade = constants.CONFIG["fading"]["opacity_at_fade"]
+            fading_speed = constants.CONFIG["fading"]["visual_fading_speed"]
+>>>>>>> development
             # Handle opacity
             cat.pelt.opacity = int(
                 (100 - opacity_at_fade)
@@ -2370,15 +2520,15 @@ class Events:
                         else:
                             game.clan.medicine_cat = None
 
-                game.cat_to_fade.append(cat.ID)
+                add_cat_to_fade_id(cat.ID)
                 cat.set_faded()
 
-    def one_moon_outside_cat(self, cat):
+    def one_moon_outside_cat(self, cat, other_clan_cats: list = None):
         """
         exiled cat events
         """
         # aging the cat
-        cat.one_moon()
+        cat.one_moon(other_clan_cats)
         cat.manage_outside_trait()
 
         self.handle_outside_EX(cat)
@@ -2403,14 +2553,21 @@ class Events:
         -if the cat was not injured or ill, then they will do all of the above *and* trigger misc events, acc events,
         and new cat events
         """
+<<<<<<< HEAD
 
         if cat.dead:
+=======
+        if cat.faded:
+            return
+>>>>>>> development
 
+        # this will also handle increasing dead_for!
+        cat.status.increase_current_moons_as()
+
+        if cat.dead:
             cat.thoughts()
             if cat.ID in game.just_died:
                 cat.moons += 1
-            else:
-                cat.dead_for += 1
             self.handle_fading(cat)  # Deal with fading.
             cat.talked_to = False
             return
@@ -2444,9 +2601,21 @@ class Events:
         # are connected to cats are located in there
         cat.one_moon()
 
+<<<<<<< HEAD
+=======
+        if constants.CONFIG["event_generation"]["debug_type_override"]:
+            debug_type_override = constants.CONFIG["event_generation"][
+                "debug_type_override"
+            ]
+            if debug_type_override in ["death", "injury"]:
+                self.handle_injuries_or_general_death(cat)
+            elif debug_type_override == "misc":
+                self.other_interactions(cat)
+            elif debug_type_override == "new_cat":
+                self.invite_new_cats(cat)
+>>>>>>> development
 
         # Handle Mediator Events
-        # TODO: this is not a great way to handle them, ideally they should be converted to ShortEvent format
         self.mediator_events(cat)
 
        
@@ -2458,9 +2627,13 @@ class Events:
 
         # handle nutrition amount
         # (CARE: the cats have to be fed before this happens - should be handled in "one_moon" function)
-        if game.clan.game_mode in ['expanded', 'cruel season'
-                                   ] and game.clan.freshkill_pile:
-            Condition_Events.handle_nutrient(cat, game.clan.freshkill_pile.nutrition_info)
+        if (
+            game.clan.game_mode in ("expanded", "cruel season")
+            and game.clan.freshkill_pile
+        ):
+            Condition_Events.handle_nutrient(
+                cat, game.clan.freshkill_pile.nutrition_info
+            )
 
             if cat.dead:
                 return
@@ -2485,7 +2658,7 @@ class Events:
                 Condition_Events.handle_illnesses(cat)
             else:
                 Condition_Events.handle_injuries(cat)
-            game.switches["skip_conditions"].clear()
+            switch_set_value(Switch.skip_conditions, [])
             if cat.dead:
                 return
             self.handle_outbreaks(cat)
@@ -2493,7 +2666,7 @@ class Events:
             cat.experience += random.randint(0,5)
 
         # newborns don't do much
-        if cat.status == "newborn":
+        if cat.status.rank == CatRank.NEWBORN:
             cat.relationship_interaction()
             cat.thoughts()
             return
@@ -2521,7 +2694,7 @@ class Events:
         cat.thoughts()
 
         # relationships have to be handled separately, because of the ceremony name change
-        if not cat.dead and not cat.outside:
+        if cat.status.alive_in_player_clan:
             Relation_Events.handle_relationships(cat)
 
         # now we make sure ill and injured cats don't get interactions they shouldn't
@@ -2541,14 +2714,14 @@ class Events:
             if not triggered_death:
                 self.handle_illnesses_or_illness_deaths(cat)
             else:
-                game.switches["skip_conditions"].clear()
+                switch_set_value(Switch.skip_conditions, [])
                 return
         else:
             triggered_death = self.handle_illnesses_or_illness_deaths(cat)
             if not triggered_death:
                 self.handle_injuries_or_general_death(cat)
             else:
-                game.switches["skip_conditions"].clear()
+                switch_set_value(Switch.skip_conditions, [])
                 return
 
         self.handle_murder(cat)
@@ -2560,12 +2733,13 @@ class Events:
             if game.clan.deputy.ID != game.clan.your_cat.ID:
                 game.clan.deputy = game.clan.your_cat
 
-        game.switches["skip_conditions"].clear()
+        switch_set_value(Switch.skip_conditions, [])
 
     def load_war_resources(self):
-        resource_dir = "resources/dicts/events/"
-        with open(f"{resource_dir}war.json", encoding="ascii") as read_file:
-            self.WAR_TXT = ujson.loads(read_file.read())
+        if Events.war_lang == i18n.config.get("locale"):
+            return
+        self.WAR_TXT = load_lang_resource("events/war.json")
+        Events.war_lang = i18n.config.get("locale")
 
     def check_war(self):
         """
@@ -2591,18 +2765,17 @@ class Events:
         war_events = None
         enemy_clan = None
         if game.clan.war["at_war"]:
-
             # Grab the enemy clan object
             for other_clan in game.clan.all_clans:
                 if other_clan.name == game.clan.war["enemy"]:
                     enemy_clan = other_clan
                     break
 
-            threshold = 5
+            threshold = 10
             if enemy_clan.temperament == "bloodthirsty":
-                threshold = 10
+                threshold = 12
             if enemy_clan.temperament in ["mellow", "amiable", "gracious"]:
-                threshold = 3
+                threshold = 7
 
             threshold -= int(game.clan.war["duration"])
             if enemy_clan.relations < 0:
@@ -2613,12 +2786,12 @@ class Events:
                 game.clan.war["at_war"] = False
                 game.clan.war["enemy"] = None
                 game.clan.war["duration"] = 0
-                enemy_clan.relations += 12
+                enemy_clan.relations += 2
                 war_events = self.WAR_TXT["conclusion_events"]
             else:  # try to influence the relation with warring clan
                 game.clan.war["duration"] += 1
-                choice = random.choice(["rel_up", "rel_up", "neutral", "rel_down"])
-                game.switches["war_rel_change_type"] = choice
+                choice = random.choice(["rel_up", "neutral", "rel_down"])
+                switch_set_value(Switch.war_rel_change_type, choice)
                 war_events = self.WAR_TXT["progress_events"][choice]
                 if enemy_clan.relations < 0:
                     enemy_clan.relations = 0
@@ -2642,6 +2815,7 @@ class Events:
                     game.clan.war["at_war"] = True
                     game.clan.war["enemy"] = other_clan.name
                     war_events = self.WAR_TXT["trigger_events"]
+                    switch_set_value(Switch.war_rel_change_type, "rel_down")
 
         # if nothing happened, return
         if not war_events or not enemy_clan:
@@ -2656,6 +2830,7 @@ class Events:
                 if not game.clan.medicine_cat and "med_name" in event:
                     war_events.remove(event)
 
+        # grab our war "notice" for this moon
         event = random.choice(war_events)
         event = ongoing_event_text_adjust(
             Cat, event, other_clan_name=f"{enemy_clan.name}Clan", clan=game.clan
@@ -2671,8 +2846,12 @@ class Events:
         # PROMOTE DEPUTY TO LEADER, IF NEEDED -----------------------
         if game.clan.leader:
             leader_dead = game.clan.leader.dead
+<<<<<<< HEAD
             leader_outside = game.clan.leader.outside
             leader_shunned = game.clan.leader.shunned > 0
+=======
+            leader_outside = game.clan.leader.status.is_outsider
+>>>>>>> development
         else:
             leader_dead = True
             # If leader is None, treat them as dead (since they are dead - and faded away.)
@@ -2682,6 +2861,7 @@ class Events:
         # If a Clan deputy exists, and the leader is dead,
         #  outside, or doesn't exist, make the deputy leader.
         if game.clan.deputy:
+<<<<<<< HEAD
             if game.clan.deputy is not None and \
                     not game.clan.deputy.dead and \
                     not game.clan.deputy.outside and \
@@ -2729,6 +2909,31 @@ class Events:
                 # game.ceremony_events_list.append(text)
                 text += f"\nVisit {game.clan.deputy.name}'s " \
                         "profile to see their full leader ceremony."
+=======
+            if (
+                game.clan.deputy is not None
+                and game.clan.deputy.status.alive_in_player_clan
+                and (leader_dead or leader_outside)
+            ):
+                game.clan.new_leader(game.clan.deputy)
+                game.clan.leader_lives = 9
+                text = ""
+                if game.clan.deputy.personality.trait == "bloodthirsty":
+                    text = i18n.t("hardcoded.ceremony_leader_bloodthirsty")
+                else:
+                    c = random.randint(1, 3)
+                    text = i18n.t(
+                        f"hardcoded.ceremony_leader_{c}",
+                        oldname=game.clan.deputy.name,
+                        newname=cat.name,
+                    )
+
+                # game.ceremony_events_list.append(text)
+                text += " " + i18n.t("hardcoded.ceremony_closer")
+
+                text = event_text_adjust(Cat, text, main_cat=cat)
+
+>>>>>>> development
                 game.cur_events_list.append(
                     Single_Event(text, "ceremony", game.clan.deputy.ID))
                 self.ceremony_accessory = True
@@ -2744,15 +2949,18 @@ class Events:
             cat_dead = True
 
         if not cat_dead:
-            if cat.status == "deputy" and game.clan.deputy is None:
+            if cat.status.rank == CatRank.DEPUTY and game.clan.deputy is None:
                 game.clan.deputy = cat
-            if cat.status == "medicine cat" and game.clan.medicine_cat is None:
+            if (
+                cat.status.rank == CatRank.MEDICINE_CAT
+                and game.clan.medicine_cat is None
+            ):
                 game.clan.medicine_cat = cat
 
             # retiring to elder den
             if (
                 not cat.no_retire
-                and cat.status in ["warrior", "deputy"]
+                and cat.status.rank in (CatRank.WARRIOR, CatRank.DEPUTY)
                 and len(cat.apprentice) < 1
                 and cat.moons > 114
             ):
@@ -2760,8 +2968,9 @@ class Events:
                 if cat.moons > 140 or not int(
                     random.random() * (-0.7 * cat.moons + 100)
                 ):
-                    if cat.status == "deputy":
+                    if cat.status.rank == CatRank.DEPUTY:
                         game.clan.deputy = None
+<<<<<<< HEAD
                     if cat.shunned != 0:
                         self.ceremony(cat, "elder", LG_TYPE="shunned")
                     else:
@@ -2797,33 +3006,47 @@ class Events:
                     med_cat_list = [i for i in Cat.all_cats_list if
                                     i.status in ["medicine cat", "medicine cat apprentice"] and not (
                                             i.dead or i.outside)]
+=======
+                    self.ceremony(cat, CatRank.ELDER)
+
+            # apprentice a kitten to either med or warrior
+            if cat.moons == cat_class.age_moons[CatAge.ADOLESCENT][0]:
+                if cat.status.rank == CatRank.KITTEN:
+                    med_cat_list = [
+                        i
+                        for i in Cat.all_cats_list
+                        if i.status.rank.is_any_medicine_rank()
+                        and i.status.alive_in_player_clan
+                    ]
+>>>>>>> development
 
                     # check if the medicine cat is an elder
                     has_elder_med = [
                         c
                         for c in med_cat_list
-                        if c.age == "senior" and c.status == "medicine cat"
+                        if c.age == "senior" and c.status.rank == CatRank.MEDICINE_CAT
                     ]
 
                     very_old_med = [
                         c
                         for c in med_cat_list
-                        if c.moons >= 150 and c.status == "medicine cat"
+                        if c.moons >= 150 and c.status.rank == CatRank.MEDICINE_CAT
                     ]
 
                     # check if the Clan has sufficient med cats
-                    has_med = medical_cats_condition_fulfilled(
+                    has_med = medicine_cats_can_cover_clan(
                         Cat.all_cats.values(),
                         amount_per_med=get_amount_cat_for_one_medic(game.clan),
                     )
 
                     # check if a med cat app already exists
                     has_med_app = any(
-                        cat.status == "medicine cat apprentice" for cat in med_cat_list
+                        cat.status.rank == CatRank.MEDICINE_APPRENTICE
+                        for cat in med_cat_list
                     )
 
                     # assign chance to become med app depending on current med cat and traits
-                    chance = game.config["roles"]["base_medicine_app_chance"]
+                    chance = constants.CONFIG["roles"]["base_medicine_app_chance"]
                     if has_elder_med == med_cat_list:
                         # These chances apply if all the current medicine cats are elders.
                         if has_med:
@@ -2862,6 +3085,7 @@ class Events:
                     # edited below here for LG shunned ceremonies
                     self.ceremony_accessory = True
                     if not has_med_app and not int(random.random() * chance):
+<<<<<<< HEAD
                         if cat.shunned != 0:
                             self.ceremony(cat, "medicine cat apprentice", LG_TYPE="shunned")
                         else:
@@ -2875,13 +3099,17 @@ class Events:
                             self.ceremony(cat, "queen's apprentice", LG_TYPE="")
                             self.ceremony_accessory = True
                             self.gain_accessories(cat)
+=======
+                        self.ceremony(cat, CatRank.MEDICINE_APPRENTICE)
+                        self.ceremony_accessory = True
+                        self.gain_accessories(cat)
+>>>>>>> development
                     else:
                         # Chance for mediator apprentice
                         mediator_list = list(
                             filter(
-                                lambda x: x.status == "mediator"
-                                and not x.dead
-                                and not x.outside,
+                                lambda x: x.status.rank == CatRank.MEDIATOR
+                                and x.status.alive_in_player_clan,
                                 Cat.all_cats_list,
                             )
                         )
@@ -2893,7 +3121,7 @@ class Events:
                                 has_mediator_apprentice = True
                                 break
 
-                        chance = game.config["roles"]["mediator_app_chance"]
+                        chance = constants.CONFIG["roles"]["mediator_app_chance"]
                         if cat.personality.trait in [
                             "charismatic",
                             "loving",
@@ -2915,6 +3143,7 @@ class Events:
                             and not has_mediator_apprentice
                             and not int(random.random() * chance)
                         ):
+<<<<<<< HEAD
                             if cat.shunned != 0:
                                 self.ceremony(cat, "mediator apprentice", LG_TYPE="shunned")
                             else:
@@ -2936,39 +3165,58 @@ class Events:
             ] and cat.shunned == 0:
 
                 if game.clan.clan_settings["12_moon_graduation"]:
+=======
+                            self.ceremony(cat, CatRank.MEDIATOR_APPRENTICE)
+                            self.ceremony_accessory = True
+                            self.gain_accessories(cat)
+                        else:
+                            self.ceremony(cat, CatRank.APPRENTICE)
+                            self.ceremony_accessory = True
+                            self.gain_accessories(cat)
+
+            # graduate
+            if cat.status.rank.is_any_apprentice_rank():
+                if get_clan_setting("12_moon_graduation"):
+>>>>>>> development
                     _ready = cat.moons >= 12
                 else:
                     _ready = (
                         cat.experience_level not in ["untrained", "trainee"]
-                        and cat.moons >= game.config["graduation"]["min_graduating_age"]
-                    ) or cat.moons >= game.config["graduation"]["max_apprentice_age"][
-                        cat.status
+                        and cat.moons
+                        >= constants.CONFIG["graduation"]["min_graduating_age"]
+                    ) or cat.moons >= constants.CONFIG["graduation"][
+                        "max_apprentice_age"
+                    ][
+                        cat.status.rank
                     ]
 
                 if _ready:
-                    if game.clan.clan_settings["12_moon_graduation"]:
+                    if get_clan_setting("12_moon_graduation"):
                         preparedness = "prepared"
                     else:
-                        if cat.moons == game.config["graduation"]["min_graduating_age"]:
+                        if (
+                            cat.moons
+                            == constants.CONFIG["graduation"]["min_graduating_age"]
+                        ):
                             preparedness = "early"
                         elif cat.experience_level in ["untrained", "trainee"]:
                             preparedness = "unprepared"
                         else:
                             preparedness = "prepared"
 
-                    if cat.status == "apprentice":
-                        self.ceremony(cat, "warrior", preparedness)
+                    if cat.status.rank == CatRank.APPRENTICE:
+                        self.ceremony(cat, CatRank.WARRIOR, preparedness)
                         self.ceremony_accessory = True
                         self.gain_accessories(cat)
 
                     # promote to med cat
-                    elif cat.status == "medicine cat apprentice":
-                        self.ceremony(cat, "medicine cat", preparedness)
+                    elif cat.status.rank == CatRank.MEDICINE_APPRENTICE:
+                        self.ceremony(cat, CatRank.MEDICINE_CAT, preparedness)
                         self.ceremony_accessory = True
                         self.gain_accessories(cat)
 
-                    elif cat.status == "mediator apprentice":
-                        self.ceremony(cat, "mediator", preparedness)
+                    elif cat.status.rank == CatRank.MEDIATOR_APPRENTICE:
+                        self.ceremony(cat, CatRank.MEDIATOR, preparedness)
                         self.ceremony_accessory = True
                         self.gain_accessories(cat)
                     
@@ -2981,12 +3229,10 @@ class Events:
         """
         TODO: DOCS
         """
-        if self.CEREMONY_TXT is not None:
+        if Events.ceremony_lang == i18n.config.get("locale"):
             return
 
-        resource_dir = "resources/dicts/events/ceremonies/"
-        with open(f"{resource_dir}ceremony-master.json", encoding="ascii") as read_file:
-            self.CEREMONY_TXT = ujson.loads(read_file.read())
+        self.CEREMONY_TXT = load_lang_resource("events/ceremonies/ceremony-master.json")
 
         self.ceremony_id_by_tag = {}
         # Sorting.
@@ -2997,19 +3243,29 @@ class Events:
                 else:
                     self.ceremony_id_by_tag[tag] = {ID}
 
+<<<<<<< HEAD
     def ceremony(self, cat, promoted_to, preparedness="prepared", LG_TYPE=""):
+=======
+        Events.ceremony_lang = i18n.config.get("locale")
+
+    def ceremony(self, cat, promoted_to, preparedness="prepared"):
+>>>>>>> development
         """
-        promote cats and add to event list
+        promote cats and add to events list
         """
         # ceremony = []
         _ment = Cat.fetch_cat(cat.mentor) if cat.mentor else None # Grab current mentor, if they have one, before it's removed. 
         old_name = str(cat.name)
-        cat.status_change(promoted_to)
+        cat.rank_change(promoted_to)
         cat.rank_change_traits_skill(_ment)
 
         involved_cats = [cat.ID]  # Clearly, the cat the ceremony is about is involved.
 
         # Time to gather ceremonies. First, lets gather all the ceremony ID's.
+
+        # ensure the right ceremonies are loaded for the given language
+        self.load_ceremonies()
+
         possible_ceremonies = set()
         dead_mentor = None
         mentor = None
@@ -3017,10 +3273,21 @@ class Events:
         dead_parents = []
         living_parents = []
         mentor_type = {
+<<<<<<< HEAD
             "medicine cat": ["medicine cat"],
             "queen": ["queen"],
             "warrior": ["warrior", "deputy", "leader", "elder"],
             "mediator": ["mediator"],
+=======
+            CatRank.MEDICINE_CAT: [CatRank.MEDICINE_CAT],
+            CatRank.WARRIOR: [
+                CatRank.WARRIOR,
+                CatRank.DEPUTY,
+                CatRank.LEADER,
+                CatRank.ELDER,
+            ],
+            CatRank.MEDIATOR: [CatRank.MEDIATOR],
+>>>>>>> development
         }
 
         try:
@@ -3028,7 +3295,11 @@ class Events:
             possible_ceremonies.update(self.ceremony_id_by_tag[promoted_to])
 
             # Get ones for prepared status ----------------------------------------------
+<<<<<<< HEAD
             if promoted_to in ["warrior", "medicine cat", "mediator", "queen"]:
+=======
+            if promoted_to in (CatRank.WARRIOR, CatRank.MEDICINE_CAT, CatRank.MEDIATOR):
+>>>>>>> development
                 possible_ceremonies = possible_ceremonies.intersection(
                     self.ceremony_id_by_tag[preparedness]
                 )
@@ -3038,7 +3309,7 @@ class Events:
 
             # CURRENT MENTOR TAG CHECK
             if cat.mentor:
-                if Cat.fetch_cat(cat.mentor).status == "leader":
+                if Cat.fetch_cat(cat.mentor).status.is_leader:
                     tags.append("yes_leader_mentor")
                 else:
                     tags.append("yes_mentor")
@@ -3057,9 +3328,13 @@ class Events:
             # is being promoted too.
             valid_living_former_mentors = []
             for c in cat.former_mentor:
+<<<<<<< HEAD
                 if not (Cat.fetch_cat(c).dead or Cat.fetch_cat(c).outside or Cat.fetch_cat(c).shunned > 0):
+=======
+                if Cat.fetch_cat(c).status.alive_in_player_clan:
+>>>>>>> development
                     if promoted_to in mentor_type:
-                        if Cat.fetch_cat(c).status in mentor_type[promoted_to]:
+                        if Cat.fetch_cat(c).status.rank in mentor_type[promoted_to]:
                             valid_living_former_mentors.append(c)
                     else:
                         valid_living_former_mentors.append(c)
@@ -3068,7 +3343,7 @@ class Events:
             if valid_living_former_mentors:
                 #  Living Former mentors. Grab the latest living valid mentor.
                 previous_alive_mentor = Cat.fetch_cat(valid_living_former_mentors[-1])
-                if previous_alive_mentor.status == "leader":
+                if previous_alive_mentor.status.is_leader:
                     tags.append("alive_leader_mentor")
                 else:
                     tags.append("alive_mentor")
@@ -3096,9 +3371,8 @@ class Events:
                     # For the purposes of ceremonies, living parents
                     # who are also the leader are not counted.
                     elif (
-                        not Cat.fetch_cat(p).dead
-                        and not Cat.fetch_cat(p).outside
-                        and Cat.fetch_cat(p).status != "leader"
+                        Cat.fetch_cat(p).status.alive_in_player_clan
+                        and Cat.fetch_cat(p).status.rank != CatRank.LEADER
                     ):
                         living_parents.append(Cat.fetch_cat(p))
 
@@ -3128,7 +3402,11 @@ class Events:
             # Gather for leader ---------------------------------------------------------
 
             tags = []
+<<<<<<< HEAD
             if game.clan.leader and not game.clan.leader.dead and not game.clan.leader.outside and game.clan.leader.shunned == 0:
+=======
+            if game.clan.leader and game.clan.leader.status.alive_in_player_clan:
+>>>>>>> development
                 tags.append("yes_leader")
             else:
                 tags.append("no_leader")
@@ -3181,6 +3459,7 @@ class Events:
 
         # getting the random honor if it's needed
         random_honor = None
+<<<<<<< HEAD
         if promoted_to in ['warrior', 'mediator', 'medicine cat', "queen"]:
             resource_dir = "resources/dicts/events/ceremonies/"
             with open(f"{resource_dir}ceremony_traits.json",
@@ -3193,6 +3472,18 @@ class Events:
 
         if cat.status in ["warrior", "medicine cat", "mediator", "queen"]:
             History.add_app_ceremony(cat, random_honor)
+=======
+        if promoted_to in (CatRank.WARRIOR, CatRank.MEDIATOR, CatRank.MEDICINE_CAT):
+            traits = load_lang_resource("events/ceremonies/ceremony_traits.json")
+
+            try:
+                random_honor = random.choice(traits[cat.personality.trait])
+            except KeyError:
+                random_honor = i18n.t("defaults.ceremony_honor")
+
+        if cat.status.rank in (CatRank.WARRIOR, CatRank.MEDICINE_CAT, CatRank.MEDIATOR):
+            cat.history.add_app_ceremony(random_honor)
+>>>>>>> development
 
         # lifegen filtering for shunned/forgiven
         # it's easier to do here lol
@@ -3253,19 +3544,21 @@ class Events:
         # parent to include in the involved cats. Therefore,
         # text adjust also returns the random parents it picked,
         # which will be added to the involved cats if needed.
-        ceremony_text, involved_living_parent, involved_dead_parent = (
-            ceremony_text_adjust(
-                Cat,
-                ceremony_text,
-                cat,
-                dead_mentor=dead_mentor,
-                random_honor=random_honor,
-                old_name=old_name,
-                mentor=mentor,
-                previous_alive_mentor=previous_alive_mentor,
-                living_parents=living_parents,
-                dead_parents=dead_parents,
-            )
+        (
+            ceremony_text,
+            involved_living_parent,
+            involved_dead_parent,
+        ) = ceremony_text_adjust(
+            Cat,
+            ceremony_text,
+            cat,
+            dead_mentor=dead_mentor,
+            random_honor=random_honor,
+            old_name=old_name,
+            mentor=mentor,
+            previous_alive_mentor=previous_alive_mentor,
+            living_parents=living_parents,
+            dead_parents=dead_parents,
         )
 
         # Gather additional involved cats
@@ -3297,6 +3590,13 @@ class Events:
         cat.faith += round(random.uniform(0,2), 2)
         game.ceremony_events_list.append(f'{cat.name}{ceremony_text}')
 
+<<<<<<< HEAD
+=======
+        game.cur_events_list.append(
+            Single_Event(ceremony_text, "ceremony", involved_cats)
+        )
+        # game.ceremony_events_list.append(f'{cat.name}{ceremony_text}')
+>>>>>>> development
 
     def gain_accessories(self, cat):
         """
@@ -3306,28 +3606,32 @@ class Events:
         if not cat:
             return
 
-        if cat.dead or cat.outside:
+        if not cat.status.alive_in_player_clan:
             return
         
         if game.clan.clan_settings['all accessories']:
             return
 
+<<<<<<< HEAD
         # check if cat already has acc
         # if cat.pelt.accessory:
         #     self.ceremony_accessory = False
         #     return
-
-        # find random_cat
-        random_cat = get_random_moon_cat(Cat, main_cat=cat)
+=======
+        # check if cat already has max acc
+        if cat.pelt.accessory and len(cat.pelt.accessory) == 3:
+            self.ceremony_accessory = False
+            return
+>>>>>>> development
 
         # chance to gain acc
-        acc_chances = game.config["accessory_generation"]
+        acc_chances = constants.CONFIG["accessory_generation"]
         chance = acc_chances["base_acc_chance"]
-        if cat.status in ["medicine cat", "medicine cat apprentice"]:
+        if cat.status.rank.is_any_medicine_rank():
             chance += acc_chances["med_modifier"]
-        if cat.age in ["kitten", "adolescent"]:
+        if cat.age in [CatAge.KITTEN, CatAge.ADOLESCENT]:
             chance += acc_chances["baby_modifier"]
-        elif cat.age in ["senior adult", "senior"]:
+        elif cat.age in [CatAge.SENIOR_ADULT, CatAge.SENIOR]:
             chance += acc_chances["elder_modifier"]
         if cat.personality.trait in [
             "adventurous",
@@ -3354,6 +3658,8 @@ class Events:
             "nervous",
         ]:
             chance += acc_chances["grumpy_trait_modifier"]
+        if cat.pelt.accessory and len(cat.pelt.accessory) >= 1:
+            chance += acc_chances["multiple_acc_modifier"]
         if self.ceremony_accessory:
             chance += acc_chances["ceremony_modifier"]
 
@@ -3361,16 +3667,16 @@ class Events:
         if chance <= 0:
             chance = 1
         if not int(random.random() * chance):
-
             sub_type = ["accessory"]
             if self.ceremony_accessory:
                 sub_type.append("ceremony")
 
-            handle_short_events.handle_event(event_type="misc",
-                                             main_cat=cat,
-                                             random_cat=random_cat,
-                                             sub_type=sub_type,
-                                             freshkill_pile=game.clan.freshkill_pile)
+            handle_short_events.handle_event(
+                event_type="misc",
+                main_cat=cat,
+                sub_type=sub_type,
+                freshkill_pile=game.clan.freshkill_pile,
+            )
 
         self.ceremony_accessory = False
 
@@ -3379,23 +3685,22 @@ class Events:
     # This gives outsiders exp. There may be a better spot for it to go,
     # but I put it here to keep the exp functions together
     def handle_outside_EX(self, cat):
-        if cat.outside:
-
+        if cat.status.is_outsider or cat.status.is_other_clancat:
             if cat.not_working() and int(random.random() * 3):
                 return
 
-            if cat.age == "kitten":
+            if cat.age == CatAge.KITTEN:
                 return
 
-            if cat.age == "adolescent":
-                ran = game.config["outside_ex"]["base_adolescent_timeskip_ex"]
-            elif cat.age == "senior":
-                ran = game.config["outside_ex"]["base_senior_timeskip_ex"]
+            if cat.age == CatAge.ADOLESCENT:
+                ran = constants.CONFIG["outside_ex"]["base_adolescent_timeskip_ex"]
+            elif cat.age == CatAge.SENIOR:
+                ran = constants.CONFIG["outside_ex"]["base_senior_timeskip_ex"]
             else:
-                ran = game.config["outside_ex"]["base_adult_timeskip_ex"]
+                ran = constants.CONFIG["outside_ex"]["base_adult_timeskip_ex"]
 
             role_modifier = 1
-            if cat.status == "kittypet":
+            if cat.status.social == CatSocial.KITTYPET:
                 # Kittypets will gain exp at 2/3 the rate of loners or exiled cats, as this assumes they are
                 # kept indoors at least part of the time and can't hunt/fight as much
                 role_modifier = 0.6
@@ -3414,6 +3719,7 @@ class Events:
         """
         TODO: DOCS
         """
+<<<<<<< HEAD
         if not cat:
             return
             
@@ -3421,16 +3727,19 @@ class Events:
             "apprentice", "medicine cat apprentice", "mediator apprentice", "queen's apprentice"
         ] and cat.shunned == 0:
 
+=======
+        if cat.status.rank.is_any_apprentice_rank():
+>>>>>>> development
             if cat.not_working() and int(random.random() * 3):
                 return
 
             if cat.experience > cat.experience_levels_range["trainee"][1]:
                 return
 
-            if cat.status == "medicine cat apprentice":
-                ran = game.config["graduation"]["base_med_app_timeskip_ex"]
+            if cat.status.rank == CatRank.MEDICINE_APPRENTICE:
+                ran = constants.CONFIG["graduation"]["base_med_app_timeskip_ex"]
             else:
-                ran = game.config["graduation"]["base_app_timeskip_ex"]
+                ran = constants.CONFIG["graduation"]["base_app_timeskip_ex"]
 
             mentor_modifier = 1
             if not cat.mentor or Cat.fetch_cat(cat.mentor).not_working():
@@ -3454,7 +3763,8 @@ class Events:
         alive_cats = list(
             filter(
                 lambda kitty: (
-                    kitty.status != "leader" and not kitty.dead and not kitty.outside
+                    kitty.status.rank != CatRank.LEADER
+                    and kitty.status.alive_in_player_clan
                 ),
                 Cat.all_cats.values(),
             )
@@ -3491,87 +3801,124 @@ class Events:
 
         chance = max(chance, 1)
 
-        # choose other cat
-        random_cat = get_random_moon_cat(Cat, main_cat=cat, parent_child_modifier=True, mentor_app_modifier=True)
-
+        if constants.CONFIG["event_generation"]["debug_type_override"] == "new_cat":
+            handle_short_events.handle_event(
+                event_type="new_cat",
+                main_cat=cat,
+                freshkill_pile=game.clan.freshkill_pile,
+            )
+            return
 
         if (
             not int(random.random() * chance)
-            and cat.age != "kitten"
-            and cat.age != "adolescent"
+            and not cat.age.is_baby()
             and not self.new_cat_invited
         ):
             self.new_cat_invited = True
 
-            handle_short_events.handle_event(event_type="new_cat",
-                                             main_cat=cat,
-                                             random_cat=random_cat,
-                                             freshkill_pile=game.clan.freshkill_pile)
+            handle_short_events.handle_event(
+                event_type="new_cat",
+                main_cat=cat,
+                freshkill_pile=game.clan.freshkill_pile,
+            )
 
     def other_interactions(self, cat):
         """
         TODO: DOCS
         """
+        if constants.CONFIG["event_generation"]["debug_type_override"] == "misc":
+            handle_short_events.handle_event(
+                event_type="misc",
+                main_cat=cat,
+                freshkill_pile=game.clan.freshkill_pile,
+            )
+            return
+
         hit = int(random.random() * 30)
         if hit:
             return
 
-        random_cat = get_random_moon_cat(Cat, main_cat=cat)
-
-        handle_short_events.handle_event(event_type="misc",
-                                         main_cat=cat,
-                                         random_cat=random_cat,
-                                         freshkill_pile=game.clan.freshkill_pile)
+        handle_short_events.handle_event(
+            event_type="misc",
+            main_cat=cat,
+            freshkill_pile=game.clan.freshkill_pile,
+        )
 
     def handle_injuries_or_general_death(self, cat):
         """
         decide if cat dies
         """
 
-        # try to get the random_cat
-        random_cat = get_random_moon_cat(Cat, cat, parent_child_modifier=True, mentor_app_modifier=True)
+        if constants.CONFIG["event_generation"]["debug_type_override"] == "death":
+            handle_short_events.handle_event(
+                event_type="birth_death",
+                main_cat=cat,
+                freshkill_pile=game.clan.freshkill_pile,
+            )
+            return
+        elif constants.CONFIG["event_generation"]["debug_type_override"] == "injury":
+            Condition_Events.handle_injuries(cat)
+            return
 
         # chance to kill leader: 1/50 by default
-        if not int(random.random() * game.get_config_value("death_related", "leader_death_chance")) \
-                and cat.status == 'leader' \
-                and not cat.not_working():
-            handle_short_events.handle_event(event_type="birth_death",
-                                             main_cat=cat,
-                                             random_cat=random_cat,
-                                             freshkill_pile=game.clan.freshkill_pile)
+        if (
+            not int(
+                random.random()
+                * game.get_config_value("death_related", "leader_death_chance")
+            )
+            and cat.status.is_leader
+            and not cat.not_working()
+        ):
+            handle_short_events.handle_event(
+                event_type="birth_death",
+                main_cat=cat,
+                freshkill_pile=game.clan.freshkill_pile,
+            )
 
             return True
 
         # chance to die of old age
-        age_start = game.config["death_related"]["old_age_death_start"]
-        death_curve_setting = game.config["death_related"]["old_age_death_curve"]
+        age_start = constants.CONFIG["death_related"]["old_age_death_start"]
+        death_curve_setting = constants.CONFIG["death_related"]["old_age_death_curve"]
         death_curve_value = 0.001 * death_curve_setting
         # made old_age_death_chance into a separate value to make testing with print statements easier
         old_age_death_chance = ((1 + death_curve_value) ** (cat.moons - age_start)) - 1
         if random.random() <= old_age_death_chance:
-            handle_short_events.handle_event(event_type="birth_death",
-                                             main_cat=cat,
-                                             random_cat=random_cat,
-                                             sub_type=["old_age"],
-                                             freshkill_pile=game.clan.freshkill_pile)
+            handle_short_events.handle_event(
+                event_type="birth_death",
+                main_cat=cat,
+                sub_type=["old_age"],
+                freshkill_pile=game.clan.freshkill_pile,
+            )
             return True
         # max age has been indicated to be 300, so if a cat reaches that age, they die of old age
+<<<<<<< HEAD
         if cat.moons >= 300:
             handle_short_events.handle_event(event_type="birth_death",
                                              main_cat=cat,
                                              random_cat=random_cat,
                                              sub_type=["old_age"],
                                              freshkill_pile=game.clan.freshkill_pile)
+=======
+        elif cat.moons >= 300:
+            handle_short_events.handle_event(
+                event_type="birth_death",
+                main_cat=cat,
+                sub_type=["old_age"],
+                freshkill_pile=game.clan.freshkill_pile,
+            )
+>>>>>>> development
             return True
 
         # disaster death chance
-        if game.clan.clan_settings.get('disasters'):
+        if get_clan_setting("disasters"):
             if not random.getrandbits(10):  # 1/1010
-                handle_short_events.handle_event(event_type="birth_death",
-                                                 main_cat=cat,
-                                                 random_cat=random_cat,
-                                                 sub_type=["mass_death"],
-                                                 freshkill_pile=game.clan.freshkill_pile)
+                handle_short_events.handle_event(
+                    event_type="birth_death",
+                    main_cat=cat,
+                    sub_type=["mass_death"],
+                    freshkill_pile=game.clan.freshkill_pile,
+                )
                 return True
         chance_death = game.get_config_value("death_related", f"{game.clan.game_mode}_death_chance")
         try:
@@ -3586,56 +3933,74 @@ class Events:
             print("couldn't handle queen mortality")
             
         # final death chance and then, if not triggered, head to injuries
+<<<<<<< HEAD
         if not int(random.random() * chance_death) \
                 and not cat.not_working():  # 1/400
             handle_short_events.handle_event(event_type="birth_death",
                                              main_cat=cat,
                                              random_cat=random_cat,
                                              freshkill_pile=game.clan.freshkill_pile)
+=======
+        if (
+            not int(
+                random.random()
+                * game.get_config_value(
+                    "death_related", f"{game.clan.game_mode}_death_chance"
+                )
+            )
+            and not cat.not_working()
+        ):  # 1/400
+            handle_short_events.handle_event(
+                event_type="birth_death",
+                main_cat=cat,
+                freshkill_pile=game.clan.freshkill_pile,
+            )
+>>>>>>> development
             return True
         else:
-            triggered_death = Condition_Events.handle_injuries(cat, random_cat)
+            triggered_death = Condition_Events.handle_injuries(cat)
 
             return triggered_death
 
     def handle_murder(self, cat):
-        """ Handles murder """
+        """Handles murder"""
         relationships = cat.relationships.values()
         targets = []
 
-        if cat.age in ["kitten", "newborn"]:
+        if cat.age.is_baby():
             return
         if cat.ID == game.clan.your_cat.ID:
             return
 
         # if this cat is unstable and aggressive, we lower the random murder chance
         random_murder_chance = int(
-            game.config["death_related"]["base_random_murder_chance"]
+            constants.CONFIG["death_related"]["base_random_murder_chance"]
         )
         random_murder_chance -= 0.5 * (
             (cat.personality.aggression) + (16 - cat.personality.stability)
         )
 
         # Check to see if random murder is triggered.
-        # If so, we allow targets to be anyone they have even the smallest amount of dislike for
+        # If so, we allow targets to be anyone they have even the smallest amount of negativity for
         if random.getrandbits(max(1, int(random_murder_chance))) == 1:
             targets = [
                 i
                 for i in relationships
-                if i.dislike > 1
-                and not Cat.fetch_cat(i.cat_to).dead
-                and not Cat.fetch_cat(i.cat_to).outside
+                if i.total_relationship_value() < 0
+                and Cat.fetch_cat(i.cat_to).status.alive_in_player_clan
             ]
             if not targets:
                 return
 
             chosen_target = random.choice(targets)
 
-            handle_short_events.handle_event(event_type="birth_death",
-                                             main_cat=Cat.fetch_cat(chosen_target.cat_to),
-                                             random_cat=cat,
-                                             sub_type=["murder"],
-                                             freshkill_pile=game.clan.freshkill_pile)
+            handle_short_events.handle_event(
+                event_type="birth_death",
+                main_cat=Cat.fetch_cat(chosen_target.cat_to),
+                random_cat=cat,
+                sub_type=["murder"],
+                freshkill_pile=game.clan.freshkill_pile,
+            )
 
             return
 
@@ -3656,39 +4021,27 @@ class Events:
             return
 
         # If random murder is not triggered, targets can only be those they have some dislike for
-        hate_relation = [
+        negative_relation = [
             i
             for i in relationships
-            if i.dislike > 15
-            and not Cat.fetch_cat(i.cat_to).dead
-            and not Cat.fetch_cat(i.cat_to).outside
+            if i.has_extreme_negative
+            and Cat.fetch_cat(i.cat_to).status.alive_in_player_clan
         ]
-        targets.extend(hate_relation)
-        resent_relation = [
-            i
-            for i in relationships
-            if i.jealousy > 15
-            and not Cat.fetch_cat(i.cat_to).dead
-            and not Cat.fetch_cat(i.cat_to).outside
-        ]
-        targets.extend(resent_relation)
+        targets.extend(negative_relation)
 
         # if we have some, then we need to decide if this cat will kill
         if targets:
             chosen_target = random.choice(targets)
 
-            kill_chance = game.config["death_related"]["base_murder_kill_chance"]
+            kill_chance = constants.CONFIG["death_related"]["base_murder_kill_chance"]
 
-            relation_modifier = int(
-                0.5 * int(chosen_target.dislike + chosen_target.jealousy)
-            ) - int(
-                0.5
-                * int(
-                    chosen_target.platonic_like
-                    + chosen_target.trust
-                    + chosen_target.comfortable
-                )
+            extreme_neg = len(
+                [l for l in chosen_target.get_reltype_tiers() if l.is_extreme_neg()]
             )
+            neg = len([l for l in chosen_target.get_reltype_tiers() if l.is_low_neg()])
+
+            relation_modifier = (extreme_neg * 10) + (neg * 5)
+
             kill_chance -= relation_modifier
 
             if (
@@ -3706,7 +4059,7 @@ class Events:
             # little easter egg just for fun
             if (
                 cat.personality.trait == "ambitious"
-                and Cat.fetch_cat(chosen_target.cat_to).status == "leader"
+                and Cat.fetch_cat(chosen_target.cat_to).status.is_leader
             ):
                 kill_chance -= 10
 
@@ -3718,11 +4071,13 @@ class Events:
                 )
                 print("KILL KILL KILL")
 
-                handle_short_events.handle_event(event_type="birth_death",
-                                                 main_cat=Cat.fetch_cat(chosen_target.cat_to),
-                                                 random_cat=cat,
-                                                 sub_type=["murder"],
-                                                 freshkill_pile=game.clan.freshkill_pile)
+                handle_short_events.handle_event(
+                    event_type="birth_death",
+                    main_cat=Cat.fetch_cat(chosen_target.cat_to),
+                    random_cat=cat,
+                    sub_type=["murder"],
+                    freshkill_pile=game.clan.freshkill_pile,
+                )
 
     def handle_disaster(self):
         if not game.clan.disaster:
@@ -3835,17 +4190,6 @@ class Events:
         )
         return triggered_death
 
-    def handle_twoleg_capture(self, cat):
-        """
-        TODO: DOCS
-        """
-        cat.outside = True
-        cat.gone()
-        # The outside-value must be set to True before the cat can go to cotc
-        cat.thought = "Is terrified as they are trapped in a large silver Twoleg den"
-        # FIXME: Not sure what this is intended to do; 'cat_class' has no 'other_cats' attribute.
-        # cat_class.other_cats[cat.ID] = cat
-
     def handle_outbreaks(self, cat):
         """Try to infect some cats."""
         # check if the cat is ill,
@@ -3856,7 +4200,7 @@ class Events:
         # check how many kitties are already ill
         already_sick = list(
             filter(
-                lambda kitty: (not kitty.dead and not kitty.outside and kitty.is_ill()),
+                lambda kitty: (kitty.status.alive_in_player_clan and kitty.is_ill()),
                 Cat.all_cats.values(),
             )
         )
@@ -3866,7 +4210,7 @@ class Events:
         alive_cats = list(
             filter(
                 lambda kitty: (
-                    not kitty.dead and not kitty.outside and not kitty.is_ill()
+                    kitty.status.alive_in_player_clan and not kitty.is_ill()
                 ),
                 Cat.all_cats.values(),
             )
@@ -3877,7 +4221,12 @@ class Events:
         if already_sick_count >= alive_count * 0.25:
             return
 
-        meds = get_alive_status_cats(Cat, ["medicine cat", "medicine cat apprentice"], working=True, sort=True)
+        meds = find_alive_cats_with_rank(
+            Cat,
+            [CatRank.MEDICINE_CAT, CatRank.MEDICINE_APPRENTICE],
+            working=True,
+            sort=True,
+        )
 
         for illness in cat.illnesses:
             # check if illness can infect other cats
@@ -3893,8 +4242,8 @@ class Events:
                 ):
                     continue
 
-                if game.clan.clan_settings.get("rest and recover"):
-                    stopping_chance = game.config["focus"]["rest and recover"][
+                if get_clan_setting("rest and recover"):
+                    stopping_chance = constants.CONFIG["focus"]["rest and recover"][
                         "outbreak_prevention"
                     ]
                     if not int(random.random() * stopping_chance):
@@ -3905,9 +4254,8 @@ class Events:
                     alive_cats = list(
                         filter(
                             lambda kitty: (
-                                kitty.status in ["kitten", "newborn"]
-                                and not kitty.dead
-                                and not kitty.outside
+                                kitty.status.rank.is_baby()
+                                and kitty.status.alive_in_player_clan
                             ),
                             Cat.all_cats.values(),
                         )
@@ -3946,25 +4294,25 @@ class Events:
 
                 # TODO: hardcoded text events, not good, need to consider how to convert
                 #  should this be handled in condition_events.py?
-                illness_name = str(illness).capitalize()
                 if illness == "kittencough":
-                    event = (
-                        f"{illness_name} has spread around the nursery. "
-                        f'{", ".join(infected_names[:-1])}, and '
-                        f"{infected_names[-1]} have been infected."
+                    event = i18n.t(
+                        "hardcoded.kittencough_spread",
+                        kits=adjust_list_text(infected_names),
+                        count=len(infected_names),
                     )
                 elif illness == "fleas":
-                    event = (
-                        f"Fleas have been hopping from pelt to pelt and now "
-                        f'{", ".join(infected_names[:-1])}, '
-                        f"and {infected_names[-1]} are all infested."
+                    event = i18n.t(
+                        "hardcoded.flea_spread",
+                        cats=adjust_list_text(infected_names),
+                        count=len(infected_names),
                     )
                 else:
-                    event = (
-                        f"{illness_name} has spread around the camp. "
-                        f'{", ".join(infected_names[:-1])}, and '
-                        f"{infected_names[-1]} have been infected."
-                    )
+                    event = i18n.t(
+                        "hardcoded.illness_spread",
+                        illness=str(illness),
+                        cats=adjust_list_text(infected_names),
+                        count=len(infected_names),
+                    ).capitalize()
 
                 game.cur_events_list.append(
                     Single_Event(event, "health", involved_cats)
@@ -4076,25 +4424,24 @@ class Events:
     def coming_out(self, cat):
         """turnin' the kitties trans..."""
 
-        if cat.age in ["kitten", "newborn"]:
+        if cat.age.is_baby() or cat.gender != cat.genderalign:
             return
 
-        random_cat = get_random_moon_cat(Cat, main_cat=cat)
-
-        transing_chance = game.config["transition_related"]
+        transing_chance = constants.CONFIG["transition_related"]
         chance = transing_chance["base_trans_chance"]
-        if cat.age in ["adolescent"]:
+        if cat.age in [CatAge.ADOLESCENT]:
             chance += transing_chance["adolescent_modifier"]
-        elif cat.age in ["adult", "senior adult", "senior"]:
+        elif cat.age in [CatAge.ADULT, CatAge.SENIOR_ADULT, CatAge.SENIOR]:
             chance += transing_chance["older_modifier"]
 
         if not int(random.random() * chance):
             sub_type = ["transition"]
-            handle_short_events.handle_event(event_type="misc",
-                                             main_cat=cat,
-                                             random_cat=random_cat,
-                                             sub_type=sub_type,
-                                             freshkill_pile=game.clan.freshkill_pile)
+            handle_short_events.handle_event(
+                event_type="misc",
+                main_cat=cat,
+                sub_type=sub_type,
+                freshkill_pile=game.clan.freshkill_pile,
+            )
 
         return
 
@@ -4102,18 +4449,18 @@ class Events:
         """Checks if a new leader need to be promoted, and promotes them, if needed."""
         # check for leader
         if game.clan.leader:
-            leader_invalid = game.clan.leader.dead or game.clan.leader.outside
+            leader_invalid = game.clan.leader.status.alive_in_player_clan
         else:
             leader_invalid = True
 
         if leader_invalid:
             self.perform_ceremonies(
                 game.clan.leader
-            )  # This is where the deputy will be make leader
+            )  # This is where the deputy will be made leader
 
             if game.clan.leader:
                 leader_dead = game.clan.leader.dead
-                leader_outside = game.clan.leader.outside
+                leader_outside = game.clan.leader.status.is_outsider
             else:
                 leader_dead = True
                 leader_outside = True
@@ -4121,6 +4468,7 @@ class Events:
 
             if leader_dead or leader_outside:
                 game.cur_events_list.insert(
+<<<<<<< HEAD
                     0, Single_Event(f"{game.clan.name}Clan has no leader!", "alert"))
 
     def check_and_promote_deputy(self):
@@ -4129,24 +4477,115 @@ class Events:
                 or game.clan.deputy.outside or game.clan.deputy.status == "elder"):
             if game.clan.clan_settings['deputy']:
                 text = ""
+=======
+                    0,
+                    Single_Event(
+                        event_text_adjust(
+                            Cat, i18n.t("defaults.warn_no_leader"), clan=game.clan
+                        )
+                    ),
+                )
 
-                # This determines all the cats who are eligible to be deputy.
-                possible_deputies = list(
+    def check_and_promote_deputy(self):
+        # TODO: can these events be handled as ceremony events?
+
+        """Checks if a new deputy needs to be appointed, and appointed them if needed."""
+        if (
+            not game.clan.deputy
+            or not game.clan.deputy.status.alive_in_player_clan
+            or game.clan.deputy.status.rank == CatRank.ELDER
+        ):
+            if not get_clan_setting("deputy"):
+                game.cur_events_list.insert(0, Single_Event("defaults.warn_no_deputy"))
+                return
+            # This determines all the cats who are eligible to be deputy.
+            possible_deputies = list(
+                filter(
+                    lambda x: x.status.alive_in_player_clan
+                    and x.status.rank == CatRank.WARRIOR
+                    and (x.apprentice or x.former_apprentices),
+                    Cat.all_cats_list,
+                )
+            )
+>>>>>>> development
+
+            # If there are possible deputies, choose from that list.
+            if possible_deputies:
+                random_cat = random.choice(possible_deputies)
+                involved_cats = [random_cat.ID]
+
+                # Gather deputy and leader status, for determination of the text.
+                if game.clan.leader:
+                    if not game.clan.leader.status.alive_in_player_clan:
+                        leader_status = "not_here"
+                    else:
+                        leader_status = "here"
+                else:
+                    leader_status = "not_here"
+
+                if game.clan.deputy:
+                    if not game.clan.deputy.status.alive_in_player_clan:
+                        deputy_status = "not_here"
+                    else:
+                        deputy_status = "here"
+                else:
+                    deputy_status = "not_here"
+
+                if leader_status == "here" and deputy_status == "not_here":
+                    if random_cat.personality.trait == "bloodthirsty":
+                        text = i18n.t("hardcoded.ceremony_deputy_bloodthirsty")
+                        # No additional involved cats
+                    else:
+                        if game.clan.deputy:
+                            previous_deputy_mention = i18n.t(
+                                f"hardcoded.ceremony_deputy_prev{random.choice(range(0, 3))}"
+                            )
+                            involved_cats.append(game.clan.deputy.ID)
+
+                        else:
+                            previous_deputy_mention = ""
+
+                        text = i18n.t(
+                            "hardcoded.ceremony_deputy",
+                            previous=previous_deputy_mention,
+                        )
+
+                        involved_cats.append(game.clan.leader.ID)
+                elif leader_status == "not_here" and deputy_status == "here":
+                    text = i18n.t("hardcoded.ceremony_deputy_nolead_retireddep")
+                elif leader_status == "not_here" and deputy_status == "not_here":
+                    text = i18n.t("hardcoded.ceremony_deputy_nolead_nodep")
+                elif leader_status == "here" and deputy_status == "here":
+                    # No additional involved cats
+                    text = i18n.t(
+                        f"hardcoded.ceremony_deputy_lead_retireddep{random.choice(range(0, 5))}"
+                    )
+                else:
+                    # This should never happen. Failsafe.
+                    text = i18n.t("defaults.deputy_event")
+            else:
+                # If there are no possible deputies, choose someone else, with special text.
+                all_warriors = list(
                     filter(
+<<<<<<< HEAD
                         lambda x: not x.dead
                         and not x.outside
                         and x.shunned == 0
                         and x.status == "warrior"
                         and (x.apprentice or x.former_apprentices),
+=======
+                        lambda x: x.status.alive_in_player_clan
+                        and x.status.rank == CatRank.WARRIOR,
+>>>>>>> development
                         Cat.all_cats_list,
                     )
                 )
-
-                # If there are possible deputies, choose from that list.
-                if possible_deputies:
-                    random_cat = random.choice(possible_deputies)
+                if all_warriors:
+                    random_cat = random.choice(all_warriors)
                     involved_cats = [random_cat.ID]
+                    text = i18n.t("hardcoded.ceremony_deputy_unsuitable")
 
+<<<<<<< HEAD
                     # Gather deputy and leader status, for determination of the text.
                     if game.clan.leader:
                         if game.clan.leader.dead or game.clan.leader.outside:
@@ -4242,26 +4681,22 @@ class Events:
                             and not x.outside
                             and x.status == "warrior",
                             Cat.all_cats_list,
+=======
+                else:
+                    # If there are no warriors at all, no one is named deputy.
+                    game.cur_events_list.append(
+                        Single_Event(
+                            i18n.t("hardcoded.ceremony_deputy_none"), "ceremony"
+>>>>>>> development
                         )
                     )
-                    if all_warriors:
-                        random_cat = random.choice(all_warriors)
-                        involved_cats = [random_cat.ID]
-                        text = (
-                            f"No cat is truly fit to be deputy, "
-                            f"but the position can't remain vacant. "
-                            f"{random_cat.name} is appointed as the new deputy. "
-                        )
+                    return
 
-                    else:
-                        # Is there are no warriors at all, no one is named deputy.
-                        game.cur_events_list.append(
-                            Single_Event(
-                                "There are no cats fit to become deputy. ", "ceremony"
-                            )
-                        )
-                        return
+            text = event_text_adjust(Cat, text, main_cat=random_cat, clan=game.clan)
+            random_cat.rank_change(CatRank.DEPUTY)
+            game.clan.deputy = random_cat
 
+<<<<<<< HEAD
                 random_cat.status_change("deputy")
                 game.clan.deputy = random_cat
 
@@ -4273,6 +4708,9 @@ class Events:
                 game.cur_events_list.insert(
                     0, Single_Event(f"{game.clan.name}Clan has no deputy!", "alert")
                 )
+=======
+            game.cur_events_list.append(Single_Event(text, "ceremony", involved_cats))
+>>>>>>> development
 
 
 events_class = Events()

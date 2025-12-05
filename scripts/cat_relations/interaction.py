@@ -1,10 +1,11 @@
-import os
+import i18n
 
-import ujson
+from scripts.cat_relations.enums import RelType
+from scripts.events_module.event_filters import event_for_cat
+from scripts.game_structure.localization import load_lang_resource
 
 
 class SingleInteraction:
-
     def __init__(
         self,
         interact_id,
@@ -27,15 +28,12 @@ class SingleInteraction:
     ):
         self.id = interact_id
         self.intensity = intensity
-        self.biome = biome if biome else ["Any"]
-        self.season = season if season else ["Any"]
+        self.biome = biome if biome else ["any"]
+        self.season = season if season else ["any"]
         self.interactions = (
             interactions
             if interactions
-            else [
-                f"This is a default interaction! "
-                f"ID: {interact_id} with cats (m_c), (r_c)"
-            ]
+            else [i18n.t("defaults.interaction", id=interact_id)]
         )
         self.get_injuries = get_injuries if get_injuries else {}
         self.has_injuries = has_injuries if has_injuries else {}
@@ -66,7 +64,6 @@ class SingleInteraction:
 
 
 class GroupInteraction:
-
     def __init__(
         self,
         interact_id,
@@ -87,16 +84,13 @@ class GroupInteraction:
     ):
         self.id = interact_id
         self.intensity = intensity
-        self.biome = biome if biome else ["Any"]
-        self.season = season if season else ["Any"]
+        self.biome = biome if biome else ["any"]
+        self.season = season if season else ["any"]
         self.cat_amount = cat_amount
         self.interactions = (
             interactions
             if interactions
-            else [
-                f"This is a default interaction! "
-                f"ID: {interact_id} with cats (m_c), (r_c)"
-            ]
+            else [i18n.t("defaults.interaction", id=interact_id)]
         )
         self.get_injuries = get_injuries if get_injuries else {}
         self.has_injuries = has_injuries if has_injuries else {}
@@ -116,6 +110,7 @@ class GroupInteraction:
 # ---------------------------------------------------------------------------- #
 
 
+<<<<<<< HEAD
 def rel_fulfill_rel_constraints(relationship, constraint, interaction_id) -> bool:
     """Check if the relationship fulfills the interaction relationship constraints."""
     # if the constraints are not existing, they are considered to be fulfilled
@@ -230,45 +225,36 @@ def rel_fulfill_rel_constraints(relationship, constraint, interaction_id) -> boo
     return True
 
 
+=======
+>>>>>>> development
 def cats_fulfill_single_interaction_constraints(
-    main_cat, random_cat, interaction, game_mode
+    main_cat, random_cat, interaction
 ) -> bool:
     """Check if the two cats fulfills the interaction constraints."""
-    if len(interaction.main_status_constraint) >= 1:
-        if main_cat.status not in interaction.main_status_constraint:
-            return False
 
-    if len(interaction.random_status_constraint) >= 1:
-        if random_cat.status not in interaction.random_status_constraint:
-            return False
+    main_constraint_dict = {
+        "status": interaction.main_status_constraint,
+        "trait": interaction.main_trait_constraint,
+        "backstory": interaction.backstory_constraint.get("m_c"),
+        "skills": interaction.main_skill_constraint,
+        "relationship_status": interaction.relationship_constraint,
+    }
+    random_constraint_dict = {
+        "status": interaction.random_status_constraint,
+        "trait": interaction.random_trait_constraint,
+        "backstory": interaction.backstory_constraint.get("r_c"),
+        "skill": interaction.random_skill_constraint,
+    }
 
-    if len(interaction.main_trait_constraint) >= 1:
-        if main_cat.personality.trait not in interaction.main_trait_constraint:
-            return False
-
-    if len(interaction.random_trait_constraint) >= 1:
-        if random_cat.personality.trait not in interaction.random_trait_constraint:
-            return False
-
-    if len(interaction.main_skill_constraint) >= 1:
-        if (
-            main_cat.skills.primary.skill or main_cat.skills.secondary.skill
-        ) not in interaction.main_skill_constraint:
-            return False
-
-    if len(interaction.random_skill_constraint) >= 1:
-        if (
-            random_cat.skills.primary.skill or random_cat.skills.secondary.skill
-        ) not in interaction.random_skill_constraint:
-            return False
-
-    if len(interaction.backstory_constraint) >= 1:
-        if "m_c" in interaction.backstory_constraint:
-            if main_cat.backstory not in interaction.backstory_constraint["m_c"]:
-                return False
-        if "r_c" in interaction.backstory_constraint:
-            if random_cat.backstory not in interaction.backstory_constraint["r_c"]:
-                return False
+    main_cat_satisfied = event_for_cat(
+        main_constraint_dict, main_cat, [main_cat, random_cat], event_id=interaction.id
+    )
+    random_cat_satisfied = event_for_cat(
+        random_constraint_dict,
+        random_cat,
+        [random_cat, main_cat],
+        event_id=interaction.id,
+    )
 
     if len(interaction.has_injuries) >= 1:
         if "m_c" in interaction.has_injuries:
@@ -290,7 +276,10 @@ def cats_fulfill_single_interaction_constraints(
             if len(injuries_in_needed) <= 0:
                 return False
 
-    return True
+    if main_cat_satisfied and random_cat_satisfied:
+        return True
+
+    return False
 
 
 # ---------------------------------------------------------------------------- #
@@ -304,60 +293,22 @@ def create_interaction(inter_list) -> list:
         created_list.append(
             SingleInteraction(
                 interact_id=inter["id"],
-                biome=inter["biome"] if "biome" in inter else ["Any"],
-                season=inter["season"] if "season" in inter else ["Any"],
-                intensity=inter["intensity"] if "intensity" in inter else "medium",
-                interactions=inter["interactions"] if "interactions" in inter else None,
-                get_injuries=inter["get_injuries"] if "get_injuries" in inter else None,
-                has_injuries=inter["has_injuries"] if "has_injuries" in inter else None,
-                relationship_constraint=(
-                    inter["relationship_constraint"]
-                    if "relationship_constraint" in inter
-                    else None
-                ),
-                backstory_constraint=(
-                    inter["backstory_constraint"]
-                    if "backstory_constraint" in inter
-                    else None
-                ),
-                main_status_constraint=(
-                    inter["main_status_constraint"]
-                    if "main_status_constraint" in inter
-                    else None
-                ),
-                random_status_constraint=(
-                    inter["random_status_constraint"]
-                    if "random_status_constraint" in inter
-                    else None
-                ),
-                main_trait_constraint=(
-                    inter["main_trait_constraint"]
-                    if "main_trait_constraint" in inter
-                    else None
-                ),
-                random_trait_constraint=(
-                    inter["random_trait_constraint"]
-                    if "random_trait_constraint" in inter
-                    else None
-                ),
-                main_skill_constraint=(
-                    inter["main_skill_constraint"]
-                    if "main_skill_constraint" in inter
-                    else None
-                ),
-                random_skill_constraint=(
-                    inter["random_skill_constraint"]
-                    if "random_skill_constraint" in inter
-                    else None
-                ),
-                reaction_random_cat=(
-                    inter["reaction_random_cat"]
-                    if "reaction_random_cat" in inter
-                    else None
-                ),
-                also_influences=(
-                    inter["also_influences"] if "also_influences" in inter else None
-                ),
+                biome=inter.get("biome", ["any"]),
+                season=inter.get("season", ["any"]),
+                intensity=inter.get("intensity", "medium"),
+                interactions=inter.get("interactions", None),
+                get_injuries=inter.get("get_injuries", None),
+                has_injuries=inter.get("has_injuries", None),
+                relationship_constraint=(inter.get("relationship_constraint", None)),
+                backstory_constraint=(inter.get("backstory_constraint", None)),
+                main_status_constraint=(inter.get("main_status_constraint", None)),
+                random_status_constraint=(inter.get("random_status_constraint", None)),
+                main_trait_constraint=(inter.get("main_trait_constraint", None)),
+                random_trait_constraint=(inter.get("random_trait_constraint", None)),
+                main_skill_constraint=(inter.get("main_skill_constraint", None)),
+                random_skill_constraint=(inter.get("random_skill_constraint", None)),
+                reaction_random_cat=(inter.get("reaction_random_cat", None)),
+                also_influences=(inter.get("also_influences", None)),
             )
         )
     return created_list
@@ -369,72 +320,61 @@ def create_group_interaction(inter_list) -> list:
         created_list.append(
             GroupInteraction(
                 interact_id=inter["id"],
-                biome=inter["biome"] if "biome" in inter else ["Any"],
-                season=inter["season"] if "season" in inter else ["Any"],
+                biome=inter["biome"] if "biome" in inter else ["any"],
+                season=inter["season"] if "season" in inter else ["any"],
                 cat_amount=inter["cat_amount"] if "cat_amount" in inter else None,
                 intensity=inter["intensity"] if "intensity" in inter else "medium",
                 interactions=inter["interactions"] if "interactions" in inter else None,
                 get_injuries=inter["get_injuries"] if "get_injuries" in inter else None,
                 has_injuries=inter["has_injuries"] if "has_injuries" in inter else None,
                 status_constraint=(
-                    inter["status_constraint"] if "status_constraint" in inter else None
+                    inter["status_constraint"] if "status_constraint" in inter else {}
                 ),
                 trait_constraint=(
-                    inter["trait_constraint"] if "trait_constraint" in inter else None
+                    inter["trait_constraint"] if "trait_constraint" in inter else {}
                 ),
                 skill_constraint=(
-                    inter["skill_constraint"] if "skill_constraint" in inter else None
+                    inter["skill_constraint"] if "skill_constraint" in inter else {}
                 ),
                 relationship_constraint=(
                     inter["relationship_constraint"]
                     if "relationship_constraint" in inter
-                    else None
+                    else {}
                 ),
                 backstory_constraint=(
                     inter["backstory_constraint"]
                     if "backstory_constraint" in inter
-                    else None
+                    else {}
                 ),
                 specific_reaction=(
-                    inter["specific_reaction"] if "specific_reaction" in inter else None
+                    inter["specific_reaction"] if "specific_reaction" in inter else {}
                 ),
                 general_reaction=(
-                    inter["general_reaction"] if "general_reaction" in inter else None
+                    inter["general_reaction"] if "general_reaction" in inter else {}
                 ),
             )
         )
     return created_list
 
 
-INTERACTION_MASTER_DICT = {
-    "romantic": {},
-    "platonic": {},
-    "dislike": {},
-    "admiration": {},
-    "comfortable": {},
-    "jealousy": {},
-    "trust": {},
-}
-rel_types = [
-    "romantic",
-    "platonic",
-    "dislike",
-    "admiration",
-    "comfortable",
-    "jealousy",
-    "trust",
-]
-base_path = os.path.join(
-    "resources", "dicts", "relationship_events", "normal_interactions"
-)
-for rel in rel_types:
-    with open(os.path.join(base_path, rel, "increase.json"), "r") as read_file:
-        loaded_list = ujson.loads(read_file.read())
-        INTERACTION_MASTER_DICT[rel]["increase"] = create_interaction(loaded_list)
-    with open(os.path.join(base_path, rel, "decrease.json"), "r") as read_file:
-        loaded_list = ujson.loads(read_file.read())
-        INTERACTION_MASTER_DICT[rel]["decrease"] = create_interaction(loaded_list)
+INTERACTION_MASTER_DICT = {x: {} for x in [*RelType]}
 
-with open(os.path.join(base_path, "neutral.json"), "r") as read_file:
-    loaded_list = ujson.loads(read_file.read())
-    NEUTRAL_INTERACTIONS = create_interaction(loaded_list)
+relationship_lang = None
+
+
+def rebuild_relationship_dicts():
+    global INTERACTION_MASTER_DICT, relationship_lang
+    if relationship_lang == i18n.config.get("locale"):
+        return
+
+    for rel in [*RelType]:
+        INTERACTION_MASTER_DICT[rel]["increase"] = create_interaction(
+            load_lang_resource(
+                f"events/relationship_events/normal_interactions/{rel}/increase.json"
+            )
+        )
+        INTERACTION_MASTER_DICT[rel]["decrease"] = create_interaction(
+            load_lang_resource(
+                f"events/relationship_events/normal_interactions/{rel}/decrease.json"
+            )
+        )

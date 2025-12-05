@@ -4,15 +4,17 @@ from random import choice, randint
 
 import ujson
 
+from scripts.game_structure import constants
 from scripts.cat.cats import Cat
+from scripts.cat.enums import CatRank
 from scripts.events_module.relationship.group_events import GroupEvents
-from scripts.events_module.relationship.romantic_events import Romantic_Events
+from scripts.events_module.relationship.romantic_events import RomanticEvents
 from scripts.events_module.relationship.welcoming_events import Welcoming_Events
-from scripts.game_structure.game_essentials import game
 from scripts.utility import (
     get_cats_same_age,
     get_cats_of_romantic_interest,
     get_free_possible_mates,
+    filter_relationship_type,
 )
 
 
@@ -24,9 +26,8 @@ class Relation_Events:
 
     base_path = os.path.join("resources", "dicts", "relationship_events")
 
-    GROUP_TYPES = {}
     types_path = os.path.join(base_path, "group_interactions", "group_types.json")
-    with open(types_path, "r") as read_file:
+    with open(types_path, "r", encoding="utf-8") as read_file:
         GROUP_TYPES = ujson.load(read_file)
     del base_path
 
@@ -56,7 +57,7 @@ class Relation_Events:
         if not random.getrandbits(4):
             Relation_Events.romantic_events(cat)
 
-        Romantic_Events.handle_mating_and_breakup(cat)
+        RomanticEvents.handle_mating_and_breakup(cat)
 
     # ---------------------------------------------------------------------------- #
     #                                new event types                               #
@@ -76,13 +77,11 @@ class Relation_Events:
         if not Relation_Events.can_trigger_events(cat):
             return
 
-        other_cat = None
-
         # get the cats which are relevant for romantic interactions
         free_possible_mates = get_free_possible_mates(cat)
         other_love_interest = get_cats_of_romantic_interest(cat)
         possible_cats = free_possible_mates
-        if len(other_love_interest) > 0 and len(other_love_interest) < 3:
+        if 0 < len(other_love_interest) < 3:
             possible_cats.extend(other_love_interest)
             possible_cats.extend(other_love_interest)
         elif len(other_love_interest) >= 3:
@@ -92,7 +91,7 @@ class Relation_Events:
         cat_to_choose_from = []
         for inter_cat in possible_cats:
             # toss out cats who are outside
-            if inter_cat.outside:
+            if inter_cat.status.is_outsider:
                 continue
 
             if inter_cat.ID not in cat.relationships:
@@ -101,12 +100,12 @@ class Relation_Events:
                 inter_cat.create_one_relationship(cat)
 
             cat_to_inter = (
-                cat.relationships[inter_cat.ID].platonic_like > 10
-                or cat.relationships[inter_cat.ID].comfortable > 10
+                cat.relationships[inter_cat.ID].like > 10
+                or cat.relationships[inter_cat.ID].comfort > 10
             )
             inter_to_cat = (
-                inter_cat.relationships[cat.ID].platonic_like > 10
-                or inter_cat.relationships[cat.ID].comfortable > 10
+                inter_cat.relationships[cat.ID].like > 10
+                or inter_cat.relationships[cat.ID].comfort > 10
             )
             if cat_to_inter and inter_to_cat:
                 cat_to_choose_from.append(inter_cat)
@@ -114,12 +113,12 @@ class Relation_Events:
         # if the cat has one or more mates, check how high the chance is,
         # that the cat interacts romantic with ANOTHER cat than their mate
         use_mate = False
-        if cat.mates:
-            chance_number = game.config["relationship"]["chance_romantic_not_mate"]
+        if cat.mate:
+            chance_number = constants.CONFIG["relationship"]["chance_romance_not_mate"]
 
             # the more mates the cat has, the less likely it will be that they interact with another cat romantically
-            for mate_id in cat.mates:
-                chance_number -= int(cat.relationships[mate_id].romantic_love / 20)
+            for mate_id in cat.mate:
+                chance_number -= int(cat.relationships[mate_id].romance / 20)
             use_mate = int(random.random() * chance_number)
 
         # If use_mate is falsey, or if the cat has been marked as "no_mates", only allow romantic
@@ -127,15 +126,15 @@ class Relation_Events:
         if use_mate or cat.no_mates:
             cat_to_choose_from = [
                 cat.all_cats[mate_id]
-                for mate_id in cat.mates
-                if not cat.all_cats[mate_id].dead and not cat.all_cats[mate_id].outside
+                for mate_id in cat.mate
+                if cat.all_cats[mate_id].status.alive_in_player_clan
             ]
 
         if not cat_to_choose_from:
             return
 
         other_cat = choice(cat_to_choose_from)
-        if Romantic_Events.start_interaction(cat, other_cat):
+        if RomanticEvents.start_interaction(cat, other_cat):
             Relation_Events.trigger_event(cat)
             Relation_Events.trigger_event(other_cat)
 
@@ -148,7 +147,9 @@ class Relation_Events:
         if not Relation_Events.can_trigger_events(cat):
             return
 
-        same_age_cats = get_cats_same_age(Cat, cat, game.config["mates"]["age_range"])
+        same_age_cats = get_cats_same_age(
+            Cat, cat, constants.CONFIG["mates"]["age_range"]
+        )
         if len(same_age_cats) > 0:
             random_cat = choice(same_age_cats)
             if (
@@ -171,18 +172,18 @@ class Relation_Events:
 
         chosen_type = "all"
         if len(Relation_Events.GROUP_TYPES) > 0 and randint(
-            0, game.config["relationship"]["chance_of_special_group"]
+            0, constants.CONFIG["relationship"]["chance_of_special_group"]
         ):
             types_to_choose = []
             for group, value in Relation_Events.GROUP_TYPES.items():
                 types_to_choose.extend([group] * value["frequency"])
                 chosen_type = choice(list(Relation_Events.GROUP_TYPES.keys()))
 
-        if cat.status == "leader":
+        if cat.status.is_leader:
             chosen_type = "all"
         possible_interaction_cats = list(
             filter(
-                lambda cat: (not cat.dead and not cat.outside and not cat.exiled),
+                lambda cat: (cat.status.alive_in_player_clan),
                 Cat.all_cats.values(),
             )
         )
@@ -227,9 +228,9 @@ class Relation_Events:
         for new_cat in new_cats:
             same_age_cats = get_cats_same_age(Cat, new_cat)
             alive_cats = [
-                i for i in new_cat.all_cats.values() if not i.dead and not i.outside
+                i for i in new_cat.all_cats.values() if i.status.alive_in_player_clan
             ]
-            number = game.config["new_cat"]["cat_amount_welcoming"]
+            number = constants.CONFIG["new_cat"]["cat_amount_welcoming"]
 
             if len(alive_cats) == 0:
                 return
@@ -271,7 +272,7 @@ class Relation_Events:
         """Returns a list of cats, where the relationship from main_cat towards the cat fulfill the given constraints."""
         cat_list = list(
             filter(
-                lambda cat: (not cat.dead and not cat.outside and not cat.exiled),
+                lambda cat: cat.status.alive_in_player_clan,
                 Cat.all_cats.values(),
             )
         )
@@ -281,114 +282,27 @@ class Relation_Events:
         filtered_cat_list = []
 
         for inter_cat in cat_list:
+            if inter_cat.ID == main_cat.ID:
+                continue
+
             cat_from = main_cat
             cat_to = inter_cat
 
-            if inter_cat.ID == main_cat.ID:
-                continue
             if cat_to.ID not in cat_from.relationships:
                 cat_from.create_one_relationship(cat_to)
                 if cat_from.ID not in cat_to.relationships:
                     cat_to.create_one_relationship(cat_from)
                 continue
 
-            relationship = cat_from.relationships[cat_to.ID]
+            passed = filter_relationship_type(
+                group=[cat_from, cat_to], filter_types=constraint
+            )
 
-            if "siblings" in constraint and not cat_from.is_sibling(cat_to):
-                continue
-
-            if "mates" in constraint and not relationship.mates:
-                continue
-
-            if "not_mates" in constraint and relationship.mates:
-                continue
-
-            if "parent/child" in constraint and not cat_from.is_parent(cat_to):
-                continue
-
-            if "child/parent" in constraint and not cat_to.is_parent(cat_from):
-                continue
-
-            value_types = [
-                "romantic",
-                "platonic",
-                "dislike",
-                "admiration",
-                "comfortable",
-                "jealousy",
-                "trust",
-            ]
-            fulfilled = True
-            for v_type in value_types:
-                tags = [i for i in constraint if v_type in i]
-                if len(tags) < 1:
-                    continue
-                threshold = 0
-                lower_than = False
-                # try to extract the value/threshold from the text
-                try:
-                    splitted = tags[0].split("_")
-                    threshold = int(splitted[1])
-                    if len(splitted) > 3:
-                        lower_than = True
-                except:
-                    print(
-                        f"ERROR: while creating a cat group, the relationship constraint for the value {v_type} follows not the formatting guidelines."
-                    )
-                    break
-
-                if threshold > 100:
-                    print(
-                        f"ERROR: while creating a cat group, the relationship constraints for the value {v_type}, which is higher than the max value of a relationship."
-                    )
-                    break
-
-                if threshold <= 0:
-                    print(
-                        f"ERROR: while creating a cat group, the relationship constraints for the value {v_type}, which is lower than the min value of a relationship or 0."
-                    )
-                    break
-
-                threshold_fulfilled = False
-                if v_type == "romantic":
-                    if not lower_than and relationship.romantic_love >= threshold:
-                        threshold_fulfilled = True
-                    elif lower_than and relationship.romantic_love <= threshold:
-                        threshold_fulfilled = True
-                if v_type == "platonic":
-                    if not lower_than and relationship.platonic_like >= threshold:
-                        threshold_fulfilled = True
-                    elif lower_than and relationship.platonic_like <= threshold:
-                        threshold_fulfilled = True
-                if v_type == "dislike":
-                    if not lower_than and relationship.dislike >= threshold:
-                        threshold_fulfilled = True
-                    elif lower_than and relationship.dislike <= threshold:
-                        threshold_fulfilled = True
-                if v_type == "comfortable":
-                    if not lower_than and relationship.comfortable >= threshold:
-                        threshold_fulfilled = True
-                    elif lower_than and relationship.comfortable <= threshold:
-                        threshold_fulfilled = True
-                if v_type == "jealousy":
-                    if not lower_than and relationship.jealousy >= threshold:
-                        threshold_fulfilled = True
-                    elif lower_than and relationship.jealousy <= threshold:
-                        threshold_fulfilled = True
-                if v_type == "trust":
-                    if not lower_than and relationship.trust >= threshold:
-                        threshold_fulfilled = True
-                    elif lower_than and relationship.trust <= threshold:
-                        threshold_fulfilled = True
-
-                if not threshold_fulfilled:
-                    fulfilled = False
-                    continue
-
-            if not fulfilled:
+            if not passed:
                 continue
 
             filtered_cat_list.append(inter_cat)
+
         return filtered_cat_list
 
     @staticmethod
@@ -401,12 +315,18 @@ class Relation_Events:
     @staticmethod
     def can_trigger_events(cat):
         """Returns if the given cat can still trigger events."""
-        special_status = ["leader", "deputy", "medicine cat", "mediator", "queen"]
-        
+        special_ranks = [
+            CatRank.LEADER,
+            CatRank.DEPUTY,
+            CatRank.MEDICINE_CAT,
+            CatRank.MEDIATOR,
+            CatRank.QUEEN
+        ]
+
         # set the threshold correctly
-        threshold = game.config["relationship"]["max_interaction"]
-        if cat.status in special_status:
-            threshold = game.config["relationship"]["max_interaction_special"]
+        threshold = constants.CONFIG["relationship"]["max_interaction"]
+        if cat.status.rank in special_ranks:
+            threshold = constants.CONFIG["relationship"]["max_interaction_special"]
 
         if cat.ID not in Relation_Events.cats_triggered_events:
             return True

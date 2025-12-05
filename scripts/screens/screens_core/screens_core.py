@@ -2,17 +2,16 @@ from typing import Optional, Tuple
 
 import pygame
 import pygame_gui
-from pygame_gui.core import ObjectID
 
 import scripts.game_structure.screen_settings
-from scripts.game_structure import image_cache
-from scripts.game_structure.game_essentials import game
+from scripts.game_structure import image_cache, constants
+from scripts.game_structure.game.settings import game_setting_get
+from scripts.game_structure import game
 from scripts.game_structure.screen_settings import MANAGER
 from scripts.game_structure.ui_elements import UISurfaceImageButton, UIImageButton
 from scripts.housekeeping.version import get_version_info
 from scripts.ui.generate_box import get_box, BoxStyles
 from scripts.ui.generate_button import get_button_dict, ButtonStyles
-from scripts.ui.get_arrow import get_arrow
 from scripts.ui.icon import Icon
 from scripts.utility import (
     ui_scale,
@@ -51,16 +50,16 @@ def rebuild_core(*, should_rebuild_bgs=True):
     # they have to be added individually as some of them rely on others in anchors
     menu_buttons["events_screen"] = UISurfaceImageButton(
         ui_scale(pygame.Rect((246, 60), (82, 30))),
-        "Events",
+        "screens.core.events",
         get_button_dict(ButtonStyles.MENU_LEFT, (82, 30)),
         visible=False,
         manager=MANAGER,
-        object_id=ObjectID("#events_button", "@buttonstyles_menu_left"),
+        object_id=pygame_gui.core.ObjectID("#events_button", "@buttonstyles_menu_left"),
         starting_height=5,
     )
     menu_buttons["camp_screen"] = UISurfaceImageButton(
         ui_scale(pygame.Rect((0, 60), (58, 30))),
-        "Camp",
+        "screens.core.camp",
         get_button_dict(ButtonStyles.MENU_MIDDLE, (58, 30)),
         visible=False,
         manager=MANAGER,
@@ -70,7 +69,7 @@ def rebuild_core(*, should_rebuild_bgs=True):
     )
     menu_buttons["catlist_screen"] = UISurfaceImageButton(
         ui_scale(pygame.Rect((0, 60), (88, 30))),
-        "Cat List",
+        "screens.core.cat_list",
         get_button_dict(ButtonStyles.MENU_MIDDLE, (88, 30)),
         visible=False,
         object_id="@buttonstyles_menu_middle",
@@ -79,7 +78,7 @@ def rebuild_core(*, should_rebuild_bgs=True):
     )
     menu_buttons["patrol_screen"] = UISurfaceImageButton(
         ui_scale(pygame.Rect((0, 60), (80, 30))),
-        "Patrol",
+        "screens.core.patrol",
         get_button_dict(ButtonStyles.MENU_RIGHT, (80, 30)),
         visible=False,
         manager=MANAGER,
@@ -89,7 +88,7 @@ def rebuild_core(*, should_rebuild_bgs=True):
     )
     menu_buttons["main_menu"] = UISurfaceImageButton(
         ui_scale(pygame.Rect((25, 25), (153, 30))),
-        get_arrow(3) + " Main Menu",
+        "buttons.main_menu",
         get_button_dict(ButtonStyles.SQUOVAL, (153, 30)),
         visible=False,
         manager=MANAGER,
@@ -102,11 +101,11 @@ def rebuild_core(*, should_rebuild_bgs=True):
     scale_rect.topright = ui_scale_offset((-25, 25))
     menu_buttons["allegiances"] = UISurfaceImageButton(
         scale_rect,
-        "Allegiances",
+        "screens.core.allegiances",
         get_button_dict(ButtonStyles.SQUOVAL, (118, 30)),
         visible=False,
         manager=MANAGER,
-        object_id=ObjectID(class_id="@image_button", object_id=None),
+        object_id=pygame_gui.core.ObjectID(class_id="@image_button", object_id=None),
         starting_height=5,
         anchors={"top": "top", "right": "right"},
     )
@@ -116,11 +115,11 @@ def rebuild_core(*, should_rebuild_bgs=True):
     scale_rect.topright = ui_scale_offset((-25, 5))
     menu_buttons["clan_settings"] = UISurfaceImageButton(
         scale_rect,
-        "Settings",
+        "screens.core.settings",
         get_button_dict(ButtonStyles.SQUOVAL, (85, 30)),
         visible=False,
         manager=MANAGER,
-        object_id=ObjectID(class_id="@image_button", object_id=None),
+        object_id=pygame_gui.core.ObjectID(class_id="@image_button", object_id=None),
         starting_height=5,
         anchors={"top_target": menu_buttons["allegiances"], "right": "right"},
     )
@@ -151,7 +150,9 @@ def rebuild_core(*, should_rebuild_bgs=True):
         heading_rect,
         visible=False,
         manager=MANAGER,
-        object_id=ObjectID("#text_box_34_horizcenter_vertcenter", "#dark"),
+        object_id=pygame_gui.core.ObjectID(
+            "#text_box_34_horizcenter_vertcenter", "#dark"
+        ),
         starting_height=5,
         anchors={
             "bottom": "bottom",
@@ -176,63 +177,8 @@ def rebuild_core(*, should_rebuild_bgs=True):
         object_id="#arrow_mns_button",
         starting_height=5,
     )
-    menu_buttons["dens_bar"] = pygame_gui.elements.UIImage(
-        ui_scale(pygame.Rect((40, 5), (10, 160))),
-        pygame.transform.scale(
-            image_cache.load_image("resources/images/vertical_bar.png").convert_alpha(),
-            ui_scale_dimensions((380, 70)),
-        ),
-        visible=False,
-        starting_height=5,
-        manager=MANAGER,
-        anchors={"top_target": menu_buttons["main_menu"]},
-    )
-    menu_buttons["dens"] = UISurfaceImageButton(
-        ui_scale(pygame.Rect((25, 5), (71, 30))),
-        "Dens",
-        get_button_dict(ButtonStyles.SQUOVAL, (71, 30)),
-        visible=False,
-        manager=MANAGER,
-        object_id="@buttonstyles_squoval",
-        starting_height=6,
-        anchors={"top_target": menu_buttons["main_menu"]},
-    )
-    menu_buttons["lead_den"] = UISurfaceImageButton(
-        ui_scale(pygame.Rect((25, 100), (112, 28))),
-        "leader's den",
-        get_button_dict(ButtonStyles.ROUNDED_RECT, (112, 28)),
-        visible=False,
-        manager=MANAGER,
-        object_id="@buttonstyles_rounded_rect",
-        starting_height=6,
-    )
-    menu_buttons["med_cat_den"] = UISurfaceImageButton(
-        ui_scale(pygame.Rect((25, 140), (151, 28))),
-        "medicine cat den",
-        get_button_dict(ButtonStyles.ROUNDED_RECT, (151, 28)),
-        object_id="@buttonstyles_rounded_rect",
-        visible=False,
-        manager=MANAGER,
-        starting_height=6,
-    )
-    menu_buttons["warrior_den"] = UISurfaceImageButton(
-        ui_scale(pygame.Rect((25, 180), (121, 28))),
-        "warriors' den",
-        get_button_dict(ButtonStyles.ROUNDED_RECT, (121, 28)),
-        object_id="@buttonstyles_rounded_rect",
-        visible=False,
-        manager=MANAGER,
-        starting_height=6,
-    )
-    menu_buttons["clearing"] = UISurfaceImageButton(
-        ui_scale(pygame.Rect((25, 220), (81, 28))),
-        "clearing",
-        get_button_dict(ButtonStyles.ROUNDED_RECT, (81, 28)),
-        visible=False,
-        manager=MANAGER,
-        object_id="@buttonstyles_rounded_rect",
-        starting_height=6,
-    )
+
+    rebuild_den_dropdown()
 
     rebuild_mute("default")
 
@@ -257,12 +203,149 @@ def rebuild_core(*, should_rebuild_bgs=True):
             ui_scale(pygame.Rect((545, 660), (300, 50))),
             "Build: " + version_number.text,
             object_id="#dev_watermark",
+            text_kwargs={"ver": version_number.text},
         )
         version_number.kill()
         version_number = None
 
     if should_rebuild_bgs:
         rebuild_bgs()
+
+
+def rebuild_den_dropdown(left_align: bool = True, game_mode: str = "expanded"):
+    """
+    Rebuild the den dropdown
+    :param left_align: Set True if the buttons should be on the left-hand side of the screen, False if they should be on the right-hand side
+    """
+
+    if "dens_bar" in menu_buttons:
+        menu_buttons["dens_bar"].kill()
+
+    x_pos = 40
+    if not left_align:
+        x_pos = 755
+
+    if game_mode != "classic":
+        menu_buttons["dens_bar"] = pygame_gui.elements.UIImage(
+            ui_scale(pygame.Rect((x_pos, 5), (10, 170))),
+            pygame.transform.scale(
+                image_cache.load_image(
+                    "resources/images/vertical_bar.png"
+                ).convert_alpha(),
+                ui_scale_dimensions((10, 160)),
+            ),
+            visible=False,
+            starting_height=5,
+            manager=MANAGER,
+            anchors={
+                "top_target": menu_buttons["main_menu"]
+                if left_align
+                else menu_buttons["clan_settings"]
+            },
+        )
+    else:
+        menu_buttons["dens_bar"] = pygame_gui.elements.UIImage(
+            ui_scale(pygame.Rect((x_pos, 5), (10, 140))),
+            pygame.transform.scale(
+                image_cache.load_image(
+                    "resources/images/vertical_bar.png"
+                ).convert_alpha(),
+                ui_scale_dimensions((10, 160)),
+            ),
+            visible=False,
+            starting_height=5,
+            manager=MANAGER,
+            anchors={
+                "top_target": menu_buttons["main_menu"]
+                if left_align
+                else menu_buttons["clan_settings"]
+            },
+        )
+
+    x_pos = 25
+    if not left_align:
+        x_pos = 704
+
+    if "dens" in menu_buttons:
+        menu_buttons["dens"].kill()
+    menu_buttons["dens"] = UISurfaceImageButton(
+        ui_scale(pygame.Rect((x_pos, 5), (71, 30))),
+        "screens.core.dens",
+        get_button_dict(ButtonStyles.SQUOVAL, (71, 30)),
+        visible=False,
+        manager=MANAGER,
+        object_id="@buttonstyles_squoval",
+        starting_height=6,
+        anchors={
+            "top_target": menu_buttons["main_menu"]
+            if left_align
+            else menu_buttons["clan_settings"]
+        },
+    )
+
+    if not left_align:
+        x_pos = 663
+    if "lead_den" in menu_buttons:
+        menu_buttons["lead_den"].kill()
+    menu_buttons["lead_den"] = UISurfaceImageButton(
+        ui_scale(pygame.Rect((x_pos, 10), (112, 28))),
+        "screens.core.leader_den",
+        get_button_dict(ButtonStyles.ROUNDED_RECT, (112, 28)),
+        visible=False,
+        manager=MANAGER,
+        object_id="@buttonstyles_rounded_rect",
+        starting_height=6,
+        anchors={
+            "top_target": menu_buttons["dens"],
+        },
+    )
+
+    if not left_align:
+        x_pos = 625
+    if "med_cat_den" in menu_buttons:
+        menu_buttons["med_cat_den"].kill()
+    menu_buttons["med_cat_den"] = UISurfaceImageButton(
+        ui_scale(pygame.Rect((x_pos, 10), (151, 28))),
+        "screens.core.medicine_cat_den",
+        get_button_dict(ButtonStyles.ROUNDED_RECT, (151, 28)),
+        object_id="@buttonstyles_rounded_rect",
+        visible=False,
+        manager=MANAGER,
+        starting_height=6,
+        anchors={"top_target": menu_buttons["lead_den"]},
+    )
+
+    if not left_align:
+        x_pos = 654
+    if "warrior_den" in menu_buttons:
+        menu_buttons["warrior_den"].kill()
+    menu_buttons["warrior_den"] = UISurfaceImageButton(
+        ui_scale(pygame.Rect((x_pos, 10), (121, 28))),
+        "screens.core.warriors_den",
+        get_button_dict(ButtonStyles.ROUNDED_RECT, (121, 28)),
+        object_id="@buttonstyles_rounded_rect",
+        visible=False,
+        manager=MANAGER,
+        starting_height=6,
+        anchors={"top_target": menu_buttons["med_cat_den"]},
+    )
+
+    if "clearing" in menu_buttons:
+        menu_buttons["clearing"].kill()
+
+    if game_mode != "classic":
+        if not left_align:
+            x_pos = 694
+        menu_buttons["clearing"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((x_pos, 10), (81, 28))),
+            "screens.core.clearing",
+            get_button_dict(ButtonStyles.ROUNDED_RECT, (81, 28)),
+            visible=False,
+            manager=MANAGER,
+            object_id="@buttonstyles_rounded_rect",
+            starting_height=6,
+            anchors={"top_target": menu_buttons["warrior_den"]},
+        )
 
 
 def rebuild_mute(location: str):
@@ -272,7 +355,7 @@ def rebuild_mute(location: str):
 
     mute_pos = ui_scale(pygame.Rect((0, 0), (34, 34)))
 
-    if location in ["bottomright", "default"]:
+    if location in ("bottomright", "default"):
         mute_pos.bottomright = ui_scale_offset((-25, -25))
         anchors = {"bottom": "bottom", "right": "right"}
     elif location == "topright":
@@ -352,9 +435,9 @@ def rebuild_bgs():
         del game_box
 
     bg = pygame.Surface(scripts.game_structure.screen_settings.game_screen_size)
-    bg.fill(game.config["theme"]["light_mode_background"])
+    bg.fill(constants.CONFIG["theme"]["light_mode_background"])
     bg_dark = pygame.Surface(scripts.game_structure.screen_settings.game_screen_size)
-    bg_dark.fill(game.config["theme"]["dark_mode_background"])
+    bg_dark.fill(constants.CONFIG["theme"]["dark_mode_background"])
 
     default_game_bgs = {
         "light": {"default": bg},
@@ -404,15 +487,15 @@ def rebuild_bgs():
         },
     }
 
-    for theme in ["light", "dark"]:
+    for theme in ("light", "dark"):
         for name, bg in default_fullscreen_bgs[theme].items():
-            if name not in [
+            if name not in (
                 "default",
                 "mainmenu_bg",
                 "darkforest",
                 "unknown_residence",
                 "starclan",
-            ]:
+            ):
                 default_fullscreen_bgs[theme][name] = process_blur_bg(
                     default_fullscreen_bgs[theme][name], theme=theme
                 )
@@ -423,7 +506,7 @@ def rebuild_bgs():
                     vignette_strength=0,
                     fade_color=None,
                 )
-            elif name in ["mainmenu_bg", "darkforest", "unknown_residence"]:
+            elif name in ("mainmenu_bg", "darkforest", "unknown_residence"):
                 default_fullscreen_bgs[theme][name] = process_blur_bg(
                     default_fullscreen_bgs[theme][name], theme=theme, blur_radius=10
                 )
@@ -434,7 +517,7 @@ def rebuild_bgs():
 
     camp_bgs = get_camp_bgs()
 
-    for theme in ["light", "dark"]:
+    for theme in ("light", "dark"):
         for name, camp_bg in camp_bgs[theme].items():
             default_fullscreen_bgs[theme][name] = process_blur_bg(camp_bg, theme=theme)
 
@@ -452,7 +535,7 @@ def get_camp_bgs():
         biome = available_biome[0]
 
     all_backgrounds = []
-    for light_dark in ["light", "dark"]:
+    for light_dark in ("light", "dark"):
         for leaf in leaves:
             platform_dir = (
                 f"{camp_bg_base_dir}/{biome}/{leaf}_{camp_nr}_{light_dark}.png"
@@ -510,14 +593,14 @@ def process_blur_bg(
     global fade
     global dropshadow
     if theme is None:
-        theme = "dark" if game.settings["dark mode"] else "light"
+        theme = "dark" if game_setting_get("dark mode") else "light"
 
-    fade.fill(game.config["theme"]["fullscreen_background"][theme]["fade_color"])
+    fade.fill(constants.CONFIG["theme"]["fullscreen_background"][theme]["fade_color"])
     vignette.set_alpha(
-        game.config["theme"]["fullscreen_background"][theme]["vignette_alpha"]
+        constants.CONFIG["theme"]["fullscreen_background"][theme]["vignette_alpha"]
     )
     dropshadow.set_alpha(
-        game.config["theme"]["fullscreen_background"][theme]["dropshadow_alpha"]
+        constants.CONFIG["theme"]["fullscreen_background"][theme]["dropshadow_alpha"]
     )
 
     if vignette_strength is not None:
