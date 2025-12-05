@@ -238,7 +238,7 @@
             "bullying",
             "fearless",
             "noisy",
-            "troublesome"
+            "unruly"
         ]
     },
     {
@@ -251,7 +251,7 @@
             "bossy",
             "know-it-all",
             "noisy",
-            "troublesome"
+            "unrul"
         ],
         "random_status_constraint": [
             "apprentice",
@@ -744,7 +744,7 @@
         ]
     },
     {
-        "id": "insecure_kit",
+        "id": "self-conscious_kit",
         "thoughts": [
             "Doesn't think {PRONOUN/m_c/subject} will ever be an apprentice",
             "Thinks r_c doesn't like {PRONOUN/m_c/object}",
@@ -765,7 +765,7 @@
             "Feels as if {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} not growing big and strong enough to become an apprentice"
         ],
         "main_trait_constraint": [
-            "insecure"
+            "self-conscious"
         ],
         "random_living_status": [
             "living"

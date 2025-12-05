@@ -40,7 +40,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "war",
@@ -315,7 +316,8 @@
         "t_c": {
             "cluster": [
                 "unlawful"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus",
@@ -330,12 +332,14 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus",
@@ -358,7 +362,8 @@
             ],
             "status": [
                 "any"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "relationship": [
             "non-related"
@@ -368,7 +373,7 @@
         ],
         "intro": [
             "Huh? I don't need to tell you nothin'!",
-            "You're too young anyway, I'm not gonna be responsible for a kittens nightmares.",
+            "You're too young anyway, I'm not gonna be responsible for a kitten's nightmares.",
             "[With a flick of a tail, t_c huffs and turns away.]"
         ]
     },
@@ -376,7 +381,8 @@
         "y_c": {
             "age": [
                 "kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "age": [
@@ -384,7 +390,8 @@
             ],
             "status": [
                 "any"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "relationship": [
             "non-related"
@@ -401,12 +408,14 @@
         "y_c": {
             "age": [
                 "kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "status": [
                 "queen"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "relationship": [
             "non-related"
@@ -425,7 +434,9 @@
                 "kitten"
             ]
         },
-        "t_c": {},
+        "t_c": {
+            "condition": ["blind:any:false"]
+        },
         "relationship": [
             "from_parent"
         ],
@@ -440,12 +451,15 @@
         ]
     },
     "war_faith_H1": {
-        "y_c": {},
+        "y_c": {
+            "condition": ["blind:any:false"]
+        },
         "t_c": {
             "min_max_faith": [
                 0,
                 9
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -458,7 +472,8 @@
         "y_c": {
             "age": [
                 "kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "status": [
@@ -467,7 +482,8 @@
             "min_max_faith": [
                 0,
                 9
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -481,7 +497,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "min_max_faith": [
@@ -490,7 +507,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -503,12 +521,14 @@
         "y_c": {
             "status": [
                 "warrior"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
                 "neurotic"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "relationship": [
             "min_romantic_20",
@@ -530,12 +550,14 @@
                 "queen",
                 "mediator",
                 "medicine cat"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
                 "neurotic"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "relationship": [
             "from_mate"
@@ -553,13 +575,15 @@
         "y_c": {
             "status": [
                 "warrior"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
                 "introspective",
                 "neurotic"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "relationship": [
             "from_mate"
@@ -572,14 +596,17 @@
         ]
     },
     "warfocus_SQ1": {
-        "y_c": {},
+        "y_c": {
+            "condition": ["deaf:any:false"]
+        },
         "t_c": {
             "cluster": [
                 "neurotic"
             ],
             "age": [
                 "kitten"
-            ]
+            ],
+            "condition": ["deaf:any:false"]
         },
         "tags": [
             "focus"
@@ -603,7 +630,8 @@
             ],
             "age": [
                 "kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "relationship": [
             "min_platonic_20",
@@ -718,7 +746,8 @@
             ],
             "age": [
                 "kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -726,7 +755,8 @@
             ],
             "age": [
                 "kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "relationship": [
             "min_platonic_50"
@@ -745,7 +775,8 @@
         "y_c": {
             "age": [
                 "adult"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -753,7 +784,8 @@
             ],
             "age": [
                 "kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "relationship": [
             "min_platonic_20",
@@ -774,7 +806,8 @@
                 "apprentice",
                 "deputy",
                 "leader"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -801,7 +834,8 @@
         "y_c": {
             "age": [
                 "kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -809,7 +843,8 @@
             ],
             "age": [
                 "kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "relationship": [
             "min_platonic_20",
@@ -828,7 +863,8 @@
         "y_c": {
             "age": [
                 "kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -836,7 +872,8 @@
             ],
             "age": [
                 "kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "relationship": [
             "min_platonic_20",
@@ -855,7 +892,8 @@
             "status": [
                 "queen",
                 "queen's apprentice"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -863,7 +901,8 @@
             ],
             "age": [
                 "kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "relationship": [
             "min_platonic_20"
@@ -2163,7 +2202,8 @@
             "connected"
         ],
         "intro": [
-            "[d_n is swatting at t_c, insisting that {PRONOUN/d_n/poss} {VERB/d_n/know/knows} {PRONOUN/t_c/subject}{VERB/t_c/'re/'s} not really sick, and {PRONOUN/d_n/subject} {VERB/d_n/need/needs} all the warriors {PRONOUN/d_n/subject} can get for the next border patrol.]",
+            "[d_n is swatting at t_c.]", 
+            "|d_n|I know you're not really sick, t_c. We need all the warriors we can get for the next border patrol.",
             "Y'know, have you tried yelling just a little louder? I feel like that'd <i>really</i> convince me.",
             "[With a grunt of effort, t_c sluggishly rises to {PRONOUN/t_c/poss} paws and shakes scraps of moss out of {PRONOUN/t_c/poss} fur.]",
             "c_n's bravest little warrior. Reporting for duty.",
@@ -2199,7 +2239,7 @@
         "intro": [
             "[The camp is alive with whisperings of a skirmish on the latest border patrol, the same one that d_n forced t_c to participate in.]",
             "[As the warriors file in through the camp entrance, battered and bruised, t_c rushes in with {PRONOUN/t_c/poss} tail tucked between {PRONOUN/t_c/poss} legs, seemingly unharmed.]",
-            "[You approach {PRONOUN/t_c/object}, expecting some pithy remark or witty comment about how pointless it was, but instead {PRONOUN/t_c/subject} simply {VERB/t_c/brush/brushes} past you and dart straight into {PRONOUN/t_c/poss} den.]",
+            "[You approach {PRONOUN/t_c/object}, expecting some pithy remark or witty comment about how pointless it was, but instead {PRONOUN/t_c/subject} simply {VERB/t_c/brush/brushes} past you and {VERB/t_c/dart/darts} straight into {PRONOUN/t_c/poss} den.]",
             "[What was that all about?]"
         ]
     },
@@ -2779,7 +2819,7 @@
         "intro": [
             "[t_c stares at your scratches from last night's Dark Forest training.]",
             "Are those from w_cClan? What happened?!",
-            "[The war is a unexpectedly good cover for your unexplained injuries...]"
+            "[The war is an unexpectedly good cover for your unexplained injuries...]"
         ]
     },
     "war_focusdf_SQ6": {

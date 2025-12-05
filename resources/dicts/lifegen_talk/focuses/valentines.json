@@ -3,12 +3,14 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "tags": [
             "focus"
@@ -54,11 +56,14 @@
         ]
     },
     "valen_introspective_H2": {
-        "y_c": {},
+        "y_c": {
+            "condition": ["blind:any:false"]
+        },
         "t_c": {
             "cluster": [
                 "introspective"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "relationship": [
             "min_comfort_50"
@@ -71,16 +76,15 @@
         ]
     },
     "valen_introspective_H3": {
-        "y_c": {},
+        "y_c": {
+            "condition": ["blind:any:false"]
+        },
         "t_c": {
             "cluster": [
                 "introspective"
             ],
             "age": [
-                "adolescent"
-            ],
-            "age": [
-                "kitten"
+                "adolescent", "kitten"
             ]
         },
         "relationship": [
@@ -95,14 +99,17 @@
         ]
     },
     "valen_introspective_H4": {
-        "y_c": {},
+        "y_c": {
+            "condition": ["blind:any:false"]
+        },
         "t_c": {
             "cluster": [
                 "introspective"
             ],
             "age": [
                 "kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "relationship": [
             "from_your_kit"
@@ -119,9 +126,11 @@
         "y_c": {
             "status": [
                 "any"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
+            "condition": ["blind:any:false"],
             "shunned": true
         },
         "tags": [
@@ -135,9 +144,11 @@
         "y_c": {
             "status": [
                 "any"
-            ]
+            ],
+            "condition": ["deaf:any:false"]
         },
         "t_c": {
+            "condition": ["blind:any:false", "deaf:any:false"],
             "shunned": true
         },
         "tags": [
@@ -145,17 +156,19 @@
         ],
         "intro": [
             "[While everycat is celebrating, t_c sits in a corner away from the commotion.]",
-            "[... {PRONOUN/t_c/subject/CAP} look really lonely.]"
+            "[... {PRONOUN/t_c/subject/CAP} {VERB/t_c/look/looks} really lonely.]"
         ]
     },
     "valen_shunned_H3": {
         "y_c": {
             "status": [
                 "any"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
-            "shunned": true
+            "shunned": true,
+            "condition": ["blind:any:false"]
         },
         "relationship": [
             "min_dislike_50"
@@ -195,10 +208,12 @@
     },
     "valen_shunned_H5": {
         "y_c": {
-            "shunned": true
+            "shunned": true,
+            "condition": ["blind:any:false"]
         },
         "t_c": {
-            "shunned": true
+            "shunned": true,
+            "condition": ["blind:any:false"]
         },
         "relationship": [
             "from_mate"
@@ -215,7 +230,8 @@
             "shunned": true,
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["deaf:any:false"]
         },
         "t_c": {
             "status": [
@@ -223,7 +239,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false", "deaf:any:false"]
         },
         "relationship": [
             "min_dislike_50"
@@ -240,7 +257,8 @@
             "shunned": true,
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "status": [
@@ -257,8 +275,8 @@
             "focus"
         ],
         "intro": [
-            "Oh, what are those flowers for? yourcrush?",
-            "HAH! As if they'd accept them! I'd like to see you try."
+            "Oh, who are those flowers for? yourcrush?",
+            "HAH! As if {PRONOUN/yourcrush/subject}'d accept them! I'd like to see you try."
         ]
     },
     "valentine_focus_SQ7": {
@@ -295,7 +313,8 @@
         "y_c": {
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "t_c": {
             "cluster": [
@@ -303,7 +322,8 @@
             ],
             "age": [
                 "not_kitten"
-            ]
+            ],
+            "condition": ["blind:any:false"]
         },
         "relationship": [
             "min_platonic_20",
@@ -495,7 +515,8 @@
         "intro": [
             "Hey you! I got you flowers!!",
             "[Your mate presses {PRONOUN/t_c/poss} head into your shoulder lovingly, a purr erupting from {PRONOUN/t_c/object}.]",
-            "[Until you hear r_k wrinkle {PRONOUN/t_c/poss} nose and call you two gross. t_c bursts into soft laughter.]"
+            "|r_k|Ewwww... Gross!",
+            "[t_c bursts into soft laughter.]"
         ]
     },
     "valenfocus_gen_4ps": {
@@ -685,8 +706,8 @@
             "focus"
         ],
         "intro": [
-            "[t_c has amassed a massive pile of gifts from all their secret admirers: flowers, feathers, gleaming stones and shells, choice cuts of prey.]",
-            "[They laze around their nest, batting around a dazzling, bright blue feather that must have come from an especially smitten devotee.]",
+            "[t_c has amassed a massive pile of gifts from all {PRONOUN/t_c/poss} secret admirers: flowers, feathers, gleaming stones and shells, choice cuts of prey.]",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/laze/lazes} around {PRONOUN/t_c/poss} nest, batting around a dazzling, bright blue feather that must have come from an especially smitten devotee.]",
             "Oh, hey, y_c. Come to share in the spoils?",
             "I guess this holiday isn't <i>so</i> useless after all ... Hehe."
         ]

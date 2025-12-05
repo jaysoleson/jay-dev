@@ -1573,6 +1573,9 @@
         "daring": [
             "JAY"
         ],
+        "fearless": [
+            "JAY"
+        ],
         "confident": [
             "STICK"
         ],
@@ -1678,6 +1681,9 @@
         "lonesome": [
             "BEETLEJUICE ISOPOD"
         ],
+        "shy": [
+            "BEETLEJUICE ISOPOD"
+        ],
         "calm": [
             "LAVENDER"
         ],
@@ -1696,7 +1702,13 @@
         "nervous": [
             "CLOVER"
         ],
+        "skittish": [
+            "CLOVER"
+        ],
         "insecure": [
+            "BLACKWOOL"
+        ],
+        "self-conscious": [
             "BLACKWOOL"
         ],
         "careful": [
@@ -1712,6 +1724,9 @@
             "LADYBUGS"
         ],
         "troublesome": [
+            "FIDDLEHEADS"
+        ],
+        "unruly": [
             "FIDDLEHEADS"
         ],
         "childish": [
