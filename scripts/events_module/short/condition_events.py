@@ -402,7 +402,7 @@ class Condition_Events:
                 elif chosen_illness == "stage one infection":
                     insert = ""
 
-                    infected_cats = [cat for cat in Cat.all_cats_list if not cat.outside and not cat.dead and cat.infected_for > 0]
+                    infected_cats = [cat for cat in Cat.all_cats_list if not cat.outside and not cat.dead and cat.infected_for > 0 and cat.moons > 5]
 
                     strings = []
                     if get_infection_info("spread_by") == "bite":

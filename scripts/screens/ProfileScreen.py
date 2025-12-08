@@ -3357,9 +3357,8 @@ class ProfileScreen(Screens):
                     starting_height=2, manager=MANAGER
                     )
 
-            inftype = get_infection_info("type")
             infected = False
-            stages = ["stage one infection", "stage two infection", "stage three infection", "stage four infection"]
+            stages = ["stage one infection", "stage two infection", "stage three infection", "stage four infection", "undead"]
             for stage in stages:
                 if stage in self.the_cat.illnesses:
                     infected = True
@@ -3382,7 +3381,6 @@ class ProfileScreen(Screens):
                     self.quarantine_button.hide()
 
             if len(quar_cats) >= 10:
-                print("disabling quarantine button")
                 self.quarantine_button.disable()
             else:
                 self.quarantine_button.enable()

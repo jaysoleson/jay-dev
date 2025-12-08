@@ -139,7 +139,7 @@ def get_non_infected_clan_cat_count(Cat):
     """
     count = 0
     for the_cat in Cat.all_cats.values():
-        if the_cat.dead or the_cat.exiled or the_cat.outside or the_cat.infected_for != 0:
+        if the_cat.dead or the_cat.exiled or the_cat.outside or the_cat.infected_for > 0:
             continue
         count += 1
     return count
@@ -154,6 +154,39 @@ def get_infected_clan_cat_count(Cat):
             continue
         count += 1
     return count
+
+def get_random_cat_from_rel_value(Cat, main_cat, rel_value, minimum=0, maximum=100):
+    possible_cats = []
+    for cat in Cat.all_cats:
+        random_cat = Cat.fetch_cat(cat)
+        if main_cat.ID in random_cat.relationships:
+            rel_dict = {
+                "platonic": random_cat.relationships[main_cat.ID].platonic_like,
+                "romantic": random_cat.relationships[main_cat.ID].romantic_love,
+                "dislike": random_cat.relationships[main_cat.ID].dislike,
+                "trust": random_cat.relationships[main_cat.ID].trust,
+                "comfort": random_cat.relationships[main_cat.ID].comfortable,
+                "respect": random_cat.relationships[main_cat.ID].admiration,
+                "jealousy": random_cat.relationships[main_cat.ID].jealousy
+            }
+            if rel_value in rel_dict:
+                if rel_dict[rel_value] > minimum and rel_dict[rel_value] < maximum:
+                    possible_cats.append(random_cat)
+            else:
+                if rel_value == "mates":
+                    if random_cat.ID in main_cat.mates:
+                        possible_cats.append(random_cat)
+                if rel_value == "app/mentor":
+                    if main_cat.ID in random_cat.apprentice:
+                        possible_cats.append(random_cat)
+                if rel_value == "mentor/app":
+                    if random_cat.ID in main_cat.apprentice:
+                        possible_cats.append(random_cat)
+
+    if possible_cats:
+        return choice(possible_cats)
+    return None
+
 
 def get_cats_same_age(Cat, cat, age_range=10):
     """
@@ -205,7 +238,7 @@ def get_free_possible_mates(cat):
 
 
 def get_random_moon_cat(
-    Cat, main_cat, parent_child_modifier=True, mentor_app_modifier=True
+    Cat, main_cat, parent_child_modifier=True, mentor_app_modifier=True, INF_rel_value=[]
 ):
     """
     returns a random cat for use in moon events

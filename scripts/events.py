@@ -66,7 +66,8 @@ from scripts.utility import (
     get_infection_herb,
     get_infection_info,
     update_infection_info,
-    get_infection_type
+    get_infection_type,
+    get_random_cat_from_rel_value
 )
 class BirthType(Enum):
     NO_PARENTS = "birth_no_parents"
@@ -97,6 +98,7 @@ class Events:
         self.checks = [-1,-1,-1]
         self.cat_dict = {}
         self.current_events = []
+        self.load_undead_events()
 
     def one_moon(self):
         """
@@ -1753,13 +1755,13 @@ class Events:
         """ undead kitties being crazy """
         if "undead" not in cat.illnesses:
             return
-        if cat.quarantined:
-            return
         
-        chance = 4
         cats = [i for i in Cat.all_cats_list if i.infected_for == 0 and not i.outside and not i.dead]
         if cats == []:
             return
+        chance = 5
+        if cat.quarantined:
+            chance = 1
         random_cat = random.choice(cats)
         if not int(random.random() * chance):
             cat_inftype = None
@@ -1778,12 +1780,18 @@ class Events:
             else:
                 random_cat.get_injured(
                     random.choice(
-                        ["claw-wound", "town pelt", "scrapes"]
+                        ["claw-wound", "torn pelt", "scrapes"]
                         ))
 
-            event_list = [
-                f"{cat.name} attacked {random_cat.name}, leaving the cat both injured and infected."
-            ]
+            if cat.quarantined:
+                event_list = [
+                    f"{cat.name} attacked {random_cat.name}, leaving the cat both injured and infected."
+                ]
+            else:
+                event_list = [
+                    f"{cat.name} broke free from quarantine and attacked {random_cat.name}, leaving the cat both injured and infected."
+                ]
+
 
             event = random.choice(event_list)
             game.cur_events_list.append(
@@ -2978,6 +2986,9 @@ class Events:
             self.generate_faith_events(cat)
         # ---
 
+        if "undead" in cat.illnesses and not int(random.random() * 8):
+            self.generate_undead_events(cat)
+
         # handle nutrition amount
         # (CARE: the cats have to be fed before this happens - should be handled in "one_moon" function)
         if game.clan.game_mode in ['expanded', 'cruel season'
@@ -3020,7 +3031,6 @@ class Events:
             cat.experience += random.randint(0,5)
 
         # INFECTION moon stuff-- must be after handle_illnesses
-        inftype = get_infection_info("type")
 
         stages = ["stage one infection", "stage two infection", "stage three infection", "stage four infection"]
 
@@ -3140,6 +3150,11 @@ class Events:
         resource_dir = "resources/dicts/events/"
         with open(f"{resource_dir}war.json", encoding="ascii") as read_file:
             self.WAR_TXT = ujson.loads(read_file.read())
+
+    def load_undead_events(self):
+        resource_dir = "resources/dicts/events/"
+        with open(f"{resource_dir}undead.json", encoding="ascii") as read_file:
+            self.UNDEAD_EVENTS = ujson.loads(read_file.read())
 
     def check_war(self):
         """
@@ -4692,6 +4707,99 @@ class Events:
                     text = f"The Clan takes a vote and agrees they feel unsafe around {cat.name}. {cat.name} is exiled."
 
             game.cur_events_list.insert(0, Single_Event(text, ["alert", "misc"], involved_cats))
+
+    def generate_undead_events(self, cat):
+        if (
+            cat.outside or
+            cat.dead
+        ):
+            return
+
+        involved_cats = [cat.ID]
+
+        possible_events = []
+
+        for i in range(10):
+            # ten attempts
+            undead_event = random.choice(self.UNDEAD_EVENTS)
+            random_cat = get_random_moon_cat(Cat, main_cat=cat)
+            if "relationship" in undead_event:
+                if "_" in undead_event["relationship"]:
+                    rel, value = undead_event["relationship"].split("_")
+                else:
+                    rel = undead_event["relationship"]
+                    value = 0
+                random_cat = get_random_cat_from_rel_value(Cat, cat, rel, minimum=int(value))
+                if not random_cat:
+                    continue
+            skip_event = False
+            for abbrev, cat_obj in {
+                "r_c": random_cat,
+                "m_c": cat
+                }.items():
+                if abbrev not in undead_event:
+                    continue
+                block = undead_event[abbrev]
+                if "status" in block and cat_obj.status not in block["status"]:
+                    skip_event = True
+                if "age" in block and cat_obj.age not in block["age"]:
+                    skip_event = True
+                if "undead" in block:
+                    if block["undead"] is True:
+                        if "undead" not in cat_obj.illnesses:
+                            skip_event = True
+                    else:
+                        if "undead" in cat_obj.illnesses:
+                            skip_event = True
+                if "infected" in block:
+                    if "any" not in block["infected"]:
+                        if "none" in block["infected"]:
+                            if cat_obj.infected_for > 0:
+                                skip_event = True
+                        else:
+                            if not any(i in cat_obj.illnesses for i in block["infected"]):
+                                skip_event = True
+
+            if skip_event:
+                continue
+            else:
+                for i in range(undead_event["weight"]):
+                    # print("Adding", undead_event["event_id"], i)
+                    for event in undead_event["events"]:
+                        possible_events.append({event:random_cat.ID})
+
+        if not possible_events:
+            print("WARNING: No undead events found. Using generic text.")
+            for event in self.UNDEAD_EVENTS:
+                if event["event_id"] == "misc_flavour_undead":
+                    for event in undead_event["events"]:
+                        possible_events.append({event:random_cat.ID})
+
+        # print("POSSIBLE EVENTS:", possible_events)
+
+        event = random.choice(possible_events)
+        for key, value in event.items():
+            text = key
+            random_cat = Cat.fetch_cat(value)
+
+        if text:
+            if "r_c" in text:
+                involved_cats.append(random_cat.ID)
+
+            event_text = event_text_adjust(
+                Cat=Cat,
+                text=text,
+                main_cat=cat,
+                random_cat=random_cat,
+                clan=game.clan)
+
+            game.cur_events_list.append(
+                Single_Event(
+                    event_text,
+                    ["misc", "infection"],
+                    involved_cats
+                    )
+                )
 
     def generate_faith_events(self, cat):
         """ yay """

@@ -691,8 +691,6 @@ class Cat:
 
         if game.clan and not self.outside and not self.exiled:
             self.grief(body=False, undead=True)
-        
-        self.relationships = {}
 
     def die(self, body: bool = True):
         """Kills cat.
@@ -826,6 +824,7 @@ class Cat:
             self.infected_for = 0
         
         self.quarantined = False
+        self.relationships = {}
 
         return text
 
@@ -1219,7 +1218,7 @@ class Cat:
                 if undead:
                     minor_grief_messages = (
                         "Can't quite accept that r_c is gone",
-                        "Swears {PRONOUN/m_c} {VERB/m_c/see/sees} recognition in r_c's eyes",
+                        "Swears {PRONOUN/m_c/subject} {VERB/m_c/see/sees} recognition in r_c's eyes",
                         "Prays that r_c is safe in StarClan",
                         "Misses the warmth that r_c brought to {PRONOUN/m_c/poss} life",
                         "Is mourning r_c",
@@ -2419,36 +2418,32 @@ class Cat:
             return
         if name == "kittencough" and self.status != "kitten":
             return
-        
-        if game.clan:
-            if name in [
-                "stage one infection",
-                "stage two infection",
-                "stage three infection",
-                "stage four infection",
-                "undead"
-            ]:
-                if self.infected_for == 0:
-                    self.infected_for = 1
-                    if any(illness in self.illnesses for illness in [
-                        "stage one infection",
-                        "stage two infection",
-                        "stage three infection",
-                        "stage four infection",
-                        "undead"
-                    ]):
-                        print("WARNING: Tried to infect", self.name, ", who is already infected!")
-                        return
-                    if self.outside is False:
-                        if game.clan.infection["clan_infected"] is False:
-                            game.clan.infection["clan_infected"] = True
-                            get_infection_info("logs").append('start')
-                elif self.infected_for == -1:
-                    print("Tried to infect", self.name, "but", self.name, "is immune!")
+
+        if name in [
+            "stage one infection",
+            "stage two infection",
+            "stage three infection",
+            "stage four infection",
+            "undead"
+        ]:
+            if self.infected_for == 0:
+                self.infected_for = 1
+                if any(illness in self.illnesses for illness in [
+                    "stage one infection",
+                    "stage two infection",
+                    "stage three infection",
+                    "stage four infection",
+                    "undead"
+                ]):
+                    print("WARNING: Tried to infect", self.name, ", who is already infected!")
                     return
-                # else:
-                #     print("2 WARNING: Tried to infect", self.name, ", who is already infected!")
-                #     return
+                if self.outside is False:
+                    if game.clan.infection["clan_infected"] is False:
+                        game.clan.infection["clan_infected"] = True
+                        get_infection_info("logs").append('start')
+            elif self.infected_for == -1:
+                print("Tried to infect", self.name, "but", self.name, "is immune!")
+                return
 
         illness = ILLNESSES[name]
         mortality = illness["mortality"][self.age]
@@ -2512,7 +2507,7 @@ class Cat:
                     inftype = infection_type
                 else:
                     inftype = get_infection_info("type")
-                
+
                 self.illnesses[new_illness.name]["type"] = inftype
                 # print("INFECTING", self.name, "with", inftype.upper(), "infection.")
                 # print(infection_type)

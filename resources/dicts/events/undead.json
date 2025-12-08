@@ -1,0 +1,103 @@
+[
+    {
+        "event_id": "misc_flavour_undead",
+        "location": ["any"],
+        "season": ["any"],
+        "weight": 1,
+        "events": [
+            "A group of warriors has to attack and subdue m_c when {PRONOUN/m_c/subject} {VERB/m_c/lose/loses} control and start tearing up the nursery.",
+            "A group of warriors just barely stops m_c from wandering out of camp.",
+            "m_c digs a hole in camp until {PRONOUN/m_c/poss} paws begin to bleed.",
+            "m_c stares up at the sun.",
+            "Drops of m_c's blood speckle the camp as {PRONOUN/m_c/subject} {VERB/m_c/amble/ambles} around mindlessly.",
+            "m_c growls at even the slightest noise."
+        ],
+        "m_c": {}
+    },
+    {
+        "event_id": "lovedone_undead",
+        "location": ["any"],
+        "season": ["any"],
+        "weight": 4,
+        "events": [
+            "r_c risks getting infected to groom m_c's matted fur while {PRONOUN/m_c/subject} {VERB/m_c/sleep/sleeps}.",
+            "r_c begs m_c to recognise {PRONOUN/r_c/object}, but m_c doesn't react.",
+            "r_c has a dream that m_c's infection was cured. {PRONOUN/r_c/subject/CAP} {VERB/r_c/wake/wakes} up disappointed.",
+            "r_c tries to spend some time with m_c, but has to leave when m_c attacks {PRONOUN/m_c/object}.",
+            "Every time r_c looks at m_c, {PRONOUN/r_c/subject} {VERB/r_c/feel/feels} sick."
+        ],
+        "m_c": {},
+        "r_c": {
+            "age": ["adolescent", "young adult", "adult", "senior adult", "senior"],
+            "infected": ["none"]
+        },
+        "relationship": "platonic_50"
+    },
+    {
+        "event_id": "mates_undead",
+        "location": ["any"],
+        "season": ["any"],
+        "weight": 3,
+        "events": [
+            "r_c notices that m_c's empty spot in their nest is beginning to smell of infection, too.",
+            "r_c picks some flowers for m_c and leaves them at the medicine den. m_c locates the unfamiliar scent and destroys them.",
+            "r_c notices that m_c's absent wailing sounds vaguely like {PRONOUN/r_c/poss} name.",
+            "When r_c accidentally gets too close, m_c somehow stops {PRONOUN/m_c/self} from attacking."
+        ],
+        "m_c": {
+            "age": ["young adult", "adult", "senior adult", "senior"]
+        },
+        "r_c": {
+            "age": ["young adult", "adult", "senior adult", "senior"]
+        },
+        "relationship": "mates"
+    },
+    {
+        "event_id": "kitten_undead_1",
+        "location": ["any"],
+        "season": ["any"],
+        "weight": 2,
+        "events": [
+            "m_c drags {PRONOUN/m_c/self} across camp, {PRONOUN/m_c/poss} little legs too overcome with infection to work today.",
+            "When a Clanmate bats a moss-ball in m_c's direction, {PRONOUN/m_c/subject} just {VERB/m_c/start/starts} absentmindedly chewing on it."
+        ],
+        "m_c": {
+            "age": ["kitten"]
+        }
+    },
+    {
+        "event_id": "warrior_to_undead",
+        "location": ["any"],
+        "season": ["any"],
+        "weight": 2,
+        "events": [
+            "r_c has to wrestle a fresh rabbit out of m_c's jaws before {PRONOUN/m_c/subject} {VERB/m_c/get/gets} it sick.",
+            "r_c fights off a snake to protect m_c, who doesn't notice and immediately attacks {PRONOUN/m_c/object} afterward.",
+            "m_c stalks r_c across camp.",
+            "r_c reinforces the walls on the undead den while m_c growls from the other side."
+        ],
+        "m_c": {
+            "age": ["adolescent", "young adult", "adult", "senior adult", "senior"]
+        },
+        "r_c": {
+            "status": ["warrior", "deputy"],
+            "infected": ["none"]
+        }
+    },
+    {
+        "event_id": "undead_to_any",
+        "location": ["any"],
+        "season": ["any"],
+        "weight": 2,
+        "events": [
+            "A group of warriors holds m_c back as {PRONOUN/m_c/subject} {VERB/m_c/try/tries} to attack r_c.",
+            "m_c chases r_c around camp.",
+            "m_c chases r_c up a tree.",
+            "m_c chases r_c so far into the woods that it takes {PRONOUN/r_c/object} all day to find {PRONOUN/r_c/poss} way home.",
+            "r_c tiptoes around camp as m_c watches from afar with malignant eyes."
+        ],
+        "r_c": {
+            "infected": ["none"]
+        }
+    }
+]
