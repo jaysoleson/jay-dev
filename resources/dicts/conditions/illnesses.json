@@ -787,6 +787,10 @@
         "medicine_duration": 10,
         "infectiousness": 80,
         "risks": [
+            {
+                "name": "undead",
+                "chance": 30
+            }
         ],
         "herbs": [
         ]

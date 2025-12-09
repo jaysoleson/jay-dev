@@ -119,5 +119,18 @@
                 "The mushrooms growing from m_c's pelt are making it hard to walk. As {PRONOUN/m_c/subject} {VERB/m_c/stumble/stumbles} across camp in an attempt to blindly attack a Clanmate, it becomes clear that {PRONOUN/m_c/poss} infection is getting much worse."
             ]
         }
+    },
+    "stage four infection": {
+        "undead": {
+            "general": [
+                "m_c has died, but the infection seems to have enough power over {PRONOUN/m_c/poss} mind to keep {PRONOUN/m_c/object} standing..."
+            ],
+            "parasitic": [
+            ],
+            "void": [
+            ],
+            "fungal": [
+            ]
+        }
     }
 }

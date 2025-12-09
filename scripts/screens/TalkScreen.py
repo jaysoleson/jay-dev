@@ -1622,6 +1622,8 @@ class TalkScreen(Screens):
         Checks the condition list
         """
         if not CONDITIONS:
+            if "undead" in cat.illnesses:
+                return False
             return True
 
         if "injury:any" in CONDITIONS and not cat.is_injured():

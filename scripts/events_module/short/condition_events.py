@@ -718,7 +718,8 @@ class Condition_Events:
             "grief stricken": "lasting grief",
             "stage one infection": "stage two infection",
             "stage two infection": "stage three infection",
-            "stage three infection": "stage four infection"
+            "stage three infection": "stage four infection",
+            "stage four infection": "undead"
         }
         # ---------------------------------------------------------------------------- #
         #                         handle currently sick cats                           #
@@ -1281,6 +1282,21 @@ class Condition_Events:
             # inf
             if chance < 2:
                 chance = 2
+
+            # INFECTION STAGE MAXIMUMS
+            infection_moon_max = {
+                "stage one infection": 6,
+                "stage two infection": 9,
+                "stage three infection": 12,
+                "stage four infection": 24
+            }
+            if condition in infection_moon_max:
+                moons_with = (
+                    game.clan.age - cat.illnesses[condition]["moon_start"]
+                )
+                if moons_with >= infection_moon_max[condition]:
+                    chance = 1
+                    print(cat.name, "at max for stage. progressing to", risk['name'])
             # ---
             # if we hit the chance, then give the risk if the cat does not already have the risk
             if (
