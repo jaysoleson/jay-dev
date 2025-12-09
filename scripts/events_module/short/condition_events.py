@@ -1296,7 +1296,6 @@ class Condition_Events:
                 )
                 if moons_with >= infection_moon_max[condition]:
                     chance = 1
-                    print(cat.name, "at max for stage. progressing to", risk['name'])
             # ---
             # if we hit the chance, then give the risk if the cat does not already have the risk
             if (
