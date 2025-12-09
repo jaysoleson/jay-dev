@@ -303,7 +303,7 @@ class Clan:
             "exiled_infected": "",
             "killed_infected": "",
             "cured_infected": "",
-            "treated": [],
+            "treated": {},
             "1": {
                 "type": self.infection_type,
                 "cure": [herb1, herb2, herb3, herb4],

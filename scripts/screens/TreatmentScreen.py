@@ -1067,6 +1067,9 @@ class TreatmentScreen(Screens):
         herblist = [self.herb1, self.herb2, self.herb3, self.herb4]
         correctherbs = [herb for herb in herblist if herb in curelist]
 
+        print("HERBLIST:", herblist)
+        print("CORRECTHERBS:", correctherbs)
+
         cure_one = False
         if len(correctherbs) == 1:
             cure_one = True
@@ -1114,7 +1117,7 @@ class TreatmentScreen(Screens):
             # if int(random.random() * remission_chance):
             # ^ debug
             if not int(random.random() * remission_chance):
-                game.clan.infection["treated"].append(patient.ID)
+                game.clan.infection["treated"].update({patient.ID:True})
 
         treatment = {
             "type": infection_type,
@@ -1128,7 +1131,7 @@ class TreatmentScreen(Screens):
         
         if cure:
             print(patient.name, "appended to treated")
-            game.clan.infection["treated"].append(patient.ID)
+            game.clan.infection["treated"].update({patient.ID:False})
             if not get_infection_info("cure_discovered"):
                 update_infection_info("cure_discovered", True)
         

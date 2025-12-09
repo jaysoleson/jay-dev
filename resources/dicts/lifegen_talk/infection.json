@@ -35,13 +35,17 @@
             "condition": [
                 "blind:any:false",
                 "not:infected"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "t_c": {
             "condition": [
                 "blind:any:false",
                 "not:infected"
-            ]
+            ],
+            "age": ["not_kitten"]
         },
         "tags": [
             "spread_by_bite",
@@ -58,12 +62,18 @@
             "condition": [
                 "blind:any:false",
                 "not:infected"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "t_c": {
             "condition": [
                 "blind:any:false",
                 "not:infected"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
@@ -91,6 +101,9 @@
             "condition": [
                 "blind:any:false",
                 "not:infected"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
@@ -171,6 +184,9 @@
                 "deaf:any:false",
                 "infected",
                 "stage four"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
@@ -190,6 +206,9 @@
                 "blind:any:false",
                 "infected",
                 "stage one"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
@@ -208,6 +227,9 @@
                 "infected",
                 "stage four",
                 "blind:any:false"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
@@ -338,6 +360,9 @@
                 "blind:any:false",
                 "infected",
                 "stage two"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
@@ -359,6 +384,9 @@
                 "blind:any:false",
                 "infected",
                 "stage two"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
@@ -384,6 +412,9 @@
                 "stage one",
                 "stage two",
                 "stage three"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
@@ -430,6 +461,9 @@
         "y_c": {
             "condition": [
                 "not:infected"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "t_c": {
@@ -442,6 +476,9 @@
                 "infected",
                 "stage two",
                 "stage three"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "relationship": [
@@ -476,6 +513,9 @@
         "y_c": {
             "condition": [
                 "infected"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "t_c": {
@@ -486,6 +526,9 @@
             "condition": [
                 "blind:any:false",
                 "not:infected"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "relationship": [
@@ -522,6 +565,9 @@
             ],
             "condition": [
                 "not:infected"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "relationship": [
@@ -530,7 +576,7 @@
         "intro": [
             "[t_c is sitting a distance away from the opening of your den.]",
             "Hey. y_c. I'm sorry about what happened. {PRONOUN/d_c/subject/CAP} {VERB/d_c/were/was} really were a special cat.",
-            "[They look regretfully at the piece of prey at their paws.]",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/look/looks} regretfully at the piece of prey at {PRONOUN/t_c/poss} paws.]",
             "I caught something for you, but r_m said I couldn't give it to you, so...",
             "[{PRONOUN/t_c/subject/CAP} can't meet your eyes. You don't blame {PRONOUN/t_c/object}-- you don't want to think about it either.]",
             "[{PRONOUN/t_c/subject/CAP}{VERB/t_c/'re/'s} quick to change the topic back.]",
@@ -549,6 +595,9 @@
             ],
             "condition": [
                 "not:infected"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
@@ -576,6 +625,9 @@
             "condition": [
                 "blind:any:false",
                 "not:infected"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "tags": [
@@ -608,7 +660,6 @@
         },
         "tags": [
             "insult",
-            "infection",
             "infection"
         ],
         "intro": [
@@ -648,7 +699,11 @@
         ]
     },
     "infection_sam_5": {
-        "y_c": {},
+        "y_c": {
+            "age": [
+                "not_kitten"
+            ]
+        },
         "t_c": {
             "condition": [
                 "pregnant",
@@ -713,6 +768,9 @@
             ],
             "condition": [
                 "not:infected"
+            ],
+            "age": [
+                "not_kitten"
             ]
         },
         "relationship": [

@@ -3065,8 +3065,10 @@ class Events:
                 print(cat.name, "has no infected moons, but is infected?")
                 cat.infected_for = 1
             if cat.ID in game.clan.infection["treated"]:
-                cat.cure()
-                game.clan.infection["treated"].remove(cat.ID)
+                # 'True' in the treated dict means partial is true
+                partial = True if game.clan.infection['treated'][cat.ID] == True else False
+                cat.cure(partial)
+                game.clan.infection["treated"].pop(cat.ID)
         
         if game.clan.infection["clan_infected"] is True:
             # spreads the infection if the clan is infected! 

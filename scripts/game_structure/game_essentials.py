@@ -567,7 +567,13 @@ class Game:
             with open(f"{get_save_dir()}/{self.clan.name}/infection.json", 'r') as read_file:
                 self.clan.infection = ujson.loads(read_file.read())
             if "treated" not in self.clan.infection:
-                self.clan.infection["treated"] = []
+                self.clan.infection["treated"] = {}
+            else:
+                if isinstance(self.clan.infection['treated'], list):
+                    new_infection = {}
+                    for cat_id in self.clan.infection['treated']:
+                        new_infection.update({cat_id:False})
+                    self.clan.infection['treated'] = new_infection
             if "exiled_infected" not in self.clan.infection:
                 self.clan.infection["exiled_infected"] = ""
             if "killed_infected" not in self.clan.infection:
@@ -631,7 +637,7 @@ class Game:
                     "exiled_infected": "",
                     "killed_infected": "",
                     "cured_infected": "",
-                    "treated": [],
+                    "treated": {},
                     "1": {
                         "type": random.choice(["fungal", "parasitic", "void"]),
                         "cure": [herb1, herb2, herb3, herb4],

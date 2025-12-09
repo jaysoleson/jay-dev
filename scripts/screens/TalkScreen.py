@@ -730,9 +730,9 @@ class TalkScreen(Screens):
                             possible_texts.update(aprilfools_dialogue)
 
 
-                with open(f"{self.resource_dir}infection.json", 'r') as read_file:
-                    infection_dialogue = ujson.loads(read_file.read())
-                    possible_texts.update(infection_dialogue)
+                    with open(f"{self.resource_dir}infection.json", 'r') as read_file:
+                        infection_dialogue = ujson.loads(read_file.read())
+                        possible_texts.update(infection_dialogue)
 
  
         texts = self.filter_texts(cat, possible_texts)
