@@ -3991,5 +3991,24 @@
         "intro": [
             "... ... ..."
         ]
+    },
+    "grieving_undead_J1": {
+        "y_c": {
+            "condition": [
+                "grief stricken"
+            ],
+            "shunned": "any"
+        },
+        "t_c": {
+            "condition": [
+                "undead"
+            ]
+        },
+        "relationship": [
+            "grievingthem"
+        ],
+        "intro": [
+            "[You can't bear to look at t_c. You know it's not truly {PRONOUN/t_c/object} anymore.]"
+        ]
     }
 }
