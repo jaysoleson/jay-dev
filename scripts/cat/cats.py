@@ -572,6 +572,9 @@ class Cat:
         """ 
         Cures a cat of the infection!
         """
+        if self.infected_for < 1:
+            print("Cannot cure", self.name, "-- not infected!")
+            return
         stages = ["stage one infection", "stage two infection", "stage three infection", "stage four infection"]
 
         for stage in stages:
@@ -582,13 +585,6 @@ class Cat:
                         self.injuries.pop(condition)
                 if not partial:
                     self.illnesses.pop(stage)
-                    infection_scars = ["EXPOSEDRIBS", "ARMBONE", "VOIDBACK", "VOIDEYE", "VOIDTAIL", "SHELFMUSHROOMS", "EYEMOSS", "PAWMOSS"]
-                    for scar in infection_scars:
-                        if scar in self.pelt.scars:
-                            self.pelt.scars.remove(scar)
-                    if "EYESOCKET" in self.pelt.scars:
-                        self.pelt.scars.remove("EYESOCKET")
-                        self.pelt.scars.append("BRIGHTHEART")
                     
                     if "cure_found" not in get_infection_info("logs"):
                         event = choice([
@@ -612,7 +608,6 @@ class Cat:
                         # remove infection scars!
                         if scar in [Pelt.scars4, Pelt.scars5, Pelt.scars6]:
                             self.pelt.scars.remove(scar)
-                    game.cur_events_list.insert(0, Single_Event(event, ["health", "infection"], self.ID))
                 else:
                     cured = False
                     new_stage = "stage one"
@@ -646,7 +641,30 @@ class Cat:
                         else:
                             addon = ""
                         event = f"Thanks to recieving treatment, {self.name}'s infection has remissed from {old_stage.replace(' infection', '')} to {new_stage.replace(' infection', '')}!{addon}"
-                    game.cur_events_list.insert(0, Single_Event(event, ["health", "infection"], self.ID))
+                game.cur_events_list.append(Single_Event(event, ["health", "infection"], self.ID))
+
+                if self.infected_for == -1:
+                    scar_regression = {
+                        "EXPOSEDRIBS": "BACK",
+                        "ARMBONE": "TOETRAP",
+                        "EYESOCKET": "LEFTBLIND",
+                        "VOIDBACK": "TWO",
+                        "VOIDEYE": "LEFTBLIND",
+                        "VOIDTAIL": "MANTAIL",
+                        "SHELFMUSHROOMS": "ONE",
+                        "EYEMOSS": "LEFTBLIND",
+                        "PAWMOSS": "TOE"
+                    }
+                    # pylint: disable=consider-using-dict-items
+                    # shut up vro
+                    for scar in scar_regression:
+                        if scar in self.pelt.scars:
+                            self.pelt.scars.remove(scar)
+                            if scar_regression[scar]:
+                                self.pelt.scars.append(scar_regression[scar])
+                                scar_event = "m_c was left with a scar after healing from the infection."
+                                History.add_scar(self, scar_event)
+                    # pylint: enable=consider-using-dict-items
     
     def zombie(self, infection_type):
         """

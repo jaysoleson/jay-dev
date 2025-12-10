@@ -2112,7 +2112,7 @@ class MakeClanScreen(Screens):
         self.tortiepattern=choice(pelts_tortie)
         self.vitiligo=choice(Pelt.vit) if random.randint(1,20) == 1 else None
         self.points=choice(Pelt.point_markings) if random.randint(1,5) == 1 else None
-        self.scars=[choice(Pelt.scars1 + Pelt.scars2 + Pelt.scars3)] if random.randint(1,10) == 1 else []
+        self.scars=[choice(Pelt.scars1 + Pelt.scars2 + Pelt.scars3 + Pelt.scars4 + Pelt.scars5 + Pelt.scars6)] if random.randint(1,10) == 1 else []
         self.tint=choice(["pink", "gray", "red", "orange", "black", "yellow", "purple", "blue","dilute","warmdilute","cooldilute"]) if random.randint(1,5) == 1 else None
         self.skin=choice(Pelt.skin_sprites)
         self.white_patches_tint=choice(["offwhite", "cream", "darkcream", "gray", "pink"]) if random.randint(1,5) == 1 else None
@@ -2861,7 +2861,7 @@ class MakeClanScreen(Screens):
                     )
                     eye_y_pos += 40
             elif self.current_selection == "scar":
-                for scar in ["None"] + Pelt.scars1 + Pelt.scars2 + Pelt.scars3:
+                for scar in ["None"] + Pelt.scars1 + Pelt.scars2 + Pelt.scars3 + Pelt.scars4 + Pelt.scars5 + Pelt.scars6:
                     self.scar_buttons[str(scar)] = UIImageButton(
                     ui_scale(pygame.Rect((0, eye_y_pos), (34, 34))),
                     "",
@@ -3321,7 +3321,7 @@ class MakeClanScreen(Screens):
                         next_index = (current_index + num) % len(colours)
                         self.skin = colours[next_index]
                     elif self.current_selection == "scar":
-                        scars = ["None"] + Pelt.scars1 + Pelt.scars2 + Pelt.scars3
+                        scars = ["None"] + Pelt.scars1 + Pelt.scars2 + Pelt.scars3 + Pelt.scars4 + Pelt.scars5 + Pelt.scars6
                         current_index = scars.index(self.scars[-1]) if self.scars else 0
                         next_index = (current_index + num) % len(scars)
                         if not self.scar_buttons[scars[next_index]].is_enabled:
@@ -3464,7 +3464,7 @@ class MakeClanScreen(Screens):
                     elif self.current_selection == "skin":
                         self.skin = random.choice(Pelt.skin_sprites)
                     elif self.current_selection == "scar":
-                        self.scars = [random.choice(Pelt.scars1 + Pelt.scars2 + Pelt.scars3)]
+                        self.scars = [random.choice(Pelt.scars1 + Pelt.scars2 + Pelt.scars3 + Pelt.scars4 + Pelt.scars5 + Pelt.scars6)]
                     elif self.current_selection == "accessory":
 
                         acc_list = (

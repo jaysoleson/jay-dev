@@ -154,8 +154,6 @@ class HandleShortEvents:
             log_prereq=self.log_prereqs,
         )
 
-        for event in final_events:
-
         if isinstance(game.config["event_generation"]["debug_ensure_event_id"], str):
             found = False
             for _event in final_events:
