@@ -151,7 +151,7 @@ class GenerateEvents:
                         faith_effect=event["faith_effect"] if "faith_effect" in event else 0,
                         season=event["season"] if "season" in event else ["any"],
                         infection=event["infection"] if "infection" in event else {
-                            "infected": False,
+                            "infected": "any",
                             "type": ["any"],
                             "level": ["any"],
                             "spread_by": ["any"],
@@ -182,7 +182,7 @@ class GenerateEvents:
                 # Add to loaded events.
                 GenerateEvents.loaded_events[file_path] = event_list
                 return event_list
-        except:
+        except FileNotFoundError:
             print(f"WARNING: {file_path} was not found, check short event generation")
             return event_list
 
@@ -281,8 +281,6 @@ class GenerateEvents:
             sub_types.remove("war")
 
         for event in possible_events:
-            if event.event_id == "fungal_runaway_J1":
-                print("filtering:", event.event_id)
             if event.history:
                 if (
                     not isinstance(event.history, list)
@@ -316,8 +314,6 @@ class GenerateEvents:
                         print(i, "in logs, enabling", event.event.id, "event.")
                 if skip is True:
                     continue
-            if event.event_id == "fungal_runaway_J1":
-                print("post prereq: filtering:", event.event_id)
 
             # check for event sub_type
             wrong_type = False
@@ -383,17 +379,18 @@ class GenerateEvents:
                 continue
             if (
                 "type" in event.infection
+                and "any" not in event.infection["type"]
                 and get_infection_info("type") not in event.infection["type"]
             ):
                 continue
             if (
-                "level" in event.infection
+                "level" in event.infection and "any" not in event.infection["level"]
             ):
                 percent_infected = (get_infected_clan_cat_count(Cat_class) / get_living_clan_cat_count(Cat_class)) * 100
                 
-                if "any" not in event.infection["level"] and int(event.infection["level"][0]) < percent_infected:
+                if int(event.infection["level"][0]) < percent_infected:
                     continue
-                if "any" not in event.infection["level"] and int(event.infection["level"][1]) > percent_infected:
+                if int(event.infection["level"][1]) > percent_infected:
                     continue
             if (
                 "spread_by" in event.infection
@@ -520,15 +517,6 @@ class GenerateEvents:
                         continue
 
                 # INF
-                has_cluster = False
-                if "cluster" in event.m_c and event.m_c["cluster"]:
-                    cluster1, cluster2 = get_cluster(cat.personality.trait)
-                    if cluster1 in event.m_c["cluster"] or cluster2 in event.m_c["cluster"]:
-                        has_cluster = True
-                if "cluster" in event.m_c and event.m_c["cluster"]:
-                    if not has_cluster:
-                        continue
-
                 if "infected" in event.m_c and event.m_c["infected"]:
                     if event.m_c["infected"] == True and cat.infected_for < 1:
                         continue
@@ -645,7 +633,6 @@ class GenerateEvents:
                     if "cluster" in event.m_c and event.m_c["cluster"]:
                         if not has_cluster:
                             continue
-
                     # check cat negate trait and skill
                     has_trait = False
                     if event.m_c["not_trait"]:
@@ -705,15 +692,6 @@ class GenerateEvents:
                         continue
 
                 # INF
-                has_cluster = False
-                if "cluster" in event.r_c and event.r_c["cluster"]:
-                    cluster1, cluster2 = get_cluster(cat.personality.trait)
-                    if cluster1 in event.r_c["cluster"] or cluster2 in event.r_c["cluster"]:
-                        has_cluster = True
-                if "cluster" in event.r_c and event.r_c["cluster"]:
-                    if not has_cluster:
-                        continue
-
                 if "stage" in event.r_c and event.r_c["stage"]:
                     stages = ["stage one", "stage two", "stage three", "stage four"]
                     skip = False
@@ -956,7 +934,10 @@ class GenerateEvents:
                     ):
                         continue
                 # INF
-                if "any" not in event.other_clan["infection_level"]:
+                if (
+                    "infection_level" in event.other_clan and
+                    "any" not in event.other_clan["infection_level"]
+                    ):
                     inf_minimum = event.other_clan["infection_level"][0]
                     inf_maximum = event.other_clan["infection_level"][1]
                     if other_clan.infection_level < inf_minimum:

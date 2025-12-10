@@ -97,7 +97,6 @@ class HandleShortEvents:
         # INF
         if log_prereq:
             self.log_prereqs.extend(log_prereq)
-            print(self.log_prereqs)
         # ---
 
         self.main_cat = main_cat
@@ -142,6 +141,7 @@ class HandleShortEvents:
             event_type = "injury"
         possible_short_events = GenerateEvents.possible_short_events(event_type)
 
+
         final_events = GenerateEvents.filter_possible_short_events(
             Cat_class=Cat,
             possible_events=possible_short_events,
@@ -153,6 +153,8 @@ class HandleShortEvents:
             sub_types=self.sub_types,
             log_prereq=self.log_prereqs,
         )
+
+        for event in final_events:
 
         if isinstance(game.config["event_generation"]["debug_ensure_event_id"], str):
             found = False
@@ -180,12 +182,13 @@ class HandleShortEvents:
             self.chosen_event = random.choice(final_events)
             # this print is good for testing, but gets spammy in large clans
             # print(f"CHOSEN: {self.chosen_event.event_id}")
-        except IndexError:
+        except IndexError as e:
             # this doesn't necessarily mean there's a problem, but can be helpful for narrowing down possibilities
             # print(
             #     f"WARNING: no {event_type}: {self.sub_types} events found for {self.main_cat.name} "
             #     f"and {self.random_cat.name if self.random_cat else 'no random cat'}"
             # )
+            # print(e)
             return
 
         self.text = self.chosen_event.text
