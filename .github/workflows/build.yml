@@ -167,7 +167,7 @@ jobs:
       - name: Upload artifact to API
         if: ${{ env.update_api_push_token != '' && (github.ref == 'refs/heads/Lifegen-dev' || startsWith(github.ref, 'refs/tags/')) }}
         run: |
-          if [[ "${{ matrix.os }}" == "macos-13" ]]; then
+          if [[ "${{ matrix.os }}" == "macos-15-intel" ]]; then
             zip ${{ matrix.artifact_name }}.zip ./${{ matrix.artifact_name }}
             gpg --output ${{ matrix.artifact_name }}.zip.sig --detach-sig -a ${{ matrix.artifact_name }}.zip
             BUNDLE_NAME="${{ matrix.artifact_name }}.zip"
@@ -195,7 +195,7 @@ jobs:
           BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
         if: startsWith(github.ref, 'refs/tags/') && env.BUTLER_API_KEY != ''
         run: |
-          if [[ "${{ matrix.os }}" == "macos-13" ]]; then
+          if [[ "${{ matrix.os }}" == "macos-15-intel" ]]; then
             butler push ${{ matrix.artifact_name }} sablesteel/clan-gen-fan-edit:${{ matrix.itch_channel }} --userversion "${{ env.VERSION_NUMBER }}"
           else
             butler push ${{ matrix.artifact_name }} sablesteel/clan-gen-fan-edit:${{ matrix.itch_channel }} --userversion "${{ env.VERSION_NUMBER }}"
