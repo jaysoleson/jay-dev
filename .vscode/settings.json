@@ -1,32 +1,4 @@
 {
-    "json.schemas": [
-        {
-            "url": "./schemas/thought.schema.json",
-            "fileMatch": [
-                "thoughts/**/*.json"
-            ]
-        },
-        {
-            "url": "./schemas/patrol.schema.json",
-            "fileMatch": [
-                "patrols/**/*.json",
-                "!patrols/explicit_patrol_art.json"
-            ]
-        },
-        {
-            "url": "./schemas/shortevent.schema.json",
-            "fileMatch": [
-                "events/death/*.json",
-                "events/misc/*.json",
-                "events/new_cat/*.json",
-                "events/injury/*.json"
-            ]
-        }
-    ],
-    "python.formatting.provider": "yapf",
-    "editor.formatOnSave": false,
-    "python.linting.enabled": true,
-    "python.linting.pylintEnabled": true,
     "python.testing.unittestArgs": [
         "-v",
         "-s",
@@ -59,5 +31,7 @@
         "Twolegs",
         "ujson",
         "verdana"
-    ]
+    ],
+
+    "python.formatting.provider": "autopep8"
 }

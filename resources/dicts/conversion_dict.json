@@ -4,37 +4,37 @@
             "tortie_base": "single",
             "tortie_color": "BLACK",
             "tortie_pattern": "tortiesolid",
-            "tortie_marking": "GOLDONE"
+            "pattern": "GOLDONE"
         },
         "TWO": {
             "tortie_base": "single",
             "tortie_color": "BLACK",
             "tortie_pattern": "tortiesolid",
-            "tortie_marking": "GOLDTWO"
+            "pattern": "GOLDTWO"
         },
         "FADEDONE": {
             "tortie_base": "single",
             "tortie_color": "BROWN",
             "tortie_pattern": "tortiesolid",
-            "tortie_marking": "GOLDONE"
+            "pattern": "GOLDONE"
         },
         "FADEDTWO": {
             "tortie_base": "single",
             "tortie_color": "BROWN",
             "tortie_pattern": "tortiesolid",
-            "tortie_marking": "GOLDTWO"
+            "pattern": "GOLDTWO"
         },
         "BLUEONE": {
             "tortie_base": "single",
             "tortie_color": "SILVER",
             "tortie_pattern": "tortiesolid",
-            "tortie_marking": "PALEONE"
+            "pattern": "PALEONE"
         },
         "BLUETWO": {
             "tortie_base": "single",
             "tortie_color": "SILVER",
             "tortie_pattern": "tortiesolid",
-            "tortie_marking": "PALETWO"
+            "pattern": "PALETWO"
         }
     },
     "calico_map": {
@@ -42,73 +42,73 @@
             "tortie_base": "single",
             "tortie_color": "BLACK",
             "tortie_pattern": "tortiesolid",
-            "tortie_marking": "GOLDTHREE"
+            "pattern": "GOLDTHREE"
         },
         "TWO": {
             "tortie_base": "single",
             "tortie_color": "BLACK",
             "tortie_pattern": "tortiesolid",
-            "tortie_marking": "GOLDFOUR"
+            "pattern": "GOLDFOUR"
         },
         "THREE": {
             "tortie_base": "single",
             "tortie_color": "BLACK",
             "tortie_pattern": "tortietabby",
-            "tortie_marking": "GOLDTHREE"
+            "pattern": "GOLDTHREE"
         },
         "FOUR": {
             "tortie_base": "single",
             "tortie_color": "BLACK",
             "tortie_pattern": "tortietabby",
-            "tortie_marking": "GOLDFOUR"
+            "pattern": "GOLDFOUR"
         },
         "FADEDONE": {
             "tortie_base": "single",
             "tortie_color": "BROWN",
             "tortie_pattern": "tortiesolid",
-            "tortie_marking": "GOLDTHREE"
+            "pattern": "GOLDTHREE"
         },
         "FADEDTWO": {
             "tortie_base": "single",
             "tortie_color": "BROWN",
             "tortie_pattern": "tortiesolid",
-            "tortie_marking": "GOLDFOUR"
+            "pattern": "GOLDFOUR"
         },
         "FADEDTHREE": {
             "tortie_base": "tabby",
             "tortie_color": "BROWN",
             "tortie_pattern": "tortietabby",
-            "tortie_marking": "GOLDTHREE"
+            "pattern": "GOLDTHREE"
         },
         "FADEDFOUR": {
             "tortie_base": "tabby",
             "tortie_color": "BROWN",
             "tortie_pattern": "tortietabby",
-            "tortie_marking": "GOLDFOUR"
+            "pattern": "GOLDFOUR"
         },
         "BLUEONE": {
             "tortie_base": "single",
             "tortie_color": "SILVER",
             "tortie_pattern": "tortiesolid",
-            "tortie_marking": "PALETHREE"
+            "pattern": "PALETHREE"
         },
         "BLUETWO": {
             "tortie_base": "single",
             "tortie_color": "SILVER",
             "tortie_pattern": "tortiesolid",
-            "tortie_marking": "PALEFOUR"
+            "pattern": "PALEFOUR"
         },
         "BLUETHREE": {
             "tortie_base": "tabby",
             "tortie_color": "SILVER",
             "tortie_pattern": "tortietabby",
-            "tortie_marking": "PALETHREE"
+            "pattern": "PALETHREE"
         },
         "BLUEFOUR": {
             "tortie_base": "tabby",
             "tortie_color": "SILVER",
             "tortie_pattern": "tortietabby",
-            "tortie_marking": "PALEFOUR"
+            "pattern": "PALEFOUR"
         }
     },
     "old_tortie_patches": {
