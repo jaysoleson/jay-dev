@@ -704,9 +704,6 @@ class Cat:
             self.ID
             ))
 
-        if "zombie" not in get_infection_info("logs"):
-            get_infection_info("logs").append("zombie")
-
         if game.clan and not self.outside and not self.exiled:
             self.grief(body=False, undead=True)
 
@@ -2444,6 +2441,9 @@ class Cat:
             "stage four infection",
             "undead"
         ]:
+            if name == "undead":
+                if "zombie" not in get_infection_info("logs"):
+                    get_infection_info("logs").append("zombie")
             if self.infected_for == 0:
                 self.infected_for = 1
                 if any(illness in self.illnesses for illness in [

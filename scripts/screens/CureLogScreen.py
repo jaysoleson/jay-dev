@@ -497,8 +497,9 @@ class CureLogScreen(Screens):
             else:
                 for infection in game.clan.infection:
                     if isinstance(game.clan.infection[infection], dict):
-                        if game.clan.infection[infection]["type"] == treatment["type"]:
-                            all_treatments[infection].append(treatment)
+                        if "type" in game.clan.infection[infection]:
+                            if game.clan.infection[infection]["type"] == treatment["type"]:
+                                all_treatments[infection].append(treatment)
         # print("ALL TREATMENTS DICT")
         # print(all_treatments)
         

@@ -1891,7 +1891,7 @@ class TalkScreen(Screens):
                 if "focus" in tags or "connected" in tags:
                     weight += 6
                 if "infection" in tags:
-                    weight += 10
+                    weight += 15
 
                 # im gonna attempt to up the weight for dialogue with a lot of constraints
                 # like scribble just did in clangen for shortevents
@@ -1908,13 +1908,13 @@ class TalkScreen(Screens):
                 # INF
                 for kitty in (cat, you):
                     if "stage one infection" in kitty.illnesses:
-                        weight += 7
+                        weight += 12
                     elif "stage two infection" in kitty.illnesses:
-                        weight += 11
+                        weight += 18
                     elif "stage three infection" in kitty.illnesses:
-                        weight += 13
+                        weight += 22
                     elif "stage four infection" in kitty.illnesses:
-                        weight += 17
+                        weight += 30
                 # ---
 
                 weights.append(weight)

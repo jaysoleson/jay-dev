@@ -409,7 +409,8 @@ class Patrol:
             possible_patrols.extend(self.generate_patrol_events(self.infection_patrols))
 
             if (
-                game.clan.infection["clan_infected"] is False
+                game.clan.infection["clan_infected"] is False or
+                game.clan.your_cat.dead
                 ):
 
                 if game.clan.your_cat.shunned != 0:

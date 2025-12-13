@@ -1783,7 +1783,7 @@ class Events:
                         ["claw-wound", "torn pelt", "scrapes"]
                         ))
 
-            if cat.quarantined:
+            if not cat.quarantined:
                 event_list = [
                     f"{cat.name} attacked {random_cat.name}, leaving the cat both injured and infected."
                 ]
@@ -3002,6 +3002,27 @@ class Events:
         cat.insulted = False
         cat.flirted = False
         cat.did_activity = False
+
+        # INF
+        # before handle_illnesses so a cat cant progress and remiss in the same moon
+        if (
+            any(t in cat.illnesses for t in [
+            "stage one infection",
+            "stage two infection",
+            "stage three infection",
+            "stage four infection",
+            "undead"
+            ])
+            ):
+            if cat.infected_for == 0:
+                print(cat.name, "has no infected moons, but is infected?")
+                cat.infected_for = 1
+            if cat.ID in game.clan.infection["treated"]:
+                # 'True' in the treated dict means partial is true
+                partial = True if game.clan.infection['treated'][cat.ID] == True else False
+                cat.cure(partial)
+                game.clan.infection["treated"].pop(cat.ID)
+        # ---
         
         # prevent injured or sick cats from unrealistic Clan events
         if cat.is_ill() or cat.is_injured():
@@ -3051,24 +3072,6 @@ class Events:
                 # print(cat.illnesses)
                 print(cat.name, "has infected moons, but is not infected?")
                 cat.infected_for = 0
-        
-        if (
-            any(t in cat.illnesses for t in [
-            "stage one infection",
-            "stage two infection",
-            "stage three infection",
-            "stage four infection",
-            "undead"
-            ])
-            ):
-            if cat.infected_for == 0:
-                print(cat.name, "has no infected moons, but is infected?")
-                cat.infected_for = 1
-            if cat.ID in game.clan.infection["treated"]:
-                # 'True' in the treated dict means partial is true
-                partial = True if game.clan.infection['treated'][cat.ID] == True else False
-                cat.cure(partial)
-                game.clan.infection["treated"].pop(cat.ID)
         
         if game.clan.infection["clan_infected"] is True:
             # spreads the infection if the clan is infected! 

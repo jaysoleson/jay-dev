@@ -499,5 +499,13 @@
 		"Leaving return_home_chance at zero will keep the game's default chances.",
 		"max_forgiven_moons is how many moons after being forgiven the cat get 'forgiven'-tagged dialogue and events."
 	]
+	},
+	"infection": {
+		"max_moons": {
+			"stage one": 6,
+			"stage two": 9,
+			"stage three": 12,
+			"stage four": 24
+		}
 	}
 }

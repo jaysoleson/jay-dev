@@ -299,13 +299,7 @@ class Condition_Events:
 
             infected = False
             sickness_chance = 0
-            if "stage one infection" in cat.illnesses:
-                sickness_chance = 80
-                infected = True
-            elif "stage two infection" in cat.illnesses:
-                sickness_chance = 50
-                infected = True
-            elif "stage three infection" in cat.illnesses:
+            if "stage three infection" in cat.illnesses:
                 sickness_chance = 30
                 infected = True
             elif "stage four infection" in cat.illnesses:
@@ -1285,10 +1279,10 @@ class Condition_Events:
 
             # INFECTION STAGE MAXIMUMS
             infection_moon_max = {
-                "stage one infection": 6,
-                "stage two infection": 9,
-                "stage three infection": 12,
-                "stage four infection": 24
+                "stage one infection": game.config["infection"]["max_moons"]["stage one"],
+                "stage two infection": game.config["infection"]["max_moons"]["stage two"],
+                "stage three infection": game.config["infection"]["max_moons"]["stage three"],
+                "stage four infection": game.config["infection"]["max_moons"]["stage four"]
             }
             if condition in infection_moon_max:
                 moons_with = (

@@ -966,11 +966,6 @@ class PatrolOutcome:
                         _cat, give_injury, patrol, default_overide=True
                     )
 
-                if give_injury == "undead":
-                    if "zombie" not in get_infection_info("logs"):
-                        get_infection_info("logs").append("zombie")
-                        results.append("\nYour log has been updated.")
-
         return " ".join(results)
     
     def _handle_accessories(self, patrol:'Patrol') -> str:

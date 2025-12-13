@@ -3995,20 +3995,68 @@
     "grieving_undead_J1": {
         "y_c": {
             "condition": [
-                "grief stricken"
+                "grief stricken",
+                "deaf:any:false"
             ],
             "shunned": "any"
         },
         "t_c": {
             "condition": [
-                "undead"
+                "undead",
+                "deaf:any:false",
+                "blind:any:false"
             ]
         },
         "relationship": [
             "grievingthem"
         ],
         "intro": [
-            "[You can't bear to look at t_c. You know it's not truly {PRONOUN/t_c/object} anymore.]"
+            "[You can't bear to look at t_c. You know it's not truly {PRONOUN/t_c/object} anymore, as much as you wish it was.]"
+        ]
+    },
+    "parasitic_J1": {
+        "y_c": {
+            "condition": [
+                "not:infected"
+            ],
+            "age": ["not_kitten"]
+        },
+        "t_c": {
+            "condition": [
+                "infected",
+                "parasitic",
+                "stage two",
+                "stage three"
+            ],
+            "age": ["not_kitten"]
+        },
+        "intro": [
+            "Er... Ugh... Sorry...",
+            "[t_c, woozy, looks down at the trail of blood {PRONOUN/t_c/subject}{VERB/t_c/'ve/'s} left behind {PRONOUN/t_c/object} as {PRONOUN/t_c/subject} {VERB/t_c/stumble/stumbles} across camp.]",
+            "I'm fine... Don't worry.",
+            "[{PRONOUN/t_c/subject/CAP} {VERB/t_c/wander/wanders} away.]"
+        ]
+    },
+    "parasitic_J2": {
+        "y_c": {
+            "condition": [
+                "not:infected"
+            ],
+            "age": ["not_kitten"]
+        },
+        "t_c": {
+            "condition": [
+                "infected",
+                "parasitic",
+                "stage two",
+                "stage three",
+                "stage four"
+            ],
+            "age": ["not_kitten"]
+        },
+        "intro": [
+            "[t_c falls over while wandering across camp. When {PRONOUN/t_c/subject} {VERB/t_c/wobble/wobbles} back to {PRONOUN/t_c/poss} paws, {PRONOUN/t_c/subject}{VERB/t_c/'ve/'s} left a bloodstain on the ground.]",
+            "[Bloody pawprints follow as {PRONOUN/t_c/subject} {VERB/t_c/stumble/stumbles} away.]"
         ]
     }
 }

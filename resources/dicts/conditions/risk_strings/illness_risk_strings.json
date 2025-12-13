@@ -123,11 +123,16 @@
     "stage four infection": {
         "undead": {
             "general": [
-                "m_c has died, but the infection seems to have enough power over {PRONOUN/m_c/poss} mind to keep {PRONOUN/m_c/object} standing..."
+                "m_c is discovered immobile in {PRONOUN/m_c/poss} nest one day. As the Clan begins discussing burial plans, m_c wanders out of the den. What is initially believed to be a miracle is soon discovered to be much worse. That is no longer m_c.",
+                "m_c takes a terrible fall in camp that {PRONOUN/m_c/poss} infected body isn't strong enough to withstand. However, it seems that the infection has enough power over {PRONOUN/m_c/poss} body to keep it animated.",
+                "m_c has lost the ability to speak. {PRONOUN/m_c/subject/CAP} {VERB/m_c/bumble/bumbles} into trees and {VERB/m_c/lash/lashes} out at loved ones. The Clan solemnly agrees that this cat is no longer m_c, and {PRONOUN/m_c/poss} body is now just a host for the infection.",
+                "m_c falls over dead in the middle of camp. Mere moments later, {PRONOUN/m_c/subject} {VERB/m_c/stand/stands} back up, and it's undeniable that the infection has fully taken over.",
+                "m_c's infection has passed the point of no return, cure or no cure."
             ],
             "parasitic": [
             ],
             "void": [
+                "m_c has been completely overtaken by the darkness. The body that once held m_c's soul is now just a host to the infection."
             ],
             "fungal": [
             ]
