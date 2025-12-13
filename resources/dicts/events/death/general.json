@@ -8254,5 +8254,26 @@
                 "amount": 15
             }
         ]
+    },
+    {
+        "event_id": "infection_massextinction_J1",
+        "location": [],
+        "season": [],
+        "sub_type": [
+            "mass_death"
+        ],
+        "log_prereq": ["zombie"],
+        "tags": ["infection"],
+        "weight": 10,
+        "event_text": "While the Clan sleeps one night, a group of undead cats stumble into camp, tearing up everything in their path. They tear up dens, destroy prey, and attack warriors. multi_cat are killed in the invasion before the horde disappears through the other side of camp.",
+        "history": [
+            {
+                "cats": [
+                    "multi_cat"
+                ],
+                "reg_death": "m_c was killed when a group of undead cats found camp.",
+                "lead_death": "was killed when a group of undead cats found camp"
+            }
+        ]
     }
 ]
