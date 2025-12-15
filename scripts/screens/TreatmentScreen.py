@@ -29,7 +29,7 @@ from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
 from scripts.cat.pelts import Pelt
 from scripts.game_structure.windows import GameOver, PickPath, DeathScreen
-from scripts.game_structure.ui_elements import UIImageButton, UISpriteButton, UIRelationStatusBar, UISurfaceImageButton
+from scripts.game_structure.ui_elements import UIImageButton, UISpriteButton, UIRelationStatusBar, UISurfaceImageButton, UIModifiedScrollingContainer
 from scripts.game_structure.game_essentials import game
 from scripts.game_structure.windows import RelationshipLog
 from scripts.game_structure.propagating_thread import PropagatingThread
@@ -236,13 +236,6 @@ class TreatmentScreen(Screens):
             self.next_stage_button.disable()
         else:
             self.next_stage_button.enable()
-        
-        # self.scroll_container = pygame_gui.elements.UIScrollingContainer(
-        #     ui_scale(pygame.Rect((0, 455), (650, 145))),
-        #     allow_scroll_x=False,
-        #     manager=MANAGER,
-        #     anchors={"centerx": "centerx"}
-        #     )
 
         # cure logs
         logs = 0
@@ -503,11 +496,12 @@ class TreatmentScreen(Screens):
             self.subtitle = None
             self.screenart = None
 
-            self.scroll_container = pygame_gui.elements.UIScrollingContainer(
+            self.scroll_container = UIModifiedScrollingContainer(
                 ui_scale(pygame.Rect((0, 455), (650, 145))),
                 allow_scroll_x=False,
                 manager=MANAGER,
-                anchors={"centerx": "centerx"}
+                anchors={"centerx": "centerx"},
+                allow_scroll_y=True,
                 )
 
             self.list_frame = pygame_gui.elements.UIImage(
@@ -653,7 +647,10 @@ class TreatmentScreen(Screens):
                 image_cache.load_image("resources/images/textbox_graphic.png").convert_alpha()
             )
 
-            self.scroll_container = pygame_gui.elements.UIScrollingContainer(ui_scale(pygame.Rect((250, 485), (450, 150))))
+            self.scroll_container = UIModifiedScrollingContainer(
+                ui_scale(pygame.Rect((250, 485), (450, 150))),
+                allow_scroll_y=True,
+                )
             self.text = pygame_gui.elements.UITextBox("",
                                                     ui_scale(pygame.Rect((0, 0), (450, -50))),
                                                     object_id="#text_box_30_horizleft",
