@@ -512,16 +512,16 @@ class Thoughts:
     @staticmethod
     def get_chosen_thought(main_cat, other_cat, game_mode, biome, season, camp):
         # get possible thoughts
-        try:
+        # try:
             # checks if the cat is Rick Astley to give the rickroll thought, otherwise proceed as usual
-            if (main_cat.name.prefix+main_cat.name.suffix).replace(" ", "").lower() == "rickastley":
-                return "Never going to give r_c up, never going to let {PRONOUN/r_c/object} down, never going to run around and desert {PRONOUN/r_c/object}."
-            else:
-                chosen_thought_group = choice(Thoughts.load_thoughts(main_cat, other_cat, game_mode, biome, season, camp))
-                chosen_thought = choice(chosen_thought_group["thoughts"])
-        except Exception as e:
-            print("Thought Error:", main_cat.name, e)
-            chosen_thought = "Prrrp! You shouldn't see this! Report as a bug."
+        if (main_cat.name.prefix+main_cat.name.suffix).replace(" ", "").lower() == "rickastley":
+            return "Never going to give r_c up, never going to let {PRONOUN/r_c/object} down, never going to run around and desert {PRONOUN/r_c/object}."
+        else:
+            chosen_thought_group = choice(Thoughts.load_thoughts(main_cat, other_cat, game_mode, biome, season, camp))
+            chosen_thought = choice(chosen_thought_group["thoughts"])
+        # except Exception as e:
+        #     print("Thought Error:", main_cat.name, e)
+        #     chosen_thought = "Prrrp! You shouldn't see this! Report as a bug."
 
         return chosen_thought
     
@@ -541,7 +541,7 @@ class Thoughts:
         base_path = f"resources/dicts/thoughts/ondeath"
         if darkforest is False:
             spec_dir = "/starclan"
-        elif darkforest:
+        else:
             spec_dir = "/darkforest"
         THOUGHTS: []
         try:
@@ -565,6 +565,7 @@ class Thoughts:
 
     def new_death_thought(self, darkforest, isoutside):
         base_path = f"resources/dicts/thoughts/ondeath"
+        spec_dir = ""
         if isoutside:
             spec_dir = "/unknownresidence"
         elif darkforest is False:

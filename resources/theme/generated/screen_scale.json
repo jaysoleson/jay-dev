@@ -3305,6 +3305,23 @@
             }
         }
     },
+    "#stamp_dead_clan": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/journal_stamps/stamp_dead_clan.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/journal_stamps/stamp_dead_clan_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/journal_stamps/stamp_dead_clan_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/journal_stamps/stamp_dead_clan.png"
+            }
+        }
+    },
     "#talk_button": {
         "prototype": "@image_button",
         "images": {

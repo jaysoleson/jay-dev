@@ -161,7 +161,7 @@ class Scar_Events():
                 condition_scars = {
                     "LEGBITE", "THREE", "NOPAW", "TOETRAP", "NOTAIL", "HALFTAIL", "LEFTEAR", "RIGHTEAR",
                     "MANLEG", "BRIGHTHEART", "NOLEFTEAR", "NORIGHTEAR", "NOEAR", "LEFTBLIND",
-                    "RIGHTBLIND", "BOTHBLIND", "RATBITE", "EYESOCKET", "ARMBONE", "VOIDEYE"
+                    "RIGHTBLIND", "BOTHBLIND", "RATBITE"
                 }
                 scar_pool = list(set(scar_pool).difference(condition_scars))
                 
@@ -178,11 +178,6 @@ class Scar_Events():
                 History.add_scar(cat,
                                   f"m_c was scarred from an injury ({injury_name}).",
                                   condition=injury_name)
-
-            # If we've reached this point, we can move forward with giving history.
-            History.add_scar(cat,
-                             f"m_c was scarred from an injury ({injury_name}).",
-                             condition=injury_name)
 
             specialty = random.choice(scar_pool)
             if specialty in ["NOTAIL", "HALFTAIL"]:
@@ -224,7 +219,10 @@ class Scar_Events():
                 cat.pelt.scars.remove("RIGHTBLIND")
                 specialty = 'BOTHBLIND'
 
+            infection_scars = ["EXPOSEDRIBS", "EYESOCKET", "ARMBONE", "EYEMOSS", "PAWMOSS", "SHELFMUSHROOMS", "VOIDTAIL", "VOIDBACK", "VOIDTAIL"]
             cat.pelt.scars.append(specialty)
+            if specialty in infection_scars:
+                print(cat.name, "getting infection scar:", specialty)
 
             if injury_name == "withering":
                 scar_gain_strings = [

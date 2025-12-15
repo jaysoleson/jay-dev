@@ -700,7 +700,7 @@
         ]
     },
     "stage two infection": {
-        "severity": "minor",
+        "severity": "major",
         "mortality": {
             "newborn": 0,
             "kitten": 0,
@@ -732,7 +732,7 @@
         ]
     },
     "stage three infection": {
-        "severity": "minor",
+        "severity": "major",
         "mortality": {
             "newborn": 0,
             "kitten": 0,
@@ -764,7 +764,7 @@
         ]
     },
     "stage four infection": {
-        "severity": "minor",
+        "severity": "major",
         "mortality": {
             "newborn": 0,
             "kitten": 0,

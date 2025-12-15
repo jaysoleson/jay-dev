@@ -700,7 +700,7 @@ class CureLogScreen(Screens):
                 self.stamps["deadclan"] = UIImageButton(
                         ui_scale(pygame.Rect((0, 160), (94, 94))),
                         "",
-                        object_id="#stamp_zombie",
+                        object_id="#stamp_dead_clan",
                         tool_tip_text="<b>Doomed</b>\nYour Clan has completely fallen to the infection.",
                         manager=MANAGER,
                         anchors={"centerx": "centerx"}
@@ -766,21 +766,24 @@ class CureLogScreen(Screens):
                 anchors={"centerx": "centerx"}
                 )
             
-        fallenclans = []
+        fallenclans = 0
         for clan in game.clan.all_clans:
             if clan.fallen:
-                fallenclans.append(clan)
+                fallenclans += 1
+        
+        if get_non_infected_clan_cat_count(Cat) == 0:
+            fallenclans += 1
         
         if fallenclans:
-            if len(fallenclans) == 1:
-                hovertext = f"<b>Fallen Clans</b>\n{len(fallenclans)} Clan has fallen to the infection."
+            if fallenclans == 1:
+                hovertext = f"<b>Fallen Clans</b>\n{fallenclans} Clan has fallen to the infection."
             else:
-                hovertext = f"<b>Fallen Clans</b>\n{len(fallenclans)} Clans have fallen to the infection."
+                hovertext = f"<b>Fallen Clans</b>\n{fallenclans} Clans have fallen to the infection."
 
             self.stamps["fallen_clans"] = UIImageButton(
                 ui_scale(pygame.Rect((500, 205), (94, 94))),
                 "",
-                object_id=f"#stamp_fallen_clans_{len(fallenclans)}",
+                object_id=f"#stamp_fallen_clans_{fallenclans}",
                 tool_tip_text=hovertext,
                 manager=MANAGER
                 )

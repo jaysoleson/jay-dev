@@ -4771,14 +4771,21 @@ class Events:
                 for i in range(undead_event["weight"]):
                     # print("Adding", undead_event["event_id"], i)
                     for event in undead_event["events"]:
-                        possible_events.append({event:random_cat.ID})
+                        if random_cat:
+                            possible_events.append({event:random_cat.ID})
+                        else:
+                            possible_events.append({event:None})
+
 
         if not possible_events:
             print("WARNING: No undead events found. Using generic text.")
             for event in self.UNDEAD_EVENTS:
                 if event["event_id"] == "misc_flavour_undead":
                     for event in undead_event["events"]:
-                        possible_events.append({event:random_cat.ID})
+                        if random_cat:
+                            possible_events.append({event:random_cat.ID})
+                        else:
+                            possible_events.append({event:None})
 
         # print("POSSIBLE EVENTS:", possible_events)
 

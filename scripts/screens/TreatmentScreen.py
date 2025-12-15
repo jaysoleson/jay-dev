@@ -426,8 +426,7 @@ class TreatmentScreen(Screens):
                 i.status in ["medicine cat", "medicine cat apprentice"] and
                 not i.not_working() and
                 not i.outside and
-                not i.dead and
-                i.infected_for < 1
+                not i.dead
             ]
 
             self.list_frame = pygame_gui.elements.UIImage(

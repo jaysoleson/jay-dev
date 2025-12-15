@@ -614,10 +614,10 @@ class Condition_Events:
                         f"WARNING: {injury_name} couldn't be found in injury dict! no permanent condition is possible."
                     )
                     return perm_condition
-            else:
-                print(
-                    f"WARNING: {scar} for {injury_name} is either None or is not in scar_to_condition dict. This is not necessarily a bug.  Only report if you feel the scar should have resulted in a permanent condition."
-                )
+            # else:
+            #     print(
+            #         f"WARNING: {scar} for {injury_name} is either None or is not in scar_to_condition dict. This is not necessarily a bug.  Only report if you feel the scar should have resulted in a permanent condition."
+            #     )
 
         elif condition is not None:
             perm_condition = condition
@@ -872,6 +872,8 @@ class Condition_Events:
         # need to hold this number so that we can check if the leader has died
         starting_life_count = game.clan.leader_lives
 
+        infection_event = False
+
         injuries = deepcopy(cat.injuries)
         for injury in injuries:
             if injury in game.switches["skip_conditions"]:
@@ -926,6 +928,8 @@ class Condition_Events:
 
                 # Try to give a scar, and get the event text to be displayed
                 event, scar_given = Scar_Events.handle_scars(cat, injury)
+                if injury in ['withering', 'rot', 'void sickness']:
+                    infection_event = True
                 # If a scar was not given, we need to grab a separate healed event
                 if not scar_given:
                     try:
@@ -953,7 +957,8 @@ class Condition_Events:
 
                 if condition_got is not None:
                     # gather potential event strings for gotten condition
-
+                    if condition_got in ["withering", "rot", "void sickness"]:
+                        infection_event = True
                     try:
                         possible_string_list = (
                             Condition_Events.PERMANENT_CONDITION_GOT_STRINGS[injury][
@@ -1012,6 +1017,10 @@ class Condition_Events:
 
         if event_string:
             types = ["health"]
+            # INF
+            if infection_event:
+                types.append("infection")
+            # ---
             if cat.dead:
                 types.append("birth_death")
             game.cur_events_list.append(Single_Event(event_string, types, cat.ID))
