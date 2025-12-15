@@ -799,8 +799,7 @@ class Pregnancy_Events:
     def kit_infection(self, cat, other_cat, kit):
         """ Determines the chances of kits gaining the infection from infected parents """
         if (cat and cat.infected_for > 0) or (other_cat and other_cat.infected_for > 0):
-            chance = game.config["kit_gain_infection_chance"]
-            inftype = get_infection_info("type")
+            chance = game.config["infection"]["kit_gain_infection_chance"]
 
             if (cat and cat.infected_for > 0) and (other_cat and other_cat.infected_for > 0):
                 chance *= 0.75

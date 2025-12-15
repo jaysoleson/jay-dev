@@ -467,16 +467,6 @@
 	"murder_chance":-1,
 	"accomplice_chance":-1,
 
-	"your_cat_infection_chance": 30,
-	"cure_moons": 2,
-	"talking_ups_infection_chance": true,
-	"kit_gain_infection_chance": 10,
-	"INFECTION_comment": [
-		"Cure moons is how long the cure takes to be effective. 2 means it will happen the next moon. It cannnot be 1.",
-		"Setting talking_ups_infection_chance to false will mean talking to infected cats has no affect on infection chance. For those who would like to read dialogue without risk! Useless if your_cat_infection_chance is already 0.",
-		"kit_gain_infection_chance is the base chance for kits with infected blood parents to be born infected."
-	],
-
 	"debug_ensure_dialogue": "",
 	"debug_ensure_focus": "",
 	"debug_meow_error_locating": false,
@@ -506,6 +496,13 @@
 			"stage two": 9,
 			"stage three": 12,
 			"stage four": 24
-		}
+		},
+		"your_cat_infection_chance": 30,
+		"talking_ups_infection_chance": true,
+		"kit_gain_infection_chance": 10,
+		"comment": [
+			"Setting talking_ups_infection_chance to false will mean talking to infected cats has no affect on infection chance. For those who would like to read dialogue without risk! Useless if your_cat_infection_chance is already 0.",
+			"kit_gain_infection_chance is the base chance for kits with infected blood parents to be born infected."
+		]
 	}
 }

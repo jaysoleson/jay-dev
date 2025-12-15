@@ -625,7 +625,7 @@ class Events:
         if you.infected_for != 0:
             return
         
-        infection_chance = game.config["your_cat_infection_chance"]
+        infection_chance = game.config["infection"]["your_cat_infection_chance"]
 
         if infection_chance == 0:
             # 0 is impossible Just set urself to be immune pussy
@@ -639,7 +639,7 @@ class Events:
 
         percentage = len(infected_cats) / len(all_cats)
 
-        if game.config["talking_ups_infection_chance"]:
+        if game.config["infection"]["talking_ups_infection_chance"]:
             points = 0
             infected_talked_to = []
             for cat in Cat.all_cats_list:
