@@ -2892,12 +2892,15 @@ def generate_sprite(
     #     infected = True
 
     notworkin = False
-    for illness in cat.illnesses:
-        if cat.illnesses[illness]['severity'] != 'minor':
-            notworkin = True
-    for injury in cat.injuries:
-        if cat.injuries[injury]['severity'] != 'minor':
-            notworkin = True
+    if "undead" not in cat.illnesses:
+        # undead cats dont need the sick sprite. they dont feel pain bruh
+        for illness in cat.illnesses:
+            if "stage" not in illness:
+                if cat.illnesses[illness]['severity'] != 'minor':
+                    notworkin = True
+        for injury in cat.injuries:
+            if cat.injuries[injury]['severity'] != 'minor':
+                notworkin = True
     # i have to do this so infected cats dont all get the sick sprite woooommmpp
     
     # setting the cat_sprite (bc this makes things much easier)

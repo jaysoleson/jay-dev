@@ -281,20 +281,11 @@ class TreatmentScreen(Screens):
             
             # HERBS + SUCCESS TEXT
             if int(treatment['correct_herbs']) == 4:
-                if game.settings["dark mode"]:
-                    successtext = "<font color='#A2D86C'>Cure Found!</font>"
-                else:
-                    successtext = "<font color='#136D05'>Cure Found!</font>"
+                successtext = "<font color='#136D05'>Cure Found!</font>"
             elif int(treatment['correct_herbs']) > 0:
-                if game.settings["dark mode"]:
-                    successtext = "<font color='#DBD076'>At least one effective herb</font>"
-                else:
-                    successtext = "<font color='#473B0A'>At least one effective herb</font>"
+                successtext = "<font color='#473B0A'>At least one effective herb</font>"
             else:
-                if game.settings["dark mode"]:
-                    successtext = "<font color='#FF0000'>Zero Effective Herbs</font>"
-                else:
-                    successtext = "<font color='#550D0D'>Zero Effective Herbs</font>"
+                successtext = "<font color='#550D0D'>Zero Effective Herbs</font>"
 
             self.log_items["herbs_text" + str(logs)] = pygame_gui.elements.UITextBox(
                 f"{', '.join([herb.replace('_', ' ') for herb in treatment['herbs']])}\n" + successtext,
@@ -374,11 +365,11 @@ class TreatmentScreen(Screens):
         count = 0
         for index, herb in enumerate(HERBS):
             count += 1
+            if herb in game.clan.herbs:
+                stock_text = "\n In stock: " + str(game.clan.herbs[herb])
+            else:
+                stock_text = ""
             if herb not in selected_herbs:
-                if herb in game.clan.herbs:
-                    stock_text = "\n In stock: " + str(game.clan.herbs[herb])
-                else:
-                    stock_text = ""
                 self.herb_buttons[herb] = UIImageButton(
                     ui_scale(pygame.Rect((x_pos, y_pos), (55, 55))), 
                     "",
@@ -392,7 +383,9 @@ class TreatmentScreen(Screens):
                 self.herb_buttons[herb] = UIImageButton(
                     ui_scale(pygame.Rect((x_pos, y_pos), (55, 55))), 
                     "",
-                    tool_tip_text=f"{herb.replace('_', ' ')}",
+                    tool_tip_text=(
+                        f"{herb.replace('_', ' ')}" + stock_text
+                        ),
                     object_id=f"#{herb}_selected",
                     manager=MANAGER
                 )
@@ -433,8 +426,7 @@ class TreatmentScreen(Screens):
                 i.status in ["medicine cat", "medicine cat apprentice"] and
                 not i.not_working() and
                 not i.outside and
-                not i.dead and
-                i.infected_for < 1
+                not i.dead
             ]
 
             self.list_frame = pygame_gui.elements.UIImage(
@@ -669,8 +661,9 @@ class TreatmentScreen(Screens):
                                                     manager=MANAGER)
             
             self.heading = pygame_gui.elements.UITextBox("Results",
-                                                        ui_scale(pygame.Rect((150, 25), (800, 40))),
+                                                        ui_scale(pygame.Rect((0, 25), (100, 40))),
                                                         object_id=get_text_box_theme("#text_box_34_horizcenter"),
+                                                        anchors={"centerx": "centerx"},
                                                         manager=MANAGER)
 
             herb_list = [self.herb1, self.herb2, self.herb3, self.herb4]
@@ -1066,9 +1059,6 @@ class TreatmentScreen(Screens):
 
         herblist = [self.herb1, self.herb2, self.herb3, self.herb4]
         correctherbs = [herb for herb in herblist if herb in curelist]
-
-        print("HERBLIST:", herblist)
-        print("CORRECTHERBS:", correctherbs)
 
         cure_one = False
         if len(correctherbs) == 1:
