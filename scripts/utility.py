@@ -3076,11 +3076,10 @@ def generate_sprite(
             if not dead:
                 # INF
                 # from custom cat
-                if "type" in custom_cat_infection:
-                    if custom_cat_infection["type"] != "none":
-                        infection_type = custom_cat_infection["type"]
-                        infection_stage = custom_cat_infection["stage"]
-                        lineart_string = f"{infection_type}lineartstage{infection_stage}"
+                if custom_cat_infection["type"] != "none":
+                    infection_type = custom_cat_infection["type"]
+                    infection_stage = custom_cat_infection["stage"]
+                    lineart_string = f"{infection_type}lineartstage{infection_stage}"
                 # ---
                 else:
                     if not uninfected:
