@@ -2864,6 +2864,11 @@ def generate_sprite(
     always_living=False,
     uninfected = False,
     no_not_working=False,
+
+    custom_cat_infection={
+        "type": "none",
+        "stage": "one"
+    }
 ) -> pygame.Surface:
     """
     Generates the sprite for a cat, with optional arguments that will override certain things.
@@ -3066,33 +3071,41 @@ def generate_sprite(
             )
             new_sprite.blit(sprites.sprites["lighting" + cat_sprite], (0, 0))
 
+        lineart_string = 'lines'
         if game.clan:
             if not dead:
-                lineart_string = 'lines'
-                if uninfected:
-                    new_sprite.blit(sprites.sprites['lines' + cat_sprite], (0, 0))
+                # INF
+                # from custom cat
+                if "type" in custom_cat_infection:
+                    if custom_cat_infection["type"] != "none":
+                        infection_type = custom_cat_infection["type"]
+                        infection_stage = custom_cat_infection["stage"]
+                        lineart_string = f"{infection_type}lineartstage{infection_stage}"
+                # ---
                 else:
-                    for stage in ["one", "two", "three", "four"]:
-                        if f"stage {stage} infection" in cat.illnesses:
-                            lineart_string = f'{cat.illnesses[f"stage {stage} infection"]["type"]}lineartstage{stage}'
-                    if "undead" in cat.illnesses:
-                        lineart_string = f'{cat.illnesses["undead"]["type"]}lineartstagefour'
-                new_sprite.blit(sprites.sprites[lineart_string + cat_sprite], (0, 0))
+                    if not uninfected:
+                        for stage in ["one", "two", "three", "four"]:
+                            if f"stage {stage} infection" in cat.illnesses:
+                                lineart_string = f'{cat.illnesses[f"stage {stage} infection"]["type"]}lineartstage{stage}'
+                        if "undead" in cat.illnesses:
+                            lineart_string = f'{cat.illnesses["undead"]["type"]}lineartstagefour'
             elif cat.df:
-                new_sprite.blit(sprites.sprites["lineartdf" + cat_sprite], (0, 0))
+                lineart_string = "lineartdf"
             elif cat.dead and cat.outside:
-                new_sprite.blit(sprites.sprites["lineartur" + cat_sprite], (0, 0))
+                lineart_string = "lineartur"
             elif dead:
-                new_sprite.blit(sprites.sprites['lineartdead' + cat_sprite], (0, 0))
+                lineart_string = "lineartdead"
         else:
             if not dead:
-                new_sprite.blit(sprites.sprites['lines' + cat_sprite], (0, 0))
+                lineart_string = "lines"
             elif cat.df:
-                new_sprite.blit(sprites.sprites["lineartdf" + cat_sprite], (0, 0))
+                lineart_string = "lineartdf"
             elif cat.dead and cat.outside:
-                new_sprite.blit(sprites.sprites["lineartur" + cat_sprite], (0, 0))
+                lineart_string = "lineartur"
             elif dead:
-                new_sprite.blit(sprites.sprites['lineartdead' + cat_sprite], (0, 0))
+                lineart_string = "lineartdead"
+
+        new_sprite.blit(sprites.sprites[lineart_string + cat_sprite], (0, 0))
 
         # draw skin and scars2
         blendmode = pygame.BLEND_RGBA_MIN

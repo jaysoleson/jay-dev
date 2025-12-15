@@ -509,9 +509,10 @@ class PatrolScreen(Screens):
 
             self.elements["info"] = pygame_gui.elements.UITextBox(
                 text,
-                ui_scale(pygame.Rect((250, 525), (300, 35))),
+                ui_scale(pygame.Rect((0, 525), (200, 35))),
                 object_id=get_text_box_theme("#text_box_30_horizcenter"),
                 manager=MANAGER,
+                anchors={"centerx":"centerx"}
             )
 
             able_no_med = [

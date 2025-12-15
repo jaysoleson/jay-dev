@@ -22,6 +22,7 @@ from scripts.game_structure.ui_elements import (
     UIImageButton,
     UISpriteButton,
     UISurfaceImageButton,
+    UIModifiedScrollingContainer
 )
 from scripts.utility import get_text_box_theme, ui_scale, ui_scale_blit, ui_scale_offset
 from scripts.utility import ui_scale_dimensions, generate_sprite
@@ -35,6 +36,8 @@ from ..ui.get_arrow import get_arrow
 from ..ui.icon import Icon
 from scripts.cat.skills import SkillPath, Skill
 from scripts.events_module.patrol.patrol import Patrol
+
+from ..game_structure.windows import SaveAsImage
 
 
 
@@ -209,6 +212,9 @@ class MakeClanScreen(Screens):
         self.white_patches_tint="None"
         self.kitten_sprite=0
         self.reverse=False
+
+        self.infected = {"type": "none", "stage": "one"}
+
         self.skill = "Random"
         self.accessories=[]
         self.inventory = []
@@ -252,6 +258,11 @@ class MakeClanScreen(Screens):
         self.elder_pose_buttons = {}
         self.fur_length_buttons = {}
         self.reverse_buttons = {}
+
+        # INF
+        self.infection_type_buttons = {}
+        self.infection_stage_buttons = {}
+
         # Page 1
         self.pelt_colour_buttons = {}
         self.pelt_pattern_buttons = {}
@@ -320,6 +331,9 @@ class MakeClanScreen(Screens):
             self.elder_pose_buttons,
             self.fur_length_buttons,
             self.reverse_buttons,
+
+            self.infection_type_buttons,
+            self.infection_stage_buttons,
 
             self.pelt_colour_buttons,
             self.pelt_pattern_buttons,
@@ -2117,6 +2131,9 @@ class MakeClanScreen(Screens):
         self.skin=choice(Pelt.skin_sprites)
         self.white_patches_tint=choice(["offwhite", "cream", "darkcream", "gray", "pink"]) if random.randint(1,5) == 1 else None
         self.reverse= False if random.randint(1,2) == 1 else True
+
+        # self.infected = {"type": "none", "stage": "one"}
+
         self.skill = "Random"
         self.sex = random.choice(["male", "female"])
         self.personality = choice(['troublesome', 'lonesome', 'impulsive', 'bullying', 'attention-seeker', 'charming', 'daring', 'noisy', 'nervous', 'quiet', 'insecure', 'daydreamer', 'sweet', 'polite', 'know-it-all', 'bossy', 'disciplined', 'patient', 'manipulative', 'secretive', 'rebellious', 'grumpy', 'passionate', 'honest', 'leader-like', 'smug'])
@@ -2218,26 +2235,30 @@ class MakeClanScreen(Screens):
         else:
             self.elements['right'].enable()
 
-       
-        
-        column1_x = 75  # x-coordinate for column 1
-        column2_x = 225  # x-coordinate for column 2
-        column3_x = 450  # x-coordinate for column 3
-        column4_x = 600
-        x_align = 170
-        x_align2 = 100
-        x_align3 = 125
         y_pos = [40, 107, 140, 207, 240, 307, 340, 407, 440, 507, 540]
 
         self.elements['random_customize'] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((327, 80), (150, 30))),
+            ui_scale(pygame.Rect((275, 80), (140, 30))),
             Icon.DICE + " Random cat",
-            get_button_dict(ButtonStyles.SQUOVAL, (150, 30)),
+            get_button_dict(ButtonStyles.SQUOVAL, (140, 30)),
             object_id="@buttonstyles_squoval",
             manager=MANAGER,
             starting_height=2,
             sound_id="dice_roll",
         )
+
+        # INF
+        self.elements['save_image'] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((10, 80), (95, 30))),
+            "Save Img",
+            get_button_dict(ButtonStyles.SQUOVAL, (95, 30)),
+            object_id="@buttonstyles_squoval",
+            manager=MANAGER,
+            starting_height=2,
+            sound_id="dice_roll",
+            anchors={"left_target": self.elements['random_customize']}
+        )
+        # ---
 
         pelts = list(Pelt.sprites_names.keys())
         pelts.remove("Tortie")
@@ -2269,10 +2290,13 @@ class MakeClanScreen(Screens):
         elif self.preview_age == "elder":
             c_moons = 121
         self.custom_cat = Cat(moons = c_moons, pelt=pelt2, loading_cat=True)
-        self.custom_cat.sprite = generate_sprite(self.custom_cat)
+
+        # self.custom_cat.sprite = generate_sprite(self.custom_cat, custom_cat_infection=self.infected)
+        display_sprite = generate_sprite(self.custom_cat, custom_cat_infection=self.infected)
+
         self.elements["sprite"] = UISpriteButton(ui_scale(pygame.Rect
                                          ((315, 160), (175, 175))),
-                                   self.custom_cat.sprite,
+                                   display_sprite,
                                    self.custom_cat.ID,
                                    starting_height=0, manager=MANAGER)
       
@@ -2373,6 +2397,78 @@ class MakeClanScreen(Screens):
                 )
                 x_pos += 40
 
+            # INF
+            x_pos = 295
+            self.elements['infection_type_text'] = pygame_gui.elements.UITextBox(
+                'Show as Infected?',
+                ui_scale(pygame.Rect((0, 460),(170, 34))),
+                object_id=get_text_box_theme("#text_box_30_horizcenter"),
+                manager=MANAGER,
+                anchors={"centerx":"centerx"}
+                )
+            type_dict = {
+                "none": "X",
+                "fungal": "fung",
+                "parasitic": "para",
+                "void": "void"
+            }
+            for i in ["none", "fungal", "parasitic", "void"]:
+                self.infection_type_buttons[i] = UISurfaceImageButton(
+                    ui_scale(pygame.Rect((x_pos, 495), (50, 34))),
+                    type_dict[i],
+                    get_button_dict(ButtonStyles.ROUNDED_RECT, (50, 34)),
+                    object_id="@buttonstyles_rounded_rect",
+                    manager=MANAGER,
+                    starting_height=2
+                )
+                if i == self.infected["type"]:
+                    self.infection_type_buttons[i].disable()
+                else:
+                    self.infection_type_buttons[i].enable()
+                x_pos += 55
+
+            x_pos = 320
+            self.elements['infection_stage_text'] = pygame_gui.elements.UITextBox(
+                'Stage',
+                ui_scale(pygame.Rect((0, 530),(170, 34))),
+                object_id=get_text_box_theme("#text_box_30_horizcenter"),
+                manager=MANAGER,
+                anchors={"centerx":"centerx"}
+                )
+            stage_dict = {
+                "one": "1",
+                "two": "2",
+                "three": "3",
+                "four": "4"
+            }
+            for i in ["one", "two", "three", "four"]:
+                self.infection_stage_buttons[i] = UISurfaceImageButton(
+                    ui_scale(pygame.Rect((x_pos, 565), (34, 34))),
+                    stage_dict[i],
+                    get_button_dict(ButtonStyles.ICON, (34, 34)),
+                    object_id="@buttonstyles_icon",
+                    manager=MANAGER,
+                    starting_height=2
+                )
+                x_pos += 40
+                if self.infected["type"] == "none":
+                    self.infection_stage_buttons[i].disable()
+                else:
+                    if self.infected["stage"] == i:
+                        self.infection_stage_buttons[i].disable()
+                    else:
+                        self.infection_stage_buttons[i].enable()
+
+            self.elements['infection_disclaimer'] = pygame_gui.elements.UITextBox(
+                'This is just a preview for infection lineart. Giving your custom cat infection lineart will not actually infect your main character.',
+                ui_scale(pygame.Rect((0, 600),(800, 75))),
+                object_id=get_text_box_theme("#text_box_22_horizcenter"),
+                manager=MANAGER,
+                anchors={"centerx":"centerx"}
+                )
+            # ---
+
+
             # Kitten poses
             x_pos = 125
             self.elements['kitten_pose_text'] = pygame_gui.elements.UITextBox(
@@ -2461,10 +2557,13 @@ class MakeClanScreen(Screens):
                 ]:
                 self.current_selection = "pelt_pattern"
 
-            self.elements["scroll_container"] = pygame_gui.elements.UIScrollingContainer(
+            self.elements["scroll_container"] = UIModifiedScrollingContainer(
                 ui_scale(pygame.Rect((550, 85), (175, 480))),
-                allow_scroll_x=False
-                )
+                starting_height=1,
+                manager=MANAGER,
+                allow_scroll_y=True,
+                allow_scroll_x=False,
+            )
             
             x_pos = 120
             selection_y_pos = 100
@@ -2784,10 +2883,13 @@ class MakeClanScreen(Screens):
                 ]:
                 self.current_selection = "eye_colour"
 
-            self.elements["scroll_container"] = pygame_gui.elements.UIScrollingContainer(
+            self.elements["scroll_container"] = UIModifiedScrollingContainer(
                 ui_scale(pygame.Rect((550, 85), (175, 480))),
-                allow_scroll_x=False
-                )
+                starting_height=1,
+                manager=MANAGER,
+                allow_scroll_y=True,
+                allow_scroll_x=False,
+            )
 
             x_pos = 120
             eye_y_pos = 0
@@ -2975,10 +3077,13 @@ class MakeClanScreen(Screens):
                 ]:
                 self.current_selection = "condition"
 
-            self.elements["scroll_container"] = pygame_gui.elements.UIScrollingContainer(
+            self.elements["scroll_container"] = UIModifiedScrollingContainer(
                 ui_scale(pygame.Rect((550, 85), (175, 480))),
-                allow_scroll_x=False
-                )
+                starting_height=1,
+                manager=MANAGER,
+                allow_scroll_y=True,
+                allow_scroll_x=False,
+            )
 
             x_pos = 120
             selection_y_pos = 150
@@ -3579,6 +3684,15 @@ class MakeClanScreen(Screens):
                         else:
                             self.reverse = True
                         self.open_customize_cat()
+                # INF
+                for i in self.infection_type_buttons.items():
+                    if event.ui_element == self.infection_type_buttons[i[0]]:
+                        self.infected["type"] = i[0]
+                        self.open_customize_cat()
+                for i in self.infection_stage_buttons.items():
+                    if event.ui_element == self.infection_stage_buttons[i[0]]:
+                        self.infected["stage"] = i[0]
+                        self.open_customize_cat()
             elif self.page == 1:
                 if event.ui_element == self.elements["tortie_checkbox"]:
                     if self.tortie_enabled is True:
@@ -3800,6 +3914,8 @@ class MakeClanScreen(Screens):
             elif event.ui_element == self.elements['random_customize']:
                 self.randomize_custom_cat()
                 self.open_customize_cat()
+            elif event.ui_element == self.elements['save_image']:
+                SaveAsImage(self.generate_image_to_save(), "custom_cat")
             elif event.ui_element == self.elements['next_step']:
                 new_cat = Cat(moons = 1)
                 new_cat.pelt = self.custom_cat.pelt
@@ -4179,11 +4295,12 @@ class MakeClanScreen(Screens):
             c_moons = 121
         self.custom_cat = Cat(moons = c_moons, pelt=pelt2, loading_cat=True)
 
-        self.custom_cat.sprite = generate_sprite(self.custom_cat)
+        # self.custom_cat.sprite = generate_sprite(self.custom_cat, custom_cat_infection=self.infected)
+        display_sprite = generate_sprite(self.custom_cat, custom_cat_infection=self.infected)
         self.elements['sprite'].kill()
         self.elements["sprite"] = UISpriteButton(ui_scale(pygame.Rect
                                          ((315, 160), (175, 175))),
-                                   self.custom_cat.sprite,
+                                   display_sprite,
                                    self.custom_cat.ID,
                                    starting_height=0, manager=MANAGER)
     
@@ -4711,6 +4828,11 @@ class MakeClanScreen(Screens):
                 object_id=get_text_box_theme("#text_box_26_horizcenter"),
                 manager=MANAGER,
             )
+
+    # INF
+    def generate_image_to_save(self):   
+        """Generates the image to save, with platform if needed."""
+        return generate_sprite(self.custom_cat, custom_cat_infection=self.infected)
 
 
 make_clan_screen = MakeClanScreen()
