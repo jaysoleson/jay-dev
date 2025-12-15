@@ -135,7 +135,7 @@ jobs:
           IS_RELEASE: 0
       - name: Run PyInstaller (Release)
         if: ${{ startsWith(github.ref, 'refs/tags/') }}
-        run: uv run pyinstaller Lifegen.spec
+        run: uv run pyinstaller Clangen.spec
         env:
           IS_RELEASE: 1
       - name: Create archive (Linux)
