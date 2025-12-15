@@ -4729,6 +4729,9 @@ class MakeClanScreen(Screens):
         if game.switches["customise_new_life"] is True:
             self.your_cat.create_inheritance_new_cat()
             game.clan.your_cat = self.your_cat
+            for scar in ["EXPOSEDRIBS", "ARMBONE", "EYESOCKET", "VOIDTAIL", "VOIDBACK", "VOIDTAIL", "EYEMOSS", "PAWMOSS", "SHELFMUSHROOMS"]:
+                if scar in game.clan.your_cat.pelt.scars:
+                    game.clan.your_cat.pelt.scars.remove(scar)
             game.clan.your_cat.moons = -1
             game.clan.add_cat(game.clan.your_cat)
             self.delete_example_cats()
