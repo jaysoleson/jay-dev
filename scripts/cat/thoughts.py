@@ -541,7 +541,7 @@ class Thoughts:
         base_path = f"resources/dicts/thoughts/ondeath"
         if darkforest is False:
             spec_dir = "/starclan"
-        elif darkforest:
+        else:
             spec_dir = "/darkforest"
         THOUGHTS: []
         try:
@@ -565,6 +565,7 @@ class Thoughts:
 
     def new_death_thought(self, darkforest, isoutside):
         base_path = f"resources/dicts/thoughts/ondeath"
+        spec_dir = ""
         if isoutside:
             spec_dir = "/unknownresidence"
         elif darkforest is False:

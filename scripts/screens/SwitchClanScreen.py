@@ -186,6 +186,7 @@ class SwitchClanScreen(Screens):
 
         i = 0
         y_pos = 378
+        you = ""
         for clan in self.clan_list[1:]:
             clan_age = ""
             try:
