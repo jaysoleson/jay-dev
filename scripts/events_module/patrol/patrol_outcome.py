@@ -1485,6 +1485,7 @@ class PatrolOutcome:
 
         History.add_death(cat, death_text=final_death_history)
         if self.murder:
+            other_cat = None
             for x in patrol.patrol_cats:
                 if x.ID != cat.ID:
                     other_cat = x
