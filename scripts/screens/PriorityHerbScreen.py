@@ -102,6 +102,36 @@ class PriorityHerbScreen(Screens):
         for ele in self.corners:
             self.corners[ele].kill()
         self.corners = {}
+        # these have to go before the herb buttons to avoid hover issues
+
+        insert = ""
+        if game.settings["dark mode"]:
+            insert = "_dark"
+
+        self.corners["1"] = pygame_gui.elements.UIImage(
+                            ui_scale(pygame.Rect((215, 70), (75, 75))),
+                            pygame.image.load(f"resources/images/corner_deco{insert}.png").convert_alpha(),
+                            starting_height=1,
+                            manager=MANAGER
+                            )
+        self.corners["2"] = pygame_gui.elements.UIImage(
+                            ui_scale(pygame.Rect((505, 70), (75, 75))),
+                            pygame.transform.flip(pygame.image.load(f"resources/images/corner_deco{insert}.png").convert_alpha(), True, False),
+                            starting_height=1,
+                            manager=MANAGER
+                            )
+        self.corners["3"] = pygame_gui.elements.UIImage(
+                            ui_scale(pygame.Rect((215, 360), (75, 75))),
+                            pygame.transform.flip(pygame.image.load(f"resources/images/corner_deco{insert}.png").convert_alpha(), False, True),
+                            starting_height=1,
+                            manager=MANAGER
+                            )
+        self.corners["4"] = pygame_gui.elements.UIImage(
+                            ui_scale(pygame.Rect((505, 360), (75, 75))),
+                            pygame.transform.flip(pygame.image.load(f"resources/images/corner_deco{insert}.png").convert_alpha(), True, True),
+                            starting_height=1,
+                            manager=MANAGER
+                            )
 
         x_start = 240
         y_start = 90
@@ -149,36 +179,6 @@ class PriorityHerbScreen(Screens):
             else:
                 x_pos += x_spacing 
 
-        # these have to go after the herb buttons to avoid hover issues
-
-        insert = ""
-        if game.settings["dark mode"]:
-            insert = "_dark"
-
-        self.corners["1"] = pygame_gui.elements.UIImage(
-                            ui_scale(pygame.Rect((215, 70), (75, 75))),
-                            pygame.image.load(f"resources/images/corner_deco{insert}.png").convert_alpha(),
-                            starting_height=1,
-                            manager=MANAGER
-                            )
-        self.corners["2"] = pygame_gui.elements.UIImage(
-                            ui_scale(pygame.Rect((505, 70), (75, 75))),
-                            pygame.transform.flip(pygame.image.load(f"resources/images/corner_deco{insert}.png").convert_alpha(), True, False),
-                            starting_height=1,
-                            manager=MANAGER
-                            )
-        self.corners["3"] = pygame_gui.elements.UIImage(
-                            ui_scale(pygame.Rect((215, 360), (75, 75))),
-                            pygame.transform.flip(pygame.image.load(f"resources/images/corner_deco{insert}.png").convert_alpha(), False, True),
-                            starting_height=1,
-                            manager=MANAGER
-                            )
-        self.corners["4"] = pygame_gui.elements.UIImage(
-                            ui_scale(pygame.Rect((505, 360), (75, 75))),
-                            pygame.transform.flip(pygame.image.load(f"resources/images/corner_deco{insert}.png").convert_alpha(), True, True),
-                            starting_height=1,
-                            manager=MANAGER
-                            )
 
     def screen_switches(self):
         super().screen_switches()
