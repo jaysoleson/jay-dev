@@ -432,7 +432,7 @@ class MedDenScreen(Screens):
 
         self.meds_messages = UITextBoxTweaked(
             "",
-            ui_scale(pygame.Rect((108, 310), (600, 80))),
+            ui_scale(pygame.Rect((108, 325), (600, 80))),
             object_id=get_text_box_theme("#text_box_30_horizcenter_vertcenter"),
             line_spacing=1,
         )
@@ -666,19 +666,6 @@ class MedDenScreen(Screens):
                 for condition in cat.permanent_condition:
                     if cat.permanent_condition[condition]["moons_until"] == -2:
                         condition_list.extend(cat.permanent_condition.keys())
-
-            inftype = get_infection_info("type")
-
-            # changing tooltip display to just say stages instead of type
-            for idx, condition in enumerate(condition_list):
-                if condition == "stage one infection":
-                    condition_list[idx] = "stage one infection"
-                if condition == "stage two infection":
-                    condition_list[idx] = "stage two infection"
-                if condition == "stage three infection":
-                    condition_list[idx] = "stage three infection"
-                if condition == "stage four infection":
-                    condition_list[idx] = "stage four infection"
 
             conditions = ",<br>".join(condition_list)
 
