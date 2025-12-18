@@ -9,7 +9,7 @@
         " {PRONOUN/m_c/subject/CAP} yearns for the comfortable nursery nests back home. {PRONOUN/m_c/subject/CAP} {VERB/m_c/scoop/scoops} some grass and leaves together, hoping it will suffice."
     ],
     "minor_severity": [
-        " {PRONOUN/m_c/subject/CAP} doesn't feel the need to settle down into a nest jsut yet."
+        " {PRONOUN/m_c/subject/CAP} doesn't feel the need to settle down into a nest just yet."
   ],
   "comment": [
     "both the minor and major severity strings will appear in conjunction with either a litter guess or an announcement. Write them accordingly!",
