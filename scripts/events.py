@@ -1913,10 +1913,12 @@ class Events:
                 continue
 
             # remove the ineligible events
-            for event in events:
+            for event in events.copy():
                 if "med_name" in events and get_alive_status_cats(Cat, ["medicine cat"]) == 0:
                     events.remove(event)
-                if "lead_name" in events and not game.clan.leader:
+                if "lead_name" in events and (not game.clan.leader or game.clan.leader.dead or game.clan.leader.outside):
+                    events.remove(event)
+                if "dep_name" in events and (not game.clan.deputy or game.clan.deputy.dead or game.clan.deputy.outside):
                     events.remove(event)
 
             if game.clan.infection["clan_infected"]:

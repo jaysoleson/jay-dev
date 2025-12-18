@@ -272,7 +272,7 @@ class Thoughts:
                     print("Throught constraint not properly formated", _skill)
                     continue
 
-                if random_cat.skills.meets_skill_requirement(spli[0], spli[1]):
+                if random_cat.skills.meets_skill_requirement(spli[0], int(spli[1])):
                     _flag = True
                     break
 
