@@ -209,6 +209,8 @@ class Events:
             current_disaster = None
 
         self.handle_disaster(current_disaster)
+        for cat in Cat.all_cats_list:
+            self.handle_disaster_impacts(current_disaster, cat)
 
         taken_placements = []
         for cat in Cat.all_cats.copy().values():
@@ -3062,7 +3064,7 @@ class Events:
                         Cat.fetch_cat(ally).map_position = game.clan.your_cat.map_position
 
         # now for the npcs
-        test_printed = False
+        # test_printed = False
         for npc in Cat.all_cats_list:
             if npc.ID == game.clan.your_cat.ID:
                 continue
@@ -3079,8 +3081,8 @@ class Events:
 
             cat_north, cat_east, cat_south, cat_west = check_possible_directions(cat_row, cat_column, npc)
 
-            if not test_printed:
-                print(npc.name, "possible directions NESW:", cat_north, cat_east, cat_south, cat_west)
+            # if not test_printed:
+            #     print(npc.name, "possible directions NESW:", cat_north, cat_east, cat_south, cat_west)
 
             if game.clan.timeskips == 1 and game.clan.days == 0:
                 # movement is less likely during the bloodbath bc they wanna join in!!!
@@ -3119,14 +3121,14 @@ class Events:
                 else:
                     continue
                 
-                if not test_printed:
-                    print(npc.name, "is moving ---")
-                    print(npc.map_position)
+                # if not test_printed:
+                #     print(npc.name, "is moving ---")
+                #     print(npc.map_position)
                 npc.map_position = f"{cat_row}_{cat_column}"
-                if not test_printed:
-                    print(npc.map_position)
-                    print("--------")
-                    test_printed = True
+                # if not test_printed:
+                #     print(npc.map_position)
+                #     print("--------")
+                #     test_printed = True
 
                 # ill do a better version of this later lol
                 if npc.allies:
@@ -4244,41 +4246,117 @@ class Events:
         if game.clan.second_disaster:
             self.handle_second_disaster()
     
-    def handle_disaster_impacts(self, current_disaster):      
-        for i in range(random.randint(0,2)):
-            cat = Cat.all_cats.get(random.choice(game.clan.clan_cats))
-            for j in range(20):
-                if cat.outside or cat.dead or cat.moons < 6:
-                    cat = Cat.all_cats.get(random.choice(game.clan.clan_cats))
+    def filter_collateral_damage(self, possible_events, cat):
+        for event in possible_events.copy():
+            if "map_position" in event:
+                if "not" in event["map_position"]:
+                    positions = (event["map_position"].split(":")[1]).split(",")
+                    if cat.map_position in positions:
+                        possible_events.remove(event)
                 else:
-                    break
-            if cat.outside or cat.dead or cat.moons < 6:
-                return
-            if current_disaster["collateral_damage"]:
-                if random.randint(1,10) == 1:
-                    if random.randint(1,5) == 1:
-                        herbs = game.clan.herbs.copy()
-                        for herb in herbs:
-                            adjust_by = random.choices([-3, -2, -1], [1, 2, 3],
-                                                    k=1)
-                            game.clan.herbs[herb] += adjust_by[0]
-                            if game.clan.herbs[herb] <= 0:
-                                game.clan.herbs.pop(herb)
-                    if random.randint(1,5) == 1:
-                        game.clan.freshkill_pile.total_amount = game.clan.freshkill_pile.total_amount * 0.7
-                if random.randint(1,10) != 1:
-                    if "injuries" in current_disaster["collateral_damage"]:
-                        cat.get_injured(random.choice(current_disaster["collateral_damage"]["injuries"]))
-                else:
-                    if "deaths" in current_disaster["collateral_damage"]:
-                        if cat.status == "leader":
-                            History.add_death(cat, death_text=current_disaster["collateral_damage"]["deaths"]["history_text"]["reg_death"][4:])
-                        else:
-                            History.add_death(cat, death_text=current_disaster["collateral_damage"]["deaths"]["history_text"]["reg_death"])
-                        cat.die()
-                        death_text = random.choice(current_disaster["collateral_damage"]["deaths"]["death_text"]).replace("m_c", str(cat.name)).replace("c_n", str(game.clan.name) + "Clan")
-                        game.cur_events_list.insert(0,
-                            Single_Event(death_text, "birth_death", cat.ID))
+                    positions = (event["map_position"]).split(",")
+                    if cat.map_position not in positions:
+                        possible_events.remove(event)
+        return possible_events
+    
+    def handle_disaster_impacts(self, current_disaster, cat):
+        if not current_disaster:
+            return
+        
+        if cat.outside or cat.dead:
+            return
+
+        if current_disaster["collateral_damage"]:
+            random_cat = None
+            possible_cats = [
+                cat for cat in Cat.all_cats_list if cat.map_position == cat.map_position and cat != game.clan.your_cat
+            ]
+            if possible_cats:
+                random_cat = random.choice(possible_cats)
+
+            if not int(random.random() * current_disaster["injury_frequency"]):
+                if "injuries" in current_disaster["collateral_damage"]:
+                    # allow murder events if there are any Murderers around
+                    if random_cat:
+                        possible_events = (
+                            current_disaster["collateral_damage"]["injuries"]["other_cat"] +
+                            current_disaster["collateral_damage"]["injuries"]["reg"]
+                            )
+                    else:
+                        possible_events = (
+                            current_disaster["collateral_damage"]["injuries"]["reg"]
+                            )
+
+                    self.filter_collateral_damage(possible_events, cat)
+                        
+                    chosen_event = random.choice(possible_events)
+                    event_text = event_text_adjust(
+                        Cat,
+                        random.choice(chosen_event["text"]),
+                        main_cat=cat,
+                        random_cat=random_cat,
+                        clan=game.clan
+                        )
+                    
+                    if "r_c" in event_text:
+                        involved_cats = [cat.ID, random_cat.ID]
+                    else:
+                        involved_cats = [cat.ID]
+
+                    chosen_injury = random.choice(chosen_event["injuries"])
+                    scar_text=chosen_event["scar_event"]
+
+                    cat.get_injured(chosen_injury)
+                    History.add_possible_history(
+                        cat,
+                        condition=chosen_injury,
+                        scar_text=scar_text,
+                    )
+
+                    game.cur_events_list.append(Single_Event(event_text, "health", involved_cats))
+
+            elif not int(random.random() * current_disaster["death_frequency"]):
+                if "deaths" in current_disaster["collateral_damage"]:
+                    # allow murder events if there are any Murderers around
+                    if random_cat:
+                        possible_events = (
+                            current_disaster["collateral_damage"]["deaths"]["other_cat"] +
+                            current_disaster["collateral_damage"]["deaths"]["reg"]
+                            )
+                    else:
+                        possible_events = (
+                            current_disaster["collateral_damage"]["deaths"]["reg"]
+                            )
+
+                    self.filter_collateral_damage(possible_events, cat)
+
+                    chosen_event = random.choice(possible_events)
+                    event_text = event_text_adjust(
+                        Cat,
+                        random.choice(chosen_event["text"]),
+                        main_cat=cat,
+                        random_cat=random_cat,
+                        clan=game.clan
+                        )
+                    
+                    if "r_c" in event_text:
+                        involved_cats = [cat.ID, random_cat.ID]
+                    else:
+                        involved_cats = [cat.ID]
+
+                    if cat.status == "leader":
+                        death_history = chosen_event["reg_death"]
+                    else:
+                        death_history = chosen_event["lead_death"]
+
+                    # sort out history and events
+                    History.add_death(cat, death_text=death_history)
+                    if random_cat:
+                        History.add_murders(cat, random_cat, True, death_history)
+
+                    # die !
+                    cat.die()
+                    game.cur_events_list.append(Single_Event(event_text, "birth_death", involved_cats))
 
     def handle_second_disaster(self):
         resource_dir = "resources/dicts/events/disasters/"

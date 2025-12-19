@@ -90,6 +90,7 @@ class EventsScreen(Screens):
         self.fave_filter_elements = {}
         self.selected_fave_filter = []
         self.you = None
+        self.arena_event_text = None
         self.death_button = None
 
         self.filters_open = False
@@ -370,16 +371,16 @@ class EventsScreen(Screens):
             manager=MANAGER,
         )
 
-        self.clan_info["symbol"] = pygame_gui.elements.UIImage(
-            ui_scale(pygame.Rect((137, 105), (100, 100))),
-            pygame.transform.scale(
-                clan_symbol_sprite(game.clan), ui_scale_dimensions((100, 100))
-            ),
-            object_id=f"clan_symbol",
-            starting_height=1,
-            container=self.event_screen_container,
-            manager=MANAGER,
-        )
+        # self.clan_info["symbol"] = pygame_gui.elements.UIImage(
+        #     ui_scale(pygame.Rect((137, 105), (100, 100))),
+        #     pygame.transform.scale(
+        #         clan_symbol_sprite(game.clan), ui_scale_dimensions((100, 100))
+        #     ),
+        #     object_id=f"clan_symbol",
+        #     starting_height=1,
+        #     container=self.event_screen_container,
+        #     manager=MANAGER,
+        # )
 
         self.clan_info["heading"] = pygame_gui.elements.UITextBox(
             "",
@@ -745,6 +746,8 @@ class EventsScreen(Screens):
         self.event_screen_container.kill()
         if self.you:
             self.you.kill()
+        if self.arena_event_text:
+            self.arena_event_text.kill()
         
         if self.death_button:
             self.death_button.kill()
@@ -968,11 +971,28 @@ class EventsScreen(Screens):
         if self.you:
             self.you.kill()
         self.you = UISpriteButton(
-            ui_scale(pygame.Rect((570, 100), (120, 120))),
+            ui_scale(pygame.Rect((160, 100), (120, 120))),
             game.clan.your_cat.sprite,
             cat_id=game.clan.your_cat.ID,
             manager=MANAGER
             )
+        
+        if game.clan.disaster:
+            disaster = game.clan.disaster
+        else:
+            disaster = "None"
+
+        if self.arena_event_text:
+            self.arena_event_text.kill()
+        self.arena_event_text = pygame_gui.elements.UITextBox(
+            f"Current Arena Event:\n<b>{disaster}</b>",
+            ui_scale(pygame.Rect((520, 140), (250, 100))),
+            object_id=get_text_box_theme("#text_box_26_horizcenter"),
+            starting_height=1,
+            manager=MANAGER
+        )
+        
+
         
         if game.clan.age == 0 and game.clan.days == 0 and game.clan.timeskips == 1:
             return

@@ -7,10 +7,10 @@
         "season": [
             "any"
         ],
-        "tags": [],
         "priority": "both",
+        "injury_frequency": 4,
+        "death_frequency": 2,
         "duration": 7,
-        "rarity": "common",
         "trigger_events": [
             "A booming voice reaches the tributes from the skies. The Cornucopia has been restocked with supplies, including crucial herbs and food. The voice encourages all tributes to take advantage of the Arena's generosity before it's all gone tomorrow."
         ],
@@ -37,6 +37,159 @@
         "conclusion_events": [
             "The extra supplies in the Cornucopia have dwindled to nothing. Cats are no longer flocking towards it."
         ],
-        "collateral_damage": {}
+        "collateral_damage": {
+            "injuries": {
+                "other_cat": [
+                    {
+                        "text": [
+                            "r_c injures m_c in a fight for supplies at the Cornucopia.",
+                            "r_c and m_c get into a scrap at the Cornucopia. r_c wins and leaves m_c with a scratch."
+                        ],
+                        "injuries": [
+                            "torn pelt", "claw-wound"
+                        ],
+                        "scar_event": "m_c was scarred in a fight during the Feast.",
+                        "map_position": "0_0"
+                    }
+                ],
+                "reg": [
+                    {
+                        "text": [
+                            "m_c falls from a tree while trying to hide from another tribute during the Feast.",
+                            "m_c gets shoved around by a group of other tributes in the race to the Cornucopia."
+                        ],
+                        "injuries": [
+                            "bruises", "sprain"
+                        ],
+                        "scar_event": "m_c was injured during the Feast.",
+                        "map_position": "not:0_0"
+                    },
+                    {
+                        "text": [
+                            "m_c runs into a tree at a full sprint during the commotion of the Feast."
+                        ],
+                        "injuries": [
+                            "bruises", "head damage"
+                        ],
+                        "scar_event": "m_c was injured during the Feast."
+                    }
+                ]
+            },
+            "deaths": {
+                "other_cat": [
+                    {
+                        "text": [
+                            "r_c kills m_c in a fight for supplies during the Feast."
+                        ],
+                        "reg_death": "m_c was killed by r_c during the Feast.",
+                        "lead_death": "was killed by r_c during the Feast"
+                    }
+                ],
+                "reg": [
+                    {
+                        "text": [
+                            "m_c snags a juicy rabbit from the Cornucopia during the Feast, then falls into a sinkhole and dies while escaping with it.",
+                            "m_c falls into a sinkhole on {PRONOUN/m_c/poss} way to the Cornucopia."
+                        ],
+                        "reg_death": "m_c fell into a sinkhole.",
+                        "lead_death": "fell into a sinkhole",
+                        "map_position": "not:0_0"
+                    },
+                    {
+                        "text": [
+                            "m_c devours a piece of prey from the restocked Cornucopia. {PRONOUN/m_c/subject/CAP} {VERB/m_c/don't/doesn't} taste the deathberries inside until too late."
+                        ],
+                        "reg_death": "m_c ate poisoned prey.",
+                        "lead_death": "ate poisoned prey"
+                    }
+                ]
+            }
+        }
+    },
+    "Wasp Swarm": {
+        "event": "Wasp Swarm",
+        "camp": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "injury_frequency": 3,
+        "death_frequency": 4,
+        "priority": "both",
+        "duration": 7,
+        "trigger_events": [
+            "You hear a buzz by your ear and flick it away. Then, again. And again. You lift your head to see a dark mass on the horizon. A booming voice comes from the sky: a swarm of killer wasps is about to descend on the arena."
+        ],
+        "progress_events": {
+            "moon1": [
+                "The wasp swarm persists."
+            ],
+            "moon2": [
+                "The wasp swarm persists."
+            ],
+            "moon3": [
+                "The wasp swarm persists."
+            ],
+            "moon4": [
+                "The wasp swarm persists."
+            ],
+            "moon5": [
+                "The wasp swarm is beginning to thin."
+            ],
+            "moon6": [
+                "The wasp swarm is growing thinner."
+            ]
+        },
+        "conclusion_events": [
+            "The swarm of wasps has completely vacated the Arena."
+        ],
+        "collateral_damage": {
+            "injuries": {
+                "other_cat": [
+                    {
+                        "text": [
+                            "r_c shoves m_c into a swarm of wasps. {PRONOUN/m_c/subject/CAP} {VERB/m_c/survive/survives}, but {VERB/m_c/don't/doesn't} escape unstung."
+                        ],
+                        "injuries": [
+                            "bee sting"
+                        ],
+                        "scar_event": "m_c was shoved into a wasp swarm by r_c."
+                    }
+                ],
+                "reg": [
+                    {
+                        "text": [
+                            "m_c is swarmed by wasps. {PRONOUN/m_c/subject/CAP} {VERB/m_c/survive/survives}, but {VERB/m_c/don't/doesn't} escape unstung.",
+                            "m_c is swarmed by wasps and stung when {PRONOUN/m_c/subject} briefly {VERB/m_c/leave/leaves} {PRONOUN/m_c/poss} hiding place."
+                        ],
+                        "injuries": [
+                            "bee sting"
+                        ],
+                        "scar_event": "m_c was stung by wasps during a swarm in the Arena."
+                    }
+                ]
+            },
+            "deaths": {
+                "other_cat": [
+                    {
+                        "text": [
+                            "r_c shoves m_c into a swarm of wasps. m_c doesn't survive."
+                        ],
+                        "reg_death": "m_c was shoved into a swarm of wasped by r_c.",
+                        "lead_death": "was shoved into a swarm of wasped by r_c"
+                    }
+                ],
+                "reg": [
+                    {
+                        "text": [
+                            "m_c accidentally disturbs a cloud of wasps and gets swarmed. m_c doesn't survive."
+                        ],
+                        "reg_death": "m_c was killed by a swarm fo wasps.",
+                        "lead_death": "was killed by a swarm fo wasps"
+                    }
+                ]
+            }
+        }
     }
 }
