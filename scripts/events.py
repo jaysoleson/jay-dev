@@ -42,7 +42,8 @@ from scripts.utility import (
     adjust_txt,
     unpack_rel_block,
     get_random_moon_cat,
-    get_living_clan_cat_count
+    get_living_clan_cat_count,
+    get_all_tributes_count
     )
 from scripts.cat.cats import Cat, cat_class, BACKSTORIES
 from scripts.cat.history import History
@@ -199,7 +200,7 @@ class Events:
         with open(f"{resource_dir}general.json",encoding="ascii") as read_file:
             disaster_text = disaster_text | ujson.loads(read_file.read())
 
-        if not game.clan.disaster and random.randint(1,2) == 1:
+        if not game.clan.disaster and not int(random.random() * 40):
             # new disaster!
             game.clan.disaster = random.choice(list(disaster_text.keys()))
 
@@ -4297,6 +4298,15 @@ class Events:
         if cat.outside or cat.dead or cat == game.clan.your_cat:
             return
 
+        # modify the injury/death chances based on how many cats there are
+        num_cats = get_all_tributes_count(Cat)
+        num_alive_cats = get_living_clan_cat_count(Cat)
+        percentage = num_alive_cats / num_cats
+        if percentage > 0.3:
+            modifier = round(percentage * 0.5)
+        else:
+            modifier = round(percentage)
+
         if current_disaster["collateral_damage"]:
             random_cat = None
             possible_cats = [
@@ -4305,7 +4315,7 @@ class Events:
             if possible_cats:
                 random_cat = random.choice(possible_cats)
 
-            if not int(random.random() * current_disaster["injury_frequency"]):
+            if not int(random.random() * (current_disaster["injury_frequency"] * modifier)):
                 if "injuries" in current_disaster["collateral_damage"]:
                     # allow murder events if there are any Murderers around
                     if random_cat:
@@ -4347,7 +4357,7 @@ class Events:
                     game.cur_events_list.append(Single_Event(event_text, "health", involved_cats))
                     return
 
-            elif not int(random.random() * current_disaster["death_frequency"]):
+            elif not int(random.random() * (current_disaster["death_frequency"] * modifier)):
                 if "deaths" in current_disaster["collateral_damage"]:
                     # allow murder events if there are any Murderers around
                     if random_cat:

@@ -509,6 +509,13 @@ class ClanScreen(Screens):
             for i in self.direction_buttons:
                 self.direction_buttons[i].enable()
 
+        if game.clan.timeskips == 1 and game.clan.days == 0:
+            self.direction_buttons["bloodbath"].enable()
+            if game.clan.next_activity is None:
+                self.direction_buttons["bloodbath"].disable()
+        else:
+            self.direction_buttons["bloodbath"].kill()
+
 
         if game.clan.your_cat.sleeping is True:
             self.direction_buttons["north"].disable()
@@ -687,9 +694,8 @@ class ClanScreen(Screens):
             self.direction_buttons["west"].show()
 
         if game.clan.timeskips == 1 and game.clan.days == 0:
+            self.direction_buttons["bloodbath"].enable()
             if game.clan.next_activity is None:
                 self.direction_buttons["bloodbath"].disable()
-            else:
-                self.direction_buttons["bloodbath"].enable()
         else:
             self.direction_buttons["bloodbath"].kill()

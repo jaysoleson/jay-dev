@@ -136,6 +136,18 @@ def get_living_clan_cat_count(Cat):
         count += 1
     return count
 
+def get_all_tributes_count(Cat):
+    """
+    Returns the int of all tributes, living or dead
+    :param Cat: Cat class
+    """
+    count = 0
+    for the_cat in Cat.all_cats.values():
+        if the_cat.exiled or the_cat.outside:
+            continue
+        count += 1
+    return count
+
 
 def get_cats_same_age(Cat, cat, age_range=10):
     """
