@@ -957,8 +957,6 @@ class EventsScreen(Screens):
             self.timeskip_display.kill()
 
         # Stop if Clan is new, so that events from previously loaded Clan don't show up
-        if game.clan.age == 0 and game.clan.days == 0 and game.clan.timeskips == 1:
-            return
         
         self.timeskip_display = pygame_gui.elements.UIImage(
             ui_scale(pygame.Rect((305, 97), (188, 107))),
@@ -967,7 +965,17 @@ class EventsScreen(Screens):
             (188, 107)),
             manager=MANAGER
         )
+        if self.you:
+            self.you.kill()
+        self.you = UISpriteButton(
+            ui_scale(pygame.Rect((570, 100), (120, 120))),
+            game.clan.your_cat.sprite,
+            cat_id=game.clan.your_cat.ID,
+            manager=MANAGER
+            )
         
+        if game.clan.age == 0 and game.clan.days == 0 and game.clan.timeskips == 1:
+            return
         y_pos = 0
 
         # LIFEGEN: This has to be here to update fave filtered events
@@ -1087,15 +1095,6 @@ class EventsScreen(Screens):
                 game.switches["saved_scroll_positions"][self.current_display]
             )
 
-        if self.you:
-            self.you.kill()
-        if game.clan.your_cat.moons != -1:
-            self.you = UISpriteButton(
-                ui_scale(pygame.Rect((570, 100), (120, 120))),
-                game.clan.your_cat.sprite,
-                cat_id=game.clan.your_cat.ID,
-                manager=MANAGER
-                )
         # if game.switches['continue_after_death'] and game.clan.your_cat.moons >= 0:
         #     self.death_button.show()
         # else:

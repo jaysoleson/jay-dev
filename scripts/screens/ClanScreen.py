@@ -626,8 +626,8 @@ class ClanScreen(Screens):
                 self.platforms[x] = pygame_gui.elements.UIImage(
                     ui_scale(pygame.Rect((item_x, item_y + 26), (50, 34))),
                     pygame.transform.scale(
-                    image_cache.load_image('resources/images/buttons/fav_marker.png'),
-                    (103, 28))
+                    image_cache.load_image('resources/images/hg_platform.png'),
+                    (50, 34))
                 )
 
     def update_buttons_and_text(self):
@@ -640,7 +640,7 @@ class ClanScreen(Screens):
 
         row_position, column_position = game.clan.your_cat.map_position.split("_")
 
-        north, east, south, west = check_possible_directions(row_position, column_position)
+        north, east, south, west = check_possible_directions(row_position, column_position, game.clan.your_cat)
 
         if not north or game.clan.your_cat.dead:
             self.direction_buttons["north"].hide()

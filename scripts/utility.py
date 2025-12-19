@@ -260,7 +260,7 @@ def get_warring_clan():
 # ---------------------------------------------------------------------------- #
 #                          Handling Outside Factors                            #
 # ---------------------------------------------------------------------------- #
-def check_possible_directions(row_position, column_position):
+def check_possible_directions(row_position, column_position, cat):
     """ HUNGER GAMES: Checks the directions it is possible for a cat to travel in
         (aka, if they're at the edge of the map already)"""
     
@@ -279,13 +279,34 @@ def check_possible_directions(row_position, column_position):
 
     pathstart = f'{camp_bg_base_dir}/{(game.clan.biome).lower()}/{time}/'
 
-    # disabling travel buttons if the next image doesn't exist!
-    # this allows me to expand the map as much as i want without recoding >:3
     north = True
     east = True
     south = True
     west = True
+    if game.clan.disaster == "The Feast" and cat != game.clan.your_cat:
+        if row_position < 0:
+            east = True
+            west = False
+        elif row_position > 0:
+            west = True
+            east = False
 
+        if column_position < 0:
+            south = True
+            north = False
+        elif column_position > 0:
+            north = True
+            south = False
+
+        if row_position == 0:
+            east = False
+            west = False
+        if column_position == 0:
+            north = False
+            south = False
+
+    # disabling travel buttons if the next image doesn't exist!
+    # this allows me to expand the map as much as i want without recoding >:3
     if not os.path.exists(f"{pathstart}{row_position + 1}_{column_position}.png"):
         east = False
 
@@ -297,6 +318,7 @@ def check_possible_directions(row_position, column_position):
 
     if not os.path.exists(f"{pathstart}{row_position}_{column_position - 1}.png"):
         north = False
+
 
     return north, east, south, west
 

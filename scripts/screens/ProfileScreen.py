@@ -1110,7 +1110,7 @@ class ProfileScreen(Screens):
 
         # HG stats: now visable on every tab
 
-        if not self.the_cat.dead and not self.the_cat.outside:
+        if not self.the_cat.dead and not self.the_cat.outside and self.the_cat.stats:
             stats_dict = {
                 "satiation": self.the_cat.stats.hunger,
                 "health": self.the_cat.stats.health,
@@ -2748,9 +2748,9 @@ class ProfileScreen(Screens):
 
             if herbs:
                 if len(herbs) > 1:
-                    text = f"Needs {', '.join(herbs[:-1])} or {herbs[-1]}."
+                    text = f"Needs {', '.join(herbs[:-1]).replace('_', ' ')} or {herbs[-1].replace('_', ' ')}."
                 else:
-                    text = f"Needs {herbs[0]}."
+                    text = f"Needs {herbs[0].replace('_', ' ')}."
                 text_list.append(text)
 
             # infected or festering

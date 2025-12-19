@@ -236,7 +236,7 @@ class Cat:
         self.apprentice = []
         self.former_apprentices = []
         self.relationships = {}
-        self.stats = {}
+        self.stats = Stats()
         self.mate = []
         self.previous_mates = []
         self.pronouns = [self.default_pronouns[0].copy()]
@@ -570,8 +570,6 @@ class Cat:
         """
 
         self.sleeping = False
-        if self.ID == game.clan.your_cat.ID:
-            print(game.clan.timeskips, "ur dead")
 
         if (
             self.status == "leader"
@@ -3496,7 +3494,7 @@ class Cat:
         stats_directory = get_save_dir() + "/" + clanname + "/stats/"
         stats_cat_directory = stats_directory + self.ID + "_stats.json"
 
-        self.stats = {}
+        self.stats = Stats()
         if os.path.exists(stats_directory):
             if not os.path.exists(stats_cat_directory):
                 self.init_stats()

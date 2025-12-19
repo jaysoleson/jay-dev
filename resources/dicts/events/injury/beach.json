@@ -8,7 +8,7 @@
             "any"
         ],
         "weight": 30,
-        "event_text": "m_c's paw pads aren't used to all the salt water {PRONOUN/m_c/subject}{VERB/m_c/'ve/'s} been traipsing around in since becoming an apprentice, they've become cracked and sore.",
+        "event_text": "m_c's paw pads aren't used to all the salt water {PRONOUN/m_c/subject}{VERB/m_c/'ve/'s} been traipsing around in since entering the arena. They've become cracked and sore.",
         "m_c": {
             "status": [
                 "apprentice"

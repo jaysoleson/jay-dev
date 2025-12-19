@@ -190,34 +190,26 @@ class Events:
         if random.randint(1, rejoin_upperbound) == 1:
             self.handle_lost_cats_return()
 
-        # Calling of "one_moon" functions.
         resource_dir = "resources/dicts/events/disasters/"
         disaster_text = {}
-        with open(f"{resource_dir}forest.json",
-                  encoding="ascii") as read_file:
+
+        with open(f"{resource_dir}{game.clan.biome.lower()}.json",encoding="ascii") as read_file:
             disaster_text = ujson.loads(read_file.read())
-        if not game.clan.disaster and random.randint(1,50) == 1:
-            for clan_cat in game.clan.clan_cats:
-                clan_cat_cat = Cat.fetch_cat(clan_cat)
-                if clan_cat_cat:
-                    clan_cat_cat.faith -= round(random.uniform(-1,0), 2)
+
+        with open(f"{resource_dir}general.json",encoding="ascii") as read_file:
+            disaster_text = disaster_text | ujson.loads(read_file.read())
+
+        if not game.clan.disaster and random.randint(1,2) == 1:
+            # new disaster!
             game.clan.disaster = random.choice(list(disaster_text.keys()))
-            if "next_possible_disaster" in game.switches and game.switches["next_possible_disaster"]:
-                current_disaster =  disaster_text.get(game.switches["next_possible_disaster"])
-            else:
-                current_disaster = disaster_text.get(game.clan.disaster)
-            while not current_disaster or not disaster_text[game.clan.disaster]["trigger_events"] or (get_current_season() not in current_disaster["season"]):
-                game.clan.disaster = random.choice(list(disaster_text.keys()))
-                current_disaster = disaster_text.get(game.clan.disaster)
-        # if game.clan.disaster and game.clan.disaster != "":
-        #     if "next_possible_disaster" in game.switches and game.clan.disaster == game.switches["next_possible_disaster"]:
-        #         game.switches["next_possible_disaster"] = None
-        #     for clan_cat in game.clan.clan_cats:
-        #         clan_cat_cat = Cat.fetch_cat(clan_cat)
-        #         if clan_cat_cat:
-        #             clan_cat_cat.faith -= round(random.uniform(-0.1,0), 2)
-        #     self.handle_disaster()
-        
+
+        if game.clan.disaster:
+            current_disaster = disaster_text[game.clan.disaster]
+        else:
+            current_disaster = None
+
+        self.handle_disaster(current_disaster)
+
         taken_placements = []
         for cat in Cat.all_cats.copy().values():
             if not cat.outside or cat.dead:
@@ -3070,6 +3062,7 @@ class Events:
                         Cat.fetch_cat(ally).map_position = game.clan.your_cat.map_position
 
         # now for the npcs
+        test_printed = False
         for npc in Cat.all_cats_list:
             if npc.ID == game.clan.your_cat.ID:
                 continue
@@ -3084,11 +3077,16 @@ class Events:
             cat_row = int(cat_row)
             cat_column = int(cat_column)
 
-            cat_north, cat_east, cat_south, cat_west = check_possible_directions(cat_row, cat_column)
+            cat_north, cat_east, cat_south, cat_west = check_possible_directions(cat_row, cat_column, npc)
+
+            if not test_printed:
+                print(npc.name, "possible directions NESW:", cat_north, cat_east, cat_south, cat_west)
 
             if game.clan.timeskips == 1 and game.clan.days == 0:
                 # movement is less likely during the bloodbath bc they wanna join in!!!
                 movement = random.randint(1,12)
+            elif game.clan.disaster == "The Feast":
+                movement = random.randint(1,2)
             else:
                 if game.clan.timeskips in [6, 7, 8, 9, 10]:
                     movement = random.randint(1,4)
@@ -3106,37 +3104,41 @@ class Events:
             if cat_west:
                 directions.append("west")
             
-            final_direction = random.choice(directions)
+            if directions:
+                final_direction = random.choice(directions)
 
-            if movement == 1:
-                if final_direction == "north":
-                    cat_column -= 1
-                elif final_direction == "east":
-                    cat_row += 1
-                elif final_direction == "south":
-                    cat_column += 1
-                elif final_direction == "west":
-                    cat_row -= 1
-            else:
-                continue
+                if movement == 1:
+                    if final_direction == "north":
+                        cat_column -= 1
+                    elif final_direction == "east":
+                        cat_row += 1
+                    elif final_direction == "south":
+                        cat_column += 1
+                    elif final_direction == "west":
+                        cat_row -= 1
+                else:
+                    continue
+                
+                if not test_printed:
+                    print(npc.name, "is moving ---")
+                    print(npc.map_position)
+                npc.map_position = f"{cat_row}_{cat_column}"
+                if not test_printed:
+                    print(npc.map_position)
+                    print("--------")
+                    test_printed = True
 
-            # print(npc.name, "is moving ---")
-            # print(npc.map_position)
-            npc.map_position = f"{cat_row}_{cat_column}"
-            # print(npc.map_position)
-            # print("--------")
-
-            # ill do a better version of this later lol
-            if npc.allies:
-                for i in npc.allies:
-                    ally = Cat.fetch_cat(i)
-                    try:
-                        if ally.map_position != npc.map_position:
-                            ally.map_position = npc.map_position
-                            # print("Setting allies", ally.name, "and", npc.name, "to the same position")
-                    except Exception as e:
-                        print("NPC ally travel map error. Ally:", ally.name, "NPC:", npc.name)
-                        print(e)
+                # ill do a better version of this later lol
+                if npc.allies:
+                    for i in npc.allies:
+                        ally = Cat.fetch_cat(i)
+                        try:
+                            if ally.map_position != npc.map_position:
+                                ally.map_position = npc.map_position
+                                # print("Setting allies", ally.name, "and", npc.name, "to the same position")
+                        except Exception as e:
+                            print("NPC ally travel map error. Ally:", ally.name, "NPC:", npc.name)
+                            print(e)
         
         if game.clan.spectating:
             game.clan.your_cat.map_position = game.clan.spectating.map_position
@@ -4104,6 +4106,9 @@ class Events:
         if game.clan.timeskips == 3 and game.clan.days == 0:
             random_murder_chance *= 0.85
 
+        if game.clan.disaster != "":
+            random_murder_chance /= 2
+
         # Check to see if random murder is triggered.
         # If so, we allow targets to be anyone they have even the smallest amount of dislike for
         # CHANGED FOR HG: random murders will allow for the killing of anyone, regardless of platonic like
@@ -4217,17 +4222,10 @@ class Events:
                                                  sub_type=["murder"],
                                                  freshkill_pile=game.clan.freshkill_pile)
 
-    def handle_disaster(self):
-        if not game.clan.disaster:
+    def handle_disaster(self, current_disaster):
+        if not current_disaster:
             return
 
-        resource_dir = "resources/dicts/events/disasters/"
-        disaster_text = {}
-        with open(f"{resource_dir}forest.json",
-                  encoding="ascii") as read_file:
-            disaster_text = ujson.loads(read_file.read())
-        
-        current_disaster = disaster_text.get(game.clan.disaster)
         current_moon = game.clan.disaster_moon
         if current_moon == 0:
             event_string = random.choice(current_disaster["trigger_events"])
@@ -4235,13 +4233,6 @@ class Events:
         elif current_moon < current_disaster["duration"]:
             event_string = random.choice(current_disaster["progress_events"]["moon" + str(current_moon)])
             game.clan.disaster_moon += 1
-            self.handle_disaster_impacts(current_disaster)
-            if random.randint(1,30) == 1 and not game.clan.second_disaster and current_disaster["secondary_disasters"]:
-                game.clan.second_disaster = random.choice(list(current_disaster["secondary_disasters"].keys()))
-                secondary_event_string = random.choice(current_disaster["secondary_disasters"][game.clan.second_disaster]["trigger_events"])
-                secondary_event_string = ongoing_event_text_adjust(Cat, secondary_event_string)
-                game.cur_events_list.append(
-                        Single_Event(secondary_event_string, "alert"))
         else:
             event_string = random.choice(current_disaster["conclusion_events"])
             game.clan.disaster_moon = 0
