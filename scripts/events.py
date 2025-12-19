@@ -2312,6 +2312,8 @@ class Events:
         cat.insulted = False
         cat.flirted = False
         cat.did_activity = False
+
+        self.wildfire_deaths(cat)
         
         # prevent injured or sick cats from unrealistic Clan events
         if cat.is_ill() or cat.is_injured():
@@ -2958,27 +2960,24 @@ class Events:
         inventory = None
         stats = None
         experience = None
+
         if game.clan.next_activity == "investigate":
-            if "inventory" in activities[game.clan.next_activity]["outcomes"][game.clan.your_cat.map_position][outcome][outcome_choice]:
-                inventory = activities[game.clan.next_activity]["outcomes"][game.clan.your_cat.map_position][outcome][outcome_choice]["inventory"]
-            if "stats" in activities[game.clan.next_activity]["outcomes"][game.clan.your_cat.map_position][outcome][outcome_choice]:
-                stats = activities[game.clan.next_activity]["outcomes"][game.clan.your_cat.map_position][outcome][outcome_choice]["stats"]
-            if "experience" in activities[game.clan.next_activity]["outcomes"][game.clan.your_cat.map_position][outcome][outcome_choice]:
-                experience = activities[game.clan.next_activity]["outcomes"][game.clan.your_cat.map_position][outcome][outcome_choice]["experience"]
+            block = activities[game.clan.next_activity]["outcomes"][game.clan.your_cat.map_position][outcome][outcome_choice]
         else:
-            if "inventory" in activities[game.clan.next_activity]["outcomes"][outcome][outcome_choice]:
-                inventory = activities[game.clan.next_activity]["outcomes"][outcome][outcome_choice]["inventory"]
-            if "stats" in activities[game.clan.next_activity]["outcomes"][outcome][outcome_choice]:
-                stats = activities[game.clan.next_activity]["outcomes"][outcome][outcome_choice]["stats"]
-            if "experience" in activities[game.clan.next_activity]["outcomes"][outcome][outcome_choice]:
-                experience = activities[game.clan.next_activity]["outcomes"][outcome][outcome_choice]["experience"]
+            block = activities[game.clan.next_activity]["outcomes"][outcome][outcome_choice]
+        item_dict = {
+            "inventory": inventory,
+            "stats": stats,
+            "experience": experience
+        }
+        for key, value in item_dict.items():
+            if key in block:
+                value = block[key]
 
         if inventory is not None:
             given_items = []
             num = random.choices([1,2], [2, 1], k=1)
             given_items = random.sample(inventory["items"], k=num[0])
-            # id rather grab items from the item_dict.json food for each placement
-            # but its not seperated by prey + non-prey and im too lazy to change that
 
             if inventory["cat"] == "r_t":
                 gain_cat = random_tribute
@@ -4247,6 +4246,7 @@ class Events:
             self.handle_second_disaster()
     
     def filter_collateral_damage(self, possible_events, cat):
+        """ Filters collateral damage disaster events """
         for event in possible_events.copy():
             if "map_position" in event:
                 if "not" in event["map_position"]:
@@ -4259,17 +4259,48 @@ class Events:
                         possible_events.remove(event)
         return possible_events
     
+    def wildfire_deaths(self, cat):
+        # Cats caught in the wildfire.
+        safe_tiles = ["-1_-1", "0_-1", "1_-1", "-1_0", "0_0", "1_0", "-1_1", "0_1", "1_1"]
+        if (
+            game.clan.disaster == "Wildfire" and
+            game.clan.disaster_moon > 2 and
+            cat.map_position not in safe_tiles
+        ):
+            random_cat = None
+            event_text = "m_c could not outrun the flames and was burnt to death."
+            if cat.sleeping:
+                event_text = "The wildfire swallowed m_c while {PRONOUN/m_c/subject} slept."
+            for ally in cat.allies:
+                if Cat.fetch_cat(ally).sleeping or Cat.fetch_cat(ally).not_working():
+                    event_text = "m_c was caught in the fire and burnt to death trying to protect r_c."
+                    random_cat = Cat.fetch_cat(ally)
+                    break
+            event_text = event_text_adjust(
+                Cat,
+                event_text,
+                main_cat=cat,
+                random_cat=random_cat
+                )
+
+            History.add_death(cat, death_text="m_c was killed by a wildfire in the Arena.")
+            cat.die()
+            game.cur_events_list.append(Single_Event(event_text, "birth_death", [cat.ID]))
+            return
+        # --- 
     def handle_disaster_impacts(self, current_disaster, cat):
+        """ Heavily edited for HG """
+
         if not current_disaster:
             return
         
-        if cat.outside or cat.dead:
+        if cat.outside or cat.dead or cat == game.clan.your_cat:
             return
 
         if current_disaster["collateral_damage"]:
             random_cat = None
             possible_cats = [
-                cat for cat in Cat.all_cats_list if cat.map_position == cat.map_position and cat != game.clan.your_cat
+                kitty for kitty in Cat.all_cats_list if kitty.map_position == kitty.map_position and kitty != game.clan.your_cat and not kitty.dead and not kitty.outside and kitty.ID not in cat.allies
             ]
             if possible_cats:
                 random_cat = random.choice(possible_cats)
@@ -4314,6 +4345,7 @@ class Events:
                     )
 
                     game.cur_events_list.append(Single_Event(event_text, "health", involved_cats))
+                    return
 
             elif not int(random.random() * current_disaster["death_frequency"]):
                 if "deaths" in current_disaster["collateral_damage"]:
@@ -4345,9 +4377,9 @@ class Events:
                         involved_cats = [cat.ID]
 
                     if cat.status == "leader":
-                        death_history = chosen_event["reg_death"]
-                    else:
                         death_history = chosen_event["lead_death"]
+                    else:
+                        death_history = chosen_event["reg_death"]
 
                     # sort out history and events
                     History.add_death(cat, death_text=death_history)

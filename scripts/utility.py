@@ -304,6 +304,20 @@ def check_possible_directions(row_position, column_position, cat):
         if column_position == 0:
             north = False
             south = False
+    if game.clan.disaster == "Wildfire":
+        if row_position < -1:
+            east = True
+            west = False
+        elif row_position > 1:
+            west = True
+            east = False
+
+        if column_position < -1:
+            south = True
+            north = False
+        elif column_position > 1:
+            north = True
+            south = False
 
     # disabling travel buttons if the next image doesn't exist!
     # this allows me to expand the map as much as i want without recoding >:3

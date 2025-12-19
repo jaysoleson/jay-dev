@@ -28,7 +28,8 @@ from scripts.utility import (
     check_possible_directions,
     ui_scale_dimensions,
     get_current_season,
-    get_text_box_theme
+    get_text_box_theme,
+    ui_scale_blit,
 )
 from .Screens import Screens
 from ..ui.generate_button import ButtonStyles, get_button_dict
@@ -66,6 +67,29 @@ class ClanScreen(Screens):
         if not game.clan.clan_settings["backgrounds"]:
             self.set_bg(None)
         super().on_use()
+
+        if game.clan.clan_settings["backgrounds"]:
+            # wildfire!
+            if game.clan.disaster == "Wildfire" and game.clan.disaster_moon >= 2:
+                position = game.clan.your_cat.map_position
+                if game.clan.your_cat.dead:
+                    if game.clan.spectating:
+                        position = game.clan.spectating.map_position
+
+                filepath = f"resources/images/hg_maps/wildfire/{position}.png"
+
+                if os.path.exists(filepath):
+                    fireimage = pygame.transform.scale(
+                        image_cache.load_image(filepath),
+                        ui_scale_dimensions((800, 700))
+                    )
+                    screen.blit(fireimage,(0, 0))
+                elif position != "0_0":
+                    fireimage = pygame.transform.scale(
+                        image_cache.load_image("resources/images/hg_maps/wildfire/1_1.png"),
+                        ui_scale_dimensions((800, 700))
+                    )
+                    screen.blit(fireimage,(0, 0))
 
     def handle_event(self, event):
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:

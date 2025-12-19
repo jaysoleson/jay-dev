@@ -87,6 +87,7 @@ def rebuild_core(*, should_rebuild_bgs=True):
         starting_height=5,
         anchors={"left": "left", "left_target": menu_buttons["catlist_screen"]},
     )
+    menu_buttons["patrol_screen"].disable()
     menu_buttons["main_menu"] = UISurfaceImageButton(
         ui_scale(pygame.Rect((25, 25), (153, 30))),
         get_arrow(3) + " Main Menu",

@@ -7,7 +7,6 @@
         "season": [
             "any"
         ],
-        "priority": "both",
         "injury_frequency": 4,
         "death_frequency": 2,
         "duration": 7,
@@ -116,7 +115,6 @@
         ],
         "injury_frequency": 3,
         "death_frequency": 4,
-        "priority": "both",
         "duration": 7,
         "trigger_events": [
             "You hear a buzz by your ear and flick it away. Then, again. And again. You lift your head to see a dark mass on the horizon. A booming voice comes from the sky: a swarm of killer wasps is about to descend on the arena."
@@ -176,8 +174,8 @@
                         "text": [
                             "r_c shoves m_c into a swarm of wasps. m_c doesn't survive."
                         ],
-                        "reg_death": "m_c was shoved into a swarm of wasped by r_c.",
-                        "lead_death": "was shoved into a swarm of wasped by r_c"
+                        "reg_death": "m_c was shoved into a swarm of wasps by r_c.",
+                        "lead_death": "was shoved into a swarm of wasps by r_c"
                     }
                 ],
                 "reg": [
@@ -185,8 +183,94 @@
                         "text": [
                             "m_c accidentally disturbs a cloud of wasps and gets swarmed. m_c doesn't survive."
                         ],
-                        "reg_death": "m_c was killed by a swarm fo wasps.",
-                        "lead_death": "was killed by a swarm fo wasps"
+                        "reg_death": "m_c was killed by a swarm of wasps.",
+                        "lead_death": "was killed by a swarm of wasps"
+                    }
+                ]
+            }
+        }
+    },
+    "Wildfire": {
+        "event": "Wildfire",
+        "camp": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "injury_frequency": 6,
+        "death_frequency": 5,
+        "duration": 7,
+        "trigger_events": [
+            "Fire begins to flicker around the edges of the arena. Soon, a wildfire has broken out, destroying camps and shrinking the Arena's borders. Tributes are warned that they will be swallowed by flames if they do not head to the centre of the arena."
+        ],
+        "progress_events": {
+            "moon1": [
+                "The wildfire is pushing inwards."
+            ],
+            "moon2": [
+                "The wildfire burns on."
+            ],
+            "moon3": [
+                "The wildfire burns on."
+            ],
+            "moon4": [
+                "The wildfire burns on."
+            ],
+            "moon5": [
+                "The wildfire begins to shrink."
+            ],
+            "moon6": [
+                "The wildfire is shrinking."
+            ]
+        },
+        "conclusion_events": [
+            "The wildfire flickers out, bizarrely leaving an unmarred arena landscape to return to."
+        ],
+        "collateral_damage": {
+            "injuries": {
+                "other_cat": [
+                    {
+                        "text": [
+                            "r_c shoves m_c into the fire. m_c is able to escape, but not without a burn."
+                        ],
+                        "injuries": [
+                            "severe burn"
+                        ],
+                        "scar_event": "m_c was shoved into a wildlife by r_c."
+                    }
+                ],
+                "reg": [
+                    {
+                        "text": [
+                            "m_c races up a tree to escape from the rapidly approaching wildfire. It follows {PRONOUN/m_c/object} up and {PRONOUN/m_c/subject} {VERB/m_c/manage/manages} to jump down and escape with only an injury."
+                        ],
+                        "injuries": [
+                            "severe burn", "broken bone"
+                        ],
+                        "scar_event": "m_c was injured trying to escape a wildfire."
+                    }
+                ]
+            },
+            "deaths": {
+                "other_cat": [
+                    {
+                        "text": [
+                            "r_c shoves m_c into the fire. m_c doesn't survive.",
+                            "r_c get into a squabble near the edge of the wildfire. r_c pushes m_c in, killing {PRONOUN/m_c/object}."
+                        ],
+                        "reg_death": "m_c was shoved into a wildfire by r_c.",
+                        "lead_death": "was shoved into a wildfire by r_c"
+                    }
+                ],
+                "reg": [
+                    {
+                        "text": [
+                            "m_c is swallowed by the wildfire as {PRONOUN/m_c/subject} {VERB/m_c/try/tries} to salvage some supplies.",
+                            "m_c suffers a serious injury trying to escape from the wildfire. The flames catch up to {PRONOUN/m_c/object} as {PRONOUN/m_c/subject} {VERB/m_c/try/tries} to crawl away, and {PRONOUN/m_c/subject} {VERB/m_c/are/is} burnt to death."
+                        ],
+                        "reg_death": "m_c was killed by a wildfire.",
+                        "lead_death": "was killed by a wildfire"
                     }
                 ]
             }

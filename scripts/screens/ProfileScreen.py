@@ -779,6 +779,8 @@ class ProfileScreen(Screens):
         self.page = 0
         self.selected_item = None
 
+        # print(self.the_cat.map_position)
+
         # Set up the menu buttons, which appear on all cat profile images.
         self.next_cat_button = UISurfaceImageButton(
             ui_scale(pygame.Rect((622, 25), (153, 30))),
