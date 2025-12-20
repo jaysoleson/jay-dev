@@ -117,7 +117,7 @@
         "death_frequency": 10,
         "duration": 7,
         "trigger_events": [
-            "You hear a buzz by your ear and flick it away. Then, again. And again. You lift your head to see a dark mass on the horizon. A booming voice comes from the sky: a swarm of killer wasps is about to descend on the arena."
+            "A soft buzz can be heard in the distance. The sound grows, and, just as the tributes start to realise what it is, a voice comes from above. A swarm of killer wasps has been unleashed on the arena."
         ],
         "progress_events": {
             "moon1": [

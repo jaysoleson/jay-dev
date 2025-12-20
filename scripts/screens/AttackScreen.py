@@ -59,8 +59,8 @@ class AttackScreen(Screens):
                     ally == self.the_cat.ID or
                     Cat.fetch_cat(ally).sleeping or
                     Cat.fetch_cat(ally).not_working() or
-                    Cat.fetch_cat(ally).map_position != self.you.map_position or
-                    not Cat.fetch_cat(ally).dead
+                    Cat.fetch_cat(ally).map_position != game.clan.your_cat.map_position or
+                    Cat.fetch_cat(ally).dead
                     ):
                     # print("not appending", Cat.fetch_cat(ally).name, "to ally list")
                     continue

@@ -200,9 +200,10 @@ class Events:
         with open(f"{resource_dir}general.json",encoding="ascii") as read_file:
             disaster_text = disaster_text | ujson.loads(read_file.read())
 
-        if not game.clan.disaster and not int(random.random() * 2):
-            # new disaster!
-            game.clan.disaster = random.choice(list(disaster_text.keys()))
+        if game.clan.days >= 1:
+            if not game.clan.disaster and not int(random.random() * 35):
+                # new disaster!
+                game.clan.disaster = random.choice(list(disaster_text.keys()))
 
         if game.clan.disaster:
             current_disaster = disaster_text[game.clan.disaster]
@@ -1383,7 +1384,7 @@ class Events:
                         return
                 c = Cat.all_cats.get(random.choice(game.clan.clan_cats))
                 counter = 0
-                while not c.relationships.get(game.clan.your_cat.ID) or c.relationships.get(game.clan.your_cat.ID).romantic_love < 10 or c.outside:
+                while not c.relationships.get(game.clan.your_cat.ID) or c.relationships.get(game.clan.your_cat.ID).romantic_love < 10 or c.outside or c.map_position != game.clan.your_cat.map_position:
                     if counter == 15:
                         return
                     c = Cat.all_cats.get(random.choice(game.clan.clan_cats))
@@ -2615,10 +2616,24 @@ class Events:
         dead_bloodbath_cat_objects = []
         dead_bloodbath_cats = []
 
-        for i in range(dead_cats):
-            bloodbath_cat_objects[i].die()
-            dead_bloodbath_cat_objects.append(bloodbath_cat_objects[i])
-            dead_bloodbath_cats.append(str(bloodbath_cat_objects[i].name))
+        # find all the cats that lived
+        alive_cats = [
+            i for i in bloodbath_cat_objects if (
+                i not in dead_bloodbath_cat_objects
+                )]
+        if alive_cats:
+            dead_num = 0
+            for cat in bloodbath_cat_objects:
+                if dead_num >= dead_cats:
+                    break
+                potential_killers = [i for i in alive_cats if i.experience > cat.experience]
+                if potential_killers:
+                    killer = random.choice(potential_killers)
+                    cat.die()
+                    dead_num += 1
+                    dead_bloodbath_cat_objects.append(cat)
+                    dead_bloodbath_cats.append(str(cat.name))
+                    History.add_murders(cat, killer, True, "m_c killed this cat during the bloodbath.")
 
         if len(bloodbath_cats) > 2:
             string = f"{', '.join(bloodbath_cats[:-1])}, and {bloodbath_cats[-1]} partake in the bloodbath."
@@ -2642,16 +2657,6 @@ class Events:
                 string2 = ""
 
         game.cur_events_list.insert(0, Single_Event(string + string2, "alert", involved_cats))
-
-        # find all the cats that lived
-        alive_cats = [
-            i for i in bloodbath_cat_objects if (
-                i not in dead_bloodbath_cat_objects
-                )]
-        if alive_cats:
-            for cat in dead_bloodbath_cat_objects:
-                killer = random.choice(alive_cats)
-                History.add_murders(cat, killer, True, "m_c killed this cat during the bloodbath.")
 
 
         # print(prey)
@@ -2983,14 +2988,18 @@ class Events:
             block = activities[game.clan.next_activity]["outcomes"][game.clan.your_cat.map_position][outcome][outcome_choice]
         else:
             block = activities[game.clan.next_activity]["outcomes"][outcome][outcome_choice]
-        item_dict = {
-            "inventory": inventory,
-            "stats": stats,
-            "experience": experience
-        }
-        for key, value in item_dict.items():
+        
+        options = [
+            "inventory", "stats", "exprience"
+        ]
+        for key in options:
             if key in block:
-                value = block[key]
+                if key == "inventory":
+                    inventory = block[key]
+                elif key == "stats":
+                    stats = block[key]
+                elif key == "experience":
+                    experience = block[key]
 
         if inventory is not None:
             given_items = []
@@ -4413,7 +4422,7 @@ class Events:
                         death_history = chosen_event["reg_death"]
 
                     # sort out history and events
-                    History.add_death(cat, death_text=death_history)
+                    History.add_death(cat, death_text=death_history, other_cat=random_cat)
                     if random_cat:
                         History.add_murders(cat, random_cat, True, death_history)
 

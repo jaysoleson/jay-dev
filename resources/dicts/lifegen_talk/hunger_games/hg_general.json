@@ -648,7 +648,8 @@
             "meeting",
             "they_have_food",
             "they_blind",
-            "you_blind"
+            "you_blind",
+            "not_same_clan"
         ],
         "intro": [
             "[The tribute turns on you and hisses, swiping the air in front of your nose with claws unsheathed.]",
@@ -2037,6 +2038,28 @@
         "intro": [
             "tg_c didn't deserve to die here.",
             "These games are cruel."
+        ]
+    },
+    "hg_41": {
+        "tags": [
+            "they_blind",
+            "you_blind",
+            "any"
+        ],
+        "intro": [
+            "Sorry. I'm not trading any of my supplies."
+        ]
+    },
+    "hg_42": {
+        "tags": [
+            "they_blind",
+            "you_blind",
+            "any"
+        ],
+        "intro": [
+            "I wonder just how much control StarClan has over this arena.",
+            "Can they control the tides? The weather? Did they plant all the trees and plan this all out?",
+            "Why did they put us here..?"
         ]
     }
 }

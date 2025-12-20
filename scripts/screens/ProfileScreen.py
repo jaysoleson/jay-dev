@@ -3188,7 +3188,7 @@ class ProfileScreen(Screens):
                     str(int(e_value)) +
                     " energy\n"
                     ),
-                ui_scale(pygame.Rect((460, 265), (180, 70))),
+                ui_scale(pygame.Rect((460, 268), (180, -1))),
                 object_id=(
                     "#text_box_26_horizcenter_vertcenter_spacing_95"),
                 manager=MANAGER)

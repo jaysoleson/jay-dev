@@ -1272,7 +1272,7 @@ class MakeClanScreen(Screens):
 
         self.elements['select_cat'] = UISurfaceImageButton(
             ui_scale(pygame.Rect((353, 360), (95, 30))),
-            "recruit",
+            "select",
             get_button_dict(ButtonStyles.SQUOVAL, (95, 30)),
             manager=MANAGER,
             object_id="@buttonstyles_squoval",
