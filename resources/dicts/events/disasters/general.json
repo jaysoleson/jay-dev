@@ -7,8 +7,8 @@
         "season": [
             "any"
         ],
-        "injury_frequency": 4,
-        "death_frequency": 2,
+        "injury_frequency": 8,
+        "death_frequency": 10,
         "duration": 7,
         "trigger_events": [
             "A booming voice reaches the tributes from the skies. The Cornucopia has been restocked with supplies, including crucial herbs and food. The voice encourages all tributes to take advantage of the Arena's generosity before it's all gone tomorrow."
@@ -113,8 +113,8 @@
         "season": [
             "any"
         ],
-        "injury_frequency": 3,
-        "death_frequency": 4,
+        "injury_frequency": 8,
+        "death_frequency": 10,
         "duration": 7,
         "trigger_events": [
             "You hear a buzz by your ear and flick it away. Then, again. And again. You lift your head to see a dark mass on the horizon. A booming voice comes from the sky: a swarm of killer wasps is about to descend on the arena."
@@ -147,7 +147,8 @@
                 "other_cat": [
                     {
                         "text": [
-                            "r_c shoves m_c into a swarm of wasps. {PRONOUN/m_c/subject/CAP} {VERB/m_c/survive/survives}, but {VERB/m_c/don't/doesn't} escape unstung."
+                            "r_c shoves m_c into a swarm of wasps. {PRONOUN/m_c/subject/CAP} {VERB/m_c/survive/survives}, but {VERB/m_c/don't/doesn't} escape unstung.",
+                            "When m_c and r_c both find each other hiding from a cloud of wasps in the same bush, r_c shoves m_c out into the open. m_c is stung, but manages to escape with {PRONOUN/m_c/poss} life."
                         ],
                         "injuries": [
                             "bee sting"
@@ -181,7 +182,8 @@
                 "reg": [
                     {
                         "text": [
-                            "m_c accidentally disturbs a cloud of wasps and gets swarmed. m_c doesn't survive."
+                            "m_c accidentally disturbs a cloud of wasps and gets swarmed. m_c doesn't survive.",
+                            "m_c is killed by a swarm of wasps."
                         ],
                         "reg_death": "m_c was killed by a swarm of wasps.",
                         "lead_death": "was killed by a swarm of wasps"
@@ -198,18 +200,18 @@
         "season": [
             "any"
         ],
-        "injury_frequency": 6,
-        "death_frequency": 5,
+        "injury_frequency": 9,
+        "death_frequency": 8,
         "duration": 7,
         "trigger_events": [
             "Fire begins to flicker around the edges of the arena. Soon, a wildfire has broken out, destroying camps and shrinking the Arena's borders. Tributes are warned that they will be swallowed by flames if they do not head to the centre of the arena."
         ],
         "progress_events": {
             "moon1": [
-                "The wildfire is pushing inwards."
+                "The wildfire is pushing inwards. Those who do not flee the edges of the arena will not survive."
             ],
             "moon2": [
-                "The wildfire burns on."
+                "The wildfire burns on. Those who do not flee the edges of the arena will not survive."
             ],
             "moon3": [
                 "The wildfire burns on."
@@ -232,18 +234,21 @@
                 "other_cat": [
                     {
                         "text": [
-                            "r_c shoves m_c into the fire. m_c is able to escape, but not without a burn."
+                            "r_c shoves m_c into the fire. m_c is able to escape, but not without a burn.",
+                            "r_c chases m_c up a burning tree. m_c is able to leap out and escape after suffering a burn.",
+                            "m_c gets burnt leaping through a patch of fire to escape r_c."
                         ],
                         "injuries": [
                             "severe burn"
                         ],
-                        "scar_event": "m_c was shoved into a wildlife by r_c."
+                        "scar_event": "m_c was burned trying to escape r_c."
                     }
                 ],
                 "reg": [
                     {
                         "text": [
-                            "m_c races up a tree to escape from the rapidly approaching wildfire. It follows {PRONOUN/m_c/object} up and {PRONOUN/m_c/subject} {VERB/m_c/manage/manages} to jump down and escape with only an injury."
+                            "m_c races up a tree to escape from the rapidly approaching wildfire. It follows {PRONOUN/m_c/object} up and {PRONOUN/m_c/subject} {VERB/m_c/manage/manages} to jump down and escape with only an injury.",
+                            "m_c is injured trying to escape the wildfire."
                         ],
                         "injuries": [
                             "severe burn", "broken bone"
@@ -257,7 +262,7 @@
                     {
                         "text": [
                             "r_c shoves m_c into the fire. m_c doesn't survive.",
-                            "r_c get into a squabble near the edge of the wildfire. r_c pushes m_c in, killing {PRONOUN/m_c/object}."
+                            "m_c and r_c get into a squabble near the edge of the wildfire. r_c pushes m_c in, killing {PRONOUN/m_c/object}."
                         ],
                         "reg_death": "m_c was shoved into a wildfire by r_c.",
                         "lead_death": "was shoved into a wildfire by r_c"

@@ -200,7 +200,7 @@ class Events:
         with open(f"{resource_dir}general.json",encoding="ascii") as read_file:
             disaster_text = disaster_text | ujson.loads(read_file.read())
 
-        if not game.clan.disaster and not int(random.random() * 40):
+        if not game.clan.disaster and not int(random.random() * 2):
             # new disaster!
             game.clan.disaster = random.choice(list(disaster_text.keys()))
 
@@ -210,8 +210,15 @@ class Events:
             current_disaster = None
 
         self.handle_disaster(current_disaster)
+
+        num_cats = get_all_tributes_count(Cat)
+        num_alive_cats = get_living_clan_cat_count(Cat)
+        percentage = round((num_alive_cats / num_cats) * 100)
+
+        # print(f"Alive Cats: {num_alive_cats}/{num_cats}")
+
         for cat in Cat.all_cats_list:
-            self.handle_disaster_impacts(current_disaster, cat)
+            self.handle_disaster_impacts(current_disaster, cat, percentage)
 
         taken_placements = []
         for cat in Cat.all_cats.copy().values():
@@ -2383,7 +2390,9 @@ class Events:
         if cat.ID == game.clan.your_cat.ID:
             try:
                 cat.moon_placement = self.MAP_POSITION_INFO[game.clan.your_cat.map_position]["mc_placement"]
-            except:
+            except Exception as e:
+                print("Giving your cat default placement")
+                print(e)
                 cat.moon_placement = [350, 400]
         else:
             try:
@@ -2788,8 +2797,16 @@ class Events:
 
                 if game.clan.timeskips in [6, 7, 8, 9, 10]:
                     num -= (num / 4)
+                
+                if game.clan.disaster:
+                    # the commotion of the disaster, whatever it is,
+                    # is probably enough to wake some people up\
+                    # num = round(num/2)
+                    if num > 3:
+                        num = 3
 
                 if not int(random.random() * num):
+                    print(cat.name, "waking up")
                     cat.sleeping = False
 
         else:
@@ -4265,7 +4282,7 @@ class Events:
         safe_tiles = ["-1_-1", "0_-1", "1_-1", "-1_0", "0_0", "1_0", "-1_1", "0_1", "1_1"]
         if (
             game.clan.disaster == "Wildfire" and
-            game.clan.disaster_moon > 2 and
+            game.clan.disaster_moon > 3 and
             cat.map_position not in safe_tiles
         ):
             random_cat = None
@@ -4289,23 +4306,27 @@ class Events:
             game.cur_events_list.append(Single_Event(event_text, "birth_death", [cat.ID]))
             return
         # --- 
-    def handle_disaster_impacts(self, current_disaster, cat):
+    def handle_disaster_impacts(self, current_disaster, cat, percentage):
         """ Heavily edited for HG """
 
         if not current_disaster:
             return
-        
+
         if cat.outside or cat.dead or cat == game.clan.your_cat:
             return
 
-        # modify the injury/death chances based on how many cats there are
-        num_cats = get_all_tributes_count(Cat)
-        num_alive_cats = get_living_clan_cat_count(Cat)
-        percentage = num_alive_cats / num_cats
-        if percentage > 0.3:
-            modifier = round(percentage * 0.5)
+        if percentage > 60:
+            modifier = round((percentage / 10) * 0.75)
+        elif percentage > 40:
+            modifier = round((percentage / 10))
         else:
-            modifier = round(percentage)
+            modifier = round(percentage / 10 / 0.75)
+
+        # print("INJURY CHANCE:", (current_disaster["injury_frequency"]))
+        # print("DEATH CHANCE:", (current_disaster["death_frequency"]))
+        # print("MODIFIER:", modifier)
+        # print("INJURY CHANCE:", (current_disaster["injury_frequency"] * modifier))
+        # print("DEATH CHANCE:", (current_disaster["death_frequency"] * modifier))
 
         if current_disaster["collateral_damage"]:
             random_cat = None

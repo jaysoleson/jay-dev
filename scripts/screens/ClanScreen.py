@@ -70,7 +70,7 @@ class ClanScreen(Screens):
 
         if game.clan.clan_settings["backgrounds"]:
             # wildfire!
-            if game.clan.disaster == "Wildfire" and game.clan.disaster_moon >= 2:
+            if game.clan.disaster == "Wildfire" and game.clan.disaster_moon >= 3:
                 position = game.clan.your_cat.map_position
                 if game.clan.your_cat.dead:
                     if game.clan.spectating:

@@ -1883,8 +1883,8 @@
             "they_have_deathberry"
         ],
         "intro": [
-            "[You return back to your stash with t_c after a short hutnign session to see them messing around with a mouse and some bright red berries. It looks almost as if they're stuffing a deathberry into its mouth.]",
-            "[When you get close, t_c jumps, stepping in front of the mouth. Are they trying to hide something?]"
+            "[You return back to your stash with t_c after a short hunting session to see {PRONOUN/m_c/object} messing around with a mouse and some bright red berries. It looks almost as if {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} stuffing a deathberry into its mouth.]",
+            "[When you get close, t_c jumps, stepping in front of the mouse. {VERB/m_c/Are/Is} {PRONOUN/m_c/subject} trying to hide something?]"
         ],
         "intro_choices": {
             "choice1": {
