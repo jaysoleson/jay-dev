@@ -175,6 +175,15 @@ class Game:
         settings[setting] = values[0]
         setting_lists[setting] = values
 
+    # INF
+    for setting, values in _settings["infection"].items():
+        if setting == "custom infection types":
+            settings[setting] = values
+        else:
+            settings[setting] = values[0]
+        setting_lists[setting] = values
+    
+
     _ = []
     _.append(_settings["general"])
 
@@ -401,6 +410,7 @@ class Game:
         self.settings_changed = True
 
         # Give the index that the list is currently at
+        print(self.setting_lists)
         list_index = self.setting_lists[setting_name].index(self.settings[setting_name])
 
         if (

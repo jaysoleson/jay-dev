@@ -69,6 +69,7 @@ from scripts.utility import (
     get_infection_type,
     get_random_cat_from_rel_value
 )
+
 class BirthType(Enum):
     NO_PARENTS = "birth_no_parents"
     ONE_PARENT = "birth_one_parent"
@@ -545,6 +546,9 @@ class Events:
         """
         current_type = get_infection_info("type")
         inftypes = ["fungal", "void", "parasitic"]
+
+        if game.settings["custom infection types"] and game.settings["custom infection types active"]:
+            inftypes += game.settings["custom infection types"]
 
         past_infections = []
 

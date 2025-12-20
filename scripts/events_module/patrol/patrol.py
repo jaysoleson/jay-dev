@@ -756,23 +756,13 @@ class Patrol:
                     continue
             if skip:
                 continue
+            if game.settings["custom infection types"] and game.settings["custom infection types active"]:
+                infection_types = ["fungal", "parasitic", "void"] + [i.lower() for i in game.settings['custom infection types']]
+            else:
+                infection_types = ["fungal", "parasitic", "void"]
 
-            if get_infection_info("type") == "fungal":
-                if "parasitic" in patrol.tags:
-                    continue
-                if "void" in patrol.tags:
-                    continue
-
-            if get_infection_info("type") == "parasitic":
-                if "fungal" in patrol.tags:
-                    continue
-                if "void" in patrol.tags:
-                    continue
-
-            if get_infection_info("type") == "void":
-                if "parasitic" in patrol.tags:
-                    continue
-                if "fungal" in patrol.tags:
+            if any(t in patrol.tags for t in infection_types):
+                if get_infection_info("type") not in patrol.tags:
                     continue
 
             if get_infection_info("spread_by") == "air":

@@ -306,6 +306,7 @@ class Condition_Events:
                 sickness_chance = 10
                 infected = True
             
+            # TODO: move to JSON for custom inftypes
             string_dict = {
                 "parasitic": f"The infection is beginning to destroy {cat.name}'s body.",
                 "void": f"The infection has left {cat.name} feeling especially hollow today...",
@@ -322,6 +323,8 @@ class Condition_Events:
                     infection_type = cat.illnesses[illness]["type"]
                     break
             if not infection_type:
+                return
+            if infection_type not in string_dict:
                 return
             infection_condition = infection_conditions[infection_type]
 

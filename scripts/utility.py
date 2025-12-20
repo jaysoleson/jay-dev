@@ -4462,7 +4462,6 @@ def get_infection_info(item, cat=None, num=None):
 def update_infection_info(item, new_value):
     game.clan.infection[game.clan.infection["current_infection"]][item] = new_value
 
-
 def quit(savesettings=False, clearevents=False):
     """
     Quits the game, avoids a bunch of repeated lines

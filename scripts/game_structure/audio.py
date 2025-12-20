@@ -59,10 +59,8 @@ class MusicManager:
 
         unavailable_playlists = [self.playlists["menu_playlist"]]
         if game.clan and game.clan.infection:
-            unavailable_playlists.append(self.playlists[f"{get_infection_info('type')}_playlist"])
-            # unavailable_playlists.append(self.playlists["fungal_playlist"])
-            # unavailable_playlists.append(self.playlists["void_playlist"])
-            # unavailable_playlists.append(self.playlists["parasitic_playlist"])
+            if f"{get_infection_info('type')}_playlist" in self.playlists:
+                unavailable_playlists.append(self.playlists[f"{get_infection_info('type')}_playlist"])
 
         # menu screen
         if (

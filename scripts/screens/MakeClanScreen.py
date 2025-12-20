@@ -39,6 +39,8 @@ from scripts.events_module.patrol.patrol import Patrol
 
 from ..game_structure.windows import SaveAsImage
 
+from scripts.cat.sprites import sprites
+
 
 
 class MakeClanScreen(Screens):
@@ -134,6 +136,8 @@ class MakeClanScreen(Screens):
     tabs = {}
     symbol_buttons = {}
 
+    inftype_buttons = {}
+
     # used in symbol screen only - parent container is in element dict
     text = {}
 
@@ -228,7 +232,12 @@ class MakeClanScreen(Screens):
         self.elder_pose = 12
         self.faith = "flexible"
 
-        self.infection_type = random.choice(["fungal", "void", "parasitic"])
+        if game.settings["custom infection types"] and game.settings["custom infection types active"]:
+            self.infection_options = ["fungal", "void", "parasitic"] + [i.lower() for i in game.settings['custom infection types']]
+        else:
+            self.infection_options = ["fungal", "void", "parasitic"]
+
+        self.infection_type = random.choice(self.infection_options)
 
         game.choose_cats = {}
         self.skills = ["Random"]
@@ -503,30 +512,33 @@ class MakeClanScreen(Screens):
             self.elements['new'].disable()
             self.clan_age = "new"
 
-        elif event.ui_element == self.elements["fungal"]:
-            self.infection_type = "fungal"
-            self.elements["fungal"].disable()
-            self.elements["void"].enable()
-            self.elements["parasitic"].enable()
-            self.elements["random_type"].enable()
-        elif event.ui_element == self.elements["void"]:
-            self.infection_type = "void"
-            self.elements["void"].disable()
-            self.elements["fungal"].enable()
-            self.elements["parasitic"].enable()
-            self.elements["random_type"].enable()
-        elif event.ui_element == self.elements["parasitic"]:
-            self.infection_type = "parasitic"
-            self.elements["parasitic"].disable()
-            self.elements["fungal"].enable()
-            self.elements["void"].enable()
-            self.elements["random_type"].enable()
-        elif event.ui_element == self.elements["random_type"]:
-            self.infection_type = random.choice(["fungal", "void", "parasitic"])
-            self.elements["random_type"].disable()
-            self.elements["fungal"].enable()
-            self.elements["void"].enable()
-            self.elements["parasitic"].enable()
+        # pylint: disable=consider-using-dict-items
+        for button in self.inftype_buttons:
+            if event.ui_element == self.inftype_buttons[button]:
+                if button == "random_type":
+                    options = self.infection_options
+                    for inftype in options.copy():
+                        if not sprites.check_custom_infection_sprite_validity(inftype):
+                            options.remove(inftype)
+                    self.infection_type = random.choice(options)
+                    print("Random choice:", self.infection_type)
+                    self.update_inftype_buttons(random=True)
+                else:
+                    self.inftype_buttons["random_type"].enable()
+                    self.infection_type = button
+                    self.update_inftype_buttons()
+    
+    def update_inftype_buttons(self, random=False):
+        for item in self.inftype_buttons:
+            if item != "random_type":
+                if sprites.check_custom_infection_sprite_validity(item):
+                    self.inftype_buttons[item].enable()
+                else:
+                    self.inftype_buttons[item].disable()
+        if not random:
+            self.inftype_buttons[self.infection_type].disable()
+        else:
+            self.inftype_buttons["random_type"].disable()
 
     
     def random_clan_name(self):
@@ -889,6 +901,11 @@ class MakeClanScreen(Screens):
         self.fullscreen_bgs = {}
         self.game_bgs = {}
         self.set_mute_button_position("bottomright")
+
+        for item in self.inftype_buttons:
+            self.inftype_buttons[item].kill()
+        self.inftype_buttons = {}
+
         return super().exit_screen()
 
     def on_use(self):
@@ -1916,34 +1933,55 @@ class MakeClanScreen(Screens):
                                                               object_id="#text_box_30_horizcenter",
                                                               manager=MANAGER)
         
-        self.elements["fungal"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((227, 275), (110, 30))),
-            Icon.HERB + " Fungal",
-            get_button_dict(ButtonStyles.SQUOVAL, (110, 30)),
-            object_id="@buttonstyles_squoval",
-            tool_tip_text="An intrusive fungus.",
-            manager=MANAGER
-        )
+        button_dict = {
+            "fungal": [
+                Icon.HERB, "An intrusive fungus."
+            ],
+            "parasitic": [
+                Icon.SCRATCHES, "Gorey and violent."
+            ],
+            "void": [
+                Icon.DARKFOREST, "A sickness with supernatural properties."
+            ],
+            "custom": [
+                Icon.CAT_HEAD, "Custom infection!"
+            ]
+        }
+        x_pos = 220
+        y_pos = 275
+        for inftype in self.infection_options:
+            if inftype in button_dict:
+                icon = button_dict[inftype][0] + " "
+                tooltip = button_dict[inftype][1]
+            else:
+                icon = button_dict["custom"][0] + " "
+                tooltip = button_dict["custom"][1]
+
+            self.inftype_buttons[inftype] = UISurfaceImageButton(
+                ui_scale(pygame.Rect((x_pos, y_pos), (110, 30))),
+                icon + inftype.capitalize(),
+                get_button_dict(ButtonStyles.SQUOVAL, (110, 30)),
+                object_id="@buttonstyles_squoval",
+                tool_tip_text=tooltip,
+                manager=MANAGER
+            )
+            if sprites.check_custom_infection_sprite_validity(inftype):
+                self.inftype_buttons[inftype].enable()
+            else:
+                self.inftype_buttons[inftype].disable()
+                self.elements[inftype + "_invalid"] = pygame_gui.elements.UITextBox(
+                    "invalid",
+                    ui_scale(pygame.Rect((x_pos, y_pos + 25), (120, 30))),
+                    object_id=ObjectID("#text_box_22_horizcenter", "#dark"),
+                    manager=MANAGER,
+                )
+
+            x_pos += 120
+            if x_pos >= 650:
+                x_pos = 220
+                y_pos += 45
         
-        self.elements["parasitic"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((347, 275), (110, 30))),
-            Icon.SCRATCHES + " Parasitic",
-            get_button_dict(ButtonStyles.SQUOVAL, (110, 30)),
-            object_id="@buttonstyles_squoval",
-            tool_tip_text="Gorey and violent.",
-            manager=MANAGER
-        )
-        
-        self.elements["void"] = UISurfaceImageButton(
-            ui_scale(pygame.Rect((467, 275), (110, 30))),
-            Icon.DARKFOREST + " Void",
-            get_button_dict(ButtonStyles.SQUOVAL, (110, 30)),
-            object_id="@buttonstyles_squoval",
-            tool_tip_text="A sickness with supernatural properties.",
-            manager=MANAGER
-        )
-        
-        self.elements["random_type"] = UISurfaceImageButton(
+        self.inftype_buttons["random_type"] = UISurfaceImageButton(
             ui_scale(pygame.Rect((182, 275), (30, 30))),
             Icon.DICE,
             get_button_dict(ButtonStyles.ICON, (30, 30)),
@@ -1951,11 +1989,7 @@ class MakeClanScreen(Screens):
             tool_tip_text="Leave your fate up to chance.",
             manager=MANAGER
         )
-        
-        self.elements["random_type"].disable()
-        self.elements["fungal"].enable()
-        self.elements["void"].enable()
-        self.elements["parasitic"].enable()
+        self.inftype_buttons["random_type"].enable()
 
     def clan_name_header(self):
         self.elements["name_backdrop"] = pygame_gui.elements.UIImage(
@@ -1974,6 +2008,10 @@ class MakeClanScreen(Screens):
         """Set up the screen for the choose leader phase."""
         self.clear_all_page()
         self.sub_screen = "choose leader"
+
+        for item in self.inftype_buttons:
+            self.inftype_buttons[item].kill()
+        self.inftype_buttons = {}
 
         if game.settings['dark mode']:
             self.elements['background'] = pygame_gui.elements.UIImage(ui_scale(pygame.Rect((500, 1000), (600, 70))),
@@ -4758,7 +4796,7 @@ class MakeClanScreen(Screens):
                             starting_season=self.selected_season,
                             your_cat=self.your_cat,
                             clan_age=self.clan_age)
-            game.switches["make_clan_infection_type"] = self.infection_type
+            game.switches["make_clan_infection_type"] = self.infection_type.lower()
             game.clan.your_cat.moons = -1
             game.clan.create_clan()
             if self.clan_age == "established":

@@ -643,10 +643,15 @@ class CureLogScreen(Screens):
             )
         
         if "start" in get_infection_info("logs"):
+            try:
+                image = f"#{get_infection_info('type')}_stamp_start"
+            except:
+                image = f"#fungal_stamp_start"
+
             self.stamps["start"] = UIImageButton(
                 ui_scale(pygame.Rect((0, 0), (74, 118))),
                 "",
-                object_id=f"#{get_infection_info('type')}_stamp_start",
+                object_id=image,
                 tool_tip_text=f"<b>LifeGen: INFECTION</b>\nYou've discovered the infection ({get_infection_info('type')}).",
                 manager=MANAGER,
                 anchors={"centerx": "centerx", "centery": "centery"}
@@ -654,6 +659,9 @@ class CureLogScreen(Screens):
         
         all_infections = False
         all_types = ["void", "parasitic", "fungal"]
+
+        if game.settings["custom infection types"] and game.settings["custom infection types active"]:
+            all_types += [i.lower() for i in game.settings['custom infection types']]
 
         zombiestamp = False
 

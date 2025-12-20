@@ -10,6 +10,8 @@ import pygame_gui
 import ujson
 
 from scripts.game_structure.discord_rpc import _DiscordRPC
+from scripts.housekeeping.datadir import get_save_dir
+
 from scripts.game_structure.game_essentials import game
 from scripts.game_structure.ui_elements import (
     UIImageButton,
@@ -54,6 +56,9 @@ class SettingsScreen(Screens):
     # Contains the text for the checkboxes.
     checkboxes_text = {}
 
+    inftype_checkboxes = {}
+    inftype_checkboxes_text = {}
+
     # Contains the volume elements
     volume_elements = {}
 
@@ -71,6 +76,9 @@ class SettingsScreen(Screens):
     tooltip_text = []
     info_text_index = "welcome"
     contributors_start = 0
+
+    inftypes_to_delete = []
+
     with open("resources/credits_text.json", "r", encoding="utf-8") as f:
         credits_text = ujson.load(f)
     for string in credits_text["text"]:
@@ -158,6 +166,8 @@ class SettingsScreen(Screens):
                 self.settings_changed = False
                 self.update_save_button()
                 return
+            elif event.ui_element == self.add_infection_type:
+                self.save_infection_types()
             elif event.ui_element == self.general_settings_button:
                 self.open_general_settings()
                 return
@@ -166,10 +176,24 @@ class SettingsScreen(Screens):
             elif event.ui_element == self.info_button:
                 self.open_info_screen()
                 return
+            # INF
+            elif event.ui_element == self.infection_button:
+                self.open_infection_settings()
+                return
+            # ---
             elif event.ui_element == self.language_button:
                 self.open_lang_settings()
-            if self.sub_menu in ["general", "relation", "language"]:
+            if self.sub_menu in ["general", "relation", "language", "infection"]:
                 self.handle_checkbox_events(event)
+            
+            for button in self.inftype_checkboxes:
+                if event.ui_element == self.inftype_checkboxes[button]:
+                    if button in self.inftypes_to_delete:
+                        self.inftypes_to_delete.remove(button)
+                    else:
+                        self.inftypes_to_delete.append(button)
+                    self.create_inftype_list()
+                    break
 
         elif event.type == pygame.KEYDOWN and game.settings["keybinds"]:
             if event.key == pygame.K_ESCAPE:
@@ -240,38 +264,59 @@ class SettingsScreen(Screens):
         super().screen_switches()
         self.show_mute_buttons()
         self.settings_changed = False
+        self.custom_infection_input = None
 
         self.general_settings_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((100, 100), (150, 30))),
-            "general settings",
-            get_button_dict(ButtonStyles.MENU_LEFT, (150, 30)),
+            ui_scale(pygame.Rect((100, 100), (120, 30))),
+            "general",
+            get_button_dict(ButtonStyles.MENU_LEFT, (120, 30)),
             object_id="@buttonstyles_menu_left",
             manager=MANAGER,
         )
         self.audio_settings_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((0, 100), (150, 30))),
-            "audio settings",
-            get_button_dict(ButtonStyles.MENU_MIDDLE, (150, 30)),
+            ui_scale(pygame.Rect((0, 100), (120, 30))),
+            "audio",
+            get_button_dict(ButtonStyles.MENU_MIDDLE, (120, 30)),
             object_id="@buttonstyles_menu_middle",
             manager=MANAGER,
             anchors={"left_target": self.general_settings_button},
         )
         self.info_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((0, 100), (150, 30))),
+            ui_scale(pygame.Rect((0, 100), (120, 30))),
             "info",
-            get_button_dict(ButtonStyles.MENU_MIDDLE, (150, 30)),
+            get_button_dict(ButtonStyles.MENU_MIDDLE, (120, 30)),
             object_id="@buttonstyles_menu_middle",
             manager=MANAGER,
             anchors={"left_target": self.audio_settings_button},
         )
         self.language_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((0, 100), (150, 30))),
+            ui_scale(pygame.Rect((0, 100), (120, 30))),
             "language",
-            get_button_dict(ButtonStyles.MENU_RIGHT, (150, 30)),
-            object_id="@buttonstyles_menu_right",
+            get_button_dict(ButtonStyles.MENU_MIDDLE, (120, 30)),
+            object_id="@buttonstyles_menu_middle",
             manager=MANAGER,
             anchors={"left_target": self.info_button},
         )
+        # INF
+        self.infection_button = UISurfaceImageButton(
+            ui_scale(pygame.Rect((0, 100), (120, 30))),
+            "infection",
+            get_button_dict(ButtonStyles.MENU_RIGHT, (120, 30)),
+            object_id="@buttonstyles_menu_right",
+            manager=MANAGER,
+            anchors={"left_target": self.language_button},
+        )
+        self.infection_button.disable()
+        self.add_infection_type = UISurfaceImageButton(
+            ui_scale(pygame.Rect((0, 0), (150, 30))),
+            "",
+            get_button_dict(ButtonStyles.SQUOVAL, (150, 30)),
+            object_id="@buttonstyles_squoval",
+            manager=MANAGER,
+            anchors={"centerx": "centerx"},
+        )
+        self.add_infection_type.hide()
+        # ---
         self.save_settings_button = UISurfaceImageButton(
             ui_scale(pygame.Rect((0, 550), (150, 30))),
             "Save Settings",
@@ -347,10 +392,17 @@ class SettingsScreen(Screens):
         del self.audio_settings_button
         self.info_button.kill()
         del self.info_button
+        self.infection_button.kill()
+        del self.infection_button
         self.language_button.kill()
         del self.language_button
         self.save_settings_button.kill()
         del self.save_settings_button
+        self.add_infection_type.kill()
+        del self.add_infection_type
+        if self.custom_infection_input:
+            self.custom_infection_input.kill()
+            del self.custom_infection_input
         self.main_menu_button.kill()
         del self.main_menu_button
         self.fullscreen_toggle.kill()
@@ -365,6 +417,23 @@ class SettingsScreen(Screens):
         """Saves the settings, ensuring that they will be retained when the screen changes."""
         self.settings_at_open = game.settings.copy()
 
+    def save_infection_types(self):
+        new_inftype = self.custom_infection_input.get_text()
+        if new_inftype:
+            if new_inftype not in game.settings["custom infection types"]:
+                game.settings["custom infection types"].append(new_inftype)
+            self.custom_infection_input.set_text("")
+
+        for inftype in game.settings["custom infection types"]:
+            if inftype.lower() in self.inftypes_to_delete:
+                game.settings["custom infection types"].remove(inftype)
+
+        self.inftypes_to_delete = []
+        
+        self.settings_changed = True
+        self.update_save_button()
+        self.create_inftype_list()
+
     def open_general_settings(self):
         """Opens and draws general_settings"""
         self.enable_all_menu_buttons()
@@ -372,6 +441,9 @@ class SettingsScreen(Screens):
         self.clear_sub_settings_buttons_and_text()
         self.sub_menu = "general"
         self.save_settings_button.show()
+        self.add_infection_type.hide()
+        if self.custom_infection_input:
+            self.custom_infection_input.hide()
 
         self.checkboxes_text[
             "container_general"
@@ -414,12 +486,167 @@ class SettingsScreen(Screens):
         #   Fix if you want. - keyraven
         self.refresh_checkboxes()
 
+    def open_infection_settings(self):
+        """Opens and draws INFECTION settings"""
+        self.enable_all_menu_buttons()
+        self.infection_button.disable()
+        self.clear_sub_settings_buttons_and_text()
+        self.sub_menu = "infection"
+        self.save_settings_button.show()
+        self.add_infection_type.show()
+        if self.custom_infection_input:
+            self.custom_infection_input.show()
+
+        self.checkboxes_text[
+            "container_infection"
+        ] = pygame_gui.elements.UIScrollingContainer(
+            ui_scale(pygame.Rect((100, 220), (600, 300))),
+            allow_scroll_x=False,
+            manager=MANAGER,
+        )
+
+        for i, (code, desc) in enumerate(settings_dict["infection"].items()):
+            if game.settings["custom infection types active"]:
+                box_type = "@checked_checkbox"
+            else:
+                box_type = "@unchecked_checkbox"
+            if code != "custom infection types":
+                self.checkboxes_text[code] = pygame_gui.elements.UITextBox(
+                    desc[0],
+                    ui_scale(pygame.Rect((225, 34 if i < 0 else 0), (500, 34))),
+                    container=self.checkboxes_text["container_infection"],
+                    object_id=get_text_box_theme("#text_box_30_horizleft_vertcenter"),
+                    manager=MANAGER,
+                    anchors={
+                        "top_target": self.checkboxes_text[list(self.checkboxes_text)[-1]]
+                    }
+                    if i > 0
+                    else None,
+                )
+                self.checkboxes_text[code].disable()
+        # NEW TYPE INPUT
+        self.custom_infection_input = pygame_gui.elements.UITextEntryLine(
+            ui_scale(pygame.Rect((220, 70), (150, 34))),
+            manager=MANAGER,
+            container=self.checkboxes_text["container_infection"],
+        )
+        if self.add_infection_type:
+            self.add_infection_type.kill()
+        
+        self.add_infection_type = UISurfaceImageButton(
+            ui_scale(pygame.Rect((40, 70), (120, 34))),
+            "Update",
+            get_button_dict(ButtonStyles.SQUOVAL, (120, 34)),
+            object_id="@buttonstyles_squoval",
+            container=self.checkboxes_text["container_infection"],
+            manager=MANAGER,
+            anchors={"left_target": self.custom_infection_input},
+        )
+
+        self.checkboxes_text["inftypes"] = pygame_gui.elements.UITextBox(
+            """<b>Add a custom infection type!</b>\nView your infection types. Hitting 'update' will add a new infection type from the text box and delete any selected types. You will not be able to delete an infection type that is currently being used in a save. New types will not be saved until you Save with the button below.\n""",
+            ui_scale(pygame.Rect((0, 120), (500, -1))),
+            object_id=get_text_box_theme("#text_box_30_horizcenter"),
+            manager=MANAGER,
+            container=self.checkboxes_text["container_infection"],
+            anchors={"centerx": "centerx"}
+        )
+        self.create_inftype_list()
+
+        self.checkboxes_text["container_infection"].set_scrollable_area_dimensions(
+            ui_scale_dimensions((680, (len(settings_dict["general"].keys()) * 39 + 40)))
+        )
+
+        self.checkboxes_text["instr"] = pygame_gui.elements.UITextBox(
+            """Change your INFECTION-specific settings.""",
+            ui_scale(pygame.Rect((100, 160), (600, 100))),
+            object_id=get_text_box_theme("#text_box_30_horizcenter"),
+            manager=MANAGER,
+        )
+
+        # This is where the actual checkboxes are created. I don't like
+        #   how this is separated from the text boxes, but I've spent too much time to rewrite it.
+        #   It has to separated because the checkboxes must be updated when settings are changed.
+        #   Fix if you want. - keyraven
+        self.refresh_checkboxes()
+    
+    def create_inftype_list(self):
+        for item in self.inftype_checkboxes:
+            self.inftype_checkboxes[item].kill()
+        self.inftype_checkboxes = {}
+        for item in self.inftype_checkboxes_text:
+            self.inftype_checkboxes_text[item].kill()
+        self.inftype_checkboxes_text = {}
+
+        in_use = []
+        all_clans = game.read_clans()
+        for clan in all_clans:
+            json_path = f"{get_save_dir()}/{clan}/infection.json"
+            if os.path.exists(json_path):
+                with open(json_path, "r") as read_file:
+                    infection_info = ujson.loads(read_file.read())
+                    inftype = infection_info[infection_info['current_infection']]["type"]
+                    in_use.append(inftype)
+
+            conditions_folder = f"{get_save_dir()}/{clan}/conditions/"
+            for filename in os.listdir(conditions_folder):
+                json_path = conditions_folder + filename
+
+                with open(json_path, "r") as read_file:
+                    conditions_data = ujson.loads(read_file.read())
+                    if 'illnesses' in conditions_data:
+                        for name, condition in conditions_data['illnesses'].items():
+                            if "type" in condition:
+                                if condition["type"] not in in_use:
+                                    in_use.append(condition["type"])
+                                    print("A cat has", condition["type"])
+                            if all(item in game.settings['custom infection types'] for item in in_use):
+                                break
+                break
+        i = 0
+        for inftype in game.settings["custom infection types"]:
+            # CHECKBOX
+            inftype = inftype.lower()
+            if inftype in self.inftypes_to_delete:
+                box_type = "@checked_checkbox"
+            else:
+                box_type = "@unchecked_checkbox"
+
+            anchors = {
+                "top_target": self.inftype_checkboxes_text[list(self.inftype_checkboxes_text)[-1]]
+            } if i > 0 else {
+                "top_target": self.checkboxes_text["inftypes"]
+            }
+
+            self.inftype_checkboxes[inftype] = UIImageButton(
+                ui_scale(pygame.Rect((250, 10 if i < 0 else 0), (34, 34))),
+                "",
+                object_id=box_type,
+                container=self.checkboxes_text["container_" + self.sub_menu],
+                anchors=anchors
+            )
+            # text
+            self.inftype_checkboxes_text[inftype] = pygame_gui.elements.UITextBox(
+                inftype.capitalize(),
+                ui_scale(pygame.Rect((290, 10 if i < 0 else 0), (500, 34))),
+                container=self.checkboxes_text["container_infection"],
+                object_id=get_text_box_theme("#text_box_30_horizleft_vertcenter"),
+                manager=MANAGER,
+                anchors=anchors,
+            )
+            if inftype in in_use:
+                self.inftype_checkboxes[inftype].disable()
+            i += 1
+
     def open_audio_settings(self):
         self.enable_all_menu_buttons()
         self.audio_settings_button.disable()
         self.clear_sub_settings_buttons_and_text()
         self.sub_menu = "audio"
         self.save_settings_button.show()
+        self.add_infection_type.hide()
+        if self.custom_infection_input:
+            self.custom_infection_input.hide()
 
         self.volume_elements["audio_settings_info"] = pygame_gui.elements.UITextBox(
             "Change the settings for the game audio here.",
@@ -503,6 +730,9 @@ class SettingsScreen(Screens):
         self.clear_sub_settings_buttons_and_text()
         self.sub_menu = "info"
         self.save_settings_button.hide()
+        self.add_infection_type.hide()
+        if self.custom_infection_input:
+            self.custom_infection_input.hide()
 
         self.checkboxes_text[
             "info_container"
@@ -713,6 +943,9 @@ class SettingsScreen(Screens):
         self.clear_sub_settings_buttons_and_text()
         self.sub_menu = "language"
         self.save_settings_button.show()
+        self.add_infection_type.hide()
+        if self.custom_infection_input:
+            self.custom_infection_input.hide()
 
         self.checkboxes_text["instr"] = pygame_gui.elements.UITextBox(
             "Change the language of the game here. This has not been implemented yet.",
@@ -764,6 +997,31 @@ class SettingsScreen(Screens):
             elif game.settings["language"] == "german":
                 self.checkboxes["german"].disable()
 
+        elif self.sub_menu == "infection":
+            if game.settings["custom infection types active"]:
+                box_type = "@checked_checkbox"
+            else:
+                box_type = "@unchecked_checkbox"
+
+            for i, (code, desc) in enumerate(settings_dict[self.sub_menu].items()):
+                if code != "custom infection types":
+                    if game.settings[code]:
+                        box_type = "@checked_checkbox"
+                    else:
+                        box_type = "@unchecked_checkbox"
+                    self.checkboxes[code] = UIImageButton(
+                        ui_scale(pygame.Rect((170, 34 if i < 0 else 0), (34, 34))),
+                        "",
+                        object_id=box_type,
+                        container=self.checkboxes_text["container_" + self.sub_menu],
+                        tool_tip_text=desc[1],
+                        anchors={
+                            "top_target": self.checkboxes_text[list(self.checkboxes)[-1]]
+                        }
+                        if i > 0
+                        else None,
+                    )
+
         else:
             for i, (code, desc) in enumerate(settings_dict[self.sub_menu].items()):
                 if game.settings[code]:
@@ -799,6 +1057,12 @@ class SettingsScreen(Screens):
         for text in self.checkboxes_text.values():
             text.kill()
         self.checkboxes_text = {}
+        for checkbox in self.inftype_checkboxes.values():
+            checkbox.kill()
+        self.inftype_checkboxes = {}
+        for text in self.inftype_checkboxes_text.values():
+            text.kill()
+        self.inftype_checkboxes_text = {}
         for item in self.volume_elements.values():
             item.kill()
         self.volume_elements = {}
@@ -809,6 +1073,7 @@ class SettingsScreen(Screens):
         """
         self.general_settings_button.enable()
         self.info_button.enable()
+        # self.infection_button.enable()
         self.language_button.enable()
         self.audio_settings_button.enable()
 

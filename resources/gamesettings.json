@@ -118,5 +118,13 @@
             false,
             true
         ]
+    },
+    "infection": {
+        "custom infection types active": [
+            "Toggle custom infection types",
+            "When active, your custom infection types will be attainable ingame.",
+            false
+        ],
+        "custom infection types": []
     }
 }

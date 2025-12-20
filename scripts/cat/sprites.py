@@ -120,7 +120,7 @@ class Sprites:
 
         del width, height  # unneeded
 
-        for x in [
+        sprite_list = [
             "lineart",
             "lineartur",
             "lineartdf",
@@ -180,7 +180,25 @@ class Sprites:
             #coffee
             'coffee','eragona','crowns','springwinter','raincoats','chimes','moipa','moipa2','pocky1','misc_acc','reign1', 'moonhat'
 
-        ]:
+        ]
+        
+        infection_types = ["fungal", "parasitic", "void"]
+
+        if game.settings["custom infection types"] and game.settings["custom infection types active"]:
+            for inftype in game.settings["custom infection types"]:
+                if not self.check_custom_infection_sprite_validity(inftype):
+                    continue
+                custom_pngs = [
+                    f"{inftype.lower()}lineartstageone",
+                    f"{inftype.lower()}lineartstagetwo",
+                    f"{inftype.lower()}lineartstagethree",
+                    f"{inftype.lower()}lineartstagefour",
+                ]
+                for stage_png in custom_pngs:
+                    sprite_list.append(stage_png)
+                infection_types.append(inftype.lower())
+
+        for x in sprite_list:
             if "lineart" in x and game.config["fun"]["april_fools"]:
                 self.spritesheet(f"sprites/aprilfools{x}.png", x)
             else:
@@ -195,20 +213,26 @@ class Sprites:
         self.make_group('lineartdf', (0, 0), 'lineartdf')
         self.make_group('lineartur', (0, 0), 'lineartur')
 
-        self.make_group('fungallineartstageone', (0, 0), 'fungallineartstageone')
-        self.make_group('fungallineartstagetwo', (0, 0), 'fungallineartstagetwo')
-        self.make_group('fungallineartstagethree', (0, 0), 'fungallineartstagethree')
-        self.make_group('fungallineartstagefour', (0, 0), 'fungallineartstagefour')
+        for infection_type in infection_types:
+            self.make_group(f'{infection_type}lineartstageone', (0,0), f'{infection_type}lineartstageone')
+            self.make_group(f'{infection_type}lineartstagetwo', (0,0), f'{infection_type}lineartstagetwo')
+            self.make_group(f'{infection_type}lineartstagethree', (0,0), f'{infection_type}lineartstagethree')
+            self.make_group(f'{infection_type}lineartstagefour', (0,0), f'{infection_type}lineartstagefour')
 
-        self.make_group('parasiticlineartstageone', (0, 0), 'parasiticlineartstageone')
-        self.make_group('parasiticlineartstagetwo', (0, 0), 'parasiticlineartstagetwo')
-        self.make_group('parasiticlineartstagethree', (0, 0), 'parasiticlineartstagethree')
-        self.make_group('parasiticlineartstagefour', (0, 0), 'parasiticlineartstagefour')
+        # self.make_group('fungallineartstageone', (0, 0), 'fungallineartstageone')
+        # self.make_group('fungallineartstagetwo', (0, 0), 'fungallineartstagetwo')
+        # self.make_group('fungallineartstagethree', (0, 0), 'fungallineartstagethree')
+        # self.make_group('fungallineartstagefour', (0, 0), 'fungallineartstagefour')
 
-        self.make_group('voidlineartstageone', (0, 0), 'voidlineartstageone')
-        self.make_group('voidlineartstagetwo', (0, 0), 'voidlineartstagetwo')
-        self.make_group('voidlineartstagethree', (0, 0), 'voidlineartstagethree')
-        self.make_group('voidlineartstagefour', (0, 0), 'voidlineartstagefour')
+        # self.make_group('parasiticlineartstageone', (0, 0), 'parasiticlineartstageone')
+        # self.make_group('parasiticlineartstagetwo', (0, 0), 'parasiticlineartstagetwo')
+        # self.make_group('parasiticlineartstagethree', (0, 0), 'parasiticlineartstagethree')
+        # self.make_group('parasiticlineartstagefour', (0, 0), 'parasiticlineartstagefour')
+
+        # self.make_group('voidlineartstageone', (0, 0), 'voidlineartstageone')
+        # self.make_group('voidlineartstagetwo', (0, 0), 'voidlineartstagetwo')
+        # self.make_group('voidlineartstagethree', (0, 0), 'voidlineartstagethree')
+        # self.make_group('voidlineartstagefour', (0, 0), 'voidlineartstagefour')
 
         # Fading Fog
         for i in range(0, 3):
@@ -999,6 +1023,20 @@ class Sprites:
         del var
 
         return recolored_symbol
+    
+    def check_custom_infection_sprite_validity(self, inftype):
+        """ Checks if custom infection lineart is present in the sprites folder"""
+        custom_pngs = [
+            f"{inftype.lower()}lineartstageone",
+            f"{inftype.lower()}lineartstagetwo",
+            f"{inftype.lower()}lineartstagethree",
+            f"{inftype.lower()}lineartstagefour",
+        ]
+        for stage_png in custom_pngs:
+            if not os.path.exists(f"sprites/{stage_png}.png"):
+                # print("Custom Infection Sprite Error! Missing", stage_png)
+                return False
+        return True
 
 
 # CREATE INSTANCE
