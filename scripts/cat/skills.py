@@ -2,14 +2,11 @@ import random
 from enum import Enum, Flag, auto
 from typing import Union
 
-<<<<<<< HEAD
-=======
 import i18n
 
 from scripts.cat.enums import CatRank, CatAge
 
 
->>>>>>> development
 class SkillPath(Enum):
     TEACHER = ("quick to help", "good teacher", "great teacher", "excellent teacher")
     HUNTER = ("moss ball hunter", "good hunter", "great hunter", "renowned hunter")
@@ -97,14 +94,8 @@ class SkillPath(Enum):
         "prophecy interpreter",
         "prophet",
     )
-<<<<<<< HEAD
-    GHOST = (
-        "morbid curiosity",
-        "ghost sense",
-        "ghost sight",
-        "ghost speaker"
-    )
-    
+    GHOST = ("morbid curiosity", "ghost sense", "ghost sight", "ghost speaker")
+
     # NEW SKILLS --
     
     EXPLORER = (
@@ -228,8 +219,6 @@ class SkillPath(Enum):
         "leader of SnoozeClan"
     ) 
     
-=======
-    GHOST = ("morbid curiosity", "ghost sense", "ghost sight", "ghost speaker")
     DARK = (
         "interested in the Dark Forest",
         "Dark Forest affinity",
@@ -237,7 +226,6 @@ class SkillPath(Enum):
         "unshakable Dark Forest link",
     )
 
->>>>>>> development
     @staticmethod
     def get_random(exclude: list = ()):
         """Get a random path, with more uncommon paths being less common"""
@@ -439,13 +427,8 @@ class Skill:
         return Skill.tier_ranges[tier - 1][0]
 
     def set_points_to_tier(self, tier: int):
-<<<<<<< HEAD
-        """This is separate from the tier setter, since it will booonly allow you
-        to set points to tier 1, 2, or 3, and never 0. Tier 0 is retricted to interest_only
-=======
         """This is separate from the tier setter, since it will only allow you
         to set points to tier 1, 2, or 3, and never 0. Tier 0 is restricted to interest_only
->>>>>>> development
         skills"""
 
         # Make sure it in the right range. If not, return.

@@ -673,7 +673,7 @@ class ChooseMentorScreen(Screens):
         ]
         valid_mediator_mentors = []
         invalid_mediator_mentors = []
-        potential_queen_mentors = [cat for cat in Cat.all_cats_list if not (cat.dead or cat.outside) and cat.status == 'queen']
+        potential_queen_mentors = [cat for cat in Cat.all_cats_list if not (cat.dead or cat.status.is_outsider) and cat.status == 'queen']
         valid_queen_mentors = []
         invalid_queen_mentors = []
 

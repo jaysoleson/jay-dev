@@ -62,18 +62,8 @@
 			]
 		},
 		"relationship_constraint": {
-<<<<<<< HEAD:resources/dicts/relationship_events/group_interactions/3/neutral.json
-			"m_c_to_r_c1": [
-				"trust_30"
-			],
-			"m_c_to_r_c2": [
-				"romantic_15",
-				"not_mates"
-			]
-=======
 			"m_c_to_r_c1": ["listens_to"],
 			"m_c_to_r_c2": ["fancies","not_mates"]
->>>>>>> development:resources/lang/en/events/relationship_events/group_interactions/3/positive.json
 		},
 		"specific_reaction": {
 			"m_c_to_r_c1": {

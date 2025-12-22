@@ -319,7 +319,7 @@ class StartScreen(Screens):
             global has_checked_for_update
             global update_available
             if not get_version_info().is_source_build and not get_version_info().is_itch and get_version_info().upstream.lower() == "sedgestripe/clangen".lower() and \
-                    game.settings['check_for_updates'] and not has_checked_for_update:
+                    game_setting_get('check_for_updates') and not has_checked_for_update:
                 if has_update(UpdateChannel(get_version_info().release_channel)):
                     update_available = True
                     show_popup = True

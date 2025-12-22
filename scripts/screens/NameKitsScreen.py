@@ -14,7 +14,9 @@ from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
 from scripts.cat.pelts import Pelt
 from scripts.game_structure.windows import GameOver, PickPath, DeathScreen
-from scripts.game_structure.game_essentials import game
+from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch
+
+from scripts.game_structure import game
 from scripts.game_structure.windows import RelationshipLog
 from scripts.game_structure.propagating_thread import PropagatingThread
 from scripts.game_structure.ui_elements import UIImageButton, UITextBoxTweaked, UISpriteButton, UISurfaceImageButton
@@ -22,7 +24,6 @@ from ..ui.generate_box import BoxStyles, get_box
 from scripts.utility import get_text_box_theme, ui_scale, ui_scale_blit, ui_scale_offset
 from scripts.game_structure.screen_settings import MANAGER
 from ..ui.generate_button import get_button_dict, ButtonStyles
-from ..ui.get_arrow import get_arrow
 from ..ui.icon import Icon
 
 
@@ -80,12 +81,12 @@ class NameKitsScreen(Screens):
                     # self.update_buttons()
             elif event.ui_element == self.back_button:
                 for cat in Cat.all_cats_list:
-                    if not cat.dead and not cat.outside and cat.age == 'newborn' and cat.ID in game.clan.your_cat.inheritance.get_children() and cat.name.prefix.strip() == "":
+                    if not cat.dead and not cat.status.is_outsider and cat.age == 'newborn' and cat.ID in game.clan.your_cat.inheritance.get_children() and cat.name.prefix.strip() == "":
                         cat.name.give_prefix(cat.pelt.eye_colour, cat.pelt.colour, game.clan.biome)
                 self.change_screen('events screen')
             elif event.ui_element == self.next_cat_button:
                 if isinstance(Cat.fetch_cat(self.next_cat), Cat):
-                    game.switches['cat'] = self.next_cat
+                    switch_set_value(Switch.cat, self.next_cat)
                     self.update_cat_list()
                     self.update_selected_cat()
                     # self.update_buttons()
@@ -93,7 +94,7 @@ class NameKitsScreen(Screens):
                     print("invalid next cat", self.next_cat)
             elif event.ui_element == self.previous_cat_button:
                 if isinstance(Cat.fetch_cat(self.previous_cat), Cat):
-                    game.switches['cat'] = self.previous_cat
+                    switch_set_value(Switch.cat, self.previous_cat)
                     self.update_cat_list()
                     self.update_selected_cat()
                     # self.update_buttons()
@@ -138,8 +139,8 @@ class NameKitsScreen(Screens):
             manager=MANAGER)
        
         self.back_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((25, 25), (105, 30))),
-            get_arrow(2) + " Back",
+            ui_scale(pygame.Rect((25, 60), (105, 30))),
+            "buttons.back",
             get_button_dict(ButtonStyles.SQUOVAL, (105, 30)),
             object_id="@buttonstyles_squoval",
             manager=MANAGER,
@@ -228,13 +229,13 @@ class NameKitsScreen(Screens):
                 self.next_cat = 1
 
             if self.next_cat == 0 and check_cat.ID != self.the_cat.ID and check_cat.dead == self.the_cat.dead and \
-                    check_cat.ID != game.clan.instructor.ID and not check_cat.exiled and check_cat.status in \
+                    check_cat.ID != game.clan.instructor.ID and not check_cat.status.is_exiled(CatGroup.PLAYER_CLAN) and check_cat.status in \
                     ["newborn"] \
                     and check_cat.df == self.the_cat.df:
                 self.previous_cat = check_cat.ID
 
             elif self.next_cat == 1 and check_cat.ID != self.the_cat.ID and check_cat.dead == self.the_cat.dead and \
-                    check_cat.ID != game.clan.instructor.ID and not check_cat.exiled and check_cat.status in \
+                    check_cat.ID != game.clan.instructor.ID and not check_cat.status.is_exiled(CatGroup.PLAYER_CLAN) and check_cat.status in \
                     ["newborn"] \
                     and check_cat.df == self.the_cat.df:
                 self.next_cat = check_cat.ID
@@ -352,7 +353,7 @@ class NameKitsScreen(Screens):
         valid_mentors = []
 
         for cat in Cat.all_cats_list:
-            if not cat.dead and not cat.outside and cat.age == 'newborn' and cat.ID in game.clan.your_cat.inheritance.get_children():
+            if not cat.dead and not cat.status.is_outsider and cat.age == 'newborn' and cat.ID in game.clan.your_cat.inheritance.get_children():
                 valid_mentors.append(cat)
                 cat.name.prefix = ""
         

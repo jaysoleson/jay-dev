@@ -4,24 +4,26 @@ import ujson
 import re
 from .Screens import Screens
 
-from scripts.utility import generate_sprite, get_cluster, get_alive_status_cats, get_alive_cats, pronoun_repl
+from scripts.utility import generate_sprite, get_cluster, find_alive_cats_with_rank, pronoun_repl
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
+from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch
+
+from scripts.cat.enums import CatAge, CatRank
+from ..game_structure.game.settings import game_setting_set, game_setting_get
+
+
 import pygame_gui
-from scripts.game_structure.game_essentials import game
+from scripts.game_structure import game
 from enum import Enum  # pylint: disable=no-name-in-module
 from scripts.cat.names import names, Name
-from scripts.game_structure.ui_elements import UIImageButton, UITextBoxTweaked
-from scripts.utility import get_text_box_theme, ui_scale, ui_scale_blit, ui_scale_offset, get_current_season, ui_scale_dimensions
+from scripts.utility import get_text_box_theme, ui_scale, ui_scale_blit, ui_scale_offset, get_current_season, ui_scale_dimensions, find_alive_cats_with_rank
 from scripts.game_structure.screen_settings import MANAGER
 from scripts.game_structure.ui_elements import (
     UIImageButton,
     UISurfaceImageButton,
 )
-from ..ui.generate_box import get_box, BoxStyles
 from ..ui.generate_button import ButtonStyles, get_button_dict
-from ..ui.get_arrow import get_arrow
-from ..ui.icon import Icon
 
 
 class RelationType(Enum):
@@ -71,7 +73,7 @@ class MoonplaceScreen(Screens):
     def screen_switches(self):
         super().screen_switches()
         self.the_cat = Cat.all_cats.get(choice(game.clan.starclan_cats))
-        game.switches["attended half-moon"] = True
+        switch_set_value(Switch.attended_half_moon, True)
         self.update_camp_bg()
         self.hide_menu_buttons()
         self.handle_other_med()
@@ -103,9 +105,9 @@ class MoonplaceScreen(Screens):
             )
 
         self.back_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((25, 25), (153, 30))),
-            get_arrow(5, arrow_left=True) + " Back",
-            get_button_dict(ButtonStyles.SQUOVAL, (153, 30)),
+            ui_scale(pygame.Rect((25, 60), (105, 30))),
+            "buttons.back",
+            get_button_dict(ButtonStyles.SQUOVAL, (105, 30)),
             object_id="@buttonstyles_squoval",
             manager=MANAGER,
         )
@@ -162,7 +164,7 @@ class MoonplaceScreen(Screens):
         self.option_bgs = {}
 
     def update_camp_bg(self):
-        light_dark = "dark" if game.settings["dark mode"] else "light"
+        light_dark = "dark" if game_setting_get("dark mode") else "light"
 
         camp_bg_base_dir = "resources/images/moonplace/"
         leaves = ["newleaf", "greenleaf", "leafbare", "leaffall"]
@@ -245,7 +247,7 @@ class MoonplaceScreen(Screens):
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
             if event.ui_element == self.back_button:
                 self.change_screen('profile screen')
-        elif event.type == pygame.KEYDOWN and game.settings['keybinds']:
+        elif event.type == pygame.KEYDOWN and game_setting_get('keybinds'):
             if event.key == pygame.K_ESCAPE:
                 self.change_screen('profile screen')
         elif event.type == pygame.MOUSEBUTTONDOWN:
@@ -287,7 +289,7 @@ class MoonplaceScreen(Screens):
     def handle_random_cat(self, cat):
         random_cat = Cat.all_cats.get(choice(game.clan.clan_cats))
         counter = 0
-        while random_cat.outside or random_cat.dead or random_cat.ID in [game.clan.your_cat.ID, cat.ID]:
+        while random_cat.status.is_outsider or random_cat.dead or random_cat.ID in [game.clan.your_cat.ID, cat.ID]:
             counter += 1
             if counter == 15:
                 break
@@ -297,13 +299,13 @@ class MoonplaceScreen(Screens):
     def get_med_type(self, you):
         med_type = "you_single_med"
 
-        if you.status == "medicine cat apprentice" and not you.mentor:
+        if you.status.rank == CatRank.MEDICINE_APPRENTICE and not you.mentor:
             med_type = "you_app_mentorless"
-        elif you.status == "medicine cat apprentice":
+        elif you.status.rank == CatRank.MEDICINE_APPRENTICE:
             med_type = "you_app_mentor"
-        elif you.status == "medicine cat" and len(get_alive_status_cats(Cat, ["medicine cat", "medicine cat apprentice"], working=False)) == 2:
+        elif you.status.rank == CatRank.MEDICINE_CAT and len(find_alive_cats_with_rank(Cat, [CatRank.MEDICINE_CAT, CatRank.MEDICINE_APPRENTICE], working=False)) == 2:
             med_type = "two_meds"
-        elif you.status == "medicine cat" and len(get_alive_status_cats(Cat, ["medicine cat", "medicine cat apprentice"], working=False)) > 2:
+        elif you.status.rank == CatRank.MEDICINE_CAT and len(find_alive_cats_with_rank(Cat, [CatRank.MEDICINE_CAT, CatRank.MEDICINE_APPRENTICE], working=False)) > 2:
             med_type = "multi_meds"
 
         return med_type
@@ -316,7 +318,7 @@ class MoonplaceScreen(Screens):
         with open(f"{resource_dir}", 'r') as read_file:
             possible_texts = ujson.loads(read_file.read())
 
-        if you.status in ["apprentice", "queen's apprentice", "mediator apprentice"]:
+        if you.status.rank in [CatRank.APPRENTICE, CatRank.QUEENS_APPRENTICE, CatRank.MEDIATOR_APPRENTICE]:
             return self.get_adjusted_txt(choice(possible_texts["apprentice_halfmoon"]), cat)
 
         med_type = self.get_med_type(you)
@@ -331,8 +333,8 @@ class MoonplaceScreen(Screens):
         possible_texts2 = {}
         with open(f"{resource_dir}", 'r') as read_file:
             possible_texts2 = ujson.loads(read_file.read())
-        game.switches["next_possible_disaster"] = choice(list(possible_texts2.keys()))
-        prophecy = choice(possible_texts2[game.switches["next_possible_disaster"]]["text"])
+        switch_set_value(Switch.next_possible_disaster, choice(list(possible_texts2.keys())))
+        prophecy = choice(possible_texts2[switch_get_value(Switch.next_possible_disaster)]["text"])
         return self.get_adjusted_txt(choice(possible_texts["intros"][med_type]) + other_med_greeting + choice(possible_texts["moonplace"]["starclan_general"]) + prophecy, cat)
     
     def get_adjusted_txt(self, text, cat):
@@ -391,7 +393,7 @@ class MoonplaceScreen(Screens):
     def get_living_cats(self):
         living_cats = []
         for the_cat in Cat.all_cats_list:
-            if not the_cat.dead and not the_cat.outside and not the_cat.moons == -1:
+            if not the_cat.dead and not the_cat.status.is_outsider and not the_cat.moons == -1:
                 living_cats.append(the_cat)
         return living_cats
 
@@ -475,7 +477,7 @@ class MoonplaceScreen(Screens):
                             return ""
                     text = text.replace("r_c3", str(alive_app3.name))
             if "r_k" in text:
-                alive_kits = get_alive_status_cats(Cat, ["kitten","newborn"])
+                alive_kits = find_alive_cats_with_rank(Cat, [CatRank.KITTEN, CatRank.NEWBORN])
                 if len(alive_kits) <= 1:
                     return ""
                 alive_kit = choice(alive_kits)
@@ -487,7 +489,7 @@ class MoonplaceScreen(Screens):
                     alive_kit = choice(alive_kits)
                 text = text.replace("r_k", str(alive_kit.name))
             if "r_a" in text:
-                alive_apps = get_alive_status_cats(Cat, ["apprentice"])
+                alive_apps = find_alive_cats_with_rank(Cat, [CatRank.APPRENTICE])
                 if len(alive_apps) <= 1:
                     return ""
                 alive_app = choice(alive_apps)
@@ -499,7 +501,7 @@ class MoonplaceScreen(Screens):
                     alive_app = choice(alive_apps)
                 text = text.replace("r_a", str(alive_app.name))
             if "r_w1" in text:
-                alive_apps = get_alive_status_cats(Cat, ["warrior"])
+                alive_apps = find_alive_cats_with_rank(Cat, ["warrior"])
                 if len(alive_apps) <= 2:
                     return ""
                 alive_app = choice(alive_apps)
@@ -530,7 +532,7 @@ class MoonplaceScreen(Screens):
                         alive_app3 = choice(alive_apps)
                     text = text.replace("r_w3", str(alive_app3.name))
             if "r_w" in text:
-                alive_apps = get_alive_status_cats(Cat, ["warrior"])
+                alive_apps = find_alive_cats_with_rank(Cat, ["warrior"])
                 if len(alive_apps) <= 1:
                     return ""
                 alive_app = choice(alive_apps)
@@ -542,7 +544,7 @@ class MoonplaceScreen(Screens):
                     alive_app = choice(alive_apps)
                 text = text.replace("r_w", str(alive_app.name))
             if "r_m" in text:
-                alive_apps = get_alive_status_cats(Cat, ["medicine cat", "medicine cat apprentice"])
+                alive_apps = find_alive_cats_with_rank(Cat, [CatRank.MEDICINE_CAT, CatRank.MEDICINE_APPRENTICE])
                 if len(alive_apps) <= 1:
                     return ""
                 alive_app = choice(alive_apps)
@@ -554,7 +556,7 @@ class MoonplaceScreen(Screens):
                     alive_app = choice(alive_apps)
                 text = text.replace("r_m", str(alive_app.name))
             if "r_d" in text:
-                alive_apps = get_alive_status_cats(Cat, ["mediator", "mediator apprentice"])
+                alive_apps = find_alive_cats_with_rank(Cat, [CatRank.MEDIATOR, CatRank.MEDIATOR_APPRENTICE])
                 if len(alive_apps) <= 1:
                     return ""
                 alive_app = choice(alive_apps)
@@ -566,7 +568,7 @@ class MoonplaceScreen(Screens):
                     alive_app = choice(alive_apps)
                 text = text.replace("r_d", str(alive_app.name))
             if "r_q" in text:
-                alive_apps = get_alive_status_cats(Cat, ["queen", "queen's apprentice"])
+                alive_apps = find_alive_cats_with_rank(Cat, [CatRank.QUEEN, CatRank.QUEENS_APPRENTICE])
                 if len(alive_apps) <= 1:
                     return ""
                 alive_app = choice(alive_apps)
@@ -578,7 +580,7 @@ class MoonplaceScreen(Screens):
                     alive_app = choice(alive_apps)
                 text = text.replace("r_q", str(alive_app.name))
             if "r_e" in text:
-                alive_apps = get_alive_status_cats(Cat, ["elder"])
+                alive_apps = find_alive_cats_with_rank(Cat, ["elder"])
                 if len(alive_apps) <= 1:
                     return ""
                 alive_app = choice(alive_apps)

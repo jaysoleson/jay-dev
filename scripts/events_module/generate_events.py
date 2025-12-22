@@ -26,11 +26,7 @@ from scripts.game_structure import game
 from scripts.game_structure.localization import load_lang_resource
 from scripts.utility import (
     get_living_clan_cat_count,
-<<<<<<< HEAD
-    get_alive_status_cats,
     get_cluster
-=======
->>>>>>> development
 )
 
 
@@ -108,21 +104,19 @@ class GenerateEvents:
         GenerateEvents.loaded_events = {}
 
     @staticmethod
-<<<<<<< HEAD
-    def generate_short_events(event_triggered, biome):
+    def generate_short_events(event_triggered, biome, frequency):
+        load_name = f"{file_path}_{frequency}"
+
         # LG
+        # CHECKMERGE
+        # check what load_name is
         faith_event = False
         if event_triggered != "faith":
-            file_path = f"{resource_directory}{event_triggered}/{biome}.json"
+            file_path = f"{event_triggered}/{biome}.json"
         else:
             faith_event = True
             file_path = "resources/dicts/relationship_events/faith.json"
         # ---
-=======
-    def generate_short_events(event_triggered, biome, frequency):
-        file_path = f"{event_triggered}/{biome}.json"
-        load_name = f"{file_path}_{frequency}"
->>>>>>> development
 
         try:
             if load_name in GenerateEvents.loaded_events:
@@ -357,53 +351,6 @@ class GenerateEvents:
                     if int(cat.moons) < 150 and int(random.random() * 5):
                         continue
 
-<<<<<<< HEAD
-                leader_lives = game.clan.leader_lives
-
-                # make sure that 'some lives' and "lives_remain" events don't show up if the leader doesn't have
-                # multiple lives to spare
-                if "some_lives" in event.tags and leader_lives <= 3:
-                    continue
-                if "lives_remain" in event.tags and leader_lives < 2:
-                    continue
-
-                # check leader life count
-                if "high_lives" in event.tags and leader_lives not in [7, 8, 9]:
-                    continue
-                elif "mid_lives" in event.tags and leader_lives not in [4, 5, 6]:
-                    continue
-                elif "low_lives" in event.tags and leader_lives not in [1, 2, 3]:
-                    continue
-
-            discard = False
-            for rank in Cat_class.rank_sort_order:
-                if f"clan:{rank}" in event.tags:
-                    if rank in ["leader", "deputy"] and not get_alive_status_cats(
-                        Cat_class, [rank]
-                    ):
-                        discard = True
-                    elif not len(get_alive_status_cats(Cat_class, [rank])) >= 2:
-                        discard = True
-            if discard:
-                continue
-
-            if "clan_apps" in event.tags and not get_alive_status_cats(
-                    Cat_class,
-                    ["apprentice", "medicine cat apprentice", "mediator apprentice", "queen's apprentice"],
-            ):
-                continue
-
-            # If the cat or any of their mates have "no kits" toggled, forgo the adoption event.
-            if "adoption" in event.tags:
-                if cat.no_kits:
-                    continue
-                if cat.moons <= 14 + cat.age_moons["kitten"][1]:
-                    continue
-                if any(Cat_class.fetch_cat(i).no_kits for i in cat.mates):
-                    continue
-
-=======
->>>>>>> development
             # check for old age
             if (
                 "old_age" in event.sub_type
@@ -422,336 +369,6 @@ class GenerateEvents:
             if "transition" in event.sub_type and cat.gender != cat.genderalign:
                 continue
 
-<<<<<<< HEAD
-            if event.m_c:
-                if cat.age not in event.m_c["age"] and "any" not in event.m_c["age"]:
-                    continue
-                if (
-                    cat.status not in event.m_c["status"]
-                    and "any" not in event.m_c["status"]
-                ):
-                    continue
-                if event.m_c["relationship_status"]:
-                    if not filter_relationship_type(
-                        group=[cat, random_cat],
-                        filter_types=event.m_c["relationship_status"],
-                        event_id=event.event_id,
-                    ):
-                        continue
-
-                # FAITH EVENT STUFF
-                if "min_max_faith" in event.m_c:
-                    if cat.faith < event.m_c["min_max_faith"][0]:
-                        continue
-                    if cat.faith > event.m_c["min_max_faith"][1]:
-                        continue
-                if event.r_c and random_cat and "min_max_faith" in event.r_c:
-                    if random_cat.faith < event.r_c["min_max_faith"][0]:
-                        continue
-                    if random_cat.faith > event.r_c["min_max_faith"][1]:
-                        continue
-
-                # residence
-                if "residence" in event.m_c:
-                    if not cat.dead:
-                        continue
-                    if "ur" in event.m_c["residence"]:
-                        if not cat.outside:
-                            continue
-                    if "df" in event.m_c["residence"]:
-                        if not cat.df:
-                            continue
-                    if "sc" in event.m_c["residence"]:
-                        if cat.outside or cat.df:
-                            continue
-                if "shunned" in event.m_c:
-                    if event.m_c["shunned"] is True and cat.shunned == 0:
-                        continue
-                    elif event.m_c["shunned"] is False and cat.shunned != 0:
-                        continue
-
-                # check cat trait and skill
-                if (
-                    int(random.random() * trait_skill_bypass) or prevent_bypass
-                ):  # small chance to bypass
-                    has_trait = False
-                    if event.m_c["trait"]:
-                        if cat.personality.trait in event.m_c["trait"]:
-                            has_trait = True
-                    
-                    # LG
-                    has_cluster = False
-                    if "cluster" in event.m_c and event.m_c["cluster"]:
-                        cluster1, cluster2 = get_cluster(cat.personality.trait)
-                        if (
-                            cluster1 in event.m_c["cluster"] or
-                            cluster2 in event.m_c["cluster"]
-                            ):
-                            has_cluster = True
-                    
-                    if "df_status" in event.m_c and event.m_c["df_status"]:
-                        if cat.joined_df is False:
-                            continue
-                        else:
-                            if cat.graduated_df and "warrior" not in event.m_c["df_status"]:
-                                continue
-                            if not cat.graduated_df and "apprentice" not in event.m_c["df_status"]:
-                                continue
-                    #  ---
-
-                    has_skill = False
-                    if event.m_c["skill"]:
-                        for _skill in event.m_c["skill"]:
-                            split = _skill.split(",")
-
-                            if len(split) < 2:
-                                print("Cat skill incorrectly formatted", _skill)
-                                continue
-
-                            if cat.skills.meets_skill_requirement(
-                                split[0], int(split[1])
-                            ):
-                                has_skill = True
-                                break
-
-                    if event.m_c["trait"] and event.m_c["skill"]:
-                        if not has_trait or has_skill:
-                            continue
-                    elif event.m_c["trait"]:
-                        if not has_trait:
-                            continue
-                    elif event.m_c["skill"]:
-                        if not has_skill:
-                            continue
-
-                    if "cluster" in event.m_c and event.m_c["cluster"]:
-                        if not has_cluster:
-                            continue
-
-                    # check cat negate trait and skill
-                    has_trait = False
-                    if event.m_c["not_trait"]:
-                        if cat.personality.trait in event.m_c["not_trait"]:
-                            has_trait = True
-
-                    has_skill = False
-                    if event.m_c["not_skill"]:
-                        for _skill in event.m_c["not_skill"]:
-                            split = _skill.split(",")
-
-                            if len(split) < 2:
-                                print("Cat skill incorrectly formatted", _skill)
-                                continue
-
-                            if cat.skills.meets_skill_requirement(
-                                split[0], int(split[1])
-                            ):
-                                has_skill = True
-                                break
-
-                    if has_trait or has_skill:
-                        continue
-
-                # check backstory
-                if event.m_c["backstory"]:
-                    if cat.backstory not in event.m_c["backstory"]:
-                        continue
-
-                # check gender for transition events
-                if event.m_c["gender"]:
-                    if (
-                        cat.gender not in event.m_c["gender"]
-                        and "any" not in event.m_c["gender"]
-                    ):
-                        continue
-
-
-            # check that a random_cat is available to use for r_c
-            if event.r_c and random_cat:
-                if (
-                    random_cat.age not in event.r_c["age"]
-                    and "any" not in event.r_c["age"]
-                ):
-                    continue
-                if (
-                    random_cat.status not in event.r_c["status"]
-                    and "any" not in event.r_c["status"]
-                ):
-                    continue
-                if event.r_c["relationship_status"]:
-                    if not filter_relationship_type(
-                        group=[cat, random_cat],
-                        filter_types=event.r_c["relationship_status"],
-                        event_id=event.event_id,
-                    ):
-                        continue
-
-                # residence
-                if "residence" in event.r_c:
-                    if not random_cat.dead:
-                        continue
-                    if "ur" in event.r_c["residence"]:
-                        if not random_cat.outside:
-                            continue
-                    if "df" in event.r_c["residence"]:
-                        if not random_cat.df:
-                            continue
-                    if "sc" in event.r_c["residence"]:
-                        if random_cat.outside or random_cat.df:
-                            continue
-
-                if "shunned" in event.r_c:
-                    if event.r_c["shunned"] is True and cat.shunned == 0:
-                        continue
-                    elif event.r_c["shunned"] is False and cat.shunned != 0:
-                        continue
-
-                # check cat trait and skill
-                if (
-                    int(random.random() * trait_skill_bypass) or prevent_bypass
-                ):  # small chance to bypass
-                    has_trait = False
-                    if event.r_c["trait"]:
-                        if random_cat.personality.trait in event.r_c["trait"]:
-                            has_trait = True
-
-                    # LG
-                    has_cluster = False
-                    if  "cluster" in event.r_c and event.r_c["cluster"]:
-                        cluster1, cluster2 = get_cluster(random_cat.personality.trait)
-                        if (
-                            cluster1 in event.r_c["cluster"] or
-                            cluster2 in event.r_c["cluster"]
-                            ):
-                            has_cluster = True
-                    if "df_status" in event.r_c and event.r_c["df_status"]:
-                        if random_cat.joined_df is False:
-                            continue
-                        else:
-                            if random_cat.graduated_df and "warrior" not in event.r_c["df_status"]:
-                                continue
-                            if not random_cat.graduated_df and "apprentice" not in event.r_c["df_status"]:
-                                continue
-                    #  ---
-
-                    has_skill = False
-                    if event.r_c["skill"]:
-                        for _skill in event.r_c["skill"]:
-                            split = _skill.split(",")
-
-                            if len(split) < 2:
-                                print("random_cat skill incorrectly formatted", _skill)
-                                continue
-
-                            if random_cat.skills.meets_skill_requirement(
-                                split[0], int(split[1])
-                            ):
-                                has_skill = True
-                                break
-
-                    if event.r_c["trait"] and event.r_c["skill"]:
-                        if not has_trait or has_skill:
-                            continue
-                    elif event.r_c["trait"]:
-                        if not has_trait:
-                            continue
-                    elif event.r_c["skill"]:
-                        if not has_skill:
-                            continue
-                    
-                    if "cluster" in event.r_c and event.r_c["cluster"]:
-                        if not has_cluster:
-                            continue
-
-                    # check cat negate trait and skill
-                    has_trait = False
-                    if event.r_c["not_trait"]:
-                        if random_cat.personality.trait in event.r_c["not_trait"]:
-                            has_trait = True
-
-                    has_skill = False
-                    if event.r_c["not_skill"]:
-                        for _skill in event.r_c["not_skill"]:
-                            split = _skill.split(",")
-
-                            if len(split) < 2:
-                                print("random_cat skill incorrectly formatted", _skill)
-                                continue
-
-                            if random_cat.skills.meets_skill_requirement(
-                                split[0], int(split[1])
-                            ):
-                                has_skill = True
-                                break
-
-                    if has_trait or has_skill:
-                        continue
-
-                # check backstory
-                if event.r_c["backstory"]:
-                    if random_cat.backstory not in event.r_c["backstory"]:
-                        continue
-
-            # check that injury is possible
-            if event.injury:
-                # determine which injury severity list will be used
-                allowed_severity = None
-                discard = False
-                if cat.status in GenerateEvents.INJURY_DISTRIBUTION:
-                    minor_chance = GenerateEvents.INJURY_DISTRIBUTION[cat.status][
-                        "minor"
-                    ]
-                    major_chance = GenerateEvents.INJURY_DISTRIBUTION[cat.status][
-                        "major"
-                    ]
-                    severe_chance = GenerateEvents.INJURY_DISTRIBUTION[cat.status][
-                        "severe"
-                    ]
-                    severity_chosen = random.choices(
-                        ["minor", "major", "severe"],
-                        [minor_chance, major_chance, severe_chance],
-                        k=1,
-                    )
-                    if severity_chosen[0] == "minor":
-                        allowed_severity = "minor"
-                    elif severity_chosen[0] == "major":
-                        allowed_severity = "major"
-                    else:
-                        allowed_severity = "severe"
-
-                for block in event.injury:
-                    for injury in block["injuries"]:
-                        if injury in GenerateEvents.INJURIES:
-                            if (
-                                GenerateEvents.INJURIES[injury]["severity"]
-                                != allowed_severity
-                            ):
-                                discard = True
-                                break
-
-                            if "m_c" in block["cats"]:
-                                if injury == "mangled tail" and (
-                                    "NOTAIL" in cat.pelt.scars
-                                    or "HALFTAIL" in cat.pelt.scars
-                                ):
-                                    continue
-
-                                if injury == "torn ear" and "NOEAR" in cat.pelt.scars:
-                                    continue
-                            if "r_c" in block["cats"]:
-                                if injury == "mangled tail" and (
-                                    "NOTAIL" in random_cat.pelt.scars
-                                    or "HALFTAIL" in random_cat.pelt.scars
-                                ):
-                                    continue
-
-                                if (
-                                    injury == "torn ear"
-                                    and "NOEAR" in random_cat.pelt.scars
-                                ):
-                                    continue
-
-=======
             m_c_injuries = []
             r_c_injuries = []
             discard = False
@@ -761,7 +378,6 @@ class GenerateEvents:
                         m_c_injuries.append(injury)
                     if "r_c" in block["cats"]:
                         r_c_injuries.append(injury)
->>>>>>> development
                 if discard:
                     continue
 
@@ -775,6 +391,10 @@ class GenerateEvents:
                     injuries=m_c_injuries,
                 ):
                     continue
+            # CHECKMERGE
+            # ADD LIFEGEN STUFF BACK IN HERE FOR SHORTEVENTS!
+            # cluster, residence, min_max_faith, df_status, shunned
+
             # if a random cat was pre-chosen, then we check if the event will be suitable for them
             if random_cat:
                 if not event_for_cat(

@@ -234,10 +234,6 @@
           "a blood soaked field"
         ]
       ],
-<<<<<<< HEAD:resources/dicts/snippet_collections.json
-      "beach": [],
-      "mountainous": []
-=======
       "beach": [
         ["an eerily still ocean"]
       ],
@@ -253,7 +249,6 @@
         ["the skeleton of a beast long gone"]
 
       ]
->>>>>>> development:resources/lang/en/snippet_collections.json
     },
     "sound": {
       "general": [
@@ -333,12 +328,6 @@
           "a cat's final words"
         ]
       ],
-<<<<<<< HEAD:resources/dicts/snippet_collections.json
-      "forest": [],
-      "plains": [],
-      "beach": [],
-      "mountainous": []
-=======
       "forest": [
         ["the endess crashing of trees"]
 
@@ -368,7 +357,6 @@
         ["the sound of a duststorm"]
 
       ]
->>>>>>> development:resources/lang/en/snippet_collections.json
     },
     "smell": {
       "general": [
@@ -397,69 +385,6 @@
           "the scent of milk far from the nursery"
         ]
       ],
-<<<<<<< HEAD:resources/dicts/snippet_collections.json
-      "forest": [],
-      "plains": [],
-      "beach": [],
-      "mountainous": []
-    },
-    "emotional": {
-      "general": [
-        [
-          "the excitement of an apprentice",
-          "an apprentice's vigor",
-          "the naivety of an apprentice"
-        ],
-        [
-          "the strength of a warrior",
-          "the steadfastness of a warrior",
-          "a warrior's loyalty"
-        ],
-        [
-          "the ache of an elder's bones",
-          "the wisdom of an elder"
-        ],
-        [
-          "the sensation of falling"
-        ],
-        [
-          "the feeling of flight"
-        ],
-        [
-          "a half-remembered promise"
-        ],
-        [
-          "a foreboding feeling"
-        ],
-        [
-          "the embrace of a family"
-        ]
-      ],
-      "forest": [],
-      "plains": [],
-      "beach": [],
-      "mountainous": []
-    },
-    "touch": {
-      "general": [
-        [
-          "the brush of a pelt against {PRONOUN/cat_tag/poss} own"
-        ],
-        [
-          "the touch of a mentor to an apprentice's forehead"
-        ],
-        [
-          "a tail twining with {PRONOUN/cat_tag/poss} own"
-        ],
-        [
-          "the warmth of a parent"
-        ]
-      ],
-      "forest": [],
-      "plains": [],
-      "beach": [],
-      "mountainous": []
-=======
       "forest": [
         ["the scent of decaying wood"],
         ["the scent of bark"]
@@ -562,133 +487,11 @@
         ["the dryness of the air"]
 
       ]
->>>>>>> development:resources/lang/en/snippet_collections.json
     }
   },
   "omen_list": {
     "sight": {
       "general": [
-<<<<<<< HEAD:resources/dicts/snippet_collections.json
-        [
-          "a five-pointed leaf",
-          "a star-shaped leaf",
-          "an oddly torn leaf"
-        ],
-        [
-          "a stone of two halves perfectly fitting together",
-          "a stone with shining chips in it",
-          "a stone with odd patterns on it",
-          "a sparkling stone"
-        ],
-        [
-          "a crooked-jawed squirrel"
-        ],
-        [
-          "an odd pile of soft downy fur",
-          "a tuft of fox fur",
-          "a tuft of badger fur",
-          "a charred scrap of fur"
-        ],
-        [
-          "a shard of glass"
-        ],
-        [
-          "withered deathberries"
-        ],
-        [
-          "a strangely shaped cloud",
-          "a cat shaped cloud"
-        ],
-        [
-          "a gleaming feather",
-          "an oddly shaped feather",
-          "a broken feather",
-          "tattered feathers"
-        ],
-        [
-          "the tooth of a large predator",
-          "the claw of a large predator",
-          "an old bloody claw"
-        ],
-        [
-          "an eagle's talon",
-          "the talon of a hawk"
-        ],
-        [
-          "a split acorn"
-        ],
-        [
-          "a piece of fresh prey already rotting"
-        ],
-        [
-          "a shell shining with the colors of water"
-        ],
-        [
-          "a branch that looks whole but comes apart with a gentle touch",
-          "a stick rotted through"
-        ],
-        [
-          "a three-eyed fish"
-        ],
-        [
-          "a two-headed adder",
-          "a dead snake eating it's own tail",
-          "a perfectly shed snake-skin"
-        ],
-        [
-          "a glowing bug fallen into the middle of camp"
-        ],
-        [
-          "a pawprint of red on rock"
-        ],
-        [
-          "destroyed herbs",
-          "wilting herbs"
-        ],
-        [
-          "a bird's broken egg",
-          "a perfectly intact yet hollow bird's egg"
-        ],
-        [
-          "a dew-covered spider's web"
-        ],
-        [
-          "a torn collar"
-        ],
-        [
-          "the bones of fresh-kill",
-          "a cracked mouse skull",
-          "a cracked rabbit skull"
-        ],
-        [
-          "a shining beetle shell"
-        ],
-        [
-          "a green moth"
-        ],
-        [
-          "an emaciated vole",
-          "an emaciated rabbit",
-          "an emaciated mouse"
-        ],
-        [
-          "a headless centipede"
-        ],
-        [
-          "an abandoned bee-stinger"
-        ],
-        [
-          "a miraculously burning reed"
-        ],
-        [
-          "a shed whisker"
-        ]
-      ],
-      "forest": [],
-      "plains": [],
-      "beach": [],
-      "mountainous": []
-=======
         ["a five-pointed leaf", "a star-shaped leaf", "an oddly torn leaf"],
         ["a stone of two halves perfectly fitting together", "a stone with shining chips in it", "a stone with odd patterns on it", "a sparkling stone"],
         ["an odd pile of soft downy fur", "a tuft of fox fur", "a tuft of badger fur", "a charred scrap of fur"],
@@ -748,7 +551,6 @@
         ["a seven-legged beetle"]
 
       ]
->>>>>>> development:resources/lang/en/snippet_collections.json
     },
     "sound": {
       "general": [
@@ -759,68 +561,6 @@
           "the sound of a cat no longer here"
         ]
       ],
-<<<<<<< HEAD:resources/dicts/snippet_collections.json
-      "forest": [],
-      "plains": [],
-      "beach": [],
-      "mountainous": []
-    },
-    "smell": {
-      "general": [
-        [
-          "the scent of spoiled queen's milk"
-        ],
-        [
-          "the scent of a long dead cat"
-        ]
-      ],
-      "forest": [],
-      "plains": [],
-      "beach": [],
-      "mountainous": []
-    },
-    "emotional": {
-      "general": [
-        [
-          "a pervasive feeling of dread"
-        ],
-        [
-          "the feeling of ants crawling through fur",
-          "the drag of a claw through fur"
-        ],
-        [
-          "the imprint of fangs on skin"
-        ],
-        [
-          "the feeling of a hidden onlooker",
-          "the oppressive feeling of eyes unseen"
-        ],
-        [
-          "the stillness that comes before disaster"
-        ]
-      ],
-      "forest": [],
-      "plains": [],
-      "beach": [],
-      "mountainous": []
-    },
-    "touch": {
-      "general": [
-        [
-          "the wind whistling past a claw raised in anger"
-        ],
-        [
-          "the ache of fatigue as eyes close for good"
-        ],
-        [
-          "an endless cold that seeps into {PRONOUN/cat_tag/poss} bones"
-        ]
-      ],
-      "forest": [],
-      "plains": [],
-      "beach": [],
-      "mountainous": []
-=======
       "forest": [
         ["the hooting of an owl"],
         ["the falling of a tree", "the crack of a tree falling"]
@@ -948,7 +688,6 @@
       "desert": [
 
       ]
->>>>>>> development:resources/lang/en/snippet_collections.json
     }
   },
   "dream_list": [
@@ -1256,51 +995,6 @@
     ],
     "sound": {
       "general": [
-<<<<<<< HEAD:resources/dicts/snippet_collections.json
-        [
-          "the rumble of many paws over the ground"
-        ],
-        [
-          "echoes of a past conversation",
-          "echoes of a past argument"
-        ],
-        [
-          "whispers of a deed long past",
-          "whispers of a secret long lost"
-        ],
-        [
-          "a betrayal on the wind"
-        ],
-        [
-          "the crackling of a burning branch"
-        ],
-        [
-          "the whisper of voices rapidly fading"
-        ],
-        [
-          "the sound of wingbeats in the wind"
-        ],
-        [
-          "the sounds of a heated argument"
-        ],
-        [
-          "near silent pawsteps"
-        ],
-        [
-          "the soft noises of kits nursing"
-        ],
-        [
-          "a peal of laughter"
-        ],
-        [
-          "distant wails of grief"
-        ]
-      ],
-      "forest": [],
-      "plains": [],
-      "beach": [],
-      "mountainous": []
-=======
         ["the rumble of many paws over the ground"],
         ["the echoes of a past conversation", "the echoes of a past argument"],
         ["whispers of a deed long past", "whispers of a secret long lost"],
@@ -1332,7 +1026,6 @@
       "desert": [
 
       ]
->>>>>>> development:resources/lang/en/snippet_collections.json
     },
     "smell": {
       "general": [
@@ -1349,12 +1042,6 @@
           "the smell of rain"
         ]
       ],
-<<<<<<< HEAD:resources/dicts/snippet_collections.json
-      "forest": [],
-      "plains": [],
-      "beach": [],
-      "mountainous": []
-=======
       "forest": [
 
       ],
@@ -1373,7 +1060,6 @@
       "desert": [
 
       ]
->>>>>>> development:resources/lang/en/snippet_collections.json
     },
     "emotional": {
       "general": [
@@ -1400,12 +1086,6 @@
         ["a home no longer welcoming", "a home long lost", "a home once forgotten"],
         ["oozing corruption"]
       ],
-<<<<<<< HEAD:resources/dicts/snippet_collections.json
-      "forest": [],
-      "plains": [],
-      "beach": [],
-      "mountainous": []
-=======
       "forest": [
 
       ],
@@ -1424,7 +1104,6 @@
       "desert": [
 
       ]
->>>>>>> development:resources/lang/en/snippet_collections.json
     },
     "touch": {
       "general": [
@@ -1472,12 +1151,6 @@
           "wind whipping through fur"
         ]
       ],
-<<<<<<< HEAD:resources/dicts/snippet_collections.json
-      "forest": [],
-      "plains": [],
-      "beach": [],
-      "mountainous": []
-=======
       "forest": [
 
       ],
@@ -1496,7 +1169,6 @@
       "desert": [
 
       ]
->>>>>>> development:resources/lang/en/snippet_collections.json
     },
     "taste": {
       "general": [
@@ -1512,12 +1184,6 @@
           "the volatile taste of berries"
         ]
       ],
-<<<<<<< HEAD:resources/dicts/snippet_collections.json
-      "forest": [],
-      "plains": [],
-      "beach": [],
-      "mountainous": []
-=======
       "forest": [
 
       ],
@@ -1535,7 +1201,6 @@
       "desert": [
 
       ]
->>>>>>> development:resources/lang/en/snippet_collections.json
     }
   },
   "story_list": {
@@ -1656,32 +1321,6 @@
       ]
     ],
     "mountainous": [
-<<<<<<< HEAD:resources/dicts/snippet_collections.json
-      [
-        "The Eagle Who Became a Cat",
-        "The She-cat Who Traded Her Voice",
-        "The Cat Who Flew",
-        "The Cat Who Carried The Sun",
-        "The Cats Made of Light",
-        "The Cat Who Moved The Mountains",
-        "The Cats Made of Shadow"
-      ],
-      [
-        "The Mountain's Shadow"
-      ],
-      [
-        "The Hummingbird's Feather"
-      ],
-      [
-        "The Betrayal of the Ravens"
-      ],
-      [
-        "The Dancing Sky"
-      ],
-      [
-        "The Sun-drown Place"
-      ]
-=======
       ["The Eagle Who Became a Cat", "The She-cat Who Traded Her Voice", "The Cat Who Flew", "The Cat Who Carried The Sun",
       "The Cats Made of Light", "The Cat Who Moved The Mountains", "The Cats Made of Shadow"],
       ["The Mountain's Shadow"],
@@ -1696,7 +1335,6 @@
     ],
     "desert": [
 
->>>>>>> development:resources/lang/en/snippet_collections.json
     ]
   }
 }

@@ -44,6 +44,12 @@ from scripts.clan_resources.freshkill import (
     FRESHKILL_ACTIVE,
 )
 
+from scripts.game_structure.game.switches import (
+    switch_set_value,
+    switch_get_value,
+    Switch,
+)
+
 
 class PatrolOutcome:
     """Holds all info on patrol outcomes, and methods to handle that outcome"""
@@ -82,7 +88,6 @@ class PatrolOutcome:
         relationship_constraints: List[str] = None,
         outcome_art: Union[str, None] = None,
         outcome_art_clean: Union[str, None] = None,
-        stat_cat: Cat = None
         stat_cat: Cat = None,
         future_event: Dict = None,
     ):
@@ -458,7 +463,7 @@ class PatrolOutcome:
         # Patrol leader is the only one allowed to be stat_cat in patrols equal to or less than than two cats
 
         # LIFEGEN EDIT: only in clangen patrols buster
-        if "patrol_category" in game.switches and game.switches["patrol_category"] == "clangen":
+        if switch_get_value(Switch.patrol_category) == "clangen":
             if not allowed_specific and len(patrol.patrol_cats) <= 2:
                 allowed_specific = ["p_l"]
 
@@ -1234,7 +1239,7 @@ class PatrolOutcome:
                     # -----------------------------------------------------------------------------------
                     else:
                         results.append(f"{cat.name}'s ghost now wanders.")
-                elif cat.outside:
+                elif cat.status.is_outsider:
                     results.append(f"The patrol met {cat.name}.")
                 else:
                     new.append(str(cat.name))
@@ -1253,8 +1258,7 @@ class PatrolOutcome:
                     )
             del type_list, string
 
-                cat.pelt.inventory = []
-                # ^^ this stops the multi-cat inventory thing for kittypets joining from patrols!!
+            cat.pelt.inventory = []
             
         # Check to see if any young litters joined with alive parents.
         # If so, see if recovering from birth condition is needed
@@ -1320,7 +1324,7 @@ class PatrolOutcome:
         scar_list = [
             x
             for x in scar_list
-            if x in Pelt.scars1 + Pelt.scars2 + Pelt.scars3 and x not in cat.pelt.scars
+            if x in Pelt.all_scars and x not in cat.pelt.scars
         ]
 
         if not scar_list:

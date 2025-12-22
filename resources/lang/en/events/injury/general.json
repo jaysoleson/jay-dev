@@ -4757,11 +4757,7 @@
         "season": [
             "any"
         ],
-<<<<<<< HEAD:resources/dicts/events/injury/general.json
-        "weight": 10,
-=======
         "frequency": 2,
->>>>>>> development:resources/lang/en/events/injury/general.json
         "event_text": "m_c was hurt by {PRONOUN/m_c/poss} mentor, r_c, as a punishment for disobeying {PRONOUN/r_c/object}.",
         "m_c": {
             "status": [
@@ -4846,11 +4842,7 @@
         "season": [
             "any"
         ],
-<<<<<<< HEAD:resources/dicts/events/injury/general.json
-        "weight": 10,
-=======
         "frequency": 2,
->>>>>>> development:resources/lang/en/events/injury/general.json
         "event_text": "m_c fought with {PRONOUN/m_c/poss} mentor, r_c, and was injured.",
         "m_c": {
             "status": [
@@ -6463,13 +6455,8 @@
             "greenleaf",
             "newleaf"
         ],
-<<<<<<< HEAD:resources/dicts/events/injury/general.json
-        "weight": 20,
-        "event_text": "The day is so nice out today that m_c decided to sneak out of camp and go play in the flowers without anyone noticing. {PRONOUN/m_c/subject/CAP} {VERB/m_c/come/comes} back with a swollen paw, having stepped on a bee.",
-=======
         "frequency": 4,
         "event_text": "The day is so nice out today that m_c decided to sneak out of camp and go play in the flowers without anyone noticing. {PRONOUN/m_c/subject/CAP} come back with a swollen paw, having stepped on a bee.",
->>>>>>> development:resources/lang/en/events/injury/general.json
         "m_c": {
             "age": [
                 "kitten"

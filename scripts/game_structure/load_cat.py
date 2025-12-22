@@ -78,15 +78,12 @@ def json_load():
             elif cat["favourite"] is True:
                 cat["favourite"] = 1
 
-            # moving clangen accs over to accessories + inventory
-            if "accessories" not in cat:
-                cat["accessories"] = []
+            if "accessories" in cat:
+                cat["accessory"] = cat["accessories"]
+                cat.pop("accessories")
             if "inventory" not in cat:
-                cat["inventory"] = []
-            if cat["accessory"] is not None:
-                cat["accessories"].append(cat["accessory"])
-                cat["inventory"].append(cat["accessory"])
-                cat["accessory"] = None
+                cat["inventory"] = cat["accessory"]
+
             
             # converting old accessories 
             if "LADYBUG" in cat["inventory"]:
@@ -99,15 +96,19 @@ def json_load():
                 cat["inventory"].remove("RAINCOAT")
                 cat["inventory"].append("YELLOWRAINCOAT")
 
-            if "LADYBUG" in cat["accessories"]:
-                cat["accessories"].remove("LADYBUG")
-                cat["accessories"].append("LADYBUGS")
-            if "CHIMES" in cat["accessories"]:
-                cat["accessories"].remove("CHIMES")
-                cat["accessories"].append("CELESTIALCHIMES")
-            if "RAINCOAT" in cat["accessories"]:
-                cat["accessories"].remove("RAINCOAT")
-                cat["accessories"].append("YELLOWRAINCOAT")
+            if "LADYBUG" in cat["accessory"]:
+                cat["accessory"].remove("LADYBUG")
+                cat["accessory"].append("LADYBUGS")
+            if "CHIMES" in cat["accessory"]:
+                cat["accessory"].remove("CHIMES")
+                cat["accessory"].append("CELESTIALCHIMES")
+            if "RAINCOAT" in cat["accessory"]:
+                cat["accessory"].remove("RAINCOAT")
+                cat["accessory"].append("YELLOWRAINCOAT")
+            
+            for acc in cat['accessory']:
+                if acc not in cat["inventory"]:
+                    cat["inventory"].append(acc)
             # accounting for old saves
             # checks first if status is in the old format
             # if it is then we use the old info to provide an initial status dict
@@ -210,7 +211,6 @@ def json_load():
                 scars=cat["scars"] if "scars" in cat else [],
                 accessory=cat["accessory"],
                 opacity=cat["opacity"] if "opacity" in cat else 100,
-                accessories=cat["accessories"] if "accessories" in cat else [],
                 inventory = cat["inventory"] if "inventory" in cat else []
             )
 
@@ -269,7 +269,6 @@ def json_load():
             new_cat.no_retire = cat["no_retire"] if "no_retire" in cat else False
             new_cat.no_faith = cat["no_faith"] if "no_faith" in cat else False
             new_cat.lock_faith = cat["lock_faith"] if "lock_faith" in cat else "flexible"
-            new_cat.exiled = cat["exiled"]
             new_cat.shunned = cat["shunned"]
             new_cat.driven_out = cat["driven_out"] if "driven_out" in cat else False
 
@@ -332,7 +331,6 @@ def json_load():
             new_cat.former_apprentices = cat["former_apprentices"]
             new_cat.df = cat["df"] if "df" in cat else False
             new_cat.shunned = cat["shunned"] if "shunned" in cat else False
-            new_cat.outside = cat["outside"] if "outside" in cat else False
             new_cat.faded_offspring = (
                 cat["faded_offspring"] if "faded_offspring" in cat else []
             )
@@ -367,23 +365,24 @@ def json_load():
                     cat["scar_event"] if "scar_event" in cat else [],
                 )
             if "pronouns" in cat:
-                for i in cat["pronouns"]:
-                    if "sibling" not in i:
-                        if new_cat.genderalign in ["male", "trans male"]:
-                            i["sibling"] = "brother"
-                        elif new_cat.genderalign in ["female", "trans female"]:
-                            i["sibling"] = "sister"
-                        else:
-                            i["sibling"] = "sibling"
+                for lang in cat["pronouns"]:
+                    for prn_set in cat["pronouns"][lang]:
+                        if "sibling" not in prn_set:
+                            if new_cat.genderalign in ["male", "trans male"]:
+                                prn_set["sibling"] = "brother"
+                            elif new_cat.genderalign in ["female", "trans female"]:
+                                prn_set["sibling"] = "sister"
+                            else:
+                                prn_set["sibling"] = "sibling"
 
-        
-                    if "parent" not in i:
-                        if new_cat.genderalign in ["male", "trans male"]:
-                            i["parent"] = "father"
-                        elif new_cat.genderalign in ["female", "trans female"]:
-                            i["parent"] = "mother"
-                        else:
-                            i["parent"] = "parent"
+            
+                        if "parent" not in prn_set:
+                            if new_cat.genderalign in ["male", "trans male"]:
+                                prn_set["parent"] = "father"
+                            elif new_cat.genderalign in ["female", "trans female"]:
+                                prn_set["parent"] = "mother"
+                            else:
+                                prn_set["parent"] = "parent"
 
             all_cats.append(new_cat)
 

@@ -9,10 +9,9 @@ from scripts.cat.cats import Cat
 from scripts.cat.enums import CatAge, CatRank
 from scripts.cat.history import History
 from scripts.cat.pelts import Pelt
-from scripts.conditions import medical_cats_condition_fulfilled, get_amount_cat_for_one_medic
+from scripts.conditions import get_amount_cat_for_one_medic
 from scripts.utility import event_text_adjust, change_relationship_values, change_clan_relations, \
     history_text_adjust
-from scripts.game_structure.game_essentials import game
 from scripts.events_module.generate_events import GenerateEvents
 from scripts.game_structure.windows import RetireScreen
 
@@ -1079,10 +1078,10 @@ class Condition_Events:
                         # Don't add this to the condition event list: instead make it it's own event, a ceremony. 
                         game.cur_events_list.append(
                                 Single_Event(event, "ceremony", retire_involved))
-                    elif not game.switches['window_open']:
+                    elif not switch_get_value(Switch.window_open):
                         RetireScreen('events screen')
-                    elif game.switches['window_open'] and 'retire' not in game.switches['windows_dict']:
-                        game.switches['windows_dict'].append('retire')
+                    elif switch_get_value(Switch.window_open) and 'retire' not in switch_get_value(Switch.windows_dict):
+                        switch_append_list_value(Switch.windows_dict, 'retire')
 
                             
     @staticmethod

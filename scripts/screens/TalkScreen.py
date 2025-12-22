@@ -13,8 +13,14 @@ from scripts.game_structure.ui_elements import (
     UIImageButton,
     UISurfaceImageButton,
 )
+
+from scripts.game_structure import constants
+from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch
+from ..game_structure.game.settings import game_setting_get
+
+
 import pygame_gui
-from scripts.game_structure.game_essentials import game
+from scripts.game_structure import game
 from scripts.housekeeping.version import VERSION_NAME
 from scripts.special_dates import get_special_date, contains_special_date_tag
 # pylint: disable=consider-using-dict-items
@@ -32,7 +38,6 @@ from scripts.utility import (
     )
 from scripts.game_structure.screen_settings import MANAGER
 from ..ui.generate_button import ButtonStyles, get_button_dict
-from ..ui.get_arrow import get_arrow
 from itertools import accumulate as _accumulate
 
 
@@ -76,7 +81,7 @@ class TalkScreen(Screens):
 
     def screen_switches(self):
         super().screen_switches()
-        self.the_cat = Cat.all_cats.get(game.switches['cat'])
+        self.the_cat = Cat.all_cats.get(switch_get_value(Switch.cat))
         self.cat_dict.clear()
         self.other_dict.clear()
         self.update_camp_bg()
@@ -108,12 +113,12 @@ class TalkScreen(Screens):
 
 
         self.text_type = ""
-        if game.config["debug_meow_error_locating"]:
+        if constants.CONFIG["lifegen"]["debug"]["debug_meow_error_locating"]:
             self.debug_meow_error_locator(self.the_cat)
         else:
             self.texts = self.load_texts(self.the_cat)
 
-        if game.switches["talk_category"] == "flirt":
+        if switch_get_value(Switch.talk_category) == "flirt":
             flirt_success = self.is_flirt_success(self.the_cat)
             if flirt_success is True:
                 self.the_cat.relationships.get(game.clan.your_cat.ID).romantic_love += randint(1,10)
@@ -137,9 +142,9 @@ class TalkScreen(Screens):
             )
 
         self.back_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((25, 25), (153, 30))),
-            get_arrow(5, arrow_left=True) + " Back",
-            get_button_dict(ButtonStyles.SQUOVAL, (153, 30)),
+            ui_scale(pygame.Rect((25, 60), (105, 30))),
+            "buttons.back",
+            get_button_dict(ButtonStyles.SQUOVAL, (105, 30)),
             object_id="@buttonstyles_squoval",
             manager=MANAGER,
         )
@@ -200,7 +205,7 @@ class TalkScreen(Screens):
         self.option_bgs = {}
 
     def update_camp_bg(self):
-        light_dark = "dark" if game.settings["dark mode"] else "light"
+        light_dark = "dark" if game_setting_get("dark mode") else "light"
 
         camp_bg_base_dir = "resources/images/camp_bg/"
         leaves = ["newleaf", "greenleaf", "leafbare", "leaffall"]
@@ -232,7 +237,7 @@ class TalkScreen(Screens):
         if (
             self.the_cat.dead and
             not self.the_cat.df and
-            not self.the_cat.outside
+            not self.the_cat.status.is_outsider
             ):
             all_backgrounds = [
                 starclan_camp,
@@ -243,7 +248,7 @@ class TalkScreen(Screens):
         elif (
             self.the_cat.dead and
             not self.the_cat.df and
-            self.the_cat.outside
+            self.the_cat.status.is_outsider
         ):
             all_backgrounds = [
                 ur_camp,
@@ -360,7 +365,7 @@ class TalkScreen(Screens):
 
 
     def handle_event(self, event):
-        if game.switches['window_open']:
+        if switch_get_value(Switch.window_open):
             pass
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
             if event.ui_element == self.back_button:
@@ -370,7 +375,7 @@ class TalkScreen(Screens):
                     if event.ui_element == button and self.chosen_text_key:
                         self.current_scene = self.possible_texts[self.chosen_text_key][f"{self.current_scene}_choices"][key]["next_scene"]
                         self.handle_choice(self.the_cat)
-        elif event.type == pygame.KEYDOWN and game.settings['keybinds']:
+        elif event.type == pygame.KEYDOWN and game_setting_get("keybinds"):
             if event.key == pygame.K_ESCAPE:
                 self.change_screen('profile screen')
         if event.type == pygame.MOUSEBUTTONDOWN:
@@ -404,14 +409,14 @@ class TalkScreen(Screens):
                     continue
                 if game.clan.your_cat.dead and dialogue[0].status == "newborn":
                     continue
-                if dialogue[0].dead and game.switches["talk_category"] in ["insult", "flirt"]:
+                if dialogue[0].dead and switch_get_value(Switch.talk_category) in ["insult", "flirt"]:
                     continue
-                if game.switches["talk_category"] == "flirt" and not dialogue[0].is_dateable(game.clan.your_cat):
+                if switch_get_value(Switch.talk_category) == "flirt" and not dialogue[0].is_dateable(game.clan.your_cat):
                     continue
                 self.text_type = ""
                 meows.append(dialogue)
                 print("----------------")
-                print("Meow error!", game.switches["talk_category"].upper())
+                print("Meow error!", switch_get_value(Switch.talk_category).upper())
                 print("You:", game.clan.your_cat.name)
                 print("Them: ", dialogue[0].name)
                 if self.the_cat == dialogue[0]:
@@ -458,7 +463,7 @@ class TalkScreen(Screens):
     def handle_random_cat(self, cat):
         random_cat = Cat.all_cats.get(choice(game.clan.clan_cats))
         counter = 0
-        while random_cat.outside or random_cat.dead or random_cat.ID in [game.clan.your_cat.ID, cat.ID]:
+        while random_cat.status.is_outsider or random_cat.dead or random_cat.ID in [game.clan.your_cat.ID, cat.ID]:
             counter += 1
             if counter == 15:
                 break
@@ -604,10 +609,8 @@ class TalkScreen(Screens):
                     cats_from,
                     romantic_value,
                     platonic_value,
-                    dislike_value,
                     respect_value,
                     comfort_value,
-                    jealousy_value,
                     trust_value,
                     log=None
                 )
@@ -618,10 +621,8 @@ class TalkScreen(Screens):
                         cats_to,
                         romantic_value,
                         platonic_value,
-                        dislike_value,
                         respect_value,
                         comfort_value,
-                        jealousy_value,
                         trust_value,
                         log=None
                     )
@@ -666,10 +667,10 @@ class TalkScreen(Screens):
 
         special_date = get_special_date()
 
-        if game.switches["talk_category"] == "insult":
+        if switch_get_value(Switch.talk_category) == "insult":
             with open(f"{self.resource_dir}insults.json", 'r') as read_file:
                 possible_texts = ujson.loads(read_file.read())
-        elif game.switches["talk_category"] == "flirt":
+        elif switch_get_value(Switch.talk_category) == "flirt":
             with open(f"{self.resource_dir}flirt.json", 'r') as read_file:
                 possible_texts.update(ujson.loads(read_file.read()))
         else:
@@ -721,7 +722,7 @@ class TalkScreen(Screens):
                             special_dialogue = ujson.loads(read_file.read())
                             possible_texts.update(special_dialogue)
                             
-                    if game.config['fun']['april_fools']:
+                    if constants.CONFIG['fun']['april_fools']:
                         with open(f"{self.resource_dir}focuses/aprilfools.json", 'r') as read_file:
                             aprilfools_dialogue = ujson.loads(read_file.read())
                             possible_texts.update(aprilfools_dialogue)
@@ -765,25 +766,24 @@ class TalkScreen(Screens):
 
             # what if i just start over
             # old stuff
-            if "debug_ensure_dialogue" in game.config and game.config["debug_ensure_dialogue"]:
-                if game.config["debug_ensure_dialogue"] == talk_key:
-                    pass
+            if constants.CONFIG["lifegen"]["debug"]["debug_ensure_dialogue"] == talk_key:
+                pass
             
             if contains_special_date_tag(TAGS):
                 if not special_date or special_date.patrol_tag not in TAGS:
                     continue
 
-            if game.switches["talk_category"] == "talk" and (
+            if switch_get_value(Switch.talk_category) == "talk" and (
                 "insult" in TAGS or "reject" in TAGS or "accept" in TAGS
                 ):
                 continue
 
-            if game.switches["talk_category"] == "insult" and (
+            if switch_get_value(Switch.talk_category) == "insult" and (
                 "insult" not in TAGS or "accept" in TAGS or "reject" in TAGS
                 ):
                 continue
 
-            if game.switches["talk_category"] == "flirt" and (
+            if switch_get_value(Switch.talk_category) == "flirt" and (
                 "insult" in TAGS or ("reject" not in TAGS and "accept" not in TAGS)
                 ):
                 continue
@@ -818,7 +818,7 @@ class TalkScreen(Screens):
                 if CAT["min_max_faith"][1] > cat.faith:
                     continue
 
-            if game.switches["talk_category"] == "flirt":
+            if switch_get_value(Switch.talk_category) == "flirt":
                 success = self.is_flirt_success(cat)
                 if "heartbroken" not in cat.illnesses.keys() and ("condition" in CAT and "heartbroken" in CAT["condition"]):
                     continue
@@ -1409,7 +1409,7 @@ class TalkScreen(Screens):
                         continue
 
             # dead moons tags!
-            fadedage = game.config["fading"]["age_to_fade"]
+            fadedage = constants.CONFIG["fading"]["age_to_fade"]
             # this is for opacity tagging whenever i wanna do that
             skip_processing = False
 
@@ -1448,9 +1448,9 @@ class TalkScreen(Screens):
         if any(t in ["ur", "sc", "df"] for t in BLOCK["dead"]):
             if cat.df and "df" not in BLOCK["dead"]:
                 return False
-            elif cat.outside and "ur" not in BLOCK["dead"]:
+            elif cat.status.is_outsider and "ur" not in BLOCK["dead"]:
                 return False
-            elif (not cat.df and not cat.outside) and "sc" not in BLOCK["dead"]:
+            elif (not cat.df and not cat.status.is_outsider) and "sc" not in BLOCK["dead"]:
                 return False
         else:
             if "any" not in BLOCK["dead"]:
@@ -1721,7 +1721,7 @@ class TalkScreen(Screens):
             if "deaf" in you.permanent_condition:
                 add_on += " d"
             y_c_text += add_on
-            add_on2 = add_on_map.get((cat.dead, cat.df, cat.outside), "")
+            add_on2 = add_on_map.get((cat.dead, cat.df, cat.status.is_outsider), "")
             if "grief stricken" in cat.illnesses:
                 add_on2 += " g"
             if cat.shunned > 0:
@@ -1731,7 +1731,7 @@ class TalkScreen(Screens):
             if "deaf" in cat.permanent_condition:
                 add_on2 += " d"
             t_c_text += add_on2
-            possible_texts['general']["intro"][0] += f" {VERSION_NAME} {(game.switches['talk_category']).upper()}"
+            possible_texts['general']["intro"][0] += f" {VERSION_NAME} {(switch_get_value(Switch.talk_category)).upper()}"
             possible_texts['general']["intro"][0] += "\n"
             possible_texts['general']["intro"][0] += y_c_text + f" {you.moons}"
             possible_texts['general']["intro"][0] += "\n"
@@ -1793,8 +1793,9 @@ class TalkScreen(Screens):
                 weights.append(weight)
 
         # Check for debug mode
-        if game.config.get("debug_ensure_dialogue") in texts_list:
-            text_chosen_key = game.config["debug_ensure_dialogue"]
+        debug_dialogue = constants.CONFIG["lifegen"]["debug"]["debug_ensure_dialogue"]
+        if debug_dialogue in texts_list:
+            text_chosen_key = debug_dialogue
             text = texts_list[text_chosen_key]["intro"] if "intro" in texts_list[text_chosen_key] else texts_list[text_chosen_key][1]
             new_text = self.get_adjusted_txt(text, cat)
             if new_text:
@@ -1806,9 +1807,9 @@ class TalkScreen(Screens):
                     cat.connected_dialogue[text_chosen_key_split[0]] = int(text_chosen_key_split[1])
                 print("Debug:", text_chosen_key)
                 return new_text
-            print("Could not find debug ensure dialogue '" + game.config["debug_ensure_dialogue"] + "' within possible dialogues")
-        elif game.config["debug_ensure_dialogue"]:
-            print("Could not find debug ensure dialogue '" + game.config["debug_ensure_dialogue"] + "' within possible dialogues")
+            print("1: Could not find debug ensure dialogue '" + debug_dialogue + "' within possible dialogues")
+        elif debug_dialogue:
+            print("2: Could not find debug ensure dialogue '" + debug_dialogue + "' within possible dialogues")
 
         # Try to find a valid, unused text
         for _ in range(MAX_RETRIES):
@@ -1919,7 +1920,7 @@ class TalkScreen(Screens):
     def get_living_cats(self):
         living_cats = []
         for the_cat in Cat.all_cats_list:
-            if not the_cat.dead and not the_cat.outside and not the_cat.moons == -1:
+            if not the_cat.dead and not the_cat.status.is_outsider and not the_cat.moons == -1:
                 living_cats.append(the_cat)
         return living_cats
 

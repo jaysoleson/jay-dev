@@ -1,23 +1,10 @@
 [
     {
         "event_id": "gen_new_cat_adoption_anylonerlitter1",
-<<<<<<< HEAD:resources/dicts/events/new_cat/general.json
-        "location": [
-            "any"
-        ],
-        "season": [
-            "any"
-        ],
-        "tags": [
-            "adoption"
-        ],
-        "weight": 5,
-=======
         "location": ["any"],
         "season": ["any"],
         "tags": ["adoption"],
         "frequency": 1,
->>>>>>> development:resources/lang/en/events/new_cat/general.json
         "event_text": "A loner named n_c:0 leaves {PRONOUN/n_c:0/poss} litter to the Clan. m_c decides to adopt them as {PRONOUN/m_c/poss} own.",
         "m_c": {
             "age": [
@@ -54,23 +41,10 @@
     },
     {
         "event_id": "gen_new_cat_adoption_anyroguelitter1",
-<<<<<<< HEAD:resources/dicts/events/new_cat/general.json
-        "location": [
-            "any"
-        ],
-        "season": [
-            "any"
-        ],
-        "tags": [
-            "adoption"
-        ],
-        "weight": 5,
-=======
         "location": ["any"],
         "season": ["any"],
         "tags": ["adoption"],
         "frequency": 1,
->>>>>>> development:resources/lang/en/events/new_cat/general.json
         "event_text": "A rogue named n_c:0 leaves {PRONOUN/n_c:0/poss} litter to the Clan. m_c decides to adopt them as {PRONOUN/m_c/poss} own.",
         "m_c": {
             "age": [
@@ -107,23 +81,10 @@
     },
     {
         "event_id": "gen_new_cat_adoption_anywelcomingotherclanlitter1",
-<<<<<<< HEAD:resources/dicts/events/new_cat/general.json
-        "location": [
-            "any"
-        ],
-        "season": [
-            "any"
-        ],
-        "tags": [
-            "adoption"
-        ],
-        "weight": 5,
-=======
         "location": ["any"],
         "season": ["any"],
         "tags": ["adoption"],
         "frequency": 1,
->>>>>>> development:resources/lang/en/events/new_cat/general.json
         "event_text": "A o_c_n queen decides to leave their litter with c_n. m_c takes them as {PRONOUN/m_c/poss} own.",
         "m_c": {
             "age": [
@@ -160,23 +121,10 @@
     },
     {
         "event_id": "gen_new_cat_adoption_anymultirepkittypetlitter1",
-<<<<<<< HEAD:resources/dicts/events/new_cat/general.json
-        "location": [
-            "any"
-        ],
-        "season": [
-            "any"
-        ],
-        "tags": [
-            "adoption"
-        ],
-        "weight": 5,
-=======
         "location": ["any"],
         "season": ["any"],
         "tags": ["adoption"],
         "frequency": 1,
->>>>>>> development:resources/lang/en/events/new_cat/general.json
         "event_text": "A kittypet named n_c:0 leaves {PRONOUN/n_c:0/poss} litter to the Clan. m_c decides to adopt them as {PRONOUN/m_c/poss} own.",
         "m_c": {
             "age": [
@@ -213,23 +161,10 @@
     },
     {
         "event_id": "gen_new_cat_adoption_anylitter1",
-<<<<<<< HEAD:resources/dicts/events/new_cat/general.json
-        "location": [
-            "any"
-        ],
-        "season": [
-            "any"
-        ],
-        "tags": [
-            "adoption"
-        ],
-        "weight": 5,
-=======
         "location": ["any"],
         "season": ["any"],
         "tags": ["adoption"],
         "frequency": 1,
->>>>>>> development:resources/lang/en/events/new_cat/general.json
         "event_text": "m_c finds an abandoned litter, and decides to adopt them as {PRONOUN/m_c/poss} own.",
         "m_c": {
             "age": [
@@ -260,19 +195,9 @@
     },
     {
         "event_id": "gen_new_cat_anykit1",
-<<<<<<< HEAD:resources/dicts/events/new_cat/general.json
-        "location": [
-            "any"
-        ],
-        "season": [
-            "any"
-        ],
-        "weight": 5,
-=======
         "location": ["any"],
         "season": ["any"],
         "frequency": 1,
->>>>>>> development:resources/lang/en/events/new_cat/general.json
         "event_text": "m_c finds an abandoned kit and names {PRONOUN/n_c:0/object} n_c:0.",
         "m_c": {
             "age": [
@@ -296,19 +221,9 @@
     },
     {
         "event_id": "gen_new_cat_anylonerkit1",
-<<<<<<< HEAD:resources/dicts/events/new_cat/general.json
-        "location": [
-            "any"
-        ],
-        "season": [
-            "any"
-        ],
-        "weight": 5,
-=======
         "location": ["any"],
         "season": ["any"],
         "frequency": 1,
->>>>>>> development:resources/lang/en/events/new_cat/general.json
         "event_text": "m_c finds a loner near the border. It seems {PRONOUN/n_c:0/subject} {VERB/n_c:0/were/was} bringing {PRONOUN/n_c:0/poss} kit named n_c:1 to the Clan, as {PRONOUN/n_c:0/subject} could no longer care for {PRONOUN/n_c:1/object}.",
         "m_c": {
             "status": [
@@ -345,19 +260,9 @@
     },
     {
         "event_id": "gen_new_cat_anykittypetkit1",
-<<<<<<< HEAD:resources/dicts/events/new_cat/general.json
-        "location": [
-            "any"
-        ],
-        "season": [
-            "any"
-        ],
-        "weight": 5,
-=======
         "location": ["any"],
         "season": ["any"],
         "frequency": 1,
->>>>>>> development:resources/lang/en/events/new_cat/general.json
         "event_text": "m_c finds a kittypet near the border. It seems {PRONOUN/n_c:0/subject} {VERB/n_c:0/were/was} bringing {PRONOUN/n_c:0/poss} kit named n_c:1 to the Clan, as {PRONOUN/n_c:0/subject} could no longer care for {PRONOUN/n_c:1/object}.",
         "m_c": {
             "status": [
@@ -394,19 +299,9 @@
     },
     {
         "event_id": "gen_new_cat_anyroguekit1",
-<<<<<<< HEAD:resources/dicts/events/new_cat/general.json
-        "location": [
-            "any"
-        ],
-        "season": [
-            "any"
-        ],
-        "weight": 5,
-=======
         "location": ["any"],
         "season": ["any"],
         "frequency": 1,
->>>>>>> development:resources/lang/en/events/new_cat/general.json
         "event_text": "m_c finds a rogue near the border. It seems {PRONOUN/n_c:0/subject} {VERB/n_c:0/were/was} bringing {PRONOUN/n_c:0/poss} kit named n_c:1 to the Clan, as {PRONOUN/n_c:0/subject} could no longer care for {PRONOUN/n_c:1/object}.",
         "m_c": {
             "status": [
@@ -443,23 +338,10 @@
     },
     {
         "event_id": "gen_new_cat_anypolymate1",
-<<<<<<< HEAD:resources/dicts/events/new_cat/general.json
-        "location": [
-            "any"
-        ],
-        "season": [
-            "any"
-        ],
-        "tags": [
-            "romantic"
-        ],
-        "weight": 5,
-=======
         "location": ["any"],
         "season": ["any"],
         "tags": ["romance"],
         "frequency": 1,
->>>>>>> development:resources/lang/en/events/new_cat/general.json
         "event_text": "m_c and r_c, in the early hours of the day, informed whoever else was awake that they had to handle something and ventured out of camp. Hours later, m_c, r_c, and another cat confidently strode into camp, tails entwined with each other. m_c introduced n_c:0 to the Clan, stating that {PRONOUN/n_c:0/subject} {VERB/n_c:0/are/is} staying.",
         "m_c": {
             "age": [
@@ -495,62 +377,6 @@
             ]
         ],
         "relationships": [
-<<<<<<< HEAD:resources/dicts/events/new_cat/general.json
-            {
-                "cats_from": [
-                    "m_c"
-                ],
-                "cats_to": [
-                    "n_c:0"
-                ],
-                "mutual": true,
-                "values": [
-                    "romantic",
-                    "trust"
-                ],
-                "amount": 55
-            },
-            {
-                "cats_from": [
-                    "m_c"
-                ],
-                "cats_to": [
-                    "n_c:0"
-                ],
-                "mutual": true,
-                "values": [
-                    "comfort"
-                ],
-                "amount": 25
-            },
-            {
-                "cats_from": [
-                    "r_c"
-                ],
-                "cats_to": [
-                    "n_c:0"
-                ],
-                "mutual": true,
-                "values": [
-                    "romantic",
-                    "trust"
-                ],
-                "amount": 55
-            },
-            {
-                "cats_from": [
-                    "r_c"
-                ],
-                "cats_to": [
-                    "n_c:0"
-                ],
-                "mutual": true,
-                "values": [
-                    "comfort"
-                ],
-                "amount": 25
-            }
-=======
           {
             "cats_from": ["m_c"],
             "cats_to": ["n_c:0"],
@@ -579,24 +405,13 @@
             "values": ["comfort"],
             "amount": 25
           }
->>>>>>> development:resources/lang/en/events/new_cat/general.json
         ]
     },
     {
         "event_id": "gen_new_cat_anyloner1",
-<<<<<<< HEAD:resources/dicts/events/new_cat/general.json
-        "location": [
-            "any"
-        ],
-        "season": [
-            "any"
-        ],
-        "weight": 15,
-=======
         "location": ["any"],
         "season": ["any"],
         "frequency": 3,
->>>>>>> development:resources/lang/en/events/new_cat/general.json
         "event_text": "m_c finds a loner named n_c:0, who joins the Clan. The loner decides to keep {PRONOUN/n_c:0/poss} old name.",
         "m_c": {
             "age": [
@@ -627,19 +442,9 @@
     },
     {
         "event_id": "gen_new_cat_anyloner2",
-<<<<<<< HEAD:resources/dicts/events/new_cat/general.json
-        "location": [
-            "any"
-        ],
-        "season": [
-            "any"
-        ],
-        "weight": 20,
-=======
         "location": ["any"],
         "season": ["any"],
         "frequency": 4,
->>>>>>> development:resources/lang/en/events/new_cat/general.json
         "event_text": "A loner waits on the border for a patrol and, finding one led by m_c, asks to join the Clan. The loner decides to take on a more Clan-like name and is now called n_c:0.",
         "m_c": {
             "status": [
@@ -667,19 +472,9 @@
     },
     {
         "event_id": "gen_new_cat_anyloner3",
-<<<<<<< HEAD:resources/dicts/events/new_cat/general.json
-        "location": [
-            "any"
-        ],
-        "season": [
-            "any"
-        ],
-        "weight": 20,
-=======
         "location": ["any"],
         "season": ["any"],
         "frequency": 4,
->>>>>>> development:resources/lang/en/events/new_cat/general.json
         "event_text": "A loner waits on the border for a patrol and, finding one led by m_c, asks to join the Clan. The loner decides to keep {PRONOUN/n_c:0/poss} old name, n_c:0.",
         "m_c": {
             "status": [
@@ -707,19 +502,9 @@
     },
     {
         "event_id": "gen_new_cat_anyloner4",
-<<<<<<< HEAD:resources/dicts/events/new_cat/general.json
-        "location": [
-            "any"
-        ],
-        "season": [
-            "any"
-        ],
-        "weight": 20,
-=======
         "location": ["any"],
         "season": ["any"],
         "frequency": 4,
->>>>>>> development:resources/lang/en/events/new_cat/general.json
         "event_text": "m_c finds a loner who asks to join the Clan. The loner decides to take on a more Clan-like name and is now called n_c:0.",
         "m_c": {
             "age": [
@@ -751,19 +536,9 @@
     },
     {
         "event_id": "gen_new_cat_hostile_anyloner1",
-<<<<<<< HEAD:resources/dicts/events/new_cat/general.json
-        "location": [
-            "any"
-        ],
-        "season": [
-            "any"
-        ],
-        "weight": 15,
-=======
         "location": ["any"],
         "season": ["any"],
         "frequency": 3,
->>>>>>> development:resources/lang/en/events/new_cat/general.json
         "event_text": "While the Clan has no love for outsiders, sometimes new blood is needed. A patrol led by m_c heads out and finds a wandering cat to bring into the Clan. The new cat takes on a more Clan-like name and is now known as n_c:0.",
         "m_c": {
             "status": [
@@ -789,19 +564,9 @@
     },
     {
         "event_id": "gen_new_cat_anykittypet1",
-<<<<<<< HEAD:resources/dicts/events/new_cat/general.json
-        "location": [
-            "any"
-        ],
-        "season": [
-            "any"
-        ],
-        "weight": 20,
-=======
         "location": ["any"],
         "season": ["any"],
         "frequency": 4,
->>>>>>> development:resources/lang/en/events/new_cat/general.json
         "event_text": "m_c finds a kittypet named n_c:0 who joins the Clan. The kittypet decides to keep {PRONOUN/n_c:0/poss} old name.",
         "m_c": {
             "age": [
@@ -832,19 +597,9 @@
     },
     {
         "event_id": "gen_new_cat_anykittypet2",
-<<<<<<< HEAD:resources/dicts/events/new_cat/general.json
-        "location": [
-            "any"
-        ],
-        "season": [
-            "any"
-        ],
-        "weight": 20,
-=======
         "location": ["any"],
         "season": ["any"],
         "frequency": 4,
->>>>>>> development:resources/lang/en/events/new_cat/general.json
         "event_text": "m_c finds a kittypet who joins the Clan. The kittypet decides to take on a more Clan-like name and is now called n_c:0.",
         "m_c": {
             "age": [
@@ -876,19 +631,9 @@
     },
     {
         "event_id": "gen_new_cat_anykittypet3",
-<<<<<<< HEAD:resources/dicts/events/new_cat/general.json
-        "location": [
-            "any"
-        ],
-        "season": [
-            "any"
-        ],
-        "weight": 20,
-=======
         "location": ["any"],
         "season": ["any"],
         "frequency": 4,
->>>>>>> development:resources/lang/en/events/new_cat/general.json
         "event_text": "A kittypet waits on the border for a patrol and, finding one led by m_c, asks to join the Clan. The kittypet decides to keep {PRONOUN/n_c:0/poss} old name, n_c:0.",
         "m_c": {
             "status": [
@@ -915,19 +660,9 @@
     },
     {
         "event_id": "gen_new_cat_anykittypet4",
-<<<<<<< HEAD:resources/dicts/events/new_cat/general.json
-        "location": [
-            "any"
-        ],
-        "season": [
-            "any"
-        ],
-        "weight": 20,
-=======
         "location": ["any"],
         "season": ["any"],
         "frequency": 4,
->>>>>>> development:resources/lang/en/events/new_cat/general.json
         "event_text": "A kittypet waits on the border for a patrol and, finding one led by m_c, asks to join the Clan. The kittypet decides to take on a more Clan-like name and is now called n_c:0.",
         "m_c": {
             "status": [
@@ -954,19 +689,9 @@
     },
     {
         "event_id": "gen_new_cat_anyrogue1",
-<<<<<<< HEAD:resources/dicts/events/new_cat/general.json
-        "location": [
-            "any"
-        ],
-        "season": [
-            "any"
-        ],
-        "weight": 20,
-=======
         "location": ["any"],
         "season": ["any"],
         "frequency": 4,
->>>>>>> development:resources/lang/en/events/new_cat/general.json
         "event_text": "m_c finds a rogue named n_c:0, who joins the Clan. The rogue decides to keep {PRONOUN/n_c:0/poss} old name.",
         "m_c": {
             "age": [
@@ -998,19 +723,9 @@
     },
     {
         "event_id": "gen_new_cat_anyrogue2",
-<<<<<<< HEAD:resources/dicts/events/new_cat/general.json
-        "location": [
-            "any"
-        ],
-        "season": [
-            "any"
-        ],
-        "weight": 20,
-=======
         "location": ["any"],
         "season": ["any"],
         "frequency": 4,
->>>>>>> development:resources/lang/en/events/new_cat/general.json
         "event_text": "m_c finds a rogue who asks to join the Clan. The rogue decides to take on a more Clan-like name and is now called n_c:0.",
         "m_c": {
             "age": [
@@ -1042,19 +757,9 @@
     },
     {
         "event_id": "gen_new_cat_anyrogue3",
-<<<<<<< HEAD:resources/dicts/events/new_cat/general.json
-        "location": [
-            "any"
-        ],
-        "season": [
-            "any"
-        ],
-        "weight": 20,
-=======
         "location": ["any"],
         "season": ["any"],
         "frequency": 4,
->>>>>>> development:resources/lang/en/events/new_cat/general.json
         "event_text": "A rogue waits on the border for a patrol and, finding one led by m_c, asks to join the Clan. The rogue decides to keep {PRONOUN/n_c:0/poss} old name, n_c:0.",
         "m_c": {
             "status": [
@@ -1081,19 +786,9 @@
     },
     {
         "event_id": "gen_new_cat_anyrogue4",
-<<<<<<< HEAD:resources/dicts/events/new_cat/general.json
-        "location": [
-            "any"
-        ],
-        "season": [
-            "any"
-        ],
-        "weight": 20,
-=======
         "location": ["any"],
         "season": ["any"],
         "frequency": 4,
->>>>>>> development:resources/lang/en/events/new_cat/general.json
         "event_text": "A rogue waits on the border for a patrol and, finding one led by m_c, asks to join the Clan. The rogue decides to take a new name and is now called n_c:0.",
         "m_c": {
             "status": [
@@ -1120,19 +815,9 @@
     },
     {
         "event_id": "gen_new_cat_anyotherclancat1",
-<<<<<<< HEAD:resources/dicts/events/new_cat/general.json
-        "location": [
-            "any"
-        ],
-        "season": [
-            "any"
-        ],
-        "weight": 20,
-=======
         "location": ["any"],
         "season": ["any"],
         "frequency": 4,
->>>>>>> development:resources/lang/en/events/new_cat/general.json
         "event_text": "m_c finds a warrior from o_c_n named n_c:0, who asks to join the Clan.",
         "m_c": {
             "age": [
@@ -1163,19 +848,9 @@
     },
     {
         "event_id": "gen_new_cat_anyotherclancat2",
-<<<<<<< HEAD:resources/dicts/events/new_cat/general.json
-        "location": [
-            "any"
-        ],
-        "season": [
-            "any"
-        ],
-        "weight": 10,
-=======
         "location": ["any"],
         "season": ["any"],
         "frequency": 2,
->>>>>>> development:resources/lang/en/events/new_cat/general.json
         "event_text": "m_c meets an injured warrior from o_c_n who asks to join the Clan, in exchange for healing.",
         "m_c": {
             "status": [
@@ -1217,23 +892,10 @@
     },
     {
         "event_id": "gen_new_cat_war_any1",
-<<<<<<< HEAD:resources/dicts/events/new_cat/general.json
-        "location": [
-            "any"
-        ],
-        "season": [
-            "any"
-        ],
-        "sub_type": [
-            "war"
-        ],
-        "weight": 15,
-=======
         "location": ["any"],
         "season": ["any"],
         "sub_type": ["war"],
         "frequency": 3,
->>>>>>> development:resources/lang/en/events/new_cat/general.json
         "event_text": "A member of o_c_n defects in the war and chooses to join c_n, m_c finds {PRONOUN/n_c:0/object} waiting at the border. {PRONOUN/n_c:0/subject/CAP} {VERB/n_c:0/decide/decides} to keep {PRONOUN/n_c:0/poss} name.",
         "m_c": {
             "status": [
@@ -1263,23 +925,10 @@
     },
     {
         "event_id": "gen_new_cat_war_anydefect1",
-<<<<<<< HEAD:resources/dicts/events/new_cat/general.json
-        "location": [
-            "any"
-        ],
-        "season": [
-            "any"
-        ],
-        "sub_type": [
-            "war"
-        ],
-        "weight": 10,
-=======
         "location": ["any"],
         "season": ["any"],
         "sub_type": ["war"],
         "frequency": 2,
->>>>>>> development:resources/lang/en/events/new_cat/general.json
         "event_text": "n_c:0, the deputy of o_c_n, has defected to c_n in the war, m_c finds {PRONOUN/n_c:0/object} at the border. {PRONOUN/n_c:0/subject/CAP} {VERB/n_c:0/decide/decides} to keep {PRONOUN/n_c:0/poss} name.",
         "m_c": {
             "status": [
@@ -1309,23 +958,10 @@
     },
     {
         "event_id": "gen_new_cat_war_anydefect2",
-<<<<<<< HEAD:resources/dicts/events/new_cat/general.json
-        "location": [
-            "any"
-        ],
-        "season": [
-            "any"
-        ],
-        "sub_type": [
-            "war"
-        ],
-        "weight": 15,
-=======
         "location": ["any"],
         "season": ["any"],
         "sub_type": ["war"],
         "frequency": 3,
->>>>>>> development:resources/lang/en/events/new_cat/general.json
         "event_text": "n_c:0, the medicine cat of o_c_n, has defected to c_n in the war, {PRONOUN/n_c:0/subject} {VERB/n_c:0/meet/meets} m_c at the border. {PRONOUN/n_c:0/subject/CAP} {VERB/n_c:0/decide/decides} to keep {PRONOUN/n_c:0/poss} name.",
         "m_c": {
             "status": [

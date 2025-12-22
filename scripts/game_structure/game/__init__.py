@@ -14,7 +14,8 @@ from . import save_load, settings, switches
 from .save_load import safe_save
 from .settings import game_setting_get
 from .switches import switch_get_value, Switch
-
+from ...screens.enums import GameScreen
+from ...cat.enums import CatGroup
 
 pygame.init()
 

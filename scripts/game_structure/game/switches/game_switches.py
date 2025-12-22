@@ -35,6 +35,26 @@ class Switch(StrEnum):
     new_leader = auto()
     switch_clan = auto()
 
+    # LG
+    attended_half_moon = auto()
+    patrolled = auto()
+    window_open = auto()
+    patrol_category = auto()
+    next_possible_disaster = auto()
+    have_kits = auto()
+    request_apprentice = auto()
+    continue_after_death = auto()
+    accept = auto()
+    reject = auto()
+    new_mate = auto()
+    retire = auto()
+    retire_reject = auto()
+    windows_dict = auto()
+    customise_new_life = auto()
+    talk_category = auto()
+    accomplices = auto()
+    # CHECKMERGE: ctrl + f for each of these to make sure theye all good
+
 
 _switches: Dict[str, Union[str, int, bool, list, dict, None]] = {
     "cat": "",
@@ -60,6 +80,26 @@ _switches: Dict[str, Union[str, int, bool, list, dict, None]] = {
     "no_able_left": False,
     "new_leader": None,
     "switch_clans": False,
+
+    # LIFEGEN
+    "attended_half_moon": False,
+    "patrolled": [],
+    "window_open": False,
+    "patrol_category": "clangen",
+    "next_possible_disaster": "",
+    "have_kits": False,
+    "request_apprentice": False,
+    "continue_after_death": False,
+    "accept": False,
+    "reject": False,
+    "new_mate": None,
+    "retire": False,
+    "retire_reject": False,
+    "windows_dict": [],
+    "customise_new_life": False,
+    "talk_category": "talk",
+    "accomplices": []
+
 }
 """If you are somehow accessing this from outside game_switches.py, something has gone terribly wrong."""
 
@@ -80,6 +120,7 @@ def switch_set_value(name: Switch, value):
     :param value: The new value
     :return:
     """
+
     _switches[name] = value
 
 

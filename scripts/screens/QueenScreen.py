@@ -7,14 +7,17 @@ from .Screens import Screens
 from scripts.utility import get_text_box_theme, pronoun_repl, get_personality_compatibility
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
-from scripts.game_structure.game_essentials import game
+from scripts.game_structure import game
 from scripts.game_structure.ui_elements import UIImageButton, UISpriteButton, UISurfaceImageButton
 from ..ui.generate_box import BoxStyles, get_box
 from scripts.utility import get_text_box_theme, ui_scale, ui_scale_blit, ui_scale_offset
 from scripts.game_structure.screen_settings import MANAGER
 from ..ui.generate_button import get_button_dict, ButtonStyles
-from ..ui.get_arrow import get_arrow
 from ..ui.icon import Icon
+from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch
+from ..game_structure.game.settings import game_setting_get
+
+
 
 class QueenScreen(Screens):
     selected_cat = None
@@ -62,14 +65,14 @@ class QueenScreen(Screens):
                 self.change_screen('profile screen')
             elif event.ui_element == self.next_cat_button:
                 if isinstance(Cat.fetch_cat(self.next_cat), Cat):
-                    game.switches['cat'] = self.next_cat
+                    switch_set_value(Switch.cat, self.next_cat)
                     self.update_cat_list()
                     self.update_selected_cat()
                 else:
                     print("invalid next cat", self.next_cat)
             elif event.ui_element == self.previous_cat_button:
                 if isinstance(Cat.fetch_cat(self.previous_cat), Cat):
-                    game.switches['cat'] = self.previous_cat
+                    switch_set_value(Switch.cat, self.previous_cat)
                     self.update_cat_list()
                     self.update_selected_cat()
                 else:
@@ -85,7 +88,7 @@ class QueenScreen(Screens):
 
     def screen_switches(self):
         super().screen_switches()
-        self.the_cat = Cat.all_cats.get(game.switches['cat'])
+        self.the_cat = Cat.all_cats.get(switch_get_value(Switch.cat))
 
         list_frame = get_box(BoxStyles.ROUNDED_BOX, (330, 194))
         self.list_frame = pygame_gui.elements.UIImage(
@@ -101,7 +104,7 @@ class QueenScreen(Screens):
                                                      ui_scale(pygame.Rect((150, 25), (500, 40))),
                                                      object_id=get_text_box_theme("#text_box_34_horizcenter"),
                                                      manager=MANAGER)
-        if game.settings['dark mode']:
+        if game_setting_get("dark mode"):
             if self.the_cat.did_activity:
                 self.heading2 = pygame_gui.elements.UITextBox("This queen already worked this moon.",
                                                         ui_scale(pygame.Rect((265, 55), (500, 80))),
@@ -132,8 +135,8 @@ class QueenScreen(Screens):
                                                             (281, 197)), manager=MANAGER)
 
         self.back_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((25, 25), (105, 30))),
-            get_arrow(2) + " Back",
+            ui_scale(pygame.Rect((25, 60), (105, 30))),
+            "buttons.back",
             get_button_dict(ButtonStyles.SQUOVAL, (105, 30)),
             object_id="@buttonstyles_squoval",
             manager=MANAGER,
@@ -250,13 +253,13 @@ class QueenScreen(Screens):
                 self.next_cat = 1
 
             if self.next_cat == 0 and check_cat.ID != self.the_cat.ID and check_cat.dead == self.the_cat.dead and \
-                    check_cat.ID != game.clan.instructor.ID and not check_cat.exiled and check_cat.status in \
+                    check_cat.ID != game.clan.instructor.ID and not check_cat.status.is_exiled(CatGroup.PLAYER_CLAN) and check_cat.status in \
                     ["apprentice", "medicine cat apprentice", "mediator apprentice", "queen's apprentice"] \
                     and check_cat.df == self.the_cat.df:
                 self.previous_cat = check_cat.ID
 
             elif self.next_cat == 1 and check_cat.ID != self.the_cat.ID and check_cat.dead == self.the_cat.dead and \
-                    check_cat.ID != game.clan.instructor.ID and not check_cat.exiled and check_cat.status in \
+                    check_cat.ID != game.clan.instructor.ID and not check_cat.status.is_exiled(CatGroup.PLAYER_CLAN) and check_cat.status in \
                     ["apprentice", "medicine cat apprentice", "mediator apprentice", "queen's apprentice"] \
                     and check_cat.df == self.the_cat.df:
                 self.next_cat = check_cat.ID

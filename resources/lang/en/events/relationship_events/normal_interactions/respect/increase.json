@@ -7,20 +7,9 @@
 			"m_c noticed r_c is doing {PRONOUN/r_c/poss} best today.",
 			"m_c appreciates r_c's helpful attitude.",
 			"m_c was flattered by r_c's politeness this morning.",
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/admiration/increase.json
-			"m_c is impressed by r_c helping others today.",
-			"m_c sees r_c help a Clanmate get unstuck from some brambles.",
-			"m_c notices that r_c is fixing a damaged part of the camp without being asked.",
 			"m_c sees a glimmer of determination in r_c's eyes.",
 			"m_c is motivated by r_c's big smile.",
 			"r_c's good morning to m_c meant a lot to {PRONOUN/m_c/object}.",
-			"When tucking in for the night, m_c saw that r_c fixed {PRONOUN/m_c/poss} nest.",
-			"After the Gathering, m_c notices that r_c is making sure everyone got home.",
-=======
-			"m_c sees a glimmer of determination in r_c's eyes.",
-			"m_c is motivated by r_c's big smile.",
-			"r_c's good morning to m_c meant a lot to {PRONOUN/m_c/object}.",
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/respect/increase.json
 			"m_c can tell how brave r_c is being about something important.",
 			"m_c thinks r_c is a good singer."
 		]
@@ -29,11 +18,6 @@
 		"id": "admire_inc_low2",
 		"intensity": "low",
 		"interactions": [
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/admiration/increase.json
-			"m_c mews congratulations to r_c for a job well done.",
-			"m_c thinks r_c is being thoughtful of others.",
-			"m_c approves of r_c's recent efforts.",
-=======
 			"m_c is impressed by r_c helping others today.",
 			"m_c sees r_c help a Clanmate get unstuck from some brambles.",
 			"m_c notices that r_c is fixing a damaged part of the camp without being asked.",
@@ -68,7 +52,6 @@
 		"intensity": "low",
 		"interactions": [
 			"m_c mews congratulations to r_c for a job well done.",
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/respect/increase.json
 			"r_c motivated m_c to get out of {PRONOUN/m_c/poss} nest this morning.",
 			"m_c and r_c spend the morning telling interesting stories.",
 			"r_c draws a pretty symbol in the sand that m_c makes sure not to mess up.",
@@ -80,19 +63,11 @@
 			"m_c and r_c work together to lead a scary bug out of the camp."
 		],
 		"reaction_random_cat": {
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/admiration/increase.json
-			"admiration": "increase"
-		}
-	},
-	{
-		"id": "admire_inc_low3",
-=======
 			"respect": "increase"
 		}
 	},
 	{
 		"id": "admire_inc_low4",
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/respect/increase.json
 		"intensity": "low",
 		"interactions": [
 			"m_c wants to be just like r_c someday.",
@@ -106,10 +81,7 @@
 			"m_c daydreams about sharing a suffix with r_c."
 		],
 		"main_status_constraint": [
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/admiration/increase.json
-=======
 			"kitten",
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/respect/increase.json
 			"apprentice",
 			"mediator apprentice",
 			"medicine cat apprentice"
@@ -123,8 +95,6 @@
 		]
 	},
 	{
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/admiration/increase.json
-=======
 		"id": "admire_inc_medium0",
 		"interactions": [
 			"m_c cant help but appreciate r_c being who {PRONOUN/r_c/subject} {VERB/r_c/are/is}.",
@@ -138,7 +108,6 @@
 		]
 	},
 	{
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/respect/increase.json
 		"id": "admire_inc_medium1",
 		"interactions": [
 			"m_c admires how brave r_c is.",
@@ -149,13 +118,6 @@
 			"Some things have been rough for r_c lately, but m_c admires {PRONOUN/r_c/poss} willingness to go on.",
 			"During rough weather, r_c helps m_c get safely to {PRONOUN/m_c/poss} den.",
 			"m_c wasn't going to help a Clanmate, but realized that r_c would do it in a heartbeat.",
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/admiration/increase.json
-			"m_c is inspired by r_c's passion.",
-			"m_c didn't know that r_c was so talented.",
-			"m_c thinks that r_c is very creative.",
-			"m_c is told about r_c's bravery during a recent time of struggle."
-		]
-=======
 			"m_c is told about r_c's bravery during a recent time of struggle."
 		],
 		"random_status_constraint": [
@@ -169,7 +131,6 @@
             "leader",
             "elder"
         ]
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/respect/increase.json
 	},
 	{
 		"id": "admire_inc_medium2",
@@ -186,10 +147,6 @@
 			"m_c compliments r_c on {PRONOUN/r_c/poss} bravery today."
 		],
 		"reaction_random_cat": {
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/admiration/increase.json
-			"admiration": "increase"
-		}
-=======
 			"respect": "increase"
 		},
 		"main_status_constraint": [
@@ -214,7 +171,6 @@
             "leader",
             "elder"
         ]
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/respect/increase.json
 	},
 	{
 		"id": "admire_med_inc_medium1",
@@ -238,13 +194,8 @@
 			"medicine cat apprentice"
 		],
 		"also_influences": {
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/admiration/increase.json
-			"comfortable": "increase",
-			"platonic": "increase",
-=======
 			"comfort": "increase",
 			"like": "increase",
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/respect/increase.json
 			"trust": "increase"
 		}
 	},
@@ -271,11 +222,7 @@
 			"medicine cat"
 		],
 		"reaction_random_cat": {
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/admiration/increase.json
-			"platonic": "increase",
-=======
 			"like": "increase",
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/respect/increase.json
 			"trust": "increase"
 		}
 	},
@@ -323,11 +270,7 @@
 			"kitten"
 		],
 		"relationship_constraint": [
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/admiration/increase.json
-			"admiration_20"
-=======
 			"respects"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/respect/increase.json
 		],
 		"random_status_constraint": [
 			"elder",
@@ -341,11 +284,7 @@
 			"leader"
 		],
 		"reaction_random_cat": {
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/admiration/increase.json
-			"platonic": "increase"
-=======
 			"like": "increase"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/respect/increase.json
 		}
 	},
 	{
@@ -363,11 +302,7 @@
 			"m_c thinks r_c has a bright future ahead of {PRONOUN/r_c/object}."
 		],
 		"relationship_constraint": [
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/admiration/increase.json
-			"admiration_30"
-=======
 			"respects"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/respect/increase.json
 		],
 		"main_status_constraint": [
 			"elder",
@@ -396,11 +331,7 @@
 			"m_c hopes to leave behind a legacy like r_c."
 		],
 		"relationship_constraint": [
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/admiration/increase.json
-			"admiration_30"
-=======
 			"respects"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/respect/increase.json
 		],
 		"main_status_constraint": [
 			"warrior",
@@ -417,19 +348,11 @@
 			"senior"
 		],
 		"also_influences": {
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/admiration/increase.json
-			"jealousy": "increase"
-		}
-	},
-	{
-		"id": "admire_adult_odd_med1",
-=======
 			"respect": "decrease"
 		}
 	},
 	{
 		"id": "admire_adult_odd_med2",
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/respect/increase.json
 		"interactions": [
 			"m_c thinks r_c is so much braver than {PRONOUN/m_c/object}.",
 			"If it were a life-or-death situation, m_c thinks that r_c should be saved first.",
@@ -439,11 +362,7 @@
 			"m_c feels like r_c is more accomplished than {PRONOUN/m_c/object}."
 		],
 		"relationship_constraint": [
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/admiration/increase.json
-			"admiration_60"
-=======
 			"admires"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/respect/increase.json
 		],
 		"main_status_constraint": [
 			"warrior",
@@ -461,12 +380,6 @@
 			"leader"
 		],
 		"also_influences": {
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/admiration/increase.json
-			"jealousy": "increase"
-		}
-	},
-	{
-=======
 			"respect": "decrease"
 		}
 	},
@@ -483,7 +396,6 @@
 		]
 	},
 	{
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/respect/increase.json
 		"id": "admire_inc_high1",
 		"intensity": "high",
 		"interactions": [
@@ -491,14 +403,7 @@
 			"m_c is wowed by how bravely r_c fought the other day.",
 			"m_c is impressed by r_c's competence in any situation.",
 			"m_c is amazed at how skilled r_c really is.",
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/admiration/increase.json
-			"m_c overhears r_c educating Clanmates about their fallen ancestors.",
-			"m_c thinks the Clan's ancestors smile upon r_c.",
-			"m_c is proud to be in the same Clan as r_c.",
-			"m_c can't believe how talented r_c is!"
-=======
 			"m_c overhears r_c educating Clanmates about their fallen ancestors."
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/respect/increase.json
 		],
 		"random_status_constraint": [
 			"warrior",
@@ -528,10 +433,6 @@
 			"An injured butterfly lands in front of m_c and r_c. They take turns nurturing it for a few days until it can fly again."
 		],
 		"reaction_random_cat": {
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/admiration/increase.json
-			"admiration": "increase"
-		}
-=======
 			"respect": "increase"
 		},
 		"main_status_constraint": [
@@ -556,7 +457,6 @@
             "leader",
             "elder"
         ]
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/respect/increase.json
 	},
 	{
 		"id": "admire_inc_high3",
@@ -569,17 +469,10 @@
 			"m_c and r_c agree with each other when no one else does."
 		],
 		"relationship_constraint": [
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/admiration/increase.json
-			"admiration_30"
-		],
-		"reaction_random_cat": {
-			"admiration": "increase",
-=======
 			"respects"
 		],
 		"reaction_random_cat": {
 			"respect": "increase",
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/respect/increase.json
 			"trust": "increase"
 		}
 	},
@@ -596,71 +489,6 @@
 			"deputy"
 		],
 		"reaction_random_cat": {
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/admiration/increase.json
-			"platonic": "increase"
-		}
-	},
-	{
-		"id": "H1_admirationincrease_high_queenapp",
-		"intensity": "high",
-		"interactions": [
-			"m_c gazes in awe as r_c easily rounds up the kittens for bedtime, as if it was nothing!",
-			"m_c marvels at r_c's knowledge."
-		],
-		"main_status_constraint": [
-			"queen's apprentice"
-		],
-		"random_status_constraint": [
-			"queen"
-		],
-		"reaction_random_cat": {
-			"platonic": "increase"
-		}
-	},
-	{
-		"id": "H1_admire_med",
-		"interactions": [
-			"m_c thinks r_c is doing wonderful as a queen.",
-			"m_c praised r_c's patience, wondering how {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} able to care of so many kittens at once!",
-			"m_c asks for r_c's advice on how to care for kittens.",
-			"m_c watches in admiration as r_c handles a particularly difficult kit."
-		],
-		"random_status_constraint": [
-			"queen"
-		]
-	},
-	{
-		"id": "H1_elder_admire",
-		"intensity": "low",
-		"interactions": [
-			"r_c enlists m_c's thoughts on a recent controversial decision for the clan.",
-			"m_c witnesses r_c's presence halt an argument with a few warriors with just a snap of {PRONOUN/r_c/poss} tail!"
-		],
-		"random_status_constraint": [
-			"leader",
-			"deputy"
-		],
-		"main_status_constraint": [
-			"elder"
-		],
-		"reaction_random_cat": {
-			"trust": "increase"
-		}
-	},
-	{
-		"id": "lifegen_adm_h1",
-		"intensity": "low",
-		"interactions": [
-			"m_c is impressed with r_c's conflict solving skills at such a young age.",
-			"r_c has a natural air around {PRONOUN/r_c/object} that makes the other kittens listen. m_c is thankful and rather impressed."
-		],
-		"main_status_constraint": [
-			"queen"
-		],
-		"random_status_constraint": [
-			"kitten"
-		]
-=======
 			"like": "increase"
 		}
 	},
@@ -812,6 +640,66 @@
 		"reaction_random_cat": {
 			"respect": "increase"
 		}
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/respect/increase.json
+	},
+	{
+		"id": "H1_admirationincrease_high_queenapp",
+		"intensity": "high",
+		"interactions": [
+			"m_c gazes in awe as r_c easily rounds up the kittens for bedtime, as if it was nothing!",
+			"m_c marvels at r_c's knowledge."
+		],
+		"main_status_constraint": [
+			"queen's apprentice"
+		],
+		"random_status_constraint": [
+			"queen"
+		],
+		"reaction_random_cat": {
+			"like": "increase"
+		}
+	},
+	{
+		"id": "H1_admire_med",
+		"interactions": [
+			"m_c thinks r_c is doing wonderful as a queen.",
+			"m_c praised r_c's patience, wondering how {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} able to care of so many kittens at once!",
+			"m_c asks for r_c's advice on how to care for kittens.",
+			"m_c watches in admiration as r_c handles a particularly difficult kit."
+		],
+		"random_status_constraint": [
+			"queen"
+		]
+	},
+	{
+		"id": "H1_elder_admire",
+		"intensity": "low",
+		"interactions": [
+			"r_c enlists m_c's thoughts on a recent controversial decision for the clan.",
+			"m_c witnesses r_c's presence halt an argument with a few warriors with just a snap of {PRONOUN/r_c/poss} tail!"
+		],
+		"random_status_constraint": [
+			"leader",
+			"deputy"
+		],
+		"main_status_constraint": [
+			"elder"
+		],
+		"reaction_random_cat": {
+			"trust": "increase"
+		}
+	},
+	{
+		"id": "lifegen_adm_h1",
+		"intensity": "low",
+		"interactions": [
+			"m_c is impressed with r_c's conflict solving skills at such a young age.",
+			"r_c has a natural air around {PRONOUN/r_c/object} that makes the other kittens listen. m_c is thankful and rather impressed."
+		],
+		"main_status_constraint": [
+			"queen"
+		],
+		"random_status_constraint": [
+			"kitten"
+		]
 	}
 ]

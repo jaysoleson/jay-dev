@@ -2,7 +2,6 @@ import pygame
 
 from scripts.utility import update_sprite
 from scripts.cat.cats import Cat
-from scripts.game_structure.game_essentials import game
 from scripts.game_structure import image_cache
 import pygame_gui
 from scripts.game_structure.windows import SaveCheck, EventLoading, RetireScreen, DeputyScreen, NameKitsWindow, MateScreen
@@ -27,6 +26,8 @@ from scripts.game_structure.game.switches import (
     switch_set_value,
     switch_get_value,
     Switch,
+    switch_remove_list_value,
+    switch_append_list_value
 )
 from scripts.game_structure.propagating_thread import PropagatingThread
 from scripts.game_structure.screen_settings import (
@@ -192,21 +193,22 @@ class Screens:
             self.work_done.pop(work_thread.name)
 
             final_actions()
-            game.switches['window_open'] = False
+            switch_set_value(Switch.window_open, False)
+
         
-        if len(game.switches['windows_dict']) > 0:
-            if 'name kits' in game.switches['windows_dict'] and not game.switches['window_open']:
+        if len(switch_get_value(Switch.windows_dict)) > 0:
+            if 'name kits' in switch_get_value(Switch.windows_dict) and not switch_get_value(Switch.window_open):
                 NameKitsWindow('events screen')
-                game.switches['windows_dict'].remove('name kits')
-            elif 'retire' in game.switches['windows_dict'] and not game.switches['window_open']:
+                switch_remove_list_value(Switch.windows_dict, 'name kits')
+            elif 'retire' in switch_get_value(Switch.windows_dict) and not switch_get_value(Switch.window_open):
                 RetireScreen('events screen')
-                game.switches['windows_dict'].remove('retire')
-            elif 'deputy' in game.switches['windows_dict'] and not game.switches['window_open']:
+                switch_remove_list_value(Switch.windows_dict, 'retire')
+            elif 'deputy' in switch_get_value(Switch.windows_dict) and not switch_get_value(Switch.window_open):
                 DeputyScreen('events screen')
-                game.switches['windows_dict'].remove('deputy')
-            elif 'mate' in game.switches['windows_dict'] and not game.switches['window_open']:
+                switch_remove_list_value(Switch.windows_dict, 'deputy')
+            elif 'mate' in switch_get_value(Switch.windows_dict) and not switch_get_value(Switch.window_open):
                 MateScreen('events screen')
-                game.switches['windows_dict'].remove('mate')
+                switch_remove_list_value(Switch.windows_dict, 'mate')
         return
 
     def on_use(self):

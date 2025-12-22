@@ -1,7 +1,11 @@
 import random
 
 import i18n
+import os
+import ujson
 
+from scripts.cat.enums import CatGroup
+# CHECKMERGE: check cg dev for these unused imports
 from scripts.cat.skills import SkillPath
 from scripts.game_structure import game
 from scripts.utility import adjust_list_text
@@ -12,19 +16,6 @@ class History:
     this class handles the cat's history!
     """
 
-<<<<<<< HEAD
-    def __init__(self,
-                beginning=None,
-                mentor_influence=None,
-                app_ceremony=None,
-                lead_ceremony=None,
-                possible_history=None,
-                died_by=None,
-                scar_events=None,
-                murder=None,
-                wrong_placement=False
-                ):
-=======
     def __init__(
         self,
         beginning=None,
@@ -35,9 +26,11 @@ class History:
         died_by=None,
         scar_events=None,
         murder=None,
+        wrong_placement=None,
         cat=None,
+        # CHECKMERGE
+        # not for merge, but add encountered to this init?
     ):
->>>>>>> development
         self.beginning = beginning if beginning else {}
         self.mentor_influence = (
             mentor_influence if mentor_influence else {"trait": {}, "skill": {}}
@@ -48,11 +41,8 @@ class History:
         self.died_by = died_by if died_by else []
         self.scar_events = scar_events if scar_events else []
         self.murder = murder if murder else {}
-<<<<<<< HEAD
         self.wrong_placement = wrong_placement if wrong_placement else False
-=======
         self.cat = cat
->>>>>>> development
 
         # fix 'old' history save bugs
         if self.mentor_influence["trait"] is None:
@@ -163,17 +153,6 @@ class History:
 
     def make_dict(self):
         history_dict = {
-<<<<<<< HEAD
-            "beginning": cat.history.beginning,
-            "mentor_influence": cat.history.mentor_influence,
-            "app_ceremony": cat.history.app_ceremony,
-            "lead_ceremony": cat.history.lead_ceremony,
-            "possible_history": cat.history.possible_history,
-            "died_by": cat.history.died_by,
-            "scar_events": cat.history.scar_events,
-            "murder": cat.history.murder,
-            "wrong_placement": cat.history.wrong_placement
-=======
             "beginning": self.beginning,
             "mentor_influence": self.mentor_influence,
             "app_ceremony": self.app_ceremony,
@@ -182,7 +161,7 @@ class History:
             "died_by": self.died_by,
             "scar_events": self.scar_events,
             "murder": self.murder,
->>>>>>> development
+            "wrong_placement": self.wrong_placement
         }
         return history_dict
 
@@ -190,12 +169,7 @@ class History:
     #                            adding and removing                               #
     # ---------------------------------------------------------------------------- #
 
-<<<<<<< HEAD
-    @staticmethod
-    def add_beginning(cat, df=False, clan_born=False):
-=======
-    def add_beginning(self, clan_born=False):
->>>>>>> development
+    def add_beginning(self, df=False, clan_born=False):
         """
         adds joining age and moon info to the cat's history save
         :param clan_born: default False, set True if the cat was not born in the Clan
@@ -203,26 +177,18 @@ class History:
         if not game.clan:
             return
 
-<<<<<<< HEAD
-        if cat.df is True:
-
-            cat.history.beginning = {
+        if df is True:
+            # when a cat is met in the dark forest
+            self.beginning = {
             "moon": game.clan.age
-=======
-        self.beginning = {
+        }
+        else:
+           self.beginning = {
             "clan_born": clan_born,
             "birth_season": game.clan.current_season if clan_born else None,
             "age": self.cat.moons,
             "moon": game.clan.age,
->>>>>>> development
-        }
-        else:
-            cat.history.beginning = {
-                "clan_born": clan_born,
-                "birth_season": game.clan.current_season if clan_born else None,
-                "age": cat.moons,
-                "moon": game.clan.age
-            }
+           }
       
             
 
@@ -243,18 +209,6 @@ class History:
         # working under the impression that these blurbs will be preceded by "more likely to"
         facet_influence_text = {
             "lawfulness_raise": [
-<<<<<<< HEAD
-                "follow rules", "follow the status quo",
-                "heed {PRONOUN/m_c/poss} inner compass", "have strong inner morals"
-            ],
-            "lawfulness_lower": [
-                "bend the rules", "break away from the status quo",
-                "break rules that don't suit {PRONOUN/m_c/object}", "make {PRONOUN/m_c/poss} own rules"
-            ],
-            "sociability_raise": [
-                "be friendly towards others", "step out of {PRONOUN/m_c/poss} comfort zone",
-                "interact with others", "put others at ease"
-=======
                 "follow rules",
                 "follow the status quo",
                 "heed {PRONOUN/m_c/poss} inner compass",
@@ -271,7 +225,6 @@ class History:
                 "step out of {PRONOUN/m_c/poss} comfort zone",
                 "interact with others",
                 "put others at ease",
->>>>>>> development
             ],
             "sociability_lower": [
                 "be cold towards others",
@@ -279,16 +232,11 @@ class History:
                 "bicker with others",
             ],
             "aggression_raise": [
-<<<<<<< HEAD
-                "be ready for a fight", "start a fight", "defend {PRONOUN/m_c/poss} beliefs", "use teeth and claws over words",
-                "resort to violence"
-=======
                 "be ready for a fight",
                 "start a fight",
                 "defend {PRONOUN/m_c/poss} beliefs",
                 "use teeth and claws over words",
                 "resort to violence",
->>>>>>> development
             ],
             "aggression_lower": [
                 "be slow to anger",
@@ -326,14 +274,7 @@ class History:
                             random.choice(facet_influence_text[_fac + "_lower"])
                         )
 
-<<<<<<< HEAD
-    
-    
-    @staticmethod
-    def add_mentor_skill_influence_strings(cat):
-=======
     def add_mentor_skill_influence_strings(self):
->>>>>>> development
         """
         adds mentor influence to the cat's history save
         """
@@ -343,30 +284,28 @@ class History:
 
         # working under the impression that these blurbs will be preceded by "become better at"
         skill_influence_text = {
-<<<<<<< HEAD
-                SkillPath.TEACHER: [ "teaching" ],
-                SkillPath.HUNTER: [ "hunting" ],
-                SkillPath.FIGHTER: [ "fighting" ],
-                SkillPath.RUNNER: [ "running" ],
-                SkillPath.CLIMBER: [ "climbing" ],
-                SkillPath.SWIMMER: [ "swimming" ],
-                SkillPath.SPEAKER: [ "arguing" ],
-                SkillPath.MEDIATOR: [ "resolving arguments" ],
-                SkillPath.CLEVER: [ "solving problems" ],
-                SkillPath.INSIGHTFUL: [ "providing insight" ],
-                SkillPath.SENSE: [ "noticing small details" ],
-                SkillPath.KIT: [ "caring for kittens" ],
-                SkillPath.STORY: [ "storytelling" ],
-                SkillPath.LORE: [ "remembering lore" ],
-                SkillPath.CAMP: [ "caring for camp" ],
-                SkillPath.HEALER: [ "healing" ],
-                SkillPath.STAR: [ "connecting to starclan" ],
-                SkillPath.DARK: [ "connecting to the dark forest" ],
-                SkillPath.OMEN: [ "finding omens" ],
-                SkillPath.DREAM: [ "understanding dreams" ],
-                SkillPath.CLAIRVOYANT: [ "predicting the future" ],
-                SkillPath.PROPHET: [ "understanding prophecies" ],
-                SkillPath.GHOST: [ "connecting to the afterlife" ],
+                SkillPath.TEACHER: ["teaching"],
+                SkillPath.HUNTER: ["hunting"],
+                SkillPath.FIGHTER: ["fighting"],
+                SkillPath.RUNNER: ["running"],
+                SkillPath.CLIMBER: ["climbing"],
+                SkillPath.SWIMMER: ["swimming"],
+                SkillPath.SPEAKER: ["arguing"],
+                SkillPath.MEDIATOR: ["resolving arguments"],
+                SkillPath.CLEVER: ["solving problems"],
+                SkillPath.INSIGHTFUL: ["providing insight"],
+                SkillPath.SENSE: ["noticing small details"],
+                SkillPath.KIT: ["caring for kittens"],
+                SkillPath.STORY: ["storytelling"],
+                SkillPath.LORE: ["remembering lore"],
+                SkillPath.CAMP: ["caring for camp"],
+                SkillPath.HEALER: ["healing"],
+                SkillPath.STAR: ["connecting to StarClan"],
+                SkillPath.OMEN: ["finding omens"],
+                SkillPath.DREAM: ["understanding dreams"],
+                SkillPath.CLAIRVOYANT: ["predicting the future"],
+                SkillPath.PROPHET: ["understanding prophecies"],
+                SkillPath.GHOST: ["connecting to the afterlife"],
                 SkillPath.EXPLORER: ["exploring unknown areas"],
                 SkillPath.TRACKER: ["tracking down scents"],
                 SkillPath.ARTISTAN: ["decorating dens"],
@@ -389,38 +328,9 @@ class History:
                 SkillPath.SLEEPER: ["self-care"]
             }
         
-        for _ment in cat.history.mentor_influence["skill"]:
-            cat.history.mentor_influence["skill"][_ment]["strings"] = []
-            for _path in cat.history.mentor_influence["skill"][_ment]:
-=======
-            SkillPath.TEACHER: ["teaching"],
-            SkillPath.HUNTER: ["hunting"],
-            SkillPath.FIGHTER: ["fighting"],
-            SkillPath.RUNNER: ["running"],
-            SkillPath.CLIMBER: ["climbing"],
-            SkillPath.SWIMMER: ["swimming"],
-            SkillPath.SPEAKER: ["arguing"],
-            SkillPath.MEDIATOR: ["resolving arguments"],
-            SkillPath.CLEVER: ["solving problems"],
-            SkillPath.INSIGHTFUL: ["providing insight"],
-            SkillPath.SENSE: ["noticing small details"],
-            SkillPath.KIT: ["caring for kittens"],
-            SkillPath.STORY: ["storytelling"],
-            SkillPath.LORE: ["remembering lore"],
-            SkillPath.CAMP: ["caring for camp"],
-            SkillPath.HEALER: ["healing"],
-            SkillPath.STAR: ["connecting to StarClan"],
-            SkillPath.OMEN: ["finding omens"],
-            SkillPath.DREAM: ["understanding dreams"],
-            SkillPath.CLAIRVOYANT: ["predicting the future"],
-            SkillPath.PROPHET: ["understanding prophecies"],
-            SkillPath.GHOST: ["connecting to the afterlife"],
-        }
-
         for _ment in self.mentor_influence["skill"]:
             self.mentor_influence["skill"][_ment]["strings"] = []
             for _path in self.mentor_influence["skill"][_ment]:
->>>>>>> development
                 # Check to make sure nothing weird got in there.
                 if _path == "strings":
                     continue
@@ -648,69 +558,7 @@ class History:
     #                                 retrieving                                   #
     # ---------------------------------------------------------------------------- #
 
-<<<<<<< HEAD
-    @staticmethod
-    def get_beginning(cat):
-        # """
-        # returns the beginning info, example of structure:
-
-        # "beginning":{
-        #     "clan_born": bool,
-        #     "birth_season": season,
-        #     "age": age,
-        #     "moon": moon
-        #     },
-
-        # if beginning info is empty, a NoneType is returned
-        # :param cat: cat object
-        # """
-        History.check_load(cat)
-        return cat.history.beginning
-
-    @staticmethod
-    def get_mentor_influence(cat):
-        # """
-        # Returns mentor influence dict, example of structure:
-
-        # "mentor_influence":{
-        #     "mentor": ID
-        #     "skill": skill
-        #     "second_skill": second skill
-        #     "trait": {
-        #         "mentor_id":
-        #             "lawfulness": 0,
-        #             ...
-        #             "strings": []
-        #     },
-        #     "skill": skill
-        # }
-
-        # if mentor influence is empty, a NoneType is returned
-        # """
-        History.check_load(cat)
-        return cat.history.mentor_influence
-
-    @staticmethod
-    def get_app_ceremony(cat):
-        """
-        Returns app_ceremony dict, example of structure:
-
-        "app_ceremony": {
-            "honor": honor,
-            "graduation_age": age,
-            "moon": moon
-            },
-
-        if app_ceremony is empty, a NoneType is returned
-        """
-        History.check_load(cat)
-        return cat.history.app_ceremony
-
-    @staticmethod
-    def get_lead_ceremony(cat):
-=======
     def get_lead_ceremony(self):
->>>>>>> development
         """
         returns the leader ceremony text
         """
@@ -785,121 +633,4 @@ class History:
         elif scar:
             return self.scar_events
         elif death:
-<<<<<<< HEAD
-            event_type = "died_by"
-
-        if not event_type:
-            print('WARNING: event type was not specified during scar/death history retrieval, '
-                  'did you remember to set scar or death as True?')
-            return
-
-        if event_type == 'scar_events':
-            return cat.history.scar_events
-        else:
-            return cat.history.died_by
-
-    @staticmethod
-    def get_murders(cat):
-        """Returns the cat's murder dict. Example return:
-
-        "murder": {
-            "is_murderer": [
-                    {
-                    "victim": ID,
-                    "revealed": bool,
-                    "moon": moon
-                    },
-                ]
-            "is_victim": [
-                    {
-                    "murderer": ID,
-                    "revealed": bool,
-                    "text": same text as the death history for this murder (revealed history)
-                    "unrevealed_text": unrevealed death history
-                    "moon": moon
-                    },
-                ]
-            }
-
-        if murders is empty, a NoneType is returned
-        :param cat: cat object
-        """
-
-        History.check_load(cat)
-
-        return cat.history.murder
-
-    @staticmethod
-    def reveal_murder(cat, other_cat, cat_class, victim, murder_index, shunned):
-        """ Reveals the murder properly in all associated history text.
-
-        :param cat: The murderer
-        :param other_cat: The cat who discovers the truth about the murder
-        :param cat_class: The cat class
-        :param victim: The victim whose murder is being revealed
-        :param murder_index: Index of the murder
-        :param shunned: LIFEGEN: determines if the cat will be shunned from the reveal"""
-
-        victim = cat_class.fetch_cat(victim)
-        murder_history = History.get_murders(cat)
-        victim_history = History.get_murders(victim)
-
-        if cat.shunned == 0 and shunned:
-            cat.shunned = 1
-            cat.thought = "Is upset that they have been shunned"
-            cat.faith -= 0.5
-
-            if random.randint(1,4) == 1:
-                cat.get_injured("guilt")
-
-            for app in cat.apprentice:
-                fetched_cat = cat_class.fetch_cat(app)
-                if fetched_cat:
-                    fetched_cat.update_mentor()
-                cat.update_mentor()
-
-        if murder_history:
-            if "is_murderer" in murder_history:
-                murder_history = murder_history["is_murderer"][murder_index]
-                murder_history["revealed"] = True
-                murder_history["revealed_by"] = other_cat.ID if other_cat else None
-                murder_history["revelation_moon"] = game.clan.age
-
-                if cat.status not in ["apprentice", "kitten", "elder", "warrior"]:
-                    murder_history["demoted_from"] = cat.status
-                if cat.status == "leader":
-                    murder_history["remaining_lives"] = game.clan.leader_lives
-
-                if not other_cat:
-                    murder_history["revelation_text"] = \
-                        "The truth of {PRONOUN/m_c/poss} crime against [victim] is known to the Clan."
-                else:
-                    murder_history["revelation_text"] = \
-                        "The truth of {PRONOUN/m_c/poss} crime against [victim] was discovered by [discoverer]."
-
-                victim_history = victim_history["is_victim"][0]
-                victim_history["revealed"] = True
-                victim_history["revealed_by"] = other_cat.ID if other_cat else None
-                victim_history["revelation_moon"] = game.clan.age
-                if not other_cat:
-                    victim_history["revelation_text"] = \
-                        "The truth of {PRONOUN/m_c/poss} murder is known to the Clan."
-                else:
-                    victim_history["revelation_text"] = \
-                        "The truth of {PRONOUN/m_c/poss} murder was discovered by [discoverer]."
-
-                discoverer: str = ""
-                if other_cat:
-                    discoverer = str(other_cat.name)
-                if "clan_discovery" in murder_history:
-                    discoverer = game.clan.name + "Clan"
-
-                murder_history["revelation_text"] = murder_history["revelation_text"].replace('[victim]',
-                                                                                              str(victim.name))
-                murder_history["revelation_text"] = murder_history["revelation_text"].replace('[discoverer]',
-                                                                                              discoverer)
-                victim_history["revelation_text"] = victim_history["revelation_text"].replace('[discoverer]',
-                                                                                              discoverer)
-=======
             return self.died_by
->>>>>>> development

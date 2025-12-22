@@ -24,6 +24,12 @@ from scripts.utility import (
     adjust_list_text,
 )
 
+from scripts.game_structure.game.switches import (
+    switch_set_value,
+    switch_get_value,
+    Switch,
+)
+
 
 class Pregnancy_Events:
     """All events which are related to pregnancy such as kitting and defining who are the parents."""
@@ -128,10 +134,10 @@ class Pregnancy_Events:
         chance = Pregnancy_Events.get_balanced_kit_chance(cat, second_parent, is_affair, clan)
         if "have kits" in game.switches:
             if (
-                not game.switches['have kits'] and
+                not switch_get_value(Switch.have_kits) and
                 game.clan.your_cat.ID == cat.ID and
                 not game.clan.your_cat.dead and
-                not game.clan.your_cat.outside
+                not game.clan.your_cat.status.is_outsider
                 ):
                 chance = random.randint(0,3)
         
@@ -440,10 +446,10 @@ class Pregnancy_Events:
             if other_cat and not other_cat.status.is_outsider:
                 adding_text = choice(events["birth"]["outside_in_clan"])
             event_list.append(adding_text)
-        elif other_cat.ID in cat.mates and not other_cat.dead and not other_cat.outside:
+        elif other_cat.ID in cat.mates and not other_cat.dead and not other_cat.status.is_outsider:
             involved_cats.append(other_cat.ID)
             event_list.append(choice(events["birth"]["two_parents"] + events["birth"][f"two_parents {game.clan.seasons[game.clan.age % 12]}"]))
-        elif other_cat.ID in cat.mates and other_cat.dead or other_cat.outside:
+        elif other_cat.ID in cat.mates and other_cat.dead or other_cat.status.is_outsider:
             involved_cats.append(other_cat.ID)
             cat_dict["r_c"] = other_cat
             # TODO: this seems odd, outsider mates are also treated as dead?

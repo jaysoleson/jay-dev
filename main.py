@@ -280,9 +280,9 @@ def loading_animation(scale: float = 1):
     while not finished_loading:
         clock.tick(8)  # Loading screen is 8FPS
 
-        if game.settings['dark mode']:
+        if game_setting_get('dark mode'):
             b = 50
-            if game.settings['red_bg']:
+            if game_setting_get('red_bg'):
                 if game.clan:
                     if game.clan.your_cat:
                         if not game.clan.your_cat.history:
@@ -296,7 +296,7 @@ def loading_animation(scale: float = 1):
             screen.fill((57, max(36,b), 36))
         else:
             b = 194
-            if game.settings['red_bg']:
+            if game_setting_get('red bg'):
                 if game.clan:
                     if game.clan.your_cat:
                         if not game.clan.your_cat.history:

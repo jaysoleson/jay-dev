@@ -31,16 +31,11 @@
 		"Maybe it's surprising to some cats. It doesn't feel like it should be, m_c is so sure {PRONOUN/m_c/subject} {VERB/m_c/want/wants} r_c as {PRONOUN/m_c/poss} mate, and r_c loves {PRONOUN/m_c/object} just as much in return.",
 		"This moon marks the beginning of the rest of their lives together for m_c and r_c.",
 		"Tails twined together, m_c and r_c announce that love has blossomed between them. They've become mates.",
-<<<<<<< HEAD:resources/dicts/relationship_events/become_mates.json
 		"It's endearing how embarrassed m_c is, with {PRONOUN/m_c/object} and r_c briefly becoming the center of attention as new mates.",
 		"No one is going to blame m_c for the pride {PRONOUN/m_c/subject} {VERB/m_c/display/displays} in successfully asking r_c to become {PRONOUN/m_c/poss} mate. It's a wonderful life event to celebrate, and something to rightfully congratulate the couple on.",
 		"Truth be told, while a spark is evident between m_c and r_c, it's no large wildfire-- more like a humble flicker. However, there was no better honour than to expend and gain respect from their Clan. And so, the two have become mates.",
 		"Throughout their days together, m_c and r_c have expressed similar thoughts; who are they, in a romantic sense? Romance is a tricky subject, and neither quite fully understands it. But they've seen their Clanmates pairing up, and, to see what all the fuss is about it, the two have agreed to become mates",
 		"Anyone can aid the Clans' surplus of kits, but lately it's hard with the constant illness and battles hovering about. To help with the cause, though there's no burning romance between the two, m_c and r_c have become mates."
-=======
-        "It's endearing how embarrassed m_c is, with {PRONOUN/m_c/object} and r_c briefly becoming the center of attention as new mates.",
-        "No one is going to blame m_c for the pride {PRONOUN/m_c/subject} {VERB/m_c/display/displays} in successfully asking r_c to become {PRONOUN/m_c/poss} mate. It's a wonderful life event to celebrate, and something to rightfully congratulate the couple on."
->>>>>>> development:resources/lang/en/events/relationship_events/become_mates.json
 	],
 	"platonic_to_romantic": [
 		"m_c and r_c see each other in a different light and have become mates.",
@@ -51,13 +46,9 @@
 		"In a bright spot this moon, m_c and r_c announce that their friendship has had romance added to the mix - they're now mates.",
 		"Sometimes one form of love can grow into another - m_c and r_c no longer only think of each other platonically.",
 		"Love blooms from platonic to romantic, and m_c is now mates with r_c.",
-<<<<<<< HEAD:resources/dicts/relationship_events/become_mates.json
 		"m_c and r_c don't make any big announcements. But when they combine their nests, the Clan realizes that their relationship isn't so platonic anymore.",
 		"Ever since they entered each other's lives, m_c and r_c became inseparable-how they spoke to each other, swapped their prey, or were found snoozing in intangible curls. Initially, it was just friendship, but as time passed, blushing and throbbing hearts became too common and overwhelming, prompting them to become mates.",
 		"Like a singular spark, m_c and r_c never anticipated that their connection would scorch and become a wildfire. The stinging burns were felt by m_c, and {PRONOUN/m_c/subject} could tell r_c felt them too. Not wanting to be consumed by their raging longing, the two leaped into the flames and became mates."
-=======
-        "m_c and r_c don't make any big announcements. But when they combine their nests, the Clan realizes that their relationship isn't so platonic anymore."
->>>>>>> development:resources/lang/en/events/relationship_events/become_mates.json
 	],
 	"rejected": [
 		"m_c confessed {PRONOUN/m_c/poss} feelings to r_c but {PRONOUN/m_c/subject} got rejected.",
@@ -67,13 +58,8 @@
 		"m_c confessed to r_c. Everycat tiptoes around {PRONOUN/m_c/object}, not wanting to disturb {PRONOUN/m_c/object} as m_c processes the rejection.",
 		"This, them, together? It wouldn't work out. r_c rejects m_c.",
 		"It stings. m_c is going to be nursing the hurt from r_c rejecting {PRONOUN/m_c/object} for a while.",
-<<<<<<< HEAD:resources/dicts/relationship_events/become_mates.json
 		"m_c was so confident r_c felt the same. But {PRONOUN/r_c/subject} {VERB/r_c/don't/doesn't}. m_c <i>really</i> doesn't want to talk about it.",
 		"r_c's rejection of m_c was very... public. Everycat's still feeling awkward about it.",
-=======
-		"m_c was so confident that r_c felt the same. But {PRONOUN/r_c/subject} {VERB/r_c/don't/doesn't}. m_c <i>really</i> doesn't want to talk about it.",
-		"r_c's rejection of m_c was very... public. Everyone's still feeling awkward about it.",
->>>>>>> development:resources/lang/en/events/relationship_events/become_mates.json
 		"m_c's dreams of romance and love have been crushed by r_c's rejection.",
         "After being rejected by r_c, m_c's barely been visible round camp. {PRONOUN/m_c/subject/CAP}{VERB/m_c/'re/'s} good at hiding when {PRONOUN/m_c/subject} {VERB/m_c/want/wants} to be.",
 		"m_c confesses {PRONOUN/m_c/poss} feelings to r_c, asking to be mates. And the answer, well, it's not yes.",

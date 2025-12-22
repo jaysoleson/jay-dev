@@ -84,20 +84,6 @@ class Illness:
     TODO: DOCS
     """
 
-<<<<<<< HEAD
-    def __init__(self,
-                 name,
-                 severity,
-                 mortality,
-                 infectiousness,
-                 duration,
-                 medicine_duration,
-                 medicine_mortality,
-                 risks,
-                 herbs=None,
-                 event_triggered=False,
-                 grief_cat=None):
-=======
     def __init__(
         self,
         name,
@@ -111,7 +97,6 @@ class Illness:
         herbs=None,
         event_triggered=False,
     ):
->>>>>>> development
         self.name = name
         self.severity = severity
         self.mortality = int(mortality)

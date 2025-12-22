@@ -60,15 +60,8 @@
             "clan"
           ],
           "mutual": false,
-<<<<<<< HEAD:resources/dicts/events/leader_den/success/outsider.json
-          "values": [
-            "dislike"
-          ],
-          "amount": -5
-=======
           "values": ["like"],
           "amount": 5
->>>>>>> development:resources/lang/en/events/leader_den/success/outsider.json
         },
         {
           "cats_from": [
@@ -108,15 +101,8 @@
             "clan"
           ],
           "mutual": false,
-<<<<<<< HEAD:resources/dicts/events/leader_den/success/outsider.json
-          "values": [
-            "dislike"
-          ],
-          "amount": -5
-=======
           "values": ["like"],
           "amount": 5
->>>>>>> development:resources/lang/en/events/leader_den/success/outsider.json
         },
         {
           "cats_from": [
@@ -156,15 +142,8 @@
             "clan"
           ],
           "mutual": false,
-<<<<<<< HEAD:resources/dicts/events/leader_den/success/outsider.json
-          "values": [
-            "dislike"
-          ],
-          "amount": -5
-=======
           "values": ["like"],
           "amount": 5
->>>>>>> development:resources/lang/en/events/leader_den/success/outsider.json
         },
         {
           "cats_from": [
@@ -215,15 +194,8 @@
             "clan"
           ],
           "mutual": false,
-<<<<<<< HEAD:resources/dicts/events/leader_den/success/outsider.json
-          "values": [
-            "dislike"
-          ],
-          "amount": -5
-=======
           "values": ["like"],
           "amount": 5
->>>>>>> development:resources/lang/en/events/leader_den/success/outsider.json
         },
         {
           "cats_from": [
@@ -359,15 +331,8 @@
             "clan"
           ],
           "mutual": false,
-<<<<<<< HEAD:resources/dicts/events/leader_den/success/outsider.json
-          "values": [
-            "dislike"
-          ],
-          "amount": -5
-=======
           "values": ["like"],
           "amount": 5
->>>>>>> development:resources/lang/en/events/leader_den/success/outsider.json
         },
         {
           "cats_from": [
@@ -457,15 +422,8 @@
             "clan"
           ],
           "mutual": false,
-<<<<<<< HEAD:resources/dicts/events/leader_den/success/outsider.json
-          "values": [
-            "dislike"
-          ],
-          "amount": -5
-=======
           "values": ["like"],
           "amount": 5
->>>>>>> development:resources/lang/en/events/leader_den/success/outsider.json
         },
         {
           "cats_from": [
@@ -562,15 +520,8 @@
   },
   {
     "interaction_type": "drive",
-<<<<<<< HEAD:resources/dicts/events/leader_den/success/outsider.json
-    "event_text": "m_c may have been exiled from c_n, but that hasn't stopped {PRONOUN/m_c/object} from sneaking back into the territory to hunt. However, m_c's luck runs out when {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} caught by a patrol, with {PRONOUN/m_c/poss} former Clanmates chasing {PRONOUN/m_c/object} right back over the border.",
-    "reputation": [
-      "any"
-    ],
-=======
     "event_text": "m_c may have been exiled from c_n, but that hasn't stopped {PRONOUN/m_c/object} from sneaking back into the territory to hunt. However, m_c's luck runs out when {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} caught by a patrol, and {PRONOUN/m_c/poss} former Clanmates chase {PRONOUN/m_c/object} right back over the border.",
     "reputation": ["any"],
->>>>>>> development:resources/lang/en/events/leader_den/success/outsider.json
     "rep_change": -2,
     "m_c": {
       "status": [
@@ -620,15 +571,8 @@
             "clan"
           ],
           "mutual": false,
-<<<<<<< HEAD:resources/dicts/events/leader_den/success/outsider.json
-          "values": [
-            "dislike"
-          ],
-          "amount": -5
-=======
           "values": ["like"],
           "amount": 5
->>>>>>> development:resources/lang/en/events/leader_den/success/outsider.json
         },
         {
           "cats_from": [
@@ -669,15 +613,8 @@
             "clan"
           ],
           "mutual": false,
-<<<<<<< HEAD:resources/dicts/events/leader_den/success/outsider.json
-          "values": [
-            "dislike"
-          ],
-          "amount": 15
-=======
           "values": ["like"],
           "amount": -15
->>>>>>> development:resources/lang/en/events/leader_den/success/outsider.json
         }
       ]
     }
@@ -730,15 +667,8 @@
   },
   {
     "interaction_type": "hunt",
-<<<<<<< HEAD:resources/dicts/events/leader_den/success/outsider.json
-    "event_text": "When c_n finds m_c, {PRONOUN/m_c/poss} fur bushes up and eyes widen at the sight of so many cats. In fact, it'll be the last sight {PRONOUN/m_c/subject} ever {VERB/m_c/see/sees}.",
-    "reputation": [
-      "any"
-    ],
-=======
     "event_text": "When c_n finds m_c, {PRONOUN/m_c/poss} fur bushes up and eyes widen at the sight of so many cats. It's the last sight {PRONOUN/m_c/subject} ever {VERB/m_c/see/sees}.",
     "reputation": ["any"],
->>>>>>> development:resources/lang/en/events/leader_den/success/outsider.json
     "rep_change": -10,
     "m_c": {
       "status": [
@@ -949,15 +879,8 @@
   },
   {
     "interaction_type": "invite",
-<<<<<<< HEAD:resources/dicts/events/leader_den/success/outsider.json
-    "event_text": "m_c is surprised to have been sought out specifically by c_n. {PRONOUN/m_c/subject/CAP}{VERB/m_c/'re/'s} no stranger to living in groups, but all this code business sounds awfully complicated... Eventually, m_c comes round and accompanies the c_n cats back to camp.",
-    "reputation": [
-      "any"
-    ],
-=======
     "event_text": "m_c is surprised to have been sought out specifically by c_n. {PRONOUN/m_c/subject/CAP}{VERB/m_c/'re/'s} no stranger to living in groups, but all this Code business sounds awfully complicated... Eventually, m_c comes round and accompanies the c_n cats back to camp.",
     "reputation": ["any"],
->>>>>>> development:resources/lang/en/events/leader_den/success/outsider.json
     "rep_change": 3,
     "m_c": {
       "status": [

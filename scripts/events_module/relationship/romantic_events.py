@@ -20,6 +20,12 @@ from scripts.utility import (
     get_personality_compatibility,
     process_text,
 )
+from scripts.game_structure.game.switches import (
+    Switch,
+    switch_get_value,
+    switch_set_value,
+    switch_append_list_value
+)
 
 
 class RomanticEvents:
@@ -402,19 +408,19 @@ class RomanticEvents:
 
         if become_mates and mate_string:
             if cat_from.ID == game.clan.your_cat.ID or cat_to.ID == game.clan.your_cat.ID:
-                if not game.switches['window_open']:
+                if not switch_get_value(Switch.window_open):
                     if cat_from.ID == game.clan.your_cat.ID:
-                        game.switches['new_mate'] = cat_to
+                        switch_set_value(Switch.new_mate, cat_to)
                     else:
-                        game.switches['new_mate'] = cat_from
+                        switch_set_value(Switch.new_mate, cat_from)
                     MateScreen("events screen")
                 else:
-                    if 'mate' not in game.switches['windows_dict']:
+                    if 'mate' not in switch_get_value(Switch.windows_dict):
                         if cat_from.ID == game.clan.your_cat.ID:
-                            game.switches['new_mate'] = cat_to
+                            switch_set_value(Switch.new_mate, cat_to)
                         else:
-                            game.switches['new_mate'] = cat_from
-                        game.switches['windows_dict'].append('mate')
+                            switch_set_value(Switch.new_mate, cat_from)
+                        switch_append_list_value(Switch.windows_dict, 'mate')
             else:
                 cat_from.set_mate(cat_to)
                 game.cur_events_list.append(Single_Event(mate_string, ["relation", "misc"], [cat_from.ID, cat_to.ID]))
@@ -604,21 +610,23 @@ class RomanticEvents:
             )
         )
 
+        # CHECKMERGE
+        # not for merge but duped code in here too..... uggo
         if become_mate:
             if cat_from.ID == game.clan.your_cat.ID or cat_to.ID == game.clan.your_cat.ID:
-                if not game.switches['window_open']:
+                if not switch_get_value(Switch.window_open):
                     if cat_from.ID == game.clan.your_cat.ID:
-                        game.switches['new_mate'] = cat_to
+                        switch_set_value(Switch.new_mate, cat_to)
                     else:
-                        game.switches['new_mate'] = cat_from
+                        switch_set_value(Switch.new_mate, cat_from)
                     MateScreen("events screen")
                 else:
-                    if 'mate' not in game.switches['windows_dict']:
+                    if 'mate' not in switch_get_value(Switch.windows_dict):
                         if cat_from.ID == game.clan.your_cat.ID:
-                            game.switches['new_mate'] = cat_to
+                            switch_set_value(Switch.new_mate, cat_to)
                         else:
-                            game.switches['new_mate'] = cat_from
-                        game.switches['windows_dict'].append('mate')
+                            switch_set_value(Switch.new_mate, cat_from)
+                        switch_append_list_value(Switch.windows_dict, 'mate')
             else:
                 cat_from.set_mate(cat_to)
                 mate_string = Romantic_Events.prepare_relationship_string(mate_string, cat_from, cat_to)
