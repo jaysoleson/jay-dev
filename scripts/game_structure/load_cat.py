@@ -330,7 +330,6 @@ def json_load():
             new_cat.experience = cat["experience"]
             new_cat.apprentice = cat["current_apprentice"]
             new_cat.former_apprentices = cat["former_apprentices"]
-            new_cat.df = cat["df"] if "df" in cat else False
             new_cat.shunned = cat["shunned"] if "shunned" in cat else False
             new_cat.faded_offspring = (
                 cat["faded_offspring"] if "faded_offspring" in cat else []

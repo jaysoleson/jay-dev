@@ -241,7 +241,6 @@ class ListScreen(Screens):
                 self.change_screen(GameScreen.PATROL)
 
     def screen_switches(self):
-        print("HERE:", game.current_screen)
         super().screen_switches()
         self.show_mute_buttons()
         self.clan_name = game.clan.displayname + "Clan"

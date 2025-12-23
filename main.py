@@ -338,6 +338,7 @@ def load_game():
     game.cur_events_list.clear()
     game.patrol_cats.clear()
     game.patrolled.clear()
+    game.dated_cats.clear()
     game.clan = None
     switch_set_value(Switch.switch_clan, False)
 

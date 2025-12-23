@@ -66,6 +66,8 @@ from scripts.screens.enums import GameScreen
 from scripts.ui.generate_box import BoxStyles, get_box
 from scripts.ui.generate_button import ButtonStyles, get_button_dict
 from scripts.ui.icon import Icon
+from ..cat.enums import CatAge, CatRank, CatGroup
+
 from scripts.utility import (
     ui_scale,
     quit,
@@ -2135,9 +2137,7 @@ class DeathScreen(UIWindow):
             elif event.ui_element == self.mediator_button2:
                 game.clan.your_cat.revives +=1
                 game.clan.your_cat.dead = False
-                game.clan.your_cat.df = False
-                if not game.clan.your_cat.status.is_outsider:
-                    game.clan.your_cat.status.is_outsider = False
+                game.clan.your_cat.status.add_to_group(CatGroup.PLAYER_CLAN_ID)
                 if game.clan.your_cat.status in ["rogue", "kittypet", "former Clancat", "loner"]:
                     game.clan.your_cat.status = "exiled"
                     # cant play as an outsider yet gotta cheese it for now

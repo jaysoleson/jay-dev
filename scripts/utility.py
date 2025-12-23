@@ -3832,8 +3832,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
     df_m_n = False if (
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
-        not chosen_cat.dead or
-        not chosen_cat.df or
+        not chosen_cat.status.group == CatGroup.DARK_FOREST or
         chosen_cat.ID != you.df_mentor or
         chosen_cat in current_cat_objects
     ) else True
@@ -3843,7 +3842,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         not chosen_cat.dead or
-        not chosen_cat.df or
+        not chosen_cat.status.group == CatGroup.DARK_FOREST or
         chosen_cat.ID != cat.df_mentor or
         chosen_cat in current_cat_objects
     ) else True
@@ -3927,7 +3926,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         not chosen_cat.dead or
-        not chosen_cat.df or
+        not chosen_cat.status.group == CatGroup.DARK_FOREST or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -3945,7 +3944,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         not chosen_cat.dead or
-        chosen_cat.df or
+        chosen_cat.status.group == CatGroup.DARK_FOREST or
         chosen_cat.status.is_outsider or
         chosen_cat in current_cat_objects
     ) else True

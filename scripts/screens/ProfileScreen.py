@@ -37,7 +37,6 @@ import pygame
 import pygame_gui
 import ujson
 
-from scripts.cat.cats import Cat, BACKSTORIES
 from scripts.clan_resources.freshkill import FRESHKILL_ACTIVE
 from scripts.game_structure import image_cache, game
 from scripts.game_structure.ui_elements import (
@@ -644,9 +643,7 @@ class ProfileScreen(Screens):
             self.build_inventory(event)
 
     def screen_switches(self):
-        print("2HERE:", game.current_screen)
         super().screen_switches()
-        print("3HERE:", game.current_screen)
         self.the_cat = Cat.all_cats.get(switch_get_value(Switch.cat))
 
         # Set up the menu buttons, which appear on all cat profile images.
@@ -818,9 +815,6 @@ class ProfileScreen(Screens):
                 self.the_cat.pelt.inventory.append(acc)
         # ---
 
-        if self.the_cat.dead and game.clan.demon.ID == self.the_cat.ID:
-            self.the_cat.df = True
-
         # use these attributes to create differing profiles for StarClan cats etc.
         is_sc_instructor = False
         is_df_instructor = False
@@ -829,10 +823,14 @@ class ProfileScreen(Screens):
         if (
             self.the_cat.dead
             and game.clan.instructor.ID == self.the_cat.ID
-            and self.the_cat.df is False
+            and self.the_cat.status.group == CatGroup.STARCLAN
         ):
             is_sc_instructor = True
-        elif self.the_cat.dead and game.clan.demon.ID == self.the_cat.ID and self.the_cat.df is True:
+        elif (
+            self.the_cat.dead
+            and game.clan.demon.ID == self.the_cat.ID
+            and self.the_cat.status.group == CatGroup.DARK_FOREST
+        ):
             is_df_instructor = True
         if self.the_cat is None:
             return

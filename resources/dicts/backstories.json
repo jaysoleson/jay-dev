@@ -1,8 +1,24 @@
 {
-    "#CHECKMERGE": "note for lifegen: conflict was too crazy. lifegen backstories will need to be added back",
     "backstory_categories": {
         "clan_founder_backstories": [
-            "clan_founder"
+            "clan_founder",
+            "clan_founder1",
+            "clan_founder2",
+            "clan_founder3",
+            "clan_founder4",
+            "clan_founder5",
+            "clan_founder6",
+            "clan_founder7",
+            "clan_founder8",
+            "clan_founder9",
+            "clan_founder10",
+            "clan_founder11",
+            "clan_founder12",
+            "clan_founder13",
+            "clan_founder14",
+            "clan_founder15",
+            "clan_founder16",
+            "clan_founder17"
         ],
         "clan_guide_backstories": [
             "clan_guide1", "clan_guide2", "clan_guide3", "clan_guide4", "clan_guide5", "clan_guide6", "clan_guide7"
@@ -69,6 +85,63 @@
         ],
         "baby_kittypet_backstories": [
             "abandoned4"
+        ],
+
+
+        "dark_forest_kits": [
+            "dfkit1",
+            "dfkit2"
+        ],
+        "oldstarclan_backstories": [
+            "oldstarclan1",
+            "oldstarclan2",
+            "oldstarclan3"
+        ],
+        "new_sc_guide_backstories": [
+            "newscguide1",
+            "newscguide2",
+            "newscguide3",
+            "newscguide4"
+        ],
+        "new_df_guide_backstories": [
+            "newdfguide1",
+            "newdfguide2",
+            "newdfguide3",
+            "newdfguide4"
+        ],
+        "dead_cat_backstories": [
+            "dead1",
+            "dead2",
+            "dead3",
+            "dead4",
+            "dead5",
+            "dead6",
+            "dead8",
+            "dead9",
+            "dead10",
+            "dead11",
+            "dead12"
+        ],
+        "starclan_backstories": [
+            "dead1",
+            "dead3",
+            "dead4",
+            "dead6",
+            "dead8",
+            "dead10",
+            "dead12",
+            "dead15"
+        ],
+        "df_backstories": [
+            "dead2",
+            "dead5",
+            "dead7",
+            "dead8",
+            "dead9",
+            "dead11",
+            "dead12",
+            "dead13",
+            "dead14"
         ]
     },
     "conversion": {

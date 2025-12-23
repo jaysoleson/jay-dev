@@ -15,6 +15,8 @@ from scripts.game_structure.ui_elements import (
     UISurfaceImageButton,
     UIImageButton
 )
+from ..cat.enums import CatAge, CatRank, CatGroup
+
 from scripts.game_structure import constants
 
 from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch
@@ -189,42 +191,6 @@ class AffairScreen(Screens):
             self.list_frame.kill()
             del self.list_frame
 
-    def find_next_previous_cats(self):
-        """Determines where the previous and next buttons lead"""
-        is_instructor = False
-        if self.the_cat.dead and game.clan.instructor.ID == self.the_cat.ID:
-            is_instructor = True
-
-        self.previous_cat = 0
-        self.next_cat = 0
-        if self.the_cat.dead and not is_instructor and not self.the_cat.df:
-            self.previous_cat = game.clan.instructor.ID
-
-        if is_instructor:
-            self.next_cat = 1
-
-        for check_cat in Cat.all_cats_list:
-            if check_cat.ID == self.the_cat.ID:
-                self.next_cat = 1
-
-            if self.next_cat == 0 and check_cat.ID != self.the_cat.ID and check_cat.dead == self.the_cat.dead and \
-                    check_cat.ID != game.clan.instructor.ID and not check_cat.status.is_exiled(CatGroup.PLAYER_CLAN) and check_cat.status in \
-                    ["apprentice", "medicine cat apprentice", "mediator apprentice", "queen's apprentice"] \
-                    and check_cat.df == self.the_cat.df:
-                self.previous_cat = check_cat.ID
-
-            elif self.next_cat == 1 and check_cat.ID != self.the_cat.ID and check_cat.dead == self.the_cat.dead and \
-                    check_cat.ID != game.clan.instructor.ID and not check_cat.status.is_exiled(CatGroup.PLAYER_CLAN) and check_cat.status in \
-                    ["apprentice", "medicine cat apprentice", "mediator apprentice", "queen's apprentice"] \
-                    and check_cat.df == self.the_cat.df:
-                self.next_cat = check_cat.ID
-
-            elif int(self.next_cat) > 1:
-                break
-
-        if self.next_cat == 1:
-            self.next_cat = 0
-
     RESOURCE_DIR = "resources/dicts/events/lifegen_events/"
 
     def change_cat(self, affair_cat=None):
@@ -396,6 +362,15 @@ class AffairScreen(Screens):
         if self.current_page > len(valid_mentors):
             self.list_page = len(valid_mentors)
 
+        (
+            self.next_cat,
+            self.previous_cat,
+        ) = self.the_cat.determine_next_and_previous_cats(
+            filter_func=(
+                lambda cat: cat.age
+                in (cat.is_potential_mate(game.clan.your_cat))
+            )
+        )
         # Handle which next buttons are clickable.
         if len(valid_mentors) <= 1:
             self.previous_page_button.disable()

@@ -29,6 +29,10 @@ max_name_length = 10
 mediated = []  # Keep track of which couples have been mediated this moon.
 just_died = []  # keeps track of which cats died this moon via die()
 
+# LG
+told_story = [] # keeps track of who has been told a story by the elders this moon
+# ---
+
 cur_events_list = []
 ceremony_events_list = []
 birth_death_events_list = []
@@ -63,6 +67,10 @@ choose_cats = {}
 
 patrol_cats = {}
 patrolled = []
+
+# LG
+dated_cats = []
+# ---
 
 used_group_IDs: dict = {
     CatGroup.PLAYER_CLAN_ID: CatGroup.PLAYER_CLAN,

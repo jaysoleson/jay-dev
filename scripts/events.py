@@ -11,21 +11,19 @@ import random
 # pylint: enable=line-too-long
 import traceback
 
+import i18n
 import ujson
-import re
 from enum import Enum
 
-from scripts.clan import Clan
-from scripts.clan_resources.herb.herb import HERBS
+import re
+
+from scripts.cat import save_load
+from scripts.cat.cats import Cat, cat_class, BACKSTORIES
 from scripts.cat.pelts import Pelt
-from scripts.events_module.outsider_events import OutsiderEvents
-from scripts.event_class import Single_Event
-from scripts.cat_relations.relationship import Relationship
-import i18n
 from scripts.cat.history import History
 
-
-from scripts.cat.cats import Cat, cat_class, BACKSTORIES
+from scripts.clan_resources.freshkill import FreshkillPile
+from scripts.cat_relations.relationship import Relationship
 from scripts.cat.enums import CatAge, CatRank, CatGroup, CatStanding, CatSocial
 from scripts.cat.names import Name
 from scripts.cat.save_load import save_cats, add_cat_to_fade_id
@@ -38,7 +36,10 @@ from scripts.conditions import (
 from scripts.event_class import Single_Event
 
 from scripts.events_module.generate_events import GenerateEvents, generate_events
-from scripts.clan_resources.freshkill import FreshkillPile
+from scripts.events_module.outsider_events import OutsiderEvents
+from scripts.events_module.patrol.patrol import Patrol
+from scripts.events_module.relationship.pregnancy_events import Pregnancy_Events
+from scripts.events_module.relationship.relation_events import Relation_Events
 from scripts.events_module.short.condition_events import Condition_Events
 from scripts.events_module.short.short_event_generation import create_short_event
 from scripts.game_structure import constants
@@ -50,6 +51,12 @@ from scripts.game_structure.game.switches import (
 )
 from scripts.game_structure import game
 from scripts.game_structure.localization import load_lang_resource
+from scripts.game_structure.windows import (
+    SaveError,
+    RetireScreen,
+    NameKitsWindow,
+    DeputyScreen
+    )
 from scripts.utility import (
     change_clan_relations,
     change_clan_reputation,
@@ -63,11 +70,12 @@ from scripts.utility import (
     get_other_clan,
     history_text_adjust,
     unpack_rel_block,
-    pronoun_repl,
-    create_new_cat,
+    get_cluster,
     lifegen_text_adjust,
-    get_cluster
+    create_new_cat,
+    pronoun_repl
 )
+
 class BirthType(Enum):
     NO_PARENTS = "birth_no_parents"
     ONE_PARENT = "birth_one_parent"
@@ -515,6 +523,7 @@ class Events:
     
     def add_freshkill(self):
         """Adds amount of freshkill needed for the Clan"""
+        # auto freshkill toggle btw
         if not game.clan.freshkill_pile:
             game.clan.freshkill_pile = FreshkillPile()
 
@@ -574,37 +583,43 @@ class Events:
             return
         possible_accs = ["WILD", "PLANT", "COLLAR", "FLOWER", "PLANT2", "SNAKE", "SMALLANIMAL", "DEADINSECT", "ALIVEINSECT", "FRUIT", "CRAFTED", "TAIL2"]
         acc_list = []
-        if "WILD" in possible_accs:
-            acc_list.extend(Pelt.wild_accessories)
-        if "PLANT" in possible_accs:
-            acc_list.extend(Pelt.plant_accessories)
-        if "COLLAR" in possible_accs:
-            acc_list.extend(Pelt.collars)
-        if "FLOWER" in possible_accs:
-            acc_list.extend(Pelt.flower_accessories)
-        if "PLANT2" in possible_accs:
-            acc_list.extend(Pelt.plant2_accessories)
-        if "SNAKE" in possible_accs:
-            acc_list.extend(Pelt.snake_accessories)
-        if "SMALLANIMAL" in possible_accs:
-            acc_list.extend(Pelt.smallAnimal_accessories)
-        if "DEADINSECT" in possible_accs:
-            acc_list.extend(Pelt.deadInsect_accessories)
-        if "ALIVEINSECT" in possible_accs:
-            acc_list.extend(Pelt.aliveInsect_accessories)
-        if "FRUIT" in possible_accs:
-            acc_list.extend(Pelt.fruit_accessories)
-        if "CRAFTED" in possible_accs:
-            acc_list.extend(Pelt.crafted_accessories)
-        if "TAIL2" in possible_accs:
-            acc_list.extend(Pelt.tail2_accessories)
-        if "NOTAIL" in game.clan.your_cat.pelt.scars or "HALFTAIL" in game.clan.your_cat.pelt.scars:
-            for acc in Pelt.tail_accessories + Pelt.tail2_accessories:
-                if acc in acc_list:
-                    try:
-                        acc_list.remove(acc)
-                    except ValueError:
-                        print(f'attempted to remove {acc} from possible acc list, but it was not in the list!')
+        # CHECKMERGE temp 
+        acc_list.extend(Pelt.tail_accessories)
+        acc_list.extend(Pelt.collar_accessories)
+        acc_list.extend(Pelt.body_accessories)
+        acc_list.extend(Pelt.head_accessories)
+
+        # if "WILD" in possible_accs:
+        #     acc_list.extend(Pelt.wild_accessories)
+        # if "PLANT" in possible_accs:
+        #     acc_list.extend(Pelt.plant_accessories)
+        # if "COLLAR" in possible_accs:
+        #     acc_list.extend(Pelt.collars)
+        # if "FLOWER" in possible_accs:
+        #     acc_list.extend(Pelt.flower_accessories)
+        # if "PLANT2" in possible_accs:
+        #     acc_list.extend(Pelt.plant2_accessories)
+        # if "SNAKE" in possible_accs:
+        #     acc_list.extend(Pelt.snake_accessories)
+        # if "SMALLANIMAL" in possible_accs:
+        #     acc_list.extend(Pelt.smallAnimal_accessories)
+        # if "DEADINSECT" in possible_accs:
+        #     acc_list.extend(Pelt.deadInsect_accessories)
+        # if "ALIVEINSECT" in possible_accs:
+        #     acc_list.extend(Pelt.aliveInsect_accessories)
+        # if "FRUIT" in possible_accs:
+        #     acc_list.extend(Pelt.fruit_accessories)
+        # if "CRAFTED" in possible_accs:
+        #     acc_list.extend(Pelt.crafted_accessories)
+        # if "TAIL2" in possible_accs:
+        #     acc_list.extend(Pelt.tail2_accessories)
+        # if "NOTAIL" in game.clan.your_cat.pelt.scars or "HALFTAIL" in game.clan.your_cat.pelt.scars:
+        #     for acc in Pelt.tail_accessories + Pelt.tail2_accessories:
+        #         if acc in acc_list:
+        #             try:
+        #                 acc_list.remove(acc)
+        #             except ValueError:
+        #                 print(f'attempted to remove {acc} from possible acc list, but it was not in the list!')
 
         if not game.clan.your_cat.pelt.inventory:
             game.clan.your_cat.pelt.inventory = []
@@ -707,7 +722,7 @@ class Events:
                             if "encountered" in Cat.all_cats.get(cat).history.beginning and Cat.all_cats.get(cat).history.beginning["encountered"] is True and Cat.all_cats.get(cat).df is True:
                                 achievements.add("36")
             #code for achievement 23 + 24
-            if Clan.age >= 1:
+            if game.clan.age >= 1:
                 if not Cat.all_cats.get(cat).dead and not Cat.all_cats.get(cat).outside:
                     count_alive_cats += 1
                 if count_alive_cats == 1 and Cat.all_cats.get(cat).ID == you.ID:
@@ -1115,11 +1130,11 @@ class Events:
         resource_dir = "resources/dicts/events/lifegen_events/events/"
         
         if game.clan.your_cat.dead:
-            if not game.clan.your_cat.df and not game.clan.your_cat.status.is_outsider:
+            if game.clan.you_cat.status.group == CatGroup.STARCLAN:
                 resource_dir = "resources/dicts/events/lifegen_events/events_dead_sc/"
-            elif game.clan.your_cat.df and not game.clan.your_cat.status.is_outsider:
+            elif game.clan.you_cat.status.group == CatGroup.DARK_FOREST:
                 resource_dir = "resources/dicts/events/lifegen_events/events_dead_df/"
-            elif not game.clan.your_cat.df and game.clan.your_cat.status.is_outsider:
+            elif game.clan.you_cat.status.group == CatGroup.UNKNOWN_RESIDENCE:
                 resource_dir = "resources/dicts/events/lifegen_events/events_dead_ur/"
 
         elif game.clan.your_cat.shunned > 0 and not game.clan.your_cat.status.is_outsider and not game.clan.your_cat.dead:
@@ -4009,11 +4024,10 @@ class Events:
         
         random_cat = random.choice(self.get_living_cats())
 
-        handle_short_events.handle_event(event_type="faith",
-                                            main_cat=cat,
-                                            random_cat=random_cat,
-                                            sub_type=[],
-                                            freshkill_pile=game.clan.freshkill_pile)
+        create_short_event(event_type="faith",
+                                main_cat=cat,
+                                random_cat=random_cat,
+                                sub_type=[])
         
 
     def coming_out(self, cat):

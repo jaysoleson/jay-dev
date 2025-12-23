@@ -484,50 +484,31 @@ class PatrolScreen(Screens):
                 self.elements["herb"].disable()
                 if self.patrol_type == "med":
                     self.patrol_type = "general"
-            if self.patrol_type == "general":
-                text = "screens.patrol.random_patrol"
-            elif self.patrol_type == "training":
-                text = "screens.patrol.training"
-            elif self.patrol_type == "border":
-                text = "screens.patrol.border"
-            elif self.patrol_type == "hunting":
-                text = "screens.patrol.hunting"
-            elif self.patrol_type == "med":
-                if self.current_patrol:
-                    text = "screens.patrol.herb_gathering"
-                    self.elements["mouse"].disable()
-                    self.elements["claws"].disable()
-                    self.elements["paw"].disable()
-                else:
-                    text = "screens.patrol.herb_gathering"
+            
+            text = ""
+            if switch_get_value(Switch.patrol_category) == "clangen":
+                if self.patrol_type == "general":
+                    text = "screens.patrol.random_patrol"
+                elif self.patrol_type == "training":
+                    text = "screens.patrol.training"
+                elif self.patrol_type == "border":
+                    text = "screens.patrol.border"
+                elif self.patrol_type == "hunting":
+                    text = "screens.patrol.hunting"
+                elif self.patrol_type == "med":
+                    if self.current_patrol:
+                        text = "screens.patrol.herb_gathering"
+                        self.elements["mouse"].disable()
+                        self.elements["claws"].disable()
+                        self.elements["paw"].disable()
+                    else:
+                        text = "screens.patrol.herb_gathering"
             elif switch_get_value(Switch.patrol_category) == "lifegen":
                 text = "lifegen"
             elif switch_get_value(Switch.patrol_category) == "df":
                 text = "dark forest"
             elif switch_get_value(Switch.patrol_category) == "date":
                 text = "date"
-            else:
-                text = ""
-
-            if switch_get_value(Switch.patrol_category) == 'clangen':
-                if self.patrol_type == 'general':
-                    text = 'random patrol type'
-                elif self.patrol_type == 'training':
-                    text = 'training'
-                elif self.patrol_type == 'border':
-                    text = 'border'
-                elif self.patrol_type == 'hunting':
-                    text = 'hunting'
-                elif self.patrol_type == 'med':
-                    if self.current_patrol:
-                        text = 'herb gathering'
-                        self.elements['mouse'].disable()
-                        self.elements['claws'].disable()
-                        self.elements['paw'].disable()
-                    else:
-                        text = 'herb gathering'
-                else:
-                    text = ""
 
             self.elements["info"] = pygame_gui.elements.UITextBox(
                 text,
@@ -623,11 +604,6 @@ class PatrolScreen(Screens):
         self.patrol_stage = "choose_cats"
         self.patrol_screen = "patrol_cats"  # List
 
-        # self.elements["info"] = pygame_gui.elements.UITextBox(
-        #     "screens.patrol.choose_cats_info",
-        #     ui_scale(pygame.Rect((187, 95), (425, 100))),
-        #     object_id=get_text_box_theme("#text_box_22_horizcenter"),
-        # )
         self.elements["cat_frame"] = pygame_gui.elements.UIImage(
             ui_scale(pygame.Rect((300, 165), (200, 275))),
             get_box(BoxStyles.FRAME, (200, 275)),

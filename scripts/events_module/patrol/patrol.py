@@ -12,7 +12,7 @@ import pygame
 
 from scripts.cat.cats import Cat
 from scripts.cat_relations.enums import RelType
-from scripts.cat.enums import CatAge, CatRank
+from scripts.cat.enums import CatAge, CatRank, CatGroup
 from scripts.clan import Clan
 from scripts.cat.history import History
 from scripts.clan_package.settings import get_clan_setting
@@ -222,7 +222,7 @@ class Patrol:
                 self.patrol_statuses[cat.status.rank] = 1
 
             # LG ---
-            if cat.dead and cat.df and cat != game.clan.your_cat:
+            if cat.status.group == CatGroup.DARK_FOREST and cat != game.clan.your_cat:
                 if "df" in self.patrol_statuses:
                     self.patrol_statuses["df"] += 1
                 else:
@@ -806,11 +806,11 @@ class Patrol:
                 if switch_get_value(Switch.patrol_category) == "lifegen":
                     if not any(p in patrol.types for p in ["sc_lifegen", "ur_lifegen", "df_lifegen"]) and game.clan.your_cat.dead:
                         continue
-                    if "sc_lifegen" in patrol.types and (not game.clan.your_cat.dead or game.clan.your_cat.df or game.clan.your_cat.ID in game.clan.unknown_cats):
+                    if "sc_lifegen" in patrol.types and (not game.clan.your_cat.status.group == CatGroup.STARCLAN):
                         continue
-                    elif "df_lifegen" in patrol.types and (not game.clan.your_cat.dead or not game.clan.your_cat.df or game.clan.your_cat.ID in game.clan.unknown_cats):
+                    elif "df_lifegen" in patrol.types and (not game.clan.your_cat.status.group == CatGroup.DARK_FOREST):
                         continue
-                    elif "ur_lifegen" in patrol.types and (not game.clan.your_cat.dead or game.clan.your_cat.df or game.clan.your_cat.ID not in game.clan.unknown_cats):
+                    elif "ur_lifegen" in patrol.types and (not game.clan.your_cat.status.group == CatGroup.UNKNOWN_RESIDENCE):
                         continue
                 if switch_get_value(Switch.patrol_category) == "df":
                     if len(self.patrol_cats) > 1:
