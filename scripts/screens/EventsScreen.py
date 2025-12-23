@@ -24,6 +24,7 @@ from scripts.game_structure.ui_elements import (
     CatButton,
 )
 from scripts.screens.Screens import Screens
+from scripts.screens.enums import GameScreen
 from scripts.ui.generate_box import BoxStyles, get_box
 from scripts.ui.generate_button import get_button_dict, ButtonStyles
 from scripts.ui.icon import Icon
@@ -35,8 +36,7 @@ from scripts.utility import (
     get_living_clan_cat_count,
     ui_scale_dimensions,
     ui_scale_value,
-    ui_scale_offset,
-    get_alive_cats
+    ui_scale_offset
 )
  
 # LG
@@ -168,11 +168,12 @@ class EventsScreen(Screens):
                 # ensure we can't run the same timeskip multiple times
                 if self.events_thread is not None and self.events_thread.is_alive():
                     return
-                if game.clan.your_cat.dead_for >= 2 and not game.switches['continue_after_death']:
+                if game.clan.your_cat.dead_for >= 2 and not switch_get_value(Switch.continue_after_death):
                     DeathScreen('events screen')
+                    # CHECKMERGE: check if opening windows has changed at all
                     return
                 elif (game.clan.your_cat.moons == 5
-                        and not game.clan.your_cat.outside
+                        and not game.clan.your_cat.status.is_outsider
                         and not game.clan.your_cat.dead
                         and game.clan.your_cat.status == "kitten"
                         ) or not game.clan.your_cat.status:
@@ -185,7 +186,7 @@ class EventsScreen(Screens):
                 DeathScreen('events screen')
                 return
             elif element == self.you:
-                game.switches['cat'] = game.clan.your_cat.ID
+                switch_set_value(Switch.cat, game.clan.your_cat.ID)
                 self.change_screen("profile screen")
             
             elif element == self.faith_toggle_button:
@@ -286,7 +287,7 @@ class EventsScreen(Screens):
             elif element in self.cat_profile_buttons:
                 self.save_scroll_position()
                 switch_set_value(Switch.cat, element.cat_id)
-                self.change_screen("profile screen")
+                self.change_screen(GameScreen.PROFILE)
             else:
                 self.save_scroll_position()
                 self.menu_button_pressed(event)
@@ -297,10 +298,10 @@ class EventsScreen(Screens):
             if event.type == pygame.KEYDOWN:
                 # LEFT ARROW
                 if event.key == pygame.K_LEFT:
-                    self.change_screen("patrol screen")
+                    self.change_screen(GameScreen.PATROL)
                 # RIGHT ARROW
                 elif event.key == pygame.K_RIGHT:
-                    self.change_screen("camp screen")
+                    self.change_screen(GameScreen.CAMP)
                 # DOWN AND UP ARROW
                 elif event.key == pygame.K_DOWN or event.key == pygame.K_UP:
                     self.handle_tab_select(event.key)
@@ -541,7 +542,7 @@ class EventsScreen(Screens):
         )
         self.death_button.hide()
 
-        if game.switches['continue_after_death']:
+        if switch_get_value(Switch.continue_after_death):
             self.death_button.show()
 
         self.full_event_display_container = pygame_gui.core.UIContainer(
@@ -977,7 +978,7 @@ class EventsScreen(Screens):
             print(
                 "Are you playing a normal ClanGen save? Switch to a LifeGen save or create a new cat!")
             print("Choosing random cat to play...")
-            game.clan.your_cat = random.choice(get_alive_cats(Cat))
+            game.clan.your_cat = random.choice(Cat.all_cats_list)
             print("Chose " + str(game.clan.your_cat.name))
         # UPDATE CLAN INFO
         # self.clan_info["season"].set_text(f"Current season: {game.clan.current_season}")
@@ -1173,7 +1174,7 @@ class EventsScreen(Screens):
                 cat_id=game.clan.your_cat.ID,
                 manager=MANAGER
                 )
-        if game.switches['continue_after_death'] and game.clan.your_cat.moons >= 0:
+        if switch_get_value(Switch.continue_after_death) and game.clan.your_cat.moons >= 0:
             self.death_button.show()
         else:
             self.death_button.hide()
@@ -1197,7 +1198,7 @@ class EventsScreen(Screens):
         switch_set_value(Switch.saved_scroll_positions, {})
 
         if get_living_clan_cat_count(Cat) == 0:
-            GameOver("events screen")
+            GameOver(GameScreen.EVENTS)
 
         self.update_display_events_lists()
 

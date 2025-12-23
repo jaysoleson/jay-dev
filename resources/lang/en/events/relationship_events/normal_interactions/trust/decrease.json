@@ -14,14 +14,7 @@
 			"m_c asks r_c a simple question, but r_c reacts strangely to it.",
 			"r_c forgot something that m_c asked {PRONOUN/r_c/object} to remember.",
 			"r_c won't stop looking at a specific Clanmate while talking to m_c.",
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/trust/decrease.json
-			"m_c has a weird feeling about something r_c said the other day.",
-			"m_c has a suspicion that r_c is following {PRONOUN/m_c/object} around camp but doesn't want to say anything.",
-			"r_c's sudden curiosity and questions about certain topics has m_c wondering why r_c is so interested.",
-			"m_c is realizing r_c has been lying about a few things."
-=======
 			"m_c has a weird feeling about something r_c said the other day."
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/trust/decrease.json
 		]
 	},
 	{
@@ -30,11 +23,7 @@
 		"interactions": [
 			"m_c shared a embarrassing story about r_c {PRONOUN/m_c/subject} {VERB/m_c/were/was} asked not to share...",
 			"m_c's friend doesn't trust r_c.",
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/trust/decrease.json
-			"m_c learns that r_c told a Clanmate one of {PRONOUN/m_c/poss} secrets.",
-=======
 			"r_c learns that m_c told a Clanmate one of {PRONOUN/r_c/poss} secrets.",
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/trust/decrease.json
 			"r_c snitches on m_c for something minor.",
 			"m_c saw r_c hide something before talking to {PRONOUN/m_c/object}.",
 			"r_c won't tell m_c what {PRONOUN/r_c/subject} ate this morning.",
@@ -73,11 +62,7 @@
 			"r_c keeps avoiding eye contact with m_c.",
 			"m_c learns that r_c has been misleading {PRONOUN/m_c/object} about something trivial.",
 			"r_c does something that badly affects m_c.",
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/trust/decrease.json
-			"r_c volunteers m_c for something that {PRONOUN/m_c/object} didn't want to do...",
-=======
 			"r_c volunteers m_c for something that {PRONOUN/m_c/subject} didn't want to do...",
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/trust/decrease.json
 			"m_c and r_c can't seem to agree on the truth about something.",
 			"m_c asks r_c about a lie r_c told, but {PRONOUN/r_c/subject} {VERB/r_c/dodge/dodges} the question.",
 			"m_c realizes that r_c's been avoiding {PRONOUN/m_c/object}.",
@@ -113,22 +98,14 @@
 			"m_c is relentlessly pestering r_c."
 		],
 		"relationship_constraint": [
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/trust/decrease.json
-			"dislike_40"
-=======
 			"dislikes"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/trust/decrease.json
 		],
 		"main_status_constraint": [
 			"kitten"
 		],
 		"reaction_random_cat": {
 			"trust": "decrease",
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/trust/decrease.json
-			"dislike": "increase"
-=======
 			"like": "decrease"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/trust/decrease.json
 		}
 	},
 	{
@@ -163,11 +140,7 @@
 			"r_c blackmails m_c with one of {PRONOUN/m_c/poss} secrets."
 		],
 		"relationship_constraint": [
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/trust/decrease.json
-			"dislike_40"
-=======
 			"hates"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/trust/decrease.json
 		],
 		"reaction_random_cat": {
 			"trust": "decrease"
@@ -259,7 +232,6 @@
 			"bloodthirsty",
 			"vengeful"
 		]
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/trust/decrease.json
 	},
 	{
 		"id": "guy_trust_queen_inc_low1",
@@ -293,7 +265,5 @@
 		"reaction_random_cat": {
 			"trust": "decrease"
 		}
-=======
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/trust/decrease.json
 	}
 ]

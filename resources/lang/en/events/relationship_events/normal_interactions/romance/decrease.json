@@ -20,11 +20,7 @@
 			"m_c hates the gift r_c gave {PRONOUN/m_c/object}."
 		],
 		"relationship_constraint": [
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/romantic/decrease.json
-			"romantic_40"
-=======
 			"adores"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/romance/decrease.json
 		]
 	},
 	{
@@ -37,13 +33,8 @@
 			"m_c tried flirting with r_c but {PRONOUN/r_c/subject} didn't have time for it and brushed m_c aside."
 		],
 		"relationship_constraint": [
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/romantic/decrease.json
-			"romantic_40",
-			"dislike_30"
-=======
 			"adores",
 			"dislikes"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/romance/decrease.json
 		]
 	},
 	{
@@ -75,13 +66,7 @@
 		"interactions": [
 			"m_c had a disagreement with r_c over kits.",
 			"m_c and r_c had a disagreement on how to raise kits.",
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/romantic/decrease.json
-            "m_c and r_c had a fight over if they would take a new mate if one of them died or went missing.",
-			"m_c thinks r_c has been less attentive as of late.",
-			"m_c accuses r_c of intentionally making {PRONOUN/m_c/object} mad.",
-			"m_c notices r_c has been hiding a few things from {PRONOUN/m_c/object}.",
-			"m_c slips up and mentions something r_c does that makes {PRONOUN/m_c/object} annoyed, oblivious to r_c's hurt.",
-			"m_c and r_c clash over a few opinions."
+            		"m_c and r_c had a fight over if they would take a new mate if one of them died or went missing."
 		],
 		"relationship_constraint": [
 			"mates"
@@ -125,12 +110,6 @@
 		"main_status_constraint": [
 			"leader",
 			"deputy"
-=======
-            		"m_c and r_c had a fight over if they would take a new mate if one of them died or went missing."
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/romance/decrease.json
-		],
-		"relationship_constraint": [
-			"mates"
 		]
 	}
 ]

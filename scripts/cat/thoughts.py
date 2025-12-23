@@ -2,13 +2,8 @@ import traceback
 from random import choice
 from typing import TYPE_CHECKING
 
-<<<<<<< HEAD
-import ujson
-from scripts.game_structure.game_essentials import game
-
-from scripts.utility import get_cluster
-=======
 import i18n
+from scripts.utility import get_cluster
 
 from scripts.cat.enums import CatGroup
 from scripts.events_module.event_filters import event_for_cat
@@ -17,7 +12,6 @@ from scripts.utility import filter_relationship_type
 
 if TYPE_CHECKING:
     from scripts.cat.cats import Cat
->>>>>>> development
 
 
 class Thoughts:
@@ -27,15 +21,8 @@ class Thoughts:
         # if the constraints are not existing, they are considered to be fulfilled
         if not random_cat:
             return False
-<<<<<<< HEAD
-        
-        if random_cat.moons < 0:
-            return False
-        
-=======
 
         constraint = constraint.copy()
->>>>>>> development
         # No current relationship-value bases tags, so this is commented out.
         relationship = False
         if (
@@ -50,36 +37,10 @@ class Thoughts:
             # we remove before further filtering so that filter_relationship_type doesn't scream
             constraint.remove("strangers")
 
-<<<<<<< HEAD
-        if "littermates" in constraint and not main_cat.is_littermate(random_cat):
-            return False
-
-        if "mates" in constraint and random_cat.ID not in main_cat.mates:
-            return False
-
-        if "not_mates" in constraint and random_cat.ID in main_cat.mates:
-            return False
-
-        if "parent/child" in constraint and not main_cat.is_parent(random_cat):
-            return False
-
-        if "child/parent" in constraint and not random_cat.is_parent(main_cat):
-            return False
-
-        if "mentor/app" in constraint and random_cat not in main_cat.apprentice:
-            return False
-
-        if "app/mentor" in constraint and random_cat.ID != main_cat.mentor:
-            return False
-
-        if "strangers" in constraint and relationship and (
-                relationship.platonic_like < 1 or relationship.romantic_love < 1):
-=======
         if not filter_relationship_type(
             group=[main_cat, random_cat],
             filter_types=constraint,
         ):
->>>>>>> development
             return False
 
         return True
@@ -142,25 +103,11 @@ class Thoughts:
         if "random_age_constraint" in thought and random_cat:
             random_info_dict["age"] = thought["random_age_constraint"]
 
-<<<<<<< HEAD
-        if 'main_trait_constraint' in thought:
-            if main_cat.personality.trait not in thought['main_trait_constraint']:
-                return False
-            
-        if 'not_main_trait_constraint' in thought:
-            if main_cat.personality.trait in thought['not_main_trait_constraint']:
-                return False
-            
-        if 'random_trait_constraint' in thought and random_cat:
-            if random_cat.personality.trait not in thought['random_trait_constraint']:
-                return False
-=======
         if "main_trait_constraint" in thought:
             main_info_dict["trait"] = thought["main_trait_constraint"]
 
         if "random_trait_constraint" in thought and random_cat:
             random_info_dict["trait"] = thought["random_trait_constraint"]
->>>>>>> development
 
         if "main_skill_constraint" in thought:
             main_info_dict["skill"] = thought["main_skill_constraint"]
@@ -177,84 +124,8 @@ class Thoughts:
         if not event_for_cat(main_info_dict, main_cat):
             return False
 
-<<<<<<< HEAD
-                if len(spli) != 2:
-                    print("Throught constraint not properly formated", _skill)
-                    continue
-
-                if random_cat.skills.meets_skill_requirement(spli[0], spli[1]):
-                    _flag = True
-                    break
-
-            if not _flag:
-                return False
-
-        if 'main_backstory_constraint' in thought:
-            if main_cat.backstory not in thought['main_backstory_constraint']:
-                return False
-
-        if 'random_backstory_constraint' in thought:
-            if random_cat and random_cat.backstory not in thought['random_backstory_constraint']:
-                return False
-            
-        # LIFEGEN CONSTRAINTS
-        if 'main_faith_constraint' in thought:
-            if "low_sc" in thought['main_faith_constraint']:
-                if (not main_cat.faith < 3 and main_cat.faith > 0):
-                    return False
-            elif "mid_sc" in thought['main_faith_constraint']:
-                if (not main_cat.faith < 6 and main_cat.faith > 3):
-                    return False
-            elif "high_sc" in thought['main_faith_constraint']:
-                if (not main_cat.faith < 10 and main_cat.faith > 6):
-                    return False
-                
-            if "low_df" in thought['main_faith_constraint']:
-                if (not main_cat.faith < 0 and main_cat.faith > -3):
-                    return False
-            elif "mid_df" in thought['main_faith_constraint']:
-                if (not main_cat.faith < -3 and main_cat.faith > -6):
-                    return False
-            elif "high_df" in thought['main_faith_constraint']:
-                if (not main_cat.faith < -6 and main_cat.faith > -10):
-                    return False
-                
-        if 'random_faith_constraint' in thought:
-            if "low_sc" in thought['random_faith_constraint']:
-                if (not random_cat.faith < 3 and random_cat.faith > 0):
-                    return False
-            elif "mid_sc" in thought['random_faith_constraint']:
-                if (not random_cat.faith < 6 and random_cat.faith > 3):
-                    return False
-            elif "high_sc" in thought['random_faith_constraint']:
-                if (not random_cat.faith < 10 and random_cat.faith > 6):
-                    return False
-                
-            if "low_df" in thought['random_faith_constraint']:
-                if (not random_cat.faith < 0 and random_cat.faith > -3):
-                    return False
-            elif "mid_df" in thought['random_faith_constraint']:
-                if (not random_cat.faith < -3 and random_cat.faith > -6):
-                    return False
-            elif "high_df" in thought['random_faith_constraint']:
-                if (not random_cat.faith < -6 and random_cat.faith > -10):
-                    return False
-                
-        if "main_cluster_constraint" in thought:
-            cluster, cluster2 = get_cluster(main_cat.personality.trait)
-            if cluster not in thought["main_cluster_constraint"] and (cluster2 and cluster2 not in thought["main_cluster_constraint"]):
-                return False
-        
-        if "random_cluster_constraint" in thought and random_cat:
-            cluster, cluster2 = get_cluster(random_cat.personality.trait)
-            if cluster not in thought["random_cluster_constraint"] and (cluster2 and cluster2 not in thought["random_cluster_constraint"]):
-                return False
-                    
-        
-=======
         if r_c_in and not event_for_cat(random_info_dict, random_cat):
             return False
->>>>>>> development
 
         # Filter for the living status of the random cat. The living status of the main cat
         # is taken into account in the thought loading process.
@@ -279,19 +150,6 @@ class Thoughts:
                 living_status = "living"
             if living_status and living_status != "living":
                 return False
-<<<<<<< HEAD
-        if random_cat:
-            if random_cat.moons < 0:
-                return False
-        if random_cat and 'random_outside_status' in thought:
-            if random_cat and random_cat.outside and random_cat.status not in ["kittypet", "loner", "rogue",
-                                                                               "former Clancat", "exiled"]:
-                outside_status = "lost"
-            elif random_cat and random_cat.outside:
-                outside_status = "outside"
-            else:
-                outside_status = "clancat"
-=======
 
         if random_cat and random_cat.status.is_lost():
             outside_status = "lost"
@@ -299,7 +157,6 @@ class Thoughts:
             outside_status = "outside"
         else:
             outside_status = "clancat"
->>>>>>> development
 
         if random_cat and "random_outside_status" in thought:
             if outside_status not in thought["random_outside_status"]:
@@ -448,34 +305,15 @@ class Thoughts:
                 spec_dir = "/starclan"
         elif main_cat.status.is_outsider:
             spec_dir = "/alive_outside"
-<<<<<<< HEAD
-        elif main_cat.dead and not main_cat.outside and not main_cat.df:
-            spec_dir = "/starclan"
-        elif main_cat.dead and main_cat.df:
-            spec_dir = "/darkforest"
-        elif main_cat.dead and main_cat.outside and not main_cat.df:
-            spec_dir = "/unknownresidence"
-=======
->>>>>>> development
         else:
             spec_dir = ""
 
         # newborns only pull from their status thoughts. this is done for convenience
         try:
-<<<<<<< HEAD
-            if main_cat.age == 'newborn':
-                with open(f"{base_path}{life_dir}{spec_dir}/newborn.json", 'r') as read_file:
-                    thoughts = ujson.loads(read_file.read())
-                loaded_thoughts = thoughts
-            elif main_cat.shunned > 0 and not main_cat.dead and not main_cat.outside:
-                with open(f"{base_path}{life_dir}{spec_dir}/shunned.json", 'r') as read_file:
-                    loaded_thoughts = ujson.loads(read_file.read())
-=======
             if main_cat.age == "newborn":
                 loaded_thoughts = load_lang_resource(
                     f"thoughts/{life_dir}{spec_dir}/newborn.json"
                 )
->>>>>>> development
             else:
                 thoughts = load_lang_resource(
                     f"thoughts/{life_dir}{spec_dir}/{rank}.json"
@@ -509,12 +347,8 @@ class Thoughts:
                 )
                 chosen_thought = choice(chosen_thought_group["thoughts"])
         except Exception:
-<<<<<<< HEAD
-            chosen_thought = "Prrrp! You shouldn't see this! Report as a bug."
-=======
             traceback.print_exc()
             chosen_thought = i18n.t("defaults.thought")
->>>>>>> development
 
         return chosen_thought
 

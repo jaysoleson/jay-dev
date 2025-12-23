@@ -4,24 +4,23 @@ from random import choice, randint
 import ujson
 import math
 import re
+import i18n
+from scripts.game_structure import constants
+
 
 from .Screens import Screens
 from scripts.utility import get_text_box_theme, get_cluster, pronoun_repl
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
-from scripts.game_structure.game_essentials import game
+from scripts.game_structure import game
 from scripts.game_structure.ui_elements import UIImageButton, UISpriteButton, UISurfaceImageButton
 from scripts.cat.sprites import sprites
 from ..ui.generate_box import BoxStyles, get_box
 from scripts.utility import get_text_box_theme, ui_scale
 from scripts.game_structure.screen_settings import MANAGER
 from ..ui.generate_button import get_button_dict, ButtonStyles
-from ..ui.get_arrow import get_arrow
 from ..ui.icon import Icon
 
-
-with open("resources/dicts/acc_display.json", "r") as read_file:
-    ACC_DISPLAY = ujson.loads(read_file.read())
 
 with open("resources/dicts/events/lifegen_events/gift.json", "r") as read_file:
     ACC_REACTION_TXT = ujson.loads(read_file.read())
@@ -165,8 +164,8 @@ class GiftScreen(Screens):
             ui_scale(pygame.Rect((75, 360), (650, 226))), list_frame, starting_height=1
         )
         self.back_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((25, 25), (105, 30))),
-            get_arrow(2) + " Back",
+            ui_scale(pygame.Rect((25, 60), (105, 30))),
+            "buttons.back",
             get_button_dict(ButtonStyles.SQUOVAL, (105, 30)),
             object_id="@buttonstyles_squoval",
             manager=MANAGER,
@@ -536,13 +535,13 @@ class GiftScreen(Screens):
 
             if self.next_cat == 0 and check_cat.ID != self.the_cat.ID and\
                 check_cat.dead == self.the_cat.dead and check_cat.ID != game.clan.instructor.ID and\
-                    not check_cat.exiled and check_cat.status in\
+                    not check_cat.status.is_exiled(CatGroup.PLAYER_CLAN) and check_cat.status in\
                     ["apprentice", "medicine cat apprentice", "mediator apprentice", "queen's apprentice"]\
                     and check_cat.df == self.the_cat.df:
                 self.previous_cat = check_cat.ID
 
             elif self.next_cat == 1 and check_cat.ID != self.the_cat.ID and check_cat.dead == self.the_cat.dead and \
-                    check_cat.ID != game.clan.instructor.ID and not check_cat.exiled and check_cat.status in \
+                    check_cat.ID != game.clan.instructor.ID and not check_cat.status.is_exiled(CatGroup.PLAYER_CLAN) and check_cat.status in \
                     ["apprentice", "medicine cat apprentice", "mediator apprentice", "queen's apprentice"] \
                     and check_cat.df == self.the_cat.df:
                 self.next_cat = check_cat.ID
@@ -642,7 +641,7 @@ class GiftScreen(Screens):
 
         txt = txt.replace("y_c", str(game.clan.your_cat.name))
         txt = txt.replace("t_c", str(self.selected_cat.name))
-        txt = txt.replace("y_g", str(ACC_DISPLAY[self.selected_accessory.tool_tip_text]["default"]))
+        txt = txt.replace("y_g", str(i18n.t(f"cat.accessories.{self.selected_accessory.tool_tip_text}", count=0)))
         return txt
 
     def update_selected_cat(self):
@@ -731,7 +730,7 @@ class GiftScreen(Screens):
                 manager=MANAGER
             )
 
-            accname = ACC_DISPLAY[self.selected_accessory.tool_tip_text]["default"]
+            accname = i18n.t(f"cat.accessories.{self.selected_accessory.tool_tip_text}", count=0)
             if 13 <= len(accname):  # check name length
                 short_name = str(accname)[0:9]
                 accname = short_name + '...'
@@ -796,7 +795,7 @@ class GiftScreen(Screens):
         # self.cat_sprite = str(cat.pelt.cat_sprites[cat.age])
 
         # setting the cat_sprite (bc this makes things much easier)
-        # if cat.not_working() and age != 'newborn' and game.config['cat_sprites']['sick_sprites']:
+        # if cat.not_working() and age != 'newborn' and constants.CONFIG['cat_sprites']['sick_sprites']:
         #     if age in ['kitten', 'adolescent']:
         #         self.cat_sprite = str(19)
         #     else:
@@ -810,10 +809,10 @@ class GiftScreen(Screens):
                 else:
                     self.cat_sprite = str(15)
         else:
-            if age == 'elder' and not game.config['fun']['all_cats_are_newborn']:
+            if age == 'elder' and not constants.CONFIG['fun']['all_cats_are_newborn']:
                 age = 'senior'
 
-            if game.config['fun']['all_cats_are_newborn']:
+            if constants.CONFIG['fun']['all_cats_are_newborn']:
                 self.cat_sprite = str(cat.pelt.cat_sprites['newborn'])
             else:
                 self.cat_sprite = str(cat.pelt.cat_sprites[age])
@@ -895,7 +894,7 @@ class GiftScreen(Screens):
         valid_cats = []
 
         for cat in Cat.all_cats_list:
-            if not cat.dead and not cat.outside and not cat.ID == game.clan.your_cat.ID and not cat.moons == 0:
+            if not cat.dead and not cat.status.is_outsider and not cat.ID == game.clan.your_cat.ID and not cat.moons == 0:
                 valid_cats.append(cat)
 
         return valid_cats

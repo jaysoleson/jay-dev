@@ -1,9 +1,5 @@
 {
   "general": {
-<<<<<<< HEAD:resources/dicts/events/death/death_reactions/mate/mate_jealousy.json
-    "body": [],
-    "no_body": []
-=======
     "body": [
       "r_c loved m_c, {PRONOUN/r_c/subject} did, but it was difficult to be mates with such a popular, well-liked cat.",
       "r_c tries to quash the jealousy in {PRONOUN/r_c/poss} heart long enough to give {PRONOUN/r_c/poss} mate the proper send-off at m_c's vigil."
@@ -12,7 +8,6 @@
     "r_c loved m_c, {PRONOUN/r_c/subject} did, but it was difficult to be mates with such a popular, well-liked cat.",
     "r_c tries to quash the jealousy in {PRONOUN/r_c/poss} heart long enough to give {PRONOUN/r_c/poss} mate the proper send-off at m_c's vigil."
    ]
->>>>>>> development:resources/lang/en/events/death/death_reactions/mate/mate_neg_respect.json
   },
   "adventurous": {
     "body": [],

@@ -1556,11 +1556,7 @@
             "Wonders if r_c has ever struggled with feelings of inadequacy",
             "Knows {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} doing the best {PRONOUN/m_c/subject} can, but feels guilty anyway",
             "Apologizes for something that wasn't {PRONOUN/m_c/poss} fault",
-<<<<<<< HEAD:resources/dicts/thoughts/alive/general.json
-            "Fakes it 'til {PRONOUN/m_c/subject} {VERB/m_c/make/makes it}",
-=======
             "Fakes it 'til {PRONOUN/m_c/subject} {VERB/m_c/make/makes} it",
->>>>>>> development:resources/lang/en/thoughts/alive/general.json
             "Boasts loudly about all {PRONOUN/m_c/poss} accomplishments",
             "Tries to downplay {PRONOUN/m_c/poss} Clanmates' accomplishments"
         ],
@@ -2685,13 +2681,10 @@
             "Is urging r_c to rest",
             "Brings r_c some prey",
             "Offers to help r_c with {PRONOUN/r_c/poss} patients",
-<<<<<<< HEAD:resources/dicts/thoughts/alive/general.json
             "Advices r_c to take a break once in a while",
             "Notices r_c is working harder than usual",
-            "Is worried about r_c's health even though {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} perfectly capable of taking care of {PRONOUN/r_c/self}"
-=======
+            "Is worried about r_c's health even though {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} perfectly capable of taking care of {PRONOUN/r_c/self}",
             "Leaves honeysuckle in r_c's nest to combat the scent of herbs"
->>>>>>> development:resources/lang/en/thoughts/alive/general.json
         ],
         "random_status_constraint": [
             "medicine cat"
@@ -2713,14 +2706,11 @@
             "Had a pointless, petty argument with r_c",
             "Startles r_c to get back at {PRONOUN/r_c/object} for something or other",
             "Casually insults r_c in passing",
-<<<<<<< HEAD:resources/dicts/thoughts/alive/general.json
             "Steals something from r_c just to drive {PRONOUN/r_c/object} mad",
             "Gets into a petty argument with r_c about something that happened in the past",
             "Playfully pounces on r_c to scare {PRONOUN/r_c/object}",
-            "Pretends to fight r_c out of boredom"
-=======
+            "Pretends to fight r_c out of boredom",
             "Leaves r_c's favorite prey on the pile for {PRONOUN/m_c/poss} sibling"
->>>>>>> development:resources/lang/en/thoughts/alive/general.json
         ],
         "random_living_status": [
             "living"
@@ -3327,16 +3317,13 @@
         "not_working": false,
         "thoughts": [
             "Is looking forward to finding more prey as the snow melts",
-<<<<<<< HEAD:resources/dicts/thoughts/alive/general.json
             "Is not looking forward to the mud that follows leaf-bare",
-            "Fascinated by the plants regrowth as it gets warmer"
-=======
+            "Fascinated by the plants regrowth as it gets warmer",
             "Enjoys the returning birdsong on patrol",
             "Scents greenleaf on the breeze",
             "Jumps a fox-length in the air when melt-water drips on {PRONOUN/m_c/object}",
             "Admires the flowers budding on the territory",
             "Is cautious of animals waking from hibernation"
->>>>>>> development:resources/lang/en/thoughts/alive/general.json
         ],
         "season": [
             "Newleaf"
@@ -3781,15 +3768,12 @@
         "id": "bold_apprentices",
         "thoughts": [
             "Winked cheekily at another apprentice",
-<<<<<<< HEAD:resources/dicts/thoughts/alive/general.json
             "Criticizes {PRONOUN/m_c/poss} mentor",
             "Tells another apprentice that they're doing their hunting pounce wrong",
-            "Prides {PRONOUN/m_c/self} with {PRONOUN/m_c/poss} brutal honestly"
-=======
+            "Prides {PRONOUN/m_c/self} with {PRONOUN/m_c/poss} brutal honestly",
             "Demands to lead a patrol",
             "Declares {PRONOUN/m_c/poss} intentions for the future",
             "Decides on a full name for {PRONOUN/m_c/self}"
->>>>>>> development:resources/lang/en/thoughts/alive/general.json
         ],
         "main_status_constraint": [
             "apprentice",
@@ -3822,16 +3806,10 @@
     {
         "id": "bold_apprentices_to_leader",
         "thoughts": [
-<<<<<<< HEAD:resources/dicts/thoughts/alive/general.json
-            "Tells r_c {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} doing something wrong",
-            "Asks r_c if {PRONOUN/r_c/subject} even {VERB/r_c/know/knows} what {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} doing",
-            "Calls r_c old and wrinkly and rusty"
-=======
             "Tells the leader {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} doing something wrong",
             "Informs r_c of {PRONOUN/m_c/poss} preferred full name",
             "Corrects r_c's hunting posture",
             "Asks r_c if {PRONOUN/r_c/subject}{VERB/r_c/'ve/'s} ever seen an apprentice like {PRONOUN/m_c/object}"
->>>>>>> development:resources/lang/en/thoughts/alive/general.json
         ],
         "main_status_constraint": [
             "apprentice",
@@ -3881,11 +3859,8 @@
         "thoughts": [
             "Is asking if {PRONOUN/m_c/subject} {VERB/m_c/need/needs} more training",
             "Never forgets to remind {PRONOUN/m_c/poss} Clanmates of things they might have forgotten about",
-<<<<<<< HEAD:resources/dicts/thoughts/alive/general.json
-            "Would rather ask a question over and over again to avoid doing something wrong."
-=======
+            "Would rather ask a question over and over again to avoid doing something wrong.",
             "Goes easy on {PRONOUN/m_c/poss} partner when sparring"
->>>>>>> development:resources/lang/en/thoughts/alive/general.json
         ],
         "main_status_constraint": [
             "apprentice",
@@ -3943,15 +3918,12 @@
     {
         "id": "childish_apprentices_to_apprentices",
         "thoughts": [
-<<<<<<< HEAD:resources/dicts/thoughts/alive/general.json
-            "Manages to convince r_c to play moss ball instead of finishing {PRONOUN/r_c/poss} duties"
-=======
+            "Manages to convince r_c to play moss ball instead of finishing {PRONOUN/r_c/poss} duties",
             "Convinces another apprentice to play moss ball instead of finishing their duties",
             "Won't stop making r_c laugh during training",
             "Bothers r_c when {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} trying to train",
             "Whines that r_c was mean to {PRONOUN/m_c/object}",
             "Complains that r_c stole {PRONOUN/m_c/poss} super extra special secret battle move"
->>>>>>> development:resources/lang/en/thoughts/alive/general.json
         ],
         "main_status_constraint": [
             "apprentice",
@@ -3972,12 +3944,10 @@
     {
         "id": "cold_apprentices",
         "thoughts": [
-<<<<<<< HEAD:resources/dicts/thoughts/alive/general.json
             "Is hoping {PRONOUN/m_c/poss} name will end in -claw",
             "Rudely walked away from a conversation that bored {PRONOUN/m_c/object}",
             "Gives Clanmates the cold shoulder for no particular reason",
-            "Boldly just tells Clanmates that {PRONOUN/m_c/subject} {VERB/m_c/don't/doesn't} like them"
-=======
+            "Boldly just tells Clanmates that {PRONOUN/m_c/subject} {VERB/m_c/don't/doesn't} like them",
             "Hopes {PRONOUN/m_c/poss} name will end in -claw",
             "Hopes {PRONOUN/m_c/poss} name will end in -fang",
             "Hopes {PRONOUN/m_c/poss} name will end in -strike",
@@ -3987,7 +3957,6 @@
             "Rudely walked away from a conversation that bored {PRONOUN/m_c/object}",
             "Asks r_c if being an apprentice requires {PRONOUN/m_c/object} to listen to {PRONOUN/r_c/poss} nattering",
             "Leaves {PRONOUN/m_c/poss} chores for someone else to do"
->>>>>>> development:resources/lang/en/thoughts/alive/general.json
         ],
         "main_status_constraint": [
             "apprentice",
@@ -4260,13 +4229,8 @@
         "thoughts": [
             "Is hoping to not train today...",
             "Wants to ask for help with something, but is too ashamed",
-<<<<<<< HEAD:resources/dicts/thoughts/alive/general.json
-            "Is hoping {PRONOUN/m_c/subject} won't be a disappointment to {PRONOUN/m_c/poss} Clan",
-            "Hopes the Clans stay peaceful",
-=======
             "Hopes {PRONOUN/m_c/subject} won't be a disappointment to {PRONOUN/m_c/poss} Clan",
             "Hopes peace will endure between the Clans",
->>>>>>> development:resources/lang/en/thoughts/alive/general.json
             "Wishes {PRONOUN/m_c/subject} {VERB/m_c/were/was} back in the nursery",
             "Overcomes a difficult task, despite feeling nervous",
             "Is spooked by the beady eyes of prey during a hunting patrol",
@@ -4549,11 +4513,8 @@
         "thoughts": [
             "Is busy chastising fellow apprentices... but no one is sure what for",
             "Is participating in a rather rigorous training session",
-<<<<<<< HEAD:resources/dicts/thoughts/alive/general.json
-            "Is shocked when another apprentice calls {PRONOUN/m_c/object} bossy"
-=======
+            "Is shocked when another apprentice calls {PRONOUN/m_c/object} bossy",
             "Never takes an extra piece of prey"
->>>>>>> development:resources/lang/en/thoughts/alive/general.json
         ],
         "main_status_constraint": [
             "apprentice",
@@ -4770,13 +4731,10 @@
         "id": "apprentices_to_dead_apprentices",
         "thoughts": [
             "Is wondering if r_c would have been {PRONOUN/m_c/poss} friend",
-<<<<<<< HEAD:resources/dicts/thoughts/alive/general.json
             "Wonders what r_c's warrior name could have been",
-            "Eats r_c's favorite prey in memory of r_c"
-=======
+            "Eats r_c's favorite prey in memory of r_c",
             "Purrs at stories of r_c's apprenticeship antics",
             "Wishes {PRONOUN/m_c/subject} could've trained with r_c"
->>>>>>> development:resources/lang/en/thoughts/alive/general.json
         ],
         "main_status_constraint": [
             "apprentice",
@@ -5074,14 +5032,11 @@
             "Is wondering if r_c is proud of {PRONOUN/m_c/object}",
             "Is wondering if r_c approves from StarClan",
             "Is hoping r_c is watching over {PRONOUN/m_c/object}",
-<<<<<<< HEAD:resources/dicts/thoughts/alive/general.json
             "Misses r_c's talks",
-            "Misses r_c's advice"
-=======
+            "Misses r_c's advice",
             "Wonders if r_c wasted {PRONOUN/r_c/poss} lives",
             "Thinks of r_c's era",
             "Recalls how times have changed since r_c led c_n"
->>>>>>> development:resources/lang/en/thoughts/alive/general.json
         ],
         "random_status_constraint": [
             "leader"
@@ -5096,13 +5051,10 @@
             "Is thinking about r_c",
             "Is trying to learn from r_c's legacy",
             "Is sad {PRONOUN/m_c/subject} couldn't spend more time with r_c",
-<<<<<<< HEAD:resources/dicts/thoughts/alive/general.json
-            "Tries {PRONOUN/m_c/poss} best to remember r_c's teachings on the best areas to hunt"
-=======
+            "Tries {PRONOUN/m_c/poss} best to remember r_c's teachings on the best areas to hunt",
             "Thinks r_c would have made a wonderful leader",
             "Wonders if r_c approved of {PRONOUN/r_c/poss} replacement",
             "Wonders if r_c is bitter about never becoming leader"
->>>>>>> development:resources/lang/en/thoughts/alive/general.json
         ],
         "random_status_constraint": [
             "deputy"
@@ -5135,13 +5087,10 @@
         "id": "gen_to_dead_mediator",
         "thoughts": [
             "Is wondering what r_c would think of current conflicts in the Clan",
-<<<<<<< HEAD:resources/dicts/thoughts/alive/general.json
             "Wonders how r_c would have avoided conflict differently",
-            "Giggles at the thought of r_c yelling at c_n from StarClan"
-=======
+            "Giggles at the thought of r_c yelling at c_n from StarClan",
             "Wishes r_c was alive to solve {PRONOUN/m_c/poss} problems",
             "Wonders if r_c is ending arguments in StarClan"
->>>>>>> development:resources/lang/en/thoughts/alive/general.json
         ],
         "random_status_constraint": [
             "mediator"
@@ -5155,15 +5104,12 @@
         "thoughts": [
             "Never had to imagine life without {PRONOUN/m_c/poss} sibling...",
             "Is remembering growing up with r_c",
-<<<<<<< HEAD:resources/dicts/thoughts/alive/general.json
             "Feels that {PRONOUN/m_c/poss} life feels empty without r_c's annoying presence",
             "Wonders if r_c ever tries to make funny faces at {PRONOUN/m_c/object} from the afterlife",
-            "Hears r_c's voice sometimes and is always disappointed that r_c is never there"
-=======
+            "Hears r_c's voice sometimes and is always disappointed that r_c is never there",
             "Thinks of being snuggled safe with r_c as kits",
             "Feels something missing without r_c at {PRONOUN/m_c/poss} side",
             "Thought {PRONOUN/m_c/subject} caught r_c's scent, then realized it was {PRONOUN/m_c/poss} own"
->>>>>>> development:resources/lang/en/thoughts/alive/general.json
         ],
         "relationship_constraint": [
             "littermates"
@@ -5306,14 +5252,9 @@
             "Wonders if {PRONOUN/m_c/poss} mental image of r_c matches real life",
             "Listens intently as r_c tries to explain colors to {PRONOUN/m_c/object}",
             "Listens intently as r_c tries to explain things to {PRONOUN/m_c/object}",
-<<<<<<< HEAD:resources/dicts/thoughts/alive/general.json
-            "Correctly recognizes r_c from the thumps of {PRONOUN/r_c/poss} paw steps alone",
-            "Bristles at the pity from {PRONOUN/m_c/poss} Clanmates"
-=======
             "Correctly recognizes r_c from the thumps of {PRONOUN/r_c/poss} pawsteps alone",
             "Bristles at the pity from {PRONOUN/m_c/poss} Clanmates",
             "Tells r_c no, {PRONOUN/m_c/subject} can't see in {PRONOUN/m_c/poss} dreams"
->>>>>>> development:resources/lang/en/thoughts/alive/general.json
         ],
         "perm_conditions": {
             "m_c": [
@@ -5628,21 +5569,11 @@
         "thoughts": [
             "Wishes {PRONOUN/m_c/subject} could hear the sounds of camp",
             "Nearly hits the den ceiling when r_c suddenly enters {PRONOUN/m_c/poss} line of sight",
-<<<<<<< HEAD:resources/dicts/thoughts/alive/general.json
-            "Can identify {PRONOUN/m_c/poss} Clanmates just by the feel of their paw steps",
-            "Recently discovered that {PRONOUN/m_c/subject} {VERB/m_c/have/has} a habit of stomping",
-            "Is confused when r_c indicates birdsong",
-            "Wonders what r_c sounds like",
-            "Knows what r_c is saying from {PRONOUN/r_c/poss} mouth movements",
-            "Teases a Clanmate for trying to call {PRONOUN/m_c/object} out loud",
-            "Correctly recognizes r_c by the thumps of {PRONOUN/r_c/poss} paw pads alone"
-=======
             "Can identify {PRONOUN/m_c/poss} Clanmates just by the feel of their pawsteps",
             "Knows what r_c is saying from {PRONOUN/r_c/poss} mouth movements",
             "Teases a Clanmate for trying to call {PRONOUN/m_c/object} out loud",
             "Correctly recognizes r_c by the thump of {PRONOUN/r_c/poss} pawpads alone",
             "Purrs at {PRONOUN/m_c/poss} jumpy Clanmates during a lightning storm"
->>>>>>> development:resources/lang/en/thoughts/alive/general.json
         ],
         "perm_conditions": {
             "m_c": [
@@ -5704,12 +5635,8 @@
         "thoughts": [
             "Tries to ask r_c for something, but {PRONOUN/r_c/subject} {VERB/r_c/don't/doesn't} understand",
             "Feels thunder boom and watches the others flinch",
-<<<<<<< HEAD:resources/dicts/thoughts/alive/general.json
-            "Curiously feels the thumps of {PRONOUN/m_c/poss} Clanmates' paw steps on the ground"
-=======
             "Curiously feels the thumps of {PRONOUN/m_c/poss} Clanmates' pawsteps on the ground",
             "Presses against r_c to feel {PRONOUN/r_c/poss} purr rumble"
->>>>>>> development:resources/lang/en/thoughts/alive/general.json
         ],
         "perm_conditions": {
             "m_c": [
@@ -6136,7 +6063,6 @@
         ]
     },
     {
-<<<<<<< HEAD:resources/dicts/thoughts/alive/general.json
         "id": "guardian",
         "thoughts": [
             "Stares intensely at the entrance of camp",
@@ -6261,7 +6187,11 @@
         "main_skill_constraint": [
             "SONG,1"
         ],
-=======
+        "random_living_status": [
+            "living"
+        ]
+    },
+    {
         "id": "allergies_gen",
         "thoughts": [
             "Is having a sneezing fit",
@@ -6272,7 +6202,7 @@
             "Is especially annoyed with {PRONOUN/m_c/poss} allergies today",
             "Is questioning why StarClan won't cure {PRONOUN/m_c/poss} allergies",
             "Is wondering if {PRONOUN/m_c/subject} {VERB/m_c/are/is} sick or if {PRONOUN/m_c/poss} allergies are especially bad today",
-			      "Is struggling to smell something"
+            "Is struggling to smell something"
         ],
         "perm_conditions": {
             "m_c": [
@@ -6305,14 +6235,9 @@
             "m_c": [
                 "allergies"
             ]
-        },
->>>>>>> development:resources/lang/en/thoughts/alive/general.json
-        "random_living_status": [
-            "living"
-        ]
+        }
     },
     {
-<<<<<<< HEAD:resources/dicts/thoughts/alive/general.json
         "id": "GRACE",
         "thoughts": [
             "Is light on {PRONOUN/m_c/poss} paws",
@@ -6568,7 +6493,12 @@
         ],
         "main_skill_constraint": [
             "SCHOLAR,1"
-=======
+        ],
+        "random_living_status": [
+            "living"
+        ]
+    },
+    {
         "id": "allergies_gen_to_kit",
         "thoughts": [
             "Purrs when r_c takes care to bring {PRONOUN/m_c/object} flowers that don't trigger {PRONOUN/m_c/poss} allergies",
@@ -6603,7 +6533,7 @@
             ]
         }
     },
-	{
+    {
         "id": "allergies_gen_to_anycough",
         "thoughts": [
             "Is nervous to be around r_c incase {PRONOUN/m_c/subject} {VERB/m_c/get/gets} sick too",
@@ -6618,8 +6548,8 @@
         "has_injuries": {
             "r_c": [
                 "whitecough",
-				"greencough",
-				"yellowcough"
+                "greencough",
+                "yellowcough"
             ]
         }
     },
@@ -6713,7 +6643,7 @@
             "medicine cat apprentice"
         ]
     },
-	{
+    {
         "id": "allergies_warm_seasons",
         "thoughts": [
             "Is smelling the flowers despite sneezing afterwards",
@@ -6730,7 +6660,7 @@
         },
         "season": [
             "Greenleaf",
-			"Newleaf"
+            "Newleaf"
         ]
     },
     {
@@ -6747,7 +6677,7 @@
         },
         "season": [
             "Leaf-bare",
-			"Leaf-fall"
+            "Leaf-fall"
         ]
     },
     {
@@ -6762,15 +6692,10 @@
         },
         "season": [
             "Leaf-bare",
-			"Leaf-fall"
->>>>>>> development:resources/lang/en/thoughts/alive/general.json
-        ],
-        "random_living_status": [
-            "living"
-        ]
+            "Leaf-fall"
+            ]
     },
     {
-<<<<<<< HEAD:resources/dicts/thoughts/alive/general.json
         "id": "TIME",
         "thoughts": [
             "Prepares {PRONOUN/m_c/poss} schedule for the day, starting with grooming {PRONOUN/m_c/poss} pelt",
@@ -6955,8 +6880,6 @@
         ]
     },
     {
-=======
->>>>>>> development:resources/lang/en/thoughts/alive/general.json
         "id": "lasting_grief_gen",
         "thoughts": [
             "Cannot find the energy to get out of {PRONOUN/m_c/poss} nest today",

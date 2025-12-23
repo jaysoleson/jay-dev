@@ -9,6 +9,7 @@ TODO: Docs
 import logging
 import os
 import re
+import traceback
 from itertools import combinations
 from math import floor
 from random import choice, choices, randint, random, sample, randrange, getrandbits
@@ -23,7 +24,7 @@ from pygame_gui.core import ObjectID
 from scripts.cat_relations.enums import RelType, RelTier, rel_type_tiers
 from scripts.clan_package.settings import get_clan_setting
 from scripts.game_structure.game.settings import game_settings_save, game_setting_get
-from scripts.game_structure.game.switches import switch_get_value, Switch
+from scripts.game_structure.game.switches import switch_get_value, Switch, switch_set_value
 from scripts.game_structure.localization import (
     load_lang_resource,
     determine_plural_pronouns,
@@ -32,13 +33,20 @@ from scripts.game_structure.localization import (
 
 logger = logging.getLogger(__name__)
 from scripts.game_structure import image_cache, localization, constants
-from scripts.cat.enums import CatAge, CatRank, CatSocial, CatGroup, CatStanding
+from scripts.cat.enums import (
+    CatAge,
+    CatRank,
+    CatSocial,
+    CatGroup,
+    CatStanding
+)
+from scripts.cat.names import names
+from scripts.cat.sprites import sprites
 from scripts.game_structure import game
 import scripts.game_structure.screen_settings  # must be done like this to get updates when we change screen size etc
 
 if TYPE_CHECKING:
     from scripts.cat.cats import Cat
-
 
 # ---------------------------------------------------------------------------- #
 #                               Getting Cats                                   #
@@ -112,14 +120,6 @@ def find_alive_cats_with_rank(
     if sort:
         alive_cats = sorted(alive_cats, key=lambda cat: cat.moons, reverse=True)
 
-    return alive_cats
-
-def get_alive_cats(Cat):
-    """
-    returns a list of Cats for all living cats in the clan
-    """
-    alive_cats = [i for i in Cat.all_cats.values() if
-                  not i.dead and not i.outside]
     return alive_cats
 
 def get_living_cat_count(Cat):
@@ -203,7 +203,7 @@ def get_warring_clan():
     """
     enemy_clan = None
     if game.clan.war.get("at_war", False):
-        for other_clan in game.clan.all_clans:
+        for other_clan in game.clan.all_other_clans:
             if other_clan.name == game.clan.war["enemy"]:
                 enemy_clan = other_clan
 
@@ -257,8 +257,8 @@ def change_clan_relations(other_clan, difference):
     # grab the clan that has been indicated
     other_clan = other_clan
     # grab the relation value for that clan
-    y = game.clan.all_clans.index(other_clan)
-    clan_relations = int(game.clan.all_clans[y].relations)
+    y = game.clan.all_other_clans.index(other_clan)
+    clan_relations = int(game.clan.all_other_clans[y].relations)
     # change the value
     clan_relations += difference
     # making sure it doesn't exceed the bounds
@@ -267,7 +267,7 @@ def change_clan_relations(other_clan, difference):
     elif clan_relations < 0:
         clan_relations = 0
     # setting it in the Clan save
-    game.clan.all_clans[y].relations = clan_relations
+    game.clan.all_other_clans[y].relations = clan_relations
 
 
 def create_new_cat_block(
@@ -342,17 +342,6 @@ def create_new_cat_block(
                     continue
 
                 give_mates.append(in_event_cats[index])
-
-            try:
-                index = int(index)
-            except ValueError:
-                print(f"mate-index not correct: {index}")
-                continue
-
-            if index >= i:
-                continue
-
-            give_mates.extend(event.new_cats[index])
 
     # determine gender
     if "male" in attribute_list:
@@ -446,43 +435,14 @@ def create_new_cat_block(
     elif "clancat" in attribute_list or "former Clancat" in attribute_list:
         cat_social = CatSocial.CLANCAT
         if other_clan:
-            cat_group = other_clan.enum
+            cat_group = other_clan.group_ID
         else:
-            cat_group = choice(game.clan.other_clans)
-    elif "clan_status" in attribute_list:
-        if rank:
-            cat_type = rank
-        else:
-            if age:
-                if age < 6:
-                    cat_type = CatRank.KITTEN
-                elif age < 12:
-                    cat_type = choice(
-                        [
-                            CatRank.APPRENTICE,
-                            CatRank.MEDIATOR_APPRENTICE,
-                            CatRank.MEDICINE_APPRENTICE,
-                            CatRank.QUEENS_APPRENTICE
-                        ]
-                    )
-                elif age < 120:
-                    cat_type = choice(
-                        [
-                            CatRank.WARRIOR, CatRank.MEDIATOR, CatRank.MEDICINE_CAT, CatRank.QUEEN
-                        ]
-                    )
-                else:
-                    CatRank.ELDER
-            else:
-                age = randint(12,100)
-                cat_type = choice([
-                            CatRank.WARRIOR, CatRank.MEDIATOR, CatRank.MEDICINE_CAT, CatRank.QUEEN
-                        ])
-    # -------------------------------------
-    
+    # CHECKMERGE: clan_status stuff for lg patrol new cats was here. figure that out
+            cat_group = choice([x.group_ID for x in game.clan.all_other_clans])
     else:
         cat_social = choice([CatSocial.KITTYPET, CatSocial.LONER, "former Clancat"])
 
+    # CHECKMERGE: check that all the lg arguments (df, um. whatever else) are still here
     # LITTER
     litter = False
     if "litter" in attribute_list:
@@ -533,22 +493,25 @@ def create_new_cat_block(
             break
     if bs_override:
         chosen_backstory = choice(stor)
-
-        if (
-            chosen_backstory
-            in BACKSTORIES["backstory_categories"]["baby_clancat_backstories"]
+        if chosen_backstory in (
+            BACKSTORIES["backstory_categories"]["baby_clancat_backstories"]
+            + BACKSTORIES["backstory_categories"]["former_clancat_backstories"]
         ):
             cat_social = CatSocial.CLANCAT
-        elif (
-            chosen_backstory
-            in BACKSTORIES["backstory_categories"]["baby_loner_backstories"]
+        elif chosen_backstory in (
+            BACKSTORIES["backstory_categories"]["baby_loner_backstories"]
+            + BACKSTORIES["backstory_categories"]["loner_backstories"]
         ):
             cat_social = CatSocial.LONER
-        elif (
-            chosen_backstory
-            in BACKSTORIES["backstory_categories"]["baby_kittypet_backstories"]
+        elif chosen_backstory in (
+            BACKSTORIES["backstory_categories"]["baby_kittypet_backstories"]
+            + BACKSTORIES["backstory_categories"]["kittypet_backstories"]
         ):
             cat_social = CatSocial.KITTYPET
+        elif (
+            chosen_backstory in BACKSTORIES["backstory_categories"]["rogue_backstories"]
+        ):
+            cat_social = CatSocial.ROGUE
 
     # KITTEN THOUGHT
     if rank in (CatRank.KITTEN, CatRank.NEWBORN):
@@ -643,7 +606,7 @@ def create_new_cat_block(
             elif outside:
                 # updates so that the clan is marked as knowing of this cat
                 current_standing = chosen_cat.status.get_standing_with_group(
-                    CatGroup.PLAYER_CLAN
+                    CatGroup.PLAYER_CLAN_ID
                 )
                 if (
                     CatStanding.KNOWN not in current_standing
@@ -713,7 +676,7 @@ def create_new_cat_block(
         for n_c in new_cats:
 
             # LIFEGEN: encountered dead cat stuff -----------------------------
-            beginning = History.get_beginning(n_c)
+            beginning = n_c.history.beginning
             if encountered_dead_df or encountered_dead_sc or encountered_dead_ur:
                 beginning['encountered'] = True
             else:
@@ -721,14 +684,13 @@ def create_new_cat_block(
 
             if "encountered" in beginning:
                 if beginning["encountered"] is True:
-                    if n_c.parent2 != game.clan.your_cat.ID:
-                        n_c.dead_for = randint(50,140)
+                    # if n_c.parent2 != game.clan.your_cat.ID:
+                        # n_c.dead_for = randint(50,140)
                     n_c.dead = True
-                    n_c.status = status
 
                     if n_c.parent2 == game.clan.your_cat.ID:
                         n_c.thought = "Just met their parent!"
-                        n_c.dead_for = n_c.moons
+                        # n_c.dead_for = n_c.moons
             # ------------------------------------------------------------------
 
             # SET MATES
@@ -807,7 +769,7 @@ def get_other_clan(clan_name):
     """
     returns the clan object of given clan name
     """
-    for clan in game.clan.all_clans:
+    for clan in game.clan.all_other_clans:
         if clan.name == clan_name:
             return clan
 
@@ -818,16 +780,16 @@ def create_new_cat(
     kit: bool = False,
     litter: bool = False,
     backstory: bool = None,
-    rank: CatRank = None,
+    rank: Optional[CatRank] = None,
     original_social: CatSocial = CatSocial.CLANCAT,
     original_group: CatGroup = None,
     moons: int = None,
     gender: str = None,
-    thought: str = None,
-    alive: bool = True,
     # LG
     df: bool = False,
     # ---
+    thought: str = None,
+    alive: bool = True,
     outside: bool = False,
     parent1: str = None,
     parent2: str = None,
@@ -865,11 +827,11 @@ def create_new_cat(
         backstory
         in (
             BACKSTORIES["backstory_categories"]["former_clancat_backstories"]
-            or BACKSTORIES["backstory_categories"]["otherclan_categories"]
+            + BACKSTORIES["backstory_categories"]["baby_clancat_backstories"]
         )
-        and not original_group
-    ):
-        original_group = choice(game.clan.other_clans)
+        or original_social == "former Clancat"
+    ) and not original_group:
+        original_group = choice([x.group_ID for x in game.clan.all_other_clans])
 
     created_cats = []
 
@@ -932,7 +894,7 @@ def create_new_cat(
             status_dict={
                 "social": original_social,
                 "age": age,
-                "group": original_group,
+                "group_ID": original_group,
             },
             gender=_gender,
             backstory=backstory,
@@ -960,12 +922,10 @@ def create_new_cat(
         # NAMES and accs
         # clancat adults should have already generated with a clan-ish name, thus they skip all of this re-naming
         # little babies will take a clancat name, we love indoctrination
-        if (kit or litter or moons < 12) and (
-            not original_group or not original_group.is_other_clan_group()
-        ):
+        if (kit or litter or moons < 12) and original_group != CatGroup.OTHER_CLAN:
             # babies change name, in case their initial name isn't clan-ish
             new_cat.change_name()
-        elif not original_group or not original_group.is_other_clan_group():
+        elif original_group != CatGroup.OTHER_CLAN:
             # give kittypets a kittypet name
             if original_social == CatSocial.KITTYPET:
                 name = choice(names.names_dict["loner_names"])
@@ -974,7 +934,7 @@ def create_new_cat(
                     # TODO: refactor this entire function to remove this call amongst other things
                     from scripts.cat.pelts import Pelt
 
-                    new_cat.pelt.accessory.append(choice(Pelt.collars))
+                    new_cat.pelt.accessory.append(choice(Pelt.collar_accessories))
 
             # try to give name from full loner name list
             elif original_social in (CatSocial.LONER, CatSocial.ROGUE) and bool(
@@ -985,7 +945,7 @@ def create_new_cat(
             else:
                 name = choice(names.names_dict["normal_prefixes"])
 
-            # now, if this cat should take a new clan name, we give them such
+                # now, if this cat should take a new clan name, we give them such
             if new_name:
                 # check if adding suffix to OG name
                 if bool(getrandbits(1)):
@@ -999,61 +959,28 @@ def create_new_cat(
                 # else, take a whole new name
                 else:
                     new_cat.change_name()
-            # else, let them keep their old name → apply as prefix with empty suffix
+            # else, let them keep their old name
             else:
                 new_cat.change_name(new_prefix=name, new_suffix="")
 
         # Remove disabling scars, if they generated.
-        # these are removed because the cat won't have the associated permanent condition
-        if not df:
-            not_allowed = [
-                "NOPAW",
-                "NOTAIL",
-                "HALFTAIL",
-                "NOEAR",
-                "BOTHBLIND",
-                "RIGHTBLIND",
-                "LEFTBLIND",
-                "BRIGHTHEART",
-                "NOLEFTEAR",
-                "NORIGHTEAR",
-                "MANLEG",
-            ]
-            for scar in list(new_cat.pelt.scars):
-                if scar in not_allowed:
-                    new_cat.pelt.scars.remove(scar)
-        else:
-
-            is_kit = (
-                (new_cat.status.rank in (CatRank.NEWBORN, CatRank.KITTEN))
-                if hasattr(new_cat, "status") and hasattr(new_cat.status, "rank")
-                else (new_cat.moons < 6))
-
-            if not is_kit:
-                # 3/5 chance to get a basic scar
-                if randint(1, 5) in (1, 2, 3):
-                    new_cat.pelt.scars.append(choice(Pelt.scars1))
-
-                    # Heavier ranks have higher odds of a severe scar
-                    if new_cat.status.rank in (CatRank.WARRIOR, CatRank.DEPUTY, CatRank.LEADER):
-                        if randint(1, 2) == 1:
-                            new_cat.pelt.scars.append(choice(Pelt.scars3))
-                    elif new_cat.status.rank in (
-                        CatRank.MEDICINE_CAT, CatRank.APPRENTICE, CatRank.ELDER,
-                        CatRank.MEDICINE_APPRENTICE, CatRank.MEDIATOR,
-                        CatRank.QUEEN, CatRank.QUEENS_APPRENTICE,
-                        CatRank.MEDIATOR_APPRENTICE
-                    ):
-                        if randint(1, 8) == 1:
-                            new_cat.pelt.scars.append(choice(Pelt.scars3))
-
-                    # Rare extra scar
-                    if randint(1, 50) == 1:
-                        new_cat.pelt.scars.append(choice(Pelt.scars2))
-            else:
-                # DF kits: 1/2 chance for a light scar
-                if randint(1, 2) == 1:
-                    new_cat.pelt.scars.append(choice(Pelt.scars1))
+        # these are removed bc the cat won't have the associated perm condition
+        not_allowed = [
+            "NOPAW",
+            "NOTAIL",
+            "HALFTAIL",
+            "NOEAR",
+            "BOTHBLIND",
+            "RIGHTBLIND",
+            "LEFTBLIND",
+            "BRIGHTHEART",
+            "NOLEFTEAR",
+            "NORIGHTEAR",
+            "MANLEG",
+        ]
+        for scar in new_cat.pelt.scars:
+            if scar in not_allowed:
+                new_cat.pelt.scars.remove(scar)
 
         # chance to give the new cat a permanent condition, higher chance for found kits and litters
         if kit or litter:
@@ -1098,16 +1025,12 @@ def create_new_cat(
                 elif chosen_condition in ("lost their tail", "born without a tail"):
                     new_cat.pelt.scars.append("NOTAIL")
 
-        # KILL >:D only if we're supposed to though
+        # KILL >:D only if we're sposed to tho
         if not alive:
             new_cat.die()
 
-        if df:
-            new_cat.df = True
-            # give apprentice aged cat a mentor
-            # this is in a weird spot but DF cats were getting clancat mentors otherwise
-            if new_cat.age == "adolescent" and not new_cat.dead:
-                new_cat.update_mentor()
+        # CHECKMERGE
+        # ALL lifegen new_cat stuff. df, df mentors
 
         # newbie thought
         new_cat.thought = thought
@@ -2208,7 +2131,7 @@ def history_text_adjust(text,
         text = text.replace("o_c_n", str(other_clan_name))
 
     if "c_n" in text:
-        text = text.replace("c_n", clan.displayname)
+        text = text.replace("c_n", clan.displayname + "Clan")
     if "r_c" in text and other_cat_rc:
         text = selective_replace(text, "r_c", str(other_cat_rc.name))
     return text
@@ -2492,9 +2415,19 @@ def event_text_adjust(
 
         # acc_singular (only works for main_cat's acc)
         if "acc_singular" in text:
+            accessory_name = main_cat.pelt.accessory[-1]
+            if sprites.COLLAR_DATA["palette_map"]:
+                potential_collar = "".join(
+                    [x for x in accessory_name if not x.islower()]
+                ).strip("_")
+                for style in main_cat.pelt.collar_styles:
+                    if style == potential_collar:
+                        accessory_name = potential_collar
+                        break
             text = text.replace(
                 "acc_singular",
-                i18n.t(f"cat.accessories.{main_cat.pelt.accessories[-1]}", count=1),
+                i18n.t(f"cat.accessories.{main_cat.pelt.accessory[-1]}", count=1),
+                # i18n.t(f"cat.accessories.{accessory_name}", count=1),
             )
 
         if "given_herb" in text:
@@ -2864,11 +2797,12 @@ def generate_sprite(
     :param disable_sick_sprite: If true, never use the not_working lineart.
                     If false, use the cat.not_working() to determine the no_working art.
     """
+    sprite_poses = sprites.POSE_DATA["poses"]
 
     if life_state is not None:
         age = life_state
     else:
-        age = cat.age.value
+        age = cat.age
 
     if always_living:
         dead = False
@@ -2881,33 +2815,27 @@ def generate_sprite(
     if (
         not disable_sick_sprite
         and cat.not_working()
-        and age != "newborn"
+        and age != CatAge.NEWBORN
         and constants.CONFIG["cat_sprites"]["sick_sprites"]
     ):
-        if age in ["kitten", "adolescent"]:
-            cat_sprite = str(19)
+        if age in (CatAge.KITTEN, CatAge.ADOLESCENT):
+            cat_sprite = sprite_poses["sick_young0"]
         else:
-            cat_sprite = str(18)
+            cat_sprite = sprite_poses["sick_adult0"]
 
     # paralyzed sprites
-    elif cat.pelt.paralyzed and age != "newborn":
-        if age in ["kitten", "adolescent"]:
-            cat_sprite = str(17)
+    elif cat.pelt.paralyzed and age != CatAge.NEWBORN:
+        if age in (CatAge.KITTEN, CatAge.ADOLESCENT):
+            cat_sprite = sprite_poses[cat.pelt.cat_sprites["para_young"]]
         else:
-            if cat.pelt.length == "long":
-                cat_sprite = str(16)
-            else:
-                cat_sprite = str(15)
+            cat_sprite = sprite_poses[cat.pelt.cat_sprites["para_adult"]]
 
     # default sprites
     else:
-        if age == "elder" and not constants.CONFIG["fun"]["all_cats_are_newborn"]:
-            age = "senior"
-
         if constants.CONFIG["fun"]["all_cats_are_newborn"]:
-            cat_sprite = str(cat.pelt.cat_sprites["newborn"])
+            cat_sprite = sprite_poses[cat.pelt.cat_sprites["newborn"]]
         else:
-            cat_sprite = str(cat.pelt.cat_sprites[age])
+            cat_sprite = sprite_poses[cat.pelt.cat_sprites[age]]
 
     new_sprite = pygame.Surface(
         (sprites.size, sprites.size), pygame.HWSURFACE | pygame.SRCALPHA
@@ -2919,13 +2847,14 @@ def generate_sprite(
             new_sprite.blit(
                 sprites.sprites[
                     cat.pelt.get_sprites_name() + cat.pelt.colour + cat_sprite
-                    ],
+                ],
                 (0, 0),
             )
         else:
             # Base Coat
+            sprite_name = f"colours_{cat.pelt.tortie_base}{cat.pelt.colour}{cat_sprite}"
             new_sprite.blit(
-                sprites.sprites[cat.pelt.tortie_base + cat.pelt.colour + cat_sprite],
+                sprites.sprites[sprite_name],
                 (0, 0),
             )
 
@@ -2935,11 +2864,13 @@ def generate_sprite(
             else:
                 tortie_pattern = cat.pelt.tortie_pattern
 
-            patches = sprites.sprites[
-                tortie_pattern + cat.pelt.tortie_colour + cat_sprite
-            ].copy()
+            sprite_name = (
+                f"colours_{tortie_pattern}{cat.pelt.tortie_colour}{cat_sprite}"
+            )
+            patches = sprites.sprites[sprite_name].copy()
+            sprite_name = f"{sprites.TORTIE_DATA['spritesheet']}{cat.pelt.tortie_marking}{cat_sprite}"
             patches.blit(
-                sprites.sprites["tortiemask" + cat.pelt.tortie_marking + cat_sprite],
+                sprites.sprites[sprite_name],
                 (0, 0),
                 special_flags=pygame.BLEND_RGBA_MULT,
             )
@@ -2968,9 +2899,8 @@ def generate_sprite(
 
         # draw white patches
         if cat.pelt.white_patches is not None:
-            white_patches = sprites.sprites[
-                "white" + cat.pelt.white_patches + cat_sprite
-                ].copy()
+            sprite_name = f"{sprites.WHITE_DATA['spritesheet']}{cat.pelt.white_patches}{cat_sprite}"
+            white_patches = sprites.sprites[sprite_name].copy()
 
             # Apply tint to white patches.
             if (
@@ -2993,7 +2923,11 @@ def generate_sprite(
         # draw vit & points
 
         if cat.pelt.points:
-            points = sprites.sprites["white" + cat.pelt.points + cat_sprite].copy()
+            sprite_name = (
+                f"{sprites.WHITE_DATA['spritesheet']}{cat.pelt.points}{cat_sprite}"
+            )
+
+            points = sprites.sprites[sprite_name].copy()
             if (
                 cat.pelt.white_patches_tint is not None
                 and cat.pelt.white_patches_tint
@@ -3011,27 +2945,37 @@ def generate_sprite(
             new_sprite.blit(points, (0, 0))
 
         if cat.pelt.vitiligo:
+            sprite_name = (
+                f"{sprites.WHITE_DATA['spritesheet']}{cat.pelt.vitiligo}{cat_sprite}"
+            )
+
             new_sprite.blit(
-                sprites.sprites["white" + cat.pelt.vitiligo + cat_sprite], (0, 0)
+                sprites.sprites[sprite_name],
+                (0, 0),
             )
 
         # draw eyes & scars1
-        eyes = sprites.sprites["eyes" + cat.pelt.eye_colour + cat_sprite].copy()
+        sprite_name = (
+            f"{sprites.EYE_DATA['spritesheet'][0]}{cat.pelt.eye_colour}{cat_sprite}"
+        )
+        eyes = sprites.sprites[sprite_name].copy()
         if cat.pelt.eye_colour2 != None:
+            sprite_name = f"{sprites.EYE_DATA['spritesheet'][1]}{cat.pelt.eye_colour2}{cat_sprite}"
             eyes.blit(
-                sprites.sprites["eyes2" + cat.pelt.eye_colour2 + cat_sprite], (0, 0)
+                sprites.sprites[sprite_name],
+                (0, 0),
             )
         new_sprite.blit(eyes, (0, 0))
 
         if not scars_hidden:
             for scar in cat.pelt.scars:
-                if scar in cat.pelt.scars1:
-                    new_sprite.blit(
-                        sprites.sprites["scars" + scar + cat_sprite], (0, 0)
+                if scar in cat.pelt.general_scars:
+                    sprite_name = (
+                        f"{sprites.SCAR_DATA['spritesheet']}{scar}{cat_sprite}"
                     )
-                if scar in cat.pelt.scars3:
                     new_sprite.blit(
-                        sprites.sprites["scars" + scar + cat_sprite], (0, 0)
+                        sprites.sprites[sprite_name],
+                        (0, 0),
                     )
 
         # setting the lineart color to override on accessories & missing bits
@@ -3046,7 +2990,7 @@ def generate_sprite(
         )
 
         gradient_surface = (
-            sprites.sprites["gradient_ur" + cat_sprite]
+            sprites.sprites["line_ur_gradient" + cat_sprite]
             if dead and cat.status.group == CatGroup.UNKNOWN_RESIDENCE
             else None
         )
@@ -3087,32 +3031,35 @@ def generate_sprite(
         # draw line art
         if game_setting_get("shaders") and not dead:
             new_sprite.blit(
-                sprites.sprites["shaders" + cat_sprite],
+                sprites.sprites["shader_mask" + cat_sprite],
                 (0, 0),
                 special_flags=pygame.BLEND_RGB_MULT,
             )
-            new_sprite.blit(sprites.sprites["lighting" + cat_sprite], (0, 0))
+            new_sprite.blit(sprites.sprites["shader_lighting" + cat_sprite], (0, 0))
 
         if not dead:
-            new_sprite.blit(sprites.sprites["lines" + cat_sprite], (0, 0))
+            new_sprite.blit(sprites.sprites["lineart" + cat_sprite], (0, 0))
         elif cat.status.group == CatGroup.UNKNOWN_RESIDENCE:
-            new_sprite.blit(sprites.sprites["lineartur" + cat_sprite], (0, 0))
+            new_sprite.blit(sprites.sprites["lineart_ur" + cat_sprite], (0, 0))
         elif cat.status.group == CatGroup.DARK_FOREST:
-            new_sprite.blit(sprites.sprites["lineartdf" + cat_sprite], (0, 0))
-        elif cat.dead and cat.outside:
-            new_sprite.blit(sprites.sprites["lineartur" + cat_sprite], (0, 0))
+            new_sprite.blit(sprites.sprites["lineart_df" + cat_sprite], (0, 0))
         elif dead:
-            new_sprite.blit(sprites.sprites["lineartdead" + cat_sprite], (0, 0))
+            new_sprite.blit(sprites.sprites["lineart_sc" + cat_sprite], (0, 0))
         # draw skin and scars2
         blendmode = pygame.BLEND_RGBA_MIN
-        new_sprite.blit(sprites.sprites["skin" + cat.pelt.skin + cat_sprite], (0, 0))
+        sprite_name = f"{sprites.SKIN_DATA['spritesheet']}{cat.pelt.skin}{cat_sprite}"
+        new_sprite.blit(
+            sprites.sprites[sprite_name],
+            (0, 0),
+        )
 
         if not scars_hidden:
             for scar in cat.pelt.scars:
-                if scar in cat.pelt.scars2:
+                if scar in cat.pelt.missing_part_scars:
+                    sprite_name = f"{sprites.SCAR_MISSING_PART_DATA['spritesheet']}{scar}{cat_sprite}"
                     new_sprite.blit(
                         _recolor_lineart(
-                            sprites.sprites["scars" + scar + cat_sprite],
+                            sprites.sprites[sprite_name],
                             lineart_color,
                             gradient_surface,
                         ),
@@ -3120,184 +3067,51 @@ def generate_sprite(
                         special_flags=blendmode,
                     )
 
-        
         # draw accessories
-        if not acc_hidden:
-            cat_accessories = getattr(cat.pelt, "accessories", None)
-            if cat_accessories is None:
-                cat_accessories = getattr(cat.pelt, "accessory", []) or []
-            if isinstance(cat_accessories, str):
-                cat_accessories = [cat_accessories]
+        from scripts.cat.pelts import Pelt
 
-            clangen_accessories = [
-                'MAPLE LEAF',
-                'HOLLY',
-                'BLUE BERRIES',
-                'FORGET ME NOTS',
-                'RYE STALK',
-                'LAUREL',
-                'BLUEBELLS',
-                'NETTLE',
-                'POPPY',
-                'LAVENDER',
-                'HERBS',
-                'PETALS',
-                'OAK LEAVES',
-                'CATMINT',
-                'MAPLE SEED',
-                'JUNIPER',
-                'DRY HERBS',
-                'DAISY',
-                'CLOVER',
-                'GORSE',
-                'HEATHER',
-                'SNAPDRAGON',
-                'LILY OF THE VALLEY',
-                'CATTAIL',
-                'WHITE POPPY',
-                'ORANGE POPPY',
-                'PING POPPY',
-                'CYAN POPPY',
-                'BLUB WHITE',
-                'BLUB YELLOW',
-                'BLUB ORANGE',
-                'BLUB PINK',
-                'BLUB BLUE',
-                'RASPBERRY',
-                'RED FEATHERS',
-                'BLUE FEATHERS',
-                'JAY FEATHERS',
-                'MOTH WINGS',
-                'CICADA WINGS',
-                'SPARROW FEATHERS',
-                'GULL FEATHERS',
-                'MONARCH BUTTERFLY',
-                'MORPHO BUTTERFLY',
-                'ROSY MOTH WINGS',
-                'BLACK CICADA',
-                'CRIMSON',
-                'BLUE',
-                'YELLOW',
-                'CYAN',
-                'RED',
-                'LIME',
-                'GREEN',
-                'RAINBOW',
-                'BLACK',
-                'SPIKES',
-                'WHITE',
-                'PINK',
-                'PURPLE',
-                'MULTI',
-                'INDIGO',
-                'CRIMSONBELL',
-                'BLUEBELL',
-                'YELLOWBELL',
-                'CYANBELL',
-                'REDBELL',
-                'LIMEBELL',
-                'GREENBELL',
-                'RAINBOWBELL',
-                'BLACKBELL',
-                'SPIKESBELL',
-                'WHITEBELL',
-                'PINKBELL',
-                'PURPLEBELL',
-                'MULTIBELL',
-                'INDIGOBELL',
-                'CRIMSONBOW',
-                'BLUEBOW',
-                'YELLOWBOW',
-                'CYANBOW',
-                'REDBOW',
-                'LIMEBOW',
-                'GREENBOW',
-                'RAINBOWBOW',
-                'BLACKBOW',
-                'SPIKESBOW',
-                'WHITEBOW',
-                'PINKBOW',
-                'PURPLEBOW',
-                'MULTIBOW',
-                'INDIGOBOW',
-                'CRIMSONNYLON',
-                'BLUENYLON',
-                'YELLOWNYLON',
-                'CYANNYLON',
-                'REDNYLON',
-                'LIMENYLON',
-                'GREENNYLON',
-                'RAINBOWNYLON',
-                'BLACKNYLON',
-                'SPIKESNYLON',
-                'WHITENYLON',
-                'PINKNYLON',
-                'PURPLENYLON',
-                'MULTINYLON',
-                'INDIGONYLON',
-            ]
-
-            z_categories = [
-                "collars",
+        if not acc_hidden and cat.pelt.accessory:
+            cat_accessories = cat.pelt.accessory
+            categories = [
+                "collar_accessories",
                 "tail_accessories",
                 "body_accessories",
                 "head_accessories",
             ]
-
-            def _blit_accessory(acc: str):
-                """Choose the right sprite atlas by accessory group and blit with recolor."""
-                try:
-                    if acc in cat.pelt.plant_accessories:
-                        atlas_key = "acc_herbs" + acc + cat_sprite
-                    elif acc in cat.pelt.wild_accessories:
-                        atlas_key = "acc_wild" + acc + cat_sprite
-                    elif acc in cat.pelt.collars:
-                        atlas_key = "collars" + acc + cat_sprite
-                    elif acc in cat.pelt.flower_accessories:
-                        atlas_key = "acc_flower" + acc + cat_sprite
-                    elif acc in cat.pelt.plant2_accessories:
-                        atlas_key = "acc_plant2" + acc + cat_sprite
-                    elif acc in cat.pelt.snake_accessories:
-                        atlas_key = "acc_snake" + acc + cat_sprite
-                    elif acc in cat.pelt.smallAnimal_accessories:
-                        atlas_key = "acc_smallAnimal" + acc + cat_sprite
-                    elif acc in cat.pelt.deadInsect_accessories:
-                        atlas_key = "acc_deadInsect" + acc + cat_sprite
-                    elif acc in cat.pelt.aliveInsect_accessories:
-                        atlas_key = "acc_aliveInsect" + acc + cat_sprite
-                    elif acc in cat.pelt.fruit_accessories:
-                        atlas_key = "acc_fruit" + acc + cat_sprite
-                    elif acc in cat.pelt.crafted_accessories:
-                        atlas_key = "acc_crafted" + acc + cat_sprite
-                    elif acc in cat.pelt.tail2_accessories:
-                        atlas_key = "acc_tail2" + acc + cat_sprite
-                    else:
-                        return  
-
-                    surface = _recolor_lineart(
-                        sprites.sprites[atlas_key], lineart_color, gradient_surface
-                    )
-                    new_sprite.blit(surface, (0, 0))
-                except Exception:
-                    return
-
-            allow_nonclassic = game.settings.get("new accessories", True)
-
-            for category in z_categories:
-                pelt_bucket = getattr(Pelt, category, [])
-                for acc in cat_accessories:
-                    if not allow_nonclassic and acc not in clangen_accessories:
-                        continue
-                    if acc in pelt_bucket:
-                        _blit_accessory(acc)
-
-            for acc in cat_accessories:
-                if not allow_nonclassic and acc not in clangen_accessories:
-                    continue
-                already_drawn = any(acc in getattr(Pelt, c, []) for c in z_categories)
-                if not already_drawn:
-                    _blit_accessory(acc)
-
+            for category in categories:
+                for accessory in cat_accessories:
+                    if accessory in getattr(Pelt, category):
+                        if accessory in cat.pelt.plant_accessories:
+                            sprite_name = f"{sprites.PLANT_DATA['spritesheet']}{accessory}{cat_sprite}"
+                            new_sprite.blit(
+                                _recolor_lineart(
+                                    sprites.sprites[sprite_name],
+                                    lineart_color,
+                                    gradient_surface,
+                                ),
+                                (0, 0),
+                            )
+                        elif accessory in cat.pelt.wild_accessories:
+                            sprite_name = f"{sprites.WILD_DATA['spritesheet']}{accessory}{cat_sprite}"
+                            new_sprite.blit(
+                                _recolor_lineart(
+                                    sprites.sprites[sprite_name],
+                                    lineart_color,
+                                    gradient_surface,
+                                ),
+                                (0, 0),
+                            )
+                        elif accessory in cat.pelt.collar_accessories:
+                            sprite_name = f"{sprites.COLLAR_DATA['spritesheet']}{accessory}{cat_sprite}"
+                            new_sprite.blit(
+                                _recolor_lineart(
+                                    sprites.sprites[sprite_name],
+                                    lineart_color,
+                                    gradient_surface,
+                                ),
+                                (0, 0),
+                                # CHECKMERGE: LIFEGEN ACCS
+                            )
 
         # Apply fading fog
         if (
@@ -3347,13 +3161,13 @@ def generate_sprite(
 
                 # overlay
                 temp_sprite.blit(
-                    sprites.sprites["sc_overlay" + cat_sprite],
+                    sprites.sprites["line_sc_overlay" + cat_sprite],
                     (0, 0),
                 )
             elif cat.status.group == CatGroup.UNKNOWN_RESIDENCE:
                 # underlay
                 temp_sprite.blit(
-                    sprites.sprites["ur_underlay" + cat_sprite],
+                    sprites.sprites["line_ur_overlay" + cat_sprite],
                     (0, 0),
                 )
 
@@ -3362,7 +3176,7 @@ def generate_sprite(
 
                 # overlay
                 temp_sprite.blit(
-                    sprites.sprites["ur_overlay" + cat_sprite],
+                    sprites.sprites["line_ur_overlay" + cat_sprite],
                     (0, 0),
                 )
             elif cat.status.group == CatGroup.DARK_FOREST:
@@ -3380,6 +3194,7 @@ def generate_sprite(
             new_sprite = pygame.transform.flip(new_sprite, True, False)
 
     except (TypeError, KeyError):
+        traceback.print_exc()
         logger.exception("Failed to load sprite")
 
         # Placeholder image
@@ -3535,7 +3350,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID in you.mates or
         not chosen_cat.is_dateable(you) or
         len(you.mates) > 0 or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.dead or
         chosen_cat not in you.relationships or
         (chosen_cat in you.relationships and you.relationships[chosen_cat.ID].romantic_love < 20) or
@@ -3549,7 +3364,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID in you.mates or
         not chosen_cat.is_dateable(cat) or
         len(cat.mates) > 0 or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.dead or
         chosen_cat not in cat.relationships or
         (chosen_cat in cat.relationships and cat.relationships[chosen_cat.ID].romantic_love < 15) or
@@ -3561,7 +3376,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         "r_c1" in text or
         "r_c2" in text or
         "r_c3" in text or
@@ -3574,7 +3389,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.status != "warrior" or
         chosen_cat in current_cat_objects
     ) else True
@@ -3583,7 +3398,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.status not in ["kitten", "newborn"] or
         chosen_cat in current_cat_objects
     ) else True
@@ -3592,7 +3407,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.status != "apprentice" or
         chosen_cat in current_cat_objects
     ) else True
@@ -3601,7 +3416,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.status not in ["medicine cat", "medicine cat apprentice"] or
         chosen_cat in current_cat_objects
     ) else True
@@ -3610,7 +3425,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.status not in ["mediator", "mediator apprentice"] or
         chosen_cat in current_cat_objects
     ) else True
@@ -3619,7 +3434,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.status not in ["queen", "queen's apprentice"] or
         chosen_cat in current_cat_objects
     ) else True
@@ -3628,7 +3443,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.status != "elder" or
         chosen_cat in current_cat_objects
     ) else True
@@ -3638,7 +3453,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.shunned == 0 or
         chosen_cat in current_cat_objects
     ) else True
@@ -3647,7 +3462,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.status != "warrior" or
         chosen_cat.shunned == 0 or
         chosen_cat in current_cat_objects
@@ -3657,7 +3472,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.status not in ["kitten", "newborn"] or
         chosen_cat.shunned == 0 or
         chosen_cat in current_cat_objects
@@ -3667,7 +3482,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.status != "apprentice" or
         chosen_cat.shunned == 0 or
         chosen_cat in current_cat_objects
@@ -3677,7 +3492,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.status not in ["medicine cat", "medicine cat apprentice"] or
         chosen_cat.shunned == 0 or
         chosen_cat in current_cat_objects
@@ -3687,7 +3502,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.status not in ["mediator", "mediator apprentice"] or
         chosen_cat.shunned == 0 or
         chosen_cat in current_cat_objects
@@ -3697,7 +3512,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.status not in ["queen", "queen's apprentice"] or
         chosen_cat.shunned == 0 or
         chosen_cat in current_cat_objects
@@ -3707,7 +3522,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.status != "elder" or
         chosen_cat.shunned == 0 or
         chosen_cat in current_cat_objects
@@ -3718,7 +3533,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         not chosen_cat.is_ill() or
         chosen_cat in current_cat_objects
     ) else True
@@ -3728,7 +3543,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         not chosen_cat.is_injured() or
         chosen_cat in current_cat_objects
     ) else True
@@ -3738,7 +3553,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         "grief stricken" not in chosen_cat.illnesses or
         chosen_cat in current_cat_objects
     ) else True
@@ -3748,7 +3563,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.ID not in you.inheritance.get_siblings() or
         chosen_cat in current_cat_objects
     ) else True
@@ -3758,7 +3573,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.ID not in you.inheritance.get_siblings() or
         chosen_cat.moons != you.moons or
         chosen_cat in current_cat_objects
@@ -3769,7 +3584,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.ID not in cat.inheritance.get_siblings() or
         chosen_cat in current_cat_objects
     ) else True
@@ -3779,7 +3594,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.ID not in cat.inheritance.get_siblings() or
         chosen_cat.moons != cat.moons or
         chosen_cat in current_cat_objects
@@ -3790,7 +3605,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.ID not in you.apprentice or
         chosen_cat in current_cat_objects
     ) else True
@@ -3800,7 +3615,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.ID not in cat.apprentice or
         chosen_cat in current_cat_objects
     ) else True
@@ -3810,7 +3625,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.ID not in you.inheritance.get_parents() or
         chosen_cat in current_cat_objects
     ) else True
@@ -3820,7 +3635,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.ID not in cat.inheritance.get_parents() or
         chosen_cat in current_cat_objects
     ) else True
@@ -3830,7 +3645,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.ID not in you.mates or
         chosen_cat in current_cat_objects
     ) else True
@@ -3840,7 +3655,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.ID not in cat.mates or
         chosen_cat in current_cat_objects
     ) else True
@@ -3850,7 +3665,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         len(chosen_cat.mates) > 0 or
         chosen_cat.moons < 14 or
         "n_r2" not in text or
@@ -3868,7 +3683,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         len(chosen_cat.mates) > 0 or
         (n_r1_object and not chosen_cat.is_potential_mate(n_r1_object)) or
         n_r1_object is None or
@@ -3881,7 +3696,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat in current_cat_objects
     ) else True
     
@@ -3889,7 +3704,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat in current_cat_objects
     ) else True
     
@@ -3897,7 +3712,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat in current_cat_objects
     ) else True
     
@@ -3905,7 +3720,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -3914,7 +3729,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.status != "warrior" or
         chosen_cat in current_cat_objects
     ) else True
@@ -3923,7 +3738,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.status != "warrior" or
         chosen_cat in current_cat_objects
     ) else True
@@ -3932,7 +3747,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.status != "warrior" or
         chosen_cat in current_cat_objects
     ) else True
@@ -3941,7 +3756,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.status != "warrior" or
         chosen_cat in current_cat_objects
     ) else True
@@ -3952,7 +3767,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.ID not in cat.inheritance.get_children() or
         chosen_cat in current_cat_objects
     ) else True
@@ -3962,7 +3777,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.ID not in cat.inheritance.get_children() or
         chosen_cat.moons > 5 or
         chosen_cat in current_cat_objects
@@ -3973,7 +3788,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.ID not in cat.inheritance.get_children() or
         chosen_cat.moons < 12 or
         chosen_cat in current_cat_objects
@@ -3985,7 +3800,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.ID not in you.inheritance.get_children() or
         chosen_cat in current_cat_objects
     ) else True
@@ -3995,7 +3810,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.ID not in you.inheritance.get_children() or
         chosen_cat.moons > 5 or
         chosen_cat in current_cat_objects
@@ -4006,7 +3821,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.ID not in you.inheritance.get_children() or
         chosen_cat.moons < 12 or
         chosen_cat in current_cat_objects
@@ -4017,8 +3832,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
     df_m_n = False if (
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
-        not chosen_cat.dead or
-        not chosen_cat.df or
+        not chosen_cat.status.group == CatGroup.DARK_FOREST or
         chosen_cat.ID != you.df_mentor or
         chosen_cat in current_cat_objects
     ) else True
@@ -4028,7 +3842,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         not chosen_cat.dead or
-        not chosen_cat.df or
+        not chosen_cat.status.group == CatGroup.DARK_FOREST or
         chosen_cat.ID != cat.df_mentor or
         chosen_cat in current_cat_objects
     ) else True
@@ -4038,7 +3852,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.ID != you.mentor or
         chosen_cat in current_cat_objects
     ) else True
@@ -4048,7 +3862,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         chosen_cat.ID != cat.mentor or
         chosen_cat in current_cat_objects
     ) else True
@@ -4058,7 +3872,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         not game.clan.leader or
         chosen_cat.ID != game.clan.leader.ID or
         chosen_cat in current_cat_objects
@@ -4069,7 +3883,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         not game.clan.deputy or
         chosen_cat.ID != game.clan.deputy.ID or
         chosen_cat in current_cat_objects
@@ -4080,7 +3894,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         not game.clan.leader or 
         chosen_cat.ID != game.clan.leader or
         chosen_cat.shunned == 0 or
@@ -4092,7 +3906,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        chosen_cat.outside or
+        chosen_cat.status.is_outsider or
         not game.clan.deputy or
         chosen_cat.ID != game.clan.deputy or
         chosen_cat.shunned == 0 or
@@ -4112,7 +3926,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         not chosen_cat.dead or
-        not chosen_cat.df or
+        not chosen_cat.status.group == CatGroup.DARK_FOREST or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -4121,7 +3935,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         not chosen_cat.dead or
-        not chosen_cat.outside or
+        not chosen_cat.status.is_outsider or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -4130,8 +3944,8 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         not chosen_cat.dead or
-        chosen_cat.df or
-        chosen_cat.outside or
+        chosen_cat.status.group == CatGroup.DARK_FOREST or
+        chosen_cat.status.is_outsider or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -4140,7 +3954,7 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        not chosen_cat.outside or
+        not chosen_cat.status.is_outsider or
         chosen_cat.status in ["rogue", "kittypet", "loner", "former Clancat"] or
         chosen_cat in current_cat_objects
     ) else True
@@ -4150,9 +3964,9 @@ def lifegen_abbrevs(Cat, text, you, cat, chosen_cat, cat_dict):
         chosen_cat.ID == you.ID or
         chosen_cat.ID == cat.ID or
         chosen_cat.dead or
-        not chosen_cat.outside or
+        not chosen_cat.status.is_outsider or
         chosen_cat.status == "exiled" or
-        not chosen_cat.exiled or
+        not chosen_cat.status.is_exiled(CatGroup.PLAYER_CLAN) or
         chosen_cat in current_cat_objects
     ) else True
 
@@ -4259,7 +4073,7 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
 
     COUNTER_LIM = 30
     you = game.clan.your_cat
-    alive_cats = get_alive_cats(Cat)
+    alive_cats = Cat.all_cats_list
     if len(alive_cats) == 0:
         return ""
     chosen_cat = choice(alive_cats)
@@ -4317,21 +4131,21 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
 
                 # Grab the right selection of cats to narrow down the options before the counter starts
                 if abbrev_string in ["r_w", "r_w1", "r_w2", "r_w3", "r_w4", "rsh_w"]:
-                    cat_choices = get_alive_status_cats(Cat, ["warrior"])
+                    cat_choices = find_alive_cats_with_rank(Cat, [CatRank.WARRIOR])
                 elif abbrev_string in ["r_a", "rsh_a"]:
-                    cat_choices = get_alive_status_cats(Cat, ["apprentice"])
+                    cat_choices = find_alive_cats_with_rank(Cat, [CatRank.APPRENTICE])
                 elif abbrev_string in ["r_m", "rsh_m"]:
-                    cat_choices = get_alive_status_cats(Cat, ["medicine cat", "medicine cat apprentice"])
+                    cat_choices = find_alive_cats_with_rank(Cat, [CatRank.MEDICINE_APPRENTICE, CatRank.MEDICINE_CAT])
                 elif abbrev_string in ["r_d", "rsh_d"]:
-                    cat_choices = get_alive_status_cats(Cat, ["mediator", "mediator apprentice"])
+                    cat_choices = find_alive_cats_with_rank(Cat, [CatRank.MEDIATOR, CatRank.MEDIATOR_APPRENTICE])
                 elif abbrev_string in ["r_q", "rsh_q"]:
-                    cat_choices = get_alive_status_cats(Cat, ["queen", "queen's apprentice"])
+                    cat_choices = find_alive_cats_with_rank(Cat, [CatRank.QUEEN, CatRank.QUEENS_APPRENTICE])
                 elif abbrev_string in ["r_e", "rsh_e"]:
-                    cat_choices = get_alive_status_cats(Cat, ["elder"])
+                    cat_choices = find_alive_cats_with_rank(Cat, [CatRank.ELDER])
                 elif abbrev_string in ["d_n", "sh_d"]:
-                    cat_choices = get_alive_status_cats(Cat, ["deputy"])
+                    cat_choices = find_alive_cats_with_rank(Cat, [CatRank.DEPUTY])
                 elif abbrev_string in ["l_n", "sh_l"]:
-                    cat_choices = get_alive_status_cats(Cat, ["leader"])
+                    cat_choices = find_alive_cats_with_rank(Cat, [CatRank.LEADER])
                 elif abbrev_string in ["t_k", "t_kk", "t_ka"]:
                     for cat_id in cat.inheritance.get_children():
                         cat_choices.append(Cat.fetch_cat(cat_id))
@@ -4415,7 +4229,7 @@ def lifegen_text_adjust(Cat, text, cat, cat_dict, r_c_allowed, o_c_allowed):
                     counter += 1
                     if counter >= 30:
                         return ""
-                if game.current_screen == "patrol screen" and 'patrol_category' in game.switches and game.switches['patrol_category'] == "date" and new_abbrev_string == "r_c":
+                if game.current_screen == "patrol screen" and switch_get_value(Switch.patrol_category) == "date" and new_abbrev_string == "r_c":
                     continue
                 else:
                     text = add_to_cat_dict(new_abbrev_string, cluster, x, rel, r, alive_cat, text, cat_dict)

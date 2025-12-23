@@ -38,11 +38,7 @@
 			"It seems like there's an unspoken apology between m_c and r_c."
 		],
 		"reaction_random_cat": {
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/comfortable/decrease.json
-			"comfortable": "decrease"
-=======
 			"comfort": "decrease"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/comfort/decrease.json
 		}
 	},
 	{
@@ -93,11 +89,7 @@
 			"m_c doesn't think r_c's weird joke was just a joke."
 		],
 		"reaction_random_cat": {
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/comfortable/decrease.json
-			"comfortable": "decrease"
-=======
 			"comfort": "decrease"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/comfort/decrease.json
 		}
 	},
 	{
@@ -126,9 +118,6 @@
 		],
 		"random_trait_constraint": [
 			"bloodthirsty"
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/comfortable/decrease.json
-		]
-=======
 		],
 		"random_status_constraint": [
 	    "apprentice",
@@ -141,7 +130,6 @@
             "leader",
             "elder"
         ]
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/comfort/decrease.json
 	},
 	{
 		"id": "comfort_de_med5",
@@ -207,10 +195,6 @@
 			"m_c hisses at r_c over something small."
 		],
 		"reaction_random_cat": {
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/comfortable/decrease.json
-			"comfortable": "decrease"
-		}
-=======
 			"comfort": "decrease"
 		},
 		"main_status_constraint": [
@@ -235,7 +219,6 @@
             "leader",
             "elder"
         ]
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/comfort/decrease.json
 	},
 	{
 		"id": "comfort_de_high3",
@@ -257,9 +240,6 @@
 			"bloodthirsty",
 			"cold",
 			"vengeful"
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/comfortable/decrease.json
-		]
-=======
 		],
 		"random_status_constraint": [
 	    "apprentice",
@@ -272,7 +252,6 @@
             "leader",
             "elder"
         ]
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/comfort/decrease.json
 	},
 	{
 		"id": "comfort_de_high4",
@@ -290,8 +269,6 @@
 			"cold",
 			"vengeful"
 		],
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/comfortable/decrease.json
-=======
 		"main_status_constraint": [
             "apprentice",
             "medicine cat apprentice",
@@ -303,7 +280,6 @@
             "leader",
             "elder"
         ],
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/comfort/decrease.json
 		"random_status_constraint": [
 			"leader",
 			"deputy"
@@ -330,28 +306,5 @@
 			"medicine cat",
 			"medicine cat apprentice"
 		]
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/comfortable/decrease.json
-	},
-	{
-		"id": "H1_comfort_dec",
-		"intensity": "low",
-		"interactions": [
-			"r_c's lack of involvement has put m_c on edge.",
-			"m_c finds it strange {PRONOUN/m_c/subject} can never find r_c when {PRONOUN/m_c/subject} {VERB/m_c/need/needs} {PRONOUN/r_c/object}.",
-			"m_c disagrees with r_c's performance as a queen.",
-			"m_c feels r_c is lacking in {PRONOUN/r_c/poss} supervision of the nursery."
-		],
-		"random_status_constraint": [
-			"queen",
-			"queen's apprentice"
-		],
-		"main_age_constraint": [
-			"adult",
-			"apprentice"
-		]
 	}
 ]
-=======
-	}
-]
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/comfort/decrease.json

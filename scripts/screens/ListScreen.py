@@ -27,6 +27,7 @@ from scripts.game_structure.ui_elements import (
     UIDropDown,
 )
 from scripts.screens.Screens import Screens
+from scripts.screens.enums import GameScreen
 from scripts.ui.generate_button import ButtonStyles, get_button_dict
 from scripts.ui.icon import Icon
 from scripts.utility import ui_scale, get_text_box_theme, ui_scale_value
@@ -224,7 +225,7 @@ class ListScreen(Screens):
             elif element in self.cat_display.cat_sprites.values():
                 switch_set_value(Switch.cat, element.return_cat_id())
                 game.last_list_forProfile = self.current_group
-                self.change_screen("profile screen")
+                self.change_screen(GameScreen.PROFILE)
 
             # MENU BUTTONS
             else:
@@ -235,9 +236,9 @@ class ListScreen(Screens):
             if self.cat_list_bar_elements["search_bar_entry"].is_focused:
                 return
             if event.key == pygame.K_LEFT:
-                self.change_screen("camp screen")
+                self.change_screen(GameScreen.CAMP)
             elif event.key == pygame.K_RIGHT:
-                self.change_screen("patrol screen")
+                self.change_screen(GameScreen.PATROL)
 
     def screen_switches(self):
         super().screen_switches()
@@ -561,6 +562,11 @@ class ListScreen(Screens):
         updates the cat list and display, search text is taken into account
         """
         self.current_listed_cats = []
+        # print("LIST:", self.full_cat_list)
+        # for cat in self.full_cat_list:
+        #     print(cat.name, cat.status.group, cat.status.social, cat.status.alive_in_player_clan)
+        #     print(cat.status.group == CatGroup.PLAYER_CLAN_ID)
+        # print("player clan group:", CatGroup.PLAYER_CLAN_ID)
 
         # make sure cat list is the same everywhere else in the game.
         Cat.sort_cats(self.full_cat_list)
@@ -568,21 +574,27 @@ class ListScreen(Screens):
 
         # adding in the guide if necessary, this ensures the guide isn't affected by sorting as we always want them to
         # be the first cat on the list
-        if (
-            self.current_group == "dark_forest"
-            and game.clan.instructor.status.group == CatGroup.DARK_FOREST
-        ) or (
-            self.current_group == "starclan"
-            and game.clan.instructor.status.group == CatGroup.STARCLAN
-        ):
-            if game.clan.instructor in self.full_cat_list:
-                self.full_cat_list.remove(game.clan.instructor)
-            self.full_cat_list.insert(0, game.clan.instructor)
+        # if (
+        #     self.current_group == "dark_forest"
+        #     and game.clan.instructor.status.group == CatGroup.DARK_FOREST
+        # ) or (
+        #     self.current_group == "starclan"
+        #     and game.clan.instructor.status.group == CatGroup.STARCLAN
+        # ):
+        #     if game.clan.instructor in self.full_cat_list:
+        #         self.full_cat_list.remove(game.clan.instructor)
+        #     self.full_cat_list.insert(0, game.clan.instructor)
 
-        elif self.current_group == "df":
+        # LG
+        if self.current_group == "dark_forest":
             if game.clan.demon in self.full_cat_list:
                 self.full_cat_list.remove(game.clan.demon)
             self.full_cat_list.insert(0, game.clan.demon)
+        if self.current_group == "starclan":
+            if game.clan.instructor in self.full_cat_list:
+                self.full_cat_list.remove(game.clan.instructor)
+            self.full_cat_list.insert(0, game.clan.instructor)
+        # ---
 
         search_text = search_text.strip()
         if search_text not in ("", "name search"):
@@ -736,7 +748,7 @@ class ListScreen(Screens):
             if (
                 not the_cat.dead
                 and (the_cat.status.is_outsider or the_cat.status.is_other_clancat)
-                and the_cat.status.is_near(CatGroup.PLAYER_CLAN)
+                and the_cat.status.is_near(CatGroup.PLAYER_CLAN_ID)
             ):
                 self.full_cat_list.append(the_cat)
 
@@ -750,10 +762,8 @@ class ListScreen(Screens):
         for the_cat in Cat.all_cats_list:
             if (
                 the_cat.ID != game.clan.instructor.ID
-                and the_cat.ID != game.clan.demon.ID
                 and the_cat.status.group == CatGroup.STARCLAN
                 and not the_cat.faded
-                and the_cat.moons >= 0
             ):
                 self.full_cat_list.append(the_cat)
 
@@ -768,10 +778,8 @@ class ListScreen(Screens):
         for the_cat in Cat.all_cats_list:
             if (
                 the_cat.ID != game.clan.instructor.ID
-                and the_cat.ID != game.clan.demon.ID
                 and the_cat.status.group == CatGroup.DARK_FOREST
                 and not the_cat.faded
-                and the_cat.moons >= 0
             ):
                 self.full_cat_list.append(the_cat)
 
@@ -787,6 +795,6 @@ class ListScreen(Screens):
                 the_cat.ID != game.clan.instructor.ID
                 and the_cat.status.group == CatGroup.UNKNOWN_RESIDENCE
                 and not the_cat.faded
-                and the_cat.status.is_near(CatGroup.PLAYER_CLAN)
+                and the_cat.status.is_near(CatGroup.PLAYER_CLAN_ID)
             ):
                 self.full_cat_list.append(the_cat)

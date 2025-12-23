@@ -13,14 +13,16 @@ from scripts.game_structure.ui_elements import (
     UISpriteButton,
     UISurfaceImageButton,
 )
+from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch
+
 from scripts.utility import (
     get_text_box_theme,
     ui_scale,
     shorten_text_to_fit,
-    ui_scale_dimensions,
-    get_alive_cats
+    ui_scale_dimensions
 )
 from .Screens import Screens
+from .enums import GameScreen
 from ..clan_package.settings import get_clan_setting
 from ..game_structure import image_cache, constants
 from ..game_structure.game.settings import game_setting_get
@@ -85,7 +87,7 @@ class PatrolScreen(Screens):
         self.start_patrol_thread: Optional[PropagatingThread] = None
         self.proceed_patrol_thread: Optional[PropagatingThread] = None
         self.outcome_art = None
-        game.switches["patrol_category"] = "clangen"
+        switch_set_value(Switch.patrol_category, 'clangen')
 
         self.max_cats = 6
 
@@ -107,20 +109,22 @@ class PatrolScreen(Screens):
 
         elif event.type == pygame.KEYDOWN and game_setting_get("keybinds"):
             if event.key == pygame.K_LEFT:
-                self.change_screen("list screen")
+                self.change_screen(GameScreen.LIST)
+            # elif event.key == pygame.K_RIGHT:
+            # self.change_screen('list screen')
 
     def handle_choose_cats_events(self, event):
 
         if 'cat_icon' in self.elements and event.ui_element == self.elements['cat_icon']:
-            game.switches["patrol_category"] = "clangen"
+            switch_set_value(Switch.patrol_category, "clangen")
             self.selected_cat = None
             self.current_patrol.clear()
             self.elements['cat_icon'].disable()
-            if not game.clan.your_cat.dead and not game.clan.your_cat.outside and game.clan.your_cat.joined_df and not game.clan.your_cat.not_working():
+            if not game.clan.your_cat.dead and not game.clan.your_cat.status.is_outsider and game.clan.your_cat.joined_df and not game.clan.your_cat.not_working():
                 self.elements['df_icon'].enable()
             else:
                 self.elements['df_icon'].disable()
-            if not game.clan.your_cat.dead and not game.clan.your_cat.outside and game.clan.your_cat.moons >= 14 and not game.clan.your_cat.not_working():
+            if not game.clan.your_cat.dead and not game.clan.your_cat.status.is_outsider and game.clan.your_cat.moons >= 14 and not game.clan.your_cat.not_working():
                 self.elements['date_icon'].enable()
             else:
                 self.elements['date_icon'].disable()
@@ -130,12 +134,12 @@ class PatrolScreen(Screens):
             self.update_button()
 
         elif 'df_icon' in self.elements and event.ui_element == self.elements['df_icon']:
-            game.switches["patrol_category"] = "df"
+            switch_set_value(Switch.patrol_category, 'df')
             self.selected_cat = None
             self.current_patrol.clear()
             self.elements['cat_icon'].enable()
             self.elements['df_icon'].disable()
-            if not game.clan.your_cat.dead and not game.clan.your_cat.outside and game.clan.your_cat.moons >= 14 and not game.clan.your_cat.not_working():
+            if not game.clan.your_cat.dead and not game.clan.your_cat.status.is_outsider and game.clan.your_cat.moons >= 14 and not game.clan.your_cat.not_working():
                 self.elements['date_icon'].enable()
             else:
                 self.elements['date_icon'].disable()
@@ -145,11 +149,12 @@ class PatrolScreen(Screens):
             self.update_button()
 
         elif "date_icon" in self.elements and event.ui_element == self.elements['date_icon']:
-            game.switches["patrol_category"] = "date"
+            switch_set_value(Switch.patrol_category, 'date')
+
             self.selected_cat = None
             self.current_patrol.clear()
             self.elements['cat_icon'].enable()
-            if not game.clan.your_cat.dead and not game.clan.your_cat.outside and game.clan.your_cat.joined_df and not game.clan.your_cat.not_working():
+            if not game.clan.your_cat.dead and not game.clan.your_cat.status.is_outsider and game.clan.your_cat.joined_df and not game.clan.your_cat.not_working():
                 self.elements['df_icon'].enable()
             else:
                 self.elements['df_icon'].disable()
@@ -160,15 +165,16 @@ class PatrolScreen(Screens):
             self.update_button()
 
         elif "your_cat" in self.elements and event.ui_element == self.elements['your_cat']:
-            game.switches["patrol_category"] = "lifegen"
+            switch_set_value(Switch.patrol_category, 'lifegen')
+
             self.selected_cat = None
             self.current_patrol.clear()
             self.elements['cat_icon'].enable()
-            if not game.clan.your_cat.dead and not game.clan.your_cat.outside and game.clan.your_cat.joined_df and not game.clan.your_cat.not_working():
+            if not game.clan.your_cat.dead and not game.clan.your_cat.status.is_outsider and game.clan.your_cat.joined_df and not game.clan.your_cat.not_working():
                 self.elements['df_icon'].enable()
             else:
                 self.elements['df_icon'].disable()
-            if not game.clan.your_cat.dead and not game.clan.your_cat.outside and game.clan.your_cat.moons >= 14 and not game.clan.your_cat.not_working():
+            if not game.clan.your_cat.dead and not game.clan.your_cat.status.is_outsider and game.clan.your_cat.moons >= 14 and not game.clan.your_cat.not_working():
                 self.elements['date_icon'].enable()
             else:
                 self.elements['date_icon'].disable()
@@ -373,7 +379,7 @@ class PatrolScreen(Screens):
             self.open_choose_cats_screen()
         elif event.ui_element == self.elements["clan_return"]:
             self.in_progress_data = None
-            self.change_screen("camp screen")
+            self.change_screen(GameScreen.CAMP)
 
     def screen_switches(self):
         super().screen_switches()
@@ -389,13 +395,13 @@ class PatrolScreen(Screens):
         
         # LIFEGEN: Updating max cats based on patrol type ----
         # default is six
-        if game.switches['patrol_category'] == "df":
+        if switch_get_value(Switch.patrol_category) == "df":
             self.max_cats = 2
-        elif game.switches['patrol_category'] == "date":
+        elif switch_get_value(Switch.patrol_category) == "date":
             self.max_cats = 3
-        elif game.switches['patrol_category'] == "lifegen":
+        elif switch_get_value(Switch.patrol_category) == "lifegen":
             self.max_cats = 1
-        elif game.switches['patrol_category'] == "clangen":
+        elif switch_get_value(Switch.patrol_category) == "clangen":
             self.max_cats = 6
         # ----------------------------------------------------
 
@@ -440,7 +446,7 @@ class PatrolScreen(Screens):
                 self.elements["patrol_start"].enable()
 
             # LIFEGEN ---------------------------------------
-            if game.switches['patrol_category'] == "date":
+            if switch_get_value(Switch.patrol_category) == "date":
                 if len(self.current_patrol) < 2:
                     self.elements["patrol_start"].disable()
                 else:
@@ -463,7 +469,7 @@ class PatrolScreen(Screens):
                 if self.patrol_type == "med":
                     self.patrol_type = "general"
 
-            if game.switches['patrol_category'] == 'clangen':
+            if switch_get_value(Switch.patrol_category) == 'clangen':
                 self.elements['paw'].enable()
                 self.elements['mouse'].enable()
                 self.elements['claws'].enable()
@@ -478,50 +484,31 @@ class PatrolScreen(Screens):
                 self.elements["herb"].disable()
                 if self.patrol_type == "med":
                     self.patrol_type = "general"
-            if self.patrol_type == "general":
-                text = "screens.patrol.random_patrol"
-            elif self.patrol_type == "training":
-                text = "screens.patrol.training"
-            elif self.patrol_type == "border":
-                text = "screens.patrol.border"
-            elif self.patrol_type == "hunting":
-                text = "screens.patrol.hunting"
-            elif self.patrol_type == "med":
-                if self.current_patrol:
-                    text = "screens.patrol.herb_gathering"
-                    self.elements["mouse"].disable()
-                    self.elements["claws"].disable()
-                    self.elements["paw"].disable()
-                else:
-                    text = "screens.patrol.herb_gathering"
-            elif game.switches["patrol_category"] == "lifegen":
-                text = "lifegen"
-            elif game.switches["patrol_category"] == "df":
-                text = "dark forest"
-            elif game.switches["patrol_category"] == "date":
-                text = "date"
-            else:
-                text = ""
-
-            if game.switches['patrol_category'] == 'clangen':
-                if self.patrol_type == 'general':
-                    text = 'random patrol type'
-                elif self.patrol_type == 'training':
-                    text = 'training'
-                elif self.patrol_type == 'border':
-                    text = 'border'
-                elif self.patrol_type == 'hunting':
-                    text = 'hunting'
-                elif self.patrol_type == 'med':
+            
+            text = ""
+            if switch_get_value(Switch.patrol_category) == "clangen":
+                if self.patrol_type == "general":
+                    text = "screens.patrol.random_patrol"
+                elif self.patrol_type == "training":
+                    text = "screens.patrol.training"
+                elif self.patrol_type == "border":
+                    text = "screens.patrol.border"
+                elif self.patrol_type == "hunting":
+                    text = "screens.patrol.hunting"
+                elif self.patrol_type == "med":
                     if self.current_patrol:
-                        text = 'herb gathering'
-                        self.elements['mouse'].disable()
-                        self.elements['claws'].disable()
-                        self.elements['paw'].disable()
+                        text = "screens.patrol.herb_gathering"
+                        self.elements["mouse"].disable()
+                        self.elements["claws"].disable()
+                        self.elements["paw"].disable()
                     else:
-                        text = 'herb gathering'
-                else:
-                    text = ""
+                        text = "screens.patrol.herb_gathering"
+            elif switch_get_value(Switch.patrol_category) == "lifegen":
+                text = "lifegen"
+            elif switch_get_value(Switch.patrol_category) == "df":
+                text = "dark forest"
+            elif switch_get_value(Switch.patrol_category) == "date":
+                text = "date"
 
             self.elements["info"] = pygame_gui.elements.UITextBox(
                 text,
@@ -617,11 +604,6 @@ class PatrolScreen(Screens):
         self.patrol_stage = "choose_cats"
         self.patrol_screen = "patrol_cats"  # List
 
-        self.elements["info"] = pygame_gui.elements.UITextBox(
-            "screens.patrol.choose_cats_info",
-            ui_scale(pygame.Rect((187, 95), (425, 100))),
-            object_id=get_text_box_theme("#text_box_22_horizcenter"),
-        )
         self.elements["cat_frame"] = pygame_gui.elements.UIImage(
             ui_scale(pygame.Rect((300, 165), (200, 275))),
             get_box(BoxStyles.FRAME, (200, 275)),
@@ -830,7 +812,7 @@ class PatrolScreen(Screens):
             manager=MANAGER,
         )
 
-        if game.switches['patrol_category'] != 'clangen':
+        if switch_get_value(Switch.patrol_category) != 'clangen':
             self.elements['cat_icon'].enable()
         else:
             self.elements['cat_icon'].disable()
@@ -844,9 +826,9 @@ class PatrolScreen(Screens):
         )
         if (
             not game.clan.your_cat.dead and
-            not game.clan.your_cat.outside and
+            not game.clan.your_cat.status.is_outsider and
             game.clan.your_cat.joined_df and
-            game.switches['patrol_category'] != "df" and 
+            switch_get_value(Switch.patrol_category) != "df" and 
             not game.clan.your_cat.not_working()
             ):
             self.elements['df_icon'].enable()
@@ -871,9 +853,9 @@ class PatrolScreen(Screens):
 
         if (
             not game.clan.your_cat.dead and
-            not game.clan.your_cat.outside and
+            not game.clan.your_cat.status.is_outsider and
             game.clan.your_cat.moons >= 14 and
-            game.switches['patrol_category'] != 'date' and
+            switch_get_value(Switch.patrol_category) != 'date' and
             not game.clan.your_cat.not_working()
             ):
             self.elements['date_icon'].enable()
@@ -888,7 +870,7 @@ class PatrolScreen(Screens):
             manager=MANAGER,
         )
         if (
-            game.switches['patrol_category'] != 'lifegen'
+            switch_get_value(Switch.patrol_category) != 'lifegen'
             ):
             self.elements['your_cat'].enable()
         else:
@@ -899,7 +881,7 @@ class PatrolScreen(Screens):
             current_amount = round(game.clan.freshkill_pile.total_amount, 2)
             self.elements["current_prey"] = pygame_gui.elements.UITextBox(
                 "screens.patrol.current_prey",
-                ui_scale(pygame.Rect((300, 630), (200, 400))),
+                ui_scale(pygame.Rect((300, 95), (200, 400))),
                 object_id=get_text_box_theme("#text_box_30_horizcenter"),
                 manager=MANAGER,
                 text_kwargs={"prey": str(current_amount)},
@@ -907,7 +889,7 @@ class PatrolScreen(Screens):
             needed_amount = round(game.clan.freshkill_pile.amount_food_needed(), 2)
             self.elements["needed_prey"] = pygame_gui.elements.UITextBox(
                 "screens.patrol.needed_prey",
-                ui_scale(pygame.Rect((300, 647), (200, 400))),
+                ui_scale(pygame.Rect((300, 112), (200, 400))),
                 object_id=get_text_box_theme("#text_box_30_horizcenter"),
                 manager=MANAGER,
                 text_kwargs={"prey": str(needed_amount)},
@@ -932,7 +914,7 @@ class PatrolScreen(Screens):
 
         if self.display_text is None:
             # No patrol events were found.
-            self.change_screen("camp screen")
+            self.change_screen(GameScreen.CAMP)
             return
 
         # Layout images
@@ -1132,32 +1114,30 @@ class PatrolScreen(Screens):
             print(
                 "Are you playing a normal ClanGen save? Switch to a LifeGen save or create a new cat!")
             print("Choosing random cat to play...")
-            game.clan.your_cat = choice(get_alive_cats(Cat))
+            game.clan.your_cat = choice(Cat.all_cats_list)
             print("Chose " + str(game.clan.your_cat.name))
 
         # ASSIGN TO ABLE CATS
-        if "patrolled" not in game.switches:
-            game.switches['patrolled'] = []
-        if game.switches["patrol_category"] == "clangen":
+        if switch_get_value(Switch.patrol_category) == "clangen":
             for the_cat in Cat.all_cats_list:
                 if the_cat.ID == game.clan.your_cat.ID:
-                    if "1" not in game.switches['patrolled'] and not the_cat.dead and the_cat.in_camp and the_cat.status not in [
+                    if "1" not in switch_get_value(Switch.patrolled) and not the_cat.dead and the_cat.in_camp and the_cat.status not in [
                     'elder', 'kitten', 'mediator', 'mediator apprentice', 'queen', "queen's apprentice", "newborn"
-                        ] and not the_cat.outside and the_cat not in self.current_patrol and not the_cat.not_working() and the_cat.shunned == 0:
+                        ] and not the_cat.status.is_outsider and the_cat not in self.current_patrol and not the_cat.not_working() and the_cat.shunned == 0:
                         self.able_cats.append(the_cat)
                 elif not the_cat.dead and the_cat.in_camp and the_cat.ID not in game.patrolled and the_cat.status not in [
                     'elder', 'kitten', 'mediator', 'mediator apprentice', 'queen', "queen's apprentice", "newborn"
-                ] and not the_cat.outside and the_cat not in self.current_patrol and not the_cat.not_working() and the_cat.shunned == 0:
+                ] and not the_cat.status.is_outsider and the_cat not in self.current_patrol and not the_cat.not_working() and the_cat.shunned == 0:
                     self.able_cats.append(the_cat)
 
-        elif game.switches["patrol_category"] == "lifegen":
+        elif switch_get_value(Switch.patrol_category) == "lifegen":
             the_cat = game.clan.your_cat
-            if (not the_cat.outside or (the_cat.outside and the_cat.dead)) and not the_cat.moons <= 0 and the_cat not in self.current_patrol and not the_cat.not_working() and "2" not in game.switches['patrolled']:
+            if (not the_cat.status.is_outsider or (the_cat.status.is_outsider and the_cat.dead)) and not the_cat.moons <= 0 and the_cat not in self.current_patrol and not the_cat.not_working() and "2" not in switch_get_value(Switch.patrolled):
                 self.able_cats.append(game.clan.your_cat)
 
-        elif game.switches["patrol_category"] == "date":
+        elif switch_get_value(Switch.patrol_category) == "date":
             you = game.clan.your_cat
-            if not you.dead and "4" not in game.switches['patrolled'] and not you.outside and not you.not_working():
+            if not you.dead and "4" not in switch_get_value(Switch.patrolled) and not you.outside and not you.not_working():
                 if you not in self.current_patrol and not you.not_working():
                     self.current_patrol.insert(0, you)
                 for the_cat in Cat.all_cats_list:
@@ -1165,8 +1145,8 @@ class PatrolScreen(Screens):
                         self.able_cats.append(the_cat)
         else: # DF patrol
             the_cat = game.clan.your_cat
-            if not the_cat.dead and not the_cat.outside and not the_cat.not_working():
-                if "3" not in game.switches['patrolled']:
+            if not the_cat.dead and not the_cat.status.is_outsider and not the_cat.not_working():
+                if "3" not in switch_get_value(Switch.patrolled):
                     if the_cat not in self.current_patrol:
                         self.current_patrol.append(game.clan.your_cat)
                     for c in Cat.all_cats_list:

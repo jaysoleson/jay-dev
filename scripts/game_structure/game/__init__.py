@@ -14,7 +14,8 @@ from . import save_load, settings, switches
 from .save_load import safe_save
 from .settings import game_setting_get
 from .switches import switch_get_value, Switch
-
+from ...screens.enums import GameScreen
+from ...cat.enums import CatGroup
 
 pygame.init()
 
@@ -28,6 +29,10 @@ max_name_length = 10
 mediated = []  # Keep track of which couples have been mediated this moon.
 just_died = []  # keeps track of which cats died this moon via die()
 
+# LG
+told_story = [] # keeps track of who has been told a story by the elders this moon
+# ---
+
 cur_events_list = []
 ceremony_events_list = []
 birth_death_events_list = []
@@ -39,8 +44,8 @@ herb_events_list = []
 freshkill_event_list = []
 
 # Keeping track of various last screen for various purposes
-last_screen_forupdate = "start screen"
-last_screen_forProfile = "list screen"
+last_screen_forupdate = GameScreen.START
+last_screen_forProfile = GameScreen.LIST
 last_list_forProfile = None
 
 choose_cats = {}
@@ -62,6 +67,18 @@ choose_cats = {}
 
 patrol_cats = {}
 patrolled = []
+
+# LG
+dated_cats = []
+# ---
+
+used_group_IDs: dict = {
+    CatGroup.PLAYER_CLAN_ID: CatGroup.PLAYER_CLAN,
+    CatGroup.STARCLAN_ID: CatGroup.STARCLAN,
+    CatGroup.UNKNOWN_RESIDENCE_ID: CatGroup.UNKNOWN_RESIDENCE,
+    CatGroup.DARK_FOREST_ID: CatGroup.DARK_FOREST,
+}
+"""Int IDs already in use. Key is the group ID, value is the group type."""
 
 # store changing parts of the game that the user can toggle with buttons
 
@@ -85,7 +102,7 @@ rpc = None
 is_close_menu_open = False
 
 
-current_screen = "start screen"
+current_screen = GameScreen.START
 clicked = False
 keyspressed = []
 switch_screens = False
@@ -266,6 +283,16 @@ def get_config_value(*args):
             config_value -= mod
 
     return config_value
+
+
+def get_free_group_ID(group_type: CatGroup) -> str:
+    """
+    Find the next free group ID, adds it to the used_group_ID dict, and then returns the ID.
+    :param group_type: The CatGroup that the new group will be considered.
+    """
+    new_ID = str(int(list(used_group_IDs.keys())[-1]) + 1)
+    used_group_IDs.update({new_ID: group_type})
+    return new_ID
 
 
 pygame.display.set_caption("Clan Generator")

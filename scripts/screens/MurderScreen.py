@@ -6,20 +6,23 @@ import math
 import re
 from scripts.cat.history import History
 from scripts.event_class import Single_Event
+from scripts.game_structure import constants
+
 
 from .Screens import Screens
 from scripts.utility import get_text_box_theme, process_text, pronoun_repl, ui_scale_dimensions
 from scripts.cat.cats import Cat, INJURIES
 from scripts.game_structure import image_cache
 from scripts.game_structure.ui_elements import UIImageButton, UISpriteButton, UISurfaceImageButton
-from scripts.game_structure.game_essentials import game
+from scripts.game_structure import game
 from scripts.cat.skills import SkillPath
 from ..ui.generate_box import BoxStyles, get_box
 from scripts.utility import ui_scale
 from scripts.game_structure.screen_settings import MANAGER
 from ..ui.generate_button import get_button_dict, ButtonStyles
-from ..ui.get_arrow import get_arrow
 from ..ui.icon import Icon
+from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch, switch_append_list_value
+
 
 
 class MurderScreen(Screens):
@@ -157,18 +160,14 @@ class MurderScreen(Screens):
                 r = randint(1,100)
                 accompliced = False
                 chance = self.get_accomplice_chance(game.clan.your_cat, self.selected_cat, self.cat_to_murder)
-                if game.config["accomplice_chance"] != -1:
+                if constants.CONFIG["lifegen"]["accomplice_chance"] != -1:
                     try:
-                        chance = game.config["accomplice_chance"]
+                        chance = constants.CONFIG["lifegen"]["accomplice_chance"]
                     except:
                         pass
                 if r < chance:
                     accompliced = True
-                    if 'accomplices' in game.switches:
-                        game.switches['accomplices'].append(self.selected_cat.ID)
-                    else:
-                        game.switches['accomplices'] = []
-                        game.switches['accomplices'].append(self.selected_cat.ID)
+                    switch_append_list_value(Switch.accomplices, self.selected_cat.ID)
                                             
                 self.change_cat(self.murder_cat, self.selected_cat, accompliced)
                 self.stage = 'choose murder cat'
@@ -294,7 +293,7 @@ class MurderScreen(Screens):
 
             elif event.ui_element == self.next_cat_button:
                 if isinstance(Cat.fetch_cat(self.next_cat), Cat):
-                    game.switches['cat'] = self.next_cat
+                    switch_set_value(Switch.cat, self.next_cat)
                     self.update_cat_list()
                     self.update_selected_cat()
                     self.print_chances(self.selected_cat, accomplice=None)
@@ -498,8 +497,8 @@ class MurderScreen(Screens):
                                                                 (110,110)), manager=MANAGER)
             
             self.back_button = UISurfaceImageButton(
-                ui_scale(pygame.Rect((25, 25), (105, 30))),
-                get_arrow(2) + " Back",
+                ui_scale(pygame.Rect((25, 60), (105, 30))),
+                "buttons.back",
                 get_button_dict(ButtonStyles.SQUOVAL, (105, 30)),
                 object_id="@buttonstyles_squoval",
                 manager=MANAGER,
@@ -656,8 +655,8 @@ class MurderScreen(Screens):
             )
             
             self.back_button = UISurfaceImageButton(
-                ui_scale(pygame.Rect((25, 25), (105, 30))),
-                get_arrow(2) + " Back",
+                ui_scale(pygame.Rect((25, 60), (105, 30))),
+                "buttons.back",
                 get_button_dict(ButtonStyles.SQUOVAL, (105, 30)),
                 object_id="@buttonstyles_squoval",
                 manager=MANAGER,
@@ -817,8 +816,8 @@ class MurderScreen(Screens):
                 object_id="#text_box_34_horizcenter", manager=MANAGER)
 
             self.back_button = UISurfaceImageButton(
-                ui_scale(pygame.Rect((25, 25), (105, 30))),
-                get_arrow(2) + " Back",
+                ui_scale(pygame.Rect((25, 60), (105, 30))),
+                "buttons.back",
                 get_button_dict(ButtonStyles.SQUOVAL, (105, 30)),
                 object_id="@buttonstyles_squoval",
                 manager=MANAGER,
@@ -1056,13 +1055,13 @@ class MurderScreen(Screens):
                 self.next_cat = 1
 
             if self.next_cat == 0 and check_cat.ID != self.the_cat.ID and check_cat.dead == self.the_cat.dead and \
-                    check_cat.ID != game.clan.instructor.ID and not check_cat.exiled and check_cat.status in \
+                    check_cat.ID != game.clan.instructor.ID and not check_cat.status.is_exiled(CatGroup.PLAYER_CLAN) and check_cat.status in \
                     ["apprentice", "medicine cat apprentice", "mediator apprentice", "queen's apprentice"] \
                     and check_cat.df == self.the_cat.df:
                 self.previous_cat = check_cat.ID
 
             elif self.next_cat == 1 and check_cat.ID != self.the_cat.ID and check_cat.dead == self.the_cat.dead and \
-                    check_cat.ID != game.clan.instructor.ID and not check_cat.exiled and check_cat.status in \
+                    check_cat.ID != game.clan.instructor.ID and not check_cat.status.is_exiled(CatGroup.PLAYER_CLAN) and check_cat.status in \
                     ["apprentice", "medicine cat apprentice", "mediator apprentice", "queen's apprentice"] \
                     and check_cat.df == self.the_cat.df:
                 self.next_cat = check_cat.ID
@@ -1158,9 +1157,9 @@ class MurderScreen(Screens):
         risk_chance = self.get_risk_chance(self.cat_to_murder, accomplice=accomplice, accompliced=accompliced)
         discover_chance = self.get_discover_chance(self.cat_to_murder, accomplice=accomplice, accompliced=accompliced)
 
-        if game.config["murder_chance"] != -1:
+        if constants.CONFIG["lifegen"]["murder_chance"] != -1:
             try:
-                chance = game.config["murder_chance"]
+                chance = constants.CONFIG["lifegen"]["murder_chance"]
             except:
                 pass
         murdered = r < max(5, chance + r2)
@@ -1183,7 +1182,8 @@ class MurderScreen(Screens):
             }
         self.selected_cat = None
 
-        game.switches['cur_screen'] = "events screen"
+        switch_set_value(Switch.cur_screen, 'events screen')
+
 
         # reset cats
         self.selected_cat = None
@@ -1686,12 +1686,12 @@ class MurderScreen(Screens):
     
         medcats = []
         for cat in Cat.all_cats_list:
-            if cat.status == "medicine cat" and not cat.dead and not cat.outside and cat.status != you.status:
+            if cat.status == "medicine cat" and not cat.dead and not cat.status.is_outsider and cat.status != you.status:
                 medcats.append(cat)
 
         warriors = []
         for cat in Cat.all_cats_list:
-            if cat.status == "warrior" and not cat.dead and not cat.outside and cat.status != you.status:
+            if cat.status == "warrior" and not cat.dead and not cat.status.is_outsider and cat.status != you.status:
                 medcats.append(cat)
 
         if len(medcats) > 0:
@@ -2792,7 +2792,7 @@ class MurderScreen(Screens):
             del self.willingnesstext
 
         if self.selected_cat:
-            if (not self.selected_cat.dead and not self.selected_cat.outside):
+            if (not self.selected_cat.dead and not self.selected_cat.status.is_outsider):
                 if (game.clan.your_cat.skills.meets_skill_requirement(SkillPath.PROPHET) or\
                     game.clan.your_cat.skills.meets_skill_requirement(SkillPath.CLEVER) or\
                     game.clan.your_cat.skills.meets_skill_requirement(SkillPath.SENSE) or\
@@ -2841,9 +2841,9 @@ class MurderScreen(Screens):
 
                         chance = self.get_accomplice_chance(game.clan.your_cat, self.selected_cat, self.cat_to_murder)
                         
-                        if game.config["accomplice_chance"] != -1:
+                        if constants.CONFIG["lifegen"]["accomplice_chance"] != -1:
                             try:
-                                chance = game.config["accomplice_chance"]
+                                chance = constants.CONFIG["lifegen"]["accomplice_chance"]
                             except:
                                 pass
                         if chance < 20:
@@ -3091,7 +3091,7 @@ class MurderScreen(Screens):
         valid_mentors = []
 
         for cat in Cat.all_cats_list:
-            if not cat.dead and not cat.outside and not cat.ID == game.clan.your_cat.ID and not cat.moons == 0:
+            if not cat.dead and not cat.status.is_outsider and not cat.ID == game.clan.your_cat.ID and not cat.moons == 0:
                 valid_mentors.append(cat)
         
         return valid_mentors
@@ -3099,7 +3099,7 @@ class MurderScreen(Screens):
     def get_valid_cats2(self):
         valid_mentors = []
         for cat in Cat.all_cats_list:
-            if not cat.dead and not cat.outside and cat.ID != game.clan.your_cat.ID and cat.ID != self.cat_to_murder.ID and not cat.moons == 0:
+            if not cat.dead and not cat.status.is_outsider and cat.ID != game.clan.your_cat.ID and cat.ID != self.cat_to_murder.ID and not cat.moons == 0:
                 valid_mentors.append(cat)
         
         return valid_mentors

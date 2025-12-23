@@ -1,5 +1,6 @@
 import os
 import unittest
+from unittest.mock import patch
 from copy import deepcopy
 
 from scripts.game_structure import game
@@ -274,10 +275,15 @@ class TestPossibleMateFunction(unittest.TestCase):
         self.assertTrue(elder_cat1.is_potential_mate(elder_cat2, True))
 
     # test that is_potential_mate returns False for exiled or dead cats
-    def test_dead_exiled(self):
+
+    @patch("scripts.cat.status.Status.add_to_group")
+    @patch("scripts.game_structure.game.clan")
+    @patch("scripts.cat.history.History")
+    def test_dead_exiled(self, mock_history, _, __):
         exiled_cat = Cat(disable_random=True)
         exiled_cat.status.exile_from_group()
         dead_cat = Cat(disable_random=True)
+        dead_cat.history = mock_history()
         dead_cat.dead = True
         normal_cat = Cat(disable_random=True)
         self.assertFalse(exiled_cat.is_potential_mate(normal_cat))
@@ -298,8 +304,8 @@ class TestMateFunctions(unittest.TestCase):
         cat2.set_mate(cat1)
 
         # then
-        self.assertEqual(cat1.mates[0], cat2.ID)
-        self.assertEqual(cat2.mates[0], cat1.ID)
+        self.assertEqual(cat1.mate[0], cat2.ID)
+        self.assertEqual(cat2.mate[0], cat1.ID)
 
     # test that unset_mate removes the mate's ID from the cat's mate list
     def test_unset_mate(self):
@@ -314,10 +320,10 @@ class TestMateFunctions(unittest.TestCase):
         cat2.unset_mate(cat1)
 
         # then
-        self.assertNotIn(cat2, cat1.mates)
-        self.assertNotIn(cat1, cat2.mates)
-        self.assertEqual(len(cat1.mates), 0)
-        self.assertEqual(len(cat2.mates), 0)
+        self.assertNotIn(cat2, cat1.mate)
+        self.assertNotIn(cat1, cat2.mate)
+        self.assertEqual(len(cat1.mate), 0)
+        self.assertEqual(len(cat2.mate), 0)
 
     # test for relationship comparisons
     def test_set_mate_relationship(self):
@@ -379,8 +385,8 @@ class TestMateFunctions(unittest.TestCase):
             respect=20,
         )
         old_relation2 = deepcopy(relation2)
-        cat1.mates.append(cat2.ID)
-        cat2.mates.append(cat1.ID)
+        cat1.mate.append(cat2.ID)
+        cat2.mate.append(cat1.ID)
         cat1.relationships[cat2.ID] = relation1
         cat2.relationships[cat1.ID] = relation2
 
@@ -536,36 +542,40 @@ class TestNameRepr(unittest.TestCase):
         exiled_kit = {
             "group_history": [
                 {
-                    "group": CatGroup.PLAYER_CLAN,
+                    "group": CatGroup.PLAYER_CLAN_ID,
                     "rank": CatRank.KITTEN,
                     "moons_as": 1,
                 },
                 {"group": None, "rank": CatRank.LONER, "moons_as": 20},
             ],
             "standing_history": [
-                {"group": CatGroup.PLAYER_CLAN, "standing": ["member", "exiled"]}
+                {"group": CatGroup.PLAYER_CLAN_ID, "standing": ["member", "exiled"]}
             ],
         }
         exiled_app = {
             "group_history": [
                 {
-                    "group": CatGroup.PLAYER_CLAN,
+                    "group": CatGroup.PLAYER_CLAN_ID,
                     "rank": CatRank.APPRENTICE,
                     "moons_as": 1,
                 },
                 {"group": None, "rank": CatRank.LONER, "moons_as": 20},
             ],
             "standing_history": [
-                {"group": CatGroup.PLAYER_CLAN, "standing": ["member", "exiled"]}
+                {"group": CatGroup.PLAYER_CLAN_ID, "standing": ["member", "exiled"]}
             ],
         }
         exiled_warrior = {
             "group_history": [
-                {"group": CatGroup.PLAYER_CLAN, "rank": CatRank.WARRIOR, "moons_as": 1},
+                {
+                    "group": CatGroup.PLAYER_CLAN_ID,
+                    "rank": CatRank.WARRIOR,
+                    "moons_as": 1,
+                },
                 {"group": None, "rank": CatRank.LONER, "moons_as": 1},
             ],
             "standing_history": [
-                {"group": CatGroup.PLAYER_CLAN, "standing": ["member", "exiled"]}
+                {"group": CatGroup.PLAYER_CLAN_ID, "standing": ["member", "exiled"]}
             ],
         }
         ex_clancat_statuses = [
@@ -586,6 +596,7 @@ class TestNameRepr(unittest.TestCase):
         Test that outsiders with hidden special suffixes return the correct name
         :return:
         """
+        game.used_group_IDs["5"] = CatGroup.OTHER_CLAN
         outsider_statuses = [
             {"rank": CatRank.LONER},
             {"rank": CatRank.ROGUE},
@@ -593,20 +604,22 @@ class TestNameRepr(unittest.TestCase):
         ]
         former_clancat_status = {
             "group_history": [
-                {"group": CatGroup.OTHER_CLAN1, "rank": CatRank.WARRIOR, "moons_as": 1},
+                {"group": "5", "rank": CatRank.WARRIOR, "moons_as": 1},
                 {"group": None, "rank": CatRank.LONER, "moons_as": 1},
             ],
-            "standing_history": [
-                {"group": CatGroup.OTHER_CLAN1, "standing": ["member", "known"]}
-            ],
+            "standing_history": [{"group": "5", "standing": ["member", "known"]}],
         }
         exiled_status = {
             "group_history": [
-                {"group": CatGroup.PLAYER_CLAN, "rank": CatRank.WARRIOR, "moons_as": 1},
+                {
+                    "group": CatGroup.PLAYER_CLAN_ID,
+                    "rank": CatRank.WARRIOR,
+                    "moons_as": 1,
+                },
                 {"group": None, "rank": CatRank.LONER, "moons_as": 1},
             ],
             "standing_history": [
-                {"group": CatGroup.PLAYER_CLAN, "standing": ["member", "exiled"]}
+                {"group": CatGroup.PLAYER_CLAN_ID, "standing": ["member", "exiled"]}
             ],
         }
         ex_clancat_statuses = [former_clancat_status, exiled_status]
@@ -622,7 +635,7 @@ class TestNameRepr(unittest.TestCase):
                         suffix="test",
                         disable_random=True,
                     )
-                    cat.outside = True
+                    cat.status.is_outsider = True
                     cat.name.specsuffix_hidden = True
                     self.assertTrue(str(cat.name).endswith("test"))
 

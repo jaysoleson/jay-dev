@@ -9,10 +9,9 @@ from scripts.cat.cats import Cat
 from scripts.cat.enums import CatAge, CatRank
 from scripts.cat.history import History
 from scripts.cat.pelts import Pelt
-from scripts.conditions import medical_cats_condition_fulfilled, get_amount_cat_for_one_medic
+from scripts.conditions import get_amount_cat_for_one_medic
 from scripts.utility import event_text_adjust, change_relationship_values, change_clan_relations, \
     history_text_adjust
-from scripts.game_structure.game_essentials import game
 from scripts.events_module.generate_events import GenerateEvents
 from scripts.game_structure.windows import RetireScreen
 
@@ -27,8 +26,8 @@ from scripts.conditions import (
     get_amount_cat_for_one_medic,
 )
 from scripts.event_class import Single_Event
-from scripts.events_module.short.handle_short_events import handle_short_events
 from scripts.events_module.short.scar_events import Scar_Events
+from scripts.events_module.short.short_event_generation import create_short_event
 from scripts.game_structure import constants
 from scripts.game_structure.game.switches import (
     Switch,
@@ -376,11 +375,10 @@ class Condition_Events:
             constants.CONFIG["event_generation"]["debug_type_override"] == "injury"
             and random_cat
         ):
-            handle_short_events.handle_event(
+            create_short_event(
                 event_type="health",
                 main_cat=cat,
                 random_cat=random_cat,
-                freshkill_pile=game.clan.freshkill_pile,
             )
 
         # handle if the current cat is already injured
@@ -428,11 +426,10 @@ class Condition_Events:
                     if not int(random.random() * stopping_chance):
                         return False
 
-                handle_short_events.handle_event(
+                create_short_event(
                     event_type="health",
                     main_cat=cat,
                     random_cat=random_cat,
-                    freshkill_pile=game.clan.freshkill_pile,
                 )
 
         # just double-checking that trigger is only returned True if the cat is dead
@@ -1079,10 +1076,10 @@ class Condition_Events:
                         # Don't add this to the condition event list: instead make it it's own event, a ceremony. 
                         game.cur_events_list.append(
                                 Single_Event(event, "ceremony", retire_involved))
-                    elif not game.switches['window_open']:
+                    elif not switch_get_value(Switch.window_open):
                         RetireScreen('events screen')
-                    elif game.switches['window_open'] and 'retire' not in game.switches['windows_dict']:
-                        game.switches['windows_dict'].append('retire')
+                    elif switch_get_value(Switch.window_open) and 'retire' not in switch_get_value(Switch.windows_dict):
+                        switch_append_list_value(Switch.windows_dict, 'retire')
 
                             
     @staticmethod
@@ -1121,31 +1118,26 @@ class Condition_Events:
                 and risk["name"] not in dictionary
             ):
                 # check if the new risk is a previous stage of a current illness
-                skip = False
                 if risk["name"] in progression:
                     if progression[risk["name"]] in dictionary:
-                        skip = True
-                # if it is, then break instead of giving the risk
-                if skip is True:
-                    break
+                        # if it is, then break instead of giving the risk
+                        break
 
                 new_condition_name = risk["name"]
 
                 # lower risk of getting it again if not a perm condition
-                if dictionary != cat.permanent_condition:
-                    saved_condition = dictionary[condition]["risks"]
-                    for old_risk in saved_condition:
-                        if old_risk["name"] == risk["name"]:
-                            if new_condition_name in [
-                                "an infected wound",
-                                "a festering wound",
-                            ]:
-                                # if it's infection or festering, we're removing the chance completely
-                                # this is both to prevent annoying infection loops
-                                # and bc the illness/injury difference causes problems
-                                old_risk["chance"] = 0
-                            else:
-                                old_risk["chance"] = risk["chance"] + 10
+                for _risk in dictionary[condition]["risks"]:
+                    if _risk["name"] == new_condition_name:
+                        if new_condition_name in [
+                            "an infected wound",
+                            "a festering wound",
+                        ]:
+                            # if it's infection or festering, we're removing the chance completely
+                            # this is both to prevent annoying infection loops
+                            # and bc the illness/injury difference causes problems
+                            _risk["chance"] = 0
+                        else:
+                            _risk["chance"] = risk["chance"] + 20
 
                 med_cat = None
                 removed_condition = False

@@ -76,17 +76,13 @@ class Name:
         suffix=None,
         biome=None,
         specsuffix_hidden=False,
-        shunned=0,
         load_existing_name=False,
         cat=None,
-
-        # LG
-        status=None
     ):
         self.prefix = prefix
         self.suffix = suffix
         self.specsuffix_hidden = specsuffix_hidden
-        self.shunned = shunned
+
         self.cat = cat
 
         try:
@@ -269,32 +265,23 @@ class Name:
         # then suffixes based on ages (fixes #2004, just trust me)
 
         # Handles suffix assignment with outside cats
-        if self.cat:
-            if self.cat.status not in ["rogue", "loner", "kittypet"] and self.cat.outside:
-                adjusted_status: str = ""
-                if self.cat.moons >= 15:
-                    adjusted_status = "warrior"
-                elif self.cat.moons >= 6:
-                    adjusted_status = "apprentice"
-                if self.cat.moons == 0:
-                    adjusted_status = "newborn"
-                elif self.cat.moons < 6:
-                    adjusted_status = "kitten"
-                elif self.cat.moons < 12:
-                    adjusted_status = "apprentice"
-                else:
-                    adjusted_status = "warrior"
+        if self.cat.status.is_former_clancat:
+            old_rank = self.cat.status.find_prior_clan_rank()
 
-                if adjusted_status != "warrior" and not self.specsuffix_hidden:
-                    return (
-                        self.prefix + self.names_dict["special_suffixes"][adjusted_status]
-                    )
             if (
-                self.cat.status in self.names_dict["special_suffixes"]
+                old_rank in self.names_dict["special_suffixes"]
                 and not self.specsuffix_hidden
             ):
-                return self.prefix + self.names_dict["special_suffixes"][self.cat.status]
-        if game.config["fun"]["april_fools"]:
+                return self.prefix + self.names_dict["special_suffixes"][old_rank]
+
+        if (
+            self.cat.status.rank in self.names_dict["special_suffixes"]
+            and not self.specsuffix_hidden
+        ):
+            return (
+                self.prefix + self.names_dict["special_suffixes"][self.cat.status.rank]
+            )
+        if constants.CONFIG["fun"]["april_fools"]:
             return f"{self.prefix}egg"
         return self.prefix + self.suffix
 

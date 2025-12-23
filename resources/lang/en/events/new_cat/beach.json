@@ -30,32 +30,6 @@
         ],
         "relationships": [
             {
-<<<<<<< HEAD:resources/dicts/events/new_cat/beach.json
-                "cats_from": [
-                    "m_c"
-                ],
-                "cats_to": [
-                    "n_c:0"
-                ],
-                "mutual": true,
-                "values": [
-                    "comfort"
-                ],
-                "amount": 10
-            },
-            {
-                "cats_from": [
-                    "n_c:0"
-                ],
-                "cats_to": [
-                    "m_c"
-                ],
-                "mutual": true,
-                "values": [
-                    "platonic",
-                    "trust"
-                ],
-=======
                 "cats_from": ["m_c"],
                 "cats_to": ["n_c:0"],
                 "mutual": true,
@@ -67,7 +41,6 @@
                 "cats_to": ["m_c"],
                 "mutual": true,
                 "values": ["like", "trust"],
->>>>>>> development:resources/lang/en/events/new_cat/beach.json
                 "amount": 10
             }
         ],

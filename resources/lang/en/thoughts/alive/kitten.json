@@ -9,7 +9,7 @@
             "kitten"
         ],
         "relationship_constraint": [
-            "stranger"
+            "strangers"
         ],
         "random_living_status": [
             "starclan"
@@ -188,6 +188,9 @@
         ],
         "random_living_status": [
             "living"
+        ],
+        "random_age_constraint": [
+            "senior"
         ]
     },
     {
@@ -219,18 +222,15 @@
     {
         "id": "guarding_kit",
         "thoughts": [
-<<<<<<< HEAD:resources/dicts/thoughts/alive/kitten.json
             "Has taken up the role of guarding the fresh-kill pile from cats wanting an extra piece and is taking {PRONOUN/m_c/poss} job very seriously",
             "Is trying to force {PRONOUN/m_c/poss} way into being allowed to guard camp",
             "Wants to guard the nursery",
             "Guards the nursery with all the seriousness {PRONOUN/m_c/subject} can muster",
             "Makes new rules all the other kittens have to follow",
-            "Hogs toys from the rest of the nursery"
-=======
+            "Hogs toys from the rest of the nursery",
             "Guards the fresh-kill pile to make sure each Clanmate only takes one piece",
             "Demands to be allowed to guard camp",
             "Wants to guard the nursery"
->>>>>>> development:resources/lang/en/thoughts/alive/kitten.json
         ],
         "main_trait_constraint": [
             "attention-seeker",
@@ -266,8 +266,6 @@
         ]
     },
     {
-<<<<<<< HEAD:resources/dicts/thoughts/alive/kitten.json
-=======
         "id": "bossy_kit",
         "thoughts": [
             "Can't wait to be deputy so {PRONOUN/m_c/subject} can assign patrols",
@@ -289,7 +287,6 @@
         ]
     },
     {
->>>>>>> development:resources/lang/en/thoughts/alive/kitten.json
         "id": "bouncy_kit",
         "thoughts": [
             "Is pretending to be a rabbit and hopping about",
@@ -542,12 +539,10 @@
             "Ate a bug",
             "Has SO much energy",
             "Is zooming around",
-<<<<<<< HEAD:resources/dicts/thoughts/alive/kitten.json
             "Is shouting out whatever pops into {PRONOUN/m_c/poss} head",
             "Races whiskers-first into anything",
             "Is flustered after a heated argument",
-            "Is talking too fast, twisting {PRONOUN/m_c/poss} words"
-=======
+            "Is talking too fast, twisting {PRONOUN/m_c/poss} words",
             "Pounced on r_c",
             "Is practicing {PRONOUN/m_c/poss} pounce on r_c's tail",
             "Is complaining of a tummyache after sneaking into the medicine cat's herb storage and eating some burdock",
@@ -555,7 +550,6 @@
             "Is pretending to be a mouse and trying to get others to chase {PRONOUN/m_c/object}",
             "Nips at r_c and runs away giggling",
             "Rearranges all of the herbs as a prank"
->>>>>>> development:resources/lang/en/thoughts/alive/kitten.json
         ],
         "main_trait_constraint": [
             "impulsive"

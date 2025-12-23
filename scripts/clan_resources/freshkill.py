@@ -4,7 +4,8 @@ from typing import List
 
 import i18n
 
-from scripts.cat.cats import Cat
+from scripts.cat.cats import Cat, cat_class, BACKSTORIES, create_example_cats, create_cat
+
 from scripts.cat.enums import CatRank
 from scripts.cat.skills import SkillPath
 from scripts.game_structure import game
@@ -150,11 +151,7 @@ class FreshkillPile:
             [
                 PREY_REQUIREMENT[cat.status.rank]
                 for cat in living_cats
-<<<<<<< HEAD
-                if cat.status not in ["newborn", "kitten", "exiled", "loner", "rogue", "kittypet", "former Clancat", ""] and not cat.outside
-=======
                 if not cat.status.rank.is_baby() and cat.status.alive_in_player_clan
->>>>>>> development
             ]
         )
         # increase the number for sick cats

@@ -8,15 +8,14 @@ from typing import List, Dict, Union, TYPE_CHECKING, Optional, Tuple
 import i18n
 import pygame
 
+from scripts.events_module.future.prep_and_trigger import prep_future_event
 from scripts.clan_package.settings import get_clan_setting
 from scripts.game_structure import constants
 from scripts.game_structure.game.settings import game_setting_get
-from scripts.events_module.future.future_event import prep_event
 
 if TYPE_CHECKING:
     from scripts.events_module.patrol.patrol import Patrol
 
-from scripts.cat.history import History
 from scripts.utility import (
     change_clan_relations,
     change_clan_reputation,
@@ -32,8 +31,8 @@ from scripts.utility import (
 )
 from scripts.game_structure import game
 from scripts.cat.skills import SkillPath
-from scripts.cat.cats import Cat, ILLNESSES, INJURIES, PERMANENT, BACKSTORIES
-from scripts.cat.enums import CatAge, CatRank
+from scripts.cat.cats import Cat, ILLNESSES, INJURIES, PERMANENT
+from scripts.cat.enums import CatRank
 from scripts.cat.pelts import Pelt
 from scripts.cat_relations.relationship import Relationship
 from scripts.clan_resources.freshkill import (
@@ -42,6 +41,12 @@ from scripts.clan_resources.freshkill import (
     HUNTER_EXP_BONUS,
     HUNTER_BONUS,
     FRESHKILL_ACTIVE,
+)
+
+from scripts.game_structure.game.switches import (
+    switch_set_value,
+    switch_get_value,
+    Switch,
 )
 
 
@@ -82,7 +87,6 @@ class PatrolOutcome:
         relationship_constraints: List[str] = None,
         outcome_art: Union[str, None] = None,
         outcome_art_clean: Union[str, None] = None,
-        stat_cat: Cat = None
         stat_cat: Cat = None,
         future_event: Dict = None,
     ):
@@ -369,7 +373,7 @@ class PatrolOutcome:
         for x, newbie in enumerate(self.new_cat):
             possible_cats[f"n_c:{x}"] = newbie
 
-        prep_event(
+        prep_future_event(
             event=self,
             event_id=patrol.patrol_event.patrol_id,
             possible_cats=possible_cats,
@@ -458,7 +462,7 @@ class PatrolOutcome:
         # Patrol leader is the only one allowed to be stat_cat in patrols equal to or less than than two cats
 
         # LIFEGEN EDIT: only in clangen patrols buster
-        if "patrol_category" in game.switches and game.switches["patrol_category"] == "clangen":
+        if switch_get_value(Switch.patrol_category) == "clangen":
             if not allowed_specific and len(patrol.patrol_cats) <= 2:
                 allowed_specific = ["p_l"]
 
@@ -1234,7 +1238,7 @@ class PatrolOutcome:
                     # -----------------------------------------------------------------------------------
                     else:
                         results.append(f"{cat.name}'s ghost now wanders.")
-                elif cat.outside:
+                elif cat.status.is_outsider:
                     results.append(f"The patrol met {cat.name}.")
                 else:
                     new.append(str(cat.name))
@@ -1253,8 +1257,7 @@ class PatrolOutcome:
                     )
             del type_list, string
 
-                cat.pelt.inventory = []
-                # ^^ this stops the multi-cat inventory thing for kittypets joining from patrols!!
+            cat.pelt.inventory = []
             
         # Check to see if any young litters joined with alive parents.
         # If so, see if recovering from birth condition is needed
@@ -1318,9 +1321,7 @@ class PatrolOutcome:
             return None
 
         scar_list = [
-            x
-            for x in scar_list
-            if x in Pelt.scars1 + Pelt.scars2 + Pelt.scars3 and x not in cat.pelt.scars
+            x for x in scar_list if x in Pelt.all_scars and x not in cat.pelt.scars
         ]
 
         if not scar_list:

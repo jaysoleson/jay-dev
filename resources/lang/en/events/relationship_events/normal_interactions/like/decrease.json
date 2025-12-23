@@ -1,7 +1,5 @@
 [
 	{
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/dislike/increase.json
-=======
 		"id": "platonic_de_low1",
 		"intensity": "low",
 		"interactions": [
@@ -221,7 +219,6 @@
 		}
 	},
 		{
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/like/decrease.json
 		"id": "dislike_inc_low1",
 		"intensity": "low",
 		"interactions": [
@@ -255,11 +252,7 @@
 			"m_c loses in a race against r_c and acts bitterly about it."
 		],
 		"reaction_random_cat": {
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/dislike/increase.json
-			"dislike": "increase"
-=======
 			"like": "decrease"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/like/decrease.json
 		}
 	},
 	{
@@ -293,11 +286,7 @@
 			"r_c flicked some sand over m_c's fresh-kill while {PRONOUN/m_c/subject} {VERB/m_c/were/was} eating."
 		],
 		"reaction_random_cat": {
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/dislike/increase.json
-			"dislike": "increase"
-=======
 			"like": "decrease"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/like/decrease.json
 		}
 	},
 	{
@@ -326,11 +315,7 @@
 			"leader"
 		],
 		"reaction_random_cat": {
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/dislike/increase.json
-			"dislike": "increase"
-=======
 			"like": "decrease"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/like/decrease.json
 		}
 	},
 	{
@@ -382,11 +367,7 @@
 	{
 		"id": "dislike_effect_other1",
 		"relationship_constraint": [
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/dislike/increase.json
-			"dislike_40"
-=======
 			"hates"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/like/decrease.json
 		],
 		"interactions": [
 			"r_c is spreading a rumor about m_c.",
@@ -416,11 +397,6 @@
 			"apprentice",
 			"warrior",
 			"mediator apprentice",
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/dislike/increase.json
-			"queen",
-			"queen's apprentice",
-=======
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/like/decrease.json
 			"mediator",
 			"medicine cat apprentice",
 			"medicine cat",
@@ -431,11 +407,7 @@
 			"kitten"
 		],
 		"reaction_random_cat": {
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/dislike/increase.json
-			"dislike": "increase"
-=======
 			"like": "decrease"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/like/decrease.json
 		}
 	},
 	{
@@ -456,11 +428,7 @@
 			"warrior"
 		],
 		"reaction_random_cat": {
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/dislike/increase.json
-			"dislike": "increase"
-=======
 			"like": "decrease"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/like/decrease.json
 		}
 	},
 	{
@@ -482,11 +450,7 @@
 			"apprentice"
 		],
 		"reaction_random_cat": {
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/dislike/increase.json
-			"dislike": "increase"
-=======
 			"like": "decrease"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/like/decrease.json
 		}
 	},
 	{
@@ -505,11 +469,7 @@
 			"medicine cat"
 		],
 		"reaction_random_cat": {
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/dislike/increase.json
-			"dislike": "increase"
-=======
 			"like": "decrease"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/like/decrease.json
 		}
 	},
 	{
@@ -545,22 +505,14 @@
 			"m_c argues with r_c in front of other cats and reveals something embarrassing."
 		],
 		"reaction_random_cat": {
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/dislike/increase.json
-			"dislike": "increase"
-=======
 			"like": "decrease"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/like/decrease.json
 		}
 	},
 	{
 		"id": "dislike_inc_high3",
 		"intensity": "high",
 		"relationship_constraint": [
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/dislike/increase.json
-			"dislike_50"
-=======
 			"hates"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/like/decrease.json
 		],
 		"interactions": [
 			"m_c shudders at the sound of r_c's voice.",
@@ -593,11 +545,7 @@
 			"m_c accuses r_c of not putting the Clan first."
 		],
 		"relationship_constraint": [
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/dislike/increase.json
-			"dislike_50"
-=======
 			"hates"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/like/decrease.json
 		],
 		"random_status_constraint": [
 			"leader"
@@ -612,21 +560,13 @@
 			"m_c says that r_c is such a bad deputy {PRONOUN/r_c/subject} should step down."
 		],
 		"relationship_constraint": [
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/dislike/increase.json
-			"dislike_50"
-=======
 			"hates"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/like/decrease.json
 		],
 		"random_status_constraint": [
 			"deputy"
 		],
 		"reaction_random_cat": {
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/dislike/increase.json
-			"dislike": "increase"
-=======
 			"like": "decrease"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/like/decrease.json
 		}
 	},
 	{
@@ -648,15 +588,9 @@
 			"leader"
 		],
 		"reaction_random_cat": {
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/dislike/increase.json
-			"platonic": "decrease",
-			"comfortable": "decrease",
-			"admiration": "decrease",
-=======
 			"like": "decrease",
 			"comfort": "decrease",
 			"respect": "decrease",
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/like/decrease.json
 			"trust": "decrease"
 		}
 	},
@@ -670,11 +604,7 @@
 			"m_c tries to convince other cats that r_c should step down from being deputy."
 		],
 		"relationship_constraint": [
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/dislike/increase.json
-			"dislike_40"
-=======
 			"hates"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/like/decrease.json
 		],
 		"random_status_constraint": [
 			"deputy"
@@ -684,11 +614,7 @@
 			"warrior"
 		],
 		"also_influences": {
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/dislike/increase.json
-			"jealousy": "increase"
-=======
 			"respect": "decrease"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/like/decrease.json
 		}
 	},
 	{
@@ -703,11 +629,7 @@
 			"kitten"
 		],
 		"reaction_random_cat": {
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/dislike/increase.json
-			"dislike": "increase"
-=======
 			"like": "decrease"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/like/decrease.json
 		}
 	},
 	{
@@ -727,11 +649,7 @@
 			"kitten"
 		],
 		"reaction_random_cat": {
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/dislike/increase.json
-			"dislike": "increase"
-=======
 			"like": "decrease"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/like/decrease.json
 		}
 	},
 	{
@@ -746,7 +664,6 @@
 		"random_status_constraint": [
 			"elder",
 			"mediator apprentice",
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/dislike/increase.json
 			"medicine cat apprentice",
 			"queen's apprentice"
 		]
@@ -764,7 +681,7 @@
 			"queen"
 		],
 		"reaction_random_cat": {
-			"dislike": "increase"
+			"like": "decrease"
 		}
 	},
 	{
@@ -778,9 +695,6 @@
 		],
 		"random_status_constraint": [
 			"queen's apprentice"
-=======
-			"medicine cat apprentice"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/like/decrease.json
 		]
 	}
 ]

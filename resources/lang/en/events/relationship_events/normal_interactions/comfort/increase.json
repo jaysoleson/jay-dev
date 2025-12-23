@@ -33,11 +33,7 @@
 			"m_c and r_c make each other laugh."
 		],
 		"reaction_random_cat": {
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/comfortable/increase.json
-			"comfortable": "increase"
-=======
 			"comfort": "increase"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/comfort/increase.json
 		}
 	},
 	{
@@ -57,12 +53,7 @@
 		"random_status_constraint": [
 			"apprentice",
 			"medicine apprentice",
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/comfortable/increase.json
-			"mediator apprentice",
-			"queen's apprentice"
-=======
 			"mediator apprentice"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/comfort/increase.json
 		]
 	},
 	{
@@ -99,11 +90,7 @@
 			"m_c and r_c share little secrets about themselves."
 		],
 		"reaction_random_cat": {
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/comfortable/increase.json
-			"comfortable": "increase"
-=======
 			"comfort": "increase"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/comfort/increase.json
 		}
 	},
 	{
@@ -135,11 +122,7 @@
 			"leader"
 		],
 		"reaction_random_cat": {
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/comfortable/increase.json
-			"comfortable": "increase"
-=======
 			"comfort": "increase"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/comfort/increase.json
 		}
 	},
 	{
@@ -153,10 +136,6 @@
 			"r_c noticed m_c was struggling, and offered to help {PRONOUN/m_c/object}."
 		],
 		"random_trait_constraint": [
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/comfortable/increase.json
-			"empathetic",
-=======
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/comfort/increase.json
 			"compassionate",
 			"loving",
 			"thoughtful"
@@ -175,9 +154,6 @@
 		],
 		"random_trait_constraint": [
 			"thoughtful"
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/comfortable/increase.json
-		]
-=======
 		],
 		"main_status_constraint": [
 	    "apprentice",
@@ -201,7 +177,6 @@
             "leader",
             "elder"
         ]
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/comfort/increase.json
 	},
 	{
 		"id": "comfort_inc_med6",
@@ -222,17 +197,6 @@
 		"id": "comfort_inc_med7",
 		"interactions": [
 			"m_c is watching the shooting stars with r_c.",
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/comfortable/increase.json
-			"r_c calmly explains hunting techniques to m_c again for the fourth time today.",
-			"r_c lets m_c cry on {PRONOUN/r_c/subject} for a while.",
-			"r_c stays with m_c until {PRONOUN/m_c/subject} fall asleep.",
-			"As m_c tells r_c a long story, {PRONOUN/r_c/subject} {VERB/r_c/ask/asks} interesting, engaged questions.",
-			"r_c helps m_c with a tedious task and it makes the whole day a lot easier."
-		],
-		"random_trait_constraint": [
-			"patient"
-		]
-=======
 			"r_c lets m_c cry on {PRONOUN/r_c/subject} for a while.",
 			"r_c stays with m_c until {PRONOUN/m_c/subject} fall asleep.",
 			"As m_c tells r_c a long story, {PRONOUN/r_c/subject} {VERB/r_c/ask/asks} interesting, engaged questions."
@@ -264,7 +228,6 @@
             "leader",
             "elder"
         ]
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/comfort/increase.json
 	},
 	{
 		"id": "comfortable_kit_inc_med1",
@@ -275,9 +238,6 @@
 		],
 		"main_status_constraint": [
 			"kitten"
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/comfortable/increase.json
-		]
-=======
 		],
 		"random_status_constraint": [
 	    "apprentice",
@@ -290,7 +250,6 @@
             "leader",
             "elder"
         ]
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/comfort/increase.json
 	},
 	{
 		"id": "comfortable_kit_inc_med2",
@@ -304,10 +263,6 @@
 		"main_status_constraint": [
 			"kitten"
 		],
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/comfortable/increase.json
-		"reaction_random_cat": {
-			"platonic": "increase"
-=======
 		"random_status_constraint": [
 	    "apprentice",
             "medicine cat apprentice",
@@ -321,7 +276,6 @@
         ],
 		"reaction_random_cat": {
 			"like": "increase"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/comfort/increase.json
 		}
 	},
 	{
@@ -343,19 +297,11 @@
 			"kitten"
 		],
 		"reaction_random_cat": {
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/comfortable/increase.json
-			"platonic": "increase",
-			"comfortable": "increase"
-		},
-		"also_influences": {
-			"platonic": "increase"
-=======
 			"like": "increase",
 			"comfort": "increase"
 		},
 		"also_influences": {
 			"like": "increase"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/comfort/increase.json
 		}
 	},
 	{
@@ -371,13 +317,8 @@
 			"kitten"
 		],
 		"reaction_random_cat": {
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/comfortable/increase.json
-			"dislike": "increase:",
-			"comfortable": "decrease"
-=======
 			"like": "decrease:",
 			"comfort": "decrease"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/comfort/increase.json
 		}
 	},
 	{
@@ -390,8 +331,6 @@
 			"m_c lets r_c vent to {PRONOUN/m_c/object} about the difficulties as a healer.",
 			"After a rough storm gets into the medicine den, m_c helps r_c pick up herbs."
 		],
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/comfortable/increase.json
-=======
 		"main_status_constraint": [
 	    "apprentice",
             "medicine cat apprentice",
@@ -403,17 +342,12 @@
             "leader",
             "elder"
         ],
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/comfort/increase.json
 		"random_status_constraint": [
 			"medicine cat",
 			"medicine cat apprentice"
 		],
 		"reaction_random_cat": {
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/comfortable/increase.json
-			"comfortable": "increase",
-=======
 			"comfort": "increase",
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/comfort/increase.json
 			"trust": "increase"
 		}
 	},
@@ -448,11 +382,7 @@
 			"After something happens, m_c and r_c find comfort in one another's company."
 		],
 		"reaction_random_cat": {
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/comfortable/increase.json
-			"comfortable": "increase"
-=======
 			"comfort": "increase"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/comfort/increase.json
 		}
 	},
 	{
@@ -468,11 +398,7 @@
 			"m_c and r_c have multiple inside jokes with one another."
 		],
 		"relationship_constraint": [
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/comfortable/increase.json
-			"comfortable_30"
-=======
 			"relates_to"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/comfort/increase.json
 		]
 	},
 	{
@@ -486,59 +412,6 @@
 			"m_c always goes to r_c first when {PRONOUN/m_c/subject} needs advice."
 		],
 		"relationship_constraint": [
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/comfortable/increase.json
-			"comfortable_30"
-		],
-		"reaction_random_cat": {
-			"comfortable": "increase",
-			"trust": "increase"
-		}
-	},
-	{
-		"id": "Guy_comfort_inc_highQueen1",
-		"interactions": [
-			"m_c tucks r_c in between {PRONOUN/m_c/subject} paws to protect {PRONOUN/r_c/object} from the rain.",
-			"m_c grooms r_c's mud-covered pelt.",
-			"m_c curls {PRONOUN/m_c/subject} tail around r_c.",
-			"m_c makes r_c the main character in a bedtime story."
-		],
-		"main_status_constraint": [
-			"queen's apprentice",
-			"queen"
-		],
-		"random_status_constraint": [
-			"kitten"
-		],
-		"reaction_random_cat": {
-			"comfortable": "increase"
-		}
-	},
-	{
-		"id": "comfort_inc_storm",
-		"interactions": [
-			"m_c comforted r_c through a particularly rough thunderstorm."
-		],
-		"reaction_random_cat": {
-			"comfortable": "increase",
-			"platonic": "increase",
-			"trust": "increase",
-			"admiration": "increase",
-			"dislike": "decrease"
-		},
-		"reaction_main_cat": {
-			"comfortable": "increase",
-			"trust": "increase",
-			"platonic": "increase",
-			"dislike": "decrease"
-		},
-		"season": [
-			"Newleaf",
-			"Greenleaf",
-			"Leaf-fall"
-		]
-	}
-]
-=======
 			"relates_to"
 		],
 		"reaction_random_cat": {
@@ -547,4 +420,3 @@
 		}
 	}
 ]
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/comfort/increase.json

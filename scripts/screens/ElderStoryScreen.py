@@ -7,13 +7,17 @@ import pygame_gui.elements
 
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
-from scripts.game_structure.game_essentials import game
+from scripts.game_structure import game
 from scripts.game_structure.ui_elements import (
     UIImageButton,
     UISpriteButton,
     UISurfaceImageButton,
     UITextBoxTweaked
 )
+from ..game_structure.game.settings import game_setting_get
+
+from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch
+
 from scripts.utility import (
     get_text_box_theme,
     ui_scale,
@@ -24,7 +28,6 @@ from .Screens import Screens
 from ..game_structure.screen_settings import MANAGER
 from ..ui.generate_box import get_box, BoxStyles
 from ..ui.generate_button import get_button_dict, ButtonStyles
-from ..ui.get_arrow import get_arrow
 from ..ui.icon import Icon
 
 
@@ -186,16 +189,16 @@ class ElderStoryScreen(Screens):
         self.elders = []
         for cat in Cat.all_cats_list:
             if cat.status == "elder" and not (
-                cat.dead or cat.outside
+                cat.dead or cat.status.is_outsider
             ):
                 self.elders.append(cat)
 
         self.page = 1
 
         if self.elders:
-            if Cat.fetch_cat(game.switches["cat"]) in self.elders:
+            if Cat.fetch_cat(switch_get_value(Switch.cat)) in self.elders:
                 self.selected_elder = self.elders.index(
-                    Cat.fetch_cat(game.switches["cat"])
+                    Cat.fetch_cat(switch_get_value(Switch.cat))
                 )
             else:
                 self.selected_elder = 0
@@ -204,8 +207,8 @@ class ElderStoryScreen(Screens):
 
         # SIDEBAR
         self.back_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((25, 25), (105, 30))),
-            get_arrow(2) + " Back",
+            ui_scale(pygame.Rect((25, 60), (105, 30))),
+            "buttons.back",
             get_button_dict(ButtonStyles.SQUOVAL, (105, 30)),
             object_id="@buttonstyles_squoval",
             manager=MANAGER,
@@ -489,7 +492,7 @@ class ElderStoryScreen(Screens):
                 self.update_selected_cats()
         
             if self.stage == "cats":
-                game.switches["cat"] = elder.ID
+                switch_set_value(Switch.cat, elder.ID)
                 self.elder_elements["elder_container"] = pygame_gui.core.UIContainer(
                     ui_scale(pygame.Rect((0, 160), (150, 230))),
                     starting_height=1,
@@ -798,7 +801,7 @@ class ElderStoryScreen(Screens):
                 change = 0
 
             # font colours
-            if game.settings["dark mode"]:
+            if game_setting_get('dark mode'):
                 sc_colour = "#A8BBFF"
                 df_colour = "#FF9999"
                 neut_colour = "#CE9DFF"

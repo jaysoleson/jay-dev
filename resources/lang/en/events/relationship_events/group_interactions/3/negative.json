@@ -7,17 +7,8 @@
 			"m_c is gossiping with r_c1 about r_c2"
 		],
 		"relationship_constraint": {
-<<<<<<< HEAD:resources/dicts/relationship_events/group_interactions/3/negative.json
-			"m_c_to_r_c2": [
-				"dislike_15"
-			],
-			"r_c1_to_r_c2": [
-				"dislike_15"
-			]
-=======
 			"m_c_to_r_c2": ["dislikes"],
 			"r_c1_to_r_c2": ["dislikes"]
->>>>>>> development:resources/lang/en/events/relationship_events/group_interactions/3/negative.json
 		},
 		"specific_reaction": {
 			"m_c_to_r_c1": {
@@ -29,19 +20,11 @@
 			"r_c1_to_r_c2": {
 				"like": "decrease"
 			},
-<<<<<<< HEAD:resources/dicts/relationship_events/group_interactions/3/negative.json
-			"r_c2_to_m_c": {
-				"dislike": "increase"
-			},
-			"r_c2_to_r_c1": {
-				"dislike": "increase"
-=======
 			"r_c2_to_m_c":{
 				"like": "decrease"
 			},
 			"r_c2_to_r_c1":{
 				"like": "decrease"
->>>>>>> development:resources/lang/en/events/relationship_events/group_interactions/3/negative.json
 			}
 		}
 	},

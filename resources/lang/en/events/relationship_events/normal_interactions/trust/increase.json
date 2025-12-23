@@ -22,11 +22,7 @@
 			"r_c helps m_c hide from a Clanmate.",
 			"r_c makes a small sacrifice that benefits m_c.",
 			"r_c lets m_c know that a Clanmate was talking badly about {PRONOUN/m_c/object}.",
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/trust/increase.json
-			"r_c tells m_c that {PRONOUN/r_c/subject} was worried for {PRONOUN/m_c/object}."
-=======
 			"r_c tells m_c that {PRONOUN/r_c/subject} was worried about {PRONOUN/m_c/object}."
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/trust/increase.json
 		],
 		"reaction_random_cat": {
 			"trust": "increase"
@@ -40,11 +36,7 @@
 		],
 		"reaction_random_cat": {
 			"trust": "increase",
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/trust/increase.json
-			"admiration": "increase"
-=======
 			"respect": "increase"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/trust/increase.json
 		},
 		"main_status_constraint": [
 			"elder"
@@ -68,11 +60,7 @@
 			"m_c thinks about how r_c is always reliable.",
 			"m_c notices how r_c is being helpful around camp.",
 			"m_c has faith in r_c.",
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/trust/increase.json
-			"m_c is grateful that r_c has kept a secret of {PRONOUN/m_c/poss}s.",
-=======
 			"m_c is grateful that r_c has kept a secret of {PRONOUN/m_c/inposs}.",
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/trust/increase.json
 			"r_c seems respectful of m_c's boundaries as of late.",
 			"r_c explained something in detail to m_c that others wouldn't explain to {PRONOUN/m_c/object}.",
 			"m_c overhears r_c dispelling a false rumor about a Clanmate.",
@@ -192,23 +180,13 @@
 			"mediator",
 			"medicine cat",
 			"deputy",
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/trust/increase.json
-			"leader",
-			"queen"
-=======
 			"leader"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/trust/increase.json
 		],
 		"random_status_constraint": [
 			"kitten",
 			"apprentice",
 			"mediator apprentice",
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/trust/increase.json
-			"medicine cat apprentice",
-			"queen's apprentice"
-=======
 			"medicine cat apprentice"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/trust/increase.json
 		],
 		"reaction_random_cat": {
 			"trust": "increase"
@@ -228,10 +206,6 @@
 			"warrior",
 			"mediator apprentice",
 			"mediator",
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/trust/increase.json
-			"queen's apprentice",
-=======
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/trust/increase.json
 			"medicine cat apprentice",
 			"medicine cat",
 			"deputy",
@@ -241,12 +215,7 @@
 			"elder",
 			"mediator",
 			"medicine cat",
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/trust/increase.json
-			"leader",
-			"queen"
-=======
 			"leader"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/trust/increase.json
 		],
 		"reaction_random_cat": {
 			"trust": "increase"
@@ -328,11 +297,7 @@
 			"m_c and r_c swap secrets with each other."
 		],
 		"relationship_constraint": [
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/trust/increase.json
-			"trust_30"
-=======
 			"listens_to"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/trust/increase.json
 		],
 		"reaction_random_cat": {
 			"trust": "increase"
@@ -347,11 +312,7 @@
 			"m_c asks r_c for help resolving an argument with a friend."
 		],
 		"relationship_constraint": [
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/trust/increase.json
-			"trust_30"
-=======
 			"listens_to"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/trust/increase.json
 		],
 		"random_status_constraint": [
 			"elder",
@@ -373,11 +334,7 @@
 			"leader"
 		],
 		"relationship_constraint": [
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/trust/increase.json
-			"trust_30"
-=======
 			"listens_to"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/trust/increase.json
 		],
 		"random_status_constraint": [
 			"elder",
@@ -398,11 +355,7 @@
 			"m_c talks with r_c about difficult decisions."
 		],
 		"relationship_constraint": [
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/trust/increase.json
-			"trust_50"
-=======
 			"trusts"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/trust/increase.json
 		],
 		"main_status_constraint": [
 			"leader"
@@ -425,11 +378,7 @@
 			"m_c discusses plans to expand the territory with r_c."
 		],
 		"relationship_constraint": [
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/trust/increase.json
-			"trust_50"
-=======
 			"trusts"
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/trust/increase.json
 		],
 		"main_status_constraint": [
 			"leader"
@@ -475,25 +424,5 @@
 			"medicine cat apprentice",
 			"medicine cat"
 		]
-<<<<<<< HEAD:resources/dicts/relationship_events/normal_interactions/trust/increase.json
-	},
-	{
-		"id": "guy_trust_queen_inc_high1",
-		"interactions": [
-			"m_c asks r_c about the best way to raise a kit.",
-			"m_c listens to r_c advice about what to do if {PRONOUN/m_c/subject} {VERB/m_c/find/finds} an orphaned kit.",
-			"m_c hopes r_c is still there if {PRONOUN/m_c/subject} {VERB/m_c/have/has} kits."
-		],
-		"random_status_constraint": [
-			"queen's apprentice",
-			"queen"
-		],
-		"reaction_random_cat": {
-			"trust": "increase"
-		}
 	}
 ]
-=======
-	}
-]
->>>>>>> development:resources/lang/en/events/relationship_events/normal_interactions/trust/increase.json
